@@ -418,7 +418,8 @@ export class AudioPlayerUtils {
    */
   private emitPlayAnalytics(): void {
     try {
-      const fathom = (globalThis as unknown as { fathom?: { trackEvent?: (n: string) => void } }).fathom;
+      const fathom = (globalThis as unknown as { fathom?: { trackEvent?: (n: string) => void } })
+        .fathom;
       if (!fathom || typeof fathom.trackEvent !== "function") {
         return;
       }
