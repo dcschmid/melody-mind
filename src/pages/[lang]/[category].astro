@@ -9,82 +9,49 @@ import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import MusicButtons from "@components/MusicButtons.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { getLangFromUrl } from "@utils/i18n";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
-import type { Category } from "../../utils/category/categoryLoadingUtils";
+// categoryLoadingUtils is used dynamically below when resolving missing props at runtime
 
-export const prerender = true;
+// Disable prerender to avoid building a large number of static pages at build time
+// which can cause out-of-memory errors on constrained CI/build hosts.
+export const prerender = false;
 
-export async function getStaticPaths() {
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ] as const;
-  const paths = [];
+// getStaticPaths intentionally removed. This page will be rendered at runtime
+// which prevents building thousands of static category pages during CI builds.
 
-  for (const lang of supportedLanguages) {
-    let categories: Category[] | [];
-    let usedFallback = false;
+const { category: propCategory, usedFallback: propUsedFallback } = Astro.props as {
+  category?: any;
+  lang?: string;
+  usedFallback?: boolean;
+};
 
-    try {
-      // Use centralized utility for category loading
-      const result = await loadCategoriesForLanguage({
-        language: lang,
-        fallbackLanguage: "en",
-        useAliasPath: true,
-      });
-
-      categories = result.categories;
-      usedFallback = result.fallbackUsed || false;
-    } catch (error) {
-      console.error(`Error loading categories for ${lang}:`, error);
-      usedFallback = true;
-      categories = [];
-    }
-
-    // Ensure categories is an array and has valid entries
-    if (Array.isArray(categories) && categories.length > 0) {
-      for (const categoryItem of categories) {
-        // Ensure category has required slug property
-        if (categoryItem && categoryItem.slug) {
-          paths.push({
-            params: {
-              lang,
-              category: categoryItem.slug,
-            },
-            props: {
-              categories,
-              category: categoryItem,
-              lang,
-              usedFallback,
-            },
-          });
-        }
-      }
-    }
-  }
-
-  return paths;
-}
-
-const { category, lang, usedFallback } = Astro.props;
+// Resolve language as a string safely. Prefer prop `lang`, then URL, then fallback 'en'.
+const lang = String(Astro.props?.lang ?? getLangFromUrl(Astro.url) ?? "en");
 const t = useTranslations(lang);
+
+let category = propCategory;
+const usedFallback = Boolean(propUsedFallback);
+
+// If category prop is missing, try to resolve it at runtime using the slug
+if ((!category || !category.slug) && Astro.params?.category) {
+  try {
+    const { loadCategoryBySlug } = await import("../../utils/category/categoryLoadingUtils");
+    const loaded = await loadCategoryBySlug(Astro.params.category, {
+      language: lang,
+      fallbackLanguage: "en",
+    });
+    if (loaded) {
+      category = loaded;
+    }
+  } catch {
+    // leave category undefined and render graceful fallback UI
+  }
+}
 
 interface CategoryType {
   slug: string;
@@ -286,7 +253,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             role="group"
           >
             <ButtonLink
-              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/easy`)}
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug ?? ""}/easy`)}
               aria-label={`${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
               icon="play"
             >
@@ -294,7 +261,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             </ButtonLink>
 
             <ButtonLink
-              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/medium`)}
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug ?? ""}/medium`)}
               aria-label={`${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
               icon="bolt"
             >
@@ -302,7 +269,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             </ButtonLink>
 
             <ButtonLink
-              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug}/hard`)}
+              href={getRelativeLocaleUrl(lang, `game-${currentCategory?.slug ?? ""}/hard`)}
               aria-label={`${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
               icon="fire"
             >
@@ -342,7 +309,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 
           <div class="mt-8 flex w-full justify-center" role="group">
             <ButtonLink
-              href={getRelativeLocaleUrl(lang, `time-pressure-${currentCategory?.slug}`)}
+              href={getRelativeLocaleUrl(lang, `time-pressure-${currentCategory?.slug ?? ""}`)}
               aria-label={`${t("game.timepressure.title")} - ${currentCategory?.headline}`}
               icon="zap"
               variant="primary"
@@ -386,7 +353,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             role="group"
           >
             <ButtonLink
-              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/easy`)}
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug ?? ""}/easy`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.easy")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
               icon="play"
             >
@@ -394,7 +361,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             </ButtonLink>
 
             <ButtonLink
-              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/medium`)}
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug ?? ""}/medium`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.medium")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
               icon="bolt"
             >
@@ -402,7 +369,7 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             </ButtonLink>
 
             <ButtonLink
-              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug}/hard`)}
+              href={getRelativeLocaleUrl(lang, `chronology-${currentCategory?.slug ?? ""}/hard`)}
               aria-label={`${t("game.chronology.title")} - ${t("category.difficulty.hard")} ${t("difficulty.level")} - ${currentCategory?.headline}`}
               icon="fire"
             >

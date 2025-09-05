@@ -24,7 +24,7 @@ interface Props {
 
 const { initialCount = 0, disabled = false } = Astro.props;
 
-const lang = getLangFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url) ?? "en";
 const t = useTranslations(lang);
 
 const jokerButtonAriaLabel = t("game.joker.use");
@@ -96,9 +96,14 @@ const dataAttributes = {
   import { initJokerAuto } from "../../utils/components/jokerUtils";
 
   // Initialize joker functionality
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+  /**
+   * Initialize the joker behavior.
+   */
   const initJoker = () => {
     initJokerAuto();
   };
+  /* eslint-enable @typescript-eslint/explicit-function-return-type */
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initJoker);

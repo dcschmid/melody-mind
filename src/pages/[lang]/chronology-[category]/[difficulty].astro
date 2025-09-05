@@ -20,58 +20,21 @@ import EndOverlay from "@components/Overlays/EndOverlay.astro";
 import ChronologyFeedbackOverlay from "@components/Overlays/ChronologyFeedbackOverlay.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
-import { loadCategoriesForLanguage } from "../../../utils/category/categoryLoadingUtils";
+import { loadCategoryBySlug } from "../../../utils/category/categoryLoadingUtils";
 
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
 // Server-side rendering for cookie-based authentication
-export const prerender = true;
+// Disable prerender to avoid building a large number of static pages at build time
+// which can cause out-of-memory errors on constrained CI/build hosts.
+export const prerender = false;
 
 /**
  * Generiert statische Pfade für alle unterstützten Sprachen, Kategorien und Schwierigkeitsgrade
  */
-export async function getStaticPaths() {
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ] as const;
-  const difficultyLevels = ["easy", "medium", "hard"] as const;
-  const paths = [];
-
-  for (const lang of supportedLanguages) {
-    // Load categories using the shared loader (build-time glob). This avoids dynamic runtime imports
-    // which can fail after bundling. The loader returns a result object with `.categories`.
-    const result = await loadCategoriesForLanguage({
-      language: lang,
-      fallbackLanguage: "en",
-    });
-    const categories = result.success ? result.categories : [];
-
-    for (const categoryData of categories) {
-      for (const difficulty of difficultyLevels) {
-        paths.push({
-          params: { lang, category: categoryData.slug, difficulty },
-          props: { categoryData, lang },
-        });
-      }
-    }
-  }
-
-  return paths;
-}
+// getStaticPaths removed: this page now renders at runtime on the server to avoid
+// building a large number of static pages during CI builds which can cause OOM errors.
 
 // 2. Props und Parameter verarbeitung
 interface Props {
@@ -79,7 +42,23 @@ interface Props {
   lang: string;
 }
 
-const { categoryData } = Astro.props;
+// Prefer props when present (from prerender), otherwise resolve at runtime using params
+let { categoryData } = Astro.props as { categoryData?: { headline?: string; slug?: string } };
+const paramsCategory = Astro.params?.category;
+const detectedLang = getLangFromUrl(Astro.url) as string;
+if ((!categoryData || !categoryData.slug) && paramsCategory) {
+  try {
+    const loaded = await loadCategoryBySlug(paramsCategory, {
+      language: detectedLang,
+      fallbackLanguage: "en",
+    });
+    if (loaded) {
+      categoryData = loaded as { headline: string; slug: string };
+    }
+  } catch {
+    // keep categoryData undefined — page will render with fallbacks
+  }
+}
 const lang = getLangFromUrl(Astro.url) as string;
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;

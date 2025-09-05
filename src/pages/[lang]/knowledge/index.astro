@@ -5,7 +5,7 @@
  * A clean, simple knowledge articles listing with enhanced SEO features.
  * Uses Tailwind CSS 4 for styling and minimal JavaScript for functionality.
  */
-import { getCollection } from "astro:content";
+// Content collections will be loaded at runtime when needed; avoid build-time collection loads
 import Layout from "@layouts/Layout.astro";
 import { ui } from "../../../i18n/ui";
 import { useTranslations } from "@utils/i18n";
@@ -16,40 +16,11 @@ import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
 
-export const prerender = true;
+// Avoid prerendering the full knowledge index to prevent high memory usage
+// during the build. The page will load the collection at runtime when needed.
+export const prerender = false;
 
-export async function getStaticPaths() {
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ] as const;
-
-  const paths = await Promise.all(
-    supportedLanguages.map(async (lang) => {
-      const collectionName = `knowledge-${lang}` as const;
-      const articles = await getCollection(collectionName);
-
-      return {
-        params: { lang },
-        props: { articles, lang },
-      };
-    })
-  );
-
-  return paths.flat();
-}
+// Note: getStaticPaths removed intentionally to keep build-time memory low.
 
 const { articles, lang } = Astro.props;
 const t = useTranslations(String(lang));

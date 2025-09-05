@@ -35,60 +35,15 @@ import { generateMetaDescription } from "@utils/seo";
 import { getReadingTime } from "@utils/readingTime";
 
 // 2. Rendering Strategy: SSG for better performance and SEO
+// This route can produce a very large number of static pages via getStaticPaths.
+// Disable prerender to keep the build memory usage low and rely on runtime rendering.
 export const prerender = false;
 
 // 3. getStaticPaths implementation for dynamic routes
-export async function getStaticPaths() {
-  const { getCollection } = await import("astro:content");
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ] as const;
-
-  const paths = [];
-
-  for (const lang of supportedLanguages) {
-    try {
-      const knowledgeCollection = await getCollection(`knowledge-${lang}`);
-      for (const entry of knowledgeCollection) {
-        if (entry.data.draft) {
-          continue;
-        }
-        paths.push({ params: { lang, slug: entry.slug }, props: { entry, lang } });
-      }
-      continue;
-    } catch {
-      console.warn(`No knowledge collection found for ${lang}`);
-    }
-
-    // Try English fallback if locale collection is missing
-    try {
-      const fallbackCollection = await getCollection("knowledge-en");
-      for (const entry of fallbackCollection) {
-        if (entry.data.draft) {
-          continue;
-        }
-        paths.push({ params: { lang, slug: entry.slug }, props: { entry, lang } });
-      }
-    } catch (_fallbackError) {
-      console.error(`Failed to load fallback knowledge for ${lang}:`, _fallbackError);
-    }
-  }
-
-  return paths;
-}
+// getStaticPaths removed: this dynamic route can generate a large number of
+// static pages. Rendering at runtime prevents building all articles during CI
+// which reduces peak memory usage. If you need a small set of pre-rendered
+// articles, implement a limited getStaticPaths that returns only high-priority slugs.
 
 // 4. TypeScript Definitions
 // type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {

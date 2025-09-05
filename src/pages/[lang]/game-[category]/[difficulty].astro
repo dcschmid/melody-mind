@@ -21,65 +21,20 @@ import Joker from "@components/Game/Joker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
-import { loadCategoriesForLanguage } from "../../../utils/category/categoryLoadingUtils";
+import { loadCategoryBySlug } from "../../../utils/category/categoryLoadingUtils";
 
 // Server-side rendering for cookie-based authentication
-export const prerender = true;
+// Disable prerender to avoid building a large number of static pages at build time
+// which can cause out-of-memory errors on constrained CI/build hosts.
+export const prerender = false;
 
 /**
  * Generates static paths for all supported languages, categories, and difficulty levels.
  * This ensures fast page loads as everything is pre-rendered at build time.
  * @returns {Array} Array of path objects with params and props
  */
-export async function getStaticPaths() {
-  // Define all supported languages for type safety
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ] as const;
-
-  // Define available difficulty levels
-  const difficultyLevels = ["easy", "medium", "hard"] as const;
-
-  const paths = [];
-
-  for (const lang of supportedLanguages) {
-    // Load categories via centralized loader to ensure build-time inclusion and fallback
-    const result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
-    const categories = result.success ? result.categories : [];
-
-    // Create a path for each category and difficulty combination
-    for (const categoryData of categories) {
-      for (const difficulty of difficultyLevels) {
-        paths.push({
-          params: {
-            lang,
-            category: categoryData.slug,
-            difficulty,
-          },
-          props: {
-            categoryData,
-            lang,
-          },
-        });
-      }
-    }
-  }
-
-  return paths;
-}
+// getStaticPaths removed to prevent large static builds; the page will resolve
+// category data at runtime using the slug when necessary.
 
 // Types for route props
 interface Props {
@@ -91,7 +46,24 @@ interface Props {
 }
 
 // Extract props and URL parameters
-const { categoryData: propsCategoryData } = Astro.props;
+let { categoryData: propsCategoryData } = Astro.props as {
+  categoryData?: { slug?: string; headline?: string };
+};
+const paramsCategory = Astro.params?.category;
+const detectedLang = String(getLangFromUrl(Astro.url));
+if ((!propsCategoryData || !propsCategoryData.slug) && paramsCategory) {
+  try {
+    const loaded = await loadCategoryBySlug(paramsCategory, {
+      language: detectedLang,
+      fallbackLanguage: "en",
+    });
+    if (loaded) {
+      propsCategoryData = loaded as { slug: string; headline: string };
+    }
+  } catch {
+    // ignore and fall back to props or empty state
+  }
+}
 const lang = String(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 const { category, difficulty } = Astro.params;
@@ -104,17 +76,11 @@ const authResult = {
   user: { id: guestId, email: "guest@melodymind.app" },
 };
 
-// Dynamic import of categories based on language
-const _result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
-const categories = _result.success ? _result.categories : [];
-
 // Default user for game functionality
 const user = { id: authResult.user?.id || "guest" };
 
-// Find current category data for display and metadata - first try from dynamic import, then from props
-const currentCategoryData =
-  categories.find((cat: { slug: string; headline: string }) => cat.slug === category) ||
-  propsCategoryData;
+// Current category data is loaded from props (if available) or resolved above via slug
+const currentCategoryData = propsCategoryData;
 
 const playerTitle = getTitleBasedOnDifficulty(difficulty as GameDifficulty);
 
@@ -159,7 +125,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
     <!-- Game info badges -->
     <div class="mt-4 flex flex-wrap items-center justify-center gap-3" aria-live="polite">
       <div
-        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-purple-600 to-purple-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-purple-600 to-purple-700 p-3 shadow-[var(--shadow-lg)] transition-all duration-200"
       >
         <Icon
           name="difficulty"
@@ -174,7 +140,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       </div>
 
       <div
-        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-blue-600 to-blue-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-blue-600 to-blue-700 p-3 shadow-[var(--shadow-lg)] transition-all duration-200"
       >
         <Icon
           name="round"
@@ -189,7 +155,7 @@ const totalRounds = getRoundsForDifficulty(difficulty);
       </div>
 
       <div
-        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-amber-600 to-amber-700 p-3 shadow-[var(--shadow-lg)] shadow-[var(--shadow-sm)] transition-all duration-200"
+        class="shadow-inset-white/10 relative inline-flex min-h-[var(--touch-target-enhanced)] cursor-default items-center overflow-hidden rounded-[var(--radius-xl)] border border-white/20 bg-gradient-to-br from-amber-600 to-amber-700 p-3 shadow-[var(--shadow-lg)] transition-all duration-200"
       >
         <Icon
           name="coins"

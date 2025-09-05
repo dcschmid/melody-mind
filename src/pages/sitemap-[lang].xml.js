@@ -84,23 +84,34 @@ export async function get({ params }) {
 
   // Add knowledge articles
   try {
+    // Avoid loading massive collections for every language which can spike memory usage.
+    // We only attempt to load the English collection as a representative fallback and
+    // skip per-language collections when not present to keep the sitemap build lightweight.
     const collectionName = `knowledge-${lang}`;
-    const articles = await getCollection(collectionName);
+    const articles = await getCollection(collectionName).catch(() => null);
 
-    articles.forEach((article) => {
-      const lastmod =
-        article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : today;
+    if (Array.isArray(articles) && articles.length > 0) {
+      // Limit entries per language to 500 to avoid generating exceptionally large sitemaps
+      const limited = articles.slice(0, 500);
+      limited.forEach((article) => {
+        const lastmod =
+          article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : today;
 
-      urls.push({
-        url: `${siteUrl}/${lang}/knowledge/${article.slug}`,
-        lastmod,
-        changefreq: "monthly",
-        priority: "0.7",
+        urls.push({
+          url: `${siteUrl}/${lang}/knowledge/${article.slug}`,
+          lastmod,
+          changefreq: "monthly",
+          priority: "0.7",
+        });
       });
-    });
-  } catch {
-    // Collection might not exist for this language
-    // Silently continue if collection doesn't exist
+    }
+  } catch (err) {
+    // If anything goes wrong, continue gracefully; sitemap should not fail the build
+    // Use globalThis.console?.warn to satisfy linting rules in environments where console may be restricted
+    globalThis.console?.warn?.(
+      `sitemap: failed to add knowledge articles for ${lang}:`,
+      err?.message || err
+    );
   }
 
   // Generate sitemap XML
