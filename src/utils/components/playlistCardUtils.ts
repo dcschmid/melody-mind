@@ -7,6 +7,11 @@
 
 import { safeQuerySelectorAll, safeQuerySelector } from "../dom/domUtils";
 
+// Extended image element to store internal handler reference
+interface PlaylistImageElement extends HTMLImageElement {
+  __playlistCardErrorHandler?: () => void;
+}
+
 /**
  * PlaylistCard configuration interface
  */
@@ -25,7 +30,7 @@ export class PlaylistCardUtils {
   private fallbackImageSrc: string;
 
   /**
-   *
+   * Initialize playlist card utilities and bind event handlers.
    */
   constructor(config: PlaylistCardConfig) {
     this.cards = safeQuerySelectorAll<HTMLElement>(config.cardSelector);
@@ -34,6 +39,12 @@ export class PlaylistCardUtils {
 
     this.init();
   }
+
+  /**
+   * Initialize playlist card utilities and bind event handlers.
+   *
+   * @param {PlaylistCardConfig} config - Configuration for playlist cards
+   */
 
   /**
    * Initialize playlist card functionality
@@ -56,7 +67,11 @@ export class PlaylistCardUtils {
     const image = safeQuerySelector<HTMLImageElement>(this.imageSelector, card);
 
     if (image) {
-      image.addEventListener("error", () => this.handleImageError(image));
+  // Store a stable handler reference so it can be removed later
+  const handler = (): void => this.handleImageError(image);
+  // Attach using a named function reference on the element to allow removal later
+  (image as PlaylistImageElement).__playlistCardErrorHandler = handler;
+  image.addEventListener("error", handler);
     }
   }
 
@@ -145,7 +160,15 @@ export class PlaylistCardUtils {
     this.cards.forEach((card) => {
       const image = safeQuerySelector<HTMLImageElement>(this.imageSelector, card);
       if (image) {
-        image.removeEventListener("error", () => this.handleImageError(image));
+        const handler = (image as PlaylistImageElement).__playlistCardErrorHandler;
+        if (typeof handler === "function") {
+          image.removeEventListener("error", handler);
+          try {
+            delete (image as PlaylistImageElement).__playlistCardErrorHandler;
+          } catch {
+            // ignore in older browsers
+          }
+        }
       }
     });
   }
@@ -168,6 +191,11 @@ export function initDefaultPlaylistCards(): PlaylistCardUtils {
     fallbackImageSrc: "/default-cover.jpg",
   });
 }
+
+/**
+ * Auto-detect and initialize playlist cards automatically.
+ * @returns {PlaylistCardUtils | null} initialized utils or null if no playlist cards found
+ */
 
 /**
  * Auto-detect and initialize playlist cards

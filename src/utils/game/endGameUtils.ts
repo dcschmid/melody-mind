@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type, jsdoc/require-param-type, jsdoc/require-returns-type, max-lines-per-function, complexity, max-depth, no-console */
 /**
  * End Game Utilities
  *

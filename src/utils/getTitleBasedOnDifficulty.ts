@@ -10,14 +10,10 @@ const DIFFICULTY_TITLES = {
  * Returns a title based on the selected game difficulty.
  * The title represents the player's skill level in music.
  *
- * @param difficulty - The difficulty level of the game
- * @returns A corresponding title for the selected difficulty level
- * @throws Will never throw an error due to type safety
- *
+ * @param {Difficulty} difficulty - The difficulty level of the game
+ * @returns {string} A corresponding title for the selected difficulty level
  * @example
  * getTitleBasedOnDifficulty("easy") // returns "Musik-Novize"
- * getTitleBasedOnDifficulty("medium") // returns "Musik-Meister"
- * getTitleBasedOnDifficulty("hard") // returns "Musik-Legende"
  */
 export function getTitleBasedOnDifficulty(difficulty: Difficulty): string {
   return DIFFICULTY_TITLES[difficulty] ?? "Musik-Kenner";

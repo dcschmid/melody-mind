@@ -36,8 +36,8 @@ const timerIds: TimerIds = {};
 /**
  * Announces a message to screen readers via an ARIA live region
  *
- * @param message - The message to announce
- * @param politeness - The politeness level of the announcement
+ * @param {string} message - The message to announce
+ * @param {"assertive" | "polite"} politeness - The politeness level of the announcement
  */
 function announceToScreenReader(
   message: string,
@@ -74,8 +74,8 @@ function announceToScreenReader(
 /**
  * Start the speed bonus timer and announce it to screen readers
  *
- * @param lang - The current language code
- * @returns The timer start timestamp
+ * @param {string} lang - The current language code
+ * @returns {number} The timer start timestamp
  */
 export function startSpeedBonusTimer(lang: string): number {
   // Clear any existing timers

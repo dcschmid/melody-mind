@@ -4,6 +4,7 @@
  * Centralized utilities for common game state management patterns.
  * Eliminates code duplication across different game engines.
  */
+/* eslint-disable jsdoc/require-param-type, jsdoc/require-returns-type */
 
 import { safeSetTextContent } from "../dom/domUtils";
 

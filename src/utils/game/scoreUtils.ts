@@ -13,6 +13,13 @@
  * updateScoreDisplay(100, scoreElement);
  * ```
  */
+/**
+ * Update the score display element and trigger a temporary bonus animation.
+ *
+ * @param {number} score - The score value to display
+ * @param {HTMLElement | null} scoreElement - The DOM element that shows the score
+ * @returns {void}
+ */
 export function updateScoreDisplay(score: number, scoreElement: HTMLElement | null): void {
   if (!scoreElement) {
     return;
@@ -26,7 +33,7 @@ export function updateScoreDisplay(score: number, scoreElement: HTMLElement | nu
   void scoreElement.offsetHeight;
   scoreElement.classList.add("bonus");
 
-  const cleanup = () => {
+  const cleanup = (): void => {
     scoreElement.classList.remove("bonus");
     scoreElement.removeEventListener("transitionend", cleanup);
   };

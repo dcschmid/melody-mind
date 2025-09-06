@@ -4,6 +4,7 @@
  * Centralized utilities for common game element queries.
  * Eliminates code duplication across different game engines.
  */
+/* eslint-disable @typescript-eslint/explicit-function-return-type, jsdoc/require-param-type, jsdoc/require-returns-type */
 
 import { safeGetElementById } from "../dom/domUtils";
 

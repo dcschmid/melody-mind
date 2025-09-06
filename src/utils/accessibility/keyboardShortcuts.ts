@@ -29,7 +29,7 @@ export const KEYBOARD_SHORTCUTS = {
 /**
  * Initialize keyboard shortcuts for the game
  *
- * @param options - Configuration for keyboard shortcuts
+ * @param {object} options - Configuration for keyboard shortcuts
  */
 export function initKeyboardShortcuts(options: {
   onJoker?: () => void;
@@ -65,13 +65,27 @@ export function initKeyboardShortcuts(options: {
       return;
     }
 
-    // Process shortcuts
+    handleKeyboardShortcut(event, options, t);
+  });
+
+  // Extracted to reduce the complexity of the inline listener
+  function handleKeyboardShortcut(
+    event: KeyboardEvent,
+    opts: {
+      onJoker?: () => void;
+      onOption?: (index: number) => void;
+      onNextRound?: () => void;
+      onRestart?: () => void;
+      lang?: string;
+    },
+    translations: Record<string, string>
+  ): void {
     const key = event.key;
 
     // Joker shortcut
     if (KEYBOARD_SHORTCUTS.JOKER.includes(key) && options.onJoker) {
       event.preventDefault();
-      announceToScreenReader(t.jPressed);
+      announceToScreenReader(translations.jPressed);
       options.onJoker();
       return;
     }
@@ -79,28 +93,28 @@ export function initKeyboardShortcuts(options: {
     // Option selection shortcuts
     if (KEYBOARD_SHORTCUTS.OPTION_1.includes(key) && options.onOption) {
       event.preventDefault();
-      announceToScreenReader(t.optionSelected.replace("{{number}}", "1"));
+      announceToScreenReader(translations.optionSelected.replace("{{number}}", "1"));
       options.onOption(0);
       return;
     }
 
     if (KEYBOARD_SHORTCUTS.OPTION_2.includes(key) && options.onOption) {
       event.preventDefault();
-      announceToScreenReader(t.optionSelected.replace("{{number}}", "2"));
+      announceToScreenReader(translations.optionSelected.replace("{{number}}", "2"));
       options.onOption(1);
       return;
     }
 
     if (KEYBOARD_SHORTCUTS.OPTION_3.includes(key) && options.onOption) {
       event.preventDefault();
-      announceToScreenReader(t.optionSelected.replace("{{number}}", "3"));
+      announceToScreenReader(translations.optionSelected.replace("{{number}}", "3"));
       options.onOption(2);
       return;
     }
 
     if (KEYBOARD_SHORTCUTS.OPTION_4.includes(key) && options.onOption) {
       event.preventDefault();
-      announceToScreenReader(t.optionSelected.replace("{{number}}", "4"));
+      announceToScreenReader(translations.optionSelected.replace("{{number}}", "4"));
       options.onOption(3);
       return;
     }
@@ -108,7 +122,7 @@ export function initKeyboardShortcuts(options: {
     // Next round shortcut
     if (KEYBOARD_SHORTCUTS.NEXT_ROUND.includes(key) && options.onNextRound) {
       event.preventDefault();
-      announceToScreenReader(t.nPressed);
+      announceToScreenReader(translations.nPressed);
       options.onNextRound();
       return;
     }
@@ -116,11 +130,11 @@ export function initKeyboardShortcuts(options: {
     // Restart shortcut
     if (KEYBOARD_SHORTCUTS.RESTART.includes(key) && options.onRestart) {
       event.preventDefault();
-      announceToScreenReader(t.rPressed);
+      announceToScreenReader(translations.rPressed);
       options.onRestart();
       return;
     }
-  });
+  }
 
   // Add visual helpers for keyboard shortcuts
   addKeyboardShortcutHints(lang);
@@ -129,7 +143,7 @@ export function initKeyboardShortcuts(options: {
 /**
  * Adds visual hints about keyboard shortcuts to relevant UI elements
  *
- * @param lang - The current language code
+ * @param {string} lang - The current language code
  */
 function addKeyboardShortcutHints(lang: string): void {
   const hintLabels: Record<string, Record<string, string>> = {
@@ -171,17 +185,17 @@ function addKeyboardShortcutHints(lang: string): void {
   }
 
   // Add number hints to option buttons
-  setTimeout(() => {
+  // Small helper to annotate option buttons (kept separate to reduce complexity)
+  function annotateOptionButtons(): void {
     const optionButtons = safeQuerySelectorAll<HTMLButtonElement>("#options button");
     optionButtons.forEach((button, index) => {
       const shortcutNumber = index + 1;
       const currentLabel = button.getAttribute("aria-label") || button.textContent || "";
       button.setAttribute("aria-label", `${currentLabel} - ${shortcutNumber}`);
-
-      // Don't add visual shortcut indicators since numbers are already displayed in the styled buttons
-      // The aria-label already contains the shortcut information for screen readers
     });
-  }, 500); // Short delay to ensure options are loaded
+  }
+
+  setTimeout(annotateOptionButtons, 500); // Short delay to ensure options are loaded
 }
 
 /**

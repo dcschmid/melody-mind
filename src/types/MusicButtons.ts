@@ -330,8 +330,8 @@ export interface MusicButtonsVersionInfo {
 /**
  * Type guard to check if an object is a valid CategoryWithPlaylists
  *
- * @param obj - Object to validate
- * @returns True if object is a valid CategoryWithPlaylists
+ * @param {unknown} obj - Object to validate
+ * @returns {obj is CategoryWithPlaylists} True if object is a valid CategoryWithPlaylists
  *
  * @example
  * ```typescript
@@ -354,9 +354,9 @@ export function isCategoryWithPlaylists(obj: unknown): obj is CategoryWithPlayli
 /**
  * Validates if a URL is a valid platform playlist URL
  *
- * @param url - URL to validate
- * @param platform - Platform to validate against
- * @returns True if URL is valid for the specified platform
+ * @param {string} url - URL to validate
+ * @param {MusicPlatform} platform - Platform to validate against
+ * @returns {boolean} True if URL is valid for the specified platform
  *
  * @example
  * ```typescript
@@ -379,8 +379,8 @@ export function isValidPlaylistUrl(url: string, platform: MusicPlatform): boolea
 /**
  * Gets the available platforms for a category
  *
- * @param category - Category to analyze
- * @returns Array of available platform names
+ * @param {CategoryWithPlaylists} category - Category to analyze
+ * @returns {MusicPlatform[]} Array of available platform names
  *
  * @example
  * ```typescript

@@ -4,7 +4,6 @@
  *
  * A modal overlay that displays end-game results with score visualization, motivational text,
  * and achievement feedback. Implements WCAG AAA accessibility standards and optimized performance.
- *
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
@@ -273,7 +272,7 @@ const clientTranslations = {
    */
 
   // Function to update the display with current data attributes
-  function updateDisplay() {
+  function updateDisplay(): void {
     const popup = document.getElementById("endgame-popup");
     if (popup) {
       const score = popup.dataset.score || "0";
@@ -352,7 +351,7 @@ const clientTranslations = {
   }
 
   // Initialize the end overlay functionality (plain script version)
-  (function initializeOverlay() {
+  (function initializeOverlay(): void {
     try {
       // Note: we intentionally do NOT import the module here.
       // The module `/src/utils/endOverlay` should register a global
@@ -399,32 +398,19 @@ const clientTranslations = {
       if (typeof window !== "undefined") {
         const maybeShow = window.showEndOverlay;
         if (typeof maybeShow === "function") {
+          // call without awaiting so we don't block; catch and log any error
           try {
-            // call without awaiting so we don't block
             maybeShow({ score: Number(document.getElementById("popup-score")?.textContent || 0) });
           } catch (callErr) {
-            try {
-              console.warn("showEndOverlay call failed", callErr);
-            } catch (err) {
-              void err;
-            }
+            console.warn?.("showEndOverlay call failed", callErr);
           }
         } else {
-          try {
-            if (typeof console !== "undefined" && typeof console.warn === "function") {
-              console.warn("Global showEndOverlay not registered yet");
-            }
-          } catch (err) {
-            void err;
-          }
+          // Global not registered yet — warn if possible
+          console.warn?.("Global showEndOverlay not registered yet");
         }
       }
     } catch (e) {
-      try {
-        console.warn("Error checking global showEndOverlay", e);
-      } catch (err) {
-        void err;
-      }
+      console.warn?.("Error checking global showEndOverlay", e);
     }
   })();
 </script>

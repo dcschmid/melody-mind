@@ -19,6 +19,12 @@
  * // returns "what-is-melody-mind"
  * createSlug("What is Melody Mind?");
  */
+/**
+ * Create a URL-friendly slug from given text.
+ *
+ * @param {string} text - The text to be converted into a slug
+ * @returns {string} SEO-friendly URL slug
+ */
 export function createSlug(text: string): string {
   return text
     .toLowerCase()
@@ -42,6 +48,13 @@ export function createSlug(text: string): string {
  * @example
  * // returns 2 minutes for a 400-word article
  * calculateReadingTime("400 words of content...");
+ */
+/**
+ * Calculate approximate reading time in minutes for provided content.
+ *
+ * @param {string} content - The text content to calculate reading time for
+ * @param {number} [wordsPerMinute=225] - Average words per minute reading speed
+ * @returns {number} The estimated reading time in minutes (rounded up)
  */
 export function calculateReadingTime(content: string, wordsPerMinute = 225): number {
   const words = content.trim().split(/\s+/).length;
@@ -296,10 +309,10 @@ const stopWordsByLanguage: Record<string, string[]> = {
  *
  * This helps in generating highly relevant meta keywords for SEO optimization.
  *
- * @param content The text content to extract keywords from
- * @param maxKeywords Maximum number of keywords to return, default: 10
- * @param language Language code for stop words, default: 'en'
- * @returns A comma-separated list of keywords
+ * @param {string} content The text content to extract keywords from
+ * @param {number} [maxKeywords=10] Maximum number of keywords to return
+ * @param {string} [language='en'] Language code for stop words
+ * @returns {string} A comma-separated list of keywords
  * @example
  * // might return "music quiz, melody mind, interactive game, music history"
  * extractKeywords("Melody Mind is a music quiz game with interactive music history categories...", 5, 'en');
@@ -375,9 +388,9 @@ export function extractKeywords(content: string, maxKeywords = 10, language = "e
  *
  * This helps improve search engine results and click-through rates.
  *
- * @param content The full content to extract a description from
- * @param maxLength Maximum length of the description, default: 160 characters
- * @returns An optimized meta description
+ * @param {string} content - The full content to extract a description from
+ * @param {number} [maxLength=160] - Maximum length of the description, default: 160 characters
+ * @returns {string} An optimized meta description
  * @example
  * // returns "Learn about music history through interactive quizzes..."
  * generateMetaDescription("<p>Learn about music history through interactive quizzes. Test your knowledge and earn points.</p>");
@@ -393,9 +406,9 @@ export function extractKeywords(content: string, maxKeywords = 10, language = "e
  *
  * This helps improve search engine results and user engagement.
  *
- * @param content The full content to extract a description from
- * @param maxLength Maximum length of the description, default: 160 characters
- * @returns An optimized meta description
+ * @param {string} content - The full content to extract a description from
+ * @param {number} maxLength - Maximum length of the description, default: 160 characters
+ * @returns {string} An optimized meta description
  * @example
  * // returns "Learn about music history through our interactive quizzes. Test your knowledge with challenging questions."
  * generateMetaDescription("<p>Learn about music history through our interactive quizzes. Test your knowledge with challenging questions. Earn points and compete with friends.</p>");

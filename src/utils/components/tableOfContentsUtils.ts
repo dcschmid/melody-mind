@@ -26,7 +26,7 @@ export class TableOfContentsUtils {
   private isExpanded: boolean = false;
 
   /**
-   *
+   * Initialize table of contents utility and attach event listeners.
    */
   constructor(config: TableOfContentsConfig) {
     this.toggle = safeGetElementById<HTMLButtonElement>(config.toggleId);

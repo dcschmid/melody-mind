@@ -2,14 +2,14 @@ import { safeQuerySelector, safeGetElementById } from "../dom/domUtils";
 import { handleInitializationError } from "../error/errorHandlingUtils";
 
 /**
- * Simple animation manager for index page
- * Focus on essential functionality without over-engineering
+ * Simple animation manager for index page.
+ * Focus on essential functionality without over-engineering.
  */
 export class SimpleAnimationManager {
   private observer: IntersectionObserver | null = null;
 
   /**
-   *
+   * Create a new SimpleAnimationManager and initialize observer.
    */
   constructor() {
     this.initializeObserver();
@@ -32,7 +32,7 @@ export class SimpleAnimationManager {
   }
 
   /**
-   *
+   * Initialize animation observation on index page elements.
    */
   public initialize(): void {
     const animatableElements = document.querySelectorAll(".animate-on-view");
@@ -42,7 +42,7 @@ export class SimpleAnimationManager {
   }
 
   /**
-   *
+   * Destroy the intersection observer and free resources.
    */
   public destroy(): void {
     if (this.observer) {

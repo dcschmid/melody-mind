@@ -39,7 +39,7 @@ export class ListSearchManager {
   private config: SearchConfig;
 
   /**
-   *
+   * Initialize the ListSearchManager and bind input/clear handlers.
    */
   constructor(config: SearchConfig) {
     this.config = config;

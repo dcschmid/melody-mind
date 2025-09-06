@@ -19,14 +19,15 @@ interface FeedbackOverlayElements {
 }
 
 /**
- *
+ * Utilities for managing the feedback overlay shown after answers.
+ * Handles DOM wiring, focus management and exposing a global populate function.
  */
 export class FeedbackOverlayUtils {
   private elements: FeedbackOverlayElements;
   private observer: MutationObserver | null = null;
 
   /**
-   *
+   * Initialize the FeedbackOverlayUtils and bind necessary elements.
    */
   constructor() {
     this.elements = {
@@ -115,13 +116,15 @@ export class FeedbackOverlayUtils {
 
   private makePopulateFunctionGlobal(): void {
     // Extend Window interface for our utilities (cast via unknown first to satisfy TS)
-    (
-      window as unknown as Window & { populateFeedbackOverlay: (data: FeedbackOverlayData) => void }
-    ).populateFeedbackOverlay = (data: FeedbackOverlayData) => this.populateOverlay(data);
+    // Bind populateOverlay to the instance and expose as global for simple script integration
+    (window as unknown as Window & { populateFeedbackOverlay?: (data: FeedbackOverlayData) => void }).populateFeedbackOverlay =
+      this.populateOverlay.bind(this) as (data: FeedbackOverlayData) => void;
   }
 
   /**
+   * Populate overlay DOM elements with provided feedback data.
    *
+   * @param {FeedbackOverlayData} data - Data used to fill the overlay fields
    */
   public populateOverlay(data: FeedbackOverlayData): void {
     const { artistElement, albumElement, yearElement, funFactElement } = this.elements;
@@ -141,7 +144,7 @@ export class FeedbackOverlayUtils {
   }
 
   /**
-   *
+   * Cleanup internal observers and resources when overlay utilities are no longer needed.
    */
   public cleanup(): void {
     if (this.observer) {
@@ -152,14 +155,16 @@ export class FeedbackOverlayUtils {
 }
 
 /**
- *
+ * Create and return a FeedbackOverlayUtils instance.
+ * Useful for manual initialization where automatic detection isn't desired.
  */
 export function initFeedbackOverlay(): FeedbackOverlayUtils {
   return new FeedbackOverlayUtils();
 }
 
 /**
- *
+ * Attempt to initialize FeedbackOverlayUtils and return null on failure.
+ * Designed for safe auto-initialization in runtime environments.
  */
 export function initFeedbackOverlayAuto(): FeedbackOverlayUtils | null {
   try {

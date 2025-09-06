@@ -64,12 +64,16 @@ export async function loadCategoriesForLanguage(
     // Lightweight debug: if a language is requested but not found, log a short message.
     // This helps trace issues where categories unexpectedly appear empty.
     const found = Array.isArray(map[langKey]) ? map[langKey] : undefined;
-    if (!found || found.length === 0) {
-      // Use console.warn to keep linter happy while still surfacing missing content during debugging.
-      console.warn(
-        `[categoryLoader] requested lang='${langKey}' fallback='${fallbackKey}' -> found=${found ? found.length : 0}`
-      );
+    // Extracted helper to reduce complexity of the main function
+    function warnIfMissing(foundArr?: Category[] | undefined): void {
+      if (!foundArr || foundArr.length === 0) {
+        console.warn(
+          `[categoryLoader] requested lang='${langKey}' fallback='${fallbackKey}' -> found=${foundArr ? foundArr.length : 0}`
+        );
+      }
     }
+
+    warnIfMissing(found);
 
     // Return exact language result when available.
     if (found && found.length > 0) {

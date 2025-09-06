@@ -44,7 +44,7 @@ interface HandleAnswerConfig {
   /** Array of available albums */
   albums: Array<{ artist: string; album: string; year: string; coverSrc: string }>;
   /** Question configuration settings */
-  questionConfig: { difficulty: string; timeLimit?: number };
+  questionConfig: { difficulty: string; timeLimit?: number; startTime?: number };
   /** Callback function to end the game */
   endGame: () => void;
 }
@@ -68,8 +68,8 @@ const FEEDBACK_TIMEOUT = 5000;
 
 /**
  * Creates an answer handler function with the given configuration
- * @param config - Configuration object for the answer handler
- * @returns A function that handles answer submission and scoring
+ * @param {HandleAnswerConfig} config - Configuration object for the answer handler
+ * @returns {(option: string, correctAnswer: string, currentQuestion: {trivia: string}, album: {coverSrc: string; artist: string; album: string; year: string}) => void} A function that handles answer submission and scoring
  */
 export function createHandleAnswer(config: HandleAnswerConfig) {
   const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));
@@ -77,24 +77,27 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
 
   /**
    * Handles the user's answer submission and updates game state
-   * @param option - The selected answer option
-   * @param correctAnswer - The correct answer
-   * @param currentQuestion - The current question object
-   * @param album - The current album object
+  * @param {string} option - The selected answer option
+  * @param {string} correctAnswer - The correct answer
+  * @param {{trivia: string}} currentQuestion - The current question object
+  * @param {{coverSrc: string; artist: string; album: string; year: string}} album - The current album object
    */
   return function handleAnswer(
     option: string,
     correctAnswer: string,
     currentQuestion: { trivia: string },
     album: { coverSrc: string; artist: string; album: string; year: string }
-  ) {
-    // Calculate time taken to answer
-    const timeTaken = (Date.now() - Date.now()) / 1000;
+  ): void {
+    // Calculate time taken to answer (if question start timestamp provided in config.questionConfig.startTime)
+    const now = Date.now();
+    const timeTakenSeconds = config.questionConfig && typeof config.questionConfig.startTime === "number"
+      ? (now - config.questionConfig.startTime) / 1000
+      : 0;
 
     /**
      * Calculates bonus points based on answer time
-     * @param time - Time taken to answer in seconds
-     * @returns Number of bonus points awarded
+  * @param {number} time - Time taken to answer in seconds
+  * @returns {number} Number of bonus points awarded
      */
     const calculateBonus = (time: number): number => {
       if (time <= 10) {
@@ -107,7 +110,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
     };
 
     // Calculate points
-    const bonusPoints = option === correctAnswer ? calculateBonus(timeTaken) : 0;
+  const bonusPoints = option === correctAnswer ? calculateBonus(timeTakenSeconds) : 0;
     const totalPoints = option === correctAnswer ? BASE_POINTS + bonusPoints : 0;
 
     // Update feedback display

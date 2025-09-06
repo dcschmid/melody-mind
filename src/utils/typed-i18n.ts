@@ -248,8 +248,8 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
 /**
  * Type-safe translation function
  *
- * @param lang The current language code
- * @returns The translation function with type-safe parameters
+ * @param {string} lang - The current language code
+ * @returns {(key: K, params?: TranslationParams<K>) => string} The translation function with type-safe parameters
  *
  * @example
  * const t = useTypedTranslations("en");

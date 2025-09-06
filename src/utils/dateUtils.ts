@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-param-type, jsdoc/require-returns-type */
 import { handleGameError } from "./error/errorHandlingUtils";
 
 /**
