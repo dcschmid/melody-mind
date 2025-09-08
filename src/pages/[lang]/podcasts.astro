@@ -3,6 +3,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import { Icon } from "astro-icon/components";
 
 import type { PodcastData } from "../../types/podcast";
 import enPodcastsJson from "../../data/podcasts/en.json" assert { type: "json" };
@@ -55,6 +56,10 @@ const loadPodcastsForLanguage = async (_language: string): Promise<PodcastData[]
 
 // Load English podcast data regardless of current language
 const episodes = await loadPodcastsForLanguage("en");
+// Only consider episodes that are available when counting/displaying lengths
+const availableEpisodes = Array.isArray(episodes)
+  ? episodes.filter((ep) => Boolean(ep.isAvailable))
+  : [];
 
 // Show a notice when site language is not English
 const showEnglishOnlyNotice = lang !== "en";
@@ -85,7 +90,7 @@ const generatePodcastPageSchema = () => ({
     name: "MelodyMind Podcast",
     description,
     url: currentUrl.toString(),
-    numberOfEpisodes: episodes.length,
+    numberOfEpisodes: availableEpisodes.length,
   },
 });
 
@@ -113,8 +118,8 @@ const pageSchema = generatePodcastPageSchema();
     <meta property="music:creator" content="MelodyMind" />
   </Fragment>
 
-  <main class="min-h-screen bg-gray-900 py-8 text-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <main class="min-h-screen text-white">
+    <div class="mx-auto max-w-7xl">
       <!-- Hero Section -->
       <section
         class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
@@ -152,8 +157,14 @@ const pageSchema = generatePodcastPageSchema();
                 platform: t("musicPlatforms.platform.apple"),
               })}
             >
-              <span class="text-xl">🍎</span>
-              <span class="text-sm font-semibold">{t("podcasts.platform.apple")}</span>
+              <Icon
+                name="apple-music"
+                width={32}
+                height={32}
+                aria-hidden="true"
+                class="transition-inherit h-8 w-8"
+              />
+              <span class="text-lg font-semibold">{t("podcasts.platform.apple")}</span>
             </a>
 
             <a
@@ -168,8 +179,14 @@ const pageSchema = generatePodcastPageSchema();
                 platform: t("musicPlatforms.platform.deezer"),
               })}
             >
-              <span class="text-xl">🎵</span>
-              <span class="text-sm font-semibold">{t("podcasts.platform.deezer")}</span>
+              <Icon
+                name="deezer"
+                width={32}
+                height={32}
+                aria-hidden="true"
+                class="transition-inherit h-8 w-8"
+              />
+              <span class="text-lg font-semibold">{t("podcasts.platform.deezer")}</span>
             </a>
 
             <a
@@ -184,8 +201,14 @@ const pageSchema = generatePodcastPageSchema();
                 platform: t("musicPlatforms.platform.spotify"),
               })}
             >
-              <span class="text-xl">🎧</span>
-              <span class="text-sm font-semibold">{t("podcasts.platform.spotify")}</span>
+              <Icon
+                name="spotify"
+                width={32}
+                height={32}
+                aria-hidden="true"
+                class="transition-inherit h-8 w-8"
+              />
+              <span class="text-lg font-semibold">{t("podcasts.platform.spotify")}</span>
             </a>
 
             <a
@@ -200,21 +223,27 @@ const pageSchema = generatePodcastPageSchema();
                 platform: t("musicPlatforms.platform.youtube"),
               })}
             >
-              <span class="text-xl">📺</span>
-              <span class="text-sm font-semibold">{t("podcasts.platform.youtube")}</span>
+              <Icon
+                name="youtube"
+                width={32}
+                height={32}
+                aria-hidden="true"
+                class="transition-inherit h-8 w-8"
+              />
+              <span class="text-lg font-semibold">{t("podcasts.platform.youtube")}</span>
             </a>
           </div>
 
           {
-            episodes.length > 0 && (
+            availableEpisodes.length > 0 && (
               <div class="flex flex-wrap justify-center gap-4">
                 <div class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
                   <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
                     <span class="text-base">📚</span>
                   </div>
                   <div class="text-sm font-semibold text-gray-200">
-                    {episodes.length}{" "}
-                    {episodes.length === 1
+                    {availableEpisodes.length}{" "}
+                    {availableEpisodes.length === 1
                       ? t("podcasts.episode.singular")
                       : t("podcasts.episode.plural")}
                   </div>
@@ -338,7 +367,7 @@ const pageSchema = generatePodcastPageSchema();
 
         <div id="podcast-list">
           {
-            episodes.length === 0 ? (
+            availableEpisodes.length === 0 ? (
               <div class="rounded-2xl border-2 border-dashed border-gray-600 bg-gray-800 p-16 text-center text-gray-400">
                 <div class="mb-4 text-4xl">🎙️</div>
                 <Headline level="h2" textSize="2xl" className="mb-4 text-gray-300">
@@ -351,12 +380,10 @@ const pageSchema = generatePodcastPageSchema();
             ) : (
               <div class="space-y-6">
                 {(() => {
-                  const sorted = episodes
-                    .filter((episode: PodcastData) => episode.isAvailable)
-                    .sort(
-                      (a: PodcastData, b: PodcastData) =>
-                        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-                    );
+                  const sorted = [...availableEpisodes].sort(
+                    (a: PodcastData, b: PodcastData) =>
+                      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+                  );
                   // Für Nummerierung: älteste Episode = 1
                   const chronological = [...sorted]
                     .sort(
