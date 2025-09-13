@@ -389,28 +389,17 @@ const pageSchema = generatePodcastPageSchema();
                 .map((e, idx) => ({ id: e.id, number: idx + 1 }));
               const numberMap = new Map(chronological.map((e) => [e.id, e.number] as const));
               return sorted.map((episode: PodcastData) => (
-                <article class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gray-800/90 p-6 shadow-lg">
-                  <div
-                    class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300"
-                    aria-hidden="true"
-                  >
-                    <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-purple-700/10 blur-3xl" />
-                    <div class="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-indigo-600/10 blur-3xl" />
-                  </div>
+                <article class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gray-800/90 p-2 shadow-lg">
                   <div class="relative mb-6 flex flex-col gap-6 text-left md:flex-row">
-                    <div class="relative w-full flex-shrink-0 md:w-64">
-                      <div class="relative aspect-video w-full overflow-hidden rounded-2xl bg-gray-700 ring-1 ring-white/10 transition duration-300">
+                    <div class="relative w-full flex-shrink-0 md:w-96">
+                      <div class="relative aspect-video w-full overflow-hidden rounded-2xl">
                         <img
                           src={episode.imageUrl}
                           alt={episode.title}
                           loading="lazy"
                           width="360"
                           height="220"
-                          class="absolute inset-0 aspect-video h-full w-full object-cover transition-transform duration-500"
-                        />
-                        <div
-                          class="absolute inset-0 bg-gradient-to-tr from-purple-900/40 via-transparent to-transparent opacity-0 transition-opacity duration-300"
-                          aria-hidden="true"
+                          class="absolute inset-0 h-full w-full object-cover"
                         />
                       </div>
                     </div>

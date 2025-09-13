@@ -5,7 +5,7 @@
 
 /* Import Tailwind CSS */
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@import "tw-prose";
 
 /* ======================================
  * TAILWIND THEME CONFIGURATION

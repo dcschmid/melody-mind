@@ -2,9 +2,11 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
-import Paragraph from "@components/Paragraph.astro";
+import Prose from "@components/Prose.astro";
 import type { PodcastData } from "../../../types/podcast";
 import enPodcastsJson from "../../../data/podcasts/en.json" assert { type: "json" };
+import { Icon } from "astro-icon/components";
+import Paragraph from "@components/Paragraph.astro";
 
 /**
  * Static path generation for internationalization
@@ -59,8 +61,9 @@ const podcastId = Astro.params.id;
  * Find the specific podcast by ID
  */
 const findPodcastById = (id: string): PodcastData | null => {
-  const podcasts = enPodcastsJson.podcasts;
-  return podcasts.find((podcast) => podcast.id === id) || null;
+  // Ensure the imported JSON is treated as PodcastData[] for TypeScript
+  const podcasts = enPodcastsJson.podcasts as unknown as PodcastData[];
+  return podcasts.find((podcast) => podcast.id === id) ?? null;
 };
 
 const podcast = findPodcastById(podcastId || "");
@@ -172,408 +175,255 @@ const episodeNumber = computeEpisodeNumber(podcast.id);
     <meta name="twitter:image" content={new URL(podcast.imageUrl, baseUrl).toString()} />
   </Fragment>
 
-  <main class="min-h-screen bg-gray-900 py-8 text-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Navigation Back -->
-      <nav class="mb-8" aria-label={t("podcast.navigation.aria")}>
-        <a
-          href={`/${lang}/podcasts`}
-          class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-purple-400 transition-all duration-300 hover:-translate-x-1 hover:bg-purple-500/10 hover:text-purple-300"
-        >
-          {t("podcast.back_to_all")}
-        </a>
-      </nav>
+  <!-- Navigation Back -->
+  <nav class="mb-8" aria-label={t("podcast.navigation.aria")}>
+    <a
+      href={`/${lang}/podcasts`}
+      class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-purple-400 transition-all duration-300 hover:-translate-x-1 hover:bg-purple-500/10 hover:text-purple-300"
+    >
+      {t("podcast.back_to_all")}
+    </a>
+  </nav>
 
-      <!-- Hero Section -->
-      <section
-        class="mb-12 rounded-2xl border border-gray-700 bg-gray-800/90 p-8 shadow-xl backdrop-blur-sm"
-      >
-        <div class="mb-6 flex flex-col gap-10 text-center md:flex-row md:text-left">
-          <div class="relative w-full flex-shrink-0 md:w-[560px]">
-            <div
-              class="group relative aspect-video w-full overflow-hidden rounded-2xl bg-gray-700 shadow-2xl ring-1 ring-white/10 transition md:hover:ring-purple-500/40"
-            >
-              <img
-                src={podcast.imageUrl}
-                alt={podcast.title}
-                width="720"
-                height="405"
-                loading="eager"
-                class="absolute inset-0 h-full w-full object-cover transition-transform duration-[2500ms] ease-[cubic-bezier(.19,1,.22,1)] group-hover:scale-[1.04]"
-              />
-              <div
-                class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-purple-900/40 via-transparent to-transparent opacity-70 mix-blend-normal"
+  <!-- Hero Section -->
+  <section class="mb-12">
+    <div class="mb-6 flex flex-col gap-10 text-center md:flex-row md:text-left">
+      <div class="relative w-full flex-shrink-0 md:w-[560px]">
+        <div class="group relative aspect-video w-full overflow-hidden rounded-2xl">
+          <img
+            src={podcast.imageUrl}
+            alt={podcast.title}
+            width="720"
+            height="405"
+            loading="eager"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <div class="flex-1">
+        <div class="mb-5 flex flex-wrap items-center justify-start gap-5 text-lg">
+          {
+            episodeNumber && (
+              <span
+                aria-label={`Episode ${episodeNumber}`}
+                class="mr-3 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 align-middle text-lg font-bold tracking-wider text-white shadow-sm ring-1 ring-white/10"
               >
+                EP {episodeNumber}
+              </span>
+            )
+          }
+
+          <time class="flex items-center gap-1" datetime={podcast.publishedAt}>
+            <span class="text-gray-500">📅</span>
+            {formatDate(podcast.publishedAt)}
+          </time>
+        </div>
+
+        <Headline level="h1" textSize="2xl">
+          <span class="align-middle">{podcast.title}</span>
+        </Headline>
+      </div>
+    </div>
+
+    <Paragraph textSize="lg" className="mb-8">{podcast.description}</Paragraph>
+
+    {
+      podcast.audioUrl && (
+        <div class="rounded-2xl text-center shadow-xl">
+          {/* Functional Audio Player */}
+          <div class="mb-6 rounded-xl border border-gray-600 bg-gray-900 p-6 shadow-inner">
+            <Headline level="h2" textSize="lg" className="mb-6 text-center text-white">
+              🎧 {t("podcast.listen_to_episode")}
+            </Headline>
+            <div class="mb-4 flex flex-col items-center justify-center gap-4 md:flex-row md:items-center">
+              <div class="relative">
+                <button
+                  id="play-button"
+                  aria-label="Play"
+                  class="flex h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
+                >
+                  <Icon name="play" width={32} height={32} aria-hidden="true" />
+                </button>
+                <button
+                  id="pause-button"
+                  aria-label="Pause"
+                  class="hidden h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
+                >
+                  <Icon name="pause" width={32} height={32} aria-hidden="true" />
+                </button>
+              </div>
+              <div class="text-center md:text-left">
+                <div class="text-lg font-semibold text-white">{podcast.title}</div>
+                <div class="sr-only text-sm text-gray-400">{t("podcast.episode_label")}</div>
               </div>
             </div>
-          </div>
 
-          <div class="flex-1">
-            <Headline
-              level="h1"
-              textSize="3xl"
-              className="mb-6 leading-tight tracking-tight text-white"
+            {/* Audio Element */}
+            <audio
+              id="audio-player"
+              preload="metadata"
+              class="hidden"
+              data-podcast-id={podcast.id}
+              data-podcast-title={podcast.title}
             >
-              {
-                episodeNumber && (
-                  <span
-                    aria-label={`Episode ${episodeNumber}`}
-                    class="mr-3 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 align-middle text-[10px] font-bold tracking-wider text-white shadow-sm ring-1 ring-white/10"
-                  >
-                    EP {episodeNumber}
-                  </span>
-                )
-              }
-              <span class="align-middle font-semibold">{podcast.title}</span>
-            </Headline>
+              <source src={podcast.audioUrl} type="audio/mpeg" />
+              {podcast.subtitleUrl && (
+                <track
+                  kind="captions"
+                  src={podcast.subtitleUrl}
+                  srclang={lang}
+                  label={lang}
+                  default
+                />
+              )}
+              Your browser does not support the audio element.
+            </audio>
 
-            <div
-              class="flex flex-wrap items-center justify-center gap-5 text-sm text-gray-400 md:justify-start"
-            >
-              <time class="flex items-center gap-1" datetime={podcast.publishedAt}>
-                <span class="text-gray-500">📅</span>
-                {formatDate(podcast.publishedAt)}
-              </time>
+            {/* Progress Bar (click/drag to seek) */}
+            <div class="mb-4 w-full">
+              <div
+                id="progress-bar"
+                role="slider"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                class="relative h-3 w-full cursor-pointer rounded-full bg-gray-700"
+              >
+                <div
+                  id="progress-fill"
+                  class="absolute top-0 left-0 h-3 rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
+                  style="width:0%"
+                />
+              </div>
+            </div>
+
+            {/* Time Display & Buffer Indicator */}
+            <div class="mb-4 flex flex-col items-center gap-2 text-sm text-gray-400 md:flex-row md:justify-center md:gap-4">
+              <span id="time-display">0:00 / 0:00</span>
+              <div
+                id="buffer-indicator"
+                class="pointer-events-none scale-95 items-center gap-2 text-xs text-gray-300 opacity-0 transition-all duration-300 ease-out"
+              >
+                <svg class="h-4 w-4 animate-spin text-gray-300" viewBox="0 0 24 24" fill="none">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    opacity="0.15"
+                  />
+                  <path
+                    d="M22 12a10 10 0 00-10-10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                Buffering...
+              </div>
+            </div>
+
+            {/* Audio Controls (rewind / forward + mute/volume) */}
+            <div class="flex items-center justify-center gap-6">
+              <button
+                class="text-gray-400 transition-colors duration-200 hover:text-white"
+                id="rewind-button"
+                title="Rewind 10s"
+              >
+                <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
+                </svg>
+              </button>
+
+              <button
+                class="text-gray-400 transition-colors duration-200 hover:text-white"
+                id="forward-button"
+                title="Forward 10s"
+              >
+                <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" />
+                </svg>
+              </button>
+
+              <button
+                id="mute-button"
+                class="text-gray-400 transition-transform duration-150 hover:scale-110 hover:text-white focus:outline-none"
+                aria-label="Mute"
+                aria-pressed="false"
+              >
+                <svg
+                  class="icon-unmuted h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M3 10v4h4l5 5V5L7 10H3z" />
+                  <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
+                </svg>
+                <svg
+                  class="icon-muted hidden h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
-        <Paragraph textSize="lg">{podcast.description}</Paragraph>
+      )
+    }
+  </section>
 
-        {/* Audio Player */}
-        {
-          podcast.audioUrl && (
-            <div class="rounded-2xl border border-gray-600 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 p-8 text-center shadow-xl">
-              <Headline level="h2" textSize="lg" className="mb-6 text-white">
-                🎧 {t("podcast.listen_to_episode")}
-              </Headline>
+  <!-- Main Content -->
+  <section class="mb-12">
+    <article>
+      <Prose html={podcast.showNotesHtml} size="lg" invert fullWidth />
+    </article>
+  </section>
 
-              {/* Functional Audio Player */}
-              <div class="mb-6 rounded-xl border border-gray-600 bg-gray-900 p-6 shadow-inner">
-                <div class="mb-4 flex flex-col items-center justify-center gap-4 md:flex-row md:items-center">
-                  <div class="relative">
-                    <button
-                      id="play-button"
-                      aria-label="Play"
-                      class="flex h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
-                    >
-                      <svg
-                        class="h-6 w-6 text-white md:h-8 md:w-8"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </button>
-                    <button
-                      id="pause-button"
-                      aria-label="Pause"
-                      class="hidden h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
-                    >
-                      <svg
-                        class="h-6 w-6 text-white md:h-8 md:w-8"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="text-center md:text-left">
-                    <div class="text-lg font-semibold text-white">{podcast.title}</div>
-                    <div class="sr-only text-sm text-gray-400">{t("podcast.episode_label")}</div>
-                  </div>
-                </div>
-
-                {/* Audio Element */}
-                <audio
-                  id="audio-player"
-                  preload="metadata"
-                  class="hidden"
-                  data-podcast-id={podcast.id}
-                  data-podcast-title={podcast.title}
-                >
-                  <source src={podcast.audioUrl} type="audio/mpeg" />
-                  {podcast.subtitleUrl ? (
-                    <track kind="captions" src={podcast.subtitleUrl} label="English" />
-                  ) : (
-                    <track kind="captions" src="" label="No captions available" />
-                  )}
-                  Your browser does not support the audio element.
-                </audio>
-
-                {/* Progress Bar (click/drag to seek) */}
-                <div class="mb-4 w-full">
-                  <div
-                    id="progress-bar"
-                    role="slider"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    class="relative h-3 w-full cursor-pointer rounded-full bg-gray-700"
-                  >
-                    <div
-                      id="progress-fill"
-                      class="absolute top-0 left-0 h-3 rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
-                      style="width:0%"
-                    />
-                  </div>
-                </div>
-
-                {/* Time Display & Buffer Indicator */}
-                <div class="mb-4 flex flex-col items-center gap-2 text-sm text-gray-400 md:flex-row md:justify-center md:gap-4">
-                  <span id="time-display">0:00 / 0:00</span>
-                  <div
-                    id="buffer-indicator"
-                    class="pointer-events-none scale-95 items-center gap-2 text-xs text-gray-300 opacity-0 transition-all duration-300 ease-out"
-                  >
-                    <svg class="h-4 w-4 animate-spin text-gray-300" viewBox="0 0 24 24" fill="none">
-                      <circle
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        opacity="0.15"
-                      />
-                      <path
-                        d="M22 12a10 10 0 00-10-10"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                    Buffering...
-                  </div>
-                </div>
-
-                {/* Audio Controls (rewind / forward + mute/volume) */}
-                <div class="flex items-center justify-center gap-6">
-                  <button
-                    class="text-gray-400 transition-colors duration-200 hover:text-white"
-                    id="rewind-button"
-                    title="Rewind 10s"
-                  >
-                    <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
-                    </svg>
-                  </button>
-
-                  <button
-                    class="text-gray-400 transition-colors duration-200 hover:text-white"
-                    id="forward-button"
-                    title="Forward 10s"
-                  >
-                    <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" />
-                    </svg>
-                  </button>
-
-                  <button
-                    id="mute-button"
-                    class="text-gray-400 transition-transform duration-150 hover:scale-110 hover:text-white focus:outline-none"
-                    aria-label="Mute"
-                    aria-pressed="false"
-                  >
-                    <svg
-                      class="icon-unmuted h-5 w-5"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path d="M3 10v4h4l5 5V5L7 10H3z" />
-                      <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
-                    </svg>
-                    <svg
-                      class="icon-muted hidden h-5 w-5"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
-                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                    </svg>
-                  </button>
-                </div>
-
-                <div class="mt-4 flex items-center justify-center gap-4">
-                  <input
-                    id="volume-slider"
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.01"
-                    value="1"
-                    class="hidden w-48 md:block"
-                    aria-label="Volume"
-                  />
-                </div>
+  {/* Navigation Between Episodes */}
+  {
+    (prev || next) && (
+      <nav class="mb-12" aria-label={t("podcasts.navigation.aria")}>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {prev && (
+            <a
+              href={`/${lang}/podcasts/${prev.id}`}
+              class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl"
+            >
+              <span class="text-2xl text-purple-400">←</span>
+              <div class="flex-1">
+                <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
+                  {t("podcasts.navigation.previous")}
+                </span>
+                <span class="block text-base leading-tight font-semibold">{prev.title}</span>
               </div>
+            </a>
+          )}
 
-              {/* Action Buttons */}
-              <div class="flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center">
-                <a
-                  href={podcast.audioUrl}
-                  class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg ring-1 shadow-purple-900/20 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:from-purple-500 hover:to-indigo-500 hover:shadow-xl hover:shadow-purple-900/30 focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:outline-none sm:w-auto"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-external-label="podcast_audio"
-                  class:list={[
-                    "inline-flex",
-                    "w-full",
-                    "items-center",
-                    "justify-center",
-                    "gap-3",
-                    "rounded-xl",
-                    "bg-gradient-to-r",
-                    "from-purple-600",
-                    "to-indigo-600",
-                    "px-6",
-                    "py-3",
-                    "text-center",
-                    "text-sm",
-                    "font-semibold",
-                    "text-white",
-                    "shadow-lg",
-                    "ring-1",
-                    "shadow-purple-900/20",
-                    "ring-white/10",
-                    "transition-all",
-                    "duration-300",
-                    "hover:-translate-y-1",
-                    "hover:from-purple-500",
-                    "hover:to-indigo-500",
-                    "hover:shadow-xl",
-                    "hover:shadow-purple-900/30",
-                    "focus-visible:ring-2",
-                    "focus-visible:ring-purple-400",
-                    "focus-visible:outline-none",
-                    "sm:w-auto",
-                    "external-link",
-                  ]}
-                >
-                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-                  </svg>
-                  {t("podcast.download_audio")}
-                </a>
-                {podcast.subtitleUrl && (
-                  <a
-                    href={podcast.subtitleUrl}
-                    class="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-lg ring-1 shadow-blue-900/20 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:from-blue-500 hover:to-indigo-500 hover:shadow-xl hover:shadow-blue-900/30 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:outline-none sm:w-auto"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-external-label="podcast_subtitles"
-                    class:list={[
-                      "inline-flex",
-                      "w-full",
-                      "items-center",
-                      "justify-center",
-                      "gap-3",
-                      "rounded-xl",
-                      "bg-gradient-to-r",
-                      "from-blue-600",
-                      "to-indigo-600",
-                      "px-6",
-                      "py-3",
-                      "text-center",
-                      "text-sm",
-                      "font-semibold",
-                      "text-white",
-                      "shadow-lg",
-                      "ring-1",
-                      "shadow-blue-900/20",
-                      "ring-white/10",
-                      "transition-all",
-                      "duration-300",
-                      "hover:-translate-y-1",
-                      "hover:from-blue-500",
-                      "hover:to-indigo-500",
-                      "hover:shadow-xl",
-                      "hover:shadow-blue-900/30",
-                      "focus-visible:ring-2",
-                      "focus-visible:ring-blue-400",
-                      "focus-visible:outline-none",
-                      "sm:w-auto",
-                      "external-link",
-                    ]}
-                  >
-                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-                    </svg>
-                    {t("podcast.view_subtitles")}
-                  </a>
-                )}
+          {next && (
+            <a
+              href={`/${lang}/podcasts/${next.id}`}
+              class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl md:col-start-2"
+            >
+              <div class="flex-1 text-right">
+                <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
+                  {t("podcasts.navigation.next")}
+                </span>
+                <span class="block text-base leading-tight font-semibold">{next.title}</span>
               </div>
-            </div>
-          )
-        }
-      </section>
-
-      <!-- Main Content -->
-      <section class="mb-12">
-        <article class="rounded-2xl border border-gray-700 bg-gray-800 p-8 shadow-lg">
-          <div class="prose prose-invert prose-lg max-w-none" set:html={podcast.showNotesHtml} />
-        </article>
-      </section>
-
-      {/* Navigation Between Episodes */}
-      {
-        (prev || next) && (
-          <nav class="mb-12" aria-label={t("podcasts.navigation.aria")}>
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {prev && (
-                <a
-                  href={`/${lang}/podcasts/${prev.id}`}
-                  class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl"
-                >
-                  <span class="text-2xl text-purple-400">←</span>
-                  <div class="flex-1">
-                    <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
-                      {t("podcasts.navigation.previous")}
-                    </span>
-                    <span class="block text-sm leading-tight font-semibold">{prev.title}</span>
-                  </div>
-                </a>
-              )}
-
-              {next && (
-                <a
-                  href={`/${lang}/podcasts/${next.id}`}
-                  class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl md:col-start-2"
-                >
-                  <div class="flex-1 text-right">
-                    <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
-                      {t("podcasts.navigation.next")}
-                    </span>
-                    <span class="block text-sm leading-tight font-semibold">{next.title}</span>
-                  </div>
-                  <span class="text-2xl text-purple-400">→</span>
-                </a>
-              )}
-            </div>
-          </nav>
-        )
-      }
-
-      {/* Call to Action */}
-      <div
-        class="w-full rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-12 text-center shadow-2xl"
-      >
-        <Headline level="h2" textSize="xl" className="mb-4 text-white">
-          {t("podcasts.cta.title")}
-        </Headline>
-        <Paragraph className="mb-8 text-lg text-gray-300">
-          {t("podcasts.cta.description")}
-        </Paragraph>
-        <a
-          href={`/${lang}/podcasts`}
-          class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-8 py-4 text-base font-semibold text-white shadow-lg transition-colors duration-300 hover:-translate-y-1 hover:bg-purple-700 hover:shadow-xl"
-        >
-          {t("podcasts.cta.browse")}
-        </a>
-      </div>
-    </div>
-  </main>
+              <span class="text-2xl text-purple-400">→</span>
+            </a>
+          )}
+        </div>
+      </nav>
+    )
+  }
 
   <script>
     import { initAudioPlayerAuto } from "../../../utils/components/audioPlayerUtils";

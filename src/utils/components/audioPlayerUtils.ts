@@ -1,3 +1,16 @@
+/**
+ * Audio player utilities
+ *
+ * Enhancement: when an <audio> element includes a <track kind="captions"|"subtitles">,
+ * this module bevorzugt einen vorhandenen Container im Player-Markup:
+ *   <div id="audio-subtitles-container"><div id="audio-subtitles-inner"></div></div>
+ * Falls nicht vorhanden, wird ein globales, fixes Overlay (`#audio-subtitles-overlay`) erzeugt.
+ * Aktive Cues werden in `#audio-subtitles-inner` geschrieben. Der Track wird auf "hidden"
+ * gesetzt (keine doppelte native Darstellung). Updates: `timeupdate`, `play`, `cuechange`.
+ *
+ * This provides a consistent subtitle UI for audio-only episodes where the native
+ * track rendering might be unavailable or inconsistent across browsers.
+ */
 import { safeGetElementById } from "../dom/domUtils";
 import { handleGameError } from "../error/errorHandlingUtils";
 
@@ -140,6 +153,96 @@ export class AudioPlayerUtils {
         buf.classList.add("opacity-0", "scale-95", "pointer-events-none");
       }
     });
+
+    // Subtitle handling: create overlay and sync cues when a text track exists
+    this.setupSubtitleOverlay();
+  }
+
+  /**
+   * Create or reuse a subtitle overlay element and wire textTrack cue changes
+   * so that captions are shown when playback progresses.
+   */
+  private setupSubtitleOverlay(): void {
+    if (!this.elements.audioElement) {
+      return;
+    }
+
+    // Prefer an existing in-player container if provided by the page markup.
+  const existingInner = document.getElementById("audio-subtitles-inner");
+
+    // If no in-player container: create fixed overlay fallback once per page.
+    if (!existingInner) {
+      let overlay = document.getElementById("audio-subtitles-overlay");
+      if (!overlay) {
+        overlay = document.createElement("div");
+        overlay.id = "audio-subtitles-overlay";
+        overlay.setAttribute(
+          "style",
+          "position:fixed;left:50%;transform:translateX(-50%);bottom:120px;z-index:60;max-width:90%;pointer-events:none;text-align:center;"
+        );
+        const inner = document.createElement("div");
+        inner.id = "audio-subtitles-inner";
+        inner.setAttribute(
+          "style",
+          "display:inline-block;background:rgba(0,0,0,0.65);color:#fff;padding:8px 12px;border-radius:8px;font-size:15px;line-height:1.3;max-width:100%;word-break:break-word;"
+        );
+        overlay.appendChild(inner);
+        document.body.appendChild(overlay);
+      }
+    }
+
+    const track = Array.from(this.elements.audioElement.textTracks || []).find(
+      (t) => t.kind === "captions" || t.kind === "subtitles"
+    );
+
+    if (!track) {
+      // hide overlay if no track present
+  const inner = document.getElementById("audio-subtitles-inner");
+      if (inner) {
+        inner.textContent = "";
+      }
+      return;
+    }
+
+    // Make sure track is in a usable mode; we'll render ourselves
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (track as any).mode = "hidden"; // keep default rendering off; we'll display cues in our overlay
+    } catch {
+      // ignore
+    }
+
+    const showActiveCues = (): void => {
+  const inner = document.getElementById("audio-subtitles-inner");
+      if (!inner) {
+        return;
+      }
+      const cues = track.activeCues as TextTrackCueList | null;
+      if (!cues || cues.length === 0) {
+        inner.textContent = "";
+        return;
+      }
+      // Collect cue texts
+      const texts: string[] = [];
+      for (let i = 0; i < cues.length; i++) {
+        const cue = cues[i] as unknown;
+        // access .text defensively; some environments use different cue types
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const textVal = (cue as any)?.text;
+        if (typeof textVal === "string") {
+          const txt = textVal.trim();
+          if (txt) {
+            texts.push(txt);
+          }
+        }
+      }
+      inner.textContent = texts.join("\n");
+    };
+
+    // Update on timeupdate and cue change
+    this.elements.audioElement.addEventListener("timeupdate", showActiveCues);
+    this.elements.audioElement.addEventListener("play", showActiveCues);
+    track.addEventListener("cuechange", showActiveCues);
   }
 
   private bindInteractionEvents(): void {
