@@ -415,23 +415,27 @@ const pageSchema = generatePodcastPageSchema();
                       </div>
                     </div>
                     <div class="flex-1">
-                      <Headline level="h2" textSize="lg" className="mb-3 text-white leading-snug">
+                      <div class="mb-4 flex items-center justify-start gap-3">
                         <span
                           aria-label={`Episode ${numberMap.get(episode.id)}`}
-                          class="mr-3 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 text-sm tracking-wider text-white shadow-sm ring-1 ring-white/10"
+                          class="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 text-sm tracking-wider text-white shadow-sm ring-1 ring-white/10"
                         >
                           EP {numberMap.get(episode.id)}
                         </span>
+                        <time datetime={episode.publishedAt} class="flex items-center gap-2">
+                          <span class="inline-block text-lg text-gray-500">📅</span>
+                          {new Date(episode.publishedAt).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })}
+                        </time>
+                      </div>
+
+                      <Headline level="h2" textSize="lg" className="mb-3 text-white leading-snug">
                         <span class="align-middle font-semibold">{episode.title}</span>
                       </Headline>
-                      <time datetime={episode.publishedAt} class="mb-4 flex items-center gap-1">
-                        <span class="inline-block text-lg text-gray-500">📅</span>
-                        {new Date(episode.publishedAt).toLocaleDateString("en-US", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })}
-                      </time>
+
                       <Paragraph textSize="lg" className="text-gray-300 mb-4">
                         {episode.description}
                       </Paragraph>
