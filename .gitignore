@@ -27,3 +27,11 @@ pnpm-debug.log*
 .idea/
 
 coverage/
+ 
+# large media not tracked in repo
+public/podcasts/
+public/video/
+public/mp3s/
+public/podcast/
+*.mp3
+*.mp4
