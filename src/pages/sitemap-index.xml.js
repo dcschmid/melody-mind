@@ -13,7 +13,8 @@ export const prerender = true;
  */
 export async function get() {
   // Base URL from environment or fallback
-  const siteUrl = import.meta.env.SITE || "https://melodymind.app";
+  // Keep consistent with astro.config.mjs `site` value
+  const siteUrl = import.meta.env.SITE || "https://melody-mind.de";
 
   // Supported languages
   const languages = [

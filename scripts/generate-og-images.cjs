@@ -7,8 +7,8 @@ const PROJECT_ROOT = path.resolve(__dirname, "..");
 const OUTPUT_DIR = path.join(PROJECT_ROOT, "public", "og-images");
 const FONTS_DIR = path.join(PROJECT_ROOT, "public", "fonts");
 
-// Supported languages
-const LANGUAGES = [
+// Supported languages (can be filtered via CLI: --langs=en,de)
+const DEFAULT_LANGUAGES = [
   "de",
   "en",
   "es",
@@ -24,6 +24,19 @@ const LANGUAGES = [
   "jp",
   "uk",
 ];
+
+function parseListArg(name) {
+  const flag = process.argv.find((a) => a.startsWith(`--${name}=`));
+  if (!flag) return null;
+  const val = flag.split("=")[1] || "";
+  return val
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+const CLI_LANGS = parseListArg("langs");
+const LANGUAGES = Array.isArray(CLI_LANGS) && CLI_LANGS.length > 0 ? CLI_LANGS : DEFAULT_LANGUAGES;
 
 // Configure canvas settings
 const WIDTH = 1200;
@@ -61,6 +74,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Musikwissen",
     "knowledge.description":
       "Erweitere deinen musikalischen Horizont mit unserem umfangreichen Wissenszentrum. Von Musikgeschichte bis zu Instrumentenkunde - tauche ein in die faszinierende Welt der Töne und werde zum Musikexperten.",
+    "chronology.badge": "Chronologie",
+    "timepressure.badge": "Zeitdruck",
   },
 
   en: {
@@ -88,6 +103,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Music Knowledge",
     "knowledge.description":
       "Broaden your musical horizon with our comprehensive knowledge center. From music history to instrument studies - immerse yourself in the fascinating world of sounds and become a music expert.",
+    "chronology.badge": "Chronology",
+    "timepressure.badge": "Time Pressure",
   },
 
   es: {
@@ -115,6 +132,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Conocimiento Musical",
     "knowledge.description":
       "Amplía tu horizonte musical con nuestro completo centro de conocimiento. Desde la historia de la música hasta el estudio de instrumentos - sumérgete en el fascinante mundo de los sonidos y conviértete en un experto en música.",
+    "chronology.badge": "Cronología",
+    "timepressure.badge": "Contrarreloj",
   },
 
   fr: {
@@ -142,6 +161,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Connaissances Musicales",
     "knowledge.description":
       "Élargissez votre horizon musical avec notre centre de connaissances complet. De l'histoire de la musique à l'étude des instruments - immergez-vous dans le monde fascinant des sons et devenez un expert en musique.",
+    "chronology.badge": "Chronologie",
+    "timepressure.badge": "Contre-la-montre",
   },
 
   it: {
@@ -169,6 +190,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Conoscenza Musicale",
     "knowledge.description":
       "Amplia il tuo orizzonte musicale con il nostro centro di conoscenza completo. Dalla storia della musica allo studio degli strumenti - immergiti nel fascinante mondo dei suoni e diventa un esperto di musica.",
+    "chronology.badge": "Cronologia",
+    "timepressure.badge": "A tempo",
   },
 
   pt: {
@@ -196,6 +219,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Conhecimento Musical",
     "knowledge.description":
       "Amplie seu horizonte musical com nosso abrangente centro de conhecimento. Da história da música ao estudo de instrumentos - mergulhe no fascinante mundo dos sons e torne-se um especialista em música.",
+    "chronology.badge": "Cronologia",
+    "timepressure.badge": "Contra o tempo",
   },
 
   da: {
@@ -223,6 +248,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Musikviden",
     "knowledge.description":
       "Udvid din musikalske horisont med vores omfattende videncenter. Fra musikhistorie til instrumentstudier - fordyb dig i lydenes fascinerende verden og bliv musikekspert.",
+    "chronology.badge": "Kronologi",
+    "timepressure.badge": "Tidspres",
   },
 
   nl: {
@@ -250,6 +277,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Muziekkennis",
     "knowledge.description":
       "Verbreed je muzikale horizon met ons uitgebreide kenniscentrum. Van muziekgeschiedenis tot instrumentenstudies - dompel jezelf onder in de fascinerende wereld van klanken en word een muziekexpert.",
+    "chronology.badge": "Chronologie",
+    "timepressure.badge": "Tijdsdruk",
   },
 
   sv: {
@@ -277,6 +306,8 @@ const TRANSLATIONS = {
     "knowledge.title": "Musikkunskap",
     "knowledge.description":
       "Bredda din musikaliska horisont med vårt omfattande kunskapscenter. Från musikhistoria till instrumentstudier - fördjupa dig i ljudens fascinerande värld och bli en musikexpert.",
+    "chronology.badge": "Kronologi",
+    "timepressure.badge": "Tidspress",
   },
 
   fi: {
@@ -304,6 +335,66 @@ const TRANSLATIONS = {
     "knowledge.title": "Musiikkitieto",
     "knowledge.description":
       "Laajenna musiikillista näköpiiriäsi kattavan tietokeskuksemme avulla. Musiikin historiasta soitintutkimuksiin - uppoudu äänien kiehtovaan maailmaan ja tule musiikkiasiantuntijaksi.",
+    "chronology.badge": "Kronologia",
+    "timepressure.badge": "Aikapaine",
+  },
+  cn: {
+    // Homepage
+    "home.title": "MelodyMind",
+    "home.description":
+      "探索迷人的音乐世界，在我们的互动音乐问答中测试你的知识。发现无数流派，展示你的音乐功底，成为真正的音乐传奇！",
+    "playlist.title": "音乐精选",
+    "playlist.description": "发现精心策划的歌单，带你穿越不同时代。从永恒经典到现代热门——为每个时刻找到完美配乐。",
+    "podcast.title": "音乐播客",
+    "podcast.description": "聆听音乐背后的故事、艺术家访谈以及各类风格的深度解析。开启新的视角，拓展音乐理解。",
+    "game.title": "音乐问答",
+    "game.description": "从多种流派中选择，挑战不同难度，赢取高分。属于每位音乐爱好者的极致体验！",
+    "knowledge.title": "音乐知识",
+    "knowledge.description": "拓展你的音乐视野——从音乐史到乐器知识，沉浸在声音的世界中，成为真正的音乐达人。",
+    "chronology.badge": "年代",
+    "timepressure.badge": "限时",
+  },
+  jp: {
+    "home.title": "MelodyMind",
+    "home.description": "音楽の世界へ飛び込んで、インタラクティブなクイズで知識を試そう。無数のジャンルを探索して、真の音楽通になろう！",
+    "playlist.title": "音楽プレイリスト",
+    "playlist.description": "厳選されたプレイリストで、さまざまな時代を音楽とともに旅しよう。タイムレスな名曲から最新ヒットまで。",
+    "podcast.title": "音楽ポッドキャスト",
+    "podcast.description": "音楽の裏側の物語、アーティストへのインタビュー、幅広いジャンルの深掘りをお届け。",
+    "game.title": "音楽クイズ",
+    "game.description": "多彩なジャンルと難易度に挑戦し、ハイスコアを目指そう。音楽ファン必見の体験！",
+    "knowledge.title": "音楽知識",
+    "knowledge.description": "音楽史から楽器まで、知識を広げて音の世界に浸ろう。",
+    "chronology.badge": "年代順",
+    "timepressure.badge": "タイムアタック",
+  },
+  ru: {
+    "home.title": "MelodyMind",
+    "home.description": "Откройте для себя удивительный мир музыки и проверьте свои знания в интерактивной викторине. Исследуйте жанры, покажите мастерство и станьте легендой!",
+    "playlist.title": "Музыкальные подборки",
+    "playlist.description": "Откройте тщательно составленные плейлисты — путешествие сквозь эпохи: от классики до современных хитов.",
+    "podcast.title": "Музыкальные подкасты",
+    "podcast.description": "Истории за кулисами, интервью с артистами и глубокий разбор жанров — расширяйте музыкальный кругозор.",
+    "game.title": "Музыкальная викторина",
+    "game.description": "Выбирайте жанры и сложность, зарабатывайте очки и ставьте рекорды — идеальный опыт для меломанов!",
+    "knowledge.title": "Музыкальные знания",
+    "knowledge.description": "Расширяйте кругозор: от истории музыки до инструментов — погружайтесь в мир звуков.",
+    "chronology.badge": "Хронология",
+    "timepressure.badge": "На время",
+  },
+  uk: {
+    "home.title": "MelodyMind",
+    "home.description": "Пориньте у світ музики та перевірте свої знання в інтерактивній вікторині. Досліджуйте жанри й ставайте музичною легендою!",
+    "playlist.title": "Музичні плейлисти",
+    "playlist.description": "Добірки, що проведуть крізь епохи — від вічної класики до сучасних хітів.",
+    "podcast.title": "Музичні подкасти",
+    "podcast.description": "Історії за лаштунками, інтерв'ю з артистами та глибокий аналіз жанрів — відкривайте нове бачення музики.",
+    "game.title": "Музична вікторина",
+    "game.description": "Обирайте жанри та складність, набирайте очки та ставте рекорди — ідеально для меломанів!",
+    "knowledge.title": "Музичні знання",
+    "knowledge.description": "Розширюйте кругозір: від історії музики до інструментознавства — пірнайте у світ звуків.",
+    "chronology.badge": "Хронологія",
+    "timepressure.badge": "На час",
   },
 };
 
@@ -337,6 +428,18 @@ const PAGE_TYPES = {
     background: {
       direction: "45deg",
       colorStops: ["#18181b 0%", "#7e22ce 50%", "#4f46e5 100%"],
+    },
+  },
+  chronology: {
+    background: {
+      direction: "to bottom",
+      colorStops: ["#0b1020 0%", "#1e3a8a 50%", "#7c3aed 100%"],
+    },
+  },
+  timePressure: {
+    background: {
+      direction: "to bottom right",
+      colorStops: ["#111827 0%", "#b45309 50%", "#dc2626 100%"], // zinc-900 → amber-600 → red-600
     },
   },
 };
@@ -537,7 +640,7 @@ function addSubtleBorder(ctx) {
  * Verbesserte Text-Rendering-Funktion mit Textschatten
  */
 function renderTextWithEffects(ctx, text, x, y, maxWidth, lineHeight, options = {}) {
-  const { fontSize = 48, fontWeight = "normal", color = "#ffffff", shadow = true } = options;
+  const { fontSize = 48, fontWeight = "normal", color = "#ffffff", shadow = true, maxLines } = options;
 
   // Setze Schriftart und Stil
   ctx.font = `${fontWeight} ${fontSize}px Inter, sans-serif`;
@@ -553,8 +656,8 @@ function renderTextWithEffects(ctx, text, x, y, maxWidth, lineHeight, options = 
     ctx.shadowOffsetY = fontSize * 0.04;
   }
 
-  // Wrapped Text zeichnen
-  wrapText(ctx, text, x, y, maxWidth, lineHeight);
+  // Wrapped Text zeichnen (optional mit maxLines + Ellipsis)
+  wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines);
 
   // Textschatten zurücksetzen
   ctx.shadowColor = "transparent";
@@ -587,7 +690,7 @@ async function withRetry(fn, retries = 2, fallback = null) {
 /**
  * Generate an OG image with enhanced visual design and error handling
  */
-async function generateOgImage(title, description, type) {
+async function generateOgImage(title, description, type, lang) {
   return withRetry(
     async () => {
       const canvas = createCanvas(WIDTH, HEIGHT);
@@ -599,10 +702,16 @@ async function generateOgImage(title, description, type) {
       // Add subtle border for depth
       addSubtleBorder(ctx);
 
-      // Try to draw logo if exists
+      // Try to draw logo if exists (prefer brand mark)
       try {
-        const logoPath = path.join(PROJECT_ROOT, "public", "social-share.jpg");
-        if (fs.existsSync(logoPath)) {
+        const preferredLogoPath = path.join(PROJECT_ROOT, "public", "melody-mind.png");
+        const fallbackLogoPath = path.join(PROJECT_ROOT, "public", "social-share.jpg");
+        const logoPath = fs.existsSync(preferredLogoPath)
+          ? preferredLogoPath
+          : fs.existsSync(fallbackLogoPath)
+          ? fallbackLogoPath
+          : null;
+        if (logoPath) {
           const logo = await loadImage(logoPath);
           const logoSize = VISUAL_CONFIG.logo.size;
           ctx.drawImage(
@@ -631,6 +740,7 @@ async function generateOgImage(title, description, type) {
           fontWeight: "bold",
           color: VISUAL_CONFIG.colors.light,
           shadow: true,
+          maxLines: 2,
         }
       );
 
@@ -647,8 +757,23 @@ async function generateOgImage(title, description, type) {
           fontWeight: "normal",
           color: "#e2e2e7",
           shadow: true,
+          maxLines: 3,
         }
       );
+
+      // Add chronology badge if applicable
+      if (type === "chronology") {
+        try {
+          const badgeText = getTranslation(lang || "en", "chronology.badge");
+          drawBadge(ctx, badgeText, "sort");
+        } catch {}
+      }
+      if (type === "timePressure") {
+        try {
+          const badgeText = getTranslation(lang || "en", "timepressure.badge");
+          drawBadge(ctx, badgeText, "clock");
+        } catch {}
+      }
 
       // Add a subtle signature
       ctx.font = "16px Inter, sans-serif";
@@ -667,27 +792,177 @@ async function generateOgImage(title, description, type) {
 /**
  * Helper function to wrap text on canvas
  */
-function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
-  const words = text.split(" ");
+function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
+  const hasMax = typeof maxLines === "number" && maxLines > 0;
+
+  // Detect CJK (no spaces) and fall back to grapheme-based wrapping
+  const hasCJK = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/.test(text);
+  const hasSpaces = /\s/.test(text);
+
+  // Tokenize: use words with trailing space for Latin; per-char for CJK/no-space
+  const tokens = (!hasSpaces || hasCJK)
+    ? Array.from(text)
+    : text.split(" ").map((w) => w + " ");
+
   let line = "";
-  let testLine = "";
   let lineCount = 0;
 
-  for (let n = 0; n < words.length; n++) {
-    testLine = line + words[n] + " ";
-    const metrics = ctx.measureText(testLine);
-    const testWidth = metrics.width;
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    const testLine = line + token;
+    const testWidth = ctx.measureText(testLine).width;
 
-    if (testWidth > maxWidth && n > 0) {
+    if (testWidth > maxWidth && line !== "") {
+      // If this new token would overflow, draw current line
+      if (hasMax && lineCount + 1 >= maxLines) {
+        // Ellipsize current line to fit
+        let trimmed = line.trimEnd();
+        while (trimmed.length > 0 && ctx.measureText(trimmed + " …").width > maxWidth) {
+          trimmed = trimmed.slice(0, -1);
+        }
+        ctx.fillText(trimmed + " …", x, y + lineCount * lineHeight);
+        return;
+      }
       ctx.fillText(line, x, y + lineCount * lineHeight);
-      line = words[n] + " ";
+      line = token;
       lineCount++;
     } else {
       line = testLine;
     }
   }
 
-  ctx.fillText(line, x, y + lineCount * lineHeight);
+  // Draw final line
+  if (!hasMax || lineCount < maxLines) {
+    if (hasMax && lineCount + 1 >= maxLines && ctx.measureText(line).width > maxWidth) {
+      let trimmed = line.trimEnd();
+      while (trimmed.length > 0 && ctx.measureText(trimmed + " …").width > maxWidth) {
+        trimmed = trimmed.slice(0, -1);
+      }
+      ctx.fillText(trimmed + " …", x, y + lineCount * lineHeight);
+    } else {
+      ctx.fillText(line, x, y + lineCount * lineHeight);
+    }
+  }
+}
+
+/**
+ * Draw a small rounded badge in the top-left area
+ */
+function drawBadge(ctx, text, icon) {
+  if (!text) return;
+  const paddingX = 18;
+  const paddingY = 10;
+  const radius = 14;
+  const margin = 28;
+  const fontSize = 28;
+  ctx.font = `600 ${fontSize}px Inter, sans-serif`;
+  const metrics = ctx.measureText(text);
+  const iconGap = icon ? 12 : 0;
+  const iconBox = icon ? fontSize + 6 : 0; // square box for icon
+  const tw = metrics.width + (icon ? iconGap + iconBox : 0);
+  const th = fontSize * 1.2;
+  const bw = tw + paddingX * 2;
+  const bh = th + paddingY * 2;
+  const x = margin;
+  const y = margin;
+
+  // Rounded rect background
+  ctx.save();
+  ctx.beginPath();
+  roundRectPath(ctx, x, y, bw, bh, radius);
+  const grad = ctx.createLinearGradient(x, y, x + bw, y + bh);
+  grad.addColorStop(0, "rgba(59, 130, 246, 0.9)"); // blue-500
+  grad.addColorStop(1, "rgba(124, 58, 237, 0.9)"); // violet-600
+  ctx.fillStyle = grad;
+  ctx.fill();
+  ctx.restore();
+
+  // Text + optional icon
+  ctx.fillStyle = "#ffffff";
+  ctx.textAlign = "left";
+  ctx.textBaseline = "middle";
+  let tx = x + paddingX;
+  if (icon === "clock") {
+    drawIconClock(ctx, tx, y + bh / 2, iconBox);
+    tx += iconBox + iconGap;
+  } else if (icon === "sort") {
+    drawIconSort(ctx, tx, y + bh / 2, iconBox);
+    tx += iconBox + iconGap;
+  }
+  ctx.fillText(text, tx, y + bh / 2);
+}
+
+function roundRectPath(ctx, x, y, w, h, r) {
+  const rr = Math.min(r, w / 2, h / 2);
+  ctx.moveTo(x + rr, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rr);
+  ctx.arcTo(x + w, y + h, x, y + h, rr);
+  ctx.arcTo(x, y + h, x, y, rr);
+  ctx.arcTo(x, y, x + w, y, rr);
+  ctx.closePath();
+}
+
+/**
+ * Draw a simple clock icon (stroke only) centered at (cx, cy) with given box size
+ */
+function drawIconClock(ctx, cx, cy, size) {
+  if (!size) return;
+  const r = size * 0.4;
+  ctx.save();
+  ctx.strokeStyle = "#ffffff";
+  ctx.lineWidth = Math.max(2, size * 0.08);
+  // circle
+  ctx.beginPath();
+  ctx.arc(cx + size / 2, cy, r, 0, Math.PI * 2);
+  ctx.stroke();
+  // hands (12:00 and ~4:00)
+  // center
+  const ox = cx + size / 2;
+  const oy = cy;
+  // hour hand
+  ctx.beginPath();
+  ctx.moveTo(ox, oy);
+  ctx.lineTo(ox, oy - r * 0.6);
+  ctx.stroke();
+  // minute hand
+  const ang = Math.PI / 3; // 60 degrees
+  ctx.beginPath();
+  ctx.moveTo(ox, oy);
+  ctx.lineTo(ox + r * Math.cos(ang) * 0.85, oy + r * Math.sin(ang) * 0.85);
+  ctx.stroke();
+  ctx.restore();
+}
+
+/**
+ * Draw a simple sort icon (up/down arrows) centered at (cx, cy)
+ */
+function drawIconSort(ctx, cx, cy, size) {
+  if (!size) return;
+  ctx.save();
+  ctx.fillStyle = "#ffffff";
+  const w = size * 0.26;
+  const h = size * 0.34;
+  const gap = size * 0.08;
+  const leftX = cx + size / 2 - w - gap / 2;
+  const rightX = cx + size / 2 + gap / 2;
+  const topY = cy - h / 2;
+  const bottomY = cy + h / 2;
+
+  // Up arrow (left)
+  ctx.beginPath();
+  ctx.moveTo(leftX + w / 2, topY);
+  ctx.lineTo(leftX, topY + h * 0.6);
+  ctx.lineTo(leftX + w, topY + h * 0.6);
+  ctx.closePath();
+  ctx.fill();
+  // Down arrow (right)
+  ctx.beginPath();
+  ctx.moveTo(rightX + w / 2, bottomY);
+  ctx.lineTo(rightX, bottomY - h * 0.6);
+  ctx.lineTo(rightX + w, bottomY - h * 0.6);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
 }
 
 /**
@@ -755,7 +1030,8 @@ async function generateAllOgImages() {
         console.log(`\nGenerating OG images for language: ${lang}...`);
       }
 
-      const pagesToGenerate = [
+      // Allow filtering page types via CLI: --types=home,podcasts
+      const DEFAULT_PAGES = [
         {
           type: "home",
           title: getTranslation(lang, "home.title"),
@@ -781,12 +1057,27 @@ async function generateAllOgImages() {
           filename: `social-share-gamehome.jpg`,
         },
         {
+          type: "timePressure",
+          title: getTranslation(lang, "game.title"),
+          description: getTranslation(lang, "game.description"),
+          filename: `social-share-timepressure.jpg`,
+        },
+        {
+          type: "chronology",
+          title: getTranslation(lang, "game.title"),
+          description: getTranslation(lang, "game.description"),
+          filename: `social-share-chronology.jpg`,
+        },
+        {
           type: "knowledge",
           title: getTranslation(lang, "knowledge.title"),
           description: getTranslation(lang, "knowledge.description"),
           filename: `social-share-knowledge.jpg`,
         },
       ];
+      const CLI_TYPES = parseListArg("types");
+      const allowed = Array.isArray(CLI_TYPES) && CLI_TYPES.length > 0 ? new Set(CLI_TYPES) : null;
+      const pagesToGenerate = allowed ? DEFAULT_PAGES.filter((p) => allowed.has(p.type)) : DEFAULT_PAGES;
 
       // Generate and save each image (refactored to reduce nesting)
       async function processPages(pages, language) {
@@ -797,7 +1088,7 @@ async function generateAllOgImages() {
               console.log(`  • Generating ${outputFilename}...`);
             }
 
-            const imageBuffer = await generateOgImage(page.title, page.description, page.type);
+            const imageBuffer = await generateOgImage(page.title, page.description, page.type, language);
 
             if (!imageBuffer) {
               throw new Error("Failed to generate image buffer");

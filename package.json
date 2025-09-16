@@ -28,7 +28,6 @@
     "setup-fonts": "node scripts/copy-local-fonts.cjs || node scripts/setup-fonts.cjs",
     "generate-og": "node scripts/generate-og-images.cjs",
     "generate-og-images": "node scripts/setup-fonts.cjs && node scripts/generate-og-images.cjs",
-    "db:setup": "node db-setup-wrapper.mjs",
     "sync:categories": "node scripts/sync-categories.cjs",
     "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs"
   },
@@ -43,7 +42,6 @@
     "@astrojs/sitemap": "^3.5.1",
     "@astropub/flow": "^0.4.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.7",
-    "@libsql/client": "^0.15.15",
     "astro": "^5.13.7",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",

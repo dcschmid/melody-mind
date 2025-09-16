@@ -173,6 +173,32 @@ const episodeNumber = computeEpisodeNumber(podcast.id);
     <meta name="twitter:title" content={podcast.title} />
     <meta name="twitter:description" content={podcast.description} />
     <meta name="twitter:image" content={new URL(podcast.imageUrl, baseUrl).toString()} />
+
+    {
+      (() => {
+        const base = Astro.site?.toString().replace(/\/$/, "") || "";
+        const list = {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: t("nav.home") || "Home",
+              item: `${base}/${lang}`,
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: t("podcast.title") || "Podcasts",
+              item: `${base}/${lang}/podcasts`,
+            },
+            { "@type": "ListItem", position: 3, name: podcast.title, item: currentUrl.toString() },
+          ],
+        };
+        return <script is:inline type="application/ld+json" set:html={JSON.stringify(list)} />;
+      })()
+    }
   </Fragment>
 
   <!-- Navigation Back -->

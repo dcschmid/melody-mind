@@ -113,6 +113,7 @@ const clientTranslations = {
     articlesFound: safeUi["knowledge.search.articlesFound"] || "articles found",
     placeholder: safeUi["knowledge.search.placeholder"] || "Search articles...",
     resetText: safeUi["knowledge.search.reset.text"] || "Reset",
+    noResultsFor: safeUi["knowledge.search.no_results_for"] || 'No results for "{term}"',
   },
 };
 ---
@@ -365,7 +366,8 @@ const clientTranslations = {
     import { initGenericSearchAuto } from "../../../utils/components/searchUtils";
 
     // Module-based initialization (restore previous behavior) and expose instance for debugging/reset
-    document.addEventListener("DOMContentLoaded", () => {
+    /* eslint-disable @typescript-eslint/explicit-function-return-type */
+    function wire() {
       // Client-side fallback: apply translations from window.knowledgeTranslations if available
       // small helper to apply translations safely
       function applyKnowledgeTranslations(): void {
@@ -397,7 +399,7 @@ const clientTranslations = {
       try {
         applyKnowledgeTranslations();
       } catch {
-        // ignore client-side translation wiring errors
+        // ignore translation application errors
       }
 
       const instance = initGenericSearchAuto({
@@ -410,7 +412,12 @@ const clientTranslations = {
           const noEl = document.getElementById("no-results");
           if (noEl) {
             noEl.style.display = "";
-            noEl.textContent = `No results for "${term}"`;
+            const tpl =
+              (window.knowledgeTranslations &&
+                window.knowledgeTranslations.search &&
+                window.knowledgeTranslations.search.noResultsFor) ||
+              'No results for "{term}"';
+            noEl.textContent = String(tpl).replace("{term}", term);
           }
         },
         onResultsUpdated: (visibleCount, term) => {
@@ -440,12 +447,9 @@ const clientTranslations = {
       });
 
       try {
-        if (typeof window !== "undefined") {
-          // expose last created instance for debugging and reset from other scripts
-          window.__lastSearchInstance = instance;
-        }
+        window.__lastSearchInstance = instance;
       } catch {
-        // ignore in non-browser environments
+        // ignore assigning instance errors
       }
 
       // Wire reset button to clear the generic search instance (if available)
@@ -454,27 +458,32 @@ const clientTranslations = {
         if (resetBtn) {
           resetBtn.addEventListener("click", () => {
             try {
-              if (typeof window !== "undefined" && window.__lastSearchInstance) {
-                const inst = window.__lastSearchInstance;
-                if (inst && typeof inst.clear === "function") {
-                  inst.clear();
-                } else if (inst && typeof inst.performSearch === "function") {
-                  // fallback: call performSearch with empty string to reset
-                  inst.performSearch("");
-                }
+              const inst = window.__lastSearchInstance;
+              if (inst && typeof inst.clear === "function") {
+                inst.clear();
+              } else if (inst && typeof inst.performSearch === "function") {
+                inst.performSearch("");
               }
               const input = document.getElementById("searchInput");
               if (input) {
                 input.focus();
               }
             } catch {
-              // ignore errors during reset
+              // ignore reset errors
             }
           });
         }
       } catch {
-        // ignore wiring errors in non-browser environments
+        // ignore wiring reset button errors
       }
-    });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => {
+        (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
+      });
+    } else {
+      (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
+    }
   </script>
 </Layout>

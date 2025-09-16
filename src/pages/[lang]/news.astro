@@ -69,6 +69,16 @@ const lastUpdatedDateString = newsData?.lastUpdated
       new Date(newsData.lastUpdated)
     )
   : "";
+
+// Breadcrumbs (Home → News)
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: t("nav.home"), item: `${baseUrl}/${currentLang}/` },
+    { "@type": "ListItem", position: 2, name: pageTitle, item: currentUrl },
+  ],
+};
 /**
  * Versucht ein geeignetes Bild für ein Feed-Item zu extrahieren.
  * Reihenfolge: item.imageUrl -> enclosure.url -> media.url -> erstes <img> in content/description -> Fallback
@@ -304,6 +314,7 @@ const newsStructuredData = items.length
   <!-- Enhanced structured data for news -->
   <Fragment slot="head">
     <link rel="canonical" href={currentUrl} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     {
       newsStructuredData && (

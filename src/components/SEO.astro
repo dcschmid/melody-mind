@@ -217,6 +217,13 @@ const criticalResources: CriticalResource[] = [
 <meta property="og:image" content={imageURL} />
 <meta property="og:image:alt" content={`Melody Mind - ${title}`} />
 <meta property="og:locale" content={String(lang).replace("-", "_")} />
+{
+  alternateLanguages
+    .filter(({ langCode }) => langCode !== String(lang))
+    .map(({ langCode }) => (
+      <meta property="og:locale:alternate" content={String(langCode).replace("-", "_")} />
+    ))
+}
 <meta property="og:site_name" content="Melody Mind" />
 {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
 {modifiedDate && <meta property="article:modified_time" content={modifiedDate.toISOString()} />}

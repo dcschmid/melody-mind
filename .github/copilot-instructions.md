@@ -2,7 +2,13 @@
 
 This file provides general instructions for GitHub Copilot when working with the MelodyMind project.
 
-## Project Overvie## Documentation Guidelines
+## Project Overview
+
+MelodyMind is an engaging and competitive music trivia game where players can test their knowledge
+across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this
+game offers a thrilling experience with multiple categories and rounds.
+
+## Documentation Guidelines
 
 - All documentation must be written in English, regardless of the user interface language
 - Use clear and concise language
@@ -141,7 +147,6 @@ interface UserScore {
 - Implement code splitting
 - Use efficient rendering strategies
 - Cache static assets appropriately
-- Optimize database queries
 - Use HTTP/2 or HTTP/3 for resource delivery
 - Apply browser hints like preload and prefetch for critical resources
 

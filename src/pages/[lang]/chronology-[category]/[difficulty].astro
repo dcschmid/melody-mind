@@ -79,14 +79,47 @@ const user = { id: authResult.user?.id || "guest" };
 
 // 4. Meta-Daten für SEO
 const metaDescription = `${t("game.chronology.title")} - ${categoryData?.headline} (${t(`difficulty.${difficulty}`)})`;
+
+// Breadcrumbs (Home → Categories → Chronology → Category)
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const currentLang = String(lang);
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: t("nav.home"), item: `${baseUrl}/${currentLang}/` },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: t("game.categories.title"),
+      item: `${baseUrl}/${currentLang}/gamehome`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: t("game.chronology.title"),
+      item: `${baseUrl}/${currentLang}/chronology-${paramsCategory || category || ""}`,
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: categoryData?.headline || paramsCategory || category || "",
+      item: `${baseUrl}/${currentLang}/chronology-${paramsCategory || category || ""}/${difficulty || ""}`,
+    },
+  ],
+};
 ---
 
 <Layout
   title={`${t("game.chronology.title")} - ${categoryData?.headline}`}
   description={metaDescription}
+  image={`/og-images/social-share-chronology-${lang}.jpg`}
   showHeader={false}
   showCoins={false}
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
   <!-- Feedback- und End-Overlays -->
   <ChronologyFeedbackOverlay />
   <EndOverlay

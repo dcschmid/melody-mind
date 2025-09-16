@@ -157,19 +157,42 @@ const structuredData = {
     ratingCount: "150",
   },
 };
+
+// Breadcrumbs (Home → Categories → Time Pressure)
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: t("nav.home"), item: `${baseUrl}/${lang}/` },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: t("game.categories.title"),
+      item: `${baseUrl}/${lang}/gamehome`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: t("game.timepressure.title"),
+      item: `${baseUrl}/${lang}/time-pressure-${category}`,
+    },
+  ],
+};
 ---
 
 <Layout
   title={gameTitle}
   description={gameDescription}
   keywords={`${t("meta.keywords")}, time pressure, speed game`}
-  image={`/og-images/social-share-time-pressure-${category}-${lang}.jpg`}
+  image={`/og-images/social-share-timepressure-${lang}.jpg`}
   type="website"
   showHeader={false}
 >
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <meta name="robots" content="noindex, nofollow" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
   <main

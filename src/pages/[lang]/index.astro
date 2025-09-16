@@ -45,6 +45,15 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
 const pageType = "website";
 const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
+
+// Breadcrumbs (homepage)
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const currentUrl = `${baseUrl}/${String(lang)}/`;
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [{ "@type": "ListItem", position: 1, name: t("nav.home"), item: currentUrl }],
+};
 ---
 
 <Layout
@@ -56,6 +65,9 @@ const modifiedDate = new Date();
   {publishDate}
   {modifiedDate}
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
   <div class="mx-auto flex w-full max-w-5xl flex-col items-center">
     <Image
       class="mx-auto h-auto w-56 sm:w-48 md:w-64 lg:w-72 xl:w-80"

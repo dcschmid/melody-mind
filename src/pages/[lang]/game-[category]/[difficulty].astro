@@ -102,6 +102,35 @@ const getRoundsForDifficulty = (difficulty: string | undefined): number => {
 };
 
 const totalRounds = getRoundsForDifficulty(difficulty);
+
+// Breadcrumbs (Home → Categories → Category → Difficulty)
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const currentLang = String(lang);
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: t("nav.home"), item: `${baseUrl}/${currentLang}/` },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: t("game.categories.title"),
+      item: `${baseUrl}/${currentLang}/gamehome`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: currentCategoryData?.headline || paramsCategory || "",
+      item: `${baseUrl}/${currentLang}/game-${paramsCategory || ""}/${difficulty || ""}`,
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: t(`difficulty.${String(difficulty)}`) || String(difficulty),
+      item: `${baseUrl}/${currentLang}/game-${paramsCategory || ""}/${difficulty || ""}`,
+    },
+  ],
+};
 ---
 
 <Layout
@@ -109,7 +138,11 @@ const totalRounds = getRoundsForDifficulty(difficulty);
   showHeader={false}
   showCoins={false}
   description={metaDescription}
+  image={currentCategoryData?.imageUrl || `/og-images/social-share-gamehome-${lang}.jpg`}
 >
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
   <FeedbackOverlay buttonId="quiz-next-round-button" />
 
   <EndOverlay

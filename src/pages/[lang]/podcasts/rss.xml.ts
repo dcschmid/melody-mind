@@ -25,7 +25,7 @@ async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]>
   };
 
   const podcasts = podcastDataMap[language as keyof typeof podcastDataMap];
-  return Array.isArray(podcasts) ? podcasts : [];
+  return Array.isArray(podcasts) ? (podcasts as PodcastData[]) : [];
 }
 
 /**

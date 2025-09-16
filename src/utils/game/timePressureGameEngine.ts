@@ -1017,7 +1017,7 @@ export class TimePressureGameEngine {
       difficultyStats: getTimePressureStats(),
     };
 
-    // Check achievements (no database saving in guest mode)
+  // Check achievements (no persistent storage required)
     try {
       await this.checkGameAchievements(gameStats);
     } catch (error) {
@@ -1041,8 +1041,7 @@ export class TimePressureGameEngine {
    */
   async checkGameAchievements(_gameStats: GameStats): Promise<void> {
     try {
-      // TODO: Implement time pressure specific achievements
-      // Skip achievement checking for now to avoid database/import issues in client
+  // TODO: Implement time pressure specific achievements (purely client-side)
       // Parameter intentionally unused in this client-side build
     } catch (error) {
       handleGameError(error, "achievement check");

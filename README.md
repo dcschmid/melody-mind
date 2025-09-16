@@ -4,7 +4,7 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this
 game offers a thrilling experience with multiple categories and rounds.
 
-## 🚀 Key Features:
+## 🚀 Key Features
 
 - Multiple Difficulty Levels: Choose between Easy, Medium, and Hard modes:
   - Easy: 10 questions per round
@@ -31,7 +31,7 @@ game offers a thrilling experience with multiple categories and rounds.
   your position in genre-specific and overall rankings.
 - Music Genres: Select from a variety of music genres and prove your expertise in each category.
 
-## 💡 How to Play:
+## 💡 How to Play
 
 1. Select your favorite music genre.
 2. Choose a difficulty level and start answering trivia questions.
@@ -41,11 +41,12 @@ game offers a thrilling experience with multiple categories and rounds.
    if you answer all questions correctly.
 5. Track your position on the leaderboards and aim to become a Music Legend.
 
-## 🔧 Technologies Used:
+## 🔧 Technologies Used
 
 - Astro.js: For building the static and dynamic pages of the application.
 - TypeScript: To ensure type safety and provide better developer experience.
-- Astro DB: For managing game data, user profiles, and leaderboards.
+- Static JSON & Markdown Data: All questions, genres, and content are stored as static assets (no
+  external database).
 - HTML5 & CSS3: For designing the user interface and styling the game.
 - JSON: For managing question data and game configurations.
 - Vitest: For unit and integration testing with TypeScript support.
@@ -80,9 +81,15 @@ yarn test:coverage
 
 For detailed testing guidelines, see [docs/testing-setup.md](docs/testing-setup.md).
 
-## 🎯 Tips for Success:
+## 🎯 Tips for Success
 
 - Start with Easy mode to get comfortable, then work your way up to Hard.
 - Use your 50:50 Jokers wisely, especially in the harder difficulty levels.
 - Pay attention to your favorite genres for a better chance at winning.
 - Practice regularly to improve your ranking and collect more rewards!
+
+## 🤖 AI Coding Agents
+
+For automated or AI-assisted contributions, see `AGENTS.md` for project-specific agent guidelines
+(commands, coding standards, performance, accessibility, and safety rules). Human contributors can
+largely ignore it unless curious about automation practices.

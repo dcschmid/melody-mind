@@ -162,7 +162,7 @@ const breadcrumbSchema = {
   {title}
   description={optimizedDescription}
   {keywords}
-  image={`/og-images/social-share-playlist-${lang}.jpg`}
+  image={`/og-images/social-share-playlists-${lang}.jpg`}
   type="website"
   publishDate={new Date()}
   modifiedDate={new Date()}
@@ -345,8 +345,8 @@ const breadcrumbSchema = {
 <script>
   import { initGenericSearchAuto } from "../../utils/components/searchUtils";
 
-  // Initialize generic list search for playlists (module-based)
-  document.addEventListener("DOMContentLoaded", () => {
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+  function wire() {
     const instance = initGenericSearchAuto({
       inputId: "playlist-search",
       clearButtonId: "clear-search",
@@ -356,40 +356,41 @@ const breadcrumbSchema = {
     });
 
     try {
-      // expose the instance for debugging / reset
-      if (typeof window !== "undefined") {
-        window.__lastSearchInstance = instance;
-      }
+      window.__lastSearchInstance = instance;
     } catch {
-      // ignore in non-browser environments
+      // ignore storing instance
     }
 
-    // Wire reset button to clear the generic search instance (if available)
     try {
       const resetBtn = document.getElementById("reset-search");
       if (resetBtn) {
         resetBtn.addEventListener("click", () => {
           try {
-            if (typeof window !== "undefined" && window.__lastSearchInstance) {
-              const inst = window.__lastSearchInstance;
-              if (inst && typeof inst.clear === "function") {
-                inst.clear();
-              } else if (inst && typeof inst.performSearch === "function") {
-                // fallback: call performSearch with empty string to reset
-                inst.performSearch("");
-              }
+            const inst = window.__lastSearchInstance;
+            if (inst && typeof inst.clear === "function") {
+              inst.clear();
+            } else if (inst && typeof inst.performSearch === "function") {
+              inst.performSearch("");
             }
             const input = document.getElementById("playlist-search");
             if (input) {
               input.focus();
             }
           } catch {
-            // ignore errors during reset
+            // ignore reset errors
           }
         });
       }
     } catch {
-      // ignore wiring errors in non-browser environments
+      // ignore listener setup errors
     }
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
+    });
+  } else {
+    (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
+  }
 </script>

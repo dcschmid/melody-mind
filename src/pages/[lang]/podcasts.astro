@@ -97,7 +97,7 @@ const generatePodcastPageSchema = () => ({
 const pageSchema = generatePodcastPageSchema();
 ---
 
-<Layout {title} {description} type="website" image="/social-share.jpg">
+<Layout {title} {description} type="website" image={`/og-images/social-share-podcasts-${lang}.jpg`}>
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
 
@@ -116,6 +116,32 @@ const pageSchema = generatePodcastPageSchema();
     <!-- Open Graph for Podcasts -->
     <meta property="og:type" content="music.playlist" />
     <meta property="music:creator" content="MelodyMind" />
+
+    {
+      (() => {
+        const base = Astro.site?.toString().replace(/\/$/, "") || "";
+        const current = new URL(Astro.url.pathname, Astro.site).toString();
+        const list = {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: t("nav.home") || "Home",
+              item: `${base}/${lang}`,
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: t("podcast.title") || "Podcasts",
+              item: current,
+            },
+          ],
+        };
+        return <script is:inline type="application/ld+json" set:html={JSON.stringify(list)} />;
+      })()
+    }
   </Fragment>
 
   <!-- Hero Section -->
@@ -449,7 +475,8 @@ const pageSchema = generatePodcastPageSchema();
     import { initDefaultMusicButtons } from "../../utils/components/musicButtonsUtils";
     import { initGenericSearchAuto } from "../../utils/components/searchUtils";
 
-    document.addEventListener("DOMContentLoaded", () => {
+    /* eslint-disable @typescript-eslint/explicit-function-return-type */
+    function wire() {
       const instance = initGenericSearchAuto({
         inputId: "podcast-search",
         clearButtonId: "clear-search",
@@ -457,47 +484,49 @@ const pageSchema = generatePodcastPageSchema();
       });
 
       try {
-        if (typeof window !== "undefined") {
-          window.__lastSearchInstance = instance;
-        }
+        window.__lastSearchInstance = instance;
       } catch {
-        // ignore in non-browser environments
+        // ignore storing instance
       }
 
-      // Wire reset button to clear the generic search instance (if available)
       try {
         const resetBtn = document.getElementById("reset-search");
         if (resetBtn) {
           resetBtn.addEventListener("click", () => {
             try {
-              if (typeof window !== "undefined" && window.__lastSearchInstance) {
-                const inst = window.__lastSearchInstance;
-                if (inst && typeof inst.clear === "function") {
-                  inst.clear();
-                } else if (inst && typeof inst.performSearch === "function") {
-                  // fallback: call performSearch with empty string to reset
-                  inst.performSearch("");
-                }
+              const inst = window.__lastSearchInstance;
+              if (inst && typeof inst.clear === "function") {
+                inst.clear();
+              } else if (inst && typeof inst.performSearch === "function") {
+                inst.performSearch("");
               }
               const input = document.getElementById("podcast-search");
               if (input) {
                 input.focus();
               }
             } catch {
-              // ignore errors during reset
+              // ignore reset errors
             }
           });
         }
       } catch {
-        // ignore wiring errors in non-browser environments
+        // ignore listener errors
       }
 
       // Initialize music platform link tracking (Fathom) for this page
       try {
         initDefaultMusicButtons();
       } catch {
-        // non-critical: swallow errors
+        // ignore music button init errors
       }
-    });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => {
+        (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
+      });
+    } else {
+      (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
+    }
   </script>
 </Layout>

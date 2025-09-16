@@ -1,0 +1,251 @@
+---
+import { Picture } from "astro:assets";
+import { useTranslations } from "@utils/i18n";
+import ButtonLink from "./ButtonLink.astro";
+import type { PlayableCategory } from "@utils/features/dailyChallenge";
+import { pickDailyCategory, buildGameRoute, dailyKeyUTC } from "@utils/features/dailyChallenge";
+
+interface Props {
+  lang: string;
+  categories: PlayableCategory[];
+}
+
+const { lang, categories } = Astro.props as Props;
+const t = useTranslations(String(lang));
+
+const todayCategory = pickDailyCategory(categories);
+const todayKey = dailyKeyUTC();
+---
+
+{
+  todayCategory && (
+    <section
+      id="daily-challenge"
+      class="relative mb-8 overflow-hidden rounded-2xl border border-blue-600/40 bg-gradient-to-br from-blue-900/40 via-indigo-900/30 to-purple-900/30 shadow-xl"
+      aria-labelledby="daily-challenge-title"
+      data-today-key={todayKey}
+    >
+      <div class="pointer-events-none absolute inset-0 opacity-20" aria-hidden="true">
+        <div class="absolute -top-10 -left-10 h-40 w-40 rounded-full bg-blue-500 blur-2xl" />
+        <div class="absolute -right-8 -bottom-16 h-56 w-56 rounded-full bg-purple-600 blur-2xl" />
+      </div>
+
+      <div class="grid grid-cols-1 gap-0 md:grid-cols-[1.2fr_1fr]">
+        <div class="p-5 sm:p-6 md:p-8">
+          <h2 id="daily-challenge-title" class="text-xl font-semibold text-white md:text-2xl">
+            {t("daily.challenge.title")}
+          </h2>
+          <p class="mt-1 text-sm text-blue-200/90">
+            {t("daily.challenge.date", { date: todayKey })}
+          </p>
+
+          {/* Streak badge (client-updated) */}
+          <div class="mt-2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-blue-100">
+            <span class="inline-block h-2 w-2 rounded-full bg-orange-400" />
+            <span class="font-medium">{t("daily.streak.label")}:</span>
+            <span id="daily-streak-count" class="tabular-nums">
+              0
+            </span>
+            <span class="sr-only" id="daily-streak-live" aria-live="polite" />
+          </div>
+
+          <div class="mt-4 flex items-center gap-4">
+            <div class="relative aspect-video w-40 overflow-hidden rounded-lg border border-white/10 md:w-56">
+              {/^https?:\/\//.test(todayCategory.imageUrl) ? (
+                <img
+                  src={todayCategory.imageUrl}
+                  alt={t("daily.challenge.image.alt", { category: todayCategory.headline })}
+                  class="h-full w-full object-cover"
+                  loading="eager"
+                  fetchpriority="high"
+                  width="640"
+                  height="360"
+                  decoding="async"
+                />
+              ) : (
+                <Picture
+                  src={todayCategory.imageUrl}
+                  alt={t("daily.challenge.image.alt", { category: todayCategory.headline })}
+                  widths={[320, 480, 640]}
+                  sizes="(max-width: 768px) 320px, 480px"
+                  formats={["avif", "webp", "jpg"]}
+                  width={640}
+                  height={360}
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              )}
+            </div>
+            <div>
+              <div class="text-base font-medium text-white md:text-lg">
+                {todayCategory.headline}
+              </div>
+              <p class="mt-1 text-sm text-blue-100/80">{t("daily.challenge.subtitle")}</p>
+            </div>
+          </div>
+
+          <div
+            class="mt-5 flex flex-wrap gap-3"
+            role="group"
+            aria-label={t("daily.challenge.cta.group")}
+          >
+            <ButtonLink href={buildGameRoute(lang, todayCategory.slug, "easy")} icon="play">
+              {t("category.difficulty.easy")}
+            </ButtonLink>
+            <ButtonLink href={buildGameRoute(lang, todayCategory.slug, "medium")} icon="bolt">
+              {t("category.difficulty.medium")}
+            </ButtonLink>
+            <ButtonLink href={buildGameRoute(lang, todayCategory.slug, "hard")} icon="fire">
+              {t("category.difficulty.hard")}
+            </ButtonLink>
+          </div>
+
+          <p class="sr-only" aria-live="polite">
+            {t("daily.challenge.screenreader.announce", { category: todayCategory.headline })}
+          </p>
+
+          {/* Played-today info (hidden until JS reveals) */}
+          <p id="daily-played-today" class="mt-3 hidden text-sm text-blue-200/90">
+            {t("daily.played.today")}
+          </p>
+        </div>
+
+        <div class="hidden items-stretch md:flex">
+          <div class="relative m-4 flex-1 overflow-hidden rounded-xl border border-white/10">
+            {/^https?:\/\//.test(todayCategory.imageUrl) ? (
+              <img
+                src={todayCategory.imageUrl}
+                alt=""
+                width="1200"
+                height="800"
+                class="h-full w-full object-cover"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                aria-hidden="true"
+              />
+            ) : (
+              <Picture
+                src={todayCategory.imageUrl}
+                alt=""
+                widths={[600, 900, 1200]}
+                sizes="(max-width: 1200px) 50vw, 600px"
+                formats={["avif", "webp", "jpg"]}
+                width={1200}
+                height={800}
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+                aria-hidden="true"
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<!-- Local-only daily streak logic (runs regardless, safely no-ops if element missing) -->
+<script is:inline>
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+  (() => {
+    const CARD_ID = "daily-challenge";
+    const LS_LAST = "mm_daily_last";
+    const LS_STREAK = "mm_daily_streak";
+    const LS_PLAYED = "mm_daily_played";
+
+    function parseISO(iso) {
+      const [y, m, d] = String(iso)
+        .split("-")
+        .map((x) => parseInt(x, 10));
+      if (!y || !m || !d) {
+        return null;
+      }
+      return new Date(Date.UTC(y, m - 1, d));
+    }
+
+    function formatUTC(date) {
+      const y = date.getUTCFullYear();
+      const m = String(date.getUTCMonth() + 1).padStart(2, "0");
+      const d = String(date.getUTCDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+
+    function yesterdayOf(iso) {
+      const dt = parseISO(iso);
+      if (!dt) {
+        return null;
+      }
+      dt.setUTCDate(dt.getUTCDate() - 1);
+      return formatUTC(dt);
+    }
+
+    function qs(id) {
+      return document.getElementById(id);
+    }
+    function updateBadge(count) {
+      const el = qs("daily-streak-count");
+      if (el) {
+        el.textContent = String(count);
+      }
+    }
+    function setPlayedTodayVisible(visible) {
+      const tip = qs("daily-played-today");
+      if (!tip) {
+        return;
+      }
+      if (visible) {
+        tip.classList.remove("hidden");
+      } else {
+        tip.classList.add("hidden");
+      }
+    }
+    function init() {
+      const root = document.getElementById(CARD_ID);
+      if (!root) {
+        return;
+      }
+      const todayKey = root.getAttribute("data-today-key");
+      if (!todayKey) {
+        return;
+      }
+      const streak = parseInt(localStorage.getItem(LS_STREAK) || "0", 10) || 0;
+      const playedToday = localStorage.getItem(LS_PLAYED) === todayKey;
+      updateBadge(streak);
+      setPlayedTodayVisible(playedToday);
+      root.addEventListener("click", (e) => {
+        const a = e.target && (e.target.closest ? e.target.closest("a[href]") : null);
+        if (!a) {
+          return;
+        }
+        try {
+          const last = localStorage.getItem(LS_LAST);
+          const played = localStorage.getItem(LS_PLAYED);
+          if (played === todayKey) {
+            setPlayedTodayVisible(true);
+            return;
+          }
+          const yest = yesterdayOf(todayKey);
+          const cont = last && yest && last === yest;
+          const newStreak = cont
+            ? (parseInt(localStorage.getItem(LS_STREAK) || "0", 10) || 0) + 1
+            : 1;
+          localStorage.setItem(LS_STREAK, String(newStreak));
+          localStorage.setItem(LS_LAST, todayKey);
+          localStorage.setItem(LS_PLAYED, todayKey);
+          updateBadge(newStreak);
+          setPlayedTodayVisible(true);
+        } catch {
+          /* ignore */
+        }
+      });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+</script>

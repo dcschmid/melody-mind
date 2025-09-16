@@ -226,13 +226,6 @@ const fontPreloads = [
     type: "font/woff2",
     crossorigin: "anonymous",
   },
-  // Fallback: Inter Regular for UI consistency
-  {
-    href: "/fonts/Inter-Regular.ttf",
-    as: "font" as const,
-    type: "font/ttf",
-    crossorigin: "anonymous",
-  },
 ];
 
 // DNS prefetching for external domains to reduce connection time and improve performance
@@ -249,8 +242,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <!-- Title and description are handled by SEO component to avoid duplication -->
 
     <!-- Color scheme and theme color for browser UI using CSS variables -->
     <meta name="color-scheme" content="dark light" />

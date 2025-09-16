@@ -108,7 +108,7 @@ const articleSchema = {
   },
   inLanguage: lang,
   keywords: entry.data.keywords?.join(", ") || "",
-  articleSection: "Music Knowledge",
+  articleSection: t("knowledge.title") || "Music Knowledge",
   wordCount: entry.body?.length || 0,
 };
 
@@ -138,7 +138,42 @@ function translate(key: string, fallback: string): string {
     musician: "Various Artists",
   }}
 >
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+    <!-- Breadcrumbs for Knowledge Article -->
+    {
+      (() => {
+        const base = Astro.site?.toString().replace(/\/$/, "") || "";
+        const current = new URL(Astro.url.pathname, Astro.site).toString();
+        const list = {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: t("nav.home") || "Home",
+              item: `${base}/${lang}`,
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: t("knowledge.title") || "Knowledge",
+              item: `${base}/${lang}/knowledge`,
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: title,
+              item: current,
+            },
+          ],
+        };
+        return <script is:inline type="application/ld+json" set:html={JSON.stringify(list)} />;
+      })()
+    }
+  </Fragment>
 
   <main class="min-h-screen">
     <div class="mx-auto">

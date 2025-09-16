@@ -167,8 +167,20 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 <script>
   import { initPlaylistCardsAuto } from "../utils/components/playlistCardUtils";
 
-  // Initialize playlist card functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    initPlaylistCardsAuto();
-  });
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+  function init() {
+    try {
+      initPlaylistCardsAuto();
+    } catch {
+      // Swallow errors (non-critical enhancement)
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(init);
+    });
+  } else {
+    (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(init);
+  }
 </script>
