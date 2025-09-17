@@ -22,12 +22,52 @@ export const prerender = false;
 
 // Note: getStaticPaths removed intentionally to keep build-time memory low.
 
-const { articles, lang } = Astro.props;
+// Resolve language robustly: prefer dynamic route param, then prop, then fallback 'en'
+const incomingProps = Astro.props as { articles?: any[]; lang?: string };
+const paramLang = (Astro as any).params?.lang; // Astro.params is available in page routes
+const lang: string =
+  typeof paramLang === "string"
+    ? paramLang
+    : typeof incomingProps.lang === "string"
+      ? incomingProps.lang
+      : "en";
+
+// Expectation: parent route may optionally pass articles. If absent we lazy load.
+const incomingArticles = incomingProps.articles;
 const t = useTranslations(String(lang));
 const uiLang = lang in ui ? (lang as keyof typeof ui) : "en";
 
-// Process articles with reading time
-const articlesWithReadingTime = articles.map((article: any) => {
+// Defensive acquisition: if articles not provided, attempt lazy import of the matching collection.
+let baseArticles: any[] = Array.isArray(incomingArticles) ? incomingArticles : [];
+if (baseArticles.length === 0) {
+  try {
+    // Use dynamic import to avoid build-time heavy loads if not necessary.
+    const { getCollection } = await import("astro:content");
+    const collectionName = `knowledge-${lang}`;
+    if (lang) {
+      baseArticles = await getCollection(collectionName).catch(() => []);
+    }
+
+    // Fallback auf Englisch wenn leer und nicht bereits en
+    const needsFallback =
+      (!Array.isArray(baseArticles) || baseArticles.length === 0) && lang !== "en";
+    if (needsFallback) {
+      const fallback = await getCollection("knowledge-en").catch(() => []);
+      if (Array.isArray(fallback) && fallback.length > 0) {
+        baseArticles = fallback;
+      }
+    }
+  } catch (e) {
+    // Non-fatal: leave baseArticles empty.
+    globalThis.console?.warn?.("knowledge index: collection load issue", {
+      lang,
+      error: (e as any)?.message || e,
+    });
+  }
+}
+
+// Process articles with reading time (guard against undefined)
+const articlesWithReadingTime = baseArticles.map((article: any) => {
   if (!article.data.readingTime) {
     const readingTime = calculateReadingTime(article.body || "");
     return {
@@ -100,11 +140,11 @@ const articleCollectionSchema = {
 };
 
 // Generate meta keywords from articles
-const metaKeywords = Array.from(
-  new Set(sortedArticles.flatMap((article) => article.data.keywords || []))
-)
-  .slice(0, 10)
-  .join(", ");
+const metaKeywords = sortedArticles.length
+  ? Array.from(new Set(sortedArticles.flatMap((article) => article.data.keywords || [])))
+      .slice(0, 10)
+      .join(", ")
+  : "";
 
 // Basic translations for JavaScript
 const clientTranslations = {

@@ -41,13 +41,15 @@ interface Props {
   categoryData: {
     headline: string;
     slug: string;
+    /** Optional image URL for social sharing & layout visuals */
+    imageUrl?: string;
   };
   lang: string;
 }
 
 // Extract props and URL parameters
 let { categoryData: propsCategoryData } = Astro.props as {
-  categoryData?: { slug?: string; headline?: string };
+  categoryData?: { slug?: string; headline?: string; imageUrl?: string };
 };
 const paramsCategory = Astro.params?.category;
 const detectedLang = String(getLangFromUrl(Astro.url));

@@ -64,17 +64,74 @@ export const prerender = false;
 //   };
 // };
 
-// 5. Main Component Logic
-const { entry, lang } = Astro.props;
+// 5. Main Component Logic (defensive loading when no entry prop is passed)
+interface IncomingProps {
+  entry?: any; // Content collection entry (if pre-fetched)
+  lang?: string;
+}
+
+const incoming = Astro.props as IncomingProps;
+const paramLang = (Astro as any).params?.lang;
+const lang: string = typeof paramLang === "string" ? paramLang : incoming.lang || "en";
+let entry: any = incoming.entry;
+
+// Runtime acquisition if entry not provided
+if (!entry) {
+  try {
+    const { getCollection } = await import("astro:content");
+    const collectionName = `knowledge-${lang}`;
+    let articles: any[] = await getCollection(collectionName).catch(() => []);
+
+    // Fallback to English collection if empty and not already English
+    if ((!articles || articles.length === 0) && lang !== "en") {
+      const english = await getCollection("knowledge-en").catch(() => []);
+      if (english && english.length) {
+        articles = english;
+      }
+    }
+
+    const slugParam = (Astro as any).params?.slug;
+    const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+    if (slug) {
+      entry = articles.find((a) => a.slug === slug || a.id === slug);
+    }
+  } catch (e) {
+    globalThis.console?.warn?.("knowledge article: collection load issue", {
+      lang,
+      error: (e as any)?.message || e,
+    });
+  }
+}
+
+// If still no entry, return 404 response early to avoid runtime errors
+if (!entry) {
+  return new Response("Not found", { status: 404 });
+}
+
+// Ensure readingTime present
+if (!entry.data.readingTime && entry.body) {
+  try {
+    entry = {
+      ...entry,
+      data: {
+        ...entry.data,
+        readingTime: getReadingTime(entry.body || "", { languageCode: lang }).minutes,
+      },
+    };
+  } catch {
+    // ignore reading time calculation errors
+  }
+}
+
 const t = useTranslations(lang);
 
-// Extract headings for table of contents
+// Extract headings and compiled content safely
 const { headings, Content } = await entry.render();
 
-// Get image source
+// Get image source (fallback)
 const imageSource = entry.data.image || "/default-cover.jpg";
 
-// SEO optimization
+// SEO optimization / meta description
 const title = entry.data.title;
 const description = entry.data.description;
 const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
