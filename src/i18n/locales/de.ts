@@ -234,13 +234,10 @@ export default {
 
   // Tages‑Challenge (ohne Datenbank)
   "daily.challenge.title": "Tages‑Challenge",
-  "daily.challenge.subtitle": "Eine Kategorie, drei Spielwege – komm täglich zurück!",
-  "daily.challenge.date": "Heute: {date}",
+  "daily.challenge.subtitle": "Neue Kategorie heute. Schlage die Zeit.",
   "daily.challenge.image.alt": "Titelbild der Tages‑Challenge: {category}",
   "daily.challenge.cta.group": "Schwierigkeitsgrad für die Tages‑Challenge wählen",
   "daily.challenge.screenreader.announce": "Die heutige Challenge‑Kategorie ist {category}",
-  "daily.streak.label": "Serie",
-  "daily.played.today": "Du hast die heutige Challenge bereits gespielt.",
   "game.end.progressDescription": "Visuelle Fortschrittsleiste, die deine Erfolgsstufe hervorhebt",
   "game.end.restartButtonHelp":
     "Starte sofort eine neue Spielrunde mit derselben Schwierigkeit und Kategorie",
@@ -551,4 +548,15 @@ export default {
   "pages.imprint.contact_label": "E‑Mail:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Bei Rückfragen: dcschmid@murena.io",
+  "index.card.game.title": "Spielübersicht",
+  "index.card.game.desc": "Starte in spannende Quiz‑Modi, kombiniere Tempo, Taktik und echtes Musikwissen – meistere Kategorien, halte Serien, schalte später Achievements frei und feile täglich an deinem Gefühl für Sounds und Details. 🎯",
+  "index.card.knowledge.title": "Musikwissen",
+  "index.card.knowledge.desc": "Tauche in Ursprünge, Stilmerkmale, Schlüsselalben, Einflüsse und Hörtipps ein – verwandle beiläufiges Hören in gezielte Entdeckungsreisen und werde zur Quelle für fundierte Musikfragen im Freundeskreis. 📚",
+  "index.card.playlists.title": "Playlists",
+  "index.card.playlists.desc": "Reise durch Jahrzehnte, Stimmungen und Szenen: kuratierte Mixes mit Klassikern, Geheimtipps und Klangfarben zum Lernen, Fokussieren oder Abschalten – wachse musikalisch, während du einfach genießt. 🎶",
+  "index.card.podcast.title": "Podcast",
+  "index.card.podcast.desc": "Inspirierende Gespräche, Hintergründe, kreative Prozesse und Kulturkontext – unterwegs hören, Neugier füttern, Perspektiven erweitern und motiviert bleiben auf deinem Weg zum echten Musikverständnis. 🎙️",
+  "index.card.news.title": "Neuigkeiten",
+  "index.card.news.desc": "Neue Features, Feinschliff, Performance‑Verbesserungen und Highlights aus der Musikwelt – bleib informiert, erkenne Chancen früh und verpasse keinen Schritt auf deinem MelodyMind Fortschrittspfad. ✨",
+  "index.overview.sections": "Startseiten‑Bereiche",
 };

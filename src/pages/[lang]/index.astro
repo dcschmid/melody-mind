@@ -10,9 +10,10 @@ import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import Headline from "@components/Headline.astro";
+import SectionCard from "@components/home/SectionCard.astro";
+import DailyChallengeCard from "@components/DailyChallengeCard.astro";
 import Paragraph from "@components/Paragraph.astro";
-import ButtonLink from "@components/ButtonLink.astro";
+import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
 
 // Extract language from URL and set up translations
 const lang = getLangFromUrl(Astro.url);
@@ -54,6 +55,65 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   itemListElement: [{ "@type": "ListItem", position: 1, name: t("nav.home"), item: currentUrl }],
 };
+
+// Card definitions for homepage sections
+const cards = [
+  {
+    key: "game",
+    title: t("index.card.game.title") || "Game Overview",
+    description:
+      t("index.card.game.desc") || "Start the music trivia game and test your knowledge.",
+    href: `/${String(lang)}/gamehome`,
+    image: "/homecategories/game.png",
+    imageAlt: "Game overview illustration",
+  },
+  {
+    key: "knowledge",
+    title: t("index.card.knowledge.title") || "Music Knowledge",
+    description:
+      t("index.card.knowledge.desc") || "Deep dive into music facts and category insights.",
+    href: `/${String(lang)}/knowledge`,
+    image: "/homecategories/knowledge.png",
+    imageAlt: "Music knowledge illustration",
+  },
+  {
+    key: "playlists",
+    title: t("index.card.playlists.title") || "Playlists",
+    description: t("index.card.playlists.desc") || "Explore themed playlists for each genre.",
+    href: `/${String(lang)}/playlists`,
+    image: "/homecategories/playlist.png",
+    imageAlt: "Playlist collection graphic",
+  },
+  {
+    key: "podcast",
+    title: t("index.card.podcast.title") || "Podcast",
+    description: t("index.card.podcast.desc") || "Listen to our music trivia podcast episodes.",
+    href: `/${String(lang)}/podcasts`,
+    image: "/homecategories/podcast.png",
+    imageAlt: "Podcast microphone and notes",
+  },
+  {
+    key: "news",
+    title: t("index.card.news.title") || "News",
+    description: t("index.card.news.desc") || "Latest updates, features and release notes.",
+    href: `/${String(lang)}/news`,
+    image: "/homecategories/news.png",
+    imageAlt: "News updates illustration",
+  },
+];
+
+// Kategorien laden (vereinfachter Ansatz nur für Daily Challenge)
+let playableCategories: any[] = [];
+try {
+  const result = await loadCategoriesForLanguage({
+    language: String(lang),
+    fallbackLanguage: "en",
+    useAliasPath: true,
+  });
+  playableCategories = result.categories.filter((c: any) => c.isPlayable);
+} catch {
+  playableCategories = [];
+}
 ---
 
 <Layout
@@ -68,46 +128,92 @@ const breadcrumbSchema = {
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
-  <div class="mx-auto flex w-full max-w-5xl flex-col items-center">
-    <Image
-      class="mx-auto h-auto w-56 sm:w-48 md:w-64 lg:w-72 xl:w-80"
-      src="/melody-mind.png"
-      width={800}
-      height={800}
-      alt="Melody Mind Logo - Music Quiz App Logo"
-      loading="eager"
-      fetchpriority="high"
-    />
+  <div class="mx-auto w-full max-w-screen-xl px-4 pt-6 pb-14 sm:px-6 lg:px-8">
+    <header class="mb-8 sm:mb-10">
+      <h1 class="sr-only">{title}</h1>
+      <div
+        class="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-6 md:flex-row md:items-center md:gap-10 lg:gap-14"
+      >
+        <div class="shrink-0">
+          <Image
+            class="mx-auto h-auto"
+            src="/melody-mind.png"
+            width={320}
+            height={320}
+            alt="Melody Mind Logo - Music Quiz App Logo"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="max-w-[62ch] text-center md:text-left">
+          <Paragraph textSize="lg" textAlign="center" className="m-0 leading-relaxed">
+            {description}
+          </Paragraph>
+        </div>
+      </div>
+    </header>
 
-    {/* Semantic heading with proper hierarchy and responsive sizing */}
-    <Headline level="h1" textAlign="center">
-      {title}
-    </Headline>
+    <section class="mb-10" aria-label={t("index.overview.sections") || "Application sections"}>
+      <div
+        class="mb-10 grid grid-cols-1 gap-6 sm:mb-12 sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] sm:gap-6 md:gap-7 lg:gap-8 xl:gap-9"
+        role="list"
+        aria-label={t("index.overview.sections") || "Application sections"}
+      >
+        {
+          cards.map((card, idx) => {
+            // After first two cards, inject the Daily Challenge to sit "zentriert" im Grid
+            if (idx === 2) {
+              return (
+                <Fragment>
+                  <SectionCard
+                    title={cards[0].title}
+                    description={cards[0].description}
+                    href={cards[0].href}
+                    image={cards[0].image}
+                    imageAlt={cards[0].imageAlt}
+                  />
+                  <SectionCard
+                    title={cards[1].title}
+                    description={cards[1].description}
+                    href={cards[1].href}
+                    image={cards[1].image}
+                    imageAlt={cards[1].imageAlt}
+                  />
+                  <DailyChallengeCard lang={String(lang)} categories={playableCategories as any} />
+                  <SectionCard
+                    title={cards[2].title}
+                    description={cards[2].description}
+                    href={cards[2].href}
+                    image={cards[2].image}
+                    imageAlt={cards[2].imageAlt}
+                  />
+                </Fragment>
+              );
+            }
+            if (idx < 2) {
+              return null;
+            } // already rendered above
+            if (idx === 2) {
+              return null;
+            } // handled
+            return (
+              <SectionCard
+                title={card.title}
+                description={card.description}
+                href={card.href}
+                image={card.image}
+                imageAlt={card.imageAlt}
+              />
+            );
+          })
+        }
+      </div>
+    </section>
 
-    {/* Description with responsive text and max width for readability */}
-    <Paragraph textAlign="center" textSize="xl">
-      {description}
-    </Paragraph>
-
-    {/* Accessible button container optimized for mobile-first full-width touch targets */}
-    <div class="mx-auto my-4">
-      <ButtonLink href={`/${String(lang)}/gamehome`} aria-label={t("index.start.game.label")}>
-        <span>{t("index.continue")}</span>
-      </ButtonLink>
-    </div>
-
-    {/* Footer text with improved contrast ratio and generous spacing for mobile */}
-    <div class="mx-auto w-full">
-      <Paragraph textSize="lg" textAlign="center">
-        {t("index.welcome.footnote")}
-      </Paragraph>
-    </div>
+    <footer class="mt-10 text-center text-sm text-violet-200">
+      <Paragraph textSize="lg" textAlign="center" className="m-0 mb-0 text-violet-200"
+        >{t("index.welcome.footnote")}</Paragraph
+      >
+    </footer>
   </div>
 </Layout>
-
-<script>
-  import { initIndexPageAuto } from "../../utils/components/indexPageUtils";
-
-  // Initialize index page functionality
-  initIndexPageAuto();
-</script>

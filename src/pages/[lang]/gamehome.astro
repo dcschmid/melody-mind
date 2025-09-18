@@ -6,7 +6,6 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
-import DailyChallengeCard from "@components/DailyChallengeCard.astro";
 
 import EmptyState from "@components/EmptyState.astro";
 import LoadingState from "@components/LoadingState.astro";
@@ -440,9 +439,6 @@ const clientTranslations = generateClientTranslations(t);
         </Paragraph>
       </div>
     </header>
-
-    {/* Daily Challenge (DB-free) */}
-    <DailyChallengeCard {lang} categories={playableCategories as any} />
 
     <section class="style flex-grow contain-layout" aria-labelledby="playlist-heading">
       <!-- Enhanced genre grid with semantic markup -->

@@ -6,13 +6,10 @@ export default {
 
   // Desafío Diario (sin base de datos; textos en inglés por defecto)
   "daily.challenge.title": "Desafío diario",
-  "daily.challenge.subtitle": "Una categoría, tres formas de jugar — ¡vuelve cada día!",
-  "daily.challenge.date": "Hoy: {date}",
+  "daily.challenge.subtitle": "Nueva categoría hoy. Vence al reloj.",
   "daily.challenge.image.alt": "Portada del desafío diario: {category}",
   "daily.challenge.cta.group": "Elige la dificultad del Desafío diario",
   "daily.challenge.screenreader.announce": "La categoría del desafío de hoy es {category}",
-  "daily.streak.label": "Racha",
-  "daily.played.today": "Ya has jugado el desafío de hoy.",
   "knowledge.search.label": "Buscar por título o descripción",
   "knowledge.search.title": "Buscar artículos",
   "knowledge.search.subtitle": "Encuentra artículos por título, descripción o palabras clave",
@@ -291,7 +288,7 @@ export default {
     "🎵 ¿Listo para la aventura musical definitiva? Sumérgete en un mundo de ritmo, melodía y canciones inolvidables. Desde solos épicos hasta clásicos atemporales: encuentra tu batalla musical perfecta. ¡Muestra que eres todo un conocedor!",
   "game.start.now": "Comenzar ahora",
   "game.submit.answer": "Comprobar respuesta",
-  "game.submit.answer.aria": "Comprobar el orden actual y pasar a la siguiente ronda",
+  "game.submit.answer.aria": "Comprobar el orden currente y pasar a la siguiente ronda",
   "game.welcome": "Bienvenido a Melody Mind",
   "general.close": "Cerrar",
   "general.keyboard.enter": "Enter",
@@ -539,4 +536,16 @@ export default {
   "pages.imprint.contact_label": "Correo electrónico:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Para consultas: dcschmid@murena.io",
+
+  // Nuevas claves para la tarjeta de inicio
+  "index.card.game.title": "Resumen del juego",
+  "index.card.game.desc": "Entra en modos de quiz musicales llenos de ritmo y estrategia — domina categorías, encadena rachas, desbloquea logros futuros y vuelve a diario para afinar oído, memoria y reflejos en cada partida. 🎯",
+  "index.card.knowledge.title": "Conocimiento musical",
+  "index.card.knowledge.desc": "Explora orígenes, influencias, discos clave, evolución sonora y consejos de escucha — transforma oír casual en descubrimiento consciente y sé la persona referente cuando alguien busca contexto musical. 📚",
+  "index.card.playlists.title": "Listas de reproducción",
+  "index.card.playlists.desc": "Viaja por décadas, escenas y estados de ánimo con listas curadas — himnos eternos, joyas ocultas y matices globales para estudiar, concentrarte, inspirarte o simplemente disfrutar creciendo musicalmente. 🎶",
+  "index.card.podcast.title": "Podcast",
+  "index.card.podcast.desc": "Charlas largas inspiradoras, procesos creativos, cultura musical y relatos detrás del sonido — escucha en movimiento, alimenta curiosidad y amplía perspectiva mientras evolucionas como oyente. 🎙️",
+  "index.card.news.title": "Noticias",
+  "index.card.news.desc": "Nuevas funciones, mejoras visuales, optimizaciones y momentos clave del universo musical — mantente atento, detecta oportunidades de juego y no te pierdas avances que elevan tu experiencia. ✨",
 };

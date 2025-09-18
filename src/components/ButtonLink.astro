@@ -53,6 +53,8 @@ interface Props {
    *  If omitted, consumers should ensure the accessible name is provided by surrounding context.
    */
   ariaLabel?: string;
+  /** Ids of elements that describe this control (space separated). */
+  ariaDescribedBy?: string;
   /** Additional CSS classes to apply */
   className?: string;
   /** Target attribute for links */
@@ -74,6 +76,7 @@ const {
   type = "button",
   disabled = false,
   ariaLabel,
+  ariaDescribedBy,
   className = "",
   target = "_self",
   rel,
@@ -171,6 +174,7 @@ const srOnlyClasses = [
       aria-label={
         ariaLabel ? `${ariaLabel}${isExternal ? ` (${externalLinkText})` : ""}` : undefined
       }
+      aria-describedby={ariaDescribedBy}
       target={target}
       rel={finalRel}
       style={style}
@@ -181,7 +185,14 @@ const srOnlyClasses = [
       {isExternal && <span class={srOnlyClasses}> ({externalLinkText})</span>}
     </a>
   ) : (
-    <button type={type} disabled={disabled} class={classes} aria-label={ariaLabel} style={style}>
+    <button
+      type={type}
+      disabled={disabled}
+      class={classes}
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedBy}
+      style={style}
+    >
       {icon && <Icon name={icon} class={iconClasses} />}
       <slot />
     </button>

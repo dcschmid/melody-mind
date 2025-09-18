@@ -6,13 +6,10 @@ export default {
   
   // Desafio diário (sem BD; fallback em inglês)
   "daily.challenge.title": "Desafio diário",
-  "daily.challenge.subtitle": "Uma categoria, três formas de jogar — volta todos os dias!",
-  "daily.challenge.date": "Hoje: {date}",
+  "daily.challenge.subtitle": "Nova categoria hoje. Vence o tempo.",
   "daily.challenge.image.alt": "Capa do desafio diário: {category}",
   "daily.challenge.cta.group": "Escolhe a dificuldade do Desafio diário",
   "daily.challenge.screenreader.announce": "A categoria do desafio de hoje é {category}",
-  "daily.streak.label": "Sequência",
-  "daily.played.today": "Já jogaste o desafio de hoje.",
   "knowledge.search.label": "Pesquisar por título ou descrição",
   "knowledge.search.title": "Pesquisar artigos",
   "knowledge.search.subtitle": "Encontre artigos por título, descrição ou palavras-chave",
@@ -545,4 +542,16 @@ export default {
   "pages.imprint.contact_label": "E‑mail:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Para consultas: dcschmid@murena.io",
+
+  "index.card.game.title": "Quiz Musical",
+  "index.card.game.desc": "🔥 Teste seu conhecimento musical e prove que você domina gêneros, épocas e estilos! Cada rodada é um novo desafio para ganhar pontos, desbloquear conquistas e subir no ranking. Você está pronto para defender seu título?",
+  "index.card.knowledge.title": "Conhecimento Musical",
+  "index.card.knowledge.desc": "📚 Aprofunde-se em histórias, gêneros, artistas e contextos culturais. Artigos envolventes revelam curiosidades, caminhos criativos e conexões inesperadas — perfeitos para ampliar seu repertório e descobrir algo novo hoje mesmo!",
+  "index.card.playlists.title": "Playlists Curadas",
+  "index.card.playlists.desc": "🎧 Embarque em viagens sonoras temáticas — décadas lendárias, movimentos culturais e climas perfeitos. Descubra faixas que definiram gerações e expanda sua biblioteca com seleções feitas com cuidado para inspirar cada sessão de escuta.",
+  "index.card.podcast.title": "Podcast",
+  "index.card.podcast.desc": "🎙️ Histórias de bastidores, conversas apaixonadas e perspectivas que fazem você ouvir com novos ouvidos. Ideal para fãs curiosos que querem sentir a música além do som — mergulhe e deixe-se inspirar a cada episódio!",
+  "index.card.news.title": "Notícias Musicais",
+  "index.card.news.desc": "📰 Mantenha-se no ritmo: lançamentos quentes, tendências emergentes, marcos de artistas e movimentos que moldam o futuro da música. Um panorama motivador para quem gosta de estar sempre um passo à frente no universo sonoro.",
+  "index.overview.sections": "Secções principais",
 };

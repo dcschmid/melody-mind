@@ -11,12 +11,6 @@ import type { Category } from "../category/categoryLoadingUtils";
 export type PlayableCategory = Category & Required<Pick<Category, "slug" | "headline" | "imageUrl" | "categoryUrl">>;
 
 /** Return YYYY-MM-DD in UTC */
-export function dailyKeyUTC(date: Date = new Date()): string {
-  const y = date.getUTCFullYear();
-  const m = String(date.getUTCMonth() + 1).padStart(2, "0");
-  const d = String(date.getUTCDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
-}
 
 /** Simple hash for a string → positive 32-bit int */
 function hashString(input: string): number {
@@ -35,7 +29,13 @@ export function pickIndexForToday(length: number, seed: string = "melodymind"): 
   if (length <= 0) {
     return 0;
   }
-  const key = `${seed}:${dailyKeyUTC()}`;
+  // Inline former dailyKeyUTC(): stable YYYY-MM-DD in UTC
+  const now = new Date();
+  const y = now.getUTCFullYear();
+  const m = String(now.getUTCMonth() + 1).padStart(2, "0");
+  const d = String(now.getUTCDate()).padStart(2, "0");
+  const dateKey = `${y}-${m}-${d}`;
+  const key = `${seed}:${dateKey}`;
   return hashString(key) % length;
 }
 

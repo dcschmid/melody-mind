@@ -6,13 +6,10 @@ export default {
   
   // Päivän haaste (ei tietokantaa; englanninkieliset oletukset)
   "daily.challenge.title": "Päivän haaste",
-  "daily.challenge.subtitle": "Yksi kategoria, kolme pelitapaa — palaa päivittäin!",
-  "daily.challenge.date": "Tänään: {date}",
+  "daily.challenge.subtitle": "Uusi kategoria tänään. Voita aika.",
   "daily.challenge.image.alt": "Päivän haasteen kansi: {category}",
   "daily.challenge.cta.group": "Valitse Päivän haasteen vaikeustaso",
   "daily.challenge.screenreader.announce": "Päivän haasteen kategoria on {category}",
-  "daily.streak.label": "Putki",
-  "daily.played.today": "Olet pelannut tämän päivän haasteen.",
   "knowledge.search.label": "Hae otsikolla tai kuvauksella",
   "knowledge.search.title": "Hae artikkeleita",
   "knowledge.search.subtitle": "Löydä artikkeleita otsikon, kuvauksen tai avainsanojen perusteella",
@@ -547,4 +544,17 @@ export default {
   "pages.imprint.contact_label": "Sähköposti:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Kyselyt: dcschmid@murena.io",
+
+  // Etusivun korttien käännökset
+  "index.card.game.title": "Musiikkivisa",
+  "index.card.game.desc": "🔥 Testaa musiikkitietosi ja todista hallitsevasi genret, aikakaudet ja tyylit! Jokainen kierros on uusi haaste pisteiden keräämiseen, saavutusten avaamiseen ja listojen nousemiseen. Oletko valmis puolustamaan paikkaasi kärjessä?",
+  "index.card.knowledge.title": "Musiikkitieto",
+  "index.card.knowledge.desc": "📚 Syvenny tarinoihin, genreihin, artisteihin ja kulttuurisiin taustoihin. Innostavat artikkelit paljastavat yksityiskohtia ja yllättäviä yhteyksiä — täydellistä, jos haluat laajentaa ymmärrystäsi ja löytää uutta kuunneltavaa tänään!",
+  "index.card.playlists.title": "Kuratoidut soittolistat",
+  "index.card.playlists.desc": "🎧 Lähde teemoitettuihin äänimatkoihin — legendaariset vuosikymmenet, liikkeet ja tunnelmat. Löydä kappaleita, jotka määrittelivät sukupolvia, ja rikastuta kirjastoasi huolella valituilla kokonaisuuksilla jokaista kuunteluhetkeä varten.",
+  "index.card.podcast.title": "Podcast",
+  "index.card.podcast.desc": "🎙️ Kulissientakaisia tarinoita, intohimoisia keskusteluja ja näkökulmia, jotka saavat kuulemaan tututkin kappaleet uudella tavalla. Täydellinen uteliaalle fanille — anna jokaisen jakson inspiroida!",
+  "index.card.news.title": "Musiikkiuutiset",
+  "index.card.news.desc": "📰 Pysy rytmissä: tuoreet julkaisut, nousevat trendit, artistien merkkipaalut ja liikkeet, jotka muokkaavat musiikin tulevaisuutta. Ytimekäs katsaus kaikelle, mitä intohimoinen seuraaja haluaa tietää juuri nyt.",
+  "index.overview.sections": "Pääosiot",
 };

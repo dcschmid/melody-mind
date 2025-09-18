@@ -1,0 +1,134 @@
+---
+/**
+ * SectionCard Component
+ *
+ * A reusable accessible card component for the MelodyMind homepage sections
+ * (Game Overview, Music Knowledge, Playlists, Podcast, News, Daily Challenge).
+ *
+ * Accessibility:
+ * - Entire card is a single focusable link (uses <a>)
+ * - Provides aria-label for screen readers to announce purpose
+ * - Uses semantic heading (h3 by default, configurable) inside the link for structure
+ * - High contrast colors leveraging existing design tokens
+ * - Focus ring is clearly visible and meets WCAG AAA contrast guidelines
+ *
+ * Props:
+ * - title: string – Visible heading text.
+ * - description?: string – Short supporting text.
+ * - href: string – Target URL (internal navigation preferred).
+ * - image?: string – Optional image URL or icon path.
+ * - imageAlt?: string – Alt text for image; if decorative pass empty string.
+ * - badge?: string – Optional small label (e.g., "New", "Beta", "Today").
+ * - headingLevel?: 'h2' | 'h3' | 'h4' – Semantic level for internal heading (default 'h3').
+ * - ariaLabel?: string – Override accessible label (defaults to title + description fallback).
+ *
+ * Usage Example:
+ * <SectionCard
+ *   title="Daily Challenge"
+ *   description="Play today's curated music quiz"
+ *   href={`/${lang}/daily`}
+ *   image="/images/daily.png"
+ *   imageAlt="Calendar with music notes"
+ *   badge={t('common.today')}
+ * />
+ */
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+  href: string;
+  image?: string;
+  imageAlt?: string;
+  badge?: string;
+  headingLevel?: "h2" | "h3" | "h4";
+  ariaLabel?: string;
+}
+
+const {
+  title,
+  description = "",
+  href,
+  image,
+  imageAlt = "",
+  badge,
+  headingLevel = "h3",
+  ariaLabel,
+} = Astro.props as Props;
+
+const computedAriaLabel = ariaLabel || `${title}${description ? `: ${description}` : ""}`;
+---
+
+<a
+  {href}
+  role="listitem"
+  class="playlist-item group relative flex h-full min-h-[200px] w-full flex-col overflow-hidden rounded-xl border-2 border-purple-700 bg-gradient-to-b from-gray-800 to-gray-900 p-0 text-white shadow-lg transition-all duration-300 outline-none hover:-translate-y-1 hover:border-purple-500 hover:shadow-2xl focus-visible:-translate-y-1 focus-visible:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+  aria-label={computedAriaLabel}
+>
+  {/* Top gradient bar */}
+  <div
+    class="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+    aria-hidden="true"
+  >
+  </div>
+  {
+    image && (
+      <div class="relative aspect-video w-full overflow-hidden">
+        {badge && (
+          <span class="absolute top-3 right-3 z-10 rounded-full bg-purple-700 px-3 py-2 text-xs font-medium text-white transition-all duration-200 sm:text-sm">
+            {badge}
+          </span>
+        )}
+        <img
+          src={image}
+          alt={imageAlt}
+          loading="lazy"
+          decoding="async"
+          class="absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-500"
+        />
+      </div>
+    )
+  }
+  <div class="flex flex-1 flex-col p-4">
+    {
+      headingLevel === "h2" && (
+        <Headline level="h2" textSize="base" textAlign="center">
+          {title}
+        </Headline>
+      )
+    }
+    {
+      headingLevel === "h3" && (
+        <Headline level="h3" textSize="base" textAlign="center">
+          {title}
+        </Headline>
+      )
+    }
+    {
+      headingLevel === "h4" && (
+        <Headline level="h4" textSize="base" textAlign="center">
+          {title}
+        </Headline>
+      )
+    }
+    {
+      description && (
+        <div class="relative">
+          <div
+            class="mx-auto mb-3 h-0.5 w-1/4 bg-purple-500 transition-all duration-300 sm:mb-4"
+            aria-hidden="true"
+          />
+          <Paragraph textSize="base" textAlign="center">
+            {description}
+          </Paragraph>
+        </div>
+      )
+    }
+  </div>
+  <div
+    class="absolute right-0 bottom-0 left-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 transition-transform duration-300 group-hover:scale-x-100"
+    aria-hidden="true"
+  >
+  </div>
+</a>
