@@ -22,14 +22,14 @@ const todayCategory = pickDailyCategory(categories);
   todayCategory && (
     <section
       id="daily-challenge"
-      class="relative overflow-hidden rounded-xl border-2 border-purple-700 bg-gradient-to-b from-gray-800 to-gray-900 shadow-lg"
+      class="group relative min-h-[340px] overflow-hidden rounded-xl border-2 border-purple-700 bg-gradient-to-b from-gray-800 to-gray-900 shadow-lg"
       aria-labelledby="daily-challenge-title"
     >
       <div
         class="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
         aria-hidden="true"
       />
-      <div class="relative aspect-video w-full overflow-hidden border-b border-white/10">
+      <div class="relative aspect-video w-full overflow-hidden">
         {/^https?:\/\//.test(todayCategory.imageUrl) ? (
           <img
             src={todayCategory.imageUrl}
@@ -56,11 +56,11 @@ const todayCategory = pickDailyCategory(categories);
           />
         )}
         <div
-          class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+          class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
           aria-hidden="true"
         />
       </div>
-      <div class="p-5 sm:p-6">
+      <div class="flex flex-1 flex-col p-4">
         <div id="daily-challenge-title" class="mb-4 text-center">
           <Headline level="h2" textSize="base" textAlign="center">
             {t("daily.challenge.title")}
@@ -89,7 +89,7 @@ const todayCategory = pickDailyCategory(categories);
         </div>
       </div>
       <div
-        class="absolute right-0 bottom-0 left-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 transition-transform duration-300"
+        class="absolute right-0 bottom-0 left-0 h-1 origin-left scale-x-0 transform bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 transition-transform duration-300 group-hover:scale-x-100"
         aria-hidden="true"
       />
     </section>

@@ -128,7 +128,7 @@ try {
   <Fragment slot="head">
     <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
-  <div class="mx-auto w-full max-w-screen-xl px-4 pt-6 pb-14 sm:px-6 lg:px-8">
+  <div class="mx-auto w-full pb-14">
     <header class="mb-8 sm:mb-10">
       <h1 class="sr-only">{title}</h1>
       <div
@@ -155,7 +155,7 @@ try {
 
     <section class="mb-10" aria-label={t("index.overview.sections") || "Application sections"}>
       <div
-        class="mb-10 grid grid-cols-1 gap-6 sm:mb-12 sm:grid-cols-[repeat(auto-fill,minmax(280px,1fr))] sm:gap-6 md:gap-7 lg:gap-8 xl:gap-9"
+        class="mb-10 grid grid-cols-1 gap-6 sm:mb-12 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] sm:gap-6 md:gap-7 lg:gap-8 xl:gap-9"
         role="list"
         aria-label={t("index.overview.sections") || "Application sections"}
       >
@@ -165,6 +165,7 @@ try {
             if (idx === 2) {
               return (
                 <Fragment>
+                  <DailyChallengeCard lang={String(lang)} categories={playableCategories as any} />
                   <SectionCard
                     title={cards[0].title}
                     description={cards[0].description}
@@ -179,7 +180,6 @@ try {
                     image={cards[1].image}
                     imageAlt={cards[1].imageAlt}
                   />
-                  <DailyChallengeCard lang={String(lang)} categories={playableCategories as any} />
                   <SectionCard
                     title={cards[2].title}
                     description={cards[2].description}
