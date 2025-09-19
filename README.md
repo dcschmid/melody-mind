@@ -93,3 +93,10 @@ For detailed testing guidelines, see [docs/testing-setup.md](docs/testing-setup.
 For automated or AI-assisted contributions, see `AGENTS.md` for project-specific agent guidelines
 (commands, coding standards, performance, accessibility, and safety rules). Human contributors can
 largely ignore it unless curious about automation practices.
+
+## 🧩 Content Layer Migration
+
+This project uses Astro's new Content Layer compatibility mode for legacy `type: "content"`
+collections. Migration rationale, explicit collection declarations, and reviewed breaking changes
+are documented in `MIGRATION_CONTENT_LAYER.md`. If you add new knowledge collections (e.g.
+additional languages), ensure they are declared in `src/content/config.ts`.

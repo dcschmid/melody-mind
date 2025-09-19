@@ -15,6 +15,8 @@ import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
+import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
+import { getCollectionCached } from "@utils/content/getCollectionCached";
 
 // Avoid prerendering the full knowledge index to prevent high memory usage
 // during the build. The page will load the collection at runtime when needed.
@@ -42,17 +44,16 @@ let baseArticles: any[] = Array.isArray(incomingArticles) ? incomingArticles : [
 if (baseArticles.length === 0) {
   try {
     // Use dynamic import to avoid build-time heavy loads if not necessary.
-    const { getCollection } = await import("astro:content");
     const collectionName = `knowledge-${lang}`;
     if (lang) {
-      baseArticles = await getCollection(collectionName).catch(() => []);
+      baseArticles = await getCollectionCached(collectionName).catch(() => []);
     }
 
     // Fallback auf Englisch wenn leer und nicht bereits en
     const needsFallback =
       (!Array.isArray(baseArticles) || baseArticles.length === 0) && lang !== "en";
     if (needsFallback) {
-      const fallback = await getCollection("knowledge-en").catch(() => []);
+      const fallback = await getCollectionCached("knowledge-en").catch(() => []);
       if (Array.isArray(fallback) && fallback.length > 0) {
         baseArticles = fallback;
       }
@@ -81,12 +82,8 @@ const articlesWithReadingTime = baseArticles.map((article: any) => {
   return article;
 });
 
-// Sort articles by slug (fallback to id if slug is not available)
-const sortedArticles = [...articlesWithReadingTime].sort((a, b) => {
-  const aSlug = "slug" in a ? a.slug : a.id;
-  const bSlug = "slug" in b ? b.slug : b.id;
-  return aSlug.localeCompare(bSlug);
-});
+// Deterministic ordering (slug fallback id) via shared utility
+const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
 
 // SEO content - Enhanced
 const safeUi = ui[uiLang] as Record<string, string>;

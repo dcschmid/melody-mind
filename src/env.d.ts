@@ -43,8 +43,12 @@ declare module "astro:content" {
     | "da"
     | "nl"
     | "sv"
-    | "fi";
-  export type KnowledgeCollectionKey = `knowledge-${KnowledgeLanguage}`;
+    | "fi"
+    | "ru"
+    | "cn"
+    | "jp"
+    | "uk";
+    export type KnowledgeCollectionKey = `knowledge-${KnowledgeLanguage}`;
 
   export type CollectionEntry<C extends KnowledgeCollectionKey> = {
     id: string;

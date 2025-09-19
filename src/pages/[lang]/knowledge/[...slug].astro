@@ -32,6 +32,7 @@ import BackToTop from "@components/Shared/BackToTop.astro";
 import { Icon } from "astro-icon/components";
 // import { getEntry } from "astro:content";
 import { generateMetaDescription } from "@utils/seo";
+import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
 
 // 2. Rendering Strategy: SSG for better performance and SEO
@@ -78,13 +79,12 @@ let entry: any = incoming.entry;
 // Runtime acquisition if entry not provided
 if (!entry) {
   try {
-    const { getCollection } = await import("astro:content");
     const collectionName = `knowledge-${lang}`;
-    let articles: any[] = await getCollection(collectionName).catch(() => []);
+    let articles: any[] = await getCollectionCached(collectionName).catch(() => []);
 
     // Fallback to English collection if empty and not already English
     if ((!articles || articles.length === 0) && lang !== "en") {
-      const english = await getCollection("knowledge-en").catch(() => []);
+      const english = await getCollectionCached("knowledge-en").catch(() => []);
       if (english && english.length) {
         articles = english;
       }
@@ -128,8 +128,10 @@ const t = useTranslations(lang);
 // Extract headings and compiled content safely
 const { headings, Content } = await entry.render();
 
-// Get image source (fallback)
-const imageSource = entry.data.image || "/default-cover.jpg";
+// Get & validate image source (runtime validation instead of build-time schema refine)
+const rawImage = entry.data.image;
+const isValidImage = typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
+const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
 
 // SEO optimization / meta description
 const title = entry.data.title;

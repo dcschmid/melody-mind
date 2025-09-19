@@ -7,7 +7,46 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
-    ignores: ["node_modules/**", "dist/**", ".astro/**", "public/**", "*.d.ts"],
+    // Consolidated ignore patterns migrated from legacy .eslintignore (Flat Config style)
+    ignores: [
+      // Node & package artifacts
+      "node_modules/**",
+      "dist/**",
+      "build/**",
+      "out/**",
+      // Astro & build caches
+      ".astro/**",
+      ".cache/**",
+      ".vite/**",
+      ".parcel-cache/**",
+      ".tmp/**",
+      ".temp/**",
+      // Public assets (static, no linting)
+      "public/**",
+      // Other framework folders (precautionary, some may not exist)
+      ".next/**",
+      ".vercel/**",
+      ".serverless/**",
+      // Coverage & logs
+      "coverage/**",
+      "*.log",
+      "npm-debug.log*",
+      "yarn-debug.log*",
+      "pnpm-debug.log*",
+      // Editor / OS noise
+      ".DS_Store",
+      "Thumbs.db",
+      ".vscode/**",
+      ".idea/**",
+      // TS build info & maps
+      "*.tsbuildinfo",
+      "*.map",
+      // Env files
+      ".env",
+      ".env.local",
+      // Type declarations (generated or not relevant for lint rules targeting source impl)
+      "*.d.ts"
+    ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,

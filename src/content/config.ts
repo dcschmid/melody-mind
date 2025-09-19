@@ -25,9 +25,14 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
   });
 
 const knowledgeCollection = defineCollection({
+  // Legacy style (type: "content") remains for backward compatibility with new Content Layer.
+  // Loader not explicitly defined: Astro will use glob() under the hood per migration notes.
   type: "content",
   schema: getKnowledgeSchema,
 });
+
+// Export a concrete base schema instance for external type inference (referenced in env.d.ts)
+export const baseKnowledgeSchema = getKnowledgeSchema({} as SchemaContext);
 
 // Define collections
 export const collections = {
@@ -44,6 +49,8 @@ export const collections = {
   "knowledge-sv": knowledgeCollection,
   "knowledge-fi": knowledgeCollection,
   "knowledge-ru": knowledgeCollection,
+  // Added explicitly for new Content Layer behavior (was previously an implicit legacy folder)
+  "knowledge-uk": knowledgeCollection,
 } as const;
 
 // Type definitions
