@@ -63,7 +63,7 @@ const computedAriaLabel = ariaLabel || `${title}${description ? `: ${description
 <a
   {href}
   role="listitem"
-  class="playlist-item group relative flex h-full min-h-[200px] w-full flex-col overflow-hidden rounded-xl border-2 border-purple-700 bg-gradient-to-b from-gray-800 to-gray-900 p-0 text-white shadow-lg transition-all duration-300 outline-none hover:-translate-y-1 hover:border-purple-500 hover:shadow-2xl focus-visible:-translate-y-1 focus-visible:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+  class="playlist-item group relative flex h-full min-h-[340px] w-full flex-col overflow-hidden rounded-xl border-2 border-purple-700 bg-gradient-to-b from-gray-800 to-gray-900 p-0 text-white shadow-lg transition-transform duration-300 outline-none hover:-translate-y-1 hover:border-purple-500 hover:shadow-2xl focus-visible:-translate-y-1 focus-visible:border-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
   aria-label={computedAriaLabel}
 >
   {/* Top gradient bar */}
@@ -72,6 +72,7 @@ const computedAriaLabel = ariaLabel || `${title}${description ? `: ${description
     aria-hidden="true"
   >
   </div>
+
   {
     image && (
       <div class="relative aspect-video w-full overflow-hidden">
@@ -90,6 +91,7 @@ const computedAriaLabel = ariaLabel || `${title}${description ? `: ${description
       </div>
     )
   }
+
   <div class="flex flex-1 flex-col p-4">
     {
       headingLevel === "h2" && (
