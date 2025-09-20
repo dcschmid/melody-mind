@@ -32,6 +32,5 @@ coverage/
 public/podcasts/
 public/video/
 public/mp3s/
-public/podcast/
 *.mp3
 *.mp4

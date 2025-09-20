@@ -14,7 +14,8 @@
       "@json/*": ["src/json/*"],
       "@data/*": ["src/data/*"],
       "@types/*": ["src/types/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@constants/*": ["src/constants/*"]
     }
   },
   "ts-node": {
