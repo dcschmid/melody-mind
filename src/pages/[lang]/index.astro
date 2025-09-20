@@ -14,6 +14,28 @@ import SectionCard from "@components/home/SectionCard.astro";
 import DailyChallengeCard from "@components/DailyChallengeCard.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
+// Use central language list (relative import to avoid adding a new path alias)
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@constants/languages";
+
+/**
+ * Static site generation configuration
+ *
+ * We explicitly enumerate all supported language codes so Astro can pre-render
+ * a homepage variant for every locale at build time. If you add a new locale
+ * file in `src/i18n/locales/`, also add its code here to ensure the route is
+ * generated.
+ */
+export const prerender = true; // ensure SSG output for these dynamic routes
+
+/**
+ * Returns all language-based paths for the localized homepage.
+ * Astro requirement: every `[lang]` dynamic segment must be declared here.
+ *
+ * NOTE: Keep `languages` in sync with files in `src/i18n/locales/` (excluding `template`).
+ */
+export async function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang: SupportedLanguage) => ({ params: { lang } }));
+}
 
 // Extract language from URL and set up translations
 const lang = getLangFromUrl(Astro.url);

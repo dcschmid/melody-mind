@@ -34,6 +34,8 @@ import { Icon } from "astro-icon/components";
 import { generateMetaDescription } from "@utils/seo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
+// import { getLanguageKeyedParams } from "@utils/i18n/getLanguagePaths"; // Uncomment if enabling partial SSG
+// import { SUPPORTED_LANGUAGES } from "@constants/languages"; // Used in SSG template below
 
 // 2. Rendering Strategy: SSG for better performance and SEO
 // This route can produce a very large number of static pages via getStaticPaths.
@@ -45,6 +47,30 @@ export const prerender = false;
 // static pages. Rendering at runtime prevents building all articles during CI
 // which reduces peak memory usage. If you need a small set of pre-rendered
 // articles, implement a limited getStaticPaths that returns only high-priority slugs.
+/*
+export async function getStaticPaths() {
+  const FEATURED_ONLY = true; // switch to false to allow a limited slice
+  const LIMIT_PER_LANG = 40; // safety limit
+  const paths: any[] = [];
+  for (const lang of SUPPORTED_LANGUAGES) {
+    try {
+      const collectionName = `knowledge-${lang}`;
+      const all = await getCollectionCached(collectionName).catch(() => []);
+      if (!all || all.length === 0) continue;
+      let selected = FEATURED_ONLY ? all.filter((a: any) => a.data?.featured) : all;
+      if (!FEATURED_ONLY && selected.length > LIMIT_PER_LANG) {
+        selected = selected.slice(0, LIMIT_PER_LANG);
+      }
+      for (const entry of selected) {
+        paths.push({ params: { lang, slug: entry.slug }, props: { entry, lang } });
+      }
+    } catch {
+      // ignore language failures
+    }
+  }
+  return paths;
+}
+*/
 
 // 4. TypeScript Definitions
 // type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {

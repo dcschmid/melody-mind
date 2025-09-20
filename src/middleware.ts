@@ -1,6 +1,7 @@
+import { isSupportedLanguage } from "@constants/languages";
 import { defineMiddleware } from "astro:middleware";
 
-import { languages, defaultLang } from "./i18n/ui";
+import { defaultLang } from "./i18n/ui";
 
 /**
  * Middleware for MelodyMind
@@ -152,8 +153,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
 
     // 5) If no language prefix present or unknown, redirect to default language preserving path
-    const [, lang] = pathname.split("/");
-    if (!lang || !(lang in languages)) {
+  const [, lang] = pathname.split("/");
+    if (!lang || !isSupportedLanguage(lang)) {
       return redirect(`/${defaultLang}${pathname}`);
     }
 

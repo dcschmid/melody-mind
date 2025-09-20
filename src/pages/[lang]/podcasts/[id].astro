@@ -7,42 +7,17 @@ import type { PodcastData } from "../../../types/podcast";
 import enPodcastsJson from "../../../data/podcasts/en.json" assert { type: "json" };
 import { Icon } from "astro-icon/components";
 import Paragraph from "@components/Paragraph.astro";
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@constants/languages";
 
 /**
  * Static path generation for internationalization
  * Generates paths for all supported languages and podcast IDs
  */
 export const getStaticPaths = async () => {
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ];
-
   const podcasts = enPodcastsJson.podcasts;
-  const paths: Array<{ params: { lang: string; id: string } }> = [];
-
-  // Generate paths for all languages and all podcast IDs
-  supportedLanguages.forEach((lang) => {
-    podcasts.forEach((podcast) => {
-      paths.push({
-        params: { lang, id: podcast.id },
-      });
-    });
-  });
-
-  return paths;
+  return SUPPORTED_LANGUAGES.flatMap((lang: SupportedLanguage) =>
+    podcasts.map((podcast) => ({ params: { lang, id: podcast.id } }))
+  );
 };
 
 /**

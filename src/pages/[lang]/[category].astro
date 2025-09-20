@@ -15,11 +15,44 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
+// import { getLanguageKeyedParams } from "@utils/i18n/getLanguagePaths"; // Uncomment when enabling SSG
+// import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils"; // Uncomment if enabling SSG
 // categoryLoadingUtils is used dynamically below when resolving missing props at runtime
 
 // Disable prerender to avoid building a large number of static pages at build time
 // which can cause out-of-memory errors on constrained CI/build hosts.
 export const prerender = false;
+
+/**
+ * Optional static generation template:
+ * To enable partial SSG for selected categories, uncomment and adjust below.
+ * Keep memory constraints in mind; limit the number of categories per language.
+ */
+/*
+export async function getStaticPaths() {
+  const MAX_PER_LANG = 50; // tune this based on build performance
+  const categories: Array<{ slug: string; headline: string }> = [];
+  for (const lang of (await import("@constants/languages")).SUPPORTED_LANGUAGES) {
+    try {
+      const { loadCategoriesForLanguage } = await import("../../utils/category/categoryLoadingUtils");
+      const { categories: loaded } = await loadCategoriesForLanguage({
+        language: lang,
+        fallbackLanguage: "en",
+        useAliasPath: true,
+      });
+      const playable = loaded.filter((c: any) => c.isPlayable).slice(0, MAX_PER_LANG);
+      // Accumulate with language annotated (not strictly necessary here)
+      categories.push(...playable);
+    } catch {
+      // ignore failing language load
+    }
+  }
+  // Build language keyed params (category param filled)
+  // We call getLanguageKeyedParams with the unique set to avoid duplicates
+  const unique = Array.from(new Map(categories.map(c => [c.slug, c])).values());
+  return getLanguageKeyedParams(unique, (cat) => ({ params: { category: cat.slug }, props: { category: cat } }));
+}
+*/
 
 // getStaticPaths intentionally removed. This page will be rendered at runtime
 // which prevents building thousands of static category pages during CI builds.
