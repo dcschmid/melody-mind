@@ -7,6 +7,7 @@
  */
 // Content collections will be loaded at runtime when needed; avoid build-time collection loads
 import Layout from "@layouts/Layout.astro";
+import { SUPPORTED_LANGUAGES } from "@constants/languages";
 import { ui } from "../../../i18n/ui";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
@@ -18,11 +19,21 @@ import KnowledgeCard from "@components/KnowledgeCard.astro";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 
-// Avoid prerendering the full knowledge index to prevent high memory usage
-// during the build. The page will load the collection at runtime when needed.
-export const prerender = false;
+// SSG aktiviert: Wir prerendern die Knowledge Index Seite für jede unterstützte Sprache.
+// Die eigentlichen Artikel werden weiterhin innerhalb der Page geladen, um getStaticPaths
+// leichtgewichtig zu halten (kein massives Serialisieren großer Arrays in Props).
+export const prerender = true;
 
-// Note: getStaticPaths removed intentionally to keep build-time memory low.
+/**
+ * Generate static paths for knowledge index pages across all supported languages.
+ * We only pass the language as prop; articles werden wie bisher in der Page geladen.
+ */
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+    props: { lang },
+  }));
+}
 
 // Resolve language robustly: prefer dynamic route param, then prop, then fallback 'en'
 const incomingProps = Astro.props as { articles?: any[]; lang?: string };
