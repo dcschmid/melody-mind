@@ -34,43 +34,53 @@ import { Icon } from "astro-icon/components";
 import { generateMetaDescription } from "@utils/seo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
-// import { getLanguageKeyedParams } from "@utils/i18n/getLanguagePaths"; // Uncomment if enabling partial SSG
-// import { SUPPORTED_LANGUAGES } from "@constants/languages"; // Used in SSG template below
+import { SUPPORTED_LANGUAGES } from "@constants/languages";
 
 // 2. Rendering Strategy: SSG for better performance and SEO
 // This route can produce a very large number of static pages via getStaticPaths.
 // Disable prerender to keep the build memory usage low and rely on runtime rendering.
-export const prerender = false;
+// We now enable prerendering for ALL knowledge articles.
+// WARNING: This will generate a very large number of static pages
+// (currently > 3k total across languages). Monitor build times & memory.
+export const prerender = true;
 
 // 3. getStaticPaths implementation for dynamic routes
 // getStaticPaths removed: this dynamic route can generate a large number of
 // static pages. Rendering at runtime prevents building all articles during CI
 // which reduces peak memory usage. If you need a small set of pre-rendered
 // articles, implement a limited getStaticPaths that returns only high-priority slugs.
-/*
+/**
+ * Generate static paths for ALL knowledge articles across all supported languages.
+ * This is intentionally exhaustive and can be heavy. If build performance degrades
+ * you can revert to a filtered or partial strategy.
+ */
 export async function getStaticPaths() {
-  const FEATURED_ONLY = true; // switch to false to allow a limited slice
-  const LIMIT_PER_LANG = 40; // safety limit
-  const paths: any[] = [];
+  const paths: Array<{
+    params: { lang: string; slug: string };
+    props: { entry: any; lang: string };
+  }> = [];
   for (const lang of SUPPORTED_LANGUAGES) {
+    const collectionName = `knowledge-${lang}`;
+    let entries: any[] = [];
     try {
-      const collectionName = `knowledge-${lang}`;
-      const all = await getCollectionCached(collectionName).catch(() => []);
-      if (!all || all.length === 0) continue;
-      let selected = FEATURED_ONLY ? all.filter((a: any) => a.data?.featured) : all;
-      if (!FEATURED_ONLY && selected.length > LIMIT_PER_LANG) {
-        selected = selected.slice(0, LIMIT_PER_LANG);
-      }
-      for (const entry of selected) {
-        paths.push({ params: { lang, slug: entry.slug }, props: { entry, lang } });
-      }
+      entries = await getCollectionCached(collectionName).catch(() => []);
     } catch {
-      // ignore language failures
+      entries = [];
+    }
+    if (!entries || entries.length === 0) {
+      continue;
+    }
+    for (const entry of entries) {
+      // Ensure slug present; skip malformed entries
+      const slug = entry?.slug || entry?.id;
+      if (!slug) {
+        continue;
+      }
+      paths.push({ params: { lang, slug }, props: { entry, lang } });
     }
   }
   return paths;
 }
-*/
 
 // 4. TypeScript Definitions
 // type KnowledgeEntry = CollectionEntry<KnowledgeCollectionKey> & {
@@ -103,26 +113,18 @@ const lang: string = typeof paramLang === "string" ? paramLang : incoming.lang |
 let entry: any = incoming.entry;
 
 // Runtime acquisition if entry not provided
+// If entry is not supplied via static path props (should be rare), perform fallback runtime lookup
 if (!entry) {
   try {
     const collectionName = `knowledge-${lang}`;
-    let articles: any[] = await getCollectionCached(collectionName).catch(() => []);
-
-    // Fallback to English collection if empty and not already English
-    if ((!articles || articles.length === 0) && lang !== "en") {
-      const english = await getCollectionCached("knowledge-en").catch(() => []);
-      if (english && english.length) {
-        articles = english;
-      }
-    }
-
+    const articles: any[] = await getCollectionCached(collectionName).catch(() => []);
     const slugParam = (Astro as any).params?.slug;
     const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
     if (slug) {
       entry = articles.find((a) => a.slug === slug || a.id === slug);
     }
   } catch (e) {
-    globalThis.console?.warn?.("knowledge article: collection load issue", {
+    globalThis.console?.warn?.("knowledge article: collection load issue (fallback)", {
       lang,
       error: (e as any)?.message || e,
     });

@@ -92,6 +92,8 @@ export default defineConfig({
         "@data": path.resolve("./src/data"),
         "@types": path.resolve("./src/types"),
         "@lib": path.resolve("./src/lib"),
+        // Added to mirror tsconfig.json paths and fix Rollup resolution for middleware import
+        "@constants": path.resolve("./src/constants"),
       },
     },
     // Astro 5.0+ dependency optimization
