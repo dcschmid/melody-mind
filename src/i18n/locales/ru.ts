@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "Адрес:",
+  "pages.privacy.contact.email_aria": "Адрес электронной почты для связи с ответственным лицом",
   "accessibility.skip.to.content": "Перейти к основному содержимому",
   "audioplayer.aria.region": "Аудиоплеер",
   "category.about.title": "О этой категории",
@@ -541,6 +543,12 @@ export default {
   "pages.imprint.contact_label": "Электронная почта:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "По вопросам: dcschmid@murena.io",
+  "pages.imprint.intro": "Настоящее юридическое уведомление (impressum) предоставляет обязательные сведения об операторе и контактную информацию данного сайта.",
+  "pages.imprint.dispute_resolution.description": "Европейская комиссия предоставляет платформу онлайн-урегулирования споров (ODR), доступную по ссылке ниже.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Открыть платформу онлайн-урегулирования споров ЕС",
+  "pages.imprint.dispute_participation": "Мы не обязаны и не намерены участвовать в процедурах урегулирования споров в органах по разрешению потребительских конфликтов.",
+  "pages.legal.disclaimer.title": "Отказ от ответственности",
+  "pages.legal.disclaimer.content": "Вся информация предоставляется без гарантий. Мы стремимся к точности, но не несем ответственности за внешние ресурсы или ссылки. Использование сайта осуществляется на ваш страх и риск.",
 
   "index.card.game.title": "Музыкальная викторина",
   "index.card.game.desc": "🔥 Проверьте знания о жанрах, эпохах и стилях! Каждый раунд — шанс заработать очки, открыть достижения и подняться в рейтинге. Сможете удержать позицию среди лучших знатоков?",

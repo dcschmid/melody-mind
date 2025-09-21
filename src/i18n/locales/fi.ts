@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "Osoite:",
+  "pages.privacy.contact.email_aria": "Sähköpostiosoite vastuuhenkilön tavoittamiseen",
   "accessibility.skip.to.content": "Siirry pääsisältöön",
   "audioplayer.aria.region": "Äänentoistin",
   "category.about.title": "Tietoja tästä kategoriasta",
@@ -544,6 +546,12 @@ export default {
   "pages.imprint.contact_label": "Sähköposti:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Kyselyt: dcschmid@murena.io",
+  "pages.imprint.intro": "Tämä oikeudellinen ilmoitus (impressum) tarjoaa pakolliset palveluntarjoajan tunnistetiedot ja yhteystiedot tälle sivustolle.",
+  "pages.imprint.dispute_resolution.description": "Euroopan komissio tarjoaa verkossa toimivan riidanratkaisualustan (ODR), joka on käytettävissä alla olevan linkin kautta.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Avaa EU:n verkkovälitteinen riidanratkaisualusta",
+  "pages.imprint.dispute_participation": "Emme ole velvollisia emmekä halukkaita osallistumaan kuluttajariitalautakunnan riidanratkaisumenettelyyn.",
+  "pages.legal.disclaimer.title": "Vastuuvapauslauseke",
+  "pages.legal.disclaimer.content": "Kaikki tiedot tarjotaan ilman takuuta. Pyrimme tarkkuuteen, mutta emme vastaa ulkoisesta sisällöstä tai linkeistä. Sivuston käyttö tapahtuu omalla vastuulla.",
 
   // Etusivun korttien käännökset
   "index.card.game.title": "Musiikkivisa",

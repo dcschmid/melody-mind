@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "Adres:",
+  "pages.privacy.contact.email_aria": "E-mailadres om de verantwoordelijke te contacteren",
   "accessibility.skip.to.content": "Ga naar hoofdinhoud",
   "audioplayer.aria.region": "Audiospeler",
   "category.about.title": "Over deze categorie",
@@ -538,7 +540,13 @@ export default {
     "Juridische kennisgeving — deze pagina bevat de juridische en contactgegevens van de aanbieder.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nDuitsland",
-  "pages.imprint.contact_label": "E‑mail:",
+  "pages.imprint.contact_label": "E-mail:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Voor vragen: dcschmid@murena.io",
+  "pages.imprint.intro": "Colofon — deze sectie biedt verplichte aanbiederidentificatie en contactinformatie.",
+  "pages.imprint.dispute_resolution.description": "De Europese Commissie biedt een platform voor onlinegeschillenbeslechting (ODR) dat via onderstaande link toegankelijk is.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Open het Europese onlinegeschillenplatform",
+  "pages.imprint.dispute_participation": "Wij zijn niet verplicht of bereid deel te nemen aan geschillenbeslechtingsprocedures voor een consumentenarbitragecommissie.",
+  "pages.legal.disclaimer.title": "Disclaimer",
+  "pages.legal.disclaimer.content": "Alle informatie wordt zonder garantie verstrekt. We streven naar juistheid maar aanvaarden geen aansprakelijkheid voor externe inhoud of links. Gebruik van de site is op eigen risico.",
 };

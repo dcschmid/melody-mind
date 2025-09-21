@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "Адреса:",
+  "pages.privacy.contact.email_aria": "Електронна адреса для зв'язку з відповідальною особою",
   "accessibility.skip.to.content": "Перейти до основного вмісту",
   "audioplayer.aria.region": "Аудіоплеєр",
   "category.about.title": "Про цю категорію",
@@ -540,6 +542,12 @@ export default {
   "pages.imprint.contact_label": "Ел. пошта:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "За питаннями: dcschmid@murena.io",
+  "pages.imprint.intro": "Це юридичне повідомлення (impressum) містить обов'язкові відомості про оператора та контактну інформацію цього сайту.",
+  "pages.imprint.dispute_resolution.description": "Європейська Комісія надає платформу онлайн-вирішення спорів (ODR), доступну за посиланням нижче.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Відкрити платформу онлайн-вирішення спорів ЄС",
+  "pages.imprint.dispute_participation": "Ми не зобов'язані та не маємо наміру брати участь у процедурах вирішення спорів перед органами з розгляду споживчих конфліктів.",
+  "pages.legal.disclaimer.title": "Застереження",
+  "pages.legal.disclaimer.content": "Уся інформація надається без гарантій. Ми прагнемо точності, але не несемо відповідальності за зовнішній контент чи посилання. Використання сайту здійснюється на ваш власний ризик.",
 
   "index.card.game.title": "Музичний квіз",
   "index.card.game.desc": "🔥 Перевірте знання жанрів, епох і стилів! Кожен раунд — шанс набрати очки, відкрити досягнення й піднятися в рейтингу. Чи зможете втримати позицію серед справжніх знавців?",

@@ -492,14 +492,16 @@ export default {
   "podcasts.cta.browse": "Browse podcasts",
   "podcasts.navigation.next": "Next episode",
   "podcasts.navigation.previous": "Previous episode",
-  "pages.imprint.title": "Imprint",
+  "pages.imprint.title": "Legal Notice",
   "pages.privacy.title": "Privacy Policy",
   "pages.privacy.intro_p1":
     "This privacy policy explains what personal data we collect and how we use it.",
-  "pages.privacy.responsible_party": "Responsible party: {name}",
+  "pages.privacy.responsible_party": "Responsible party: Daniel Schmid",
   "pages.privacy.contact": "Contact:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 Munich\nGermany",
+  "pages.privacy.contact.address_label": "Address:",
   "pages.privacy.contact.email_label": "Email:",
+  "pages.privacy.contact.email_aria": "Email address to contact the responsible party",
   "pages.privacy.data_collected.manual":
     "Data you provide manually (account details, messages, preferences)",
   "pages.privacy.data_collected.automatic":
@@ -508,12 +510,18 @@ export default {
   "pages.privacy.user_rights_title": "Your rights",
   "pages.privacy.user_rights_text":
     "You can request access, rectification, deletion, or restriction of your personal data.",
-  "pages.privacy.analytics": "We use privacy-respecting analytics to measure site usage.",
+  "pages.privacy.analytics": "We use privacy‑respecting analytics to measure site usage.",
   "pages.imprint.legal_notice_intro":
     "Legal notice — this page contains provider legal and contact information.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Munich\nGermany",
-  "pages.imprint.contact_label": "E‑mail:",
+  "pages.imprint.contact_label": "Email:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "For inquiries: dcschmid@murena.io",
+  "pages.imprint.intro": "This legal notice (imprint) provides mandatory provider identification and contact information for this site.",
+  "pages.imprint.dispute_resolution.description": "The European Commission provides an online dispute resolution (ODR) platform accessible at the link below.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Open EU online dispute resolution platform",
+  "pages.imprint.dispute_participation": "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
+  "pages.legal.disclaimer.title": "Disclaimer",
+  "pages.legal.disclaimer.content": "All information is provided without guarantee. We strive for accuracy but assume no liability for external content or links. Use of the site is at your own risk.",
 };

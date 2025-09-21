@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "Address:",
+  "pages.privacy.contact.email_aria": "Email address to contact the responsible party",
   "accessibility.skip.to.content": "Saltar al contenido principal",
   "audioplayer.aria.region": "Reproductor de audio",
   "category.about.title": "Acerca de esta categoría",
@@ -518,7 +520,9 @@ export default {
   "pages.privacy.intro_p1":
     "Esta política de privacidad explica qué datos personales recopilamos y cómo los usamos.",
   "pages.privacy.responsible_party": "Responsable: {name}",
-  "pages.privacy.contact": "Contacto: {email}",
+  "pages.privacy.contact": "Contacto:",
+  "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 Múnich\nAlemania",
+  "pages.privacy.contact.email_label": "Correo electrónico:",
   "pages.privacy.data_collected.manual":
     "Datos que proporcionas manualmente (detalles de cuenta, mensajes, preferencias)",
   "pages.privacy.data_collected.automatic":
@@ -536,6 +540,12 @@ export default {
   "pages.imprint.contact_label": "Correo electrónico:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Para consultas: dcschmid@murena.io",
+  "pages.imprint.intro": "Aviso legal — esta sección proporciona la identificación obligatoria del proveedor y la información de contacto.",
+  "pages.imprint.dispute_resolution.description": "La Comisión Europea ofrece una plataforma de resolución de litigios en línea (ODR) accesible en el siguiente enlace.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Abrir la plataforma europea de resolución de litigios en línea",
+  "pages.imprint.dispute_participation": "No estamos obligados ni dispuestos a participar en procedimientos de resolución de litigios ante una junta arbitral de consumo.",
+  "pages.legal.disclaimer.title": "Descargo de responsabilidad",
+  "pages.legal.disclaimer.content": "La información se proporciona sin garantía. Buscamos exactitud pero no asumimos responsabilidad por contenido o enlaces externos. El uso del sitio es bajo tu propio riesgo.",
 
   // Nuevas claves para la tarjeta de inicio
   "index.card.game.title": "Resumen del juego",

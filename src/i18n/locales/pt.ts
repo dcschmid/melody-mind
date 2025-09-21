@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "Endereço:",
+  "pages.privacy.contact.email_aria": "Endereço de email para contactar o responsável",
   "accessibility.skip.to.content": "Ir para o conteúdo principal",
   "audioplayer.aria.region": "Reprodutor de áudio",
   "category.about.title": "Sobre esta categoria",
@@ -539,9 +541,15 @@ export default {
     "Aviso legal — esta página contém as informações legais e de contato do fornecedor.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Munique\nAlemanha",
-  "pages.imprint.contact_label": "E‑mail:",
+  "pages.imprint.contact_label": "Email:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Para consultas: dcschmid@murena.io",
+  "pages.imprint.intro": "Aviso legal — esta seção fornece a identificação obrigatória do provedor e as informações de contato.",
+  "pages.imprint.dispute_resolution.description": "A Comissão Europeia disponibiliza uma plataforma de resolução de litígios em linha (ODR) acessível pelo link abaixo.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Abrir a plataforma europeia de resolução de litígios online",
+  "pages.imprint.dispute_participation": "Não estamos obrigados nem dispostos a participar de procedimentos de resolução de litígios perante uma entidade de arbitragem de consumidores.",
+  "pages.legal.disclaimer.title": "Aviso de responsabilidade",
+  "pages.legal.disclaimer.content": "Todas as informações são fornecidas sem garantia. Buscamos precisão, mas não assumimos responsabilidade por conteúdos ou links externos. O uso do site é por sua conta e risco.",
 
   "index.card.game.title": "Quiz Musical",
   "index.card.game.desc": "🔥 Teste seu conhecimento musical e prove que você domina gêneros, épocas e estilos! Cada rodada é um novo desafio para ganhar pontos, desbloquear conquistas e subir no ranking. Você está pronto para defender seu título?",

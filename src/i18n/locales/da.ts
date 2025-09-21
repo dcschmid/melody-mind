@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "Adresse:",
+  "pages.privacy.contact.email_aria": "E-mailadresse til at kontakte den ansvarlige",
   "accessibility.skip.to.content": "Spring til hovedindhold",
   "audioplayer.aria.region": "Lydafspiller",
   "category.about.title": "Om denne kategori",
@@ -327,4 +329,31 @@ export default {
   "index.card.news.title": "Nyheder",
   "index.card.news.desc": "Friske funktioner, forbedret ydeevne og højdepunkter fra musikverdenen — hold dig orienteret, spot nye quizmuligheder tidligt og gå ikke glip af forbedringer der løfter din MelodyMind oplevelse. ✨",
   "index.overview.sections": "Forsidens funktionssektioner",
+  
+  // --- Legal / Privacy Pages ---
+  "pages.imprint.title": "Juridiske oplysninger",
+  "pages.privacy.title": "Privatlivspolitik",
+  "pages.privacy.intro_p1": "Denne privatlivspolitik forklarer hvilke personoplysninger vi indsamler, og hvordan vi bruger dem.",
+  "pages.privacy.responsible_party": "Ansvarlig: {name}",
+  "pages.privacy.contact": "Kontakt:",
+  "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
+  "pages.privacy.contact.email_label": "Email:",
+  "pages.privacy.data_collected.manual": "Data du giver manuelt (kontooplysninger, beskeder, præferencer)",
+  "pages.privacy.data_collected.automatic": "Automatisk indsamlede data (logfiler, brug, enhedsoplysninger)",
+  "pages.privacy.cookies": "Vi bruger cookies og lignende teknologier til at forbedre tjenesten.",
+  "pages.privacy.user_rights_title": "Dine rettigheder",
+  "pages.privacy.user_rights_text": "Du kan anmode om indsigt, berigtigelse, sletning eller begrænsning af dine personoplysninger.",
+  "pages.privacy.analytics": "Vi bruger privatlivsvenlig analyse til at måle brugen af siden.",
+  "pages.imprint.legal_notice_intro": "Juridisk meddelelse — denne side indeholder udbyderens juridiske og kontaktoplysninger.",
+  "pages.imprint.company_name": "Daniel Schmid",
+  "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
+  "pages.imprint.contact_label": "E‑mail:",
+  "pages.imprint.contact_email": "dcschmid@murena.io",
+  "pages.imprint.email_note": "Ved forespørgsler: dcschmid@murena.io",
+  "pages.imprint.intro": "Dette juridiske opslag (impressum) giver obligatorisk udbyderidentifikation og kontaktoplysninger for dette websted.",
+    "pages.imprint.dispute_resolution.description": "Europa-Kommissionen stiller en platform for online tvistbilæggelse (ODR) til rådighed, som er tilgængelig via linket nedenfor.",
+    "pages.imprint.dispute_resolution.odr_link_label": "Åbn EU's platform for online tvistbilæggelse",
+    "pages.imprint.dispute_participation": "Vi er ikke forpligtet til og har ikke til hensigt at deltage i tvistbilæggelsesprocedurer for en forbruger-voldgiftsinstans.",
+  "pages.legal.disclaimer.title": "Ansvarsfraskrivelse",
+  "pages.legal.disclaimer.content": "Alle oplysninger gives uden garanti. På trods af omhyggelig kontrol påtager vi os intet ansvar for eksterne links; de respektive udbydere er alene ansvarlige for deres indhold."
 };

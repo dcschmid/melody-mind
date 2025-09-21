@@ -8,6 +8,7 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import ContactCard from "@components/ContactCard.astro";
 
 // Get current language and translation function
 const lang = getLangFromUrl(Astro.url) as string;
@@ -34,6 +35,138 @@ const description =
       </header>
 
       <div class="rounded-xl bg-white p-8 shadow-lg dark:bg-slate-800 dark:shadow-xl">
+        <!-- 1. Data Protection Overview -->
+        <section class="mb-16 last:mb-0">
+          <Headline level="h2" title="1. Data Protection at a Glance" />
+          <div class="mt-6">
+            <Headline level="h3" title="General Information" />
+            <Paragraph>
+              The following information provides a simple overview of what happens to your personal
+              data when you visit this website. Personal data is any data with which you can be
+              personally identified.
+            </Paragraph>
+
+            <Headline level="h3" title="Data Collection on this Website" />
+            <Paragraph>
+              <strong>{t("pages.privacy.responsible_party")}</strong>
+            </Paragraph>
+            <Paragraph>
+              The data processing on this website is carried out by the website operator. You can
+              find the operator's contact details in the section "Notice concerning the responsible
+              party" within this privacy policy / imprint.
+            </Paragraph>
+            <Paragraph>
+              <strong>{t("pages.privacy.data_collected.manual")}</strong>
+            </Paragraph>
+            <Paragraph>
+              Some data is collected when you provide it to us – for example data you enter in a
+              (future) contact form or provide while using interactive features.
+            </Paragraph>
+            <Paragraph>
+              Other data is collected automatically or after your consent when visiting the website.
+              This is mainly technical data (e.g. browser type, operating system, time of page
+              access). This data is collected automatically as soon as you enter this website.
+            </Paragraph>
+          </div>
+        </section>
+
+        <!-- 2. Hosting -->
+        <section class="mb-16 last:mb-0">
+          <Headline level="h2" title="2. Hosting" />
+          <div class="mt-6">
+            <Headline level="h3" title="Hosting with Render" />
+            <Paragraph>
+              We host the contents of our website with Render Services Inc., 525 Brannan Street,
+              Suite 300, San Francisco, CA 94107, USA.
+            </Paragraph>
+            <Paragraph>
+              When you visit our website, Render collects various log files including your IP
+              address. Details can be found in Render's privacy policy:
+              <a
+                href="https://render.com/privacy"
+                class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-external-label="render"
+              >
+                render.com/privacy
+              </a>
+            </Paragraph>
+            <Paragraph>
+              The use is based on Art. 6(1)(f) GDPR. We have a legitimate interest in a reliable
+              presentation and secure operation of our website.
+            </Paragraph>
+          </div>
+        </section>
+
+        <!-- 3. Music Content and External APIs -->
+        <section class="mb-16 last:mb-0">
+          <Headline level="h2" title="3. Music Content and External APIs" />
+          <div class="mt-6">
+            <Paragraph>
+              MelodyMind uses external music APIs for preview links and album artwork. When you play
+              music previews or click on streaming links you are redirected to external services:
+            </Paragraph>
+            <ul class="mt-4 ml-6 list-disc space-y-2">
+              <li>
+                <strong>Spotify</strong> privacy policy:
+                <a
+                  href="https://www.spotify.com/privacy/"
+                  class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-external-label="spotify"
+                >
+                  spotify.com/privacy
+                </a>
+              </li>
+              <li>
+                <strong>Apple Music</strong> privacy policy:
+                <a
+                  href="https://www.apple.com/privacy/"
+                  class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-external-label="apple"
+                >
+                  apple.com/privacy
+                </a>
+              </li>
+              <li>
+                <strong>Deezer</strong> privacy policy:
+                <a
+                  href="https://www.deezer.com/legal/personal-datas"
+                  class="external-link rounded text-blue-600 underline hover:text-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-external-label="deezer"
+                >
+                  deezer.com/legal/personal-datas
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 4. Data Collection on this Website -->
+        <section class="mb-16 last:mb-0">
+          <Headline level="h2" title="4. Data Collection on this Website" />
+          <div class="mt-6">
+            <Headline level="h3" title="Server Log Files" />
+            <Paragraph>
+              The provider of the pages automatically collects and stores information in so-called
+              server log files that your browser automatically transmits to us. These are in
+              particular:
+            </Paragraph>
+            <Paragraph>{t("pages.privacy.data_collected.automatic")}</Paragraph>
+            <Paragraph>
+              This data is not merged with other data sources. The collection of this data is based
+              on Art. 6(1)(f) GDPR. The website operator has a legitimate interest in the
+              technically error-free presentation and optimization of its website.
+            </Paragraph>
+          </div>
+        </section>
+
         <section class="mb-16 last:mb-0">
           <Headline level="h2" title="5. Cookies and Local Storage" />
           <div class="mt-6">
@@ -96,6 +229,11 @@ const description =
                 usefathom.com/privacy
               </a>
             </Paragraph>
+            <Paragraph>
+              Legal basis for this processing is Art. 6(1)(f) GDPR (legitimate interest in analyzing
+              website usage to improve our services) — no cookies or personally identifiable data
+              are stored.
+            </Paragraph>
           </div>
         </section>
 
@@ -106,9 +244,7 @@ const description =
               If you have questions about data protection, wish to exercise your rights, or have
               complaints, you can always contact us:
             </Paragraph>
-            <div class="mt-4 rounded-lg bg-slate-100 p-6 dark:bg-slate-700">
-              <Paragraph>{t("pages.privacy.contact")}</Paragraph>
-            </div>
+            <ContactCard {lang} />
             <Paragraph>
               You also have the right to lodge a complaint with a data protection supervisory
               authority about our processing of your personal data.

@@ -1,4 +1,6 @@
 export default {
+  "pages.privacy.contact.address_label": "地址:",
+  "pages.privacy.contact.email_aria": "用于联系负责人的电子邮件地址",
   "accessibility.skip.to.content": "跳到主要内容",
   "audioplayer.aria.region": "音频播放器",
   "category.about.title": "关于此分类",
@@ -516,4 +518,8 @@ export default {
   "pages.imprint.contact_label": "电子邮件:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "如有询问: dcschmid@murena.io",
+  "pages.imprint.intro": "本法律声明（出版信息）提供本网站所需的运营主体识别与联系信息。",
+  "pages.imprint.dispute_resolution.description": "欧盟委员会提供了一个在线争议解决平台（ODR），可通过以下链接访问。",
+  "pages.imprint.dispute_resolution.odr_link_label": "打开欧盟在线争议解决平台",
+  "pages.imprint.dispute_participation": "我们没有义务也不承诺参加消费者仲裁机构的争议解决程序。",
 };

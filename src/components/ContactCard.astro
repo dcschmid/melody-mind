@@ -1,0 +1,119 @@
+---
+/**
+ * @component ContactCard
+ * @description Re-usable responsive contact information card for legal/privacy pages.
+ * @prop lang string - current language code for translation lookup.
+ */
+import { useTranslations } from "@utils/i18n";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props as Props;
+const t = useTranslations(lang);
+const email = "dcschmid@murena.io";
+---
+
+<aside class="contact-card" aria-labelledby="contact-heading">
+  <h3 id="contact-heading" class="contact-card__title">{t("pages.privacy.contact")}</h3>
+  <dl class="contact-card__list">
+    <div class="contact-card__row">
+      <dt class="contact-card__label">{t("pages.imprint.company_name")}</dt>
+      <dd class="contact-card__value">{t("pages.imprint.company_name")}</dd>
+    </div>
+    <div class="contact-card__row">
+      <dt class="contact-card__label">{t("pages.privacy.contact.address_label")}</dt>
+      <dd class="contact-card__value contact-card__value--pre">
+        {t("pages.privacy.contact.address")}
+      </dd>
+    </div>
+    <div class="contact-card__row">
+      <dt class="contact-card__label">{t("pages.privacy.contact.email_label")}</dt>
+      <dd class="contact-card__value">
+        <a href={`mailto:${email}`} class="contact-card__link" aria-describedby="contact-email-desc"
+          >{email}</a
+        >
+        <span id="contact-email-desc" class="visually-hidden"
+          >{t("pages.privacy.contact.email_aria")}</span
+        >
+      </dd>
+    </div>
+  </dl>
+</aside>
+
+<style>
+  .contact-card {
+    /* Use CSS variables with fallback to maintain dark theme compatibility without relying on Tailwind's theme() in Astro inline styles */
+    --cc-bg: var(--color-surface, #1e293b); /* slate-800 fallback */
+    --cc-border: rgba(255, 255, 255, 0.08);
+    --cc-radius: 0.9rem;
+    --cc-gap: 0.75rem;
+    background: var(--cc-bg);
+    border: 1px solid var(--cc-border);
+    padding: 1.25rem clamp(1rem, 1.5vw, 1.75rem);
+    border-radius: var(--cc-radius);
+    display: grid;
+    gap: 0.5rem 1.25rem;
+    box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.3);
+    color: var(--color-text, #fff);
+  }
+  @media (min-width: 640px) {
+    .contact-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  .contact-card__title {
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.5px;
+  }
+  .contact-card__list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--cc-gap);
+  }
+  .contact-card__row {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .contact-card__label {
+    --cc-label-size: 0.72rem;
+    font-weight: 600;
+    font-size: var(--cc-label-size);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .contact-card__value {
+    --cc-value-size: var(--font-size-body, 1rem);
+    font-size: var(--cc-value-size);
+    line-height: 1.45;
+    white-space: normal;
+  }
+  .contact-card__value--pre {
+    white-space: pre-line;
+  }
+  .contact-card__link {
+    color: #60a5fa;
+    text-decoration: underline;
+  }
+  .contact-card__link:hover,
+  .contact-card__link:focus {
+    color: #93c5fd;
+    outline: none;
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
