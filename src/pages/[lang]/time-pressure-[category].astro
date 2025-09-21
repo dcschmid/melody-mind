@@ -56,6 +56,11 @@ export async function getStaticPaths() {
 
     // Create a path for each category (no difficulty needed for time pressure)
     for (const categoryData of categories) {
+      // Ensure categoryData has a valid slug to avoid generating a route with a missing parameter
+      if (!categoryData || !categoryData.slug || typeof categoryData.slug !== "string") {
+        continue;
+      }
+
       paths.push({
         params: {
           lang,
