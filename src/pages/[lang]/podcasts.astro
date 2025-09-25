@@ -418,14 +418,14 @@ const pageSchema = generatePodcastPageSchema();
                 <article class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gray-800/90 p-2 shadow-lg">
                   <div class="relative mb-6 flex flex-col gap-6 text-left md:flex-row">
                     <div class="relative w-full flex-shrink-0 md:w-96">
-                      <div class="relative aspect-video w-full overflow-hidden rounded-2xl">
+                      <div class="relative aspect-[3/2] w-full overflow-hidden">
                         <img
                           src={episode.imageUrl}
                           alt={episode.title}
                           loading="lazy"
                           width="360"
                           height="220"
-                          class="absolute inset-0 h-full w-full object-cover"
+                          class="absolute inset-0 h-full w-full rounded-2xl object-contain"
                         />
                       </div>
                     </div>
