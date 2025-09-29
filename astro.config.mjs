@@ -5,6 +5,7 @@ import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
+import enPodcastsJson from "./src/data/podcasts/en.json" assert { type: "json" };
 import robotsTxt from "astro-robots-txt";
 
 import metaTags from "astro-meta-tags";
@@ -24,13 +25,32 @@ export default defineConfig({
   integrations: [
     icon(),
     robotsTxt({
-      sitemap: ["https://melody-mind.de/sitemap-index.xml", "https://melody-mind.de/sitemap.xml"],
+      // Rely solely on the sitemap plugin output (sitemap-index.xml + chunked sitemaps)
+      sitemap: ["https://melody-mind.de/sitemap-index.xml"],
       host: "melody-mind.de",
     }),
     sitemap({
-      filter: (page) =>
-        // Exclude our custom sitemap files from the default sitemap
-        !page.includes("sitemap-") && !page.includes("sitemap-index"),
+      filter: (page) => {
+        // Exclude unavailable podcast episode pages from sitemap output.
+        // Generated pages look like /{lang}/podcasts/{episode-id}/
+        if (page.includes("/podcasts/")) {
+          const parts = page.split("/podcasts/");
+          if (parts.length > 1) {
+            const tail = parts[1];
+            const id = tail.split("/").filter(Boolean)[0];
+            if (id) {
+              try {
+                const list = (enPodcastsJson.podcasts || []).filter((p) => p && p.isAvailable);
+                const isAvailable = list.some((p) => p.id === id);
+                if (!isAvailable) return false;
+              } catch {
+                // Never fail build due to filter errors
+              }
+            }
+          }
+        }
+        return true;
+      },
       i18n: {
         defaultLocale: "en",
         locales: {
@@ -50,8 +70,7 @@ export default defineConfig({
           uk: "uk",
         },
       },
-      // Use our custom sitemap-index.xml as the main sitemap
-      customPages: ["https://melody-mind.de/sitemap-index.xml"],
+      // No customPages: rely entirely on plugin-managed index + chunks.
     }),
     metaTags(),
     // HTML minification disabled due to memory issues with large projects

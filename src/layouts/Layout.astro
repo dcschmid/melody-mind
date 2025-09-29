@@ -10,7 +10,7 @@
  * @param {string} [description] - Page meta description for SEO and social sharing
  * @param {string} [keywords] - Page meta keywords for SEO optimization
  * @param {string} [image] - Social sharing image URL for Open Graph
- * @param {"website"|"article"|"music"|"game"} [type="website"] - Page content type for structured data
+ * @param {"website"|"article"|"music"|"game"|"podcastEpisode"} [type="website"] - Page content type for structured data
  * @param {Date} [publishDate] - Content publish date for SEO and structured data
  * @param {Date} [modifiedDate] - Content modification date for SEO optimization
  * @param {boolean} [showHeader=true] - Whether to display the header navigation component
@@ -106,12 +106,12 @@ interface Props {
 
   /**
    * Page content type for structured data and Open Graph metadata
-   * @type {"website" | "article" | "music" | "game"}
+   * @type {"website" | "article" | "music" | "game" | "podcastEpisode"}
    * @optional
    * @default "website"
    * @example "game" for quiz pages, "music" for artist content
    */
-  type?: "website" | "article" | "music" | "game";
+  type?: "website" | "article" | "music" | "game" | "podcastEpisode";
 
   /**
    * Content publish date for SEO and structured data markup
@@ -189,6 +189,30 @@ interface Props {
      */
     musician?: string;
   };
+  /**
+   * Podcast episode audio source URL (MP3) for podcastEpisode pages
+   * @type {string}
+   * @example "https://cdn.example.com/podcast/episode-1.mp3"
+   */
+  audioSrc?: string;
+  /**
+   * Sequential episode number (1-based) for podcastEpisode structured data
+   * @type {number}
+   * @example 12
+   */
+  episodeNumber?: number;
+  /**
+   * Podcast series name
+   * @type {string}
+   * @example "MelodyMind Podcast"
+   */
+  seriesName?: string;
+  /**
+   * Canonical URL of the podcast series listing page
+   * @type {string}
+   * @example "https://example.com/en/podcasts"
+   */
+  seriesUrl?: string;
 }
 
 const {
@@ -203,6 +227,10 @@ const {
   showHeaderIcons = true,
   showCoins = false,
   ogMusic,
+  audioSrc,
+  episodeNumber,
+  seriesName,
+  seriesUrl,
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -296,7 +324,20 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <!-- Structured data and SEO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
-    <SEO {title} {description} {keywords} {image} {type} {publishDate} {modifiedDate} {ogMusic} />
+    <SEO
+      {title}
+      {description}
+      {keywords}
+      {image}
+      {type}
+      {publishDate}
+      {modifiedDate}
+      {ogMusic}
+      {audioSrc}
+      {episodeNumber}
+      {seriesName}
+      {seriesUrl}
+    />
 
     <!-- Analytics with performance and privacy optimizations -->
     <script

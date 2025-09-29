@@ -5,10 +5,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "start:production": "node dist/server/entry.mjs",
-    "build": "yarn install:sharp && yarn build:astro",
+    "start:production": "NODE_ENV=production node dist/server/entry.mjs",
+    "build": "yarn install:sharp && yarn validate:podcasts && yarn build:astro",
     "install:sharp": "yarn add sharp --ignore-engines",
-    "build:astro": "NODE_OPTIONS='--max-old-space-size=8192' astro build --remote",
+    "build:astro": "NODE_ENV=production SHARP_CONCURRENCY=2 NODE_OPTIONS='--max-old-space-size=6144' astro build",
     "build:check": "astro check --typescript-errors=false",
     "build:full": "yarn build:check && yarn build",
     "install:production": "yarn install --production --frozen-lockfile",
@@ -29,18 +29,19 @@
     "generate-og": "node scripts/generate-og-images.cjs",
     "generate-og-images": "node scripts/setup-fonts.cjs && node scripts/generate-og-images.cjs",
     "sync:categories": "node scripts/sync-categories.cjs",
-    "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs"
+    "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs",
+    "validate:podcasts": "node scripts/validate-podcasts.cjs"
   },
   "lint-staged": {
     "*.{js,ts,jsx,tsx,astro}": "eslint --fix",
     "*.{html,json,md,mdx,astro}": "prettier --write"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^6.3.5",
-    "@astrojs/node": "^9.4.3",
+    "@astrojs/markdown-remark": "^6.3.7",
+    "@astrojs/node": "^9.4.4",
     "@astropub/flow": "^0.4.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
-    "astro": "^5.13.9",
+    "astro": "^5.14.1",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
     "date-fns": "^4.1.0",
@@ -51,9 +52,9 @@
     "@astrojs/sitemap": "^3.6.0",
     "@eslint/js": "^9.36.0",
     "@tailwindcss/vite": "^4.1.13",
-    "@typescript-eslint/parser": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.1",
     "astro-meta-tags": "^0.4.0",
-    "astro-minify-html-swc": "^0.1.7",
+    "astro-minify-html-swc": "^0.1.8",
     "astro-robots-txt": "^1.0.0",
     "canvas": "^3.1.2",
     "critical": "^7.2.1",
@@ -61,10 +62,10 @@
     "eslint-formatter-unix": "^8.40.0",
     "eslint-plugin-astro": "^1.3.1",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jsdoc": "^59.0.2",
+    "eslint-plugin-jsdoc": "^60.5.0",
     "eslint-plugin-promise": "^7.2.1",
     "husky": "^9.1.7",
-    "lint-staged": "^16.1.6",
+    "lint-staged": "^16.2.3",
     "mdast-util-to-string": "^4.0.0",
     "postcss-html": "^1.8.0",
     "postcss-markdown": "^1.3.0",
@@ -77,7 +78,7 @@
     "ts-node": "^10.9.2",
     "tw-prose": "^0.0.10",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.44.0"
+    "typescript-eslint": "^8.44.1"
   },
   "packageManager": "yarn@1.22.22"
 }

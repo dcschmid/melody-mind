@@ -29,7 +29,7 @@ interface Props {
   /** Path to OpenGraph/social share image (absolute or relative) */
   image?: string;
   /** Content type classification */
-  type?: "website" | "article" | "music" | "game";
+  type?: "website" | "article" | "music" | "game" | "podcastEpisode";
   /** Publication date - important for articles/content */
   publishDate?: Date;
   /** Last modification date - helps with SEO freshness signals */
@@ -44,6 +44,14 @@ interface Props {
     album?: string;
     musician?: string;
   };
+  /** Episode number for podcast episodes (1-based) */
+  episodeNumber?: number;
+  /** Name of the podcast series the episode belongs to */
+  seriesName?: string;
+  /** URL of the podcast series landing page */
+  seriesUrl?: string;
+  /** Approximate audio duration in seconds (optional) */
+  audioDurationSeconds?: number;
 }
 
 const {
@@ -57,7 +65,16 @@ const {
   audioSrc,
   section = "game",
   ogMusic,
-} = Astro.props;
+  episodeNumber,
+  seriesName = "MelodyMind Podcast",
+  seriesUrl,
+  audioDurationSeconds,
+} = Astro.props as Props;
+
+// Defensive date validation – ensure we never call toISOString on an invalid Date
+const isValidDate = (d: unknown): d is Date => d instanceof Date && !isNaN(d.getTime());
+const safePublishDate = isValidDate(publishDate) ? publishDate : undefined;
+const safeModifiedDate = isValidDate(modifiedDate) ? modifiedDate : undefined;
 
 const lang = String(getLangFromUrl(Astro.url));
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -124,8 +141,14 @@ if (type === "article") {
     headline: title, // Use headline for Article schema (not name)
     description: description,
     image: imageURL.toString(),
-    datePublished: publishDate ? publishDate.toISOString() : new Date().toISOString(),
-    dateModified: modifiedDate ? modifiedDate.toISOString() : new Date().toISOString(),
+    // Only include dates if valid; fallback to build date only if neither provided
+    ...(safePublishDate && { datePublished: safePublishDate.toISOString() }),
+    ...(safeModifiedDate && { dateModified: safeModifiedDate.toISOString() }),
+    ...(!safePublishDate &&
+      !safeModifiedDate && {
+        datePublished: new Date().toISOString(),
+        dateModified: new Date().toISOString(),
+      }),
     author: {
       "@type": "Organization",
       name: "Melody Mind Team",
@@ -177,10 +200,56 @@ if (type === "article") {
     accessibilityControl: ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
     accessibilityFeature: ["alternativeText", "highContrast", "structuralNavigation"],
   };
+} else if (type === "podcastEpisode") {
+  // Podcast Episode structured data (centralized – replaces per-page schema scripts)
+  structuredData = {
+    "@context": "https://schema.org",
+    "@type": "PodcastEpisode",
+    name: title,
+    headline: title,
+    description,
+    url: canonicalURL.toString(),
+    isAccessibleForFree: true,
+    inLanguage: String(lang),
+    datePublished: safePublishDate ? safePublishDate.toISOString() : undefined,
+    dateModified: safeModifiedDate ? safeModifiedDate.toISOString() : undefined,
+    episodeNumber: episodeNumber ?? undefined,
+    image: imageURL.toString(),
+    partOfSeries: {
+      "@type": "PodcastSeries",
+      name: seriesName,
+      url: seriesUrl || `${siteUrl}${String(lang)}/podcasts`,
+    },
+    author: {
+      "@type": "Organization",
+      name: "Melody Mind Team",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Melody Mind",
+      logo: {
+        "@type": "ImageObject",
+        url: new URL("/melody-mind.png", Astro.site || siteUrl).toString(),
+        width: 192,
+        height: 192,
+      },
+    },
+    ...(audioSrc && {
+      audio: {
+        "@type": "AudioObject",
+        url: new URL(audioSrc, Astro.site || siteUrl).toString(),
+        encodingFormat: "audio/mpeg",
+        ...(audioDurationSeconds && { duration: `PT${Math.round(audioDurationSeconds)}S` }),
+      },
+    }),
+    accessibilityControl: ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
+    accessibilityFeature: ["alternativeText", "highContrast", "structuralNavigation"],
+  } as StructuredData;
 }
 
-// Generate concise page title with site name
-const pageTitle = `${title} | Melody Mind`;
+// Generate concise page title with site name (prefix podcast episodes for clarity)
+const pageTitle =
+  type === "podcastEpisode" ? `${title} | Podcast | Melody Mind` : `${title} | Melody Mind`;
 
 // Calculate critical resources for preloading
 type CriticalResource = { as: string; href: string; type: string; crossorigin?: boolean };
@@ -210,7 +279,10 @@ const criticalResources: CriticalResource[] = [
 <link rel="alternate" href={canonicalURL} hreflang="x-default" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content={type === "article" ? "article" : "website"} />
+<meta
+  property="og:type"
+  content={type === "article" ? "article" : type === "podcastEpisode" ? "article" : "website"}
+/>
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
@@ -225,9 +297,34 @@ const criticalResources: CriticalResource[] = [
     ))
 }
 <meta property="og:site_name" content="Melody Mind" />
-{publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
-{modifiedDate && <meta property="article:modified_time" content={modifiedDate.toISOString()} />}
+{
+  safePublishDate && (
+    <meta property="article:published_time" content={safePublishDate.toISOString()} />
+  )
+}
+{
+  safeModifiedDate && (
+    <meta property="article:modified_time" content={safeModifiedDate.toISOString()} />
+  )
+}
 {section && <meta property="article:section" content={section} />}
+{
+  type === "podcastEpisode" && audioSrc && (
+    <meta property="og:audio" content={new URL(audioSrc, Astro.site || siteUrl).toString()} />
+  )
+}
+{type === "podcastEpisode" && audioSrc && <meta property="og:audio:type" content="audio/mpeg" />}
+{
+  type === "podcastEpisode" && episodeNumber && (
+    <meta name="podcast:episode_number" content={String(episodeNumber)} />
+  )
+}
+{type === "podcastEpisode" && <meta name="podcast:series" content={seriesName} />}
+{
+  type === "podcastEpisode" && audioDurationSeconds && (
+    <meta name="podcast:duration" content={String(audioDurationSeconds)} />
+  )
+}
 
 <!-- Music-specific OpenGraph tags -->
 {ogMusic?.creator && <meta property="og:music:creator" content={ogMusic.creator} />}

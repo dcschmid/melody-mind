@@ -7,6 +7,49 @@
  */
 import { getCollection } from "astro:content";
 
+import enPodcastsJson from "../data/podcasts/en.json" assert { type: "json" };
+
+/**
+ * Add podcast URLs for the sitemap (only published episodes)
+ * @param {string} lang
+ * @param {string} siteUrl
+ * @param {string} today
+ * @returns {Array<{url:string,lastmod:string,changefreq:string,priority:string}>}
+ */
+function buildPodcastEntries(lang, siteUrl, today) {
+  if (lang !== "en") {
+    return [];
+  }
+  const entries = [];
+  entries.push({
+    url: `${siteUrl}/${lang}/podcasts/`,
+    lastmod: today,
+    changefreq: "weekly",
+    priority: "0.7",
+  });
+  try {
+    const podcasts = Array.isArray(enPodcastsJson.podcasts) ? enPodcastsJson.podcasts : [];
+    podcasts.filter((p) => p && p.isAvailable).forEach((p) => {
+      let pubDate = today;
+      if (p.publishedAt) {
+        const d = new Date(p.publishedAt);
+        if (!isNaN(d.getTime())) {
+          pubDate = d.toISOString();
+        }
+      }
+      entries.push({
+        url: `${siteUrl}/${lang}/podcasts/${p.id}/`,
+        lastmod: pubDate,
+        changefreq: "monthly",
+        priority: "0.5",
+      });
+    });
+  } catch (e) {
+    globalThis.console?.warn?.("sitemap: failed to process podcasts", e?.message || e);
+  }
+  return entries;
+}
+
 // Enable prerendering for static generation
 export const prerender = true;
 
@@ -81,6 +124,9 @@ export async function get({ params }) {
     changefreq: "weekly",
     priority: "0.8",
   });
+
+  // Podcast entries (published only)
+  urls.push(...buildPodcastEntries(lang, siteUrl, today));
 
   // Add knowledge articles
   try {
