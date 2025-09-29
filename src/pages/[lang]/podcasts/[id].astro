@@ -188,7 +188,7 @@ const episodeNumber = computeEpisodeNumber(podcast.id);
 
   <!-- Hero Section -->
   <section class="mb-12">
-    <div class="mb-6 flex flex-col gap-10 text-center md:flex-row md:text-left">
+    <div class="mb-6 flex flex-col gap-10 text-center md:text-left lg:flex-row">
       <div class="relative w-full flex-shrink-0 md:w-[560px]">
         <div class="group relative aspect-[3/2] w-full overflow-hidden">
           <img
@@ -224,10 +224,10 @@ const episodeNumber = computeEpisodeNumber(podcast.id);
         <Headline level="h1" textSize="2xl">
           <span class="align-middle">{podcast.title}</span>
         </Headline>
+
+        <Paragraph textSize="lg" className="mb-8">{podcast.description}</Paragraph>
       </div>
     </div>
-
-    <Paragraph textSize="lg" className="mb-8">{podcast.description}</Paragraph>
 
     {
       podcast.audioUrl && (
