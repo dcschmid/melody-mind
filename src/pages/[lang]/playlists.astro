@@ -115,7 +115,6 @@ const currentUrl = `${baseUrl}/${lang}/playlists`;
 
 // Enhanced structured data for playlist collection
 const playlistCollectionSchema = {
-  "@context": "https://schema.org",
   "@type": "ItemList",
   name: `${title} | Melody Mind`,
   description: optimizedDescription,
@@ -130,80 +129,32 @@ const playlistCollectionSchema = {
     url: `${currentUrl}#playlist-${index}`,
     genre: getDecadeFromHeadline(playlist.headline),
     inLanguage: lang,
-    creator: {
-      "@type": "Organization",
-      name: "Melody Mind",
-    },
+    creator: { "@type": "Organization", name: "Melody Mind" },
   })),
 };
-
-// Breadcrumb structured data for better navigation SEO
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: t("nav.home"),
-      item: `${baseUrl}/${lang}/`,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: title,
-      item: currentUrl,
-    },
-  ],
-};
+const breadcrumbs = [
+  { name: t("nav.home"), url: `${baseUrl}/${lang}` },
+  { name: title, url: currentUrl },
+];
+const structuredDataExtra = [playlistCollectionSchema];
 ---
 
+<!-- OG image: playlists overview -->
 <Layout
   {title}
   description={optimizedDescription}
   {keywords}
-  image={`/og-images/social-share-playlists-${lang}.jpg`}
+  image="/homecategories/playlist.png"
+  imageWidth={1200}
+  imageHeight={630}
   type="website"
   publishDate={new Date()}
   modifiedDate={new Date()}
+  canonical={currentUrl}
+  {breadcrumbs}
+  {structuredDataExtra}
 >
-  <!-- Enhanced SEO structured data -->
-  <Fragment slot="head">
-    <script
-      is:inline
-      type="application/ld+json"
-      is:inline
-      set:html={JSON.stringify(playlistCollectionSchema)}
-    />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href={currentUrl} />
-
-    <!-- Additional SEO meta tags -->
-    <meta name="author" content="Melody Mind Team" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content={`${lang}_${lang.toUpperCase()}`} />
-    <meta property="article:section" content="Music" />
-    <meta property="article:tag" content="Music Playlists" />
-    <meta property="article:tag" content="Music History" />
-    <meta property="article:tag" content="Music Discovery" />
-
-    <!-- Music-specific meta tags -->
-    <meta name="music:genre" content="Various" />
-    <meta name="music:playlist_count" content={playlistCount.toString()} />
-    <meta name="music:decades" content={playlistDecades} />
-
-    <!-- Enhanced Open Graph for better social sharing -->
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/jpeg" />
-
-    <!-- Twitter Card enhancements -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@melodymind" />
-    <meta name="twitter:creator" content="@melodymind" />
-  </Fragment>
+  <Fragment slot="head"></Fragment>
 
   <main class="min-h-screen bg-gray-900 py-8 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

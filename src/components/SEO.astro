@@ -30,6 +30,10 @@ interface Props {
   image?: string;
   /** Content type classification */
   type?: "website" | "article" | "music" | "game" | "podcastEpisode";
+  /** Explicit width of OpenGraph image (optional) */
+  imageWidth?: number;
+  /** Explicit height of OpenGraph image (optional) */
+  imageHeight?: number;
   /** Publication date - important for articles/content */
   publishDate?: Date;
   /** Last modification date - helps with SEO freshness signals */
@@ -51,7 +55,24 @@ interface Props {
   /** URL of the podcast series landing page */
   seriesUrl?: string;
   /** Approximate audio duration in seconds (optional) */
-  audioDurationSeconds?: number;
+  /** Optional custom canonical URL override */
+  canonical?: string;
+  /** Provide breadcrumb trail */
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  /** Robots noindex flag */
+  noIndex?: boolean;
+  /** Robots nofollow flag */
+  noFollow?: boolean;
+  /** Pagination previous rel */
+  prevUrl?: string;
+  /** Pagination next rel */
+  nextUrl?: string;
+  /** Disable alternate language generation */
+  disableAlternateLanguages?: boolean;
+  /** Additional structured data object(s) */
+  structuredDataExtra?: StructuredData | StructuredData[];
+  /** Override author/publisher name */
+  authorName?: string;
 }
 
 const {
@@ -59,6 +80,8 @@ const {
   description = "Melody Mind - The Musical Quiz Game",
   keywords = "Music, Quiz, Game, Cover, Entertainment",
   image = "/social-share.jpg",
+  imageWidth,
+  imageHeight,
   type = "website",
   publishDate,
   modifiedDate,
@@ -68,7 +91,15 @@ const {
   episodeNumber,
   seriesName = "MelodyMind Podcast",
   seriesUrl,
-  audioDurationSeconds,
+  canonical,
+  breadcrumbs,
+  noIndex = false,
+  noFollow = false,
+  prevUrl,
+  nextUrl,
+  disableAlternateLanguages = false,
+  structuredDataExtra,
+  authorName = "Melody Mind Team",
 } = Astro.props as Props;
 
 // Defensive date validation – ensure we never call toISOString on an invalid Date
@@ -77,27 +108,31 @@ const safePublishDate = isValidDate(publishDate) ? publishDate : undefined;
 const safeModifiedDate = isValidDate(modifiedDate) ? modifiedDate : undefined;
 
 const lang = String(getLangFromUrl(Astro.url));
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = canonical
+  ? new URL(canonical, Astro.site || "https://melody-mind.de")
+  : new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
-const siteUrl = Astro.site?.toString() || "https://melodymind.app";
+const siteUrl = Astro.site?.toString() || "https://melody-mind.de";
 
 // Improved URL handling for hreflang tags
-const alternateLanguages = Object.keys(languages).map((langCode) => {
-  // Safer method to replace language in URL path
-  let path = Astro.url.pathname;
+const alternateLanguages = disableAlternateLanguages
+  ? []
+  : Object.keys(languages).map((langCode) => {
+      // Safer method to replace language in URL path
+      let path = Astro.url.pathname;
 
-  // If current path starts with /{lang}/, replace only that part
-  const langPathRegex = new RegExp(`^/${String(lang)}/`);
-  if (langPathRegex.test(path)) {
-    path = path.replace(langPathRegex, `/${langCode}/`);
-  } else {
-    // Fallback for different URL structures
-    path = `/${langCode}${path.startsWith("/") ? path : `/${path}`}`;
-  }
+      // If current path starts with /{lang}/, replace only that part
+      const langPathRegex = new RegExp(`^/${String(lang)}/`);
+      if (langPathRegex.test(path)) {
+        path = path.replace(langPathRegex, `/${langCode}/`);
+      } else {
+        // Fallback for different URL structures
+        path = `/${langCode}${path.startsWith("/") ? path : `/${path}`}`;
+      }
 
-  const url = new URL(path, Astro.site || siteUrl);
-  return { langCode, url: url.toString() };
-});
+      const url = new URL(path, Astro.site || siteUrl);
+      return { langCode, url: url.toString() };
+    });
 
 /**
  * JSON-LD structured data with TypeScript type safety
@@ -239,7 +274,7 @@ if (type === "article") {
         "@type": "AudioObject",
         url: new URL(audioSrc, Astro.site || siteUrl).toString(),
         encodingFormat: "audio/mpeg",
-        ...(audioDurationSeconds && { duration: `PT${Math.round(audioDurationSeconds)}S` }),
+        // duration intentionally omitted (feature removed)
       },
     }),
     accessibilityControl: ["fullKeyboardControl", "fullMouseControl", "fullTouchControl"],
@@ -247,9 +282,77 @@ if (type === "article") {
   } as StructuredData;
 }
 
+// ---------------------------------------------------------------------------
+// Global persistent Organization & WebSite entities
+// Always injected so Google / Knowledge Graph can consistently associate
+// page-level entities (Article, PodcastEpisode, Game, etc.) with the brand.
+// We skip adding the global WebSite if the primary structuredData already is
+// a WebSite instance to avoid duplication.
+// ---------------------------------------------------------------------------
+const globalOrganizationSchema: StructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Melody Mind",
+  url: siteUrl,
+  logo: {
+    "@type": "ImageObject",
+    url: new URL("/melody-mind.png", Astro.site || siteUrl).toString(),
+    width: 192,
+    height: 192,
+  },
+  sameAs: ["https://twitter.com/melodymindgame", "https://github.com/dcschmid/melody-mind"],
+};
+
+const globalWebsiteSchema: StructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Melody Mind",
+  url: siteUrl,
+  description: description,
+  inLanguage: String(lang),
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${siteUrl}${String(lang)}/search?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 // Generate concise page title with site name (prefix podcast episodes for clarity)
+const siteName = "Melody Mind";
 const pageTitle =
-  type === "podcastEpisode" ? `${title} | Podcast | Melody Mind` : `${title} | Melody Mind`;
+  type === "podcastEpisode" ? `${title} | Podcast | ${siteName}` : `${title} | ${siteName}`;
+
+// Breadcrumb structured data
+let breadcrumbSchema: StructuredData | undefined;
+if (Array.isArray(breadcrumbs) && breadcrumbs.length) {
+  const safeItems = breadcrumbs
+    .filter((b) => b && b.name && b.url)
+    .map((b, i) => ({ "@type": "ListItem", position: i + 1, name: b.name, item: b.url }));
+  if (safeItems.length) {
+    breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: safeItems,
+    };
+  }
+}
+
+// Merge extra structured data
+const extraSchemas: StructuredData[] = Array.isArray(structuredDataExtra)
+  ? structuredDataExtra
+  : structuredDataExtra
+    ? [structuredDataExtra]
+    : [];
+const structuredGraph = [structuredData]
+  // Add global WebSite if current primary node is not a WebSite itself
+  .concat(structuredData["@type"] !== "WebSite" ? [globalWebsiteSchema] : [])
+  // Always add Organization (brand entity)
+  .concat([globalOrganizationSchema])
+  .concat(breadcrumbSchema ? [breadcrumbSchema] : [])
+  .concat(extraSchemas);
 
 // Calculate critical resources for preloading
 type CriticalResource = { as: string; href: string; type: string; crossorigin?: boolean };
@@ -263,20 +366,26 @@ const criticalResources: CriticalResource[] = [
 <meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
-<meta name="author" content="Melody Mind Team" />
-<meta name="robots" content="index, follow" />
+<meta name="author" content={authorName} />
+<meta
+  name="robots"
+  content={`${noIndex ? "noindex" : "index"}, ${noFollow ? "nofollow" : "follow"}`}
+/>
 <meta name="language" content={String(lang)} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+{prevUrl && <link rel="prev" href={prevUrl} />}
+{nextUrl && <link rel="next" href={nextUrl} />}
 
 <!-- Hreflang Tags for Internationalization -->
 {
-  alternateLanguages.map(({ langCode, url }) => (
-    <link rel="alternate" href={url} hreflang={langCode} />
-  ))
+  !disableAlternateLanguages &&
+    alternateLanguages.map(({ langCode, url }) => (
+      <link rel="alternate" href={url} hreflang={langCode} />
+    ))
 }
-<link rel="alternate" href={canonicalURL} hreflang="x-default" />
+{!disableAlternateLanguages && <link rel="alternate" href={canonicalURL} hreflang="x-default" />}
 
 <!-- Open Graph / Facebook -->
 <meta
@@ -287,6 +396,8 @@ const criticalResources: CriticalResource[] = [
 <meta property="og:title" content={pageTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageURL} />
+{imageWidth && <meta property="og:image:width" content={String(imageWidth)} />}
+{imageHeight && <meta property="og:image:height" content={String(imageHeight)} />}
 <meta property="og:image:alt" content={`Melody Mind - ${title}`} />
 <meta property="og:locale" content={String(lang).replace("-", "_")} />
 {
@@ -321,9 +432,7 @@ const criticalResources: CriticalResource[] = [
 }
 {type === "podcastEpisode" && <meta name="podcast:series" content={seriesName} />}
 {
-  type === "podcastEpisode" && audioDurationSeconds && (
-    <meta name="podcast:duration" content={String(audioDurationSeconds)} />
-  )
+  // podcast:duration meta removed
 }
 
 <!-- Music-specific OpenGraph tags -->
@@ -366,7 +475,11 @@ const criticalResources: CriticalResource[] = [
 <meta name="theme-color" content="#18181b" />
 
 <!-- Structured Data / JSON-LD - Compressed for performance -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify(structuredGraph.length === 1 ? structuredGraph[0] : structuredGraph)}
+/>
 
 <!-- Favicons with explicit sizes for better performance -->
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />

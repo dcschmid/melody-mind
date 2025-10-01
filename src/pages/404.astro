@@ -17,13 +17,29 @@ export const prerender = true;
 
 const title = t("error.404.title");
 const description = t("error.404.description");
+
+// Build canonical URL (language root fallback)
+const base = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const canonical = `${base}/${lang}`;
+
+// Breadcrumbs (Home -> 404)
+const breadcrumbs = [
+  { name: t("nav.home") || "Home", url: `${base}/${lang}` },
+  { name: title, url: `${base}/${lang}/404` },
+];
 ---
 
-<Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
-  <Fragment slot="head">
-    <meta name="robots" content="noindex, follow" />
-    <meta name="googlebot" content="noindex, follow" />
-  </Fragment>
+<Layout
+  {title}
+  {description}
+  type="website"
+  showHeader={true}
+  showHeaderIcons={true}
+  noIndex={true}
+  noFollow={false}
+  {canonical}
+  {breadcrumbs}
+>
   <main class="flex min-h-screen items-center bg-slate-50 py-16 dark:bg-slate-900">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div

@@ -508,3 +508,119 @@ export function generateMetaDescription(content: string, maxLength = 160): strin
 
   return description;
 }
+
+/**
+ * Ensure a clean canonical URL by joining a site base (Astro.site) and a pathname.
+ * - Removes duplicate slashes
+ * - Strips query/hash fragments
+ * - Forces trailing slash removal (except root)
+ *
+ * @param {string} siteBase Base site URL (e.g. "https://example.com")
+ * @param {string} path URL path (e.g. "/en/podcasts/episode-1")
+ * @returns {string} Normalized canonical URL
+ * @example buildCanonicalUrl('https://example.com/', '/en/') => 'https://example.com/en'
+ */
+export function buildCanonicalUrl(siteBase: string, path: string): string {
+  if (!siteBase) {
+    return path; // fallback if misconfigured
+  }
+  const base = siteBase.replace(/\/$/, "");
+  const cleanPath = path.replace(/https?:\/\/[^/]+/i, ""); // if accidentally passed absolute
+  const joined = `${base}${cleanPath.startsWith('/') ? '' : '/'}${cleanPath}`;
+  try {
+    const url = new URL(joined);
+    url.hash = "";
+    url.search = "";
+    // drop trailing slash (except root)
+    if (url.pathname !== "/" && url.pathname.endsWith("/")) {
+      url.pathname = url.pathname.replace(/\/$/, "");
+    }
+    return url.toString();
+  } catch {
+    return joined; // fallback without normalization
+  }
+}
+
+/**
+ * Build an absolute OpenGraph image URL.
+ * Accepts relative or absolute image paths; if already absolute returns unchanged.
+ * @param {string} siteBase Base site origin
+ * @param {string} imagePath Relative or absolute image path
+ * @returns {string} Absolute image URL suitable for OG tags
+ */
+export function buildOpenGraphImageUrl(siteBase: string, imagePath: string): string {
+  if (!imagePath) {
+    return imagePath;
+  }
+  if (/^https?:\/\//i.test(imagePath)) {
+    return imagePath;
+  }
+  const base = siteBase?.replace(/\/$/, "") || "";
+  return `${base}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`;
+}
+
+/**
+ * Simple breadcrumb item descriptor
+ */
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+/**
+ * Convenience helper to construct a breadcrumb array.
+ * Filters out invalid entries and ensures unique consecutive names.
+ * Does not inject structured data directly; that is handled by the SEO component.
+ *
+ * @param {BreadcrumbItem[]} items Raw breadcrumb items
+ * @returns {BreadcrumbItem[]} Sanitized items
+ * @example
+ * buildBreadcrumbs([
+ *   { name: 'Home', url: 'https://example.com/en' },
+ *   { name: 'Podcasts', url: 'https://example.com/en/podcasts' },
+ *   { name: 'Episode 1', url: 'https://example.com/en/podcasts/ep-1' }
+ * ]);
+ */
+export function buildBreadcrumbs(items: BreadcrumbItem[]): BreadcrumbItem[] {
+  const seen = new Set<string>();
+  return items
+    .filter((i) => i && typeof i.name === "string" && typeof i.url === "string")
+    .map((i) => ({ name: i.name.trim(), url: i.url.trim() }))
+    .filter((i) => i.name.length > 0 && i.url.length > 0)
+    .filter((i) => {
+      const key = `${i.name}|${i.url}`;
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+}
+
+/**
+ * Build previous / next pagination URLs (rel links) from a base path and page numbers.
+ * Returns an object only containing properties that exist (undefined omitted when spread in Astro).
+ *
+ * @param {string} siteBase Base absolute site URL
+ * @param {string} lang Current language segment (without surrounding slashes)
+ * @param {string} basePath Path segment after language (no leading slash required)
+ * @param {number} currentPage Current 1-based page number
+ * @param {number} totalPages Total pages
+ */
+export function buildPaginationRelUrls(
+  siteBase: string,
+  lang: string,
+  basePath: string,
+  currentPage: number,
+  totalPages: number
+): { prevUrl?: string; nextUrl?: string } {
+  if (totalPages <= 1) {
+    return {};
+  }
+  const normalize = (p: number): string =>
+    buildCanonicalUrl(siteBase, `/${lang}/${basePath}${p > 1 ? `/page/${p}` : ""}`);
+  const prevUrl = currentPage > 1 ? normalize(currentPage - 1) : undefined;
+  const nextUrl = currentPage < totalPages ? normalize(currentPage + 1) : undefined;
+  return { prevUrl, nextUrl };
+}
+

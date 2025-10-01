@@ -252,19 +252,12 @@ const gameApplicationSchema = generateGameApplicationSchema(
   currentUrl,
   lang
 );
-
-// ItemList schema for game categories
 const categoryListSchema = generateCategoryListSchema(baseUrl, lang, playableCategories);
-
-// Breadcrumbs for Gamehome (Home → Categories)
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: t("nav.home"), item: `${baseUrl}/${lang}/` },
-    { "@type": "ListItem", position: 2, name: t("game.categories.title"), item: currentUrl },
-  ],
-};
+const breadcrumbs = [
+  { name: t("nav.home"), url: `${baseUrl}/${lang}` },
+  { name: t("game.categories.title"), url: currentUrl },
+];
+const structuredDataExtra = [gameApplicationSchema, categoryListSchema];
 
 // Additional structured data parameters for enhanced SEO
 const pageType = "website";
@@ -279,34 +272,22 @@ const emptyCategoriesText = t("game.categories.empty.text");
 const clientTranslations = generateClientTranslations(t);
 ---
 
+<!-- OG image: game overview -->
 <Layout
   {title}
   description={optimizedDescription}
   keywords={combinedKeywords}
-  image={`/og-images/social-share-gamehome-${String(lang)}.jpg`}
+  image="/homecategories/game.png"
+  imageWidth={1200}
+  imageHeight={630}
   type={pageType}
   {publishDate}
   {modifiedDate}
+  canonical={currentUrl}
+  {breadcrumbs}
+  {structuredDataExtra}
 >
-  <!-- Enhanced structured data for SEO -->
-  <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(gameApplicationSchema)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(categoryListSchema)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-
-    <!-- Additional SEO meta tags -->
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href={currentUrl} />
-
-    <!-- Enhanced OpenGraph tags for social sharing -->
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content={`${lang}_${lang.toUpperCase()}`} />
-    <meta property="article:section" content="Gaming" />
-    <meta property="article:tag" content="Music Trivia" />
-    <meta property="article:tag" content="Online Game" />
-    <meta property="article:tag" content="Music Knowledge" />
-  </Fragment>
+  <Fragment slot="head"></Fragment>
 
   <!-- Make translations available for JavaScript functionality -->
   <script is:inline define:vars={{ clientTranslations }}>

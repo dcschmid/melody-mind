@@ -6,7 +6,7 @@ import Prose from "@components/Prose.astro";
 import type { PodcastData } from "../../../types/podcast";
 import enPodcastsJson from "../../../data/podcasts/en.json" assert { type: "json" };
 import { Icon } from "astro-icon/components";
-import { extractKeywords } from "@utils/seo";
+import { extractKeywords, buildCanonicalUrl, buildBreadcrumbs } from "@utils/seo";
 import Paragraph from "@components/Paragraph.astro";
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@constants/languages";
 
@@ -55,7 +55,6 @@ if (!podcast) {
 // SEO and page metadata
 const title = podcast.title;
 const description = podcast.description;
-const currentUrl = new URL(Astro.url.pathname, Astro.site);
 const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "";
 const keywords = extractKeywords(
   `${podcast.title} ${podcast.description} ${podcast.showNotesHtml || ""}`,
@@ -63,7 +62,7 @@ const keywords = extractKeywords(
   lang
 );
 
-// Structured data now handled centrally via <SEO /> in Layout when type="podcastEpisode"
+// Structured data & breadcrumbs now handled centrally via <SEO /> in Layout when type="podcastEpisode"
 
 /**
  * Format the published date
@@ -130,305 +129,304 @@ const publishDate = toValidDate(podcast.publishedAt);
 const modifiedDate = publishDate;
 ---
 
-<Layout
-  {title}
-  {description}
-  {keywords}
-  type="podcastEpisode"
-  image={podcast.imageUrl}
-  {publishDate}
-  {modifiedDate}
-  ogMusic={{ creator: "Melody Mind" }}
-  audioSrc={podcast.audioUrl}
-  episodeNumber={episodeNumber || undefined}
-  seriesName="MelodyMind Podcast"
-  seriesUrl={`${baseUrl}/${lang}/podcasts`}
->
-  <Fragment slot="head">
-    <!-- Additional breadcrumb structured data (kept) -->
-    {
-      (() => {
-        const base = Astro.site?.toString().replace(/\/$/, "") || "";
-        const list = {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: t("nav.home") || "Home",
-              item: `${base}/${lang}`,
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: t("podcast.title") || "Podcasts",
-              item: `${base}/${lang}/podcasts`,
-            },
-            { "@type": "ListItem", position: 3, name: podcast.title, item: currentUrl.toString() },
-          ],
-        };
-        return <script is:inline type="application/ld+json" set:html={JSON.stringify(list)} />;
-      })()
-    }
-  </Fragment>
+{/* Prepare canonical + breadcrumbs using new utilities */}
+{
+  ((): any => {
+    const canonical = buildCanonicalUrl(baseUrl, Astro.url.pathname);
+    const breadcrumbs = buildBreadcrumbs([
+      { name: t("nav.home") || "Home", url: `${baseUrl}/${lang}` },
+      { name: t("podcast.title") || "Podcasts", url: `${baseUrl}/${lang}/podcasts` },
+      { name: podcast.title, url: canonical },
+    ]);
+    const rel = {
+      prevUrl: prev ? buildCanonicalUrl(baseUrl, `/${lang}/podcasts/${prev.id}`) : undefined,
+      nextUrl: next ? buildCanonicalUrl(baseUrl, `/${lang}/podcasts/${next.id}`) : undefined,
+    };
+    return (
+      <>
+        {/* Prefer the specific episode cover; fallback to global logo if missing/empty */}
+        <Layout
+          {title}
+          {description}
+          {keywords}
+          type="podcastEpisode"
+          image={podcast.imageUrl || "/melody-mind.png"}
+          imageWidth={podcast.imageWidth || 1200}
+          imageHeight={podcast.imageHeight || 630}
+          {publishDate}
+          {modifiedDate}
+          ogMusic={{ creator: "Melody Mind" }}
+          audioSrc={podcast.audioUrl}
+          episodeNumber={episodeNumber || undefined}
+          seriesName="MelodyMind Podcast"
+          seriesUrl={`${baseUrl}/${lang}/podcasts`}
+          canonical={canonical}
+          breadcrumbs={breadcrumbs}
+          {...rel}
+        >
+          <Fragment />
+        </Layout>
+      </>
+    );
+  })()
+}
 
-  <!-- Navigation Back -->
-  <nav class="mb-8" aria-label={t("podcast.navigation.aria")}>
-    <a
-      href={`/${lang}/podcasts`}
-      class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-purple-400 transition-all duration-300 hover:-translate-x-1 hover:bg-purple-500/10 hover:text-purple-300"
-    >
-      {t("podcast.back_to_all")}
-    </a>
-  </nav>
+<!-- Navigation Back -->
+<nav class="mb-8" aria-label={t("podcast.navigation.aria")}>
+  <a
+    href={`/${lang}/podcasts`}
+    class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-purple-400 transition-all duration-300 hover:-translate-x-1 hover:bg-purple-500/10 hover:text-purple-300"
+  >
+    {t("podcast.back_to_all")}
+  </a>
+</nav>
 
-  <!-- Hero Section -->
-  <section class="mb-12">
-    <div class="mb-6 flex flex-col gap-10 text-center md:text-left lg:flex-row">
-      <div class="relative w-full flex-shrink-0 md:w-[560px]">
-        <div class="group relative aspect-[3/2] w-full overflow-hidden">
-          <img
-            src={podcast.imageUrl}
-            alt={podcast.title}
-            width="720"
-            height="405"
-            loading="eager"
-            class="absolute inset-0 h-full w-full overflow-hidden rounded-2xl object-contain"
-          />
-        </div>
-      </div>
-
-      <div class="flex-1">
-        <div class="mb-5 flex flex-wrap items-center justify-start gap-5 text-lg">
-          {
-            episodeNumber && (
-              <span
-                aria-label={`Episode ${episodeNumber}`}
-                class="mr-3 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 align-middle text-lg font-bold tracking-wider text-white shadow-sm ring-1 ring-white/10"
-              >
-                EP {episodeNumber}
-              </span>
-            )
-          }
-
-          <time class="flex items-center gap-1" datetime={podcast.publishedAt}>
-            <span class="text-gray-500">📅</span>
-            {formatDate(podcast.publishedAt)}
-          </time>
-        </div>
-
-        <Headline level="h1" textSize="2xl">
-          <span class="align-middle">{podcast.title}</span>
-        </Headline>
-
-        <Paragraph textSize="lg" className="mb-8">{podcast.description}</Paragraph>
+<!-- Hero Section -->
+<section class="mb-12">
+  <div class="mb-6 flex flex-col gap-10 text-center md:text-left lg:flex-row">
+    <div class="relative w-full flex-shrink-0 md:w-[560px]">
+      <div class="group relative aspect-[3/2] w-full overflow-hidden">
+        <img
+          src={podcast.imageUrl}
+          alt={podcast.title}
+          width="720"
+          height="405"
+          loading="eager"
+          class="absolute inset-0 h-full w-full overflow-hidden rounded-2xl object-contain"
+        />
       </div>
     </div>
 
-    {
-      podcast.audioUrl && (
-        <div class="rounded-2xl text-center shadow-xl">
-          {/* Functional Audio Player */}
-          <div class="mb-6 rounded-xl border border-gray-600 bg-gray-900 p-6 shadow-inner">
-            <Headline level="h2" textSize="lg" className="mb-6 text-center text-white">
-              🎧 {t("podcast.listen_to_episode")}
-            </Headline>
-            <div class="mb-4 flex flex-col items-center justify-center gap-4 md:flex-row md:items-center">
-              <div class="relative">
-                <button
-                  id="play-button"
-                  aria-label="Play"
-                  class="flex h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
-                >
-                  <Icon name="play" width={32} height={32} aria-hidden="true" />
-                </button>
-                <button
-                  id="pause-button"
-                  aria-label="Pause"
-                  class="hidden h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
-                >
-                  <Icon name="pause" width={32} height={32} aria-hidden="true" />
-                </button>
-              </div>
-              <div class="text-center md:text-left">
-                <div class="text-lg font-semibold text-white">{podcast.title}</div>
-                <div class="sr-only text-sm text-gray-400">{t("podcast.episode_label")}</div>
-              </div>
-            </div>
-
-            {/* Audio Element */}
-            <audio
-              id="audio-player"
-              preload="metadata"
-              class="hidden"
-              data-podcast-id={podcast.id}
-              data-podcast-title={podcast.title}
+    <div class="flex-1">
+      <div class="mb-5 flex flex-wrap items-center justify-start gap-5 text-lg">
+        {
+          episodeNumber && (
+            <span
+              aria-label={`Episode ${episodeNumber}`}
+              class="mr-3 inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 px-2 py-1 align-middle text-lg font-bold tracking-wider text-white shadow-sm ring-1 ring-white/10"
             >
-              <source src={podcast.audioUrl} type="audio/mpeg" />
-              {podcast.subtitleUrl && (
-                <track
-                  kind="captions"
-                  src={podcast.subtitleUrl}
-                  srclang={lang}
-                  label={lang}
-                  default
-                />
-              )}
-              Your browser does not support the audio element.
-            </audio>
+              EP {episodeNumber}
+            </span>
+          )
+        }
 
-            {/* Progress Bar (click/drag to seek) */}
-            <div class="mb-4 w-full">
-              <div
-                id="progress-bar"
-                role="slider"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                aria-valuenow="0"
-                class="relative h-3 w-full cursor-pointer rounded-full bg-gray-700"
+        <time class="flex items-center gap-1" datetime={podcast.publishedAt}>
+          <span class="text-gray-500">📅</span>
+          {formatDate(podcast.publishedAt)}
+        </time>
+      </div>
+
+      <Headline level="h1" textSize="2xl">
+        <span class="align-middle">{podcast.title}</span>
+      </Headline>
+
+      <Paragraph textSize="lg" className="mb-8">{podcast.description}</Paragraph>
+    </div>
+  </div>
+
+  {
+    podcast.audioUrl && (
+      <div class="rounded-2xl text-center shadow-xl">
+        {/* Functional Audio Player */}
+        <div class="mb-6 rounded-xl border border-gray-600 bg-gray-900 p-6 shadow-inner">
+          <Headline level="h2" textSize="lg" className="mb-6 text-center text-white">
+            🎧 {t("podcast.listen_to_episode")}
+          </Headline>
+          <div class="mb-4 flex flex-col items-center justify-center gap-4 md:flex-row md:items-center">
+            <div class="relative">
+              <button
+                id="play-button"
+                aria-label="Play"
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
               >
-                <div
-                  id="progress-fill"
-                  class="absolute top-0 left-0 h-3 rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
-                  style="width:0%"
-                />
-              </div>
+                <Icon name="play" width={32} height={32} aria-hidden="true" />
+              </button>
+              <button
+                id="pause-button"
+                aria-label="Pause"
+                class="hidden h-12 w-12 items-center justify-center rounded-full bg-purple-600 shadow-lg transition-transform duration-150 hover:scale-105 focus:ring-4 focus:ring-purple-400 focus:outline-none md:h-16 md:w-16"
+              >
+                <Icon name="pause" width={32} height={32} aria-hidden="true" />
+              </button>
             </div>
-
-            {/* Time Display & Buffer Indicator */}
-            <div class="mb-4 flex flex-col items-center gap-2 text-sm text-gray-400 md:flex-row md:justify-center md:gap-4">
-              <span id="time-display">0:00 / 0:00</span>
-              <div
-                id="buffer-indicator"
-                class="pointer-events-none scale-95 items-center gap-2 text-xs text-gray-300 opacity-0 transition-all duration-300 ease-out"
-              >
-                <svg class="h-4 w-4 animate-spin text-gray-300" viewBox="0 0 24 24" fill="none">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    opacity="0.15"
-                  />
-                  <path
-                    d="M22 12a10 10 0 00-10-10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                Buffering...
-              </div>
-            </div>
-
-            {/* Audio Controls (rewind / forward + mute/volume) */}
-            <div class="flex items-center justify-center gap-6">
-              <button
-                class="text-gray-400 transition-colors duration-200 hover:text-white"
-                id="rewind-button"
-                title="Rewind 10s"
-              >
-                <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
-                </svg>
-              </button>
-
-              <button
-                class="text-gray-400 transition-colors duration-200 hover:text-white"
-                id="forward-button"
-                title="Forward 10s"
-              >
-                <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" />
-                </svg>
-              </button>
-
-              <button
-                id="mute-button"
-                class="text-gray-400 transition-transform duration-150 hover:scale-110 hover:text-white focus:outline-none"
-                aria-label="Mute"
-                aria-pressed="false"
-              >
-                <svg
-                  class="icon-unmuted h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M3 10v4h4l5 5V5L7 10H3z" />
-                  <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
-                </svg>
-                <svg
-                  class="icon-muted hidden h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
-                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                </svg>
-              </button>
+            <div class="text-center md:text-left">
+              <div class="text-lg font-semibold text-white">{podcast.title}</div>
+              <div class="sr-only text-sm text-gray-400">{t("podcast.episode_label")}</div>
             </div>
           </div>
-        </div>
-      )
-    }
-  </section>
 
-  <!-- Main Content -->
-  <section class="mb-12">
-    <article>
-      <Prose html={podcast.showNotesHtml} size="lg" invert fullWidth />
-    </article>
-  </section>
+          {/* Audio Element */}
+          <audio
+            id="audio-player"
+            preload="metadata"
+            class="hidden"
+            data-podcast-id={podcast.id}
+            data-podcast-title={podcast.title}
+          >
+            <source src={podcast.audioUrl} type="audio/mpeg" />
+            {podcast.subtitleUrl && (
+              <track
+                kind="captions"
+                src={podcast.subtitleUrl}
+                srclang={lang}
+                label={lang}
+                default
+              />
+            )}
+            Your browser does not support the audio element.
+          </audio>
 
-  {/* Navigation Between Episodes */}
-  {
-    (prev || next) && (
-      <nav class="mb-12" aria-label={t("podcasts.navigation.aria")}>
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {prev && (
-            <a
-              href={`/${lang}/podcasts/${prev.id}`}
-              class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl"
+          {/* Progress Bar (click/drag to seek) */}
+          <div class="mb-4 w-full">
+            <div
+              id="progress-bar"
+              role="slider"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              class="relative h-3 w-full cursor-pointer rounded-full bg-gray-700"
             >
-              <span class="text-2xl text-purple-400">←</span>
-              <div class="flex-1">
-                <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
-                  {t("podcasts.navigation.previous")}
-                </span>
-                <span class="block text-base leading-tight font-semibold">{prev.title}</span>
-              </div>
-            </a>
-          )}
+              <div
+                id="progress-fill"
+                class="absolute top-0 left-0 h-3 rounded-full bg-gradient-to-r from-purple-500 to-blue-500"
+                style="width:0%"
+              />
+            </div>
+          </div>
 
-          {next && (
-            <a
-              href={`/${lang}/podcasts/${next.id}`}
-              class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl md:col-start-2"
+          {/* Time Display & Buffer Indicator */}
+          <div class="mb-4 flex flex-col items-center gap-2 text-sm text-gray-400 md:flex-row md:justify-center md:gap-4">
+            <span id="time-display">0:00 / 0:00</span>
+            <div
+              id="buffer-indicator"
+              class="pointer-events-none scale-95 items-center gap-2 text-xs text-gray-300 opacity-0 transition-all duration-300 ease-out"
             >
-              <div class="flex-1 text-right">
-                <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
-                  {t("podcasts.navigation.next")}
-                </span>
-                <span class="block text-base leading-tight font-semibold">{next.title}</span>
-              </div>
-              <span class="text-2xl text-purple-400">→</span>
-            </a>
-          )}
+              <svg class="h-4 w-4 animate-spin text-gray-300" viewBox="0 0 24 24" fill="none">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  opacity="0.15"
+                />
+                <path
+                  d="M22 12a10 10 0 00-10-10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Buffering...
+            </div>
+          </div>
+
+          {/* Audio Controls (rewind / forward + mute/volume) */}
+          <div class="flex items-center justify-center gap-6">
+            <button
+              class="text-gray-400 transition-colors duration-200 hover:text-white"
+              id="rewind-button"
+              title="Rewind 10s"
+            >
+              <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z" />
+              </svg>
+            </button>
+
+            <button
+              class="text-gray-400 transition-colors duration-200 hover:text-white"
+              id="forward-button"
+              title="Forward 10s"
+            >
+              <svg class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z" />
+              </svg>
+            </button>
+
+            <button
+              id="mute-button"
+              class="text-gray-400 transition-transform duration-150 hover:scale-110 hover:text-white focus:outline-none"
+              aria-label="Mute"
+              aria-pressed="false"
+            >
+              <svg
+                class="icon-unmuted h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M3 10v4h4l5 5V5L7 10H3z" />
+                <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
+              </svg>
+              <svg
+                class="icon-muted hidden h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M16.5 12c0-1.77-.77-3.37-2-4.47v8.94c1.23-1.1 2-2.7 2-4.47z" />
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+              </svg>
+            </button>
+          </div>
         </div>
-      </nav>
+      </div>
     )
   }
+</section>
 
-  <script>
-    import { initAudioPlayerAuto } from "../../../utils/components/audioPlayerUtils";
+<!-- Main Content -->
+<section class="mb-12">
+  <article>
+    <Prose html={podcast.showNotesHtml} size="lg" invert fullWidth />
+  </article>
+</section>
 
-    // Initialize Audio Player functionality
-    document.addEventListener("DOMContentLoaded", () => {
-      initAudioPlayerAuto();
-    });
-  </script>
-</Layout>
+{/* Navigation Between Episodes */}
+{
+  (prev || next) && (
+    <nav class="mb-12" aria-label={t("podcasts.navigation.aria")}>
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {prev && (
+          <a
+            href={`/${lang}/podcasts/${prev.id}`}
+            class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl"
+          >
+            <span class="text-2xl text-purple-400">←</span>
+            <div class="flex-1">
+              <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
+                {t("podcasts.navigation.previous")}
+              </span>
+              <span class="block text-base leading-tight font-semibold">{prev.title}</span>
+            </div>
+          </a>
+        )}
+
+        {next && (
+          <a
+            href={`/${lang}/podcasts/${next.id}`}
+            class="flex items-center gap-4 rounded-xl border border-gray-700 bg-gray-800 p-6 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-gray-600 hover:bg-gray-700 hover:shadow-xl md:col-start-2"
+          >
+            <div class="flex-1 text-right">
+              <span class="mb-1 block text-xs tracking-wide text-gray-400 uppercase">
+                {t("podcasts.navigation.next")}
+              </span>
+              <span class="block text-base leading-tight font-semibold">{next.title}</span>
+            </div>
+            <span class="text-2xl text-purple-400">→</span>
+          </a>
+        )}
+      </div>
+    </nav>
+  )
+}
+
+<script>
+  import { initAudioPlayerAuto } from "../../../utils/components/audioPlayerUtils";
+
+  // Initialize Audio Player functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    initAudioPlayerAuto();
+  });
+</script>
+<!-- Layout component closes inside the IIFE above; content remains inside slot -->

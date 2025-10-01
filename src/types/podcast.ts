@@ -59,10 +59,16 @@ export interface PodcastData {
   showNotesHtml?: string;
   /** URL to the audio file */
   audioUrl: string;
+  /** Optional duration in seconds (if known / precomputed) */
+  durationSeconds?: number;
   /** URL to the VTT subtitle file */
   subtitleUrl?: string;
   /** Cover image URL */
   imageUrl: string;
+  /** Optional intrinsic cover image width in pixels (for precise OG/Twitter metadata) */
+  imageWidth?: number;
+  /** Optional intrinsic cover image height in pixels */
+  imageHeight?: number;
   /** Publication date */
   publishedAt: string;
   /** Language of the podcast */

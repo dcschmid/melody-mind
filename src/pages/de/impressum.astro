@@ -20,9 +20,23 @@ export const prerender = true;
 const title = "Impressum | MelodyMind";
 const description =
   "Rechtliche Informationen und Impressum für MelodyMind - Das ultimative Musik-Quiz-Spiel";
+const base = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const canonical = `${base}/de/impressum`;
+const breadcrumbs = [
+  { name: t("nav.home") || "Home", url: `${base}/de` },
+  { name: "Impressum", url: canonical },
+];
 ---
 
-<Layout {title} {description} type="website" showHeader={true} showHeaderIcons={true}>
+<Layout
+  {title}
+  {description}
+  type="website"
+  showHeader={true}
+  showHeaderIcons={true}
+  {canonical}
+  {breadcrumbs}
+>
   <main class="min-h-screen bg-slate-50 py-16 dark:bg-slate-900">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <header class="mb-16 text-center">

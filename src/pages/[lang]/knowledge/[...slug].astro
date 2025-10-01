@@ -169,35 +169,34 @@ const optimizedDescription = generateMetaDescription(pageContent, 158);
 // const _keywords = extractKeywords(pageContent, 12, lang);
 
 // Enhanced structured data for knowledge article
-const articleSchema = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline: title,
-  description: description,
-  image: imageSource,
-  author: {
-    "@type": "Organization",
-    name: "Melody Mind",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "Melody Mind",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://melody-mind.de/melody-mind.png",
+const baseSite = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const canonical = `${baseSite}/${lang}/knowledge/${(Astro as any).params?.slug}`;
+const breadcrumbs = [
+  { name: t("nav.home") || "Home", url: `${baseSite}/${lang}` },
+  { name: t("knowledge.title") || "Knowledge", url: `${baseSite}/${lang}/knowledge` },
+  { name: title, url: canonical },
+];
+const structuredDataExtra = [
+  {
+    "@type": "Article",
+    headline: title,
+    description: description,
+    image: imageSource,
+    author: { "@type": "Organization", name: "Melody Mind" },
+    publisher: {
+      "@type": "Organization",
+      name: "Melody Mind",
+      logo: { "@type": "ImageObject", url: "https://melody-mind.de/melody-mind.png" },
     },
+    datePublished: entry.data.createdAt?.toISOString(),
+    dateModified: entry.data.updatedAt?.toISOString(),
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    inLanguage: lang,
+    keywords: entry.data.keywords?.join(", ") || "",
+    articleSection: t("knowledge.title") || "Music Knowledge",
+    wordCount: entry.body?.length || 0,
   },
-  datePublished: entry.data.createdAt?.toISOString(),
-  dateModified: entry.data.updatedAt?.toISOString(),
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": Astro.url.href,
-  },
-  inLanguage: lang,
-  keywords: entry.data.keywords?.join(", ") || "",
-  articleSection: t("knowledge.title") || "Music Knowledge",
-  wordCount: entry.body?.length || 0,
-};
+];
 
 // Compute word count and reading time using utilities (words, not characters)
 const wordsCount = entry.body ? entry.body.trim().split(/\s+/).length : 0;
@@ -219,48 +218,12 @@ function translate(key: string, fallback: string): string {
   type="article"
   publishDate={entry.data.createdAt ? new Date(entry.data.createdAt) : new Date()}
   modifiedDate={entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date()}
-  ogMusic={{
-    creator: "Melody Mind",
-    album: title,
-    musician: "Various Artists",
-  }}
+  ogMusic={{ creator: "Melody Mind", album: title, musician: "Various Artists" }}
+  {canonical}
+  {breadcrumbs}
+  {structuredDataExtra}
 >
-  <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-
-    <!-- Breadcrumbs for Knowledge Article -->
-    {
-      (() => {
-        const base = Astro.site?.toString().replace(/\/$/, "") || "";
-        const current = new URL(Astro.url.pathname, Astro.site).toString();
-        const list = {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: t("nav.home") || "Home",
-              item: `${base}/${lang}`,
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: t("knowledge.title") || "Knowledge",
-              item: `${base}/${lang}/knowledge`,
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: title,
-              item: current,
-            },
-          ],
-        };
-        return <script is:inline type="application/ld+json" set:html={JSON.stringify(list)} />;
-      })()
-    }
-  </Fragment>
+  <Fragment slot="head"></Fragment>
 
   <main class="min-h-screen">
     <div class="mx-auto">

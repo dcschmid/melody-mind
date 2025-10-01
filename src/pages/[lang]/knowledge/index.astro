@@ -106,24 +106,10 @@ const baseUrl = Astro.site || "https://melodymind.app";
 const currentUrl = `${baseUrl}/${lang}/knowledge`;
 
 // Generate structured data for breadcrumbs
-const _breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: safeUi["nav.home"] || "Home",
-      item: `${baseUrl}/${lang}/`,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: safeUi["knowledge.title"] || "Knowledge",
-      item: currentUrl,
-    },
-  ],
-};
+const breadcrumbs = [
+  { name: safeUi["nav.home"] || "Home", url: `${baseUrl}/${lang}/` },
+  { name: safeUi["knowledge.title"] || "Knowledge", url: currentUrl },
+];
 
 // Generate structured data for knowledge articles collection
 const articleCollectionSchema = {
@@ -166,25 +152,21 @@ const clientTranslations = {
 };
 ---
 
+<!-- OG image: knowledge overview -->
 <Layout
   {title}
   {description}
-  image={`/og-images/social-share-knowledge-${lang}.jpg`}
+  image="/homecategories/knowledge.png"
+  imageWidth={1200}
+  imageHeight={630}
   type="website"
   keywords={metaKeywords}
   publishDate={new Date()}
   modifiedDate={new Date()}
+  {breadcrumbs}
+  canonical={currentUrl}
+  structuredDataExtra={articleCollectionSchema}
 >
-  <!-- Structured Data for SEO - Additional schemas beyond what SEO component provides -->
-  <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(_breadcrumbSchema)} />
-    <script
-      is:inline
-      type="application/ld+json"
-      set:html={JSON.stringify(articleCollectionSchema)}
-    />
-  </Fragment>
-
   <!-- Make translations available for JavaScript -->
   <script is:inline define:vars={{ clientTranslations }}>
     window.knowledgeTranslations = clientTranslations;

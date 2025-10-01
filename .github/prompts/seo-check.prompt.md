@@ -860,7 +860,7 @@ optimized
    <MainLayout
      title="MelodyMind - Ultimate Music Trivia Game for Music Lovers"
      description="Challenge your music knowledge with MelodyMind - the ultimate trivia game featuring multiple genres, difficulty levels, and achievements. Test your skills today!"
-     image="/og-images/home.jpg"
+     image="/melody-mind.png"
    >
      <!-- Page content -->
    </MainLayout>

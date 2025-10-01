@@ -70,15 +70,10 @@ const lastUpdatedDateString = newsData?.lastUpdated
     )
   : "";
 
-// Breadcrumbs (Home → News)
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: t("nav.home"), item: `${baseUrl}/${currentLang}/` },
-    { "@type": "ListItem", position: 2, name: pageTitle, item: currentUrl },
-  ],
-};
+const breadcrumbs = [
+  { name: t("nav.home"), url: `${baseUrl}/${currentLang}` },
+  { name: pageTitle, url: currentUrl },
+];
 /**
  * Versucht ein geeignetes Bild für ein Feed-Item zu extrahieren.
  * Reihenfolge: item.imageUrl -> enclosure.url -> media.url -> erstes <img> in content/description -> Fallback
@@ -300,34 +295,37 @@ const newsStructuredData = items.length
       },
     }
   : null;
+
+// structuredDataExtra: include the fully built newsStructuredData when available
+const structuredDataExtra = newsStructuredData
+  ? [newsStructuredData]
+  : [
+      {
+        "@type": "CollectionPage",
+        name: `${pageTitle} - MelodyMind`,
+        description: optimizedDescription,
+        url: currentUrl,
+        inLanguage: currentLang,
+      },
+    ];
 ---
 
+<!-- OG image: news overview (policy override) -->
 <Layout
   title={`${pageTitle} - MelodyMind`}
   description={optimizedDescription}
   keywords={seoKeywords}
-  image={newsData?.items?.[0]?.imageUrl || "/images/news-fallback.svg"}
+  image="/homecategories/news.png"
+  imageWidth={1200}
+  imageHeight={630}
   type="website"
   publishDate={newsData?.lastUpdated ? new Date(newsData.lastUpdated) : new Date()}
   modifiedDate={new Date()}
+  canonical={currentUrl}
+  {breadcrumbs}
+  {structuredDataExtra}
 >
-  <!-- Enhanced structured data for news -->
   <Fragment slot="head">
-    <link rel="canonical" href={currentUrl} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-
-    {
-      newsStructuredData && (
-        <script
-          is:inline
-          type="application/ld+json"
-          is:inline
-          set:html={JSON.stringify(newsStructuredData)}
-        />
-      )
-    }
-
-    <!-- News-specific meta tags -->
     <meta name="news_keywords" content={seoKeywords} />
     <meta property="article:section" content="Music News" />
     <meta property="article:tag" content="Music" />

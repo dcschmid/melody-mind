@@ -69,14 +69,10 @@ const pageType = "website";
 const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
 
-// Breadcrumbs (homepage)
-const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+// Breadcrumbs (homepage) – jetzt direkt an SEO Komponente über Layout Props
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melodymind.app";
 const currentUrl = `${baseUrl}/${String(lang)}/`;
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [{ "@type": "ListItem", position: 1, name: t("nav.home"), item: currentUrl }],
-};
+const breadcrumbs = [{ name: t("nav.home") || "Home", url: currentUrl }];
 
 // Card definitions for homepage sections
 const cards = [
@@ -138,18 +134,21 @@ try {
 }
 ---
 
+<!-- OG image policy: use global logo (no more /og-images/ generated variants) -->
 <Layout
   {title}
   description={optimizedDescription}
-  {keywords}
-  image={`/og-images/social-share-home-${String(lang)}.jpg`}
+  keywords={keywords || t("meta.keywords")}
+  image="/melody-mind.png"
+  imageWidth={1200}
+  imageHeight={630}
   type={pageType}
   {publishDate}
   {modifiedDate}
+  {breadcrumbs}
+  canonical={currentUrl}
+  authorName="Melody Mind Team"
 >
-  <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  </Fragment>
   <div class="mx-auto w-full pb-14">
     <header class="mb-8 sm:mb-10">
       <h1 class="sr-only">{title}</h1>

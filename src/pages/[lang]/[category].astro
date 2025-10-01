@@ -104,6 +104,24 @@ const description = currentCategory?.introSubline || "";
 const pageContent = `${title} ${description} ${currentCategory?.text || ""}`;
 const optimizedDescription = generateMetaDescription(pageContent);
 const keywords = extractKeywords(pageContent) || t("meta.keywords");
+// SEO additions
+const base = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const canonical = `${base}/${lang}/${Astro.params.category}`;
+const breadcrumbs = [
+  { name: t("nav.home") || "Home", url: `${base}/${lang}` },
+  { name: t("game.categories.title") || "Categories", url: `${base}/${lang}/gamehome` },
+  { name: currentCategory?.headline || title, url: canonical },
+];
+const structuredDataExtra = [
+  {
+    "@type": "CollectionPage",
+    name: currentCategory?.headline || title,
+    description: optimizedDescription,
+    url: canonical,
+    inLanguage: lang,
+    isPartOf: { "@type": "WebSite", name: "MelodyMind", url: base },
+  },
+];
 ---
 
 <Layout
@@ -111,40 +129,11 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
   description={optimizedDescription}
   {keywords}
   image={currentCategory?.imageUrl || "/social-share-categories.jpg"}
+  {canonical}
+  {breadcrumbs}
+  {structuredDataExtra}
+  type="website"
 >
-  <Fragment slot="head">
-    {
-      (() => {
-        const base = Astro.site?.toString().replace(/\/$/, "") || "";
-        const current = new URL(Astro.url.pathname, Astro.site).toString();
-        const list = {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: t("nav.home") || "Home",
-              item: `${base}/${lang}`,
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: t("game.categories.title") || "Categories",
-              item: `${base}/${lang}/gamehome`,
-            },
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: currentCategory?.headline || title,
-              item: current,
-            },
-          ],
-        };
-        return <script is:inline type="application/ld+json" set:html={JSON.stringify(list)} />;
-      })()
-    }
-  </Fragment>
   <div class="min-h-screen bg-gray-900 px-4 py-8 text-white">
     <div class="mx-auto max-w-7xl">
       <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>
@@ -257,7 +246,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             {currentCategory?.text}
           </Paragraph>
 
-          {/* Music streaming platforms buttons */}
           {
             (currentCategory?.spotifyPlaylist ||
               currentCategory?.deezerPlaylist ||
@@ -268,7 +256,6 @@ const keywords = extractKeywords(pageContent) || t("meta.keywords");
             )
           }
 
-          {/* Knowledge article button */}
           {
             currentCategory?.knowledgeUrl && (
               <div class="mt-4">
