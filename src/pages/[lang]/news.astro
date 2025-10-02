@@ -347,19 +347,25 @@ const structuredDataExtra = newsStructuredData
       >
         {
           newsData && (
-            <Fragment slot="secondary">
-              <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
+            <>
+              <div
+                slot="secondary"
+                class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm"
+              >
                 {lastUpdatedLabel && <span class="text-purple-300">{lastUpdatedLabel}:</span>}
                 <time class="text-white" datetime={newsData.lastUpdated}>
                   {lastUpdatedDateString}
                 </time>
               </div>
-              <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
+              <div
+                slot="secondary"
+                class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm"
+              >
                 <span class="text-purple-300">
                   {t("news.sourcesCount", { count: newsData.totalSources })}
                 </span>
               </div>
-            </Fragment>
+            </>
           )
         }
       </HeroSection>
