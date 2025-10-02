@@ -11,6 +11,8 @@ import { useTranslations } from "../../utils/i18n.ts";
 import { extractKeywords, generateMetaDescription } from "../../utils/seo.ts";
 import Headline from "../../components/Headline.astro";
 import Paragraph from "../../components/Paragraph.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import StructuredItemList from "../../components/StructuredItemList.astro";
 
 export const prerender = false; // Enable SSR for this page
 
@@ -335,45 +337,32 @@ const structuredDataExtra = newsStructuredData
   </Fragment>
   <main class="min-h-screen bg-gray-900 py-8 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Hero Header Section like GameHome -->
-      <header
-        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
+      <HeroSection
+        title={pageTitle}
+        subtitle={pageDescription}
+        headingLevel="h1"
+        id="news-heading"
+        icon="📰"
+        spacing="md"
       >
-        <!-- Decorative background elements -->
-        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
-          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
-          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
-          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
-        </div>
-
-        <div class="relative z-10 w-full text-center text-white">
-          <Headline level="h1" textSize="3xl" textAlign="center">
-            {pageTitle}
-          </Headline>
-          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
-          <Paragraph textAlign="center" textSize="lg">
-            {pageDescription}
-          </Paragraph>
-
-          {
-            newsData && (
-              <div class="flex flex-col items-center justify-center gap-4 text-sm sm:flex-row md:text-base">
-                <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
-                  {lastUpdatedLabel && <span class="text-purple-300">{lastUpdatedLabel}:</span>}
-                  <time class="text-white" datetime={newsData.lastUpdated}>
-                    {lastUpdatedDateString}
-                  </time>
-                </div>
-                <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
-                  <span class="text-purple-300">
-                    {t("news.sourcesCount", { count: newsData.totalSources })}
-                  </span>
-                </div>
+        {
+          newsData && (
+            <Fragment slot="secondary">
+              <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
+                {lastUpdatedLabel && <span class="text-purple-300">{lastUpdatedLabel}:</span>}
+                <time class="text-white" datetime={newsData.lastUpdated}>
+                  {lastUpdatedDateString}
+                </time>
               </div>
-            )
-          }
-        </div>
-      </header>
+              <div class="flex items-center gap-2 rounded-full border border-purple-500/30 bg-gray-800/50 px-4 py-2 backdrop-blur-sm">
+                <span class="text-purple-300">
+                  {t("news.sourcesCount", { count: newsData.totalSources })}
+                </span>
+              </div>
+            </Fragment>
+          )
+        }
+      </HeroSection>
 
       {
         error && (
@@ -402,21 +391,21 @@ const structuredDataExtra = newsStructuredData
             <Headline level="h2" textSize="2xl" className="sr-only">
               {t("news.articlesList")}
             </Headline>
-
-            <div
-              class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-              itemscope
-              itemtype="https://schema.org/ItemList"
-            >
-              {items.map((item, index) => (
+            <StructuredItemList
+              containerId="news-list"
+              listName={t("news.articlesList")}
+              items={items as any[]}
+              getName={(it: any) => it.title}
+              getDescription={(it: any) => it.description}
+              getUrl={(it: any) => it.link}
+              itemType="NewsArticle"
+              lang={currentLang}
+              includeCreator={false}
+              renderItem={({ item }) => (
                 <article
                   class="news-card overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                  aria-labelledby={`news-title-${index}`}
-                  itemscope
-                  itemtype="https://schema.org/NewsArticle"
-                  itemprop="itemListElement"
+                  aria-label={item.title}
                 >
-                  {/* 16:9 image area */}
                   <div class="news-card__media" role="img" aria-label={item.title}>
                     <img
                       src={item.displayImage || "/images/news-fallback.svg"}
@@ -427,7 +416,6 @@ const structuredDataExtra = newsStructuredData
                       onerror="this.onerror=null;this.src='/images/news-fallback.svg'"
                     />
                   </div>
-
                   <div class="p-6">
                     <header class="mb-4">
                       <div class="mb-3 flex items-center justify-between text-sm text-gray-400">
@@ -442,7 +430,6 @@ const structuredDataExtra = newsStructuredData
                           {item.displayDateString}
                         </time>
                       </div>
-
                       <Headline level="h3" textSize="lg">
                         <a
                           href={item.link}
@@ -455,14 +442,12 @@ const structuredDataExtra = newsStructuredData
                           {item.title}
                         </a>
                       </Headline>
-
                       {item.description && (
                         <Paragraph textSize="lg" textAlign="left">
                           {item.description}
                         </Paragraph>
                       )}
                     </header>
-
                     <footer>
                       <a
                         href={item.link}
@@ -480,8 +465,10 @@ const structuredDataExtra = newsStructuredData
                     </footer>
                   </div>
                 </article>
-              ))}
-            </div>
+              )}
+              class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+              listItemClass="news-wrapper"
+            />
           </section>
         )
       }
