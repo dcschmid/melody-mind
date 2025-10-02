@@ -41,6 +41,8 @@ export interface PlaylistCardProps {
   index: number;
   /** Language code for translations */
   lang: string;
+  /** Disable root microdata wrapper when parent already provides schema context */
+  microdataDisable?: boolean;
 }
 
 // Extract props with comprehensive TypeScript validation and accessibility setup
@@ -53,6 +55,7 @@ const {
   appleMusicPlaylist,
   index,
   lang,
+  microdataDisable = false,
 } = Astro.props as PlaylistCardProps;
 
 // Initialize translation function for i18n support
@@ -73,14 +76,13 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
 <article
   class="relative isolate flex h-full w-full max-w-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-purple-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 focus-within:outline-none hover:-translate-y-1 hover:shadow-xl"
-  itemscope
-  itemtype="https://schema.org/MusicPlaylist"
   aria-labelledby={`playlist-title-${index}`}
   aria-describedby={`playlist-desc-${index}`}
   data-personalization="music-card"
   data-genre={decade}
   data-content-type="playlist"
   data-index={index}
+  {...microdataDisable ? {} : { itemscope: true, itemtype: "https://schema.org/MusicPlaylist" }}
 >
   <!-- Decade indicator bar -->
   <div
@@ -116,12 +118,12 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
   <!-- Content area -->
   <div class="flex flex-1 flex-col gap-4 bg-gradient-to-b from-gray-800 to-gray-900 p-6">
-    <div itemprop="name">
+    <div {...microdataDisable ? {} : { itemprop: "name" }}>
       <Headline level="h2" textSize="xl" variant="default">
         {headline}
       </Headline>
     </div>
-    <div itemprop="description">
+    <div {...microdataDisable ? {} : { itemprop: "description" }}>
       <Paragraph textSize="xl">
         {introSubline}
       </Paragraph>
@@ -152,7 +154,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   </div>
 
   {
-    hasStreamingLinks && (
+    hasStreamingLinks && !microdataDisable && (
       <div class="sr-only" aria-hidden="true">
         <meta itemprop="numTracks" content="10+" />
         <meta itemprop="genre" content={decade} />

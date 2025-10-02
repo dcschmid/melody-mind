@@ -20,6 +20,7 @@ import { ui } from "../../../i18n/ui";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import HeroSection from "@components/HeroSection.astro";
 import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
@@ -221,27 +222,14 @@ const clientTranslations = {
         </ol>
       </nav>
 
-      <!-- Hero section with improved design inspired by gamehome -->
-      <header
-        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
-      >
-        <!-- Decorative background elements -->
-        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
-          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
-          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
-          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
-        </div>
-
-        <div class="relative z-10 w-full text-center text-white">
-          <Headline level="h1" textSize="3xl" textAlign="center">
-            {safeUi["knowledge.title"]}
-          </Headline>
-          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
-          <Paragraph textSize="lg" textAlign="center">
-            {safeUi["knowledge.description"]}
-          </Paragraph>
-        </div>
-      </header>
+      <HeroSection
+        title={safeUi["knowledge.title"]}
+        subtitle={safeUi["knowledge.description"]}
+        headingLevel="h1"
+        id="knowledge-heading"
+        icon="📚"
+        spacing="md"
+      />
 
       <!-- Enhanced Search section (refactored) -->
       <section class="mb-16" role="search">

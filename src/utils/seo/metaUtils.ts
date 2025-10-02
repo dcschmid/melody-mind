@@ -52,12 +52,4 @@ export function ensureTitle(text: string, fallback: string): string {
   return t || fallback;
 }
 
-export interface BreadcrumbItem { name: string; url: string }
-
-/** Build basic home->tail breadcrumb trail. */
-export function buildBasicBreadcrumbs(baseUrl: string, lang: string, tail: BreadcrumbItem): BreadcrumbItem[] {
-  return [
-    { name: "Home", url: `${baseUrl}/${lang}` },
-    tail,
-  ];
-}
+// Breadcrumb helpers moved to ./breadcrumbs.ts

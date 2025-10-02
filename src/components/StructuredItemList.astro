@@ -1,0 +1,126 @@
+---
+/**
+ * Generic Structured Item List (Microdata) component.
+ * Renders a schema.org ItemList with ListItem entries wrapping inner item types.
+ *
+ * Accessibility:
+ * - Section gets aria-label (listName) and optionally aria-labelledby via rootAriaLabelledby.
+ * - Consumer can supply a custom renderItem() for visual card content; semantic microdata stays consistent.
+ *
+ * SEO / Structured Data:
+ * - Uses ItemList -> ListItem pattern.
+ * - Each ListItem provides position and nested item of type itemType (default CreativeWork).
+ * - Adds optional meta: description, genre, inLanguage, creator, url.
+ */
+interface Props<T = any> {
+  items: T[];
+  getName: (_item: T, _index: number) => string;
+  getDescription?: (_item: T, _index: number) => string | undefined;
+  getUrl?: (_item: T, _index: number) => string | undefined;
+  getGenre?: (_item: T, _index: number) => string | undefined;
+  /** schema.org type for the nested item (e.g. MusicPlaylist, DefinedTerm) */
+  itemType?: string;
+  /** Human readable list name (also microdata name) */
+  listName?: string;
+  /** BCP-47 language tag (en, de, etc.) */
+  lang?: string;
+  /** Whether to emit inLanguage meta tag */
+  includeLanguage?: boolean;
+  /** Whether to emit creator meta (hard-coded Melody Mind) */
+  includeCreator?: boolean;
+  /** ID of heading element to bind via aria-labelledby */
+  rootAriaLabelledby?: string;
+  /** Additional classes for grid container */
+  class?: string;
+  /** Optional custom renderer for inner visual card */
+  renderItem?: (_ctx: {
+    item: T;
+    index: number;
+    name: string;
+    description?: string;
+    url?: string;
+    genre?: string;
+  }) => any;
+  /** Optional id for inner grid container (for search panel aria-controls) */
+  containerId?: string;
+  /** Class applied to each ListItem wrapper (used for filtering) */
+  listItemClass?: string;
+  /** Astro component to render each card (alternative to renderItem) */
+  cardComponent?: any;
+  /** Mapping function producing props for cardComponent */
+  mapItemToCardProps?: (_item: T, _index: number) => Record<string, any>;
+}
+
+const {
+  items,
+  getName,
+  getDescription,
+  getUrl,
+  getGenre,
+  itemType = "CreativeWork",
+  listName = "Items",
+  lang,
+  includeLanguage = true,
+  includeCreator = false,
+  rootAriaLabelledby,
+  class: className = "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3",
+  renderItem,
+  containerId,
+  listItemClass = "structured-item",
+  cardComponent,
+  mapItemToCardProps,
+} = Astro.props as Props;
+const CardComponent = cardComponent;
+---
+
+<section
+  aria-label={listName}
+  itemscope
+  itemtype="https://schema.org/ItemList"
+  aria-labelledby={rootAriaLabelledby}
+>
+  <meta itemprop="name" content={listName} />
+  <meta itemprop="numberOfItems" content={String(items.length)} />
+  <div class={className} id={containerId}>
+    {
+      items.map((item, index) => {
+        const name = getName(item, index);
+        const description = getDescription ? getDescription(item, index) : undefined;
+        const url = getUrl ? getUrl(item, index) : undefined;
+        const genre = getGenre ? getGenre(item, index) : undefined;
+        const searchText = `${name} ${description || ""} ${genre || ""}`.toLowerCase();
+        return (
+          <div
+            class={listItemClass}
+            itemprop="itemListElement"
+            itemscope
+            itemtype="https://schema.org/ListItem"
+            data-search-text={searchText}
+          >
+            <meta itemprop="position" content={String(index + 1)} />
+            <div
+              itemscope
+              itemprop="item"
+              itemtype={`https://schema.org/${itemType}`}
+              class="overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <meta itemprop="name" content={name} />
+              {description && <meta itemprop="description" content={description} />}
+              {genre && <meta itemprop="genre" content={genre} />}
+              {includeLanguage && lang && <meta itemprop="inLanguage" content={lang} />}
+              {includeCreator && <meta itemprop="creator" content="Melody Mind" />}
+              {url && <meta itemprop="url" content={url} />}
+              {renderItem ? (
+                renderItem({ item, index, name, description, url, genre })
+              ) : CardComponent && mapItemToCardProps ? (
+                <CardComponent {...mapItemToCardProps(item, index)} />
+              ) : (
+                <div class="p-4 text-sm text-gray-300">{name}</div>
+              )}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

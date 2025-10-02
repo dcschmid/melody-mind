@@ -1,0 +1,130 @@
+---
+/**
+ * Reusable Hero Section component.
+ * Props:
+ * - title: string (required)
+ * - subtitle?: string
+ * - headingLevel?: 'h1' | 'h2' | 'h3' (default 'h1')
+ * - id?: string (aria-labelledby target)
+ * - decorative?: boolean (render decorative circles)
+ * - gradientClass?: string (override default gradient classes)
+ */
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  headingLevel?: "h1" | "h2" | "h3";
+  id?: string;
+  decorative?: boolean;
+  gradientClass?: string;
+  titleClass?: string;
+  subtitleClass?: string;
+  /** Max width for inner content container */
+  contentMaxWidth?: string;
+  /** Width constraint for subtitle text */
+  subtitleMaxWidth?: string;
+  /** Spacing scale variant: sm | md | lg */
+  spacing?: "sm" | "md" | "lg";
+  /** Emoji or icon string; when provided it's rendered inline left of the title */
+  icon?: string;
+  /** Whether to show divider under title (default true) */
+  showDivider?: boolean;
+  /** Horizontal alignment for title (left | center) */
+  titleAlign?: "left" | "center";
+  /** Horizontal alignment for subtitle */
+  subtitleAlign?: "left" | "center";
+  /** Horizontal alignment for action groups */
+  actionsAlign?: "left" | "center";
+}
+
+const {
+  title,
+  subtitle,
+  headingLevel = "h1",
+  id = "hero-heading",
+  decorative = true,
+  gradientClass = "bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900",
+  titleClass = "text-white",
+  subtitleClass = "text-white",
+  contentMaxWidth = "max-w-full",
+  subtitleMaxWidth = "max-w-full",
+  spacing = "md",
+  icon,
+  showDivider = true,
+  titleAlign = "center",
+  subtitleAlign = "center",
+  actionsAlign = "center",
+  // icon always inline when provided (simplified spec)
+} = Astro.props as Props;
+
+// Map headingLevel to Headline component level
+const headlineLevel = headingLevel;
+---
+
+<section
+  class={`relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 ${gradientClass} ${spacing === "sm" ? "p-6 sm:p-8" : spacing === "lg" ? "p-10 sm:p-16" : "p-8 sm:p-12 lg:p-16"} shadow-2xl`}
+  aria-labelledby={id}
+>
+  {
+    decorative && (
+      <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
+        <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white" />
+        <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white" />
+        <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white" />
+      </div>
+    )
+  }
+  <div
+    class={`relative z-10 w-full mx-auto flex flex-col items-stretch text-center ${contentMaxWidth}`}
+  >
+    <div class="flex flex-col items-stretch">
+      <Headline
+        level={headlineLevel}
+        className={`w-full font-bold tracking-tight text-balance ${titleAlign === "left" ? "" : "mx-auto"} ${titleAlign === "left" ? "text-left" : "text-center"} ${titleClass}`}
+      >
+        {
+          icon && (
+            <span class="mr-3 align-middle text-3xl leading-none" aria-hidden="true">
+              {icon}
+            </span>
+          )
+        }
+        <span class="align-middle">{title}</span>
+      </Headline>
+      {
+        showDivider && (
+          <div
+            class={`mt-4 h-1 w-12 rounded-full bg-blue-400 ${titleAlign === "left" ? (subtitleAlign === "left" ? "" : "mx-auto") : "mx-auto"}`}
+          />
+        )
+      }
+      {
+        subtitle && (
+          <Paragraph
+            textSize="lg"
+            textAlign={subtitleAlign}
+            className={`mt-6 w-full ${subtitleMaxWidth} ${subtitleAlign === "center" ? "mx-auto" : ""} leading-relaxed text-balance ${subtitleClass}`}
+          >
+            {subtitle}
+          </Paragraph>
+        )
+      }
+    </div>
+    <!-- Primary action group (platform links) -->
+    <div
+      class={`mt-10 flex w-full flex-wrap gap-4 ${actionsAlign === "center" ? "justify-center" : "justify-start"}`}
+    >
+      <slot name="primary" />
+    </div>
+    <!-- Secondary action group (stats, RSS etc.) -->
+    <div
+      class={`mt-8 flex w-full flex-wrap gap-4 ${actionsAlign === "center" ? "justify-center" : "justify-start"}`}
+    >
+      <slot name="secondary" />
+    </div>
+    <!-- Default slot (legacy) -->
+    <slot />
+  </div>
+</section>

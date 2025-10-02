@@ -3,6 +3,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import HeroSection from "@components/HeroSection.astro";
 import { Icon } from "astro-icon/components";
 import { buildCanonicalUrl, buildBreadcrumbs } from "@utils/seo";
 import { resolveBaseUrl } from "@utils/seo/seoBasics";
@@ -149,174 +150,162 @@ const structuredDataExtra: any[] = episodesItemList
     <meta name="google-play-app" content="app-id=com.google.android.apps.podcasts" />
   </Fragment>
 
-  <!-- Hero Section -->
-  <section
-    class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
-    aria-labelledby="podcast-heading"
+  <HeroSection
+    {title}
+    subtitle={description}
+    headingLevel="h1"
+    id="podcast-heading"
+    icon="🎙️"
+    spacing="md"
   >
-    <!-- Decorative background elements -->
-    <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
-      <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
-      <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
-      <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
-    </div>
+    {/* Podcast Platform Links (primary actions) */}
+    <a
+      slot="primary"
+      href="https://podcasts.apple.com/us/podcast/the-melody-mind-podcast/id1833549333"
+      class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
+      data-platform="apple"
+      data-playlist-title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t("musicPlatforms.listenOn", {
+        title: title,
+        platform: t("musicPlatforms.platform.apple"),
+      })}
+    >
+      <Icon
+        name="apple-music"
+        width={32}
+        height={32}
+        aria-hidden="true"
+        class="transition-inherit size-4 md:size-6"
+      />
+      <span class="text-sm md:text-lg">{t("podcasts.platform.apple")}</span>
+    </a>
+    <a
+      slot="primary"
+      href="https://www.deezer.com/de/show/1002117431"
+      class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
+      data-platform="deezer"
+      data-playlist-title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t("musicPlatforms.listenOn", {
+        title: title,
+        platform: t("musicPlatforms.platform.deezer"),
+      })}
+    >
+      <Icon
+        name="deezer"
+        width={32}
+        height={32}
+        aria-hidden="true"
+        class="transition-inherit size-4 md:size-6"
+      />
+      <span class="text-sm md:text-lg">{t("podcasts.platform.deezer")}</span>
+    </a>
+    <a
+      slot="primary"
+      href="https://open.spotify.com/show/6nBTNqNNYXbFsJW42QnFTN"
+      class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
+      data-platform="spotify"
+      data-playlist-title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t("musicPlatforms.listenOn", {
+        title: title,
+        platform: t("musicPlatforms.platform.spotify"),
+      })}
+    >
+      <Icon
+        name="spotify"
+        width={32}
+        height={32}
+        aria-hidden="true"
+        class="transition-inherit size-4 md:size-6"
+      />
+      <span class="text-sm md:text-lg">{t("podcasts.platform.spotify")}</span>
+    </a>
+    <a
+      slot="primary"
+      href="https://www.youtube.com/channel/UCD7MQkWw4P5Pd5xA_o6McLg"
+      class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
+      data-platform="youtube"
+      data-playlist-title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t("musicPlatforms.listenOn", {
+        title: title,
+        platform: t("musicPlatforms.platform.youtube"),
+      })}
+    >
+      <Icon
+        name="youtube"
+        width={32}
+        height={32}
+        aria-hidden="true"
+        class="transition-inherit size-4 md:size-6"
+      />
+      <span class="text-sm md:text-lg">{t("podcasts.platform.youtube")}</span>
+    </a>
 
-    <div class="relative z-10 w-full text-center text-white">
-      <Headline level="h1" textSize="3xl" textAlign="center" className="mb-4">
-        🎙️ {title}
-      </Headline>
-
-      <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
-
-      <Paragraph textAlign="center" textSize="lg" className="mb-8">
-        {description}
-      </Paragraph>
-
-      {/* Podcast Platform Links */}
-      <div class="mb-8 flex flex-wrap justify-center gap-4">
-        <a
-          href="https://podcasts.apple.com/us/podcast/the-melody-mind-podcast/id1833549333"
-          class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
-          data-platform="apple"
-          data-playlist-title={title}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t("musicPlatforms.listenOn", {
-            title: title,
-            platform: t("musicPlatforms.platform.apple"),
-          })}
-        >
-          <Icon
-            name="apple-music"
-            width={32}
-            height={32}
-            aria-hidden="true"
-            class="transition-inherit size-4 md:size-6"
-          />
-          <span class="text-sm md:text-lg">{t("podcasts.platform.apple")}</span>
-        </a>
-
-        <a
-          href="https://www.deezer.com/de/show/1002117431"
-          class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
-          data-platform="deezer"
-          data-playlist-title={title}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t("musicPlatforms.listenOn", {
-            title: title,
-            platform: t("musicPlatforms.platform.deezer"),
-          })}
-        >
-          <Icon
-            name="deezer"
-            width={32}
-            height={32}
-            aria-hidden="true"
-            class="transition-inherit size-4 md:size-6"
-          />
-          <span class="text-sm md:text-lg">{t("podcasts.platform.deezer")}</span>
-        </a>
-
-        <a
-          href="https://open.spotify.com/show/6nBTNqNNYXbFsJW42QnFTN"
-          class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
-          data-platform="spotify"
-          data-playlist-title={title}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t("musicPlatforms.listenOn", {
-            title: title,
-            platform: t("musicPlatforms.platform.spotify"),
-          })}
-        >
-          <Icon
-            name="spotify"
-            width={32}
-            height={32}
-            aria-hidden="true"
-            class="transition-inherit size-4 md:size-6"
-          />
-          <span class="text-sm md:text-lg">{t("podcasts.platform.spotify")}</span>
-        </a>
-
-        <a
-          href="https://www.youtube.com/channel/UCD7MQkWw4P5Pd5xA_o6McLg"
-          class="music-platform-link flex items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 text-white shadow-lg backdrop-blur-md transition-all duration-300"
-          data-platform="youtube"
-          data-playlist-title={title}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={t("musicPlatforms.listenOn", {
-            title: title,
-            platform: t("musicPlatforms.platform.youtube"),
-          })}
-        >
-          <Icon
-            name="youtube"
-            width={32}
-            height={32}
-            aria-hidden="true"
-            class="transition-inherit size-4 md:size-6"
-          />
-          <span class="text-sm md:text-lg">{t("podcasts.platform.youtube")}</span>
-        </a>
-      </div>
-
-      {
-        availableEpisodes.length > 0 && (
-          <div class="flex flex-wrap justify-center gap-4">
-            <div class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
-              <Icon
-                name="episodes"
-                width={32}
-                height={32}
-                aria-hidden="true"
-                class="transition-inherit size-4 md:size-6"
-              />
-              <div class="text-sm md:text-lg">
-                {availableEpisodes.length}{" "}
-                {availableEpisodes.length === 1
-                  ? t("podcasts.episode.singular")
-                  : t("podcasts.episode.plural")}
-              </div>
+    {
+      availableEpisodes.length > 0 && (
+        <Fragment>
+          <div
+            slot="secondary"
+            class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md"
+          >
+            <Icon
+              name="episodes"
+              width={32}
+              height={32}
+              aria-hidden="true"
+              class="transition-inherit size-4 md:size-6"
+            />
+            <div class="text-sm md:text-lg">
+              {availableEpisodes.length}{" "}
+              {availableEpisodes.length === 1
+                ? t("podcasts.episode.singular")
+                : t("podcasts.episode.plural")}
             </div>
-
-            <div class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md">
-              <Icon
-                name="language"
-                width={32}
-                height={32}
-                aria-hidden="true"
-                class="transition-inherit size-4 md:size-6"
-              />
-              <div class="text-sm md:text-lg">{t("language.en")}</div>
-            </div>
-
-            {/* RSS Subscribe Button in Stats (English-only) */}
-            <a
-              href={`/en/podcasts/rss.xml`}
-              class="external-link flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-orange-500/30 hover:shadow-orange-500/30"
-              title={t("podcast.rss.subscribe.title")}
-              aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-external-label="podcast_rss"
-            >
-              <Icon
-                name="rss"
-                width={32}
-                height={32}
-                aria-hidden="true"
-                class="transition-inherit size-4 md:size-6"
-              />
-              <div class="text-sm md:text-lg">{t("podcast.rss.subscribe")}</div>
-            </a>
           </div>
-        )
-      }
-    </div>
-  </section>
+          <div
+            slot="secondary"
+            class="flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 backdrop-blur-md"
+          >
+            <Icon
+              name="language"
+              width={32}
+              height={32}
+              aria-hidden="true"
+              class="transition-inherit size-4 md:size-6"
+            />
+            <div class="text-sm md:text-lg">{t("language.en")}</div>
+          </div>
+          {/* RSS Subscribe Button in Stats (English-only) */}
+          <a
+            slot="secondary"
+            href={`/en/podcasts/rss.xml`}
+            class="external-link flex max-w-[220px] min-w-[140px] items-center gap-3 rounded-xl border border-white/25 bg-white/15 px-4 py-3 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/60 hover:bg-orange-500/30 hover:shadow-orange-500/30"
+            title={t("podcast.rss.subscribe.title")}
+            aria-label={`${t("podcast.rss.subscribe")} - ${t("podcast.rss.subscribe.description")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-external-label="podcast_rss"
+          >
+            <Icon
+              name="rss"
+              width={32}
+              height={32}
+              aria-hidden="true"
+              class="transition-inherit size-4 md:size-6"
+            />
+            <div class="text-sm md:text-lg">{t("podcast.rss.subscribe")}</div>
+          </a>
+        </Fragment>
+      )
+    }
+  </HeroSection>
 
   {/* Language Restriction Notice */}
   {
@@ -428,11 +417,7 @@ const structuredDataExtra: any[] = episodesItemList
                               {episode.title}
                             </span>
                           </Headline>
-                          <Paragraph
-                            textSize="lg"
-                            className="text-gray-300 mb-4"
-                            itemprop="description"
-                          >
+                          <Paragraph textSize="lg" className="text-gray-300 mb-4">
                             {episode.description}
                           </Paragraph>
                           <a

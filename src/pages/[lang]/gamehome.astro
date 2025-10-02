@@ -5,6 +5,7 @@ import PlaylistItem from "@components/PlaylistItem.astro";
 import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import HeroSection from "@components/HeroSection.astro";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 import { buildCategoryItemListSchema } from "@utils/seo/seoSchema";
@@ -280,48 +281,27 @@ const clientTranslations = generateClientTranslations(t);
     role="main"
     aria-labelledby="welcome-heading"
   >
-    <!-- Hero section with improved semantics and accessibility -->
-    <header
-      class="style paint relative mb-6 overflow-hidden rounded-xl border border-purple-600 bg-gradient-to-br from-purple-900 via-purple-700 to-blue-800 p-4 shadow-2xl contain-layout sm:mb-4 sm:p-3 md:mb-8 md:p-6"
-      aria-labelledby="welcome-heading"
+    <!-- Unified HeroSection usage -->
+    <HeroSection
+      title={t("game.welcome")}
+      subtitle={t("game.select")}
+      headingLevel="h1"
+      id="welcome-heading"
+      icon="🎵"
+      spacing="md"
     >
-      <!-- Decorative background elements with aria-hidden -->
-      <div
-        class="style paint pointer-events-none absolute inset-0 opacity-10 contain-layout"
-        aria-hidden="true"
-      >
-        <div class="absolute -top-8 -right-8 h-24 w-24 rounded-full bg-white"></div>
-        <div class="absolute -bottom-8 -left-8 h-48 w-48 rounded-full bg-white"></div>
-        <div
-          class="absolute top-1/2 -right-4 h-16 w-16 -translate-y-1/2 transform rounded-full bg-white"
-        >
-        </div>
-      </div>
-
-      <div class="style relative z-10 w-full text-center text-white contain-layout">
-        <Headline level="h1" textSize="3xl" textAlign="center">
-          {t("game.welcome")}
-        </Headline>
-        <div class="style paint mx-auto my-8 h-1 w-12 rounded-full bg-blue-400 contain-layout">
-        </div>
-        <Paragraph textSize="lg" textAlign="center">
-          {t("game.select")}
-        </Paragraph>
-
-        <SearchPanel
-          idBase="gamehome-search"
-          label={t("game.search.label")}
-          placeholder={t("game.search.placeholder") || t("game.search.label")}
-          ariaControls="playlist-grid"
-          size="lg"
-        />
-
-        <!-- Additional descriptive content for SEO -->
-        <Paragraph className="sr-only">
-          {t("game.genre.selection.description")}
-        </Paragraph>
-      </div>
-    </header>
+      <SearchPanel
+        slot="secondary"
+        idBase="gamehome-search"
+        label={t("game.search.label")}
+        placeholder={t("game.search.placeholder") || t("game.search.label")}
+        ariaControls="playlist-grid"
+        size="lg"
+      />
+      <Paragraph className="sr-only">
+        {t("game.genre.selection.description")}
+      </Paragraph>
+    </HeroSection>
 
     <section class="style flex-grow contain-layout" aria-labelledby="playlist-heading">
       <!-- Enhanced genre grid with semantic markup -->

@@ -4,6 +4,8 @@ import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import PlaylistCard from "@components/PlaylistCard.astro";
+import HeroSection from "@components/HeroSection.astro";
+import StructuredItemList from "@components/StructuredItemList.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 import { buildCategoryItemListSchema } from "@utils/seo/seoSchema";
@@ -158,28 +160,12 @@ const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].f
 
   <main class="min-h-screen bg-gray-900 py-8 text-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Hero section -->
-      <section
-        class="relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 shadow-2xl sm:p-12 lg:p-16"
-        aria-labelledby="playlist-heading"
-      >
-        <!-- Decorative background elements -->
-        <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
-          <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
-          <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
-          <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
-        </div>
-
-        <div class="relative z-10 w-full text-center text-white">
-          <Headline level="h1" textSize="3xl" textAlign="center">
-            {t("playlist.page.heading")}
-          </Headline>
-          <div class="mx-auto my-8 h-1 w-12 rounded-full bg-blue-400"></div>
-          <Paragraph textAlign="center" textSize="lg">
-            {t("playlist.page.description")}
-          </Paragraph>
-        </div>
-      </section>
+      <HeroSection
+        title={t("playlist.page.heading")}
+        subtitle={t("playlist.page.description")}
+        headingLevel="h1"
+        id="playlist-heading"
+      />
 
       <!-- Enhanced Search Section - Much Wider & Better Looking -->
       <section class="mb-16" aria-labelledby="search-heading">
@@ -202,61 +188,34 @@ const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].f
         </div>
       </section>
 
-      <!-- Enhanced Playlist Grid with semantic markup and microdata -->
-      <section aria-labelledby="playlists-heading" itemscope itemtype="https://schema.org/ItemList">
+      <section aria-labelledby="playlists-heading">
         <Headline level="h2" textSize="base" className="sr-only">
           {t("playlist.grid.heading", { count: playlistCount })}
         </Headline>
-
-        <meta itemprop="name" content={`${title} Collection`} />
-        <meta itemprop="numberOfItems" content={String(sortedPlaylists.length)} />
-        <meta itemprop="datePublished" content={publishDate.toISOString()} />
-        <meta itemprop="dateModified" content={modifiedDate.toISOString()} />
-        <div
-          class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-          id="playlist-grid"
-          itemprop="itemListElement"
-        >
-          {
-            sortedPlaylists.map((playlist, index) => (
-              <div
-                class="playlist-item"
-                itemscope
-                itemtype="https://schema.org/ListItem"
-                data-search-text={`${playlist.headline} ${playlist.introSubline || ""} ${playlist.categoryType || ""}`.toLowerCase()}
-              >
-                <meta itemprop="position" content={String(index + 1)} />
-                <div
-                  itemscope
-                  itemprop="item"
-                  itemtype="https://schema.org/MusicPlaylist"
-                  class="overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                >
-                  <meta itemprop="name" content={playlist.headline} />
-                  <meta
-                    itemprop="description"
-                    content={playlist.introSubline || playlist.headline}
-                  />
-                  <meta
-                    itemprop="genre"
-                    content={playlist.categoryType || getDecadeFromHeadline(playlist.headline)}
-                  />
-                  <meta itemprop="inLanguage" content={lang} />
-                  <PlaylistCard
-                    headline={playlist.headline}
-                    imageUrl={playlist.imageUrl}
-                    introSubline={playlist.introSubline}
-                    spotifyPlaylist={playlist.spotifyPlaylist}
-                    deezerPlaylist={playlist.deezerPlaylist}
-                    appleMusicPlaylist={playlist.appleMusicPlaylist}
-                    index={index}
-                    lang={lang}
-                  />
-                </div>
-              </div>
-            ))
-          }
-        </div>
+        <StructuredItemList
+          items={sortedPlaylists}
+          listName={`${title} Collection`}
+          itemType="MusicPlaylist"
+          {lang}
+          includeCreator={true}
+          containerId="playlist-grid"
+          listItemClass="playlist-item"
+          getName={(p) => p.headline}
+          getDescription={(p) => p.introSubline || p.headline}
+          getGenre={(p) => p.categoryType || getDecadeFromHeadline(p.headline)}
+          cardComponent={PlaylistCard}
+          mapItemToCardProps={(item, index) => ({
+            headline: item.headline,
+            imageUrl: item.imageUrl,
+            introSubline: item.introSubline,
+            spotifyPlaylist: item.spotifyPlaylist,
+            deezerPlaylist: item.deezerPlaylist,
+            appleMusicPlaylist: item.appleMusicPlaylist,
+            index,
+            lang,
+            microdataDisable: true,
+          })}
+        />
       </section>
     </div>
   </main>
