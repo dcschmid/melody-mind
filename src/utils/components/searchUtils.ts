@@ -83,6 +83,12 @@ export interface GenericSearchOptions {
    * Provides count of visible results and the search term used.
    */
   onResultsUpdated?: (visibleCount: number, searchTerm: string) => void;
+
+  /**
+   * Optional debounce (milliseconds) applied to input events before performing search.
+   * Helpful for large lists to reduce recalculation frequency. If 0 or undefined, no debounce.
+   */
+  debounceMs?: number;
 }
 
 /**
@@ -131,6 +137,7 @@ export class GenericSearchUtils implements GenericSearchInstance {
   private options: GenericSearchOptions;
   private observer: MutationObserver | null = null;
   private refreshTimeout: number | null = null;
+  private inputDebounceTimeout: number | null = null;
 
   // Implement index signature required by GenericSearchInstance so this class
   // can be used where the GenericSearchInstance contract is expected and so
@@ -246,10 +253,21 @@ export class GenericSearchUtils implements GenericSearchInstance {
       this.toggleClearButton();
     });
 
-    // Trigger search on input
+    // Trigger search on input with optional debounce
     this.input.addEventListener("input", (e) => {
       const target = e.target as HTMLInputElement;
-      this.performSearch(target.value);
+      const delay = this.options.debounceMs || 0;
+      if (delay > 0) {
+        if (this.inputDebounceTimeout) {
+          clearTimeout(this.inputDebounceTimeout);
+        }
+        this.inputDebounceTimeout = window.setTimeout(() => {
+          this.performSearch(target.value);
+          this.inputDebounceTimeout = null;
+        }, delay);
+      } else {
+        this.performSearch(target.value);
+      }
     });
 
     // Clear search when clear button is clicked

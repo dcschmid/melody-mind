@@ -6,38 +6,22 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import SearchPanel from "@components/Search/SearchPanel.astro";
+import { buildCategoryItemListSchema } from "@utils/seo/seoSchema";
+import { derivePublishModified, normalizeDate } from "@utils/content/dateUtils";
 
 import EmptyState from "@components/EmptyState.astro";
 import LoadingState from "@components/LoadingState.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
-import type { Category } from "../../utils/category/categoryLoadingUtils";
 
 /**
  * Static path generation for internationalization
  * Required for Astro dynamic routes to work properly
  */
 export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ] as const;
-
-  return supportedLanguages.map((lang) => ({
-    params: { lang },
-  }));
+  const { buildLangStaticPaths } = await import("../../utils/i18n/staticPaths");
+  return buildLangStaticPaths();
 }
 
 /**
@@ -85,27 +69,6 @@ function generateGameApplicationSchema(
 /**
  * Generates ItemList schema for game categories
  */
-function generateCategoryListSchema(baseUrl: string, lang: string, playableCategories: Category[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Music Game Categories",
-    description: "Available music trivia categories in MelodyMind",
-    numberOfItems: playableCategories.length,
-    itemListElement: playableCategories.slice(0, 10).map((category, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Game",
-        name: category.headline,
-        description: category.introSubline,
-        url: `${baseUrl}/${lang}${category.categoryUrl}`,
-        genre: "Music Trivia",
-        applicationCategory: "Game",
-      },
-    })),
-  };
-}
 
 /**
  * Generates client-side translations with fallbacks
@@ -252,17 +215,34 @@ const gameApplicationSchema = generateGameApplicationSchema(
   currentUrl,
   lang
 );
-const categoryListSchema = generateCategoryListSchema(baseUrl, lang, playableCategories);
 const breadcrumbs = [
   { name: t("nav.home"), url: `${baseUrl}/${lang}` },
   { name: t("game.categories.title"), url: currentUrl },
 ];
-const structuredDataExtra = [gameApplicationSchema, categoryListSchema];
+// Add generic category ItemList schema using unified builder
+const categoryItemListSchema = buildCategoryItemListSchema({
+  categories: sortedCategories.map((c) => ({
+    slug: c.slug,
+    title: c.headline,
+    description: c.introSubline,
+    image: c.imageUrl,
+  })),
+  baseUrl,
+  lang,
+  name: "Game Categories",
+  description: "All music trivia game categories",
+  pathPrefix: "gamehome",
+  limit: 60,
+});
+const structuredDataExtra = [gameApplicationSchema, categoryItemListSchema].filter(Boolean);
 
 // Additional structured data parameters for enhanced SEO
 const pageType = "website";
-const publishDate = new Date("2024-01-01");
-const modifiedDate = new Date();
+// Derive publish/modified dates (placeholder logic until category dates exist)
+const earliestCatDate = normalizeDate("2024-01-01");
+const pm = derivePublishModified(earliestCatDate, new Date());
+const publishDate = pm.publishDate || new Date("2024-01-01");
+const modifiedDate = pm.modifiedDate || new Date();
 
 // Prepare fallback text for empty states
 const emptyCategoriesHeadline = t("game.categories.empty.headline");
@@ -328,91 +308,13 @@ const clientTranslations = generateClientTranslations(t);
           {t("game.select")}
         </Paragraph>
 
-        <!-- Unified Search UI (matches Knowledge page) -->
-        <section
-          class="mx-auto mt-8 w-full max-w-5xl"
-          role="search"
-          aria-label={t("game.search.label")}
-        >
-          <label for="searchInput" class="sr-only">{t("game.search.label")}</label>
-          <div class="relative">
-            <div class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-6">
-              <svg
-                class="h-7 w-7 text-purple-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-              </svg>
-            </div>
-
-            <input
-              id="searchInput"
-              type="search"
-              class="block w-full rounded-3xl border-2 border-purple-500/40 bg-gray-800/90 py-5 pr-20 pl-16 text-xl font-medium text-white placeholder-gray-400 shadow-2xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-500/20 focus:border-purple-400 focus:ring-4 focus:ring-purple-500/60 focus:outline-none"
-              placeholder={t("game.search.placeholder") || t("game.search.label")}
-              aria-controls="playlist-grid"
-              autocomplete="off"
-            />
-
-            <button
-              id="clear-search"
-              class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-gray-400 opacity-0 transition-colors duration-200 hover:text-purple-400"
-              type="button"
-              aria-label={t("game.search.clear") || "Clear search"}
-            >
-              <svg
-                class="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Reset Button (same UX as Knowledge page) -->
-          <div class="mt-6 text-center">
-            <button
-              id="reset-search"
-              class="inline-flex items-center gap-3 rounded-xl bg-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-purple-700 hover:shadow-purple-500/20"
-              type="button"
-              aria-controls="playlist-grid"
-            >
-              <svg
-                class="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 4v6h6M20 20v-6h-6"></path>
-              </svg>
-              <span>{t("game.search.reset.text") || "Reset Search"}</span>
-            </button>
-          </div>
-
-          <!-- Search status for screen readers -->
-          <div id="search-status" class="sr-only" aria-live="polite" role="status">
-            {t("game.search.showing.all") || "Showing all categories"}
-          </div>
-        </section>
+        <SearchPanel
+          idBase="gamehome-search"
+          label={t("game.search.label")}
+          placeholder={t("game.search.placeholder") || t("game.search.label")}
+          ariaControls="playlist-grid"
+          size="lg"
+        />
 
         <!-- Additional descriptive content for SEO -->
         <Paragraph className="sr-only">
@@ -441,15 +343,26 @@ const clientTranslations = generateClientTranslations(t);
                 itemscope
                 itemtype="https://schema.org/ItemList"
               >
-                {sortedCategories.map((category) => (
-                  <PlaylistItem
-                    headline={category.headline}
-                    subheadline={category.introSubline}
-                    image={category.imageUrl}
-                    imageAlt={`${category.headline} music category`}
-                    href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
-                    isDisabled={!category.isPlayable}
-                  />
+                {sortedCategories.map((category, index) => (
+                  <div class="playlist-item" itemscope itemtype="https://schema.org/ListItem">
+                    <meta itemprop="position" content={String(index + 1)} />
+                    <div itemscope itemprop="item" itemtype="https://schema.org/DefinedTerm">
+                      <meta itemprop="name" content={category.headline} />
+                      <meta
+                        itemprop="description"
+                        content={category.introSubline || category.text || category.headline}
+                      />
+                      <meta itemprop="inLanguage" content={lang} />
+                      <PlaylistItem
+                        headline={category.headline}
+                        subheadline={category.introSubline}
+                        image={category.imageUrl}
+                        imageAlt={`${category.headline} music category`}
+                        href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
+                        isDisabled={!category.isPlayable}
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
             </>
@@ -483,53 +396,20 @@ const clientTranslations = generateClientTranslations(t);
   <BackToTop {lang} />
 
   <script>
-    import { initGenericSearchAuto } from "../../utils/components/searchUtils";
-
-    /* eslint-disable @typescript-eslint/explicit-function-return-type */
-    function wire() {
-      const instance = initGenericSearchAuto({
-        inputId: "searchInput",
-        clearButtonId: "clear-search",
-        itemSelector: ".playlist-item",
-      });
-
-      try {
-        window.__lastSearchInstance = instance;
-      } catch {
-        // ignore storing instance errors
+    import { initSearchPanel } from "@components/Search/initSearchPanel";
+    (function (): void {
+      function start(): void {
+        initSearchPanel({
+          idBase: "gamehome-search",
+          itemSelector: ".playlist-item",
+          debounceMs: 150,
+        });
       }
-
-      try {
-        const resetBtn = document.getElementById("reset-search");
-        if (resetBtn) {
-          resetBtn.addEventListener("click", () => {
-            try {
-              const inst = window.__lastSearchInstance;
-              if (inst && typeof inst.clear === "function") {
-                inst.clear();
-              } else if (inst && typeof inst.performSearch === "function") {
-                inst.performSearch("");
-              }
-              const input = document.getElementById("searchInput");
-              if (input) {
-                input.focus();
-              }
-            } catch {
-              // ignore reset errors
-            }
-          });
-        }
-      } catch {
-        // ignore listener wiring errors
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start);
+      } else {
+        start();
       }
-    }
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => {
-        (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
-      });
-    } else {
-      (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
-    }
+    })();
   </script>
 </Layout>

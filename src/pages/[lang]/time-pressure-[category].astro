@@ -29,52 +29,15 @@ export const prerender = true;
  * @returns {Array} Array of path objects with params and props
  */
 export async function getStaticPaths() {
-  // Define all supported languages for type safety
-  const supportedLanguages = [
-    "de",
-    "en",
-    "es",
-    "fr",
-    "it",
-    "pt",
-    "da",
-    "nl",
-    "sv",
-    "fi",
-    "cn",
-    "ru",
-    "jp",
-    "uk",
-  ] as const;
-
-  const paths = [];
-
-  for (const lang of supportedLanguages) {
-    // Load categories using the shared loader which uses Vite glob at build-time and provides a fallback.
-    const result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
-    const categories = result.success ? result.categories : [];
-
-    // Create a path for each category (no difficulty needed for time pressure)
-    for (const categoryData of categories) {
-      // Ensure categoryData has a valid slug to avoid generating a route with a missing parameter
-      if (!categoryData || !categoryData.slug || typeof categoryData.slug !== "string") {
-        continue;
-      }
-
-      paths.push({
-        params: {
-          lang,
-          category: categoryData.slug,
-        },
-        props: {
-          categoryData,
-          lang,
-        },
-      });
-    }
-  }
-
-  return paths;
+  const { buildLangCategoryPaths } = await import("../../utils/i18n/staticPaths");
+  return buildLangCategoryPaths(
+    async (lang: any) => {
+      const res = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
+      return res.success ? res.categories : [];
+    },
+    (cat: any) => (cat && typeof cat.slug === "string" ? cat.slug : ""),
+    true
+  );
 }
 
 // Types for route props

@@ -53,32 +53,23 @@ function buildPodcastEntries(lang, siteUrl, today) {
 // Enable prerendering for static generation
 export const prerender = true;
 
-// Define supported languages for type safety
-const supportedLanguages = [
-  "de",
-  "en",
-  "es",
-  "fr",
-  "it",
-  "pt",
-  "da",
-  "nl",
-  "sv",
-  "fi",
-  "cn",
-  "ru",
-  "jp",
-  "uk",
-];
+// Central supported languages (imported lazily to keep file side-effect free at import time)
+let supportedLanguages;
+async function loadSupportedLanguages() {
+  if (!supportedLanguages) {
+    const mod = await import("../utils/i18n/staticPaths.ts");
+    supportedLanguages = mod.getSupportedLanguages();
+  }
+  return supportedLanguages;
+}
 
 // Generate static paths for all supported languages
 /**
  *
  */
 export async function getStaticPaths() {
-  return supportedLanguages.map((lang) => ({
-    params: { lang },
-  }));
+  const langs = await loadSupportedLanguages();
+  return langs.map((lang) => ({ params: { lang } }));
 }
 
 /**

@@ -7,6 +7,14 @@
  */
 // Content collections will be loaded at runtime when needed; avoid build-time collection loads
 import Layout from "@layouts/Layout.astro";
+import { resolveBaseUrl } from "@utils/seo/seoBasics";
+import SearchPanel from "@components/Search/SearchPanel.astro";
+import {
+  generateMetaDescription,
+  extractKeywordsFallback,
+  buildKeywordsString,
+} from "@utils/seo/seoText";
+import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
 import { SUPPORTED_LANGUAGES } from "@constants/languages";
 import { ui } from "../../../i18n/ui";
 import { useTranslations } from "@utils/i18n";
@@ -18,6 +26,7 @@ import BackToTop from "@components/Shared/BackToTop.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
+import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
 
 // SSG aktiviert: Wir prerendern die Knowledge Index Seite für jede unterstützte Sprache.
 // Die eigentlichen Artikel werden weiterhin innerhalb der Page geladen, um getStaticPaths
@@ -78,19 +87,22 @@ if (baseArticles.length === 0) {
   }
 }
 
-// Process articles with reading time (guard against undefined)
+// Process articles: normalize dates & reading time if missing
 const articlesWithReadingTime = baseArticles.map((article: any) => {
-  if (!article.data.readingTime) {
-    const readingTime = calculateReadingTime(article.body || "");
-    return {
-      ...article,
-      data: {
-        ...article.data,
-        readingTime,
-      },
-    };
-  }
-  return article;
+  const createdAtRaw = article?.data?.createdAt;
+  const updatedAtRaw = article?.data?.updatedAt;
+  const createdAt = normalizeDate(createdAtRaw);
+  const updatedAt = normalizeDate(updatedAtRaw);
+  const readingTime = article.data.readingTime || calculateReadingTime(article.body || "");
+  return {
+    ...article,
+    data: {
+      ...article.data,
+      createdAt,
+      updatedAt,
+      readingTime,
+    },
+  };
 });
 
 // Deterministic ordering (slug fallback id) via shared utility
@@ -99,11 +111,27 @@ const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
 // SEO content - Enhanced
 const safeUi = ui[uiLang] as Record<string, string>;
 const title = safeUi["knowledge.title"];
-const description = safeUi["knowledge.title"]; // Using knowledge.title as fallback since knowledge.intro doesn't exist
+const description = generateMetaDescription(safeUi["knowledge.title"], { maxLength: 140 });
 
 // Enhanced SEO data for structured data
-const baseUrl = Astro.site || "https://melodymind.app";
+const baseUrl = resolveBaseUrl(Astro.site, "https://melodymind.app");
 const currentUrl = `${baseUrl}/${lang}/knowledge`;
+
+// Derive overall publish / modified timestamps for collection (used in Layout timestamps)
+// For collection-level dates choose earliest publish and latest modified among articles
+let earliestCreated: Date | null = null;
+let latestUpdated: Date | null = null;
+for (const a of articlesWithReadingTime) {
+  const c = normalizeDate(a.data.createdAt);
+  if (c && (!earliestCreated || c.getTime() < earliestCreated.getTime())) {
+    earliestCreated = c;
+  }
+  const u = normalizeDate(a.data.updatedAt);
+  if (u && (!latestUpdated || u.getTime() > latestUpdated.getTime())) {
+    latestUpdated = u;
+  }
+}
+const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
 
 // Generate structured data for breadcrumbs
 const breadcrumbs = [
@@ -111,34 +139,34 @@ const breadcrumbs = [
   { name: safeUi["knowledge.title"] || "Knowledge", url: currentUrl },
 ];
 
-// Generate structured data for knowledge articles collection
-const articleCollectionSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: safeUi["knowledge.title"] || "Knowledge Articles",
-  description: safeUi["knowledge.title"] || "Music knowledge articles",
-  numberOfItems: sortedArticles.length,
-  itemListElement: sortedArticles.slice(0, 10).map((article, index: number) => ({
-    "@type": "Article",
-    position: index + 1,
-    name: article.data.title,
-    description: article.data.description,
-    url: `${baseUrl}/${lang}/knowledge/${"slug" in article ? article.slug : article.id}`,
-    datePublished: article.data.createdAt,
-    keywords: article.data.keywords?.join(", ") || "",
-    author: {
-      "@type": "Organization",
-      name: "MelodyMind",
+// Structured data for knowledge articles collection via central builder
+const articleCollectionSchema = buildKnowledgeArticlesItemList({
+  articles: sortedArticles.map((a: any) => ({
+    slug: "slug" in a ? a.slug : a.id,
+    data: {
+      title: a.data.title,
+      description: a.data.description,
+      createdAt: a.data.createdAt,
+      updatedAt: a.data.updatedAt,
+      keywords: a.data.keywords,
+      image: a.data.image,
     },
   })),
-};
+  baseUrl,
+  lang,
+  limit: 10,
+  name: safeUi["knowledge.title"] || "Knowledge Articles",
+  description: safeUi["knowledge.title"] || "Music knowledge articles",
+});
 
 // Generate meta keywords from articles
-const metaKeywords = sortedArticles.length
-  ? Array.from(new Set(sortedArticles.flatMap((article) => article.data.keywords || [])))
-      .slice(0, 10)
-      .join(", ")
-  : "";
+const keywordPool = sortedArticles.flatMap((article) => article.data.keywords || []);
+const autoKeywords = extractKeywordsFallback(
+  sortedArticles.map((a) => a.data.description || "").join(" "),
+  8,
+  lang
+);
+const metaKeywords = buildKeywordsString(keywordPool.slice(0, 10), autoKeywords);
 
 // Basic translations for JavaScript
 const clientTranslations = {
@@ -161,8 +189,8 @@ const clientTranslations = {
   imageHeight={630}
   type="website"
   keywords={metaKeywords}
-  publishDate={new Date()}
-  modifiedDate={new Date()}
+  publishDate={collectionDates.publishDate || undefined}
+  modifiedDate={collectionDates.modifiedDate || undefined}
   {breadcrumbs}
   canonical={currentUrl}
   structuredDataExtra={articleCollectionSchema}
@@ -215,10 +243,9 @@ const clientTranslations = {
         </div>
       </header>
 
-      <!-- Enhanced Search section -->
+      <!-- Enhanced Search section (refactored) -->
       <section class="mb-16" role="search">
         <div class="mx-auto w-full max-w-7xl">
-          <!-- Search Heading -->
           <div class="mb-10 text-center">
             <Headline level="h2" textSize="2xl" textAlign="center">
               {safeUi["knowledge.search.title"] || "Search Articles"}
@@ -227,102 +254,23 @@ const clientTranslations = {
               {safeUi["knowledge.search.subtitle"] || t("knowledge.search.subtitle")}
             </Paragraph>
           </div>
-
-          <div class="relative mx-auto w-full max-w-5xl">
-            <label for="searchInput" class="sr-only">{t("knowledge.search.label")}</label>
-
-            <!-- Search Input with Glassmorphism - Full Width -->
-            <div class="relative">
-              <div
-                class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-6"
-              >
-                <svg
-                  class="h-7 w-7 text-purple-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-              </div>
-
-              <input
-                type="search"
-                id="searchInput"
-                placeholder={(ui[uiLang] as any)["knowledge.search.placeholder"] ||
-                  "Search articles..."}
-                class="block w-full rounded-3xl border-2 border-purple-500/40 bg-gray-800/90 py-5 pr-20 pl-16 text-xl font-medium text-white placeholder-gray-400 shadow-2xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-500/20 focus:border-purple-400 focus:ring-4 focus:ring-purple-500/60 focus:outline-none"
-                aria-controls="articlesGrid"
-                autocomplete="off"
-              />
-
-              <!-- Clear Button -->
-              <button
-                id="clear-search"
-                class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-gray-400 opacity-0 transition-colors duration-200 hover:text-purple-400"
-                type="button"
-                aria-label={t("game.search.clear")}
-              >
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Reset Button -->
-          <div class="mt-6 text-center">
-            <button
-              id="reset-search"
-              class="inline-flex items-center gap-3 rounded-xl bg-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-purple-700 hover:shadow-purple-500/20"
-              type="button"
-              aria-controls="articlesGrid"
-            >
-              <Icon name="refresh" class="h-5 w-5" aria-hidden="true" />
-              <span>{safeUi["knowledge.search.reset.text"] || "Reset"}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Search status -->
-        <div id="search-status" class="sr-only" aria-live="polite" role="status">
-          {safeUi["knowledge.search.initial"] || "Showing all articles"}
+          <SearchPanel
+            idBase="knowledge-search"
+            label={t("knowledge.search.label")}
+            placeholder={(ui[uiLang] as any)["knowledge.search.placeholder"] ||
+              "Search articles..."}
+            ariaControls="articlesGrid"
+            autoStatus={true}
+            autoNoResults={true}
+            statusAllText={safeUi["knowledge.search.initial"] || "Showing all articles"}
+            statusCountTemplate={safeUi["knowledge.search.articlesFound"]
+              ? `{count} ${safeUi["knowledge.search.articlesFound"]}`
+              : "{count} articles found"}
+            noResultsTemplate={(safeUi["knowledge.search.no_results_for"] ||
+              'No results for "{term}"') as string}
+          />
         </div>
       </section>
-
-      <!-- No results message -->
-      <div
-        id="no-results"
-        class="mb-8 py-12 text-center"
-        style="display: none;"
-        role="status"
-        aria-live="assertive"
-      >
-        <div class="mx-auto max-w-md">
-          <Icon
-            name="search-no-results"
-            class="mx-auto mb-6 h-16 w-16 text-gray-600"
-            aria-hidden="true"
-          />
-          <Headline level="h2" textSize="2xl" textAlign="center">
-            {safeUi["knowledge.no.results"] || "No articles found"}
-          </Headline>
-          <Paragraph textSize="lg" textAlign="center">
-            {
-              safeUi["knowledge.no.results.help"] ||
-                "Try different search terms or reset your search"
-            }
-          </Paragraph>
-        </div>
-      </div>
 
       <!-- Articles grid with enhanced SEO - Oriented on gamehome layout -->
       <section class="mb-16">
@@ -336,7 +284,7 @@ const clientTranslations = {
                 const createdAt =
                   article.data.createdAt instanceof Date
                     ? article.data.createdAt
-                    : new Date(article.data.createdAt || Date.now());
+                    : normalizeDate(article.data.createdAt) || new Date();
 
                 const articleSlug = "slug" in article ? article.slug : article.id;
 
@@ -393,127 +341,23 @@ const clientTranslations = {
   </main>
 
   <script>
-    import { initGenericSearchAuto } from "../../../utils/components/searchUtils";
-
-    // Module-based initialization (restore previous behavior) and expose instance for debugging/reset
-    /* eslint-disable @typescript-eslint/explicit-function-return-type */
-    function wire() {
-      // Client-side fallback: apply translations from window.knowledgeTranslations if available
-      // small helper to apply translations safely
-      function applyKnowledgeTranslations(): void {
-        const kt = typeof window !== "undefined" ? window.knowledgeTranslations : null;
-        if (!kt || !kt.search) {
-          return;
-        }
-
-        const ph = kt.search.placeholder;
-        if (ph) {
-          const input = document.getElementById("searchInput");
-          if (input && input instanceof HTMLInputElement) {
-            input.placeholder = String(ph);
-          }
-        }
-
-        const rt = kt.search.resetText;
-        if (rt) {
-          const resetBtn = document.getElementById("reset-search");
-          if (resetBtn) {
-            const span = resetBtn.querySelector("span");
-            if (span && span instanceof HTMLElement) {
-              span.textContent = String(rt);
-            }
-          }
-        }
+    import { initSearchPanel } from "@components/Search/initSearchPanel";
+    ((): void => {
+      const wire = (): void => {
+        initSearchPanel({ idBase: "knowledge-search", itemSelector: "#articlesGrid li" });
+      };
+      const schedule = (fn: () => void): void => {
+        const idle: (cb: () => void) => void = (window.requestIdleCallback ||
+          ((cb: () => void): void => {
+            setTimeout(cb, 1);
+          })) as (cb: () => void) => void;
+        idle(fn);
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => schedule(wire));
+      } else {
+        schedule(wire);
       }
-
-      try {
-        applyKnowledgeTranslations();
-      } catch {
-        // ignore translation application errors
-      }
-
-      const instance = initGenericSearchAuto({
-        inputId: "searchInput",
-        clearButtonId: "clear-search",
-        itemSelector: "#articlesGrid li",
-        examplesContainerId: undefined,
-        exampleButtonSelector: undefined,
-        onNoResults: (term) => {
-          const noEl = document.getElementById("no-results");
-          if (noEl) {
-            noEl.style.display = "";
-            const tpl =
-              (window.knowledgeTranslations &&
-                window.knowledgeTranslations.search &&
-                window.knowledgeTranslations.search.noResultsFor) ||
-              'No results for "{term}"';
-            noEl.textContent = String(tpl).replace("{term}", term);
-          }
-        },
-        onResultsUpdated: (visibleCount, term) => {
-          const status = document.getElementById("search-status");
-          if (status) {
-            if (!term) {
-              status.textContent =
-                (window.knowledgeTranslations &&
-                  window.knowledgeTranslations.search &&
-                  window.knowledgeTranslations.search.showingAll) ||
-                "Showing all articles";
-            } else {
-              const label =
-                (window.knowledgeTranslations &&
-                  window.knowledgeTranslations.search &&
-                  window.knowledgeTranslations.search.articlesFound) ||
-                "articles found";
-              status.textContent = `${visibleCount} ${label}`;
-            }
-          }
-
-          const noEl = document.getElementById("no-results");
-          if (noEl) {
-            noEl.style.display = visibleCount > 0 ? "none" : "";
-          }
-        },
-      });
-
-      try {
-        window.__lastSearchInstance = instance;
-      } catch {
-        // ignore assigning instance errors
-      }
-
-      // Wire reset button to clear the generic search instance (if available)
-      try {
-        const resetBtn = document.getElementById("reset-search");
-        if (resetBtn) {
-          resetBtn.addEventListener("click", () => {
-            try {
-              const inst = window.__lastSearchInstance;
-              if (inst && typeof inst.clear === "function") {
-                inst.clear();
-              } else if (inst && typeof inst.performSearch === "function") {
-                inst.performSearch("");
-              }
-              const input = document.getElementById("searchInput");
-              if (input) {
-                input.focus();
-              }
-            } catch {
-              // ignore reset errors
-            }
-          });
-        }
-      } catch {
-        // ignore wiring reset button errors
-      }
-    }
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => {
-        (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
-      });
-    } else {
-      (window.requestIdleCallback || ((cb) => setTimeout(cb, 1)))(wire);
-    }
+    })();
   </script>
 </Layout>
