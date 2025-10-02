@@ -8,6 +8,8 @@ import BackToTop from "@components/Shared/BackToTop.astro";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 import { buildCategoryItemListSchema } from "@utils/seo/seoSchema";
 import { normalizeDate } from "@utils/content/dateUtils";
+import { createSlug } from "@utils/seo";
+import { truncateMeta } from "@utils/seo/metaUtils";
 
 // import { extractKeywords, generateMetaDescription } from "@utils/seo"; // Removed unused import
 
@@ -84,8 +86,7 @@ const enrichedContent = `${title} ${description} Explore ${playlistCount} carefu
 
 // const optimizedDescription = generateMetaDescription(enrichedContent, 158); // Removed - function no longer exists
 // const keywords = extractKeywords(enrichedContent, 12, lang); // Removed - function no longer exists
-const optimizedDescription =
-  enrichedContent.substring(0, 158) + (enrichedContent.length > 158 ? "..." : "");
+const optimizedDescription = truncateMeta(enrichedContent, 158);
 const keywords = "music playlists, music history, classic hits, music discovery, music trivia";
 
 // SEO-optimized URL and canonical setup
@@ -93,7 +94,7 @@ const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/${lang}/playlists`;
 
 // Enhanced structured data for playlist collection (static dates)
-const publishDate = normalizeDate("2024-01-01");
+const publishDate: Date = normalizeDate("2024-01-01")!; // normalizeDate expected to return Date
 const modifiedDate = new Date();
 const playlistCollectionSchema = {
   "@type": "ItemList",
@@ -118,7 +119,7 @@ const playlistCollectionSchema = {
 // Additional generic category schema for playlists
 const categoryItemListSchema = buildCategoryItemListSchema({
   categories: sortedPlaylists.map((p: Playlist) => ({
-    slug: p.headline.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+    slug: createSlug(p.headline),
     title: p.headline,
     description: p.introSubline,
   })),

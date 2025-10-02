@@ -2,6 +2,7 @@
  * Initializes a SearchPanel instance by wiring it to the generic search utility.
  * Minimal abstraction over initGenericSearchAuto so markup duplication is avoided.
  */
+import { resolveDebounceForCount } from "@constants/search";
 import { initGenericSearchAuto } from "@utils/components/searchUtils";
 
 export interface InitSearchPanelOptions {
@@ -97,13 +98,8 @@ export function initSearchPanel(
 function deriveHeuristicDebounce(selector: string): number | undefined {
   try {
     const cnt = document.querySelectorAll(selector).length;
-    if (cnt > 400) { return 300; }
-    if (cnt > 200) { return 220; }
-    if (cnt > 120) { return 160; }
-    if (cnt > 60) { return 100; }
-    if (cnt > 30) { return 60; }
+    return resolveDebounceForCount(cnt);
   } catch {
-    // ignore
+    return undefined;
   }
-  return undefined;
 }
