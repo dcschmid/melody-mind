@@ -9,13 +9,13 @@
 import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
-import { extractKeywords, generateMetaDescription } from "@utils/seo";
 import SectionCard from "@components/home/SectionCard.astro";
 import DailyChallengeCard from "@components/DailyChallengeCard.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
 // Use central language list (relative import to avoid adding a new path alias)
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@constants/languages";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
 
 /**
  * Static site generation configuration
@@ -61,11 +61,11 @@ const description = t("login.description");
 const pageContent = `${title} ${description} ${t("index.welcome.footnote")}`;
 
 // Generate optimized meta description and keyword set
-const optimizedDescription = generateMetaDescription(pageContent);
-const keywords = extractKeywords(pageContent) || t("meta.keywords");
+// Let buildPageSeo derive description & keywords from enriched parts (no legacy helpers)
+const optimizedDescription = pageContent; // pre-base; final normalization inside builder
+const keywordsArray: string[] = [];
 
 // Structured data parameters for enhanced SEO
-const pageType = "website";
 const publishDate = new Date("2024-01-01");
 const modifiedDate = new Date();
 
@@ -73,6 +73,32 @@ const modifiedDate = new Date();
 const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melodymind.app";
 const currentUrl = `${baseUrl}/${String(lang)}/`;
 const breadcrumbs = [{ name: t("nav.home") || "Home", url: currentUrl }];
+
+// Build unified SEO object
+const pageSeo = buildPageSeo({
+  title: title || "Home",
+  description: optimizedDescription,
+  url: currentUrl,
+  contentKind: "generic",
+  breadcrumbs,
+  publishDate,
+  modifiedDate,
+  enrichedParts: [
+    title,
+    description,
+    t("index.card.game.title") || "Game Overview",
+    t("index.card.playlists.title") || "Playlists",
+    t("index.card.podcast.title") || "Podcast",
+    t("index.card.news.title") || "News",
+    t("index.card.knowledge.title") || "Knowledge",
+  ],
+  fallbackKeywords: keywordsArray,
+  keywordLimit: 25,
+  maxDescription: 155,
+  index: true,
+  follow: true,
+  autoSocialImage: false, // use global logo fallback
+});
 
 // Card definitions for homepage sections
 const cards = [
@@ -135,20 +161,7 @@ try {
 ---
 
 <!-- OG image policy: use global logo (no more /og-images/ generated variants) -->
-<Layout
-  {title}
-  description={optimizedDescription}
-  keywords={keywords || t("meta.keywords")}
-  image="/melody-mind.png"
-  imageWidth={1200}
-  imageHeight={630}
-  type={pageType}
-  {publishDate}
-  {modifiedDate}
-  {breadcrumbs}
-  canonical={currentUrl}
-  authorName="Melody Mind Team"
->
+<Layout {pageSeo} {breadcrumbs}>
   <div class="mx-auto w-full pb-14">
     <header class="mb-8 sm:mb-10">
       <h1 class="sr-only">{title}</h1>

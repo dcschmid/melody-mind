@@ -9,6 +9,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import ContactCard from "@components/ContactCard.astro";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
 
 // Get current language and translation function
 const lang = getLangFromUrl(Astro.url) as string;
@@ -17,27 +18,36 @@ const t = useTranslations(String(lang));
 // Enable static generation for better caching
 export const prerender = true;
 
-// Page configuration
-const title = "Datenschutzerklärung | MelodyMind";
-const description =
-  "Datenschutzerklärung für MelodyMind - Informationen zur Verarbeitung personenbezogener Daten";
+// Canonical + breadcrumbs
 const base = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
 const canonical = `${base}/de/datenschutz`;
 const breadcrumbs = [
   { name: t("nav.home") || "Home", url: `${base}/de` },
   { name: "Datenschutz", url: canonical },
 ];
+
+const pageSeo = buildPageSeo({
+  title: "Datenschutzerklärung",
+  description:
+    "Datenschutzerklärung für MelodyMind - Informationen zur Verarbeitung personenbezogener Daten",
+  url: canonical,
+  contentKind: "generic",
+  breadcrumbs,
+  index: true,
+  follow: true,
+  enrichedParts: [
+    "datenschutz",
+    "personenbezogene daten",
+    "cookies",
+    "analyse tools",
+    "benutzerrechte",
+  ],
+  keywordLimit: 22,
+  maxDescription: 155,
+});
 ---
 
-<Layout
-  {title}
-  {description}
-  type="website"
-  showHeader={true}
-  showHeaderIcons={true}
-  {canonical}
-  {breadcrumbs}
->
+<Layout {pageSeo} showHeader={true} showHeaderIcons={true} {breadcrumbs}>
   <main class="min-h-screen bg-slate-50 py-16 dark:bg-slate-900">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <header class="mb-16 text-center">

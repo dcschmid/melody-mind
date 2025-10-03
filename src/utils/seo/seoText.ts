@@ -9,7 +9,10 @@ interface GenerateMetaOptions {
   ellipsis?: string;
 }
 
-/** Generate a meta description bounded by length (UTF-16 safe slicing). */
+/**
+ * Generate a meta description bounded by length (UTF-16 safe slicing).
+ * @deprecated Use buildPageSeo (description field) with text enrichment logic in textUnified instead.
+ */
 export function generateMetaDescription(content: string, opts: GenerateMetaOptions = {}): string {
   const maxLength = opts.maxLength ?? 158;
   const ellipsis = opts.ellipsis ?? "...";
@@ -23,7 +26,10 @@ export function generateMetaDescription(content: string, opts: GenerateMetaOptio
   return trimmed.slice(0, maxLength - ellipsis.length).trimEnd() + ellipsis;
 }
 
-/** Basic keyword extraction fallback (frequency + length filter). */
+/**
+ * Basic keyword extraction fallback (frequency + length filter).
+ * @deprecated Prefer buildPageSeo + textUnified enrichment; keep for legacy pages or data migrations.
+ */
 export function extractKeywordsFallback(
   content: string,
   limit: number = 12,
@@ -77,7 +83,10 @@ export function extractKeywordsFallback(
   return sorted;
 }
 
-/** Combine and normalize keyword list into a comma-separated string */
+/**
+ * Combine and normalize keyword list into a comma-separated string.
+ * @deprecated buildPageSeo returns keywords array; join there if raw string needed.
+ */
 export function buildKeywordsString(keywords: string[], extra?: string | string[]): string {
   const extraList = Array.isArray(extra) ? extra : extra ? [extra] : [];
   const merged = [...keywords, ...extraList]

@@ -1,6 +1,20 @@
+<!-- markdownlint-disable MD024 -->
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## [Unreleased]
+
+### 🚜 Refactor (Unreleased)
+
+- _(seo)_ Remove deprecated legacy utilities `seoText.ts`, `metaUtils.ts`, `seoBasics.ts`; logic
+  consolidated into `textUnified.ts` + `buildPageSeo.ts`.
+
+### 📚 Documentation (Unreleased)
+
+- _(seo)_ Update `docs/seo-architecture.md` & `README.md` with unified SEO pipeline and removal
+  notes.
 
 ## [4.1.0] - 2025-03-30
 

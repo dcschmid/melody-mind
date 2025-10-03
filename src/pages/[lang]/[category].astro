@@ -14,7 +14,7 @@ import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
-import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
 // import { getLanguageKeyedParams } from "@utils/i18n/getLanguagePaths"; // Uncomment when enabling SSG
 // import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils"; // Uncomment if enabling SSG
 // categoryLoadingUtils is used dynamically below when resolving missing props at runtime
@@ -102,8 +102,8 @@ const currentCategory = category as CategoryType;
 const title = `${currentCategory?.headline} ${t("category.start")}`;
 const description = currentCategory?.introSubline || "";
 const pageContent = `${title} ${description} ${currentCategory?.text || ""}`;
-const optimizedDescription = generateMetaDescription(pageContent);
-const keywords = extractKeywords(pageContent) || t("meta.keywords");
+const optimizedDescription = pageContent; // final trimming & sentence handling delegated to buildPageSeo
+const keywordArray: string[] = [];
 // SEO additions
 const base = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
 const canonical = `${base}/${lang}/${Astro.params.category}`;
@@ -122,18 +122,36 @@ const structuredDataExtra = [
     isPartOf: { "@type": "WebSite", name: "MelodyMind", url: base },
   },
 ];
+
+// Unified SEO object
+const pageSeo = buildPageSeo({
+  title,
+  description: optimizedDescription,
+  url: canonical,
+  // Using 'generic' until a specific 'category' kind is defined in PageContentKind
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: structuredDataExtra,
+  enrichedParts: [
+    title,
+    description,
+    currentCategory?.headline,
+    currentCategory?.introSubline,
+    currentCategory?.text,
+  ].filter(Boolean) as string[],
+  fallbackKeywords: keywordArray, // empty; builder derives
+  keywordLimit: 28,
+  maxDescription: 155,
+  image: currentCategory?.imageUrl,
+  publishDate: new Date("2024-01-01"),
+  modifiedDate: new Date(),
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
 ---
 
-<Layout
-  {title}
-  description={optimizedDescription}
-  {keywords}
-  image={currentCategory?.imageUrl || "/social-share-categories.jpg"}
-  {canonical}
-  {breadcrumbs}
-  {structuredDataExtra}
-  type="website"
->
+<Layout {pageSeo} {breadcrumbs}>
   <div class="min-h-screen bg-gray-900 px-4 py-8 text-white">
     <div class="mx-auto max-w-7xl">
       <div class="sr-only" aria-live="polite" id="dynamic-announcements"></div>

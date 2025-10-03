@@ -7,6 +7,7 @@ import type { PodcastData } from "../../../types/podcast";
 import enPodcastsJson from "../../../data/podcasts/en.json" assert { type: "json" };
 import { Icon } from "astro-icon/components";
 import { extractKeywords, buildCanonicalUrl, buildBreadcrumbs } from "@utils/seo";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import Paragraph from "@components/Paragraph.astro";
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@constants/languages";
 
@@ -52,13 +53,12 @@ if (!podcast) {
   return Astro.redirect("/404");
 }
 
-// SEO and page metadata
-const title = podcast.title;
-const description = podcast.description;
+// Base URL for canonical
 const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "";
-const keywords = extractKeywords(
+// Gather preliminary keyword candidates
+const keywordCandidates = extractKeywords(
   `${podcast.title} ${podcast.description} ${podcast.showNotesHtml || ""}`,
-  12,
+  20,
   lang
 );
 
@@ -128,7 +128,7 @@ const publishDate = toValidDate(podcast.publishedAt);
 // For now modifiedDate equals publishDate (no separate lastModified tracking yet)
 const modifiedDate = publishDate;
 
-// Canonical URL & breadcrumbs (moved from inline template to frontmatter for clarity)
+// Canonical URL & breadcrumbs
 const canonical = buildCanonicalUrl(baseUrl, Astro.url.pathname);
 const breadcrumbs = buildBreadcrumbs([
   { name: t("nav.home") || "Home", url: `${baseUrl}/${lang}` },
@@ -137,24 +137,44 @@ const breadcrumbs = buildBreadcrumbs([
 ]);
 const prevUrl = prev ? buildCanonicalUrl(baseUrl, `/${lang}/podcasts/${prev.id}`) : undefined;
 const nextUrl = next ? buildCanonicalUrl(baseUrl, `/${lang}/podcasts/${next.id}`) : undefined;
+
+// Unified SEO object for episode
+const pageSeo = buildPageSeo({
+  title: podcast.title,
+  description: podcast.description,
+  url: canonical,
+  contentKind: "podcast",
+  breadcrumbs,
+  publishDate: publishDate,
+  modifiedDate: modifiedDate,
+  enrichedParts: [
+    t("podcast.listen_to_episode") || "Listen to episode",
+    podcast.seriesName || "MelodyMind Podcast",
+    podcast.title,
+    podcast.description.slice(0, 120),
+  ],
+  fallbackKeywords: keywordCandidates
+    ? keywordCandidates
+        .split(",")
+        .map((k) => k.trim())
+        .filter(Boolean)
+    : [],
+  keywordLimit: 22,
+  maxDescription: 155,
+  image: podcast.imageUrl || undefined,
+  index: true,
+  follow: true,
+  autoSocialImage: false, // explicit image normally provided
+});
 ---
 
 <Layout
-  {title}
-  {description}
-  {keywords}
-  type="podcastEpisode"
-  image={podcast.imageUrl || "/melody-mind.png"}
-  imageWidth={podcast.imageWidth || 1200}
-  imageHeight={podcast.imageHeight || 630}
-  {publishDate}
-  {modifiedDate}
+  {pageSeo}
   ogMusic={{ creator: "Melody Mind" }}
   audioSrc={podcast.audioUrl}
   episodeNumber={episodeNumber || undefined}
   seriesName="MelodyMind Podcast"
   seriesUrl={`${baseUrl}/${lang}/podcasts`}
-  {canonical}
   {breadcrumbs}
   {prevUrl}
   {nextUrl}

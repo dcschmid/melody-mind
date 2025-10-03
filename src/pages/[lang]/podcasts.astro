@@ -6,14 +6,11 @@ import Paragraph from "@components/Paragraph.astro";
 import HeroSection from "@components/HeroSection.astro";
 import { Icon } from "astro-icon/components";
 import { buildCanonicalUrl, buildBreadcrumbs } from "@utils/seo";
-import { resolveBaseUrl } from "@utils/seo/seoBasics";
+import { getBaseUrl } from "../../utils/url/baseUrl";
+import { buildPageSeo } from "../../utils/seo/buildPageSeo";
 import SearchPanel from "@components/Search/SearchPanel.astro";
-import {
-  generateMetaDescription,
-  extractKeywordsFallback,
-  buildKeywordsString,
-} from "@utils/seo/seoText";
 import { buildPodcastSeriesSchema, buildPodcastEpisodesItemList } from "@utils/seo/seoSchema";
+import { buildCollectionWithItemListSchema } from "../../utils/seo/collectionSchema";
 import { derivePublishModified, normalizeDate } from "@utils/content/dateUtils";
 import { buildSequentialNumberMapByDate } from "@utils/content/ordering";
 
@@ -60,9 +57,24 @@ const showEnglishOnlyNotice = lang !== "en";
 
 // SEO Basisdaten
 const title = t("podcast.title");
-const description = generateMetaDescription(t("podcast.description"), { maxLength: 150 });
-const baseUrl = resolveBaseUrl(Astro.site, "https://melodymind.app");
+const baseUrl = getBaseUrl(Astro.site, "https://melodymind.app");
 const canonical = buildCanonicalUrl(baseUrl, Astro.url.pathname);
+const pageSeo = buildPageSeo({
+  title: `${t("podcast.title")} - Melody Mind`,
+  description: t("podcast.description"),
+  enrichedParts: [
+    `${availableEpisodes.length} episodes`,
+    "Music trivia insights",
+    "Artist stories and behind the music",
+  ],
+  language: lang,
+  keywordLimit: 14,
+  fallbackKeywords: ["podcast", "music", "episodes"],
+  maxDescription: 150,
+  url: canonical,
+  contentKind: "podcast",
+});
+const description = pageSeo.description;
 
 // Breadcrumbs
 const breadcrumbs = buildBreadcrumbs([
@@ -71,11 +83,11 @@ const breadcrumbs = buildBreadcrumbs([
 ]);
 
 // Structured Data & SEO Keywords
-const keywordPool = availableEpisodes.flatMap((ep) =>
-  ep.description ? ep.description.split(/\s+/) : []
-);
-const autoKeywords = extractKeywordsFallback(keywordPool.join(" "), 8, lang);
-const metaKeywords = buildKeywordsString(autoKeywords, ["podcast", "music", "melodymind"]);
+// Provide a small curated fallback bias list only; builder derives final keywords
+const metaKeywords = ["melodymind", t("podcast.title"), t("podcast.description")]
+  .map((s) => (s || "").toString().trim())
+  .filter(Boolean)
+  .join(", ");
 
 // Derive collection level publish / modified dates based on episode publish dates
 const publishedDates = availableEpisodes
@@ -119,22 +131,42 @@ const episodesItemList = buildPodcastEpisodesItemList({
 const structuredDataExtra: any[] = episodesItemList
   ? [podcastSeriesSchema, episodesItemList]
   : [podcastSeriesSchema];
+
+// Additional generic collection schema (episodes as collection) for consistency with other pages
+const episodesCollectionSchema = buildCollectionWithItemListSchema({
+  pageName: `${title} - Episodes Collection`,
+  description,
+  url: canonical,
+  inLanguage: lang,
+  siteName: "Melody Mind",
+  siteUrl: baseUrl,
+  itemTypeDefault: "PodcastEpisode",
+  items: availableEpisodes.map((ep, idx) => ({
+    position: idx + 1,
+    url: `${baseUrl}/${lang}/podcasts/${ep.id}`,
+    name: ep.title,
+    description: ep.description,
+    datePublished: ep.publishedAt,
+    authorName: "Melody Mind",
+    publisherName: "Melody Mind",
+    about: "Music Podcast Episode",
+  })),
+  limit: 10,
+});
+
+structuredDataExtra.push(episodesCollectionSchema);
 ---
 
 <!-- OG image: podcast overview -->
 <Layout
-  {title}
-  {description}
-  keywords={metaKeywords}
-  type="website"
-  image="/homecategories/podcast.png"
-  imageWidth={1200}
-  imageHeight={630}
-  {canonical}
+  pageSeo={{
+    ...pageSeo,
+    keywords: metaKeywords,
+    structuredData: structuredDataExtra,
+    publishDate,
+    modifiedDate,
+  }}
   {breadcrumbs}
-  {structuredDataExtra}
-  {publishDate}
-  {modifiedDate}
   ogMusic={{ creator: "Melody Mind" }}
 >
   <Fragment slot="head">

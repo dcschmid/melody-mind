@@ -6,11 +6,6 @@
  * including reduced motion support, proper document structure, optimized resource loading,
  * and mobile-friendly viewport configurations.
  *
- * @param {string} title - Page title displayed in browser tab and meta tags
- * @param {string} [description] - Page meta description for SEO and social sharing
- * @param {string} [keywords] - Page meta keywords for SEO optimization
- * @param {string} [image] - Social sharing image URL for Open Graph
- * @param {"website"|"article"|"music"|"game"|"podcastEpisode"} [type="website"] - Page content type for structured data
  * @param {Date} [publishDate] - Content publish date for SEO and structured data
  * @param {Date} [modifiedDate] - Content modification date for SEO optimization
  * @param {boolean} [showHeader=true] - Whether to display the header navigation component
@@ -66,6 +61,7 @@ import Footer from "@components/Footer.astro";
 
 // 4. Utility imports
 import { getLangFromUrl } from "@utils/i18n";
+import type { StructuredData } from "@utils/seo/buildPageSeo";
 
 import "../styles/global.css";
 interface Props {
@@ -75,7 +71,6 @@ interface Props {
    * @required
    * @example "MelodyMind - Music Quiz Game"
    */
-  title: string;
 
   /**
    * Page meta description for SEO and social sharing optimization
@@ -84,7 +79,6 @@ interface Props {
    * @maxLength 160 characters for optimal SEO performance
    * @example "Test your music knowledge with our engaging trivia game featuring multiple genres and difficulty levels."
    */
-  description?: string;
 
   /**
    * Page meta keywords for SEO optimization (legacy support)
@@ -92,7 +86,6 @@ interface Props {
    * @optional
    * @example "music quiz, trivia game, rock music, pop music"
    */
-  keywords?: string;
 
   /**
    * Social sharing image URL for Open Graph and Twitter Cards
@@ -102,7 +95,6 @@ interface Props {
    * @requirements 1200x630px recommended for optimal social sharing
    * @example "/melody-mind.png" (global fallback logo) OR a specific content image like a podcast cover
    */
-  image?: string;
   /**
    * OG Image Strategy (2025-10 update):
    * We no longer use pre-generated /og-images/ variants. Pages should pass:
@@ -122,7 +114,32 @@ interface Props {
    * @default "website"
    * @example "game" for quiz pages, "music" for artist content
    */
-  type?: "website" | "article" | "music" | "game" | "podcastEpisode";
+  /**
+   * Consolidated pageSeo object (required). Legacy individual SEO props removed.
+   */
+  pageSeo: {
+    title: string;
+    description: string;
+    keywords: string;
+    canonical: string;
+    image?: string;
+    type: "website" | "article" | "music" | "game" | "podcastEpisode";
+    robots: string;
+    openGraph: {
+      title: string;
+      description: string;
+      type: string;
+      url: string;
+      image?: string;
+      locale?: string;
+    };
+    twitter: { card: string; title: string; description: string; image?: string; creator?: string };
+    structuredData: StructuredData[];
+    publishDate?: Date;
+    modifiedDate?: Date;
+    ogLocale?: string;
+    alternateLocales?: string[];
+  };
 
   /**
    * Content publish date for SEO and structured data markup
@@ -245,15 +262,9 @@ interface Props {
 }
 
 const {
-  title,
-  description,
-  keywords,
-  image,
+  pageSeo,
   imageWidth,
   imageHeight,
-  type = "website",
-  publishDate,
-  modifiedDate,
   showHeader = true,
   showHeaderIcons = true,
   showCoins = false,
@@ -262,14 +273,10 @@ const {
   episodeNumber,
   seriesName,
   seriesUrl,
-  canonical,
   breadcrumbs,
-  noIndex,
-  noFollow,
   prevUrl,
   nextUrl,
   disableAlternateLanguages,
-  structuredDataExtra,
   authorName,
 } = Astro.props;
 
@@ -281,9 +288,41 @@ const {
 // specific rich image should pass it explicitly. Centralizing this fallback
 // keeps SEO component simpler and prevents duplication of default logic.
 // ---------------------------------------------------------------------------
-const effectiveImage = image || "/melody-mind.png"; // lives in /public root
+// pageSeo is now mandatory; remove legacy fallback construction
+const constructedPageSeo = pageSeo;
+
+const mergedTitle = constructedPageSeo.title;
+const mergedDescription = constructedPageSeo.description;
+const mergedKeywords = constructedPageSeo.keywords;
+const mergedType = constructedPageSeo.type;
+const mergedCanonical = constructedPageSeo.canonical;
+const mergedImage = constructedPageSeo.image || "/melody-mind.png";
+const mergedPublishDate = constructedPageSeo.publishDate;
+const mergedModifiedDate = constructedPageSeo.modifiedDate;
+const mergedStructuredData: StructuredData[] = constructedPageSeo.structuredData;
+const robotsTag = constructedPageSeo.robots;
 
 const lang = getLangFromUrl(Astro.url);
+// Derive BCP47 language and map to common OG locale fallback (en -> en_US etc.)
+function mapOgLocale(l: string): string {
+  if (!l) {
+    return "en_US";
+  }
+  const base = l.toLowerCase();
+  switch (base) {
+    case "en":
+      return "en_US";
+    case "de":
+      return "de_DE";
+    case "fr":
+      return "fr_FR";
+    case "es":
+      return "es_ES";
+    default:
+      return base.replace(/-.+$/, "").concat("_", base.toUpperCase().slice(-2) || "US");
+  }
+}
+const autoOgLocale = mapOgLocale(String(lang));
 
 // Performance optimization: Critical resource preloading following Astro standards
 // NOTE: preload must target the exact resource (script.js) instead of the domain root
@@ -375,30 +414,69 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
     <SEO
-      {title}
-      {description}
-      {keywords}
-      image={effectiveImage}
+      title={mergedTitle}
+      description={mergedDescription}
+      keywords={mergedKeywords}
+      image={mergedImage}
       {imageWidth}
       {imageHeight}
-      {type}
-      {publishDate}
-      {modifiedDate}
+      type={mergedType}
+      publishDate={mergedPublishDate}
+      modifiedDate={mergedModifiedDate}
       {ogMusic}
       {audioSrc}
       {episodeNumber}
       {seriesName}
       {seriesUrl}
-      {canonical}
+      canonical={mergedCanonical}
       {breadcrumbs}
-      {noIndex}
-      {noFollow}
+      noIndex={robotsTag.includes("noindex")}
+      noFollow={robotsTag.includes("nofollow")}
       {prevUrl}
       {nextUrl}
       {disableAlternateLanguages}
-      {structuredDataExtra}
+      structuredDataExtra={mergedStructuredData}
       {authorName}
     />
+    {/* Robots meta explicit for clarity if differing from default */}
+    {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
+    {/* OpenGraph / Twitter Cards (generated when pageSeo supplied) */}
+    <Fragment>
+      <meta property="og:title" content={constructedPageSeo.openGraph.title} />
+      <meta property="og:description" content={constructedPageSeo.openGraph.description} />
+      <meta property="og:type" content={constructedPageSeo.openGraph.type} />
+      <meta property="og:url" content={constructedPageSeo.openGraph.url} />
+      <meta
+        property="og:locale"
+        content={(constructedPageSeo.openGraph as any).locale ||
+          (constructedPageSeo as any).ogLocale ||
+          autoOgLocale}
+      />
+      {
+        Array.isArray((constructedPageSeo as any).alternateLocales) &&
+          (constructedPageSeo as any).alternateLocales.map((loc: string) => (
+            <meta property="og:locale:alternate" content={loc} />
+          ))
+      }
+      {
+        constructedPageSeo.openGraph.image && (
+          <meta property="og:image" content={constructedPageSeo.openGraph.image} />
+        )
+      }
+      <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
+      <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
+      <meta name="twitter:description" content={constructedPageSeo.twitter.description} />
+      {
+        constructedPageSeo.twitter.image && (
+          <meta name="twitter:image" content={constructedPageSeo.twitter.image} />
+        )
+      }
+      {
+        (constructedPageSeo.twitter as any).creator && (
+          <meta name="twitter:creator" content={(constructedPageSeo.twitter as any).creator} />
+        )
+      }
+    </Fragment>
 
     <!-- Analytics with performance and privacy optimizations -->
     <script

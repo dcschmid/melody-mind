@@ -6,6 +6,7 @@
 
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Layout from "../layouts/Layout.astro";
+import { buildPageSeo } from "../utils/seo/buildPageSeo";
 import { Icon } from "astro-icon/components";
 import Headline from "../components/Headline.astro";
 import Paragraph from "../components/Paragraph.astro";
@@ -18,26 +19,36 @@ export const prerender = true;
 const title = t("error.404.title");
 const description = t("error.404.description");
 
-// Build canonical URL (language root fallback)
+// Base site URL (language root fallback)
 const base = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
-const canonical = `${base}/${lang}`;
 
 // Breadcrumbs (Home -> 404)
 const breadcrumbs = [
   { name: t("nav.home") || "Home", url: `${base}/${lang}` },
   { name: title, url: `${base}/${lang}/404` },
 ];
+
+// Build consolidated pageSeo (noindex)
+const pageSeo = buildPageSeo({
+  title: `${title} - Melody Mind`,
+  description,
+  url: `${base}/${lang}/404`,
+  language: lang,
+  index: false,
+  follow: true,
+  contentKind: "generic",
+  enrichedParts: [t("error.404.message"), t("error.404.cta_title")].filter(Boolean) as string[],
+  breadcrumbs,
+});
 ---
 
 <Layout
-  {title}
-  {description}
-  type="website"
+  pageSeo={{
+    ...pageSeo,
+    structuredData: pageSeo.structuredData,
+  }}
   showHeader={true}
   showHeaderIcons={true}
-  noIndex={true}
-  noFollow={false}
-  {canonical}
   {breadcrumbs}
 >
   <main class="flex min-h-screen items-center bg-slate-50 py-16 dark:bg-slate-900">

@@ -21,6 +21,7 @@ import Joker from "@components/Game/Joker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { loadCategoryBySlug } from "../../../utils/category/categoryLoadingUtils";
 
 // Server-side rendering for cookie-based authentication
@@ -108,43 +109,56 @@ const totalRounds = getRoundsForDifficulty(difficulty);
 // Breadcrumbs (Home → Categories → Category → Difficulty)
 const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
 const currentLang = String(lang);
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: t("nav.home"), item: `${baseUrl}/${currentLang}/` },
-    {
+const canonical = `${baseUrl}/${currentLang}/game-${paramsCategory || ""}/${difficulty || ""}`;
+const breadcrumbs = [
+  { name: t("nav.home"), url: `${baseUrl}/${currentLang}` },
+  { name: t("game.categories.title"), url: `${baseUrl}/${currentLang}/gamehome` },
+  { name: currentCategoryData?.headline || paramsCategory || "", url: canonical },
+  { name: t(`difficulty.${String(difficulty)}`) || String(difficulty), url: canonical },
+];
+
+// Structured data consolidated (breadcrumb list)
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((b, idx) => ({
       "@type": "ListItem",
-      position: 2,
-      name: t("game.categories.title"),
-      item: `${baseUrl}/${currentLang}/gamehome`,
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: currentCategoryData?.headline || paramsCategory || "",
-      item: `${baseUrl}/${currentLang}/game-${paramsCategory || ""}/${difficulty || ""}`,
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      name: t(`difficulty.${String(difficulty)}`) || String(difficulty),
-      item: `${baseUrl}/${currentLang}/game-${paramsCategory || ""}/${difficulty || ""}`,
-    },
-  ],
-};
+      position: idx + 1,
+      name: b.name,
+      item: b.url,
+    })),
+  },
+];
+
+// Unified SEO object
+const pageSeo = buildPageSeo({
+  title: `${currentCategoryData?.headline} - ${playerTitle}`,
+  description: metaDescription,
+  url: canonical,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData,
+  enrichedParts: [currentCategoryData?.headline, playerTitle, metaDescription].filter(
+    Boolean
+  ) as string[],
+  fallbackKeywords: [
+    currentCategoryData?.headline || "",
+    String(difficulty),
+    t("game.categories.title"),
+  ].filter(Boolean),
+  keywordLimit: 24,
+  maxDescription: 155,
+  image: currentCategoryData?.imageUrl,
+  publishDate: new Date("2024-01-01"),
+  modifiedDate: new Date(),
+  index: false, // game play pages typically noindex
+  follow: false,
+  autoSocialImage: false,
+});
 ---
 
-<Layout
-  title={`${currentCategoryData?.headline} - ${playerTitle}`}
-  showHeader={false}
-  showCoins={false}
-  description={metaDescription}
-  image={currentCategoryData?.imageUrl || "/melody-mind.png"}
->
-  <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  </Fragment>
+<Layout {pageSeo} showHeader={false} showCoins={false} {breadcrumbs}>
   <FeedbackOverlay buttonId="quiz-next-round-button" />
 
   <EndOverlay

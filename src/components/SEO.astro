@@ -18,6 +18,7 @@
  */
 import { getLangFromUrl } from "@utils/i18n";
 import { languages } from "../i18n/ui"; // Direct relative path instead of alias
+import type { StructuredData } from "@utils/seo/buildPageSeo";
 
 interface Props {
   /** Page title - will be appended with site name */
@@ -138,11 +139,7 @@ const alternateLanguages = disableAlternateLanguages
  * JSON-LD structured data with TypeScript type safety
  * Follows schema.org standards for better search engine interpretation
  */
-interface StructuredData {
-  "@context": string;
-  "@type": string;
-  [key: string]: any;
-}
+// Reuse global StructuredData type from SEO builder for consistency
 
 // Base website schema
 let structuredData: StructuredData = {

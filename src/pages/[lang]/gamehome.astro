@@ -6,7 +6,8 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import HeroSection from "@components/HeroSection.astro";
-import { extractKeywords, generateMetaDescription } from "@utils/seo";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import type { StructuredData } from "@utils/seo/buildPageSeo";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 import { buildCategoryItemListSchema } from "@utils/seo/seoSchema";
 import { derivePublishModified, normalizeDate } from "@utils/content/dateUtils";
@@ -190,20 +191,12 @@ const sortedCategories = [...playableCategories, ...nonPlayableCategories];
 // Enhanced SEO content generation for better search visibility
 const title = t("game.select");
 const description = t("game.welcome");
-
-// Create rich SEO content combining category information
-const enrichedContent = `${title} ${description} ${t("game.genre.selection.description")} ${sortedCategories.map((c) => `${c.headline} ${c.introSubline} ${c.text || ""}`).join(" ")}`;
-
-// Generate optimized meta description and keywords using enhanced content
-const optimizedDescription = generateMetaDescription(enrichedContent, 158); // Leave room for ellipsis
-const seoKeywords = extractKeywords(enrichedContent, 12, lang) || t("meta.keywords");
-
-// Create category-specific keywords for better targeting
-const categoryNames = sortedCategories.map((c) => c.headline.toLowerCase()).join(", ");
-const combinedKeywords = `${seoKeywords}, ${categoryNames}, ${t("meta.keywords")}`.substring(
-  0,
-  255
-);
+const enrichedContent = `${title} ${description} ${t("game.genre.selection.description")} ${sortedCategories
+  .map((c) => `${c.headline} ${c.introSubline} ${c.text || ""}`)
+  .join(" ")}`;
+// Description & keywords now handled internally by buildPageSeo; we pass enrichedParts + fallbackKeywords.
+const optimizedDescription = enrichedContent.slice(0, 155); // lightweight pre-trim; final sanitization in builder
+const keywordArray: string[] = [];
 
 // Enhanced structured data for GameHub/CategoryList
 const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
@@ -235,15 +228,35 @@ const categoryItemListSchema = buildCategoryItemListSchema({
   pathPrefix: "gamehome",
   limit: 60,
 });
-const structuredDataExtra = [gameApplicationSchema, categoryItemListSchema].filter(Boolean);
+const structuredDataExtra: StructuredData[] = [
+  gameApplicationSchema,
+  categoryItemListSchema,
+].filter(Boolean) as StructuredData[];
 
-// Additional structured data parameters for enhanced SEO
-const pageType = "website";
 // Derive publish/modified dates (placeholder logic until category dates exist)
 const earliestCatDate = normalizeDate("2024-01-01");
 const pm = derivePublishModified(earliestCatDate, new Date());
 const publishDate = pm.publishDate || new Date("2024-01-01");
 const modifiedDate = pm.modifiedDate || new Date();
+
+// Build unified pageSeo object
+const pageSeo = buildPageSeo({
+  title: title || "Game Categories",
+  description: optimizedDescription,
+  url: currentUrl,
+  contentKind: "generic",
+  breadcrumbs,
+  publishDate,
+  modifiedDate,
+  enrichedParts: [title, description, ...sortedCategories.slice(0, 25).map((c) => c.headline)],
+  fallbackKeywords: keywordArray, // empty – builder derives keywords from enriched content
+  keywordLimit: 28,
+  maxDescription: 155,
+  structuredData: structuredDataExtra,
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
 
 // Prepare fallback text for empty states
 const emptyCategoriesHeadline = t("game.categories.empty.headline");
@@ -254,20 +267,7 @@ const clientTranslations = generateClientTranslations(t);
 ---
 
 <!-- OG image: game overview -->
-<Layout
-  {title}
-  description={optimizedDescription}
-  keywords={combinedKeywords}
-  image="/homecategories/game.png"
-  imageWidth={1200}
-  imageHeight={630}
-  type={pageType}
-  {publishDate}
-  {modifiedDate}
-  canonical={currentUrl}
-  {breadcrumbs}
-  {structuredDataExtra}
->
+<Layout {pageSeo} {breadcrumbs}>
   <Fragment slot="head"></Fragment>
 
   <!-- Make translations available for JavaScript functionality -->

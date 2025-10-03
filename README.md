@@ -94,6 +94,20 @@ For automated or AI-assisted contributions, see `AGENTS.md` for project-specific
 (commands, coding standards, performance, accessibility, and safety rules). Human contributors can
 largely ignore it unless curious about automation practices.
 
+## 🔍 SEO Architecture (Summary)
+
+All pages use a unified SEO pipeline via `buildPageSeo` (see `docs/seo-architecture.md`). Deprecated
+helper files (`seoText.ts`, `metaUtils.ts`, `seoBasics.ts`) were removed in October 2025. Do not
+reintroduce per-page ad‑hoc meta generation; instead provide:
+
+- Base `title`, `description`, `url`
+- Optional `enrichedParts` (array of semantic strings)
+- Optional `fallbackKeywords` (curated terms)
+- `structuredData` (JSON-LD objects) & `breadcrumbs`
+
+The builder normalizes title suffixes, derives description & keywords, assembles robots directives,
+and injects `BreadcrumbList` if missing.
+
 ## 🧩 Content Layer Migration
 
 This project uses Astro's new Content Layer compatibility mode for legacy `type: "content"`

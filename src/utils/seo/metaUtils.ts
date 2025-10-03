@@ -3,7 +3,10 @@
  * All functions are pure and side-effect free.
  */
 
-/** Normalize repeated whitespace (including newlines and tabs) to single spaces and trim. */
+/**
+ * Normalize repeated whitespace (including newlines and tabs) to single spaces and trim.
+ * @deprecated Internal helper; prefer sanitize utilities in textUnified pipeline.
+ */
 export function normalizeWhitespace(input: string | null | undefined): string {
   if (!input) {
     return "";
@@ -17,6 +20,10 @@ export function normalizeWhitespace(input: string | null | undefined): string {
  * @param {string} text Input text
  * @param {number} [limit] Max characters (default 158 – common meta description safe length)
  * @param {{ preserveWord?: boolean; ellipsis?: string }} [options] Optional config: preserveWord, ellipsis
+ */
+/**
+ * Truncate meta text with optional word preservation.
+ * @deprecated Use buildPageSeo + sanitize instead of direct truncateMeta.
  */
 export function truncateMeta(
   text: string | null | undefined,
@@ -41,12 +48,18 @@ export function truncateMeta(
   return slice + ellipsis;
 }
 
-/** Build a safe meta description from arbitrary text. */
+/**
+ * Build a safe meta description from arbitrary text.
+ * @deprecated Superseded by generateMetaDescription + textUnified composition.
+ */
 export function buildMetaDescription(text: string, limit = 158): string {
   return truncateMeta(text, limit, { preserveWord: true });
 }
 
-/** Ensure a title isn't accidentally blank after trimming. */
+/**
+ * Ensure a title isn't accidentally blank after trimming.
+ * @deprecated Use ensureBrandSuffix + sanitize in buildPageSeo.
+ */
 export function ensureTitle(text: string, fallback: string): string {
   const t = normalizeWhitespace(text);
   return t || fallback;

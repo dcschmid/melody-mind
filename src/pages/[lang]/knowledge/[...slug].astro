@@ -31,7 +31,7 @@ import TableOfContents from "@components/TableOfContents.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { Icon } from "astro-icon/components";
 // import { getEntry } from "astro:content";
-import { generateMetaDescription } from "@utils/seo";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
 import { SUPPORTED_LANGUAGES } from "@constants/languages";
@@ -165,7 +165,7 @@ const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
 const title = entry.data.title;
 const description = entry.data.description;
 const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
-const optimizedDescription = generateMetaDescription(pageContent, 158);
+const optimizedDescription = pageContent; // buildPageSeo handles final description shaping
 // const _keywords = extractKeywords(pageContent, 12, lang);
 
 // Enhanced structured data for knowledge article
@@ -209,20 +209,28 @@ function translate(key: string, fallback: string): string {
     return fallback;
   }
 }
+
+const pageSeo = buildPageSeo({
+  title,
+  description: optimizedDescription,
+  url: canonical,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: structuredDataExtra,
+  enrichedParts: [title, description].filter(Boolean) as string[],
+  fallbackKeywords: (entry.data.keywords || []).slice(0, 20),
+  keywordLimit: 24,
+  maxDescription: 155,
+  image: imageSource,
+  publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
+  modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
 ---
 
-<Layout
-  {title}
-  description={optimizedDescription}
-  image={imageSource}
-  type="article"
-  publishDate={entry.data.createdAt ? new Date(entry.data.createdAt) : new Date()}
-  modifiedDate={entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date()}
-  ogMusic={{ creator: "Melody Mind", album: title, musician: "Various Artists" }}
-  {canonical}
-  {breadcrumbs}
-  {structuredDataExtra}
->
+<Layout {pageSeo} {breadcrumbs}>
   <Fragment slot="head"></Fragment>
 
   <main class="min-h-screen">

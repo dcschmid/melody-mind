@@ -9,9 +9,12 @@ import StructuredItemList from "@components/StructuredItemList.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 import { buildCategoryItemListSchema } from "@utils/seo/seoSchema";
+import { buildCollectionWithItemListSchema } from "../../utils/seo/collectionSchema";
+import { buildBreadcrumbs } from "@utils/seo";
 import { normalizeDate } from "@utils/content/dateUtils";
 import { createSlug } from "@utils/seo";
-import { truncateMeta } from "@utils/seo/metaUtils";
+import { getBaseUrl } from "../../utils/url/baseUrl";
+import { buildPageSeo } from "../../utils/seo/buildPageSeo";
 
 // import { extractKeywords, generateMetaDescription } from "@utils/seo"; // Removed unused import
 
@@ -84,40 +87,51 @@ const playlistDecades = [
   ...new Set(playlists.map((p: Playlist) => getDecadeFromHeadline(p.headline))),
 ].join(", ");
 const playlistCount = playlists.length;
-const enrichedContent = `${title} ${description} Explore ${playlistCount} carefully curated music playlists spanning decades including ${playlistDecades}. Each playlist features authentic tracks from legendary artists and iconic albums. Perfect for music enthusiasts, trivia players, and anyone looking to discover classic hits from different musical eras.`;
-
-// const optimizedDescription = generateMetaDescription(enrichedContent, 158); // Removed - function no longer exists
-// const keywords = extractKeywords(enrichedContent, 12, lang); // Removed - function no longer exists
-const optimizedDescription = truncateMeta(enrichedContent, 158);
-const keywords = "music playlists, music history, classic hits, music discovery, music trivia";
+const enrichedParts = [
+  `Explore ${playlistCount} carefully curated music playlists spanning decades including ${playlistDecades}.`,
+  "Each playlist features authentic tracks from legendary artists and iconic albums.",
+  "Perfect for music enthusiasts, trivia players, and discovery of classic hits.",
+];
+const pageSeo = buildPageSeo({
+  title: `${title} - Melody Mind`,
+  description,
+  enrichedParts,
+  language: lang,
+  keywordLimit: 14,
+  fallbackKeywords: ["music", "playlist", "decades"],
+  maxDescription: 158,
+  url: `${getBaseUrl(Astro.site, "https://melody-mind.de")}/${lang}/playlists`,
+  contentKind: "playlist",
+});
+const optimizedDescription = pageSeo.description;
 
 // SEO-optimized URL and canonical setup
-const baseUrl = Astro.site?.toString() || "https://melody-mind.de";
-const currentUrl = `${baseUrl}/${lang}/playlists`;
+const baseUrl = getBaseUrl(Astro.site, "https://melody-mind.de");
+const currentUrl = pageSeo.canonical;
 
 // Enhanced structured data for playlist collection (static dates)
 const publishDate: Date = normalizeDate("2024-01-01")!; // normalizeDate expected to return Date
 const modifiedDate = new Date();
-const playlistCollectionSchema = {
-  "@type": "ItemList",
-  name: `${title} | Melody Mind`,
+const playlistCollectionSchema = buildCollectionWithItemListSchema({
+  pageName: `${title} | Melody Mind`,
   description: optimizedDescription,
   url: currentUrl,
-  numberOfItems: playlistCount,
-  datePublished: publishDate.toISOString(),
-  dateModified: modifiedDate.toISOString(),
-  itemListOrder: "chronological",
-  itemListElement: sortedPlaylists.slice(0, 10).map((playlist, index) => ({
-    "@type": "MusicPlaylist",
+  inLanguage: lang,
+  siteName: "Melody Mind",
+  siteUrl: baseUrl,
+  itemTypeDefault: "MusicPlaylist",
+  items: sortedPlaylists.map((playlist, index) => ({
     position: index + 1,
+    url: `${currentUrl}#playlist-${index}`,
     name: playlist.headline,
     description: playlist.introSubline || playlist.headline,
-    url: `${currentUrl}#playlist-${index}`,
     genre: getDecadeFromHeadline(playlist.headline),
-    inLanguage: lang,
-    creator: { "@type": "Organization", name: "Melody Mind" },
+    about: "Music Playlist",
+    authorName: "Melody Mind",
+    publisherName: "Melody Mind",
   })),
-};
+  limit: 10,
+});
 // Additional generic category schema for playlists
 const categoryItemListSchema = buildCategoryItemListSchema({
   categories: sortedPlaylists.map((p: Playlist) => ({
@@ -132,10 +146,10 @@ const categoryItemListSchema = buildCategoryItemListSchema({
   pathPrefix: "playlists",
   limit: 60,
 });
-const breadcrumbs = [
+const breadcrumbs = buildBreadcrumbs([
   { name: t("nav.home"), url: `${baseUrl}/${lang}` },
   { name: title, url: currentUrl },
-];
+]);
 const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].filter(Boolean);
 
 // (Derived publish/modified removed; using static publishDate/modifiedDate above)
@@ -143,18 +157,14 @@ const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].f
 
 <!-- OG image: playlists overview -->
 <Layout
-  {title}
-  description={optimizedDescription}
-  {keywords}
-  image="/homecategories/playlist.png"
-  imageWidth={1200}
-  imageHeight={630}
-  type="website"
-  {publishDate}
-  {modifiedDate}
-  canonical={currentUrl}
+  title={pageSeo.title}
+  pageSeo={{
+    ...pageSeo,
+    structuredData: (structuredDataExtra || []).filter(Boolean) as Record<string, unknown>[],
+    publishDate,
+    modifiedDate,
+  }}
   {breadcrumbs}
-  {structuredDataExtra}
 >
   <Fragment slot="head"></Fragment>
 

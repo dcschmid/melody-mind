@@ -7,13 +7,9 @@
  */
 // Content collections will be loaded at runtime when needed; avoid build-time collection loads
 import Layout from "@layouts/Layout.astro";
-import { resolveBaseUrl } from "@utils/seo/seoBasics";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import SearchPanel from "@components/Search/SearchPanel.astro";
-import {
-  generateMetaDescription,
-  extractKeywordsFallback,
-  buildKeywordsString,
-} from "@utils/seo/seoText";
+// Legacy SEO helpers removed: buildPageSeo now handles description & keywords.
 import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
 import { SUPPORTED_LANGUAGES } from "@constants/languages";
 import { ui } from "../../../i18n/ui";
@@ -112,10 +108,10 @@ const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
 // SEO content - Enhanced
 const safeUi = ui[uiLang] as Record<string, string>;
 const title = safeUi["knowledge.title"];
-const description = generateMetaDescription(safeUi["knowledge.title"], { maxLength: 140 });
+const description = safeUi["knowledge.title"]; // final shaping handled by buildPageSeo
 
 // Enhanced SEO data for structured data
-const baseUrl = resolveBaseUrl(Astro.site, "https://melodymind.app");
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melodymind.app";
 const currentUrl = `${baseUrl}/${lang}/knowledge`;
 
 // Derive overall publish / modified timestamps for collection (used in Layout timestamps)
@@ -162,12 +158,8 @@ const articleCollectionSchema = buildKnowledgeArticlesItemList({
 
 // Generate meta keywords from articles
 const keywordPool = sortedArticles.flatMap((article) => article.data.keywords || []);
-const autoKeywords = extractKeywordsFallback(
-  sortedArticles.map((a) => a.data.description || "").join(" "),
-  8,
-  lang
-);
-const metaKeywords = buildKeywordsString(keywordPool.slice(0, 10), autoKeywords);
+// Keywords now extracted internally; still pass small curated fallback list to bias weight
+const metaKeywords = keywordPool.slice(0, 10).join(", ");
 
 // Basic translations for JavaScript
 const clientTranslations = {
@@ -179,23 +171,30 @@ const clientTranslations = {
     noResultsFor: safeUi["knowledge.search.no_results_for"] || 'No results for "{term}"',
   },
 };
+const pageSeo = buildPageSeo({
+  title,
+  description,
+  url: currentUrl,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: [articleCollectionSchema],
+  enrichedParts: [title, description, keywordPool.slice(0, 25).join(" ")],
+  fallbackKeywords: metaKeywords
+    .split(",")
+    .map((k) => k.trim())
+    .filter(Boolean),
+  keywordLimit: 28,
+  maxDescription: 150,
+  image: "/homecategories/knowledge.png",
+  publishDate: collectionDates.publishDate || undefined,
+  modifiedDate: collectionDates.modifiedDate || undefined,
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
 ---
 
-<!-- OG image: knowledge overview -->
-<Layout
-  {title}
-  {description}
-  image="/homecategories/knowledge.png"
-  imageWidth={1200}
-  imageHeight={630}
-  type="website"
-  keywords={metaKeywords}
-  publishDate={collectionDates.publishDate || undefined}
-  modifiedDate={collectionDates.modifiedDate || undefined}
-  {breadcrumbs}
-  canonical={currentUrl}
-  structuredDataExtra={articleCollectionSchema}
->
+<Layout {pageSeo} {breadcrumbs}>
   <!-- Make translations available for JavaScript -->
   <script is:inline define:vars={{ clientTranslations }}>
     window.knowledgeTranslations = clientTranslations;
