@@ -160,3 +160,21 @@ initSearchPanel({
 ---
 
 Last updated: 2025-10-01
+
+---
+
+## 6. Category Loader vs. Transforms (Architecture Note)
+
+Refactor (Oct 2025) introduced a split between category data loading and pure data shaping:
+
+- `categoryLoader.ts`: Handles lazy loading + single English fallback. Responsible for I/O only.
+- `categoryTransforms.ts`: Pure functions (filter/search/stats/type guard). No side effects.
+
+Guidelines:
+
+1. Keep new fetch/fallback logic out of transform modules.
+2. Add only pure, deterministic helpers to the transforms file (no caching, no logging, no globals).
+3. Compose loading + transforms at the page or service level; do not re‑introduce combined wrappers.
+
+Rationale: Improves tree‑shaking, lowers build memory pressure, and prepares a clean seam for future
+unit tests without mocking file system boundaries.

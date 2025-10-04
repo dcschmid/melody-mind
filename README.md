@@ -122,3 +122,42 @@ This project uses Astro's new Content Layer compatibility mode for legacy `type:
 collections. Migration rationale, explicit collection declarations, and reviewed breaking changes
 are documented in `MIGRATION_CONTENT_LAYER.md`. If you add new knowledge collections (e.g.
 additional languages), ensure they are declared in `src/content/config.ts`.
+
+## 📂 Category Data Architecture
+
+Categories are now handled through a clear separation of responsibilities to keep memory footprint,
+complexity and coupling low:
+
+- Loader (I/O + fallback resolution): `src/utils/category/categoryLoader.ts`
+  - Provides `loadCategoriesForLanguage(lang)` and `loadCategoryBySlug(slug, { language })`.
+  - Performs lazy loading via `import.meta.glob` through an internal index (`categoriesIndex.ts`).
+  - Applies a single canonical fallback to English (`en`) if a localized category set is missing.
+
+- Pure transforms (in‑memory operations only): `src/utils/category/categoryTransforms.ts`
+  - `filterPlayableCategories`, `filterNonPlayableCategories`
+  - `getCategoryStats`, `getCategoriesByType`
+  - `isPlayableCategory` (type guard)
+  - `searchCategories` (text search across headline/subline/body/slug)
+  - All functions are side‑effect free and tree‑shakable.
+
+Removed / deprecated:
+
+- Legacy wrapper utilities (`categoryLoadingUtils.ts`) and unused sorts were removed in Oct 2025 to
+  avoid divergent logic and reduce cognitive load.
+
+Design principles:
+
+- A single fallback path keeps logic deterministic.
+- I/O kept isolated so transforms remain easily testable later.
+- No runtime language “detection” — route param drives locale; fallback only when data absent.
+
+When adding new category logic:
+
+1. Put data fetching / fallback logic in the loader.
+2. Keep any data shaping, filtering, aggregation pure in the transforms file (or a new dedicated
+   transform module if unrelated to categories).
+3. Avoid re‑introducing combined loader+transform helpers; compose them at call sites instead for
+   clarity and tree‑shaking.
+
+This structure improves build memory behavior and future test coverage readiness while staying
+aligned with the overall minimal client‑JS philosophy.

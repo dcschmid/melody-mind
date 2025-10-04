@@ -30,7 +30,10 @@ export function isPlayableCategory(item: unknown): item is Category & { category
   );
 }
 
-/** Filter categories by playability status */
+/**
+ * Filter categories by playability status.
+ * Alphabetically ordered exports: filter*, get*, is*, search*
+ */
 export function filterPlayableCategories(categories: Category[]): Category[] {
   return categories.filter(isPlayableCategory);
 }
@@ -38,23 +41,6 @@ export function filterPlayableCategories(categories: Category[]): Category[] {
 /** Filter non-playable categories */
 export function filterNonPlayableCategories(categories: Category[]): Category[] {
   return categories.filter((c) => !isPlayableCategory(c));
-}
-
-/** Return categories of a given type */
-export function getCategoriesByType(categories: Category[], type: string): Category[] {
-  return categories.filter((c) => c.categoryType === type);
-}
-
-/** Text search across key textual fields */
-export function searchCategories(categories: Category[], searchTerm: string): Category[] {
-  const term = searchTerm.toLowerCase();
-  return categories.filter(
-    (c) =>
-      c.headline.toLowerCase().includes(term) ||
-      c.introSubline?.toLowerCase().includes(term) ||
-      c.text?.toLowerCase().includes(term) ||
-      c.slug.toLowerCase().includes(term)
-  );
 }
 
 /** Compute basic category statistics */
@@ -77,4 +63,21 @@ export function getCategoryStats(categories: Category[]): {
     nonPlayable: nonPlayable.length,
     byType,
   };
+}
+
+/** Return categories of a given type */
+export function getCategoriesByType(categories: Category[], type: string): Category[] {
+  return categories.filter((c) => c.categoryType === type);
+}
+
+/** Text search across key textual fields */
+export function searchCategories(categories: Category[], searchTerm: string): Category[] {
+  const term = searchTerm.toLowerCase();
+  return categories.filter(
+    (c) =>
+      c.headline.toLowerCase().includes(term) ||
+      c.introSubline?.toLowerCase().includes(term) ||
+      c.text?.toLowerCase().includes(term) ||
+      c.slug.toLowerCase().includes(term)
+  );
 }
