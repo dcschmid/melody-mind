@@ -19,7 +19,7 @@ import LoadingSpinner from "@components/Game/LoadingSpinner.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
-import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
+import { loadCategoriesForLanguage } from "../../utils/category/categoryLoader";
 
 // Server-side rendering (no full prerender) to avoid enumerating all category paths at build time.
 // This significantly reduces build memory usage: paths are resolved on-demand at request time.

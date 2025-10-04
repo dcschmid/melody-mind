@@ -22,7 +22,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
-import { loadCategoryBySlug } from "../../../utils/category/categoryLoadingUtils";
+import { loadCategoryBySlug } from "../../../utils/category/categoryLoader";
 
 // Server-side rendering for cookie-based authentication
 // Disable prerender to avoid building a large number of static pages at build time

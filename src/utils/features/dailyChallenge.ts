@@ -6,7 +6,7 @@
  * beyond optional localStorage usage by UI components.
  */
 
-import type { Category } from "../category/categoryLoadingUtils";
+import type { Category } from "../../types/category";
 
 export type PlayableCategory = Category &
   Required<Pick<Category, "slug" | "headline" | "imageUrl" | "categoryUrl">>;

@@ -12,7 +12,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import SectionCard from "@components/home/SectionCard.astro";
 import DailyChallengeCard from "@components/DailyChallengeCard.astro";
 import Paragraph from "@components/Paragraph.astro";
-import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
+import { loadCategoriesForLanguage } from "../../utils/category/categoryLoader";
 // Use central language list (relative import to avoid adding a new path alias)
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@constants/languages";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";

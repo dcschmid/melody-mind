@@ -16,8 +16,8 @@ import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 // import { getLanguageKeyedParams } from "@utils/i18n/getLanguagePaths"; // Uncomment when enabling SSG
-// import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils"; // Uncomment if enabling SSG
-// categoryLoadingUtils is used dynamically below when resolving missing props at runtime
+// import { loadCategoriesForLanguage } from "../../utils/category/categoryLoader"; // Uncomment if enabling SSG
+// categoryLoader is used dynamically below when resolving missing props at runtime
 
 // Disable prerender to avoid building a large number of static pages at build time
 // which can cause out-of-memory errors on constrained CI/build hosts.
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
   const categories: Array<{ slug: string; headline: string }> = [];
   for (const lang of (await import("@constants/languages")).SUPPORTED_LANGUAGES) {
     try {
-      const { loadCategoriesForLanguage } = await import("../../utils/category/categoryLoadingUtils");
+  const { loadCategoriesForLanguage } = await import("../../utils/category/categoryLoader");
       const { categories: loaded } = await loadCategoriesForLanguage({
         language: lang,
         fallbackLanguage: "en",
@@ -73,7 +73,7 @@ const usedFallback = Boolean(propUsedFallback);
 // If category prop is missing, try to resolve it at runtime using the slug
 if ((!category || !category.slug) && Astro.params?.category) {
   try {
-    const { loadCategoryBySlug } = await import("../../utils/category/categoryLoadingUtils");
+    const { loadCategoryBySlug } = await import("../../utils/category/categoryLoader");
     const loaded = await loadCategoryBySlug(Astro.params.category, {
       language: lang,
       fallbackLanguage: "en",

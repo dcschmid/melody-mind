@@ -6,6 +6,11 @@ import { handleGameError } from "./error/errorHandlingUtils";
  *
  * These functions support date formatting
  * with consideration of user language and WCAG AAA requirements.
+ *
+ * NOTE i18n:
+ * 'en' is used as the unified fallback locale across the project. Callers SHOULD
+ * pass the active UI language explicitly when available to avoid unintended
+ * defaulting. This keeps formatting consistent with the current content locale.
  */
 
 /**
@@ -15,7 +20,7 @@ import { handleGameError } from "./error/errorHandlingUtils";
  * @param locale - The language for formatting (e.g. 'de', 'en')
  * @returns Formatted date as string
  */
-export function formatDate(dateString: string | Date, locale: string = "de"): string {
+export function formatDate(dateString: string | Date, locale: string = "en"): string {
   try {
     const date = typeof dateString === "string" ? new Date(dateString) : dateString;
 
@@ -45,7 +50,7 @@ export function formatDate(dateString: string | Date, locale: string = "de"): st
  * @param locale - The language for formatting (e.g. 'de', 'en')
  * @returns Formatted relative date as string
  */
-export function formatRelativeDate(dateString: string | Date, locale: string = "de"): string {
+export function formatRelativeDate(dateString: string | Date, locale: string = "en"): string {
   try {
     const date = typeof dateString === "string" ? new Date(dateString) : dateString;
 
@@ -86,7 +91,7 @@ export function formatRelativeDate(dateString: string | Date, locale: string = "
  * @param locale - The language for formatting (e.g. 'de', 'en')
  * @returns Formatted short date as string
  */
-export function formatShortDate(dateString: string | Date, locale: string = "de"): string {
+export function formatShortDate(dateString: string | Date, locale: string = "en"): string {
   try {
     const date = typeof dateString === "string" ? new Date(dateString) : dateString;
 
