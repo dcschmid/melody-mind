@@ -151,8 +151,6 @@ let playableCategories: any[] = [];
 try {
   const result = await loadCategoriesForLanguage({
     language: String(lang),
-    fallbackLanguage: "en",
-    useAliasPath: true,
   });
   playableCategories = result.categories.filter((c: any) => c.isPlayable);
 } catch {

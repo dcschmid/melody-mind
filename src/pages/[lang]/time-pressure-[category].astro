@@ -53,7 +53,7 @@ let categoryData = propsCategoryData;
 if (!categoryData && category) {
   try {
     // Use centralized loader to fetch categories with fallback rather than dynamic runtime imports.
-    const result = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
+    const result = await loadCategoriesForLanguage({ language: lang });
     const categories = result.success ? result.categories : [];
 
     const foundCategory = categories.find((cat: { slug: string }) => cat.slug === category);

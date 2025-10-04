@@ -5,6 +5,8 @@
  * extracted to `categoryTransforms.ts` for pure, side-effect free operations.
  */
 
+import { FALLBACK_LANGUAGE, normalizeLanguage } from "@constants/i18n";
+
 import type { Category } from "../../types/category";
 import { handleLoadingError } from "../error/errorHandlingUtils";
 
@@ -13,7 +15,6 @@ import { getCategories, getCategory } from "./categoriesIndex";
 interface CategoryLoadingConfig {
   language: string;
   fallbackLanguage?: string;
-  useAliasPath?: boolean; // kept for backward compatibility; not used directly
 }
 
 interface CategoryLoadingResult {
@@ -30,9 +31,9 @@ interface CategoryLoadingResult {
 export async function loadCategoriesForLanguage(
   config: CategoryLoadingConfig
 ): Promise<CategoryLoadingResult> {
-  const { language, fallbackLanguage = "en" } = config;
-  const langKey = String(language || "").toLowerCase();
-  const fallbackKey = String(fallbackLanguage || "en").toLowerCase();
+  const { language, fallbackLanguage = FALLBACK_LANGUAGE } = config;
+  const langKey = normalizeLanguage(language);
+  const fallbackKey = normalizeLanguage(fallbackLanguage);
 
   try {
     const primary = await getCategories(langKey);
@@ -66,7 +67,7 @@ export async function loadCategoryBySlug(
   config: CategoryLoadingConfig
 ): Promise<Category | null> {
   const { language } = config;
-  return getCategory(language, slug);
+  return getCategory(normalizeLanguage(language), slug);
 }
 
 // Legacy note: loadCategoriesWithFallback removed. Use getCategories(language) directly.

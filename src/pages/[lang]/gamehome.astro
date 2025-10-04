@@ -113,8 +113,6 @@ let categories: GameCategory[] = [];
 try {
   const result = await loadCategoriesForLanguage({
     language: lang,
-    fallbackLanguage: "en",
-    useAliasPath: true,
   });
   // Map loaded categories to GameCategory interface
   categories = result.categories.map((cat) => ({
@@ -137,7 +135,6 @@ try {
     // Load English fallback using centralized loader to avoid dynamic runtime imports
     const fallbackResult = await loadCategoriesForLanguage({
       language: "en",
-      fallbackLanguage: "en",
     });
     // Ensure compatibility: map fallback categories if necessary
     categories = fallbackResult.success

@@ -257,3 +257,46 @@ Before finishing a complex change ensure:
 ---
 
 Generated: 2025-09-14. Keep this document living; update when architecture or workflow changes.
+
+---
+
+## 19. Anti Over-Engineering & Pragmatic DRY Policy
+
+Principles to keep the codebase lean and maintainable:
+
+- Prefer clarity over abstraction: duplicate a 3–5 line snippet once if abstraction would hide
+  intent.
+- Introduce a shared helper only after the pattern appears >=3 times or has a clear change hotspot.
+- Avoid speculative generalization ("we might need multilevel fallbacks later"). Build for the
+  current proven need.
+- Centralize only canonical single sources of truth (e.g. `FALLBACK_LANGUAGE`, scoring constants,
+  language lists).
+- Remove deprecated flags/params promptly (e.g. `useAliasPath`) instead of carrying legacy switches
+  forward.
+- Keep loaders I/O focused and transformations pure; do not merge concerns back together.
+- Do not wrap simple one-liners in extra functions unless they convey domain meaning.
+- Prefer flat data structures; avoid deep nested objects for simple lookups.
+- Measure before optimizing performance; readability is the default priority.
+
+Refactor Triggers (green lights):
+
+1. Same logic copied in 3+ places.
+2. A bug fix would require touching multiple near-identical blocks.
+3. Config or constant drift risk (multiple literal "en" → centralize).
+4. Cognitive overhead > benefit (unclear indirection, nested abstractions).
+
+Refactor Deferrals (red lights):
+
+1. Single duplication of trivial code.
+2. Hypothetical future feature only.
+3. Abstraction increases parameter count / branching without proven reuse.
+4. Performance tuning without profiling evidence.
+
+Checkpoint Guidelines:
+
+- During reviews: flag over-general abstractions early; suggest inline clarity.
+- When adding a helper: co-locate near domain (e.g. i18n helpers in `src/constants/i18n.ts`).
+- Document rationale in code comments if a seemingly obvious DRY step is intentionally skipped.
+
+Outcome Goal: A codebase that is easy to reason about, fast to modify, and resistant to accidental
+complexity creep.

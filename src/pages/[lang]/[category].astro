@@ -37,8 +37,6 @@ export async function getStaticPaths() {
   const { loadCategoriesForLanguage } = await import("../../utils/category/categoryLoader");
       const { categories: loaded } = await loadCategoriesForLanguage({
         language: lang,
-        fallbackLanguage: "en",
-        useAliasPath: true,
       });
       const playable = loaded.filter((c: any) => c.isPlayable).slice(0, MAX_PER_LANG);
       // Accumulate with language annotated (not strictly necessary here)
@@ -76,7 +74,6 @@ if ((!category || !category.slug) && Astro.params?.category) {
     const { loadCategoryBySlug } = await import("../../utils/category/categoryLoader");
     const loaded = await loadCategoryBySlug(Astro.params.category, {
       language: lang,
-      fallbackLanguage: "en",
     });
     if (loaded) {
       category = loaded;
