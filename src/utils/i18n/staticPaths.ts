@@ -32,7 +32,9 @@ export function buildLangStaticPaths(): { params: { lang: SupportedLanguage } }[
  * @param { (lang: SupportedLanguage) => Promise<TProps> | TProps } buildProps Function invoked per language to compute props (can be async)
  * @returns { Promise<Array<{ params: { lang: SupportedLanguage }; props: TProps }>> } Array of localized path objects with props
  */
-export async function buildLangStaticPathsWithProps<TProps>(buildProps: (lang: SupportedLanguage) => Promise<TProps> | TProps): Promise<Array<{ params: { lang: SupportedLanguage }; props: TProps }>> {
+export async function buildLangStaticPathsWithProps<TProps>(
+  buildProps: (lang: SupportedLanguage) => Promise<TProps> | TProps
+): Promise<Array<{ params: { lang: SupportedLanguage }; props: TProps }>> {
   const results: Array<{ params: { lang: SupportedLanguage }; props: TProps }> = [];
   for (const lang of SUPPORTED_LANGUAGES) {
     const props = await buildProps(lang);

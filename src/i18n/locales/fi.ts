@@ -5,7 +5,7 @@ export default {
   "audioplayer.aria.region": "Äänentoistin",
   "category.about.title": "Tietoja tästä kategoriasta",
   "category.difficulty.easy": "Helppo",
-  
+
   // Päivän haaste (ei tietokantaa; englanninkieliset oletukset)
   "daily.challenge.title": "Päivän haaste",
   "daily.challenge.subtitle": "Uusi kategoria tänään. Voita aika.",
@@ -121,10 +121,10 @@ export default {
   "nav.menu.knowledge.desc": "Tutki musiikkitietoutta ja triviaa",
   "nav.menu.playlists.desc": "Tutustu kuratoituihin soittolistoihin",
   "nav.menu.podcasts": "Podcastit",
-  "nav.podcasts.description": "Löydä inspiroivia musiikkipodcasteja — haastatteluja, tarinoita ja oivalluksia",
+  "nav.podcasts.description":
+    "Löydä inspiroivia musiikkipodcasteja — haastatteluja, tarinoita ja oivalluksia",
   "news.title": "Uutiset",
-  "news.description":
-    "Pysy tahdissa — uudet hitit, artistiuutiset ja globaalit trendit ✨",
+  "news.description": "Pysy tahdissa — uudet hitit, artistiuutiset ja globaalit trendit ✨",
   "news.lastUpdated": "Last updated: {date}",
   "news.sourcesCount": "Sources: {count}",
   "news.readMore": "Lue lisää",
@@ -272,7 +272,8 @@ export default {
   "game.genre.selection.description":
     "Valitse suosikkigenresi — rock, pop, jazz, klassinen ja paljon muuta. Jokaisessa kategoriassa on huolella valittuja kysymyksiä, jotka sekä viihdyttävät että kehittävät musakorvaa! 🎶",
   "game.joker": "50:50 Jokeri",
-  "game.joker.description": "Poistaa kaksi väärää vaihtoehtoa — käytä fiksusti ja lähesty voittoa! 🃏",
+  "game.joker.description":
+    "Poistaa kaksi väärää vaihtoehtoa — käytä fiksusti ja lähesty voittoa! 🃏",
   "game.joker.options": "Jokeri-valinnat",
   "game.joker.use": "Käytä 50:50 jokeria",
   "game.meta.description.prefix": "Pelaa",
@@ -434,7 +435,8 @@ export default {
   "playlist.search.heading": "Hae soittolistoja",
   "playlist.search.placeholder": "Hae artistin tai tyylin mukaan…",
   "profile.auth.required": "Sinun täytyy olla kirjautunut nähdäksesi profiilisi",
-  "profile.description": "Hallitse tietojasi ja tutki pelitilastojasi — kehity kierros kierrokselta! 📈",
+  "profile.description":
+    "Hallitse tietojasi ja tutki pelitilastojasi — kehity kierros kierrokselta! 📈",
   "profile.error": "Virhe profiilin latauksessa",
   "profile.loading": "Ladataan profiilitietoja…",
   "profile.nav.aria": "Navigointi käyttäjäprofiiliin",
@@ -515,7 +517,8 @@ export default {
   "toc.state.expanded": "Laajennettu",
   "toc.toggle.label": "Vaihda sisällysluettelo",
   "knowledge.section.title": "Lue lisää",
-  "knowledge.section.description": "Syvenny — artikkeli tarjoaa taustaa, esimerkkejä ja kuunteluvinkkejä. 📚",
+  "knowledge.section.description":
+    "Syvenny — artikkeli tarjoaa taustaa, esimerkkejä ja kuunteluvinkkejä. 📚",
   "knowledge.read.more": "Lue lisää",
   "knowledge.read.article": "Lue artikkeli",
   "musicPlatforms.description": "Kuuntele tätä soittolistaa suosikkimusiikkipalveluissasi",
@@ -546,23 +549,33 @@ export default {
   "pages.imprint.contact_label": "Sähköposti:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Kyselyt: dcschmid@murena.io",
-  "pages.imprint.intro": "Tämä oikeudellinen ilmoitus (impressum) tarjoaa pakolliset palveluntarjoajan tunnistetiedot ja yhteystiedot tälle sivustolle.",
-  "pages.imprint.dispute_resolution.description": "Euroopan komissio tarjoaa verkossa toimivan riidanratkaisualustan (ODR), joka on käytettävissä alla olevan linkin kautta.",
-  "pages.imprint.dispute_resolution.odr_link_label": "Avaa EU:n verkkovälitteinen riidanratkaisualusta",
-  "pages.imprint.dispute_participation": "Emme ole velvollisia emmekä halukkaita osallistumaan kuluttajariitalautakunnan riidanratkaisumenettelyyn.",
+  "pages.imprint.intro":
+    "Tämä oikeudellinen ilmoitus (impressum) tarjoaa pakolliset palveluntarjoajan tunnistetiedot ja yhteystiedot tälle sivustolle.",
+  "pages.imprint.dispute_resolution.description":
+    "Euroopan komissio tarjoaa verkossa toimivan riidanratkaisualustan (ODR), joka on käytettävissä alla olevan linkin kautta.",
+  "pages.imprint.dispute_resolution.odr_link_label":
+    "Avaa EU:n verkkovälitteinen riidanratkaisualusta",
+  "pages.imprint.dispute_participation":
+    "Emme ole velvollisia emmekä halukkaita osallistumaan kuluttajariitalautakunnan riidanratkaisumenettelyyn.",
   "pages.legal.disclaimer.title": "Vastuuvapauslauseke",
-  "pages.legal.disclaimer.content": "Kaikki tiedot tarjotaan ilman takuuta. Pyrimme tarkkuuteen, mutta emme vastaa ulkoisesta sisällöstä tai linkeistä. Sivuston käyttö tapahtuu omalla vastuulla.",
+  "pages.legal.disclaimer.content":
+    "Kaikki tiedot tarjotaan ilman takuuta. Pyrimme tarkkuuteen, mutta emme vastaa ulkoisesta sisällöstä tai linkeistä. Sivuston käyttö tapahtuu omalla vastuulla.",
 
   // Etusivun korttien käännökset
   "index.card.game.title": "Musiikkivisa",
-  "index.card.game.desc": "🔥 Testaa musiikkitietosi ja todista hallitsevasi genret, aikakaudet ja tyylit! Jokainen kierros on uusi haaste pisteiden keräämiseen, saavutusten avaamiseen ja listojen nousemiseen. Oletko valmis puolustamaan paikkaasi kärjessä?",
+  "index.card.game.desc":
+    "🔥 Testaa musiikkitietosi ja todista hallitsevasi genret, aikakaudet ja tyylit! Jokainen kierros on uusi haaste pisteiden keräämiseen, saavutusten avaamiseen ja listojen nousemiseen. Oletko valmis puolustamaan paikkaasi kärjessä?",
   "index.card.knowledge.title": "Musiikkitieto",
-  "index.card.knowledge.desc": "📚 Syvenny tarinoihin, genreihin, artisteihin ja kulttuurisiin taustoihin. Innostavat artikkelit paljastavat yksityiskohtia ja yllättäviä yhteyksiä — täydellistä, jos haluat laajentaa ymmärrystäsi ja löytää uutta kuunneltavaa tänään!",
+  "index.card.knowledge.desc":
+    "📚 Syvenny tarinoihin, genreihin, artisteihin ja kulttuurisiin taustoihin. Innostavat artikkelit paljastavat yksityiskohtia ja yllättäviä yhteyksiä — täydellistä, jos haluat laajentaa ymmärrystäsi ja löytää uutta kuunneltavaa tänään!",
   "index.card.playlists.title": "Kuratoidut soittolistat",
-  "index.card.playlists.desc": "🎧 Lähde teemoitettuihin äänimatkoihin — legendaariset vuosikymmenet, liikkeet ja tunnelmat. Löydä kappaleita, jotka määrittelivät sukupolvia, ja rikastuta kirjastoasi huolella valituilla kokonaisuuksilla jokaista kuunteluhetkeä varten.",
+  "index.card.playlists.desc":
+    "🎧 Lähde teemoitettuihin äänimatkoihin — legendaariset vuosikymmenet, liikkeet ja tunnelmat. Löydä kappaleita, jotka määrittelivät sukupolvia, ja rikastuta kirjastoasi huolella valituilla kokonaisuuksilla jokaista kuunteluhetkeä varten.",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "🎙️ Kulissientakaisia tarinoita, intohimoisia keskusteluja ja näkökulmia, jotka saavat kuulemaan tututkin kappaleet uudella tavalla. Täydellinen uteliaalle fanille — anna jokaisen jakson inspiroida!",
+  "index.card.podcast.desc":
+    "🎙️ Kulissientakaisia tarinoita, intohimoisia keskusteluja ja näkökulmia, jotka saavat kuulemaan tututkin kappaleet uudella tavalla. Täydellinen uteliaalle fanille — anna jokaisen jakson inspiroida!",
   "index.card.news.title": "Musiikkiuutiset",
-  "index.card.news.desc": "📰 Pysy rytmissä: tuoreet julkaisut, nousevat trendit, artistien merkkipaalut ja liikkeet, jotka muokkaavat musiikin tulevaisuutta. Ytimekäs katsaus kaikelle, mitä intohimoinen seuraaja haluaa tietää juuri nyt.",
+  "index.card.news.desc":
+    "📰 Pysy rytmissä: tuoreet julkaisut, nousevat trendit, artistien merkkipaalut ja liikkeet, jotka muokkaavat musiikin tulevaisuutta. Ytimekäs katsaus kaikelle, mitä intohimoinen seuraaja haluaa tietää juuri nyt.",
   "index.overview.sections": "Pääosiot",
 };

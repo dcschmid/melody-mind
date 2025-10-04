@@ -17,14 +17,14 @@ import { handleLoadingError } from "../error/errorHandlingUtils";
  *
  * @param {string} category - The music category/genre to load
  * @param {string} language - The preferred language for the data
- * @param {string} [fallbackLanguage='de'] - The fallback language if the preferred one fails
+ * @param {string} [fallbackLanguage='en'] - The fallback language if the preferred one fails
  * @returns {Promise<Album[]>} Array of albums for the category
  * @throws {Error} If no albums can be loaded from any language
  */
 export async function loadAlbumsWithFallback(
   category: string,
   language: string,
-  fallbackLanguage: string = "de"
+  fallbackLanguage: string = "en"
 ): Promise<Album[]> {
   // Helper to attempt loading JSON for a specific language and return Album[] | null
   async function tryLoadForLanguage(lang: string): Promise<Album[] | null> {

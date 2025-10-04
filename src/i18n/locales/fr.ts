@@ -5,7 +5,7 @@ export default {
   "audioplayer.aria.region": "Lecteur audio",
   "category.about.title": "À propos de cette catégorie",
   "category.difficulty.easy": "Facile",
-  
+
   // Défi quotidien (sans base de données; textes par défaut en anglais)
   "daily.challenge.title": "Défi du jour",
   "daily.challenge.subtitle": "Nouvelle catégorie du jour. Battez le chrono.",
@@ -54,7 +54,7 @@ export default {
   "podcasts.cta.browse": "Parcourir les podcasts",
   "podcasts.navigation.next": "Épisode suivant",
   "podcasts.navigation.previous": "Épisode précédent",
-  
+
   "share.challenge_fallback": "🎮 Tu penses pouvoir me battre ? Joue maintenant sur :",
   "category.difficulty.hard": "Difficile",
   "category.difficulty.heading": "Choisis ton niveau de difficulté",
@@ -552,21 +552,31 @@ export default {
   "pages.imprint.contact_label": "E-mail:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Pour toute demande: dcschmid@murena.io",
-  "pages.imprint.intro": "Mentions légales — cette section fournit l'identité obligatoire de l'éditeur et les coordonnées.",
-  "pages.imprint.dispute_resolution.description": "La Commission européenne met à disposition une plateforme de règlement en ligne des litiges (RLL) accessible via le lien ci-dessous.",
-  "pages.imprint.dispute_resolution.odr_link_label": "Ouvrir la plateforme européenne de règlement en ligne des litiges",
-  "pages.imprint.dispute_participation": "Nous ne sommes ni tenus ni disposés à participer à une procédure de règlement des litiges devant un organisme de médiation pour consommateurs.",
+  "pages.imprint.intro":
+    "Mentions légales — cette section fournit l'identité obligatoire de l'éditeur et les coordonnées.",
+  "pages.imprint.dispute_resolution.description":
+    "La Commission européenne met à disposition une plateforme de règlement en ligne des litiges (RLL) accessible via le lien ci-dessous.",
+  "pages.imprint.dispute_resolution.odr_link_label":
+    "Ouvrir la plateforme européenne de règlement en ligne des litiges",
+  "pages.imprint.dispute_participation":
+    "Nous ne sommes ni tenus ni disposés à participer à une procédure de règlement des litiges devant un organisme de médiation pour consommateurs.",
   "pages.legal.disclaimer.title": "Avertissement",
-  "pages.legal.disclaimer.content": "Les informations sont fournies sans garantie. Nous visons l'exactitude mais n'assumons aucune responsabilité pour les contenus ou liens externes. L'utilisation du site se fait à vos propres risques.",
+  "pages.legal.disclaimer.content":
+    "Les informations sont fournies sans garantie. Nous visons l'exactitude mais n'assumons aucune responsabilité pour les contenus ou liens externes. L'utilisation du site se fait à vos propres risques.",
   "index.card.game.title": "Vue du jeu",
-  "index.card.game.desc": "Lance des modes de quiz musicaux mêlant vitesse, stratégie et passion — maîtrise les catégories, enchaîne les séries, débloque de futurs succès et affine ton oreille jour après jour pour grimper au classement. 🎯",
+  "index.card.game.desc":
+    "Lance des modes de quiz musicaux mêlant vitesse, stratégie et passion — maîtrise les catégories, enchaîne les séries, débloque de futurs succès et affine ton oreille jour après jour pour grimper au classement. 🎯",
   "index.card.knowledge.title": "Connaissance musicale",
-  "index.card.knowledge.desc": "Explore origines, influences, albums phares, évolutions sonores et conseils d’écoute — transforme l’écoute passive en découverte éclairée et deviens la référence musicale de ton entourage curieux. 📚",
+  "index.card.knowledge.desc":
+    "Explore origines, influences, albums phares, évolutions sonores et conseils d’écoute — transforme l’écoute passive en découverte éclairée et deviens la référence musicale de ton entourage curieux. 📚",
   "index.card.playlists.title": "Playlists",
-  "index.card.playlists.desc": "Voyage entre décennies, ambiances et scènes globales avec des playlists soignées — classiques intemporels, perles cachées et textures pour focus, détente ou inspiration tout en développant ta culture. 🎶",
+  "index.card.playlists.desc":
+    "Voyage entre décennies, ambiances et scènes globales avec des playlists soignées — classiques intemporels, perles cachées et textures pour focus, détente ou inspiration tout en développant ta culture. 🎶",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "Discussions longues inspirantes, coulisses créatives, trajectoires d’artistes et lectures culturelles — écoute en mobilité, nourris curiosité et élargis ta perspective sur l’écosystème musical vivant. 🎙️",
+  "index.card.podcast.desc":
+    "Discussions longues inspirantes, coulisses créatives, trajectoires d’artistes et lectures culturelles — écoute en mobilité, nourris curiosité et élargis ta perspective sur l’écosystème musical vivant. 🎙️",
   "index.card.news.title": "Actualités",
-  "index.card.news.desc": "Nouvelles fonctionnalités, optimisations, raffinements d’interface et faits marquants de l’univers musical — reste en avance, repère les opportunités et maximise ton parcours MelodyMind. ✨",
+  "index.card.news.desc":
+    "Nouvelles fonctionnalités, optimisations, raffinements d’interface et faits marquants de l’univers musical — reste en avance, repère les opportunités et maximise ton parcours MelodyMind. ✨",
   "index.overview.sections": "Sections vedettes de la page d'accueil",
 };

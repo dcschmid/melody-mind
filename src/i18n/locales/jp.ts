@@ -5,7 +5,7 @@ export default {
   "audioplayer.aria.region": "オーディオプレーヤー",
   "category.about.title": "このカテゴリについて",
   "category.difficulty.easy": "簡単",
-  
+
   // デイリーチャレンジ（DB不要・英語のフォールバック）
   "daily.challenge.title": "デイリーチャレンジ",
   "daily.challenge.subtitle": "本日の新カテゴリ。時間との勝負。",
@@ -117,7 +117,8 @@ export default {
   "nav.menu.knowledge.desc": "音楽の知識やトリビアを探索",
   "nav.menu.playlists.desc": "厳選プレイリストを発見",
   "nav.menu.podcasts": "ポッドキャスト",
-  "nav.podcasts.description": "音楽に関するインスピレーション満載のポッドキャスト — インタビュー、ストーリー、深掘り",
+  "nav.podcasts.description":
+    "音楽に関するインスピレーション満載のポッドキャスト — インタビュー、ストーリー、深掘り",
   "news.title": "ニュース",
   "news.description": "最新ヒット、アーティスト情報、世界のトレンドをチェック ✨",
   "news.lastUpdated": "最終更新: {date}",
@@ -419,7 +420,8 @@ export default {
   "playlist.search.heading": "プレイリストを検索",
   "playlist.search.placeholder": "アーティストやスタイルで検索…",
   "profile.auth.required": "プロフィールを見るにはログインが必要です",
-  "profile.description": "プロフィールを管理し、ゲーム統計をチェック — ラウンドごとに成長しよう！📈",
+  "profile.description":
+    "プロフィールを管理し、ゲーム統計をチェック — ラウンドごとに成長しよう！📈",
   "profile.error": "プロフィールデータの読み込みエラー",
   "profile.loading": "プロフィールデータを読み込み中…",
   "profile.nav.aria": "ユーザープロフィールへのナビゲーション",
@@ -472,8 +474,7 @@ export default {
   "share.email": "メールで共有",
   "share.email.label": "メール",
   "share.email.subject": "Melody Mind のスコア",
-  "share.score_line":
-    "Melody Mindの{category}クイズで{score}ポイント獲得！（{difficulty}）",
+  "share.score_line": "Melody Mindの{category}クイズで{score}ポイント獲得！（{difficulty}）",
   "share.challenge": "🎮 私に勝てると思う？今すぐプレイ：",
   "share.fallback.manual.label": "ページリンクを手動でコピー",
   "share.fallback.manual.text": "リンクをコピー",
@@ -531,21 +532,30 @@ export default {
   "pages.imprint.contact_label": "メール:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "お問い合わせ先: dcschmid@murena.io",
-  "pages.imprint.intro": "本インプリント（法的表示）は、本サイトの事業者識別情報および連絡先を提供します。",
-  "pages.imprint.dispute_resolution.description": "欧州委員会はオンライン紛争解決（ODR）プラットフォームを提供しており、以下のリンクからアクセスできます。",
+  "pages.imprint.intro":
+    "本インプリント（法的表示）は、本サイトの事業者識別情報および連絡先を提供します。",
+  "pages.imprint.dispute_resolution.description":
+    "欧州委員会はオンライン紛争解決（ODR）プラットフォームを提供しており、以下のリンクからアクセスできます。",
   "pages.imprint.dispute_resolution.odr_link_label": "EUオンライン紛争解決プラットフォームを開く",
-  "pages.imprint.dispute_participation": "当方は消費者仲裁機関での紛争解決手続に参加する義務も意思もありません。",
+  "pages.imprint.dispute_participation":
+    "当方は消費者仲裁機関での紛争解決手続に参加する義務も意思もありません。",
   "pages.legal.disclaimer.title": "免責事項",
-  "pages.legal.disclaimer.content": "掲載する情報は正確性を期していますが、その完全性・正確性を保証するものではありません。外部リンク・第三者コンテンツについて一切の責任を負いません。本サイトの利用は自己責任で行ってください。",
+  "pages.legal.disclaimer.content":
+    "掲載する情報は正確性を期していますが、その完全性・正確性を保証するものではありません。外部リンク・第三者コンテンツについて一切の責任を負いません。本サイトの利用は自己責任で行ってください。",
   "index.card.game.title": "音楽クイズ",
-  "index.card.game.desc": "🔥 ジャンル、年代、スタイルを横断して知識を試そう！毎ラウンドが新しい勝負。スコアを伸ばし、実績を解放し、ランキング上位を目指す旅へ。あなたの耳と記憶はどこまで通用する？",
+  "index.card.game.desc":
+    "🔥 ジャンル、年代、スタイルを横断して知識を試そう！毎ラウンドが新しい勝負。スコアを伸ばし、実績を解放し、ランキング上位を目指す旅へ。あなたの耳と記憶はどこまで通用する？",
   "index.card.knowledge.title": "音楽知識を深める",
-  "index.card.knowledge.desc": "📚 背景、文化、物語、創作の裏側へ。読みやすく濃い記事で未知の関連性を発見し、リスニング体験をレベルアップ。今日の“なるほど”をここで手に入れよう！",
+  "index.card.knowledge.desc":
+    "📚 背景、文化、物語、創作の裏側へ。読みやすく濃い記事で未知の関連性を発見し、リスニング体験をレベルアップ。今日の“なるほど”をここで手に入れよう！",
   "index.card.playlists.title": "キュレーション・プレイリスト",
-  "index.card.playlists.desc": "🎧 伝説の年代、ムード、シーンをテーマにした選曲ガイド。世代を形づくった曲から隠れた宝物まで — 次に聴くべき音が自然と見つかる、音楽探求の近道。",
+  "index.card.playlists.desc":
+    "🎧 伝説の年代、ムード、シーンをテーマにした選曲ガイド。世代を形づくった曲から隠れた宝物まで — 次に聴くべき音が自然と見つかる、音楽探求の近道。",
   "index.card.podcast.title": "ポッドキャスト",
-  "index.card.podcast.desc": "🎙️ 舞台裏の声、情熱的なトーク、新しい視点。耳で学び、物語で感じ、次の再生ボタンを押したくなる体験へ。音楽を“見る”感覚を磨こう。",
+  "index.card.podcast.desc":
+    "🎙️ 舞台裏の声、情熱的なトーク、新しい視点。耳で学び、物語で感じ、次の再生ボタンを押したくなる体験へ。音楽を“見る”感覚を磨こう。",
   "index.card.news.title": "音楽ニュース",
-  "index.card.news.desc": "📰 最新リリース、動き出すトレンド、アーティストの節目、シーンを変える潮流。早く知ることで一歩先の聴き方ができる — 情報感度の高いファンに贈るライブな更新。",
+  "index.card.news.desc":
+    "📰 最新リリース、動き出すトレンド、アーティストの節目、シーンを変える潮流。早く知ることで一歩先の聴き方ができる — 情報感度の高いファンに贈るライブな更新。",
   "index.overview.sections": "主要セクション",
 };

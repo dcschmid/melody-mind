@@ -29,21 +29,23 @@ function buildPodcastEntries(lang, siteUrl, today) {
   });
   try {
     const podcasts = Array.isArray(enPodcastsJson.podcasts) ? enPodcastsJson.podcasts : [];
-    podcasts.filter((p) => p && p.isAvailable).forEach((p) => {
-      let pubDate = today;
-      if (p.publishedAt) {
-        const d = new Date(p.publishedAt);
-        if (!isNaN(d.getTime())) {
-          pubDate = d.toISOString();
+    podcasts
+      .filter((p) => p && p.isAvailable)
+      .forEach((p) => {
+        let pubDate = today;
+        if (p.publishedAt) {
+          const d = new Date(p.publishedAt);
+          if (!isNaN(d.getTime())) {
+            pubDate = d.toISOString();
+          }
         }
-      }
-      entries.push({
-        url: `${siteUrl}/${lang}/podcasts/${p.id}/`,
-        lastmod: pubDate,
-        changefreq: "monthly",
-        priority: "0.5",
+        entries.push({
+          url: `${siteUrl}/${lang}/podcasts/${p.id}/`,
+          lastmod: pubDate,
+          changefreq: "monthly",
+          priority: "0.5",
+        });
       });
-    });
   } catch (e) {
     globalThis.console?.warn?.("sitemap: failed to process podcasts", e?.message || e);
   }

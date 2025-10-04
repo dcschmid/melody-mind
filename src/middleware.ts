@@ -153,7 +153,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
 
     // 5) If no language prefix present or unknown, redirect to default language preserving path
-  const [, lang] = pathname.split("/");
+    const [, lang] = pathname.split("/");
     if (!lang || !isSupportedLanguage(lang)) {
       return redirect(`/${defaultLang}${pathname}`);
     }

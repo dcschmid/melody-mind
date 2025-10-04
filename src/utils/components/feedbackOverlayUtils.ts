@@ -117,8 +117,13 @@ export class FeedbackOverlayUtils {
   private makePopulateFunctionGlobal(): void {
     // Extend Window interface for our utilities (cast via unknown first to satisfy TS)
     // Bind populateOverlay to the instance and expose as global for simple script integration
-    (window as unknown as Window & { populateFeedbackOverlay?: (data: FeedbackOverlayData) => void }).populateFeedbackOverlay =
-      this.populateOverlay.bind(this) as (data: FeedbackOverlayData) => void;
+    (
+      window as unknown as Window & {
+        populateFeedbackOverlay?: (data: FeedbackOverlayData) => void;
+      }
+    ).populateFeedbackOverlay = this.populateOverlay.bind(this) as (
+      data: FeedbackOverlayData
+    ) => void;
   }
 
   /**

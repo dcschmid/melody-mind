@@ -74,7 +74,9 @@ export function determineUserLanguage(): LanguageCode {
  * @param {string} lang - The language code to use for translations
  * @returns {(key: TranslationKey, vars?: Record<string,string|number>) => string} A function that returns translated strings
  */
-export function useTranslations(lang: string): (key: TranslationKey, vars?: Record<string, string | number>) => string {
+export function useTranslations(
+  lang: string
+): (key: TranslationKey, vars?: Record<string, string | number>) => string {
   return function t(key: TranslationKey, vars?: Record<string, string | number>): string {
     // Safe type checking for translation access
     const langTranslations = (ui[lang as LanguageCode] ?? {}) as TranslationsForLanguage;

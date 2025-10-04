@@ -5,7 +5,7 @@ export default {
   "audioplayer.aria.region": "Lydafspiller",
   "category.about.title": "Om denne kategori",
   "category.difficulty.easy": "Let",
-  
+
   // Daily Challenge (DB-free; localized strings can be refined)
   "daily.challenge.title": "Dagens udfordring",
   "daily.challenge.subtitle": "Ny kategori i dag. Slå uret.",
@@ -319,41 +319,55 @@ export default {
   "index.start.game.label": "Start din musikalske rejse",
   "index.welcome.footnote": "🎶 Skabt med passion for ægte musikfans — lad magien begynde! ✨",
   "index.card.game.title": "Spiloversigt",
-  "index.card.game.desc": "Spring ind i spændende musikquiz-modes hvor tempo, taktik og passion mødes — mestre genrer, jagt streaks, lås fremtidige præstationer op og kom dagligt tilbage for at finpudse øret og kravle mod toppen. 🎯",
+  "index.card.game.desc":
+    "Spring ind i spændende musikquiz-modes hvor tempo, taktik og passion mødes — mestre genrer, jagt streaks, lås fremtidige præstationer op og kom dagligt tilbage for at finpudse øret og kravle mod toppen. 🎯",
   "index.card.knowledge.title": "Musikviden",
-  "index.card.knowledge.desc": "Udforsk dybdegående genreguides, oprindelser, indflydelser, ikoniske albums og lyttetips — gør tilfældig lytning til målrettet opdagelse og bliv den ven alle stoler på for musikindsigt. 📚",
+  "index.card.knowledge.desc":
+    "Udforsk dybdegående genreguides, oprindelser, indflydelser, ikoniske albums og lyttetips — gør tilfældig lytning til målrettet opdagelse og bliv den ven alle stoler på for musikindsigt. 📚",
   "index.card.playlists.title": "Playlister",
-  "index.card.playlists.desc": "Rejs gennem årtier, stemninger og globale scener med omhyggeligt kuraterede playlister — find skjulte perler, genopliv klassikere, boost fokus eller afslapning og udvid din musikalske horisont. 🎶",
+  "index.card.playlists.desc":
+    "Rejs gennem årtier, stemninger og globale scener med omhyggeligt kuraterede playlister — find skjulte perler, genopliv klassikere, boost fokus eller afslapning og udvid din musikalske horisont. 🎶",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "Inspiration, bag‑kulissen historier, kreative rejser og kulturdyk — lyt på farten, mød kunstnere fra nye vinkler og hold motivationen i live på din musikalske udviklingsrejse. 🎙️",
+  "index.card.podcast.desc":
+    "Inspiration, bag‑kulissen historier, kreative rejser og kulturdyk — lyt på farten, mød kunstnere fra nye vinkler og hold motivationen i live på din musikalske udviklingsrejse. 🎙️",
   "index.card.news.title": "Nyheder",
-  "index.card.news.desc": "Friske funktioner, forbedret ydeevne og højdepunkter fra musikverdenen — hold dig orienteret, spot nye quizmuligheder tidligt og gå ikke glip af forbedringer der løfter din MelodyMind oplevelse. ✨",
+  "index.card.news.desc":
+    "Friske funktioner, forbedret ydeevne og højdepunkter fra musikverdenen — hold dig orienteret, spot nye quizmuligheder tidligt og gå ikke glip af forbedringer der løfter din MelodyMind oplevelse. ✨",
   "index.overview.sections": "Forsidens funktionssektioner",
-  
+
   // --- Legal / Privacy Pages ---
   "pages.imprint.title": "Juridiske oplysninger",
   "pages.privacy.title": "Privatlivspolitik",
-  "pages.privacy.intro_p1": "Denne privatlivspolitik forklarer hvilke personoplysninger vi indsamler, og hvordan vi bruger dem.",
+  "pages.privacy.intro_p1":
+    "Denne privatlivspolitik forklarer hvilke personoplysninger vi indsamler, og hvordan vi bruger dem.",
   "pages.privacy.responsible_party": "Ansvarlig: {name}",
   "pages.privacy.contact": "Kontakt:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.privacy.contact.email_label": "Email:",
-  "pages.privacy.data_collected.manual": "Data du giver manuelt (kontooplysninger, beskeder, præferencer)",
-  "pages.privacy.data_collected.automatic": "Automatisk indsamlede data (logfiler, brug, enhedsoplysninger)",
+  "pages.privacy.data_collected.manual":
+    "Data du giver manuelt (kontooplysninger, beskeder, præferencer)",
+  "pages.privacy.data_collected.automatic":
+    "Automatisk indsamlede data (logfiler, brug, enhedsoplysninger)",
   "pages.privacy.cookies": "Vi bruger cookies og lignende teknologier til at forbedre tjenesten.",
   "pages.privacy.user_rights_title": "Dine rettigheder",
-  "pages.privacy.user_rights_text": "Du kan anmode om indsigt, berigtigelse, sletning eller begrænsning af dine personoplysninger.",
+  "pages.privacy.user_rights_text":
+    "Du kan anmode om indsigt, berigtigelse, sletning eller begrænsning af dine personoplysninger.",
   "pages.privacy.analytics": "Vi bruger privatlivsvenlig analyse til at måle brugen af siden.",
-  "pages.imprint.legal_notice_intro": "Juridisk meddelelse — denne side indeholder udbyderens juridiske og kontaktoplysninger.",
+  "pages.imprint.legal_notice_intro":
+    "Juridisk meddelelse — denne side indeholder udbyderens juridiske og kontaktoplysninger.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.imprint.contact_label": "E‑mail:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Ved forespørgsler: dcschmid@murena.io",
-  "pages.imprint.intro": "Dette juridiske opslag (impressum) giver obligatorisk udbyderidentifikation og kontaktoplysninger for dette websted.",
-    "pages.imprint.dispute_resolution.description": "Europa-Kommissionen stiller en platform for online tvistbilæggelse (ODR) til rådighed, som er tilgængelig via linket nedenfor.",
-    "pages.imprint.dispute_resolution.odr_link_label": "Åbn EU's platform for online tvistbilæggelse",
-    "pages.imprint.dispute_participation": "Vi er ikke forpligtet til og har ikke til hensigt at deltage i tvistbilæggelsesprocedurer for en forbruger-voldgiftsinstans.",
+  "pages.imprint.intro":
+    "Dette juridiske opslag (impressum) giver obligatorisk udbyderidentifikation og kontaktoplysninger for dette websted.",
+  "pages.imprint.dispute_resolution.description":
+    "Europa-Kommissionen stiller en platform for online tvistbilæggelse (ODR) til rådighed, som er tilgængelig via linket nedenfor.",
+  "pages.imprint.dispute_resolution.odr_link_label": "Åbn EU's platform for online tvistbilæggelse",
+  "pages.imprint.dispute_participation":
+    "Vi er ikke forpligtet til og har ikke til hensigt at deltage i tvistbilæggelsesprocedurer for en forbruger-voldgiftsinstans.",
   "pages.legal.disclaimer.title": "Ansvarsfraskrivelse",
-  "pages.legal.disclaimer.content": "Alle oplysninger gives uden garanti. På trods af omhyggelig kontrol påtager vi os intet ansvar for eksterne links; de respektive udbydere er alene ansvarlige for deres indhold."
+  "pages.legal.disclaimer.content":
+    "Alle oplysninger gives uden garanti. På trods af omhyggelig kontrol påtager vi os intet ansvar for eksterne links; de respektive udbydere er alene ansvarlige for deres indhold.",
 };

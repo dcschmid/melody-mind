@@ -201,7 +201,7 @@ export class TimePressureGameEngine {
         );
 
         try {
-          const fallbackUrl = `/json/genres/de/${this.category}.json`;
+          const fallbackUrl = `/json/genres/en/${this.category}.json`;
           const fallbackResponse = await fetch(fallbackUrl);
 
           if (!fallbackResponse.ok) {
@@ -1017,7 +1017,7 @@ export class TimePressureGameEngine {
       difficultyStats: getTimePressureStats(),
     };
 
-  // Check achievements (no persistent storage required)
+    // Check achievements (no persistent storage required)
     try {
       await this.checkGameAchievements(gameStats);
     } catch (error) {
@@ -1041,7 +1041,7 @@ export class TimePressureGameEngine {
    */
   async checkGameAchievements(_gameStats: GameStats): Promise<void> {
     try {
-  // TODO: Implement time pressure specific achievements (purely client-side)
+      // TODO: Implement time pressure specific achievements (purely client-side)
       // Parameter intentionally unused in this client-side build
     } catch (error) {
       handleGameError(error, "achievement check");

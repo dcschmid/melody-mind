@@ -4,6 +4,14 @@ MelodyMind is an engaging and competitive music trivia game where players can te
 across various music genres. Whether you're a rock enthusiast, pop aficionado, or jazz expert, this
 game offers a thrilling experience with multiple categories and rounds.
 
+## 🌐 Internationalization & Fallback Language
+
+All localized content uses English (`en`) as the single canonical fallback. If a specific piece of
+translated data (category, question set, album/playlist metadata) is missing for the requested
+language, the system transparently falls back to the English source variant. This keeps behavior
+predictable, reduces redundant branching, and simplifies maintenance. See `docs/data-loading.md` for
+architectural details.
+
 ## 🚀 Key Features
 
 - Multiple Difficulty Levels: Choose between Easy, Medium, and Hard modes:

@@ -89,9 +89,7 @@ export function extractKeywordsFallback(
  */
 export function buildKeywordsString(keywords: string[], extra?: string | string[]): string {
   const extraList = Array.isArray(extra) ? extra : extra ? [extra] : [];
-  const merged = [...keywords, ...extraList]
-    .map((k) => k.trim())
-    .filter(Boolean);
+  const merged = [...keywords, ...extraList].map((k) => k.trim()).filter(Boolean);
   const uniq = Array.from(new Set(merged));
   return uniq.join(", ");
 }

@@ -10,53 +10,53 @@ export const BASE_POINTS_PER_QUESTION = 50 as const;
 /** Speed bonus thresholds (in seconds) */
 export const SPEED_BONUS_THRESHOLDS = Object.freeze({
   high: 10, // <= 10s => +50
-  medium: 15 // <= 15s => +25
+  medium: 15, // <= 15s => +25
 });
 
 /** Speed bonus values mapped to threshold labels */
 export const SPEED_BONUS_VALUES = Object.freeze({
   high: 50,
   medium: 25,
-  none: 0
+  none: 0,
 });
 
 /** Difficulty levels supported by the game */
 export const DIFFICULTY_LEVELS = ["easy", "medium", "hard"] as const;
-export type Difficulty = typeof DIFFICULTY_LEVELS[number];
+export type Difficulty = (typeof DIFFICULTY_LEVELS)[number];
 
 /** Number of questions per difficulty */
 export const QUESTIONS_PER_DIFFICULTY: Record<Difficulty, number> = Object.freeze({
   easy: 10,
   medium: 15,
-  hard: 20
+  hard: 20,
 });
 
 /** Maximum theoretical score per difficulty (base scoring only) */
 export const MAX_BASE_SCORE: Record<Difficulty, number> = Object.freeze({
   easy: QUESTIONS_PER_DIFFICULTY.easy * BASE_POINTS_PER_QUESTION,
   medium: QUESTIONS_PER_DIFFICULTY.medium * BASE_POINTS_PER_QUESTION,
-  hard: QUESTIONS_PER_DIFFICULTY.hard * BASE_POINTS_PER_QUESTION
+  hard: QUESTIONS_PER_DIFFICULTY.hard * BASE_POINTS_PER_QUESTION,
 });
 
 /** Joker allocations per difficulty */
 export const JOKERS_PER_DIFFICULTY: Record<Difficulty, number> = Object.freeze({
   easy: 3,
   medium: 5,
-  hard: 10
+  hard: 10,
 });
 
 /** Derived maximum possible score including highest speed bonus (theoretical upper bound) */
 export const MAX_THEORETICAL_SCORE: Record<Difficulty, number> = Object.freeze({
   easy: MAX_BASE_SCORE.easy + QUESTIONS_PER_DIFFICULTY.easy * SPEED_BONUS_VALUES.high,
   medium: MAX_BASE_SCORE.medium + QUESTIONS_PER_DIFFICULTY.medium * SPEED_BONUS_VALUES.high,
-  hard: MAX_BASE_SCORE.hard + QUESTIONS_PER_DIFFICULTY.hard * SPEED_BONUS_VALUES.high
+  hard: MAX_BASE_SCORE.hard + QUESTIONS_PER_DIFFICULTY.hard * SPEED_BONUS_VALUES.high,
 });
 
 /** Achievement keys mapped to difficulty for perfect scores */
 export const PERFECT_SCORE_ACHIEVEMENTS: Record<Difficulty, string> = Object.freeze({
   easy: "achievement.music-novice",
   medium: "achievement.music-master",
-  hard: "achievement.music-legend"
+  hard: "achievement.music-legend",
 });
 
 /** Utility: compute speed bonus given elapsed seconds */

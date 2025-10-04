@@ -168,7 +168,7 @@ export class AudioPlayerUtils {
     }
 
     // Prefer an existing in-player container if provided by the page markup.
-  const existingInner = document.getElementById("audio-subtitles-inner");
+    const existingInner = document.getElementById("audio-subtitles-inner");
 
     // If no in-player container: create fixed overlay fallback once per page.
     if (!existingInner) {
@@ -197,7 +197,7 @@ export class AudioPlayerUtils {
 
     if (!track) {
       // hide overlay if no track present
-  const inner = document.getElementById("audio-subtitles-inner");
+      const inner = document.getElementById("audio-subtitles-inner");
       if (inner) {
         inner.textContent = "";
       }
@@ -213,7 +213,7 @@ export class AudioPlayerUtils {
     }
 
     const showActiveCues = (): void => {
-  const inner = document.getElementById("audio-subtitles-inner");
+      const inner = document.getElementById("audio-subtitles-inner");
       if (!inner) {
         return;
       }

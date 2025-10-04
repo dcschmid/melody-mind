@@ -4,34 +4,43 @@ export default {
   // --- Legal / Privacy Pages (initial Swedish translation) ---
   "pages.imprint.title": "Juridisk information",
   "pages.privacy.title": "Integritetspolicy",
-  "pages.privacy.intro_p1": "Denna integritetspolicy förklarar vilken personlig data vi samlar in och hur vi använder den.",
+  "pages.privacy.intro_p1":
+    "Denna integritetspolicy förklarar vilken personlig data vi samlar in och hur vi använder den.",
   "pages.privacy.responsible_party": "Ansvarig: {name}",
   "pages.privacy.contact": "Kontakt:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.privacy.contact.email_label": "E‑post:",
-  "pages.privacy.data_collected.manual": "Data du lämnar manuellt (kontouppgifter, meddelanden, preferenser)",
-  "pages.privacy.data_collected.automatic": "Automatiskt insamlad data (loggar, användning, enhetsinformation)",
+  "pages.privacy.data_collected.manual":
+    "Data du lämnar manuellt (kontouppgifter, meddelanden, preferenser)",
+  "pages.privacy.data_collected.automatic":
+    "Automatiskt insamlad data (loggar, användning, enhetsinformation)",
   "pages.privacy.cookies": "Vi använder cookies och liknande tekniker för att förbättra tjänsten.",
   "pages.privacy.user_rights_title": "Dina rättigheter",
-  "pages.privacy.user_rights_text": "Du kan begära åtkomst, rättelse, radering eller begränsning av din personliga data.",
+  "pages.privacy.user_rights_text":
+    "Du kan begära åtkomst, rättelse, radering eller begränsning av din personliga data.",
   "pages.privacy.analytics": "Vi använder integritetsvänlig analys för att mäta sidans användning.",
-  "pages.imprint.legal_notice_intro": "Juridiskt meddelande — denna sida innehåller leverantörens juridiska och kontaktuppgifter.",
+  "pages.imprint.legal_notice_intro":
+    "Juridiskt meddelande — denna sida innehåller leverantörens juridiska och kontaktuppgifter.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 München\nTyskland",
   "pages.imprint.contact_label": "E‑post:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Vid frågor: dcschmid@murena.io",
-  "pages.imprint.intro": "Detta juridiska meddelande (imprint) innehåller obligatorisk leverantörsidentifiering och kontaktinformation för denna webbplats.",
-  "pages.imprint.dispute_resolution.description": "Europeiska kommissionen tillhandahåller en plattform för tvistlösning online (ODR) som är tillgänglig via länken nedan.",
+  "pages.imprint.intro":
+    "Detta juridiska meddelande (imprint) innehåller obligatorisk leverantörsidentifiering och kontaktinformation för denna webbplats.",
+  "pages.imprint.dispute_resolution.description":
+    "Europeiska kommissionen tillhandahåller en plattform för tvistlösning online (ODR) som är tillgänglig via länken nedan.",
   "pages.imprint.dispute_resolution.odr_link_label": "Öppna EU:s plattform för tvistlösning online",
-  "pages.imprint.dispute_participation": "Vi är inte skyldiga och har inte för avsikt att delta i tvistlösningsförfaranden inför en konsumentnämnd.",
+  "pages.imprint.dispute_participation":
+    "Vi är inte skyldiga och har inte för avsikt att delta i tvistlösningsförfaranden inför en konsumentnämnd.",
   "pages.legal.disclaimer.title": "Ansvarsfriskrivning",
-  "pages.legal.disclaimer.content": "All information tillhandahålls utan garanti. Trots noggrann kontroll tar vi inget ansvar för externa länkar; respektive leverantörer är ensamt ansvariga för deras innehåll.",
+  "pages.legal.disclaimer.content":
+    "All information tillhandahålls utan garanti. Trots noggrann kontroll tar vi inget ansvar för externa länkar; respektive leverantörer är ensamt ansvariga för deras innehåll.",
   "accessibility.skip.to.content": "Hoppa till huvudinnehåll",
   "audioplayer.aria.region": "Ljudspelare",
   "category.about.title": "Om denna kategori",
   "category.difficulty.easy": "Lätt",
-  
+
   // Daglig utmaning (utan DB; engelska standardtexter)
   "daily.challenge.title": "Dagens utmaning",
   "daily.challenge.subtitle": "Ny kategori idag. Slå klockan.",
@@ -92,7 +101,8 @@ export default {
   "share.score_line": "Jag fick {score} poäng i {category}-quizet i Melody Mind ({difficulty})!",
   "share.fallback.manual.label": "Kopiera sidlänk manuellt",
   "share.fallback.manual.text": "Kopiera länk",
-  "share.fallback.message": "Speldata är tillfälligt otillgänglig. Försök igen eller kopiera sidlänken manuellt.",
+  "share.fallback.message":
+    "Speldata är tillfälligt otillgänglig. Försök igen eller kopiera sidlänken manuellt.",
   "share.fallback.retry.label": "Försök läsa in speldata igen",
   "share.fallback.retry.text": "Försök igen",
   "share.native": "Dela med…",
@@ -109,21 +119,29 @@ export default {
   "share.difficulty_emoji.hard": "🔴",
   "share.difficulty_emoji.default": "⚪️",
   "share.buttons.group.label": "Delningsalternativ för sociala medier",
-  "share.accessibility.copy_failed_manual": "Kopieringen misslyckades. Kopiera sidans URL manuellt i webbläsaren.",
+  "share.accessibility.copy_failed_manual":
+    "Kopieringen misslyckades. Kopiera sidans URL manuellt i webbläsaren.",
   "share.accessibility.data_found": "Speldata hittades! Delningsalternativ är nu tillgängliga.",
-  "share.accessibility.data_still_unavailable": "Speldata är fortfarande inte tillgängliga. Uppdatera sidan eller kopiera manuellt.",
-  "share.accessibility.data_unavailable": "Speldata är inte tillgängliga. Försök igen eller kopiera manuellt.",
+  "share.accessibility.data_still_unavailable":
+    "Speldata är fortfarande inte tillgängliga. Uppdatera sidan eller kopiera manuellt.",
+  "share.accessibility.data_unavailable":
+    "Speldata är inte tillgängliga. Försök igen eller kopiera manuellt.",
   "share.accessibility.link_copied_fallback": "Länken kopierades med reservmetod!",
-  "share.accessibility.native_share_failed": "Systemdelning misslyckades: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.native_share_failed":
+    "Systemdelning misslyckades: {errorMessage}. {recoveryMessage}",
   "share.accessibility.platform_opened": "Delning för {platform} öppnades.",
-  "share.accessibility.platform_share_failed": "Kunde inte dela till {platform}: {errorMessage}. {recoveryMessage}",
-  "share.accessibility.retry_failed": "Försöket misslyckades. Prova att kopiera manuellt eller uppdatera sidan.",
+  "share.accessibility.platform_share_failed":
+    "Kunde inte dela till {platform}: {errorMessage}. {recoveryMessage}",
+  "share.accessibility.retry_failed":
+    "Försöket misslyckades. Prova att kopiera manuellt eller uppdatera sidan.",
   "share.accessibility.retrying": "Försöker hitta speldata…",
   "share.accessibility.score_copied": "Poäng kopierad till urklipp!",
   "share.accessibility.score_shared": "Ditt resultat har delats.",
   "share.accessibility.sharing_cancelled": "Delning avbröts.",
-  "share.accessibility.try_alternative_methods": "Prova att kopiera till urklipp eller använd ett annat sätt att dela.",
-  "share.accessibility.try_platform_buttons": "Prova plattformspecifika delningsknappar eller kopiera länken",
+  "share.accessibility.try_alternative_methods":
+    "Prova att kopiera till urklipp eller använd ett annat sätt att dela.",
+  "share.accessibility.try_platform_buttons":
+    "Prova plattformspecifika delningsknappar eller kopiera länken",
   "category.difficulty.hard": "Svårt",
   "category.difficulty.heading": "Välj svårighetsnivå",
   "category.difficulty.medium": "Mellan",
@@ -185,9 +203,11 @@ export default {
   "nav.menu.knowledge.desc": "Utforska musikfakta och trivia",
   "nav.menu.playlists.desc": "Upptäck handplockade spellistor",
   "nav.menu.podcasts": "Poddar",
-  "nav.podcasts.description": "Upptäck inspirerande musikpoddar — intervjuer, berättelser och insikter",
+  "nav.podcasts.description":
+    "Upptäck inspirerande musikpoddar — intervjuer, berättelser och insikter",
   "news.title": "Nyheter",
-  "news.description": "Håll dig uppdaterad — färska hits, artistnyheter och globala musiktrender. ✨",
+  "news.description":
+    "Håll dig uppdaterad — färska hits, artistnyheter och globala musiktrender. ✨",
   "news.lastUpdated": "Senast uppdaterad: {date}",
   "news.sourcesCount": "Källor: {count}",
   "news.readMore": "Läs mer",
@@ -240,7 +260,8 @@ export default {
   "game.answer.wrong": "Nära — rätt svar var: {answer}. Försök igen! 💪",
   "game.area.label": "Spelområde",
   "game.categories.empty.headline": "Inga genrer hittades",
-  "game.categories.empty.text": "Inget hittades. Ändra sökningen eller filtren — eller försök igen senare.",
+  "game.categories.empty.text":
+    "Inget hittades. Ändra sökningen eller filtren — eller försök igen senare.",
   "game.categories.loading": "Laddar musikgenrer…",
   "game.categories.title": "Musikkategorier",
   "game.chronology.aria.main": "Huvudområde för kronologispelet",
@@ -381,21 +402,27 @@ export default {
   "highscores.points": "Poäng",
   "highscores.rank": "Placering",
   "highscores.results": "Topprestationer",
-  "highscores.seo.description": "Melody Mind‑topplistan: bästa resultaten per kategori och spelläge. Tävla och klättra i rankingen!",
+  "highscores.seo.description":
+    "Melody Mind‑topplistan: bästa resultaten per kategori och spelläge. Tävla och klättra i rankingen!",
   "highscores.tableLabel": "Topplistor",
   "highscores.title": "Topplistor",
   "index.continue": "Nu kör vi!",
   "index.start.game.label": "Starta din musikaliska resa",
   "index.welcome.footnote": "🎶 Skapat med passion för musikälskare — låt magin börja! ✨",
   "index.card.game.title": "Musikquiz",
-  "index.card.game.desc": "🔥 Testa dina kunskaper om genrer, epoker och stilar! Varje runda är en chans att samla poäng, låsa upp prestationer och klättra på topplistan. Klarar du att försvara din plats bland de bästa?",
+  "index.card.game.desc":
+    "🔥 Testa dina kunskaper om genrer, epoker och stilar! Varje runda är en chans att samla poäng, låsa upp prestationer och klättra på topplistan. Klarar du att försvara din plats bland de bästa?",
   "index.card.knowledge.title": "Musikkunskap",
-  "index.card.knowledge.desc": "📚 Fördjupa dig i berättelser, genrer, artister och kulturella sammanhang. Levande artiklar avslöjar dolda samband och väcker nyfikenhet — perfekt för att lyssna mer medvetet och upptäcka något nytt idag!",
+  "index.card.knowledge.desc":
+    "📚 Fördjupa dig i berättelser, genrer, artister och kulturella sammanhang. Levande artiklar avslöjar dolda samband och väcker nyfikenhet — perfekt för att lyssna mer medvetet och upptäcka något nytt idag!",
   "index.card.playlists.title": "Kuraterade spellistor",
-  "index.card.playlists.desc": "🎧 Tematiska resor genom legendariska årtionden, scenrörelser och känslolägen. Låtar som formade epoker blandas med oväntade pärlor — bygg vidare på ditt musikaliska universum med varje lyssning.",
+  "index.card.playlists.desc":
+    "🎧 Tematiska resor genom legendariska årtionden, scenrörelser och känslolägen. Låtar som formade epoker blandas med oväntade pärlor — bygg vidare på ditt musikaliska universum med varje lyssning.",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "🎙️ Bakom kulisserna, passionerade röster och nya perspektiv. Avsnitt som får dig att höra välkända låtar på ett nytt sätt — en inspirationskälla för nyfikna fans och kreativa öron.",
+  "index.card.podcast.desc":
+    "🎙️ Bakom kulisserna, passionerade röster och nya perspektiv. Avsnitt som får dig att höra välkända låtar på ett nytt sätt — en inspirationskälla för nyfikna fans och kreativa öron.",
   "index.card.news.title": "Musiknyheter",
-  "index.card.news.desc": "📰 Färska releaser, växande trender, artistmilstolpar och rörelser som formar framtiden. Ett snabbt överspann för lyssnare som vill ligga steget före och förstå ljuden i sitt sammanhang.",
+  "index.card.news.desc":
+    "📰 Färska releaser, växande trender, artistmilstolpar och rörelser som formar framtiden. Ett snabbt överspann för lyssnare som vill ligga steget före och förstå ljuden i sitt sammanhang.",
   "index.overview.sections": "Huvudsektioner",
 };

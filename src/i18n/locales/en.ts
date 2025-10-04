@@ -109,7 +109,8 @@ export default {
   "nav.menu.knowledge.desc": "Discover music knowledge & trivia",
   "nav.menu.playlists.desc": "Browse curated music playlists",
   "nav.menu.podcasts": "Podcasts",
-  "nav.podcasts.description": "Discover inspiring music podcasts with interviews, stories, and insights",
+  "nav.podcasts.description":
+    "Discover inspiring music podcasts with interviews, stories, and insights",
   "news.title": "News",
   "news.description": "Stay on the pulse — fresh hits, artist news, and global music trends. ✨",
   "news.lastUpdated": "Last updated: {date}",
@@ -161,34 +162,43 @@ export default {
   "footer.source_code": "View MelodyMind source code on GitHub",
   "footer.support_kofi": "Support MelodyMind on Ko-fi",
   // Page titles (legal)
-  "pages.imprint.title": "Legal Notice",            
+  "pages.imprint.title": "Legal Notice",
   "pages.privacy.title": "Privacy Policy",
   // Legal / Privacy detailed sections (master English reference)
-  "pages.privacy.intro_p1": "This privacy policy explains what personal data we collect and how we use it.",
+  "pages.privacy.intro_p1":
+    "This privacy policy explains what personal data we collect and how we use it.",
   "pages.privacy.responsible_party": "Responsible party: Daniel Schmid",
   "pages.privacy.contact": "Contact:",
   "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 Munich\nGermany",
   "pages.privacy.contact.address_label": "Address:",
   "pages.privacy.contact.email_label": "Email:",
   "pages.privacy.contact.email_aria": "Email address to contact the responsible party",
-  "pages.privacy.data_collected.manual": "Data you provide manually (account details, messages, preferences)",
-  "pages.privacy.data_collected.automatic": "Automatically collected data (logs, usage, device information)",
+  "pages.privacy.data_collected.manual":
+    "Data you provide manually (account details, messages, preferences)",
+  "pages.privacy.data_collected.automatic":
+    "Automatically collected data (logs, usage, device information)",
   "pages.privacy.cookies": "We use cookies and similar technologies to improve the service.",
   "pages.privacy.user_rights_title": "Your rights",
-  "pages.privacy.user_rights_text": "You can request access, rectification, deletion, or restriction of your personal data.",
+  "pages.privacy.user_rights_text":
+    "You can request access, rectification, deletion, or restriction of your personal data.",
   "pages.privacy.analytics": "We use privacy‑respecting analytics to measure site usage.",
-  "pages.imprint.legal_notice_intro": "Legal notice — this page contains provider legal and contact information.",
+  "pages.imprint.legal_notice_intro":
+    "Legal notice — this page contains provider legal and contact information.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Munich\nGermany",
   "pages.imprint.contact_label": "Email:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "For inquiries: dcschmid@murena.io",
-  "pages.imprint.intro": "This legal notice (imprint) provides mandatory provider identification and contact information for this site.",
-  "pages.imprint.dispute_resolution.description": "The European Commission provides an online dispute resolution (ODR) platform accessible at the link below.",
+  "pages.imprint.intro":
+    "This legal notice (imprint) provides mandatory provider identification and contact information for this site.",
+  "pages.imprint.dispute_resolution.description":
+    "The European Commission provides an online dispute resolution (ODR) platform accessible at the link below.",
   "pages.imprint.dispute_resolution.odr_link_label": "Open EU online dispute resolution platform",
-  "pages.imprint.dispute_participation": "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
+  "pages.imprint.dispute_participation":
+    "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
   "pages.legal.disclaimer.title": "Disclaimer",
-  "pages.legal.disclaimer.content": "All information is provided without guarantee. We strive for accuracy but assume no liability for external content or links. Use of the site is at your own risk.",
+  "pages.legal.disclaimer.content":
+    "All information is provided without guarantee. We strive for accuracy but assume no liability for external content or links. Use of the site is at your own risk.",
   "game.answer.correct": "Correct! {points} points + {bonus} bonus points — awesome! 🎉",
   "game.answer.wrong": "Not quite — the correct answer was: {answer}. Try again! 💪",
   "game.area.label": "Game Area",
@@ -232,7 +242,7 @@ export default {
   "game.end.homeDescription": "Return to the main menu and start page",
   "game.end.level.enthusiast": "Enthusiast",
   "game.end.level.explorer": "Explorer",
-  
+
   // Daily Challenge (DB-free)
   "daily.challenge.title": "Daily Challenge",
   "daily.challenge.subtitle": "New category today. Beat the clock.",
@@ -442,7 +452,8 @@ export default {
   "playlist.search.heading": "Search Playlists",
   "playlist.search.placeholder": "Search by artist or style…",
   "profile.auth.required": "You must be logged in to view your profile",
-  "profile.description": "Manage your data and explore your game stats — improve with every round! 📈",
+  "profile.description":
+    "Manage your data and explore your game stats — improve with every round! 📈",
   "profile.error": "Error loading profile data",
   "profile.loading": "Loading profile data…",
   "profile.nav.aria": "Navigation to user profile",
@@ -493,7 +504,8 @@ export default {
   "share.email": "Share via email",
   "share.email.label": "Email",
   "share.email.subject": "My Melody Mind score",
-  "share.score_line": "I scored {score} points in the {category} quiz on Melody Mind ({difficulty})!",
+  "share.score_line":
+    "I scored {score} points in the {category} quiz on Melody Mind ({difficulty})!",
   "share.challenge": "🎮 Think you can beat me? Play now at:",
   "share.fallback.manual.label": "Copy page link manually",
   "share.fallback.manual.text": "Copy link",
@@ -521,7 +533,8 @@ export default {
   "toc.state.expanded": "Expanded",
   "toc.toggle.label": "Toggle table of contents",
   "knowledge.section.title": "Learn More",
-  "knowledge.section.description": "Dive deeper — this article brings context, examples, and listening tips. 📚",
+  "knowledge.section.description":
+    "Dive deeper — this article brings context, examples, and listening tips. 📚",
   "knowledge.read.more": "Read more",
   "knowledge.read.article": "Read article",
   "musicPlatforms.description": "Listen to this playlist on your favorite music platforms",
@@ -531,14 +544,19 @@ export default {
   "musicPlatforms.platform.apple": "Apple Music",
   "musicPlatforms.platform.youtube": "YouTube",
   "index.card.game.title": "Game Overview",
-  "index.card.game.desc": "Jump into thrilling music quiz modes that blend speed, strategy and pure music passion — master categories, chase streaks, unlock future achievements and return daily to sharpen your ear and claim the leaderboard. 🎯",
+  "index.card.game.desc":
+    "Jump into thrilling music quiz modes that blend speed, strategy and pure music passion — master categories, chase streaks, unlock future achievements and return daily to sharpen your ear and claim the leaderboard. 🎯",
   "index.card.knowledge.title": "Music Knowledge",
-  "index.card.knowledge.desc": "Explore deep‑dive genre guides, origins, influences, iconic albums and listening tips — turn casual listening into informed discovery, expand taste horizons and become the friend everyone trusts for music insight. 📚",
+  "index.card.knowledge.desc":
+    "Explore deep‑dive genre guides, origins, influences, iconic albums and listening tips — turn casual listening into informed discovery, expand taste horizons and become the friend everyone trusts for music insight. 📚",
   "index.card.playlists.title": "Playlists",
-  "index.card.playlists.desc": "Travel across eras, moods and global scenes with lovingly curated playlists — discover hidden gems, revive timeless anthems, spark focus or chill sessions and grow musical literacy while enjoying every track. 🎶",
+  "index.card.playlists.desc":
+    "Travel across eras, moods and global scenes with lovingly curated playlists — discover hidden gems, revive timeless anthems, spark focus or chill sessions and grow musical literacy while enjoying every track. 🎶",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "Inspiring long‑form talks, behind‑the‑music moments, creative journeys and cultural deep dives — listen on the go, fuel curiosity, meet artists differently and stay motivated on your evolving musical path. 🎙️",
+  "index.card.podcast.desc":
+    "Inspiring long‑form talks, behind‑the‑music moments, creative journeys and cultural deep dives — listen on the go, fuel curiosity, meet artists differently and stay motivated on your evolving musical path. 🎙️",
   "index.card.news.title": "News",
-  "index.card.news.desc": "Fresh feature drops, interface refinements, performance boosts and music world highlights — stay informed, spot new quiz angles early and never miss improvements that level up your MelodyMind journey. ✨",
+  "index.card.news.desc":
+    "Fresh feature drops, interface refinements, performance boosts and music world highlights — stay informed, spot new quiz angles early and never miss improvements that level up your MelodyMind journey. ✨",
   "index.overview.sections": "Homepage feature sections",
 };

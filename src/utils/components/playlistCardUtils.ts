@@ -67,11 +67,11 @@ export class PlaylistCardUtils {
     const image = safeQuerySelector<HTMLImageElement>(this.imageSelector, card);
 
     if (image) {
-  // Store a stable handler reference so it can be removed later
-  const handler = (): void => this.handleImageError(image);
-  // Attach using a named function reference on the element to allow removal later
-  (image as PlaylistImageElement).__playlistCardErrorHandler = handler;
-  image.addEventListener("error", handler);
+      // Store a stable handler reference so it can be removed later
+      const handler = (): void => this.handleImageError(image);
+      // Attach using a named function reference on the element to allow removal later
+      (image as PlaylistImageElement).__playlistCardErrorHandler = handler;
+      image.addEventListener("error", handler);
     }
   }
 

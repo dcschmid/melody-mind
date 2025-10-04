@@ -5,7 +5,7 @@ export default {
   "audioplayer.aria.region": "Lettore audio",
   "category.about.title": "Informazioni su questa categoria",
   "category.difficulty.easy": "Facile",
-  
+
   // Sfida del giorno (senza DB; fallback inglese)
   "daily.challenge.title": "Sfida del giorno",
   "daily.challenge.subtitle": "Nuova categoria oggi. Batti il tempo.",
@@ -548,21 +548,31 @@ export default {
   "pages.imprint.contact_label": "Email:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Per richieste: dcschmid@murena.io",
-  "pages.imprint.intro": "Questo avviso legale (impressum) fornisce l'identificazione obbligatoria del fornitore e le informazioni di contatto per questo sito.",
-  "pages.imprint.dispute_resolution.description": "La Commissione Europea mette a disposizione una piattaforma per la risoluzione online delle controversie (ODR) accessibile al link sottostante.",
-  "pages.imprint.dispute_resolution.odr_link_label": "Apri la piattaforma europea di risoluzione delle controversie online",
-  "pages.imprint.dispute_participation": "Non siamo obbligati né disposti a partecipare a procedure di risoluzione delle controversie davanti a un organismo di conciliazione per i consumatori.",
+  "pages.imprint.intro":
+    "Questo avviso legale (impressum) fornisce l'identificazione obbligatoria del fornitore e le informazioni di contatto per questo sito.",
+  "pages.imprint.dispute_resolution.description":
+    "La Commissione Europea mette a disposizione una piattaforma per la risoluzione online delle controversie (ODR) accessibile al link sottostante.",
+  "pages.imprint.dispute_resolution.odr_link_label":
+    "Apri la piattaforma europea di risoluzione delle controversie online",
+  "pages.imprint.dispute_participation":
+    "Non siamo obbligati né disposti a partecipare a procedure di risoluzione delle controversie davanti a un organismo di conciliazione per i consumatori.",
   "pages.legal.disclaimer.title": "Esclusione di responsabilità",
-  "pages.legal.disclaimer.content": "Tutte le informazioni sono fornite senza garanzia. Ci impegniamo per l'accuratezza ma non assumiamo alcuna responsabilità per contenuti o link esterni. L'uso del sito è a tuo rischio.",
+  "pages.legal.disclaimer.content":
+    "Tutte le informazioni sono fornite senza garanzia. Ci impegniamo per l'accuratezza ma non assumiamo alcuna responsabilità per contenuti o link esterni. L'uso del sito è a tuo rischio.",
   "index.card.game.title": "Panoramica Gioco",
-  "index.card.game.desc": "Entra in modalità quiz musicali dinamiche che uniscono velocità, tattica e memoria sonora — domina categorie, mantieni serie giornaliere e affina l'orecchio tornando spesso per scalare la classifica. 🎯",
+  "index.card.game.desc":
+    "Entra in modalità quiz musicali dinamiche che uniscono velocità, tattica e memoria sonora — domina categorie, mantieni serie giornaliere e affina l'orecchio tornando spesso per scalare la classifica. 🎯",
   "index.card.knowledge.title": "Conoscenza Musicale",
-  "index.card.knowledge.desc": "Esplora origini, influenze, album simbolo e consigli d'ascolto — trasforma l'ascolto casuale in scoperta consapevole e diventa il punto di riferimento tra amici curiosi di musica. 📚",
+  "index.card.knowledge.desc":
+    "Esplora origini, influenze, album simbolo e consigli d'ascolto — trasforma l'ascolto casuale in scoperta consapevole e diventa il punto di riferimento tra amici curiosi di musica. 📚",
   "index.card.playlists.title": "Playlist",
-  "index.card.playlists.desc": "Viaggia tra decenni, scene e stati d'animo con playlist curate — classici eterni, perle nascoste, focus o relax: cresci musicalmente mentre ti godi ogni traccia selezionata. 🎶",
+  "index.card.playlists.desc":
+    "Viaggia tra decenni, scene e stati d'animo con playlist curate — classici eterni, perle nascoste, focus o relax: cresci musicalmente mentre ti godi ogni traccia selezionata. 🎶",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "Conversazioni ispiranti, retroscena creativi e prospettive culturali — ascolta ovunque, alimenta curiosità e amplia visione mentre evolvi come ascoltatore consapevole. 🎙️",
+  "index.card.podcast.desc":
+    "Conversazioni ispiranti, retroscena creativi e prospettive culturali — ascolta ovunque, alimenta curiosità e amplia visione mentre evolvi come ascoltatore consapevole. 🎙️",
   "index.card.news.title": "Novità",
-  "index.card.news.desc": "Nuove feature, ottimizzazioni UI, miglioramenti prestazionali e spunti dal mondo musicale — resta aggiornato e sfrutta ogni passo avanti di MelodyMind. ✨",
+  "index.card.news.desc":
+    "Nuove feature, ottimizzazioni UI, miglioramenti prestazionali e spunti dal mondo musicale — resta aggiornato e sfrutta ogni passo avanti di MelodyMind. ✨",
   "index.overview.sections": "Sezioni principali homepage",
 };

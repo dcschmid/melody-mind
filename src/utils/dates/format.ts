@@ -4,8 +4,8 @@
  */
 
 export interface FormatLocalizedDateOptions {
-  dateStyle?: Intl.DateTimeFormatOptions['dateStyle'];
-  timeStyle?: Intl.DateTimeFormatOptions['timeStyle'];
+  dateStyle?: Intl.DateTimeFormatOptions["dateStyle"];
+  timeStyle?: Intl.DateTimeFormatOptions["timeStyle"];
   /** Fallback when date is invalid */
   fallback?: string;
 }
@@ -19,7 +19,7 @@ export function formatLocalizedDate(
   value: Date | string | number | null | undefined,
   opts: FormatLocalizedDateOptions = {}
 ): string {
-  const { dateStyle = 'medium', timeStyle, fallback = '' } = opts;
+  const { dateStyle = "medium", timeStyle, fallback = "" } = opts;
   if (value === null || value === undefined) {
     return fallback;
   }

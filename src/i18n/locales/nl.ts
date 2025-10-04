@@ -5,13 +5,14 @@ export default {
   "audioplayer.aria.region": "Audiospeler",
   "category.about.title": "Over deze categorie",
   "category.difficulty.easy": "Makkelijk",
-  
+
   // Dagelijkse uitdaging (zonder DB; Engelstalige fallback)
   "daily.challenge.title": "Dagelijkse uitdaging",
   "daily.challenge.subtitle": "Nieuwe categorie vandaag. Versla de klok.",
   "daily.challenge.image.alt": "Omslag van de dagelijkse uitdaging: {category}",
   "daily.challenge.cta.group": "Kies de moeilijkheid voor de Dagelijkse uitdaging",
-  "daily.challenge.screenreader.announce": "De categorie van de uitdaging van vandaag is {category}",
+  "daily.challenge.screenreader.announce":
+    "De categorie van de uitdaging van vandaag is {category}",
   "knowledge.search.label": "Zoek op titel of beschrijving",
   "knowledge.search.title": "Zoek artikelen",
   "knowledge.search.subtitle": "Vind artikelen op titel, beschrijving of trefwoorden",
@@ -54,7 +55,6 @@ export default {
   "podcasts.cta.browse": "Blader door podcasts",
   "podcasts.navigation.next": "Volgende aflevering",
   "podcasts.navigation.previous": "Vorige aflevering",
-  
 
   "share.challenge_fallback": "🎮 Denk je dat je beter bent? Speel nu en daag me uit:",
   "category.difficulty.hard": "Moeilijk",
@@ -324,15 +324,20 @@ export default {
   "index.welcome.footnote":
     "🎶 Gemaakt met passie voor echte muziekfans — laat de magie beginnen! ✨",
   "index.card.game.title": "Speloverzicht",
-  "index.card.game.desc": "Stap in dynamische muziekquiz‑modi vol tempo, tactiek en geheugen — beheer categorieën, bouw dagelijkse reeksen op en scherpt je oor terwijl je richting hogere ranglijsten groeit. 🎯",
+  "index.card.game.desc":
+    "Stap in dynamische muziekquiz‑modi vol tempo, tactiek en geheugen — beheer categorieën, bouw dagelijkse reeksen op en scherpt je oor terwijl je richting hogere ranglijsten groeit. 🎯",
   "index.card.knowledge.title": "Muziekkennis",
-  "index.card.knowledge.desc": "Verken oorsprong, invloeden, sleutelalbums en luisteraanwijzingen — verander vrijblijvend luisteren in bewuste ontdekking en word de vriend met altijd het beste muziekinzicht. 📚",
+  "index.card.knowledge.desc":
+    "Verken oorsprong, invloeden, sleutelalbums en luisteraanwijzingen — verander vrijblijvend luisteren in bewuste ontdekking en word de vriend met altijd het beste muziekinzicht. 📚",
   "index.card.playlists.title": "Afspeellijsten",
-  "index.card.playlists.desc": "Reis door decennia, scenes en sferen met zorgvuldig samengestelde lijsten — klassiekers, verborgen parels en focus of chill mixen die je muzikale vocabulaire vergroten. 🎶",
+  "index.card.playlists.desc":
+    "Reis door decennia, scenes en sferen met zorgvuldig samengestelde lijsten — klassiekers, verborgen parels en focus of chill mixen die je muzikale vocabulaire vergroten. 🎶",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "Diepgaande gesprekken, creatieve processen en culturele context — luister onderweg, voed nieuwsgierigheid en verbreed perspectief tijdens je muzikale groei. 🎙️",
+  "index.card.podcast.desc":
+    "Diepgaande gesprekken, creatieve processen en culturele context — luister onderweg, voed nieuwsgierigheid en verbreed perspectief tijdens je muzikale groei. 🎙️",
   "index.card.news.title": "Nieuws",
-  "index.card.news.desc": "Nieuwe functies, UI‑verbeteringen, performance tweaks en muziekhighlights — blijf voorop en mis geen stap die je MelodyMind ervaring versterkt. ✨",
+  "index.card.news.desc":
+    "Nieuwe functies, UI‑verbeteringen, performance tweaks en muziekhighlights — blijf voorop en mis geen stap die je MelodyMind ervaring versterkt. ✨",
   "index.overview.sections": "Uitgelichte homepage secties",
   "language.change.error": "Taal wijzigen mislukt. Probeer opnieuw.",
   "language.change.success": "Taal gewijzigd naar {language}",
@@ -486,7 +491,8 @@ export default {
   "share.email": "Deel via e-mail",
   "share.email.label": "E-mail",
   "share.email.subject": "Mijn Melody Mind-score",
-  "share.score_line": "Ik scoorde {score} punten in de {category}-quiz op Melody Mind ({difficulty})!",
+  "share.score_line":
+    "Ik scoorde {score} punten in de {category}-quiz op Melody Mind ({difficulty})!",
   "share.challenge": "🎮 Denk je dat je me kan verslaan? Speel nu:",
   "share.fallback.manual.label": "Kopieer paginalink handmatig",
   "share.fallback.manual.text": "Kopieer link",
@@ -543,10 +549,14 @@ export default {
   "pages.imprint.contact_label": "E-mail:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Voor vragen: dcschmid@murena.io",
-  "pages.imprint.intro": "Colofon — deze sectie biedt verplichte aanbiederidentificatie en contactinformatie.",
-  "pages.imprint.dispute_resolution.description": "De Europese Commissie biedt een platform voor onlinegeschillenbeslechting (ODR) dat via onderstaande link toegankelijk is.",
+  "pages.imprint.intro":
+    "Colofon — deze sectie biedt verplichte aanbiederidentificatie en contactinformatie.",
+  "pages.imprint.dispute_resolution.description":
+    "De Europese Commissie biedt een platform voor onlinegeschillenbeslechting (ODR) dat via onderstaande link toegankelijk is.",
   "pages.imprint.dispute_resolution.odr_link_label": "Open het Europese onlinegeschillenplatform",
-  "pages.imprint.dispute_participation": "Wij zijn niet verplicht of bereid deel te nemen aan geschillenbeslechtingsprocedures voor een consumentenarbitragecommissie.",
+  "pages.imprint.dispute_participation":
+    "Wij zijn niet verplicht of bereid deel te nemen aan geschillenbeslechtingsprocedures voor een consumentenarbitragecommissie.",
   "pages.legal.disclaimer.title": "Disclaimer",
-  "pages.legal.disclaimer.content": "Alle informatie wordt zonder garantie verstrekt. We streven naar juistheid maar aanvaarden geen aansprakelijkheid voor externe inhoud of links. Gebruik van de site is op eigen risico.",
+  "pages.legal.disclaimer.content":
+    "Alle informatie wordt zonder garantie verstrekt. We streven naar juistheid maar aanvaarden geen aansprakelijkheid voor externe inhoud of links. Gebruik van de site is op eigen risico.",
 };

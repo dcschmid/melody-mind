@@ -5,7 +5,7 @@ export default {
   "audioplayer.aria.region": "音频播放器",
   "category.about.title": "关于此分类",
   "category.difficulty.easy": "简单",
-  
+
   // Daily Challenge (DB-free; English fallback)
   "daily.challenge.title": "每日挑战",
   "daily.challenge.subtitle": "今日新分类。与时间赛跑。",
@@ -50,8 +50,7 @@ export default {
   "podcast.download_audio": "下载音频",
   "podcast.view_subtitles": "查看字幕",
   "podcasts.cta.title": "发现播客",
-  "podcasts.cta.description":
-    "探索我们精心挑选的音乐播客——精彩访谈与故事，让你忍不住按下播放。🎙️",
+  "podcasts.cta.description": "探索我们精心挑选的音乐播客——精彩访谈与故事，让你忍不住按下播放。🎙️",
   "podcasts.cta.browse": "浏览播客",
   "podcasts.navigation.next": "下一集",
   "podcasts.navigation.previous": "上一集",
@@ -313,15 +312,20 @@ export default {
   "index.start.game.label": "开始你的音乐之旅",
   "index.welcome.footnote": "🎶 为真正的音乐粉丝而生 — 让魔力开始吧！ ✨",
   "index.card.game.title": "游戏总览",
-  "index.card.game.desc": "跳入刺激的音乐问答模式：速度、策略与热情交织——精通分类、保持连胜、未来解锁成就，每日回来磨练听力并向排行榜冲刺，打造属于你的音乐高光。🎯",
+  "index.card.game.desc":
+    "跳入刺激的音乐问答模式：速度、策略与热情交织——精通分类、保持连胜、未来解锁成就，每日回来磨练听力并向排行榜冲刺，打造属于你的音乐高光。🎯",
   "index.card.knowledge.title": "音乐知识",
-  "index.card.knowledge.desc": "深入探索流派源流、影响、代表专辑与聆听提示——让随意听歌变成有意识的发现，拓宽品味边界，成为朋友眼中最懂音乐的那个人。📚",
+  "index.card.knowledge.desc":
+    "深入探索流派源流、影响、代表专辑与聆听提示——让随意听歌变成有意识的发现，拓宽品味边界，成为朋友眼中最懂音乐的那个人。📚",
   "index.card.playlists.title": "歌单",
-  "index.card.playlists.desc": "穿梭年代、情绪与全球场景的精心策划歌单——挖掘冷门宝藏，重温不朽金曲，助力专注或放松，同时自然提升你的音乐鉴赏力。🎶",
+  "index.card.playlists.desc":
+    "穿梭年代、情绪与全球场景的精心策划歌单——挖掘冷门宝藏，重温不朽金曲，助力专注或放松，同时自然提升你的音乐鉴赏力。🎶",
   "index.card.podcast.title": "播客",
-  "index.card.podcast.desc": "启发灵感的长篇访谈、幕后故事、创作旅程与文化解读——随时随地收听，点燃好奇心，从全新角度认识艺术家，陪你持续进阶。🎙️",
+  "index.card.podcast.desc":
+    "启发灵感的长篇访谈、幕后故事、创作旅程与文化解读——随时随地收听，点燃好奇心，从全新角度认识艺术家，陪你持续进阶。🎙️",
   "index.card.news.title": "动态",
-  "index.card.news.desc": "全新功能、界面优化、性能提升与音乐世界亮点——第一时间掌握更新，捕捉新玩法灵感，不错过任何让你的 MelodyMind 体验升级的改变。✨",
+  "index.card.news.desc":
+    "全新功能、界面优化、性能提升与音乐世界亮点——第一时间掌握更新，捕捉新玩法灵感，不错过任何让你的 MelodyMind 体验升级的改变。✨",
   "index.overview.sections": "首页功能分区",
   "language.change.error": "切换语言失败。请重试。",
   "language.change.success": "语言已切换为 {language}",
@@ -519,7 +523,8 @@ export default {
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "如有询问: dcschmid@murena.io",
   "pages.imprint.intro": "本法律声明（出版信息）提供本网站所需的运营主体识别与联系信息。",
-  "pages.imprint.dispute_resolution.description": "欧盟委员会提供了一个在线争议解决平台（ODR），可通过以下链接访问。",
+  "pages.imprint.dispute_resolution.description":
+    "欧盟委员会提供了一个在线争议解决平台（ODR），可通过以下链接访问。",
   "pages.imprint.dispute_resolution.odr_link_label": "打开欧盟在线争议解决平台",
   "pages.imprint.dispute_participation": "我们没有义务也不承诺参加消费者仲裁机构的争议解决程序。",
 };

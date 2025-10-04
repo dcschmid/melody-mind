@@ -80,9 +80,7 @@ export function buildCollectionWithItemListSchema(
           datePublished: item.datePublished,
           genre: item.genre,
           about: item.about,
-          author: item.authorName
-            ? { "@type": "Organization", name: item.authorName }
-            : undefined,
+          author: item.authorName ? { "@type": "Organization", name: item.authorName } : undefined,
           publisher: item.publisherName
             ? { "@type": "Organization", name: item.publisherName, url: siteUrl }
             : undefined,

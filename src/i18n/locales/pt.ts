@@ -5,7 +5,7 @@ export default {
   "audioplayer.aria.region": "Reprodutor de áudio",
   "category.about.title": "Sobre esta categoria",
   "category.difficulty.easy": "Fácil",
-  
+
   // Desafio diário (sem BD; fallback em inglês)
   "daily.challenge.title": "Desafio diário",
   "daily.challenge.subtitle": "Nova categoria hoje. Vence o tempo.",
@@ -544,22 +544,32 @@ export default {
   "pages.imprint.contact_label": "Email:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Para consultas: dcschmid@murena.io",
-  "pages.imprint.intro": "Aviso legal — esta seção fornece a identificação obrigatória do provedor e as informações de contato.",
-  "pages.imprint.dispute_resolution.description": "A Comissão Europeia disponibiliza uma plataforma de resolução de litígios em linha (ODR) acessível pelo link abaixo.",
-  "pages.imprint.dispute_resolution.odr_link_label": "Abrir a plataforma europeia de resolução de litígios online",
-  "pages.imprint.dispute_participation": "Não estamos obrigados nem dispostos a participar de procedimentos de resolução de litígios perante uma entidade de arbitragem de consumidores.",
+  "pages.imprint.intro":
+    "Aviso legal — esta seção fornece a identificação obrigatória do provedor e as informações de contato.",
+  "pages.imprint.dispute_resolution.description":
+    "A Comissão Europeia disponibiliza uma plataforma de resolução de litígios em linha (ODR) acessível pelo link abaixo.",
+  "pages.imprint.dispute_resolution.odr_link_label":
+    "Abrir a plataforma europeia de resolução de litígios online",
+  "pages.imprint.dispute_participation":
+    "Não estamos obrigados nem dispostos a participar de procedimentos de resolução de litígios perante uma entidade de arbitragem de consumidores.",
   "pages.legal.disclaimer.title": "Aviso de responsabilidade",
-  "pages.legal.disclaimer.content": "Todas as informações são fornecidas sem garantia. Buscamos precisão, mas não assumimos responsabilidade por conteúdos ou links externos. O uso do site é por sua conta e risco.",
+  "pages.legal.disclaimer.content":
+    "Todas as informações são fornecidas sem garantia. Buscamos precisão, mas não assumimos responsabilidade por conteúdos ou links externos. O uso do site é por sua conta e risco.",
 
   "index.card.game.title": "Quiz Musical",
-  "index.card.game.desc": "🔥 Teste seu conhecimento musical e prove que você domina gêneros, épocas e estilos! Cada rodada é um novo desafio para ganhar pontos, desbloquear conquistas e subir no ranking. Você está pronto para defender seu título?",
+  "index.card.game.desc":
+    "🔥 Teste seu conhecimento musical e prove que você domina gêneros, épocas e estilos! Cada rodada é um novo desafio para ganhar pontos, desbloquear conquistas e subir no ranking. Você está pronto para defender seu título?",
   "index.card.knowledge.title": "Conhecimento Musical",
-  "index.card.knowledge.desc": "📚 Aprofunde-se em histórias, gêneros, artistas e contextos culturais. Artigos envolventes revelam curiosidades, caminhos criativos e conexões inesperadas — perfeitos para ampliar seu repertório e descobrir algo novo hoje mesmo!",
+  "index.card.knowledge.desc":
+    "📚 Aprofunde-se em histórias, gêneros, artistas e contextos culturais. Artigos envolventes revelam curiosidades, caminhos criativos e conexões inesperadas — perfeitos para ampliar seu repertório e descobrir algo novo hoje mesmo!",
   "index.card.playlists.title": "Playlists Curadas",
-  "index.card.playlists.desc": "🎧 Embarque em viagens sonoras temáticas — décadas lendárias, movimentos culturais e climas perfeitos. Descubra faixas que definiram gerações e expanda sua biblioteca com seleções feitas com cuidado para inspirar cada sessão de escuta.",
+  "index.card.playlists.desc":
+    "🎧 Embarque em viagens sonoras temáticas — décadas lendárias, movimentos culturais e climas perfeitos. Descubra faixas que definiram gerações e expanda sua biblioteca com seleções feitas com cuidado para inspirar cada sessão de escuta.",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "🎙️ Histórias de bastidores, conversas apaixonadas e perspectivas que fazem você ouvir com novos ouvidos. Ideal para fãs curiosos que querem sentir a música além do som — mergulhe e deixe-se inspirar a cada episódio!",
+  "index.card.podcast.desc":
+    "🎙️ Histórias de bastidores, conversas apaixonadas e perspectivas que fazem você ouvir com novos ouvidos. Ideal para fãs curiosos que querem sentir a música além do som — mergulhe e deixe-se inspirar a cada episódio!",
   "index.card.news.title": "Notícias Musicais",
-  "index.card.news.desc": "📰 Mantenha-se no ritmo: lançamentos quentes, tendências emergentes, marcos de artistas e movimentos que moldam o futuro da música. Um panorama motivador para quem gosta de estar sempre um passo à frente no universo sonoro.",
+  "index.card.news.desc":
+    "📰 Mantenha-se no ritmo: lançamentos quentes, tendências emergentes, marcos de artistas e movimentos que moldam o futuro da música. Um panorama motivador para quem gosta de estar sempre um passo à frente no universo sonoro.",
   "index.overview.sections": "Secções principais",
 };

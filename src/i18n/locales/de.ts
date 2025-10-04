@@ -107,7 +107,8 @@ export default {
   "nav.menu.knowledge.desc": "Musikwissen & Trivia entdecken",
   "nav.menu.playlists.desc": "Kurierte Playlists entdecken",
   "nav.menu.podcasts": "Podcasts",
-  "nav.podcasts.description": "Entdecke inspirierende Musik‑Podcasts mit Interviews, Stories und Aha‑Momenten",
+  "nav.podcasts.description":
+    "Entdecke inspirierende Musik‑Podcasts mit Interviews, Stories und Aha‑Momenten",
   "news.title": "Neuigkeiten",
   "news.description":
     "Bleib am Puls der Musik — neue Hits, Künstler:innen‑News und Trends aus aller Welt. ✨",
@@ -118,10 +119,13 @@ export default {
   "news.legal.attribution": "Bilder und Inhalte sind den jeweiligen Herausgebern zugeordnet.",
   "news.disclaimer.text":
     "Der News-Feed aggregiert Inhalte externer Herausgeber. Wir beanspruchen kein Eigentum an Drittinhalten. Öffne den Originalartikel für den vollständigen Kontext.",
-  "nav.donate.description": "Unterstütze Melody Mind und hilf, noch mehr Musikmomente zu schaffen ✨",
+  "nav.donate.description":
+    "Unterstütze Melody Mind und hilf, noch mehr Musikmomente zu schaffen ✨",
   "error.extend.tooltip": "Fehlermeldungs-Timeout um 5 Sekunden verlängern",
-  "error.invalid.question": "Diese Frage ist ungültig oder hat keine Antwortoptionen. Bitte versuche es erneut.",
-  "error.no.albums.found": "Keine Alben für die Kategorie {category} gefunden. Bitte wähle eine andere Kategorie.",
+  "error.invalid.question":
+    "Diese Frage ist ungültig oder hat keine Antwortoptionen. Bitte versuche es erneut.",
+  "error.no.albums.found":
+    "Keine Alben für die Kategorie {category} gefunden. Bitte wähle eine andere Kategorie.",
   "error.no.initial.question": "Keine gültige Anfangsfrage gefunden. Bitte starte eine neue Runde.",
   "errors.achievements.check":
     "Fehler beim Überprüfen der Errungenschaften. Bitte versuche es später erneut.",
@@ -129,7 +133,8 @@ export default {
     "Fehler beim Laden der Errungenschaften. Bitte versuche es später erneut.",
   "errors.achievements.invalidId": "Ungültige Errungenschafts-ID: leer oder fehlt",
   "errors.achievements.log": "Fehler beim Überprüfen der Errungenschaften:",
-  "errors.achievements.unknownError": "Unbekannter Fehler beim Freischalten. Bitte versuche es später erneut.",
+  "errors.achievements.unknownError":
+    "Unbekannter Fehler beim Freischalten. Bitte versuche es später erneut.",
   "errors.achievements.unlock":
     "Fehler beim Freischalten der Errungenschaft. Bitte versuche es später erneut.",
   "errors.achievements.update":
@@ -143,15 +148,18 @@ export default {
   "errors.gameResult.validation.invalidCorrectAnswers":
     "Bitte gib die Anzahl korrekter Antworten als Zahl ein.",
   "errors.gameResult.validation.invalidData": "Ungültiges Datenformat. Bitte prüfe deine Angaben.",
-  "errors.gameResult.validation.invalidDifficulty": "Ungültiger Schwierigkeitsgrad. Bitte wähle eine Option.",
+  "errors.gameResult.validation.invalidDifficulty":
+    "Ungültiger Schwierigkeitsgrad. Bitte wähle eine Option.",
   "errors.gameResult.validation.invalidScore": "Bitte gib die Punktzahl als Zahl ein.",
-  "errors.gameResult.validation.invalidTotalRounds": "Bitte gib die Gesamtzahl der Runden als Zahl ein.",
+  "errors.gameResult.validation.invalidTotalRounds":
+    "Bitte gib die Gesamtzahl der Runden als Zahl ein.",
   "errors.gameResult.validation.missingCategory": "Bitte gib einen Kategorienamen an.",
   "errors.gameResult.validation.missingDifficulty": "Bitte wähle einen Schwierigkeitsgrad.",
   "errors.gameResult.validation.missingUserId": "Bitte gib eine Benutzer-ID an.",
   "errors.invalidParameters": "Ungültige Eingaben. Bitte prüfe deine Angaben.",
   "errors.profile.notFound": "Wir konnten dein Profil nicht finden.",
-  "errors.profile.retrievalError": "Dein Profil konnte nicht geladen werden. Bitte versuche es später erneut.",
+  "errors.profile.retrievalError":
+    "Dein Profil konnte nicht geladen werden. Bitte versuche es später erneut.",
   "footer.donate": "Spenden",
   "footer.donate_aria": "Spende über PayPal",
   "footer.impressum": "Impressum",
@@ -165,7 +173,8 @@ export default {
   "footer.source_code": "Quellcode von MelodyMind auf GitHub ansehen",
   "footer.support_kofi": "MelodyMind auf Ko-fi unterstützen",
   "pages.privacy.contact.address_label": "Adresse:",
-  "pages.privacy.contact.email_aria": "E-Mail-Adresse zur Kontaktaufnahme mit der verantwortlichen Person",
+  "pages.privacy.contact.email_aria":
+    "E-Mail-Adresse zur Kontaktaufnahme mit der verantwortlichen Person",
   "game.answer.correct": "Richtig! {points} Punkte + {bonus} Bonuspunkte — großartig! 🎉",
   "game.answer.wrong": "Nicht ganz — die richtige Antwort war: {answer}. Versuch's nochmal! 💪",
   "game.area.label": "Spielbereich",
@@ -208,7 +217,8 @@ export default {
   "game.default.headline": "Spiel",
   "game.difficulty.easy": "Leicht",
   "game.end.achievementBadge": "Errungenschafts-Trophäen-Symbol",
-  "game.end.defaultMotivation": "Super gemacht! Spiel weiter und klettere in der Bestenliste nach oben! 🚀",
+  "game.end.defaultMotivation":
+    "Super gemacht! Spiel weiter und klettere in der Bestenliste nach oben! 🚀",
   "game.end.difficultyDescription": "Zeigt den abgeschlossenen Schwierigkeitsgrad an",
   "game.end.difficultyLevel": "Schwierigkeitsanzeige",
   "game.end.finalScore": "Endpunktzahl:",
@@ -319,7 +329,8 @@ export default {
   "highscores.points": "Punkte",
   "highscores.rank": "Platz",
   "highscores.results": "Top-Ergebnisse",
-  "highscores.seo.description": "Sieh dir Top‑Scores an, vergleiche dich mit anderen und hol dir den Spitzenplatz! 🏆",
+  "highscores.seo.description":
+    "Sieh dir Top‑Scores an, vergleiche dich mit anderen und hol dir den Spitzenplatz! 🏆",
   "highscores.tableLabel": "Bestenliste",
   "highscores.title": "Bestenliste",
   "index.continue": "Los geht's!",
@@ -433,7 +444,8 @@ export default {
   "playlist.search.heading": "Playlists suchen",
   "playlist.search.placeholder": "Nach Künstler:in oder Stil suchen…",
   "profile.auth.required": "Du musst eingeloggt sein, um dein Profil zu sehen",
-  "profile.description": "Verwalte deine Daten und entdecke deine Spielstatistiken — wachse von Runde zu Runde! 📈",
+  "profile.description":
+    "Verwalte deine Daten und entdecke deine Spielstatistiken — wachse von Runde zu Runde! 📈",
   "profile.error": "Fehler beim Laden der Profildaten",
   "profile.loading": "Profildaten werden geladen…",
   "profile.nav.aria": "Navigation zum Benutzerprofil",
@@ -550,19 +562,28 @@ export default {
   "pages.imprint.contact_label": "E-Mail:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Bei Rückfragen: dcschmid@murena.io",
-  "pages.imprint.intro": "Dieses Impressum (rechtliche Hinweise) stellt die gesetzlich erforderlichen Anbieter- und Kontaktinformationen bereit.",
-  "pages.imprint.dispute_resolution.description": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) unter folgendem Link bereit.",
-  "pages.imprint.dispute_resolution.odr_link_label": "EU-Plattform zur Online-Streitbeilegung öffnen",
-  "pages.imprint.dispute_participation": "Wir sind weder verpflichtet noch bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+  "pages.imprint.intro":
+    "Dieses Impressum (rechtliche Hinweise) stellt die gesetzlich erforderlichen Anbieter- und Kontaktinformationen bereit.",
+  "pages.imprint.dispute_resolution.description":
+    "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) unter folgendem Link bereit.",
+  "pages.imprint.dispute_resolution.odr_link_label":
+    "EU-Plattform zur Online-Streitbeilegung öffnen",
+  "pages.imprint.dispute_participation":
+    "Wir sind weder verpflichtet noch bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
   "index.card.game.title": "Spielübersicht",
-  "index.card.game.desc": "Starte in spannende Quiz‑Modi, kombiniere Tempo, Taktik und echtes Musikwissen – meistere Kategorien, halte Serien, schalte später Achievements frei und feile täglich an deinem Gefühl für Sounds und Details. 🎯",
+  "index.card.game.desc":
+    "Starte in spannende Quiz‑Modi, kombiniere Tempo, Taktik und echtes Musikwissen – meistere Kategorien, halte Serien, schalte später Achievements frei und feile täglich an deinem Gefühl für Sounds und Details. 🎯",
   "index.card.knowledge.title": "Musikwissen",
-  "index.card.knowledge.desc": "Tauche in Ursprünge, Stilmerkmale, Schlüsselalben, Einflüsse und Hörtipps ein – verwandle beiläufiges Hören in gezielte Entdeckungsreisen und werde zur Quelle für fundierte Musikfragen im Freundeskreis. 📚",
+  "index.card.knowledge.desc":
+    "Tauche in Ursprünge, Stilmerkmale, Schlüsselalben, Einflüsse und Hörtipps ein – verwandle beiläufiges Hören in gezielte Entdeckungsreisen und werde zur Quelle für fundierte Musikfragen im Freundeskreis. 📚",
   "index.card.playlists.title": "Playlists",
-  "index.card.playlists.desc": "Reise durch Jahrzehnte, Stimmungen und Szenen: kuratierte Mixes mit Klassikern, Geheimtipps und Klangfarben zum Lernen, Fokussieren oder Abschalten – wachse musikalisch, während du einfach genießt. 🎶",
+  "index.card.playlists.desc":
+    "Reise durch Jahrzehnte, Stimmungen und Szenen: kuratierte Mixes mit Klassikern, Geheimtipps und Klangfarben zum Lernen, Fokussieren oder Abschalten – wachse musikalisch, während du einfach genießt. 🎶",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "Inspirierende Gespräche, Hintergründe, kreative Prozesse und Kulturkontext – unterwegs hören, Neugier füttern, Perspektiven erweitern und motiviert bleiben auf deinem Weg zum echten Musikverständnis. 🎙️",
+  "index.card.podcast.desc":
+    "Inspirierende Gespräche, Hintergründe, kreative Prozesse und Kulturkontext – unterwegs hören, Neugier füttern, Perspektiven erweitern und motiviert bleiben auf deinem Weg zum echten Musikverständnis. 🎙️",
   "index.card.news.title": "Neuigkeiten",
-  "index.card.news.desc": "Neue Features, Feinschliff, Performance‑Verbesserungen und Highlights aus der Musikwelt – bleib informiert, erkenne Chancen früh und verpasse keinen Schritt auf deinem MelodyMind Fortschrittspfad. ✨",
+  "index.card.news.desc":
+    "Neue Features, Feinschliff, Performance‑Verbesserungen und Highlights aus der Musikwelt – bleib informiert, erkenne Chancen früh und verpasse keinen Schritt auf deinem MelodyMind Fortschrittspfad. ✨",
   "index.overview.sections": "Startseiten‑Bereiche",
 };

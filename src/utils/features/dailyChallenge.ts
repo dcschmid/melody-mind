@@ -8,7 +8,8 @@
 
 import type { Category } from "../category/categoryLoadingUtils";
 
-export type PlayableCategory = Category & Required<Pick<Category, "slug" | "headline" | "imageUrl" | "categoryUrl">>;
+export type PlayableCategory = Category &
+  Required<Pick<Category, "slug" | "headline" | "imageUrl" | "categoryUrl">>;
 
 /** Return YYYY-MM-DD in UTC */
 
@@ -42,10 +43,13 @@ export function pickIndexForToday(length: number, seed: string = "melodymind"): 
 /**
  * Given a list of playable categories, return today’s selection.
  */
-export function pickDailyCategory(categories: PlayableCategory[], seed?: string): PlayableCategory | null {
+export function pickDailyCategory(
+  categories: PlayableCategory[],
+  seed?: string
+): PlayableCategory | null {
   const playable = Array.isArray(categories)
-    ? categories.filter(
-        (c): c is PlayableCategory => Boolean(c && c.isPlayable && c.slug && c.headline && c.imageUrl && c.categoryUrl)
+    ? categories.filter((c): c is PlayableCategory =>
+        Boolean(c && c.isPlayable && c.slug && c.headline && c.imageUrl && c.categoryUrl)
       )
     : [];
   if (playable.length === 0) {
@@ -58,9 +62,12 @@ export function pickDailyCategory(categories: PlayableCategory[], seed?: string)
 export type Difficulty = "easy" | "medium" | "hard";
 
 /** Build route to game page for category + difficulty */
-export function buildGameRoute(lang: string, slug: string, difficulty: Difficulty = "medium"): string {
+export function buildGameRoute(
+  lang: string,
+  slug: string,
+  difficulty: Difficulty = "medium"
+): string {
   const safeLang = String(lang || "en").trim();
   const safeSlug = String(slug).trim();
   return `/${safeLang}/game-${safeSlug}/${difficulty}`;
 }
-

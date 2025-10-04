@@ -27,7 +27,14 @@ export function buildPodcastSeriesSchema(opts: {
   numberOfEpisodes: number;
   publisherName?: string;
 }): Record<string, unknown> {
-  const { name, description, url, inLanguage, numberOfEpisodes, publisherName = "Melody Mind" } = opts;
+  const {
+    name,
+    description,
+    url,
+    inLanguage,
+    numberOfEpisodes,
+    publisherName = "Melody Mind",
+  } = opts;
   return {
     "@context": "https://schema.org",
     "@type": "PodcastSeries",
@@ -53,12 +60,16 @@ export function buildPodcastEpisodesItemList(opts: {
   if (!episodes.length) {
     return undefined;
   }
-  const sorted = [...episodes].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
-  const numberMap = chronologicalNumberMap || new Map(
-    [...episodes]
-      .sort((a, b) => new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime())
-      .map((e, idx) => [e.id, idx + 1] as const)
+  const sorted = [...episodes].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
+  const numberMap =
+    chronologicalNumberMap ||
+    new Map(
+      [...episodes]
+        .sort((a, b) => new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime())
+        .map((e, idx) => [e.id, idx + 1] as const)
+    );
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -91,7 +102,14 @@ export function buildKnowledgeArticlesItemList(opts: {
   name?: string;
   description?: string;
 }): Record<string, unknown> {
-  const { articles, baseUrl, lang, limit = 10, name = "Knowledge Articles", description = "Music knowledge articles" } = opts;
+  const {
+    articles,
+    baseUrl,
+    lang,
+    limit = 10,
+    name = "Knowledge Articles",
+    description = "Music knowledge articles",
+  } = opts;
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -121,19 +139,29 @@ export function buildCategoryItemListSchema(opts: {
   description?: string;
   pathPrefix?: string; // e.g. 'playlists' or 'gamehome'
 }): Record<string, unknown> | undefined {
-  const { categories, baseUrl, lang, limit = 24, name = 'Categories', description = 'Music categories', pathPrefix = 'playlists' } = opts;
-  if (!categories || !categories.length) { return undefined; }
+  const {
+    categories,
+    baseUrl,
+    lang,
+    limit = 24,
+    name = "Categories",
+    description = "Music categories",
+    pathPrefix = "playlists",
+  } = opts;
+  if (!categories || !categories.length) {
+    return undefined;
+  }
   return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
+    "@context": "https://schema.org",
+    "@type": "ItemList",
     name,
     description,
     numberOfItems: categories.length,
     itemListElement: categories.slice(0, limit).map((cat, index) => ({
-      '@type': 'ListItem',
+      "@type": "ListItem",
       position: index + 1,
       name: cat.title,
-      description: cat.description || '',
+      description: cat.description || "",
       url: `${baseUrl}/${lang}/${pathPrefix}/${cat.slug}`,
       image: cat.image,
     })),
@@ -154,11 +182,23 @@ export function buildPodcastEpisodeSchema(opts: {
   seriesUrl?: string;
   inLanguage?: string;
 }): Record<string, unknown> {
-  const { id, title, description, url, audioUrl, imageUrl, publishDate, episodeNumber, seriesName = 'MelodyMind Podcast', seriesUrl, inLanguage = 'en' } = opts;
+  const {
+    id,
+    title,
+    description,
+    url,
+    audioUrl,
+    imageUrl,
+    publishDate,
+    episodeNumber,
+    seriesName = "MelodyMind Podcast",
+    seriesUrl,
+    inLanguage = "en",
+  } = opts;
   return {
-    '@context': 'https://schema.org',
-    '@type': 'PodcastEpisode',
-    '@id': id,
+    "@context": "https://schema.org",
+    "@type": "PodcastEpisode",
+    "@id": id,
     name: title,
     description,
     url,
@@ -166,8 +206,10 @@ export function buildPodcastEpisodeSchema(opts: {
     datePublished: publishDate instanceof Date ? publishDate.toISOString() : publishDate,
     image: imageUrl,
     episodeNumber,
-    partOfSeries: seriesUrl ? { '@type': 'PodcastSeries', name: seriesName, url: seriesUrl } : undefined,
-    associatedMedia: audioUrl ? { '@type': 'MediaObject', contentUrl: audioUrl } : undefined,
-    publisher: { '@type': 'Organization', name: 'Melody Mind' },
+    partOfSeries: seriesUrl
+      ? { "@type": "PodcastSeries", name: seriesName, url: seriesUrl }
+      : undefined,
+    associatedMedia: audioUrl ? { "@type": "MediaObject", contentUrl: audioUrl } : undefined,
+    publisher: { "@type": "Organization", name: "Melody Mind" },
   };
 }

@@ -23,7 +23,7 @@ export const SUPPORTED_LANGUAGES = [
   "cn",
 ] as const;
 
-export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number];
+export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
 /**
  * Narrow type guard for validating an unknown language string.

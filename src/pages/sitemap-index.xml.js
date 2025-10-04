@@ -14,6 +14,6 @@ export const prerender = false;
 export async function get() {
   return {
     status: 404,
-    body: ''
+    body: "",
   };
 }

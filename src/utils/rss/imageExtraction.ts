@@ -54,11 +54,11 @@ export function normalizeToAbsolute(raw: unknown, baseUrl: string): string | nul
   if (!url) {
     return null;
   }
-  if (url.startsWith('//')) {
+  if (url.startsWith("//")) {
     return `https:${url}`;
   }
-  if (url.startsWith('/')) {
-    return `${baseUrl.replace(/\/$/, '')}${url}`;
+  if (url.startsWith("/")) {
+    return `${baseUrl.replace(/\/$/, "")}${url}`;
   }
   if (/^https?:\/\//i.test(url)) {
     return url;
@@ -67,13 +67,19 @@ export function normalizeToAbsolute(raw: unknown, baseUrl: string): string | nul
 }
 
 /** Attempt to resolve a media object or value into a single URL candidate. */
-type MediaLike = string | { url?: string; [k: string]: unknown } | Array<MediaLike> | { '@url'?: string; $?: { url?: string } } | null | undefined;
+type MediaLike =
+  | string
+  | { url?: string; [k: string]: unknown }
+  | Array<MediaLike>
+  | { "@url"?: string; $?: { url?: string } }
+  | null
+  | undefined;
 
 function tryMedia(media: MediaLike): string | null {
   if (!media) {
     return null;
   }
-  if (typeof media === 'string') {
+  if (typeof media === "string") {
     return media;
   }
   if (Array.isArray(media) && media.length) {
@@ -82,8 +88,8 @@ function tryMedia(media: MediaLike): string | null {
   if ((media as { url?: string }).url) {
     return (media as { url?: string }).url || null;
   }
-  if ((media as { '@url'?: string })['@url']) {
-    return (media as { '@url'?: string })['@url'] || null;
+  if ((media as { "@url"?: string })["@url"]) {
+    return (media as { "@url"?: string })["@url"] || null;
   }
   const mediaObj = media as { $?: { url?: string } } | undefined;
   if (mediaObj?.$?.url) {
@@ -94,17 +100,17 @@ function tryMedia(media: MediaLike): string | null {
 
 /** Collect direct field-based image URL candidates from an item. */
 function pushIf<T>(arr: T[], value: T | null | undefined): void {
-  if (value !== null && value !== undefined && value !== ('' as unknown)) {
+  if (value !== null && value !== undefined && value !== ("" as unknown)) {
     arr.push(value);
   }
 }
 
 function collectItunesImage(item: RssItem, out: string[]): void {
-  const raw = item['itunes:image'] as unknown;
+  const raw = item["itunes:image"] as unknown;
   if (!raw) {
     return;
   }
-  if (typeof raw === 'string') {
+  if (typeof raw === "string") {
     pushIf(out, raw);
     return;
   }
@@ -121,16 +127,16 @@ function collectItunesImage(item: RssItem, out: string[]): void {
 
 function collectMedia(item: RssItem, out: string[]): void {
   const mediaThumb = tryMedia(
-    (item as Record<string, MediaLike>)['media:thumbnail'] ||
-      (item as Record<string, MediaLike>)['media:thumbnailUrl'] ||
+    (item as Record<string, MediaLike>)["media:thumbnail"] ||
+      (item as Record<string, MediaLike>)["media:thumbnailUrl"] ||
       (item as Record<string, MediaLike>).thumbnail
   );
   if (mediaThumb) {
     pushIf(out, mediaThumb);
   }
   const mediaContent = tryMedia(
-    (item as Record<string, MediaLike>)['media:content'] ||
-      (item as Record<string, MediaLike>)['media:contentUrl'] ||
+    (item as Record<string, MediaLike>)["media:content"] ||
+      (item as Record<string, MediaLike>)["media:contentUrl"] ||
       (item as Record<string, MediaLike>).media
   );
   if (mediaContent) {
@@ -156,7 +162,7 @@ function collectDirectCandidates(item: RssItem): string[] {
 
 /** Parse HTML inside content/description to extract first <img> data-src/srcset/src usage. */
 function collectHtmlEmbedded(item: RssItem): string[] {
-  const html = (item.content || item.description || '') as string;
+  const html = (item.content || item.description || "") as string;
   const out: string[] = [];
   if (!html) {
     return out;
@@ -168,7 +174,7 @@ function collectHtmlEmbedded(item: RssItem): string[] {
     }
     const srcset = html.match(/<img[^>]+srcset=["']([^"']+)["']/i);
     if (srcset?.[1]) {
-      const first = srcset[1].split(',')[0].trim().split(' ')[0];
+      const first = srcset[1].split(",")[0].trim().split(" ")[0];
       if (first) {
         out.push(first);
       }
@@ -196,7 +202,7 @@ export function getImageForRssItem(
   item: RssItem | null | undefined,
   options: GetImageOptions
 ): string {
-  const { baseUrl, fallbackPath = '/images/news-fallback.svg' } = options;
+  const { baseUrl, fallbackPath = "/images/news-fallback.svg" } = options;
   const fallback = normalizeToAbsolute(fallbackPath, baseUrl) || fallbackPath;
   if (!item) {
     return fallback;
@@ -232,7 +238,7 @@ export function mapItemsWithDisplayData<T extends RssItem>(
   return (items || []).map((it) => {
     const displayImage = getImageForRssItem(it, options);
     const displayDate = it.pubDate ? new Date(it.pubDate) : null;
-    const displayDateString = displayDate ? displayDate.toLocaleDateString(lang) : '';
+    const displayDateString = displayDate ? displayDate.toLocaleDateString(lang) : "";
     return { ...it, displayImage, displayDate, displayDateString };
   });
 }

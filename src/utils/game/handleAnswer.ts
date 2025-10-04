@@ -77,10 +77,10 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
 
   /**
    * Handles the user's answer submission and updates game state
-  * @param {string} option - The selected answer option
-  * @param {string} correctAnswer - The correct answer
-  * @param {{trivia: string}} currentQuestion - The current question object
-  * @param {{coverSrc: string; artist: string; album: string; year: string}} album - The current album object
+   * @param {string} option - The selected answer option
+   * @param {string} correctAnswer - The correct answer
+   * @param {{trivia: string}} currentQuestion - The current question object
+   * @param {{coverSrc: string; artist: string; album: string; year: string}} album - The current album object
    */
   return function handleAnswer(
     option: string,
@@ -90,14 +90,15 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
   ): void {
     // Calculate time taken to answer (if question start timestamp provided in config.questionConfig.startTime)
     const now = Date.now();
-    const timeTakenSeconds = config.questionConfig && typeof config.questionConfig.startTime === "number"
-      ? (now - config.questionConfig.startTime) / 1000
-      : 0;
+    const timeTakenSeconds =
+      config.questionConfig && typeof config.questionConfig.startTime === "number"
+        ? (now - config.questionConfig.startTime) / 1000
+        : 0;
 
     /**
      * Calculates bonus points based on answer time
-  * @param {number} time - Time taken to answer in seconds
-  * @returns {number} Number of bonus points awarded
+     * @param {number} time - Time taken to answer in seconds
+     * @returns {number} Number of bonus points awarded
      */
     const calculateBonus = (time: number): number => {
       if (time <= 10) {
@@ -110,7 +111,7 @@ export function createHandleAnswer(config: HandleAnswerConfig) {
     };
 
     // Calculate points
-  const bonusPoints = option === correctAnswer ? calculateBonus(timeTakenSeconds) : 0;
+    const bonusPoints = option === correctAnswer ? calculateBonus(timeTakenSeconds) : 0;
     const totalPoints = option === correctAnswer ? BASE_POINTS + bonusPoints : 0;
 
     // Update feedback display

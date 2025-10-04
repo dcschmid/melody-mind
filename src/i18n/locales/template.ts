@@ -518,10 +518,14 @@ export default {
   "pages.imprint.contact_label": "Email:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "For inquiries: dcschmid@murena.io",
-  "pages.imprint.intro": "This legal notice (imprint) provides mandatory provider identification and contact information for this site.",
-  "pages.imprint.dispute_resolution.description": "The European Commission provides an online dispute resolution (ODR) platform accessible at the link below.",
+  "pages.imprint.intro":
+    "This legal notice (imprint) provides mandatory provider identification and contact information for this site.",
+  "pages.imprint.dispute_resolution.description":
+    "The European Commission provides an online dispute resolution (ODR) platform accessible at the link below.",
   "pages.imprint.dispute_resolution.odr_link_label": "Open EU online dispute resolution platform",
-  "pages.imprint.dispute_participation": "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
+  "pages.imprint.dispute_participation":
+    "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
   "pages.legal.disclaimer.title": "Disclaimer",
-  "pages.legal.disclaimer.content": "All information is provided without guarantee. We strive for accuracy but assume no liability for external content or links. Use of the site is at your own risk.",
+  "pages.legal.disclaimer.content":
+    "All information is provided without guarantee. We strive for accuracy but assume no liability for external content or links. Use of the site is at your own risk.",
 };

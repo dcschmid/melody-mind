@@ -28,7 +28,11 @@ function buildPodcastEntries(lang: string, siteUrl: string, today: string): Site
     },
   ];
   try {
-    interface PodcastLike { id: string; publishedAt?: string; isAvailable?: boolean }
+    interface PodcastLike {
+      id: string;
+      publishedAt?: string;
+      isAvailable?: boolean;
+    }
     const raw = (enPodcastsJson as unknown as { podcasts?: PodcastLike[] }).podcasts || [];
     const podcasts: PodcastLike[] = Array.isArray(raw) ? raw : [];
     podcasts
@@ -64,18 +68,39 @@ export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> 
 }
 
 /** Build the XML sitemap for a given language. */
-export async function get({ params }: { params: { lang: string } }): Promise<{ body: string; headers: Record<string, string> }> {
+export async function get({
+  params,
+}: {
+  params: { lang: string };
+}): Promise<{ body: string; headers: Record<string, string> }> {
   const { lang } = params;
   const siteUrl: string = (import.meta.env.SITE as string) || "https://melodymind.app";
   const today = new Date().toISOString();
   const urls: SitemapEntry[] = [];
 
-  const push = (entry: SitemapEntry): void => { urls.push(entry); };
+  const push = (entry: SitemapEntry): void => {
+    urls.push(entry);
+  };
 
   push({ url: `${siteUrl}/${lang}/`, lastmod: today, changefreq: "weekly", priority: "1.0" });
-  push({ url: `${siteUrl}/${lang}/knowledge/`, lastmod: today, changefreq: "weekly", priority: "0.9" });
-  push({ url: `${siteUrl}/${lang}/playlists/`, lastmod: today, changefreq: "weekly", priority: "0.8" });
-  push({ url: `${siteUrl}/${lang}/gamehome/`, lastmod: today, changefreq: "weekly", priority: "0.8" });
+  push({
+    url: `${siteUrl}/${lang}/knowledge/`,
+    lastmod: today,
+    changefreq: "weekly",
+    priority: "0.9",
+  });
+  push({
+    url: `${siteUrl}/${lang}/playlists/`,
+    lastmod: today,
+    changefreq: "weekly",
+    priority: "0.8",
+  });
+  push({
+    url: `${siteUrl}/${lang}/gamehome/`,
+    lastmod: today,
+    changefreq: "weekly",
+    priority: "0.8",
+  });
 
   urls.push(...buildPodcastEntries(lang, siteUrl, today));
 
@@ -84,7 +109,8 @@ export async function get({ params }: { params: { lang: string } }): Promise<{ b
     const articles = await getCollection(collectionName).catch(() => null);
     if (Array.isArray(articles) && articles.length > 0) {
       (articles as CollectionEntry<typeof collectionName>[]).slice(0, 500).forEach((article) => {
-        const lastmod = article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : today;
+        const lastmod =
+          article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : today;
         push({
           url: `${siteUrl}/${lang}/knowledge/${article.slug}`,
           lastmod,
@@ -100,7 +126,8 @@ export async function get({ params }: { params: { lang: string } }): Promise<{ b
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls
     .map(
-      (entry) => `\n  <url>\n    <loc>${entry.url}</loc>\n    <lastmod>${entry.lastmod}</lastmod>\n    <changefreq>${entry.changefreq}</changefreq>\n    <priority>${entry.priority}</priority>\n  </url>`
+      (entry) =>
+        `\n  <url>\n    <loc>${entry.url}</loc>\n    <lastmod>${entry.lastmod}</lastmod>\n    <changefreq>${entry.changefreq}</changefreq>\n    <priority>${entry.priority}</priority>\n  </url>`
     )
     .join("")}\n</urlset>`;
 

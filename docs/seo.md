@@ -44,7 +44,6 @@ props to `<Layout />`.
   canonical={buildCanonicalUrl(Astro.site, Astro.url.pathname)}
   breadcrumbs={buildBreadcrumbs([{ name: "Home", url: buildCanonicalUrl(Astro.site, `/${lang}`) }])}
 />
-
 ```
 
 ## Props Reference

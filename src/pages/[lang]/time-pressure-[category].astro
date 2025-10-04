@@ -21,25 +21,9 @@ import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { loadCategoriesForLanguage } from "../../utils/category/categoryLoadingUtils";
 
-// Server-side rendering for cookie-based authentication
-export const prerender = true;
-
-/**
- * Generates static paths for all supported languages and categories.
- * Time pressure mode doesn't use difficulty selection - all difficulties are mixed.
- * @returns {Array} Array of path objects with params and props
- */
-export async function getStaticPaths() {
-  const { buildLangCategoryPaths } = await import("../../utils/i18n/staticPaths");
-  return buildLangCategoryPaths(
-    async (lang: any) => {
-      const res = await loadCategoriesForLanguage({ language: lang, fallbackLanguage: "en" });
-      return res.success ? res.categories : [];
-    },
-    (cat: any) => (cat && typeof cat.slug === "string" ? cat.slug : ""),
-    true
-  );
-}
+// Server-side rendering (no full prerender) to avoid enumerating all category paths at build time.
+// This significantly reduces build memory usage: paths are resolved on-demand at request time.
+export const prerender = false;
 
 // Types for route props
 interface Props {

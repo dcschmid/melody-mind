@@ -3,7 +3,11 @@
  * Central wrapper combining title, description, keywords, canonical, social image and structured data hooks.
  * This reduces repetitive assembly across Astro pages.
  */
-import { NEWS_FALLBACK_IMAGE, PLAYLIST_COVER_IMAGE, PODCAST_COVER_IMAGE } from "../../constants/assets";
+import {
+  NEWS_FALLBACK_IMAGE,
+  PLAYLIST_COVER_IMAGE,
+  PODCAST_COVER_IMAGE,
+} from "../../constants/assets";
 
 import buildSeoText from "./textUnified";
 import type { BuildSeoTextParams, SeoTextResult } from "./textUnified";
@@ -61,9 +65,15 @@ export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptio
   /** Automatically generate social image (if no explicit image) using provided generator */
   autoSocialImage?: boolean;
   /** Optional generator producing an image URL given title (and maybe kind). Must be synchronous for now (async stripped). */
-  generateSocialImage?: (args: { title: string; contentKind: PageContentKind }) => string | undefined;
+  generateSocialImage?: (args: {
+    title: string;
+    contentKind: PageContentKind;
+  }) => string | undefined;
   /** Optional logger invoked when social image generation fails */
-  onSocialImageError?: (error: unknown, context: { title: string; contentKind: PageContentKind }) => void;
+  onSocialImageError?: (
+    error: unknown,
+    context: { title: string; contentKind: PageContentKind }
+  ) => void;
 }
 
 export interface PageSeoResult extends SeoTextResult {
@@ -119,7 +129,10 @@ function ensureBrandSuffix(title: string): string {
  * @param {BuildPageSeoParams} params Input configuration including title, description, canonical URL, image and options.
  * @returns {PageSeoResult} Result containing description, keywords, canonical and social meta fields.
  */
-function inferType(contentKind: PageContentKind, explicit?: PageSeoResult["type"]): PageSeoResult["type"] {
+function inferType(
+  contentKind: PageContentKind,
+  explicit?: PageSeoResult["type"]
+): PageSeoResult["type"] {
   if (explicit) {
     return explicit;
   }
@@ -164,7 +177,16 @@ function resolveFallbackImage(contentKind: PageContentKind, override?: string): 
  * @returns {PageSeoResult} consolidated SEO result
  */
 function buildCacheKey(o: {
-  title: string; description: string; url: string; image?: string; type?: string; contentKind: string; enrichedParts?: string[]; language?: string; index: boolean; follow: boolean;
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  type?: string;
+  contentKind: string;
+  enrichedParts?: string[];
+  language?: string;
+  index: boolean;
+  follow: boolean;
 }): string {
   return JSON.stringify(o);
 }
@@ -346,84 +368,84 @@ interface NormalizedResultCached {
 type NormalizedResult = NormalizedResultBase | NormalizedResultCached;
 
 function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResult {
-    const {
-      title = "",
-      description,
-      enrichedParts,
-      url,
-      image,
-      type,
-      contentKind = "generic",
-      fallbackImage,
-      publishDate,
-      modifiedDate,
-      extraMeta = {},
-      index = true,
-      follow = true,
-      noArchive,
-      noImageIndex,
-      maxSnippet,
-      maxImagePreview,
-      maxVideoPreview,
-      structuredData = [],
-      ogLocale,
-      alternateLocales,
-      twitterCreator,
-      breadcrumbs,
-      memoize = true,
-      autoSocialImage = false,
-      generateSocialImage,
-      ...rest
-    } = options;
+  const {
+    title = "",
+    description,
+    enrichedParts,
+    url,
+    image,
+    type,
+    contentKind = "generic",
+    fallbackImage,
+    publishDate,
+    modifiedDate,
+    extraMeta = {},
+    index = true,
+    follow = true,
+    noArchive,
+    noImageIndex,
+    maxSnippet,
+    maxImagePreview,
+    maxVideoPreview,
+    structuredData = [],
+    ogLocale,
+    alternateLocales,
+    twitterCreator,
+    breadcrumbs,
+    memoize = true,
+    autoSocialImage = false,
+    generateSocialImage,
+    ...rest
+  } = options;
 
-    const cacheKey = memoize
-      ? buildCacheKey({
-          title,
-          description,
-          url,
-          image,
-          type,
-          contentKind,
-          enrichedParts,
-          language: (rest as { language?: string }).language,
-          index,
-          follow,
-        })
-      : "";
-    if (memoize && seoCache.has(cacheKey)) {
-      return { cached: seoCache.get(cacheKey)!, exited: true } as NormalizedResultCached;
-    }
-    return {
-      exited: false,
-      title,
-      description,
-      enrichedParts,
-      url,
-      image,
-      type,
-      contentKind,
-      fallbackImage,
-      publishDate,
-      modifiedDate,
-      extraMeta,
-      index,
-      follow,
-      noArchive,
-      noImageIndex,
-      maxSnippet,
-      maxImagePreview,
-      maxVideoPreview,
-      structuredData,
-      ogLocale,
-      alternateLocales,
-      twitterCreator,
-      breadcrumbs,
-      memoize,
-      autoSocialImage,
-      generateSocialImage,
-      rest,
-      cacheKey,
-    };
+  const cacheKey = memoize
+    ? buildCacheKey({
+        title,
+        description,
+        url,
+        image,
+        type,
+        contentKind,
+        enrichedParts,
+        language: (rest as { language?: string }).language,
+        index,
+        follow,
+      })
+    : "";
+  if (memoize && seoCache.has(cacheKey)) {
+    return { cached: seoCache.get(cacheKey)!, exited: true } as NormalizedResultCached;
+  }
+  return {
+    exited: false,
+    title,
+    description,
+    enrichedParts,
+    url,
+    image,
+    type,
+    contentKind,
+    fallbackImage,
+    publishDate,
+    modifiedDate,
+    extraMeta,
+    index,
+    follow,
+    noArchive,
+    noImageIndex,
+    maxSnippet,
+    maxImagePreview,
+    maxVideoPreview,
+    structuredData,
+    ogLocale,
+    alternateLocales,
+    twitterCreator,
+    breadcrumbs,
+    memoize,
+    autoSocialImage,
+    generateSocialImage,
+    rest,
+    cacheKey,
+  };
 }
 
 /**
@@ -463,14 +485,19 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     memoize,
     autoSocialImage,
     generateSocialImage,
-      onSocialImageError,
+    onSocialImageError,
     rest,
     cacheKey,
   } = norm;
 
   const normalizedTitle = ensureBrandSuffix(title);
   const seoText = prepareSeoText(normalizedTitle, description, enrichedParts, rest);
-  const { inferredType, finalImage: baseImage } = inferTypeAndImage(contentKind, type as PageSeoResult["type"] | undefined, image, fallbackImage);
+  const { inferredType, finalImage: baseImage } = inferTypeAndImage(
+    contentKind,
+    type as PageSeoResult["type"] | undefined,
+    image,
+    fallbackImage
+  );
   const finalImage = maybeGenerateSocialImage(
     baseImage,
     autoSocialImage,
@@ -491,7 +518,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   const augmentedStructured: StructuredData[] = augmentStructuredData(structuredData, breadcrumbs);
 
   const result: PageSeoResult = {
-  title: normalizedTitle,
+    title: normalizedTitle,
     description: seoText.description,
     keywords: seoText.keywords,
     keywordArray: seoText.keywordArray,

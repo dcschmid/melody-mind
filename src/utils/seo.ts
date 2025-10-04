@@ -526,7 +526,7 @@ export function buildCanonicalUrl(siteBase: string, path: string): string {
   }
   const base = siteBase.replace(/\/$/, "");
   const cleanPath = path.replace(/https?:\/\/[^/]+/i, ""); // if accidentally passed absolute
-  const joined = `${base}${cleanPath.startsWith('/') ? '' : '/'}${cleanPath}`;
+  const joined = `${base}${cleanPath.startsWith("/") ? "" : "/"}${cleanPath}`;
   try {
     const url = new URL(joined);
     url.hash = "";
@@ -556,7 +556,7 @@ export function buildOpenGraphImageUrl(siteBase: string, imagePath: string): str
     return imagePath;
   }
   const base = siteBase?.replace(/\/$/, "") || "";
-  return `${base}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`;
+  return `${base}${imagePath.startsWith("/") ? "" : "/"}${imagePath}`;
 }
 
 /**
@@ -623,4 +623,3 @@ export function buildPaginationRelUrls(
   const nextUrl = currentPage < totalPages ? normalize(currentPage + 1) : undefined;
   return { prevUrl, nextUrl };
 }
-

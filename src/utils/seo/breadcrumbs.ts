@@ -3,7 +3,10 @@
  * Provides a localized basic breadcrumb trail builder.
  */
 
-export interface BreadcrumbItem { name: string; url: string }
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
 
 /**
  * Build basic breadcrumbs: Home -> Tail
@@ -18,8 +21,5 @@ export function buildBasicBreadcrumbs(
   tail: BreadcrumbItem,
   homeLabel = "Home"
 ): BreadcrumbItem[] {
-  return [
-    { name: homeLabel, url: `${baseUrl}/${lang}` },
-    tail,
-  ];
+  return [{ name: homeLabel, url: `${baseUrl}/${lang}` }, tail];
 }

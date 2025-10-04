@@ -120,10 +120,10 @@ export default {
   "nav.menu.knowledge.desc": "Explora conocimientos y curiosidades musicales",
   "nav.menu.playlists.desc": "Descubre listas de reproducción seleccionadas",
   "nav.menu.podcasts": "Podcasts",
-  "nav.podcasts.description": "Descubre podcasts inspiradores de música — entrevistas, historias e insights",
+  "nav.podcasts.description":
+    "Descubre podcasts inspiradores de música — entrevistas, historias e insights",
   "news.title": "Noticias",
-  "news.description":
-    "Sigue el ritmo — nuevos hits, noticias de artistas y tendencias globales ✨",
+  "news.description": "Sigue el ritmo — nuevos hits, noticias de artistas y tendencias globales ✨",
   "nav.donate.description": "Apoya Melody Mind y ayúdanos a crear más momentos musicales ✨",
   "error.extend.tooltip": "Extender el tiempo de visualización del mensaje de error 5 segundos",
   "error.invalid.question": "Pregunta inválida o sin opciones disponibles",
@@ -175,7 +175,8 @@ export default {
   "footer.source_code": "Ver el código fuente de MelodyMind en GitHub",
   "footer.support_kofi": "Apoya MelodyMind en Ko-fi",
   "game.answer.correct": "¡Correcto! {points} puntos + {bonus} puntos extra — ¡genial! 🎉",
-  "game.answer.wrong": "No pasa nada — la respuesta correcta fue: {answer}. ¡Inténtalo de nuevo! 💪",
+  "game.answer.wrong":
+    "No pasa nada — la respuesta correcta fue: {answer}. ¡Inténtalo de nuevo! 💪",
   "game.area.label": "Área de juego",
   "game.categories.empty.headline": "No se encontraron géneros",
   "game.categories.empty.text":
@@ -266,7 +267,8 @@ export default {
   "game.genre.selection.description":
     "Elige tu género favorito — rock, pop, jazz, clásica y más. Cada categoría trae preguntas seleccionadas para divertirte y mejorar tu oído musical. 🎶",
   "game.joker": "Joker 50:50",
-  "game.joker.description": "Elimina dos opciones incorrectas — úsalo con cabeza y acércate a la victoria. 🃏",
+  "game.joker.description":
+    "Elimina dos opciones incorrectas — úsalo con cabeza y acércate a la victoria. 🃏",
   "game.joker.options": "Opciones de joker",
   "game.joker.use": "Usar joker 50:50",
   "game.meta.description.prefix": "Juega",
@@ -426,7 +428,8 @@ export default {
   "playlist.search.heading": "Buscar listas",
   "playlist.search.placeholder": "Buscar por artista o estilo…",
   "profile.auth.required": "Debes iniciar sesión para ver tu perfil",
-  "profile.description": "Administra tus datos y explora tus estadísticas — mejora en cada ronda. 📈",
+  "profile.description":
+    "Administra tus datos y explora tus estadísticas — mejora en cada ronda. 📈",
   "profile.error": "Error al cargar el perfil",
   "profile.loading": "Cargando datos del perfil…",
   "profile.nav.aria": "Navegación al perfil de usuario",
@@ -509,7 +512,8 @@ export default {
   "toc.state.expanded": "Expandido",
   "toc.toggle.label": "Alternar tabla de contenidos",
   "knowledge.section.title": "Aprende más",
-  "knowledge.section.description": "¿Quieres ir más allá? Este artículo aporta contexto, ejemplos y consejos de escucha. 📚",
+  "knowledge.section.description":
+    "¿Quieres ir más allá? Este artículo aporta contexto, ejemplos y consejos de escucha. 📚",
   "knowledge.read.more": "Leer más",
   "knowledge.read.article": "Leer artículo",
   "musicPlatforms.description": "Escucha esta lista en tus plataformas musicales favoritas",
@@ -540,22 +544,32 @@ export default {
   "pages.imprint.contact_label": "Correo electrónico:",
   "pages.imprint.contact_email": "dcschmid@murena.io",
   "pages.imprint.email_note": "Para consultas: dcschmid@murena.io",
-  "pages.imprint.intro": "Aviso legal — esta sección proporciona la identificación obligatoria del proveedor y la información de contacto.",
-  "pages.imprint.dispute_resolution.description": "La Comisión Europea ofrece una plataforma de resolución de litigios en línea (ODR) accesible en el siguiente enlace.",
-  "pages.imprint.dispute_resolution.odr_link_label": "Abrir la plataforma europea de resolución de litigios en línea",
-  "pages.imprint.dispute_participation": "No estamos obligados ni dispuestos a participar en procedimientos de resolución de litigios ante una junta arbitral de consumo.",
+  "pages.imprint.intro":
+    "Aviso legal — esta sección proporciona la identificación obligatoria del proveedor y la información de contacto.",
+  "pages.imprint.dispute_resolution.description":
+    "La Comisión Europea ofrece una plataforma de resolución de litigios en línea (ODR) accesible en el siguiente enlace.",
+  "pages.imprint.dispute_resolution.odr_link_label":
+    "Abrir la plataforma europea de resolución de litigios en línea",
+  "pages.imprint.dispute_participation":
+    "No estamos obligados ni dispuestos a participar en procedimientos de resolución de litigios ante una junta arbitral de consumo.",
   "pages.legal.disclaimer.title": "Descargo de responsabilidad",
-  "pages.legal.disclaimer.content": "La información se proporciona sin garantía. Buscamos exactitud pero no asumimos responsabilidad por contenido o enlaces externos. El uso del sitio es bajo tu propio riesgo.",
+  "pages.legal.disclaimer.content":
+    "La información se proporciona sin garantía. Buscamos exactitud pero no asumimos responsabilidad por contenido o enlaces externos. El uso del sitio es bajo tu propio riesgo.",
 
   // Nuevas claves para la tarjeta de inicio
   "index.card.game.title": "Resumen del juego",
-  "index.card.game.desc": "Entra en modos de quiz musicales llenos de ritmo y estrategia — domina categorías, encadena rachas, desbloquea logros futuros y vuelve a diario para afinar oído, memoria y reflejos en cada partida. 🎯",
+  "index.card.game.desc":
+    "Entra en modos de quiz musicales llenos de ritmo y estrategia — domina categorías, encadena rachas, desbloquea logros futuros y vuelve a diario para afinar oído, memoria y reflejos en cada partida. 🎯",
   "index.card.knowledge.title": "Conocimiento musical",
-  "index.card.knowledge.desc": "Explora orígenes, influencias, discos clave, evolución sonora y consejos de escucha — transforma oír casual en descubrimiento consciente y sé la persona referente cuando alguien busca contexto musical. 📚",
+  "index.card.knowledge.desc":
+    "Explora orígenes, influencias, discos clave, evolución sonora y consejos de escucha — transforma oír casual en descubrimiento consciente y sé la persona referente cuando alguien busca contexto musical. 📚",
   "index.card.playlists.title": "Listas de reproducción",
-  "index.card.playlists.desc": "Viaja por décadas, escenas y estados de ánimo con listas curadas — himnos eternos, joyas ocultas y matices globales para estudiar, concentrarte, inspirarte o simplemente disfrutar creciendo musicalmente. 🎶",
+  "index.card.playlists.desc":
+    "Viaja por décadas, escenas y estados de ánimo con listas curadas — himnos eternos, joyas ocultas y matices globales para estudiar, concentrarte, inspirarte o simplemente disfrutar creciendo musicalmente. 🎶",
   "index.card.podcast.title": "Podcast",
-  "index.card.podcast.desc": "Charlas largas inspiradoras, procesos creativos, cultura musical y relatos detrás del sonido — escucha en movimiento, alimenta curiosidad y amplía perspectiva mientras evolucionas como oyente. 🎙️",
+  "index.card.podcast.desc":
+    "Charlas largas inspiradoras, procesos creativos, cultura musical y relatos detrás del sonido — escucha en movimiento, alimenta curiosidad y amplía perspectiva mientras evolucionas como oyente. 🎙️",
   "index.card.news.title": "Noticias",
-  "index.card.news.desc": "Nuevas funciones, mejoras visuales, optimizaciones y momentos clave del universo musical — mantente atento, detecta oportunidades de juego y no te pierdas avances que elevan tu experiencia. ✨",
+  "index.card.news.desc":
+    "Nuevas funciones, mejoras visuales, optimizaciones y momentos clave del universo musical — mantente atento, detecta oportunidades de juego y no te pierdas avances que elevan tu experiencia. ✨",
 };

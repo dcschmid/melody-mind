@@ -7,7 +7,7 @@
 
 import { handleLoadingError } from "../error/errorHandlingUtils";
 
-import categoriesIndex from "./categoriesIndex";
+import { getCategories } from "./categoriesIndex";
 
 // fs and path are intentionally not used; keep file pure and static to avoid build-time fs operations
 
@@ -51,49 +51,32 @@ export async function loadCategoriesForLanguage(
   config: CategoryLoadingConfig
 ): Promise<CategoryLoadingResult> {
   const { language, fallbackLanguage = "en" } = config;
+  const langKey = String(language || "").toLowerCase();
+  const fallbackKey = String(fallbackLanguage || "en").toLowerCase();
 
-  // Fast path: use the statically imported categoriesIndex which guarantees inclusion
-  // of JSON files at build time. This is simple, deterministic and avoids heavy glob/fs
-  // fallbacks that can increase build memory usage.
   try {
-    // Normalize keys to lowercase so callers may pass 'DE' or 'de' and still match entries.
-    const map: Record<string, Category[]> = (categoriesIndex as Record<string, Category[]>) || {};
-    const langKey = String(language || "").toLowerCase();
-    const fallbackKey = String(fallbackLanguage || "en").toLowerCase();
-
-    // Lightweight debug: if a language is requested but not found, log a short message.
-    // This helps trace issues where categories unexpectedly appear empty.
-    const found = Array.isArray(map[langKey]) ? map[langKey] : undefined;
-    // Extracted helper to reduce complexity of the main function
-    function warnIfMissing(foundArr?: Category[] | undefined): void {
-      if (!foundArr || foundArr.length === 0) {
-        console.warn(
-          `[categoryLoader] requested lang='${langKey}' fallback='${fallbackKey}' -> found=${foundArr ? foundArr.length : 0}`
-        );
-      }
-    }
-
-    warnIfMissing(found);
-
-    // Return exact language result when available.
-    if (found && found.length > 0) {
+    // Lade primäre Sprache lazy
+    const primary = await getCategories(langKey);
+    if (primary.length > 0) {
       return {
-        categories: found,
+        categories: primary,
         success: true,
         fallbackUsed: false,
       };
     }
 
-    // Try fallback language (normalized)
-    if (fallbackKey !== langKey && Array.isArray(map[fallbackKey]) && map[fallbackKey].length > 0) {
-      return {
-        categories: map[fallbackKey],
-        success: true,
-        fallbackUsed: true,
-      };
+    // Fallback nur wenn unterschiedlich
+    if (fallbackKey !== langKey) {
+      const fallback = await getCategories(fallbackKey);
+      if (fallback.length > 0) {
+        return {
+          categories: fallback,
+          success: true,
+          fallbackUsed: true,
+        };
+      }
     }
 
-    // Nothing found in the static map — return a clear failure result (use normalized keys for message).
     const fallbackNote = fallbackKey !== langKey ? ` and fallback ${fallbackKey}` : "";
     return {
       categories: [],
@@ -119,14 +102,18 @@ export async function loadCategoryBySlug(
   slug: string,
   config: CategoryLoadingConfig
 ): Promise<Category | null> {
-  const result = await loadCategoriesForLanguage(config);
-
-  if (!result.success) {
-    return null;
+  const { language, fallbackLanguage = "en" } = config;
+  const langKey = language.toLowerCase();
+  const primary = await getCategories(langKey);
+  const found = primary.find((c) => c.slug === slug);
+  if (found) {
+    return found;
   }
-
-  const category = result.categories.find((cat) => cat.slug === slug);
-  return category || null;
+  if (langKey !== "en" && fallbackLanguage) {
+    const fb = await getCategories(fallbackLanguage.toLowerCase());
+    return fb.find((c) => c.slug === slug) || null;
+  }
+  return null;
 }
 
 /**

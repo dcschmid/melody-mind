@@ -71,12 +71,34 @@ function internalGenerateMetaDescription(content: string, maxLength: number): st
   return truncateSmart(base, maxLength);
 }
 
-function extractKeywordsFallbackInternal(content: string, limit: number, language: string): string[] {
+function extractKeywordsFallbackInternal(
+  content: string,
+  limit: number,
+  language: string
+): string[] {
   if (!content) {
     return [];
   }
   const stop = new Set([
-    "the","and","der","die","das","und","ein","eine","for","with","this","that","are","was","were","from","oder","ist","sind"
+    "the",
+    "and",
+    "der",
+    "die",
+    "das",
+    "und",
+    "ein",
+    "eine",
+    "for",
+    "with",
+    "this",
+    "that",
+    "are",
+    "was",
+    "were",
+    "from",
+    "oder",
+    "ist",
+    "sind",
   ]);
   const words = normalizeWhitespace(stripHtml(content))
     .toLowerCase()
@@ -122,7 +144,8 @@ function buildDescription(
 ): string {
   const threshold = Math.min(40, maxLength / 2);
   const gen = (): string => internalGenerateMetaDescription(enrichedContent, maxLength);
-  const trunc = (): string => truncateSmart(normalizeWhitespace(stripHtml(enrichedContent)), maxLength);
+  const trunc = (): string =>
+    truncateSmart(normalizeWhitespace(stripHtml(enrichedContent)), maxLength);
   if (strategy === "generate-first") {
     let d = gen();
     if (!d || d.length < threshold) {
@@ -171,10 +194,7 @@ export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
     combineStrategy = "generate-first",
     sanitizeFn,
   } = params;
-  const rawCombined = [title, descriptionBase, ...enrichedParts]
-    .filter(Boolean)
-    .join(" ")
-    .trim();
+  const rawCombined = [title, descriptionBase, ...enrichedParts].filter(Boolean).join(" ").trim();
   const enrichedContent = sanitizeFn ? sanitizeFn(rawCombined) : rawCombined;
 
   const description = buildDescription(enrichedContent, combineStrategy, maxDescription);
@@ -183,7 +203,11 @@ export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
   let keywordsArr = primaryKw;
 
   if (keywordsArr.length < Math.max(5, Math.floor(keywordLimit / 2))) {
-    const fallbackList = extractKeywordsFallbackInternal(enrichedContent, keywordLimit, language) as string[];
+    const fallbackList = extractKeywordsFallbackInternal(
+      enrichedContent,
+      keywordLimit,
+      language
+    ) as string[];
     keywordsArr = mergeUnique([...keywordsArr], fallbackList);
   }
 

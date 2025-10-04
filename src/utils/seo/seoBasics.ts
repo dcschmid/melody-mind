@@ -12,7 +12,10 @@ export interface BreadcrumbItem {
  * Resolve a normalized base URL from Astro.site or fallback.
  * @deprecated Kept for legacy usage; consider consolidating into buildPageSeo caller context.
  */
-export function resolveBaseUrl(site: string | URL | undefined, fallback = "https://melody-mind.de"): string {
+export function resolveBaseUrl(
+  site: string | URL | undefined,
+  fallback = "https://melody-mind.de"
+): string {
   if (!site) {
     return fallback;
   }
@@ -24,7 +27,10 @@ export function resolveBaseUrl(site: string | URL | undefined, fallback = "https
  * Provide standard publish/modified date objects (override allowed).
  * @deprecated Use derivePublishModified in content/date utils.
  */
-export function buildTimestamps(publish?: Date, modified?: Date): { publishDate: Date; modifiedDate: Date } {
+export function buildTimestamps(
+  publish?: Date,
+  modified?: Date
+): { publishDate: Date; modifiedDate: Date } {
   const publishDate = publish || new Date("2024-01-01");
   const modifiedDate = modified || new Date();
   return { publishDate, modifiedDate };
