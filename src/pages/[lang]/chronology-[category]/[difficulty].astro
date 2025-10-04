@@ -22,6 +22,7 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { loadCategoryBySlug } from "../../../utils/category/categoryLoader";
+import { FALLBACK_LANGUAGE } from "@constants/i18n";
 
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -51,7 +52,7 @@ if ((!categoryData || !categoryData.slug) && paramsCategory) {
   try {
     const loaded = await loadCategoryBySlug(paramsCategory, {
       language: detectedLang,
-      fallbackLanguage: "en",
+      fallbackLanguage: FALLBACK_LANGUAGE,
     });
     if (loaded) {
       categoryData = loaded as { headline: string; slug: string };

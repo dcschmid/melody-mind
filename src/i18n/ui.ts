@@ -6,6 +6,8 @@
  */
 
 // Import all language locale files
+import { FALLBACK_LANGUAGE } from "@constants/i18n";
+
 import cn from "./locales/cn"; // Chinese
 import da from "./locales/da"; // Danish
 import de from "./locales/de"; // German
@@ -50,7 +52,7 @@ export const languages: Record<string, string> = {
  * Used when initializing the application and when no language preference is detected.
  * @type {string}
  */
-export const defaultLang: string = "en";
+export const defaultLang: string = FALLBACK_LANGUAGE;
 
 /**
  * @constant ui

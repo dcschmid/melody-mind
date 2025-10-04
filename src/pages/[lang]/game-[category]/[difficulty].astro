@@ -23,6 +23,7 @@ import type { Difficulty as GameDifficulty } from "@utils/game/jokerUtils";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { loadCategoryBySlug } from "../../../utils/category/categoryLoader";
+import { FALLBACK_LANGUAGE } from "@constants/i18n";
 
 // Server-side rendering for cookie-based authentication
 // Disable prerender to avoid building a large number of static pages at build time
@@ -58,7 +59,7 @@ if ((!propsCategoryData || !propsCategoryData.slug) && paramsCategory) {
   try {
     const loaded = await loadCategoryBySlug(paramsCategory, {
       language: detectedLang,
-      fallbackLanguage: "en",
+      fallbackLanguage: FALLBACK_LANGUAGE,
     });
     if (loaded) {
       propsCategoryData = loaded as { slug: string; headline: string };
