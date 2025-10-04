@@ -161,3 +161,6 @@ When adding new category logic:
 
 This structure improves build memory behavior and future test coverage readiness while staying
 aligned with the overall minimal client‑JS philosophy.
+
+➡ For a deeper dive (loading flow diagrams, anti‑patterns, future ideas) see
+`docs/category-architecture.md`.
