@@ -4,7 +4,8 @@ description:
   Você sente o pulsar do Forró? Mergulhe em ritmos autênticos, histórias marcantes e danças
   apaixonantes que transformam cada acorde numa viagem única. Descubra as raízes e a evolução dessa
   arte vibrante – explore agora!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

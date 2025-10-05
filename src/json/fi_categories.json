@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950-luku",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "1950-luku sytytti rock’n’rollin: Elvis Presley, Chuck Berry ja Little Richard ravistelivat nuorisoa. Slapback-kaiku, käsien taputukset ja svengaava rytmi – sukella nuorisokulttuurin alkuryminään ja tunne vallankumous!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960-luku",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "1960-luku mullisti popin ja rockin: The Beatles, The Rolling Stones ja The Supremes loivat uuden soundin. Rummun rulla, lauluharmoniat ja kitara-riffit – astu vuosikymmeneen, jossa nuoriso marssi ja lauloi!",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970-luku",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "1970-luku toi discon, heavyn ja punkin: ABBA, Led Zeppelin ja Ramones sytyttivät eri suuntia. Jousisovitukset, särökitarat ja nopea tempo – sukella aikaan, jolloin jokaiselle löytyi oma äänensä!",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980-luku",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "1980-luku räjähti väreillä: Madonna, Michael Jackson ja Metallica hallitsivat. Syntetisaattorit, kitarasoolot ja rumpukoneet – astu neonvalojen aikaan, jossa jokainen biisi oli spektaakkeli!",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990-luku",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "1990-luku toi grungen, hiphopin ja eurodancen: Nirvana, 2Pac ja Ace of Base muuttivat sointia. Rosoiset riffit, vahvat beatit ja tarttuvat kertosäkeet – sukella vuosikymmeneen täynnä kontrasteja!",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000-luku",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "2000-luku yhdisti popin, rockin ja hiphopin: Beyoncé, Linkin Park ja Coldplay hallitsivat. Autotune, räjähtävät kertosäkeet ja elektroninen groove – lähde mukaan aikakauteen, jossa tyylit sulautuivat!",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010-luku",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "2010-luku nosti uudet tähdet: Adele, Ed Sheeran ja Billie Eilish valtasivat sydämet. Minimalistiset beatit, akustiset kitarat ja intiimit laulut – astu vuosikymmeneen, jossa tunteet soivat kirkkaasti!",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Naiset Blues-legendat",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Blues-legendojen voima sykki naisten äänissä: Bessie Smith, Etta James ja Ma Rainey johdattivat. Slide-kitara, syvä laulu ja sydämen kipu – sukella juurimusiikin sieluun ja tunne sen hehku!",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Naiset Country-tähdet",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Country-musiikin naiset loistivat tarinoillaan: Dolly Parton, Shania Twain ja Loretta Lynn johdattivat poluilla. Banjo, viulu ja sydäntä koskettavat sanat – astu maailmaan, jossa elämä soi kappaleina!",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "Naiset DJ:t",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "DJ-naiset nostivat klubikulttuurin uuteen loistoon: Nina Kraviz, Peggy Gou ja The Black Madonna hallitsivat. Bassot, beatin nousut ja valot – astu tanssilattialle ja tunne yö sykkeenä!",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Naiset Grunge-artistit",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Grungen naiset toivat raivon ja herkkyyden: Courtney Love, Kat Bjelland ja Donita Sparks hallitsivat. Särökitarat, huudot ja hauraat hetket – sukella 1990-luvun alakuloon ja voimaan!",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Naiset Hip-Hop-artistit",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Hip-hopin naiset valloittivat mikrofonin: Queen Latifah, Missy Elliott ja Nicki Minaj johtivat. Beatbox, vahvat riimit ja tarttuva flow – astu kadulle, jossa ääni on voimaa ja tarina elää!",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Naiset Jazz-laulajat",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Jazzin naiset hurmasivat syvyydellä: Ella Fitzgerald, Billie Holiday ja Sarah Vaughan loivat aikakauden. Scat-laulu, svengi ja pehmeät sävyt – astu klubille, jossa jokainen nuotti hengittää!",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Naiset Pop-supertähdet",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Popin kuningattaret loistivat listoilla: Madonna, Britney Spears ja Lady Gaga hallitsivat. Koukut, tanssibiitit ja suuret show’t – sukella tähtien maailmaan ja laula kertosäkeet mukana!",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Naiset Rapparit",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Räppärinaiset toivat katujen voiman: MC Lyte, Nicki Minaj ja Cardi B loivat rohkeita tarinoita. Raskaat beatit, nopeat riimit ja vahva flow – astu maailmaan, jossa sanat sytyttävät!",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Naiset R&B-divat",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "R&B-divat loivat ikimuistoisia hetkiä: Whitney Houston, Mary J. Blige ja Alicia Keys koskettivat. Sielukas laulu, groovaavat bassot ja sydämen voima – astu maailmaan, jossa tunteet soivat!",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Naiset Rock/Metal-laulajat",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Rockin ja metallin naiset sytyttivät lavat: Doro Pesch, Amy Lee ja Sharon den Adel johtivat. Särökitarat, voimalaulut ja suuret kertosäkeet – sukella lavamyrskyyn ja laula mukana!",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Naiset Soul-legendat",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Soulin kuningattaret sytyttivät tunteet: Aretha Franklin, Gladys Knight ja Tina Turner loivat voimaa. Urut, jouset ja sielun syke – astu maailmaan, jossa ääni vapauttaa ja koskettaa!",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Naiset Lauluidolit",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Ikoniset naisäänet muuttivat historiaa: Barbra Streisand, Céline Dion ja Adele valloittivat. Balladit, suuret finaalit ja koskettavat tulkinnat – astu tarinaan, jossa ääni on ikuinen!",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Orkesterimusiikki",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Orkesterimusiikki maalaa laajoja maisemia: Beethoven, John Williams ja Sibelius johdattavat. Jouset, vaskipuhaltimet ja pauhaavat rummut – sukella maailmaan, jossa jokainen sävel on tarina!",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Piano",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Pianon maailma sykkii tunteita: Chopin, Mozart ja Ludovico Einaudi johdattavat herkästä voimakkaaseen. Helmeilevät sävelet, sointujen kaaret ja dynaamiset kontrastit – astu pianon äärelle ja koe sen magia!",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Kamarimusiikki",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Kamarimusiikki kutsuu intiimiin piiriin: Haydn, Schubert ja Debussy loivat herkkiä vuoropuheluja. Viulu, sello ja piano hengittävät yhdessä – astu lähemmäs ja kuule, kuinka ystävykset keskustelevat!",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Klassinen",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Klassinen musiikki loistaa ajattomuudellaan: Mozart, Beethoven ja Bach sytyttävät sukupolvia. Jouset, kontrapunkti ja suuret finaalit – sukella tyyliin, joka yhdistää kurinalaisuuden ja kauneuden!",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "New Age -musiikki kutsuu rauhaan: Enya, Kitaro ja Vangelis johdattavat meditatiivisiin tiloihin. Syntetisaattorit, luonnon äänet ja raukeat melodiat – astu maailmaan, jossa aika pysähtyy!",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Ooppera",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Ooppera yhdistää musiikin ja teatterin: Verdi, Puccini ja Wagner loivat suuria tunteita. Aariat, orkesterin pauhu ja lavan loiste – astu draaman keskelle ja koe ihmisäänen voima!",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Soundtrackit",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Elokuvamusiikki luo näkymättömän sykkeen: John Williams, Hans Zimmer ja Howard Shore johdattavat tarinoita. Jouset, synkät teemat ja mahtavat fanfaarit – astu hetkeen, jossa jokainen ääni kertoo!",
     "isPlayable": true,
     "slug": "soundtrack",

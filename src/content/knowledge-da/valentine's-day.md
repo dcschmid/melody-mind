@@ -3,7 +3,8 @@ title: Valentinsdag Vibes - Ultimativ Musikguide til Romantik og Passion
 description:
   Er du klar til en rejse gennem hjerternes rytmer? Oplev et unikt udvalg af kærlighedssange og
   romantiske numre - forvandl Valentinsdag til en magisk aften og lyt med det samme
-image: /category/valentine's-day.jpg
+image: /category/valentines-day.jpg
+# migrated: valentine's-day -> valentines-day
 createdAt: 2025-03-15
 updatedAt: 2025-03-15
 keywords:

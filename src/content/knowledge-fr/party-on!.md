@@ -4,7 +4,8 @@ description:
   Envie de vibrer au rythme festif? Party On! incarne l'énergie des fêtes et une créativité musicale
   en perpétuelle évolution - plongez dans son histoire culturelle et laissez-vous transporter,
   rejoignez-nous!
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

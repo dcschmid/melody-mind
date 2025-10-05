@@ -4,7 +4,8 @@ description:
   Ben je op zoek naar innerlijke rust en spirituele klanken? Ontdek meditatieve muziek, zachte
   ritmes en eeuwenoude tradities die yoga en mindfulness verbinden. Begin vandaag nog jouw muzikale
   reis
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

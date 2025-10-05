@@ -1,0 +1,41 @@
+---
+/**
+ * CategoryImage Component
+ *
+ * Renders a pre-generated responsive image set (AVIF + WebP) for a given category slug
+ * without triggering additional Astro re-encoding. Falls back gracefully when
+ * variants are missing.
+ */
+import OptimizedImage from "./OptimizedImage.astro";
+
+interface Props {
+  slug: string; // category slug (already sanitized in JSON)
+  alt: string;
+  loading?: "eager" | "lazy";
+  priority?: boolean;
+  class?: string;
+  fetchpriority?: "high" | "low" | "auto";
+}
+
+const {
+  slug,
+  alt,
+  loading = "lazy",
+  priority = false,
+  class: className = "",
+  fetchpriority = "auto",
+} = Astro.props as Props;
+
+// Wrapper passes through to generic component; retained for backward compatibility
+// and clearer semantics in category-focused UI code.
+---
+
+<OptimizedImage
+  group="category"
+  {slug}
+  {alt}
+  {loading}
+  {priority}
+  class={className}
+  {fetchpriority}
+/>

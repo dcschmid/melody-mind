@@ -6,7 +6,8 @@ description:
   Ready to be inspired by groundbreaking voices? Explore the powerful legacy of female R&B divas,
   their signature styles, unforgettable performances, and cultural impact. Discover what makes these
   artists icons - start your musical journey now!
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-07-29
 updatedAt: 2025-07-29
 keywords:

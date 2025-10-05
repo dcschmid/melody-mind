@@ -1,7 +1,8 @@
 ---
 title: 解锁专注音乐的极致体验 - 提升集中力与学习效率的秘密之选
 description: 想高效学习或专注工作？探索专为提升注意力打造的专注音乐，融合脑波及轻音乐元素，让你的每一次投入都事半功倍。立即感受专注的力量！
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-07-31
 updatedAt: 2025-07-31
 keywords:

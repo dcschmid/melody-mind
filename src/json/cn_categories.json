@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950年代",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "1950年代掀起摇滚热潮：猫王 Elvis Presley、Chuck Berry 和 Little Richard 带来前所未有的青春能量。弹跳回声、手拍声与强劲节奏——快来感受青年文化的诞生！",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960年代",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "1960年代迎来摇滚与反叛：The Beatles、The Rolling Stones、Bob Dylan 和 Jimi Hendrix 点燃迷幻与反文化。失真吉他、合唱与游行节拍——加入音乐革命！",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970年代",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "1970年代多元爆发：Led Zeppelin、Pink Floyd、David Bowie 与 ABBA 打造摇滚、迷幻、华丽与迪斯科。重吉他、合成器、弦乐与舞池节拍——一起舞动！",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980年代",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "1980年代闪耀舞台：Michael Jackson、Madonna、Prince 与 U2 将流行、摇滚与电子完美融合。合成器、Funk 吉他与强劲鼓机——快来跳进霓虹舞池！",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990年代",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "1990年代摇滚与流行并存：Nirvana、Oasis、Mariah Carey 与 Spice Girls 带来另类、英伦、R&B 与流行新声。失真吉他、饱满和声与舞曲节拍——释放青春！",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000年代",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "2000年代掀起多元风潮：Linkin Park、Beyoncé、Coldplay 与 Eminem 打破流派界限。新金属、流行R&B、抒情摇滚与嘻哈节拍——一起唱响新千年！",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010年代",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "2010年代全球互联：Adele、Taylor Swift、Ed Sheeran 与 BTS 让流行、民谣、R&B 与K-Pop走向世界。钢琴抒情、Trap 节奏与舞团和声——快来合唱！",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "女性蓝调传奇",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "蓝调女王们点燃灵魂：Bessie Smith、Ma Rainey、Etta James 与 Koko Taylor 用钢琴、滑音吉他与深情嗓音唱尽爱与苦痛——快来跟她们一起摇摆！",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "女性乡村音乐明星",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "乡村女星点亮原野：Dolly Parton、Patsy Cline、Shania Twain 与 Carrie Underwood 用吉他、班卓琴与小提琴唱出自由——快来跟她们合唱！",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "女性DJ",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "女DJ们点燃舞池：Charlotte de Witte、Nina Kraviz、Amelie Lens 与 The Black Madonna 用低音鼓、合成器与节拍带动全场——快来加入电子狂欢！",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "女性垃圾摇滚艺术家",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Grunge 女声嘶吼青春：Courtney Love、Shirley Manson、L7 与 Veruca Salt 用失真吉他、厚重鼓声与撕裂嗓音唱出叛逆——快来甩头！",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "女性嘻哈艺术家",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "嘻哈女王掌控麦克风：Queen Latifah、Missy Elliott、Nicki Minaj 与 Cardi B 用说唱、低音节拍与律动唱出力量——快来跟她们押韵！",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "女性爵士歌手",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "爵士女声低吟浅唱：Billie Holiday、Ella Fitzgerald、Sarah Vaughan 与 Diana Krall 用萨克斯、钢琴与柔声旋律营造夜色——快来感受即兴魅力！",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "女性流行巨星",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "流行女王点亮舞台：Madonna、Britney Spears、Lady Gaga 与 Taylor Swift 用旋律、舞曲节拍与时尚造型征服世界——快来一起唱跳！",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "女性说唱歌手",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "女Rapper喷射火力：MC Lyte、Lauryn Hill、Nicki Minaj 与 Megan Thee Stallion 用押韵、节拍与态度展现力量——快来加入Flow！",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "女性R&B天后",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "R&B 女声深情流淌：Aretha Franklin、Mary J. Blige、Alicia Keys 与 Beyoncé 用灵魂嗓音、钢琴与节拍唱出爱与力量——快来倾心聆听！",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "女性摇滚/金属歌手",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "摇滚女声燃烧舞台：Joan Jett、Doro Pesch、Amy Lee 与 Sharon den Adel 用电吉他、双踩鼓与高亢嘶吼点燃激情——快来甩头合唱！",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "女性灵魂乐传奇",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "灵魂女声撕心裂肺：Etta James、Aretha Franklin、Whitney Houston 与 Lauryn Hill 用钢琴、铜管与真挚嗓音唱出爱与信仰——快来感受灵魂！",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "女性声乐偶像",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "声乐偶像点亮历史：Maria Callas、Barbra Streisand、Celine Dion 与 Adele 用高音、抒情旋律與舞台张力震撼世界——快来合唱经典！",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "管弦乐",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "管弦乐融合小提琴、长笛、铜管与定音鼓，Mozart、Beethoven、Tchaikovsky 与 John Williams 用交响力量震撼心灵。弦乐涌动、铜管嘹亮——快来感受宏大乐章！",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "钢琴",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "钢琴展现黑白琴键的魔力：Chopin、Liszt、Rachmaninoff 与 Yiruma 的音符交织情感。琶音、踏板回响与轻柔触键——快来弹奏心灵旋律！",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "室内乐",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "室内乐展现亲密对话：弦乐四重奏、钢琴三重奏，Haydn、Mozart、Schubert 与 Brahms 用细腻互动创造奇迹。对话旋律、轻柔呼吸——快来倾听！",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "古典",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "古典音乐奠定基石：Bach、Mozart、Beethoven 与 Haydn 打造和声与结构之美。对位旋律、清晰节拍与优雅乐句——快来感受永恒艺术！",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "新世纪",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "新世纪音乐疗愈心灵：Enya、Kitaro、Yanni 与 Secret Garden 用合成器、竖琴与自然声景打造宁静宇宙。流水、风声与轻声吟唱——快来放松呼吸！",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "歌剧",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "歌剧汇聚人声与戏剧：Verdi、Puccini、Mozart 与 Wagner 用咏叹调、合唱与乐团讲述爱与命运。高音嘹亮、悲喜交织——快来体验戏剧舞台！",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "原声配乐",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "电影配乐让画面有了灵魂：John Williams、Hans Zimmer、Ennio Morricone 与 Joe Hisaishi 用旋律、合成器与管弦乐讲述故事。低音心跳、弦乐涌动——快来沉浸！",
     "isPlayable": true,
     "slug": "soundtrack",

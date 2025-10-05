@@ -4,7 +4,8 @@ description:
   ¿Listo para revivir la auténtica revolución del Rock 'n' Roll? Descubre la historia vibrante,
   guitarras legendarias y ritmos contagiosos que marcaron una época. ¡Explora y siente la magia
   musical!
-image: /category/rock-'n'-roll.jpg
+image: /category/rock-n-roll.jpg
+# migrated: rock-'n'-roll -> rock-n-roll
 createdAt: 2025-03-14
 updatedAt: 2025-03-14
 keywords:

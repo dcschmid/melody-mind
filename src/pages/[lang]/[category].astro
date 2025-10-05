@@ -5,6 +5,7 @@
  */
 
 import { Picture } from "astro:assets";
+import CategoryImage from "@components/CategoryImage.astro";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import MusicButtons from "@components/MusicButtons.astro";
@@ -96,6 +97,10 @@ interface CategoryType {
 }
 
 const currentCategory = category as CategoryType;
+const isSlugImage =
+  currentCategory?.imageUrl &&
+  !currentCategory.imageUrl.includes("/") &&
+  !/\.[a-zA-Z]{2,5}$/.test(currentCategory.imageUrl);
 const title = `${currentCategory?.headline} ${t("category.start")}`;
 const description = currentCategory?.introSubline || "";
 const pageContent = `${title} ${description} ${currentCategory?.text || ""}`;
@@ -176,19 +181,30 @@ const pageSeo = buildPageSeo({
             {
               currentCategory?.imageUrl ? (
                 <div class="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-gray-600 shadow-2xl">
-                  <Picture
-                    class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                    src={currentCategory.imageUrl}
-                    widths={[400, 600, 800, 1200]}
-                    sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
-                    formats={["avif", "webp", "jpg"]}
-                    alt={`${currentCategory.headline} ${t("category.image.alt")}`}
-                    loading="eager"
-                    fetchpriority="high"
-                    width={1000}
-                    height={600}
-                    decoding="async"
-                  />
+                  {isSlugImage ? (
+                    <CategoryImage
+                      slug={currentCategory.imageUrl}
+                      alt={`${currentCategory.headline} ${t("category.image.alt")}`}
+                      loading="eager"
+                      fetchpriority="high"
+                      class="h-full w-full"
+                      priority
+                    />
+                  ) : (
+                    <Picture
+                      class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                      src={currentCategory.imageUrl}
+                      widths={[400, 600, 800, 1200]}
+                      sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
+                      formats={["avif", "webp", "jpg"]}
+                      alt={`${currentCategory.headline} ${t("category.image.alt")}`}
+                      loading="eager"
+                      fetchpriority="high"
+                      width={1000}
+                      height={600}
+                      decoding="async"
+                    />
+                  )}
                 </div>
               ) : (
                 <div

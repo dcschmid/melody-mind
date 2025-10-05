@@ -1,7 +1,7 @@
 [
   {
     "headline": "Libérez l'Esprit du Rock 'n' Roll : Les Légendes qui ont Changé le Monde dans les Années 1950",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "Plongez dans les origines électrisantes du rock ! Laissez Elvis, Chuck Berry et Buddy Holly vous inspirer avec l'énergie qui a déclenché une révolution culturelle. Ressentez la puissance de la musique qui a façonné des générations.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5K9w1qBruSoCY0XCHyKq2a",
     "deezerPlaylist": "https://link.deezer.com/s/30x5aOVgrllLx9ch4NUX5",
@@ -10,7 +10,7 @@
   },
   {
     "headline": "Ressentez la Puissance des Années 1960 : La Musique qui a Inspiré une Génération",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "Vivez la magie des Beatles, l'audace des Rolling Stones et le génie de Jimi Hendrix. Laissez les sons des années 1960 éveiller votre créativité et votre passion pour le changement.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2zapTa5myPEQ5W7iBF271h",
     "deezerPlaylist": "https://link.deezer.com/s/30x5bKWXuO3BM1KexrSo9",
@@ -19,7 +19,7 @@
   },
   {
     "headline": "Brillez avec les Années 1970 : De la Fièvre Disco aux Chefs-d'œuvre Rock",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "Dansez sur les rythmes entraînants d'ABBA et perdez-vous dans les paysages sonores visionnaires de Pink Floyd. Découvrez comment les années 1970 vous invitent à célébrer la diversité et à rêver grand.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0w349iRF4OnsL4Qd42Zk8A",
     "deezerPlaylist": "https://link.deezer.com/s/30x5pb2EmiWzKWMok2BqA",
@@ -28,7 +28,7 @@
   },
   {
     "headline": "Enflammez vos Sens dans les Années 1980 : Une Décennie d'Excès, d'Innovation et de Sons Iconiques",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "Revivez l'explosion des synthétiseurs, la naissance de MTV et le règne du Hair Metal. Les années 1980 vous invitent dans un monde où les clips vidéo et les sons électrisants ont défini une génération.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6t92knmmCDH2URtMZypbsp",
     "deezerPlaylist": "https://link.deezer.com/s/30x5wBZhKzHbt79KEPcY9",
@@ -37,7 +37,7 @@
   },
   {
     "headline": "Sons Révolutionnaires des Années 1990 : Où l'Alternative Devient Mainstream",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "De l'explosion grunge à Seattle à l'essor du hip-hop et du Britpop, les années 1990 ont remodelé le paysage musical. Découvrez la décennie qui a porté la musique underground au premier plan et donné une voix à une génération.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sw4ATjkuUrrcE38oHPVfu",
     "deezerPlaylist": "https://link.deezer.com/s/30x5XBT5yEUSSfi9Y221i",
@@ -46,7 +46,7 @@
   },
   {
     "headline": "Rêves Numériques et Perfection Pop : La Révolution Musicale des Années 2000",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "Plongez dans un monde où la pop rencontre la technologie. Les années 2000 ont apporté l'auto-tune, les téléchargements numériques et une nouvelle vague de R&B. Vivez la décennie qui a transformé la production musicale et lancé des superstars mondiales.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6IY7RnLIlr9PuAWTfRU2jf",
     "deezerPlaylist": "https://link.deezer.com/s/30x64RRNK0zeeTvbIxNIt",
@@ -55,7 +55,7 @@
   },
   {
     "headline": "Géants du Streaming et Mélangeurs de Genres : Le Paysage Musical des Années 2010",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "Vivez la décennie où la musique est devenue accessible à tous. Les services de streaming ont propulsé des artistes inconnus vers la gloire, et les genres se sont mélangés comme jamais auparavant. Plongez dans les sons qui ont défini une génération et continuent de façonner l'avenir de la musique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/19awPEqnAcGPSt0tASDvFu",
     "deezerPlaylist": "https://link.deezer.com/s/30x6gZge1Bc4ghYAC6Xbb",
@@ -64,7 +64,7 @@
   },
   {
     "headline": "Ressentez le Groove : La Fusion Énergisante de l'Acid Jazz entre Funk, Soul et Jazz",
-    "imageUrl": "/category/acid-jazz.jpg",
+    "imageUrl": "acid-jazz",
     "introSubline": "Laissez les rythmes vibrants et l'improvisation créative dynamiser votre journée. Découvrez les artistes qui mélangent les genres pour créer un son qui émeut le cœur et fait bouger les pieds.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0ZzpQgAoDwvWrmkYGGPGvR",
     "deezerPlaylist": "https://link.deezer.com/s/30xcfCEootRWiv9o3bt2f",
@@ -73,7 +73,7 @@
   },
   {
     "headline": "Puissance Acoustique : Le Côté Émotionnel du Metal Acoustique",
-    "imageUrl": "/category/acoustic-metal.jpg",
+    "imageUrl": "acoustic-metal",
     "introSubline": "Vivez l'intensité brute du metal dans sa forme la plus pure. Laissez les versions acoustiques révéler les histoires sincères et la virtuosité derrière les riffs puissants.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7cXLMbmpOBvv659xZ98hmk",
     "deezerPlaylist": "https://link.deezer.com/s/30xcibCdwzuTgelHP8sg6",
@@ -82,7 +82,7 @@
   },
   {
     "headline": "Magie Pop Acoustique : Mélodies Sincères pour Chaque Instant",
-    "imageUrl": "/category/acoustic-pop.jpg",
+    "imageUrl": "acoustic-pop",
     "introSubline": "Détendez-vous et rechargez-vous avec des hits dépouillés et des perles de chanteurs-compositeurs. Laissez ces mélodies acoustiques inspirer vos émotions et illuminer votre humeur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sneli803LUJcPLI0uy4pO",
     "deezerPlaylist": "https://link.deezer.com/s/30xcmbWCgSEfLWmRboak2",
@@ -91,7 +91,7 @@
   },
   {
     "headline": "Célébrez la Diversité : Les Rythmes et Traditions de la Musique Africaine",
-    "imageUrl": "/category/african-music.jpg",
+    "imageUrl": "african-music",
     "introSubline": "Ressentez le battement de cœur d'un continent ! Du tambour traditionnel à l'Afropop moderne, ces sons unissent et inspirent à travers les cultures.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5NDS6IVBZr5W9hK7uKxhZM",
     "deezerPlaylist": "https://link.deezer.com/s/30xcoTWyK4YYBEpaohBM7",
@@ -100,7 +100,7 @@
   },
   {
     "headline": "Énergie Afrobeat : L'Héritage de Fela Kuti et l'Inspiration Mondiale",
-    "imageUrl": "/category/afrobeat.jpg",
+    "imageUrl": "afrobeat",
     "introSubline": "Bougez sur des rythmes hypnotiques et des messages audacieux. La fusion de l'Afrobeat entre tradition, jazz et funk donne du pouvoir et élève dans le monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/29mXorpfIu5oh5KscLq5W9",
     "deezerPlaylist": "https://link.deezer.com/s/30xfhjzRimDDH9rheEnUq",
@@ -109,7 +109,7 @@
   },
   {
     "headline": "Bonheur Post-Travail : Détendez-vous et Rechargez-vous avec le Chill du Soir",
-    "imageUrl": "/category/after-work-chill.jpg",
+    "imageUrl": "after-work-chill",
     "introSubline": "Transformez vos heures post-travail en retraite paisible. Laissez les rythmes doux et les mélodies apaisantes vous aider à vous détendre et à retrouver votre équilibre.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4kS3J37MezYFMTkCLYOvxK",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14069008281",
@@ -118,7 +118,7 @@
   },
   {
     "headline": "Brisez le Moule : Le Pouvoir Créatif du Metal Alternatif",
-    "imageUrl": "/category/alternative-metal.jpg",
+    "imageUrl": "alternative-metal",
     "introSubline": "Vivez la liberté de la musique heavy sans frontières. Ces morceaux mélangent puissance, innovation et émotion pour un son vraiment unique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/42DFYQCLpTMRmLB5E9ye8d",
     "deezerPlaylist": "https://link.deezer.com/s/30xfQA0IApPl8WwcxMJGt",
@@ -127,7 +127,7 @@
   },
   {
     "headline": "Esprit Rebelle : Le Parcours du Rock Alternatif de l'Underground à l'Iconique",
-    "imageUrl": "/category/alternative-rock.jpg",
+    "imageUrl": "alternative-rock",
     "introSubline": "Laissez l'esprit DIY et le courage créatif du rock alternatif vous inspirer. Ces chansons prouvent que l'authenticité et la passion peuvent changer le monde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3mTLFYda4zfnWtnRWrqMQm",
     "deezerPlaylist": "https://link.deezer.com/s/30xfBPcBrhDVbSbFPYyXM",
@@ -136,7 +136,7 @@
   },
   {
     "headline": "Puissance Atmosphérique : Les Paysages Sonores Inspirants du Metal Ambient",
-    "imageUrl": "/category/ambient-metal.jpg",
+    "imageUrl": "ambient-metal",
     "introSubline": "Laissez-vous porter par un mélange unique de lourdeur et de son éthéré. Ces morceaux vous invitent à explorer de nouveaux horizons musicaux et à trouver l'inspiration dans les contrastes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4dRTL2qENCBqVnK9KzVEaY",
     "deezerPlaylist": "https://link.deezer.com/s/30xg6oYpCMQzU4AqYTgzo",
@@ -145,7 +145,7 @@
   },
   {
     "headline": "Trouvez votre Calme : Sérénité Ambient pour l'Esprit et l'Âme",
-    "imageUrl": "/category/ambient.jpg",
+    "imageUrl": "ambient",
     "introSubline": "Transformez n'importe quel instant en retraite paisible. Ces pièces ambient vous aident à vous détendre, méditer et recharger votre esprit.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4MAptafzBpcWkBmTQ2G40b",
     "deezerPlaylist": "https://link.deezer.com/s/30xfYLfWAQHjvvyGKZ74A",
@@ -154,7 +154,7 @@
   },
   {
     "headline": "Libérez votre Énergie : Hymnes de Colère pour la Motivation et la Force",
-    "imageUrl": "/category/angry.jpg",
+    "imageUrl": "angry",
     "introSubline": "Canalisez vos émotions et transformez la frustration en puissance. Ces morceaux intenses alimentent votre motivation et vous aident à conquérir n'importe quel défi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6Q1l7d7Siu3l2TGtF0tZgk",
     "deezerPlaylist": "https://link.deezer.com/s/30xgkqdmsLuhRNxfNVZIS",
@@ -163,7 +163,7 @@
   },
   {
     "headline": "Passion et Progrès : Le Parcours Inspirant de l'Âme Argentine",
-    "imageUrl": "/category/argentinian.jpg",
+    "imageUrl": "argentinian",
     "introSubline": "Ressentez le feu du tango et la créativité de la fusion moderne. Ces chansons célèbrent l'esprit de l'Argentine et la puissance de l'évolution musicale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/53Z1KfIjm71tNrZ9gDNl4u",
     "deezerPlaylist": "https://link.deezer.com/s/30xgy5OMTfQIMHhRWTTWW",
@@ -172,7 +172,7 @@
   },
   {
     "headline": "Brillance Intemporelle : Les Paysages Sonores Autrichiens de Mozart à Aujourd'hui",
-    "imageUrl": "/category/austrian.jpg",
+    "imageUrl": "austrian",
     "introSubline": "Voyagez à travers des siècles d'excellence musicale. Laissez les racines classiques et la créativité moderne de l'Autriche inspirer votre propre parcours artistique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2azjaIZIUNQ1Xq8Mbo49MX",
     "deezerPlaylist": "https://link.deezer.com/s/30xgBmbg9JpjYTECXB6KM",
@@ -181,7 +181,7 @@
   },
   {
     "headline": "Moments Dorés : Chill Automnal pour l'Inspiration Confortable",
-    "imageUrl": "/category/autumn-chill.jpg",
+    "imageUrl": "autumn-chill",
     "introSubline": "Embrassez la beauté de l'automne avec des sons doux qui réchauffent votre cœur. Ces morceaux transforment chaque journée d'automne en souvenir doré.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1pFI14ZmdSlNA8tBEXRW6p",
     "deezerPlaylist": "https://link.deezer.com/s/30xi52bYKnNyHXPfnkPsn",
@@ -190,7 +190,7 @@
   },
   {
     "headline": "Couleurs Magiques : Feuilles d'Automne et le Son du Changement",
-    "imageUrl": "/category/autumn-leaves.jpg",
+    "imageUrl": "autumn-leaves",
     "introSubline": "Laissez la musique peindre les images de la splendeur automnale. Ces morceaux capturent la magie et la transformation de la saison.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7HthpvZP7RfoCatmuntbYs",
     "deezerPlaylist": "https://link.deezer.com/s/30xifpUnJxuxtEoa0Je0b",
@@ -199,7 +199,7 @@
   },
   {
     "headline": "Brisez les Frontières : L'Innovation Artistique du Metal Avant-Garde",
-    "imageUrl": "/category/avant-garde-metal.jpg",
+    "imageUrl": "avant-garde-metal",
     "introSubline": "Vivez le frisson de l'expérimentation et de la créativité audacieuse. Ces chansons montrent comment le metal peut être visionnaire et inspirant.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1T2PgmMMHhq7hBetwtwLr2",
     "deezerPlaylist": "https://link.deezer.com/s/30xjsdkiyeY0Eyv8ge6Zj",
@@ -208,7 +208,7 @@
   },
   {
     "headline": "Dansez avec le Cœur : Les Rythmes Romantiques de la Bachata",
-    "imageUrl": "/category/bachata.jpg",
+    "imageUrl": "bachata",
     "introSubline": "Laissez les paroles passionnées et les mélodies de guitare entraînantes vous émouvoir. La bachata apporte joie, amour et énergie à chaque instant.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7budQtbbHyyZhm2TmAuC0D",
     "deezerPlaylist": "https://link.deezer.com/s/30xjut1TifuThr8v8KpS2",
@@ -217,7 +217,7 @@
   },
   {
     "headline": "Puissance d'Étude : Beats de Rentrée pour la Concentration et le Succès",
-    "imageUrl": "/category/back-to-school.jpg",
+    "imageUrl": "back-to-school",
     "introSubline": "Boostez votre concentration et motivation avec de la musique conçue pour l'apprentissage. Ces morceaux vous aident à atteindre vos objectifs académiques avec énergie et style.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1m5eAVpIeI5CXqjnBsrQoe",
     "deezerPlaylist": "https://link.deezer.com/s/30xjxb5lvfZ5juXuq85xX",
@@ -226,7 +226,7 @@
   },
   {
     "headline": "Célébrez Ensemble : Ambiance BBQ de Jardin pour Chaque Rassemblement",
-    "imageUrl": "/category/backyard-bbq.jpg",
+    "imageUrl": "backyard-bbq",
     "introSubline": "Allumez le barbecue et laissez les bons moments rouler ! Ces hymnes baignés de soleil créent l'atmosphère parfaite pour l'amusement, les rires et les fêtes d'été inoubliables.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5sfGr39G8N2zgxOR8RuxqK",
     "deezerPlaylist": "https://link.deezer.com/s/30xl7p55CQS4f9s8OyscB",
@@ -235,7 +235,7 @@
   },
   {
     "headline": "Musique Balkanique : Folk Énergique et Danse du Sud-Est Européen",
-    "imageUrl": "/category/balkan-music.jpg",
+    "imageUrl": "balkan-music",
     "introSubline": "Découvrez les rythmes vivants et les instruments uniques de la musique balkanique, parfaits pour la danse et la célébration.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6dWrzgn8cZBbx2B4TLC1ot",
     "deezerPlaylist": "https://link.deezer.com/s/30xlcwMdbGk77WcCDQgDv",
@@ -244,7 +244,7 @@
   },
   {
     "headline": "Musique Bass : Fréquences Profondes et Hymnes de Club",
-    "imageUrl": "/category/bass-music.jpg",
+    "imageUrl": "bass-music",
     "introSubline": "Ressentez la puissance de la musique basée sur la basse, du dubstep au drum & bass. Ces morceaux sont faits pour vous faire bouger.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6PGeWzmR5iTs313qxqoA4X",
     "deezerPlaylist": "https://link.deezer.com/s/30xln0GYSDeYwyCCGy2un",
@@ -253,7 +253,7 @@
   },
   {
     "headline": "Bonheur de Jour de Plage : Votre Évasion Côtière en Son",
-    "imageUrl": "/category/beach-day.jpg",
+    "imageUrl": "beach-day",
     "introSubline": "Transportez-vous sur les rives sablonneuses et les vagues déferlantes avec cette collection de mélodies baignées de soleil. Du reggae décontracté aux perles pop côtières, ces morceaux capturent l'esprit insouciant et les possibilités infinies d'une journée parfaite au bord de l'océan.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3uz3NhNxjPWzRQvI5Oiw3s",
     "deezerPlaylist": "https://link.deezer.com/s/30xlpOVIT7k3AuSIgYVsb",
@@ -262,7 +262,7 @@
   },
   {
     "headline": "Beats Belges : Où la Pop Européenne Rencontre l'Innovation Électronique",
-    "imageUrl": "/category/belgian.jpg",
+    "imageUrl": "belgian",
     "introSubline": "Explorez le riche paysage musical belge, des sensations pop en tête des charts aux pionniers électroniques révolutionnaires. Vivez comment ce carrefour culturel crée des sons uniques qui continuent d'influencer les tendances musicales mondiales.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0uXsyiU5ridTJAe9K9p8j4",
     "deezerPlaylist": "https://link.deezer.com/s/30xluN3c8HQVCTNhM09NO",
@@ -271,7 +271,7 @@
   },
   {
     "headline": "Black Metal : Voyage dans le Domaine le Plus Atmosphérique et Primal du Metal",
-    "imageUrl": "/category/black-metal.jpg",
+    "imageUrl": "black-metal",
     "introSubline": "Aventurez-vous dans le monde intense et atmosphérique du black metal, où l'intensité brute rencontre l'art sombre. Vivez le mélange signature du genre entre mélodies obsédantes, intensité féroce et profondeur émotionnelle intransigeante.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3t1JDSI6929WEPA9dmoHpq",
     "deezerPlaylist": "https://link.deezer.com/s/30xlyoIImz6xSliVDNwKZ",
@@ -280,7 +280,7 @@
   },
   {
     "headline": "Blackened Death Metal : Où l'Obscurité du Black Metal Rencontre la Brutalité du Death Metal",
-    "imageUrl": "/category/blackened-death-metal.jpg",
+    "imageUrl": "blackened-death-metal",
     "introSubline": "Descendez dans la fusion ultime du metal extrême, où l'obscurité atmosphérique du black metal entre en collision avec la brutalité technique du death metal. Vivez comment ce genre hybride repousse les frontières musicales pour créer quelque chose d'uniquement intense.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4S3th2E2If9oJsiRXIUvYr",
     "deezerPlaylist": "https://link.deezer.com/s/30xlB9UPTLQGbNJnBPxsW",
@@ -289,7 +289,7 @@
   },
   {
     "headline": "Légendes Bluegrass : La Révolution de la Musique de Montagne Américaine",
-    "imageUrl": "/category/bluegrass.jpg",
+    "imageUrl": "bluegrass",
     "introSubline": "Voyagez au cœur de la musique roots américaine, des légendes pionnières aux innovateurs modernes. Vivez comment le picking ultra-rapide, les harmonies célestes et la narration intemporelle continuent de captiver les audiences à travers les générations.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EaNvDdyth2iYz3yx8hH0i",
     "deezerPlaylist": "https://link.deezer.com/s/30xlD8nQW7xGMymaLFcsg",
@@ -298,7 +298,7 @@
   },
   {
     "headline": "Maîtres du Blues : Les Pionniers de l'Âme qui ont Façonné la Musique Moderne",
-    "imageUrl": "/category/blues.jpg",
+    "imageUrl": "blues",
     "introSubline": "Vivez l'émotion brute et la narration authentique qui ont donné naissance à la musique populaire moderne. Des carrefours du Delta à l'évolution électrique de Chicago, ces morceaux montrent comment les maîtres du blues ont transformé les luttes de la vie en art intemporel.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2TUj2c6v93zh6pVbxAIgYD",
     "deezerPlaylist": "https://link.deezer.com/s/30xlFj6PoctkfhYGaIu05",
@@ -307,7 +307,7 @@
   },
   {
     "headline": "Bossa Nova : L'Âme Sophistiquée et la Fraîcheur Côtière du Brésil",
-    "imageUrl": "/category/bossa-nova.jpg",
+    "imageUrl": "bossa-nova",
     "introSubline": "Flottez sur des rythmes doux qui mélangent la sophistication jazz avec l'âme brésilienne. De l'âge d'or de Rio aux interprétations modernes, vivez comment la complexité subtile et la grâce naturelle de la bossa nova continuent d'enchanter les auditeurs du monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/39TB2ZnA4wd7mdKFWYfCN3",
     "deezerPlaylist": "https://link.deezer.com/s/30xlGjv2cst5Qsauh0f36",
@@ -316,7 +316,7 @@
   },
   {
     "headline": "Beats Brésiliens : Un Voyage à Travers le Paradis Musical de l'Amérique du Sud",
-    "imageUrl": "/category/brazilian.jpg",
+    "imageUrl": "brazilian",
     "introSubline": "Immergez-vous dans le kaléidoscope de rythmes du Brésil, de l'esprit carnaval de la samba à l'âme poétique de la MPB. Vivez comment cette puissance musicale mélange les rythmes africains, les mélodies européennes et les traditions indigènes en magie brésilienne unique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3EZ2AZNQNB4V5vSI07WvRh",
     "deezerPlaylist": "https://link.deezer.com/s/30xlGzsQoRrMpYd2CC6Sb",
@@ -325,7 +325,7 @@
   },
   {
     "headline": "Breakbeat : Où l'Âme du Hip-Hop Rencontre l'Avenir de la Musique Électronique",
-    "imageUrl": "/category/breakbeat.jpg",
+    "imageUrl": "breakbeat",
     "introSubline": "Vivez le genre qui a révolutionné la musique de danse en découpant le funk et la soul en formes nouvelles et propulsives. De l'intensité du jungle aux sons de stade du big beat, découvrez comment la culture breakbeat continue d'évoluer la musique électronique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6tUYCnSGq2SspsKec8FMHI",
     "deezerPlaylist": "https://link.deezer.com/s/30xlHKxwJZmrIkNuEqKbD",
@@ -334,7 +334,7 @@
   },
   {
     "headline": "Invasion Britannique : Quand le Rock Britannique a Conquis l'Amérique et Changé la Musique pour Toujours",
-    "imageUrl": "/category/british.jpg",
+    "imageUrl": "british",
     "introSubline": "Voyagez dans la révolution musicale des années 1960 quand les groupes britanniques ont déferlé sur les côtes américaines. Des harmonies révolutionnaires des Beatles à l'énergie brute des Rolling Stones, vivez les sons qui ont transformé la culture pop des deux côtés de l'Atlantique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2p5MpIewAEBSYykG3LL8yk",
     "deezerPlaylist": "https://link.deezer.com/s/30xlI4I64HjbhPHyue49D",
@@ -343,7 +343,7 @@
   },
   {
     "headline": "Cantopop : L'Univers Pop Étincelant de Hong Kong",
-    "imageUrl": "/category/cantopop.jpg",
+    "imageUrl": "cantopop",
     "introSubline": "Immergez-vous dans la culture pop éblouissante de Hong Kong à travers son export musical le plus aimé. Des ballades émotionnelles aux morceaux de danse énergiques, vivez comment le Cantopop mélange l'Est et l'Ouest pour créer le son pop le plus distinctif d'Asie.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07",
     "deezerPlaylist": "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07",
@@ -352,7 +352,7 @@
   },
   {
     "headline": "Musique Caribéenne : Ambiance Île et Grooves Tropicaux",
-    "imageUrl": "/category/caribbean-music.jpg",
+    "imageUrl": "caribbean-music",
     "introSubline": "Balancez-vous sur les rythmes du reggae, de la soca et du calypso. La musique caribéenne apporte soleil et joie à chaque playlist.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4sToyECqnzA2wNpdtCgy2X",
     "deezerPlaylist": "https://link.deezer.com/s/30xlKcTrzIS2gvHtJUQah",
@@ -361,7 +361,7 @@
   },
   {
     "headline": "Metal Celtique : Où les Mélodies Anciennes Rencontrent la Puissance du Metal Moderne",
-    "imageUrl": "/category/celtic-metal.jpg",
+    "imageUrl": "celtic-metal",
     "introSubline": "Voyagez dans une fusion unique où les traditions folk celtiques entrent en collision avec la puissance du heavy metal. Vivez comment les groupes combinent instruments traditionnels, mélodies anciennes et riffs écrasants pour créer un son épique qui fait le pont entre des siècles d'évolution musicale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5Rx08qQTBlYlFd6QHzixxP",
     "deezerPlaylist": "https://link.deezer.com/s/30xlMmOZDy2T7RMImL02T",
@@ -370,7 +370,7 @@
   },
   {
     "headline": "Metal de Chambre : Le Raffinement Classique Rencontre la Puissance Brute du Metal",
-    "imageUrl": "/category/chamber-metal.jpg",
+    "imageUrl": "chamber-metal",
     "introSubline": "Vivez une fusion innovante où l'élégance de la musique de chambre embrasse l'intensité du metal. Des quatuors à cordes aux guitares électriques, découvrez comment ce genre crée une musique heavy sophistiquée qui défie les conventions classiques et metal.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/11CEvVHIy8D1du1MC0yMmu",
     "deezerPlaylist": "https://link.deezer.com/s/30xlOxhAALbzc5G9V3GZN",
@@ -379,7 +379,7 @@
   },
   {
     "headline": "Musique de Chambre : Ensembles Classiques Intimes",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Vivez l'élégance de la musique de chambre, où de petits ensembles créent des paysages sonores riches et expressifs.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5nVzxaAcgnAla4QKGiERny",
     "deezerPlaylist": "https://link.deezer.com/s/30xmUxySzwpOkerTSl0lb",
@@ -388,7 +388,7 @@
   },
   {
     "headline": "Chicago House : Comment la Scène Underground de la Ville du Vent a Changé la Musique de Danse pour Toujours",
-    "imageUrl": "/category/chicago-house.jpg",
+    "imageUrl": "chicago-house",
     "introSubline": "Retournez dans les entrepôts où la house music est née. Des sets pionniers de Frankie Knuckles aux machines à tambour iconiques qui ont façonné le son, vivez comment les clubs underground de Chicago ont lancé une révolution de danse mondiale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1UCfIchg3CGhuocB6ojeIh",
     "deezerPlaylist": "https://link.deezer.com/s/30xmVc8xUghJvDyZr0LVZ",
@@ -397,7 +397,7 @@
   },
   {
     "headline": "Favoris des Enfants : Aventures Musicales Magiques pour les Jeunes Esprits",
-    "imageUrl": "/category/children.jpg",
+    "imageUrl": "children",
     "introSubline": "Embarquez pour un voyage musical conçu pour éveiller l'imagination et la joie dans les jeunes cœurs. Des classiques adorés aux mélodies éducatives, ces morceaux soigneusement sélectionnés créent des moments magiques d'apprentissage, de danse et d'émerveillement pur de l'enfance.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3nMN0JsqBlZHbEF8vCyRwm",
     "deezerPlaylist": "https://link.deezer.com/s/30xmWkgsdQtDBBDsDcCA5",
@@ -406,7 +406,7 @@
   },
   {
     "headline": "Chiptune : Nostalgie 8-Bit et Sons de Jeux Rétro",
-    "imageUrl": "/category/chiptune.jpg",
+    "imageUrl": "chiptune",
     "introSubline": "Revivez la magie des jeux vidéo classiques avec le chiptune, un genre construit sur les sons d'ordinateurs et de consoles vintage.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5xDKFpwmUZqmEVJayXfq6n",
     "deezerPlaylist": "https://link.deezer.com/s/30xmWyWUYjxPzouj461LT",
@@ -415,7 +415,7 @@
   },
   {
     "headline": "Metal Chrétien : Où le Message Divin Rencontre la Puissance du Metal",
-    "imageUrl": "/category/christian-metal.jpg",
+    "imageUrl": "christian-metal",
     "introSubline": "Découvrez comment la puissance du metal devient un véhicule pour l'expression spirituelle. Des groupes pionniers comme Stryper à la fusion moderne worship-metal, vivez comment les artistes combinent profondeur théologique et prouesse technique pour créer une musique heavy inspirante.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5pNPoAdn9cN3AEGHcJ7SRw",
     "deezerPlaylist": "https://link.deezer.com/s/30xmXNgBq8eNYpRvaq1J6",
@@ -424,7 +424,7 @@
   },
   {
     "headline": "Classiques de Noël : Chansons Intemporelles qui Définissent la Magie des Fêtes",
-    "imageUrl": "/category/christmas-classics.jpg",
+    "imageUrl": "christmas-classics",
     "introSubline": "Immergez-vous dans la bande sonore réconfortante de la saison. Des chants séculaires aux standards modernes adorés, ces morceaux soigneusement choisis capturent le mélange parfait de nostalgie, célébration et émerveillement hivernal qui rend la musique de Noël spéciale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4M4VdveKKRReQ3Rxah3yQH",
     "deezerPlaylist": "https://link.deezer.com/s/30xmY7Ls2iMlMENT92IgK",
@@ -433,7 +433,7 @@
   },
   {
     "headline": "Heavy Metal Classique : Les Débuts Tonnants de l'Âge d'Or du Metal",
-    "imageUrl": "/category/classic-heavy-metal.jpg",
+    "imageUrl": "classic-heavy-metal",
     "introSubline": "Voyagez à l'époque où le heavy metal a secoué la terre pour la première fois, des riffs chargés de doom de Black Sabbath aux épopées galopantes d'Iron Maiden. Vivez les sons révolutionnaires qui ont établi les éléments fondamentaux du metal et continuent d'influencer des générations de headbangers.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6z3knFleaOUHd7M4aH8NIo",
     "deezerPlaylist": "https://link.deezer.com/s/30xmZ85sQ1MuP2BVP9jph",
@@ -442,7 +442,7 @@
   },
   {
     "headline": "Rock Classique : Les Hymnes Intemporels qui ont Façonné la Musique Moderne",
-    "imageUrl": "/category/classic-rock.jpg",
+    "imageUrl": "classic-rock",
     "introSubline": "Voyagez à travers l'âge d'or du rock, quand les dieux de la guitare régnaient sur la terre et le rock orienté album régnait en maître. Des hymnes qui remplissent les arènes aux compositions révolutionnaires, vivez les chansons qui ont défini des générations et continuent d'influencer les artistes aujourd'hui.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/58tOzgAXjry6NG85cpwlMo",
     "deezerPlaylist": "https://link.deezer.com/s/30xmZ85sQ1MuP2BVP9jph",
@@ -451,7 +451,7 @@
   },
   {
     "headline": "Chefs-d'œuvre Classiques : Un Voyage à Travers des Siècles de Génie Musical",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Vivez la beauté profonde des plus grandes réalisations de la musique classique, du contrepoint complexe de Bach aux symphonies révolutionnaires de Beethoven. Laissez ces œuvres intemporelles vous transporter à travers les esprits musicaux les plus brillants de l'histoire.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/434kID2hF3NVLqbQDjiPB8",
     "deezerPlaylist": "https://link.deezer.com/s/30xn0GpbOPGTvHWJI9CLp",
@@ -460,7 +460,7 @@
   },
   {
     "headline": "Hits de Club : L'Allumage Ultime d'Énergie de Dancefloor",
-    "imageUrl": "/category/club.jpg",
+    "imageUrl": "club",
     "introSubline": "Transformez n'importe quel espace en boîte de nuit instantanée avec ces floor-fillers certifiés. Des drops EDM euphoriques aux remixes pop irrésistibles, cette collection livre le mélange parfait d'énergie et de rythme pour maintenir la fête à son apogée d'excitation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1ZbPYkUWN0BukD8JhYgW8O",
     "deezerPlaylist": "https://link.deezer.com/s/30xn0Wy7jcyhUMQOCKrFD",
@@ -469,7 +469,7 @@
   },
   {
     "headline": "Rythmes Colombiens : Où Cumbia, Vallenato et Sons Modernes Entrent en Collision",
-    "imageUrl": "/category/colombian.jpg",
+    "imageUrl": "colombian",
     "introSubline": "Plongez dans le paysage musical diversifié de la Colombie, de la passion accordéon du vallenato au groove tropical entraînant de la cumbia. Vivez comment les rythmes traditionnels se mélangent aux styles contemporains pour créer la bande sonore vibrante de la Colombie moderne.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/14Co12mZWx9jgHEKulsSBK",
     "deezerPlaylist": "https://link.deezer.com/s/30xn27jZ8rTEOD2jNY0wV",
@@ -478,7 +478,7 @@
   },
   {
     "headline": "Compagnon de Trajet : Transformez votre Voyage Quotidien en Aventure Musicale",
-    "imageUrl": "/category/commute-companion.jpg",
+    "imageUrl": "commute-companion",
     "introSubline": "Transformez le trafic en triomphe avec ce mélange soigneusement organisé de morceaux énergisants et relaxants. Que vous naviguiez dans l'heure de pointe du matin ou que vous vous détendiez sur le trajet du soir, ces chansons font que chaque trajet ressemble à un concert personnel.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6QessAsjZ05dfOHVzoCJYH",
     "deezerPlaylist": "https://link.deezer.com/s/30xn2pwNP07fSrmzqhHNd",
@@ -487,7 +487,7 @@
   },
   {
     "headline": "Bande Sonore de Cuisine : Votre Compagnon Parfait de Cuisine pour les Aventures Culinaires",
-    "imageUrl": "/category/cooking-soundtrack.jpg",
+    "imageUrl": "cooking-soundtrack",
     "introSubline": "Transformez votre cuisine en havre musical avec cette collection organisée de morceaux inspirants. De la découpe de légumes à la mijotage de sauces, laissez ces rythmes inspirer votre créativité culinaire et faire de la cuisine une expérience joyeuse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2l45RZD5WYpRd1EhUhj9tq",
     "deezerPlaylist": "https://link.deezer.com/s/30xn3zdvtRdi3KVNY8U49",
@@ -496,7 +496,7 @@
   },
   {
     "headline": "Coregrind : L'Expression Ultime de l'Évolution la Plus Extrême du Metal",
-    "imageUrl": "/category/coregrind.jpg",
+    "imageUrl": "coregrind",
     "introSubline": "Plongez dans la frontière la plus intransigeante du metal, où le grindcore rencontre l'intensité du hardcore. Vivez comment les musiciens repoussent les frontières sonores pour créer une forme d'extreme music unique et dévastatrice qui défie les structures de chansons conventionnelles.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5p2vX24aHMdLoKV6LbO9I2",
     "deezerPlaylist": "https://link.deezer.com/s/30xn3Sm8fukzKkTFf5sOt",
@@ -505,7 +505,7 @@
   },
   {
     "headline": "Classiques Country : Les Histoires et Sons Intemporels du Cœur de l'Amérique",
-    "imageUrl": "/category/country.jpg",
+    "imageUrl": "country",
     "introSubline": "Voyagez à travers l'âge d'or de la musique country, où la narration authentique rencontre la virtuosité musicale. Des héros honky-tonk aux légendes de Nashville, vivez les chansons qui capturent l'esprit, les luttes et les triomphes de la vie américaine.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3FcVkRJjFiZ3EfVKbMPWGl",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6snmJVM2NIWbp2X0B",
@@ -514,7 +514,7 @@
   },
   {
     "headline": "Soirée Confortable : Votre Sanctuaire Musical pour les Moments Parfaits de Soirée",
-    "imageUrl": "/category/cozy-evening.jpg",
+    "imageUrl": "cozy-evening",
     "introSubline": "Transformez votre espace en havre doux avec des morceaux soigneusement sélectionnés qui vous enveloppent comme une couverture chaude. Laissez ces mélodies apaisantes vous aider à vous détendre, créant la bande sonore parfaite pour la contemplation tranquille ou la relaxation paisible.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sjaWu1uWwHRn3nTyNbV3s",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6I6QxAb9O0Mys7Clp",
@@ -523,7 +523,7 @@
   },
   {
     "headline": "Crossover Thrash : Où l'Attitude Punk Rencontre la Puissance du Metal",
-    "imageUrl": "/category/crossover-thrash.jpg",
+    "imageUrl": "crossover-thrash",
     "introSubline": "Plongez dans la fusion explosive où l'énergie brute du punk entre en collision avec la précision technique du metal. Des hymnes de mosh pit aux ragers alimentés par la vitesse, vivez comment ce genre hybride a créé un son unique qui a révolutionné les deux scènes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/13E7zxBDCoUkft4xmUF9EG",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6YBNN15Q4vKuCmSwQ",
@@ -532,7 +532,7 @@
   },
   {
     "headline": "Rythmes Cubains : Le Cœur Pulsant de la Culture Musicale Caribéenne",
-    "imageUrl": "/category/cuban.jpg",
+    "imageUrl": "cuban",
     "introSubline": "Voyagez à travers l'âme musicale de Cuba, où les rythmes africains rencontrent les mélodies espagnoles. Du son cubano intemporel aux innovations salsa modernes, vivez comment l'esprit passionné de l'île crée une musique qui émeut le corps et l'âme.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5pj8MUa9jYfeWhooXmoZCT",
     "deezerPlaylist": "https://link.deezer.com/s/30xn7jsMjgBoEhVujYnCv",
@@ -541,7 +541,7 @@
   },
   {
     "headline": "Cumbia : Le Pilier de Dancefloor de l'Amérique Latine",
-    "imageUrl": "/category/cumbia.jpg",
+    "imageUrl": "cumbia",
     "introSubline": "Bougez sur les rythmes entraînants de la cumbia, un genre qui unit l'Amérique Latine avec ses beats joyeux.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0Di8ef8PTSHMhvdZbolOrL",
     "deezerPlaylist": "https://link.deezer.com/s/30xn802fHrESW217n2CP7",
@@ -550,7 +550,7 @@
   },
   {
     "headline": "Metal Cyber : Où l'Innovation Numérique Rencontre la Puissance Brute du Metal",
-    "imageUrl": "/category/cyber-metal.jpg",
+    "imageUrl": "cyber-metal",
     "introSubline": "Entrez dans un royaume sonique où la précision industrielle rencontre la fureur métallique. Vivez comment les artistes mélangent éléments électroniques de pointe et intensité metal traditionnelle pour créer une forme heavy music unique et futuriste.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/65Zqa3rGN55eC5f9REKiIK",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8g7z8IBohZcPHvrFs",
@@ -559,7 +559,7 @@
   },
   {
     "headline": "Mélodies Tchèques : Des Traditions Folk Bohémiennes à l'Innovation Contemporaine",
-    "imageUrl": "/category/czech.jpg",
+    "imageUrl": "czech",
     "introSubline": "Voyagez à travers des siècles d'évolution musicale tchèque, des mélodies folk traditionnelles aux expressions artistiques modernes. Vivez comment les rythmes et harmonies bohémiens anciens continuent d'influencer et d'inspirer les voix créatives d'aujourd'hui.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6hbfyh7YZbUsqFZwv9yb9h",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8ygAtTTgRA3wx4hsc",
@@ -568,7 +568,7 @@
   },
   {
     "headline": "Vibes Dancehall : Le Pouls Urbain et la Révolution Culturelle de la Jamaïque",
-    "imageUrl": "/category/dancehall.jpg",
+    "imageUrl": "dancehall",
     "introSubline": "Plongez dans le monde dynamique du dancehall, où la culture de rue de Kingston rencontre les rythmes entraînants. Des deejays fondateurs aux stars modernes, vivez comment ce genre a révolutionné la musique caribéenne et influencé la culture pop mondiale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2yxV3b2iEqG0YHKzWJCWC0",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8YNgHXGH8OQLiJQGe",
@@ -577,7 +577,7 @@
   },
   {
     "headline": "Délices Danois : L'Excellence Pop Scandinave Rencontre l'Innovation Rock Nordique",
-    "imageUrl": "/category/danish.jpg",
+    "imageUrl": "danish",
     "introSubline": "Vivez l'identité musicale unique du Danemark, où la production pop impeccable rencontre le tranchant du rock alternatif. De la scène underground de Copenhague aux hits internationaux, découvrez comment les artistes danois créent leur son nordique distinctif.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/78uUwN6op6fn7SlxOXGhcg",
     "deezerPlaylist": "https://link.deezer.com/s/30xncrcl4nTweqAA941UP",
@@ -586,7 +586,7 @@
   },
   {
     "headline": "Metal Sombre : Où l'Obscurité Atmosphérique Rencontre l'Intensité Primale",
-    "imageUrl": "/category/dark-metal.jpg",
+    "imageUrl": "dark-metal",
     "introSubline": "Voyagez dans le domaine le plus ombragé du metal, où les atmosphères obsédantes fusionnent avec la lourdeur écrasante. Vivez comment les artistes de dark metal créent des paysages sonores intenses qui explorent les profondeurs de l'émotion humaine à travers l'obscurité musicale puissante.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4kLxAZTwwRQZywq46DoKXx",
     "deezerPlaylist": "https://link.deezer.com/s/30xncJoXSiYV1EG6uw2WB",
@@ -595,7 +595,7 @@
   },
   {
     "headline": "Soirée Romantique : Votre Bande Sonore Parfaite pour les Moments Romantiques",
-    "imageUrl": "/category/date-night.jpg",
+    "imageUrl": "date-night",
     "introSubline": "Créez une atmosphère enchanteresse avec des morceaux romantiques soigneusement sélectionnés qui rehaussent chaque moment spécial. Des dîners intimes aux soirées confortables, laissez ces chansons fournir la toile de fond parfaite pour la connexion et la romance.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/17qLsk8c4KXYmCvW7ADlCz",
     "deezerPlaylist": "https://link.deezer.com/s/30xncXTrcoTFwg9M6Wh0O",
@@ -604,7 +604,7 @@
   },
   {
     "headline": "Death Metal : L'Expression Ultime de l'Extrémité Musicale",
-    "imageUrl": "/category/death-metal.jpg",
+    "imageUrl": "death-metal",
     "introSubline": "Plongez dans le domaine le plus intransigeant du metal, où la précision technique rencontre l'agression brute. Vivez comment les artistes pionniers ont repoussé les frontières musicales pour créer un genre qui a redéfini les limites de la musique heavy.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7yyTs4WubcRhvYcyM1rWQo",
     "deezerPlaylist": "https://link.deezer.com/s/30xndlMEgZip91uS4xkg3",
@@ -613,7 +613,7 @@
   },
   {
     "headline": "Deep House : Voyage à Travers le Genre le Plus Sophistiqué de la Musique Électronique",
-    "imageUrl": "/category/deep-house.jpg",
+    "imageUrl": "deep-house",
     "introSubline": "Flottez sur des vagues de paysages sonores électroniques sophistiqués, où les mélodies de l'âme rencontrent les rythmes hypnotiques. Vivez comment la deep house crée une atmosphère immersive qui est à la fois intellectuellement engageante et irrésistiblement dansante.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5ge5xOchRYWDJtYJ8memGJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xndGEj3bSAMNACP8cIs",
@@ -622,7 +622,7 @@
   },
   {
     "headline": "Desert Rock : Où les Riffs Heavy Rencontrent l'Esprit du Sud-Ouest Américain",
-    "imageUrl": "/category/desert-rock.jpg",
+    "imageUrl": "desert-rock",
     "introSubline": "Voyagez dans les paysages sonores brûlés par le soleil du desert rock, où les guitares floues et les grooves hypnotiques capturent la vaste étendue des paysages arides. Vivez comment ce genre transforme la rudesse du stoner rock en une expression sonique unique de la culture désertique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/48UEHKFT7ibAyQkjbPsbZz",
     "deezerPlaylist": "https://link.deezer.com/s/30xndZZjulU0HkuNStwsG",
@@ -631,7 +631,7 @@
   },
   {
     "headline": "Detroit Techno : L'Âme Mécanisée de la Motor City Américaine",
-    "imageUrl": "/category/detroit-techno.jpg",
+    "imageUrl": "detroit-techno",
     "introSubline": "Vivez le son révolutionnaire qui est né du paysage industriel de Detroit. Des Belleville Three aux innovateurs modernes, découvrez comment ce genre a transformé la musique électronique en fusionnant la précision mécanique avec l'humanité de l'âme.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0BOek8nkdJePER61FHiFuX",
     "deezerPlaylist": "https://link.deezer.com/s/30xneecrhgxMAFM6G1L49",
@@ -640,7 +640,7 @@
   },
   {
     "headline": "Deutschrock : La Puissance Brute et l'Âme Poétique du Rock Allemand",
-    "imageUrl": "/category/deutschrock.jpg",
+    "imageUrl": "deutschrock",
     "introSubline": "Vivez l'évolution rock distinctive de l'Allemagne, où les riffs puissants rencontrent les paroles réfléchies dans la langue maternelle. De la rébellion underground aux hymnes de stade, découvrez comment le Deutschrock a créé sa propre voix unique dans l'histoire du rock.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1bhuZ8aTGSZs6E2bsqyMpb",
     "deezerPlaylist": "https://link.deezer.com/s/30xnezAmfIyGxsbX5RXK5",
@@ -649,7 +649,7 @@
   },
   {
     "headline": "Dîner de Soirée : Sons Organisés pour les Rassemblements Sociaux Sophistiqués",
-    "imageUrl": "/category/dinner-party.jpg",
+    "imageUrl": "dinner-party",
     "introSubline": "Transformez votre dîner de soirée en une soirée élégante avec des morceaux parfaitement sélectionnés qui rehaussent la conversation sans la dominer. De la sophistication jazz à l'ambiance moderne, créez la toile de fond parfaite pour des expériences de dîner mémorables.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MXL5jkBocvGOcs8Ykel3A",
     "deezerPlaylist": "https://link.deezer.com/s/30xniMYeoV2EWvyw559NT",
@@ -658,7 +658,7 @@
   },
   {
     "headline": "Fièvre Disco : L'Héritage Étincelant de l'Âge d'Or de la Musique de Danse",
-    "imageUrl": "/category/disco-fever.jpg",
+    "imageUrl": "disco-fever",
     "introSubline": "Entrez dans une ère de boules à facettes et de chaussures à plateforme, où la musique de danse a atteint de nouveaux sommets de glamour et de groove. Vivez comment la culture disco a transformé la vie nocturne et créé des hymnes intemporels qui enflamment encore les dancefloors aujourd'hui.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3dvVawXWiSUO2XIKQ2CN51",
     "deezerPlaylist": "https://link.deezer.com/s/30xnj4cw13wE5ujrizZIw",
@@ -667,7 +667,7 @@
   },
   {
     "headline": "Doom Metal : Où le Temps Ralentit et les Riffs Règnent en Maître",
-    "imageUrl": "/category/doom-metal.jpg",
+    "imageUrl": "doom-metal",
     "introSubline": "Descendez dans le domaine le plus monolithique du metal, où les riffs écrasants se déplacent comme des glaciers et les émotions coulent profondes comme des canyons. Du culte Sabbath à l'innovation moderne, vivez comment le doom metal transforme la lourdeur en art élevé.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3vh5TYe4kSx5CvDT2Hy7Ei",
     "deezerPlaylist": "https://link.deezer.com/s/30xnjxSsmvS9hmF0chDu7",
@@ -676,7 +676,7 @@
   },
   {
     "headline": "Downtempo : Grooves Décontractés pour la Relaxation",
-    "imageUrl": "/category/downtempo.jpg",
+    "imageUrl": "downtempo",
     "introSubline": "Détendez-vous avec des morceaux downtempo, mélangeant sons électroniques et atmosphères chill pour la vibe de fond parfaite.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1Vb4Gy3vBTiXTjJXoNGiyx",
     "deezerPlaylist": "https://link.deezer.com/s/30xnk5cE1L62RqzHXNFti",
@@ -685,7 +685,7 @@
   },
   {
     "headline": "Scores Dramatiques : Narrations Musicales Épiques qui Transportent et Transforment",
-    "imageUrl": "/category/dramatic.jpg",
+    "imageUrl": "dramatic",
     "introSubline": "Voyagez à travers des paysages orchestraux majestueux qui peignent des histoires en son. Des thèmes d'action palpitants aux moments émotionnels tendres, ces scores dramatiques créent des mondes vivants et émeuvent profondément.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2i3yAprKjaL3rqVAYpncd0",
     "deezerPlaylist": "https://link.deezer.com/s/30xnzrVoHawVe0BxFaubs",
@@ -694,7 +694,7 @@
   },
   {
     "headline": "Paysages Sonores Rêveurs : Voyage à Travers les Paysages Musicaux Éthérés",
-    "imageUrl": "/category/dreamy.jpg",
+    "imageUrl": "dreamy",
     "introSubline": "Flottez sur des nuages de son ambient conçus pour vous transporter vers des royaumes tranquilles. Ces pièces atmosphériques soigneusement organisées créent la bande sonore parfaite pour la méditation, la relaxation ou le rêve paisible.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/15PdpwfohtGuNwRSkCW2zt",
     "deezerPlaylist": "https://link.deezer.com/s/30xnAeSrfGA8TJolNBgve",
@@ -703,7 +703,7 @@
   },
   {
     "headline": "Drum & Bass : L'Évolution Ultra-Rapide de la Musique Électronique",
-    "imageUrl": "/category/drum-and-bass.jpg",
+    "imageUrl": "drum-and-bass",
     "introSubline": "Vivez le genre qui a transformé la science breakbeat en art sonique. De l'énergie brute du jungle au flow soul du liquid, découvrez comment le drum & bass repousse les frontières du rythme et transforme l'ADN de la musique de danse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4zYM1OGrfifAjTJ7DcZNTL",
     "deezerPlaylist": "https://link.deezer.com/s/30xnABtUuw7FmQd27uM81",
@@ -712,7 +712,7 @@
   },
   {
     "headline": "Dubstep : Drops Heavy et Basslines Futuristes",
-    "imageUrl": "/category/dubstep.jpg",
+    "imageUrl": "dubstep",
     "introSubline": "Energisez-vous avec les wobbles et drops signature du dubstep, un genre qui a redéfini la musique de danse électronique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4y5C0ZUw18vNLwB74DwKug",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14071209941",
@@ -721,7 +721,7 @@
   },
   {
     "headline": "Délices Néerlandais : Où l'Innovation Électronique Rencontre la Perfection Pop",
-    "imageUrl": "/category/dutch.jpg",
+    "imageUrl": "dutch",
     "introSubline": "Voyagez à travers le paysage musical distinctif des Pays-Bas, où les pionniers EDM rencontrent le talent en tête des charts. Vivez comment les artistes néerlandais mélangent précision technique et hooks irrésistibles pour créer des hymnes de danse mondiaux.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/51lhPhTRmWbmyLDsdw0wEm",
     "deezerPlaylist": "https://link.deezer.com/s/30xod7DaUFSmC7lZ30Plk",
@@ -730,7 +730,7 @@
   },
   {
     "headline": "Hymnes Énergiques : Votre Bande Sonore de Motivation Ultime",
-    "imageUrl": "/category/energetic.jpg",
+    "imageUrl": "energetic",
     "introSubline": "Transformez n'importe quel instant en opportunité de triomphe avec ces morceaux de puissance soigneusement sélectionnés. Des intensificateurs d'entraînement aux boosters de confiance, ces chansons fournissent le carburant sonique parfait pour énergiser votre journée et enflammer votre feu intérieur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2kzteEmMVydWhpKXpE0NwA",
     "deezerPlaylist": "https://link.deezer.com/s/30xodrzw68uslito6XkVW",
@@ -739,7 +739,7 @@
   },
   {
     "headline": "Eurodance : Le Son qui a Uni les Dancefloors d'Europe",
-    "imageUrl": "/category/eurodance.jpg",
+    "imageUrl": "eurodance",
     "introSubline": "Voyagez dans l'âge d'or de la culture club continentale, quand les synthétiseurs et harmonies vocales créaient une euphorie pure. Vivez comment l'Eurodance a fusionné beats hi-NRG et hooks pop pour créer une vague de musique de danse irrésistible.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4pHIQ9gXOn2VayV4tsfHzd",
     "deezerPlaylist": "https://link.deezer.com/s/30xodEcLPkDA49E8QTUXE",
@@ -748,7 +748,7 @@
   },
   {
     "headline": "Metal Expérimental : Où les Conventions Musicales Sont Brisées et Reconstruites",
-    "imageUrl": "/category/experimental-metal.jpg",
+    "imageUrl": "experimental-metal",
     "introSubline": "Aventurez-vous dans le territoire le plus audacieux du metal, où des artistes intrépides réécrivent les règles de la musique heavy. Vivez comment techniques innovantes et structures non conventionnelles créent de nouveaux paysages soniques audacieux qui défient et élargissent les possibilités du metal.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3wvp9nAuQJBgkDX1ZpM3YG",
     "deezerPlaylist": "https://link.deezer.com/s/30xoe5D1jetIYlpx4B5Q0",
@@ -757,7 +757,7 @@
   },
   {
     "headline": "Expérimental : Repousser les Frontières du Son",
-    "imageUrl": "/category/experimental.jpg",
+    "imageUrl": "experimental",
     "introSubline": "Explorez la musique qui défie les conventions, où les artistes expérimentent avec de nouvelles formes, textures et idées.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3WbaKfdb2dDOG4VPbu1D1S",
     "deezerPlaylist": "https://link.deezer.com/s/30xoine2tP3SUaVITZB4D",
@@ -766,7 +766,7 @@
   },
   {
     "headline": "Légendes Blues Féminines : Les Voix Puissantes qui Ont Façonné la Musique Américaine",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Honorez les femmes pionnières qui ont donné son âme au blues, de la puissance brute de Ma Rainey à la profondeur émotionnelle de Billie Holiday. Vivez comment ces artistes légendaires ont transformé les luttes personnelles en art intemporel qui a influencé des générations de musiciens.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0B1lCvZ39NNGfYurue3SVj",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14071303901",
@@ -775,7 +775,7 @@
   },
   {
     "headline": "Stars Country Féminines : Les Narratrices les Plus Puissantes de Nashville",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Parcourez les voix féminines les plus captivantes de la musique country, de l'honnêteté émotionnelle de Patsy Cline aux artistes révolutionnaires d'aujourd'hui. Vivez comment ces femmes combinent narration authentique et brillance musicale pour créer des classiques country durables.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7pJnAa3cTUaKb8LgudSekp",
     "deezerPlaylist": "https://link.deezer.com/s/30xolMe3YtTBWnc0FQFDZ",
@@ -784,7 +784,7 @@
   },
   {
     "headline": "Female DJs : Les Pionnières qui Révolutionnent la Scène Électronique",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Vivez la force innovante des femmes qui transforment la musique électronique, des clubs underground aux plus grands festivals. Des pionnières de la techno aux créatrices d'aujourd'hui, découvrez comment les DJs féminines allient maîtrise technique et vision créative.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6G0z7MeFF9le1mHhAylvIu",
     "deezerPlaylist": "https://link.deezer.com/s/30xom0b0AbVFqvPmKYyIN",
@@ -793,7 +793,7 @@
   },
   {
     "headline": "Grunge au Féminin : La Puissance Brute des Années 90",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Plongez dans l'univers féroce des femmes qui ont façonné le son et l'attitude du grunge. De l'intensité viscérale de Hole à l'audace de L7, découvrez comment ces artistes ont apporté des voix puissantes et des perspectives uniques à la révolution du rock alternatif.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4U5LB1XOwvS1sG3F8c8z8Y",
     "deezerPlaylist": "https://link.deezer.com/s/30xoml3lyya1YCjrGHsIU",
@@ -802,7 +802,7 @@
   },
   {
     "headline": "Reines du Hip-Hop : Les Femmes qui Redéfinissent le Rap",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Parcourez les voix féminines les plus puissantes du hip-hop, des MCs pionnières aux stars d'aujourd'hui. Découvrez comment ces innovatrices audacieuses allient punchlines acérées et productions novatrices pour créer leur propre voie dans l'histoire du rap.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5uQxagiQxkL0yY48y9tsxd",
     "deezerPlaylist": "https://link.deezer.com/s/30xomCVcQGXOJD6tGQHdS",
@@ -811,7 +811,7 @@
   },
   {
     "headline": "Voix Féminines du Jazz : L'Envoûtement d'une Époque",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Laissez-vous séduire par l'art intemporel des plus grandes voix du jazz, d'Ella Fitzgerald à Sarah Vaughan. Découvrez comment ces artistes légendaires ont transformé le jazz en chef-d'œuvre vocal et émotionnel.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6qXhNB2hp262T8JkJDfr3a",
     "deezerPlaylist": "https://link.deezer.com/s/30xonk04ewq4y75XSQCb6",
@@ -820,7 +820,7 @@
   },
   {
     "headline": "Superstars Pop Féminines : Les Voix qui Marquent les Générations",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Plongez dans l'univers des voix féminines les plus influentes de la pop, où performances puissantes et phénomènes culturels se rencontrent. De Madonna à Beyoncé, vivez comment ces icônes façonnent la musique et la culture populaire.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OTG3TxHPRdIi0MeBVQUk8",
     "deezerPlaylist": "https://link.deezer.com/s/30xonRnzqJODqhk6EkgWv",
@@ -829,7 +829,7 @@
   },
   {
     "headline": "Divas R&B : Les Voix Puissantes qui Font Vibrer l'Âme",
-    "imageUrl": "/category/female-r&b-divas.jpg",
+    "imageUrl": "female-r&b-divas",
     "introSubline": "Vivez la magie des voix qui ont façonné l'univers émotionnel du R&B, de la puissance de Whitney Houston à la sincérité de Mary J. Blige. Découvrez comment ces artistes extraordinaires allient virtuosité et profondeur pour créer des classiques intemporels.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7bFTsjuZPbCMupw8n9aTs0",
     "deezerPlaylist": "https://link.deezer.com/s/30xoq8sEJFZWqQaKAbK3r",
@@ -838,7 +838,7 @@
   },
   {
     "headline": "Rappeuses : Briser les Codes et Redéfinir l'Avenir du Hip-Hop",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Explorez les voix révolutionnaires du hip-hop féminin, de Queen Latifah à Nicki Minaj. Découvrez comment ces artistes audacieuses allient puissance lyrique et charisme pour transformer le paysage du rap.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4MPwwjf3lUpKaByZGGZqAM",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqzIRBYiHYHV91wXwk",
@@ -847,7 +847,7 @@
   },
   {
     "headline": "Rock & Metal au Féminin : Les Voix qui Redéfinissent la Musique Heavy",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Parcourez l'évolution du rock et du metal menés par des femmes, de la passion de Heart à la grandeur de Nightwish. Découvrez comment ces voix extraordinaires allient maîtrise technique et émotion brute pour repousser les frontières musicales.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5gTccByda9bdZN9LHJaV4N",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqRk3sYUw5SaGI2Fxm",
@@ -856,7 +856,7 @@
   },
   {
     "headline": "Légendes Féminines de la Soul : Les Voix qui Touchent le Cœur de la Musique Moderne",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Vivez l'art transcendant des plus grandes voix féminines de la soul, d'Aretha Franklin à Diana Ross. Découvrez comment ces artistes légendaires ont façonné la musique populaire par une expression émotionnelle inégalée.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6fao1R0YMUKcnlfDo48tuK",
     "deezerPlaylist": "https://link.deezer.com/s/30xor6gTwWBcBphStoNyI",
@@ -865,7 +865,7 @@
   },
   {
     "headline": "Icônes Vocales Féminines : Les Voix les Plus Influentes de l'Histoire de la Musique",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Parcourez les voix remarquables qui ont changé la musique à jamais, de l'intensité passionnée d'Édith Piaf à la puissance de Céline Dion. Découvrez comment ces artistes ont redéfini les possibilités de la voix humaine.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6ClyY4xbhg17BvxvETMY5k",
     "deezerPlaylist": "https://link.deezer.com/s/30xp4Mo1bvPl3Vej7hSU9",
@@ -874,7 +874,7 @@
   },
   {
     "headline": "Saison des Festivals : Votre Guide Ultime des Plus Grandes Célébrations Musicales de l'Été",
-    "imageUrl": "/category/festival-season.jpg",
+    "imageUrl": "festival-season",
     "introSubline": "Capturez l'atmosphère électrique des plus grands festivals de musique du monde, des champs boueux de Glastonbury aux vibes désertiques de Coachella. Ces morceaux emblématiques incarnent l'esprit communautaire et l'énergie euphorique qui rendent la saison des festivals magique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OmOcSWDXKzhBujV4Wr0y3",
     "deezerPlaylist": "https://link.deezer.com/s/30xp540bJ7I3wdbd7PoRB",
@@ -883,7 +883,7 @@
   },
   {
     "headline": "Mélodies Finlandaises : Où le Mystère Arctique Rencontre l'Innovation Contemporaine",
-    "imageUrl": "/category/finnish.jpg",
+    "imageUrl": "finnish",
     "introSubline": "Voyagez à travers le paysage musical enchanteur de la Finlande, du folk inspiré du Kalevala aux pionniers électroniques modernes. Vivez comment les artistes finlandais mélangent traditions mystiques et créativité de pointe pour créer des sons nordiques uniques.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7KY8Hb1H55zZGezrxoGo6v",
     "deezerPlaylist": "https://link.deezer.com/s/30xp5mJ4VOf47qOE3Vb4x",
@@ -892,7 +892,7 @@
   },
   {
     "headline": "Focus & Concentration : Votre Bande Sonore Ultime pour la Productivité",
-    "imageUrl": "/category/focus-&-concentration.jpg",
+    "imageUrl": "focus-&-concentration",
     "introSubline": "Optimisez vos performances mentales avec des morceaux soigneusement sélectionnés qui améliorent la concentration sans distraction. Des paysages sonores ambient aux pièces piano minimales, trouvez votre flow de concentration parfait pour les sessions d'étude et le travail profond.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/40Lkg8ZtakbXt83Xs9CTsM",
     "deezerPlaylist": "https://link.deezer.com/s/30xp5EQPbTkE7ODkf95Ty",
@@ -901,7 +901,7 @@
   },
   {
     "headline": "Folk Metal : Où les Traditions Ancestrales Rencontrent la Puissance du Metal Moderne",
-    "imageUrl": "/category/folk-metal.jpg",
+    "imageUrl": "folk-metal",
     "introSubline": "Voyagez à travers la fusion la plus unique du metal, où instruments traditionnels et mélodies anciennes entrent en collision avec des riffs écrasants. Vivez comment des groupes du monde entier mélangent leur héritage culturel avec la puissance du heavy metal pour créer une narration musicale épique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4Cb7fACOotyo3kXfqZ19aL",
     "deezerPlaylist": "https://link.deezer.com/s/30xpbaU77eag4t9pBetsR",
@@ -910,7 +910,7 @@
   },
   {
     "headline": "Favoris Folk : La Voix Intemporelle de la Narration Traditionnelle",
-    "imageUrl": "/category/folk.jpg",
+    "imageUrl": "folk",
     "introSubline": "Vivez l'âme authentique de la musique folk, des hymnes de la classe ouvrière de Woody Guthrie aux chansons de protestation cristallines de Joan Baez. Parcourez des décennies de narration magistrale qui capture l'expérience humaine dans sa forme musicale la plus pure.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4j8iacXWVSLcT85sQUBQad",
     "deezerPlaylist": "https://link.deezer.com/s/30xpaO9bCb4NzxjqigycN",
@@ -919,7 +919,7 @@
   },
   {
     "headline": "Forró : Le Pouls Passionné du Nord-Est du Brésil",
-    "imageUrl": "/category/forró.jpg",
+    "imageUrl": "forró",
     "introSubline": "Plongez dans la musique de danse la plus aimée du Brésil, où mélodies d'accordéon et rythmes entraînants créent une pure joie. Vivez comment le forró a évolué des festivités rurales pour devenir un trésor national qui fait danser des millions de personnes toute la nuit.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1lIwMwXDqqxQp6C6uo3F31",
     "deezerPlaylist": "https://link.deezer.com/s/30xpboyJgl5xCXxctcfLz",
@@ -928,7 +928,7 @@
   },
   {
     "headline": "Mélodies Françaises : De la Poésie de la Chanson à l'Innovation Moderne",
-    "imageUrl": "/category/french.jpg",
+    "imageUrl": "french",
     "introSubline": "Voyagez à travers le paysage musical sophistiqué de la France, de l'émotion intemporelle d'Édith Piaf aux pionniers électroniques contemporains. Vivez comment les artistes français mélangent tradition poétique et créativité avant-gardiste pour créer des expressions élégantes uniques.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7vWunbCSOI7hLDJmfl5C3p",
     "deezerPlaylist": "https://link.deezer.com/s/30xpbFaBBA9FAD3F5v4jm",
@@ -937,7 +937,7 @@
   },
   {
     "headline": "Funeral Doom Metal : Où le Temps S'Étend dans l'Obscurité Infinie",
-    "imageUrl": "/category/funeral-doom-metal.jpg",
+    "imageUrl": "funeral-doom-metal",
     "introSubline": "Descendez dans les profondeurs les plus pesantes du metal, où riffs glaciaires et atmosphères caverneuses créent un poids émotionnel écrasant. Vivez comment ce genre transforme le chagrin et la contemplation en architecture sonique monumentale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/31CHA2qjP90IXcLUbUg6ce",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcf6vZ8CVwPTZQsH2q",
@@ -946,7 +946,7 @@
   },
   {
     "headline": "Grooves Funk : La Force Imparable qui a Révolutionné la Musique de Danse",
-    "imageUrl": "/category/funk.jpg",
+    "imageUrl": "funk",
     "introSubline": "Plongez dans le genre qui a fait bouger le monde différemment, de l'innovation explosive de James Brown à la vision cosmique de Parliament. Vivez comment les rythmes révolutionnaires et l'attitude audacieuse du funk ont transformé la musique populaire pour toujours.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2MCxX9WbghzMzwl7MhjgOi",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcsZWFrfE57IpmICPX",
@@ -955,7 +955,7 @@
   },
   {
     "headline": "Future Bass : Drops Mélodiques et Synths Luxuriants",
-    "imageUrl": "/category/future-bass.jpg",
+    "imageUrl": "future-bass",
     "introSubline": "Plongez dans l'univers du future bass, où synths vibrants et mélodies accrocheuses créent des hymnes électroniques inspirants.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4eOe4pPoE9AHg6hmU8MzYF",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcGNerScswaXIzV4YU",
@@ -964,7 +964,7 @@
   },
   {
     "headline": "Session Gaming : Votre Bande Sonore Ultime pour les Aventures Virtuelles",
-    "imageUrl": "/category/gaming-session.jpg",
+    "imageUrl": "gaming-session",
     "introSubline": "Améliorez votre expérience de jeu avec des morceaux soigneusement organisés qui rehaussent chaque moment. Des batailles de boss épiques à l'exploration atmosphérique, ces pièces amplifient l'impact émotionnel de vos voyages virtuels.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/41D1xrilBOk8H4o3S0LAMK",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcYs82VqiERfQ9qLbG",
@@ -973,7 +973,7 @@
   },
   {
     "headline": "Garage Rock : L'Esprit Brut de la Révolution la Plus Authentique du Rock",
-    "imageUrl": "/category/garage.jpg",
+    "imageUrl": "garage",
     "introSubline": "Retournez dans les garages de banlieue où des adolescents armés de guitares floues ont déclenché une révolution musicale. De l'énergie primale des Sonics à la renaissance moderne des White Stripes, vivez comment l'esprit DIY et la passion brute ont créé le mouvement rock le plus viscéral.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0VlTb0z56ti1huWjLVizq7",
     "deezerPlaylist": "https://link.deezer.com/s/30xphzpel1hyP1hitcOV2",
@@ -982,7 +982,7 @@
   },
   {
     "headline": "Rap Allemand : Du Mouvement Underground au Phénomène Culturel",
-    "imageUrl": "/category/german-rap.jpg",
+    "imageUrl": "german-rap",
     "introSubline": "Parcourez l'évolution du hip-hop allemand, de ses débuts bruts à sa domination culturelle actuelle. Vivez comment les artistes mélangent punchlines acérées et production innovante pour créer une approche allemande unique du rap.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3yjO2aMoJ6VqB103MXovYF",
     "deezerPlaylist": "https://link.deezer.com/s/30xpidMej4gway7u2iRw4",
@@ -991,7 +991,7 @@
   },
   {
     "headline": "Schlager Allemand : Le Battement de Cœur de la Culture Musicale Feel-Good de l'Allemagne",
-    "imageUrl": "/category/german-schlager.jpg",
+    "imageUrl": "german-schlager",
     "introSubline": "Immergez-vous dans la tradition musicale la plus aimée de l'Allemagne, où mélodies accrocheuses rencontrent narration sincère. Des classiques vintage aux hits modernes, vivez comment le Schlager continue d'apporter de la joie à des millions de personnes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3cobkZQnDtKau02phMvPT1",
     "deezerPlaylist": "https://link.deezer.com/s/30xpiucjktB341IGyl5Rl",
@@ -1000,7 +1000,7 @@
   },
   {
     "headline": "Mélodies Allemandes : De l'Innovation Krautrock à l'Excellence Pop Moderne",
-    "imageUrl": "/category/german.jpg",
+    "imageUrl": "german",
     "introSubline": "Voyagez à travers le riche paysage musical de l'Allemagne, des pionniers expérimentaux du Krautrock aux hits contemporains en tête des charts. Vivez comment les artistes allemands mélangent précision et passion pour créer des sons captivants qui résonnent dans le monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3PwKqOo9jTOHwJSTAsOW32",
     "deezerPlaylist": "https://link.deezer.com/s/30xphRClkH7DflltmBNMN",
@@ -1009,7 +1009,7 @@
   },
   {
     "headline": "Gospel : Où l'Esprit Sacré Rencontre la Transcendance Musicale",
-    "imageUrl": "/category/gospel.jpg",
+    "imageUrl": "gospel",
     "introSubline": "Vivez la puissance spirituelle du gospel, où voix passionnées et harmonies célestes créent une expérience musicale transcendante. Découvrez comment ce genre sacré a influencé la musique populaire et continue d'inspirer des générations.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/785Bq7kLE2w4leydZKOgH3",
     "deezerPlaylist": "https://link.deezer.com/s/30xpiZ9j0LHMsrgl8vA6Z",
@@ -1018,7 +1018,7 @@
   },
   {
     "headline": "Metal Gothique : Où la Romance Sombre Rencontre la Puissance Symphonique",
-    "imageUrl": "/category/gothic-metal.jpg",
+    "imageUrl": "gothic-metal",
     "introSubline": "Voyagez dans le domaine le plus théâtral du metal, où la grandeur orchestrale rencontre la passion sombre. De la maîtrise sombre de Type O Negative à la brillance opératique de Nightwish, vivez comment le metal gothique transforme la mélancolie en art majestueux.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7siFYMf4AhOFwNx7TxKa4e",
     "deezerPlaylist": "https://link.deezer.com/s/30xpkJzwUD4sZnrol3Apv",
@@ -1027,7 +1027,7 @@
   },
   {
     "headline": "Gothique : L'Élégance Sombre du Mouvement Post-Punk le Plus Durable",
-    "imageUrl": "/category/gothic.jpg",
+    "imageUrl": "gothic",
     "introSubline": "Entrez dans les ombres où la beauté rencontre l'obscurité. De la vision pionnière de Bauhaus à l'innovation darkwave moderne, découvrez comment la musique gothique crée des atmosphères obsédantes qui capturent l'esprit romantique de la nuit.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/54H7CjlCR2SEuhSQuzKVtv",
     "deezerPlaylist": "https://link.deezer.com/s/30xpjXX9nVEzOK0HWzOWQ",
@@ -1036,7 +1036,7 @@
   },
   {
     "headline": "Grindcore : La Frontière Extrême de la Révolution Sonique du Metal",
-    "imageUrl": "/category/grindcore.jpg",
+    "imageUrl": "grindcore",
     "introSubline": "Plongez dans la frontière la plus intense du metal, où la vitesse rencontre l'agression brute. De la fureur pionnière de Napalm Death à l'extrémité moderne, vivez comment le grindcore repousse les frontières du possible dans la musique heavy.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3mHg5M8yUwAlRs0uvDvrVZ",
     "deezerPlaylist": "https://link.deezer.com/s/30xpl4UVdSVjp5Ow5L4x8",
@@ -1045,7 +1045,7 @@
   },
   {
     "headline": "Groove Metal : Où les Riffs Heavy Rencontrent les Rythmes Irrésistibles",
-    "imageUrl": "/category/groove-metal.jpg",
+    "imageUrl": "groove-metal",
     "introSubline": "Vivez le genre qui a fait bouger le metal différemment, du swagger révolutionnaire de Pantera à la précision écrasante de Machine Head. Découvrez comment le groove metal combine lourdeur écrasante et rythmes entraînants qui commandent aux corps de bouger.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MnijGQ8PPUl64RjKZBY0j",
     "deezerPlaylist": "https://link.deezer.com/s/30xpPn0t6oNfOWWaRGzPX",
@@ -1054,7 +1054,7 @@
   },
   {
     "headline": "Groove : Le Pouls Irrésistible de la Musique de Danse Moderne",
-    "imageUrl": "/category/groove.jpg",
+    "imageUrl": "groove",
     "introSubline": "Plongez dans l'univers entraînant du groove, où rythmes précis rencontrent expression de l'âme. De l'âge d'or du funk aux beats club contemporains, vivez comment le groove parfait crée une envie irrésistible de bouger.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/21nF5x3t6PpLOBiVmZCsTx",
     "deezerPlaylist": "https://link.deezer.com/s/30xpP8DZmI4lm6CUT6hRj",
@@ -1063,7 +1063,7 @@
   },
   {
     "headline": "Grunge : Quand l'Underground de Seattle Devint une Révolution Mondiale",
-    "imageUrl": "/category/grunge.jpg",
+    "imageUrl": "grunge",
     "introSubline": "Voyagez dans les rues pluvieuses où des révolutionnaires en flanelle ont créé un nouveau paradigme rock. De l'angoisse explosive de Nirvana à la puissance introspective de Pearl Jam, vivez comment le grunge a capturé l'esprit de la Génération X et changé la musique pour toujours.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/18Uaj4qO6Qw2KF9Z7AgaHS",
     "deezerPlaylist": "https://link.deezer.com/s/30xpPHQt7UbTxESQWapyG",
@@ -1072,7 +1072,7 @@
   },
   {
     "headline": "Héros de la Guitare : Les Virtuoses qui Ont Redéfini le Possible sur Six Cordes",
-    "imageUrl": "/category/guitar.jpg",
+    "imageUrl": "guitar",
     "introSubline": "Vivez la maîtrise époustouflante des plus grands guitaristes de l'histoire, du feu révolutionnaire de Hendrix à la brillance technique de Van Halen. Découvrez comment ces joueurs légendaires ont repoussé les frontières de leur instrument et inspiré des générations.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4H3AxtCWqQgf4qGEL77u2s",
     "deezerPlaylist": "https://link.deezer.com/s/30xpQHGyDFplW5Y9pcSJb",
@@ -1081,7 +1081,7 @@
   },
   {
     "headline": "Hair Metal : Quand le Rock Embrassa le Glamour et l'Excès dans les Années 1980",
-    "imageUrl": "/category/hair-metal.jpg",
+    "imageUrl": "hair-metal",
     "introSubline": "Entrez dans le monde spectaculaire où gros riffs rencontraient cheveux encore plus gros. De l'attitude sauvage de Mötley Crüe aux hooks de stade de Bon Jovi, vivez comment le hair metal a combiné excès théâtral et artisanat musical authentique pour définir une époque.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0Q6E1aPOdo01IKjc7WqrKj",
     "deezerPlaylist": "https://link.deezer.com/s/30xpS0AuQQzbYQ4jYZn0V",
@@ -1090,7 +1090,7 @@
   },
   {
     "headline": "Tubes Effrayants d'Halloween : La Bande Sonore Ultime pour Vos Célébrations Hantées",
-    "imageUrl": "/category/halloween-spooky-tunes.jpg",
+    "imageUrl": "halloween-spooky-tunes",
     "introSubline": "Transformez n'importe quel espace en royaume délicieusement effrayant avec ces classiques d'Halloween soigneusement choisis. Des hymnes monster-mash aux instrumentaux qui donnent la chair de poule, ces morceaux créent l'équilibre parfait entre atmosphère inquiétante et festivité amusante.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5FiK0ew1TjggEpqmKjB2ei",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSixqrmvzpN0Zq8FXh",
@@ -1099,7 +1099,7 @@
   },
   {
     "headline": "Vibes Heureuses : Votre Bande Sonore pour la Joie Pure et l'Énergie Positive",
-    "imageUrl": "/category/happy.jpg",
+    "imageUrl": "happy",
     "introSubline": "Remplissez votre monde de soleil musical pur à travers ces morceaux remontant le moral soigneusement sélectionnés. Des hymnes pop entraînants aux classiques feel-good, ces chansons garantissent d'apporter sourires et énergie positive à chaque moment.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5UMZW1qpv7asuM01SJT23z",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSBAGHBgIDr1QiALfV",
@@ -1108,7 +1108,7 @@
   },
   {
     "headline": "Hymnes Hard Rock : Power Chords et Énergie Brute qui Ont Défini un Genre",
-    "imageUrl": "/category/hard-rock.jpg",
+    "imageUrl": "hard-rock",
     "introSubline": "Vivez la puissance brute et l'énergie entraînante des plus grands moments du hard rock. Des classiques qui secouent les stades aux powerhouses modernes, ces morceaux montrent le mélange parfait de riffs heavy et hooks inoubliables.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/63XydkRj7fZpayJPB7HK8R",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSVrRxJElvSfEr1zao",
@@ -1117,7 +1117,7 @@
   },
   {
     "headline": "Hardstyle : Où la Musique Électronique Rencontre la Puissance Brute",
-    "imageUrl": "/category/hardstyle.jpg",
+    "imageUrl": "hardstyle",
     "introSubline": "Plongez dans l'univers haute énergie du hardstyle, où kicks martelés rencontrent mélodies inspirantes. Vivez comment ce genre électronique intense crée des moments euphoriques à travers son mélange unique de puissance et d'émotion.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0rYICwtok0m9vcZ3GeyLCq",
     "deezerPlaylist": "https://link.deezer.com/s/30xq0vEyIOLO8fpwy3dOc",
@@ -1126,7 +1126,7 @@
   },
   {
     "headline": "Mélodies Hawaïennes : Paradis Trouvé dans les Sons Traditionnels et Modernes de l'Île",
-    "imageUrl": "/category/hawaiian.jpg",
+    "imageUrl": "hawaiian",
     "introSubline": "Laissez les rythmes doux et mélodies chaleureuses d'Hawaï vous transporter vers les rivages tropicaux. De la guitare slack-key traditionnelle à la pop île moderne, vivez la beauté paisible des traditions musicales du Pacifique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3es0xOlJewTjMoru2YwAxA",
     "deezerPlaylist": "https://link.deezer.com/s/30xq0OHkRpIx16wdIBSgl",
@@ -1135,7 +1135,7 @@
   },
   {
     "headline": "Tonnerre Heavy Metal : Le Genre qui a Changé le Rock pour Toujours",
-    "imageUrl": "/category/heavy-metal.jpg",
+    "imageUrl": "heavy-metal",
     "introSubline": "Vivez la puissance brute et la maîtrise technique qui ont défini l'évolution du heavy metal. Des pionniers précoces aux titans modernes, ces morceaux montrent comment le metal a repoussé les frontières du possible dans la musique heavy.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5cSR9zgjs7z4qQAH2bDx7s",
     "deezerPlaylist": "https://link.deezer.com/s/30xq13SjcTQnlRQWezWki",
@@ -1144,7 +1144,7 @@
   },
   {
     "headline": "Heavy Psych : Quand le Rock Élargissait les Esprits et Repoussait les Frontières",
-    "imageUrl": "/category/heavy-psych.jpg",
+    "imageUrl": "heavy-psych",
     "introSubline": "Voyagez dans le domaine expérimental où riffs heavy rencontrent exploration psychédélique. Vivez comment les artistes combinent puissance écrasante et aventures soniques qui élargissent l'esprit pour créer une musique heavy unique et trippy.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1UMWzBdirV95SVtBvvFXxH",
     "deezerPlaylist": "https://link.deezer.com/s/30xq1mAO2rbAJHV5cs9HW",
@@ -1153,7 +1153,7 @@
   },
   {
     "headline": "Évolution Hip-Hop : Des Block Parties à la Force Culturelle Mondiale",
-    "imageUrl": "/category/hip-hop.jpg",
+    "imageUrl": "hip-hop",
     "introSubline": "Retracez l'incroyable voyage du hip-hop des débuts du Bronx au phénomène mondial. Vivez comment producteurs innovants et MCs talentueux ont créé une forme d'art révolutionnaire qui continue de façonner la culture mondiale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0heQdhNkhpdK3zciPuspBF",
     "deezerPlaylist": "https://link.deezer.com/s/30xq1TIwhmzf2Wym1TvhT",
@@ -1162,7 +1162,7 @@
   },
   {
     "headline": "Magie des Fêtes : Sons Festifs pour Chaque Célébration",
-    "imageUrl": "/category/holiday.jpg",
+    "imageUrl": "holiday",
     "introSubline": "Créez l'atmosphère parfaite pour toute célébration de fête avec ces favoris saisonniers soigneusement sélectionnés. Des classiques traditionnels aux hits festifs modernes, ces morceaux capturent la joie et la chaleur des occasions spéciales.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/11JTx6nOpXkjC3cNounsp4",
     "deezerPlaylist": "https://link.deezer.com/s/30xq2EbrHl3EQAleXVPR6",
@@ -1171,7 +1171,7 @@
   },
   {
     "headline": "Horizons d'Espoir : Musique pour Inspirer et Élever Votre Esprit",
-    "imageUrl": "/category/hopeful.jpg",
+    "imageUrl": "hopeful",
     "introSubline": "Remplissez votre monde d'optimisme à travers ces morceaux d'espoir et d'inspiration soigneusement choisis. Des pièces acoustiques douces aux hymnes majestueux, ces chansons fournissent la bande sonore parfaite pour les nouveaux départs et les lendemains brillants.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4xsenmnKLMkNFhJw0rCicV",
     "deezerPlaylist": "https://link.deezer.com/s/30xq4aUkDynsUQg092PL8",
@@ -1180,7 +1180,7 @@
   },
   {
     "headline": "Metal Horreur : Où la Théâtralité Gothique Rencontre l'Obscurité du Metal",
-    "imageUrl": "/category/horror-metal.jpg",
+    "imageUrl": "horror-metal",
     "introSubline": "Aventurez-vous dans le cauchemar le plus théâtral du metal, où cinéma d'horreur rencontre riffs heavy. Des récits qui donnent la chair de poule de King Diamond aux innovateurs modernes du metal horreur, vivez comment le genre transforme la peur en art musical fascinant.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/57MwyyeiNGygObQDbxNFOe",
     "deezerPlaylist": "https://link.deezer.com/s/30xq4yzd2zj2gGMO0CBwF",
@@ -1189,7 +1189,7 @@
   },
   {
     "headline": "House Music : La Révolution Four-on-the-Floor qui a Uni la Culture de Danse Mondiale",
-    "imageUrl": "/category/house.jpg",
+    "imageUrl": "house",
     "introSubline": "Parcourez l'évolution de la house music des clubs underground de Chicago au phénomène mondial. Des vocaux profonds et de l'âme aux hymnes piano euphoriques, vivez comment les rythmes entraînants et l'esprit inspirant de ce genre ont créé un langage universel de danse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4AnWV282ELJ8f4IRXbAAju",
     "deezerPlaylist": "https://link.deezer.com/s/30xq8DZJS2S51jCxw90wO",
@@ -1198,7 +1198,7 @@
   },
   {
     "headline": "Mélodies Islandaises : Où l'Héritage Viking Rencontre l'Innovation Éthérée",
-    "imageUrl": "/category/icelandic.jpg",
+    "imageUrl": "icelandic",
     "introSubline": "Flottez à travers les paysages sonores mystiques du pays du feu et de la glace. Des chants vikings anciens aux visions avant-gardistes de Björk, découvrez comment le paysage autrement et la riche mythologie de l'Islande inspirent certaines des créations les plus innovantes et atmosphériques de la musique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3algpKoy2EhwYlUgwGTsh0",
     "deezerPlaylist": "https://link.deezer.com/s/30xq8TzntD0AzT3HYemFU",
@@ -1207,7 +1207,7 @@
   },
   {
     "headline": "Mélodies Indiennes : Où les Traditions Sacrées Dansent avec l'Innovation Moderne",
-    "imageUrl": "/category/indian.jpg",
+    "imageUrl": "indian",
     "introSubline": "Voyagez à travers l'âme de l'univers musical de l'Inde, des chants védiques mystiques aux spectacles éblouissants de Bollywood. Vivez comment les ragas anciens, les bhajans dévotionnels et la fusion contemporaine créent une tapisserie transcendante de son qui s'étend sur des millénaires.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3YxmVJTv0OBE5pnBMI7moN",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9alupoIFe5R5XC2P3",
@@ -1216,7 +1216,7 @@
   },
   {
     "headline": "Indie Folk : Narration Moderne avec Racines Acoustiques",
-    "imageUrl": "/category/indie-folk.jpg",
+    "imageUrl": "indie-folk",
     "introSubline": "Profitez de paroles sincères et de sons organiques dans l'indie folk, un genre qui fait le pont entre tradition et innovation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4K5UxtoQOfFQIkwasxzpBU",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9obZDr32ApGW3igXl",
@@ -1225,7 +1225,7 @@
   },
   {
     "headline": "Indie Pop : Où les Rêves de Chambre Deviennent Réalités en Tête des Charts",
-    "imageUrl": "/category/indie-pop.jpg",
+    "imageUrl": "indie-pop",
     "introSubline": "Découvrez le monde magique où l'authenticité DIY rencontre la perfection pop. Des enregistrements lo-fi de chambre aux hymnes de festival révolutionnaires, vivez comment les artistes indépendants créent des chansons intimes et honnêtes qui capturent les cœurs du monde entier tout en maintenant leur vision unique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7hwfFvRnTlTRC5TAGJRacp",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9PTcM911M0j90Lxas",
@@ -1234,7 +1234,7 @@
   },
   {
     "headline": "Indie Rock : Le Son de l'Indépendance Musicale et de la Liberté Créative",
-    "imageUrl": "/category/indie.jpg",
+    "imageUrl": "indie",
     "introSubline": "Explorez l'univers où l'authenticité artistique rencontre l'innovation musicale. Des pionniers underground aux sensations modernes, découvrez comment l'indie rock a redéfini ce que signifie être un artiste indépendant dans l'industrie musicale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5zSgYiov7zyQsWaFpfSn8d",
     "deezerPlaylist": "https://link.deezer.com/s/30xqa7wxFEiK7kN1bAL7v",
@@ -1243,7 +1243,7 @@
   },
   {
     "headline": "Metal Industriel : Où la Machine Rencontre le Metal en Harmonie Dystopique Parfaite",
-    "imageUrl": "/category/industrial-metal.jpg",
+    "imageUrl": "industrial-metal",
     "introSubline": "Entrez dans un royaume sonique où la précision mécanique entre en collision avec la fureur métallique. De l'innovation agressive de Ministry à la puissance théâtrale de Rammstein, témoignez comment le metal industriel transforme l'aliénation technologique en art viscéral.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0n9jkqASZkyiQrRgWfGg6H",
     "deezerPlaylist": "https://link.deezer.com/s/30xqapmKkCqo6qJ2NoYqp",
@@ -1252,7 +1252,7 @@
   },
   {
     "headline": "Industriel : Quand les Rythmes d'Usine Ont Déclenché une Révolution Musicale",
-    "imageUrl": "/category/intense.jpg",
+    "imageUrl": "intense",
     "introSubline": "Enflammez votre esprit guerrier avec une collection explosive de morceaux haute intensité. Des beats qui secouent la terre aux crescendos qui pompent l'adrénaline, ces hymnes soigneusement choisis créent la bande sonore ultime pour briser les barrières et conquérir les défis.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2osFffetnJN6pCGw0ELQLB",
     "deezerPlaylist": "https://link.deezer.com/s/30xqaFIljmSOhUcFnpn1Q",
@@ -1261,7 +1261,7 @@
   },
   {
     "headline": "Mélodies Iraniennes : De l'Art Persan Ancien à l'Innovation Moderne",
-    "imageUrl": "/category/iranian.jpg",
+    "imageUrl": "iranian",
     "introSubline": "Voyagez à travers des millénaires de tradition musicale persane, du dastgah classique à la fusion contemporaine. Vivez comment les artistes iraniens préservent leur riche héritage tout en créant de nouvelles expressions audacieuses pour le monde moderne.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6z7DRN2ZuavJIyOdRydkoU",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeaRImQC4u2KSgoln2",
@@ -1270,7 +1270,7 @@
   },
   {
     "headline": "Mélodies Irlandaises : Le Voyage Musical de l'Île d'Émeraude à Travers le Temps",
-    "imageUrl": "/category/irish.jpg",
+    "imageUrl": "irish",
     "introSubline": "Voyagez à travers le paysage musical enchanté de l'Irlande, des ballades celtiques anciennes à la révolution folk-rock moderne. Vivez comment des siècles de narration, rébellion et célébration se fondent en chansons puissantes qui capturent l'esprit indomptable irlandais.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3RkS3Fm7QTlGKT2Ayh6g5F",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeDfe56zJiGNHtNQ6S",
@@ -1279,7 +1279,7 @@
   },
   {
     "headline": "J-Dance : Quand les Rues de Tokyo Ont Déclenché une Révolution Électronique",
-    "imageUrl": "/category/j-dance.jpg",
+    "imageUrl": "j-dance",
     "introSubline": "Entrez dans la culture de danse électrisante du Japon, où production futuriste rencontre énergie kawaii. Des spectacles synchronisés Para Para aux hymnes de club éclairés au néon de Shibuya, vivez comment l'innovation japonaise a créé un mouvement de danse unique et palpitant.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7bL3cyFzcYbBxnYfupsJkA",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeZQ7hFb4BUvvKyLPY",
@@ -1288,7 +1288,7 @@
   },
   {
     "headline": "J-Pop : L'Univers Étincelant de la Perfection Pop Japonaise",
-    "imageUrl": "/category/j-pop.jpg",
+    "imageUrl": "j-pop",
     "introSubline": "Voyagez dans le pays des merveilles pop kaléidoscopique du Japon, où performance de précision rencontre joie sonique pure. Des groupes d'idoles qui remplissent les arènes aux artistes solo en tête des charts, vivez comment le mélange magique d'innovation et tradition du J-Pop captive des millions dans le monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7qfOQGqN2y9Zkhye6pirBE",
     "deezerPlaylist": "https://link.deezer.com/s/30xqfdu2SvRubr91bGuWd",
@@ -1297,7 +1297,7 @@
   },
   {
     "headline": "J-Rock : La Fusion Dynamique du Japon de la Tradition Orientale et du Tranchant Occidental",
-    "imageUrl": "/category/j-rock.jpg",
+    "imageUrl": "j-rock",
     "introSubline": "Parcourez la scène rock explosive du Japon, où esthétique traditionnelle rencontre intensité moderne. De la puissance théâtrale du Visual Kei aux pionniers alternatifs, vivez comment les artistes japonais créent leur approche unique de l'énergie brute du rock.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7AAZ8eHpg66UR8ZUBtXOsW",
     "deezerPlaylist": "https://link.deezer.com/s/30xqfP2QF7p8jmIcRvn4m",
@@ -1306,7 +1306,7 @@
   },
   {
     "headline": "Jazz Fusion : Virtuosité et Innovation de Mélange de Genres",
-    "imageUrl": "/category/jazz-fusion.jpg",
+    "imageUrl": "jazz-fusion",
     "introSubline": "Vivez la brillance technique du jazz fusion, où jazz rencontre rock, funk et musique du monde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1rXtme27uW3uwSk7kNt3gH",
     "deezerPlaylist": "https://link.deezer.com/s/30xqhumKx906gW9W1EYlL",
@@ -1315,7 +1315,7 @@
   },
   {
     "headline": "Jazz Metal : Où l'Improvisation Rencontre l'Innovation Heavy",
-    "imageUrl": "/category/jazz-metal.jpg",
+    "imageUrl": "jazz-metal",
     "introSubline": "Vivez la fusion révolutionnaire où la complexité jazz rencontre la puissance du metal. De la virtuosité technique à l'exploration atmosphérique, découvrez comment les artistes innovants mélangent ces genres apparemment opposés en quelque chose de totalement nouveau.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3sZP8vE08NQt3Q8HL4s0Pm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqgBuNheHuK2Rby9Cgg",
@@ -1324,7 +1324,7 @@
   },
   {
     "headline": "Jazz : La Musique Classique de l'Amérique et Son Évolution Mondiale",
-    "imageUrl": "/category/jazz.jpg",
+    "imageUrl": "jazz",
     "introSubline": "Voyagez à travers l'histoire révolutionnaire du jazz, des racines spirituelles de La Nouvelle-Orléans à l'innovation moderne. Vivez comment cette forme d'art unique américaine combine improvisation, virtuosité et créativité infinie pour créer la magie musicale intemporelle.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3JwxUOwU34kAXCuewyhRiG",
     "deezerPlaylist": "https://link.deezer.com/s/30xqg8t7i5BL8E0OdXau1",
@@ -1333,7 +1333,7 @@
   },
   {
     "headline": "K-Pop : Comment la Révolution Pop de la Corée du Sud a Conquis le Monde",
-    "imageUrl": "/category/k-pop.jpg",
+    "imageUrl": "k-pop",
     "introSubline": "Entrez dans l'univers pop étincelant de la Corée, où performance de précision rencontre innovation révolutionnaire. Du succès record de BTS à la domination mondiale de BLACKPINK, témoignez comment le mélange parfait de talent, technologie et vision du K-Pop a révolutionné le divertissement moderne.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6PymlkH5bpxNpb1oYkgs0d",
     "deezerPlaylist": "https://link.deezer.com/s/30xqlJYWPb4n90wDV8iHZ",
@@ -1342,7 +1342,7 @@
   },
   {
     "headline": "Krautrock : La Révolution Expérimentale qui a Redéfini les Possibilités Musicales",
-    "imageUrl": "/category/krautrock.jpg",
+    "imageUrl": "krautrock",
     "introSubline": "Explorez les laboratoires soniques radicaux de l'Allemagne des années 1970, où des musiciens intrépides ont poussé la musique vers un territoire inexploré. Des grooves hypnotiques de Can aux prophéties électroniques de Kraftwerk, vivez comment l'expérimentation illimitée du Krautrock a façonné des décennies de musique alternative, électronique et avant-gardiste.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2eYaccfsfhafaoo5meenGV",
     "deezerPlaylist": "https://link.deezer.com/s/30xqlXTEbBS5iSJ2msPK6",
@@ -1351,7 +1351,7 @@
   },
   {
     "headline": "Rythmes Latino-Américains : Un Voyage Vivant à Travers des Siècles de Magie Musicale",
-    "imageUrl": "/category/latin-american.jpg",
+    "imageUrl": "latin-american",
     "introSubline": "Immergez-vous dans l'univers musical kaléidoscopique de l'Amérique Latine, des flûtes andines mystiques aux beats urbains modernes. Vivez comment sagesse indigène, rythmes africains et mélodies européennes se fondent en une force culturelle imparable qui émeut les cœurs du monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0CoVTOelzqsqMPQpZLxw2R",
     "deezerPlaylist": "https://link.deezer.com/s/30xqmfvwzQtPGQ0wCtmmI",
@@ -1360,7 +1360,7 @@
   },
   {
     "headline": "Vibes Latino : Révolution Rythmique Moderne du Barrio au Billboard",
-    "imageUrl": "/category/latin-vibes.jpg",
+    "imageUrl": "latin-vibes",
     "introSubline": "Plongez dans le monde pulsant de la musique latine contemporaine, où le swagger urbain du reggaeton rencontre la sophistication électronique du tropical house. Témoignez comment les artistes innovants d'aujourd'hui transforment les rythmes traditionnels en phénomènes en tête des charts qui enflamment les dancefloors du monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1TnPoppl7YNwO1X3ciulqy",
     "deezerPlaylist": "https://link.deezer.com/s/30xqmuGNbmsMGMoozU4U0",
@@ -1369,7 +1369,7 @@
   },
   {
     "headline": "Dimanche Paresseux : Votre Bande Sonore Parfaite pour les Moments de Vie Lente",
-    "imageUrl": "/category/lazy-sunday.jpg",
+    "imageUrl": "lazy-sunday",
     "introSubline": "Créez votre journée parfaite de repos avec des morceaux soigneusement sélectionnés qui rehaussent chaque moment paisible. Des mélodies acoustiques douces aux textures jazz douces, laissez ces chansons transformer votre dimanche en retraite réparatrice.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/40ifRaHr1AZgaKrO0xt14n",
     "deezerPlaylist": "https://link.deezer.com/s/30xqnNBjmWwbEIVLrksPj",
@@ -1378,7 +1378,7 @@
   },
   {
     "headline": "Lo-Fi : Beats Chill pour Étude et Relaxation",
-    "imageUrl": "/category/lo-fi.jpg",
+    "imageUrl": "lo-fi",
     "introSubline": "Détendez-vous avec des beats lo-fi, la bande sonore parfaite pour la concentration, la créativité ou la détente.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5onpE0qVRbGsfghVNSFyls",
     "deezerPlaylist": "https://link.deezer.com/s/30xqo5taU5w6rwnNqvCyK",
@@ -1387,7 +1387,7 @@
   },
   {
     "headline": "Mambo : Énergie de Danse Latino et Flair Big Band",
-    "imageUrl": "/category/mambo.jpg",
+    "imageUrl": "mambo",
     "introSubline": "Ressentez l'excitation du mambo, un genre qui rassemble rythmes vivants et sections de cuivres audacieuses.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3ixldRBs2uol4n0aoUENpM",
     "deezerPlaylist": "https://link.deezer.com/s/30xqoih99m7o6x3bXMLpr",
@@ -1396,7 +1396,7 @@
   },
   {
     "headline": "Mandopop : La Révolution Pop de la Chine Conquiert les Cœurs du Monde Entier",
-    "imageUrl": "/category/mandopop.jpg",
+    "imageUrl": "mandopop",
     "introSubline": "Entrez dans l'univers pop étincelant de la Chine, où mélodies anciennes rencontrent production de pointe. Des power ballads qui élèvent le cœur aux hymnes de danse électrisants, témoignez comment les artistes Mandopop créent une fusion parfaite d'héritage culturel et d'innovation moderne.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3LCEvhfcaNfremB4dBJZsT",
     "deezerPlaylist": "https://link.deezer.com/s/30xqoEgBuDo8NcTGx1ft1",
@@ -1405,7 +1405,7 @@
   },
   {
     "headline": "Math Metal : La Fusion Époustouflante de Complexité Mathématique et Puissance Brute",
-    "imageUrl": "/category/math-metal.jpg",
+    "imageUrl": "math-metal",
     "introSubline": "Explorez la frontière mathématiquement la plus complexe du metal, où signatures temporelles complexes et maîtrise polyrythmique créent une architecture sonique éblouissante. Vivez comment les musiciens virtuoses transforment la précision mathématique en une forme exaltante d'exploration musicale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1NwtA5C8GbRopgvvnvqDrQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtjh6DoSz7KXyRaQQ8",
@@ -1414,7 +1414,7 @@
   },
   {
     "headline": "Méditation & Yoga : Sagesse Ancienne Rencontre Pleine Conscience Moderne à Travers le Son",
-    "imageUrl": "/category/meditation-&-yoga.jpg",
+    "imageUrl": "meditation-&-yoga",
     "introSubline": "Élevez votre pratique avec un paysage sonore sacré conçu pour une connexion intérieure profonde. Des mantras transcendants aux compositions ambient éthérées, ces pièces soigneusement sélectionnées créent l'atmosphère parfaite pour la méditation, le mouvement conscient et l'éveil spirituel.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5WSNj9MxcAayhCDRhKfvV7",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtwmkB7Vp4STzn58eE",
@@ -1423,7 +1423,7 @@
   },
   {
     "headline": "Mélodies Mélancoliques : Quand la Beauté Émerge des Émotions Plus Profondes de la Vie",
-    "imageUrl": "/category/melancholic.jpg",
+    "imageUrl": "melancholic",
     "introSubline": "Immergez-vous dans les paysages émotionnels les plus profonds de la musique, où la tristesse se transforme en beauté transcendante. Des ballades qui émeuvent l'âme aux instrumentaux éthérés, ces pièces soigneusement choisies honorent la profondeur du sentiment humain et offrent réconfort à travers l'expression artistique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7oMNXWpZhm77Z2G7WwkO3i",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtKnFdWts3Jfc9SlAr",
@@ -1432,7 +1432,7 @@
   },
   {
     "headline": "Death Metal Mélodique : Quand l'Intensité Brutale Découvre Son Âme Artistique",
-    "imageUrl": "/category/melodic-death-metal.jpg",
+    "imageUrl": "melodic-death-metal",
     "introSubline": "Voyagez à travers l'évolution la plus sophistiquée du metal, où la puissance brute du death metal rencontre la grandeur mélodique majestueuse. De la vision révolutionnaire d'At The Gates aux chefs-d'œuvre modernes, témoignez comment ce genre transforme l'intensité agressive en art musical épique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2RvZ9AlHnhPOYRL6nNbvGm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtZAcqxYNKPDaugId4",
@@ -1441,7 +1441,7 @@
   },
   {
     "headline": "Merengue : Rythmes Rapides des Caraïbes",
-    "imageUrl": "/category/merengue.jpg",
+    "imageUrl": "merengue",
     "introSubline": "Dansez sur les beats énergiques du merengue, un genre qui remplit les dancefloors de joie et de mouvement.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6U18UCuDdVqDGfgQIz9oDJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xquEmfeb06B1QjOdeYd",
@@ -1450,7 +1450,7 @@
   },
   {
     "headline": "Metalcore : Quand la Fureur Hardcore Rencontre la Sophistication Technique du Metal",
-    "imageUrl": "/category/metalcore.jpg",
+    "imageUrl": "metalcore",
     "introSubline": "Vivez la fusion révolutionnaire où la fureur passionnée du hardcore rencontre la précision technique du metal. Des innovations mélodiques de Killswitch Engage à la complexité progressive d'Architects, découvrez comment le metalcore a créé un nouveau langage pour l'évolution de la musique heavy.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/46JP4chUP0hnmrMIFQBHU0",
     "deezerPlaylist": "https://link.deezer.com/s/30xquUKtBZfKX9yAXJ59e",
@@ -1459,7 +1459,7 @@
   },
   {
     "headline": "Mélodies Mexicaines : Où l'Âme du Mariachi Rencontre la Magie Musicale Moderne",
-    "imageUrl": "/category/mexican.jpg",
+    "imageUrl": "mexican",
     "introSubline": "Immergez-vous dans la riche tapisserie sonique du Mexique, des sérénades émouvantes du mariachi à la brillance pop latine contemporaine. Vivez comment des siècles de sagesse indigène, romance espagnole et créativité moderne se fondent en l'une des cultures musicales les plus colorées du monde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1HqbRGD7DPGNm3ZltyTfjV",
     "deezerPlaylist": "https://link.deezer.com/s/30xqv6oHQupqPL3OFBBZA",
@@ -1468,7 +1468,7 @@
   },
   {
     "headline": "Musique du Moyen-Orient : Traditions Anciennes et Fusions Modernes",
-    "imageUrl": "/category/middle-eastern-music.jpg",
+    "imageUrl": "middle-eastern-music",
     "introSubline": "Découvrez les riches mélodies et rythmes de la musique du Moyen-Orient, du maqam classique à la pop contemporaine.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7hwkzKsziipMaoPEXJQnMX",
     "deezerPlaylist": "https://link.deezer.com/s/30xqvm85OyAWJ3BD2LbTi",
@@ -1477,7 +1477,7 @@
   },
   {
     "headline": "Techno Minimal : Grooves Hypnotiques et Progression Subtile",
-    "imageUrl": "/category/minimal-techno.jpg",
+    "imageUrl": "minimal-techno",
     "introSubline": "Immergez-vous dans la techno minimal, où répétition et changements subtils créent une expérience de danse envoûtante.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2wrtCEG49n7pe4pnL9DTOP",
     "deezerPlaylist": "https://link.deezer.com/s/30xqyOsM1apDJx3pAXJKr",
@@ -1486,7 +1486,7 @@
   },
   {
     "headline": "Café du Matin : Sons Organisés pour Votre Rituel d'Aube Parfait",
-    "imageUrl": "/category/morning-coffee.jpg",
+    "imageUrl": "morning-coffee",
     "introSubline": "Commencez chaque journée avec une bande sonore expertement conçue qui transforme votre routine matinale en expérience consciente. Du jazz de l'âme aux mélodies acoustiques douces, ces morceaux soigneusement choisis vous aident à embrasser les premiers moments de la journée avec présence et positivité.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4c29q4bAaHry6hjTlRh3me",
     "deezerPlaylist": "https://link.deezer.com/s/30xqz4iB6q7dM8NSssw3t",
@@ -1495,7 +1495,7 @@
   },
   {
     "headline": "Metal Néoclassique : Quand la Virtuosité Baroque Enflamme la Puissance du Metal",
-    "imageUrl": "/category/neo-classical-metal.jpg",
+    "imageUrl": "neo-classical-metal",
     "introSubline": "Voyagez dans un royaume extraordinaire où la maîtrise classique rencontre le tonnerre du metal. Du shred révolutionnaire d'Yngwie Malmsteen aux virtuoses modernes, témoignez comment ce genre transforme des siècles de théorie musicale en une nouvelle forme flamboyante d'expression artistique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6UBNq8zfkQizih1X8PMfHR",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzie4CgH5DZwfByq7o",
@@ -1504,7 +1504,7 @@
   },
   {
     "headline": "New Age : Paysages Sonores Sacrés pour l'Éveil Spirituel",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "Embarquez pour un voyage sonique transformateur où sons terrestres rencontrent harmonies célestes. Des paysages ambient éthérés à la fusion world music, ces pièces soigneusement organisées créent des espaces profonds pour méditation, guérison et découverte spirituelle.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0dY7hTfT8xLixqDmuTsSe7",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzv5gysrOWcSAHPf5s",
@@ -1513,7 +1513,7 @@
   },
   {
     "headline": "NWOBHM : La Révolution Metal Britannique qui a Conquis le Monde",
-    "imageUrl": "/category/new-wave-of-british-heavy-metal.jpg",
+    "imageUrl": "new-wave-of-british-heavy-metal",
     "introSubline": "Revivez le changement sismique quand des groupes britanniques de la classe ouvrière ont forgé une nouvelle identité metal. De la narration épique d'Iron Maiden au riffing intense de Diamond Head, témoignez comment ce mouvement DIY a transformé le son et l'esprit du metal pour toujours.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7Cmskvn1Yk55nq4loBu2lO",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzS82cEYHQr78k4TgD",
@@ -1522,7 +1522,7 @@
   },
   {
     "headline": "Conduite Nocturne : Aventures Soniques pour Votre Voyage Après la Nuit",
-    "imageUrl": "/category/night-drive.jpg",
+    "imageUrl": "night-drive",
     "introSubline": "Transformez chaque conduite nocturne en expérience cinématographique inoubliable. Du synthwave éclairé au néon aux grooves ambient mystérieux, ces morceaux soigneusement choisis transforment les rues vides en votre clip musical personnel, rendant chaque mile un moment mémorable.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/01DZzC8qCI2By3PsRfOUc1",
     "deezerPlaylist": "https://link.deezer.com/s/30xqAaH4JMZKo68Rjtf5m",
@@ -1531,7 +1531,7 @@
   },
   {
     "headline": "Noise Metal : Quand le Chaos Sonique Devient Art Révolutionnaire",
-    "imageUrl": "/category/noise-metal.jpg",
+    "imageUrl": "noise-metal",
     "introSubline": "Explorez la frontière la plus radicale du metal, où structures conventionnelles se brisent en pure expérimentation sonique. Du mur de son de Merzbow au chaos contrôlé de Today Is The Day, témoignez comment les artistes transforment le bruit en un nouveau langage viscéral de musique heavy.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0qy89AG4JgYQf4RCLCDeHh",
     "deezerPlaylist": "https://link.deezer.com/s/30xqApugv9bxAWdiJBcCr",
@@ -1540,7 +1540,7 @@
   },
   {
     "headline": "Folk Nordique : Sons Mystiques du Nord",
-    "imageUrl": "/category/nordic-folk.jpg",
+    "imageUrl": "nordic-folk",
     "introSubline": "Voyagez vers les terres nordiques avec de la musique folk qui évoque mythes anciens et beauté naturelle.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5LtF3hUBgVoEujidhoJOiN",
     "deezerPlaylist": "https://link.deezer.com/s/30xqAE3q9VHR4mgHnERnx",
@@ -1549,7 +1549,7 @@
   },
   {
     "headline": "Mélodies Nostalgiques : Les Chansons Intemporelles qui Ont Défini des Générations",
-    "imageUrl": "/category/nostalgic.jpg",
+    "imageUrl": "nostalgic",
     "introSubline": "Faites un voyage émotionnel à travers la bande sonore de votre vie. Des hymnes d'enfance chéris aux souvenirs de moments importants, ces classiques soigneusement choisis créent une étreinte musicale chaleureuse qui fait le pont entre passé et présent tout en ravivant les moments les plus précieux de la vie.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1HSRBpAxVLD4515o4Nzdit",
     "deezerPlaylist": "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ",
@@ -1558,7 +1558,7 @@
   },
   {
     "headline": "Nu-Metal : Le Genre qui a Redéfini la Musique Heavy pour une Nouvelle Génération",
-    "imageUrl": "/category/nu-metal.jpg",
+    "imageUrl": "nu-metal",
     "introSubline": "Plongez dans le phénomène culturel qui a comblé le fossé entre hip-hop et metal. De l'angoisse révolutionnaire de Korn à l'art transcendant les genres de Linkin Park, témoignez comment la fusion audacieuse du nu-metal a capturé la rébellion milléniale et changé le rock pour toujours.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0I9y33ifhPHpTEj3ogwbIw",
     "deezerPlaylist": "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ",
@@ -1567,7 +1567,7 @@
   },
   {
     "headline": "Opéra : Quand la Voix Humaine Devient Magie Dramatique Pure",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Immergez-vous dans la forme d'art la plus dramatique de la musique, où des voix sublimes racontent des histoires épiques. De la passion transcendante de Maria Callas aux chefs-d'œuvre modernes, vivez comment l'opéra combine grandeur théâtrale, puissance orchestrale et brillance vocale pour créer des voyages émotionnels inoubliables.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6RNI0E8ASUQmwzZ1dWxsIj",
     "deezerPlaylist": "https://link.deezer.com/s/30xqDzXLVttCK1qW1vZzz",
@@ -1576,7 +1576,7 @@
   },
   {
     "headline": "Orchestral : Grandes Symphonies et Arrangements Épiques",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Vivez la majesté de la musique orchestrale, des chefs-d'œuvre classiques aux partitions cinématographiques modernes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6MtZNTD22gZxvAUfE0fPg3",
     "deezerPlaylist": "https://link.deezer.com/s/30xqDPFj8Ij2vPj1hSors",
@@ -1585,7 +1585,7 @@
   },
   {
     "headline": "Fêtez ! : La Bande Sonore Ultime pour les Plus Grandes Célébrations de la Vie",
-    "imageUrl": "/category/party-on!.jpg",
+    "imageUrl": "party-on!",
     "introSubline": "Transformez n'importe quel rassemblement en célébration épique avec cette collection expertement organisée de pure puissance de fête. Des chansons rétro à chanter ensemble aux bangers club contemporains, ces valeurs sûres qui plaisent à la foule maintiennent l'énergie qui monte et le dancefloor bondé toute la nuit.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5jZFPGsvqGGoR2AI8XWlmq",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEbxDOw0Hbq5rwsdJe",
@@ -1594,7 +1594,7 @@
   },
   {
     "headline": "Mélodies Paisibles : Où la Sérénité Musicale Crée Votre Sanctuaire Parfait",
-    "imageUrl": "/category/peaceful.jpg",
+    "imageUrl": "peaceful",
     "introSubline": "Découvrez votre oasis personnelle de tranquillité à travers des pièces expertement choisies qui nourrissent la paix intérieure. Des compositions piano éthérées aux paysages ambient doux, ces morceaux transformateurs créent des espaces sacrés pour méditation, guérison et relaxation profonde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2pvkHH9au0R8EKVCsK0GJv",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEoS56gm94AYDhg5Cl",
@@ -1603,7 +1603,7 @@
   },
   {
     "headline": "Mélodies Péruviennes : Magie Ancienne des Andes Rencontre Âme Contemporaine",
-    "imageUrl": "/category/peruvian.jpg",
+    "imageUrl": "peruvian",
     "introSubline": "Envolez-vous à travers les royaumes musicaux mystiques du Pérou, des cérémonies sacrées de montagne à la fusion urbaine moderne. Vivez comment sagesse inca ancienne et flûtes de pan traditionnelles se fondent avec créativité contemporaine pour créer une musique qui transcende le temps et touche les âmes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7t71PSanUIVjSE3Ka7kANm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEzqmDZVjBpVH5dxFX",
@@ -1612,7 +1612,7 @@
   },
   {
     "headline": "Piano : Siècles de Magie Musicale à Travers 88 Touches",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Voyagez à travers le monde magnifique de la musique de piano, du contrepoint complexe de Bach au minimalisme moderne. Vivez comment cet instrument remarquable continue d'inspirer une créativité illimitée, exprimant tout de la puissance tonitruante à la délicatesse éthérée.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76uaIrzY1nwb3dJm5c08gI",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEM7Ob0YoQbBRzOOU6",
@@ -1621,7 +1621,7 @@
   },
   {
     "headline": "Mélodies Polonaises : De l'Âme Poétique de Chopin à la Renaissance Culturelle Contemporaine",
-    "imageUrl": "/category/polish.jpg",
+    "imageUrl": "polish",
     "introSubline": "Explorez le voyage musical extraordinaire de la Pologne, du romantisme révolutionnaire de Chopin à la scène de fusion dynamique d'aujourd'hui. Vivez comment les artistes polonais transforment des siècles de passion, résistance et fierté culturelle en expressions soniques puissantes qui font le pont entre maîtrise classique et innovation moderne.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7g6nIUiBRNU6L7o1cqK7Uu",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHgRNNambym44fEtlu",
@@ -1630,7 +1630,7 @@
   },
   {
     "headline": "Pop : Le Langage Universel de la Mélodie qui Unit le Monde",
-    "imageUrl": "/category/pop.jpg",
+    "imageUrl": "pop",
     "introSubline": "Voyagez à travers le paysage en constante évolution de la musique populaire, où innovation rencontre attrait de masse. Des hymnes qui remplissent les stades aux ballades intimes, vivez comment le mélange parfait d'accroche, émotion et production de pointe de la musique pop crée des moments culturels qui définissent des générations.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MPEVNNpYlJx7AidRFMq3E",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHvcwLgLtuJpEoZeLK",
@@ -1639,7 +1639,7 @@
   },
   {
     "headline": "Poprock : Le Mariage Parfait de la Mélodie et de l'Énergie Électrique",
-    "imageUrl": "/category/poprock.jpg",
+    "imageUrl": "poprock",
     "introSubline": "Vivez la fusion explosive où les hooks irrésistibles de la pop rencontrent l'attitude amplifiée du rock. Des classiques prêts pour l'arène de Foreigner au tranchant moderne d'Avril Lavigne, découvrez comment les artistes poprock combinent refrains accrocheurs et énergie électrique pour créer des hymnes intemporels qui dominent radio et stades.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3HoVFg1PP3d0ae3iHkGOsH",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHHKIgCORYFQGIRUn2",
@@ -1648,7 +1648,7 @@
   },
   {
     "headline": "Post-Hardcore : L'Évolution Révolutionnaire de l'Âme Artistique du Punk",
-    "imageUrl": "/category/post-hardcore.jpg",
+    "imageUrl": "post-hardcore",
     "introSubline": "Vivez la transformation audacieuse du hardcore, où l'intensité primale rencontre l'ambition artistique. De l'expérimentation révolutionnaire de Fugazi à la catharsis émotionnelle de Thursday, découvrez comment les artistes post-hardcore ont élargi le vocabulaire du punk pour créer une musique d'une profondeur et d'une puissance sans précédent.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/44kO9r9cfyEW7xtARL6C7r",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHVdPlnr5JBNIBhJx6",
@@ -1657,7 +1657,7 @@
   },
   {
     "headline": "Post-Metal : La Révolution Atmosphérique qui a Redéfini la Musique Heavy",
-    "imageUrl": "/category/post-metal.jpg",
+    "imageUrl": "post-metal",
     "introSubline": "Voyagez dans la frontière la plus expansive du metal, où la lourdeur monolithique se dissout en atmosphère cosmique. De la vision définissant le genre de Neurosis aux paysages sonores architecturaux de Cult of Luna, vivez comment le post-metal transforme la lourdeur traditionnelle en voyages soniques transcendants.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6I6MVL5BAvkWr7SzLWpjZy",
     "deezerPlaylist": "https://link.deezer.com/s/30xqIFU6JnnPAc1PvWoiR",
@@ -1666,7 +1666,7 @@
   },
   {
     "headline": "Post-Punk : Énergie Brute et Innovation Artistique",
-    "imageUrl": "/category/post-punk.jpg",
+    "imageUrl": "post-punk",
     "introSubline": "Explorez les sons audacieux du post-punk, où les groupes ont repoussé les frontières avec des approches expérimentales et des paroles audacieuses.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/35cauzKE45zF3z5iCEzr8F",
     "deezerPlaylist": "https://link.deezer.com/s/30xqIXjBieylFDzsgXOpP",
@@ -1675,7 +1675,7 @@
   },
   {
     "headline": "Power Metal : La Fusion Majestueuse de la Fantasy, de l'Histoire et du Tonnerre Heavy Metal",
-    "imageUrl": "/category/power-metal.jpg",
+    "imageUrl": "power-metal",
     "introSubline": "Embarquez pour un voyage épique où voix planantes et guitares ultra-rapides racontent des histoires de gloire héroïque. De la vitesse pionnière d'Helloween aux épopées historiques de Sabaton, vivez comment le power metal transforme mythologie, fantasy et histoire en aventures musicales triomphantes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6944WLwTzLxB7kQK7jOAbU",
     "deezerPlaylist": "https://link.deezer.com/s/30xqJfRRMJYel3tuSABAu",
@@ -1684,7 +1684,7 @@
   },
   {
     "headline": "Power Pop : La Fusion Parfaite de l'Énergie Brute du Rock et de la Magie Mélodique de la Pop",
-    "imageUrl": "/category/power-pop.jpg",
+    "imageUrl": "power-pop",
     "introSubline": "Plongez dans l'hybride le plus addictif de la musique, où guitares crunchy rencontrent hooks irrésistibles. De la brillance pionnière de Big Star aux hymnes remplissant les arènes de Cheap Trick, découvrez comment les artistes power pop mélangent l'énergie électrisante du rock avec les mélodies parfaites de la pop pour créer un soleil sonique intemporel.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76cMqFShrxpPQTVE03RIx1",
     "deezerPlaylist": "https://link.deezer.com/s/30xqJs72GZnEFRvXpFyyK",
@@ -1693,7 +1693,7 @@
   },
   {
     "headline": "Power Walk : Votre Bande Sonore Énergique pour le Succès Fitness",
-    "imageUrl": "/category/power-walk.jpg",
+    "imageUrl": "power-walk",
     "introSubline": "Transformez chaque pas en triomphe avec des morceaux parfaitement rythmés qui améliorent votre entraînement de marche. Des classiques énergiques aux motivateurs modernes, ces chansons soigneusement sélectionnées maintiennent le tempo de marche idéal tout en gardant votre énergie et votre moral élevés.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76U2UipcYhQ1MDTmJSegrQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xqMVAoKSHzgSmZ8NKEj",
@@ -1702,7 +1702,7 @@
   },
   {
     "headline": "Progressive House : Builds Euphoriques et Hymnes de Dancefloor",
-    "imageUrl": "/category/progressive-house.jpg",
+    "imageUrl": "progressive-house",
     "introSubline": "Ressentez l'énergie de la progressive house, un genre connu pour ses mélodies énergisantes et ses beats entraînants.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/57netDHfsmQPVT3aeQ1jLz",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNdAVT661hN0EO6tQS",
@@ -1711,7 +1711,7 @@
   },
   {
     "headline": "Metal Progressif : Le Genre qui a Transformé la Musique Heavy à Travers l'Innovation Virtuose",
-    "imageUrl": "/category/progressive-metal.jpg",
+    "imageUrl": "progressive-metal",
     "introSubline": "Entrez dans le royaume le plus sophistiqué du metal, où la maîtrise technique rencontre l'ambition artistique. Des compositions vertigineuses de Dream Theater à la profondeur philosophique de Tool, découvrez comment les artistes de metal progressif repoussent les frontières musicales à travers arrangements complexes et brillance conceptuelle.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7m2sSqiwom9QG4gYAkW21l",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNvQSgVTY6so5Av4dh",
@@ -1720,7 +1720,7 @@
   },
   {
     "headline": "Psych Rock : Le Voyage Vertigineux qui a Révolutionné les Frontières du Rock",
-    "imageUrl": "/category/psych-rock.jpg",
+    "imageUrl": "psych-rock",
     "introSubline": "Embarquez pour un voyage cosmique à travers la frontière la plus expérimentale du rock. Des paysages sonores transcendants de Pink Floyd à la psychédélie moderne de Tame Impala, vivez comment des artistes visionnaires mélangent effets tourbillonnants, production innovante et écriture de chansons aventureuse pour créer une musique qui élargit la conscience et défie les conventions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2JcvD7e7uqgHuYBF5qgcUa",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNLqdFdTOar8Y47jkU",
@@ -1729,7 +1729,7 @@
   },
   {
     "headline": "Punk : Trois Accords et la Vérité qui Ont Déclenché une Révolution Culturelle",
-    "imageUrl": "/category/punk.jpg",
+    "imageUrl": "punk",
     "introSubline": "Vivez la puissance brute du mouvement le plus défiant de la musique. De l'assaut à trois accords des Ramones aux hymnes politiques du Clash, découvrez comment l'esprit DIY et l'attitude intransigeante du punk ont créé une révolution artistique qui a transformé la culture pour toujours.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1k07FnMmoqpofksK4ESdJJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xrdhidZEjZYMPV4I3WG",
@@ -1738,7 +1738,7 @@
   },
   {
     "headline": "R&B : Le Cœur Émotionnel de l'Innovation Musicale Afro-Américaine",
-    "imageUrl": "/category/r&b.jpg",
+    "imageUrl": "r&b",
     "introSubline": "Immergez-vous dans le genre qui a transformé le sentiment en or musical pur. De la voix céleste de Sam Cooke à l'innovation moderne, découvrez comment les artistes R&B mélangent maîtrise musicale sophistiquée et émotion brute pour créer des expressions intemporelles d'amour, de lutte et de triomphe.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3bYWZsBEFua8dA8za2br4D",
     "deezerPlaylist": "https://link.deezer.com/s/30xrdSvnRX0cgGVPHZE5Y",
@@ -1747,7 +1747,7 @@
   },
   {
     "headline": "Jour de Pluie : Transformez le Temps Orageux en Magie Musicale Confortable",
-    "imageUrl": "/category/rainy-day.jpg",
+    "imageUrl": "rainy-day",
     "introSubline": "Transformez les gouttes de pluie en diamants musicaux avec cette collection parfaitement organisée de morceaux atmosphériques. Des mélodies jazz douces aux paysages sonores ambient, ces chansons créent un sanctuaire chaleureux qui fait que chaque moment pluvieux ressemble à un cadeau de contemplation paisible.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7uV35irgq5EcDPiZqijeGK",
     "deezerPlaylist": "https://link.deezer.com/s/30xrefEG3IaCUSsoSLEa7",
@@ -1756,7 +1756,7 @@
   },
   {
     "headline": "Reggae : Le Son Jamaïcain qui a Uni le Monde à Travers One Love",
-    "imageUrl": "/category/reggae.jpg",
+    "imageUrl": "reggae",
     "introSubline": "Vivez les rythmes révolutionnaires qui ont transformé la musique roots jamaïcaine en force mondiale de changement. Des hymnes conscients de Bob Marley aux innovations modernes, découvrez comment les grooves hypnotiques et le message spirituel du reggae ont créé un mouvement mondial de paix, d'amour et de résistance.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5gPfjoIW0lPm77jWpzfm3T",
     "deezerPlaylist": "https://link.deezer.com/s/30xretuHirr4O95rOZILs",
@@ -1765,7 +1765,7 @@
   },
   {
     "headline": "Reggaeton : Des Rues de San Juan au Phénomène Pop Mondial",
-    "imageUrl": "/category/reggaeton.jpg",
+    "imageUrl": "reggaeton",
     "introSubline": "Voyagez à travers l'évolution explosive du reggaeton de l'underground portoricain à la force culturelle mondiale. Vivez comment le rythme dembow contagieux et la poésie urbaine du genre ont créé un nouveau langage musical qui a révolutionné la pop mondiale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5p3aOy51iYBkB8sGfrQarC",
     "deezerPlaylist": "https://link.deezer.com/s/30xrngnvqx0n8KZzUIlSN",
@@ -1774,7 +1774,7 @@
   },
   {
     "headline": "Vibes Décontractées : Créez Votre Moment Parfait de Tranquillité Musicale",
-    "imageUrl": "/category/relaxed.jpg",
+    "imageUrl": "relaxed",
     "introSubline": "Laissez le stress fondre avec cette collection soigneusement organisée de trésors soniques doux. Des pièces piano paisibles aux mélodies acoustiques apaisantes, ces morceaux transforment n'importe quel espace en votre havre personnel de calme et de contentement.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1ciG5uIJSoSxBzqZRyuLdF",
     "deezerPlaylist": "https://link.deezer.com/s/30xrnD7QAW6feyFCXrUKq",
@@ -1783,7 +1783,7 @@
   },
   {
     "headline": "Road Trip : Transformez Chaque Mile en Souvenir Musical",
-    "imageUrl": "/category/road-trip.jpg",
+    "imageUrl": "road-trip",
     "introSubline": "Prenez la route avec le mélange parfait d'hymnes énergisants et de classiques de croisière. Des chansons à chanter vitres baissées aux paysages sonores qui poursuivent le coucher de soleil, ces morceaux soigneusement choisis transforment chaque voyage en aventure inoubliable remplie de liberté et de possibilités.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6zxqnfIxjU1DOw4lRpr0dL",
     "deezerPlaylist": "https://link.deezer.com/s/30xro8k905gdsWK4g4zz7",
@@ -1792,7 +1792,7 @@
   },
   {
     "headline": "Rock 'n' Roll : La Naissance Électrique de la Révolution Musicale de la Culture Jeune",
-    "imageUrl": "/category/rock-'n'-roll.jpg",
+    "imageUrl": "rock-'n'-roll",
     "introSubline": "Voyagez dans le moment explosif où les adolescents ont trouvé leur voix et la musique a changé pour toujours. Des hanches scandaleuses d'Elvis à la guitare flamboyante de Chuck Berry, vivez comment la rébellion brute du rock 'n' roll a enflammé une révolution culturelle qui façonne encore notre monde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4HdGdJ1a12xMRHJKwbwm9d",
     "deezerPlaylist": "https://link.deezer.com/s/30xrooWNCB7i0U0Cu0tzc",
@@ -1801,7 +1801,7 @@
   },
   {
     "headline": "Rock : L'Évolution Électrique qui a Façonné l'ADN de la Musique Moderne",
-    "imageUrl": "/category/rock.jpg",
+    "imageUrl": "rock",
     "introSubline": "Voyagez à travers l'histoire révolutionnaire du rock, de la rébellion garage band au spectacle remplissant les stades. Vivez comment guitares distordues, batteries tonitruantes et voix passionnées ont créé non seulement un genre, mais une force culturelle qui continue d'inspirer et d'évoluer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2ngLFPTon3HP9Yqoy2Abo1",
     "deezerPlaylist": "https://link.deezer.com/s/30xroIwUFuF3F7cz7JBoi",
@@ -1810,7 +1810,7 @@
   },
   {
     "headline": "Rockabilly : La Naissance Sauvage de la Première Rébellion du Rock",
-    "imageUrl": "/category/rockabilly.jpg",
+    "imageUrl": "rockabilly",
     "introSubline": "Reculez au moment où l'arrogance country a percuté l'attitude rock 'n' roll dans les murs sacrés du Sun Studio. Du twang révolutionnaire d'Elvis aux porteurs de flambeau modernes, vivez comment l'énergie indomptable et la maîtrise virtuose du rockabilly ont créé la première vraie fusion du rock.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/556VDLysUKkswai3seOpKW",
     "deezerPlaylist": "https://link.deezer.com/s/30xrp9DFtMS0XmcYP032M",
@@ -1819,7 +1819,7 @@
   },
   {
     "headline": "Mélodies Romantiques : Histoires d'Amour Racontées à Travers le Plus Beau Langage de la Musique",
-    "imageUrl": "/category/romantic.jpg",
+    "imageUrl": "romantic",
     "introSubline": "Abandonnez-vous au pouvoir du romantisme pur avec des chansons qui touchent les chambres les plus profondes du cœur. Des ballades qui émeuvent l'âme aux sérénades passionnées, ces pièces intemporelles tissent une atmosphère envoûtante parfaite pour les moments les plus précieux de l'amour.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0IPy4N81f7oDRCEzakCOaO",
     "deezerPlaylist": "https://link.deezer.com/s/30xrpuaKVKZFSPY7LCx5g",
@@ -1828,7 +1828,7 @@
   },
   {
     "headline": "Playlist Course : Le Carburant Sonique Ultime pour Votre Meilleur Personnel",
-    "imageUrl": "/category/running-playlist.jpg",
+    "imageUrl": "running-playlist",
     "introSubline": "Repoussez vos limites avec des morceaux précisément conçus qui se synchronisent parfaitement avec votre foulée. Des échauffements énergisants aux lignes d'arrivée triomphantes, cette sélection soigneusement rythmée maintient votre motivation qui monte et votre rythme fort à travers chaque mile.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0hySblikw1i9A1UCmgyS31",
     "deezerPlaylist": "https://link.deezer.com/s/30xrpNcWN4MfOizuredSy",
@@ -1837,7 +1837,7 @@
   },
   {
     "headline": "Mélodies Russes : Où l'Âme Slave Ancienne Rencontre la Puissance Musicale Moderne",
-    "imageUrl": "/category/russian.jpg",
+    "imageUrl": "russian",
     "introSubline": "Voyagez à travers le paysage musical majestueux de la Russie, des mélodies folk hantantes à l'innovation avant-garde. Vivez comment des siècles de tradition culturelle, des chants orthodoxes éthérés aux orchestres classiques puissants, fusionnent avec la créativité contemporaine pour forger des expressions unique puissantes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4pmPjZr7CCHw3vFhOXE02U",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAqUeJ6jDwXGrZKjAR",
@@ -1846,7 +1846,7 @@
   },
   {
     "headline": "Mélodies Tristes : Trouver la Beauté dans les Profondeurs Émotionnelles les Plus Profondes de la Musique",
-    "imageUrl": "/category/sad.jpg",
+    "imageUrl": "sad",
     "introSubline": "Découvrez le pouvoir transformateur de la mélancolie musicale à travers des chansons magistralement choisies qui honorent les émotions plus profondes de la vie. Des ballades piano qui émeuvent l'âme aux expressions poétiques de désir, ces morceaux créent un espace sacré pour la guérison, la réflexion et l'authenticité émotionnelle.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/77zWl8jXChMcaRiPdCWg9j",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAJgNPJrwgHUuYXa2a",
@@ -1855,7 +1855,7 @@
   },
   {
     "headline": "Salsa : Le Cœur Ardent de la Révolution de Danse Caribéenne",
-    "imageUrl": "/category/salsa.jpg",
+    "imageUrl": "salsa",
     "introSubline": "Abandonnez-vous aux rythmes séducteurs qui ont transformé la danse latine pour toujours. Du son révolutionnaire de Fania All-Stars aux innovations modernes, vivez comment la fusion passionnée de la salsa entre rythmes afro-cubains et sophistication jazz enflamme les dancefloors et les cœurs du monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3ZCEzhyEjElIXJFDHL69Ej",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAVLtOp3Tls9hY2Rmu",
@@ -1864,7 +1864,7 @@
   },
   {
     "headline": "Samba: The Unstoppable Rhythm of Brazil's Carnival Soul",
-    "imageUrl": "/category/samba.jpg",
+    "imageUrl": "samba",
     "introSubline": "Feel the pulsating heart of Brazilian celebration through samba's euphoric rhythms. From the thunderous power of carnival batucada to intimate roda de samba gatherings, experience how this revolutionary art form transforms pure rhythm into collective joy and cultural pride.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7EWRUTlDklYpO8vtIAIRJx",
     "deezerPlaylist": "https://link.deezer.com/s/30xrBbiMfnLErMqdVhssK",
@@ -1873,7 +1873,7 @@
   },
   {
     "headline": "Screamo : Quand le Cœur du Hardcore Explosa en Catharsis Émotionnelle Pure",
-    "imageUrl": "/category/screamo.jpg",
+    "imageUrl": "screamo",
     "introSubline": "Aventurez-vous dans le territoire le plus émotionnellement brut du hardcore, où les cris primaux rencontrent l'architecture musicale complexe. De l'intensité pionnière d'Orchid à l'évolution moderne, vivez comment les artistes screamo transforment l'angoisse personnelle en art sonique transcendant qui repousse les frontières émotionnelles et musicales.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7gUWpIJPdTrL0Y43ovrp7N",
     "deezerPlaylist": "https://link.deezer.com/s/30xrBQgez4FrsyXdprkwq",
@@ -1882,7 +1882,7 @@
   },
   {
     "headline": "Sertanejo : Comment la Musique Country du Brésil Devint un Phénomène Pop Moderne",
-    "imageUrl": "/category/sertanejo.jpg",
+    "imageUrl": "sertanejo",
     "introSubline": "Voyagez à travers l'évolution musicale imparable du Brésil, où les duos de violons rustiques se transformèrent en spectacles remplissant les stades. Des power ballads romantiques aux hits infusés d'électronique, découvrez comment le sertanejo mélange l'âme traditionnelle de la campagne avec la production contemporaine pour créer la fusion la plus réussie d'Amérique Latine.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3hTGYmG9Z4vgBON8vCPhh1",
     "deezerPlaylist": "https://link.deezer.com/s/30xrCttYfMaElbs4VPNL8",
@@ -1891,7 +1891,7 @@
   },
   {
     "headline": "Shoegaze : Paysages Sonores Rêveurs et Voix Éthérées",
-    "imageUrl": "/category/shoegaze.jpg",
+    "imageUrl": "shoegaze",
     "introSubline": "Perdez-vous dans le shoegaze, où guitares luxuriantes et voix trempées de reverb créent un mur de son.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0ihiWbH2Y06pJq02KMvw3d",
     "deezerPlaylist": "https://link.deezer.com/s/30xrCUiYPNxAK13y1xeaL",
@@ -1900,7 +1900,7 @@
   },
   {
     "headline": "Ska : Quand les Rues de Kingston Inventèrent la Révolution la Plus Joyeuse de la Musique de Danse",
-    "imageUrl": "/category/ska.jpg",
+    "imageUrl": "ska",
     "introSubline": "Plongez dans le genre qui fit danser la Jamaïque avant le reggae, où costumes élégants rencontraient rythmes encore plus tranchants. Des sections de cuivres pionnières des Skatalites à la vision multiculturelle de Two-Tone, vivez comment les upstrokes contagieux et les basslines entraînantes du ska créèrent l'un des mouvements les plus joyeux de la musique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/77G1DC8kGF29epUmCAQ2xt",
     "deezerPlaylist": "https://link.deezer.com/s/30xrDEvr61zSTvD2ktVGF",
@@ -1909,7 +1909,7 @@
   },
   {
     "headline": "Sommeil Profond : Transformez vos Nuits avec les Berceuses les Plus Paisibles de la Nature",
-    "imageUrl": "/category/sleep-soundly.jpg",
+    "imageUrl": "sleep-soundly",
     "introSubline": "Créez votre voie parfaite vers le repos réparateur grâce à des sons scientifiquement choisis pour un sommeil optimal. Des paysages ambient éthérés aux fréquences binaurales douces, ces paysages sonores soigneusement conçus vous guident naturellement vers un sommeil profond et régénérant.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5lGpp9BwDZ5gvi6UDo3sVU",
     "deezerPlaylist": "https://link.deezer.com/s/30xrHyzhm3xuyRveJhsgg",
@@ -1918,7 +1918,7 @@
   },
   {
     "headline": "Sludge Metal : Quand les Marais du Sud Enfantèrent l'Évolution la Plus Lourde du Metal",
-    "imageUrl": "/category/sludge-metal.jpg",
+    "imageUrl": "sludge-metal",
     "introSubline": "Enfoncez-vous dans le marécage sonique le plus massif du metal, où le rythme glaciaire du doom rencontre l'agression brute du hardcore. De la lourdeur révolutionnaire des Melvins à l'âme torturée d'Eyehategod, vivez comment La Nouvelle-Orléans transforma les éléments les plus durs du metal en une forme unique et puissante de catharsis musicale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7BkXp7SjOXPpLfKDkzlMKN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrHXifv8QEwCMKOSlhJ",
@@ -1927,7 +1927,7 @@
   },
   {
     "headline": "Smooth Jazz : Grooves Décontractés et Sons Sophistiqués",
-    "imageUrl": "/category/smooth-jazz.jpg",
+    "imageUrl": "smooth-jazz",
     "introSubline": "Détendez-vous avec le smooth jazz, un genre qui mélange l'improvisation jazz avec des vibes douces et faciles à écouter.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7g7LqnJcAoOIGRzsGDrGRQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xrILzsWdfSrZXEPjWAf",
@@ -1936,7 +1936,7 @@
   },
   {
     "headline": "Auteur-Compositeur : L'Art Intime de Transformer la Vie en Poésie Lyrique",
-    "imageUrl": "/category/songwriter.jpg",
+    "imageUrl": "songwriter",
     "introSubline": "Entrez dans le monde intime des maîtres de la narration musicale, où la vérité personnelle rencontre l'émotion universelle. De la sagesse poétique de Leonard Cohen aux confessions sincères de Carole King, témoignez comment les grands auteurs-compositeurs transforment leurs expériences les plus profondes en art qui parle à des millions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0grCN6K8sWlKHFa1ncK6Zt",
     "deezerPlaylist": "https://link.deezer.com/s/30xrIZ4J7onIdFeVEBhY3",
@@ -1945,7 +1945,7 @@
   },
   {
     "headline": "Soul Music : L'Esprit Sacré qui Transforma la Musique Moderne par l'Émotion Brute",
-    "imageUrl": "/category/soul.jpg",
+    "imageUrl": "soul",
     "introSubline": "Voyagez à travers le paysage émotionnel le plus puissant de la musique, de la fusion révolutionnaire de Ray Charles à la puissance transcendante d'Aretha Franklin. Vivez comment la soul music mélangea le feu spirituel du gospel avec la passion terrestre du R&B pour créer des expressions intemporelles du cœur humain.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0JGIo1JwkMqNT2KyKQQL0D",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJjXm8LnZN2TMgqIxg",
@@ -1954,7 +1954,7 @@
   },
   {
     "headline": "Bande Sonore : La Musique qui Raconte une Histoire",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Vivez la puissance des bandes sonores, des partitions de films épiques aux thèmes TV mémorables qui donnent vie aux histoires.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0GRfN2yjDpRdtTs7BRutfS",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJCAGScRE2k4EYahOo",
@@ -1963,7 +1963,7 @@
   },
   {
     "headline": "Spanish Melodies: Where Flamenco's Primal Fire Ignites Modern Musical Magic",
-    "imageUrl": "/category/spanish.jpg",
+    "imageUrl": "spanish",
     "introSubline": "Immerse yourself in Spain's passionate musical soul, from flamenco's raw duende to contemporary fusion's sophisticated innovation. Experience how centuries of Moorish mystery, Romani spirit, and Mediterranean warmth blend into one of Europe's most captivating musical traditions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7t3FUUWjXokKqHdQraCgPN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJOK1gpJi66ABuzI20",
@@ -1972,7 +1972,7 @@
   },
   {
     "headline": "Speed Metal : La Révolution Ultra-Rapide qui Poussa le Metal à ses Limites",
-    "imageUrl": "/category/speed-metal.jpg",
+    "imageUrl": "speed-metal",
     "introSubline": "Entrez dans le royaume le plus obsédé par la vélocité du metal, où la précision surhumaine rencontre l'agression implacable. Des assauts soniques pionniers d'Exciter aux démons de vitesse modernes, vivez comment ce genre transforme la maîtrise technique en une forme d'art alimentée par l'adrénaline.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2GKZ1b1EGrUeoNjNUMSmhD",
     "deezerPlaylist": "https://link.deezer.com/s/30xrK1J6I3P9Epg0BkiIp",
@@ -1981,7 +1981,7 @@
   },
   {
     "headline": "Réveil du Printemps : Célébration Musicale de la Plus Belle Renaissance de la Nature",
-    "imageUrl": "/category/spring-awakening.jpg",
+    "imageUrl": "spring-awakening",
     "introSubline": "Embrassez la transformation magique de l'hiver en printemps à travers une musique qui capture l'esprit de réveil de la nature. Du chant délicat des oiseaux du matin aux hymnes saisonniers joyeux, ces morceaux soigneusement choisis peignent un paysage sonore vibrant de renouveau, d'espoir et de possibilités florissantes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3MQSUoijej25f4IvRcNFuu",
     "deezerPlaylist": "https://link.deezer.com/s/30xrMZ3bVAQANzrNNbdVq",
@@ -1990,7 +1990,7 @@
   },
   {
     "headline": "Stoner Metal: Where Desert Sand and Cosmic Fuzz Create Heavy Music's Most Hypnotic Realm",
-    "imageUrl": "/category/stoner-metal.jpg",
+    "imageUrl": "stoner-metal",
     "introSubline": "Descend into the smoke-filled soundscapes where mammoth riffs meet psychedelic exploration. From Sleep's hour-long odysseys to Electric Wizard's cosmic doom, discover how stoner metal transforms heavy amplification and lysergic atmosphere into transcendent sonic rituals.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2qSbx9BAX2u6uvW8AIKqEN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNePoWpFyXorddvVTo",
@@ -1999,7 +1999,7 @@
   },
   {
     "headline": "Study Session: Scientifically Curated Sounds for Maximum Mental Focus",
-    "imageUrl": "/category/study-session.jpg",
+    "imageUrl": "study-session",
     "introSubline": "Elevate your learning potential with precision-engineered soundscapes designed to enhance cognitive function. From alpha wave-inducing ambient pieces to focus-optimizing minimal compositions, discover the perfect audio environment for peak academic performance.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3vt5S7fxcnUricoSekV5yw",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNubcedY5RjgNleaPj",
@@ -2008,7 +2008,7 @@
   },
   {
     "headline": "Summer Hits: Your Musical Passport to Endless Sunshine and Joy",
-    "imageUrl": "/category/summer-hits.jpg",
+    "imageUrl": "summer-hits",
     "introSubline": "Let the sunshine in with the year's most vibrant collection of warm-weather anthems. From beachside bossa nova to poolside party bangers, these carefully chosen tracks bottle summer's euphoric energy into pure musical magic that makes every day feel like vacation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1IYMMI3F3zgGqlMPMTjbKu",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNKCKckqBhsNaCvji9",
@@ -2017,7 +2017,7 @@
   },
   {
     "headline": "Sunset Vibes: Transform Twilight into Pure Musical Magic",
-    "imageUrl": "/category/sunset-vibes.jpg",
+    "imageUrl": "sunset-vibes",
     "introSubline": "Enhance nature's most beautiful light show with sounds that perfectly capture the day's most enchanted moments. From warm lo-fi beats to atmospheric ambient gems, this thoughtfully curated collection turns every sunset into a transcendent audio-visual experience.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EM4XAOI6HmzCM7LnmkSmG",
     "deezerPlaylist": "https://link.deezer.com/s/30xrOLNSX6zA7c2Dw5lB4",
@@ -2026,7 +2026,7 @@
   },
   {
     "headline": "Surf Rock : Guitares Trempées de Reverb et Vibes de Fête de Plage",
-    "imageUrl": "/category/surf-rock.jpg",
+    "imageUrl": "surf-rock",
     "introSubline": "Attrapez la vague avec le surf rock, un genre défini par des guitares twangy et des mélodies trempées de soleil.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sNs0KKuLW9HhSq9jx34Wa",
     "deezerPlaylist": "https://link.deezer.com/s/30xrP75nfneZHodqgXRQd",
@@ -2035,7 +2035,7 @@
   },
   {
     "headline": "Mélodies Suédoises : Où le Mysticisme Médiéval Rencontre l'Excellence de la Musique Moderne",
-    "imageUrl": "/category/swedish.jpg",
+    "imageUrl": "swedish",
     "introSubline": "Voyagez à travers le paysage musical enchanté de la Suède, des ballades nordiques anciennes à la perfection pop d'ABBA. Vivez comment les artistes suédois transforment des siècles de narration nordique et de production immaculée en excellence sonique pure qui captive les auditeurs du monde entier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3MXG9u3IM4cF9PJG7EkK9i",
     "deezerPlaylist": "https://link.deezer.com/s/30xrPpRnMH7D89HT5xSRy",
@@ -2044,7 +2044,7 @@
   },
   {
     "headline": "Swing : Énergie Big Band et Classiques de Dancefloor",
-    "imageUrl": "/category/swing.jpg",
+    "imageUrl": "swing",
     "introSubline": "Remontez le temps avec le swing, où big bands et rythmes vivants font bouger tout le monde.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1hvpcgziaOBBhSVroK0efm",
     "deezerPlaylist": "https://link.deezer.com/s/30xrPHLAp3iXarZdIuRN1",
@@ -2053,7 +2053,7 @@
   },
   {
     "headline": "Mélodies Suisses : Où la Magie Alpine Rencontre l'Innovation Électronique Urbaine",
-    "imageUrl": "/category/swiss.jpg",
+    "imageUrl": "swiss",
     "introSubline": "Envolez-vous à travers les pics et vallées musicaux divers de la Suisse, des cors alpins éthérés à la scène électronique de pointe de Zurich. Vivez comment la précision suisse façonne une fusion sonique unique où tradition montagnarde rencontre sophistication métropolitaine.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/00hWefOrbUp2KO9Mty4lmp",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTnkRePgkEVlWXoxvH",
@@ -2062,7 +2062,7 @@
   },
   {
     "headline": "Black Metal Symphonique : Quand les Chœurs de l'Enfer Rencontrent la Majesté de l'Orchestre Classique",
-    "imageUrl": "/category/symphonic-black-metal.jpg",
+    "imageUrl": "symphonic-black-metal",
     "introSubline": "Assistez à la collision magnifique entre la grandeur opératique et la fureur infernale du black metal. Des symphonies diaboliques de Dimmu Borgir à l'obscurité orchestrale d'Emperor, découvrez comment ce genre transforme la sophistication classique et le metal extrême en perfection gothique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/45A0CjBgozkoqk5crQu8Fl",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTFjrxnufkoeVfRu6B",
@@ -2071,7 +2071,7 @@
   },
   {
     "headline": "Metal Symphonique : Quand le Rêve de Wagner Rencontra le Tonnerre du Heavy Metal",
-    "imageUrl": "/category/symphonic-metal.jpg",
+    "imageUrl": "symphonic-metal",
     "introSubline": "Montez vers le royaume le plus majestueux de la musique, où le drame orchestral rencontre la puissance métallique. Des chefs-d'œuvre opératiques de Nightwish à la grandeur philosophique d'Epica, vivez comment le metal symphonique transforme la sophistication classique et les riffs heavy en théâtre sonique pur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7CeQA72edBlaN9vrSUrjNS",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTSXRwRpY9noTdCECV",
@@ -2080,7 +2080,7 @@
   },
   {
     "headline": "Synth-Pop : La Révolution Néon qui Électrifia l'Avenir de la Pop",
-    "imageUrl": "/category/synth-pop.jpg",
+    "imageUrl": "synth-pop",
     "introSubline": "Entrez dans le paysage de rêve numérique où les synthétiseurs réécrivirent le livre de règles de la pop pour toujours. Des chefs-d'œuvre mélancoliques de Depeche Mode à l'élégance électronique des Pet Shop Boys, témoignez comment les artistes visionnaires transformèrent circuits et séquenceurs en or émotionnel pur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4zg5LoGCcBYzo1y3A9VScs",
     "deezerPlaylist": "https://link.deezer.com/s/30xrUvwXaTaO1swLGlG9m",
@@ -2089,7 +2089,7 @@
   },
   {
     "headline": "Synthwave : Sons Rétro-Futuristes et Rêves Néon",
-    "imageUrl": "/category/synthwave.jpg",
+    "imageUrl": "synthwave",
     "introSubline": "Immergez-vous dans le synthwave, un genre inspiré par la culture pop des années 1980, les synths vintage et la nostalgie cinématographique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7wIiHR0dfzCARbLg4UXVk7",
     "deezerPlaylist": "https://link.deezer.com/s/30xrUUyQ2nBloAvFSb7FH",
@@ -2098,7 +2098,7 @@
   },
   {
     "headline": "Tango : Quand les Rues de Buenos Aires Enflammèrent une Romance de Danse Mondiale",
-    "imageUrl": "/category/tango.jpg",
+    "imageUrl": "tango",
     "introSubline": "Entrez dans le monde sensuel où la passion enflamme chaque mouvement. De la poésie intime de la milonga à l'évolution audacieuse du nuevo tango, vivez comment la forme d'art la plus séductrice de l'Argentine transforma deux corps bougeant comme un seul en narration musicale pure.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5go8Ph0tk2lmHgPkrgyOWe",
     "deezerPlaylist": "https://link.deezer.com/s/30xrVbtwBkEL8zMru5FBt",
@@ -2107,7 +2107,7 @@
   },
   {
     "headline": "Death Metal Technique : Quand la Précision Mathématique Rencontre la Fureur Ultime du Metal",
-    "imageUrl": "/category/technical-death-metal.jpg",
+    "imageUrl": "technical-death-metal",
     "introSubline": "Plongez dans le labyrinthe le plus complexe du metal, où la virtuosité surhumaine rencontre la force sonique dévastatrice. De la vision révolutionnaire de Death aux maîtres modernes, découvrez comment le death metal technique transforme la complexité musicale en une forme d'art de chaos contrôlé.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5mOCxy0gxRORaMmuMHdTlX",
     "deezerPlaylist": "https://link.deezer.com/s/30xrVSP3inkPRfgDj3gwe",
@@ -2116,7 +2116,7 @@
   },
   {
     "headline": "Techno : Quand les Chaînes de Montage de Detroit Créèrent l'Avenir de la Musique Électronique",
-    "imageUrl": "/category/techno.jpg",
+    "imageUrl": "techno",
     "introSubline": "Entrez dans le royaume hypnotique où la précision industrielle rencontre la libération spirituelle. De la révolution underground de Detroit aux temples techno de Berlin, vivez comment les rythmes mécaniques et les textures synthétiques créèrent le mouvement le plus transformateur de la musique de danse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/555tC6ebt2aciAGX2Rpja1",
     "deezerPlaylist": "https://link.deezer.com/s/30xrWdaDSutNnO4cksom4",
@@ -2125,7 +2125,7 @@
   },
   {
     "headline": "Thrash Metal : La Tempête de la Bay Area qui Révolutionna la Musique Heavy pour Toujours",
-    "imageUrl": "/category/thrash-metal.jpg",
+    "imageUrl": "thrash-metal",
     "introSubline": "Plongez dans l'évolution la plus explosive du metal, où la vitesse du punk entra en collision avec la précision du metal. De la maîtrise technique de Metallica à l'intensité démoniaque de Slayer, témoignez comment la révolution thrash de San Francisco créa le mouvement le plus intense et influent de la musique heavy.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EoKqucRw2t86e64fVq0f9",
     "deezerPlaylist": "https://link.deezer.com/s/30xrZHzjM90RalgiwxlIV",
@@ -2134,7 +2134,7 @@
   },
   {
     "headline": "Trance : Quand la Musique Électronique Découvrit Son Âme Spirituelle",
-    "imageUrl": "/category/trance.jpg",
+    "imageUrl": "trance",
     "introSubline": "Entrez dans un royaume de transcendance électronique pure, où les rythmes hypnotiques débloquent des états de conscience supérieurs. Des hymnes inspirants de Paul van Dyk aux voyages émotionnels d'Armin van Buuren, vivez comment la musique trance transforme les dancefloors en temples de révélation euphorique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/44jaxuuX5dGy4vYpgAC7kq",
     "deezerPlaylist": "https://link.deezer.com/s/30xrZZnXspJjvHtmu2uHH",
@@ -2143,7 +2143,7 @@
   },
   {
     "headline": "Trap : Hip-Hop Moderne avec des Beats Assourdissants",
-    "imageUrl": "/category/trap.jpg",
+    "imageUrl": "trap",
     "introSubline": "Ressentez l'intensité du trap, un genre qui domine les charts avec une basse tonitruante et des hi-hats à tir rapide.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3wa2i99eDnHaocsEPMiWLV",
     "deezerPlaylist": "https://link.deezer.com/s/30xs0emgf7X1iDdoUUWN0",
@@ -2152,7 +2152,7 @@
   },
   {
     "headline": "Trip-Hop : Quand les Rues de Bristol Créèrent la Révolution la Plus Atmosphérique de la Musique Électronique",
-    "imageUrl": "/category/trip-hop.jpg",
+    "imageUrl": "trip-hop",
     "introSubline": "Voyagez à travers les paysages sonores enfumés du soulèvement musical de Bristol, où le tranchant urbain du hip-hop se dissolvait dans l'électronique éthérée. Du noir révolutionnaire de Massive Attack à la mélancolie cinématographique de Portishead, témoignez comment le trip-hop transforma la rudesse urbaine en art hypnotique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3X8NoU1NLB21tRWNfj6152",
     "deezerPlaylist": "https://link.deezer.com/s/30xs0CSQWNYNsyA9Fpwpa",
@@ -2161,7 +2161,7 @@
   },
   {
     "headline": "Mélodies Turques : Le Pont Sonique entre le Mysticisme Ancien et l'Innovation Moderne",
-    "imageUrl": "/category/turkish.jpg",
+    "imageUrl": "turkish",
     "introSubline": "Flottez à travers le carrefour musical enchanté de la Turquie, où le mysticisme soufi danse avec l'innovation électronique. Des cérémonies de derviches tourneurs à la fusion urbaine contemporaine, vivez comment les artistes turcs transforment des millénaires d'échange culturel en expressions nouvelles puissantes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6h7qPSuiI8Wx3dfpMzKSRP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs140nW7UBaaMNIMkhH",
@@ -2170,7 +2170,7 @@
   },
   {
     "headline": "Mélodies Ukrainiennes : Où les Chansons Anciennes de Bandura Rencontrent la Résistance Musicale Moderne",
-    "imageUrl": "/category/ukrainian.jpg",
+    "imageUrl": "ukrainian",
     "introSubline": "Voyagez à travers l'âme musicale résiliente de l'Ukraine, où la sagesse folklorique séculaire rencontre l'expression révolutionnaire. Des chansons obsédantes des Carpates aux beats urbains contemporains, vivez comment les artistes ukrainiens transforment leur riche héritage culturel en déclarations puissantes d'identité nationale.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7BdGibPQvtAHfJ0LyEraal",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1izPScHE34KVjUZbE",
@@ -2179,7 +2179,7 @@
   },
   {
     "headline": "Hymnes Inspirants : Quand la Musique Devient Magie Motivante Pure",
-    "imageUrl": "/category/uplifting.jpg",
+    "imageUrl": "uplifting",
     "introSubline": "Débloquez votre potentiel le plus élevé grâce au pouvoir transcendant de l'inspiration musicale. Des hymnes qui secouent les stades aux victoires intimes, ces morceaux soigneusement choisis créent une force sonique imparable qui transforme les défis en triomphes et les rêves en réalité.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6oDXghROdNxPkK716UXCtP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1xqePhVC3t2tysJQt",
@@ -2188,7 +2188,7 @@
   },
   {
     "headline": "Saint-Valentin : Lettres d'Amour Musicales qui Parlent Directement au Cœur",
-    "imageUrl": "/category/valentines-day.jpg",
+    "imageUrl": "valentines-day",
     "introSubline": "Célébrez la fête la plus chérie de l'amour avec des chansons qui capturent la magie infinie du romantisme. Des ballades intemporelles qui définirent des générations aux déclarations de dévotion modernes, ces morceaux soigneusement choisis créent l'atmosphère parfaite pour partager les cœurs et créer des souvenirs.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6gw9nQdKvyaQyeETvgit2H",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1P7nosbJ1sZv9QThY",
@@ -2197,7 +2197,7 @@
   },
   {
     "headline": "Vaporwave : Esthétique Internet et Paysages Sonores Rêveurs",
-    "imageUrl": "/category/vaporwave.jpg",
+    "imageUrl": "vaporwave",
     "introSubline": "Explorez le vaporwave, un genre qui remixe nostalgie, art numérique et sons surréalistes pour une expérience d'écoute unique.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3nFTAFGgsvshezDcKsSq6i",
     "deezerPlaylist": "https://link.deezer.com/s/30xs5KNV4HF7pFCCya8fq",
@@ -2206,7 +2206,7 @@
   },
   {
     "headline": "Metal Viking : Quand les Sagas Nordiques Anciennes Devinrent Tonnerre et Acier",
-    "imageUrl": "/category/viking-metal.jpg",
+    "imageUrl": "viking-metal",
     "introSubline": "Mettez les voiles à travers les royaumes brumeux de la mythologie nordique sur des vagues de metal écrasant. Des épopées chargées de bataille d'Amon Amarth aux voyages mystiques d'Enslaved, découvrez comment le metal viking transforme les anciens récits de dieux et guerriers en cérémonies soniques puissantes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OjibyRFWJjYqe9YAKRuBb",
     "deezerPlaylist": "https://link.deezer.com/s/30xs5YHW93SiX0jhaRRWW",
@@ -2215,7 +2215,7 @@
   },
   {
     "headline": "Vibes d'Hiver : Où la Magie Givrée Devient Chaleur Musicale",
-    "imageUrl": "/category/winter-vibes.jpg",
+    "imageUrl": "winter-vibes",
     "introSubline": "Transformez la beauté cristalline de l'hiver en sanctuaire sonique enchanté. Des pièces de piano qui scintillent comme la neige fraîche aux paysages ambient qui dérivent comme des flocons doux, ces morceaux soigneusement choisis créent votre refuge musical parfait contre le froid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3d41QlFGGnEGLXcQqVtIvx",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6e2mPKI7YF7TQGQP6",
@@ -2224,7 +2224,7 @@
   },
   {
     "headline": "Pays des Merveilles d'Hiver : Trésors Musicaux de la Saison de Neige et d'Étoiles",
-    "imageUrl": "/category/winter-wonderland.jpg",
+    "imageUrl": "winter-wonderland",
     "introSubline": "Entrez dans un royaume étincelant où la magie de l'hiver prend vie à travers la musique. Des mélodies baisées par le givre aux sérénades chaleureuses au coin du feu, ces morceaux enchantés capturent chaque moment magique de la saison, des aventures enneigées aux soirées douillettes sous des ciels étoilés.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6ZqCxShXksfmDN47FF8hTP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6rud4zeS1X4c6sZyX",
@@ -2233,7 +2233,7 @@
   },
   {
     "headline": "Motivation d'Entraînement : Votre Partenaire d'Entraînement Ultime sous Forme Musicale",
-    "imageUrl": "/category/workout-motivation.jpg",
+    "imageUrl": "workout-motivation",
     "introSubline": "Transformez vos sessions d'entraînement avec des morceaux parfaitement rythmés qui vous poussent vers de nouveaux sommets. Des beats haute énergie aux hymnes inspirants, ce mix soigneusement organisé maintient votre motivation au plus haut et votre performance au sommet de l'échauffement au retour au calme.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6800utEb8RlDXYP09crhN9",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6FJFUVrm32uUfahmF",

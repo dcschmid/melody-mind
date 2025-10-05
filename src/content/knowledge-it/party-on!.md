@@ -3,7 +3,8 @@ title: Il Fenomeno Party On! | Un'Analisi Musicale
 description:
   Sei pronto per un'esperienza musicale che accende ogni festa? Scopri la storia, i ritmi
   travolgenti e le curiosità di Party On! Immergiti in un viaggio sonoro unico e lasciati contagiare
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

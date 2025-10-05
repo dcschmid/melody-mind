@@ -6,7 +6,8 @@ description:
   Ready to supercharge your mind and achieve deep focus? Discover the transformative power of focus
   and concentration music – explore classical techniques, modern playlists, and brainwave-boosting
   sounds designed for unwavering attention. Start your journey now!
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-07-30
 updatedAt: 2025-07-30
 keywords:

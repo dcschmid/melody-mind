@@ -4,7 +4,8 @@ description:
   Was macht R&B so einzigartig? Entdecke die Geschichte, legendäre Künstler und unverwechselbaren
   Sound. Erlebe, wie Rhythmus und Emotion im R&B verschmelzen – tauche jetzt ein in diese
   musikalische Welt!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-06-28
 updatedAt: 2025-06-28
 keywords:

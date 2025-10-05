@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950'erne",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "Rock’n’Roll eksploderede: Elvis Presley, Chuck Berry og Little Richard forvandlede scenen. Slapback-eko, håndklap og energiske riffs – oplev ungdomskulturens fødsel, hvor rytmen satte verden i bevægelse!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960'erne",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "Fra The Beatles og The Rolling Stones til Aretha Franklin og Jimi Hendrix – psykedeliske guitarer, soul-harmonier og proteststemmer skabte et årti, hvor musikken blev en hel generations sprog.",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970'erne",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "Disco, punk og stadionrock – fra ABBA og Bee Gees til Sex Pistols og Led Zeppelin. Elektriske riffs, dansende basgange og glitrende discokugler satte stemningen for et årti fuld af kontraster og energi.",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980'erne",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "Fra Michael Jacksons “Thriller” og Madonnas poprevolution til Metallicas metalstorm og Depeche Modes synthklange – 80’erne var neonfarver, store refræner og et soundtrack til både dans og oprør.",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990'erne",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "Grunge, hiphop og eurodance – fra Nirvana og Pearl Jam til Tupac, Britney Spears og Ace of Base. Distortion, rapflows og catchy hooks satte lyden af et årti i evig forandring.",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000'erne",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "Fra Linkin Park og Coldplay til Beyoncé og Eminem – 00’erne blandede rock, pop og hiphop. Autotune, tunge beats og følelsesladede ballader satte tonen for et digitalt, globalt årti.",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010'erne",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "Fra Adele og Ed Sheeran til Lady Gaga, Drake og Billie Eilish – 10’erne blev domineret af streaming, trapbeats, intime ballader og episke popproduktioner, der satte følelser på global repeat.",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Kvindelige Blues Legender",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Fra Bessie Smith og Ma Rainey til Etta James og Koko Taylor – bluesens dronninger sang om kærlighed, smerte og styrke. Slideguitar, klagende vokaler og rå følelser satte sjælen fri.",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Kvindelige Country Stjerner",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Fra Dolly Parton og Loretta Lynn til Shania Twain og Kacey Musgraves – countrykvinder synger om kærlighed, hjemstavn og frihed. Banjo, steelguitar og hjertelige historier rører sjælen.",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "Kvindelige DJ'er",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Fra Charlotte de Witte og Nina Kraviz til Peggy Gou og The Black Madonna – kvindelige DJs skaber eufori på klubberne. Pulserende beats, drops og hypnotiske loops holder natten levende.",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Kvindelige Grunge Kunstnere",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Fra Courtney Love og L7 til Veruca Salt og Hole – kvindelige grungekunstnere forenede vrede, sårbarhed og distortion. Skramlede guitarer og rå vokaler blev lydspor til 90’ernes oprør.",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Kvindelige Hip-Hop Kunstnere",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Fra Queen Latifah og Missy Elliott til Nicki Minaj og Cardi B – kvindelige rappere bragte styrke, humor og selvsikkerhed ind i hiphoppen. Beats, rim og flows skabte nye standarder.",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Kvindelige Jazz Vokalister",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Fra Billie Holiday og Ella Fitzgerald til Sarah Vaughan og Diana Krall – jazzens kvindelige stemmer forvandlede følelser til musik. Swing, scat og melankolske ballader tryllebandt publikum.",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Kvindelige Pop Superstjerner",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Fra Madonna og Whitney Houston til Britney Spears, Beyoncé og Lady Gaga – popdronningerne skabte hits, der fyldte stadioner. Catchy hooks, dansetrin og store følelser satte tonen.",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Kvindelige Rappere",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Fra MC Lyte og Salt-N-Pepa til Megan Thee Stallion og Doja Cat – kvindelige rappere satte ord, beats og attituder i centrum. Hurtige rim og skarpe flows ændrede spillets regler.",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Kvindelige R&B Divaer",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "Fra Aretha Franklin og Mary J. Blige til Alicia Keys, Rihanna og SZA – R&B-divaer blandede soul, pop og hiphop. Klaverballader, grooves og følelsesfulde stemmer satte spor.",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Kvindelige Rock/Metal Vokalister",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Fra Janis Joplin og Joan Jett til Amy Lee, Floor Jansen og Tarja Turunen – kvindelige rock- og metalstemmer forenede rå kraft, følelser og energi. Forvrængede guitarer og episke kor løftede scenen.",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Kvindelige Soul Legender",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Fra Etta James og Gladys Knight til Whitney Houston og Beyoncé – soulens kvinder forvandlede livets følelser til musik. Gospelrødder, grooves og stærke vokaler satte sjælen fri.",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Kvindelige Vokal Ikoner",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Fra Edith Piaf og Barbra Streisand til Celine Dion, Adele og Lady Gaga – vokalikoner skabte tidløse øjeblikke. Store ballader, følelsesudbrud og stemmer, der aldrig glemmes.",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Orkestermusik",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Fra Beethoven og Mahler til John Williams – orkestermusik folder sig ud med strygere, blæsere og pauker, der maler følelser i lyd. Oplev de store symfonier som et levende hav af klang.",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Klaver",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Fra Chopin og Liszt til Ludovico Einaudi – klaveret fortryller med intime melodier, dramatiske akkorder og legende løb. Dets sorte og hvide tangenter åbner et univers af følelser.",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Kammermusik",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Mozart, Haydn og Schubert skabte intime værker for små ensembler – strygere, blæsere og klaver i tæt samspil. Kammermusik er samtale i toner, hvor hver stemme får plads.",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Klassisk",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Fra Bach og Mozart til Tjajkovskij og Stravinskij – klassisk musik spænder fra kirkens orgelklang til ballettens drama. Harmoni, kontrapunkt og stærke følelser vækker historien til live.",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "Fra Enya og Vangelis til Yanni og Kitaro – New Age-musik er klangflader, naturlyde og rolige melodier, der inviterer til meditation, afslapning og indre rejser i lydens univers.",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Opera",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Fra Mozarts arier og Verdis drama til Wagners episke værker – opera forener sang, orkester og teater. Store følelser, kraftfulde stemmer og tidløse historier folder sig ud på scenen.",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Soundtracks",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Fra John Williams og Hans Zimmer til Howard Shore og Hildur Guðnadóttir – soundtracks giver film og spil sjæl. Strygere, synths og kor gør historier uforglemmelige i lyd.",
     "isPlayable": true,
     "slug": "soundtrack",

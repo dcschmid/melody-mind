@@ -4,7 +4,8 @@ description:
   ¿Listo para experimentar el impacto de Party On! en la música de fiestas? Descubre su energía
   única, la historia vibrante y la evolución que ha marcado tendencias. Sumérgete y déjate llevar -
   conoce más ahora
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

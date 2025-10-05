@@ -4,7 +4,8 @@ description:
   Ben je klaar om de essentie van R&B te ontdekken? Duik in de rijke evolutie van soulmuziek en leer
   hoe culturele invloeden een blijvende impact hebben. Maak kennis met unieke verhalen en start jouw
   muzikale reis vandaag!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

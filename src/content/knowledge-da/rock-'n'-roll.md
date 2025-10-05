@@ -3,7 +3,8 @@ title: Rock 'n' Roll Ultimate Guide - Oplev passionen og energien i ægte rockes
 description:
   Elsker du ægte rockmusik? Oplev Rock 'n' Rollens puls og rå energi med vores definitive guide -
   klik her og dyk ned i musikkens univers
-image: /category/rock-'n'-roll.jpg
+image: /category/rock-n-roll.jpg
+# migrated: rock-'n'-roll -> rock-n-roll
 createdAt: 2025-03-14
 updatedAt: 2025-03-14
 keywords:

@@ -4,7 +4,8 @@ description:
   Sei pronto a sentire il battito del R&B? Scopri la storia vibrante del groove, dalle radici soul
   agli stili innovativi. Immergiti in un viaggio sonoro ricco di cultura e scopri curiosità uniche.
   Esplora ora!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

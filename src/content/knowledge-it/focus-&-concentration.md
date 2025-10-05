@@ -4,7 +4,8 @@ description:
   Sei pronto a concentrarti come mai prima? Scopri melodie studiate appositamente per focalizzare la
   mente e accrescere la produttività - un percorso che unisce storia e cultura musicale. Ascolta ora
   e lasciati ispirare!
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

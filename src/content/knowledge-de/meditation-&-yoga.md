@@ -5,7 +5,8 @@ description:
   Suchst du nach innerer Balance und Gelassenheit? Tauche ein in die beruhigende Klangwelt von
   Meditation und Yoga Musik – erlebe Tiefenentspannung, Achtsamkeit und kulturelle Vielfalt. Werde
   Teil dieser harmonischen Reise.
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-06-29
 updatedAt: 2025-06-29
 keywords:

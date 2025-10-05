@@ -3,7 +3,8 @@ title: Fascinação Party On! | Uma Descoberta Sonora
 description:
   Você já sentiu a energia única de Party On! - Descubra ritmos vibrantes e uma história cativante
   que transformam festas. Explore a evolução musical e viva essa experiência agora!
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

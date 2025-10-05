@@ -3,7 +3,8 @@ title: Rock 'n' Roll | Täydellinen opas klassikon sykkeen saloihin
 description:
   Oletko valmis tuntemaan rock 'n' rollin voiman? Sukella tarinoihin, löydä suosikkikappaleet ja koe
   aito musiikkielämyksen vallankumous – nappaa uudet suositukset ja anna rytmin viedä mukaansa!
-image: /category/rock-'n'-roll.jpg
+image: /category/rock-n-roll.jpg
+# migrated: rock-'n'-roll -> rock-n-roll
 createdAt: 2025-03-14
 updatedAt: 2025-03-14
 keywords:

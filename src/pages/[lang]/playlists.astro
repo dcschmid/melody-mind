@@ -54,6 +54,8 @@ const t = useTranslations(lang);
  */
 interface Playlist {
   headline: string;
+  // After migration this is a slug without path or extension.
+  // Legacy compatibility: if it still contains /category/ prefix we strip later.
   imageUrl: string;
   introSubline: string;
   spotifyPlaylist: string;
@@ -215,7 +217,7 @@ const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].f
           cardComponent={PlaylistCard}
           mapItemToCardProps={(item, index) => ({
             headline: item.headline,
-            imageUrl: item.imageUrl,
+            imageUrl: item.imageUrl.replace(/^\/category\//, "").replace(/\.jpg$/i, ""),
             introSubline: item.introSubline,
             spotifyPlaylist: item.spotifyPlaylist,
             deezerPlaylist: item.deezerPlaylist,

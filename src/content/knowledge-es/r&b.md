@@ -4,7 +4,8 @@ description:
   ¿Te intriga el viaje del R&B? Descubre cómo la fusión de ritmos ancestrales y modernos marcó un
   antes y un después en la historia musical. Sumérgete en esta revolución sonora y descubre detalles
   únicos ¡Explora ahora!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

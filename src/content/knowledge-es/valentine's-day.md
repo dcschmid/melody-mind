@@ -3,7 +3,8 @@ title: Guía Definitiva de Música Romántica para San Valentín - Ritmos y Amor
 description:
   ¿Te atreves a sentir el latido del amor? Descubre nuestra selección única de baladas y ritmos para
   San Valentín, perfecta para crear momentos inolvidables. ¡Explora y déjate enamorar por cada nota!
-image: /category/valentine's-day.jpg
+image: /category/valentines-day.jpg
+# migrated: valentine's-day -> valentines-day
 createdAt: 2025-03-15
 updatedAt: 2025-03-15
 keywords:

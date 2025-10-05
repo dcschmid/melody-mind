@@ -17,7 +17,6 @@
  *
  */
 import { Icon } from "astro-icon/components";
-import { When } from "@astropub/flow";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import LanguagePicker from "@components/LanguagePicker.astro";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
@@ -157,123 +156,118 @@ const t = useTranslations(lang);
             </div>
 
             <!-- Game sections (conditional) -->
-            <When test={showHeaderIcons}>
-              <!-- Discover section -->
-              <div
-                class="w-full rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <Headline
-                  level="h3"
-                  className="mb-4 border-b-2 border-purple-500 pb-2 text-xl font-semibold text-white opacity-90"
-                  >{t("nav.section.discover")}</Headline
-                >
-                <nav class="flex flex-col gap-4">
-                  <a
-                    href={getRelativeLocaleUrl(lang, "knowledge")}
-                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                    role="menuitem"
-                  >
-                    <div
-                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md"
+            {
+              showHeaderIcons && (
+                <Fragment>
+                  {/* Discover section */}
+                  <div class="w-full rounded-2xl border border-gray-700 bg-gray-800 p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                    <Headline
+                      level="h3"
+                      className="mb-4 border-b-2 border-purple-500 pb-2 text-xl font-semibold text-white opacity-90"
                     >
-                      <Icon
-                        name="book"
-                        width={28}
-                        height={28}
-                        aria-hidden="true"
-                        class="z-10 text-white"
-                      />
-                    </div>
-                    <div class="z-10 flex flex-1 flex-col gap-2">
-                      <span class="text-lg leading-tight font-semibold text-white"
-                        >{t("knowledge.title")}</span
+                      {t("nav.section.discover")}
+                    </Headline>
+                    <nav class="flex flex-col gap-4">
+                      <a
+                        href={getRelativeLocaleUrl(lang, "knowledge")}
+                        class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                        role="menuitem"
                       >
-                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
-                        >{t("nav.menu.knowledge.desc")}</span
-                      >
-                    </div>
-                  </a>
+                        <div class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md">
+                          <Icon
+                            name="book"
+                            width={28}
+                            height={28}
+                            aria-hidden="true"
+                            class="z-10 text-white"
+                          />
+                        </div>
+                        <div class="z-10 flex flex-1 flex-col gap-2">
+                          <span class="text-lg leading-tight font-semibold text-white">
+                            {t("knowledge.title")}
+                          </span>
+                          <span class="text-sm leading-relaxed text-gray-300 opacity-80">
+                            {t("nav.menu.knowledge.desc")}
+                          </span>
+                        </div>
+                      </a>
 
-                  <a
-                    href={getRelativeLocaleUrl(lang, "playlists")}
-                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                    role="menuitem"
-                  >
-                    <div
-                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-green-600 shadow-md"
-                    >
-                      <Icon
-                        name="music-note"
-                        width={28}
-                        height={28}
-                        aria-hidden="true"
-                        class="z-10 text-white"
-                      />
-                    </div>
-                    <div class="z-10 flex flex-1 flex-col gap-2">
-                      <span class="text-lg leading-tight font-semibold text-white"
-                        >{t("playlist.page.heading")}</span
+                      <a
+                        href={getRelativeLocaleUrl(lang, "playlists")}
+                        class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                        role="menuitem"
                       >
-                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
-                        >{t("nav.menu.playlists.desc")}</span
-                      >
-                    </div>
-                  </a>
+                        <div class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-green-600 shadow-md">
+                          <Icon
+                            name="music-note"
+                            width={28}
+                            height={28}
+                            aria-hidden="true"
+                            class="z-10 text-white"
+                          />
+                        </div>
+                        <div class="z-10 flex flex-1 flex-col gap-2">
+                          <span class="text-lg leading-tight font-semibold text-white">
+                            {t("playlist.page.heading")}
+                          </span>
+                          <span class="text-sm leading-relaxed text-gray-300 opacity-80">
+                            {t("nav.menu.playlists.desc")}
+                          </span>
+                        </div>
+                      </a>
 
-                  <a
-                    href={getRelativeLocaleUrl(lang, "podcasts")}
-                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                    role="menuitem"
-                  >
-                    <div
-                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 shadow-md"
-                    >
-                      <Icon
-                        name="microphone"
-                        width={28}
-                        height={28}
-                        aria-hidden="true"
-                        class="z-10 text-white"
-                      />
-                    </div>
-                    <div class="z-10 flex flex-1 flex-col gap-2">
-                      <span class="text-lg leading-tight font-semibold text-white"
-                        >{t("nav.menu.podcasts")}</span
+                      <a
+                        href={getRelativeLocaleUrl(lang, "podcasts")}
+                        class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                        role="menuitem"
                       >
-                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
-                        >{t("nav.podcasts.description")}</span
-                      >
-                    </div>
-                  </a>
+                        <div class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-400 to-blue-500 shadow-md">
+                          <Icon
+                            name="microphone"
+                            width={28}
+                            height={28}
+                            aria-hidden="true"
+                            class="z-10 text-white"
+                          />
+                        </div>
+                        <div class="z-10 flex flex-1 flex-col gap-2">
+                          <span class="text-lg leading-tight font-semibold text-white">
+                            {t("nav.menu.podcasts")}
+                          </span>
+                          <span class="text-sm leading-relaxed text-gray-300 opacity-80">
+                            {t("nav.podcasts.description")}
+                          </span>
+                        </div>
+                      </a>
 
-                  <a
-                    href={getRelativeLocaleUrl(lang, "news")}
-                    class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                    role="menuitem"
-                  >
-                    <div
-                      class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-600 shadow-md"
-                    >
-                      <Icon
-                        name="news"
-                        width={28}
-                        height={28}
-                        aria-hidden="true"
-                        class="z-10 text-white"
-                      />
-                    </div>
-                    <div class="z-10 flex flex-1 flex-col gap-2">
-                      <span class="text-lg leading-tight font-semibold text-white"
-                        >{t("news.title")}</span
+                      <a
+                        href={getRelativeLocaleUrl(lang, "news")}
+                        class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                        role="menuitem"
                       >
-                      <span class="text-sm leading-relaxed text-gray-300 opacity-80"
-                        >{t("news.description")}</span
-                      >
-                    </div>
-                  </a>
-                </nav>
-              </div>
-            </When>
+                        <div class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-600 shadow-md">
+                          <Icon
+                            name="news"
+                            width={28}
+                            height={28}
+                            aria-hidden="true"
+                            class="z-10 text-white"
+                          />
+                        </div>
+                        <div class="z-10 flex flex-1 flex-col gap-2">
+                          <span class="text-lg leading-tight font-semibold text-white">
+                            {t("news.title")}
+                          </span>
+                          <span class="text-sm leading-relaxed text-gray-300 opacity-80">
+                            {t("news.description")}
+                          </span>
+                        </div>
+                      </a>
+                    </nav>
+                  </div>
+                </Fragment>
+              )
+            }
 
             <!-- User section (conditional) -->
             <div

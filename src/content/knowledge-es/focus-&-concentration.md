@@ -3,7 +3,8 @@ title: Fascinación Enfoque y Concentración | Un Descubrimiento Sonoro
 description:
   ¿Buscas potenciar tu mente? Descubre melodías que estimulan la concentración y el enfoque,
   conectando emociones con historia musical. Sumérgete ahora y vive la transformación.
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

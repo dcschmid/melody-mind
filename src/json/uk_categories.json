@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950-ті",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "1950-ті подарували світові рок-н-рол: Елвіс Преслі, Чак Беррі та Літтл Річард підкорили молодь. Слепбек-ехо, ритмічні плескання та драйвовий біт – занурся в епоху, де народилася культура юності!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960-ті",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "1960-ті вибухнули творчістю: The Beatles, The Rolling Stones, Джимі Гендрікс і Дженіс Джоплін змінили звучання світу. Психоделічні гітари, хорові гармонії та протестні гімни – відчуй силу революції через музику!",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970-ті",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "1970-ті принесли вибух стилів: Led Zeppelin, Pink Floyd, ABBA та Queen створювали епічні гімни. Важкі рифи, синтезатори й багатоголосся – відкрий десятиліття, де рок став грандіозним, а диско змусило весь світ танцювати!",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980-ті",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "1980-ті засяяли неоном: Michael Jackson, Madonna, Prince і U2 створили епоху. Синтезатори, драм-машини й хітові приспіви підкорили радіо. Від поп-хімнів до арени-року – занурся в десятиліття гліттеру й танцювальної магії!",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990-ті",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "1990-ті вибухнули контрастами: Nirvana, Spice Girls, 2Pac і Britney Spears змінювали музику. Гранжові гітари, хіп-хоп біти й поп-мелодії стали голосом покоління. Занурся в епоху, де сцена кипіла від нових стилів!",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000-ні",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "2000-ні подарували мікс жанрів: Beyoncé, Linkin Park, Eminem і Lady Gaga підкорили сцени. R&B ритми, реп-біти, рок-гітари й електропоп переплелися. Відчуй енергію епохи цифрової революції та співай разом із кумирами!",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010-ті",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "2010-ті стали глобальною епохою: Taylor Swift, Drake, BTS і Billie Eilish визначали саунд. Автотюн, хіп-хоп біти й атмосферний інді поєдналися. Долучайся до десятиліття, де жанри стерли межі й музика стала світовою мовою!",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Жіночі легенди блюзу",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Легенди блюзу – це Бессі Сміт, Мемфіс Мінні, Етта Джеймс і Коко Тейлор. Слайд-гітари, блюзові крики та глибокі ритми переносять у часи, коли жінки своїми голосами змінювали музику. Відчуй справжній біль і силу блюзу!",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Жіночі зірки кантрі",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Жінки в кантрі – Доллі Партон, Патсі Клайн, Шаная Твейн і Керрі Андервуд – принесли серцю Америки голос. Стальні гітари, фіддл та теплі гармонії створюють мелодії про кохання й свободу. Заспівай кантрі разом із ними!",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "Жіночі DJ",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Жінки-DJ змінюють клубну сцену: Nina Kraviz, Peggy Gou, Charlotte de Witte й Amelie Lens підкорюють танцполи. Техно-біти, хаус-ритми й енергія міксу змушують рухатися без упину. Занурся у світ, де діджеї – королеви нічних ритмів!",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Жіночі грандж-артисти",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Жінки гранжу – це Кортні Лав, Кет Бьйєлленд, Ширлі Менсон і Доніта Спаркс. Гучні гітари, сирий вокал і бунтівні тексти створили нову енергію 1990-х. Занурся у світ, де жінки кричали про свободу й розривали стереотипи!",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Жіночі хіп-хоп артисти",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Жінки в хіп-хопі – Queen Latifah, Missy Elliott, Nicki Minaj і Cardi B – змінили гру. Рими, бітбокси та важкі баси перетворили їх на голос покоління. Занурся в світ, де жіночий флоу підкорює сцени й надихає на силу!",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Жіночі джазові вокалістки",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Жіночі джазові голоси – Елла Фіцджеральд, Біллі Голідей, Сара Воан і Дайана Кролл. Скет-вокал, ніжні балади та імпровізації перетворюють музику на магію. Сядь ближче й занурся в атмосферу джазового клубу!",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Жіночі поп-суперзірки",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Поп-ікони – Madonna, Britney Spears, Lady Gaga й Taylor Swift – змінили музику. Хітові приспіви, яскраві шоу та мільйони фанів зробили їх символами поколінь. Занурся в світ попу й співай на повний голос!",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Жіночі рэпери",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Жінки-репери – Lauryn Hill, Lil’ Kim, Megan Thee Stallion і Doja Cat – дали хіп-хопу нові голоси. Гострі рими, важкі біти й харизма створили новий рівень. Занурся в ритм і спробуй начитати рядки разом із ними!",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Жіночі R&B діви",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "R&B-діви – Арета Франклін, Мерая Кері, Аліша Кіз і Бейонсе – підкорюють серця. Соулові акорди, гарячі біти й потужний вокал створюють історії про любов і силу. Відчуй їхній ритм і підспівуй кожній емоційній ноті!",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Жіночі рок/метал-вокалістки",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Жінки в рокі й металі – Джоан Джетт, Доро Пеш, Емі Лі й Флор Янсен – підняли жанр на новий рівень. Потужні гітари, драматичні клавіші та вибухові голоси створюють сцену, де енергія не має меж. Стань частиною цього драйву!",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Жіночі легенди соулу",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Легенди соулу – Арета Франклін, Гледіс Найт, Дайана Росс і Мері Джей Блайдж – подарували голос емоціям. Глибокі баси, духові секції й щирі тексти створюють музику серця. Занурся в соул і співай від душі!",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Жіночі вокальні ікони",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Жіночі вокальні ікони – Вітні Х’юстон, Селін Діон, Адель і Барбра Стрейзанд – дарують голосові крила. Високі ноти, потужні балади й незабутні виступи стали легендами. Відчуй їхню магію й співай від щирого серця!",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Оркестрова",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Оркестрова музика об’єднує силу симфоній: Бетховен, Чайковський, Джон Вільямс і Ганс Ціммер творять магію. Струнні, мідні та ударні переплітаються – занурся в звучання, що переносить у світ емоцій і великих історій!",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Фортепіано",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Фортепіано відкриває душу: Шопен, Ліст, Елтон Джон і Людовіко Ейнауді створюють світ від ніжності до пристрасті. Легкі арпеджіо, гучні акорди та мелодії серця – сідай за клавіші й занурся в магію звуку!",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Камерна музика",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Камерна музика звучить інтимно: Моцарт, Гайдн, Шуберт і Дворжак писали квартети та тріо для душі. Скрипка, альт, віолончель і фортепіано переплітаються в гармонії – сідай ближче й відчуй красу близького звучання!",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Класична",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Класична музика – вічний скарб: Бах, Моцарт, Бетховен і Малер створили шедеври для століть. Симфонії, концерти й опуси звучать велично й ніжно водночас – відкрий світ гармонії, де кожна нота оживає у серці!",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "New Age занурює у спокій: Enya, Kitaro, Mike Oldfield і Yanni створюють саундтреки для душі. Синтезатори, етнічні мотиви та ніжні вокали відкривають простір гармонії – вдихни глибоко й дозволь музиці наповнити тебе світлом!",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Опера",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Опера – театр музики: Верді, Пуччіні, Моцарт і Вагнер створювали історії, де голоси зливаються з оркестром. Арії, дуети й хори піднімають емоції до небес – занурся в драму, де музика стає живим життям!",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Саундтреки",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Саундтреки – невидиме серце кіно: Джон Вільямс, Ганс Ціммер, Говард Шор і Енніо Морріконе подарували світові мелодії, що залишаються назавжди. Оркестри, електроніка й мотиви героїв ведуть нас крізь історії на екрані!",
     "isPlayable": true,
     "slug": "soundtrack",

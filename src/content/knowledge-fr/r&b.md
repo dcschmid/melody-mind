@@ -4,7 +4,8 @@ description:
   Découvrez l'histoire captivante du R&B qui allie rythmes envoûtants et harmonies riches.
   Immergez-vous dans un univers où tradition et innovation se rencontrent - explorez l'influence
   culturelle et musicale du genre dès aujourd'hui!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

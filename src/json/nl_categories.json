@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950s",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "De jaren 50 lieten de wereld schudden met Rock ’n’ Roll: Elvis Presley, Chuck Berry en Little Richard brachten energie en rebellie. Slapback-echo, handclaps en twangy gitaren – stap binnen in het begin van de jeugd­cultuur!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960s",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "De jaren 60 gaven ons The Beatles, The Rolling Stones en Aretha Franklin. Van sitar en fuzz-gitaren tot gospelharmonieën – psychedelische kleuren en soulvolle stemmen maakten dit decennium tot een explosie van creativiteit.",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970s",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "De jaren 70 lieten disco, punk en rock samenkomen: ABBA, David Bowie en The Ramones vormden contrasten tussen glitter en rebellie. Funkbaslijnen, synthesizers en scheurende gitaren – een bonte mix van stijlen wacht op je!",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980s",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "De jaren 80 straalden neon en power: Madonna, Michael Jackson en Prince maakten pop iconisch, terwijl Metallica en U2 rock naar nieuwe hoogtes brachten. Synths, drumcomputers en gitaarhooks – het tijdperk van grootse geluiden!",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990s",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "De jaren 90 brachten grunge, Eurodance en Hip-Hop: Nirvana, 2Pac, Spice Girls en Daft Punk bepaalden de toon. Vuil gitaarwerk, rapflows en stampende beats – een decennium van rauwe emoties en dansbare energie.",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000s",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "De jaren 2000 mengden pop, rock en R&B: Beyoncé, Linkin Park en Eminem veroverden de hitlijsten. Auto-Tune, nu-metal riffs en clubbeats – dit decennium gaf muziek een nieuwe digitale energie en attitude.",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010s",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "De jaren 2010 brachten streaming en global sounds: Adele, Billie Eilish en Ed Sheeran gaven emoties een stem, terwijl BTS en Drake de wereld veroverden. Trapbeats, minimalistische pop en K-Pop vibes – muziek zonder grenzen!",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Vrouwelijke Blues Legendes",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Blueslegendes als Bessie Smith, Ma Rainey en Etta James gaven vrouwen een krachtige stem. Rauw gezongen emoties, huilende gitaren en weemoedige piano’s – voel de ziel van de blues en zing mee vanuit je hart!",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Vrouwelijke Country Sterren",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Country kreeg vleugels met Dolly Parton, Loretta Lynn en Shania Twain. Fiddle, banjo en steelgitaar vertellen verhalen van liefde, hoop en vrijheid – stap mee in de wereld van country queens!",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "Vrouwelijke DJs",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Van de draaitafels naar de festivals: Nina Kraviz, Charlotte de Witte en Peggy Gou bewijzen dat vrouwelijke DJ’s de clubs regeren. Bassen, beats en synths – laat je meeslepen in hun elektronische universum!",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Vrouwelijke Grunge Artiesten",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Grunge kreeg een vrouwelijke stem met Courtney Love, Kat Bjelland en Shirley Manson. Distorted gitaren, schreeuwende vocalen en rauwe emoties – voel de rauwe energie van de jaren 90 opnieuw!",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Vrouwelijke Hip-Hop Artiesten",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Hip-Hop kreeg kracht van vrouwen als Queen Latifah, Missy Elliott en Nicki Minaj. Beats, rapflows en attitude – female MC’s brachten eigen verhalen en lieten de cultuur nooit meer hetzelfde zijn.",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Vrouwelijke Jazz Vocalisten",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Jazz kreeg warmte door stemmen als Billie Holiday, Ella Fitzgerald en Nina Simone. Scat, swing en emotionele ballads – vrouwelijke jazzstemmen brachten finesse en ziel in elke noot.",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Vrouwelijke Pop Superstars",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Pop werd glansrijk met Madonna, Britney Spears en Lady Gaga. Catchy refreinen, dansbare beats en iconische performances – female superstars maakten pop tot hét wereldwijde geluid van plezier en kracht!",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Vrouwelijke Rappers",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Rappers als Nicki Minaj, Lauryn Hill en Cardi B lieten vrouwen knallen in Hip-Hop. Scherpe flows, humor en attitude – female rappers bewijzen dat hun stem net zo hard klinkt als elke mannelijke MC.",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Vrouwelijke R&B Diva's",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "R&B straalde door stemmen als Whitney Houston, Mariah Carey en Alicia Keys. Soulvolle zang, grooves en liefdevolle ballads – female divas brachten passie en glamour in elk refrein en elke noot.",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Vrouwelijke Rock/Metal Vocalisten",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Rock en metal kregen vuur door stemmen als Doro Pesch, Amy Lee en Floor Jansen. Scheurende gitaren, epische zang en kracht – female vocalists bewezen dat vrouwen de podia konden veroveren met pure energie.",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Vrouwelijke Soul Legendes",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Soul kreeg hart en ziel van Aretha Franklin, Diana Ross en Tina Turner. Gospelroots, funky grooves en passievolle stemmen – female legends gaven kracht, trots en liefde in elke performance.",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Vrouwelijke Vocale Iconen",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Vocal icons als Céline Dion, Barbra Streisand en Adele betoveren met hun stem. Krachtige ballads, emotie und pure zang – female icons maken muziek tijdloos en raken miljoenen harten.",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Orkestrale Muziek",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Orkestrale muziek betovert met Mahler, Stravinsky en John Williams. Van donderende pauken en koperblazers tot fluisterende violen – het orkest schildert emoties in klank, groots en meeslepend, vol drama en wonder.",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Piano",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "De piano spreekt met Chopin, Beethoven en Elton John. Van fluisterzachte nocturnes tot stormachtige akkoorden – hamer, snaar en pedaal smelten samen tot een instrument dat harten raakt en verhalen vertelt.",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Kamermuziek",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Kamermuziek brengt intimiteit met Mozart, Haydn en Schubert. Strijkkwartetten, klarinetten en subtiele dialogen tussen instrumenten – een muzikale conversatie die luistert en antwoordt in kleine kring.",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Klassiek",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Klassieke muziek straalt tijdloos met Bach, Mozart en Beethoven. Van barokke fuga’s en elegante symfonieën tot romantische emoties – een reis door eeuwen van creativiteit en muzikale verfijning.",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "New Age schept rust met Enya, Vangelis en Yanni. Zachte synthesizers, stromende klanken en wereldse instrumenten – een genre dat ontspanning, spiritualiteit en dagdromen in klank verandert.",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Opera",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Opera barst van drama met Verdi, Puccini en Mozart. Van aria’s vol passie en hoge sopranen tot koren en orkesten – het theater van de muziek laat emoties groots en onvergetelijk klinken.",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Soundtracks",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Soundtracks verbinden beeld en emotie: John Williams, Hans Zimmer en Howard Shore maakten film onvergetelijk. Van epische orkesten tot minimalistische thema’s – muziek die verhalen draagt en harten sneller laat slaan.",
     "isPlayable": true,
     "slug": "soundtrack",

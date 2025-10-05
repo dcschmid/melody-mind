@@ -3,7 +3,8 @@ title: Löydä Party On! | Musiikillinen Matka
 description:
   Etsitkö unohtumatonta illanviettoa – uppoudu Party On! -musiikin maailmaan ja koe rytmien voima.
   Opi genren alkuperästä ja sen kulttuurisista juurista – ryhdy tanssin lumoihin nyt!
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

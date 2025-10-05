@@ -3,7 +3,8 @@ title: Descubra Foco e Concentração | Uma Viagem Musical
 description:
   Você busca aprimorar sua concentração? Mergulhe em composições que estimulam a mente, combinando
   história musical, técnicas modernas e influências culturais. Explore e transforme seu foco agora
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

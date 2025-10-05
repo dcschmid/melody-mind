@@ -4,7 +4,8 @@ description:
   Spürst du das Feuer des Nordostens? Entdecke die mitreißende Forró-Tradition, ihre legendären
   Künstler, vielfältigen Subgenres und den unverwechselbaren Akkordeon-Sound – lass dich vom
   Forró-Fieber begeistern!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-06-28
 updatedAt: 2025-06-28
 keywords:

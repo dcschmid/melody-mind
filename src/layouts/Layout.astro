@@ -48,7 +48,6 @@
  * </Layout>
  * ```
  */
-import { When } from "@astropub/flow";
 import { Head } from "astro-capo";
 
 // Primary accessible font: Atkinson Hyperlegible will be loaded from local files via @font-face
@@ -497,11 +496,13 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <SkipLink />
 
     {/* Conditional header/navigation based on page type */}
-    <When test={showHeader && !showCoins}>
-      <header role="banner" class="layout__header">
-        <Navigation {showHeaderIcons} />
-      </header>
-    </When>
+    {
+      showHeader && !showCoins && (
+        <header role="banner" class="layout__header">
+          <Navigation {showHeaderIcons} />
+        </header>
+      )
+    }
 
     {/* Main content area */}
     <main id="main-content" class="my-8" tabindex="-1" role="main">

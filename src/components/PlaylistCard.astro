@@ -18,7 +18,7 @@
  * />
  * ```
  */
-import { Picture } from "astro:assets";
+import OptimizedImage from "./OptimizedImage.astro";
 import { useTranslations } from "../utils/i18n";
 import Headline from "./Headline.astro";
 import Paragraph from "./Paragraph.astro";
@@ -93,21 +93,16 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
   <!-- Image container -->
   <div class="relative aspect-video overflow-hidden rounded-t-2xl">
-    <Picture
-      src={imageUrl || "/default-cover.jpg"}
+    <OptimizedImage
+      group="playlist"
+      slug={imageUrl}
       alt={t("playlist.image.alt", { headline, introSubline, decade })}
-      class="h-full w-full object-cover"
       loading={loadingStrategy}
-      widths={[400, 600, 800, 1200]}
-      sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
-      formats={["avif", "webp", "jpg"]}
-      width={1280}
-      height={720}
       priority={isPriority}
       fetchpriority={fetchPriority}
-      itemprop="image"
-      decoding="async"
-      aria-describedby={`playlist-detailed-desc-${index}`}
+      class="h-full w-full object-cover"
+      widthHint={1280}
+      heightHint={720}
     />
 
     {/* Enhanced image description for WCAG 2.2 AAA */}

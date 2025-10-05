@@ -3,7 +3,8 @@ title: Il Mondo di Female R&B Divas | Più che Semplice Musica
 description:
   Sei pronto a immergerti nell'universo delle Female R&B Divas? Esplora hit iconiche, retrospettive
   storiche e storie ispiratrici in questo viaggio musicale. Scopri ora il cuore pulsante del R&B
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

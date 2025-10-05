@@ -1,5 +1,6 @@
 ---
 import { Picture } from "astro:assets";
+import CategoryImage from "./CategoryImage.astro";
 import { useTranslations } from "@utils/i18n";
 import ButtonLink from "./ButtonLink.astro";
 import Headline from "@components/Headline.astro";
@@ -16,6 +17,12 @@ const { lang, categories } = Astro.props as Props;
 const t = useTranslations(String(lang));
 
 const todayCategory = pickDailyCategory(categories);
+
+// Prepare resolved image when slug provided
+const isSlug =
+  todayCategory?.imageUrl &&
+  !todayCategory.imageUrl.includes("/") &&
+  !/\.[a-zA-Z]{2,5}$/.test(todayCategory.imageUrl || "");
 ---
 
 {
@@ -40,6 +47,15 @@ const todayCategory = pickDailyCategory(categories);
             width="1280"
             height="720"
             decoding="async"
+          />
+        ) : isSlug ? (
+          <CategoryImage
+            slug={todayCategory.imageUrl}
+            alt={t("daily.challenge.image.alt", { category: todayCategory.headline })}
+            loading="eager"
+            fetchpriority="high"
+            class="h-full w-full"
+            priority
           />
         ) : (
           <Picture

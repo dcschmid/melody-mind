@@ -6,7 +6,8 @@ description:
   Bereit für das perfekte Partyerlebnis? Tauche ein in die Welt von Party On! mit pulsierender
   Tanzmusik, mitreißender Stimmung und legendären Hymnen – Geschichte, Trends und Geheimtipps
   erwarten dich. Jetzt feiern und mitreißen lassen!
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-06-29
 updatedAt: 2025-06-29
 keywords:

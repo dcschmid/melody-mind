@@ -4,7 +4,8 @@ description:
   Benieuwd naar energieke feestmuziek? Ontdek Party On! en ervaar unieke beats en sfeer die iedere
   party onvergetelijk maken. Leer over de geschiedenis en cultuur van deze dynamische muziekstijl en
   laat het feest beginnen!
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

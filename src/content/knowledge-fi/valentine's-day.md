@@ -4,7 +4,8 @@ description:
   Aloita sydäntä lämmittävä musiikkimatka tänä Valentinpäivänä - etsitkö parhaat rakkauskappaleet?
   Sukella tunteiden virtaan, nauti ainutlaatuisesta kappalevalikoimasta ja anna musiikin lumota.
   Klikkaa nyt!
-image: /category/valentine's-day.jpg
+image: /category/valentines-day.jpg
+# migrated: valentine's-day -> valentines-day
 createdAt: 2025-03-15
 updatedAt: 2025-03-15
 keywords:

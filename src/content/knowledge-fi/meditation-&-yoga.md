@@ -3,7 +3,8 @@ title: Löydä Meditaatio ja Jooga | Musiikillinen Matka
 description:
   Etsitkö tapoja syventää rauhaa ja keskittymistä? Sukella meditaation ja joogan äänimaailmaan, joka
   tarjoaa rentouttavia sointuja ja syvällistä henkistä matkaa – tutustu ja koe sisäinen voima nyt!
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

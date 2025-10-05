@@ -4,7 +4,8 @@ description:
   Vous cherchez à créer une ambiance inoubliable pour la Saint-Valentin? Découvrez nos sélections
   musicales raffinées et passionnées pour sublimer vos moments d'amour. Laissez la magie opérer —
   Explorez dès maintenant!
-image: /category/valentine's-day.jpg
+image: /category/valentines-day.jpg
+# migrated: valentine's-day -> valentines-day
 createdAt: 2025-03-15
 updatedAt: 2025-03-15
 keywords:

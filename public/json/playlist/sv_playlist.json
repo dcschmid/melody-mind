@@ -1,7 +1,7 @@
 [
   {
     "headline": "Frigör Rock 'n' Roll-anden: Legender som förändrade världen på 1950-talet",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "Kliv in i rockens elektriserande ursprung! Låt Elvis, Chuck Berry och Buddy Holly inspirera dig med energin som tände en kulturell revolution. Känn kraften i musiken som formade generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5K9w1qBruSoCY0XCHyKq2a",
     "deezerPlaylist": "https://link.deezer.com/s/30x5aOVgrllLx9ch4NUX5",
@@ -10,7 +10,7 @@
   },
   {
     "headline": "Känn kraften från 1960-talet: Musik som inspirerade en generation",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "Upplev The Beatles magi, The Rolling Stones djärvhet och Jimi Hendrix genialitet. Låt 1960-talets ljud väcka din kreativitet och passion för förändring.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2zapTa5myPEQ5W7iBF271h",
     "deezerPlaylist": "https://link.deezer.com/s/30x5bKWXuO3BM1KexrSo9",
@@ -19,7 +19,7 @@
   },
   {
     "headline": "Lys upp med 1970-talet: Från discofeber till rockmästerverk",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "Dansa till ABBAs smittande rytmer och förlora dig i Pink Floyds visionära ljudlandskap. Upptäck hur 1970-talet bjuder in dig att fira mångfald och drömma stort.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0w349iRF4OnsL4Qd42Zk8A",
     "deezerPlaylist": "https://link.deezer.com/s/30x5pb2EmiWzKWMok2BqA",
@@ -28,7 +28,7 @@
   },
   {
     "headline": "Tänd dina sinnen på 1980-talet: Ett decennium av överflöd, innovation och ikoniska ljud",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "Återupplev explosionen av synthesizers, MTV:s födelse och Hair Metals regeringstid. 1980-talet bjuder in dig till en värld där musikvideor och elektriserande ljud definierade en generation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6t92knmmCDH2URtMZypbsp",
     "deezerPlaylist": "https://link.deezer.com/s/30x5wBZhKzHbt79KEPcY9",
@@ -37,7 +37,7 @@
   },
   {
     "headline": "Revolutionära ljud från 1990-talet: Där alternativ blev mainstream",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "Från grungeexplosionen i Seattle till hip-hops och Britpops uppgång formade 1990-talet om det musikaliska landskapet. Upptäck decenniet som förde undergroundmusik till framsidan och gav röst åt en generation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sw4ATjkuUrrcE38oHPVfu",
     "deezerPlaylist": "https://link.deezer.com/s/30x5XBT5yEUSSfi9Y221i",
@@ -46,7 +46,7 @@
   },
   {
     "headline": "Digitala drömmar och popperfektion: 2000-talets musikaliska revolution",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "Kliv in i en värld där pop mötte teknologi. 2000-talet förde med sig auto-tune, digitala nedladdningar och en ny våg av R&B. Upplev decenniet som förvandlade musikproduktion och lanserade globala superstjärnor.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6IY7RnLIlr9PuAWTfRU2jf",
     "deezerPlaylist": "https://link.deezer.com/s/30x64RRNK0zeeTvbIxNIt",
@@ -55,7 +55,7 @@
   },
   {
     "headline": "Streamingjättar och genreförbrytare: 2010-talets musikaliska landskap",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "Upplev decenniet där musik blev tillgänglig för alla. Streamingtjänster lanserade okända artister till berömmelse och genrer blandades som aldrig förr. Dyka ner i ljuden som definierade en generation och fortsätter forma musikens framtid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/19awPEqnAcGPSt0tASDvFu",
     "deezerPlaylist": "https://link.deezer.com/s/30x6gZge1Bc4ghYAC6Xbb",
@@ -64,7 +64,7 @@
   },
   {
     "headline": "Känn grooven: Acid Jazz upplyftande fusion av funk, soul och jazz",
-    "imageUrl": "/category/acid-jazz.jpg",
+    "imageUrl": "acid-jazz",
     "introSubline": "Låt livfulla rytmer och kreativ improvisation energisera din dag. Upptäck artisterna som blandar genrer för att skapa en ljud som rör både hjärta och fötter.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0ZzpQgAoDwvWrmkYGGPGvR",
     "deezerPlaylist": "https://link.deezer.com/s/30xcfCEootRWiv9o3bt2f",
@@ -73,7 +73,7 @@
   },
   {
     "headline": "Opluggad kraft: Acoustic Metals känslosida",
-    "imageUrl": "/category/acoustic-metal.jpg",
+    "imageUrl": "acoustic-metal",
     "introSubline": "Upplev metals råa intensitet i sin renaste form. Låt akustiska versioner avslöja de hjärtliga berättelserna och musikaliteten bakom de tunga riffen.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7cXLMbmpOBvv659xZ98hmk",
     "deezerPlaylist": "https://link.deezer.com/s/30xcibCdwzuTgelHP8sg6",
@@ -82,7 +82,7 @@
   },
   {
     "headline": "Akustisk popmagik: Hjärtliga melodier för varje ögonblick",
-    "imageUrl": "/category/acoustic-pop.jpg",
+    "imageUrl": "acoustic-pop",
     "introSubline": "Slappna av och ladda om med avstrippade hits och singer-songwriter-pärlor. Låt dessa akustiska låtar inspirera dina känslor och ljusna upp ditt humör.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sneli803LUJcPLI0uy4pO",
     "deezerPlaylist": "https://link.deezer.com/s/30xcmbWCgSEfLWmRboak2",
@@ -91,7 +91,7 @@
   },
   {
     "headline": "Fira mångfald: Afrikansk musiks rytmer och traditioner",
-    "imageUrl": "/category/african-music.jpg",
+    "imageUrl": "african-music",
     "introSubline": "Känn kontinentens hjärtslag! Från traditionell trumning till modern Afropop förenar och inspirerar dessa ljud över kulturer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5NDS6IVBZr5W9hK7uKxhZM",
     "deezerPlaylist": "https://link.deezer.com/s/30xcoTWyK4YYBEpaohBM7",
@@ -100,7 +100,7 @@
   },
   {
     "headline": "Afrobeat-energi: Fela Kutis arv och global inspiration",
-    "imageUrl": "/category/afrobeat.jpg",
+    "imageUrl": "afrobeat",
     "introSubline": "Rör dig till hypnotiska rytmer och djärva budskap. Afrobeats fusion av tradition, jazz och funk stärker och upplyfter världen över.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/29mXorpfIu5oh5KscLq5W9",
     "deezerPlaylist": "https://link.deezer.com/s/30xfhjzRimDDH9rheEnUq",
@@ -109,7 +109,7 @@
   },
   {
     "headline": "Efterarbetsfrid: Slappna av och ladda om med kvällschill",
-    "imageUrl": "/category/after-work-chill.jpg",
+    "imageUrl": "after-work-chill",
     "introSubline": "Förvandla dina efterarbetstimmar till en fridfull tillflykt. Låt mjuka rytmer och lugnande melodier hjälpa dig att slappna av och hitta din balans.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4kS3J37MezYFMTkCLYOvxK",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14069008281",
@@ -118,7 +118,7 @@
   },
   {
     "headline": "Bryt mallen: Alternative Metals kreativa kraft",
-    "imageUrl": "/category/alternative-metal.jpg",
+    "imageUrl": "alternative-metal",
     "introSubline": "Upplev friheten i tung musik utan gränser. Dessa spår blandar kraft, innovation och känsla för ett verkligt unikt ljud.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/42DFYQCLpTMRmLB5E9ye8d",
     "deezerPlaylist": "https://link.deezer.com/s/30xfQA0IApPl8WwcxMJGt",
@@ -127,7 +127,7 @@
   },
   {
     "headline": "Rebellanda: Alternative Rocks resa från underground till ikonisk",
-    "imageUrl": "/category/alternative-rock.jpg",
+    "imageUrl": "alternative-rock",
     "introSubline": "Låt alternative rocks DIY-anda och kreativa mod inspirera dig. Dessa låtar bevisar att autenticitet och passion kan förändra världen.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3mTLFYda4zfnWtnRWrqMQm",
     "deezerPlaylist": "https://link.deezer.com/s/30xfBPcBrhDVbSbFPYyXM",
@@ -136,7 +136,7 @@
   },
   {
     "headline": "Atmosfärisk kraft: Ambient Metals inspirerande ljudlandskap",
-    "imageUrl": "/category/ambient-metal.jpg",
+    "imageUrl": "ambient-metal",
     "introSubline": "Låt dig bäras bort av en unik blandning av tyngd och eteriskt ljud. Dessa spår bjuder in dig att utforska nya musikaliska horisonter och hitta inspiration i kontraster.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4dRTL2qENCBqVnK9KzVEaY",
     "deezerPlaylist": "https://link.deezer.com/s/30xg6oYpCMQzU4AqYTgzo",
@@ -145,7 +145,7 @@
   },
   {
     "headline": "Hitta din ro: Ambient-frid för sinne och själ",
-    "imageUrl": "/category/ambient.jpg",
+    "imageUrl": "ambient",
     "introSubline": "Förvandla varje ögonblick till en fridfull tillflykt. Dessa ambient-stycken hjälper dig att slappna av, meditera och ladda om din själ.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4MAptafzBpcWkBmTQ2G40b",
     "deezerPlaylist": "https://link.deezer.com/s/30xfYLfWAQHjvvyGKZ74A",
@@ -154,7 +154,7 @@
   },
   {
     "headline": "Frigör din energi: Arga hymner för motivation och styrka",
-    "imageUrl": "/category/angry.jpg",
+    "imageUrl": "angry",
     "introSubline": "Kanalisera dina känslor och förvandla frustration till kraft. Dessa intensiva spår bränsle för din drivkraft och hjälper dig att övervinna alla utmaningar.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6Q1l7d7Siu3l2TGtF0tZgk",
     "deezerPlaylist": "https://link.deezer.com/s/30xgkqdmsLuhRNxfNVZIS",
@@ -163,7 +163,7 @@
   },
   {
     "headline": "Passion och framsteg: Argentinsk souls inspirerande resa",
-    "imageUrl": "/category/argentinian.jpg",
+    "imageUrl": "argentinian",
     "introSubline": "Känn tangons eld och modern fusions kreativitet. Dessa låtar firar Argentinas anda och musikens utvecklingskraft.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/53Z1KfIjm71tNrZ9gDNl4u",
     "deezerPlaylist": "https://link.deezer.com/s/30xgy5OMTfQIMHhRWTTWW",
@@ -172,7 +172,7 @@
   },
   {
     "headline": "Tidslös briljans: Österrikiska ljudlandskap från Mozart till idag",
-    "imageUrl": "/category/austrian.jpg",
+    "imageUrl": "austrian",
     "introSubline": "Res genom århundraden av musikaliskt mästerskap. Låt Österrikes klassiska rötter och moderna kreativitet inspirera din egen konstnärliga resa.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2azjaIZIUNQ1Xq8Mbo49MX",
     "deezerPlaylist": "https://link.deezer.com/s/30xgBmbg9JpjYTECXB6KM",
@@ -181,7 +181,7 @@
   },
   {
     "headline": "Gyllene ögonblick: Höstchill för mysig inspiration",
-    "imageUrl": "/category/autumn-chill.jpg",
+    "imageUrl": "autumn-chill",
     "introSubline": "Omfamna höstens skönhet med mjuka ljud som värmer ditt hjärta. Dessa spår förvandlar varje höstdag till ett gyllene minne.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1pFI14ZmdSlNA8tBEXRW6p",
     "deezerPlaylist": "https://link.deezer.com/s/30xi52bYKnNyHXPfnkPsn",
@@ -190,7 +190,7 @@
   },
   {
     "headline": "Magiska färger: Höstlöv och förändringens ljud",
-    "imageUrl": "/category/autumn-leaves.jpg",
+    "imageUrl": "autumn-leaves",
     "introSubline": "Låt musik måla bilderna av höstens prakt. Dessa spår fångar säsongens magi och förvandling.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7HthpvZP7RfoCatmuntbYs",
     "deezerPlaylist": "https://link.deezer.com/s/30xifpUnJxuxtEoa0Je0b",
@@ -199,7 +199,7 @@
   },
   {
     "headline": "Bryt gränser: Avant-garde Metals konstnärliga innovation",
-    "imageUrl": "/category/avant-garde-metal.jpg",
+    "imageUrl": "avant-garde-metal",
     "introSubline": "Upplev experimentets spänning och djärv kreativitet. Dessa låtar visar hur metal kan vara visionär och inspirerande.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1T2PgmMMHhq7hBetwtwLr2",
     "deezerPlaylist": "https://link.deezer.com/s/30xjsdkiyeY0Eyv8ge6Zj",
@@ -208,7 +208,7 @@
   },
   {
     "headline": "Dans med hjärta: Bachatas romantiska rytmer",
-    "imageUrl": "/category/bachata.jpg",
+    "imageUrl": "bachata",
     "introSubline": "Låt passionerade texter och smittande gitarrsmelodier röra dig. Bachata för glädje, kärlek och energi till varje ögonblick.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7budQtbbHyyZhm2TmAuC0D",
     "deezerPlaylist": "https://link.deezer.com/s/30xjut1TifuThr8v8KpS2",
@@ -217,7 +217,7 @@
   },
   {
     "headline": "Studiekraft: Tillbaka-till-skolan-beats för fokus och framgång",
-    "imageUrl": "/category/back-to-school.jpg",
+    "imageUrl": "back-to-school",
     "introSubline": "Öka din koncentration och motivation med musik designad för lärande. Dessa spår hjälper dig att uppnå dina akademiska mål med energi och stil.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1m5eAVpIeI5CXqjnBsrQoe",
     "deezerPlaylist": "https://link.deezer.com/s/30xjxb5lvfZ5juXuq85xX",
@@ -226,7 +226,7 @@
   },
   {
     "headline": "Fira tillsammans: Trädgårdsgrill-vibbar för varje sammankomst",
-    "imageUrl": "/category/backyard-bbq.jpg",
+    "imageUrl": "backyard-bbq",
     "introSubline": "Tänd grillen och låt de goda stunderna rulla! Dessa solbadade hymner skapar den perfekta atmosfären för skoj, skratt och oförglömliga sommarfester.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5sfGr39G8N2zgxOR8RuxqK",
     "deezerPlaylist": "https://link.deezer.com/s/30xl7p55CQS4f9s8OyscB",
@@ -235,7 +235,7 @@
   },
   {
     "headline": "Balkanmusik: Energisk folkmusik och dans från Sydösteuropa",
-    "imageUrl": "/category/balkan-music.jpg",
+    "imageUrl": "balkan-music",
     "introSubline": "Upptäck balkanmusikens livfulla rytmer och unika instrument, perfekt för dans och firande.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6dWrzgn8cZBbx2B4TLC1ot",
     "deezerPlaylist": "https://link.deezer.com/s/30xlcwMdbGk77WcCDQgDv",
@@ -244,7 +244,7 @@
   },
   {
     "headline": "Bassmusik: Djupa frekvenser och klubbhymner",
-    "imageUrl": "/category/bass-music.jpg",
+    "imageUrl": "bass-music",
     "introSubline": "Känn kraften i bassdriven musik, från dubstep till drum & bass. Dessa spår är gjorda för att röra dig.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6PGeWzmR5iTs313qxqoA4X",
     "deezerPlaylist": "https://link.deezer.com/s/30xln0GYSDeYwyCCGy2un",
@@ -253,7 +253,7 @@
   },
   {
     "headline": "Stranddagsfrid: Din kustflykt i ljud",
-    "imageUrl": "/category/beach-day.jpg",
+    "imageUrl": "beach-day",
     "introSubline": "Förflytta dig till sandiga stränder och rullande vågor med denna samling solbadade melodier. Från avslappnad reggae till kustpop-pärlor fångar dessa spår den sorglösa andan och oändliga möjligheterna av en perfekt dag vid havet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3uz3NhNxjPWzRQvI5Oiw3s",
     "deezerPlaylist": "https://link.deezer.com/s/30xlpOVIT7k3AuSIgYVsb",
@@ -262,7 +262,7 @@
   },
   {
     "headline": "Belgiska beats: Där europeisk pop möter elektronisk innovation",
-    "imageUrl": "/category/belgian.jpg",
+    "imageUrl": "belgian",
     "introSubline": "Utforska Belgiens rika musikaliska landskap, från listtoppande popkänslor till banbrytande elektroniska pionjärer. Upplev hur denna kulturella korsning skapar unika ljud som fortsätter att påverka globala musiktrender.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0uXsyiU5ridTJAe9K9p8j4",
     "deezerPlaylist": "https://link.deezer.com/s/30xluN3c8HQVCTNhM09NO",
@@ -271,7 +271,7 @@
   },
   {
     "headline": "Black Metal: Resa in i metals mest atmosfäriska och primitiva rike",
-    "imageUrl": "/category/black-metal.jpg",
+    "imageUrl": "black-metal",
     "introSubline": "Våga dig in i black metals intensiva, atmosfäriska värld där rå intensitet möter mörk konst. Upplev genrens signaturblandning av hemsökande melodier, vild intensitet och kompromisslös känslodjup.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3t1JDSI6929WEPA9dmoHpq",
     "deezerPlaylist": "https://link.deezer.com/s/30xlyoIImz6xSliVDNwKZ",
@@ -280,7 +280,7 @@
   },
   {
     "headline": "Blackened Death Metal: Där Black Metals mörker möter Death Metals brutalitet",
-    "imageUrl": "/category/blackened-death-metal.jpg",
+    "imageUrl": "blackened-death-metal",
     "introSubline": "Stig ner i den ultimata extrema metal-fusionen där black metals atmosfäriska mörker kolliderar med death metals tekniska brutalitet. Upplev hur denna hybridgenre pressar musikaliska gränser för att skapa något unikt intensivt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4S3th2E2If9oJsiRXIUvYr",
     "deezerPlaylist": "https://link.deezer.com/s/30xlB9UPTLQGbNJnBPxsW",
@@ -289,7 +289,7 @@
   },
   {
     "headline": "Bluegrass-legender: Amerikas bergsmusikrevolution",
-    "imageUrl": "/category/bluegrass.jpg",
+    "imageUrl": "bluegrass",
     "introSubline": "Res genom hjärtat av amerikansk rootsmusik, från pionjärlegender till moderna innovatörer. Upplev hur blixtsnabb plockning, himmelska harmonier och tidlös berättarkonst fortsätter att fängsla publiken över generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EaNvDdyth2iYz3yx8hH0i",
     "deezerPlaylist": "https://link.deezer.com/s/30xlD8nQW7xGMymaLFcsg",
@@ -298,7 +298,7 @@
   },
   {
     "headline": "Blues-mästare: De själsfulla pionjärerna som formade modern musik",
-    "imageUrl": "/category/blues.jpg",
+    "imageUrl": "blues",
     "introSubline": "Upplev den råa känslan och autentiska berättarkonsten som födde modern populärmusik. Från Delta-korsningar till Chicagos elektriska evolution visar dessa spår hur blues-mästare förvandlade livets kamp till tidlös konst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2TUj2c6v93zh6pVbxAIgYD",
     "deezerPlaylist": "https://link.deezer.com/s/30xlFj6PoctkfhYGaIu05",
@@ -307,7 +307,7 @@
   },
   {
     "headline": "Bossa Nova: Brasiliens sofistikerade själ och kustkyla",
-    "imageUrl": "/category/bossa-nova.jpg",
+    "imageUrl": "bossa-nova",
     "introSubline": "Flyt bort på mjuka rytmer som blandar jazzens sofistikering med brasiliansk själ. Från Rios guldålder till moderna tolkningar upplever du hur bossa novas subtila komplexitet och ansträngningslösa grace fortsätter att förtrolla lyssnare världen över.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/39TB2ZnA4wd7mdKFWYfCN3",
     "deezerPlaylist": "https://link.deezer.com/s/30xlGjv2cst5Qsauh0f36",
@@ -316,7 +316,7 @@
   },
   {
     "headline": "Brasilianska beats: En resa genom Sydamerikas musikaliska paradis",
-    "imageUrl": "/category/brazilian.jpg",
+    "imageUrl": "brazilian",
     "introSubline": "Fördjupa dig i Brasiliens kaleidoskop av rytmer, från sambas karnevalsanda till MPB:s poetiska själ. Upplev hur denna musikaliska kraftkälla blandar afrikanska rytmer, europeiska melodier och inhemska traditioner till unikt brasilianskt magi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3EZ2AZNQNB4V5vSI07WvRh",
     "deezerPlaylist": "https://link.deezer.com/s/30xlGzsQoRrMpYd2CC6Sb",
@@ -325,7 +325,7 @@
   },
   {
     "headline": "Breakbeat: Där hip-hops själ möter elektronisk musiks framtid",
-    "imageUrl": "/category/breakbeat.jpg",
+    "imageUrl": "breakbeat",
     "introSubline": "Upplev genren som revolutionerade dansmusik genom att hacka upp funk och soul till drivande nya former. Från junglens intensitet till big beats arenastora ljud upptäcker du hur breakbeat-kulturen fortsätter att utveckla elektronisk musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6tUYCnSGq2SspsKec8FMHI",
     "deezerPlaylist": "https://link.deezer.com/s/30xlHKxwJZmrIkNuEqKbD",
@@ -334,7 +334,7 @@
   },
   {
     "headline": "British Invasion: När brittisk rock erövrade Amerika och förändrade musiken för alltid",
-    "imageUrl": "/category/british.jpg",
+    "imageUrl": "british",
     "introSubline": "Res tillbaka till 1960-talets musikaliska revolution när brittiska band stormade amerikanska stränder. Från The Beatles banbrytande harmonier till The Rolling Stones råa energi upplever du ljuden som förvandlade popkulturen på båda sidor av Atlanten.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2p5MpIewAEBSYykG3LL8yk",
     "deezerPlaylist": "https://link.deezer.com/s/30xlI4I64HjbhPHyue49D",
@@ -343,7 +343,7 @@
   },
   {
     "headline": "Cantopop: Hongkongs glitterande popuniversum",
-    "imageUrl": "/category/cantopop.jpg",
+    "imageUrl": "cantopop",
     "introSubline": "Fördjupa dig i Hongkongs bländande popkultur genom dess mest älskade musikaliska export. Från känslomässiga ballader till högenergi-dansspår upplever du hur Cantopop blandar öst och väst för att skapa Asiens mest distinkta popljud.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07",
     "deezerPlaylist": "https://open.spotify.com/playlist/0KXxwQ4ZMTiaFlo3kk0V07",
@@ -352,7 +352,7 @@
   },
   {
     "headline": "Karibisk musik: Övibbar och tropiska groover",
-    "imageUrl": "/category/caribbean-music.jpg",
+    "imageUrl": "caribbean-music",
     "introSubline": "Svaja till reggae, soca och calypsos rytmer. Karibisk musik för solsken och glädje till varje spellista.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4sToyECqnzA2wNpdtCgy2X",
     "deezerPlaylist": "https://link.deezer.com/s/30xlKcTrzIS2gvHtJUQah",
@@ -361,7 +361,7 @@
   },
   {
     "headline": "Celtic Metal: Där uråldriga melodier möter modern metals makt",
-    "imageUrl": "/category/celtic-metal.jpg",
+    "imageUrl": "celtic-metal",
     "introSubline": "Res in i en unik fusion där keltiska folktraditioner kolliderar med heavy metals kraft. Upplev hur band kombinerar traditionella instrument, uråldriga melodier och krossande riff för att skapa ett episkt ljud som överbryggar århundraden av musikutveckling.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5Rx08qQTBlYlFd6QHzixxP",
     "deezerPlaylist": "https://link.deezer.com/s/30xlMmOZDy2T7RMImL02T",
@@ -370,7 +370,7 @@
   },
   {
     "headline": "Chamber Metal: Klassisk förfining möter metals råa kraft",
-    "imageUrl": "/category/chamber-metal.jpg",
+    "imageUrl": "chamber-metal",
     "introSubline": "Upplev en innovativ fusion där kammarmusikens elegans omfamnar metals intensitet. Från stråkkvartetter till elgitarrer upptäcker du hur denna genre skapar sofistikerad tung musik som utmanar både klassiska och metal-konventioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/11CEvVHIy8D1du1MC0yMmu",
     "deezerPlaylist": "https://link.deezer.com/s/30xlOxhAALbzc5G9V3GZN",
@@ -379,7 +379,7 @@
   },
   {
     "headline": "Kammarmusik: Intima klassiska ensembler",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Upplev kammarmusikens elegans, där små ensembler skapar rika, uttrycksfulla ljudlandskap.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5nVzxaAcgnAla4QKGiERny",
     "deezerPlaylist": "https://link.deezer.com/s/30xmUxySzwpOkerTSl0lb",
@@ -388,7 +388,7 @@
   },
   {
     "headline": "Chicago House: Hur Windy Citys underground-scen förändrade dansmusik för alltid",
-    "imageUrl": "/category/chicago-house.jpg",
+    "imageUrl": "chicago-house",
     "introSubline": "Gå tillbaka till lagerhusen där housemusik föddes. Från Frankie Knuckles banbrytande set till de ikoniska trummaskinerna som formade ljudet upplever du hur Chicagos underground-klubbar lanserade en global dansrevolution.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1UCfIchg3CGhuocB6ojeIh",
     "deezerPlaylist": "https://link.deezer.com/s/30xmVc8xUghJvDyZr0LVZ",
@@ -397,7 +397,7 @@
   },
   {
     "headline": "Barnens favoriter: Magiska musikaliska äventyr för unga sinnen",
-    "imageUrl": "/category/children.jpg",
+    "imageUrl": "children",
     "introSubline": "Ge dig ut på en musikaliskt resa designad för att tända fantasi och glädje i unga hjärtan. Från älskade klassiker till pedagogiska melodier skapar dessa noggrant utvalda spår magiska ögonblick av lärande, dans och ren barndomsundran.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3nMN0JsqBlZHbEF8vCyRwm",
     "deezerPlaylist": "https://link.deezer.com/s/30xmWkgsdQtDBBDsDcCA5",
@@ -406,7 +406,7 @@
   },
   {
     "headline": "Chiptune: 8-bit-nostalgi och retrospelljud",
-    "imageUrl": "/category/chiptune.jpg",
+    "imageUrl": "chiptune",
     "introSubline": "Återupplev magin i klassiska videospel med chiptune, en genre byggd på vintage-datorer och konsolljud.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5xDKFpwmUZqmEVJayXfq6n",
     "deezerPlaylist": "https://link.deezer.com/s/30xmWyWUYjxPzouj461LT",
@@ -415,7 +415,7 @@
   },
   {
     "headline": "Christian Metal: Där gudomligt budskap möter metals makt",
-    "imageUrl": "/category/christian-metal.jpg",
+    "imageUrl": "christian-metal",
     "introSubline": "Upptäck hur metals kraft blir ett kärl för andlig uttryck. Från banbrytande band som Stryper till modern worship-metal-fusion upplever du hur artister kombinerar teologisk djup med teknisk skicklighet för att skapa upplyftande tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5pNPoAdn9cN3AEGHcJ7SRw",
     "deezerPlaylist": "https://link.deezer.com/s/30xmXNgBq8eNYpRvaq1J6",
@@ -424,7 +424,7 @@
   },
   {
     "headline": "Julklassiker: Tidlösa låtar som definierar helgens magi",
-    "imageUrl": "/category/christmas-classics.jpg",
+    "imageUrl": "christmas-classics",
     "introSubline": "Fördjupa dig i säsongens hjärtvärmande soundtrack. Från århundradegamla julsånger till älskade moderna standarder fångar dessa noggrant utvalda spår den perfekta blandningen av nostalgi, firande och vinterundran som gör julmusik speciell.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4M4VdveKKRReQ3Rxah3yQH",
     "deezerPlaylist": "https://link.deezer.com/s/30xmY7Ls2iMlMENT92IgK",
@@ -433,7 +433,7 @@
   },
   {
     "headline": "Klassisk Heavy Metal: Metals guldålders dundrande början",
-    "imageUrl": "/category/classic-heavy-metal.jpg",
+    "imageUrl": "classic-heavy-metal",
     "introSubline": "Res tillbaka till när heavy metal först skakade jorden, från Black Sabbaths domedagsbelagda riff till Iron Maidens galopperande epos. Upplev de revolutionära ljuden som etablerade metals kärnelement och fortsätter att påverka generationer av headbangers.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6z3knFleaOUHd7M4aH8NIo",
     "deezerPlaylist": "https://link.deezer.com/s/30xmZ85sQ1MuP2BVP9jph",
@@ -442,7 +442,7 @@
   },
   {
     "headline": "Klassisk Rock: De tidlösa hymner som formade modern musik",
-    "imageUrl": "/category/classic-rock.jpg",
+    "imageUrl": "classic-rock",
     "introSubline": "Res genom rockens guldålder, när gitarrgudar härskade över jorden och albumorienterad rock härskade överst. Från arenafyllande hymner till banbrytande kompositioner upplever du låtarna som definierade generationer och fortsätter att påverka artister idag.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/58tOzgAXjry6NG85cpwlMo",
     "deezerPlaylist": "https://link.deezer.com/s/30xmZ85sQ1MuP2BVP9jph",
@@ -451,7 +451,7 @@
   },
   {
     "headline": "Klassiska mästerverk: En resa genom århundraden av musikaliskt geni",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Upplev den djupa skönheten i klassisk musiks största prestationer, från Bachs invecklade kontrapunkt till Beethovens revolutionära symfonier. Låt dessa tidlösa mästerverk förflytta dig genom historiens mest briljanta musikaliska sinnen.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/434kID2hF3NVLqbQDjiPB8",
     "deezerPlaylist": "https://link.deezer.com/s/30xn0GpbOPGTvHWJI9CLp",
@@ -460,7 +460,7 @@
   },
   {
     "headline": "Klubbhits: Den ultimata dansgolvets energitändning",
-    "imageUrl": "/category/club.jpg",
+    "imageUrl": "club",
     "introSubline": "Förvandla vilket utrymme som helst till en omedelbar nattklubb med dessa certifierade golvfyllare. Från euforiska EDM-drops till oemotståndliga popremixer levererar denna samling den perfekta blandningen av energi och rytm för att hålla festen på toppspänning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1ZbPYkUWN0BukD8JhYgW8O",
     "deezerPlaylist": "https://link.deezer.com/s/30xn0Wy7jcyhUMQOCKrFD",
@@ -469,7 +469,7 @@
   },
   {
     "headline": "Colombianska rytmer: Där cumbia, vallenato och moderna ljud kolliderar",
-    "imageUrl": "/category/colombian.jpg",
+    "imageUrl": "colombian",
     "introSubline": "Dyka ner i Colombias mångfaldiga musikaliska landskap, från vallenatos dragspelsdrivna passion till cumbias smittande tropiska groove. Upplev hur traditionella rytmer blandas med samtida stilar för att skapa den livfulla soundtracken för det moderna Colombia.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/14Co12mZWx9jgHEKulsSBK",
     "deezerPlaylist": "https://link.deezer.com/s/30xn27jZ8rTEOD2jNY0wV",
@@ -478,7 +478,7 @@
   },
   {
     "headline": "Pendlingskompanjon: Förvandla din dagliga resa till ett musikaliskt äventyr",
-    "imageUrl": "/category/commute-companion.jpg",
+    "imageUrl": "commute-companion",
     "introSubline": "Förvandla trafik till triumf med denna noggrant kuraterade blandning av energigivande och avslappnande spår. Oavsett om du navigerar morgonrusningstid eller slappnar av på kvällskörningen gör dessa låtar varje pendling känns som en personlig konsert.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6QessAsjZ05dfOHVzoCJYH",
     "deezerPlaylist": "https://link.deezer.com/s/30xn2pwNP07fSrmzqhHNd",
@@ -487,7 +487,7 @@
   },
   {
     "headline": "Kokssoundtrack: Din perfekta kökskompanjon för kulinariska äventyr",
-    "imageUrl": "/category/cooking-soundtrack.jpg",
+    "imageUrl": "cooking-soundtrack",
     "introSubline": "Förvandla ditt kök till en musikaliskt fristad med denna kuraterade samling upplyftande spår. Från att hacka grönsaker till att sjuda såser låt dessa rytmer inspirera din kulinariska kreativitet och göra matlagning till en glädjefylld upplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2l45RZD5WYpRd1EhUhj9tq",
     "deezerPlaylist": "https://link.deezer.com/s/30xn3zdvtRdi3KVNY8U49",
@@ -496,7 +496,7 @@
   },
   {
     "headline": "Coregrind: Metals mest extrema utvecklings ultimata uttryck",
-    "imageUrl": "/category/coregrind.jpg",
+    "imageUrl": "coregrind",
     "introSubline": "Dyka ner i metals mest kompromisslösa gränsland där grindcore möter hardcores intensitet. Upplev hur musiker pressar ljudgränser för att skapa en unikt förödande form av extrem musik som utmanar konventionella låtstrukturer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5p2vX24aHMdLoKV6LbO9I2",
     "deezerPlaylist": "https://link.deezer.com/s/30xn3Sm8fukzKkTFf5sOt",
@@ -505,7 +505,7 @@
   },
   {
     "headline": "Country-klassiker: De tidlösa berättelserna och ljuden från Amerikas hjärta",
-    "imageUrl": "/category/country.jpg",
+    "imageUrl": "country",
     "introSubline": "Res genom countrymusikens guldålder, där autentisk berättarkonst möter mästarfull musikalitet. Från honky-tonk-hjältar till Nashville-legender upplever du låtarna som fångar andan, kampen och triumferna i det amerikanska livet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3FcVkRJjFiZ3EfVKbMPWGl",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6snmJVM2NIWbp2X0B",
@@ -514,7 +514,7 @@
   },
   {
     "headline": "Mysig kväll: Ditt musikaliska fristad för perfekta kvällsstunder",
-    "imageUrl": "/category/cozy-evening.jpg",
+    "imageUrl": "cozy-evening",
     "introSubline": "Förvandla ditt utrymme till en mjuk fristad med noggrant utvalda spår som omfamnar dig som en varm filt. Låt dessa lugnande melodier hjälpa dig att slappna av och skapa den perfekta soundtracken för tyst kontemplation eller fridfull avslappning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sjaWu1uWwHRn3nTyNbV3s",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6I6QxAb9O0Mys7Clp",
@@ -523,7 +523,7 @@
   },
   {
     "headline": "Crossover Thrash: Där punks attityd möter metals kraft",
-    "imageUrl": "/category/crossover-thrash.jpg",
+    "imageUrl": "crossover-thrash",
     "introSubline": "Dyka ner i den explosiva fusionen där punks råa energi kolliderar med metals tekniska precision. Från mosh pit-hymner till hastighetsdrivna raseriupplevelser upplever du hur denna hybridgenre skapade ett unikt ljud som revolutionerade båda scenerna.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/13E7zxBDCoUkft4xmUF9EG",
     "deezerPlaylist": "https://link.deezer.com/s/30xn6YBNN15Q4vKuCmSwQ",
@@ -532,7 +532,7 @@
   },
   {
     "headline": "Kubanska rytmer: Karibisk musikkulturs pulserande hjärta",
-    "imageUrl": "/category/cuban.jpg",
+    "imageUrl": "cuban",
     "introSubline": "Res genom Kubas musikaliska själ, där afrikanska rytmer möter spanska melodier. Från tidlös son cubano till moderna salsa-innovationer upplever du hur öns passionerade anda skapar musik som rör både kropp och själ.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5pj8MUa9jYfeWhooXmoZCT",
     "deezerPlaylist": "https://link.deezer.com/s/30xn7jsMjgBoEhVujYnCv",
@@ -541,7 +541,7 @@
   },
   {
     "headline": "Cumbia: Latinamerikas dansgolvsstapel",
-    "imageUrl": "/category/cumbia.jpg",
+    "imageUrl": "cumbia",
     "introSubline": "Rör dig till cumbias smittande rytmer, en genre som förenar Latinamerika med sina glädjefyllda beats.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0Di8ef8PTSHMhvdZbolOrL",
     "deezerPlaylist": "https://link.deezer.com/s/30xn802fHrESW217n2CP7",
@@ -550,7 +550,7 @@
   },
   {
     "headline": "Cyber Metal: Där digital innovation möter metals råa kraft",
-    "imageUrl": "/category/cyber-metal.jpg",
+    "imageUrl": "cyber-metal",
     "introSubline": "Gå in i en ljudvärld där industriell precision möter metallisk raseri. Upplev hur artister blandar banbrytande elektroniska element med traditionell metal-intensitet för att skapa en unikt futuristisk form av tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/65Zqa3rGN55eC5f9REKiIK",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8g7z8IBohZcPHvrFs",
@@ -559,7 +559,7 @@
   },
   {
     "headline": "Tjeckiska melodier: Från böhmiska folktraditioner till samtida innovation",
-    "imageUrl": "/category/czech.jpg",
+    "imageUrl": "czech",
     "introSubline": "Res genom århundraden av tjeckisk musikutveckling, från traditionella folkmelodier till moderna konstnärliga uttryck. Upplev hur uråldriga böhmiska rytmer och harmonier fortsätter att påverka och inspirera dagens kreativa röster.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6hbfyh7YZbUsqFZwv9yb9h",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8ygAtTTgRA3wx4hsc",
@@ -568,7 +568,7 @@
   },
   {
     "headline": "Dancehall-vibbar: Jamaicas urbana puls och kulturell revolution",
-    "imageUrl": "/category/dancehall.jpg",
+    "imageUrl": "dancehall",
     "introSubline": "Dyka ner i dancehalls dynamiska värld där Kingstons gatukultur möter smittande rytmer. Från grundläggande deejays till moderna stjärnor upplever du hur denna genre revolutionerade karibisk musik och påverkade global popkultur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2yxV3b2iEqG0YHKzWJCWC0",
     "deezerPlaylist": "https://link.deezer.com/s/30xn8YNgHXGH8OQLiJQGe",
@@ -577,7 +577,7 @@
   },
   {
     "headline": "Danska njutningar: Skandinavisk popprover möter nordisk rockinnovation",
-    "imageUrl": "/category/danish.jpg",
+    "imageUrl": "danish",
     "introSubline": "Upplev Danmarks unika musikaliska identitet, där omsorgsfull popproduktion möter alternativ rocks kant. Från Köpenhamns underground-scen till internationella hits upptäcker du hur danska artister skapar sitt distinkta nordiska ljud.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/78uUwN6op6fn7SlxOXGhcg",
     "deezerPlaylist": "https://link.deezer.com/s/30xncrcl4nTweqAA941UP",
@@ -586,7 +586,7 @@
   },
   {
     "headline": "Dark Metal: Där atmosfäriskt mörker möter primitiv intensitet",
-    "imageUrl": "/category/dark-metal.jpg",
+    "imageUrl": "dark-metal",
     "introSubline": "Res in i metals mest skuggiga rike, där hemsökande atmosfärer smälter samman med krossande tyngd. Upplev hur dark metal-artister skapar intensiva ljudlandskap som utforskar djupen av mänsklig känsla genom kraftfull musikaliskt mörker.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4kLxAZTwwRQZywq46DoKXx",
     "deezerPlaylist": "https://link.deezer.com/s/30xncJoXSiYV1EG6uw2WB",
@@ -595,7 +595,7 @@
   },
   {
     "headline": "Dejtkväll: Din perfekta soundtrack för romantiska ögonblick",
-    "imageUrl": "/category/date-night.jpg",
+    "imageUrl": "date-night",
     "introSubline": "Skapa en förtrollande atmosfär med noggrant utvalda romantiska spår som förbättrar varje speciellt ögonblick. Från intima middagar till mysiga kvällar låt dessa låtar ge den perfekta bakgrunden för kontakt och romantik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/17qLsk8c4KXYmCvW7ADlCz",
     "deezerPlaylist": "https://link.deezer.com/s/30xncXTrcoTFwg9M6Wh0O",
@@ -604,7 +604,7 @@
   },
   {
     "headline": "Death Metal: Musikens extrema uttrycks ultimata form",
-    "imageUrl": "/category/death-metal.jpg",
+    "imageUrl": "death-metal",
     "introSubline": "Dyka ner i metals mest kompromisslösa rike, där teknisk precision möter rå aggression. Upplev hur banbrytande artister pressade musikaliska gränser för att skapa en genre som omdefinierade gränserna för tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7yyTs4WubcRhvYcyM1rWQo",
     "deezerPlaylist": "https://link.deezer.com/s/30xndlMEgZip91uS4xkg3",
@@ -613,7 +613,7 @@
   },
   {
     "headline": "Deep House: Resa genom elektronisk musiks mest sofistikerade genre",
-    "imageUrl": "/category/deep-house.jpg",
+    "imageUrl": "deep-house",
     "introSubline": "Flyt bort på vågor av sofistikerade elektroniska ljudlandskap, där själsfulla melodier möter hypnotiska rytmer. Upplev hur deep house skapar en immersiv atmosfär som är både intellektuellt engagerande och oemotståndligt dansbar.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5ge5xOchRYWDJtYJ8memGJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xndGEj3bSAMNACP8cIs",
@@ -622,7 +622,7 @@
   },
   {
     "headline": "Desert Rock: Där tunga riff möter amerikanska sydvästens anda",
-    "imageUrl": "/category/desert-rock.jpg",
+    "imageUrl": "desert-rock",
     "introSubline": "Res in i desert rocks solbakade ljudlandskap, där fuzzy gitarrer och hypnotiska groover fångar de vidsträckta torra landskapen. Upplev hur denna genre förvandlar stoner rocks råhet till ett unikt ljuduttryck för ökenkultur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/48UEHKFT7ibAyQkjbPsbZz",
     "deezerPlaylist": "https://link.deezer.com/s/30xndZZjulU0HkuNStwsG",
@@ -631,7 +631,7 @@
   },
   {
     "headline": "Detroit Techno: Amerikas Motor Citys mekaniserade själ",
-    "imageUrl": "/category/detroit-techno.jpg",
+    "imageUrl": "detroit-techno",
     "introSubline": "Upplev det revolutionära ljudet som framträdde från Detroits industriella landskap. Från Belleville Three till moderna innovatörer upptäcker du hur denna genre förvandlade elektronisk musik genom att smälta samman mekanisk precision med själsfull mänsklighet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0BOek8nkdJePER61FHiFuX",
     "deezerPlaylist": "https://link.deezer.com/s/30xneecrhgxMAFM6G1L49",
@@ -640,7 +640,7 @@
   },
   {
     "headline": "Deutschrock: Tysk rocks råa kraft och poetiska själ",
-    "imageUrl": "/category/deutschrock.jpg",
+    "imageUrl": "deutschrock",
     "introSubline": "Upplev Tysklands distinkta rockutveckling, där kraftfulla riff möter genomtänkta texter på modersmålet. Från underground-uppror till arenahymner upptäcker du hur Deutschrock skapade sin egen unika röst i rockhistorien.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1bhuZ8aTGSZs6E2bsqyMpb",
     "deezerPlaylist": "https://link.deezer.com/s/30xnezAmfIyGxsbX5RXK5",
@@ -649,7 +649,7 @@
   },
   {
     "headline": "Middagsfest: Kuraterade ljud för sofistikerade sociala sammankomster",
-    "imageUrl": "/category/dinner-party.jpg",
+    "imageUrl": "dinner-party",
     "introSubline": "Förvandla din middagsfest till en elegant soirée med perfekt utvalda spår som förbättrar konversationen utan att överrösta den. Från jazzens sofistikering till modern atmosfär skapar du den perfekta bakgrunden för minnesvärda middagsupplevelser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MXL5jkBocvGOcs8Ykel3A",
     "deezerPlaylist": "https://link.deezer.com/s/30xniMYeoV2EWvyw559NT",
@@ -658,7 +658,7 @@
   },
   {
     "headline": "Discofeber: Dansmusikens guldålders glitterande arv",
-    "imageUrl": "/category/disco-fever.jpg",
+    "imageUrl": "disco-fever",
     "introSubline": "Kliv in i en era av spegelkulor och plattformsskor, där dansmusik nådde nya höjder av glamour och groove. Upplev hur discokulturen förvandlade nattlivet och skapade tidlösa hymner som fortfarande tänder dansgolv idag.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3dvVawXWiSUO2XIKQ2CN51",
     "deezerPlaylist": "https://link.deezer.com/s/30xnj4cw13wE5ujrizZIw",
@@ -667,7 +667,7 @@
   },
   {
     "headline": "Doom Metal: Där tiden saktar och riff härskar överst",
-    "imageUrl": "/category/doom-metal.jpg",
+    "imageUrl": "doom-metal",
     "introSubline": "Stig ner i metals mest monolitiska rike, där krossande riff rör sig som glaciärer och känslor flyter djupa som kanjoner. Från Sabbath-dyrkan till modern innovation upplever du hur doom metal förvandlar tyngd till hög konst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3vh5TYe4kSx5CvDT2Hy7Ei",
     "deezerPlaylist": "https://link.deezer.com/s/30xnjxSsmvS9hmF0chDu7",
@@ -676,7 +676,7 @@
   },
   {
     "headline": "Downtempo: Avslappnade groover för avkoppling",
-    "imageUrl": "/category/downtempo.jpg",
+    "imageUrl": "downtempo",
     "introSubline": "Slappna av med downtempo-spår som blandar elektroniska ljud med chilla atmosfärer för den perfekta bakgrundsviben.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1Vb4Gy3vBTiXTjJXoNGiyx",
     "deezerPlaylist": "https://link.deezer.com/s/30xnk5cE1L62RqzHXNFti",
@@ -685,7 +685,7 @@
   },
   {
     "headline": "Dramatiska partitur: Episka musikaliska berättelser som förflyttar och förvandlar",
-    "imageUrl": "/category/dramatic.jpg",
+    "imageUrl": "dramatic",
     "introSubline": "Res genom svällande orkestrala landskap som målar berättelser i ljud. Från hjärtbultande actionteman till ömma känslomoment skapar dessa dramatiska partitur levande världar och väcker djupa känslor.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2i3yAprKjaL3rqVAYpncd0",
     "deezerPlaylist": "https://link.deezer.com/s/30xnzrVoHawVe0BxFaubs",
@@ -694,7 +694,7 @@
   },
   {
     "headline": "Drömlika ljudlandskap: Resa genom eteriska musikaliska landskap",
-    "imageUrl": "/category/dreamy.jpg",
+    "imageUrl": "dreamy",
     "introSubline": "Flyt bort på moln av ambient-ljud skapat för att förflytta dig till fridfulla riken. Dessa noggrant kuraterade atmosfäriska stycken skapar den perfekta soundtracken för meditation, avslappning eller fridfull drömning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/15PdpwfohtGuNwRSkCW2zt",
     "deezerPlaylist": "https://link.deezer.com/s/30xnAeSrfGA8TJolNBgve",
@@ -703,7 +703,7 @@
   },
   {
     "headline": "Drum & Bass: Elektronisk musiks blixtsnabba utveckling",
-    "imageUrl": "/category/drum-and-bass.jpg",
+    "imageUrl": "drum-and-bass",
     "introSubline": "Upplev genren som förvandlade breakbeat-vetenskap till ljudkonst. Från junglens råa energi till liquids själsfulla flöde upptäcker du hur drum & bass pressar rytmens gränser och förvandlar dansmusikens DNA.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4zYM1OGrfifAjTJ7DcZNTL",
     "deezerPlaylist": "https://link.deezer.com/s/30xnABtUuw7FmQd27uM81",
@@ -712,7 +712,7 @@
   },
   {
     "headline": "Dubstep: Tunga drops och futuristiska baslinjer",
-    "imageUrl": "/category/dubstep.jpg",
+    "imageUrl": "dubstep",
     "introSubline": "Få energi av dubsteps signaturwobbles och drops, en genre som omdefinierade elektronisk dansmusik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4y5C0ZUw18vNLwB74DwKug",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14071209941",
@@ -721,7 +721,7 @@
   },
   {
     "headline": "Holländska njutningar: Där elektronisk innovation möter popperfektion",
-    "imageUrl": "/category/dutch.jpg",
+    "imageUrl": "dutch",
     "introSubline": "Res genom Nederländernas distinkta musikaliska landskap, där EDM-pionjärer möter listtoppande talang. Upplev hur holländska artister blandar teknisk precision med oemotståndliga hooks för att skapa globala danshymner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/51lhPhTRmWbmyLDsdw0wEm",
     "deezerPlaylist": "https://link.deezer.com/s/30xod7DaUFSmC7lZ30Plk",
@@ -730,7 +730,7 @@
   },
   {
     "headline": "Energiska hymner: Din ultimata motivationssoundtrack",
-    "imageUrl": "/category/energetic.jpg",
+    "imageUrl": "energetic",
     "introSubline": "Förvandla varje ögonblick till en möjlighet för triumf med dessa noggrant utvalda kraftspår. Från träningsintensifierare till självförtroendeboosters ger dessa låtar den perfekta ljudbränslet för att energisera din dag och tända din inre eld.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2kzteEmMVydWhpKXpE0NwA",
     "deezerPlaylist": "https://link.deezer.com/s/30xodrzw68uslito6XkVW",
@@ -739,7 +739,7 @@
   },
   {
     "headline": "Eurodance: Ljudet som förenade Europas dansgolv",
-    "imageUrl": "/category/eurodance.jpg",
+    "imageUrl": "eurodance",
     "introSubline": "Res tillbaka till kontinental klubbkulturs guldålder, när synthesizers och vokalharmonier skapade ren eufori. Upplev hur Eurodance smälte samman hi-NRG-beats med pop-hooks för att skapa en ostoppbar våg av dansmusik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4pHIQ9gXOn2VayV4tsfHzd",
     "deezerPlaylist": "https://link.deezer.com/s/30xodEcLPkDA49E8QTUXE",
@@ -748,7 +748,7 @@
   },
   {
     "headline": "Experimentell Metal: Där musikaliska konventioner krossas och återuppbyggs",
-    "imageUrl": "/category/experimental-metal.jpg",
+    "imageUrl": "experimental-metal",
     "introSubline": "Våga dig in i metals mest äventyrliga territorium, där fruktlösa artister skriver om reglerna för tung musik. Upplev hur innovativa tekniker och okonventionella strukturer skapar djärva nya ljudlandskap som utmanar och utvidgar metals möjligheter.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3wvp9nAuQJBgkDX1ZpM3YG",
     "deezerPlaylist": "https://link.deezer.com/s/30xoe5D1jetIYlpx4B5Q0",
@@ -757,7 +757,7 @@
   },
   {
     "headline": "Experimentell: Pressar ljudets gränser",
-    "imageUrl": "/category/experimental.jpg",
+    "imageUrl": "experimental",
     "introSubline": "Utforska musik som trotsar konventioner, där artister experimenterar med nya former, texturer och idéer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3WbaKfdb2dDOG4VPbu1D1S",
     "deezerPlaylist": "https://link.deezer.com/s/30xoine2tP3SUaVITZB4D",
@@ -766,7 +766,7 @@
   },
   {
     "headline": "Kvinnliga blueslegender: De kraftfulla rösterna som formade amerikansk musik",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Hedra de banbrytande kvinnorna som gav blues dess själ, från Ma Raineys råa kraft till Billie Holidays känslodjup. Upplev hur dessa legendariska artister förvandlade personliga kamp till tidlös konst som påverkade generationer av musiker.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0B1lCvZ39NNGfYurue3SVj",
     "deezerPlaylist": "https://www.deezer.com/de/playlist/14071303901",
@@ -775,7 +775,7 @@
   },
   {
     "headline": "Kvinnliga countrystjärnor: Nashvilles kraftfullaste berättare",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Res genom countrymusikens mest fängslande kvinnliga röster, från Patsy Clines känslomässiga ärlighet till dagens banbrytande artister. Upplev hur dessa kvinnor kombinerar autentisk berättarkonst med musikaliskt geni för att skapa bestående countryklassiker.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7pJnAa3cTUaKb8LgudSekp",
     "deezerPlaylist": "https://link.deezer.com/s/30xolMe3YtTBWnc0FQFDZ",
@@ -784,7 +784,7 @@
   },
   {
     "headline": "Kvinnliga DJs: De revolutionära kvinnorna som omformar elektronisk musik",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Upplev kvinnornas innovativa kraft som förvandlar elektronisk musik från underground-klubbar till festivalens huvudscener. Från techno-pionjärer till samtida smaksättare upptäcker du hur kvinnliga DJs blandar teknisk mästerskap med kreativ vision.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6G0z7MeFF9le1mHhAylvIu",
     "deezerPlaylist": "https://link.deezer.com/s/30xom0b0AbVFqvPmKYyIN",
@@ -793,7 +793,7 @@
   },
   {
     "headline": "Kvinnliga grungeartister: Kvinnornas råa kraft i 90-talets alternativ",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Dyka ner i de vilda kvinnornas värld som hjälpte att definiera grunges ljud och attityd. Från Holes viscerala intensitet till L7:s kompromisslösa kant upplever du hur kvinnliga artister förde unika perspektiv och kraftfulla röster till alternativ rocks revolution.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4U5LB1XOwvS1sG3F8c8z8Y",
     "deezerPlaylist": "https://link.deezer.com/s/30xoml3lyya1YCjrGHsIU",
@@ -802,7 +802,7 @@
   },
   {
     "headline": "Kvinnliga hip-hopartister: Revolutionärer som omformar raps landskap",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Res genom hip-hops kraftfullaste kvinnliga röster, från banbrytande MCs till dagens listdominerande artister. Upplev hur dessa djärva innovatörer kombinerar rakknivsskarp ordlek med genrepressande produktion för att skapa sin egen unika bana i raphistorien.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5uQxagiQxkL0yY48y9tsxd",
     "deezerPlaylist": "https://link.deezer.com/s/30xomCVcQGXOJD6tGQHdS",
@@ -811,7 +811,7 @@
   },
   {
     "headline": "Kvinnliga jazzsångare: De förtrollande rösterna som definierade en era",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Upplev jazzens mest fängslande rösters tidlösa konst, från Ella Fitzgeralds virtuosa scatting till Sarah Vaughans sammetsmjuktoner. Upptäck hur dessa legendariska artister förvandlade American Songbook genom oöverträffad vokalmästerskap.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6qXhNB2hp262T8JkJDfr3a",
     "deezerPlaylist": "https://link.deezer.com/s/30xonk04ewq4y75XSQCb6",
@@ -820,7 +820,7 @@
   },
   {
     "headline": "Kvinnliga popsuperstjärnor: Rösterna som definierar generationer",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Dyka ner i popmusikens mest inflytelserika kvinnliga röster, där kraftfulla framträdanden möter kulturella fenomen. Från Madonnas omuppfinningar till Beyoncés speländrande konstnärskap upplever du hur dessa ikoner formar inte bara musik utan också populärkulturen själv.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OTG3TxHPRdIi0MeBVQUk8",
     "deezerPlaylist": "https://link.deezer.com/s/30xonRnzqJODqhk6EkgWv",
@@ -829,7 +829,7 @@
   },
   {
     "headline": "Kvinnliga R&B-divas: Souls kraftfullaste röster och deras bestående arv",
-    "imageUrl": "/category/female-r&b-divas.jpg",
+    "imageUrl": "female-r&b-divas",
     "introSubline": "Upplev de magnifika rösterna som formade R&B:s känslomässiga landskap, från Whitney Houstons svävande kraft till Mary J. Bliges råa ärlighet. Upptäck hur dessa extraordinära artister kombinerar teknisk briljans med djup själ för att skapa tidlös musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7bFTsjuZPbCMupw8n9aTs0",
     "deezerPlaylist": "https://link.deezer.com/s/30xoq8sEJFZWqQaKAbK3r",
@@ -838,7 +838,7 @@
   },
   {
     "headline": "Kvinnliga rappare: Bryter barriärer och omdefinierar hip-hops framtid",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Res genom hip-hops revolutionära kvinnliga röster, från Queen Latifahs banbrytande flow till Nicki Minajs genreförbrytande innovation. Upplev hur dessa fruktlösa artister kombinerar lyrisk skicklighet med magnetisk karisma för att förvandla raps landskap.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4MPwwjf3lUpKaByZGGZqAM",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqzIRBYiHYHV91wXwk",
@@ -847,7 +847,7 @@
   },
   {
     "headline": "Kvinnliga rock- och metalsångare: De kraftfulla rösterna som omdefinierar tung musik",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Res genom utvecklingen av kvinnofrontad rock och metal, från Hearts passionerade kraft till Nightwishs operatiska storhet. Upplev hur dessa extraordinära sångare kombinerar teknisk mästerskap med rå känsla för att pressa musikaliska gränser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5gTccByda9bdZN9LHJaV4N",
     "deezerPlaylist": "https://link.deezer.com/s/30xoqRk3sYUw5SaGI2Fxm",
@@ -856,7 +856,7 @@
   },
   {
     "headline": "Kvinnliga soullegender: Rösterna som definierade modern musiks känslomässiga kärna",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Upplev souls största kvinnliga rösters transcendent konst, från Aretha Franklins gospelkraftade auktoritet till Diana Ross eleganta mångsidighet. Upptäck hur dessa legendariska artister formade ljudet av populärmusik genom oöverträffad känslomässig uttryck.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6fao1R0YMUKcnlfDo48tuK",
     "deezerPlaylist": "https://link.deezer.com/s/30xor6gTwWBcBphStoNyI",
@@ -865,7 +865,7 @@
   },
   {
     "headline": "Kvinnliga vokalikoner: De mest inflytelserika rösterna i musikhistorien",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Res genom de mest anmärkningsvärda rösterna som förändrade musiken för alltid, från Édith Piafs passionerade intensitet till Céline Dions fantastiska kraft. Upplev hur dessa legendariska artister omdefinierade vad som är möjligt med den mänskliga rösten.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6ClyY4xbhg17BvxvETMY5k",
     "deezerPlaylist": "https://link.deezer.com/s/30xp4Mo1bvPl3Vej7hSU9",
@@ -874,7 +874,7 @@
   },
   {
     "headline": "Festivalsäsong: Din ultimata guide till sommarens största musikaliska firanden",
-    "imageUrl": "/category/festival-season.jpg",
+    "imageUrl": "festival-season",
     "introSubline": "Fånga den elektriska atmosfären på världens största musikfestivaler, från Glastonburys leriga fält till Coachellas ökenvibbar. Dessa hymniska spår förkroppsligar den gemensamma andan och euforiska energin som gör festivalsäsongen magisk.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OmOcSWDXKzhBujV4Wr0y3",
     "deezerPlaylist": "https://link.deezer.com/s/30xp540bJ7I3wdbd7PoRB",
@@ -883,7 +883,7 @@
   },
   {
     "headline": "Finska melodier: Där arktisk mystik möter samtida innovation",
-    "imageUrl": "/category/finnish.jpg",
+    "imageUrl": "finnish",
     "introSubline": "Res genom Finlands förtrollande musikaliska landskap, från uråldrig Kalevala-inspirerad folk till moderna elektroniska pionjärer. Upplev hur finska artister blandar mystiska traditioner med banbrytande kreativitet för att skapa unikt nordiska ljud.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7KY8Hb1H55zZGezrxoGo6v",
     "deezerPlaylist": "https://link.deezer.com/s/30xp5mJ4VOf47qOE3Vb4x",
@@ -892,7 +892,7 @@
   },
   {
     "headline": "Fokus & koncentration: Din ultimata produktivitetsoundtrack",
-    "imageUrl": "/category/focus-&-concentration.jpg",
+    "imageUrl": "focus-&-concentration",
     "introSubline": "Optimerar din mentala prestation med noggrant utvalda spår som förbättrar koncentrationen utan distraktion. Från ambient-ljudlandskap till minimala pianostycken hittar du din perfekta fokusflöde för studietimmar och djupt arbete.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/40Lkg8ZtakbXt83Xs9CTsM",
     "deezerPlaylist": "https://link.deezer.com/s/30xp5EQPbTkE7ODkf95Ty",
@@ -901,7 +901,7 @@
   },
   {
     "headline": "Folk Metal: Där uråldriga traditioner möter modern metals makt",
-    "imageUrl": "/category/folk-metal.jpg",
+    "imageUrl": "folk-metal",
     "introSubline": "Res genom metals mest unika fusion, där traditionella instrument och uråldriga melodier kolliderar med krossande riff. Upplev hur band från hela världen blandar sitt kulturella arv med heavy metals kraft för att skapa episkt musikaliskt berättande.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4Cb7fACOotyo3kXfqZ19aL",
     "deezerPlaylist": "https://link.deezer.com/s/30xpbaU77eag4t9pBetsR",
@@ -910,7 +910,7 @@
   },
   {
     "headline": "Folkfavoriter: Den tidlösa rösten för traditionell berättarkonst",
-    "imageUrl": "/category/folk.jpg",
+    "imageUrl": "folk",
     "introSubline": "Upplev folkets autentiska själ, från Woody Guthries arbetarklasshymner till Joan Baez kristallklara protestsånger. Res genom decennier av mästarfull berättarkonst som fångar den mänskliga upplevelsen i sin renaste musikaliska form.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4j8iacXWVSLcT85sQUBQad",
     "deezerPlaylist": "https://link.deezer.com/s/30xpaO9bCb4NzxjqigycN",
@@ -919,7 +919,7 @@
   },
   {
     "headline": "Forró: Brasiliens nordöstra passionerade puls",
-    "imageUrl": "/category/forró.jpg",
+    "imageUrl": "forró",
     "introSubline": "Dyka ner i Brasiliens mest älskade dansmusik, där dragspelsmelodier och smittande rytmer skapar ren glädje. Upplev hur forró utvecklades från landsbygdsfester till att bli en nationalskatt som håller miljoner dansande hela natten.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1lIwMwXDqqxQp6C6uo3F31",
     "deezerPlaylist": "https://link.deezer.com/s/30xpboyJgl5xCXxctcfLz",
@@ -928,7 +928,7 @@
   },
   {
     "headline": "Franska melodier: Från chansons poesi till modern innovation",
-    "imageUrl": "/category/french.jpg",
+    "imageUrl": "french",
     "introSubline": "Res genom Frankrikes sofistikerade musikaliska landskap, från Édith Piafs tidlösa känsla till samtida elektroniska pionjärer. Upplev hur franska artister blandar poetisk tradition med avant-garde-kreativitet för att skapa unikt eleganta uttryck.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7vWunbCSOI7hLDJmfl5C3p",
     "deezerPlaylist": "https://link.deezer.com/s/30xpbFaBBA9FAD3F5v4jm",
@@ -937,7 +937,7 @@
   },
   {
     "headline": "Funeral Doom Metal: Där tiden sträcker sig in i oändligt mörker",
-    "imageUrl": "/category/funeral-doom-metal.jpg",
+    "imageUrl": "funeral-doom-metal",
     "introSubline": "Stig ner i metals mest tungfödda djup, där glaciära riff och grottliknande atmosfärer skapar överväldigande känslomässig tyngd. Upplev hur denna genre förvandlar sorg och kontemplation till monumentalt ljudarkitektur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/31CHA2qjP90IXcLUbUg6ce",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcf6vZ8CVwPTZQsH2q",
@@ -946,7 +946,7 @@
   },
   {
     "headline": "Funk Grooves: Den ostoppbara kraften som revolutionerade dansmusik",
-    "imageUrl": "/category/funk.jpg",
+    "imageUrl": "funk",
     "introSubline": "Dyka ner i genren som fick världen att röra sig annorlunda, från James Browns explosiva innovation till Parliaments kosmiska vision. Upplev hur funks revolutionära rytmer och djärva attityd förvandlade populärmusik för alltid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2MCxX9WbghzMzwl7MhjgOi",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcsZWFrfE57IpmICPX",
@@ -955,7 +955,7 @@
   },
   {
     "headline": "Future Bass: Melodiska drops och frodiga synths",
-    "imageUrl": "/category/future-bass.jpg",
+    "imageUrl": "future-bass",
     "introSubline": "Dyka ner i future bass-världen, där livfulla synths och smittande melodier skapar upplyftande elektroniska hymner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4eOe4pPoE9AHg6hmU8MzYF",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcGNerScswaXIzV4YU",
@@ -964,7 +964,7 @@
   },
   {
     "headline": "Spelsession: Din ultimata soundtrack för virtuella äventyr",
-    "imageUrl": "/category/gaming-session.jpg",
+    "imageUrl": "gaming-session",
     "introSubline": "Levla upp din spelupplevelse med noggrant kuraterade spår som förbättrar varje ögonblick. Från episka boss-stridar till atmosfärisk utforskning förstärker dessa stycken den känslomässiga påverkan av dina virtuella resor.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/41D1xrilBOk8H4o3S0LAMK",
     "deezerPlaylist": "https://link.deezer.com/s/30xpcYs82VqiERfQ9qLbG",
@@ -973,7 +973,7 @@
   },
   {
     "headline": "Garage Rock: Den råa andan i rocks mest autentiska revolution",
-    "imageUrl": "/category/garage.jpg",
+    "imageUrl": "garage",
     "introSubline": "Res tillbaka till villaförortsgarage där tonåringar beväpnade med fuzzy-gitarrer tände en musikrevolution. Från The Sonics primitiva energi till The White Stripes moderna återupplivning upplev hur DIY-anda och rå passion skapade rocks mest viscerala rörelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0VlTb0z56ti1huWjLVizq7",
     "deezerPlaylist": "https://link.deezer.com/s/30xphzpel1hyP1hitcOV2",
@@ -982,7 +982,7 @@
   },
   {
     "headline": "Tysk Rap: Från underground-rörelse till kulturellt fenomen",
-    "imageUrl": "/category/german-rap.jpg",
+    "imageUrl": "german-rap",
     "introSubline": "Res genom tysk hip-hops utveckling, från dess råa början till dess nuvarande kulturella dominans. Upplev hur artister blandar skarp ordlek med innovativ produktion för att skapa en unikt tysk tolkning av rap-musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3yjO2aMoJ6VqB103MXovYF",
     "deezerPlaylist": "https://link.deezer.com/s/30xpidMej4gway7u2iRw4",
@@ -991,7 +991,7 @@
   },
   {
     "headline": "Tysk Schlager: Hjärtat i Tysklands feelgood-musikkultur",
-    "imageUrl": "/category/german-schlager.jpg",
+    "imageUrl": "german-schlager",
     "introSubline": "Fördjupa dig i Tysklands mest älskade musiktradition, där smittande melodier möter hjärtlig berättarkonst. Från vintage-klassiker till moderna hits upplev hur Schlager fortsätter att bringa glädje till miljoner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3cobkZQnDtKau02phMvPT1",
     "deezerPlaylist": "https://link.deezer.com/s/30xpiucjktB341IGyl5Rl",
@@ -1000,7 +1000,7 @@
   },
   {
     "headline": "Tyska melodier: Från Krautrocks innovation till modern popprover",
-    "imageUrl": "/category/german.jpg",
+    "imageUrl": "german",
     "introSubline": "Res genom Tysklands rika musikaliska landskap, från experimentella Krautrock-pionjärer till samtida listtoppare. Upplev hur tyska artister blandar precision och passion för att skapa fängslande ljud som resonerar världen över.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3PwKqOo9jTOHwJSTAsOW32",
     "deezerPlaylist": "https://link.deezer.com/s/30xphRClkH7DflltmBNMN",
@@ -1009,7 +1009,7 @@
   },
   {
     "headline": "Gospel: Där helig ande möter musikalisk transcendens",
-    "imageUrl": "/category/gospel.jpg",
+    "imageUrl": "gospel",
     "introSubline": "Upplev gospelmusikens förvandlande kraft, från Mahalia Jacksons själrörande röst till moderna körinnovationer. Känn hur denna genre lyfter andar och rör hjärtan genom sin perfekta blandning av andlig djup och musikalisk excellens.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/785Bq7kLE2w4leydZKOgH3",
     "deezerPlaylist": "https://link.deezer.com/s/30xpiZ9j0LHMsrgl8vA6Z",
@@ -1018,7 +1018,7 @@
   },
   {
     "headline": "Gothic Metal: Där mörk romantik möter symfonisk kraft",
-    "imageUrl": "/category/gothic-metal.jpg",
+    "imageUrl": "gothic-metal",
     "introSubline": "Res in i metals mest teatraliska rike, där orkestral storhet möter mörk passion. Från Type O Negatives grubblande mästerskap till Nightwishs operatiska briljans upplev hur gothic metal förvandlar melankoli till majestätisk konst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7siFYMf4AhOFwNx7TxKa4e",
     "deezerPlaylist": "https://link.deezer.com/s/30xpkJzwUD4sZnrol3Apv",
@@ -1027,7 +1027,7 @@
   },
   {
     "headline": "Gothic: Post-punks mest bestående rörelses mörka elegans",
-    "imageUrl": "/category/gothic.jpg",
+    "imageUrl": "gothic",
     "introSubline": "Stig in i skuggorna där skönhet möter mörker. Från Bauhaus banbrytande vision till modern darkwave-innovation upptäck hur gothic-musik skapar hemsökande atmosfärer som fångar natten romantiska anda.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/54H7CjlCR2SEuhSQuzKVtv",
     "deezerPlaylist": "https://link.deezer.com/s/30xpjXX9nVEzOK0HWzOWQ",
@@ -1036,7 +1036,7 @@
   },
   {
     "headline": "Grindcore: Metals extrema kant i ljudets revolution",
-    "imageUrl": "/category/grindcore.jpg",
+    "imageUrl": "grindcore",
     "introSubline": "Dyka ner i metals mest intensiva gränsland, där hastighet möter rå aggression. Från Napalm Deaths banbrytande raseri till modern extremitet upplev hur grindcore pressar gränserna för vad som är möjligt i tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3mHg5M8yUwAlRs0uvDvrVZ",
     "deezerPlaylist": "https://link.deezer.com/s/30xpl4UVdSVjp5Ow5L4x8",
@@ -1045,7 +1045,7 @@
   },
   {
     "headline": "Groove Metal: Där tunga riff möter oemotståndliga rytmer",
-    "imageUrl": "/category/groove-metal.jpg",
+    "imageUrl": "groove-metal",
     "introSubline": "Upplev genren som fick metal att röra sig annorlunda, från Panteras revolutionära svass till Machine Heads krossande precision. Upptäck hur groove metal kombinerar krossande tyngd med smittande rytmer som kommenderar kroppar i rörelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MnijGQ8PPUl64RjKZBY0j",
     "deezerPlaylist": "https://link.deezer.com/s/30xpPn0t6oNfOWWaRGzPX",
@@ -1054,7 +1054,7 @@
   },
   {
     "headline": "Groove: Modern dansmusiks oemotståndliga puls",
-    "imageUrl": "/category/groove.jpg",
+    "imageUrl": "groove",
     "introSubline": "Dyka ner i grooves smittande värld, där precisa rytmer möter själsfullt uttryck. Från funks guldålder till samtida klubbbeats upplev hur den perfekta grooven skapar en ostoppbar lust att röra sig.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/21nF5x3t6PpLOBiVmZCsTx",
     "deezerPlaylist": "https://link.deezer.com/s/30xpP8DZmI4lm6CUT6hRj",
@@ -1063,7 +1063,7 @@
   },
   {
     "headline": "Grunge: När Seattles underground blev en global revolution",
-    "imageUrl": "/category/grunge.jpg",
+    "imageUrl": "grunge",
     "introSubline": "Res till de regniga gatorna där flanellklädda revolutionärer skapade ett nytt rockparadigm. Från Nirvanas explosiva ångest till Pearl Jams introspektiva kraft upplev hur grunge fångade Generation X:s anda och förändrade musiken för alltid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/18Uaj4qO6Qw2KF9Z7AgaHS",
     "deezerPlaylist": "https://link.deezer.com/s/30xpPHQt7UbTxESQWapyG",
@@ -1072,7 +1072,7 @@
   },
   {
     "headline": "Gitarrhjältar: Virtuoserna som omdefinierade vad som är möjligt på sex strängar",
-    "imageUrl": "/category/guitar.jpg",
+    "imageUrl": "guitar",
     "introSubline": "Upplev de sinnesböjande mästerskapen av historiens största gitarrister, från Hendrix revolutionära eld till Van Halens tekniska briljans. Upptäck hur dessa legendariska spelare pressade gränserna för sitt instrument och inspirerade generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4H3AxtCWqQgf4qGEL77u2s",
     "deezerPlaylist": "https://link.deezer.com/s/30xpQHGyDFplW5Y9pcSJb",
@@ -1081,7 +1081,7 @@
   },
   {
     "headline": "Hair Metal: När rock omfamnade glamour och överflöd på 1980-talet",
-    "imageUrl": "/category/hair-metal.jpg",
+    "imageUrl": "hair-metal",
     "introSubline": "Stig in i den spektakulära världen där stora riff mötte ännu större hår. Från Mötley Crües vilda attityd till Bon Jovis arena-stora hooks upplev hur hair metal kombinerade teatraliskt överflöd med äkta musikalisk hantverk för att definiera en era.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0Q6E1aPOdo01IKjc7WqrKj",
     "deezerPlaylist": "https://link.deezer.com/s/30xpS0AuQQzbYQ4jYZn0V",
@@ -1090,7 +1090,7 @@
   },
   {
     "headline": "Halloween Spökiga låtar: Din ultimata soundtrack för hemsökta firanden",
-    "imageUrl": "/category/halloween-spooky-tunes.jpg",
+    "imageUrl": "halloween-spooky-tunes",
     "introSubline": "Förvandla vilket utrymme som helst till en förtjusande spöklik sfär med dessa noggrant utvalda Halloween-klassiker. Från monster-mash-hymner till ryggradskrypande instrumentaler skapar dessa spår den perfekta balansen mellan kuslig atmosfär och festligt nöje.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5FiK0ew1TjggEpqmKjB2ei",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSixqrmvzpN0Zq8FXh",
@@ -1099,7 +1099,7 @@
   },
   {
     "headline": "Glada vibbar: Din soundtrack för ren glädje och positiv energi",
-    "imageUrl": "/category/happy.jpg",
+    "imageUrl": "happy",
     "introSubline": "Fyll din värld med ren musikaliskt solsken genom dessa noggrant utvalda humörhöjande spår. Från smittande pop-hymner till feelgood-klassiker är dessa låtar garanterade att bringa leenden och positiv energi till varje ögonblick.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5UMZW1qpv7asuM01SJT23z",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSBAGHBgIDr1QiALfV",
@@ -1108,7 +1108,7 @@
   },
   {
     "headline": "Hard Rock-hymner: Power chords och rå energi som definierade en genre",
-    "imageUrl": "/category/hard-rock.jpg",
+    "imageUrl": "hard-rock",
     "introSubline": "Upplev hard rocks största stunders råa kraft och smittande energi. Från arena-skrällande klassiker till moderna kraftpaket visar dessa spår den perfekta blandningen av tunga riff och oförglömliga hooks.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/63XydkRj7fZpayJPB7HK8R",
     "deezerPlaylist": "https://link.deezer.com/s/30xpSVrRxJElvSfEr1zao",
@@ -1117,7 +1117,7 @@
   },
   {
     "headline": "Hardstyle: Där elektronisk musik möter rå kraft",
-    "imageUrl": "/category/hardstyle.jpg",
+    "imageUrl": "hardstyle",
     "introSubline": "Dyka ner i hardstyles högenergi-värld, där dundrande kicks möter upplyftande melodier. Upplev hur denna intensiva elektroniska genre skapar euforiska ögonblick genom sin unika blandning av kraft och känsla.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0rYICwtok0m9vcZ3GeyLCq",
     "deezerPlaylist": "https://link.deezer.com/s/30xq0vEyIOLO8fpwy3dOc",
@@ -1126,7 +1126,7 @@
   },
   {
     "headline": "Hawaiianska melodier: Paradiset hittat i traditionella och moderna öljud",
-    "imageUrl": "/category/hawaiian.jpg",
+    "imageUrl": "hawaiian",
     "introSubline": "Låt Hawaiis mjuka rytmer och varma melodier förflytta dig till tropiska stränder. Från traditionell slack-key-gitarr till modern öpop upplev den fridfulla skönheten i stillahavsmusikaliska traditioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3es0xOlJewTjMoru2YwAxA",
     "deezerPlaylist": "https://link.deezer.com/s/30xq0OHkRpIx16wdIBSgl",
@@ -1135,7 +1135,7 @@
   },
   {
     "headline": "Heavy Metal Thunder: Genren som förändrade rock för alltid",
-    "imageUrl": "/category/heavy-metal.jpg",
+    "imageUrl": "heavy-metal",
     "introSubline": "Upplev den råa kraften och tekniska mästerskapet som definierade heavy metals utveckling. Från tidiga pionjärer till moderna titaner visar dessa spår hur metal pressade gränserna för vad som är möjligt i tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5cSR9zgjs7z4qQAH2bDx7s",
     "deezerPlaylist": "https://link.deezer.com/s/30xq13SjcTQnlRQWezWki",
@@ -1144,7 +1144,7 @@
   },
   {
     "headline": "Heavy Psych: När rock utvidgade sinnen och pressade gränser",
-    "imageUrl": "/category/heavy-psych.jpg",
+    "imageUrl": "heavy-psych",
     "introSubline": "Res in i det experimentella riket där tunga riff möter psykedelisk utforskning. Upplev hur artister kombinerar krossande kraft med sinnesutvidgande ljudäventyr för att skapa unikt trippy tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1UMWzBdirV95SVtBvvFXxH",
     "deezerPlaylist": "https://link.deezer.com/s/30xq1mAO2rbAJHV5cs9HW",
@@ -1153,7 +1153,7 @@
   },
   {
     "headline": "Hip-Hop Evolution: Från block parties till global kulturell kraft",
-    "imageUrl": "/category/hip-hop.jpg",
+    "imageUrl": "hip-hop",
     "introSubline": "Spåra hip-hops otroliga resa från Bronx-början till världsomfattande fenomen. Upplev hur innovativa producenter och skickliga MCs skapade en revolutionär konstform som fortsätter att forma global kultur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0heQdhNkhpdK3zciPuspBF",
     "deezerPlaylist": "https://link.deezer.com/s/30xq1TIwhmzf2Wym1TvhT",
@@ -1162,7 +1162,7 @@
   },
   {
     "headline": "Helgmagin: Festliga ljud för varje firande",
-    "imageUrl": "/category/holiday.jpg",
+    "imageUrl": "holiday",
     "introSubline": "Skapa den perfekta atmosfären för vilken helgfirande som helst med dessa noggrant utvalda säsongsfavoriter. Från traditionella klassiker till moderna festliga hits fångar dessa spår glädjen och värme i speciella tillfällen.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/11JTx6nOpXkjC3cNounsp4",
     "deezerPlaylist": "https://link.deezer.com/s/30xq2EbrHl3EQAleXVPR6",
@@ -1171,7 +1171,7 @@
   },
   {
     "headline": "Hoppfulla horisonter: Musik för att inspirera och lyfta din själ",
-    "imageUrl": "/category/hopeful.jpg",
+    "imageUrl": "hopeful",
     "introSubline": "Fyll din värld med optimism genom dessa noggrant utvalda spår av hopp och inspiration. Från mjuka akustiska stycken till svävande hymner ger dessa låtar den perfekta soundtracken för nya början och ljusa morgondagar.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4xsenmnKLMkNFhJw0rCicV",
     "deezerPlaylist": "https://link.deezer.com/s/30xq4aUkDynsUQg092PL8",
@@ -1180,7 +1180,7 @@
   },
   {
     "headline": "Horror Metal: Där gothic-teatralitet möter metals mörker",
-    "imageUrl": "/category/horror-metal.jpg",
+    "imageUrl": "horror-metal",
     "introSubline": "Våga dig in i metals mest teatraliska mardröm, där skräckfilm möter tunga riff. Från King Diamonds ryggradskrypande berättelser till moderna horror metal-innovatörer upplev hur genren förvandlar rädsla till fascinerande musikalisk konst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/57MwyyeiNGygObQDbxNFOe",
     "deezerPlaylist": "https://link.deezer.com/s/30xq4yzd2zj2gGMO0CBwF",
@@ -1189,7 +1189,7 @@
   },
   {
     "headline": "House Music: Four-on-the-Floor-revolutionen som förenade global danskultur",
-    "imageUrl": "/category/house.jpg",
+    "imageUrl": "house",
     "introSubline": "Res genom house-musikens utveckling från Chicagos underground-klubbar till globalt fenomen. Från djupa, själsfulla vokaler till euforiska pianohymner upplev hur denna genrens smittande rytmer och upplyftande anda skapade ett universellt språk för dans.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4AnWV282ELJ8f4IRXbAAju",
     "deezerPlaylist": "https://link.deezer.com/s/30xq8DZJS2S51jCxw90wO",
@@ -1198,7 +1198,7 @@
   },
   {
     "headline": "Isländska melodier: Där vikingaarv möter eterisk innovation",
-    "imageUrl": "/category/icelandic.jpg",
+    "imageUrl": "icelandic",
     "introSubline": "Flyt genom eld och is-landets mystiska ljudlandskap. Från uråldriga vikingahymn till Björks avant-garde-visioner upptäck hur Islands övernaturliga landskap och rika mytologi inspirerar några av musikens mest innovativa och atmosfäriska skapelser.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3algpKoy2EhwYlUgwGTsh0",
     "deezerPlaylist": "https://link.deezer.com/s/30xq8TzntD0AzT3HYemFU",
@@ -1207,7 +1207,7 @@
   },
   {
     "headline": "Indiska melodier: Där heliga traditioner dansar med modern innovation",
-    "imageUrl": "/category/indian.jpg",
+    "imageUrl": "indian",
     "introSubline": "Res genom Indiens musikaliska universums själ, från mystiska vediska hymn till Bollywoods bländande spektakel. Upplev hur uråldriga ragas, andaktsfulla bhajans och samtida fusion skapar en transcendent ljudtapet som sträcker sig över millennier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3YxmVJTv0OBE5pnBMI7moN",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9alupoIFe5R5XC2P3",
@@ -1216,7 +1216,7 @@
   },
   {
     "headline": "Indie Folk: Modern berättarkonst med akustiska rötter",
-    "imageUrl": "/category/indie-folk.jpg",
+    "imageUrl": "indie-folk",
     "introSubline": "Njut av hjärtliga texter och organiska ljud i indie folk, en genre som överbryggar tradition och innovation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4K5UxtoQOfFQIkwasxzpBU",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9obZDr32ApGW3igXl",
@@ -1225,7 +1225,7 @@
   },
   {
     "headline": "Indie Pop: Där sovrumsdrömmar blir listtoppande verkligheter",
-    "imageUrl": "/category/indie-pop.jpg",
+    "imageUrl": "indie-pop",
     "introSubline": "Upptäck den magiska världen där DIY-autenticitet möter popperfektion. Från lo-fi sovrumsinspelningar till genombrottsfestivalhymner upplev hur oberoende artister skapar intima, ärliga låtar som fångar hjärtan världen över samtidigt som de behåller sin unika vision.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7hwfFvRnTlTRC5TAGJRacp",
     "deezerPlaylist": "https://link.deezer.com/s/30xq9PTcM911M0j90Lxas",
@@ -1234,7 +1234,7 @@
   },
   {
     "headline": "Indie Rock: Ljudet av musikalisk självständighet och kreativ frihet",
-    "imageUrl": "/category/indie.jpg",
+    "imageUrl": "indie",
     "introSubline": "Dyka ner i världen där konstnärlig vision trumfar kommersiella intressen. Från lo-fi-pärlor till genombrottshymner upplev hur oberoende artister skapar fängslande musik på sina egna villkor.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5zSgYiov7zyQsWaFpfSn8d",
     "deezerPlaylist": "https://link.deezer.com/s/30xqa7wxFEiK7kN1bAL7v",
@@ -1243,7 +1243,7 @@
   },
   {
     "headline": "Industrial Metal: Där maskin möter metal i perfekt dystopisk harmoni",
-    "imageUrl": "/category/industrial-metal.jpg",
+    "imageUrl": "industrial-metal",
     "introSubline": "Stig in i en ljudsfär där mekanisk precision kolliderar med metalliskt raseri. Från Ministrys aggressiva innovation till Rammsteins teatraliska kraft bevittna hur industrial metal förvandlar teknologisk alienation till viscerell konst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0n9jkqASZkyiQrRgWfGg6H",
     "deezerPlaylist": "https://link.deezer.com/s/30xqapmKkCqo6qJ2NoYqp",
@@ -1252,7 +1252,7 @@
   },
   {
     "headline": "Industrial: När fabriksrytmer tände en musikrevolution",
-    "imageUrl": "/category/intense.jpg",
+    "imageUrl": "intense",
     "introSubline": "Tänd din krigaranda med en explosiv samling högintensiva spår. Från jordskakande beats till adrenalinstimulerande crescendos skapar dessa noggrant utvalda hymner den ultimata soundtracken för att bryta barriärer och övervinna utmaningar.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2osFffetnJN6pCGw0ELQLB",
     "deezerPlaylist": "https://link.deezer.com/s/30xqaFIljmSOhUcFnpn1Q",
@@ -1261,7 +1261,7 @@
   },
   {
     "headline": "Iranska melodier: Från uråldrig persisk konst till modern innovation",
-    "imageUrl": "/category/iranian.jpg",
+    "imageUrl": "iranian",
     "introSubline": "Res genom millennier av persisk musiktradition, från klassisk dastgah till samtida fusion. Upplev hur iranska artister bevarar sitt rika arv samtidigt som de skapar djärva nya uttryck för den moderna världen.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6z7DRN2ZuavJIyOdRydkoU",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeaRImQC4u2KSgoln2",
@@ -1270,7 +1270,7 @@
   },
   {
     "headline": "Iriska melodier: Den smaragdgröna öns musikaliska resa genom tiden",
-    "imageUrl": "/category/irish.jpg",
+    "imageUrl": "irish",
     "introSubline": "Res genom Irlands förtrollade musikaliska landskap, från uråldriga keltiska ballader till modern folkrock-revolution. Upplev hur århundraden av berättarkonst, uppror och firande blandas till kraftfulla sånger som fångar den okuvliga irländska andan.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3RkS3Fm7QTlGKT2Ayh6g5F",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeDfe56zJiGNHtNQ6S",
@@ -1279,7 +1279,7 @@
   },
   {
     "headline": "J-Dance: När Tokyos gator tände en elektronisk revolution",
-    "imageUrl": "/category/j-dance.jpg",
+    "imageUrl": "j-dance",
     "introSubline": "Stig in i Japans elektriserande danskultur, där futuristisk produktion möter kawaii-energi. Från Para Paras synkroniserade spektakel till Shibuyas neonbelysta klubbhymner upplev hur japansk innovation skapade en unikt spännande dansrörelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7bL3cyFzcYbBxnYfupsJkA",
     "deezerPlaylist": "https://link.deezer.com/s/30xqeZQ7hFb4BUvvKyLPY",
@@ -1288,7 +1288,7 @@
   },
   {
     "headline": "J-Pop: Det bländande universumet av japansk popperfektion",
-    "imageUrl": "/category/j-pop.jpg",
+    "imageUrl": "j-pop",
     "introSubline": "Res in i Japans kaleidoskopiska pop-underland, där precision möter ren ljudglädje. Från arenafyllande idolgrupper till listtoppande soloartister upplev hur J-Pops magiska blandning av innovation och tradition fängslar miljoner världen över.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7qfOQGqN2y9Zkhye6pirBE",
     "deezerPlaylist": "https://link.deezer.com/s/30xqfdu2SvRubr91bGuWd",
@@ -1297,7 +1297,7 @@
   },
   {
     "headline": "J-Rock: Japans dynamiska fusion av östlig tradition och västerländsk kant",
-    "imageUrl": "/category/j-rock.jpg",
+    "imageUrl": "j-rock",
     "introSubline": "Res genom Japans explosiva rockscen, där traditionell estetik möter modern intensitet. Från Visual Keis teatraliska kraft till alternativa pionjärer upplev hur japanska artister skapar sin unika tolkning av rocks råa energi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7AAZ8eHpg66UR8ZUBtXOsW",
     "deezerPlaylist": "https://link.deezer.com/s/30xqfP2QF7p8jmIcRvn4m",
@@ -1306,7 +1306,7 @@
   },
   {
     "headline": "Jazz Fusion: Virtuositet och genreförbrytande innovation",
-    "imageUrl": "/category/jazz-fusion.jpg",
+    "imageUrl": "jazz-fusion",
     "introSubline": "Upplev jazz fusions tekniska briljans, där jazz möter rock, funk och världsmusik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1rXtme27uW3uwSk7kNt3gH",
     "deezerPlaylist": "https://link.deezer.com/s/30xqhumKx906gW9W1EYlL",
@@ -1315,7 +1315,7 @@
   },
   {
     "headline": "Jazz Metal: Där improvisation möter tung innovation",
-    "imageUrl": "/category/jazz-metal.jpg",
+    "imageUrl": "jazz-metal",
     "introSubline": "Upplev den banbrytande fusionen där jazz komplexitet möter metals kraft. Från teknisk virtuositet till atmosfärisk utforskning upptäck hur innovativa artister blandar dessa till synes motsatta genrer till något helt nytt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3sZP8vE08NQt3Q8HL4s0Pm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqgBuNheHuK2Rby9Cgg",
@@ -1324,7 +1324,7 @@
   },
   {
     "headline": "Jazz: Amerikas klassiska musik och dess globala utveckling",
-    "imageUrl": "/category/jazz.jpg",
+    "imageUrl": "jazz",
     "introSubline": "Res genom jazzens revolutionära historia, från New Orleans livfulla rötter till modern innovation. Upplev hur denna unikt amerikanska konstform kombinerar improvisation, virtuositet och oändlig kreativitet för att skapa tidlös musikmagin.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3JwxUOwU34kAXCuewyhRiG",
     "deezerPlaylist": "https://link.deezer.com/s/30xqg8t7i5BL8E0OdXau1",
@@ -1333,7 +1333,7 @@
   },
   {
     "headline": "K-Pop: Hur Sydkoreas poprevolution erövrade världen",
-    "imageUrl": "/category/k-pop.jpg",
+    "imageUrl": "k-pop",
     "introSubline": "Stig in i Koreas bländande popuniversum, där precision möter banbrytande innovation. Från BTS rekordkrossande framgång till BLACKPINKs globala dominans bevittna hur K-Pops perfekta blandning av talang, teknologi och vision revolutionerade modern underhållning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6PymlkH5bpxNpb1oYkgs0d",
     "deezerPlaylist": "https://link.deezer.com/s/30xqlJYWPb4n90wDV8iHZ",
@@ -1342,7 +1342,7 @@
   },
   {
     "headline": "Krautrock: Den experimentella revolutionen som omdefinierade musikaliska möjligheter",
-    "imageUrl": "/category/krautrock.jpg",
+    "imageUrl": "krautrock",
     "introSubline": "Utforska 1970-talets Tysklands radikala ljudlaboratorier, där fruktlösa musiker pressade musiken in i okänt territorium. Från Cans hypnotiska groover till Kraftwerks elektroniska profetior upplev hur Krautrocks gränslösa experimentering formade decennier av alternativ, elektronisk och avant-garde-musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2eYaccfsfhafaoo5meenGV",
     "deezerPlaylist": "https://link.deezer.com/s/30xqlXTEbBS5iSJ2msPK6",
@@ -1351,7 +1351,7 @@
   },
   {
     "headline": "Latinamerikanska rytmer: En livfulla resa genom århundraden av musikmagin",
-    "imageUrl": "/category/latin-american.jpg",
+    "imageUrl": "latin-american",
     "introSubline": "Fördjupa dig i Latinamerikas kaleidoskopiska musikuniversum, från mystiska andinska flöjter till moderna urbana beats. Upplev hur inhemsk visdom, afrikanska rytmer och europeiska melodier blandas till en ostoppbar kulturell kraft som rör hjärtan världen över.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0CoVTOelzqsqMPQpZLxw2R",
     "deezerPlaylist": "https://link.deezer.com/s/30xqmfvwzQtPGQ0wCtmmI",
@@ -1360,7 +1360,7 @@
   },
   {
     "headline": "Latin Vibes: Modern rytmrevolution från barrio till Billboard",
-    "imageUrl": "/category/latin-vibes.jpg",
+    "imageUrl": "latin-vibes",
     "introSubline": "Dyka ner i samtida latinmusiks pulserande värld, där reggaetons urbana svass möter tropical houses elektroniska sofistikering. Bevittna hur dagens innovativa artister förvandlar traditionella rytmer till listtoppande fenomen som tänder dansgolv världen över.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1TnPoppl7YNwO1X3ciulqy",
     "deezerPlaylist": "https://link.deezer.com/s/30xqmuGNbmsMGMoozU4U0",
@@ -1369,7 +1369,7 @@
   },
   {
     "headline": "Lata söndag: Din perfekta soundtrack för långsamma livsögonblick",
-    "imageUrl": "/category/lazy-sunday.jpg",
+    "imageUrl": "lazy-sunday",
     "introSubline": "Skapa din perfekta vilodag med noggrant utvalda spår som förbättrar varje fridfullt ögonblick. Från mjuka akustiska melodier till mjuka jazztexturer låt dessa låtar förvandla din söndag till en återställande tillflykt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/40ifRaHr1AZgaKrO0xt14n",
     "deezerPlaylist": "https://link.deezer.com/s/30xqnNBjmWwbEIVLrksPj",
@@ -1378,7 +1378,7 @@
   },
   {
     "headline": "Lo-Fi: Chilla beats för studier och avslappning",
-    "imageUrl": "/category/lo-fi.jpg",
+    "imageUrl": "lo-fi",
     "introSubline": "Slappna av med lo-fi beats, den perfekta soundtracken för fokus, kreativitet eller avslappning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5onpE0qVRbGsfghVNSFyls",
     "deezerPlaylist": "https://link.deezer.com/s/30xqo5taU5w6rwnNqvCyK",
@@ -1387,7 +1387,7 @@
   },
   {
     "headline": "Mambo: Latin dansenergi och big band-flair",
-    "imageUrl": "/category/mambo.jpg",
+    "imageUrl": "mambo",
     "introSubline": "Känn spänningen i mambo, en genre som förenar livfulla rytmer och djärva brasssektioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3ixldRBs2uol4n0aoUENpM",
     "deezerPlaylist": "https://link.deezer.com/s/30xqoih99m7o6x3bXMLpr",
@@ -1396,7 +1396,7 @@
   },
   {
     "headline": "Mandopop: Kinas poprevolution erövrar hjärtan världen över",
-    "imageUrl": "/category/mandopop.jpg",
+    "imageUrl": "mandopop",
     "introSubline": "Stig in i Kinas bländande popuniversum, där uråldriga melodier möter banbrytande produktion. Från hjärtskärande powerballader till elektriserande danshymner bevittna hur Mandopop-artister skapar en perfekt fusion av kulturellt arv och modern innovation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3LCEvhfcaNfremB4dBJZsT",
     "deezerPlaylist": "https://link.deezer.com/s/30xqoEgBuDo8NcTGx1ft1",
@@ -1405,7 +1405,7 @@
   },
   {
     "headline": "Math Metal: Den sinnesböjande fusionen av matematisk komplexitet och rå kraft",
-    "imageUrl": "/category/math-metal.jpg",
+    "imageUrl": "math-metal",
     "introSubline": "Utforska metals mest matematiskt invecklade gränsland, där komplexa taktarter och polyrytmisk mästerskap skapar bländande ljudarkitektur. Upplev hur virtuosa musiker förvandlar matematisk precision till en upprymd form av musikaliskt utforskande.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1NwtA5C8GbRopgvvnvqDrQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtjh6DoSz7KXyRaQQ8",
@@ -1414,7 +1414,7 @@
   },
   {
     "headline": "Meditation & Yoga: Uråldrig visdom möter modern mindfulness genom ljud",
-    "imageUrl": "/category/meditation-&-yoga.jpg",
+    "imageUrl": "meditation-&-yoga",
     "introSubline": "Höj din praktik med en helig ljudlandskap designad för djup inre förbindelse. Från transcendentala mantras till eteriska ambient-kompositioner skapar dessa genomtänkt utvalda stycken den perfekta atmosfären för meditation, medveten rörelse och andlig uppvaknande.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5WSNj9MxcAayhCDRhKfvV7",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtwmkB7Vp4STzn58eE",
@@ -1423,7 +1423,7 @@
   },
   {
     "headline": "Melankoliska melodier: När skönhet framträder ur livets djupare känslor",
-    "imageUrl": "/category/melancholic.jpg",
+    "imageUrl": "melancholic",
     "introSubline": "Fördjupa dig i musikens mest djupa känslomässiga landskap, där sorg förvandlas till transcendental skönhet. Från själrörande ballader till eteriska instrumentaler hedrar dessa noggrant utvalda stycken djupet i mänsklig känsla och ger tröst genom konstnärligt uttryck.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7oMNXWpZhm77Z2G7WwkO3i",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtKnFdWts3Jfc9SlAr",
@@ -1432,7 +1432,7 @@
   },
   {
     "headline": "Melodic Death Metal: När brutal intensitet upptäcker sin konstnärliga själ",
-    "imageUrl": "/category/melodic-death-metal.jpg",
+    "imageUrl": "melodic-death-metal",
     "introSubline": "Res genom metals mest sofistikerade utveckling, där death metals råa kraft möter svällande melodisk storhet. Från At The Gates revolutionära vision till moderna mästerverk bevittna hur denna genre förvandlar aggressiv intensitet till episkt musikaliskt konst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2RvZ9AlHnhPOYRL6nNbvGm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqtZAcqxYNKPDaugId4",
@@ -1441,7 +1441,7 @@
   },
   {
     "headline": "Merengue: Snabba rytmer från Karibien",
-    "imageUrl": "/category/merengue.jpg",
+    "imageUrl": "merengue",
     "introSubline": "Dansa till merengues energiska beats, en genre som fyller dansgolv med glädje och rörelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6U18UCuDdVqDGfgQIz9oDJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xquEmfeb06B1QjOdeYd",
@@ -1450,7 +1450,7 @@
   },
   {
     "headline": "Metalcore: När hardcore-aggression mötte metals tekniska sofistikering",
-    "imageUrl": "/category/metalcore.jpg",
+    "imageUrl": "metalcore",
     "introSubline": "Upplev den revolutionära fusionen där hardcores passionerade raseri kolliderar med metals tekniska precision. Från Killswitch Engages melodiska innovationer till Architects progressiva komplexitet upptäck hur metalcore skapade ett nytt språk för tung musiks utveckling.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/46JP4chUP0hnmrMIFQBHU0",
     "deezerPlaylist": "https://link.deezer.com/s/30xquUKtBZfKX9yAXJ59e",
@@ -1459,7 +1459,7 @@
   },
   {
     "headline": "Mexikanska melodier: Där mariachis själ möter modern musikmagin",
-    "imageUrl": "/category/mexican.jpg",
+    "imageUrl": "mexican",
     "introSubline": "Fördjupa dig i Mexikos rika ljudtapet, från mariachis hjärtrörande serenader till samtida latinpop-briljans. Upplev hur århundraden av inhemsk visdom, spansk romantik och modern kreativitet blandas till en av världens mest färgstarka musikaliska kulturer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1HqbRGD7DPGNm3ZltyTfjV",
     "deezerPlaylist": "https://link.deezer.com/s/30xqv6oHQupqPL3OFBBZA",
@@ -1468,7 +1468,7 @@
   },
   {
     "headline": "Mellanösternmusik: Uråldriga traditioner och moderna fusioner",
-    "imageUrl": "/category/middle-eastern-music.jpg",
+    "imageUrl": "middle-eastern-music",
     "introSubline": "Upptäck de rika melodierna och rytmerna i mellanösternmusik, från klassisk maqam till samtida pop.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7hwkzKsziipMaoPEXJQnMX",
     "deezerPlaylist": "https://link.deezer.com/s/30xqvm85OyAWJ3BD2LbTi",
@@ -1477,7 +1477,7 @@
   },
   {
     "headline": "Minimal Techno: Hypnotiska groover och subtil progression",
-    "imageUrl": "/category/minimal-techno.jpg",
+    "imageUrl": "minimal-techno",
     "introSubline": "Fördjupa dig i minimal techno, där repetition och subtila förändringar skapar en hypnotiserande dansupplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2wrtCEG49n7pe4pnL9DTOP",
     "deezerPlaylist": "https://link.deezer.com/s/30xqyOsM1apDJx3pAXJKr",
@@ -1486,7 +1486,7 @@
   },
   {
     "headline": "Morgonkaffe: Kuraterade ljud för din perfekta gryningsritual",
-    "imageUrl": "/category/morning-coffee.jpg",
+    "imageUrl": "morning-coffee",
     "introSubline": "Börja varje dag med en expertiskt skapad soundtrack som förvandlar din morgonrutin till en medveten upplevelse. Från själsfull jazz till mjuka akustiska melodier hjälper dessa noggrant utvalda spår dig att omfamna dagens första ögonblick med närvaro och positivitet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4c29q4bAaHry6hjTlRh3me",
     "deezerPlaylist": "https://link.deezer.com/s/30xqz4iB6q7dM8NSssw3t",
@@ -1495,7 +1495,7 @@
   },
   {
     "headline": "Neo-Classical Metal: När barock virtuositet tänder metals kraft",
-    "imageUrl": "/category/neo-classical-metal.jpg",
+    "imageUrl": "neo-classical-metal",
     "introSubline": "Res in i en extraordinär sfär där klassisk mästerskap möter metals åska. Från Yngwie Malmsteens revolutionära shred till moderna virtuoser bevittna hur denna genre förvandlar århundraden av musikteori till en flammande ny form av konstnärligt uttryck.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6UBNq8zfkQizih1X8PMfHR",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzie4CgH5DZwfByq7o",
@@ -1504,7 +1504,7 @@
   },
   {
     "headline": "New Age: Heliga ljudlandskap för andlig uppvaknande",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "Ge dig ut på en förvandlande ljudresa där jordiska ljud möter himmelska harmonier. Från eteriska ambient-landskap till världsmusikfusion skapar dessa genomtänkt kuraterade stycken djupa utrymmen för meditation, helande och andlig upptäckt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0dY7hTfT8xLixqDmuTsSe7",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzv5gysrOWcSAHPf5s",
@@ -1513,7 +1513,7 @@
   },
   {
     "headline": "NWOBHM: Den brittiska metalrevolutionen som erövrade världen",
-    "imageUrl": "/category/new-wave-of-british-heavy-metal.jpg",
+    "imageUrl": "new-wave-of-british-heavy-metal",
     "introSubline": "Återupplev den seismiska förändringen när arbetarklassens brittiska band smidde en ny metal-identitet. Från Iron Maidens episka berättarkonst till Diamond Heads intensiva riffing bevittna hur denna DIY-rörelse förvandlade metals ljud och anda för alltid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7Cmskvn1Yk55nq4loBu2lO",
     "deezerPlaylist": "https://link.deezer.com/s/30xqzS82cEYHQr78k4TgD",
@@ -1522,7 +1522,7 @@
   },
   {
     "headline": "Nattkörning: Ljudäventyr för din mörka resa",
-    "imageUrl": "/category/night-drive.jpg",
+    "imageUrl": "night-drive",
     "introSubline": "Förvandla varje nattlig körning till en oförglömlig filmisk upplevelse. Från neonbelyst synthwave till mystiska ambient-groover förvandlar dessa noggrant utvalda spår tomma gator till din personliga musikvideo och gör varje mil till ett minnesvärt ögonblick.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/01DZzC8qCI2By3PsRfOUc1",
     "deezerPlaylist": "https://link.deezer.com/s/30xqAaH4JMZKo68Rjtf5m",
@@ -1531,7 +1531,7 @@
   },
   {
     "headline": "Noise Metal: När ljudkaos blir revolutionär konst",
-    "imageUrl": "/category/noise-metal.jpg",
+    "imageUrl": "noise-metal",
     "introSubline": "Utforska metals mest radikala gränsland, där konventionella strukturer splittras till ren ljudexperimentering. Från Merzbows ljudmur till Today Is The Days kontrollerade kaos bevittna hur artister förvandlar brus till ett visceralt nytt språk för tung musik.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0qy89AG4JgYQf4RCLCDeHh",
     "deezerPlaylist": "https://link.deezer.com/s/30xqApugv9bxAWdiJBcCr",
@@ -1540,7 +1540,7 @@
   },
   {
     "headline": "Nordisk folk: Mystiska ljud från norr",
-    "imageUrl": "/category/nordic-folk.jpg",
+    "imageUrl": "nordic-folk",
     "introSubline": "Res till de nordiska länderna med folkmusik som framkallar uråldriga myter och naturlig skönhet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5LtF3hUBgVoEujidhoJOiN",
     "deezerPlaylist": "https://link.deezer.com/s/30xqAE3q9VHR4mgHnERnx",
@@ -1549,7 +1549,7 @@
   },
   {
     "headline": "Nostalgiska melodier: De tidlösa låtarna som definierade generationer",
-    "imageUrl": "/category/nostalgic.jpg",
+    "imageUrl": "nostalgic",
     "introSubline": "Ta en känslomässig resa genom soundtracken till ditt liv. Från älskade barndomshymner till milstolpeminnen skapar dessa noggrant utvalda klassiker en varm musikaliskt omfamning som överbryggar det förflutna och nuet samtidigt som de återupplivar livets mest värdefulla ögonblick.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1HSRBpAxVLD4515o4Nzdit",
     "deezerPlaylist": "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ",
@@ -1558,7 +1558,7 @@
   },
   {
     "headline": "Nu-Metal: Genren som omdefinierade tung musik för en ny generation",
-    "imageUrl": "/category/nu-metal.jpg",
+    "imageUrl": "nu-metal",
     "introSubline": "Dyka ner i det kulturella fenomen som överbryggade klyftan mellan hip-hop och metal. Från Korns banbrytande ångest till Linkin Parks genreförbrytande konstnärskap bevittna hur nu-metals djärva fusion fångade millennieupproret och förändrade rock för alltid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0I9y33ifhPHpTEj3ogwbIw",
     "deezerPlaylist": "https://link.deezer.com/s/30xqD2y7USlRuC3ZshEkZ",
@@ -1567,7 +1567,7 @@
   },
   {
     "headline": "Opera: När mänsklig röst blir ren dramatisk magin",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Fördjupa dig i musikens mest dramatiska konstform, där sublima röster berättar episka historier. Från Maria Callas transcendentala passion till moderna mästerverk upplev hur opera kombinerar teatralisk storhet, orkestral kraft och vokal briljans för att skapa oförglömliga känslomässiga resor.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6RNI0E8ASUQmwzZ1dWxsIj",
     "deezerPlaylist": "https://link.deezer.com/s/30xqDzXLVttCK1qW1vZzz",
@@ -1576,7 +1576,7 @@
   },
   {
     "headline": "Orkestral: Stora symfonier och episka arrangemang",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Upplev orkestral musikens majestät, från klassiska mästerverk till moderna filmiska partitur.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6MtZNTD22gZxvAUfE0fPg3",
     "deezerPlaylist": "https://link.deezer.com/s/30xqDPFj8Ij2vPj1hSors",
@@ -1585,7 +1585,7 @@
   },
   {
     "headline": "Party On!: Den ultimata soundtracken för livets största firanden",
-    "imageUrl": "/category/party-on!.jpg",
+    "imageUrl": "party-on!",
     "introSubline": "Förvandla vilket sammankomst som helst till en episkt firande med denna mästarfullt kuraterade samling av ren partystyrka. Från throwback-sjungalongs till samtida klubbangers håller dessa garanterade publikfavoriter energin högt och dansgolvet fullt hela natten lång.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5jZFPGsvqGGoR2AI8XWlmq",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEbxDOw0Hbq5rwsdJe",
@@ -1594,7 +1594,7 @@
   },
   {
     "headline": "Fridfulla melodier: Där musikaliskt lugn skapar din perfekta fristad",
-    "imageUrl": "/category/peaceful.jpg",
+    "imageUrl": "peaceful",
     "introSubline": "Upptäck din personliga oas av frid genom expertiskt utvalda stycken som vårdar inre frid. Från eteriska pianokompositioner till mjuka ambient-landskap skapar dessa förvandlande spår heliga utrymmen för meditation, helande och djup avslappning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2pvkHH9au0R8EKVCsK0GJv",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEoS56gm94AYDhg5Cl",
@@ -1603,7 +1603,7 @@
   },
   {
     "headline": "Peruanska melodier: Uråldrig Andes-magin möter samtida själ",
-    "imageUrl": "/category/peruvian.jpg",
+    "imageUrl": "peruvian",
     "introSubline": "Sväva genom Perus mystiska musikaliska riken, från heliga bergsceremonier till modern urban fusion. Upplev hur uråldrig inkavisdom och traditionella panflöjter blandas med samtida kreativitet för att skapa musik som överskrider tid och rör själar.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7t71PSanUIVjSE3Ka7kANm",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEzqmDZVjBpVH5dxFX",
@@ -1612,7 +1612,7 @@
   },
   {
     "headline": "Piano: Århundraden av musikmagin genom 88 tangenter",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Res genom pianomusikens magnifika värld, från Bachs invecklade kontrapunkt till modern minimalism. Upplev hur detta anmärkningsvärda instrument fortsätter att inspirera gränslös kreativitet och uttrycker allt från dundrande kraft till eterisk finess.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76uaIrzY1nwb3dJm5c08gI",
     "deezerPlaylist": "https://link.deezer.com/s/30xqEM7Ob0YoQbBRzOOU6",
@@ -1621,7 +1621,7 @@
   },
   {
     "headline": "Polska melodier: Från Chopins poetiska själ till samtida kulturell renässans",
-    "imageUrl": "/category/polish.jpg",
+    "imageUrl": "polish",
     "introSubline": "Utforska Polens extraordinära musikaliska resa, från Chopins revolutionära romantik till dagens dynamiska fusionscen. Upplev hur polska artister förvandlar århundraden av passion, motstånd och kulturell stolthet till kraftfulla ljuduttryck som överbryggar klassisk mästerskap och modern innovation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7g6nIUiBRNU6L7o1cqK7Uu",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHgRNNambym44fEtlu",
@@ -1630,7 +1630,7 @@
   },
   {
     "headline": "Pop: Melodins universella språk som förenar världen",
-    "imageUrl": "/category/pop.jpg",
+    "imageUrl": "pop",
     "introSubline": "Res genom populärmusikens ständigt föränderliga landskap, där innovation möter massans tilltal. Från arenafyllande hymner till intima ballader upplev hur popmusikens perfekta blandning av smittande, känsla och banbrytande produktion skapar kulturella ögonblick som definierar generationer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1MPEVNNpYlJx7AidRFMq3E",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHvcwLgLtuJpEoZeLK",
@@ -1639,7 +1639,7 @@
   },
   {
     "headline": "Poprock: Den perfekta föreningen av melodi och elektrisk energi",
-    "imageUrl": "/category/poprock.jpg",
+    "imageUrl": "poprock",
     "introSubline": "Upplev den explosiva fusionen där pops oemotståndliga hooks möter rocks förstärkta attityd. Från Foreigners arenafärdiga klassiker till Avril Lavignes moderna kant upptäck hur poprock-artister kombinerar smittande refränger och elektrisk energi för att skapa tidlösa hymner som dominerar både radio och arenor.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3HoVFg1PP3d0ae3iHkGOsH",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHHKIgCORYFQGIRUn2",
@@ -1648,7 +1648,7 @@
   },
   {
     "headline": "Post-Hardcore: Den revolutionära utvecklingen av punks konstnärliga själ",
-    "imageUrl": "/category/post-hardcore.jpg",
+    "imageUrl": "post-hardcore",
     "introSubline": "Upplev hardcores djärva förvandling, där primitiv intensitet möter konstnärlig ambition. Från Fugazis revolutionära experimentering till Thursdays känslomässiga katharsis upptäck hur post-hardcore-artister utvidgade punks vokabulär för att skapa musik av oöverträffad djup och kraft.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/44kO9r9cfyEW7xtARL6C7r",
     "deezerPlaylist": "https://link.deezer.com/s/30xqHVdPlnr5JBNIBhJx6",
@@ -1657,7 +1657,7 @@
   },
   {
     "headline": "Post-Metal: Den atmosfäriska revolutionen som omdefinierade tung musik",
-    "imageUrl": "/category/post-metal.jpg",
+    "imageUrl": "post-metal",
     "introSubline": "Res in i metals mest expansiva gränsland, där monolitiskt tyngd löses upp i kosmisk atmosfär. Från Neurosis genredfinierande vision till Cult of Lunas arkitektoniska ljudlandskap upplev hur post-metal förvandlar traditionell tyngd till transcendentala ljudresor.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6I6MVL5BAvkWr7SzLWpjZy",
     "deezerPlaylist": "https://link.deezer.com/s/30xqIFU6JnnPAc1PvWoiR",
@@ -1666,7 +1666,7 @@
   },
   {
     "headline": "Post-Punk: Rå energi och konstnärlig innovation",
-    "imageUrl": "/category/post-punk.jpg",
+    "imageUrl": "post-punk",
     "introSubline": "Utforska post-punks kantiga ljud, där band pressade gränser med experimentella tillvägagångssätt och djärva texter.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/35cauzKE45zF3z5iCEzr8F",
     "deezerPlaylist": "https://link.deezer.com/s/30xqIXjBieylFDzsgXOpP",
@@ -1675,7 +1675,7 @@
   },
   {
     "headline": "Power Metal: Den majestätiska fusionen av fantasy, historia och heavy metal-åska",
-    "imageUrl": "/category/power-metal.jpg",
+    "imageUrl": "power-metal",
     "introSubline": "Ge dig ut på en episkt resa där svävande sång och blixtsnabba gitarrer berättar historier om hjältemodig ära. Från Helloweens pionjärhastighet till Sabatons historiska epos upplev hur power metal förvandlar mytologi, fantasy och historia till triumferande musikäventyr.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6944WLwTzLxB7kQK7jOAbU",
     "deezerPlaylist": "https://link.deezer.com/s/30xqJfRRMJYel3tuSABAu",
@@ -1684,7 +1684,7 @@
   },
   {
     "headline": "Power Pop: Den perfekta fusionen av rocks råa energi och pops melodiska magin",
-    "imageUrl": "/category/power-pop.jpg",
+    "imageUrl": "power-pop",
     "introSubline": "Dyka ner i musikens mest beroendeframkallande hybrid, där knastriga gitarrer möter oemotståndliga hooks. Från Big Stars pionjärbriljans till Cheap Tricks arenafyllande hymner upptäck hur power pop-artister blandar rocks elektriserande energi med pops perfekta melodier för att skapa tidlös ljudsolsken.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76cMqFShrxpPQTVE03RIx1",
     "deezerPlaylist": "https://link.deezer.com/s/30xqJs72GZnEFRvXpFyyK",
@@ -1693,7 +1693,7 @@
   },
   {
     "headline": "Power Walk: Din högenergi-soundtrack för träningsframgång",
-    "imageUrl": "/category/power-walk.jpg",
+    "imageUrl": "power-walk",
     "introSubline": "Förvandla varje steg till en triumf med perfekt temporeade spår som förbättrar din promenadträning. Från uppåt klassiker till moderna motivatorer behåller dessa noggrant utvalda låtar idealiskt promenadtempo samtidigt som de håller din energi och anda högt.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/76U2UipcYhQ1MDTmJSegrQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xqMVAoKSHzgSmZ8NKEj",
@@ -1702,7 +1702,7 @@
   },
   {
     "headline": "Progressive House: Euforiska builds och dansgolvshymner",
-    "imageUrl": "/category/progressive-house.jpg",
+    "imageUrl": "progressive-house",
     "introSubline": "Känn energin i progressive house, en genre känd för sina upplyftande melodier och drivande beats.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/57netDHfsmQPVT3aeQ1jLz",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNdAVT661hN0EO6tQS",
@@ -1711,7 +1711,7 @@
   },
   {
     "headline": "Progressive Metal: Genren som förvandlade tung musik genom virtuos innovation",
-    "imageUrl": "/category/progressive-metal.jpg",
+    "imageUrl": "progressive-metal",
     "introSubline": "Stig in i metals mest sofistikerade rike, där teknisk mästerskap möter konstnärlig ambition. Från Dream Theaters sinnesböjande kompositioner till Tools filosofiska djup upptäck hur progressive metal-artister pressar musikaliska gränser genom komplexa arrangemang och konceptuell briljans.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7m2sSqiwom9QG4gYAkW21l",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNvQSgVTY6so5Av4dh",
@@ -1720,7 +1720,7 @@
   },
   {
     "headline": "Psych Rock: Den sinnesböjande resan som revolutionerade rocks gränser",
-    "imageUrl": "/category/psych-rock.jpg",
+    "imageUrl": "psych-rock",
     "introSubline": "Ge dig ut på en kosmisk resa genom rocks mest experimentella gränsland. Från Pink Floyds transcendentala ljudlandskap till Tame Impalas moderna psykedelia upplev hur visionära artister blandar virvlande effekter, innovativ produktion och äventyrlig låtskrivning för att skapa musik som utvidgar medvetandet och trotsar konventioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2JcvD7e7uqgHuYBF5qgcUa",
     "deezerPlaylist": "https://link.deezer.com/s/30xqNLqdFdTOar8Y47jkU",
@@ -1729,7 +1729,7 @@
   },
   {
     "headline": "Punk: Tre ackord och sanningen som tände en kulturell revolution",
-    "imageUrl": "/category/punk.jpg",
+    "imageUrl": "punk",
     "introSubline": "Upplev den råa kraften i musikens mest trotsiga rörelse. Från The Ramones treackordsangrepp till The Clashs politiska hymner upptäck hur punks DIY-anda och kompromisslös attityd skapade en konstnärlig revolution som förvandlade kulturen för alltid.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1k07FnMmoqpofksK4ESdJJ",
     "deezerPlaylist": "https://link.deezer.com/s/30xrdhidZEjZYMPV4I3WG",
@@ -1738,7 +1738,7 @@
   },
   {
     "headline": "R&B: Det känslomässiga hjärtat i svart amerikansk musikinnovation",
-    "imageUrl": "/category/r&b.jpg",
+    "imageUrl": "r&b",
     "introSubline": "Fördjupa dig i genren som förvandlade känsla till rent musikaliskt guld. Från Sam Cookes himmelska röst till modern innovation upptäck hur R&B-artister blandar sofistikerad musikalitet med rå känsla för att skapa tidlösa uttryck för kärlek, kamp och triumf.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3bYWZsBEFua8dA8za2br4D",
     "deezerPlaylist": "https://link.deezer.com/s/30xrdSvnRX0cgGVPHZE5Y",
@@ -1747,7 +1747,7 @@
   },
   {
     "headline": "Regndag: Förvandla stormigt väder till mysig musikmagin",
-    "imageUrl": "/category/rainy-day.jpg",
+    "imageUrl": "rainy-day",
     "introSubline": "Förvandla regndroppar till musikaliska diamanter med denna perfekt kuraterade samling atmosfäriska spår. Från mjuka jazzmelodier till ambient-ljudlandskap skapar dessa låtar en varm fristad som gör varje regnigt ögonblick känns som en gåva av fridfull kontemplation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7uV35irgq5EcDPiZqijeGK",
     "deezerPlaylist": "https://link.deezer.com/s/30xrefEG3IaCUSsoSLEa7",
@@ -1756,7 +1756,7 @@
   },
   {
     "headline": "Reggae: Det jamaicanska ljudet som förenade världen genom One Love",
-    "imageUrl": "/category/reggae.jpg",
+    "imageUrl": "reggae",
     "introSubline": "Upplev de revolutionära rytmerna som förvandlade jamaicansk rootsmusik till en global kraft för förändring. Från Bob Marleys medvetna hymner till moderna innovationer upptäck hur reggaes hypnotiska groover och andliga budskap skapade en världsomfattande rörelse av fred, kärlek och motstånd.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5gPfjoIW0lPm77jWpzfm3T",
     "deezerPlaylist": "https://link.deezer.com/s/30xretuHirr4O95rOZILs",
@@ -1765,7 +1765,7 @@
   },
   {
     "headline": "Reggaeton: Från San Juans gator till globalt popfenomen",
-    "imageUrl": "/category/reggaeton.jpg",
+    "imageUrl": "reggaeton",
     "introSubline": "Res genom reggaetons explosiva utveckling från puertoricansk underground till världsomfattande kulturell kraft. Upplev hur genrens smittande dembow-rytm och urban poesi skapade ett nytt musikaliskt språk som revolutionerade global pop.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5p3aOy51iYBkB8sGfrQarC",
     "deezerPlaylist": "https://link.deezer.com/s/30xrngnvqx0n8KZzUIlSN",
@@ -1774,7 +1774,7 @@
   },
   {
     "headline": "Avslappnade vibbar: Skapa ditt perfekta ögonblick av musikaliskt lugn",
-    "imageUrl": "/category/relaxed.jpg",
+    "imageUrl": "relaxed",
     "introSubline": "Låt stress smälta bort med denna genomtänkt kuraterade samling mjuka ljudskatter. Från fridfulla pianostycken till lugnande akustiska melodier förvandlar dessa spår vilket utrymme som helst till din personliga fristad av lugn och tillfredsställelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1ciG5uIJSoSxBzqZRyuLdF",
     "deezerPlaylist": "https://link.deezer.com/s/30xrnD7QAW6feyFCXrUKq",
@@ -1783,7 +1783,7 @@
   },
   {
     "headline": "Road Trip: Transform Every Mile into a Musical Memory",
-    "imageUrl": "/category/road-trip.jpg",
+    "imageUrl": "road-trip",
     "introSubline": "Hit the highway with the perfect mix of energy-lifting anthems and cruising classics. From windows-down singalongs to sunset-chasing soundscapes, these carefully chosen tracks turn every journey into an unforgettable adventure filled with freedom and possibility.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6zxqnfIxjU1DOw4lRpr0dL",
     "deezerPlaylist": "https://link.deezer.com/s/30xro8k905gdsWK4g4zz7",
@@ -1792,7 +1792,7 @@
   },
   {
     "headline": "Rock 'n' Roll: The Electric Birth of Youth Culture's Musical Revolution",
-    "imageUrl": "/category/rock-'n'-roll.jpg",
+    "imageUrl": "rock-'n'-roll",
     "introSubline": "Journey back to the explosive moment when teenagers found their voice and music changed forever. From Elvis's scandalous hips to Chuck Berry's blazing guitar, experience how rock 'n' roll's raw rebellion ignited a cultural revolution that still shapes our world.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4HdGdJ1a12xMRHJKwbwm9d",
     "deezerPlaylist": "https://link.deezer.com/s/30xrooWNCB7i0U0Cu0tzc",
@@ -1801,7 +1801,7 @@
   },
   {
     "headline": "Rock: The Electric Evolution That Shaped Modern Music's DNA",
-    "imageUrl": "/category/rock.jpg",
+    "imageUrl": "rock",
     "introSubline": "Journey through rock's revolutionary history, from garage band rebellion to stadium-filling spectacle. Experience how distorted guitars, thunderous drums, and passionate vocals created not just a genre, but a cultural force that continues to inspire and evolve.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2ngLFPTon3HP9Yqoy2Abo1",
     "deezerPlaylist": "https://link.deezer.com/s/30xroIwUFuF3F7cz7JBoi",
@@ -1810,7 +1810,7 @@
   },
   {
     "headline": "Rockabilly: The Wild Birth of Rock's First Rebellion",
-    "imageUrl": "/category/rockabilly.jpg",
+    "imageUrl": "rockabilly",
     "introSubline": "Step back to the moment when country swagger collided with rock 'n' roll attitude in Sun Studio's hallowed walls. From Elvis's revolutionary twang to modern torch-bearers, experience how rockabilly's untamed energy and virtuosic musicianship created rock's first true fusion.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/556VDLysUKkswai3seOpKW",
     "deezerPlaylist": "https://link.deezer.com/s/30xrp9DFtMS0XmcYP032M",
@@ -1819,7 +1819,7 @@
   },
   {
     "headline": "Romantic Melodies: Love Stories Told Through Music's Most Beautiful Language",
-    "imageUrl": "/category/romantic.jpg",
+    "imageUrl": "romantic",
     "introSubline": "Surrender to the power of pure romance with songs that touch the deepest chambers of the heart. From soul-stirring ballads to passionate serenades, these timeless pieces weave an enchanting atmosphere perfect for love's most precious moments.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0IPy4N81f7oDRCEzakCOaO",
     "deezerPlaylist": "https://link.deezer.com/s/30xrpuaKVKZFSPY7LCx5g",
@@ -1828,7 +1828,7 @@
   },
   {
     "headline": "Running Playlist: The Ultimate Sonic Fuel for Your Personal Best",
-    "imageUrl": "/category/running-playlist.jpg",
+    "imageUrl": "running-playlist",
     "introSubline": "Push your limits with precision-crafted tracks that sync perfectly with your stride. From energizing warm-ups to triumphant finish lines, this carefully paced selection keeps your motivation soaring and your rhythm strong through every mile.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0hySblikw1i9A1UCmgyS31",
     "deezerPlaylist": "https://link.deezer.com/s/30xrpNcWN4MfOizuredSy",
@@ -1837,7 +1837,7 @@
   },
   {
     "headline": "Russian Melodies: Where Ancient Slavic Soul Meets Modern Musical Power",
-    "imageUrl": "/category/russian.jpg",
+    "imageUrl": "russian",
     "introSubline": "Journey through Russia's majestic musical landscape, from haunting folk melodies to avant-garde innovation. Experience how centuries of cultural tradition, from ethereal Orthodox chants to mighty classical orchestras, merge with contemporary creativity to forge uniquely powerful expressions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4pmPjZr7CCHw3vFhOXE02U",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAqUeJ6jDwXGrZKjAR",
@@ -1846,7 +1846,7 @@
   },
   {
     "headline": "Sad Melodies: Finding Beauty in Music's Most Profound Emotional Depths",
-    "imageUrl": "/category/sad.jpg",
+    "imageUrl": "sad",
     "introSubline": "Discover the transformative power of musical melancholy through masterfully chosen songs that honor life's deeper emotions. From soul-stirring piano ballads to poetic expressions of yearning, these tracks create a sacred space for healing, reflection, and emotional authenticity.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/77zWl8jXChMcaRiPdCWg9j",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAJgNPJrwgHUuYXa2a",
@@ -1855,7 +1855,7 @@
   },
   {
     "headline": "Salsa: The Fiery Heart of Caribbean Dance Revolution",
-    "imageUrl": "/category/salsa.jpg",
+    "imageUrl": "salsa",
     "introSubline": "Surrender to the seductive rhythms that transformed Latin dance forever. From Fania All-Stars' revolutionary sound to modern innovations, experience how salsa's passionate fusion of Afro-Cuban rhythms and jazz sophistication ignites dance floors and hearts worldwide.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3ZCEzhyEjElIXJFDHL69Ej",
     "deezerPlaylist": "https://link.deezer.com/s/30xrAVLtOp3Tls9hY2Rmu",
@@ -1864,7 +1864,7 @@
   },
   {
     "headline": "Samba: The Unstoppable Rhythm of Brazil's Carnival Soul",
-    "imageUrl": "/category/samba.jpg",
+    "imageUrl": "samba",
     "introSubline": "Feel the pulsating heart of Brazilian celebration through samba's euphoric rhythms. From the thunderous power of carnival batucada to intimate roda de samba gatherings, experience how this revolutionary art form transforms pure rhythm into collective joy and cultural pride.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7EWRUTlDklYpO8vtIAIRJx",
     "deezerPlaylist": "https://link.deezer.com/s/30xrBbiMfnLErMqdVhssK",
@@ -1873,7 +1873,7 @@
   },
   {
     "headline": "Screamo: When Hardcore's Heart Exploded into Pure Emotional Catharsis",
-    "imageUrl": "/category/screamo.jpg",
+    "imageUrl": "screamo",
     "introSubline": "Venture into hardcore's most emotionally raw territory, where primal screams meet intricate musical architecture. From Orchid's pioneering intensity to modern evolution, experience how screamo artists transform personal anguish into transcendent sonic art that pushes both emotional and musical boundaries.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7gUWpIJPdTrL0Y43ovrp7N",
     "deezerPlaylist": "https://link.deezer.com/s/30xrBQgez4FrsyXdprkwq",
@@ -1882,7 +1882,7 @@
   },
   {
     "headline": "Sertanejo: How Brazil's Country Music Became a Modern Pop Phenomenon",
-    "imageUrl": "/category/sertanejo.jpg",
+    "imageUrl": "sertanejo",
     "introSubline": "Journey through Brazil's unstoppable musical evolution, where rustic violin duos transformed into stadium-filling spectacles. From romantic power ballads to electronic-infused hits, discover how sertanejo blends traditional countryside soul with contemporary production to create Latin America's most successful fusion.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3hTGYmG9Z4vgBON8vCPhh1",
     "deezerPlaylist": "https://link.deezer.com/s/30xrCttYfMaElbs4VPNL8",
@@ -1891,7 +1891,7 @@
   },
   {
     "headline": "Shoegaze: Dreamy Soundscapes and Ethereal Vocals",
-    "imageUrl": "/category/shoegaze.jpg",
+    "imageUrl": "shoegaze",
     "introSubline": "Lose yourself in shoegaze, where lush guitars and reverb-drenched vocals create a wall of sound.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0ihiWbH2Y06pJq02KMvw3d",
     "deezerPlaylist": "https://link.deezer.com/s/30xrCUiYPNxAK13y1xeaL",
@@ -1900,7 +1900,7 @@
   },
   {
     "headline": "Ska: When Kingston's Streets Invented Dance Music's Happiest Revolution",
-    "imageUrl": "/category/ska.jpg",
+    "imageUrl": "ska",
     "introSubline": "Dive into the genre that made Jamaica dance before reggae, where sharp suits met sharper rhythms. From the Skatalites' pioneering horn sections to Two-Tone's multicultural vision, experience how ska's infectious upstrokes and driving basslines created one of music's most joyful movements.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/77G1DC8kGF29epUmCAQ2xt",
     "deezerPlaylist": "https://link.deezer.com/s/30xrDEvr61zSTvD2ktVGF",
@@ -1909,7 +1909,7 @@
   },
   {
     "headline": "Sleep Soundly: Transform Your Nights with Nature's Most Peaceful Lullabies",
-    "imageUrl": "/category/sleep-soundly.jpg",
+    "imageUrl": "sleep-soundly",
     "introSubline": "Create your perfect pathway to restorative rest through scientifically chosen sounds for optimal sleep. From ethereal ambient landscapes to gentle binaural frequencies, these carefully crafted soundscapes guide you naturally into deep, rejuvenating slumber.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5lGpp9BwDZ5gvi6UDo3sVU",
     "deezerPlaylist": "https://link.deezer.com/s/30xrHyzhm3xuyRveJhsgg",
@@ -1918,7 +1918,7 @@
   },
   {
     "headline": "Sludge Metal: When Southern Swamps Birthed Metal's Heaviest Evolution",
-    "imageUrl": "/category/sludge-metal.jpg",
+    "imageUrl": "sludge-metal",
     "introSubline": "Sink into metal's most massive sonic marshland, where doom's glacial pace meets hardcore's raw aggression. From the Melvins' groundbreaking heaviness to Eyehategod's tortured soul, experience how New Orleans transformed metal's harshest elements into a uniquely powerful form of musical catharsis.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7BkXp7SjOXPpLfKDkzlMKN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrHXifv8QEwCMKOSlhJ",
@@ -1927,7 +1927,7 @@
   },
   {
     "headline": "Smooth Jazz: Relaxed Grooves and Sophisticated Sounds",
-    "imageUrl": "/category/smooth-jazz.jpg",
+    "imageUrl": "smooth-jazz",
     "introSubline": "Unwind with smooth jazz, a genre that blends jazz improvisation with mellow, easy-listening vibes.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7g7LqnJcAoOIGRzsGDrGRQ",
     "deezerPlaylist": "https://link.deezer.com/s/30xrILzsWdfSrZXEPjWAf",
@@ -1936,7 +1936,7 @@
   },
   {
     "headline": "Songwriter: The Intimate Art of Turning Life into Lyrical Poetry",
-    "imageUrl": "/category/songwriter.jpg",
+    "imageUrl": "songwriter",
     "introSubline": "Enter the intimate world of musical storytelling masters, where personal truth meets universal emotion. From Leonard Cohen's poetic wisdom to Carole King's heartfelt confessions, witness how great songwriters transform their deepest experiences into art that speaks to millions.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0grCN6K8sWlKHFa1ncK6Zt",
     "deezerPlaylist": "https://link.deezer.com/s/30xrIZ4J7onIdFeVEBhY3",
@@ -1945,7 +1945,7 @@
   },
   {
     "headline": "Soul Music: The Sacred Spirit That Transformed Modern Music Through Raw Emotion",
-    "imageUrl": "/category/soul.jpg",
+    "imageUrl": "soul",
     "introSubline": "Journey through music's most powerful emotional landscape, from Ray Charles' revolutionary fusion to Aretha Franklin's transcendent power. Experience how soul music blended gospel's spiritual fire with R&B's earthly passion to create timeless expressions of the human heart.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0JGIo1JwkMqNT2KyKQQL0D",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJjXm8LnZN2TMgqIxg",
@@ -1954,7 +1954,7 @@
   },
   {
     "headline": "Soundtrack: Music That Tells a Story",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Experience the power of soundtracks, from epic film scores to memorable TV themes that bring stories to life.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0GRfN2yjDpRdtTs7BRutfS",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJCAGScRE2k4EYahOo",
@@ -1963,7 +1963,7 @@
   },
   {
     "headline": "Spanska melodier: Där flamencos ursprungliga eld tänder modern musikalisk magi",
-    "imageUrl": "/category/spanish.jpg",
+    "imageUrl": "spanish",
     "introSubline": "Fördjupa dig i Spaniens passionerade musikaliska själ, från flamencos råa duende till samtida fusions sofistikerade innovation. Upplev hur århundraden av morisk mystik, romsk anda och medelhavsvärme blandas till en av Europas mest fängslande musikaliska traditioner.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7t3FUUWjXokKqHdQraCgPN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrJOK1gpJi66ABuzI20",
@@ -1972,7 +1972,7 @@
   },
   {
     "headline": "Speed Metal: Den blixtsnabba revolutionen som drev metal till sina gränser",
-    "imageUrl": "/category/speed-metal.jpg",
+    "imageUrl": "speed-metal",
     "introSubline": "Stig in i metals mest hastighetsbesatta sfär, där övermänsklig precision möter obeveklig aggression. Från Exciters banbrytande ljudangrepp till moderna hastighetsdemoner, upplev hur denna genre förvandlar teknisk mästarskap till en adrenalinbränslekonstform.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2GKZ1b1EGrUeoNjNUMSmhD",
     "deezerPlaylist": "https://link.deezer.com/s/30xrK1J6I3P9Epg0BkiIp",
@@ -1981,7 +1981,7 @@
   },
   {
     "headline": "Vårens uppvaknande: Musikalisk firande av naturens vackraste renässans",
-    "imageUrl": "/category/spring-awakening.jpg",
+    "imageUrl": "spring-awakening",
     "introSubline": "Omfamna den magiska förvandlingen från vinter till vår genom musik som fångar naturens återuppvaknande anda. Från känsliga morgonfågelsånger till glädjefyllda säsongsanthem, målar dessa noggrant utvalda spår en levande ljudlandskap av förnyelse, hopp och blomstrande möjligheter.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3MQSUoijej25f4IvRcNFuu",
     "deezerPlaylist": "https://link.deezer.com/s/30xrMZ3bVAQANzrNNbdVq",
@@ -1990,7 +1990,7 @@
   },
   {
     "headline": "Stoner Metal: Där öken sand och kosmisk fuzz skapar tung musiks mest hypnotiska sfär",
-    "imageUrl": "/category/stoner-metal.jpg",
+    "imageUrl": "stoner-metal",
     "introSubline": "Stig ner i de rökfyllda ljudlandskapen där mammutriffar möter psykedelisk utforskning. Från Sleeps timlånga odysséer till Electric Wizards kosmiska domedag, upptäck hur stoner metal förvandlar tung förstärkning och lysergisk atmosfär till transcendent ljudritualer.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/2qSbx9BAX2u6uvW8AIKqEN",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNePoWpFyXorddvVTo",
@@ -1999,7 +1999,7 @@
   },
   {
     "headline": "Studiesession: Vetenskapligt kuraterade ljud för maximal mental fokus",
-    "imageUrl": "/category/study-session.jpg",
+    "imageUrl": "study-session",
     "introSubline": "Höj ditt lärandepotential med precisionstekniska ljudlandskap designade för att förbättra kognitiv funktion. Från alfavåginducerande ambientstycken till fokusoptimerande minimala kompositioner, upptäck den perfekta ljudmiljön för topp akademisk prestation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3vt5S7fxcnUricoSekV5yw",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNubcedY5RjgNleaPj",
@@ -2008,7 +2008,7 @@
   },
   {
     "headline": "Sommarhits: Ditt musikaliska pass till oändlig solsken och glädje",
-    "imageUrl": "/category/summer-hits.jpg",
+    "imageUrl": "summer-hits",
     "introSubline": "Låt solskenet in med årets mest livfulla samling av varmvädersanthem. Från strandbossanova till poolsidepartylåtar, flaskar dessa noggrant utvalda spår sommars euforiska energi till ren musikalisk magi som får varje dag att kännas som semester.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1IYMMI3F3zgGqlMPMTjbKu",
     "deezerPlaylist": "https://link.deezer.com/s/30xrNKCKckqBhsNaCvji9",
@@ -2017,7 +2017,7 @@
   },
   {
     "headline": "Solnedgångsvibbar: Förvandla skymningen till ren musikaliskt magi",
-    "imageUrl": "/category/sunset-vibes.jpg",
+    "imageUrl": "sunset-vibes",
     "introSubline": "Förbättra naturens vackraste ljusshow med ljud som perfekt fångar dagens mest förtrollade ögonblick. Från varma lo-fi-beats till atmosfäriska ambient-pärlor förvandlar denna genomtänkt kuraterade samling varje solnedgång till en transcendent audiovisuell upplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EM4XAOI6HmzCM7LnmkSmG",
     "deezerPlaylist": "https://link.deezer.com/s/30xrOLNSX6zA7c2Dw5lB4",
@@ -2026,7 +2026,7 @@
   },
   {
     "headline": "Surf Rock: Reverb-dränkta gitarrer och strandfestvibbar",
-    "imageUrl": "/category/surf-rock.jpg",
+    "imageUrl": "surf-rock",
     "introSubline": "Fånga vågen med surf rock, en genre definierad av twangiga gitarrer och solbadade melodier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7sNs0KKuLW9HhSq9jx34Wa",
     "deezerPlaylist": "https://link.deezer.com/s/30xrP75nfneZHodqgXRQd",
@@ -2035,7 +2035,7 @@
   },
   {
     "headline": "Svenska melodier: Där medeltida mystik möter modern musiks guldstandard",
-    "imageUrl": "/category/swedish.jpg",
+    "imageUrl": "swedish",
     "introSubline": "Res genom Sveriges förtrollade musikaliska landskap, från fornnordiska ballader till ABBAs popperfektion. Upplev hur svenska artister förvandlar århundraden av nordisk berättarkonst och ren produktion till ren ljudexcellens som fängslar lyssnare världen över.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3MXG9u3IM4cF9PJG7EkK9i",
     "deezerPlaylist": "https://link.deezer.com/s/30xrPpRnMH7D89HT5xSRy",
@@ -2044,7 +2044,7 @@
   },
   {
     "headline": "Swing: Big Band-energi och dansgolvsklassiker",
-    "imageUrl": "/category/swing.jpg",
+    "imageUrl": "swing",
     "introSubline": "Steg tillbaka i tiden med swing, där big bands och livfulla rytmer får alla att röra sig.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/1hvpcgziaOBBhSVroK0efm",
     "deezerPlaylist": "https://link.deezer.com/s/30xrPHLAp3iXarZdIuRN1",
@@ -2053,7 +2053,7 @@
   },
   {
     "headline": "Schweiziska melodier: Där alpisk magi möter urban elektronisk innovation",
-    "imageUrl": "/category/swiss.jpg",
+    "imageUrl": "swiss",
     "introSubline": "Sväva genom Schweiz mångfaldiga musikaliska toppar och dalar, från eteriska alpäror till Zürichs banbrytande elektroniska scen. Upplev hur schweizisk precision skapar en unik ljudfusion där bergstradition möter metropolitansk sofistikation.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/00hWefOrbUp2KO9Mty4lmp",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTnkRePgkEVlWXoxvH",
@@ -2062,7 +2062,7 @@
   },
   {
     "headline": "Symfonisk Black Metal: När helvetets körer mötte klassiska orkesterns majestät",
-    "imageUrl": "/category/symphonic-black-metal.jpg",
+    "imageUrl": "symphonic-black-metal",
     "introSubline": "Bevittna den magnifika kollisionen mellan operettens storhet och black metals infernaliska raseri. Från Dimmu Borgirs djävulska symfonier till Emperors orkestrala mörker, upplev hur denna genre förvandlar klassisk sofistikation och extrem metal till gotisk perfektion.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/45A0CjBgozkoqk5crQu8Fl",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTFjrxnufkoeVfRu6B",
@@ -2071,7 +2071,7 @@
   },
   {
     "headline": "Symfonisk Metal: När Wagners dröm mötte Heavy Metals åska",
-    "imageUrl": "/category/symphonic-metal.jpg",
+    "imageUrl": "symphonic-metal",
     "introSubline": "Stig upp till musiks mest majestätiska sfär, där orkestral dramatik möter metallisk kraft. Från Nightwishs operettmästerverk till Epicas filosofiska storhet, upplev hur symfonisk metal förvandlar klassisk sofistikation och tunga riff till ren ljudteater.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7CeQA72edBlaN9vrSUrjNS",
     "deezerPlaylist": "https://link.deezer.com/s/30xrTSXRwRpY9noTdCECV",
@@ -2080,7 +2080,7 @@
   },
   {
     "headline": "Synth-Pop: Den neona revolutionen som elektrifierade pops framtid",
-    "imageUrl": "/category/synth-pop.jpg",
+    "imageUrl": "synth-pop",
     "introSubline": "Steg in i det digitala drömlandskapet där synthesizers skrev om pops regelbok för alltid. Från Depeche Modes melankoliska mästerverk till Pet Shop Boys elektroniska elegans, bevittna hur visionära artister förvandlade kretsar och sekvenserare till rent emotionellt guld.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/4zg5LoGCcBYzo1y3A9VScs",
     "deezerPlaylist": "https://link.deezer.com/s/30xrUvwXaTaO1swLGlG9m",
@@ -2089,7 +2089,7 @@
   },
   {
     "headline": "Synthwave: Retro-futuristiska ljud och neondrömmar",
-    "imageUrl": "/category/synthwave.jpg",
+    "imageUrl": "synthwave",
     "introSubline": "Fördjupa dig i synthwave, en genre inspirerad av 1980-talets popkultur, vintage-synthesizers och filmisk nostalgi.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7wIiHR0dfzCARbLg4UXVk7",
     "deezerPlaylist": "https://link.deezer.com/s/30xrUUyQ2nBloAvFSb7FH",
@@ -2098,7 +2098,7 @@
   },
   {
     "headline": "Tango: När Buenos Aires gator tände en global dansromans",
-    "imageUrl": "/category/tango.jpg",
+    "imageUrl": "tango",
     "introSubline": "Stig in i den sensuella världen där passion tänder varje rörelse. Från milongas intima poesi till nuevo tangos djärva utveckling, upplev hur Argentinas mest förföriska konstform förvandlade två kroppar som rör sig som en till ren musikalisk berättarkonst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5go8Ph0tk2lmHgPkrgyOWe",
     "deezerPlaylist": "https://link.deezer.com/s/30xrVbtwBkEL8zMru5FBt",
@@ -2107,7 +2107,7 @@
   },
   {
     "headline": "Teknisk Death Metal: När matematisk precision mötte metals ultimata raseri",
-    "imageUrl": "/category/technical-death-metal.jpg",
+    "imageUrl": "technical-death-metal",
     "introSubline": "Stig ner i metals mest invecklade labyrint, där övermänskligt musikerskap möter förödande ljudkraft. Från Deaths revolutionära vision till moderna mästare, bevittna hur teknisk death metal förvandlar musikalisk komplexitet till en konstform av kontrollerad kaos.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/5mOCxy0gxRORaMmuMHdTlX",
     "deezerPlaylist": "https://link.deezer.com/s/30xrVSP3inkPRfgDj3gwe",
@@ -2116,7 +2116,7 @@
   },
   {
     "headline": "Techno: När Detroits produktionslinjer skapade elektronisk musiks framtid",
-    "imageUrl": "/category/techno.jpg",
+    "imageUrl": "techno",
     "introSubline": "Stig in i det hypnotiska riket där industriell precision möter andlig befrielse. Från Detroits underjordiska revolution till Berlins technotempel, upplev hur mekaniska rytmer och syntetiska texturer skapade dansmusikens mest transformerande rörelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/555tC6ebt2aciAGX2Rpja1",
     "deezerPlaylist": "https://link.deezer.com/s/30xrWdaDSutNnO4cksom4",
@@ -2125,7 +2125,7 @@
   },
   {
     "headline": "Thrash Metal: Bay Area-stormen som revolutionerade tung musik för alltid",
-    "imageUrl": "/category/thrash-metal.jpg",
+    "imageUrl": "thrash-metal",
     "introSubline": "Dyka ner i metals mest explosiva utveckling, där punks hastighet kolliderade med metals precision. Från Metallicas tekniska mästarskap till Slayers demoniska intensitet, bevittna hur San Franciscos thrash-revolution skapade tung musiks mest intensiva och inflytelserika rörelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0EoKqucRw2t86e64fVq0f9",
     "deezerPlaylist": "https://link.deezer.com/s/30xrZHzjM90RalgiwxlIV",
@@ -2134,7 +2134,7 @@
   },
   {
     "headline": "Trance: När elektronisk musik upptäckte sin andliga själ",
-    "imageUrl": "/category/trance.jpg",
+    "imageUrl": "trance",
     "introSubline": "Stig in i en sfär av ren elektronisk transcendens, där hypnotiska rytmer låser upp högre medvetandetillstånd. Från Paul van Dyks upplyftande anthem till Armin van Buurens emotionella resor, upplev hur trance-musik förvandlar dansgolv till tempel av euforisk uppenbarelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/44jaxuuX5dGy4vYpgAC7kq",
     "deezerPlaylist": "https://link.deezer.com/s/30xrZZnXspJjvHtmu2uHH",
@@ -2143,7 +2143,7 @@
   },
   {
     "headline": "Trap: Modern Hip-Hop med hårda beats",
-    "imageUrl": "/category/trap.jpg",
+    "imageUrl": "trap",
     "introSubline": "Känn intensiteten av trap, en genre som dominerar listorna med dundrande bas och snabba hi-hats.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3wa2i99eDnHaocsEPMiWLV",
     "deezerPlaylist": "https://link.deezer.com/s/30xs0emgf7X1iDdoUUWN0",
@@ -2152,7 +2152,7 @@
   },
   {
     "headline": "Trip-Hop: När Bristols gator skapade elektronisk musiks mest atmosfäriska revolution",
-    "imageUrl": "/category/trip-hop.jpg",
+    "imageUrl": "trip-hop",
     "introSubline": "Res genom de rökfyllda ljudlandskapen av Bristols musikaliska uppror, där hip-hops urbana kant upplöstes i eterisk elektronik. Från Massive Attacks revolutionära noir till Portisheads filmiska melankoli, bevittna hur trip-hop förvandlade urban grit till hypnotisk konst.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3X8NoU1NLB21tRWNfj6152",
     "deezerPlaylist": "https://link.deezer.com/s/30xs0CSQWNYNsyA9Fpwpa",
@@ -2161,7 +2161,7 @@
   },
   {
     "headline": "Turkiska melodier: Den ljudliga bron mellan forntida mystik och modern innovation",
-    "imageUrl": "/category/turkish.jpg",
+    "imageUrl": "turkish",
     "introSubline": "Sväva genom Turkiets förtrollade musikaliska korsvägar, där sufisk mystik dansar med elektronisk innovation. Från virvlande dervischceremonier till samtida urban fusion, upplev hur turkiska artister förvandlar millennier av kulturellt utbyte till kraftfulla nya uttryck.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6h7qPSuiI8Wx3dfpMzKSRP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs140nW7UBaaMNIMkhH",
@@ -2170,7 +2170,7 @@
   },
   {
     "headline": "Ukrainska melodier: Där forntida bandura-sånger möter modern musikalisk motstånd",
-    "imageUrl": "/category/ukrainian.jpg",
+    "imageUrl": "ukrainian",
     "introSubline": "Res genom Ukraines motståndskraftiga musikaliska själ, där århundraden gammal folkkunskap möter revolutionärt uttryck. Från hemsökande karpatska sånger till samtida urbana beats, upplev hur ukrainska artister förvandlar sitt rika kulturarv till kraftfulla uttalanden om nationell identitet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/7BdGibPQvtAHfJ0LyEraal",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1izPScHE34KVjUZbE",
@@ -2179,7 +2179,7 @@
   },
   {
     "headline": "Upplyftande anthem: När musik blir ren motivationsmagisk",
-    "imageUrl": "/category/uplifting.jpg",
+    "imageUrl": "uplifting",
     "introSubline": "Lås upp ditt högsta potential genom den transcendent kraften av musikalisk inspiration. Från arena-skrällande anthem till intima segrar, skapar dessa noggrant utvalda spår en ostoppbar ljudkraft som förvandlar utmaningar till triumfer och drömmar till verklighet.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6oDXghROdNxPkK716UXCtP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1xqePhVC3t2tysJQt",
@@ -2188,7 +2188,7 @@
   },
   {
     "headline": "Alla hjärtans dag: Musikaliska kärleksbrev som talar direkt till hjärtat",
-    "imageUrl": "/category/valentines-day.jpg",
+    "imageUrl": "valentines-day",
     "introSubline": "Fira kärlekens mest älskade högtid med sånger som fångar romantikens oändliga magi. Från tidlösa ballader som definierade generationer till moderna förklaringar av hängivenhet, skapar dessa noggrant utvalda spår den perfekta atmosfären för att dela hjärtan och skapa minnen.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6gw9nQdKvyaQyeETvgit2H",
     "deezerPlaylist": "https://link.deezer.com/s/30xs1P7nosbJ1sZv9QThY",
@@ -2197,7 +2197,7 @@
   },
   {
     "headline": "Vaporwave: Internetestetik och drömlika ljudlandskap",
-    "imageUrl": "/category/vaporwave.jpg",
+    "imageUrl": "vaporwave",
     "introSubline": "Utforska vaporwave, en genre som remixar nostalgi, digital konst och surrealistiska ljud för en unik lyssningsupplevelse.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3nFTAFGgsvshezDcKsSq6i",
     "deezerPlaylist": "https://link.deezer.com/s/30xs5KNV4HF7pFCCya8fq",
@@ -2206,7 +2206,7 @@
   },
   {
     "headline": "Viking Metal: När forntida nordiska sagor blev åska och stål",
-    "imageUrl": "/category/viking-metal.jpg",
+    "imageUrl": "viking-metal",
     "introSubline": "Sätt segel genom de dimmiga rikena av nordisk mytologi på vågor av krossande metal. Från Amon Amarths stridsladdade epos till Enslaveds mystiska resor, upptäck hur viking metal förvandlar forntida berättelser om gudar och krigare till kraftfulla ljudceremonier.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/0OjibyRFWJjYqe9YAKRuBb",
     "deezerPlaylist": "https://link.deezer.com/s/30xs5YHW93SiX0jhaRRWW",
@@ -2215,7 +2215,7 @@
   },
   {
     "headline": "Vintervibbar: Där frostig magi blir musikalisk värme",
-    "imageUrl": "/category/winter-vibes.jpg",
+    "imageUrl": "winter-vibes",
     "introSubline": "Förvandla vinterns kristallina skönhet till en förtrollande ljudfristad. Från pianostycken som glittrar som färsk snö till ambientlandskap som driver som mjuka snöflingor, skapar dessa noggrant utvalda spår din perfekta musikaliska tillflykt från kylan.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/3d41QlFGGnEGLXcQqVtIvx",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6e2mPKI7YF7TQGQP6",
@@ -2224,7 +2224,7 @@
   },
   {
     "headline": "Vinterunderland: Musikaliska skatter från snöns och stjärnornas säsong",
-    "imageUrl": "/category/winter-wonderland.jpg",
+    "imageUrl": "winter-wonderland",
     "introSubline": "Steg in i en glittrande sfär där vinterns magi kommer till liv genom musik. Från frostkyssta melodier till varma braseromanser, fångar dessa förtrollande spår varje magiskt ögonblick av säsongen, från snöiga äventyr till mysiga kvällar under stjärnklara himlar.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6ZqCxShXksfmDN47FF8hTP",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6rud4zeS1X4c6sZyX",
@@ -2233,7 +2233,7 @@
   },
   {
     "headline": "Träningsmotivation: Din ultimata träningspartner i musikalisk form",
-    "imageUrl": "/category/workout-motivation.jpg",
+    "imageUrl": "workout-motivation",
     "introSubline": "Förvandla dina träningspass med perfekt tempade spår som driver dig till nya höjder. Från högenergibeats till inspirerande anthem, håller denna noggrant kuraterade mix din motivation flygande och din prestation toppande från uppvärmning till nedkylning.",
     "spotifyPlaylist": "https://open.spotify.com/playlist/6800utEb8RlDXYP09crhN9",
     "deezerPlaylist": "https://link.deezer.com/s/30xs6FJFUVrm32uUfahmF",

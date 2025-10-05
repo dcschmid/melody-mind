@@ -3,7 +3,8 @@ title: A Revolução R&B | Como o Groove Fez História
 description:
   Você já se perguntou como o R&B revolucionou os sons modernos? Descubra ritmos envolventes,
   melodias marcantes e a cultura que une tradição e inovação - venha se inspirar!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

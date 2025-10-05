@@ -4,7 +4,8 @@ description:
   ¿Te emociona el ritmo vibrante del forró? Descubre cómo este género fusiona tradición e innovación
   en cada compás, explorando su rica historia y cultura. ¡Sumérgete y déjate llevar por la pasión
   musical!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

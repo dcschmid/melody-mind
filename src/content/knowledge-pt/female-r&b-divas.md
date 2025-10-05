@@ -3,7 +3,8 @@ title: Descubra Divas do R&B Feminino | Uma Viagem Musical
 description:
   Você já se encantou com as vozes poderosas do R&B? Mergulhe na trajetória dessas divas que
   revolucionaram o cenário musical com talento e emoção - descubra curiosidades e inspire-se!
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

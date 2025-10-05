@@ -3,7 +3,8 @@ title: Löydä Nais-R&B-divat | Musiikillinen Matka
 description:
   Oletko valmis sukeltamaan nais-R&B-divojen maailmaan - löydä tarinat, kulttihitit ja
   musiikkihistorian aarteet. Klikkaa nyt ja koe inspiroiva rytmi!
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

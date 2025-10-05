@@ -3,7 +3,8 @@ title: Upptäck Party On! | En Musikalisk Resa
 description:
   Är du redo att festa? Utforska den livliga världen av Party On! och lär dig hur energiska rytmer
   formar en oförglömlig natt. Upptäck historiska influenser och unika partymoment - klicka här!
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

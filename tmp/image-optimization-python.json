@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2025-10-05T19:04:02.326742Z",
+  "reports": [
+    {
+      "group": "category",
+      "total_sources": 1,
+      "processed": 1,
+      "generated": 10,
+      "failed": 0,
+      "skipped_fresh": 0,
+      "cleaned": 0,
+      "details": [
+        {
+          "source": "forro.jpg",
+          "generated": 10,
+          "failed": 0,
+          "skipped_fresh": 0,
+          "cleaned": false
+        }
+      ],
+      "avif": false
+    }
+  ],
+  "avifSupported": false,
+  "dryRun": false
+}

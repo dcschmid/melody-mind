@@ -5,7 +5,8 @@ description:
   Ready to ignite your next celebration? Dive into the world of Party On! – pulsating rhythms,
   iconic anthems, and the vibrant history of party music. Discover unmissable tracks and energize
   every event – let’s start the music journey together!
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-07-30
 updatedAt: 2025-07-30
 keywords:

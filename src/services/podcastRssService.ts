@@ -150,6 +150,19 @@ export class PodcastRSSGenerator {
       ? await this.computeDurationFromWebVTT(episode.subtitleUrl)
       : undefined;
 
+    // Episode image handling:
+    // After migration, episode.imageUrl holds only a slug (e.g. "1950s") without leading path or extension.
+    // For RSS we must expose a stable JPG URL under /podcast/<slug>.jpg (Apple Podcasts prefers JPG/PNG, not WebP/AVIF).
+    let rssImage: string | undefined;
+    if (episode.imageUrl) {
+      // If legacy format still contains a slash or extension, keep backward compatibility.
+      if (/^\//.test(episode.imageUrl) || /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(episode.imageUrl)) {
+        rssImage = `${this.baseUrl}${episode.imageUrl}`;
+      } else {
+        rssImage = `${this.baseUrl}/podcast/${episode.imageUrl}.jpg`;
+      }
+    }
+
     return {
       title: this.escapeXML(episode.title),
       description: this.escapeXML(episode.description),
@@ -159,11 +172,9 @@ export class PodcastRSSGenerator {
       audioUrl: episode.audioUrl,
       audioLength: contentLength ?? this.getEstimatedAudioSize(),
       duration: computedDuration ?? this.getEstimatedDuration(),
-      imageUrl: episode.imageUrl ? `${this.baseUrl}${episode.imageUrl}` : undefined,
+      imageUrl: rssImage,
       categories: ["Music", "Education", "History"],
-      contentHtml: episode.showNotesHtml
-        ? this.appendDefaultFooter(episode.showNotesHtml)
-        : undefined,
+      contentHtml: episode.showNotesHtml ? this.appendDefaultFooter(episode.showNotesHtml) : undefined,
       transcriptUrl: episode.subtitleUrl,
       transcriptLanguage: episode.language || lang,
     };

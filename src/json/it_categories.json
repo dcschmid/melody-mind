@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "Anni '50",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "Gli anni ’50 accesero la scintilla del Rock’n’Roll: Elvis Presley, Chuck Berry e Little Richard travolsero i giovani. Eco slapback, battiti di mani e ritmo travolgente: vivi l’esplosione della cultura giovanile!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "Anni '60",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "Gli anni ’60 portarono rivoluzione sonora: dai Beatles ai Rolling Stones, da Aretha Franklin a Jimi Hendrix. Chitarre elettriche, cori psichedelici e groove soul – un decennio di sogni, ribellione e libertà sonora!",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "Anni '70",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "Gli anni ’70 furono eclettici: Led Zeppelin e Queen alzarono l’hard rock, Donna Summer fece brillare la disco, Bob Marley diffuse reggae e libertà. Riff potenti, archi scintillanti e groove irresistibili!",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "Anni '80",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "Negli anni ’80 la musica brillava: Michael Jackson, Madonna e Prince dominarono, i synth crearono paesaggi futuristici e le chitarre rock di U2 e Bon Jovi incendiarono gli stadi.",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "Anni '90",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "Gli anni ’90 furono un turbine: Nirvana scosse il grunge, Tupac e Notorious B.I.G. accesero l’hip-hop, Britney Spears e Backstreet Boys dominarono il pop. Distorsioni grezze, beat profondi e ritornelli contagiosi!",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "Anni 2000",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "Negli anni 2000 la musica divenne globale: Beyoncé e Rihanna illuminarono l’R&B, Coldplay ed Eminem dominarono classifiche, Linkin Park e Green Day unirono rock ed energia. Beat digitali e ballate universali!",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "Anni 2010",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "Negli anni 2010 nacquero star planetarie: Lady Gaga e Taylor Swift illuminarono il pop, Drake e Kendrick Lamar reinventarono l’hip-hop, mentre EDM e K-pop conquistarono il mondo.",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Leggende Femminili del Blues",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Le leggende del blues femminile: Bessie Smith, Etta James e Ma Rainey hanno dato voce a dolore e speranza. Slide guitar, pianoforte e voci ruvide: un canto che nasce dall’anima e invita a sentirlo davvero.",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Star Femminili del Country",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Le star femminili del country hanno dato cuore e autenticità: Dolly Parton, Shania Twain e Patsy Cline hanno intrecciato chitarre acustiche, violini e storie di vita quotidiana.",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "DJ Femminili",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Le DJ femminili hanno acceso le piste: Nina Kraviz, Charlotte de Witte e The Black Madonna hanno portato techno, house e groove elettrizzanti. Beat potenti e drop che scuotono il cuore!",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Artiste Femminili del Grunge",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Il grunge femminile ha urlato verità crude: Courtney Love, L7 e Kat Bjelland hanno mescolato chitarre distorte, rabbia e vulnerabilità in un suono che scuote ancora.",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Artiste Femminili dell'Hip-Hop",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Le regine dell’hip-hop hanno conquistato le strade: Missy Elliott, Lauryn Hill, Nicki Minaj e Cardi B hanno unito rime taglienti, beat potenti e attitudine senza compromessi.",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Vocaliste Femminili del Jazz",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Le voci femminili del jazz hanno scolpito emozioni eterne: Ella Fitzgerald, Billie Holiday e Sarah Vaughan hanno trasformato swing e ballad in pura poesia musicale.",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Superstar Femminili del Pop",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Le superstar pop femminili hanno definito decenni: Madonna, Beyoncé e Lady Gaga hanno mescolato melodie contagiose, coreografie e spettacolo. Synth brillanti, ritornelli esplosivi e voci indimenticabili!",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Rapper Femminili",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Le rapper femminili hanno portato fuoco e stile: Queen Latifah, Nicki Minaj e Megan Thee Stallion hanno trasformato beat e flow in dichiarazioni di potenza.",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Dive Femminili del R&B",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "Le dive R&B femminili hanno fatto vibrare il cuore: Whitney Houston, Mariah Carey e Alicia Keys hanno intrecciato ballate emozionanti, melismi e groove sensuali.",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Vocaliste Femminili Rock/Metal",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Le voci femminili del rock e metal hanno incendiato i palchi: Doro Pesch, Amy Lee e Sharon den Adel hanno unito potenza, melodia e carisma. Riff distorti e cori epici!",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Leggende Femminili del Soul",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Le leggende soul femminili hanno dato voce al cuore: Aretha Franklin, Diana Ross e Gladys Knight hanno trasformato emozioni in inni immortali.",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Icone Vocali Femminili",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Le icone vocali femminili hanno segnato la storia: Céline Dion, Barbra Streisand e Adele hanno unito tecnica impeccabile ed emozione pura. Ballate potenti e voci che toccano il cielo!",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Musica Orchestrale",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "La musica orchestrale fonde archi, ottoni e percussioni in paesaggi sonori maestosi: Beethoven, Mahler e John Williams mostrano il potere di un’orchestra che respira come un unico corpo.",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Piano",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Il pianoforte è poesia in tasti bianchi e neri: da Chopin a Keith Jarrett, da Ludovico Einaudi ad Alicia Keys, ogni nota vibra di emozione tra virtuosismo classico e intimità moderna.",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Musica da Camera",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "La musica da camera è dialogo intimo tra strumenti: i quartetti di Haydn, Mozart e Beethoven, le sonate di Brahms e Schubert creano armonie raffinate, perfette per l’ascolto ravvicinato.",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Classica",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "La musica classica è tradizione e innovazione: da Bach a Mozart, da Beethoven a Tchaikovsky, sinfonie e concerti intrecciano armonie eterne e melodie che risuonano ancora oggi.",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "Il New Age crea paesaggi sonori meditativi: Enya, Yanni e Kitaro intrecciano tastiere eteree, flauti e cori angelici. Musica per rilassarsi, viaggiare interiormente e sognare a occhi aperti.",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Opera",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "L’opera unisce musica e teatro: Verdi e Puccini commuovono con arie immortali, Mozart e Wagner intrecciano drammi epici. Voci potenti e orchestre grandiose accendono emozioni senza tempo.",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Colonne Sonore",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "La colonna sonora è il battito invisibile del cinema: da John Williams a Hans Zimmer, da Morricone a Howard Shore, archi, ottoni e synth trasformano immagini in emozioni.",
     "isPlayable": true,
     "slug": "soundtrack",

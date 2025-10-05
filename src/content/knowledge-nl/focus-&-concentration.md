@@ -4,7 +4,8 @@ description:
   Wil jij je focus verbeteren met muziek? Ontdek de unieke invloeden en magische klanken van Focus &
   Concentration en leer hoe deze muziekstijl je concentratie versterkt. Start jouw muzikale reis
   vandaag
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

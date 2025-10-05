@@ -4,7 +4,8 @@ description:
   What makes R&B so unforgettable? Explore its roots in soul, gospel, and jazz. Discover legendary
   voices, historic milestones, and the emotional power that defined generations. Dive into the world
   of rhythm and blues now!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-07-29
 updatedAt: 2025-07-29
 keywords:

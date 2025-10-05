@@ -4,7 +4,8 @@ description:
   Vibrez au rythme envoûtant des voix féminines légendaires - découvrez leur parcours historique,
   leurs innovations musicales et leur influence culturelle. Explorez dès maintenant ce trésor
   musical raffiné
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

@@ -3,7 +3,8 @@ title: Opdag Female R&B Divas - En Musikalsk Rejse
 description:
   Er du klar til at udforske historien bag Female R&B Divas? Dyk ned i unikke stemmer, banebrydende
   hits og en rig musikalsk arv - klik her og hør musikken nu
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

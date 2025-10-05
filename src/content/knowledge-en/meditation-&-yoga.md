@@ -4,7 +4,8 @@ description:
   Ready to find deep relaxation and clarity? Discover calming meditation and yoga music that blends
   ancient wisdom with modern harmony – perfect for mindfulness, stress relief, and inner peace.
   Start your sound journey now!
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-07-30
 updatedAt: 2025-07-30
 keywords:

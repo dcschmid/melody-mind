@@ -3,7 +3,8 @@ title: Découvrez Méditation & Yoga | Un Voyage Musical
 description:
   Vous recherchez une échappée sensorielle dans l'univers du bien-être? Plongez dans des sonorités
   apaisantes, harmonisantes et inspirantes - Explorez dès maintenant l'âme de la musique relaxante
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

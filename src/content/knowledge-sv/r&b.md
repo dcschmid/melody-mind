@@ -3,7 +3,8 @@ title: Fascination R&B | En Resa Genom Ljudlandskap
 description:
   Är du redo att upptäcka R&B? Följ musikens revolution med själfulla rytmer och urban puls – lär
   dig om genrets rika historia och moderna innovation. Klicka här för en oförglömlig upplevelse!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

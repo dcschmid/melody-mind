@@ -3,7 +3,8 @@ title: Descubra Meditação e Yoga | Uma Viagem Musical Holística
 description:
   Pronto para transformar sua prática? Descubra a fusão entre sons relaxantes e ritmos que elevam o
   espírito - da tradição oriental ao contemporâneo, viva a melodia da paz. Explore agora!
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

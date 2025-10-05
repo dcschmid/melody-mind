@@ -4,7 +4,8 @@ description:
   Oletko valmis kokemaan forrón sykkeen? Sukella artikkeliimme, jossa rytmi ja tanssi kohtaavat
   perinteen ja modernin innovaatioiden voiman. Löydä forrón salaisuudet ja anna musiikin viedä
   mukanaan – lue lisää!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

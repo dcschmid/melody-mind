@@ -1,7 +1,8 @@
 ---
 title: 解锁最佳冥想与瑜伽音乐之旅 探索身心灵的和谐力量
 description: 想体验身心净化与极致放松吗？精选冥想和瑜伽音乐，融合东方古韵与现代静心，助力减压，提升专注，唤醒内在能量。立即感受音律疗愈！
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-07-31
 updatedAt: 2025-07-31
 keywords:

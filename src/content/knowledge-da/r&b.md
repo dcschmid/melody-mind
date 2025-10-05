@@ -3,7 +3,8 @@ title: R&B Magi | Kunsten bag Soulful Innovation
 description:
   Er du klar til at udforske R&B's ægte sjæl? Dyk ned i historiske beats, moderne rytmer og
   autentisk lyd – oplev musik, der forbinder tradition med fremtid. Start din rejse nu!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

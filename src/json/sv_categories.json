@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950-talet",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "Rock’n’Roll föds: Elvis Presley, Chuck Berry och Little Richard fick ungdomar att dansa vilt. Slapback-eko, handklapp och drivande beat – känn gnistan som satte hela världen i brand!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960-talet",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "Beatles, Rolling Stones och Aretha Franklin satte tonen. Sitar, psykedeliska gitarrer och soulens rop om frihet – 60-talet var färger, revolution och musik som förändrade världen!",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970-talet",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "Led Zeppelin, ABBA och David Bowie dominerade. Distade gitarrer, glittrande discokulor och syntens första ljudlandskap – 70-talet bjöd på både hårdrockens tyngd och discokulturens glittrande nattliv!",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980-talet",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "Michael Jackson, Madonna och Prince satte scenen i brand. Synthar, trummaskiner och gitarrsolon fyllde arenor – 80-talet var neonljus, MTV och musik som fick hela världen att dansa!",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990-talet",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "Grunge, hiphop och eurodance satte avtryck. Nirvana, Tupac och Spice Girls skapade ikoner. Distade gitarrer, DJ-samplingar och girl power-rop – 90-talet var mångfald, revolt och fest i samma andetag!",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000-talet",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "Beyoncé, Coldplay och Linkin Park satte prägeln. Autotune, blandningar av rock och rap, samt episka popballader – 2000-talet var digitalt, genreöverskridande och byggde broar mellan stilar!",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010-talet",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "Lady Gaga, Adele och Ed Sheeran dominerade spellistor. EDM-droppar, minimalistisk pop och trap-beats formade ett decennium av streaming, festivaler och musik som alla kunde dela direkt!",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Kvinnliga Blues-legender",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Bessie Smith, Ma Rainey och Etta James formade bluesens själ. Raspiga röster, slidegitarrer och djupt svängande bas – kvinnorna i blues skrev känslor i toner som fortfarande rör oss!",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Kvinnliga Country-stjärnor",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Dolly Parton, Patsy Cline och Shania Twain erövrade country. Steelguitar, fiol och berättelser om hjärta och hem – kvinnliga stjärnor gav genren värme, humor och oförglömliga melodier!",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "Kvinnliga DJ:s",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Nina Kraviz, Peggy Gou och Charlotte de Witte satte kvinnliga DJs i centrum. Beats, synthar och drop som skakar klubbar – deras energi visar att dansgolvet tillhör alla!",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Kvinnliga Grunge-artister",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Courtney Love, Kat Bjelland och Shirley Manson satte kvinnlig grunge på kartan. Distade gitarrer, skriken från scenen och rå energi – deras musik var revolt, smärta och styrka i ett!",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Kvinnliga Hip-Hop-artister",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Queen Latifah, Missy Elliott och Nicki Minaj bröt barriärer. Beats, samplingar och rytmiska rim – kvinnliga hiphopartister tog scenen med attityd, budskap och oemotståndlig flow!",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Kvinnliga Jazz-vokalister",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Billie Holiday, Ella Fitzgerald och Sarah Vaughan gjorde rösten till ett instrument. Scat-sång, swing och djupa känslor – kvinnliga jazzsångare fyllde klubbar med magi och tidlösa melodier!",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Kvinnliga Pop-superstjärnor",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Madonna, Britney Spears och Lady Gaga formade popens ansikte. Synthar, refränger som fastnar och scenframträdanden fulla av show – kvinnliga popstjärnor satte världen i dans och glädje!",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Kvinnliga Rappare",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "MC Lyte, Lil’ Kim och Cardi B visade att rap inte har könsgränser. Beats, punchlines och attityd – kvinnliga rappare tog plats med ord som träffar hårt och rytmer som får kroppen att röra sig!",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Kvinnliga R&B-divor",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "Whitney Houston, Mary J. Blige och Alicia Keys gav R&B sin själ. Smäktande melodier, gospelrötter och beats fyllda av känsla – kvinnliga R&B-divor förvandlade kärlek till musikens språk!",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Kvinnliga Rock/Metal-vokalister",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Doro Pesch, Amy Lee och Floor Jansen visade att rock och metal har kvinnliga röster. Distade gitarrer, kraftfulla skrik och episka melodier – kvinnorna tog hårdrocken till nya höjder!",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Kvinnliga Soul-legender",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Aretha Franklin, Gladys Knight och Etta James förvandlade känslor till musik. Hammondorgel, blås och röster fyllda av styrka – kvinnliga soullegender sjöng rakt in i hjärtat!",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Kvinnliga Vokal-ikoner",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Céline Dion, Barbra Streisand och Adele blev röster för generationer. Stora ballader, orkestrala arrangemang och röster med oändlig kraft – vokalikonerna sjöng sig in i musikhistorien!",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Orkestermusik",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Stråkar, mässing och pukor fyller rummet. Beethoven, Mahler och Stravinsky visar orkesterns kraft – från mäktiga crescendon till viskande pianissimo. Låt orkestern svepa dig med i ljudets magi!",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Piano",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Mozart, Chopin och Ludovico Einaudi visar pianots själ. Klangen rör sig från mjuka, viskande toner till dramatiska ackord. Slå an tangenterna – och känn hur pianot talar direkt till hjärtat!",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Kammarmusik",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Stråkkvartetter av Haydn, Schubert och Debussy förvandlar små ensembler till stora upplevelser. Klang av violin, altfiol, cello och piano – kammarmusiken bjuder in till nära lyssning och samspel!",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Klassiskt",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Bach, Mozart och Beethoven skapade tidlösa verk. Orglar, stråkar och blås formar harmonier som aldrig dör – klassisk musik är historien i toner, fylld av dramatik, skönhet och andlig kraft!",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "Enya, Kitaro och Yanni skapade ljudlandskap för dröm och ro. Synthar, flöjter och mjuka klanger bjuder in till meditation, naturens rytm och musik som öppnar sinnet för stillhet och fantasi!",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Opera",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Verdi, Puccini och Wagner skapade operans eviga världar. Aria, recitativ och orkesterns kraft blandas till drama, känslor och magi. Upplev rösten som instrument – opera är teater i toner!",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Soundtracks",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "John Williams, Hans Zimmer och Ennio Morricone gav filmer sina hjärtan. Stråkar, slagverk och episka teman – soundtracks får oss att minnas, känna och återuppleva magiska scener om och om igen!",
     "isPlayable": true,
     "slug": "soundtrack",

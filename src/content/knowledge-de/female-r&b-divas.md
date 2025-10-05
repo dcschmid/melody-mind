@@ -4,7 +4,8 @@ description:
   Welche Frauen haben den R&B geprägt? Tauche ein in die Welt der Female R&B Divas – entdecke
   ikonische Stimmen, musikalische Innovationen und kulturelle Meilensteine. Lerne mehr über
   weiblichen Einfluss im R&B – jetzt mehr erfahren!
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-06-28
 updatedAt: 2025-06-28
 keywords:

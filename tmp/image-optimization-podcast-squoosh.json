@@ -1,0 +1,15 @@
+{
+  "group": "podcast",
+  "generatedAt": "2025-10-05T11:26:31.293Z",
+  "stagingDir": "/home/daniel/project/github/melody-mind/staging/podcast",
+  "outBase": "/home/daniel/project/github/melody-mind/src/assets/podcast",
+  "counts": {
+    "processed": 2,
+    "generated": 0,
+    "failed": 10,
+    "skippedFresh": 0,
+    "skippedExisting": 0,
+    "cleaned": 2
+  },
+  "hint": "Use getOptimizedImageVariants('podcast', slug)"
+}

@@ -3,7 +3,8 @@ title: Löydä keskittyminen | Musiikillinen matka
 description:
   Etsitkö musiikkia, joka tehostaa keskittymistäsi? Koe modernia rytmiä ja historiallista tunnelmaa
   – askeleesi kohti mielenrauhaa alkaa tästä. Kuuntele ja uppoudu!
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

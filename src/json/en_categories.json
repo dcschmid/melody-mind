@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950s",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "The 1950s lit the spark of youth culture: Elvis Presley, Chuck Berry, and Little Richard shook the world with slapback echo, handclaps, and pounding beats — the thrilling birth of rock’n’roll that never stops moving!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960s",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "The 1960s burst with The Beatles, The Rolling Stones, and The Supremes — jangling guitars, lush harmonies, sitars, and Motown grooves. A revolution where music became the heartbeat of change and dreams!",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970s",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "The 1970s roared with Led Zeppelin, ABBA, and Stevie Wonder — heavy riffs, disco lights, funk grooves, and soaring ballads. A decade of glitter, rebellion, and unforgettable anthems to sing with passion!",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980s",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "The 1980s dazzled with Michael Jackson, Madonna, and Prince — neon synths, echoing drums, screaming guitars, and pop hooks. A world of icons and rebels where every beat invited you to dance and sing!",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990s",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "The 1990s crashed in with Nirvana, Tupac, and Britney Spears — grunge guitars, hip-hop beats, R&B smoothness, and bubblegum pop. A raw, diverse decade where every fan found their perfect sound!",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000s",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "The 2000s mixed Beyoncé, Coldplay, and Linkin Park — R&B grooves, arena rock, nu-metal riffs, and pop anthems. A digital decade where streaming began and music connected the world online!",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010s",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "The 2010s streamed with Taylor Swift, Drake, and Billie Eilish — trap beats, EDM drops, indie textures, and confessional lyrics. A decade of playlists, festivals, and global voices shaping tomorrow!",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Female Blues Legends",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Female Blues Legends echo with Bessie Smith, Ma Rainey, and Etta James — smoky voices, soulful cries, bending guitars, and rolling pianos. A sound of struggle and hope that invites you to sing your truth!",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Female Country Stars",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Female Country Stars shine with Dolly Parton, Patsy Cline, and Shania Twain — steel guitars, fiddles, heartfelt lyrics, and southern charm. Stories of love, loss, and joy inviting you to sing along under the stars!",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "Female DJs",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Female DJs spin with Peggy Gou, Charlotte de Witte, and Nina Kraviz — pulsing beats, hypnotic drops, vinyl scratches, and laser lights. Queens of the booth who invite you to dance until sunrise without pause!",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Female Grunge Artists",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Female Grunge Artists rocked with Courtney Love, Shirley Manson, and L7 — distorted guitars, raw vocals, flannel grit, and angst-filled lyrics. A fierce 1990s wave inviting you to scream your truth out loud!",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Female Hip-Hop Artists",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Female Hip-Hop Artists reign with Queen Latifah, Missy Elliott, and Nicki Minaj — sharp rhymes, heavy beats, bold flows, and fearless voices. A revolution of words and rhythm inviting you to rap along loud!",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Female Jazz Vocalists",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Female Jazz Vocalists glow with Ella Fitzgerald, Billie Holiday, and Sarah Vaughan — silky scat, smoky clubs, swinging bands, and tender ballads. A golden legacy inviting you to snap, hum, and sing along!",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Female Pop Superstars",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Female Pop Superstars shine with Madonna, Beyoncé, and Lady Gaga — catchy hooks, bold reinvention, dazzling shows, and empowering anthems. Voices of generations inviting you to sing, dance, and feel unstoppable!",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Female Rappers",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "Female Rappers blaze with Nicki Minaj, Cardi B, and Megan Thee Stallion — fiery flows, booming bass, sharp rhymes, and unshakable confidence. Queens of the mic inviting you to rap your power out loud!",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Female R&B Divas",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "Female R&B Divas soar with Aretha Franklin, Mary J. Blige, and Alicia Keys — soulful vocals, grooving basslines, gospel roots, and heartfelt ballads. Queens of emotion inviting you to sing from the soul!",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Female Rock/Metal Vocalists",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Female Rock and Metal Vocalists roar with Joan Jett, Doro Pesch, and Floor Jansen — distorted guitars, thunderous drums, soaring screams, and fearless energy. A storm of power inviting you to scream along!",
     "isPlayable": true,
     "slug": "female-rock-metal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Female Soul Legends",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Female Soul Legends glow with Aretha Franklin, Gladys Knight, and Diana Ross — gospel roots, velvet tones, heartfelt lyrics, and timeless grooves. Voices of truth inviting you to clap, sway, and sing along!",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Female Vocal Icons",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Female Vocal Icons shine with Whitney Houston, Céline Dion, and Adele — powerhouse belts, tender whispers, emotional ballads, and unforgettable choruses. Voices that move generations, inviting you to sing out loud!",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Orchestral",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Orchestral music unites Beethoven, Tchaikovsky, and John Williams — sweeping strings, thunderous brass, delicate woodwinds, and booming percussion. A timeless universe where every note paints emotion and invites you to join!",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Piano",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Piano magic flows from Mozart, Chopin, and Elton John — delicate arpeggios, stormy chords, jazzy runs, and pop ballads. A single instrument, endless colors, inviting you to touch the keys and feel the story!",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Chamber Music",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Chamber music thrives with Mozart, Haydn, and Schubert — intimate string quartets, warm woodwinds, subtle dynamics, and close dialogue. A world of conversation in sound that invites you to listen and join in!",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Classical",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Classical music echoes with Bach, Mozart, and Beethoven — counterpoint, sonatas, symphonies, and elegant balance. A tradition of genius and emotion that still inspires you to listen, learn, and join the flow!",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "New Age music floats with Enya, Yanni, and Vangelis — shimmering synths, flowing flutes, soft pianos, and ambient textures. A soundscape of calm and imagination that invites you to breathe, dream, and join!",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Opera",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Opera shines with Verdi, Mozart, and Puccini — soaring sopranos, powerful tenors, dramatic arias, and sweeping orchestras. A fusion of theater and music that invites you to feel, cry, and sing along!",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Soundtracks",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Soundtracks resonate with John Williams, Hans Zimmer, and Ennio Morricone — epic strings, pounding drums, subtle themes, and unforgettable motifs. Music that turns stories into emotion and invites you to relive!",
     "isPlayable": true,
     "slug": "soundtrack",
@@ -366,7 +366,7 @@
   {
     "categoryUrl": "/classic-rock",
     "headline": "Classic Rock",
-    "imageUrl": "/category/classic-rock.jpg",
+    "imageUrl": "classic-rock",
     "introSubline": "From The Rolling Stones and Led Zeppelin to Queen and The Who, Classic Rock roars with guitar riffs, thundering drums, and anthemic choruses. Step into the arena sound and feel the raw power that still unites generations!",
     "isPlayable": false,
     "slug": "classic-rock",
@@ -380,7 +380,7 @@
   {
     "categoryUrl": "/rock",
     "headline": "Rock",
-    "imageUrl": "/category/rock.jpg",
+    "imageUrl": "rock",
     "introSubline": "From The Beatles and David Bowie to Nirvana and U2, Rock bridges decades with electrifying riffs, rebellious lyrics, and driving backbeats. Dive into the pulse that shaped modern culture and keeps the world moving in rhythm!",
     "isPlayable": false,
     "slug": "rock",
@@ -394,7 +394,7 @@
   {
     "categoryUrl": "/rock-n-roll",
     "headline": "Rock’n’Roll",
-    "imageUrl": "/category/rock-n-roll.jpg",
+    "imageUrl": "rock-n-roll",
     "introSubline": "Elvis Presley, Chuck Berry, and Little Richard shook the world with wild guitar licks, handclaps, and driving backbeats. Rock’n’Roll was teenage rebellion, jukebox joy, and pure energy—come and feel the spark that started it all!",
     "isPlayable": false,
     "slug": "rock-n-roll",
@@ -408,7 +408,7 @@
   {
     "categoryUrl": "/rockabilly",
     "headline": "Rockabilly",
-    "imageUrl": "/category/rockabilly.jpg",
+    "imageUrl": "rockabilly",
     "introSubline": "From Elvis Presley’s early swagger to Carl Perkins and Wanda Jackson, Rockabilly fused country twang with bluesy fire. Slapback echo, upright bass slaps, and jangling guitars invite you to clap, stomp, and dance the night away!",
     "isPlayable": false,
     "slug": "rockabilly",
@@ -422,7 +422,7 @@
   {
     "categoryUrl": "/hard-rock",
     "headline": "Hard Rock",
-    "imageUrl": "/category/hard-rock.jpg",
+    "imageUrl": "hard-rock",
     "introSubline": "Led Zeppelin, AC/DC, and Deep Purple cranked the volume, shaking arenas with heavy riffs, thunderous drums, and soaring vocals. Hard Rock is sweat, energy, and rebellion—turn it up loud and feel the power surge through you!",
     "isPlayable": false,
     "slug": "hard-rock",
@@ -436,7 +436,7 @@
   {
     "categoryUrl": "/psych-rock",
     "headline": "Psych-Rock",
-    "imageUrl": "/category/psych-rock.jpg",
+    "imageUrl": "psych-rock",
     "introSubline": "Pink Floyd, The Doors, and Jefferson Airplane opened sonic portals with swirling guitars, sitars, and mind-bending effects. Psychedelic Rock invites you to drift, dream, and expand your senses in a kaleidoscope of sound!",
     "isPlayable": false,
     "slug": "psych-rock",
@@ -450,7 +450,7 @@
   {
     "categoryUrl": "/surf-rock",
     "headline": "Surf Rock",
-    "imageUrl": "/category/surf-rock.jpg",
+    "imageUrl": "surf-rock",
     "introSubline": "From Dick Dale’s lightning-fast riffs to The Beach Boys’ sunny harmonies, Surf Rock splashed the world with reverb-drenched guitars, crashing drums, and endless summer vibes. Grab your board—ride the rhythm and feel the waves!",
     "isPlayable": false,
     "slug": "surf-rock",
@@ -464,7 +464,7 @@
   {
     "categoryUrl": "/j-rock",
     "headline": "J-Rock",
-    "imageUrl": "/category/j-rock.jpg",
+    "imageUrl": "j-rock",
     "introSubline": "From X Japan’s dramatic ballads to L’Arc-en-Ciel and ONE OK ROCK, J-Rock blends Western riffs with Japanese flair. Expect soaring vocals, fast guitars, and emotional power—step into a world where rock feels boundless and new!",
     "isPlayable": false,
     "slug": "j-rock",
@@ -478,7 +478,7 @@
   {
     "categoryUrl": "/deutschrock",
     "headline": "Deutschrock",
-    "imageUrl": "/category/deutschrock.jpg",
+    "imageUrl": "deutschrock",
     "introSubline": "From Udo Lindenberg to Die Toten Hosen and Die Ärzte, Deutschrock fused raw riffs with sharp German lyrics. Expect powerful guitars, catchy refrains, and cultural punch—sing along in your own language and feel the energy roar!",
     "isPlayable": false,
     "slug": "detschrock",
@@ -492,7 +492,7 @@
   {
     "categoryUrl": "/krautrock",
     "headline": "Krautrock",
-    "imageUrl": "/category/krautrock.jpg",
+    "imageUrl": "krautrock",
     "introSubline": "From Can and Kraftwerk to Neu! and Faust, Krautrock fused hypnotic rhythms, experimental sounds, and electronic pulses. Motorik beats and endless improvisation invite you to drift, groove, and explore music without limits!",
     "isPlayable": false,
     "slug": "krautrock",
@@ -506,7 +506,7 @@
   {
     "categoryUrl": "/garage-rock",
     "headline": "Garage Rock",
-    "imageUrl": "/category/garage.jpg",
+    "imageUrl": "garage",
     "introSubline": "The Sonics, The Stooges, and The White Stripes unleashed raw riffs, fuzzy guitars, and shouted vocals. Garage Rock is dirty, direct, and unpolished—grab your air guitar and scream with the primal energy of pure rock!",
     "isPlayable": false,
     "slug": "garage-rock",
@@ -520,7 +520,7 @@
   {
     "categoryUrl": "/punk",
     "headline": "Punk",
-    "imageUrl": "/category/punk.jpg",
+    "imageUrl": "punk",
     "introSubline": "Sex Pistols, Ramones, and The Clash tore rules apart with three-chord fury, fast drums, and snarling vocals. Punk is rebellion, speed, and attitude—jump into the pit, shout along, and feel the rush of raw freedom!",
     "isPlayable": false,
     "slug": "punk",
@@ -534,7 +534,7 @@
   {
     "categoryUrl": "/gothic",
     "headline": "Gothic",
-    "imageUrl": "/category/gothic.jpg",
+    "imageUrl": "gothic",
     "introSubline": "From Bauhaus and Siouxsie Sioux to The Sisters of Mercy, Gothic Rock echoes with deep basslines, reverb-drenched guitars, and haunting vocals. Step into a world of shadow and beauty—let the dark rhythm embrace you!",
     "isPlayable": false,
     "slug": "gothic-rock",

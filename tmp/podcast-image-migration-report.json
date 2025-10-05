@@ -1,0 +1,13 @@
+{
+  "totalUpdated": 38,
+  "dryRun": false,
+  "files": [
+    {
+      "file": "en.json",
+      "updated": 38,
+      "skipped": false,
+      "dryRun": false
+    }
+  ],
+  "timestamp": "2025-10-05T11:05:26.653Z"
+}

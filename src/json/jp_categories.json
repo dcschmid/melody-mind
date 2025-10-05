@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950年代",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "1950年代はエルヴィス・プレスリー、チャック・ベリー、リトル・リチャードが登場し、スラップバック・エコーと手拍子のビートで若者を熱狂させた。ジュークボックスが鳴り響き、ロックンロールが青春の心を解き放った時代へ飛び込もう！",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960年代",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "1960年代はビートルズ、ローリング・ストーンズ、ボブ・ディランが音楽を革新。シタールやファズギター、抗議の歌声が時代を彩り、フラワーパワーと共に世界中を揺さぶった。声を合わせて新しい時代を感じよう！",
     "isPlayable": true,
     "text": "1960年代、音楽は単なる娯楽から社会と精神の革命へと変化した。ビートルズはメロディと実験精神で世界を席巻し、ローリング・ストーンズはブルースの荒々しい力をロックに注ぎ込んだ。ボブ・ディランはアコースティック・ギターとハーモニカで「時代は変わる」と歌い、ジョーン・バエズは澄んだ声で平和を訴えた。さらにジミ・ヘンドリックスはファズギターとフィードバックで宇宙的なサウンドを生み、ザ・フーは爆発的なライブで若者の怒りを代弁した。インドのシタールやサイケデリックなエフェクトも広がり、フラワーパワーの象徴となった。音楽は愛と抵抗の旗を掲げる武器となったのだ。さあ、ギターをかき鳴らし、歌に声を重ね、自由を求めたあの時代を体感しよう！",
@@ -29,7 +29,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970年代",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "1970年代はレッド・ツェッペリン、ピンク・フロイド、クイーンが壮大なロックを築き、ディスコのミラーボールが夜を照らした。シンセサイザーやリフの重低音と共に、多彩な音の宇宙へ飛び込もう！",
     "isPlayable": true,
     "slug": "1970s",
@@ -43,7 +43,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980年代",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "1980年代はマイケル・ジャクソン、マドンナ、プリンスがポップを変革。シンセポップの煌めき、ヘヴィメタルの轟音、ヒップホップのビートが交錯し、MTVが新しいスターを生み出した。リズムに乗って踊り出そう！",
     "isPlayable": true,
     "slug": "1980s",
@@ -57,7 +57,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990年代",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "1990年代はニルヴァーナ、ブリトニー・スピアーズ、2パックが時代を定義。グランジの轟音、ポップのきらめき、ヒップホップのリアルなストリートビートが交錯した。青春の叫びと共に声を響かせよう！",
     "isPlayable": true,
     "slug": "1990s",
@@ -71,7 +71,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000年代",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "2000年代はビヨンセ、エミネム、コールドプレイがシーンを支配。R&Bの艶やかさ、ヒップホップの鋭さ、オルタナティブ・ロックの透明感が共鳴し、デジタル配信が音楽の楽しみ方を一変させた。声を重ねて共鳴しよう！",
     "isPlayable": true,
     "slug": "2000s",
@@ -85,7 +85,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010年代",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "2010年代はテイラー・スウィフト、エド・シーラン、アリアナ・グランデが歌を響かせた。EDMの高揚感、トラップの重低音、ポップの華やかさが共鳴し、SNSが音楽と人々を直接つなげた時代を体験しよう！",
     "isPlayable": true,
     "slug": "2010s",
@@ -99,7 +99,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "女性ブルースレジェンド",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "ベッシー・スミス、マ・レイニー、エタ・ジェイムスが魂を込めたブルース。スライドギター、ブルーノート、心の叫びが交錯する。声を張り上げ、クラップでリズムを刻み、ブルースの情熱を体感しよう！",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -113,7 +113,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "女性カントリースター",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "ドリー・パートン、パッツィ・クライン、シャナイア・トゥエインが紡ぐカントリー。バンジョー、スティールギター、温かなハーモニーが草原に響く。声を合わせて歌い、心の原風景を感じよう！",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -127,7 +127,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "女性DJ",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "ニーナ・クラヴィッツ、ペギー・グー、シャーロット・デ・ウィッテ。ターンテーブルが回り、ビートが重なる。サンプル、シンセ、ループでクラブを熱狂させる女性DJの世界で踊り続けよう！",
     "isPlayable": true,
     "slug": "female-djs",
@@ -141,7 +141,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "女性グランジアーティスト",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "コートニー・ラヴ、シナード・オコナー、ホールの叫び。歪んだギター、重いドラム、荒削りな歌声が90年代の痛みを刻んだ。叫びを解き放ち、拳を突き上げ、グランジの衝動に浸ろう！",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -155,7 +155,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "女性ヒップホップアーティスト",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "クイーン・ラティファ、ミッシー・エリオット、ニッキー・ミナージュ。ビートとライムで女性の力を示す。重低音のキック、サンプルのループ、ラップのフローに乗って声を響かせよう！",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -169,7 +169,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "女性ジャズボーカリスト",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "エラ・フィッツジェラルド、ビリー・ホリデイ、サラ・ヴォーン。スウィングのリズム、スキャットの即興、夜を包む歌声。ジャズクラブの雰囲気を感じながら、声を重ねてスウィングしよう！",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -183,7 +183,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "女性ポップスーパースター",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "マドンナ、ブリトニー・スピアーズ、レディー・ガガ、テイラー・スウィフト。ポップの女王たちがキャッチーなメロディと大胆なステージで世界を魅了。シンセの輝きと共に歌い踊り、ポップの魔法を体感しよう！",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -197,7 +197,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "女性ラッパー",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "MCライティ、ローリン・ヒル、ニッキー・ミナージュ、カーディ・B。ラップのフロウと重低音ビートが女性の視点を鋭く刻む。マイクを握り、リズムに乗って声を解き放とう！",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -211,7 +211,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "女性R&Bディーバ",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "アレサ・フランクリン、ホイットニー・ヒューストン、マライア・キャリー、ビヨンセ。ソウルフルな声とR&Bのグルーヴが心を震わせる。ゴスペルの熱、ビートの波に乗り、歌声を解き放とう！",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -225,7 +225,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "女性ロック/メタルボーカリスト",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "ジョーン・ジェット、ドロ・ペッシュ、エイミー・リー、シャロン・デン・アデル。歪んだギター、雷鳴のようなドラム、力強いシャウトで女性がロックとメタルを切り拓いた。拳を突き上げよう！",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -239,7 +239,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "女性ソウルレジェンド",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "エタ・ジェイムス、グラディス・ナイト、アレサ・フランクリン。ソウルのリズムとゴスペルの力強さが交わり、愛と痛みを歌に変えた。声を重ね、ソウルの温もりを共に感じよう！",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -253,7 +253,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "女性ボーカルアイコン",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "バーブラ・ストライサンド、シェール、セリーヌ・ディオン、アデル。世代を超えた歌声の象徴たち。ピアノの伴奏、壮大なオーケストラ、胸を打つメロディに乗せ、声の力を共に感じよう！",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -267,7 +267,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "オーケストラ",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "モーツァルトやベートーヴェンの遺産を受け継ぎ、ジョン・ウィリアムズや久石譲が壮大な響きを奏でる。弦のうねり、金管の輝き、打楽器の迫力が一体となり、聴く人を壮大な物語の中へ誘う音の海へ飛び込もう！",
     "isPlayable": true,
     "slug": "orchestral",
@@ -281,7 +281,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "ピアノ",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "ショパンやリストの情熱、坂本龍一やキース・ジャレットの詩的な響き。88鍵が生む低音の重みと高音のきらめきが心を揺らす。鍵盤に触れ、旋律をなぞりながら音楽の旅に出よう！",
     "isPlayable": true,
     "slug": "piano",
@@ -295,7 +295,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "室内楽",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "弦楽四重奏や木管五重奏、モーツァルトやブラームスが築いた親密な響き。小さな編成だからこそ生まれる繊細な対話の中に、心を寄せ合う音楽の絆を感じよう！",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -309,7 +309,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "クラシック",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "バッハの厳格な対位法、ベートーヴェンの力強い交響曲、チャイコフスキーの情熱的な旋律。数世紀にわたり培われたクラシックの響きに触れ、永遠の芸術を味わおう！",
     "isPlayable": true,
     "slug": "classical",
@@ -323,7 +323,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "ニューエイジ",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "エンヤの幻想的な歌声、喜多郎のシンセサイザーが描く宇宙。ニューエイジは癒やしと瞑想の音楽。透明なサウンドスケープに身を委ね、心を解き放とう！",
     "isPlayable": true,
     "slug": "new-age",
@@ -337,7 +337,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "オペラ",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "ヴェルディの激情、モーツァルトの優雅さ、プッチーニの涙を誘う旋律。舞台で歌手とオーケストラが一体となり、人間の感情をドラマティックに描き出す。声の力に酔いしれよう！",
     "isPlayable": true,
     "slug": "opera",
@@ -351,7 +351,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "サウンドトラック",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "ジョン・ウィリアムズの銀河、ハンス・ジマーの轟音、久石譲の抒情。サウンドトラックは映画と共に心を揺さぶる。旋律を聴けば情景が蘇る魔法の音楽世界に浸ろう！",
     "isPlayable": true,
     "slug": "soundtrack",

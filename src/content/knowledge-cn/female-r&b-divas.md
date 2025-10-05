@@ -1,7 +1,8 @@
 ---
 title: 揭秘R&B女王的辉煌传奇-一场不可错过的音乐盛宴
 description: 你是否想象过R&B女歌手如何成为乐坛不朽传奇？探索她们的独特嗓音、深情演绎及时代影响力-立即开启音乐之旅！
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-07-30
 updatedAt: 2025-07-30
 keywords:

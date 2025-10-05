@@ -1,7 +1,8 @@
 ---
 title: 揭秘R&B魅力之旅 畅享灵魂律动与情感共鸣
 description: 你喜欢深情与节奏交织的音乐吗？R&B将灵魂、律动和流行完美融合，带你探索音乐历史与当代创新，立即开启聆听之旅！
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-07-30
 updatedAt: 2025-07-30
 keywords:

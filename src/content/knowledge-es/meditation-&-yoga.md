@@ -4,7 +4,8 @@ description:
   ¿Buscas conectar cuerpo y mente? Descubre melodías que unen tradición y modernidad en meditación y
   yoga. Sumérgete en ritmos que inspiran paz, equilibrio y bienestar – ¡Transforma tu experiencia
   musical hoy!
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

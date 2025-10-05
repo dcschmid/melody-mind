@@ -3,7 +3,8 @@ title: Opdag Party On! | En Musikalsk Rejse
 description:
   Er du klar til at opleve ægte feststemning med Party On! Dyk ned i den pulserende musik og opdag
   de historiske rødder bag denne unikke festgenre - start din musikalske rejse i dag
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-04-13
 updatedAt: 2025-04-13
 keywords:

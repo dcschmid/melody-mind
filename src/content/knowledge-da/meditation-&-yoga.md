@@ -3,7 +3,8 @@ title: Opdag Meditation & Yoga | En Musikalsk Rejse
 description:
   Er du klar til at finde indre ro med meditation og yoga? Udforsk beroligende musik, der guider dig
   mod balance og harmoni - Lær om kulturelle og historiske rytmer - Find din indre styrke nu
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

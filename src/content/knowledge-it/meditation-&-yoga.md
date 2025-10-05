@@ -4,7 +4,8 @@ description:
   Sei pronto a immergerti in un universo di armonia e benessere? Lasciati conquistare dalla fusione
   di sonorità orientali e meditazione profonda - esplora la musica rilassante che unisce corpo e
   mente. Ascolta e lasciati ispirare
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

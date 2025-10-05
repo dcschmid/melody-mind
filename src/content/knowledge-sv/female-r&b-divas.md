@@ -3,7 +3,8 @@ title: Upptäck Female R&B Divas - En Musikalisk Resa
 description:
   Är du redo att dyka in i de kraftfulla kvinnliga R&B-divornas värld? Utforska deras musikaliska
   resa, kulturellt inflytande och historiska betydelse – klicka för att upptäcka mer
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

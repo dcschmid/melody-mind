@@ -320,27 +320,33 @@ const clientTranslations = generateClientTranslations(t);
                 itemscope
                 itemtype="https://schema.org/ItemList"
               >
-                {sortedCategories.map((category, index) => (
-                  <div class="playlist-item" itemscope itemtype="https://schema.org/ListItem">
-                    <meta itemprop="position" content={String(index + 1)} />
-                    <div itemscope itemprop="item" itemtype="https://schema.org/DefinedTerm">
-                      <meta itemprop="name" content={category.headline} />
-                      <meta
-                        itemprop="description"
-                        content={category.introSubline || category.text || category.headline}
-                      />
-                      <meta itemprop="inLanguage" content={lang} />
-                      <PlaylistItem
-                        headline={category.headline}
-                        subheadline={category.introSubline}
-                        image={category.imageUrl}
-                        imageAlt={`${category.headline} music category`}
-                        href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
-                        isDisabled={!category.isPlayable}
-                      />
+                {sortedCategories.map((category, index) => {
+                  const looksSlug =
+                    category.imageUrl &&
+                    !category.imageUrl.includes("/") &&
+                    !/\.[a-zA-Z]{2,5}$/.test(category.imageUrl);
+                  return (
+                    <div class="playlist-item" itemscope itemtype="https://schema.org/ListItem">
+                      <meta itemprop="position" content={String(index + 1)} />
+                      <div itemscope itemprop="item" itemtype="https://schema.org/DefinedTerm">
+                        <meta itemprop="name" content={category.headline} />
+                        <meta
+                          itemprop="description"
+                          content={category.introSubline || category.text || category.headline}
+                        />
+                        <meta itemprop="inLanguage" content={lang} />
+                        <PlaylistItem
+                          headline={category.headline}
+                          subheadline={category.introSubline}
+                          image={looksSlug ? category.imageUrl : category.imageUrl}
+                          imageAlt={`${category.headline} music category`}
+                          href={category.categoryUrl ? `/${lang}${category.categoryUrl}` : "#"}
+                          isDisabled={!category.isPlayable}
+                        />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </>
           ) : (

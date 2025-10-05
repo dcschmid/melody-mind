@@ -4,7 +4,8 @@ description:
   Êtes-vous prêt à vibrer au rythme enivrant du Rock 'n' Roll ? Laissez-vous emporter par des notes
   électriques et une énergie authentique. Explorez nos sélections exclusives et rejoignez la légende
   musicale dès maintenant
-image: /category/rock-'n'-roll.jpg
+image: /category/rock-n-roll.jpg
+# migrated: rock-'n'-roll -> rock-n-roll
 createdAt: 2025-03-14
 updatedAt: 2025-03-14
 keywords:

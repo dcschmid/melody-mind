@@ -4,7 +4,8 @@ description:
   Êtes-vous prêt à explorer un univers sonore pensé pour affiner votre concentration? Plongez dans
   notre sélection raffinée pour transformer chaque écoute en un voyage sensoriel. Lancez-vous dès
   aujourd'hui!
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

@@ -3,7 +3,8 @@ title: Ontdek Female R&B Divas | Een Muzikale Reis
 description:
   Benieuwd naar de impact van Female R&B Divas? Ontdek hun revolutionaire geluid, culturele verhalen
   en muzikale evolutie - laat je inspireren en duik in hun wereld.
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

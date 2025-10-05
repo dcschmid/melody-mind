@@ -4,7 +4,8 @@ description:
   Pronto a esplorare il vibrante mondo del Forró? Scopri ritmi travolgenti, tradizione e innovazione
   che raccontano storie autentiche dal cuore del Brasile. Un viaggio musicale imperdibile, immergiti
   ora!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

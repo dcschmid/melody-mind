@@ -8,6 +8,7 @@
  */
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Picture } from "astro:assets";
+import CategoryImage from "./CategoryImage.astro";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 
@@ -21,7 +22,7 @@ interface Props {
   /** Optional secondary text displayed below the headline */
   subheadline?: string;
   /** Path to the image representing this playlist/category */
-  image: string;
+  image: string; // can now be either legacy path (/category/foo.jpg) OR plain slug (foo)
   /** Whether this item is disabled/unavailable (shows "coming soon" overlay) */
   isDisabled?: boolean;
   /** Alternative text description for the image (for accessibility) */
@@ -43,7 +44,10 @@ const {
   imageAlt = "",
   href = "#", // Default value for WCAG compliance
   id = crypto.randomUUID(), // Generate unique ID for ARIA references
-} = Astro.props;
+} = Astro.props as Props;
+
+// Determine if provided image looks like a slug (no slash, no extension)
+const isSlug = image && !image.includes("/") && !/\.[a-zA-Z]{2,5}$/.test(image);
 
 // Enhanced, more specific IDs for ARIA references
 const headlineId = `playlist-title-${id}`;
@@ -104,20 +108,32 @@ const statusAnnouncementText = isDisabled
       {isDisabled ? t("playlist.item.coming.soon") : t("category.play")}
     </span>
 
-    <Picture
-      class={`absolute top-0 left-0 w-full h-full object-cover ${isDisabled ? "opacity-60 grayscale" : ""}`}
-      src={image}
-      width={320}
-      height={180}
-      widths={[400, 600, 800, 1200]}
-      sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
-      formats={["avif", "webp", "jpg"]}
-      alt={imageAlt}
-      loading="lazy"
-      decoding="async"
-      fetchpriority={isDisabled ? "low" : "auto"}
-      quality={85}
-    />
+    {
+      isSlug ? (
+        <CategoryImage
+          slug={image}
+          alt={imageAlt}
+          loading="lazy"
+          fetchpriority={isDisabled ? "low" : "auto"}
+          class={`absolute top-0 left-0 h-full w-full ${isDisabled ? "opacity-60 grayscale" : ""}`}
+        />
+      ) : (
+        <Picture
+          class={`absolute top-0 left-0 h-full w-full object-cover ${isDisabled ? "opacity-60 grayscale" : ""}`}
+          src={image}
+          width={320}
+          height={180}
+          widths={[400, 600, 800, 1200]}
+          sizes="(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px"
+          formats={["avif", "webp", "jpg"]}
+          alt={imageAlt}
+          loading="lazy"
+          decoding="async"
+          fetchpriority={isDisabled ? "low" : "auto"}
+          quality={85}
+        />
+      )
+    }
   </div>
 
   <div class="flex flex-grow flex-col p-4">

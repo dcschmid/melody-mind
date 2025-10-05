@@ -1,7 +1,8 @@
 ---
 title: 揭秘Forró的热情律动 - 从巴西传统到全球流行的音乐奇迹
 description: 想了解Forró为何席卷全球？带你探寻Forró的起源与独特节奏，感受舞步中的热情与文化传承。立即领略Forró音乐魅力！
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-07-30
 updatedAt: 2025-07-30
 keywords:

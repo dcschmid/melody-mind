@@ -5,7 +5,8 @@ description:
   Suchst du nach effektiver Musik zur Steigerung deiner Konzentration? Erfahre, wie spezielle
   Fokusmusik und neuronale Klanglandschaften dein Lernen und Arbeiten revolutionieren – jetzt
   eintauchen und fokussierte Energie erleben!
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-06-29
 updatedAt: 2025-06-29
 keywords:

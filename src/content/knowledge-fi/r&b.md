@@ -3,7 +3,8 @@ title: R&B Taika | Taide rytmien takana
 description:
   Etsitkö syvällistä näkemystä R&B:n maailmasta? Sukella soulin ja rytmien tarinaan - löydä
   historiaa, kulttuuria ja modernia soundia. Opi, miksi R&B koskettaa sieluasi. Tutustu tänään!
-image: /category/r&b.jpg
+image: /category/randb.jpg
+# migrated: r&b -> randb
 createdAt: 2025-04-10
 updatedAt: 2025-04-10
 keywords:

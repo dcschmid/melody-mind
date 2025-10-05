@@ -2,7 +2,7 @@
   {
     "categoryUrl": "/1950s",
     "headline": "1950-е",
-    "imageUrl": "/category/1950s.jpg",
+    "imageUrl": "1950s",
     "introSubline": "1950-е годы подарили миру рок-н-ролл: Элвис Пресли, Чак Берри и Литл Ричард зажгли сердца молодёжи. Слэпбэк-эхо, хлопки в ладоши и ритм-секция – почувствуй рождение новой культуры и стань частью её огненного драйва!",
     "isPlayable": true,
     "slug": "1950s",
@@ -16,7 +16,7 @@
   {
     "categoryUrl": "/1960s",
     "headline": "1960-е",
-    "imageUrl": "/category/1960s.jpg",
+    "imageUrl": "1960s",
     "introSubline": "1960-е – эпоха Битлз, Роллинг Стоунз и Джими Хендрикса. Психоделия, органные аккорды и гитарные соло открыли новые миры. Почувствуй магию перемен, пой хором и танцуй в вихре свободы и ярких красок десятилетия!",
     "isPlayable": true,
     "slug": "1960s",
@@ -30,7 +30,7 @@
   {
     "categoryUrl": "/1970s",
     "headline": "1970-е",
-    "imageUrl": "/category/1970s.jpg",
+    "imageUrl": "1970s",
     "introSubline": "1970-е зажгли мир риффами Лед Зеппелин, голосом Фредди Меркьюри и хитом ABBA. Диско-шары, хард-роковые гитары и фанковые басы – прочувствуй драйв, подпевай и танцуй, словно на бесконечной вечеринке десятилетия!",
     "isPlayable": true,
     "slug": "1970s",
@@ -44,7 +44,7 @@
   {
     "categoryUrl": "/1980s",
     "headline": "1980-е",
-    "imageUrl": "/category/1980s.jpg",
+    "imageUrl": "1980s",
     "introSubline": "1980-е подарили Майкла Джексона, Мадонну и U2. Синтезаторы, гитарные гимны и неоновые огни стали символом эпохи. Проживи магию клипов MTV, танцуй под диско-биты и кричи вместе с аренами рок-звёзд!",
     "isPlayable": true,
     "slug": "1980s",
@@ -58,7 +58,7 @@
   {
     "categoryUrl": "/1990s",
     "headline": "1990-е",
-    "imageUrl": "/category/1990s.jpg",
+    "imageUrl": "1990s",
     "introSubline": "1990-е взорвали сцены Нирвана, Бритни Спирс и Dr. Dre. Гранж, евродэнс и хип-хоп задали ритм десятилетию. Почувствуй крик Курта Кобейна, пой поп-хиты и качайся под биты рэпа – музыка девяностых зовёт в движение!",
     "isPlayable": true,
     "slug": "1990s",
@@ -72,7 +72,7 @@
   {
     "categoryUrl": "/2000s",
     "headline": "2000-е",
-    "imageUrl": "/category/2000s.jpg",
+    "imageUrl": "2000s",
     "introSubline": "2000-е годы объединили Линкин Парк, Бейонсе и Эминема. Поп-панк, ню-метал и R&B качали планету. Почувствуй силу рэп-баттлов, запой поп-гимны и танцуй в вихре цифровой эры – музыка нового тысячелетия зовёт!",
     "isPlayable": true,
     "slug": "2000s",
@@ -86,7 +86,7 @@
   {
     "categoryUrl": "/2010s",
     "headline": "2010-е",
-    "imageUrl": "/category/2010s.jpg",
+    "imageUrl": "2010s",
     "introSubline": "2010-е открыли Тейлор Свифт, Эда Ширана и Билли Айлиш. Стриминг, фестивали и соцсети задали ритм эпохи. Включай хиты, пой в караоке и делись эмоциями онлайн – музыка десятилетия стала голосом целого поколения!",
     "isPlayable": true,
     "slug": "2010s",
@@ -100,7 +100,7 @@
   {
     "categoryUrl": "/female-blues-legends",
     "headline": "Женские легенды блюза",
-    "imageUrl": "/category/female-blues-legends.jpg",
+    "imageUrl": "female-blues-legends",
     "introSubline": "Легенды блюза – Бесси Смит, Мамы Торнтон и Этты Джеймс. Хриплый вокал, блюзовые гитары и печальные гармоники создают голос души. Почувствуй их силу и спой куплет, где каждая нота говорит о боли и надежде!",
     "isPlayable": true,
     "slug": "female-blues-legends",
@@ -114,7 +114,7 @@
   {
     "categoryUrl": "/female-country-stars",
     "headline": "Женские звёзды кантри",
-    "imageUrl": "/category/female-country-stars.jpg",
+    "imageUrl": "female-country-stars",
     "introSubline": "Кантри-звёзды – Долли Партон, Пэтси Клайн и Шанайя Твейн. Банжо, скрипки и гитары рассказывают истории о жизни. Почувствуй тепло простых мелодий и пой вместе с ними о любви, дороге и мечтах!",
     "isPlayable": true,
     "slug": "female-country-stars",
@@ -128,7 +128,7 @@
   {
     "categoryUrl": "/female-djs",
     "headline": "Женщины-DJ",
-    "imageUrl": "/category/female-djs.jpg",
+    "imageUrl": "female-djs",
     "introSubline": "Женщины-DJ – Нина Кравиц, Шарлотта де Витте и Аллисон Вандерлант. Техно-биты, хаус-ритмы и пульсирующие басы зажигают клубы. Почувствуй энергетику танцпола и двигайся в ритме бесконечной ночи!",
     "isPlayable": true,
     "slug": "female-djs",
@@ -142,7 +142,7 @@
   {
     "categoryUrl": "/female-grunge-artists",
     "headline": "Женщины-исполнители гранжа",
-    "imageUrl": "/category/female-grunge-artists.jpg",
+    "imageUrl": "female-grunge-artists",
     "introSubline": "Гранж-рок открыл миру Кортни Лав, Ким Гордон и Ширли Мэнсон. Гитары с перегрузом, крик и протест стали их оружием. Почувствуй бунт 1990-х и запой так, словно сцена – это твой манифест свободы!",
     "isPlayable": true,
     "slug": "female-grunge-artists",
@@ -156,7 +156,7 @@
   {
     "categoryUrl": "/female-hip-hop-artists",
     "headline": "Женщины хип-хоп исполнители",
-    "imageUrl": "/category/female-hip-hop-artists.jpg",
+    "imageUrl": "female-hip-hop-artists",
     "introSubline": "Хип-хоп-звёзды – Queen Latifah, Missy Elliott и Никки Минаж. Ритмичные рифмы, мощные биты и смелые тексты создали новую волну. Почувствуй силу женского голоса в рэпе и качайся в ритме улиц!",
     "isPlayable": true,
     "slug": "female-hip-hop-artists",
@@ -170,7 +170,7 @@
   {
     "categoryUrl": "/female-jazz-vocalists",
     "headline": "Женщины джазовые вокалистки",
-    "imageUrl": "/category/female-jazz-vocalists.jpg",
+    "imageUrl": "female-jazz-vocalists",
     "introSubline": "Элла Фицджеральд, Билли Холидей и Сара Воан сделали джаз бессмертным. Скат, мягкие свинги и саксофоны создают магию вечеров. Почувствуй атмосферу джаз-клуба и подпой, словно сам выходишь к микрофону!",
     "isPlayable": true,
     "slug": "female-jazz-vocalists",
@@ -184,7 +184,7 @@
   {
     "categoryUrl": "/female-pop-superstars",
     "headline": "Женские поп-суперзвёзды",
-    "imageUrl": "/category/female-pop-superstars.jpg",
+    "imageUrl": "female-pop-superstars",
     "introSubline": "Поп-иконы – Мадонна, Бритни Спирс и Леди Гага. Танцевальные биты, яркие хиты и смелые образы сделали их легендами. Почувствуй энергию поп-сцены и подпевай гимнам, что звучат на вечеринках всего мира!",
     "isPlayable": true,
     "slug": "female-pop-superstars",
@@ -198,7 +198,7 @@
   {
     "categoryUrl": "/female-rappers",
     "headline": "Женщины-рэперы",
-    "imageUrl": "/category/female-rappers.jpg",
+    "imageUrl": "female-rappers",
     "introSubline": "MC Lyte, Никки Минаж и Карди Би превратили рэп в площадку женской силы. Жёсткие рифмы, тяжёлые биты и харизма сделали их голосами поколения. Почувствуй ритм улиц и зачитай строки вместе с ними!",
     "isPlayable": true,
     "slug": "female-rappers",
@@ -212,7 +212,7 @@
   {
     "categoryUrl": "/female-rb-divas",
     "headline": "Женские R&B дивы",
-    "imageUrl": "/category/female-rb-divas.jpg",
+    "imageUrl": "female-rb-divas",
     "introSubline": "Аретa Франклин, Мэри Джей Блайдж и Алиша Киз сделали R&B голосом души. Соул, грув и мощный вокал дарят эмоции, которые невозможно забыть. Почувствуй тепло их песен и спой куплет вместе с дивами!",
     "isPlayable": true,
     "slug": "female-rb-divas",
@@ -226,7 +226,7 @@
   {
     "categoryUrl": "/female-rockmetal-vocalists",
     "headline": "Женские рок/метал-вокалистки",
-    "imageUrl": "/category/female-rock-metal-vocalists.jpg",
+    "imageUrl": "female-rock-metal-vocalists",
     "introSubline": "Женщины-рокеры – Доро Пеш, Тарья Турунен и Эми Ли. Мощные гитары, симфонические элементы и сильные голоса сделали их иконами сцены. Почувствуй энергию рока и спой так, словно арена принадлежит тебе!",
     "isPlayable": true,
     "slug": "female-rockmetal-vocalists",
@@ -240,7 +240,7 @@
   {
     "categoryUrl": "/female-soul-legends",
     "headline": "Женские легенды соула",
-    "imageUrl": "/category/female-soul-legends.jpg",
+    "imageUrl": "female-soul-legends",
     "introSubline": "Супримс с Дайаной Росс, Уитни Хьюстон и Глэдис Найт стали легендами соула. Глубокий вокал, медленные грувы и хор создают музыку сердца. Почувствуй силу их песен и подпевай, как будто сцена – твоя!",
     "isPlayable": true,
     "slug": "female-soul-legends",
@@ -254,7 +254,7 @@
   {
     "categoryUrl": "/female-vocal-icons",
     "headline": "Женские вокальные иконы",
-    "imageUrl": "/category/female-vocal-icons.jpg",
+    "imageUrl": "female-vocal-icons",
     "introSubline": "Иконы вокала – Барбра Стрейзанд, Селин Дион и Адель. Их голоса, наполненные силой и эмоциями, стали вечными символами. Почувствуй их магию и подпевай так, словно сам находишься на великой сцене!",
     "isPlayable": true,
     "slug": "female-vocal-icons",
@@ -268,7 +268,7 @@
   {
     "categoryUrl": "/orchestral",
     "headline": "Оркестровая",
-    "imageUrl": "/category/orchestral.jpg",
+    "imageUrl": "orchestral",
     "introSubline": "Симфоническая палитра: динамика, цвет, драматургия.",
     "isPlayable": true,
     "slug": "orchestral",
@@ -282,7 +282,7 @@
   {
     "categoryUrl": "/piano",
     "headline": "Фортепиано",
-    "imageUrl": "/category/piano.jpg",
+    "imageUrl": "piano",
     "introSubline": "Фортепиано оживило Шопена, Листа и Элтона Джона. Мелодичные арпеджио, мощные аккорды и нежные трели создают мир от грусти до восторга. Почувствуй волшебство клавиш и сыграй свою мелодию вместе с мастерами!",
     "isPlayable": true,
     "slug": "piano",
@@ -296,7 +296,7 @@
   {
     "categoryUrl": "/chamber-music",
     "headline": "Камерная музыка",
-    "imageUrl": "/category/chamber-music.jpg",
+    "imageUrl": "chamber-music",
     "introSubline": "Камерная музыка собрала Гайдна, Моцарта и Шуберта. Струнные квартеты, дуэты и трио звучат интимно и глубоко. Почувствуй тепло небольшого ансамбля и подхвати ритм – музыка для души ближе, чем кажется!",
     "isPlayable": true,
     "slug": "chamber-music",
@@ -310,7 +310,7 @@
   {
     "categoryUrl": "/classical",
     "headline": "Классика",
-    "imageUrl": "/category/classical.jpg",
+    "imageUrl": "classical",
     "introSubline": "Классика объединила Баха, Бетховена и Чайковского. Фуги, симфонии и балеты формируют вечную основу. Почувствуй величие гармоний, вдохни дыхание веков и пой вместе с бессмертными мелодиями великих гениев!",
     "isPlayable": true,
     "slug": "classical",
@@ -324,7 +324,7 @@
   {
     "categoryUrl": "/new-age",
     "headline": "New Age",
-    "imageUrl": "/category/new-age.jpg",
+    "imageUrl": "new-age",
     "introSubline": "Нью-эйдж подарил миру Энью, Вангелиса и Йенни Эндерсен. Атмосферные синтезаторы, этнические мотивы и звуки природы зовут к медитации. Почувствуй гармонию с миром и напой мелодию, словно дыхание Вселенной!",
     "isPlayable": true,
     "slug": "new-age",
@@ -338,7 +338,7 @@
   {
     "categoryUrl": "/opera",
     "headline": "Опера",
-    "imageUrl": "/category/opera.jpg",
+    "imageUrl": "opera",
     "introSubline": "Опера подарила миру Моцарта, Верди и Марии Каллас. Арии, оркестровое сопровождение и мощные эмоции превращают сцену в театр страсти. Почувствуй драму и спой вместе с героями, словно стоишь на великой сцене!",
     "isPlayable": true,
     "slug": "opera",
@@ -352,7 +352,7 @@
   {
     "categoryUrl": "/soundtrack",
     "headline": "Саундтреки",
-    "imageUrl": "/category/soundtrack.jpg",
+    "imageUrl": "soundtrack",
     "introSubline": "Саундтреки Джона Уильямса, Ханса Циммера и Ховарда Шора оживляют кино. Скрипки, барабаны и хоралы делают истории вечными. Почувствуй магию фильмов и пой мотивы, что звучат в сердце каждого зрителя!",
     "isPlayable": true,
     "slug": "soundtrack",

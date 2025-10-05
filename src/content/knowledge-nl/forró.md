@@ -4,7 +4,8 @@ description:
   Ontdek de betoverende wereld van Forró - authentieke Braziliaanse dans en ritmes vol historie.
   Duik in oude tradities én moderne invloeden en leer hoe Forró harten verovert. Lees verder en
   ervaar de passie!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

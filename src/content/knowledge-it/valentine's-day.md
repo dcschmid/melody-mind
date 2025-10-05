@@ -3,7 +3,8 @@ title: Guida Completa alla Musica di San Valentino - Ritmi e Emozioni Uniche
 description:
   Hai mai sentito il battito dell'amore nella musica? Scopri la colonna sonora perfetta per San
   Valentino che ti farà vivere emozioni intense - ascolta ora e lasciati trasportare!
-image: /category/valentine's-day.jpg
+image: /category/valentines-day.jpg
+# migrated: valentine's-day -> valentines-day
 createdAt: 2025-03-15
 updatedAt: 2025-03-15
 keywords:

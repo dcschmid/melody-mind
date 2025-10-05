@@ -1,0 +1,62 @@
+---
+/**
+ * OptimizedImage Component (Generic)
+ *
+ * Renders a responsive <picture> for any supported image group (category, podcast, ...)
+ * using pre-generated variants created by `optimize-images.cjs`.
+ */
+import { getOptimizedImageVariants } from "../utils/images/optimizedImageVariants";
+
+interface Props {
+  group: string;
+  slug: string; // Already normalized in data ideally
+  alt: string;
+  loading?: "eager" | "lazy";
+  priority?: boolean;
+  class?: string;
+  fetchpriority?: "high" | "low" | "auto";
+  sizes?: string; // allow custom sizes override
+  widthHint?: number; // hint for width attribute (default 1280)
+  heightHint?: number; // hint for height attribute (default 720)
+}
+
+const {
+  group,
+  slug,
+  alt,
+  loading = "lazy",
+  priority = false,
+  class: className = "",
+  fetchpriority = "auto",
+  sizes = "(max-width: 640px) 400px, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1200px",
+  widthHint = 1280,
+  heightHint = 720,
+} = Astro.props as Props;
+
+const variants = slug ? await getOptimizedImageVariants(group, slug) : null;
+const avif = variants?.avif || [];
+const webp = variants?.webp || [];
+const fallback = variants?.fallback || `/${group}/${slug}.jpg`;
+
+function buildSrcSet(list: { width: number; src: string }[]) {
+  return list.map((v) => `${v.src} ${v.width}w`).join(", ");
+}
+
+const avifSrcSet = avif.length ? buildSrcSet(avif) : undefined;
+const webpSrcSet = webp.length ? buildSrcSet(webp) : undefined;
+---
+
+<picture class={className} data-optimized-image={`${group}:${slug}`}>
+  {avifSrcSet && <source type="image/avif" srcset={avifSrcSet} sizes={sizes} />}
+  {webpSrcSet && <source type="image/webp" srcset={webpSrcSet} sizes={sizes} />}
+  <img
+    src={fallback}
+    {alt}
+    {loading}
+    decoding="async"
+    fetchpriority={priority ? "high" : fetchpriority}
+    width={String(widthHint)}
+    height={String(heightHint)}
+    class="h-full w-full object-cover"
+  />
+</picture>

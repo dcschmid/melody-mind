@@ -4,7 +4,8 @@ description:
   Är du redo att utforska forró? Upptäck pulserande rytmer, historiska influenser och passionerad
   dansmusik. Lär dig om den unika kulturarvet och hur dessa rytmer förändrade musikhistorien –
   klicka och fördjupa dig!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

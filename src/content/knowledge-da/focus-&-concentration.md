@@ -4,7 +4,8 @@ description:
   Er du klar til en musikalsk rejse der styrker din koncentration og kreativitet - opdag
   hemmelighederne bag fokuseret musik og lær hvordan den forbedrer din hverdag - klik og oplev
   magien
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

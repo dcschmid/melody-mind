@@ -3,7 +3,8 @@ title: Fascination Meditation & Yoga - En Klangfull Upptäckt
 description:
   Vill du nå inre frid genom musik? Utforska meditation och yoga med lugnande melodier och rytmer
   inspirerade av gammal tradition - upptäck harmonin och hitta din balans idag
-image: /category/meditation-&-yoga.jpg
+image: /category/meditation-and-yoga.jpg
+# migrated: meditation-&-yoga -> meditation-and-yoga
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

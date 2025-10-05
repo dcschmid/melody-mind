@@ -4,7 +4,8 @@ description:
   Vous cherchez à explorer l'authenticité du Forró - Plongez dans un voyage musical mêlant histoire,
   danse et émotions vives. Découvrez les secrets de ce rythme envoûtant et laissez-vous transporter
   vers une culture vibrante | Explorez dès maintenant
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

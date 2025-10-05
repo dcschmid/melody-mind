@@ -3,7 +3,8 @@ title: Fascination forró | En Rejse gennem rytme og kultur
 description:
   Er du klar til at opleve forróens magi? Udforsk autentiske rytmer, historiske rødder og dansens
   puls - lær hvordan tradition møder modernitet. Dyk nu ned i forróens unikke univers!
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-04-07
 updatedAt: 2025-04-07
 keywords:

@@ -3,7 +3,8 @@ title: 尽情狂欢Party On! 探索最热舞曲和派对能量音乐盛宴
 description:
   想让每一场派对都引爆全场？立即发现Party
   On!精心甄选的嗨翻天节奏，纵享非凡气氛与潮流流行，开启属于你的音乐狂欢之旅！
-image: /category/party-on!.jpg
+image: /category/party-on.jpg
+# migrated: party-on! -> party-on
 createdAt: 2025-07-31
 updatedAt: 2025-07-31
 keywords:

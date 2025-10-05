@@ -3,7 +3,8 @@ title: Fascination Fokus och Koncentration | En Klangfull Upptäckt
 description:
   Känner du att din kreativitet vilar? Upptäck hur musik för fokus och koncentration kan lyfta din
   vardag och förbättra arbetsflödet - Lär dig teknikerna nu och boosta din inre energi
-image: /category/focus-&-concentration.jpg
+image: /category/focus-and-concentration.jpg
+# migrated: focus-&-concentration -> focus-and-concentration
 createdAt: 2025-04-14
 updatedAt: 2025-04-14
 keywords:

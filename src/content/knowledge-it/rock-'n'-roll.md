@@ -3,7 +3,8 @@ title: Rock 'n' Roll Esplosivo - Guida Completa per Anime Ribelli
 description:
   Ti senti pronto a immergerti nel mondo travolgente del Rock 'n' Roll? Scopri ritmi infuocati e
   melodie ribelli - entra ora e lasciati conquistare da un'energia senza limiti
-image: /category/rock-'n'-roll.jpg
+image: /category/rock-n-roll.jpg
+# migrated: rock-'n'-roll -> rock-n-roll
 createdAt: 2025-03-14
 updatedAt: 2025-03-14
 keywords:

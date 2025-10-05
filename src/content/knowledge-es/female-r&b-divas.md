@@ -4,7 +4,8 @@ description:
   ¿Te has preguntado cómo las divas del R&B han marcado una era? Explora historias vibrantes,
   influencias culturales y el poder musical femenino en un viaje inolvidable | Sumérgete ahora y
   descubre la evolución de cada diva
-image: /category/female-r&b-divas.jpg
+image: /category/female-randb-divas.jpg
+# migrated: female-r&b-divas -> female-randb-divas
 createdAt: 2025-04-11
 updatedAt: 2025-04-11
 keywords:

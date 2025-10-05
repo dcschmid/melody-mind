@@ -4,7 +4,8 @@ description:
   Ready to move your soul? Discover how vibrant Forró music ignites dance floors, unites
   communities, and reflects Brazil’s rich traditions. Explore the driving accordion beats, heartfelt
   lyrics, and timeless roots of this unforgettable genre.
-image: /category/forró.jpg
+image: /category/forro.jpg
+# migrated: forró -> forro
 createdAt: 2025-07-15
 updatedAt: 2025-07-15
 keywords:
