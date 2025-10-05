@@ -1,4 +1,7 @@
+import { JOKERS_PER_DIFFICULTY, isDifficulty } from "@constants/game";
+
 import { safeGetElementById } from "../dom/domUtils";
+import { getDocumentLanguage } from "../i18n/detectLanguage";
 
 import { Difficulty } from "./jokerUtils";
 
@@ -113,16 +116,10 @@ export class JokerManager {
    * @returns {number} The initial number of jokers available
    */
   private getInitialJokerCount(): number {
-    switch (this.difficulty) {
-      case "easy":
-        return 3;
-      case "medium":
-        return 5;
-      case "hard":
-        return 7;
-      default:
-        return 0;
+    if (isDifficulty(this.difficulty)) {
+      return JOKERS_PER_DIFFICULTY[this.difficulty];
     }
+    return 0;
   }
 
   /**
@@ -266,7 +263,7 @@ export class JokerManager {
     announcement.setAttribute("role", "status");
     announcement.className = "sr-only";
 
-    const lang = document.documentElement.lang || "en";
+    const lang = getDocumentLanguage();
     const remaining = this.jokerState.jokerCount;
 
     // Create localized message

@@ -1,4 +1,5 @@
 import { handleGameError } from "../error/errorHandlingUtils";
+import { resolveAchievement } from "../game/achievements";
 
 /**
  * Share Utils - Utility functions for sharing game results across different platforms
@@ -228,15 +229,7 @@ const DIFFICULTY_EMOJIS: Record<string, string> = {
   default: "⚪️",
 };
 
-/**
- * Score thresholds for different achievement levels
- */
-const ACHIEVEMENT_THRESHOLDS = {
-  GENIUS: 800,
-  PRO: 600,
-  ENTHUSIAST: 400,
-  LOVER: 200,
-};
+// Centralized score thresholds & achievement IDs now provided via resolveAchievement()
 
 /**
  * Gets the current language from the HTML document
@@ -280,19 +273,19 @@ function formatText(template: string, values: Record<string, string>): string {
  * @returns {string} Achievement text
  */
 function getAchievementText(score: number, translations: ShareTextTranslations): string {
-  if (score >= ACHIEVEMENT_THRESHOLDS.GENIUS) {
-    return translations.musicGenius;
+  const tier = resolveAchievement(score);
+  switch (tier.id) {
+    case "genius":
+      return translations.musicGenius;
+    case "pro":
+      return translations.musicPro;
+    case "enthusiast":
+      return translations.musicEnthusiast;
+    case "lover":
+      return translations.musicLover;
+    default:
+      return translations.musicExplorer; // explorer fallback
   }
-  if (score >= ACHIEVEMENT_THRESHOLDS.PRO) {
-    return translations.musicPro;
-  }
-  if (score >= ACHIEVEMENT_THRESHOLDS.ENTHUSIAST) {
-    return translations.musicEnthusiast;
-  }
-  if (score >= ACHIEVEMENT_THRESHOLDS.LOVER) {
-    return translations.musicLover;
-  }
-  return translations.musicExplorer;
 }
 
 /**

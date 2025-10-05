@@ -320,53 +320,134 @@ const {
     ANIMATION_DURATION: 200,
   };
 
-  // Helper: safely parse a score from a popup element's DOM or data attributes
-  const parseScoreFromPopup = (popup) => {
-    if (!popup) {
-      return null;
-    }
-
+  function logShare(...args) {
     try {
-      const scoreElement = popup.querySelector("#popup-score");
-      if (scoreElement && scoreElement.textContent) {
-        const score = parseInt(scoreElement.textContent, 10);
-        if (!isNaN(score) && score >= 0) {
-          return score;
+      if (window.__mmDebug) {
+        window.__mmDebug("shareOverlay", ...args);
+      } else if (console && console.warn) {
+        console.warn("[shareOverlay]", ...args);
+      }
+    } catch {
+      /* silent */
+    }
+  }
+
+  /**
+   * getPopupElement
+   * Returns the first matching end-game popup element from known selectors.
+   * Isolated to allow future selector adjustments in one place.
+   */
+  function getPopupElement() {
+    return (
+      document.querySelector("#endgame-popup") ||
+      document.querySelector("#end-overlay") ||
+      document.querySelector(".popup[data-score]")
+    );
+  }
+
+  /**
+   * extractPopupScore
+   * Attempts to parse the current score from DOM content or data attributes.
+   * Returns null if no valid non-negative integer found.
+   */
+  function extractPopupScore(popup) {
+    try {
+      const scoreEl = popup.querySelector("#popup-score");
+      if (scoreEl && scoreEl.textContent) {
+        const val = parseInt(scoreEl.textContent, 10);
+        if (!isNaN(val) && val >= 0) {
+          return val;
         }
       }
-
-      const scoreAttr = popup.getAttribute("data-score");
-      if (scoreAttr) {
-        const scoreFromAttr = parseInt(scoreAttr, 10);
-        if (!isNaN(scoreFromAttr) && scoreFromAttr >= 0) {
-          return scoreFromAttr;
+      const attr = popup.getAttribute("data-score");
+      if (attr) {
+        const val2 = parseInt(attr, 10);
+        if (!isNaN(val2) && val2 >= 0) {
+          return val2;
         }
       }
     } catch {
-      // ignore parsing errors and return null
+      /* ignore */
     }
-
     return null;
-  };
+  }
+
+  function validateGameDataPrimitive(score, category, difficulty) {
+    if (typeof score !== "number" || score < 0) {
+      return false;
+    }
+    if (!category || typeof category !== "string" || !category.trim()) {
+      return false;
+    }
+    if (!difficulty || typeof difficulty !== "string" || !difficulty.trim()) {
+      return false;
+    }
+    if (!["easy", "medium", "hard", "mixed"].includes(difficulty.toLowerCase())) {
+      return false;
+    }
+    return true;
+  }
 
   // Helper: compute achievement label from numeric score
+  /**
+   * computeAchievementLabel
+   * Maps a numeric score to a localized achievement label. Prefers centralized
+   * resolver (window.__resolveAchievement) but falls back to resilient static
+   * thresholds for robustness when the helper is missing.
+   */
   const computeAchievementLabel = (numericScore) => {
+    // Dynamic import to avoid bundling if unused elsewhere; cached after first call
+    // We replicate minimal logic to map tier id to localized var to stay inline-friendly
+    const mapTierToLabel = (id) => {
+      switch (id) {
+        case "genius":
+          return shareAchievementGenius || "\ud83c\udfb5 Music Genius! \ud83c\udfb5";
+        case "pro":
+          return shareAchievementPro || "\ud83c\udfa7 Music Pro! \ud83c\udfa7";
+        case "enthusiast":
+          return shareAchievementEnthusiast || "\ud83c\udfb8 Music Enthusiast! \ud83c\udfb8";
+        case "lover":
+          return shareAchievementLover || "\ud83c\udfb9 Music Lover! \ud83c\udfb9";
+        default:
+          return shareAchievementExplorer || "\ud83c\udfbc Music Explorer! \ud83c\udfbc";
+      }
+    };
+
+    try {
+      // Attempt to use centralized utility if available
+      if (window.__resolveAchievement) {
+        const tier = window.__resolveAchievement(numericScore);
+        if (tier && tier.id) {
+          return mapTierToLabel(tier.id);
+        }
+      }
+    } catch {
+      // Silently fallback to local computation below
+    }
+
+    // Fallback to static thresholds (kept intentionally minimal) if utility not injected.
+    // Intentional duplication of numeric ladder for resilience if global helper fails.
     if (numericScore >= 800) {
-      return shareAchievementGenius || "\ud83c\udfb5 Music Genius! \ud83c\udfb5";
+      return mapTierToLabel("genius");
     }
     if (numericScore >= 600) {
-      return shareAchievementPro || "\ud83c\udfa7 Music Pro! \ud83c\udfa7";
+      return mapTierToLabel("pro");
     }
     if (numericScore >= 400) {
-      return shareAchievementEnthusiast || "\ud83c\udfb8 Music Enthusiast! \ud83c\udfb8";
+      return mapTierToLabel("enthusiast");
     }
     if (numericScore >= 200) {
-      return shareAchievementLover || "\ud83c\udfb9 Music Lover! \ud83c\udfb9";
+      return mapTierToLabel("lover");
     }
-    return shareAchievementExplorer || "\ud83c\udfbc Music Explorer! \ud83c\udfbc";
+    return mapTierToLabel("explorer");
   };
 
   // Helper: map difficulty to emoji (localized overrides supported)
+  /**
+   * getDifficultyEmoji
+   * Returns a semantic emoji representation of difficulty (localized override
+   * aware). Provides a neutral default if input is missing.
+   */
   const getDifficultyEmoji = (diffText) => {
     if (!diffText || typeof diffText !== "string") {
       return shareDifficultyEmojiDefault || "\u26aa\ufe0f";
@@ -389,11 +470,16 @@ const {
   // to avoid deprecated API usage.
 
   // Initialize the sharing functionality
+  /**
+   * initializeSharing
+   * Bootstraps all share overlay features (cache refs, feature detect, attach
+   * event handlers, attempt game data resolution).
+   */
   const initializeSharing = async () => {
     cacheElements();
 
     if (!elements.statusAnnouncer || !elements.copyButton) {
-      console.warn("ShareOverlay: Required elements not found");
+      logShare("Required elements not found");
       return;
     }
 
@@ -412,6 +498,12 @@ const {
   };
 
   // Validate game data with retries
+  /**
+   * validateGameDataWithRetries
+   * Repeatedly attempts to acquire valid share data (DOM may not be populated
+   * on first pass). Falls back to showing the manual copy UI if acquisition
+   * ultimately fails.
+   */
   const validateGameDataWithRetries = async () => {
     const maxRetries = 5;
     const retryDelay = 500;
@@ -422,7 +514,7 @@ const {
       if (gameData && isValidShareData(gameData)) {
         try {
           if (typeof console !== "undefined" && typeof console.warn === "function") {
-            console.warn("ShareOverlay: Game data validation successful");
+            logShare("Game data validation successful");
           }
         } catch {
           /* ignore logging errors */
@@ -435,11 +527,16 @@ const {
       }
     }
 
-    console.warn("ShareOverlay: Game data validation failed after all retries, showing fallback");
+    logShare("Validation failed after retries");
     showFallbackContent();
   };
 
   // Get game data from component props
+  /**
+   * getGameDataFromProps
+   * Parses any serialized share data passed via component props, then prefers
+   * the live score extracted from the overlay (authoritative) if present.
+   */
   const getGameDataFromProps = () => {
     const overlay = document.querySelector(".share-overlay");
     if (!overlay) {
@@ -477,14 +574,17 @@ const {
       }
       return data;
     } catch (error) {
-      if (typeof console !== "undefined" && typeof console.warn === "function") {
-        console.warn("ShareOverlay: Error parsing props data:", error);
-      }
+      logShare("Error parsing props data", error);
       return null;
     }
   };
 
   // Validate share data
+  /**
+   * isValidShareData
+   * Structural validation for share payload to guard against malformed DOM
+   * derived objects.
+   */
   const isValidShareData = (data) => {
     if (!data || typeof data !== "object") {
       return false;
@@ -518,6 +618,7 @@ const {
   };
 
   // Show fallback content
+  /** Show fallback UI when valid game data cannot be resolved. */
   const showFallbackContent = () => {
     if (!elements.fallbackContent) {
       return;
@@ -538,6 +639,7 @@ const {
   };
 
   // Hide fallback content
+  /** Hide the fallback UI and reveal main sharing controls. */
   const hideFallbackContent = () => {
     if (!elements.fallbackContent) {
       return;
@@ -557,6 +659,7 @@ const {
   };
 
   // Initialize fallback handlers
+  /** Wire up retry & manual copy buttons inside the fallback block. */
   const initializeFallbackHandlers = () => {
     if (elements.retryButton) {
       elements.retryButton.addEventListener("click", handleRetryAction);
@@ -568,6 +671,7 @@ const {
   };
 
   // Handle retry action
+  /** Attempt another pass at data extraction after a delay. */
   const handleRetryAction = async () => {
     if (!elements.retryButton) {
       return;
@@ -588,7 +692,7 @@ const {
         announceToScreenReader(shareAccessibilityDataStillUnavailable);
       }
     } catch (error) {
-      console.warn("Error during retry:", error);
+      logShare("Error during retry", error);
       announceToScreenReader(shareAccessibilityRetryFailed);
     } finally {
       elements.retryButton.disabled = false;
@@ -596,6 +700,7 @@ const {
   };
 
   // Handle manual copy action
+  /** Manual copy fallback for environments lacking full share features. */
   const handleManualCopyAction = async () => {
     if (!elements.manualCopyButton) {
       return;
@@ -618,7 +723,7 @@ const {
         }
       }, 2000);
     } catch (error) {
-      console.warn("Manual copy failed:", error);
+      logShare("Manual copy failed", error);
       announceToScreenReader(shareAccessibilityCopyFailedManual);
     } finally {
       elements.manualCopyButton.disabled = false;
@@ -626,23 +731,14 @@ const {
   };
 
   // Fallback copy method
+  /** Copy text via Clipboard API or report failure (no execCommand fallback). */
   const copyTextFallback = async (text) => {
     if (navigator.clipboard && window.isSecureContext) {
       try {
         await navigator.clipboard.writeText(text);
         return;
       } catch (error) {
-        console.warn("Clipboard API failed, using fallback:", error);
-      }
-    }
-
-    // Try modern Clipboard API on secure contexts first.
-    if (navigator.clipboard && window.isSecureContext) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return;
-      } catch (error) {
-        console.warn("Clipboard API failed, using manual fallback:", error);
+        logShare("Clipboard API failed, fallback", error);
         throw error; // Let callers show manual fallback UI
       }
     }
@@ -653,6 +749,7 @@ const {
   };
 
   // Cache DOM elements
+  /** Cache frequently accessed DOM elements (single traversal). */
   const cacheElements = () => {
     elements.nativeShareButton = document.getElementById("native-share-button");
     elements.copyButton = document.getElementById("copy-share-button");
@@ -665,6 +762,7 @@ const {
   };
 
   // Initialize native sharing
+  /** Setup native Web Share API button when available. */
   const initializeNativeSharing = () => {
     const nativeShareSupported = "share" in navigator;
 
@@ -719,6 +817,7 @@ const {
   };
 
   // Handle native share errors
+  /** Announce & react to native share errors; may trigger fallback UI. */
   const handleNativeShareError = async (errorType, _button, error) => {
     console.warn(`Native share error (${errorType}):`, error);
 
@@ -753,6 +852,7 @@ const {
   };
 
   // Initialize platform sharing
+  /** Attach unified click delegation for platform-specific share buttons. */
   const initializePlatformSharing = () => {
     if (!elements.shareButtons || !elements.shareButtons.length) {
       return;
@@ -806,6 +906,7 @@ const {
   };
 
   // Create platform-specific share URLs
+  /** Build a platform-specific outbound share URL (Twitter / WhatsApp / Email). */
   const createShareUrl = (platform, text) => {
     const encodedText = encodeURIComponent(text);
     const encodedUrl = encodeURIComponent(window.location.href);
@@ -824,6 +925,11 @@ const {
 
   // Generate advanced multilingual share text using shareUtils
 
+  /**
+   * generateAdvancedShareText
+   * Attempts dynamic import of advanced share text builder; falls back to a
+   * compact inline implementation if unavailable (resilience-first design).
+   */
   const generateAdvancedShareText = async (data) => {
     const { score, category, difficulty } = data || {};
     const currentLang = document.documentElement.lang || "en";
@@ -833,9 +939,7 @@ const {
       const { generateShareTextForLanguage } = await import("/src/utils/share/shareUtils.ts");
       return generateShareTextForLanguage(data, currentLang);
     } catch (error) {
-      if (typeof console !== "undefined" && typeof console.warn === "function") {
-        console.warn("Failed to import shareUtils, using fallback:", error);
-      }
+      logShare("Import shareUtils failed, fallback", error);
 
       // Fallback implementation for compatibility — use compact helpers to keep complexity low
       const numericScore = typeof score === "number" ? score : 0;
@@ -858,6 +962,7 @@ const {
   };
 
   // Handle platform share errors
+  /** Announce & react to platform share errors (non-native path). */
   const handlePlatformShareError = async (errorType, platform, _button, error) => {
     console.warn(`Platform share error for ${platform} (${errorType}):`, error);
 
@@ -891,6 +996,7 @@ const {
   };
 
   // Initialize clipboard copy
+  /** Setup clipboard copy logic (primary quick-share path). */
   const initializeClipboardCopy = () => {
     if (!elements.copyButton || !elements.copyButtonText) {
       return;
@@ -954,6 +1060,7 @@ const {
   };
 
   // Handle clipboard errors
+  /** Provide user feedback and recovery guidance for clipboard failures. */
   const handleClipboardError = async (errorType, button, originalText, error) => {
     console.warn(`Clipboard error (${errorType}):`, error);
 
@@ -986,6 +1093,7 @@ const {
   };
 
   // Get user-friendly error messages (localized)
+  /** Map internal error type to localized user-friendly string. */
   const getErrorMessage = (errorType) => {
     switch (errorType) {
       case ShareErrorType.NO_DATA:
@@ -1001,6 +1109,7 @@ const {
   };
 
   // Get recovery guidance messages (localized)
+  /** Map error type to a localized recovery suggestion. */
   const getRecoveryMessage = (errorType) => {
     switch (errorType) {
       case ShareErrorType.NO_DATA:
@@ -1014,82 +1123,84 @@ const {
     }
   };
 
-  // Announce messages to screen readers
+  // Announce messages to screen readers (prefer global #app-live-region, fallback to local)
+  /** Announce a status message using global or local polite live region. */
   const announceToScreenReader = (message) => {
-    if (!elements.statusAnnouncer) {
+    if (!message) {
       return;
     }
-
-    try {
-      elements.statusAnnouncer.textContent = message;
-    } catch {
-      // Ignore DOM update failures for screen reader region
+    const region = document.getElementById("app-live-region") || elements.statusAnnouncer;
+    if (!region) {
+      return;
     }
-
-    setTimeout(() => {
+    try {
+      region.textContent = "";
       try {
-        if (elements.statusAnnouncer) {
-          elements.statusAnnouncer.textContent = "";
+        if (typeof window !== "undefined") {
+          const w = window; // plain JS context
+          // optional runtime helper injected elsewhere
+          if (w && typeof w.mmForceReflow === "function") {
+            w.mmForceReflow(region);
+          } else {
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            region.offsetHeight; // fallback direct reflow trigger
+          }
         }
       } catch {
-        // ignore
+        /* silent */
       }
-    }, 5000);
+      region.textContent = message;
+      setTimeout(() => {
+        try {
+          if (region.dataset.fallbackLiveRegion !== undefined) {
+            region.textContent = "";
+          }
+        } catch {
+          /* ignore */
+        }
+      }, 5000);
+    } catch {
+      /* ignore */
+    }
   };
 
-  // Extract game data from popup element
+  // Extract game data from popup element (refactored to helpers to reduce complexity)
+  /** Extract structured share data directly from the end overlay popup. */
   const getGameDataFromPopup = () => {
-    // Try multiple possible selectors for the popup element
-    const popup =
-      document.querySelector("#endgame-popup") ||
-      document.querySelector("#end-overlay") ||
-      document.querySelector(".popup[data-score]");
+    const popup = getPopupElement();
     if (!popup) {
       return null;
     }
-
     try {
-      // Try to get the current score using a small helper to keep logic compact
-      const parsedScore = parseScoreFromPopup(popup);
-      const score = parsedScore !== null ? parsedScore : NaN;
-
+      const score = extractPopupScore(popup);
       const categoryAttr = popup.getAttribute("data-category");
       const difficultyAttr = popup.getAttribute("data-difficulty");
-
       if (!categoryAttr || !difficultyAttr) {
-        console.warn("ShareOverlay: Missing required data attributes on popup element");
+        logShare("Missing data attrs on popup");
         return null;
       }
-
-      if (isNaN(score) || score < 0) {
-        console.warn("ShareOverlay: Invalid score value:", score);
+      if (score === null) {
+        logShare("Invalid score value", score);
         return null;
       }
-
-      if (categoryAttr.trim().length === 0 || difficultyAttr.trim().length === 0) {
-        console.warn("ShareOverlay: Empty category or difficulty values");
+      if (!categoryAttr.trim() || !difficultyAttr.trim()) {
+        logShare("Empty category/difficulty");
         return null;
       }
-
-      const gameData = {
-        score,
-        category: categoryAttr.trim(),
-        difficulty: difficultyAttr.trim(),
-      };
-
-      if (!isValidShareData(gameData)) {
-        console.warn("ShareOverlay: Game data failed validation:", gameData);
+      const gameData = { score, category: categoryAttr.trim(), difficulty: difficultyAttr.trim() };
+      if (!validateGameDataPrimitive(gameData.score, gameData.category, gameData.difficulty)) {
+        logShare("Game data failed validation", gameData);
         return null;
       }
-
       return gameData;
     } catch (error) {
-      console.warn("ShareOverlay: Error extracting game data from popup:", error);
+      logShare("Error extracting game data", error);
       return null;
     }
   };
 
   // Initialize sharing features when the EndOverlay is actually shown
+  /** Lazy initialize sharing only after end overlay becomes visible. */
   const initializeOnEndOverlayShow = () => {
     // Wait for the EndOverlay to be visible before initializing
     const observer = new MutationObserver((mutations) => {
@@ -1098,15 +1209,13 @@ const {
           const popup = mutation.target;
           if (popup && popup.classList && !popup.classList.contains("hidden")) {
             try {
-              if (typeof console !== "undefined" && typeof console.warn === "function") {
-                console.warn("EndOverlay is now visible, initializing ShareOverlay");
-              }
+              logShare("EndOverlay visible - init ShareOverlay");
             } catch {
               /* ignore */
             }
             initializeSharing().catch(function (e) {
               try {
-                console.error(e);
+                logShare("Initialization error", e);
               } catch (err) {
                 void err;
               }
@@ -1131,7 +1240,9 @@ const {
     } else {
       // Fallback: initialize after a short delay if no popup found
       setTimeout(() => {
-        initializeSharing().catch(console.error);
+        initializeSharing().catch(function (e) {
+          logShare("Delayed init error", e);
+        });
       }, 1000);
     }
   };

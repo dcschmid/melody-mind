@@ -114,6 +114,31 @@ new, consolidate and document.
 - Avoid hard-coded UI strings in components—abstract into i18n JSON where feasible.
 - Keep placeholders explicit (e.g. `{count}`) and document expected type.
 
+### 6.1 Service Language Handling
+
+Runtime-exposed services (e.g. RSS/news) MUST normalize and validate incoming language values using:
+
+- `normalizeLanguage` (trims + lowercases) from `src/constants/i18n.ts`
+- `ensureSupportedLanguage` (normalize → membership check → fallback) from
+  `src/constants/languages.ts`
+- Canonical `FALLBACK_LANGUAGE` for any unsupported locale variants (e.g. `en-US`, `DE_de`).
+
+Current adoption:
+
+- `rssService.getNewsForLanguage()` now performs: user input → `normalizeLanguage` →
+  `ensureSupportedLanguage` → feed lookup. If no language-specific feeds return items, it performs a
+  single retry using the canonical fallback language instead of embedding a hard-coded `"en"`
+  literal.
+
+Rationale:
+
+- Prevents cache fragmentation (e.g. `EN`, `en-US`, `en_us` collapsing onto one cache key).
+- Centralizes fallback semantics; avoids silent drift if fallback language changes.
+- Keeps service logic minimal (one generic fallback path, no duplicated English branch).
+
+When adding new services that accept a `language` parameter, replicate this pattern rather than
+re-implementing ad-hoc normalization or embedding literal fallback strings.
+
 ---
 
 ## 7. Data Integrity & Scoring

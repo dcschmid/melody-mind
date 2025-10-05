@@ -1,3 +1,5 @@
+import { ensureSupportedLanguage } from "@constants/languages";
+
 import type { PodcastData } from "../types/podcast";
 import { handleGameError } from "../utils/error/errorHandlingUtils";
 import { useTranslations } from "../utils/i18n";
@@ -95,13 +97,14 @@ export class PodcastRSSGenerator {
    * Generate complete RSS feed for a language
    */
   public async generateFeed(lang: string, episodes: PodcastData[]): Promise<string> {
-    const channelMeta = this.generateChannelMeta(lang);
+    const safeLang = ensureSupportedLanguage(lang);
+    const channelMeta = this.generateChannelMeta(safeLang);
     const sortedEpisodes = episodes
       .filter((episode) => episode.isAvailable)
       .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
     const items = await Promise.all(
-      sortedEpisodes.map((episode) => this.generateItem(episode, lang))
+      sortedEpisodes.map((episode) => this.generateItem(episode, safeLang))
     );
 
     return this.buildRSSXML(channelMeta, items);

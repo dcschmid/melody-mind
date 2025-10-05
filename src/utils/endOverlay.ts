@@ -11,6 +11,7 @@
  * @since 2025-06-03
  */
 
+import { debug } from "./debug";
 import { safeGetElementById, safeQuerySelector } from "./dom/domUtils";
 import { handleGameError } from "./error/errorHandlingUtils";
 
@@ -53,9 +54,21 @@ declare global {
 }
 
 /**
- * Update motivation text based on score
- * @param {number} score - The player's final score
- * @returns {Promise<void>}
+ * updateMotivationText
+ * Derives an encouraging motivational string based on the final score and
+ * injects it into the overlay, announcing it to assistive tech where possible.
+ *
+ * Score → Tier Mapping (resilient local heuristic):
+ *  1500+ : excellent
+ *  1000+ : good
+ *   500+ : average
+ *   else : beginner
+ *
+ * NOTE: These numeric bands are intentionally local (not imported) to keep
+ * overlay resilience if a centralized scoring module fails to load; they are
+ * easy to adjust later if unified constants become desirable.
+ *
+ * @param {number} score Player's final numeric score
  */
 export const updateMotivationText = async (score: number): Promise<void> => {
   const motivationElement = getElementById<HTMLElement>("motivation-text");
@@ -100,10 +113,13 @@ export const updateMotivationText = async (score: number): Promise<void> => {
 };
 
 /**
- * Animate progress bar based on score
- * @param {number} score - Current score
- * @param {number} [maxScore=1000] - Maximum possible score
- * @returns {Promise<void>}
+ * animateProgressBar
+ * Visually represents the player's performance as a percentage of maxScore.
+ * Automatically respects the user's reduced motion preference by skipping
+ * animated tweening when `(prefers-reduced-motion: reduce)` is active.
+ *
+ * @param {number} score Current score to display
+ * @param {number} [maxScore=1000] Maximum achievable score (defaults to 1000 if omitted)
  */
 export const animateProgressBar = async (score: number, maxScore: number = 1000): Promise<void> => {
   const progressContainer = getElement<HTMLElement>(".score-progress");
@@ -121,25 +137,35 @@ export const animateProgressBar = async (score: number, maxScore: number = 1000)
   const percentage = Math.min((score / maxScore) * 100, 100);
   const roundedPercentage = Math.round(percentage);
 
-  // Animate progress bar
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion) {
+    // No animated tween – set immediately
+    progressBar.style.transition = "none";
+    progressBar.style.width = `${percentage}%`;
+    progressText.textContent = `${roundedPercentage}%`;
+    return;
+  }
+
+  // Animate progress bar (standard path)
   progressBar.style.width = "0%";
   progressBar.style.transition = "width 1s ease-in-out";
-
-  // Trigger reflow
-  void progressBar.offsetHeight;
-
+  void progressBar.offsetHeight; // reflow
   progressBar.style.width = `${percentage}%`;
-
-  // Update text after animation
   setTimeout(() => {
     progressText.textContent = `${roundedPercentage}%`;
   }, 1000);
 };
 
 /**
- * Update score display in the end overlay
- * @param {number} score - The final score to display
- * @returns {Promise<void>}
+ * updateEndOverlayScore
+ * Simple, synchronous display update of the numeric final score.
+ * Isolated for clarity & future testability.
+ *
+ * @param {number} score Final score value to show
  */
 export const updateEndOverlayScore = async (score: number): Promise<void> => {
   const scoreElement = getElementById<HTMLElement>("popup-score");
@@ -151,8 +177,8 @@ export const updateEndOverlayScore = async (score: number): Promise<void> => {
 };
 
 /**
- * Update difficulty display in the end overlay
- * @returns {Promise<void>}
+ * updateDifficultyDisplay
+ * Reads difficulty from overlay dataset and injects into the display node.
  */
 export const updateDifficultyDisplay = async (): Promise<void> => {
   const difficultyElement = getElementById<HTMLElement>("difficulty-display");
@@ -169,8 +195,9 @@ export const updateDifficultyDisplay = async (): Promise<void> => {
 };
 
 /**
- * Update category display in the end overlay
- * @returns {Promise<void>}
+ * updateCategoryDisplay
+ * Resolves category name from multiple potential dataset attributes to offer
+ * backwards compatibility with earlier markup variants.
  */
 export const updateCategoryDisplay = async (): Promise<void> => {
   const categoryElement = getElementById<HTMLElement>("category-display");
@@ -188,8 +215,8 @@ export const updateCategoryDisplay = async (): Promise<void> => {
 };
 
 /**
- * Set up restart button functionality
- * @returns {void}
+ * setupRestartButton
+ * Binds a click handler performing a hard reload to restart gameplay.
  */
 export const setupRestartButton = (): void => {
   const restartButton = getElementById<HTMLElement>("restart-button");
@@ -203,8 +230,9 @@ export const setupRestartButton = (): void => {
 };
 
 /**
- * Set up share button functionality
- * @returns {void}
+ * setupSharingButton
+ * Placeholder for potential future share overlay activation (kept minimal
+ * to avoid premature abstraction while still separating concerns).
  */
 export const setupSharingButton = (): void => {
   const shareButton = getElementById<HTMLElement>("share-button");
@@ -218,10 +246,12 @@ export const setupSharingButton = (): void => {
 };
 
 /**
- * Complete EndOverlay setup with score, animations, and motivation text
- * This function should be called when the overlay is shown to trigger all animations
- * @param {EndOverlayConfig} config - Configuration object with score and optional parameters
- * @returns {Promise<void>}
+ * completeEndOverlaySetup
+ * Orchestrates all user-visible updates after the overlay becomes active.
+ * Splitting concerns allows for partial reuse & easier testing of individual
+ * pieces (score, progress, motivation, metadata).
+ *
+ * @param {EndOverlayConfig} config Config containing score, optional maxScore & translations
  */
 export const completeEndOverlaySetup = async (config: EndOverlayConfig): Promise<void> => {
   try {
@@ -257,11 +287,10 @@ export const completeEndOverlaySetup = async (config: EndOverlayConfig): Promise
  */
 
 /**
- * Normalize the API inputs (number or config) into a consistent config object.
- *
- * @param {EndOverlayConfig|number} configOrScore - Config object or numeric score
- * @param {number} [maxScore] - Optional maxScore used when numeric API supplied
- * @returns {EndOverlayConfig}
+ * normalizeEndOverlayConfig
+ * Accepts either a numeric shorthand or full configuration object and produces
+ * a consistent EndOverlayConfig. Keeps the public API ergonomic while keeping
+ * downstream logic strict.
  */
 function normalizeEndOverlayConfig(
   configOrScore: EndOverlayConfig | number,
@@ -283,14 +312,92 @@ function normalizeEndOverlayConfig(
   };
 }
 
+let previousFocusedElement: HTMLElement | null = null;
+
+function focusFirstElement(popup: HTMLElement): void {
+  const heading = popup.querySelector<HTMLElement>(
+    "#end-overlay-title h2, #end-overlay-title [role='heading']"
+  );
+  if (heading) {
+    try {
+      heading.focus();
+      return;
+    } catch {
+      /* ignore */
+    }
+  }
+  const focusable = popup.querySelector<HTMLElement>(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  if (focusable) {
+    try {
+      focusable.focus();
+    } catch {
+      /* ignore */
+    }
+  } else {
+    try {
+      popup.focus();
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
+function restorePreviousFocus(): void {
+  if (previousFocusedElement && typeof previousFocusedElement.focus === "function") {
+    try {
+      previousFocusedElement.focus();
+    } catch {
+      /* ignore */
+    }
+  }
+  previousFocusedElement = null;
+}
+
+function attachCloseHandlers(popup: HTMLElement): void {
+  // Close on backdrop click
+  const backdrop = document.getElementById("overlay-backdrop");
+  if (backdrop) {
+    backdrop.addEventListener(
+      "click",
+      () => {
+        popup.classList.add("hidden");
+        popup.setAttribute("aria-hidden", "true");
+        restorePreviousFocus();
+      },
+      { once: false }
+    );
+  }
+}
+
+function trapFocusKeydown(e: KeyboardEvent, popup: HTMLElement): void {
+  if (e.key !== "Tab") {
+    return;
+  }
+  const focusables = popup.querySelectorAll<HTMLElement>(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  if (!focusables.length) {
+    return;
+  }
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
+  }
+}
+
 /**
- * Robustly reveal the popup element: set attributes, remove hiding classes,
- * apply inline styles and focus the element. This is separated out to reduce
- * the complexity of the initializer and to make the steps testable.
- *
- * @param {HTMLElement|null} popup - Popup DOM element to reveal
- * @param {number} [score] - Optional score to set on the popup dataset
- * @returns {void}
+ * revealPopupElement
+ * Ensures the overlay popup becomes visible & focusable, stripping common
+ * hide classes, applying minimal inline style overrides, and handling focus.
+ * Includes defensive try/catch blocks to maximize resilience if partial DOM
+ * APIs fail.
  */
 function revealPopupElement(popup: HTMLElement | null, score?: number): void {
   if (!popup) {
@@ -304,6 +411,11 @@ function revealPopupElement(popup: HTMLElement | null, score?: number): void {
       } catch (e) {
         void e;
       }
+    }
+
+    // capture previously focused element once (only first open)
+    if (!previousFocusedElement && document.activeElement instanceof HTMLElement) {
+      previousFocusedElement = document.activeElement;
     }
 
     // Remove utility classes that commonly hide the element
@@ -330,24 +442,33 @@ function revealPopupElement(popup: HTMLElement | null, score?: number): void {
       popup.setAttribute("aria-hidden", "false");
       popup.setAttribute("tabindex", "-1");
       try {
-        popup.focus();
+        focusFirstElement(popup);
       } catch (_unused) {
         void _unused;
       }
     } catch (e) {
       void e;
     }
+
+    attachCloseHandlers(popup);
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") {
+        popup.classList.add("hidden");
+        popup.setAttribute("aria-hidden", "true");
+        restorePreviousFocus();
+        return;
+      }
+      trapFocusKeydown(ev, popup);
+    });
   } catch (e) {
     void e;
   }
 }
 
 /**
- * Handle the overlay flow in a small helper to reduce handler complexity.
- * Tries an alternative global implementation first; falls back to internal setup.
- *
- * @param {EndOverlayConfig} cfg - Normalized overlay configuration
- * @returns {Promise<void>}
+ * handleShowEndOverlay
+ * Delegates to an alternate global implementation if present (injection point
+ * for future customization) otherwise falls back to the local complete setup.
  */
 async function handleShowEndOverlay(cfg: EndOverlayConfig): Promise<void> {
   try {
@@ -392,33 +513,20 @@ async function handleShowEndOverlay(cfg: EndOverlayConfig): Promise<void> {
 
 export const initializeEndOverlay = (): void => {
   // Debug: report initialization in dev
-  try {
-    if (import.meta.env?.DEV && typeof window !== "undefined") {
-      // eslint-disable-next-line no-console
-      console.debug("[endOverlay] initializeEndOverlay called");
-    }
-  } catch (e) {
-    try {
-      handleGameError(e, "initializeEndOverlay debug");
-    } catch {
-      /* ignore errors from error handler to avoid cascading failures */
-    }
-  }
+  debug("endOverlay", "initializeEndOverlay called");
 
   // Register global API
+  /**
+   * Global handler exposed as window.showEndOverlay.
+   * Normalizes arguments, reveals popup quickly for user feedback, then
+   * performs async setup steps.
+   */
   async function showEndOverlayHandler(
     configOrScore: EndOverlayConfig | number,
     maxScore?: number
   ): Promise<void> {
     // Lightweight debug (non-fatal)
-    try {
-      if (import.meta.env?.DEV && typeof window !== "undefined") {
-        // eslint-disable-next-line no-console
-        console.debug("[endOverlay] window.showEndOverlay invoked", { configOrScore, maxScore });
-      }
-    } catch {
-      /* ignore logging errors */
-    }
+    debug("endOverlay", "window.showEndOverlay invoked", { configOrScore, maxScore });
 
     // Normalize input
     const cfg = normalizeEndOverlayConfig(configOrScore, maxScore);
@@ -445,14 +553,7 @@ export const initializeEndOverlay = (): void => {
   window.showEndOverlay = showEndOverlayHandler;
 
   // Debug: confirm registration
-  try {
-    if (import.meta.env?.DEV && typeof window !== "undefined") {
-      // eslint-disable-next-line no-console
-      console.debug("[endOverlay] window.showEndOverlay registered");
-    }
-  } catch {
-    /* ignore logging errors */
-  }
+  debug("endOverlay", "window.showEndOverlay registered");
 };
 
 // Auto-initialize when module is loaded

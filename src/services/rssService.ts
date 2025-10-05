@@ -5,6 +5,9 @@
 
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
+import { FALLBACK_LANGUAGE, normalizeLanguage } from "@constants/i18n";
+import { ensureSupportedLanguage } from "@constants/languages";
+
 import { RSS_FEED_SOURCES, FALLBACK_FEEDS, type FeedSource } from "../utils/rss/feedSources.ts";
 
 export interface NewsItem {
@@ -585,51 +588,53 @@ function standardizePubDate(pubDate: string): string {
  * Get news for a specific language
  */
 export async function getNewsForLanguage(language: string): Promise<NewsResponse> {
-  // Check cache first
-  const cacheKey = `news_${language}`;
+  /**
+   * Normalize and coerce supplied language to a supported one or fallback.
+   * We keep the originally requested (normalized) language for the cache key so that
+   * repeated unsupported requests (e.g. "EN-US") collapse onto the same cached data.
+   */
+  const normalizedInput = normalizeLanguage(language);
+  const resolvedLanguage = ensureSupportedLanguage(normalizedInput);
+
+  // Cache key based on resolved language (supported or fallback)
+  const cacheKey = `news_${resolvedLanguage}`;
   const cached = newsCache.get(cacheKey);
   if (cached) {
     return cached;
   }
 
-  const feeds = RSS_FEED_SOURCES[language] || [];
-  const sources = feeds.length > 0 ? feeds : FALLBACK_FEEDS;
+  // Primary feeds: those for the resolved (supported) language if any
+  const primaryFeeds = RSS_FEED_SOURCES[resolvedLanguage] || [];
+  const sources = primaryFeeds.length > 0 ? primaryFeeds : FALLBACK_FEEDS;
 
   // Fetch from multiple sources in parallel
-  const promises = sources.map((source) => parseFeed(source));
-  const results = await Promise.all(promises);
-
-  // Combine and sort results
+  const results = await Promise.all(sources.map(parseFeed));
   const allItems = results.flat();
 
-  // If no items found, try fallback to English feeds
-  if (allItems.length === 0 && language !== "en") {
-    const englishFeeds = RSS_FEED_SOURCES["en"] || [];
-    const englishPromises = englishFeeds.map((source) => parseFeed(source));
-    const englishResults = await Promise.all(englishPromises);
-    const englishItems = englishResults.flat();
-
-    allItems.push(...englishItems);
+  // If nothing returned AND we are not already using the canonical fallback language, try fallback feeds explicitly.
+  if (allItems.length === 0 && resolvedLanguage !== FALLBACK_LANGUAGE) {
+    const fallbackFeeds = RSS_FEED_SOURCES[FALLBACK_LANGUAGE] || [];
+    if (fallbackFeeds.length) {
+      const fallbackResults = await Promise.all(fallbackFeeds.map(parseFeed));
+      for (const item of fallbackResults.flat()) {
+        allItems.push(item);
+      }
+    }
   }
 
-  // Sort by publication date (newer is better)
-  allItems.sort((a, b) => {
-    return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
-  });
+  // Sort newest first
+  allItems.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
-  // Limit to top 50 most relevant items
   const topItems = allItems.slice(0, 50);
 
   const newsResponse: NewsResponse = {
     items: topItems,
     lastUpdated: new Date().toISOString(),
     totalSources: sources.length,
-    language,
+    language: resolvedLanguage,
   };
 
-  // Cache the result
   newsCache.set(cacheKey, newsResponse);
-
   return newsResponse;
 }
 

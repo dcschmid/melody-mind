@@ -29,6 +29,22 @@ function normalize(code: unknown): string | null {
   return /^[a-z]{2}$/.test(primary) ? primary : null;
 }
 
+// Central fallback import to avoid scattering literal 'en'.
+import { FALLBACK_LANGUAGE } from "@constants/i18n";
+
+/**
+ * Returns the current document <html lang> normalized to a supported primary subtag
+ * or the canonical FALLBACK_LANGUAGE when unavailable. Safe for SSR (returns fallback).
+ */
+export function getDocumentLanguage(): string {
+  if (typeof document === "undefined") {
+    return FALLBACK_LANGUAGE;
+  }
+  const lang = document.documentElement?.lang;
+  const primary = normalize(lang);
+  return primary || FALLBACK_LANGUAGE;
+}
+
 /**
  * Detect current language at runtime.
  */
@@ -82,9 +98,15 @@ export async function prepareCategoriesForDetectedLanguage(
 ): Promise<{ lang: string }> {
   const lang = detectRuntimeLanguage(options);
   // Dynamic import to keep this utility generic and tree-shake friendly
-  const mod = await import("../category/categoriesIndex");
-  if (mod.ensureCategoriesLoaded) {
-    await mod.ensureCategoriesLoaded(lang);
+  // Import categories index for side-effectful lazy loader priming (optional)
+  try {
+    const mod = await import("../category/categoriesIndex");
+    // Force load language categories to warm cache (non-fatal if it fails)
+    if (mod.getCategories) {
+      void mod.getCategories(lang);
+    }
+  } catch {
+    // ignore loading errors – caller only needs the language string
   }
   return { lang };
 }

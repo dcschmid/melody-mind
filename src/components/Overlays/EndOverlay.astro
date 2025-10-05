@@ -80,7 +80,7 @@ const clientTranslations = {
   {id}
   class="popup fixed top-0 right-0 bottom-0 left-0 z-[var(--z-modal)] hidden items-center justify-center bg-[var(--backdrop-overlay-dark)] p-6 transition-opacity duration-300"
   role="dialog"
-  aria-labelledby="popup-title"
+  aria-labelledby="end-overlay-title"
   aria-describedby="popup-description"
   aria-modal="true"
   data-score={initialScore}
@@ -112,13 +112,15 @@ const clientTranslations = {
       <Icon name="trophy" width={48} height={48} aria-hidden="true" class="drop-shadow-lg" />
     </div>
 
-    <Headline
-      level="h2"
-      textSize="xl"
-      textAlign="center"
-      className="mb-8 text-center text-3xl leading-tight font-bold tracking-wide text-purple-300 drop-shadow-lg"
-      {title}
-    />
+    <div id="end-overlay-title">
+      <Headline
+        level="h2"
+        textSize="xl"
+        textAlign="center"
+        className="mb-8 text-center text-3xl leading-tight font-bold tracking-wide text-purple-300 drop-shadow-lg"
+        {title}
+      />
+    </div>
 
     <!-- Hidden description for screen readers -->
     <Paragraph className="sr-only">
@@ -272,145 +274,280 @@ const clientTranslations = {
    */
 
   // Function to update the display with current data attributes
-  function updateDisplay(): void {
-    const popup = document.getElementById("endgame-popup");
-    if (popup) {
-      const score = popup.dataset.score || "0";
-
-      // Update the score display
-      const scoreElement = document.getElementById("popup-score");
-      if (scoreElement) {
-        scoreElement.textContent = score;
+  // Split helpers to keep updateDisplay small
+  function parseTranslations(sourceEl: HTMLElement | null): Record<string, string> | null {
+    if (!sourceEl) {
+      return null;
+    }
+    try {
+      const attr = sourceEl.getAttribute("data-translations");
+      if (!attr) {
+        return null;
       }
-
-      // Update motivation text based on score
-      const motivationElement = document.getElementById("motivation-text");
-      if (motivationElement) {
-        const scoreNum = parseInt(score, 10);
-        let motivationText = "";
-
-        // Try to read translations provided via data-translations (JSON) on the popup element
-        let translations = null;
-        try {
-          const popupEl =
-            document.getElementById("endgame-popup") ||
-            document.querySelector(".popup[data-score]");
-          const transAttr = popupEl ? popupEl.getAttribute("data-translations") : null;
-          translations = transAttr ? JSON.parse(transAttr) : null;
-        } catch {
-          translations = null;
-        }
-
-        // Helper: return translated string if available, otherwise fallback
-        const tOr = (key: string, fallback: string): string => {
-          if (translations && Object.prototype.hasOwnProperty.call(translations, key)) {
-            return translations[key] as string;
-          }
-          return fallback;
-        };
-
-        if (scoreNum >= 800) {
-          motivationText = tOr(
-            "game.end.motivation.genius",
-            "Extraordinary! 💫 You're a true music genius! 🎶"
-          );
-        } else if (scoreNum >= 600) {
-          motivationText = tOr(
-            "game.end.motivation.pro",
-            "Impressive! 👍 As a genuine music enthusiast, you really know your stuff!"
-          );
-        } else if (scoreNum >= 400) {
-          motivationText = tOr(
-            "game.end.motivation.enthusiast",
-            "Well done! 👏 You've shown solid music knowledge!"
-          );
-        } else if (scoreNum >= 200) {
-          motivationText = tOr(
-            "game.end.motivation.lover",
-            "Good effort! 🙏 Keep playing to improve your score!"
-          );
-        } else {
-          motivationText = tOr(
-            "game.end.defaultMotivation",
-            "Thanks for playing! 🎵 Every game is a chance to learn!"
-          );
-        }
-
-        motivationElement.textContent = motivationText;
-      }
-
-      try {
-        console.warn("Game display updated:", {
-          score,
-          mode: popup.dataset.mode,
-        });
-      } catch (err) {
-        void err;
-      }
+      return JSON.parse(attr) as Record<string, string>;
+    } catch {
+      return null;
     }
   }
 
-  // Initialize the end overlay functionality (plain script version)
-  (function initializeOverlay(): void {
+  function resolveTier(scoreNum: number): string {
+    /** @type {any} */
+    const w: unknown = window;
     try {
-      // Note: we intentionally do NOT import the module here.
-      // The module `/src/utils/endOverlay` should register a global
-      // `window.showEndOverlay` when it is loaded as a module by the app.
-      //
-      // Initial synchronous update so the popup shows current values immediately:
-      updateDisplay();
-
-      // Set up a MutationObserver to watch for changes to data attributes
-      const popup = document.getElementById("endgame-popup");
-      if (popup) {
-        const observer = new MutationObserver(function (mutations) {
-          mutations.forEach(function (mutation) {
-            if (
-              mutation.type === "attributes" &&
-              mutation.attributeName &&
-              mutation.attributeName.indexOf("data-") === 0
-            ) {
-              try {
-                console.warn("Data attribute changed, updating display");
-              } catch (err) {
-                void err;
-              }
-              updateDisplay();
-            }
-          });
-        });
-
-        observer.observe(popup, {
-          attributes: true,
-          attributeFilter: ["data-score"],
-        });
-      }
-    } catch (error) {
-      try {
-        console.error("Failed to initialize EndOverlay:", error);
-      } catch (err) {
-        void err;
-      }
-    }
-
-    // Attempt to enhance by invoking global richer overlay if available (non-blocking)
-    try {
-      if (typeof window !== "undefined") {
-        const maybeShow = window.showEndOverlay;
-        if (typeof maybeShow === "function") {
-          // call without awaiting so we don't block; catch and log any error
-          try {
-            maybeShow({ score: Number(document.getElementById("popup-score")?.textContent || 0) });
-          } catch (callErr) {
-            console.warn?.("showEndOverlay call failed", callErr);
-          }
-        } else {
-          // Global not registered yet — warn if possible
-          console.warn?.("Global showEndOverlay not registered yet");
+      const resolver = (w as { __resolveAchievement?: (n: number) => { id: string } })
+        .__resolveAchievement as ((n: number) => { id: string }) | undefined;
+      if (typeof resolver === "function") {
+        const tier = resolver(scoreNum);
+        if (tier && typeof tier.id === "string") {
+          return tier.id;
         }
       }
-    } catch (e) {
-      console.warn?.("Error checking global showEndOverlay", e);
+    } catch {
+      /* ignore */
     }
-  })();
+    if (scoreNum >= 800) {
+      return "genius";
+    }
+    if (scoreNum >= 600) {
+      return "pro";
+    }
+    if (scoreNum >= 400) {
+      return "enthusiast";
+    }
+    if (scoreNum >= 200) {
+      return "lover";
+    }
+    return "explorer";
+  }
+
+  function computeMotivation(tierId: string, translations: Record<string, string> | null): string {
+    const tierMap: Record<string, [string, string]> = {
+      genius: ["game.end.motivation.genius", "Extraordinary! 💫 You're a true music genius! 🎶"],
+      pro: [
+        "game.end.motivation.pro",
+        "Impressive! 👍 As a genuine music enthusiast, you really know your stuff!",
+      ],
+      enthusiast: [
+        "game.end.motivation.enthusiast",
+        "Well done! 👏 You've shown solid music knowledge!",
+      ],
+      lover: ["game.end.motivation.lover", "Good effort! 🙏 Keep playing to improve your score!"],
+      explorer: [
+        "game.end.defaultMotivation",
+        "Thanks for playing! 🎵 Every game is a chance to learn!",
+      ],
+    };
+    const tuple = Object.prototype.hasOwnProperty.call(tierMap, tierId)
+      ? tierMap[tierId]
+      : tierMap.explorer;
+    const key = tuple[0];
+    const fallback = tuple[1];
+    if (translations && Object.prototype.hasOwnProperty.call(translations, key)) {
+      return translations[key];
+    }
+    return fallback;
+  }
+
+  function oneTimeAssertive(
+    popup: HTMLElement,
+    tierId: string,
+    translations: Record<string, string> | null,
+    score: string
+  ): void {
+    try {
+      if (popup.dataset.finalAnnounced) {
+        return;
+      }
+      const levelKeyMap: Record<string, string> = {
+        genius: "game.end.level.genius",
+        pro: "game.end.level.pro",
+        enthusiast: "game.end.level.enthusiast",
+        lover: "game.end.level.lover",
+        explorer: "game.end.level.explorer",
+      };
+      const levelKey = levelKeyMap[tierId] || levelKeyMap.explorer;
+      let levelLabel = tierId;
+      if (translations && Object.prototype.hasOwnProperty.call(translations, levelKey)) {
+        levelLabel = String(translations[levelKey]);
+      }
+      const assertiveMsg = `Game over. ${levelLabel}. Score ${score}.`;
+      const announcer: unknown = (window as unknown as Record<string, unknown>).announceAssertive;
+      if (typeof announcer === "function") {
+        try {
+          (announcer as (m: string) => void)(assertiveMsg);
+        } catch {
+          /* silent */
+        }
+      } else {
+        announceStatus(assertiveMsg);
+      }
+      popup.dataset.finalAnnounced = "1";
+    } catch {
+      /* silent */
+    }
+  }
+
+  function updateDisplay(): void {
+    const popup = document.getElementById("endgame-popup");
+    if (!popup) {
+      return;
+    }
+    const score = popup.dataset.score || "0";
+    const scoreElement = document.getElementById("popup-score");
+    if (scoreElement) {
+      scoreElement.textContent = score;
+    }
+    const motivationElement = document.getElementById("motivation-text");
+    if (motivationElement) {
+      const scoreNum = parseInt(score, 10);
+      const translations = parseTranslations(popup);
+      const tierId = resolveTier(scoreNum);
+      const motivationText = computeMotivation(tierId, translations);
+      motivationElement.textContent = motivationText;
+      oneTimeAssertive(popup, tierId, translations, score);
+    }
+    try {
+      const w = window as unknown as { __mmDebug?: (ns: string, ...a: unknown[]) => void };
+      if (w.__mmDebug) {
+        w.__mmDebug("endOverlay-inline", "Game display updated", {
+          score,
+          mode: popup.dataset.mode,
+        });
+      } else if (typeof console !== "undefined" && console.warn) {
+        console.warn("[endOverlay-inline] Game display updated", {
+          score,
+          mode: popup.dataset.mode,
+        });
+      }
+    } catch {
+      /* silent */
+    }
+  }
+
+  // Announce helper using global region or local fallback; avoids duplicate announcements
+  function announceStatus(message: string): void {
+    try {
+      if (!message) {
+        return;
+      }
+      const region =
+        document.getElementById("app-live-region") ||
+        document.getElementById("achievement-announcement");
+      if (!region) {
+        return;
+      }
+      const previous = region.textContent;
+      if (previous === message) {
+        return; // avoid SR spam
+      }
+      region.textContent = "";
+      // force reflow via shared helper if present
+      try {
+        if (typeof window !== "undefined") {
+          const w = window as unknown as { mmForceReflow?: (el: HTMLElement) => void };
+          if (typeof w.mmForceReflow === "function") {
+            w.mmForceReflow(region);
+          } else {
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            region.offsetHeight; // fallback direct access
+          }
+        }
+      } catch {
+        /* silent */
+      }
+      region.textContent = message;
+    } catch {
+      /* silent */
+    }
+  }
+
+  // Store element that had focus before opening to restore on close
+  let previousActiveElement: HTMLElement | null = null;
+
+  // Helper retained for potential programmatic opening; may be invoked by richer module when present.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function openEndOverlay(): void {
+    const popup = document.getElementById("endgame-popup");
+    if (!popup) {
+      return;
+    }
+    previousActiveElement =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    popup.classList.remove("hidden");
+    popup.setAttribute("aria-hidden", "false");
+    // Focus first focusable inside dialog
+    const focusable = popup.querySelector(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable instanceof HTMLElement) {
+      focusable.focus();
+    }
+  }
+
+  function closeEndOverlay(): void {
+    const popup = document.getElementById("endgame-popup");
+    if (!popup) {
+      return;
+    }
+    popup.classList.add("hidden");
+    popup.setAttribute("aria-hidden", "true");
+    if (
+      previousActiveElement &&
+      typeof (previousActiveElement as HTMLElement).focus === "function"
+    ) {
+      (previousActiveElement as HTMLElement).focus();
+    }
+  }
+
+  function trapFocus(e: KeyboardEvent): void {
+    const popup = document.getElementById("endgame-popup");
+    if (!popup || popup.classList.contains("hidden")) {
+      return;
+    }
+    if (e.key !== "Tab") {
+      return;
+    }
+    const focusable = popup.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable.length) {
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  document.addEventListener("keydown", function (e: KeyboardEvent) {
+    if (e.key === "Escape") {
+      closeEndOverlay();
+    }
+    trapFocus(e);
+  });
+
+  // Enhance updateDisplay: announce achievement/motivation changes once per score change
+  const originalUpdateDisplay = updateDisplay;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore: reassignment for enhancement in legacy inline script context
+  updateDisplay = function (): void {
+    const popup = document.getElementById("endgame-popup");
+    const oldScore = popup ? popup.getAttribute("data-prev-score") : null;
+    originalUpdateDisplay();
+    if (popup) {
+      const newScore = popup.getAttribute("data-score");
+      if (newScore !== oldScore) {
+        popup.setAttribute("data-prev-score", newScore || "0");
+        const motivationEl = document.getElementById("motivation-text");
+        if (motivationEl) {
+          announceStatus(motivationEl.textContent || "");
+        }
+      }
+    }
+  };
 </script>

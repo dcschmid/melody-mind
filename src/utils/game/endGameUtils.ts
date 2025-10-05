@@ -9,6 +9,7 @@ import { getLangFromUrl, useTranslations } from "../../utils/i18n.ts";
 import { safeGetElementById } from "../dom/domUtils";
 import { completeEndOverlaySetup } from "../endOverlay";
 import { handleGameError } from "../error/errorHandlingUtils";
+import { getDocumentLanguage } from "../i18n/detectLanguage";
 
 import { showEndgamePopup as fallbackShowEndgamePopup } from "./gameUI";
 
@@ -85,7 +86,7 @@ async function saveGameResult(config: EndGameConfig): Promise<string> {
  * Show loading overlay during end-game processing
  */
 export function showEndGameLoading(): void {
-  const currentLang = document.documentElement.lang || "en";
+  const currentLang = getDocumentLanguage();
 
   type LoadingTextShape = {
     processing: string;

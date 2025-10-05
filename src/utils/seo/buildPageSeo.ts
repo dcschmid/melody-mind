@@ -126,7 +126,7 @@ function ensureBrandSuffix(title: string): string {
 /**
  * Build complete page-level SEO metadata in one call.
  * Wraps buildSeoText and augments with canonical URL, image, type and dates.
- * @param {BuildPageSeoParams} params Input configuration including title, description, canonical URL, image and options.
+ *
  * @returns {PageSeoResult} Result containing description, keywords, canonical and social meta fields.
  */
 function inferType(
@@ -167,13 +167,7 @@ function resolveFallbackImage(contentKind: PageContentKind, override?: string): 
 /**
  * High-level builder composing SEO description/keywords plus canonical, OG/Twitter meta,
  * robots directives, type inference and optional structured data.
- * @param {BuildPageSeoParams} options configuration object
- * @returns {PageSeoResult} consolidated SEO result
- */
-/**
- * High-level builder composing SEO description/keywords plus canonical, OG/Twitter meta,
- * robots directives, type inference and optional structured data.
- * @param {BuildPageSeoParams} options configuration object
+ *
  * @returns {PageSeoResult} consolidated SEO result
  */
 function buildCacheKey(o: {
@@ -303,7 +297,7 @@ function inferTypeAndImage(
 /**
  * Build complete page-level SEO object with memoization, type & image inference,
  * OG/Twitter meta model and optional structured data augmentation.
- * @param {BuildPageSeoParams} options SEO build options
+ *
  * @returns {PageSeoResult} SEO result object
  */
 // Isolated helper to optionally derive a social image (kept pure & small)

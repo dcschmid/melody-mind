@@ -75,4 +75,6 @@ export interface PodcastData {
   language: string;
   /** Whether the podcast is available */
   isAvailable: boolean;
+  /** Optional series name (podcast show) for structured data & SEO */
+  seriesName?: string;
 }

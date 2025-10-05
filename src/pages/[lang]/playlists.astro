@@ -157,7 +157,6 @@ const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].f
 
 <!-- OG image: playlists overview -->
 <Layout
-  title={pageSeo.title}
   pageSeo={{
     ...pageSeo,
     structuredData: (structuredDataExtra || []).filter(Boolean) as Record<string, unknown>[],

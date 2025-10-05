@@ -7,6 +7,9 @@
  * @since 1.0.0
  * @category Internationalization
  */
+import { FALLBACK_LANGUAGE, normalizeLanguage } from "@constants/i18n";
+import { isSupportedLanguage } from "@constants/languages";
+
 import { ui, defaultLang, languages } from "../i18n/ui.js";
 import type { TranslationKey, TranslationParams } from "../utils/typed-i18n";
 
@@ -186,18 +189,30 @@ export function getTypedTranslation<K extends TranslationKey>(
  * const lang = getPreferredLanguage(request);
  */
 export function getPreferredLanguage(request: Request): string {
-  const acceptLanguage = request.headers.get("accept-language") || "";
+  const acceptLanguageRaw = request.headers.get("accept-language") || "";
+  if (!acceptLanguageRaw) {
+    return defaultLang;
+  }
 
-  // Extract language codes from the Accept-Language header
-  const languageCodes = acceptLanguage
+  // Parse the header according to RFC 7231 quality values (q=). We only need order.
+  // Example: "de-DE,de;q=0.9,en;q=0.8,fr;q=0.7"
+  const candidates = acceptLanguageRaw
     .split(",")
-    .map((lang) => lang.split(";")[0].trim().substring(0, 2).toLowerCase());
+    .map((segment) => segment.split(";", 1)[0]!.trim())
+    .filter(Boolean)
+    .map((code) => {
+      // Reduce regional subtags to primary language (en-US -> en)
+      const primary = code.split("-", 1)[0];
+      return normalizeLanguage(primary);
+    });
 
-  // Find the first supported language
-  const supportedLanguages = Object.keys(ui);
-  const preferredLanguage = languageCodes.find((lang) => supportedLanguages.includes(lang));
-
-  return preferredLanguage || defaultLang;
+  for (const c of candidates) {
+    if (isSupportedLanguage(c)) {
+      return c;
+    }
+  }
+  // Fallback explicitly to constant to keep single source of truth
+  return FALLBACK_LANGUAGE;
 }
 
 /**

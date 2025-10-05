@@ -148,7 +148,6 @@ const structuredDataExtra = newsStructuredData
 
 <!-- OG image: news overview (policy override) -->
 <Layout
-  title={pageSeo.title}
   pageSeo={{
     ...pageSeo,
     structuredData: structuredDataExtra,
@@ -242,7 +241,7 @@ const structuredDataExtra = newsStructuredData
                       loading="lazy"
                       decoding="async"
                       class="news-card__img"
-                      onerror="this.onerror=null;this.src='/images/news-fallback.svg'"
+                      data-fallback-src="/images/news-fallback.svg"
                     />
                   </div>
 
@@ -365,6 +364,42 @@ const structuredDataExtra = newsStructuredData
         window.location.reload();
       }
     });
+    // Attach progressive enhancement image fallback handlers (removing inline onerror)
+    const FALLBACK_ATTR = "data-fallback-src";
+    const processed = new WeakSet();
+    const attachHandler = (img: Element): void => {
+      if (!(img instanceof HTMLImageElement) || processed.has(img)) {
+        return;
+      }
+      processed.add(img);
+      const fallback = img.getAttribute(FALLBACK_ATTR);
+      if (!fallback) {
+        return;
+      }
+      img.addEventListener("error", () => {
+        if (img.dataset._failedOnce) {
+          return; // prevent infinite loop
+        }
+        img.dataset._failedOnce = "1";
+        img.src = fallback;
+      });
+    };
+    document.querySelectorAll(`img[${FALLBACK_ATTR}]`).forEach((i) => attachHandler(i));
+    const mo = new MutationObserver((muts) => {
+      muts.forEach((m) => {
+        if (m.type === "childList") {
+          m.addedNodes.forEach((n) => {
+            if (n instanceof HTMLElement) {
+              if (n.matches?.(`img[${FALLBACK_ATTR}]`)) {
+                attachHandler(n);
+              }
+              n.querySelectorAll?.(`img[${FALLBACK_ATTR}]`).forEach((i) => attachHandler(i));
+            }
+          });
+        }
+      });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
   });
 </script>
 

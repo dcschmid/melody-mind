@@ -1127,9 +1127,17 @@ export class TimePressureGameEngine {
         <div class="error-state">
           <h2>Error</h2>
           <p>${message}</p>
-          <button onclick="location.reload()">Retry</button>
+          <button data-action="tp-retry" type="button">Retry</button>
         </div>
       `;
+      try {
+        const retryBtn = this.loadingContainer.querySelector(
+          '[data-action="tp-retry"]'
+        ) as HTMLButtonElement | null;
+        retryBtn?.addEventListener("click", () => window.location.reload());
+      } catch {
+        // swallow
+      }
     }
   }
 

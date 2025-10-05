@@ -1,11 +1,17 @@
 /**
- * Meta utilities (truncation, whitespace normalization) for consistent SEO output.
+ * Meta utilities (legacy) for consistent SEO output.
  * All functions are pure and side-effect free.
+ *
+ * DEPRECATION NOTICE:
+ * These helpers are being phased out in favor of the unified text pipeline
+ * implemented in `textUnified.ts` and high-level builder `buildPageSeo.ts`.
+ * New code SHOULD NOT import from this module. It remains temporarily to
+ * avoid breaking existing pages and will be removed after a migration pass.
  */
 
 /**
  * Normalize repeated whitespace (including newlines and tabs) to single spaces and trim.
- * @deprecated Internal helper; prefer sanitize utilities in textUnified pipeline.
+ * @deprecated Use sanitizeWhitespace in textUnified (planned) or inline minimal regex.
  */
 export function normalizeWhitespace(input: string | null | undefined): string {
   if (!input) {
@@ -23,7 +29,7 @@ export function normalizeWhitespace(input: string | null | undefined): string {
  */
 /**
  * Truncate meta text with optional word preservation.
- * @deprecated Use buildPageSeo + sanitize instead of direct truncateMeta.
+ * @deprecated Use buildPageSeo (auto description generation) instead of direct truncateMeta.
  */
 export function truncateMeta(
   text: string | null | undefined,
@@ -50,7 +56,7 @@ export function truncateMeta(
 
 /**
  * Build a safe meta description from arbitrary text.
- * @deprecated Superseded by generateMetaDescription + textUnified composition.
+ * @deprecated Superseded by buildPageSeo (internal description pipeline).
  */
 export function buildMetaDescription(text: string, limit = 158): string {
   return truncateMeta(text, limit, { preserveWord: true });
@@ -58,7 +64,7 @@ export function buildMetaDescription(text: string, limit = 158): string {
 
 /**
  * Ensure a title isn't accidentally blank after trimming.
- * @deprecated Use ensureBrandSuffix + sanitize in buildPageSeo.
+ * @deprecated Superseded by buildPageSeo title normalization.
  */
 export function ensureTitle(text: string, fallback: string): string {
   const t = normalizeWhitespace(text);
