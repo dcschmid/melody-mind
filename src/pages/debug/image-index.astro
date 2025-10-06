@@ -1,0 +1,70 @@
+---
+/**
+ * /debug/image-index (development aid)
+ *
+ * Lists a snapshot of the optimized image variant index so we can verify
+ * which groups/slugs were detected during the SSG phase.
+ *
+ * This page is NOT meant for production deployment. Optionally you can guard it
+ * via environment flag; for now it will render but carries a big warning banner.
+ */
+import { __debugGetVariantIndexSnapshot } from "../../utils/images/optimizedImageVariants";
+
+export const prerender = true;
+
+const snap = __debugGetVariantIndexSnapshot();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Image Variant Index Debug</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #111;
+        color: #eee;
+        padding: 2rem;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      code {
+        background: #222;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+      .grid {
+        display: grid;
+        gap: 0.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+      .card {
+        background: #1d1d1d;
+        border: 1px solid #333;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+      }
+      .warn {
+        background: #402;
+        border: 1px solid #a06;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="warn">
+      <strong>Debug Page:</strong> This page is for local inspection of the variant index. Do not rely
+      on it in production.
+    </div>
+    <h1>Optimized Image Variant Index Snapshot</h1>
+    <p>Total indexed keys: <strong>{snap.size}</strong></p>
+    <div class="grid">
+      {snap.keys.map((k) => <div class="card">{k}</div>)}
+    </div>
+  </body>
+</html>
