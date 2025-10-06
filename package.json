@@ -4,12 +4,12 @@
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": "22.12.0"
+    "node": "22.19.0"
   },
   "scripts": {
     "dev": "astro dev",
     "start:production": "NODE_ENV=production node dist/server/entry.mjs",
-    "build": "yarn install:sharp && yarn validate:podcasts && yarn build:astro",
+    "build": "yarn validate:podcasts && yarn build:astro",
     "install:sharp": "yarn add sharp --ignore-engines",
     "build:astro": "NODE_ENV=production SHARP_CONCURRENCY=2 NODE_OPTIONS='--max-old-space-size=8192' astro build",
     "optimize:categories": "node scripts/optimize-category-images.cjs",
