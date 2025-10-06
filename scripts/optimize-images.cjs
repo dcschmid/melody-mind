@@ -58,6 +58,17 @@ const GROUPS = {
     canonicalMax: 1200,
     quality: { webp: 72, avif: 55, canonical: 78 },
     pattern: /\.jpe?g$/i
+  },
+  playlist: {
+    // Some playlist covers currently live only as optimized assets under src/assets/playlist.
+    // To unify the pipeline we allow sourcing from public/playlist if originals are added there.
+    // If the source directory is empty, the script will simply skip generation (idempotent).
+    srcDir: path.resolve('public/playlist'),
+    outBase: path.resolve('src/assets/playlist'),
+    widths: [240, 480, 720, 960],
+    canonicalMax: 1200,
+    quality: { webp: 72, avif: 55, canonical: 78 },
+    pattern: /\.jpe?g$/i
   }
 };
 

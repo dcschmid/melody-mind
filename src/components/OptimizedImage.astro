@@ -38,6 +38,13 @@ let variants = slug ? await getOptimizedImageVariants(group, slug) : null;
 if (!variants && group === "playlist" && slug) {
   variants = await getOptimizedImageVariants("category", slug);
 }
+// Dev-Hardening: Warnen, wenn keinerlei Varianten gefunden wurden und wir nur auf Fallback zurückgreifen.
+// Hilft beim Aufspüren vergessener Optimierungs-Läufe.
+if (!variants && import.meta.env?.DEV) {
+  console.warn(
+    `[OptimizedImage][dev] No variants found for group='${group}' slug='${slug}'. Using JPG fallback chain.`
+  );
+}
 const avif = variants?.avif || [];
 const webp = variants?.webp || [];
 // Fallback-Priorität:

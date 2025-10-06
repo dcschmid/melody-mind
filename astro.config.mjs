@@ -80,11 +80,14 @@ export default defineConfig({
     mode: "standalone",
   }),
   security: {
-    checkOrigin: true,
+    // Temporarily disable origin check for local debugging of image variant index.
+    // TODO: Re-enable (set to true) after debugging responsive image sources.
+    checkOrigin: false,
   },
   server: {
     host: "0.0.0.0",
-    port: import.meta.env.PORT,
+    // Custom dev port override (user requested 4322). Falls PORT in Env gesetzt ist, nutzt Node diese meist für prod.
+    port: 4322,
   },
   routes: [
     {
@@ -123,7 +126,7 @@ export default defineConfig({
     // Performance optimizations
     server: {
       hmr: {
-        port: 4321,
+        port: 4322,
       },
     },
   },
