@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: melody-mind
+    runtime: node
+    plan: standard
+    buildCommand: "/usr/bin/time -v yarn build:production"
+    startCommand: "yarn start:production"
+    envVars:
+      - key: NODE_VERSION
+        value: "22.12.0"
+      - key: NODE_OPTIONS
+        value: "--max-old-space-size=8192"
+    build:
+      cache:
+        enabled: true
+        cacheDirs:
+          - .yarn/cache
+          - node_modules
+          - .astro
