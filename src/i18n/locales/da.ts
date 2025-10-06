@@ -2,6 +2,10 @@ export default {
   "pages.privacy.contact.address_label": "Adresse:",
   "pages.privacy.contact.email_aria": "E-mailadresse til at kontakte den ansvarlige",
   "accessibility.skip.to.content": "Spring til hovedindhold",
+  // Tilføjet: playlist billede nøgler
+  "playlist.image.alt": "Playlist-cover: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Forsidebillede, der repræsenterer playlisten {headline} fra {decade}.",
   "audioplayer.aria.region": "Lydafspiller",
   "category.about.title": "Om denne kategori",
   "category.difficulty.easy": "Let",

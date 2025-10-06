@@ -1,7 +1,12 @@
 export default {
+  "accessibility.skip.to.content": "Pular para o conteúdo principal",
+  // Adicionado: chaves de imagem da playlist
+  "playlist.image.alt": "Capa da playlist: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Imagem de capa representando a playlist {headline} da década {decade}.",
+
   "pages.privacy.contact.address_label": "Endereço:",
   "pages.privacy.contact.email_aria": "Endereço de email para contactar o responsável",
-  "accessibility.skip.to.content": "Ir para o conteúdo principal",
   "audioplayer.aria.region": "Reprodutor de áudio",
   "category.about.title": "Sobre esta categoria",
   "category.difficulty.easy": "Fácil",

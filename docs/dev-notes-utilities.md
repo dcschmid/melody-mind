@@ -178,3 +178,64 @@ Guidelines:
 
 Rationale: Improves tree‑shaking, lowers build memory pressure, and prepares a clean seam for future
 unit tests without mocking file system boundaries.
+
+---
+
+## 7. Build Memory & Asset Preprocessing (2025-10-06)
+
+To reduce peak V8 heap usage during the Astro compilation phase, the responsive image variant
+generation (sharp) was moved into a dedicated pre-build phase via `scripts/prebuild-assets.cjs`
+(invoked automatically by `yarn build`). This script currently targets `category` and `podcast`
+images using the generic `optimize-images.cjs` pipeline and is idempotent.
+
+Measured outcomes (Max RSS via `/usr/bin/time -v`):
+
+| Heap Flag | Result    | Max RSS (kB) | Notes                                                      |
+| --------- | --------- | ------------ | ---------------------------------------------------------- |
+| 6144 MB   | success   | ~10,403,052  | Includes non-heap memory/file cache; heap limit sufficient |
+| 4096 MB   | OOM late  | ~8,188,792   | Fails during large knowledge route expansion               |
+| 3072 MB   | OOM early | ~4,868,480   | Fails while building server entrypoints                    |
+
+Interpretation: Even after moving image work earlier, route generation + content transforms still
+drive transient memory >4GB (string concat, markdown parsing, multiple Shiki highlighters). The Max
+RSS exceeding the heap limit reflects additional native allocations (Shiki, file buffers) beyond
+pure JS heap.
+
+Next optimization candidates:
+
+1. Consolidate Shiki usage to a singleton (currently 10 instances reported). Cache and reuse
+   highlighters.
+2. Segment knowledge content loading (e.g., per-locale chunking or deferring seldom-visited locales
+   to runtime fetch/islands if acceptable).
+3. Investigate sitemap duplicate dynamic route warnings (potential redundant route generation work).
+4. Consider reducing simultaneous locales during build by introducing a locale allowlist for
+   production subsets (if business rules permit) and generating the remainder separately.
+5. Explore markdown precompilation to cached JSON AST to avoid repeated heavy parsing.
+
+Recommendation: Retain `--max-old-space-size=6144` short-term. Revisit after Shiki singleton +
+potential locale segmentation; then re-test 4GB scenario.
+
+Documented also in CHANGELOG (Unreleased section).
+
+### 7.1 Syntax Highlighting Simplified
+
+Shiki was removed (multiple instances + higher memory). Configuration now uses the lightweight
+built-in Prism engine (`syntaxHighlight: prism`). If further memory reduction is needed we can later
+replace code fences with plain blocks or a lazy client-side highlighter. For now Prism provides
+basic styling at minimal overhead.
+
+### 7.2–7.5 (Deprecated)
+
+The experimental Markdown AST / HTML cache system (lean builds, HTML pre-render, checksum/index,
+telemetry) was removed. Rationale: complexity > measured benefit for current content scale. If
+future profiling again shows markdown parsing as primary bottleneck, a simplified pre-render path
+may be reintroduced with tighter scope.
+
+Removed components (Oct 2025):
+
+- `scripts/cache-markdown-asts.cjs`
+- `src/utils/mdast/cacheLoader.ts`
+- Associated build scripts & dependencies (`gray-matter`, `remark-rehype`, `rehype-stringify`,
+  `rehype-sanitize`).
+
+Historical notes retained in VCS history (see prior commits from 2025-10-06 if needed).

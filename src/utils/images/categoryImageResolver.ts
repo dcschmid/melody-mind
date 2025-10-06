@@ -25,7 +25,11 @@ export async function resolveCategoryImage(slug: string): Promise<CategoryImageR
   if (!slug) {
     return null;
   }
-  const safeSlug = slug.toLowerCase().replace(/[^a-z0-9-]+/g, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "");
+  const safeSlug = slug
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-{2,}/g, "-")
+    .replace(/^-|-$/g, "");
 
   // Primary pattern produced by the optimization script
   const candidate = `../assets/category/${safeSlug}/${safeSlug}.webp`;

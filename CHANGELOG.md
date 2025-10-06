@@ -6,6 +6,24 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- CSS architecture modularized: extracted design tokens into `src/styles/tokens.css`, base
+  structural variables into `src/styles/base.css`, and utilities into `src/styles/utilities.css`
+  reducing duplication (shadows, radius, focus, line-heights) and removing unused experimental
+  variables (performance thresholds, shimmer, percentage set). Generated build CSS size (main
+  bundle) currently ~148 KB (151,462 bytes). Further reductions possible via future pruning of
+  rarely used utility classes.
+- Build pipeline: Introduced `prebuild:assets` step (script `scripts/prebuild-assets.cjs`) to run
+  responsive image variant generation ahead of Astro build, aiming to lower peak heap during the
+  main compilation. Added experimental build scripts `build:astro:4g|3g|2g` for controlled heap
+  tests. Findings: 6GB succeeds (baseline Max RSS ~10.4 GB including OS/file cache), 4GB fails late
+  in knowledge page generation (~8.1 GB Max RSS recorded before OOM), 3GB fails earlier (~4.9 GB Max
+  RSS). Recommendation: keep `--max-old-space-size=6144` until further content segmentation or route
+  chunking reduces memory.
+- Markdown syntax highlighting switched from Shiki to lightweight Prism
+  (`markdown.syntaxHighlight: prism`) and custom Shiki wrapper removed to reduce memory pressure.
+
 ### 🚜 Refactor (Unreleased)
 
 - _(seo)_ Remove deprecated legacy utilities `seoText.ts`, `metaUtils.ts`, `seoBasics.ts`; logic
@@ -15,6 +33,8 @@ All notable changes to this project will be documented in this file.
 
 - _(seo)_ Update `docs/seo-architecture.md` & `README.md` with unified SEO pipeline and removal
   notes.
+- _(build)_ Remove experimental Markdown AST/HTML cache system (scripts/cache-markdown-asts.cjs &
+  loader) and related documentation sections (7.2–7.5) to simplify build pipeline.
 
 ## [4.1.0] - 2025-03-30
 

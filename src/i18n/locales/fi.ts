@@ -578,4 +578,9 @@ export default {
   "index.card.news.desc":
     "📰 Pysy rytmissä: tuoreet julkaisut, nousevat trendit, artistien merkkipaalut ja liikkeet, jotka muokkaavat musiikin tulevaisuutta. Ytimekäs katsaus kaikelle, mitä intohimoinen seuraaja haluaa tietää juuri nyt.",
   "index.overview.sections": "Pääosiot",
+
+  // Lisätty: soittolistan kuva-avaimet
+  "playlist.image.alt": "Soittolistan kansi: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Kansikuva, joka edustaa soittolistaa {headline} vuosikymmeneltä {decade}.",
 };

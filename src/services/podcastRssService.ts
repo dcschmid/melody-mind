@@ -156,7 +156,10 @@ export class PodcastRSSGenerator {
     let rssImage: string | undefined;
     if (episode.imageUrl) {
       // If legacy format still contains a slash or extension, keep backward compatibility.
-      if (/^\//.test(episode.imageUrl) || /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(episode.imageUrl)) {
+      if (
+        /^\//.test(episode.imageUrl) ||
+        /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(episode.imageUrl)
+      ) {
         rssImage = `${this.baseUrl}${episode.imageUrl}`;
       } else {
         rssImage = `${this.baseUrl}/podcast/${episode.imageUrl}.jpg`;
@@ -174,7 +177,9 @@ export class PodcastRSSGenerator {
       duration: computedDuration ?? this.getEstimatedDuration(),
       imageUrl: rssImage,
       categories: ["Music", "Education", "History"],
-      contentHtml: episode.showNotesHtml ? this.appendDefaultFooter(episode.showNotesHtml) : undefined,
+      contentHtml: episode.showNotesHtml
+        ? this.appendDefaultFooter(episode.showNotesHtml)
+        : undefined,
       transcriptUrl: episode.subtitleUrl,
       transcriptLanguage: episode.language || lang,
     };

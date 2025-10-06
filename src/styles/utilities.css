@@ -1,0 +1,3 @@
+/* Utility classes extracted from global.css plus foundational a11y helpers */
+
+.sr-only { position: absolute; width: var(--sr-only-width); height: var(--sr-only-height); padding: 0; margin: var(--sr-only-margin); overflow: hidden; clip-path: var(--sr-only-clip-path); white-space: nowrap; border: 0; }

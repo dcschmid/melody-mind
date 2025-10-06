@@ -575,4 +575,9 @@ export default {
   "index.card.news.desc":
     "Nuove feature, ottimizzazioni UI, miglioramenti prestazionali e spunti dal mondo musicale — resta aggiornato e sfrutta ogni passo avanti di MelodyMind. ✨",
   "index.overview.sections": "Sezioni principali homepage",
+
+  // Aggiunto: chiavi immagine playlist
+  "playlist.image.alt": "Copertina playlist: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Immagine di copertina che rappresenta la playlist {headline} degli anni {decade}.",
 };

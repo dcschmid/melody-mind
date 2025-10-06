@@ -37,6 +37,10 @@ export default {
   "pages.legal.disclaimer.content":
     "All information tillhandahålls utan garanti. Trots noggrann kontroll tar vi inget ansvar för externa länkar; respektive leverantörer är ensamt ansvariga för deras innehåll.",
   "accessibility.skip.to.content": "Hoppa till huvudinnehåll",
+  // Tillagt: spellista bildnycklar
+  "playlist.image.alt": "Spellistans omslag: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Omslagsbild som representerar spellistan {headline} från {decade}-talet.",
   "audioplayer.aria.region": "Ljudspelare",
   "category.about.title": "Om denna kategori",
   "category.difficulty.easy": "Lätt",

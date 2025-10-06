@@ -1,7 +1,7 @@
 export default {
   "pages.privacy.contact.address_label": "住所:",
   "pages.privacy.contact.email_aria": "責任者に連絡するためのメールアドレス",
-  "accessibility.skip.to.content": "メインコンテンツへスキップ",
+  "accessibility.skip.to.content": "メインコンテンツにスキップ",
   "audioplayer.aria.region": "オーディオプレーヤー",
   "category.about.title": "このカテゴリについて",
   "category.difficulty.easy": "簡単",
@@ -558,4 +558,7 @@ export default {
   "index.card.news.desc":
     "📰 最新リリース、動き出すトレンド、アーティストの節目、シーンを変える潮流。早く知ることで一歩先の聴き方ができる — 情報感度の高いファンに贈るライブな更新。",
   "index.overview.sections": "主要セクション",
+  // 追加: プレイリスト画像キー
+  "playlist.image.alt": "プレイリストカバー: {headline} – {introSubline} ({decade})",
+  "playlist.image.description": "{decade}年代のプレイリスト{headline}を表すカバー画像。",
 };

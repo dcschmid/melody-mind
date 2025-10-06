@@ -102,6 +102,19 @@ For automated or AI-assisted contributions, see `AGENTS.md` for project-specific
 (commands, coding standards, performance, accessibility, and safety rules). Human contributors can
 largely ignore it unless curious about automation practices.
 
+## 🎨 Styling Architecture
+
+The CSS layer follows a token → semantic mapping split:
+
+- `src/styles/tokens.css`: Pure design tokens (colors, spacing, typography, radii, shadows,
+  durations, easing, focus baseline, icon sizes, opacity, scrollbar dimensions, achievement colors)
+- `src/styles/base.css`: Semantic/UI variables (forms, buttons, cards, interactive states, scrollbar
+  color semantics) + environment adaptation media queries
+- `src/styles/utilities.css`: Minimal utility classes (currently only screen-reader helper)
+- `src/styles/global.css`: Keeps only imports; no variables live here anymore
+
+Rationale, maintenance checklist, and extension guidance live in `docs/styles.md`.
+
 ## 🔍 SEO Architecture (Summary)
 
 All pages use a unified SEO pipeline via `buildPageSeo` (see `docs/seo-architecture.md`). Deprecated

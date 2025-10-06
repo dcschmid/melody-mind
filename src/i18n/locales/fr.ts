@@ -2,6 +2,10 @@ export default {
   "pages.privacy.contact.address_label": "Adresse :",
   "pages.privacy.contact.email_aria": "Adresse email pour contacter le responsable",
   "accessibility.skip.to.content": "Aller au contenu principal",
+  // Ajout: clés d'image de playlist
+  "playlist.image.alt": "Visuel de playlist : {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Illustration représentant la playlist {headline} de la décennie {decade}.",
   "audioplayer.aria.region": "Lecteur audio",
   "category.about.title": "À propos de cette catégorie",
   "category.difficulty.easy": "Facile",

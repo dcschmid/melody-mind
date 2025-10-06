@@ -244,6 +244,10 @@ Test scaffolding exists but currently paused. When re-enabled expected pattern:
 - Audit `.github/copilot-instructions.md` for minor formatting corruption near header
 - Refine privacy/i18n copy to remove any lingering database terminology
 - Add short README section linking to `AGENTS.md` (if not yet added)
+- Image pipeline updated (2025-10-06): jpg/jpeg added to optimized variant glob so canonical
+  fallback now resolves from discovered assets rather than hard-coded `/group/slug.jpg` path
+  placeholder. When adding new images ensure canonical base file (slug.webp OR slug.jpg) exists in
+  each asset folder.
 
 If addressing one, update this section accordingly.
 

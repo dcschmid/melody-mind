@@ -10,6 +10,8 @@ import { ensureSupportedLanguage } from "@constants/languages";
 
 import { RSS_FEED_SOURCES, FALLBACK_FEEDS, type FeedSource } from "../utils/rss/feedSources.ts";
 
+import { getOrUpdateSWR } from "./rss/rssFileCache";
+
 export interface NewsItem {
   id: string;
   title: string;
@@ -603,39 +605,46 @@ export async function getNewsForLanguage(language: string): Promise<NewsResponse
     return cached;
   }
 
-  // Primary feeds: those for the resolved (supported) language if any
-  const primaryFeeds = RSS_FEED_SOURCES[resolvedLanguage] || [];
-  const sources = primaryFeeds.length > 0 ? primaryFeeds : FALLBACK_FEEDS;
+  // Attempt file-based SWR cache before network fetch logic.
+  const swr = await getOrUpdateSWR(resolvedLanguage, async () => {
+    // This fetcher reproduces the original network + aggregation steps.
+    const primaryFeeds = RSS_FEED_SOURCES[resolvedLanguage] || [];
+    const sources = primaryFeeds.length > 0 ? primaryFeeds : FALLBACK_FEEDS;
+    const results = await Promise.all(sources.map(parseFeed));
+    const aggregated: NewsItem[] = results.flat();
 
-  // Fetch from multiple sources in parallel
-  const results = await Promise.all(sources.map(parseFeed));
-  const allItems = results.flat();
-
-  // If nothing returned AND we are not already using the canonical fallback language, try fallback feeds explicitly.
-  if (allItems.length === 0 && resolvedLanguage !== FALLBACK_LANGUAGE) {
-    const fallbackFeeds = RSS_FEED_SOURCES[FALLBACK_LANGUAGE] || [];
-    if (fallbackFeeds.length) {
-      const fallbackResults = await Promise.all(fallbackFeeds.map(parseFeed));
-      for (const item of fallbackResults.flat()) {
-        allItems.push(item);
+    if (aggregated.length === 0 && resolvedLanguage !== FALLBACK_LANGUAGE) {
+      const fallbackFeeds = RSS_FEED_SOURCES[FALLBACK_LANGUAGE] || [];
+      if (fallbackFeeds.length) {
+        const fbResults = await Promise.all(fallbackFeeds.map(parseFeed));
+        aggregated.push(...fbResults.flat());
       }
     }
+    aggregated.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+    const topItems = aggregated.slice(0, 50);
+    return {
+      items: topItems,
+      lastUpdated: new Date().toISOString(),
+      totalSources: (RSS_FEED_SOURCES[resolvedLanguage] || FALLBACK_FEEDS).length,
+      language: resolvedLanguage,
+    } as NewsResponse;
+  });
+
+  if (swr.data) {
+    // Populate in-memory cache for fast subsequent accesses in same runtime.
+    newsCache.set(cacheKey, swr.data);
+    return swr.data;
   }
 
-  // Sort newest first
-  allItems.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
-
-  const topItems = allItems.slice(0, 50);
-
-  const newsResponse: NewsResponse = {
-    items: topItems,
+  // Fallback (should rarely happen): empty response pattern
+  const empty: NewsResponse = {
+    items: [],
     lastUpdated: new Date().toISOString(),
-    totalSources: sources.length,
+    totalSources: 0,
     language: resolvedLanguage,
   };
-
-  newsCache.set(cacheKey, newsResponse);
-  return newsResponse;
+  newsCache.set(cacheKey, empty);
+  return empty;
 }
 
 /**

@@ -4,6 +4,8 @@ export default {
   "category.about.title": "Über diese Kategorie",
   "category.difficulty.easy": "Leicht",
   "knowledge.search.label": "Nach Titel oder Beschreibung suchen",
+  "playlist.image.alt": "Playlist-Cover: {headline} – {introSubline} ({decade})",
+  "playlist.image.description": "Titelbild zur Playlist {headline} aus der {decade} Epoche.",
   "knowledge.search.title": "Artikel suchen",
   "knowledge.search.subtitle": "Finde Artikel nach Titel, Beschreibung oder Schlüsselwörtern",
   "knowledge.word_count": "{count} Wörter",

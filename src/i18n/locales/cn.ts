@@ -527,4 +527,7 @@ export default {
     "欧盟委员会提供了一个在线争议解决平台（ODR），可通过以下链接访问。",
   "pages.imprint.dispute_resolution.odr_link_label": "打开欧盟在线争议解决平台",
   "pages.imprint.dispute_participation": "我们没有义务也不承诺参加消费者仲裁机构的争议解决程序。",
+  // 新增：播放列表图片键
+  "playlist.image.alt": "播放列表封面：{headline} – {introSubline}（{decade}）",
+  "playlist.image.description": "代表播放列表{headline}的{decade}年代封面图片。",
 };

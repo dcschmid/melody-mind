@@ -1,12 +1,13 @@
 import { onDOMReady } from "../../utils/init/domInitUtils";
 import { parseGameRoute } from "../../utils/routing/urlUtils";
 import { safeGetElementById, safeSetInnerHTML } from "../dom/domUtils";
-import { TimePressureGameEngine } from "../game/timePressureGameEngine";
+// Dynamic import of TimePressureGameEngine now performed on user interaction (start button)
 
 // Extend Window interface to include our game engine
 declare global {
+  // Use unknown to avoid static type dependency before dynamic import loads the class.
   interface Window {
-    timePressureGameEngine: TimePressureGameEngine;
+    timePressureGameEngine: unknown;
   }
 }
 
@@ -39,6 +40,7 @@ export const initTimePressureGame = async (): Promise<void> => {
       : categoryPart;
 
     // Initialize Time Pressure Game with lang, category, and pathname
+    const { TimePressureGameEngine } = await import("../game/timePressureGameEngine");
     const gameEngine = new TimePressureGameEngine({
       category,
       lang,
@@ -68,10 +70,25 @@ export const initTimePressureGame = async (): Promise<void> => {
  */
 export const initTimePressureGameAuto = (): void => {
   try {
-    // Initialize when DOM is ready
-    onDOMReady(initTimePressureGame);
+    onDOMReady(() => {
+      const startBtn = document.getElementById("start-time-pressure-btn");
+      if (!startBtn) {
+        // Fallback: keep previous auto-init if button not present
+        void initTimePressureGame();
+        return;
+      }
+      let initialized = false;
+      startBtn.addEventListener("click", () => {
+        if (initialized) {
+          return;
+        }
+        initialized = true;
+        startBtn.setAttribute("disabled", "true");
+        startBtn.classList.add("opacity-50", "cursor-not-allowed");
+        void initTimePressureGame();
+      });
+    });
   } catch (error) {
-    // Avoid unused-variable lint error and keep initialization resilient.
     void error;
   }
 };

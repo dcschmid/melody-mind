@@ -29,6 +29,8 @@ export interface PlaylistCardProps {
   headline: string;
   /** URL to the playlist cover image */
   imageUrl: string;
+  /** Optional image group (asset namespace) – defaults to 'playlist'. For reused category images pass 'category'. */
+  imageGroup?: string;
   /** Short description of the playlist */
   introSubline: string;
   /** Optional Spotify playlist URL */
@@ -56,6 +58,7 @@ const {
   index,
   lang,
   microdataDisable = false,
+  imageGroup = "playlist",
 } = Astro.props as PlaylistCardProps;
 
 // Initialize translation function for i18n support
@@ -94,7 +97,7 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
   <!-- Image container -->
   <div class="relative aspect-video overflow-hidden rounded-t-2xl">
     <OptimizedImage
-      group="playlist"
+      group={imageGroup}
       slug={imageUrl}
       alt={t("playlist.image.alt", { headline, introSubline, decade })}
       loading={loadingStrategy}

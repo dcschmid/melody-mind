@@ -1,7 +1,7 @@
 export default {
   "pages.privacy.contact.address_label": "Адреса:",
   "pages.privacy.contact.email_aria": "Електронна адреса для зв'язку з відповідальною особою",
-  "accessibility.skip.to.content": "Перейти до основного вмісту",
+  "accessibility.skip.to.content": "Перейти до основного контенту",
   "audioplayer.aria.region": "Аудіоплеєр",
   "category.about.title": "Про цю категорію",
   "category.difficulty.easy": "Легко",
@@ -572,4 +572,8 @@ export default {
   "index.card.news.desc":
     "📰 Гарячі релізи, тренди, рубежі артистів і рухи, що змінюють індустрію. Швидкий орієнтир для тих, хто хоче бути на крок попереду й слухати з контекстом та сенсом.",
   "index.overview.sections": "Основні розділи",
+
+  // Додано: ключі зображення плейлиста
+  "playlist.image.alt": "Обкладинка плейлиста: {headline} – {introSubline} ({decade})",
+  "playlist.image.description": "Обкладинка, що представляє плейлист {headline} з епохи {decade}.",
 };

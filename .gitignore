@@ -34,3 +34,6 @@ public/video/
 public/mp3s/
 *.mp3
 *.mp4
+
+# rss cache (file-based SWR)
+tmp/rss-cache/

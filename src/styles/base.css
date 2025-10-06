@@ -1,0 +1,67 @@
+/* Base layer: component-neutral mappings & structural variables built on tokens */
+
+:root {
+  /* Borders referencing core colors */
+  --border-primary: var(--color-neutral-700);
+  --border-secondary: var(--color-neutral-600);
+  --border-focus: var(--color-secondary-400); /* legacy variant (secondary) */
+  --border-error: var(--color-error-500);
+  --border-success: var(--color-success-500);
+  --border-help-info: var(--color-info-600);
+
+  /* Interactive states */
+  --interactive-primary: var(--color-primary-600);
+  --interactive-primary-hover: var(--color-primary-700);
+  --interactive-primary-active: var(--color-primary-800);
+  --interactive-secondary: var(--color-secondary-600);
+  --interactive-secondary-hover: var(--color-secondary-700);
+  --interactive-secondary-active: var(--color-secondary-800);
+
+  /* Focus enhanced variants (keep single set; high contrast overrides can extend) */
+  --focus-enhanced-shadow: 0 0 0 1px var(--color-primary-500), var(--shadow-lg);
+  --focus-outline-dark: 3px solid var(--color-primary-300);
+  --focus-outline-light: 3px solid var(--color-primary-600);
+
+  /* Form */
+  --form-bg: var(--color-neutral-800);
+  --form-border: var(--border-primary);
+  --form-border-focus: var(--border-focus);
+  --form-text: var(--color-neutral-50);
+  --form-placeholder: var(--color-neutral-400);
+  --form-label: var(--color-neutral-200);
+  --form-error: var(--color-error-400);
+  --form-success: var(--color-success-400);
+
+  /* Buttons */
+  --btn-primary-bg: linear-gradient(135deg,var(--color-primary-600) 0%,var(--color-primary-700) 100%);
+  --btn-primary-hover: linear-gradient(135deg,var(--color-primary-700) 0%,var(--color-primary-800) 100%);
+  --btn-primary-text: var(--color-white);
+  --btn-secondary-bg: transparent;
+  --btn-secondary-border: var(--border-primary);
+  --btn-secondary-text: var(--color-neutral-50);
+  --btn-secondary-hover: rgba(255,255,255,0.05);
+
+  /* Cards */
+  --card-bg: var(--color-neutral-800);
+  --card-border: var(--border-primary);
+  --card-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  --card-shadow-hover: 0 12px 40px rgba(0,0,0,0.4);
+
+  /* Scrollbar semantic colors only (size/radius in tokens) */
+  --scrollbar-track-bg: var(--color-neutral-900);
+  --scrollbar-thumb-bg: var(--color-neutral-600);
+  --scrollbar-thumb-hover: var(--color-neutral-400);
+}
+
+/* Reduced motion & data media queries remain here */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 120ms !important; scroll-behavior: auto !important; }
+  .shadow-2xl, .shadow-xl, .shadow-lg { box-shadow: var(--shadow-md) !important; }
+  .hover\:-translate-y-1:hover { transform: translateY(-2px) !important; }
+}
+
+@media (prefers-reduced-data: reduce) {
+  .bg-gradient-to-r, .bg-gradient-to-br, .bg-gradient-to-b, .bg-gradient-to-l, .bg-gradient-to-tr { background-image: none !important; background-color: #2c2f3a !important; }
+  .shadow-2xl, .shadow-xl { box-shadow: var(--shadow-lg) !important; }
+  .rounded-3xl { border-radius: 1.25rem !important; }
+}

@@ -33,10 +33,23 @@ const {
   heightHint = 720,
 } = Astro.props as Props;
 
-const variants = slug ? await getOptimizedImageVariants(group, slug) : null;
+let variants = slug ? await getOptimizedImageVariants(group, slug) : null;
+// Playlist Sonderfall: falls keine eigenen Varianten, versuche Kategorie-Reuse
+if (!variants && group === "playlist" && slug) {
+  variants = await getOptimizedImageVariants("category", slug);
+}
 const avif = variants?.avif || [];
 const webp = variants?.webp || [];
-const fallback = variants?.fallback || `/${group}/${slug}.jpg`;
+// Fallback-Priorität:
+// 1. Gefundene kanonische Variant-URL
+// 2. Kategorie Bild (bei Playlists) unter /category/<slug>.jpg
+// 3. Legacy Muster /<group>/<slug>.jpg
+// 4. Globales Default Cover
+const fallback =
+  variants?.fallback ||
+  (group === "playlist" ? `/category/${slug}.jpg` : null) ||
+  `/${group}/${slug}.jpg` ||
+  "/default-cover.jpg";
 
 function buildSrcSet(list: { width: number; src: string }[]) {
   return list.map((v) => `${v.src} ${v.width}w`).join(", ");

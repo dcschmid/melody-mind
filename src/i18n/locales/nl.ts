@@ -559,4 +559,8 @@ export default {
   "pages.legal.disclaimer.title": "Disclaimer",
   "pages.legal.disclaimer.content":
     "Alle informatie wordt zonder garantie verstrekt. We streven naar juistheid maar aanvaarden geen aansprakelijkheid voor externe inhoud of links. Gebruik van de site is op eigen risico.",
+  // Toegevoegd: playlist afbeelding keys
+  "playlist.image.alt": "Playlist-cover: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Coverafbeelding die de playlist {headline} uit het tijdperk {decade} weergeeft.",
 };

@@ -572,4 +572,9 @@ export default {
   "index.card.news.title": "Noticias",
   "index.card.news.desc":
     "Nuevas funciones, mejoras visuales, optimizaciones y momentos clave del universo musical — mantente atento, detecta oportunidades de juego y no te pierdas avances que elevan tu experiencia. ✨",
+
+  // Añadido: claves de imagen de playlist
+  "playlist.image.alt": "Portada de la playlist: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Imagen de portada que representa la playlist {headline} de la década {decade}.",
 };

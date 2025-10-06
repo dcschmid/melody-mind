@@ -66,6 +66,9 @@ export class TimePressureGameEngine {
   private maxStreak: number = 0;
   private timeLeft: number = 0;
   private countdownTimer: number | null = null;
+  private rafId: number | null = null; // rAF handle for countdown loop
+  private lastCountdownTs = 0; // last timestamp (ms) from performance.now()
+  private frameAccumulator = 0; // accumulated ms for throttled DOM updates
   private isGameActive: boolean = false;
   private isPaused: boolean = false;
   private gameStartTime: number = 0;
@@ -478,36 +481,62 @@ export class TimePressureGameEngine {
    * Start countdown timer with visual effects
    */
   startCountdown(): void {
-    // Clear any existing timer
-    if (this.countdownTimer) {
-      clearInterval(this.countdownTimer);
+    /**
+     * requestAnimationFrame Countdown Loop
+     * - Uses high resolution timestamps to decrement remaining time
+     * - Throttles DOM updates to ~10Hz to reduce layout/paint pressure
+     * - Pauses logical time progression while game is paused or feedback overlay showing
+     * - Survives tab visibility changes (delta jump processed next visible frame)
+     */
+    // Cancel any existing frame loop
+    if (this.rafId !== null) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
     }
 
-    // Reset countdown display
+    // Initialize timing state
+    this.lastCountdownTs = performance.now();
+    this.frameAccumulator = 0;
+
+    // Initial render
     this.updateCountdownDisplay();
 
-    // Start countdown
-    this.countdownTimer = setInterval(() => this.updateCountdown(), 100) as unknown as number;
+    // Kick off rAF loop
+    const onFrame = (ts: number): void => {
+      this.rafId = requestAnimationFrame(onFrame);
+      if (this.isPaused || !this.isGameActive || this.isFeedbackShowing) {
+        // Do not advance time while paused/feedback but keep last timestamp updated
+        this.lastCountdownTs = ts;
+        return;
+      }
+
+      const deltaMs = ts - this.lastCountdownTs;
+      this.lastCountdownTs = ts;
+
+      // Decrement remaining time (delta in seconds)
+      this.timeRemaining -= deltaMs / 1000;
+
+      if (this.timeRemaining <= 0) {
+        this.timeRemaining = 0;
+        this.updateCountdownDisplay(); // final update
+        this.handleTimeout().catch(() => {});
+        return;
+      }
+
+      // Throttle DOM updates to ~10 Hz (every >=100ms) for performance
+      this.frameAccumulator += deltaMs;
+      if (this.frameAccumulator >= 100) {
+        this.updateCountdownDisplay();
+        this.frameAccumulator = 0;
+      }
+    };
+    this.rafId = requestAnimationFrame(onFrame);
   }
 
   /**
    * Update countdown timer (called every 100ms for smooth animation)
    */
-  updateCountdown(): void {
-    if (this.isPaused || !this.isGameActive || this.isFeedbackShowing) {
-      return;
-    }
-
-    this.timeRemaining -= 0.1;
-
-    if (this.timeRemaining <= 0) {
-      this.timeRemaining = 0;
-      this.handleTimeout();
-      return;
-    }
-
-    this.updateCountdownDisplay();
-  }
+  // updateCountdown removed (logic folded into rAF loop)
 
   /**
    * Update countdown visual display
@@ -1147,6 +1176,10 @@ export class TimePressureGameEngine {
   destroy(): void {
     if (this.countdownTimer) {
       clearInterval(this.countdownTimer);
+    }
+    if (this.rafId !== null) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
     }
 
     document.removeEventListener("keydown", this.handleKeyPress);

@@ -112,16 +112,17 @@ const paramLang = (Astro as any).params?.lang;
 const lang: string = typeof paramLang === "string" ? paramLang : incoming.lang || "en";
 let entry: any = incoming.entry;
 
-// Runtime acquisition if entry not provided
-// If entry is not supplied via static path props (should be rare), perform fallback runtime lookup
+// Derive slug
+const slugParam = (Astro as any).params?.slug;
+const resolvedSlug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+
+// Runtime acquisition if entry not provided (fallback to collection scan)
 if (!entry) {
   try {
     const collectionName = `knowledge-${lang}`;
     const articles: any[] = await getCollectionCached(collectionName).catch(() => []);
-    const slugParam = (Astro as any).params?.slug;
-    const slug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
-    if (slug) {
-      entry = articles.find((a) => a.slug === slug || a.id === slug);
+    if (resolvedSlug) {
+      entry = articles.find((a) => a.slug === resolvedSlug || a.id === resolvedSlug);
     }
   } catch (e) {
     globalThis.console?.warn?.("knowledge article: collection load issue (fallback)", {
@@ -136,25 +137,27 @@ if (!entry) {
   return new Response("Not found", { status: 404 });
 }
 
-// Ensure readingTime present
-if (!entry.data.readingTime && entry.body) {
-  try {
-    entry = {
-      ...entry,
-      data: {
-        ...entry.data,
-        readingTime: getReadingTime(entry.body || "", { languageCode: lang }).minutes,
-      },
-    };
-  } catch {
-    // ignore reading time calculation errors
+// Ensure readingTime present (prefer cached precompute if available)
+if (!entry.data.readingTime) {
+  if (entry.body) {
+    try {
+      entry = {
+        ...entry,
+        data: {
+          ...entry.data,
+          readingTime: getReadingTime(entry.body || "", { languageCode: lang }).minutes,
+        },
+      };
+    } catch {
+      // ignore reading time calculation errors
+    }
   }
 }
 
 const t = useTranslations(lang);
 
-// Extract headings and compiled content safely
 const { headings, Content } = await entry.render();
+const mergedHeadings = headings;
 
 // Get & validate image source (runtime validation instead of build-time schema refine)
 const rawImage = entry.data.image;
@@ -382,8 +385,8 @@ const pageSeo = buildPageSeo({
         </div>
       </section>
 
-      {/* Table of Contents */}
-      <TableOfContents {headings} />
+      {/* Table of Contents (uses cached headings if available) */}
+      <TableOfContents headings={mergedHeadings} />
 
       {/* Article Content - Full Width */}
       <div id="article-content" class="mb-12">

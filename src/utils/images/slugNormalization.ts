@@ -40,25 +40,25 @@
  */
 export function normalizeImageSlug(raw: string): string {
   if (!raw) {
-    return '';
+    return "";
   }
-  let s = raw.normalize('NFKD');
+  let s = raw.normalize("NFKD");
   // Remove combining marks
-  s = s.replace(/\p{M}+/gu, '');
+  s = s.replace(/\p{M}+/gu, "");
   s = s.toLowerCase();
-  s = s.replace(/[&+]/g, ' and '); // expand logical joiners
-  s = s.replace(/@/g, ' at ');
+  s = s.replace(/[&+]/g, " and "); // expand logical joiners
+  s = s.replace(/@/g, " at ");
   // Remove possessive-like artifacts (rare) - optional
   // Replace any disallowed chars with hyphen
-  s = s.replace(/[^a-z0-9!-]+/g, '-');
+  s = s.replace(/[^a-z0-9!-]+/g, "-");
   // Remove isolated exclamation marks or periods at end
-  s = s.replace(/[!.]+$/g, '');
+  s = s.replace(/[!.]+$/g, "");
   // Replace leftover disallowed (now ! or .) with hyphen
-  s = s.replace(/[^a-z0-9-]+/g, '-');
+  s = s.replace(/[^a-z0-9-]+/g, "-");
   // Collapse multiple hyphens
-  s = s.replace(/-{2,}/g, '-');
+  s = s.replace(/-{2,}/g, "-");
   // Trim
-  s = s.replace(/^-|-$/g, '');
+  s = s.replace(/^-|-$/g, "");
   return s;
 }
 
@@ -93,18 +93,18 @@ export function buildSlugCandidates(raw: string): string[] {
   // 4. removed interior words after symbols (party-on! -> party-on)
   const simple = raw
     .toLowerCase()
-    .normalize('NFKD')
-    .replace(/\p{M}+/gu, '')
-    .replace(/&/g, '-')
-    .replace(/[+@]/g, '-')
-    .replace(/[^a-z0-9-]+/g, '-')
-    .replace(/-{2,}/g, '-')
-    .replace(/^-|-$/g, '');
+    .normalize("NFKD")
+    .replace(/\p{M}+/gu, "")
+    .replace(/&/g, "-")
+    .replace(/[+@]/g, "-")
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/-{2,}/g, "-")
+    .replace(/^-|-$/g, "");
   set.add(simple);
   // Variant without "and" expansion for & / +
-  const noAnd = primary.replace(/-and-/g, '-');
+  const noAnd = primary.replace(/-and-/g, "-");
   set.add(noAnd);
   // Variant with removed hyphens around and
-  set.add(primary.replace(/and-/g, '')); // edge case
+  set.add(primary.replace(/and-/g, "")); // edge case
   return Array.from(set).filter(Boolean);
 }

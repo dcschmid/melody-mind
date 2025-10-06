@@ -4,6 +4,9 @@ export default {
   "category.about.title": "About This Category",
   "category.difficulty.easy": "Easy",
   "knowledge.search.label": "Search by title or description",
+  "playlist.image.alt": "Playlist cover: {headline} – {introSubline} ({decade})",
+  "playlist.image.description":
+    "Cover artwork representing the playlist {headline} from the {decade} era.",
   "knowledge.search.title": "Search Articles",
   "knowledge.search.subtitle": "Find articles by title, description, or keywords",
   "knowledge.word_count": "{count} words",
