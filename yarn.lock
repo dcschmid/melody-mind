@@ -1922,7 +1922,7 @@ astro-minify-html-swc@^0.1.8:
 
 astro-robots-txt@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npmjs.org/astro-robots-txt/-/astro-robots-txt-1.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-1.0.0.tgz#d5e47c03e7b3d6b070d75eb470dd3661fa19fe96"
   integrity sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==
   dependencies:
     valid-filename "^4.0.0"
