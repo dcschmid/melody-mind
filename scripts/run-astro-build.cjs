@@ -27,7 +27,6 @@ if (!env.NODE_OPTIONS) {
 const binDir = path.join(repoRoot, 'node_modules', '.bin');
 const binName = process.platform === 'win32' ? 'astro.cmd' : 'astro';
 const binCandidate = path.join(binDir, binName);
-const fallbackEntrypoint = path.join(repoRoot, 'node_modules', 'astro', 'astro.js');
 
 let command;
 let args;
@@ -37,12 +36,18 @@ if (fs.existsSync(binCandidate)) {
   command = binCandidate;
   args = ['build'];
   shell = process.platform === 'win32';
-} else if (fs.existsSync(fallbackEntrypoint)) {
-  command = process.execPath;
-  args = [fallbackEntrypoint, 'build'];
 } else {
-  console.error('Unable to locate local Astro CLI. Ensure `yarn install` has been run.');
-  process.exit(1);
+  try {
+    const astroCli = require.resolve('astro/astro.js', { paths: [repoRoot] });
+    command = process.execPath;
+    args = [astroCli, 'build'];
+  } catch (error) {
+    console.error('Unable to locate local Astro CLI. Ensure `yarn install` has been run.');
+    if (process.env.DEBUG || process.env.CI) {
+      console.error('Lookup error:', error);
+    }
+    process.exit(1);
+  }
 }
 
 const child = spawn(command, args, {

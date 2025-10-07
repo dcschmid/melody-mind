@@ -53,13 +53,13 @@
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
     "date-fns": "^4.1.0",
-    "sharp": "^0.34.4"
+    "sharp": "^0.34.4",
+    "@tailwindcss/vite": "^4.1.13"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.6.0",
     "@eslint/js": "^9.36.0",
-    "@tailwindcss/vite": "^4.1.13",
     "@typescript-eslint/parser": "^8.44.1",
     "astro-meta-tags": "^0.4.0",
     "astro-minify-html-swc": "^0.1.8",
