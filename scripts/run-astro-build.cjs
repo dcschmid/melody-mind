@@ -3,7 +3,9 @@
 
 const { spawn } = require('node:child_process');
 const path = require('node:path');
+const fs = require('node:fs');
 
+const repoRoot = path.resolve(__dirname, '..');
 const env = { ...process.env };
 
 if (!env.ASTRO_TELEMETRY) {
@@ -22,13 +24,37 @@ if (!env.NODE_OPTIONS) {
   env.NODE_OPTIONS = '--max-old-space-size=6144';
 }
 
-const astroCommand = process.platform === 'win32' ? 'astro.cmd' : 'astro';
+const binDir = path.join(repoRoot, 'node_modules', '.bin');
+const binName = process.platform === 'win32' ? 'astro.cmd' : 'astro';
+const binCandidate = path.join(binDir, binName);
+const fallbackEntrypoint = path.join(repoRoot, 'node_modules', 'astro', 'astro.js');
 
-const child = spawn(astroCommand, ['build'], {
+let command;
+let args;
+let shell = false;
+
+if (fs.existsSync(binCandidate)) {
+  command = binCandidate;
+  args = ['build'];
+  shell = process.platform === 'win32';
+} else if (fs.existsSync(fallbackEntrypoint)) {
+  command = process.execPath;
+  args = [fallbackEntrypoint, 'build'];
+} else {
+  console.error('Unable to locate local Astro CLI. Ensure `yarn install` has been run.');
+  process.exit(1);
+}
+
+const child = spawn(command, args, {
   env,
   stdio: 'inherit',
-  cwd: path.resolve(__dirname, '..'),
-  shell: process.platform === 'win32',
+  cwd: repoRoot,
+  shell,
+});
+
+child.on('error', (error) => {
+  console.error('Failed to launch Astro build:', error);
+  process.exit(error && typeof error.code === 'number' ? error.code : 1);
 });
 
 child.on('exit', (code, signal) => {
