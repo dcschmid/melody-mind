@@ -57,7 +57,9 @@
     "astro-meta-tags": "^0.4.0",
     "astro-robots-txt": "^1.0.0",
     "date-fns": "^4.1.0",
-    "sharp": "^0.34.4"
+    "sharp": "^0.34.4",
+    "tailwind-variants": "^3.1.1",
+    "tw-prose": "^0.0.10"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
@@ -81,10 +83,8 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwind-merge": "^3.3.1",
-    "tailwind-variants": "^3.1.1",
     "tailwindcss": "^4.1.14",
     "ts-node": "^10.9.2",
-    "tw-prose": "^0.0.10",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0"
   },
