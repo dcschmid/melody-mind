@@ -11,7 +11,7 @@
     "start:production": "NODE_ENV=production node dist/server/entry.mjs",
     "build": "yarn validate:podcasts && yarn build:astro",
     "install:sharp": "yarn add sharp --ignore-engines",
-    "build:astro": "NODE_ENV=production SHARP_CONCURRENCY=2 NODE_OPTIONS='--max-old-space-size=8192' astro build",
+    "build:astro": "node scripts/run-astro-build.cjs",
     "optimize:categories": "node scripts/optimize-category-images.cjs",
     "optimize:images": "node scripts/optimize-images.cjs",
     "build:check": "astro check --typescript-errors=false",
