@@ -10,12 +10,12 @@ import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import MusicButtons from "@components/MusicButtons.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { getLangFromUrl } from "@utils/i18n";
-import { useTranslations } from "@utils/i18n";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { ensureSupportedLanguage } from "@constants/languages";
 // import { getLanguageKeyedParams } from "@utils/i18n/getLanguagePaths"; // Uncomment when enabling SSG
 // import { loadCategoriesForLanguage } from "../../utils/category/categoryLoader"; // Uncomment if enabling SSG
 // categoryLoader is used dynamically below when resolving missing props at runtime
@@ -63,7 +63,8 @@ const { category: propCategory, usedFallback: propUsedFallback } = Astro.props a
 };
 
 // Resolve language as a string safely. Prefer prop `lang`, then URL, then fallback 'en'.
-const lang = String(Astro.props?.lang ?? getLangFromUrl(Astro.url) ?? "en");
+const rawLang = Astro.props?.lang ?? getLangFromUrl(Astro.url);
+const lang = ensureSupportedLanguage(rawLang);
 const t = useTranslations(lang);
 
 let category = propCategory;

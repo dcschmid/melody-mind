@@ -21,7 +21,7 @@ import { handleGameError, handleLoadingError } from "../error/errorHandlingUtils
 import { getLangFromUrl, useTranslations } from "../i18n";
 
 import { loadAlbumsWithFallback } from "./albumLoader";
-import { handleEndGame, restartGame } from "./endGameUtils";
+import { handleEndGameLazy, restartGameLazy } from "./endGameLoader";
 import { updateCoinsDisplay, showEndgamePopup } from "./gameUI";
 import { getRandomQuestion } from "./getRandomQuestion";
 import type { RQAlbum, RQQuestion } from "./getRandomQuestion";
@@ -327,7 +327,7 @@ async function initializeGame(elements: GameElements): Promise<void> {
       },
     };
 
-    handleEndGame(config, endUi, {
+    void handleEndGameLazy(config, endUi, {
       onError: (error: Error): void => {
         ErrorHandler.handleSaveError(error, "score", {
           userId: config.userId,
@@ -337,6 +337,10 @@ async function initializeGame(elements: GameElements): Promise<void> {
       },
     });
   }
+
+  const restartHandler = (): void => {
+    void restartGameLazy();
+  };
 
   /**
    * Setup event handlers extracted into a focused helper to reduce initializeGame size.
@@ -378,7 +382,7 @@ async function initializeGame(elements: GameElements): Promise<void> {
     }
 
     // Restart button wiring
-    elements.restartButton?.addEventListener("click", restartGame);
+    elements.restartButton?.addEventListener("click", restartHandler);
 
     // Keyboard shortcuts
     initKeyboardShortcuts({
@@ -414,7 +418,7 @@ async function initializeGame(elements: GameElements): Promise<void> {
       stopAudio();
       jokerManager?.cleanup();
       clearSpeedBonusTimers();
-      elements.restartButton?.removeEventListener("click", restartGame);
+      elements.restartButton?.removeEventListener("click", restartHandler);
     };
     window.addEventListener("unload", cleanup);
   }

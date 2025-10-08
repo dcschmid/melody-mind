@@ -1,0 +1,166 @@
+---
+import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import type { ShareData } from "./shareOverlayScript";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const {
+  gameData,
+  shareGroupLabel = t("share.buttons.group.label"),
+  showFallback = true,
+  showTitle = true,
+} = Astro.props as {
+  gameData?: ShareData;
+  shareGroupLabel?: string;
+  showFallback?: boolean;
+  showTitle?: boolean;
+};
+
+const translations = {
+  "share.challenge": t("share.challenge"),
+  "share.score_line": t("share.score.line"),
+  "share.copy.label": t("share.copy.label"),
+  "share.copy.copied_prefix": t("share.copy.copied_prefix"),
+  "share.email.subject": t("share.email.subject"),
+  "share.accessibility.data_unavailable": t("share.accessibility.data_unavailable"),
+  "share.accessibility.data_found": t("share.accessibility.data_found"),
+  "share.accessibility.data_still_unavailable": t("share.accessibility.data_still_unavailable"),
+  "share.accessibility.copy_failed_manual": t("share.accessibility.copy_failed_manual"),
+  "share.accessibility.score_shared": t("share.accessibility.score_shared"),
+  "share.accessibility.sharing_cancelled": t("share.accessibility.sharing_cancelled"),
+  "share.accessibility.native_share_failed": t("share.accessibility.native_share_failed"),
+  "share.accessibility.score_copied": t("share.accessibility.score_copied"),
+  "share.accessibility.platform_share_failed": t("share.accessibility.platform_share_failed"),
+  "share.achievement.genius": t("share.achievement.genius"),
+  "share.achievement.pro": t("share.achievement.pro"),
+  "share.achievement.enthusiast": t("share.achievement.enthusiast"),
+  "share.achievement.lover": t("share.achievement.lover"),
+  "share.achievement.explorer": t("share.achievement.explorer"),
+  "share.difficulty.easy": t("difficulty.easy"),
+  "share.difficulty.medium": t("difficulty.medium"),
+  "share.difficulty.hard": t("difficulty.hard"),
+};
+---
+
+<div
+  class="mt-8 text-center md:mt-12"
+  data-game-data={gameData ? JSON.stringify(gameData) : ""}
+  data-share-translations={JSON.stringify(translations)}
+>
+  {
+    showTitle && (
+      <h3 class="mb-6 text-xl font-semibold text-[var(--text-primary)] md:mb-8 md:text-2xl lg:text-3xl">
+        {t("share.title")}
+      </h3>
+    )
+  }
+  <div id="share-status-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+  <div
+    id="share-buttons-container"
+    class="mt-6 flex max-w-full flex-wrap items-center justify-center gap-4 md:mx-auto md:mt-8 md:max-w-[600px] md:flex-row md:gap-6 lg:max-w-[700px] lg:gap-8"
+    role="group"
+    aria-label={shareGroupLabel}
+  >
+    <button
+      id="native-share-button"
+      class="hidden items-center gap-3 rounded-lg bg-[var(--color-primary-600)] px-6 py-3 font-medium text-white transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      aria-label={t("share.native")}
+      type="button"
+    >
+      <Icon name="share" width={24} height={24} aria-hidden="true" />
+      <span class="text-base md:text-sm">{t("share.native.label")}</span>
+    </button>
+    <button
+      data-share="twitter"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-gray-600)] px-6 py-3 font-medium text-white transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      aria-label={t("share.twitter")}
+      type="button"
+    >
+      <Icon name="twitter" width={24} height={24} aria-hidden="true" />
+      <span class="text-base md:text-sm">{t("share.twitter")}</span>
+    </button>
+    <button
+      data-share="whatsapp"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-green-600)] px-6 py-3 font-medium text-white transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      aria-label={t("share.whatsapp")}
+      type="button"
+    >
+      <Icon name="whatsapp" width={24} height={24} aria-hidden="true" />
+      <span class="text-base md:text-sm">{t("share.whatsapp")}</span>
+    </button>
+    <button
+      data-share="email"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-orange-600)] px-6 py-3 font-medium text-white transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      aria-label={t("share.email")}
+      type="button"
+    >
+      <Icon name="mail" width={24} height={24} aria-hidden="true" />
+      <span class="text-base md:text-sm">{t("share.email.label")}</span>
+    </button>
+  </div>
+  <div class="mt-6 flex justify-center md:mt-8">
+    <button
+      id="copy-share-button"
+      class="flex items-center gap-3 rounded-lg bg-[var(--color-pink-600)] px-6 py-3 font-medium text-white transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+      aria-label={t("share.copy")}
+      type="button"
+    >
+      <Icon name="clipboard" width={20} height={20} aria-hidden="true" />
+      <span class="text-base md:text-sm" id="copy-button-text">{t("share.copy.label")}</span>
+    </button>
+  </div>
+  {
+    showFallback && (
+      <div
+        id="share-fallback-content"
+        class="mt-6 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-tertiary)] p-4"
+        hidden
+      >
+        <div class="mb-4 flex items-center gap-3">
+          <Icon
+            name="alert-circle"
+            width={24}
+            height={24}
+            aria-hidden="true"
+            class="text-[var(--color-warning-500)]"
+          />
+          <p class="text-[var(--text-secondary)]">{t("share.fallback.message")}</p>
+        </div>
+        <div class="flex justify-center gap-3">
+          <button
+            id="retry-share-button"
+            class="flex items-center gap-2 rounded-lg bg-[var(--color-primary-600)] px-4 py-2 text-sm font-medium text-white transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+            type="button"
+            aria-label={t("share.fallback.retry.label")}
+          >
+            <Icon name="refresh" width={16} height={16} aria-hidden="true" />
+            {t("share.fallback.retry.text")}
+          </button>
+          <button
+            id="manual-copy-button"
+            class="flex items-center gap-2 rounded-lg border border-[var(--border-primary)] bg-[var(--bg-secondary)] px-4 py-2 text-sm font-medium text-[var(--text-primary)] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-outline)]"
+            type="button"
+            aria-label={t("share.fallback.manual.label")}
+          >
+            <Icon name="clipboard" width={16} height={16} aria-hidden="true" />
+            {t("share.fallback.manual.text")}
+          </button>
+        </div>
+      </div>
+    )
+  }
+</div>
+
+<script>
+  import { createShareOverlay } from "./shareOverlayScript";
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+  const container = document.currentScript?.parentElement as HTMLElement | null;
+  if (container) {
+    const init = () => createShareOverlay(container);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init, { once: true });
+    } else {
+      init();
+    }
+  }
+</script>

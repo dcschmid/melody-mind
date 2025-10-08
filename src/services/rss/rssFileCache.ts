@@ -104,6 +104,29 @@ export interface SWRResult {
   revalidatePromise?: Promise<NewsResponse>;
 }
 
+type CacheFreshness = "fresh" | "stale" | "expired";
+
+function evaluateCacheFreshness(
+  meta: CacheFileMeta,
+  now: number,
+  ttl: number,
+  staleWindow: number
+): CacheFreshness {
+  const createdAtMs = new Date(meta.createdAt).getTime();
+  const staleAfter = createdAtMs + ttl;
+  const expireAt = staleAfter + staleWindow;
+
+  if (now < staleAfter) {
+    return "fresh";
+  }
+
+  if (now >= expireAt) {
+    return "expired";
+  }
+
+  return "stale";
+}
+
 /**
  * Get (and possibly refresh) a cached feed using SWR semantics.
  * @param {string} language Normalized + ensured language key (already processed via ensureSupportedLanguage)
@@ -136,14 +159,13 @@ export async function getOrUpdateSWR(
   }
 
   // Evaluate freshness based on dynamic overrides when provided
-  const staleAfter = new Date(cache.meta.createdAt).getTime() + ttl;
-  const expireAt = staleAfter + staleWindow;
+  const freshness = evaluateCacheFreshness(cache.meta, now, ttl, staleWindow);
 
-  if (now < staleAfter) {
+  if (freshness === "fresh") {
     return { data: cache.data, state: "fresh" };
   }
 
-  if (now >= expireAt) {
+  if (freshness === "expired") {
     // Fully expired → blocking refresh
     try {
       const fresh = await fetcher();

@@ -1,6 +1,5 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import StructuredItemList from "@components/StructuredItemList.astro";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -153,6 +152,8 @@ const breadcrumbs = buildBreadcrumbs([
   { name: title, url: currentUrl },
 ]);
 const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].filter(Boolean);
+const listHeading = t("playlist.grid.heading", { count: playlistCount });
+const listName = listHeading || "Playlists";
 ---
 
 <!-- OG image: playlists overview -->
@@ -199,35 +200,59 @@ const structuredDataExtra = [playlistCollectionSchema, categoryItemListSchema].f
 
       <section aria-labelledby="playlists-heading">
         <Headline level="h2" textSize="base" className="sr-only">
-          {t("playlist.grid.heading", { count: playlistCount })}
+          {listHeading}
         </Headline>
-        <StructuredItemList
-          items={sortedPlaylists}
-          getName={(pl) => pl.headline}
-          getDescription={(pl) => pl.introSubline || pl.headline}
-          getGenre={(pl) => getDecadeFromHeadline(pl.headline)}
-          itemType="MusicPlaylist"
-          listName={t("playlist.grid.heading", { count: playlistCount }) || "Playlists"}
-          {lang}
-          includeCreator={false}
-          includeLanguage={true}
-          listItemClass="playlist-item"
-          containerId="playlist-grid"
-          cardComponent={PlaylistCard}
-          mapItemToCardProps={(pl, index) => ({
-            headline: pl.headline,
-            imageUrl: pl.imageUrl,
-            introSubline: pl.introSubline || pl.headline,
-            spotifyPlaylist: pl.spotifyPlaylist,
-            deezerPlaylist: pl.deezerPlaylist,
-            appleMusicPlaylist: pl.appleMusicPlaylist,
-            index,
-            lang,
-            microdataDisable: true,
-            // Use the dedicated playlist image group assets under src/assets/playlist
-            imageGroup: "playlist",
-          })}
-        />
+        <section
+          aria-label={listName}
+          itemscope
+          itemtype="https://schema.org/ItemList"
+          aria-labelledby="playlists-heading"
+        >
+          <meta itemprop="name" content={listName} />
+          <meta itemprop="numberOfItems" content={String(sortedPlaylists.length)} />
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" id="playlist-grid">
+            {
+              sortedPlaylists.map((playlist, index) => {
+                const name = playlist.headline;
+                const description = playlist.introSubline || playlist.headline;
+                const genre = getDecadeFromHeadline(playlist.headline);
+                const searchText = `${name} ${description || ""} ${genre || ""}`.toLowerCase();
+                return (
+                  <div
+                    class="playlist-item"
+                    itemprop="itemListElement"
+                    itemscope
+                    itemtype="https://schema.org/ListItem"
+                    data-search-text={searchText}
+                  >
+                    <meta itemprop="position" content={String(index + 1)} />
+                    <div
+                      itemscope
+                      itemprop="item"
+                      itemtype="https://schema.org/MusicPlaylist"
+                      class="overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    >
+                      <meta itemprop="name" content={name} />
+                      {description && <meta itemprop="description" content={description} />}
+                      {genre && <meta itemprop="genre" content={genre} />}
+                      <meta itemprop="inLanguage" content={lang} />
+                      <PlaylistCard
+                        headline={playlist.headline}
+                        imageUrl={playlist.imageUrl}
+                        introSubline={description}
+                        spotifyPlaylist={playlist.spotifyPlaylist}
+                        deezerPlaylist={playlist.deezerPlaylist}
+                        appleMusicPlaylist={playlist.appleMusicPlaylist}
+                        index={index}
+                        lang={lang}
+                      />
+                    </div>
+                  </div>
+                );
+              })
+            }
+          </div>
+        </section>
       </section>
     </div>
   </main>

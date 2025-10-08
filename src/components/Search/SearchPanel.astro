@@ -1,31 +1,16 @@
 ---
 /**
- * Reusable Search Panel Component
- * Encapsulates the generic search input + clear/reset wiring markup.
- * Progressive enhancement: relies on initSearchPanel.ts for JS behavior.
+ * Lightweight Search Panel
  *
- * Props:
- * - idBase: string (basis für Input/Clear/Reset IDs)
- * - label: string (accessible label)
- * - placeholder: string
- * - ariaControls: string (ID des Elements, das gefiltert wird)
- * - showReset?: boolean (default true)
- * - size?: 'md' | 'lg' (visual size variant)
- * Additional (optional) slots:
- * - status: region to announce search result counts (aria-live outside component consumer)
- * - no-results: container displayed by consumer logic when no matches
+ * Provides the consistent markup needed by `initSearchPanel` without the previous
+ * prop explosion. Only the essentials remain: ids/labels and optional text templates
+ * for the auto-managed status + no-results helpers.
  */
 export interface Props {
   idBase: string;
   label: string;
   placeholder: string;
   ariaControls: string;
-  showReset?: boolean;
-  size?: "md" | "lg";
-  /** Enable built-in aria-live status management */
-  autoStatus?: boolean;
-  /** Enable built-in no-results block toggling */
-  autoNoResults?: boolean;
   /** Text shown when all items visible */
   statusAllText?: string;
   /** Template for results count (use {count}) */
@@ -39,10 +24,6 @@ const {
   label,
   placeholder,
   ariaControls,
-  showReset = true,
-  size = "lg",
-  autoStatus = false,
-  autoNoResults = false,
   statusAllText = "Showing all",
   statusCountTemplate = "{count} results",
   noResultsTemplate = 'No results for "{term}"',
@@ -51,9 +32,11 @@ const {
 const inputId = `${idBase}-input`;
 const clearId = `${idBase}-clear`;
 const resetId = `${idBase}-reset`;
+const inputClasses =
+  "block w-full rounded-3xl border-2 border-purple-500/40 bg-gray-800/90 py-5 text-xl pr-20 pl-16 font-medium text-white placeholder-gray-400 shadow-2xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-500/20 focus:border-purple-400 focus:ring-4 focus:ring-purple-500/60 focus:outline-none";
 ---
 
-<div class="search-panel" data-search-root>
+<div class="w-full" data-search-root>
   <div class="relative w-full">
     <label for={inputId} class="sr-only">{label}</label>
     <div class="relative">
@@ -69,7 +52,7 @@ const resetId = `${idBase}-reset`;
       <input
         id={inputId}
         type="search"
-        class={`block w-full rounded-3xl border-2 border-purple-500/40 bg-gray-800/90 ${size === "lg" ? "py-5 text-xl" : "py-3 text-base"} pr-20 pl-16 font-medium text-white placeholder-gray-400 shadow-2xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-500/20 focus:border-purple-400 focus:ring-4 focus:ring-purple-500/60 focus:outline-none`}
+        class={inputClasses}
         {placeholder}
         aria-controls={ariaControls}
         autocomplete="off"
@@ -92,65 +75,42 @@ const resetId = `${idBase}-reset`;
       </button>
     </div>
   </div>
-  {
-    showReset && (
-      <div class="mt-6 text-center">
-        <button
-          id={resetId}
-          class="inline-flex items-center gap-3 rounded-xl bg-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-purple-700 hover:shadow-purple-500/20"
-          type="button"
-          aria-controls={ariaControls}
-          data-search-reset
-        >
-          <svg
-            class="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 4v6h6M20 20v-6h-6"
-            />
-          </svg>
-          <span>Reset</span>
-        </button>
-      </div>
-    )
-  }
-  {
-    autoStatus && (
-      <div
-        id={`${idBase}-status`}
-        data-search-status
-        class="sr-only"
-        role="status"
-        aria-live="polite"
-        data-search-status-all={statusAllText}
-        data-search-status-count={statusCountTemplate}
-      />
-    )
-  }
-  {
-    autoNoResults && (
-      <div
-        id={`${idBase}-no-results`}
-        data-search-no-results
-        hidden
-        data-search-no-results-tpl={noResultsTemplate}
-        class="mt-4 text-center text-sm text-gray-400"
-      />
-    )
-  }
+  <div class="mt-6 text-center">
+    <button
+      id={resetId}
+      class="inline-flex items-center gap-3 rounded-xl bg-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-purple-700 hover:shadow-purple-500/20"
+      type="button"
+      aria-controls={ariaControls}
+      data-search-reset
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 4v6h6M20 20v-6h-6"></path>
+      </svg>
+      <span>Reset</span>
+    </button>
+  </div>
+  <div
+    id={`${idBase}-status`}
+    data-search-status
+    class="sr-only"
+    role="status"
+    aria-live="polite"
+    data-search-status-all={statusAllText}
+    data-search-status-count={statusCountTemplate}
+  >
+  </div>
+  <div
+    id={`${idBase}-no-results`}
+    data-search-no-results
+    hidden
+    data-search-no-results-tpl={noResultsTemplate}
+    class="mt-4 text-center text-sm text-gray-400"
+  >
+  </div>
   <slot name="status" />
   <slot name="no-results" />
 </div>
-
-<style>
-  .search-panel {
-    width: 100%;
-  }
-</style>

@@ -2,14 +2,14 @@
 /**
  * LoadingState Component - Responsive & Accessible
  *
- * A reusable component for displaying loading states with consistent styling.
+ * A minimal component for displaying loading states with consistent styling.
  * Fully responsive with WCAG AAA compliance and optimized for all screen sizes.
  *
  * @component
  * @example
  * ```astro
- * <LoadingState text="Loading games..." size="lg" />
- * <LoadingState text="Please wait..." size="sm" />
+ * <LoadingState text="Loading games..." />
+ * <LoadingState />
  * ```
  */
 
@@ -20,43 +20,28 @@ export interface Props {
   text?: string;
   /** Additional CSS class for styling customization */
   className?: string;
-  /** Size variant for the spinner */
-  size?: "sm" | "md" | "lg";
-  /** Whether to show the component (useful for conditional rendering) */
-  visible?: boolean;
-  /** Minimum height for the loading state container */
-  minHeight?: string;
 }
 
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(String(lang));
 
-const {
-  text = t("common.loading"),
-  className = "",
-  size = "md",
-  visible = true,
-  minHeight = "12rem",
-} = Astro.props;
+const { text = t("common.loading"), className = "" } = Astro.props as Props;
+
+const containerClasses = [
+  "font-primary flex min-h-[12rem] flex-col items-center justify-center gap-4 p-6 sm:gap-3 sm:p-4 md:gap-6 md:p-6",
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+
+const spinnerClasses = [
+  "animate-spin rounded-full border-2 border-gray-700 border-t-purple-500 h-8 w-8 sm:h-10 sm:w-10",
+].join(" ");
 ---
 
-{
-  visible && (
-    <div
-      class={`font-primary flex min-h-[12rem] flex-col items-center justify-center gap-4 p-6 sm:gap-3 sm:p-4 md:gap-6 md:p-6 ${className}`}
-      role="status"
-      aria-live="polite"
-      style={`min-height: ${minHeight};`}
-    >
-      <div
-        class={`animate-spin rounded-full border-2 border-gray-700 border-t-purple-500 ${
-          size === "sm" ? "h-6 w-6" : size === "md" ? "h-8 w-8" : "h-12 w-12"
-        }`}
-        aria-label={t("loading.content")}
-      />
-      <Paragraph textAlign="center">{text}</Paragraph>
-      <span class="sr-only">{t("loading.screen_reader")}</span>
-    </div>
-  )
-}
+<div class={containerClasses} role="status" aria-live="polite">
+  <div class={spinnerClasses} aria-label={t("loading.content")}></div>
+  <Paragraph textAlign="center">{text}</Paragraph>
+  <span class="sr-only">{t("loading.screen_reader")}</span>
+</div>

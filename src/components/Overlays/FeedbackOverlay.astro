@@ -114,15 +114,50 @@ const t = useTranslations(lang);
   </div>
 </div>
 
-<script is:inline>
-  import { initFeedbackOverlayAuto } from "../../utils/components/feedbackOverlayUtils";
+<script is:inline define:vars={{ buttonId }}>
+  const overlay = document.getElementById("overlay");
+  const closeButton = document.getElementById("close-overlay-button");
+  const backdrop = document.getElementById("overlay-backdrop");
+  const nextButton = document.getElementById(buttonId);
 
-  // Initialize feedback overlay functionality only for Quiz Game
-  // Time Pressure Game handles its own button events
-  if (window.location.pathname.includes("game-")) {
-    document.addEventListener("DOMContentLoaded", () => {
-      // Initialization unchanged: localized labels are provided above for potential runtime/fallback usage
-      initFeedbackOverlayAuto();
+  const hideOverlay = (): void => {
+    overlay?.classList.add("hidden");
+  };
+
+  const handleKeydown = (event: KeyboardEvent): void => {
+    if (event.key === "Escape" && overlay && !overlay.classList.contains("hidden")) {
+      event.preventDefault();
+      hideOverlay();
+    }
+  };
+
+  const focusWhenVisible = (): void => {
+    if (!overlay || overlay.classList.contains("hidden")) {
+      return;
+    }
+    window.requestAnimationFrame(() => {
+      closeButton?.focus();
     });
-  }
+  };
+
+  closeButton?.addEventListener("click", hideOverlay);
+  backdrop?.addEventListener("click", hideOverlay);
+  nextButton?.addEventListener("click", () => {
+    hideOverlay();
+  });
+
+  document.addEventListener("keydown", handleKeydown);
+
+  const observer =
+    overlay &&
+    new MutationObserver(() => {
+      focusWhenVisible();
+    });
+
+  observer?.observe(overlay, { attributes: true, attributeFilter: ["class"] });
+
+  window.addEventListener("unload", () => {
+    document.removeEventListener("keydown", handleKeydown);
+    observer?.disconnect();
+  });
 </script>

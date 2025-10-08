@@ -47,12 +47,3 @@ const screenReaderText = t("common.back.to.top");
   <Icon name="arrow-up" class="h-6 w-6 text-inherit md:h-8 md:w-8" aria-hidden="true" />
   <span class="sr-only">{screenReaderText}</span>
 </button>
-
-<script>
-  import { initDefaultBackToTop } from "../../utils/components/backToTopUtils";
-
-  // Initialize back-to-top functionality
-  document.addEventListener("DOMContentLoaded", (): void => {
-    initDefaultBackToTop();
-  });
-</script>

@@ -227,7 +227,6 @@ const pageSeo = buildPageSeo({
         headingLevel="h1"
         id="knowledge-heading"
         icon="📚"
-        spacing="md"
       />
 
       <!-- Enhanced Search section (refactored) -->
@@ -247,8 +246,6 @@ const pageSeo = buildPageSeo({
             placeholder={(ui[uiLang] as any)["knowledge.search.placeholder"] ||
               "Search articles..."}
             ariaControls="articlesGrid"
-            autoStatus={true}
-            autoNoResults={true}
             statusAllText={safeUi["knowledge.search.initial"] || "Showing all articles"}
             statusCountTemplate={safeUi["knowledge.search.articlesFound"]
               ? `{count} ${safeUi["knowledge.search.articlesFound"]}`

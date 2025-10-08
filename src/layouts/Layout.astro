@@ -615,6 +615,19 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <script is:inline src="/scripts/layout-fathom-loader.js" defer></script>
     <!-- Debug bridge: expose TypeScript debug util to inline scripts as window.__mmDebug (dev only) -->
     <script type="module">
+      import { initInteractiveComponents } from "/src/utils/components/autoInit.ts";
+
+      const start = () => {
+        initInteractiveComponents();
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start, { once: true });
+      } else {
+        start();
+      }
+    </script>
+    <script type="module">
       import { debug } from "/src/utils/debug.ts";
       if (import.meta.env?.DEV && typeof window !== "undefined" && !("__mmDebug" in window)) {
         // @ts-expect-error runtime augmentation

@@ -106,7 +106,6 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
         className="music-platform-link"
         aria-describedby="external-platform-notice"
         variant="primary"
-        size="md"
         data-platform={type}
         data-playlist-title={title}
       >
@@ -126,10 +125,38 @@ const validButtons = buttons.filter(({ url }) => Boolean(url));
 </div>
 
 <script>
-  import { initDefaultMusicButtons } from "../utils/components/musicButtonsUtils";
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+  const buttons = Array.from(document.querySelectorAll(".music-platform-link"));
 
-  // Initialize music buttons functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    initDefaultMusicButtons();
+  const track = (eventName) => {
+    try {
+      const fathom = window.fathom || {};
+      if (typeof fathom.trackEvent === "function") {
+        fathom.trackEvent(eventName);
+      }
+    } catch {
+      /* ignore */
+    }
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener(
+      "click",
+      () => {
+        if (!(button instanceof HTMLElement)) {
+          return;
+        }
+        const platform = button.dataset.platform;
+        const playlist = button.dataset.playlistTitle;
+        if (!platform) {
+          return;
+        }
+        track(`music_${platform}_click`);
+        if (playlist) {
+          track(`music_${platform}_${playlist}`.replace(/[^a-zA-Z0-9_]/g, "_"));
+        }
+      },
+      { passive: true }
+    );
   });
 </script>

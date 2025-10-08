@@ -7,7 +7,6 @@
 
 import { getLangFromUrl, useTranslations } from "../../utils/i18n.ts";
 import { safeGetElementById } from "../dom/domUtils";
-import { completeEndOverlaySetup } from "../endOverlay";
 import { handleGameError } from "../error/errorHandlingUtils";
 import { getDocumentLanguage } from "../i18n/detectLanguage";
 
@@ -507,16 +506,8 @@ export async function handleEndGame(
               { score: config.score }
             );
             await showFn({ score: config.score });
-          } else if (typeof completeEndOverlaySetup === "function") {
-            console.debug(
-              "[endGameUtils] invoking completeEndOverlaySetup to enhance overlay (async)",
-              { score: config.score }
-            );
-            await completeEndOverlaySetup({ score: config.score });
           } else {
-            console.debug(
-              "[endGameUtils] no richer overlay available (completeEndOverlaySetup / showEndOverlay)"
-            );
+            console.debug("[endGameUtils] no richer overlay available (showEndOverlay)");
           }
         } catch (enhanceErr) {
           handleGameError(enhanceErr, "enhancing endgame overlay");
@@ -576,12 +567,6 @@ export async function handleEndGame(
                 { score: config.score }
               );
               showFn({ score: config.score });
-            } else if (typeof completeEndOverlaySetup === "function") {
-              console.debug(
-                "[endGameUtils] (fallback timeout) calling completeEndOverlaySetup (non-blocking)",
-                { score: config.score }
-              );
-              completeEndOverlaySetup({ score: config.score });
             } else {
               console.debug("[endGameUtils] (fallback timeout) no richer overlay available");
             }

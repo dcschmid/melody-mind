@@ -285,7 +285,6 @@ const clientTranslations = generateClientTranslations(t);
       headingLevel="h1"
       id="welcome-heading"
       icon="🎵"
-      spacing="md"
     >
       <SearchPanel
         slot="secondary"
@@ -293,7 +292,6 @@ const clientTranslations = generateClientTranslations(t);
         label={t("game.search.label")}
         placeholder={t("game.search.placeholder") || t("game.search.label")}
         ariaControls="playlist-grid"
-        size="lg"
       />
       <Paragraph className="sr-only">
         {t("game.genre.selection.description")}
@@ -371,7 +369,7 @@ const clientTranslations = generateClientTranslations(t);
       </div>
 
       <!-- Loading state for better UX -->
-      <LoadingState text={t("game.categories.loading")} className="hidden" visible={false} />
+      <LoadingState text={t("game.categories.loading")} className="hidden" />
     </section>
   </main>
 

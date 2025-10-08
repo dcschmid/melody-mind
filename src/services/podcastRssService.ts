@@ -14,27 +14,54 @@ import { useTranslations } from "../utils/i18n";
  * @version 1.0.0
  */
 
-const LANGUAGE_NAMES: Record<string, string> = {
-  de: "Deutsch",
-  en: "English",
-  es: "Español",
-  fr: "Français",
-  it: "Italiano",
-  pt: "Português",
-  da: "Dansk",
-  nl: "Nederlands",
-  sv: "Svenska",
-  fi: "Suomi",
-  cn: "中文",
-  ru: "Русский",
-  jp: "日本語",
-  uk: "Українська",
-};
-
 const CHANNEL_TITLE_BY_LANG: Record<string, string> = {
   de: "Der Melody Mind Podcast",
   en: "The Melody Mind Podcast",
 };
+
+const PODCAST_DESCRIPTION_FALLBACK =
+  "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.";
+
+function resolveChannelTitle(
+  lang: string,
+  translate: ReturnType<typeof useTranslations>
+): string {
+  const override = CHANNEL_TITLE_BY_LANG[lang];
+  if (override) {
+    return override;
+  }
+  const translation = translate("podcast.rss.title");
+  if (translation && translation !== "podcast.rss.title") {
+    return translation;
+  }
+  return `${CHANNEL_TITLE_BY_LANG.en} - ${lang.toUpperCase()}`;
+}
+
+function resolveChannelDescription(translate: ReturnType<typeof useTranslations>): string {
+  const description = translate("podcast.rss.description");
+  if (description && description !== "podcast.rss.description") {
+    return description;
+  }
+  return PODCAST_DESCRIPTION_FALLBACK;
+}
+
+/**
+ * Resolve podcast channel metadata (title + description) for a language.
+ * Reuses the same fallback strategy as the RSS generator.
+ */
+export function getPodcastChannelMetadata(lang: string): {
+  title: string;
+  description: string;
+  language: string;
+} {
+  const safeLang = ensureSupportedLanguage(lang);
+  const t = useTranslations(safeLang);
+  return {
+    title: resolveChannelTitle(safeLang, t),
+    description: resolveChannelDescription(t),
+    language: safeLang,
+  };
+}
 
 /**
  * RSS podcast item interface
@@ -114,17 +141,11 @@ export class PodcastRSSGenerator {
    * Generate channel metadata for a language
    */
   private generateChannelMeta(lang: string): RSSChannelMeta {
-    const t = useTranslations(lang);
-
-    // Use module-level maps (keeps this function lean and makes maps reusable/testable)
-    const languageName = LANGUAGE_NAMES[lang] || lang.toUpperCase();
-    const channelTitleByLang = CHANNEL_TITLE_BY_LANG;
+    const { title, description } = getPodcastChannelMetadata(lang);
 
     return {
-      title: channelTitleByLang[lang] || `MelodyMind Podcast - ${languageName}`,
-      description:
-        t("podcast.rss.description") ||
-        "Discover the history of music through engaging podcast episodes covering different eras, genres, and musical movements.",
+      title,
+      description,
       link: `${this.baseUrl}/${lang}/podcasts`,
       language: lang,
       copyright: `© ${new Date().getFullYear()} MelodyMind`,

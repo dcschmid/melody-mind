@@ -59,19 +59,3 @@ const t = useTranslations(String(lang));
     </div>
   </div>
 </div>
-
-<script>
-  import { initCategoryFilterAuto } from "../utils/components/categoryFilterUtils";
-
-  // Initialize category filter functionality
-  const initFilter = (): void => {
-    initCategoryFilterAuto();
-  };
-
-  // Initialize when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initFilter);
-  } else {
-    initFilter();
-  }
-</script>

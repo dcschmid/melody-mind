@@ -183,14 +183,7 @@ structuredDataExtra.push(episodesCollectionSchema);
     <meta name="google-play-app" content="app-id=com.google.android.apps.podcasts" />
   </Fragment>
 
-  <HeroSection
-    {title}
-    subtitle={description}
-    headingLevel="h1"
-    id="podcast-heading"
-    icon="🎙️"
-    spacing="md"
-  >
+  <HeroSection {title} subtitle={description} headingLevel="h1" id="podcast-heading" icon="🎙️">
     {/* Podcast Platform Links (primary actions) */}
     <a
       slot="primary"
@@ -474,38 +467,66 @@ structuredDataExtra.push(episodesCollectionSchema);
   </section>
 
   <script>
+    /* eslint-disable @typescript-eslint/explicit-function-return-type */
     import { initSearchPanel } from "@components/Search/initSearchPanel";
 
-    import { initDefaultMusicButtons } from "../../utils/components/musicButtonsUtils";
+    const track = (eventName) => {
+      try {
+        const fathom = window.fathom || {};
+        if (typeof fathom.trackEvent === "function") {
+          fathom.trackEvent(eventName);
+        }
+      } catch {
+        /* ignore */
+      }
+    };
 
-    ((): void => {
-      function wire(): void {
+    const wireTracking = () => {
+      document.querySelectorAll(".music-platform-link").forEach((link) => {
+        link.addEventListener(
+          "click",
+          () => {
+            if (!(link instanceof HTMLElement)) {
+              return;
+            }
+            const platform = link.dataset.platform;
+            const playlist = link.dataset.playlistTitle;
+            if (!platform) {
+              return;
+            }
+            track(`music_${platform}_click`);
+            if (playlist) {
+              track(`music_${platform}_${playlist}`.replace(/[^a-zA-Z0-9_]/g, "_"));
+            }
+          },
+          { passive: true }
+        );
+      });
+    };
+
+    (() => {
+      const setup = () => {
         initSearchPanel({
           idBase: "podcasts-search",
           itemSelector: "#podcast-list article",
           debounceMs: 200,
         });
-        try {
-          initDefaultMusicButtons();
-        } catch {
-          /* ignore */
-        }
-      }
-      const schedule = (fn: () => void): void => {
-        const idle = (window as unknown as { requestIdleCallback?: (cb: () => void) => void })
-          .requestIdleCallback;
+        wireTracking();
+      };
+
+      const schedule = (fn) => {
+        const idle = window.requestIdleCallback || null;
         if (typeof idle === "function") {
           idle(fn);
         } else {
           setTimeout(fn, 1);
         }
       };
+
       if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => {
-          schedule(wire);
-        });
+        document.addEventListener("DOMContentLoaded", () => schedule(setup), { once: true });
       } else {
-        schedule(wire);
+        schedule(setup);
       }
     })();
   </script>

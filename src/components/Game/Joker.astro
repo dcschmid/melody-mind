@@ -16,6 +16,7 @@
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import Headline from "@components/Headline.astro";
+import { ensureSupportedLanguage } from "@constants/languages";
 
 interface Props {
   initialCount?: number;
@@ -24,7 +25,7 @@ interface Props {
 
 const { initialCount = 0, disabled = false } = Astro.props;
 
-const lang = getLangFromUrl(Astro.url) ?? "en";
+const lang = ensureSupportedLanguage(getLangFromUrl(Astro.url));
 const t = useTranslations(lang);
 
 const jokerButtonAriaLabel = t("game.joker.use");
@@ -36,7 +37,7 @@ const remainingText = t("game.remaining");
 const dataAttributes = {
   initialCount: initialCount.toString(),
   initialDisabled: disabled.toString(),
-  langCode: lang,
+  langCode: String(lang),
 };
 ---
 
@@ -91,23 +92,3 @@ const dataAttributes = {
 
   <div id="joker-announcement" class="sr-only" aria-live="assertive" aria-atomic="true"></div>
 </div>
-
-<script is:inline>
-  import { initJokerAuto } from "../../utils/components/jokerUtils";
-
-  // Initialize joker functionality
-  /* eslint-disable @typescript-eslint/explicit-function-return-type */
-  /**
-   * Initialize the joker behavior.
-   */
-  const initJoker = () => {
-    initJokerAuto();
-  };
-  /* eslint-enable @typescript-eslint/explicit-function-return-type */
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initJoker);
-  } else {
-    initJoker();
-  }
-</script>

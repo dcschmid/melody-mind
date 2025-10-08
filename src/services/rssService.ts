@@ -67,6 +67,24 @@ class NewsCache {
 
 const newsCache = new NewsCache();
 
+function getPrimarySources(language: string): FeedSource[] {
+  const sources = RSS_FEED_SOURCES[language];
+  return sources && sources.length > 0 ? sources : FALLBACK_FEEDS;
+}
+
+function getFallbackLanguageSources(): FeedSource[] {
+  const fallbackSources = RSS_FEED_SOURCES[FALLBACK_LANGUAGE];
+  return fallbackSources && fallbackSources.length > 0 ? fallbackSources : FALLBACK_FEEDS;
+}
+
+async function collectFeedItems(sources: FeedSource[]): Promise<NewsItem[]> {
+  if (sources.length === 0) {
+    return [];
+  }
+  const results = await Promise.all(sources.map(parseFeed));
+  return results.flat();
+}
+
 /**
  * Extract image URL from RSS item XML
  */
@@ -608,16 +626,16 @@ export async function getNewsForLanguage(language: string): Promise<NewsResponse
   // Attempt file-based SWR cache before network fetch logic.
   const swr = await getOrUpdateSWR(resolvedLanguage, async () => {
     // This fetcher reproduces the original network + aggregation steps.
-    const primaryFeeds = RSS_FEED_SOURCES[resolvedLanguage] || [];
-    const sources = primaryFeeds.length > 0 ? primaryFeeds : FALLBACK_FEEDS;
-    const results = await Promise.all(sources.map(parseFeed));
-    const aggregated: NewsItem[] = results.flat();
+    const sources = getPrimarySources(resolvedLanguage);
+    let totalSources = sources.length;
+    const aggregated: NewsItem[] = await collectFeedItems(sources);
 
     if (aggregated.length === 0 && resolvedLanguage !== FALLBACK_LANGUAGE) {
-      const fallbackFeeds = RSS_FEED_SOURCES[FALLBACK_LANGUAGE] || [];
+      const fallbackFeeds = getFallbackLanguageSources();
       if (fallbackFeeds.length) {
-        const fbResults = await Promise.all(fallbackFeeds.map(parseFeed));
-        aggregated.push(...fbResults.flat());
+        const fallbackItems = await collectFeedItems(fallbackFeeds);
+        aggregated.push(...fallbackItems);
+        totalSources = fallbackFeeds.length;
       }
     }
     aggregated.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
@@ -625,7 +643,7 @@ export async function getNewsForLanguage(language: string): Promise<NewsResponse
     return {
       items: topItems,
       lastUpdated: new Date().toISOString(),
-      totalSources: (RSS_FEED_SOURCES[resolvedLanguage] || FALLBACK_FEEDS).length,
+      totalSources,
       language: resolvedLanguage,
     } as NewsResponse;
   });

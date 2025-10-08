@@ -7,12 +7,14 @@
  * @author Daniel Schmid <dcschmid@murena.io>
  */
 
+import { FALLBACK_LANGUAGE, normalizeLanguage } from "@constants/i18n";
 import type { APIRoute } from "astro";
 
 import enPodcastsJson from "../../../data/podcasts/en.json";
-import { generatePodcastRSSFeed } from "../../../services/podcastRssService";
+import { generatePodcastRSSFeed, getPodcastChannelMetadata } from "../../../services/podcastRssService";
 import type { PodcastData } from "../../../types/podcast";
 import { handleGameError } from "../../../utils/error/errorHandlingUtils";
+import { useTranslations } from "../../../utils/i18n";
 
 // Import all podcast data
 
@@ -21,10 +23,12 @@ import { handleGameError } from "../../../utils/error/errorHandlingUtils";
  */
 async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]> {
   const podcastDataMap = {
-    en: enPodcastsJson.podcasts,
-  };
+    [FALLBACK_LANGUAGE]: enPodcastsJson.podcasts,
+  } as const;
 
-  const podcasts = podcastDataMap[language as keyof typeof podcastDataMap];
+  const langKey =
+    language in podcastDataMap ? (language as keyof typeof podcastDataMap) : FALLBACK_LANGUAGE;
+  const podcasts = podcastDataMap[langKey];
   return Array.isArray(podcasts) ? (podcasts as PodcastData[]) : [];
 }
 
@@ -32,7 +36,7 @@ async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]>
  * Generate static paths for all supported languages
  */
 export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
-  const supportedLanguages = ["en"];
+  const supportedLanguages = [FALLBACK_LANGUAGE];
 
   return supportedLanguages.map((lang) => ({
     params: { lang },
@@ -44,10 +48,11 @@ export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> 
  */
 export const GET: APIRoute = async ({ params, request }) => {
   try {
-    const lang = params.lang as string;
+    const langParam = params.lang as string;
+    const lang = normalizeLanguage(langParam);
 
     // Validate language parameter
-    const supportedLanguages = ["en"];
+    const supportedLanguages = [FALLBACK_LANGUAGE];
 
     if (!supportedLanguages.includes(lang)) {
       return new Response("Language not supported", {
@@ -61,21 +66,21 @@ export const GET: APIRoute = async ({ params, request }) => {
 
     if (episodes.length === 0) {
       // Return empty but valid RSS feed if no episodes
-      const titleByLang: Record<string, string> = {
-        en: "The Melody Mind Podcast",
-      };
+      const t = useTranslations(lang);
+      const { title } = getPodcastChannelMetadata(lang);
+      const description = t("podcast.rss.empty.description") || "No episodes available yet";
 
       const emptyRSS = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
      xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${titleByLang[lang] || `MelodyMind Podcast - ${lang.toUpperCase()}`}</title>
-    <description>No episodes available yet</description>
+    <title>${title}</title>
+    <description>${description}</description>
     <link>https://melody-mind.de/${lang}/podcasts</link>
     <language>${lang}</language>
     <itunes:author>MelodyMind</itunes:author>
-    <itunes:summary>No episodes available yet</itunes:summary>
+    <itunes:summary>${description}</itunes:summary>
     <itunes:owner>
       <itunes:name>Daniel Schmid</itunes:name>
       <itunes:email>dcschmid@murena.io</itunes:email>

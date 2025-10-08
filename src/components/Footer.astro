@@ -14,9 +14,11 @@
 import { useTranslations, getLangFromUrl } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { ensureSupportedLanguage } from "@constants/languages";
+import { FALLBACK_LANGUAGE } from "@constants/i18n";
 
 // Get current language for i18n
-const lang = getLangFromUrl(Astro.url);
+const lang = ensureSupportedLanguage(getLangFromUrl(Astro.url));
 const t = useTranslations(String(lang));
 
 /**
@@ -27,16 +29,11 @@ const currentYear = new Date().getFullYear();
 /**
  * Legal links configuration for each language with fallback support
  */
-const nativeLanguages = ["en", "de"];
-
 const getLegalPageUrl = (page: "legal-notice" | "privacy-policy"): string => {
-  if (nativeLanguages.includes(lang)) {
-    if (lang === "de") {
-      return getRelativeLocaleUrl(lang, page === "legal-notice" ? "impressum" : "datenschutz");
-    }
-    return getRelativeLocaleUrl("en", page);
+  if (lang === "de") {
+    return getRelativeLocaleUrl("de", page === "legal-notice" ? "impressum" : "datenschutz");
   }
-  return getRelativeLocaleUrl("en", page);
+  return getRelativeLocaleUrl(FALLBACK_LANGUAGE, page);
 };
 
 const legalLinks = [
@@ -165,15 +162,46 @@ const links = [
 </footer>
 
 <script>
-  import { initMusicButtons } from "@utils/components/musicButtonsUtils";
-
-  document.addEventListener("DOMContentLoaded", () => {
+  /* eslint-disable @typescript-eslint/explicit-function-return-type */
+  const track = (eventName) => {
     try {
-      // Track both music platform links and generic external links
-      initMusicButtons({ linkSelector: ".external-link, .music-platform-link" });
-    } catch (e) {
-      // keep footer resilient if tracking fails
-      console.error("initMusicButtons failed", e);
+      const fathom = window.fathom || {};
+      if (typeof fathom.trackEvent === "function") {
+        fathom.trackEvent(eventName);
+      }
+    } catch {
+      /* ignore tracking errors */
     }
-  });
+  };
+
+  const handleClick = (event) => {
+    const link = event.currentTarget;
+    if (!(link instanceof HTMLElement)) {
+      return;
+    }
+    const platform = link.dataset.platform;
+    const playlist = link.dataset.playlistTitle;
+    if (platform) {
+      track(`music_${platform}_click`);
+      if (playlist) {
+        track(`music_${platform}_${playlist}`.replace(/[^a-zA-Z0-9_]/g, "_"));
+      }
+      return;
+    }
+    const label = link.dataset.trackLabel || link.getAttribute("href") || "external";
+    track("external_link_click");
+    track(`external_${label}`.replace(/[^a-zA-Z0-9_]/g, "_"));
+  };
+
+  const hydrate = () => {
+    document
+      .querySelectorAll(".external-link, .music-platform-link")
+      .forEach((link) => link.addEventListener("click", handleClick, { passive: true }));
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hydrate, { once: true });
+  } else {
+    hydrate();
+  }
 </script>

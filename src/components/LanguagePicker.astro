@@ -14,57 +14,48 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@constants/languages";
 
 // Get current language and translations
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(String(lang));
+const currentLang = String(lang);
+const t = useTranslations(currentLang);
 
 /**
  * Clean the current path by removing language prefixes
  */
 const currentPath = Astro.url.pathname;
+const supportedLanguageSegments = new Set<string>(SUPPORTED_LANGUAGES);
 const cleanPath = currentPath
   .split("/")
-  .filter(
-    (segment) =>
-      ![
-        "de",
-        "en",
-        "es",
-        "fr",
-        "it",
-        "pt",
-        "da",
-        "nl",
-        "sv",
-        "fi",
-        "cn",
-        "ru",
-        "jp",
-        "uk",
-      ].includes(segment)
-  )
+  .filter((segment) => segment && !supportedLanguageSegments.has(segment))
   .join("/");
 
 /**
  * Available languages configuration with localized names and accessibility labels
  */
-const languages = {
-  cn: { name: t("language.cn"), flag: "🇨🇳" },
-  da: { name: t("language.da"), flag: "🇩🇰" },
-  de: { name: t("language.de"), flag: "🇩🇪" },
-  en: { name: t("language.en"), flag: "🇬🇧" },
-  es: { name: t("language.es"), flag: "🇪🇸" },
-  fi: { name: t("language.fi"), flag: "🇫🇮" },
-  fr: { name: t("language.fr"), flag: "🇫🇷" },
-  it: { name: t("language.it"), flag: "🇮🇹" },
-  jp: { name: t("language.jp"), flag: "🇯🇵" },
-  nl: { name: t("language.nl"), flag: "🇳🇱" },
-  pt: { name: t("language.pt"), flag: "🇵🇹" },
-  ru: { name: t("language.ru"), flag: "🇷🇺" },
-  sv: { name: t("language.sv"), flag: "🇸🇪" },
-  uk: { name: t("language.uk"), flag: "🇺🇦" },
+const LANGUAGE_FLAGS: Record<SupportedLanguage, string> = {
+  en: "🇬🇧",
+  de: "🇩🇪",
+  fr: "🇫🇷",
+  es: "🇪🇸",
+  it: "🇮🇹",
+  nl: "🇳🇱",
+  pt: "🇵🇹",
+  ru: "🇷🇺",
+  uk: "🇺🇦",
+  da: "🇩🇰",
+  sv: "🇸🇪",
+  fi: "🇫🇮",
+  jp: "🇯🇵",
+  cn: "🇨🇳",
 };
+
+const languageOptions = SUPPORTED_LANGUAGES.map((code) => ({
+  code,
+  name: t(`language.${code}`),
+  flag: LANGUAGE_FLAGS[code] ?? "",
+}));
 ---
 
 <div
@@ -76,14 +67,14 @@ const languages = {
     <select
       id="language-select"
       class="min-h-[44px] w-full min-w-[44px] cursor-pointer appearance-none rounded-xl border-2 border-purple-500 bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-2 pr-10 text-base font-semibold text-white shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:from-purple-700 hover:to-purple-800 hover:shadow-xl focus:from-purple-700 focus:to-purple-800 focus:ring-4 focus:ring-purple-300 focus:ring-offset-2 focus:outline-none active:scale-95 sm:px-3 sm:py-2 sm:pr-8 sm:text-sm md:min-w-[72px] md:px-5 md:py-3"
-      value={getRelativeLocaleUrl(String(lang), cleanPath)}
+      value={getRelativeLocaleUrl(currentLang, cleanPath)}
       aria-label={t("language.select.label")}
     >
       {
-        Object.entries(languages).map(([code, { name, flag }]) => {
+        languageOptions.map(({ code, name, flag }) => {
           const url = getRelativeLocaleUrl(code, cleanPath);
           return (
-            <option value={url} selected={code === lang}>
+            <option value={url} selected={code === currentLang}>
               {flag} {name}
             </option>
           );
@@ -106,15 +97,13 @@ const languages = {
     class="absolute -m-px h-px w-px overflow-hidden border-0 p-0 whitespace-nowrap"
     aria-live="polite"
   >
-    {t("language.selected", { language: languages[lang as keyof typeof languages]?.name || lang })}
+    {
+      t("language.selected", {
+        language:
+          languageOptions.find((option) => option.code === currentLang)?.name ||
+          currentLang ||
+          languageOptions[0]?.name,
+      })
+    }
   </div>
 </div>
-
-<script>
-  import { initDefaultLanguagePicker } from "../utils/components/languagePickerUtils";
-
-  // Initialize language picker functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    initDefaultLanguagePicker();
-  });
-</script>

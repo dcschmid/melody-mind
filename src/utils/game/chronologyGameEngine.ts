@@ -9,7 +9,7 @@ import { addSafeClickListener, addMultipleEventListeners } from "../dom/eventUti
 import { handleLoadingError, handleGameError } from "../error/errorHandlingUtils";
 
 import { loadAlbumsWithFallback } from "./albumLoader";
-import { handleEndGame } from "./endGameUtils.ts";
+import { handleEndGameLazy } from "./endGameLoader";
 import { updateGameScore } from "./gameStateUtils";
 
 // EndOverlay functionality is auto-initialized
@@ -435,20 +435,10 @@ class ChronologyGame {
     totalItems: number;
     score: number;
   }): Promise<void> {
-    // Initialize the feedback overlay if not already done
+    // Ensure feedback listeners are wired once
     if (!this.chronologyFeedbackOverlay) {
-      try {
-        // Use dynamic import to avoid build-time issues
-        const module = await import("../components/chronologyFeedbackOverlayUtils");
-        module.initChronologyFeedbackOverlay();
-        this.chronologyFeedbackOverlay = true;
-
-        // Set up event listeners for overlay interactions
-        this.setupFeedbackEventListeners();
-      } catch (error) {
-        console.error("Failed to initialize feedback overlay:", error);
-        return;
-      }
+      this.setupFeedbackEventListeners();
+      this.chronologyFeedbackOverlay = true;
     }
 
     // Create detailed feedback with more information
@@ -677,7 +667,7 @@ class ChronologyGame {
     this.cleanup();
 
     // Handle end game
-    await handleEndGame(endGameConfig, ui);
+    await handleEndGameLazy(endGameConfig, ui);
   }
 
   /**

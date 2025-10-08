@@ -8,7 +8,7 @@
  * Accessibility:
  * - Entire card is a single focusable link (uses <a>)
  * - Provides aria-label for screen readers to announce purpose
- * - Uses semantic heading (h3 by default, configurable) inside the link for structure
+ * - Uses a semantic h3 heading inside the link for structure
  * - High contrast colors leveraging existing design tokens
  * - Focus ring is clearly visible and meets WCAG AAA contrast guidelines
  *
@@ -18,9 +18,6 @@
  * - href: string – Target URL (internal navigation preferred).
  * - image?: string – Optional image URL or icon path.
  * - imageAlt?: string – Alt text for image; if decorative pass empty string.
- * - badge?: string – Optional small label (e.g., "New", "Beta", "Today").
- * - headingLevel?: 'h2' | 'h3' | 'h4' – Semantic level for internal heading (default 'h3').
- * - ariaLabel?: string – Override accessible label (defaults to title + description fallback).
  *
  * Usage Example:
  * <SectionCard
@@ -29,7 +26,6 @@
  *   href={`/${lang}/daily`}
  *   image="/images/daily.png"
  *   imageAlt="Calendar with music notes"
- *   badge={t('common.today')}
  * />
  */
 import Headline from "@components/Headline.astro";
@@ -42,23 +38,11 @@ export interface Props {
   href: string;
   image?: string;
   imageAlt?: string;
-  badge?: string;
-  headingLevel?: "h2" | "h3" | "h4";
-  ariaLabel?: string;
 }
 
-const {
-  title,
-  description = "",
-  href,
-  image,
-  imageAlt = "",
-  badge,
-  headingLevel = "h3",
-  ariaLabel,
-} = Astro.props as Props;
+const { title, description = "", href, image, imageAlt = "" } = Astro.props as Props;
 
-const computedAriaLabel = ariaLabel || `${title}${description ? `: ${description}` : ""}`;
+const computedAriaLabel = `${title}${description ? `: ${description}` : ""}`;
 ---
 
 <a
@@ -77,11 +61,6 @@ const computedAriaLabel = ariaLabel || `${title}${description ? `: ${description
   {
     image && (
       <div class="relative aspect-video w-full overflow-hidden">
-        {badge && (
-          <span class="absolute top-3 right-3 z-10 rounded-full bg-purple-700 px-3 py-2 text-xs font-medium text-white transition-all duration-200 sm:text-sm">
-            {badge}
-          </span>
-        )}
         {image.startsWith("/homecategories/") ? (
           <OptimizedImage
             group="homecategories"
@@ -106,27 +85,9 @@ const computedAriaLabel = ariaLabel || `${title}${description ? `: ${description
   }
 
   <div class="flex flex-1 flex-col p-4">
-    {
-      headingLevel === "h2" && (
-        <Headline level="h2" textSize="base" textAlign="center">
-          {title}
-        </Headline>
-      )
-    }
-    {
-      headingLevel === "h3" && (
-        <Headline level="h3" textSize="base" textAlign="center">
-          {title}
-        </Headline>
-      )
-    }
-    {
-      headingLevel === "h4" && (
-        <Headline level="h4" textSize="base" textAlign="center">
-          {title}
-        </Headline>
-      )
-    }
+    <Headline level="h3" textSize="base" textAlign="center">
+      {title}
+    </Headline>
     {
       description && (
         <div class="relative">
