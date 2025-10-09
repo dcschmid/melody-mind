@@ -85,9 +85,20 @@ export class TableOfContentsUtils {
     // Update ARIA attributes
     this.toggle.setAttribute("aria-expanded", "true");
 
-    // Show content
+    // Show content (progressive enhancement: animate height/opacity if CSS vars present)
     this.content.classList.remove("hidden");
     this.content.classList.add("block");
+    try {
+      this.content.style.opacity = "1";
+      // If content has scrollHeight we can animate
+  const fullHeight = this.content.scrollHeight;
+  this.content.style.maxHeight = `${fullHeight}px`;
+      // Force reflow for Safari quirks
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      this.content.offsetHeight;
+    } catch {
+      /* noop */
+    }
 
     // Rotate icon
     this.icon.style.transform = "rotate(180deg)";
@@ -112,9 +123,18 @@ export class TableOfContentsUtils {
     // Update ARIA attributes
     this.toggle.setAttribute("aria-expanded", "false");
 
-    // Hide content
-    this.content.classList.add("hidden");
-    this.content.classList.remove("block");
+    // Hide content with animation fallback
+    try {
+      this.content.style.opacity = "0";
+      this.content.style.maxHeight = "0px";
+      window.setTimeout(() => {
+        this.content?.classList.add("hidden");
+        this.content?.classList.remove("block");
+      }, 250); // match transition duration
+    } catch {
+      this.content.classList.add("hidden");
+      this.content.classList.remove("block");
+    }
 
     // Reset icon rotation
     this.icon.style.transform = "rotate(0deg)";

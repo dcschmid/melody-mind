@@ -470,16 +470,6 @@ const t = useTranslations(lang);
   </nav>
 </header>
 
-<script>
-  import { initDefaultNavigation } from "../../utils/components/navigationUtils";
-
-  const init = (): void => {
-    initDefaultNavigation();
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init, { once: true });
-  } else {
-    init();
-  }
-</script>
+<!-- Navigation script removed: global auto-initializer in Layout handles #menu-toggle detection.
+     The previous inline script lacked type="module" so the ESM import failed and the menu never opened.
+     Keeping initialization centralized avoids duplicate listeners and reduces client JS. -->
