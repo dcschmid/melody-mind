@@ -65,21 +65,11 @@ export function initKeyboardShortcuts(options: {
       return;
     }
 
-    handleKeyboardShortcut(event, options, t);
+      handleKeyboardShortcut(event, t);
   });
 
   // Extracted to reduce the complexity of the inline listener
-  function handleKeyboardShortcut(
-    event: KeyboardEvent,
-    opts: {
-      onJoker?: () => void;
-      onOption?: (index: number) => void;
-      onNextRound?: () => void;
-      onRestart?: () => void;
-      lang?: string;
-    },
-    translations: Record<string, string>
-  ): void {
+    function handleKeyboardShortcut(event: KeyboardEvent, translations: Record<string, string>): void {
     const key = event.key;
 
     // Joker shortcut

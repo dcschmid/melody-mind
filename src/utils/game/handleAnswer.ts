@@ -67,9 +67,8 @@ const BASE_POINTS = 50;
 const FEEDBACK_TIMEOUT = 5000;
 
 /**
- * Creates an answer handler function with the given configuration
- * @param {HandleAnswerConfig} config - Configuration object for the answer handler
- * @returns {(option: string, correctAnswer: string, currentQuestion: {trivia: string}, album: {coverSrc: string; artist: string; album: string; year: string}) => void} A function that handles answer submission and scoring
+ * Creates an answer handler function with the given configuration.
+ * (Types enforced via TypeScript signature.)
  */
 export function createHandleAnswer(config: HandleAnswerConfig) {
   const lang = getLangFromUrl(new URL(window.location.pathname, window.location.origin));

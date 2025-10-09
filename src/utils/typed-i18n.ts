@@ -245,24 +245,7 @@ export type TranslationParams<K extends TranslationKey> = K extends "game.score.
                       ? { count: number }
                       : Record<string, never>;
 
-/**
- * Type-safe translation function
- *
- * @param {string} lang - The current language code
- * @returns {(key: K, params?: TranslationParams<K>) => string} The translation function with type-safe parameters
- *
- * @example
- * const t = useTypedTranslations("en");
- *
- * // Simple translation without parameters
- * const easyText = t("game.difficulty.easy");
- *
- * // Translation with type-checked parameters
- * const scoreText = t("game.score.result", { points: 450, total: 500 });
- *
- * // TypeScript will error on incorrect parameters
- * // t("game.score.result", { incorrectParam: "value" });
- */
+/** Type-safe translation function (examples removed to avoid duplicate TS type hints). */
 export function useTypedTranslations(lang: string) {
   const translate = baseUseTranslations(lang);
 

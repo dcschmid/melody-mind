@@ -51,10 +51,7 @@ export function createSlug(text: string): string {
  */
 /**
  * Calculate approximate reading time in minutes for provided content.
- *
- * @param {string} content - The text content to calculate reading time for
- * @param {number} [wordsPerMinute=225] - Average words per minute reading speed
- * @returns {number} The estimated reading time in minutes (rounded up)
+ * (Types documented via TypeScript signature.)
  */
 export function calculateReadingTime(content: string, wordsPerMinute = 225): number {
   const words = content.trim().split(/\s+/).length;
@@ -300,22 +297,9 @@ const stopWordsByLanguage: Record<string, string[]> = {
 };
 
 /**
- * Extracts keywords from text content for SEO meta tags using advanced techniques
- *
- * - Removing language-specific stop words
- * - Extracting both single words and meaningful n-grams (phrases)
- * - Calculating word and phrase frequency with TF-IDF-like weighting
- * - Selecting the most relevant terms as keywords
- *
- * This helps in generating highly relevant meta keywords for SEO optimization.
- *
- * @param {string} content The text content to extract keywords from
- * @param {number} [maxKeywords=10] Maximum number of keywords to return
- * @param {string} [language='en'] Language code for stop words
- * @returns {string} A comma-separated list of keywords
- * @example
- * // might return "music quiz, melody mind, interactive game, music history"
- * extractKeywords("Melody Mind is a music quiz game with interactive music history categories...", 5, 'en');
+ * Extract keywords (words + n-grams) from content for SEO meta tag usage.
+ * Uses simple frequency & phrase weighting. (Types via signature.)
+ * Example: extractKeywords("Melody Mind is a music quiz...", 5, "en")
  */
 export function extractKeywords(content: string, maxKeywords = 10, language = "en"): string {
   // Get language-specific stop words or fall back to English
@@ -396,22 +380,8 @@ export function extractKeywords(content: string, maxKeywords = 10, language = "e
  * generateMetaDescription("<p>Learn about music history through interactive quizzes. Test your knowledge and earn points.</p>");
  */
 /**
- * Generates an optimized meta description from content with intelligent sentence selection
- *
- * - Removing HTML tags
- * - Analyzing sentence importance and relevance
- * - Selecting the most informative sentences
- * - Ensuring the description ends with a complete sentence when possible
- * - Optimizing for readability and click-through rates
- *
- * This helps improve search engine results and user engagement.
- *
- * @param {string} content - The full content to extract a description from
- * @param {number} maxLength - Maximum length of the description, default: 160 characters
- * @returns {string} An optimized meta description
- * @example
- * // returns "Learn about music history through our interactive quizzes. Test your knowledge with challenging questions."
- * generateMetaDescription("<p>Learn about music history through our interactive quizzes. Test your knowledge with challenging questions. Earn points and compete with friends.</p>");
+ * Generate an optimized meta description selecting informative early sentences.
+ * Strips HTML and trims to maxLength. (Types via signature.)
  */
 export function generateMetaDescription(content: string, maxLength = 160): string {
   // Remove HTML tags and excess whitespace

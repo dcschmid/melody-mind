@@ -9,11 +9,7 @@ export interface BreadcrumbItem {
 }
 
 /**
- * Build basic breadcrumbs: Home -> Tail
- * @param {string} baseUrl Site base (no trailing slash)
- * @param {string} lang Current language code
- * @param {BreadcrumbItem} tail Last breadcrumb item (name + url)
- * @param {string} [homeLabel] Override label for the home link (default: Home)
+ * Build basic breadcrumb array (Home -> tail). Types via signature.
  */
 export function buildBasicBreadcrumbs(
   baseUrl: string,

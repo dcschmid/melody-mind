@@ -13,12 +13,7 @@
  * Normalize repeated whitespace (including newlines and tabs) to single spaces and trim.
  * @deprecated Use sanitizeWhitespace in textUnified (planned) or inline minimal regex.
  */
-export function normalizeWhitespace(input: string | null | undefined): string {
-  if (!input) {
-    return "";
-  }
-  return input.replace(/\s+/g, " ").trim();
-}
+// NOTE: normalizeWhitespace removed (legacy). Use direct inline regex below.
 
 /**
  * Truncate a string to a maximum length and append an ellipsis if truncated.
@@ -31,6 +26,10 @@ export function normalizeWhitespace(input: string | null | undefined): string {
  * Truncate meta text with optional word preservation.
  * @deprecated Use buildPageSeo (auto description generation) instead of direct truncateMeta.
  */
+/**
+ * Legacy meta text truncator.
+ * @internal @deprecated Replaced by buildPageSeo auto description pipeline.
+ */
 export function truncateMeta(
   text: string | null | undefined,
   limit = 158,
@@ -40,7 +39,7 @@ export function truncateMeta(
   if (!text) {
     return "";
   }
-  const normalized = normalizeWhitespace(text);
+  const normalized = (text || "").replace(/\s+/g, " ").trim();
   if (normalized.length <= limit) {
     return normalized;
   }
@@ -58,16 +57,39 @@ export function truncateMeta(
  * Build a safe meta description from arbitrary text.
  * @deprecated Superseded by buildPageSeo (internal description pipeline).
  */
+/**
+ * Legacy meta description builder wrapper.
+ * @internal @deprecated Use buildPageSeo generated description.
+ */
 export function buildMetaDescription(text: string, limit = 158): string {
-  return truncateMeta(text, limit, { preserveWord: true });
+  if (!text) {
+    return "";
+  }
+  const normalized = text.replace(/\s+/g, " ").trim();
+  if (normalized.length <= limit) {
+    return normalized;
+  }
+  let slice = normalized.slice(0, limit);
+  const lastSpace = slice.lastIndexOf(" ");
+  if (lastSpace > limit * 0.6) {
+    slice = slice.slice(0, lastSpace);
+  }
+  return `${slice}...`;
 }
 
 /**
  * Ensure a title isn't accidentally blank after trimming.
  * @deprecated Superseded by buildPageSeo title normalization.
  */
+/**
+ * Legacy title normalizer fallback.
+ * @internal @deprecated Title normalization handled upstream.
+ */
 export function ensureTitle(text: string, fallback: string): string {
-  const t = normalizeWhitespace(text);
+  if (!text) {
+    return fallback;
+  }
+  const t = text.replace(/\s+/g, " ").trim();
   return t || fallback;
 }
 
