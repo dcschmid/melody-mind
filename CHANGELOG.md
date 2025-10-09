@@ -24,6 +24,14 @@ All notable changes to this project will be documented in this file.
 - Markdown syntax highlighting switched from Shiki to lightweight Prism
   (`markdown.syntaxHighlight: prism`) and custom Shiki wrapper removed to reduce memory pressure.
 
+### 🧹 Cleanup (Unreleased)
+
+- _(i18n)_ Remove legacy unused locale category JSON files: `cn_categories.json`,
+  `da_categories.json`, `fi_categories.json`, `jp_categories.json`, `nl_categories.json`,
+  `ru_categories.json`, `sv_categories.json`, `uk_categories.json` after locale support reduction to
+  (de, en, es, fr, it, pt). No runtime references existed; reduces repo noise and potential
+  confusion.
+
 ### 🚜 Refactor (Unreleased)
 
 - _(seo)_ Remove deprecated legacy utilities `seoText.ts`, `metaUtils.ts`, `seoBasics.ts`; logic
