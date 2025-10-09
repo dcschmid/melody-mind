@@ -590,11 +590,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
               { id: "enthusiast", minScore: 400 },
               { id: "lover", minScore: 200 },
               { id: "explorer", minScore: 0 },
-            ];
+            ] as const;
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore augment window dynamically (purely runtime helper)
-            // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-            window.__resolveAchievement = function (score) {
+            window.__resolveAchievement = function (score: number): (typeof tiers)[number] {
               const s = typeof score === "number" && score >= 0 ? score : 0;
               for (let i = 0; i < tiers.length; i++) {
                 if (s >= tiers[i].minScore) {
@@ -617,14 +616,16 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <script is:inline type="module">
       import { initInteractiveComponents } from "/src/utils/components/autoInit.ts";
 
-      const start = () => {
-        initInteractiveComponents();
-      };
-
       if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", start, { once: true });
+        document.addEventListener(
+          "DOMContentLoaded",
+          () => {
+            initInteractiveComponents();
+          },
+          { once: true }
+        );
       } else {
-        start();
+        initInteractiveComponents();
       }
     </script>
     <script is:inline type="module">
