@@ -6,7 +6,6 @@
  * without triggering additional Astro re-encoding. Falls back gracefully when
  * variants are missing.
  */
-import OptimizedImage from "./OptimizedImage.astro";
 
 interface Props {
   slug: string; // category slug (already sanitized in JSON)
@@ -30,12 +29,14 @@ const {
 // and clearer semantics in category-focused UI code.
 ---
 
-<OptimizedImage
-  group="category"
-  {slug}
+<img
+  src={`/category/${slug}.jpg`}
   {alt}
   {loading}
-  {priority}
-  class={className}
-  {fetchpriority}
+  fetchpriority={priority ? "high" : fetchpriority}
+  decoding="async"
+  width="1280"
+  height="720"
+  class={`h-full w-full object-cover ${className || ""}`.trim()}
+  data-category-image={slug}
 />

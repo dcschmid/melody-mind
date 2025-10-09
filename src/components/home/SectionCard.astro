@@ -30,7 +30,6 @@
  */
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
-import OptimizedImage from "@components/OptimizedImage.astro";
 
 export interface Props {
   title: string;
@@ -61,25 +60,15 @@ const computedAriaLabel = `${title}${description ? `: ${description}` : ""}`;
   {
     image && (
       <div class="relative aspect-video w-full overflow-hidden">
-        {image.startsWith("/homecategories/") ? (
-          <OptimizedImage
-            group="homecategories"
-            slug={image.replace("/homecategories/", "").replace(/\.png$/, "")}
-            alt={imageAlt}
-            loading="lazy"
-            class="absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-500"
-            widthHint={1280}
-            heightHint={720}
-          />
-        ) : (
-          <img
-            src={image}
-            alt={imageAlt}
-            loading="lazy"
-            decoding="async"
-            class="absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-500"
-          />
-        )}
+        <img
+          src={image}
+          alt={imageAlt}
+          loading="lazy"
+          decoding="async"
+          width="1280"
+          height="720"
+          class="absolute top-0 left-0 h-full w-full object-cover transition-opacity duration-500"
+        />
       </div>
     )
   }

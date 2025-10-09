@@ -18,7 +18,6 @@
  * />
  * ```
  */
-import OptimizedImage from "./OptimizedImage.astro";
 import { useTranslations } from "../utils/i18n";
 import Headline from "./Headline.astro";
 import Paragraph from "./Paragraph.astro";
@@ -88,16 +87,15 @@ const hasStreamingLinks = spotifyPlaylist || deezerPlaylist || appleMusicPlaylis
 
   <!-- Image container -->
   <div class="relative aspect-video overflow-hidden rounded-t-2xl">
-    <OptimizedImage
-      group="playlist"
-      slug={imageUrl}
+    <img
+      src={imageUrl}
       alt={t("playlist.image.alt", { headline, introSubline, decade })}
       loading={loadingStrategy}
-      priority={isPriority}
       fetchpriority={fetchPriority}
+      decoding="async"
+      width="1280"
+      height="720"
       class="h-full w-full object-cover"
-      widthHint={1280}
-      heightHint={720}
     />
 
     {/* Enhanced image description for WCAG 2.2 AAA */}

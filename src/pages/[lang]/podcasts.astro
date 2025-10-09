@@ -10,7 +10,6 @@ import { getBaseUrl } from "../../utils/url/baseUrl";
 import { buildPageSeo } from "../../utils/seo/buildPageSeo";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 import { buildPodcastSeriesSchema, buildPodcastEpisodesItemList } from "@utils/seo/seoSchema";
-import OptimizedImage from "@components/OptimizedImage.astro";
 import { buildCollectionWithItemListSchema } from "../../utils/seo/collectionSchema";
 import { derivePublishModified, normalizeDate } from "@utils/content/dateUtils";
 import { buildSequentialNumberMapByDate } from "@utils/content/ordering";
@@ -401,14 +400,18 @@ structuredDataExtra.push(episodesCollectionSchema);
                       <div class="relative mb-6 flex flex-col gap-6 text-left md:flex-row">
                         <div class="relative w-full flex-shrink-0 md:w-96">
                           <div class="relative aspect-[3/2] w-full overflow-hidden">
-                            <OptimizedImage
-                              group="podcast"
-                              slug={episode.imageUrl}
+                            <img
+                              src={
+                                episode.imageUrl.startsWith("/")
+                                  ? episode.imageUrl
+                                  : `/podcast/${episode.imageUrl}.jpg`
+                              }
                               alt={episode.title}
-                              class="absolute inset-0 h-full w-full rounded-2xl object-contain"
                               loading="lazy"
-                              widthHint={360}
-                              heightHint={220}
+                              decoding="async"
+                              width="360"
+                              height="220"
+                              class="absolute inset-0 h-full w-full rounded-2xl object-contain"
                             />
                           </div>
                         </div>
