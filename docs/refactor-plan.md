@@ -29,52 +29,10 @@ verlinken.
       verstehen.
 - [ ] Klären, welche Metriken wir tracken (Bundle-Größe, LCP, Datenmenge je Kategorie).
 
-## Phase 1 – Bestand erfassen & Quick Wins
-
-- [x] **Komponenten-Inventur** (`src/components`, `src/layouts`): identifiziere Inseln mit viel
-      Client-Hydration oder mehrfach verwendeten Hooks/Logikblöcken.
-- [x] **Utils- & Service-Scan** (`src/utils`, `src/services`, `src/lib`): markieren, wo ähnliche
-      Transformations- oder Load-Funktionen parallel existieren.
-- [x] **Konstanten prüfen** (`src/constants`, `src/types`): harte Strings/Zahlen sammeln, die
-      bereits zentral definiert sind (z. B. Sprache, Scoring). Ziel: später konsolidieren.
-- [x] **Build & Bundle messen**: `yarn build` + vorhandene Build-Logs sichten, welche Seiten/Chunks
-      auffällig groß sind. _(Node via `nvm use 22.19.0` geladen – Build läuft durch.)_
-- [x] **Hydration-Hotspots lokalisieren**: Astro-Inseln mit hoher JS-Last markieren (Browser-Tab
-      Inspect; `dist/` analysieren).
-
-### Phase 1 – Beobachtungen (2025-10-07)
-
-- Navigation & Layout: `src/components/Header/Navigation.astro` enthält einen umfangreichen
-  Inline-Script-Block, der nahezu identisch zu `@utils/components/navigationUtils.ts` ist; doppelte
-  Wartung + unnötige JS-Last.
-- Inline-Inits: Mehrere Komponenten (`TableOfContents.astro`, `MusicButtons.astro`,
-  `LanguagePicker.astro`, `PlaylistCard.astro`, `CategoryFilter.astro`, Overlay-Komponenten) binden
-  `document.addEventListener("DOMContentLoaded")` nur um `initDefault…`-Hilfen aufzurufen. Hier
-  bietet sich eine zentralisierte Auto-Initialisierung oder SSR-Lösung an.
-- Over-Abstracted Utils: `src/utils/components` und `src/utils/dom/domUtils.ts` nutzen zahlreiche
-  Klassen/Wrapper für einfache DOM-Operationen. Viele `safe*`-Helfer verdoppeln native Aufrufe ohne
-  klaren Mehrwert.
-- Sprachkonstanten: Komponenten wie `LanguagePicker.astro`, `Footer.astro`, `Game/Joker.astro`
-  führen eigene Sprachlisten (`["de","en",…]`) bzw. Hartcodierungen (`"en"`) statt
-  `SUPPORTED_LANGUAGES` / `FALLBACK_LANGUAGE` zu verwenden.
-- i18n-Duplizierung: Sowohl `src/utils/i18n.ts` (einfach) als auch `src/lib/i18n-utils.ts` (stark
-  abstrahiert) liefern ähnliche Funktionalität mit unterschiedlichen APIs. Bedarf für Konsolidierung
-  klären, bevor weitere Features darauf aufbauen.
-- Build-Metriken: `yarn build` (Node 22.19.0) erzeugt größtes Client-Bundle
-  `endGameUtils.BY3Q-z8S.js` mit 481 kB (gzip 139 kB); weitere Kandidaten `timePressureGameEngine`
-  (~18 kB / gzip 5.5 kB) und Sprach-/Seiten-Inseln >10 kB. Fokus auf Reduktion der Endgame-Logik &
-  Game-Engine-Skripte prüfen.
-
 ## Phase 2 – Überengineering abbauen
 
-- [x] **Komponenten vereinfachen**: Übertrieben generische Komponenten identifizieren (viele Props,
-      unused Variationen) und auf reale Use-Cases zurückschneiden.
-- [x] **Services verschlanken**: Pfade mit mehrfachen Konfigurationsobjekten oder doppelten
-      Fallback-Logiken prüfen (z. B. rund um Kategorien, RSS, Achievements).
-- [ ] **State-Management entflechten**: In Inseln prüfen, ob lokaler State/Effekte wirklich nötig
+- [x] **State-Management entflechten**: In Inseln prüfen, ob lokaler State/Effekte wirklich nötig
       sind oder durch reine Props/SSR ersetzbar.
-- [x] **Datenfluss dokumentieren**: Für komplexe Pipelines (Fragen laden, Scoring) kurze
-      Architektur-Notizen erstellen, um weitere Vereinfachungen gezielt zu planen.
 
 ### Phase 2 – Fortschritt (2025-10-07)
 
@@ -106,7 +64,14 @@ verlinken.
 - `FeedbackOverlay.astro` verkabelt Schließen/Keyboard-Handling direkt im Component-Script;
   `feedbackOverlayUtils.ts` entfernt und Auto-Init-Eintrag gestrichen.
 
-**Komponenten-Hotlist (weitere Vereinfachung anstreben)**
+#### Update (2025-10-08)
+
+- Redundante Navigation-Initialisierung entfernt: Inline `<script>` in `Navigation.astro` gelöscht;
+  Initialisierung läuft nun ausschließlich zentral über `initInteractiveComponents()` in
+  `Layout.astro` (Pfadalias-Fix `@utils/components/autoInit`). Verhindert doppelte Listener und race
+  conditions bei `aria-expanded`.
+
+#### Komponenten-Hotlist (weitere Vereinfachung anstreben)
 
 - `FeedbackOverlay.astro`: (weiter beobachten) – aktueller Inline-Handler deckt Close/Focus ab.
 - `ChronologyFeedbackOverlay.astro` auf eigenes Script umgestellt (Utils entfernt); bei
@@ -147,14 +112,28 @@ verlinken.
 
 ## Phase 3 – DRY-Potenziale heben
 
-- [ ] **Kategorie-/Fragen-Loader konsolidieren**: Prüfen, ob `src/utils/category/*` und
-      `src/utils/game/*` ähnliche Strukturen doppelt pflegen.
-- [ ] **Sprache & Fallback**: Sicherstellen, dass alle Sprachpfade `normalizeLanguage` +
-      `ensureSupportedLanguage` nutzen; harte `"en"`-Fallbacks entfernen.
-- [ ] **Styles straffen**: CSS/Utility-Klassen vergleichen; doppelte Farb- oder Spacing-Definitionen
-      sammeln und auf bestehende Tokens mappen.
-- [ ] **Common Helpers extrahieren**: Erst ab 3+ Vorkommen abstrahieren (z. B. Formatierer,
-      Score-Berechnungen, Data-Mapping). Dokumentation im gleichen Ordner.
+- **Game-Engines & Loader**
+  - [ ] Loader zentralisieren: TimePressure- und Chronology-Engines auf `loadCategoryBySlug` /
+        `loadCategoriesForLanguage` umstellen und doppelte Fetch-Fallbacks entfernen.
+  - [ ] Lifecycle ergänzen: `destroy()`-Pfad für globale Listener (`keydown`, `visibilitychange`,
+        Button-Handler) etablieren und Auto-Init entsprechend erweitern.
+  - [ ] UI-Strings (Pause/Fortsetzen/Fehler) in die i18n-JSONs verschieben und über
+        `useTranslations` einspielen.
+- **Sprache & Fallback**
+  - [ ] News-Seite vor `getNewsForLanguage` konsequent `normalizeLanguage` +
+        `ensureSupportedLanguage` anwenden und Canonical/Breadcrumbs daran ausrichten.
+  - [ ] Restliche Pfade auf harte `"en"`-Fallbacks prüfen und durch Konstanten + Normalisierung
+        ersetzen.
+- **Kontakt & Rechtliches**
+  - [ ] `ContactCard`: Dedicated Label-Keys in den Übersetzungen hinterlegen und die Kontakt-E-Mail
+        in `src/constants/contact.ts` zentralisieren.
+- **Styles & Helpers**
+  - [ ] `ContactCard`-Styles in ein Modul unter `src/styles/components/` auslagern und vorhandene
+        CSS-Tokens nutzen.
+  - [ ] CSS/Utility-Klassen straffen; doppelte Farb- und Spacing-Definitionen auf bestehende Tokens
+        mappen.
+  - [ ] Gemeinsame Helfer nur ab 3+ Vorkommen extrahieren (Formatierer, Score-Berechnungen,
+        Data-Mapping) und pro Ordner dokumentieren.
 
 ### Phase 3 – Fortschritt (2025-10-07)
 
@@ -167,14 +146,24 @@ verlinken.
 
 ## Phase 4 – Performance-Fokus
 
-- [ ] **Build-Optimierungen**: Schwere Komponenten lazy-loaden oder als reine SSR-Ausgabe belassen;
-      überprüfen, ob Astro-Templates statt Client-Inseln reichen.
-- [ ] **Daten-Reduktion**: JSON-Daten prüfen (Fragen, Kategorien) – sind alle Felder nötig?
-      Optional: Ableitbare Werte (z. B. Slugs) zur Build-Zeit generieren.
-- [ ] **Assets auditieren**: Medien in `public/` auf WebP/JPG-Duplikate prüfen; große Dateien
-      komprimieren oder nur bei Bedarf laden.
-- [ ] **Runtime-Services**: Falls Fetch/Parsing stattfindet, Caching/Precomputing anstreben, um
-      Build-Zeit vs. Laufzeit optimal zu balancieren.
+- **Build & Assets**
+  - [ ] Schwere Komponenten lazy-loaden oder auf reine SSR-Ausgabe prüfen; Astro-Templates
+        priorisieren.
+  - [ ] JSON-Daten verschlanken (Fragen, Kategorien) und ableitbare Werte zur Build-Zeit generieren.
+  - [ ] Medien-Assets in `public/` auditieren; WebP/JPG-Duplikate bereinigen und Dateien
+        komprimieren.
+- **Runtime & Services**
+  - [ ] Laufende Services auf Caching/Precomputing trimmen, damit Build-Zeit vs. Laufzeit balanciert
+        bleibt.
+  - [ ] Kategorie-Fallback-Fetches per `AbortController` abbrechen, sobald Nutzer:innen die Seite
+        verlassen.
+  - [ ] `mapItemsWithDisplayData` Ergebnisse pro SSR-Request cachen, um mehrfaches Parsing zu
+        vermeiden.
+- **Interaktion & A11y**
+  - [ ] Countdown der TimePressure-Engine auf eine rAF-gesteuerte Schleife konsolidieren und
+        Timer-Typen korrekt annotieren.
+  - [ ] Countdown-/Overlay-Animationen an `prefers-reduced-motion` anpassen (z. B.
+        Puls-/Urgency-Effekte reduzieren).
 
 ### Phase 4 – Fortschritt (2025-10-07)
 
