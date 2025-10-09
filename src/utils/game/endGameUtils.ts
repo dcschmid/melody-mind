@@ -117,22 +117,6 @@ export function showEndGameLoading(): void {
       processing: "Processando seus resultados...",
       calculating: "Calculando conquistas e salvando pontuação",
     },
-    da: {
-      processing: "Behandler dine resultater...",
-      calculating: "Beregner præstationer og gemmer score",
-    },
-    nl: {
-      processing: "Verwerken van je resultaten...",
-      calculating: "Berekenen van prestaties en opslaan van score",
-    },
-    sv: {
-      processing: "Bearbetar dina resultat...",
-      calculating: "Beräknar prestationer och sparar poäng",
-    },
-    fi: {
-      processing: "Käsitellään tuloksiasi...",
-      calculating: "Lasketaan saavutuksia ja tallennetaan pisteet",
-    },
   };
 
   const texts: LoadingTextShape = loadingTexts[currentLang] ?? loadingTexts.en;

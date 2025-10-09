@@ -125,20 +125,23 @@ const ariaDescribedByAttr =
   (ariaDescribedBy as string | undefined) ?? (rawProps["aria-describedby"] as string | undefined);
 
 const forwardedAttrs = (() => {
-  const restAttrs = { ...rawProps };
-  delete restAttrs.href;
-  delete restAttrs.ariaLabel;
-  delete restAttrs.ariaDescribedBy;
-  delete restAttrs.className;
-  delete restAttrs.target;
-  delete restAttrs.rel;
-  delete restAttrs.variant;
-  delete restAttrs.icon;
-  if ("aria-describedby" in restAttrs) {
-    delete restAttrs["aria-describedby"];
-  }
-  if ("aria-label" in restAttrs) {
-    delete restAttrs["aria-label"];
+  const restAttrs: Record<string, unknown> = { ...rawProps };
+  // Remove known props so they are not duplicated on the anchor element
+  for (const key of [
+    "href",
+    "ariaLabel",
+    "ariaDescribedBy",
+    "className",
+    "target",
+    "rel",
+    "variant",
+    "icon",
+    "aria-describedby",
+    "aria-label",
+  ]) {
+    if (key in restAttrs) {
+      delete (restAttrs as Record<string, unknown>)[key];
+    }
   }
   return restAttrs;
 })();

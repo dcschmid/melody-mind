@@ -21,7 +21,7 @@ const clientTranslations = {
 
 <div
   id="chronology-feedback-overlay"
-  class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/50 backdrop-blur-sm"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm"
   data-translations={JSON.stringify(clientTranslations)}
   aria-hidden="true"
   role="dialog"
@@ -104,7 +104,7 @@ const clientTranslations = {
 
       <button
         id="chronology-end-button"
-        class="flex hidden cursor-pointer items-center gap-3 rounded-xl border-2 border-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:border-orange-600 hover:from-orange-600 hover:to-orange-700 focus:ring-4 focus:ring-orange-500/50 focus:ring-offset-2 focus:ring-offset-slate-800 focus:outline-none"
+        class="hidden cursor-pointer items-center gap-3 rounded-xl border-2 border-orange-500 bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 text-base font-bold text-white transition-all duration-200 hover:-translate-y-1 hover:border-orange-600 hover:from-orange-600 hover:to-orange-700 focus:ring-4 focus:ring-orange-500/50 focus:ring-offset-2 focus:ring-offset-slate-800 focus:outline-none"
         type="button"
         aria-label={t("game.end.title")}
       >
@@ -115,157 +115,7 @@ const clientTranslations = {
   </div>
 </div>
 
-<script>
-  /* eslint-disable @typescript-eslint/explicit-function-return-type */
-  (() => {
-    const overlay = document.getElementById("chronology-feedback-overlay");
-    if (!overlay) {
-      return;
-    }
-
-    const closeButton = document.getElementById("chronology-close-button");
-    const backdrop = document.getElementById("chronology-feedback-backdrop");
-    const nextButton = document.getElementById("chronology-next-button");
-    const endButton = document.getElementById("chronology-end-button");
-    const accuracyElement = document.getElementById("chronology-accuracy");
-    const scoreElement = document.getElementById("chronology-score");
-    const resultsList = document.getElementById("chronology-results-list");
-    const statusAnnouncer = document.getElementById("feedback-status");
-
-    const translations = (() => {
-      try {
-        const raw = overlay.getAttribute("data-translations");
-        if (!raw) {
-          return clientTranslations || {};
-        }
-        return { ...clientTranslations, ...JSON.parse(raw) };
-      } catch {
-        return clientTranslations || {};
-      }
-    })();
-
-    let previousFocus = null;
-
-    const hideOverlay = () => {
-      overlay.classList.add("hidden");
-      overlay.setAttribute("aria-hidden", "true");
-      if (previousFocus && typeof previousFocus.focus === "function") {
-        previousFocus.focus();
-      }
-    };
-
-    const dispatch = (name) => {
-      window.dispatchEvent(new CustomEvent(name));
-    };
-
-    const renderResults = (items) => {
-      if (!resultsList) {
-        return;
-      }
-      resultsList.innerHTML = "";
-      items.forEach((item) => {
-        const container = document.createElement("div");
-        container.className = `flex items-center justify-between rounded-lg border p-4 transition-all duration-200 ${
-          item.isCorrectPosition
-            ? "border-green-500/50 bg-green-500/10 text-green-100"
-            : "border-red-500/50 bg-red-500/10 text-red-100"
-        }`;
-        container.innerHTML = `
-          <div class="flex items-center gap-4">
-            <div class="flex h-8 w-8 items-center justify-center rounded-full border-2 font-bold ${
-              item.isCorrectPosition
-                ? "border-green-500 bg-green-500/20 text-green-400"
-                : "border-red-500 bg-red-500/20 text-red-400"
-            }">${item.position}</div>
-            <div class="flex flex-col">
-              <div class="font-semibold text-white">${item.artist}</div>
-              <div class="text-sm text-gray-300">${item.title}</div>
-              <div class="text-xs text-gray-400">${item.year}</div>
-            </div>
-          </div>
-          <div class="flex h-8 w-8 items-center justify-center rounded-full text-lg font-bold ${
-            item.isCorrectPosition ? "text-green-400" : "text-red-400"
-          }">${item.isCorrectPosition ? "✓" : "✗"}</div>`;
-        resultsList.appendChild(container);
-      });
-    };
-
-    const updateStats = (accuracy, scoreGained) => {
-      if (accuracyElement && typeof accuracy === "number") {
-        accuracyElement.textContent = `${accuracy}%`;
-      }
-      if (scoreElement && typeof scoreGained === "number") {
-        scoreElement.textContent = `+${scoreGained}`;
-      }
-    };
-
-    const toggleButtons = (isLastRound) => {
-      if (!nextButton || !endButton) {
-        return;
-      }
-      if (isLastRound) {
-        nextButton.style.display = "none";
-        endButton.style.display = "flex";
-      } else {
-        nextButton.style.display = "flex";
-        endButton.style.display = "none";
-      }
-    };
-
-    const announce = (message) => {
-      if (!statusAnnouncer || !message) {
-        return;
-      }
-      statusAnnouncer.textContent = "";
-      statusAnnouncer.textContent = message;
-    };
-
-    const handleShow = (event) => {
-      const detail = event && event.detail ? event.detail : null;
-      if (!detail || !Array.isArray(detail.userOrder)) {
-        return;
-      }
-
-      renderResults(detail.userOrder);
-      updateStats(detail.accuracy, detail.scoreGained);
-      toggleButtons(Boolean(detail.isLastRound));
-
-      const messageKey = detail.isLastRound
-        ? "game.chronology.stats.total_points"
-        : "game.chronology.stats.round_points";
-      const message = translations[messageKey] || "";
-      announce(message);
-
-      previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-      overlay.classList.remove("hidden");
-      overlay.setAttribute("aria-hidden", "false");
-      if (closeButton && typeof closeButton.focus === "function") {
-        closeButton.focus();
-      }
-    };
-
-    closeButton?.addEventListener("click", hideOverlay);
-    backdrop?.addEventListener("click", hideOverlay);
-    nextButton?.addEventListener("click", () => {
-      hideOverlay();
-      dispatch("chronologyNextRound");
-    });
-    endButton?.addEventListener("click", () => {
-      hideOverlay();
-      dispatch("chronologyEndGame");
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !overlay.classList.contains("hidden")) {
-        event.preventDefault();
-        hideOverlay();
-      }
-    });
-
-    window.addEventListener("showChronologyFeedback", handleShow as EventListener);
-
-    window.addEventListener("unload", () => {
-      window.removeEventListener("showChronologyFeedback", handleShow as EventListener);
-    });
-  })();
+<script type="module">
+  import { initChronologyFeedbackOverlay } from "@scripts/overlays/chronologyFeedbackOverlayClient";
+  initChronologyFeedbackOverlay();
 </script>

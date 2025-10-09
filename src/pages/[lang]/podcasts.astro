@@ -466,63 +466,58 @@ structuredDataExtra.push(episodesCollectionSchema);
     </div>
   </section>
 
-  <script>
+  <script is:inline>
     /* eslint-disable @typescript-eslint/explicit-function-return-type */
     import { initSearchPanel } from "@components/Search/initSearchPanel";
-
-    const track = (eventName) => {
-      try {
-        const fathom = window.fathom || {};
-        if (typeof fathom.trackEvent === "function") {
-          fathom.trackEvent(eventName);
+    (function () {
+      function safeTrack(name) {
+        try {
+          const f = window.fathom;
+          if (f && typeof f.trackEvent === "function") {
+            f.trackEvent(String(name));
+          }
+        } catch {
+          /* silent */
         }
-      } catch {
-        /* ignore */
       }
-    };
-
-    const wireTracking = () => {
-      document.querySelectorAll(".music-platform-link").forEach((link) => {
-        link.addEventListener(
-          "click",
-          () => {
-            if (!(link instanceof HTMLElement)) {
-              return;
-            }
-            const platform = link.dataset.platform;
-            const playlist = link.dataset.playlistTitle;
-            if (!platform) {
-              return;
-            }
-            track(`music_${platform}_click`);
-            if (playlist) {
-              track(`music_${platform}_${playlist}`.replace(/[^a-zA-Z0-9_]/g, "_"));
-            }
-          },
-          { passive: true }
-        );
-      });
-    };
-
-    (() => {
-      const setup = () => {
+      function wireTracking() {
+        document.querySelectorAll(".music-platform-link").forEach((link) => {
+          link.addEventListener(
+            "click",
+            () => {
+              if (!(link instanceof HTMLElement)) {
+                return;
+              }
+              const platform = link.dataset.platform;
+              const playlist = link.dataset.playlistTitle;
+              if (!platform) {
+                return;
+              }
+              safeTrack(`music_${platform}_click`);
+              if (playlist) {
+                safeTrack(`music_${platform}_${playlist}`.replace(/[^a-zA-Z0-9_]/g, "_"));
+              }
+            },
+            { passive: true }
+          );
+        });
+      }
+      function setup() {
         initSearchPanel({
           idBase: "podcasts-search",
           itemSelector: "#podcast-list article",
           debounceMs: 200,
         });
         wireTracking();
-      };
-
-      const schedule = (fn) => {
+      }
+      function schedule(fn) {
         const idle = window.requestIdleCallback || null;
         if (typeof idle === "function") {
           idle(fn);
         } else {
           setTimeout(fn, 1);
         }
-      };
-
+      }
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", () => schedule(setup), { once: true });
       } else {

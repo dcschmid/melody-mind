@@ -147,7 +147,7 @@ export function createShareOverlay(container: HTMLElement): void {
   }
 
   const tryNativeShare = async (): Promise<void> => {
-    if (!currentData || !navigator.share) {
+    if (!currentData || typeof navigator.share !== "function") {
       return;
     }
     try {
@@ -218,7 +218,7 @@ export function createShareOverlay(container: HTMLElement): void {
     }
   });
 
-  if (navigator.share) {
+  if (typeof navigator.share === "function") {
     nativeShareButton?.classList.remove("share-overlay__button--hidden");
   }
 

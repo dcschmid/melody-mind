@@ -7,9 +7,24 @@ interface Fathom {
   trackPageview: (options?: { url?: string; referrer?: string }) => void;
 }
 
-// Extend the Window interface to include Fathom
+interface ShowEndOverlayConfig {
+  score: number;
+  maxScore?: number;
+  // Allow arbitrary enhancement details without strict typing for resilience
+  [key: string]: unknown;
+}
+
+type ShowEndOverlayFn = ((config: ShowEndOverlayConfig) => Promise<void> | void) &
+  ((score: number, maxScore?: number) => Promise<void> | void);
+
+// Extend the Window interface to include global analytics & overlay helpers
 declare interface Window {
   fathom?: Fathom;
+  showEndOverlay?: ShowEndOverlayFn;
+  mmForceReflow?: (el: Element | null) => void;
+  announceAssertive?: (msg: string) => void;
+  __resolveAchievement?: (score: number) => { id: string; minScore: number };
+  __mmDebug?: (...args: unknown[]) => void;
 }
 
 declare namespace App {

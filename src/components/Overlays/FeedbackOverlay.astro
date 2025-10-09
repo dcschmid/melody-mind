@@ -22,7 +22,7 @@ const t = useTranslations(lang);
 
 <div
   id="overlay"
-  class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/80 p-4 transition-all duration-300"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4 transition-all duration-300"
   role="dialog"
   aria-labelledby="overlay-title"
   aria-describedby="feedback"
@@ -114,50 +114,7 @@ const t = useTranslations(lang);
   </div>
 </div>
 
-<script is:inline define:vars={{ buttonId }}>
-  const overlay = document.getElementById("overlay");
-  const closeButton = document.getElementById("close-overlay-button");
-  const backdrop = document.getElementById("overlay-backdrop");
-  const nextButton = document.getElementById(buttonId);
-
-  const hideOverlay = (): void => {
-    overlay?.classList.add("hidden");
-  };
-
-  const handleKeydown = (event: KeyboardEvent): void => {
-    if (event.key === "Escape" && overlay && !overlay.classList.contains("hidden")) {
-      event.preventDefault();
-      hideOverlay();
-    }
-  };
-
-  const focusWhenVisible = (): void => {
-    if (!overlay || overlay.classList.contains("hidden")) {
-      return;
-    }
-    window.requestAnimationFrame(() => {
-      closeButton?.focus();
-    });
-  };
-
-  closeButton?.addEventListener("click", hideOverlay);
-  backdrop?.addEventListener("click", hideOverlay);
-  nextButton?.addEventListener("click", () => {
-    hideOverlay();
-  });
-
-  document.addEventListener("keydown", handleKeydown);
-
-  const observer =
-    overlay &&
-    new MutationObserver(() => {
-      focusWhenVisible();
-    });
-
-  observer?.observe(overlay, { attributes: true, attributeFilter: ["class"] });
-
-  window.addEventListener("unload", () => {
-    document.removeEventListener("keydown", handleKeydown);
-    observer?.disconnect();
-  });
+<script type="module" define:vars={{ buttonId }}>
+  import { initFeedbackOverlay } from "../../scripts/overlays/feedbackOverlayClient";
+  initFeedbackOverlay(buttonId);
 </script>

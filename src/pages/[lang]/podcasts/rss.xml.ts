@@ -11,6 +11,7 @@ import { FALLBACK_LANGUAGE, normalizeLanguage } from "@constants/i18n";
 import type { APIRoute } from "astro";
 
 import enPodcastsJson from "../../../data/podcasts/en.json";
+import { languages } from "../../../i18n/ui"; // All supported UI languages
 import { generatePodcastRSSFeed, getPodcastChannelMetadata } from "../../../services/podcastRssService";
 import type { PodcastData } from "../../../types/podcast";
 import { handleGameError } from "../../../utils/error/errorHandlingUtils";
@@ -19,7 +20,16 @@ import { useTranslations } from "../../../utils/i18n";
 // Import all podcast data
 
 /**
- * Load podcast data for a specific language with fallback
+ * Load podcast data for a specific language with fallback.
+ *
+ * Currently only English podcast JSON is available. For other supported UI languages
+ * we intentionally return an empty array so the route produces a valid but empty
+ * language-specific RSS feed (with translated metadata strings). This preserves
+ * predictable URLs (/de/podcasts/rss.xml, /es/podcasts/rss.xml, etc.) and allows
+ * future localization to start returning episodes without additional routing changes.
+ *
+ * If in the future localized podcast data sets become available, extend the
+ * podcastDataMap below with additional imports keyed by their language codes.
  */
 async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]> {
   const podcastDataMap = {
@@ -36,11 +46,10 @@ async function loadPodcastsForLanguage(language: string): Promise<PodcastData[]>
  * Generate static paths for all supported languages
  */
 export async function getStaticPaths(): Promise<{ params: { lang: string } }[]> {
-  const supportedLanguages = [FALLBACK_LANGUAGE];
+  // Derive supported languages from central i18n source (ui.ts)
+  const supportedLanguages = Object.keys(languages);
 
-  return supportedLanguages.map((lang) => ({
-    params: { lang },
-  }));
+  return supportedLanguages.map((lang) => ({ params: { lang } }));
 }
 
 /**
@@ -51,9 +60,8 @@ export const GET: APIRoute = async ({ params, request }) => {
     const langParam = params.lang as string;
     const lang = normalizeLanguage(langParam);
 
-    // Validate language parameter
-    const supportedLanguages = [FALLBACK_LANGUAGE];
-
+    // Validate language parameter (derived from i18n configuration)
+    const supportedLanguages = Object.keys(languages);
     if (!supportedLanguages.includes(lang)) {
       return new Response("Language not supported", {
         status: 404,
