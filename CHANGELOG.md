@@ -31,6 +31,11 @@ All notable changes to this project will be documented in this file.
   `ru_categories.json`, `sv_categories.json`, `uk_categories.json` after locale support reduction to
   (de, en, es, fr, it, pt). No runtime references existed; reduces repo noise and potential
   confusion.
+- _(content/i18n)_ Purge deprecated knowledge article content for dropped locales: `knowledge-cn`
+  (249 files), `knowledge-da` (219), `knowledge-fi` (219), `knowledge-nl` (217), `knowledge-sv`
+  (217) plus placeholder stubs (`knowledge-jp`, `knowledge-ru`, `knowledge-uk`). Total 1,124 removed
+  markdown files. Aligns repository footprint with active locale set (de, en, es, fr, it, pt) and
+  prevents accidental drift / stale translations resurfacing.
 
 ### 🚜 Refactor (Unreleased)
 

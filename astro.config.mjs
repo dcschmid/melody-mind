@@ -107,8 +107,4 @@ export default defineConfig({
       },
     },
   },
-  markdown: {
-    // Use the lighter built-in Prism highlighter to satisfy config validation; we avoid Shiki for memory.
-    syntaxHighlight: "prism",
-  },
 });
