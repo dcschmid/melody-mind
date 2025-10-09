@@ -614,7 +614,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <!-- External loader to avoid inline TypeScript/ESLint checks in Astro -->
     <script is:inline src="/scripts/layout-fathom-loader.js" defer></script>
     <!-- Debug bridge: expose TypeScript debug util to inline scripts as window.__mmDebug (dev only) -->
-    <script type="module">
+    <script is:inline type="module">
       import { initInteractiveComponents } from "/src/utils/components/autoInit.ts";
 
       const start = () => {
@@ -627,7 +627,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         start();
       }
     </script>
-    <script type="module">
+    <script is:inline type="module">
       import { debug } from "/src/utils/debug.ts";
       if (import.meta.env?.DEV && typeof window !== "undefined" && !("__mmDebug" in window)) {
         // @ts-expect-error runtime augmentation

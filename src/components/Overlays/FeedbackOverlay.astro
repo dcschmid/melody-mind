@@ -114,7 +114,7 @@ const t = useTranslations(lang);
   </div>
 </div>
 
-<script type="module" define:vars={{ buttonId }}>
+<script is:inline type="module" define:vars={{ buttonId }}>
   import { initFeedbackOverlay } from "../../scripts/overlays/feedbackOverlayClient";
   initFeedbackOverlay(buttonId);
 </script>

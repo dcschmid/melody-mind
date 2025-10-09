@@ -48,8 +48,8 @@ const constructRestartUrl = () => {
 
 const restartUrl = constructRestartUrl();
 
-// Prepare translations for client-side access
-const clientTranslations = {
+// Prepare translations for client-side access (renamed to 'translations' to align with inline script reference)
+const translations = {
   "game.end.defaultMotivation": t("game.end.defaultMotivation"),
   "game.end.announcement.gameOver": t("game.end.announcement.gameOver", {
     score: 0,
@@ -88,7 +88,7 @@ const clientTranslations = {
   data-categoryName={categoryName}
   data-difficulty={difficulty}
   data-mode={gameMode}
-  data-translations={JSON.stringify(clientTranslations)}
+  data-translations={JSON.stringify(translations)}
 >
   <!-- Overlay backdrop for click-to-close functionality -->
   <div
@@ -257,7 +257,7 @@ const clientTranslations = {
   </div>
 </div>
 
-<script is:inline define:vars={{ id, initialScore, difficulty, clientTranslations }}>
+<script is:inline define:vars={{ id, initialScore, difficulty, translations }}>
   /* eslint-disable @typescript-eslint/explicit-function-return-type */
   (() => {
     const overlay = document.getElementById(id);
@@ -278,7 +278,7 @@ const clientTranslations = {
     const progressBar = overlay.querySelector("#score-bar");
     const difficultyElement = overlay.querySelector("#difficulty-display");
     const shareRoot = overlay.querySelector("[data-game-data]");
-    const translations = clientTranslations || {};
+    const clientTranslations = translations || {};
 
     const baseShareData = (() => {
       if (!shareRoot) {
@@ -335,7 +335,7 @@ const clientTranslations = {
     };
 
     const translate = (key, fallback) => {
-      const value = translations[key];
+      const value = clientTranslations[key];
       return typeof value === "string" ? value : fallback;
     };
 
