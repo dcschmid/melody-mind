@@ -36,6 +36,12 @@ All notable changes to this project will be documented in this file.
   (217) plus placeholder stubs (`knowledge-jp`, `knowledge-ru`, `knowledge-uk`). Total 1,124 removed
   markdown files. Aligns repository footprint with active locale set (de, en, es, fr, it, pt) and
   prevents accidental drift / stale translations resurfacing.
+- _(feeds)_ Prune deprecated RSS/news feed source arrays and keyword lists for removed locales (cn,
+  da, fi, jp, nl, ru, sv, uk). `feedSources.ts` now only exports active locales (de, en, es, fr, it,
+  pt) reducing dead data and preventing accidental regeneration of legacy feed artifacts.
+- _(assets)_ Replace bloated `public/favicon.svg` (≈1.98 MB) with a minimal optimized SVG (447 bytes
+  source; ~12 KB in final `dist` after build copy). Removes an oversized asset that previously
+  dominated small transfer scenarios and improves first request efficiency.
 
 ### 🚜 Refactor (Unreleased)
 

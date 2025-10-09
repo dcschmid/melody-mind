@@ -12,6 +12,75 @@ language, the system transparently falls back to the English source variant. Thi
 predictable, reduces redundant branching, and simplifies maintenance. See `docs/data-loading.md` for
 architectural details.
 
+### Supported Languages (Post Locale Purge – October 2025)
+
+Active UI/content languages (in routing & content collections):
+
+`en`, `de`, `es`, `fr`, `it`, `pt`
+
+Deprecated / removed legacy locales purged on 2025‑10‑09 to reduce repository size and build
+complexity:
+
+`cn`, `da`, `fi`, `jp`, `nl`, `ru`, `sv`, `uk`
+
+Rationale:
+
+- Large volume of stale knowledge articles (≈1,100 markdown files) provided no current product value
+- Reduced editor noise + faster grep/search ergonomics
+- Avoids accidental drift of untranslated legacy content
+
+Guidelines for (Re)Adding a Locale:
+
+1. Add locale code to the central supported locales constant (`src/constants/languages.ts`).
+2. Provide an English source template then derive translation files (see i18n generation scripts in
+   `scripts/`).
+3. Add content collections or data (categories, knowledge) only once translation coverage reaches an
+   agreed threshold.
+4. Keep fallback semantics (single fallback = `en`) — do not introduce multi‑stage fallback chains.
+
+If a previously removed locale must return, reintroduce it explicitly instead of resurrecting old
+purged markdown from history without review.
+
+### Build Footprint Snapshot (post Favicon Optimization & Locale Feed Prune)
+
+Date: 2025‑10‑09 (after pruning legacy locales & optimizing favicon)
+
+| Artifact Type            | Approx Size |
+| ------------------------ | ----------- |
+| Total `dist/`            | ~1.3 GB     |
+| Client HTML (aggregated) | ~239 MB     |
+| All JS (aggregated)      | ~299 KB     |
+| All CSS (aggregated)     | ~141 KB     |
+| Favicon (source)         | 447 bytes   |
+| Favicon (copied in dist) | ~12 KB      |
+
+Recent Optimizations:
+
+- Removed eight deprecated locale content trees (≈1,124 markdown files) and associated category JSON
+  plus feed source arrays.
+- Replaced an anomalously large `favicon.svg` (≈1.98 MB) with a lean vector (447 B source), cutting
+  an unnecessary transfer overhead and improving cache priming.
+- Pruned dead RSS/news feed source definitions for removed locales to prevent accidental
+  regeneration.
+
+Observations:
+
+- HTML still dominates (expected due to full static rendering for thousands of knowledge pages
+  across 6 locales).
+- Core JS & CSS remain lightweight, supporting fast hydration and low main‑thread cost.
+- Further reduction paths likely center on: selective route generation, knowledge page pagination /
+  summarization, image variant deduplication.
+
+Potential Follow‑Ups (Not Yet Executed):
+
+- Evaluate skipping generation of seldom‑visited long‑tail knowledge routes or introducing on‑demand
+  ISR style rebuilds if framework support evolves.
+- Audit image variants for redundant resolutions or format duplication.
+- Investigate HTML streaming or segmented builds if peak memory pressure becomes a blocker.
+
+This snapshot supersedes earlier pre‑optimization notes and serves as the new baseline for
+subsequent performance work.
+
 ## 🚀 Key Features
 
 - Multiple Difficulty Levels: Choose between Easy, Medium, and Hard modes:
