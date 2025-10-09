@@ -9,6 +9,9 @@ import enPodcastsJson from "./src/data/podcasts/en.json" assert { type: "json" }
 import robotsTxt from "astro-robots-txt";
 
 import metaTags from "astro-meta-tags";
+import memoryProfiler from "./src/integrations/memoryProfiler";
+// Node global typings sometimes not picked by ESLint in ESM config context.
+// Use globalThis to reference process safely.
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,6 +27,7 @@ export default defineConfig({
 
   integrations: [
     icon(),
+  (globalThis.process && globalThis.process.env.MEMORY_PROFILING === '1') ? memoryProfiler() : undefined,
     robotsTxt({
       // Rely solely on the sitemap plugin output (sitemap-index.xml + chunked sitemaps)
       sitemap: ["https://melody-mind.de/sitemap-index.xml"],
@@ -61,7 +65,7 @@ export default defineConfig({
     metaTags(),
     // HTML minification disabled due to memory issues with large projects
     // minify(),
-  ],
+  ].filter(Boolean),
   adapter: node({
     mode: "standalone",
   }),
