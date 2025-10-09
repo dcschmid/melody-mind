@@ -6,22 +6,10 @@
  * - Always use this constant in `getStaticPaths()` to avoid divergence.
  * - Add new languages at the end to preserve any ordering expectations.
  */
-export const SUPPORTED_LANGUAGES = [
-  "en",
-  "de",
-  "fr",
-  "es",
-  "it",
-  "nl",
-  "pt",
-  "ru",
-  "uk",
-  "da",
-  "sv",
-  "fi",
-  "jp",
-  "cn",
-] as const;
+// 2025-10 reduction: project now only supports a focused core set of languages.
+// Removed: nl, ru, uk, da, sv, fi, jp, cn (and associated locale data will be ignored).
+// Order keeps fallback (en) first, followed by major European languages + pt.
+export const SUPPORTED_LANGUAGES = ["en", "de", "es", "it", "fr", "pt"] as const;
 
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 

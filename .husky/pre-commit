@@ -1,1 +1,18 @@
-npx lint-staged
+#!/usr/bin/env bash
+
+set -e
+
+PROJECT_NODE_VERSION="$(cat .nvmrc 2>/dev/null || echo 22.19.0)"
+NVM_DIR="$HOME/.nvm"
+
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+	# shellcheck disable=SC1090
+	. "$NVM_DIR/nvm.sh"
+	nvm use "$PROJECT_NODE_VERSION" >/dev/null 2>&1 || nvm install "$PROJECT_NODE_VERSION" >/dev/null 2>&1 || true
+fi
+
+if command -v node >/dev/null 2>&1; then
+	echo "[husky] using node $(node -v)"
+fi
+
+exec node ./node_modules/.bin/lint-staged

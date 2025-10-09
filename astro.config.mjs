@@ -52,23 +52,9 @@ export default defineConfig({
         return true;
       },
       i18n: {
+        // 2025-10 language reduction: only ship core locales
         defaultLocale: "en",
-        locales: {
-          cn: "cn",
-          da: "da",
-          de: "de",
-          en: "en",
-          es: "es",
-          fi: "fi",
-          fr: "fr",
-          it: "it",
-          jp: "jp",
-          nl: "nl",
-          pt: "pt",
-          ru: "ru",
-          sv: "sv",
-          uk: "uk",
-        },
+        locales: { en: "en", de: "de", es: "es", it: "it", fr: "fr", pt: "pt" },
       },
       // No customPages: rely entirely on plugin-managed index + chunks.
     }),
@@ -90,10 +76,8 @@ export default defineConfig({
   ],
   i18n: {
     defaultLocale: "en",
-    locales: ["cn", "da", "de", "en", "es", "fi", "fr", "it", "jp", "nl", "pt", "ru", "sv", "uk"],
-    routing: {
-      prefixDefaultLocale: true,
-    },
+    locales: ["en", "de", "es", "it", "fr", "pt"],
+    routing: { prefixDefaultLocale: true },
   },
   vite: {
     plugins: [tailwindcss()],
