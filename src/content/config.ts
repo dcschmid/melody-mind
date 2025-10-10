@@ -35,22 +35,15 @@ const knowledgeCollection = defineCollection({
 export const baseKnowledgeSchema = getKnowledgeSchema({} as SchemaContext);
 
 // Define collections
+// Active knowledge collections only (legacy locales purged 2025-10):
+// Removed: cn, jp, da, nl, sv, fi, ru, uk
 export const collections = {
-  "knowledge-cn": knowledgeCollection,
-  "knowledge-jp": knowledgeCollection,
   "knowledge-de": knowledgeCollection,
   "knowledge-en": knowledgeCollection,
   "knowledge-es": knowledgeCollection,
   "knowledge-fr": knowledgeCollection,
   "knowledge-it": knowledgeCollection,
   "knowledge-pt": knowledgeCollection,
-  "knowledge-da": knowledgeCollection,
-  "knowledge-nl": knowledgeCollection,
-  "knowledge-sv": knowledgeCollection,
-  "knowledge-fi": knowledgeCollection,
-  "knowledge-ru": knowledgeCollection,
-  // Added explicitly for new Content Layer behavior (was previously an implicit legacy folder)
-  "knowledge-uk": knowledgeCollection,
 } as const;
 
 // Type definitions

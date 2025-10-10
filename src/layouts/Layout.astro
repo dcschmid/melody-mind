@@ -584,16 +584,17 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
             // importing dynamic utilities so that inline overlay scripts can
             // function even if the main bundle fails to load. This keeps first
             // interaction robust and avoids blocking on module fetch.
+            /** @type {{ id: string; minScore: number }[]} */
             const tiers = [
               { id: "genius", minScore: 800 },
               { id: "pro", minScore: 600 },
               { id: "enthusiast", minScore: 400 },
               { id: "lover", minScore: 200 },
               { id: "explorer", minScore: 0 },
-            ] as const;
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore augment window dynamically (purely runtime helper)
-            window.__resolveAchievement = function (score: number): (typeof tiers)[number] {
+            ];
+            // augment window dynamically (runtime helper)
+            // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+            window.__resolveAchievement = (score) => {
               const s = typeof score === "number" && score >= 0 ? score : 0;
               for (let i = 0; i < tiers.length; i++) {
                 if (s >= tiers[i].minScore) {

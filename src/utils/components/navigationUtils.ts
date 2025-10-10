@@ -18,18 +18,27 @@ export function initNavigation(config: NavigationConfig): void {
   const menuToggle = document.getElementById(config.menuToggleId);
   const mainMenu = document.getElementById(config.mainMenuId);
   const menuBackdrop = document.getElementById(config.menuBackdropId);
-  const closeButton = mainMenu?.querySelector("button");
+  // Close button might not yet be parsed if streaming / incremental HTML; treat as optional & attach later.
+  let closeButton: HTMLButtonElement | null = (mainMenu?.querySelector("button") as HTMLButtonElement | null) || null;
   const logoutButton = config.logoutButtonId
     ? document.getElementById(config.logoutButtonId)
     : undefined;
 
-  if (!menuToggle || !mainMenu || !menuBackdrop || !closeButton) {
-    return;
+  if (!menuToggle || !mainMenu || !menuBackdrop) {
+    return; // fundamental elements missing
   }
 
   // Add event listeners
   menuToggle.addEventListener("click", () => toggleMenu());
-  closeButton.addEventListener("click", () => closeMenu());
+  if (closeButton) {
+    closeButton.addEventListener("click", () => closeMenu());
+  } else {
+    // Retry once on next frame to catch late close button (defensive)
+    requestAnimationFrame(() => {
+      closeButton = (mainMenu.querySelector("button") as HTMLButtonElement | null) || null;
+      closeButton?.addEventListener("click", () => closeMenu());
+    });
+  }
   menuBackdrop.addEventListener("click", () => closeMenu());
 
   // Handle escape key
@@ -58,6 +67,15 @@ export function initNavigation(config: NavigationConfig): void {
     menuToggle!.setAttribute("aria-expanded", String(isOpen));
     mainMenu!.setAttribute("data-state", isOpen ? "open" : "closed");
     menuBackdrop!.setAttribute("data-state", isOpen ? "open" : "closed");
+    // Announce state change for screen readers (non-intrusive polite region)
+    try {
+      const announcer = document.getElementById("menu-status-announcer");
+      if (announcer) {
+        announcer.textContent = isOpen ? "Menu opened" : "Menu closed";
+      }
+    } catch {
+      /* silent */
+    }
   }
 
   function isMenuOpen(): boolean {
@@ -102,10 +120,20 @@ export function initNavigationAuto(): void {
  * Default navigation initialization
  */
 export function initDefaultNavigation(): void {
+  // Detect current language from <html lang="..."> else fallback to en
+  let detectedLang = "en";
+  try {
+    const html = document.documentElement;
+    if (html && html.lang) {
+      detectedLang = html.lang.split("-")[0].toLowerCase();
+    }
+  } catch {
+    /* noop */
+  }
   initNavigation({
     menuToggleId: "menu-toggle",
     mainMenuId: "main-menu",
     menuBackdropId: "menu-backdrop",
-    lang: "en",
+    lang: detectedLang,
   });
 }
