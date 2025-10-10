@@ -406,6 +406,8 @@ export default {
   "nav.menu.open": "Menü öffnen",
   "nav.menu.rules": "Spielregeln",
   "nav.menu.text": "Menü",
+  "nav.status.opened": "Menü geöffnet",
+  "nav.status.closed": "Menü geschlossen",
   "nav.openNewWindow": "Öffnet in neuem Fenster",
   "nav.skip.main": "Zum Hauptinhalt springen",
   "nav.title": "Navigation",

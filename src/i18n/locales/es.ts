@@ -389,6 +389,8 @@ export default {
   "nav.menu.open": "Abrir menú",
   "nav.menu.rules": "Reglas del juego",
   "nav.menu.text": "Menú",
+  "nav.status.opened": "Menú abierto",
+  "nav.status.closed": "Menú cerrado",
   "nav.openNewWindow": "Se abre en nueva ventana",
   "nav.skip.main": "Saltar al contenido principal",
   "nav.title": "Navegación",

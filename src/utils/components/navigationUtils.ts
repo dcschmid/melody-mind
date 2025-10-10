@@ -28,8 +28,22 @@ export function initNavigation(config: NavigationConfig): void {
     return; // fundamental elements missing
   }
 
+  // Debounce handling to avoid rapid toggle spam
+  let lastToggleTime = 0;
+  const TOGGLE_DEBOUNCE_MS = 250;
+
+  function handleToggleClick(): void {
+    const now = Date.now();
+    if (now - lastToggleTime < TOGGLE_DEBOUNCE_MS) {
+      // Ignore rapid successive clicks
+      return;
+    }
+    lastToggleTime = now;
+    toggleMenu();
+  }
+
   // Add event listeners
-  menuToggle.addEventListener("click", () => toggleMenu());
+  menuToggle.addEventListener("click", handleToggleClick);
   if (closeButton) {
     closeButton.addEventListener("click", () => closeMenu());
   } else {
@@ -71,7 +85,10 @@ export function initNavigation(config: NavigationConfig): void {
     try {
       const announcer = document.getElementById("menu-status-announcer");
       if (announcer) {
-        announcer.textContent = isOpen ? "Menu opened" : "Menu closed";
+        // Prefer localized strings provided via data attributes; fallback to English literals.
+        const openedText = mainMenu?.getAttribute("data-status-opened") || "Menu opened";
+        const closedText = mainMenu?.getAttribute("data-status-closed") || "Menu closed";
+        announcer.textContent = isOpen ? openedText : closedText;
       }
     } catch {
       /* silent */
