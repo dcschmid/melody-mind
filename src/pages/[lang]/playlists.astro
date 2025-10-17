@@ -136,16 +136,13 @@ const playlistCollectionSchema = buildCollectionWithItemListSchema({
 // Additional generic category schema for playlists
 const categoryItemListSchema = buildCategoryItemListSchema({
   categories: sortedPlaylists.map((p: Playlist) => ({
-    slug: createSlug(p.headline),
-    title: p.headline,
+    id: createSlug(p.headline),
+    name: p.headline,
     description: p.introSubline,
   })),
   baseUrl,
   lang,
-  name: "Playlists",
-  description: "All music playlists",
-  pathPrefix: "playlists",
-  limit: 60,
+  listName: "Playlists",
 });
 const breadcrumbs = buildBreadcrumbs([
   { name: t("nav.home"), url: `${baseUrl}/${lang}` },

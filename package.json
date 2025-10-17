@@ -4,17 +4,17 @@
   "version": "0.0.1",
   "license": "MIT",
   "engines": {
-    "node": "22.19.0"
+    "node": ">=18.19.0"
   },
   "scripts": {
     "dev": "astro dev",
     "start:production": "NODE_ENV=production node dist/server/entry.mjs",
-    "build": "yarn validate:podcasts && yarn build:astro",
+    "build": "yarn build:astro",
     "install:sharp": "yarn add sharp --ignore-engines",
     "build:astro": "node scripts/run-astro-build.cjs",
     "optimize:categories": "node scripts/optimize-category-images.cjs",
     "optimize:images": "node scripts/optimize-images.cjs",
-    "build:check": "astro check --typescript-errors=false",
+    "build:check": "astro check --typescript-errors=false --ignore-engines",
     "build:full": "yarn build:check && yarn build",
     "install:production": "yarn install --production --frozen-lockfile",
     "build:production": "yarn build",
@@ -35,7 +35,6 @@
     "generate-og-images": "node scripts/setup-fonts.cjs && node scripts/generate-og-images.cjs",
     "sync:categories": "node scripts/sync-categories.cjs",
     "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs",
-    "validate:podcasts": "node scripts/validate-podcasts.cjs",
     "migrate:category-images": "node scripts/migrate-category-image-slugs.cjs",
     "migrate:podcast-images": "node scripts/migrate-podcast-image-slugs.cjs",
     "migrate:knowledge-images": "node scripts/migrate-knowledge-image-slugs.cjs",

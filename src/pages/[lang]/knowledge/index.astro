@@ -7,7 +7,7 @@
  */
 // Content collections will be loaded at runtime when needed; avoid build-time collection loads
 import Layout from "@layouts/Layout.astro";
-import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 // Legacy SEO helpers removed: buildPageSeo now handles description & keywords.
 import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
@@ -151,9 +151,7 @@ const articleCollectionSchema = buildKnowledgeArticlesItemList({
   })),
   baseUrl,
   lang,
-  limit: 10,
-  name: safeUi["knowledge.title"] || "Knowledge Articles",
-  description: safeUi["knowledge.title"] || "Music knowledge articles",
+  listName: safeUi["knowledge.title"] || "Knowledge Articles",
 });
 
 // Generate meta keywords from articles
@@ -177,7 +175,7 @@ const pageSeo = buildPageSeo({
   url: currentUrl,
   contentKind: "generic",
   breadcrumbs,
-  structuredData: [articleCollectionSchema],
+  structuredData: [articleCollectionSchema].filter(Boolean) as StructuredData[],
   enrichedParts: [title, description, keywordPool.slice(0, 25).join(" ")],
   fallbackKeywords: metaKeywords
     .split(",")

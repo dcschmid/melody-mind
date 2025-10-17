@@ -5,7 +5,7 @@ import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
-import enPodcastsJson from "./src/data/podcasts/en.json" assert { type: "json" };
+// Podcast data moved to separate subdomain
 import robotsTxt from "astro-robots-txt";
 
 import metaTags from "astro-meta-tags";
@@ -34,27 +34,7 @@ export default defineConfig({
       host: "melody-mind.de",
     }),
     sitemap({
-      filter: (page) => {
-        // Exclude unavailable podcast episode pages from sitemap output.
-        // Generated pages look like /{lang}/podcasts/{episode-id}/
-        if (page.includes("/podcasts/")) {
-          const parts = page.split("/podcasts/");
-          if (parts.length > 1) {
-            const tail = parts[1];
-            const id = tail.split("/").filter(Boolean)[0];
-            if (id) {
-              try {
-                const list = (enPodcastsJson.podcasts || []).filter((p) => p && p.isAvailable);
-                const isAvailable = list.some((p) => p.id === id);
-                if (!isAvailable) return false;
-              } catch {
-                // Never fail build due to filter errors
-              }
-            }
-          }
-        }
-        return true;
-      },
+      // Podcasts moved to separate subdomain - no filtering needed
       i18n: {
         // 2025-10 language reduction: only ship core locales
         defaultLocale: "en",

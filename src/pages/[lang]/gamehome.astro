@@ -213,17 +213,13 @@ const breadcrumbs = [
 // Add generic category ItemList schema using unified builder
 const categoryItemListSchema = buildCategoryItemListSchema({
   categories: sortedCategories.map((c) => ({
-    slug: c.slug,
-    title: c.headline,
+    id: c.slug,
+    name: c.headline,
     description: c.introSubline,
-    image: c.imageUrl,
   })),
   baseUrl,
   lang,
-  name: "Game Categories",
-  description: "All music trivia game categories",
-  pathPrefix: "gamehome",
-  limit: 60,
+  listName: "Game Categories",
 });
 const structuredDataExtra: StructuredData[] = [
   gameApplicationSchema,
