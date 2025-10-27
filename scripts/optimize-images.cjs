@@ -51,14 +51,6 @@ const GROUPS = {
     quality: { webp: 72, avif: 55, canonical: 78 },
     pattern: /\.jpe?g$/i
   },
-  podcast: {
-    srcDir: path.resolve('public/podcast'),
-    outBase: path.resolve('src/assets/podcast'),
-    widths: [240, 480, 720, 960],
-    canonicalMax: 1200,
-    quality: { webp: 72, avif: 55, canonical: 78 },
-    pattern: /\.jpe?g$/i
-  },
   playlist: {
     // Some playlist covers currently live only as optimized assets under src/assets/playlist.
     // To unify the pipeline we allow sourcing from public/playlist if originals are added there.

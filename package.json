@@ -36,7 +36,6 @@
     "sync:categories": "node scripts/sync-categories.cjs",
     "sync:knowledge-playlists": "node scripts/sync-knowledge-playlists.cjs",
     "migrate:category-images": "node scripts/migrate-category-image-slugs.cjs",
-    "migrate:podcast-images": "node scripts/migrate-podcast-image-slugs.cjs",
     "migrate:knowledge-images": "node scripts/migrate-knowledge-image-slugs.cjs",
     "optimize:images:squoosh": "node scripts/optimize-images-squoosh.cjs"
   },

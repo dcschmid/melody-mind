@@ -1045,12 +1045,6 @@ async function generateAllOgImages() {
           filename: `social-share-playlists.jpg`,
         },
         {
-          type: "podcasts",
-          title: getTranslation(lang, "podcast.title"),
-          description: getTranslation(lang, "podcast.description"),
-          filename: `social-share-podcasts.jpg`,
-        },
-        {
           type: "gameHome",
           title: getTranslation(lang, "game.title"),
           description: getTranslation(lang, "game.description"),
