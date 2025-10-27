@@ -1,3 +1,4 @@
+````markdown
 # Podcast Migration Plan: MelodyMind → podcasts.melody-mind.de
 
 ## Overview
@@ -99,7 +100,7 @@ podcasts-melody-mind/
     └── migrate-from-main.js
 ```
 
-### Phase 2: Data Structure Enhancement
+## Phase 2: Data Structure Enhancement
 
 #### 2.1 Multi-Language Data Schema
 
@@ -132,7 +133,7 @@ interface PodcastDataMultiLang extends PodcastData {
 // - Set up fallback mechanisms
 ```
 
-### Phase 3: Component Migration & Enhancement
+## Phase 3: Component Migration & Enhancement
 
 #### 3.1 Core Components to Migrate
 
@@ -148,7 +149,7 @@ interface PodcastDataMultiLang extends PodcastData {
 - `SeriesInfo` (podcast series metadata)
 - `SubscriptionButtons` (RSS, Apple Podcasts, etc.)
 
-### Phase 4: Routing & i18n Setup
+## Phase 4: Routing & i18n Setup
 
 #### 4.1 Route Structure
 
@@ -173,7 +174,7 @@ podcasts.melody-mind.de/
 - Localized RSS feeds
 - Language-aware SEO
 
-### Phase 5: Integration with Main Site
+## Phase 5: Integration with Main Site
 
 #### 5.1 Cross-Domain Integration
 
@@ -380,3 +381,4 @@ CNAME podcasts.melody-mind.de -> melody-mind-podcasts.onrender.com
 - [ ] Deployment frequency improvement
 - [ ] Developer productivity metrics
 - [ ] Issue resolution time
+````

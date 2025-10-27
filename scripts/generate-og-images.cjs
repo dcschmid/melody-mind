@@ -60,10 +60,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Entdecke sorgfältig kuratierte Playlists, die dich auf eine musikalische Reise durch verschiedene Epochen nehmen. Von zeitlosen Klassikern bis zu modernen Hits - finde deinen perfekten Soundtrack für jeden Moment.",
 
-    // Podcasts
-    "podcast.title": "Musik-Podcasts",
-    "podcast.description":
-      "Höre faszinierende Geschichten hinter der Musik, Interviews mit Künstlern und tiefgehende Analysen verschiedener Genres. Unsere Podcasts bieten dir neue Perspektiven und erweitern dein musikalisches Verständnis.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Musikquiz",
@@ -89,10 +86,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Discover carefully curated playlists that take you on a musical journey through different eras. From timeless classics to modern hits - find your perfect soundtrack for every moment.",
 
-    // Podcasts
-    "podcast.title": "Music Podcasts",
-    "podcast.description":
-      "Listen to fascinating stories behind the music, interviews with artists, and in-depth analyses of various genres. Our podcasts offer new perspectives and expand your musical understanding.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Music Quiz",
@@ -118,10 +112,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Descubre listas de reproducción cuidadosamente seleccionadas que te llevan en un viaje musical a través de diferentes épocas. Desde clásicos atemporales hasta éxitos modernos - encuentra tu banda sonora perfecta para cada momento.",
 
-    // Podcasts
-    "podcast.title": "Podcasts de Música",
-    "podcast.description":
-      "Escucha historias fascinantes detrás de la música, entrevistas con artistas y análisis en profundidad de varios géneros. Nuestros podcasts ofrecen nuevas perspectivas y amplían tu comprensión musical.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Cuestionario Musical",
@@ -147,10 +138,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Découvrez des playlists soigneusement sélectionnées qui vous emmènent dans un voyage musical à travers différentes époques. Des classiques intemporels aux hits modernes - trouvez votre bande sonore parfaite pour chaque moment.",
 
-    // Podcasts
-    "podcast.title": "Podcasts de Musique",
-    "podcast.description":
-      "Écoutez des histoires fascinantes derrière la musique, des interviews d'artistes et des analyses approfondies de divers genres. Nos podcasts offrent de nouvelles perspectives et élargissent votre compréhension musicale.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Quiz Musical",
@@ -176,10 +164,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Scopri playlist accuratamente selezionate che ti portano in un viaggio musicale attraverso diverse epoche. Dai classici senza tempo ai successi moderni - trova la tua colonna sonora perfetta per ogni momento.",
 
-    // Podcasts
-    "podcast.title": "Podcast Musicali",
-    "podcast.description":
-      "Ascolta storie affascinanti dietro la musica, interviste con artisti e analisi approfondite di vari generi. I nostri podcast offrono nuove prospettive e ampliano la tua comprensione musicale.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Quiz Musicale",
@@ -205,10 +190,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Descubra playlists cuidadosamente selecionadas que o levam em uma jornada musical através de diferentes épocas. De clássicos atemporais a hits modernos - encontre sua trilha sonora perfeita para cada momento.",
 
-    // Podcasts
-    "podcast.title": "Podcasts de Música",
-    "podcast.description":
-      "Ouça histórias fascinantes por trás da música, entrevistas com artistas e análises aprofundadas de vários gêneros. Nossos podcasts oferecem novas perspectivas e expandem sua compreensão musical.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Quiz Musical",
@@ -234,10 +216,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Opdag omhyggeligt kuraterede playlister, der tager dig med på en musikalsk rejse gennem forskellige epoker. Fra tidløse klassikere til moderne hits - find dit perfekte soundtrack til ethvert øjeblik.",
 
-    // Podcasts
-    "podcast.title": "Musik Podcasts",
-    "podcast.description":
-      "Lyt til fascinerende historier bag musikken, interviews med kunstnere og dybdegående analyser af forskellige genrer. Vores podcasts tilbyder nye perspektiver og udvider din musikalske forståelse.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Musik Quiz",
@@ -263,10 +242,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Ontdek zorgvuldig samengestelde afspeellijsten die je meenemen op een muzikale reis door verschillende tijdperken. Van tijdloze klassiekers tot moderne hits - vind je perfecte soundtrack voor elk moment.",
 
-    // Podcasts
-    "podcast.title": "Muziek Podcasts",
-    "podcast.description":
-      "Luister naar fascinerende verhalen achter de muziek, interviews met artiesten en diepgaande analyses van verschillende genres. Onze podcasts bieden nieuwe perspectieven en verbreden je muzikale begrip.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Muziek Quiz",
@@ -292,10 +268,7 @@ const TRANSLATIONS = {
     "playlist.description":
       "Upptäck noggrant utvalda spellistor som tar dig med på en musikalisk resa genom olika epoker. Från tidlösa klassiker till moderna hits - hitta ditt perfekta soundtrack för varje ögonblick.",
 
-    // Podcasts
-    "podcast.title": "Musik Podcasts",
-    "podcast.description":
-      "Lyssna på fascinerande berättelser bakom musiken, intervjuer med artister och djupgående analyser av olika genrer. Våra podcasts erbjuder nya perspektiv och utökar din musikaliska förståelse.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Musik Quiz",
@@ -322,9 +295,7 @@ const TRANSLATIONS = {
       "Löydä huolellisesti kuratoituja soittolistoja, jotka vievät sinut musiikilliselle matkalle eri aikakausien läpi. Ajattomista klassikoista moderneihin hitteihin - löydä täydellinen ääniraita jokaiseen hetkeen.",
 
     // Podcasts
-    "podcast.title": "Musiikki Podcastit",
-    "podcast.description":
-      "Kuuntele kiehtovia tarinoita musiikin takana, haastatteluja artistien kanssa ja syvällisiä analyyseja eri genreistä. Podcastimme tarjoavat uusia näkökulmia ja laajentavat musiikillista ymmärrystäsi.",
+    // Podcasts (migrated to subdomain)
 
     // Game Home
     "game.title": "Musiikkivisa",
@@ -345,8 +316,7 @@ const TRANSLATIONS = {
       "探索迷人的音乐世界，在我们的互动音乐问答中测试你的知识。发现无数流派，展示你的音乐功底，成为真正的音乐传奇！",
     "playlist.title": "音乐精选",
     "playlist.description": "发现精心策划的歌单，带你穿越不同时代。从永恒经典到现代热门——为每个时刻找到完美配乐。",
-    "podcast.title": "音乐播客",
-    "podcast.description": "聆听音乐背后的故事、艺术家访谈以及各类风格的深度解析。开启新的视角，拓展音乐理解。",
+  // Podcasts (migrated to subdomain)
     "game.title": "音乐问答",
     "game.description": "从多种流派中选择，挑战不同难度，赢取高分。属于每位音乐爱好者的极致体验！",
     "knowledge.title": "音乐知识",
@@ -359,8 +329,7 @@ const TRANSLATIONS = {
     "home.description": "音楽の世界へ飛び込んで、インタラクティブなクイズで知識を試そう。無数のジャンルを探索して、真の音楽通になろう！",
     "playlist.title": "音楽プレイリスト",
     "playlist.description": "厳選されたプレイリストで、さまざまな時代を音楽とともに旅しよう。タイムレスな名曲から最新ヒットまで。",
-    "podcast.title": "音楽ポッドキャスト",
-    "podcast.description": "音楽の裏側の物語、アーティストへのインタビュー、幅広いジャンルの深掘りをお届け。",
+  // Podcasts (migrated to subdomain)
     "game.title": "音楽クイズ",
     "game.description": "多彩なジャンルと難易度に挑戦し、ハイスコアを目指そう。音楽ファン必見の体験！",
     "knowledge.title": "音楽知識",
@@ -373,8 +342,7 @@ const TRANSLATIONS = {
     "home.description": "Откройте для себя удивительный мир музыки и проверьте свои знания в интерактивной викторине. Исследуйте жанры, покажите мастерство и станьте легендой!",
     "playlist.title": "Музыкальные подборки",
     "playlist.description": "Откройте тщательно составленные плейлисты — путешествие сквозь эпохи: от классики до современных хитов.",
-    "podcast.title": "Музыкальные подкасты",
-    "podcast.description": "Истории за кулисами, интервью с артистами и глубокий разбор жанров — расширяйте музыкальный кругозор.",
+  // Podcasts (migrated to subdomain)
     "game.title": "Музыкальная викторина",
     "game.description": "Выбирайте жанры и сложность, зарабатывайте очки и ставьте рекорды — идеальный опыт для меломанов!",
     "knowledge.title": "Музыкальные знания",
@@ -387,8 +355,7 @@ const TRANSLATIONS = {
     "home.description": "Пориньте у світ музики та перевірте свої знання в інтерактивній вікторині. Досліджуйте жанри й ставайте музичною легендою!",
     "playlist.title": "Музичні плейлисти",
     "playlist.description": "Добірки, що проведуть крізь епохи — від вічної класики до сучасних хітів.",
-    "podcast.title": "Музичні подкасти",
-    "podcast.description": "Історії за лаштунками, інтерв'ю з артистами та глибокий аналіз жанрів — відкривайте нове бачення музики.",
+  // Podcasts (migrated to subdomain)
     "game.title": "Музична вікторина",
     "game.description": "Обирайте жанри та складність, набирайте очки та ставте рекорди — ідеально для меломанів!",
     "knowledge.title": "Музичні знання",
