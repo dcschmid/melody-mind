@@ -77,6 +77,7 @@ export default defineConfig({
         "@lib": path.resolve("./src/lib"),
         // Added to mirror tsconfig.json paths and fix Rollup resolution for middleware import
         "@constants": path.resolve("./src/constants"),
+        "@scripts": path.resolve("./src/scripts"),
       },
     },
     // Astro 5.0+ dependency optimization

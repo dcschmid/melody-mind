@@ -15,7 +15,8 @@
       "@data/*": ["src/data/*"],
       "@types/*": ["src/types/*"],
       "@lib/*": ["src/lib/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@scripts/*": ["src/scripts/*"]
     }
   },
   "ts-node": {
