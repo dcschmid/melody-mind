@@ -1,9 +1,6 @@
 /**
  * Language-specific XML Sitemap Generator for Melody Mind (TypeScript version)
  */
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-
 import { getSupportedLanguages } from "../utils/i18n/staticPaths";
 
 interface SitemapEntry {
@@ -39,16 +36,10 @@ export async function get({
   // Main pages
   push({ url: `${siteUrl}/${lang}/`, lastmod: today, changefreq: "weekly", priority: "1.0" });
   push({
-    url: `${siteUrl}/${lang}/knowledge/`,
-    lastmod: today,
-    changefreq: "weekly", 
-    priority: "0.9",
-  });
-  push({
     url: `${siteUrl}/${lang}/playlists/`,
     lastmod: today,
     changefreq: "weekly",
-    priority: "0.8",
+    priority: "0.9",
   });
   push({
     url: `${siteUrl}/${lang}/gamehome/`,
@@ -56,27 +47,6 @@ export async function get({
     changefreq: "weekly",
     priority: "0.8",
   });
-
-  // Knowledge articles
-  try {
-    const collectionName = `knowledge-${lang}`;
-    const articles = await getCollection(collectionName).catch(() => null);
-    if (Array.isArray(articles) && articles.length > 0) {
-      (articles as CollectionEntry<typeof collectionName>[]).slice(0, 500).forEach((article) => {
-        const lastmod =
-          article.data.updatedAt instanceof Date ? article.data.updatedAt.toISOString() : today;
-        push({
-          url: `${siteUrl}/${lang}/knowledge/${article.slug}`,
-          lastmod,
-          changefreq: "monthly",
-          priority: "0.7",
-        });
-      });
-    }
-  } catch (err) {
-    const msg = (err as Error)?.message || err;
-    globalThis.console?.warn?.(`sitemap: failed to add knowledge articles for ${lang}:`, msg);
-  }
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls

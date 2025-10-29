@@ -171,9 +171,11 @@ const t = useTranslations(lang);
                     </Headline>
                     <nav class="flex flex-col gap-4">
                       <a
-                        href={getRelativeLocaleUrl(lang, "knowledge")}
+                        href={`https://knowledge.melody-mind.de/${lang}/knowledge`}
                         class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                         role="menuitem"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <div class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 shadow-md">
                           <Icon
