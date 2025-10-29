@@ -25,36 +25,7 @@ export default {
   "knowledge.word_count": "{count} palabras",
   "knowledge.description":
     "Sumérgete en los géneros musicales: sus historias, artistas clave y las narrativas detrás de los sonidos. Encuentra perspectivas profundas, consejos de escucha y ejemplos seleccionados para enriquecer tu experiencia y crear playlists con intención.",
-  "podcasts.note.only_english": "Nota: Los podcasts están disponibles solo en inglés por ahora.",
-  "podcasts.navigation.aria": "Navegación de episodios",
-
-  // Traducciones de podcast
-  "podcast.title": "Podcasts",
-  "podcast.description":
-    "Sintoniza conversaciones en profundidad sobre música — entrevistas, historias entre bastidores y episodios que profundizan tu apreciación. Perfecto para fans que aman escuchar, aprender e inspirarse.",
-  "podcasts.platform.apple": "Apple Music",
-  "podcasts.platform.deezer": "Deezer",
-  "podcasts.platform.spotify": "Spotify",
-  "podcasts.platform.youtube": "YouTube",
-  "podcasts.episode.plural": "Episodios",
-  "podcasts.episode.singular": "Episodio",
-  "podcast.rss.subscribe": "Suscribirse por RSS",
-  "podcast.search.placeholder": "Buscar podcasts o títulos de episodios",
-  "podcast.search.label": "Buscar podcasts",
-  "podcast.rss.subscribe.title": "Suscribirse por RSS",
-  "podcast.rss.subscribe.description": "Abrir el feed en tu app de podcasts",
-  "podcasts.read_full_notes": "Leer notas del programa y transcripción completas",
-  "podcast.back_to_all": "Volver a todos los podcasts",
-  "podcast.listen_to_episode": "Escuchar episodio",
-  "podcast.episode_label": "Episodio {number}",
-  "podcast.download_audio": "Descargar audio",
-  "podcast.view_subtitles": "Ver subtítulos",
-  "podcasts.cta.title": "Descubre podcasts",
-  "podcasts.cta.description":
-    "Explora nuestra colección curada de podcasts musicales — entrevistas atractivas e historias que te invitan a reproducir.",
-  "podcasts.cta.browse": "Explorar podcasts",
-  "podcasts.navigation.next": "Siguiente episodio",
-  "podcasts.navigation.previous": "Episodio anterior",
+  // Podcast translations removed (migrated to podcasts subdomain)
 
   "share.challenge_fallback": "🎮 ¿Crees que puedes superarme? Juega ahora en:",
   "category.difficulty.hard": "Difícil",

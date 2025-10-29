@@ -17,36 +17,7 @@ export default {
   "knowledge.search.no_results_for": "No results for {term}",
   "knowledge.search.reset.text": "Reset",
   "knowledge.back.to.list": "Back to knowledge list",
-  "podcasts.note.only_english": "Note: Podcasts are currently available only in English.",
-  "podcasts.navigation.aria": "Episode navigation",
-  "podcasts.platform.youtube": "YouTube",
-
-  // Podcast specific translations
-  "podcast.title": "Podcasts",
-  "podcast.description":
-    "Tune into in‑depth conversations about music — interviews, behind‑the‑scenes stories, and episodes that enrich your listening. Perfect for fans who love to learn, get inspired, and discover more. 🎧✨",
-  "podcasts.platform.apple": "Apple Music",
-  "podcasts.platform.deezer": "Deezer",
-  "podcasts.platform.spotify": "Spotify",
-  "podcasts.episode.plural": "Episodes",
-  "podcasts.episode.singular": "Episode",
-  "podcast.rss.subscribe": "Subscribe to RSS",
-  "podcast.search.placeholder": "Search podcasts or episode titles",
-  "podcast.search.label": "Search podcasts",
-  "podcast.rss.subscribe.title": "Subscribe via RSS",
-  "podcast.rss.subscribe.description": "Open feed in your podcast app",
-  "podcasts.read_full_notes": "Read full show notes and transcript",
-  "podcast.back_to_all": "Back to all podcasts",
-  "podcast.listen_to_episode": "Listen to episode",
-  "podcast.episode_label": "Episode {number}",
-  "podcast.download_audio": "Download audio",
-  "podcast.view_subtitles": "View subtitles",
-  "podcasts.cta.title": "Discover Podcasts",
-  "podcasts.cta.description":
-    "Explore our curated music podcast collection — engaging interviews and stories that make you want to press play. 🎙️",
-  "podcasts.cta.browse": "Browse podcasts",
-  "podcasts.navigation.next": "Next episode",
-  "podcasts.navigation.previous": "Previous episode",
+  // Podcast translations removed (migrated to podcasts subdomain)
 
   "share.challenge_fallback": "🎮 Think you can beat me? Take the challenge now:",
   "category.difficulty.hard": "Hard",

@@ -56,12 +56,6 @@ export async function get({
     changefreq: "weekly",
     priority: "0.8",
   });
-  push({
-    url: `${siteUrl}/${lang}/news/`,
-    lastmod: today,
-    changefreq: "weekly",
-    priority: "0.7",
-  });
 
   // Knowledge articles
   try {

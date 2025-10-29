@@ -89,7 +89,6 @@ const pageSeo = buildPageSeo({
     t("index.card.game.title") || "Game Overview",
     t("index.card.playlists.title") || "Playlists",
     t("index.card.podcast.title") || "Podcast",
-    t("index.card.news.title") || "News",
     t("index.card.knowledge.title") || "Knowledge",
   ],
   fallbackKeywords: keywordsArray,
@@ -135,14 +134,6 @@ const cards = [
     href: `https://podcasts.melody-mind.de/${String(lang)}`,
     image: "/homecategories/podcast.png",
     imageAlt: "Podcast microphone and notes",
-  },
-  {
-    key: "news",
-    title: t("index.card.news.title") || "News",
-    description: t("index.card.news.desc") || "Latest updates, features and release notes.",
-    href: `/${String(lang)}/news`,
-    image: "/homecategories/news.png",
-    imageAlt: "News updates illustration",
   },
 ];
 

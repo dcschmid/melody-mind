@@ -30,35 +30,7 @@ export default {
   "knowledge.word_count": "{count} palavras",
   "knowledge.description":
     "Mergulhe nos gêneros musicais — sua história, artistas essenciais e as histórias por trás dos sons. Explore análises aprofundadas, dicas de audição e exemplos selecionados para aprofundar sua apreciação e inspirar suas próximas playlists.",
-  "podcasts.note.only_english": "Nota: os podcasts estão atualmente disponíveis apenas em inglês.",
-  "podcasts.navigation.aria": "Navegação de episódios",
-
-  "podcast.title": "Podcasts",
-  "podcast.description":
-    "Sintonize conversas aprofundadas sobre música — entrevistas, histórias dos bastidores e episódios que ampliam sua apreciação. Perfeito para fãs que gostam de ouvir, aprender e se inspirar.",
-  "podcasts.platform.apple": "Apple Music",
-  "podcasts.platform.deezer": "Deezer",
-  "podcasts.platform.spotify": "Spotify",
-  "podcasts.platform.youtube": "YouTube",
-  "podcasts.episode.plural": "Episódios",
-  "podcasts.episode.singular": "Episódio",
-  "podcast.rss.subscribe": "Assinar RSS",
-  "podcast.search.placeholder": "Pesquisar podcasts ou títulos de episódios",
-  "podcast.search.label": "Procurar podcasts",
-  "podcast.rss.subscribe.title": "Assinar via RSS",
-  "podcast.rss.subscribe.description": "Abrir o feed no seu aplicativo de podcasts",
-  "podcasts.read_full_notes": "Ler as notas completas do programa e a transcrição",
-  "podcast.back_to_all": "Voltar a todos os podcasts",
-  "podcast.listen_to_episode": "Ouvir episódio",
-  "podcast.episode_label": "Episódio {number}",
-  "podcast.download_audio": "Baixar áudio",
-  "podcast.view_subtitles": "Ver legendas",
-  "podcasts.cta.title": "Descobrir podcasts",
-  "podcasts.cta.description":
-    "Explore nossa coleção curada de podcasts musicais — entrevistas envolventes e histórias que vão fazer você apertar play.",
-  "podcasts.cta.browse": "Procurar podcasts",
-  "podcasts.navigation.next": "Próximo episódio",
-  "podcasts.navigation.previous": "Episódio anterior",
+  // Podcast translations removed (migrated to podcasts subdomain)
 
   "share.challenge_fallback": "🎮 Acha que consegue me vencer? Jogue agora em:",
   "category.difficulty.hard": "Difícil",

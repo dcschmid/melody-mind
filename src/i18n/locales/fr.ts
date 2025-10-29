@@ -29,35 +29,7 @@ export default {
   "knowledge.word_count": "{count} mots",
   "knowledge.description":
     "Plongez au cœur des genres musicaux \u2014 leur histoire, les artistes embl\u00e9matiques et les r\u00e9cits qui fa\u00e7onnent leurs sonorit\u00e9s. Découvrez des analyses, des conseils d\u2019\u00e9coute et des exemples adapt\u00e9s pour enrichir votre écoute et inspirer vos playlists.",
-  "podcasts.note.only_english":
-    "Remarque : les podcasts sont pour l'instant disponibles uniquement en anglais.",
-  "podcasts.navigation.aria": "Navigation des épisodes",
-  "podcast.title": "Podcasts",
-  "podcast.description":
-    "Plonge dans des conversations approfondies sur la musique — interviews, récits des coulisses et épisodes qui approfondissent ton écoute. Parfait pour les fans qui aiment écouter, apprendre et s'inspirer.",
-  "podcasts.platform.apple": "Apple Music",
-  "podcasts.platform.deezer": "Deezer",
-  "podcasts.platform.spotify": "Spotify",
-  "podcasts.platform.youtube": "YouTube",
-  "podcasts.episode.plural": "Épisodes",
-  "podcasts.episode.singular": "Épisode",
-  "podcast.rss.subscribe": "S'abonner au RSS",
-  "podcast.search.placeholder": "Rechercher des podcasts ou des titres d'épisodes",
-  "podcast.search.label": "Rechercher des podcasts",
-  "podcast.rss.subscribe.title": "S'abonner via RSS",
-  "podcast.rss.subscribe.description": "Ouvrir le flux dans votre application de podcasts",
-  "podcasts.read_full_notes": "Lire les notes de l'émission et la transcription complètes",
-  "podcast.back_to_all": "Retour à tous les podcasts",
-  "podcast.listen_to_episode": "Écouter l'épisode",
-  "podcast.episode_label": "Épisode {number}",
-  "podcast.download_audio": "Télécharger l'audio",
-  "podcast.view_subtitles": "Voir les sous-titres",
-  "podcasts.cta.title": "Découvrir les podcasts",
-  "podcasts.cta.description":
-    "Explore notre sélection de podcasts musicaux — interviews captivantes et histoires qui te donneront envie d'appuyer sur « play ». ",
-  "podcasts.cta.browse": "Parcourir les podcasts",
-  "podcasts.navigation.next": "Épisode suivant",
-  "podcasts.navigation.previous": "Épisode précédent",
+  // Podcast translations removed (migrated to podcasts subdomain)
 
   "share.challenge_fallback": "🎮 Tu penses pouvoir me battre ? Joue maintenant sur :",
   "category.difficulty.hard": "Difficile",

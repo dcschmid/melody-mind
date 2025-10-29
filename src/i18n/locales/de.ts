@@ -16,35 +16,7 @@ export default {
   "knowledge.search.no_results_for": "Keine Ergebnisse für {term}",
   "knowledge.search.reset.text": "Zurücksetzen",
   "knowledge.back.to.list": "Zurück zur Artikelliste",
-  "podcasts.note.only_english": "Hinweis: Podcasts sind derzeit nur auf Englisch verfügbar.",
-  "podcasts.navigation.aria": "Episoden-Navigation",
-
-  // Podcast-spezifische Übersetzungen
-  "podcast.title": "Podcasts",
-  "podcast.description":
-    "Hör rein in tiefgehende Gespräche über Musik — Interviews, Hintergrundstories und Episoden, die deine Wertschätzung vertiefen. Perfekt für Fans, die gern zuhören, lernen und sich inspirieren lassen. 🎧✨",
-  "podcasts.platform.apple": "Apple Music",
-  "podcasts.platform.deezer": "Deezer",
-  "podcasts.platform.spotify": "Spotify",
-  "podcasts.episode.plural": "Episoden",
-  "podcasts.episode.singular": "Episode",
-  "podcast.rss.subscribe": "RSS abonnieren",
-  "podcast.search.placeholder": "Podcasts oder Episodentitel suchen",
-  "podcast.search.label": "Podcasts suchen",
-  "podcast.rss.subscribe.title": "Per RSS abonnieren",
-  "podcast.rss.subscribe.description": "Feed in deiner Podcast-App öffnen",
-  "podcasts.read_full_notes": "Gesamte Shownotes und Transkript lesen",
-  "podcast.back_to_all": "Zurück zu allen Podcasts",
-  "podcast.listen_to_episode": "Episode anhören",
-  "podcast.episode_label": "Episode {number}",
-  "podcast.download_audio": "Audio herunterladen",
-  "podcast.view_subtitles": "Untertitel anzeigen",
-  "podcasts.cta.title": "Podcasts entdecken",
-  "podcasts.cta.description":
-    "Durchstöbere unsere kuratierte Sammlung von Musikpodcasts — spannende Interviews und Geschichten, die Lust aufs Hören machen. 🎙️",
-  "podcasts.cta.browse": "Podcasts durchsuchen",
-  "podcasts.navigation.next": "Nächste Episode",
-  "podcasts.navigation.previous": "Vorherige Episode",
+  // Podcast translations removed (migrated to podcasts subdomain)
 
   "share.challenge_fallback": "🎮 Denkst du, du kannst mich schlagen? Spiel jetzt hier:",
   "category.difficulty.hard": "Schwer",

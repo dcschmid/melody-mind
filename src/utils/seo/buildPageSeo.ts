@@ -4,7 +4,6 @@
  * This reduces repetitive assembly across Astro pages.
  */
 import {
-  NEWS_FALLBACK_IMAGE,
   PLAYLIST_COVER_IMAGE,
   PODCAST_COVER_IMAGE,
 } from "../../constants/assets";
@@ -157,8 +156,6 @@ function resolveFallbackImage(contentKind: PageContentKind, override?: string): 
       return PLAYLIST_COVER_IMAGE;
     case "podcast":
       return PODCAST_COVER_IMAGE;
-    case "news":
-      return NEWS_FALLBACK_IMAGE;
     default:
       return undefined;
   }

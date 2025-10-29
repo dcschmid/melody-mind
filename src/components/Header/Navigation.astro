@@ -243,30 +243,6 @@ const t = useTranslations(lang);
                           </span>
                         </div>
                       </a>
-
-                      <a
-                        href={getRelativeLocaleUrl(lang, "news")}
-                        class="text-decoration-none relative flex min-h-[80px] cursor-pointer flex-row items-center gap-6 overflow-hidden rounded-2xl border border-gray-700 bg-gray-800 p-4 text-white shadow-sm transition-all duration-300 hover:border-purple-500 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                        role="menuitem"
-                      >
-                        <div class="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-red-500 to-red-600 shadow-md">
-                          <Icon
-                            name="news"
-                            width={28}
-                            height={28}
-                            aria-hidden="true"
-                            class="z-10 text-white"
-                          />
-                        </div>
-                        <div class="z-10 flex flex-1 flex-col gap-2">
-                          <span class="text-lg leading-tight font-semibold text-white">
-                            {t("news.title")}
-                          </span>
-                          <span class="text-sm leading-relaxed text-gray-300 opacity-80">
-                            {t("news.description")}
-                          </span>
-                        </div>
-                      </a>
                     </nav>
                   </div>
                 </Fragment>
