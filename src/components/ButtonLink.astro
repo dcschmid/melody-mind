@@ -1,0 +1,164 @@
+---
+/**
+ * ButtonLink Component - Simple & Clean
+ *
+ * A versatile anchor-style button with consistent styling across the project.
+ *
+ * @component
+ * @example
+ * ```astro
+ * --- Frontmatter (example) ---
+ * ---
+ * import { getLangFromUrl, useTranslations } from '@utils/i18n';
+ * const lang = getLangFromUrl(Astro.url);
+ * const t = useTranslations(String(lang));
+ * ---
+ *
+ * <!-- As a link (slot content translated via i18n) -->
+ * <ButtonLink href="/game">
+ *   {t("index.start.game.label")}
+ * </ButtonLink>
+ *
+ * <!-- As a button with icon (ariaLabel passed as translated string) -->
+ * <ButtonLink href="/settings" variant="secondary" icon="mdi:close" ariaLabel={t("general.close")}>
+ *   {t("general.close")}
+ * </ButtonLink>
+ *
+ * <!-- With icon only (use translated aria-label directly) -->
+ * <ButtonLink href="/settings" icon="mdi:settings" ariaLabel={t("nav.profile.description")} />
+ *
+ * Notes:
+ * - Prefer passing translated strings (e.g. t("key")) for `ariaLabel` and slot content.
+ * - This keeps accessibility labels consistent across locales and avoids hardcoded text.
+ * ```
+ */
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+
+// Get current language and translations
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(String(lang));
+
+type ButtonVariant = "primary" | "secondary";
+
+interface Props {
+  /** URL for the link. Required because the component always renders an anchor element */
+  href: string;
+  /** Accessible label for the button/link (important for screen readers).
+   *  Prefer passing an i18n-translated string, e.g. `ariaLabel={t("general.close")}`.
+   *  If omitted, consumers should ensure the accessible name is provided by surrounding context.
+   */
+  ariaLabel?: string;
+  /** Ids of elements that describe this control (space separated). */
+  ariaDescribedBy?: string;
+  /** Additional CSS classes to apply */
+  className?: string;
+  /** Target attribute for links */
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  /** Relationship attribute for links */
+  rel?: string;
+  /** Visual variant style */
+  variant?: ButtonVariant;
+  /** Optional icon name for astro-icon (e.g., "mdi:home", "heroicons:star") */
+  icon?: string;
+}
+
+const rawProps = Astro.props as Props & Record<string, unknown>;
+
+const {
+  href,
+  ariaLabel,
+  ariaDescribedBy,
+  className = "",
+  target = "_self",
+  rel,
+  variant = "primary",
+  icon,
+} = rawProps;
+
+// Ensure proper rel attribute for external links
+const isExternal = target === "_blank";
+const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
+
+// Get translated text for external link indicator
+const externalLinkText = t("nav.openNewWindow");
+
+const baseClasses = [
+  "inline-flex items-center justify-center rounded-lg border-none font-bold",
+  "text-decoration-none relative min-h-[48px] min-w-[48px] cursor-pointer",
+  "px-4 py-3 sm:px-6 sm:py-4 text-base sm:text-lg",
+  "tracking-base font-primary leading-normal transition-all duration-300",
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500",
+  "w-full max-w-full sm:w-auto sm:max-w-none",
+].join(" ");
+
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: [
+    "border border-transparent bg-blue-600 text-white shadow-lg",
+    "hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-xl",
+    "active:scale-95 active:transition-transform active:duration-100",
+    "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+  ].join(" "),
+  secondary: [
+    "border border-gray-300 bg-gray-200 text-gray-800",
+    "hover:-translate-y-0.5 hover:border-blue-500 hover:bg-gray-300",
+    "active:scale-95 active:transition-transform active:duration-100",
+    "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+  ].join(" "),
+};
+
+const classes = [baseClasses, variantClasses[variant], String(className)].filter(Boolean).join(" ");
+
+// Icon classes
+const iconClasses = ["size-5 sm:size-6 flex-shrink-0 mr-3", "text-current"].join(" ");
+
+// Screen reader only classes
+const srOnlyClasses = [
+  "absolute w-px h-px p-0 -m-px overflow-hidden",
+  "whitespace-nowrap border-0",
+].join(" ");
+
+const ariaLabelAttr =
+  (ariaLabel as string | undefined) ?? (rawProps["aria-label"] as string | undefined);
+
+const ariaDescribedByAttr =
+  (ariaDescribedBy as string | undefined) ?? (rawProps["aria-describedby"] as string | undefined);
+
+const forwardedAttrs = (() => {
+  const restAttrs: Record<string, unknown> = { ...rawProps };
+  // Remove known props so they are not duplicated on the anchor element
+  for (const key of [
+    "href",
+    "ariaLabel",
+    "ariaDescribedBy",
+    "className",
+    "target",
+    "rel",
+    "variant",
+    "icon",
+    "aria-describedby",
+    "aria-label",
+  ]) {
+    if (key in restAttrs) {
+      delete (restAttrs as Record<string, unknown>)[key];
+    }
+  }
+  return restAttrs;
+})();
+---
+
+<a
+  {href}
+  class={classes}
+  aria-label={ariaLabelAttr
+    ? `${ariaLabelAttr}${isExternal ? ` (${externalLinkText})` : ""}`
+    : undefined}
+  aria-describedby={ariaDescribedByAttr}
+  {target}
+  rel={finalRel}
+  {...forwardedAttrs}
+>
+  {icon && <Icon name={icon} class={iconClasses} />}
+  <slot />
+  {isExternal && <span class={srOnlyClasses}> ({externalLinkText})</span>}
+</a>

@@ -1,0 +1,31 @@
+.keyboard-shortcut-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .keyboard-shortcut-hint {
+    border: 1px solid ButtonText;
+    background-color: ButtonFace;
+    color: ButtonText;
+  }
+}
+
+/* Print styles */
+@media print {
+  .keyboard-shortcut-hint {
+    border: 1px solid #000;
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+}

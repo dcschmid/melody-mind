@@ -1,0 +1,44 @@
+---
+/**
+ * @component SkipLink
+ * @description Accessibility component that allows keyboard users to bypass repetitive navigation
+ * and quickly access the main content. Initially hidden visually but appears when focused.
+ *
+ * @example
+ * ```astro
+ * <SkipLink targetId="quiz-content" />
+ * <SkipLink targetId="main-content" />
+ * ```
+ */
+import { getLangFromUrl, useTranslations } from "@utils/i18n";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  /**
+   * The ID of the element to target when the skip link is activated
+   * @default "main-content"
+   */
+  targetId?: string;
+}
+
+const { targetId = "main-content" } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Skip link classes - minimal and essential
+const skipLinkClasses = [
+  "absolute -top-[9999px] left-1/2 -translate-x-1/2 z-50",
+  "bg-blue-600 text-white px-4 py-2 rounded-b-lg",
+  "text-center font-bold no-underline",
+  "flex items-center justify-center gap-2",
+  "focus-visible:top-0 focus-visible:outline-2 focus-visible:outline-blue-500",
+].join(" ");
+
+// Icon classes - minimal
+const iconClasses = "w-4 h-4 text-white";
+---
+
+<a href={`#${targetId}`} class={skipLinkClasses} data-skip-link aria-label={t("nav.skip.main")}>
+  <Icon name="external-link" class={iconClasses} aria-hidden="true" />
+  {t("nav.skip.main")}
+</a>

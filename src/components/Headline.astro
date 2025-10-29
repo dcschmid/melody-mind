@@ -1,0 +1,63 @@
+---
+/**
+ * Headline Component - Simple & Clean
+ *
+ * A clean heading component with different levels and basic styling.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Headline level="h1">
+ *   Welcome to MelodyMind
+ * </Headline>
+ * ```
+ */
+interface Props {
+  /** Text content of the heading (can also use slot content instead) */
+  title?: string;
+  /** HTML heading level (h1-h6) for proper document hierarchy */
+  level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  /** Additional CSS classes to apply */
+  className?: string;
+  /** Text size variant using Tailwind text size classes */
+  textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl";
+  /** Text alignment option */
+  textAlign?: "left" | "center" | "right";
+}
+
+const { title, level = "h1", className = "", textSize = "lg", textAlign = "left" } = Astro.props;
+
+// Dynamic heading tag based on level prop
+const Tag = level;
+
+const baseClasses = [
+  "font-primary mb-md leading-tight font-bold text-text-primary",
+  "text-balance break-words",
+].join(" ");
+
+const textSizeClasses: Record<NonNullable<Props["textSize"]>, string> = {
+  sm: "text-lg font-semibold md:text-xl",
+  base: "text-xl font-semibold md:text-2xl",
+  lg: "text-2xl font-bold md:text-3xl",
+  xl: "text-3xl font-bold md:text-4xl",
+  "2xl": "text-4xl font-bold md:text-5xl",
+  "3xl": "text-5xl font-bold md:text-6xl",
+};
+
+const textAlignClasses: Record<NonNullable<Props["textAlign"]>, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+};
+
+const classes = [baseClasses, textSizeClasses[textSize], textAlignClasses[textAlign], className]
+  .filter(Boolean)
+  .join(" ");
+
+// Simple attributes
+const attributes: Record<string, any> = {
+  class: classes,
+};
+---
+
+<Tag {...attributes}>{title || <slot />}</Tag>

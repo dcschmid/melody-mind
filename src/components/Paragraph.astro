@@ -1,0 +1,66 @@
+---
+/**
+ * Paragraph Component - Simple & Clean
+ *
+ * A clean paragraph component with different text sizes and basic styling.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Paragraph textSize="lg" textAlign="center">
+ *   This is a paragraph with custom styling
+ * </Paragraph>
+ * ```
+ */
+interface Props {
+  /** Additional CSS classes to apply */
+  className?: string;
+  /** Text size variant using Tailwind text size classes */
+  textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  /** Text alignment option */
+  textAlign?: "left" | "center" | "right";
+}
+
+const { textSize = "xl", className = "", textAlign = "left" } = Astro.props as Props;
+
+const baseClasses = [
+  "font-primary tracking-base text-secondary leading-relaxed font-normal",
+  "mb-4 sm:mb-6 md:mb-8 lg:mb-12",
+  "text-rendering-optimize-legibility antialiased",
+  "transition-all duration-300",
+  "max-w-full text-balance break-words hyphens-auto",
+  "leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed",
+].join(" ");
+
+type TextSize = NonNullable<Props["textSize"]>;
+type TextAlign = NonNullable<Props["textAlign"]>;
+
+const textSizeClasses: Record<TextSize, string> = {
+  sm: "text-lg",
+  base: "text-base sm:text-base md:text-lg",
+  lg: "text-xl",
+  xl: "text-2xl",
+  "2xl": "text-2xl lg:text-3xl",
+  "3xl": "text-3xl lg:text-4xl",
+  "4xl": "text-4xl lg:text-5xl",
+};
+
+const textAlignClasses: Record<TextAlign, string> = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+};
+
+const classes = [baseClasses, textSizeClasses[textSize], textAlignClasses[textAlign], className]
+  .filter(Boolean)
+  .join(" ");
+
+// Simple attributes
+const attributes: Record<string, any> = {
+  class: classes,
+};
+---
+
+<p {...attributes}>
+  <slot />
+</p>

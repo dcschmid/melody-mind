@@ -1,0 +1,61 @@
+---
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  headingLevel?: "h1" | "h2" | "h3";
+  id?: string;
+  icon?: string;
+}
+
+const { title, subtitle, headingLevel = "h1", id = "hero-heading", icon } = Astro.props as Props;
+const headlineLevel = headingLevel;
+const sectionClasses =
+  "relative mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-gradient-to-br from-purple-900 via-blue-800 to-gray-900 p-8 sm:p-12 lg:p-16 shadow-2xl";
+---
+
+<section class={sectionClasses} aria-labelledby={id}>
+  <div class="pointer-events-none absolute inset-0 opacity-10" aria-hidden="true">
+    <div class="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-white"></div>
+    <div class="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-white"></div>
+    <div class="absolute top-1/2 right-4 h-16 w-16 rounded-full bg-white"></div>
+  </div>
+  <div class="relative z-10 mx-auto flex w-full max-w-full flex-col items-stretch text-center">
+    <div class="flex flex-col items-stretch">
+      <Headline
+        level={headlineLevel}
+        className="mx-auto w-full text-center font-bold tracking-tight text-balance text-white"
+      >
+        {
+          icon && (
+            <span class="mr-3 align-middle text-3xl leading-none" aria-hidden="true">
+              {icon}
+            </span>
+          )
+        }
+        <span class="align-middle">{title}</span>
+      </Headline>
+      <div class="mx-auto mt-4 h-1 w-12 rounded-full bg-blue-400"></div>
+      {
+        subtitle && (
+          <Paragraph
+            textSize="lg"
+            textAlign="center"
+            className="mt-6 w-full max-w-full mx-auto leading-relaxed text-balance text-white"
+          >
+            {subtitle}
+          </Paragraph>
+        )
+      }
+    </div>
+    <div class="mt-10 flex w-full flex-wrap justify-center gap-4">
+      <slot name="primary" />
+    </div>
+    <div class="mt-8 flex w-full flex-wrap justify-center gap-4">
+      <slot name="secondary" />
+    </div>
+    <slot />
+  </div>
+</section>

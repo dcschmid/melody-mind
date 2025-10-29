@@ -1,0 +1,49 @@
+---
+/**
+ * @component BackToTop
+ * @description Reusable back-to-top button component with optimized scroll behavior.
+ * Provides consistent styling, accessibility, and performance across all pages.
+ *
+ * @example
+ * ```astro
+ * <BackToTop lang="en" />
+ * <BackToTop lang="de" className="custom-position" />
+ * ```
+ */
+
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "@utils/i18n";
+
+/**
+ * Props interface for the BackToTop component
+ */
+interface Props {
+  /** Language code for internationalization */
+  lang: string;
+  /** Additional CSS class for custom positioning or styling */
+  className?: string;
+  /** Custom aria-label (overrides default translation) */
+  ariaLabel?: string;
+  /** Custom scroll threshold in pixels (uses CSS variable if not provided) */
+  scrollThreshold?: number;
+}
+
+const { lang, className = "", ariaLabel, scrollThreshold } = Astro.props;
+const t = useTranslations(lang);
+
+// Use custom aria-label or fallback to translation
+const buttonAriaLabel = ariaLabel || t("common.back.to.top");
+const screenReaderText = t("common.back.to.top");
+---
+
+<button
+  id="back-to-top"
+  class={`fixed z-30 min-w-[44px] min-h-[44px] p-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white border-none rounded-full shadow-lg transition-all duration-300 cursor-pointer outline-none right-4 bottom-4 hover:from-purple-700 hover:to-purple-800 hover:-translate-y-1 hover:shadow-xl focus:from-purple-700 focus:to-purple-800 focus:shadow-xl focus:ring-2 focus:ring-purple-300 focus:ring-offset-2 active:translate-y-0.5 ${className}`.trim()}
+  aria-label={buttonAriaLabel}
+  type="button"
+  style="display: none;"
+  data-scroll-threshold={scrollThreshold}
+>
+  <Icon name="arrow-up" class="h-6 w-6 text-inherit md:h-8 md:w-8" aria-hidden="true" />
+  <span class="sr-only">{screenReaderText}</span>
+</button>

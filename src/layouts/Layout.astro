@@ -1,0 +1,643 @@
+---
+/**
+ * @component Layout
+ * @description The main layout component used throughout the MelodyMind application
+ * This layout implements WCAG 2.2 AAA accessibility standards
+ * including reduced motion support, proper document structure, optimized resource loading,
+ * and mobile-friendly viewport configurations.
+ *
+ * @param {Date} [publishDate] - Content publish date for SEO and structured data
+ * @param {Date} [modifiedDate] - Content modification date for SEO optimization
+ * @param {boolean} [showHeader=true] - Whether to display the header navigation component
+ * @param {boolean} [showHeaderIcons=true] - Whether to show icons in the header navigation
+ * @param {boolean} [showCoins=false] - Whether to display the coin counter overlay
+ * @param {Object} [ogMusic] - Music-specific OpenGraph meta tags for enhanced social sharing
+ * @param {string} [ogMusic.creator] - Music creator/artist name
+ * @param {string} [ogMusic.album] - Album name for music content
+ * @param {string} [ogMusic.musician] - Musician name for music content
+ *
+ * @example Basic usage
+ * ```astro
+ * <Layout title="Home Page" description="Welcome to MelodyMind">
+ *   <h1>Welcome to our music quiz game!</h1>
+ * </Layout>
+ * ```
+ *
+ * @example Game page with coins
+ * ```astro
+ * <Layout
+ *   title="Music Quiz - Rock Category"
+ *   description="Test your rock music knowledge"
+ *   type="game"
+ *   showCoins={true}
+ *   showHeader={false}
+ * >
+ *   <GameInterface />
+ * </Layout>
+ * ```
+ *
+ * @example Music content page
+ * ```astro
+ * <Layout
+ *   title="Album Review"
+ *   type="music"
+ *   ogMusic={{ creator: "The Beatles", album: "Abbey Road" }}
+ *   publishDate={new Date("2024-01-15")}
+ * >
+ *   <ArticleContent />
+ * </Layout>
+ * ```
+ */
+import { Head } from "astro-capo";
+
+// Primary accessible font: Atkinson Hyperlegible will be loaded from local files via @font-face
+// Removed @fontsource imports to avoid duplicate network/font loading — local files are served from /public/fonts
+
+import Navigation from "@components/Header/Navigation.astro";
+import SEO from "@components/SEO.astro";
+import SkipLink from "@components/Shared/SkipLink.astro";
+import Footer from "@components/Footer.astro";
+
+// 4. Utility imports
+import { getLangFromUrl } from "@utils/i18n";
+import type { StructuredData } from "@utils/seo/buildPageSeo";
+
+import "../styles/global.css";
+interface Props {
+  /**
+   * The page title displayed in browser tab and meta tags
+   * @type {string}
+   * @required
+   * @example "MelodyMind - Music Quiz Game"
+   */
+
+  /**
+   * Page meta description for SEO and social sharing optimization
+   * @type {string}
+   * @optional
+   * @maxLength 160 characters for optimal SEO performance
+   * @example "Test your music knowledge with our engaging trivia game featuring multiple genres and difficulty levels."
+   */
+
+  /**
+   * Page meta keywords for SEO optimization (legacy support)
+   * @type {string}
+   * @optional
+   * @example "music quiz, trivia game, rock music, pop music"
+   */
+
+  /**
+   * Social sharing image URL for Open Graph and Twitter Cards
+   * @type {string}
+   * @optional
+   * @format Absolute or relative URL path
+   * @requirements 1200x630px recommended for optimal social sharing
+   * @example "/melody-mind.png" (global fallback logo) OR a specific content image like a podcast cover
+   */
+  /**
+   * OG Image Strategy (2025-10 update):
+   * We no longer use pre-generated /og-images/ variants. Pages should pass:
+   * 1. A specific domain image (podcast episode image, category cover, etc.) when available
+   * 2. Otherwise omit and the layout will fallback to the global logo (/melody-mind.png)
+   * This keeps social previews consistent while avoiding stale generated assets.
+   */
+  /** Explicit OpenGraph image width */
+  imageWidth?: number;
+  /** Explicit OpenGraph image height */
+  imageHeight?: number;
+
+  /**
+   * Page content type for structured data and Open Graph metadata
+   * @type {"website" | "article" | "music" | "game" | "podcastEpisode"}
+   * @optional
+   * @default "website"
+   * @example "game" for quiz pages, "music" for artist content
+   */
+  /**
+   * Consolidated pageSeo object (required). Legacy individual SEO props removed.
+   */
+  pageSeo: {
+    title: string;
+    description: string;
+    keywords: string;
+    canonical: string;
+    image?: string;
+    type: "website" | "article" | "music" | "game" | "podcastEpisode";
+    robots: string;
+    openGraph: {
+      title: string;
+      description: string;
+      type: string;
+      url: string;
+      image?: string;
+      locale?: string;
+    };
+    twitter: { card: string; title: string; description: string; image?: string; creator?: string };
+    structuredData: StructuredData[];
+    publishDate?: Date;
+    modifiedDate?: Date;
+    ogLocale?: string;
+    alternateLocales?: string[];
+  };
+
+  /**
+   * Content publish date for SEO and structured data markup
+   * @type {Date}
+   * @optional
+   * @format JavaScript Date object
+   * @example new Date("2024-01-15T10:00:00Z")
+   */
+  publishDate?: Date;
+
+  /**
+   * Content modification date for SEO optimization and freshness signals
+   * @type {Date}
+   * @optional
+   * @format JavaScript Date object
+   * @example new Date("2024-01-20T15:30:00Z")
+   */
+  modifiedDate?: Date;
+
+  /**
+   * Whether to display the header navigation component
+   * @type {boolean}
+   * @optional
+   * @default true
+   * @accessibility Header provides main navigation landmark for screen readers
+   * @example false for full-screen game interfaces
+   */
+  showHeader?: boolean;
+
+  /**
+   * Whether to show icons in the header navigation
+   * @type {boolean}
+   * @optional
+   * @default true
+   * @accessibility Icons enhance visual navigation when paired with text
+   * @performance Icons are optimized SVG sprites for fast loading
+   */
+  showHeaderIcons?: boolean;
+
+  /**
+   * Whether to display the coin counter overlay component
+   * @type {boolean}
+   * @optional
+   * @default false
+   * @useCase Used in game contexts where coin tracking is needed
+   * @accessibility Positioned as overlay with proper touch targets (44x44px minimum)
+   * @example true for active quiz gameplay pages
+   */
+  showCoins?: boolean;
+
+  /**
+   * Music-specific OpenGraph meta tags for enhanced social sharing
+   * @type {Object}
+   * @optional
+   * @useCase Used when type is "music" to provide rich metadata for social platforms
+   * @properties creator, album, musician strings for detailed music metadata
+   */
+  ogMusic?: {
+    /**
+     * Music creator/artist name for OpenGraph music metadata
+     * @type {string}
+     * @example "The Beatles"
+     */
+    creator?: string;
+    /**
+     * Album name for music content OpenGraph metadata
+     * @type {string}
+     * @example "Abbey Road"
+     */
+    album?: string;
+    /**
+     * Musician name for music content OpenGraph metadata
+     * @type {string}
+     * @example "Paul McCartney"
+     */
+    musician?: string;
+  };
+  /**
+   * Podcast episode audio source URL (MP3) for podcastEpisode pages
+   * @type {string}
+   * @example "https://cdn.example.com/podcast/episode-1.mp3"
+   */
+  audioSrc?: string;
+  /**
+   * Sequential episode number (1-based) for podcastEpisode structured data
+   * @type {number}
+   * @example 12
+   */
+  episodeNumber?: number;
+  /**
+   * Podcast series name
+   * @type {string}
+   * @example "MelodyMind Podcast"
+   */
+  seriesName?: string;
+  /**
+   * Canonical URL of the podcast series listing page
+   * @type {string}
+   * @example "https://example.com/en/podcasts"
+   */
+  seriesUrl?: string;
+  /** Canonical URL override */
+  canonical?: string;
+  /** Breadcrumb trail entries */
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  /** Robots noindex flag */
+  noIndex?: boolean;
+  /** Robots nofollow flag */
+  noFollow?: boolean;
+  /** Pagination previous URL */
+  prevUrl?: string;
+  /** Pagination next URL */
+  nextUrl?: string;
+  /** Disable automatic alternate language links */
+  disableAlternateLanguages?: boolean;
+  /** Additional structured data object(s) */
+  structuredDataExtra?: any | any[]; // passed through to SEO component
+  /** Override author organization name */
+  authorName?: string;
+}
+
+const {
+  pageSeo,
+  imageWidth,
+  imageHeight,
+  showHeader = true,
+  showHeaderIcons = true,
+  showCoins = false,
+  ogMusic,
+  audioSrc,
+  episodeNumber,
+  seriesName,
+  seriesUrl,
+  breadcrumbs,
+  prevUrl,
+  nextUrl,
+  disableAlternateLanguages,
+  authorName,
+} = Astro.props;
+
+// ---------------------------------------------------------------------------
+// Open Graph / Social Image Fallback
+// If no explicit image prop is provided, we fallback to the brand logo to ensure
+// consistent OG/Twitter rendering and avoid missing image penalties.
+// We DO NOT attempt to infer category/podcast images here; pages needing a
+// specific rich image should pass it explicitly. Centralizing this fallback
+// keeps SEO component simpler and prevents duplication of default logic.
+// ---------------------------------------------------------------------------
+// pageSeo is now mandatory; remove legacy fallback construction
+const constructedPageSeo = pageSeo;
+
+const mergedTitle = constructedPageSeo.title;
+const mergedDescription = constructedPageSeo.description;
+const mergedKeywords = constructedPageSeo.keywords;
+const mergedType = constructedPageSeo.type;
+const mergedCanonical = constructedPageSeo.canonical;
+const mergedImage = constructedPageSeo.image || "/melody-mind.png";
+const mergedPublishDate = constructedPageSeo.publishDate;
+const mergedModifiedDate = constructedPageSeo.modifiedDate;
+const mergedStructuredData: StructuredData[] = constructedPageSeo.structuredData;
+const robotsTag = constructedPageSeo.robots;
+
+const lang = getLangFromUrl(Astro.url);
+// Derive BCP47 language and map to common OG locale fallback (en -> en_US etc.)
+function mapOgLocale(l: string): string {
+  if (!l) {
+    return "en_US";
+  }
+  const base = l.toLowerCase();
+  switch (base) {
+    case "en":
+      return "en_US";
+    case "de":
+      return "de_DE";
+    case "fr":
+      return "fr_FR";
+    case "es":
+      return "es_ES";
+    default:
+      return base.replace(/-.+$/, "").concat("_", base.toUpperCase().slice(-2) || "US");
+  }
+}
+const autoOgLocale = mapOgLocale(String(lang));
+
+// Performance optimization: Critical resource preloading following Astro standards
+// NOTE: preload must target the exact resource (script.js) instead of the domain root
+// Avoid preloading the CDN script because the CDN currently returns HTML/CORS issues;
+// we will load it dynamically with a safe fallback instead.
+const preloadedResources = [
+  { href: "/styles/global.css", as: "style" as const, crossorigin: "anonymous" as const },
+];
+
+// Font preloading optimization with @fontsource integration
+// @fontsource automatically handles font loading with display:swap
+// We enhance this with strategic preloading for better Core Web Vitals
+const fontPreloads = [
+  // Critical: Primary body font - highest priority for FCP
+  {
+    href: "/fonts/atkinson-hyperlegible-regular.woff2",
+    as: "font" as const,
+    type: "font/woff2",
+    crossorigin: "anonymous",
+  },
+];
+
+// DNS prefetching for external domains to reduce connection time and improve performance
+const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
+---
+
+<!doctype html>
+<html
+  lang={String(lang)}
+  class="font-primary scroll-behavior-auto mx-auto box-border w-full max-w-7xl overflow-x-hidden bg-neutral-950 antialiased"
+  dir="ltr"
+>
+  <Head>
+    <!-- Character set and viewport configuration for mobile optimization -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Title and description are handled by SEO component to avoid duplication -->
+
+    <!-- Color scheme and theme color for browser UI using CSS variables -->
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="theme-color"
+      content="var(--color-neutral-950)"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="theme-color" content="var(--color-white)" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Resource hints for performance -->
+    {dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
+
+    {
+      preloadedResources.map((resource) => (
+        <link
+          rel="preload"
+          href={resource.href}
+          as={resource.as}
+          crossorigin={resource.crossorigin}
+        />
+      ))
+    }
+
+    <!-- Font preloading for critical fonts -->
+    {
+      fontPreloads.map((font) => (
+        <link
+          rel="preload"
+          href={font.href}
+          as={font.as}
+          type={font.type}
+          crossorigin={font.crossorigin}
+        />
+      ))
+    }
+
+    <!-- Local @font-face declarations: serve fonts from /fonts with font-display: swap for better LCP and no external fetch -->
+    <style>
+      @font-face {
+        font-family: "Atkinson Hyperlegible";
+        src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+
+    <!-- Structured data and SEO -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
+    <SEO
+      title={mergedTitle}
+      description={mergedDescription}
+      keywords={mergedKeywords}
+      image={mergedImage}
+      {imageWidth}
+      {imageHeight}
+      type={mergedType}
+      publishDate={mergedPublishDate}
+      modifiedDate={mergedModifiedDate}
+      {ogMusic}
+      {audioSrc}
+      {episodeNumber}
+      {seriesName}
+      {seriesUrl}
+      canonical={mergedCanonical}
+      {breadcrumbs}
+      noIndex={robotsTag.includes("noindex")}
+      noFollow={robotsTag.includes("nofollow")}
+      {prevUrl}
+      {nextUrl}
+      {disableAlternateLanguages}
+      structuredDataExtra={mergedStructuredData}
+      {authorName}
+    />
+    {/* Robots meta explicit for clarity if differing from default */}
+    {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
+    {/* OpenGraph / Twitter Cards (generated when pageSeo supplied) */}
+    <Fragment>
+      <meta property="og:title" content={constructedPageSeo.openGraph.title} />
+      <meta property="og:description" content={constructedPageSeo.openGraph.description} />
+      <meta property="og:type" content={constructedPageSeo.openGraph.type} />
+      <meta property="og:url" content={constructedPageSeo.openGraph.url} />
+      <meta
+        property="og:locale"
+        content={(constructedPageSeo.openGraph as any).locale ||
+          (constructedPageSeo as any).ogLocale ||
+          autoOgLocale}
+      />
+      {
+        Array.isArray((constructedPageSeo as any).alternateLocales) &&
+          (constructedPageSeo as any).alternateLocales.map((loc: string) => (
+            <meta property="og:locale:alternate" content={loc} />
+          ))
+      }
+      {
+        constructedPageSeo.openGraph.image && (
+          <meta property="og:image" content={constructedPageSeo.openGraph.image} />
+        )
+      }
+      <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
+      <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
+      <meta name="twitter:description" content={constructedPageSeo.twitter.description} />
+      {
+        constructedPageSeo.twitter.image && (
+          <meta name="twitter:image" content={constructedPageSeo.twitter.image} />
+        )
+      }
+      {
+        (constructedPageSeo.twitter as any).creator && (
+          <meta name="twitter:creator" content={(constructedPageSeo.twitter as any).creator} />
+        )
+      }
+    </Fragment>
+
+    <!-- Analytics with performance and privacy optimizations -->
+    <script
+      is:inline
+      src="https://cdn.usefathom.com/script.js"
+      data-site="RKHOWTTO"
+      data-spa="auto"
+      data-auto="false"
+      defer
+      crossorigin="anonymous"
+      type="text/javascript"></script>
+  </Head>
+  <body
+    class="margin-auto text-primary text-wrap-pretty min-h-screen w-full overflow-x-hidden p-4 text-lg leading-normal"
+    data-theme="dark"
+  >
+    {/* Skip link for keyboard navigation */}
+    <SkipLink />
+
+    {/* Conditional header/navigation based on page type */}
+    {
+      showHeader && !showCoins && (
+        <header role="banner" class="layout__header">
+          <Navigation {showHeaderIcons} />
+        </header>
+      )
+    }
+
+    {/* Main content area */}
+    <main id="main-content" class="my-8" tabindex="-1" role="main">
+      <slot />
+    </main>
+
+    {/* Footer area */}
+    <Footer />
+
+    <!-- Global shared aria-live region (polite by default). Kept empty; populated via announceStatus helper. -->
+    <div id="app-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+    <!-- Dedicated assertive region for critical one-time announcements (e.g., final score) -->
+    <div id="app-live-region-assertive" aria-live="assertive" aria-atomic="true" class="sr-only">
+    </div>
+
+    <script is:inline>
+      // Lightweight helper to announce a message assertively once without polluting global scope.
+      // Falls back to polite region if assertive container missing.
+      /* eslint-disable @typescript-eslint/explicit-function-return-type */
+      (function () {
+        try {
+          if (typeof window === "undefined") {
+            return;
+          }
+          // Provide a tiny indirection for reflow forcing so scattered inline scripts
+          // can share a single optional hook without duplicating offsetHeight access logic.
+          if (!("mmForceReflow" in window)) {
+            // @ts-expect-error runtime augmentation
+            window.mmForceReflow = function (el) {
+              try {
+                if (el) {
+                  void el.offsetHeight;
+                }
+              } catch {
+                /* silent */
+              }
+            };
+          }
+          if (!("announceAssertive" in window)) {
+            // @ts-expect-error dynamic augment for runtime helper
+            window.announceAssertive = function (msg) {
+              try {
+                if (!msg) {
+                  return;
+                }
+                const region =
+                  document.getElementById("app-live-region-assertive") ||
+                  document.getElementById("app-live-region");
+                if (!region) {
+                  return;
+                }
+                region.textContent = "";
+                // force reflow
+                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                region.offsetHeight;
+                region.textContent = String(msg);
+              } catch {
+                /* silent */
+              }
+            };
+          }
+        } catch {
+          /* silent */
+        }
+      })();
+      /* eslint-enable @typescript-eslint/explicit-function-return-type */
+    </script>
+
+    <!-- Expose global resolveAchievement (idempotent) for lightweight client scripts -->
+    <!-- NOTE: Intentional minimal duplication of tier thresholds for resilience if main bundle fails.
+         Do NOT refactor into dynamic import to avoid blocking initial overlay scripts. -->
+    <script is:inline>
+      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+      (function () {
+        try {
+          if (typeof window !== "undefined" && !("__resolveAchievement" in window)) {
+            // Achievement Tier Resolver (Resilience Note):
+            // We intentionally duplicate a minimal static ladder here instead of
+            // importing dynamic utilities so that inline overlay scripts can
+            // function even if the main bundle fails to load. This keeps first
+            // interaction robust and avoids blocking on module fetch.
+            /** @type {{ id: string; minScore: number }[]} */
+            const tiers = [
+              { id: "genius", minScore: 800 },
+              { id: "pro", minScore: 600 },
+              { id: "enthusiast", minScore: 400 },
+              { id: "lover", minScore: 200 },
+              { id: "explorer", minScore: 0 },
+            ];
+            // augment window dynamically (runtime helper)
+            // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+            window.__resolveAchievement = (score) => {
+              const s = typeof score === "number" && score >= 0 ? score : 0;
+              for (let i = 0; i < tiers.length; i++) {
+                if (s >= tiers[i].minScore) {
+                  return tiers[i];
+                }
+              }
+              return tiers[tiers.length - 1];
+            };
+          }
+        } catch {
+          /* silent */
+        }
+      })();
+    </script>
+
+    <!-- Minimal layout initialization + safe dynamic Fathom loader with stub fallback -->
+    <!-- External loader to avoid inline TypeScript/ESLint checks in Astro -->
+    <script is:inline src="/scripts/layout-fathom-loader.js" defer></script>
+    <!-- Debug bridge: expose TypeScript debug util to inline scripts as window.__mmDebug (dev only) -->
+    <script is:inline type="module">
+      import { initInteractiveComponents } from "/src/utils/components/autoInit.ts";
+
+      if (document.readyState === "loading") {
+        document.addEventListener(
+          "DOMContentLoaded",
+          () => {
+            initInteractiveComponents();
+          },
+          { once: true }
+        );
+      } else {
+        initInteractiveComponents();
+      }
+    </script>
+    <script is:inline type="module">
+      import { debug } from "/src/utils/debug.ts";
+      if (import.meta.env?.DEV && typeof window !== "undefined" && !("__mmDebug" in window)) {
+        // @ts-expect-error runtime augmentation
+        // Debug Bridge: Expose TypeScript debug util so classic inline scripts
+        // (non-module) can log in a unified, filterable manner without shipping
+        // extra code to production builds.
+        window.__mmDebug = debug;
+      }
+    </script>
+  </body>
+</html>

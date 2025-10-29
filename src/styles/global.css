@@ -1,0 +1,77 @@
+/*
+ * filepath: /home/daniel/projects/melody-mind/src/styles/global.css
+ * Global stylesheet for MelodyMind
+ */
+
+/* Import Tailwind and modularized style layers */
+@import "tailwindcss";
+@import "tw-prose";
+@import "./tokens.css";
+@import "./base.css";
+@import "./utilities.css";
+
+/* ======================================
+ * TAILWIND THEME CONFIGURATION
+ * Converting existing CSS variables to Tailwind theme tokens
+ * ====================================== */
+
+/* All @theme tokens moved to tokens.css */
+
+/* ======================================
+ * CUSTOM PROPERTIES (VARIABLES)
+ * WCAG 2.2 AAA COMPLIANT DARK THEME
+ * PERFORMANCE OPTIMIZED
+ * ====================================== */
+
+/* Remaining legacy root variables removed; now delegated to tokens/base.
+ * Keep only any project-specific overrides if needed (currently none). */
+
+/* Removed obsolete :root variable block (migrated to tokens/base or unused). */
+
+/* ======================================
+ * USER PREFERENCE MEDIA QUERIES (Performance Friendly)
+ * Provide lighter visual treatment for users requesting reduced motion or data.
+ * ====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Disable non-essential transitions & animations */
+  * {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+  .shadow-2xl, .shadow-xl, .shadow-lg {
+    box-shadow: var(--shadow-md) !important; /* Reduce expensive shadows */
+  }
+  /* Scale-based hover effects become subtle */
+  .hover\:-translate-y-1:hover {
+    transform: translateY(-2px) !important;
+  }
+}
+
+@media (prefers-reduced-data: reduce) {
+  /* Remove heavy gradient backgrounds in overlays/cards; fallback to flat color */
+  .bg-gradient-to-r, .bg-gradient-to-br, .bg-gradient-to-b, .bg-gradient-to-l, .bg-gradient-to-tr {
+    background-image: none !important;
+    background-color: #2c2f3a !important;
+  }
+  /* Tone down large shadows */
+  .shadow-2xl, .shadow-xl {
+    box-shadow: var(--shadow-lg) !important;
+  }
+  /* Reduce border radii slightly for simpler paint */
+  .rounded-3xl {
+    border-radius: 1.25rem !important;
+  }
+}
+
+/* ======================================
+ * BASE STYLES
+ * ====================================== */
+
+/* ======================================
+ * UTILITY CLASSES
+ * ====================================== */
+
+/* sr-only utility moved to utilities.css */

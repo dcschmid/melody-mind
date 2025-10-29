@@ -1,0 +1,250 @@
+---
+/**
+ * KnowledgeCard Component - Responsive & Accessible
+ *
+ * An enhanced card component for displaying music knowledge articles with image,
+ * title, description, and metadata. Fully responsive with WCAG AAA compliance.
+ *
+ * @component
+ * @example
+ * ```astro
+ * // Standalone card with own link
+ * <KnowledgeCard
+ *   title="The History of Rock Music"
+ *   description="Explore the evolution of rock from the 1950s to today..."
+ *   image="/images/rock-history.jpg"
+ *   createdAt={new Date('2024-01-15')}
+ *   slug="history-of-rock-music"
+ *   lang="en"
+ *   readingTime={8}
+ *   articleUrl="/en/knowledge/history-of-rock-music"
+ * />
+ *
+ * // Card for use within parent link
+ * <KnowledgeCard
+ *   title="Jazz Fundamentals"
+ *   description="Learn the basic elements that define jazz music..."
+ *   slug="jazz-fundamentals"
+ *   lang="en"
+ *   readingTime={5}
+ * />
+ * ```
+ */
+import { useTranslations } from "@utils/i18n";
+import { format } from "date-fns";
+import { de, enUS as en } from "date-fns/locale";
+import { Icon } from "astro-icon/components";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+
+export const prerender = true;
+
+interface Props {
+  /** Title of the knowledge article */
+  title: string;
+  /** Brief description or excerpt of the article */
+  description: string;
+  /** Path to the article's cover image (uses default if not provided) */
+  image?: string;
+  /** Date when the article was created/published */
+  createdAt: Date;
+  /** URL slug for the article link */
+  slug: string;
+  /** Language code (en/de) for localization */
+  lang: string;
+  /** Estimated reading time in minutes */
+  readingTime?: number;
+  /** Complete URL to the article (optional - if omitted, component will be a non-linking card) */
+  articleUrl?: string;
+  /** Comma-separated keywords for searchability */
+  keywords?: string;
+  /** Index for animation delay calculation */
+  index?: number;
+}
+
+const {
+  title,
+  description,
+  image = "/default-cover.jpg",
+  createdAt,
+  slug,
+  lang,
+  readingTime = 0,
+  articleUrl,
+  keywords,
+  index = 0,
+} = Astro.props;
+
+// Choose locale for date formatting using modern ES6+ syntax
+const locales = { de, en } as const;
+const locale = locales[lang as keyof typeof locales] ?? en;
+
+const lang_t = useTranslations(lang as "de" | "en");
+const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
+
+// Use articleUrl if provided, otherwise let the parent handle the link
+const hasOwnLink = Boolean(articleUrl);
+
+// Generate unique IDs for this card for accessibility
+const cardId = `card-title-${slug}-${index}`;
+const metaId = `${cardId}-meta`;
+
+// Generate appropriate alt text for the image
+const imageAltText = title ? `Cover image for ${title}` : "";
+---
+
+<article
+  class="relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-gray-600 bg-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-purple-500 hover:shadow-xl"
+  data-testid="knowledge-card"
+  data-title={title}
+  data-description={description}
+  data-keywords={keywords}
+  aria-labelledby={cardId}
+  aria-describedby={`${cardId}-desc ${metaId}`}
+>
+  {
+    hasOwnLink ? (
+      <a
+        href={articleUrl}
+        class="flex h-full flex-col overflow-hidden rounded-2xl text-inherit no-underline transition-all duration-300 focus-visible:-translate-y-1 focus-visible:ring-4 focus-visible:ring-purple-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900 focus-visible:outline-none"
+        aria-labelledby={cardId}
+        aria-describedby={`${cardId}-desc`}
+      >
+        <div class="relative flex h-full flex-col">
+          {/* Accent line */}
+          <div
+            class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+            aria-hidden="true"
+          />
+
+          {/* Image container */}
+          <div class="relative aspect-video overflow-hidden">
+            <img
+              src={image}
+              alt={imageAltText}
+              loading="lazy"
+              decoding="async"
+              width="640"
+              height="360"
+              class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+          </div>
+
+          {/* Body content */}
+          <div class="flex flex-grow flex-col justify-start p-6 pb-4">
+            <Headline level="h3" textSize="xl" textAlign="center">
+              {title}
+            </Headline>
+
+            <Paragraph textSize="lg" textAlign="center">
+              {description}
+            </Paragraph>
+
+            {/* Footer with metadata */}
+            <div class="mt-auto border-t border-gray-600 pt-4" id={metaId}>
+              <div class="flex items-center justify-between gap-4">
+                <span
+                  class="flex items-center text-sm text-gray-400"
+                  aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
+                >
+                  <Icon
+                    name="clock"
+                    class="mr-2 h-4 w-4 flex-shrink-0 text-purple-400"
+                    aria-hidden="true"
+                  />
+                  <span>
+                    {readingTime} {lang_t("knowledge.reading.time")}
+                  </span>
+                </span>
+
+                <time
+                  datetime={createdAt.toISOString()}
+                  class="flex items-center text-sm text-gray-400"
+                  aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
+                >
+                  <Icon
+                    name="calendar"
+                    class="mr-2 h-4 w-4 flex-shrink-0 text-purple-400"
+                    aria-hidden="true"
+                  />
+                  {formattedDate}
+                </time>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="sr-only" aria-live="polite">
+          {lang_t("navigation.article.opens")}
+        </span>
+      </a>
+    ) : (
+      <div class="relative flex h-full flex-col">
+        {/* Accent line */}
+        <div
+          class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-r from-purple-700 via-purple-500 to-purple-700"
+          aria-hidden="true"
+        />
+
+        {/* Image container */}
+        <div class="relative aspect-video overflow-hidden">
+          <img
+            src={image}
+            alt={imageAltText}
+            loading="lazy"
+            decoding="async"
+            width="640"
+            height="360"
+            class="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-transparent opacity-0"
+            aria-hidden="true"
+          />
+        </div>
+
+        {/* Body content */}
+        <div class="flex flex-grow flex-col justify-start p-6 pb-4">
+          <Headline level="h3" textSize="xl" textAlign="center">
+            {title}
+          </Headline>
+
+          <Paragraph textSize="lg" textAlign="center">
+            {description}
+          </Paragraph>
+
+          {/* Footer with metadata */}
+          <div class="mt-auto border-t border-gray-600 pt-4" id={metaId}>
+            <div class="flex items-center justify-between gap-4">
+              <span
+                class="flex items-center text-sm text-gray-400"
+                aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
+              >
+                <Icon
+                  name="clock"
+                  class="mr-2 h-4 w-4 flex-shrink-0 text-purple-400"
+                  aria-hidden="true"
+                />
+                <span>
+                  {readingTime} {lang_t("knowledge.reading.time")}
+                </span>
+              </span>
+
+              <time
+                datetime={createdAt.toISOString()}
+                class="flex items-center text-sm text-gray-400"
+                aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
+              >
+                <Icon
+                  name="calendar"
+                  class="mr-2 h-4 w-4 flex-shrink-0 text-purple-400"
+                  aria-hidden="true"
+                />
+                {formattedDate}
+              </time>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+</article>

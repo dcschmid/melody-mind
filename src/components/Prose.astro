@@ -1,0 +1,104 @@
+---
+/**
+ * Prose Component - Tailwind Typography Wrapper
+ *
+ * A reusable component that wraps rendered Markdown content with Tailwind Typography styles.
+ * Based on the official Astro documentation: https://docs.astro.build/en/recipes/tailwind-rendered-markdown/
+ *
+ * @component
+ * @example
+ * ```astro
+ * <Prose>
+ *   <Content />
+ * </Prose>
+ * ```
+ */
+
+export interface Props {
+  /** Additional CSS classes for customization */
+  className?: string;
+  /** Raw HTML to render (if provided, rendered via set:html) */
+  html?: string;
+  /** Size variant: sm | md | lg | xl (maps to tailwind-prose size utilities) */
+  size?: "sm" | "md" | "lg" | "xl";
+  /** Invert colors (useful for dark mode) */
+  invert?: boolean;
+  /** When true, keeps max width none (full width). Otherwise the component will use prose default max-width */
+  fullWidth?: boolean;
+}
+
+const {
+  className: extra = "",
+  html = undefined,
+  size = "lg",
+  invert = true,
+  fullWidth = true,
+} = Astro.props as Props;
+
+// Sanitize HTML string: remove visible literal "\n" sequences and trim whitespace.
+let sanitizedHtml = typeof html === "string" ? html.replace(/\\n/g, "\n").trim() : undefined;
+
+// Remove trailing triple backticks (```) that might have been appended accidentally
+if (typeof sanitizedHtml === "string") {
+  sanitizedHtml = sanitizedHtml.replace(/\n?\s*```\s*$/m, "");
+}
+
+// Aggressive removal: remove any remaining triple backticks, escaped backticks, or HTML-encoded backticks
+if (typeof sanitizedHtml === "string") {
+  // Remove occurrences of ``` anywhere
+  sanitizedHtml = sanitizedHtml.replace(/```/g, "");
+  // Remove escaped backticks like \`\`\`
+  sanitizedHtml = sanitizedHtml.replace(/\\`/g, "");
+  // Remove HTML entity for backtick if present
+  sanitizedHtml = sanitizedHtml.replace(/&#96;|&#x60;|&grave;/g, "");
+  sanitizedHtml = sanitizedHtml.trim();
+}
+
+const sizeClass = (() => {
+  switch (size) {
+    case "sm":
+      return "prose-sm";
+    case "md":
+      return "prose";
+    case "xl":
+      return "prose-xl";
+    case "lg":
+    default:
+      return "prose-lg";
+  }
+})();
+
+const invertClass = invert ? "prose-invert" : "";
+const maxWidthClass = fullWidth ? "max-w-none" : "";
+
+const baseClasses = [
+  "prose",
+  sizeClass,
+  invertClass,
+  maxWidthClass,
+  "prose-headings:text-white",
+  "prose-p:text-gray-300",
+  "prose-li:text-gray-300",
+  "prose-a:text-purple-400",
+  "prose-a:hover:text-purple-300",
+  "prose-strong:text-white",
+  "prose-code:text-purple-300",
+  "prose-code:bg-gray-800",
+  "prose-code:px-2",
+  "prose-code:py-1",
+  "prose-code:rounded",
+  "prose-blockquote:border-l-purple-500",
+  "prose-blockquote:bg-gray-800/50",
+  "prose-blockquote:py-2",
+  "prose-blockquote:px-4",
+  "prose-blockquote:rounded-r",
+];
+
+const classes = [...baseClasses, extra].filter(Boolean).join(" ");
+---
+
+<div class={classes}>
+  {sanitizedHtml ? <div set:html={sanitizedHtml} /> : <slot />}
+</div>
+
+```

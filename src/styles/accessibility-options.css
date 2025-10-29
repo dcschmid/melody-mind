@@ -1,0 +1,261 @@
+:root {
+  --letter-spacing-increased: 0.12em;
+  --word-spacing-increased: 0.16em;
+  --line-height-increased: 1.8;
+  --paragraph-spacing-increased: 2rem;
+
+  /* Feinabstufungen für Text-Spacing */
+  --letter-spacing-slight: 0.05em;
+  --letter-spacing-moderate: 0.12em;
+  --letter-spacing-large: 0.18em;
+
+  --word-spacing-slight: 0.08em;
+  --word-spacing-moderate: 0.16em;
+  --word-spacing-large: 0.24em;
+}
+
+/* Text-Spacing-Klassen für bessere Lesbarkeit
+   Können über eine Schaltfläche in der Benutzeroberfläche aktiviert werden */
+.increased-text-spacing * {
+  @apply !leading-loose !tracking-wider;
+  word-spacing: var(--word-spacing-increased) !important;
+}
+
+/* Feinabstufungen für Buchstabenabstand */
+.letter-spacing-slight * {
+  @apply !tracking-wide;
+}
+
+.letter-spacing-moderate * {
+  @apply !tracking-wider;
+}
+
+.letter-spacing-large * {
+  @apply !tracking-widest;
+}
+
+/* Feinabstufungen für Wortabstand */
+.word-spacing-slight * {
+  word-spacing: var(--word-spacing-slight) !important;
+}
+
+.word-spacing-moderate * {
+  word-spacing: var(--word-spacing-moderate) !important;
+}
+
+.word-spacing-large * {
+  word-spacing: var(--word-spacing-large) !important;
+}
+
+.increased-line-height * {
+  @apply !leading-loose;
+}
+
+.increased-paragraph-spacing p {
+  @apply !mb-8;
+}
+
+/* Animation-Control-Klassen 
+   Erweiterte Kontrolle über Animationen über die Betriebssystemeinstellungen hinaus */
+.reduce-all-animations * {
+  @apply !animate-none !scroll-auto !transition-none;
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Spezifische Animationskontrolle für erweiterte Benutzereinstellungen */
+.reduce-motion-strict * {
+  @apply !translate-x-0 !translate-y-0 !scale-100 !rotate-0 !transform-none;
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* Gemäßigte Animationsreduktion - langsamer und weniger intensiv */
+.reduce-motion-gentle * {
+  @apply !transition-[all_0.5s_linear] !duration-500;
+  animation-duration: 0.5s !important;
+  animation-timing-function: linear !important;
+}
+
+.reduce-non-essential-animations .essential-animation {
+  /* Animations will still run for elements with this class */
+  @apply !animate-normal !transition;
+}
+
+.reduce-non-essential-animations *:not(.essential-animation) {
+  @apply !animate-none !scroll-auto !transition-none;
+}
+
+/* Einfaches, konsistentes Erscheinungsbild für Benutzer, die sich für stark reduzierte Animationen entscheiden */
+.simplified-visual-presentation {
+  @apply !shadow-none;
+}
+
+.simplified-visual-presentation *:hover {
+  @apply !translate-x-0 !translate-y-0 !scale-100 !rotate-0 !skew-x-0 !skew-y-0 !transform-none;
+}
+
+.simplified-visual-presentation .hover-effect {
+  @apply !border-transparent !bg-transparent;
+}
+
+.simplified-visual-presentation .card-hover {
+  @apply !border !shadow-none;
+}
+
+/* Helfer-Klassen für Animationreduktion bei bestimmten Elementen */
+.no-bg-transitions {
+  transition-property: none !important;
+}
+
+.no-transform-transitions {
+  transform: none !important;
+}
+
+.no-shadow-transitions {
+  box-shadow: none !important;
+}
+
+/* Helfer-Klassen für optimierten Text-Kontrast */
+.max-text-contrast {
+  @apply !bg-zinc-900 !text-white;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.max-text-contrast h1,
+.max-text-contrast h2,
+.max-text-contrast h3,
+.max-text-contrast h4,
+.max-text-contrast h5,
+.max-text-contrast h6 {
+  @apply !text-white;
+}
+
+.max-text-contrast p,
+.max-text-contrast li,
+.max-text-contrast span {
+  @apply !text-gray-100;
+}
+
+.max-text-contrast a {
+  @apply !text-sky-300 !underline;
+}
+
+.max-text-contrast button {
+  @apply !focus:ring-4 !focus:ring-purple-500 !bg-purple-600 !text-white !outline-none;
+}
+
+/* Zustandsklassen, um Zustände ohne Farbkodierung anzuzeigen */
+.state-correct-high-contrast {
+  @apply !border-4 !border-white !bg-emerald-800 !font-bold !text-white;
+}
+
+.state-incorrect-high-contrast {
+  @apply !border-4 !border-dashed !border-white !bg-red-800 !font-bold !text-white;
+}
+
+/* Klassen für verbesserte Tastatur-Navigation */
+.keyboard-navigation-enhanced *:focus-visible {
+  @apply !ring-4 !ring-purple-500/50 !outline-4 !outline-offset-4 !outline-purple-500;
+}
+
+/* Klasse für verstärkte Fokusringe in Spielumgebungen */
+.game-mode-focus *:focus-visible {
+  @apply !ring-4 !ring-pink-500/50 !outline-4 !outline-offset-4 !outline-pink-500 !outline-dashed;
+}
+
+/* Spezielle Helfer für Modus mit sehr hohem Kontrast */
+.ultra-high-contrast-mode {
+  @apply !bg-black;
+}
+
+.ultra-high-contrast-mode * {
+  @apply !border-white !text-white;
+}
+
+.ultra-high-contrast-mode button,
+.ultra-high-contrast-mode a {
+  @apply !bg-white !font-bold !text-black;
+}
+
+.ultra-high-contrast-mode input,
+.ultra-high-contrast-mode textarea,
+.ultra-high-contrast-mode select {
+  @apply !border-2 !border-white !bg-black !text-white;
+}
+
+/* Animationskontrollleiste-Styles
+   Diese können in eine Benutzeroberfläche zur Steuerung der Animationseinstellungen eingefügt werden */
+.animation-controls {
+  @apply fixed right-4 bottom-4 z-50 rounded-lg border border-zinc-700 bg-zinc-800 p-4 shadow-lg;
+}
+
+.animation-controls-heading {
+  @apply mb-2 text-lg font-bold text-white;
+}
+
+.animation-controls-options {
+  @apply flex flex-col gap-2;
+}
+
+.animation-controls-option {
+  @apply flex items-center gap-2 text-sm text-white;
+}
+
+.animation-controls-toggle {
+  @apply relative h-6 w-10 rounded-full bg-zinc-700;
+}
+
+.animation-controls-toggle::after {
+  content: "";
+  @apply absolute top-1 left-1 h-4 w-4 rounded-full bg-zinc-400 transition-transform;
+}
+
+.animation-controls-toggle.active {
+  @apply bg-purple-600;
+}
+
+.animation-controls-toggle.active::after {
+  @apply translate-x-4 transform bg-white;
+}
+
+.animation-controls-label {
+  @apply flex-1;
+}
+
+/* Text-Spacing-Kontrollleiste 
+   Diese können in eine Benutzeroberfläche zur Steuerung der Textabstandseinstellungen eingefügt werden */
+.text-spacing-controls {
+  @apply fixed bottom-4 left-4 z-50 rounded-lg border border-zinc-700 bg-zinc-800 p-4 shadow-lg;
+}
+
+.text-spacing-controls-heading {
+  @apply mb-2 text-lg font-bold text-white;
+}
+
+.text-spacing-controls-options {
+  @apply flex flex-col gap-2;
+}
+
+.text-spacing-controls-option {
+  @apply flex items-center gap-2 text-sm text-white;
+}
+
+.text-spacing-controls-slider {
+  @apply h-2 w-full appearance-none rounded-full bg-zinc-700;
+}
+
+.text-spacing-controls-slider::-webkit-slider-thumb {
+  @apply h-4 w-4 cursor-pointer appearance-none rounded-full bg-purple-600;
+}
+
+.text-spacing-controls-label {
+  @apply flex-1;
+}
+
+.text-spacing-controls-value {
+  @apply w-8 text-right text-zinc-400;
+}
