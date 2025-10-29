@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "node dist/server/entry.mjs",
-    "build": "astro check && astro build",
-    "build:production": "NODE_ENV=production yarn build",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' astro check && NODE_OPTIONS='--max-old-space-size=4096' astro build",
+    "build:production": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=4096' yarn build",
     "preview": "astro preview",
     "lint": "yarn format && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "lint:check": "eslint \"src/**/*.{js,ts,jsx,tsx,astro}\"",
