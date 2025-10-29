@@ -705,6 +705,31 @@ export class GenericSearchUtils implements GenericSearchInstance {
   private escapeRegExp(s: string): string {
     return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
+
+  /**
+   * Implement GenericSearchInstance.search method
+   */
+  public search(query: string): any[] {
+    if (this.input) {
+      this.input.value = query;
+    }
+    this.performSearch(query);
+    return [];
+  }
+
+  /**
+   * Implement GenericSearchInstance.addDocuments method
+   */
+  public addDocuments(docs: any[]): void {
+    // No-op for DOM-based search
+  }
+
+  /**
+   * Implement GenericSearchInstance.destroy method
+   */
+  public destroy(): void {
+    this.cleanup();
+  }
 }
 
 /**

@@ -415,7 +415,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <SEO
       title={mergedTitle}
       description={mergedDescription}
-      keywords={mergedKeywords}
+      keywords={mergedKeywords.split(',').map(k => k.trim())}
       image={mergedImage}
       {imageWidth}
       {imageHeight}

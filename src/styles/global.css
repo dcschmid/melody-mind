@@ -5,7 +5,6 @@
 
 /* Import Tailwind and modularized style layers */
 @import "tailwindcss";
-@import "tw-prose";
 @import "./tokens.css";
 @import "./base.css";
 @import "./utilities.css";

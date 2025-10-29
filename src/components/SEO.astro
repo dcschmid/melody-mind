@@ -1,0 +1,55 @@
+---
+import type { StructuredData } from "@utils/seo/buildPageSeo";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  type?: string;
+  publishDate?: Date;
+  modifiedDate?: Date;
+  ogMusic?: any;
+  audioSrc?: string;
+  episodeNumber?: number;
+  seriesName?: string;
+  seriesUrl?: string;
+  canonical?: string;
+  breadcrumbs?: any;
+  noIndex?: boolean;
+  noFollow?: boolean;
+  prevUrl?: string;
+  nextUrl?: string;
+  disableAlternateLanguages?: boolean;
+  structuredDataExtra?: StructuredData[];
+  authorName?: string;
+}
+
+const { 
+  title, 
+  description, 
+  keywords,
+  image,
+  imageWidth,
+  imageHeight,
+  type,
+  publishDate,
+  modifiedDate,
+  ogMusic,
+  audioSrc,
+  episodeNumber,
+  seriesName,
+  seriesUrl,
+  canonical,
+  breadcrumbs,
+  noIndex,
+  noFollow,
+  prevUrl,
+  nextUrl,
+  disableAlternateLanguages,
+  structuredDataExtra,
+  authorName
+} = Astro.props;
+---

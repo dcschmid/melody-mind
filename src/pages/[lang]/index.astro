@@ -9,6 +9,5 @@ export function getStaticPaths() {
   }));
 }
 
-const { lang } = Astro.params;
-return Astro.redirect(`/${lang}/knowledge`);
+return Astro.redirect(`/${Astro.params.lang}/knowledge`);
 ---

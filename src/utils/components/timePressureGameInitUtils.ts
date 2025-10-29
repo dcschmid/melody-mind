@@ -35,9 +35,9 @@ export const initTimePressureGame = async (): Promise<void> => {
       lang: "en",
       category: "unknown",
     };
-    const category = categoryPart.startsWith("time-pressure-")
+    const category = categoryPart && categoryPart.startsWith("time-pressure-")
       ? categoryPart.replace("time-pressure-", "")
-      : categoryPart;
+      : (categoryPart || "unknown");
 
     // Initialize Time Pressure Game with lang, category, and pathname
     const { TimePressureGameEngine } = await import("../game/timePressureGameEngine");

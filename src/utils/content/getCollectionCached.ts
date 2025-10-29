@@ -4,7 +4,9 @@
  * Avoids repeated disk/file system glob overhead under higher traffic.
  * NOT persistent between server restarts; safe for static hosting / SSR edge.
  */
-import type { AnyCollectionEntries } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+type AnyCollectionEntries = CollectionEntry<any>[];
 
 interface CacheEntry {
   ts: number;
@@ -42,7 +44,7 @@ export async function getCollectionCached(
 
   try {
     const { getCollection } = await import("astro:content");
-    const items = (await getCollection(collectionName)) as AnyCollectionEntries;
+    const items = (await getCollection(collectionName as any)) as AnyCollectionEntries;
     if (!bypass) {
       _collectionCache.set(collectionName, { ts: Date.now(), items });
     }
