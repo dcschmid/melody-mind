@@ -1,81 +1,52 @@
-/* Design Tokens (extracted from former global.css :root and @theme duplication)
- * Scope: Pure, reusable values only. No component mappings.
- * All documentation in English per project standards.
+/* 
+ * TAILWIND CSS v4 THEME CONFIGURATION
+ * Professional Dark Mode with WCAG AAA Compliance (7:1+ contrast ratios)
+ * Using @theme directive - no tailwind.config.js needed
  */
 
-/* NOTE: Removed experimental @theme block; using plain :root for broad compatibility. */
-:root {
-  /* Color palette (unchanged) */
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-primary-50: #f5f3ff;
-  --color-primary-100: #ede9fe;
-  --color-primary-200: #ddd6fe;
-  --color-primary-300: #c4b5fd;
-  --color-primary-400: #a78bfa;
-  --color-primary-500: #8b5cf6;
-  --color-primary-600: #7c3aed;
-  --color-primary-700: #6d28d9;
-  --color-primary-800: #5b21b6;
-  --color-primary-900: #4c1d95;
-  --color-secondary-50: #fdf2f8;
-  --color-secondary-100: #fce7f3;
-  --color-secondary-200: #fbcfe8;
-  --color-secondary-300: #f9a8d4;
-  --color-secondary-400: #f472b6;
-  --color-secondary-500: #ec4899;
-  --color-secondary-600: #db2777;
-  --color-secondary-700: #be185d;
-  --color-secondary-800: #9d174d;
-  --color-secondary-900: #831843;
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
-  --color-neutral-300: #d4d4d4;
-  --color-neutral-400: #a3a3a3;
-  --color-neutral-500: #737373;
-  --color-neutral-600: #525252;
-  --color-neutral-700: #404040;
-  --color-neutral-800: #262626;
-  --color-neutral-900: #171717;
-  --color-neutral-950: #0a0a0a;
+@theme {
+  /* ==================== COLORS ==================== */
+  
+  /* Slate - Primary neutral palette for professional dark mode */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  
+  /* Primary - Professional Purple/Violet for accents */
+  --color-primary-50: #faf5ff;
+  --color-primary-100: #f3e8ff;
+  --color-primary-200: #e9d5ff;
+  --color-primary-300: #d8b4fe;
+  --color-primary-400: #c084fc;
+  --color-primary-500: #a855f7;
+  --color-primary-600: #9333ea;
+  --color-primary-700: #7e22ce;
+  --color-primary-800: #6b21a8;
+  --color-primary-900: #581c87;
+  
+  /* Semantic Colors - WCAG AAA compliant on dark backgrounds */
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-sky-400: #38bdf8;
+  --color-sky-500: #0ea5e9;
   --color-success-400: #4ade80;
   --color-success-500: #22c55e;
-  --color-success-600: #16a34a;
-  --color-success-900: #365314;
-  --color-success-950: #1a2e05;
-  --color-warning-400: #facc15;
-  --color-warning-500: #eab308;
-  --color-warning-600: #ca8a04;
-  --color-warning-900: #ca8a04;
-  --color-error-50: #fef2f2;
-  --color-error-200: #fecaca;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
   --color-error-400: #f87171;
   --color-error-500: #ef4444;
-  --color-error-600: #dc2626;
-  --color-error-950: #450a0a;
   --color-info-400: #60a5fa;
   --color-info-500: #3b82f6;
-  --color-info-600: #2563eb;
-  --color-info-950: #1e3a8a;
-
-  /* Typography */
-  --font-primary: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-fallback: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-system: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --leading-tight: 1.25;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.75;
-  --leading-enhanced: 1.8; /* Accessibility enhanced line-height */
-  --tracking-normal: 0.025em;
-  --tracking-enhanced: 0.12em;
-
-  /* Spacing (provide alias --space-* for previous mistaken references) */
+  
+  /* ==================== SPACING ==================== */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -83,6 +54,76 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
+  --spacing-4xl: 5rem;
+  
+  /* ==================== TYPOGRAPHY ==================== */
+  --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", monospace;
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 1.75;
+  
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  
+  /* ==================== BORDER RADIUS ==================== */
+  --radius-none: 0;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+  
+  /* ==================== SHADOWS ==================== */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.15), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.15);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.2);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.35);
+  
+  /* ==================== TRANSITIONS ==================== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== LEGACY SUPPORT ==================== */
+/* Keep compatibility with existing CSS variables */
+:root {
+  /* Map new tokens to legacy names */
+  --color-neutral-50: var(--color-slate-50);
+  --color-neutral-100: var(--color-slate-100);
+  --color-neutral-200: var(--color-slate-200);
+  --color-neutral-300: var(--color-slate-300);
+  --color-neutral-400: var(--color-slate-400);
+  --color-neutral-500: var(--color-slate-500);
+  --color-neutral-600: var(--color-slate-600);
+  --color-neutral-700: var(--color-slate-700);
+  --color-neutral-800: var(--color-slate-800);
+  --color-neutral-900: var(--color-slate-900);
+  --color-neutral-950: var(--color-slate-950);
+  
+  /* Legacy spacing aliases */
   --space-xs: var(--spacing-xs);
   --space-sm: var(--spacing-sm);
   --space-md: var(--spacing-md);
@@ -90,76 +131,15 @@
   --space-xl: var(--spacing-xl);
   --space-2xl: var(--spacing-2xl);
   --space-3xl: var(--spacing-3xl);
-
-  /* Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-
-  /* Durations & Easing */
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
-  --ease-in: cubic-bezier(0.4,0,1,1);
-  --ease-out: cubic-bezier(0,0,0.2,1);
-  --ease-in-out: cubic-bezier(0.4,0,0.2,1);
-}
-
-:root {
-  /* Border tokens */
-  --border-width-thin: 1px;
-  --border-width-thick: 2px;
-  --border-width-enhanced: 3px;
-
-  /* Containers */
-  --container-xs: 100%;
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1536px;
-
-  /* Focus baseline (primary palette) */
+  
+  /* Accessibility & A11y */
   --focus-ring-width: 3px;
   --focus-ring-color: var(--color-primary-400);
-  --focus-outline: var(--focus-ring-width) solid var(--focus-ring-color);
-  --focus-ring: var(--focus-ring-width) solid var(--focus-ring-color);
   --focus-ring-offset: 2px;
-
-  /* Screen reader utility tokens */
+  
+  /* Screen reader only utilities */
   --sr-only-width: 1px;
   --sr-only-height: 1px;
   --sr-only-margin: -1px;
   --sr-only-clip-path: inset(50%);
-
-  /* Icon sizing (normalized to spacing aliases) */
-  --icon-size-sm: var(--space-md);
-  --icon-size-md: var(--space-lg);
-  --icon-size-lg: var(--space-xl);
-  --icon-size-xl: var(--space-2xl);
-
-  /* Achievement medal colors (pure tokens) */
-  --achievement-bronze: #cd7f32;
-  --achievement-silver: #c0c0c0;
-  --achievement-gold: #ffd700;
-  --achievement-platinum: #e5e4e2;
-
-  /* Opacity tokens */
-  --opacity-disabled: 0.7;
-  --opacity-low: 0.6;
-  --opacity-medium: 0.8;
-  --shadow-opacity-light: 0.3;
-
-  /* Scrollbar dimension tokens */
-  --scrollbar-thin: var(--space-sm);
-  --scrollbar-track-radius: var(--radius-lg);
-  --scrollbar-thumb-radius: var(--radius-lg);
 }

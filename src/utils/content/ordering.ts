@@ -19,7 +19,7 @@ export interface SequentialMapOptions<T> {
  */
 export function buildSequentialNumberMapByDate<T>(
   items: T[],
-  opts: SequentialMapOptions<T>
+  opts: SequentialMapOptions<T>,
 ): Map<string, number> {
   const { id, date, startAt = 1, direction = "asc" } = opts;
   const enriched = items
@@ -44,7 +44,7 @@ export function buildSequentialNumberMapByDate<T>(
  */
 export function assignSequentialNumbers<T, K extends string = "order">(
   items: T[],
-  opts: SequentialMapOptions<T> & { key?: K }
+  opts: SequentialMapOptions<T> & { key?: K },
 ): Array<T & { [P in K]: number | undefined }> {
   const map = buildSequentialNumberMapByDate(items, opts);
   const key = (opts.key || "order") as K;

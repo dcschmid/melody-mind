@@ -10,8 +10,8 @@ const isDev = import.meta.env?.DEV ?? false;
  * @param args - Arguments to log
  */
 export function debug(...args: any[]): void {
-  if (isDev && typeof console !== 'undefined') {
-    console.log('[MelodyMind Debug]', ...args);
+  if (isDev && typeof console !== "undefined") {
+    console.log("[MelodyMind Debug]", ...args);
   }
 }
 
@@ -20,8 +20,8 @@ export function debug(...args: any[]): void {
  * @param args - Arguments to warn
  */
 export function debugWarn(...args: any[]): void {
-  if (isDev && typeof console !== 'undefined') {
-    console.warn('[MelodyMind Debug]', ...args);
+  if (isDev && typeof console !== "undefined") {
+    console.warn("[MelodyMind Debug]", ...args);
   }
 }
 
@@ -30,8 +30,8 @@ export function debugWarn(...args: any[]): void {
  * @param args - Arguments to error
  */
 export function debugError(...args: any[]): void {
-  if (isDev && typeof console !== 'undefined') {
-    console.error('[MelodyMind Debug]', ...args);
+  if (isDev && typeof console !== "undefined") {
+    console.error("[MelodyMind Debug]", ...args);
   }
 }
 

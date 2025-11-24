@@ -21,19 +21,14 @@ export default defineConfig({
       sitemap: ["https://knowledge.melody-mind.de/sitemap-index.xml"],
       host: "knowledge.melody-mind.de",
     }),
-    sitemap({
-      i18n: {
-        defaultLocale: "en",
-        locales: { en: "en", de: "de", es: "es", it: "it", fr: "fr", pt: "pt" },
-      },
-    }),
+    sitemap(),
     metaTags(),
   ],
   
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "de", "es", "it", "fr", "pt"],
-    routing: { prefixDefaultLocale: true },
+    locales: ["en"],
+    routing: { prefixDefaultLocale: false },
   },
   
   vite: {

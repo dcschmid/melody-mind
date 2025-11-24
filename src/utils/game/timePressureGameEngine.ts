@@ -1,6 +1,6 @@
 export class TimePressureGameEngine {
   private config: any;
-  
+
   constructor(config: any) {
     this.config = config;
   }

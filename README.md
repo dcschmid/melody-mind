@@ -4,7 +4,7 @@ Music knowledge articles and education content for MelodyMind - A standalone sta
 
 ## Features
 
-- 🌍 **Multi-language support**: EN, DE, ES, IT, FR, PT
+- 🌍 **English-only**: streamlined single-language experience
 - 📚 **600+ Music Articles**: Comprehensive knowledge base about music genres, artists, and history
 - ⚡ **Static Site Generation**: Fast loading with pre-rendered pages
 - 🔍 **Full-text Search**: Client-side search functionality
@@ -54,22 +54,16 @@ melody-mind-knowledge/
 │   │   └── Shared/       # Shared components (BackToTop, etc.)
 │   ├── constants/        # App constants
 │   ├── content/          # Knowledge articles (Markdown)
-│   │   ├── knowledge-de/ # German articles
-│   │   ├── knowledge-en/ # English articles
-│   │   ├── knowledge-es/ # Spanish articles
-│   │   ├── knowledge-fr/ # French articles
-│   │   ├── knowledge-it/ # Italian articles
-│   │   ├── knowledge-pt/ # Portuguese articles
+│   │   ├── knowledge-en/ # English articles (active)
 │   │   └── config.ts     # Content collection schema
 │   ├── i18n/             # Translations
 │   │   └── locales/      # Language-specific translations
 │   ├── layouts/          # Page layouts
 │   ├── pages/            # Astro pages (routes)
-│   │   ├── [lang]/       # Localized pages
-│   │   │   └── knowledge/
-│   │   │       ├── index.astro     # Article listing
-│   │   │       └── [...slug].astro # Individual articles
-│   │   └── index.astro   # Root redirect
+│   │   ├── knowledge/    # Knowledge listing & detail pages
+│   │   │   ├── index.astro
+│   │   │   └── [...slug].astro
+│   │   └── index.astro   # Root redirect to /knowledge
 │   ├── styles/           # Global styles
 │   └── utils/            # Utility functions
 │       ├── content/      # Content utilities
@@ -84,12 +78,9 @@ melody-mind-knowledge/
 
 Knowledge articles are organized as Astro Content Collections:
 
-- `knowledge-de`: German articles
-- `knowledge-en`: English articles (canonical)
-- `knowledge-es`: Spanish articles
-- `knowledge-fr`: French articles
-- `knowledge-it`: Italian articles
-- `knowledge-pt`: Portuguese articles
+- `knowledge-en`: English articles (canonical and only active collection)
+
+Legacy folders for other locales may exist but are no longer part of the build.
 
 Each article includes:
 - Title, description, keywords

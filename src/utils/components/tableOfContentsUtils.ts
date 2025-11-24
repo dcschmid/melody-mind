@@ -91,8 +91,8 @@ export class TableOfContentsUtils {
     try {
       this.content.style.opacity = "1";
       // If content has scrollHeight we can animate
-  const fullHeight = this.content.scrollHeight;
-  this.content.style.maxHeight = `${fullHeight}px`;
+      const fullHeight = this.content.scrollHeight;
+      this.content.style.maxHeight = `${fullHeight}px`;
       // Force reflow for Safari quirks
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       this.content.offsetHeight;
@@ -206,7 +206,9 @@ export class TableOfContentsUtils {
 /**
  * Initialize table of contents functionality
  */
-export function initTableOfContents(config: TableOfContentsConfig): TableOfContentsUtils {
+export function initTableOfContents(
+  config: TableOfContentsConfig,
+): TableOfContentsUtils {
   return new TableOfContentsUtils(config);
 }
 

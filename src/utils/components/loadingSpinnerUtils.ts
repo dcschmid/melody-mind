@@ -28,7 +28,10 @@ export function hideSpinner(id: string = "loading-spinner"): void {
 /**
  * Update progress for determinate spinners
  */
-export function updateProgress(id: string = "loading-spinner", progress: number = 0): void {
+export function updateProgress(
+  id: string = "loading-spinner",
+  progress: number = 0,
+): void {
   const spinner = document.getElementById(id);
   if (spinner && spinner.dataset.type === "determinate") {
     const clampedProgress = Math.max(0, Math.min(100, progress));
@@ -53,7 +56,11 @@ export function updateProgress(id: string = "loading-spinner", progress: number 
 export function setErrorState(id: string = "loading-spinner"): void {
   const spinner = document.getElementById(id);
   if (spinner) {
-    spinner.classList.remove("border-yellow-600", "bg-yellow-50", "border-yellow-200");
+    spinner.classList.remove(
+      "border-yellow-600",
+      "bg-yellow-50",
+      "border-yellow-200",
+    );
     spinner.classList.add("border-red-600", "bg-red-50", "border-red-200");
     spinner.setAttribute("role", "alert");
     spinner.setAttribute("aria-busy", "false");
@@ -67,7 +74,11 @@ export function setTimeoutState(id: string = "loading-spinner"): void {
   const spinner = document.getElementById(id);
   if (spinner) {
     spinner.classList.remove("border-red-600", "bg-red-50", "border-red-200");
-    spinner.classList.add("border-yellow-600", "bg-yellow-50", "border-yellow-200");
+    spinner.classList.add(
+      "border-yellow-600",
+      "bg-yellow-50",
+      "border-yellow-200",
+    );
     spinner.setAttribute("role", "alert");
     spinner.setAttribute("aria-busy", "false");
   }
@@ -85,7 +96,7 @@ export function resetState(id: string = "loading-spinner"): void {
       "border-red-200",
       "border-yellow-600",
       "bg-yellow-50",
-      "border-yellow-200"
+      "border-yellow-200",
     );
     spinner.classList.add("border-blue-600", "bg-blue-50", "border-blue-200");
     spinner.removeAttribute("role");

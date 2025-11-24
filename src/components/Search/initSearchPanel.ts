@@ -22,7 +22,7 @@ export interface InitSearchPanelOptions {
  * @returns {import('@utils/components/searchUtils').GenericSearchUtils | null} search instance or null
  */
 export function initSearchPanel(
-  opts: InitSearchPanelOptions
+  opts: InitSearchPanelOptions,
 ): import("@utils/components/searchUtils").GenericSearchUtils | null {
   const {
     idBase,
@@ -36,17 +36,25 @@ export function initSearchPanel(
   const inputId = `${idBase}-input`;
   const clearId = `${idBase}-clear`;
   // Detect auto-managed elements
-  const statusEl = document.getElementById(`${idBase}-status`) as HTMLElement | null;
-  const noResultsEl = document.getElementById(`${idBase}-no-results`) as HTMLElement | null;
-  const autoStatusAll = statusEl?.getAttribute("data-search-status-all") || "Showing all";
+  const statusEl = document.getElementById(
+    `${idBase}-status`,
+  ) as HTMLElement | null;
+  const noResultsEl = document.getElementById(
+    `${idBase}-no-results`,
+  ) as HTMLElement | null;
+  const autoStatusAll =
+    statusEl?.getAttribute("data-search-status-all") || "Showing all";
   const autoStatusCountTpl =
     statusEl?.getAttribute("data-search-status-count") || "{count} results";
   const noResultsTpl =
-    noResultsEl?.getAttribute("data-search-no-results-tpl") || 'No results for "{term}"';
+    noResultsEl?.getAttribute("data-search-no-results-tpl") ||
+    'No results for "{term}"';
 
   // Determine effective debounce using heuristic only if not explicitly provided
   const effectiveDebounce =
-    typeof debounceMs === "number" ? debounceMs : deriveHeuristicDebounce(itemSelector);
+    typeof debounceMs === "number"
+      ? debounceMs
+      : deriveHeuristicDebounce(itemSelector);
 
   const instance = initGenericSearchAuto({
     inputId,
@@ -67,7 +75,10 @@ export function initSearchPanel(
         if (!term) {
           statusEl.textContent = autoStatusAll;
         } else {
-          statusEl.textContent = autoStatusCountTpl.replace("{count}", String(visible));
+          statusEl.textContent = autoStatusCountTpl.replace(
+            "{count}",
+            String(visible),
+          );
         }
       }
       if (noResultsEl) {
@@ -82,10 +93,15 @@ export function initSearchPanel(
     const resetBtn = document.getElementById(`${idBase}-reset`);
     if (resetBtn) {
       resetBtn.addEventListener("click", () => {
-        if (instance && typeof (instance as { clear?: () => void }).clear === "function") {
+        if (
+          instance &&
+          typeof (instance as { clear?: () => void }).clear === "function"
+        ) {
           (instance as { clear?: () => void }).clear?.();
         }
-        const input = document.getElementById(inputId) as HTMLInputElement | null;
+        const input = document.getElementById(
+          inputId,
+        ) as HTMLInputElement | null;
         if (input) {
           input.focus();
         }
@@ -97,7 +113,9 @@ export function initSearchPanel(
 
   // Expose for debugging
   try {
-    (window as unknown as { __lastSearchInstance?: unknown }).__lastSearchInstance = instance;
+    (
+      window as unknown as { __lastSearchInstance?: unknown }
+    ).__lastSearchInstance = instance;
   } catch {
     // ignore
   }

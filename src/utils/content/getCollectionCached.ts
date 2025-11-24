@@ -31,7 +31,7 @@ const DEFAULT_TTL = 5 * 60 * 1000; // 5 minutes
  */
 export async function getCollectionCached(
   collectionName: string,
-  opts: GetCollectionCachedOptions = {}
+  opts: GetCollectionCachedOptions = {},
 ): Promise<AnyCollectionEntries> {
   const { ttlMs = DEFAULT_TTL, bypass = false } = opts;
 
@@ -44,7 +44,9 @@ export async function getCollectionCached(
 
   try {
     const { getCollection } = await import("astro:content");
-    const items = (await getCollection(collectionName as any)) as AnyCollectionEntries;
+    const items = (await getCollection(
+      collectionName as any,
+    )) as AnyCollectionEntries;
     if (!bypass) {
       _collectionCache.set(collectionName, { ts: Date.now(), items });
     }

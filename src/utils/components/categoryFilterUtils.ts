@@ -12,8 +12,12 @@ interface CategoryFilterConfig {
  * Initialize category filter with simple functionality
  */
 export function initCategoryFilter(config: CategoryFilterConfig): void {
-  const filterSelect = document.getElementById(config.filterId) as HTMLSelectElement;
-  const categoryGroups = document.querySelectorAll<HTMLElement>(config.targetSelector);
+  const filterSelect = document.getElementById(
+    config.filterId,
+  ) as HTMLSelectElement;
+  const categoryGroups = document.querySelectorAll<HTMLElement>(
+    config.targetSelector,
+  );
 
   if (!filterSelect || categoryGroups.length === 0) {
     return;

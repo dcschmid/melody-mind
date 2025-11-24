@@ -19,7 +19,8 @@ export function initNavigation(config: NavigationConfig): void {
   const mainMenu = document.getElementById(config.mainMenuId);
   const menuBackdrop = document.getElementById(config.menuBackdropId);
   // Close button might not yet be parsed if streaming / incremental HTML; treat as optional & attach later.
-  let closeButton: HTMLButtonElement | null = (mainMenu?.querySelector("button") as HTMLButtonElement | null) || null;
+  let closeButton: HTMLButtonElement | null =
+    (mainMenu?.querySelector("button") as HTMLButtonElement | null) || null;
   const logoutButton = config.logoutButtonId
     ? document.getElementById(config.logoutButtonId)
     : undefined;
@@ -49,7 +50,8 @@ export function initNavigation(config: NavigationConfig): void {
   } else {
     // Retry once on next frame to catch late close button (defensive)
     requestAnimationFrame(() => {
-      closeButton = (mainMenu.querySelector("button") as HTMLButtonElement | null) || null;
+      closeButton =
+        (mainMenu.querySelector("button") as HTMLButtonElement | null) || null;
       closeButton?.addEventListener("click", () => closeMenu());
     });
   }
@@ -86,8 +88,10 @@ export function initNavigation(config: NavigationConfig): void {
       const announcer = document.getElementById("menu-status-announcer");
       if (announcer) {
         // Prefer localized strings provided via data attributes; fallback to English literals.
-        const openedText = mainMenu?.getAttribute("data-status-opened") || "Menu opened";
-        const closedText = mainMenu?.getAttribute("data-status-closed") || "Menu closed";
+        const openedText =
+          mainMenu?.getAttribute("data-status-opened") || "Menu opened";
+        const closedText =
+          mainMenu?.getAttribute("data-status-closed") || "Menu closed";
         announcer.textContent = isOpen ? openedText : closedText;
       }
     } catch {
@@ -104,7 +108,9 @@ export function initNavigation(config: NavigationConfig): void {
       // Simple logout logic
       if (
         confirm(
-          lang === "de" ? "Möchten Sie sich wirklich abmelden?" : "Do you really want to logout?"
+          lang === "de"
+            ? "Möchten Sie sich wirklich abmelden?"
+            : "Do you really want to logout?",
         )
       ) {
         window.location.href = "/logout";
@@ -123,7 +129,8 @@ export function initNavigationAuto(): void {
     const config = {
       menuToggleId: element.getAttribute("data-menu-toggle") || "menu-toggle",
       mainMenuId: element.getAttribute("data-main-menu") || "main-menu",
-      menuBackdropId: element.getAttribute("data-menu-backdrop") || "menu-backdrop",
+      menuBackdropId:
+        element.getAttribute("data-menu-backdrop") || "menu-backdrop",
       // element.getAttribute may return null; normalize to undefined to match NavigationConfig
       logoutButtonId: element.getAttribute("data-logout-button") || undefined,
       lang: element.getAttribute("data-lang") || "en",

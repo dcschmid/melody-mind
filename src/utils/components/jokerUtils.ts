@@ -56,13 +56,17 @@ export class JokerUtils {
    * Initialize joker functionality
    */
   private init(): void {
-    if (!this.elements.container || !this.elements.button || !this.elements.counter) {
+    if (
+      !this.elements.container ||
+      !this.elements.button ||
+      !this.elements.counter
+    ) {
       return;
     }
 
     const initialCount = parseInt(
       this.elements.container.getAttribute("data-initial-count") || "0",
-      10
+      10,
     );
     const initialDisabled =
       this.elements.container.getAttribute("data-initial-disabled") === "true";
@@ -88,15 +92,23 @@ export class JokerUtils {
       return;
     }
 
-    this.elements.button.addEventListener("click", (e) => this.handleJokerClick(e));
-    this.elements.button.addEventListener("keydown", (e) => this.handleKeydown(e));
+    this.elements.button.addEventListener("click", (e) =>
+      this.handleJokerClick(e),
+    );
+    this.elements.button.addEventListener("keydown", (e) =>
+      this.handleKeydown(e),
+    );
   }
 
   /**
    * Handle joker button click
    */
   private handleJokerClick(_e: Event): void {
-    if (this.elements.button?.disabled || !this.canTrigger || this.clickTimeout) {
+    if (
+      this.elements.button?.disabled ||
+      !this.canTrigger ||
+      this.clickTimeout
+    ) {
       return;
     }
 
@@ -108,7 +120,10 @@ export class JokerUtils {
     }
 
     this.clickTimeout = window.setTimeout(() => {
-      if (this.elements.button && !this.elements.button.hasAttribute("data-permanently-disabled")) {
+      if (
+        this.elements.button &&
+        !this.elements.button.hasAttribute("data-permanently-disabled")
+      ) {
         this.elements.button.disabled = false;
       }
       this.clickTimeout = null;
@@ -165,7 +180,7 @@ export class JokerUtils {
           this.setupMutation();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     observer.observe(this.elements.counter);
@@ -196,10 +211,14 @@ export class JokerUtils {
    * Announce joker usage for screen readers
    */
   private announceJokerUsage(): void {
-    const announcementEl = this.elements.announcement || this.createAnnouncementElement();
+    const announcementEl =
+      this.elements.announcement || this.createAnnouncementElement();
 
     const currentCount = this.elements.counter?.textContent?.trim() || "0";
-    announcementEl.textContent = this.createAnnouncementText(this.lang, currentCount);
+    announcementEl.textContent = this.createAnnouncementText(
+      this.lang,
+      currentCount,
+    );
 
     setTimeout(() => {
       announcementEl.textContent = "";
@@ -250,7 +269,10 @@ export class JokerUtils {
       if (disable || count <= 0) {
         this.elements.button.disabled = true;
         if (count <= 0) {
-          this.elements.button.setAttribute("data-permanently-disabled", "true");
+          this.elements.button.setAttribute(
+            "data-permanently-disabled",
+            "true",
+          );
         }
       } else {
         this.elements.button.disabled = false;
@@ -266,10 +288,15 @@ export class JokerUtils {
     // Make update function globally available (typed)
     if (typeof window !== "undefined") {
       const globalWin = window as unknown as Window & {
-        MelodyMind?: { updateJokerCount?: (count: number, disable?: boolean) => void };
+        MelodyMind?: {
+          updateJokerCount?: (count: number, disable?: boolean) => void;
+        };
       };
       globalWin.MelodyMind = globalWin.MelodyMind || {};
-      globalWin.MelodyMind.updateJokerCount = (count: number, disable?: boolean): void => {
+      globalWin.MelodyMind.updateJokerCount = (
+        count: number,
+        disable?: boolean,
+      ): void => {
         this.updateJokerCount(count, disable);
       };
     }

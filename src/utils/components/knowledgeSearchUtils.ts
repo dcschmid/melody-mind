@@ -78,7 +78,8 @@ export class KnowledgeSearchUtils {
   }
 
   private validateElements(): boolean {
-    const { searchInput, articlesGrid, noResultsDiv, searchStatus } = this.elements;
+    const { searchInput, articlesGrid, noResultsDiv, searchStatus } =
+      this.elements;
     return !!(searchInput && articlesGrid && noResultsDiv && searchStatus);
   }
 
@@ -156,11 +157,15 @@ export class KnowledgeSearchUtils {
     this._currentSearchQuery = searchTerm;
 
     const visibleCount = this.allArticles.reduce((count, article) => {
-      const title = article.querySelector("h3")?.textContent?.toLowerCase() || "";
-      const description = article.querySelector("p")?.textContent?.toLowerCase() || "";
+      const title =
+        article.querySelector("h3")?.textContent?.toLowerCase() || "";
+      const description =
+        article.querySelector("p")?.textContent?.toLowerCase() || "";
 
       const isVisible =
-        searchTerm === "" || title.includes(searchTerm) || description.includes(searchTerm);
+        searchTerm === "" ||
+        title.includes(searchTerm) ||
+        description.includes(searchTerm);
 
       article.style.display = isVisible ? "block" : "none";
       return isVisible ? count + 1 : count;
@@ -168,7 +173,8 @@ export class KnowledgeSearchUtils {
 
     const { noResultsDiv } = this.elements;
     if (noResultsDiv) {
-      noResultsDiv.style.display = visibleCount === 0 && searchTerm ? "block" : "none";
+      noResultsDiv.style.display =
+        visibleCount === 0 && searchTerm ? "block" : "none";
     }
 
     this.updateSearchStatus(visibleCount, searchTerm);

@@ -53,7 +53,6 @@ import { Head } from "astro-capo";
 // Primary accessible font: Atkinson Hyperlegible will be loaded from local files via @font-face
 // Removed @fontsource imports to avoid duplicate network/font loading — local files are served from /public/fonts
 
-import Navigation from "@components/Header/Navigation.astro";
 import SEO from "@components/SEO.astro";
 import SkipLink from "@components/Shared/SkipLink.astro";
 import Footer from "@components/Footer.astro";
@@ -351,7 +350,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 <!doctype html>
 <html
   lang={String(lang)}
-  class="font-primary scroll-behavior-auto mx-auto box-border w-full max-w-7xl overflow-x-hidden bg-neutral-950 antialiased"
+  class="font-sans scroll-smooth mx-auto box-border w-full max-w-7xl overflow-x-hidden bg-slate-950 antialiased"
   dir="ltr"
 >
   <Head>
@@ -411,6 +410,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
     <!-- Structured data and SEO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="MelodyMind Knowledge RSS Feed" href="/rss.xml" />
     <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
     <SEO
       title={mergedTitle}
@@ -489,155 +489,17 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       type="text/javascript"></script>
   </Head>
   <body
-    class="margin-auto text-primary text-wrap-pretty min-h-screen w-full overflow-x-hidden p-4 text-lg leading-normal"
+    class="mx-auto min-h-screen w-full overflow-x-hidden bg-slate-950 text-slate-100 text-wrap-pretty text-base leading-relaxed"
     data-theme="dark"
   >
     {/* Skip link for keyboard navigation */}
     <SkipLink />
 
-    {/* Conditional header/navigation based on page type */}
-    {
-      showHeader && !showCoins && (
-        <header role="banner" class="layout__header">
-          <Navigation {showHeaderIcons} />
-        </header>
-      )
-    }
-
     {/* Main content area */}
-    <main id="main-content" class="my-8" tabindex="-1" role="main">
+    <main id="main-content" tabindex="-1" role="main">
       <slot />
     </main>
 
-    {/* Footer area */}
     <Footer />
-
-    <!-- Global shared aria-live region (polite by default). Kept empty; populated via announceStatus helper. -->
-    <div id="app-live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
-    <!-- Dedicated assertive region for critical one-time announcements (e.g., final score) -->
-    <div id="app-live-region-assertive" aria-live="assertive" aria-atomic="true" class="sr-only">
-    </div>
-
-    <script is:inline>
-      // Lightweight helper to announce a message assertively once without polluting global scope.
-      // Falls back to polite region if assertive container missing.
-      /* eslint-disable @typescript-eslint/explicit-function-return-type */
-      (function () {
-        try {
-          if (typeof window === "undefined") {
-            return;
-          }
-          // Provide a tiny indirection for reflow forcing so scattered inline scripts
-          // can share a single optional hook without duplicating offsetHeight access logic.
-          if (!("mmForceReflow" in window)) {
-            // @ts-expect-error runtime augmentation
-            window.mmForceReflow = function (el) {
-              try {
-                if (el) {
-                  void el.offsetHeight;
-                }
-              } catch {
-                /* silent */
-              }
-            };
-          }
-          if (!("announceAssertive" in window)) {
-            // @ts-expect-error dynamic augment for runtime helper
-            window.announceAssertive = function (msg) {
-              try {
-                if (!msg) {
-                  return;
-                }
-                const region =
-                  document.getElementById("app-live-region-assertive") ||
-                  document.getElementById("app-live-region");
-                if (!region) {
-                  return;
-                }
-                region.textContent = "";
-                // force reflow
-                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                region.offsetHeight;
-                region.textContent = String(msg);
-              } catch {
-                /* silent */
-              }
-            };
-          }
-        } catch {
-          /* silent */
-        }
-      })();
-      /* eslint-enable @typescript-eslint/explicit-function-return-type */
-    </script>
-
-    <!-- Expose global resolveAchievement (idempotent) for lightweight client scripts -->
-    <!-- NOTE: Intentional minimal duplication of tier thresholds for resilience if main bundle fails.
-         Do NOT refactor into dynamic import to avoid blocking initial overlay scripts. -->
-    <script is:inline>
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-      (function () {
-        try {
-          if (typeof window !== "undefined" && !("__resolveAchievement" in window)) {
-            // Achievement Tier Resolver (Resilience Note):
-            // We intentionally duplicate a minimal static ladder here instead of
-            // importing dynamic utilities so that inline overlay scripts can
-            // function even if the main bundle fails to load. This keeps first
-            // interaction robust and avoids blocking on module fetch.
-            /** @type {{ id: string; minScore: number }[]} */
-            const tiers = [
-              { id: "genius", minScore: 800 },
-              { id: "pro", minScore: 600 },
-              { id: "enthusiast", minScore: 400 },
-              { id: "lover", minScore: 200 },
-              { id: "explorer", minScore: 0 },
-            ];
-            // augment window dynamically (runtime helper)
-            // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-            window.__resolveAchievement = (score) => {
-              const s = typeof score === "number" && score >= 0 ? score : 0;
-              for (let i = 0; i < tiers.length; i++) {
-                if (s >= tiers[i].minScore) {
-                  return tiers[i];
-                }
-              }
-              return tiers[tiers.length - 1];
-            };
-          }
-        } catch {
-          /* silent */
-        }
-      })();
-    </script>
-
-    <!-- Minimal layout initialization + safe dynamic Fathom loader with stub fallback -->
-    <!-- External loader to avoid inline TypeScript/ESLint checks in Astro -->
-    <script is:inline src="/scripts/layout-fathom-loader.js" defer></script>
-    <!-- Debug bridge: expose TypeScript debug util to inline scripts as window.__mmDebug (dev only) -->
-    <script is:inline type="module">
-      import { initInteractiveComponents } from "/src/utils/components/autoInit.ts";
-
-      if (document.readyState === "loading") {
-        document.addEventListener(
-          "DOMContentLoaded",
-          () => {
-            initInteractiveComponents();
-          },
-          { once: true }
-        );
-      } else {
-        initInteractiveComponents();
-      }
-    </script>
-    <script is:inline type="module">
-      import { debug } from "/src/utils/debug.ts";
-      if (import.meta.env?.DEV && typeof window !== "undefined" && !("__mmDebug" in window)) {
-        // @ts-expect-error runtime augmentation
-        // Debug Bridge: Expose TypeScript debug util so classic inline scripts
-        // (non-module) can log in a unified, filterable manner without shipping
-        // extra code to production builds.
-        window.__mmDebug = debug;
-      }
-    </script>
   </body>
 </html>

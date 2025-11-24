@@ -32,9 +32,11 @@ export function buildKnowledgeArticlesItemList(opts: {
   const sorted = [...articles].sort((a, b) => {
     const aDate = a.data.updatedAt || a.data.createdAt;
     const bDate = b.data.updatedAt || b.data.createdAt;
-    return new Date(String(bDate)).getTime() - new Date(String(aDate)).getTime();
+    return (
+      new Date(String(bDate)).getTime() - new Date(String(aDate)).getTime()
+    );
   });
-  
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -48,8 +50,12 @@ export function buildKnowledgeArticlesItemList(opts: {
         name: article.data.title,
         description: article.data.description,
         url: `${baseUrl}/${lang}/knowledge/${article.slug}`,
-        dateCreated: article.data.createdAt ? new Date(String(article.data.createdAt)).toISOString() : undefined,
-        dateModified: article.data.updatedAt ? new Date(String(article.data.updatedAt)).toISOString() : undefined,
+        dateCreated: article.data.createdAt
+          ? new Date(String(article.data.createdAt)).toISOString()
+          : undefined,
+        dateModified: article.data.updatedAt
+          ? new Date(String(article.data.updatedAt)).toISOString()
+          : undefined,
         keywords: article.data.keywords?.join(", "),
       },
     })),
@@ -69,7 +75,7 @@ export function buildCategoryItemListSchema(opts: {
   if (!categories.length) {
     return undefined;
   }
-  
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",

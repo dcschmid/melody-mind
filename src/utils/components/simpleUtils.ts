@@ -79,7 +79,7 @@ export function initTableOfContents(container: HTMLElement): void {
 
   const tocItems = Array.from(headings).map(
     (
-      heading: Element
+      heading: Element,
     ): {
       element: Element;
       id: string;
@@ -105,13 +105,13 @@ export function initTableOfContents(container: HTMLElement): void {
         text: h.textContent,
         level: parseInt(h.tagName.charAt(1), 10),
       };
-    }
+    },
   );
 
   toc.innerHTML = tocItems
     .map(
       (item) =>
-        `<a href="#${item.id}" class="toc-item toc-level-${item.level}">${item.text ?? ""}</a>`
+        `<a href="#${item.id}" class="toc-item toc-level-${item.level}">${item.text ?? ""}</a>`,
     )
     .join("");
 }
@@ -177,7 +177,7 @@ export function initNavigation(container: HTMLElement): void {
     menu.classList.toggle("open");
     (menuButton as HTMLElement).setAttribute(
       "aria-expanded",
-      menu.classList.contains("open").toString()
+      menu.classList.contains("open").toString(),
     );
   });
 
@@ -211,7 +211,10 @@ export function initOverlayManager(): void {
 
     // Close on escape key
     document.addEventListener("keydown", (e: KeyboardEvent): void => {
-      if (e.key === "Escape" && !(overlay as HTMLElement).classList.contains("hidden")) {
+      if (
+        e.key === "Escape" &&
+        !(overlay as HTMLElement).classList.contains("hidden")
+      ) {
         close();
       }
     });

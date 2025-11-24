@@ -53,7 +53,10 @@ export function createSlug(text: string): string {
  * Calculate approximate reading time in minutes for provided content.
  * (Types documented via TypeScript signature.)
  */
-export function calculateReadingTime(content: string, wordsPerMinute = 225): number {
+export function calculateReadingTime(
+  content: string,
+  wordsPerMinute = 225,
+): number {
   const words = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(words / wordsPerMinute);
   return minutes;
@@ -301,7 +304,11 @@ const stopWordsByLanguage: Record<string, string[]> = {
  * Uses simple frequency & phrase weighting. (Types via signature.)
  * Example: extractKeywords("Melody Mind is a music quiz...", 5, "en")
  */
-export function extractKeywords(content: string, maxKeywords = 10, language = "en"): string {
+export function extractKeywords(
+  content: string,
+  maxKeywords = 10,
+  language = "en",
+): string {
   // Get language-specific stop words or fall back to English
   const stopWords = stopWordsByLanguage[language] || stopWordsByLanguage.en;
 
@@ -328,7 +335,11 @@ export function extractKeywords(content: string, maxKeywords = 10, language = "e
   // Extract trigrams (three-word phrases)
   const trigrams: string[] = [];
   for (let i = 0; i < words.length - 2; i++) {
-    if (words[i].length > 2 && words[i + 1].length > 2 && words[i + 2].length > 2) {
+    if (
+      words[i].length > 2 &&
+      words[i + 1].length > 2 &&
+      words[i + 2].length > 2
+    ) {
       trigrams.push(`${words[i]} ${words[i + 1]} ${words[i + 2]}`);
     }
   }
@@ -383,7 +394,10 @@ export function extractKeywords(content: string, maxKeywords = 10, language = "e
  * Generate an optimized meta description selecting informative early sentences.
  * Strips HTML and trims to maxLength. (Types via signature.)
  */
-export function generateMetaDescription(content: string, maxLength = 160): string {
+export function generateMetaDescription(
+  content: string,
+  maxLength = 160,
+): string {
   // Remove HTML tags and excess whitespace
   const text = content
     .replace(/<[^>]*>/g, " ")
@@ -397,20 +411,22 @@ export function generateMetaDescription(content: string, maxLength = 160): strin
 
   // Split into sentences
   const sentenceRegex = /([.!?])\s+/g;
-  const sentences = text.split(sentenceRegex).reduce((result: string[], item, index, array) => {
-    if (index % 2 === 0) {
-      // Even indices contain the text before the delimiter
-      const nextIndex = index + 1;
-      if (nextIndex < array.length) {
-        // Add the delimiter back to the sentence
-        result.push(item + array[nextIndex]);
-      } else {
-        // Last item might not have a delimiter
-        result.push(item);
+  const sentences = text
+    .split(sentenceRegex)
+    .reduce((result: string[], item, index, array) => {
+      if (index % 2 === 0) {
+        // Even indices contain the text before the delimiter
+        const nextIndex = index + 1;
+        if (nextIndex < array.length) {
+          // Add the delimiter back to the sentence
+          result.push(item + array[nextIndex]);
+        } else {
+          // Last item might not have a delimiter
+          result.push(item);
+        }
       }
-    }
-    return result;
-  }, []);
+      return result;
+    }, []);
 
   // Score sentences based on position and keyword density
   const scoredSentences = sentences.map((sentence, index) => {
@@ -432,7 +448,9 @@ export function generateMetaDescription(content: string, maxLength = 160): strin
       "playlist",
       "album",
     ];
-    const keywordScore = importantTerms.some((term) => sentence.toLowerCase().includes(term))
+    const keywordScore = importantTerms.some((term) =>
+      sentence.toLowerCase().includes(term),
+    )
       ? 2
       : 1;
 
@@ -473,7 +491,9 @@ export function generateMetaDescription(content: string, maxLength = 160): strin
 
     // Otherwise truncate at the last word
     const lastSpace = truncated.lastIndexOf(" ");
-    return lastSpace > 0 ? `${truncated.substring(0, lastSpace)}...` : `${truncated}...`;
+    return lastSpace > 0
+      ? `${truncated.substring(0, lastSpace)}...`
+      : `${truncated}...`;
   }
 
   return description;
@@ -518,7 +538,10 @@ export function buildCanonicalUrl(siteBase: string, path: string): string {
  * @param {string} imagePath Relative or absolute image path
  * @returns {string} Absolute image URL suitable for OG tags
  */
-export function buildOpenGraphImageUrl(siteBase: string, imagePath: string): string {
+export function buildOpenGraphImageUrl(
+  siteBase: string,
+  imagePath: string,
+): string {
   if (!imagePath) {
     return imagePath;
   }
@@ -582,14 +605,18 @@ export function buildPaginationRelUrls(
   lang: string,
   basePath: string,
   currentPage: number,
-  totalPages: number
+  totalPages: number,
 ): { prevUrl?: string; nextUrl?: string } {
   if (totalPages <= 1) {
     return {};
   }
   const normalize = (p: number): string =>
-    buildCanonicalUrl(siteBase, `/${lang}/${basePath}${p > 1 ? `/page/${p}` : ""}`);
+    buildCanonicalUrl(
+      siteBase,
+      `/${lang}/${basePath}${p > 1 ? `/page/${p}` : ""}`,
+    );
   const prevUrl = currentPage > 1 ? normalize(currentPage - 1) : undefined;
-  const nextUrl = currentPage < totalPages ? normalize(currentPage + 1) : undefined;
+  const nextUrl =
+    currentPage < totalPages ? normalize(currentPage + 1) : undefined;
   return { prevUrl, nextUrl };
 }

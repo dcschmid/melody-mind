@@ -50,7 +50,9 @@ export function initBackToTop(config: BackToTopConfig): void {
  * Auto-initialize back to top
  */
 export function initBackToTopAuto(): void {
-  const button = document.querySelector("[data-back-to-top]") as HTMLButtonElement;
+  const button = document.querySelector(
+    "[data-back-to-top]",
+  ) as HTMLButtonElement;
 
   if (button) {
     const buttonId = button.id || "back-to-top";

@@ -36,7 +36,7 @@ export interface BuildCollectionSchemaOptions {
 
 /** Build base CollectionPage + nested ItemList with embedded item objects. */
 export function buildCollectionWithItemListSchema(
-  options: BuildCollectionSchemaOptions
+  options: BuildCollectionSchemaOptions,
 ): Record<string, unknown> {
   const {
     pageName,
@@ -80,9 +80,15 @@ export function buildCollectionWithItemListSchema(
           datePublished: item.datePublished,
           genre: item.genre,
           about: item.about,
-          author: item.authorName ? { "@type": "Organization", name: item.authorName } : undefined,
+          author: item.authorName
+            ? { "@type": "Organization", name: item.authorName }
+            : undefined,
           publisher: item.publisherName
-            ? { "@type": "Organization", name: item.publisherName, url: siteUrl }
+            ? {
+                "@type": "Organization",
+                name: item.publisherName,
+                url: siteUrl,
+              }
             : undefined,
           ...(item.extra || {}),
         },

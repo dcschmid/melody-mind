@@ -17,7 +17,7 @@ export interface FormatLocalizedDateOptions {
 export function formatLocalizedDate(
   lang: string,
   value: Date | string | number | null | undefined,
-  opts: FormatLocalizedDateOptions = {}
+  opts: FormatLocalizedDateOptions = {},
 ): string {
   const { dateStyle = "medium", timeStyle, fallback = "" } = opts;
   if (value === null || value === undefined) {

@@ -159,7 +159,9 @@ export class GenericSearchUtils implements GenericSearchInstance {
       ? safeGetElementById<HTMLElement>(options.examplesContainerId)
       : null;
     this.exampleButtons = options.exampleButtonSelector
-      ? (document.querySelectorAll(options.exampleButtonSelector) as NodeListOf<HTMLButtonElement>)
+      ? (document.querySelectorAll(
+          options.exampleButtonSelector,
+        ) as NodeListOf<HTMLButtonElement>)
       : null;
 
     this.weights = { ...DEFAULT_WEIGHTS, ...(options.weights || {}) };
@@ -188,10 +190,13 @@ export class GenericSearchUtils implements GenericSearchInstance {
     // can operate on dynamically added items later. Only abort fully if there is no input.
     if (!this.validate()) {
       try {
-        console.warn("GenericSearchUtils: initialization aborted - validation failed", {
-          inputExists: !!this.input,
-          itemsCount: this.items ? this.items.length : 0,
-        });
+        console.warn(
+          "GenericSearchUtils: initialization aborted - validation failed",
+          {
+            inputExists: !!this.input,
+            itemsCount: this.items ? this.items.length : 0,
+          },
+        );
       } catch {
         // ignore
       }
@@ -201,7 +206,7 @@ export class GenericSearchUtils implements GenericSearchInstance {
       if (this.input) {
         try {
           console.warn(
-            "GenericSearchUtils: input present but no items - wiring listeners for dynamic content"
+            "GenericSearchUtils: input present but no items - wiring listeners for dynamic content",
           );
         } catch {
           // ignore
@@ -398,7 +403,10 @@ export class GenericSearchUtils implements GenericSearchInstance {
    * Small helpers to extract text fields from the element. This splits responsibilities
    * into smaller functions to reduce per-method complexity for linting.
    */
-  private getHeadlineField(element: HTMLElement): { headline: string; headlineLower: string } {
+  private getHeadlineField(element: HTMLElement): {
+    headline: string;
+    headlineLower: string;
+  } {
     const headline =
       element.querySelector('[itemprop="name"]')?.getAttribute("content") ||
       element.querySelector("h1, h2, h3, h4, [data-headline]")?.textContent ||
@@ -412,8 +420,12 @@ export class GenericSearchUtils implements GenericSearchInstance {
     descriptionLower: string;
   } {
     const description =
-      element.querySelector('[itemprop="description"]')?.getAttribute("content") ||
-      (element.querySelector("[data-description]")?.getAttribute("data-description") as string) ||
+      element
+        .querySelector('[itemprop="description"]')
+        ?.getAttribute("content") ||
+      (element
+        .querySelector("[data-description]")
+        ?.getAttribute("data-description") as string) ||
       element.querySelector("p, [data-desc]")?.textContent ||
       "";
     const descriptionLower = (description || "").toLowerCase();
@@ -430,7 +442,9 @@ export class GenericSearchUtils implements GenericSearchInstance {
       element.querySelector('[itemprop="genre"]')?.getAttribute("content") ||
       element.getAttribute("data-genre") ||
       "";
-    const dataSearchText = (element.getAttribute("data-search-text") || "").toString();
+    const dataSearchText = (
+      element.getAttribute("data-search-text") || ""
+    ).toString();
     const genreLower = (genre || "").toLowerCase();
     const dataSearchTextLower = dataSearchText.toLowerCase();
     return { genre, dataSearchText, genreLower, dataSearchTextLower };
@@ -441,7 +455,7 @@ export class GenericSearchUtils implements GenericSearchInstance {
     description: string,
     genre: string,
     dataSearchText: string,
-    element: HTMLElement
+    element: HTMLElement,
   ): string {
     return `${headline} ${description} ${genre} ${dataSearchText} ${element.textContent || ""}`.toLowerCase();
   }
@@ -469,7 +483,7 @@ export class GenericSearchUtils implements GenericSearchInstance {
       d.description,
       g.genre,
       g.dataSearchText,
-      element
+      element,
     );
 
     return {
@@ -520,7 +534,11 @@ export class GenericSearchUtils implements GenericSearchInstance {
    * Calculate a relevance score for a single element given the search words and full term.
    * Refactored to delegate smaller responsibilities to helper methods to reduce complexity.
    */
-  private calculateScore(element: HTMLElement, searchWords: string[], searchTerm: string): number {
+  private calculateScore(
+    element: HTMLElement,
+    searchWords: string[],
+    searchTerm: string,
+  ): number {
     const fields = this.extractSearchFields(element);
 
     let score = 0;
@@ -582,7 +600,10 @@ export class GenericSearchUtils implements GenericSearchInstance {
         let shouldRefresh = false;
 
         for (const m of mutations) {
-          if (m.type === "childList" && (m.addedNodes?.length || m.removedNodes?.length)) {
+          if (
+            m.type === "childList" &&
+            (m.addedNodes?.length || m.removedNodes?.length)
+          ) {
             shouldRefresh = true;
             break;
           }
@@ -609,7 +630,9 @@ export class GenericSearchUtils implements GenericSearchInstance {
       // Observe subtree modifications to catch late-inserted list items
       this.observer.observe(root, { childList: true, subtree: true });
       try {
-        console.warn("GenericSearchUtils: MutationObserver attached for dynamic items");
+        console.warn(
+          "GenericSearchUtils: MutationObserver attached for dynamic items",
+        );
       } catch {
         // ignore
       }
@@ -652,15 +675,21 @@ export class GenericSearchUtils implements GenericSearchInstance {
   /**
    * Utility: call the onResultsUpdated callback when provided.
    */
-  private invokeResultsUpdated(visibleCount?: number, searchTerm?: string): void {
+  private invokeResultsUpdated(
+    visibleCount?: number,
+    searchTerm?: string,
+  ): void {
     if (this.options.onResultsUpdated) {
       // If visibleCount is undefined compute it
       if (typeof visibleCount === "undefined") {
         visibleCount = Array.from(this.items).filter(
-          (it) => (it as HTMLElement).style.display !== "none"
+          (it) => (it as HTMLElement).style.display !== "none",
         ).length;
       }
-      this.options.onResultsUpdated(visibleCount, searchTerm || this.input?.value || "");
+      this.options.onResultsUpdated(
+        visibleCount,
+        searchTerm || this.input?.value || "",
+      );
     }
   }
 
@@ -735,14 +764,18 @@ export class GenericSearchUtils implements GenericSearchInstance {
 /**
  * Create and return a configured instance.
  */
-export function initGenericSearch(options: GenericSearchOptions): GenericSearchUtils {
+export function initGenericSearch(
+  options: GenericSearchOptions,
+): GenericSearchUtils {
   return new GenericSearchUtils(options);
 }
 
 /**
  * Attempt to create an instance and swallow errors (useful in progressive enhancement).
  */
-export function initGenericSearchAuto(options: GenericSearchOptions): GenericSearchUtils | null {
+export function initGenericSearchAuto(
+  options: GenericSearchOptions,
+): GenericSearchUtils | null {
   try {
     const inst = new GenericSearchUtils(options);
     return inst;
@@ -760,8 +793,12 @@ export function initGenericSearchAuto(options: GenericSearchOptions): GenericSea
  */
 declare global {
   interface Window {
-    initGenericSearchAuto?: (opts: GenericSearchOptions) => GenericSearchInstance | null;
-    __initGenericSearchAuto?: (opts: GenericSearchOptions) => GenericSearchInstance | null;
+    initGenericSearchAuto?: (
+      opts: GenericSearchOptions,
+    ) => GenericSearchInstance | null;
+    __initGenericSearchAuto?: (
+      opts: GenericSearchOptions,
+    ) => GenericSearchInstance | null;
     __lastSearchInstance?: GenericSearchInstance | null;
   }
 }

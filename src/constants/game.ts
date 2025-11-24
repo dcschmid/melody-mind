@@ -25,11 +25,12 @@ export const DIFFICULTY_LEVELS = ["easy", "medium", "hard"] as const;
 export type Difficulty = (typeof DIFFICULTY_LEVELS)[number];
 
 /** Number of questions per difficulty */
-export const QUESTIONS_PER_DIFFICULTY: Record<Difficulty, number> = Object.freeze({
-  easy: 10,
-  medium: 15,
-  hard: 20,
-});
+export const QUESTIONS_PER_DIFFICULTY: Record<Difficulty, number> =
+  Object.freeze({
+    easy: 10,
+    medium: 15,
+    hard: 20,
+  });
 
 /** Maximum theoretical score per difficulty (base scoring only) */
 export const MAX_BASE_SCORE: Record<Difficulty, number> = Object.freeze({
@@ -47,17 +48,24 @@ export const JOKERS_PER_DIFFICULTY: Record<Difficulty, number> = Object.freeze({
 
 /** Derived maximum possible score including highest speed bonus (theoretical upper bound) */
 export const MAX_THEORETICAL_SCORE: Record<Difficulty, number> = Object.freeze({
-  easy: MAX_BASE_SCORE.easy + QUESTIONS_PER_DIFFICULTY.easy * SPEED_BONUS_VALUES.high,
-  medium: MAX_BASE_SCORE.medium + QUESTIONS_PER_DIFFICULTY.medium * SPEED_BONUS_VALUES.high,
-  hard: MAX_BASE_SCORE.hard + QUESTIONS_PER_DIFFICULTY.hard * SPEED_BONUS_VALUES.high,
+  easy:
+    MAX_BASE_SCORE.easy +
+    QUESTIONS_PER_DIFFICULTY.easy * SPEED_BONUS_VALUES.high,
+  medium:
+    MAX_BASE_SCORE.medium +
+    QUESTIONS_PER_DIFFICULTY.medium * SPEED_BONUS_VALUES.high,
+  hard:
+    MAX_BASE_SCORE.hard +
+    QUESTIONS_PER_DIFFICULTY.hard * SPEED_BONUS_VALUES.high,
 });
 
 /** Achievement keys mapped to difficulty for perfect scores */
-export const PERFECT_SCORE_ACHIEVEMENTS: Record<Difficulty, string> = Object.freeze({
-  easy: "achievement.music-novice",
-  medium: "achievement.music-master",
-  hard: "achievement.music-legend",
-});
+export const PERFECT_SCORE_ACHIEVEMENTS: Record<Difficulty, string> =
+  Object.freeze({
+    easy: "achievement.music-novice",
+    medium: "achievement.music-master",
+    hard: "achievement.music-legend",
+  });
 
 /** Utility: compute speed bonus given elapsed seconds */
 export function computeSpeedBonus(elapsedSeconds: number): number {
@@ -82,7 +90,9 @@ export function isDifficulty(value: string): value is Difficulty {
 
 /** Get joker allocation for difficulty (defensive) */
 export function getJokerAllocation(difficulty: string): number | undefined {
-  return isDifficulty(difficulty) ? JOKERS_PER_DIFFICULTY[difficulty] : undefined;
+  return isDifficulty(difficulty)
+    ? JOKERS_PER_DIFFICULTY[difficulty]
+    : undefined;
 }
 
 /** Get max base score for difficulty (defensive) */
@@ -92,5 +102,7 @@ export function getMaxBaseScore(difficulty: string): number | undefined {
 
 /** Get max theoretical score for difficulty (defensive) */
 export function getMaxTheoreticalScore(difficulty: string): number | undefined {
-  return isDifficulty(difficulty) ? MAX_THEORETICAL_SCORE[difficulty] : undefined;
+  return isDifficulty(difficulty)
+    ? MAX_THEORETICAL_SCORE[difficulty]
+    : undefined;
 }

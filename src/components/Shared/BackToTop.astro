@@ -28,7 +28,7 @@ interface Props {
   scrollThreshold?: number;
 }
 
-const { lang, className = "", ariaLabel, scrollThreshold } = Astro.props;
+const { lang = "en", className = "", ariaLabel, scrollThreshold } = Astro.props;
 const t = useTranslations(lang);
 
 // Use custom aria-label or fallback to translation
@@ -38,7 +38,7 @@ const screenReaderText = t("common.back.to.top");
 
 <button
   id="back-to-top"
-  class={`fixed z-30 min-w-[44px] min-h-[44px] p-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white border-none rounded-full shadow-lg transition-all duration-300 cursor-pointer outline-none right-4 bottom-4 hover:from-purple-700 hover:to-purple-800 hover:-translate-y-1 hover:shadow-xl focus:from-purple-700 focus:to-purple-800 focus:shadow-xl focus:ring-2 focus:ring-purple-300 focus:ring-offset-2 active:translate-y-0.5 ${className}`.trim()}
+  class={`fixed z-30 min-w-12 min-h-12 p-4 bg-indigo-600 text-white border border-white/25 rounded-full shadow-xl transition-all duration-200 cursor-pointer outline-none right-4 bottom-4 hover:bg-indigo-500 hover:-translate-y-1 hover:shadow-2xl focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900 active:translate-y-0.5 ${className}`.trim()}
   aria-label={buttonAriaLabel}
   type="button"
   style="display: none;"

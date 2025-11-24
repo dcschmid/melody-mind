@@ -16,7 +16,8 @@ export type StructuredData = Record<string, unknown>;
 
 export type PageContentKind = "generic" | "news" | "playlist" | "podcast";
 
-export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptionBase"> {
+export interface BuildPageSeoParams
+  extends Omit<BuildSeoTextParams, "descriptionBase"> {
   /** Base description text before enrichment */
   description: string;
   /** Absolute canonical URL of the page */
@@ -71,7 +72,7 @@ export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptio
   /** Optional logger invoked when social image generation fails */
   onSocialImageError?: (
     error: unknown,
-    context: { title: string; contentKind: PageContentKind }
+    context: { title: string; contentKind: PageContentKind },
   ) => void;
 }
 
@@ -130,7 +131,7 @@ function ensureBrandSuffix(title: string): string {
  */
 function inferType(
   contentKind: PageContentKind,
-  explicit?: PageSeoResult["type"]
+  explicit?: PageSeoResult["type"],
 ): PageSeoResult["type"] {
   if (explicit) {
     return explicit;
@@ -147,7 +148,10 @@ function inferType(
   }
 }
 
-function resolveFallbackImage(contentKind: PageContentKind, override?: string): string | undefined {
+function resolveFallbackImage(
+  contentKind: PageContentKind,
+  override?: string,
+): string | undefined {
   if (override) {
     return override;
   }
@@ -184,7 +188,7 @@ function buildCacheKey(o: {
 
 function augmentStructuredData(
   base: StructuredData[],
-  breadcrumbs?: Array<{ name: string; url: string }>
+  breadcrumbs?: Array<{ name: string; url: string }>,
 ): StructuredData[] {
   if (!breadcrumbs || breadcrumbs.length === 0) {
     return base;
@@ -217,7 +221,7 @@ function buildRobots(
     maxSnippet?: number;
     maxImagePreview?: "none" | "standard" | "large";
     maxVideoPreview?: number;
-  }
+  },
 ): string {
   const parts = [index ? "index" : "noindex", follow ? "follow" : "nofollow"];
   if (extras.noArchive) {
@@ -245,8 +249,10 @@ function parseRobots(robots: string): PageSeoResult["robotsDirectives"] {
     const [k, v] = t.split(":", 2);
     map[k.toLowerCase()] = v ? v : true;
   }
-  const index = map["index"] !== undefined ? map["index"] === true : !("noindex" in map);
-  const follow = map["follow"] !== undefined ? map["follow"] === true : !("nofollow" in map);
+  const index =
+    map["index"] !== undefined ? map["index"] === true : !("noindex" in map);
+  const follow =
+    map["follow"] !== undefined ? map["follow"] === true : !("nofollow" in map);
   const rd: PageSeoResult["robotsDirectives"] = { index, follow };
   if (map["noarchive"]) {
     rd.noarchive = true;
@@ -270,7 +276,9 @@ function prepareSeoText(
   normalizedTitle: string,
   description: string,
   enrichedParts: string[] | undefined,
-  rest: Omit<BuildSeoTextParams, "descriptionBase" | "title"> & { [k: string]: unknown }
+  rest: Omit<BuildSeoTextParams, "descriptionBase" | "title"> & {
+    [k: string]: unknown;
+  },
 ): SeoTextResult {
   return buildSeoText({
     title: normalizedTitle,
@@ -284,7 +292,7 @@ function inferTypeAndImage(
   contentKind: PageContentKind,
   type: PageSeoResult["type"] | undefined,
   image: string | undefined,
-  fallbackImage: string | undefined
+  fallbackImage: string | undefined,
 ): { inferredType: PageSeoResult["type"]; finalImage: string | undefined } {
   const inferredType = inferType(contentKind, type);
   const finalImage = image || resolveFallbackImage(contentKind, fallbackImage);
@@ -304,7 +312,7 @@ function maybeGenerateSocialImage(
   generator: BuildPageSeoParams["generateSocialImage"],
   onError: BuildPageSeoParams["onSocialImageError"],
   normalizedTitle: string,
-  contentKind: PageContentKind
+  contentKind: PageContentKind,
 ): string | undefined {
   if (current || !flag || typeof generator !== "function") {
     return current;
@@ -358,7 +366,9 @@ interface NormalizedResultCached {
 }
 type NormalizedResult = NormalizedResultBase | NormalizedResultCached;
 
-function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResult {
+function normalizeAndMaybeGetCache(
+  options: BuildPageSeoParams,
+): NormalizedResult {
   const {
     title = "",
     description,
@@ -404,7 +414,10 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
       })
     : "";
   if (memoize && seoCache.has(cacheKey)) {
-    return { cached: seoCache.get(cacheKey)!, exited: true } as NormalizedResultCached;
+    return {
+      cached: seoCache.get(cacheKey)!,
+      exited: true,
+    } as NormalizedResultCached;
   }
   return {
     exited: false,
@@ -482,12 +495,17 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   } = norm;
 
   const normalizedTitle = ensureBrandSuffix(title);
-  const seoText = prepareSeoText(normalizedTitle, description, enrichedParts, rest);
+  const seoText = prepareSeoText(
+    normalizedTitle,
+    description,
+    enrichedParts,
+    rest,
+  );
   const { inferredType, finalImage: baseImage } = inferTypeAndImage(
     contentKind,
     type as PageSeoResult["type"] | undefined,
     image,
-    fallbackImage
+    fallbackImage,
   );
   const finalImage = maybeGenerateSocialImage(
     baseImage,
@@ -495,7 +513,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     generateSocialImage,
     onSocialImageError,
     normalizedTitle,
-    contentKind
+    contentKind,
   );
   const robots = buildRobots(index, follow, {
     noArchive,
@@ -506,7 +524,10 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   });
 
   // Structured data augmentation hook: inject breadcrumbs if available & not already present
-  const augmentedStructured: StructuredData[] = augmentStructuredData(structuredData, breadcrumbs);
+  const augmentedStructured: StructuredData[] = augmentStructuredData(
+    structuredData,
+    breadcrumbs,
+  );
 
   const result: PageSeoResult = {
     title: normalizedTitle,

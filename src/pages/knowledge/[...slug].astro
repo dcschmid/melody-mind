@@ -1,0 +1,302 @@
+---
+/**
+ * Knowledge Article Page (English only)
+ */
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import ButtonLink from "@components/ButtonLink.astro";
+import { useTranslations } from "@utils/i18n";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+import Prose from "@components/Prose.astro";
+import TableOfContents from "@components/TableOfContents.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
+import { Icon } from "astro-icon/components";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { getCollectionCached } from "@utils/content/getCollectionCached";
+import { getReadingTime } from "@utils/readingTime";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+  const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
+  for (const entry of entries) {
+    const slug = entry?.slug || entry?.id;
+    if (!slug) continue;
+    paths.push({ params: { slug }, props: { entry } });
+  }
+  return paths;
+}
+
+const lang = "en";
+let entry: any = (Astro.props as { entry?: any }).entry;
+
+const slugParam = (Astro as any).params?.slug;
+const resolvedSlug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+
+if (!entry) {
+  try {
+    const articles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+    if (resolvedSlug) {
+      entry = articles.find((a) => a.slug === resolvedSlug || a.id === resolvedSlug);
+    }
+  } catch (e) {
+    globalThis.console?.warn?.("knowledge article: collection load issue (fallback)", {
+      error: (e as any)?.message || e,
+    });
+  }
+}
+
+if (!entry) {
+  return new Response("Not found", { status: 404 });
+}
+
+if (!entry.data.readingTime && entry.body) {
+  try {
+    entry = {
+      ...entry,
+      data: {
+        ...entry.data,
+        readingTime: getReadingTime(entry.body || "", { languageCode: lang }).minutes,
+      },
+    };
+  } catch {
+    // ignore reading time calculation errors
+  }
+}
+
+const t = useTranslations(lang);
+
+const { headings, Content } = await entry.render();
+const mergedHeadings = headings;
+
+const rawImage = entry.data.image;
+const isValidImage = typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
+const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
+
+const title = entry.data.title;
+const description = entry.data.description;
+const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
+const optimizedDescription = pageContent;
+
+const baseSite =
+  Astro.site?.toString().replace(/\/$/, "") || "https://knowledge.melody-mind.de";
+const canonical = resolvedSlug
+  ? `${baseSite}/knowledge/${resolvedSlug}`
+  : `${baseSite}`;
+const breadcrumbs = [
+  { name: t("nav.home") || "Home", url: `${baseSite}/` },
+  { name: t("knowledge.title") || "Knowledge", url: `${baseSite}/knowledge` },
+  { name: title, url: canonical },
+];
+const structuredDataExtra = [
+  {
+    "@type": "Article",
+    headline: title,
+    description: description,
+    image: imageSource,
+    author: { "@type": "Organization", name: "Melody Mind" },
+    publisher: {
+      "@type": "Organization",
+      name: "Melody Mind",
+      logo: { "@type": "ImageObject", url: "https://melody-mind.de/melody-mind.png" },
+    },
+    datePublished: entry.data.createdAt?.toISOString(),
+    dateModified: entry.data.updatedAt?.toISOString(),
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+    inLanguage: lang,
+    keywords: entry.data.keywords?.join(", ") || "",
+    articleSection: t("knowledge.title") || "Music Knowledge",
+    wordCount: entry.body?.length || 0,
+  },
+];
+
+const wordsCount = entry.body ? entry.body.trim().split(/\s+/).length : 0;
+const readingResult = getReadingTime(entry.body || "", { languageCode: lang });
+
+function translate(key: string, fallback: string): string {
+  try {
+    return t(key);
+  } catch {
+    return fallback;
+  }
+}
+
+const pageSeo = buildPageSeo({
+  title,
+  description: optimizedDescription,
+  url: canonical,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: structuredDataExtra,
+  enrichedParts: [title, description].filter(Boolean) as string[],
+  fallbackKeywords: (entry.data.keywords || []).slice(0, 20),
+  keywordLimit: 24,
+  maxDescription: 155,
+  image: imageSource,
+  publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
+  modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
+---
+
+<Layout {pageSeo} {breadcrumbs}>
+  <Fragment slot="head"></Fragment>
+
+  <main class="relative min-h-screen overflow-hidden  text-white">
+    <div class="relative mx-auto px-4 pb-16 pt-8">
+      <header class="mb-10">
+        <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div class="order-2 flex flex-col gap-5 rounded-2xl border border-white/8 bg-[#0f1724] p-6 shadow-xl sm:p-7 lg:order-1 lg:p-8">
+            <Headline level="h1" textSize="xl" textAlign="left" className="text-white">
+              {entry.data.title}
+            </Headline>
+            <Paragraph textSize="lg" textAlign="left" className="text-gray-200">
+              {entry.data.description}
+            </Paragraph>
+            <div class="flex flex-wrap gap-2 text-sm text-gray-200 sm:gap-3">
+              <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
+                <Icon name="clock" class="h-4 w-4 text-white" aria-hidden="true" />
+                {readingResult.minutes} {t("knowledge.reading.time")}
+              </div>
+              <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
+                <Icon name="calendar" class="h-4 w-4 text-white" aria-hidden="true" />
+                {
+                  new Date(entry.data.createdAt || new Date()).toLocaleDateString(lang, {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })
+                }
+              </div>
+              <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
+                <Icon name="file-text" class="h-4 w-4 text-white" aria-hidden="true" />
+                {t("knowledge.word_count", { count: wordsCount })}
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2">
+            {
+              imageSource ? (
+                <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0f1724] shadow-xl">
+                  <Picture
+                    class="h-full w-full object-cover"
+                    src={imageSource}
+                    widths={[600, 800, 1000, 1200]}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+                    formats={["avif", "webp", "jpg"]}
+                    alt={entry.data.title}
+                    loading="eager"
+                    fetchpriority="high"
+                    width={1200}
+                    height={800}
+                    decoding="async"
+                  />
+                </div>
+              ) : (
+                <div
+                  class="flex aspect-[4/3] w-full items-center justify-center rounded-2xl border border-dashed border-white/10 bg-[#0f1724] p-8 text-center text-gray-300 shadow-xl lg:aspect-[5/3]"
+                  role="img"
+                  aria-label={t("category.no_image_available")}
+                >
+                  <div class="flex flex-col items-center gap-3">
+                    <Icon name="image" class="h-16 w-16 lg:h-20 lg:w-20" aria-hidden="true" />
+                    <span class="text-lg">{t("category.no_image_available")}</span>
+                  </div>
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </header>
+
+      <section class="mb-9 rounded-2xl border border-white/8 bg-[#0f1724] p-5 shadow-xl sm:p-6">
+        <div class="flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div class="flex flex-wrap gap-2 sm:gap-3">
+            <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
+              <Icon name="play" class="h-4 w-4 text-emerald-300" aria-hidden="true" />
+              Streaming shortcuts
+            </div>
+            <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
+              <Icon name="music" class="h-4 w-4 text-sky-300" aria-hidden="true" />
+              Curated for discovery
+            </div>
+          </div>
+          <div class="flex flex-col justify-center gap-3 sm:flex-row">
+            <ButtonLink
+              href={entry.data.category?.spotifyPlaylist || "#"}
+              variant="secondary"
+              icon="spotify"
+              className="w-full justify-center sm:w-auto"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: entry.data.title,
+                platform: t("musicPlatforms.platform.spotify"),
+              })}
+            >
+              {t("musicPlatforms.platform.spotify")}
+            </ButtonLink>
+            <ButtonLink
+              href={entry.data.category?.deezerPlaylist || "#"}
+              variant="secondary"
+              icon="deezer"
+              className="w-full justify-center sm:w-auto"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: entry.data.title,
+                platform: t("musicPlatforms.platform.deezer"),
+              })}
+            >
+              {t("musicPlatforms.platform.deezer")}
+            </ButtonLink>
+            <ButtonLink
+              href={entry.data.category?.appleMusicPlaylist || "#"}
+              variant="secondary"
+              icon="apple-music"
+              className="w-full justify-center sm:w-auto"
+              aria-label={t("musicPlatforms.listenOn", {
+                title: entry.data.title,
+                platform: t("musicPlatforms.platform.apple"),
+              })}
+            >
+              {t("musicPlatforms.platform.apple")}
+            </ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      <div class="mb-9">
+        <TableOfContents headings={mergedHeadings} lang={lang} />
+      </div>
+
+      <div id="article-content" class="rounded-2xl border border-white/8 bg-[#0f1724] p-6 shadow-xl sm:p-7">
+        <div
+          role="region"
+          aria-labelledby="article-title"
+          aria-label={translate("accessibility.main_content", "Main content")}
+        >
+          <Prose>
+            <Content />
+          </Prose>
+        </div>
+      </div>
+
+      <div class="mt-12 flex justify-center">
+        <ButtonLink
+          href="/"
+          icon="arrow-left"
+          aria-label={translate("knowledge.back.to.list", "Back to knowledge list")}
+          className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-gray-200 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/50 hover:bg-indigo-500/10 hover:text-white hover:shadow-lg"
+        >
+          <span class="flex items-center gap-2">
+            <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
+          </span>
+        </ButtonLink>
+      </div>
+    </div>
+  </main>
+
+  <BackToTop lang={lang} />
+</Layout>

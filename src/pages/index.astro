@@ -1,3 +1,263 @@
 ---
-return Astro.redirect("/en");
+/**
+ * Knowledge Index Page - Professional Dark Mode with WCAG AAA
+ */
+import Layout from "@layouts/Layout.astro";
+import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import SearchPanel from "@components/Search/SearchPanel.astro";
+import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
+import { ui } from "@i18n/ui";
+import { useTranslations } from "@utils/i18n";
+import Headline from "@components/Headline.astro";
+import Paragraph from "@components/Paragraph.astro";
+import { Icon } from "astro-icon/components";
+import { calculateReadingTime } from "@utils/readingTime";
+import BackToTop from "@components/Shared/BackToTop.astro";
+import KnowledgeCard from "@components/KnowledgeCard.astro";
+import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
+import { getCollectionCached } from "@utils/content/getCollectionCached";
+import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
+
+export const prerender = true;
+
+const lang = "en";
+const t = useTranslations(lang);
+const safeUi = ui[lang] as Record<string, string>;
+
+// Load English knowledge collection
+let baseArticles: any[] = [];
+try {
+  baseArticles = await getCollectionCached("knowledge-en").catch(() => []);
+} catch (e) {
+  globalThis.console?.warn?.("knowledge index: collection load issue", {
+    error: (e as any)?.message || e,
+  });
+}
+
+// Process articles
+const articlesWithReadingTime = baseArticles.map((article: any) => {
+  const createdAtRaw = article?.data?.createdAt;
+  const updatedAtRaw = article?.data?.updatedAt;
+  const createdAt = normalizeDate(createdAtRaw);
+  const updatedAt = normalizeDate(updatedAtRaw);
+  const readingTime = article.data.readingTime || calculateReadingTime(article.body || "");
+  return {
+    ...article,
+    data: { ...article.data, createdAt, updatedAt, readingTime },
+  };
+});
+
+const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
+
+// SEO
+const title = safeUi["knowledge.title"];
+const description = safeUi["knowledge.title"];
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://knowledge.melody-mind.de";
+const currentUrl = `${baseUrl}/knowledge`;
+
+let earliestCreated: Date | null = null;
+let latestUpdated: Date | null = null;
+for (const a of articlesWithReadingTime) {
+  const c = normalizeDate(a.data.createdAt);
+  if (c && (!earliestCreated || c.getTime() < earliestCreated.getTime())) earliestCreated = c;
+  const u = normalizeDate(a.data.updatedAt);
+  if (u && (!latestUpdated || u.getTime() > latestUpdated.getTime())) latestUpdated = u;
+}
+const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
+
+const breadcrumbs = [
+  { name: safeUi["nav.home"] || "Home", url: `${baseUrl}/` },
+  { name: safeUi["knowledge.title"] || "Knowledge", url: currentUrl },
+];
+
+const articleCollectionSchema = buildKnowledgeArticlesItemList({
+  articles: sortedArticles.map((a: any) => ({
+    slug: "slug" in a ? a.slug : a.id,
+    data: {
+      title: a.data.title,
+      description: a.data.description,
+      createdAt: a.data.createdAt,
+      updatedAt: a.data.updatedAt,
+      keywords: a.data.keywords,
+      image: a.data.image,
+    },
+  })),
+  baseUrl,
+  lang,
+  listName: safeUi["knowledge.title"] || "Knowledge Articles",
+});
+
+const keywordPool = sortedArticles.flatMap((article) => article.data.keywords || []);
+const metaKeywords = keywordPool.slice(0, 10).join(", ");
+
+const clientTranslations = {
+  search: {
+    showingAll: safeUi["knowledge.search.showing.all"] || "Showing all articles",
+    articlesFound: safeUi["knowledge.search.articlesFound"] || "articles found",
+    placeholder: safeUi["knowledge.search.placeholder"] || "Search articles...",
+    resetText: safeUi["knowledge.search.reset.text"] || "Reset",
+    noResultsFor: safeUi["knowledge.search.no_results_for"] || 'No results for "{term}"',
+  },
+};
+
+const pageSeo = buildPageSeo({
+  title,
+  description,
+  url: currentUrl,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: [articleCollectionSchema].filter(Boolean) as StructuredData[],
+  enrichedParts: [title, description, keywordPool.slice(0, 25).join(" ")],
+  fallbackKeywords: metaKeywords.split(",").map((k) => k.trim()).filter(Boolean),
+  keywordLimit: 28,
+  maxDescription: 150,
+  image: "/knowledge.png",
+  publishDate: collectionDates.publishDate || undefined,
+  modifiedDate: collectionDates.modifiedDate || undefined,
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
 ---
+
+<Layout {pageSeo} {breadcrumbs}>
+  <script is:inline define:vars={{ clientTranslations }}>
+    window.knowledgeTranslations = clientTranslations;
+  </script>
+
+  <main class="relative min-h-screen bg-slate-950">
+    <!-- Elegant gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black pointer-events-none"></div>
+    
+    <!-- Subtle texture overlay -->
+    <div class="absolute inset-0 opacity-[0.015] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
+      
+      <!-- Hero Section - Optimized -->
+      <header class="mb-16 text-center">
+        <h1 class="mb-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl" style="text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
+          {safeUi["knowledge.title"]}
+        </h1>
+        <p
+          class="mx-auto mb-8 text-base leading-relaxed text-slate-100 sm:text-lg"
+          style="text-shadow: 0 1px 3px rgba(0,0,0,0.3); white-space: normal; writing-mode: horizontal-tb; word-break: normal; overflow-wrap: anywhere;"
+        >
+          {safeUi["knowledge.description"]}
+        </p>
+        <div class="flex flex-wrap justify-center gap-3 text-sm font-semibold">
+          <div class="flex items-center gap-2.5 rounded-full bg-slate-800/80 px-6 py-3 ring-1 ring-slate-700 backdrop-blur-md shadow-lg">
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></span>
+            <span class="text-white">{sortedArticles.length} Articles</span>
+          </div>
+          <div class="flex items-center gap-2.5 rounded-full bg-slate-800/80 px-6 py-3 ring-1 ring-slate-700 backdrop-blur-md shadow-lg">
+            <span class="h-2.5 w-2.5 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(192,132,252,0.6)]"></span>
+            <span class="text-white">Regularly Updated</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Search Section -->
+      <section class="mb-16 mx-auto">
+        <div class="rounded-2xl bg-slate-900/50 p-8 ring-1 ring-slate-800 backdrop-blur-sm">
+          <h2 class="mb-2 text-2xl font-semibold text-slate-50">
+            {safeUi["knowledge.search.title"] || "Search Articles"}
+          </h2>
+          <p class="mb-6 text-slate-300">
+            {safeUi["knowledge.search.subtitle"] || t("knowledge.search.subtitle")}
+          </p>
+          <SearchPanel
+            idBase="knowledge-search"
+            label={t("knowledge.search.label")}
+            placeholder={safeUi["knowledge.search.placeholder"] || "Search articles..."}
+            ariaControls="articlesGrid"
+            statusAllText={safeUi["knowledge.search.initial"] || "Showing all articles"}
+            statusCountTemplate={safeUi["knowledge.search.articlesFound"] ? `{count} ${safeUi["knowledge.search.articlesFound"]}` : "{count} articles found"}
+            noResultsTemplate={(safeUi["knowledge.search.no_results_for"] || 'No results for "{term}"') as string}
+          />
+        </div>
+      </section>
+
+      <!-- Articles Grid -->
+      <section>
+        <h2 class="sr-only">{t("auto._lang_.knowledge.index.knowledge_articles")}</h2>
+        <ul id="articlesGrid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {sortedArticles.length > 0 ? (
+            sortedArticles.map((article, index: number) => {
+              const createdAt =
+                article.data.createdAt instanceof Date
+                  ? article.data.createdAt
+                  : normalizeDate(article.data.createdAt) || new Date();
+              const articleSlug = "slug" in article ? article.slug : article.id;
+
+              return (
+                <li
+                  class="group relative overflow-hidden rounded-2xl bg-slate-900/50 ring-1 ring-slate-800 transition-all duration-300 hover:-translate-y-1 hover:ring-primary-500/50 hover:shadow-2xl hover:shadow-primary-900/20"
+                  itemscope
+                  itemtype="https://schema.org/Article"
+                >
+                  <div class="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                  <KnowledgeCard
+                    title={article.data.title}
+                    description={article.data.description}
+                    image={article.data.image as string}
+                    createdAt={createdAt}
+                    slug={articleSlug}
+                    lang={lang}
+                    readingTime={article.data.readingTime}
+                    articleUrl={`/knowledge/${articleSlug}`}
+                    keywords={article.data.keywords?.join(", ")}
+                    index={index}
+                  />
+                  <meta itemprop="name" content={article.data.title} />
+                  <meta itemprop="description" content={article.data.description} />
+                  <meta itemprop="url" content={`${baseUrl}/knowledge/${articleSlug}`} />
+                  <meta itemprop="datePublished" content={createdAt.toISOString()} />
+                  {article.data.keywords && (
+                    <meta itemprop="keywords" content={article.data.keywords.join(", ")} />
+                  )}
+                </li>
+              );
+            })
+          ) : (
+            <li class="col-span-full py-16 text-center">
+              <div class="mx-auto max-w-md">
+                <Icon
+                  name="info"
+                  class="mx-auto mb-6 h-16 w-16 text-slate-500"
+                  aria-hidden="true"
+                />
+                <p class="text-lg text-slate-300">
+                  {safeUi["knowledge.empty"] || "No articles available"}
+                </p>
+              </div>
+            </li>
+          )}
+        </ul>
+      </section>
+    </div>
+
+    <BackToTop {lang} />
+  </main>
+
+  <script>
+    import { initSearchPanel } from "@components/Search/initSearchPanel";
+    ((): void => {
+      const wire = (): void => {
+        initSearchPanel({ idBase: "knowledge-search", itemSelector: "#articlesGrid li" });
+      };
+      const schedule = (fn: () => void): void => {
+        const idle: (cb: () => void) => void = (window.requestIdleCallback ||
+          ((cb: () => void): void => {
+            setTimeout(cb, 1);
+          })) as (cb: () => void) => void;
+        idle(fn);
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => schedule(wire));
+      } else {
+        schedule(wire);
+      }
+    })();
+  </script>
+</Layout>

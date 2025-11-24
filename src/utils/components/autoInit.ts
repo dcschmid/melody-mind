@@ -5,8 +5,14 @@
  * Keeps hydration costs low by deferring work to idle time and avoiding duplicate inline scripts.
  */
 
-type IdleCallback = (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void;
-type IdleRequest = (callback: IdleCallback, options?: { timeout?: number }) => number;
+type IdleCallback = (deadline: {
+  didTimeout: boolean;
+  timeRemaining: () => number;
+}) => void;
+type IdleRequest = (
+  callback: IdleCallback,
+  options?: { timeout?: number },
+) => number;
 
 type InitEntry = {
   /** Predicate that returns truthy when corresponding component elements are present */
@@ -21,14 +27,15 @@ let hasInitialized = false;
  * Schedule a callback using `requestIdleCallback` when available to avoid main-thread contention.
  */
 const runWhenIdle = (cb: () => void): void => {
-  const idle = (window as typeof window & { requestIdleCallback?: IdleRequest }).requestIdleCallback;
+  const idle = (window as typeof window & { requestIdleCallback?: IdleRequest })
+    .requestIdleCallback;
 
   if (typeof idle === "function") {
     idle(
       () => {
         cb();
       },
-      { timeout: 500 }
+      { timeout: 500 },
     );
     return;
   }
@@ -46,7 +53,8 @@ const INIT_TARGETS: InitEntry[] = [
   },
   {
     test: (): Element | null =>
-      document.getElementById("back-to-top") || document.querySelector("[data-back-to-top]"),
+      document.getElementById("back-to-top") ||
+      document.querySelector("[data-back-to-top]"),
     init: async (): Promise<void> => {
       const { initDefaultBackToTop } = await import("./backToTopUtils");
       initDefaultBackToTop();
@@ -55,14 +63,18 @@ const INIT_TARGETS: InitEntry[] = [
   {
     test: (): HTMLElement | null => document.getElementById("language-select"),
     init: async (): Promise<void> => {
-      const { initDefaultLanguagePicker } = await import("./languagePickerUtils");
+      const { initDefaultLanguagePicker } = await import(
+        "./languagePickerUtils"
+      );
       void initDefaultLanguagePicker();
     },
   },
   {
     test: (): HTMLElement | null => document.getElementById("toc-toggle"),
     init: async (): Promise<void> => {
-      const { initDefaultTableOfContents } = await import("./tableOfContentsUtils");
+      const { initDefaultTableOfContents } = await import(
+        "./tableOfContentsUtils"
+      );
       void initDefaultTableOfContents();
     },
   },
@@ -92,7 +104,8 @@ const INIT_TARGETS: InitEntry[] = [
     },
   },
   {
-    test: (): Element | null => document.querySelector("[data-testid='joker-container']"),
+    test: (): Element | null =>
+      document.querySelector("[data-testid='joker-container']"),
     init: async (): Promise<void> => {
       const { initJokerAuto } = await import("./jokerUtils");
       initJokerAuto();

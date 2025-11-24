@@ -17,7 +17,9 @@ const state: OverlayManagerState = {
  * Initialize overlay management
  */
 export function initOverlayManager(): void {
-  const overlays = document.querySelectorAll<HTMLElement>('[role="dialog"], [data-overlay]');
+  const overlays = document.querySelectorAll<HTMLElement>(
+    '[role="dialog"], [data-overlay]',
+  );
 
   overlays.forEach((overlay) => {
     setupOverlay(overlay);
@@ -35,14 +37,16 @@ export function initOverlayManager(): void {
 function setupOverlay(_overlay: HTMLElement): void {
   // Create an array of focusable elements within the overlay
   const focusableElements = _overlay.querySelectorAll<HTMLElement>(
-    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
   );
 
   const firstFocusableElement = focusableElements[0];
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
   // Store trigger elements that open this overlay
-  const openTriggers = document.querySelectorAll(`[data-opens="${_overlay.id}"]`);
+  const openTriggers = document.querySelectorAll(
+    `[data-opens="${_overlay.id}"]`,
+  );
   openTriggers.forEach((trigger) => {
     trigger.addEventListener("click", () => {
       state.previousFocus = document.activeElement;

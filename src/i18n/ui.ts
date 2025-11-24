@@ -5,15 +5,9 @@
  * for the application's internationalization system.
  */
 
-// Import all language locale files
+// Import English locale file (sole supported language)
 import { FALLBACK_LANGUAGE } from "@constants/i18n";
-
-import de from "./locales/de"; // German
-import en from "./locales/en"; // English
-import es from "./locales/es"; // Spanish
-import fr from "./locales/fr"; // French
-import it from "./locales/it"; // Italian
-import pt from "./locales/pt"; // Portuguese
+import en from "./locales/en";
 
 /**
  * Internationalization Key Notes (Playlists Images)
@@ -56,21 +50,6 @@ import pt from "./locales/pt"; // Portuguese
  */
 
 /**
- * @constant languages
- * @description Object containing all supported languages with their native display names.
- * Used in language selection UI components and for display purposes.
- * @type {Record<string, string>}
- */
-export const languages: Record<string, string> = {
-  de: "Deutsch",
-  en: "English",
-  es: "Español",
-  fr: "Français",
-  it: "Italiano",
-  pt: "Português",
-};
-
-/**
  * @constant defaultLang
  * @description The default language code to fall back to if a user's preferred language is not available.
  * Used when initializing the application and when no language preference is detected.
@@ -85,11 +64,4 @@ export const defaultLang: string = FALLBACK_LANGUAGE;
  * translated text for that language.
  * @type {Record<string, Record<string, string>>}
  */
-export const ui: Record<string, Record<string, string>> = {
-  de,
-  en,
-  es,
-  fr,
-  it,
-  pt,
-};
+export const ui: Record<string, Record<string, string>> = { en };

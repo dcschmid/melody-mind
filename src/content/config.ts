@@ -35,15 +35,8 @@ const knowledgeCollection = defineCollection({
 export const baseKnowledgeSchema = getKnowledgeSchema({} as SchemaContext);
 
 // Define collections
-// Active knowledge collections only (legacy locales purged 2025-10):
-// Removed: cn, jp, da, nl, sv, fi, ru, uk
 export const collections = {
-  "knowledge-de": knowledgeCollection,
   "knowledge-en": knowledgeCollection,
-  "knowledge-es": knowledgeCollection,
-  "knowledge-fr": knowledgeCollection,
-  "knowledge-it": knowledgeCollection,
-  "knowledge-pt": knowledgeCollection,
 } as const;
 
 // Type definitions
@@ -52,4 +45,7 @@ export type CollectionKey = keyof typeof collections;
 export type Difficulty = (typeof difficultyEnum)[number];
 
 // Helper type for knowledge-specific collection keys
-export type KnowledgeCollectionKey = Extract<CollectionKey, `knowledge-${string}`>;
+export type KnowledgeCollectionKey = Extract<
+  CollectionKey,
+  `knowledge-${string}`
+>;

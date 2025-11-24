@@ -13,7 +13,10 @@ interface GenerateMetaOptions {
  * Generate a meta description bounded by length (UTF-16 safe slicing).
  * @deprecated Use buildPageSeo (description field) with text enrichment logic in textUnified instead.
  */
-export function generateMetaDescription(content: string, opts: GenerateMetaOptions = {}): string {
+export function generateMetaDescription(
+  content: string,
+  opts: GenerateMetaOptions = {},
+): string {
   const maxLength = opts.maxLength ?? 158;
   const ellipsis = opts.ellipsis ?? "...";
   if (!content) {
@@ -33,7 +36,7 @@ export function generateMetaDescription(content: string, opts: GenerateMetaOptio
 export function extractKeywordsFallback(
   content: string,
   limit: number = 12,
-  locale: string = "en"
+  locale: string = "en",
 ): string[] {
   if (!content) {
     return [];
@@ -59,7 +62,7 @@ export function extractKeywordsFallback(
       "oder",
       "ist",
       "sind",
-    ].map((w) => w.toLowerCase())
+    ].map((w) => w.toLowerCase()),
   );
   const words = content
     .toLowerCase()
@@ -87,9 +90,14 @@ export function extractKeywordsFallback(
  * Combine and normalize keyword list into a comma-separated string.
  * @deprecated buildPageSeo returns keywords array; join there if raw string needed.
  */
-export function buildKeywordsString(keywords: string[], extra?: string | string[]): string {
+export function buildKeywordsString(
+  keywords: string[],
+  extra?: string | string[],
+): string {
   const extraList = Array.isArray(extra) ? extra : extra ? [extra] : [];
-  const merged = [...keywords, ...extraList].map((k) => k.trim()).filter(Boolean);
+  const merged = [...keywords, ...extraList]
+    .map((k) => k.trim())
+    .filter(Boolean);
   const uniq = Array.from(new Set(merged));
   return uniq.join(", ");
 }

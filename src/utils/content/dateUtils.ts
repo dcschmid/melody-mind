@@ -30,7 +30,7 @@ export interface DeriveDatesResult {
  */
 export function derivePublishModified(
   publishRaw: unknown,
-  modifiedRaw: unknown
+  modifiedRaw: unknown,
 ): DeriveDatesResult {
   const publish = normalizeDate(publishRaw);
   const modified = normalizeDate(modifiedRaw);

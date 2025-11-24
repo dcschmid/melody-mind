@@ -15,7 +15,7 @@ export function buildBasicBreadcrumbs(
   baseUrl: string,
   lang: string,
   tail: BreadcrumbItem,
-  homeLabel = "Home"
+  homeLabel = "Home",
 ): BreadcrumbItem[] {
   return [{ name: homeLabel, url: `${baseUrl}/${lang}` }, tail];
 }
