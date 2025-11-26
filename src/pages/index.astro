@@ -90,6 +90,42 @@ const articleCollectionSchema = buildKnowledgeArticlesItemList({
 const keywordPool = sortedArticles.flatMap((article) => article.data.keywords || []);
 const metaKeywords = keywordPool.slice(0, 10).join(", ");
 
+const averageReadingTime =
+  sortedArticles.length > 0
+    ? Math.round(
+        sortedArticles.reduce((sum, article) => {
+          const minutes =
+            typeof article.data.readingTime === "number"
+              ? article.data.readingTime
+              : calculateReadingTime(article.body || "");
+          return sum + minutes;
+        }, 0) / sortedArticles.length,
+      )
+    : 0;
+
+const trendingKeywords = Array.from(new Set(keywordPool)).slice(0, 6);
+
+const latestArticles = [...sortedArticles]
+  .map((article) => {
+    const updated = normalizeDate(article.data.updatedAt);
+    const created = normalizeDate(article.data.createdAt);
+    const effectiveDate = updated || created || new Date(0);
+    return { article, effectiveDate };
+  })
+  .sort((a, b) => b.effectiveDate.getTime() - a.effectiveDate.getTime())
+  .slice(0, 3)
+  .map((item) => item.article);
+
+const formatDate = (value: Date | string | undefined): string => {
+  const normalized = normalizeDate(value);
+  if (!normalized) return "";
+  return normalized.toLocaleDateString(lang, {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
+
 const clientTranslations = {
   search: {
     showingAll: safeUi["knowledge.search.showing.all"] || "Showing all articles",
@@ -125,47 +161,49 @@ const pageSeo = buildPageSeo({
     window.knowledgeTranslations = clientTranslations;
   </script>
 
-  <main class="relative min-h-screen bg-slate-950">
-    <!-- Elegant gradient background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-black pointer-events-none"></div>
-    
-    <!-- Subtle texture overlay -->
-    <div class="absolute inset-0 opacity-[0.015] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
+  <main class="relative min-h-screen bg-slate-950 text-slate-50">
+    <div class="absolute inset-0 bg-slate-950 pointer-events-none"></div>
 
-    <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-20">
-      
-      <!-- Hero Section - Optimized -->
-      <header class="mb-16 text-center">
-        <h1 class="mb-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl" style="text-shadow: 0 2px 10px rgba(0,0,0,0.3);">
-          {safeUi["knowledge.title"]}
-        </h1>
-        <p
-          class="mx-auto mb-8 text-base leading-relaxed text-slate-100 sm:text-lg"
-          style="text-shadow: 0 1px 3px rgba(0,0,0,0.3); white-space: normal; writing-mode: horizontal-tb; word-break: normal; overflow-wrap: anywhere;"
-        >
-          {safeUi["knowledge.description"]}
-        </p>
-        <div class="flex flex-wrap justify-center gap-3 text-sm font-semibold">
-          <div class="flex items-center gap-2.5 rounded-full bg-slate-800/80 px-6 py-3 ring-1 ring-slate-700 backdrop-blur-md shadow-lg">
-            <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></span>
-            <span class="text-white">{sortedArticles.length} Articles</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-full bg-slate-800/80 px-6 py-3 ring-1 ring-slate-700 backdrop-blur-md shadow-lg">
-            <span class="h-2.5 w-2.5 rounded-full bg-primary-400 shadow-[0_0_8px_rgba(192,132,252,0.6)]"></span>
-            <span class="text-white">Regularly Updated</span>
-          </div>
+    <div class="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-18">
+      <header class="mb-12 space-y-4 border-b border-white/10 pb-8">
+        <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.12em] text-slate-300">
+          <span class="text-primary-100">{safeUi["nav.knowledge"] || "Knowledge desk"}</span>
+          <span aria-hidden="true" class="text-slate-600">•</span>
+          <span>
+            {new Date().toLocaleDateString(lang, { weekday: "long", month: "long", day: "numeric", year: "numeric" })}
+          </span>
+        </div>
+        <div class="space-y-3">
+          <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+            {safeUi["knowledge.title"]}
+          </h1>
+          <p class="text-lg leading-relaxed text-slate-200 sm:text-xl">
+            {safeUi["knowledge.description"]}
+          </p>
+          <p class="text-base leading-relaxed text-slate-300">
+            From roots to remixes, we map every genre with vivid timelines, listening cues, and handpicked cuts so you pick up the stories faster, hear deeper, and keep discovering new favorites. Along the way you’ll get background context, cultural links, and playlists that connect decades, giving you a richer ear and a fresh list of artists to explore.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm text-slate-200">
+          <span class="rounded-lg bg-white/5 px-3 py-2 ring-1 ring-white/10">
+            {sortedArticles.length} {t("knowledge.search.articlesFound")}
+          </span>
+          <span class="rounded-lg bg-white/5 px-3 py-2 ring-1 ring-white/10">
+            Updated {formatDate(collectionDates.modifiedDate || collectionDates.publishDate || new Date())}
+          </span>
         </div>
       </header>
 
-      <!-- Search Section -->
-      <section class="mb-16 mx-auto">
-        <div class="rounded-2xl bg-slate-900/50 p-8 ring-1 ring-slate-800 backdrop-blur-sm">
-          <h2 class="mb-2 text-2xl font-semibold text-slate-50">
-            {safeUi["knowledge.search.title"] || "Search Articles"}
-          </h2>
-          <p class="mb-6 text-slate-300">
-            {safeUi["knowledge.search.subtitle"] || t("knowledge.search.subtitle")}
-          </p>
+      <section class="mb-12 grid gap-6 lg:grid-cols-3">
+        <div class="lg:col-span-2 rounded-3xl border border-white/10 bg-slate-900/80 p-7 shadow-xl shadow-black/30">
+          <div class="mb-4 space-y-2">
+            <h2 class="text-xl font-semibold text-white">
+              {safeUi["knowledge.search.title"] || "Search articles"}
+            </h2>
+            <p class="text-sm text-slate-300">
+              {safeUi["knowledge.search.subtitle"] || t("knowledge.search.subtitle")}
+            </p>
+          </div>
           <SearchPanel
             idBase="knowledge-search"
             label={t("knowledge.search.label")}
@@ -175,11 +213,73 @@ const pageSeo = buildPageSeo({
             statusCountTemplate={safeUi["knowledge.search.articlesFound"] ? `{count} ${safeUi["knowledge.search.articlesFound"]}` : "{count} articles found"}
             noResultsTemplate={(safeUi["knowledge.search.no_results_for"] || 'No results for "{term}"') as string}
           />
+          {trendingKeywords.length > 0 && (
+            <div class="mt-4">
+              <p class="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-400">
+                Trending topics
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {trendingKeywords.map((kw) => (
+                  <span class="rounded-full bg-white/5 px-3 py-1 text-xs text-slate-200 ring-1 ring-white/10">
+                    {kw}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-slate-900/80 p-7 shadow-xl shadow-black/30">
+          <div class="mb-3 flex items-center justify-between">
+            <h2 class="text-lg font-semibold text-white">Latest updates</h2>
+            <span class="text-xs uppercase tracking-[0.12em] text-slate-400">Fresh reads</span>
+          </div>
+          <ul class="space-y-3">
+            {latestArticles.length > 0 ? (
+              latestArticles.map((article) => {
+                const articleSlug = "slug" in article ? article.slug : article.id;
+                const createdAt = formatDate(article.data.createdAt);
+                const minutes =
+                  article.data.readingTime || calculateReadingTime(article.body || "");
+                return (
+                  <li class="group rounded-2xl border border-white/5 bg-white/5 p-4 transition hover:-translate-y-0.5 hover:border-primary-300/60 hover:bg-white/10">
+                    <a
+                      href={`/knowledge/${articleSlug}`}
+                      class="flex flex-col gap-2 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300"
+                    >
+                      <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">
+                        <span class="h-2 w-2 rounded-full bg-primary-400"></span>
+                        {createdAt}
+                        <span aria-hidden="true" class="text-slate-500">•</span>
+                        {minutes} {t("knowledge.reading.time")}
+                      </div>
+                      <p class="text-base font-semibold text-white transition group-hover:text-primary-200">
+                        {article.data.title}
+                      </p>
+                      <p class="text-sm leading-relaxed text-slate-200 line-clamp-2">
+                        {article.data.description}
+                      </p>
+                    </a>
+                  </li>
+                );
+              })
+            ) : (
+              <li class="rounded-2xl border border-white/5 bg-white/5 p-4 text-sm text-slate-300">
+                {safeUi["knowledge.empty"] || "No articles available"}
+              </li>
+            )}
+          </ul>
         </div>
       </section>
 
-      <!-- Articles Grid -->
-      <section>
+      <section class="space-y-4">
+        <div class="flex items-center gap-2 text-sm text-slate-300">
+          <Icon name="filter" class="h-4 w-4 text-primary-200" aria-hidden="true" />
+          <span class="font-semibold text-white">
+            {safeUi["knowledge.search.articlesFound"] || "Articles"} ({sortedArticles.length})
+          </span>
+        </div>
+
         <h2 class="sr-only">{t("auto._lang_.knowledge.index.knowledge_articles")}</h2>
         <ul id="articlesGrid" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sortedArticles.length > 0 ? (
@@ -192,7 +292,9 @@ const pageSeo = buildPageSeo({
 
               return (
                 <li
-                  class="group relative overflow-hidden rounded-2xl bg-slate-900/50 ring-1 ring-slate-800 transition-all duration-300 hover:-translate-y-1 hover:ring-primary-500/50 hover:shadow-2xl hover:shadow-primary-900/20"
+                  class="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary-300/60 hover:shadow-2xl hover:shadow-primary-900/30"
+                  data-article-item
+                  data-search-text={article.data.keywords?.join(", ")}
                   itemscope
                   itemtype="https://schema.org/Article"
                 >
@@ -220,14 +322,14 @@ const pageSeo = buildPageSeo({
               );
             })
           ) : (
-            <li class="col-span-full py-16 text-center">
+            <li class="col-span-full rounded-2xl border border-white/10 bg-slate-900/70 py-16 text-center">
               <div class="mx-auto max-w-md">
                 <Icon
                   name="info"
                   class="mx-auto mb-6 h-16 w-16 text-slate-500"
                   aria-hidden="true"
                 />
-                <p class="text-lg text-slate-300">
+                <p class="text-lg text-slate-200">
                   {safeUi["knowledge.empty"] || "No articles available"}
                 </p>
               </div>
@@ -244,7 +346,7 @@ const pageSeo = buildPageSeo({
     import { initSearchPanel } from "@components/Search/initSearchPanel";
     ((): void => {
       const wire = (): void => {
-        initSearchPanel({ idBase: "knowledge-search", itemSelector: "#articlesGrid li" });
+        initSearchPanel({ idBase: "knowledge-search", itemSelector: "[data-article-item]" });
       };
       const schedule = (fn: () => void): void => {
         const idle: (cb: () => void) => void = (window.requestIdleCallback ||

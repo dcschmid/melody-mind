@@ -146,82 +146,123 @@ const pageSeo = buildPageSeo({
 <Layout {pageSeo} {breadcrumbs}>
   <Fragment slot="head"></Fragment>
 
-  <main class="relative min-h-screen overflow-hidden  text-white">
-    <div class="relative mx-auto px-4 pb-16 pt-8">
-      <header class="mb-10">
-        <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div class="order-2 flex flex-col gap-5 rounded-2xl border border-white/8 bg-[#0f1724] p-6 shadow-xl sm:p-7 lg:order-1 lg:p-8">
-            <Headline level="h1" textSize="xl" textAlign="left" className="text-white">
-              {entry.data.title}
-            </Headline>
-            <Paragraph textSize="lg" textAlign="left" className="text-gray-200">
-              {entry.data.description}
-            </Paragraph>
-            <div class="flex flex-wrap gap-2 text-sm text-gray-200 sm:gap-3">
-              <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
-                <Icon name="clock" class="h-4 w-4 text-white" aria-hidden="true" />
-                {readingResult.minutes} {t("knowledge.reading.time")}
-              </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
-                <Icon name="calendar" class="h-4 w-4 text-white" aria-hidden="true" />
-                {
-                  new Date(entry.data.createdAt || new Date()).toLocaleDateString(lang, {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                }
-              </div>
-              <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
-                <Icon name="file-text" class="h-4 w-4 text-white" aria-hidden="true" />
-                {t("knowledge.word_count", { count: wordsCount })}
+  <main class="relative min-h-screen overflow-hidden bg-slate-950 text-white">
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-black"></div>
+    <div
+      class="absolute inset-0 opacity-[0.04]"
+      style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.18) 1px, transparent 0); background-size: 64px 64px;"
+    ></div>
+
+    <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+      <header class="mb-10 space-y-5 rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/40">
+        <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-200">
+          <span class="rounded-full bg-primary-400/20 px-4 py-2 font-semibold uppercase tracking-[0.14em] text-primary-100 ring-1 ring-primary-400/60">
+            In-depth report
+          </span>
+          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-300">
+            <Icon name="calendar" class="h-4 w-4 text-emerald-200" aria-hidden="true" />
+            {
+              new Date(entry.data.updatedAt || entry.data.createdAt || new Date()).toLocaleDateString(lang, {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            }
+          </span>
+        </div>
+        <Headline level="h1" textSize="xl" textAlign="left" className="text-white">
+          {entry.data.title}
+        </Headline>
+        <Paragraph textSize="lg" textAlign="left" className="max-w-4xl text-slate-100">
+          {entry.data.description}
+        </Paragraph>
+      </header>
+
+      <div class="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 shadow-2xl shadow-black/40">
+        {
+          imageSource ? (
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+              <Picture
+                class="h-full w-full object-cover"
+                src={imageSource}
+                widths={[600, 800, 1000, 1200]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+                formats={["avif", "webp", "jpg"]}
+                alt={entry.data.title}
+                loading="eager"
+                fetchpriority="high"
+                width={1200}
+                height={800}
+                decoding="async"
+              />
+            </div>
+          ) : (
+            <div
+              class="flex aspect-[4/3] w-full items-center justify-center bg-slate-900 p-8 text-center text-gray-300 lg:aspect-[5/3]"
+              role="img"
+              aria-label={t("category.no_image_available")}
+            >
+              <div class="flex flex-col items-center gap-3">
+                <Icon name="image" class="h-16 w-16 lg:h-20 lg:w-20" aria-hidden="true" />
+                <span class="text-lg">{t("category.no_image_available")}</span>
               </div>
             </div>
-          </div>
+          )
+        }
+      </div>
 
-          <div class="order-1 lg:order-2">
+      <section class="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Reading time</div>
+          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
+            <Icon name="clock" class="h-5 w-5 text-emerald-300" aria-hidden="true" />
+            {readingResult.minutes} {t("knowledge.reading.time")}
+          </div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Word count</div>
+          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
+            <Icon name="file-text" class="h-5 w-5 text-sky-300" aria-hidden="true" />
+            {t("knowledge.word_count", { count: wordsCount })}
+          </div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Published</div>
+          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
+            <Icon name="calendar" class="h-5 w-5 text-emerald-200" aria-hidden="true" />
             {
-              imageSource ? (
-                <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0f1724] shadow-xl">
-                  <Picture
-                    class="h-full w-full object-cover"
-                    src={imageSource}
-                    widths={[600, 800, 1000, 1200]}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
-                    formats={["avif", "webp", "jpg"]}
-                    alt={entry.data.title}
-                    loading="eager"
-                    fetchpriority="high"
-                    width={1200}
-                    height={800}
-                    decoding="async"
-                  />
-                </div>
-              ) : (
-                <div
-                  class="flex aspect-[4/3] w-full items-center justify-center rounded-2xl border border-dashed border-white/10 bg-[#0f1724] p-8 text-center text-gray-300 shadow-xl lg:aspect-[5/3]"
-                  role="img"
-                  aria-label={t("category.no_image_available")}
-                >
-                  <div class="flex flex-col items-center gap-3">
-                    <Icon name="image" class="h-16 w-16 lg:h-20 lg:w-20" aria-hidden="true" />
-                    <span class="text-lg">{t("category.no_image_available")}</span>
-                  </div>
-                </div>
-              )
+              new Date(entry.data.createdAt || new Date()).toLocaleDateString(lang, {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
             }
           </div>
         </div>
-      </header>
+        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Last updated</div>
+          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
+            <Icon name="refresh-ccw" class="h-5 w-5 text-primary-200" aria-hidden="true" />
+            {
+              new Date(entry.data.updatedAt || entry.data.createdAt || new Date()).toLocaleDateString(lang, {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            }
+          </div>
+        </div>
+      </section>
 
-      <section class="mb-9 rounded-2xl border border-white/8 bg-[#0f1724] p-5 shadow-xl sm:p-6">
+      <section class="mb-9 rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/30">
         <div class="flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div class="flex flex-wrap gap-2 sm:gap-3">
-            <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
+            <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
               <Icon name="play" class="h-4 w-4 text-emerald-300" aria-hidden="true" />
               Streaming shortcuts
             </div>
-            <div class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
+            <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
               <Icon name="music" class="h-4 w-4 text-sky-300" aria-hidden="true" />
               Curated for discovery
             </div>
@@ -267,11 +308,12 @@ const pageSeo = buildPageSeo({
         </div>
       </section>
 
-      <div class="mb-9">
+      <div class="mb-9 rounded-3xl border border-white/10 bg-slate-900/70 p-5 shadow-xl">
         <TableOfContents headings={mergedHeadings} lang={lang} />
       </div>
 
-      <div id="article-content" class="rounded-2xl border border-white/8 bg-[#0f1724] p-6 shadow-xl sm:p-7">
+      <article id="article-content" class="rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/30 sm:p-7">
+        <div id="article-title" class="sr-only">{entry.data.title}</div>
         <div
           role="region"
           aria-labelledby="article-title"
@@ -281,7 +323,7 @@ const pageSeo = buildPageSeo({
             <Content />
           </Prose>
         </div>
-      </div>
+      </article>
 
       <div class="mt-12 flex justify-center">
         <ButtonLink
