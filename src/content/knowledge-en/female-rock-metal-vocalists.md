@@ -5,7 +5,6 @@ image: /category/female-rock-metal-vocalists.jpg
 createdAt: 2025-11-29
 updatedAt: 2025-11-29
 keywords:
-keywords:
   - female rock vocalists
   - female metal vocalists
   - metal vocal techniques

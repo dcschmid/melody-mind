@@ -5,7 +5,6 @@ image: /category/female-vocal-icons.jpg
 createdAt: 2025-11-29
 updatedAt: 2025-11-29
 keywords:
-keywords:
   - female vocal icons
   - women in music
   - vocal history
