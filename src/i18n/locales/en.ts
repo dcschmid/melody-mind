@@ -361,7 +361,7 @@ export default {
   "knowledge.published": "Published",
   "knowledge.reading.time": "min read",
   "knowledge.reading.time.label": "Reading time",
-  "knowledge.title": "Music Knowledge",
+  "knowledge.title": "MelodyMind Knowledge",
   "knowledge.description":
     "Dive into the world of music genres — from roots to modern sounds. Discover background stories, listening tips, and curated examples that deepen understanding and lead you to new favorites. 🎧",
   "language.change.error": "Language change failed. Please try again.",
