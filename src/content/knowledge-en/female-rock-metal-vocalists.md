@@ -82,7 +82,7 @@ In many ways, the birth of female power in heavy metal formed a bridge between t
 
 ## The Gothic, Symphonic, and Alternative Revolution
 
-<figure class="subsehttps://open.spotify.com/playlist/5gTccByda9bdZN9LHJaV4Nction-figure">
+<figure class="subsection-figure">
   <img src="/knowledge/female-rock-metal-vocalists/female-rock-metal-vocalists-4.jpg" … />
   <h3>Symphonic Metal and the Rise of Operatic Voices</h3>
 </figure>
