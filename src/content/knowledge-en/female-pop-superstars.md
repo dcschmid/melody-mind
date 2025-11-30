@@ -5,7 +5,6 @@ image: /category/female-pop-superstars.jpg
 createdAt: 2025-11-30
 updatedAt: 2025-11-30
 keywords:
-keywords:
   - female pop superstars
   - global pop icons
   - pop vocal history
