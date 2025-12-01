@@ -14,11 +14,11 @@ keywords:
   - musicology
 author: MelodyMind
 locale: en
-category:
+category: female-focused
+playlists:
   spotifyPlaylist: "https://open.spotify.com/playlist/6ClyY4xbhg17BvxvETMY5k"
   deezerPlaylist: "https://link.deezer.com/s/30xp4Mo1bvPl3Vej7hSU9"
   appleMusicPlaylist: "https://music.apple.com/de/playlist/top-female-vocal-icons/pl.u-aZb02kZC1xpM8zM"
-isPlayable: false
 ---
 
 <figure class="subsection-figure">

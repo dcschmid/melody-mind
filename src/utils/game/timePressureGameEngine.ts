@@ -1,8 +1,6 @@
 export class TimePressureGameEngine {
-  private config: any;
-
-  constructor(config: any) {
-    this.config = config;
+  constructor(_config: any) {
+    // reserved for future use
   }
 
   async initialize(): Promise<void> {

@@ -32,26 +32,14 @@ const {
   title, 
   description, 
   keywords,
-  image,
-  imageWidth,
-  imageHeight,
-  type,
-  publishDate,
-  modifiedDate,
-  ogMusic,
-  audioSrc,
-  episodeNumber,
-  seriesName,
-  seriesUrl,
   canonical,
-  breadcrumbs,
   noIndex,
   noFollow,
   prevUrl,
   nextUrl,
-  disableAlternateLanguages,
+  publishDate,
+  modifiedDate,
   structuredDataExtra,
-  authorName
 } = Astro.props;
 ---
 <Head>
@@ -87,10 +75,8 @@ const {
           const replacer = (_k: string, v: unknown) => (v instanceof Date ? v.toISOString() : v);
           return JSON.stringify(obj, replacer as any, 2);
         });
-        return cleaned.map((json) => (
-          <script type="application/ld+json">
-            {json}
-          </script>
+        return cleaned.map((jsonString) => (
+          <script is:inline type="application/ld+json" set:html={jsonString} />
         ));
       } catch (e) {
         return null;

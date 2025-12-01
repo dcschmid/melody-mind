@@ -88,21 +88,21 @@ const baseClasses = [
   "text-decoration-none relative min-h-[48px] min-w-[48px] cursor-pointer",
   "px-4 py-3 sm:px-6 sm:py-3.5 text-base sm:text-lg",
   "tracking-base font-primary leading-normal transition-all duration-200",
-  "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900",
+  "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950",
   "w-full max-w-full sm:w-auto sm:max-w-none",
 ].join(" ");
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: [
-    "border-white/20 bg-indigo-600 text-white shadow-lg shadow-indigo-900/50",
-    "hover:-translate-y-0.5 hover:bg-indigo-500",
-    "active:scale-95 active:transition-transform active:duration-100",
+    "border-primary-200/50 bg-primary-800 text-white shadow-lg shadow-primary-950/60",
+    "hover:-translate-y-0.5 hover:bg-primary-700",
+    "active:scale-95 active:transition-transform active:duration-100 active:bg-primary-900",
     "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
   ].join(" "),
   secondary: [
-    "border-white/20 bg-white/10 text-white shadow-lg",
-    "hover:-translate-y-0.5 hover:border-indigo-200/60 hover:bg-white/20",
-    "active:scale-95 active:transition-transform active:duration-100",
+    "border-white/20 bg-slate-900/80 text-slate-50 shadow-lg shadow-black/40",
+    "hover:-translate-y-0.5 hover:border-primary-200/60 hover:bg-slate-800",
+    "active:scale-95 active:transition-transform active:duration-100 active:bg-slate-900",
     "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
   ].join(" "),
 };

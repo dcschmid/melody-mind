@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Convert PNG images under public/knowledge to web-optimized JPEGs.
+Convert PNG images under public to web-optimized JPEGs.
 
 Usage:
   # dry-run (no files changed)
@@ -82,7 +82,7 @@ def main(argv=None):
     parser.add_argument('--overwrite', '-f', action='store_true', help='Overwrite existing JPG files')
     parser.add_argument('--quality', '-q', type=int, default=85, help='JPEG quality (default 85)')
     parser.add_argument('--width', '-w', type=int, default=None, help='Resize width in pixels (maintains aspect ratio). If omitted, original width is kept.')
-    parser.add_argument('--root', '-r', type=str, default='public/knowledge', help='Root folder to search (default public/knowledge)')
+    parser.add_argument('--root', '-r', type=str, default='public', help='Root folder to search (default public)')
     args = parser.parse_args(argv)
 
     if args.delete and not args.execute:

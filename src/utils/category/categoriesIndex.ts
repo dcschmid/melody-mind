@@ -1,5 +1,5 @@
 export const categories = {};
 
-export function getCategories(lang: string): any {
+export function getCategories(_lang: string): any {
   return categories;
 }

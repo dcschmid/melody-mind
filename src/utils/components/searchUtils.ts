@@ -749,7 +749,7 @@ export class GenericSearchUtils implements GenericSearchInstance {
   /**
    * Implement GenericSearchInstance.addDocuments method
    */
-  public addDocuments(docs: any[]): void {
+  public addDocuments(_docs: any[]): void {
     // No-op for DOM-based search
   }
 

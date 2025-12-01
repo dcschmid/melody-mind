@@ -75,10 +75,10 @@ const tocTitle = title || t("toc.nav.label");
           aria-expanded="false"
           aria-controls="toc-content"
           aria-label={t("toc.toggle.label")}
-          class="flex min-h-[44px] w-full items-center justify-between rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-left text-base font-medium text-white shadow-lg transition-all duration-300 hover:border-gray-500 hover:bg-gray-700 hover:shadow-xl focus:ring-4 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+          class="flex min-h-[44px] w-full items-center justify-between rounded-lg border border-white/20 bg-slate-900/90 px-4 py-3 text-left text-base font-medium text-slate-50 shadow-lg transition-all duration-300 hover:border-primary-300/60 hover:bg-slate-800 hover:shadow-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
         >
           <span class="flex items-center gap-3">
-            <Icon name="menu" class="h-5 w-5 text-purple-400" aria-hidden="true" />
+            <Icon name="menu" class="h-5 w-5 text-primary-200" aria-hidden="true" />
             <span>{tocTitle}</span>
           </span>
           <span
@@ -91,7 +91,7 @@ const tocTitle = title || t("toc.nav.label");
           <Icon
             name="chevron-down"
             id="toc-icon"
-            class="h-5 w-5 text-gray-400 transition-transform duration-300"
+            class="h-5 w-5 text-slate-200 transition-transform duration-300"
             aria-hidden="true"
           />
         </button>
@@ -99,24 +99,24 @@ const tocTitle = title || t("toc.nav.label");
         <div
           id="toc-content"
           aria-labelledby="toc-toggle"
-          class="mt-3 hidden overflow-hidden rounded-lg border border-gray-600 bg-gray-800 shadow-lg backdrop-blur-sm transition-all duration-300"
+          class="mt-3 hidden overflow-hidden rounded-lg border border-white/15 bg-slate-900/90 shadow-lg backdrop-blur-sm transition-all duration-300"
         >
           <nav aria-label={t("toc.nav.label")} class="p-4">
             <a
               href="#article-content"
-              class="mb-4 block text-sm text-purple-400 no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+              class="mb-4 block text-sm font-semibold text-primary-200 no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
             >
               {t("toc.skip.link")}
             </a>
-            <ul class="scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500 hover:scrollbar-thumb-gray-400 m-0 max-h-[50vh] list-none overflow-y-auto p-0">
+            <ul class="scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-400 m-0 max-h-[50vh] list-none overflow-y-auto p-0">
               {filteredHeadings.map((heading) => (
                 <li class={`mb-1 ${heading.depth === 3 ? "ml-4" : ""}`}>
                   <a
                     href={`#${heading.slug}`}
                     class={`text-decoration-none block min-h-[44px] rounded-md px-3 py-2 leading-relaxed transition-all duration-200 ${
                       heading.depth === 2
-                        ? "text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
-                        : "text-xs font-normal text-gray-400 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:ring-2 focus:ring-purple-500/60 focus:ring-offset-2 focus:ring-offset-gray-900 focus:outline-none"
+                        ? "text-sm font-semibold text-slate-100 hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:bg-slate-800 focus-visible:text-white focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                        : "text-xs font-medium text-slate-200 hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:bg-slate-800 focus-visible:text-white focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                     }`}
                   >
                     {heading.text}

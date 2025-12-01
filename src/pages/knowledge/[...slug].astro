@@ -147,7 +147,7 @@ const pageSeo = buildPageSeo({
   <Fragment slot="head"></Fragment>
 
   <main class="relative min-h-screen overflow-hidden bg-slate-950 text-white">
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-black"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-950 to-black"></div>
     <div
       class="absolute inset-0 opacity-[0.04]"
       style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.18) 1px, transparent 0); background-size: 64px 64px;"
@@ -182,7 +182,7 @@ const pageSeo = buildPageSeo({
         {
           imageSource ? (
             <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+              <div class="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></div>
               <Picture
                 class="h-full w-full object-cover"
                 src={imageSource}
@@ -199,7 +199,7 @@ const pageSeo = buildPageSeo({
             </div>
           ) : (
             <div
-              class="flex aspect-[4/3] w-full items-center justify-center bg-slate-900 p-8 text-center text-gray-300 lg:aspect-[5/3]"
+              class="flex aspect-4/3 w-full items-center justify-center bg-slate-900 p-8 text-center text-gray-300 lg:aspect-5/3"
               role="img"
               aria-label={t("category.no_image_available")}
             >
@@ -214,21 +214,21 @@ const pageSeo = buildPageSeo({
 
       <section class="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Reading time</div>
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Reading time</div>
           <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
             <Icon name="clock" class="h-5 w-5 text-emerald-300" aria-hidden="true" />
             {readingResult.minutes} {t("knowledge.reading.time")}
           </div>
         </div>
         <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Word count</div>
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Word count</div>
           <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
             <Icon name="file-text" class="h-5 w-5 text-sky-300" aria-hidden="true" />
             {t("knowledge.word_count", { count: wordsCount })}
           </div>
         </div>
         <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Published</div>
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Published</div>
           <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
             <Icon name="calendar" class="h-5 w-5 text-emerald-200" aria-hidden="true" />
             {
@@ -241,7 +241,7 @@ const pageSeo = buildPageSeo({
           </div>
         </div>
         <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Last updated</div>
+          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Last updated</div>
           <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
             <Icon name="refresh-ccw" class="h-5 w-5 text-primary-200" aria-hidden="true" />
             {
@@ -269,7 +269,7 @@ const pageSeo = buildPageSeo({
           </div>
           <div class="flex flex-col justify-center gap-3 sm:flex-row">
             <ButtonLink
-              href={entry.data.category?.spotifyPlaylist || "#"}
+              href={entry.data.playlists?.spotifyPlaylist || "#"}
               variant="secondary"
               icon="spotify"
               className="w-full justify-center sm:w-auto"
@@ -281,7 +281,7 @@ const pageSeo = buildPageSeo({
               {t("musicPlatforms.platform.spotify")}
             </ButtonLink>
             <ButtonLink
-              href={entry.data.category?.deezerPlaylist || "#"}
+              href={entry.data.playlists?.deezerPlaylist || "#"}
               variant="secondary"
               icon="deezer"
               className="w-full justify-center sm:w-auto"
@@ -293,7 +293,7 @@ const pageSeo = buildPageSeo({
               {t("musicPlatforms.platform.deezer")}
             </ButtonLink>
             <ButtonLink
-              href={entry.data.category?.appleMusicPlaylist || "#"}
+              href={entry.data.playlists?.appleMusicPlaylist || "#"}
               variant="secondary"
               icon="apple-music"
               className="w-full justify-center sm:w-auto"

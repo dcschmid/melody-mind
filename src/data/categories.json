@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "decades",
+    "name": "Music Through the Decades",
+    "description": "A guided journey through the evolving sound of global music history — from vintage analog warmth to the digital revolutions of today. Each decade unfolds through cultural shifts, iconic artists, and the innovations that reshaped how the world listens.",
+    "image": "/maincategories/decades.jpg"
+  },
+  {
+    "slug": "female-focused",
+    "name": "Global Female Icons",
+    "description": "Celebrating the voices, visions, and cultural influence of women who redefined music across continents and generations. Their stories illuminate artistry, resilience, and evolution — from soulful pioneers to today’s global trailblazers.",
+    "image": "/maincategories/female-focused.jpg"
+  },
+  {
+    "slug": "metal-queens",
+    "name": "Queens of Metal",
+    "description": "A tribute to the commanding voices and visionary performers who shaped metal’s emotional intensity — from symphonic and gothic to progressive and alternative. These artists forged new soundscapes, broke boundaries, and defined the genre’s most powerful eras.",
+    "image": "/maincategories/metal-queens.jpg"
+  }
+]

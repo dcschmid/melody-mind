@@ -131,7 +131,13 @@ interface Props {
       image?: string;
       locale?: string;
     };
-    twitter: { card: string; title: string; description: string; image?: string; creator?: string };
+    twitter: {
+      card: string;
+      title: string;
+      description: string;
+      image?: string;
+      creator?: string;
+    };
     structuredData: StructuredData[];
     publishDate?: Date;
     modifiedDate?: Date;
@@ -263,9 +269,6 @@ const {
   pageSeo,
   imageWidth,
   imageHeight,
-  showHeader = true,
-  showHeaderIcons = true,
-  showCoins = false,
   ogMusic,
   audioSrc,
   episodeNumber,
@@ -297,7 +300,8 @@ const mergedCanonical = constructedPageSeo.canonical;
 const mergedImage = constructedPageSeo.image || "/melody-mind.png";
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
-const mergedStructuredData: StructuredData[] = constructedPageSeo.structuredData;
+const mergedStructuredData: StructuredData[] =
+  constructedPageSeo.structuredData;
 const robotsTag = constructedPageSeo.robots;
 
 const lang = getLangFromUrl(Astro.url);
@@ -317,7 +321,9 @@ function mapOgLocale(l: string): string {
     case "es":
       return "es_ES";
     default:
-      return base.replace(/-.+$/, "").concat("_", base.toUpperCase().slice(-2) || "US");
+      return base
+        .replace(/-.+$/, "")
+        .concat("_", base.toUpperCase().slice(-2) || "US");
   }
 }
 const autoOgLocale = mapOgLocale(String(lang));
@@ -327,7 +333,11 @@ const autoOgLocale = mapOgLocale(String(lang));
 // Avoid preloading the CDN script because the CDN currently returns HTML/CORS issues;
 // we will load it dynamically with a safe fallback instead.
 const preloadedResources = [
-  { href: "/styles/global.css", as: "style" as const, crossorigin: "anonymous" as const },
+  {
+    href: "/styles/global.css",
+    as: "style" as const,
+    crossorigin: "anonymous" as const,
+  },
 ];
 
 // Font preloading optimization with @fontsource integration
@@ -356,7 +366,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
   <Head>
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <!-- Title and description are handled by SEO component to avoid duplication -->
 
     <!-- Color scheme and theme color for browser UI using CSS variables -->
@@ -366,12 +379,29 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       content="var(--color-neutral-950)"
       media="(prefers-color-scheme: dark)"
     />
-    <meta name="theme-color" content="var(--color-white)" media="(prefers-color-scheme: light)" />
+    <meta
+      name="theme-color"
+      content="var(--color-white)"
+      media="(prefers-color-scheme: light)"
+    />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="MelodyMind" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Resource hints for performance -->
-    {dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
+    {
+      dnsPrefetch.map((resource) => (
+        <link rel="dns-prefetch" href={resource.href} />
+      ))
+    }
 
     {
       preloadedResources.map((resource) => (
@@ -410,12 +440,20 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
     <!-- Structured data and SEO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="MelodyMind Knowledge RSS Feed" href="/rss.xml" />
-    <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="MelodyMind Knowledge RSS Feed"
+      href="/rss.xml"
+    />
+    <meta
+      name="google-site-verification"
+      content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M"
+    />
     <SEO
       title={mergedTitle}
       description={mergedDescription}
-      keywords={mergedKeywords.split(',').map(k => k.trim())}
+      keywords={mergedKeywords.split(",").map((k) => k.trim())}
       image={mergedImage}
       {imageWidth}
       {imageHeight}
@@ -442,7 +480,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     {/* OpenGraph / Twitter Cards (generated when pageSeo supplied) */}
     <Fragment>
       <meta property="og:title" content={constructedPageSeo.openGraph.title} />
-      <meta property="og:description" content={constructedPageSeo.openGraph.description} />
+      <meta
+        property="og:description"
+        content={constructedPageSeo.openGraph.description}
+      />
       <meta property="og:type" content={constructedPageSeo.openGraph.type} />
       <meta property="og:url" content={constructedPageSeo.openGraph.url} />
       <meta
@@ -459,20 +500,32 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       }
       {
         constructedPageSeo.openGraph.image && (
-          <meta property="og:image" content={constructedPageSeo.openGraph.image} />
+          <meta
+            property="og:image"
+            content={constructedPageSeo.openGraph.image}
+          />
         )
       }
       <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
       <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
-      <meta name="twitter:description" content={constructedPageSeo.twitter.description} />
+      <meta
+        name="twitter:description"
+        content={constructedPageSeo.twitter.description}
+      />
       {
         constructedPageSeo.twitter.image && (
-          <meta name="twitter:image" content={constructedPageSeo.twitter.image} />
+          <meta
+            name="twitter:image"
+            content={constructedPageSeo.twitter.image}
+          />
         )
       }
       {
         (constructedPageSeo.twitter as any).creator && (
-          <meta name="twitter:creator" content={(constructedPageSeo.twitter as any).creator} />
+          <meta
+            name="twitter:creator"
+            content={(constructedPageSeo.twitter as any).creator}
+          />
         )
       }
     </Fragment>

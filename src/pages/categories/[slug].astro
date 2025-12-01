@@ -1,0 +1,199 @@
+---
+import Layout from "@layouts/Layout.astro";
+import KnowledgeCard from "@components/KnowledgeCard.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
+import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import { getCollectionCached } from "@utils/content/getCollectionCached";
+import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
+import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
+import { calculateReadingTime } from "@utils/readingTime";
+import categories from "../../data/categories.json";
+
+export const prerender = true;
+
+type CategoryDef = {
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+};
+
+export async function getStaticPaths() {
+  return (categories as CategoryDef[]).map((cat) => ({
+    params: { slug: cat.slug },
+  }));
+}
+
+const allCategories = categories as CategoryDef[];
+const slug = (Astro.params?.slug as string) || "";
+const category = allCategories.find((c) => c.slug === slug);
+
+if (!category) {
+  return new Response("Not found", { status: 404 });
+}
+
+let baseArticles: any[] = [];
+try {
+  baseArticles = await getCollectionCached("knowledge-en").catch(() => []);
+} catch (e) {
+  globalThis.console?.warn?.("category page: collection load issue", {
+    error: (e as any)?.message || e,
+  });
+}
+
+const articlesWithReadingTime = baseArticles.map((article: any) => {
+  const createdAtRaw = article?.data?.createdAt;
+  const updatedAtRaw = article?.data?.updatedAt;
+  const createdAt = normalizeDate(createdAtRaw);
+  const updatedAt = normalizeDate(updatedAtRaw);
+  const readingTime =
+    article.data.readingTime || calculateReadingTime(article.body || "");
+  return {
+    ...article,
+    data: { ...article.data, createdAt, updatedAt, readingTime },
+  };
+});
+
+const filteredArticles = sortKnowledgeEntries(
+  articlesWithReadingTime.filter((a) => a.data.category === slug)
+);
+
+const keywordPool = filteredArticles.flatMap(
+  (article) => article.data.keywords || []
+);
+const metaKeywords = keywordPool.slice(0, 10).join(", ");
+
+let earliestCreated: Date | null = null;
+let latestUpdated: Date | null = null;
+for (const a of filteredArticles) {
+  const c = normalizeDate(a.data.createdAt);
+  if (c && (!earliestCreated || c.getTime() < earliestCreated.getTime()))
+    earliestCreated = c;
+  const u = normalizeDate(a.data.updatedAt);
+  if (u && (!latestUpdated || u.getTime() > latestUpdated.getTime()))
+    latestUpdated = u;
+}
+const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
+
+const baseUrl =
+  Astro.site?.toString().replace(/\/$/, "") ||
+  "https://knowledge.melody-mind.de";
+const currentUrl = `${baseUrl}/categories/${category.slug}`;
+const breadcrumbs = [
+  { name: "Home", url: `${baseUrl}/` },
+  { name: "Categories", url: `${baseUrl}/` },
+  { name: category.name, url: currentUrl },
+];
+
+const pageSeo = buildPageSeo({
+  title: `${category.name} | Categories`,
+  description: category.description,
+  url: currentUrl,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: [] as StructuredData[],
+  enrichedParts: [category.name, category.description],
+  fallbackKeywords: metaKeywords
+    .split(",")
+    .map((k) => k.trim())
+    .filter(Boolean),
+  keywordLimit: 24,
+  maxDescription: 150,
+  image: category.image,
+  publishDate: collectionDates.publishDate || undefined,
+  modifiedDate: collectionDates.modifiedDate || undefined,
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
+---
+
+<Layout {pageSeo} {breadcrumbs}>
+  <main class="relative min-h-screen bg-slate-950 text-slate-50">
+    <div class="absolute inset-0 bg-slate-950 pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <header
+        class="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80 shadow-2xl shadow-black/40"
+      >
+        <div class="relative">
+          <img
+            src={category.image}
+            alt={`${category.name} hero`}
+            loading="lazy"
+            decoding="async"
+            class="h-80 w-full object-cover sm:h-[380px] md:h-[460px]"
+            width="1400"
+            height="560"
+          />
+          <div
+            class="relative mx-4 -mt-6 md:static md:mt-0 md:inset-0 md:flex md:items-end md:justify-start md:px-6 md:pb-6 lg:px-8"
+          >
+            <div class="p-5">
+              <div
+                class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-200"
+              >
+                <span class="h-2 w-2 rounded-full bg-primary-300"></span>
+                {filteredArticles.length} articles
+              </div>
+              <h1
+                class="mt-3 text-2xl font-semibold leading-tight text-white sm:text-3xl md:text-4xl text-balance"
+              >
+                {category.name}
+              </h1>
+              <p
+                class="mt-2 text-base leading-relaxed text-slate-200 sm:text-lg text-balance"
+              >
+                {category.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+        {
+          filteredArticles.length > 0 ? (
+            <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {filteredArticles.map((article, index: number) => {
+                const createdAt =
+                  article.data.createdAt instanceof Date
+                    ? article.data.createdAt
+                    : normalizeDate(article.data.createdAt) || new Date();
+                const articleSlug =
+                  "slug" in article ? article.slug : article.id;
+
+                return (
+                  <li class="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary-300/60 hover:shadow-2xl hover:shadow-primary-900/30">
+                    <KnowledgeCard
+                      title={article.data.title}
+                      description={article.data.description}
+                      image={article.data.image as string}
+                      createdAt={createdAt}
+                      slug={articleSlug}
+                      lang="en"
+                      readingTime={article.data.readingTime}
+                      articleUrl={`/knowledge/${articleSlug}`}
+                      keywords={article.data.keywords?.join(", ")}
+                      index={index}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-10 text-center shadow-xl">
+              <p class="text-lg font-semibold text-white">
+                No articles in this category yet.
+              </p>
+              <p class="mt-2 text-sm text-slate-200">
+                Check back soon for fresh additions.
+              </p>
+            </div>
+          )
+        }
+      </section>
+    </div>
+
+    <BackToTop lang="en" />
+  </main>
+</Layout>

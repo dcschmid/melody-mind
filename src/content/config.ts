@@ -11,16 +11,16 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
     createdAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
     readingTime: z.number().optional(),
+    category: z.string().optional(),
     author: z.string().optional(),
     locale: z.string().optional(),
-    category: z
+    playlists: z
       .object({
         spotifyPlaylist: z.string().optional(),
         deezerPlaylist: z.string().optional(),
         appleMusicPlaylist: z.string().optional(),
       })
       .optional(),
-    isPlayable: z.boolean().default(false),
     draft: z.boolean().default(false),
   });
 

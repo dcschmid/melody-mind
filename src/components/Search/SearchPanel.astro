@@ -33,7 +33,7 @@ const inputId = `${idBase}-input`;
 const clearId = `${idBase}-clear`;
 const resetId = `${idBase}-reset`;
 const inputClasses =
-  "block w-full rounded-3xl border-2 border-purple-500/40 bg-gray-800/90 py-5 text-xl pr-20 pl-16 font-medium text-white placeholder-gray-400 shadow-2xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-500/20 focus:border-purple-400 focus:ring-4 focus:ring-purple-500/60 focus:outline-none";
+  "block w-full rounded-3xl border-2 border-primary-300/70 bg-slate-950/80 py-5 text-xl pr-20 pl-16 font-medium text-slate-50 placeholder-slate-200 shadow-2xl shadow-primary-950/30 backdrop-blur-md transition-all duration-300 hover:shadow-primary-400/30 focus:border-primary-200 focus:ring-4 focus:ring-primary-300 focus:outline-none";
 ---
 
 <div class="w-full" data-search-root>
@@ -41,7 +41,7 @@ const inputClasses =
     <label for={inputId} class="sr-only">{label}</label>
     <div class="relative">
       <div class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-6">
-        <svg class="h-7 w-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="h-7 w-7 text-primary-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -60,7 +60,7 @@ const inputClasses =
       />
       <button
         id={clearId}
-        class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-gray-400 opacity-0 transition-colors duration-200 hover:text-purple-400"
+        class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-slate-200 opacity-0 transition-colors duration-200 hover:text-primary-200 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
         type="button"
         aria-label="Clear search"
         data-search-clear
@@ -78,7 +78,7 @@ const inputClasses =
   <div class="mt-6 text-center">
     <button
       id={resetId}
-      class="inline-flex items-center gap-3 rounded-xl bg-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-purple-700 hover:shadow-purple-500/20"
+      class="inline-flex items-center gap-3 rounded-xl bg-primary-800 px-6 py-3 font-semibold text-slate-50 shadow-lg shadow-primary-950/40 transition-colors duration-200 hover:bg-primary-700 hover:shadow-primary-500/25 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
       type="button"
       aria-controls={ariaControls}
       data-search-reset
@@ -108,7 +108,7 @@ const inputClasses =
     data-search-no-results
     hidden
     data-search-no-results-tpl={noResultsTemplate}
-    class="mt-4 text-center text-sm text-gray-400"
+    class="mt-4 text-center text-sm text-slate-200"
   >
   </div>
   <slot name="status" />
