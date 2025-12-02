@@ -18,7 +18,7 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'MelodyMind Knowledge',
     description: 'Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.',
-    site: context.site || 'https://knowledge.melody-mind.de',
+    site: context.site || 'https://melody-mind.de',
     items: publishedArticles.map((article) => ({
       title: article.data.title,
       description: article.data.description,

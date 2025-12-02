@@ -77,7 +77,7 @@ const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
 
 const baseUrl =
   Astro.site?.toString().replace(/\/$/, "") ||
-  "https://knowledge.melody-mind.de";
+  "https://melody-mind.de";
 const currentUrl = `${baseUrl}/categories/${category.slug}`;
 const breadcrumbs = [
   { name: "Home", url: `${baseUrl}/` },

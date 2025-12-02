@@ -156,7 +156,7 @@
           </main>
           
           <footer>
-            <p>© MelodyMind Knowledge · <a href="https://knowledge.melody-mind.de">Visit Website</a></p>
+            <p>© MelodyMind Knowledge · <a href="https://melody-mind.de">Visit Website</a></p>
           </footer>
         </div>
       </body>

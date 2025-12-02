@@ -1,6 +1,6 @@
 # MelodyMind Knowledge
 
-Music knowledge articles and education content for MelodyMind - A standalone static site serving content at `knowledge.melody-mind.de`.
+Music knowledge articles and education content for MelodyMind - A standalone static site serving content at `melody-mind.de`.
 
 ## Features
 
@@ -120,7 +120,7 @@ Output will be in `dist/` directory, ready to deploy to any static hosting.
 
 ### Subdomain Setup
 
-1. Configure DNS to point `knowledge.melody-mind.de` to your server
+1. Configure DNS to point `melody-mind.de` to your server
 2. Set up web server (nginx/Apache/Caddy) to serve the `dist/` directory
 3. Enable gzip/brotli compression for better performance
 
@@ -129,7 +129,7 @@ Output will be in `dist/` directory, ready to deploy to any static hosting.
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name knowledge.melody-mind.de;
+    server_name melody-mind.de;
     
     root /var/www/melody-mind/dist;
     index index.html;

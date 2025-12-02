@@ -81,7 +81,7 @@ const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") ||
 const optimizedDescription = pageContent;
 
 const baseSite =
-  Astro.site?.toString().replace(/\/$/, "") || "https://knowledge.melody-mind.de";
+  Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
 const canonical = resolvedSlug
   ? `${baseSite}/knowledge/${resolvedSlug}`
   : `${baseSite}`;

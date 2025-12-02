@@ -8,7 +8,7 @@ import metaTags from "astro-meta-tags";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://knowledge.melody-mind.de",
+  site: "https://melody-mind.de",
   output: "static",
   
   prefetch: {
@@ -18,8 +18,8 @@ export default defineConfig({
   integrations: [
     icon(),
     robotsTxt({
-      sitemap: ["https://knowledge.melody-mind.de/sitemap-index.xml"],
-      host: "knowledge.melody-mind.de",
+      sitemap: ["https://melody-mind.de/sitemap-index.xml"],
+      host: "melody-mind.de",
     }),
     sitemap(),
     metaTags(),
