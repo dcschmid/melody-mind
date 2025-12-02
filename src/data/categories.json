@@ -12,9 +12,123 @@
     "image": "/maincategories/female-focused.jpg"
   },
   {
-    "slug": "metal-queens",
-    "name": "Queens of Metal",
-    "description": "A tribute to the commanding voices and visionary performers who shaped metal’s emotional intensity — from symphonic and gothic to progressive and alternative. These artists forged new soundscapes, broke boundaries, and defined the genre’s most powerful eras.",
-    "image": "/maincategories/metal-queens.jpg"
+    "slug": "metal-icons-queens-kings",
+    "name": "Metal Icons: Queens & Kings",
+    "description": "A powerful celebration of the voices, innovators, and legends who shaped metal’s past, present, and future — from symphonic and gothic pioneers to the classic heavy metal giants and modern progressive visionaries who defined the genre’s global identity.",
+    "image": "/maincategories/metal-icons-queens-kings.jpg"
+  },
+  {
+    "slug": "classical-orchestral",
+    "name": "Classical & Orchestral Mastery",
+    "description": "A deep exploration of classical and orchestral music across centuries — from iconic composers and legendary symphonies to modern cinematic scores and global orchestral traditions that continue to inspire today.",
+    "image": "/maincategories/classical-orchestral.jpg"
+  },
+  {
+    "slug": "classic-rock-hard-rock",
+    "name": "Classic Rock & Hard Rock Legends",
+    "description": "A deep dive into the anthems, artists, and electrifying moments that shaped classic rock and hard rock — from timeless riffs and stadium-shaking vocals to the cultural revolutions that defined generations.",
+    "image": "/maincategories/classic-rock-hard-rock.jpg"
+  },
+  {
+    "slug": "metal-classics",
+    "name": "Metal Classics & Legends",
+    "description": "A powerful journey through the defining eras of classic metal — from pioneering heavy riffs and iconic vocal styles to the albums and artists that forged the foundations of modern metal worldwide.",
+    "image": "/maincategories/metal-classics.jpg"
+  },
+  {
+    "slug": "modern-metal-new-wave",
+    "name": "Modern Metal & New Wave",
+    "description": "Exploring the evolution of contemporary metal — from genre-blending innovators and cinematic production styles to the vocal extremes, emotional depth, and groundbreaking artistry shaping metal’s future.",
+    "image": "/maincategories/modern-metal-new-wave.jpg"
+  },
+  {
+    "slug": "avantgarde-extreme-metal-realms",
+    "name": "Avantgarde & Extreme Metal Realms",
+    "description": "A tribute to the legendary frontmen, guitar heroes, and innovators whose voices, riffs, and stage presence defined metal’s power — shaping its identity from the early pioneers to today’s global icons.",
+    "image": "/maincategories/avantgarde-extreme-metal-realms.jpg"
+  },
+  {
+    "slug": "mainstream-pop-global-hits",
+    "name": "Mainstream Pop & Global Hits",
+    "description": "A vibrant look at the artists, sounds, and cultural moments driving today’s global pop landscape — from chart-topping icons and streaming phenomena to the trends shaping modern popular music.",
+    "image": "/maincategories/mainstream-pop-global-hits.jpg"
+  },
+  {
+    "slug": "indie-alternative-voices",
+    "name": "Indie & Alternative Voices",
+    "description": "Exploring the intimate, experimental, and emotionally rich world of indie and alternative music — from groundbreaking storytellers and underground innovators to the movements that continue to shape modern artistic identity.",
+    "image": "/maincategories/indie-alternative-voices.jpg"
+  },
+  {
+    "slug": "hip-hop-rap-culture",
+    "name": "Hip Hop & Rap Culture",
+    "description": "A dynamic exploration of global hip hop and rap — from lyrical storytelling and cultural movements to the beats, producers, and innovators shaping one of the world’s most influential musical genres.",
+    "image": "/maincategories/hip-hop-rap-culture.jpg"
+  },
+  {
+    "slug": "jazz-soul-funk-expressions",
+    "name": "Jazz, Soul & Funk Expressions",
+    "description": "A colorful journey through the improvisation, emotion, and groove that shaped jazz, soul, and funk — celebrating the voices, musicians, and cultural movements that continue to influence modern music worldwide.",
+    "image": "/maincategories/jazz-soul-funk-expressions.jpg"
+  },
+  {
+    "slug": "house-techno-culture",
+    "name": "House & Techno Culture",
+    "description": "A vibrant exploration of the electronic beats, innovative producers, and cultural movements that have shaped house and techno music — from underground clubs to global festivals.",
+    "image": "/maincategories/house-techno-culture.jpg"
+  },
+  {
+    "slug": "club-sounds-nightlife-beats",
+    "name": "Club Sounds & Nightlife Beats",
+    "description": "A high-energy journey through the pulse of global club culture — from dancefloor anthems and festival bangers to the DJs, producers, and rhythmic innovations that define modern nightlife.",
+    "image": "/maincategories/club-sounds-nightlife-beats.jpg"
+  },
+  {
+    "slug": "breaks-experimental-soundscapes",
+    "name": "Breaks & Experimental Soundscapes",
+    "description": "Exploring the boundary-pushing worlds of breakbeat, experimental electronica, and forward-thinking sound design — from glitchy rhythms and atmospheric textures to innovative artists reshaping modern electronic music.",
+    "image": "/maincategories/breaks-experimental-soundscapes.jpg"
+  },
+  {
+    "slug": "latin-vibes-global-rhythms",
+    "name": "Latin Vibes & Global Rhythms",
+    "description": "Celebrating the vibrant rhythms, voices, and cultural influences of Latin music — from timeless classics and regional traditions to modern global hits shaping today’s international sound.",
+    "image": "/maincategories/latin-vibes-global-rhythms.jpg"
+  },
+  {
+    "slug": "caribbean-afro-rhythms",
+    "name": "Caribbean & Afro Rhythms",
+    "description": "A vibrant celebration of Caribbean and African musical heritage — from reggae, dancehall, soca, and amapiano to the voices, rhythms, and cultural movements shaping global music today.",
+    "image": "/maincategories/caribbean-afro-rhythms.jpg"
+  },
+  {
+    "slug": "folk-regional-roots",
+    "name": "Folk & Regional Roots",
+    "description": "A heartfelt journey through traditional, folk, and regional music from around the world — celebrating storytelling, cultural identity, acoustic craftsmanship, and the timeless voices that connect communities across generations.",
+    "image": "/maincategories/folk-regional-roots.jpg"
+  },
+  {
+    "slug": "countries-regional-genres",
+    "name": "Countries & Regional Genres",
+    "description": "A global exploration of the traditional, contemporary, and culturally rooted musical styles that define regions around the world — from local folk traditions and national genres to modern interpretations shaped by community, history, and identity.",
+    "image": "/maincategories/countries-regional-genres.jpg"
+  },
+  {
+    "slug": "emotional-genres-heartfelt-music",
+    "name": "Emotional Genres & Heartfelt Music",
+    "description": "Exploring the genres that speak directly to the heart — from intimate acoustic and cinematic soundscapes to raw, expressive voices and songs that capture vulnerability, longing, and emotional depth across cultures.",
+    "image": "/maincategories/emotional-genres-heartfelt-music.jpg"
+  },
+  {
+    "slug": "seasonal-genres-atmospheres",
+    "name": "Seasonal Genres & Atmospheres",
+    "description": "A curated journey through music shaped by the seasons — from winter’s cinematic stillness and autumn’s warm introspection to the bright energy of summer and the renewal of spring, capturing how sound reflects the world’s shifting moods.",
+    "image": "/maincategories/seasonal-genres-atmospheres.jpg"
+  },
+  {
+    "slug": "situational-activity-sounds",
+    "name": "Situational & Activity Sounds",
+    "description": "Music shaped for life’s moments — from focus and calm to celebration, travel, workouts, late-night moods, reflection, and everything in between.",
+    "image": "/maincategories/situational-activity-sounds.jpg"
   }
 ]

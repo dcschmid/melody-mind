@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Convert PNG images under public to web-optimized JPEGs.
+Currently only processes PNGs under public/maincategories, public/category, and public/knowledge.
 
 Usage:
   # dry-run (no files changed)
@@ -20,13 +21,21 @@ Options:
 """
 from __future__ import annotations
 import argparse
-from pathlib import Path
 from PIL import Image
+from pathlib import Path
 import sys
 
 
+ALLOWED_SUBDIRS = ['maincategories', 'category', 'knowledge']
+
+
 def find_pngs(root: Path):
-    return list(root.rglob('*.png'))
+    pngs = []
+    for sub in ALLOWED_SUBDIRS:
+        sub_root = root / sub
+        if sub_root.exists():
+            pngs.extend(sub_root.rglob('*.png'))
+    return pngs
 
 
 def convert_one(png_path: Path, quality: int = 85, width: int = None, overwrite: bool = False, execute: bool = False, delete: bool = False):
@@ -99,7 +108,7 @@ def main(argv=None):
         print('No PNG files found under', root)
         return 0
 
-    print(f'Found {len(pngs)} PNG file(s) under {root}')
+    print(f'Found {len(pngs)} PNG file(s) under {root} (subdirs: {", ".join(ALLOWED_SUBDIRS)})')
 
     converted = 0
     failed = 0

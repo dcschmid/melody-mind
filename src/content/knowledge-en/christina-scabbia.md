@@ -14,7 +14,7 @@ keywords:
   - women in metal
 author: MelodyMind
 locale: en
-category: metal-queens
+category: metal-icons-queens-kings
 playlists:
   spotifyPlaylist: ""
   deezerPlaylist: ""
