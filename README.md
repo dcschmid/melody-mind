@@ -47,7 +47,7 @@ yarn preview
 ## Project Structure
 
 ```
-melody-mind-knowledge/
+melody-mind/
 ├── src/
 │   ├── components/       # Reusable UI components
 │   │   ├── Search/       # Search panel component
@@ -131,7 +131,7 @@ server {
     listen 443 ssl http2;
     server_name knowledge.melody-mind.de;
     
-    root /var/www/melody-mind-knowledge/dist;
+    root /var/www/melody-mind/dist;
     index index.html;
     
     location / {
