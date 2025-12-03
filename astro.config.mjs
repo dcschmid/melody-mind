@@ -6,6 +6,8 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import metaTags from "astro-meta-tags";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
@@ -15,15 +17,10 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
 
-  integrations: [
-    icon(),
-    robotsTxt({
-      sitemap: ["https://melody-mind.de/sitemap-index.xml"],
-      host: "melody-mind.de",
-    }),
-    sitemap(),
-    metaTags(),
-  ],
+  integrations: [icon(), robotsTxt({
+    sitemap: ["https://melody-mind.de/sitemap-index.xml"],
+    host: "melody-mind.de",
+  }), sitemap(), metaTags(), playformCompress({			Image: false,})],
   
   i18n: {
     defaultLocale: "en",

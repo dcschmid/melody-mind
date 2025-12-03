@@ -8,6 +8,7 @@ import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
 import { calculateReadingTime } from "@utils/readingTime";
 import categories from "../../data/categories.json";
+import { Image } from "astro:assets";
 
 export const prerender = true;
 
@@ -117,7 +118,7 @@ const pageSeo = buildPageSeo({
         class="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80 shadow-2xl shadow-black/40"
       >
         <div class="relative">
-          <img
+          <Image
             src={category.image}
             alt={`${category.name} hero`}
             loading="lazy"

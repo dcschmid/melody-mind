@@ -26,6 +26,7 @@
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
+    "@playform/compress": "^0.2.0",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.16.0",
     "astro-capo": "^0.0.1",

@@ -36,6 +36,7 @@ import { enUS as en } from "date-fns/locale";
 import { Icon } from "astro-icon/components";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import { Image } from 'astro:assets';
 
 export const prerender = true;
 
@@ -112,7 +113,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
           <div class="absolute inset-0 bg-linear-to-br from-white/4 via-white/2 to-transparent opacity-0 transition duration-300 group-hover:opacity-100"></div>
 
           <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-neutral-900/70">
-            <img
+            <Image
               src={image}
               alt={imageAltText}
               loading="lazy"
@@ -172,7 +173,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     ) : (
       <div class="relative flex h-full flex-col">
         <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-neutral-900/70">
-          <img
+          <Image
             src={image}
             alt={imageAltText}
             loading="lazy"
