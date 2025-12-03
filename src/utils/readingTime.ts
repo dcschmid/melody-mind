@@ -45,7 +45,7 @@ const DEFAULTS = {
   WORDS_PER_MINUTE: 225,
   MIN_TIME: 1,
   IMAGE_TIME_SECONDS: 12,
-  IMAGE_REGEX: /<img\s[^>]*>/g,
+  IMAGE_REGEX: /<Image\s[^>]*>/g,
 };
 
 /**
@@ -108,7 +108,7 @@ export function calculateReadingTime(
   let minutes = words / adjustedWpm;
 
   // Add time for images if requested
-  if (includeImageTime && text.includes("<img")) {
+  if (includeImageTime && text.includes("<Image")) {
     const imageMatches = text.match(DEFAULTS.IMAGE_REGEX) || [];
     const imageCount = imageMatches.length;
     minutes += (imageCount * imageTimeSeconds) / 60;
@@ -147,7 +147,7 @@ export function getReadingTime(
   const words = text.trim().split(/\s+/).length;
   let images: number | undefined = undefined;
 
-  if (options.includeImageTime && text.includes("<img")) {
+  if (options.includeImageTime && text.includes("<Image")) {
     const imageMatches = text.match(DEFAULTS.IMAGE_REGEX) || [];
     images = imageMatches.length;
   }
