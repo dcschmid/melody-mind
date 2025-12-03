@@ -60,6 +60,7 @@ import Footer from "@components/Footer.astro";
 // 4. Utility imports
 import { getLangFromUrl } from "@utils/i18n";
 import type { StructuredData } from "@utils/seo/buildPageSeo";
+import { buildOptimizedImageUrl, resolveImageMetadata } from "@utils/images/resolveImage";
 
 import "../styles/global.css";
 interface Props {
@@ -297,7 +298,13 @@ const mergedDescription = constructedPageSeo.description;
 const mergedKeywords = constructedPageSeo.keywords;
 const mergedType = constructedPageSeo.type;
 const mergedCanonical = constructedPageSeo.canonical;
-const mergedImage = constructedPageSeo.image || "/melody-mind.png";
+const baseSite =
+  Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const mergedImage = buildOptimizedImageUrl({
+  metadata: resolveImageMetadata(constructedPageSeo.image || "/melody-mind.png"),
+  fallbackSrc: constructedPageSeo.image || "/melody-mind.png",
+  baseUrl: baseSite,
+});
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
 const mergedStructuredData: StructuredData[] =

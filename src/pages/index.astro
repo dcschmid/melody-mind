@@ -7,12 +7,14 @@ import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
 import { ui } from "@i18n/ui";
 import { useTranslations } from "@utils/i18n";
-import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
+import { Image, Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { buildOptimizedImageUrl, resolveImageMetadata } from "@utils/images/resolveImage";
 import categories from "../data/categories.json";
 
 export const prerender = true;
@@ -54,6 +56,12 @@ const baseUrl =
   Astro.site?.toString().replace(/\/$/, "") ||
   "https://melody-mind.de";
 const currentUrl = `${baseUrl}/knowledge`;
+const logoMeta = resolveImageMetadata("/melody-mind.png");
+const heroSeoImage = buildOptimizedImageUrl({
+  metadata: logoMeta,
+  fallbackSrc: "/melody-mind.png",
+  baseUrl,
+});
 
 let earliestCreated: Date | null = null;
 let latestUpdated: Date | null = null;
@@ -111,11 +119,13 @@ type CategoryDef = {
   image: string;
 };
 
-const categoryData = (categories as CategoryDef[]).map((cat) => {
+type CategoryWithMeta = CategoryDef & { count: number; imageMeta?: ImageMetadata };
+
+const categoryData: CategoryWithMeta[] = (categories as CategoryDef[]).map((cat) => {
   const count = sortedArticles.filter(
     (a) => a.data.category === cat.slug
   ).length;
-  return { ...cat, count };
+  return { ...cat, count, imageMeta: resolveImageMetadata(cat.image) };
 });
 
 const pageSeo = buildPageSeo({
@@ -132,7 +142,7 @@ const pageSeo = buildPageSeo({
     .filter(Boolean),
   keywordLimit: 28,
   maxDescription: 150,
-  image: "/knowledge.png",
+  image: heroSeoImage,
   publishDate: collectionDates.publishDate || undefined,
   modifiedDate: collectionDates.modifiedDate || undefined,
   index: true,
@@ -145,18 +155,30 @@ const pageSeo = buildPageSeo({
   <main class="relative min-h-screen bg-slate-950 text-slate-50">
     <div class="absolute inset-0 bg-slate-950 pointer-events-none"></div>
 
-    <div class="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 lg:py-18">
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <header class="mb-12 space-y-4 border-b border-white/10 pb-8">
         <div class="space-y-3">
-      <img
-          class="mx-auto h-auto"
-          src="/melody-mind.png"
-          width="320"
-          height="320"
-          alt="Melody Mind Logo - Music Quiz App Logo"
-          loading="eager"
-          fetchpriority="high"
-        />
+          {logoMeta ? (
+            <Image
+              src={logoMeta}
+              alt="Melody Mind Logo - Music Quiz App Logo"
+              loading="eager"
+              fetchpriority="high"
+              width={320}
+              height={320}
+              class="mx-auto h-auto"
+            />
+          ) : (
+            <img
+              class="mx-auto h-auto"
+              src="/melody-mind.png"
+              width="320"
+              height="320"
+              alt="Melody Mind Logo - Music Quiz App Logo"
+              loading="eager"
+              fetchpriority="high"
+            />
+          )}
         </div>
           <p class="text-lg leading-relaxed text-slate-200 sm:text-xl">
             Melody Mind is your gateway to understanding music on a deeper
@@ -195,14 +217,6 @@ const pageSeo = buildPageSeo({
       </header>
 
       <section class="mb-12">
-        <div class="mb-4 flex items-center gap-3">
-          <Icon
-            name="grid"
-            class="h-6 w-6 text-primary-200"
-            aria-hidden="true"
-          />
-          <h2 class="text-xl font-semibold text-white">Browse by category</h2>
-        </div>
         <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {
             categoryData.map((cat) => (
@@ -212,15 +226,32 @@ const pageSeo = buildPageSeo({
                   class="flex h-full flex-col gap-4 p-5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
                 >
                   <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900/70">
-                    <img
-                      src={cat.image}
-                      alt={`${cat.name} cover`}
-                      loading="lazy"
-                      decoding="async"
-                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      width="640"
-                      height="360"
-                    />
+                    {
+                      cat.imageMeta ? (
+                        <Picture
+                          src={cat.imageMeta}
+                          widths={[360, 480, 640, 800, 960]}
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          formats={["avif", "webp", "jpeg"]}
+                          alt={`${cat.name} cover`}
+                          loading="lazy"
+                          decoding="async"
+                          width={640}
+                          height={360}
+                          class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <img
+                          src={cat.image}
+                          alt={`${cat.name} cover`}
+                          loading="lazy"
+                          decoding="async"
+                          class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                          width="640"
+                          height="360"
+                        />
+                      )
+                    }
                     <div class="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-60" />
                     <div class="absolute inset-0 flex items-end p-4">
                       <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-100 ring-1 ring-white/10">

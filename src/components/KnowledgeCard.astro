@@ -30,12 +30,14 @@
  * />
  * ```
  */
+import { Picture } from "astro:assets";
 import { useTranslations } from "@utils/i18n";
 import { format } from "date-fns";
 import { enUS as en } from "date-fns/locale";
 import { Icon } from "astro-icon/components";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
+import { resolveImageMetadata } from "@utils/images/resolveImage";
 
 export const prerender = true;
 
@@ -89,6 +91,10 @@ const metaId = `${cardId}-meta`;
 
 // Generate appropriate alt text for the image
 const imageAltText = title ? `Cover image for ${title}` : "";
+const resolvedImage = resolveImageMetadata(image);
+const responsiveWidths = [320, 480, 640, 768, 960];
+const responsiveSizes =
+  "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw";
 ---
 
 <article
@@ -112,15 +118,32 @@ const imageAltText = title ? `Cover image for ${title}` : "";
           <div class="absolute inset-0 bg-linear-to-br from-white/4 via-white/2 to-transparent opacity-0 transition duration-300 group-hover:opacity-100"></div>
 
           <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-neutral-900/70">
-            <img
-              src={image}
-              alt={imageAltText}
-              loading="lazy"
-              decoding="async"
-              width="640"
-              height="360"
-              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            {
+              resolvedImage ? (
+                <Picture
+                  src={resolvedImage}
+                  widths={responsiveWidths}
+                  sizes={responsiveSizes}
+                  formats={["avif", "webp", "jpeg"]}
+                  alt={imageAltText}
+                  loading="lazy"
+                  decoding="async"
+                  width={640}
+                  height={360}
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <img
+                  src={image}
+                  alt={imageAltText}
+                  loading="lazy"
+                  decoding="async"
+                  width="640"
+                  height="360"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              )
+            }
             <div class="absolute inset-0 bg-linear-to-t from-[#0b0e1a] via-transparent to-transparent opacity-60"></div>
           </div>
 
@@ -172,15 +195,32 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     ) : (
       <div class="relative flex h-full flex-col">
         <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-neutral-900/70">
-          <img
-            src={image}
-            alt={imageAltText}
-            loading="lazy"
-            decoding="async"
-            width="640"
-            height="360"
-            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-          />
+          {
+            resolvedImage ? (
+              <Picture
+                src={resolvedImage}
+                widths={responsiveWidths}
+                sizes={responsiveSizes}
+                formats={["avif", "webp", "jpeg"]}
+                alt={imageAltText}
+                loading="lazy"
+                decoding="async"
+                width={640}
+                height={360}
+                class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            ) : (
+              <img
+                src={image}
+                alt={imageAltText}
+                loading="lazy"
+                decoding="async"
+                width="640"
+                height="360"
+                class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            )
+          }
           <div
             class="absolute inset-0 bg-linear-to-t from-[#0b0e1a] via-transparent to-transparent opacity-60"
             aria-hidden="true"
