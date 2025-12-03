@@ -153,7 +153,6 @@ The site includes a client-side search feature that:
 - Provides instant results without page reload
 - Supports multiple languages
 - Highlights search results
-- Powered by [Pagefind](https://pagefind.app) — the index is generated automatically after `yarn build` and served from `/pagefind` for the homepage search UI.
 
 ## License
 

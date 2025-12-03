@@ -7,8 +7,6 @@ import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
 import { calculateReadingTime } from "@utils/readingTime";
-import { Picture } from "astro:assets";
-import { resolveImageMetadata, buildOptimizedImageUrl } from "@utils/images/resolveImage";
 import categories from "../../data/categories.json";
 
 export const prerender = true;
@@ -29,7 +27,6 @@ export async function getStaticPaths() {
 const allCategories = categories as CategoryDef[];
 const slug = (Astro.params?.slug as string) || "";
 const category = allCategories.find((c) => c.slug === slug);
-const categoryImageMeta = resolveImageMetadata(category?.image);
 
 if (!category) {
   return new Response("Not found", { status: 404 });
@@ -102,11 +99,7 @@ const pageSeo = buildPageSeo({
     .filter(Boolean),
   keywordLimit: 24,
   maxDescription: 150,
-  image: buildOptimizedImageUrl({
-    metadata: categoryImageMeta,
-    fallbackSrc: category.image,
-    baseUrl,
-  }),
+  image: category.image,
   publishDate: collectionDates.publishDate || undefined,
   modifiedDate: collectionDates.modifiedDate || undefined,
   index: true,
@@ -124,32 +117,15 @@ const pageSeo = buildPageSeo({
         class="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80 shadow-2xl shadow-black/40"
       >
         <div class="relative">
-          {
-            categoryImageMeta ? (
-              <Picture
-                src={categoryImageMeta}
-                widths={[720, 960, 1200, 1440]}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1200px"
-                formats={["avif", "webp", "jpeg"]}
-                alt={`${category.name} hero`}
-                loading="lazy"
-                decoding="async"
-                width={1400}
-                height={560}
-                class="h-80 w-full object-cover sm:h-[380px] md:h-[460px]"
-              />
-            ) : (
-              <img
-                src={category.image}
-                alt={`${category.name} hero`}
-                loading="lazy"
-                decoding="async"
-                class="h-80 w-full object-cover sm:h-[380px] md:h-[460px]"
-                width="1400"
-                height="560"
-              />
-            )
-          }
+          <img
+            src={category.image}
+            alt={`${category.name} hero`}
+            loading="lazy"
+            decoding="async"
+            class="h-80 w-full object-cover sm:h-[380px] md:h-[460px]"
+            width="1400"
+            height="560"
+          />
           <div
             class="relative mx-4 -mt-6 md:static md:mt-0 md:inset-0 md:flex md:items-end md:justify-start md:px-6 md:pb-6 lg:px-8"
           >

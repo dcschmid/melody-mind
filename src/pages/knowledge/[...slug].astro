@@ -15,7 +15,6 @@ import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
-import { resolveImageMetadata, buildOptimizedImageUrl } from "@utils/images/resolveImage";
 
 export const prerender = true;
 
@@ -75,8 +74,6 @@ const mergedHeadings = headings;
 const rawImage = entry.data.image;
 const isValidImage = typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
 const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
-const heroImageMeta = resolveImageMetadata(imageSource);
-const logoImageMeta = resolveImageMetadata("/melody-mind.png");
 
 const title = entry.data.title;
 const description = entry.data.description;
@@ -88,16 +85,6 @@ const baseSite =
 const canonical = resolvedSlug
   ? `${baseSite}/knowledge/${resolvedSlug}`
   : `${baseSite}`;
-const seoImageUrl = buildOptimizedImageUrl({
-  metadata: heroImageMeta,
-  fallbackSrc: imageSource,
-  baseUrl: baseSite,
-});
-const logoUrl = buildOptimizedImageUrl({
-  metadata: logoImageMeta,
-  fallbackSrc: "/melody-mind.png",
-  baseUrl: baseSite,
-});
 const breadcrumbs = [
   { name: t("nav.home") || "Home", url: `${baseSite}/` },
   { name: t("knowledge.title") || "Knowledge", url: `${baseSite}/knowledge` },
@@ -108,12 +95,12 @@ const structuredDataExtra = [
     "@type": "Article",
     headline: title,
     description: description,
-    image: seoImageUrl,
+    image: imageSource,
     author: { "@type": "Organization", name: "Melody Mind" },
     publisher: {
       "@type": "Organization",
       name: "Melody Mind",
-      logo: logoUrl ? { "@type": "ImageObject", url: logoUrl } : undefined,
+      logo: { "@type": "ImageObject", url: "https://melody-mind.de/melody-mind.png" },
     },
     datePublished: entry.data.createdAt?.toISOString(),
     dateModified: entry.data.updatedAt?.toISOString(),
@@ -147,7 +134,7 @@ const pageSeo = buildPageSeo({
   fallbackKeywords: (entry.data.keywords || []).slice(0, 20),
   keywordLimit: 24,
   maxDescription: 155,
-  image: seoImageUrl,
+  image: imageSource,
   publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
   modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
   index: true,
@@ -196,34 +183,19 @@ const pageSeo = buildPageSeo({
           imageSource ? (
             <div class="relative">
               <div class="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></div>
-              {
-                heroImageMeta ? (
-                  <Picture
-                    class="h-full w-full object-cover"
-                    src={heroImageMeta}
-                    widths={[640, 900, 1100, 1400]}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 900px, 1100px"
-                    formats={["avif", "webp", "jpeg"]}
-                    alt={entry.data.title}
-                    loading="eager"
-                    fetchpriority="high"
-                    width={1200}
-                    height={800}
-                    decoding="async"
-                  />
-                ) : (
-                  <img
-                    class="h-full w-full object-cover"
-                    src={imageSource}
-                    alt={entry.data.title}
-                    loading="eager"
-                    fetchpriority="high"
-                    width="1200"
-                    height="800"
-                    decoding="async"
-                  />
-                )
-              }
+              <Picture
+                class="h-full w-full object-cover"
+                src={imageSource}
+                widths={[600, 800, 1000, 1200]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+                formats={["avif", "webp", "jpg"]}
+                alt={entry.data.title}
+                loading="eager"
+                fetchpriority="high"
+                width={1200}
+                height={800}
+                decoding="async"
+              />
             </div>
           ) : (
             <div
