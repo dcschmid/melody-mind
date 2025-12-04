@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import metaTags from "astro-meta-tags";
+import mdx from "@astrojs/mdx";
 
 import playformCompress from "@playform/compress";
 
@@ -17,7 +18,7 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
 
-  integrations: [icon(), robotsTxt({
+  integrations: [mdx(), icon(), robotsTxt({
     sitemap: ["https://melody-mind.de/sitemap-index.xml"],
     host: "melody-mind.de",
   }), sitemap(), metaTags(), playformCompress({			Image: false,})],

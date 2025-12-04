@@ -7,14 +7,13 @@ import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
 import { ui } from "@i18n/ui";
 import { useTranslations } from "@utils/i18n";
-import { Icon } from "astro-icon/components";
 import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
-import  categories from "../data/categories.json";
-import { Image } from 'astro:assets';
+import categories from "../data/categories.json";
+import { Image } from "astro:assets";
 
 export const prerender = true;
 
@@ -52,8 +51,7 @@ const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
 const title = safeUi["knowledge.title"];
 const description = safeUi["knowledge.title"];
 const baseUrl =
-  Astro.site?.toString().replace(/\/$/, "") ||
-  "https://melody-mind.de";
+  Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/knowledge`;
 
 let earliestCreated: Date | null = null;
@@ -112,12 +110,21 @@ type CategoryDef = {
   image: string;
 };
 
-const categoryData = (categories as CategoryDef[]).map((cat) => {
-  const count = sortedArticles.filter(
-    (a) => a.data.category === cat.slug
-  ).length;
-  return { ...cat, count };
-});
+// Pre-compute counts to avoid repeated filters and handle stray whitespace
+const categoryCounts = sortedArticles.reduce<Record<string, number>>(
+  (acc, article) => {
+    const key = (article.data.category || "").trim();
+    if (!key) return acc;
+    acc[key] = (acc[key] ?? 0) + 1;
+    return acc;
+  },
+  {},
+);
+
+const categoryData = (categories as CategoryDef[]).map((cat) => ({
+  ...cat,
+  count: categoryCounts[cat.slug] ?? 0,
+}));
 
 const pageSeo = buildPageSeo({
   title,
@@ -149,101 +156,82 @@ const pageSeo = buildPageSeo({
     <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <header class="mb-12 space-y-4 border-b border-white/10 pb-8">
         <div class="space-y-3">
-        <Image
-          class="mx-auto h-auto"
-          src="/melody-mind.jpg"
-          width="1080"
-          height="720"
-          alt="Melody Mind Logo - Music Quiz App Logo"
-          loading="eager"
-          fetchpriority="high"
-        />
-        </div>
-          <p class="text-lg leading-relaxed text-slate-200 sm:text-xl">
-            Melody Mind is your gateway to understanding music on a deeper
-            level. Each guide explores where a genre comes from, how it evolved,
-            and what defines its signature sound — from early cultural roots to
-            the modern hybrid styles shaping today’s playlists. 🎧 <br /> <br /> 
-            We highlight the key artists, influential scenes, and technological shifts that
-            shaped each genre, giving you context that makes listening more
-            meaningful. You’ll also discover essential tracks, curated examples,
-            and subtle listening cues that help you recognize patterns,
-            influences, and the emotional language behind the music. <br /><br /> Across all
-            genres, you’ll see how sounds connect across decades — how ideas
-            travel, blend, and return in new forms. These timelines and insights
-            make it easier to explore unfamiliar styles, understand your
-            favorites more fully, and continuously expand your musical world. <br /><br />
-            Whether you’re here to learn, to discover, or simply to listen with
-            a sharper ear, Melody Mind guides you through the stories, sounds,
-            and cultural threads that shape music everywhere.
-          </p>
-        </div>
-        <div class="flex flex-wrap gap-3 text-sm text-slate-200">
-          <span class="rounded-lg bg-white/5 px-3 py-2 ring-1 ring-white/10">
-            {sortedArticles.length}
-            {t("knowledge.search.articlesFound")}
-          </span>
-          <span class="rounded-lg bg-white/5 px-3 py-2 ring-1 ring-white/10">
-            Updated {
-              formatDate(
-                collectionDates.modifiedDate ||
-                  collectionDates.publishDate ||
-                  new Date()
-              )
-            }
-          </span>
-        </div>
-      </header>
-
-      <section class="mb-12">
-        <div class="mb-4 flex items-center gap-3">
-          <Icon
-            name="grid"
-            class="h-6 w-6 text-primary-200"
-            aria-hidden="true"
+          <Image
+            class="mx-auto h-auto"
+            src="/melody-mind.jpg"
+            width="1080"
+            height="720"
+            alt="Melody Mind Logo - Music Quiz App Logo"
+            loading="eager"
+            fetchpriority="high"
           />
-          <h2 class="text-xl font-semibold text-white">Browse by category</h2>
         </div>
-        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {
-            categoryData.map((cat) => (
-              <li class="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 shadow-xl shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-primary-300/60 hover:shadow-primary-900/30">
-                <a
-                  href={`/categories/${cat.slug}`}
-                  class="flex h-full flex-col gap-4 p-5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
-                >
-                  <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900/70">
-                    <Image
-                      src={cat.image}
-                      alt={`${cat.name} cover`}
-                      loading="lazy"
-                      decoding="async"
-                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                      width="640"
-                      height="360"
-                    />
-                    <div class="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-60" />
-                    <div class="absolute inset-0 flex items-end p-4">
-                      <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-100 ring-1 ring-white/10">
-                        <span class="h-2 w-2 rounded-full bg-primary-300" />
-                        {cat.count} articles
-                      </div>
-                    </div>
-                  </div>
-                  <div class="space-y-2">
-                    <p class="text-lg font-semibold text-white">{cat.name}</p>
-                    <p class="text-sm leading-relaxed text-slate-200">
-                      {cat.description}
-                    </p>
-                  </div>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+        <p class="text-lg leading-relaxed text-slate-200 sm:text-xl">
+          Melody Mind opens a deeper pathway into the world of music. Each guide
+          uncovers where a genre begins, how it grows, and what gives it its
+          unmistakable voice — from its cultural roots and early influences to
+          the modern hybrids reshaping today’s playlists. 🎧 <br /><br />
+
+          We spotlight the defining artists, landmark movements, and
+          technological turning points that shaped every sound, giving you
+          context that enriches the way you listen. Along the way, you’ll find
+          essential tracks, curated examples, and subtle listening cues designed
+          to help you pick up patterns, trace influences, and understand the
+          emotional vocabulary behind the music.<br /><br />
+
+          Across all genres, you’ll see how ideas move between decades — how
+          rhythms migrate, styles blend, and old concepts return with new
+          meaning. These timelines and insights make it easier to dive into
+          unfamiliar genres, appreciate your favorites on a new level, and
+          continuously expand your musical universe.<br /><br />
+
+          Whether you’re here to explore, to learn, or simply to hear with more
+          clarity, Melody Mind guides you through the stories, sounds, and
+          cultural threads that shape music across the world.<br /><br />
+        </p>
+      </header>
     </div>
 
-    <BackToTop {lang} />
+    <section class="mb-12">
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          categoryData.map((cat) => (
+            <li class="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 shadow-xl shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-primary-300/60 hover:shadow-primary-900/30">
+              <a
+                href={`/categories/${cat.slug}`}
+                class="flex h-full flex-col gap-4 p-5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+              >
+                <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900/70">
+                  <Image
+                    src={cat.image}
+                    alt={`${cat.name} cover`}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    width="640"
+                    height="360"
+                  />
+                  <div class="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-60" />
+                  <div class="absolute inset-0 flex items-end p-4">
+                    <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-100 ring-1 ring-white/10">
+                      <span class="h-2 w-2 rounded-full bg-primary-300" />
+                      {cat.count} articles
+                    </div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <p class="text-lg font-semibold text-white">{cat.name}</p>
+                  <p class="text-sm leading-relaxed text-slate-200">
+                    {cat.description}
+                  </p>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
   </main>
+
+  <BackToTop {lang} />
 </Layout>
