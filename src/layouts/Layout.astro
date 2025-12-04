@@ -554,5 +554,17 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     </main>
 
     <Footer />
+
+    <script>
+      import { initInteractiveComponents } from "@utils/components/autoInit";
+      if (typeof window !== "undefined") {
+        const ready = (): void => initInteractiveComponents();
+        if (document.readyState === "complete") {
+          ready();
+        } else {
+          window.addEventListener("DOMContentLoaded", ready, { once: true });
+        }
+      }
+    </script>
   </body>
 </html>

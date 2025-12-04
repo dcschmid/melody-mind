@@ -49,7 +49,9 @@ const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
 
 // SEO
 const title = safeUi["knowledge.title"];
-const description = safeUi["knowledge.title"];
+const description =
+  safeUi["knowledge.description"] ||
+  "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
 const baseUrl =
   Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/knowledge`;
@@ -155,51 +157,80 @@ const pageSeo = buildPageSeo({
 
     <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <header class="mb-12 space-y-4 border-b border-white/10 pb-8">
-        <div class="space-y-3">
+        <div class="space-y-3 text-center">
           <Image
             class="mx-auto h-auto"
             src="/melody-mind.jpg"
             width="1080"
             height="720"
-            alt="Melody Mind Logo - Music Quiz App Logo"
+            alt="Melody Mind Logo"
             loading="eager"
             fetchpriority="high"
           />
         </div>
-        <p class="text-lg leading-relaxed text-slate-200 sm:text-xl">
-          Melody Mind opens a deeper pathway into the world of music. Each guide
-          uncovers where a genre begins, how it grows, and what gives it its
-          unmistakable voice — from its cultural roots and early influences to
-          the modern hybrids reshaping today’s playlists. 🎧 <br /><br />
-
-          We spotlight the defining artists, landmark movements, and
-          technological turning points that shaped every sound, giving you
-          context that enriches the way you listen. Along the way, you’ll find
-          essential tracks, curated examples, and subtle listening cues designed
-          to help you pick up patterns, trace influences, and understand the
-          emotional vocabulary behind the music.<br /><br />
-
-          Across all genres, you’ll see how ideas move between decades — how
-          rhythms migrate, styles blend, and old concepts return with new
-          meaning. These timelines and insights make it easier to dive into
-          unfamiliar genres, appreciate your favorites on a new level, and
-          continuously expand your musical universe.<br /><br />
-
-          Whether you’re here to explore, to learn, or simply to hear with more
-          clarity, Melody Mind guides you through the stories, sounds, and
-          cultural threads that shape music across the world.<br /><br />
-        </p>
+        <div class="space-y-5 text-lg leading-relaxed text-slate-200 sm:text-xl">
+          <p>
+            Melody Mind opens a deeper pathway into the world of music. Each
+            guide uncovers where a genre begins, how it grows, and what gives it
+            its unmistakable voice — from its cultural roots and early
+            influences to the modern hybrids reshaping today’s playlists. 🎧
+          </p>
+          <p>
+            We spotlight the defining artists, landmark movements, and
+            technological turning points that shaped every sound, giving you
+            context that enriches the way you listen. Along the way, you’ll find
+            essential tracks, curated examples, and subtle listening cues
+            designed to help you pick up patterns, trace influences, and
+            understand the emotional vocabulary behind the music.
+          </p>
+          <p>
+            Across all genres, you’ll see how ideas move between decades — how
+            rhythms migrate, styles blend, and old concepts return with new
+            meaning. These timelines and insights make it easier to dive into
+            unfamiliar genres, appreciate your favorites on a new level, and
+            continuously expand your musical universe.
+          </p>
+          <p>
+            Whether you’re here to explore, to learn, or simply to hear with
+            more clarity, Melody Mind guides you through the stories, sounds,
+            and cultural threads that shape music across the world.
+          </p>
+        </div>
       </header>
     </div>
 
-    <section class="mb-12">
-      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <section
+      class="mb-12"
+      aria-labelledby="knowledge-categories-title"
+      aria-describedby="knowledge-categories-help"
+    >
+      <div class="mx-auto mb-6 max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h2
+            id="knowledge-categories-title"
+            class="text-2xl font-semibold leading-tight text-white sm:text-3xl"
+          >
+            Explore categories
+          </h2>
+          <p
+            id="knowledge-categories-help"
+            class="text-sm text-slate-300 sm:text-base"
+          >
+            Browse our genre guides; each card announces the number of articles available.
+          </p>
+        </div>
+      </div>
+      <ul
+        class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        aria-label="Knowledge categories"
+      >
         {
           categoryData.map((cat) => (
             <li class="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 shadow-xl shadow-black/30 transition duration-300 hover:-translate-y-1 hover:border-primary-300/60 hover:shadow-primary-900/30">
               <a
                 href={`/categories/${cat.slug}`}
                 class="flex h-full flex-col gap-4 p-5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+                aria-label={`${cat.name} category with ${cat.count} articles`}
               >
                 <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900/70">
                   <Image

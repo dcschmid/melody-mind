@@ -308,7 +308,9 @@ export default {
   "knowledge.published": "Published",
   "knowledge.reading.time": "min read",
   "knowledge.reading.time.label": "Reading time",
-  "knowledge.title": "Music Knowledge Base",
+  "knowledge.title": "Melody Mind",
+  "knowledge.description":
+    "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context. 🎧",
   "language.change.error": "Language change failed. Please try again.",
   "language.change.success": "Language changed to {language}",
   "language.da": "Danish",

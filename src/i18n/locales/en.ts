@@ -361,9 +361,9 @@ export default {
   "knowledge.published": "Published",
   "knowledge.reading.time": "min read",
   "knowledge.reading.time.label": "Reading time",
-  "knowledge.title": "MelodyMind Knowledge",
+  "knowledge.title": "Melody Mind",
   "knowledge.description":
-    "Dive into the world of music genres — from roots to modern sounds. Discover background stories, listening tips, and curated examples that deepen understanding and lead you to new favorites. 🎧",
+    "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context. 🎧",
   "language.change.error": "Language change failed. Please try again.",
   "language.change.success": "Language changed to {language}",
   "language.de": "German",
