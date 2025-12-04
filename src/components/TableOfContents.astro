@@ -108,7 +108,10 @@ const tocTitle = title || t("toc.nav.label");
             >
               {t("toc.skip.link")}
             </a>
-            <ul class="scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-400 m-0 max-h-[50vh] list-none overflow-y-auto p-0">
+            <ul
+              id="toc-list"
+              class="scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 hover:scrollbar-thumb-slate-400 m-0 max-h-[50vh] list-none overflow-y-auto p-0"
+            >
               {filteredHeadings.map((heading) => (
                 <li class={`mb-1 ${heading.depth === 3 ? "ml-4" : ""}`}>
                   <a
@@ -137,8 +140,17 @@ const tocTitle = title || t("toc.nav.label");
     const content = document.getElementById("toc-content");
     const icon = document.getElementById("toc-icon");
     const stateText = toggle?.querySelector("[data-expanded]") as HTMLElement | null;
+    const tocList = document.getElementById("toc-list");
+    const articleRoot = document.getElementById("article-content");
 
     if (!toggle || !content) return;
+
+    const slugify = (text: string): string =>
+      text
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
 
     const setExpanded = (expanded: boolean): void => {
       toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
@@ -156,6 +168,53 @@ const tocTitle = title || t("toc.nav.label");
 
     let isOpen = false;
     setExpanded(isOpen);
+
+    const buildTocFromDom = (): void => {
+      if (!tocList || !articleRoot) return;
+      const headingNodes = Array.from(articleRoot.querySelectorAll("h2, h3"));
+      if (!headingNodes.length) return;
+
+      const seenIds = new Set<string>();
+      const headings = headingNodes
+        .map((node) => {
+          const depth = Number(node.tagName.substring(1));
+          if (depth !== 2 && depth !== 3) return null;
+          const text = (node.textContent || "").trim();
+          if (!text) return null;
+
+          let id = node.id || slugify(text) || "section";
+          let counter = 2;
+          while (seenIds.has(id)) {
+            id = `${slugify(text) || "section"}-${counter++}`;
+          }
+          seenIds.add(id);
+          if (!node.id) node.id = id;
+
+          return { depth, id, text };
+        })
+        .filter(Boolean) as Array<{ depth: number; id: string; text: string }>;
+
+      if (!headings.length) return;
+
+      tocList.innerHTML = "";
+      headings.forEach((heading) => {
+        const li = document.createElement("li");
+        li.className = `mb-1 ${heading.depth === 3 ? "ml-4" : ""}`;
+
+        const a = document.createElement("a");
+        a.href = `#${heading.id}`;
+        a.className =
+          heading.depth === 2
+            ? "text-decoration-none block min-h-[44px] rounded-md px-3 py-2 text-sm font-semibold text-slate-100 leading-relaxed transition-all duration-200 hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:bg-slate-800 focus-visible:text-white focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            : "text-decoration-none block min-h-[44px] rounded-md px-3 py-2 text-xs font-medium text-slate-200 leading-relaxed transition-all duration-200 hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:bg-slate-800 focus-visible:text-white focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
+        a.textContent = heading.text;
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    };
+
+    buildTocFromDom();
 
     const toggleContent = (): void => {
       isOpen = !isOpen;

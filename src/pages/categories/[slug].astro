@@ -118,17 +118,19 @@ const pageSeo = buildPageSeo({
         class="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80 shadow-2xl shadow-black/40"
       >
         <div class="relative">
-          <Image
-            src={category.image}
-            alt={`${category.name} hero`}
-            loading="lazy"
-            decoding="async"
-            class="h-80 w-full object-cover sm:h-[380px] md:h-[460px]"
-            width="1400"
-            height="560"
-          />
+          <div class="relative w-full overflow-hidden aspect-video bg-slate-900/40">
+            <Image
+              src={category.image}
+              alt={`${category.name} hero`}
+              loading="lazy"
+              decoding="async"
+              class="absolute aspect-video inset-0 h-full w-full object-cover"
+              width="1920"
+              height="1080"
+            />
+          </div>
           <div
-            class="relative mx-4 -mt-6 md:static md:mt-0 md:inset-0 md:flex md:items-end md:justify-start md:px-6 md:pb-6 lg:px-8"
+            class="relative mx-4 mt-4 md:static md:mt-0 md:inset-0 md:flex md:items-end md:justify-start md:px-6 md:pb-6 lg:px-8"
           >
             <div class="p-5">
               <div

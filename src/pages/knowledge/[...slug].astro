@@ -19,7 +19,9 @@ import { getReadingTime } from "@utils/readingTime";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const entries: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+  const entries: any[] = await getCollectionCached("knowledge-en").catch(
+    () => []
+  );
   const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
   for (const entry of entries) {
     const slug = entry?.slug || entry?.id;
@@ -37,14 +39,21 @@ const resolvedSlug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
 
 if (!entry) {
   try {
-    const articles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+    const articles: any[] = await getCollectionCached("knowledge-en").catch(
+      () => []
+    );
     if (resolvedSlug) {
-      entry = articles.find((a) => a.slug === resolvedSlug || a.id === resolvedSlug);
+      entry = articles.find(
+        (a) => a.slug === resolvedSlug || a.id === resolvedSlug
+      );
     }
   } catch (e) {
-    globalThis.console?.warn?.("knowledge article: collection load issue (fallback)", {
-      error: (e as any)?.message || e,
-    });
+    globalThis.console?.warn?.(
+      "knowledge article: collection load issue (fallback)",
+      {
+        error: (e as any)?.message || e,
+      }
+    );
   }
 }
 
@@ -58,7 +67,8 @@ if (!entry.data.readingTime && entry.body) {
       ...entry,
       data: {
         ...entry.data,
-        readingTime: getReadingTime(entry.body || "", { languageCode: lang }).minutes,
+        readingTime: getReadingTime(entry.body || "", { languageCode: lang })
+          .minutes,
       },
     };
   } catch {
@@ -72,7 +82,8 @@ const { headings, Content } = await entry.render();
 const mergedHeadings = headings;
 
 const rawImage = entry.data.image;
-const isValidImage = typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
+const isValidImage =
+  typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
 const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
 
 const title = entry.data.title;
@@ -100,7 +111,10 @@ const structuredDataExtra = [
     publisher: {
       "@type": "Organization",
       name: "Melody Mind",
-      logo: { "@type": "ImageObject", url: "https://melody-mind.de/melody-mind.png" },
+      logo: {
+        "@type": "ImageObject",
+        url: "https://melody-mind.de/melody-mind.png",
+      },
     },
     datePublished: entry.data.createdAt?.toISOString(),
     dateModified: entry.data.updatedAt?.toISOString(),
@@ -135,8 +149,12 @@ const pageSeo = buildPageSeo({
   keywordLimit: 24,
   maxDescription: 155,
   image: imageSource,
-  publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
-  modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
+  publishDate: entry.data.createdAt
+    ? new Date(entry.data.createdAt)
+    : new Date(),
+  modifiedDate: entry.data.updatedAt
+    ? new Date(entry.data.updatedAt)
+    : new Date(),
   index: true,
   follow: true,
   autoSocialImage: false,
@@ -147,172 +165,201 @@ const pageSeo = buildPageSeo({
   <Fragment slot="head"></Fragment>
 
   <main class="relative min-h-screen overflow-hidden bg-slate-950 text-white">
-    <div class="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-950 to-black"></div>
+    <div
+      class="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-950 to-black"
+    >
+    </div>
     <div
       class="absolute inset-0 opacity-[0.04]"
       style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.18) 1px, transparent 0); background-size: 64px 64px;"
-    ></div>
+    >
+    </div>
 
     <div class="relative mx-auto max-w-6xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
-      <header class="mb-10 space-y-5 rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/40">
-        <div class="flex flex-wrap items-center justify-between gap-3 text-sm text-slate-200">
-          <span class="rounded-full bg-primary-400/20 px-4 py-2 font-semibold uppercase tracking-[0.14em] text-primary-100 ring-1 ring-primary-400/60">
-            In-depth report
-          </span>
-          <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-300">
-            <Icon name="calendar" class="h-4 w-4 text-emerald-200" aria-hidden="true" />
-            {
-              new Date(entry.data.updatedAt || entry.data.createdAt || new Date()).toLocaleDateString(lang, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            }
-          </span>
-        </div>
-        <Headline level="h1" textSize="xl" textAlign="left" className="text-white">
-          {entry.data.title}
-        </Headline>
-        <Paragraph textSize="lg" textAlign="left" className="max-w-4xl text-slate-100">
-          {entry.data.description}
-        </Paragraph>
-      </header>
-
-      <div class="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 shadow-2xl shadow-black/40">
-        {
-          imageSource ? (
-            <div class="relative">
-              <div class="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></div>
-              <Picture
-                class="h-full w-full object-cover"
-                src={imageSource}
-                widths={[600, 800, 1000, 1200]}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
-                formats={["avif", "webp", "jpg"]}
-                alt={entry.data.title}
-                loading="eager"
-                fetchpriority="high"
-                width={1200}
-                height={800}
-                decoding="async"
-              />
-            </div>
-          ) : (
-            <div
-              class="flex aspect-4/3 w-full items-center justify-center bg-slate-900 p-8 text-center text-gray-300 lg:aspect-5/3"
-              role="img"
-              aria-label={t("category.no_image_available")}
+      <div class="mb-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
+        <header
+          class="space-y-5 rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/40"
+        >
+          <div
+            class="flex flex-wrap items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.12em] text-slate-200 sm:text-sm"
+          >
+            <span
+              class="rounded-full bg-primary-400/20 px-3 py-1.5 text-primary-100 ring-1 ring-primary-400/60"
             >
-              <div class="flex flex-col items-center gap-3">
-                <Icon name="image" class="h-16 w-16 lg:h-20 lg:w-20" aria-hidden="true" />
-                <span class="text-lg">{t("category.no_image_available")}</span>
-              </div>
+              In-depth report
+            </span>
+            <span class="flex items-center gap-2 text-slate-300">
+              <Icon
+                name="calendar"
+                class="h-4 w-4 text-emerald-200"
+                aria-hidden="true"
+              />
+              {
+                new Date(
+                  entry.data.updatedAt || entry.data.createdAt || new Date()
+                ).toLocaleDateString(lang, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }
+            </span>
+          </div>
+          <Headline
+            level="h1"
+            textSize="xl"
+            textAlign="left"
+            className="text-white"
+          >
+            {entry.data.title}
+          </Headline>
+          <Paragraph
+            textSize="lg"
+            textAlign="left"
+            className="max-w-4xl text-slate-100"
+          >
+            {entry.data.description}
+          </Paragraph>
+          <div class="flex flex-wrap gap-3 text-sm text-slate-200">
+            <div
+              class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10"
+            >
+              <Icon
+                name="clock"
+                class="h-4 w-4 text-emerald-300"
+                aria-hidden="true"
+              />
+              <span class="font-semibold">
+                {readingResult.minutes}
+                {t("knowledge.reading.time")}
+              </span>
             </div>
-          )
-        }
+            <div
+              class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10"
+            >
+              <Icon
+                name="file-text"
+                class="h-4 w-4 text-sky-300"
+                aria-hidden="true"
+              />
+              <span class="font-semibold"
+                >{t("knowledge.word_count", { count: wordsCount })}</span
+              >
+            </div>
+          </div>
+        </header>
+
+        <div class="flex flex-col gap-3 lg:gap-4">
+          <div
+            class="group relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900/70 shadow-2xl shadow-black/40"
+          >
+            {
+              imageSource ? (
+                <div class="relative aspect-video">
+                  <div class="absolute inset-0 bg-linear-to-t from-black via-black/55 to-transparent transition duration-300 group-hover:from-black/80" />
+                  <Picture
+                    class="absolute inset-0 h-full w-full object-cover"
+                    src={imageSource}
+                    widths={[600, 800, 1000, 1200]}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+                    formats={["avif", "webp", "jpg"]}
+                    alt={entry.data.title}
+                    loading="eager"
+                    fetchpriority="high"
+                    width={1200}
+                    height={800}
+                    decoding="async"
+                  />
+                </div>
+              ) : (
+                <div
+                  class="flex aspect-video w-full items-center justify-center bg-slate-900 p-8 text-center text-gray-300"
+                  role="img"
+                  aria-label={t("category.no_image_available")}
+                >
+                  <div class="flex flex-col items-center gap-3">
+                    <Icon
+                      name="image"
+                      class="h-16 w-16 lg:h-20 lg:w-20"
+                      aria-hidden="true"
+                    />
+                    <span class="text-lg">
+                      {t("category.no_image_available")}
+                    </span>
+                  </div>
+                </div>
+              )
+            }
+          </div>
+
+          {
+            entry.data.playlists?.spotifyPlaylist ||
+            entry.data.playlists?.deezerPlaylist ||
+            entry.data.playlists?.appleMusicPlaylist ? (
+              <div
+                class="rounded-2xl border border-white/10 bg-slate-900/70 p-3 shadow-lg"
+              >
+                <div class="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-200">
+                  <Icon name="music" class="h-4 w-4 text-sky-300" aria-hidden="true" />
+                  Play this article's playlist on:
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  {
+                    entry.data.playlists?.spotifyPlaylist ? (
+                      <ButtonLink
+                        href={entry.data.playlists?.spotifyPlaylist}
+                        variant="secondary"
+                        icon="spotify"
+                        className="h-9 min-w-[110px] justify-center px-3 text-sm"
+                        aria-label={`Open the ${t("musicPlatforms.platform.spotify")} playlist for ${entry.data.title}`}
+                      >
+                        {t("musicPlatforms.platform.spotify")}
+                      </ButtonLink>
+                    ) : null
+                  }
+                  {
+                    entry.data.playlists?.deezerPlaylist ? (
+                      <ButtonLink
+                        href={entry.data.playlists?.deezerPlaylist}
+                        variant="secondary"
+                        icon="deezer"
+                        className="h-9 min-w-[110px] justify-center px-3 text-sm"
+                        aria-label={`Open the ${t("musicPlatforms.platform.deezer")} playlist for ${entry.data.title}`}
+                      >
+                        {t("musicPlatforms.platform.deezer")}
+                      </ButtonLink>
+                    ) : null
+                  }
+                  {
+                    entry.data.playlists?.appleMusicPlaylist ? (
+                      <ButtonLink
+                        href={entry.data.playlists?.appleMusicPlaylist}
+                        variant="secondary"
+                        icon="apple-music"
+                        className="h-9 min-w-[110px] justify-center px-3 text-sm"
+                        aria-label={`Open the ${t("musicPlatforms.platform.apple")} playlist for ${entry.data.title}`}
+                      >
+                        {t("musicPlatforms.platform.apple")}
+                      </ButtonLink>
+                    ) : null
+                  }
+                </div>
+              </div>
+            ) : null
+          }
+        </div>
       </div>
 
-      <section class="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Reading time</div>
-          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
-            <Icon name="clock" class="h-5 w-5 text-emerald-300" aria-hidden="true" />
-            {readingResult.minutes} {t("knowledge.reading.time")}
-          </div>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Word count</div>
-          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
-            <Icon name="file-text" class="h-5 w-5 text-sky-300" aria-hidden="true" />
-            {t("knowledge.word_count", { count: wordsCount })}
-          </div>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Published</div>
-          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
-            <Icon name="calendar" class="h-5 w-5 text-emerald-200" aria-hidden="true" />
-            {
-              new Date(entry.data.createdAt || new Date()).toLocaleDateString(lang, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            }
-          </div>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 shadow-lg">
-          <div class="text-xs font-semibold uppercase tracking-[0.14em] text-slate-200">Last updated</div>
-          <div class="mt-2 flex items-center gap-2 text-lg font-semibold text-white">
-            <Icon name="refresh-ccw" class="h-5 w-5 text-primary-200" aria-hidden="true" />
-            {
-              new Date(entry.data.updatedAt || entry.data.createdAt || new Date()).toLocaleDateString(lang, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
-            }
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-9 rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/30">
-        <div class="flex flex-col gap-4 sm:gap-5 lg:flex-row lg:items-center lg:justify-between">
-          <div class="flex flex-wrap gap-2 sm:gap-3">
-            <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
-              <Icon name="play" class="h-4 w-4 text-emerald-300" aria-hidden="true" />
-              Streaming shortcuts
-            </div>
-            <div class="flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 ring-1 ring-white/10 sm:py-2">
-              <Icon name="music" class="h-4 w-4 text-sky-300" aria-hidden="true" />
-              Curated for discovery
-            </div>
-          </div>
-          <div class="flex flex-col justify-center gap-3 sm:flex-row">
-            <ButtonLink
-              href={entry.data.playlists?.spotifyPlaylist || "#"}
-              variant="secondary"
-              icon="spotify"
-              className="w-full justify-center sm:w-auto"
-              aria-label={t("musicPlatforms.listenOn", {
-                title: entry.data.title,
-                platform: t("musicPlatforms.platform.spotify"),
-              })}
-            >
-              {t("musicPlatforms.platform.spotify")}
-            </ButtonLink>
-            <ButtonLink
-              href={entry.data.playlists?.deezerPlaylist || "#"}
-              variant="secondary"
-              icon="deezer"
-              className="w-full justify-center sm:w-auto"
-              aria-label={t("musicPlatforms.listenOn", {
-                title: entry.data.title,
-                platform: t("musicPlatforms.platform.deezer"),
-              })}
-            >
-              {t("musicPlatforms.platform.deezer")}
-            </ButtonLink>
-            <ButtonLink
-              href={entry.data.playlists?.appleMusicPlaylist || "#"}
-              variant="secondary"
-              icon="apple-music"
-              className="w-full justify-center sm:w-auto"
-              aria-label={t("musicPlatforms.listenOn", {
-                title: entry.data.title,
-                platform: t("musicPlatforms.platform.apple"),
-              })}
-            >
-              {t("musicPlatforms.platform.apple")}
-            </ButtonLink>
-          </div>
-        </div>
-      </section>
-
-      <div class="mb-9 rounded-3xl border border-white/10 bg-slate-900/70 p-5 shadow-xl">
+      <div
+        class="mb-8 rounded-3xl border border-white/10 bg-slate-900/70 p-5 shadow-xl"
+      >
         <TableOfContents headings={mergedHeadings} lang={lang} />
       </div>
 
-      <article id="article-content" class="rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/30 sm:p-7">
+      <article
+        id="article-content"
+        class="rounded-3xl border border-white/10 bg-slate-900/70 p-6 shadow-2xl shadow-black/30 sm:p-7"
+      >
         <div id="article-title" class="sr-only">{entry.data.title}</div>
         <div
           role="region"
@@ -329,11 +376,18 @@ const pageSeo = buildPageSeo({
         <ButtonLink
           href="/"
           icon="arrow-left"
-          aria-label={translate("knowledge.back.to.list", "Back to knowledge list")}
+          aria-label={translate(
+            "knowledge.back.to.list",
+            "Back to knowledge list"
+          )}
           className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-gray-200 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/50 hover:bg-indigo-500/10 hover:text-white hover:shadow-lg"
         >
           <span class="flex items-center gap-2">
-            <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
+            <span
+              >{
+                translate("knowledge.back.to.list", "Back to knowledge list")
+              }</span
+            >
           </span>
         </ButtonLink>
       </div>
