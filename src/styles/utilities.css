@@ -68,3 +68,11 @@
     align-items: center;
   }
 }
+
+/* High-visibility focus rings for keyboard users (WCAG AAA contrast) */
+:where(a, button, input, select, textarea, summary, [role="button"], [tabindex]):focus-visible {
+  outline: 3px solid var(--color-primary-300);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.85);
+  border-radius: 10px;
+}
