@@ -9,6 +9,7 @@ import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
 import { calculateReadingTime } from "@utils/readingTime";
 import categories from "../../data/categories.json";
 import { Image } from "astro:assets";
+import SearchPanel from "@components/Search/SearchPanel.astro";
 
 export const prerender = true;
 
@@ -158,15 +159,27 @@ const pageSeo = buildPageSeo({
       <section
         aria-labelledby="category-heading"
         aria-describedby="category-helper-text"
-        class="space-y-4"
+        class="space-y-6"
       >
-        <p id="category-helper-text" class="text-sm text-slate-300 sm:text-base">
-          Article cards announce title, description, publish date, and estimated reading time.
-        </p>
+        <div class="space-y-3">
+          <p id="category-helper-text" class="text-sm text-slate-300 sm:text-base">
+            Article cards announce title, description, publish date, and estimated reading time.
+          </p>
+          <SearchPanel
+            idBase="category-search"
+            label="Search articles"
+            placeholder="Search by title, description, or keyword"
+            ariaControls="category-articles-list"
+            statusAllText="Showing all articles"
+            statusCountTemplate="{count} articles found"
+            noResultsTemplate='No results for "{term}"'
+          />
+        </div>
         {
           filteredArticles.length > 0 ? (
             <ul
               class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              id="category-articles-list"
               aria-label={`${category.name} articles`}
             >
               {filteredArticles.map((article, index: number) => {
@@ -178,7 +191,10 @@ const pageSeo = buildPageSeo({
                   "slug" in article ? article.slug : article.id;
 
                 return (
-                  <li class="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary-300/60 hover:shadow-2xl hover:shadow-primary-900/30">
+                  <li
+                    class="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/80 transition-all duration-300 hover:-translate-y-1 hover:border-primary-300/60 hover:shadow-2xl hover:shadow-primary-900/30"
+                    data-search-text={`${article.data.title} ${article.data.description} ${article.data.keywords?.join(" ") || ""}`}
+                  >
                     <KnowledgeCard
                       title={article.data.title}
                       description={article.data.description}
@@ -195,11 +211,20 @@ const pageSeo = buildPageSeo({
                 );
               })}
             </ul>
+            <div
+              id="category-search-empty"
+              class="rounded-2xl border border-white/10 bg-slate-900/70 p-8 text-center text-slate-200 shadow-xl"
+              aria-live="polite"
+              hidden
+            >
+              No results match your search. Try a different keyword.
+            </div>
           ) : (
             <div
               class="rounded-2xl border border-white/10 bg-slate-900/70 p-10 text-center shadow-xl"
               role="status"
               aria-live="polite"
+              id="category-search-no-results"
             >
               <p class="text-lg font-semibold text-white">
                 No articles in this category yet.
@@ -215,4 +240,85 @@ const pageSeo = buildPageSeo({
 
     <BackToTop lang="en" />
   </main>
+
+  <script>
+    (() => {
+      const inputEl = document.getElementById(
+        "category-search-input",
+      ) as HTMLInputElement | null;
+      const clearBtn = document.getElementById(
+        "category-search-clear",
+      ) as HTMLButtonElement | null;
+      const resetBtn = document.getElementById(
+        "category-search-reset",
+      ) as HTMLButtonElement | null;
+      const statusEl = document.getElementById(
+        "category-search-status",
+      ) as HTMLElement | null;
+      const noResultsEl = document.getElementById(
+        "category-search-empty",
+      ) as HTMLElement | null;
+      const listItems = Array.from(
+        document.querySelectorAll("#category-articles-list > li"),
+      ) as HTMLElement[];
+
+      if (!inputEl || listItems.length === 0) return;
+
+      let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
+      const updateStatus = (count: number, term: string): void => {
+        const hasQuery = term.trim().length > 0;
+        if (statusEl) {
+          statusEl.textContent = hasQuery
+            ? `${count} articles found`
+            : "Showing all articles";
+        }
+        if (noResultsEl) {
+          const showEmpty = hasQuery && count === 0;
+          noResultsEl.hidden = !showEmpty;
+        }
+        if (clearBtn) {
+          clearBtn.classList.toggle("opacity-0", !hasQuery);
+          clearBtn.classList.toggle("pointer-events-none", !hasQuery);
+          clearBtn.classList.toggle("opacity-100", hasQuery);
+          clearBtn.classList.toggle("pointer-events-auto", hasQuery);
+        }
+      };
+
+      const performSearch = (term: string): void => {
+        const q = term.trim().toLowerCase();
+        let count = 0;
+        listItems.forEach((item) => {
+          const haystack =
+            item.dataset.searchText?.toLowerCase() ||
+            item.textContent?.toLowerCase() ||
+            "";
+          const match = q === "" || haystack.includes(q);
+          item.style.display = match ? "" : "none";
+          if (match) count += 1;
+        });
+        updateStatus(count, term);
+      };
+
+      inputEl.addEventListener("input", (e: Event) => {
+        const value = (e.target as HTMLInputElement)?.value || "";
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => performSearch(value), 150);
+      });
+
+      clearBtn?.addEventListener("click", () => {
+        inputEl.value = "";
+        performSearch("");
+        inputEl.focus();
+      });
+
+      resetBtn?.addEventListener("click", () => {
+        inputEl.value = "";
+        performSearch("");
+        inputEl.focus();
+      });
+
+      performSearch("");
+    })();
+  </script>
 </Layout>
