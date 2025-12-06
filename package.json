@@ -22,6 +22,7 @@
     "convert-images:exec:delete": "python3 scripts/convert_pngs.py --execute --delete --quality 80 --width 1024"
   },
   "dependencies": {
+    "@astro-community/astro-embed-youtube": "^0.5.9",
     "@astrojs/markdown-remark": "^6.3.9",
     "@astrojs/mdx": "^4.0.3",
     "@astrojs/rss": "^4.0.14",
