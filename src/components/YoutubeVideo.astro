@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import { getYoutubeEmbedUrl, getYoutubeThumbnail } from "@utils/youtube";
+
+interface Props {
+  src: string;
+  title?: string;
+  className?: string;
+  showTitle?: boolean;
+  showTitleIcon?: boolean;
+}
+
+const { src, title = "YouTube video player", className, showTitle = true, showTitleIcon = true } = Astro.props;
+
+const embedUrl = getYoutubeEmbedUrl(src);
+const thumbnail = await getYoutubeThumbnail(src);
+const isPlayable = Boolean(embedUrl);
+const ariaLabel = isPlayable ? "Play YouTube video" : "YouTube video unavailable";
+---
+
+<div class:list={["relative aspect-video w-full cursor-pointer overflow-hidden rounded-lg bg-black", className]} data-youtube-video>
+  <button
+    type="button"
+    class="absolute inset-0 aspect-video h-full w-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-indigo-400"
+    data-youtube-trigger
+    aria-label={ariaLabel}
+    data-embed-url={isPlayable ? embedUrl : undefined}
+    disabled={!isPlayable}
+    data-video-title={title}
+  >
+    <Image
+      layout="full-width"
+      src={thumbnail}
+      width={1280}
+      height={720}
+      class="h-full w-full object-cover opacity-95"
+      alt={title}
+    />
+
+    <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <span class="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-md ring-1 ring-black/10 transition hover:bg-white">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" class="text-black/80">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </span>
+
+    {showTitle && (
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent px-6 py-5">
+        <p class="flex items-center gap-3 text-white/95 text-lg sm:text-2xl font-semibold leading-snug line-clamp-2">
+          {showTitleIcon && (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-white/90">
+              <path d="M10 8l6 4-6 4V8z" />
+              <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+          )}
+          {title}
+        </p>
+      </div>
+    )}
+  </button>
+</div>
+
+<script is:inline>
+  (() => {
+    const root = document.currentScript?.previousElementSibling;
+    if (!(root instanceof HTMLElement)) return;
+
+    const trigger = root.querySelector("[data-youtube-trigger]");
+    if (!(trigger instanceof HTMLButtonElement)) return;
+
+    const embedUrl = trigger.dataset.embedUrl;
+    const title = trigger.dataset.videoTitle;
+    if (!embedUrl) return;
+
+    const activate = () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = embedUrl;
+      iframe.title = title;
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.classList.add("w-full", "h-full", "absolute", "inset-0");
+
+      root.replaceChildren(iframe);
+    };
+
+    // click and accessibility activation
+    trigger.addEventListener("click", activate, { once: true });
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        activate();
+      }
+    }, { once: true });
+  })();
+</script>
