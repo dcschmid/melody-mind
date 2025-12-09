@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Crumb {
+  name: string;
+  url?: string;
+}
+
+interface Props {
+  items: Crumb[];
+  ariaLabel?: string;
+}
+
+const { items = [], ariaLabel = "Breadcrumb" } = Astro.props;
+const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
+---
+{normalized.length > 0 && (
+  <nav
+    aria-label={ariaLabel}
+    class="w-full overflow-x-auto"
+  >
+    <ol class="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 text-sm text-slate-200 sm:gap-3 sm:py-4">
+      {normalized.map((crumb, index) => {
+        const isLast = index === normalized.length - 1;
+        return (
+          <li class="flex items-center gap-2">
+            {index > 0 && (
+              <span class="text-slate-500" aria-hidden="true">
+                /
+              </span>
+            )}
+            {isLast || !crumb.url ? (
+              <span class="line-clamp-1 max-w-[16ch] text-slate-100 sm:max-w-none">
+                {crumb.name}
+              </span>
+            ) : (
+              <a
+                href={crumb.url}
+                class="group inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-slate-100 ring-1 ring-white/10 transition hover:bg-white/10 hover:ring-primary-300/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300"
+              >
+                {index === 0 && (
+                  <Icon
+                    name="home"
+                    class="h-4 w-4 text-primary-200"
+                    aria-hidden="true"
+                  />
+                )}
+                <span class="line-clamp-1 max-w-[18ch] text-xs font-medium sm:max-w-none sm:text-sm">
+                  {crumb.name}
+                </span>
+              </a>
+            )}
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+)}

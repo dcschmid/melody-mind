@@ -96,11 +96,23 @@ const baseSite =
 const canonical = resolvedSlug
   ? `${baseSite}/knowledge/${resolvedSlug}`
   : `${baseSite}`;
-const breadcrumbs = [
-  { name: t("nav.home") || "Home", url: `${baseSite}/` },
-  { name: t("knowledge.title") || "Knowledge", url: `${baseSite}/knowledge` },
+const seoBreadcrumbsBase = [{ name: t("nav.home") || "Home", url: `${baseSite}/` }];
+const seoCategoryCrumb =
+  entry.data.category && typeof entry.data.category === "string"
+    ? {
+        name: entry.data.category,
+        url: `${baseSite}/categories/${entry.data.category}`,
+      }
+    : null;
+const seoBreadcrumbs = [
+  ...seoBreadcrumbsBase,
+  ...(seoCategoryCrumb ? [seoCategoryCrumb] : []),
   { name: title, url: canonical },
 ];
+const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
+  ...crumb,
+  url: crumb.url ? crumb.url.replace(baseSite, "") || "/" : crumb.url,
+}));
 const structuredDataExtra = [
   {
     "@type": "Article",
@@ -142,7 +154,7 @@ const pageSeo = buildPageSeo({
   description: optimizedDescription,
   url: canonical,
   contentKind: "generic",
-  breadcrumbs,
+  breadcrumbs: seoBreadcrumbs,
   structuredData: structuredDataExtra,
   enrichedParts: [title, description].filter(Boolean) as string[],
   fallbackKeywords: (entry.data.keywords || []).slice(0, 20),

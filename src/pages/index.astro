@@ -69,10 +69,14 @@ for (const a of articlesWithReadingTime) {
 }
 const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
 
-const breadcrumbs = [
+const seoBreadcrumbs = [
   { name: safeUi["nav.home"] || "Home", url: `${baseUrl}/` },
-  { name: safeUi["knowledge.title"] || "Knowledge", url: currentUrl },
+  { name: "Knowledge", url: currentUrl },
 ];
+const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
+  ...crumb,
+  url: crumb.url.replace(baseUrl, "") || "/",
+}));
 
 const articleCollectionSchema = buildKnowledgeArticlesItemList({
   articles: sortedArticles.map((a: any) => ({
@@ -134,7 +138,7 @@ const pageSeo = buildPageSeo({
   description,
   url: currentUrl,
   contentKind: "generic",
-  breadcrumbs,
+  breadcrumbs: seoBreadcrumbs,
   structuredData: [articleCollectionSchema].filter(Boolean) as StructuredData[],
   enrichedParts: [title, description, keywordPool.slice(0, 25).join(" ")],
   fallbackKeywords: metaKeywords

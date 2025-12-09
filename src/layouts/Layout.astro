@@ -56,6 +56,7 @@ import { Head } from "astro-capo";
 import SEO from "@components/SEO.astro";
 import SkipLink from "@components/Shared/SkipLink.astro";
 import Footer from "@components/Footer.astro";
+import Breadcrumbs from "@components/Breadcrumbs.astro";
 
 // 4. Utility imports
 import { getLangFromUrl } from "@utils/i18n";
@@ -541,7 +542,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <SkipLink />
 
     {/* Main content area */}
-    <main id="main-content" tabindex="-1" role="main">
+    <main id="main-content" tabindex="-1" role="main" class="space-y-4">
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <Breadcrumbs items={breadcrumbs} ariaLabel="Page breadcrumb" />
+      )}
       <slot />
     </main>
 

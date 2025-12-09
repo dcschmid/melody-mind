@@ -81,19 +81,65 @@ const baseUrl =
   Astro.site?.toString().replace(/\/$/, "") ||
   "https://melody-mind.de";
 const currentUrl = `${baseUrl}/categories/${category.slug}`;
-const breadcrumbs = [
+const seoBreadcrumbs = [
   { name: "Home", url: `${baseUrl}/` },
-  { name: "Categories", url: `${baseUrl}/` },
   { name: category.name, url: currentUrl },
 ];
+const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
+  ...crumb,
+  url: crumb.url.replace(baseUrl, "") || "/",
+}));
+
+const breadcrumbSchema = seoBreadcrumbs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: seoBreadcrumbs.map((crumb, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: crumb.name,
+        item: crumb.url,
+      })),
+    }
+  : undefined;
+
+const itemListSchema = filteredArticles.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: `${category.name} articles`,
+      numberOfItems: filteredArticles.length,
+      itemListElement: filteredArticles.map((article, index: number) => {
+        const articleSlug = "slug" in article ? article.slug : article.id;
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "Article",
+            name: article.data.title,
+            description: article.data.description,
+            url: `${baseUrl}/knowledge/${articleSlug}`,
+            dateCreated: article.data.createdAt
+              ? new Date(String(article.data.createdAt)).toISOString()
+              : undefined,
+            dateModified: article.data.updatedAt
+              ? new Date(String(article.data.updatedAt)).toISOString()
+              : undefined,
+            keywords: article.data.keywords?.join(", "),
+            image: article.data.image,
+          },
+        };
+      }),
+    }
+  : undefined;
 
 const pageSeo = buildPageSeo({
   title: `${category.name} | Categories`,
   description: category.description,
   url: currentUrl,
   contentKind: "generic",
-  breadcrumbs,
-  structuredData: [] as StructuredData[],
+  breadcrumbs: seoBreadcrumbs,
+  structuredData: [breadcrumbSchema, itemListSchema].filter(Boolean) as StructuredData[],
   enrichedParts: [category.name, category.description],
   fallbackKeywords: metaKeywords
     .split(",")
