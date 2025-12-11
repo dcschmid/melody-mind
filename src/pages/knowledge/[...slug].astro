@@ -171,6 +171,15 @@ const pageSeo = buildPageSeo({
   follow: true,
   autoSocialImage: false,
 });
+
+const shareUrl = canonical;
+const shareTitle = `${title} | Melody Mind`;
+const shareText = `${title} - ${description || ""}`.trim();
+const shareMailSubject = encodeURIComponent(shareTitle);
+const shareMailBody = encodeURIComponent(`${description || ""}\n\n${shareUrl}`);
+const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponent(
+  `${shareText} ${shareUrl}`
+)}`;
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
@@ -306,8 +315,7 @@ const pageSeo = buildPageSeo({
 
           {
             entry.data.playlists?.spotifyPlaylist ||
-            entry.data.playlists?.deezerPlaylist ||
-            entry.data.playlists?.appleMusicPlaylist ? (
+            entry.data.playlists?.deezerPlaylist ? (
               <div
                 class="rounded-2xl border border-white/10 bg-slate-900/70 p-3 shadow-lg"
               >
@@ -342,19 +350,6 @@ const pageSeo = buildPageSeo({
                       </ButtonLink>
                     ) : null
                   }
-                  {
-                    entry.data.playlists?.appleMusicPlaylist ? (
-                      <ButtonLink
-                        href={entry.data.playlists?.appleMusicPlaylist}
-                        variant="secondary"
-                        icon="apple-music"
-                        className="h-9 min-w-[110px] justify-center px-3 text-sm"
-                        aria-label={`Open the ${t("musicPlatforms.platform.apple")} playlist for ${entry.data.title}`}
-                      >
-                        {t("musicPlatforms.platform.apple")}
-                      </ButtonLink>
-                    ) : null
-                  }
                 </div>
               </div>
             ) : null
@@ -384,6 +379,97 @@ const pageSeo = buildPageSeo({
         </div>
       </article>
 
+      <div
+        class="mt-10 rounded-3xl border border-white/10 bg-slate-900/70 p-5 shadow-xl"
+        id="share-section"
+        data-share-url={shareUrl}
+        data-share-title={shareTitle}
+        data-share-text={shareText}
+        data-share-success={translate("knowledge.share.copied", "Link copied!")}
+        data-share-error={translate(
+          "knowledge.share.copy_error",
+          "Copy failed - please copy it manually."
+        )}
+        data-share-fallback={translate(
+          "knowledge.share.native_fallback",
+          "Sharing isn't available here, so we've copied the link for you."
+        )}
+      >
+        <div class="flex flex-wrap items-center gap-3">
+          <div
+            class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-slate-100"
+          >
+            <Icon name="share-2" class="h-4 w-4 text-emerald-300" aria-hidden="true" />
+            <span
+              >{
+                translate(
+                  "knowledge.share.heading",
+                  "Share this article (privacy-friendly)"
+                )
+              }</span
+            >
+          </div>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <button
+              type="button"
+              data-share="native"
+              class="flex items-center gap-2 rounded-full bg-primary-500/10 px-3 py-1.5 text-primary-100 ring-1 ring-primary-400/60 transition duration-200 hover:-translate-y-0.5 hover:bg-primary-500/20"
+              aria-label={translate("knowledge.share.native", "Share via your device")}
+            >
+              <Icon name="send" class="h-4 w-4 text-primary-200" aria-hidden="true" />
+              <span>{translate("knowledge.share.native", "Share")}</span>
+            </button>
+            <button
+              type="button"
+              data-share="copy"
+              class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 text-slate-100 ring-1 ring-white/10 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10"
+              aria-label={translate(
+                "knowledge.share.copy",
+                "Copy link to this article"
+              )}
+            >
+              <Icon name="copy" class="h-4 w-4 text-slate-100" aria-hidden="true" />
+              <span>{translate("knowledge.share.copy", "Copy link")}</span>
+            </button>
+            <a
+              href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
+              class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 text-slate-100 ring-1 ring-white/10 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10"
+              aria-label={translate("knowledge.share.email", "Share via email")}
+            >
+              <Icon name="mail" class="h-4 w-4 text-slate-100" aria-hidden="true" />
+              <span>{translate("knowledge.share.email", "Email")}</span>
+            </a>
+            <a
+              href={mastodonShareUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              class="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 text-slate-100 ring-1 ring-white/10 transition duration-200 hover:-translate-y-0.5 hover:bg-white/10"
+              aria-label={translate(
+                "knowledge.share.mastodon",
+                "Share on Mastodon (opens in a new tab)"
+              )}
+            >
+              <Icon
+                name="message-circle"
+                class="h-4 w-4 text-slate-100"
+                aria-hidden="true"
+              />
+              <span>{translate("knowledge.share.mastodon", "Mastodon")}</span>
+            </a>
+          </div>
+        </div>
+        <p
+          data-share-status
+          class="mt-3 text-xs text-slate-300"
+          aria-live="polite"
+        >
+          {translate(
+            "knowledge.share.privacy_note",
+            "Privacy-friendly: nothing loads until you click a share option."
+          )}
+        </p>
+      </div>
+
       <div class="mt-12 flex justify-center">
         <ButtonLink
           href="/"
@@ -405,6 +491,61 @@ const pageSeo = buildPageSeo({
       </div>
     </div>
   </main>
+
+  <script>
+    (() => {
+      const shareSection = document.getElementById("share-section");
+      if (!shareSection) return;
+
+      const shareUrl = shareSection.dataset.shareUrl || "";
+      const shareTitle = shareSection.dataset.shareTitle || "";
+      const shareText = shareSection.dataset.shareText || "";
+      const copySuccessMessage = shareSection.dataset.shareSuccess || "";
+      const copyErrorMessage = shareSection.dataset.shareError || "";
+      const nativeShareUnavailable = shareSection.dataset.shareFallback || "";
+      const statusEl = shareSection.querySelector("[data-share-status]");
+      const defaultStatus = statusEl?.textContent || "";
+      let resetTimer: number | undefined;
+
+      const setStatus = (message: string | null) => {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        if (resetTimer) window.clearTimeout(resetTimer);
+        resetTimer = window.setTimeout(() => {
+          statusEl.textContent = defaultStatus;
+        }, 4500);
+      };
+
+      const copyLink = async (trigger: Element) => {
+        try {
+          if (!navigator.clipboard) throw new Error("clipboard unavailable");
+          await navigator.clipboard.writeText(shareUrl);
+          setStatus(copySuccessMessage);
+        } catch {
+          setStatus(copyErrorMessage);
+        }
+      };
+
+      const copyButton = document.querySelector('[data-share="copy"]');
+      copyButton?.addEventListener("click", () => copyLink(copyButton));
+
+      const nativeButton = document.querySelector('[data-share="native"]');
+      nativeButton?.addEventListener("click", async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
+            setStatus(copySuccessMessage);
+            return;
+          } catch (error: any) {
+            if (error?.name === "AbortError") return;
+          }
+        }
+
+        setStatus(nativeShareUnavailable);
+        copyLink(nativeButton);
+      });
+    })();
+  </script>
 
   <BackToTop lang={lang} />
 </Layout>

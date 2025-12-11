@@ -19,6 +19,17 @@ export default {
   "knowledge.search.no_results_for": "No results for {term}",
   "knowledge.search.reset.text": "Reset",
   "knowledge.back.to.list": "Back to knowledge list",
+  "knowledge.share.heading": "Share this article",
+  "knowledge.share.native": "Share",
+  "knowledge.share.native_fallback":
+    "Sharing isn't available here, so we've copied the link for you.",
+  "knowledge.share.copy": "Copy link",
+  "knowledge.share.copied": "Link copied!",
+  "knowledge.share.copy_error": "Copy failed - please copy it manually.",
+  "knowledge.share.email": "Share via email",
+  "knowledge.share.mastodon": "Share on Mastodon",
+  "knowledge.share.privacy_note":
+    "Privacy-friendly: nothing loads until you click a share option.",
   // Podcast translations removed (migrated to podcasts subdomain)
 
   "share.challenge_fallback":
