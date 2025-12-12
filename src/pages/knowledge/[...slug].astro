@@ -124,12 +124,16 @@ const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
   ...crumb,
   url: crumb.url ? crumb.url.replace(baseSite, "") || "/" : crumb.url,
 }));
+const schemaType = podcastUrl ? "PodcastEpisode" : "Article";
 const structuredDataExtra = [
   {
-    "@type": "Article",
+    "@context": "https://schema.org",
+    "@type": schemaType,
     headline: title,
+    name: title,
     description: description,
     image: imageSource,
+    url: canonical,
     author: { "@type": "Organization", name: "Melody Mind" },
     publisher: {
       "@type": "Organization",
@@ -139,6 +143,19 @@ const structuredDataExtra = [
         url: "https://melody-mind.de/melody-mind.png",
       },
     },
+    ...(podcastUrl
+      ? {
+          isPartOf: {
+            "@type": "PodcastSeries",
+            name: "Melody Mind Podcasts",
+            url: podcastBase,
+          },
+          potentialAction: {
+            "@type": "ListenAction",
+            target: podcastUrl,
+          },
+        }
+      : {}),
     datePublished: entry.data.createdAt?.toISOString(),
     dateModified: entry.data.updatedAt?.toISOString(),
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
@@ -196,7 +213,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 <Layout {pageSeo} {breadcrumbs}>
   <Fragment slot="head"></Fragment>
 
-  <main class="relative min-h-screen overflow-hidden bg-slate-950 text-white">
+  <div class="relative min-h-screen overflow-hidden bg-slate-950 text-white">
     <div
       class="absolute inset-0 bg-linear-to-b from-slate-900 via-slate-950 to-black"
     >
@@ -544,7 +561,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         </ButtonLink>
       </div>
     </div>
-  </main>
+  </div>
 
   <script>
     (() => {

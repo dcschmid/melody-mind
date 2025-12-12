@@ -111,6 +111,13 @@ const INIT_TARGETS: InitEntry[] = [
       initJokerAuto();
     },
   },
+  {
+    test: (): Element | null => document.querySelector("[data-search-root]"),
+    init: async (): Promise<void> => {
+      const { initSearchPanelsAuto } = await import("./searchPanelUtils");
+      initSearchPanelsAuto();
+    },
+  },
 ];
 
 /**

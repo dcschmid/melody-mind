@@ -30,7 +30,10 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
               </span>
             )}
             {isLast || !crumb.url ? (
-              <span class="line-clamp-1 max-w-[16ch] text-slate-100 sm:max-w-none">
+              <span
+                class="line-clamp-1 max-w-[16ch] text-slate-100 sm:max-w-none"
+                aria-current={isLast ? "page" : undefined}
+              >
                 {crumb.name}
               </span>
             ) : (

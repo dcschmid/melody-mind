@@ -157,7 +157,7 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <main class="relative min-h-screen bg-slate-950 text-slate-50">
+  <div class="relative min-h-screen bg-slate-950 text-slate-50">
     <div class="absolute inset-0 bg-slate-950 pointer-events-none"></div>
 
     <div class="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
@@ -285,86 +285,5 @@ const pageSeo = buildPageSeo({
     </div>
 
     <BackToTop lang="en" />
-  </main>
-
-  <script>
-    (() => {
-      const inputEl = document.getElementById(
-        "category-search-input",
-      ) as HTMLInputElement | null;
-      const clearBtn = document.getElementById(
-        "category-search-clear",
-      ) as HTMLButtonElement | null;
-      const resetBtn = document.getElementById(
-        "category-search-reset",
-      ) as HTMLButtonElement | null;
-      const statusEl = document.getElementById(
-        "category-search-status",
-      ) as HTMLElement | null;
-      const noResultsEl = document.getElementById(
-        "category-search-empty",
-      ) as HTMLElement | null;
-      const listItems = Array.from(
-        document.querySelectorAll("#category-articles-list > li"),
-      ) as HTMLElement[];
-
-      if (!inputEl || listItems.length === 0) return;
-
-      let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-
-      const updateStatus = (count: number, term: string): void => {
-        const hasQuery = term.trim().length > 0;
-        if (statusEl) {
-          statusEl.textContent = hasQuery
-            ? `${count} articles found`
-            : "Showing all articles";
-        }
-        if (noResultsEl) {
-          const showEmpty = hasQuery && count === 0;
-          noResultsEl.hidden = !showEmpty;
-        }
-        if (clearBtn) {
-          clearBtn.classList.toggle("opacity-0", !hasQuery);
-          clearBtn.classList.toggle("pointer-events-none", !hasQuery);
-          clearBtn.classList.toggle("opacity-100", hasQuery);
-          clearBtn.classList.toggle("pointer-events-auto", hasQuery);
-        }
-      };
-
-      const performSearch = (term: string): void => {
-        const q = term.trim().toLowerCase();
-        let count = 0;
-        listItems.forEach((item) => {
-          const haystack =
-            item.dataset.searchText?.toLowerCase() ||
-            item.textContent?.toLowerCase() ||
-            "";
-          const match = q === "" || haystack.includes(q);
-          item.style.display = match ? "" : "none";
-          if (match) count += 1;
-        });
-        updateStatus(count, term);
-      };
-
-      inputEl.addEventListener("input", (e: Event) => {
-        const value = (e.target as HTMLInputElement)?.value || "";
-        if (debounceTimer) clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => performSearch(value), 150);
-      });
-
-      clearBtn?.addEventListener("click", () => {
-        inputEl.value = "";
-        performSearch("");
-        inputEl.focus();
-      });
-
-      resetBtn?.addEventListener("click", () => {
-        inputEl.value = "";
-        performSearch("");
-        inputEl.focus();
-      });
-
-      performSearch("");
-    })();
-  </script>
+  </div>
 </Layout>

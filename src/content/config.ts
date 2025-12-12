@@ -18,7 +18,6 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
       .object({
         spotifyPlaylist: z.string().optional(),
         deezerPlaylist: z.string().optional(),
-        appleMusicPlaylist: z.string().optional(),
       })
       .optional(),
     podcast: z.string().optional(),

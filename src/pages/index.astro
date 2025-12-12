@@ -55,7 +55,7 @@ const description =
   "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
 const baseUrl =
   Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
-const currentUrl = `${baseUrl}/knowledge`;
+const currentUrl = `${baseUrl}/`;
 
 let earliestCreated: Date | null = null;
 let latestUpdated: Date | null = null;
@@ -69,14 +69,8 @@ for (const a of articlesWithReadingTime) {
 }
 const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
 
-const seoBreadcrumbs = [
-  { name: safeUi["nav.home"] || "Home", url: `${baseUrl}/` },
-  { name: "Knowledge", url: currentUrl },
-];
-const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
-  ...crumb,
-  url: crumb.url.replace(baseUrl, "") || "/",
-}));
+const seoBreadcrumbs = [{ name: safeUi["nav.home"] || "Home", url: currentUrl }];
+const breadcrumbs = [{ name: safeUi["nav.home"] || "Home", url: "/" }];
 
 const articleCollectionSchema = buildKnowledgeArticlesItemList({
   articles: sortedArticles.map((a: any) => ({
@@ -157,12 +151,15 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <main class="relative min-h-screen bg-slate-950 text-slate-50">
+  <div class="relative min-h-screen bg-slate-950 text-slate-50">
     <div class="absolute inset-0 bg-slate-950 pointer-events-none"></div>
 
     <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <header class="mb-12 space-y-4 border-b border-white/10 pb-8">
         <div class="space-y-3 text-center">
+          <h1 class="text-3xl font-semibold text-white sm:text-4xl">
+            {title}
+          </h1>
           <Image
             class="mx-auto h-auto"
             src="/melody-mind.jpg"
@@ -288,88 +285,7 @@ const pageSeo = buildPageSeo({
         No categories match your search. Try a different term.
       </div>
     </section>
-  </main>
+  </div>
 
   <BackToTop {lang} />
-
-  <script>
-    (() => {
-      const inputEl = document.getElementById(
-        "knowledge-search-input",
-      ) as HTMLInputElement | null;
-      const clearBtn = document.getElementById(
-        "knowledge-search-clear",
-      ) as HTMLButtonElement | null;
-      const resetBtn = document.getElementById(
-        "knowledge-search-reset",
-      ) as HTMLButtonElement | null;
-      const statusEl = document.getElementById(
-        "knowledge-search-status",
-      ) as HTMLElement | null;
-      const noResultsEl = document.getElementById(
-        "knowledge-search-empty",
-      ) as HTMLElement | null;
-      const listItems = Array.from(
-        document.querySelectorAll("#knowledge-categories-list > li"),
-      ) as HTMLElement[];
-
-      if (!inputEl || listItems.length === 0) return;
-
-      let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-
-      const updateStatus = (count: number, term: string): void => {
-        const hasQuery = term.trim().length > 0;
-        if (statusEl) {
-          statusEl.textContent = hasQuery
-            ? `${count} categories found`
-            : "Showing all categories";
-        }
-        if (noResultsEl) {
-          const showEmpty = hasQuery && count === 0;
-          noResultsEl.hidden = !showEmpty;
-        }
-        if (clearBtn) {
-          clearBtn.classList.toggle("opacity-0", !hasQuery);
-          clearBtn.classList.toggle("pointer-events-none", !hasQuery);
-          clearBtn.classList.toggle("opacity-100", hasQuery);
-          clearBtn.classList.toggle("pointer-events-auto", hasQuery);
-        }
-      };
-
-      const performSearch = (term: string): void => {
-        const q = term.trim().toLowerCase();
-        let count = 0;
-        listItems.forEach((item) => {
-          const haystack =
-            item.dataset.searchText?.toLowerCase() ||
-            item.textContent?.toLowerCase() ||
-            "";
-          const match = q === "" || haystack.includes(q);
-          item.style.display = match ? "" : "none";
-          if (match) count += 1;
-        });
-        updateStatus(count, term);
-      };
-
-      inputEl.addEventListener("input", (e: Event) => {
-        const value = (e.target as HTMLInputElement)?.value || "";
-        if (debounceTimer) clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(() => performSearch(value), 150);
-      });
-
-      clearBtn?.addEventListener("click", () => {
-        inputEl.value = "";
-        performSearch("");
-        inputEl.focus();
-      });
-
-      resetBtn?.addEventListener("click", () => {
-        inputEl.value = "";
-        performSearch("");
-        inputEl.focus();
-      });
-
-      performSearch("");
-    })();
-  </script>
 </Layout>

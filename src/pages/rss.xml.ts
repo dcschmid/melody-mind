@@ -19,14 +19,17 @@ export async function GET(context: APIContext) {
     title: 'MelodyMind Knowledge',
     description: 'Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.',
     site: context.site || 'https://melody-mind.de',
-    items: publishedArticles.map((article) => ({
-      title: article.data.title,
-      description: article.data.description,
-      link: `/knowledge/${article.id.replace(/\.md$/, '')}`,
-      pubDate: article.data.updatedAt || article.data.createdAt || new Date(),
-      author: article.data.author,
-      categories: article.data.keywords,
-    })),
+    items: publishedArticles.map((article) => {
+      const slug = "slug" in article ? article.slug : article.id.replace(/\.md$/, '');
+      return {
+        title: article.data.title,
+        description: article.data.description,
+        link: `/knowledge/${slug}`,
+        pubDate: article.data.updatedAt || article.data.createdAt || new Date(),
+        author: article.data.author,
+        categories: article.data.keywords,
+      };
+    }),
     customData: `<language>en-us</language>`,
     stylesheet: '/rss-styles.xsl',
   });
