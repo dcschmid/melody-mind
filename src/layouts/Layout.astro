@@ -333,13 +333,11 @@ const autoOgLocale = mapOgLocale(String(lang));
 // NOTE: preload must target the exact resource (script.js) instead of the domain root
 // Avoid preloading the CDN script because the CDN currently returns HTML/CORS issues;
 // we will load it dynamically with a safe fallback instead.
-const preloadedResources = [
-  {
-    href: "/styles/global.css",
-    as: "style" as const,
-    crossorigin: "anonymous" as const,
-  },
-];
+const preloadedResources: Array<{
+  href: string;
+  as: "style" | "script" | "font" | "image";
+  crossorigin?: "anonymous" | "use-credentials";
+}> = [];
 
 // Font preloading optimization with @fontsource integration
 // @fontsource automatically handles font loading with display:swap

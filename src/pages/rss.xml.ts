@@ -22,10 +22,12 @@ export async function GET(context: APIContext) {
     site: context.site || 'https://melody-mind.de',
     items: publishedArticles.map((article) => {
       const slug = article.slug || article.id.replace(/\.md$/, '');
+      const link = new URL(`/knowledge/${slug}`, context.site || 'https://melody-mind.de').toString();
       return {
         title: article.data.title,
         description: article.data.description,
-        link: `/knowledge/${slug}`,
+        link,
+        guid: link,
         pubDate: article.data.updatedAt || article.data.createdAt || new Date(),
         author: article.data.author,
         categories: article.data.keywords,

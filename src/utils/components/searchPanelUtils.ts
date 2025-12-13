@@ -85,10 +85,9 @@ function initSearchPanel(elements: SearchElements): void {
       }
     }
     if (clearBtn) {
-      clearBtn.classList.toggle("opacity-0", !hasQuery);
-      clearBtn.classList.toggle("pointer-events-none", !hasQuery);
-      clearBtn.classList.toggle("opacity-100", hasQuery);
-      clearBtn.classList.toggle("pointer-events-auto", hasQuery);
+      clearBtn.hidden = !hasQuery;
+      clearBtn.setAttribute("aria-hidden", hasQuery ? "false" : "true");
+      clearBtn.tabIndex = hasQuery ? 0 : -1;
     }
   };
 

@@ -60,10 +60,13 @@ const inputClasses =
       />
       <button
         id={clearId}
-        class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-6 text-slate-200 opacity-0 transition-colors duration-200 hover:text-primary-200 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+        class="absolute inset-y-0 right-0 flex items-center pr-6 text-slate-200 transition-colors duration-200 hover:text-primary-200 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
         type="button"
         aria-label="Clear search"
         data-search-clear
+        hidden
+        aria-hidden="true"
+        tabindex="-1"
       >
         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

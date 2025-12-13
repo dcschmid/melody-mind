@@ -49,7 +49,7 @@ export function buildKnowledgeArticlesItemList(opts: {
         "@type": "Article",
         name: article.data.title,
         description: article.data.description,
-        url: `${baseUrl}/${lang}/knowledge/${article.slug}`,
+        url: `${baseUrl.replace(/\/$/, "")}/knowledge/${article.slug}`,
         dateCreated: article.data.createdAt
           ? new Date(String(article.data.createdAt)).toISOString()
           : undefined,
@@ -57,6 +57,7 @@ export function buildKnowledgeArticlesItemList(opts: {
           ? new Date(String(article.data.updatedAt)).toISOString()
           : undefined,
         keywords: article.data.keywords?.join(", "),
+        inLanguage: lang || "en",
       },
     })),
   };
@@ -76,6 +77,8 @@ export function buildCategoryItemListSchema(opts: {
     return undefined;
   }
 
+  const normalizedBase = baseUrl.replace(/\/$/, "");
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -86,10 +89,11 @@ export function buildCategoryItemListSchema(opts: {
       position: index + 1,
       item: {
         "@type": "Thing",
-        "@id": `${baseUrl}/${lang}/game-${category.id}`,
+        "@id": `${normalizedBase}/categories/${category.id}`,
         name: category.name,
         description: category.description,
-        url: `${baseUrl}/${lang}/game-${category.id}`,
+        url: `${normalizedBase}/categories/${category.id}`,
+        inLanguage: lang || "en",
       },
     })),
   };
