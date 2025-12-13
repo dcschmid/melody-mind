@@ -6,7 +6,6 @@ import Layout from "@layouts/Layout.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
 import { ui } from "@i18n/ui";
-import { useTranslations } from "@utils/i18n";
 import { calculateReadingTime } from "@utils/readingTime";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
@@ -19,7 +18,6 @@ import SearchPanel from "@components/Search/SearchPanel.astro";
 export const prerender = true;
 
 const lang = "en";
-const t = useTranslations(lang);
 const safeUi = ui[lang] as Record<string, string>;
 
 // Load English knowledge collection
@@ -93,16 +91,6 @@ const keywordPool = sortedArticles.flatMap(
   (article) => article.data.keywords || []
 );
 const metaKeywords = keywordPool.slice(0, 10).join(", ");
-
-const formatDate = (value: Date | string | undefined): string => {
-  const normalized = normalizeDate(value);
-  if (!normalized) return "";
-  return normalized.toLocaleDateString(lang, {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-};
 
 type CategoryDef = {
   slug: string;

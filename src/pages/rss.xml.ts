@@ -1,10 +1,11 @@
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
+  type KnowledgeEntry = CollectionEntry<'knowledge-en'>;
   // Get all knowledge articles
-  const knowledgeArticles = await getCollection('knowledge-en');
+  const knowledgeArticles: KnowledgeEntry[] = await getCollection('knowledge-en');
   
   // Filter out draft articles and sort by date (newest first)
   const publishedArticles = knowledgeArticles
@@ -20,7 +21,7 @@ export async function GET(context: APIContext) {
     description: 'Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.',
     site: context.site || 'https://melody-mind.de',
     items: publishedArticles.map((article) => {
-      const slug = "slug" in article ? article.slug : article.id.replace(/\.md$/, '');
+      const slug = article.slug || article.id.replace(/\.md$/, '');
       return {
         title: article.data.title,
         description: article.data.description,

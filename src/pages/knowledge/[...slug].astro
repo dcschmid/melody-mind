@@ -587,7 +587,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         }, 4500);
       };
 
-      const copyLink = async (trigger: Element) => {
+      const copyLink = async () => {
         try {
           if (!navigator.clipboard) throw new Error("clipboard unavailable");
           await navigator.clipboard.writeText(shareUrl);
@@ -598,7 +598,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       };
 
       const copyButton = document.querySelector('[data-share="copy"]');
-      copyButton?.addEventListener("click", () => copyLink(copyButton));
+      copyButton?.addEventListener("click", () => copyLink());
 
       const nativeButton = document.querySelector('[data-share="native"]');
       nativeButton?.addEventListener("click", async () => {
@@ -613,7 +613,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         }
 
         setStatus(nativeShareUnavailable);
-        copyLink(nativeButton);
+        copyLink();
       });
     })();
   </script>
