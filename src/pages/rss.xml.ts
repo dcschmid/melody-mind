@@ -6,6 +6,8 @@ export async function GET(context: APIContext) {
   type KnowledgeEntry = CollectionEntry<'knowledge-en'>;
   // Get all knowledge articles
   const knowledgeArticles: KnowledgeEntry[] = await getCollection('knowledge-en');
+  const site = (context.site || 'https://melody-mind.de').toString().replace(/\/$/, '');
+  const feedUrl = `${site}/rss.xml`;
   
   // Filter out draft articles and sort by date (newest first)
   const publishedArticles = knowledgeArticles
@@ -19,21 +21,23 @@ export async function GET(context: APIContext) {
   return rss({
     title: 'MelodyMind Knowledge',
     description: 'Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.',
-    site: context.site || 'https://melody-mind.de',
+    site,
     items: publishedArticles.map((article) => {
       const slug = article.slug || article.id.replace(/\.md$/, '');
-      const link = new URL(`/knowledge/${slug}`, context.site || 'https://melody-mind.de').toString();
+      const link = new URL(`/knowledge/${slug}`, site).toString();
+      const pubDate = new Date(article.data.updatedAt || article.data.createdAt || Date.now());
       return {
         title: article.data.title,
         description: article.data.description,
         link,
         guid: link,
-        pubDate: article.data.updatedAt || article.data.createdAt || new Date(),
+        pubDate,
         author: article.data.author,
         categories: article.data.keywords,
       };
     }),
-    customData: `<language>en-us</language>`,
+    customData: `<language>en-us</language>
+<atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />`,
     stylesheet: '/rss-styles.xsl',
   });
 }

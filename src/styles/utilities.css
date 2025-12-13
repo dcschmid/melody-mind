@@ -70,9 +70,15 @@
 }
 
 /* High-visibility focus rings for keyboard users (WCAG AAA contrast) */
-:where(a, button, input, select, textarea, summary, [role="button"], [tabindex]):focus-visible {
-  outline: 3px solid var(--color-primary-300);
+:where(a, button, input, select, textarea, summary, [role="button"], [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 3px solid var(--color-primary-200, #a5f3fc);
   outline-offset: 3px;
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.85);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary-200, #a5f3fc) 30%, transparent);
   border-radius: 10px;
+  border-color: var(--color-primary-200, #a5f3fc);
+}
+
+/* Dark backgrounds: give form controls a subtle lift on focus */
+:where(button, [role="button"], input, select, textarea):focus-visible {
+  background-color: color-mix(in srgb, var(--color-primary-800, #0f172a) 70%, white 30%);
 }
