@@ -19,7 +19,9 @@
     "format:check": "prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "convert-images": "python3 scripts/convert_pngs.py",
     "convert-images:exec": "python3 scripts/convert_pngs.py --execute --quality 80 --width 1024",
-    "convert-images:exec:delete": "python3 scripts/convert_pngs.py --execute --delete --quality 80 --width 1024"
+    "convert-images:exec:delete": "python3 scripts/convert_pngs.py --execute --delete --quality 80 --width 1024",
+    "lint-staged": "lint-staged",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^6.3.9",
@@ -49,6 +51,9 @@
     "@typescript-eslint/parser": "^8.47.0",
     "eslint": "^9.39.1",
     "eslint-plugin-astro": "^1.5.0",
+    "gray-matter": "^4.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "mdast-util-to-string": "^4.0.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
@@ -57,6 +62,16 @@
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.47.0"
+  },
+  "lint-staged": {
+    "src/content/knowledge-en/**/*.{md,mdx}": [
+      "node scripts/check_content.mjs",
+      "prettier --write"
+    ],
+    "src/**/*.{astro,ts,tsx,js}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "packageManager": "yarn@1.22.22"
 }
