@@ -45,6 +45,31 @@
   --color-error-500: #ef4444;
   --color-info-400: #60a5fa;
   --color-info-500: #3b82f6;
+
+  /* Graphic-novel realism palette (warm sepia + soot) */
+  --color-gn-soot-950: #070504;
+  --color-gn-soot-900: #0e0a08;
+  --color-gn-soot-800: #1b1411;
+  --color-gn-soot-700: #281e18;
+  --color-gn-soot-600: #35281f;
+
+  --color-gn-parchment-50: #faf4e6;
+  --color-gn-parchment-100: #f1e0c4;
+  --color-gn-parchment-200: #dfc38d;
+  --color-gn-parchment-300: #cfa35b;
+  --color-gn-parchment-400: #b98a42;
+
+  --color-gn-amber-300: #e0ac60;
+  --color-gn-amber-400: #d9a65c;
+  --color-gn-amber-500: #d2a05a;
+  --color-gn-amber-600: #c98e40; /* darkest amber that still meets AAA on soot */
+
+  --color-gn-rust-400: #c45a3a;
+  --color-gn-rust-500: #a8442b;
+
+  --color-gn-teal-300: #6eb5b5;
+  --color-gn-teal-400: #4d9c9c;
+  --color-gn-teal-500: #3c7f7f;
   
   /* ==================== SPACING ==================== */
   --spacing-xs: 0.25rem;
@@ -59,6 +84,7 @@
   /* ==================== TYPOGRAPHY ==================== */
   --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", monospace;
+  --font-display: "Georgia", "Times New Roman", serif;
   
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;

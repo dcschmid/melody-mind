@@ -30,18 +30,16 @@ const { title, level = "h1", className = "", textSize = "lg", textAlign = "left"
 // Dynamic heading tag based on level prop
 const Tag = level;
 
-const baseClasses = [
-  "font-primary mb-md leading-tight font-bold text-text-primary",
-  "text-balance break-words",
-].join(" ");
+const baseClasses =
+  "font-primary mb-md leading-tight font-extrabold tracking-tight text-gn-parchment-50 text-balance break-words drop-shadow-[1px_1px_0_rgba(0,0,0,0.55)]";
 
 const textSizeClasses: Record<NonNullable<Props["textSize"]>, string> = {
-  sm: "text-lg font-semibold md:text-xl",
-  base: "text-xl font-semibold md:text-2xl",
-  lg: "text-2xl font-bold md:text-3xl",
-  xl: "text-3xl font-bold md:text-4xl",
-  "2xl": "text-4xl font-bold md:text-5xl",
-  "3xl": "text-5xl font-bold md:text-6xl",
+  sm: "text-lg font-semibold md:text-xl tracking-tight",
+  base: "text-xl font-semibold md:text-2xl tracking-tight",
+  lg: "text-2xl font-bold md:text-3xl tracking-tight",
+  xl: "text-3xl font-bold md:text-4xl tracking-tight",
+  "2xl": "text-4xl font-bold md:text-5xl tracking-tight",
+  "3xl": "text-5xl font-bold md:text-6xl tracking-tight",
 };
 
 const textAlignClasses: Record<NonNullable<Props["textAlign"]>, string> = {

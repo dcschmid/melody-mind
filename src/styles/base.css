@@ -68,6 +68,20 @@
   --scrollbar-track-bg: var(--color-neutral-900);
   --scrollbar-thumb-bg: var(--color-neutral-600);
   --scrollbar-thumb-hover: var(--color-neutral-400);
+
+  /* Graphic novel realism semantic tokens */
+  --gn-bg: var(--color-gn-soot-900);
+  --gn-bg-muted: var(--color-gn-soot-800);
+  --gn-ink: var(--color-gn-parchment-50);
+  --gn-ink-muted: var(--color-gn-parchment-200);
+  --gn-accent: var(--color-gn-amber-400);
+  --gn-accent-strong: var(--color-gn-rust-400);
+  --gn-accent-teal: var(--color-gn-teal-400);
+  --gn-panel-border: var(--color-gn-soot-600);
+  --gn-panel-inner: color-mix(in srgb, var(--color-gn-parchment-200) 8%, transparent);
+  --gn-offset-shadow: 4px 4px 0 rgba(0, 0, 0, 0.65), 0 18px 40px rgba(0, 0, 0, 0.4);
+  --gn-halftone: radial-gradient(circle at 20% 20%, rgba(255, 224, 173, 0.03), transparent 24%), radial-gradient(circle at 80% 10%, rgba(255, 188, 120, 0.05), transparent 26%), radial-gradient(circle at 60% 70%, rgba(255, 224, 173, 0.03), transparent 25%);
+  --gn-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.17'/%3E%3C/svg%3E");
 }
 
 /* Reduced motion & data media queries remain here */

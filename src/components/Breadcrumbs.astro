@@ -19,19 +19,19 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
     aria-label={ariaLabel}
     class="w-full overflow-x-auto"
   >
-    <ol class="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 text-sm text-slate-200 sm:gap-3 sm:py-4">
+    <ol class="mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 text-sm text-gn-parchment-100 sm:gap-3 sm:py-4">
       {normalized.map((crumb, index) => {
         const isLast = index === normalized.length - 1;
         return (
           <li class="flex items-center gap-2">
             {index > 0 && (
-              <span class="text-slate-500" aria-hidden="true">
+              <span class="text-gn-amber-400" aria-hidden="true">
                 /
               </span>
             )}
             {isLast || !crumb.url ? (
               <span
-                class="line-clamp-1 max-w-[16ch] text-slate-100 sm:max-w-none"
+                class="line-clamp-1 max-w-[16ch] text-gn-parchment-50 sm:max-w-none"
                 aria-current={isLast ? "page" : undefined}
               >
                 {crumb.name}
@@ -39,12 +39,12 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
             ) : (
               <a
                 href={crumb.url}
-                class="group inline-flex items-center gap-1 rounded-full bg-white/5 px-2 py-1 text-slate-100 ring-1 ring-white/10 transition hover:bg-white/10 hover:ring-primary-300/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300"
+                class="group inline-flex items-center gap-1 rounded-full bg-gn-soot-800 px-3 py-1.5 text-gn-parchment-50 ring-2 ring-gn-soot-700 transition hover:bg-gn-soot-700 hover:ring-gn-amber-300/70 focus:outline-none focus-visible:ring-3 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900"
               >
                 {index === 0 && (
                   <Icon
                     name="home"
-                    class="h-4 w-4 text-primary-200"
+                    class="h-4 w-4 text-gn-amber-300"
                     aria-hidden="true"
                   />
                 )}

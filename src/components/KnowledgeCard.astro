@@ -93,7 +93,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 ---
 
 <article
-  class="group relative isolate flex h-full flex-col overflow-hidden rounded-2xl bg-slate-900/60 backdrop-blur-sm shadow-xl transition duration-200 border-0"
+  class="group relative isolate flex h-full flex-col overflow-hidden rounded-2xl gn-panel bg-gn-soot-800/90 backdrop-blur-sm text-gn-parchment-50 transition duration-200"
   data-testid="knowledge-card"
   data-title={title}
   data-description={description}
@@ -105,14 +105,14 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     hasOwnLink ? (
       <a
         href={articleUrl}
-        class="group flex h-full flex-col overflow-hidden rounded-2xl text-inherit no-underline transition-all duration-200 focus-visible:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b0c10] focus-visible:outline-none"
+        class="group flex h-full flex-col overflow-hidden rounded-2xl text-inherit no-underline transition-all duration-200 focus-visible:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900 focus-visible:outline-none"
         aria-labelledby={cardId}
         aria-describedby={`${cardId}-desc`}
       >
         <div class="relative flex h-full flex-col">
-          <div class="absolute inset-0 bg-linear-to-br from-white/4 via-white/2 to-transparent opacity-0 transition duration-300 group-hover:opacity-100"></div>
+          <div class="absolute inset-0 bg-linear-to-br from-gn-amber-500/10 via-gn-amber-400/6 to-transparent opacity-0 transition duration-300 group-hover:opacity-100"></div>
 
-          <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-neutral-900/70">
+          <div class="relative aspect-video overflow-hidden rounded-xl border border-gn-soot-700 bg-gn-soot-900/80">
             <Image
               src={image}
               alt={imageAltText}
@@ -122,27 +122,27 @@ const imageAltText = title ? `Cover image for ${title}` : "";
               height="360"
               class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-linear-to-t from-[#0b0e1a] via-transparent to-transparent opacity-60"></div>
+            <div class="absolute inset-0 bg-linear-to-t from-gn-soot-900 via-transparent to-transparent opacity-70"></div>
           </div>
 
           <div class="flex grow flex-col justify-start p-6 pb-5">
-            <Headline level="h3" textSize="base" textAlign="left" className="mb-3 text-white font-semibold">
+            <Headline level="h3" textSize="base" textAlign="left" className="mb-3 text-gn-parchment-50 font-semibold">
               {title}
             </Headline>
 
-            <Paragraph textSize="base" textAlign="left" className="mb-4 text-slate-200 leading-relaxed">
+            <Paragraph textSize="base" textAlign="left" className="mb-4 text-gn-parchment-200 leading-relaxed">
               {description}
             </Paragraph>
 
-            <div class="mt-auto border-t border-slate-700/50 pt-4" id={metaId}>
-              <div class="flex items-center justify-between gap-4 text-xs">
+            <div class="mt-auto border-t border-gn-soot-700 pt-4" id={metaId}>
+              <div class="flex items-center justify-between gap-4 text-xs text-gn-parchment-200">
                 <span
-                  class="flex items-center text-slate-300 font-medium"
+                  class="flex items-center font-medium"
                   aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
                 >
                   <Icon
                     name="clock"
-                    class="mr-1.5 h-3.5 w-3.5 shrink-0 text-slate-400"
+                    class="mr-1.5 h-3.5 w-3.5 shrink-0 text-gn-amber-300"
                     aria-hidden="true"
                   />
                   <span>
@@ -152,12 +152,12 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 
                 <time
                   datetime={createdAt.toISOString()}
-                  class="flex items-center text-slate-300 font-medium"
+                  class="flex items-center font-medium"
                   aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
                 >
                   <Icon
                     name="calendar"
-                    class="mr-1.5 h-3.5 w-3.5 shrink-0 text-slate-400"
+                    class="mr-1.5 h-3.5 w-3.5 shrink-0 text-gn-amber-300"
                     aria-hidden="true"
                   />
                   {formattedDate}
@@ -172,7 +172,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       </a>
     ) : (
       <div class="relative flex h-full flex-col">
-        <div class="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-neutral-900/70">
+        <div class="relative aspect-video overflow-hidden rounded-xl border border-gn-soot-700 bg-gn-soot-900/80">
           <Image
             src={image}
             alt={imageAltText}
@@ -189,23 +189,23 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         </div>
 
         <div class="flex grow flex-col justify-start p-5 pb-4">
-          <Headline level="h3" textSize="xl" textAlign="center" className="text-white">
+          <Headline level="h3" textSize="xl" textAlign="center" className="text-gn-parchment-50">
             {title}
           </Headline>
 
-          <Paragraph textSize="base" textAlign="center" className="text-gray-200">
+          <Paragraph textSize="base" textAlign="center" className="text-gn-parchment-200">
             {description}
           </Paragraph>
 
-          <div class="mt-auto border-t border-white/10 pt-4" id={metaId}>
+          <div class="mt-auto border-t border-gn-soot-700 pt-4" id={metaId}>
             <div class="flex items-center justify-between gap-4">
               <span
-                class="flex items-center text-sm text-gray-200"
+                class="flex items-center text-sm text-gn-parchment-200"
                 aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
               >
                 <Icon
                   name="clock"
-                  class="mr-2 h-4 w-4 shrink-0 text-white"
+                  class="mr-2 h-4 w-4 shrink-0 text-gn-amber-300"
                   aria-hidden="true"
                 />
                 <span>
@@ -215,12 +215,12 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 
               <time
                 datetime={createdAt.toISOString()}
-                class="flex items-center text-sm text-gray-200"
+                class="flex items-center text-sm text-gn-parchment-200"
                 aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
               >
                 <Icon
                   name="calendar"
-                  class="mr-2 h-4 w-4 shrink-0 text-white"
+                  class="mr-2 h-4 w-4 shrink-0 text-gn-amber-300"
                   aria-hidden="true"
                 />
                 {formattedDate}
