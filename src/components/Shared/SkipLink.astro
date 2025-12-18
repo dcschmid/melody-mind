@@ -38,7 +38,12 @@ const skipLinkClasses = [
 const iconClasses = "w-4 h-4 text-gn-soot-950";
 ---
 
-<a href={`#${targetId}`} class={skipLinkClasses} data-skip-link aria-label={t("nav.skip.main")}>
+<a
+  href={`#${targetId}`}
+  class={skipLinkClasses}
+  data-skip-link
+  aria-label={t("nav.skip.main")}
+>
   <Icon name="external-link" class={iconClasses} aria-hidden="true" />
   {t("nav.skip.main")}
 </a>

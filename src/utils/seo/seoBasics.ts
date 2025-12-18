@@ -14,7 +14,7 @@ export interface BreadcrumbItem {
  */
 export function resolveBaseUrl(
   site: string | URL | undefined,
-  fallback = "https://melody-mind.de",
+  fallback = "https://melody-mind.de"
 ): string {
   if (!site) {
     return fallback;
@@ -29,7 +29,7 @@ export function resolveBaseUrl(
  */
 export function buildTimestamps(
   publish?: Date,
-  modified?: Date,
+  modified?: Date
 ): { publishDate: Date; modifiedDate: Date } {
   const publishDate = publish || new Date("2024-01-01");
   const modifiedDate = modified || new Date();
@@ -48,9 +48,7 @@ export function buildBreadcrumbs(items: BreadcrumbItem[]): BreadcrumbItem[] {
  * Build JSON-LD breadcrumb schema.
  * @deprecated buildPageSeo auto-injects breadcrumbs into structuredData.
  */
-export function buildBreadcrumbSchema(
-  items: BreadcrumbItem[],
-): Record<string, unknown> {
+export function buildBreadcrumbSchema(items: BreadcrumbItem[]): Record<string, unknown> {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

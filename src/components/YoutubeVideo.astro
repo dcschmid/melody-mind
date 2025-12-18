@@ -10,7 +10,13 @@ interface Props {
   showTitleIcon?: boolean;
 }
 
-const { src, title = "YouTube video player", className, showTitle = true, showTitleIcon = true } = Astro.props;
+const {
+  src,
+  title = "YouTube video player",
+  className,
+  showTitle = true,
+  showTitleIcon = true,
+} = Astro.props;
 
 const embedUrl = getYoutubeEmbedUrl(src);
 const thumbnail = await getYoutubeThumbnail(src);
@@ -18,10 +24,16 @@ const isPlayable = Boolean(embedUrl);
 const ariaLabel = isPlayable ? "Play YouTube video" : "YouTube video unavailable";
 ---
 
-<div class:list={["relative aspect-video w-full cursor-pointer overflow-hidden rounded-lg bg-gn-soot-900 gn-panel", className]} data-youtube-video>
+<div
+  class:list={[
+    "bg-gn-soot-900 gn-panel relative aspect-video w-full cursor-pointer overflow-hidden rounded-lg",
+    className,
+  ]}
+  data-youtube-video
+>
   <button
     type="button"
-    class="absolute inset-0 aspect-video h-full w-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-gn-amber-300 focus:ring-offset-2 focus:ring-offset-gn-soot-900"
+    class="focus:ring-gn-amber-300 focus:ring-offset-gn-soot-900 absolute inset-0 aspect-video h-full w-full overflow-hidden focus:ring-2 focus:ring-offset-2 focus:outline-none"
     data-youtube-trigger
     aria-label={ariaLabel}
     data-embed-url={isPlayable ? embedUrl : undefined}
@@ -38,26 +50,47 @@ const ariaLabel = isPlayable ? "Play YouTube video" : "YouTube video unavailable
     />
 
     <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
-      <span class="flex h-16 w-16 items-center justify-center rounded-full bg-gn-amber-500 text-gn-soot-950 shadow-[4px_4px_0_rgba(0,0,0,0.8)] ring-2 ring-gn-soot-700 transition hover:bg-gn-amber-400">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" class="text-gn-soot-950">
-          <path d="M8 5v14l11-7z" />
+      <span
+        class="bg-gn-amber-500 text-gn-soot-950 ring-gn-soot-700 hover:bg-gn-amber-400 flex h-16 w-16 items-center justify-center rounded-full shadow-[4px_4px_0_rgba(0,0,0,0.8)] ring-2 transition"
+      >
+        <svg
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="text-gn-soot-950"
+        >
+          <path d="M8 5v14l11-7z"></path>
         </svg>
       </span>
     </span>
 
-    {showTitle && (
-      <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-gn-soot-950/85 to-transparent px-6 py-5">
-        <p class="flex items-center gap-3 text-gn-parchment-50 text-lg sm:text-2xl font-semibold leading-snug line-clamp-2">
-          {showTitleIcon && (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-gn-amber-300">
-              <path d="M10 8l6 4-6 4V8z" />
-              <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none" stroke="currentColor" stroke-width="1.5" />
-            </svg>
-          )}
-          {title}
-        </p>
-      </div>
-    )}
+    {
+      showTitle && (
+        <div class="from-gn-soot-950/85 pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t to-transparent px-6 py-5">
+          <p class="text-gn-parchment-50 line-clamp-2 flex items-center gap-3 text-lg leading-snug font-semibold sm:text-2xl">
+            {showTitleIcon && (
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="text-gn-amber-300"
+              >
+                <path d="M10 8l6 4-6 4V8z" />
+                <path
+                  d="M12 2a10 10 0 100 20 10 10 0 000-20z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+              </svg>
+            )}
+            {title}
+          </p>
+        </div>
+      )
+    }
   </button>
 </div>
 
@@ -89,11 +122,15 @@ const ariaLabel = isPlayable ? "Play YouTube video" : "YouTube video unavailable
 
     // click and accessibility activation
     trigger.addEventListener("click", activate, { once: true });
-    trigger.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        activate();
-      }
-    }, { once: true });
+    trigger.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          activate();
+        }
+      },
+      { once: true }
+    );
   })();
 </script>

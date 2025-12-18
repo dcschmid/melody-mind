@@ -28,9 +28,9 @@ interface Props {
   authorName?: string;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   keywords,
   canonical,
   noIndex,
@@ -42,12 +42,15 @@ const {
   structuredDataExtra,
 } = Astro.props;
 ---
+
 <Head>
   {title && <title>{title}</title>}
   {description && <meta name="description" content={description} />}
-  {Array.isArray(keywords) && keywords.length > 0 && (
-    <meta name="keywords" content={keywords.join(', ')} />
-  )}
+  {
+    Array.isArray(keywords) && keywords.length > 0 && (
+      <meta name="keywords" content={keywords.join(", ")} />
+    )
+  }
 
   {/* canonical link (Layout may pass canonical via props) */}
   {canonical && <link rel="canonical" href={canonical} />}
@@ -57,22 +60,42 @@ const {
   {nextUrl && <link rel="next" href={nextUrl} />}
 
   {/* Robots override if provided via props (Layout also emits robots sometimes) */}
-  {(noIndex || noFollow) && (
-    <meta name="robots" content={`${noIndex ? 'noindex' : 'index'},${noFollow ? 'nofollow' : 'follow'}`} />
-  )}
+  {
+    (noIndex || noFollow) && (
+      <meta
+        name="robots"
+        content={`${noIndex ? "noindex" : "index"},${noFollow ? "nofollow" : "follow"}`}
+      />
+    )
+  }
 
   {/* Publish / Modified dates as meta tags (helpful for some parsers) */}
-  {publishDate && <meta name="article:published_time" content={publishDate.toISOString()} />}
-  {modifiedDate && <meta name="article:modified_time" content={modifiedDate.toISOString()} />}
+  {
+    publishDate && (
+      <meta name="article:published_time" content={publishDate.toISOString()} />
+    )
+  }
+  {
+    modifiedDate && (
+      <meta name="article:modified_time" content={modifiedDate.toISOString()} />
+    )
+  }
 
-  {/* Structured data: combine page-provided structuredDataExtra (if any) with any already-built objects */}
+  {
+    /* Structured data: combine page-provided structuredDataExtra (if any) with any already-built objects */
+  }
   {
     (() => {
-      const all = Array.isArray(structuredDataExtra) ? structuredDataExtra : structuredDataExtra ? [structuredDataExtra] : [];
+      const all = Array.isArray(structuredDataExtra)
+        ? structuredDataExtra
+        : structuredDataExtra
+          ? [structuredDataExtra]
+          : [];
       if (all.length === 0) return null;
       try {
         const cleaned = all.map((obj) => {
-          const replacer = (_k: string, v: unknown) => (v instanceof Date ? v.toISOString() : v);
+          const replacer = (_k: string, v: unknown) =>
+            v instanceof Date ? v.toISOString() : v;
           return JSON.stringify(obj, replacer as any, 2);
         });
         return cleaned.map((jsonString) => (
@@ -83,5 +106,4 @@ const {
       }
     })()
   }
-
 </Head>

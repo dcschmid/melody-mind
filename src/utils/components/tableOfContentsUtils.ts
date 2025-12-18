@@ -206,9 +206,7 @@ export class TableOfContentsUtils {
 /**
  * Initialize table of contents functionality
  */
-export function initTableOfContents(
-  config: TableOfContentsConfig,
-): TableOfContentsUtils {
+export function initTableOfContents(config: TableOfContentsConfig): TableOfContentsUtils {
   return new TableOfContentsUtils(config);
 }
 

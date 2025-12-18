@@ -40,8 +40,15 @@ const inputClasses =
   <div class="relative w-full">
     <label for={inputId} class="sr-only">{label}</label>
     <div class="relative">
-      <div class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-6">
-        <svg class="h-7 w-7 text-gn-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div
+        class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-6"
+      >
+        <svg
+          class="text-gn-amber-300 h-7 w-7"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -60,7 +67,7 @@ const inputClasses =
       />
       <button
         id={clearId}
-        class="absolute inset-y-0 right-0 flex min-h-[44px] items-center pr-6 text-gn-parchment-200 transition-colors duration-200 hover:text-gn-amber-300 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900"
+        class="text-gn-parchment-200 hover:text-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 absolute inset-y-0 right-0 flex min-h-[44px] items-center pr-6 transition-colors duration-200 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
         type="button"
         aria-label="Clear search"
         data-search-clear
@@ -81,12 +88,18 @@ const inputClasses =
   <div class="mt-6 text-center">
     <button
       id={resetId}
-      class="inline-flex min-h-[44px] items-center gap-3 rounded-xl bg-gn-amber-500 px-6 py-3 font-semibold text-gn-soot-950 shadow-[4px_4px_0_rgba(0,0,0,0.8)] transition-colors duration-200 hover:bg-gn-amber-400 hover:shadow-[6px_6px_0_rgba(0,0,0,0.85)] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900"
+      class="bg-gn-amber-500 text-gn-soot-950 hover:bg-gn-amber-400 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 inline-flex min-h-[44px] items-center gap-3 rounded-xl px-6 py-3 font-semibold shadow-[4px_4px_0_rgba(0,0,0,0.8)] transition-colors duration-200 hover:shadow-[6px_6px_0_rgba(0,0,0,0.85)] focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
       type="button"
       aria-controls={ariaControls}
       data-search-reset
     >
-      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <svg
+        class="h-5 w-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -111,7 +124,7 @@ const inputClasses =
     data-search-no-results
     hidden
     data-search-no-results-tpl={noResultsTemplate}
-    class="mt-4 text-center text-sm text-gn-parchment-200"
+    class="text-gn-parchment-200 mt-4 text-center text-sm"
   >
   </div>
   <slot name="status" />

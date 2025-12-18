@@ -25,7 +25,13 @@ interface Props {
   textAlign?: "left" | "center" | "right";
 }
 
-const { title, level = "h1", className = "", textSize = "lg", textAlign = "left" } = Astro.props;
+const {
+  title,
+  level = "h1",
+  className = "",
+  textSize = "lg",
+  textAlign = "left",
+} = Astro.props;
 
 // Dynamic heading tag based on level prop
 const Tag = level;
@@ -48,7 +54,12 @@ const textAlignClasses: Record<NonNullable<Props["textAlign"]>, string> = {
   right: "text-right",
 };
 
-const classes = [baseClasses, textSizeClasses[textSize], textAlignClasses[textAlign], className]
+const classes = [
+  baseClasses,
+  textSizeClasses[textSize],
+  textAlignClasses[textAlign],
+  className,
+]
   .filter(Boolean)
   .join(" ");
 

@@ -301,8 +301,7 @@ const mergedCanonical = constructedPageSeo.canonical;
 const mergedImage = constructedPageSeo.image || "/melody-mind.png";
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
-const mergedStructuredData: StructuredData[] =
-  constructedPageSeo.structuredData;
+const mergedStructuredData: StructuredData[] = constructedPageSeo.structuredData;
 const robotsTag = constructedPageSeo.robots;
 
 const lang = getLangFromUrl(Astro.url);
@@ -322,9 +321,7 @@ function mapOgLocale(l: string): string {
     case "es":
       return "es_ES";
     default:
-      return base
-        .replace(/-.+$/, "")
-        .concat("_", base.toUpperCase().slice(-2) || "US");
+      return base.replace(/-.+$/, "").concat("_", base.toUpperCase().slice(-2) || "US");
   }
 }
 const autoOgLocale = mapOgLocale(String(lang));
@@ -359,7 +356,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 <!doctype html>
 <html
   lang={String(lang)}
-  class="font-sans scroll-smooth mx-auto box-border w-full max-w-7xl overflow-x-hidden bg-gn-soot-950 antialiased"
+  class="bg-gn-soot-950 mx-auto box-border w-full max-w-7xl overflow-x-hidden scroll-smooth font-sans antialiased"
   dir="ltr"
 >
   <Head>
@@ -384,10 +381,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       media="(prefers-color-scheme: light)"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -396,11 +390,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Resource hints for performance -->
-    {
-      dnsPrefetch.map((resource) => (
-        <link rel="dns-prefetch" href={resource.href} />
-      ))
-    }
+    {dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
 
     {
       preloadedResources.map((resource) => (
@@ -499,24 +489,15 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       }
       {
         constructedPageSeo.openGraph.image && (
-          <meta
-            property="og:image"
-            content={constructedPageSeo.openGraph.image}
-          />
+          <meta property="og:image" content={constructedPageSeo.openGraph.image} />
         )
       }
       <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
       <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
-      <meta
-        name="twitter:description"
-        content={constructedPageSeo.twitter.description}
-      />
+      <meta name="twitter:description" content={constructedPageSeo.twitter.description} />
       {
         constructedPageSeo.twitter.image && (
-          <meta
-            name="twitter:image"
-            content={constructedPageSeo.twitter.image}
-          />
+          <meta name="twitter:image" content={constructedPageSeo.twitter.image} />
         )
       }
       {
@@ -530,10 +511,11 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     </Fragment>
 
     <!-- Analytics with performance and privacy optimizations -->
-    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer></script>
+    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer
+    ></script>
   </Head>
   <body
-    class="mx-auto min-h-screen w-full overflow-x-hidden bg-gn-soot-900 text-gn-parchment-50 text-wrap-pretty text-base leading-relaxed graphic-novel"
+    class="bg-gn-soot-900 text-gn-parchment-50 text-wrap-pretty graphic-novel mx-auto min-h-screen w-full overflow-x-hidden text-base leading-relaxed"
     data-theme="dark"
   >
     {/* Skip link for keyboard navigation */}
@@ -541,9 +523,11 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
     {/* Main content area */}
     <main id="main-content" tabindex="-1" role="main" class="space-y-4">
-      {breadcrumbs && breadcrumbs.length > 0 && (
-        <Breadcrumbs items={breadcrumbs} ariaLabel="Page breadcrumb" />
-      )}
+      {
+        breadcrumbs && breadcrumbs.length > 0 && (
+          <Breadcrumbs items={breadcrumbs} ariaLabel="Page breadcrumb" />
+        )
+      }
       <slot />
     </main>
 

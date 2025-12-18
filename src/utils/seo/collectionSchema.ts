@@ -36,7 +36,7 @@ export interface BuildCollectionSchemaOptions {
 
 /** Build base CollectionPage + nested ItemList with embedded item objects. */
 export function buildCollectionWithItemListSchema(
-  options: BuildCollectionSchemaOptions,
+  options: BuildCollectionSchemaOptions
 ): Record<string, unknown> {
   const {
     pageName,

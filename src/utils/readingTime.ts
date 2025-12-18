@@ -81,7 +81,7 @@ const LANGUAGE_MULTIPLIERS: Record<string, number> = {
  */
 export function calculateReadingTime(
   text: string,
-  options: ReadingTimeOptions = {},
+  options: ReadingTimeOptions = {}
 ): number {
   if (!text) {
     return options.minTime || DEFAULTS.MIN_TIME;
@@ -134,7 +134,7 @@ export function calculateReadingTime(
  */
 export function getReadingTime(
   text: string,
-  options: ReadingTimeOptions = {},
+  options: ReadingTimeOptions = {}
 ): ReadingTimeResult {
   if (!text) {
     return {

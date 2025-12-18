@@ -58,15 +58,13 @@ export class SimpleAnimationManager {
 export const enhanceAccessibility = (): void => {
   // Skip to main content functionality
   const skipLink = safeQuerySelector(
-    '[href="#main-content"]',
+    '[href="#main-content"]'
   ) as HTMLAnchorElement | null;
 
   if (skipLink) {
     skipLink.addEventListener("click", (event: Event) => {
       event.preventDefault();
-      const mainContent = safeGetElementById(
-        "main-content",
-      ) as HTMLElement | null;
+      const mainContent = safeGetElementById("main-content") as HTMLElement | null;
       mainContent?.focus();
       mainContent?.setAttribute("aria-live", "polite");
     });

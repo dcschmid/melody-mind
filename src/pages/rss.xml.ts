@@ -1,14 +1,14 @@
-import rss from '@astrojs/rss';
-import { getCollection, type CollectionEntry } from 'astro:content';
-import type { APIContext } from 'astro';
+import rss from "@astrojs/rss";
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { APIContext } from "astro";
 
 export async function GET(context: APIContext) {
-  type KnowledgeEntry = CollectionEntry<'knowledge-en'>;
+  type KnowledgeEntry = CollectionEntry<"knowledge-en">;
   // Get all knowledge articles
-  const knowledgeArticles: KnowledgeEntry[] = await getCollection('knowledge-en');
-  const site = (context.site || 'https://melody-mind.de').toString().replace(/\/$/, '');
+  const knowledgeArticles: KnowledgeEntry[] = await getCollection("knowledge-en");
+  const site = (context.site || "https://melody-mind.de").toString().replace(/\/$/, "");
   const feedUrl = `${site}/rss.xml`;
-  
+
   // Filter out draft articles and sort by date (newest first)
   const publishedArticles = knowledgeArticles
     .filter((article) => !article.data.draft)
@@ -19,13 +19,16 @@ export async function GET(context: APIContext) {
     });
 
   return rss({
-    title: 'MelodyMind Knowledge',
-    description: 'Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.',
+    title: "MelodyMind Knowledge",
+    description:
+      "Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.",
     site,
     items: publishedArticles.map((article) => {
-      const slug = article.slug || article.id.replace(/\.md$/, '');
+      const slug = article.slug || article.id.replace(/\.md$/, "");
       const link = new URL(`/knowledge/${slug}`, site).toString();
-      const pubDate = new Date(article.data.updatedAt || article.data.createdAt || Date.now());
+      const pubDate = new Date(
+        article.data.updatedAt || article.data.createdAt || Date.now()
+      );
       return {
         title: article.data.title,
         description: article.data.description,
@@ -38,6 +41,6 @@ export async function GET(context: APIContext) {
     }),
     customData: `<language>en-us</language>
 <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />`,
-    stylesheet: '/rss-styles.xsl',
+    stylesheet: "/rss-styles.xsl",
   });
 }

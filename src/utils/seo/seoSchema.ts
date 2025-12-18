@@ -32,9 +32,7 @@ export function buildKnowledgeArticlesItemList(opts: {
   const sorted = [...articles].sort((a, b) => {
     const aDate = a.data.updatedAt || a.data.createdAt;
     const bDate = b.data.updatedAt || b.data.createdAt;
-    return (
-      new Date(String(bDate)).getTime() - new Date(String(aDate)).getTime()
-    );
+    return new Date(String(bDate)).getTime() - new Date(String(aDate)).getTime();
   });
 
   return {

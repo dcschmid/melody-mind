@@ -17,15 +17,14 @@ declare global {
 export const initTimePressureGame = async (): Promise<void> => {
   try {
     const gameContainer = safeGetElementById<HTMLElement>("game-container");
-    const loadingContainer =
-      safeGetElementById<HTMLElement>("loading-container");
+    const loadingContainer = safeGetElementById<HTMLElement>("loading-container");
     const gameUI = safeGetElementById<HTMLElement>("game-ui");
 
     if (!gameContainer || !loadingContainer || !gameUI) {
       if (loadingContainer) {
         safeSetInnerHTML(
           loadingContainer,
-          '<div class="error-state">Failed to load game UI. Please refresh the page.</div>',
+          '<div class="error-state">Failed to load game UI. Please refresh the page.</div>'
         );
       }
       throw new Error("Missing required DOM elements");
@@ -42,9 +41,7 @@ export const initTimePressureGame = async (): Promise<void> => {
         : categoryPart || "unknown";
 
     // Initialize Time Pressure Game with lang, category, and pathname
-    const { TimePressureGameEngine } = await import(
-      "../game/timePressureGameEngine"
-    );
+    const { TimePressureGameEngine } = await import("../game/timePressureGameEngine");
     const gameEngine = new TimePressureGameEngine({
       category,
       lang,
@@ -58,12 +55,11 @@ export const initTimePressureGame = async (): Promise<void> => {
     // Store reference globally for cleanup if needed
     window.timePressureGameEngine = gameEngine;
   } catch (err: unknown) {
-    const loadingContainer =
-      safeGetElementById<HTMLElement>("loading-container");
+    const loadingContainer = safeGetElementById<HTMLElement>("loading-container");
     if (loadingContainer) {
       safeSetInnerHTML(
         loadingContainer,
-        '<div class="error-state">Failed to load game. Please refresh the page.</div>',
+        '<div class="error-state">Failed to load game. Please refresh the page.</div>'
       );
     }
     throw err;

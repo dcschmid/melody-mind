@@ -36,7 +36,8 @@ const {
 } = Astro.props as Props;
 
 // Sanitize HTML string: remove visible literal "\n" sequences and trim whitespace.
-let sanitizedHtml = typeof html === "string" ? html.replace(/\\n/g, "\n").trim() : undefined;
+let sanitizedHtml =
+  typeof html === "string" ? html.replace(/\\n/g, "\n").trim() : undefined;
 
 // Remove trailing triple backticks (```) that might have been appended accidentally
 if (typeof sanitizedHtml === "string") {

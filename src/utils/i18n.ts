@@ -36,15 +36,11 @@ export function getLangFromUrl(_url: URL): LanguageCode {
  * @returns {(key: TranslationKey, vars?: Record<string,string|number>) => string} A function that returns translated strings
  */
 export function useTranslations(
-  lang: string,
+  lang: string
 ): (key: TranslationKey, vars?: Record<string, string | number>) => string {
-  return function t(
-    key: TranslationKey,
-    vars?: Record<string, string | number>,
-  ): string {
+  return function t(key: TranslationKey, vars?: Record<string, string | number>): string {
     // Safe type checking for translation access
-    const langTranslations = (ui[lang as LanguageCode] ??
-      {}) as TranslationsForLanguage;
+    const langTranslations = (ui[lang as LanguageCode] ?? {}) as TranslationsForLanguage;
     const defaultTranslations = ui[defaultLang] as TranslationsForLanguage;
 
     // Get translation with fallback chain: specified language → default language → key itself

@@ -51,7 +51,12 @@ const textAlignClasses: Record<TextAlign, string> = {
   right: "text-right",
 };
 
-const classes = [baseClasses, textSizeClasses[textSize], textAlignClasses[textAlign], className]
+const classes = [
+  baseClasses,
+  textSizeClasses[textSize],
+  textAlignClasses[textAlign],
+  className,
+]
   .filter(Boolean)
   .join(" ");
 

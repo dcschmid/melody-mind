@@ -57,7 +57,9 @@ const currentLang = lang || getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 
 // Filter to only include h2 and h3 headings
-const filteredHeadings = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth === 2 || heading.depth === 3
+);
 
 // Check if there are any headings to display
 const hasHeadings = filteredHeadings.length > 0;
@@ -75,10 +77,10 @@ const tocTitle = title || t("toc.nav.label");
           aria-expanded="false"
           aria-controls="toc-content"
           aria-label={t("toc.toggle.label")}
-          class="flex min-h-[44px] w-full items-center justify-between rounded-lg border-2 border-gn-soot-700 bg-gn-soot-900/90 px-4 py-3 text-left text-base font-medium text-gn-parchment-50 shadow-[4px_4px_0_rgba(0,0,0,0.75)] transition-all duration-300 hover:border-gn-amber-300 hover:bg-gn-soot-800 hover:shadow-[6px_6px_0_rgba(0,0,0,0.82)] focus:outline-none focus-visible:ring-4 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900"
+          class="border-gn-soot-700 bg-gn-soot-900/90 text-gn-parchment-50 hover:border-gn-amber-300 hover:bg-gn-soot-800 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] w-full items-center justify-between rounded-lg border-2 px-4 py-3 text-left text-base font-medium shadow-[4px_4px_0_rgba(0,0,0,0.75)] transition-all duration-300 hover:shadow-[6px_6px_0_rgba(0,0,0,0.82)] focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
         >
           <span class="flex items-center gap-3">
-            <Icon name="menu" class="h-5 w-5 text-gn-amber-300" aria-hidden="true" />
+            <Icon name="menu" class="text-gn-amber-300 h-5 w-5" aria-hidden="true" />
             <span>{tocTitle}</span>
           </span>
           <span
@@ -91,7 +93,7 @@ const tocTitle = title || t("toc.nav.label");
           <Icon
             name="chevron-down"
             id="toc-icon"
-            class="h-5 w-5 text-gn-parchment-200 transition-transform duration-300"
+            class="text-gn-parchment-200 h-5 w-5 transition-transform duration-300"
             aria-hidden="true"
           />
         </button>
@@ -99,12 +101,12 @@ const tocTitle = title || t("toc.nav.label");
         <div
           id="toc-content"
           aria-labelledby="toc-toggle"
-          class="mt-3 hidden overflow-hidden rounded-lg border-2 border-gn-soot-700 bg-gn-soot-900/90 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-sm transition-all duration-300"
+          class="border-gn-soot-700 bg-gn-soot-900/90 mt-3 hidden overflow-hidden rounded-lg border-2 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-sm transition-all duration-300"
         >
           <nav aria-label={t("toc.nav.label")} class="p-4">
             <a
               href="#article-content"
-              class="mb-4 block min-h-[44px] text-sm font-semibold text-gn-amber-300 no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900"
+              class="text-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 mb-4 block min-h-[44px] text-sm font-semibold no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
             >
               {t("toc.skip.link")}
             </a>
@@ -116,10 +118,10 @@ const tocTitle = title || t("toc.nav.label");
                 <li class={`mb-1 ${heading.depth === 3 ? "ml-4" : ""}`}>
                   <a
                     href={`#${heading.slug}`}
-                    class={`text-decoration-none block min-h-[44px] rounded-md px-3 py-2 leading-relaxed transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900 ${
+                    class={`text-decoration-none focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 block min-h-[44px] rounded-md px-3 py-2 leading-relaxed transition-all duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none ${
                       heading.depth === 2
-                        ? "text-sm font-semibold text-gn-parchment-50 hover:bg-gn-soot-800 hover:text-gn-parchment-50"
-                        : "text-xs font-medium text-gn-parchment-200 hover:bg-gn-soot-800 hover:text-gn-parchment-50"
+                        ? "text-gn-parchment-50 hover:bg-gn-soot-800 hover:text-gn-parchment-50 text-sm font-semibold"
+                        : "text-gn-parchment-200 hover:bg-gn-soot-800 hover:text-gn-parchment-50 text-xs font-medium"
                     }`}
                   >
                     {heading.text}

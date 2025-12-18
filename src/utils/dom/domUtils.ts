@@ -1,27 +1,24 @@
 export function safeGetElementById<T extends HTMLElement = HTMLElement>(
-  id: string,
+  id: string
 ): T | null {
   return document.getElementById(id) as T | null;
 }
 
 export function safeQuerySelector<T extends Element = Element>(
   selector: string,
-  parent: ParentNode = document,
+  parent: ParentNode = document
 ): T | null {
   return parent.querySelector(selector) as T | null;
 }
 
 export function safeQuerySelectorAll<T extends Element = Element>(
   selector: string,
-  parent: ParentNode = document,
+  parent: ParentNode = document
 ): T[] {
   return Array.from(parent.querySelectorAll<T>(selector));
 }
 
-export function safeSetInnerHTML(
-  element: HTMLElement | null,
-  html: string,
-): void {
+export function safeSetInnerHTML(element: HTMLElement | null, html: string): void {
   if (element) {
     element.innerHTML = html;
   }

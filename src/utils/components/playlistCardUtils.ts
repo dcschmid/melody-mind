@@ -158,13 +158,9 @@ export class PlaylistCardUtils {
    */
   public destroy(): void {
     this.cards.forEach((card) => {
-      const image = safeQuerySelector<HTMLImageElement>(
-        this.imageSelector,
-        card,
-      );
+      const image = safeQuerySelector<HTMLImageElement>(this.imageSelector, card);
       if (image) {
-        const handler = (image as PlaylistImageElement)
-          .__playlistCardErrorHandler;
+        const handler = (image as PlaylistImageElement).__playlistCardErrorHandler;
         if (typeof handler === "function") {
           image.removeEventListener("error", handler);
           try {
@@ -181,9 +177,7 @@ export class PlaylistCardUtils {
 /**
  * Initialize playlist card functionality
  */
-export function initPlaylistCards(
-  config: PlaylistCardConfig,
-): PlaylistCardUtils {
+export function initPlaylistCards(config: PlaylistCardConfig): PlaylistCardUtils {
   return new PlaylistCardUtils(config);
 }
 

@@ -88,10 +88,8 @@ export function initNavigation(config: NavigationConfig): void {
       const announcer = document.getElementById("menu-status-announcer");
       if (announcer) {
         // Prefer localized strings provided via data attributes; fallback to English literals.
-        const openedText =
-          mainMenu?.getAttribute("data-status-opened") || "Menu opened";
-        const closedText =
-          mainMenu?.getAttribute("data-status-closed") || "Menu closed";
+        const openedText = mainMenu?.getAttribute("data-status-opened") || "Menu opened";
+        const closedText = mainMenu?.getAttribute("data-status-closed") || "Menu closed";
         announcer.textContent = isOpen ? openedText : closedText;
       }
     } catch {
@@ -110,7 +108,7 @@ export function initNavigation(config: NavigationConfig): void {
         confirm(
           lang === "de"
             ? "Möchten Sie sich wirklich abmelden?"
-            : "Do you really want to logout?",
+            : "Do you really want to logout?"
         )
       ) {
         window.location.href = "/logout";
@@ -129,8 +127,7 @@ export function initNavigationAuto(): void {
     const config = {
       menuToggleId: element.getAttribute("data-menu-toggle") || "menu-toggle",
       mainMenuId: element.getAttribute("data-main-menu") || "main-menu",
-      menuBackdropId:
-        element.getAttribute("data-menu-backdrop") || "menu-backdrop",
+      menuBackdropId: element.getAttribute("data-menu-backdrop") || "menu-backdrop",
       // element.getAttribute may return null; normalize to undefined to match NavigationConfig
       logoutButtonId: element.getAttribute("data-logout-button") || undefined,
       lang: element.getAttribute("data-lang") || "en",

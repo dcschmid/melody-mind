@@ -110,7 +110,9 @@ const variantClasses: Record<ButtonVariant, string> = {
   ].join(" "),
 };
 
-const classes = [baseClasses, variantClasses[variant], String(className)].filter(Boolean).join(" ");
+const classes = [baseClasses, variantClasses[variant], String(className)]
+  .filter(Boolean)
+  .join(" ");
 
 // Icon classes
 const iconClasses = ["size-5 sm:size-6 flex-shrink-0 mr-3", "text-current"].join(" ");
@@ -125,7 +127,8 @@ const ariaLabelAttr =
   (ariaLabel as string | undefined) ?? (rawProps["aria-label"] as string | undefined);
 
 const ariaDescribedByAttr =
-  (ariaDescribedBy as string | undefined) ?? (rawProps["aria-describedby"] as string | undefined);
+  (ariaDescribedBy as string | undefined) ??
+  (rawProps["aria-describedby"] as string | undefined);
 
 const forwardedAttrs = (() => {
   const restAttrs: Record<string, unknown> = { ...rawProps };

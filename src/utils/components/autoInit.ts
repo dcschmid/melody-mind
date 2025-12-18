@@ -9,10 +9,7 @@ type IdleCallback = (deadline: {
   didTimeout: boolean;
   timeRemaining: () => number;
 }) => void;
-type IdleRequest = (
-  callback: IdleCallback,
-  options?: { timeout?: number },
-) => number;
+type IdleRequest = (callback: IdleCallback, options?: { timeout?: number }) => number;
 
 type InitEntry = {
   /** Predicate that returns truthy when corresponding component elements are present */
@@ -35,7 +32,7 @@ const runWhenIdle = (cb: () => void): void => {
       () => {
         cb();
       },
-      { timeout: 500 },
+      { timeout: 500 }
     );
     return;
   }
@@ -63,18 +60,14 @@ const INIT_TARGETS: InitEntry[] = [
   {
     test: (): HTMLElement | null => document.getElementById("language-select"),
     init: async (): Promise<void> => {
-      const { initDefaultLanguagePicker } = await import(
-        "./languagePickerUtils"
-      );
+      const { initDefaultLanguagePicker } = await import("./languagePickerUtils");
       void initDefaultLanguagePicker();
     },
   },
   {
     test: (): HTMLElement | null => document.getElementById("toc-toggle"),
     init: async (): Promise<void> => {
-      const { initDefaultTableOfContents } = await import(
-        "./tableOfContentsUtils"
-      );
+      const { initDefaultTableOfContents } = await import("./tableOfContentsUtils");
       void initDefaultTableOfContents();
     },
   },
@@ -104,8 +97,7 @@ const INIT_TARGETS: InitEntry[] = [
     },
   },
   {
-    test: (): Element | null =>
-      document.querySelector("[data-testid='joker-container']"),
+    test: (): Element | null => document.querySelector("[data-testid='joker-container']"),
     init: async (): Promise<void> => {
       const { initJokerAuto } = await import("./jokerUtils");
       initJokerAuto();

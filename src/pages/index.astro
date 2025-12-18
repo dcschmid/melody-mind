@@ -51,8 +51,7 @@ const title = safeUi["knowledge.title"];
 const description =
   safeUi["knowledge.description"] ||
   "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
-const baseUrl =
-  Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
 const currentUrl = `${baseUrl}/`;
 
 let earliestCreated: Date | null = null;
@@ -62,8 +61,7 @@ for (const a of articlesWithReadingTime) {
   if (c && (!earliestCreated || c.getTime() < earliestCreated.getTime()))
     earliestCreated = c;
   const u = normalizeDate(a.data.updatedAt);
-  if (u && (!latestUpdated || u.getTime() > latestUpdated.getTime()))
-    latestUpdated = u;
+  if (u && (!latestUpdated || u.getTime() > latestUpdated.getTime())) latestUpdated = u;
 }
 const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
 
@@ -87,9 +85,7 @@ const articleCollectionSchema = buildKnowledgeArticlesItemList({
   listName: safeUi["knowledge.title"] || "Knowledge Articles",
 });
 
-const keywordPool = sortedArticles.flatMap(
-  (article) => article.data.keywords || []
-);
+const keywordPool = sortedArticles.flatMap((article) => article.data.keywords || []);
 const metaKeywords = keywordPool.slice(0, 10).join(", ");
 
 type CategoryDef = {
@@ -100,15 +96,12 @@ type CategoryDef = {
 };
 
 // Pre-compute counts to avoid repeated filters and handle stray whitespace
-const categoryCounts = sortedArticles.reduce<Record<string, number>>(
-  (acc, article) => {
-    const key = (article.data.category || "").trim();
-    if (!key) return acc;
-    acc[key] = (acc[key] ?? 0) + 1;
-    return acc;
-  },
-  {},
-);
+const categoryCounts = sortedArticles.reduce<Record<string, number>>((acc, article) => {
+  const key = (article.data.category || "").trim();
+  if (!key) return acc;
+  acc[key] = (acc[key] ?? 0) + 1;
+  return acc;
+}, {});
 
 const categoryData = (categories as CategoryDef[]).map((cat) => ({
   ...cat,
@@ -139,13 +132,13 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <div class="relative min-h-screen text-gn-parchment-50">
-    <div class="absolute inset-0 pointer-events-none"></div>
+  <div class="text-gn-parchment-50 relative min-h-screen">
+    <div class="pointer-events-none absolute inset-0"></div>
 
     <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <header class="mb-12 space-y-4 border-b border-gn-soot-700 pb-8">
+      <header class="border-gn-soot-700 mb-12 space-y-4 border-b pb-8">
         <div class="space-y-3 text-center">
-          <h1 class="text-3xl font-semibold text-gn-parchment-50 sm:text-4xl hidden">
+          <h1 class="text-gn-parchment-50 hidden text-3xl font-semibold sm:text-4xl">
             {title}
           </h1>
           <Image
@@ -158,32 +151,31 @@ const pageSeo = buildPageSeo({
             fetchpriority="high"
           />
         </div>
-        <div class="space-y-5 text-lg leading-relaxed text-gn-parchment-200 sm:text-xl">
+        <div class="text-gn-parchment-200 space-y-5 text-lg leading-relaxed sm:text-xl">
           <p>
-            Melody Mind opens a deeper pathway into the world of music. Each
-            guide uncovers where a genre begins, how it grows, and what gives it
-            its unmistakable voice — from its cultural roots and early
-            influences to the modern hybrids reshaping today’s playlists. 🎧
+            Melody Mind opens a deeper pathway into the world of music. Each guide
+            uncovers where a genre begins, how it grows, and what gives it its
+            unmistakable voice — from its cultural roots and early influences to the
+            modern hybrids reshaping today’s playlists. 🎧
           </p>
           <p>
-            We spotlight the defining artists, landmark movements, and
-            technological turning points that shaped every sound, giving you
-            context that enriches the way you listen. Along the way, you’ll find
-            essential tracks, curated examples, and subtle listening cues
-            designed to help you pick up patterns, trace influences, and
-            understand the emotional vocabulary behind the music.
+            We spotlight the defining artists, landmark movements, and technological
+            turning points that shaped every sound, giving you context that enriches the
+            way you listen. Along the way, you’ll find essential tracks, curated examples,
+            and subtle listening cues designed to help you pick up patterns, trace
+            influences, and understand the emotional vocabulary behind the music.
           </p>
           <p>
-            Across all genres, you’ll see how ideas move between decades — how
-            rhythms migrate, styles blend, and old concepts return with new
-            meaning. These timelines and insights make it easier to dive into
-            unfamiliar genres, appreciate your favorites on a new level, and
-            continuously expand your musical universe.
+            Across all genres, you’ll see how ideas move between decades — how rhythms
+            migrate, styles blend, and old concepts return with new meaning. These
+            timelines and insights make it easier to dive into unfamiliar genres,
+            appreciate your favorites on a new level, and continuously expand your musical
+            universe.
           </p>
           <p>
-            Whether you’re here to explore, to learn, or simply to hear with
-            more clarity, Melody Mind guides you through the stories, sounds,
-            and cultural threads that shape music across the world.
+            Whether you’re here to explore, to learn, or simply to hear with more clarity,
+            Melody Mind guides you through the stories, sounds, and cultural threads that
+            shape music across the world.
           </p>
         </div>
       </header>
@@ -194,17 +186,17 @@ const pageSeo = buildPageSeo({
       aria-labelledby="knowledge-categories-title"
       aria-describedby="knowledge-categories-help"
     >
-      <div class="mx-auto mb-6 max-w-6xl px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="mx-auto mb-6 max-w-6xl space-y-4 px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <h2
             id="knowledge-categories-title"
-            class="text-2xl font-semibold leading-tight text-gn-parchment-50 sm:text-3xl"
+            class="text-gn-parchment-50 text-2xl leading-tight font-semibold sm:text-3xl"
           >
             Explore categories
           </h2>
           <p
             id="knowledge-categories-help"
-            class="text-sm text-gn-parchment-200 sm:text-base"
+            class="text-gn-parchment-200 text-sm sm:text-base"
           >
             Browse our genre guides; each card announces the number of articles available.
           </p>
@@ -227,15 +219,15 @@ const pageSeo = buildPageSeo({
         {
           categoryData.map((cat) => (
             <li
-              class="group relative overflow-hidden rounded-2xl gn-panel bg-gn-soot-800/90 text-gn-parchment-50 transition duration-300 hover:-translate-y-1"
+              class="group gn-panel bg-gn-soot-800/90 text-gn-parchment-50 relative overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1"
               data-search-text={`${cat.name} ${cat.description}`}
             >
               <a
                 href={`/categories/${cat.slug}`}
-                class="flex h-full flex-col gap-4 p-5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-gn-soot-900"
+                class="focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex h-full flex-col gap-4 p-5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
                 aria-label={`${cat.name} category with ${cat.count} articles`}
               >
-                <div class="relative aspect-video overflow-hidden rounded-xl border border-gn-soot-700 bg-gn-soot-900/80">
+                <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-video overflow-hidden rounded-xl border">
                   <Image
                     src={cat.image}
                     alt={`${cat.name} cover`}
@@ -245,17 +237,17 @@ const pageSeo = buildPageSeo({
                     width="640"
                     height="360"
                   />
-                  <div class="absolute inset-0 bg-linear-to-t from-gn-soot-950 via-gn-soot-900/70 to-transparent opacity-70" />
+                  <div class="from-gn-soot-950 via-gn-soot-900/70 absolute inset-0 bg-linear-to-t to-transparent opacity-70" />
                   <div class="absolute inset-0 flex items-end p-4">
-                    <div class="flex items-center gap-2 rounded-full bg-gn-soot-800/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-gn-parchment-50 ring-2 ring-gn-soot-700">
-                      <span class="h-2 w-2 rounded-full bg-gn-amber-400" />
+                    <div class="bg-gn-soot-800/80 text-gn-parchment-50 ring-gn-soot-700 flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-[0.14em] uppercase ring-2">
+                      <span class="bg-gn-amber-400 h-2 w-2 rounded-full" />
                       {cat.count} articles
                     </div>
                   </div>
                 </div>
                 <div class="space-y-2">
-                  <p class="text-lg font-semibold text-gn-parchment-50">{cat.name}</p>
-                  <p class="text-sm leading-relaxed text-gn-parchment-200">
+                  <p class="text-gn-parchment-50 text-lg font-semibold">{cat.name}</p>
+                  <p class="text-gn-parchment-200 text-sm leading-relaxed">
                     {cat.description}
                   </p>
                 </div>
@@ -266,7 +258,7 @@ const pageSeo = buildPageSeo({
       </ul>
       <div
         id="knowledge-search-empty"
-        class="mx-4 mt-6 rounded-2xl border-2 border-gn-soot-700 bg-gn-soot-900/80 p-6 text-center text-gn-parchment-200 shadow-[4px_4px_0_rgba(0,0,0,0.75)] sm:mx-6 lg:mx-8"
+        class="border-gn-soot-700 bg-gn-soot-900/80 text-gn-parchment-200 mx-4 mt-6 rounded-2xl border-2 p-6 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)] sm:mx-6 lg:mx-8"
         aria-live="polite"
         hidden
       >

@@ -53,10 +53,7 @@ export function createSlug(text: string): string {
  * Calculate approximate reading time in minutes for provided content.
  * (Types documented via TypeScript signature.)
  */
-export function calculateReadingTime(
-  content: string,
-  wordsPerMinute = 225,
-): number {
+export function calculateReadingTime(content: string, wordsPerMinute = 225): number {
   const words = content.trim().split(/\s+/).length;
   const minutes = Math.ceil(words / wordsPerMinute);
   return minutes;
@@ -307,7 +304,7 @@ const stopWordsByLanguage: Record<string, string[]> = {
 export function extractKeywords(
   content: string,
   maxKeywords = 10,
-  language = "en",
+  language = "en"
 ): string {
   // Get language-specific stop words or fall back to English
   const stopWords = stopWordsByLanguage[language] || stopWordsByLanguage.en;
@@ -335,11 +332,7 @@ export function extractKeywords(
   // Extract trigrams (three-word phrases)
   const trigrams: string[] = [];
   for (let i = 0; i < words.length - 2; i++) {
-    if (
-      words[i].length > 2 &&
-      words[i + 1].length > 2 &&
-      words[i + 2].length > 2
-    ) {
+    if (words[i].length > 2 && words[i + 1].length > 2 && words[i + 2].length > 2) {
       trigrams.push(`${words[i]} ${words[i + 1]} ${words[i + 2]}`);
     }
   }
@@ -394,10 +387,7 @@ export function extractKeywords(
  * Generate an optimized meta description selecting informative early sentences.
  * Strips HTML and trims to maxLength. (Types via signature.)
  */
-export function generateMetaDescription(
-  content: string,
-  maxLength = 160,
-): string {
+export function generateMetaDescription(content: string, maxLength = 160): string {
   // Remove HTML tags and excess whitespace
   const text = content
     .replace(/<[^>]*>/g, " ")
@@ -449,7 +439,7 @@ export function generateMetaDescription(
       "album",
     ];
     const keywordScore = importantTerms.some((term) =>
-      sentence.toLowerCase().includes(term),
+      sentence.toLowerCase().includes(term)
     )
       ? 2
       : 1;
@@ -491,9 +481,7 @@ export function generateMetaDescription(
 
     // Otherwise truncate at the last word
     const lastSpace = truncated.lastIndexOf(" ");
-    return lastSpace > 0
-      ? `${truncated.substring(0, lastSpace)}...`
-      : `${truncated}...`;
+    return lastSpace > 0 ? `${truncated.substring(0, lastSpace)}...` : `${truncated}...`;
   }
 
   return description;
@@ -538,10 +526,7 @@ export function buildCanonicalUrl(siteBase: string, path: string): string {
  * @param {string} imagePath Relative or absolute image path
  * @returns {string} Absolute image URL suitable for OG tags
  */
-export function buildOpenGraphImageUrl(
-  siteBase: string,
-  imagePath: string,
-): string {
+export function buildOpenGraphImageUrl(siteBase: string, imagePath: string): string {
   if (!imagePath) {
     return imagePath;
   }
@@ -605,18 +590,14 @@ export function buildPaginationRelUrls(
   lang: string,
   basePath: string,
   currentPage: number,
-  totalPages: number,
+  totalPages: number
 ): { prevUrl?: string; nextUrl?: string } {
   if (totalPages <= 1) {
     return {};
   }
   const normalize = (p: number): string =>
-    buildCanonicalUrl(
-      siteBase,
-      `/${lang}/${basePath}${p > 1 ? `/page/${p}` : ""}`,
-    );
+    buildCanonicalUrl(siteBase, `/${lang}/${basePath}${p > 1 ? `/page/${p}` : ""}`);
   const prevUrl = currentPage > 1 ? normalize(currentPage - 1) : undefined;
-  const nextUrl =
-    currentPage < totalPages ? normalize(currentPage + 1) : undefined;
+  const nextUrl = currentPage < totalPages ? normalize(currentPage + 1) : undefined;
   return { prevUrl, nextUrl };
 }

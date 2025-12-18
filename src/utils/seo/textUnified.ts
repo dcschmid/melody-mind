@@ -63,10 +63,7 @@ function truncateSmart(text: string, maxLength: number): string {
   return `${slice.trimEnd()}...`;
 }
 
-function internalGenerateMetaDescription(
-  content: string,
-  maxLength: number,
-): string {
+function internalGenerateMetaDescription(content: string, maxLength: number): string {
   const base = normalizeWhitespace(stripHtml(content));
   if (base.length <= maxLength) {
     return base;
@@ -77,7 +74,7 @@ function internalGenerateMetaDescription(
 function extractKeywordsFallbackInternal(
   content: string,
   limit: number,
-  language: string,
+  language: string
 ): string[] {
   if (!content) {
     return [];
@@ -143,11 +140,10 @@ function joinKeywordsUnique(primary: string[], extra: string[]): string {
 function buildDescription(
   enrichedContent: string,
   strategy: "truncate-first" | "generate-first",
-  maxLength: number,
+  maxLength: number
 ): string {
   const threshold = Math.min(40, maxLength / 2);
-  const gen = (): string =>
-    internalGenerateMetaDescription(enrichedContent, maxLength);
+  const gen = (): string => internalGenerateMetaDescription(enrichedContent, maxLength);
   const trunc = (): string =>
     truncateSmart(normalizeWhitespace(stripHtml(enrichedContent)), maxLength);
   if (strategy === "generate-first") {
@@ -204,14 +200,10 @@ export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
     .trim();
   const enrichedContent = sanitizeFn ? sanitizeFn(rawCombined) : rawCombined;
 
-  const description = buildDescription(
-    enrichedContent,
-    combineStrategy,
-    maxDescription,
-  );
+  const description = buildDescription(enrichedContent, combineStrategy, maxDescription);
 
   const primaryKw = splitKeywords(
-    extractKeywords(enrichedContent, keywordLimit, language),
+    extractKeywords(enrichedContent, keywordLimit, language)
   );
   let keywordsArr = primaryKw;
 
@@ -219,7 +211,7 @@ export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
     const fallbackList = extractKeywordsFallbackInternal(
       enrichedContent,
       keywordLimit,
-      language,
+      language
     ) as string[];
     keywordsArr = mergeUnique([...keywordsArr], fallbackList);
   }

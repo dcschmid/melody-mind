@@ -52,9 +52,7 @@ export class AudioPlayerUtils {
   // Use the audio element 'timeupdate' event instead of a setInterval for progress updates.
   // Store the bound handler so we can remove it during cleanup.
   // Typed to `void` return to avoid `any` usage while keeping the native event signature.
-  private timeUpdateHandler:
-    | ((this: HTMLAudioElement, ev: Event) => void)
-    | null = null;
+  private timeUpdateHandler: ((this: HTMLAudioElement, ev: Event) => void) | null = null;
   private keydownHandler: ((ev: KeyboardEvent) => void) | null = null;
   private progressPointerDown: boolean = false;
   private pointerMoveHandler: ((ev: PointerEvent) => void) | null = null;
@@ -91,25 +89,25 @@ export class AudioPlayerUtils {
 
   private cacheElements(): void {
     this.elements.playButton = safeGetElementById<HTMLButtonElement>(
-      this.config.playButtonId || "play-button",
+      this.config.playButtonId || "play-button"
     );
     this.elements.pauseButton = safeGetElementById<HTMLButtonElement>(
-      this.config.pauseButtonId || "pause-button",
+      this.config.pauseButtonId || "pause-button"
     );
     this.elements.progressBar = safeGetElementById<HTMLProgressElement>(
-      this.config.progressBarId || "progress-bar",
+      this.config.progressBarId || "progress-bar"
     );
     this.elements.timeDisplay = safeGetElementById<HTMLElement>(
-      this.config.timeDisplayId || "time-display",
+      this.config.timeDisplayId || "time-display"
     );
     this.elements.audioElement = safeGetElementById<HTMLAudioElement>(
-      this.config.audioElementId || "audio-player",
+      this.config.audioElementId || "audio-player"
     );
     this.elements.rewindButton = safeGetElementById<HTMLButtonElement>(
-      this.config.rewindButtonId || "rewind-button",
+      this.config.rewindButtonId || "rewind-button"
     );
     this.elements.forwardButton = safeGetElementById<HTMLButtonElement>(
-      this.config.forwardButtonId || "forward-button",
+      this.config.forwardButtonId || "forward-button"
     );
   }
 
@@ -125,13 +123,11 @@ export class AudioPlayerUtils {
       this.elements.rewindButton.addEventListener("click", () => this.rewind());
     }
     if (this.elements.forwardButton) {
-      this.elements.forwardButton.addEventListener("click", () =>
-        this.forward(),
-      );
+      this.elements.forwardButton.addEventListener("click", () => this.forward());
     }
     if (this.elements.progressBar) {
       this.elements.progressBar.addEventListener("click", (e) =>
-        this.seek(e as MouseEvent),
+        this.seek(e as MouseEvent)
       );
     }
 
@@ -144,9 +140,7 @@ export class AudioPlayerUtils {
     if (!this.elements.audioElement) {
       return;
     }
-    this.elements.audioElement.addEventListener("ended", () =>
-      this.handleAudioEnd(),
-    );
+    this.elements.audioElement.addEventListener("ended", () => this.handleAudioEnd());
     this.elements.audioElement.addEventListener("waiting", () => {
       const buf = safeGetElementById<HTMLElement>("buffer-indicator");
       if (buf) {
@@ -186,13 +180,13 @@ export class AudioPlayerUtils {
         overlay.id = "audio-subtitles-overlay";
         overlay.setAttribute(
           "style",
-          "position:fixed;left:50%;transform:translateX(-50%);bottom:120px;z-index:60;max-width:90%;pointer-events:none;text-align:center;",
+          "position:fixed;left:50%;transform:translateX(-50%);bottom:120px;z-index:60;max-width:90%;pointer-events:none;text-align:center;"
         );
         const inner = document.createElement("div");
         inner.id = "audio-subtitles-inner";
         inner.setAttribute(
           "style",
-          "display:inline-block;background:rgba(0,0,0,0.65);color:#fff;padding:8px 12px;border-radius:8px;font-size:15px;line-height:1.3;max-width:100%;word-break:break-word;",
+          "display:inline-block;background:rgba(0,0,0,0.65);color:#fff;padding:8px 12px;border-radius:8px;font-size:15px;line-height:1.3;max-width:100%;word-break:break-word;"
         );
         overlay.appendChild(inner);
         document.body.appendChild(overlay);
@@ -200,7 +194,7 @@ export class AudioPlayerUtils {
     }
 
     const track = Array.from(this.elements.audioElement.textTracks || []).find(
-      (t) => t.kind === "captions" || t.kind === "subtitles",
+      (t) => t.kind === "captions" || t.kind === "subtitles"
     );
 
     if (!track) {
@@ -257,10 +251,7 @@ export class AudioPlayerUtils {
     // Keyboard controls
     this.keydownHandler = (ev: KeyboardEvent): void => {
       const active = document.activeElement;
-      if (
-        active &&
-        (active.tagName === "INPUT" || active.tagName === "TEXTAREA")
-      ) {
+      if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
         return;
       }
       if (ev.code === "Space") {
@@ -301,24 +292,18 @@ export class AudioPlayerUtils {
         this.progressPointerDown = false;
         document.removeEventListener(
           "pointermove",
-          this.pointerMoveHandler as EventListener,
+          this.pointerMoveHandler as EventListener
         );
-        document.removeEventListener(
-          "pointerup",
-          this.pointerUpHandler as EventListener,
-        );
+        document.removeEventListener("pointerup", this.pointerUpHandler as EventListener);
       };
 
       progressEl.addEventListener("pointerdown", (ev: PointerEvent) => {
         this.progressPointerDown = true;
         document.addEventListener(
           "pointermove",
-          this.pointerMoveHandler as EventListener,
+          this.pointerMoveHandler as EventListener
         );
-        document.addEventListener(
-          "pointerup",
-          this.pointerUpHandler as EventListener,
-        );
+        document.addEventListener("pointerup", this.pointerUpHandler as EventListener);
         ev.preventDefault();
       });
     }
@@ -374,7 +359,7 @@ export class AudioPlayerUtils {
     if (this.timeUpdateHandler) {
       this.elements.audioElement.removeEventListener(
         "timeupdate",
-        this.timeUpdateHandler as EventListener,
+        this.timeUpdateHandler as EventListener
       );
       this.timeUpdateHandler = null;
     }
@@ -388,7 +373,7 @@ export class AudioPlayerUtils {
 
     this.elements.audioElement.addEventListener(
       "timeupdate",
-      this.timeUpdateHandler as EventListener,
+      this.timeUpdateHandler as EventListener
     );
   }
 
@@ -427,7 +412,7 @@ export class AudioPlayerUtils {
     if (this.elements.audioElement) {
       this.elements.audioElement.currentTime = Math.max(
         0,
-        this.elements.audioElement.currentTime - 10,
+        this.elements.audioElement.currentTime - 10
       );
     }
   }
@@ -437,7 +422,7 @@ export class AudioPlayerUtils {
       if (this.elements.audioElement.duration) {
         this.elements.audioElement.currentTime = Math.min(
           this.elements.audioElement.duration,
-          this.elements.audioElement.currentTime + 10,
+          this.elements.audioElement.currentTime + 10
         );
       }
     }
@@ -559,27 +544,22 @@ export class AudioPlayerUtils {
       }
 
       const podcastId = (audioEl.dataset && audioEl.dataset.podcastId) || null;
-      const podcastTitle =
-        (audioEl.dataset && audioEl.dataset.podcastTitle) || null;
+      const podcastTitle = (audioEl.dataset && audioEl.dataset.podcastTitle) || null;
 
       if (!this.hasEmittedFirstPlayEvent) {
         // first play
-        const eventName = podcastId
-          ? `podcast_play_${podcastId}`
-          : "podcast_play";
+        const eventName = podcastId ? `podcast_play_${podcastId}` : "podcast_play";
         fathom.trackEvent(eventName);
         if (podcastTitle) {
           // additional context event
           fathom.trackEvent(
-            `podcast_play_title_${podcastTitle.replace(/[^a-zA-Z0-9_]/g, "_")}`,
+            `podcast_play_title_${podcastTitle.replace(/[^a-zA-Z0-9_]/g, "_")}`
           );
         }
         this.hasEmittedFirstPlayEvent = true;
       } else {
         // resume
-        const eventName = podcastId
-          ? `podcast_resume_${podcastId}`
-          : "podcast_resume";
+        const eventName = podcastId ? `podcast_resume_${podcastId}` : "podcast_resume";
         fathom.trackEvent(eventName);
       }
     } catch (error) {
@@ -603,7 +583,7 @@ export class AudioPlayerUtils {
     if (this.timeUpdateHandler && this.elements.audioElement) {
       this.elements.audioElement.removeEventListener(
         "timeupdate",
-        this.timeUpdateHandler as EventListener,
+        this.timeUpdateHandler as EventListener
       );
       this.timeUpdateHandler = null;
     }
@@ -614,15 +594,12 @@ export class AudioPlayerUtils {
     if (this.pointerMoveHandler) {
       document.removeEventListener(
         "pointermove",
-        this.pointerMoveHandler as EventListener,
+        this.pointerMoveHandler as EventListener
       );
       this.pointerMoveHandler = null;
     }
     if (this.pointerUpHandler) {
-      document.removeEventListener(
-        "pointerup",
-        this.pointerUpHandler as EventListener,
-      );
+      document.removeEventListener("pointerup", this.pointerUpHandler as EventListener);
       this.pointerUpHandler = null;
     }
   }

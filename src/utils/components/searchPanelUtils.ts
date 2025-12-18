@@ -41,7 +41,7 @@ const getElements = (root: HTMLElement): SearchElements | null => {
 const getStatusText = (
   el: HTMLElement | null,
   hasQuery: boolean,
-  count: number,
+  count: number
 ): string => {
   const allText =
     el?.dataset.searchStatusAll ||
@@ -64,8 +64,7 @@ const getNoResultsText = (el: HTMLElement | null, term: string): string => {
 };
 
 function initSearchPanel(elements: SearchElements): void {
-  const { input, clearBtn, resetBtn, statusEl, noResultsEl, listItems } =
-    elements;
+  const { input, clearBtn, resetBtn, statusEl, noResultsEl, listItems } = elements;
 
   if ((elements.root as any).__searchInitialized) return;
   (elements.root as any).__searchInitialized = true;
@@ -96,9 +95,7 @@ function initSearchPanel(elements: SearchElements): void {
     let count = 0;
     listItems.forEach((item) => {
       const haystack =
-        item.dataset.searchText?.toLowerCase() ||
-        item.textContent?.toLowerCase() ||
-        "";
+        item.dataset.searchText?.toLowerCase() || item.textContent?.toLowerCase() || "";
       const match = q === "" || haystack.includes(q);
       item.style.display = match ? "" : "none";
       if (match) count += 1;
@@ -129,9 +126,7 @@ function initSearchPanel(elements: SearchElements): void {
 
 export function initSearchPanelsAuto(): void {
   if (typeof window === "undefined") return;
-  const roots = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-search-root]"),
-  );
+  const roots = Array.from(document.querySelectorAll<HTMLElement>("[data-search-root]"));
   roots.forEach((root) => {
     const elements = getElements(root);
     if (!elements) return;

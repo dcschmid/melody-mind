@@ -65,8 +65,7 @@ export class LanguagePickerUtils {
     this.config = {
       selectId: config.selectId ?? "language-select",
       onLanguageChange:
-        config.onLanguageChange ??
-        ((_newLang: string, _newUrl: string): void => {}),
+        config.onLanguageChange ?? ((_newLang: string, _newUrl: string): void => {}),
     };
 
     this.elements = {
@@ -97,16 +96,14 @@ export class LanguagePickerUtils {
    * Uses `safeGetElementById` which returns null if element not found.
    */
   private cacheElements(): void {
-    const selectEl = safeGetElementById<HTMLSelectElement>(
-      this.config.selectId,
-    );
+    const selectEl = safeGetElementById<HTMLSelectElement>(this.config.selectId);
     this.elements.select = selectEl;
 
     // Try to find decorative arrow/chevron container that typically is placed
     // next to the select in the LanguagePicker component markup.
     if (selectEl && selectEl.parentElement) {
       const arrowCandidate = selectEl.parentElement.querySelector<HTMLElement>(
-        ".pointer-events-none, .language-select-arrow",
+        ".pointer-events-none, .language-select-arrow"
       );
       this.elements.arrow = arrowCandidate ?? null;
     } else {
@@ -291,9 +288,7 @@ export class LanguagePickerUtils {
  *
  *
  */
-export function initLanguagePicker(
-  config: LanguagePickerConfig,
-): LanguagePickerUtils {
+export function initLanguagePicker(config: LanguagePickerConfig): LanguagePickerUtils {
   return new LanguagePickerUtils(config);
 }
 

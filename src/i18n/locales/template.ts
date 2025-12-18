@@ -6,13 +6,11 @@ export default {
   "knowledge.search.label": "Search by title or description",
   "knowledge.search.title": "Search Articles",
   "knowledge.search.placeholder": "Search articles…",
-  "knowledge.search.subtitle":
-    "Find articles by title, description, or keywords",
+  "knowledge.search.subtitle": "Find articles by title, description, or keywords",
   "knowledge.search.reset.text": "Reset",
   "knowledge.word_count": "{count} words",
   "knowledge.back.to.list": "Back to knowledge list",
-   "podcasts.note.only_english":
-    "Note: Podcasts are currently available only in English.",
+  "podcasts.note.only_english": "Note: Podcasts are currently available only in English.",
   "podcasts.navigation.aria": "Episode navigation",
   "share.challenge_fallback": "🎮 Think you can beat me? Play now at:",
   "category.difficulty.hard": "Hard",
@@ -72,8 +70,7 @@ export default {
   "error.404.actions.quiz": "Start a music quiz",
   "error.404.actions.highscores": "See highscores",
   "error.extend": "Extend timeout",
-  "nav.subtitle":
-    "Discover music, compete with friends and test your knowledge",
+  "nav.subtitle": "Discover music, compete with friends and test your knowledge",
   "nav.section.main": "Main",
   "nav.menu.home.desc": "Return to the main page",
   "nav.section.discover": "Discover",
@@ -97,18 +94,13 @@ export default {
   "error.invalid.question": "Invalid question or no options available",
   "error.no.albums.found": "No albums found for category {category}",
   "error.no.initial.question": "No valid initial question found",
-  "errors.achievements.check":
-    "Error checking achievements. Please try again later",
-  "errors.achievements.fetch":
-    "Error fetching achievements. Please try again later",
-  "errors.achievements.invalidId":
-    "Invalid achievement ID: empty or missing ID",
+  "errors.achievements.check": "Error checking achievements. Please try again later",
+  "errors.achievements.fetch": "Error fetching achievements. Please try again later",
+  "errors.achievements.invalidId": "Invalid achievement ID: empty or missing ID",
   "errors.achievements.log": "Error checking achievements:",
   "errors.achievements.unknownError": "Unknown error during unlock",
-  "errors.achievements.unlock":
-    "Error unlocking achievement. Please try again later",
-  "errors.achievements.update":
-    "Error updating achievements. Please try again later",
+  "errors.achievements.unlock": "Error unlocking achievement. Please try again later",
+  "errors.achievements.update": "Error updating achievements. Please try again later",
   "errors.api.invalidLanguage": "Invalid language parameter",
   "errors.auth.unauthorized": "You must be logged in to access this feature",
   "errors.gameResult.log.achievements": "Error processing achievements:",
@@ -120,11 +112,9 @@ export default {
   "errors.gameResult.validation.invalidData": "Invalid data format",
   "errors.gameResult.validation.invalidDifficulty": "Invalid difficulty level",
   "errors.gameResult.validation.invalidScore": "Score must be a number",
-  "errors.gameResult.validation.invalidTotalRounds":
-    "Total rounds must be a number",
+  "errors.gameResult.validation.invalidTotalRounds": "Total rounds must be a number",
   "errors.gameResult.validation.missingCategory": "Category name is required",
-  "errors.gameResult.validation.missingDifficulty":
-    "Difficulty level is required",
+  "errors.gameResult.validation.missingDifficulty": "Difficulty level is required",
   "errors.gameResult.validation.missingUserId": "User ID is required",
   "errors.invalidParameters": "Invalid parameters provided",
   "errors.profile.notFound": "User profile not found",
@@ -161,8 +151,7 @@ export default {
     "⚡ Become the lightning music master! Prove you're a true champion even under time pressure with mixed difficulty levels in {category}. Every second counts — show your speed and knowledge at the same time! 🏆",
   "game.chronology.incorrect": "Incorrect! 😔",
   "game.chronology.info.aria": "Game information and statistics",
-  "game.chronology.instructions":
-    "Arrange the albums in correct chronological order",
+  "game.chronology.instructions": "Arrange the albums in correct chronological order",
   "game.chronology.result": "Result",
   "game.score": "Score",
   "game.timepressure.streak": "Streak: {streak}",
@@ -183,8 +172,7 @@ export default {
   "game.difficulty.easy": "Easy",
   "game.chronology.feedback.continue": "Continue",
   "game.end.achievementBadge": "Achievement trophy icon",
-  "game.end.defaultMotivation":
-    "Well done! Keep playing to improve your score!",
+  "game.end.defaultMotivation": "Well done! Keep playing to improve your score!",
   "game.end.difficultyDescription": "Shows the difficulty level you completed",
   "game.end.difficultyLevel": "Difficulty level indicator",
   "game.end.finalScore": "Final Score:",
@@ -214,8 +202,7 @@ export default {
   "game.end.restartButtonHelp":
     "Immediately start a new game round with the same difficulty and category",
   "game.end.restartSameGame": "Restart Game",
-  "game.end.restartSameGameDescription":
-    "Start a new game with the same settings",
+  "game.end.restartSameGameDescription": "Start a new game with the same settings",
   "game.end.restartSameGameHelp":
     "Start a new game with the same category, difficulty, and game mode",
   "game.end.scoreProgress": "Score progress",
@@ -231,8 +218,7 @@ export default {
   "game.feedback.audio.fallback": "Download audio file",
   "game.feedback.audio.paused": "Audio paused",
   "game.feedback.audio.preview": "Music Preview",
-  "game.feedback.audio.unsupported":
-    "Your browser does not support audio playback.",
+  "game.feedback.audio.unsupported": "Your browser does not support audio playback.",
   "game.feedback.listen.apple": "Listen on Apple Music",
   "game.feedback.listen.deezer": "Listen on Deezer",
   "game.feedback.listen.spotify": "Listen on Spotify",
@@ -345,8 +331,7 @@ export default {
   "language.ru.label": "View website in Russian",
   "language.uk": "Ukrainian",
   "language.uk.label": "View website in Ukrainian",
-  "layout.accessibility.motion.reduced":
-    "Reduced motion mode enabled for accessibility",
+  "layout.accessibility.motion.reduced": "Reduced motion mode enabled for accessibility",
   "layout.accessibility.theme.dark":
     "Dark theme activated for optimal contrast and accessibility",
   "layout.analytics.init.failed": "Analytics initialization failed:",
@@ -396,13 +381,10 @@ export default {
     "Public playlist - no authentication required for streaming service access",
   "playlist.item.coming.soon": "Coming soon",
   "playlist.item.status": "Status",
-  "playlist.item.status.changed.available":
-    "This playlist is now available for play",
-  "playlist.item.status.changed.disabled":
-    "This playlist is currently unavailable",
+  "playlist.item.status.changed.available": "This playlist is now available for play",
+  "playlist.item.status.changed.disabled": "This playlist is currently unavailable",
   "playlist.item.unavailable": "This content is not yet available",
-  "playlist.no.results":
-    "No matching playlists found. Try a different search term.",
+  "playlist.no.results": "No matching playlists found. Try a different search term.",
   "playlist.no.results.heading": "No playlists found",
   "playlist.page.description":
     "🎵 Embark on an epic musical journey through legendary eras! Our handpicked playlists bring the greatest hits to life - from timeless classics to unforgettable chart-toppers. Perfect for expanding your musical knowledge or awakening nostalgic memories! 🎶",
@@ -412,8 +394,7 @@ export default {
   "playlist.search.heading": "Search Playlists",
   "playlist.search.placeholder": "Search by artist or style…",
   "profile.auth.required": "You must be logged in to view your profile",
-  "profile.description":
-    "Manage your personal information and view your game statistics",
+  "profile.description": "Manage your personal information and view your game statistics",
   "profile.error": "Error loading profile data",
   "profile.loading": "Loading profile data…",
   "profile.nav.aria": "Navigation to user profile",
@@ -438,8 +419,7 @@ export default {
   "session.timeout.warning": "Your session will expire in {0} seconds.",
   "share.accessibility.copy_failed_manual":
     "Copy failed. Please manually copy the page URL from your browser.",
-  "share.accessibility.data_found":
-    "Game data found! Sharing options are now available.",
+  "share.accessibility.data_found": "Game data found! Sharing options are now available.",
   "share.accessibility.data_still_unavailable":
     "Game data still unavailable. Try refreshing the page or use manual copy.",
   "share.accessibility.data_unavailable":
@@ -448,8 +428,7 @@ export default {
     "Game link copied to clipboard using fallback method!",
   "share.accessibility.native_share_failed":
     "Native sharing failed: {errorMessage}. {recoveryMessage}",
-  "share.accessibility.platform_opened":
-    "Opened {platform} sharing successfully.",
+  "share.accessibility.platform_opened": "Opened {platform} sharing successfully.",
   "share.accessibility.platform_share_failed":
     "Failed to share to {platform}: {errorMessage}. {recoveryMessage}",
   "share.accessibility.retry_failed":
@@ -501,8 +480,7 @@ export default {
     "Dive deeper into this topic with comprehensive article",
   "knowledge.read.more": "Read more",
   "knowledge.read.article": "Read article",
-  "musicPlatforms.description":
-    "Listen to this playlist on popular music platforms",
+  "musicPlatforms.description": "Listen to this playlist on popular music platforms",
   "musicPlatforms.listenOn": "Listen to {title} on {platform}",
   "musicPlatforms.platform.spotify": "Spotify",
   "musicPlatforms.platform.deezer": "Deezer",
@@ -538,12 +516,10 @@ export default {
     "This privacy policy explains what personal data we collect and how we use it.",
   "pages.privacy.responsible_party": "Responsible party: Daniel Schmid",
   "pages.privacy.contact": "Contact:",
-  "pages.privacy.contact.address":
-    "Hiltenspergerstr. 78\n80796 Munich\nGermany",
+  "pages.privacy.contact.address": "Hiltenspergerstr. 78\n80796 Munich\nGermany",
   "pages.privacy.contact.address_label": "Address:",
   "pages.privacy.contact.email_label": "Email:",
-  "pages.privacy.contact.email_aria":
-    "Email address to contact the responsible party",
+  "pages.privacy.contact.email_aria": "Email address to contact the responsible party",
   "pages.privacy.data_collected.manual":
     "Data you provide manually (account details, messages, preferences)",
   "pages.privacy.data_collected.automatic":
@@ -553,8 +529,7 @@ export default {
   "pages.privacy.user_rights_title": "Your rights",
   "pages.privacy.user_rights_text":
     "You can request access, rectification, deletion, or restriction of your personal data.",
-  "pages.privacy.analytics":
-    "We use privacy‑respecting analytics to measure site usage.",
+  "pages.privacy.analytics": "We use privacy‑respecting analytics to measure site usage.",
   "pages.imprint.legal_notice_intro":
     "Legal notice — this page contains provider legal and contact information.",
   "pages.imprint.company_name": "Daniel Schmid",
