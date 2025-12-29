@@ -1,0 +1,32 @@
+---
+interface Props {
+  className?: string;
+  containerClass?: string;
+  overlayClass?: string;
+  includeOverlay?: boolean;
+}
+
+const {
+  className = "",
+  containerClass = "container-shell",
+  overlayClass = "",
+  includeOverlay = true,
+} = Astro.props as Props;
+
+const rootClasses = ["text-gn-parchment-50 relative min-h-screen", className]
+  .filter(Boolean)
+  .join(" ");
+
+const overlayClasses = ["pointer-events-none absolute inset-0", overlayClass]
+  .filter(Boolean)
+  .join(" ");
+
+const containerClasses = ["relative", containerClass].filter(Boolean).join(" ");
+---
+
+<div class={rootClasses}>
+  {includeOverlay && <div class={overlayClasses} aria-hidden="true" />}
+  <div class={containerClasses}>
+    <slot />
+  </div>
+</div>

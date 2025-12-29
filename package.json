@@ -51,6 +51,7 @@
     "@typescript-eslint/parser": "^8.50.0",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
+    "eslint-plugin-jsx-a11y": "^6.11.0",
     "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
@@ -70,7 +71,7 @@
     ],
     "src/**/*.{astro,ts,tsx,js}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --max-warnings=0"
     ]
   },
   "packageManager": "yarn@1.22.22"

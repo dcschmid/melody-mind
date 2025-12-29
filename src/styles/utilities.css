@@ -2,6 +2,10 @@
 
 .sr-only { position: absolute; width: var(--sr-only-width); height: var(--sr-only-height); padding: 0; margin: var(--sr-only-margin); overflow: hidden; clip-path: var(--sr-only-clip-path); white-space: nowrap; border: 0; }
 
+.container-shell {
+  @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
 /* Graphic novel realism surface + texture */
 .graphic-novel {
   background-color: var(--gn-bg);
@@ -72,10 +76,10 @@
   backdrop-filter: blur(8px);
 }
 
-/* Prose images (Markdown) — consistent 16:9 framing, AAA-friendly border */
+/* Prose images (Markdown) — consistent 3:2 framing, AAA-friendly border */
 .prose img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   display: block;
   border-radius: 16px;
@@ -96,7 +100,7 @@
 }
 .subsection-figure img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: 10px;
 }

@@ -1,15 +1,16 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import PageShell from "@components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@utils/siteUrls";
 
 const title = "Privacy Policy";
 const description =
   "How we process personal data on Melody Mind Knowledge, including analytics with Fathom and AI-generated media details.";
-const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
-const currentUrl = `${baseUrl}/privacy`;
+const currentUrl = resolvePageUrl(Astro.site, "/privacy");
 
 const breadcrumbs = [
-  { name: "Home", url: `${baseUrl}/` },
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: title, url: currentUrl },
 ];
 
@@ -34,111 +35,100 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <div class="text-gn-parchment-50 relative min-h-screen">
-    <div class="pointer-events-none absolute inset-0"></div>
-    <div class="relative mx-auto px-4 py-12 sm:px-6 lg:px-8">
-      <header class="mb-10 space-y-3">
-        <p class="text-gn-amber-300 text-xs font-semibold tracking-[0.14em] uppercase">
-          Privacy
-        </p>
-        <h1 class="text-gn-parchment-50 text-3xl font-semibold sm:text-4xl">
-          Privacy Policy
-        </h1>
-        <p class="text-gn-parchment-200 text-base">
-          This notice explains how we process personal data on Melody Mind Knowledge in
-          line with EU and German data protection requirements (DSGVO/GDPR).
-        </p>
-      </header>
+  <PageShell containerClass="container-shell py-12">
+    <header class="mb-10 space-y-3">
+      <p class="text-gn-amber-300 text-xs font-semibold tracking-[0.14em] uppercase">
+        Privacy
+      </p>
+      <h1 class="text-gn-parchment-50 text-3xl font-semibold sm:text-4xl">
+        Privacy Policy
+      </h1>
+      <p class="text-gn-parchment-200 text-base">
+        This notice explains how we process personal data on Melody Mind Knowledge in line
+        with EU and German data protection requirements (DSGVO/GDPR).
+      </p>
+    </header>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-2 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">1. Controller</h2>
-        <p class="text-gn-parchment-200">Daniel Schmid</p>
-        <p class="text-gn-parchment-200">Hiltenspergerstr. 78, 80796 München, Germany</p>
-        <p class="text-gn-parchment-200">
-          Email:
-          <a
-            class="text-gn-amber-300 decoration-gn-amber-300/60 underline underline-offset-2"
-            href="mailto:dcschmid@murena.io"
-          >
-            dcschmid@murena.io
-          </a>
-        </p>
-      </section>
+    <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-2 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">1. Controller</h2>
+      <p class="text-gn-parchment-200">Daniel Schmid</p>
+      <p class="text-gn-parchment-200">Hiltenspergerstr. 78, 80796 München, Germany</p>
+      <p class="text-gn-parchment-200">
+        Email:
+        <a
+          class="text-gn-amber-300 decoration-gn-amber-300/60 underline underline-offset-2"
+          href="mailto:dcschmid@murena.io"
+        >
+          dcschmid@murena.io
+        </a>
+      </p>
+    </section>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-2 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">
-          2. Hosting & Access Logs
-        </h2>
-        <p class="text-gn-parchment-200">
-          We host on Render (render.com). Render processes server logs (IP address,
-          timestamp, requested URL, user agent) to ensure site stability and security.
-          Legal basis: Art. 6(1)(f) GDPR (legitimate interest in secure operation). Logs
-          are deleted automatically on a rolling basis. Depending on the Render region,
-          data may be processed in the EU or transferred to the USA under appropriate
-          safeguards (e.g., SCCs).
-        </p>
-      </section>
+    <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-2 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">2. Hosting & Access Logs</h2>
+      <p class="text-gn-parchment-200">
+        We host on Render (render.com). Render processes server logs (IP address,
+        timestamp, requested URL, user agent) to ensure site stability and security. Legal
+        basis: Art. 6(1)(f) GDPR (legitimate interest in secure operation). Logs are
+        deleted automatically on a rolling basis. Depending on the Render region, data may
+        be processed in the EU or transferred to the USA under appropriate safeguards
+        (e.g., SCCs).
+      </p>
+    </section>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">
-          3. Analytics with Fathom
-        </h2>
-        <p class="text-gn-parchment-200">
-          We use Fathom Analytics, a privacy-friendly, EU-hosted analytics service that
-          does not set identifying cookies. Fathom processes anonymized page views and
-          referrers. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in understanding
-          site usage). You can opt out via Do Not Track in your browser; Fathom respects
-          DNT.
-        </p>
-      </section>
+    <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">3. Analytics with Fathom</h2>
+      <p class="text-gn-parchment-200">
+        We use Fathom Analytics, a privacy-friendly, EU-hosted analytics service that does
+        not set identifying cookies. Fathom processes anonymized page views and referrers.
+        Legal basis: Art. 6(1)(f) GDPR (legitimate interest in understanding site usage).
+        You can opt out via Do Not Track in your browser; Fathom respects DNT.
+      </p>
+    </section>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">
-          4. AI-Generated Content
-        </h2>
-        <p class="text-gn-parchment-200">
-          Some text and images are generated or assisted by OpenAI services. No personal
-          data is intentionally sent to OpenAI. If you contact us and share personal
-          information, we do not use that content in AI prompts without your consent.
-        </p>
-      </section>
+    <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">4. AI-Generated Content</h2>
+      <p class="text-gn-parchment-200">
+        Some text and images are generated or assisted by OpenAI services. No personal
+        data is intentionally sent to OpenAI. If you contact us and share personal
+        information, we do not use that content in AI prompts without your consent.
+      </p>
+    </section>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">5. Contact</h2>
-        <p class="text-gn-parchment-200">
-          If you email us, we process your message, contact details, and metadata to
-          respond. Legal basis: Art. 6(1)(b) GDPR (pre-contractual communication) or Art.
-          6(1)(f) GDPR (legitimate interest in replying to inquiries). Data is kept only
-          as long as needed.
-        </p>
-      </section>
+    <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">5. Contact</h2>
+      <p class="text-gn-parchment-200">
+        If you email us, we process your message, contact details, and metadata to
+        respond. Legal basis: Art. 6(1)(b) GDPR (pre-contractual communication) or Art.
+        6(1)(f) GDPR (legitimate interest in replying to inquiries). Data is kept only as
+        long as needed.
+      </p>
+    </section>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">6. Your Rights</h2>
-        <p class="text-gn-parchment-200">
-          You have the rights of access, rectification, erasure, restriction, objection
-          (including to processing based on Art. 6(1)(f) GDPR), and data portability. You
-          may also lodge a complaint with your local supervisory authority. In Bavaria,
-          this is the BayLDA (Bayerisches Landesamt für Datenschutzaufsicht).
-        </p>
-      </section>
+    <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">6. Your Rights</h2>
+      <p class="text-gn-parchment-200">
+        You have the rights of access, rectification, erasure, restriction, objection
+        (including to processing based on Art. 6(1)(f) GDPR), and data portability. You
+        may also lodge a complaint with your local supervisory authority. In Bavaria, this
+        is the BayLDA (Bayerisches Landesamt für Datenschutzaufsicht).
+      </p>
+    </section>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">7. Data Retention</h2>
-        <p class="text-gn-parchment-200">
-          We retain personal data only as long as necessary for the stated purposes or
-          legal obligations and then delete or anonymize it.
-        </p>
-      </section>
+    <section class="gn-panel bg-gn-soot-800/90 mb-8 space-y-3 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">7. Data Retention</h2>
+      <p class="text-gn-parchment-200">
+        We retain personal data only as long as necessary for the stated purposes or legal
+        obligations and then delete or anonymize it.
+      </p>
+    </section>
 
-      <section class="gn-panel bg-gn-soot-800/90 mb-12 space-y-2 rounded-2xl p-6">
-        <h2 class="text-gn-parchment-50 text-xl font-semibold">8. Updates</h2>
-        <p class="text-gn-parchment-200">
-          We may update this policy to reflect legal or technical changes. Last updated: {
-            new Date().toLocaleDateString("en-GB")
-          }.
-        </p>
-      </section>
-    </div>
-  </div>
+    <section class="gn-panel bg-gn-soot-800/90 mb-12 space-y-2 rounded-2xl p-6">
+      <h2 class="text-gn-parchment-50 text-xl font-semibold">8. Updates</h2>
+      <p class="text-gn-parchment-200">
+        We may update this policy to reflect legal or technical changes. Last updated:
+        {new Date().toLocaleDateString("en-GB")}.
+      </p>
+    </section>
+  </PageShell>
 </Layout>

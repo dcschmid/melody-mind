@@ -15,6 +15,7 @@ import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
+import { resolveAbsoluteUrl, resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
 
 export const prerender = true;
 
@@ -80,19 +81,14 @@ const description = entry.data.description;
 const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
 const optimizedDescription = pageContent;
 
-const baseSite = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
-const toAbsoluteUrl = (path: string): string => {
-  if (!path) return baseSite;
-  if (/^https?:\/\//i.test(path)) return path;
-  const normalized = baseSite.replace(/\/$/, "");
-  const cleaned = path.startsWith("/") ? path : `/${path}`;
-  return `${normalized}${cleaned}`;
-};
-const imageAbsolute = toAbsoluteUrl(imageSource);
+const baseSite = resolveBaseUrl(Astro.site);
+const imageAbsolute = resolveAbsoluteUrl(Astro.site, imageSource);
 const imageWidth = 1200;
 const imageHeight = 800;
 
-const canonical = resolvedSlug ? `${baseSite}/knowledge/${resolvedSlug}` : `${baseSite}`;
+const canonical = resolvedSlug
+  ? resolvePageUrl(Astro.site, `/knowledge/${resolvedSlug}`)
+  : resolvePageUrl(Astro.site, "/");
 const podcastBase = "https://podcasts.melody-mind.de";
 const podcastSlug =
   [entry.data.podcastSlug, entry.data.podcast]
@@ -104,12 +100,14 @@ const podcastUrl =
     : podcastSlug
       ? `${podcastBase}/${encodeURI(podcastSlug)}`
       : null;
-const seoBreadcrumbsBase = [{ name: t("nav.home") || "Home", url: `${baseSite}/` }];
+const seoBreadcrumbsBase = [
+  { name: t("nav.home") || "Home", url: resolvePageUrl(Astro.site, "/") },
+];
 const seoCategoryCrumb =
   entry.data.category && typeof entry.data.category === "string"
     ? {
         name: entry.data.category,
-        url: `${baseSite}/categories/${entry.data.category}`,
+        url: resolvePageUrl(Astro.site, `/categories/${entry.data.category}`),
       }
     : null;
 const seoBreadcrumbs = [
@@ -233,7 +231,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     >
     </div>
 
-    <div class="relative mx-auto max-w-6xl px-4 pt-10 pb-16 sm:px-6 lg:px-8">
+    <div class="container-shell relative pt-10 pb-16">
       <div class="mb-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
         <header class="gn-panel bg-gn-soot-800/90 space-y-5 rounded-3xl p-6">
           <div
@@ -307,7 +305,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           >
             {
               imageSource ? (
-                <div class="relative aspect-video">
+                <div class="relative aspect-[3/2]">
                   <div class="from-gn-soot-950 via-gn-soot-900/75 group-hover:from-gn-soot-950/90 absolute inset-0 bg-linear-to-t to-transparent transition duration-300" />
                   <Picture
                     class="absolute inset-0 h-full w-full object-cover"
@@ -325,7 +323,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
                 </div>
               ) : (
                 <div
-                  class="bg-gn-soot-900 text-gn-parchment-200 flex aspect-video w-full items-center justify-center p-8 text-center"
+                  class="bg-gn-soot-900 text-gn-parchment-200 flex aspect-[3/2] w-full items-center justify-center p-8 text-center"
                   role="img"
                   aria-label={t("category.no_image_available")}
                 >
@@ -424,9 +422,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         </div>
       </div>
 
-      <div class="gn-panel bg-gn-soot-800/90 mb-8 rounded-3xl p-5">
-        <TableOfContents headings={mergedHeadings} lang={lang} />
-      </div>
+      <TableOfContents headings={mergedHeadings} lang={lang} />
 
       <article
         id="article-content"

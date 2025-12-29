@@ -112,7 +112,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         <div class="relative flex h-full flex-col">
           <div class="from-gn-amber-500/10 via-gn-amber-400/6 absolute inset-0 bg-linear-to-br to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
 
-          <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-video overflow-hidden rounded-xl border">
+          <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-[3/2] overflow-hidden rounded-xl border">
             <Image
               src={image}
               alt={imageAltText}
@@ -175,13 +175,11 @@ const imageAltText = title ? `Cover image for ${title}` : "";
             </div>
           </div>
         </div>
-        <span class="sr-only" aria-live="polite">
-          {lang_t("navigation.article.opens")}
-        </span>
+        <span class="sr-only">{lang_t("navigation.article.opens")}</span>
       </a>
     ) : (
       <div class="relative flex h-full flex-col">
-        <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-video overflow-hidden rounded-xl border">
+        <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-[3/2] overflow-hidden rounded-xl border">
           <Image
             src={image}
             alt={imageAltText}

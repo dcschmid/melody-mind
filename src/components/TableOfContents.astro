@@ -43,12 +43,14 @@ interface Props {
   title?: string;
   /** Optional language code for localization */
   lang?: string;
+  /** Optional class overrides for the panel wrapper */
+  className?: string;
 }
 
 import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 
-const { headings = [], title, lang } = Astro.props;
+const { headings = [], title, lang, className = "" } = Astro.props;
 
 // Get language from URL if not provided
 const currentLang = lang || getLangFromUrl(Astro.url);
@@ -68,53 +70,57 @@ const hasHeadings = filteredHeadings.length > 0;
 const tocTitle = title || t("toc.nav.label");
 ---
 
-{
-  hasHeadings && (
+<div
+  class={`gn-panel bg-gn-soot-800/90 rounded-3xl p-5 ${className}`.trim()}
+  data-toc-shell
+  hidden={!hasHeadings}
+>
+  <div class="relative" data-toc-root>
     <div class="relative">
-      <div class="relative">
-        <button
-          id="toc-toggle"
-          aria-expanded="false"
-          aria-controls="toc-content"
-          aria-label={t("toc.toggle.label")}
-          class="border-gn-soot-700 bg-gn-soot-900/90 text-gn-parchment-50 hover:border-gn-amber-300 hover:bg-gn-soot-800 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] w-full items-center justify-between rounded-lg border-2 px-4 py-3 text-left text-base font-medium shadow-[4px_4px_0_rgba(0,0,0,0.75)] transition-all duration-300 hover:shadow-[6px_6px_0_rgba(0,0,0,0.82)] focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
+      <button
+        id="toc-toggle"
+        aria-expanded="false"
+        aria-controls="toc-content"
+        aria-label={t("toc.toggle.label")}
+        class="border-gn-soot-700 bg-gn-soot-900/90 text-gn-parchment-50 hover:border-gn-amber-300 hover:bg-gn-soot-800 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] w-full items-center justify-between rounded-lg border-2 px-4 py-3 text-left text-base font-medium shadow-[4px_4px_0_rgba(0,0,0,0.75)] transition-all duration-300 hover:shadow-[6px_6px_0_rgba(0,0,0,0.82)] focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
+      >
+        <span class="flex items-center gap-3">
+          <Icon name="menu" class="text-gn-amber-300 h-5 w-5" aria-hidden="true" />
+          <span>{tocTitle}</span>
+        </span>
+        <span
+          class="sr-only"
+          data-expanded={t("toc.state.expanded")}
+          data-collapsed={t("toc.state.collapsed")}
         >
-          <span class="flex items-center gap-3">
-            <Icon name="menu" class="text-gn-amber-300 h-5 w-5" aria-hidden="true" />
-            <span>{tocTitle}</span>
-          </span>
-          <span
-            class="sr-only"
-            data-expanded={t("toc.state.expanded")}
-            data-collapsed={t("toc.state.collapsed")}
-          >
-            {t("toc.state.collapsed")}
-          </span>
-          <Icon
-            name="chevron-down"
-            id="toc-icon"
-            class="text-gn-parchment-200 h-5 w-5 transition-transform duration-300"
-            aria-hidden="true"
-          />
-        </button>
+          {t("toc.state.collapsed")}
+        </span>
+        <Icon
+          name="chevron-down"
+          id="toc-icon"
+          class="text-gn-parchment-200 h-5 w-5 transition-transform duration-300"
+          aria-hidden="true"
+        />
+      </button>
 
-        <div
-          id="toc-content"
-          aria-labelledby="toc-toggle"
-          class="border-gn-soot-700 bg-gn-soot-900/90 mt-3 hidden overflow-hidden rounded-lg border-2 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-sm transition-all duration-300"
-        >
-          <nav aria-label={t("toc.nav.label")} class="p-4">
-            <a
-              href="#article-content"
-              class="text-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 mb-4 block min-h-[44px] text-sm font-semibold no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-            >
-              {t("toc.skip.link")}
-            </a>
-            <ul
-              id="toc-list"
-              class="scrollbar-thin scrollbar-track-gn-soot-800 scrollbar-thumb-gn-soot-600 hover:scrollbar-thumb-gn-amber-400 m-0 max-h-[50vh] list-none overflow-y-auto p-0"
-            >
-              {filteredHeadings.map((heading) => (
+      <div
+        id="toc-content"
+        aria-labelledby="toc-toggle"
+        class="border-gn-soot-700 bg-gn-soot-900/90 mt-3 hidden overflow-hidden rounded-lg border-2 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-sm transition-all duration-300"
+      >
+        <nav aria-label={t("toc.nav.label")} class="p-4">
+          <a
+            href="#article-content"
+            class="text-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 mb-4 block min-h-[44px] text-sm font-semibold no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+          >
+            {t("toc.skip.link")}
+          </a>
+          <ul
+            id="toc-list"
+            class="scrollbar-thin scrollbar-track-gn-soot-800 scrollbar-thumb-gn-soot-600 hover:scrollbar-thumb-gn-amber-400 m-0 max-h-[50vh] list-none overflow-y-auto p-0"
+          >
+            {
+              filteredHeadings.map((heading) => (
                 <li class={`mb-1 ${heading.depth === 3 ? "ml-4" : ""}`}>
                   <a
                     href={`#${heading.slug}`}
@@ -127,17 +133,18 @@ const tocTitle = title || t("toc.nav.label");
                     {heading.text}
                   </a>
                 </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+              ))
+            }
+          </ul>
+        </nav>
       </div>
     </div>
-  )
-}
+  </div>
+</div>
 
 <script>
   (() => {
+    const shell = document.querySelector("[data-toc-shell]");
     const toggle = document.getElementById("toc-toggle");
     const content = document.getElementById("toc-content");
     const icon = document.getElementById("toc-icon");
@@ -145,7 +152,12 @@ const tocTitle = title || t("toc.nav.label");
     const tocList = document.getElementById("toc-list");
     const articleRoot = document.getElementById("article-content");
 
-    if (!toggle || !content) return;
+    if (!toggle || !content) {
+      if (shell instanceof HTMLElement) {
+        shell.hidden = true;
+      }
+      return;
+    }
 
     const slugify = (text: string): string =>
       text
@@ -172,9 +184,22 @@ const tocTitle = title || t("toc.nav.label");
     setExpanded(isOpen);
 
     const buildTocFromDom = (): void => {
-      if (!tocList || !articleRoot) return;
+      if (!tocList || !articleRoot) {
+        if (shell instanceof HTMLElement) {
+          shell.hidden = true;
+        }
+        return;
+      }
       const headingNodes = Array.from(articleRoot.querySelectorAll("h2, h3"));
-      if (!headingNodes.length) return;
+      if (!headingNodes.length) {
+        if (shell instanceof HTMLElement) {
+          shell.hidden = true;
+        }
+        return;
+      }
+      if (shell instanceof HTMLElement) {
+        shell.hidden = false;
+      }
 
       const seenIds = new Set<string>();
       const headings = headingNodes

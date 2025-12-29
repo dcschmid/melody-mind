@@ -14,6 +14,9 @@ interface BackToTopConfig {
 export function initBackToTop(config: BackToTopConfig): void {
   const button = document.getElementById(config.buttonId) as HTMLButtonElement;
   const scrollThreshold = config.scrollThreshold || 400;
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
   if (!button) {
     return;
@@ -36,7 +39,7 @@ export function initBackToTop(config: BackToTopConfig): void {
   button.addEventListener("click", () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: prefersReducedMotion ? "auto" : "smooth",
     });
   });
 

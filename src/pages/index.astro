@@ -3,6 +3,7 @@
  * Knowledge Index Page - Professional Dark Mode with WCAG AAA
  */
 import Layout from "@layouts/Layout.astro";
+import PageShell from "@components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
 import { ui } from "@i18n/ui";
@@ -11,6 +12,7 @@ import BackToTop from "@components/Shared/BackToTop.astro";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
+import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
 import categories from "../data/categories.json";
 import { Image } from "astro:assets";
 import SearchPanel from "@components/Search/SearchPanel.astro";
@@ -51,8 +53,8 @@ const title = safeUi["knowledge.title"];
 const description =
   safeUi["knowledge.description"] ||
   "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
-const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
-const currentUrl = `${baseUrl}/`;
+const baseUrl = resolveBaseUrl(Astro.site);
+const currentUrl = resolvePageUrl(Astro.site, "/");
 
 let earliestCreated: Date | null = null;
 let latestUpdated: Date | null = null;
@@ -132,59 +134,55 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <div class="text-gn-parchment-50 relative min-h-screen">
-    <div class="pointer-events-none absolute inset-0"></div>
-
-    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <header class="border-gn-soot-700 mb-12 space-y-4 border-b pb-8">
-        <div class="space-y-3 text-center">
-          <h1 class="text-gn-parchment-50 hidden text-3xl font-semibold sm:text-4xl">
-            {title}
-          </h1>
-          <Image
-            class="mx-auto h-auto"
-            src="/melody-mind.jpg"
-            width="1080"
-            height="720"
-            alt="Melody Mind Logo"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </div>
-        <div class="text-gn-parchment-200 space-y-5 text-lg leading-relaxed sm:text-xl">
-          <p>
-            Melody Mind provides an access route to the world of music. Every guide
-            reveals where a genre begins, how it grows, and what gives it its unique sound
-            – including its cultural backstory, early pioneers, and contemporary hybrids
-            that populate today’s playlists. 🎧.
-          </p>
-          <p>
-            We highlight the key artists, movements, and technological turning points that
-            shaped every sound, providing you with context that enhances your listening
-            experience. As you navigate through the material, you will come across
-            essential tracks and curated examples alongside soft listening prompts to help
-            you detect patterns, trace influences and learn the emotional vocabulary.
-          </p>
-          <p>
-            You will get to notice the way ideas move across decades in all genres – how
-            rhythms travel, styles merge and old ideas come back with a difference. With
-            the help of these timelines and insights, you can be able to appreciate your
-            faves on a new level and discover new genres.
-          </p>
-          <p>
-            Whether you are here to explore, learn or simply hear, Melody Mind takes you
-            through the stories, sounds and cultures behind the music of the world.
-          </p>
-        </div>
-      </header>
-    </div>
+  <PageShell className="aurora-sheen grid-overlay">
+    <header class="border-gn-soot-700 mb-12 space-y-4 border-b pb-8">
+      <div class="space-y-3 text-center">
+        <h1 class="sr-only">
+          {title}
+        </h1>
+        <Image
+          class="mx-auto h-auto"
+          src="/melody-mind.jpg"
+          width="1080"
+          height="720"
+          alt="Melody Mind Logo"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="text-gn-parchment-200 space-y-5 text-lg leading-relaxed sm:text-xl">
+        <p>
+          Melody Mind provides an access route to the world of music. Every guide reveals
+          where a genre begins, how it grows, and what gives it its unique sound –
+          including its cultural backstory, early pioneers, and contemporary hybrids that
+          populate today’s playlists. 🎧.
+        </p>
+        <p>
+          We highlight the key artists, movements, and technological turning points that
+          shaped every sound, providing you with context that enhances your listening
+          experience. As you navigate through the material, you will come across essential
+          tracks and curated examples alongside soft listening prompts to help you detect
+          patterns, trace influences and learn the emotional vocabulary.
+        </p>
+        <p>
+          You will get to notice the way ideas move across decades in all genres – how
+          rhythms travel, styles merge and old ideas come back with a difference. With the
+          help of these timelines and insights, you can be able to appreciate your faves
+          on a new level and discover new genres.
+        </p>
+        <p>
+          Whether you are here to explore, learn or simply hear, Melody Mind takes you
+          through the stories, sounds and cultures behind the music of the world.
+        </p>
+      </div>
+    </header>
 
     <section
       class="mb-12"
       aria-labelledby="knowledge-categories-title"
       aria-describedby="knowledge-categories-help"
     >
-      <div class="mx-auto mb-6 max-w-6xl space-y-4 px-4 sm:px-6 lg:px-8">
+      <div class="mb-6 space-y-4">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <h2
             id="knowledge-categories-title"
@@ -225,7 +223,7 @@ const pageSeo = buildPageSeo({
                 class="focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex h-full flex-col gap-4 p-5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
                 aria-label={`${cat.name} category with ${cat.count} articles`}
               >
-                <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-video overflow-hidden rounded-xl border">
+                <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-[3/2] overflow-hidden rounded-xl border">
                   <Image
                     src={cat.image}
                     alt={`${cat.name} cover`}
@@ -256,14 +254,14 @@ const pageSeo = buildPageSeo({
       </ul>
       <div
         id="knowledge-search-empty"
-        class="border-gn-soot-700 bg-gn-soot-900/80 text-gn-parchment-200 mx-4 mt-6 rounded-2xl border-2 p-6 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)] sm:mx-6 lg:mx-8"
+        class="border-gn-soot-700 bg-gn-soot-900/80 text-gn-parchment-200 mt-6 rounded-2xl border-2 p-6 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
         aria-live="polite"
         hidden
       >
         No categories match your search. Try a different term.
       </div>
     </section>
-  </div>
+  </PageShell>
 
   <BackToTop {lang} />
 </Layout>

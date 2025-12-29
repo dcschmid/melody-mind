@@ -94,8 +94,7 @@ export class TableOfContentsUtils {
       const fullHeight = this.content.scrollHeight;
       this.content.style.maxHeight = `${fullHeight}px`;
       // Force reflow for Safari quirks
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      this.content.offsetHeight;
+      void this.content.offsetHeight;
     } catch {
       /* noop */
     }

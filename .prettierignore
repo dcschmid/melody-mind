@@ -1,0 +1,5 @@
+dist
+.astro
+public
+axe-report*.json
+node_modules

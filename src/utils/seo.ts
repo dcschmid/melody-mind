@@ -6,60 +6,6 @@
  */
 
 /**
- * Creates an SEO-friendly URL slug from a string
- *
- * - Converting to lowercase
- * - Removing special characters
- * - Converting spaces to hyphens
- * - Removing redundant hyphens
- *
- * @param text The text to be converted into a slug
- * @returns An SEO-friendly URL slug
- * @example
- * // returns "what-is-melody-mind"
- * createSlug("What is Melody Mind?");
- */
-/**
- * Create a URL-friendly slug from given text.
- *
- * @param {string} text - The text to be converted into a slug
- * @returns {string} SEO-friendly URL slug
- */
-export function createSlug(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "") // Remove all characters except words, spaces and hyphens
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple consecutive hyphens with a single one
-    .trim() // Remove whitespace from both ends
-    .replace(/^-+|-+$/g, ""); // Remove hyphens from the beginning and end
-}
-
-/**
- * Calculates the estimated reading time of a text
- *
- * Uses an average reading speed to determine how long it would take to read
- * the provided content. Useful for providing reading time estimates in
- * articles or blog posts.
- *
- * @param content The text content to calculate reading time for
- * @param wordsPerMinute Average reading speed in words per minute, default: 225
- * @returns The estimated reading time in minutes (rounded up)
- * @example
- * // returns 2 minutes for a 400-word article
- * calculateReadingTime("400 words of content...");
- */
-/**
- * Calculate approximate reading time in minutes for provided content.
- * (Types documented via TypeScript signature.)
- */
-export function calculateReadingTime(content: string, wordsPerMinute = 225): number {
-  const words = content.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / wordsPerMinute);
-  return minutes;
-}
-
-/**
  * Extracts keywords from text content for SEO meta tags
  *
  * - Removing common stop words

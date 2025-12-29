@@ -164,7 +164,7 @@ const forwardedAttrs = (() => {
   rel={finalRel}
   {...forwardedAttrs}
 >
-  {icon && <Icon name={icon} class={iconClasses} />}
+  {icon && <Icon name={icon} class={iconClasses} aria-hidden="true" />}
   <slot />
   {isExternal && <span class={srOnlyClasses}> ({externalLinkText})</span>}
 </a>

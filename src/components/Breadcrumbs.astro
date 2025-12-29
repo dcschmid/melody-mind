@@ -18,7 +18,7 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
 {
   normalized.length > 0 && (
     <nav aria-label={ariaLabel} class="w-full overflow-x-auto">
-      <ol class="text-gn-parchment-100 mx-auto flex max-w-6xl items-center gap-2 px-4 py-3 text-sm sm:gap-3 sm:py-4">
+      <ol class="text-gn-parchment-100 container-shell flex items-center gap-2 py-3 text-sm sm:gap-3 sm:py-4">
         {normalized.map((crumb, index) => {
           const isLast = index === normalized.length - 1;
           return (

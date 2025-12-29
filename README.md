@@ -105,6 +105,16 @@ yarn format
 astro check
 ```
 
+### Editor setup (VS Code)
+
+We recommend enabling Prettier + ESLint on save:
+
+1. Install extensions:
+   - `esbenp.prettier-vscode`
+   - `dbaeumer.vscode-eslint`
+   - `astro-build.astro-vscode`
+2. Workspace settings are included in `.vscode/settings.json`.
+
 ## Deployment
 
 ### Static Site Generation

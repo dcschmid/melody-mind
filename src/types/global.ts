@@ -1,6 +1,6 @@
 export interface GenericSearchInstance {
-  search(query: string): any[];
-  addDocuments(docs: any[]): void;
+  search(_query: string): any[];
+  addDocuments(_docs: any[]): void;
   destroy(): void;
 }
 

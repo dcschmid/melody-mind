@@ -2,11 +2,13 @@
 import Layout from "@layouts/Layout.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
+import PageShell from "@components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
 import { calculateReadingTime } from "@utils/readingTime";
+import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
 import categories from "../../data/categories.json";
 import { Image } from "astro:assets";
 import SearchPanel from "@components/Search/SearchPanel.astro";
@@ -74,10 +76,10 @@ for (const a of filteredArticles) {
 }
 const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
 
-const baseUrl = Astro.site?.toString().replace(/\/$/, "") || "https://melody-mind.de";
-const currentUrl = `${baseUrl}/categories/${category.slug}`;
+const baseUrl = resolveBaseUrl(Astro.site);
+const currentUrl = resolvePageUrl(Astro.site, `/categories/${category.slug}`);
 const seoBreadcrumbs = [
-  { name: "Home", url: `${baseUrl}/` },
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: category.name, url: currentUrl },
 ];
 const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
@@ -152,133 +154,129 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <div class="text-gn-parchment-50 relative min-h-screen">
-    <div class="pointer-events-none absolute inset-0"></div>
-
-    <div class="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-      <header class="gn-panel bg-gn-soot-800/90 mb-10 overflow-hidden rounded-3xl">
-        <div class="relative">
-          <div class="bg-gn-soot-900/60 relative aspect-video w-full overflow-hidden">
-            <Image
-              src={category.image}
-              alt={`${category.name} hero`}
-              loading="lazy"
-              decoding="async"
-              class="absolute inset-0 aspect-video h-full w-full object-cover"
-              width="1920"
-              height="1080"
-            />
-          </div>
-          <div
-            class="relative mx-4 mt-4 md:static md:inset-0 md:mt-0 md:flex md:items-end md:justify-start md:px-6 md:pb-6 lg:px-8"
-          >
-            <div class="p-5">
-              <div
-                class="text-gn-parchment-200 flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.14em] uppercase"
-              >
-                <span class="bg-gn-amber-400 h-2 w-2 rounded-full"></span>
-                {filteredArticles.length} articles
-              </div>
-              <h1
-                id="category-heading"
-                class="text-gn-parchment-50 mt-3 text-2xl leading-tight font-semibold text-balance sm:text-3xl md:text-4xl"
-              >
-                {category.name}
-              </h1>
-              <p
-                class="text-gn-parchment-200 mt-2 text-base leading-relaxed text-balance sm:text-lg"
-              >
-                {category.description}
-              </p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section
-        aria-labelledby="category-heading"
-        aria-describedby="category-helper-text"
-        class="space-y-6"
-      >
-        <div class="space-y-3">
-          <p id="category-helper-text" class="text-gn-parchment-200 text-sm sm:text-base">
-            Article cards announce title, description, publish date, and estimated reading
-            time.
-          </p>
-          <SearchPanel
-            idBase="category-search"
-            label="Search articles"
-            placeholder="Search by title, description, or keyword"
-            ariaControls="category-articles-list"
-            statusAllText="Showing all articles"
-            statusCountTemplate="{count} articles found"
-            noResultsTemplate='No results for "{term}"'
+  <PageShell className="aurora-sheen grid-overlay" containerClass="container-shell py-12">
+    <header class="gn-panel bg-gn-soot-800/90 mb-10 overflow-hidden rounded-3xl">
+      <div class="relative">
+        <div class="bg-gn-soot-900/60 relative aspect-[3/2] w-full overflow-hidden">
+          <Image
+            src={category.image}
+            alt={`${category.name} hero`}
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 aspect-[3/2] h-full w-full object-cover"
+            width="1920"
+            height="1080"
           />
         </div>
-        {
-          filteredArticles.length > 0 ? (
-            <>
-              <ul
-                class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-                id="category-articles-list"
-                aria-label={`${category.name} articles`}
-              >
-                {filteredArticles.map((article, index: number) => {
-                  const createdAt =
-                    article.data.createdAt instanceof Date
-                      ? article.data.createdAt
-                      : normalizeDate(article.data.createdAt) || new Date();
-                  const articleSlug = "slug" in article ? article.slug : article.id;
-
-                  return (
-                    <li
-                      class="group gn-panel bg-gn-soot-800/90 relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1"
-                      data-search-text={`${article.data.title} ${article.data.description} ${article.data.keywords?.join(" ") || ""}`}
-                    >
-                      <KnowledgeCard
-                        title={article.data.title}
-                        description={article.data.description}
-                        image={article.data.image as string}
-                        createdAt={createdAt}
-                        slug={articleSlug}
-                        lang="en"
-                        readingTime={article.data.readingTime}
-                        articleUrl={`/knowledge/${articleSlug}`}
-                        keywords={article.data.keywords?.join(", ")}
-                        index={index}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-              <div
-                id="category-search-empty"
-                class="border-gn-soot-700 bg-gn-soot-900/80 text-gn-parchment-200 rounded-2xl border-2 p-8 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
-                aria-live="polite"
-                hidden
-              >
-                No results match your search. Try a different keyword.
-              </div>
-            </>
-          ) : (
+        <div
+          class="relative mx-4 mt-4 md:static md:inset-0 md:mt-0 md:flex md:items-end md:justify-start md:px-6 md:pb-6 lg:px-8"
+        >
+          <div class="p-5">
             <div
-              class="border-gn-soot-700 bg-gn-soot-900/80 rounded-2xl border-2 p-10 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
-              role="status"
-              aria-live="polite"
-              id="category-search-no-results"
+              class="text-gn-parchment-200 flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.14em] uppercase"
             >
-              <p class="text-gn-parchment-50 text-lg font-semibold">
-                No articles in this category yet.
-              </p>
-              <p class="text-gn-parchment-200 mt-2 text-sm">
-                Check back soon for fresh additions.
-              </p>
+              <span class="bg-gn-amber-400 h-2 w-2 rounded-full"></span>
+              {filteredArticles.length} articles
             </div>
-          )
-        }
-      </section>
-    </div>
+            <h1
+              id="category-heading"
+              class="text-gn-parchment-50 mt-3 text-2xl leading-tight font-semibold text-balance sm:text-3xl md:text-4xl"
+            >
+              {category.name}
+            </h1>
+            <p
+              class="text-gn-parchment-200 mt-2 text-base leading-relaxed text-balance sm:text-lg"
+            >
+              {category.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
 
-    <BackToTop lang="en" />
-  </div>
+    <section
+      aria-labelledby="category-heading"
+      aria-describedby="category-helper-text"
+      class="space-y-6"
+    >
+      <div class="space-y-3">
+        <p id="category-helper-text" class="text-gn-parchment-200 text-sm sm:text-base">
+          Article cards announce title, description, publish date, and estimated reading
+          time.
+        </p>
+        <SearchPanel
+          idBase="category-search"
+          label="Search articles"
+          placeholder="Search by title, description, or keyword"
+          ariaControls="category-articles-list"
+          statusAllText="Showing all articles"
+          statusCountTemplate="{count} articles found"
+          noResultsTemplate='No results for "{term}"'
+        />
+      </div>
+      {
+        filteredArticles.length > 0 ? (
+          <>
+            <ul
+              class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              id="category-articles-list"
+              aria-label={`${category.name} articles`}
+            >
+              {filteredArticles.map((article, index: number) => {
+                const createdAt =
+                  article.data.createdAt instanceof Date
+                    ? article.data.createdAt
+                    : normalizeDate(article.data.createdAt) || new Date();
+                const articleSlug = "slug" in article ? article.slug : article.id;
+
+                return (
+                  <li
+                    class="group gn-panel bg-gn-soot-800/90 relative overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1"
+                    data-search-text={`${article.data.title} ${article.data.description} ${article.data.keywords?.join(" ") || ""}`}
+                  >
+                    <KnowledgeCard
+                      title={article.data.title}
+                      description={article.data.description}
+                      image={article.data.image as string}
+                      createdAt={createdAt}
+                      slug={articleSlug}
+                      lang="en"
+                      readingTime={article.data.readingTime}
+                      articleUrl={`/knowledge/${articleSlug}`}
+                      keywords={article.data.keywords?.join(", ")}
+                      index={index}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+            <div
+              id="category-search-empty"
+              class="border-gn-soot-700 bg-gn-soot-900/80 text-gn-parchment-200 rounded-2xl border-2 p-8 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
+              aria-live="polite"
+              hidden
+            >
+              No results match your search. Try a different keyword.
+            </div>
+          </>
+        ) : (
+          <div
+            class="border-gn-soot-700 bg-gn-soot-900/80 rounded-2xl border-2 p-10 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
+            role="status"
+            aria-live="polite"
+            id="category-search-no-results"
+          >
+            <p class="text-gn-parchment-50 text-lg font-semibold">
+              No articles in this category yet.
+            </p>
+            <p class="text-gn-parchment-200 mt-2 text-sm">
+              Check back soon for fresh additions.
+            </p>
+          </div>
+        )
+      }
+    </section>
+  </PageShell>
+
+  <BackToTop lang="en" />
 </Layout>
