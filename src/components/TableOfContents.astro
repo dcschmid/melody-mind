@@ -63,17 +63,13 @@ const filteredHeadings = headings.filter(
   (heading) => heading.depth === 2 || heading.depth === 3
 );
 
-// Check if there are any headings to display
-const hasHeadings = filteredHeadings.length > 0;
-
 // Use title from props or default to translated title
 const tocTitle = title || t("toc.nav.label");
 ---
 
 <div
-  class={`gn-panel bg-gn-soot-800/90 mb-8 rounded-3xl p-5 ${className}`.trim()}
+  class={`gn-panel bg-gn-soot-800/90 z-20 mb-8 rounded-3xl p-4 backdrop-blur-sm sm:p-5 ${className}`.trim()}
   data-toc-shell
-  hidden={!hasHeadings}
 >
   <div class="relative" data-toc-root>
     <div class="relative">
@@ -82,7 +78,7 @@ const tocTitle = title || t("toc.nav.label");
         aria-expanded="false"
         aria-controls="toc-content"
         aria-label={t("toc.toggle.label")}
-        class="border-gn-soot-700 bg-gn-soot-900/90 text-gn-parchment-50 hover:border-gn-amber-300 hover:bg-gn-soot-800 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] w-full items-center justify-between rounded-lg border-2 px-4 py-3 text-left text-base font-medium shadow-[4px_4px_0_rgba(0,0,0,0.75)] transition-all duration-300 hover:shadow-[6px_6px_0_rgba(0,0,0,0.82)] focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
+        class="border-gn-soot-700/80 bg-gn-soot-900/80 text-gn-parchment-50 hover:border-gn-amber-300 hover:bg-gn-soot-800 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[48px] w-full items-center justify-between rounded-2xl border-2 px-5 py-3 text-left text-base font-medium shadow-[inset_0_1px_0_rgba(255,255,255,0.06),4px_4px_0_rgba(0,0,0,0.75)] transition-all duration-300 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),6px_6px_0_rgba(0,0,0,0.82)] focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2"
       >
         <span class="flex items-center gap-3">
           <Icon name="menu" class="text-gn-amber-300 h-5 w-5" aria-hidden="true" />
@@ -106,9 +102,9 @@ const tocTitle = title || t("toc.nav.label");
       <div
         id="toc-content"
         aria-labelledby="toc-toggle"
-        class="border-gn-soot-700 bg-gn-soot-900/90 mt-3 hidden overflow-hidden rounded-lg border-2 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-sm transition-all duration-300"
+        class="border-gn-soot-700/80 bg-gn-soot-900/85 mt-4 hidden overflow-hidden rounded-2xl border-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),4px_4px_0_rgba(0,0,0,0.7)] backdrop-blur-sm transition-all duration-300"
       >
-        <nav aria-label={t("toc.nav.label")} class="p-4">
+        <nav aria-label={t("toc.nav.label")} class="p-5">
           <a
             href="#article-content"
             class="text-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 mb-4 block min-h-[44px] text-sm font-semibold no-underline transition-colors duration-200 hover:underline hover:underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
@@ -152,10 +148,14 @@ const tocTitle = title || t("toc.nav.label");
     const tocList = document.getElementById("toc-list");
     const articleRoot = document.getElementById("article-content");
 
+    const setShellVisibility = (visible: boolean): void => {
+      if (!(shell instanceof HTMLElement)) return;
+      shell.hidden = !visible;
+      shell.setAttribute("aria-hidden", visible ? "false" : "true");
+    };
+
     if (!toggle || !content) {
-      if (shell instanceof HTMLElement) {
-        shell.hidden = true;
-      }
+      setShellVisibility(false);
       return;
     }
 
@@ -195,21 +195,15 @@ const tocTitle = title || t("toc.nav.label");
 
     const buildTocFromDom = (): void => {
       if (!tocList || !articleRoot) {
-        if (shell instanceof HTMLElement) {
-          shell.hidden = true;
-        }
+        setShellVisibility(Boolean(tocList?.children.length));
         return;
       }
       const headingNodes = Array.from(articleRoot.querySelectorAll("h2, h3"));
       if (!headingNodes.length) {
-        if (shell instanceof HTMLElement) {
-          shell.hidden = true;
-        }
+        setShellVisibility(Boolean(tocList?.children.length));
         return;
       }
-      if (shell instanceof HTMLElement) {
-        shell.hidden = false;
-      }
+      setShellVisibility(true);
 
       const seenIds = new Set<string>();
       const headings = headingNodes

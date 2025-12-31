@@ -242,7 +242,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     </div>
 
     <div class="container-shell relative pt-10 pb-16">
-      <div class="mb-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
+      <div class="mb-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
         <header class="gn-panel bg-gn-soot-800/90 space-y-5 rounded-3xl p-6">
           <div
             class="text-gn-parchment-200 flex flex-wrap items-center gap-3 text-xs tracking-[0.16em] uppercase sm:text-sm"
@@ -284,14 +284,14 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
             level="h1"
             textSize="xl"
             textAlign="left"
-            className="text-gn-parchment-50"
+            className="text-gn-parchment-50 mb-0"
           >
             {entry.data.title}
           </Headline>
           <Paragraph
             textSize="lg"
             textAlign="left"
-            className="text-gn-parchment-100 max-w-4xl"
+            className="text-gn-parchment-100 mb-0 max-w-4xl"
           >
             {entry.data.description}
           </Paragraph>
@@ -311,7 +311,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           </div>
         </header>
 
-        <div class="flex flex-col gap-3 lg:gap-4">
+        <div class="flex flex-col gap-4 lg:gap-5">
           <div
             class="group gn-panel bg-gn-soot-800/90 relative overflow-hidden rounded-3xl"
           >
@@ -355,7 +355,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           {
             entry.data.playlists?.spotifyPlaylist ||
             entry.data.playlists?.deezerPlaylist ? (
-              <div class="gn-panel bg-gn-soot-800/90 rounded-2xl p-3">
+              <div class="gn-panel bg-gn-soot-800/90 rounded-3xl p-4">
                 <div class="text-gn-parchment-200 mb-2 flex items-center gap-2 text-xs font-semibold tracking-[0.12em] uppercase">
                   <Icon
                     name="music"
@@ -394,7 +394,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 
           {
             podcastUrl ? (
-              <div class="gn-panel bg-gn-soot-800/90 rounded-2xl p-4">
+              <div class="gn-panel bg-gn-soot-800/90 rounded-3xl p-4">
                 <div class="flex items-start gap-3">
                   <div class="bg-gn-amber-500/15 text-gn-amber-100 ring-gn-soot-700 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ring-2">
                     <Icon name="headphones" class="h-5 w-5" aria-hidden="true" />
@@ -450,7 +450,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           aria-labelledby="article-title"
           aria-label={translate("accessibility.main_content", "Main content")}
         >
-          <Prose fullWidth={false}>
+          <Prose fullWidth={true}>
             <Content />
           </Prose>
         </div>
