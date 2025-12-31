@@ -71,7 +71,7 @@ const tocTitle = title || t("toc.nav.label");
 ---
 
 <div
-  class={`gn-panel bg-gn-soot-800/90 rounded-3xl p-5 ${className}`.trim()}
+  class={`gn-panel bg-gn-soot-800/90 mb-8 rounded-3xl p-5 ${className}`.trim()}
   data-toc-shell
   hidden={!hasHeadings}
 >
@@ -183,6 +183,16 @@ const tocTitle = title || t("toc.nav.label");
     let isOpen = false;
     setExpanded(isOpen);
 
+    const ensureAnchor = (heading: HTMLElement, text: string, id: string): void => {
+      if (heading.querySelector(".heading-anchor")) return;
+      const anchor = document.createElement("a");
+      anchor.href = `#${id}`;
+      anchor.className = "heading-anchor";
+      anchor.textContent = "#";
+      anchor.setAttribute("aria-label", `Link to section: ${text}`);
+      heading.appendChild(anchor);
+    };
+
     const buildTocFromDom = (): void => {
       if (!tocList || !articleRoot) {
         if (shell instanceof HTMLElement) {
@@ -216,6 +226,7 @@ const tocTitle = title || t("toc.nav.label");
           }
           seenIds.add(id);
           if (!node.id) node.id = id;
+          ensureAnchor(node as HTMLElement, text, id);
 
           return { depth, id, text };
         })

@@ -168,6 +168,14 @@ const structuredDataExtra = [
 
 const wordsCount = entry.body ? entry.body.trim().split(/\s+/).length : 0;
 const readingResult = getReadingTime(entry.body || "", { languageCode: lang });
+const publishedDate = new Date(
+  entry.data.updatedAt || entry.data.createdAt || new Date()
+);
+const publishedDateLabel = publishedDate.toLocaleDateString(lang, {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 
 function translate(key: string, fallback: string): string {
   try {
@@ -209,10 +217,12 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 <Layout {pageSeo} {breadcrumbs}>
   <Fragment slot="head"></Fragment>
 
-  <div class="bg-gn-soot-950/70 fixed inset-x-0 top-0 z-[60] h-1.5 backdrop-blur-sm">
+  <div
+    class="bg-gn-soot-950/70 fixed inset-x-0 top-0 z-[60] h-1 backdrop-blur-sm sm:h-1.5 lg:h-2"
+  >
     <div
       id="reading-progress-bar"
-      class="from-gn-amber-400 via-gn-amber-300 to-gn-amber-200 h-full w-0 bg-linear-to-r shadow-[0_0_6px_rgba(0,0,0,0.45)]"
+      class="from-gn-amber-400 via-gn-amber-300 to-gn-amber-200 h-full w-0 bg-linear-to-r shadow-[0_0_10px_rgba(217,166,92,0.45)]"
       role="presentation"
       aria-hidden="true"
     >
@@ -235,29 +245,40 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       <div class="mb-8 grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
         <header class="gn-panel bg-gn-soot-800/90 space-y-5 rounded-3xl p-6">
           <div
-            class="text-gn-parchment-200 flex flex-wrap items-center justify-between gap-3 text-xs font-semibold tracking-[0.12em] uppercase sm:text-sm"
+            class="text-gn-parchment-200 flex flex-wrap items-center gap-3 text-xs tracking-[0.16em] uppercase sm:text-sm"
           >
             <span
-              class="bg-gn-amber-500/20 text-gn-amber-200 ring-gn-soot-700 rounded-full px-3 py-1.5 ring-2"
+              class="bg-gn-amber-500/20 text-gn-amber-200 ring-gn-soot-700/80 rounded-full px-3 py-1.5 ring-2"
             >
               In-depth report
             </span>
-            <span class="text-gn-parchment-200 flex items-center gap-2">
+            <span
+              class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2 backdrop-blur-sm"
+            >
               <Icon
                 name="calendar"
                 class="text-gn-amber-300 h-4 w-4"
                 aria-hidden="true"
               />
-              {
-                new Date(
-                  entry.data.updatedAt || entry.data.createdAt || new Date()
-                ).toLocaleDateString(lang, {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })
-              }
+              <time datetime={publishedDate.toISOString()}>{publishedDateLabel}</time>
             </span>
+            <span
+              class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2 backdrop-blur-sm"
+            >
+              <Icon name="clock" class="text-gn-amber-300 h-4 w-4" aria-hidden="true" />
+              <span class="font-semibold normal-case">
+                {readingResult.minutes}
+                {t("knowledge.reading.time")}
+              </span>
+            </span>
+            {
+              entry.data.category ? (
+                <span class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 capitalize ring-2 backdrop-blur-sm">
+                  <Icon name="tag" class="text-gn-teal-300 h-4 w-4" aria-hidden="true" />
+                  <span class="font-semibold normal-case">{entry.data.category}</span>
+                </span>
+              ) : null
+            }
           </div>
           <Headline
             level="h1"
@@ -274,27 +295,18 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           >
             {entry.data.description}
           </Paragraph>
-          <div class="text-gn-parchment-200 flex flex-wrap gap-3 text-sm">
+          <div class="text-gn-parchment-200 flex flex-wrap gap-3 text-xs sm:text-sm">
             <div
-              class="bg-gn-soot-800 ring-gn-soot-700 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2"
-            >
-              <Icon name="clock" class="text-gn-amber-300 h-4 w-4" aria-hidden="true" />
-              <span class="font-semibold">
-                {readingResult.minutes}
-                {t("knowledge.reading.time")}
-              </span>
-            </div>
-            <div
-              class="bg-gn-soot-800 ring-gn-soot-700 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2"
+              class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2 backdrop-blur-sm"
             >
               <Icon
                 name="file-text"
                 class="text-gn-teal-300 h-4 w-4"
                 aria-hidden="true"
               />
-              <span class="font-semibold"
-                >{t("knowledge.word_count", { count: wordsCount })}</span
-              >
+              <span class="font-semibold">
+                {t("knowledge.word_count", { count: wordsCount })}
+              </span>
             </div>
           </div>
         </header>
@@ -422,7 +434,11 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         </div>
       </div>
 
-      <TableOfContents headings={mergedHeadings} lang={lang} />
+      <TableOfContents
+        headings={mergedHeadings}
+        lang={lang}
+        className="lg:sticky lg:top-24"
+      />
 
       <article
         id="article-content"
@@ -434,7 +450,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           aria-labelledby="article-title"
           aria-label={translate("accessibility.main_content", "Main content")}
         >
-          <Prose>
+          <Prose fullWidth={false}>
             <Content />
           </Prose>
         </div>

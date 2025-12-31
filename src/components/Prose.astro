@@ -70,7 +70,7 @@ const sizeClass = (() => {
 })();
 
 const invertClass = invert ? "prose-invert" : "";
-const maxWidthClass = fullWidth ? "max-w-none" : "";
+const maxWidthClass = fullWidth ? "max-w-none" : "mx-auto max-w-prose lg:max-w-3xl";
 
 const baseClasses = [
   "prose",
@@ -95,6 +95,17 @@ const baseClasses = [
   "prose-blockquote:py-2",
   "prose-blockquote:px-4",
   "prose-blockquote:rounded-r-lg",
+  "prose-p:leading-relaxed",
+  "prose-li:leading-relaxed",
+  "prose-p:my-5",
+  "prose-ul:my-6",
+  "prose-ol:my-6",
+  "prose-li:my-1.5",
+  "prose-h2:mt-12",
+  "prose-h2:mb-4",
+  "prose-h3:mt-10",
+  "prose-h3:mb-3",
+  "prose-hr:my-10",
 ];
 
 const classes = [...baseClasses, extra].filter(Boolean).join(" ");

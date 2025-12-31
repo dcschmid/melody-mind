@@ -33,7 +33,7 @@ const inputId = `${idBase}-input`;
 const clearId = `${idBase}-clear`;
 const resetId = `${idBase}-reset`;
 const inputClasses =
-  "block w-full rounded-3xl border-2 border-gn-soot-700 bg-gn-soot-900/85 py-5 text-xl pr-20 pl-16 font-medium text-gn-parchment-50 placeholder-gn-parchment-200 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-md transition-all duration-300 hover:border-gn-amber-300 hover:shadow-[6px_6px_0_rgba(0,0,0,0.8)] focus:border-gn-amber-300 focus:ring-4 focus:ring-gn-amber-300 focus:outline-none";
+  "block w-full rounded-3xl border-2 border-gn-soot-700 bg-gn-soot-900/85 py-4 text-lg pr-16 pl-14 font-medium text-gn-parchment-50 placeholder-gn-parchment-200 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-md transition-all duration-300 hover:border-gn-amber-300 hover:shadow-[6px_6px_0_rgba(0,0,0,0.8)] focus:border-gn-amber-300 focus:ring-4 focus:ring-gn-amber-300 focus:outline-none sm:py-5 sm:text-xl sm:pr-20 sm:pl-16";
 ---
 
 <div class="w-full" data-search-root>
@@ -112,7 +112,7 @@ const inputClasses =
   <div
     id={`${idBase}-status`}
     data-search-status
-    class="sr-only"
+    class="text-gn-parchment-300 mt-3 text-center text-xs sm:text-sm"
     role="status"
     aria-live="polite"
     data-search-status-all={statusAllText}
