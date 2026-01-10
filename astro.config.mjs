@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import icon from "astro-icon";
 import path from "path";
-import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import metaTags from "astro-meta-tags";
@@ -11,6 +10,11 @@ import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    css: {
+      transformer: "lightningcss",
+    },
+  },
   site: "https://melody-mind.de",
   output: "static",
   
@@ -30,7 +34,6 @@ export default defineConfig({
   },
   
   vite: {
-    plugins: [tailwindcss()],
     resolve: {
       alias: {
         "@components": path.resolve("./src/components"),

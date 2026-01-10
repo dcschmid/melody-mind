@@ -25,17 +25,8 @@ const { targetId = "main-content" } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Skip link classes - minimal and essential
-const skipLinkClasses = [
-  "absolute -top-[9999px] left-1/2 -translate-x-1/2 z-50",
-  "bg-gn-amber-500 text-gn-soot-950 px-4 py-2 rounded-b-lg shadow-[4px_4px_0_rgba(0,0,0,0.7)]",
-  "text-center font-bold no-underline",
-  "flex items-center justify-center gap-2",
-  "focus-visible:top-0 focus-visible:outline-2 focus-visible:outline-gn-amber-300 focus-visible:outline-offset-4",
-].join(" ");
-
-// Icon classes - minimal
-const iconClasses = "w-4 h-4 text-gn-soot-950";
+const skipLinkClasses = "skip-link";
+const iconClasses = "skip-link__icon";
 ---
 
 <a

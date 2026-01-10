@@ -1,9 +1,8 @@
 ---
 /**
- * Prose Component - Tailwind Typography Wrapper
+ * Prose Component - BEM Prose Wrapper
  *
- * A reusable component that wraps rendered Markdown content with Tailwind Typography styles.
- * Based on the official Astro documentation: https://docs.astro.build/en/recipes/tailwind-rendered-markdown/
+ * A reusable component that wraps rendered Markdown content with BEM-based prose styles.
  *
  * @component
  * @example
@@ -19,7 +18,7 @@ export interface Props {
   className?: string;
   /** Raw HTML to render (if provided, rendered via set:html) */
   html?: string;
-  /** Size variant: sm | md | lg | xl (maps to tailwind-prose size utilities) */
+  /** Size variant: sm | md | lg | xl */
   size?: "sm" | "md" | "lg" | "xl";
   /** Invert colors (useful for dark mode) */
   invert?: boolean;
@@ -58,61 +57,24 @@ if (typeof sanitizedHtml === "string") {
 const sizeClass = (() => {
   switch (size) {
     case "sm":
-      return "prose-sm";
+      return "prose--sm";
     case "md":
-      return "prose";
+      return "prose--md";
     case "xl":
-      return "prose-xl";
+      return "prose--xl";
     case "lg":
     default:
-      return "prose-lg";
+      return "prose--lg";
   }
 })();
 
-const invertClass = invert ? "prose-invert" : "";
-const maxWidthClass = fullWidth ? "max-w-none" : "mx-auto";
+const invertClass = invert ? "prose--invert" : "prose--standard";
+const widthClass = fullWidth ? "prose--full" : "";
 
-const baseClasses = [
-  "prose",
-  "prose-hr:border-gn-soot-700",
-  sizeClass,
-  invertClass,
-  maxWidthClass,
-  "prose-headings:text-gn-parchment-50",
-  "prose-p:text-gn-parchment-200",
-  "prose-li:text-gn-parchment-200",
-  "prose-a:text-gn-amber-300 prose-a:no-underline",
-  "prose-a:transition-colors",
-  "hover:prose-a:text-gn-amber-200 hover:prose-a:underline hover:prose-a:underline-offset-4",
-  "prose-strong:text-gn-parchment-50",
-  "prose-code:text-gn-parchment-50",
-  "prose-code:bg-gn-soot-800/90",
-  "prose-code:px-2",
-  "prose-code:py-1",
-  "prose-code:rounded-lg",
-  "prose-blockquote:border-l-gn-amber-400",
-  "prose-blockquote:bg-gn-soot-800/80",
-  "prose-blockquote:py-2",
-  "prose-blockquote:px-4",
-  "prose-blockquote:rounded-r-lg",
-  "prose-p:leading-relaxed",
-  "prose-li:leading-relaxed",
-  "prose-p:my-5",
-  "prose-ul:my-6",
-  "prose-ol:my-6",
-  "prose-li:my-1.5",
-  "prose-h2:mt-12",
-  "prose-h2:mb-4",
-  "prose-h3:mt-10",
-  "prose-h3:mb-3",
-  "prose-hr:my-10",
-];
-
+const baseClasses = ["prose", sizeClass, invertClass, widthClass];
 const classes = [...baseClasses, extra].filter(Boolean).join(" ");
 ---
 
 <div class={classes}>
   {sanitizedHtml ? <div set:html={sanitizedHtml} /> : <slot />}
 </div>
-
-```

@@ -50,8 +50,7 @@
  */
 import { Head } from "astro-capo";
 
-// Primary accessible font: Atkinson Hyperlegible will be loaded from local files via @font-face
-// Removed @fontsource imports to avoid duplicate network/font loading — local files are served from /public/fonts
+// Primary accessible font: Atkinson Hyperlegible loaded via @fontsource imports in CSS.
 
 import SEO from "@components/SEO.astro";
 import SkipLink from "@components/Shared/SkipLink.astro";
@@ -336,29 +335,20 @@ const preloadedResources: Array<{
   crossorigin?: "anonymous" | "use-credentials";
 }> = [];
 
-// Font preloading optimization with @fontsource integration
-// @fontsource automatically handles font loading with display:swap
-// We enhance this with strategic preloading for better Core Web Vitals
-const fontPreloads = [
-  // Critical: Primary body font - highest priority for FCP
-  {
-    href: "/fonts/atkinson-hyperlegible-regular.woff2",
-    as: "font" as const,
-    type: "font/woff2",
-    crossorigin: "anonymous",
-  },
-];
+// Font preloading optional; handled by @fontsource imports in CSS.
+const fontPreloads: Array<{
+  href: string;
+  as: "style" | "script" | "font" | "image";
+  type?: string;
+  crossorigin?: "anonymous" | "use-credentials";
+}> = [];
 
 // DNS prefetching for external domains to reduce connection time and improve performance
 const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 ---
 
 <!doctype html>
-<html
-  lang={String(lang)}
-  class="bg-gn-soot-950 mx-auto box-border w-full max-w-7xl overflow-x-hidden scroll-smooth font-sans antialiased"
-  dir="ltr"
->
+<html lang={String(lang)} class="app" dir="ltr">
   <Head>
     <!-- Character set and viewport configuration for mobile optimization -->
     <meta charset="UTF-8" />
@@ -416,16 +406,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       ))
     }
 
-    <!-- Local @font-face declarations: serve fonts from /fonts with font-display: swap for better LCP and no external fetch -->
-    <style>
-      @font-face {
-        font-family: "Atkinson Hyperlegible";
-        src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-    </style>
+    <!-- Fonts are loaded via @fontsource imports in src/styles/fonts.css -->
 
     <!-- Structured data and SEO -->
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -514,15 +495,12 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <script is:inline src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer
     ></script>
   </Head>
-  <body
-    class="bg-gn-soot-900 text-gn-parchment-50 text-wrap-pretty graphic-novel mx-auto min-h-screen w-full overflow-x-hidden text-base leading-relaxed"
-    data-theme="dark"
-  >
+  <body class="app__body" data-theme="dark">
     {/* Skip link for keyboard navigation */}
     <SkipLink />
 
     {/* Main content area */}
-    <main id="main-content" tabindex="-1" role="main" class="space-y-4">
+    <main id="main-content" tabindex="-1" role="main" class="app__main">
       {
         breadcrumbs && breadcrumbs.length > 0 && (
           <Breadcrumbs items={breadcrumbs} ariaLabel="Page breadcrumb" />

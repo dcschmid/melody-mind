@@ -93,7 +93,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 ---
 
 <article
-  class="group gn-panel bg-gn-soot-800/90 text-gn-parchment-50 relative isolate flex h-full flex-col overflow-hidden rounded-2xl backdrop-blur-sm transition-all duration-300 focus-within:-translate-y-1 focus-within:shadow-[0_22px_45px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(0,0,0,0.45)]"
+  class="knowledge-card"
   data-testid="knowledge-card"
   data-title={title}
   data-description={description}
@@ -105,14 +105,13 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     hasOwnLink ? (
       <a
         href={articleUrl}
-        class="group focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex h-full flex-col overflow-hidden rounded-2xl text-inherit no-underline transition-all duration-200 focus-visible:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+        class="knowledge-card__link"
         aria-labelledby={cardId}
         aria-describedby={`${cardId}-desc`}
       >
-        <div class="relative flex h-full flex-col">
-          <div class="from-gn-amber-500/10 via-gn-amber-400/6 absolute inset-0 bg-linear-to-br to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
-
-          <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-[3/2] overflow-hidden rounded-xl border">
+        <div class="knowledge-card__content">
+          <div class="knowledge-card__shine" aria-hidden="true" />
+          <div class="knowledge-card__media">
             <Image
               src={image}
               alt={imageAltText}
@@ -120,17 +119,17 @@ const imageAltText = title ? `Cover image for ${title}` : "";
               decoding="async"
               width="640"
               height="360"
-              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              class="knowledge-card__image"
             />
-            <div class="from-gn-soot-900 absolute inset-0 bg-linear-to-t via-transparent to-transparent opacity-70" />
+            <div class="knowledge-card__overlay" aria-hidden="true" />
           </div>
 
-          <div class="flex grow flex-col justify-start p-6 pb-5">
+          <div class="knowledge-card__body">
             <Headline
               level="h3"
               textSize="base"
               textAlign="left"
-              className="mb-3 text-gn-parchment-50 font-semibold"
+              className="knowledge-card__title"
             >
               {title}
             </Headline>
@@ -138,48 +137,47 @@ const imageAltText = title ? `Cover image for ${title}` : "";
             <Paragraph
               textSize="base"
               textAlign="left"
-              className="mb-4 text-gn-parchment-200 leading-relaxed"
+              className="knowledge-card__description"
             >
               {description}
             </Paragraph>
 
-            <div class="border-gn-soot-700 mt-auto border-t pt-4" id={metaId}>
-              <div class="text-gn-parchment-200 flex items-center justify-between gap-4 text-xs">
+            <div class="knowledge-card__meta" id={metaId}>
+              <div class="knowledge-card__meta-item">
                 <span
-                  class="flex items-center font-medium"
                   aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
                 >
                   <Icon
                     name="clock"
-                    class="text-gn-amber-300 mr-1.5 h-3.5 w-3.5 shrink-0"
+                    class="knowledge-card__meta-icon"
                     aria-hidden="true"
                   />
                   <span>
                     {readingTime} {lang_t("knowledge.reading.time")}
                   </span>
                 </span>
-
-                <time
-                  datetime={createdAt.toISOString()}
-                  class="flex items-center font-medium"
-                  aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
-                >
-                  <Icon
-                    name="calendar"
-                    class="text-gn-amber-300 mr-1.5 h-3.5 w-3.5 shrink-0"
-                    aria-hidden="true"
-                  />
-                  {formattedDate}
-                </time>
               </div>
+              <time
+                datetime={createdAt.toISOString()}
+                class="knowledge-card__meta-item"
+                aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
+              >
+                <Icon
+                  name="calendar"
+                  class="knowledge-card__meta-icon"
+                  aria-hidden="true"
+                />
+                {formattedDate}
+              </time>
             </div>
           </div>
         </div>
         <span class="sr-only">{lang_t("navigation.article.opens")}</span>
       </a>
     ) : (
-      <div class="relative flex h-full flex-col">
-        <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-[3/2] overflow-hidden rounded-xl border">
+      <div class="knowledge-card__content">
+        <div class="knowledge-card__shine" aria-hidden="true" />
+        <div class="knowledge-card__media">
           <Image
             src={image}
             alt={imageAltText}
@@ -187,57 +185,52 @@ const imageAltText = title ? `Cover image for ${title}` : "";
             decoding="async"
             width="640"
             height="360"
-            class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+            class="knowledge-card__image"
           />
-          <div
-            class="absolute inset-0 bg-linear-to-t from-[#0b0e1a] via-transparent to-transparent opacity-60"
-            aria-hidden="true"
-          />
+          <div class="knowledge-card__overlay" aria-hidden="true" />
         </div>
 
-        <div class="flex grow flex-col justify-start p-5 pb-4">
+        <div class="knowledge-card__body">
           <Headline
             level="h3"
             textSize="xl"
             textAlign="center"
-            className="text-gn-parchment-50"
+            className="knowledge-card__title"
           >
             {title}
           </Headline>
 
-          <Paragraph textSize="base" textAlign="center" className="text-gn-parchment-200">
+          <Paragraph
+            textSize="base"
+            textAlign="center"
+            className="knowledge-card__description"
+          >
             {description}
           </Paragraph>
 
-          <div class="border-gn-soot-700 mt-auto border-t pt-4" id={metaId}>
-            <div class="flex items-center justify-between gap-4">
+          <div class="knowledge-card__meta" id={metaId}>
+            <div class="knowledge-card__meta-item">
               <span
-                class="text-gn-parchment-200 flex items-center text-sm"
                 aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
               >
-                <Icon
-                  name="clock"
-                  class="text-gn-amber-300 mr-2 h-4 w-4 shrink-0"
-                  aria-hidden="true"
-                />
+                <Icon name="clock" class="knowledge-card__meta-icon" aria-hidden="true" />
                 <span>
                   {readingTime} {lang_t("knowledge.reading.time")}
                 </span>
               </span>
-
-              <time
-                datetime={createdAt.toISOString()}
-                class="text-gn-parchment-200 flex items-center text-sm"
-                aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
-              >
-                <Icon
-                  name="calendar"
-                  class="text-gn-amber-300 mr-2 h-4 w-4 shrink-0"
-                  aria-hidden="true"
-                />
-                {formattedDate}
-              </time>
             </div>
+            <time
+              datetime={createdAt.toISOString()}
+              class="knowledge-card__meta-item"
+              aria-label={`${lang_t("knowledge.published")}: ${formattedDate}`}
+            >
+              <Icon
+                name="calendar"
+                class="knowledge-card__meta-icon"
+                aria-hidden="true"
+              />
+              {formattedDate}
+            </time>
           </div>
         </div>
       </div>

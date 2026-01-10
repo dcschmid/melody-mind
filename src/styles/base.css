@@ -87,12 +87,7 @@
 /* Reduced motion & data media queries remain here */
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 120ms !important; scroll-behavior: auto !important; }
-  .shadow-2xl, .shadow-xl, .shadow-lg { box-shadow: var(--shadow-md) !important; }
-  .hover\:-translate-y-1:hover { transform: translateY(-2px) !important; }
 }
 
 @media (prefers-reduced-data: reduce) {
-  .bg-gradient-to-r, .bg-gradient-to-br, .bg-gradient-to-b, .bg-gradient-to-l, .bg-gradient-to-tr { background-image: none !important; background-color: #2c2f3a !important; }
-  .shadow-2xl, .shadow-xl { box-shadow: var(--shadow-lg) !important; }
-  .rounded-3xl { border-radius: 1.25rem !important; }
 }

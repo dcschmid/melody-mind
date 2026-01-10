@@ -154,65 +154,52 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <PageShell className="aurora-sheen grid-overlay" containerClass="container-shell py-12">
-    <header class="gn-panel bg-gn-soot-800/90 mb-10 overflow-hidden rounded-3xl">
-      <div class="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
-        <div class="bg-gn-soot-900/60 relative aspect-[3/2] w-full overflow-hidden">
-          <Image
-            src={category.image}
-            alt={`${category.name} hero`}
-            loading="lazy"
-            decoding="async"
-            class="absolute inset-0 aspect-[3/2] h-full w-full object-cover"
-            width="1920"
-            height="1080"
-          />
-          <div
-            class="from-gn-soot-950 via-gn-soot-900/60 absolute inset-0 bg-linear-to-t to-transparent opacity-70"
-          >
+  <PageShell
+    className="page-shell--aurora page-shell--grid"
+    containerClass="page-shell__container--spacious"
+  >
+    <div class="category-page">
+      <header class="panel category-hero">
+        <div class="category-hero__grid">
+          <div class="category-hero__media">
+            <Image
+              src={category.image}
+              alt={`${category.name} hero`}
+              loading="lazy"
+              decoding="async"
+              class="category-hero__image"
+              width="1920"
+              height="1080"
+            />
+            <div class="category-hero__overlay" aria-hidden="true"></div>
           </div>
-        </div>
-        <div
-          class="bg-gn-soot-900/70 border-gn-soot-700/80 flex flex-col justify-between gap-5 border-t p-6 sm:p-8 lg:border-t-0 lg:border-l"
-        >
-          <div class="space-y-3">
-            <div
-              class="text-gn-parchment-200 flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.16em] uppercase sm:text-sm"
-            >
-              <span class="bg-gn-amber-400 h-2 w-2 rounded-full"></span>
-              Explore category
+          <div class="category-hero__content">
+            <div>
+              <div class="category-hero__eyebrow">
+                <span class="category-hero__dot"></span>
+                Explore category
+              </div>
+              <h1 id="category-heading" class="category-hero__title">
+                {category.name}
+              </h1>
+              <p class="category-hero__description">{category.description}</p>
             </div>
-            <h1
-              id="category-heading"
-              class="text-gn-parchment-50 text-2xl leading-tight font-semibold text-balance sm:text-3xl lg:text-4xl"
-            >
-              {category.name}
-            </h1>
-            <p
-              class="text-gn-parchment-200 text-base leading-relaxed text-balance sm:text-lg"
-            >
-              {category.description}
-            </p>
-          </div>
-          <div class="text-gn-parchment-200 flex flex-wrap gap-3 text-xs sm:text-sm">
-            <div
-              class="bg-gn-soot-800 ring-gn-soot-700 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2"
-            >
-              <span class="bg-gn-amber-400 h-2 w-2 rounded-full"></span>
-              <span class="font-semibold">{filteredArticles.length} articles</span>
+            <div class="category-hero__stats">
+              <span class="category-hero__stat">
+                <span class="category-hero__dot"></span>
+                {filteredArticles.length} articles
+              </span>
             </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <section
-      aria-labelledby="category-heading"
-      aria-describedby="category-helper-text"
-      class="space-y-6"
-    >
-      <div class="space-y-3">
-        <p id="category-helper-text" class="text-gn-parchment-200 text-sm sm:text-base">
+      <section
+        class="category-page__section"
+        aria-labelledby="category-heading"
+        aria-describedby="category-helper-text"
+      >
+        <p id="category-helper-text" class="category-page__helper">
           Article cards announce title, description, publish date, and estimated reading
           time.
         </p>
@@ -225,69 +212,66 @@ const pageSeo = buildPageSeo({
           statusCountTemplate="{count} articles found"
           noResultsTemplate='No results for "{term}"'
         />
-      </div>
-      {
-        filteredArticles.length > 0 ? (
-          <>
-            <ul
-              class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-              id="category-articles-list"
-              aria-label={`${category.name} articles`}
-            >
-              {filteredArticles.map((article, index: number) => {
-                const createdAt =
-                  article.data.createdAt instanceof Date
-                    ? article.data.createdAt
-                    : normalizeDate(article.data.createdAt) || new Date();
-                const articleSlug = "slug" in article ? article.slug : article.id;
+        {
+          filteredArticles.length > 0 ? (
+            <>
+              <ul
+                class="category-page__grid"
+                id="category-articles-list"
+                aria-label={`${category.name} articles`}
+              >
+                {filteredArticles.map((article, index: number) => {
+                  const createdAt =
+                    article.data.createdAt instanceof Date
+                      ? article.data.createdAt
+                      : normalizeDate(article.data.createdAt) || new Date();
+                  const articleSlug = "slug" in article ? article.slug : article.id;
 
-                return (
-                  <li
-                    class="group gn-panel bg-gn-soot-800/90 relative overflow-hidden rounded-2xl transition-all duration-300 focus-within:-translate-y-1 focus-within:shadow-[0_22px_45px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(0,0,0,0.45)]"
-                    data-search-text={`${article.data.title} ${article.data.description} ${article.data.keywords?.join(" ") || ""}`}
-                  >
-                    <KnowledgeCard
-                      title={article.data.title}
-                      description={article.data.description}
-                      image={article.data.image as string}
-                      createdAt={createdAt}
-                      slug={articleSlug}
-                      lang="en"
-                      readingTime={article.data.readingTime}
-                      articleUrl={`/knowledge/${articleSlug}`}
-                      keywords={article.data.keywords?.join(", ")}
-                      index={index}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
+                  return (
+                    <li
+                      data-search-text={`${article.data.title} ${article.data.description} ${article.data.keywords?.join(" ") || ""}`}
+                    >
+                      <KnowledgeCard
+                        title={article.data.title}
+                        description={article.data.description}
+                        image={article.data.image as string}
+                        createdAt={createdAt}
+                        slug={articleSlug}
+                        lang="en"
+                        readingTime={article.data.readingTime}
+                        articleUrl={`/knowledge/${articleSlug}`}
+                        keywords={article.data.keywords?.join(", ")}
+                        index={index}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+              <div
+                id="category-search-empty"
+                class="category-page__empty"
+                aria-live="polite"
+                hidden
+              >
+                No results match your search. Try a different keyword.
+              </div>
+            </>
+          ) : (
             <div
-              id="category-search-empty"
-              class="border-gn-soot-700 bg-gn-soot-900/80 text-gn-parchment-200 rounded-2xl border-2 p-8 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
+              class="category-page__empty"
+              role="status"
               aria-live="polite"
-              hidden
+              id="category-search-no-results"
             >
-              No results match your search. Try a different keyword.
+              <p class="category-page__empty-title">No articles in this category yet.</p>
+              <p class="category-page__empty-text">
+                Check back soon for fresh additions.
+              </p>
             </div>
-          </>
-        ) : (
-          <div
-            class="border-gn-soot-700 bg-gn-soot-900/80 rounded-2xl border-2 p-10 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
-            role="status"
-            aria-live="polite"
-            id="category-search-no-results"
-          >
-            <p class="text-gn-parchment-50 text-lg font-semibold">
-              No articles in this category yet.
-            </p>
-            <p class="text-gn-parchment-200 mt-2 text-sm">
-              Check back soon for fresh additions.
-            </p>
-          </div>
-        )
-      }
-    </section>
+          )
+        }
+      </section>
+    </div>
   </PageShell>
 
   <BackToTop lang="en" />

@@ -8,20 +8,16 @@ interface Props {
 
 const {
   className = "",
-  containerClass = "container-shell",
+  containerClass = "",
   overlayClass = "",
   includeOverlay = true,
 } = Astro.props as Props;
 
-const rootClasses = ["text-gn-parchment-50 relative min-h-screen", className]
+const rootClasses = ["page-shell", className].filter(Boolean).join(" ");
+const overlayClasses = ["page-shell__overlay", overlayClass].filter(Boolean).join(" ");
+const containerClasses = ["page-shell__container", containerClass]
   .filter(Boolean)
   .join(" ");
-
-const overlayClasses = ["pointer-events-none absolute inset-0", overlayClass]
-  .filter(Boolean)
-  .join(" ");
-
-const containerClasses = ["relative", containerClass].filter(Boolean).join(" ");
 ---
 
 <div class={rootClasses}>

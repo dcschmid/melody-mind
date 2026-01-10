@@ -1,26 +1,22 @@
-<footer class="border-gn-soot-700 bg-gn-soot-900/95 mt-16 border-t-2 backdrop-blur-sm">
-  <div class="text-gn-parchment-100 container-shell flex flex-col gap-8 py-10">
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="space-y-3">
-        <p class="text-gn-amber-300 text-sm font-semibold tracking-[0.14em] uppercase">
-          Melody Mind
-        </p>
-        <p class="text-gn-parchment-200 text-sm leading-relaxed">
+<footer class="site-footer">
+  <div class="site-footer__container">
+    <div class="site-footer__grid">
+      <div class="site-footer__section">
+        <p class="site-footer__title">Melody Mind</p>
+        <p class="site-footer__text">
           Curated knowledge, timelines, and playlists to help you listen with intent and
           discover new sounds.
         </p>
       </div>
 
-      <div class="space-y-3">
-        <p class="text-gn-amber-300 text-sm font-semibold tracking-[0.14em] uppercase">
-          Explore
-        </p>
+      <div class="site-footer__section">
+        <p class="site-footer__title">Explore</p>
         <nav
           aria-label="Footer navigation"
-          class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-1"
+          class="site-footer__nav site-footer__nav--two-column"
         >
           <a
-            class="text-gn-parchment-200 hover:text-gn-parchment-50 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 rounded text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+            class="site-footer__link"
             href="https://podcasts.melody-mind.de"
             target="_blank"
             rel="noopener noreferrer"
@@ -31,13 +27,11 @@
         </nav>
       </div>
 
-      <div class="space-y-3">
-        <p class="text-gn-amber-300 text-sm font-semibold tracking-[0.14em] uppercase">
-          Support
-        </p>
-        <div class="flex flex-wrap gap-3 sm:flex-nowrap sm:gap-2">
+      <div class="site-footer__section">
+        <p class="site-footer__title">Support</p>
+        <div class="site-footer__support">
           <a
-            class="bg-gn-soot-800 text-gn-parchment-100 ring-gn-soot-700 hover:bg-gn-soot-700 hover:text-gn-parchment-50 hover:ring-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex-1 rounded-lg px-3 py-2 text-center text-sm font-semibold shadow-[3px_3px_0_rgba(0,0,0,0.75)] ring-2 transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-3 focus-visible:ring-offset-2"
+            class="site-footer__support-link"
             href="https://www.paypal.me/dcschmid"
             target="_blank"
             rel="noopener noreferrer"
@@ -46,7 +40,7 @@
             PayPal
           </a>
           <a
-            class="bg-gn-soot-800 text-gn-parchment-100 ring-gn-soot-700 hover:bg-gn-soot-700 hover:text-gn-parchment-50 hover:ring-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex-1 rounded-lg px-3 py-2 text-center text-sm font-semibold shadow-[3px_3px_0_rgba(0,0,0,0.75)] ring-2 transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-3 focus-visible:ring-offset-2"
+            class="site-footer__support-link"
             href="https://www.buymeacoffee.com/dcschmid"
             target="_blank"
             rel="noopener noreferrer"
@@ -57,32 +51,18 @@
         </div>
       </div>
 
-      <div class="space-y-3">
-        <p class="text-gn-amber-300 text-sm font-semibold tracking-[0.14em] uppercase">
-          Legal
-        </p>
-        <nav aria-label="Legal navigation" class="grid grid-cols-1 gap-2">
-          <a
-            class="text-gn-parchment-200 hover:text-gn-parchment-50 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 rounded text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-            href="/imprint"
-          >
-            Imprint
-          </a>
-          <a
-            class="text-gn-parchment-200 hover:text-gn-parchment-50 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 rounded text-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
-            href="/privacy"
-          >
-            Privacy Policy
-          </a>
+      <div class="site-footer__section">
+        <p class="site-footer__title">Legal</p>
+        <nav aria-label="Legal navigation" class="site-footer__nav">
+          <a class="site-footer__link" href="/imprint"> Imprint </a>
+          <a class="site-footer__link" href="/privacy"> Privacy Policy </a>
         </nav>
       </div>
     </div>
 
-    <div
-      class="border-gn-soot-700 text-gn-parchment-200 flex flex-col gap-4 border-t pt-4 text-sm sm:flex-row sm:items-center sm:justify-between"
-    >
-      <p class="leading-relaxed">© 2025 MelodyMind. All rights reserved.</p>
-      <p class="text-gn-parchment-300 text-xs leading-relaxed">
+    <div class="site-footer__meta">
+      <p>© 2025 MelodyMind. All rights reserved.</p>
+      <p class="site-footer__meta-note">
         Optimized for accessibility (WCAG AAA) and responsive on all screens.
       </p>
     </div>

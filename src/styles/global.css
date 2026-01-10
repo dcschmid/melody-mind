@@ -3,19 +3,19 @@
  * Global stylesheet for MelodyMind
  */
 
-/* Import Tailwind and modularized style layers */
-@import "tailwindcss";
-@import "tw-prose";
+/* Import fonts and modularized style layers */
+@import "./fonts.css";
 @import "./tokens.css";
 @import "./base.css";
 @import "./utilities.css";
+@import "./site.css";
+@import "./knowledge.css";
 
 /* ======================================
- * TAILWIND THEME CONFIGURATION
- * Converting existing CSS variables to Tailwind theme tokens
+ * THEME CONFIGURATION
  * ====================================== */
 
-/* All @theme tokens moved to tokens.css */
+/* Tokens defined in tokens.css */
 
 /* ======================================
  * CUSTOM PROPERTIES (VARIABLES)
@@ -41,29 +41,10 @@
     transition-duration: 120ms !important;
     scroll-behavior: auto !important;
   }
-  .shadow-2xl, .shadow-xl, .shadow-lg {
-    box-shadow: var(--shadow-md) !important; /* Reduce expensive shadows */
-  }
-  /* Scale-based hover effects become subtle */
-  .hover\:-translate-y-1:hover {
-    transform: translateY(-2px) !important;
-  }
 }
 
 @media (prefers-reduced-data: reduce) {
-  /* Remove heavy gradient backgrounds in overlays/cards; fallback to flat color */
-  .bg-gradient-to-r, .bg-gradient-to-br, .bg-gradient-to-b, .bg-gradient-to-l, .bg-gradient-to-tr {
-    background-image: none !important;
-    background-color: #2c2f3a !important;
-  }
-  /* Tone down large shadows */
-  .shadow-2xl, .shadow-xl {
-    box-shadow: var(--shadow-lg) !important;
-  }
-  /* Reduce border radii slightly for simpler paint */
-  .rounded-3xl {
-    border-radius: 1.25rem !important;
-  }
+  /* Reserved for future reduced-data overrides */
 }
 
 /* ======================================

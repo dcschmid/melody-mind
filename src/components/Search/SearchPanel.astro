@@ -32,69 +32,59 @@ const {
 const inputId = `${idBase}-input`;
 const clearId = `${idBase}-clear`;
 const resetId = `${idBase}-reset`;
-const inputClasses =
-  "block w-full rounded-3xl border-2 border-gn-soot-700 bg-gn-soot-900/85 py-4 text-lg pr-16 pl-14 font-medium text-gn-parchment-50 placeholder-gn-parchment-200 shadow-[4px_4px_0_rgba(0,0,0,0.75)] backdrop-blur-md transition-all duration-300 hover:border-gn-amber-300 hover:shadow-[6px_6px_0_rgba(0,0,0,0.8)] focus:border-gn-amber-300 focus:ring-4 focus:ring-gn-amber-300 focus:outline-none sm:py-5 sm:text-xl sm:pr-20 sm:pl-16";
+const inputClasses = "search-panel__input";
 ---
 
-<div class="w-full" data-search-root>
-  <div class="relative w-full">
+<div class="search-panel" data-search-root>
+  <div class="search-panel__field">
     <label for={inputId} class="sr-only">{label}</label>
-    <div class="relative">
-      <div
-        class="pointer-events-none absolute inset-y-0 left-0 z-10 flex items-center pl-6"
-      >
-        <svg
-          class="text-gn-amber-300 h-7 w-7"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </div>
-      <input
-        id={inputId}
-        type="search"
-        class={inputClasses}
-        {placeholder}
-        aria-controls={ariaControls}
-        autocomplete="off"
-        data-search-input
-      />
-      <button
-        id={clearId}
-        class="text-gn-parchment-200 hover:text-gn-amber-300 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 absolute inset-y-0 right-0 flex min-h-[44px] items-center pr-6 transition-colors duration-200 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
-        type="button"
-        aria-label="Clear search"
-        data-search-clear
-        hidden
-        aria-hidden="true"
-        tabindex="-1"
-      >
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+    <div class="search-panel__icon">
+      <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
     </div>
+    <input
+      id={inputId}
+      type="search"
+      class={inputClasses}
+      {placeholder}
+      aria-controls={ariaControls}
+      autocomplete="off"
+      data-search-input
+    />
+    <button
+      id={clearId}
+      class="search-panel__clear"
+      type="button"
+      aria-label="Clear search"
+      data-search-clear
+      hidden
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
   </div>
-  <div class="mt-6 text-center">
+  <div class="search-panel__reset-wrap">
     <button
       id={resetId}
-      class="bg-gn-amber-500 text-gn-soot-950 hover:bg-gn-amber-400 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 inline-flex min-h-[44px] items-center gap-3 rounded-xl px-6 py-3 font-semibold shadow-[4px_4px_0_rgba(0,0,0,0.8)] transition-colors duration-200 hover:shadow-[6px_6px_0_rgba(0,0,0,0.85)] focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+      class="search-panel__reset"
       type="button"
       aria-controls={ariaControls}
       data-search-reset
     >
       <svg
-        class="h-5 w-5"
+        class="search-panel__reset-icon"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -112,7 +102,7 @@ const inputClasses =
   <div
     id={`${idBase}-status`}
     data-search-status
-    class="text-gn-parchment-300 mt-3 text-center text-xs sm:text-sm"
+    class="search-panel__status"
     role="status"
     aria-live="polite"
     data-search-status-all={statusAllText}
@@ -124,7 +114,7 @@ const inputClasses =
     data-search-no-results
     hidden
     data-search-no-results-tpl={noResultsTemplate}
-    class="text-gn-parchment-200 mt-4 text-center text-sm"
+    class="search-panel__no-results"
   >
   </div>
   <slot name="status" />

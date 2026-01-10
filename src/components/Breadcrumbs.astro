@@ -17,39 +17,30 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
 
 {
   normalized.length > 0 && (
-    <nav aria-label={ariaLabel} class="w-full overflow-x-auto">
-      <ol class="text-gn-parchment-100 container-shell flex items-center gap-2 py-3 text-sm sm:gap-3 sm:py-4">
+    <nav aria-label={ariaLabel} class="breadcrumbs">
+      <ol class="breadcrumbs__list">
         {normalized.map((crumb, index) => {
           const isLast = index === normalized.length - 1;
           return (
-            <li class="flex items-center gap-2">
+            <li class="breadcrumbs__item">
               {index > 0 && (
-                <span class="text-gn-amber-400" aria-hidden="true">
+                <span class="breadcrumbs__divider" aria-hidden="true">
                   /
                 </span>
               )}
               {isLast || !crumb.url ? (
                 <span
-                  class="text-gn-parchment-50 line-clamp-1 max-w-[16ch] sm:max-w-none"
+                  class="breadcrumbs__current"
                   aria-current={isLast ? "page" : undefined}
                 >
                   {crumb.name}
                 </span>
               ) : (
-                <a
-                  href={crumb.url}
-                  class="group bg-gn-soot-800 text-gn-parchment-50 ring-gn-soot-700 hover:bg-gn-soot-700 hover:ring-gn-amber-300/70 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 inline-flex items-center gap-1 rounded-full px-3 py-1.5 ring-2 transition focus:outline-none focus-visible:ring-3 focus-visible:ring-offset-2"
-                >
+                <a href={crumb.url} class="breadcrumbs__link">
                   {index === 0 && (
-                    <Icon
-                      name="home"
-                      class="text-gn-amber-300 h-4 w-4"
-                      aria-hidden="true"
-                    />
+                    <Icon name="home" class="breadcrumbs__link-icon" aria-hidden="true" />
                   )}
-                  <span class="line-clamp-1 max-w-[18ch] text-xs font-medium sm:max-w-none sm:text-sm">
-                    {crumb.name}
-                  </span>
+                  <span class="breadcrumbs__link-text">{crumb.name}</span>
                 </a>
               )}
             </li>

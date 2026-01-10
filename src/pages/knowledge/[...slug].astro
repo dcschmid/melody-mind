@@ -217,12 +217,10 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 <Layout {pageSeo} {breadcrumbs}>
   <Fragment slot="head"></Fragment>
 
-  <div
-    class="bg-gn-soot-950/70 fixed inset-x-0 top-0 z-[60] h-1 backdrop-blur-sm sm:h-1.5 lg:h-2"
-  >
+  <div class="reading-progress">
     <div
       id="reading-progress-bar"
-      class="from-gn-amber-400 via-gn-amber-300 to-gn-amber-200 h-full w-0 bg-linear-to-r shadow-[0_0_10px_rgba(217,166,92,0.45)]"
+      class="reading-progress__bar"
       role="presentation"
       aria-hidden="true"
     >
@@ -230,52 +228,35 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     <span id="reading-progress-label" class="sr-only">Reading progress: 0%</span>
   </div>
 
-  <div class="text-gn-parchment-50 graphic-novel relative min-h-screen overflow-hidden">
-    <div
-      class="from-gn-soot-900 via-gn-soot-950 absolute inset-0 bg-linear-to-b to-black"
-    >
-    </div>
-    <div
-      class="absolute inset-0 opacity-20"
-      style="background-image: var(--gn-halftone);"
-    >
-    </div>
+  <div class="knowledge">
+    <div class="knowledge__backdrop"></div>
+    <div class="knowledge__texture"></div>
 
-    <div class="container-shell relative pt-10 pb-16">
-      <div class="mb-8 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
-        <header class="gn-panel bg-gn-soot-800/90 space-y-5 rounded-3xl p-6">
-          <div
-            class="text-gn-parchment-200 flex flex-wrap items-center gap-3 text-xs tracking-[0.16em] uppercase sm:text-sm"
-          >
-            <span
-              class="bg-gn-amber-500/20 text-gn-amber-200 ring-gn-soot-700/80 rounded-full px-3 py-1.5 ring-2"
-            >
-              In-depth report
-            </span>
-            <span
-              class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2 backdrop-blur-sm"
-            >
-              <Icon
-                name="calendar"
-                class="text-gn-amber-300 h-4 w-4"
-                aria-hidden="true"
-              />
+    <div class="knowledge__container">
+      <div class="knowledge__hero">
+        <header class="panel knowledge__hero-panel">
+          <div class="knowledge__meta">
+            <span class="knowledge__pill knowledge__pill--label">In-depth report</span>
+            <span class="knowledge__pill">
+              <Icon name="calendar" class="knowledge__pill-icon" aria-hidden="true" />
               <time datetime={publishedDate.toISOString()}>{publishedDateLabel}</time>
             </span>
-            <span
-              class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2 backdrop-blur-sm"
-            >
-              <Icon name="clock" class="text-gn-amber-300 h-4 w-4" aria-hidden="true" />
-              <span class="font-semibold normal-case">
+            <span class="knowledge__pill">
+              <Icon name="clock" class="knowledge__pill-icon" aria-hidden="true" />
+              <span>
                 {readingResult.minutes}
                 {t("knowledge.reading.time")}
               </span>
             </span>
             {
               entry.data.category ? (
-                <span class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 capitalize ring-2 backdrop-blur-sm">
-                  <Icon name="tag" class="text-gn-teal-300 h-4 w-4" aria-hidden="true" />
-                  <span class="font-semibold normal-case">{entry.data.category}</span>
+                <span class="knowledge__pill">
+                  <Icon
+                    name="tag"
+                    class="knowledge__pill-icon knowledge__pill-icon--teal"
+                    aria-hidden="true"
+                  />
+                  <span>{entry.data.category}</span>
                 </span>
               ) : null
             }
@@ -284,43 +265,33 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
             level="h1"
             textSize="xl"
             textAlign="left"
-            className="text-gn-parchment-50 mb-0"
+            className="knowledge__title"
           >
             {entry.data.title}
           </Headline>
-          <Paragraph
-            textSize="lg"
-            textAlign="left"
-            className="text-gn-parchment-100 mb-0 max-w-4xl"
-          >
+          <Paragraph textSize="lg" textAlign="left" className="knowledge__summary">
             {entry.data.description}
           </Paragraph>
-          <div class="text-gn-parchment-200 flex flex-wrap gap-3 text-xs sm:text-sm">
-            <div
-              class="bg-gn-soot-900/70 ring-gn-soot-700/80 flex items-center gap-2 rounded-full px-3 py-1.5 ring-2 backdrop-blur-sm"
-            >
+          <div class="knowledge__stats">
+            <div class="knowledge__pill">
               <Icon
                 name="file-text"
-                class="text-gn-teal-300 h-4 w-4"
+                class="knowledge__pill-icon knowledge__pill-icon--teal"
                 aria-hidden="true"
               />
-              <span class="font-semibold">
-                {t("knowledge.word_count", { count: wordsCount })}
-              </span>
+              <span>{t("knowledge.word_count", { count: wordsCount })}</span>
             </div>
           </div>
         </header>
 
-        <div class="flex flex-col gap-4 lg:gap-5">
-          <div
-            class="group gn-panel bg-gn-soot-800/90 relative overflow-hidden rounded-3xl"
-          >
+        <div class="knowledge__aside">
+          <div class="panel knowledge__media-panel">
             {
               imageSource ? (
-                <div class="relative aspect-[3/2]">
-                  <div class="from-gn-soot-950 via-gn-soot-900/75 group-hover:from-gn-soot-950/90 absolute inset-0 bg-linear-to-t to-transparent transition duration-300" />
+                <div class="knowledge__media-frame">
+                  <div class="knowledge__media-overlay" aria-hidden="true" />
                   <Picture
-                    class="absolute inset-0 h-full w-full object-cover"
+                    class="knowledge__media-image"
                     src={imageSource}
                     widths={[600, 800, 1000, 1200]}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
@@ -335,17 +306,17 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
                 </div>
               ) : (
                 <div
-                  class="bg-gn-soot-900 text-gn-parchment-200 flex aspect-[3/2] w-full items-center justify-center p-8 text-center"
+                  class="knowledge__media-placeholder"
                   role="img"
                   aria-label={t("category.no_image_available")}
                 >
-                  <div class="flex flex-col items-center gap-3">
+                  <div class="knowledge__media-placeholder-content">
                     <Icon
                       name="image"
-                      class="h-16 w-16 lg:h-20 lg:w-20"
+                      class="knowledge__media-placeholder-icon"
                       aria-hidden="true"
                     />
-                    <span class="text-lg">{t("category.no_image_available")}</span>
+                    <span>{t("category.no_image_available")}</span>
                   </div>
                 </div>
               )
@@ -355,22 +326,18 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           {
             entry.data.playlists?.spotifyPlaylist ||
             entry.data.playlists?.deezerPlaylist ? (
-              <div class="gn-panel bg-gn-soot-800/90 rounded-3xl p-4">
-                <div class="text-gn-parchment-200 mb-2 flex items-center gap-2 text-xs font-semibold tracking-[0.12em] uppercase">
-                  <Icon
-                    name="music"
-                    class="text-gn-amber-300 h-4 w-4"
-                    aria-hidden="true"
-                  />
+              <div class="panel panel--compact">
+                <div class="knowledge__panel-title">
+                  <Icon name="music" class="knowledge__panel-icon" aria-hidden="true" />
                   Play this article's playlist on:
                 </div>
-                <div class="flex flex-wrap gap-2">
+                <div class="knowledge__panel-actions">
                   {entry.data.playlists?.spotifyPlaylist ? (
                     <ButtonLink
                       href={entry.data.playlists?.spotifyPlaylist}
                       variant="secondary"
                       icon="spotify"
-                      className="h-9 min-w-[110px] justify-center px-3 text-sm"
+                      className="button-link--sm"
                       aria-label={`Open the ${t("musicPlatforms.platform.spotify")} playlist for ${entry.data.title}`}
                     >
                       {t("musicPlatforms.platform.spotify")}
@@ -381,7 +348,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
                       href={entry.data.playlists?.deezerPlaylist}
                       variant="secondary"
                       icon="deezer"
-                      className="h-9 min-w-[110px] justify-center px-3 text-sm"
+                      className="button-link--sm"
                       aria-label={`Open the ${t("musicPlatforms.platform.deezer")} playlist for ${entry.data.title}`}
                     >
                       {t("musicPlatforms.platform.deezer")}
@@ -394,24 +361,22 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 
           {
             podcastUrl ? (
-              <div class="gn-panel bg-gn-soot-800/90 rounded-3xl p-4">
-                <div class="flex items-start gap-3">
-                  <div class="bg-gn-amber-500/15 text-gn-amber-100 ring-gn-soot-700 flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ring-2">
-                    <Icon name="headphones" class="h-5 w-5" aria-hidden="true" />
+              <div class="panel panel--compact">
+                <div class="knowledge__podcast">
+                  <div class="knowledge__podcast-icon">
+                    <Icon name="headphones" aria-hidden="true" />
                   </div>
-                  <div class="space-y-2">
-                    <div class="text-gn-parchment-200 text-xs font-semibold tracking-[0.12em] uppercase">
-                      Podcast companion
-                    </div>
-                    <div class="text-gn-parchment-200 text-sm">
+                  <div class="knowledge__podcast-body">
+                    <div class="knowledge__podcast-label">Podcast companion</div>
+                    <div class="knowledge__podcast-text">
                       Listen to the episode for this decade or explore the full podcast
                       series.
                     </div>
-                    <div class="flex flex-wrap gap-2 pt-1">
+                    <div class="knowledge__podcast-actions">
                       <ButtonLink
                         href={podcastUrl}
                         icon="headphones"
-                        className="h-10 min-w-[140px] justify-center px-3 text-sm"
+                        className="button-link--md"
                         aria-label={`Open the podcast page for ${entry.data.title}`}
                       >
                         Open podcast page
@@ -420,7 +385,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
                         href={podcastBase}
                         variant="secondary"
                         icon="mic"
-                        className="h-10 min-w-[140px] justify-center px-3 text-sm"
+                        className="button-link--md"
                         aria-label="Browse all Melody Mind podcasts"
                       >
                         All podcast episodes
@@ -436,10 +401,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 
       <TableOfContents headings={mergedHeadings} lang={lang} />
 
-      <article
-        id="article-content"
-        class="gn-panel bg-gn-soot-800/90 rounded-3xl p-6 sm:p-7"
-      >
+      <article id="article-content" class="panel knowledge-article">
         <div id="article-title" class="sr-only">{entry.data.title}</div>
         <div
           role="region"
@@ -453,7 +415,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       </article>
 
       <div
-        class="gn-panel bg-gn-soot-800/90 mt-10 rounded-3xl p-5"
+        class="panel panel--compact knowledge-share"
         id="share-section"
         data-share-url={shareUrl}
         data-share-title={shareTitle}
@@ -468,71 +430,61 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           "Sharing isn't available here, so we've copied the link for you."
         )}
       >
-        <div class="flex flex-wrap items-center gap-3">
-          <div
-            class="text-gn-parchment-50 flex items-center gap-2 text-sm font-semibold tracking-[0.12em] uppercase"
-          >
-            <Icon name="share-2" class="text-gn-amber-300 h-4 w-4" aria-hidden="true" />
-            <span
-              >{
+        <div class="knowledge-share__header">
+          <div class="knowledge-share__title">
+            <Icon name="share-2" class="knowledge__panel-icon" aria-hidden="true" />
+            <span>
+              {
                 translate(
                   "knowledge.share.heading",
                   "Share this article (privacy-friendly)"
                 )
-              }</span
-            >
+              }
+            </span>
           </div>
-          <div class="flex flex-wrap gap-2 text-sm">
+          <div class="knowledge-share__actions">
             <button
               type="button"
               data-share="native"
-              class="bg-gn-amber-500 text-gn-soot-950 ring-gn-soot-700 hover:bg-gn-amber-400 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] items-center gap-2 rounded-full px-3 py-1.5 ring-2 transition duration-200 hover:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+              class="share-button share-button--primary"
               aria-label={translate("knowledge.share.native", "Share via your device")}
             >
-              <Icon name="send" class="text-gn-soot-950 h-4 w-4" aria-hidden="true" />
+              <Icon name="send" class="share-button__icon" aria-hidden="true" />
               <span>{translate("knowledge.share.native", "Share")}</span>
             </button>
             <button
               type="button"
               data-share="copy"
-              class="bg-gn-soot-800 text-gn-parchment-50 ring-gn-soot-700 hover:bg-gn-soot-700 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] items-center gap-2 rounded-full px-3 py-1.5 ring-2 transition duration-200 hover:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+              class="share-button"
               aria-label={translate("knowledge.share.copy", "Copy link to this article")}
             >
-              <Icon name="copy" class="text-gn-parchment-50 h-4 w-4" aria-hidden="true" />
+              <Icon name="copy" class="share-button__icon" aria-hidden="true" />
               <span>{translate("knowledge.share.copy", "Copy link")}</span>
             </button>
             <a
               href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
-              class="bg-gn-soot-800 text-gn-parchment-50 ring-gn-soot-700 hover:bg-gn-soot-700 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] items-center gap-2 rounded-full px-3 py-1.5 ring-2 transition duration-200 hover:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+              class="share-button"
               aria-label={translate("knowledge.share.email", "Share via email")}
             >
-              <Icon name="mail" class="text-gn-parchment-50 h-4 w-4" aria-hidden="true" />
+              <Icon name="mail" class="share-button__icon" aria-hidden="true" />
               <span>{translate("knowledge.share.email", "Email")}</span>
             </a>
             <a
               href={mastodonShareUrl}
               target="_blank"
               rel="noreferrer noopener"
-              class="bg-gn-soot-800 text-gn-parchment-50 ring-gn-soot-700 hover:bg-gn-soot-700 focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex min-h-[44px] items-center gap-2 rounded-full px-3 py-1.5 ring-2 transition duration-200 hover:-translate-y-0.5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
+              class="share-button"
               aria-label={translate(
                 "knowledge.share.mastodon",
                 "Share on Mastodon (opens in a new tab)"
               )}
             >
-              <Icon
-                name="message-circle"
-                class="text-gn-parchment-50 h-4 w-4"
-                aria-hidden="true"
-              />
+              <Icon name="message-circle" class="share-button__icon" aria-hidden="true" />
               <span>{translate("knowledge.share.mastodon", "Mastodon")}</span>
             </a>
           </div>
         </div>
-        <p
-          data-share-status
-          class="text-gn-parchment-200 mt-3 text-xs"
-          aria-live="polite"
-        >
+        <p data-share-status class="knowledge-share__note" aria-live="polite">
           {
             translate(
               "knowledge.share.privacy_note",
@@ -542,16 +494,13 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         </p>
       </div>
 
-      <div class="mt-12 flex justify-center">
+      <div class="knowledge__back">
         <ButtonLink
           href="/"
           icon="arrow-left"
           aria-label={translate("knowledge.back.to.list", "Back to knowledge list")}
-          className="border-gn-soot-700 bg-gn-soot-800 text-gn-parchment-50 hover:border-gn-amber-300 hover:bg-gn-soot-700 hover:text-gn-parchment-50 rounded-full border-2 px-6 py-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-[5px_5px_0_rgba(0,0,0,0.8)]"
         >
-          <span class="flex items-center gap-2">
-            <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
-          </span>
+          <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
         </ButtonLink>
       </div>
     </div>

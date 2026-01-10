@@ -134,133 +134,126 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
-  <PageShell className="aurora-sheen grid-overlay">
-    <header class="border-gn-soot-700 mb-12 space-y-4 border-b pb-8">
-      <div class="space-y-3 text-center">
-        <h1 class="sr-only">
-          {title}
-        </h1>
-        <Image
-          class="mx-auto h-auto"
-          src="/melody-mind.jpg"
-          width="1080"
-          height="720"
-          alt="Melody Mind Logo"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-      <div class="text-gn-parchment-200 space-y-5 text-lg leading-relaxed sm:text-xl">
-        <p>
-          Melody Mind provides an access route to the world of music. Every guide reveals
-          where a genre begins, how it grows, and what gives it its unique sound –
-          including its cultural backstory, early pioneers, and contemporary hybrids that
-          populate today’s playlists. 🎧.
-        </p>
-        <p>
-          We highlight the key artists, movements, and technological turning points that
-          shaped every sound, providing you with context that enhances your listening
-          experience. As you navigate through the material, you will come across essential
-          tracks and curated examples alongside soft listening prompts to help you detect
-          patterns, trace influences and learn the emotional vocabulary.
-        </p>
-        <p>
-          You will get to notice the way ideas move across decades in all genres – how
-          rhythms travel, styles merge and old ideas come back with a difference. With the
-          help of these timelines and insights, you can be able to appreciate your faves
-          on a new level and discover new genres.
-        </p>
-        <p>
-          Whether you are here to explore, learn or simply hear, Melody Mind takes you
-          through the stories, sounds and cultures behind the music of the world.
-        </p>
-      </div>
-    </header>
-
-    <section
-      class="mb-12"
-      aria-labelledby="knowledge-categories-title"
-      aria-describedby="knowledge-categories-help"
-    >
-      <div class="mb-6 space-y-4">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h2
-            id="knowledge-categories-title"
-            class="text-gn-parchment-50 text-2xl leading-tight font-semibold sm:text-3xl"
-          >
-            Explore categories
-          </h2>
-          <p
-            id="knowledge-categories-help"
-            class="text-gn-parchment-200 text-sm sm:text-base"
-          >
-            Browse our genre guides; each card announces the number of articles available.
+  <PageShell className="page-shell--aurora page-shell--grid">
+    <div class="knowledge-index">
+      <header class="knowledge-index__intro">
+        <div class="knowledge-index__branding">
+          <h1 class="sr-only">
+            {title}
+          </h1>
+          <Image
+            class="knowledge-index__logo"
+            src="/melody-mind.jpg"
+            width="1080"
+            height="720"
+            alt="Melody Mind Logo"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="knowledge-index__lead">
+          <p>
+            Melody Mind provides an access route to the world of music. Every guide
+            reveals where a genre begins, how it grows, and what gives it its unique sound
+            – including its cultural backstory, early pioneers, and contemporary hybrids
+            that populate today’s playlists. 🎧.
+          </p>
+          <p>
+            We highlight the key artists, movements, and technological turning points that
+            shaped every sound, providing you with context that enhances your listening
+            experience. As you navigate through the material, you will come across
+            essential tracks and curated examples alongside soft listening prompts to help
+            you detect patterns, trace influences and learn the emotional vocabulary.
+          </p>
+          <p>
+            You will get to notice the way ideas move across decades in all genres – how
+            rhythms travel, styles merge and old ideas come back with a difference. With
+            the help of these timelines and insights, you can be able to appreciate your
+            faves on a new level and discover new genres.
+          </p>
+          <p>
+            Whether you are here to explore, learn or simply hear, Melody Mind takes you
+            through the stories, sounds and cultures behind the music of the world.
           </p>
         </div>
-        <SearchPanel
-          idBase="knowledge-search"
-          label="Search categories"
-          placeholder="Search by genre or description"
-          ariaControls="knowledge-categories-list"
-          statusAllText="Showing all categories"
-          statusCountTemplate="{count} categories found"
-          noResultsTemplate='No results for "{term}"'
-        />
-      </div>
-      <ul
-        class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        aria-label="Knowledge categories"
-        id="knowledge-categories-list"
+      </header>
+
+      <section
+        class="knowledge-index__section"
+        aria-labelledby="knowledge-categories-title"
+        aria-describedby="knowledge-categories-help"
       >
-        {
-          categoryData.map((cat) => (
-            <li
-              class="group gn-panel bg-gn-soot-800/90 text-gn-parchment-50 relative overflow-hidden rounded-2xl transition duration-300 focus-within:-translate-y-1 focus-within:shadow-[0_22px_45px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-[0_22px_45px_rgba(0,0,0,0.45)]"
-              data-search-text={`${cat.name} ${cat.description}`}
-            >
-              <a
-                href={`/categories/${cat.slug}`}
-                class="focus-visible:ring-gn-amber-300 focus-visible:ring-offset-gn-soot-900 flex h-full flex-col gap-4 p-5 focus-visible:ring-3 focus-visible:ring-offset-2 focus-visible:outline-none"
-                aria-label={`${cat.name} category with ${cat.count} articles`}
+        <div class="knowledge-index__section-head">
+          <div>
+            <h2 id="knowledge-categories-title" class="knowledge-index__section-title">
+              Explore categories
+            </h2>
+            <p id="knowledge-categories-help" class="knowledge-index__section-help">
+              Browse our genre guides; each card announces the number of articles
+              available.
+            </p>
+          </div>
+          <SearchPanel
+            idBase="knowledge-search"
+            label="Search categories"
+            placeholder="Search by genre or description"
+            ariaControls="knowledge-categories-list"
+            statusAllText="Showing all categories"
+            statusCountTemplate="{count} categories found"
+            noResultsTemplate='No results for "{term}"'
+          />
+        </div>
+        <ul
+          class="knowledge-index__grid"
+          aria-label="Knowledge categories"
+          id="knowledge-categories-list"
+        >
+          {
+            categoryData.map((cat) => (
+              <li
+                class="category-card"
+                data-search-text={`${cat.name} ${cat.description}`}
               >
-                <div class="border-gn-soot-700 bg-gn-soot-900/80 relative aspect-[3/2] overflow-hidden rounded-xl border">
-                  <Image
-                    src={cat.image}
-                    alt={`${cat.name} cover`}
-                    loading="lazy"
-                    decoding="async"
-                    class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    width="640"
-                    height="360"
-                  />
-                  <div class="from-gn-soot-950 via-gn-soot-900/70 absolute inset-0 bg-linear-to-t to-transparent opacity-70" />
-                  <div class="absolute inset-0 flex items-end p-4">
-                    <div class="bg-gn-soot-800/80 text-gn-parchment-50 ring-gn-soot-700 flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-[0.14em] uppercase ring-2">
-                      <span class="bg-gn-amber-400 h-2 w-2 rounded-full" />
+                <a
+                  href={`/categories/${cat.slug}`}
+                  class="category-card__link"
+                  aria-label={`${cat.name} category with ${cat.count} articles`}
+                >
+                  <div class="category-card__media">
+                    <Image
+                      src={cat.image}
+                      alt={`${cat.name} cover`}
+                      loading="lazy"
+                      decoding="async"
+                      class="category-card__image"
+                      width="640"
+                      height="360"
+                    />
+                    <div class="category-card__overlay" aria-hidden="true" />
+                    <div class="category-card__badge">
+                      <span class="category-card__badge-dot" />
                       {cat.count} articles
                     </div>
                   </div>
-                </div>
-                <div class="space-y-2">
-                  <p class="text-gn-parchment-50 text-lg font-semibold">{cat.name}</p>
-                  <p class="text-gn-parchment-200 text-sm leading-relaxed">
-                    {cat.description}
-                  </p>
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-      <div
-        id="knowledge-search-empty"
-        class="border-gn-soot-700 bg-gn-soot-900/80 text-gn-parchment-200 mt-6 rounded-2xl border-2 p-6 text-center shadow-[4px_4px_0_rgba(0,0,0,0.75)]"
-        aria-live="polite"
-        hidden
-      >
-        No categories match your search. Try a different term.
-      </div>
-    </section>
+                  <div class="category-card__body">
+                    <p class="category-card__title">{cat.name}</p>
+                    <p class="category-card__description">{cat.description}</p>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div
+          id="knowledge-search-empty"
+          class="knowledge-index__empty"
+          aria-live="polite"
+          hidden
+        >
+          No categories match your search. Try a different term.
+        </div>
+      </section>
+    </div>
   </PageShell>
 
   <BackToTop {lang} />

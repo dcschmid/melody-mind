@@ -15,7 +15,7 @@
 interface Props {
   /** Additional CSS classes to apply */
   className?: string;
-  /** Text size variant using Tailwind text size classes */
+  /** Text size variant */
   textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   /** Text alignment option */
   textAlign?: "left" | "center" | "right";
@@ -23,32 +23,25 @@ interface Props {
 
 const { textSize = "xl", className = "", textAlign = "left" } = Astro.props as Props;
 
-const baseClasses = [
-  "font-primary tracking-base text-gn-parchment-200 leading-relaxed font-normal",
-  "mb-4 sm:mb-6 md:mb-8 lg:mb-12",
-  "text-rendering-optimize-legibility antialiased",
-  "transition-all duration-300",
-  "max-w-full text-balance break-words hyphens-auto",
-  "leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed",
-].join(" ");
+const baseClasses = "paragraph";
 
 type TextSize = NonNullable<Props["textSize"]>;
 type TextAlign = NonNullable<Props["textAlign"]>;
 
 const textSizeClasses: Record<TextSize, string> = {
-  sm: "text-lg",
-  base: "text-base sm:text-base md:text-lg",
-  lg: "text-xl",
-  xl: "text-2xl",
-  "2xl": "text-2xl lg:text-3xl",
-  "3xl": "text-3xl lg:text-4xl",
-  "4xl": "text-4xl lg:text-5xl",
+  sm: "paragraph--size-sm",
+  base: "paragraph--size-base",
+  lg: "paragraph--size-lg",
+  xl: "paragraph--size-xl",
+  "2xl": "paragraph--size-2xl",
+  "3xl": "paragraph--size-3xl",
+  "4xl": "paragraph--size-4xl",
 };
 
 const textAlignClasses: Record<TextAlign, string> = {
-  left: "text-left",
-  center: "text-center",
-  right: "text-right",
+  left: "paragraph--align-left",
+  center: "paragraph--align-center",
+  right: "paragraph--align-right",
 };
 
 const classes = [

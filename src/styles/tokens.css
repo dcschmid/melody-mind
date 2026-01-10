@@ -1,13 +1,14 @@
-/* 
- * TAILWIND CSS v4 THEME CONFIGURATION
+/*
+ * Design tokens
  * Professional Dark Mode with WCAG AAA Compliance (7:1+ contrast ratios)
- * Using @theme directive - no tailwind.config.js needed
  */
 
-@theme {
+:root {
   /* ==================== COLORS ==================== */
   
   /* Slate - Primary neutral palette for professional dark mode */
+  --color-white: #ffffff;
+  --color-black: #000000;
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
   --color-slate-200: #e2e8f0;
@@ -84,7 +85,7 @@
   /* ==================== TYPOGRAPHY ==================== */
   --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", monospace;
-  --font-display: "Georgia", "Times New Roman", serif;
+  --font-display: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
   
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;

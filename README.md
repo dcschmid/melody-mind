@@ -9,13 +9,13 @@ Music knowledge articles and education content for MelodyMind - A standalone sta
 - ⚡ **Static Site Generation**: Fast loading with pre-rendered pages
 - 🔍 **Full-text Search**: Client-side search functionality
 - 📖 **Table of Contents**: Auto-generated navigation for long articles
-- 🎨 **Responsive Design**: Mobile-first Tailwind CSS styling
+- 🎨 **Responsive Design**: Mobile-first BEM CSS styling
 
 ## Tech Stack
 
 - **Framework**: [Astro](https://astro.build/) v5+ with SSG
 - **Content**: Markdown with Frontmatter (Content Collections)
-- **Styling**: Tailwind CSS v4
+- **Styling**: BEM-based CSS
 - **Fonts**: Atkinson Hyperlegible (accessible font)
 - **Search**: Client-side JavaScript search
 - **Runtime**: Node.js 18.19.0+
