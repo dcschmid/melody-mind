@@ -47,22 +47,22 @@
   --card-shadow: 0 8px 32px rgba(0,0,0,0.3);
   --card-shadow-hover: 0 12px 40px rgba(0,0,0,0.4);
 
-  /* Tw-prose color tokens (WCAG AAA - 7:1+ contrast on dark backgrounds) */
-  --tw-prose-body: #f4f4f5;             /* Very high contrast body text */
-  --tw-prose-headings: #ffffff;         /* Pure white for headings */
-  --tw-prose-links: #e9d5ff;            /* Light purple for links */
-  --tw-prose-bold: #fafafa;             /* Bright for emphasis */
-  --tw-prose-counters: #f4f4f5;         /* Match body */
-  --tw-prose-bullets: #f4f4f5;          /* Match body */
-  --tw-prose-hr: rgba(255, 255, 255, 0.2);  /* Visible dividers */
-  --tw-prose-quotes: #f4f4f5;           /* Match body */
-  --tw-prose-quote-borders: #c084fc;    /* Purple accent */
-  --tw-prose-captions: #d4d4d8;         /* Slightly muted */
-  --tw-prose-code: #e9d5ff;             /* Light purple */
-  --tw-prose-pre-code: #f4f4f5;         /* High contrast in code blocks */
-  --tw-prose-pre-bg: rgba(255, 255, 255, 0.05); /* Subtle background */
-  --tw-prose-th-borders: rgba(255, 255, 255, 0.25); /* Table headers */
-  --tw-prose-td-borders: rgba(255, 255, 255, 0.15); /* Table cells */
+  /* Prose color tokens (WCAG AAA - 7:1+ contrast on dark backgrounds) */
+  --prose-body: #f4f4f5;             /* Very high contrast body text */
+  --prose-headings: #ffffff;         /* Pure white for headings */
+  --prose-links: #e9d5ff;            /* Light purple for links */
+  --prose-bold: #fafafa;             /* Bright for emphasis */
+  --prose-counters: #f4f4f5;         /* Match body */
+  --prose-bullets: #f4f4f5;          /* Match body */
+  --prose-hr: rgba(255, 255, 255, 0.2);  /* Visible dividers */
+  --prose-quotes: #f4f4f5;           /* Match body */
+  --prose-quote-borders: #c084fc;    /* Purple accent */
+  --prose-captions: #d4d4d8;         /* Slightly muted */
+  --prose-code: #e9d5ff;             /* Light purple */
+  --prose-pre-code: #f4f4f5;         /* High contrast in code blocks */
+  --prose-pre-bg: rgba(255, 255, 255, 0.05); /* Subtle background */
+  --prose-th-borders: rgba(255, 255, 255, 0.25); /* Table headers */
+  --prose-td-borders: rgba(255, 255, 255, 0.15); /* Table cells */
 
   /* Scrollbar semantic colors only (size/radius in tokens) */
   --scrollbar-track-bg: var(--color-neutral-900);
