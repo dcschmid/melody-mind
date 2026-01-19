@@ -6,6 +6,9 @@ dist/
 # dependencies
 node_modules/
 
+# git worktrees (local)
+.worktrees/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
