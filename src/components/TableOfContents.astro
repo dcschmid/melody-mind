@@ -128,6 +128,23 @@ const tocTitle = title || t("toc.nav.label");
     const stateText = toggle?.querySelector("[data-expanded]") as HTMLElement | null;
     const tocList = document.getElementById("toc-list");
     const articleRoot = document.getElementById("article-content");
+    const proseRoot = articleRoot?.querySelector(".prose") ?? null;
+
+    const getScopeAttr = (element: Element | null): string | null => {
+      if (!element) return null;
+      const scopeAttr = element
+        .getAttributeNames()
+        .find((name) => name.startsWith("data-astro-cid"));
+      return scopeAttr || null;
+    };
+
+    const applyScopeAttr = (element: Element, scopeAttr: string | null): void => {
+      if (!scopeAttr) return;
+      element.setAttribute(scopeAttr, "");
+    };
+
+    const tocScopeAttr = getScopeAttr(tocList);
+    const proseScopeAttr = getScopeAttr(proseRoot);
 
     const setShellVisibility = (visible: boolean): void => {
       if (!(shell instanceof HTMLElement)) return;
@@ -170,6 +187,7 @@ const tocTitle = title || t("toc.nav.label");
       anchor.className = "prose__heading-anchor";
       anchor.textContent = "#";
       anchor.setAttribute("aria-label", `Link to section: ${text}`);
+      applyScopeAttr(anchor, proseScopeAttr);
       heading.appendChild(anchor);
     };
 
@@ -212,11 +230,13 @@ const tocTitle = title || t("toc.nav.label");
       headings.forEach((heading) => {
         const li = document.createElement("li");
         li.className = `toc__item ${heading.depth === 3 ? "toc__item--child" : ""}`;
+        applyScopeAttr(li, tocScopeAttr);
 
         const a = document.createElement("a");
         a.href = `#${heading.id}`;
         a.className = heading.depth === 2 ? "toc__link" : "toc__link toc__link--child";
         a.textContent = heading.text;
+        applyScopeAttr(a, tocScopeAttr);
 
         li.appendChild(a);
         tocList.appendChild(li);
@@ -381,7 +401,7 @@ const tocTitle = title || t("toc.nav.label");
     min-height: 44px;
     margin-bottom: 1rem;
     color: var(--color-gn-amber-300);
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
   }
@@ -433,7 +453,7 @@ const tocTitle = title || t("toc.nav.label");
     padding: 0.5rem 0.75rem;
     color: var(--gn-ink);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     transition:
       background-color var(--transition-fast),
@@ -441,7 +461,7 @@ const tocTitle = title || t("toc.nav.label");
   }
 
   .toc__link--child {
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--gn-ink-muted);
   }
