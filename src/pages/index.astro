@@ -137,44 +137,36 @@ const pageSeo = buildPageSeo({
   <PageShell className="page-shell--aurora page-shell--grid">
     <div class="knowledge-index">
       <header class="knowledge-index__intro">
-        <div class="knowledge-index__branding">
-          <h1 class="knowledge-index__sr">
-            {title}
-          </h1>
-          <Image
-            class="knowledge-index__logo"
-            src="/melody-mind.jpg"
-            width="1080"
-            height="720"
-            alt="Melody Mind Logo"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </div>
-        <div class="knowledge-index__lead">
-          <p>
-            Melody Mind provides an access route to the world of music. Every guide
-            reveals where a genre begins, how it grows, and what gives it its unique sound
-            – including its cultural backstory, early pioneers, and contemporary hybrids
-            that populate today’s playlists. 🎧.
-          </p>
-          <p>
-            We highlight the key artists, movements, and technological turning points that
-            shaped every sound, providing you with context that enhances your listening
-            experience. As you navigate through the material, you will come across
-            essential tracks and curated examples alongside soft listening prompts to help
-            you detect patterns, trace influences and learn the emotional vocabulary.
-          </p>
-          <p>
-            You will get to notice the way ideas move across decades in all genres – how
-            rhythms travel, styles merge and old ideas come back with a difference. With
-            the help of these timelines and insights, you can be able to appreciate your
-            faves on a new level and discover new genres.
-          </p>
-          <p>
-            Whether you are here to explore, learn or simply hear, Melody Mind takes you
-            through the stories, sounds and cultures behind the music of the world.
-          </p>
+        <div class="knowledge-index__stage">
+          <div class="knowledge-index__stage-media">
+            <div class="knowledge-index__stage-glow" aria-hidden="true"></div>
+            <div class="knowledge-index__stage-frame">
+              <Image
+                class="knowledge-index__stage-image"
+                src="/melody-mind.jpg"
+                width="1080"
+                height="720"
+                alt="Melody Mind Logo"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+          <div class="knowledge-index__stage-panel">
+            <h1 class="knowledge-index__sr">{title}</h1>
+            <p class="knowledge-index__eyebrow">Melody Mind Knowledge</p>
+            <p class="knowledge-index__hero-text">
+              <strong>Discover music's DNA:</strong> From genre origins to today's sounds, we
+              decode the cultural stories, key artists, and sonic evolution that shaped every
+              style. 🎧
+            </p>
+            <div class="knowledge-index__features">
+              <span class="knowledge-index__feature-badge">📚 Curated guides</span>
+              <span class="knowledge-index__feature-badge">🎵 Essential tracks</span>
+              <span class="knowledge-index__feature-badge">🔗 Genre connections</span>
+              <span class="knowledge-index__feature-badge">💡 Listening insights</span>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -266,39 +258,152 @@ const pageSeo = buildPageSeo({
   }
 
   .knowledge-index__intro {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     border-bottom: 1px solid var(--gn-panel-border);
   }
 
-  .knowledge-index__branding {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: center;
+  .knowledge-index__stage {
+    position: relative;
+    display: grid;
+    gap: 2rem;
+    align-items: center;
   }
 
-  .knowledge-index__logo {
-    margin: 0 auto;
+  @media (min-width: 960px) {
+    .knowledge-index__stage {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    }
+  }
+
+  .knowledge-index__stage-media {
+    position: relative;
+  }
+
+  .knowledge-index__stage-glow {
+    position: absolute;
+    inset: -18% -10% -20% -10%;
+    background: radial-gradient(
+      circle at 25% 35%,
+      color-mix(in srgb, var(--gn-accent-strong) 35%, transparent) 0%,
+      transparent 65%
+    );
+    filter: blur(18px);
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .knowledge-index__stage-frame {
+    position: relative;
+    border-radius: 1.75rem;
+    overflow: hidden;
+    border: 2px solid color-mix(in srgb, var(--gn-accent) 28%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 96%, var(--gn-accent) 4%);
+    box-shadow: var(--gn-offset-shadow);
+  }
+
+  .knowledge-index__stage-frame::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: calc(1.75rem - 0.4rem);
+    border: 1px solid var(--gn-panel-inner);
+    pointer-events: none;
+  }
+
+  .knowledge-index__stage-image {
+    display: block;
+    width: 100%;
     height: auto;
-    max-width: min(480px, 100%);
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
   }
 
-  .knowledge-index__lead {
+  .knowledge-index__stage-panel {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    font-size: 1.05rem;
+    padding: 1.75rem;
+    border-radius: 1.5rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    box-shadow: var(--gn-offset-shadow);
+    text-align: center;
+  }
+
+  .knowledge-index__stage-panel::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: calc(1.5rem - 0.35rem);
+    border: 1px solid var(--gn-panel-inner);
+    pointer-events: none;
+  }
+
+  @media (min-width: 960px) {
+    .knowledge-index__stage-panel {
+      text-align: left;
+      align-self: center;
+    }
+  }
+
+  .knowledge-index__eyebrow {
+    font-size: 1.125rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge-index__hero-text {
+    font-size: 1.25rem;
     color: var(--gn-ink-muted);
     line-height: 1.7;
+    margin: 0;
+  }
+
+  .knowledge-index__hero-text strong {
+    color: var(--gn-ink);
+    font-weight: 600;
   }
 
   @media (min-width: 640px) {
-    .knowledge-index__lead {
-      font-size: 1.15rem;
+    .knowledge-index__hero-text {
+      font-size: 1.375rem;
     }
+  }
+
+  .knowledge-index__features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 960px) {
+    .knowledge-index__features {
+      justify-content: flex-start;
+    }
+  }
+
+  .knowledge-index__feature-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: color-mix(in srgb, var(--gn-accent) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-accent) 30%, transparent);
+    border-radius: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    transition: all 0.2s ease;
+  }
+
+  .knowledge-index__feature-badge:hover {
+    background: color-mix(in srgb, var(--gn-accent) 20%, transparent);
+    border-color: color-mix(in srgb, var(--gn-accent) 42%, transparent);
   }
 
   .knowledge-index__section {
@@ -322,7 +427,7 @@ const pageSeo = buildPageSeo({
   }
 
   .knowledge-index__section-title {
-    font-size: 1.75rem;
+    font-size: 1.875rem;
     font-weight: 600;
     color: var(--gn-ink);
     margin: 0;
@@ -330,19 +435,19 @@ const pageSeo = buildPageSeo({
 
   @media (min-width: 640px) {
     .knowledge-index__section-title {
-      font-size: 2rem;
+      font-size: 2.125rem;
     }
   }
 
   .knowledge-index__section-help {
-    font-size: 0.9rem;
+    font-size: 1.125rem;
     color: var(--gn-ink-muted);
     margin: 0;
   }
 
   @media (min-width: 640px) {
     .knowledge-index__section-help {
-      font-size: 1rem;
+      font-size: 1.125rem;
     }
   }
 
@@ -422,8 +527,6 @@ const pageSeo = buildPageSeo({
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 1rem;
-    padding: 1.25rem;
     text-decoration: none;
     color: inherit;
   }
@@ -436,9 +539,7 @@ const pageSeo = buildPageSeo({
   .category-card__media {
     position: relative;
     aspect-ratio: 3 / 2;
-    border-radius: 0.9rem;
     overflow: hidden;
-    border: 1px solid var(--gn-panel-border);
     background: var(--gn-bg);
   }
 
@@ -461,19 +562,21 @@ const pageSeo = buildPageSeo({
   .category-card__badge {
     position: absolute;
     bottom: 1rem;
-    left: 1rem;
+    right: 1rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.3rem 0.75rem;
     border-radius: 999px;
     border: 2px solid var(--gn-panel-border);
-    background: color-mix(in srgb, var(--gn-bg) 85%, transparent);
-    font-size: 0.7rem;
-    letter-spacing: 0.14em;
+    background: color-mix(in srgb, var(--gn-bg) 90%, transparent);
+    backdrop-filter: blur(8px);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 600;
     color: var(--gn-ink);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   }
 
   .category-card__badge-dot {
@@ -487,10 +590,12 @@ const pageSeo = buildPageSeo({
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 1.25rem;
+    flex: 1;
   }
 
   .category-card__title {
-    font-size: 1.1rem;
+    font-size: 1.225rem;
     font-weight: 600;
     margin: 0;
     color: var(--gn-ink);
@@ -498,7 +603,7 @@ const pageSeo = buildPageSeo({
 
   .category-card__description {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1.125rem;
     line-height: 1.6;
     color: var(--gn-ink-muted);
   }
