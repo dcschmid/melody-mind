@@ -15,6 +15,7 @@
     "preview": "astro preview",
     "lint": "yarn format && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "lint:check": "eslint \"src/**/*.{js,ts,jsx,tsx,astro}\"",
+    "check:scoped-css": "node scripts/check_scoped_css.mjs",
     "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "format:check": "prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "convert-images": "python3 scripts/convert_pngs.py",
