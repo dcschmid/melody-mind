@@ -102,3 +102,107 @@ const pageSeo = buildPageSeo({
     </div>
   </PageShell>
 </Layout>
+<style>
+  .panel {
+    --panel-radius: 1.5rem;
+    --panel-padding: 1.5rem;
+    --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    position: relative;
+    border-radius: var(--panel-radius);
+    background: var(--panel-bg);
+    border: 2px solid var(--panel-border);
+    box-shadow: var(--gn-offset-shadow);
+    padding: var(--panel-padding);
+  }
+
+  .panel::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--gn-panel-inner);
+    border-radius: calc(var(--panel-radius) - 0.25rem);
+    pointer-events: none;
+  }
+
+  .panel--compact {
+    --panel-padding: 1rem;
+  }
+
+  .panel--tight {
+    --panel-padding: 1.25rem;
+  }
+
+  .panel--card {
+    --panel-radius: 1.25rem;
+    --panel-padding: 1.25rem;
+  }
+
+  .legal-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .legal-page__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .legal-page__eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-gn-amber-300);
+  }
+
+  .legal-page__title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .legal-page__title {
+      font-size: 2.3rem;
+    }
+  }
+
+  .legal-page__lead {
+    font-size: 1rem;
+    color: var(--gn-ink-muted);
+    margin: 0;
+  }
+
+  .legal-page__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .legal-page__section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    margin: 0;
+  }
+
+  .legal-page__text {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    line-height: 1.6;
+  }
+
+  .legal-page__link {
+    color: var(--color-gn-amber-300);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-page__link:hover {
+    color: var(--color-gn-amber-200);
+  }
+</style>
