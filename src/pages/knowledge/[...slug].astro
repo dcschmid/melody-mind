@@ -225,7 +225,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       aria-hidden="true"
     >
     </div>
-    <span id="reading-progress-label" class="sr-only">Reading progress: 0%</span>
+    <span id="reading-progress-label" class="knowledge__sr">Reading progress: 0%</span>
   </div>
 
   <div class="knowledge">
@@ -402,7 +402,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       <TableOfContents headings={mergedHeadings} lang={lang} />
 
       <article id="article-content" class="panel knowledge-article">
-        <div id="article-title" class="sr-only">{entry.data.title}</div>
+        <div id="article-title" class="knowledge__title-sr">{entry.data.title}</div>
         <div
           role="region"
           aria-labelledby="article-title"
@@ -598,3 +598,487 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 
   <BackToTop lang={lang} />
 </Layout>
+<style>
+  .panel {
+    --panel-radius: 1.5rem;
+    --panel-padding: 1.5rem;
+    --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    position: relative;
+    border-radius: var(--panel-radius);
+    background: var(--panel-bg);
+    border: 2px solid var(--panel-border);
+    box-shadow: var(--gn-offset-shadow);
+    padding: var(--panel-padding);
+  }
+
+  .panel::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--gn-panel-inner);
+    border-radius: calc(var(--panel-radius) - 0.25rem);
+    pointer-events: none;
+  }
+
+  .panel--compact {
+    --panel-padding: 1rem;
+  }
+
+  .panel--tight {
+    --panel-padding: 1.25rem;
+  }
+
+  .panel--card {
+    --panel-radius: 1.25rem;
+    --panel-padding: 1.25rem;
+  }
+
+  .reading-progress {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 60;
+    height: 0.25rem;
+    background: color-mix(in srgb, var(--color-gn-soot-950) 70%, transparent);
+    backdrop-filter: blur(6px);
+  }
+
+  .reading-progress__bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(
+      90deg,
+      var(--color-gn-amber-400),
+      var(--color-gn-amber-300),
+      var(--color-gn-amber-200)
+    );
+    box-shadow: 0 0 10px rgba(95, 199, 255, 0.45);
+  }
+
+  @media (min-width: 640px) {
+    .reading-progress {
+      height: 0.375rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .reading-progress {
+      height: 0.5rem;
+    }
+  }
+
+  .knowledge {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--gn-ink);
+    background-color: var(--gn-bg);
+    font-family: var(--font-sans);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .knowledge__backdrop {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      var(--color-gn-soot-900) 0%,
+      var(--color-gn-soot-950) 65%,
+      #000000 100%
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .knowledge__texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    background-image: var(--gn-halftone), var(--gn-noise);
+    background-blend-mode: screen, normal;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .knowledge__container {
+    position: relative;
+    z-index: 2;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  @media (min-width: 640px) {
+    .knowledge__container {
+      padding: 3rem 1.5rem 4.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .knowledge__container {
+      padding: 3.5rem 2rem 5rem;
+    }
+  }
+
+  .knowledge__hero {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .knowledge__hero {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: stretch;
+    }
+  }
+
+  .knowledge__hero-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .knowledge__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--gn-ink-muted);
+  }
+
+  @media (min-width: 640px) {
+    .knowledge__meta {
+      font-size: 0.875rem;
+    }
+  }
+
+  .knowledge__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 75%, transparent);
+    font-weight: 600;
+    text-transform: none;
+    line-height: 1;
+  }
+
+  .knowledge__pill--label {
+    background: rgba(123, 214, 255, 0.18);
+    border-color: color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    color: var(--color-gn-amber-200);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.7rem;
+  }
+
+  .knowledge__pill--accent {
+    background: rgba(123, 214, 255, 0.16);
+    color: var(--color-gn-amber-200);
+  }
+
+  .knowledge__pill-icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--color-gn-amber-300);
+  }
+
+  .knowledge__pill-icon--teal {
+    color: var(--color-gn-teal-300);
+  }
+
+  .knowledge__title {
+    margin: 0;
+    color: var(--gn-ink);
+  }
+
+  .knowledge__summary {
+    margin: 0;
+    max-width: 64ch;
+    color: var(--color-gn-parchment-100);
+  }
+
+  .knowledge__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--gn-ink-muted);
+  }
+
+  @media (min-width: 640px) {
+    .knowledge__stats {
+      font-size: 0.875rem;
+    }
+  }
+
+  .knowledge__aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .knowledge__aside {
+      gap: 1.5rem;
+    }
+  }
+
+  .knowledge__media-panel {
+    --panel-padding: 0;
+    overflow: hidden;
+  }
+
+  .knowledge__media-frame {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .knowledge__media-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform var(--transition-base);
+  }
+
+  .knowledge__media-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .knowledge__media-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    transition: opacity var(--transition-base);
+  }
+
+  .knowledge__media-panel:hover .knowledge__media-image {
+    transform: scale(1.03);
+  }
+
+  .knowledge__media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 3 / 2;
+    text-align: center;
+    padding: 2rem;
+    background: var(--gn-bg-muted);
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge__media-placeholder-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .knowledge__media-placeholder-icon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .knowledge__media-placeholder-icon {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  .knowledge__panel-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gn-ink-muted);
+    font-weight: 600;
+  }
+
+  .knowledge__panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .knowledge__panel-icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--color-gn-amber-300);
+  }
+
+  .knowledge__podcast {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .knowledge__podcast-icon {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gn-panel-border);
+    background: rgba(123, 214, 255, 0.12);
+    color: var(--color-gn-amber-100);
+  }
+
+  .knowledge__podcast-icon svg {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .knowledge__podcast-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .knowledge__podcast-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gn-ink-muted);
+    font-weight: 600;
+  }
+
+  .knowledge__podcast-text {
+    font-size: 0.9rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge__podcast-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.25rem;
+  }
+
+  .knowledge-article {
+    margin-top: 0.5rem;
+  }
+
+  .knowledge-share {
+    margin-top: 2.5rem;
+  }
+
+  .knowledge-share__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .knowledge-share__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+  }
+
+  .knowledge-share__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .knowledge-share__note {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge__back {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 2px solid var(--gn-panel-border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--gn-ink);
+    background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .share-button:hover {
+    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  .share-button:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  .share-button--primary {
+    background: var(--color-gn-amber-500);
+    color: var(--color-gn-soot-950);
+    border-color: color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+  }
+
+  .share-button--primary:hover {
+    background: var(--color-gn-amber-400);
+  }
+
+  .share-button__icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .knowledge__sr,
+  .knowledge__title-sr {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip-path: var(--sr-only-clip-path);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
