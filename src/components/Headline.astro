@@ -69,3 +69,78 @@ const attributes: Record<string, any> = {
 ---
 
 <Tag {...attributes}>{title || <slot />}</Tag>
+<style>
+  .headline {
+    font-family: var(--font-display);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+    font-weight: 700;
+    color: var(--gn-ink);
+    text-wrap: balance;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
+    overflow-wrap: break-word;
+    margin: 0;
+  }
+
+  .headline--size-sm {
+    font-size: 1.125rem;
+  }
+
+  .headline--size-base {
+    font-size: 1.25rem;
+  }
+
+  .headline--size-lg {
+    font-size: 1.5rem;
+  }
+
+  .headline--size-xl {
+    font-size: 2rem;
+  }
+
+  .headline--size-2xl {
+    font-size: 2.5rem;
+  }
+
+  .headline--size-3xl {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .headline--size-sm {
+      font-size: 1.25rem;
+    }
+
+    .headline--size-base {
+      font-size: 1.5rem;
+    }
+
+    .headline--size-lg {
+      font-size: 1.75rem;
+    }
+
+    .headline--size-xl {
+      font-size: 2.5rem;
+    }
+
+    .headline--size-2xl {
+      font-size: 3rem;
+    }
+
+    .headline--size-3xl {
+      font-size: 3.5rem;
+    }
+  }
+
+  .headline--align-left {
+    text-align: left;
+  }
+
+  .headline--align-center {
+    text-align: center;
+  }
+
+  .headline--align-right {
+    text-align: right;
+  }
+</style>

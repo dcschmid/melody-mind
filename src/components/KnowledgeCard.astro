@@ -172,7 +172,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
             </div>
           </div>
         </div>
-        <span class="sr-only">{lang_t("navigation.article.opens")}</span>
+        <span class="knowledge-card__sr">{lang_t("navigation.article.opens")}</span>
       </a>
     ) : (
       <div class="knowledge-card__content">
@@ -236,4 +236,150 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       </div>
     )
   }
+  <style>
+    .knowledge-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      color: var(--gn-ink);
+      border-radius: 1.25rem;
+      background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+      border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+      box-shadow: var(--gn-offset-shadow);
+      overflow: hidden;
+      transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+    }
+
+    .knowledge-card::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border: 1px solid var(--gn-panel-inner);
+      border-radius: 1rem;
+      pointer-events: none;
+    }
+
+    .knowledge-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .knowledge-card__link,
+    .knowledge-card__content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .knowledge-card__shine {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(95, 199, 255, 0.12),
+        rgba(95, 199, 255, 0.06),
+        transparent 65%
+      );
+      opacity: 0;
+      transition: opacity var(--transition-base);
+      pointer-events: none;
+    }
+
+    .knowledge-card:hover .knowledge-card__shine,
+    .knowledge-card__link:focus-visible .knowledge-card__shine {
+      opacity: 1;
+    }
+
+    .knowledge-card__link:focus-visible {
+      outline: 3px solid var(--color-gn-amber-300);
+      outline-offset: 3px;
+    }
+
+    .knowledge-card__media {
+      position: relative;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      border-radius: 0.9rem;
+      background: var(--gn-bg);
+      border: 1px solid var(--gn-panel-border);
+      margin: 1.25rem 1.25rem 0;
+    }
+
+    .knowledge-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+
+    .knowledge-card:hover .knowledge-card__image,
+    .knowledge-card__link:focus-visible .knowledge-card__image {
+      transform: scale(1.05);
+    }
+
+    .knowledge-card__overlay {
+      position: absolute;
+      inset: 0;
+    }
+
+    .knowledge-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem 1.5rem 1.25rem;
+      flex: 1;
+    }
+
+    .knowledge-card__title {
+      margin: 0;
+      color: var(--gn-ink);
+    }
+
+    .knowledge-card__description {
+      margin: 0;
+      color: var(--gn-ink-muted);
+    }
+
+    .knowledge-card__meta {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gn-panel-border);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: var(--gn-ink-muted);
+    }
+
+    .knowledge-card__meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+    }
+
+    .knowledge-card__meta-icon {
+      display: block;
+      width: 0.9rem;
+      height: 0.9rem;
+      flex-shrink: 0;
+      color: var(--color-gn-amber-300);
+    }
+
+    .knowledge-card__sr {
+      position: absolute;
+      width: var(--sr-only-width);
+      height: var(--sr-only-height);
+      margin: var(--sr-only-margin);
+      overflow: hidden;
+      clip-path: var(--sr-only-clip-path);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </article>

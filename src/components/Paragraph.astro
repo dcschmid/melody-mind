@@ -62,3 +62,80 @@ const attributes: Record<string, any> = {
 <p {...attributes}>
   <slot />
 </p>
+<style>
+  .paragraph {
+    font-family: var(--font-sans);
+    line-height: var(--line-height-relaxed);
+    color: var(--gn-ink-muted);
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    margin: 0;
+  }
+
+  .paragraph--size-sm {
+    font-size: 1rem;
+  }
+
+  .paragraph--size-base {
+    font-size: 1rem;
+  }
+
+  .paragraph--size-lg {
+    font-size: 1.125rem;
+  }
+
+  .paragraph--size-xl {
+    font-size: 1.25rem;
+  }
+
+  .paragraph--size-2xl {
+    font-size: 1.35rem;
+  }
+
+  .paragraph--size-3xl {
+    font-size: 1.5rem;
+  }
+
+  .paragraph--size-4xl {
+    font-size: 1.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .paragraph--size-base {
+      font-size: 1.1rem;
+    }
+
+    .paragraph--size-lg {
+      font-size: 1.2rem;
+    }
+
+    .paragraph--size-xl {
+      font-size: 1.35rem;
+    }
+
+    .paragraph--size-2xl {
+      font-size: 1.5rem;
+    }
+
+    .paragraph--size-3xl {
+      font-size: 1.7rem;
+    }
+
+    .paragraph--size-4xl {
+      font-size: 2rem;
+    }
+  }
+
+  .paragraph--align-left {
+    text-align: left;
+  }
+
+  .paragraph--align-center {
+    text-align: center;
+  }
+
+  .paragraph--align-right {
+    text-align: right;
+  }
+</style>
