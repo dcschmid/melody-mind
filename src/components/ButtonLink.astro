@@ -140,5 +140,108 @@ const forwardedAttrs = (() => {
 >
   {icon && <Icon name={icon} class={iconClasses} aria-hidden="true" />}
   <slot />
-  {isExternal && <span class="sr-only"> ({externalLinkText})</span>}
+  {isExternal && <span class="button-link__sr"> ({externalLinkText})</span>}
 </a>
+<style>
+  .button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
+    line-height: 1.2;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .button-link {
+      width: auto;
+    }
+  }
+
+  .button-link:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+    box-shadow:
+      0 0 0 3px rgba(95, 199, 255, 0.35),
+      4px 4px 0 rgba(0, 0, 0, 0.75);
+  }
+
+  .button-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.82);
+  }
+
+  .button-link:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.85);
+  }
+
+  .button-link--primary {
+    background: var(--gn-bg-muted);
+    border-color: var(--color-gn-amber-500);
+    color: var(--gn-ink);
+  }
+
+  .button-link--primary:hover {
+    background: color-mix(in srgb, var(--gn-bg-muted) 85%, var(--gn-ink) 15%);
+  }
+
+  .button-link--secondary {
+    background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
+    border-color: var(--gn-panel-border);
+    color: var(--gn-ink-muted);
+    backdrop-filter: blur(6px);
+  }
+
+  .button-link--secondary:hover {
+    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+    color: var(--gn-ink);
+  }
+
+  .button-link--sm {
+    min-height: 36px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .button-link--md {
+    min-height: 40px;
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .button-link__icon {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .button-link__sr {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip-path: var(--sr-only-clip-path);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

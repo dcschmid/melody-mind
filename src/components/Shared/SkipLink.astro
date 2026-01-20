@@ -38,3 +38,33 @@ const iconClasses = "skip-link__icon";
   <Icon name="external-link" class={iconClasses} aria-hidden="true" />
   {t("nav.skip.main")}
 </a>
+<style>
+  .skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    background: var(--color-gn-amber-500);
+    color: var(--color-gn-soot-950);
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.7);
+  }
+
+  .skip-link:focus-visible {
+    top: 0;
+    outline: 2px solid var(--color-gn-amber-300);
+    outline-offset: 4px;
+  }
+
+  .skip-link__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+</style>
