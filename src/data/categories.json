@@ -1,206 +1,218 @@
 [
   {
-    "slug": "decades",
+    "slug": "music-through-decades",
     "name": "Music Through the Decades",
-    "description": "A guided journey through the evolving sound of global music history — from vintage analog warmth to the digital revolutions of today. Each decade unfolds through cultural shifts, iconic artists, and the innovations that reshaped how the world listens.",
-    "image": "/maincategories/decades.jpg"
+    "description": "A fascinating journey through the evolution of global music history — from the analog warmth of the 50s to the digital revolution of the 21st century. Experience how cultural upheavals, legendary artists, and groundbreaking innovations shaped the way the world hears and feels music.",
+    "image": "/maincategories/music-through-decades.jpg"
   },
   {
-    "slug": "female-focused",
-    "name": "Global Female Icons",
-    "description": "Celebrating the voices, visions, and cultural influence of women who redefined music across continents and generations. Their stories illuminate artistry, resilience, and evolution — from soulful pioneers to today’s global trailblazers.",
-    "image": "/maincategories/female-focused.jpg"
+    "slug": "decade-spanning-perspectives",
+    "name": "Decade-Spanning Musical Perspectives",
+    "description": "Discover musical developments that transcend decade boundaries — from cross-era style revolutions and artistic legacies to genres that connect generations. An analytical perspective on musical continuity and transformation across time.",
+    "image": "/maincategories/cross-decade-perspectives.jpg"
   },
   {
-    "slug": "classical-orchestral",
-    "name": "Classical & Orchestral Mastery",
-    "description": "A deep exploration of classical and orchestral music across centuries — from iconic composers and legendary symphonies to modern cinematic scores and global orchestral traditions that continue to inspire today.",
-    "image": "/maincategories/classical-orchestral.jpg"
+    "slug": "global-female-music-icons",
+    "name": "Global Female Music Icons",
+    "description": "A powerful tribute to the voices, visions, and cultural influence of women who redefined music history across continents and generations. From soul pioneers and rock rebels to pop revolutionaries — their stories embody artistic mastery, perseverance, and continuous evolution.",
+    "image": "/maincategories/global-female-music-icons.jpg"
   },
   {
-    "slug": "classical-orchestral-leading-vocal-virtuosos",
-    "name": "Classical & Orchestral Mastery: Leading Vocal Virtuosos",
-    "description": "A curated selection of the world’s most acclaimed classical and orchestral vocalists — uniting legendary opera voices, modern orchestral performers, and influential artists whose mastery shaped the global landscape of vocal performance across centuries.",
+    "slug": "voice-as-instrument",
+    "name": "The Voice as Instrument",
+    "description": "A fascinating exploration of the human voice as the most universal and expressive of all instruments — from virtuoso vocal techniques and innovative vocal artistry to emotional timbres and the artists who elevated singing to pure art form. Cross-genre and cross-era masterpieces of vocal expression.",
+    "image": "/maincategories/voice-as-instrument.jpg"
+  },
+  {
+    "slug": "classical-orchestral-mastery",
+    "name": "Classical & Orchestral Masterworks",
+    "description": "A profound journey through centuries of classical and orchestral music — from legendary composers like Bach, Mozart, and Beethoven to monumental symphonies, modern film scores, and global orchestral traditions. Discover the timeless power of symphonic composition and instrumental virtuosity.",
+    "image": "/maincategories/classical-orchestral-mastery.jpg"
+  },
+  {
+    "slug": "classical-vocal-virtuosos",
+    "name": "Classical Vocal Virtuosos",
+    "description": "The world's most distinguished classical and orchestral vocalists united — from legendary opera voices and lyrical sopranos to powerful tenors and modern orchestral soloists. A curated selection of artists whose vocal mastery shaped the global landscape of vocal performance across centuries.",
     "image": "/maincategories/classical-orchestral-leading-vocal-virtuosos.jpg"
   },
   {
-    "slug": "classic-rock-hard-rock",
-    "name": "Classic Rock & Hard Rock Legends",
-    "description": "A deep dive into the anthems, artists, and electrifying moments that shaped classic rock and hard rock — from timeless riffs and stadium-shaking vocals to the cultural revolutions that defined generations.",
-    "image": "/maincategories/classic-rock-hard-rock.jpg"
+    "slug": "classic-hard-rock-traditions",
+    "name": "Rock Traditions: Classic & Hard Rock",
+    "description": "An electrifying deep dive into the anthems, artists, and legendary moments that shaped classic rock and hard rock — from timeless guitar riffs and stadium-shaking vocals to iconic albums and the cultural revolutions that defined generations. Led Zeppelin, Deep Purple, AC/DC, and the architects of rock sound.",
+    "image": "/maincategories/classic-hard-rock-traditions.jpg"
   },
   {
-    "slug": "rock-icons-golden-age-heavy-edge",
-    "name": "Rock Icons: The Golden Age & Heavy Edge",
-    "description": "A definitive tribute to the artists who shaped the heart and power of rock — uniting the legendary women and men whose voices, riffs, and revolutionary spirit defined both the golden age of classic rock and the electrifying energy of hard rock’s heaviest edge.",
-    "image": "/maincategories/rock-icons-golden-age-heavy-edge.jpg"
+    "slug": "rock-icons-golden-age",
+    "name": "Rock Icons: Golden Age & Heavy Edge",
+    "description": "A definitive tribute to the artists who shaped the heart and power of rock — uniting legendary women and men whose voices, riffs, and revolutionary spirit defined both the golden age of classic rock and the electrifying energy of hard rock's heaviest era. From Robert Plant to Ann Wilson.",
+    "image": "/maincategories/rock-icons-golden-age.jpg"
   },
   {
-    "slug": "metal-classics",
-    "name": "Metal Classics & Legends",
-    "description": "A powerful journey through the defining eras of classic metal — from pioneering heavy riffs and iconic vocal styles to the albums and artists that forged the foundations of modern metal worldwide.",
-    "image": "/maincategories/metal-classics.jpg"
-  },
-  {
-    "slug": "modern-metal-new-wave",
-    "name": "Modern Metal & New Wave",
-    "description": "Exploring the evolution of contemporary metal — from genre-blending innovators and cinematic production styles to the vocal extremes, emotional depth, and groundbreaking artistry shaping metal’s future.",
-    "image": "/maincategories/modern-metal-new-wave.jpg"
-  },
-  {
-    "slug": "avantgarde-extreme-metal-realms",
-    "name": "Avantgarde & Extreme Metal Realms",
-    "description": "A tribute to the legendary frontmen, guitar heroes, and innovators whose voices, riffs, and stage presence defined metal’s power — shaping its identity from the early pioneers to today’s global icons.",
-    "image": "/maincategories/avantgarde-extreme-metal-realms.jpg"
+    "slug": "classic-metal-heavy-music",
+    "name": "Classic Metal & Heavy Music",
+    "description": "A powerful journey through the defining eras of classic metal — from groundbreaking heavy riffs and iconic vocal styles to legendary albums and the artists who forged the foundations of modern metal worldwide. Black Sabbath, Iron Maiden, Judas Priest, and the pioneers of extreme soundscapes.",
+    "image": "/maincategories/classic-metal-heavy-music.jpg"
   },
   {
     "slug": "metal-icons-queens-kings",
     "name": "Metal Icons: Queens & Kings",
-    "description": "A powerful celebration of the voices, innovators, and legends who shaped metal’s past, present, and future — from symphonic and gothic pioneers to the classic heavy metal giants and modern progressive visionaries who defined the genre’s global identity.",
+    "description": "A powerful celebration of the voices, innovators, and legends who shaped metal's past, present, and future — from symphonic and gothic pioneers like Nightwish and Type O Negative to classic heavy metal giants and modern progressive visionaries. The artists who defined the genre's global identity.",
     "image": "/maincategories/metal-icons-queens-kings.jpg"
   },
   {
     "slug": "mainstream-pop-global-hits",
-    "name": "Mainstream Pop & Global Hits",
-    "description": "A vibrant look at the artists, sounds, and cultural moments driving today’s global pop landscape — from chart-topping icons and streaming phenomena to the trends shaping modern popular music.",
+    "name": "Mainstream Pop & Global Chart Hits",
+    "description": "A vibrant look at the artists, sounds, and cultural moments shaping today's global pop landscape — from chart-topping icons and streaming phenomena to viral TikTok trends and the melodic and rhythmic innovations defining modern pop music. The soundtrack of our time.",
     "image": "/maincategories/mainstream-pop-global-hits.jpg"
   },
   {
-    "slug": "pop-powerhouses",
-    "name": "Pop Powerhouses",
-    "description": "A global showcase of the most influential, technically impressive, and emotionally defining vocalists in modern pop — celebrating the artists whose voices shape charts, culture, and the sound of a generation.",
-    "image": "/maincategories/pop-powerhouses.jpg"
+    "slug": "pop-vocal-powerhouses",
+    "name": "Pop Vocal Powerhouses",
+    "description": "A global showcase of the most influential, technically impressive, and emotionally defining vocalists in modern pop — from Ariana Grande and Beyoncé to The Weeknd. The artists whose voices dominate charts, shape culture, and define the sound of a generation. Vocal power meets pop excellence.",
+    "image": "/maincategories/pop-vocal-powerhouses.jpg"
   },
   {
-    "slug": "indie-alternative",
-    "name": "Indie & Alternative",
-    "description": "Exploring the intimate, experimental, and emotionally rich world of indie and alternative music — from groundbreaking storytellers and underground innovators to the movements that continue to shape modern artistic identity.",
-    "image": "/maincategories/indie-alternative.jpg"
+    "slug": "indie-alternative-music",
+    "name": "Indie & Alternative Music",
+    "description": "An exploration of the intimate, experimental, and emotionally profound world of indie and alternative — from groundbreaking storytellers and underground innovators to lo-fi aesthetics and the movements that continue to shape modern artistic identity. Where authenticity meets creative freedom.",
+    "image": "/maincategories/indie-alternative-music.jpg"
   },
   {
     "slug": "indie-alternative-leading-voices",
-    "name": "Indie & Alternative Leading Voices",
-    "description": "A curated selection of the most influential, expressive, and boundary-pushing vocalists in modern indie and alternative music — celebrating the artists whose voices shape the emotional, artistic, and cultural identity of the indie/alt world.",
+    "name": "Indie & Alternative: Leading Voices",
+    "description": "A curated selection of the most influential, expressive, and boundary-pushing vocalists in modern indie and alternative music — from Florence Welch and Thom Yorke to Phoebe Bridgers. The artists whose voices shape the emotional, artistic, and cultural identity of the indie/alt world.",
     "image": "/maincategories/indie-alternative-leading-voices.jpg"
   },
   {
     "slug": "hip-hop-rap-culture",
-    "name": "Hip Hop & Rap Culture",
-    "description": "A dynamic exploration of global hip hop and rap — from lyrical storytelling and cultural movements to the beats, producers, and innovators shaping one of the world’s most influential musical genres.",
+    "name": "Hip-Hop & Rap Culture",
+    "description": "A dynamic exploration of global hip-hop and rap — from lyrical storytelling and cultural movements to the evolution from boom bap to trap, and the beats, producers, and innovators shaping one of the world's most influential music genres. From Bronx roots to global dominance.",
     "image": "/maincategories/hip-hop-rap-culture.jpg"
   },
   {
-    "slug": "hip-hop-rap-leading-voices-lyric-icons",
-    "name": "Hip Hop & Rap: Leading Voices & Lyric Icons",
-    "description": "A curated showcase of the most influential vocal stylists, lyricists, and culture-shaping voices in global hip hop and rap — honoring artists whose flow, delivery, and presence defined generations and continue to drive the genre forward.",
+    "slug": "hip-hop-rap-vocal-lyric-icons",
+    "name": "Hip-Hop & Rap: Vocal & Lyric Icons",
+    "description": "A curated showcase of the most influential vocal stylists, lyricists, and culture-shaping voices in global hip-hop and rap — from Nas and Kendrick Lamar to Lauryn Hill. Artists whose flow, delivery, and presence defined generations and continue to drive the genre forward.",
     "image": "/maincategories/hip-hop-rap-leading-voices-lyric-icons.jpg"
   },
   {
     "slug": "jazz-soul-funk-expressions",
-    "name": "Jazz, Soul & Funk Expressions",
-    "description": "A colorful journey through the improvisation, emotion, and groove that shaped jazz, soul, and funk — celebrating the voices, musicians, and cultural movements that continue to influence modern music worldwide.",
+    "name": "Jazz, Soul & Funk: Musical Expressions",
+    "description": "A colorful journey through the improvisation, emotion, and groove that shaped jazz, soul, and funk — from Miles Davis' cool jazz and Aretha Franklin's soul power to James Brown's funk revolution. The voices, musicians, and cultural movements that continue to influence modern music worldwide.",
     "image": "/maincategories/jazz-soul-funk-expressions.jpg"
   },
   {
-    "slug": "jazz-soul-funk-leading-voices-legends",
-    "name": "Jazz, Soul & Funk: Leading Voices & Legends",
-    "description": "A celebration of the most expressive, influential, and genre-defining vocalists in jazz, soul, and funk — honoring timeless legends and modern innovators whose voices shaped the emotional and cultural foundations of groove, blues, and improvisation around the world.",
+    "slug": "jazz-soul-funk-vocal-legends",
+    "name": "Jazz, Soul & Funk: Vocal Legends",
+    "description": "A celebration of the most expressive, influential, and genre-defining vocalists in jazz, soul, and funk — from Ella Fitzgerald and Billie Holiday to Stevie Wonder and modern innovators. Timeless legends whose voices shaped the emotional and cultural foundations of groove, blues, and improvisation worldwide.",
     "image": "/maincategories/jazz-soul-funk-leading-voices-legends.jpg"
   },
   {
-    "slug": "house-techno-culture",
-    "name": "House & Techno Culture",
-    "description": "A vibrant exploration of the electronic beats, innovative producers, and cultural movements that have shaped house and techno music — from underground clubs to global festivals.",
-    "image": "/maincategories/house-techno-culture.jpg"
+    "slug": "house-techno-electronic-culture",
+    "name": "House, Techno & Electronic Culture",
+    "description": "A vibrant exploration of the electronic beats, innovative producers, and cultural movements that shaped house and techno — from Chicago's Warehouse and Detroit's underground to Berlin's club culture. The evolution of electronic music from underground clubs to global festivals.",
+    "image": "/maincategories/house-techno-electronic-culture.jpg"
   },
   {
-    "slug": "house-techno-leading-voices-pioneers",
-    "name": "House & Techno: Leading Voices & Pioneers",
-    "description": "A curated selection of the most iconic, influential, and innovative vocalists who shaped house and techno — celebrating the voices that define club culture, underground movements, soulful dance music, and the global evolution of electronic sound.",
-    "image": "/maincategories/house-techno-leading-voices-pioneers.jpg"
+    "slug": "house-techno-vocal-pioneers",
+    "name": "House & Techno: Vocal Pioneers",
+    "description": "A curated selection of the most iconic, influential, and innovative vocalists who shaped house and techno — the voices that defined club culture, formed underground movements, and created soulful dance music. From Martha Wash to Robert Owens — the vocal evolution of electronic sound.",
+    "image": "/maincategories/house-techno-vocal-pioneers.jpg"
   },
   {
     "slug": "club-sounds-nightlife-beats",
     "name": "Club Sounds & Nightlife Beats",
-    "description": "A high-energy journey through the pulse of global club culture — from dancefloor anthems and festival bangers to the DJs, producers, and rhythmic innovations that define modern nightlife.",
+    "description": "A high-energy journey through the pulse of global club culture — from dancefloor anthems and festival bangers to EDM and big room, and the DJs, producers, and rhythmic innovations that define modern nightlife. The soundtrack of the dancing night.",
     "image": "/maincategories/club-sounds-nightlife-beats.jpg"
   },
   {
-    "slug": "club-sounds-leading-voices-night",
-    "name": "Club Sounds: Leading Voices of the Night",
-    "description": "A vibrant selection of the most iconic, energetic, and club-defining vocalists in global dance music — celebrating voices that shape nightlife, festival culture, party anthems, and the emotional high of modern club sound.",
-    "image": "/maincategories/club-sounds-leading-voices-night.jpg"
+    "slug": "club-sounds-vocal-icons",
+    "name": "Club Sounds: Vocal Icons of the Night",
+    "description": "A vibrant selection of the most iconic, energetic, and club-defining vocalists in global dance music — voices that shape nightlife, festival culture, and party anthems. From Swedish House Mafia collaborations to Calvin Harris vocal features — the emotional peak of modern club sound.",
+    "image": "/maincategories/club-sounds-vocal-icons.jpg"
   },
   {
     "slug": "breaks-experimental-soundscapes",
     "name": "Breaks & Experimental Soundscapes",
-    "description": "Exploring the boundary-pushing worlds of breakbeat, experimental electronica, and forward-thinking sound design — from glitchy rhythms and atmospheric textures to innovative artists reshaping modern electronic music.",
+    "description": "An exploration of the boundary-pushing worlds of breakbeat, experimental electronica, and forward-thinking sound design — from glitchy rhythms and atmospheric textures to IDM and leftfield, and innovative artists like Aphex Twin and Amon Tobin redefining modern electronic music.",
     "image": "/maincategories/breaks-experimental-soundscapes.jpg"
   },
   {
-    "slug": "breaks-experimental-leading-avant-voices",
-    "name": "Breaks & Experimental: Leading Avant-Voices",
-    "description": "A curated selection of the most innovative, genre-bending, and boundary-breaking vocalists in Breakbeat, IDM, Future Garage, Trip-Hop, Glitch, and experimental electronic music — celebrating voices that reshape modern sound aesthetics through texture, emotion, and fearless creativity.",
-    "image": "/maincategories/breaks-experimental-leading-avant-voices.jpg"
+    "slug": "breaks-experimental-avant-voices",
+    "name": "Breaks & Experimental: Avant-Garde Voices",
+    "description": "A curated selection of the most innovative, genre-bending, and boundary-breaking vocalists in breakbeat, IDM, future garage, trip-hop, and glitch — from Björk to FKA twigs. Voices that reshape modern sound aesthetics through texture, emotion, and fearless creativity.",
+    "image": "/maincategories/breaks-experimental-avant-voices.jpg"
   },
   {
-    "slug": "latin-vibes-global-rhythms",
-    "name": "Latin Vibes & Global Rhythms",
-    "description": "Celebrating the vibrant rhythms, voices, and cultural influences of Latin music — from timeless classics and regional traditions to modern global hits shaping today’s international sound.",
+    "slug": "latin-music-global-rhythms",
+    "name": "Latin Music: Global Rhythms",
+    "description": "A celebration of the vibrant rhythms, voices, and cultural influences of Latin American music — from timeless classics and regional traditions like salsa, bachata, and tango to modern reggaeton revolutions and global hits shaping today's international sound.",
     "image": "/maincategories/latin-vibes-global-rhythms.jpg"
   },
-    {
-    "slug": "latin-vibes-leading-voices-global-rhythms",
-    "name": "Latin Vibes: Leading Voices & Global Rhythms",
-    "description": "A celebration of the most influential and culturally defining vocalists across Latin genres — from salsa and samba to bachata, cumbia, tango, and modern Brazilian traditions — honoring the artists whose voices shaped Latin music’s global heartbeat.",
-    "image": "/maincategories/latin-vibes-leading-voices-global-rhythms.jpg"
+  {
+    "slug": "latin-music-vocal-icons",
+    "name": "Latin Music: Vocal Icons",
+    "description": "A tribute to the most influential and culturally defining vocalists across Latin American genres — from salsa legends like Celia Cruz to samba greats, bachata, cumbia, tango, and modern Brazilian traditions. The artists whose voices shaped the global heartbeat of Latin music.",
+    "image": "/maincategories/latin-music-vocal-icons.jpg"
   },
   {
-    "slug": "caribbean-afro-rhythms",
-    "name": "Caribbean & Afro Rhythms",
-    "description": "A vibrant celebration of Caribbean and African musical heritage — from reggae, dancehall, soca, and amapiano to the voices, rhythms, and cultural movements shaping global music today.",
-    "image": "/maincategories/caribbean-afro-rhythms.jpg"
+    "slug": "caribbean-afro-roots-music",
+    "name": "Caribbean & Afro-Roots",
+    "description": "A vibrant celebration of Caribbean and African musical heritage — from reggae and dancehall to soca, afrobeat, and amapiano, and the voices, rhythms, and cultural movements shaping global music today. From Bob Marley to Burna Boy — the rhythms of the diaspora.",
+    "image": "/maincategories/caribbean-afro-roots-music.jpg"
   },
   {
-    "slug": "caribbean-afro-leading-voices-rhythm-culture",
-    "name": "Caribbean & Afro: Leading Voices of Rhythm & Culture",
-    "description": "A vibrant showcase of the most influential and culturally defining vocalists across Caribbean and African music — from reggae and dancehall to afrobeat, highlife, soukous, reggaeton, and contemporary Afro-Caribbean fusion.",
-    "image": "/maincategories/caribbean-afro-leading-voices-rhythm-culture.jpg"
+    "slug": "caribbean-afro-vocal-icons",
+    "name": "Caribbean & Afro-Roots: Vocal Icons",
+    "description": "A vibrant showcase of the most influential and culturally defining vocalists across Caribbean and African music — from reggae and dancehall to afrobeat, highlife, soukous, reggaeton, and contemporary Afro-Caribbean fusion. The voices that defined rhythm and culture worldwide.",
+    "image": "/maincategories/caribbean-afro-vocal-icons.jpg"
   },
   {
-    "slug": "folk-regional-roots",
-    "name": "Folk & Regional Roots",
-    "description": "A heartfelt journey through traditional, folk, and regional music from around the world — celebrating storytelling, cultural identity, acoustic craftsmanship, and the timeless voices that connect communities across generations.",
-    "image": "/maincategories/folk-regional-roots.jpg"
-  },
-    {
-    "slug": "folk-regional-leading-voices-storytelling",
-    "name": "Folk & Regional: Leading Voices of Heritage & Storytelling",
-    "description": "A global selection of the most influential and culturally significant vocalists in folk and regional music — celebrating the storytellers, tradition bearers, and genre-defining voices who shaped acoustic heritage, regional styles, and timeless musical identity across continents.",
-    "image": "/maincategories/folk-regional-leading-voices-storytelling.jpg"
+    "slug": "folk-regional-music-expressions",
+    "name": "Folk & Regional Music",
+    "description": "A heartfelt journey through traditional, folk, and regional music from around the world — from Celtic ballads and American Appalachian traditions to Nordic folk melodies. A celebration of storytelling, cultural identity, acoustic craftsmanship, and the timeless voices that connect communities across generations.",
+    "image": "/maincategories/folk-regional-music-expressions.jpg"
   },
   {
-    "slug": "countries-regional-genres",
-    "name": "Countries & Regional Genres",
-    "description": "A global exploration of the traditional, contemporary, and culturally rooted musical styles that define regions around the world — from local folk traditions and national genres to modern interpretations shaped by community, history, and identity.",
-    "image": "/maincategories/countries-regional-genres.jpg"
+    "slug": "folk-regional-vocal-storytellers",
+    "name": "Folk & Regional: Vocal Storytellers",
+    "description": "A global selection of the most influential and culturally significant vocalists in folk and regional music — from Joan Baez and Fairport Convention to modern tradition bearers. The storytellers and genre-defining voices who shaped acoustic heritage, regional styles, and timeless musical identity across continents.",
+    "image": "/maincategories/folk-regional-vocal-storytellers.jpg"
   },
   {
-    "slug": "emotional-genres-heartfelt-music",
-    "name": "Emotional Genres & Heartfelt Music",
-    "description": "Exploring the genres that speak directly to the heart — from intimate acoustic and cinematic soundscapes to raw, expressive voices and songs that capture vulnerability, longing, and emotional depth across cultures.",
-    "image": "/maincategories/emotional-genres-heartfelt-music.jpg"
+    "slug": "countries-regional-music-traditions",
+    "name": "Countries & Regional Music Traditions",
+    "description": "A global exploration of the traditional, contemporary, and culturally rooted musical styles that define regions worldwide — from local folk traditions and national genres like fado, flamenco, and K-pop to modern interpretations shaped by community, history, and identity.",
+    "image": "/maincategories/countries-regional-music-traditions.jpg"
   },
   {
-    "slug": "seasonal-genres-atmospheres",
-    "name": "Seasonal Genres & Atmospheres",
-    "description": "A curated journey through music shaped by the seasons — from winter’s cinematic stillness and autumn’s warm introspection to the bright energy of summer and the renewal of spring, capturing how sound reflects the world’s shifting moods.",
-    "image": "/maincategories/seasonal-genres-atmospheres.jpg"
+    "slug": "countries-regional-vocal-traditions",
+    "name": "Countries & Regional Vocal Traditions",
+    "description": "A worldwide tribute to the most defining voices in regional and national music traditions — from Portuguese fado and Spanish flamenco to French chanson and Korean K-pop. The vocalists who embody cultural identity through sound and language.",
+    "image": "/maincategories/countries-regional-vocal-traditions.jpg"
   },
   {
-    "slug": "situational-activity-sounds",
-    "name": "Situational & Activity Sounds",
-    "description": "Music shaped for life’s moments — from focus and calm to celebration, travel, workouts, late-night moods, reflection, and everything in between.",
-    "image": "/maincategories/situational-activity-sounds.jpg"
+    "slug": "emotional-heartfelt-music",
+    "name": "Emotional & Heartfelt Music",
+    "description": "An exploration of genres that speak directly to the heart — from intimate acoustic and cinematic soundscapes to raw, expressive voices and songs that capture vulnerability, longing, and emotional depth across cultures. Music that touches and moves.",
+    "image": "/maincategories/emotional-heartfelt-music.jpg"
+  },
+  {
+    "slug": "seasonal-music-atmospheres",
+    "name": "Seasonal Music & Atmospheres",
+    "description": "A curated journey through music shaped by the seasons — from winter's cinematic stillness and autumn's warm introspection to summer's bright energy and spring's renewal. Sounds that capture and reflect the world's shifting moods.",
+    "image": "/maincategories/seasonal-music-atmospheres.jpg"
+  },
+  {
+    "slug": "situational-activity-music",
+    "name": "Situational & Activity Music",
+    "description": "Music shaped for life's moments — from focus and calm to celebration and travel, workouts, late-night moods, reflection, and everything in between. The perfect soundtrack for every life phase and activity.",
+    "image": "/maincategories/situational-activity-music.jpg"
+  },
+  {
+    "slug": "music-media-tech-industry",
+    "name": "Music, Media, Technology & Industry",
+    "description": "A comprehensive perspective on the business, technology, and media landscape of the music industry — from streaming platforms and AI innovation to music video production, labels, publishing, and the evolving economics of digital music distribution.",
+    "image": "/maincategories/music-media-tech-industry.jpg"
   }
 ]
