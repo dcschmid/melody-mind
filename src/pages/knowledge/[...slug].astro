@@ -358,46 +358,46 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
               </div>
             ) : null
           }
-
-          {
-            podcastUrl ? (
-              <div class="panel panel--compact">
-                <div class="knowledge__podcast">
-                  <div class="knowledge__podcast-icon">
-                    <Icon name="headphones" aria-hidden="true" />
-                  </div>
-                  <div class="knowledge__podcast-body">
-                    <div class="knowledge__podcast-label">Podcast companion</div>
-                    <div class="knowledge__podcast-text">
-                      Listen to the episode for this decade or explore the full podcast
-                      series.
-                    </div>
-                    <div class="knowledge__podcast-actions">
-                      <ButtonLink
-                        href={podcastUrl}
-                        icon="headphones"
-                        className="button-link--md"
-                        aria-label={`Open the podcast page for ${entry.data.title}`}
-                      >
-                        Open podcast page
-                      </ButtonLink>
-                      <ButtonLink
-                        href={podcastBase}
-                        variant="secondary"
-                        icon="mic"
-                        className="button-link--md"
-                        aria-label="Browse all Melody Mind podcasts"
-                      >
-                        All podcast episodes
-                      </ButtonLink>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : null
-          }
         </div>
       </div>
+
+      {
+        podcastUrl ? (
+          <div class="panel panel--compact knowledge__podcast-wide">
+            <div class="knowledge__podcast">
+              <div class="knowledge__podcast-icon">
+                <Icon name="headphones" aria-hidden="true" />
+              </div>
+              <div class="knowledge__podcast-body">
+                <div class="knowledge__podcast-label">Podcast companion</div>
+                <div class="knowledge__podcast-text">
+                  Listen to the episode for this decade or explore the full podcast
+                  series.
+                </div>
+                <div class="knowledge__podcast-actions">
+                  <ButtonLink
+                    href={podcastUrl}
+                    icon="headphones"
+                    className="button-link--md"
+                    aria-label={`Open the podcast page for ${entry.data.title}`}
+                  >
+                    Open podcast page
+                  </ButtonLink>
+                  <ButtonLink
+                    href={podcastBase}
+                    variant="secondary"
+                    icon="mic"
+                    className="button-link--md"
+                    aria-label="Browse all Melody Mind podcasts"
+                  >
+                    All podcast episodes
+                  </ButtonLink>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null
+      }
 
       <TableOfContents headings={mergedHeadings} lang={lang} />
 
@@ -973,6 +973,10 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     flex-wrap: wrap;
     gap: 0.5rem;
     padding-top: 0.25rem;
+  }
+
+  .knowledge__podcast-wide {
+    margin: 0 0 1.75rem;
   }
 
   .knowledge-article {

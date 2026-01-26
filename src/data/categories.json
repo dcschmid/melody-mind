@@ -9,7 +9,7 @@
     "slug": "decade-spanning-perspectives",
     "name": "Decade-Spanning Musical Perspectives",
     "description": "Discover musical developments that transcend decade boundaries — from cross-era style revolutions and artistic legacies to genres that connect generations. An analytical perspective on musical continuity and transformation across time.",
-    "image": "/maincategories/cross-decade-perspectives.jpg"
+    "image": "/maincategories/decade-spanning-perspectives.jpg"
   },
   {
     "slug": "global-female-music-icons",
@@ -33,7 +33,7 @@
     "slug": "classical-vocal-virtuosos",
     "name": "Classical Vocal Virtuosos",
     "description": "The world's most distinguished classical and orchestral vocalists united — from legendary opera voices and lyrical sopranos to powerful tenors and modern orchestral soloists. A curated selection of artists whose vocal mastery shaped the global landscape of vocal performance across centuries.",
-    "image": "/maincategories/classical-orchestral-leading-vocal-virtuosos.jpg"
+    "image": "/maincategories/classical-vocal-virtuosos.jpg"
   },
   {
     "slug": "classic-hard-rock-traditions",
@@ -93,7 +93,7 @@
     "slug": "hip-hop-rap-vocal-lyric-icons",
     "name": "Hip-Hop & Rap: Vocal & Lyric Icons",
     "description": "A curated showcase of the most influential vocal stylists, lyricists, and culture-shaping voices in global hip-hop and rap — from Nas and Kendrick Lamar to Lauryn Hill. Artists whose flow, delivery, and presence defined generations and continue to drive the genre forward.",
-    "image": "/maincategories/hip-hop-rap-leading-voices-lyric-icons.jpg"
+    "image": "/maincategories/hip-hop-rap-vocal-lyric-icons.jpg"
   },
   {
     "slug": "jazz-soul-funk-expressions",
@@ -105,7 +105,7 @@
     "slug": "jazz-soul-funk-vocal-legends",
     "name": "Jazz, Soul & Funk: Vocal Legends",
     "description": "A celebration of the most expressive, influential, and genre-defining vocalists in jazz, soul, and funk — from Ella Fitzgerald and Billie Holiday to Stevie Wonder and modern innovators. Timeless legends whose voices shaped the emotional and cultural foundations of groove, blues, and improvisation worldwide.",
-    "image": "/maincategories/jazz-soul-funk-leading-voices-legends.jpg"
+    "image": "/maincategories/jazz-soul-funk-vocal-legends.jpg"
   },
   {
     "slug": "house-techno-electronic-culture",
@@ -147,7 +147,7 @@
     "slug": "latin-music-global-rhythms",
     "name": "Latin Music: Global Rhythms",
     "description": "A celebration of the vibrant rhythms, voices, and cultural influences of Latin American music — from timeless classics and regional traditions like salsa, bachata, and tango to modern reggaeton revolutions and global hits shaping today's international sound.",
-    "image": "/maincategories/latin-vibes-global-rhythms.jpg"
+    "image": "/maincategories/latin-music-global-rhythms.jpg"
   },
   {
     "slug": "latin-music-vocal-icons",

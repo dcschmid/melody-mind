@@ -67,9 +67,6 @@ for (const a of articlesWithReadingTime) {
 }
 const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
 
-const seoBreadcrumbs = [{ name: safeUi["nav.home"] || "Home", url: currentUrl }];
-const breadcrumbs = [{ name: safeUi["nav.home"] || "Home", url: "/" }];
-
 const articleCollectionSchema = buildKnowledgeArticlesItemList({
   articles: sortedArticles.map((a: any) => ({
     slug: "slug" in a ? a.slug : a.id,
@@ -115,7 +112,6 @@ const pageSeo = buildPageSeo({
   description,
   url: currentUrl,
   contentKind: "generic",
-  breadcrumbs: seoBreadcrumbs,
   structuredData: [articleCollectionSchema].filter(Boolean) as StructuredData[],
   enrichedParts: [title, description, keywordPool.slice(0, 25).join(" ")],
   fallbackKeywords: metaKeywords
@@ -133,7 +129,7 @@ const pageSeo = buildPageSeo({
 });
 ---
 
-<Layout {pageSeo} {breadcrumbs}>
+<Layout {pageSeo}>
   <PageShell className="page-shell--aurora page-shell--grid">
     <div class="knowledge-index">
       <header class="knowledge-index__intro">

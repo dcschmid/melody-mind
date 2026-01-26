@@ -144,17 +144,9 @@ const imageAltText = title ? `Cover image for ${title}` : "";
 
             <div class="knowledge-card__meta" id={metaId}>
               <div class="knowledge-card__meta-item">
-                <span
-                  aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
-                >
-                  <Icon
-                    name="clock"
-                    class="knowledge-card__meta-icon"
-                    aria-hidden="true"
-                  />
-                  <span>
-                    {readingTime} {lang_t("knowledge.reading.time")}
-                  </span>
+                <Icon name="clock" class="knowledge-card__meta-icon" aria-hidden="true" />
+                <span>
+                  {readingTime} {lang_t("knowledge.reading.time")}
                 </span>
               </div>
               <time
@@ -304,10 +296,10 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       position: relative;
       aspect-ratio: 3 / 2;
       overflow: hidden;
-      border-radius: 0.9rem;
+      border-radius: 0;
       background: var(--gn-bg);
-      border: 1px solid var(--gn-panel-border);
-      margin: 1.25rem 1.25rem 0;
+      border: none;
+      margin: 0;
     }
 
     .knowledge-card__image {
@@ -348,27 +340,32 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     .knowledge-card__meta {
       margin-top: auto;
       padding-top: 1rem;
-      border-top: 1px solid var(--gn-panel-border);
+      border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
       display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      font-size: 1.125rem;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 1rem;
       color: var(--gn-ink-muted);
     }
 
     .knowledge-card__meta-item {
-      display: inline-flex;
+      display: grid;
+      grid-template-columns: 1.1rem 1fr;
       align-items: center;
-      gap: 0.4rem;
+      column-gap: 0.55rem;
       font-weight: 500;
     }
 
     .knowledge-card__meta-icon {
       display: block;
-      width: 0.9rem;
-      height: 0.9rem;
+      width: 1.05rem;
+      height: 1.05rem;
       flex-shrink: 0;
       color: var(--color-gn-amber-300);
+    }
+
+    .knowledge-card__meta-item span {
+      white-space: nowrap;
     }
 
     .knowledge-card__sr {
@@ -451,10 +448,10 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     position: relative;
     aspect-ratio: 3 / 2;
     overflow: hidden;
-    border-radius: 0.9rem;
+    border-radius: 0;
     background: var(--surface-1);
-    border: 1px solid color-mix(in srgb, var(--color-gn-soot-700) 85%, transparent);
-    margin: 1.25rem 1.25rem 0;
+    border: none;
+    margin: 0;
   }
 
   .knowledge-card__image {
@@ -495,27 +492,32 @@ const imageAltText = title ? `Cover image for ${title}` : "";
   .knowledge-card__meta {
     margin-top: auto;
     padding-top: 1rem;
-    border-top: 1px solid color-mix(in srgb, var(--color-gn-soot-600) 80%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--color-gn-soot-600) 70%, transparent);
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    font-size: 1.125rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
     color: var(--text-secondary);
   }
 
   .knowledge-card__meta-item {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: 1.1rem 1fr;
     align-items: center;
-    gap: 0.4rem;
+    column-gap: 0.55rem;
     font-weight: 500;
   }
 
   .knowledge-card__meta-icon {
     display: block;
-    width: 0.9rem;
-    height: 0.9rem;
+    width: 1.05rem;
+    height: 1.05rem;
     flex-shrink: 0;
     color: var(--link-default);
+  }
+
+  .knowledge-card__meta-item span {
+    white-space: nowrap;
   }
 
   .sr-only {
