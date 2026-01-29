@@ -167,6 +167,30 @@ const pageSeo = buildPageSeo({
       </header>
 
       <section
+        class="knowledge-index__section knowledge-index__section--recent"
+        aria-labelledby="recent-reads-title"
+      >
+        <div class="knowledge-index__section-head">
+          <div>
+            <h2 id="recent-reads-title" class="knowledge-index__section-title">
+              Recently read
+            </h2>
+            <p class="knowledge-index__section-help">
+              Pick up where you left off on your last few guides.
+            </p>
+          </div>
+        </div>
+        <div class="recent-reads" id="recent-reads" hidden>
+          <ul class="recent-reads__list" id="recent-reads-list" aria-live="polite"></ul>
+        </div>
+        <div class="recent-reads recent-reads--empty" id="recent-reads-empty">
+          <p class="recent-reads__empty-text">
+            No recent reads yet. Open a guide and it will show up here.
+          </p>
+        </div>
+      </section>
+
+      <section
         class="knowledge-index__section"
         aria-labelledby="knowledge-categories-title"
         aria-describedby="knowledge-categories-help"
@@ -246,6 +270,70 @@ const pageSeo = buildPageSeo({
 
   <BackToTop {lang} />
 </Layout>
+<script>
+  (() => {
+    const storageKey = "mm_recent_reads";
+    const container = document.getElementById("recent-reads");
+    const list = document.getElementById("recent-reads-list");
+    const emptyState = document.getElementById("recent-reads-empty");
+    if (!container || !list || !emptyState) return;
+
+    let items = [];
+    try {
+      const raw = window.localStorage?.getItem(storageKey);
+      if (raw) items = JSON.parse(raw);
+    } catch {
+      items = [];
+    }
+
+    const sanitized = Array.isArray(items)
+      ? items.filter(
+          (item) =>
+            item && typeof item.slug === "string" && typeof item.title === "string"
+        )
+      : [];
+
+    if (!sanitized.length) {
+      container.hidden = true;
+      emptyState.hidden = false;
+      return;
+    }
+
+    emptyState.hidden = true;
+    container.hidden = false;
+
+    const formatter = new Intl.DateTimeFormat("en", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+
+    sanitized.slice(0, 3).forEach((item) => {
+      const li = document.createElement("li");
+      li.className = "recent-reads__item";
+
+      const link = document.createElement("a");
+      link.className = "recent-reads__link";
+      const normalizedSlug = item.slug.replace(/^\/+/, "");
+      link.href = `/knowledge/${normalizedSlug}`;
+      link.textContent = item.title;
+
+      li.append(link);
+
+      if (item.updatedAt) {
+        const parsed = new Date(item.updatedAt);
+        if (!Number.isNaN(parsed.valueOf())) {
+          const meta = document.createElement("span");
+          meta.className = "recent-reads__meta";
+          meta.textContent = `Updated ${formatter.format(parsed)}`;
+          li.append(meta);
+        }
+      }
+
+      list.append(li);
+    });
+  })();
+</script>
 <style>
   .knowledge-index {
     display: flex;
@@ -476,6 +564,138 @@ const pageSeo = buildPageSeo({
     text-align: center;
     color: var(--gn-ink-muted);
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
+  }
+
+  .knowledge-index__section--recent {
+    margin-top: 0.5rem;
+  }
+
+  :global(.recent-reads) {
+    position: relative;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background:
+      radial-gradient(
+        circle at 15% 20%,
+        color-mix(in srgb, var(--gn-accent) 20%, transparent) 0%,
+        transparent 55%
+      ),
+      linear-gradient(
+        140deg,
+        color-mix(in srgb, var(--gn-bg-muted) 92%, transparent),
+        color-mix(in srgb, var(--gn-bg) 90%, transparent)
+      );
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.35),
+      var(--gn-offset-shadow);
+  }
+
+  :global(.recent-reads)::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 1rem;
+    border: 1px solid var(--gn-panel-inner);
+    pointer-events: none;
+  }
+
+  :global(.recent-reads--empty) {
+    text-align: center;
+    color: var(--gn-ink-muted);
+  }
+
+  :global(.recent-reads__empty-text) {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  :global(.recent-reads__list) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  @media (min-width: 720px) {
+    :global(.recent-reads__list) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  :global(.recent-reads__item) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    background: linear-gradient(
+      150deg,
+      color-mix(in srgb, var(--gn-bg) 88%, transparent),
+      color-mix(in srgb, var(--gn-bg-muted) 92%, transparent)
+    );
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
+  }
+
+  :global(.recent-reads__item)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      color-mix(in srgb, var(--gn-accent) 35%, transparent),
+      transparent 45%,
+      color-mix(in srgb, var(--gn-accent-strong) 28%, transparent) 100%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+  }
+
+  :global(.recent-reads__item:hover) {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
+  }
+
+  :global(.recent-reads__item:hover)::before {
+    opacity: 0.35;
+  }
+
+  :global(.recent-reads__link) {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    text-decoration: none;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  :global(.recent-reads__link:hover) {
+    text-decoration: underline;
+  }
+
+  :global(.recent-reads__link:focus-visible) {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 3px;
+  }
+
+  :global(.recent-reads__meta) {
+    font-size: 1rem;
+    color: var(--gn-ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
   }
 
   .knowledge-index__sr {

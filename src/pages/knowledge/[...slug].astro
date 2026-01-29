@@ -212,6 +212,13 @@ const shareMailBody = encodeURIComponent(`${description || ""}\n\n${shareUrl}`);
 const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponent(
   `${shareText} ${shareUrl}`
 )}`;
+const storageSlug = resolvedSlug || entry?.slug || entry?.id || "";
+const storageUpdatedAtRaw = entry?.data?.updatedAt || entry?.data?.createdAt || "";
+const parsedStorageDate = storageUpdatedAtRaw ? new Date(storageUpdatedAtRaw) : null;
+const storageUpdatedAt =
+  parsedStorageDate && !Number.isNaN(parsedStorageDate.valueOf())
+    ? parsedStorageDate.toISOString()
+    : "";
 ---
 
 <Layout {pageSeo} {breadcrumbs}>
@@ -281,6 +288,15 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
               />
               <span>{t("knowledge.word_count", { count: wordsCount })}</span>
             </div>
+            <button
+              type="button"
+              class="bookmark-button"
+              data-bookmark-toggle
+              aria-pressed="false"
+            >
+              <Icon name="bookmark" class="bookmark-button__icon" aria-hidden="true" />
+              <span data-bookmark-label>Save</span>
+            </button>
           </div>
         </header>
 
@@ -503,6 +519,14 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
           <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
         </ButtonLink>
       </div>
+      <div
+        id="recent-read-data"
+        data-slug={storageSlug}
+        data-title={title}
+        data-updated-at={storageUpdatedAt}
+        hidden
+      >
+      </div>
     </div>
   </div>
 
@@ -563,9 +587,103 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 
   <script>
     (() => {
+      const storageKey = "mm_recent_reads";
+      const dataEl = document.getElementById("recent-read-data");
+      if (!dataEl) return;
+      const recentEntry = {
+        slug: dataEl.dataset.slug || "",
+        title: dataEl.dataset.title || "",
+        updatedAt: dataEl.dataset.updatedAt || "",
+      };
+
+      if (!recentEntry.slug || !recentEntry.title) return;
+      if (typeof window === "undefined" || !window.localStorage) return;
+
+      try {
+        const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
+        const raw = window.localStorage.getItem(storageKey);
+        const parsed = raw ? JSON.parse(raw) : [];
+        const items = Array.isArray(parsed)
+          ? parsed.filter(
+              (item) =>
+                item && typeof item.slug === "string" && typeof item.title === "string"
+            )
+          : [];
+
+        const next = [
+          { ...recentEntry, slug: normalizedSlug },
+          ...items.filter((item) => item.slug !== normalizedSlug),
+        ];
+        window.localStorage.setItem(storageKey, JSON.stringify(next.slice(0, 3)));
+      } catch {
+        // ignore storage errors
+      }
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const storageKey = "mm_bookmarks";
+      const dataEl = document.getElementById("recent-read-data");
+      const button = document.querySelector("[data-bookmark-toggle]");
+      const label = button?.querySelector("[data-bookmark-label]");
+      if (!dataEl || !button || !label) return;
+
+      const slug = (dataEl.dataset.slug || "").replace(/^\/+/, "");
+      if (!slug) return;
+
+      const load = () => {
+        try {
+          const raw = window.localStorage?.getItem(storageKey);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed)
+            ? parsed.filter((item) => typeof item === "string")
+            : [];
+        } catch {
+          return [];
+        }
+      };
+
+      const save = (items) => {
+        try {
+          window.localStorage?.setItem(storageKey, JSON.stringify(items));
+        } catch {
+          // ignore storage errors
+        }
+      };
+
+      const update = (isSaved: boolean) => {
+        button.setAttribute("aria-pressed", isSaved ? "true" : "false");
+        button.dataset.bookmarkState = isSaved ? "saved" : "empty";
+        label.textContent = isSaved ? "Saved" : "Save";
+      };
+
+      let items = load();
+      update(items.includes(slug));
+
+      button.addEventListener("click", () => {
+        items = load();
+        if (items.includes(slug)) {
+          items = items.filter((item) => item !== slug);
+        } else {
+          items = [slug, ...items.filter((item) => item !== slug)];
+        }
+        save(items);
+        update(items.includes(slug));
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
       const bar = document.getElementById("reading-progress-bar");
       const label = document.getElementById("reading-progress-label");
       if (!bar || !label) return;
+      const progressData = document.getElementById("recent-read-data");
+      const progressSlug = progressData?.dataset.slug
+        ? progressData.dataset.slug.replace(/^\/+/, "")
+        : "";
+      const progressKey = "mm_read_progress";
 
       const prefersReduced =
         window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
@@ -573,7 +691,44 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         bar.style.transition = "width 120ms ease-out";
       }
 
+      const getProgressStore = () => {
+        if (!progressSlug) return null;
+        try {
+          const raw = window.localStorage?.getItem(progressKey);
+          const parsed = raw ? JSON.parse(raw) : {};
+          return parsed && typeof parsed === "object" ? parsed : {};
+        } catch {
+          return {};
+        }
+      };
+
+      const setProgressStore = (store: Record<string, unknown>) => {
+        if (!progressSlug) return;
+        try {
+          window.localStorage?.setItem(progressKey, JSON.stringify(store));
+        } catch {
+          // ignore storage errors
+        }
+      };
+
+      const restoreProgress = () => {
+        if (!progressSlug) return;
+        const store = getProgressStore();
+        if (!store || typeof store !== "object") return;
+        const entry = (store as any)[progressSlug];
+        const progress = entry && typeof entry.progress === "number" ? entry.progress : 0;
+        if (progress < 0.02 || progress > 0.95) return;
+        const doc = document.documentElement;
+        const scrollable = doc.scrollHeight - doc.clientHeight;
+        if (scrollable <= 0) return;
+        if (doc.scrollTop > 4) return;
+        const target = Math.round(scrollable * progress);
+        window.scrollTo({ top: target, behavior: prefersReduced ? "auto" : "smooth" });
+      };
+
       let ticking = false;
+      let hasInteracted = false;
+      let lastSavedAt = 0;
       const compute = () => {
         const doc = document.documentElement;
         const scrollable = doc.scrollHeight - doc.clientHeight;
@@ -581,10 +736,32 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
         const clamped = Math.min(Math.max(raw, 0), 100);
         bar.style.width = `${clamped}%`;
         label.textContent = `Reading progress: ${clamped.toFixed(0)}%`;
+
+        if (progressSlug && scrollable > 0 && hasInteracted) {
+          const now = Date.now();
+          if (now - lastSavedAt > 1000) {
+            lastSavedAt = now;
+            const store = getProgressStore() || {};
+            if (clamped >= 98) {
+              if (store && typeof store === "object") {
+                delete (store as any)[progressSlug];
+              }
+              setProgressStore(store as Record<string, unknown>);
+            } else {
+              (store as any)[progressSlug] = {
+                progress: clamped / 100,
+                updatedAt: new Date().toISOString(),
+              };
+              setProgressStore(store as Record<string, unknown>);
+            }
+          }
+        }
+
         ticking = false;
       };
 
       const onScroll = () => {
+        hasInteracted = true;
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(compute);
@@ -593,6 +770,16 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
       compute();
+      const scheduleRestore = () => {
+        window.setTimeout(() => {
+          if (!hasInteracted) restoreProgress();
+        }, 200);
+      };
+      scheduleRestore();
+      window.addEventListener("load", scheduleRestore, { once: true });
+      window.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden" && hasInteracted) compute();
+      });
     })();
   </script>
 
@@ -817,6 +1004,44 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     .knowledge__stats {
       font-size: 1.125rem;
     }
+  }
+
+  .bookmark-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.2rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
+    color: var(--gn-ink);
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      transform 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+  }
+
+  .bookmark-button__icon {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-gn-amber-300);
+  }
+
+  .bookmark-button[data-bookmark-state="saved"] {
+    border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  }
+
+  .bookmark-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .bookmark-button:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 3px;
   }
 
   .knowledge__aside {

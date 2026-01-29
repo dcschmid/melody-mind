@@ -1,0 +1,329 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@components/Shared/PageShell.astro";
+import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import { getCollectionCached } from "@utils/content/getCollectionCached";
+import { normalizeDate } from "@utils/content/dateUtils";
+import { resolvePageUrl } from "@utils/siteUrls";
+
+export const prerender = true;
+
+const title = "Bookmarks";
+const description =
+  "Your saved Melody Mind Knowledge articles, stored locally in your browser.";
+const currentUrl = resolvePageUrl(Astro.site, "/bookmarks");
+
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: title, url: currentUrl },
+];
+
+let entries: Array<{
+  slug: string;
+  title: string;
+  description?: string;
+  updatedAt?: string;
+}> = [];
+
+try {
+  const collection = await getCollectionCached("knowledge-en").catch(() => []);
+  entries = (collection || [])
+    .map((entry: any) => {
+      const rawSlug = entry?.slug || entry?.id;
+      if (!rawSlug) return null;
+      const slug = String(rawSlug).replace(/^\/+/, "");
+      const updated = normalizeDate(entry?.data?.updatedAt || entry?.data?.createdAt);
+      return {
+        slug,
+        title: entry?.data?.title || slug,
+        description: entry?.data?.description || "",
+        updatedAt: updated ? updated.toISOString() : "",
+      };
+    })
+    .filter(Boolean) as typeof entries;
+} catch (e) {
+  globalThis.console?.warn?.("bookmarks: collection load issue", {
+    error: (e as any)?.message || e,
+  });
+}
+
+const pageSeo = buildPageSeo({
+  title,
+  description,
+  url: currentUrl,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: [] as StructuredData[],
+  enrichedParts: [title, description],
+  fallbackKeywords: ["bookmarks", "saved articles", "local storage"],
+  keywordLimit: 24,
+  maxDescription: 155,
+  image: "/melody-mind.jpg",
+  publishDate: new Date(),
+  modifiedDate: new Date(),
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
+---
+
+<Layout {pageSeo} {breadcrumbs}>
+  <PageShell className="page-shell--aurora page-shell--grid">
+    <div class="bookmarks-page">
+      <header class="bookmarks-page__header">
+        <p class="bookmarks-page__eyebrow">Library</p>
+        <h1 class="bookmarks-page__title">Bookmarks</h1>
+        <p class="bookmarks-page__lead">
+          Saved locally in your browser. Nothing is synced or tracked.
+        </p>
+      </header>
+
+      <section class="bookmarks-panel" aria-live="polite">
+        <div id="bookmarks-empty" class="bookmarks-empty">
+          <p class="bookmarks-empty__text">
+            You have no bookmarks yet. Save an article to see it here.
+          </p>
+        </div>
+        <ul id="bookmarks-list" class="bookmarks-list" hidden></ul>
+      </section>
+    </div>
+  </PageShell>
+</Layout>
+
+<script
+  type="application/json"
+  id="bookmark-entries"
+  set:html={JSON.stringify(entries)}
+/>
+
+<script>
+  (() => {
+    const storageKey = "mm_bookmarks";
+    const list = document.getElementById("bookmarks-list");
+    const empty = document.getElementById("bookmarks-empty");
+    const dataEl = document.getElementById("bookmark-entries");
+    if (!list || !empty || !dataEl) return;
+
+    let entries = [];
+    try {
+      entries = JSON.parse(dataEl.textContent || "[]");
+    } catch {
+      entries = [];
+    }
+
+    const normalizeSlug = (value) => {
+      if (typeof value !== "string") return "";
+      let slug = value.trim();
+      if (!slug) return "";
+      try {
+        if (/^https?:\/\//i.test(slug)) {
+          slug = new URL(slug).pathname || slug;
+        }
+      } catch {
+        // ignore URL parse errors
+      }
+      slug = slug.replace(/^\/+|\/+$/g, "");
+      if (slug.startsWith("knowledge/")) {
+        slug = slug.slice("knowledge/".length);
+      }
+      return slug;
+    };
+
+    const entryMap = new Map(
+      Array.isArray(entries)
+        ? entries
+            .filter((entry) => entry && typeof entry.slug === "string" && entry.title)
+            .map((entry) => [normalizeSlug(entry.slug), entry])
+        : []
+    );
+
+    let bookmarks = [];
+    try {
+      const raw = window.localStorage?.getItem(storageKey);
+      bookmarks = raw ? JSON.parse(raw) : [];
+    } catch {
+      bookmarks = [];
+    }
+
+    const normalized = Array.isArray(bookmarks)
+      ? bookmarks.filter((item) => typeof item === "string")
+      : [];
+
+    const ordered = normalized
+      .map((slug) => normalizeSlug(slug))
+      .map((slug) => entryMap.get(slug))
+      .filter(Boolean);
+
+    if (!ordered.length) {
+      list.hidden = true;
+      empty.hidden = false;
+      return;
+    }
+
+    const formatter = new Intl.DateTimeFormat("en", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+
+    ordered.forEach((entry) => {
+      const li = document.createElement("li");
+      li.className = "bookmarks-list__item";
+
+      const link = document.createElement("a");
+      link.className = "bookmarks-list__link";
+      link.href = `/knowledge/${entry.slug}`;
+      link.textContent = entry.title;
+
+      const desc = document.createElement("p");
+      desc.className = "bookmarks-list__desc";
+      desc.textContent = entry.description || "";
+
+      li.append(link, desc);
+
+      if (entry.updatedAt) {
+        const parsed = new Date(entry.updatedAt);
+        if (!Number.isNaN(parsed.valueOf())) {
+          const meta = document.createElement("span");
+          meta.className = "bookmarks-list__meta";
+          meta.textContent = `Updated ${formatter.format(parsed)}`;
+          li.append(meta);
+        }
+      }
+
+      list.append(li);
+    });
+
+    list.hidden = false;
+    empty.hidden = true;
+  })();
+</script>
+
+<style>
+  .bookmarks-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .bookmarks-page__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .bookmarks-page__eyebrow {
+    font-size: 1.125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-gn-amber-300);
+  }
+
+  .bookmarks-page__title {
+    margin: 0;
+    font-size: 2.25rem;
+    color: var(--gn-ink);
+  }
+
+  .bookmarks-page__lead {
+    margin: 0;
+    font-size: 1.125rem;
+    color: var(--gn-ink-muted);
+    max-width: 60ch;
+  }
+
+  .bookmarks-panel {
+    position: relative;
+    border-radius: 1.5rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    box-shadow: var(--gn-offset-shadow);
+    padding: 1.5rem;
+  }
+
+  .bookmarks-panel::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 1.2rem;
+    border: 1px solid var(--gn-panel-inner);
+    pointer-events: none;
+  }
+
+  :global(.bookmarks-empty) {
+    text-align: center;
+    color: var(--gn-ink-muted);
+  }
+
+  :global(.bookmarks-empty__text) {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  :global(.bookmarks-list) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 840px) {
+    :global(.bookmarks-list) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  :global(.bookmarks-list__item) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 85%, transparent);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    transition:
+      transform 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+  }
+
+  :global(.bookmarks-list__item:hover) {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  :global(.bookmarks-list__link) {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+
+  :global(.bookmarks-list__link:hover) {
+    text-decoration: underline;
+  }
+
+  :global(.bookmarks-list__link:focus-visible) {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 3px;
+  }
+
+  :global(.bookmarks-list__desc) {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    font-size: 1.05rem;
+  }
+
+  :global(.bookmarks-list__meta) {
+    font-size: 0.95rem;
+    color: var(--gn-ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+</style>
