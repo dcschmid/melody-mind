@@ -589,6 +589,7 @@ Ein sauberer „Listen“-Modus, der Inhalte lesefreundlich strukturiert und TTS
 **Zielbild**
 
 - Takeaways‑Box mit Icons + kurzen Sätzen
+- Optional zweispaltig auf Desktop, einspaltig auf Mobile
 
 **Datenmodell (Vorschlag)**
 
@@ -597,6 +598,7 @@ Ein sauberer „Listen“-Modus, der Inhalte lesefreundlich strukturiert und TTS
 **MVP‑Scope**
 
 - 3–5 Takeaways bei neuen Artikeln, später nachziehen
+- Ohne Nutzer‑Login, keine Speicherung
 
 **Legal**
 

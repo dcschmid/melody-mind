@@ -11,6 +11,7 @@ import Paragraph from "@components/Paragraph.astro";
 import Prose from "@components/Prose.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import KnowledgeQuiz from "@components/Knowledge/KnowledgeQuiz.astro";
+import KnowledgeTakeaways from "@components/Knowledge/KnowledgeTakeaways.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
@@ -18,6 +19,8 @@ import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
 import { resolveAbsoluteUrl, resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
 import { getKnowledgeQuiz } from "../../data/knowledgeQuizzes";
+import { quizDecades } from "../../data/knowledgeQuizzes";
+import { knowledgeTakeaways, takeawaysDecades } from "../../data/knowledgeTakeaways";
 
 export const prerender = true;
 
@@ -55,7 +58,10 @@ if (!entry) {
   return new Response("Not found", { status: 404 });
 }
 
-const quizQuestions = getKnowledgeQuiz(resolvedSlug || entry?.slug || entry?.id || "");
+const slugKey = resolvedSlug || entry?.slug || entry?.id || "";
+const quizQuestions = quizDecades.includes(slugKey as (typeof quizDecades)[number])
+  ? getKnowledgeQuiz(slugKey)
+  : [];
 
 if (!entry.data.readingTime && entry.body) {
   try {
@@ -75,6 +81,15 @@ const t = useTranslations(lang);
 
 const { headings, Content } = await entry.render();
 const mergedHeadings = headings;
+const fallbackTakeaways = takeawaysDecades.includes(
+  slugKey as (typeof takeawaysDecades)[number]
+)
+  ? knowledgeTakeaways[slugKey] || []
+  : [];
+const takeaways =
+  entry.data.takeaways && entry.data.takeaways.length
+    ? entry.data.takeaways
+    : fallbackTakeaways;
 
 const rawImage = entry.data.image;
 const isValidImage =
@@ -432,6 +447,8 @@ const storageUpdatedAt =
       }
 
       <TableOfContents headings={mergedHeadings} lang={lang} />
+
+      {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
 
       <article id="article-content" class="panel knowledge-article">
         <div id="article-title" class="knowledge__title-sr">{entry.data.title}</div>

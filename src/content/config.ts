@@ -23,6 +23,7 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
     podcast: z.string().optional(),
     podcastSlug: z.string().optional(),
     podcastUrl: z.string().optional(),
+    takeaways: z.array(z.string()).optional(),
     draft: z.boolean().default(false),
   });
 

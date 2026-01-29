@@ -1,0 +1,153 @@
+import type { QuizQuestion } from "../knowledgeQuizTypes";
+
+export const quiz1970s: QuizQuestion[] = [
+  {
+    question: "Which dance-focused genre dominated clubs in the mid-to-late 1970s?",
+    options: ["Disco", "Grunge", "Britpop", "Drum and bass"],
+    correct: 0,
+    explanation: "Disco ruled the dance floor in the 1970s.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which punk band helped define the stripped-down sound of 1970s punk rock?",
+    options: ["Ramones", "U2", "Coldplay", "Radiohead"],
+    correct: 0,
+    explanation: "The Ramones were central to early punk aesthetics.",
+    difficulty: "medium",
+  },
+  {
+    question:
+      "Which genre emerged from DJ culture and block parties in the Bronx during the 1970s?",
+    options: ["Hip-hop", "Reggaeton", "Dubstep", "Techno"],
+    correct: 0,
+    explanation: "Hip-hop grew from Bronx block parties in the early 1970s.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which album format became the core of rock listening in the 1970s?",
+    options: [
+      "Album-oriented rock (AOR)",
+      "2-minute single",
+      "Sheet music",
+      "Ring tones",
+    ],
+    correct: 0,
+    explanation: "AOR centered on full albums rather than singles.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which artist helped popularize reggae internationally in the 1970s?",
+    options: ["Bob Marley", "Prince", "Madonna", "Elton John"],
+    correct: 0,
+    explanation: "Bob Marley brought reggae to global audiences.",
+    difficulty: "easy",
+  },
+  {
+    question: "What technology became more prominent in 1970s pop and rock production?",
+    options: ["Synthesizers", "Streaming", "Auto-Tune", "DAT"],
+    correct: 0,
+    explanation: "Synthesizers expanded the palette of 1970s production.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which genre blended funk, soul, and dance rhythms into extended grooves?",
+    options: ["Funk", "New wave", "Shoegaze", "Emo"],
+    correct: 0,
+    explanation: "Funk emphasized groove-heavy rhythms and bass lines.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which style pushed virtuosity and long-form compositions in the 1970s?",
+    options: ["Progressive rock", "Surf rock", "Skiffle", "Ska"],
+    correct: 0,
+    explanation: "Progressive rock favored complex, extended compositions.",
+    difficulty: "medium",
+  },
+  {
+    question:
+      "Which subgenre emerged from Jamaican studio culture with heavy echo and reverb?",
+    options: ["Dub", "Bossa nova", "Grunge", "Bluegrass"],
+    correct: 0,
+    explanation: "Dub remixed reggae with echo and reverb techniques.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which 1970s movement reacted against polished rock with raw minimalism?",
+    options: ["Punk", "Smooth jazz", "Adult contemporary", "Yacht rock"],
+    correct: 0,
+    explanation: "Punk rejected excess with fast, raw, short songs.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which glam rock artist became a 1970s icon with theatrical performances?",
+    options: ["David Bowie", "B.B. King", "Norah Jones", "Ed Sheeran"],
+    correct: 0,
+    explanation: "David Bowie embodied glam rock's theatrical style.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which subgenre emerged in the late 1970s as a bridge to 1980s pop?",
+    options: ["New wave", "Grunge", "Trip-hop", "Drill"],
+    correct: 0,
+    explanation: "New wave grew out of punk and embraced synths and pop hooks.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which radio band expanded rock listening in the 1970s?",
+    options: ["FM radio", "Shortwave only", "AM-only talk", "Satellite radio"],
+    correct: 0,
+    explanation: "FM radio delivered higher fidelity for album-oriented rock.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which genre blended rock with country influences in the 1970s?",
+    options: ["Country rock", "Jungle", "Garage house", "Ska-punk"],
+    correct: 0,
+    explanation: "Country rock fused rock with country traditions.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which band popularized stadium-sized rock shows in the 1970s?",
+    options: ["Led Zeppelin", "The Smiths", "Oasis", "The Strokes"],
+    correct: 0,
+    explanation: "Led Zeppelin were pioneers of large-scale arena rock.",
+    difficulty: "medium",
+  },
+  {
+    question:
+      "Which style is known for extended, groove-based dance tracks in the 1970s?",
+    options: ["Disco", "Bluegrass", "Hardcore punk", "Ambient"],
+    correct: 0,
+    explanation: "Disco tracks often featured long, danceable grooves.",
+    difficulty: "easy",
+  },
+  {
+    question:
+      'Which producer is often linked to the "Wall of Sound" influence on 1970s pop?',
+    options: ["Phil Spector", "Rick Rubin", "Brian Eno", "Max Martin"],
+    correct: 0,
+    explanation: "Phil Spector's techniques influenced 1970s pop production.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which instrument became central to funk bass lines in the 1970s?",
+    options: ["Electric bass guitar", "Theremin", "Harp", "Accordion"],
+    correct: 0,
+    explanation: "Funk relied heavily on electric bass grooves.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which Jamaican style influenced UK music scenes in the 1970s?",
+    options: ["Reggae", "Flamenco", "Tango", "Klezmer"],
+    correct: 0,
+    explanation: "Reggae strongly influenced UK punk and pop scenes.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which technology helped shape the sound of late-1970s electronic music?",
+    options: ["Analog synthesizers", "Streaming platforms", "AI vocals", "MIDI files"],
+    correct: 0,
+    explanation: "Analog synths powered much of late-1970s electronic music.",
+    difficulty: "medium",
+  },
+];
