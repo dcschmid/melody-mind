@@ -111,7 +111,7 @@ const pageSeo = buildPageSeo({
       entries = [];
     }
 
-    const normalizeSlug = (value) => {
+    const normalizeSlug = (value: unknown) => {
       if (typeof value !== "string") return "";
       let slug = value.trim();
       if (!slug) return "";

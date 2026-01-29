@@ -644,7 +644,7 @@ const storageUpdatedAt =
         }
       };
 
-      const save = (items) => {
+      const save = (items: string[]) => {
         try {
           window.localStorage?.setItem(storageKey, JSON.stringify(items));
         } catch {
@@ -654,7 +654,7 @@ const storageUpdatedAt =
 
       const update = (isSaved: boolean) => {
         button.setAttribute("aria-pressed", isSaved ? "true" : "false");
-        button.dataset.bookmarkState = isSaved ? "saved" : "empty";
+        (button as HTMLElement).dataset.bookmarkState = isSaved ? "saved" : "empty";
         label.textContent = isSaved ? "Saved" : "Save";
       };
 
