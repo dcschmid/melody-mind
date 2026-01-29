@@ -1,0 +1,338 @@
+---
+export type QuizQuestion = {
+  question: string;
+  options: string[];
+  correct: number;
+  explanation?: string;
+  difficulty?: "easy" | "medium" | "hard";
+};
+
+const { title = "Quick Quiz", questions = [] } = Astro.props as {
+  title?: string;
+  questions?: QuizQuestion[];
+};
+
+const quizId = `knowledge-quiz-${Math.random().toString(36).slice(2, 9)}`;
+const totalQuestions = questions.length;
+---
+
+<section class="knowledge-quiz" data-knowledge-quiz>
+  <header class="knowledge-quiz__header">
+    <div class="knowledge-quiz__badge">Quick Quiz</div>
+    <h2 class="knowledge-quiz__title" id={quizId}>{title}</h2>
+    <p class="knowledge-quiz__lede">
+      {totalQuestions} questions - No login - Instant feedback
+    </p>
+  </header>
+
+  <form class="knowledge-quiz__form" aria-labelledby={quizId} data-quiz-form>
+    <ol class="knowledge-quiz__list">
+      {
+        questions.map((question, questionIndex) => (
+          <li class="knowledge-quiz__item">
+            <fieldset
+              class="knowledge-quiz__fieldset"
+              data-question
+              data-correct={question.correct}
+              data-explanation={question.explanation || ""}
+            >
+              <legend class="knowledge-quiz__question">
+                {questionIndex + 1}. {question.question}
+              </legend>
+              <div class="knowledge-quiz__options">
+                {question.options.map((option, optionIndex) => (
+                  <label class="knowledge-quiz__option">
+                    <input
+                      class="knowledge-quiz__input"
+                      type="radio"
+                      name={`question-${questionIndex}`}
+                      value={optionIndex}
+                    />
+                    <span class="knowledge-quiz__option-text">{option}</span>
+                  </label>
+                ))}
+              </div>
+              <div class="knowledge-quiz__feedback" data-feedback aria-live="polite" />
+            </fieldset>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="knowledge-quiz__actions">
+      <button class="knowledge-quiz__button" type="button" data-quiz-submit>
+        Show score
+      </button>
+      <button
+        class="knowledge-quiz__button knowledge-quiz__button--ghost"
+        type="button"
+        data-quiz-reset
+      >
+        Reset
+      </button>
+      <div class="knowledge-quiz__result" data-quiz-result aria-live="polite"></div>
+    </div>
+  </form>
+</section>
+
+<script>
+  (() => {
+    const quizRoots = document.querySelectorAll("[data-knowledge-quiz]");
+    quizRoots.forEach((root) => {
+      const form = root.querySelector<HTMLFormElement>("[data-quiz-form]");
+      if (!form) return;
+
+      const questions = Array.from(root.querySelectorAll<HTMLElement>("[data-question]"));
+      const resultEl = root.querySelector<HTMLElement>("[data-quiz-result]");
+      const submitButton = root.querySelector("[data-quiz-submit]");
+      const resetButton = root.querySelector("[data-quiz-reset]");
+
+      const updateFeedback = (fieldset: HTMLElement) => {
+        const selected = fieldset.querySelector<HTMLInputElement>(
+          "input[type='radio']:checked"
+        );
+        const feedback = fieldset.querySelector<HTMLElement>("[data-feedback]");
+        if (!feedback) return;
+
+        if (!selected) {
+          feedback.textContent = "";
+          feedback.removeAttribute("data-state");
+          return;
+        }
+
+        const correctIndex = Number(fieldset.dataset.correct || "-1");
+        const selectedIndex = Number(selected.value);
+        const explanation = fieldset.dataset.explanation || "";
+        const isCorrect = selectedIndex === correctIndex;
+        const prefix = isCorrect ? "Correct." : "Not quite.";
+        feedback.textContent = explanation ? `${prefix} ${explanation}` : prefix;
+        feedback.dataset.state = isCorrect ? "correct" : "incorrect";
+      };
+
+      const scoreQuiz = () => {
+        let answered = 0;
+        let correct = 0;
+        questions.forEach((fieldset) => {
+          const selected = fieldset.querySelector<HTMLInputElement>(
+            "input[type='radio']:checked"
+          );
+          if (!selected) return;
+          answered += 1;
+          const correctIndex = Number(fieldset.dataset.correct || "-1");
+          if (Number(selected.value) === correctIndex) {
+            correct += 1;
+          }
+        });
+        return { answered, correct, total: questions.length };
+      };
+
+      form.addEventListener("change", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement)) return;
+        const fieldset = target.closest<HTMLElement>("[data-question]");
+        if (fieldset) updateFeedback(fieldset);
+      });
+
+      submitButton?.addEventListener("click", () => {
+        const { answered, correct, total } = scoreQuiz();
+        questions.forEach((fieldset) => updateFeedback(fieldset));
+        if (!resultEl) return;
+        if (!answered) {
+          resultEl.textContent = "Pick at least one answer to see your score.";
+          resultEl.dataset.state = "empty";
+          return;
+        }
+        const percent = total ? Math.round((correct / total) * 100) : 0;
+        resultEl.textContent = `Score: ${correct}/${total} correct (${percent}%).`;
+        resultEl.dataset.state = "done";
+      });
+
+      resetButton?.addEventListener("click", () => {
+        form.reset();
+        questions.forEach((fieldset) => {
+          const feedback = fieldset.querySelector<HTMLElement>("[data-feedback]");
+          if (!feedback) return;
+          feedback.textContent = "";
+          feedback.removeAttribute("data-state");
+        });
+        if (resultEl) {
+          resultEl.textContent = "";
+          resultEl.removeAttribute("data-state");
+        }
+      });
+    });
+  })();
+</script>
+
+<style>
+  .knowledge-quiz {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+    border-radius: 1.5rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    box-shadow: var(--gn-offset-shadow);
+  }
+
+  .knowledge-quiz__header {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .knowledge-quiz__badge {
+    justify-self: start;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(123, 214, 255, 0.18);
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    color: var(--color-gn-amber-200);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .knowledge-quiz__title {
+    font-size: clamp(1.5rem, 1.1rem + 1vw, 2.1rem);
+    margin: 0;
+  }
+
+  .knowledge-quiz__lede {
+    margin: 0;
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge-quiz__form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .knowledge-quiz__list {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .knowledge-quiz__item {
+    padding: 0.75rem;
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+  }
+
+  .knowledge-quiz__fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .knowledge-quiz__question {
+    font-weight: 600;
+    color: var(--gn-ink);
+    line-height: 1.45;
+  }
+
+  .knowledge-quiz__options {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .knowledge-quiz__option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0.65rem;
+    border-radius: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 88%, transparent);
+    cursor: pointer;
+  }
+
+  .knowledge-quiz__option:has(.knowledge-quiz__input:focus-visible) {
+    outline: 2px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  .knowledge-quiz__input {
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0;
+    accent-color: var(--color-gn-amber-300);
+    flex-shrink: 0;
+  }
+
+  .knowledge-quiz__option-text {
+    color: var(--gn-ink);
+    line-height: 1.35;
+  }
+
+  .knowledge-quiz__feedback {
+    min-height: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge-quiz__feedback[data-state="correct"] {
+    color: var(--color-gn-amber-200);
+  }
+
+  .knowledge-quiz__feedback[data-state="incorrect"] {
+    color: #ffb38a;
+  }
+
+  .knowledge-quiz__actions {
+    display: grid;
+    gap: 0.6rem;
+    justify-items: start;
+  }
+
+  .knowledge-quiz__button {
+    appearance: none;
+    border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+    padding: 0.6rem 1.4rem;
+    background: color-mix(in srgb, var(--gn-bg) 75%, transparent);
+    color: var(--gn-ink);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .knowledge-quiz__button--ghost {
+    background: transparent;
+  }
+
+  .knowledge-quiz__button:focus-visible {
+    outline: 2px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  .knowledge-quiz__result {
+    min-height: 1.5rem;
+    font-weight: 600;
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge-quiz__result[data-state="done"] {
+    color: var(--color-gn-amber-200);
+  }
+
+  @media (min-width: 720px) {
+    .knowledge-quiz {
+      padding: 1.5rem 1.5rem;
+    }
+
+    .knowledge-quiz__actions {
+      grid-template-columns: repeat(2, max-content) 1fr;
+      align-items: center;
+    }
+
+    .knowledge-quiz__result {
+      justify-self: start;
+    }
+  }
+</style>

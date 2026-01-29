@@ -10,12 +10,14 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import Prose from "@components/Prose.astro";
 import TableOfContents from "@components/TableOfContents.astro";
+import KnowledgeQuiz from "@components/Knowledge/KnowledgeQuiz.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
 import { resolveAbsoluteUrl, resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+import { getKnowledgeQuiz } from "../../data/knowledgeQuizzes";
 
 export const prerender = true;
 
@@ -52,6 +54,8 @@ if (!entry) {
 if (!entry) {
   return new Response("Not found", { status: 404 });
 }
+
+const quizQuestions = getKnowledgeQuiz(resolvedSlug || entry?.slug || entry?.id || "");
 
 if (!entry.data.readingTime && entry.body) {
   try {
@@ -429,6 +433,12 @@ const storageUpdatedAt =
           </Prose>
         </div>
       </article>
+
+      {
+        quizQuestions.length ? (
+          <KnowledgeQuiz title="Quick Quiz" questions={quizQuestions} />
+        ) : null
+      }
 
       <div
         class="panel panel--compact knowledge-share"
