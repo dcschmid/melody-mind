@@ -31,7 +31,7 @@
     "@astrojs/sitemap": "^3.7.0",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
     "@playform/compress": "^0.2.1",
-    "astro": "^5.16.15",
+    "astro": "^5.17.1",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.0",
