@@ -42,19 +42,19 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     display: grid;
     gap: 1rem;
     padding: 1.5rem;
-    background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
     border-radius: 1.25rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
     box-shadow: var(--gn-offset-shadow);
   }
 
   .knowledge-takeaways::after {
+    content: "";
     position: absolute;
     inset: 4px;
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--gn-panel-inner);
     border-radius: calc(1.25rem - 0.25rem);
+    border: 1px solid var(--gn-panel-inner);
+    pointer-events: none;
   }
 
   .knowledge-takeaways__header {
@@ -63,36 +63,36 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
   }
 
   .knowledge-takeaways__badge {
-    inline-size: fit-content;
+    width: fit-content;
     padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+    background: rgba(123, 214, 255, 0.16);
+    color: var(--color-gn-amber-200);
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--color-gn-amber-200);
-    text-transform: uppercase;
     letter-spacing: 0.12em;
-    background: rgba(123, 214, 255, 0.16);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
-    border-radius: 999px;
+    text-transform: uppercase;
   }
 
   .knowledge-takeaways__title {
     margin: 0;
-    font-size: clamp(1.4rem, 1.2rem + 1vi, 1.8rem);
+    font-size: clamp(1.4rem, 1.2rem + 1vw, 1.8rem);
     color: var(--gn-ink);
   }
 
   .knowledge-takeaways__subtitle {
-    max-inline-size: 60ch;
     margin: 0;
     color: var(--gn-ink-muted);
+    max-width: 60ch;
   }
 
   .knowledge-takeaways__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     display: grid;
     gap: 0.75rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
   }
 
   .knowledge-takeaways__item {
@@ -101,35 +101,35 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     gap: 0.65rem;
     align-items: start;
     padding: 0.75rem 0.9rem;
-    background: color-mix(in srgb, var(--gn-bg-muted) 88%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
     border-radius: 0.9rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 88%, transparent);
   }
 
   .knowledge-takeaways__icon {
     display: inline-flex;
-    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    inline-size: 2rem;
-    block-size: 2rem;
-    color: var(--color-gn-teal-300);
-    background: rgba(123, 214, 255, 0.18);
+    width: 2rem;
+    height: 2rem;
     border-radius: 0.65rem;
+    background: rgba(123, 214, 255, 0.18);
+    color: var(--color-gn-teal-300);
+    flex-shrink: 0;
   }
 
   .knowledge-takeaways__icon :global(svg) {
-    inline-size: 1.1rem;
-    block-size: 1.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
   }
 
   .knowledge-takeaways__text {
+    color: var(--gn-ink);
     font-size: 1.05rem;
     line-height: 1.6;
-    color: var(--gn-ink);
   }
 
-  @media (width >= 768px) {
+  @media (min-width: 768px) {
     .knowledge-takeaways__list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

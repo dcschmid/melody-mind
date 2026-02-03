@@ -41,30 +41,30 @@ const iconClasses = "skip-link__icon";
 <style>
   .skip-link {
     position: absolute;
-    inset-block-start: -9999px;
-    inset-inline-start: 50%;
+    top: -9999px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 50;
     display: inline-flex;
-    gap: 0.5rem;
     align-items: center;
+    gap: 0.5rem;
     padding: 0.5rem 1rem;
-    font-weight: 700;
-    color: var(--color-gn-soot-950);
-    text-decoration: none;
-    background: var(--color-gn-amber-500);
     border-radius: 0 0 0.5rem 0.5rem;
+    background: var(--color-gn-amber-500);
+    color: var(--color-gn-soot-950);
+    font-weight: 700;
+    text-decoration: none;
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.7);
-    transform: translateX(-50%);
   }
 
   .skip-link:focus-visible {
-    inset-block-start: 0;
+    top: 0;
     outline: 2px solid var(--color-gn-amber-300);
     outline-offset: 4px;
   }
 
   .skip-link__icon {
-    inline-size: 1rem;
-    block-size: 1rem;
+    width: 1rem;
+    height: 1rem;
   }
 </style>

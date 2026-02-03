@@ -29,7 +29,7 @@ const containerClasses = ["page-shell__container", containerClass]
 <style>
   .page-shell {
     position: relative;
-    min-block-size: 100vb;
+    min-height: 100vh;
     color: var(--gn-ink);
   }
 
@@ -41,9 +41,9 @@ const containerClasses = ["page-shell__container", containerClass]
 
   .page-shell__container {
     position: relative;
-    max-inline-size: 72rem;
-    padding: 2.5rem 1rem 4rem;
+    max-width: 72rem;
     margin: 0 auto;
+    padding: 2.5rem 1rem 4rem;
   }
 
   .page-shell__container--wide {
@@ -54,7 +54,7 @@ const containerClasses = ["page-shell__container", containerClass]
     padding: 3rem 1rem;
   }
 
-  @media (width >= 640px) {
+  @media (min-width: 640px) {
     .page-shell__container {
       padding: 3rem 1.5rem 4.5rem;
     }
@@ -64,7 +64,7 @@ const containerClasses = ["page-shell__container", containerClass]
     }
   }
 
-  @media (width >= 1024px) {
+  @media (min-width: 1024px) {
     .page-shell__container {
       padding: 3.5rem 2rem 5rem;
     }
@@ -85,15 +85,15 @@ const containerClasses = ["page-shell__container", containerClass]
   }
 
   .page-shell--grid::after {
+    content: \"\";
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    content: "";
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 56px 56px;
     opacity: 0.22;
+    pointer-events: none;
     mask-image: linear-gradient(
       180deg,
       transparent 0%,

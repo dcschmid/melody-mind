@@ -18,9 +18,6 @@ export function safeQuerySelectorAll<T extends Element = Element>(
   return Array.from(parent.querySelectorAll<T>(selector));
 }
 
-/**
- * Sets innerHTML for pre-sanitized, trusted content only.
- */
 export function safeSetInnerHTML(element: HTMLElement | null, html: string): void {
   if (element) {
     element.innerHTML = html;

@@ -262,12 +262,6 @@ interface Props {
   structuredDataExtra?: any | any[]; // passed through to SEO component
   /** Override author organization name */
   authorName?: string;
-  /** Optional aria-labelledby target for main landmark */
-  mainLabelledBy?: string;
-  /** Enable accessibility text spacing mode */
-  textSpacing?: boolean;
-  /** Enable high contrast mode */
-  highContrast?: boolean;
 }
 
 const {
@@ -284,9 +278,6 @@ const {
   nextUrl,
   disableAlternateLanguages,
   authorName,
-  mainLabelledBy,
-  textSpacing,
-  highContrast,
 } = Astro.props;
 
 // ---------------------------------------------------------------------------
@@ -503,23 +494,12 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <script is:inline src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer
     ></script>
   </Head>
-  <body
-    class="app__body"
-    data-theme="dark"
-    data-text-spacing={textSpacing ? "on" : "off"}
-    data-contrast={highContrast ? "high" : "default"}
-  >
+  <body class="app__body" data-theme="dark">
     {/* Skip link for keyboard navigation */}
     <SkipLink />
 
     {/* Main content area */}
-    <main
-      id="main-content"
-      tabindex="-1"
-      role="main"
-      class="app__main"
-      aria-labelledby={mainLabelledBy}
-    >
+    <main id="main-content" tabindex="-1" role="main" class="app__main">
       {
         breadcrumbs && breadcrumbs.length > 0 && (
           <Breadcrumbs items={breadcrumbs} ariaLabel="Page breadcrumb" />
@@ -548,8 +528,8 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     font-family: "Atkinson Hyperlegible";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
     font-display: swap;
+    src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
   }
 
   .app {
@@ -619,7 +599,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --spacing-4xl: 5rem;
     --font-sans:
       "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
+    --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", monospace;
     --font-display:
       "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-size-xs: 1.125rem;
@@ -678,7 +658,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --space-2xl: var(--spacing-2xl);
     --space-3xl: var(--spacing-3xl);
     --focus-ring-width: 3px;
-    --focus-ring-color: var(--color-gn-amber-200);
+    --focus-ring-color: var(--color-gn-amber-300);
     --focus-ring-offset: 2px;
     --sr-only-width: 1px;
     --sr-only-height: 1px;
@@ -726,33 +706,33 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --card-border: var(--border-primary);
     --card-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
     --card-shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.55);
-    --prose-body: var(--color-gn-parchment-50);
+    --prose-body: var(--color-gn-parchment-100);
     --prose-headings: var(--color-gn-parchment-50);
-    --prose-links: var(--color-gn-amber-200);
+    --prose-links: var(--color-gn-amber-300);
     --prose-bold: var(--color-gn-parchment-50);
     --prose-counters: var(--color-gn-parchment-50);
     --prose-bullets: var(--color-gn-parchment-50);
-    --prose-hr: rgba(255, 255, 255, 0.35);
+    --prose-hr: rgba(255, 255, 255, 0.2);
     --prose-quotes: var(--color-gn-parchment-100);
     --prose-quote-borders: var(--color-gn-amber-400);
-    --prose-captions: var(--color-gn-parchment-100);
-    --prose-code: var(--color-gn-amber-200);
+    --prose-captions: var(--color-gn-parchment-200);
+    --prose-code: var(--color-gn-amber-300);
     --prose-pre-code: var(--color-gn-parchment-50);
     --prose-pre-bg: rgba(255, 255, 255, 0.06);
-    --prose-th-borders: rgba(255, 255, 255, 0.4);
-    --prose-td-borders: rgba(255, 255, 255, 0.25);
+    --prose-th-borders: rgba(255, 255, 255, 0.25);
+    --prose-td-borders: rgba(255, 255, 255, 0.15);
     --scrollbar-track-bg: var(--color-gn-soot-900);
-    --scrollbar-thumb-bg: var(--color-gn-soot-600);
-    --scrollbar-thumb-hover: var(--color-gn-soot-500);
+    --scrollbar-thumb-bg: var(--color-gn-soot-700);
+    --scrollbar-thumb-hover: var(--color-gn-soot-600);
     --gn-bg: var(--color-gn-soot-900);
     --gn-bg-muted: var(--color-gn-soot-800);
     --gn-ink: var(--color-gn-parchment-50);
-    --gn-ink-muted: var(--color-gn-parchment-100);
+    --gn-ink-muted: var(--color-gn-parchment-200);
     --gn-accent: var(--color-gn-amber-400);
     --gn-accent-strong: var(--color-gn-amber-300);
     --gn-accent-teal: var(--color-gn-teal-400);
-    --gn-panel-border: var(--color-gn-soot-400);
-    --gn-panel-inner: color-mix(in srgb, var(--color-gn-parchment-100) 18%, transparent);
+    --gn-panel-border: var(--color-gn-soot-600);
+    --gn-panel-inner: color-mix(in srgb, var(--color-gn-parchment-200) 8%, transparent);
     --gn-offset-shadow: 4px 4px 0 rgba(0, 0, 0, 0.7), 0 20px 44px rgba(0, 0, 0, 0.55);
     --gn-halftone:
       radial-gradient(circle at 20% 20%, rgba(123, 214, 255, 0.05), transparent 24%),
@@ -767,20 +747,22 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       var(--color-gn-parchment-200) 6%
     );
     --text-primary: var(--color-gn-parchment-50);
-    --text-secondary: var(--color-gn-parchment-100);
-    --link-default: var(--color-gn-amber-200);
-    --link-hover: var(--color-gn-amber-100);
+    --text-secondary: var(--color-gn-parchment-200);
+    --link-default: var(--color-gn-amber-300);
+    --link-hover: var(--color-gn-amber-200);
+  }
 
+  .app {
     box-sizing: border-box;
-    inline-size: 100%;
-    min-block-size: 100%;
-    overflow-inline: hidden;
+    width: 100%;
+    min-height: 100%;
     font-family: var(--font-sans);
-    color: var(--gn-ink);
     background: var(--color-gn-soot-950);
-    text-rendering: optimizelegibility;
+    color: var(--gn-ink);
+    overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   .app *,
@@ -789,63 +771,17 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     box-sizing: inherit;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      transition-duration: 0.001ms !important;
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
   .app__body {
-    inline-size: 100%;
-    min-block-size: 100vb;
     margin: 0;
-    overflow-inline: hidden;
+    min-height: 100vh;
+    width: 100%;
+    background: var(--gn-bg);
+    color: var(--gn-ink);
     font-family: var(--font-sans);
     font-size: 1.25rem;
     line-height: var(--line-height-relaxed);
-    color: var(--gn-ink);
     text-wrap: pretty;
-    background: var(--gn-bg);
-  }
-
-  :where(.app__body[data-text-spacing="on"]) {
-    line-height: 1.5;
-    word-spacing: 0.16em;
-    letter-spacing: 0.12em;
-  }
-
-  :where(.app__body[data-text-spacing="on"]) :is(p, li, blockquote) {
-    margin-block: 2em;
-  }
-
-  :where(.app__body[data-contrast="high"]) {
-    --gn-bg: var(--color-gn-soot-950);
-    --gn-bg-muted: var(--color-gn-soot-900);
-    --gn-ink: var(--color-gn-parchment-50);
-    --gn-ink-muted: var(--color-gn-parchment-100);
-    --gn-accent: var(--color-gn-amber-200);
-    --gn-accent-strong: var(--color-gn-amber-100);
-    --gn-accent-teal: var(--color-gn-teal-300);
-    --gn-panel-border: var(--color-gn-parchment-200);
-    --gn-panel-inner: color-mix(in srgb, var(--color-gn-parchment-50) 28%, transparent);
-    --text-secondary: var(--color-gn-parchment-100);
-    --link-default: var(--color-gn-amber-100);
-    --link-hover: var(--color-gn-amber-200);
-    --prose-body: var(--color-gn-parchment-50);
-    --prose-headings: var(--color-gn-parchment-50);
-    --prose-links: var(--color-gn-amber-100);
-    --prose-captions: var(--color-gn-parchment-100);
-    --prose-hr: rgba(255, 255, 255, 0.55);
-    --prose-th-borders: rgba(255, 255, 255, 0.65);
-    --prose-td-borders: rgba(255, 255, 255, 0.4);
-    --scrollbar-thumb-bg: var(--color-gn-parchment-200);
-    --scrollbar-thumb-hover: var(--color-gn-parchment-100);
-    --focus-ring-color: var(--color-gn-amber-100);
+    overflow-x: hidden;
   }
 
   .app__body :is(button, input, select, textarea) {
@@ -870,24 +806,20 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
   ):focus-visible {
     outline: 3px solid var(--color-gn-amber-300);
     outline-offset: 3px;
-    border-color: var(--color-gn-amber-300);
-    border-radius: 10px;
     box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-gn-amber-300) 30%, transparent);
+    border-radius: 10px;
+    border-color: var(--color-gn-amber-300);
   }
 
   :where(button, [role="button"], input, select, textarea):focus-visible {
-    background-color: color-mix(
-      in srgb,
-      var(--color-gn-soot-800) 70%,
-      var(--color-white) 30%
-    );
+    background-color: color-mix(in srgb, var(--color-gn-soot-800) 70%, white 30%);
   }
 
   @media (prefers-reduced-motion: reduce) {
     .app * {
-      transition-duration: 120ms !important;
       animation-duration: 1ms !important;
       animation-iteration-count: 1 !important;
+      transition-duration: 120ms !important;
       scroll-behavior: auto !important;
     }
   }

@@ -15,8 +15,6 @@
     "preview": "astro preview",
     "lint": "yarn format && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
     "lint:check": "eslint \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "lint:css": "stylelint \"src/**/*.{astro,css}\"",
-    "lint:css:fix": "stylelint \"src/**/*.{astro,css}\" --fix",
     "check:scoped-css": "node scripts/check_scoped_css.mjs",
     "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "format:check": "prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
@@ -47,7 +45,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "@double-great/stylelint-a11y": "3.4.1",
     "@eslint/js": "^9.39.2",
     "@typescript-eslint/parser": "^8.54.0",
     "eslint": "^9.39.2",
@@ -57,16 +54,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "mdast-util-to-string": "^4.0.0",
-    "postcss-html": "1.8.1",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
-    "stylelint": "17.1.0",
-    "stylelint-config-recess-order": "7.6.0",
-    "stylelint-config-standard": "40.0.0",
-    "stylelint-high-performance-animation": "2.0.0",
-    "stylelint-no-unsupported-browser-features": "8.0.5",
-    "stylelint-order": "7.0.1",
-    "stylelint-plugin-logical-css": "1.3.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0"
   },
@@ -75,19 +64,10 @@
       "node scripts/check_content.mjs",
       "prettier --write"
     ],
-    "src/**/*.{astro,css}": [
-      "stylelint --fix"
-    ],
     "src/**/*.{astro,ts,tsx,js}": [
       "prettier --write",
       "eslint --fix --max-warnings=0"
     ]
   },
-  "packageManager": "yarn@1.22.22",
-  "browserslist": [
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Safari versions",
-    "last 2 Edge versions"
-  ]
+  "packageManager": "yarn@1.22.22"
 }

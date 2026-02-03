@@ -48,55 +48,35 @@ const screenReaderText = t("common.back.to.top");
   <span class="back-to-top__sr">{screenReaderText}</span>
 </button>
 <style>
-  @media screen and (prefers-reduced-motion: reduce) {
-    .back-to-top {
-      position: fixed;
-      inset-block-end: 1rem;
-      inset-inline-end: 1rem;
-      z-index: 30;
-      min-inline-size: 48px;
-      min-block-size: 48px;
-      padding: 0.9rem;
-      color: var(--color-gn-soot-950);
-      cursor: pointer;
-      background: var(--color-gn-amber-500);
-      border: 2px solid var(--gn-panel-border);
-      border-radius: 999px;
-      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
-      transition: none;
-    }
-  }
-
   .back-to-top {
     position: fixed;
-    inset-block-end: 1rem;
-    inset-inline-end: 1rem;
+    right: 1rem;
+    bottom: 1rem;
     z-index: 30;
-    min-inline-size: 48px;
-    min-block-size: 48px;
+    min-width: 48px;
+    min-height: 48px;
     padding: 0.9rem;
-    color: var(--color-gn-soot-950);
-    cursor: pointer;
-    background: var(--color-gn-amber-500);
-    border: 2px solid var(--gn-panel-border);
     border-radius: 999px;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--color-gn-amber-500);
+    color: var(--color-gn-soot-950);
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+    cursor: pointer;
     transition:
       transform var(--transition-fast),
       box-shadow var(--transition-fast),
       background-color var(--transition-fast);
   }
 
-  .back-to-top:hover,
-  .back-to-top:focus {
+  .back-to-top:hover {
     background: var(--color-gn-amber-400);
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.85);
     transform: translateY(-4px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.85);
   }
 
   .back-to-top:active {
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.85);
     transform: translateY(0);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.85);
   }
 
   .back-to-top:focus-visible {
@@ -106,25 +86,25 @@ const screenReaderText = t("common.back.to.top");
 
   .back-to-top__icon {
     display: block;
-    inline-size: 1.5rem;
-    block-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
-  @media (width >= 768px) {
+  @media (min-width: 768px) {
     .back-to-top__icon {
-      inline-size: 2rem;
-      block-size: 2rem;
+      width: 2rem;
+      height: 2rem;
     }
   }
 
   .back-to-top__sr {
     position: absolute;
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
     margin: var(--sr-only-margin);
     overflow: hidden;
+    clip-path: var(--sr-only-clip-path);
     white-space: nowrap;
     border: 0;
-    clip-path: var(--sr-only-clip-path);
   }
 </style>

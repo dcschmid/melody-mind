@@ -52,25 +52,25 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
 }
 <style>
   .breadcrumbs {
-    inline-size: 100%;
-    overflow-inline: auto;
+    width: 100%;
+    overflow-x: auto;
   }
 
   .breadcrumbs__list {
     display: flex;
-    gap: 0.5rem;
     align-items: center;
-    max-inline-size: 72rem;
+    gap: 0.5rem;
     padding: 0.75rem 1rem;
     margin: 0 auto;
-    font-size: 1.125rem;
-    color: var(--gn-ink);
     list-style: none;
+    color: var(--gn-ink);
+    font-size: 1.125rem;
+    max-width: 72rem;
   }
 
-  @media (width <= 639px) {
+  @media (max-width: 639px) {
     .breadcrumbs {
-      overflow-inline: visible;
+      overflow-x: visible;
     }
 
     .breadcrumbs__list {
@@ -90,14 +90,16 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
 
     .breadcrumbs__link-text {
       font-size: 1.125rem;
+      max-width: 14ch;
     }
 
     .breadcrumbs__current {
       font-size: 1.125rem;
+      max-width: 18ch;
     }
   }
 
-  @media (width >= 640px) {
+  @media (min-width: 640px) {
     .breadcrumbs__list {
       gap: 0.75rem;
       padding: 1rem 1.5rem;
@@ -106,8 +108,8 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
 
   .breadcrumbs__item {
     display: inline-flex;
-    gap: 0.5rem;
     align-items: center;
+    gap: 0.5rem;
   }
 
   .breadcrumbs__divider {
@@ -115,52 +117,36 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
   }
 
   .breadcrumbs__current {
-    max-inline-size: 45ch;
+    color: var(--gn-ink);
+    max-width: 16ch;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--gn-ink);
     white-space: nowrap;
   }
 
-  @media (width >= 640px) {
+  @media (min-width: 640px) {
     .breadcrumbs__current {
-      max-inline-size: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .breadcrumbs__link {
-      display: inline-flex;
-      gap: 0.35rem;
-      align-items: center;
-      padding: 0.35rem 0.75rem;
-      color: var(--gn-ink);
-      text-decoration: none;
-      background: var(--gn-bg-muted);
-      border: 2px solid var(--gn-panel-border);
-      border-radius: 999px;
-      transition: none;
+      max-width: none;
     }
   }
 
   .breadcrumbs__link {
     display: inline-flex;
-    gap: 0.35rem;
     align-items: center;
+    gap: 0.35rem;
     padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
     color: var(--gn-ink);
     text-decoration: none;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
-    border-radius: 999px;
     transition:
       background-color var(--transition-fast),
       border-color var(--transition-fast),
       transform var(--transition-fast);
   }
 
-  .breadcrumbs__link:hover,
-  .breadcrumbs__link:focus {
+  .breadcrumbs__link:hover {
     background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
     border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
   }
@@ -172,23 +158,23 @@ const normalized = Array.isArray(items) ? items.filter(Boolean) : [];
 
   .breadcrumbs__link-icon {
     display: block;
-    inline-size: 1rem;
-    block-size: 1rem;
+    width: 1rem;
+    height: 1rem;
     color: var(--color-gn-amber-300);
   }
 
   .breadcrumbs__link-text {
-    max-inline-size: 45ch;
+    max-width: 18ch;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     font-size: 1.125rem;
     font-weight: 600;
-    white-space: nowrap;
   }
 
-  @media (width >= 640px) {
+  @media (min-width: 640px) {
     .breadcrumbs__link-text {
-      max-inline-size: none;
+      max-width: none;
       font-size: 1.125rem;
     }
   }

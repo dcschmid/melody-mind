@@ -34,12 +34,12 @@ const pageSeo = buildPageSeo({
 });
 ---
 
-<Layout {pageSeo} {breadcrumbs} mainLabelledBy="page-title">
+<Layout {pageSeo} {breadcrumbs}>
   <PageShell containerClass="page-shell__container--spacious">
     <div class="legal-page">
       <header class="legal-page__header">
         <p class="legal-page__eyebrow">Privacy</p>
-        <h1 id="page-title" class="legal-page__title">Privacy Policy</h1>
+        <h1 class="legal-page__title">Privacy Policy</h1>
         <p class="legal-page__lead">
           This notice explains how we process personal data on Melody Mind Knowledge in
           line with EU and German data protection requirements (DSGVO/GDPR).
@@ -134,22 +134,21 @@ const pageSeo = buildPageSeo({
     --panel-padding: 1.5rem;
     --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
     --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-
     position: relative;
-    padding: var(--panel-padding);
+    border-radius: var(--panel-radius);
     background: var(--panel-bg);
     border: 2px solid var(--panel-border);
-    border-radius: var(--panel-radius);
     box-shadow: var(--gn-offset-shadow);
+    padding: var(--panel-padding);
   }
 
   .panel::after {
+    content: "";
     position: absolute;
     inset: 4px;
-    pointer-events: none;
-    content: "";
     border: 1px solid var(--gn-panel-inner);
     border-radius: calc(var(--panel-radius) - 0.25rem);
+    pointer-events: none;
   }
 
   .panel--compact {
@@ -179,29 +178,29 @@ const pageSeo = buildPageSeo({
 
   .legal-page__eyebrow {
     font-size: 1.125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     font-weight: 600;
     color: var(--color-gn-amber-300);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
   }
 
   .legal-page__title {
-    margin: 0;
     font-size: 2.125rem;
     font-weight: 600;
     color: var(--gn-ink);
+    margin: 0;
   }
 
-  @media (width >= 640px) {
+  @media (min-width: 640px) {
     .legal-page__title {
       font-size: 2.425rem;
     }
   }
 
   .legal-page__lead {
-    margin: 0;
     font-size: 1.125rem;
     color: var(--gn-ink-muted);
+    margin: 0;
   }
 
   .legal-page__section {
@@ -211,16 +210,16 @@ const pageSeo = buildPageSeo({
   }
 
   .legal-page__section-title {
-    margin: 0;
     font-size: 1.225rem;
     font-weight: 600;
     color: var(--gn-ink);
+    margin: 0;
   }
 
   .legal-page__text {
     margin: 0;
-    line-height: 1.6;
     color: var(--gn-ink-muted);
+    line-height: 1.6;
   }
 
   .legal-page__link {
@@ -229,8 +228,7 @@ const pageSeo = buildPageSeo({
     text-underline-offset: 2px;
   }
 
-  .legal-page__link:hover,
-  .legal-page__link:focus {
+  .legal-page__link:hover {
     color: var(--color-gn-amber-200);
   }
 </style>

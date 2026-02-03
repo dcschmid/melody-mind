@@ -240,7 +240,7 @@ const storageUpdatedAt =
     : "";
 ---
 
-<Layout {pageSeo} {breadcrumbs} mainLabelledBy="article-title">
+<Layout {pageSeo} {breadcrumbs}>
   <Fragment slot="head"></Fragment>
 
   <div class="reading-progress">
@@ -292,7 +292,6 @@ const storageUpdatedAt =
             textSize="xl"
             textAlign="left"
             className="knowledge__title"
-            id="article-title"
           >
             {entry.data.title}
           </Headline>
@@ -572,913 +571,836 @@ const storageUpdatedAt =
               <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
             </ButtonLink>
           </div>
+          <div
+            id="recent-read-data"
+            data-slug={storageSlug}
+            data-title={title}
+            data-updated-at={storageUpdatedAt}
+            hidden
+          >
+          </div>
         </div>
       </div>
-      <div
-        id="recent-read-data"
-        data-slug={storageSlug}
-        data-title={title}
-        data-updated-at={storageUpdatedAt}
-        hidden
-      >
-      </div>
-    </div>
-  </div>
 
-  <script>
-    (() => {
-      const shareSection = document.getElementById("share-section");
-      if (!shareSection) return;
+      <script>
+        (() => {
+          const shareSection = document.getElementById("share-section");
+          if (!shareSection) return;
 
-      const shareUrl = shareSection.dataset.shareUrl || "";
-      const shareTitle = shareSection.dataset.shareTitle || "";
-      const shareText = shareSection.dataset.shareText || "";
-      const copySuccessMessage = shareSection.dataset.shareSuccess || "";
-      const copyErrorMessage = shareSection.dataset.shareError || "";
-      const nativeShareUnavailable = shareSection.dataset.shareFallback || "";
-      const statusEl = shareSection.querySelector("[data-share-status]");
-      const defaultStatus = statusEl?.textContent || "";
-      let resetTimer: number | undefined;
+          const shareUrl = shareSection.dataset.shareUrl || "";
+          const shareTitle = shareSection.dataset.shareTitle || "";
+          const shareText = shareSection.dataset.shareText || "";
+          const copySuccessMessage = shareSection.dataset.shareSuccess || "";
+          const copyErrorMessage = shareSection.dataset.shareError || "";
+          const nativeShareUnavailable = shareSection.dataset.shareFallback || "";
+          const statusEl = shareSection.querySelector("[data-share-status]");
+          const defaultStatus = statusEl?.textContent || "";
+          let resetTimer: number | undefined;
 
-      const setStatus = (message: string | null) => {
-        if (!statusEl) return;
-        statusEl.textContent = message;
-        if (resetTimer) window.clearTimeout(resetTimer);
-        resetTimer = window.setTimeout(() => {
-          statusEl.textContent = defaultStatus;
-        }, 4500);
-      };
+          const setStatus = (message: string | null) => {
+            if (!statusEl) return;
+            statusEl.textContent = message;
+            if (resetTimer) window.clearTimeout(resetTimer);
+            resetTimer = window.setTimeout(() => {
+              statusEl.textContent = defaultStatus;
+            }, 4500);
+          };
 
-      const copyLink = async () => {
-        try {
-          if (!navigator.clipboard) throw new Error("clipboard unavailable");
-          await navigator.clipboard.writeText(shareUrl);
-          setStatus(copySuccessMessage);
-        } catch {
-          setStatus(copyErrorMessage);
-        }
-      };
-
-      const copyButton = document.querySelector('[data-share="copy"]');
-      copyButton?.addEventListener("click", () => copyLink());
-
-      const nativeButton = document.querySelector('[data-share="native"]');
-      nativeButton?.addEventListener("click", async () => {
-        if (navigator.share) {
-          try {
-            await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
-            setStatus(copySuccessMessage);
-            return;
-          } catch (error: any) {
-            if (error?.name === "AbortError") return;
-          }
-        }
-
-        setStatus(nativeShareUnavailable);
-        copyLink();
-      });
-    })();
-  </script>
-
-  <script>
-    (() => {
-      const storageKey = "mm_recent_reads";
-      const dataEl = document.getElementById("recent-read-data");
-      if (!dataEl) return;
-      const recentEntry = {
-        slug: dataEl.dataset.slug || "",
-        title: dataEl.dataset.title || "",
-        updatedAt: dataEl.dataset.updatedAt || "",
-      };
-
-      if (!recentEntry.slug || !recentEntry.title) return;
-      if (typeof window === "undefined" || !window.localStorage) return;
-
-      try {
-        const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
-        const raw = window.localStorage.getItem(storageKey);
-        const parsed = raw ? JSON.parse(raw) : [];
-        const items = Array.isArray(parsed)
-          ? parsed.filter(
-              (item) =>
-                item && typeof item.slug === "string" && typeof item.title === "string"
-            )
-          : [];
-
-        const next = [
-          { ...recentEntry, slug: normalizedSlug },
-          ...items.filter((item) => item.slug !== normalizedSlug),
-        ];
-        window.localStorage.setItem(storageKey, JSON.stringify(next.slice(0, 3)));
-      } catch {
-        // ignore storage errors
-      }
-    })();
-  </script>
-
-  <script>
-    (() => {
-      const storageKey = "mm_bookmarks";
-      const dataEl = document.getElementById("recent-read-data");
-      const button = document.querySelector("[data-bookmark-toggle]");
-      const label = button?.querySelector("[data-bookmark-label]");
-      if (!dataEl || !button || !label) return;
-
-      const slug = (dataEl.dataset.slug || "").replace(/^\/+/, "");
-      if (!slug) return;
-
-      const load = () => {
-        try {
-          const raw = window.localStorage?.getItem(storageKey);
-          const parsed = raw ? JSON.parse(raw) : [];
-          return Array.isArray(parsed)
-            ? parsed.filter((item) => typeof item === "string")
-            : [];
-        } catch {
-          return [];
-        }
-      };
-
-      const save = (items: string[]) => {
-        try {
-          window.localStorage?.setItem(storageKey, JSON.stringify(items));
-        } catch {
-          // ignore storage errors
-        }
-      };
-
-      const update = (isSaved: boolean) => {
-        button.setAttribute("aria-pressed", isSaved ? "true" : "false");
-        (button as HTMLElement).dataset.bookmarkState = isSaved ? "saved" : "empty";
-        label.textContent = isSaved ? "Saved" : "Save";
-      };
-
-      let items = load();
-      update(items.includes(slug));
-
-      button.addEventListener("click", () => {
-        items = load();
-        if (items.includes(slug)) {
-          items = items.filter((item) => item !== slug);
-        } else {
-          items = [slug, ...items.filter((item) => item !== slug)];
-        }
-        save(items);
-        update(items.includes(slug));
-      });
-    })();
-  </script>
-
-  <script>
-    (() => {
-      const bar = document.getElementById("reading-progress-bar");
-      const label = document.getElementById("reading-progress-label");
-      if (!bar || !label) return;
-      const progressData = document.getElementById("recent-read-data");
-      const progressSlug = progressData?.dataset.slug
-        ? progressData.dataset.slug.replace(/^\/+/, "")
-        : "";
-      const progressKey = "mm_read_progress";
-
-      const prefersReduced =
-        window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
-      if (!prefersReduced) {
-        bar.style.transition = "width 120ms ease-out";
-      }
-
-      const getProgressStore = () => {
-        if (!progressSlug) return null;
-        try {
-          const raw = window.localStorage?.getItem(progressKey);
-          const parsed = raw ? JSON.parse(raw) : {};
-          return parsed && typeof parsed === "object" ? parsed : {};
-        } catch {
-          return {};
-        }
-      };
-
-      const setProgressStore = (store: Record<string, unknown>) => {
-        if (!progressSlug) return;
-        try {
-          window.localStorage?.setItem(progressKey, JSON.stringify(store));
-        } catch {
-          // ignore storage errors
-        }
-      };
-
-      const restoreProgress = () => {
-        if (!progressSlug) return;
-        const store = getProgressStore();
-        if (!store || typeof store !== "object") return;
-        const entry = (store as any)[progressSlug];
-        const progress = entry && typeof entry.progress === "number" ? entry.progress : 0;
-        if (progress < 0.02 || progress > 0.95) return;
-        const doc = document.documentElement;
-        const scrollable = doc.scrollHeight - doc.clientHeight;
-        if (scrollable <= 0) return;
-        if (doc.scrollTop > 4) return;
-        const target = Math.round(scrollable * progress);
-        window.scrollTo({ top: target, behavior: prefersReduced ? "auto" : "smooth" });
-      };
-
-      let ticking = false;
-      let hasInteracted = false;
-      let lastSavedAt = 0;
-      const compute = () => {
-        const doc = document.documentElement;
-        const scrollable = doc.scrollHeight - doc.clientHeight;
-        const raw = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
-        const clamped = Math.min(Math.max(raw, 0), 100);
-        bar.style.width = `${clamped}%`;
-        label.textContent = `Reading progress: ${clamped.toFixed(0)}%`;
-
-        if (progressSlug && scrollable > 0 && hasInteracted) {
-          const now = Date.now();
-          if (now - lastSavedAt > 1000) {
-            lastSavedAt = now;
-            const store = getProgressStore() || {};
-            if (clamped >= 98) {
-              if (store && typeof store === "object") {
-                delete (store as any)[progressSlug];
-              }
-              setProgressStore(store as Record<string, unknown>);
-            } else {
-              (store as any)[progressSlug] = {
-                progress: clamped / 100,
-                updatedAt: new Date().toISOString(),
-              };
-              setProgressStore(store as Record<string, unknown>);
+          const copyLink = async () => {
+            try {
+              if (!navigator.clipboard) throw new Error("clipboard unavailable");
+              await navigator.clipboard.writeText(shareUrl);
+              setStatus(copySuccessMessage);
+            } catch {
+              setStatus(copyErrorMessage);
             }
+          };
+
+          const copyButton = document.querySelector('[data-share="copy"]');
+          copyButton?.addEventListener("click", () => copyLink());
+
+          const nativeButton = document.querySelector('[data-share="native"]');
+          nativeButton?.addEventListener("click", async () => {
+            if (navigator.share) {
+              try {
+                await navigator.share({
+                  title: shareTitle,
+                  text: shareText,
+                  url: shareUrl,
+                });
+                setStatus(copySuccessMessage);
+                return;
+              } catch (error: any) {
+                if (error?.name === "AbortError") return;
+              }
+            }
+
+            setStatus(nativeShareUnavailable);
+            copyLink();
+          });
+        })();
+      </script>
+
+      <script>
+        (() => {
+          const storageKey = "mm_recent_reads";
+          const dataEl = document.getElementById("recent-read-data");
+          if (!dataEl) return;
+          const recentEntry = {
+            slug: dataEl.dataset.slug || "",
+            title: dataEl.dataset.title || "",
+            updatedAt: dataEl.dataset.updatedAt || "",
+          };
+
+          if (!recentEntry.slug || !recentEntry.title) return;
+          if (typeof window === "undefined" || !window.localStorage) return;
+
+          try {
+            const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
+            const raw = window.localStorage.getItem(storageKey);
+            const parsed = raw ? JSON.parse(raw) : [];
+            const items = Array.isArray(parsed)
+              ? parsed.filter(
+                  (item) =>
+                    item &&
+                    typeof item.slug === "string" &&
+                    typeof item.title === "string"
+                )
+              : [];
+
+            const next = [
+              { ...recentEntry, slug: normalizedSlug },
+              ...items.filter((item) => item.slug !== normalizedSlug),
+            ];
+            window.localStorage.setItem(storageKey, JSON.stringify(next.slice(0, 3)));
+          } catch {
+            // ignore storage errors
           }
+        })();
+      </script>
+
+      <script>
+        (() => {
+          const storageKey = "mm_bookmarks";
+          const dataEl = document.getElementById("recent-read-data");
+          const button = document.querySelector("[data-bookmark-toggle]");
+          const label = button?.querySelector("[data-bookmark-label]");
+          if (!dataEl || !button || !label) return;
+
+          const slug = (dataEl.dataset.slug || "").replace(/^\/+/, "");
+          if (!slug) return;
+
+          const load = () => {
+            try {
+              const raw = window.localStorage?.getItem(storageKey);
+              const parsed = raw ? JSON.parse(raw) : [];
+              return Array.isArray(parsed)
+                ? parsed.filter((item) => typeof item === "string")
+                : [];
+            } catch {
+              return [];
+            }
+          };
+
+          const save = (items: string[]) => {
+            try {
+              window.localStorage?.setItem(storageKey, JSON.stringify(items));
+            } catch {
+              // ignore storage errors
+            }
+          };
+
+          const update = (isSaved: boolean) => {
+            button.setAttribute("aria-pressed", isSaved ? "true" : "false");
+            (button as HTMLElement).dataset.bookmarkState = isSaved ? "saved" : "empty";
+            label.textContent = isSaved ? "Saved" : "Save";
+          };
+
+          let items = load();
+          update(items.includes(slug));
+
+          button.addEventListener("click", () => {
+            items = load();
+            if (items.includes(slug)) {
+              items = items.filter((item) => item !== slug);
+            } else {
+              items = [slug, ...items.filter((item) => item !== slug)];
+            }
+            save(items);
+            update(items.includes(slug));
+          });
+        })();
+      </script>
+
+      <script>
+        (() => {
+          const bar = document.getElementById("reading-progress-bar");
+          const label = document.getElementById("reading-progress-label");
+          if (!bar || !label) return;
+          const progressData = document.getElementById("recent-read-data");
+          const progressSlug = progressData?.dataset.slug
+            ? progressData.dataset.slug.replace(/^\/+/, "")
+            : "";
+          const progressKey = "mm_read_progress";
+
+          const prefersReduced =
+            window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+          if (!prefersReduced) {
+            bar.style.transition = "width 120ms ease-out";
+          }
+
+          const getProgressStore = () => {
+            if (!progressSlug) return null;
+            try {
+              const raw = window.localStorage?.getItem(progressKey);
+              const parsed = raw ? JSON.parse(raw) : {};
+              return parsed && typeof parsed === "object" ? parsed : {};
+            } catch {
+              return {};
+            }
+          };
+
+          const setProgressStore = (store: Record<string, unknown>) => {
+            if (!progressSlug) return;
+            try {
+              window.localStorage?.setItem(progressKey, JSON.stringify(store));
+            } catch {
+              // ignore storage errors
+            }
+          };
+
+          const restoreProgress = () => {
+            if (!progressSlug) return;
+            const store = getProgressStore();
+            if (!store || typeof store !== "object") return;
+            const entry = (store as any)[progressSlug];
+            const progress =
+              entry && typeof entry.progress === "number" ? entry.progress : 0;
+            if (progress < 0.02 || progress > 0.95) return;
+            const doc = document.documentElement;
+            const scrollable = doc.scrollHeight - doc.clientHeight;
+            if (scrollable <= 0) return;
+            if (doc.scrollTop > 4) return;
+            const target = Math.round(scrollable * progress);
+            window.scrollTo({
+              top: target,
+              behavior: prefersReduced ? "auto" : "smooth",
+            });
+          };
+
+          let ticking = false;
+          let hasInteracted = false;
+          let lastSavedAt = 0;
+          const compute = () => {
+            const doc = document.documentElement;
+            const scrollable = doc.scrollHeight - doc.clientHeight;
+            const raw = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
+            const clamped = Math.min(Math.max(raw, 0), 100);
+            bar.style.width = `${clamped}%`;
+            label.textContent = `Reading progress: ${clamped.toFixed(0)}%`;
+
+            if (progressSlug && scrollable > 0 && hasInteracted) {
+              const now = Date.now();
+              if (now - lastSavedAt > 1000) {
+                lastSavedAt = now;
+                const store = getProgressStore() || {};
+                if (clamped >= 98) {
+                  if (store && typeof store === "object") {
+                    delete (store as any)[progressSlug];
+                  }
+                  setProgressStore(store as Record<string, unknown>);
+                } else {
+                  (store as any)[progressSlug] = {
+                    progress: clamped / 100,
+                    updatedAt: new Date().toISOString(),
+                  };
+                  setProgressStore(store as Record<string, unknown>);
+                }
+              }
+            }
+
+            ticking = false;
+          };
+
+          const onScroll = () => {
+            hasInteracted = true;
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(compute);
+          };
+
+          window.addEventListener("scroll", onScroll, { passive: true });
+          window.addEventListener("resize", onScroll);
+          compute();
+          const scheduleRestore = () => {
+            window.setTimeout(() => {
+              if (!hasInteracted) restoreProgress();
+            }, 200);
+          };
+          scheduleRestore();
+          window.addEventListener("load", scheduleRestore, { once: true });
+          window.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "hidden" && hasInteracted) compute();
+          });
+        })();
+      </script>
+
+      <BackToTop lang={lang} />
+    </div>
+    <style>
+      .panel {
+        --panel-radius: 1.5rem;
+        --panel-padding: 1.5rem;
+        --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+        --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+        position: relative;
+        border-radius: var(--panel-radius);
+        background: var(--panel-bg);
+        border: 2px solid var(--panel-border);
+        box-shadow: var(--gn-offset-shadow);
+        padding: var(--panel-padding);
+      }
+
+      .panel::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border: 1px solid var(--gn-panel-inner);
+        border-radius: calc(var(--panel-radius) - 0.25rem);
+        pointer-events: none;
+      }
+
+      .panel--compact {
+        --panel-padding: 1rem;
+      }
+
+      .panel--tight {
+        --panel-padding: 1.25rem;
+      }
+
+      .panel--card {
+        --panel-radius: 1.25rem;
+        --panel-padding: 1.25rem;
+      }
+
+      .reading-progress {
+        position: fixed;
+        inset-inline: 0;
+        top: 0;
+        z-index: 60;
+        height: 0.25rem;
+        background: color-mix(in srgb, var(--color-gn-soot-950) 70%, transparent);
+        backdrop-filter: blur(6px);
+      }
+
+      .reading-progress__bar {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(
+          90deg,
+          var(--color-gn-amber-400),
+          var(--color-gn-amber-300),
+          var(--color-gn-amber-200)
+        );
+        box-shadow: 0 0 10px rgba(95, 199, 255, 0.45);
+      }
+
+      @media (min-width: 640px) {
+        .reading-progress {
+          height: 0.375rem;
         }
-
-        ticking = false;
-      };
-
-      const onScroll = () => {
-        hasInteracted = true;
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(compute);
-      };
-
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onScroll);
-      compute();
-      const scheduleRestore = () => {
-        window.setTimeout(() => {
-          if (!hasInteracted) restoreProgress();
-        }, 200);
-      };
-      scheduleRestore();
-      window.addEventListener("load", scheduleRestore, { once: true });
-      window.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === "hidden" && hasInteracted) compute();
-      });
-    })();
-  </script>
-
-  <BackToTop lang={lang} />
-</Layout>
-<style>
-  .panel {
-    --panel-radius: 1.5rem;
-    --panel-padding: 1.5rem;
-    --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
-    --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-
-    position: relative;
-    padding: var(--panel-padding);
-    background: var(--panel-bg);
-    border: 2px solid var(--panel-border);
-    border-radius: var(--panel-radius);
-    box-shadow: var(--gn-offset-shadow);
-  }
-
-  .panel::after {
-    position: absolute;
-    inset: 4px;
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--gn-panel-inner);
-    border-radius: calc(var(--panel-radius) - 0.25rem);
-  }
-
-  .panel--compact {
-    --panel-padding: 1rem;
-  }
-
-  .panel--tight {
-    --panel-padding: 1.25rem;
-  }
-
-  .panel--card {
-    --panel-radius: 1.25rem;
-    --panel-padding: 1.25rem;
-  }
-
-  .reading-progress {
-    position: fixed;
-    inset-block-start: 0;
-    inset-inline: 0;
-    z-index: 60;
-    block-size: 0.25rem;
-    background: color-mix(in srgb, var(--color-gn-soot-950) 70%, transparent);
-    backdrop-filter: blur(6px);
-  }
-
-  .reading-progress__bar {
-    inline-size: 0;
-    block-size: 100%;
-    background: linear-gradient(
-      90deg,
-      var(--color-gn-amber-400),
-      var(--color-gn-amber-300),
-      var(--color-gn-amber-200)
-    );
-    box-shadow: 0 0 10px rgba(95, 199, 255, 0.45);
-  }
-
-  @media (width >= 640px) {
-    .reading-progress {
-      block-size: 0.375rem;
-    }
-  }
-
-  @media (width >= 1024px) {
-    .reading-progress {
-      block-size: 0.5rem;
-    }
-  }
-
-  .knowledge {
-    position: relative;
-    min-block-size: 100vb;
-    overflow-inline: hidden;
-    font-family: var(--font-sans);
-    line-height: var(--line-height-relaxed);
-    color: var(--gn-ink);
-    background-color: var(--gn-bg);
-  }
-
-  .knowledge__backdrop {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      var(--color-gn-soot-900) 0%,
-      var(--color-gn-soot-950) 65%,
-      #000 100%
-    );
-  }
-
-  .knowledge__texture {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background-image: var(--gn-halftone), var(--gn-noise);
-    background-blend-mode: screen, normal;
-    opacity: 0.2;
-  }
-
-  .knowledge__container {
-    position: relative;
-    z-index: 2;
-    max-inline-size: 82rem;
-    padding: clamp(2rem, 2.6vi, 3.5rem) clamp(1rem, 3vi, 2.5rem)
-      clamp(3.5rem, 6vi, 5.5rem);
-    margin: 0 auto;
-  }
-
-  @media (width >= 1280px) {
-    .knowledge__container {
-      max-inline-size: 88rem;
-    }
-  }
-
-  .knowledge__hero {
-    display: grid;
-    gap: clamp(1.25rem, 2vi, 2rem);
-    margin-block-end: 2.5rem;
-  }
-
-  @media (width >= 1024px) {
-    .knowledge__hero {
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: stretch;
-    }
-  }
-
-  .knowledge__hero-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    min-inline-size: 0;
-  }
-
-  .knowledge__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
-    font-size: 1rem;
-    color: var(--gn-ink-muted);
-  }
-
-  @media (width >= 640px) {
-    .knowledge__meta {
-      font-size: 1.125rem;
-    }
-  }
-
-  .knowledge__pill {
-    display: inline-flex;
-    gap: 0.45rem;
-    align-items: center;
-    padding: 0.35rem 0.85rem;
-    font-weight: 600;
-    line-height: var(--line-height-tight);
-    text-transform: none;
-    background: color-mix(in srgb, var(--gn-bg) 75%, transparent);
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    border-radius: 999px;
-  }
-
-  .knowledge__pill--label {
-    font-size: 1.125rem;
-    color: var(--color-gn-amber-200);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    background: rgba(123, 214, 255, 0.18);
-    border-color: color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
-  }
-
-  .knowledge__pill--accent {
-    color: var(--color-gn-amber-200);
-    background: rgba(123, 214, 255, 0.16);
-  }
-
-  .knowledge__pill-icon {
-    display: block;
-    flex-shrink: 0;
-    inline-size: 1rem;
-    block-size: 1rem;
-    color: var(--color-gn-amber-300);
-  }
-
-  .knowledge__pill-icon--teal {
-    color: var(--color-gn-teal-300);
-  }
-
-  .knowledge__title {
-    margin: 0;
-    color: var(--gn-ink);
-  }
-
-  .knowledge__summary {
-    max-inline-size: 64ch;
-    margin: 0;
-    color: var(--color-gn-parchment-100);
-  }
-
-  .knowledge__stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    font-size: 1rem;
-    color: var(--gn-ink-muted);
-  }
-
-  @media (width >= 640px) {
-    .knowledge__stats {
-      font-size: 1.125rem;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .bookmark-button {
-      display: inline-flex;
-      gap: 0.4rem;
-      align-items: center;
-      min-block-size: 2.2rem;
-      padding: 0.35rem 0.85rem;
-      font-weight: 600;
-      color: var(--gn-ink);
-      cursor: pointer;
-      background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
-      border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-      border-radius: 999px;
-      transition: none;
-    }
-  }
-
-  .bookmark-button {
-    display: inline-flex;
-    gap: 0.4rem;
-    align-items: center;
-    min-block-size: 2.2rem;
-    padding: 0.35rem 0.85rem;
-    font-weight: 600;
-    color: var(--gn-ink);
-    cursor: pointer;
-    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    border-radius: 999px;
-    transition:
-      transform 160ms ease,
-      border-color 160ms ease,
-      box-shadow 160ms ease;
-  }
-
-  .bookmark-button__icon {
-    inline-size: 1rem;
-    block-size: 1rem;
-    color: var(--color-gn-amber-300);
-  }
-
-  .bookmark-button[data-bookmark-state="saved"] {
-    border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
-  }
-
-  .bookmark-button:hover,
-  .bookmark-button:focus {
-    transform: translateY(-2px);
-  }
-
-  .bookmark-button:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
-    outline-offset: 3px;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .knowledge__quiz-link {
-      display: inline-flex;
-      gap: 0.45rem;
-      align-items: center;
-      padding: 0.35rem 0.85rem;
-      font-weight: 600;
-      line-height: var(--line-height-tight);
-      color: var(--gn-ink);
-      text-decoration: none;
-      background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
-      border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-      border-radius: 999px;
-      transition: none;
-    }
-  }
-
-  .knowledge__quiz-link {
-    display: inline-flex;
-    gap: 0.45rem;
-    align-items: center;
-    padding: 0.35rem 0.85rem;
-    font-weight: 600;
-    line-height: var(--line-height-tight);
-    color: var(--gn-ink);
-    text-decoration: none;
-    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    border-radius: 999px;
-    transition:
-      transform 160ms ease,
-      border-color 160ms ease,
-      box-shadow 160ms ease;
-  }
-
-  .knowledge__quiz-link:hover,
-  .knowledge__quiz-link:focus {
-    transform: translateY(-2px);
-  }
-
-  .knowledge__quiz-link:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
-    outline-offset: 3px;
-  }
-
-  .knowledge__aside {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    min-inline-size: 0;
-  }
-
-  @media (width >= 1024px) {
-    .knowledge__aside {
-      gap: 1.5rem;
-    }
-  }
-
-  .knowledge__media-panel {
-    --panel-padding: 0;
-
-    overflow: hidden;
-  }
-
-  .knowledge__media-frame {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .knowledge__media-image {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      inline-size: 100%;
-      block-size: 100%;
-      object-fit: cover;
-      transition: none;
-    }
-  }
-
-  .knowledge__media-image {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-base);
-  }
-
-  .knowledge__media-image img {
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .knowledge__media-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      transition: none;
-    }
-  }
-
-  .knowledge__media-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    transition: opacity var(--transition-base);
-  }
-
-  .knowledge__media-panel:hover .knowledge__media-image,
-  .knowledge__media-panel:focus .knowledge__media-image {
-    transform: scale(1.03);
-  }
-
-  .knowledge__media-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 3 / 2;
-    padding: 2rem;
-    color: var(--gn-ink-muted);
-    text-align: center;
-    background: var(--gn-bg-muted);
-  }
-
-  .knowledge__media-placeholder-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .knowledge__media-placeholder-icon {
-    inline-size: 4rem;
-    block-size: 4rem;
-  }
-
-  @media (width >= 1024px) {
-    .knowledge__media-placeholder-icon {
-      inline-size: 5rem;
-      block-size: 5rem;
-    }
-  }
-
-  .knowledge__panel-title {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    margin-block-end: 0.75rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--gn-ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .knowledge__panel-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .knowledge__panel-icon {
-    display: block;
-    flex-shrink: 0;
-    inline-size: 1rem;
-    block-size: 1rem;
-    color: var(--color-gn-amber-300);
-  }
-
-  .knowledge__podcast {
-    display: flex;
-    gap: 0.75rem;
-  }
-
-  .knowledge__podcast-icon {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    inline-size: 2.75rem;
-    block-size: 2.75rem;
-    color: var(--color-gn-amber-100);
-    background: rgba(123, 214, 255, 0.12);
-    border: 2px solid var(--gn-panel-border);
-    border-radius: 0.9rem;
-  }
-
-  .knowledge__podcast-icon svg {
-    display: block;
-    inline-size: 1.25rem;
-    block-size: 1.25rem;
-  }
-
-  .knowledge__podcast-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .knowledge__podcast-label {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--gn-ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .knowledge__podcast-text {
-    font-size: 1.125rem;
-    color: var(--gn-ink-muted);
-  }
-
-  .knowledge__podcast-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-block-start: 0.25rem;
-  }
-
-  .knowledge__podcast-wide {
-    margin: 0;
-  }
-
-  .knowledge-article {
-    margin: 0;
-  }
-
-  .knowledge-share {
-    margin: 0;
-  }
-
-  .knowledge-share__header {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .knowledge-share__title {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--gn-ink);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-  }
-
-  .knowledge-share__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-size: 1.125rem;
-  }
-
-  .knowledge-share__note {
-    margin-block-start: 0.75rem;
-    font-size: 1.125rem;
-    color: var(--gn-ink-muted);
-  }
-
-  .knowledge__back {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-  }
-
-  .knowledge__body {
-    display: grid;
-    gap: 2rem;
-  }
-
-  .knowledge__main {
-    display: grid;
-    gap: 2rem;
-    min-inline-size: 0;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .share-button {
-      display: inline-flex;
-      gap: 0.45rem;
-      align-items: center;
-      min-block-size: 44px;
-      padding: 0.4rem 0.9rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--gn-ink);
-      text-decoration: none;
-      cursor: pointer;
-      background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
-      border: 2px solid var(--gn-panel-border);
-      border-radius: 999px;
-      transition: none;
-    }
-  }
-
-  .share-button {
-    display: inline-flex;
-    gap: 0.45rem;
-    align-items: center;
-    min-block-size: 44px;
-    padding: 0.4rem 0.9rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--gn-ink);
-    text-decoration: none;
-    cursor: pointer;
-    background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
-    border: 2px solid var(--gn-panel-border);
-    border-radius: 999px;
-    transition:
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast),
-      background-color var(--transition-fast),
-      border-color var(--transition-fast),
-      color var(--transition-fast);
-  }
-
-  .share-button:hover,
-  .share-button:focus {
-    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
-    transform: translateY(-2px);
-  }
-
-  .share-button:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
-    outline-offset: 2px;
-  }
-
-  .share-button--primary {
-    color: var(--color-gn-soot-950);
-    background: var(--color-gn-amber-500);
-    border-color: color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
-  }
-
-  .share-button--primary:hover,
-  .share-button--primary:focus {
-    background: var(--color-gn-amber-400);
-  }
-
-  .share-button__icon {
-    display: block;
-    flex-shrink: 0;
-    inline-size: 1rem;
-    block-size: 1rem;
-  }
-
-  .knowledge__sr,
-  .knowledge__title-sr {
-    position: absolute;
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip-path: var(--sr-only-clip-path);
-  }
-</style>
+      }
+
+      @media (min-width: 1024px) {
+        .reading-progress {
+          height: 0.5rem;
+        }
+      }
+
+      .knowledge {
+        position: relative;
+        min-height: 100vh;
+        overflow-x: hidden;
+        color: var(--gn-ink);
+        background-color: var(--gn-bg);
+        font-family: var(--font-sans);
+        line-height: var(--line-height-relaxed);
+      }
+
+      .knowledge__backdrop {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          var(--color-gn-soot-900) 0%,
+          var(--color-gn-soot-950) 65%,
+          #000000 100%
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .knowledge__texture {
+        position: absolute;
+        inset: 0;
+        opacity: 0.2;
+        background-image: var(--gn-halftone), var(--gn-noise);
+        background-blend-mode: screen, normal;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .knowledge__container {
+        position: relative;
+        z-index: 2;
+        max-width: 72rem;
+        margin: 0 auto;
+        padding: 2.5rem 1rem 4rem;
+      }
+
+      @media (min-width: 640px) {
+        .knowledge__container {
+          padding: 3rem 1.5rem 4.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .knowledge__container {
+          padding: 3.5rem 2rem 5rem;
+        }
+      }
+
+      .knowledge__hero {
+        display: grid;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      @media (min-width: 1024px) {
+        .knowledge__hero {
+          grid-template-columns: 1.1fr 0.9fr;
+          align-items: stretch;
+        }
+      }
+
+      .knowledge__hero-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        min-inline-size: 0;
+      }
+
+      .knowledge__meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.125rem;
+        color: var(--gn-ink-muted);
+      }
+
+      @media (min-width: 640px) {
+        .knowledge__meta {
+          font-size: 1.125rem;
+        }
+      }
+
+      .knowledge__pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+        background: color-mix(in srgb, var(--gn-bg) 75%, transparent);
+        font-weight: 600;
+        text-transform: none;
+        line-height: 1;
+      }
+
+      .knowledge__pill--label {
+        background: rgba(123, 214, 255, 0.18);
+        border-color: color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+        color: var(--color-gn-amber-200);
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 1.125rem;
+      }
+
+      .knowledge__pill--accent {
+        background: rgba(123, 214, 255, 0.16);
+        color: var(--color-gn-amber-200);
+      }
+
+      .knowledge__pill-icon {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+        color: var(--color-gn-amber-300);
+      }
+
+      .knowledge__pill-icon--teal {
+        color: var(--color-gn-teal-300);
+      }
+
+      .knowledge__title {
+        margin: 0;
+        color: var(--gn-ink);
+      }
+
+      .knowledge__summary {
+        margin: 0;
+        max-width: 64ch;
+        color: var(--color-gn-parchment-100);
+      }
+
+      .knowledge__stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        font-size: 1rem;
+        color: var(--gn-ink-muted);
+      }
+
+      @media (min-width: 640px) {
+        .knowledge__stats {
+          font-size: 1.125rem;
+        }
+      }
+
+      .bookmark-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        min-height: 2.2rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+        background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
+        color: var(--gn-ink);
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .bookmark-button__icon {
+        width: 1rem;
+        height: 1rem;
+        color: var(--color-gn-amber-300);
+      }
+
+      .bookmark-button[data-bookmark-state="saved"] {
+        border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+      }
+
+      .bookmark-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .bookmark-button:focus-visible {
+        outline: 3px solid var(--color-gn-amber-300);
+        outline-offset: 3px;
+      }
+
+      .knowledge__quiz-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+        background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
+        color: var(--gn-ink);
+        font-weight: 600;
+        text-decoration: none;
+        line-height: 1;
+        transition:
+          transform 160ms ease,
+          border-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .knowledge__quiz-link:hover {
+        transform: translateY(-2px);
+      }
+
+      .knowledge__quiz-link:focus-visible {
+        outline: 3px solid var(--color-gn-amber-300);
+        outline-offset: 3px;
+      }
+
+      .knowledge__aside {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        min-inline-size: 0;
+      }
+
+      @media (min-width: 1024px) {
+        .knowledge__aside {
+          gap: 1.5rem;
+        }
+      }
+
+      .knowledge__media-panel {
+        --panel-padding: 0;
+        overflow: hidden;
+      }
+
+      .knowledge__media-frame {
+        position: relative;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+      }
+
+      .knowledge__media-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        transition: transform var(--transition-base);
+      }
+
+      .knowledge__media-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .knowledge__media-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        transition: opacity var(--transition-base);
+      }
+
+      .knowledge__media-panel:hover .knowledge__media-image {
+        transform: scale(1.03);
+      }
+
+      .knowledge__media-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 3 / 2;
+        text-align: center;
+        padding: 2rem;
+        background: var(--gn-bg-muted);
+        color: var(--gn-ink-muted);
+      }
+
+      .knowledge__media-placeholder-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .knowledge__media-placeholder-icon {
+        width: 4rem;
+        height: 4rem;
+      }
+
+      @media (min-width: 1024px) {
+        .knowledge__media-placeholder-icon {
+          width: 5rem;
+          height: 5rem;
+        }
+      }
+
+      .knowledge__panel-title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--gn-ink-muted);
+        font-weight: 600;
+      }
+
+      .knowledge__panel-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .knowledge__panel-icon {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+        color: var(--color-gn-amber-300);
+      }
+
+      .knowledge__podcast {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .knowledge__podcast-icon {
+        flex-shrink: 0;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--gn-panel-border);
+        background: rgba(123, 214, 255, 0.12);
+        color: var(--color-gn-amber-100);
+      }
+
+      .knowledge__podcast-icon svg {
+        display: block;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      .knowledge__podcast-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .knowledge__podcast-label {
+        font-size: 1.125rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--gn-ink-muted);
+        font-weight: 600;
+      }
+
+      .knowledge__podcast-text {
+        font-size: 1.125rem;
+        color: var(--gn-ink-muted);
+      }
+
+      .knowledge__podcast-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding-top: 0.25rem;
+      }
+
+      .knowledge__podcast-wide {
+        margin: 0;
+      }
+
+      .knowledge-article {
+        margin-top: 0.5rem;
+      }
+
+      .knowledge-share {
+        margin-top: 2.5rem;
+      }
+
+      .knowledge-share__header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .knowledge-share__title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--gn-ink);
+      }
+
+      .knowledge-share__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        font-size: 1.125rem;
+      }
+
+      .knowledge-share__note {
+        margin-top: 0.75rem;
+        font-size: 1.125rem;
+        color: var(--gn-ink-muted);
+      }
+
+      .knowledge__back {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .share-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        min-height: 44px;
+        padding: 0.4rem 0.9rem;
+        border-radius: 999px;
+        border: 2px solid var(--gn-panel-border);
+        font-size: 1.125rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--gn-ink);
+        background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
+        transition:
+          transform var(--transition-fast),
+          box-shadow var(--transition-fast),
+          background-color var(--transition-fast),
+          border-color var(--transition-fast),
+          color var(--transition-fast);
+      }
+
+      .share-button:hover {
+        background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+        transform: translateY(-2px);
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+      }
+
+      .share-button:focus-visible {
+        outline: 3px solid var(--color-gn-amber-300);
+        outline-offset: 2px;
+      }
+
+      .share-button--primary {
+        background: var(--color-gn-amber-500);
+        color: var(--color-gn-soot-950);
+        border-color: color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+      }
+
+      .share-button--primary:hover {
+        background: var(--color-gn-amber-400);
+      }
+
+      .share-button__icon {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+      }
+
+      .knowledge__sr,
+      .knowledge__title-sr {
+        position: absolute;
+        width: var(--sr-only-width);
+        height: var(--sr-only-height);
+        margin: var(--sr-only-margin);
+        overflow: hidden;
+        clip-path: var(--sr-only-clip-path);
+        white-space: nowrap;
+        border: 0;
+      }
+    </style>
+  </div></Layout
+>

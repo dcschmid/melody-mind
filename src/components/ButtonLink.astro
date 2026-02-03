@@ -143,58 +143,35 @@ const forwardedAttrs = (() => {
   {isExternal && <span class="button-link__sr"> ({externalLinkText})</span>}
 </a>
 <style>
-  @media screen and (prefers-reduced-motion: reduce) {
-    .button-link {
-      display: inline-flex;
-      gap: 0.6rem;
-      align-items: center;
-      justify-content: center;
-      inline-size: 100%;
-      min-inline-size: 48px;
-      max-inline-size: 100%;
-      min-block-size: 48px;
-      padding: 0.75rem 1.5rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-      line-height: var(--line-height-snug);
-      text-decoration: none;
-      cursor: pointer;
-      border: 2px solid transparent;
-      border-radius: 999px;
-      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
-      transition: none;
-    }
-  }
-
   .button-link {
     display: inline-flex;
-    gap: 0.6rem;
     align-items: center;
     justify-content: center;
-    inline-size: 100%;
-    min-inline-size: 48px;
-    max-inline-size: 100%;
-    min-block-size: 48px;
+    gap: 0.6rem;
+    min-height: 48px;
+    min-width: 48px;
     padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
     font-weight: 600;
-    line-height: var(--line-height-snug);
+    font-size: 1.125rem;
     text-decoration: none;
     cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 999px;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
     transition:
       transform var(--transition-fast),
       box-shadow var(--transition-fast),
       background-color var(--transition-fast),
       border-color var(--transition-fast),
       color var(--transition-fast);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
+    line-height: 1.2;
+    width: 100%;
+    max-width: 100%;
   }
 
-  @media (width >= 640px) {
+  @media (min-width: 640px) {
     .button-link {
-      inline-size: auto;
+      width: auto;
     }
   }
 
@@ -206,68 +183,65 @@ const forwardedAttrs = (() => {
       4px 4px 0 rgba(0, 0, 0, 0.75);
   }
 
-  .button-link:hover,
-  .button-link:focus {
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.82);
+  .button-link:hover {
     transform: translateY(-2px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.82);
   }
 
   .button-link:active {
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.85);
     transform: translateY(0);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.85);
   }
 
   .button-link--primary {
-    color: var(--gn-ink);
     background: var(--gn-bg-muted);
     border-color: var(--color-gn-amber-500);
+    color: var(--gn-ink);
   }
 
-  .button-link--primary:hover,
-  .button-link--primary:focus {
+  .button-link--primary:hover {
     background: color-mix(in srgb, var(--gn-bg-muted) 85%, var(--gn-ink) 15%);
   }
 
   .button-link--secondary {
-    color: var(--gn-ink-muted);
     background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
     border-color: var(--gn-panel-border);
+    color: var(--gn-ink-muted);
     backdrop-filter: blur(6px);
   }
 
-  .button-link--secondary:hover,
-  .button-link--secondary:focus {
-    color: var(--gn-ink);
+  .button-link--secondary:hover {
     background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+    color: var(--gn-ink);
   }
 
   .button-link--sm {
-    min-block-size: 36px;
+    min-height: 36px;
     padding: 0.45rem 0.9rem;
     font-size: 1.125rem;
   }
 
   .button-link--md {
-    min-block-size: 40px;
+    min-height: 40px;
     padding: 0.55rem 1rem;
     font-size: 1.125rem;
   }
 
   .button-link__icon {
     display: block;
+    width: 1.1rem;
+    height: 1.1rem;
     flex-shrink: 0;
-    inline-size: 1.1rem;
-    block-size: 1.1rem;
   }
 
   .button-link__sr {
     position: absolute;
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
     margin: var(--sr-only-margin);
     overflow: hidden;
+    clip-path: var(--sr-only-clip-path);
     white-space: nowrap;
     border: 0;
-    clip-path: var(--sr-only-clip-path);
   }
 </style>

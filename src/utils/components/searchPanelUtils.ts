@@ -71,23 +71,16 @@ function initSearchPanel(elements: SearchElements): void {
 
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
-  let lastAnnouncedCount: number | null = null;
-  let lastAnnouncedTerm = "";
-
   const updateStatus = (count: number, term: string): void => {
     const hasQuery = term.trim().length > 0;
     if (statusEl) {
-      const nextText = getStatusText(statusEl, hasQuery, count);
-      if (nextText !== statusEl.textContent) {
-        statusEl.textContent = nextText;
-      }
+      statusEl.textContent = getStatusText(statusEl, hasQuery, count);
     }
     if (noResultsEl) {
       const showEmpty = hasQuery && count === 0;
       noResultsEl.hidden = !showEmpty;
-      const nextNoResults = showEmpty ? getNoResultsText(noResultsEl, term) : "";
-      if (nextNoResults && nextNoResults !== noResultsEl.textContent) {
-        noResultsEl.textContent = nextNoResults;
+      if (showEmpty) {
+        noResultsEl.textContent = getNoResultsText(noResultsEl, term);
       }
     }
     if (clearBtn) {
@@ -95,28 +88,14 @@ function initSearchPanel(elements: SearchElements): void {
       clearBtn.setAttribute("aria-hidden", hasQuery ? "false" : "true");
       clearBtn.tabIndex = hasQuery ? 0 : -1;
     }
-
-    if (hasQuery) {
-      if (count === lastAnnouncedCount && term === lastAnnouncedTerm) return;
-      lastAnnouncedCount = count;
-      lastAnnouncedTerm = term;
-    } else {
-      lastAnnouncedCount = null;
-      lastAnnouncedTerm = "";
-    }
   };
-
-  const cachedText = new Map<HTMLElement, string>();
-  listItems.forEach((item) => {
-    const haystack = item.dataset.searchText || item.textContent || "";
-    cachedText.set(item, haystack.toLowerCase());
-  });
 
   const performSearch = (term: string): void => {
     const q = term.trim().toLowerCase();
     let count = 0;
     listItems.forEach((item) => {
-      const haystack = cachedText.get(item) || "";
+      const haystack =
+        item.dataset.searchText?.toLowerCase() || item.textContent?.toLowerCase() || "";
       const match = q === "" || haystack.includes(q);
       item.style.display = match ? "" : "none";
       if (match) count += 1;
