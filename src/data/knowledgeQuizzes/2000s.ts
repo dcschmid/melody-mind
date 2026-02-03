@@ -1,0 +1,148 @@
+import type { QuizQuestion } from "../knowledgeQuizTypes";
+
+export const quiz2000s: QuizQuestion[] = [
+  {
+    question: "Which change most weakened label gatekeeping in the early 2000s?",
+    options: [
+      "Peer-to-peer file sharing of MP3s",
+      "A return to vinyl-only releases",
+      "A ban on home recording",
+      "Exclusive radio-only distribution",
+    ],
+    correct: 0,
+    explanation: "P2P file sharing spread music outside label control.",
+    difficulty: "easy",
+  },
+  {
+    question: "What device became a symbol of personal digital listening in the 2000s?",
+    options: ["iPod", "Walkman", "Discman", "8-track player"],
+    correct: 0,
+    explanation: "The iPod made portable, personal digital libraries mainstream.",
+    difficulty: "easy",
+  },
+  {
+    question:
+      "Which platform helped artists build profiles and share music pre-streaming?",
+    options: ["MySpace", "Napster", "Pandora", "SoundCloud"],
+    correct: 0,
+    explanation: "MySpace became a central hub for artist discovery and fan connection.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which listening shift trained audiences for later streaming habits?",
+    options: [
+      "Buying individual tracks and building playlists",
+      "Purchasing only full-length albums",
+      "Listening only to radio broadcast schedules",
+      "Borrowing CDs from libraries",
+    ],
+    correct: 0,
+    explanation: "Track-by-track listening and playlist building reshaped expectations.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which genre carried emotional authority in 2000s mainstream culture?",
+    options: ["R&B", "Polka", "Ambient", "Bluegrass"],
+    correct: 0,
+    explanation: "R&B anchored the decade's emotional storytelling and intimacy.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which genre moved from counterculture to the mainstream center?",
+    options: ["Hip-hop", "Swing", "Folk revival", "Ska"],
+    correct: 0,
+    explanation: "Hip-hop became a dominant cultural and commercial force.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which pop star's 2000s media scrutiny symbolized pressure and visibility?",
+    options: ["Britney Spears", "Adele", "Cher", "Carole King"],
+    correct: 0,
+    explanation: "Britney Spears became a focal point for celebrity pressure.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which band is most associated with the early-2000s garage rock revival?",
+    options: ["The Strokes", "Nickelback", "Coldplay", "U2"],
+    correct: 0,
+    explanation: "The Strokes signaled the return of stripped-down guitar rock.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which youth subculture framed alienation in 2000s guitar scenes?",
+    options: ["Emo", "Disco", "Motown", "Bebop"],
+    correct: 0,
+    explanation: "Emo centered vulnerability and emotional intensity.",
+    difficulty: "easy",
+  },
+  {
+    question: "Which country's pop industry laid groundwork for the global K-pop wave?",
+    options: ["South Korea", "Canada", "Italy", "Argentina"],
+    correct: 0,
+    explanation: "South Korea's industry scaled in the 2000s before global breakout.",
+    difficulty: "medium",
+  },
+  {
+    question:
+      "Which electronic style emphasized minimal, club-focused production in Europe?",
+    options: ["Minimal techno", "Disco", "Rockabilly", "Grunge"],
+    correct: 0,
+    explanation: "Minimal techno defined a sleek, reduced club sound.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which tastemaking channel helped break artists in the blog era?",
+    options: [
+      "MP3 blogs",
+      "AM radio only",
+      "Sheet-music catalogs",
+      "Video rental stores",
+    ],
+    correct: 0,
+    explanation: "MP3 blogs circulated tracks and shaped early online hype.",
+    difficulty: "medium",
+  },
+  {
+    question: "What did shuffling and playlists encourage in the 2000s?",
+    options: [
+      "Personalized listening over shared consensus",
+      "Stronger national charts only",
+      "Exclusive devotion to one genre",
+      "Uniform taste across listeners",
+    ],
+    correct: 0,
+    explanation: "Listening became more individual and less centralized.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which producer became a defining hitmaker across pop and hip-hop?",
+    options: ["Timbaland", "Phil Spector", "Brian Eno", "George Martin"],
+    correct: 0,
+    explanation: "Timbaland's sound linked pop and hip-hop in the 2000s.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which trend intensified visibility pressure on 2000s artists?",
+    options: [
+      "24/7 celebrity media and online scrutiny",
+      "A return to anonymous stage names only",
+      "A ban on music videos",
+      "Limited press coverage",
+    ],
+    correct: 0,
+    explanation: "Continuous media coverage made visibility constant and fragile.",
+    difficulty: "medium",
+  },
+  {
+    question: "Which scene expanded globally through clubs and festivals in the 2000s?",
+    options: [
+      "Electronic dance music",
+      "Baroque classical",
+      "Traditional opera",
+      "Appalachian folk",
+    ],
+    correct: 0,
+    explanation: "Electronic music built global circuits via clubs and festivals.",
+    difficulty: "easy",
+  },
+];

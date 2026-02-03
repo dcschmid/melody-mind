@@ -23,6 +23,8 @@ interface Props {
   textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl";
   /** Text alignment option */
   textAlign?: "left" | "center" | "right";
+  /** Optional id for accessibility targeting */
+  id?: string;
 }
 
 const {
@@ -31,6 +33,7 @@ const {
   className = "",
   textSize = "lg",
   textAlign = "left",
+  id,
 } = Astro.props;
 
 // Dynamic heading tag based on level prop
@@ -65,21 +68,22 @@ const classes = [
 // Simple attributes
 const attributes: Record<string, any> = {
   class: classes,
+  ...(id ? { id } : {}),
 };
 ---
 
 <Tag {...attributes}>{title || <slot />}</Tag>
 <style>
   .headline {
-    font-family: var(--font-display);
-    line-height: var(--line-height-tight);
-    letter-spacing: var(--letter-spacing-tight);
-    font-weight: 700;
-    color: var(--gn-ink);
-    text-wrap: balance;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
-    overflow-wrap: break-word;
     margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: var(--line-height-tight);
+    color: var(--gn-ink);
+    letter-spacing: var(--letter-spacing-tight);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
   }
 
   .headline--size-sm {
@@ -106,7 +110,7 @@ const attributes: Record<string, any> = {
     font-size: 3.125rem;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .headline--size-sm {
       font-size: 1.375rem;
     }
@@ -133,7 +137,7 @@ const attributes: Record<string, any> = {
   }
 
   .headline--align-left {
-    text-align: left;
+    text-align: start;
   }
 
   .headline--align-center {
@@ -141,6 +145,6 @@ const attributes: Record<string, any> = {
   }
 
   .headline--align-right {
-    text-align: right;
+    text-align: end;
   }
 </style>

@@ -64,13 +64,13 @@ const attributes: Record<string, any> = {
 </p>
 <style>
   .paragraph {
+    margin: 0;
     font-family: var(--font-sans);
     line-height: var(--line-height-relaxed);
     color: var(--gn-ink-muted);
+    hyphens: auto;
     text-wrap: pretty;
     overflow-wrap: break-word;
-    hyphens: auto;
-    margin: 0;
   }
 
   .paragraph--size-sm {
@@ -101,7 +101,7 @@ const attributes: Record<string, any> = {
     font-size: 1.875rem;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .paragraph--size-base {
       font-size: 1.225rem;
     }
@@ -128,7 +128,7 @@ const attributes: Record<string, any> = {
   }
 
   .paragraph--align-left {
-    text-align: left;
+    text-align: start;
   }
 
   .paragraph--align-center {
@@ -136,6 +136,6 @@ const attributes: Record<string, any> = {
   }
 
   .paragraph--align-right {
-    text-align: right;
+    text-align: end;
   }
 </style>

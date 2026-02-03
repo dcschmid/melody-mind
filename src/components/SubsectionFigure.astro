@@ -58,60 +58,59 @@ const classes = ["subsection-figure", className].filter(Boolean).join(" ");
     position: relative;
     aspect-ratio: 3 / 2;
     overflow: hidden;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
     background: #0f1724;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
     box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
   }
 
   .subsection-figure__media::after {
-    content: "";
     position: absolute;
     inset: 6px;
-    border-radius: 10px;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 75%, transparent);
     pointer-events: none;
+    content: "";
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 75%, transparent);
+    border-radius: 10px;
   }
 
   .subsection-figure__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
   }
 
   .subsection-figure__content {
     position: relative;
     display: flex;
     align-items: center;
-    padding-left: 1.5rem;
-    min-height: 100%;
+    min-block-size: 100%;
+    padding-inline-start: 1.5rem;
   }
 
   .subsection-figure__content::before {
-    content: "";
     position: absolute;
-    left: 0;
-    top: 0.2rem;
-    bottom: 0.2rem;
-    width: 3px;
-    border-radius: 999px;
+    inset-block: 0.2rem;
+    inset-inline-start: 0;
+    inline-size: 3px;
+    content: "";
     background: var(--color-gn-amber-400);
+    border-radius: 999px;
     box-shadow: 0 0 12px rgba(217, 166, 92, 0.35);
   }
 
   .subsection-figure__title {
     margin: 0;
-    color: var(--gn-ink);
     font-family: var(--font-display);
     font-size: 1.725rem;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
+    color: var(--gn-ink);
     letter-spacing: -0.01em;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
     text-wrap: balance;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
   }
 
-  @media (min-width: 900px) {
+  @media (width >= 900px) {
     .subsection-figure {
       grid-template-columns: minmax(0, 40%) minmax(0, 60%);
       gap: 1.5rem;
@@ -122,17 +121,16 @@ const classes = ["subsection-figure", className].filter(Boolean).join(" ");
     }
   }
 
-  @media (max-width: 899px) {
+  @media (width <= 899px) {
     .subsection-figure__content {
-      padding-left: 0;
-      padding-top: 0.9rem;
+      padding-block-start: 0.9rem;
+      padding-inline-start: 0;
     }
 
     .subsection-figure__content::before {
-      top: 0;
-      bottom: auto;
-      width: 2.75rem;
-      height: 3px;
+      inset-block: 0 auto;
+      inline-size: 2.75rem;
+      block-size: 3px;
     }
   }
 </style>

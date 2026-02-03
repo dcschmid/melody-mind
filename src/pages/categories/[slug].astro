@@ -153,7 +153,7 @@ const pageSeo = buildPageSeo({
 });
 ---
 
-<Layout {pageSeo} {breadcrumbs}>
+<Layout {pageSeo} {breadcrumbs} mainLabelledBy="category-heading">
   <PageShell
     className="page-shell--aurora page-shell--grid"
     containerClass="page-shell__container--spacious"
@@ -288,21 +288,22 @@ const pageSeo = buildPageSeo({
     --panel-padding: 1.5rem;
     --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
     --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+
     position: relative;
-    border-radius: var(--panel-radius);
+    padding: var(--panel-padding);
     background: var(--panel-bg);
     border: 2px solid var(--panel-border);
+    border-radius: var(--panel-radius);
     box-shadow: var(--gn-offset-shadow);
-    padding: var(--panel-padding);
   }
 
   .panel::after {
-    content: "";
     position: absolute;
     inset: 4px;
+    pointer-events: none;
+    content: "";
     border: 1px solid var(--gn-panel-inner);
     border-radius: calc(var(--panel-radius) - 0.25rem);
-    pointer-events: none;
   }
 
   .panel--compact {
@@ -337,7 +338,7 @@ const pageSeo = buildPageSeo({
     gap: 1.75rem;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .category-hero {
       gap: 2rem;
     }
@@ -355,32 +356,32 @@ const pageSeo = buildPageSeo({
     gap: 1.75rem;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .category-hero__media {
       flex-direction: row;
-      align-items: stretch;
       gap: 2rem;
+      align-items: stretch;
     }
   }
 
   .category-hero__background {
     position: relative;
-    width: 100%;
+    inline-size: 100%;
     aspect-ratio: 3 / 2;
-    border-radius: 2rem;
     overflow: hidden;
     border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    border-radius: 2rem;
     box-shadow:
       0 30px 80px rgba(7, 12, 24, 0.55),
       0 12px 24px rgba(7, 12, 24, 0.35);
   }
 
   .category-hero__image {
-    width: 100%;
-    height: 100%;
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
     object-fit: cover;
     object-position: center;
-    display: block;
   }
 
   .category-hero__overlay {
@@ -390,15 +391,15 @@ const pageSeo = buildPageSeo({
   }
 
   .category-hero__body {
-    width: 100%;
     display: flex;
     justify-content: center;
+    inline-size: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .category-hero__background,
     .category-hero__body {
-      width: 50%;
+      inline-size: 50%;
     }
 
     .category-hero__body {
@@ -406,26 +407,26 @@ const pageSeo = buildPageSeo({
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-hero__background {
-      width: 58%;
+      inline-size: 58%;
     }
 
     .category-hero__body {
-      width: 42%;
+      inline-size: 42%;
     }
   }
 
   .category-hero__content {
-    width: min(820px, 100%);
+    inline-size: min(820px, 100%);
     padding: 2rem 2.25rem;
-    border-radius: 1.5rem;
     background: linear-gradient(
       160deg,
       color-mix(in srgb, var(--gn-bg) 70%, transparent),
       color-mix(in srgb, var(--gn-bg) 50%, transparent)
     );
     border: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
+    border-radius: 1.5rem;
     box-shadow:
       0 18px 40px rgba(7, 12, 24, 0.45),
       inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 8%, transparent);
@@ -434,32 +435,43 @@ const pageSeo = buildPageSeo({
 
   .category-hero__eyebrow {
     display: inline-flex;
-    align-items: center;
     gap: 0.625rem;
+    align-items: center;
+    padding: 0.4rem 0.9rem;
+    margin-block-end: 1.5rem;
     font-size: 0.75rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
     font-weight: 700;
     color: var(--gn-ink);
-    margin-bottom: 1.5rem;
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
     background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
     border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    border-radius: 999px;
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 4%, transparent);
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-hero__eyebrow {
       font-size: 0.875rem;
     }
   }
 
-  .category-hero__dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999px;
+  @media screen and (prefers-reduced-motion: reduce) {
+.category-hero__dot {
+    inline-size: 0.5rem;
+    block-size: 0.5rem;
     background: var(--color-gn-amber-300);
+    border-radius: 999px;
+    box-shadow: 0 0 10px color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
+    animation: none;
+}
+}
+
+  .category-hero__dot {
+    inline-size: 0.5rem;
+    block-size: 0.5rem;
+    background: var(--color-gn-amber-300);
+    border-radius: 999px;
     box-shadow: 0 0 10px color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
     animation: pulse 2s ease-in-out infinite;
   }
@@ -470,6 +482,7 @@ const pageSeo = buildPageSeo({
       opacity: 1;
       transform: scale(1);
     }
+
     50% {
       opacity: 0.7;
       transform: scale(0.95);
@@ -480,46 +493,46 @@ const pageSeo = buildPageSeo({
     margin: 0;
     font-size: 2.4rem;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: var(--line-height-tight);
     color: var(--gn-ink);
     letter-spacing: -0.02em;
     text-shadow: 0 4px 18px rgba(7, 12, 24, 0.35);
     background: none;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-hero__title {
       font-size: 3.25rem;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-hero__title {
       font-size: 4rem;
     }
   }
 
   .category-hero__description {
+    max-inline-size: 60ch;
     margin: 0 0 2rem;
     font-size: 1.05rem;
+    font-weight: 400;
     line-height: 1.75;
     color: var(--gn-ink-muted);
-    font-weight: 400;
-    max-width: 60ch;
     text-shadow: 0 2px 10px rgba(7, 12, 24, 0.3);
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-hero__description {
       font-size: 1.125rem;
       line-height: 1.75;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-hero__description {
+      margin-block-end: 2.25rem;
       font-size: 1.2rem;
-      margin-bottom: 2.25rem;
     }
   }
 
@@ -529,35 +542,60 @@ const pageSeo = buildPageSeo({
     gap: 1rem;
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .category-hero__stat {
+      display: inline-flex;
+      gap: 0.625rem;
+      align-items: center;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gn-ink);
+      background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--gn-bg) 88%, transparent),
+        color-mix(in srgb, var(--gn-bg) 72%, transparent)
+      );
+      border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
+      border-radius: 999px;
+      box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 6%, transparent);
+      backdrop-filter: blur(12px);
+      transition: none;
+    }
+  }
+
   .category-hero__stat {
     display: inline-flex;
-    align-items: center;
     gap: 0.625rem;
+    align-items: center;
     padding: 0.7rem 1.4rem;
-    border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gn-ink);
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--gn-bg) 88%, transparent),
       color-mix(in srgb, var(--gn-bg) 72%, transparent)
     );
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--gn-ink);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(12px);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
+    border-radius: 999px;
     box-shadow:
       0 4px 12px rgba(0, 0, 0, 0.15),
       inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 6%, transparent);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .category-hero__stat:hover {
-    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
+  .category-hero__stat:hover,
+  .category-hero__stat:focus {
     background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
-    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
     box-shadow:
       0 6px 20px rgba(0, 0, 0, 0.2),
       inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 10%, transparent);
+    transform: translateY(-2px);
   }
 
   .category-page__tools {
@@ -565,7 +603,7 @@ const pageSeo = buildPageSeo({
     gap: 1.5rem;
   }
 
-  @media (min-width: 960px) {
+  @media (width >= 960px) {
     .category-page__tools {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
       align-items: center;
@@ -573,25 +611,25 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__helper {
-    font-size: 1rem;
-    color: var(--gn-ink-muted);
-    margin: 0;
-    line-height: 1.6;
-    font-weight: 400;
     padding: 1.25rem 1.5rem;
-    border-radius: 1rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--gn-ink-muted);
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--gn-bg-muted) 92%, transparent),
       color-mix(in srgb, var(--gn-bg) 85%, transparent)
     );
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    border-radius: 1rem;
     box-shadow:
       0 10px 24px rgba(7, 12, 24, 0.3),
       inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-page__helper {
       font-size: 1.0625rem;
     }
@@ -599,33 +637,34 @@ const pageSeo = buildPageSeo({
 
   .category-page__search {
     padding: 1.25rem 1.5rem;
-    border-radius: 1.25rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
     background: linear-gradient(
       155deg,
       color-mix(in srgb, var(--gn-bg) 92%, transparent),
       color-mix(in srgb, var(--gn-bg-muted) 85%, transparent)
     );
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
+    border-radius: 1.25rem;
     box-shadow:
       0 16px 32px rgba(7, 12, 24, 0.35),
       inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
   }
 
   .category-page__search :global(.search-panel__input) {
-    border-radius: 1.1rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 88%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 4%, transparent);
     font-size: 1.05rem;
+    background: color-mix(in srgb, var(--gn-bg) 88%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
+    border-radius: 1.1rem;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 4%, transparent);
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-page__search :global(.search-panel__input) {
       font-size: 1.15rem;
     }
   }
 
-  .category-page__search :global(.search-panel__input:hover) {
+  .category-page__search :global(.search-panel__input:hover),
+  .category-page__search :global(.search-panel__input:focus) {
     border-color: color-mix(in srgb, var(--color-gn-amber-300) 65%, transparent);
     box-shadow:
       0 0 0 1px color-mix(in srgb, var(--gn-ink) 6%, transparent),
@@ -639,42 +678,43 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__search :global(.search-panel__reset) {
-    border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
+    color: var(--color-gn-soot-950);
     background: linear-gradient(
       135deg,
       color-mix(in srgb, var(--color-gn-amber-400) 85%, transparent),
       color-mix(in srgb, var(--color-gn-amber-300) 75%, transparent)
     );
-    color: var(--color-gn-soot-950);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
+    border-radius: 999px;
     box-shadow:
       0 8px 18px rgba(7, 12, 24, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
-  .category-page__search :global(.search-panel__reset:hover) {
-    transform: translateY(-1px);
+  .category-page__search :global(.search-panel__reset:hover),
+  .category-page__search :global(.search-panel__reset:focus) {
     box-shadow:
       0 12px 24px rgba(7, 12, 24, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    transform: translateY(-1px);
   }
 
   .category-page__grid {
     display: grid;
     gap: 2rem;
-    list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-page__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.75rem;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-page__grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2rem;
@@ -683,8 +723,8 @@ const pageSeo = buildPageSeo({
 
   .category-page__empty {
     padding: 3rem 2rem;
-    border-radius: 1.25rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    color: var(--gn-ink-muted);
+    text-align: center;
     background:
       radial-gradient(
         circle at top,
@@ -696,8 +736,8 @@ const pageSeo = buildPageSeo({
         color-mix(in srgb, var(--gn-bg) 92%, transparent),
         color-mix(in srgb, var(--gn-bg-muted) 82%, transparent)
       );
-    text-align: center;
-    color: var(--gn-ink-muted);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    border-radius: 1.25rem;
     box-shadow:
       0 18px 36px rgba(7, 12, 24, 0.35),
       inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
@@ -712,9 +752,9 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__empty-text {
-    margin-top: 0.75rem;
+    margin-block-start: 0.75rem;
     font-size: 1.0625rem;
-    color: var(--gn-ink-muted);
     line-height: 1.6;
+    color: var(--gn-ink-muted);
   }
 </style>
