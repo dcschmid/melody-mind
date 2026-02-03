@@ -46,6 +46,10 @@ const containerClasses = ["page-shell__container", containerClass]
     margin: 0 auto;
   }
 
+  .page-shell__container--wide {
+    max-inline-size: 82rem;
+  }
+
   .page-shell__container--spacious {
     padding: 3rem 1rem;
   }
@@ -67,6 +71,12 @@ const containerClasses = ["page-shell__container", containerClass]
 
     .page-shell__container--spacious {
       padding: 4rem 2rem;
+    }
+  }
+
+  @media (width >= 1280px) {
+    .page-shell__container--wide {
+      max-inline-size: 88rem;
     }
   }
 

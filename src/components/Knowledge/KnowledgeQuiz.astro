@@ -317,24 +317,24 @@ const totalQuestions = questions.length;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.knowledge-quiz::before {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline: 0;
-    block-size: 4px;
-    content: "";
-    background: linear-gradient(
-      90deg,
-      var(--color-gn-amber-500),
-      var(--color-gn-amber-300),
-      var(--color-gn-teal-400),
-      var(--color-gn-amber-300),
-      var(--color-gn-amber-500)
-    );
-    background-size: 200% 100%;
-    animation: none;
-}
-}
+    .knowledge-quiz::before {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: 0;
+      block-size: 4px;
+      content: "";
+      background: linear-gradient(
+        90deg,
+        var(--color-gn-amber-500),
+        var(--color-gn-amber-300),
+        var(--color-gn-teal-400),
+        var(--color-gn-amber-300),
+        var(--color-gn-amber-500)
+      );
+      background-size: 200% 100%;
+      animation: none;
+    }
+  }
 
   .knowledge-quiz::before {
     position: absolute;

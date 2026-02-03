@@ -296,26 +296,25 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.prose :is(h2, h3) > a[aria-label^="Link to section"] {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    inline-size: 1.1rem;
-    block-size: 1.1rem;
-    margin-inline-start: 0.4rem;
-    font-size: 0;
-    font-weight: 600;
-    color: transparent;
-    text-decoration: none;
-    background: color-mix(in srgb, var(--link-default) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--link-default) 25%, transparent);
-    border-radius: 0.35rem;
-    opacity: 0;
-    transform: translateY(2px);
-    transition:
-      none;
-}
-}
+    .prose :is(h2, h3) > a[aria-label^="Link to section"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 1.1rem;
+      block-size: 1.1rem;
+      margin-inline-start: 0.4rem;
+      font-size: 0;
+      font-weight: 600;
+      color: transparent;
+      text-decoration: none;
+      background: color-mix(in srgb, var(--link-default) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--link-default) 25%, transparent);
+      border-radius: 0.35rem;
+      opacity: 0;
+      transform: translateY(2px);
+      transition: none;
+    }
+  }
 
   .prose :is(h2, h3) > a[aria-label^="Link to section"] {
     display: inline-flex;

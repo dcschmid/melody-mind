@@ -156,7 +156,7 @@ const pageSeo = buildPageSeo({
 <Layout {pageSeo} {breadcrumbs} mainLabelledBy="category-heading">
   <PageShell
     className="page-shell--aurora page-shell--grid"
-    containerClass="page-shell__container--spacious"
+    containerClass="page-shell__container--wide"
   >
     <div class="category-page">
       <header class="category-hero">
@@ -206,7 +206,7 @@ const pageSeo = buildPageSeo({
             Article cards announce title, description, publish date, and estimated reading
             time.
           </p>
-          <div class="category-page__search">
+          <div class="category-page__search search-panel-shell">
             <SearchPanel
               idBase="category-search"
               label="Search articles"
@@ -328,7 +328,7 @@ const pageSeo = buildPageSeo({
   .category-page__section {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1.75rem, 2.4vi, 2.5rem);
   }
 
   .category-hero {
@@ -457,15 +457,15 @@ const pageSeo = buildPageSeo({
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.category-hero__dot {
-    inline-size: 0.5rem;
-    block-size: 0.5rem;
-    background: var(--color-gn-amber-300);
-    border-radius: 999px;
-    box-shadow: 0 0 10px color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
-    animation: none;
-}
-}
+    .category-hero__dot {
+      inline-size: 0.5rem;
+      block-size: 0.5rem;
+      background: var(--color-gn-amber-300);
+      border-radius: 999px;
+      box-shadow: 0 0 10px color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
+      animation: none;
+    }
+  }
 
   .category-hero__dot {
     inline-size: 0.5rem;
@@ -600,53 +600,41 @@ const pageSeo = buildPageSeo({
 
   .category-page__tools {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   @media (width >= 960px) {
     .category-page__tools {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-      align-items: center;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: stretch;
     }
   }
 
   .category-page__helper {
-    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    min-block-size: clamp(4.75rem, 6vi, 6.5rem);
+    padding: 0.85rem 1rem;
     margin: 0;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
     color: var(--gn-ink-muted);
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--gn-bg-muted) 92%, transparent),
-      color-mix(in srgb, var(--gn-bg) 85%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
-    border-radius: 1rem;
-    box-shadow:
-      0 10px 24px rgba(7, 12, 24, 0.3),
-      inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
+    border-radius: 1.25rem;
+    box-shadow: var(--gn-offset-shadow);
   }
 
   @media (width >= 640px) {
     .category-page__helper {
+      padding: 1rem 1.2rem;
       font-size: 1.0625rem;
     }
   }
 
   .category-page__search {
-    padding: 1.25rem 1.5rem;
-    background: linear-gradient(
-      155deg,
-      color-mix(in srgb, var(--gn-bg) 92%, transparent),
-      color-mix(in srgb, var(--gn-bg-muted) 85%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
-    border-radius: 1.25rem;
-    box-shadow:
-      0 16px 32px rgba(7, 12, 24, 0.35),
-      inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
+    --search-shell-min-block-size: clamp(4.75rem, 6vi, 6.5rem);
   }
 
   .category-page__search :global(.search-panel__input) {

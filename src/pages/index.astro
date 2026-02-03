@@ -130,7 +130,10 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} mainLabelledBy="page-title">
-  <PageShell className="page-shell--aurora page-shell--grid">
+  <PageShell
+    className="page-shell--aurora page-shell--grid"
+    containerClass="page-shell__container--wide"
+  >
     <div class="knowledge-index">
       <header class="knowledge-index__intro">
         <div class="knowledge-index__stage">
@@ -171,7 +174,7 @@ const pageSeo = buildPageSeo({
         aria-labelledby="recent-reads-title"
       >
         <div class="knowledge-index__section-head">
-          <div>
+          <div class="knowledge-index__section-copy">
             <h2 id="recent-reads-title" class="knowledge-index__section-title">
               Recently read
             </h2>
@@ -196,7 +199,7 @@ const pageSeo = buildPageSeo({
         aria-describedby="knowledge-categories-help"
       >
         <div class="knowledge-index__section-head">
-          <div>
+          <div class="knowledge-index__section-copy">
             <h2 id="knowledge-categories-title" class="knowledge-index__section-title">
               Explore categories
             </h2>
@@ -205,15 +208,17 @@ const pageSeo = buildPageSeo({
               available.
             </p>
           </div>
-          <SearchPanel
-            idBase="knowledge-search"
-            label="Search categories"
-            placeholder="Search by genre or description"
-            ariaControls="knowledge-categories-list"
-            statusAllText="Showing all categories"
-            statusCountTemplate="{count} categories found"
-            noResultsTemplate='No results for "{term}"'
-          />
+          <div class="knowledge-index__search search-panel-shell">
+            <SearchPanel
+              idBase="knowledge-search"
+              label="Search categories"
+              placeholder="Search by genre or description"
+              ariaControls="knowledge-categories-list"
+              statusAllText="Showing all categories"
+              statusCountTemplate="{count} categories found"
+              noResultsTemplate='No results for "{term}"'
+            />
+          </div>
         </div>
         <ul
           class="knowledge-index__grid"
@@ -510,21 +515,34 @@ const pageSeo = buildPageSeo({
   .knowledge-index__section {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: clamp(1.5rem, 2.2vi, 2.25rem);
   }
 
   .knowledge-index__section-head {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
+    align-items: flex-start;
   }
 
   @media (width >= 640px) {
     .knowledge-index__section-head {
       flex-direction: row;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
     }
+  }
+
+  .knowledge-index__section-copy {
+    display: grid;
+    gap: 0.35rem;
+    max-inline-size: 42rem;
+  }
+
+  .knowledge-index__search {
+    margin-inline-start: auto;
+
+    --search-shell-max-inline-size: 30rem;
   }
 
   .knowledge-index__section-title {
