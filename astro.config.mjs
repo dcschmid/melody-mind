@@ -10,29 +10,31 @@ import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    css: {
-      transformer: "lightningcss",
-    },
-  },
   site: "https://melody-mind.de",
   output: "static",
-  
+
   prefetch: {
     defaultStrategy: "hover",
   },
 
-  integrations: [mdx(), icon(), robotsTxt({
-    sitemap: ["https://melody-mind.de/sitemap-index.xml"],
-    host: "melody-mind.de",
-  }), sitemap(), metaTags(), playformCompress({			Image: false,})],
-  
+  integrations: [
+    mdx(),
+    icon(),
+    robotsTxt({
+      sitemap: ["https://melody-mind.de/sitemap-index.xml"],
+      host: "melody-mind.de",
+    }),
+    sitemap(),
+    metaTags(),
+    playformCompress({ Image: false }),
+  ],
+
   i18n: {
     defaultLocale: "en",
     locales: ["en"],
     routing: { prefixDefaultLocale: false },
   },
-  
+
   vite: {
     resolve: {
       alias: {
@@ -49,7 +51,7 @@ export default defineConfig({
       exclude: ["@fontsource/atkinson-hyperlegible"],
     },
   },
-  
+
   markdown: {
     shikiConfig: {
       theme: "github-dark",
