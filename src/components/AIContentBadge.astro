@@ -1,0 +1,115 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+  aiTools?: string[];
+  size?: "sm" | "md";
+  className?: string;
+  href?: string;
+}
+
+const {
+  aiTools = [],
+  size = "md",
+  className = "",
+  href = "/ai-content",
+  ...attributes
+} = Astro.props as Props;
+
+const sizeClass = size === "sm" ? "ai-content-badge--sm" : "ai-content-badge--md";
+const hasTools = aiTools.length > 0;
+---
+
+<a
+  class:list={[["ai-content-badge", sizeClass], className]}
+  href={href}
+  title={hasTools
+    ? `AI-generated content using: ${aiTools.join(", ")}`
+    : "AI-generated content"}
+  aria-label={hasTools
+    ? `AI-generated content using ${aiTools.length} AI tool${
+        aiTools.length > 1 ? "s" : ""
+      } - Learn more`
+    : "AI-generated content - Learn more"}
+  {...attributes}
+>
+  <div class="ai-content-badge__content">
+    <span class="ai-content-badge__icon" aria-hidden="true">✨</span>
+    <span class="ai-content-badge__label">AI-Generated</span>
+  </div>
+</a>
+
+<style>
+  .ai-content-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.25),
+      rgba(59, 130, 246, 0.2)
+    );
+    border: 2px solid rgba(139, 92, 246, 0.5);
+    color: rgb(192, 132, 252);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .ai-content-badge:hover {
+    border-color: rgb(139, 92, 246);
+    background: linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.35),
+      rgba(59, 130, 246, 0.3)
+    );
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .ai-content-badge:focus-visible {
+    outline: 3px solid rgba(139, 92, 246, 0.4);
+    outline-offset: 3px;
+  }
+
+  .ai-content-badge__content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ai-content-badge__icon {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .ai-content-badge__label {
+    line-height: 1.2;
+  }
+
+  .ai-content-badge--sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  .ai-content-badge--sm .ai-content-badge__icon {
+    font-size: 0.85rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai-content-badge {
+      transition: none;
+    }
+
+    .ai-content-badge:hover {
+      transform: none;
+    }
+  }
+</style>

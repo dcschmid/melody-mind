@@ -25,6 +25,8 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
     podcastUrl: z.string().optional(),
     takeaways: z.array(z.string()).optional(),
     draft: z.boolean().default(false),
+    aiGenerated: z.boolean().default(false),
+    aiTools: z.array(z.string()).optional(),
   });
 
 const knowledgeCollection = defineCollection({

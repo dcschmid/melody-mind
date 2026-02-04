@@ -13,6 +13,7 @@ import TableOfContents from "@components/TableOfContents.astro";
 import KnowledgeQuiz from "@components/Knowledge/KnowledgeQuiz.astro";
 import KnowledgeTakeaways from "@components/Knowledge/KnowledgeTakeaways.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
+import AIContentBadge from "@components/AIContentBadge.astro";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
@@ -263,6 +264,15 @@ const storageUpdatedAt =
         <header class="panel knowledge__hero-panel">
           <div class="knowledge__meta">
             <span class="knowledge__pill knowledge__pill--label">In-depth report</span>
+            {
+              entry.data.aiGenerated ? (
+                <AIContentBadge
+                  aiTools={entry.data.aiTools}
+                  size="md"
+                  className="knowledge__ai-badge"
+                />
+              ) : null
+            }
             <span class="knowledge__pill">
               <Icon name="calendar" class="knowledge__pill-icon" aria-hidden="true" />
               <time datetime={publishedDate.toISOString()}>{publishedDateLabel}</time>

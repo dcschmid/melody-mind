@@ -148,6 +148,13 @@ export default {
   "footer.github": "GitHub",
   "footer.kofi": "Ko-fi",
   "footer.opens_in_new_tab": "opens in a new tab",
+  "ai.badge.label": "AI-Generated",
+  "ai.badge.tooltip": "Content created with AI assistance",
+  "ai.tools.title": "AI Tools Used",
+  "ai.disclaimer.title": "AI Content Disclaimer",
+  "ai.page.title": "AI Content Policy",
+  "ai.page.description":
+    "How we use AI and ensure quality, transparency, and copyright compliance",
   "footer.rights": "All rights reserved",
   "footer.source_code": "View MelodyMind source code on GitHub",
   "footer.support_kofi": "Support MelodyMind on Ko-fi",
