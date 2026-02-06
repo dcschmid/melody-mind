@@ -1,4 +1,8 @@
 :root {
+  --static-page-gap: 1.5rem;
+  --static-page-header-gap: 0.75rem;
+  --static-page-section-gap: 0.5rem;
+  --static-page-section-gap-wide: 1.5rem;
   --theme-gn-bg-primary: #f7f9fc;
   --theme-gn-bg: #f7f9fc;
   --theme-gn-bg-muted: #e8edf5;
@@ -168,7 +172,7 @@
 .static-page-header {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--static-page-header-gap);
 }
 
 .static-page-eyebrow {
