@@ -22,134 +22,36 @@ This document outlines proposed features, improvements, and enhancements for Mel
 4. Add gamification for better engagement
 5. Optimize performance and accessibility
 
+**Roadmap Changelog (2026-02-06):**
+
+- Legal baseline milestones (privacy policy baseline, consent banner, initial accessibility fixes) marked as completed
+- Legal section numbering normalized (1.1-1.4) for remaining work items
+- Week 1 timeline reframed from legal implementation to legal baseline verification + UX quick wins
+- Priority and risk wording aligned with current completed baseline status
+
 ---
 
 ## Priority Matrix
 
-| Priority                 | Features                                                           | Impact      | Effort     |
-| ------------------------ | ------------------------------------------------------------------ | ----------- | ---------- |
-| 🔴 **P0 - Critical**     | German Privacy Policy, Cookie Banner, Accessibility Fixes          | High        | Low-Medium |
-| 🟠 **P1 - High**         | Dark Mode, Interactive Bookmarks, Quiz Enhancements, Search Facets | High        | Medium     |
-| 🟡 **P2 - Medium**       | Learning Paths, Genre Explorer, Reading Experience, Hero Section   | Medium-High | Medium     |
-| 🟢 **P3 - Nice-to-Have** | Artist Profiles, Audio Player, PWA, Newsletter                     | Medium      | High       |
-| 📅 **Future**            | AI Recommendations, Virtual Museum, Headless CMS                   | High        | Very High  |
+| Priority                 | Features                                                            | Impact      | Effort    |
+| ------------------------ | ------------------------------------------------------------------- | ----------- | --------- |
+| 🔴 **P0 - Critical**     | Baseline legal compliance (privacy policy, consent banner, a11y)    | High        | Completed |
+| 🟠 **P1 - High**         | Dark Mode, Interactive Bookmarks, Quiz Enhancements, Search Facets  | High        | Medium    |
+| 🟡 **P2 - Medium**       | Learning Paths, Genre Explorer, Reading Experience, Legal hardening | Medium-High | Medium    |
+| 🟢 **P3 - Nice-to-Have** | Artist Profiles, Audio Player, PWA, Newsletter                      | Medium      | High      |
+| 📅 **Future**            | AI Recommendations, Virtual Museum, Headless CMS                    | High        | Very High |
 
 ---
 
 ## 1. Legal & Compliance Features
 
-### 🔴 P0 - Critical (Must Have)
-
-#### 1.1 German Privacy Policy (Datenschutzerklärung)
-
-**Description**: Translate privacy policy to German with GDPR-compliant wording and German legal references.
-
-**Requirements:**
-
-- Full German translation of `/privacy`
-- German law references (DSGVO, BDSG, TMG)
-- Explicit consent mechanisms documentation
-- Data processing directory (Verarbeitungsverzeichnis) section
-- Current date and version tracking
-
-**Legal Basis**: Art. 13 & 14 DSGVO (Information obligations)
-
-**Effort**: Low (1 day)
-
-**Deliverables:**
-
-- `/pages/privacy-de.astro` or German version of existing page
-- Updated `/pages/privacy.astro` with language switcher
-- German translations for all legal sections
-
----
-
-#### 1.2 Cookie Consent Banner (Privacy-First)
-
-**Description**: Minimalist cookie consent banner for Fathom Analytics and future services.
-
-**Requirements:**
-
-- GDPR-compliant cookie banner
-- Explicit consent for non-essential cookies
-- LocalStorage for consent preference
-- Respect "Do Not Track" (DNT) header
-- Opt-out for Fathom Analytics
-- Revoke consent option
-- Minimal UI (not intrusive)
-
-**Legal Basis**: Art. 6(1)(a) DSGVO (Consent), ePrivacy Directive
-
-**Effort**: Medium (2-3 days)
-
-**Technical Implementation:**
-
-```
-src/components/Shared/CookieConsent.astro
-- Component with consent state management
-- LocalStorage: `cookie_consent: { essential: true, analytics: boolean, date: timestamp }`
-- Fathom integration: Skip tracking if consent.analytics === false
-```
-
----
-
-#### 1.3 Accessibility Improvements (BITV 2.0 / WCAG 2.1 AA)
-
-**Description**: Fix accessibility issues found in axe-report.json and ensure BITV 2.0 compliance.
-
-**Requirements:**
-
-- Fix all WCAG AA violations from axe-report.json
-- Ensure color contrast >= 4.5:1 for normal text, 3:1 for large text
-- Add ARIA labels for all interactive elements
-- Keyboard navigation support for all features
-- Skip links for main content
-- Alt text for all images
-- Screen reader announcements for dynamic content
-
-**Legal Basis**: BITV 2.0 (German accessibility law), WCAG 2.1 AA
-
-**Effort**: Medium (3-5 days)
-
-**Technical Tasks:**
-
-- Run axe-core audit: Fix all critical/serious issues
-- Add `aria-label` to buttons without text
-- Ensure form fields have associated labels
-- Test with screen readers (NVDA, VoiceOver)
-- Keyboard navigation testing
-
----
-
-### 🟠 P1 - High Priority
-
-#### 1.4 Enhanced Imprint (Impressum)
-
-**Description**: Add missing legal information to imprint page.
-
-**Requirements:**
-
-- VAT ID (USt-IdNr.) if applicable (§ 24a UStG)
-- Clarify basis: § 18 Abs. 2 MStV or § 55 RStV
-- Expanded liability disclaimer
-- External links disclaimer (§ 8 TMG)
-- Platform for Online Dispute Resolution (OS) link
-- Register entry details if registered
-
-**Legal Basis**: § 5 TMG, § 18 MStV, § 55 RStV
-
-**Effort**: Low (0.5-1 day)
-
-**Deliverables:**
-
-- Updated `/pages/imprint.astro`
-- German translation if not present
-
----
+_Status note: Core P0/P1 legal milestones (privacy policy baseline, consent banner,
+and initial accessibility fixes) are completed. This section tracks remaining legal
+and compliance work._
 
 ### 🟡 P2 - Medium Priority
 
-#### 1.6 Image Licensing & Attribution
+#### 1.1 Image Licensing & Attribution
 
 **Description**: Ensure all images have proper licensing information and attribution.
 
@@ -172,54 +74,9 @@ src/components/Shared/CookieConsent.astro
 
 ---
 
-#### 1.7 Data Processing Directory (Verarbeitungsverzeichnis)
-
-**Description**: Internal documentation of all data processing activities (internal use).
-
-**Requirements:**
-
-- Document all data processing processes
-- List all processors (Fathom, Render, etc.)
-- Technical and organizational measures (TOMs)
-- Data retention periods
-- Data subjects categories
-
-**Legal Basis**: Art. 30 DSGVO (Records of processing activities)
-
-**Effort**: Low-Medium (1-2 days)
-
-**Deliverables:**
-
-- `/docs/data-processing-directory.md` (internal)
-- TOM documentation
-
----
-
-#### 1.8 Cookie & Tracking Policy Page
-
-**Description**: Detailed page about cookies and tracking technologies used.
-
-**Requirements:**
-
-- List all cookies used
-- Explain each cookie's purpose
-- Provide opt-out instructions
-- Update policy with changes
-
-**Legal Basis**: ePrivacy Directive
-
-**Effort**: Low (0.5-1 day)
-
-**Deliverables:**
-
-- `/pages/cookies.astro`
-- Link from privacy policy
-
----
-
 ### 🟢 P3 - Low Priority
 
-#### 1.9 Comment System (GDPR-Compliant)
+#### 1.2 Comment System (GDPR-Compliant)
 
 **Description**: User comment system with moderation and privacy protection.
 
@@ -245,7 +102,7 @@ src/components/Shared/CookieConsent.astro
 
 ---
 
-#### 1.10 Newsletter Integration (GDPR-Compliant)
+#### 1.3 Newsletter Integration (GDPR-Compliant)
 
 **Description**: Newsletter subscription with double opt-in.
 
@@ -270,7 +127,7 @@ src/components/Shared/CookieConsent.astro
 
 ---
 
-#### 1.11 GDPR Compliance Audit
+#### 1.4 GDPR Compliance Audit
 
 **Description**: Full audit of data processing and legal compliance.
 
@@ -2409,21 +2266,22 @@ Metrics to track:
 
 ### 4-Week Sprint Plan
 
-#### Week 1: Critical & Quick Wins
+#### Week 1: Baseline Compliance & Quick Wins
 
-**Goals**: Fix critical legal issues, implement quick-win features
+**Goals**: Validate completed legal baseline and ship quick-win UX features
 
 **Tasks**:
 
-- Day 1-2: German Privacy Policy translation
-- Day 2-3: Cookie Consent Banner
+- Day 1-2: Legal baseline verification (privacy policy + consent flow)
+- Day 2-3: Accessibility baseline verification and quick fixes
 - Day 3-4: Dark Mode implementation
 - Day 4-5: Interactive Bookmarks system
 
 **Deliverables**:
 
-- ✅ German privacy policy
-- ✅ Cookie banner
+- ✅ Privacy policy baseline validated
+- ✅ Consent banner flow validated
+- ✅ Accessibility baseline validated
 - ✅ Dark mode toggle
 - ✅ Working bookmarks system
 
@@ -2536,7 +2394,7 @@ Metrics to track:
 
 #### Core Features Complete
 
-- ✅ All P0 and P1 features
+- ✅ All baseline legal (P0) and core UX (P1) features
 - ✅ Most P2 features
 - ✅ P3 features prioritized by user demand
 
@@ -2609,11 +2467,11 @@ Metrics to track:
 
 ### Resource Risks
 
-| Risk                          | Probability | Impact | Mitigation                             |
-| ----------------------------- | ----------- | ------ | -------------------------------------- |
-| Insufficient development time | Medium      | Medium | Prioritize P0/P1 features, defer P2/P3 |
-| Content creation bottleneck   | High        | Medium | Plan content in advance, consider CMS  |
-| Limited testing capacity      | Medium      | Medium | Prioritize critical flows testing      |
+| Risk                          | Probability | Impact | Mitigation                                                      |
+| ----------------------------- | ----------- | ------ | --------------------------------------------------------------- |
+| Insufficient development time | Medium      | Medium | Protect completed baseline, prioritize remaining P1/P2 features |
+| Content creation bottleneck   | High        | Medium | Plan content in advance, consider CMS                           |
+| Limited testing capacity      | Medium      | Medium | Prioritize critical flows testing                               |
 
 ---
 
@@ -2623,7 +2481,7 @@ This roadmap provides a comprehensive overview of potential features and improve
 
 ### Key Takeaways:
 
-1. **Legal compliance first**: German privacy policy and cookie banner are critical
+1. **Legal compliance baseline first**: keep privacy policy, consent, and a11y compliance verified
 2. **User experience matters**: Dark mode, better search, interactive features
 3. **Music-specific features**: Audio player, timeline, artist profiles
 4. **Learning & gamification**: Enhanced quizzes, takeaways, achievements
@@ -2697,7 +2555,7 @@ This roadmap provides a comprehensive overview of potential features and improve
 - [DSGVO (German GDPR)](https://www.gesetze-im-internet.de/dsgvo/)
 - [BITV 2.0 (German Accessibility)](https://www.bitv-2-0.de/)
 - [TMG (German Telemedia Act)](https://www.gesetze-im-internet.de/tmg/)
-- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [WCAG 2.2 Guidelines](https://www.w3.org/WAI/WCAG22/quickref/)
 
 ### Technical Resources
 

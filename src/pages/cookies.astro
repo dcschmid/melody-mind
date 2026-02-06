@@ -1,0 +1,281 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@components/Shared/PageShell.astro";
+import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@utils/siteUrls";
+
+const title = "Cookie & Storage Policy";
+const description =
+  "Details about cookies and local storage used on Melody Mind Knowledge, including analytics consent settings.";
+const currentUrl = resolvePageUrl(Astro.site, "/cookies");
+const lastUpdated = "06 February 2026";
+
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: title, url: currentUrl },
+];
+
+const pageSeo = buildPageSeo({
+  title,
+  description,
+  url: currentUrl,
+  contentKind: "generic",
+  breadcrumbs,
+  structuredData: [] as StructuredData[],
+  enrichedParts: [title, description],
+  fallbackKeywords: ["cookies", "localStorage", "privacy", "consent", "fathom"],
+  keywordLimit: 24,
+  maxDescription: 160,
+  image: "/knowledge.png",
+  publishDate: new Date(),
+  modifiedDate: new Date(),
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
+---
+
+<Layout {pageSeo} {breadcrumbs}>
+  <PageShell containerClass="page-shell__container--spacious">
+    <div class="cookies-page">
+      <header class="cookies-page__header">
+        <p class="cookies-page__eyebrow">Privacy</p>
+        <h1 class="cookies-page__title">Cookie & Storage Policy</h1>
+        <p class="cookies-page__lead">
+          This page explains which cookies and browser storage technologies we use, why we
+          use them, and how you can control your preferences.
+        </p>
+      </header>
+
+      <section class="panel cookies-page__section">
+        <h2 class="cookies-page__section-title">1. Do we use cookies?</h2>
+        <p class="cookies-page__text">
+          We currently do not set non-essential tracking cookies ourselves. For analytics,
+          we use Fathom only after explicit consent through the cookie banner.
+        </p>
+      </section>
+
+      <section class="panel cookies-page__section">
+        <h2 class="cookies-page__section-title">2. Local storage entries we use</h2>
+        <div class="cookies-page__table-wrap">
+          <table class="cookies-page__table">
+            <caption class="cookies-page__sr-only">
+              Browser storage keys used by Melody Mind Knowledge
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Key</th>
+                <th scope="col">Purpose</th>
+                <th scope="col">Type</th>
+                <th scope="col">Retention</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>cookie_consent</code></td>
+                <td
+                  >Stores your consent preferences for essential and analytics processing.</td
+                >
+                <td>LocalStorage</td>
+                <td>Until changed or deleted by you.</td>
+              </tr>
+              <tr>
+                <td><code>mm_recent_reads</code></td>
+                <td>Shows your recently opened articles on the home page.</td>
+                <td>LocalStorage</td>
+                <td>Until replaced or cleared by you.</td>
+              </tr>
+              <tr>
+                <td><code>mm_bookmarks</code></td>
+                <td>Saves your bookmarked knowledge articles.</td>
+                <td>LocalStorage</td>
+                <td>Until changed or cleared by you.</td>
+              </tr>
+              <tr>
+                <td><code>mm_read_progress</code></td>
+                <td>Stores reading progress per article for continuity.</td>
+                <td>LocalStorage</td>
+                <td>Until replaced or cleared by you.</td>
+              </tr>
+              <tr>
+                <td><code>readingPreferences</code></td>
+                <td>Stores reading settings (font size, line spacing, reading mode).</td>
+                <td>LocalStorage</td>
+                <td>Until changed or cleared by you.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel cookies-page__section">
+        <h2 class="cookies-page__section-title">3. Analytics consent and legal basis</h2>
+        <p class="cookies-page__text">
+          Non-essential analytics is only active after your explicit opt-in in the cookie
+          banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy Directive.
+        </p>
+        <p class="cookies-page__text">
+          If your browser sends a Do Not Track (DNT) signal, analytics remains disabled.
+        </p>
+      </section>
+
+      <section class="panel cookies-page__section">
+        <h2 class="cookies-page__section-title">4. How to change or withdraw consent</h2>
+        <p class="cookies-page__text">
+          Open <strong>Cookie Settings</strong> in the footer at any time to review and update
+          your choice. You can also clear site storage in your browser settings.
+        </p>
+      </section>
+
+      <section class="panel cookies-page__section">
+        <h2 class="cookies-page__section-title">5. Related privacy information</h2>
+        <p class="cookies-page__text">
+          For full details about personal data processing and your rights, see our
+          <a class="cookies-page__link" href="/privacy"> Privacy Policy</a>.
+        </p>
+      </section>
+
+      <section class="panel cookies-page__section">
+        <h2 class="cookies-page__section-title">6. Policy updates</h2>
+        <p class="cookies-page__text">
+          We update this page when storage technologies, analytics settings, or legal
+          requirements change.
+        </p>
+        <p class="cookies-page__text">Last updated: {lastUpdated}.</p>
+      </section>
+    </div>
+  </PageShell>
+</Layout>
+
+<style>
+  .panel {
+    --panel-radius: 1.5rem;
+    --panel-padding: 1.5rem;
+    --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    position: relative;
+    border-radius: var(--panel-radius);
+    background: var(--panel-bg);
+    border: 2px solid var(--panel-border);
+    box-shadow: var(--gn-offset-shadow);
+    padding: var(--panel-padding);
+  }
+
+  .panel::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--gn-panel-inner);
+    border-radius: calc(var(--panel-radius) - 0.25rem);
+    pointer-events: none;
+  }
+
+  .cookies-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cookies-page__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cookies-page__eyebrow {
+    font-size: 1.125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--color-gn-amber-300);
+  }
+
+  .cookies-page__title {
+    font-size: 2.125rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .cookies-page__title {
+      font-size: 2.425rem;
+    }
+  }
+
+  .cookies-page__lead {
+    font-size: 1.125rem;
+    color: var(--gn-ink-muted);
+    margin: 0;
+  }
+
+  .cookies-page__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cookies-page__section-title {
+    font-size: 1.225rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    margin: 0;
+  }
+
+  .cookies-page__text {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    line-height: 1.6;
+  }
+
+  .cookies-page__table-wrap {
+    overflow-x: auto;
+  }
+
+  .cookies-page__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 40rem;
+  }
+
+  .cookies-page__table th,
+  .cookies-page__table td {
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
+    padding: 0.7rem 0.5rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .cookies-page__table th {
+    color: var(--gn-ink);
+    font-weight: 600;
+  }
+
+  .cookies-page__table code {
+    color: var(--color-gn-amber-300);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+  }
+
+  .cookies-page__link {
+    color: var(--color-gn-amber-300);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .cookies-page__link:hover {
+    color: var(--color-gn-amber-200);
+  }
+
+  .cookies-page__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

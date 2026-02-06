@@ -183,6 +183,13 @@ const pageSeo = buildPageSeo({
         <div class="recent-reads" id="recent-reads" hidden>
           <ul class="recent-reads__list" id="recent-reads-list" aria-live="polite"></ul>
         </div>
+        <p
+          id="recent-reads-status"
+          class="knowledge-index__sr"
+          role="status"
+          aria-live="polite"
+        >
+        </p>
         <div class="recent-reads recent-reads--empty" id="recent-reads-empty">
           <p class="recent-reads__empty-text">
             No recent reads yet. Open a guide and it will show up here.
@@ -278,7 +285,8 @@ const pageSeo = buildPageSeo({
     const container = document.getElementById("recent-reads");
     const list = document.getElementById("recent-reads-list");
     const emptyState = document.getElementById("recent-reads-empty");
-    if (!container || !list || !emptyState) return;
+    const status = document.getElementById("recent-reads-status");
+    if (!container || !list || !emptyState || !status) return;
 
     let items = [];
     try {
@@ -298,11 +306,13 @@ const pageSeo = buildPageSeo({
     if (!sanitized.length) {
       container.hidden = true;
       emptyState.hidden = false;
+      status.textContent = "No recent reads available.";
       return;
     }
 
     emptyState.hidden = true;
     container.hidden = false;
+    status.textContent = `Showing ${Math.min(sanitized.length, 3)} recent reads.`;
 
     const formatter = new Intl.DateTimeFormat("en", {
       year: "numeric",

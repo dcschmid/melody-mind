@@ -1,0 +1,204 @@
+---
+import ReadingModeToggle from "@components/ReadingModeToggle.astro";
+---
+
+<section
+  class="panel panel--compact reading-controls"
+  aria-label="Reading settings panel"
+>
+  <h2 class="reading-controls__title">Reading settings</h2>
+
+  <div class="reading-controls__row" role="group" aria-label="Font size">
+    <span class="reading-controls__label">Text size</span>
+    <div class="reading-controls__actions">
+      <button
+        type="button"
+        class="reading-controls__button"
+        data-reading-font-size="small"
+        data-active="false"
+        aria-pressed="false"
+      >
+        A-
+      </button>
+      <button
+        type="button"
+        class="reading-controls__button"
+        data-reading-font-size="medium"
+        data-active="true"
+        aria-pressed="true"
+      >
+        A
+      </button>
+      <button
+        type="button"
+        class="reading-controls__button"
+        data-reading-font-size="large"
+        data-active="false"
+        aria-pressed="false"
+      >
+        A+
+      </button>
+    </div>
+  </div>
+
+  <div class="reading-controls__row" role="group" aria-label="Line height">
+    <span class="reading-controls__label">Line spacing</span>
+    <div class="reading-controls__actions">
+      <button
+        type="button"
+        class="reading-controls__button"
+        data-reading-line-height="compact"
+        data-active="false"
+        aria-pressed="false"
+      >
+        Compact
+      </button>
+      <button
+        type="button"
+        class="reading-controls__button"
+        data-reading-line-height="normal"
+        data-active="true"
+        aria-pressed="true"
+      >
+        Normal
+      </button>
+      <button
+        type="button"
+        class="reading-controls__button"
+        data-reading-line-height="relaxed"
+        data-active="false"
+        aria-pressed="false"
+      >
+        Relaxed
+      </button>
+    </div>
+  </div>
+
+  <div class="reading-controls__row reading-controls__row--mode">
+    <span class="reading-controls__label">Focus mode</span>
+    <ReadingModeToggle />
+  </div>
+</section>
+
+<style>
+  .reading-controls {
+    --reading-controls-border: color-mix(
+      in srgb,
+      var(--gn-panel-border) 90%,
+      transparent
+    );
+    --reading-controls-bg: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--gn-bg-muted) 92%, transparent),
+      color-mix(in srgb, var(--gn-bg) 86%, transparent)
+    );
+    display: grid;
+    gap: 0.9rem;
+    border-color: var(--reading-controls-border);
+    background: var(--reading-controls-bg);
+    padding: 1.1rem;
+    border-radius: 1.2rem;
+  }
+
+  .reading-controls__title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--gn-ink);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-gn-amber-300);
+  }
+
+  .reading-controls__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 0.95rem;
+    border-radius: 0.95rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--gn-bg) 82%, transparent),
+      color-mix(in srgb, var(--gn-bg-muted) 80%, transparent)
+    );
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--gn-panel-inner) 42%, transparent);
+  }
+
+  .reading-controls__row--mode {
+    align-items: flex-start;
+  }
+
+  .reading-controls__label {
+    margin: 0;
+    font-size: 1.15rem;
+    color: var(--gn-ink-muted);
+    font-weight: 600;
+  }
+
+  .reading-controls__actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    width: fit-content;
+    padding: 0.3rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 75%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 84%, transparent);
+  }
+
+  .reading-controls__button {
+    min-height: 2.4rem;
+    min-width: 3.35rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 88%, transparent);
+    color: var(--gn-ink);
+    padding: 0.35rem 0.85rem;
+    font-size: 1.025rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition:
+      transform 150ms ease,
+      border-color var(--transition-fast),
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .reading-controls__button:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--color-gn-amber-300) 65%, transparent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  }
+
+  .reading-controls__button[data-active="true"] {
+    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
+    background: linear-gradient(
+      140deg,
+      color-mix(in srgb, var(--color-gn-amber-300) 22%, transparent),
+      color-mix(in srgb, var(--color-gn-teal-300) 18%, transparent)
+    );
+    color: var(--gn-ink);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-gn-amber-300) 35%, transparent)
+      inset;
+  }
+
+  .reading-controls__button:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 900px) {
+    .reading-controls__row {
+      grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
+      align-items: center;
+      column-gap: 1rem;
+      display: grid;
+    }
+
+    .reading-controls__row--mode {
+      align-items: center;
+    }
+  }
+</style>

@@ -82,8 +82,11 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
   .prose {
     max-width: 72ch;
     color: var(--gn-ink-muted);
-    font-size: 1.175rem;
-    line-height: var(--line-height-relaxed);
+    font-size: var(--knowledge-prose-size, var(--prose-base-size, 1.175rem));
+    line-height: var(
+      --knowledge-prose-line-height,
+      var(--prose-base-line-height, var(--line-height-relaxed))
+    );
     text-wrap: pretty;
     hyphens: auto;
   }
@@ -101,19 +104,19 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
   }
 
   .prose--sm {
-    font-size: 1.125rem;
+    --prose-base-size: 1.125rem;
   }
 
   .prose--md {
-    font-size: 1.125rem;
+    --prose-base-size: 1.125rem;
   }
 
   .prose--lg {
-    font-size: 1.175rem;
+    --prose-base-size: 1.175rem;
   }
 
   .prose--xl {
-    font-size: 1.325rem;
+    --prose-base-size: 1.325rem;
   }
 
   .prose h2,

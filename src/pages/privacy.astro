@@ -73,11 +73,18 @@ const pageSeo = buildPageSeo({
       <section class="panel legal-page__section">
         <h2 class="legal-page__section-title">3. Analytics with Fathom</h2>
         <p class="legal-page__text">
-          We use Fathom Analytics, a privacy-friendly, EU-hosted analytics service that
-          does not set identifying cookies. Fathom processes anonymized page views and
-          referrers. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in understanding
-          site usage). You can opt out via Do Not Track in your browser; Fathom respects
-          DNT.
+          We use Fathom Analytics only after your explicit consent via our cookie banner.
+          Until you opt in, no analytics script is loaded. Consent is stored in your
+          browser localStorage (`cookie_consent`) with categories for essential and
+          analytics preferences. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy
+          Directive. If your browser sends a Do Not Track (DNT) signal, we keep analytics
+          disabled.
+        </p>
+        <p class="legal-page__text">
+          You can change or withdraw your choice at any time via "Cookie Settings" in the
+          footer. Withdrawal applies from that moment onward and does not affect prior
+          lawful processing. For a detailed list of storage technologies, see our
+          <a class="legal-page__link" href="/cookies"> Cookie &amp; Storage Policy</a>.
         </p>
       </section>
 

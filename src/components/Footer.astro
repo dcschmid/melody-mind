@@ -30,9 +30,9 @@
 
       <div class="site-footer__section">
         <p class="site-footer__title">Support</p>
-        <div class="site-footer__support">
+        <nav aria-label="Support links" class="site-footer__nav">
           <a
-            class="site-footer__support-link"
+            class="site-footer__link"
             href="https://www.paypal.me/dcschmid"
             target="_blank"
             rel="noopener noreferrer"
@@ -41,7 +41,7 @@
             PayPal
           </a>
           <a
-            class="site-footer__support-link"
+            class="site-footer__link"
             href="https://www.buymeacoffee.com/dcschmid"
             target="_blank"
             rel="noopener noreferrer"
@@ -49,7 +49,7 @@
           >
             Buy me a coffee
           </a>
-        </div>
+        </nav>
       </div>
 
       <div class="site-footer__section">
@@ -59,6 +59,34 @@
           <a class="site-footer__link" href="/privacy"> Privacy Policy </a>
           <a class="site-footer__link" href="/ai-content"> AI Content </a>
         </nav>
+      </div>
+
+      <div class="site-footer__section">
+        <p class="site-footer__title">Settings</p>
+        <nav aria-label="Settings navigation" class="site-footer__nav">
+          <button
+            type="button"
+            class="site-footer__link site-footer__cookie-button"
+            data-cookie-settings-trigger
+          >
+            Cookie Settings
+          </button>
+          <button
+            type="button"
+            class="site-footer__link site-footer__cookie-button"
+            data-reading-settings-trigger
+          >
+            Reading Settings
+          </button>
+        </nav>
+        <div class="site-footer__status-list">
+          <p class="site-footer__cookie-status" data-cookie-consent-status>
+            Cookie status: pending choice
+          </p>
+          <p class="site-footer__cookie-status" data-reading-preferences-status>
+            Reading status: default
+          </p>
+        </div>
       </div>
     </div>
 
@@ -70,6 +98,204 @@
     </div>
   </div>
 </footer>
+<script>
+  const STORAGE_KEY = "cookie_consent";
+  const READING_KEY = "readingPreferences";
+  const trigger = document.querySelector("[data-cookie-settings-trigger]");
+  const readingTrigger = document.querySelector("[data-reading-settings-trigger]");
+  const statusElement = document.querySelector("[data-cookie-consent-status]");
+  const readingStatusElement = document.querySelector(
+    "[data-reading-preferences-status]"
+  );
+
+  interface ConsentPreference {
+    essential: true;
+    analytics: boolean;
+  }
+
+  interface ReadingPreference {
+    fontSize: "small" | "medium" | "large";
+    lineHeight: "compact" | "normal" | "relaxed";
+    readingMode: boolean;
+  }
+
+  const dntEnabled = () => {
+    const navigatorAny = window.navigator as Navigator & {
+      msDoNotTrack?: string;
+    };
+    const windowAny = window as Window & { doNotTrack?: string };
+    const navigatorValue = navigatorAny.doNotTrack;
+    const windowValue = windowAny.doNotTrack;
+    const legacyMsValue = navigatorAny.msDoNotTrack;
+
+    return navigatorValue === "1" || windowValue === "1" || legacyMsValue === "1";
+  };
+
+  const readConsent = (): ConsentPreference | null => {
+    try {
+      const raw = window.localStorage?.getItem(STORAGE_KEY);
+      if (!raw) {
+        return null;
+      }
+
+      const parsed = JSON.parse(raw);
+      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean") {
+        return null;
+      }
+
+      return {
+        essential: true,
+        analytics: parsed.analytics,
+      };
+    } catch {
+      return null;
+    }
+  };
+
+  const isReadingFontSize = (value: unknown): value is ReadingPreference["fontSize"] =>
+    value === "small" || value === "medium" || value === "large";
+
+  const isReadingLineHeight = (
+    value: unknown
+  ): value is ReadingPreference["lineHeight"] =>
+    value === "compact" || value === "normal" || value === "relaxed";
+
+  const readReadingPreferences = (): ReadingPreference | null => {
+    try {
+      const raw = window.localStorage?.getItem(READING_KEY);
+      if (!raw) return null;
+
+      const parsed = JSON.parse(raw);
+      if (
+        !isReadingFontSize(parsed?.fontSize) ||
+        !isReadingLineHeight(parsed?.lineHeight)
+      ) {
+        return null;
+      }
+
+      return {
+        fontSize: parsed.fontSize,
+        lineHeight: parsed.lineHeight,
+        readingMode: typeof parsed.readingMode === "boolean" ? parsed.readingMode : false,
+      };
+    } catch {
+      return null;
+    }
+  };
+
+  const renderStatus = (consent: ConsentPreference | null = readConsent()) => {
+    if (!statusElement) {
+      return;
+    }
+
+    if (!consent) {
+      statusElement.textContent = "Cookie status: pending choice";
+      return;
+    }
+
+    if (!consent.analytics) {
+      statusElement.textContent = "Cookie status: essential only";
+      return;
+    }
+
+    if (dntEnabled()) {
+      statusElement.textContent = "Cookie status: analytics consented (DNT active)";
+      return;
+    }
+
+    statusElement.textContent = "Cookie status: analytics allowed";
+  };
+
+  renderStatus();
+
+  const renderReadingStatus = (
+    prefs: ReadingPreference | null = readReadingPreferences()
+  ) => {
+    if (!readingStatusElement) {
+      return;
+    }
+
+    if (!prefs) {
+      readingStatusElement.textContent = "Reading status: default";
+      return;
+    }
+
+    const size =
+      prefs.fontSize === "small" ? "A-" : prefs.fontSize === "large" ? "A+" : "A";
+    const spacing =
+      prefs.lineHeight === "compact"
+        ? "compact"
+        : prefs.lineHeight === "relaxed"
+          ? "relaxed"
+          : "normal";
+    const mode = prefs.readingMode ? "focus on" : "focus off";
+
+    readingStatusElement.textContent = `Reading status: ${size}, ${spacing}, ${mode}`;
+  };
+
+  renderReadingStatus();
+
+  if (trigger) {
+    trigger.addEventListener("click", () => {
+      window.dispatchEvent(new CustomEvent("cookie-consent:open"));
+    });
+  }
+
+  if (readingTrigger) {
+    const hasReadingControls = Boolean(document.querySelector(".reading-controls"));
+
+    if (!hasReadingControls) {
+      readingTrigger.setAttribute("hidden", "true");
+      readingTrigger.setAttribute("aria-hidden", "true");
+      readingTrigger.setAttribute("tabindex", "-1");
+    }
+
+    readingTrigger.addEventListener("click", () => {
+      if (!hasReadingControls) {
+        return;
+      }
+
+      window.dispatchEvent(new CustomEvent("reading-settings:open"));
+    });
+  }
+
+  window.addEventListener("cookie-consent:change", (event) => {
+    const detail = (event as CustomEvent<{ consent?: unknown }>).detail;
+    const consent = detail && typeof detail === "object" ? detail.consent : null;
+
+    if (
+      consent &&
+      typeof consent === "object" &&
+      (consent as ConsentPreference).essential === true &&
+      typeof (consent as ConsentPreference).analytics === "boolean"
+    ) {
+      renderStatus(consent as ConsentPreference);
+      return;
+    }
+
+    renderStatus(readConsent());
+  });
+
+  window.addEventListener("reading-preferences:change", (event) => {
+    const detail = (event as CustomEvent<{ preferences?: unknown }>).detail;
+    const preferences =
+      detail && typeof detail === "object"
+        ? detail.preferences
+        : readReadingPreferences();
+
+    if (
+      preferences &&
+      typeof preferences === "object" &&
+      isReadingFontSize((preferences as ReadingPreference).fontSize) &&
+      isReadingLineHeight((preferences as ReadingPreference).lineHeight)
+    ) {
+      renderReadingStatus(preferences as ReadingPreference);
+      return;
+    }
+
+    renderReadingStatus(readReadingPreferences());
+  });
+</script>
 <style>
   .site-footer {
     margin-top: 4rem;
@@ -172,52 +398,6 @@
     outline-offset: 2px;
   }
 
-  .site-footer__support {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  @media (min-width: 640px) {
-    .site-footer__support {
-      flex-wrap: nowrap;
-      gap: 0.5rem;
-    }
-  }
-
-  .site-footer__support-link {
-    flex: 1 1 140px;
-    display: inline-flex;
-    justify-content: center;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.6rem;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
-    color: var(--gn-ink);
-    font-size: 1.125rem;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.75);
-    transition:
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast),
-      background-color var(--transition-fast),
-      border-color var(--transition-fast),
-      color var(--transition-fast);
-  }
-
-  .site-footer__support-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.8);
-    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
-    color: var(--gn-ink);
-  }
-
-  .site-footer__support-link:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
-    outline-offset: 2px;
-  }
-
   .site-footer__meta {
     display: flex;
     flex-direction: column;
@@ -239,5 +419,28 @@
   .site-footer__meta-note {
     font-size: 1.125rem;
     color: color-mix(in srgb, var(--gn-ink-muted) 80%, transparent);
+  }
+
+  .site-footer__cookie-button {
+    background: none;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    width: fit-content;
+    font-family: inherit;
+  }
+
+  .site-footer__cookie-status {
+    margin: 0;
+    font-size: 1rem;
+    color: color-mix(in srgb, var(--gn-ink-muted) 86%, transparent);
+  }
+
+  .site-footer__status-list {
+    display: grid;
+    gap: 0.25rem;
+    margin-top: 0.45rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 50%, transparent);
   }
 </style>

@@ -10,6 +10,7 @@ import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
 import Prose from "@components/Prose.astro";
 import TableOfContents from "@components/TableOfContents.astro";
+import ReadingControls from "@components/ReadingControls.astro";
 import KnowledgeQuiz from "@components/Knowledge/KnowledgeQuiz.astro";
 import KnowledgeTakeaways from "@components/Knowledge/KnowledgeTakeaways.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
@@ -279,10 +280,7 @@ const storageUpdatedAt =
             </span>
             <span class="knowledge__pill">
               <Icon name="clock" class="knowledge__pill-icon" aria-hidden="true" />
-              <span>
-                {readingResult.minutes}
-                {t("knowledge.reading.time")}
-              </span>
+              <span>{readingResult.text}</span>
             </span>
             {
               entry.data.category ? (
@@ -457,6 +455,8 @@ const storageUpdatedAt =
               </div>
             ) : null
           }
+
+          <ReadingControls />
 
           <TableOfContents headings={mergedHeadings} lang={lang} />
 
@@ -744,6 +744,145 @@ const storageUpdatedAt =
 
       <script>
         (() => {
+          const key = "readingPreferences";
+          const root = document.querySelector(".knowledge") as HTMLElement | null;
+          if (!root) return;
+
+          type ReadingPrefs = {
+            fontSize: "small" | "medium" | "large";
+            lineHeight: "compact" | "normal" | "relaxed";
+            readingMode: boolean;
+          };
+
+          const defaults: ReadingPrefs = {
+            fontSize: "medium",
+            lineHeight: "normal",
+            readingMode: false,
+          };
+
+          const modeToggle = document.querySelector(
+            "[data-reading-mode-toggle]"
+          ) as HTMLButtonElement | null;
+          const fontButtons = Array.from(
+            document.querySelectorAll("[data-reading-font-size]")
+          ) as HTMLButtonElement[];
+          const lineButtons = Array.from(
+            document.querySelectorAll("[data-reading-line-height]")
+          ) as HTMLButtonElement[];
+
+          const isFontSize = (value: unknown): value is ReadingPrefs["fontSize"] =>
+            value === "small" || value === "medium" || value === "large";
+          const isLineHeight = (value: unknown): value is ReadingPrefs["lineHeight"] =>
+            value === "compact" || value === "normal" || value === "relaxed";
+
+          const read = (): ReadingPrefs => {
+            try {
+              const raw = window.localStorage?.getItem(key);
+              const parsed = raw ? JSON.parse(raw) : null;
+
+              return {
+                fontSize: isFontSize(parsed?.fontSize)
+                  ? parsed.fontSize
+                  : defaults.fontSize,
+                lineHeight: isLineHeight(parsed?.lineHeight)
+                  ? parsed.lineHeight
+                  : defaults.lineHeight,
+                readingMode:
+                  typeof parsed?.readingMode === "boolean"
+                    ? parsed.readingMode
+                    : defaults.readingMode,
+              };
+            } catch {
+              return { ...defaults };
+            }
+          };
+
+          const write = (prefs: ReadingPrefs) => {
+            try {
+              window.localStorage?.setItem(key, JSON.stringify(prefs));
+            } catch {
+              // ignore storage failures
+            }
+          };
+
+          const render = (prefs: ReadingPrefs) => {
+            root.dataset.readingFontSize = prefs.fontSize;
+            root.dataset.readingLineHeight = prefs.lineHeight;
+            root.classList.toggle("knowledge--reading-mode", prefs.readingMode);
+
+            fontButtons.forEach((button) => {
+              const isActive = button.dataset.readingFontSize === prefs.fontSize;
+              button.dataset.active = isActive ? "true" : "false";
+              button.setAttribute("aria-pressed", isActive ? "true" : "false");
+            });
+
+            lineButtons.forEach((button) => {
+              const isActive = button.dataset.readingLineHeight === prefs.lineHeight;
+              button.dataset.active = isActive ? "true" : "false";
+              button.setAttribute("aria-pressed", isActive ? "true" : "false");
+            });
+
+            if (modeToggle) {
+              modeToggle.setAttribute(
+                "aria-pressed",
+                prefs.readingMode ? "true" : "false"
+              );
+              modeToggle.textContent = prefs.readingMode
+                ? "Reading mode: on"
+                : "Reading mode: off";
+            }
+
+            window.dispatchEvent(
+              new CustomEvent("reading-preferences:change", {
+                detail: { preferences: prefs },
+              })
+            );
+          };
+
+          let prefs = read();
+          render(prefs);
+
+          fontButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              const next = button.dataset.readingFontSize;
+              if (!isFontSize(next)) return;
+              prefs = { ...prefs, fontSize: next };
+              write(prefs);
+              render(prefs);
+            });
+          });
+
+          lineButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              const next = button.dataset.readingLineHeight;
+              if (!isLineHeight(next)) return;
+              prefs = { ...prefs, lineHeight: next };
+              write(prefs);
+              render(prefs);
+            });
+          });
+
+          modeToggle?.addEventListener("click", () => {
+            prefs = { ...prefs, readingMode: !prefs.readingMode };
+            write(prefs);
+            render(prefs);
+          });
+
+          window.addEventListener("reading-settings:open", () => {
+            const controls = document.querySelector(
+              ".reading-controls"
+            ) as HTMLElement | null;
+            controls?.scrollIntoView({ behavior: "smooth", block: "center" });
+            const firstControl = controls?.querySelector(
+              "button"
+            ) as HTMLButtonElement | null;
+            firstControl?.focus();
+          });
+        })();
+      </script>
+
+      <script>
+        (() => {
           const bar = document.getElementById("reading-progress-bar");
           const label = document.getElementById("reading-progress-label");
           if (!bar || !label) return;
@@ -935,6 +1074,50 @@ const storageUpdatedAt =
         background-color: var(--gn-bg);
         font-family: var(--font-sans);
         line-height: var(--line-height-relaxed);
+      }
+
+      .knowledge[data-reading-font-size="small"] {
+        --knowledge-prose-size: 1.05rem;
+      }
+
+      .knowledge[data-reading-font-size="medium"] {
+        --knowledge-prose-size: 1.175rem;
+      }
+
+      .knowledge[data-reading-font-size="large"] {
+        --knowledge-prose-size: 1.325rem;
+      }
+
+      .knowledge[data-reading-line-height="compact"] {
+        --knowledge-prose-line-height: 1.5;
+      }
+
+      .knowledge[data-reading-line-height="normal"] {
+        --knowledge-prose-line-height: 1.62;
+      }
+
+      .knowledge[data-reading-line-height="relaxed"] {
+        --knowledge-prose-line-height: 1.78;
+      }
+
+      .knowledge--reading-mode .knowledge__hero,
+      .knowledge--reading-mode .knowledge__podcast-wide,
+      .knowledge--reading-mode .knowledge-share,
+      .knowledge--reading-mode .knowledge__back,
+      .knowledge--reading-mode #knowledge-quiz {
+        display: none;
+      }
+
+      .knowledge--reading-mode .knowledge__main {
+        gap: 1rem;
+      }
+
+      .knowledge--reading-mode .knowledge-article {
+        border-color: color-mix(
+          in srgb,
+          var(--color-gn-amber-300) 38%,
+          var(--gn-panel-border)
+        );
       }
 
       .knowledge__backdrop {

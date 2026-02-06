@@ -54,6 +54,7 @@ import { Head } from "astro-capo";
 
 import SEO from "@components/SEO.astro";
 import SkipLink from "@components/Shared/SkipLink.astro";
+import CookieConsent from "@components/Shared/CookieConsent.astro";
 import Footer from "@components/Footer.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 
@@ -489,10 +490,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         )
       }
     </Fragment>
-
-    <!-- Analytics with performance and privacy optimizations -->
-    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="RKHOWTTO" defer
-    ></script>
   </Head>
   <body class="app__body" data-theme="dark">
     {/* Skip link for keyboard navigation */}
@@ -507,6 +504,8 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       }
       <slot />
     </main>
+
+    <CookieConsent />
 
     <Footer />
 
@@ -782,6 +781,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     line-height: var(--line-height-relaxed);
     text-wrap: pretty;
     overflow-x: hidden;
+    scroll-padding-top: 5rem;
   }
 
   .app__body :is(button, input, select, textarea) {
@@ -792,6 +792,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .app__main [id] {
+    scroll-margin-top: 5rem;
   }
 
   :where(

@@ -32,6 +32,8 @@ const {
 const inputId = `${idBase}-input`;
 const clearId = `${idBase}-clear`;
 const resetId = `${idBase}-reset`;
+const statusId = `${idBase}-status`;
+const noResultsId = `${idBase}-no-results`;
 const inputClasses = "search-panel__input";
 ---
 
@@ -54,6 +56,7 @@ const inputClasses = "search-panel__input";
         class={inputClasses}
         {placeholder}
         aria-controls={ariaControls}
+        aria-describedby={statusId}
         autocomplete="off"
         data-search-input
       />
@@ -80,6 +83,7 @@ const inputClasses = "search-panel__input";
       id={resetId}
       class="search-panel__reset"
       type="button"
+      aria-label="Reset search"
       aria-controls={ariaControls}
       data-search-reset
     >
@@ -101,21 +105,25 @@ const inputClasses = "search-panel__input";
   </div>
   <div class="search-panel__meta">
     <div
-      id={`${idBase}-status`}
+      id={statusId}
       data-search-status
       class="search-panel__status"
       role="status"
       aria-live="polite"
+      aria-atomic="true"
       data-search-status-all={statusAllText}
       data-search-status-count={statusCountTemplate}
     >
     </div>
     <div
-      id={`${idBase}-no-results`}
+      id={noResultsId}
       data-search-no-results
       hidden
       data-search-no-results-tpl={noResultsTemplate}
       class="search-panel__no-results"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
     >
     </div>
     <slot name="status" />

@@ -1,0 +1,340 @@
+<div
+  class="cookie-consent"
+  data-cookie-consent
+  role="dialog"
+  aria-live="polite"
+  aria-label="Cookie consent settings"
+  hidden
+>
+  <p class="cookie-consent__text">
+    We only use essential storage for core functionality. Analytics (Fathom) is optional
+    and only active with your consent.
+  </p>
+  <div class="cookie-consent__actions">
+    <button
+      type="button"
+      class="cookie-consent__button cookie-consent__button--secondary"
+      data-cookie-action="reject"
+    >
+      Only essential
+    </button>
+    <button
+      type="button"
+      class="cookie-consent__button cookie-consent__button--primary"
+      data-cookie-action="accept"
+    >
+      Allow analytics
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var STORAGE_KEY = "cookie_consent";
+    var OPEN_EVENT = "cookie-consent:open";
+    var CHANGE_EVENT = "cookie-consent:change";
+    var FATHOM_SCRIPT_SELECTOR = "script[data-cookie-consent-fathom='true']";
+    var FATHOM_SITE_ID = "RKHOWTTO";
+    var RUNTIME_ANALYTICS_FLAG = "__mmAnalyticsAllowed";
+
+    function getDoNotTrackEnabled() {
+      if (typeof window === "undefined") {
+        return false;
+      }
+
+      var navigatorValue = window.navigator && window.navigator.doNotTrack;
+      var windowValue = window.doNotTrack;
+      var legacyMsValue = window.navigator && window.navigator.msDoNotTrack;
+
+      return navigatorValue === "1" || windowValue === "1" || legacyMsValue === "1";
+    }
+
+    function readConsent() {
+      try {
+        var value = window.localStorage.getItem(STORAGE_KEY);
+
+        if (!value) {
+          return null;
+        }
+
+        var parsed = JSON.parse(value);
+
+        if (
+          !parsed ||
+          parsed.essential !== true ||
+          typeof parsed.analytics !== "boolean"
+        ) {
+          return null;
+        }
+
+        return {
+          essential: true,
+          analytics: parsed.analytics,
+          date: typeof parsed.date === "number" ? parsed.date : Date.now(),
+        };
+      } catch (_error) {
+        return null;
+      }
+    }
+
+    function writeConsent(analyticsEnabled) {
+      var consent = {
+        essential: true,
+        analytics: analyticsEnabled,
+        date: Date.now(),
+      };
+
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+      } catch (_error) {
+        return consent;
+      }
+
+      return consent;
+    }
+
+    function loadFathomScript() {
+      if (document.querySelector(FATHOM_SCRIPT_SELECTOR)) {
+        return;
+      }
+
+      var script = document.createElement("script");
+      script.src = "https://cdn.usefathom.com/script.js";
+      script.defer = true;
+      script.setAttribute("data-site", FATHOM_SITE_ID);
+      script.setAttribute("data-honor-dnt", "true");
+      script.setAttribute("data-cookie-consent-fathom", "true");
+      script.addEventListener("load", function () {
+        setFathomTrackingEnabled(getRuntimeAnalyticsAllowed());
+      });
+      document.head.appendChild(script);
+    }
+
+    function removeFathomScript() {
+      var existing = document.querySelector(FATHOM_SCRIPT_SELECTOR);
+      if (existing && existing.parentNode) {
+        existing.parentNode.removeChild(existing);
+      }
+    }
+
+    function setRuntimeAnalyticsAllowed(enabled) {
+      window[RUNTIME_ANALYTICS_FLAG] = enabled;
+    }
+
+    function getRuntimeAnalyticsAllowed() {
+      return window[RUNTIME_ANALYTICS_FLAG] === true;
+    }
+
+    function setFathomTrackingEnabled(enabled) {
+      if (!window.fathom) {
+        return;
+      }
+
+      if (enabled && typeof window.fathom.enableTrackingForMe === "function") {
+        window.fathom.enableTrackingForMe();
+      }
+
+      if (!enabled && typeof window.fathom.blockTrackingForMe === "function") {
+        window.fathom.blockTrackingForMe();
+      }
+    }
+
+    function dispatchConsentChange(consent, dntEnabled) {
+      window.dispatchEvent(
+        new CustomEvent(CHANGE_EVENT, {
+          detail: {
+            consent: consent,
+            dntEnabled: dntEnabled,
+          },
+        })
+      );
+    }
+
+    var banner = document.querySelector("[data-cookie-consent]");
+    if (!banner) {
+      return;
+    }
+
+    var lastFocusBeforeOpen = null;
+
+    function hideBanner() {
+      banner.setAttribute("hidden", "true");
+
+      if (lastFocusBeforeOpen && typeof lastFocusBeforeOpen.focus === "function") {
+        lastFocusBeforeOpen.focus();
+      }
+
+      lastFocusBeforeOpen = null;
+    }
+
+    function showBanner(shouldMoveFocus) {
+      banner.removeAttribute("hidden");
+
+      if (!shouldMoveFocus) {
+        return;
+      }
+
+      var firstAction = banner.querySelector("[data-cookie-action]");
+      if (firstAction && typeof firstAction.focus === "function") {
+        firstAction.focus();
+      }
+    }
+
+    function applyConsent(consent, shouldDispatchEvent) {
+      var dntEnabled = getDoNotTrackEnabled();
+      var analyticsAllowed = consent.analytics === true && !dntEnabled;
+      setRuntimeAnalyticsAllowed(analyticsAllowed);
+
+      try {
+        if (analyticsAllowed) {
+          loadFathomScript();
+        } else {
+          removeFathomScript();
+        }
+      } catch (_error) {
+        // keep consent UX working even if analytics setup fails
+      }
+
+      try {
+        setFathomTrackingEnabled(analyticsAllowed);
+      } catch (_error) {
+        // ignore analytics runtime issues
+      }
+
+      if (shouldDispatchEvent) {
+        try {
+          dispatchConsentChange(
+            {
+              essential: true,
+              analytics: consent.analytics,
+              date: consent.date,
+            },
+            dntEnabled
+          );
+        } catch (_error) {
+          // event dispatch is optional for core consent flow
+        }
+      }
+    }
+
+    function handleConsentDecision(analyticsEnabled) {
+      var consent = writeConsent(analyticsEnabled);
+      hideBanner();
+      applyConsent(consent, true);
+    }
+
+    banner.addEventListener("click", function (event) {
+      var target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      var actionEl = target.closest("[data-cookie-action]");
+      if (!actionEl) {
+        return;
+      }
+
+      var action = actionEl.getAttribute("data-cookie-action");
+      if (action === "accept") {
+        handleConsentDecision(true);
+      }
+
+      if (action === "reject") {
+        handleConsentDecision(false);
+      }
+    });
+
+    window.addEventListener(OPEN_EVENT, function () {
+      lastFocusBeforeOpen = document.activeElement;
+      showBanner(true);
+    });
+
+    var existingConsent = readConsent();
+
+    if (!existingConsent) {
+      showBanner(false);
+      return;
+    }
+
+    applyConsent(existingConsent, false);
+    hideBanner();
+  })();
+</script>
+
+<style>
+  .cookie-consent {
+    position: fixed;
+    inset-inline: 1rem;
+    inset-block-end: 1rem;
+    z-index: 60;
+    display: grid;
+    gap: 0.875rem;
+    padding: 1rem;
+    border-radius: 0.85rem;
+    border: 2px solid
+      color-mix(in srgb, var(--color-gn-amber-300) 35%, var(--gn-panel-border));
+    background: color-mix(in srgb, var(--gn-bg-muted) 96%, black 4%);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+
+  .cookie-consent[hidden] {
+    display: none !important;
+  }
+
+  .cookie-consent__text {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .cookie-consent__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+  }
+
+  .cookie-consent__button {
+    min-height: 2.75rem;
+    border-radius: 0.65rem;
+    border: 1px solid transparent;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .cookie-consent__button--primary {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-gn-amber-300) 78%, white 22%),
+      color-mix(in srgb, var(--color-gn-amber-400) 82%, var(--color-gn-teal-300) 18%)
+    );
+    color: var(--color-gn-soot-950);
+  }
+
+  .cookie-consent__button--secondary {
+    background: transparent;
+    border-color: var(--gn-panel-border);
+    color: var(--gn-ink);
+  }
+
+  .cookie-consent__button:hover {
+    filter: brightness(1.06);
+  }
+
+  .cookie-consent__button:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 768px) {
+    .cookie-consent {
+      inset-inline: auto;
+      margin-inline: 0;
+      inline-size: min(34rem, calc(100vw - 2rem));
+    }
+  }
+</style>

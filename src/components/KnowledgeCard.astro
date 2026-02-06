@@ -87,6 +87,7 @@ const hasOwnLink = Boolean(articleUrl);
 // Generate unique IDs for this card for accessibility
 const cardId = `card-title-${slug}-${index}`;
 const metaId = `${cardId}-meta`;
+const descId = `${cardId}-desc`;
 
 // Generate appropriate alt text for the image
 const imageAltText = title ? `Cover image for ${title}` : "";
@@ -99,7 +100,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
   data-description={description}
   data-keywords={keywords}
   aria-labelledby={cardId}
-  aria-describedby={`${cardId}-desc ${metaId}`}
+  aria-describedby={`${descId} ${metaId}`}
 >
   {
     hasOwnLink ? (
@@ -107,7 +108,7 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         href={articleUrl}
         class="knowledge-card__link"
         aria-labelledby={cardId}
-        aria-describedby={`${cardId}-desc`}
+        aria-describedby={`${descId} ${metaId}`}
       >
         <div class="knowledge-card__content">
           <div class="knowledge-card__shine" aria-hidden="true" />
@@ -134,13 +135,15 @@ const imageAltText = title ? `Cover image for ${title}` : "";
               {title}
             </Headline>
 
-            <Paragraph
-              textSize="base"
-              textAlign="left"
-              className="knowledge-card__description"
-            >
-              {description}
-            </Paragraph>
+            <div id={descId}>
+              <Paragraph
+                textSize="base"
+                textAlign="left"
+                className="knowledge-card__description"
+              >
+                {description}
+              </Paragraph>
+            </div>
 
             <div class="knowledge-card__meta" id={metaId}>
               <div class="knowledge-card__meta-item">
@@ -192,23 +195,21 @@ const imageAltText = title ? `Cover image for ${title}` : "";
             {title}
           </Headline>
 
-          <Paragraph
-            textSize="base"
-            textAlign="center"
-            className="knowledge-card__description"
-          >
-            {description}
-          </Paragraph>
+          <div id={descId}>
+            <Paragraph
+              textSize="base"
+              textAlign="center"
+              className="knowledge-card__description"
+            >
+              {description}
+            </Paragraph>
+          </div>
 
           <div class="knowledge-card__meta" id={metaId}>
             <div class="knowledge-card__meta-item">
-              <span
-                aria-label={`${lang_t("knowledge.reading.time.label")}: ${readingTime} ${lang_t("knowledge.reading.time")}`}
-              >
-                <Icon name="clock" class="knowledge-card__meta-icon" aria-hidden="true" />
-                <span>
-                  {readingTime} {lang_t("knowledge.reading.time")}
-                </span>
+              <Icon name="clock" class="knowledge-card__meta-icon" aria-hidden="true" />
+              <span>
+                {readingTime} {lang_t("knowledge.reading.time")}
               </span>
             </div>
             <time
@@ -380,155 +381,3 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     }
   </style>
 </article>
-<style>
-  .knowledge-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    color: var(--text-primary);
-    border-radius: 1.25rem;
-    background: color-mix(in srgb, var(--surface-2) 92%, transparent);
-    border: 2px solid color-mix(in srgb, var(--color-gn-soot-600) 85%, transparent);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    transition:
-      transform var(--transition-base),
-      box-shadow var(--transition-base);
-  }
-
-  .knowledge-card::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border: 1px solid var(--gn-panel-inner);
-    border-radius: 1rem;
-    pointer-events: none;
-  }
-
-  .knowledge-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 26px 50px rgba(0, 0, 0, 0.55);
-  }
-
-  .knowledge-card__link,
-  .knowledge-card__content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .knowledge-card__shine {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(240, 194, 123, 0.14),
-      rgba(240, 194, 123, 0.08),
-      transparent 65%
-    );
-    opacity: 0;
-    transition: opacity var(--transition-base);
-    pointer-events: none;
-  }
-
-  .knowledge-card:hover .knowledge-card__shine,
-  .knowledge-card__link:focus-visible .knowledge-card__shine {
-    opacity: 1;
-  }
-
-  .knowledge-card__link:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .knowledge-card__media {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    border-radius: 0;
-    background: var(--surface-1);
-    border: none;
-    margin: 0;
-  }
-
-  .knowledge-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 500ms ease;
-  }
-
-  .knowledge-card:hover .knowledge-card__image,
-  .knowledge-card__link:focus-visible .knowledge-card__image {
-    transform: scale(1.05);
-  }
-
-  .knowledge-card__overlay {
-    position: absolute;
-    inset: 0;
-  }
-
-  .knowledge-card__body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.5rem 1.5rem 1.25rem;
-    flex: 1;
-  }
-
-  .knowledge-card__title {
-    margin: 0;
-    color: var(--text-primary);
-  }
-
-  .knowledge-card__description {
-    margin: 0;
-    color: var(--text-secondary);
-  }
-
-  .knowledge-card__meta {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid color-mix(in srgb, var(--color-gn-soot-600) 70%, transparent);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 1rem;
-    color: var(--text-secondary);
-  }
-
-  .knowledge-card__meta-item {
-    display: grid;
-    grid-template-columns: 1.1rem 1fr;
-    align-items: center;
-    column-gap: 0.55rem;
-    font-weight: 500;
-  }
-
-  .knowledge-card__meta-icon {
-    display: block;
-    width: 1.05rem;
-    height: 1.05rem;
-    flex-shrink: 0;
-    color: var(--link-default);
-  }
-
-  .knowledge-card__meta-item span {
-    white-space: nowrap;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: var(--sr-only-width);
-    height: var(--sr-only-height);
-    padding: 0;
-    margin: var(--sr-only-margin);
-    overflow: hidden;
-    clip-path: var(--sr-only-clip-path);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>

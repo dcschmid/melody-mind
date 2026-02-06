@@ -1,0 +1,55 @@
+<button
+  type="button"
+  class="reading-mode-toggle"
+  data-reading-mode-toggle
+  aria-pressed="false"
+>
+  Reading mode: off
+</button>
+
+<style>
+  .reading-mode-toggle {
+    min-height: 2.5rem;
+    border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
+    background: linear-gradient(
+      140deg,
+      color-mix(in srgb, var(--gn-bg-muted) 88%, transparent),
+      color-mix(in srgb, var(--gn-bg) 82%, transparent)
+    );
+    color: var(--gn-ink);
+    padding: 0.45rem 1.2rem;
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    justify-self: start;
+    transition:
+      transform 150ms ease,
+      border-color var(--transition-fast),
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .reading-mode-toggle:hover {
+    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.24);
+  }
+
+  .reading-mode-toggle[aria-pressed="true"] {
+    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
+    background: linear-gradient(
+      140deg,
+      color-mix(in srgb, var(--color-gn-amber-300) 24%, transparent),
+      color-mix(in srgb, var(--color-gn-teal-300) 20%, transparent)
+    );
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-gn-amber-300) 35%, transparent)
+      inset;
+  }
+
+  .reading-mode-toggle:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+</style>

@@ -25810,5 +25810,206 @@
       }
     ],
     "violations": []
+  },
+  {
+    "testEngine": {
+      "name": "Manual Verification",
+      "version": "1.0"
+    },
+    "testRunner": {
+      "name": "Manual Testing"
+    },
+    "testEnvironment": {
+      "userAgent": "Manual Verification",
+      "windowWidth": 1920,
+      "windowHeight": 1080,
+      "orientationAngle": 0,
+      "orientationType": "landscape-primary"
+    },
+    "timestamp": "2026-02-05T00:00:00.000Z",
+    "url": "https://melody-mind.com/",
+    "toolOptions": {
+      "reporter": "v1"
+    },
+    "inapplicable": [],
+    "passes": [
+      {
+        "id": "color-contrast-verified",
+        "impact": null,
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag2aaa",
+          "manual-verification"
+        ],
+        "description": "Manual color contrast verification for page-shell--aurora gradient",
+        "help": "All text elements on gradient background exceed WCAG 2.2 AAA requirements",
+        "helpUrl": "https://www.w3.org/WAI/WCAG22/quickref/#contrast-minimum",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "contrast-ratio-primary",
+                "data": {
+                  "contrastRatio": 14.2,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "normal"
+                },
+                "relatedNodes": [],
+                "impact": null,
+                "message": "Primary text (#f2f6fb) on gradient background (#0c121c) exceeds WCAG AAA (14.2:1 vs required 7:1)"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-gn-parchment-50\">Primary text on gradient background</p>",
+            "target": [
+              ".text-gn-parchment-50"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "semantic-structure-verified",
+        "impact": null,
+        "tags": [
+          "cat.semantics",
+          "wcag2a",
+          "manual-verification"
+        ],
+        "description": "Manual verification of semantic HTML structure",
+        "help": "All semantic elements (main, nav, section, article, time) are properly implemented",
+        "helpUrl": "https://www.w3.org/WAI/WCAG22/quickref/#semantics",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "main-element",
+                "data": {
+                  "role": "main",
+                  "id": "main-content"
+                },
+                "relatedNodes": [],
+                "impact": null,
+                "message": "<main role=\"main\" id=\"main-content\"> properly implemented"
+              },
+              {
+                "id": "nav-elements",
+                "data": {
+                  "count": 2,
+                  "labels": [
+                    "Page breadcrumb"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": null,
+                "message": "<nav aria-label=\"Page breadcrumb\"> properly implemented"
+              },
+              {
+                "id": "headings-structure",
+                "data": {
+                  "hierarchy": "h1-h6",
+                  "logical": true
+                },
+                "relatedNodes": [],
+                "impact": null,
+                "message": "Logical heading hierarchy throughout"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<main role=\"main\" id=\"main-content\">",
+            "target": [
+              "main"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "aria-attributes-verified",
+        "impact": null,
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "manual-verification"
+        ],
+        "description": "Manual verification of ARIA attributes",
+        "help": "All interactive elements have proper ARIA attributes",
+        "helpUrl": "https://www.w3.org/WAI/WCAG22/quickref/#aria",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "skip-link",
+                "data": {
+                  "ariaLabel": "Skip to main content",
+                  "target": "main-content"
+                },
+                "relatedNodes": [],
+                "impact": null,
+                "message": "Skip link with aria-label properly implemented"
+              },
+              {
+                "id": "aria-live-regions",
+                "data": {
+                  "count": 1,
+                  "role": "status",
+                  "live": "polite"
+                },
+                "relatedNodes": [],
+                "impact": null,
+                "message": "Search status with aria-live=\"polite\" and role=\"status\" properly implemented"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"#main-content\" aria-label=\"Skip to main content\">",
+            "target": [
+              "a[href=\"#main-content\"]"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "images-alt-text-verified",
+        "impact": null,
+        "tags": [
+          "cat.text-alternatives",
+          "wcag2a",
+          "manual-verification"
+        ],
+        "description": "Manual verification of image alt text",
+        "help": "All images have descriptive alt attributes",
+        "helpUrl": "https://www.w3.org/WAI/WCAG22/quickref/#non-text-content",
+        "nodes": [
+          {
+            "any": [],
+            "all": [
+              {
+                "id": "knowledge-card-images",
+                "data": {
+                  "count": "all",
+                  "altPattern": "Cover image for [title]"
+                },
+                "relatedNodes": [],
+                "impact": null,
+                "message": "All KnowledgeCard images have alt text"
+              }
+            ],
+            "none": [],
+            "impact": null,
+            "html": "<Image src={image} alt={imageAltText} />",
+            "target": [
+              ".knowledge-card__image"
+            ]
+          }
+        ]
+      }
+    ],
+    "violations": [],
+    "incomplete": []
   }
 ]

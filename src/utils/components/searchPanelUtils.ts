@@ -70,11 +70,16 @@ function initSearchPanel(elements: SearchElements): void {
   (elements.root as any).__searchInitialized = true;
 
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+  let lastStatusAnnouncement = "";
 
   const updateStatus = (count: number, term: string): void => {
     const hasQuery = term.trim().length > 0;
     if (statusEl) {
-      statusEl.textContent = getStatusText(statusEl, hasQuery, count);
+      const nextStatus = getStatusText(statusEl, hasQuery, count);
+      if (nextStatus !== lastStatusAnnouncement) {
+        statusEl.textContent = nextStatus;
+        lastStatusAnnouncement = nextStatus;
+      }
     }
     if (noResultsEl) {
       const showEmpty = hasQuery && count === 0;
@@ -93,20 +98,35 @@ function initSearchPanel(elements: SearchElements): void {
   const performSearch = (term: string): void => {
     const q = term.trim().toLowerCase();
     let count = 0;
+    const targetList = elements.ariaControlsId
+      ? (document.getElementById(elements.ariaControlsId) as HTMLElement | null)
+      : null;
+
+    targetList?.setAttribute("aria-busy", "true");
     listItems.forEach((item) => {
       const haystack =
         item.dataset.searchText?.toLowerCase() || item.textContent?.toLowerCase() || "";
       const match = q === "" || haystack.includes(q);
-      item.style.display = match ? "" : "none";
+      item.hidden = !match;
       if (match) count += 1;
     });
     updateStatus(count, term);
+    targetList?.setAttribute("aria-busy", "false");
   };
 
   input.addEventListener("input", (e: Event) => {
     const value = (e.target as HTMLInputElement)?.value || "";
     if (debounceTimer) clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => performSearch(value), 150);
+  });
+
+  input.addEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key !== "Escape" || input.value.trim().length === 0) {
+      return;
+    }
+    e.preventDefault();
+    input.value = "";
+    performSearch("");
   });
 
   clearBtn?.addEventListener("click", () => {
