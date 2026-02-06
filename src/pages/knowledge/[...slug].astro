@@ -1225,6 +1225,17 @@ const storageUpdatedAt =
         color: var(--color-gn-amber-200);
       }
 
+      :root[data-theme="light"] .knowledge__pill--label {
+        background: rgba(15, 79, 121, 0.1);
+        border-color: color-mix(in srgb, var(--gn-panel-border) 72%, transparent);
+        color: #0f3f68;
+      }
+
+      :root[data-theme="light"] .knowledge__pill--accent {
+        background: rgba(15, 79, 121, 0.08);
+        color: #0f3f68;
+      }
+
       .knowledge__pill-icon {
         display: block;
         width: 1rem;

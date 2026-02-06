@@ -93,10 +93,11 @@ import ReadingModeToggle from "@components/ReadingModeToggle.astro";
       color-mix(in srgb, var(--gn-bg) 86%, transparent)
     );
     display: grid;
-    gap: 0.9rem;
+    gap: 1rem;
+    margin-block: 0.75rem 1rem;
     border-color: var(--reading-controls-border);
     background: var(--reading-controls-bg);
-    padding: 1.1rem;
+    padding: 1.25rem;
     border-radius: 1.2rem;
   }
 
@@ -190,6 +191,10 @@ import ReadingModeToggle from "@components/ReadingModeToggle.astro";
   }
 
   @media (min-width: 900px) {
+    .reading-controls {
+      margin-block: 0.9rem 1.1rem;
+    }
+
     .reading-controls__row {
       grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
       align-items: center;

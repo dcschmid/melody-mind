@@ -1,0 +1,120 @@
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-pressed="false"
+  aria-label="Activate dark theme"
+>
+  Theme: <span data-theme-toggle-label>system</span>
+</button>
+
+<script>
+  const THEME_STORAGE_KEY = "themePreference";
+  const toggle = document.querySelector("[data-theme-toggle]");
+  const label = document.querySelector("[data-theme-toggle-label]");
+
+  const isTheme = (value: unknown): value is "light" | "dark" =>
+    value === "light" || value === "dark";
+
+  const getStoredTheme = (): "light" | "dark" | null => {
+    try {
+      const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+      return isTheme(stored) ? stored : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const getSystemTheme = (): "light" | "dark" =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+  const getResolvedTheme = (): "light" | "dark" => {
+    const stored = getStoredTheme();
+    return stored ?? getSystemTheme();
+  };
+
+  const setResolvedTheme = (theme: "light" | "dark"): void => {
+    document.documentElement.setAttribute("data-theme", theme);
+    window.dispatchEvent(
+      new CustomEvent("theme:change", {
+        detail: {
+          theme,
+          source: getStoredTheme() ? "manual" : "system",
+        },
+      })
+    );
+  };
+
+  const updateToggle = (): void => {
+    if (!toggle || !label) {
+      return;
+    }
+
+    const stored = getStoredTheme();
+    const resolved = stored ?? getSystemTheme();
+
+    label.textContent = stored ? stored : `system (${resolved})`;
+    toggle.setAttribute("aria-pressed", String(resolved === "dark"));
+    toggle.setAttribute(
+      "aria-label",
+      resolved === "dark" ? "Activate light theme" : "Activate dark theme"
+    );
+  };
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
+
+      try {
+        window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+      } catch {
+        // no-op when storage is blocked
+      }
+
+      setResolvedTheme(nextTheme);
+      updateToggle();
+    });
+  }
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (getStoredTheme()) {
+      return;
+    }
+
+    setResolvedTheme(getSystemTheme());
+    updateToggle();
+  });
+
+  window.addEventListener("theme:change", () => {
+    updateToggle();
+  });
+
+  updateToggle();
+</script>
+
+<style>
+  .theme-toggle {
+    min-height: 2.5rem;
+    border-radius: 0.35rem;
+    border: 1px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    color: var(--gn-ink);
+    padding: 0.3rem 0.55rem;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .theme-toggle:hover {
+    color: var(--gn-ink);
+    border-color: var(--color-gn-amber-300);
+    background: color-mix(in srgb, var(--gn-bg-muted) 75%, var(--color-gn-amber-300) 25%);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+</style>

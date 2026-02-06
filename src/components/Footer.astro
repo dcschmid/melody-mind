@@ -1,3 +1,7 @@
+---
+import ThemeToggle from "@components/ThemeToggle.astro";
+---
+
 <footer class="site-footer">
   <div class="site-footer__container">
     <div class="site-footer__grid">
@@ -64,6 +68,7 @@
       <div class="site-footer__section">
         <p class="site-footer__title">Settings</p>
         <nav aria-label="Settings navigation" class="site-footer__nav">
+          <ThemeToggle />
           <button
             type="button"
             class="site-footer__link site-footer__cookie-button"
@@ -80,6 +85,7 @@
           </button>
         </nav>
         <div class="site-footer__status-list">
+          <p class="site-footer__cookie-status" data-theme-status>Theme status: system</p>
           <p class="site-footer__cookie-status" data-cookie-consent-status>
             Cookie status: pending choice
           </p>
@@ -101,8 +107,10 @@
 <script>
   const STORAGE_KEY = "cookie_consent";
   const READING_KEY = "readingPreferences";
+  const THEME_KEY = "themePreference";
   const trigger = document.querySelector("[data-cookie-settings-trigger]");
   const readingTrigger = document.querySelector("[data-reading-settings-trigger]");
+  const themeStatusElement = document.querySelector("[data-theme-status]");
   const statusElement = document.querySelector("[data-cookie-consent-status]");
   const readingStatusElement = document.querySelector(
     "[data-reading-preferences-status]"
@@ -118,6 +126,27 @@
     lineHeight: "compact" | "normal" | "relaxed";
     readingMode: boolean;
   }
+
+  const isTheme = (value: unknown): value is "light" | "dark" =>
+    value === "light" || value === "dark";
+
+  const getStoredTheme = (): "light" | "dark" | null => {
+    try {
+      const raw = window.localStorage?.getItem(THEME_KEY);
+      return isTheme(raw) ? raw : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const getResolvedTheme = (): "light" | "dark" => {
+    const rootTheme = document.documentElement.getAttribute("data-theme");
+    if (isTheme(rootTheme)) {
+      return rootTheme;
+    }
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
 
   const dntEnabled = () => {
     const navigatorAny = window.navigator as Navigator & {
@@ -208,6 +237,19 @@
 
   renderStatus();
 
+  const renderThemeStatus = () => {
+    if (!themeStatusElement) {
+      return;
+    }
+
+    const storedTheme = getStoredTheme();
+    const resolvedTheme = getResolvedTheme();
+    const source = storedTheme ? "manual" : "system";
+    themeStatusElement.textContent = `Theme status: ${resolvedTheme} (${source})`;
+  };
+
+  renderThemeStatus();
+
   const renderReadingStatus = (
     prefs: ReadingPreference | null = readReadingPreferences()
   ) => {
@@ -294,6 +336,10 @@
     }
 
     renderReadingStatus(readReadingPreferences());
+  });
+
+  window.addEventListener("theme:change", () => {
+    renderThemeStatus();
   });
 </script>
 <style>

@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-02-06T00:00:00Z",
+  "libraries": {
+    "astro": {
+      "files": [
+        {
+          "filename": "client-side-scripts-consent-loading.md",
+          "topic": "client-side scripts for consent-gated analytics",
+          "tech_stack": "Astro static site",
+          "fetched": "2026-02-06T00:00:00Z",
+          "source": "Context7 API + Astro Docs"
+        },
+        {
+          "filename": "theme-switching-system-aware.md",
+          "topic": "system-aware theme switching with prefers-color-scheme, data-theme, localStorage, and early head script",
+          "tech_stack": "Astro static site",
+          "fetched": "2026-02-06T00:00:00Z",
+          "source": "Official Astro Docs"
+        }
+      ]
+    },
+    "fathom-analytics": {
+      "files": [
+        {
+          "filename": "consent-dnt-opt-out-gdpr.md",
+          "topic": "consent loading, DNT, opt-out, GDPR positioning",
+          "tech_stack": "Astro static site + Fathom",
+          "fetched": "2026-02-06T00:00:00Z",
+          "source": "Context7 API + Fathom Docs"
+        }
+      ]
+    },
+    "web-platform": {
+      "files": [
+        {
+          "filename": "revoke-consent-storage-pattern.md",
+          "topic": "localStorage state and revoke-consent mechanics",
+          "tech_stack": "Browser Web APIs",
+          "fetched": "2026-02-06T00:00:00Z",
+          "source": "MDN Web Docs"
+        }
+      ]
+    }
+  }
+}

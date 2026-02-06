@@ -57,6 +57,7 @@ import SkipLink from "@components/Shared/SkipLink.astro";
 import CookieConsent from "@components/Shared/CookieConsent.astro";
 import Footer from "@components/Footer.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
+import "../styles/global.css";
 
 // 4. Utility imports
 import { getLangFromUrl } from "@utils/i18n";
@@ -358,6 +359,46 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     />
     <!-- Title and description are handled by SEO component to avoid duplication -->
 
+    <script is:inline>
+      (() => {
+        const THEME_STORAGE_KEY = "themePreference";
+        const DARK_QUERY = "(prefers-color-scheme: dark)";
+
+        const isTheme = (value) => value === "light" || value === "dark";
+        const readStoredTheme = () => {
+          try {
+            const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+            return isTheme(stored) ? stored : null;
+          } catch {
+            return null;
+          }
+        };
+        const getSystemTheme = () =>
+          window.matchMedia(DARK_QUERY).matches ? "dark" : "light";
+
+        const applyTheme = (theme, source) => {
+          document.documentElement.setAttribute("data-theme", theme);
+          window.dispatchEvent(
+            new CustomEvent("theme:change", {
+              detail: { theme, source },
+            })
+          );
+        };
+
+        const storedTheme = readStoredTheme();
+        const resolvedTheme = storedTheme ?? getSystemTheme();
+        applyTheme(resolvedTheme, storedTheme ? "manual" : "system");
+
+        window.matchMedia(DARK_QUERY).addEventListener("change", () => {
+          if (readStoredTheme()) {
+            return;
+          }
+
+          applyTheme(getSystemTheme(), "system");
+        });
+      })();
+    </script>
+
     <!-- Color scheme and theme color for browser UI using CSS variables -->
     <meta name="color-scheme" content="dark light" />
     <meta
@@ -491,7 +532,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       }
     </Fragment>
   </Head>
-  <body class="app__body" data-theme="dark">
+  <body class="app__body">
     {/* Skip link for keyboard navigation */}
     <SkipLink />
 
@@ -579,8 +620,8 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --color-gn-parchment-400: #7f91ab;
     --color-gn-amber-100: #d6f4ff;
     --color-gn-amber-200: #a8e9ff;
-    --color-gn-amber-300: #7bd6ff;
-    --color-gn-amber-400: #5fc7ff;
+    --color-gn-amber-300: var(--theme-color-gn-amber-300, #7bd6ff);
+    --color-gn-amber-400: var(--theme-color-gn-amber-400, #5fc7ff);
     --color-gn-amber-500: #4bb6f0;
     --color-gn-amber-600: #369ad1;
     --color-gn-rust-400: #8fe7ff;
@@ -678,12 +719,12 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --focus-enhanced-shadow: 0 0 0 1px var(--color-primary-500), var(--shadow-lg);
     --focus-outline-dark: 3px solid var(--color-primary-300);
     --focus-outline-light: 3px solid var(--color-primary-600);
-    --form-bg: var(--color-neutral-900);
+    --form-bg: var(--theme-form-bg, var(--color-neutral-900));
     --form-border: var(--border-primary);
     --form-border-focus: var(--border-focus);
-    --form-text: var(--color-neutral-50);
-    --form-placeholder: var(--color-neutral-400);
-    --form-label: var(--color-neutral-200);
+    --form-text: var(--theme-form-text, var(--color-neutral-50));
+    --form-placeholder: var(--theme-form-placeholder, var(--color-neutral-400));
+    --form-label: var(--theme-form-label, var(--color-neutral-200));
     --form-error: var(--color-error-400);
     --form-success: var(--color-success-400);
     --btn-primary-bg: linear-gradient(
@@ -699,56 +740,65 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --btn-primary-text: var(--color-gn-soot-950);
     --btn-secondary-bg: transparent;
     --btn-secondary-border: var(--border-primary);
-    --btn-secondary-text: var(--color-neutral-50);
-    --btn-secondary-hover: rgba(123, 214, 255, 0.08);
-    --card-bg: var(--color-gn-soot-800);
+    --btn-secondary-text: var(--theme-btn-secondary-text, var(--color-neutral-50));
+    --btn-secondary-hover: var(--theme-btn-secondary-hover, rgba(123, 214, 255, 0.08));
+    --card-bg: var(--theme-card-bg, var(--color-gn-soot-800));
     --card-border: var(--border-primary);
     --card-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
     --card-shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.55);
-    --prose-body: var(--color-gn-parchment-100);
-    --prose-headings: var(--color-gn-parchment-50);
+    --prose-body: var(--theme-prose-body, var(--color-gn-parchment-100));
+    --prose-headings: var(--theme-prose-headings, var(--color-gn-parchment-50));
     --prose-links: var(--color-gn-amber-300);
-    --prose-bold: var(--color-gn-parchment-50);
-    --prose-counters: var(--color-gn-parchment-50);
-    --prose-bullets: var(--color-gn-parchment-50);
-    --prose-hr: rgba(255, 255, 255, 0.2);
-    --prose-quotes: var(--color-gn-parchment-100);
+    --prose-bold: var(--theme-prose-bold, var(--color-gn-parchment-50));
+    --prose-counters: var(--theme-prose-counters, var(--color-gn-parchment-50));
+    --prose-bullets: var(--theme-prose-bullets, var(--color-gn-parchment-50));
+    --prose-hr: var(--theme-prose-hr, rgba(255, 255, 255, 0.2));
+    --prose-quotes: var(--theme-prose-quotes, var(--color-gn-parchment-100));
     --prose-quote-borders: var(--color-gn-amber-400);
-    --prose-captions: var(--color-gn-parchment-200);
+    --prose-captions: var(--theme-prose-captions, var(--color-gn-parchment-200));
     --prose-code: var(--color-gn-amber-300);
-    --prose-pre-code: var(--color-gn-parchment-50);
-    --prose-pre-bg: rgba(255, 255, 255, 0.06);
-    --prose-th-borders: rgba(255, 255, 255, 0.25);
-    --prose-td-borders: rgba(255, 255, 255, 0.15);
-    --scrollbar-track-bg: var(--color-gn-soot-900);
-    --scrollbar-thumb-bg: var(--color-gn-soot-700);
-    --scrollbar-thumb-hover: var(--color-gn-soot-600);
-    --gn-bg: var(--color-gn-soot-900);
-    --gn-bg-muted: var(--color-gn-soot-800);
-    --gn-ink: var(--color-gn-parchment-50);
-    --gn-ink-muted: var(--color-gn-parchment-200);
-    --gn-accent: var(--color-gn-amber-400);
-    --gn-accent-strong: var(--color-gn-amber-300);
+    --prose-pre-code: var(--theme-prose-pre-code, var(--color-gn-parchment-50));
+    --prose-pre-bg: var(--theme-prose-pre-bg, rgba(255, 255, 255, 0.06));
+    --prose-th-borders: var(--theme-prose-th-borders, rgba(255, 255, 255, 0.25));
+    --prose-td-borders: var(--theme-prose-td-borders, rgba(255, 255, 255, 0.15));
+    --scrollbar-track-bg: var(--theme-scrollbar-track-bg, var(--color-gn-soot-900));
+    --scrollbar-thumb-bg: var(--theme-scrollbar-thumb-bg, var(--color-gn-soot-700));
+    --scrollbar-thumb-hover: var(--theme-scrollbar-thumb-hover, var(--color-gn-soot-600));
+    --gn-bg-primary: var(--theme-gn-bg-primary, var(--color-gn-soot-950));
+    --gn-bg: var(--theme-gn-bg, var(--color-gn-soot-900));
+    --gn-bg-muted: var(--theme-gn-bg-muted, var(--color-gn-soot-800));
+    --gn-ink: var(--theme-gn-ink, var(--color-gn-parchment-50));
+    --gn-ink-muted: var(--theme-gn-ink-muted, var(--color-gn-parchment-200));
+    --gn-accent: var(--theme-gn-accent, var(--color-gn-amber-400));
+    --gn-accent-strong: var(--theme-gn-accent-strong, var(--color-gn-amber-300));
     --gn-accent-teal: var(--color-gn-teal-400);
-    --gn-panel-border: var(--color-gn-soot-600);
-    --gn-panel-inner: color-mix(in srgb, var(--color-gn-parchment-200) 8%, transparent);
-    --gn-offset-shadow: 4px 4px 0 rgba(0, 0, 0, 0.7), 0 20px 44px rgba(0, 0, 0, 0.55);
-    --gn-halftone:
+    --gn-panel-border: var(--theme-gn-panel-border, var(--color-gn-soot-600));
+    --gn-panel-inner: var(
+      --theme-gn-panel-inner,
+      color-mix(in srgb, var(--color-gn-parchment-200) 8%, transparent)
+    );
+    --gn-offset-shadow: var(
+      --theme-gn-offset-shadow,
+      4px 4px 0 rgba(0, 0, 0, 0.7),
+      0 20px 44px rgba(0, 0, 0, 0.55)
+    );
+    --gn-halftone: var(
+      --theme-gn-halftone,
       radial-gradient(circle at 20% 20%, rgba(123, 214, 255, 0.05), transparent 24%),
       radial-gradient(circle at 80% 10%, rgba(95, 199, 255, 0.06), transparent 26%),
-      radial-gradient(circle at 60% 70%, rgba(123, 214, 255, 0.04), transparent 25%);
-    --gn-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E");
-    --surface-1: var(--color-gn-soot-950);
-    --surface-2: var(--color-gn-soot-900);
-    --surface-3: color-mix(
-      in srgb,
-      var(--color-gn-soot-800) 88%,
-      var(--color-gn-parchment-200) 6%
+      radial-gradient(circle at 60% 70%, rgba(123, 214, 255, 0.04), transparent 25%)
     );
-    --text-primary: var(--color-gn-parchment-50);
-    --text-secondary: var(--color-gn-parchment-200);
-    --link-default: var(--color-gn-amber-300);
-    --link-hover: var(--color-gn-amber-200);
+    --gn-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E");
+    --surface-1: var(--theme-surface-1, var(--color-gn-soot-950));
+    --surface-2: var(--theme-surface-2, var(--color-gn-soot-900));
+    --surface-3: var(
+      --theme-surface-3,
+      color-mix(in srgb, var(--color-gn-soot-800) 88%, var(--color-gn-parchment-200) 6%)
+    );
+    --text-primary: var(--theme-text-primary, var(--color-gn-parchment-50));
+    --text-secondary: var(--theme-text-secondary, var(--color-gn-parchment-200));
+    --link-default: var(--theme-link-default, var(--color-gn-amber-300));
+    --link-hover: var(--theme-link-hover, var(--color-gn-amber-200));
   }
 
   .app {
@@ -756,7 +806,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     width: 100%;
     min-height: 100%;
     font-family: var(--font-sans);
-    background: var(--color-gn-soot-950);
+    background: var(--gn-bg-primary);
     color: var(--gn-ink);
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -816,7 +866,11 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
   }
 
   :where(button, [role="button"], input, select, textarea):focus-visible {
-    background-color: color-mix(in srgb, var(--color-gn-soot-800) 70%, white 30%);
+    background-color: color-mix(
+      in srgb,
+      var(--gn-bg-muted) 70%,
+      var(--gn-bg-primary) 30%
+    );
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import PageShell from "@components/Shared/PageShell.astro";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -81,182 +82,192 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} breadcrumbs={seoBreadcrumbs}>
-  <div class="ai-policy">
-    <div class="ai-policy__container">
-      <header class="ai-policy__header">
-        <div class="ai-policy__badge">✨ AI Content Policy</div>
-        <Headline level="h1" textSize="xl" textAlign="left" className="ai-policy__title">
-          Transparency About AI-Generated Content
-        </Headline>
-        <Paragraph textSize="lg" textAlign="left" className="ai-policy__summary">
-          We use AI tools to enhance our content creation process while maintaining
-          quality, accuracy, and legal compliance.
-        </Paragraph>
-      </header>
-
-      <section class="ai-policy__section">
-        <div class="ai-policy__section-header">
-          <Icon name="sparkles" class="ai-policy__icon" aria-hidden="true" />
-          <Headline level="h2" textSize="lg" textAlign="left">
-            What AI Tools We Use
+  <PageShell containerClass="page-shell__container--spacious">
+    <div class="ai-policy">
+      <div class="ai-policy__container">
+        <header class="ai-policy__header static-page-header">
+          <div class="ai-policy__badge">✨ AI Content Policy</div>
+          <Headline
+            level="h1"
+            textSize="xl"
+            textAlign="left"
+            className="ai-policy__title static-page-title"
+          >
+            Transparency About AI-Generated Content
           </Headline>
-        </div>
-        <Prose>
-          <p>
-            At MelodyMind, we leverage AI tools to assist with content creation, research,
-            and optimization. The primary AI tools we use include:
-          </p>
-          <ul>
-            <li>
-              <strong>ChatGPT (OpenAI)</strong> - Content drafting, research assistance, and
-              idea generation
-            </li>
-            <li>
-              <strong>Claude (Anthropic)</strong> - Technical writing, code explanations, and
-              content refinement
-            </li>
-            <li>
-              <strong>Other AI Tools</strong> - Image generation, translation, and SEO optimization
-            </li>
-          </ul>
-        </Prose>
-      </section>
+          <Paragraph
+            textSize="lg"
+            textAlign="left"
+            className="ai-policy__summary static-page-lead"
+          >
+            We use AI tools to enhance our content creation process while maintaining
+            quality, accuracy, and legal compliance.
+          </Paragraph>
+        </header>
 
-      <section class="ai-policy__section">
-        <div class="ai-policy__section-header">
-          <Icon name="shield" class="ai-policy__icon" aria-hidden="true" />
-          <Headline level="h2" textSize="lg" textAlign="left">
-            Human Oversight & Quality Assurance
-          </Headline>
-        </div>
-        <Prose>
-          <p>
-            AI-generated content is never published without human review. Our editorial
-            process includes:
-          </p>
-          <ul>
-            <li>Fact-checking all information against reliable sources</li>
-            <li>Ensuring historical and musical accuracy</li>
-            <li>Reviewing for clarity, tone, and style consistency</li>
-            <li>Verifying compliance with copyright laws</li>
-            <li>Adding human insights and expertise</li>
-          </ul>
-          <p>
-            The ✨ AI-Generated badge you see on some articles indicates that AI tools
-            contributed to the content creation process. This badge ensures full
-            transparency about our content generation methods.
-          </p>
-        </Prose>
-      </section>
+        <section class="legal-panel ai-policy__section">
+          <div class="ai-policy__section-header">
+            <Icon name="sparkles" class="ai-policy__icon" aria-hidden="true" />
+            <Headline level="h2" textSize="lg" textAlign="left">
+              What AI Tools We Use
+            </Headline>
+          </div>
+          <Prose>
+            <p>
+              At MelodyMind, we leverage AI tools to assist with content creation,
+              research, and optimization. The primary AI tools we use include:
+            </p>
+            <ul>
+              <li>
+                <strong>ChatGPT (OpenAI)</strong> - Content drafting, research assistance, and
+                idea generation
+              </li>
+              <li>
+                <strong>Claude (Anthropic)</strong> - Technical writing, code explanations,
+                and content refinement
+              </li>
+              <li>
+                <strong>Other AI Tools</strong> - Image generation, translation, and SEO optimization
+              </li>
+            </ul>
+          </Prose>
+        </section>
 
-      <section class="ai-policy__section">
-        <div class="ai-policy__section-header">
-          <Icon name="file-text" class="ai-policy__icon" aria-hidden="true" />
-          <Headline level="h2" textSize="lg" textAlign="left">
-            Copyright & Legal Compliance
-          </Headline>
-        </div>
-        <Prose>
-          <p>We take copyright law seriously. Our AI content practices comply with:</p>
-          <ul>
-            <li>
-              <strong>German Copyright Act (UrhG)</strong> - We respect intellectual property
-              rights and do not generate content that infringes on existing copyrights
-            </li>
-            <li>
-              <strong>EU AI Act Transparency Requirements</strong> - AI-generated content is
-              clearly labeled per EU regulations
-            </li>
-            <li>
-              <strong>Transparency Principle</strong> - Users can easily identify AI-generated
-              content and understand our AI tool usage
-            </li>
-          </ul>
-          <p>
-            AI-generated content does not replace human creativity. It's a tool that helps
-            us create better content more efficiently, while our editorial team ensures
-            quality, accuracy, and originality.
-          </p>
-        </Prose>
-      </section>
+        <section class="legal-panel ai-policy__section">
+          <div class="ai-policy__section-header">
+            <Icon name="shield" class="ai-policy__icon" aria-hidden="true" />
+            <Headline level="h2" textSize="lg" textAlign="left">
+              Human Oversight & Quality Assurance
+            </Headline>
+          </div>
+          <Prose>
+            <p>
+              AI-generated content is never published without human review. Our editorial
+              process includes:
+            </p>
+            <ul>
+              <li>Fact-checking all information against reliable sources</li>
+              <li>Ensuring historical and musical accuracy</li>
+              <li>Reviewing for clarity, tone, and style consistency</li>
+              <li>Verifying compliance with copyright laws</li>
+              <li>Adding human insights and expertise</li>
+            </ul>
+            <p>
+              The ✨ AI-Generated badge you see on some articles indicates that AI tools
+              contributed to the content creation process. This badge ensures full
+              transparency about our content generation methods.
+            </p>
+          </Prose>
+        </section>
 
-      <section class="ai-policy__section">
-        <div class="ai-policy__section-header">
-          <Icon name="help-circle" class="ai-policy__icon" aria-hidden="true" />
-          <Headline level="h2" textSize="lg" textAlign="left">
-            Frequently Asked Questions
-          </Headline>
-        </div>
-        <Prose>
-          <p><strong>Does AI write all your content?</strong></p>
-          <p>
-            No. AI assists with drafting, research, and optimization, but human editors
-            review, refine, and verify all content before publication.
-          </p>
+        <section class="legal-panel ai-policy__section">
+          <div class="ai-policy__section-header">
+            <Icon name="file-text" class="ai-policy__icon" aria-hidden="true" />
+            <Headline level="h2" textSize="lg" textAlign="left">
+              Copyright & Legal Compliance
+            </Headline>
+          </div>
+          <Prose>
+            <p>We take copyright law seriously. Our AI content practices comply with:</p>
+            <ul>
+              <li>
+                <strong>German Copyright Act (UrhG)</strong> - We respect intellectual property
+                rights and do not generate content that infringes on existing copyrights
+              </li>
+              <li>
+                <strong>EU AI Act Transparency Requirements</strong> - AI-generated content
+                is clearly labeled per EU regulations
+              </li>
+              <li>
+                <strong>Transparency Principle</strong> - Users can easily identify AI-generated
+                content and understand our AI tool usage
+              </li>
+            </ul>
+            <p>
+              AI-generated content does not replace human creativity. It's a tool that
+              helps us create better content more efficiently, while our editorial team
+              ensures quality, accuracy, and originality.
+            </p>
+          </Prose>
+        </section>
 
-          <p><strong>Is AI-generated content reliable?</strong></p>
-          <p>
-            Yes. Our human oversight ensures that AI-generated content meets our quality
-            standards for accuracy, clarity, and musical expertise. We fact-check all
-            information and verify sources.
-          </p>
+        <section class="legal-panel ai-policy__section">
+          <div class="ai-policy__section-header">
+            <Icon name="help-circle" class="ai-policy__icon" aria-hidden="true" />
+            <Headline level="h2" textSize="lg" textAlign="left">
+              Frequently Asked Questions
+            </Headline>
+          </div>
+          <Prose>
+            <p><strong>Does AI write all your content?</strong></p>
+            <p>
+              No. AI assists with drafting, research, and optimization, but human editors
+              review, refine, and verify all content before publication.
+            </p>
 
-          <p><strong>Can I trust AI-generated articles?</strong></p>
-          <p>
-            Absolutely. Our editorial process guarantees that all content, whether
-            AI-assisted or not, undergoes thorough review for accuracy and quality.
-          </p>
+            <p><strong>Is AI-generated content reliable?</strong></p>
+            <p>
+              Yes. Our human oversight ensures that AI-generated content meets our quality
+              standards for accuracy, clarity, and musical expertise. We fact-check all
+              information and verify sources.
+            </p>
 
-          <p><strong>What about images and media?</strong></p>
-          <p>
-            We use AI tools for image generation where appropriate, always ensuring
-            compliance with copyright laws and licensing requirements. AI-generated images
-            are also clearly labeled.
-          </p>
-        </Prose>
-      </section>
+            <p><strong>Can I trust AI-generated articles?</strong></p>
+            <p>
+              Absolutely. Our editorial process guarantees that all content, whether
+              AI-assisted or not, undergoes thorough review for accuracy and quality.
+            </p>
 
-      <section class="ai-policy__section ai-policy__section--contact">
-        <div class="ai-policy__section-header">
-          <Icon name="mail" class="ai-policy__icon" aria-hidden="true" />
-          <Headline level="h2" textSize="lg" textAlign="left">
-            Questions or Feedback?
-          </Headline>
-        </div>
-        <Prose>
-          <p>
-            If you have questions about our AI content policy or would like to provide
-            feedback, please don't hesitate to contact us. We're committed to transparency
-            and continuous improvement.
-          </p>
-        </Prose>
-      </section>
+            <p><strong>What about images and media?</strong></p>
+            <p>
+              We use AI tools for image generation where appropriate, always ensuring
+              compliance with copyright laws and licensing requirements. AI-generated
+              images are also clearly labeled.
+            </p>
+          </Prose>
+        </section>
+
+        <section class="legal-panel ai-policy__section ai-policy__section--contact">
+          <div class="ai-policy__section-header">
+            <Icon name="mail" class="ai-policy__icon" aria-hidden="true" />
+            <Headline level="h2" textSize="lg" textAlign="left">
+              Questions or Feedback?
+            </Headline>
+          </div>
+          <Prose>
+            <p>
+              If you have questions about our AI content policy or would like to provide
+              feedback, please don't hesitate to contact us. We're committed to
+              transparency and continuous improvement.
+            </p>
+          </Prose>
+        </section>
+      </div>
     </div>
-  </div>
+  </PageShell>
 </Layout>
 
 <style>
   .ai-policy {
-    min-height: 100vh;
-    padding: 3rem 1.5rem;
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--color-gn-soot-900) 98%, transparent),
+      color-mix(in srgb, var(--gn-bg) 97%, transparent),
       color-mix(in srgb, var(--gn-bg-muted) 95%, transparent)
     );
+    border-radius: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 38%, transparent);
+    padding: 1.25rem;
   }
 
   .ai-policy__container {
     max-width: 800px;
     margin: 0 auto;
     display: grid;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
 
   .ai-policy__header {
-    display: grid;
     gap: 1rem;
-    margin-bottom: 1rem;
   }
 
   .ai-policy__badge {
@@ -265,57 +276,37 @@ const pageSeo = buildPageSeo({
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 999px;
-    background: linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.25),
-      rgba(59, 130, 246, 0.2)
-    );
-    border: 2px solid rgba(139, 92, 246, 0.5);
-    color: rgb(192, 132, 252);
+    background: color-mix(in srgb, var(--link-default) 12%, var(--gn-bg));
+    border: 2px solid color-mix(in srgb, var(--link-default) 52%, var(--gn-panel-border));
+    color: var(--link-default);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--link-default) 20%, transparent);
     justify-self: start;
-  }
-
-  .ai-policy__title {
-    color: var(--color-gn-parchment-100);
-  }
-
-  .ai-policy__summary {
-    color: var(--color-gn-parchment-200);
-    line-height: 1.6;
   }
 
   .ai-policy__section {
     padding: 2rem;
-    border-radius: 1.5rem;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-gn-soot-900) 92%, transparent),
-      color-mix(in srgb, var(--color-gn-soot-950) 90%, transparent)
-    );
-    border: 2px solid color-mix(in srgb, var(--color-gn-soot-700) 30%, transparent);
     display: grid;
     gap: 1.5rem;
     transition: all 0.3s ease;
   }
 
   .ai-policy__section:hover {
-    border-color: color-mix(in srgb, var(--color-gn-violet-400) 40%, transparent);
-    box-shadow: 0 4px 16px rgba(139, 92, 246, 0.1);
+    border-color: color-mix(in srgb, var(--gn-accent) 45%, var(--gn-panel-border));
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--gn-accent) 22%, transparent);
     transform: translateY(-2px);
   }
 
   .ai-policy__section--contact {
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--color-gn-violet-900) 15%, var(--color-gn-soot-900)),
-      color-mix(in srgb, var(--color-gn-blue-900) 10%, var(--color-gn-soot-950))
+      color-mix(in srgb, var(--gn-accent) 12%, var(--gn-bg-muted)),
+      color-mix(in srgb, var(--gn-bg) 92%, transparent)
     );
-    border-color: color-mix(in srgb, var(--color-gn-violet-400) 30%, transparent);
+    border-color: color-mix(in srgb, var(--gn-accent) 40%, var(--gn-panel-border));
   }
 
   .ai-policy__section-header {
@@ -323,13 +314,13 @@ const pageSeo = buildPageSeo({
     align-items: center;
     gap: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid color-mix(in srgb, var(--color-gn-soot-700) 40%, transparent);
+    border-bottom: 2px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
   }
 
   .ai-policy__icon {
     width: 1.75rem;
     height: 1.75rem;
-    color: var(--color-gn-violet-300);
+    color: var(--gn-accent);
     flex-shrink: 0;
   }
 
@@ -345,7 +336,7 @@ const pageSeo = buildPageSeo({
 
   @media (min-width: 720px) {
     .ai-policy {
-      padding: 4rem 2rem;
+      padding: 1.75rem;
     }
 
     .ai-policy__section {

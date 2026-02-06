@@ -37,15 +37,15 @@ const pageSeo = buildPageSeo({
 <Layout {pageSeo} {breadcrumbs}>
   <PageShell containerClass="page-shell__container--spacious">
     <div class="legal-page">
-      <header class="legal-page__header">
-        <p class="legal-page__eyebrow">Legal</p>
-        <h1 class="legal-page__title">Imprint (Impressum)</h1>
-        <p class="legal-page__lead">
+      <header class="legal-page__header static-page-header">
+        <p class="legal-page__eyebrow static-page-eyebrow">Legal</p>
+        <h1 class="legal-page__title static-page-title">Imprint (Impressum)</h1>
+        <p class="legal-page__lead static-page-lead">
           Required legal information for services provided from Germany.
         </p>
       </header>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Service Provider</h2>
         <p class="legal-page__text">Daniel Schmid</p>
         <p class="legal-page__text">Hiltenspergerstr. 78</p>
@@ -54,7 +54,7 @@ const pageSeo = buildPageSeo({
         <p class="legal-page__text">This website is a non-commercial private project.</p>
       </section>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Contact</h2>
         <p class="legal-page__text">
           Email:
@@ -64,7 +64,7 @@ const pageSeo = buildPageSeo({
         </p>
       </section>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">
           Responsible for Editorial Content (§ 18 Abs. 2 MStV)
         </h2>
@@ -76,14 +76,14 @@ const pageSeo = buildPageSeo({
         </p>
       </section>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Register Entry</h2>
         <p class="legal-page__text">
           No commercial register entry exists for this private, non-commercial project.
         </p>
       </section>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">VAT Identification Number</h2>
         <p class="legal-page__text">
           No VAT identification number (USt-IdNr.) is available, as this is not a
@@ -91,7 +91,7 @@ const pageSeo = buildPageSeo({
         </p>
       </section>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Dispute Resolution</h2>
         <p class="legal-page__text">
           The European Commission provides a platform for online dispute resolution (OS):
@@ -110,7 +110,7 @@ const pageSeo = buildPageSeo({
         </p>
       </section>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Liability for Own Content</h2>
         <p class="legal-page__text">
           We create content with great care. However, we cannot guarantee that all
@@ -124,7 +124,7 @@ const pageSeo = buildPageSeo({
         </p>
       </section>
 
-      <section class="panel legal-page__section">
+      <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Liability for External Links (§ 8 TMG)</h2>
         <p class="legal-page__text">
           This website contains links to external third-party websites. We have no
@@ -142,78 +142,10 @@ const pageSeo = buildPageSeo({
   </PageShell>
 </Layout>
 <style>
-  .panel {
-    --panel-radius: 1.5rem;
-    --panel-padding: 1.5rem;
-    --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
-    --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    position: relative;
-    border-radius: var(--panel-radius);
-    background: var(--panel-bg);
-    border: 2px solid var(--panel-border);
-    box-shadow: var(--gn-offset-shadow);
-    padding: var(--panel-padding);
-  }
-
-  .panel::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border: 1px solid var(--gn-panel-inner);
-    border-radius: calc(var(--panel-radius) - 0.25rem);
-    pointer-events: none;
-  }
-
-  .panel--compact {
-    --panel-padding: 1rem;
-  }
-
-  .panel--tight {
-    --panel-padding: 1.25rem;
-  }
-
-  .panel--card {
-    --panel-radius: 1.25rem;
-    --panel-padding: 1.25rem;
-  }
-
   .legal-page {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-  }
-
-  .legal-page__header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .legal-page__eyebrow {
-    font-size: 1.125rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--color-gn-amber-300);
-  }
-
-  .legal-page__title {
-    font-size: 2.125rem;
-    font-weight: 600;
-    color: var(--gn-ink);
-    margin: 0;
-  }
-
-  @media (min-width: 640px) {
-    .legal-page__title {
-      font-size: 2.425rem;
-    }
-  }
-
-  .legal-page__lead {
-    font-size: 1.125rem;
-    color: var(--gn-ink-muted);
-    margin: 0;
   }
 
   .legal-page__section {
@@ -225,23 +157,23 @@ const pageSeo = buildPageSeo({
   .legal-page__section-title {
     font-size: 1.225rem;
     font-weight: 600;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     margin: 0;
   }
 
   .legal-page__text {
     margin: 0;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
     line-height: 1.6;
   }
 
   .legal-page__link {
-    color: var(--color-gn-amber-300);
+    color: var(--link-default);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
 
   .legal-page__link:hover {
-    color: var(--color-gn-amber-200);
+    color: var(--link-hover);
   }
 </style>
