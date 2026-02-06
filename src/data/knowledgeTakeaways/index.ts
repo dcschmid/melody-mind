@@ -4,6 +4,7 @@ import { takeaways1970s } from "./1970s";
 import { takeaways1980s } from "./1980s";
 import { takeaways1990s } from "./1990s";
 import { takeaways2000s } from "./2000s";
+import { takeaways2010s } from "./2010s";
 
 export const takeawaysDecades = [
   "1950s",
@@ -12,6 +13,7 @@ export const takeawaysDecades = [
   "1980s",
   "1990s",
   "2000s",
+  "2010s",
 ] as const;
 
 export const knowledgeTakeaways: Record<string, string[]> = {
@@ -21,6 +23,7 @@ export const knowledgeTakeaways: Record<string, string[]> = {
   "1980s": takeaways1980s,
   "1990s": takeaways1990s,
   "2000s": takeaways2000s,
+  "2010s": takeaways2010s,
 };
 
 export type TakeawaysDecade = (typeof takeawaysDecades)[number];

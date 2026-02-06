@@ -5,6 +5,7 @@ import { quiz1970s } from "./1970s";
 import { quiz1980s } from "./1980s";
 import { quiz1990s } from "./1990s";
 import { quiz2000s } from "./2000s";
+import { quiz2010s } from "./2010s";
 
 export const quizDecades = [
   "1950s",
@@ -13,6 +14,7 @@ export const quizDecades = [
   "1980s",
   "1990s",
   "2000s",
+  "2010s",
 ] as const;
 
 export const quizzes: Record<string, QuizQuestion[]> = {
@@ -22,6 +24,7 @@ export const quizzes: Record<string, QuizQuestion[]> = {
   "1980s": quiz1980s,
   "1990s": quiz1990s,
   "2000s": quiz2000s,
+  "2010s": quiz2010s,
 };
 
 export type QuizDecade = (typeof quizDecades)[number];
