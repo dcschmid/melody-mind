@@ -64,6 +64,14 @@ const INIT_TARGETS: InitEntry[] = [
       initSearchPanelsAuto();
     },
   },
+  {
+    test: (): Element | null =>
+      document.querySelector("a[href], button, [role='button'], summary"),
+    init: async (): Promise<void> => {
+      const { initMicroInteractions } = await import("./microInteractions");
+      initMicroInteractions();
+    },
+  },
 ];
 
 /**

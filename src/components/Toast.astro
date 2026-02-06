@@ -1,0 +1,158 @@
+<aside class="toast" data-toast-root aria-live="polite" aria-atomic="false"></aside>
+
+<script>
+  import { TOAST_EVENT_NAME } from "@utils/components/toastUtils";
+
+  type ToastVariant = "info" | "success" | "warning" | "error";
+
+  interface ToastDetail {
+    message: string;
+    variant: ToastVariant;
+    durationMs: number;
+  }
+
+  const MAX_TOASTS = 4;
+  const root = document.querySelector<HTMLElement>("[data-toast-root]");
+
+  const dismissToast = (toastEl: HTMLElement): void => {
+    toastEl.dataset.state = "leaving";
+    window.setTimeout(() => {
+      toastEl.remove();
+    }, 220);
+  };
+
+  const addToast = (detail: ToastDetail): void => {
+    if (!root || !detail.message.trim()) {
+      return;
+    }
+
+    if (root.children.length >= MAX_TOASTS) {
+      root.firstElementChild?.remove();
+    }
+
+    const toastEl = document.createElement("section");
+    toastEl.className = `toast__item toast__item--${detail.variant}`;
+    toastEl.dataset.state = "entering";
+    toastEl.setAttribute("role", detail.variant === "error" ? "alert" : "status");
+
+    const messageEl = document.createElement("p");
+    messageEl.className = "toast__message";
+    messageEl.textContent = detail.message;
+
+    const closeButton = document.createElement("button");
+    closeButton.className = "toast__close";
+    closeButton.type = "button";
+    closeButton.textContent = "Close";
+    closeButton.setAttribute("aria-label", "Dismiss notification");
+    closeButton.addEventListener("click", () => dismissToast(toastEl));
+
+    toastEl.append(messageEl, closeButton);
+    root.append(toastEl);
+
+    requestAnimationFrame(() => {
+      toastEl.dataset.state = "entered";
+    });
+
+    window.setTimeout(
+      () => {
+        dismissToast(toastEl);
+      },
+      Math.max(1200, detail.durationMs)
+    );
+  };
+
+  window.addEventListener(TOAST_EVENT_NAME, (event: Event) => {
+    const customEvent = event as CustomEvent<ToastDetail>;
+    if (!customEvent.detail) {
+      return;
+    }
+
+    addToast(customEvent.detail);
+  });
+</script>
+
+<style>
+  .toast {
+    position: fixed;
+    right: clamp(1rem, 2.8vw, 2rem);
+    bottom: clamp(1rem, 2.8vw, 2rem);
+    display: grid;
+    gap: 0.7rem;
+    z-index: 70;
+    width: min(24rem, calc(100vw - 2rem));
+    pointer-events: none;
+  }
+
+  .toast__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    border-radius: 0.95rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 72%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 90%, black 10%);
+    color: var(--gn-ink);
+    box-shadow: var(--shadow-xl);
+    padding: 0.75rem 0.9rem;
+    pointer-events: auto;
+    transition:
+      transform var(--transition-fast),
+      opacity var(--transition-fast);
+  }
+
+  .toast__item[data-state="entering"] {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  .toast__item[data-state="entered"] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .toast__item[data-state="leaving"] {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  .toast__item--success {
+    border-color: color-mix(in srgb, var(--color-success-500) 58%, transparent);
+  }
+
+  .toast__item--warning {
+    border-color: color-mix(in srgb, var(--color-warning-500) 58%, transparent);
+  }
+
+  .toast__item--error {
+    border-color: color-mix(in srgb, var(--color-error-500) 58%, transparent);
+  }
+
+  .toast__message {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
+  .toast__close {
+    border: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+    color: var(--gn-ink);
+    padding: 0.35rem 0.75rem;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition:
+      transform var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .toast__close:hover {
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--color-gn-amber-400) 22%, var(--gn-bg-muted));
+  }
+
+  .toast__close:active {
+    transform: translateY(0);
+  }
+</style>

@@ -86,6 +86,49 @@ const totalQuestions = questions.length;
 
 <script>
   (() => {
+    let toastModulePromise: Promise<
+      typeof import("../../utils/components/toastUtils")
+    > | null = null;
+    let confettiModulePromise: Promise<
+      typeof import("../../utils/components/confettiUtils")
+    > | null = null;
+
+    const loadToastModule = async (): Promise<
+      typeof import("../../utils/components/toastUtils")
+    > => {
+      if (!toastModulePromise) {
+        toastModulePromise = import("../../utils/components/toastUtils");
+      }
+
+      return toastModulePromise;
+    };
+
+    const loadConfettiModule = async (): Promise<
+      typeof import("../../utils/components/confettiUtils")
+    > => {
+      if (!confettiModulePromise) {
+        confettiModulePromise = import("../../utils/components/confettiUtils");
+      }
+
+      return confettiModulePromise;
+    };
+
+    const showToast = async (
+      message: string,
+      variant: "info" | "success" | "warning" | "error"
+    ): Promise<void> => {
+      const toastUtils = await loadToastModule();
+      toastUtils.emitToast({ message, variant });
+    };
+
+    const celebrateScore = async (): Promise<void> => {
+      const confettiUtils = await loadConfettiModule();
+      await confettiUtils.launchAchievementConfetti({
+        particleCount: 130,
+        spread: 80,
+      });
+    };
+
     const quizRoots = document.querySelectorAll("[data-knowledge-quiz]");
     quizRoots.forEach((root) => {
       const form = root.querySelector<HTMLFormElement>("[data-quiz-form]");
@@ -248,14 +291,25 @@ const totalQuestions = questions.length;
         const { answered, correct, total } = scoreQuiz();
         questions.forEach((fieldset) => updateFeedback(fieldset));
         if (!resultEl) return;
+
         if (!answered) {
           resultEl.textContent = "Pick at least one answer to see your score.";
           resultEl.dataset.state = "empty";
+          void showToast("Choose at least one answer before scoring.", "warning");
           return;
         }
+
         const percent = total ? Math.round((correct / total) * 100) : 0;
         resultEl.textContent = `Score: ${correct}/${total} correct (${percent}%).`;
         resultEl.dataset.state = "done";
+
+        if (percent >= 80) {
+          void celebrateScore();
+          void showToast(`Great run! You scored ${percent}%.`, "success");
+          return;
+        }
+
+        void showToast(`Score saved: ${correct}/${total} (${percent}%).`, "info");
       });
 
       resetButton?.addEventListener("click", () => {
@@ -280,6 +334,7 @@ const totalQuestions = questions.length;
         }
         shuffleQuestions();
         showQuestion(0);
+        void showToast("Quiz reset. Ready for another try.", "info");
       });
 
       prevButton?.addEventListener("click", () => {

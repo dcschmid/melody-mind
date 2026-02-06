@@ -154,51 +154,6 @@ and compliance work._
 
 ### 🟠 P1 - High Priority
 
-#### 2.1 Dark Mode Toggle
-
-**Description**: Implement system-aware dark mode with manual toggle.
-
-**Requirements:**
-
-- Detect system preference (prefers-color-scheme)
-- Manual toggle button in header/nav
-- Smooth transition between themes
-- Persist preference in LocalStorage
-- Custom color palette for dark mode (not just inverted)
-- Proper contrast in both themes
-
-**Privacy**: Safe (LocalStorage only)
-
-**Effort**: Medium (2-3 days)
-
-**Technical Implementation:**
-
-```
-CSS Variables for themes:
-:root {
-  --gn-bg-primary: #ffffff;
-  --gn-bg-muted: #f5f5f5;
-  --gn-ink: #1a1a1a;
-  --gn-ink-muted: #666666;
-  --color-gn-amber-300: #fbbf24;
-}
-
-[data-theme="dark"] {
-  --gn-bg-primary: #1a1a1a;
-  --gn-bg-muted: #2a2a2a;
-  --gn-ink: #f5f5f5;
-  --gn-ink-muted: #a0a0a0;
-}
-```
-
-**Deliverables:**
-
-- `ThemeToggle.astro` component
-- Theme CSS variables in `src/styles/global.css`
-- Theme preference management in JavaScript
-
----
-
 #### 2.2 Interactive Bookmarks System
 
 **Description**: Make the existing `/pages/bookmarks.astro` page functional with bookmark management.
@@ -323,46 +278,6 @@ Search Algorithm:
 ---
 
 ### 🟡 P2 - Medium Priority
-
-#### 2.5 Improved Reading Experience
-
-**Description**: Enhance the article reading experience with better UX features.
-
-**Requirements:**
-
-- Sticky Table of Contents (sidebar on desktop)
-- Scroll progress indicator (fixed bar at top)
-- Reading time display
-- Font size toggle (A- | A | A+)
-- Line height toggle (compact | normal | relaxed)
-- Reading mode (distraction-free)
-- Article highlight/annotation (optional)
-- Smooth scroll to TOC sections
-
-**Privacy**: Safe (LocalStorage for preferences)
-
-**Effort**: Medium (3-4 days)
-
-**Technical Implementation:**
-
-```
-LocalStorage structure:
-readingPreferences: {
-  fontSize: 'medium' | 'small' | 'large',
-  lineHeight: 'normal' | 'compact' | 'relaxed',
-  readingMode: boolean
-}
-```
-
-**Deliverables:**
-
-- `ReadingControls.astro` (font size, line height)
-- `ScrollIndicator.astro` (scroll progress)
-- Enhanced `TableOfContents.astro` (sticky)
-- `ReadingModeToggle.astro`
-- CSS variables for typography settings
-
----
 
 #### 2.6 Genre Explorer Cards
 

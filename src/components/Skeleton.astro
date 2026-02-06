@@ -1,0 +1,95 @@
+---
+interface Props {
+  variant?: "line" | "block" | "circle";
+  lines?: number;
+  width?: string;
+  height?: string;
+  className?: string;
+}
+
+const {
+  variant = "line",
+  lines = 1,
+  width = "100%",
+  height,
+  className = "",
+} = Astro.props as Props;
+
+const lineCount = Math.max(1, lines);
+const lineHeight = height ?? "1rem";
+const blockHeight = height ?? "6rem";
+const circleSize = width === "100%" ? "3rem" : width;
+---
+
+<div class={`skeleton skeleton--${variant} ${className}`.trim()} aria-hidden="true">
+  {
+    variant === "line" &&
+      Array.from({ length: lineCount }, (_, idx) => (
+        <span
+          class="skeleton__line"
+          style={`width: ${idx === lineCount - 1 ? `min(100%, calc(${width} * 0.86))` : width}; height: ${lineHeight};`}
+        />
+      ))
+  }
+  {
+    variant === "block" && (
+      <span class="skeleton__block" style={`width: ${width}; height: ${blockHeight};`} />
+    )
+  }
+  {
+    variant === "circle" && (
+      <span
+        class="skeleton__circle"
+        style={`width: ${circleSize}; height: ${height ?? circleSize};`}
+      />
+    )
+  }
+</div>
+
+<style>
+  .skeleton {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .skeleton__line,
+  .skeleton__block,
+  .skeleton__circle {
+    display: block;
+    border-radius: 0.65rem;
+    background: linear-gradient(
+      100deg,
+      color-mix(in srgb, var(--gn-bg-muted) 80%, transparent) 0%,
+      color-mix(in srgb, var(--gn-panel-inner) 65%, var(--gn-bg-muted)) 45%,
+      color-mix(in srgb, var(--gn-bg-muted) 80%, transparent) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.2s linear infinite;
+  }
+
+  .skeleton--circle {
+    display: inline-grid;
+  }
+
+  .skeleton__circle {
+    border-radius: 999px;
+  }
+
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton__line,
+    .skeleton__block,
+    .skeleton__circle {
+      animation-duration: 2.6s;
+    }
+  }
+</style>
