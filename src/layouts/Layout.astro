@@ -54,9 +54,9 @@ import { Head } from "astro-capo";
 
 import SEO from "@components/SEO.astro";
 import SkipLink from "@components/Shared/SkipLink.astro";
+import SiteHeader from "@components/Shared/SiteHeader.astro";
 import CookieConsent from "@components/Shared/CookieConsent.astro";
 import Footer from "@components/Footer.astro";
-import Breadcrumbs from "@components/Breadcrumbs.astro";
 import Toast from "@components/Toast.astro";
 import "../styles/global.css";
 
@@ -249,8 +249,6 @@ interface Props {
   seriesUrl?: string;
   /** Canonical URL override */
   canonical?: string;
-  /** Breadcrumb trail entries */
-  breadcrumbs?: Array<{ name: string; url: string }>;
   /** Robots noindex flag */
   noIndex?: boolean;
   /** Robots nofollow flag */
@@ -276,7 +274,8 @@ const {
   episodeNumber,
   seriesName,
   seriesUrl,
-  breadcrumbs,
+  showHeader = true,
+  showHeaderIcons = true,
   prevUrl,
   nextUrl,
   disableAlternateLanguages,
@@ -478,7 +477,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       {seriesName}
       {seriesUrl}
       canonical={mergedCanonical}
-      {breadcrumbs}
       noIndex={robotsTag.includes("noindex")}
       noFollow={robotsTag.includes("nofollow")}
       {prevUrl}
@@ -537,13 +535,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     {/* Skip link for keyboard navigation */}
     <SkipLink />
 
+    {showHeader && <SiteHeader showIcons={showHeaderIcons} />}
+
     {/* Main content area */}
     <main id="main-content" tabindex="-1" role="main" class="app__main">
-      {
-        breadcrumbs && breadcrumbs.length > 0 && (
-          <Breadcrumbs items={breadcrumbs} ariaLabel="Page breadcrumb" />
-        )
-      }
       <slot />
     </main>
 

@@ -3,6 +3,7 @@
  * Knowledge Article Page (English only)
  */
 import { Picture } from "astro:assets";
+import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import { useTranslations } from "@utils/i18n";
@@ -19,7 +20,7 @@ import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
-import { resolveAbsoluteUrl, resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+import { resolveAbsoluteUrl, resolvePageUrl } from "@utils/siteUrls";
 import { getKnowledgeQuiz } from "../../data/knowledgeQuizzes";
 import { quizDecades } from "../../data/knowledgeQuizzes";
 import { knowledgeTakeaways, takeawaysDecades } from "../../data/knowledgeTakeaways";
@@ -81,7 +82,7 @@ if (!entry.data.readingTime && entry.body) {
 
 const t = useTranslations(lang);
 
-const { headings, Content } = await entry.render();
+const { headings, Content } = await render(entry);
 const mergedHeadings = headings;
 const fallbackTakeaways = takeawaysDecades.includes(
   slugKey as (typeof takeawaysDecades)[number]
@@ -102,7 +103,6 @@ const description = entry.data.description;
 const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
 const optimizedDescription = pageContent;
 
-const baseSite = resolveBaseUrl(Astro.site);
 const imageAbsolute = resolveAbsoluteUrl(Astro.site, imageSource);
 const imageWidth = 1200;
 const imageHeight = 800;
@@ -136,10 +136,6 @@ const seoBreadcrumbs = [
   ...(seoCategoryCrumb ? [seoCategoryCrumb] : []),
   { name: title, url: canonical },
 ];
-const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
-  ...crumb,
-  url: crumb.url ? crumb.url.replace(baseSite, "") || "/" : crumb.url,
-}));
 const schemaType = podcastUrl ? "PodcastEpisode" : "Article";
 const structuredDataExtra = [
   {
@@ -242,7 +238,7 @@ const storageUpdatedAt =
     : "";
 ---
 
-<Layout {pageSeo} {breadcrumbs}>
+<Layout {pageSeo}>
   <Fragment slot="head"></Fragment>
 
   <div class="reading-progress">

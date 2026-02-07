@@ -82,10 +82,6 @@ const seoBreadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: category.name, url: currentUrl },
 ];
-const breadcrumbs = seoBreadcrumbs.map((crumb) => ({
-  ...crumb,
-  url: crumb.url.replace(baseUrl, "") || "/",
-}));
 
 const breadcrumbSchema = seoBreadcrumbs.length
   ? {
@@ -153,7 +149,7 @@ const pageSeo = buildPageSeo({
 });
 ---
 
-<Layout {pageSeo} {breadcrumbs}>
+<Layout {pageSeo}>
   <PageShell
     className="page-shell--aurora page-shell--grid"
     containerClass="page-shell__container--wide"

@@ -67,7 +67,7 @@ const pageSeo = buildPageSeo({
 });
 ---
 
-<Layout {pageSeo} {breadcrumbs}>
+<Layout {pageSeo}>
   <PageShell className="page-shell--aurora page-shell--grid">
     <div class="bookmarks-page">
       <header class="bookmarks-page__header">
@@ -93,6 +93,7 @@ const pageSeo = buildPageSeo({
 <script
   type="application/json"
   id="bookmark-entries"
+  is:inline
   set:html={JSON.stringify(entries)}
 />
 

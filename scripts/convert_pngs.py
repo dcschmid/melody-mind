@@ -26,7 +26,7 @@ from pathlib import Path
 import sys
 
 
-ALLOWED_SUBDIRS = ['maincategories', 'category', 'knowledge']
+ALLOWED_SUBDIRS = ['maincategories', 'category', 'knowledge', 'artists']
 
 
 def find_pngs(root: Path):

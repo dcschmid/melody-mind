@@ -1,0 +1,186 @@
+---
+import ArtistProfile from "@components/ArtistProfile.astro";
+import InfluenceGraph from "@components/InfluenceGraph.astro";
+import RelatedArtists from "@components/RelatedArtists.astro";
+import Layout from "@layouts/Layout.astro";
+import { getCollectionCached } from "@utils/content/getCollectionCached";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@utils/siteUrls";
+import type { ArtistEntry } from "../../types/artist";
+
+export const prerender = true;
+
+type KnowledgeEntry = {
+  id: string;
+  slug?: string;
+  data: {
+    title: string;
+    description: string;
+  };
+};
+
+interface LinkedArtist {
+  name: string;
+  slug: string;
+}
+
+interface RelatedArtistCard extends LinkedArtist {
+  genres: string[];
+  reason: string;
+}
+
+export async function getStaticPaths() {
+  const artists = (await getCollectionCached("artists").catch(() => [])) as ArtistEntry[];
+  return artists.reduce<Array<{ params: { slug: string } }>>((paths, artist) => {
+    const slug = artist.id.replace(/\.mdx?$/, "");
+    if (!slug) return paths;
+    paths.push({ params: { slug } });
+    return paths;
+  }, []);
+}
+
+const allArtists = (await getCollectionCached("artists").catch(
+  () => []
+)) as ArtistEntry[];
+const knowledgeArticles = (await getCollectionCached("knowledge-en").catch(
+  () => []
+)) as KnowledgeEntry[];
+
+const slug = (Astro.params?.slug as string) || "";
+const artistEntry = allArtists.find(
+  (artist) => artist.id.replace(/\.mdx?$/, "") === slug
+);
+
+if (!artistEntry) {
+  return new Response("Not found", { status: 404 });
+}
+
+const artistById = new Map(allArtists.map((artist) => [artist.id, artist]));
+
+const toLinkedArtists = (ids: string[]): LinkedArtist[] =>
+  ids
+    .map((id) => artistById.get(id))
+    .filter((artist): artist is ArtistEntry => Boolean(artist))
+    .map((artist) => ({
+      name: artist.data.name,
+      slug: artist.id.replace(/\.mdx?$/, ""),
+    }));
+
+const influencedByArtists = toLinkedArtists(artistEntry.data.influencedBy || []);
+const influencedArtists = toLinkedArtists(artistEntry.data.influenced || []);
+
+const currentGenres = new Set(artistEntry.data.genres || []);
+const similarArtists: RelatedArtistCard[] = allArtists
+  .filter((artist) => artist.id !== artistEntry.id)
+  .map((artist) => {
+    const sharedGenres = artist.data.genres.filter((genre) => currentGenres.has(genre));
+    const relatedByInfluence =
+      artistEntry.data.influencedBy.includes(artist.id) ||
+      artistEntry.data.influenced.includes(artist.id) ||
+      artist.data.influencedBy.includes(artistEntry.id) ||
+      artist.data.influenced.includes(artistEntry.id);
+
+    return {
+      name: artist.data.name,
+      slug: artist.id.replace(/\.mdx?$/, ""),
+      genres: artist.data.genres,
+      sharedGenres,
+      relatedByInfluence,
+      score: sharedGenres.length + (relatedByInfluence ? 1 : 0),
+    };
+  })
+  .filter((artist) => artist.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 4)
+  .map((artist) => ({
+    name: artist.name,
+    slug: artist.slug,
+    genres: artist.genres,
+    reason: artist.sharedGenres.length
+      ? `Shared genres: ${artist.sharedGenres.join(", ")}`
+      : "Connected through influence relationships",
+  }));
+
+const knowledgeByKey = knowledgeArticles.reduce<Map<string, KnowledgeEntry>>(
+  (map, entry) => {
+    map.set(entry.id, entry);
+    if (entry.slug) {
+      map.set(entry.slug, entry);
+    }
+    map.set(entry.id.replace(/\.mdx?$/, ""), entry);
+    return map;
+  },
+  new Map()
+);
+
+const relatedArticles = (artistEntry.data.relatedArticles || [])
+  .map((relatedSlug) => knowledgeByKey.get(relatedSlug))
+  .filter((entry): entry is KnowledgeEntry => Boolean(entry))
+  .map((entry) => ({
+    title: entry.data.title,
+    slug: entry.slug || entry.id.replace(/\.mdx?$/, ""),
+  }));
+
+const pageUrl = resolvePageUrl(
+  Astro.site,
+  `/artists/${artistEntry.id.replace(/\.mdx?$/, "")}`
+);
+const breadcrumbsBase = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: artistEntry.data.name, url: pageUrl },
+];
+
+const pageSeo = buildPageSeo({
+  title: `${artistEntry.data.name} | Artist Profile`,
+  description: artistEntry.data.biography,
+  url: pageUrl,
+  contentKind: "generic",
+  breadcrumbs: breadcrumbsBase,
+  enrichedParts: [
+    artistEntry.data.name,
+    artistEntry.data.biography,
+    artistEntry.data.genres.join(" "),
+  ],
+  fallbackKeywords: artistEntry.data.genres,
+  keywordLimit: 20,
+  maxDescription: 155,
+  image: artistEntry.data.photo || "/default-cover.jpg",
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
+---
+
+<Layout {pageSeo}>
+  <div class="artist-page">
+    <ArtistProfile artist={artistEntry.data} relatedArticles={relatedArticles} />
+    <InfluenceGraph
+      artistName={artistEntry.data.name}
+      influencedBy={influencedByArtists}
+      influenced={influencedArtists}
+    />
+    <RelatedArtists artists={similarArtists} />
+  </div>
+</Layout>
+
+<style>
+  .artist-page {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2.25rem 1rem 4rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .artist-page {
+      padding: 2.5rem 1.5rem 4.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .artist-page {
+      padding: 3rem 2rem 5rem;
+    }
+  }
+</style>

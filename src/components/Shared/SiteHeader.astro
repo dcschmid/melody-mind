@@ -1,0 +1,476 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  showIcons?: boolean;
+}
+
+const { showIcons = true } = Astro.props;
+
+const navItems: NavItem[] = [
+  { href: "/", label: "Home" },
+  { href: "/artists", label: "Artists" },
+  { href: "/bookmarks", label: "Bookmarks" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="Go to Melody Mind homepage">
+      <span class="site-header__brand-mark" aria-hidden="true">MM</span>
+      <span class="site-header__brand-text">Melody Mind</span>
+    </a>
+
+    <button
+      type="button"
+      class="site-header__menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-primary-nav"
+      aria-label="Open main menu"
+      data-site-header-toggle
+    >
+      <span class="site-header__menu-icon-wrap" aria-hidden="true">
+        <Icon name="menu" class="site-header__menu-icon site-header__menu-icon--open" />
+        <Icon name="x" class="site-header__menu-icon site-header__menu-icon--close" />
+      </span>
+      <span>Menu</span>
+    </button>
+
+    <nav id="site-primary-nav" class="site-header__nav" aria-label="Primary navigation">
+      <ul class="site-header__nav-list">
+        {
+          navItems.map((item) => {
+            const isActive =
+              item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href);
+
+            return (
+              <li>
+                <a
+                  class="site-header__nav-link"
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {showIcons && item.href === "/" ? (
+                    <Icon name="home" aria-hidden="true" />
+                  ) : null}
+                  {showIcons && item.href === "/artists" ? (
+                    <Icon name="music" aria-hidden="true" />
+                  ) : null}
+                  {showIcons && item.href === "/bookmarks" ? (
+                    <Icon name="bookmark" aria-hidden="true" />
+                  ) : null}
+                  <span>{item.label}</span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+  <button
+    type="button"
+    class="site-header__scrim"
+    aria-label="Close menu"
+    tabindex="-1"
+    data-site-header-scrim></button>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>("[data-site-header-toggle]");
+  const nav = document.getElementById("site-primary-nav");
+  const scrim = document.querySelector<HTMLButtonElement>("[data-site-header-scrim]");
+  const header = document.querySelector<HTMLElement>(".site-header");
+
+  if (toggle && nav && header) {
+    const desktopQuery = window.matchMedia("(min-width: 880px)");
+    const getFocusableNavItems = (): HTMLElement[] =>
+      Array.from(nav.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"));
+    let previousFocus: HTMLElement | null = null;
+
+    const setOpen = (open: boolean, restoreFocus = true): void => {
+      if (open) {
+        previousFocus =
+          document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      }
+
+      header.dataset.open = open ? "true" : "false";
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      nav.dataset.open = open ? "true" : "false";
+      toggle.setAttribute("aria-label", open ? "Close main menu" : "Open main menu");
+
+      if (open) {
+        window.requestAnimationFrame(() => {
+          getFocusableNavItems()[0]?.focus();
+        });
+        return;
+      }
+
+      if (!restoreFocus) {
+        return;
+      }
+
+      const activeElement = document.activeElement;
+      const shouldRestoreFocus =
+        activeElement instanceof HTMLElement &&
+        (nav.contains(activeElement) || activeElement === scrim);
+
+      if (!shouldRestoreFocus) {
+        return;
+      }
+
+      if (previousFocus) {
+        previousFocus.focus();
+        return;
+      }
+
+      toggle.focus();
+    };
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      setOpen(!isOpen);
+    });
+
+    const handleDesktopChange = (event: MediaQueryListEvent): void => {
+      if (event.matches) {
+        setOpen(false);
+      }
+    };
+
+    const navLinks = Array.from(nav.querySelectorAll<HTMLAnchorElement>("a[href]"));
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (!desktopQuery.matches) {
+          setOpen(false);
+        }
+      });
+    });
+
+    scrim?.addEventListener("click", () => {
+      setOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || toggle.getAttribute("aria-expanded") !== "true") {
+        return;
+      }
+
+      const focusable = [toggle, ...getFocusableNavItems()];
+      if (!focusable.length) {
+        return;
+      }
+
+      const activeElement = document.activeElement;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && activeElement === first) {
+        event.preventDefault();
+        last.focus();
+        return;
+      }
+
+      if (!event.shiftKey && activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    setOpen(false, false);
+    desktopQuery.addEventListener("change", handleDesktopChange);
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid color-mix(in srgb, var(--gn-panel-border) 72%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 90%, transparent);
+    backdrop-filter: blur(10px);
+  }
+
+  .site-header__inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: relative;
+    z-index: 3;
+  }
+
+  @media (min-width: 640px) {
+    .site-header__inner {
+      padding: 0.95rem 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-header__inner {
+      padding: 1rem 2rem;
+    }
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: var(--gn-ink);
+    font-weight: 700;
+  }
+
+  .site-header__brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--gn-accent) 45%, transparent);
+    background: color-mix(in srgb, var(--gn-accent) 18%, transparent);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .site-header__brand-text {
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-header__menu-toggle {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--gn-bg-muted) 88%, transparent);
+    color: var(--gn-ink);
+    padding: 0.5rem 0.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transform: none;
+    filter: none;
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .site-header__menu-toggle:hover {
+    border-color: color-mix(in srgb, var(--gn-accent) 38%, var(--gn-panel-border));
+    background: color-mix(in srgb, var(--gn-bg-muted) 94%, transparent);
+  }
+
+  .site-header__menu-toggle:hover,
+  .site-header__menu-toggle:active,
+  .site-header__menu-toggle[data-ui-pressing="true"] {
+    transform: none;
+    filter: none;
+  }
+
+  .site-header__menu-toggle :global(.ui-ripple) {
+    display: none;
+  }
+
+  .site-header__menu-icon {
+    position: absolute;
+    inset: 0;
+    width: 1rem;
+    height: 1rem;
+    transition: opacity var(--transition-fast);
+  }
+
+  .site-header__menu-icon-wrap {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+  }
+
+  .site-header__menu-icon--close {
+    opacity: 0;
+  }
+
+  .site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon--open {
+    opacity: 0;
+  }
+
+  .site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon--close {
+    opacity: 1;
+  }
+
+  .site-header__nav {
+    position: absolute;
+    top: calc(100% + 0.3rem);
+    right: 1rem;
+    left: 1rem;
+    z-index: 2;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 78%, transparent);
+    border-radius: 1.2rem;
+    background: color-mix(in srgb, var(--gn-bg-muted) 97%, var(--gn-bg) 3%);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      var(--gn-offset-shadow),
+      0 20px 36px rgba(0, 0, 0, 0.34);
+    padding: 0.9rem;
+    overflow: hidden;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition:
+      opacity var(--transition-fast),
+      transform var(--transition-fast),
+      visibility 0s linear var(--transition-fast);
+  }
+
+  .site-header__nav::after {
+    content: "";
+    position: absolute;
+    inset: 0.35rem;
+    border-radius: 0.95rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-inner) 76%, transparent);
+    pointer-events: none;
+  }
+
+  .site-header__nav[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  .site-header__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .site-header__nav-link {
+    display: inline-flex;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    color: var(--gn-ink);
+    border: 1px solid transparent;
+    border-radius: 0.9rem;
+    padding: 0.7rem 0.85rem;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    font-weight: 600;
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .site-header__nav-link[aria-current="page"] {
+    border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
+    background: color-mix(in srgb, var(--gn-accent) 22%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-accent) 28%, transparent);
+  }
+
+  .site-header__nav-link:hover {
+    background: color-mix(in srgb, var(--gn-accent) 14%, transparent);
+    border-color: color-mix(in srgb, var(--gn-panel-border) 82%, transparent);
+  }
+
+  .site-header__scrim {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: calc(100dvh - 1px);
+    z-index: 1;
+    border: 0;
+    background: color-mix(in srgb, var(--gn-bg) 72%, transparent);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity var(--transition-fast),
+      visibility 0s linear var(--transition-fast);
+  }
+
+  .site-header[data-open="true"] .site-header__scrim {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  @media (min-width: 880px) {
+    .site-header__menu-toggle {
+      display: none;
+    }
+
+    .site-header__nav {
+      position: static;
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      transition: none;
+      padding: 0;
+      border: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .site-header__nav::after {
+      display: none;
+    }
+
+    .site-header__nav-list {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .site-header__nav-link {
+      width: auto;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      border-radius: 0.75rem;
+    }
+
+    .site-header__scrim {
+      display: none;
+    }
+  }
+
+  @media (hover: none) {
+    .site-header__menu-toggle[data-ui-pressing="true"] {
+      transform: none;
+      filter: none;
+    }
+  }
+</style>

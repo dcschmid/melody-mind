@@ -1,0 +1,240 @@
+---
+import type { ArtistData } from "../types/artist";
+
+interface RelatedArticle {
+  title: string;
+  slug: string;
+}
+
+interface Props {
+  artist: ArtistData;
+  relatedArticles: RelatedArticle[];
+}
+
+const { artist, relatedArticles } = Astro.props;
+const lifeSpan = [artist.born, artist.died].filter(Boolean).join(" - ");
+---
+
+<section class="artist-profile" aria-labelledby="artist-profile-title">
+  <div class="artist-profile__hero">
+    <div class="artist-profile__media">
+      <img
+        src={artist.photo || "/default-cover.jpg"}
+        alt={`Portrait of ${artist.name}`}
+        class="artist-profile__photo"
+        loading="eager"
+      />
+    </div>
+
+    <div class="artist-profile__intro">
+      <h1 id="artist-profile-title" class="artist-profile__name">{artist.name}</h1>
+      <p class="artist-profile__bio">{artist.biography}</p>
+      <ul class="artist-profile__meta" aria-label="Artist details">
+        <li><strong>Origin:</strong> {artist.origin}</li>
+        {
+          lifeSpan ? (
+            <li>
+              <strong>Years:</strong> {lifeSpan}
+            </li>
+          ) : null
+        }
+      </ul>
+
+      <div class="artist-profile__tags" aria-label="Genres">
+        {artist.genres.map((genre) => <span class="artist-profile__tag">{genre}</span>)}
+      </div>
+    </div>
+  </div>
+
+  <div class="artist-profile__grid">
+    <article class="artist-profile__panel" aria-labelledby="discography-overview-title">
+      <h2 id="discography-overview-title" class="artist-profile__panel-title">
+        Discography Overview
+      </h2>
+      <p class="artist-profile__copy">
+        {
+          artist.discographyOverview ||
+            "Discography details will be expanded in upcoming updates."
+        }
+      </p>
+    </article>
+
+    <article class="artist-profile__panel" aria-labelledby="key-albums-title">
+      <h2 id="key-albums-title" class="artist-profile__panel-title">Key Albums</h2>
+      <ul class="artist-profile__list">
+        {artist.keyAlbums.map((album) => <li>{album}</li>)}
+      </ul>
+    </article>
+
+    <article class="artist-profile__panel" aria-labelledby="key-songs-title">
+      <h2 id="key-songs-title" class="artist-profile__panel-title">Key Songs</h2>
+      <ul class="artist-profile__list">
+        {artist.keySongs.map((song) => <li>{song}</li>)}
+      </ul>
+    </article>
+  </div>
+
+  <article class="artist-profile__panel" aria-labelledby="timeline-title">
+    <h2 id="timeline-title" class="artist-profile__panel-title">Career Timeline</h2>
+    {
+      artist.careerTimeline.length ? (
+        <ol class="artist-profile__timeline">
+          {artist.careerTimeline.map((item) => (
+            <li>
+              <span class="artist-profile__timeline-year">{item.year}</span>
+              <span>{item.event}</span>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <p class="artist-profile__copy">Timeline entries will be added soon.</p>
+      )
+    }
+  </article>
+
+  <article class="artist-profile__panel" aria-labelledby="related-articles-title">
+    <h2 id="related-articles-title" class="artist-profile__panel-title">
+      Related Articles
+    </h2>
+    {
+      relatedArticles.length ? (
+        <ul class="artist-profile__list">
+          {relatedArticles.map((article) => (
+            <li>
+              <a href={`/knowledge/${article.slug}`} class="artist-profile__article-link">
+                {article.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="artist-profile__copy">No linked articles yet.</p>
+      )
+    }
+  </article>
+</section>
+
+<style>
+  .artist-profile {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .artist-profile__hero {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 860px) {
+    .artist-profile__hero {
+      grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
+  .artist-profile__media,
+  .artist-profile__intro,
+  .artist-profile__panel {
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+  }
+
+  .artist-profile__media {
+    overflow: hidden;
+  }
+
+  .artist-profile__photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  .artist-profile__intro,
+  .artist-profile__panel {
+    padding: 1rem;
+  }
+
+  .artist-profile__name {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--gn-ink);
+  }
+
+  .artist-profile__bio,
+  .artist-profile__copy {
+    margin: 0.8rem 0 0;
+    color: var(--gn-ink-muted);
+    line-height: 1.7;
+  }
+
+  .artist-profile__meta,
+  .artist-profile__list {
+    margin: 0.8rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--gn-ink);
+  }
+
+  .artist-profile__tags {
+    margin-top: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .artist-profile__tag {
+    display: inline-flex;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--gn-accent) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-accent) 45%, transparent);
+    color: var(--gn-ink);
+    font-size: 0.95rem;
+  }
+
+  .artist-profile__grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 980px) {
+    .artist-profile__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .artist-profile__panel-title {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 1rem;
+    color: var(--gn-ink);
+  }
+
+  .artist-profile__timeline {
+    margin: 0.9rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .artist-profile__timeline li {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.75rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .artist-profile__timeline-year {
+    color: var(--gn-ink);
+    font-weight: 700;
+  }
+
+  .artist-profile__article-link {
+    color: var(--gn-ink);
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
+</style>

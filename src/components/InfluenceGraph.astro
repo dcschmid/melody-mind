@@ -1,0 +1,128 @@
+---
+interface LinkedArtist {
+  name: string;
+  slug: string;
+}
+
+interface Props {
+  artistName: string;
+  influencedBy: LinkedArtist[];
+  influenced: LinkedArtist[];
+}
+
+const { artistName, influencedBy, influenced } = Astro.props;
+---
+
+<section class="influence-graph" aria-labelledby="influence-graph-title">
+  <h2 id="influence-graph-title" class="influence-graph__title">Influence Graph</h2>
+  <p class="influence-graph__subtitle">How {artistName} sits in the influence chain</p>
+
+  <div class="influence-graph__grid">
+    <article class="influence-graph__panel" aria-labelledby="influence-by-title">
+      <h3 id="influence-by-title" class="influence-graph__panel-title">Influenced by</h3>
+      {
+        influencedBy.length ? (
+          <ul class="influence-graph__list">
+            {influencedBy.map((artist) => (
+              <li>
+                <a href={`/artists/${artist.slug}`} class="influence-graph__link">
+                  {artist.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="influence-graph__empty">No influence data yet.</p>
+        )
+      }
+    </article>
+
+    <article class="influence-graph__panel" aria-labelledby="influenced-title">
+      <h3 id="influenced-title" class="influence-graph__panel-title">Influenced</h3>
+      {
+        influenced.length ? (
+          <ul class="influence-graph__list">
+            {influenced.map((artist) => (
+              <li>
+                <a href={`/artists/${artist.slug}`} class="influence-graph__link">
+                  {artist.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="influence-graph__empty">No influence data yet.</p>
+        )
+      }
+    </article>
+  </div>
+</section>
+
+<style>
+  .influence-graph {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .influence-graph__title {
+    margin: 0;
+    font-size: 1.75rem;
+    color: var(--gn-ink);
+  }
+
+  .influence-graph__subtitle {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    font-size: 1.05rem;
+  }
+
+  .influence-graph__grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 860px) {
+    .influence-graph__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .influence-graph__panel {
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    padding: 1rem;
+  }
+
+  .influence-graph__panel-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+    color: var(--gn-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .influence-graph__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .influence-graph__link {
+    color: var(--gn-ink);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--gn-accent) 60%, transparent);
+    text-underline-offset: 0.2rem;
+  }
+
+  .influence-graph__link:hover {
+    text-decoration-color: var(--gn-accent);
+  }
+
+  .influence-graph__empty {
+    margin: 0;
+    color: var(--gn-ink-muted);
+  }
+</style>

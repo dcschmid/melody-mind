@@ -1252,62 +1252,6 @@ songs: {
 
 ---
 
-#### 5.4 Artist Profile Pages
-
-**Description**: Detailed artist profiles with biography and influence graph.
-
-**Requirements**:
-
-- Artist profile pages with:
-  - Photo
-  - Biography
-  - Discography overview
-  - Key albums/songs
-- Influence graph (who influenced them?)
-- Similar artists recommendations
-- Career timeline
-- Related articles
-- Genre tags
-
-**Privacy**: Safe (no personal data)
-
-**Effort**: Medium-High (5-6 days)
-
-**Technical Implementation:**
-
-```typescript
-// Artist structure
-interface Artist {
-  id: string;
-  name: string;
-  slug: string;
-  photo?: string;
-  biography: string;
-  born?: string;
-  died?: string;
-  origin: string;
-  genres: string[];
-  influencedBy: string[]; // artist IDs
-  influenced: string[]; // artist IDs
-  keyAlbums: string[];
-  keySongs: string[];
-  relatedArticles: string[];
-}
-
-// Page route
-/artists/[slug].astro;
-```
-
-**Deliverables:**
-
-- `artists` Content Collection
-- `/artists/[slug].astro` page
-- `ArtistProfile.astro` component
-- `InfluenceGraph.astro` component
-- `RelatedArtists.astro` component
-
----
-
 #### 5.5 Instrument Guide
 
 **Description**: Comprehensive guide to musical instruments.
@@ -2017,49 +1961,6 @@ Features:
 ---
 
 ### 🟢 P3 - Low Priority
-
-#### 9.6 Analytics & Insights
-
-**Description**: Enhanced analytics for user behavior insights.
-
-**Requirements:**
-
-- Fathom Analytics enhancement
-- Custom events tracking (optional)
-- Heatmaps (DSGVO-compliant)
-- User journey analysis
-- Content performance tracking
-- A/B testing framework
-
-**Privacy**: Must be DSGVO-compliant (Fathom is good choice)
-
-**Effort**: Medium (3-4 days)
-
-**Technical Implementation:**
-
-```
-Analytics tools (DSGVO-compliant):
-- Fathom Analytics (privacy-focused, EU-hosted)
-- Plausible (self-hosted option)
-- Simple Analytics (privacy-focused)
-
-Metrics to track:
-- Page views
-- Time on page
-- Bounce rate
-- Popular articles
-- Search terms
-- Reading depth (optional)
-```
-
-**Deliverables:**
-
-- Analytics dashboard setup
-- Custom events (if needed)
-- Heatmap setup (DSGVO-compliant)
-- A/B testing framework (optional)
-
----
 
 #### 9.7 Documentation & Developer Experience
 

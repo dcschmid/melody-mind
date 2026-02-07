@@ -24,7 +24,7 @@ export async function GET(context: APIContext) {
       "Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.",
     site,
     items: publishedArticles.map((article) => {
-      const slug = article.slug || article.id.replace(/\.md$/, "");
+      const slug = article.id.replace(/\.mdx?$/, "");
       const link = new URL(`/knowledge/${slug}`, site).toString();
       const pubDate = new Date(
         article.data.updatedAt || article.data.createdAt || Date.now()

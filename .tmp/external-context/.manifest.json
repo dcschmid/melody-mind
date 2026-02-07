@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-02-06T00:00:00Z",
+  "last_updated": "2026-02-07T00:00:00Z",
   "libraries": {
     "astro": {
       "files": [
@@ -17,6 +17,13 @@
           "tech_stack": "Astro static site",
           "fetched": "2026-02-06T00:00:00Z",
           "source": "Official Astro Docs"
+        },
+        {
+          "filename": "optimization-security-review-v5.md",
+          "topic": "optimization and security review for Astro v5+ (scripts, images, content collections, interactive nav)",
+          "tech_stack": "Astro static site",
+          "fetched": "2026-02-07T00:00:00Z",
+          "source": "Context7 API + Official Astro Docs + MDN"
         }
       ]
     },
