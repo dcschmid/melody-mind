@@ -65,14 +65,6 @@ const INIT_TARGETS: InitEntry[] = [
     },
   },
   {
-    test: (): Element | null =>
-      document.querySelector("a[href], button, [role='button'], summary"),
-    init: async (): Promise<void> => {
-      const { initMicroInteractions } = await import("./microInteractions");
-      initMicroInteractions();
-    },
-  },
-  {
     test: (): HTMLElement | null => document.body,
     init: async (): Promise<void> => {
       const { initClientAnalytics } = await import("@utils/analytics/clientAnalytics");

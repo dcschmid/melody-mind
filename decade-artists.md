@@ -4,8 +4,6 @@ Source basis: text content from the decade articles (`1950s.mdx` to `2010s.mdx`)
 
 ## 1950s
 
-- Ella Fitzgerald
-- Frank Sinatra
 - Hank Williams
 - Howlin' Wolf
 - Lefty Frizzell

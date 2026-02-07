@@ -1010,59 +1010,6 @@ Options:
 
 ### 🟡 P2 - Medium Priority
 
-#### 5.1 Audio Player & Music Embedding
-
-**Description**: Integrated audio player for music examples and streaming service embeds.
-
-**Requirements**:
-
-- Native HTML5 audio player
-- Spotify/Deezer/Apple Music embeds
-- Timestamped notes in articles
-- Playlists in articles
-- Visual audio waveforms
-- Audio visualization (optional)
-- Volume controls
-- Playback speed control
-
-**Privacy**: Safe (if embedding with privacy settings, Spotify may track)
-
-**Effort**: Medium-High (5-6 days)
-
-**Technical Implementation:**
-
-```typescript
-// Audio player component
-interface AudioPlayerProps {
-  src: string;
-  type: 'native' | 'spotify' | 'deezer' | 'apple-music';
-  title?: string;
-  artist?: string;
-  cover?: string;
-}
-
-// Spotify embed (privacy: may track)
-<iframe
-  src="https://open.spotify.com/embed/track/{trackId}"
-  allow="encrypted-media"
-></iframe>
-
-// Native audio (privacy: no tracking)
-<audio controls>
-  <source src="/audio/track.mp3" type="audio/mpeg">
-</audio>
-```
-
-**Deliverables:**
-
-- `AudioPlayer.astro` component
-- `SpotifyEmbed.astro` (if using)
-- `DeezerEmbed.astro` (if using)
-- Audio waveform visualization
-- Audio content management
-
----
-
 #### 5.2 Dynamic Music Timeline
 
 **Description**: Interactive timeline showing music evolution over decades.

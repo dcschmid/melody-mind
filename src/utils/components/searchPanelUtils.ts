@@ -206,13 +206,10 @@ function initSearchPanel(elements: SearchElements): void {
     const genreQuery = genreTerm.trim().toLowerCase();
     const hasQuery = q.length > 0 || genreQuery.length > 0;
     let count = 0;
-    const targetList = elements.ariaControlsId
-      ? (document.getElementById(elements.ariaControlsId) as HTMLElement | null)
-      : null;
 
     elements.root.dataset.searchActive = hasQuery ? "true" : "false";
 
-    targetList?.setAttribute("aria-busy", "true");
+    controlledList?.setAttribute("aria-busy", "true");
     listItems.forEach((item) => {
       const haystack = getSearchIndex(item);
       const textMatch = q === "" || haystack.includes(q);
@@ -239,7 +236,7 @@ function initSearchPanel(elements: SearchElements): void {
       tokenCount: normalizedTerm.length > 0 ? normalizedTerm.split(/\s+/).length : 0,
     });
 
-    targetList?.setAttribute("aria-busy", "false");
+    controlledList?.setAttribute("aria-busy", "false");
   };
 
   const controlledList = elements.ariaControlsId
