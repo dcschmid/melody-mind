@@ -15,6 +15,7 @@ interface CacheEntry {
 
 // Simple module-level cache map
 const _collectionCache = new Map<string, CacheEntry>();
+const _collectionFailuresLogged = new Set<string>();
 
 export interface GetCollectionCachedOptions {
   /** Optional TTL in ms (default: 5 minutes) */
@@ -49,7 +50,14 @@ export async function getCollectionCached(
       _collectionCache.set(collectionName, { ts: Date.now(), items });
     }
     return items;
-  } catch {
+  } catch (error) {
+    if (!_collectionFailuresLogged.has(collectionName)) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.warn(`[content] Failed to load collection "${collectionName}"`, {
+        message,
+      });
+      _collectionFailuresLogged.add(collectionName);
+    }
     return [] as AnyCollectionEntries;
   }
 }

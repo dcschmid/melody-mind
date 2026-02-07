@@ -128,6 +128,18 @@ const getNoResultsText = (el: HTMLElement | null, term: string): string => {
   return tpl.replace("{term}", term);
 };
 
+const getSearchIndex = (item: HTMLElement): string => {
+  const cached = item.dataset.searchIndex;
+  if (cached) {
+    return cached;
+  }
+
+  const normalized =
+    item.dataset.searchText?.toLowerCase() || item.textContent?.toLowerCase() || "";
+  item.dataset.searchIndex = normalized;
+  return normalized;
+};
+
 function initSearchPanel(elements: SearchElements): void {
   const { input, clearBtn, resetBtn, statusEl, noResultsEl, listItems } = elements;
 
@@ -172,8 +184,7 @@ function initSearchPanel(elements: SearchElements): void {
 
     targetList?.setAttribute("aria-busy", "true");
     listItems.forEach((item) => {
-      const haystack =
-        item.dataset.searchText?.toLowerCase() || item.textContent?.toLowerCase() || "";
+      const haystack = getSearchIndex(item);
       const match = q === "" || haystack.includes(q);
       item.hidden = !match;
 
