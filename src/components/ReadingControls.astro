@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import ReadingModeToggle from "@components/ReadingModeToggle.astro";
 ---
 
@@ -6,79 +7,161 @@ import ReadingModeToggle from "@components/ReadingModeToggle.astro";
   class="panel panel--compact reading-controls"
   aria-label="Reading settings panel"
 >
-  <h2 class="reading-controls__title">Reading settings</h2>
+  <button
+    id="reading-controls-toggle"
+    aria-expanded="false"
+    aria-controls="reading-controls-content"
+    class="reading-controls__toggle"
+  >
+    <span class="reading-controls__toggle-label">
+      <Icon name="menu" class="reading-controls__toggle-icon" aria-hidden="true" />
+      <span>Reading settings</span>
+    </span>
+    <span
+      class="reading-controls__sr"
+      data-expanded="Collapse reading settings"
+      data-collapsed="Expand reading settings"
+    >
+      Expand reading settings
+    </span>
+    <Icon
+      name="chevron-down"
+      id="reading-controls-chevron"
+      class="reading-controls__toggle-chevron"
+      aria-hidden="true"
+    />
+  </button>
 
-  <div class="reading-controls__row" role="group" aria-label="Font size">
-    <span class="reading-controls__label">Text size</span>
-    <div class="reading-controls__actions">
-      <button
-        type="button"
-        class="reading-controls__button"
-        data-reading-font-size="small"
-        data-active="false"
-        aria-pressed="false"
-      >
-        A-
-      </button>
-      <button
-        type="button"
-        class="reading-controls__button"
-        data-reading-font-size="medium"
-        data-active="true"
-        aria-pressed="true"
-      >
-        A
-      </button>
-      <button
-        type="button"
-        class="reading-controls__button"
-        data-reading-font-size="large"
-        data-active="false"
-        aria-pressed="false"
-      >
-        A+
-      </button>
+  <div
+    id="reading-controls-content"
+    aria-labelledby="reading-controls-toggle"
+    class="reading-controls__content"
+  >
+    <div class="reading-controls__row" role="group" aria-label="Font size">
+      <span class="reading-controls__label">Text size</span>
+      <div class="reading-controls__actions">
+        <button
+          type="button"
+          class="reading-controls__button"
+          data-reading-font-size="small"
+          data-active="false"
+          aria-pressed="false"
+        >
+          A-
+        </button>
+        <button
+          type="button"
+          class="reading-controls__button"
+          data-reading-font-size="medium"
+          data-active="true"
+          aria-pressed="true"
+        >
+          A
+        </button>
+        <button
+          type="button"
+          class="reading-controls__button"
+          data-reading-font-size="large"
+          data-active="false"
+          aria-pressed="false"
+        >
+          A+
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div class="reading-controls__row" role="group" aria-label="Line height">
-    <span class="reading-controls__label">Line spacing</span>
-    <div class="reading-controls__actions">
-      <button
-        type="button"
-        class="reading-controls__button"
-        data-reading-line-height="compact"
-        data-active="false"
-        aria-pressed="false"
-      >
-        Compact
-      </button>
-      <button
-        type="button"
-        class="reading-controls__button"
-        data-reading-line-height="normal"
-        data-active="true"
-        aria-pressed="true"
-      >
-        Normal
-      </button>
-      <button
-        type="button"
-        class="reading-controls__button"
-        data-reading-line-height="relaxed"
-        data-active="false"
-        aria-pressed="false"
-      >
-        Relaxed
-      </button>
+    <div class="reading-controls__row" role="group" aria-label="Line height">
+      <span class="reading-controls__label">Line spacing</span>
+      <div class="reading-controls__actions">
+        <button
+          type="button"
+          class="reading-controls__button"
+          data-reading-line-height="compact"
+          data-active="false"
+          aria-pressed="false"
+        >
+          Compact
+        </button>
+        <button
+          type="button"
+          class="reading-controls__button"
+          data-reading-line-height="normal"
+          data-active="true"
+          aria-pressed="true"
+        >
+          Normal
+        </button>
+        <button
+          type="button"
+          class="reading-controls__button"
+          data-reading-line-height="relaxed"
+          data-active="false"
+          aria-pressed="false"
+        >
+          Relaxed
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div class="reading-controls__row reading-controls__row--mode">
-    <span class="reading-controls__label">Focus mode</span>
-    <ReadingModeToggle />
+    <div class="reading-controls__row reading-controls__row--mode">
+      <span class="reading-controls__label">Focus mode</span>
+      <ReadingModeToggle />
+    </div>
   </div>
 </section>
+
+<script>
+  (() => {
+    const toggle = document.getElementById("reading-controls-toggle");
+    const content = document.getElementById("reading-controls-content");
+    const stateText = toggle?.querySelector("[data-expanded]") as HTMLElement | null;
+
+    if (!toggle || !content) {
+      return;
+    }
+
+    let isOpen = false;
+
+    const setExpanded = (expanded: boolean): void => {
+      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      content.setAttribute("aria-hidden", expanded ? "false" : "true");
+      toggle.parentElement?.classList.toggle("reading-controls--open", expanded);
+      if (stateText) {
+        stateText.textContent = expanded
+          ? stateText.getAttribute("data-expanded") || ""
+          : stateText.getAttribute("data-collapsed") || "";
+      }
+    };
+
+    const toggleContent = (): void => {
+      isOpen = !isOpen;
+      setExpanded(isOpen);
+    };
+
+    toggle.addEventListener("click", (e): void => {
+      e.preventDefault();
+      toggleContent();
+    });
+
+    toggle.addEventListener("keydown", (e): void => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleContent();
+      }
+    });
+
+    document.addEventListener("click", (e): void => {
+      if (!isOpen) return;
+      const target = e.target as Node;
+      if (target && !toggle.contains(target) && !content.contains(target)) {
+        isOpen = false;
+        setExpanded(false);
+      }
+    });
+
+    setExpanded(isOpen);
+  })();
+</script>
 
 <style>
   .reading-controls {
@@ -97,18 +180,113 @@ import ReadingModeToggle from "@components/ReadingModeToggle.astro";
     margin-block: 0.75rem 1rem;
     border-color: var(--reading-controls-border);
     background: var(--reading-controls-bg);
-    padding: 1.25rem;
+    padding: 0;
     border-radius: 1.2rem;
+    overflow: hidden;
   }
 
-  .reading-controls__title {
-    margin: 0;
-    font-size: 1.25rem;
+  .reading-controls__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 1rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 65%, transparent);
     color: var(--gn-ink);
+    font-size: 1.125rem;
     font-weight: 600;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: var(--color-gn-amber-300);
+    text-align: left;
+    cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      transform var(--transition-fast);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      4px 4px 0 rgba(0, 0, 0, 0.75);
+  }
+
+  .reading-controls__toggle:hover {
+    border-color: var(--color-gn-amber-300);
+    background: color-mix(in srgb, var(--gn-bg-muted) 90%, transparent);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      6px 6px 0 rgba(0, 0, 0, 0.82);
+    transform: translateY(-1px);
+  }
+
+  .reading-controls__toggle:focus-visible {
+    outline: 4px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  .reading-controls__toggle-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .reading-controls__toggle-icon {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .reading-controls__toggle-chevron {
+    display: block;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--gn-ink-muted);
+    transition: transform 200ms ease-out;
+  }
+
+  .reading-controls--open .reading-controls__toggle-chevron {
+    transform: rotate(180deg);
+  }
+
+  .reading-controls__sr {
+    position: absolute;
+    width: var(--sr-only-width);
+    height: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    clip-path: var(--sr-only-clip-path);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .reading-controls__content {
+    display: none;
+    padding: 1.25rem;
+    border-top: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 75%, transparent);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      4px 4px 0 rgba(0, 0, 0, 0.7);
+    margin-top: 0;
+    animation: dropdownOpen 200ms ease-out;
+    transform-origin: top;
+  }
+
+  @keyframes dropdownOpen {
+    from {
+      opacity: 0;
+      transform: scaleY(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  .reading-controls--open .reading-controls__content {
+    display: block;
   }
 
   .reading-controls__row {

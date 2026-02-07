@@ -18,6 +18,8 @@
     "check:scoped-css": "node scripts/check_scoped_css.mjs",
     "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "format:check": "prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
+    "crosslink-artists": "npx tsx scripts/crosslink-artists.ts",
+    "crosslink-artists:dry": "npx tsx scripts/crosslink-artists.ts --dry-run",
     "convert-images": "python3 scripts/convert_pngs.py",
     "convert-images:exec": "python3 scripts/convert_pngs.py --execute --quality 80 --width 1024",
     "convert-images:exec:delete": "python3 scripts/convert_pngs.py --execute --delete --quality 80 --width 1024",

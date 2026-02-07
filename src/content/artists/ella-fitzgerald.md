@@ -1,6 +1,6 @@
 ---
 name: "Ella Fitzgerald"
-photo: "/artists/ella-fitzgerald.md"
+photo: "/artists/ella-fitzgerald.jpg"
 biography: "Ella Fitzgerald, known as 'The First Lady of Song' and 'Queen of Jazz,' revolutionized jazz through her innovative scat singing, perfect intonation, and unparalleled vocal range. Her voice spanned three octaves with remarkable flexibility across tempos and genres. Fitzgerald's legendary songbook series (1956-1958) for Verve Records remains one of music's most ambitious recording projects. She collaborated with jazz legends including Louis Armstrong, Duke Ellington, and Count Basie. With 18 Grammy Awards and 59 career years, she is widely regarded as the greatest female vocalist in jazz history."
 born: "April 25, 1917"
 died: "June 15, 1996"

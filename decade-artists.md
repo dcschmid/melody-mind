@@ -2,24 +2,6 @@
 
 Source basis: text content from the decade articles (`1950s.mdx` to `2010s.mdx`), with bands removed.
 
-## 1950s
-
-- Hank Williams
-- Howlin' Wolf
-- Lefty Frizzell
-- Little Richard
-- LaVern Baker
-- Miles Davis
-- Muddy Waters
-- Nat King Cole
-- Peggy Lee
-- Ray Charles
-- Ruth Brown
-- Sam Cooke
-- Sister Rosetta Tharpe
-- Thelonious Monk
-- Wanda Jackson
-
 ## 1960s
 
 - Aretha Franklin
