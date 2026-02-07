@@ -256,7 +256,13 @@ const storageUpdatedAt =
     <span id="reading-progress-label" class="knowledge__sr">Reading progress: 0%</span>
   </div>
 
-  <div class="knowledge">
+  <div
+    class="knowledge"
+    data-analytics-article="true"
+    data-analytics-article-slug={slugKey}
+    data-analytics-article-category={entry.data.category || "uncategorized"}
+    data-analytics-has-quiz={quizQuestions.length ? "true" : "false"}
+  >
     <div class="knowledge__backdrop"></div>
     <div class="knowledge__texture"></div>
 
@@ -436,6 +442,7 @@ const storageUpdatedAt =
                         href={podcastUrl}
                         icon="headphones"
                         className="button-link--md"
+                        analyticsPodcastTarget="episode"
                         aria-label={`Open the podcast page for ${entry.data.title}`}
                       >
                         Open podcast page
@@ -445,6 +452,7 @@ const storageUpdatedAt =
                         variant="secondary"
                         icon="mic"
                         className="button-link--md"
+                        analyticsPodcastTarget="series"
                         aria-label="Browse all Melody Mind podcasts"
                       >
                         All podcast episodes

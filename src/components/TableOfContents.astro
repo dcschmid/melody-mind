@@ -245,6 +245,38 @@ const tocTitle = title || t("toc.nav.label");
 
     buildTocFromDom();
 
+    tocList?.addEventListener("click", (event): void => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const link = target.closest<HTMLAnchorElement>("a[href^='#']");
+      if (!link) {
+        return;
+      }
+
+      const href = link.getAttribute("href") || "";
+      const sectionId = href.startsWith("#") ? href.slice(1) : "";
+      const parentItem = link.closest("li");
+      const position = parentItem
+        ? Array.from(tocList.querySelectorAll("li")).indexOf(parentItem) + 1
+        : 0;
+
+      try {
+        window.dispatchEvent(
+          new CustomEvent("toc:click", {
+            detail: {
+              sectionId,
+              position,
+            },
+          })
+        );
+      } catch {
+        // Navigation should continue even if telemetry dispatch fails.
+      }
+    });
+
     const toggleContent = (): void => {
       isOpen = !isOpen;
       setExpanded(isOpen);

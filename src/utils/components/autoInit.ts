@@ -72,6 +72,13 @@ const INIT_TARGETS: InitEntry[] = [
       initMicroInteractions();
     },
   },
+  {
+    test: (): HTMLElement | null => document.body,
+    init: async (): Promise<void> => {
+      const { initClientAnalytics } = await import("@utils/analytics/clientAnalytics");
+      initClientAnalytics();
+    },
+  },
 ];
 
 /**

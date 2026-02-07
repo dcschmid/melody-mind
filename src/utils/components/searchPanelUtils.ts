@@ -14,6 +14,71 @@ type SearchElements = {
   ariaControlsId: string;
 };
 
+type SearchTelemetryDetail = {
+  hasQuery: boolean;
+  resultsCount: number;
+  queryLength: number;
+  tokenCount: number;
+};
+
+type SearchResultClickDetail = {
+  surface: string;
+  positionBucket: "1-3" | "4-6" | "7+" | "unknown";
+};
+
+const SEARCH_EVENT_NAME = "search:performed";
+const SEARCH_RESULT_CLICK_EVENT_NAME = "search:result-click";
+
+const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.dispatchEvent(
+      new CustomEvent<SearchTelemetryDetail>(SEARCH_EVENT_NAME, {
+        detail,
+      })
+    );
+  } catch {
+    // Search remains functional even when telemetry dispatch fails.
+  }
+};
+
+const dispatchSearchResultClick = (detail: SearchResultClickDetail): void => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  try {
+    window.dispatchEvent(
+      new CustomEvent<SearchResultClickDetail>(SEARCH_RESULT_CLICK_EVENT_NAME, {
+        detail,
+      })
+    );
+  } catch {
+    // Search remains functional even when telemetry dispatch fails.
+  }
+};
+
+const getPositionBucket = (
+  position: number
+): SearchResultClickDetail["positionBucket"] => {
+  if (!Number.isFinite(position) || position <= 0) {
+    return "unknown";
+  }
+
+  if (position <= 3) {
+    return "1-3";
+  }
+
+  if (position <= 6) {
+    return "4-6";
+  }
+
+  return "7+";
+};
+
 const getElements = (root: HTMLElement): SearchElements | null => {
   const input = root.querySelector<HTMLInputElement>("[data-search-input]");
   if (!input) return null;
@@ -97,10 +162,13 @@ function initSearchPanel(elements: SearchElements): void {
 
   const performSearch = (term: string): void => {
     const q = term.trim().toLowerCase();
+    const hasQuery = q.length > 0;
     let count = 0;
     const targetList = elements.ariaControlsId
       ? (document.getElementById(elements.ariaControlsId) as HTMLElement | null)
       : null;
+
+    elements.root.dataset.searchActive = hasQuery ? "true" : "false";
 
     targetList?.setAttribute("aria-busy", "true");
     listItems.forEach((item) => {
@@ -108,11 +176,59 @@ function initSearchPanel(elements: SearchElements): void {
         item.dataset.searchText?.toLowerCase() || item.textContent?.toLowerCase() || "";
       const match = q === "" || haystack.includes(q);
       item.hidden = !match;
-      if (match) count += 1;
+
+      if (match) {
+        count += 1;
+        item.dataset.searchVisibleIndex = String(count);
+      } else {
+        delete item.dataset.searchVisibleIndex;
+      }
     });
     updateStatus(count, term);
+
+    const normalizedTerm = term.trim();
+    dispatchSearchTelemetry({
+      hasQuery: normalizedTerm.length > 0,
+      resultsCount: count,
+      queryLength: normalizedTerm.length,
+      tokenCount: normalizedTerm.length > 0 ? normalizedTerm.split(/\s+/).length : 0,
+    });
+
     targetList?.setAttribute("aria-busy", "false");
   };
+
+  const controlledList = elements.ariaControlsId
+    ? (document.getElementById(elements.ariaControlsId) as HTMLElement | null)
+    : null;
+
+  controlledList?.addEventListener("click", (event) => {
+    if (elements.root.dataset.searchActive !== "true") {
+      return;
+    }
+
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const clickedLink = target.closest("a");
+    if (!clickedLink) {
+      return;
+    }
+
+    const clickedItem = target.closest<HTMLElement>("[data-search-text], li");
+    if (!clickedItem) {
+      return;
+    }
+
+    const visibleIndex = Number(clickedItem.dataset.searchVisibleIndex || "0");
+    const surface = elements.root.dataset.searchSurface || "unknown";
+
+    dispatchSearchResultClick({
+      surface,
+      positionBucket: getPositionBucket(visibleIndex),
+    });
+  });
 
   input.addEventListener("input", (e: Event) => {
     const value = (e.target as HTMLInputElement)?.value || "";

@@ -303,6 +303,20 @@ const totalQuestions = questions.length;
         resultEl.textContent = `Score: ${correct}/${total} correct (${percent}%).`;
         resultEl.dataset.state = "done";
 
+        try {
+          window.dispatchEvent(
+            new CustomEvent("quiz:complete", {
+              detail: {
+                questionCount: total,
+                correctCount: correct,
+                scorePercent: percent,
+              },
+            })
+          );
+        } catch {
+          // Quiz UX should not depend on telemetry dispatch.
+        }
+
         if (percent >= 80) {
           void celebrateScore();
           void showToast(`Great run! You scored ${percent}%.`, "success");

@@ -61,6 +61,8 @@ interface Props {
   variant?: ButtonVariant;
   /** Optional icon name for astro-icon (e.g., "mdi:home", "heroicons:star") */
   icon?: string;
+  /** Optional analytics marker for podcast CTA tracking */
+  analyticsPodcastTarget?: "episode" | "series";
 }
 
 const rawProps = Astro.props as Props & Record<string, unknown>;
@@ -74,6 +76,7 @@ const {
   rel,
   variant = "primary",
   icon,
+  analyticsPodcastTarget,
 } = rawProps;
 
 // Ensure proper rel attribute for external links
@@ -116,6 +119,7 @@ const forwardedAttrs = (() => {
     "rel",
     "variant",
     "icon",
+    "analyticsPodcastTarget",
     "aria-describedby",
     "aria-label",
   ]) {
@@ -136,6 +140,7 @@ const forwardedAttrs = (() => {
   aria-describedby={ariaDescribedByAttr}
   {target}
   rel={finalRel}
+  data-analytics-podcast-target={analyticsPodcastTarget}
   {...forwardedAttrs}
 >
   {icon && <Icon name={icon} class={iconClasses} aria-hidden="true" />}

@@ -11,6 +11,8 @@ export interface Props {
   label: string;
   placeholder: string;
   ariaControls: string;
+  /** Analytics surface key for result-click tracking */
+  analyticsSurface?: string;
   /** Text shown when all items visible */
   statusAllText?: string;
   /** Template for results count (use {count}) */
@@ -24,6 +26,7 @@ const {
   label,
   placeholder,
   ariaControls,
+  analyticsSurface = "unknown",
   statusAllText = "Showing all",
   statusCountTemplate = "{count} results",
   noResultsTemplate = 'No results for "{term}"',
@@ -37,7 +40,7 @@ const noResultsId = `${idBase}-no-results`;
 const inputClasses = "search-panel__input";
 ---
 
-<div class="search-panel" data-search-root>
+<div class="search-panel" data-search-root data-search-surface={analyticsSurface}>
   <div class="search-panel__bar">
     <div class="search-panel__field">
       <label for={inputId} class="search-panel__sr">{label}</label>
