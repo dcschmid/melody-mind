@@ -14,6 +14,7 @@ import TableOfContents from "@components/TableOfContents.astro";
 import ReadingControls from "@components/ReadingControls.astro";
 import KnowledgeQuiz from "@components/Knowledge/KnowledgeQuiz.astro";
 import KnowledgeTakeaways from "@components/Knowledge/KnowledgeTakeaways.astro";
+import BookmarkButton from "@components/BookmarkButton.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import AIContentBadge from "@components/AIContentBadge.astro";
 import { Icon } from "astro-icon/components";
@@ -329,15 +330,7 @@ const storageUpdatedAt =
                 </a>
               ) : null
             }
-            <button
-              type="button"
-              class="bookmark-button"
-              data-bookmark-toggle
-              aria-pressed="false"
-            >
-              <Icon name="bookmark" class="bookmark-button__icon" aria-hidden="true" />
-              <span data-bookmark-label>Save</span>
-            </button>
+            <BookmarkButton articleSlug={storageSlug} articleTitle={title} />
           </div>
         </header>
 
@@ -690,59 +683,6 @@ const storageUpdatedAt =
           } catch {
             // ignore storage errors
           }
-        })();
-      </script>
-
-      <script>
-        (() => {
-          const storageKey = "mm_bookmarks";
-          const dataEl = document.getElementById("recent-read-data");
-          const button = document.querySelector("[data-bookmark-toggle]");
-          const label = button?.querySelector("[data-bookmark-label]");
-          if (!dataEl || !button || !label) return;
-
-          const slug = (dataEl.dataset.slug || "").replace(/^\/+/, "");
-          if (!slug) return;
-
-          const load = () => {
-            try {
-              const raw = window.localStorage?.getItem(storageKey);
-              const parsed = raw ? JSON.parse(raw) : [];
-              return Array.isArray(parsed)
-                ? parsed.filter((item) => typeof item === "string")
-                : [];
-            } catch {
-              return [];
-            }
-          };
-
-          const save = (items: string[]) => {
-            try {
-              window.localStorage?.setItem(storageKey, JSON.stringify(items));
-            } catch {
-              // ignore storage errors
-            }
-          };
-
-          const update = (isSaved: boolean) => {
-            button.setAttribute("aria-pressed", isSaved ? "true" : "false");
-            (button as HTMLElement).dataset.bookmarkState = isSaved ? "saved" : "empty";
-            label.textContent = isSaved ? "Saved" : "Save";
-          };
-
-          let items = load();
-          update(items.includes(slug));
-
-          button.addEventListener("click", () => {
-            items = load();
-            if (items.includes(slug)) {
-              items = items.filter((item) => item !== slug);
-            } else {
-              items = [slug, ...items.filter((item) => item !== slug)];
-            }
-            save(items);
-            update(items.includes(slug));
-          });
         })();
       </script>
 
@@ -1275,44 +1215,6 @@ const storageUpdatedAt =
         .knowledge__stats {
           font-size: 1.125rem;
         }
-      }
-
-      .bookmark-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        min-height: 2.2rem;
-        padding: 0.35rem 0.85rem;
-        border-radius: 999px;
-        border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-        background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
-        color: var(--gn-ink);
-        font-weight: 600;
-        cursor: pointer;
-        transition:
-          transform 160ms ease,
-          border-color 160ms ease,
-          box-shadow 160ms ease;
-      }
-
-      .bookmark-button__icon {
-        width: 1rem;
-        height: 1rem;
-        color: var(--color-gn-amber-300);
-      }
-
-      .bookmark-button[data-bookmark-state="saved"] {
-        border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
-      }
-
-      .bookmark-button:hover {
-        transform: translateY(-2px);
-      }
-
-      .bookmark-button:focus-visible {
-        outline: 3px solid var(--color-gn-amber-300);
-        outline-offset: 3px;
       }
 
       .knowledge__quiz-link {

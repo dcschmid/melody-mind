@@ -67,6 +67,11 @@ const currentPath = Astro.url.pathname;
                     <Icon name="bookmark" aria-hidden="true" />
                   ) : null}
                   <span>{item.label}</span>
+                  {item.href === "/bookmarks" ? (
+                    <span class="site-header__badge" data-bookmark-count hidden>
+                      0
+                    </span>
+                  ) : null}
                 </a>
               </li>
             );
@@ -84,6 +89,34 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
+  import {
+    BOOKMARK_CHANGE_EVENT,
+    getBookmarkCount,
+    BOOKMARK_STORAGE_KEY,
+  } from "@utils/bookmarks/clientBookmarks";
+
+  const bookmarkCountNodes = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-bookmark-count]")
+  );
+
+  const updateBookmarkCount = (): void => {
+    if (!bookmarkCountNodes.length) return;
+    const count = getBookmarkCount();
+    bookmarkCountNodes.forEach((node) => {
+      node.textContent = String(count);
+      node.hidden = count <= 0;
+
+      const link = node.closest<HTMLAnchorElement>("a");
+      if (!link) return;
+      const baseLabel = "Bookmarks";
+      const ariaLabel =
+        count > 0
+          ? `${baseLabel}, ${count} saved article${count === 1 ? "" : "s"}`
+          : baseLabel;
+      link.setAttribute("aria-label", ariaLabel);
+    });
+  };
+
   const toggle = document.querySelector<HTMLButtonElement>("[data-site-header-toggle]");
   const nav = document.getElementById("site-primary-nav");
   const scrim = document.querySelector<HTMLButtonElement>("[data-site-header-scrim]");
@@ -192,6 +225,17 @@ const currentPath = Astro.url.pathname;
     setOpen(false, false);
     desktopQuery.addEventListener("change", handleDesktopChange);
   }
+
+  updateBookmarkCount();
+  window.addEventListener("storage", (event) => {
+    if (event.key && event.key !== BOOKMARK_STORAGE_KEY) {
+      return;
+    }
+    updateBookmarkCount();
+  });
+  window.addEventListener(BOOKMARK_CHANGE_EVENT, () => {
+    updateBookmarkCount();
+  });
 </script>
 
 <style>
@@ -388,6 +432,22 @@ const currentPath = Astro.url.pathname;
       background-color var(--transition-fast),
       border-color var(--transition-fast),
       color var(--transition-fast);
+  }
+
+  .site-header__badge {
+    margin-left: 0.2rem;
+    min-width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 999px;
+    padding: 0 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--gn-bg);
+    background: color-mix(in srgb, var(--gn-accent) 72%, var(--gn-panel-border));
   }
 
   .site-header__nav-link[aria-current="page"] {

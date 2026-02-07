@@ -1,5 +1,11 @@
 import { getOrAssignVariant, type ExperimentVariant } from "./abTesting";
 
+import {
+  BOOKMARK_ACTIONS,
+  BOOKMARK_ANALYTICS_EVENTS,
+  BOOKMARK_CHANGE_EVENT,
+} from "@utils/bookmarks/clientBookmarks";
+
 const CONSENT_KEY = "cookie_consent";
 const JOURNEY_KEY = "mm_journey_previous";
 const BOUNCE_MS = 15_000;
@@ -538,13 +544,6 @@ const trackUiEvents = (): void => {
         return;
       }
 
-      const bookmarkButton = target.closest<HTMLElement>("[data-bookmark-toggle]");
-      if (bookmarkButton) {
-        if (bookmarkButton.getAttribute("aria-pressed") === "true") {
-          callFathomEvent("Bookmark: saved");
-        }
-      }
-
       const cookieSettingsButton = target.closest("[data-cookie-settings-trigger]");
       if (cookieSettingsButton && !oncePerPage.has("Cookie settings: open")) {
         oncePerPage.add("Cookie settings: open");
@@ -582,6 +581,23 @@ const trackUiEvents = (): void => {
     },
     { passive: true }
   );
+
+  window.addEventListener(BOOKMARK_CHANGE_EVENT, (event: Event) => {
+    const customEvent = event as CustomEvent<{ action?: string }>;
+    const action = customEvent.detail?.action;
+
+    if (action === BOOKMARK_ACTIONS.add) {
+      callFathomEvent(BOOKMARK_ANALYTICS_EVENTS.add);
+      return;
+    }
+    if (action === BOOKMARK_ACTIONS.remove) {
+      callFathomEvent(BOOKMARK_ANALYTICS_EVENTS.remove);
+      return;
+    }
+    if (action === BOOKMARK_ACTIONS.category) {
+      callFathomEvent(BOOKMARK_ANALYTICS_EVENTS.categoryChanged);
+    }
+  });
 };
 
 export function initClientAnalytics(): void {

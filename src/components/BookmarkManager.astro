@@ -1,0 +1,803 @@
+---
+interface BookmarkEntryMeta {
+  slug: string;
+  title: string;
+  description?: string;
+  updatedAt?: string;
+}
+
+interface Props {
+  entries?: BookmarkEntryMeta[];
+}
+
+const { entries = [] } = Astro.props;
+---
+
+<section class="bookmark-manager" data-bookmark-manager>
+  <script
+    type="application/json"
+    data-bookmark-entries
+    is:inline
+    set:html={JSON.stringify(entries)}
+  />
+
+  <div class="bookmark-manager__toolbar">
+    <div class="bookmark-manager__actions" role="group" aria-label="Export bookmarks">
+      <button type="button" class="bookmark-manager__button" data-bookmark-export-json>
+        Export JSON
+      </button>
+      <button type="button" class="bookmark-manager__button" data-bookmark-export-md>
+        Export Markdown
+      </button>
+    </div>
+
+    <div class="bookmark-manager__import" role="group" aria-label="Import bookmarks">
+      <label class="bookmark-manager__label" for="bookmark-import-mode">Import mode</label
+      >
+      <select
+        id="bookmark-import-mode"
+        class="bookmark-manager__select"
+        data-bookmark-import-mode
+      >
+        <option value="merge">Merge</option>
+        <option value="replace">Replace</option>
+      </select>
+      <button type="button" class="bookmark-manager__button" data-bookmark-import-trigger>
+        Import file
+      </button>
+      <input
+        type="file"
+        class="bookmark-manager__file"
+        accept=".json,.md,.markdown,.txt"
+        data-bookmark-import-file
+      />
+    </div>
+  </div>
+
+  <p class="bookmark-manager__feedback" data-bookmark-feedback aria-live="polite"></p>
+
+  <div class="bookmark-manager__empty" data-bookmark-empty>
+    <p class="bookmark-manager__empty-text">
+      You have no bookmarks yet. Save an article to see it here.
+    </p>
+  </div>
+
+  <div class="bookmark-manager__groups" data-bookmark-groups hidden>
+    <section class="bookmark-manager__group" data-bookmark-group="to-read">
+      <h2 class="bookmark-manager__group-title">
+        To-Read <span class="bookmark-manager__count" data-bookmark-count="to-read"
+          >0</span
+        >
+      </h2>
+      <ul class="bookmark-manager__list" data-bookmark-list="to-read"></ul>
+    </section>
+
+    <section class="bookmark-manager__group" data-bookmark-group="favorites">
+      <h2 class="bookmark-manager__group-title">
+        Favorites <span class="bookmark-manager__count" data-bookmark-count="favorites"
+          >0</span
+        >
+      </h2>
+      <ul class="bookmark-manager__list" data-bookmark-list="favorites"></ul>
+    </section>
+
+    <section class="bookmark-manager__group" data-bookmark-group="research">
+      <h2 class="bookmark-manager__group-title">
+        Research <span class="bookmark-manager__count" data-bookmark-count="research"
+          >0</span
+        >
+      </h2>
+      <ul class="bookmark-manager__list" data-bookmark-list="research"></ul>
+    </section>
+  </div>
+</section>
+
+<script>
+  import {
+    BOOKMARK_CATEGORY_LABELS,
+    BOOKMARK_IMPORT_MAX_BYTES,
+    BOOKMARK_CATEGORIES,
+    BOOKMARK_CHANGE_EVENT,
+    BOOKMARK_UNDO_REMOVE_EVENT,
+    exportBookmarksAsJson,
+    exportBookmarksAsMarkdown,
+    importBookmarks,
+    loadBookmarks,
+    normalizeBookmarkSlug,
+    removeBookmark,
+    saveBookmarks,
+    setBookmarkCategory,
+    type Bookmark,
+    type BookmarkCategory,
+  } from "@utils/bookmarks/clientBookmarks";
+  import { emitToast } from "@utils/components/toastUtils";
+
+  interface BookmarkEntryMeta {
+    slug: string;
+    title: string;
+    description?: string;
+    updatedAt?: string;
+  }
+
+  const createUndoToken = (): string => {
+    if ("crypto" in window && typeof window.crypto.randomUUID === "function") {
+      return window.crypto.randomUUID();
+    }
+    return `undo-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  };
+
+  const formatDate = (value: string): string => {
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.valueOf())) return "";
+
+    return new Intl.DateTimeFormat("en", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }).format(parsed);
+  };
+
+  const triggerDownload = (fileName: string, content: string, mimeType: string): void => {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+  };
+
+  const managers = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-bookmark-manager]")
+  );
+
+  managers.forEach((root) => {
+    const entriesDataNode = root.querySelector<HTMLScriptElement>(
+      "[data-bookmark-entries]"
+    );
+    const empty = root.querySelector<HTMLElement>("[data-bookmark-empty]");
+    const groups = root.querySelector<HTMLElement>("[data-bookmark-groups]");
+    const feedback = root.querySelector<HTMLElement>("[data-bookmark-feedback]");
+    const listNodes = Array.from(
+      root.querySelectorAll<HTMLUListElement>("[data-bookmark-list]")
+    );
+    const groupNodes = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-bookmark-group]")
+    );
+    const countNodes = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-bookmark-count]")
+    );
+    const exportJsonButton = root.querySelector<HTMLButtonElement>(
+      "[data-bookmark-export-json]"
+    );
+    const exportMarkdownButton = root.querySelector<HTMLButtonElement>(
+      "[data-bookmark-export-md]"
+    );
+    const importTrigger = root.querySelector<HTMLButtonElement>(
+      "[data-bookmark-import-trigger]"
+    );
+    const importFile = root.querySelector<HTMLInputElement>(
+      "[data-bookmark-import-file]"
+    );
+    const importMode = root.querySelector<HTMLSelectElement>(
+      "[data-bookmark-import-mode]"
+    );
+    const pendingRemovals = new Map<string, Bookmark>();
+    const undoTimers = new Map<string, number>();
+
+    if (!empty || !groups || !feedback || !entriesDataNode) return;
+
+    let entries: BookmarkEntryMeta[] = [];
+    try {
+      const parsed = JSON.parse(entriesDataNode.textContent || "[]");
+      entries = Array.isArray(parsed) ? parsed : [];
+    } catch {
+      entries = [];
+    }
+
+    const entryMap = new Map<string, BookmarkEntryMeta>();
+    entries.forEach((entry) => {
+      if (!entry || typeof entry.slug !== "string") return;
+      const slug = normalizeBookmarkSlug(entry.slug);
+      if (!slug) return;
+      entryMap.set(slug, entry);
+    });
+
+    const setFeedback = (
+      message: string,
+      tone: "neutral" | "success" | "warning" | "error" = "neutral"
+    ): void => {
+      feedback.textContent = message;
+      feedback.dataset.tone = tone;
+    };
+
+    const render = (): void => {
+      const bookmarks = loadBookmarks();
+      const grouped = new Map<BookmarkCategory, Bookmark[]>();
+      BOOKMARK_CATEGORIES.forEach((category) => {
+        grouped.set(category, []);
+      });
+
+      bookmarks.forEach((bookmark) => {
+        const group = grouped.get(bookmark.category);
+        if (group) group.push(bookmark);
+      });
+
+      countNodes.forEach((node) => {
+        const category = node.dataset.bookmarkCount as BookmarkCategory | undefined;
+        if (!category) return;
+        node.textContent = String(grouped.get(category)?.length || 0);
+      });
+
+      groupNodes.forEach((groupNode) => {
+        const category = groupNode.dataset.bookmarkGroup as BookmarkCategory | undefined;
+        if (!category) return;
+        const count = grouped.get(category)?.length || 0;
+        groupNode.dataset.empty = count ? "false" : "true";
+      });
+
+      listNodes.forEach((listNode) => {
+        const category = listNode.dataset.bookmarkList as BookmarkCategory | undefined;
+        if (!category) return;
+        listNode.innerHTML = "";
+
+        const items = grouped.get(category) || [];
+        if (!items.length) {
+          const emptyItem = document.createElement("li");
+          emptyItem.className = "bookmark-manager__group-empty";
+          emptyItem.textContent = "No bookmarks in this category yet.";
+          listNode.append(emptyItem);
+        }
+
+        items.forEach((bookmark) => {
+          const articleMeta = entryMap.get(bookmark.articleSlug);
+
+          const item = document.createElement("li");
+          item.className = "bookmark-manager__item";
+
+          const content = document.createElement("div");
+          content.className = "bookmark-manager__item-content";
+
+          const titleLink = document.createElement("a");
+          titleLink.className = "bookmark-manager__link";
+          titleLink.href = `/knowledge/${bookmark.articleSlug}`;
+          titleLink.textContent =
+            bookmark.articleTitle || articleMeta?.title || bookmark.articleSlug;
+
+          const description = document.createElement("p");
+          description.className = "bookmark-manager__description";
+          description.textContent = articleMeta?.description || "";
+
+          const meta = document.createElement("div");
+          meta.className = "bookmark-manager__meta-list";
+          if (articleMeta?.updatedAt) {
+            const updated = document.createElement("span");
+            updated.className = "bookmark-manager__meta-pill";
+            updated.textContent = `Updated ${formatDate(articleMeta.updatedAt)}`;
+            meta.append(updated);
+          }
+
+          const saved = document.createElement("span");
+          saved.className =
+            "bookmark-manager__meta-pill bookmark-manager__meta-pill--saved";
+          saved.textContent = `Saved ${formatDate(bookmark.createdAt)}`;
+          meta.append(saved);
+
+          const controls = document.createElement("div");
+          controls.className = "bookmark-manager__item-controls";
+
+          const categorySelect = document.createElement("select");
+          categorySelect.className =
+            "bookmark-manager__select bookmark-manager__item-select";
+          categorySelect.setAttribute("aria-label", "Change bookmark category");
+
+          BOOKMARK_CATEGORIES.forEach((optionCategory) => {
+            const option = document.createElement("option");
+            option.value = optionCategory;
+            option.textContent = BOOKMARK_CATEGORY_LABELS[optionCategory];
+            option.selected = optionCategory === bookmark.category;
+            categorySelect.append(option);
+          });
+
+          categorySelect.addEventListener("change", () => {
+            const nextCategory = categorySelect.value as BookmarkCategory;
+            setBookmarkCategory(bookmark.articleSlug, nextCategory);
+          });
+
+          const removeButton = document.createElement("button");
+          removeButton.type = "button";
+          removeButton.className =
+            "bookmark-manager__button bookmark-manager__button--danger bookmark-manager__item-remove";
+          removeButton.textContent = "Remove";
+          removeButton.setAttribute(
+            "aria-label",
+            `Remove bookmark for ${bookmark.articleTitle || bookmark.articleSlug}`
+          );
+          removeButton.addEventListener("click", () => {
+            const undoToken = createUndoToken();
+            pendingRemovals.set(undoToken, bookmark);
+            removeBookmark(bookmark.articleSlug);
+            setFeedback("Bookmark removed. Undo is available for 10 seconds.", "warning");
+            const timer = window.setTimeout(() => {
+              pendingRemovals.delete(undoToken);
+              undoTimers.delete(undoToken);
+            }, 10_000);
+            undoTimers.set(undoToken, timer);
+
+            emitToast({
+              message: `Removed "${bookmark.articleTitle || bookmark.articleSlug}".`,
+              variant: "info",
+              durationMs: 10_000,
+              actionLabel: "Undo",
+              actionEventName: BOOKMARK_UNDO_REMOVE_EVENT,
+              actionEventDetail: { token: undoToken },
+            });
+          });
+
+          controls.append(categorySelect, removeButton);
+          content.append(titleLink);
+          if (description.textContent) {
+            content.append(description);
+          }
+          content.append(meta);
+          item.append(content, controls);
+          listNode.append(item);
+        });
+      });
+
+      const hasItems = bookmarks.length > 0;
+      empty.hidden = hasItems;
+      groups.hidden = !hasItems;
+    };
+
+    exportJsonButton?.addEventListener("click", () => {
+      const stamp = new Date().toISOString().slice(0, 10);
+      triggerDownload(
+        `melody-mind-bookmarks-${stamp}.json`,
+        exportBookmarksAsJson(),
+        "application/json"
+      );
+      setFeedback("Bookmarks exported as JSON.", "success");
+    });
+
+    exportMarkdownButton?.addEventListener("click", () => {
+      const stamp = new Date().toISOString().slice(0, 10);
+      triggerDownload(
+        `melody-mind-bookmarks-${stamp}.md`,
+        exportBookmarksAsMarkdown(),
+        "text/markdown"
+      );
+      setFeedback("Bookmarks exported as Markdown.", "success");
+    });
+
+    importTrigger?.addEventListener("click", () => {
+      importFile?.click();
+    });
+
+    importFile?.addEventListener("change", async () => {
+      const file = importFile.files?.[0];
+      if (!file) return;
+
+      if (file.size > BOOKMARK_IMPORT_MAX_BYTES) {
+        const maxMb = (BOOKMARK_IMPORT_MAX_BYTES / 1_000_000).toFixed(1);
+        setFeedback(
+          `Import failed: file is too large. Please use a file smaller than ${maxMb} MB.`,
+          "error"
+        );
+        importFile.value = "";
+        return;
+      }
+
+      try {
+        const input = await file.text();
+        const mode = importMode?.value === "replace" ? "replace" : "merge";
+
+        if (mode === "replace") {
+          const confirmed = window.confirm(
+            "Replace mode will remove your current bookmarks before importing the selected file. Continue?"
+          );
+          if (!confirmed) {
+            setFeedback("Import canceled.", "neutral");
+            return;
+          }
+        }
+
+        const result = importBookmarks(input, mode);
+        if (!result.importedCount) {
+          if (mode === "replace") {
+            setFeedback(
+              "Replace import skipped: no valid bookmarks found. Existing bookmarks were kept.",
+              "warning"
+            );
+          } else {
+            setFeedback("No valid bookmarks found in the selected file.", "warning");
+          }
+        } else {
+          setFeedback(
+            `${result.importedCount} bookmarks imported (${result.mode}). Total: ${result.totalCount}.`,
+            "success"
+          );
+        }
+      } catch {
+        setFeedback("Import failed. Please check the file format.", "error");
+      } finally {
+        importFile.value = "";
+      }
+      render();
+    });
+
+    render();
+    window.addEventListener(BOOKMARK_UNDO_REMOVE_EVENT, (event: Event) => {
+      const customEvent = event as CustomEvent<{ token?: string }>;
+      const token = customEvent.detail?.token || "";
+      if (!token) {
+        return;
+      }
+      const bookmark = pendingRemovals.get(token);
+      if (!bookmark) {
+        return;
+      }
+
+      saveBookmarks([bookmark, ...loadBookmarks()]);
+      const timer = undoTimers.get(token);
+      if (timer) {
+        window.clearTimeout(timer);
+        undoTimers.delete(token);
+      }
+      pendingRemovals.delete(token);
+      setFeedback("Bookmark restored.", "success");
+    });
+    window.addEventListener(BOOKMARK_CHANGE_EVENT, () => {
+      render();
+    });
+  });
+</script>
+
+<style is:global>
+  .bookmark-manager {
+    --bookmark-panel-bg: color-mix(in srgb, var(--gn-bg-muted) 82%, var(--gn-bg) 18%);
+    --bookmark-panel-border: color-mix(in srgb, var(--gn-panel-border) 82%, transparent);
+    --bookmark-soft-shadow: 0 18px 34px rgba(3, 9, 24, 0.22);
+  }
+
+  .bookmark-manager {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .bookmark-manager__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.95rem;
+    border: 1px solid var(--bookmark-panel-border);
+    background: var(--bookmark-panel-bg);
+    padding: 0.8rem;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-panel-inner) 45%, transparent);
+  }
+
+  .bookmark-manager__actions,
+  .bookmark-manager__import {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+  }
+
+  .bookmark-manager__label {
+    font-size: 0.95rem;
+    color: var(--gn-ink-muted);
+    font-weight: 600;
+  }
+
+  .bookmark-manager__button,
+  .bookmark-manager__select {
+    appearance: none;
+    min-height: 2.25rem;
+    border-radius: 0.65rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 85%, transparent);
+    color: var(--gn-ink);
+    font-size: 0.95rem;
+    padding: 0.35rem 0.65rem;
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .bookmark-manager__button {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .bookmark-manager__button:hover,
+  .bookmark-manager__select:hover {
+    border-color: color-mix(in srgb, var(--gn-accent) 40%, var(--gn-panel-border));
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    transform: translateY(-1px);
+  }
+
+  .bookmark-manager__button:focus-visible,
+  .bookmark-manager__select:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--gn-accent) 50%, transparent);
+    outline-offset: 2px;
+  }
+
+  .bookmark-manager__button--danger {
+    border-color: color-mix(in srgb, #d84a4a 45%, var(--gn-panel-border));
+    background: color-mix(in srgb, #d84a4a 10%, var(--gn-bg));
+  }
+
+  .bookmark-manager__file {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .bookmark-manager__feedback {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    min-height: 1.4rem;
+    padding: 0.45rem 0.65rem;
+    border-radius: 0.65rem;
+    border: 1px dashed color-mix(in srgb, var(--gn-panel-border) 75%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 60%, transparent);
+    font-size: 0.95rem;
+  }
+
+  .bookmark-manager__feedback[data-tone="success"] {
+    color: #2f8a52;
+    border-color: color-mix(in srgb, #2f8a52 40%, transparent);
+    background: color-mix(in srgb, #2f8a52 12%, transparent);
+  }
+
+  .bookmark-manager__feedback[data-tone="warning"] {
+    color: #a06a16;
+    border-color: color-mix(in srgb, #a06a16 40%, transparent);
+    background: color-mix(in srgb, #a06a16 10%, transparent);
+  }
+
+  .bookmark-manager__feedback[data-tone="error"] {
+    color: #b33b3b;
+    border-color: color-mix(in srgb, #b33b3b 40%, transparent);
+    background: color-mix(in srgb, #b33b3b 10%, transparent);
+  }
+
+  .bookmark-manager__empty-text {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    text-align: center;
+    font-size: 1.05rem;
+  }
+
+  .bookmark-manager__groups {
+    display: grid;
+    gap: 1.4rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+
+  @media (min-width: 1160px) {
+    .bookmark-manager__groups {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+    }
+  }
+
+  .bookmark-manager__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-radius: 1rem;
+    border: 1px solid var(--bookmark-panel-border);
+    background: linear-gradient(
+      165deg,
+      color-mix(in srgb, var(--gn-bg) 90%, transparent),
+      color-mix(in srgb, var(--gn-bg-muted) 70%, transparent)
+    );
+    box-shadow: var(--bookmark-soft-shadow);
+    padding: 0.95rem;
+  }
+
+  .bookmark-manager__group[data-bookmark-group="to-read"] {
+    border-color: color-mix(
+      in srgb,
+      var(--color-gn-amber-300) 28%,
+      var(--bookmark-panel-border)
+    );
+  }
+
+  .bookmark-manager__group[data-bookmark-group="favorites"] {
+    border-color: color-mix(in srgb, #4cb581 28%, var(--bookmark-panel-border));
+  }
+
+  .bookmark-manager__group[data-bookmark-group="research"] {
+    border-color: color-mix(in srgb, #4da4d8 28%, var(--bookmark-panel-border));
+  }
+
+  .bookmark-manager__group-title {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--gn-ink);
+    letter-spacing: 0.01em;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
+  }
+
+  .bookmark-manager__count {
+    min-width: 1.4rem;
+    height: 1.4rem;
+    padding: 0 0.38rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    color: var(--gn-ink);
+    background: color-mix(in srgb, var(--gn-accent) 28%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-accent) 38%, transparent);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bookmark-manager__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+  }
+
+  .bookmark-manager__group-empty {
+    display: flex;
+    align-items: center;
+    min-height: 5.25rem;
+    border-radius: 0.8rem;
+    border: 1px dashed color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    padding: 0.7rem 0.8rem;
+    color: var(--gn-ink-muted);
+    font-size: 0.92rem;
+    background: color-mix(in srgb, var(--gn-bg) 84%, transparent);
+  }
+
+  .bookmark-manager__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-radius: 0.9rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--gn-bg) 94%, transparent),
+      color-mix(in srgb, var(--gn-bg-muted) 72%, transparent)
+    );
+    padding: 1rem 1rem 1.15rem;
+    box-shadow: 0 14px 26px rgba(4, 8, 20, 0.18);
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .bookmark-manager__item:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--gn-accent) 35%, var(--gn-panel-border));
+    box-shadow: 0 20px 30px rgba(4, 8, 20, 0.28);
+  }
+
+  .bookmark-manager__group[data-empty="true"] .bookmark-manager__item {
+    display: none;
+  }
+
+  .bookmark-manager__item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .bookmark-manager__link {
+    font-size: 1.14rem;
+    color: color-mix(in srgb, var(--gn-accent) 40%, var(--gn-ink));
+    text-decoration: none;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .bookmark-manager__link:visited {
+    color: color-mix(in srgb, var(--gn-accent) 36%, var(--gn-ink));
+  }
+
+  .bookmark-manager__link:hover {
+    color: color-mix(in srgb, var(--gn-accent) 55%, var(--gn-ink));
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .bookmark-manager__description,
+  .bookmark-manager__meta {
+    margin: 0;
+    color: var(--gn-ink-muted);
+  }
+
+  .bookmark-manager__description {
+    line-height: 1.45;
+  }
+
+  .bookmark-manager__meta {
+    font-size: 0.94rem;
+  }
+
+  .bookmark-manager__meta-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .bookmark-manager__meta-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 78%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
+    color: var(--gn-ink-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+    padding: 0.24rem 0.58rem;
+  }
+
+  .bookmark-manager__meta-pill--saved {
+    border-color: color-mix(in srgb, var(--gn-accent) 32%, var(--gn-panel-border));
+    color: color-mix(in srgb, var(--gn-accent) 50%, var(--gn-ink));
+  }
+
+  .bookmark-manager__item-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.35rem;
+    padding-top: 0.65rem;
+    padding-bottom: 0.1rem;
+    border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 62%, transparent);
+    align-items: center;
+  }
+
+  .bookmark-manager__item-select {
+    min-width: 7.4rem;
+    font-size: 0.9rem;
+    padding-inline: 0.55rem;
+    background: color-mix(in srgb, var(--gn-bg-muted) 82%, transparent);
+  }
+
+  .bookmark-manager__item-remove {
+    font-size: 0.9rem;
+    padding-inline: 0.72rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 840px) {
+    .bookmark-manager__toolbar {
+      align-items: stretch;
+    }
+
+    .bookmark-manager__actions,
+    .bookmark-manager__import {
+      width: 100%;
+    }
+
+    .bookmark-manager__button,
+    .bookmark-manager__select {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+  }
+</style>

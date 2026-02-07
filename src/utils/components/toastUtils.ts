@@ -4,6 +4,9 @@ export interface ToastOptions {
   message: string;
   variant?: ToastVariant;
   durationMs?: number;
+  actionLabel?: string;
+  actionEventName?: string;
+  actionEventDetail?: Record<string, unknown>;
 }
 
 export const TOAST_EVENT_NAME = "melodymind:toast";
@@ -19,6 +22,9 @@ export function emitToast(options: ToastOptions): void {
     message: options.message,
     variant: options.variant ?? "info",
     durationMs: options.durationMs ?? DEFAULT_DURATION_MS,
+    actionLabel: options.actionLabel ?? "",
+    actionEventName: options.actionEventName ?? "",
+    actionEventDetail: options.actionEventDetail ?? {},
   };
 
   window.dispatchEvent(new CustomEvent(TOAST_EVENT_NAME, { detail }));

@@ -9,6 +9,9 @@
     message: string;
     variant: ToastVariant;
     durationMs: number;
+    actionLabel: string;
+    actionEventName: string;
+    actionEventDetail: Record<string, unknown>;
   }
 
   const MAX_TOASTS = 4;
@@ -46,7 +49,28 @@
     closeButton.setAttribute("aria-label", "Dismiss notification");
     closeButton.addEventListener("click", () => dismissToast(toastEl));
 
-    toastEl.append(messageEl, closeButton);
+    const actionsEl = document.createElement("div");
+    actionsEl.className = "toast__actions";
+
+    if (detail.actionLabel && detail.actionEventName) {
+      const actionButton = document.createElement("button");
+      actionButton.className = "toast__action";
+      actionButton.type = "button";
+      actionButton.textContent = detail.actionLabel;
+      actionButton.addEventListener("click", () => {
+        window.dispatchEvent(
+          new CustomEvent(detail.actionEventName, {
+            detail: detail.actionEventDetail,
+          })
+        );
+        dismissToast(toastEl);
+      });
+      actionsEl.append(actionButton);
+    }
+
+    actionsEl.append(closeButton);
+
+    toastEl.append(messageEl, actionsEl);
     root.append(toastEl);
 
     requestAnimationFrame(() => {
@@ -145,6 +169,35 @@
     transition:
       transform var(--transition-fast),
       background-color var(--transition-fast);
+  }
+
+  .toast__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .toast__action {
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 72%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--gn-accent) 28%, transparent);
+    color: var(--gn-ink);
+    padding: 0.35rem 0.75rem;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition:
+      transform var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .toast__action:hover {
+    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--gn-accent) 38%, transparent);
+  }
+
+  .toast__action:active {
+    transform: translateY(0);
   }
 
   .toast__close:hover {

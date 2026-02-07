@@ -1,0 +1,169 @@
+# Decade Artists (Unique Master List)
+
+Unique solo artists from the decade articles (`1950s.mdx` to `2010s.mdx`), with bands removed and each name listed once.
+
+- 2face Idibia
+- 50 Cent
+- Adele
+- Alanis Morissette
+- Alicia Keys
+- Anita Baker
+- Aretha Franklin
+- Ariana Grande
+- Avicii
+- Bad Bunny
+- Ben Klock
+- Beyoncé
+- Big Mama Thornton
+- Billie Eilish
+- Billie Holiday
+- Billy Joel
+- Björk
+- BoA
+- Bob Dylan
+- Bob Marley
+- Brenda Lee
+- Brian Wilson
+- Britney Spears
+- Bruce Springsteen
+- Caetano Veloso
+- Calvin Harris
+- Carl Cox
+- Cardi B
+- Carly Simon
+- Carole King
+- Cassandra Wilson
+- Charles Mingus
+- Chester Bennington
+- Childish Gambino
+- Christina Aguilera
+- Chuck Berry
+- Clairo
+- Cynthia Weil
+- Cyndi Lauper
+- David Bowie
+- Deadmau5
+- Demi Lovato
+- Dionne Warwick
+- Diplo
+- Donna Summer
+- Drake
+- Dusty Springfield
+- Ella Fitzgerald
+- Ellie Greenwich
+- Elvis Presley
+- Eminem
+- Erykah Badu
+- Eve
+- Falco
+- Fatboy Slim
+- Fela Kuti
+- FKA twigs
+- Frank Ocean
+- Frank Sinatra
+- Frank Zappa
+- Future
+- Gary Numan
+- George Clinton
+- George Michael
+- Grace Jones
+- Grimes
+- Hank Williams
+- Helena Hauff
+- Herbie Hancock
+- Howlin' Wolf
+- Jackie DeShannon
+- James Blake
+- James Brown
+- James Taylor
+- Janelle Monáe
+- Jackson Browne
+- Janet Jackson
+- Jay-Z
+- Jeff Mills
+- Jessica Simpson
+- Joan Baez
+- Joni Mitchell
+- Jonathan Davis
+- Juanes
+- Judee Sill
+- Justin Bieber
+- Karen O
+- Kate Bush
+- Katy Perry
+- Kanye West
+- Kendrick Lamar
+- Kid Cudi
+- Kurt Cobain
+- Kylie Minogue
+- Lana Del Rey
+- LaVern Baker
+- Laura Nyro
+- Lauryn Hill
+- Laurent Garnier
+- Lefty Frizzell
+- Lil Wayne
+- Little Richard
+- Logic
+- Lorde
+- Luther Vandross
+- Madonna
+- Marc Bolan
+- Mariah Carey
+- Marvin Gaye
+- Mary J. Blige
+- Megan Thee Stallion
+- Michael Jackson
+- Miles Davis
+- Minnie Riperton
+- Missy Elliott
+- Muddy Waters
+- Namie Amuro
+- Nas
+- Nat King Cole
+- Ne-Yo
+- Neil Young
+- Nicki Minaj
+- Nina Kraviz
+- Otis Redding
+- Pat Metheny
+- Peggy Lee
+- Petula Clark
+- Phoebe Bridgers
+- PJ Harvey
+- Prince
+- Queen Latifah
+- Ray Charles
+- Rex Orange County
+- Ricardo Villalobos
+- Ricky Martin
+- Rihanna
+- Roberta Flack
+- Rosalía
+- Roxanne Shanté
+- Ruth Brown
+- Sade
+- Sam Cooke
+- Sandie Shaw
+- Santana
+- Sean Paul
+- Shakira
+- Sinéad O'Connor
+- Sister Rosetta Tharpe
+- Skrillex
+- Solange
+- Stevie Wonder
+- Sven Väth
+- T.I.
+- Taylor Swift
+- The Notorious B.I.G.
+- The Weeknd
+- Thelonious Monk
+- Tina Turner
+- Tori Amos
+- Troye Sivan
+- Tupac Shakur
+- Usher
+- Utada Hikaru
+- Wanda Jackson
+- Whitney Houston
