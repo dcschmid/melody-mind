@@ -4,13 +4,7 @@ Source basis: text content from the decade articles (`1950s.mdx` to `2010s.mdx`)
 
 ## 1950s
 
-- Big Mama Thornton
-- Billie Holiday
-- Brenda Lee
-- Charles Mingus
-- Chuck Berry
 - Ella Fitzgerald
-- Elvis Presley
 - Frank Sinatra
 - Hank Williams
 - Howlin' Wolf

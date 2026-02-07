@@ -6,6 +6,7 @@
 type SearchElements = {
   root: HTMLElement;
   input: HTMLInputElement;
+  genreInput: HTMLInputElement | HTMLSelectElement | null;
   clearBtn: HTMLButtonElement | null;
   resetBtn: HTMLButtonElement | null;
   statusEl: HTMLElement | null;
@@ -91,9 +92,19 @@ const getElements = (root: HTMLElement): SearchElements | null => {
 
   if (!listItems.length) return null;
 
+  const externalGenreInput = ariaControlsId
+    ? document.querySelector<HTMLInputElement | HTMLSelectElement>(
+        `[data-search-genre-filter-for="${ariaControlsId}"]`
+      )
+    : null;
+
   return {
     root,
     input,
+    genreInput:
+      root.querySelector<HTMLInputElement | HTMLSelectElement>(
+        "[data-search-genre-filter]"
+      ) || externalGenreInput,
     clearBtn: root.querySelector<HTMLButtonElement>("[data-search-clear]"),
     resetBtn: root.querySelector<HTMLButtonElement>("[data-search-reset]"),
     statusEl: root.querySelector<HTMLElement>("[data-search-status]"),
@@ -140,8 +151,25 @@ const getSearchIndex = (item: HTMLElement): string => {
   return normalized;
 };
 
+const getGenreIndex = (item: HTMLElement): string[] => {
+  const cached = item.dataset.searchGenresIndex;
+  if (cached) {
+    return cached.split("||").filter(Boolean);
+  }
+
+  const normalized = (item.dataset.searchGenres || "")
+    .toLowerCase()
+    .split("||")
+    .map((genre) => genre.trim())
+    .filter(Boolean);
+
+  item.dataset.searchGenresIndex = normalized.join("||");
+  return normalized;
+};
+
 function initSearchPanel(elements: SearchElements): void {
-  const { input, clearBtn, resetBtn, statusEl, noResultsEl, listItems } = elements;
+  const { input, genreInput, clearBtn, resetBtn, statusEl, noResultsEl, listItems } =
+    elements;
 
   if ((elements.root as any).__searchInitialized) return;
   (elements.root as any).__searchInitialized = true;
@@ -149,8 +177,8 @@ function initSearchPanel(elements: SearchElements): void {
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
   let lastStatusAnnouncement = "";
 
-  const updateStatus = (count: number, term: string): void => {
-    const hasQuery = term.trim().length > 0;
+  const updateStatus = (count: number, term: string, genreTerm: string): void => {
+    const hasQuery = term.trim().length > 0 || genreTerm.trim().length > 0;
     if (statusEl) {
       const nextStatus = getStatusText(statusEl, hasQuery, count);
       if (nextStatus !== lastStatusAnnouncement) {
@@ -162,7 +190,8 @@ function initSearchPanel(elements: SearchElements): void {
       const showEmpty = hasQuery && count === 0;
       noResultsEl.hidden = !showEmpty;
       if (showEmpty) {
-        noResultsEl.textContent = getNoResultsText(noResultsEl, term);
+        const emptyTerm = term.trim() || `genre: ${genreTerm.trim()}`;
+        noResultsEl.textContent = getNoResultsText(noResultsEl, emptyTerm);
       }
     }
     if (clearBtn) {
@@ -172,9 +201,10 @@ function initSearchPanel(elements: SearchElements): void {
     }
   };
 
-  const performSearch = (term: string): void => {
+  const performSearch = (term: string, genreTerm: string): void => {
     const q = term.trim().toLowerCase();
-    const hasQuery = q.length > 0;
+    const genreQuery = genreTerm.trim().toLowerCase();
+    const hasQuery = q.length > 0 || genreQuery.length > 0;
     let count = 0;
     const targetList = elements.ariaControlsId
       ? (document.getElementById(elements.ariaControlsId) as HTMLElement | null)
@@ -185,7 +215,11 @@ function initSearchPanel(elements: SearchElements): void {
     targetList?.setAttribute("aria-busy", "true");
     listItems.forEach((item) => {
       const haystack = getSearchIndex(item);
-      const match = q === "" || haystack.includes(q);
+      const textMatch = q === "" || haystack.includes(q);
+      const genreIndex = getGenreIndex(item);
+      const genreMatch =
+        genreQuery === "" || genreIndex.some((genre) => genre.includes(genreQuery));
+      const match = textMatch && genreMatch;
       item.hidden = !match;
 
       if (match) {
@@ -195,7 +229,7 @@ function initSearchPanel(elements: SearchElements): void {
         delete item.dataset.searchVisibleIndex;
       }
     });
-    updateStatus(count, term);
+    updateStatus(count, term, genreTerm);
 
     const normalizedTerm = term.trim();
     dispatchSearchTelemetry({
@@ -244,7 +278,7 @@ function initSearchPanel(elements: SearchElements): void {
   input.addEventListener("input", (e: Event) => {
     const value = (e.target as HTMLInputElement)?.value || "";
     if (debounceTimer) clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(() => performSearch(value), 150);
+    debounceTimer = setTimeout(() => performSearch(value, genreInput?.value || ""), 150);
   });
 
   input.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -253,22 +287,40 @@ function initSearchPanel(elements: SearchElements): void {
     }
     e.preventDefault();
     input.value = "";
-    performSearch("");
+    performSearch("", genreInput?.value || "");
   });
+
+  const handleGenreFilterInput = (e: Event): void => {
+    const value = (e.target as HTMLInputElement | HTMLSelectElement)?.value || "";
+    if (debounceTimer) clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => performSearch(input.value, value), 120);
+  };
+
+  if (genreInput instanceof HTMLSelectElement) {
+    genreInput.addEventListener("change", handleGenreFilterInput);
+  } else {
+    genreInput?.addEventListener("input", handleGenreFilterInput);
+  }
 
   clearBtn?.addEventListener("click", () => {
     input.value = "";
-    performSearch("");
+    if (genreInput) {
+      genreInput.value = "";
+    }
+    performSearch("", "");
     input.focus();
   });
 
   resetBtn?.addEventListener("click", () => {
     input.value = "";
-    performSearch("");
+    if (genreInput) {
+      genreInput.value = "";
+    }
+    performSearch("", "");
     input.focus();
   });
 
-  performSearch("");
+  performSearch("", genreInput?.value || "");
 }
 
 export function initSearchPanelsAuto(): void {

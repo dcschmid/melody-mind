@@ -13,6 +13,14 @@ const artists = ((await getCollectionCached("artists").catch(() => [])) as Artis
   .filter((artist) => Boolean(artist.id) && Boolean(artist.data?.name))
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
 
+const genreOptions = Array.from(
+  new Set(
+    artists.flatMap((artist) =>
+      (artist.data.genres || []).map((genre) => genre.trim()).filter(Boolean)
+    )
+  )
+).sort((a, b) => a.localeCompare(b));
+
 const resolveArtistSlug = (artist: ArtistEntry): string =>
   artist.id.replace(/\.mdx?$/, "");
 
@@ -52,17 +60,35 @@ const pageSeo = buildPageSeo({
             profile to explore timeline, key works, related artists, and linked articles.
           </p>
         </div>
-        <div class="artists-index__search search-panel-shell">
-          <SearchPanel
-            idBase="artists-search"
-            label="Search artists"
-            placeholder="Search by artist, genre, origin"
-            ariaControls="artists-list"
-            analyticsSurface="artists-index"
-            statusAllText="Showing all artists"
-            statusCountTemplate="{count} artists found"
-            noResultsTemplate='No artists found for "{term}"'
-          />
+        <div class="artists-index__controls">
+          <div class="artists-index__search search-panel-shell">
+            <SearchPanel
+              idBase="artists-search"
+              label="Search artists"
+              placeholder="Search by artist, genre, origin"
+              ariaControls="artists-list"
+              analyticsSurface="artists-index"
+              statusAllText="Showing all artists"
+              statusCountTemplate="{count} artists found"
+              noResultsTemplate='No artists found for "{term}"'
+            />
+          </div>
+
+          <div class="artists-index__filters" aria-label="Artist filters">
+            <div class="artists-index__genre-filter">
+              <label for="artists-genre-filter" class="artists-index__genre-label"
+                >Genre filter</label
+              >
+              <select
+                id="artists-genre-filter"
+                class="artists-index__genre-input"
+                data-search-genre-filter-for="artists-list"
+              >
+                <option value="">All genres</option>
+                {genreOptions.map((genre) => <option value={genre}>{genre}</option>)}
+              </select>
+            </div>
+          </div>
         </div>
       </header>
 
@@ -78,6 +104,7 @@ const pageSeo = buildPageSeo({
                 <li
                   class="artist-card"
                   data-search-text={`${artist.data.name} ${artist.data.origin} ${artist.data.genres.join(" ")}`}
+                  data-search-genres={artist.data.genres.join("||")}
                 >
                   <a
                     href={`/artists/${resolveArtistSlug(artist)}`}
@@ -128,14 +155,7 @@ const pageSeo = buildPageSeo({
 
   .artists-index__header {
     display: grid;
-    gap: 1.25rem;
-  }
-
-  @media (min-width: 960px) {
-    .artists-index__header {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
-      align-items: end;
-    }
+    gap: 1.1rem;
   }
 
   .artists-index__headline {
@@ -168,9 +188,114 @@ const pageSeo = buildPageSeo({
   }
 
   .artists-index__search {
-    margin-inline-start: auto;
+    min-width: 0;
     inline-size: 100%;
-    --search-shell-max-inline-size: 30rem;
+    --search-shell-max-inline-size: none;
+  }
+
+  .artists-index__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 1rem;
+    inline-size: 100%;
+  }
+
+  .artists-index__filters {
+    flex: 0 1 19rem;
+    min-width: 16rem;
+    display: block;
+  }
+
+  .artists-index__search {
+    flex: 1 1 38rem;
+  }
+
+  @media (min-width: 900px) {
+    .artists-index__controls {
+      flex-wrap: nowrap;
+    }
+  }
+
+  @media (max-width: 899px) {
+    .artists-index__filters {
+      min-width: 100%;
+      flex-basis: 100%;
+    }
+  }
+
+  .artists-index__genre-filter {
+    inline-size: 100%;
+    min-width: 0;
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.85rem 0.95rem;
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 74%, transparent);
+    background:
+      linear-gradient(
+        145deg,
+        color-mix(in srgb, var(--gn-bg-muted) 90%, transparent),
+        transparent
+      ),
+      color-mix(in srgb, var(--gn-bg-muted) 82%, transparent);
+    box-shadow: var(--gn-offset-shadow);
+  }
+
+  .artists-index__genre-label {
+    margin: 0;
+    color: var(--gn-ink-muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+  }
+
+  .artists-index__genre-input {
+    appearance: none;
+    min-height: 44px;
+    border-radius: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 88%, transparent);
+    color: var(--gn-ink);
+    padding: 0.65rem 2.2rem 0.65rem 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-image:
+      linear-gradient(
+        45deg,
+        transparent 50%,
+        color-mix(in srgb, var(--gn-ink) 80%, transparent) 50%
+      ),
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--gn-ink) 80%, transparent) 50%,
+        transparent 50%
+      );
+    background-position:
+      calc(100% - 1rem) calc(50% - 2px),
+      calc(100% - 0.7rem) calc(50% - 2px);
+    background-size:
+      0.35rem 0.35rem,
+      0.35rem 0.35rem;
+    background-repeat: no-repeat;
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .artists-index__genre-input::placeholder {
+    color: var(--gn-ink-muted);
+  }
+
+  .artists-index__genre-input:hover {
+    border-color: color-mix(in srgb, var(--gn-accent) 55%, transparent);
+  }
+
+  .artists-index__genre-input:focus-visible {
+    outline: none;
+    border-color: color-mix(in srgb, var(--gn-accent) 70%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--gn-accent) 22%, transparent);
   }
 
   .artists-index__grid {

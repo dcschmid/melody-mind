@@ -1,7 +1,7 @@
 ---
 interface LinkedArtist {
   name: string;
-  slug: string;
+  slug?: string;
 }
 
 interface Props {
@@ -25,9 +25,13 @@ const { artistName, influencedBy, influenced } = Astro.props;
           <ul class="influence-graph__list">
             {influencedBy.map((artist) => (
               <li>
-                <a href={`/artists/${artist.slug}`} class="influence-graph__link">
-                  {artist.name}
-                </a>
+                {artist.slug ? (
+                  <a href={`/artists/${artist.slug}`} class="influence-graph__link">
+                    {artist.name}
+                  </a>
+                ) : (
+                  <span class="influence-graph__text">{artist.name}</span>
+                )}
               </li>
             ))}
           </ul>
@@ -44,9 +48,13 @@ const { artistName, influencedBy, influenced } = Astro.props;
           <ul class="influence-graph__list">
             {influenced.map((artist) => (
               <li>
-                <a href={`/artists/${artist.slug}`} class="influence-graph__link">
-                  {artist.name}
-                </a>
+                {artist.slug ? (
+                  <a href={`/artists/${artist.slug}`} class="influence-graph__link">
+                    {artist.name}
+                  </a>
+                ) : (
+                  <span class="influence-graph__text">{artist.name}</span>
+                )}
               </li>
             ))}
           </ul>
@@ -115,6 +123,10 @@ const { artistName, influencedBy, influenced } = Astro.props;
     text-decoration: underline;
     text-decoration-color: color-mix(in srgb, var(--gn-accent) 60%, transparent);
     text-underline-offset: 0.2rem;
+  }
+
+  .influence-graph__text {
+    color: var(--gn-ink);
   }
 
   .influence-graph__link:hover {

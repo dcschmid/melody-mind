@@ -4,6 +4,11 @@ import InfluenceGraph from "@components/InfluenceGraph.astro";
 import RelatedArtists from "@components/RelatedArtists.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
+import {
+  artistSlugFromId,
+  buildArtistLookup,
+  normalizeArtistReference,
+} from "@utils/content/artistReferences";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@utils/siteUrls";
 import type { ArtistEntry } from "../../types/artist";
@@ -24,6 +29,11 @@ interface LinkedArtist {
   slug: string;
 }
 
+interface InfluenceArtist {
+  name: string;
+  slug?: string;
+}
+
 interface RelatedArtistCard extends LinkedArtist {
   genres: string[];
   reason: string;
@@ -32,7 +42,7 @@ interface RelatedArtistCard extends LinkedArtist {
 export async function getStaticPaths() {
   const artists = (await getCollectionCached("artists").catch(() => [])) as ArtistEntry[];
   return artists.reduce<Array<{ params: { slug: string } }>>((paths, artist) => {
-    const slug = artist.id.replace(/\.mdx?$/, "");
+    const slug = artistSlugFromId(artist.id);
     if (!slug) return paths;
     paths.push({ params: { slug } });
     return paths;
@@ -47,42 +57,78 @@ const knowledgeArticles = (await getCollectionCached("knowledge-en").catch(
 )) as KnowledgeEntry[];
 
 const slug = (Astro.params?.slug as string) || "";
+const normalizedSlug = normalizeArtistReference(slug);
 const artistEntry = allArtists.find(
-  (artist) => artist.id.replace(/\.mdx?$/, "") === slug
+  (artist) => normalizeArtistReference(artist.id) === normalizedSlug
 );
 
 if (!artistEntry) {
   return new Response("Not found", { status: 404 });
 }
 
-const artistById = new Map(allArtists.map((artist) => [artist.id, artist]));
+const artistById = buildArtistLookup(allArtists);
 
-const toLinkedArtists = (ids: string[]): LinkedArtist[] =>
-  ids
-    .map((id) => artistById.get(id))
-    .filter((artist): artist is ArtistEntry => Boolean(artist))
-    .map((artist) => ({
-      name: artist.data.name,
-      slug: artist.id.replace(/\.mdx?$/, ""),
-    }));
+const humanizeArtistReference = (value: string): string =>
+  value
+    .trim()
+    .replace(/[_-]+/g, " ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+const toLinkedArtists = (ids: string[]): InfluenceArtist[] =>
+  ids.reduce<InfluenceArtist[]>((items, id) => {
+    const normalizedId = normalizeArtistReference(id);
+    if (!normalizedId) {
+      return items;
+    }
+
+    const knownArtist = artistById.get(normalizedId);
+    if (knownArtist) {
+      items.push({
+        name: knownArtist.data.name,
+        slug: artistSlugFromId(knownArtist.id),
+      });
+      return items;
+    }
+
+    items.push({ name: humanizeArtistReference(normalizedId) });
+    return items;
+  }, []);
 
 const influencedByArtists = toLinkedArtists(artistEntry.data.influencedBy || []);
 const influencedArtists = toLinkedArtists(artistEntry.data.influenced || []);
 
+const currentArtistId = normalizeArtistReference(artistEntry.id);
+const currentInfluencedBySet = new Set(
+  (artistEntry.data.influencedBy || []).map(normalizeArtistReference).filter(Boolean)
+);
+const currentInfluencedSet = new Set(
+  (artistEntry.data.influenced || []).map(normalizeArtistReference).filter(Boolean)
+);
+
 const currentGenres = new Set(artistEntry.data.genres || []);
 const similarArtists: RelatedArtistCard[] = allArtists
-  .filter((artist) => artist.id !== artistEntry.id)
+  .filter((artist) => normalizeArtistReference(artist.id) !== currentArtistId)
   .map((artist) => {
+    const normalizedArtistId = normalizeArtistReference(artist.id);
     const sharedGenres = artist.data.genres.filter((genre) => currentGenres.has(genre));
+    const artistInfluencedBySet = new Set(
+      (artist.data.influencedBy || []).map(normalizeArtistReference).filter(Boolean)
+    );
+    const artistInfluencedSet = new Set(
+      (artist.data.influenced || []).map(normalizeArtistReference).filter(Boolean)
+    );
     const relatedByInfluence =
-      artistEntry.data.influencedBy.includes(artist.id) ||
-      artistEntry.data.influenced.includes(artist.id) ||
-      artist.data.influencedBy.includes(artistEntry.id) ||
-      artist.data.influenced.includes(artistEntry.id);
+      currentInfluencedBySet.has(normalizedArtistId) ||
+      currentInfluencedSet.has(normalizedArtistId) ||
+      artistInfluencedBySet.has(currentArtistId) ||
+      artistInfluencedSet.has(currentArtistId);
 
     return {
       name: artist.data.name,
-      slug: artist.id.replace(/\.mdx?$/, ""),
+      slug: artistSlugFromId(artist.id),
       genres: artist.data.genres,
       sharedGenres,
       relatedByInfluence,
@@ -107,7 +153,7 @@ const knowledgeByKey = knowledgeArticles.reduce<Map<string, KnowledgeEntry>>(
     if (entry.slug) {
       map.set(entry.slug, entry);
     }
-    map.set(entry.id.replace(/\.mdx?$/, ""), entry);
+    map.set(artistSlugFromId(entry.id), entry);
     return map;
   },
   new Map()
@@ -118,12 +164,12 @@ const relatedArticles = (artistEntry.data.relatedArticles || [])
   .filter((entry): entry is KnowledgeEntry => Boolean(entry))
   .map((entry) => ({
     title: entry.data.title,
-    slug: entry.slug || entry.id.replace(/\.mdx?$/, ""),
+    slug: entry.slug || artistSlugFromId(entry.id),
   }));
 
 const pageUrl = resolvePageUrl(
   Astro.site,
-  `/artists/${artistEntry.id.replace(/\.mdx?$/, "")}`
+  `/artists/${artistSlugFromId(artistEntry.id)}`
 );
 const breadcrumbsBase = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
