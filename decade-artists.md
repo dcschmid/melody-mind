@@ -2,27 +2,6 @@
 
 Source basis: text content from the decade articles (`1950s.mdx` to `2010s.mdx`), with bands removed.
 
-## 1960s
-
-- Aretha Franklin
-- Bob Dylan
-- Brian Wilson
-- Carole King
-- Cynthia Weil
-- Dionne Warwick
-- Dusty Springfield
-- Ellie Greenwich
-- James Brown
-- Jackie DeShannon
-- Joan Baez
-- Petula Clark
-- Ray Charles
-- Sam Cooke
-- Sandie Shaw
-- Stevie Wonder
-- Marvin Gaye
-- Otis Redding
-
 ## 1970s
 
 - Aretha Franklin

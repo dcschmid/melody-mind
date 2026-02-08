@@ -1,7 +1,8 @@
 ---
 name: "Howlin' Wolf"
 photo: "/artists/howlin-wolf.jpg"
-biography: 'Howlin'' Wolf, born Chester Arthur Burnett, was one of the most influential Chicago blues singers and guitarists of the 20th century. Known for his imposing physical presence (6''6" and 300 lbs), thunderous voice that ranged from growls to falsettos, and dynamic stage performances, Wolf recorded some of the most enduring blues classics for Chess Records from 1951 to 1962. His songs became staples for countless rock, blues, and R&B artists, with ''Spoonful'' and ''Smokestack Lightnin'''' becoming genre-defining tracks. A Grammy Hall of Fame inductee and member of both the Blues Hall of Fame and Rock and Roll Hall of Fame, Howlin'' Wolf''s raw emotional delivery and innovative arrangements shaped the development of modern blues and rock music.'
+biography: |
+  Howlin' Wolf, born Chester Arthur Burnett, was one of the most influential Chicago blues singers and guitarists of the 20th century. Known for his imposing physical presence (6'6" and 300 lbs), thunderous voice that ranged from growls to falsettos, and dynamic stage performances, Wolf recorded some of the most enduring blues classics for Chess Records from 1951 to 1962. His songs became staples for countless rock, blues, and R&B artists, with "Spoonful" and "Smokestack Lightnin'" becoming genre-defining tracks. A Grammy Hall of Fame inductee and member of both the Blues Hall of Fame and Rock and Roll Hall of Fame, Howlin' Wolf's raw emotional delivery and innovative arrangements shaped the development of modern blues and rock music.
 born: "June 10, 1910"
 died: "January 10, 1976"
 origin: "West Point, Mississippi, USA"
