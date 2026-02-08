@@ -49,10 +49,7 @@ keySongs:
   - "Sitting on Top of the World"
   - "Goin' Down Slow"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
 discographyOverview: "During his recording career from 1951 to 1973, Wolf released over 120 songs across Chess Records and its subsidiaries, including multiple R&B chart hits. His Chess Records catalog (1951-1962) produced seminal blues tracks like 'Smokestack Lightnin,'' 'Spoonful,' and 'Killing Floor,' which became essential repertoire for blues and rock musicians. His 1971 'London Sessions' album featured collaborations with Eric Clapton, Steve Winwood, and other British rock stars, demonstrating his cross-generational influence. Posthumously, his work has been recognized with Grammy Hall of Fame inductions for 'Smokestack Lightnin'' (1999) and 'Spoonful' (1999), and his recordings have sold over 10 million copies worldwide."
 careerTimeline:
   - year: "1930s"

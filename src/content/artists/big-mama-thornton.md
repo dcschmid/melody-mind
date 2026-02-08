@@ -40,9 +40,7 @@ keySongs:
   - "Little Red Rooster"
 relatedArticles:
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1980s"
+  - "from-blues-to-breakdown"
 discographyOverview: "With a career spanning the 1940s to 1984, Big Mama Thornton released 10 studio albums and numerous singles that became foundations of rock and roll. Her 1952 original recording of 'Hound Dog' topped R&B charts for seven weeks and sold over two million copies, far exceeding Elvis Presley's 1956 cover version. 'Ball and Chain' became a blues standard, later popularized by Janis Joplin. Despite being overshadowed by later covers, Thornton received Grammy nominations in 1984 for 'Big Mama Swings' and was posthumously inducted into the Blues Hall of Fame in 2018 for her foundational contributions to American music."
 careerTimeline:
   - year: "1941"

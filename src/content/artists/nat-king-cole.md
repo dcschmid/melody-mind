@@ -49,9 +49,7 @@ keySongs:
   - "Orange Colored Sky"
   - "Send for Me"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
 discographyOverview: "During his recording career from 1936 to 1965, Cole released over 1,500 songs across Capitol Records and other labels, with over 200 charting on Billboard's Hot 100, 20 reaching Top 10, and 4 hitting number one: 'Straighten Up and Fly Right' (1943), 'The Christmas Song' (1946), 'Mona Lisa' (1950), and 'Too Young' (1951). His solo career from 1950 to 1965 produced enduring classics like 'Unforgettable,' 'L-O-V-E,' and 'Smile,' while his earlier trio recordings with Oscar Moore and Wesley Prince pioneered piano vocal jazz. Posthumously, 'The Christmas Song,' 'Mona Lisa,' and 'Unforgettable' were inducted into the Grammy Hall of Fame. His recordings have sold over 50 million copies worldwide, making him one of the best-selling music artists of all time."
 careerTimeline:
   - year: "1936"

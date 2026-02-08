@@ -49,9 +49,7 @@ keySongs:
   - "Kaw-Liga"
   - "Take These Chains from My Heart"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
 discographyOverview: "During his career from 1937 to 1953, Williams released 128 singles across various labels, with 55 charting on Billboard's Country & Western Best Sellers list. His catalog includes 11 number-one country hits, including 'Lovesick Blues,' 'I'm So Lonesome I Could Cry,' and 'Your Cheatin' Heart,' the latter becoming one of the most recorded songs in music history with over 500 versions. His posthumous compilation 'The Complete Hank Williams' (1998) earned Grammy Hall of Fame recognition, and his overall catalog has sold over 75 million records worldwide."
 careerTimeline:
   - year: "1937"

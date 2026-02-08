@@ -43,8 +43,6 @@ keySongs:
   - "Big Four-Poster Bed"
 relatedArticles:
   - "1950s"
-  - "1960s"
-  - "1970s"
 discographyOverview: "With a career spanning 1955 to present, Brenda Lee recorded her first songs at age 11 and has maintained a remarkable 65+ year music career. She achieved 47 Billboard Hot 100 chart entries, with two number-one hits ('I'm Sorry' and 'I Want to Be Wanted') in 1960. Her holiday classic 'Rockin' Around the Christmas Tree' (1958) became an enduring Christmas standard that remains popular decades later. Lee received Grammy Hall of Fame induction for 'I'm Sorry' and 'Rockin' Around the Christmas Tree.' She was inducted into Country Music Hall of Fame in 1997 and Rock and Roll Hall of Fame in 2002, one of the few artists to achieve both honors. Billboard ranked her among 'Greatest Pop Stars of All Time' in 2022."
 careerTimeline:
   - year: "1955"

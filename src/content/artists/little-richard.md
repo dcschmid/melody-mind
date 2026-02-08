@@ -44,7 +44,7 @@ keySongs:
 relatedArticles:
   - "1950s"
   - "1960s"
-  - "1970s"
+  - "from-blues-to-breakdown"
 discographyOverview: "With a career spanning 1951 to 2020, Little Richard released 22 studio albums and created some of rock and roll's most enduring hits. His recordings from 1955-1957 established the foundation for rock music, with 'Tutti Frutti' and 'Long Tall Sally' becoming genre-defining classics. Despite several hiatuses for religious ministry, his catalog influenced virtually every major rock artist. His work has been sampled by hundreds of artists and his songs appear in countless films and television shows, cementing his legacy as one of music's most influential figures."
 careerTimeline:
   - year: "1951"

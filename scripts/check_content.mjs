@@ -31,9 +31,7 @@ const normalizeLinkTarget = (raw) => {
 
 for (const relativePath of files) {
   const absPath = path.resolve(projectRoot, relativePath);
-  const isContentFile = /src\/content\/knowledge-en\/.+\.(md|mdx)$/i.test(
-    relativePath
-  );
+  const isContentFile = /src\/content\/knowledge-en\/.+\.(md|mdx)$/i.test(relativePath);
   const isMarkdown = /\.(md|mdx)$/i.test(relativePath);
 
   let rawContent = "";
@@ -96,6 +94,10 @@ for (const relativePath of files) {
 
       let resolvedPath;
       if (target.startsWith("/")) {
+        if (/^\/artists\/[a-z0-9-]+\/?$/i.test(target)) {
+          continue;
+        }
+
         const publicPath = path.join(projectRoot, "public", target);
         const srcPath = path.join(projectRoot, "src", target.replace(/^\/+/, ""));
         const existsInPublic = await fileExists(publicPath);

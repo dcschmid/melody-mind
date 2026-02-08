@@ -50,9 +50,7 @@ keySongs:
   - "The Way You Look Tonight"
   - "Young at Heart"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
 discographyOverview: "With a career spanning 1935 to 1998, Frank Sinatra recorded over 1,000 songs across 47 solo albums. His discography includes collaborations with orchestras led by Tommy Dorsey, Count Basie, and Duke Ellington. Sinatra founded Reprise Records in 1960, giving artists unprecedented control over their recordings. He won 11 Grammy Awards, with 'My Way,' 'Strangers in the Night,' and 'Fly Me to the Moon' receiving Grammy Hall of Fame induction. Sinatra received Academy Award for Best Supporting Actor for 'From Here to Eternity' and was named among 'Greatest Artists of All Time' by Rolling Stone."
 careerTimeline:
   - year: "1935"

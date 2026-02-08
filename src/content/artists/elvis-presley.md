@@ -42,7 +42,7 @@ keySongs:
 relatedArticles:
   - "1950s"
   - "1960s"
-  - "1970s"
+  - "from-blues-to-breakdown"
 discographyOverview: "With a career spanning 1954 to 1977, Presley released over 600 songs across 24 studio albums, 11 live albums, and numerous soundtracks. His catalog includes 149 Hot 100 chart entries, with 114 reaching the Top 40, 40 in the Top 10, and 18 number-one hits. He remains the best-selling solo music artist of all time with estimated record sales exceeding 1 billion units worldwide."
 careerTimeline:
   - year: "1954"

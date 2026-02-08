@@ -48,10 +48,7 @@ keySongs:
   - "Portrait of Tracy"
   - "Boogie Stop Shuffle"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
 discographyOverview: "With a career spanning 1940 to 1979, Charles Mingus composed over 300 works and led 47 albums as a bandleader. His collaborations included work with over 100 jazz musicians on projects spanning small groups to large ensembles. Mingus recorded for labels including Atlantic, Columbia, and Impulse! Records. He received posthumous Grammy nominations and a National Endowment for the Arts grant. His legacy was cemented when he was named a 'Living Legend' by the Library of Congress in 2011, recognizing his foundational contributions to American music."
 careerTimeline:
   - year: "1940"

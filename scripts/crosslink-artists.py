@@ -44,6 +44,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true", help="Preview changes only")
     parser.add_argument("--no-backup", action="store_true", help="Skip creating backups")
     parser.add_argument("--force", action="store_true", help="Overwrite existing backups")
+    parser.add_argument(
+        "--check-related",
+        action="store_true",
+        help="Check relatedArticles consistency only (no file writes)",
+    )
     return parser.parse_args()
 
 
@@ -210,7 +215,7 @@ def scan_knowledge() -> List[Dict[str, Any]]:
 def add_links_for_artist(name: str, slug: str, body: str) -> Tuple[str, int]:
     protected = build_protected_ranges(body)
     pattern = re.compile(rf"\b{re.escape(name)}\b", re.IGNORECASE)
-    url = f"/artists/{slug}"
+    url = f"/artists/{slug}/"
     added = 0
 
     def repl(match: re.Match[str]) -> str:
@@ -298,6 +303,43 @@ def run_crosslink() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], Dict[st
     return knowledge_updates, artist_updates, summary
 
 
+def check_related_consistency() -> int:
+    """Validate that artist relatedArticles exactly match actual knowledge mentions."""
+    artists = scan_artists()
+    knowledge_pages = scan_knowledge()
+
+    mismatches: List[Tuple[str, List[str], List[str]]] = []
+    for artist in artists:
+        existing = artist["frontmatter"].get("relatedArticles", [])
+        if not isinstance(existing, list):
+            existing = []
+
+        desired: List[str] = []
+        for knowledge in knowledge_pages:
+            if has_mention(artist["name"], knowledge["body"]):
+                desired.append(knowledge["slug"])
+
+        if existing != desired:
+            mismatches.append((artist["path"].name, existing, desired))
+
+    print("RelatedArticles consistency check")
+    print(f"- Artists scanned: {len(artists)}")
+    print(f"- Knowledge pages scanned: {len(knowledge_pages)}")
+    print(f"- Mismatches: {len(mismatches)}")
+
+    if not mismatches:
+        print("OK: all relatedArticles are consistent")
+        return 0
+
+    for file_name, existing, desired in mismatches:
+        print()
+        print(f"{file_name}")
+        print(f"  existing: {existing}")
+        print(f"  expected: {desired}")
+
+    return 1
+
+
 def apply_updates(
     updates: List[Dict[str, Any]],
     label: str,
@@ -336,6 +378,9 @@ def apply_updates(
 
 def main() -> None:
     args = parse_args()
+
+    if args.check_related:
+        raise SystemExit(check_related_consistency())
 
     print("Crosslink artists <-> knowledge")
     print(f"Mode: {'dry-run' if args.dry_run else 'live'}")

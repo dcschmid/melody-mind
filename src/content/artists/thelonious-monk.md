@@ -47,13 +47,7 @@ keySongs:
   - "Pannonica"
   - "Ask Me Now"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
 discographyOverview: "During his recording career from 1944 to 1975, Monk released over 70 songs across Blue Note, Riverside, Columbia, and other labels, with multiple compositions becoming jazz standards. His Blue Note Records catalog (1947-1952) established his reputation as bebop pioneer with classics like 'Round Midnight' (1947) and 'Epistrophy.' His Riverside Records period (1955-1961) featured collaborations with John Coltrane and Sonny Rollins, producing 'Monk's Music' (1957) and 'Brilliant Corners' (1956). His Columbia Records era (1962-1968) brought him wider audience with albums like 'Monk's Dream' (1962) and 'Underground' (1968). Monk received Grammy Lifetime Achievement Award in 1993, and 'Round Midnight' was inducted into Grammy Hall of Fame. His recordings have sold over 5 million copies worldwide."
 careerTimeline:
   - year: "1930s"

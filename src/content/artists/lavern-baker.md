@@ -48,8 +48,6 @@ keySongs:
   - "I'll Be Satisfied"
 relatedArticles:
   - "1950s"
-  - "1960s"
-  - "1970s"
 discographyOverview: "During her recording career from 1953 to 1966, Baker released over 100 songs on Atlantic Records, with 21 charting on Billboard's R&B chart and 6 reaching number one: 'Tweedle Dee' (1955), 'I Cried a Tear' (1958), 'I Can't Love You Enough' (1958), 'Jim Dandy' (1959), 'Saved' (1961), and 'See See Rider' (1965). Her early success included crossover appeal with white audiences, particularly with 'Tweedle Dee' which reached #5 on Billboard's Hot 100. After retiring from music in 1966 to perform for U.S. troops, she made a comeback in the 1980s, releasing 'Rock and Roll Hall of Fame' album in 1989. Her catalog has sold over 15 million copies worldwide."
 careerTimeline:
   - year: "1940s"

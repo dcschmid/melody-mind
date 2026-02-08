@@ -49,12 +49,7 @@ keySongs:
   - "Miles Runs the Voodoo Down"
   - "Sanctuary"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
 discographyOverview: "During his recording career from 1945 to 1991, Davis released over 50 studio albums across multiple labels including Prestige, Columbia, and Warner Brothers, with total record sales exceeding 25 million copies worldwide. His Columbia catalog (1957-1975) produced some of the most influential jazz albums ever recorded: 'Kind of Blue' (1959) became the best-selling jazz album of all time with over 5 million copies sold, 'Bitches Brew' (1970) pioneered jazz fusion, and 'Birth of the Cool' (1957) defined cool jazz. Davis won 8 Grammy Awards during his career and received the Grammy Lifetime Achievement Award in 1990. His compositions like 'So What' and 'All Blues' have become jazz standards, with 'Kind of Blue' recognized as one of the most important albums in music history by the Library of Congress National Recording Registry."
 careerTimeline:
   - year: "1944"

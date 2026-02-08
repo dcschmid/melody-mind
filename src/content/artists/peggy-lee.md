@@ -47,13 +47,7 @@ keySongs:
   - "The Right to Love"
   - "Pass Me By"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
 discographyOverview: "During her recording career from 1941 to 1995, Lee released over 1,100 songs across Decca, Capitol, and other labels, with over 50 charting on Billboard's Hot 100, 12 reaching Top 10, and 1 hitting number one: 'Fever' (1958). Her Billboard Country chart success included 10 entries, with 3 reaching Top 10. Her songwriting credits included 'He's a Tramp' for Disney's 'Lady and the Tramp' (1955) and contributions to over 200 songs. Lee won 3 Grammy Awards from 13 nominations, received Academy Award nominations for 'Pete Kelly's Blues' (1955) and 'The Heart is a Lonely Hunter' (1968), and Golden Globe nomination for 'Pete Kelly's Blues.' Her recordings have sold over 30 million copies worldwide, with 'Fever' becoming one of most covered songs in music history with over 500 versions."
 careerTimeline:
   - year: "1937"

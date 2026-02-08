@@ -47,13 +47,7 @@ keySongs:
   - "Baby, You've Got What It Takes"
   - "Lucky Lips"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
 discographyOverview: "During her recording career from 1949 to 1995, Brown released over 100 songs across Atlantic Records and other labels, with over 20 charting on Billboard's R&B chart and 8 reaching number one: 'Teardrops from My Eyes' (1950), 'So Long' (1951), 'I'll Wait for You' (1952), '(Mama) He Treats Your Daughter Mean' (1953), 'Oh What a Dream' (1953), 'I Can Hear the Blues Calling' (1954), '5-10-15 Hours' (1954), and 'Wild Wild Young Men' (1956). Her early 1950s recordings on Atlantic Records helped establish the label and influenced the development of R&B. Brown won 1 Grammy Award in 1989 for 'Blues on Broadway' album and was inducted into Rock and Roll Hall of Fame in 1993. Her recordings have sold over 10 million copies worldwide."
 careerTimeline:
   - year: "1945"

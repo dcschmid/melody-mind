@@ -48,8 +48,6 @@ keySongs:
   - "That's the Way I Feel"
 relatedArticles:
   - "1950s"
-  - "1960s"
-  - "1970s"
 discographyOverview: "During his recording career from 1950 to 1975, Frizzell released over 100 singles across Columbia, Decca, and other labels, with 37 charting on Billboard's Hot Country Songs chart and 8 reaching number one: 'If You've Got the Money (I've Got the Time),' 'I Love You a Thousand Ways,' 'Always Late (With Your Kisses),' 'Mom and Dad's Waltz,' 'My Baby's Gone,' 'Saginaw, Michigan,' 'Don't Take It Out on Me,' and 'That's the Way I Feel.' His catalog includes multiple gold albums, and his songs have been covered by artists across multiple genres, with 'Long Black Veil' becoming one of the most recorded country songs in history with over 200 versions. His recordings have sold over 25 million copies worldwide."
 careerTimeline:
   - year: "1947"

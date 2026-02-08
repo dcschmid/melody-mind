@@ -45,8 +45,6 @@ keySongs:
   - "Love Me or Leave Me"
   - "All of Me"
 relatedArticles:
-  - "1930s"
-  - "1940s"
   - "1950s"
 discographyOverview: "With a career spanning 1929 to 1959, Billie Holiday recorded over 150 songs with legendary jazz musicians and orchestras. Her extensive discography includes collaborations with Count Basie, Lester Young, Teddy Wilson, and Artie Shaw. Multiple recordings received Grammy Hall of Fame induction, including 'Strange Fruit,' 'God Bless the Child,' 'Easy Living,' and 'I'll Be Seeing You.' Rolling Stone ranked her among the 'Greatest Jazz Vocalists of All Time,' and she received a posthumous Grammy Lifetime Achievement Award in 1987. Her artistry fundamentally changed vocal jazz, emphasizing emotional expression over technical perfection."
 careerTimeline:

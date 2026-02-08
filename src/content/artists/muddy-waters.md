@@ -49,11 +49,8 @@ keySongs:
   - "She's Nineteen Years Old"
   - "Champagne and Reefer"
 relatedArticles:
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1980s"
+  - "from-blues-to-breakdown"
 discographyOverview: "During his recording career from 1941 to 1983, Waters released over 200 songs across various labels, with over 100 recorded for Chess Records from 1947 to 1975. His Chess Records catalog produced seminal blues tracks like 'Hoochie Coochie Man' (1954), 'Mannish Boy' (1955), 'I Just Want to Make Love to You' (1954), and 'Got My Mojo Working' (1957), which became blues standards and were covered by countless artists. His album 'Hard Again' (1977) marked a successful comeback, winning the Grammy Award for Best Ethnic or Traditional Folk Recording. Posthumously, 'Hoochie Coochie Man' was inducted into the Grammy Hall of Fame in 1999. His recordings have sold over 15 million copies worldwide."
 careerTimeline:
   - year: "1930s"

@@ -47,12 +47,7 @@ keySongs:
   - "My Big Iron Skillet"
 relatedArticles:
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
+  - "from-blues-to-breakdown"
 discographyOverview: "During her recording career from 1954 to 2019, Jackson released over 100 songs across Capitol, Decca, and other labels, with over 30 charting on Billboard's country and pop charts. Her Capitol Records catalog (1954-1963) produced rockabilly classics like 'Fujiyama Mama' (1957) and 'Let's Have a Party' (1960), while her country period (1960s-1970s) included hits like 'Right or Wrong' (1961) and 'The Box It Came In' (1966). Jackson was inducted into Rock and Roll Hall of Fame in 2009 and Oklahoma Music Hall of Fame in 2001. Her recordings have sold over 5 million copies worldwide, with 'Fujiyama Mama' becoming one of most covered rockabilly songs."
 careerTimeline:
   - year: "1954"

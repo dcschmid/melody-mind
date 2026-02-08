@@ -45,12 +45,7 @@ keySongs:
   - "It Don't Mean a Thing (If It Ain't Got That Swing)"
   - "Every Time We Say Goodbye"
 relatedArticles:
-  - "1930s"
-  - "1940s"
   - "1950s"
-  - "1960s"
-  - "1970s"
-  - "1990s"
 discographyOverview: "With a career spanning 1934 to 1993, Ella Fitzgerald recorded over 200 albums and 2,000 songs, making her one of the most prolific jazz vocalists. Her songbook series of eight albums (1956-1958) for Verve Records is considered one of the most ambitious musical projects in history. Fitzgerald won 18 Grammy Awards (including the first Grammy Award for Best Vocal Performance, Female in 1958) and received the National Medal of Arts in 1987. She was named among the 'Greatest Jazz Vocalists of All Time' by Rolling Stone and was awarded the Presidential Medal of Freedom in 1992, recognizing her cultural impact and contributions to American music."
 careerTimeline:
   - year: "1934"

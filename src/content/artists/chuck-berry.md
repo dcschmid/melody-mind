@@ -42,6 +42,7 @@ keySongs:
 relatedArticles:
   - "1950s"
   - "1960s"
+  - "from-blues-to-breakdown"
 discographyOverview: "With a career spanning 1955 to 2017, Berry released 20 studio albums and numerous influential singles that became rock standards. His catalog includes 14 Billboard Hot 100 chart entries, with 6 reaching the Top 40 and 'Johnny B. Goode' peaking at number 8. In 2017, NASA's Voyager spacecraft carried 'Johnny B. Goode' into deep space as one of the great achievements of humanity, cementing Berry's legacy as a universal cultural icon."
 careerTimeline:
   - year: "1955"
