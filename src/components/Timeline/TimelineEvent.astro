@@ -1,0 +1,320 @@
+---
+/**
+ * TimelineEvent Component
+ *
+ * @component
+ */
+import { Icon } from "astro-icon/components";
+
+interface EventData {
+  year: number;
+  type?: string;
+  title?: string;
+  description: string;
+  genre?: string;
+  link?: string;
+}
+
+interface Props {
+  event: EventData;
+  isDecade?: boolean;
+  decadeSlug?: string;
+  decadeColor?: string;
+}
+
+const {
+  event,
+  isDecade = false,
+  decadeSlug = "",
+  decadeColor = "var(--gn-accent)",
+} = Astro.props;
+
+const href = isDecade ? `/knowledge/${decadeSlug}` : event.link || null;
+
+const typeIcons: Record<string, string> = {
+  album: "disc",
+  artist: "user",
+  milestone: "star",
+  innovation: "cpu",
+  event: "calendar",
+  technology: "tv",
+};
+
+const icon = typeIcons[event.type || "event"] || "music";
+const hasLink = !!event.link;
+---
+
+<article
+  class:list={[
+    "timeline-event",
+    { "timeline-event--decade": isDecade, "timeline-event--linked": hasLink },
+  ]}
+  data-year={event.year}
+  data-type={event.type}
+  style={isDecade ? `--decade-color: ${decadeColor}` : ""}
+>
+  {
+    isDecade ? (
+      <a href={href} class="timeline-event__decade-card">
+        <div class="timeline-event__decade-header">
+          <span class="timeline-event__decade-year">{event.year}s</span>
+          <Icon
+            name="arrow-right"
+            class="timeline-event__arrow-icon"
+            aria-hidden="true"
+          />
+        </div>
+        <span class="timeline-event__decade-cta">
+          <Icon name="book-open" class="timeline-event__cta-icon" aria-hidden="true" />
+          Read Article
+        </span>
+      </a>
+    ) : hasLink ? (
+      <a href={event.link} class="timeline-event__link">
+        <div class="timeline-event__header">
+          <div class="timeline-event__icon-wrapper">
+            <Icon name={icon} class="timeline-event__type-icon" aria-hidden="true" />
+          </div>
+          <span class="timeline-event__year">{event.year}</span>
+        </div>
+        <h3 class="timeline-event__title">{event.title}</h3>
+        <p class="timeline-event__description">{event.description}</p>
+        {event.genre && <span class="timeline-event__genre">{event.genre}</span>}
+      </a>
+    ) : (
+      <div class="timeline-event__standalone">
+        <div class="timeline-event__header">
+          <div class="timeline-event__icon-wrapper">
+            <Icon name={icon} class="timeline-event__type-icon" aria-hidden="true" />
+          </div>
+          <span class="timeline-event__year">{event.year}</span>
+        </div>
+        <h3 class="timeline-event__title">{event.title}</h3>
+        <p class="timeline-event__description">{event.description}</p>
+        {event.genre && <span class="timeline-event__genre">{event.genre}</span>}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .timeline-event {
+    padding: 0;
+    margin: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .timeline-event--decade {
+    padding: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-event__decade-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.85rem 1rem;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--decade-color, var(--gn-accent)) 12%, transparent) 0%,
+      color-mix(in srgb, var(--decade-color, var(--gn-accent)) 6%, transparent) 100%
+    );
+    border: 2px solid
+      color-mix(in srgb, var(--decade-color, var(--gn-accent)) 30%, transparent);
+    border-radius: 0.6rem;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .timeline-event__decade-card:hover {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--decade-color, var(--gn-accent)) 16%, transparent) 0%,
+      color-mix(in srgb, var(--decade-color, var(--gn-accent)) 10%, transparent) 100%
+    );
+    border-color: var(--decade-color, var(--gn-accent));
+    transform: translateX(3px);
+  }
+
+  .timeline-event__decade-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .timeline-event__decade-year {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gn-ink);
+    letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .timeline-event__arrow-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--decade-color, var(--gn-accent));
+    opacity: 0;
+    transform: translateX(-3px);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+  }
+
+  .timeline-event__decade-card:hover .timeline-event__arrow-icon {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .timeline-event__decade-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    background: var(--decade-color, var(--gn-accent));
+    color: var(--gn-bg);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 999px;
+    align-self: flex-start;
+  }
+
+  .timeline-event__cta-icon {
+    width: 13px;
+    height: 13px;
+  }
+
+  .timeline-event__link,
+  .timeline-event__standalone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.4rem;
+    transition: all var(--transition-fast);
+    border-left: 2px solid transparent;
+    margin-left: 2px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .timeline-event__link:hover {
+    background: color-mix(in srgb, var(--gn-bg-muted) 35%, transparent);
+    border-left-color: var(--gn-accent);
+    text-decoration: none;
+  }
+
+  .timeline-event__header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .timeline-event__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--gn-accent) 10%, transparent);
+    flex-shrink: 0;
+  }
+
+  .timeline-event__type-icon {
+    width: 13px;
+    height: 13px;
+    color: var(--gn-accent);
+  }
+
+  .timeline-event__year {
+    font-family: var(--font-mono, monospace);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gn-accent);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .timeline-event__title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .timeline-event__description {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--gn-ink-muted);
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .timeline-event__genre {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    background: color-mix(in srgb, var(--gn-panel-border) 12%, transparent);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gn-ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.2rem;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 639px) {
+    .timeline-event__decade-card {
+      padding: 0.75rem 0.9rem;
+    }
+
+    .timeline-event__decade-year {
+      font-size: 1.3rem;
+    }
+
+    .timeline-event__arrow-icon {
+      opacity: 1;
+      transform: none;
+      width: 17px;
+      height: 17px;
+    }
+
+    .timeline-event__decade-cta {
+      font-size: 0.85rem;
+      padding: 0.25rem 0.6rem;
+    }
+
+    .timeline-event__link,
+    .timeline-event__standalone {
+      padding: 0.45rem 0.65rem;
+    }
+
+    .timeline-event__title {
+      font-size: 1.05rem;
+    }
+
+    .timeline-event__description {
+      font-size: 0.95rem;
+    }
+
+    .timeline-event__genre {
+      font-size: 0.8rem;
+    }
+  }
+</style>

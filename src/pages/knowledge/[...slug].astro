@@ -15,6 +15,7 @@ import ReadingControls from "@components/ReadingControls.astro";
 import KnowledgeQuiz from "@components/Knowledge/KnowledgeQuiz.astro";
 import KnowledgeTakeaways from "@components/Knowledge/KnowledgeTakeaways.astro";
 import BookmarkButton from "@components/BookmarkButton.astro";
+import PrintButton from "@components/PrintButton.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import AIContentBadge from "@components/AIContentBadge.astro";
 import { Icon } from "astro-icon/components";
@@ -331,6 +332,7 @@ const storageUpdatedAt =
               ) : null
             }
             <BookmarkButton articleSlug={storageSlug} articleTitle={title} />
+            <PrintButton />
           </div>
         </header>
 
@@ -551,6 +553,11 @@ const storageUpdatedAt =
               <span>{translate("knowledge.back.to.list", "Back to knowledge list")}</span>
             </ButtonLink>
           </div>
+          <aside class="print-footer" aria-hidden="true">
+            <span class="print-footer__url">melody-mind.de</span> &mdash; {title} &mdash; {
+              publishedDateLabel
+            }
+          </aside>
           <div
             id="recent-read-data"
             data-slug={storageSlug}

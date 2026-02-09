@@ -1,0 +1,447 @@
+/* ==========================================================================
+   Print Stylesheet – MelodyMind Knowledge Articles
+   Optimized for browser print-to-PDF and physical printers.
+   DSGVO-compliant: no external resources, no tracking, pure CSS.
+   ========================================================================== */
+
+@media print {
+  /* ------------------------------------------------------------------
+     1. Page Setup
+     ------------------------------------------------------------------ */
+  @page {
+    size: A4;
+    margin: 1.8cm 1.6cm 2cm;
+  }
+
+  @page :first {
+    margin-top: 1.2cm;
+  }
+
+  /* ------------------------------------------------------------------
+     2. Hide non-content UI elements
+     ------------------------------------------------------------------ */
+  .site-header,
+  .site-footer,
+  .cookie-consent,
+  .reading-progress,
+  .back-to-top,
+  .toast,
+  .skip-link,
+  .theme-toggle,
+  .print-button,
+  #knowledge-quiz,
+  #share-section,
+  .knowledge-share,
+  .knowledge__back,
+  .knowledge__quiz-link,
+  .bookmark-button,
+  .reading-controls,
+  .toc,
+  .table-of-contents,
+  [data-toc-shell],
+  .knowledge-takeaways,
+  .ai-content-badge,
+  .knowledge__ai-badge,
+  [data-cookie-consent],
+  [data-search-root],
+  .search-panel-shell,
+  .knowledge__backdrop,
+  .knowledge__texture,
+  .knowledge__media-overlay,
+  .knowledge__shine,
+  .knowledge-card__shine,
+  .knowledge-card__overlay,
+  footer,
+  nav,
+  .breadcrumbs,
+
+  /* Hero aside: cover image, playlist links, podcast links */
+  .knowledge__aside,
+  .knowledge__media-panel,
+  .knowledge__panel-title,
+  .knowledge__panel-actions,
+
+  /* Stats row (word count, quiz link, bookmark, print) */
+  .knowledge__stats,
+
+  /* Meta pills: "In-depth report" label, AI badge */
+  .knowledge__pill--label,
+
+  /* Pill icons (calendar, clock, tag icons – text stays) */
+  .knowledge__pill-icon,
+
+  /* Recent-read data element */
+  #recent-read-data,
+
+  /* Panel inner glow pseudo-elements */
+  .panel::after,
+  .knowledge-article::after,
+
+  /* Back-to-top utility */
+  [data-back-to-top] {
+    display: none !important;
+  }
+
+  /* ------------------------------------------------------------------
+     3. Reset backgrounds, shadows, and decorative elements
+     ------------------------------------------------------------------ */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #ccc !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  html,
+  body,
+  .app,
+  .app__body,
+  .knowledge,
+  .knowledge__container,
+  .panel {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* ------------------------------------------------------------------
+     4. Typography – optimized for print readability
+     ------------------------------------------------------------------ */
+  html {
+    font-size: 10.5pt;
+  }
+
+  body,
+  .app__body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #000 !important;
+    width: 100% !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .knowledge {
+    overflow: visible !important;
+    min-height: auto !important;
+  }
+
+  .knowledge__container {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* ------------------------------------------------------------------
+     5. Hero header – compact title block
+     ------------------------------------------------------------------ */
+  .knowledge__hero {
+    display: block !important;
+    margin-bottom: 0.3cm !important;
+  }
+
+  .knowledge__hero-panel {
+    padding: 0 !important;
+    border: none !important;
+    gap: 0.15cm !important;
+  }
+
+  /* Title */
+  .knowledge__title,
+  .prose h1 {
+    font-size: 20pt !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    margin: 0 0 0.2cm !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  /* Description / Summary */
+  .knowledge__summary {
+    font-size: 10.5pt !important;
+    font-style: italic !important;
+    line-height: 1.45 !important;
+    margin: 0 0 0.25cm !important;
+    padding: 0 !important;
+    color: #333 !important;
+  }
+
+  /* Meta pills (date, reading time, category) – inline, compact */
+  .knowledge__meta {
+    font-size: 8pt !important;
+    color: #555 !important;
+    border-bottom: 0.5pt solid #bbb !important;
+    padding: 0 0 0.2cm !important;
+    margin: 0 0 0.3cm !important;
+    gap: 0.3rem !important;
+  }
+
+  .knowledge__pill {
+    border: none !important;
+    padding: 0 !important;
+    font-size: 8pt !important;
+    font-weight: 400 !important;
+    color: #555 !important;
+  }
+
+  /* Separator between pills */
+  .knowledge__pill + .knowledge__pill::before {
+    content: "·" !important;
+    margin-right: 0.3rem !important;
+    color: #999 !important;
+  }
+
+  /* ------------------------------------------------------------------
+     6. Article body – tight layout
+     ------------------------------------------------------------------ */
+  .knowledge__body {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .knowledge__main {
+    display: block !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .knowledge-article {
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* ------------------------------------------------------------------
+     7. Prose content
+     ------------------------------------------------------------------ */
+  .prose {
+    font-size: 10.5pt !important;
+    line-height: 1.55 !important;
+    max-width: none !important;
+    color: #000 !important;
+    hyphens: auto !important;
+  }
+
+  .prose p {
+    orphans: 3;
+    widows: 3;
+    margin: 0.25cm 0 !important;
+  }
+
+  /* Headings */
+  .prose h2 {
+    font-size: 14pt !important;
+    font-weight: 700 !important;
+    margin: 0.6cm 0 0.15cm !important;
+    padding-bottom: 0.08cm !important;
+    border-bottom: 0.5pt solid #ddd !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .prose h3 {
+    font-size: 12pt !important;
+    font-weight: 600 !important;
+    margin: 0.4cm 0 0.1cm !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  .prose h4 {
+    font-size: 10.5pt !important;
+    font-weight: 600 !important;
+    margin: 0.3cm 0 0.08cm !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Heading anchors – hide in print */
+  .prose__heading-anchor {
+    display: none !important;
+  }
+
+  /* Lists */
+  .prose ul,
+  .prose ol {
+    margin: 0.2cm 0 !important;
+    padding-left: 0.8cm !important;
+  }
+
+  .prose li {
+    margin: 0.08cm 0 !important;
+  }
+
+  /* Strong */
+  .prose strong {
+    font-weight: 700 !important;
+  }
+
+  /* ------------------------------------------------------------------
+     8. Links – show URLs in print
+     ------------------------------------------------------------------ */
+  .prose a {
+    text-decoration: underline !important;
+    font-weight: 600 !important;
+    word-break: break-all !important;
+  }
+
+  .prose a[href^="http"]::after {
+    content: " (" attr(href) ")" !important;
+    font-size: 7.5pt !important;
+    font-weight: 400 !important;
+    font-style: italic !important;
+    color: #666 !important;
+    word-break: break-all !important;
+  }
+
+  /* Don't show URL for internal and anchor links */
+  .prose a[href^="#"]::after,
+  .prose a[href^="/"]::after {
+    content: "" !important;
+  }
+
+  /* ------------------------------------------------------------------
+     9. Blockquotes
+     ------------------------------------------------------------------ */
+  .prose blockquote {
+    border-left: 2.5pt solid #888 !important;
+    padding: 0.15cm 0.4cm !important;
+    margin: 0.3cm 0 !important;
+    font-style: italic !important;
+    color: #333 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ------------------------------------------------------------------
+     10. Images – float layout, text wraps around
+     ------------------------------------------------------------------ */
+  .prose img,
+  .prose picture {
+    float: right;
+    max-width: 38% !important;
+    height: auto !important;
+    border: 0.5pt solid #ccc !important;
+    border-radius: 0 !important;
+    margin: 0.15cm 0 0.15cm 0.4cm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .prose img {
+    object-fit: contain !important;
+  }
+
+  .prose picture img {
+    border: none !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Clear after headings (images should NOT float next to headings) */
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    clear: both;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* SubsectionFigure – float layout with caption on opposite side */
+  .prose .subsection-figure {
+    display: block !important;
+    clear: both;
+    margin: 0.3cm 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .prose .subsection-figure__media {
+    float: right;
+    max-width: 38% !important;
+    margin: 0 0 0.15cm 0.4cm !important;
+    border: 0.5pt solid #ccc !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .prose .subsection-figure__media img,
+  .prose .subsection-figure__media picture {
+    border: none !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .prose .subsection-figure figcaption {
+    float: left;
+    width: 58% !important;
+    font-size: 8.5pt !important;
+    color: #555 !important;
+    padding: 0.1cm 0 0 0 !important;
+    margin: 0.15cm 0 0 0 !important;
+    border-top: 0.25pt solid #ddd !important;
+  }
+
+  /* ------------------------------------------------------------------
+     11. Horizontal rules
+     ------------------------------------------------------------------ */
+  .prose hr {
+    border: none !important;
+    border-top: 0.5pt solid #bbb !important;
+    margin: 0.3cm 0 !important;
+  }
+
+  /* ------------------------------------------------------------------
+     12. Code blocks
+     ------------------------------------------------------------------ */
+  .prose code {
+    font-size: 8.5pt !important;
+    border: 0.5pt solid #ccc !important;
+    padding: 1pt 3pt !important;
+    border-radius: 0 !important;
+  }
+
+  .prose pre {
+    border: 0.5pt solid #ccc !important;
+    padding: 0.2cm !important;
+    font-size: 8.5pt !important;
+    overflow: visible !important;
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ------------------------------------------------------------------
+     13. Print-specific branding footer
+     ------------------------------------------------------------------ */
+  .print-footer {
+    display: block !important;
+    margin-top: 0.6cm;
+    padding-top: 0.2cm;
+    border-top: 0.5pt solid #bbb;
+    font-size: 7.5pt;
+    color: #888 !important;
+    text-align: center;
+  }
+
+  .print-footer__url {
+    font-weight: 600;
+  }
+}
+
+/* Hide print-only elements on screen */
+@media screen {
+  .print-footer {
+    display: none !important;
+  }
+}

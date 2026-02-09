@@ -1,0 +1,100 @@
+---
+/**
+ * PrintButton Component – Triggers browser print dialog for PDF export
+ *
+ * A lightweight button that calls window.print() to allow users to
+ * save knowledge articles as PDF or print them.
+ * DSGVO-compliant: no external services, pure browser API.
+ *
+ * @component
+ * @example
+ * ```astro
+ * <PrintButton />
+ * <PrintButton label="Export PDF" />
+ * ```
+ */
+import { Icon } from "astro-icon/components";
+
+export const prerender = true;
+
+interface Props {
+  /** Custom button label */
+  label?: string;
+  /** Additional CSS classes */
+  className?: string;
+}
+
+const { label = "Save as PDF", className = "" } = Astro.props;
+---
+
+<button
+  type="button"
+  class:list={["print-button", className]}
+  data-print-trigger
+  aria-label={label}
+>
+  <Icon name="printer" class="print-button__icon" aria-hidden="true" />
+  <span class="print-button__label">{label}</span>
+</button>
+
+<script>
+  (() => {
+    const button = document.querySelector("[data-print-trigger]");
+    if (!button) return;
+
+    button.addEventListener("click", () => {
+      try {
+        window.print();
+      } catch {
+        // Print dialog is non-critical; fail silently.
+      }
+    });
+  })();
+</script>
+
+<style>
+  .print-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 75%, transparent);
+    color: var(--gn-ink);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      transform 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      background-color 160ms ease;
+  }
+
+  .print-button:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
+    background: color-mix(in srgb, var(--gn-accent) 12%, transparent);
+  }
+
+  .print-button:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 3px;
+  }
+
+  .print-button__icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: var(--color-gn-teal-300);
+  }
+
+  .print-button__label {
+    white-space: nowrap;
+  }
+</style>

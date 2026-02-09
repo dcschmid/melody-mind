@@ -49,6 +49,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Check relatedArticles consistency only (no file writes)",
     )
+    parser.add_argument(
+        "--skip-artist-updates",
+        action="store_true",
+        help="Skip updating artist relatedArticles (only add links to knowledge articles)",
+    )
     return parser.parse_args()
 
 
@@ -96,21 +101,42 @@ def upsert_related_articles_preserve_frontmatter(content: str, slugs: List[str])
     if raw_frontmatter is None:
         return content
 
-    pattern = re.compile(r"(?m)^relatedArticles:\r?\n(?:[ \t]*-[^\n]*\r?\n?)*")
+    # Handle both single-line format (relatedArticles: []) and multi-line format
+    # Pattern matches:
+    # 1. Single-line: relatedArticles: []
+    # 2. Single-line with items: relatedArticles: ["1960s", "1970s"]
+    # 3. Multi-line:
+    #    relatedArticles:
+    #      - "1960s"
+    #      - "1970s"
+    single_line_pattern = re.compile(r'^relatedArticles:\s*\[[^\]]*\]', re.MULTILINE)
+    multi_line_pattern = re.compile(r'(?m)^relatedArticles:\r?\n(?:[ \t]*-[^\n]*\r?\n?)*')
 
-    if slugs:
-        block = "relatedArticles:\n" + "\n".join(f'  - "{slug}"' for slug in slugs) + "\n"
-    else:
-        block = ""
-
-    if pattern.search(raw_frontmatter):
-        updated_frontmatter = pattern.sub(block, raw_frontmatter)
-    else:
-        if not block:
-            updated_frontmatter = raw_frontmatter
+    # Try single-line pattern first
+    single_match = single_line_pattern.search(raw_frontmatter)
+    if single_match:
+        if slugs:
+            block = "relatedArticles:\n" + "\n".join(f'  - "{slug}"' for slug in slugs) + "\n"
         else:
-            sep = "" if raw_frontmatter.endswith("\n") else "\n"
-            updated_frontmatter = f"{raw_frontmatter}{sep}{block}"
+            block = ""
+        updated_frontmatter = single_line_pattern.sub(block, raw_frontmatter, count=1)
+    else:
+        # Fall back to multi-line pattern
+        pattern = multi_line_pattern
+
+        if slugs:
+            block = "relatedArticles:\n" + "\n".join(f'  - "{slug}"' for slug in slugs) + "\n"
+        else:
+            block = ""
+
+        if pattern.search(raw_frontmatter):
+            updated_frontmatter = pattern.sub(block, raw_frontmatter)
+        else:
+            if not block:
+                updated_frontmatter = raw_frontmatter
+            else:
+                sep = "" if raw_frontmatter.endswith("\n") else "\n"
+                updated_frontmatter = f"{raw_frontmatter}{sep}{block}"
 
     return f"---\n{updated_frontmatter}\n---\n{body}"
 
@@ -242,7 +268,7 @@ def has_mention(name: str, body: str) -> bool:
     return False
 
 
-def run_crosslink() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], Dict[str, int]]:
+def run_crosslink(skip_artist_updates: bool = False) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], Dict[str, int]]:
     artists = scan_artists()
     knowledge_pages = scan_knowledge()
 
@@ -270,6 +296,12 @@ def run_crosslink() -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], Dict[st
                     "changes": changes,
                 }
             )
+
+    # Skip artist updates if requested
+    if skip_artist_updates:
+        print()
+        print("Skipping artist relatedArticles updates (--skip-artist-updates)")
+        return knowledge_updates, artist_updates, summary
 
     for artist in artists:
         existing = artist["frontmatter"].get("relatedArticles", [])
@@ -386,8 +418,9 @@ def main() -> None:
     print(f"Mode: {'dry-run' if args.dry_run else 'live'}")
     print(f"Backup: {'disabled' if args.no_backup else 'enabled'}")
     print(f"Force backup overwrite: {'enabled' if args.force else 'disabled'}")
+    print(f"Skip artist updates: {'enabled' if args.skip_artist_updates else 'disabled'}")
 
-    knowledge_updates, artist_updates, summary = run_crosslink()
+    knowledge_updates, artist_updates, summary = run_crosslink(skip_artist_updates=args.skip_artist_updates)
 
     print()
     print("Summary")

@@ -1,0 +1,66 @@
+---
+/**
+ * Explore Page - Music Timeline
+ *
+ * A vertically scrolling timeline showcasing decades of music history.
+ * Simple, compact display without images or filters.
+ *
+ * @page
+ */
+import Layout from "@layouts/Layout.astro";
+import Timeline from "@components/Timeline/Timeline.astro";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
+
+export const prerender = true;
+
+const url = new URL(Astro.request.url);
+
+const pageSeo = buildPageSeo({
+  title: "Explore Music Timeline | MelodyMind",
+  description:
+    "Explore how music evolved from rock & roll to streaming. Discover key events that shaped each decade.",
+  url: url.toString(),
+  contentKind: undefined as any,
+  structuredData: [],
+  enrichedParts: [
+    "Music Timeline",
+    "music history",
+    "rock and roll",
+    "hip hop",
+    "streaming",
+  ],
+  fallbackKeywords: [
+    "music timeline",
+    "music history",
+    "rock and roll",
+    "hip hop evolution",
+    "decades of music",
+  ],
+  keywordLimit: 20,
+  maxDescription: 155,
+  image: "/melody-mind.jpg",
+  publishDate: new Date("2025-12-01"),
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+});
+---
+
+<Layout {pageSeo}>
+  <main id="main-content" tabindex="-1" role="main" class="explore-page">
+    <Timeline />
+  </main>
+</Layout>
+
+<style>
+  .explore-page {
+    min-height: 100vh;
+    background: var(--gn-bg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      scroll-behavior: auto !important;
+    }
+  }
+</style>

@@ -1,0 +1,661 @@
+{
+  "decades": [
+    {
+      "slug": "1950s",
+      "decade": "1950s",
+      "title": "How 1950s Music Changed Everything",
+      "articleSlug": "1950s",
+      "color": "#e74c3c",
+      "items": [
+        {
+          "year": 1951,
+          "type": "milestone",
+          "title": "First Rock & Roll Record",
+          "description": "\"Rocket 88\" by Jackie Brenston is widely considered the first rock & roll record",
+          "genre": "Rock & Roll",
+          "icon": "star"
+        },
+        {
+          "year": 1954,
+          "type": "album",
+          "title": "Rock Around the Clock",
+          "description": "Bill Haley & His Comets spark the rock craze with \"Rock Around the Clock\"",
+          "genre": "Rock & Roll",
+          "icon": "disc"
+        },
+        {
+          "year": 1954,
+          "type": "artist",
+          "title": "Elvis Signs with Sun",
+          "description": "Elvis Presley signs with Sun Records, beginning his legendary career",
+          "genre": "Rock & Roll",
+          "icon": "user",
+          "link": "/artists/elvis-presley"
+        },
+        {
+          "year": 1955,
+          "type": "artist",
+          "title": "Elvis Signs with RCA",
+          "description": "Elvis Presley signs with RCA Records for $40,000",
+          "genre": "Rock & Roll",
+          "icon": "user",
+          "link": "/artists/elvis-presley"
+        },
+        {
+          "year": 1955,
+          "type": "album",
+          "title": "Maybellene",
+          "description": "Chuck Berry releases \"Maybellene,\" pioneering rock guitar",
+          "genre": "Rock & Roll",
+          "icon": "disc",
+          "link": "/artists/chuck-berry"
+        },
+        {
+          "year": 1956,
+          "type": "innovation",
+          "title": "Fender Stratocaster",
+          "description": "The most influential electric guitar is released, changing music forever",
+          "genre": "Innovation",
+          "icon": "cpu"
+        },
+        {
+          "year": 1956,
+          "type": "album",
+          "title": "Heartbreak Hotel",
+          "description": "Elvis Presley's first #1 single, defining the rock & roll sound",
+          "genre": "Rock & Roll",
+          "icon": "disc",
+          "link": "/artists/elvis-presley"
+        },
+        {
+          "year": 1956,
+          "type": "album",
+          "title": "Tutti Frutti",
+          "description": "Little Richard releases \"Tutti Frutti,\" a rock & roll anthem",
+          "genre": "Rock & Roll",
+          "icon": "disc",
+          "link": "/artists/little-richard"
+        },
+        {
+          "year": 1957,
+          "type": "artist",
+          "title": "Buddy Holly Signs",
+          "description": "Buddy Holly signs with Brunswick, innovates rock production",
+          "genre": "Rock & Roll",
+          "icon": "user",
+          "link": "/artists/buddy-holly"
+        },
+        {
+          "year": 1959,
+          "type": "album",
+          "title": "Kind of Blue",
+          "description": "Miles Davis releases jazz masterpiece, best-selling jazz album ever",
+          "genre": "Jazz",
+          "icon": "disc",
+          "link": "/artists/miles-davis"
+        }
+      ]
+    },
+    {
+      "slug": "1960s",
+      "decade": "1960s",
+      "title": "Music of the 1960s: British Invasion & Cultural Revolution",
+      "articleSlug": "1960s",
+      "color": "#9b59b6",
+      "items": [
+        {
+          "year": 1963,
+          "type": "milestone",
+          "title": "The Beatles Land in America",
+          "description": "Beatlemania hits America with Ed Sullivan Show appearance",
+          "genre": "Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1964,
+          "type": "milestone",
+          "title": "British Invasion Begins",
+          "description": "British acts dominate US charts, transforming music industry",
+          "genre": "Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1964,
+          "type": "album",
+          "title": "A Love Supreme",
+          "description": "John Coltrane releases spiritual jazz masterpiece",
+          "genre": "Jazz",
+          "icon": "disc"
+        },
+        {
+          "year": 1964,
+          "type": "album",
+          "title": "The Freewheelin' Bob Dylan",
+          "description": "Bob Dylan establishes himself as voice of a generation",
+          "genre": "Folk",
+          "icon": "disc",
+          "link": "/artists/bob-dylan"
+        },
+        {
+          "year": 1965,
+          "type": "album",
+          "title": "Highway 61 Revisited",
+          "description": "Bob Dylan releases masterpiece with \"Like a Rolling Stone\"",
+          "genre": "Folk Rock",
+          "icon": "disc",
+          "link": "/artists/bob-dylan"
+        },
+        {
+          "year": 1966,
+          "type": "album",
+          "title": "Pet Sounds",
+          "description": "The Beach Boys release revolutionary album",
+          "genre": "Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1967,
+          "type": "album",
+          "title": "Sgt. Pepper's Lonely Hearts Club Band",
+          "description": "The Beatles release psychedelic masterpiece, most influential album ever",
+          "genre": "Psychedelic Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1967,
+          "type": "event",
+          "title": "Summer of Love",
+          "description": "Flower Power movement defines 1967 in San Francisco",
+          "genre": "Cultural",
+          "icon": "calendar"
+        },
+        {
+          "year": 1969,
+          "type": "milestone",
+          "title": "Woodstock Festival",
+          "description": "Defining moment for 60s counterculture and music festivals",
+          "genre": "Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1969,
+          "type": "album",
+          "title": "Abbey Road",
+          "description": "The Beatles' final recording session, legendary album",
+          "genre": "Rock",
+          "icon": "disc"
+        }
+      ]
+    },
+    {
+      "slug": "1970s",
+      "decade": "1970s",
+      "title": "Music of the 1970s: Disco, Punk & Progressive Era",
+      "articleSlug": "1970s",
+      "color": "#e67e22",
+      "items": [
+        {
+          "year": 1970,
+          "type": "artist",
+          "title": "James Brown: Sex Machine",
+          "description": "James Brown defines funk with \"Get Up (I Feel Like Being a) Sex Machine\"",
+          "genre": "Funk",
+          "icon": "user",
+          "link": "/artists/james-brown"
+        },
+        {
+          "year": 1971,
+          "type": "album",
+          "title": "What's Going On",
+          "description": "Marvin Gaye releases influential concept album",
+          "genre": "Soul",
+          "icon": "disc",
+          "link": "/artists/marvin-gaye"
+        },
+        {
+          "year": 1971,
+          "type": "album",
+          "title": "Blue",
+          "description": "Joni Mitchell releases masterpiece of confessional songwriting",
+          "genre": "Folk",
+          "icon": "disc",
+          "link": "/artists/joni-mitchell"
+        },
+        {
+          "year": 1973,
+          "type": "milestone",
+          "title": "Hip-Hop Begins",
+          "description": "Kool Herc hosts first hip-hop party on August 11, 1973 in Bronx",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1973,
+          "type": "album",
+          "title": "The Dark Side of the Moon",
+          "description": "Pink Floyd releases concept album masterpiece",
+          "genre": "Progressive Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1975,
+          "type": "innovation",
+          "title": "MIDI Protocol Invented",
+          "description": "Digital music communication standard revolutionizes production",
+          "genre": "Innovation",
+          "icon": "cpu"
+        },
+        {
+          "year": 1975,
+          "type": "album",
+          "title": "Rumours",
+          "description": "Fleetwood Mac releases defining album of era",
+          "genre": "Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1976,
+          "type": "album",
+          "title": "Songs in the Key of Life",
+          "description": "Stevie Wonder releases career-defining masterpiece",
+          "genre": "Soul",
+          "icon": "disc",
+          "link": "/artists/stevie-wonder"
+        },
+        {
+          "year": 1977,
+          "type": "milestone",
+          "title": "Punk Rock Revolution",
+          "description": "Sex Pistols spark UK punk movement with \"Anarchy in the UK\"",
+          "genre": "Punk",
+          "icon": "star"
+        },
+        {
+          "year": 1979,
+          "type": "album",
+          "title": "Off the Wall",
+          "description": "Michael Jackson's breakthrough solo album",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/michael-jackson"
+        }
+      ]
+    },
+    {
+      "slug": "1980s",
+      "decade": "1980s",
+      "title": "Music Revolution: How the 1980s Transformed Sound",
+      "articleSlug": "1980s",
+      "color": "#3498db",
+      "items": [
+        {
+          "year": 1980,
+          "type": "album",
+          "title": "Back in Black",
+          "description": "AC/DC releases best-selling hard rock album",
+          "genre": "Hard Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1981,
+          "type": "milestone",
+          "title": "MTV Launches",
+          "description": "Music television revolutionizes music consumption",
+          "genre": "Media",
+          "icon": "tv"
+        },
+        {
+          "year": 1982,
+          "type": "album",
+          "title": "Thriller",
+          "description": "Michael Jackson's masterpiece, best-selling album ever",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/michael-jackson"
+        },
+        {
+          "year": 1982,
+          "type": "artist",
+          "title": "Madonna Begins",
+          "description": "Madonna begins her career with \"Everybody\"",
+          "genre": "Pop",
+          "icon": "user",
+          "link": "/artists/madonna"
+        },
+        {
+          "year": 1983,
+          "type": "milestone",
+          "title": "Michael Jackson on MTV",
+          "description": "\"Billie Jean\" premiere launches MTV era",
+          "genre": "Pop",
+          "icon": "star",
+          "link": "/artists/michael-jackson"
+        },
+        {
+          "year": 1984,
+          "type": "album",
+          "title": "Purple Rain",
+          "description": "Prince releases iconic soundtrack album",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/prince"
+        },
+        {
+          "year": 1985,
+          "type": "event",
+          "title": "Live Aid Concert",
+          "description": "Global benefit concert raises awareness for famine in Africa",
+          "genre": "Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 1986,
+          "type": "album",
+          "title": "The Joshua Tree",
+          "description": "U2 releases defining album of decade",
+          "genre": "Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1987,
+          "type": "album",
+          "title": "Bad",
+          "description": "Michael Jackson releases album with 7 #1 singles",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/michael-jackson"
+        },
+        {
+          "year": 1989,
+          "type": "album",
+          "title": "Like a Prayer",
+          "description": "Madonna pushes pop and music video boundaries",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/madonna"
+        }
+      ]
+    },
+    {
+      "slug": "1990s",
+      "decade": "1990s",
+      "title": "Music of the 1990s: Grunge, Hip-Hop & Digital Revolution",
+      "articleSlug": "1990s",
+      "color": "#2ecc71",
+      "items": [
+        {
+          "year": 1990,
+          "type": "artist",
+          "title": "Nirvana Forms",
+          "description": "Kurt Cobain forms Nirvana, sparking grunge movement",
+          "genre": "Grunge",
+          "icon": "user"
+        },
+        {
+          "year": 1991,
+          "type": "album",
+          "title": "Nevermind",
+          "description": "Nirvana releases album that changes music industry",
+          "genre": "Grunge",
+          "icon": "disc"
+        },
+        {
+          "year": 1992,
+          "type": "album",
+          "title": "The Chronic",
+          "description": "Dr. Dre releases defining West Coast hip-hop album",
+          "genre": "Hip-Hop",
+          "icon": "disc"
+        },
+        {
+          "year": 1992,
+          "type": "album",
+          "title": "Janet.",
+          "description": "Janet Jackson releases sexually explicit album",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/janet-jackson"
+        },
+        {
+          "year": 1994,
+          "type": "milestone",
+          "title": "\"Smells Like Teen Spirit\"",
+          "description": "Nirvana's anthem defines Generation X",
+          "genre": "Grunge",
+          "icon": "star"
+        },
+        {
+          "year": 1995,
+          "type": "album",
+          "title": "Jagged Little Pill",
+          "description": "Alanis Morissette releases defining album of female artists",
+          "genre": "Alternative",
+          "icon": "disc",
+          "link": "/artists/alanis-morissette"
+        },
+        {
+          "year": 1997,
+          "type": "album",
+          "title": "Radiohead's OK Computer",
+          "description": "Radiohead releases landmark alternative album",
+          "genre": "Alternative",
+          "icon": "disc"
+        },
+        {
+          "year": 1997,
+          "type": "artist",
+          "title": "Tupac Shakur Dies",
+          "description": "Tupac's death intensifies East Coast-West Coast rivalry",
+          "genre": "Hip-Hop",
+          "icon": "user",
+          "link": "/artists/tupac-shakur"
+        },
+        {
+          "year": 1998,
+          "type": "album",
+          "title": "Supernatural",
+          "description": "Santana's comeback album dominates charts",
+          "genre": "Rock",
+          "icon": "disc",
+          "link": "/artists/santana"
+        },
+        {
+          "year": 1999,
+          "type": "milestone",
+          "title": "Napster Launches",
+          "description": "P2P sharing revolutionizes music distribution",
+          "genre": "Technology",
+          "icon": "star"
+        }
+      ]
+    },
+    {
+      "slug": "2000s",
+      "decade": "2000s",
+      "title": "Music of the 2000s: Digital Age & Streaming Begins",
+      "articleSlug": "2000s",
+      "color": "#f39c12",
+      "items": [
+        {
+          "year": 2000,
+          "type": "album",
+          "title": "Kid A",
+          "description": "Radiohead releases experimental album",
+          "genre": "Alternative",
+          "icon": "disc"
+        },
+        {
+          "year": 2001,
+          "type": "innovation",
+          "title": "iPod & iTunes",
+          "description": "Apple revolutionizes portable music consumption",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2001,
+          "type": "album",
+          "title": "Discovery",
+          "description": "Daft Punk releases influential electronic album",
+          "genre": "Electronic",
+          "icon": "disc"
+        },
+        {
+          "year": 2002,
+          "type": "album",
+          "title": "The Eminem Show",
+          "description": "Eminem dominates hip-hop with controversial album",
+          "genre": "Hip-Hop",
+          "icon": "disc",
+          "link": "/artists/eminem"
+        },
+        {
+          "year": 2003,
+          "type": "innovation",
+          "title": "MySpace Launches",
+          "description": "Social media becomes platform for music discovery",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2003,
+          "type": "album",
+          "title": "Get Rich or Die Tryin'",
+          "description": "50 Cent releases blockbuster debut",
+          "genre": "Hip-Hop",
+          "icon": "disc",
+          "link": "/artists/50-cent"
+        },
+        {
+          "year": 2004,
+          "type": "milestone",
+          "title": "iTunes Store",
+          "description": "Legal digital music purchasing transforms industry",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2004,
+          "type": "album",
+          "title": "Confessions",
+          "description": "Usher's album defines R&B era",
+          "genre": "R&B",
+          "icon": "disc",
+          "link": "/artists/usher"
+        },
+        {
+          "year": 2007,
+          "type": "innovation",
+          "title": "Auto-Tune Mainstream",
+          "description": "T-Pain and Kanye West popularize effect",
+          "genre": "Innovation",
+          "icon": "cpu"
+        },
+        {
+          "year": 2009,
+          "type": "event",
+          "title": "Michael Jackson Dies",
+          "description": "King of Pop dies, memorial concerts worldwide",
+          "genre": "Cultural",
+          "icon": "calendar",
+          "link": "/artists/michael-jackson"
+        }
+      ]
+    },
+    {
+      "slug": "2010s",
+      "decade": "2010s",
+      "title": "Music of the 2010s: How Streaming Reshaped Everything",
+      "articleSlug": "2010s",
+      "color": "#1abc9c",
+      "items": [
+        {
+          "year": 2010,
+          "type": "album",
+          "title": "The Suburbs",
+          "description": "Arcade Fire wins Grammy, indie goes mainstream",
+          "genre": "Indie Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 2011,
+          "type": "innovation",
+          "title": "Spotify Launches",
+          "description": "Streaming becomes dominant music consumption method",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2012,
+          "type": "album",
+          "title": "Random Access Memories",
+          "description": "Daft Punk bridges electronic and live performance",
+          "genre": "Electronic",
+          "icon": "disc"
+        },
+        {
+          "year": 2012,
+          "type": "album",
+          "title": "Good Kid, M.A.A.D City",
+          "description": "Kendrick Lamar releases breakthrough album",
+          "genre": "Hip-Hop",
+          "icon": "disc",
+          "link": "/artists/kendrick-lamar"
+        },
+        {
+          "year": 2014,
+          "type": "milestone",
+          "title": "Streaming Exceeds Sales",
+          "description": "For first time, streaming revenue surpasses physical",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2014,
+          "type": "album",
+          "title": "To Pimp a Butterfly",
+          "description": "Kendrick Lamar releases politically charged masterpiece",
+          "genre": "Hip-Hop",
+          "icon": "disc",
+          "link": "/artists/kendrick-lamar"
+        },
+        {
+          "year": 2014,
+          "type": "artist",
+          "title": "Taylor Swift: 1989",
+          "description": "Taylor Swift transitions to pop with massive success",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/taylor-swift"
+        },
+        {
+          "year": 2016,
+          "type": "album",
+          "title": "Lemonade",
+          "description": "Beyoncé releases visual album addressing race",
+          "genre": "R&B",
+          "icon": "disc",
+          "link": "/artists/beyonce"
+        },
+        {
+          "year": 2017,
+          "type": "artist",
+          "title": "Kendrick Lamar's Pulitzer",
+          "description": "\"DAMN.\" wins Pulitzer, hip-hop enters institution",
+          "genre": "Hip-Hop",
+          "icon": "user",
+          "link": "/artists/kendrick-lamar"
+        },
+        {
+          "year": 2019,
+          "type": "album",
+          "title": "When We All Fall Asleep, Where Do We Go?",
+          "description": "Billie Eilish releases debut album",
+          "genre": "Pop",
+          "icon": "disc",
+          "link": "/artists/billie-eilish"
+        }
+      ]
+    }
+  ]
+}

@@ -51,6 +51,16 @@
     radial-gradient(circle at 60% 70%, rgba(95, 157, 217, 0.06), transparent 25%);
 }
 
+/* Global minimum font size of 18px for better readability */
+html {
+  font-size: 112.5%; /* 18px = 1rem at standard browser settings */
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 :root[data-theme="light"] {
   color-scheme: light;
 }
