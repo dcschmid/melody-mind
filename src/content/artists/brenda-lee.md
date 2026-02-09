@@ -1,7 +1,7 @@
 ---
 name: "Brenda Lee"
 photo: "/artists/brenda-lee.jpg"
-biography: 'Brenda Lee, known as ''Little Miss Dynamite,'' was a child prodigy who became one of the most successful female vocalists of the 1960s. Despite standing only 4''9" (145 cm), she possessed a powerful, mature voice that commanded attention. Lee recorded her first songs at age 11 and achieved two consecutive number-one hits in 1960 with ''I''m Sorry'' and ''I Want to Be Wanted.'' Her career spans over 65 years, transitioning from rock and roll and pop to country music. Her enduring holiday classic ''Rockin'' Around the Christmas Tree'' (1958) remains one of the most-played Christmas songs decades later. Lee received induction into both Country Music Hall of Fame and Rock and Roll Hall of Fame, solidifying her legacy across multiple genres.'
+biography: 'Brenda Lee, born on December 11, 1944, in Lithonia, Georgia, was a child prodigy who became one of the most successful female vocalists of the 1960s despite standing only 4''9". Known as ''Little Miss Dynamite,'' she recorded her first songs at age 11 and achieved two consecutive number-one hits in 1960 with ''I''m Sorry'' and ''I Want to Be Wanted.'' Her career spans over 65 years, successfully transitioning from rock and roll and pop to country music. Her enduring holiday classic ''Rockin'' Around the Christmas Tree'' (1958) remains one of the most-played Christmas songs decades later. Lee received induction into both the Country Music Hall of Fame and Rock and Roll Hall of Fame, solidifying her legacy across multiple genres.'
 born: "December 11, 1944"
 origin: "Lithonia, Georgia, USA"
 genres:
@@ -11,19 +11,10 @@ genres:
   - "Rockabilly"
   - "Christmas Music"
 influencedBy:
-  - "patsy-cline"
   - "hank-williams"
-  - "connie-francis"
   - "elvis-presley"
   - "little-richard"
-influenced:
-  - "taylor-swift"
-  - "dolly-parton"
-  - "reba-mcentire"
-  - "loretta-lynn"
-  - "kelly-clarkson"
-  - "leann-rimes"
-  - "carrie-underwood"
+influenced: []
 keyAlbums:
   - "I'm Sorry (1960)"
   - "This Is... Brenda Lee (1960)"
@@ -43,7 +34,7 @@ keySongs:
   - "Big Four-Poster Bed"
 relatedArticles:
   - "1950s"
-discographyOverview: "With a career spanning 1955 to present, Brenda Lee recorded her first songs at age 11 and has maintained a remarkable 65+ year music career. She achieved 47 Billboard Hot 100 chart entries, with two number-one hits ('I'm Sorry' and 'I Want to Be Wanted') in 1960. Her holiday classic 'Rockin' Around the Christmas Tree' (1958) became an enduring Christmas standard that remains popular decades later. Lee received Grammy Hall of Fame induction for 'I'm Sorry' and 'Rockin' Around the Christmas Tree.' She was inducted into Country Music Hall of Fame in 1997 and Rock and Roll Hall of Fame in 2002, one of the few artists to achieve both honors. Billboard ranked her among 'Greatest Pop Stars of All Time' in 2022."
+discographyOverview: "Brenda Lee achieved 47 Billboard Hot 100 hits including two #1s ('I'm Sorry' and 'I Want to Be Wanted') in 1960, earning the nickname 'Little Miss Dynamite.' Her holiday classic 'Rockin' Around the Christmas Tree' became an enduring standard since 1958. Inducted into both Country Music Hall of Fame (1997) and Rock and Roll Hall of Fame (2002)."
 careerTimeline:
   - year: "1955"
     event: "Recorded first songs at age 11; signed with Decca Records"

@@ -1,7 +1,8 @@
 ---
 name: "Big Mama Thornton"
 photo: "/artists/big-mama-thornton.jpg"
-biography: "Big Mama Thornton, born Willie Mae Thornton, was a pioneering blues and R&B vocalist whose powerful voice and commanding stage presence influenced generations of rock and blues artists. She originated two of rock and roll's most iconic songs: 'Hound Dog' (1952), which she co-wrote and topped R&B charts for seven weeks, and 'Ball and Chain' (1961), later popularized by Janis Joplin. Thornton's raw, uncompromising vocal style challenged gender norms in the music industry and established a template for female rock and blues singers. Despite limited commercial success compared to her later interpreters, she earned critical recognition including Grammy nominations and induction into the Blues Hall of Fame."
+biography: |
+  Big Mama Thornton, born Willie Mae Thornton on December 11, 1926, in Montgomery, Alabama, was a pioneering blues and R&B vocalist whose powerful voice and commanding stage presence influenced generations of rock and blues artists. She originated two of rock and roll's most iconic songs: "Hound Dog" (1952), which she co-wrote and topped R&B charts for seven weeks, and "Ball and Chain" (1961), later popularized by Janis Joplin. Thornton's raw, uncompromising vocal style challenged gender norms in the music industry and established a template for female rock and blues singers. Despite limited commercial success compared to her later interpreters, she earned critical recognition including Grammy nominations and induction into the Blues Hall of Fame. Her powerful contralto voice and dynamic performances continue to inspire artists across multiple generations.
 born: "December 11, 1926"
 died: "July 25, 1984"
 origin: "Montgomery, Alabama, USA"
@@ -12,17 +13,8 @@ genres:
   - "Electric Blues"
   - "Gospel"
 influencedBy:
-  - "ma-rainey"
-  - "bessie-smith"
-  - "big-joe-turner"
   - "sister-rosetta-tharpe"
 influenced:
-  - "janis-joplin"
-  - "big-brother-and-the-holding-company"
-  - "etta-james"
-  - "koko-taylor"
-  - "the-rolling-stones"
-  - "bonnie-raitt"
   - "aretha-franklin"
 keyAlbums:
   - "Hound Dog (1952)"
@@ -41,7 +33,7 @@ keySongs:
 relatedArticles:
   - "1950s"
   - "from-blues-to-breakdown"
-discographyOverview: "With a career spanning the 1940s to 1984, Big Mama Thornton released 10 studio albums and numerous singles that became foundations of rock and roll. Her 1952 original recording of 'Hound Dog' topped R&B charts for seven weeks and sold over two million copies, far exceeding Elvis Presley's 1956 cover version. 'Ball and Chain' became a blues standard, later popularized by Janis Joplin. Despite being overshadowed by later covers, Thornton received Grammy nominations in 1984 for 'Big Mama Swings' and was posthumously inducted into the Blues Hall of Fame in 2018 for her foundational contributions to American music."
+discographyOverview: "Big Mama Thornton released 10 studio albums from the 1950s to 1980s, with her 1952 original 'Hound Dog' topping R&B charts for seven weeks. Her blues standard 'Ball and Chain' became widely known through Janis Joplin's interpretation."
 careerTimeline:
   - year: "1941"
     event: "Began performing in churches and local clubs in Alabama; joined Sammy Green's Hot Harlem Revue"

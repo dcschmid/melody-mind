@@ -12,20 +12,10 @@ genres:
   - "Traditional Pop"
   - "Scat Singing"
 influencedBy:
-  - "louis-armstrong"
-  - "connie-boswell"
-  - "chick-webb"
-  - "bing-crosby"
   - "billie-holiday"
 influenced:
-  - "sarah-vaughan"
-  - "peggy-lee"
-  - "frank-sinatra"
-  - "diana-krall"
-  - "norah-jones"
-  - "jane-monheit"
-  - "michael-buble"
-  - "lady-gaga"
+  - "adele"
+  - "whitney-houston"
 keyAlbums:
   - "Ella and Louis (1956)"
   - "Ella Fitzgerald Sings the Cole Porter Songbook (1956)"
@@ -46,7 +36,7 @@ keySongs:
   - "Every Time We Say Goodbye"
 relatedArticles:
   - "1950s"
-discographyOverview: "With a career spanning 1934 to 1993, Ella Fitzgerald recorded over 200 albums and 2,000 songs, making her one of the most prolific jazz vocalists. Her songbook series of eight albums (1956-1958) for Verve Records is considered one of the most ambitious musical projects in history. Fitzgerald won 18 Grammy Awards (including the first Grammy Award for Best Vocal Performance, Female in 1958) and received the National Medal of Arts in 1987. She was named among the 'Greatest Jazz Vocalists of All Time' by Rolling Stone and was awarded the Presidential Medal of Freedom in 1992, recognizing her cultural impact and contributions to American music."
+discographyOverview: "Ella Fitzgerald recorded over 200 albums and 2,000 songs from 1934 to 1993, becoming one of jazz's most prolific vocalists. Her legendary songbook series (1956-1958) for Verve Records remains one of music's most ambitious recording projects. She won 18 Grammy Awards including the first Best Vocal Performance, Female in 1958."
 careerTimeline:
   - year: "1934"
     event: "Won amateur contest at Apollo Theater; began professional singing career with Chick Webb Orchestra"

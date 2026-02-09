@@ -1,7 +1,8 @@
 ---
 name: "Muddy Waters"
 photo: "/artists/muddy-waters.jpg"
-biography: "Muddy Waters, born McKinley Morganfield, was an American blues musician widely considered the father of modern Chicago blues. A guitarist, singer, and songwriter, Waters transformed the rural Delta blues of his Mississippi youth into the amplified urban sound that defined the Chicago blues style from the late 1940s through the 1960s. His recordings for Chess Records from 1947 to 1975, including classic tracks like 'Hoochie Coochie Man,' 'Mannish Boy,' and 'I Just Want to Make Love to You,' became essential repertoire for blues and rock musicians. A Grammy Hall of Fame inductee and Rock and Roll Hall of Fame inductee, Waters influenced countless artists including The Rolling Stones, Eric Clapton, Led Zeppelin, and Jimi Hendrix, making him one of the most important figures in American music history."
+biography: |
+  Muddy Waters, born McKinley Morganfield on April 4, 1913, in Rolling Fork, Mississippi, was an American blues musician widely considered the father of modern Chicago blues who transformed the rural Delta blues of his Mississippi youth into the amplified urban sound that defined the Chicago blues style. His recordings for Chess Records from 1947 to 1975, including classic tracks like "Hoochie Coochie Man," "Mannish Boy," and "I Just Want to Make Love to You," became essential repertoire for blues and rock musicians, influencing countless artists including The Rolling Stones, Eric Clapton, Led Zeppelin, and Jimi Hendrix. Moving to Chicago in 1943, he began recording in the 1940s and developed the electric blues style that revolutionized the genre and influenced the development of rock and roll. A Grammy Hall of Fame inductee and Rock and Roll Hall of Fame inductee (1987), Waters continued recording and performing throughout the 1960s and 1970s, bringing blues to international audiences while his influence on British blues bands and American rock musicians was profound. He died on April 30, 1983, in Chicago, but his legacy as one of the most important figures in American music history endures with "Hoochie Coochie Man" posthumously inducted into Grammy Hall of Fame (1999).
 born: "April 4, 1913"
 died: "April 30, 1983"
 origin: "Rolling Fork, Mississippi, USA"
@@ -13,21 +14,8 @@ genres:
   - "Blues Rock"
   - "R&B"
   - "Urban Blues"
-influencedBy:
-  - "son-house"
-  - "robert-johnson"
-  - "big-joe-williams"
-  - "charley-patton"
-  - "t-bone-walker"
-influenced:
-  - "the-rolling-stones"
-  - "eric-clapton"
-  - "led-zeppelin"
-  - "the-doors"
-  - "the-allman-brothers-band"
-  - "creedence-clearwater-revival"
-  - "jimi-hendrix"
-  - "steve-ray-vaughan"
+influencedBy: []
+influenced: []
 keyAlbums:
   - "The Best of Muddy Waters (1958)"
   - "Muddy Waters at Newport (1960)"
@@ -51,7 +39,7 @@ keySongs:
 relatedArticles:
   - "1950s"
   - "from-blues-to-breakdown"
-discographyOverview: "During his recording career from 1941 to 1983, Waters released over 200 songs across various labels, with over 100 recorded for Chess Records from 1947 to 1975. His Chess Records catalog produced seminal blues tracks like 'Hoochie Coochie Man' (1954), 'Mannish Boy' (1955), 'I Just Want to Make Love to You' (1954), and 'Got My Mojo Working' (1957), which became blues standards and were covered by countless artists. His album 'Hard Again' (1977) marked a successful comeback, winning the Grammy Award for Best Ethnic or Traditional Folk Recording. Posthumously, 'Hoochie Coochie Man' was inducted into the Grammy Hall of Fame in 1999. His recordings have sold over 15 million copies worldwide."
+discographyOverview: "Muddy Waters released over 200 songs from 1941 to 1983, creating blues standards like 'Hoochie Coochie Man,' 'Mannish Boy,' and 'Got My Mojo Working.' His 'Hard Again' (1977) won a Grammy Award. Inducted into Rock and Roll Hall of Fame in 1987."
 careerTimeline:
   - year: "1930s"
     event: "Began performing at local juke joints and house parties in Mississippi Delta region; learned guitar from Son House"

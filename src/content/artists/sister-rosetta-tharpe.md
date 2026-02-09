@@ -12,21 +12,11 @@ genres:
   - "R&B"
   - "Spirituals"
   - "Gospel Blues"
-influencedBy:
-  - "gospel-quartets"
-  - "mother-maybelle-carter"
-  - "blues-guitarists"
-  - "chicago-gospel"
-  - "camp-meetings"
+influencedBy: []
 influenced:
   - "chuck-berry"
   - "little-richard"
   - "elvis-presley"
-  - "jerry-lee-lewis"
-  - "johnny-cash"
-  - "bonnie-raitt"
-  - "alison-krauss"
-  - "robert-plant"
 keyAlbums:
   - "The Gospel Soul of Sister Rosetta Tharpe (1960)"
   - "Gospel Train (1960)"
@@ -50,7 +40,7 @@ keySongs:
 relatedArticles:
   - "1950s"
   - "from-blues-to-breakdown"
-discographyOverview: "During her recording career from 1938 to 1970, Tharpe released over 200 songs across Decca, Mercury, and other labels, with multiple gospel hits and crossover appeal to secular audiences. Her Decca Records catalog (1938-1946) produced classic spirituals like 'This Train' (1939) and 'Strange Things Happening Every Day' (1944), while her later work on Mercury Records (1950s-1960s) featured collaborations with Marie Knight. Tharpe pioneered electric guitar in gospel music, influencing Chuck Berry's guitar style and inspiring Little Richard's vocal energy. Her 1964 performance at the Newport Folk Festival introduced her to new generation of rock fans. Posthumously, 'This Train' was inducted into Grammy Hall of Fame in 2020. Her recordings have sold over 5 million copies worldwide."
+discographyOverview: "Sister Rosetta Tharpe released over 200 songs from 1938 to 1970, pioneering electric guitar in gospel music with classics like 'This Train.' Her influence shaped Chuck Berry, Little Richard, and Elvis Presley. Inducted into Blues Hall of Fame in 2018."
 careerTimeline:
   - year: "1910s"
     event: "Began performing as child prodigy at church revivals and tent meetings"

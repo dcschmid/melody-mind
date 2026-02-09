@@ -1,7 +1,7 @@
 ---
 name: "Nat King Cole"
 photo: "/artists/nat-king-cole.jpg"
-biography: "Nat King Cole, born Nathaniel Adams Coles, was an American singer and jazz pianist who became one of the most popular and influential entertainers of the 20th century. Beginning as a jazz pianist leading the King Cole Trio from 1937 to 1955, Cole transitioned to solo singing career, releasing over 100 singles including chart-topping hits like 'Mona Lisa,' 'Unforgettable,' and 'The Christmas Song.' His smooth baritone voice, sophisticated arrangements, and television presence as first African American to host a network variety show (1956-1957) broke racial barriers in entertainment. A Grammy Hall of Fame inductee and Rock and Roll Hall of Fame inductee, Cole recorded over 1,500 songs and sold over 50 million records worldwide, making him one of the best-selling music artists of all time."
+biography: "Nat King Cole, born Nathaniel Adams Coles on March 17, 1919, in Montgomery, Alabama, was an American singer and jazz pianist who became one of the most popular and influential entertainers of the 20th century, beginning as a jazz pianist leading the King Cole Trio from 1937 to 1955 before transitioning to solo singing. Recording over 1,500 songs and selling over 50 million records worldwide, he achieved chart-topping hits like 'Mona Lisa,' 'Unforgettable,' and 'The Christmas Song' with his smooth baritone voice and sophisticated arrangements. As the first African American to host a network variety show (1956-1957), he broke racial barriers in entertainment while pioneering piano vocal jazz with the King Cole Trio. A Grammy Hall of Fame inductee and Rock and Roll Hall of Fame inductee (1990), his recordings include 200 Billboard Hot 100 entries with 4 reaching number one: 'Straighten Up and Fly Right' (1943), 'The Christmas Song' (1946), 'Mona Lisa' (1950), and 'Too Young' (1951). He died on February 15, 1965, from lung cancer in Santa Monica, California at age 45, but his legacy continued through daughter Natalie Cole's Grammy-winning virtual duet 'Unforgettable' (1991)."
 born: "March 17, 1919"
 died: "February 15, 1965"
 origin: "Montgomery, Alabama, USA"
@@ -13,20 +13,10 @@ genres:
   - "Swing"
   - "R&B"
   - "Christmas Music"
-influencedBy:
-  - "earl-hines"
-  - "teddy-wilson"
-  - "fats-waller"
-  - "count-basie"
-  - "bing-crosby"
+influencedBy: []
 influenced:
   - "ray-charles"
-  - "sammy-davis-jr"
-  - "johnny-mathis"
   - "stevie-wonder"
-  - "michael-bublé"
-  - "diana-krall"
-  - "paul-anka"
   - "frank-sinatra"
 keyAlbums:
   - "The Nat King Cole Trio (1944)"
@@ -50,7 +40,7 @@ keySongs:
   - "Send for Me"
 relatedArticles:
   - "1950s"
-discographyOverview: "During his recording career from 1936 to 1965, Cole released over 1,500 songs across Capitol Records and other labels, with over 200 charting on Billboard's Hot 100, 20 reaching Top 10, and 4 hitting number one: 'Straighten Up and Fly Right' (1943), 'The Christmas Song' (1946), 'Mona Lisa' (1950), and 'Too Young' (1951). His solo career from 1950 to 1965 produced enduring classics like 'Unforgettable,' 'L-O-V-E,' and 'Smile,' while his earlier trio recordings with Oscar Moore and Wesley Prince pioneered piano vocal jazz. Posthumously, 'The Christmas Song,' 'Mona Lisa,' and 'Unforgettable' were inducted into the Grammy Hall of Fame. His recordings have sold over 50 million copies worldwide, making him one of the best-selling music artists of all time."
+discographyOverview: "Nat King Cole released over 1,500 songs from 1936 to 1965, with 4 reaching number one including 'Mona Lisa' and 'Unforgettable'. He pioneered piano vocal jazz with the King Cole Trio before achieving solo success with sophisticated pop standards. Over 50 million records sold worldwide."
 careerTimeline:
   - year: "1936"
     event: "Began performing as teenage pianist at local clubs in Chicago under name 'Nat Cole'"

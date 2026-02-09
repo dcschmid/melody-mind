@@ -1,7 +1,7 @@
 ---
 name: "LaVern Baker"
 photo: "/artists/lavern-baker.jpg"
-biography: "LaVern Baker, born Delores LaVern Baker, was an American R&B and rock and roll singer known for her powerful voice, dynamic stage presence, and string of hits in the 1950s and 1960s. Nicknamed 'Little Miss Sharecropper' early in her career, Baker recorded for Atlantic Records from 1953 to 1966, releasing over 20 R&B chart hits including 6 number-one singles: 'Tweedle Dee,' 'Jim Dandy,' 'I Cried a Tear,' 'I Can't Love You Enough,' 'Saved,' and 'See See Rider.' Her songs bridged the gap between R&B and early rock and roll, making her one of the most successful female artists of the era. A Rock and Roll Hall of Fame inductee, Baker influenced generations of singers with her bold style and energetic performances."
+biography: "LaVern Baker, born Delores LaVern Baker on November 11, 1929, in Chicago, Illinois, was an American R&B and rock and roll singer known for her powerful voice, dynamic stage presence, and string of hits in the 1950s and 1960s, recording for Atlantic Records from 1953 to 1966. Nicknamed 'Little Miss Sharecropper' early in her career, she released over 20 R&B chart hits including 6 number-one singles: 'Tweedle Dee,' 'Jim Dandy,' 'I Cried a Tear,' 'I Can't Love You Enough,' 'Saved,' and 'See See Rider,' bridging the gap between R&B and early rock and roll. Her songs made her one of the most successful female artists of the era, with early success including crossover appeal with white audiences, particularly with 'Tweedle Dee' which reached #5 on Billboard's Hot 100. A Rock and Roll Hall of Fame inductee (1991), Baker influenced generations of singers with her bold style and energetic performances, from Aretha Franklin and Tina Turner to Dusty Springfield and Donna Summer. She died on March 10, 1997, from cardiovascular disease in Bronx, New York at age 67, but her legacy as a pioneering R&B artist endures."
 born: "November 11, 1929"
 died: "March 10, 1997"
 origin: "Chicago, Illinois, USA"
@@ -14,17 +14,10 @@ genres:
   - "Doo Wop"
   - "Blues"
 influencedBy:
-  - "mahalia-jackson"
-  - "dinah-washington"
-  - "big-mama-thornton"
-  - "etta-james"
   - "sister-rosetta-tharpe"
 influenced:
   - "aretha-franklin"
-  - "tina-turner"
   - "dusty-springfield"
-  - "donna-summer"
-  - "the-shirelles"
   - "brenda-lee"
 keyAlbums:
   - "LaVern Baker (1956)"
@@ -48,7 +41,7 @@ keySongs:
   - "I'll Be Satisfied"
 relatedArticles:
   - "1950s"
-discographyOverview: "During her recording career from 1953 to 1966, Baker released over 100 songs on Atlantic Records, with 21 charting on Billboard's R&B chart and 6 reaching number one: 'Tweedle Dee' (1955), 'I Cried a Tear' (1958), 'I Can't Love You Enough' (1958), 'Jim Dandy' (1959), 'Saved' (1961), and 'See See Rider' (1965). Her early success included crossover appeal with white audiences, particularly with 'Tweedle Dee' which reached #5 on Billboard's Hot 100. After retiring from music in 1966 to perform for U.S. troops, she made a comeback in the 1980s, releasing 'Rock and Roll Hall of Fame' album in 1989. Her catalog has sold over 15 million copies worldwide."
+discographyOverview: "LaVern Baker released over 100 songs on Atlantic Records from 1953 to 1966, with 6 reaching #1 on the R&B chart including 'Tweedle Dee' and 'Jim Dandy.' Her catalog has sold over 15 million copies worldwide. Inducted into Rock and Roll Hall of Fame in 1991."
 careerTimeline:
   - year: "1940s"
     event: "Began performing in Chicago clubs as 'Little Miss Sharecropper'; made early recordings"

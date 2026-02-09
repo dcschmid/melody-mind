@@ -11,20 +11,11 @@ genres:
   - "R&B"
   - "Pop"
   - "Doo Wop"
-influencedBy:
-  - "the-soul-stirrers"
-  - "mahalia-jackson"
-  - "the-dixie-hummingbirds"
-  - "roy-hamilton"
-  - "gospel-quartets"
+influencedBy: []
 influenced:
   - "otis-redding"
   - "marvin-gaye"
-  - "sam-and-dave"
   - "aretha-franklin"
-  - "al-green"
-  - "rodney-crowell"
-  - "john-legend"
 keyAlbums:
   - "Sam Cooke (1957)"
   - "Encore (1958)"
@@ -47,7 +38,7 @@ keySongs:
 relatedArticles:
   - "1950s"
   - "1960s"
-discographyOverview: "During his recording career from 1951 to 1964, Cooke released over 100 songs across Specialty, RCA Victor, and his own SAR Records, with 29 charting on Billboard's Hot 100, 19 reaching Top 10, and 3 hitting number one: 'You Send Me' (1957), 'Chain Gang' (1960), and 'Twistin' the Night Away' (1962). His gospel period with The Soul Stirrers (1950-1957) produced spiritual classics before his secular breakthrough. Cooke founded SAR Records in 1961 to control his recordings and support other artists. His socially conscious song 'A Change Is Gonna Come' (1964) became anthem for civil rights movement and was inducted into Grammy Hall of Fame. Cooke was inducted into Rock and Roll Hall of Fame in 1986. His recordings have sold over 25 million copies worldwide."
+discographyOverview: "Sam Cooke released over 100 songs from 1951 to 1964, with 3 reaching #1 including 'You Send Me' and 'Chain Gang.' His civil rights anthem 'A Change Is Gonna Come' became a Grammy Hall of Fame classic. Inducted into Rock and Roll Hall of Fame in 1986."
 careerTimeline:
   - year: "1930s"
     event: "Began singing in church choir and with family gospel group"

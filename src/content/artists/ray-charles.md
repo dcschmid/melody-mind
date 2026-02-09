@@ -15,19 +15,14 @@ genres:
   - "Rock and Roll"
 influencedBy:
   - "nat-king-cole"
-  - "charles-brown"
-  - "louis-jordan"
-  - "t-bone-walker"
-  - "coleman-hawkins"
 influenced:
   - "aretha-franklin"
   - "stevie-wonder"
+  - "adele"
+  - "lady-gaga"
   - "otis-redding"
   - "james-brown"
   - "marvin-gaye"
-  - "alicia-keys"
-  - "van-morrison"
-  - "joe-cocker"
 keyAlbums:
   - "The Genius of Ray Charles (1959)"
   - "The Genius Hits the Road (1960)"
@@ -52,7 +47,7 @@ relatedArticles:
   - "1950s"
   - "1960s"
   - "from-blues-to-breakdown"
-discographyOverview: "During his recording career from 1947 to 2004, Charles released over 60 albums across Atlantic, ABC-Paramount, and other labels, with over 80 songs charting on Billboard's Hot 100, 17 reaching Top 10, and 3 hitting number one: 'I Can't Stop Loving You' (1962), 'Georgia on My Mind' (1960), and 'Hit the Road Jack' (1961). His Atlantic Records catalog (1952-1959) produced seminal soul tracks like 'I Got a Woman' (1954), 'What'd I Say' (1959), and 'Drown in My Own Tears,' which pioneered the soul genre. His 1962 album 'Modern Sounds in Country and Western Music' broke racial barriers by blending soul with country music. Charles won 17 Grammy Awards from 37 nominations, including Lifetime Achievement Award in 1987. His final album 'Genius Loves Company' (2004) sold over 17 million copies worldwide and won 8 Grammy Awards. Total record sales exceed 100 million copies worldwide."
+discographyOverview: "Ray Charles released over 60 albums from 1947 to 2004, with 3 reaching #1 on Billboard including 'Georgia on My Mind' and 'Hit the Road Jack.' His 'Modern Sounds in Country and Western Music' (1962) broke racial barriers. A 17-time Grammy winner with over 100 million records sold."
 careerTimeline:
   - year: "1937"
     event: "Lost sight due to glaucoma at age 7; attended Florida School for the Deaf and Blind"

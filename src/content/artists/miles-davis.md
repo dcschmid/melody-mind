@@ -14,20 +14,8 @@ genres:
   - "Jazz Fusion"
   - "Third Stream"
 influencedBy:
-  - "charlie-parker"
-  - "dizzy-gillespie"
   - "thelonious-monk"
-  - "clark-terry"
-  - "gil-evans"
-influenced:
-  - "john-coltrane"
-  - "herbie-hancock"
-  - "wayne-shorter"
-  - "chick-corea"
-  - "weather-report"
-  - "return-to-forever"
-  - "mahavishnu-orchestra"
-  - "pat-metheny"
+influenced: []
 keyAlbums:
   - "Birth of the Cool (1957)"
   - "Kind of Blue (1959)"
@@ -50,7 +38,7 @@ keySongs:
   - "Sanctuary"
 relatedArticles:
   - "1950s"
-discographyOverview: "During his recording career from 1945 to 1991, Davis released over 50 studio albums across multiple labels including Prestige, Columbia, and Warner Brothers, with total record sales exceeding 25 million copies worldwide. His Columbia catalog (1957-1975) produced some of the most influential jazz albums ever recorded: 'Kind of Blue' (1959) became the best-selling jazz album of all time with over 5 million copies sold, 'Bitches Brew' (1970) pioneered jazz fusion, and 'Birth of the Cool' (1957) defined cool jazz. Davis won 8 Grammy Awards during his career and received the Grammy Lifetime Achievement Award in 1990. His compositions like 'So What' and 'All Blues' have become jazz standards, with 'Kind of Blue' recognized as one of the most important albums in music history by the Library of Congress National Recording Registry."
+discographyOverview: "Miles Davis released over 50 studio albums from 1945 to 1991, pioneering bebop, cool jazz, modal jazz, and jazz fusion. His 'Kind of Blue' (1959) remains the best-selling jazz album of all time. An 8-time Grammy winner whose compositions like 'So What' became jazz standards."
 careerTimeline:
   - year: "1944"
     event: "Enrolled at Juilliard School of Music; began playing with Charlie Parker's bebop quintet"

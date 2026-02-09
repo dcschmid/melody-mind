@@ -1,7 +1,8 @@
 ---
 name: "Chuck Berry"
 photo: "/artists/chuck-berry.jpg"
-biography: "Chuck Berry pioneered rock and roll by fusing rhythm and blues with country guitar phrasing, creating a songwriting blueprint that defined the genre. His innovative guitar work, duckwalking stage persona, and storytelling lyrics about teenage life became foundational elements of rock music. Berry's influence extends across generations, establishing him as one of the most important and influential figures in rock history. He was among the first inductees into the Rock and Roll Hall of Fame in 1986 and received a Grammy Lifetime Achievement Award in 1984."
+biography: |
+  Chuck Berry pioneered rock and roll by fusing rhythm and blues with country guitar phrasing, creating a songwriting blueprint that defined the genre with his innovative guitar work, duckwalking stage persona, and storytelling lyrics about teenage life. His songs have been covered by virtually every major rock artist, from The Beatles to The Rolling Stones, with Maybellene and Johnny B Goode becoming timeless classics that continue to inspire musicians worldwide. Berry was among the first inductees into the Rock and Roll Hall of Fame in 1986 and received a Grammy Lifetime Achievement Award in 1984, establishing him as one of the most important and influential figures in rock history. His contribution to rock music is immeasurable, with his influence extending across generations. He died on March 18, 2017, but his legacy as the father of rock and roll endures.
 born: "October 18, 1926"
 died: "March 18, 2017"
 origin: "St. Louis, Missouri, USA"
@@ -13,18 +14,10 @@ genres:
   - "Country"
 influencedBy:
   - "muddy-waters"
-  - "louis-jordan"
   - "nat-king-cole"
-  - "t-bone-walker"
 influenced:
   - "elvis-presley"
-  - "the-beatles"
-  - "the-rolling-stones"
-  - "the-beach-boys"
-  - "jimi-hendrix"
-  - "ac-dc"
   - "bob-dylan"
-  - "bruce-springsteen"
 keyAlbums:
   - "After School Session (1957)"
   - "One Dozen Berrys (1958)"
@@ -43,7 +36,7 @@ relatedArticles:
   - "1950s"
   - "1960s"
   - "from-blues-to-breakdown"
-discographyOverview: "With a career spanning 1955 to 2017, Berry released 20 studio albums and numerous influential singles that became rock standards. His catalog includes 14 Billboard Hot 100 chart entries, with 6 reaching the Top 40 and 'Johnny B. Goode' peaking at number 8. In 2017, NASA's Voyager spacecraft carried 'Johnny B. Goode' into deep space as one of the great achievements of humanity, cementing Berry's legacy as a universal cultural icon."
+discographyOverview: "Chuck Berry released 20 studio albums and 14 Billboard Hot 100 entries, with 'Johnny B. Goode' becoming the first rock song played in space by NASA's Voyager. His classics like 'Maybellene' and 'Roll Over Beethoven' influenced virtually every major rock artist."
 careerTimeline:
   - year: "1955"
     event: "Signed with Chess Records; released breakthrough single 'Maybellene' reaching number 5 on Billboard R&B chart"

@@ -1,7 +1,7 @@
 ---
 name: "Lefty Frizzell"
 photo: "/artists/lefty-frizzell.jpg"
-biography: "Lefty Frizzell, born William Orville Frizzell, was an American country music singer-songwriter and honky tonk pioneer who created one of the most distinctive vocal styles in country music history. Known for his smooth, laid-back delivery, innovative phrasing, and ability to sing about heartbreak with remarkable emotion, Frizzell recorded over 100 singles during his career, with 37 reaching the Billboard country charts and 8 hitting number one. His signature songs like 'If You've Got the Money (I've Got the Time)' and 'I Love You a Thousand Ways' became country classics, while his vocal phrasing influenced countless artists including Willie Nelson, Merle Haggard, and George Jones. A member of the Country Music Hall of Fame, Frizzell is widely regarded as one of the most important honky tonk singers of all time."
+biography: "Lefty Frizzell, born William Orville Frizzell on March 31, 1928, in Corsicana, Texas, was an American country music singer-songwriter and honky tonk pioneer who created one of the most distinctive vocal styles in country music history with his smooth, laid-back delivery and innovative phrasing. Recording over 100 singles during his career, he achieved 37 Billboard country chart entries with 8 reaching number one, including signature songs 'If You've Got the Money (I've Got the Time)' and 'I Love You a Thousand Ways' that became country classics. His ability to sing about heartbreak with remarkable emotion influenced countless artists including Willie Nelson, Merle Haggard, and George Jones, with 'Long Black Veil' becoming one of the most recorded country songs in history with over 200 versions. A member of the Country Music Hall of Fame (1982), Frizzell is widely regarded as one of the most important honky tonk singers of all time. He died on July 19, 1975, from cardiac arrest in Nashville at age 47, but his recordings have sold over 25 million copies worldwide."
 born: "March 31, 1928"
 died: "July 19, 1975"
 origin: "Corsicana, Texas, USA"
@@ -13,19 +13,8 @@ genres:
   - "Outlaw Country"
   - "Country Ballads"
 influencedBy:
-  - "jimmie-rodgers"
-  - "ernest-tubb"
-  - "roy-acuff"
-  - "bob-wills"
   - "hank-williams"
-influenced:
-  - "merle-haggard"
-  - "willie-nelson"
-  - "george-jones"
-  - "johnny-cash"
-  - "doug-kershaw"
-  - "george-strait"
-  - "alan-jackson"
+influenced: []
 keyAlbums:
   - "Listen to Lefty Frizzell (1959)"
   - "The Long Black Veil (1959)"

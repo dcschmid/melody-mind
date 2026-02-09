@@ -2,7 +2,7 @@
 name: "Howlin' Wolf"
 photo: "/artists/howlin-wolf.jpg"
 biography: |
-  Howlin' Wolf, born Chester Arthur Burnett, was one of the most influential Chicago blues singers and guitarists of the 20th century. Known for his imposing physical presence (6'6" and 300 lbs), thunderous voice that ranged from growls to falsettos, and dynamic stage performances, Wolf recorded some of the most enduring blues classics for Chess Records from 1951 to 1962. His songs became staples for countless rock, blues, and R&B artists, with "Spoonful" and "Smokestack Lightnin'" becoming genre-defining tracks. A Grammy Hall of Fame inductee and member of both the Blues Hall of Fame and Rock and Roll Hall of Fame, Howlin' Wolf's raw emotional delivery and innovative arrangements shaped the development of modern blues and rock music.
+  Howlin' Wolf, born Chester Arthur Burnett on June 10, 1910, in West Point, Mississippi, was one of the most influential Chicago blues singers and guitarists of the 20th century known for his imposing physical presence (6'6" and 300 lbs) and thunderous voice that ranged from growls to falsettos. Recording for Chess Records from 1951 to 1962, Wolf created enduring blues classics including "Spoonful" and "Smokestack Lightnin'" that became genre-defining tracks and staples for countless rock, blues, and R&B artists. His raw emotional delivery and innovative arrangements with guitarist Hubert Sumlin shaped the development of modern blues and rock music, influencing artists from The Rolling Stones and Led Zeppelin to Eric Clapton and The Doors. A Grammy Hall of Fame inductee and member of both the Blues Hall of Fame (1980) and Rock and Roll Hall of Fame (1991), Wolf's legacy continues through his 1971 London Sessions collaboration with British rock stars. He died on January 10, 1976, from heart failure in Chicago at age 65, but his influence on blues and rock music endures.
 born: "June 10, 1910"
 died: "January 10, 1976"
 origin: "West Point, Mississippi, USA"
@@ -14,21 +14,8 @@ genres:
   - "R&B"
   - "Delta Blues"
   - "Urban Blues"
-influencedBy:
-  - "charley-patton"
-  - "sonny-boy-williamson-ii"
-  - "tommy-johnson"
-  - "mississippi-delta-blues"
-  - "t-bone-walker"
-influenced:
-  - "the-rolling-stones"
-  - "led-zeppelin"
-  - "the-doors"
-  - "eric-clapton"
-  - "the-allman-brothers-band"
-  - "creedence-clearwater-revival"
-  - "jimmy-page"
-  - "the-black-crowes"
+influencedBy: []
+influenced: []
 keyAlbums:
   - "Moanin' in the Moonlight (1959)"
   - "Howlin' Wolf (1962)"
@@ -51,7 +38,7 @@ keySongs:
   - "Goin' Down Slow"
 relatedArticles:
   - "1950s"
-discographyOverview: "During his recording career from 1951 to 1973, Wolf released over 120 songs across Chess Records and its subsidiaries, including multiple R&B chart hits. His Chess Records catalog (1951-1962) produced seminal blues tracks like 'Smokestack Lightnin,'' 'Spoonful,' and 'Killing Floor,' which became essential repertoire for blues and rock musicians. His 1971 'London Sessions' album featured collaborations with Eric Clapton, Steve Winwood, and other British rock stars, demonstrating his cross-generational influence. Posthumously, his work has been recognized with Grammy Hall of Fame inductions for 'Smokestack Lightnin'' (1999) and 'Spoonful' (1999), and his recordings have sold over 10 million copies worldwide."
+discographyOverview: "Howlin' Wolf released over 120 songs from 1951 to 1973 on Chess Records, creating blues standards like 'Smokestack Lightnin'' and 'Spoonful.' His 1971 London Sessions featured collaborations with Eric Clapton and Steve Winwood. Inducted into both Blues Hall of Fame (1980) and Rock and Roll Hall of Fame (1991)."
 careerTimeline:
   - year: "1930s"
     event: "Began performing in juke joints and at house parties throughout Mississippi Delta region"

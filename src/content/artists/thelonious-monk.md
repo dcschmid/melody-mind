@@ -1,7 +1,7 @@
 ---
 name: "Thelonious Monk"
 photo: "/artists/thelonious-monk.jpg"
-biography: "Thelonious Monk was an American jazz pianist and composer who pioneered bebop and modern jazz, creating distinctive angular melodies and dissonant harmonies that became his signature style. A founder of bebop alongside Charlie Parker and Dizzy Gillespie, Monk composed over 70 jazz standards including 'Round Midnight,' 'Blue Monk,' and 'Epistrophy.' Known for unconventional technique, abrupt chord changes, and unique improvisational approach, Monk influenced generations of jazz musicians including John Coltrane, Miles Davis, and Herbie Hancock. A 5-time Grammy winner and National Endowment for the Arts Jazz Master, Monk was inducted into Grammy Hall of Fame for 'Round Midnight' and received posthumous Grammy Lifetime Achievement Award in 1993."
+biography: "Thelonious Monk, born on October 10, 1917, in Rocky Mount, North Carolina, was an American jazz pianist and composer who pioneered bebop and modern jazz, creating distinctive angular melodies and dissonant harmonies that became his signature style as a founder of bebop alongside Charlie Parker and Dizzy Gillespie. He composed over 70 jazz standards including 'Round Midnight,' 'Blue Monk,' and 'Epistrophy,' with his unconventional technique, abrupt chord changes, and unique improvisational approach influencing generations of jazz musicians including John Coltrane, Miles Davis, and Herbie Hancock. A 5-time Grammy winner and National Endowment for the Arts Jazz Master, Monk was inducted into Grammy Hall of Fame for 'Round Midnight' and received posthumous Grammy Lifetime Achievement Award in 1993. During his recording career from 1944 to 1975, he released work across Blue Note, Riverside, and Columbia labels, with the Blue Note period (1947-1952) establishing his reputation and Columbia era (1962-1968) bringing wider audience with albums like 'Monk's Dream' (1962). He died on February 17, 1982, from stroke in Englewood, New Jersey at age 64, but his recordings have sold over 5 million copies worldwide and his 2007 posthumous Pulitzer Prize Special Citation cements his legacy."
 born: "October 10, 1917"
 died: "February 17, 1982"
 origin: "Rocky Mount, North Carolina, USA"
@@ -14,19 +14,7 @@ genres:
   - "Modern Jazz"
 influencedBy:
   - "duke-ellington"
-  - "count-basie"
-  - "earl-hines"
-  - "jelly-roll-morton"
-  - "stride-piano"
-influenced:
-  - "john-coltrane"
-  - "sonny-rollins"
-  - "miles-davis"
-  - "herbie-hancock"
-  - "chick-corea"
-  - "keith-jarrett"
-  - "brubeck"
-  - "cecil-taylor"
+influenced: []
 keyAlbums:
   - "Genius of Modern Music, Volume 1 (1947)"
   - "Genius of Modern Music, Volume 2 (1947)"
@@ -48,7 +36,7 @@ keySongs:
   - "Ask Me Now"
 relatedArticles:
   - "1950s"
-discographyOverview: "During his recording career from 1944 to 1975, Monk released over 70 songs across Blue Note, Riverside, Columbia, and other labels, with multiple compositions becoming jazz standards. His Blue Note Records catalog (1947-1952) established his reputation as bebop pioneer with classics like 'Round Midnight' (1947) and 'Epistrophy.' His Riverside Records period (1955-1961) featured collaborations with John Coltrane and Sonny Rollins, producing 'Monk's Music' (1957) and 'Brilliant Corners' (1956). His Columbia Records era (1962-1968) brought him wider audience with albums like 'Monk's Dream' (1962) and 'Underground' (1968). Monk received Grammy Lifetime Achievement Award in 1993, and 'Round Midnight' was inducted into Grammy Hall of Fame. His recordings have sold over 5 million copies worldwide."
+discographyOverview: "Thelonious Monk released over 70 compositions from 1944 to 1975, creating jazz standards like 'Round Midnight' and 'Blue Monk.' His Blue Note and Columbia albums established him as a bebop pioneer. Received Grammy Lifetime Achievement Award in 1993."
 careerTimeline:
   - year: "1930s"
     event: "Moved to New York; began playing at Minton's Playhouse with Charlie Parker and Dizzy Gillespie"

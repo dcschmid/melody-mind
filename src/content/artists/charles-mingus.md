@@ -14,19 +14,8 @@ genres:
   - "Classical Jazz"
 influencedBy:
   - "duke-ellington"
-  - "charlie-parker"
-  - "dizzy-gillespie"
   - "thelonious-monk"
-  - "art-tatum"
-  - "count-basie"
-influenced:
-  - "ron-carter"
-  - "jaco-pastorius"
-  - "christian-mcbride"
-  - "esperanza-spalding"
-  - "stanley-clarke"
-  - "dave-holland"
-  - "john-patitucci"
+influenced: []
 keyAlbums:
   - "Mingus Ah Um (1959)"
   - "The Black Saint and the Sinner Lady (1963)"
@@ -49,7 +38,7 @@ keySongs:
   - "Boogie Stop Shuffle"
 relatedArticles:
   - "1950s"
-discographyOverview: "With a career spanning 1940 to 1979, Charles Mingus composed over 300 works and led 47 albums as a bandleader. His collaborations included work with over 100 jazz musicians on projects spanning small groups to large ensembles. Mingus recorded for labels including Atlantic, Columbia, and Impulse! Records. He received posthumous Grammy nominations and a National Endowment for the Arts grant. His legacy was cemented when he was named a 'Living Legend' by the Library of Congress in 2011, recognizing his foundational contributions to American music."
+discographyOverview: "Charles Mingus composed over 300 works and led 47 albums as a bandleader, recording for Atlantic, Columbia, and Impulse! Records. His masterpieces include 'Mingus Ah Um' (1959) and 'The Black Saint and the Sinner Lady' (1963)."
 careerTimeline:
   - year: "1940"
     event: "Began professional career with Lionel Hampton and Barney Bigard; recorded first sides"

@@ -1,7 +1,8 @@
 ---
 name: "Hank Williams"
 photo: "/artists/hank-williams.jpg"
-biography: "Hank Williams, born Hiram King Williams, was one of the most influential American singer-songwriters and musicians of the 20th century. A pioneer of honky tonk music, Williams recorded 55 singles that reached the Billboard Country & Western Best Sellers chart, including 12 number-one hits. His songs combined elements of country, blues, and gospel to create a distinctive style that bridged traditional folk and modern country music. Despite a career cut short by his death at age 29, Williams' songwriting and vocal delivery influenced countless artists across multiple genres and continues to define modern country music."
+biography: |
+  Hank Williams, born Hiram King Williams on September 17, 1923, in Mount Olive, Alabama, was one of the most influential American singer-songwriters and musicians of the 20th century who rose from poverty to become a country music legend. A pioneer of honky tonk music, he recorded 55 singles that reached the Billboard Country & Western Best Sellers chart, including 12 number-one hits, combining elements of country, blues, and gospel to create a distinctive style that bridged traditional folk and modern country music. Despite a career cut short by his death at age 29, Williams' intimate, emotionally raw delivery set a new standard for country music and influenced countless artists across multiple genres. His influence extends to virtually every country artist who followed him, from George Jones to Garth Brooks, with his music continuing to define modern country decades after his death on January 1, 1953. He was posthumously inducted into the Country Music Hall of Fame (1961), received a Grammy Lifetime Achievement Award (1987), and was awarded a special citation by the Pulitzer Prize Board (2010) for his songwriting.
 born: "September 17, 1923"
 died: "January 1, 1953"
 origin: "Mount Olive, Alabama, USA"
@@ -13,21 +14,10 @@ genres:
   - "Folk"
   - "Gospel"
   - "Rockabilly"
-influencedBy:
-  - "roy-acuff"
-  - "ernest-tubb"
-  - "jimmie-rodgers"
-  - "the-carter-family"
-  - "the-delmore-brothers"
+influencedBy: []
 influenced:
-  - "johnny-cash"
-  - "george-jones"
-  - "merle-haggard"
-  - "willie-nelson"
-  - "waylon-jennings"
   - "bob-dylan"
   - "elvis-presley"
-  - "tony-bennett"
 keyAlbums:
   - "Hank Williams Sings (1951)"
   - "Moanin' the Blues (1952)"

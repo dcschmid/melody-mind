@@ -1,7 +1,7 @@
 ---
 name: "Peggy Lee"
 photo: "/artists/peggy-lee.jpg"
-biography: "Peggy Lee, born Norma Deloris Egstrom, was an American singer, songwriter, and actress whose sophisticated vocal style and versatility made her one of the most influential performers of 20th century. Known for hits like 'Fever,' 'Why Don't You Do Right,' and 'Is That All There Is?', Lee recorded over 1,100 songs across jazz, pop, and country genres. Her songwriting credits included 'He's a Tramp' and contributions to Disney's 'Lady and the Tramp.' A 13-time Grammy nominee with 3 wins, plus Academy Award and Golden Globe nominations, Lee pioneered vocal jazz technique and influenced countless singers including Diana Krall and Norah Jones. Her smooth, intimate delivery and interpretive skills defined popular music for five decades."
+biography: "Peggy Lee was an American singer, songwriter, and actress whose sophisticated vocal style and versatility made her one of the most influential performers of the 20th century, recording over 1,100 songs across jazz, pop, and country genres. Known for hits like Fever, Why Dont You Do Right, and Is That All There Is, she pioneered vocal jazz technique with her smooth, intimate delivery and interpretive skills that defined popular music for five decades. Her songwriting credits included Hes a Tramp and contributions to Disneys Lady and the Tramp, with her recordings selling over 30 million worldwide and Fever becoming one of most covered songs in music history. Lee won 3 Grammy Awards from 13 nominations, received Academy Award and Golden Globe nominations for her acting work, and influenced countless singers including Diana Krall, Norah Jones, and kd lang. She died on January 21, 2002, from heart failure and diabetes complications in Los Angeles at age 81, but her induction into the Songwriters Hall of Fame in 1999 and posthumous Grammy Lifetime Achievement Award in 2014 cement her legacy."
 born: "May 26, 1920"
 died: "January 21, 2002"
 origin: "Jamestown, North Dakota, USA"
@@ -16,16 +16,8 @@ genres:
 influencedBy:
   - "billie-holiday"
   - "ella-fitzgerald"
-  - "bessie-smith"
-  - "bing-crosby"
   - "frank-sinatra"
-influenced:
-  - "diana-krall"
-  - "norah-jones"
-  - "k.d.-lang"
-  - "linda-ronstadt"
-  - "sade"
-  - "ruth-brown"
+influenced: []
 keyAlbums:
   - "Black Coffee (1956)"
   - "Peggy Lee (1957)"
@@ -48,7 +40,7 @@ keySongs:
   - "Pass Me By"
 relatedArticles:
   - "1950s"
-discographyOverview: "During her recording career from 1941 to 1995, Lee released over 1,100 songs across Decca, Capitol, and other labels, with over 50 charting on Billboard's Hot 100, 12 reaching Top 10, and 1 hitting number one: 'Fever' (1958). Her Billboard Country chart success included 10 entries, with 3 reaching Top 10. Her songwriting credits included 'He's a Tramp' for Disney's 'Lady and the Tramp' (1955) and contributions to over 200 songs. Lee won 3 Grammy Awards from 13 nominations, received Academy Award nominations for 'Pete Kelly's Blues' (1955) and 'The Heart is a Lonely Hunter' (1968), and Golden Globe nomination for 'Pete Kelly's Blues.' Her recordings have sold over 30 million copies worldwide, with 'Fever' becoming one of most covered songs in music history with over 500 versions."
+discographyOverview: "Peggy Lee released over 1,100 songs from 1941 to 1995, with 'Fever' (1958) becoming her only #1 hit and one of the most covered songs in history. She won 3 Grammy Awards from 13 nominations and received Academy Award nominations for her acting work. Her recordings have sold over 30 million worldwide."
 careerTimeline:
   - year: "1937"
     event: "Began singing with Benny Goodman Orchestra as 'Peggy Lee'; first radio performances"
