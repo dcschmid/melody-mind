@@ -21,7 +21,6 @@ keyAlbums:
   - Petula Clark Sings (1964)
   - The International Year of Petula Clark (1965)
   - My Love (1966)
-  - Color My World (1967)
   - Petula Clark (1968)
 keySongs:
   - Down Town (1965)

@@ -13,7 +13,6 @@ genres:
   - "adele"
 influencedBy:
   - "neil-sedaka"
-  - "laura-nyro"
 influenced: []
 keyAlbums:
   - Writer (1970)

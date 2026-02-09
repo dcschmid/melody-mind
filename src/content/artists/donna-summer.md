@@ -20,7 +20,6 @@ influencedBy:
 influenced: []
 keyAlbums:
   - Love to Love You Baby (1975)
-  - I Remember Yesterday (1977)
   - Once Upon a Time (1977)
   - Bad Girls (1979)
   - The Wanderer (1980)

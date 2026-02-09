@@ -10,7 +10,6 @@ genres:
   - "Folk Rock"
   - "Soft Rock"
   - "Pop Rock"
-  - "Adult Contemporary"
   - "Folk Pop"
   - "adele"
 influencedBy:

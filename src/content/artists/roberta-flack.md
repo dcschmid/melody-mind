@@ -11,7 +11,6 @@ genres:
   - "Soul"
   - "Jazz"
   - "Adult Contemporary"
-  - "Pop Soul"
   - "Smooth Jazz"
   - "Quiet Storm"
 influencedBy:
