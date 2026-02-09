@@ -29,7 +29,6 @@ keySongs:
   - Feel Like Makin' Love (1974)
   - The First Time I Loved You (1971)
   - Where Is the Love? (1972)
-  - Killing Me Softly with His Song (1973)
   - Roberta Flack (1973)
   - Quiet Fire (1973)
   - Jesse (1972)
