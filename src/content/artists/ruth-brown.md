@@ -21,25 +21,25 @@ influenced:
   - "lavern-baker"
   - "dusty-springfield"
 keyAlbums:
-  - "Ruth Brown (1957)"
-  - "Miss Rhythm (1959)"
-  - "Along Came Ruth (1962)"
-  - "Ruth Brown and the Playboys (1976)"
-  - "Blues on Broadway (1989)"
-  - "Ruth Brown (1995)"
+  - Ruth Brown (1957)
+  - Miss Rhythm (1959)
+  - Along Came Ruth (1962)
+  - Ruth Brown and the Playboys (1976)
+  - Blues on Broadway (1989)
+  - Ruth Brown (1995)
 keySongs:
-  - "Teardrops from My Eyes"
-  - "So Long"
-  - "I'll Wait for You"
-  - "(Mama) He Treats Your Daughter Mean"
-  - "Oh What a Dream"
-  - "I Can Hear the Blues Calling"
-  - "5-10-15 Hours"
-  - "Wild Wild Young Men"
-  - "Love Didn't Lie"
-  - "I Don't Hurt Anymore"
-  - "Baby, You've Got What It Takes"
-  - "Lucky Lips"
+  - Teardrops from My Eyes
+  - So Long
+  - I'll Wait for You
+  - (Mama) He Treats Your Daughter Mean
+  - Oh What a Dream
+  - I Can Hear the Blues Calling
+  - 5-10-15 Hours
+  - Wild Wild Young Men
+  - Love Didn't Lie
+  - I Don't Hurt Anymore
+  - Baby, You've Got What It Takes
+  - Lucky Lips
 relatedArticles:
   - "1950s"
 discographyOverview: "Ruth Brown released over 100 songs from 1949 to 1995, with 8 reaching number one on the R&B chart including 'Teardrops from My Eyes' and '(Mama) He Treats Your Daughter Mean'. Her Atlantic Records recordings helped establish the label and shaped R&B's development."

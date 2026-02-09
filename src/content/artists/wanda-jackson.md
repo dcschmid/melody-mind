@@ -17,24 +17,24 @@ influencedBy:
   - "hank-williams"
 influenced: []
 keyAlbums:
-  - "Wanda Jackson (1958)"
-  - "There's a Party Goin' On (1959)"
-  - "Right or Wrong (1961)"
-  - "Wonderful Wanda (1962)"
-  - "Country Hits (1966)"
-  - "Encore (2006)"
+  - Wanda Jackson (1958)
+  - There's a Party Goin' On (1959)
+  - Right or Wrong (1961)
+  - Wonderful Wanda (1962)
+  - Country Hits (1966)
+  - Encore (2006)
 keySongs:
-  - "Fujiyama Mama"
-  - "Let's Have a Party"
-  - "Right or Wrong"
-  - "Mean Mean Man"
-  - "Spoonful of Sugar"
-  - "Hot Dog! That Made Him Mad"
-  - "Little Bitty Pretty One"
-  - "Honey Bop"
-  - "I Gotta Know"
-  - "Stupid Cupid"
-  - "My Big Iron Skillet"
+  - Fujiyama Mama
+  - Let's Have a Party
+  - Right or Wrong
+  - Mean Mean Man
+  - Spoonful of Sugar
+  - Hot Dog! That Made Him Mad
+  - Little Bitty Pretty One
+  - Honey Bop
+  - I Gotta Know
+  - Stupid Cupid
+  - My Big Iron Skillet
 relatedArticles:
   - "1950s"
   - "from-blues-to-breakdown"

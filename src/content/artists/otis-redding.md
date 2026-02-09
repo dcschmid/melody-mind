@@ -18,25 +18,25 @@ influencedBy:
   - "little-richard"
 influenced: []
 keyAlbums:
-  - "Pain in My Heart (1964)"
-  - "The Great Otis Redding Sings Soul Ballads (1965)"
-  - "Complete and Unbelievable (1967)"
-  - "The Dock of the Bay (1968)"
-  - "Otis Blue (1968)"
-  - "The Immortal Otis Redding (1968)"
+  - Pain in My Heart (1964)
+  - The Great Otis Redding Sings Soul Ballads (1965)
+  - Complete and Unbelievable (1967)
+  - The Dock of the Bay (1968)
+  - Otis Blue (1968)
+  - The Immortal Otis Redding (1968)
 keySongs:
-  - "(Sittin' on) The Dock of the Bay (1967) - Posthumous #1, #1 US Billboard Hot 100"
-  - "Try a Little Tenderness (1967) - Soul standard, #25 US Billboard Hot 100"
-  - "These Arms of Mine (1962) - Debut hit"
-  - "Respect (1965) - Civil rights anthem"
-  - "I've Been Loving You Too Long (1965) - Soul ballad"
-  - "I've Got Dreams to Remember (1967) - Posthumous classic"
-  - "Love Man (1969) - Uplifting anthem"
-  - "Fa-Fa-Fa-Fa-Fa (Sad Song) (1966) - Catchy rhythm"
-  - "My Girl (1965) - Sweet soul"
-  - "Sittin' All Alone (1964) - Early composition"
-  - "Change Gonna Come (1965) - Civil rights masterpiece"
-  - "Hard to Handle (1968) - Energetic performance"
+  - (Sittin' on) The Dock of the Bay (1967) - Posthumous
+  - Try a Little Tenderness (1967)
+  - These Arms of Mine (1962)
+  - Respect (1965)
+  - I've Been Loving You Too Long (1965)
+  - I've Got Dreams to Remember (1967)
+  - Love Man (1969)
+  - Fa-Fa-Fa-Fa-Fa (Sad Song) (1966) - Catchy rhythm
+  - My Girl (1965)
+  - Sittin' All Alone (1964)
+  - Change Gonna Come (1965)
+  - Hard to Handle (1968)
 relatedArticles:
   - "1960s"
   - "1970s"

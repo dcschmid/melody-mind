@@ -19,19 +19,19 @@ influenced:
   - "elvis-presley"
   - "bob-dylan"
 keyAlbums:
-  - "After School Session (1957)"
-  - "One Dozen Berrys (1958)"
-  - "Chuck Berry Is on Top (1959)"
-  - "St. Louis to Liverpool (1964)"
+  - After School Session (1957)
+  - One Dozen Berrys (1958)
+  - Chuck Berry Is on Top (1959)
+  - St. Louis to Liverpool (1964)
 keySongs:
-  - "Maybellene"
-  - "Johnny B. Goode"
-  - "Roll Over Beethoven"
-  - "Rock and Roll Music"
-  - "Sweet Little Sixteen"
-  - "No Particular Place to Go"
-  - "You Never Can Tell"
-  - "School Days"
+  - Maybellene
+  - Johnny B. Goode
+  - Roll Over Beethoven
+  - Rock and Roll Music
+  - Sweet Little Sixteen
+  - No Particular Place to Go
+  - You Never Can Tell
+  - School Days
 relatedArticles:
   - "1950s"
   - "1960s"

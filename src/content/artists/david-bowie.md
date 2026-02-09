@@ -21,25 +21,25 @@ influencedBy:
   - "lady-gaga"
 influenced: []
 keyAlbums:
-  - "The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972) - number 5 UK Albums, number 75 US Billboard 200"
-  - "Aladdin Sane (1973) - number 1 UK Albums, number 17 US Billboard 200, Diamond certification"
-  - "Hunky Dory (1971) - number 3 UK Albums, number 84 US Billboard 200"
-  - "Heroes (1977) - number 3 UK Albums, number 35 US Billboard 200"
-  - "Lets Dance (1983) - number 1 UK Albums, number 4 US Billboard 200, 7x Platinum"
-  - "Blackstar (2016) - number 1 UK Albums, number 1 US Billboard 200, posthumous release"
+  - The Rise and Fall of Ziggy Stardust and the Spiders from Mars (1972)
+  - Aladdin Sane (1973)
+  - Hunky Dory (1971)
+  - Heroes (1977)
+  - Lets Dance (1983)
+  - Blackstar (2016)
 keySongs:
-  - "Space Oddity (1969) - Debut hit, #5 UK Singles Chart"
-  - "Ziggy Stardust (1972) - Rock anthem, defines glam persona"
-  - "Starman (1972) - Major breakthrough single"
-  - "Suffragette City (1972) - Rock classic, never released as single"
-  - "Life on Mars? (1971) - Art rock masterpiece, #3 UK Singles Chart"
-  - "Changes (1971) - Self-transformation anthem"
-  - "Heroes (1977) - Berlin Trilogy centerpiece, #8 UK Singles Chart"
-  - "Ashes to Ashes (1980) - Space Oddity sequel, #1 UK Singles Chart"
-  - "Fashion (1980) - Dance-rock hit, #8 US Billboard Hot 100"
-  - "Let's Dance (1983) - Dance-pop hit, #1 US Billboard Hot 100"
-  - "Under Pressure (1981) - Queen collaboration, #1 UK Singles Chart"
-  - "China Girl (1983) - Iggy Pop cover, #2 US Billboard Hot 100"
+  - Space Oddity (1969)
+  - Ziggy Stardust (1972)
+  - Starman (1972)
+  - Suffragette City (1972)
+  - Life on Mars? (1971)
+  - Changes (1971)
+  - Heroes (1977)
+  - Ashes to Ashes (1980)
+  - Fashion (1980)
+  - Let's Dance (1983)
+  - Under Pressure (1981)
+  - China Girl (1983)
 relatedArticles: []
 discographyOverview: "David Bowie released 26 studio albums from 1967 to 2016, continuously reinventing himself through Ziggy Stardust, the Thin White Duke, and beyond. His 'Let's Dance' (1983) achieved commercial peak, while 'Blackstar' (2016) was released two days before his death and universally acclaimed."
 careerTimeline:

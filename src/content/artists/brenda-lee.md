@@ -16,22 +16,22 @@ influencedBy:
   - "little-richard"
 influenced: []
 keyAlbums:
-  - "I'm Sorry (1960)"
-  - "This Is... Brenda Lee (1960)"
-  - "All the Way (1961)"
-  - "Coming on Strong (1966)"
-  - "Brenda Lee (1971)"
+  - I'm Sorry (1960)
+  - This Is... Brenda Lee (1960)
+  - All the Way (1961)
+  - Coming on Strong (1966)
+  - Brenda Lee (1971)
 keySongs:
-  - "I'm Sorry"
-  - "I Want to Be Wanted"
-  - "Rockin' Around the Christmas Tree"
-  - "Sweet Nothin's"
-  - "I'm All Alone"
-  - "Let's Jump the Broomstick"
-  - "Dum Dum"
-  - "Breaking Up Is Hard to Do"
-  - "Coming on Strong"
-  - "Big Four-Poster Bed"
+  - I'm Sorry
+  - I Want to Be Wanted
+  - Rockin' Around the Christmas Tree
+  - Sweet Nothin's
+  - I'm All Alone
+  - Let's Jump the Broomstick
+  - Dum Dum
+  - Breaking Up Is Hard to Do
+  - Coming on Strong
+  - Big Four-Poster Bed
 relatedArticles:
   - "1950s"
 discographyOverview: "Brenda Lee achieved 47 Billboard Hot 100 hits including two #1s ('I'm Sorry' and 'I Want to Be Wanted') in 1960, earning the nickname 'Little Miss Dynamite.' Her holiday classic 'Rockin' Around the Christmas Tree' became an enduring standard since 1958. Inducted into both Country Music Hall of Fame (1997) and Rock and Roll Hall of Fame (2002)."

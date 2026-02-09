@@ -17,25 +17,25 @@ influencedBy:
   - "dusty-springfield"
 influenced: []
 keyAlbums:
-  - "I Know a Place (1964)"
-  - "Petula Clark Sings (1964)"
-  - "The International Year of Petula Clark (1965)"
-  - "My Love (1966)"
-  - "Color My World (1967)"
-  - "Petula Clark (1968)"
+  - I Know a Place (1964)
+  - Petula Clark Sings (1964)
+  - The International Year of Petula Clark (1965)
+  - My Love (1966)
+  - Color My World (1967)
+  - Petula Clark (1968)
 keySongs:
-  - "Down Town (1965) - Optimistic anthem, #1 UK Singles Chart"
-  - "I Know a Place (1965) - Sophisticated pop, #1 US Billboard Hot 100"
-  - "My Love (1966) - Romantic ballad, #1 US Billboard Hot 100"
-  - "This Is My Song (1967) - Jazz-pop standard"
-  - "Don't Sleep in the Subway (1967) - Catchy pop"
-  - "The Other Man's Grass Is Always Greener (1968) - duett met Clark"
-  - "On the Path of Victory (1968) - European hit"
-  - "Your Friend (1969) - Later composition"
-  - "Warm and Willing (1964) - Early composition"
-  - "You'll Never Get to Heaven (1964) - Standards"
-  - "I Couldn't Live Without Your Love (1966) - duett met Clark"
-  - "My Love (1966) - Romantic ballad"
+  - Down Town (1965)
+  - I Know a Place (1965)
+  - My Love (1966)
+  - This Is My Song (1967)
+  - Don't Sleep in the Subway (1967)
+  - The Other Man's Grass Is Always Greener (1968)
+  - On the Path of Victory (1968)
+  - Your Friend (1969)
+  - Warm and Willing (1964)
+  - You'll Never Get to Heaven (1964)
+  - I Couldn't Live Without Your Love (1966)
+  - My Love (1966)
 relatedArticles:
   - "1940s"
   - "1950s"

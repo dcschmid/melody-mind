@@ -20,25 +20,25 @@ influenced:
   - "dusty-springfield"
   - "brenda-lee"
 keyAlbums:
-  - "LaVern Baker (1956)"
-  - "LaVern Baker Sings (1957)"
-  - "The Queen of the Rock and Roll Blues (1958)"
-  - "LaVern (1959)"
-  - "Saved (1961)"
-  - "The Soul of LaVern Baker (1965)"
+  - LaVern Baker (1956)
+  - LaVern Baker Sings (1957)
+  - The Queen of the Rock and Roll Blues (1958)
+  - LaVern (1959)
+  - Saved (1961)
+  - The Soul of LaVern Baker (1965)
 keySongs:
-  - "Tweedle Dee"
-  - "Jim Dandy"
-  - "I Cried a Tear"
-  - "I Can't Love You Enough"
-  - "Saved"
-  - "See See Rider"
-  - "Bumble Bee"
-  - "Play It Fair"
-  - "Mama, He Treats Your Daughter Mean"
-  - "Still"
-  - "Souls of Touch"
-  - "I'll Be Satisfied"
+  - Tweedle Dee
+  - Jim Dandy
+  - I Cried a Tear
+  - I Can't Love You Enough
+  - Saved
+  - See See Rider
+  - Bumble Bee
+  - Play It Fair
+  - Mama, He Treats Your Daughter Mean
+  - Still
+  - Souls of Touch
+  - I'll Be Satisfied
 relatedArticles:
   - "1950s"
 discographyOverview: "LaVern Baker released over 100 songs on Atlantic Records from 1953 to 1966, with 6 reaching #1 on the R&B chart including 'Tweedle Dee' and 'Jim Dandy.' Her catalog has sold over 15 million copies worldwide. Inducted into Rock and Roll Hall of Fame in 1991."

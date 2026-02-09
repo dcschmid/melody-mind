@@ -18,25 +18,25 @@ influenced:
   - "little-richard"
   - "elvis-presley"
 keyAlbums:
-  - "The Gospel Soul of Sister Rosetta Tharpe (1960)"
-  - "Gospel Train (1960)"
-  - "In Concert (1960)"
-  - "Precious Memories (1964)"
-  - "Sister Rosetta Tharpe (1966)"
-  - "The Gospel Sound (1968)"
+  - The Gospel Soul of Sister Rosetta Tharpe (1960)
+  - Gospel Train (1960)
+  - In Concert (1960)
+  - Precious Memories (1964)
+  - Sister Rosetta Tharpe (1966)
+  - The Gospel Sound (1968)
 keySongs:
-  - "This Train"
-  - "Strange Things Happening Every Day"
-  - "Up Above My Head"
-  - "Down by the Riverside"
-  - "Rock Me"
-  - "Precious Lord, Take My Hand"
-  - "The Gospel Truth"
-  - "Jericho"
-  - "Beams of Heaven"
-  - "I Want to Live So God Can Use Me"
-  - "Nobody's Fault but Mine"
-  - "Jesus Met the Woman at the Well"
+  - This Train
+  - Strange Things Happening Every Day
+  - Up Above My Head
+  - Down by the Riverside
+  - Rock Me
+  - Precious Lord, Take My Hand
+  - The Gospel Truth
+  - Jericho
+  - Beams of Heaven
+  - I Want to Live So God Can Use Me
+  - Nobody's Fault but Mine
+  - Jesus Met the Woman at the Well
 relatedArticles:
   - "1950s"
   - "from-blues-to-breakdown"

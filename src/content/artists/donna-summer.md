@@ -19,25 +19,25 @@ influencedBy:
   - "marvin-gaye"
 influenced: []
 keyAlbums:
-  - "Love to Love You Baby (1975) - #19 US Billboard 200, #3 US R&B Albums"
-  - "I Remember Yesterday (1977) - #13 US Billboard 200, #1 US Dance Albums"
-  - "Once Upon a Time (1977) - #26 US Billboard 200, #2 US R&B Albums"
-  - "Bad Girls (1979) - #1 US Billboard 200, #1 US R&B Albums, 2x Platinum"
-  - "The Wanderer (1980) - #13 US Billboard 200, #1 US R&B Albums"
-  - "Donna Summer (1982) - #20 US Billboard 200, #2 US R&B Albums"
+  - Love to Love You Baby (1975)
+  - I Remember Yesterday (1977)
+  - Once Upon a Time (1977)
+  - Bad Girls (1979)
+  - The Wanderer (1980)
+  - Donna Summer (1982)
 keySongs:
-  - "Love to Love You Baby (1975) - Disco breakthrough, #2 US Dance Club Songs"
-  - "I Feel Love (1977) - First entirely electronic disco track, #1 US Dance Club Songs"
-  - "MacArthur Park (1978) - Orchestral disco epic, #1 US Billboard Hot 100"
-  - "Last Dance (1978) - Disco classic, #3 US Billboard Hot 100"
-  - "Heaven Knows (1978) - duett met Donna Summer"
-  - "Hot Stuff (1979) - Guitar-driven disco, #1 US Billboard Hot 100"
-  - "Bad Girls (1979) - Disco anthem, #1 US Billboard Hot 100"
-  - "Dim All the Lights (1979) - Sultry disco, #2 US Billboard Hot 100"
-  - "No More Tears (1979) - Disco epic, #1 US Billboard Hot 100"
-  - "The Wanderer (1980) - New wave influence, #3 US Billboard Hot 100"
-  - "Love to Love You Baby (1975) - Disco breakthrough, #2 US Dance Club Songs"
-  - "She Works Hard for the Money (1983) - Feminist anthem, #1 US Billboard Hot 100"
+  - Love to Love You Baby (1975)
+  - I Feel Love (1977)
+  - MacArthur Park (1978)
+  - Last Dance (1978)
+  - Heaven Knows (1978)
+  - Hot Stuff (1979)
+  - Bad Girls (1979)
+  - Dim All the Lights (1979)
+  - No More Tears (1979)
+  - The Wanderer (1980)
+  - Love to Love You Baby (1975)
+  - She Works Hard for the Money (1983)
 relatedArticles: []
 discographyOverview: "Donna Summer released 22 studio albums from 1974 to 2011, pioneering electronic disco with 'I Feel Love' (1977) and achieving 4 #1 hits with 'MacArthur Park,' 'Hot Stuff,' and 'Bad Girls.' 'Queen of Disco' won 5 Grammy Awards and was posthumously inducted into Rock and Roll Hall of Fame in 2013."
 careerTimeline:

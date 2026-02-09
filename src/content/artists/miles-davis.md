@@ -17,25 +17,25 @@ influencedBy:
   - "thelonious-monk"
 influenced: []
 keyAlbums:
-  - "Birth of the Cool (1957)"
-  - "Kind of Blue (1959)"
-  - "Sketches of Spain (1960)"
-  - "Miles Smiles (1966)"
-  - "Bitches Brew (1970)"
-  - "In a Silent Way (1969)"
+  - Birth of the Cool (1957)
+  - Kind of Blue (1959)
+  - Sketches of Spain (1960)
+  - Miles Smiles (1966)
+  - Bitches Brew (1970)
+  - In a Silent Way (1969)
 keySongs:
-  - "So What"
-  - "All Blues"
-  - "Blue in Green"
-  - "Freddie Freeloader"
-  - "Nefertiti"
-  - "ESP"
-  - "Seven Steps to Heaven"
-  - "Flamenco Sketches"
-  - "My Funny Valentine"
-  - "Concierto de Aranjuez"
-  - "Miles Runs the Voodoo Down"
-  - "Sanctuary"
+  - So What
+  - All Blues
+  - Blue in Green
+  - Freddie Freeloader
+  - Nefertiti
+  - ESP
+  - Seven Steps to Heaven
+  - Flamenco Sketches
+  - My Funny Valentine
+  - Concierto de Aranjuez
+  - Miles Runs the Voodoo Down
+  - Sanctuary
 relatedArticles:
   - "1950s"
 discographyOverview: "Miles Davis released over 50 studio albums from 1945 to 1991, pioneering bebop, cool jazz, modal jazz, and jazz fusion. His 'Kind of Blue' (1959) remains the best-selling jazz album of all time. An 8-time Grammy winner whose compositions like 'So What' became jazz standards."

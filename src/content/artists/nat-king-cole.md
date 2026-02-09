@@ -19,25 +19,25 @@ influenced:
   - "stevie-wonder"
   - "frank-sinatra"
 keyAlbums:
-  - "The Nat King Cole Trio (1944)"
-  - "King Cole Trio Volume 1 (1949)"
-  - "After Midnight (1956)"
-  - "Love Is the Thing (1957)"
-  - "The Very Thought of You (1958)"
-  - "Ramblin' Rose (1962)"
+  - The Nat King Cole Trio (1944)
+  - King Cole Trio Volume 1 (1949)
+  - After Midnight (1956)
+  - Love Is the Thing (1957)
+  - The Very Thought of You (1958)
+  - Ramblin' Rose (1962)
 keySongs:
-  - "Mona Lisa"
-  - "Unforgettable"
-  - "The Christmas Song (Chestnuts Roasting on an Open Fire)"
-  - "Straighten Up and Fly Right"
-  - "Too Young"
-  - "Nature Boy"
-  - "Smile"
-  - "L-O-V-E"
-  - "Route 66"
-  - "Embraceable You"
-  - "Orange Colored Sky"
-  - "Send for Me"
+  - Mona Lisa
+  - Unforgettable
+  - The Christmas Song (Chestnuts Roasting on an Open Fire)
+  - Straighten Up and Fly Right
+  - Too Young
+  - Nature Boy
+  - Smile
+  - L-O-V-E
+  - Route 66
+  - Embraceable You
+  - Orange Colored Sky
+  - Send for Me
 relatedArticles:
   - "1950s"
 discographyOverview: "Nat King Cole released over 1,500 songs from 1936 to 1965, with 4 reaching number one including 'Mona Lisa' and 'Unforgettable'. He pioneered piano vocal jazz with the King Cole Trio before achieving solo success with sophisticated pop standards. Over 50 million records sold worldwide."
@@ -81,5 +81,5 @@ careerTimeline:
   - year: "2000"
     event: "Inducted into Grammy Hall of Fame for 'Mona Lisa' and 'Unforgettable'"
   - year: "1991"
-    event: "Daughter Natalie Cole posthumously revived his career with virtual duet 'Unforgettable' (1991) which won Grammy Award"
+    event: "Daughter Natalie Cole posthumously revived his career with virtual duet 'Unforgettable' (1991)"
 ---

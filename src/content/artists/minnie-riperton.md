@@ -19,25 +19,25 @@ influencedBy:
   - "marvin-gaye"
 influenced: []
 keyAlbums:
-  - "Adventures in Paradise (1975) - #5 US Billboard 200, #1 US R&B Albums, Platinum"
-  - "Perfect Angel (1975) - #15 US Billboard 200, #7 US R&B Albums, Gold"
-  - "Stay in Love (1977) - #13 US Billboard 200, #9 US R&B Albums"
-  - "Minnie (1979) - #5 US Billboard 200, #3 US R&B Albums, posthumous"
-  - "Come to My Garden (1970) - Rotary Connection, #35 US Billboard 200, #15 US R&B Albums"
-  - "Hey Love (1977) - Rotary Connection, #50 US Billboard 200, #20 US R&B Albums"
+  - Adventures in Paradise (1975)
+  - Perfect Angel (1975)
+  - Stay in Love (1977)
+  - Minnie (1979)
+  - Come to My Garden (1970)
+  - Hey Love (1977)
 keySongs:
-  - "Lovin' You (1975) - Whistle note classic, #1 US Billboard Hot 100"
-  - "Love That Came from (Burning Spear) (1975) - Soul ballad"
-  - "Real Love (1975) - Emotional depth"
-  - "Inside My Love (1975) - Sensual composition"
-  - "Perfect Angel (1974) - Jazz influence"
-  - "Adventures in Paradise (1975) - Title track"
-  - "47-Generation (1977) - Political themes"
-  - "Could It Be I Never Met a U (1979) - Later work"
-  - "Memory (1979) - Show tune cover"
-  - "Return to Forever (1977) - Jazz fusion"
-  - "Spring Wind (1979) - Spiritual themes"
-  - "Here We Go (1979) - Collaboration"
+  - Lovin' You (1975)
+  - Love That Came from (Burning Spear) (1975) - Soul ballad
+  - Real Love (1975)
+  - Inside My Love (1975)
+  - Perfect Angel (1974)
+  - Adventures in Paradise (1975)
+  - 47-Generation (1977)
+  - Could It Be I Never Met a U (1979)
+  - Memory (1979)
+  - Return to Forever (1977)
+  - Spring Wind (1979)
+  - Here We Go (1979)
 relatedArticles: []
 discographyOverview: "Minnie Riperton released 6 albums from 1970 to 1979, achieving breakthrough with 'Lovin' You' (1975) featuring her famous whistle note. Won Grammy for Best New Artist (1976). Died tragically from cancer in 1979 at age 31."
 careerTimeline:

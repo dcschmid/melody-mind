@@ -19,25 +19,25 @@ influencedBy:
   - "david-bowie"
 influenced: []
 keyAlbums:
-  - "Electric Warrior (1971) - #1 UK Albums, #32 US Billboard 200, Platinum"
-  - "The Slider (1972) - #4 UK Albums, #37 US Billboard 200, Platinum"
-  - "Tanx (1973) - #4 UK Albums, #38 US Billboard 200, Gold"
-  - "Zinc Alloy and the Hidden Riders of Tomorrow (1974) - #9 UK Albums, #44 US Billboard 200"
-  - "Bolan Zip (1975) - #7 UK Albums, #39 US Billboard 200"
-  - "Dandy in the Underworld (1977) - #12 UK Albums, #46 US Billboard 200"
+  - Electric Warrior (1971)
+  - The Slider (1972)
+  - Tanx (1973)
+  - Zinc Alloy and the Hidden Riders of Tomorrow (1974)
+  - Bolan Zip (1975)
+  - Dandy in the Underworld (1977)
 keySongs:
-  - "Hot Love (1971) - Glam rock anthem, #1 UK Singles Chart"
-  - "Get It On (1971) - #1 UK Singles Chart"
-  - "Jeepster (1971) - Glam rock classic, #2 UK Singles Chart"
-  - "Electric Warrior (1971) - Title track, glam rock standard"
-  - "Telegram Sam (1972) - #1 UK Singles Chart"
-  - "Metal Guru (1972) - #1 UK Singles Chart"
-  - "Children of the Revolution (1972) - Rock anthem"
-  - "20th Century Boy (1973) - Rock classic"
-  - "The Slider (1972) - Album highlight"
-  - "Bang a Gong (Get It On) (1971) - US breakthrough, #8 US Billboard Hot 100"
-  - "Ride a White Swan (1970) - Acoustic breakthrough"
-  - "Cosmic Dancer (1971) - Album standout"
+  - Hot Love (1971)
+  - Get It On (1971)
+  - Jeepster (1971)
+  - Electric Warrior (1971)
+  - Telegram Sam (1972)
+  - Metal Guru (1972)
+  - Children of the Revolution (1972)
+  - 20th Century Boy (1973)
+  - The Slider (1972)
+  - Bang a Gong (Get It On) (1971) - US breakthrough,
+  - Ride a White Swan (1970)
+  - Cosmic Dancer (1971)
 relatedArticles: []
 discographyOverview: "Marc Bolan led T. Rex and released 10 albums from 1968 to 1977, pioneering glam rock with 'Electric Warrior' (1971) and hits like 'Hot Love' and 'Get It On.' His flamboyant stage presence and glitter suits defined the glam era."
 careerTimeline:

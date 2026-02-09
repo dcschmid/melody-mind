@@ -19,25 +19,25 @@ influencedBy:
   - "miles-davis"
 influenced: []
 keyAlbums:
-  - "Zombie (1977) - International acclaim, banned in Nigeria, best-selling album"
-  - "Expensive Shit (1975) - Political satire, critical acclaim, international recognition"
-  - "He Miss Road (1975) - Classic Afrobeat, political commentary, commercial success"
-  - "Shakara (1975) - Early Afrobeat classic, influential album"
-  - "Gentleman (1973) - Critically acclaimed, established Afrobeat genre"
-  - "Confusion (1975) - Extended compositions, political themes, innovative"
+  - Zombie (1977)
+  - Expensive Shit (1975)
+  - He Miss Road (1975)
+  - Shakara (1975)
+  - Gentleman (1973)
+  - Confusion (1975)
 keySongs:
-  - "Zombie (1977) - Anti-authoritarian anthem, best-selling album"
-  - "Gentleman (1973) - International breakthrough, #1 UK Albums Chart"
-  - "Water No Get Enemy (1975) - Pan-African anthem"
-  - "Sorrow, Tears, and Blood (1977) - Political protest"
-  - "Shakara (1975) - Afrobeat classic"
-  - "Egbe Mi O (1973) - Traditional Yoruba composition"
-  - "Shuffering and Shmiling (1978) - Extended protest anthem"
-  - "Army Arrangement (1973) - Military critique"
-  - "No Agreement (1973) - Jazz-Afrobeat fusion"
-  - "Kalakuta Show (1977) - Political statement"
-  - "Jagua Nana (1973) - Social commentary"
-  - "Coffin for Head of State (1978) - Protest masterpiece"
+  - Zombie (1977)
+  - Gentleman (1973)
+  - Water No Get Enemy (1975)
+  - Sorrow, Tears, and Blood (1977)
+  - Shakara (1975)
+  - Egbe Mi O (1973)
+  - Shuffering and Shmiling (1978)
+  - Army Arrangement (1973)
+  - No Agreement (1973)
+  - Kalakuta Show (1977)
+  - Jagua Nana (1973)
+  - Coffin for Head of State (1978)
 relatedArticles: []
 discographyOverview: "Fela Kuti pioneered Afrobeat and released over 50 albums from 1963 to 1997, with classics like 'Zombie' (1977) and 'Gentleman' (1973). His politically charged music led to imprisonment and international acclaim. Over 50 million records sold worldwide."
 careerTimeline:

@@ -17,25 +17,25 @@ genres:
 influencedBy: []
 influenced: []
 keyAlbums:
-  - "The Best of Muddy Waters (1958)"
-  - "Muddy Waters at Newport (1960)"
-  - "Electric Mud (1968)"
-  - "After the Rain (1969)"
-  - "Hard Again (1977)"
-  - "I'm Ready (1978)"
+  - The Best of Muddy Waters (1958)
+  - Muddy Waters at Newport (1960)
+  - Electric Mud (1968)
+  - After the Rain (1969)
+  - Hard Again (1977)
+  - I'm Ready (1978)
 keySongs:
-  - "Hoochie Coochie Man"
-  - "Mannish Boy"
-  - "I Just Want to Make Love to You"
-  - "I'm Your Hoochie Coochie Man"
-  - "Rollin' Stone"
-  - "Got My Mojo Working"
-  - "Baby Please Don't Go"
-  - "Trouble No More"
-  - "I Can't Be Satisfied"
-  - "Forty Days and Forty Nights"
-  - "She's Nineteen Years Old"
-  - "Champagne and Reefer"
+  - Hoochie Coochie Man
+  - Mannish Boy
+  - I Just Want to Make Love to You
+  - I'm Your Hoochie Coochie Man
+  - Rollin' Stone
+  - Got My Mojo Working
+  - Baby Please Don't Go
+  - Trouble No More
+  - I Can't Be Satisfied
+  - Forty Days and Forty Nights
+  - She's Nineteen Years Old
+  - Champagne and Reefer
 relatedArticles:
   - "1950s"
   - "from-blues-to-breakdown"

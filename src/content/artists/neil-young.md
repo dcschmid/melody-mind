@@ -18,25 +18,25 @@ influencedBy:
   - "bob-dylan"
 influenced: []
 keyAlbums:
-  - "Harvest (1972) - #1 US Billboard 200, #1 UK Albums, Diamond certification"
-  - "After the Gold Rush (1970) - #4 US Billboard 200, #19 UK Albums, Platinum"
-  - "Rust Never Sleeps (1979) - #7 US Billboard 200, #26 UK Albums, Platinum"
-  - "Ragged Glory (1990) - #6 US Billboard 200, #16 UK Albums, Platinum"
-  - "Harvest Moon (1992) - #9 US Billboard 200, #22 UK Albums, Platinum"
-  - "Sleeps with Angels (2005) - #8 US Billboard 200, #15 UK Albums, Platinum"
+  - Harvest (1972)
+  - After the Gold Rush (1970)
+  - Rust Never Sleeps (1979)
+  - Ragged Glory (1990)
+  - Harvest Moon (1992)
+  - Sleeps with Angels (2005)
 keySongs:
-  - "Heart of Gold (1972) - Folk-rock classic, #1 US Billboard Hot 100"
-  - "Ohio (1970) - Protest anthem, Kent State tragedy"
-  - "Cinnamon Girl (1969) - Rock anthem, #1 US Billboard Hot 100"
-  - "Rockin' in the Free World (1989) - Political anthem"
-  - "Southern Man (1970) - Southern rock critique"
-  - "Harvest Moon (1992) - Romantic sequel to 'Heart of Gold'"
-  - "Old Man (1972) - Folk-rock standard"
-  - "Down by the River (1969) - Epic rock ballad"
-  - "Cortez the Explorer (1979) - Instrumental rock"
-  - "Hey Hey, My My (Into the Black) (1979) - Rock manifesto"
-  - "Like a Hurricane (1977) - Electric rock epic"
-  - "The Needle and the Damage Done (1972) - Drug addiction commentary"
+  - Heart of Gold (1972)
+  - Ohio (1970)
+  - Cinnamon Girl (1969)
+  - Rockin' in the Free World (1989)
+  - Southern Man (1970)
+  - Harvest Moon (1992)
+  - Old Man (1972)
+  - Down by the River (1969)
+  - Cortez the Explorer (1979)
+  - Hey Hey, My My (Into the Black) (1979) - Rock manifesto
+  - Like a Hurricane (1977)
+  - The Needle and the Damage Done (1972)
 relatedArticles: []
 discographyOverview: "Neil Young released over 40 albums from 1968 to 2022, pioneering folk-rock and grunge with classics like 'Harvest' (1972) and 'Rust Never Sleeps' (1979). Inducted into Rock and Roll Hall of Fame twice (1997, 2018). Over 48 million records sold."
 careerTimeline:

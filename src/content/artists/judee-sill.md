@@ -19,25 +19,25 @@ influencedBy:
   - "carole-king"
 influenced: []
 keyAlbums:
-  - "Judee Sill (1971) - Critically acclaimed, influential folk album"
-  - "Heart Food (1973) - Critically acclaimed, sophisticated songwriting"
-  - "Live at the Troubadour (1971) - Posthumous live recording"
-  - "Jesus Was a Cross Maker (1971) - Signature song, critically acclaimed"
-  - "The Lamb Ran Away with the Wolf (1971) - Complex, influential song"
-  - "There's a Rugged Road (1973) - Mature, sophisticated songwriting"
+  - Judee Sill (1971)
+  - Heart Food (1973)
+  - Live at the Troubadour (1971)
+  - Jesus Was a Cross Maker (1971)
+  - The Lamb Ran Away with the Wolf (1971)
+  - There's a Rugged Road (1973)
 keySongs:
-  - "Jesus Was a Cross Maker (1971) - Signature song, spiritual themes"
-  - "The Lamb Ran Away with the Wolf (1971) - Complex composition"
-  - "Lady-O (1968) - Recorded by The Turtles, #1 US Billboard Hot 100"
-  - "There's a Rugged Road (1973) - Emotional depth"
-  - "Down Where the Valleys Are Free (1971) - Spiritual seeking"
-  - "The Kiss (1971) - Romantic ballad"
-  - "But for the Gardens (1971) - Baroque pop"
-  - "The Fugitive (1971) - Narrative composition"
-  - "When the Brother Gets Back Home (1971) - Domestic themes"
-  - "抽象 (1973) - Abstract composition"
-  - "Sweet Chariot (1971) - Gospel influence"
-  - "The Pearl (1973) - Spiritual themes"
+  - Jesus Was a Cross Maker (1971)
+  - The Lamb Ran Away with the Wolf (1971)
+  - Lady-O (1968)
+  - There's a Rugged Road (1973)
+  - Down Where the Valleys Are Free (1971)
+  - The Kiss (1971)
+  - But for the Gardens (1971)
+  - The Fugitive (1971)
+  - When the Brother Gets Back Home (1971)
+  - 抽象 (1973)
+  - Sweet Chariot (1971)
+  - The Pearl (1973)
 relatedArticles: []
 discographyOverview: "Judee Sill released 2 studio albums from 1971 to 1973, with 'Jesus Was a Cross Maker' becoming a cult classic. Her sophisticated baroque folk influenced artists like Kate Bush. Died tragically in 1979, but her work has been rediscovered by new generations."
 careerTimeline:

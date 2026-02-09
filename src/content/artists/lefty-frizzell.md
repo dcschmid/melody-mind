@@ -16,25 +16,25 @@ influencedBy:
   - "hank-williams"
 influenced: []
 keyAlbums:
-  - "Listen to Lefty Frizzell (1959)"
-  - "The Long Black Veil (1959)"
-  - "Sings the Songs of Jimmie Rodgers (1951)"
-  - "Lefty Frizzell Sings (1956)"
-  - "The Best of Lefty Frizzell (1964)"
-  - "For the Good Times (1970)"
+  - Listen to Lefty Frizzell (1959)
+  - The Long Black Veil (1959)
+  - Sings the Songs of Jimmie Rodgers (1951)
+  - Lefty Frizzell Sings (1956)
+  - The Best of Lefty Frizzell (1964)
+  - For the Good Times (1970)
 keySongs:
-  - "If You've Got the Money (I've Got the Time)"
-  - "I Love You a Thousand Ways"
-  - "Long Black Veil"
-  - "Always Late (With Your Kisses)"
-  - "Mom and Dad's Waltz"
-  - "Saginaw, Michigan"
-  - "My Baby's Gone"
-  - "Gonna Have a Little Talk"
-  - "Don't Take It Out on Me"
-  - "I'm an Old, Old Man"
-  - "Cigarettes and Coffee Blues"
-  - "That's the Way I Feel"
+  - If You've Got the Money (I've Got the Time)
+  - I Love You a Thousand Ways
+  - Long Black Veil
+  - Always Late (With Your Kisses)
+  - Mom and Dad's Waltz
+  - Saginaw, Michigan
+  - My Baby's Gone
+  - Gonna Have a Little Talk
+  - Don't Take It Out on Me
+  - I'm an Old, Old Man
+  - Cigarettes and Coffee Blues
+  - That's the Way I Feel
 relatedArticles:
   - "1950s"
 discographyOverview: "During his recording career from 1950 to 1975, Frizzell released over 100 singles across Columbia, Decca, and other labels, with 37 charting on Billboard's Hot Country Songs chart and 8 reaching number one: 'If You've Got the Money (I've Got the Time),' 'I Love You a Thousand Ways,' 'Always Late (With Your Kisses),' 'Mom and Dad's Waltz,' 'My Baby's Gone,' 'Saginaw, Michigan,' 'Don't Take It Out on Me,' and 'That's the Way I Feel.' His catalog includes multiple gold albums, and his songs have been covered by artists across multiple genres, with 'Long Black Veil' becoming one of the most recorded country songs in history with over 200 versions. His recordings have sold over 25 million copies worldwide."

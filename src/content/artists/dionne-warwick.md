@@ -20,25 +20,25 @@ influencedBy:
   - "peggy-lee"
 influenced: []
 keyAlbums:
-  - "Presenting Dionne Warwick (1963)"
-  - "Anyone Who Had a Heart (1966)"
-  - "Dionne Warwick in Paris (1964)"
-  - "The Windows of the World (1970)"
-  - "Then Came You (1970)"
-  - "Heartbreaker (1974)"
+  - Presenting Dionne Warwick (1963)
+  - Anyone Who Had a Heart (1966)
+  - Dionne Warwick in Paris (1964)
+  - The Windows of the World (1970)
+  - Then Came You (1970)
+  - Heartbreaker (1974)
 keySongs:
-  - "Do You Know the Way to San Jose? (1968) - Sophisticated pop, #8 US Billboard Hot 100"
-  - "Don't Make Me Over (1962) - Debut hit, #21 US Billboard Hot 100"
-  - "Walk On By (1966) - Burt Bacharach classic, #8 US Billboard Hot 100"
-  - "I Say a Little Prayer (1967) - Romantic standard, #4 US Billboard Hot 100"
-  - "Alfie (1966) - Film theme, #15 US Billboard Hot 100"
-  - "I Just Don't Know What to Do with My Heart (1969) - duett mit Warwick"
-  - "This Girl's in Love (1966) - duett mit Warwick"
-  - "Then Came You (1974) - #1 hit, collaboration with Spinners"
-  - "Heartbreaker (1982) - Disco era hit, #18 US Billboard Hot 100"
-  - "Friends (1985) - duett met Warwick"
-  - "Love Will Find a Way (1978) - Disco success"
-  - "Make It Easy on Yourself (1975) - Classic ballad"
+  - Do You Know the Way to San Jose? (1968)
+  - Don't Make Me Over (1962)
+  - Walk On By (1966)
+  - I Say a Little Prayer (1967)
+  - Alfie (1966)
+  - I Just Don't Know What to Do with My Heart (1969)
+  - This Girl's in Love (1966)
+  - Then Came You (1974)
+  - Heartbreaker (1982)
+  - Friends (1985)
+  - Love Will Find a Way (1978)
+  - Make It Easy on Yourself (1975)
 relatedArticles:
   - "1960s"
   - "1970s"

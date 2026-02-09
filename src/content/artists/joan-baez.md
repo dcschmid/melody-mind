@@ -18,25 +18,25 @@ influencedBy:
   - "joni-mitchell"
 influenced: []
 keyAlbums:
-  - "Joan Baez (1960)"
-  - "Joan Baez in Concert, Part 1 (1962)"
-  - "Joan Baez in Concert, Part 2 (1963)"
-  - "Farewell, Angelina (1965)"
-  - "David's Album (1968)"
-  - "Blessed Are... (1971)"
+  - Joan Baez (1960)
+  - Joan Baez in Concert, Part 1 (1962)
+  - Joan Baez in Concert, Part 2 (1963)
+  - Farewell, Angelina (1965)
+  - David's Album (1968)
+  - Blessed Are... (1971)
 keySongs:
-  - "The Night They Drove Old Dixie Down (1969) - Civil War ballad, #1 US Billboard Hot 100"
-  - "Don't Think Twice, It's All Right (1963) - Dylan cover"
-  - "We Shall Overcome (1963) - Protest anthem"
-  - "Joe Hill (1961) - Union anthem"
-  - "Where Have All the Flowers Gone? (1965) - Anti-war standard"
-  - "Turn! Turn! Turn! (1965) - Biblical adaptation, #1 US Billboard Hot 100"
-  - "The Sound of Silence (1965) - Dylan cover"
-  - "Sweet Sir Galahad (1969) - Feminist anthem"
-  - "Joe's (1970) - Protest song"
-  - "I Shall Be Released (1971) - Dylan cover"
-  - "Ain't Gonna Let Nobody Turn Us Around (1971) - Civil rights anthem"
-  - "Amazing Grace (1970) - Traditional hymn"
+  - The Night They Drove Old Dixie Down (1969)
+  - Don't Think Twice, It's All Right (1963)
+  - We Shall Overcome (1963)
+  - Joe Hill (1961)
+  - Where Have All the Flowers Gone? (1965)
+  - Turn! Turn! Turn! (1965)
+  - The Sound of Silence (1965)
+  - Sweet Sir Galahad (1969)
+  - Joe's (1970)
+  - I Shall Be Released (1971)
+  - Ain't Gonna Let Nobody Turn Us Around (1971)
+  - Amazing Grace (1970)
 relatedArticles:
   - "1960s"
   - "1970s"

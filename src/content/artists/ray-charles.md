@@ -24,25 +24,25 @@ influenced:
   - "james-brown"
   - "marvin-gaye"
 keyAlbums:
-  - "The Genius of Ray Charles (1959)"
-  - "The Genius Hits the Road (1960)"
-  - "Modern Sounds in Country and Western Music (1962)"
-  - "I Can't Stop Loving You (1962)"
-  - "Genius + Soul = Jazz (1961)"
-  - "Genius Loves Company (2004)"
+  - The Genius of Ray Charles (1959)
+  - The Genius Hits the Road (1960)
+  - Modern Sounds in Country and Western Music (1962)
+  - I Can't Stop Loving You (1962)
+  - Genius + Soul = Jazz (1961)
+  - Genius Loves Company (2004)
 keySongs:
-  - "I Got a Woman"
-  - "What'd I Say"
-  - "Georgia on My Mind"
-  - "Hit the Road Jack"
-  - "I Can't Stop Loving You"
-  - "Unchain My Heart"
-  - "Mess Around"
-  - "Hallelujah, I Love Her So"
-  - "Drown in My Own Tears"
-  - "Busted"
-  - "The Right Time"
-  - "You Don't Know Me"
+  - I Got a Woman
+  - What'd I Say
+  - Georgia on My Mind
+  - Hit the Road Jack
+  - I Can't Stop Loving You
+  - Unchain My Heart
+  - Mess Around
+  - Hallelujah, I Love Her So
+  - Drown in My Own Tears
+  - Busted
+  - The Right Time
+  - You Don't Know Me
 relatedArticles:
   - "1950s"
   - "1960s"

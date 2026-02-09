@@ -17,25 +17,25 @@ influencedBy:
   - "thelonious-monk"
 influenced: []
 keyAlbums:
-  - "Mingus Ah Um (1959)"
-  - "The Black Saint and the Sinner Lady (1963)"
-  - "Mingus, Mingus, Mingus, Mingus, Mingus (1964)"
-  - "The Clown (1957)"
-  - "Tijuana Moods (1962)"
-  - "Blues & Roots (1960)"
-  - "Cumbia & Jazz Fusions (1958)"
-  - "Let My Children Hear Music (1971)"
+  - Mingus Ah Um (1959)
+  - The Black Saint and the Sinner Lady (1963)
+  - Mingus, Mingus, Mingus, Mingus, Mingus (1964)
+  - The Clown (1957)
+  - Tijuana Moods (1962)
+  - Blues & Roots (1960)
+  - Cumbia & Jazz Fusions (1958)
+  - Let My Children Hear Music (1971)
 keySongs:
-  - "Pithecanthropus Erectus"
-  - "Goodbye Pork Pie Hat"
-  - "Better Git Hit in Yo' Head"
-  - "Fables of Faubus"
-  - "Haitian Fight Song"
-  - "Wednesday Night Prayer Meeting"
-  - "Ysabel's Table Dance"
-  - "Moanin'"
-  - "Portrait of Tracy"
-  - "Boogie Stop Shuffle"
+  - Pithecanthropus Erectus
+  - Goodbye Pork Pie Hat
+  - Better Git Hit in Yo' Head
+  - Fables of Faubus
+  - Haitian Fight Song
+  - Wednesday Night Prayer Meeting
+  - Ysabel's Table Dance
+  - Moanin'
+  - Portrait of Tracy
+  - Boogie Stop Shuffle
 relatedArticles:
   - "1950s"
 discographyOverview: "Charles Mingus composed over 300 works and led 47 albums as a bandleader, recording for Atlantic, Columbia, and Impulse! Records. His masterpieces include 'Mingus Ah Um' (1959) and 'The Black Saint and the Sinner Lady' (1963)."

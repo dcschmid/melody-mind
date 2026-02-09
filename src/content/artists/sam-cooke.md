@@ -17,24 +17,24 @@ influenced:
   - "marvin-gaye"
   - "aretha-franklin"
 keyAlbums:
-  - "Sam Cooke (1957)"
-  - "Encore (1958)"
-  - "The Wonderful World of Sam Cooke (1960)"
-  - "Cooke's Tour (1962)"
-  - "Night Beat (1963)"
-  - "Ain't That Good News (1964)"
+  - Sam Cooke (1957)
+  - Encore (1958)
+  - The Wonderful World of Sam Cooke (1960)
+  - Cooke's Tour (1962)
+  - Night Beat (1963)
+  - Ain't That Good News (1964)
 keySongs:
-  - "You Send Me"
-  - "A Change Is Gonna Come"
-  - "Bring It On Home to Me"
-  - "Chain Gang"
-  - "Cupid"
-  - "Twistin' the Night Away"
-  - "Another Saturday Night"
-  - "Having a Party"
-  - "Shake"
-  - "Good Times"
-  - "Wonderful World"
+  - You Send Me
+  - A Change Is Gonna Come
+  - Bring It On Home to Me
+  - Chain Gang
+  - Cupid
+  - Twistin' the Night Away
+  - Another Saturday Night
+  - Having a Party
+  - Shake
+  - Good Times
+  - Wonderful World
 relatedArticles:
   - "1950s"
   - "1960s"

@@ -19,25 +19,25 @@ influencedBy:
   - "bob-dylan"
 influenced: []
 keyAlbums:
-  - "Piano Man (1973) - #27 US Billboard 200, #117 UK Albums"
-  - "The Stranger (1977) - #2 US Billboard 200, #25 UK Albums, 5x Platinum"
-  - "52nd Street (1978) - #1 US Billboard 200, #9 UK Albums, 3x Platinum"
-  - "Glass Houses (1980) - #1 US Billboard 200, #9 UK Albums, 3x Platinum"
-  - "An Innocent Man (1983) - #4 US Billboard 200, #8 UK Albums, 3x Platinum"
-  - "Storm Front (1989) - #1 US Billboard 200, #22 UK Albums, 2x Platinum"
+  - Piano Man (1973)
+  - The Stranger (1977)
+  - 52nd Street (1978)
+  - Glass Houses (1980)
+  - An Innocent Man (1983)
+  - Storm Front (1989)
 keySongs:
-  - "Piano Man (1973) - Iconic piano bar narrative, #2 US Billboard Hot 100"
-  - "Captain Jack (1972) - Suburban ennui anthem, #25 US Billboard Hot 100"
-  - "The Stranger (1977) - Mysterious lover's tale, #4 US Billboard Hot 100"
-  - "Movin' Out (Anthony's Song) (1977) - Working-class tribute, #1 US Billboard Hot 100"
-  - "Only the Good Die Young (1977) - Controversial religious themes, #1 US Billboard Hot 100"
-  - "Just the Way You Are (1977) - Romantic ballad, #1 US Billboard Hot 100, Grammy Award"
-  - "She's Always a Woman (1971) - Complex female portrait"
-  - "Scenes from an Italian Restaurant (1977) - Epic storytelling suite, 7+ minute classic"
-  - "My Life (1978) - Personal independence anthem, #3 US Billboard Hot 100"
-  - "Big Shot (1978) - Social climbing satire, #14 US Billboard Hot 100"
-  - "Honesty (1978) - Emotional vulnerability, #24 US Billboard Hot 100"
-  - "You May Be Right (1980) - Defiant romantic chaos, #1 US Billboard Hot 100"
+  - Piano Man (1973)
+  - Captain Jack (1972)
+  - The Stranger (1977)
+  - Movin' Out (Anthony's Song) (1977) - Working-class tribute,
+  - Only the Good Die Young (1977)
+  - Just the Way You Are (1977)
+  - She's Always a Woman (1971)
+  - Scenes from an Italian Restaurant (1977)
+  - My Life (1978)
+  - Big Shot (1978)
+  - Honesty (1978)
+  - You May Be Right (1980)
 relatedArticles: []
 discographyOverview: "Billy Joel released 12 studio albums from 1971 to 1993, achieving 33 Top 40 hits including 9 #1s with 'Piano Man,' 'Just the Way You Are,' and 'We Didn't Start the Fire.' His 'The Stranger' (1977) and 'An Innocent Man' (1983) became classics. Over 160 million records sold worldwide."
 careerTimeline:

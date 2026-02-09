@@ -20,25 +20,25 @@ influenced:
   - "adele"
   - "lady-gaga"
 keyAlbums:
-  - "I Never Loved a Man the Way I Loved You (1967)"
-  - "Lady Soul (1968)"
-  - "Spirit in the Dark (1970)"
-  - "Young, Gifted and Black (1972)"
-  - "Amazing Grace (1972)"
-  - "Jump to It (1982)"
+  - I Never Loved a Man the Way I Loved You (1967)
+  - Lady Soul (1968)
+  - Spirit in the Dark (1970)
+  - Young, Gifted and Black (1972)
+  - Amazing Grace (1972)
+  - Jump to It (1982)
 keySongs:
-  - "(You Make Me Feel Like) A Natural Woman (1967) - Signature song"
-  - "Respect (1967) - Civil rights anthem, #1 US Billboard Hot 100"
-  - "Chain of Fools (1968) - Soul classic, #2 US Billboard Hot 100"
-  - "I Say a Little Prayer (1968) - Standard, #10 US Billboard Hot 100"
-  - "Think (1968) - Empowering anthem, #7 US Billboard Hot 100"
-  - "Spanish Harlem (1961) - Early hit"
-  - "Rock Steady (1967) - Dance hit, #21 US Billboard Hot 100"
-  - "Bridge Over Troubled Water (1972) - Gospel power, #1 US Billboard Hot 100"
-  - "Young, Gifted and Black (1972) - Anthem"
-  - "Until You Come Back to Me (1973) - #1 US Billboard Hot 100"
-  - "Freeway of Love (1985) - Rock duet, #3 US Billboard Hot 100"
-  - "It Isn't, It Wasn't, It Ain't, Never Was (1986) - Duet"
+  - (You Make Me Feel Like) A Natural Woman (1967) - Signature song
+  - Respect (1967)
+  - Chain of Fools (1968)
+  - I Say a Little Prayer (1968)
+  - Think (1968)
+  - Spanish Harlem (1961)
+  - Rock Steady (1967)
+  - Bridge Over Troubled Water (1972)
+  - Young, Gifted and Black (1972)
+  - Until You Come Back to Me (1973)
+  - Freeway of Love (1985)
+  - It Isn't, It Wasn't, It Ain't, Never Was (1986)
 relatedArticles:
   - "1960s"
   - "1970s"

@@ -18,25 +18,25 @@ influencedBy:
   - "james-brown"
 influenced: []
 keyAlbums:
-  - "Mothership Connection (1977) - Parliament, #3 US R&B Albums, #13 US Billboard 200, Platinum"
-  - "One Nation Under a Groove (1978) - Funkadelic, #1 US R&B Albums, #22 US Billboard 200, Platinum"
-  - "Funkentelechy vs. the Placebo Syndrome (1977) - Parliament, #2 US R&B Albums, #11 US Billboard 200, Gold"
-  - "Computer Games (1982) - George Clinton, #5 US R&B Albums, #43 US Billboard 200, Gold"
-  - "Maggot Brain (1971) - Funkadelic, #12 US Billboard 200, psychedelic funk classic"
-  - "The Clones of Dr. Funkenstein (1976) - Parliament, #4 US R&B Albums, #18 US Billboard 200"
+  - Mothership Connection (1977)
+  - One Nation Under a Groove (1978)
+  - Funkentelechy vs. the Placebo Syndrome (1977)
+  - Computer Games (1982)
+  - Maggot Brain (1971)
+  - The Clones of Dr. Funkenstein (1976)
 keySongs:
-  - "Mothership Connection (1975) - Funk classic, #19 US Billboard Hot 100"
-  - "One Nation Under a Groove (1978) - Crossover hit, #1 US R&B, #28 US Billboard Hot 100"
-  - "Give Up the Funk (1976) - Dance-funk anthem"
-  - "Flash Light (1978) - Synth-funk hit, #1 US R&B"
-  - "Cosmic Slop (1973) - Extended funk composition"
-  - "Trombipulation (1978) - Synth funk"
-  - "Aqua Boogie (1978) - Synth funk classic"
-  - "Not Just Knee Deep (1977) - Extended funk epic"
-  - "P-Funk (Wants to Get Funked Down) (1975) - Funk anthem"
-  - "Maggot Brain (1971) - Psychedelic guitar epic"
-  - "Aggressive Profusion (1973) - Funkadelic classic"
-  - "Foot Soldiers (1973) - Funkadelic groove"
+  - Mothership Connection (1975)
+  - One Nation Under a Groove (1978)
+  - Give Up the Funk (1976)
+  - Flash Light (1978)
+  - Cosmic Slop (1973)
+  - Trombipulation (1978)
+  - Aqua Boogie (1978)
+  - Not Just Knee Deep (1977)
+  - P-Funk (Wants to Get Funked Down) (1975) - Funk anthem
+  - Maggot Brain (1971)
+  - Aggressive Profusion (1973)
+  - Foot Soldiers (1973)
 relatedArticles: []
 discographyOverview: "George Clinton led Parliament-Funkadelic and released over 40 albums from 1967 to 2018, pioneering funk with 'Mothership Connection' (1975) and 'One Nation Under a Groove' (1978). His P-Funk collective has been sampled by countless artists. Inducted into Rock and Roll Hall of Fame in 1997."
 careerTimeline:

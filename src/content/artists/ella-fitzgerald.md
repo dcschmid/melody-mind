@@ -17,23 +17,23 @@ influenced:
   - "adele"
   - "whitney-houston"
 keyAlbums:
-  - "Ella and Louis (1956)"
-  - "Ella Fitzgerald Sings the Cole Porter Songbook (1956)"
-  - "Ella Fitzgerald Sings the Rodgers and Hart Songbook (1956)"
-  - "Ella Fitzgerald Sings the Duke Ellington Songbook (1957)"
-  - "Ella and Basie! (1963)"
-  - "Ella at Juan-les-Pins (1964)"
+  - Ella and Louis (1956)
+  - Ella Fitzgerald Sings the Cole Porter Songbook (1956)
+  - Ella Fitzgerald Sings the Rodgers and Hart Songbook (1956)
+  - Ella Fitzgerald Sings the Duke Ellington Songbook (1957)
+  - Ella and Basie! (1963)
+  - Ella at Juan-les-Pins (1964)
 keySongs:
-  - "A-Tisket, A-Tasket"
-  - "Dream a Little Dream of Me"
-  - "How High the Moon"
-  - "Mack the Knife"
-  - "Summertime"
-  - "Blue Skies"
-  - "Cheek to Cheek"
-  - "I've Got You Under My Skin"
-  - "It Don't Mean a Thing (If It Ain't Got That Swing)"
-  - "Every Time We Say Goodbye"
+  - A-Tisket, A-Tasket
+  - Dream a Little Dream of Me
+  - How High the Moon
+  - Mack the Knife
+  - Summertime
+  - Blue Skies
+  - Cheek to Cheek
+  - I've Got You Under My Skin
+  - It Don't Mean a Thing (If It Ain't Got That Swing)
+  - Every Time We Say Goodbye
 relatedArticles:
   - "1950s"
 discographyOverview: "Ella Fitzgerald recorded over 200 albums and 2,000 songs from 1934 to 1993, becoming one of jazz's most prolific vocalists. Her legendary songbook series (1956-1958) for Verve Records remains one of music's most ambitious recording projects. She won 18 Grammy Awards including the first Best Vocal Performance, Female in 1958."

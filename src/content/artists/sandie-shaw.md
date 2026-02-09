@@ -19,24 +19,24 @@ influencedBy:
   - "dusty-springfield"
 influenced: []
 keyAlbums:
-  - "Sandie Shaw (1967)"
-  - "Love Me, Leave Me (1968)"
-  - "Reviewing the Situation (1969)"
-  - "The Sandie Shaw Album (1970)"
-  - "Someone Else's Guy (1972)"
+  - Sandie Shaw (1967)
+  - Love Me, Leave Me (1968)
+  - Reviewing the Situation (1969)
+  - The Sandie Shaw Album (1970)
+  - Someone Else's Guy (1972)
 keySongs:
-  - "(There's) Always Something There to Remind Me (1964) - Debut hit, #1 UK Singles Chart"
-  - "Girl Don't Come (1964) - Early success"
-  - "Stay (1964) - Rhythm and blues cover"
-  - "You Won't See Me (1965) - Lennon-McCartney composition"
-  - "Message Understood (1965) - Girl group sound"
-  - "Think Sometimes It Snows (1965) - French chanson"
-  - "Puppet on a String (1967) - Eurovision winner, #1 UK Singles Chart"
-  - "Show Me How (1967) - Sophisticated pop"
-  - "You've Not Changed (1966) - Emotional ballad"
-  - "Looking for Life (1966) - Jazz influence"
-  - "The World Is Worse for the Peace (1967) - Political themes"
-  - "Jeannie's Not for Turning (1965) - Later composition"
+  - (There's) Always Something There to Remind Me (1964) - Debut hit,
+  - Girl Don't Come (1964)
+  - Stay (1964)
+  - You Won't See Me (1965)
+  - Message Understood (1965)
+  - Think Sometimes It Snows (1965)
+  - Puppet on a String (1967)
+  - Show Me How (1967)
+  - You've Not Changed (1966)
+  - Looking for Life (1966)
+  - The World Is Worse for the Peace (1967)
+  - Jeannie's Not for Turning (1965)
 relatedArticles:
   - "1960s"
   - "1970s"

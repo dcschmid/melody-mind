@@ -17,25 +17,25 @@ genres:
 influencedBy: []
 influenced: []
 keyAlbums:
-  - "Moanin' in the Moonlight (1959)"
-  - "Howlin' Wolf (1962)"
-  - "The Rockin' Chair Album (1963)"
-  - "The Back Door Wolf (1971)"
-  - "Live in Cook County Jail (1972)"
-  - "The London Howlin' Wolf Sessions (1971)"
+  - Moanin' in the Moonlight (1959)
+  - Howlin' Wolf (1962)
+  - The Rockin' Chair Album (1963)
+  - The Back Door Wolf (1971)
+  - Live in Cook County Jail (1972)
+  - The London Howlin' Wolf Sessions (1971)
 keySongs:
-  - "Smokestack Lightnin'"
-  - "Spoonful"
-  - "The Red Rooster"
-  - "How Many More Years"
-  - "Evil"
-  - "Killing Floor"
-  - "Wang Dang Doodle"
-  - "Back Door Man"
-  - "I Asked for Water (She Gave Me Gasoline)"
-  - "300 Pounds of Joy"
-  - "Sitting on Top of the World"
-  - "Goin' Down Slow"
+  - Smokestack Lightnin'
+  - Spoonful
+  - The Red Rooster
+  - How Many More Years
+  - Evil
+  - Killing Floor
+  - Wang Dang Doodle
+  - Back Door Man
+  - I Asked for Water (She Gave Me Gasoline)
+  - 300 Pounds of Joy
+  - Sitting on Top of the World
+  - Goin' Down Slow
 relatedArticles:
   - "1950s"
 discographyOverview: "Howlin' Wolf released over 120 songs from 1951 to 1973 on Chess Records, creating blues standards like 'Smokestack Lightnin'' and 'Spoonful.' His 1971 London Sessions featured collaborations with Eric Clapton and Steve Winwood. Inducted into both Blues Hall of Fame (1980) and Rock and Roll Hall of Fame (1991)."

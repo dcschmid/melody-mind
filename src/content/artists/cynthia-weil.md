@@ -16,25 +16,25 @@ influencedBy:
   - "joni-mitchell"
 influenced: []
 keyAlbums:
-  - "Cynthia Weil (1972)"
-  - "Poetry Man (1975)"
-  - "Blind Before I Stop (1976)"
-  - "Siren (1977)"
-  - "Live at the Bottom Line (1979)"
-  - "The Very Best of Cynthia Weil (1995)"
+  - Cynthia Weil (1972)
+  - Poetry Man (1975)
+  - Blind Before I Stop (1976)
+  - Siren (1977)
+  - Live at the Bottom Line (1979)
+  - The Very Best of Cynthia Weil (1995)
 keySongs:
-  - "Poetry Man (1975) - Signature song, #5 US Billboard Hot 100"
-  - "(Just Like) Romeo and Juliet (1960) - Early hit"
-  - "Dance Ten Jeffords with My Father (1975) - Humorous composition"
-  - "Lovin' You Wasn't Easy (for Someone Who Wasn't Me) (1975) - Emotional ballad"
-  - "Never Leave You Until You Come Back for Me (1975) - Duet"
-  - "Looking at Tomorrow (1975) - Positive message"
-  - "Don't Let the Sun Go Down (1976) - Rock composition"
-  - "If I Close My Eyes (1976) - Ballad"
-  - "Darlin' (1975) - Rock song"
-  - "Siren (1977) - Title track"
-  - "Blind Before I Stop (1976) - Rock"
-  - "Live Performances (1979) - Live album"
+  - Poetry Man (1975)
+  - (Just Like) Romeo and Juliet (1960) - Early hit
+  - Dance Ten Jeffords with My Father (1975)
+  - Lovin' You Wasn't Easy (for Someone Who Wasn't Me) (1975) - Emotional ballad
+  - Never Leave You Until You Come Back for Me (1975)
+  - Looking at Tomorrow (1975)
+  - Don't Let the Sun Go Down (1976)
+  - If I Close My Eyes (1976)
+  - Darlin' (1975)
+  - Siren (1977)
+  - Blind Before I Stop (1976)
+  - Live Performances (1979)
 relatedArticles:
   - "1970s"
   - "1980s"

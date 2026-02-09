@@ -20,25 +20,25 @@ influenced:
   - "bruce-springsteen"
   - "taylor-swift"
 keyAlbums:
-  - "Bob Dylan (1962)"
-  - "The Freewheelin' Bob Dylan (1963)"
-  - "The Times They Are a-Changin' (1964)"
-  - "Bringing It All Back Home (1965)"
-  - "Highway 61 Revisited (1965)"
-  - "Blonde on Blonde (1966)"
+  - Bob Dylan (1962)
+  - The Freewheelin' Bob Dylan (1963)
+  - The Times They Are a-Changin' (1964)
+  - Bringing It All Back Home (1965)
+  - Highway 61 Revisited (1965)
+  - Blonde on Blonde (1966)
 keySongs:
-  - "Don't Think Twice, It's All Right (1963) - Folk classic"
-  - "Blowin' in the Wind (1963) - Civil rights anthem"
-  - "The Times They Are a-Changin' (1964) - Protest anthem"
-  - "Like a Rolling Stone (1965) - Rock revolution, #2 US Billboard Hot 100"
-  - "Mr. Tambourine Man (1965) - Folk rock standard"
-  - "Just Like a Woman (1966) - Literary composition"
-  - "All Along the Watchtower (1967) - Hendrix cover"
-  - "Lay Lady Lay (1969) - Country crossover, #1 US Billboard Hot 100"
-  - "Forever Young (1974) - Parental anthem"
-  - "Tangled Up in Blue (1974) - Narrative masterpiece"
-  - "Knockin' on Heaven's Door (1973) - Universal theme"
-  - "Make You Feel My Love (1997) - Covered by Adele"
+  - Don't Think Twice, It's All Right (1963)
+  - Blowin' in the Wind (1963)
+  - The Times They Are a-Changin' (1964)
+  - Like a Rolling Stone (1965)
+  - Mr. Tambourine Man (1965)
+  - Just Like a Woman (1966)
+  - All Along the Watchtower (1967)
+  - Lay Lady Lay (1969)
+  - Forever Young (1974)
+  - Tangled Up in Blue (1974)
+  - Knockin' on Heaven's Door (1973)
+  - Make You Feel My Love (1997)
 relatedArticles:
   - "1960s"
   - "1970s"

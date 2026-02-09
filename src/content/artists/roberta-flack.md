@@ -19,25 +19,25 @@ influencedBy:
   - "aretha-franklin"
 influenced: []
 keyAlbums:
-  - "First Take (1969) - #45 US Billboard 200, critically acclaimed debut"
-  - "Quiet Fire (1973) - #4 US Billboard 200, #42 UK Albums"
-  - "Feel Like Makin' Love (1974) - #3 US Billboard 200, #38 UK Albums"
-  - "Killing Me Softly (1973) - #3 US Billboard 200, #41 UK Albums"
-  - "Blue Lights in the Basement (1969) - Critically acclaimed jazz album"
-  - "Chapter Two (1970) - #14 US Billboard 200, critically acclaimed"
+  - First Take (1969)
+  - Quiet Fire (1973)
+  - Feel Like Makin' Love (1974)
+  - Killing Me Softly (1973)
+  - Blue Lights in the Basement (1969)
+  - Chapter Two (1970)
 keySongs:
-  - "Killing Me Softly with His Song (1973) - Grammy winner, #1 US Billboard Hot 100"
-  - "Feel Like Makin' Love (1974) - Soul classic, #1 US Billboard Hot 100"
-  - "The First Time I Loved You (1971) - Emotional ballad"
-  - "Where Is the Love? (1972) - duett met Roberta Flack"
-  - "Killing Me Softly with His Song (1973) - Grammy winner"
-  - "Roberta Flack (1973) - Title track"
-  - "Quiet Fire (1973) - Jazz influence"
-  - "Jesse (1972) - Composition"
-  - "And So It Goes (1983) - Later composition"
-  - "Oasis (1973) - Extended version"
-  - "Don't Make Me a Woman (1970) - Early composition"
-  - "Ballad of the Sad Young Men (1970) - Jazz standard"
+  - Killing Me Softly with His Song (1973)
+  - Feel Like Makin' Love (1974)
+  - The First Time I Loved You (1971)
+  - Where Is the Love? (1972)
+  - Killing Me Softly with His Song (1973)
+  - Roberta Flack (1973)
+  - Quiet Fire (1973)
+  - Jesse (1972)
+  - And So It Goes (1983)
+  - Oasis (1973)
+  - Don't Make Me a Woman (1970)
+  - Ballad of the Sad Young Men (1970)
 relatedArticles: []
 discographyOverview: "Roberta Flack released 15 albums from 1969 to 2023, achieving breakthrough with 'Killing Me Softly' (1973) and 'Feel Like Makin' Love.' Won four Grammy Awards including Record and Song of the Year. Received Lifetime Achievement Award in 2012."
 careerTimeline:

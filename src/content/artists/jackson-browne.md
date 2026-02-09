@@ -20,25 +20,25 @@ influencedBy:
   - "neil-young"
 influenced: []
 keyAlbums:
-  - "Jackson Browne (1972) - #3 US Billboard 200, #50 UK Albums, Platinum"
-  - "Late for the Sky (1974) - #14 US Billboard 200, #45 UK Albums, Platinum"
-  - "The Pretender (1976) - #5 US Billboard 200, #26 UK Albums, Platinum"
-  - "Running on Empty (1977) - #3 US Billboard 200, #12 UK Albums, 2x Platinum"
-  - "Lives in the Balance (1986) - #12 US Billboard 200, #18 UK Albums"
-  - "I'm Alive (1993) - #14 US Billboard 200, #28 UK Albums"
+  - Jackson Browne (1972)
+  - Late for the Sky (1974)
+  - The Pretender (1976)
+  - Running on Empty (1977)
+  - Lives in the Balance (1986)
+  - I'm Alive (1993)
 keySongs:
-  - "Doctor My Eyes (1972) - Debut hit, #8 US Billboard Hot 100"
-  - "Running on Empty (1977) - Live-in-concert hit, #11 US Billboard Hot 100"
-  - "Somebody's Baby (1972) - Early composition"
-  - "The Pretender (1976) - Title track, social commentary"
-  - "Late for the Sky (1974) - Atmospheric folk-rock"
-  - "These Days (1970) - Dylan-influenced composition"
-  - "For Everyman (1972) - Collaboration with JD Souther"
-  - "The Load-Out (1977) - Concert narrative"
-  - "Lives in the Balance (1986) - Political commentary"
-  - "In the Shape of Things to Come (1989) - Environmental anthem"
-  - "Rock Me on the Water (1972) - California dreaming"
-  - "Before the Deluge (1974) - Apocalyptic folk"
+  - Doctor My Eyes (1972)
+  - Running on Empty (1977)
+  - Somebody's Baby (1972)
+  - The Pretender (1976)
+  - Late for the Sky (1974)
+  - These Days (1970)
+  - For Everyman (1972)
+  - The Load-Out (1977)
+  - Lives in the Balance (1986)
+  - In the Shape of Things to Come (1989)
+  - Rock Me on the Water (1972)
+  - Before the Deluge (1974)
 relatedArticles: []
 discographyOverview: "Jackson Browne released 16 studio albums from 1972 to 2014, achieving hits with 'Doctor My Eyes,' 'Running on Empty,' and 'Somebody's Baby.' His introspective songwriting defined 1970s folk-rock. Inducted into Rock and Roll Hall of Fame in 2004."
 careerTimeline:

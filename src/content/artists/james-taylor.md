@@ -19,25 +19,25 @@ influencedBy:
   - "carole-king"
 influenced: []
 keyAlbums:
-  - "Sweet Baby James (1970) - #3 US Billboard 200, #32 UK Albums, Platinum"
-  - "Mud Slide Slim and the Blue Horizon (1971) - #2 US Billboard 200, #28 UK Albums, Platinum"
-  - "JT (1977) - #4 US Billboard 200, #16 UK Albums, Platinum"
-  - "Dad Loves His Work (1981) - #12 US Billboard 200, #18 UK Albums"
-  - "That's Why I'm Here (1985) - #11 US Billboard 200, #14 UK Albums"
-  - "Hourglass (1997) - #9 US Billboard 200, #25 UK Albums, Grammy Award Winner"
+  - Sweet Baby James (1970)
+  - Mud Slide Slim and the Blue Horizon (1971)
+  - JT (1977)
+  - Dad Loves His Work (1981)
+  - That's Why I'm Here (1985)
+  - Hourglass (1997)
 keySongs:
-  - "Fire and Rain (1970) - Signature song, #1 US Billboard Hot 100"
-  - "Sweet Baby James (1970) - Folk-rock standard, #1 US Billboard Hot 100"
-  - "You've Got a Friend (1971) - duett met Carole King, #1 US Billboard Hot 100"
-  - "How Sweet It Is (To Be Loved by You) (1975) - Soul cover, #6 US Billboard Hot 100"
-  - "Carolina in My Mind (1970) - Nostalgic anthem"
-  - "Shower the People (1976) - Uplifting ballad"
-  - "Handy Man (1977) - Cover hit, #1 US Billboard Hot 100"
-  - "Her Town Too (1981) - duett met J.D. Souther"
-  - "Copperline (1997) - Later career highlight"
-  - "The Secret of Life (1986) - Philosophical midtempo"
-  - "Gaia (2008) - Environmental anthem"
-  - "Always Look on the Bright Side of Life (2001) - Monty Python cover"
+  - Fire and Rain (1970)
+  - Sweet Baby James (1970)
+  - You've Got a Friend (1971)
+  - How Sweet It Is (To Be Loved by You) (1975) - Soul cover,
+  - Carolina in My Mind (1970)
+  - Shower the People (1976)
+  - Handy Man (1977)
+  - Her Town Too (1981)
+  - Copperline (1997)
+  - The Secret of Life (1986)
+  - Gaia (2008)
+  - Always Look on the Bright Side of Life (2001)
 relatedArticles: []
 discographyOverview: "James Taylor released 19 studio albums from 1968 to 2021, achieving classics with 'Fire and Rain' (1970), 'You've Got a Friend' (1971), and 'How Sweet It Is' (1975). His warm baritone and guitar work defined 1970s folk-rock. Won 5 Grammy Awards."
 careerTimeline:

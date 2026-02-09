@@ -16,25 +16,25 @@ influencedBy:
   - "laura-nyro"
 influenced: []
 keyAlbums:
-  - "Writer (1970)"
-  - "Tapestry (1971)"
-  - "Music (1971)"
-  - "Rhymes and Reasons (1972)"
-  - "Fantasy (1973)"
-  - "Pearls (1980)"
+  - Writer (1970)
+  - Tapestry (1971)
+  - Music (1971)
+  - Rhymes and Reasons (1972)
+  - Fantasy (1973)
+  - Pearls (1980)
 keySongs:
-  - "(You Make Me Feel Like) A Natural Woman (1967) - Signature song"
-  - "You've Got a Friend (1971) - Grammy winner, #1 US Billboard Hot 100"
-  - "It's Too Late (1971) - #1 US Billboard Hot 100"
-  - "I Feel the Earth Move (1971) - Album highlight"
-  - "Will You Love Me Tomorrow? (1960) - Early composition"
-  - "Up on the Roof (1962) - Hit for The Drifters"
-  - "You've Got a Friend (1971) - Grammy winner"
-  - "So Far Away (1971) - Album track"
-  - "Home Again (1971) - Personal composition"
-  - "Beautiful (1971) - Classic ballad"
-  - "Way Over Yonder (1971) - Folk influence"
-  - "Where You Lead (1971) - Duet met Carole King"
+  - (You Make Me Feel Like) A Natural Woman (1967) - Signature song
+  - You've Got a Friend (1971)
+  - It's Too Late (1971)
+  - I Feel the Earth Move (1971)
+  - Will You Love Me Tomorrow? (1960)
+  - Up on the Roof (1962)
+  - You've Got a Friend (1971)
+  - So Far Away (1971)
+  - Home Again (1971)
+  - Beautiful (1971)
+  - Way Over Yonder (1971)
+  - Where You Lead (1971)
 relatedArticles:
   - "1960s"
   - "1970s"

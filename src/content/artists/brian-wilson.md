@@ -16,25 +16,25 @@ influencedBy:
   - "chuck-berry"
 influenced: []
 keyAlbums:
-  - "Pet Sounds (1966)"
-  - "Smiley Smile (1967)"
-  - "Sunshine (2011)"
-  - "No Pier Pressure (2016)"
-  - "Pacific Ocean Blue (2018)"
-  - "Gettin' in Over My Head (2022)"
+  - Pet Sounds (1966)
+  - Smiley Smile (1967)
+  - Sunshine (2011)
+  - No Pier Pressure (2016)
+  - Pacific Ocean Blue (2018)
+  - Gettin' in Over My Head (2022)
 keySongs:
-  - "Good Vibrations (1966) - Innovation classic, #1 US Billboard Hot 100"
-  - "Wouldn't It Be Nice (1966) - Teenage anthem"
-  - "Pet Sounds (1966) - Album highlight"
-  - "God Only Knows (1966) - #2 US Billboard Hot 100"
-  - "Surfin' USA (1963) - Beach anthem"
-  - "Surfer Girl (1963) - Romantic ballad"
-  - "California Dreamin' (1965) - Folk rock classic"
-  - "Sloop John B (1966) - Folk rock standard"
-  - "Darlin' (1967) - Rock classic"
-  - "Heroes and Villains (1967) - Experimental"
-  - "Do You Like Worms (1967) - Psychedelic"
-  - "Surf's Up (1971) - Art rock masterpiece"
+  - Good Vibrations (1966)
+  - Wouldn't It Be Nice (1966)
+  - Pet Sounds (1966)
+  - God Only Knows (1966)
+  - Surfin' USA (1963)
+  - Surfer Girl (1963)
+  - California Dreamin' (1965)
+  - Sloop John B (1966)
+  - Darlin' (1967)
+  - Heroes and Villains (1967)
+  - Do You Like Worms (1967)
+  - Surf's Up (1971)
 relatedArticles:
   - "1960s"
   - "1970s"

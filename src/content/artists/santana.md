@@ -16,25 +16,25 @@ genres:
 influencedBy: []
 influenced: []
 keyAlbums:
-  - "Santana (1969) - #4 US Billboard 200, #7 UK Albums, 9x Platinum"
-  - "Abraxas (1970) - #1 US Billboard 200, #11 UK Albums, 2x Platinum"
-  - "Supernatural (1999) - #1 US Billboard 200, #2 UK Albums, 15x Platinum"
-  - "Shaman (2002) - #1 US Billboard 200, #9 UK Albums, 2x Platinum"
-  - "Zebop! (1980) - #9 US Billboard 200, #23 UK Albums, Platinum"
-  - "Amigos (1976) - #10 US Billboard 200, #15 UK Albums, Platinum"
+  - Santana (1969)
+  - Abraxas (1970)
+  - Supernatural (1999)
+  - Shaman (2002)
+  - Zebop! (1980)
+  - Amigos (1976)
 keySongs:
-  - "Black Magic Woman (1970) - Rock classic, #4 US Billboard Hot 100"
-  - "Oye Como Va (1971) - Latin rhythm standard"
-  - "Smooth (1999) - Pop crossover, #1 US Billboard Hot 100"
-  - "Maria Maria (1999) - Hip-hop fusion, #1 US Billboard Hot 100"
-  - "Evil Ways (1970) - Early hit"
-  - "Soul Sacrifice (1969) - Woodstock performance"
-  - "She Not There (1969) - Early composition"
-  - "Song of the Wind (1973) - Jazz fusion"
-  - "Europa (Earth's Cry, Heaven's Smile) (1976) - Instrumental"
-  - "Winning (1981) - Synth-pop hit, #1 US Billboard Hot 100"
-  - "Hold On (1980) - Rock radio hit"
-  - "Just Feel Better (2002) - Collaboration"
+  - Black Magic Woman (1970)
+  - Oye Como Va (1971)
+  - Smooth (1999)
+  - Maria Maria (1999)
+  - Evil Ways (1970)
+  - Soul Sacrifice (1969)
+  - She Not There (1969)
+  - Song of the Wind (1973)
+  - Europa (Earth's Cry, Heaven's Smile) (1976) - Instrumental
+  - Winning (1981)
+  - Hold On (1980)
+  - Just Feel Better (2002)
 relatedArticles: []
 discographyOverview: "Carlos Santana led Santana and released over 25 albums from 1969 to 2019, pioneering Latin rock with 'Abraxas' (1970) and 'Supernatural' (1999). Won 9 Grammy Awards for 'Supernatural' including Album of the Year. Over 100 million records sold."
 careerTimeline:

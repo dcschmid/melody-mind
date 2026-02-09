@@ -21,25 +21,25 @@ influencedBy:
   - "james-taylor"
 influenced: []
 keyAlbums:
-  - "Carly Simon (1971) - #30 US Billboard 200, #40 UK Albums"
-  - "No Secrets (1972) - #1 US Billboard 200, #22 UK Albums, 3x Platinum"
-  - "Hotcakes (1974) - #3 US Billboard 200, #14 UK Albums, Platinum"
-  - "Playing Possum (1975) - #18 US Billboard 200, #33 UK Albums, Gold"
-  - "Boys in the Trees (1978) - #10 US Billboard 200, #16 UK Albums, Platinum"
-  - "Coming Around Again (1986) - #18 US Billboard 200, #22 UK Albums"
+  - Carly Simon (1971)
+  - No Secrets (1972)
+  - Hotcakes (1974)
+  - Playing Possum (1975)
+  - Boys in the Trees (1978)
+  - Coming Around Again (1986)
 keySongs:
-  - "You're So Vain (1972) - Mysterious subject, #1 US Billboard Hot 100"
-  - "Anticipation (1971) - Optimistic anthem, #3 US Billboard Hot 100"
-  - "Nobody Does It Better (1977) - James Bond theme, #2 US Billboard Hot 100"
-  - "You're So Vain (1972) - Mysterious subject, #1 US Billboard Hot 100"
-  - "Haven't Got Time for the Pain (1974) - Emotional depth"
-  - "Attitude Dancing (1975) - Uplifting message"
-  - "Night Widow (1976) - Psychological themes"
-  - "Boys in the Trees (1978) - Title track, reflects personal strength"
-  - "Devoted to You (1978) - duet with James Taylor"
-  - "Jesse (1980) - Unrequited love song"
-  - "Coming Around Again (1986) - Return to form, #11 US Billboard Hot 100"
-  - "Let the River Run (1988) - Oscar-winning theme, #1 US Billboard Hot 100"
+  - You're So Vain (1972)
+  - Anticipation (1971)
+  - Nobody Does It Better (1977)
+  - You're So Vain (1972)
+  - Haven't Got Time for the Pain (1974)
+  - Attitude Dancing (1975)
+  - Night Widow (1976)
+  - Boys in the Trees (1978)
+  - Devoted to You (1978)
+  - Jesse (1980)
+  - Coming Around Again (1986)
+  - Let the River Run (1988)
 relatedArticles: []
 discographyOverview: "Carly Simon released 18 studio albums from 1971 to 2015, achieving 24 Billboard entries with classics like 'You're So Vain' (#1, 1972) and 'Nobody Does It Better' from James Bond. First woman to win both Grammy and Academy Award for 'Let the River Run' (1988). Her confessional style defined 1970s singer-songwriter movement."
 careerTimeline:

@@ -16,22 +16,22 @@ influencedBy:
   - "carole-king"
 influenced: []
 keyAlbums:
-  - "Ellie Greenwich Composes (1968)"
-  - "Let It Out (1968)"
-  - "The Very Best of Ellie Greenwich (1970)"
+  - Ellie Greenwich Composes (1968)
+  - Let It Out (1968)
+  - The Very Best of Ellie Greenwich (1970)
 keySongs:
-  - "Christmas (Baby Please Come Home) (1963) - Holiday classic"
-  - "Leader of the Pack (1964) - Teen tragedy hit, #1 US Billboard Hot 100"
-  - "Chapel of Love (1964) - Girl group hit, #1 US Billboard Hot 100"
-  - "River Deep, Mountain High (1966) - duett met Ike Turner"
-  - "Then He Looked at My Dreams (1965) - Greenwich's demo"
-  - "Don't Let the Sun Go Down on Me (1964) - Songwriter demo"
-  - Like "Tell It It Is (1966) - Soul classic"
-  - "I Can Never Go Away (1965) - Greenwich's performance"
-  - "Give Us Your Blessing (1965) - Girl group hit"
-  - "But I Can't Be Bothered (1967) - Greenwich composition"
-  - "You Don't Know (1964) - Greenwich demo"
-  - "The Kind of Boy I Can't Forget (1964) - Early composition"
+  - Christmas (Baby Please Come Home) (1963) - Holiday classic
+  - Leader of the Pack (1964)
+  - Chapel of Love (1964)
+  - River Deep, Mountain High (1966)
+  - Then He Looked at My Dreams (1965)
+  - Don't Let the Sun Go Down on Me (1964)
+  - Like "Tell It It Is (1966)
+  - I Can Never Go Away (1965)
+  - Give Us Your Blessing (1965)
+  - But I Can't Be Bothered (1967)
+  - You Don't Know (1964)
+  - The Kind of Boy I Can't Forget (1964)
 relatedArticles:
   - "1960s"
   - "1970s"

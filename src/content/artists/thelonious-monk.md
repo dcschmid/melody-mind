@@ -16,24 +16,24 @@ influencedBy:
   - "duke-ellington"
 influenced: []
 keyAlbums:
-  - "Genius of Modern Music, Volume 1 (1947)"
-  - "Genius of Modern Music, Volume 2 (1947)"
-  - "Monk's Music (1957)"
-  - "Brilliant Corners (1956)"
-  - "Thelonious Himself (1957)"
-  - "Solo Monk (1964)"
+  - Genius of Modern Music, Volume 1 (1947)
+  - Genius of Modern Music, Volume 2 (1947)
+  - Monk's Music (1957)
+  - Brilliant Corners (1956)
+  - Thelonious Himself (1957)
+  - Solo Monk (1964)
 keySongs:
-  - "Round Midnight"
-  - "Blue Monk"
-  - "Epistrophy"
-  - "Straight, No Chaser"
-  - "Ruby, My Dear"
-  - "Rhythm-a-Ning"
-  - "In Walked Bud"
-  - "Well, You Needn't"
-  - "Criss Cross"
-  - "Pannonica"
-  - "Ask Me Now"
+  - Round Midnight
+  - Blue Monk
+  - Epistrophy
+  - Straight, No Chaser
+  - Ruby, My Dear
+  - Rhythm-a-Ning
+  - In Walked Bud
+  - Well, You Needn't
+  - Criss Cross
+  - Pannonica
+  - Ask Me Now
 relatedArticles:
   - "1950s"
 discographyOverview: "Thelonious Monk released over 70 compositions from 1944 to 1975, creating jazz standards like 'Round Midnight' and 'Blue Monk.' His Blue Note and Columbia albums established him as a bebop pioneer. Received Grammy Lifetime Achievement Award in 1993."

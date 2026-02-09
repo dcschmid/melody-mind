@@ -17,19 +17,19 @@ influencedBy:
 influenced:
   - "aretha-franklin"
 keyAlbums:
-  - "Hound Dog (1952)"
-  - "Ball and Chain (1968)"
-  - "Big Mama Thornton (1969)"
-  - "Saved (1973)"
-  - "Big Mama Swings (1984)"
+  - Hound Dog (1952)
+  - Ball and Chain (1968)
+  - Big Mama Thornton (1969)
+  - Saved (1973)
+  - Big Mama Swings (1984)
 keySongs:
-  - "Hound Dog"
-  - "Ball and Chain"
-  - "They Call Me Big Mama"
-  - "Every Night About This Time"
-  - "I Smell a Rat"
-  - "Crazy 'Bout You Baby"
-  - "Little Red Rooster"
+  - Hound Dog
+  - Ball and Chain
+  - They Call Me Big Mama
+  - Every Night About This Time
+  - I Smell a Rat
+  - Crazy 'Bout You Baby
+  - Little Red Rooster
 relatedArticles:
   - "1950s"
   - "from-blues-to-breakdown"

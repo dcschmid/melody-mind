@@ -20,25 +20,25 @@ influencedBy:
   - "aretha-franklin"
 influenced: []
 keyAlbums:
-  - "A Girl Called Dusty (1967)"
-  - "Dusty in Memphis (1969)"
-  - "Faithful (1971)"
-  - "Cameo (1973)"
-  - "Brand New Me (1975)"
-  - "It Begins Again (1978)"
+  - A Girl Called Dusty (1967)
+  - Dusty in Memphis (1969)
+  - Faithful (1971)
+  - Cameo (1973)
+  - Brand New Me (1975)
+  - It Begins Again (1978)
 keySongs:
-  - "Son of a Preacher Man (1968) - Soul masterpiece, #9 US Billboard Hot 100"
-  - "You Don't Have to Say You Love Me (1966) - Italian ballad, #1 UK Singles Chart"
-  - "I Only Want to Be with You (1963) - Debut solo hit, #13 US Billboard Hot 100"
-  - "The Look of Love (1964) - Burt Bacharach classic"
-  - "Losing the Weight (1969) - Memphis soul classic"
-  - "In the Land of Make Believe (1965) - Emotional depth"
-  - "Goin' Back (1966) - Goffin-King composition"
-  - "What Good Is a Broken Heart (1965) - Pop-soul standard"
-  - "I Just Want to Be Your Everything (1967) - duett met Springfield"
-  - "Another Night Without My Master (1969) - Memphis soul"
-  - "Breakfast in Bed (1968) - duett met Springfield"
-  - "Wishin' and Hopin' (1964) - Pop perfection"
+  - Son of a Preacher Man (1968)
+  - You Don't Have to Say You Love Me (1966)
+  - I Only Want to Be with You (1963)
+  - The Look of Love (1964)
+  - Losing the Weight (1969)
+  - In the Land of Make Believe (1965)
+  - Goin' Back (1966)
+  - What Good Is a Broken Heart (1965)
+  - I Just Want to Be Your Everything (1967)
+  - Another Night Without My Master (1969)
+  - Breakfast in Bed (1968)
+  - Wishin' and Hopin' (1964)
 relatedArticles:
   - "1960s"
   - "1970s"

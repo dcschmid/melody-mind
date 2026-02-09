@@ -17,24 +17,24 @@ influencedBy:
   - "carole-king"
 influenced: []
 keyAlbums:
-  - "Jackie DeShannon (1963)"
-  - "Breakin' It Up (1964)"
-  - "This Is Jackie DeShannon (1965)"
-  - "New Adventures of Jackie DeShannon (1969)"
-  - "Jackie DeShannon and Other Points of Interest (1972)"
+  - Jackie DeShannon (1963)
+  - Breakin' It Up (1964)
+  - This Is Jackie DeShannon (1965)
+  - New Adventures of Jackie DeShannon (1969)
+  - Jackie DeShannon and Other Points of Interest (1972)
 keySongs:
-  - "What the World Needs Now Is Love (1965) - Anthem of hope, #7 US Billboard Hot 100"
-  - "When You Walk in the Room (1964) - Pop standard, #35 US Billboard Hot 100"
-  - "Put a Little Love in Your Heart (1969) - Social message, #4 US Billboard Hot 100"
-  - "Bette Davis Eyes (1974) - Country hit, #1 US Billboard Hot 100"
-  - "The Weight (1968) - duett met Jackie DeShannon"
-  - "Come and Get Me (1965) - Songwriter demo"
-  - "Chances Are (1965) - Standard composition"
-  - "I Can't Help It (If I'm Still in Love with You) (1965) - Country composition"
-  - "Did You Call Me Mama (1966) - Early composition"
-  - "Turn the World Around (1974) - Country composition"
-  - "Something in the Moonlight (1969) - Emotional ballad"
-  - "Heaven Is Being with You (1999) - Later composition"
+  - What the World Needs Now Is Love (1965)
+  - When You Walk in the Room (1964)
+  - Put a Little Love in Your Heart (1969)
+  - Bette Davis Eyes (1974)
+  - The Weight (1968)
+  - Come and Get Me (1965)
+  - Chances Are (1965)
+  - I Can't Help It (If I'm Still in Love with You) (1965) - Country composition
+  - Did You Call Me Mama (1966)
+  - Turn the World Around (1974)
+  - Something in the Moonlight (1969)
+  - Heaven Is Being with You (1999)
 relatedArticles:
   - "1960s"
   - "1970s"

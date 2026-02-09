@@ -19,25 +19,25 @@ influencedBy:
   - "joni-mitchell"
 influenced: []
 keyAlbums:
-  - "Eli and the Thirteenth Confession (1968) - #181 US Billboard 200, critically acclaimed"
-  - "New York Tendaberry (1969) - #32 US Billboard 200, critically acclaimed"
-  - "Christmas and the Beads of Sweat (1970) - #186 US Billboard 200, experimental"
-  - "Gonna Take a Miracle (1971) - #92 US Billboard 200"
-  - "Smile (1976) - #134 US Billboard 200"
-  - "Laura Nyro (1988) - #182 US Billboard 200, comeback album"
+  - Eli and the Thirteenth Confession (1968)
+  - New York Tendaberry (1969)
+  - Christmas and the Beads of Sweat (1970)
+  - Gonna Take a Miracle (1971)
+  - Smile (1976)
+  - Laura Nyro (1988)
 keySongs:
-  - "Wedding Bell Blues (1967) - #1 US Billboard Hot 100 for Fifth Dimension"
-  - "And When I Die (1969) - #2 US Billboard Hot 100 for Blood, Sweat & Tears"
-  - "Stoney End (1971) - #9 US Billboard Hot 100 for Barbra Streisand"
-  - "Eli and the Thirteenth Confession (1968) - Signature composition"
-  - "Save the Country (1969) - Civil rights anthem"
-  - "Time and Love (1969) - Soul-jazz fusion"
-  - "New York Tendaberry (1969) - Emotional depth"
-  - "Emmett (1968) - Personal narrative"
-  - "Christmas in My Soul (1969) - Holiday composition"
-  - "Gonna Take a Miracle (1971) - Gospel covers"
-  - "Smile (1976) - Later career highlight"
-  - "Japanese Songbook (1988) - Final composition"
+  - Wedding Bell Blues (1967)
+  - And When I Die (1969)
+  - Stoney End (1971)
+  - Eli and the Thirteenth Confession (1968)
+  - Save the Country (1969)
+  - Time and Love (1969)
+  - New York Tendaberry (1969)
+  - Emmett (1968)
+  - Christmas in My Soul (1969)
+  - Gonna Take a Miracle (1971)
+  - Smile (1976)
+  - Japanese Songbook (1988)
 relatedArticles: []
 discographyOverview: "Laura Nyro released 9 studio albums from 1967 to 1988, pioneering soul-jazz fusion with 'Eli and the Thirteenth Confession' (1968). Her songs were covered by The Fifth Dimension, Blood Sweat & Tears, and Barbra Streisand. Posthumously inducted into Songwriters Hall of Fame in 2017."
 careerTimeline:

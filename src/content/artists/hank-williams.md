@@ -19,25 +19,25 @@ influenced:
   - "bob-dylan"
   - "elvis-presley"
 keyAlbums:
-  - "Hank Williams Sings (1951)"
-  - "Moanin' the Blues (1952)"
-  - "Honky Tonkin' (1952)"
-  - "Ramblin' Man (1953)"
-  - "I Saw the Light (1953)"
-  - "The Complete Hank Williams (1998)"
+  - Hank Williams Sings (1951)
+  - Moanin' the Blues (1952)
+  - Honky Tonkin' (1952)
+  - Ramblin' Man (1953)
+  - I Saw the Light (1953)
+  - The Complete Hank Williams (1998)
 keySongs:
-  - "Your Cheatin' Heart"
-  - "I'm So Lonesome I Could Cry"
-  - "Hey Good Lookin'"
-  - "Jambalaya (On the Bayou)"
-  - "Cold, Cold Heart"
-  - "I Saw the Light"
-  - "Lost Highway"
-  - "Move It on Over"
-  - "Lovesick Blues"
-  - "Honky Tonk Blues"
-  - "Kaw-Liga"
-  - "Take These Chains from My Heart"
+  - Your Cheatin' Heart
+  - I'm So Lonesome I Could Cry
+  - Hey Good Lookin'
+  - Jambalaya (On the Bayou)
+  - Cold, Cold Heart
+  - I Saw the Light
+  - Lost Highway
+  - Move It on Over
+  - Lovesick Blues
+  - Honky Tonk Blues
+  - Kaw-Liga
+  - Take These Chains from My Heart
 relatedArticles:
   - "1950s"
 discographyOverview: "During his career from 1937 to 1953, Williams released 128 singles across various labels, with 55 charting on Billboard's Country & Western Best Sellers list. His catalog includes 11 number-one country hits, including 'Lovesick Blues,' 'I'm So Lonesome I Could Cry,' and 'Your Cheatin' Heart,' the latter becoming one of the most recorded songs in music history with over 500 versions. His posthumous compilation 'The Complete Hank Williams' (1998) earned Grammy Hall of Fame recognition, and his overall catalog has sold over 75 million records worldwide."

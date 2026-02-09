@@ -17,25 +17,25 @@ genres:
 influencedBy: []
 influenced: []
 keyAlbums:
-  - "Catch a Fire (1973) - #171 US Billboard 200, #52 UK Albums"
-  - "Burnin' (1973) - #160 US Billboard 200, #41 UK Albums"
-  - "Natty Dread (1974) - #92 US Billboard 200, #43 UK Albums"
-  - "Rastaman Vibration (1976) - #8 US Billboard 200, #15 UK Albums"
-  - "Exodus (1977) - #20 US Billboard 200, #8 UK Albums"
-  - "Legend (1984) - #5 US Billboard 200, #1 UK Albums"
+  - Catch a Fire (1973)
+  - Burnin' (1973)
+  - Natty Dread (1974)
+  - Rastaman Vibration (1976)
+  - Exodus (1977)
+  - Legend (1984)
 keySongs:
-  - "One Love (1964) - Reggae anthem, 'Song of the Millennium' according to BBC"
-  - "No Woman, No Cry (1974) - Comforting anthem, #46 US Billboard Hot 100"
-  - "Get Up, Stand Up (1973) - Protest anthem, political statement"
-  - "I Shot the Sheriff (1973) - Eric Clapton cover, #1 US Billboard Hot 100"
-  - "Jamming (1977) - Joyful unity anthem, #9 UK Singles Chart"
-  - "Exodus (1977) - Title track, 56 consecutive weeks on UK charts"
-  - "Three Little Birds (1977) - Optimistic classic, unofficial anthem"
-  - "Is This Love (1978) - Romantic reggae, #6 UK Singles Chart"
-  - "Could You Be Loved (1980) - Danceable hit, #5 UK Singles Chart"
-  - "Redemption Song (1979) - Acoustic anthem, universal message of freedom"
-  - "Satisfy My Soul (1978) - Spiritual themes"
-  - "Babylon System (1974) - Political critique of oppression"
+  - One Love (1964)
+  - No Woman, No Cry (1974)
+  - Get Up, Stand Up (1973)
+  - I Shot the Sheriff (1973)
+  - Jamming (1977)
+  - Exodus (1977)
+  - Three Little Birds (1977)
+  - Is This Love (1978)
+  - Could You Be Loved (1980)
+  - Redemption Song (1979)
+  - Satisfy My Soul (1978)
+  - Babylon System (1974)
 relatedArticles: []
 discographyOverview: "Bob Marley released 15 albums from 1965 to 1981, pioneering reggae with 'Exodus' (1977) and 'Legend' (1984). 'One Love' became the 'Song of the Millennium' and 'Legend' has spent over 570 weeks on the Billboard charts."
 careerTimeline:

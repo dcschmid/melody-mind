@@ -20,25 +20,25 @@ influencedBy:
   - "nat-king-cole"
 influenced: []
 keyAlbums:
-  - "What's Going On (1971)"
-  - "Let's Get It On (1973)"
-  - "I Want You (1976)"
-  - "Here, My Dear (1978)"
-  - "In Our Lifetime (1976)"
-  - "Midnight Love (1982)"
+  - What's Going On (1971)
+  - Let's Get It On (1973)
+  - I Want You (1976)
+  - Here, My Dear (1978)
+  - In Our Lifetime (1976)
+  - Midnight Love (1982)
 keySongs:
-  - "I Heard It Through the Grapevine (1967) - Motown classic, #1 US Billboard Hot 100"
-  - "How Sweet It Is to Be Loved by You (1964) - Soul standard"
-  - "What's Going On (1971) - Social commentary masterpiece, #2 US Billboard Hot 100"
-  - "Mercy Mercy Me (The Ecology) (1971) - Environmental anthem"
-  - "Let's Get It On (1973) - Romantic soul classic, #1 US Billboard Hot 100"
-  - "Sexual Healing (1982) - Comeback hit, #1 US Billboard Hot 100"
-  - "Ain't No Mountain High Enough (1970) - duett mit Donna Summer"
-  - "Too Busy Thinking About My Baby (1969) - Soul masterpiece"
-  - "If This World Were Mine (1982) - duett met Marvin Gaye"
-  - "Got to Give It Up (1977) - Dance-funk classic"
-  - "Inner City Blues (1971) - Social commentary"
-  - "Disturbed (1982) - Emotional ballad"
+  - I Heard It Through the Grapevine (1967)
+  - How Sweet It Is to Be Loved by You (1964)
+  - What's Going On (1971)
+  - Mercy Mercy Me (The Ecology) (1971) - Environmental anthem
+  - Let's Get It On (1973)
+  - Sexual Healing (1982)
+  - Ain't No Mountain High Enough (1970)
+  - Too Busy Thinking About My Baby (1969)
+  - If This World Were Mine (1982)
+  - Got to Give It Up (1977)
+  - Inner City Blues (1971)
+  - Disturbed (1982)
 relatedArticles:
   - "1960s"
   - "1970s"

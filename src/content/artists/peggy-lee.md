@@ -19,25 +19,25 @@ influencedBy:
   - "frank-sinatra"
 influenced: []
 keyAlbums:
-  - "Black Coffee (1956)"
-  - "Peggy Lee (1957)"
-  - "The Man I Love (1957)"
-  - "Jump into My Fire (1960)"
-  - "Two Shows Nightly (1961)"
-  - "Mirrors (1975)"
+  - Black Coffee (1956)
+  - Peggy Lee (1957)
+  - The Man I Love (1957)
+  - Jump into My Fire (1960)
+  - Two Shows Nightly (1961)
+  - Mirrors (1975)
 keySongs:
-  - "Fever"
-  - "Why Don't You Do Right"
-  - "Is That All There Is?"
-  - "I'm a Woman"
-  - "Big Spender"
-  - "It's a Good Day"
-  - "Manana"
-  - "Golden Earrings"
-  - "Don't Smoke in Bed"
-  - "Lover"
-  - "The Right to Love"
-  - "Pass Me By"
+  - Fever
+  - Why Don't You Do Right
+  - Is That All There Is?
+  - I'm a Woman
+  - Big Spender
+  - It's a Good Day
+  - Manana
+  - Golden Earrings
+  - Don't Smoke in Bed
+  - Lover
+  - The Right to Love
+  - Pass Me By
 relatedArticles:
   - "1950s"
 discographyOverview: "Peggy Lee released over 1,100 songs from 1941 to 1995, with 'Fever' (1958) becoming her only #1 hit and one of the most covered songs in history. She won 3 Grammy Awards from 13 nominations and received Academy Award nominations for her acting work. Her recordings have sold over 30 million worldwide."
