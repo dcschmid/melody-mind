@@ -79,7 +79,10 @@ const hasLink = !!event.link;
         </div>
         <h3 class="timeline-event__title">{event.title}</h3>
         <p class="timeline-event__description">{event.description}</p>
-        {event.genre && <span class="timeline-event__genre">{event.genre}</span>}
+        <div class="timeline-event__footer">
+          {event.genre && <span class="timeline-event__genre">{event.genre}</span>}
+          <span class="timeline-event__button">Mehr lesen</span>
+        </div>
       </a>
     ) : (
       <div class="timeline-event__standalone">
@@ -194,20 +197,51 @@ const hasLink = !!event.link;
   .timeline-event__standalone {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.4rem;
-    transition: all var(--transition-fast);
-    border-left: 2px solid transparent;
-    margin-left: 2px;
+    gap: 0.3rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--gn-panel-border);
     overflow-wrap: break-word;
     word-wrap: break-word;
-    max-width: 100%;
+    max-width: calc(100% - 0rem);
   }
 
-  .timeline-event__link:hover {
-    background: color-mix(in srgb, var(--gn-bg-muted) 35%, transparent);
-    border-left-color: var(--gn-accent);
+  /* Basis-Hover für ALLE Items - minimal */
+  .timeline-event__link:hover,
+  .timeline-event__standalone:hover {
+    border-color: var(--gn-accent);
+  }
+
+  /* Footer mit Genre + Button */
+  .timeline-event__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+    gap: 0.5rem;
+  }
+
+  .timeline-event__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--gn-accent);
+    color: var(--gn-bg);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 0.3rem;
+  }
+
+  .timeline-event__button::after {
+    content: "→";
+    font-size: 0.9rem;
+  }
+
+  /* Kein Underline für Links */
+  .timeline-event__link,
+  .timeline-event__link:hover,
+  .timeline-event__link:focus {
     text-decoration: none;
   }
 
@@ -270,13 +304,12 @@ const hasLink = !!event.link;
     padding: 0.2rem 0.5rem;
     background: color-mix(in srgb, var(--gn-panel-border) 12%, transparent);
     border-radius: 999px;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--gn-ink-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-top: 0.2rem;
-    align-self: flex-start;
+    flex-shrink: 0;
   }
 
   @media (max-width: 639px) {
@@ -302,7 +335,8 @@ const hasLink = !!event.link;
 
     .timeline-event__link,
     .timeline-event__standalone {
-      padding: 0.45rem 0.65rem;
+      padding: 0.6rem;
+      gap: 0.25rem;
     }
 
     .timeline-event__title {
@@ -314,7 +348,15 @@ const hasLink = !!event.link;
     }
 
     .timeline-event__genre {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.4rem;
+    }
+
+    .timeline-event__button {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
