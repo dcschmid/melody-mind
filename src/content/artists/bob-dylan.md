@@ -42,11 +42,6 @@ keySongs:
 relatedArticles:
   - "1960s"
   - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
-  - "2020s"
 discographyOverview: "Bob Dylan released over 40 studio albums from 1962 to 2020, pioneering confessional songwriting with classics like 'Blowin' in the Wind' and 'Like a Rolling Stone.' Awarded Nobel Prize in Literature (2016) and inducted into Rock and Roll Hall of Fame."
 careerTimeline:
   - year: "1941"

@@ -37,7 +37,9 @@ keySongs:
   - My All (1998)
   - We Belong Together (2005)
   - Touch My Body (2008)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: "Mariah Carey released 15 studio albums from 1990 to 2024, with Music Box (1993) and Daydream (1995) achieving diamond status. Her record 19 #1 Billboard Hot 100 singles cements her as one of the most successful artists in music history."
 careerTimeline:
   - year: "1970"

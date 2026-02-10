@@ -29,7 +29,9 @@ keySongs:
   - Ayo Technology (2007)
   - Straight to the Bank (2007)
   - I'll Still Kill (2007)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: 50 Cent released 6 studio albums from 2003 to 2014, with Get Rich or Die Tryin' (2003) and The Massacre (2005) achieving diamond and quadruple platinum status respectively.
 careerTimeline:
   - year: "1975"

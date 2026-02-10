@@ -22,7 +22,9 @@ keySongs:
   - Working on the City (2016)
   - Racing (2016)
   - Time (2016)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Nina Kraviz released 4 studio albums and numerous EPs from 2012 to 2016, establishing her as a leading figure in contemporary techno.
 careerTimeline:
   - year: "1982"

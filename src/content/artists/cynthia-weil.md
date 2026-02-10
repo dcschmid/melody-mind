@@ -36,12 +36,7 @@ keySongs:
   - Blind Before I Stop (1976)
   - Live Performances (1979)
 relatedArticles:
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
-  - "2020s"
+  - "1960s"
 discographyOverview: "Cynthia Weil released 6 albums from 1972 to 1979, achieving her breakthrough with 'Poetry Man' (#5, 1975). Known for powerful vocals and confessional songwriting, she influenced generations of female artists. Her work spans folk rock to art rock, maintaining a cult following among music enthusiasts."
 careerTimeline:
   - year: "1947"

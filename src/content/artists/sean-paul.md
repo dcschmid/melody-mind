@@ -29,7 +29,9 @@ keySongs:
   - Rockabye (2016)
   - Cheap Shot (2021)
   - Nucleus (2021)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Sean Paul released 11 studio albums from 2000 to 2021, with Dutty Rock (2002) and The Trinity (2005) achieving massive commercial success worldwide.
 careerTimeline:
   - year: "1973"

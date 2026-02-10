@@ -28,7 +28,9 @@ keySongs:
   - Change of Heart (1986)
   - I Drove All Night (1989)
   - The Goonies 'R' Good Enough (1985)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: "Cyndi Lauper released 12 studio albums from 1983 to 2021, with Shes So Unusual (1983) achieving sextuple platinum and establishing her as a defining voice of new wave. Her 2010 blues album Memphis Blues debuted at #1 on the Billboard Blues chart, demonstrating her genre versatility. Laupers influence on pop music extends beyond her recordings to her advocacy work and successful Broadway composition for Kinky Boots (2013), which won her a Tony Award."
 careerTimeline:
   - year: "1953"

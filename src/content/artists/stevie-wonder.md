@@ -45,6 +45,7 @@ keySongs:
   - "Do I Do (1982)"
 relatedArticles:
   - "1960s"
+  - "1970s"
 discographyOverview: Stevie Wonder released over 30 studio albums from 1962 to 2020, with Talking Book (1972) and Songs in the Key of Life (1976) marking his creative peaks.
 careerTimeline:
   - year: "1950"

@@ -31,7 +31,9 @@ keySongs:
   - Nobody (2009)
   - Champagne (2012)
   - One More (2017)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Ne-Yo released 10 studio albums from 2006 to 2022, with Year of the Gentleman (2008) achieving triple platinum status.
 careerTimeline:
   - year: "1979"

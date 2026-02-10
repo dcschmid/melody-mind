@@ -39,7 +39,9 @@ keySongs:
   - In the Shape of Things to Come (1989)
   - Rock Me on the Water (1972)
   - Before the Deluge (1974)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Jackson Browne released 16 studio albums from 1972 to 2014, achieving hits with 'Doctor My Eyes,' 'Running on Empty,' and 'Somebody's Baby.' His introspective songwriting defined 1970s folk-rock. Inducted into Rock and Roll Hall of Fame in 2004."
 careerTimeline:
   - year: "1948"

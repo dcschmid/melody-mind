@@ -24,7 +24,9 @@ keySongs:
   - Satisfaction (2002)
   - Oh Well (2011)
   - Make It Out This House (2011)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: "Eve released 5 studio albums from 1999 to 2011, with Let There Be Eve (1999) debuting at #1 and establishing her as one of hip-hop's leading female artists."
 careerTimeline:
   - year: "1979"

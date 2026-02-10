@@ -32,7 +32,10 @@ keySongs:
   - Cloudbusting (1985)
   - King of the Mountain (2005)
   - Running Up That Hill (A Deal with God) (2022)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+  - "1980s"
+
 discographyOverview: Kate Bush released 11 studio albums from 1978 to 2022, with Hounds of Love (1985) widely considered her masterpiece.
 careerTimeline:
   - year: "1958"

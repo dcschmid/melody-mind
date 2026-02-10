@@ -34,7 +34,10 @@ keySongs:
   - All the Lovers (2010)
   - Dancing (2018)
   - Say Something (2020)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+  - "2000s"
+
 discographyOverview: Kylie Minogue released 16 studio albums from 1988 to 2020, with multiple albums achieving platinum status worldwide.
 careerTimeline:
   - year: "1968"

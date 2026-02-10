@@ -35,7 +35,9 @@ keySongs:
   - Be Without You (2006)
   - One (2009)
   - Strength of a Woman (2017)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Mary J. Blige released 14 studio albums from 1992 to 2017, with The Breakthrough (2005) and Growing Pains (2007) achieving multi-platinum status.
 careerTimeline:
   - year: "1971"

@@ -42,10 +42,6 @@ keySongs:
 relatedArticles:
   - "1960s"
   - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
 discographyOverview: "Aretha Franklin recorded 88 chart hits including 20 Top 10 singles from 1960 to 2018, with classics like 'Respect,' 'Chain of Fools,' and 'Natural Woman.' The 'Queen of Soul' won 18 Grammy Awards and was the first woman inducted into Rock and Roll Hall of Fame in 1987."
 careerTimeline:
   - year: "1942"

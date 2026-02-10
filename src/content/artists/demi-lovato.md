@@ -29,7 +29,9 @@ keySongs:
   - Confident (2015)
   - Stone Cold (2016)
   - Anyone (2020)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Demi Lovato released 8 studio albums from 2008 to 2021, with Confident (2015) and Tell Me You Love Me (2017) marking their artistic maturation.
 careerTimeline:
   - year: "1992"

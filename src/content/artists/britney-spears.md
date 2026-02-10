@@ -33,7 +33,10 @@ keySongs:
   - Circus (2008)
   - Hold It Against Me (2011)
   - Work Bitch (2013)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+  - "2000s"
+
 discographyOverview: Britney Spears released 9 studio albums from 1999 to 2013, with Baby One More Time (1999) and Oops I Did It Again (2000) achieving diamond and quadruple platinum status.
 careerTimeline:
   - year: "1981"

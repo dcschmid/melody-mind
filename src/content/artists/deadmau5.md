@@ -26,7 +26,9 @@ keySongs:
   - I Remember (2008)
   - Polaris (2011)
   - Avaritia (2014)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Deadmau5 released 10 studio albums from 2008 to 2022, with Random Album Title (2008) and 4x4=12 (2010) establishing him as an EDM pioneer.
 careerTimeline:
   - year: "1981"

@@ -28,7 +28,9 @@ keySongs:
   - I Want You Forever (DJ Mix) (1999)
   - The Second Sign (2003)
   - Misticated (2008)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Carl Cox released 12 studio albums from 1993 to 2015, with his work spanning techno, house, and electronic music. His influence on dance music culture remains profound.
 careerTimeline:
   - year: "1962"

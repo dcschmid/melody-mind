@@ -23,7 +23,9 @@ keySongs:
   - Saoko (2022)
   - CUUUUUU (2022)
   - Lafang (2022)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Rosalía released 4 studio albums from 2017 to 2022, with El Mal Querer (2018) winning a Grammy and establishing her as a global star.
 careerTimeline:
   - year: "1992"

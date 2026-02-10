@@ -26,7 +26,9 @@ keySongs:
   - Extra Dry (2001)
   - The Sound of the Systems (2014)
   - kleman (2009)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Laurent Garnier released 8 studio albums from 1992 to 2014, with Experience (1997) and Unreasonable Behavior (2006) establishing him as a French electronic music pioneer.
 careerTimeline:
   - year: "1966"

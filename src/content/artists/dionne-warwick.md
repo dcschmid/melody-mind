@@ -41,11 +41,6 @@ keySongs:
   - Make It Easy on Yourself (1975)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
 discographyOverview: "Dionne Warwick released 30 studio albums from 1962 to 2023, achieving 56 Billboard chart hits with classics like 'Walk On By,' 'I Say a Little Prayer,' and 'Do You Know the Way to San Jose.' Won 5 Grammy Awards and received Lifetime Achievement Award. Over 75 million records sold worldwide."
 careerTimeline:
   - year: "1940"

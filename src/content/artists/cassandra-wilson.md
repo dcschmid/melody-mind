@@ -29,7 +29,9 @@ keySongs:
   - Tennessee Waltz (2002)
   - A Day in the Life (2015)
   - I'll Be Seeing You (2015)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: Cassandra Wilson released 25 studio albums from 1986 to 2015, with New Moon Daughter (1995) and Traveling Miles (1997) establishing her as one of the most important jazz vocalists of her generation.
 careerTimeline:
   - year: "1955"

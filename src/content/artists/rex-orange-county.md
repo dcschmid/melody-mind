@@ -23,7 +23,9 @@ keySongs:
   - Sunflower (2019)
   - Creme Brulee (2019)
   - The Shade (2022)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Rex Orange County released 5 studio albums from 2015 to 2022, with Pony (2019) establishing him as a critical favorite in indie pop.
 careerTimeline:
   - year: "1998"

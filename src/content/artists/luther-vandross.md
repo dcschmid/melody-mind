@@ -32,7 +32,9 @@ keySongs:
   - So Amazing (1986)
   - Love Won't Let Me Wait (1987)
   - Power of Love (1985)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: Luther Vandross released 11 studio albums from 1981 to 2003, with Power of Love (1991) and Dance with My Father (2003) marking his commercial and critical peaks.
 careerTimeline:
   - year: "1951"

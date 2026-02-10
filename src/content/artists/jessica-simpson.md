@@ -27,7 +27,9 @@ keySongs:
   - Come On (2006)
   - Who I Am (2008)
   - Remember That (2008)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Jessica Simpson released 8 studio albums from 1999 to 2010, with In This Skin (2003) achieving triple platinum status.
 careerTimeline:
   - year: "1980"

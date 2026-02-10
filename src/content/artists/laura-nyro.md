@@ -38,7 +38,9 @@ keySongs:
   - Gonna Take a Miracle (1971)
   - Smile (1976)
   - Japanese Songbook (1988)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Laura Nyro released 9 studio albums from 1967 to 1988, pioneering soul-jazz fusion with 'Eli and the Thirteenth Confession' (1968). Her songs were covered by The Fifth Dimension, Blood Sweat & Tears, and Barbra Streisand. Posthumously inducted into Songwriters Hall of Fame in 2017."
 careerTimeline:
   - year: "1947"

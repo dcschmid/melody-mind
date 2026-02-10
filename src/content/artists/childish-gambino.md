@@ -26,7 +26,9 @@ keySongs:
   - Sweatpants (2013)
   - This Is America (2018)
   - Feels Like Summer (2018)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Childish Gambino released 6 studio albums from 2011 to 2020, with Awaken, My Love! (2016) achieving massive critical and commercial success.
 careerTimeline:
   - year: "1983"

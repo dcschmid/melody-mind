@@ -36,7 +36,9 @@ keySongs:
   - Despacito (Remix) (2017)
   - Hold On (2021)
   - Peaches (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Justin Bieber released 8 studio albums from 2010 to 2022, with Purpose (2015) and Justice (2021) achieving massive commercial success.
 careerTimeline:
   - year: "1994"

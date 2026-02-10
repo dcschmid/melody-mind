@@ -38,7 +38,9 @@ keySongs:
   - 抽象 (1973)
   - Sweet Chariot (1971)
   - The Pearl (1973)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Judee Sill released 2 studio albums from 1971 to 1973, with 'Jesus Was a Cross Maker' becoming a cult classic. Her sophisticated baroque folk influenced artists like Kate Bush. Died tragically in 1979, but her work has been rediscovered by new generations."
 careerTimeline:
   - year: "1944"

@@ -24,7 +24,9 @@ keySongs:
   - Idontwannabeyouanymore (2017)
   - Happier Than Ever (2021)
   - Your Power (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Billie Eilish released 2 studio albums from 2019 to 2021, with When We All Fall Asleep (2019) achieving massive global success and multiple Grammy Awards.
 careerTimeline:
   - year: "2001"

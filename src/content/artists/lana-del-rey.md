@@ -29,7 +29,9 @@ keySongs:
   - Doin' Time (2019)
   - Norman Fucking Rockwell! (2019)
   - Chemtrails over the Country Club (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Lana Del Rey released 9 studio albums from 2005 to 2021, with Born to Die (2012) and Norman Fucking Rockwell! (2019) establishing her as a critically acclaimed artist.
 careerTimeline:
   - year: "1985"

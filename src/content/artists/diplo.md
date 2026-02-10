@@ -24,7 +24,9 @@ keySongs:
   - Cold Water (2016)
   - Don't You Want Me (2019)
   - On My Mind (2019)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Diplo released 6 studio albums and numerous collaborative projects from 2004 to 2021, with his work with Major Lazer and Jack Ü achieving massive commercial success.
 careerTimeline:
   - year: "1978"

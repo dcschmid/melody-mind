@@ -38,7 +38,9 @@ keySongs:
   - Bang a Gong (Get It On) (1971) - US breakthrough,
   - Ride a White Swan (1970)
   - Cosmic Dancer (1971)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Marc Bolan led T. Rex and released 10 albums from 1968 to 1977, pioneering glam rock with 'Electric Warrior' (1971) and hits like 'Hot Love' and 'Get It On.' His flamboyant stage presence and glitter suits defined the glam era."
 careerTimeline:
   - year: "1947"

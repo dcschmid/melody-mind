@@ -11,7 +11,9 @@ influencedBy: []
 influenced: []
 keyAlbums: []
 keySongs: []
-relatedArticles: []
+relatedArticles:
+  - "from-blues-to-breakdown"
+
 discographyOverview: Ma Rainey recorded extensively for Paramount Records between 1923 and 1928.
 careerTimeline:
   - year: "1886"

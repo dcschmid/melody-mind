@@ -27,7 +27,9 @@ keySongs:
   - Hello (2015)
   - When We Were Young (2015)
   - Easy On Me (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Adele released 4 studio albums from 2008 to 2021, with 21 (2011) becoming one of the best-selling albums in history with over 45 million copies sold worldwide.
 careerTimeline:
   - year: "1988"

@@ -38,7 +38,9 @@ keySongs:
   - Big Shot (1978)
   - Honesty (1978)
   - You May Be Right (1980)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Billy Joel released 12 studio albums from 1971 to 1993, achieving 33 Top 40 hits including 9 #1s with 'Piano Man,' 'Just the Way You Are,' and 'We Didn't Start the Fire.' His 'The Stranger' (1977) and 'An Innocent Man' (1983) became classics. Over 160 million records sold worldwide."
 careerTimeline:
   - year: "1949"

@@ -22,7 +22,9 @@ keySongs:
   - Kyoto (2020)
   - Garden Song (2020)
   - Savior Complex (2020)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Phoebe Bridgers released 2 studio albums from 2017 to 2020, with Punisher (2020) winning a Grammy and establishing her as a critical favorite.
 careerTimeline:
   - year: "1994"

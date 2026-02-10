@@ -30,7 +30,9 @@ keySongs:
   - Positions (2020)
   - Rain on Me (2020)
   - No Tears Left to Cry (2018)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Ariana Grande released 7 studio albums from 2013 to 2020, with My Everything (2014) and Thank U, Next (2019) achieving massive commercial success.
 careerTimeline:
   - year: "1993"

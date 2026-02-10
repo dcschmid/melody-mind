@@ -38,7 +38,9 @@ keySongs:
   - Return to Forever (1977)
   - Spring Wind (1979)
   - Here We Go (1979)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Minnie Riperton released 6 albums from 1970 to 1979, achieving breakthrough with 'Lovin' You' (1975) featuring her famous whistle note. Won Grammy for Best New Artist (1976). Died tragically from cancer in 1979 at age 31."
 careerTimeline:
   - year: "1947"

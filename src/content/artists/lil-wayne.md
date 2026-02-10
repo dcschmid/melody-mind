@@ -33,7 +33,9 @@ keySongs:
   - John (2011)
   - Mirror (2011)
   - Uproar (2018)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Lil Wayne released 13 studio albums from 1999 to 2018, with Tha Carter III (2008) and Tha Carter IV (2011) achieving massive commercial success.
 careerTimeline:
   - year: "1982"

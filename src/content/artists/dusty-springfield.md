@@ -41,9 +41,6 @@ keySongs:
   - Wishin' and Hopin' (1964)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
 discographyOverview: "Dusty Springfield released 16 studio albums from 1964 to 1995, achieving breakthrough with 'I Only Want to Be with You' (1963) and 'Son of a Preacher Man' (1968). Her 'Dusty in Memphis' (1969) is considered one of greatest soul albums ever. Inducted into Rock and Roll Hall of Fame in 1999."
 careerTimeline:
   - year: "1939"

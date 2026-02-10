@@ -26,7 +26,9 @@ keySongs:
   - Venus Fly (2016)
   - We Appreciate Power (2019)
   - So Heavy I Fell Through the Earth (2020)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Grimes released 7 studio albums from 2010 to 2020, with Visions (2012) and Art Angels (2015) establishing her as an innovative force in electronic music.
 careerTimeline:
   - year: "1988"

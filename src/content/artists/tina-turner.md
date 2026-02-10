@@ -31,7 +31,9 @@ keySongs:
   - Love Is a Wonderful Thing (1991)
   - I Can't Stand the Rain (1985)
   - When the Heartache Is Over (1999)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: Tina Turner released 19 studio albums from 1960 to 1999, with Private Dancer (1984) achieving 10-times platinum status.
 careerTimeline:
   - year: "1939"

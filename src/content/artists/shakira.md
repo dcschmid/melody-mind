@@ -32,7 +32,11 @@ keySongs:
   - Chantaje (2016)
   - Me Enamore (2017)
   - Trap (Aye Aye Aye) (2017)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+  - "2000s"
+  - "2010s"
+
 discographyOverview: Shakira released 12 studio albums from 1991 to 2017, with Laundry Service (2001) and Fijación Oral (2005) achieving massive global success.
 careerTimeline:
   - year: "1977"

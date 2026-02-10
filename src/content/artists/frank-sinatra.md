@@ -36,7 +36,9 @@ keySongs:
   - "I've Got You Under My Skin (1956)"
   - "Summer Wind (1965)"
   - "New York, New York (1979)"
-relatedArticles: []
+relatedArticles:
+  - "1950s"
+
 discographyOverview: Frank Sinatra released over 60 studio albums during his six-decade career, with Songs for Swingin' Lovers! (1956) and In the Wee Small Hours (1955) establishing him as the definitive interpreter of popular music. His influence on vocalists and popular music remains unmatched.
 careerTimeline:
   - year: "1915"

@@ -28,7 +28,9 @@ keySongs:
   - My Way (2016)
   - One Kiss (2018)
   - Promises (2018)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Calvin Harris released 8 studio albums from 2007 to 2022, with 18 Months (2012) and Funk Wav Bounces Vol. 1 (2017) achieving massive commercial success.
 careerTimeline:
   - year: "1984"

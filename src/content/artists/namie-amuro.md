@@ -34,7 +34,9 @@ keySongs:
   - Golden Touch (2011)
   - Ballerina (2012)
   - Mint (2016)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: Namie Amuro released 16 studio albums from 1995 to 2017, with her late 1990s and 2000s work establishing her as Japan's definitive pop icon. Her influence on Japanese pop culture and fashion remains significant.
 careerTimeline:
   - year: "1977"

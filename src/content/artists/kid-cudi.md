@@ -27,7 +27,9 @@ keySongs:
   - Erase Me (2010)
   - The Moon and the Dark (2020)
   - Willing to Trust (2020)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Kid Cudi released 9 studio albums from 2009 to 2020, with Man on the Moon (2009) establishing him as a pioneer of emo rap.
 careerTimeline:
   - year: "1984"

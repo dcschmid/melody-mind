@@ -25,7 +25,9 @@ keySongs:
   - Press (2019)
   - WAP (2020)
   - Rumors (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Cardi B released 2 studio albums from 2018 to 2019, with Invasion of Privacy (2018) achieving diamond certification and winning a Grammy Award.
 careerTimeline:
   - year: "1992"

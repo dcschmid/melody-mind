@@ -25,7 +25,9 @@ keySongs:
   - Sunset (Bird of Prey) (2004)
   - That Old Pair of Jeans (2004)
   - The Joker (2005)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Fatboy Slim released 9 studio albums from 1996 to 2016, with Halfway Between the Gutter and the Stars (2000) achieving quadruple platinum status in the UK.
 careerTimeline:
   - year: "1963"

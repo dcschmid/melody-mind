@@ -32,7 +32,9 @@ keySongs:
   - Stonemilker (2015)
   - Black Velvet (2015)
   - The Gate (2017)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: Björk released 10 studio albums from 1993 to 2017, with Homogenic (1997) and Vespertine (2001) widely considered masterpieces of electronic and art pop music. Her influence on electronic music, performance art, and avant-garde pop remains profound.
 careerTimeline:
   - year: "1965"

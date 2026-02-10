@@ -32,7 +32,9 @@ keySongs:
   - Numb/Encore (2004)
   - Iridescent (2010)
   - Heavy (2017)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Chester Bennington released 7 studio albums with Linkin Park from 2000 to 2017, with Hybrid Theory (2000) achieving diamond status and becoming one of the best-selling rock albums of all time.
 careerTimeline:
   - year: "1976"

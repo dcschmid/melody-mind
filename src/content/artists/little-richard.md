@@ -36,7 +36,11 @@ keySongs:
   - "Jenny Jenny (1957)"
   - "Kansas City (1958)"
   - "Baby (1959)"
-relatedArticles: []
+relatedArticles:
+  - "1950s"
+  - "1960s"
+  - "from-blues-to-breakdown"
+
 discographyOverview: Little Richard released 25 studio albums during his career, with Tutti Frutti (1955) and Long Tall Sally (1956) establishing him as one of rock and roll's founding figures. His influence on popular music is immeasurable.
 careerTimeline:
   - year: "1932"

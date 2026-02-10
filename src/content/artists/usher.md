@@ -33,7 +33,10 @@ keySongs:
   - Red Light (2008)
   - Climax (2012)
   - Dive (2016)
-relatedArticles: []
+relatedArticles:
+  - "1960s"
+  - "2000s"
+
 discographyOverview: Usher released 10 studio albums from 1994 to 2016, with Confessions (2004) becoming one of the best-selling R&B albums of all time.
 careerTimeline:
   - year: "1978"

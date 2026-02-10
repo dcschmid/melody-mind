@@ -26,7 +26,9 @@ keySongs:
   - Don't Miss It (2019)
   - Mile High (2019)
   - Barefoot in the Park (2023)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: James Blake released 6 studio albums from 2011 to 2023, with Overgrown (2013) winning the Mercury Prize and establishing him as an innovative force in contemporary music.
 careerTimeline:
   - year: "1988"

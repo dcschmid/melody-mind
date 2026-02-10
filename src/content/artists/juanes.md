@@ -29,7 +29,9 @@ keySongs:
   - Bisuteria (2012)
   - Pausa Adoración (2019)
   - Curación (2020)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Juanes released 10 studio albums from 2000 to 2022, with Mi Sangre (2004) achieving massive commercial success across Latin America.
 careerTimeline:
   - year: "1972"

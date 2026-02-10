@@ -23,7 +23,9 @@ keySongs:
   - Dance to This (2018)
   - 1999 (2018)
   - Take It Back (2020)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Troye Sivan released 4 studio albums from 2015 to 2020, with Blue Neighbourhood (2015) and Bloom (2018) establishing him as a respected pop artist.
 careerTimeline:
   - year: "1995"

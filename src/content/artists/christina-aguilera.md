@@ -35,7 +35,9 @@ keySongs:
   - Not Too Bad (2010)
   - Accelerate (2018)
   - Fall in Line (2018)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Christina Aguilera released 8 studio albums from 1999 to 2018, with Christina Aguilera (1999) and Stripped (2002) achieving multi-platinum status.
 careerTimeline:
   - year: "1980"

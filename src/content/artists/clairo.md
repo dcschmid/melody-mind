@@ -23,7 +23,9 @@ keySongs:
   - I Wouldn't Ask (2019)
   - Doubt (2021)
   - Blouse (2023)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Clairo released 4 studio albums from 2018 to 2023, with Immunity (2019) and Sling (2021) establishing her as a critical favorite in indie music.
 careerTimeline:
   - year: "1998"

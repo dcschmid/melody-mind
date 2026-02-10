@@ -27,7 +27,9 @@ keySongs:
   - The Kiss of Medusa (1987)
   - Nachtblut (1988)
   - Out of the Dark (1998)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: "Falco released six studio albums from 1982 to 1998, with Falco 3 (1985) achieving platinum status across Europe and Rock Me Amadeus reaching #1 in over 20 countries. His unique fusion of German rap, disco, and pop established him as Austria's first international superstar, though his final album Lichteffekte (1998) was released posthumously."
 careerTimeline:
   - year: "1957"

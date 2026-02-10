@@ -31,7 +31,10 @@ keySongs:
   - By Your Side (2000)
   - Soldier of Love (2010)
   - The Moon and the Sky (2010)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+  - "1990s"
+
 discographyOverview: Sade released seven studio albums from 1984 to 2023, with Diamond Life (1984) and Promise (1985) achieving multi-platinum status.
 careerTimeline:
   - year: "1959"

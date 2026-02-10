@@ -39,10 +39,6 @@ keySongs:
   - Hard to Handle (1968)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
 discographyOverview: "Otis Redding released 9 albums from 1962 to 1967, pioneering Southern soul with classics like 'Try a Little Tenderness' and '(Sittin' on) The Dock of the Bay.' Died tragically in a plane crash in 1967 at age 26. First posthumous #1 single."
 careerTimeline:
   - year: "1941"

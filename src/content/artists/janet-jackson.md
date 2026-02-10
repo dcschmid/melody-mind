@@ -31,7 +31,11 @@ keySongs:
   - If (1993)
   - Together Again (1997)
   - Doesn't Really Matter (2000)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+  - "1990s"
+  - "2000s"
+
 discographyOverview: Janet Jackson released 15 studio albums from 1982 to 2015, with Rhythm Nation 1814 (1989) achieving sextuple platinum status.
 careerTimeline:
   - year: "1966"

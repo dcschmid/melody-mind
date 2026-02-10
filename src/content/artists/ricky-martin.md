@@ -30,7 +30,9 @@ keySongs:
   - Cantando (2011)
   - Adiós (2015)
   - Disparo al Corazón (2015)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Ricky Martin released 12 studio albums from 1991 to 2022, with Ricky Martin (1999) achieving diamond status worldwide.
 careerTimeline:
   - year: "1971"

@@ -31,7 +31,9 @@ keySongs:
   - Silencio (2004)
   - Não me Arrependo (2011)
   - Um Dia (2019)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: Caetano Veloso released over 50 studio albums from 1967 to 2023, with his work spanning tropicalia, MPB, and international collaborations. His influence on Brazilian music and global popular culture remains profound.
 careerTimeline:
   - year: "1942"

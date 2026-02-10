@@ -25,7 +25,9 @@ keySongs:
   - Without You (2016)
   - Taste (2019)
   - SOS (2019)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Avicii released 3 studio albums from 2013 to 2019, with True (2013) and Stories (2015) achieving global commercial success.
 careerTimeline:
   - year: "1989"

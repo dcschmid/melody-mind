@@ -24,7 +24,9 @@ keySongs:
   - Make It Bun Dem (2012)
   - Where Are Ü Now (2015)
   - Lean On (2015)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Skrillex released 4 studio albums and numerous EPs from 2010 to 2015, with his work helping define the sound of early 2010s EDM.
 careerTimeline:
   - year: "1988"

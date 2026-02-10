@@ -26,7 +26,9 @@ keySongs:
   - In the Night (2012)
   - Amakye (2019)
   - Oyi (2019)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: 2Baba released 7 studio albums from 2004 to 2019, with Face 2 Face (2004) and Grass to Grace (2007) establishing him as one of Africa's most successful artists.
 careerTimeline:
   - year: "1975"

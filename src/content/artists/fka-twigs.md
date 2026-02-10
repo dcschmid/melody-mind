@@ -25,7 +25,9 @@ keySongs:
   - Home with You (2019)
   - Holy Terrain (2019)
   - Meta Angel (2022)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: FKA twigs released 4 studio albums from 2014 to 2022, with LP1 (2014) and Magdalene (2019) receiving widespread critical acclaim.
 careerTimeline:
   - year: "1988"

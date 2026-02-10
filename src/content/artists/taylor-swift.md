@@ -32,7 +32,9 @@ keySongs:
   - Look What You Made Me Do (2017)
   - Anti-Hero (2022)
   - All Too Well (10 Minute Version) (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Taylor Swift released 10 studio albums from 2006 to 2022, with 1989 (2014) and Folklore (2020) achieving massive commercial and critical success.
 careerTimeline:
   - year: "1989"

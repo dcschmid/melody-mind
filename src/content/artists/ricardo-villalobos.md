@@ -27,7 +27,9 @@ keySongs:
   - Qu'est-ce que c'est (2010)
   - Lorean (2011)
   - Enfant (2009)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Ricardo Villalobos released 10 studio albums from 2003 to 2015, with Alcachofa (2004) and Dexter (2006) establishing him as a minimal techno pioneer.
 careerTimeline:
   - year: "1970"

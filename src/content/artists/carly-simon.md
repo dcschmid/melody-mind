@@ -39,7 +39,9 @@ keySongs:
   - Jesse (1980)
   - Coming Around Again (1986)
   - Let the River Run (1988)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Carly Simon released 18 studio albums from 1971 to 2015, achieving 24 Billboard entries with classics like 'You're So Vain' (#1, 1972) and 'Nobody Does It Better' from James Bond. First woman to win both Grammy and Academy Award for 'Let the River Run' (1988). Her confessional style defined 1970s singer-songwriter movement."
 careerTimeline:
   - year: "1945"

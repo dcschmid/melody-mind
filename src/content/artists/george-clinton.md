@@ -37,7 +37,9 @@ keySongs:
   - Maggot Brain (1971)
   - Aggressive Profusion (1973)
   - Foot Soldiers (1973)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "George Clinton led Parliament-Funkadelic and released over 40 albums from 1967 to 2018, pioneering funk with 'Mothership Connection' (1975) and 'One Nation Under a Groove' (1978). His P-Funk collective has been sampled by countless artists. Inducted into Rock and Roll Hall of Fame in 1997."
 careerTimeline:
   - year: "1941"

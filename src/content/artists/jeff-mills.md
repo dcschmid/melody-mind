@@ -26,7 +26,10 @@ keySongs:
   - The Reason (2012)
   - See the Light (2015)
   - The Eye (2017)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+  - "2000s"
+
 discographyOverview: Jeff Mills released 15 studio albums from 1996 to 2017, with his work defining the Detroit techno sound and influencing generations of electronic music artists.
 careerTimeline:
   - year: "1963"

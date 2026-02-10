@@ -37,12 +37,6 @@ keySongs:
   - Surf's Up (1971)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
-  - "2020s"
 discographyOverview: "Brian Wilson co-founded The Beach Boys and released over 30 albums from 1962 to 2022, pioneering studio innovation with 'Pet Sounds' (1966) and 'Good Vibrations.' His layered harmonies and production techniques revolutionized pop music. Beach Boys have sold over 100 million records worldwide."
 careerTimeline:
   - year: "1942"

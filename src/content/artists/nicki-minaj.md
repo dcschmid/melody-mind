@@ -27,7 +27,9 @@ keySongs:
   - Only (2014)
   - Barbie Tingz (2018)
   - Chun-Li (2018)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Nicki Minaj released 5 studio albums from 2010 to 2018, with Pink Friday (2010) and The Pinkprint (2014) achieving massive commercial success.
 careerTimeline:
   - year: "1982"

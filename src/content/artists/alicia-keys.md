@@ -32,7 +32,9 @@ keySongs:
   - Un-breakable (2007)
   - Girl on Fire (2012)
   - Brand New Me (2012)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Alicia Keys released 8 studio albums from 2001 to 2021, with Songs in A Minor (2001) and The Diary of Alicia Keys (2003) achieving multi-platinum status.
 careerTimeline:
   - year: "1981"

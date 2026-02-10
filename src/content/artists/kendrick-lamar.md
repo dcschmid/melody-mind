@@ -29,7 +29,9 @@ keySongs:
   - Humble (2017)
   - DNA (2017)
   - The Heart Part 5 (2022)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Kendrick Lamar released 6 studio albums from 2011 to 2022, with To Pimp a Butterfly (2015) and DAMN. (2017) achieving critical and commercial success.
 careerTimeline:
   - year: "1987"

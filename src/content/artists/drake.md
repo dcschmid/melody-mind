@@ -31,7 +31,9 @@ keySongs:
   - Nonstop (2018)
   - Toosie Slide (2020)
   - Way 2 Sexy (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Drake released 12 studio albums from 2010 to 2022, with Take Care (2011) and Views (2016) achieving diamond and quadruple platinum status.
 careerTimeline:
   - year: "1986"

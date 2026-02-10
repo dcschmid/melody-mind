@@ -24,7 +24,9 @@ keySongs:
   - Weary (2016)
   - Almeda (2019)
   - Things I Imagined (2019)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Solange released 5 studio albums from 2002 to 2019, with A Seat at the Table (2016) and When I Get Home (2019) establishing her as a critical favorite.
 careerTimeline:
   - year: "1986"

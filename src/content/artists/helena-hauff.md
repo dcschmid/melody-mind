@@ -21,7 +21,9 @@ keySongs:
   - Entropy (2018)
   - Memento (2021)
   - Bend and Perish (2015)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Helena Hauff released 4 studio albums from 2015 to 2021, with Act of Pleasure (2015) and Qualm (2018) establishing her as a rising star in techno.
 careerTimeline:
   - year: "1990"

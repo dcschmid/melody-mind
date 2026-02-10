@@ -38,7 +38,10 @@ keySongs:
   - Kalakuta Show (1977)
   - Jagua Nana (1973)
   - Coffin for Head of State (1978)
-relatedArticles: []
+relatedArticles:
+  - "1960s"
+  - "1970s"
+
 discographyOverview: "Fela Kuti pioneered Afrobeat and released over 50 albums from 1963 to 1997, with classics like 'Zombie' (1977) and 'Gentleman' (1973). His politically charged music led to imprisonment and international acclaim. Over 50 million records sold worldwide."
 careerTimeline:
   - year: "1938"

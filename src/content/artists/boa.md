@@ -32,7 +32,9 @@ keySongs:
   - Kiss My Lips (2015)
   - Energetic (2021)
   - Forgive Me (2021)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: BoA released 15 studio albums from 2000 to 2021 across Korean and Japanese markets, with Listen to My Heart (2002) achieving massive success in Japan and establishing her as a pioneering figure in the Korean Wave.
 careerTimeline:
   - year: "1986"

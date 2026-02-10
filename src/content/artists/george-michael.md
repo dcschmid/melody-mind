@@ -30,7 +30,10 @@ keySongs:
   - Jesus to a Child (1996)
   - Outside (1998)
   - Amazing (2004)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+  - "1990s"
+
 discographyOverview: "George Michael released five studio albums from 1987 to 2004, with Faith (1987) achieving diamond status and Listen Without Prejudice Vol. 1 (1990) debuting at #1 UK."
 careerTimeline:
   - year: "1963"

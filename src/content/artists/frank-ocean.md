@@ -24,7 +24,9 @@ keySongs:
   - Ivy (2016)
   - Chanel (2017)
   - Moon River (2018)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Frank Ocean released 3 studio albums from 2012 to 2016, with Channel Orange (2012) and Blonde (2016) receiving widespread critical acclaim.
 careerTimeline:
   - year: "1987"

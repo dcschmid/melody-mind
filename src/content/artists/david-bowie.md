@@ -40,7 +40,11 @@ keySongs:
   - Let's Dance (1983)
   - Under Pressure (1981)
   - China Girl (1983)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+  - "1980s"
+  - "2010s"
+
 discographyOverview: "David Bowie released 26 studio albums from 1967 to 2016, continuously reinventing himself through Ziggy Stardust, the Thin White Duke, and beyond. His 'Let's Dance' (1983) achieved commercial peak, while 'Blackstar' (2016) was released two days before his death and universally acclaimed."
 careerTimeline:
   - year: "1947"

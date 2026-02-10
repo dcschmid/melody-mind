@@ -27,7 +27,9 @@ keySongs:
   - Slave to the Rhythm (1982)
   - I'm Not Perfect (But I'm Perfect for You) (1986)
   - Hurricane (1991)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: Grace Jones released 15 studio albums from 1975 to 2023, with Nightclubbing (1981) and Slave to the Rhythm (1982) marking her artistic peak.
 careerTimeline:
   - year: "1948"

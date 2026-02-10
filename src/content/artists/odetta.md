@@ -40,8 +40,6 @@ keySongs:
   - House of the Rising Sun
   - The Times They Are a-Changin'
   - Come Away Melinda
-relatedArticles:
-  - 1950s
 discographyOverview: Odetta recorded extensively from the 1950s through the 2010s, releasing over 40 albums that documented her powerful interpretations of folk, blues, and spiritual songs. Her work consistently blended musical excellence with social consciousness.
 careerTimeline:
   - year: "1930"

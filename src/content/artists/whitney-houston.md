@@ -34,7 +34,9 @@ keySongs:
   - Exhale (Shoop Shoop) (1995)
   - I Look to You (2009)
   - Million Dollar Bill (2009)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: Whitney Houston released 8 studio albums from 1985 to 2009, with The Bodyguard soundtrack (1992) becoming one of the best-selling albums in history.
 careerTimeline:
   - year: "1963"

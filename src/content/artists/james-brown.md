@@ -36,7 +36,10 @@ keySongs:
   - "Hot Pants (1971)"
   - "The Payback (1973)"
   - "Funky President (1974)"
-relatedArticles: []
+relatedArticles:
+  - "1960s"
+  - "1970s"
+
 discographyOverview: James Brown released over 100 studio albums during his six-decade career, with "Papa's Got a Brand New Bag" (1965) and "Cold Sweat" (1967) establishing him as the Godfather of Soul and inventor of funk. His rhythmic innovations influenced virtually every subsequent genre of popular music.
 careerTimeline:
   - year: "1933"

@@ -34,7 +34,10 @@ keySongs:
   - Hikari (2002)
   - Simple and Clean (2002)
   - Face My Fears (2019)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+  - "2000s"
+
 discographyOverview: Utada Hikaru released 12 studio albums from 1999 to 2022, with First Love (1999) remaining the best-selling album in Japanese history. Her influence on J-pop and international recognition of Japanese music remains significant.
 careerTimeline:
   - year: "1983"

@@ -35,7 +35,9 @@ keySongs:
   - Black or White (1991)
   - Heal the World (1992)
   - You Are Not Alone (1995)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: Michael Jackson released 10 solo studio albums from 1971 to 2001, with Thriller (1982) becoming the best-selling album in history.
 careerTimeline:
   - year: "1958"

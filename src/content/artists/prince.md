@@ -35,7 +35,10 @@ keySongs:
   - The Most Beautiful Girl in the World (1997)
   - 1999 (1982)
   - Raspberry Beret (1985)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+  - "2010s"
+
 discographyOverview: Prince released 39 studio albums from 1978 to 2016, with Purple Rain (1984) achieving 13-times platinum status.
 careerTimeline:
   - year: "1958"

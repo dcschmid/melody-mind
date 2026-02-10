@@ -37,7 +37,10 @@ keySongs:
   - Hey Hey, My My (Into the Black) (1979) - Rock manifesto
   - Like a Hurricane (1977)
   - The Needle and the Damage Done (1972)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+  - "1980s"
+
 discographyOverview: "Neil Young released over 40 albums from 1968 to 2022, pioneering folk-rock and grunge with classics like 'Harvest' (1972) and 'Rust Never Sleeps' (1979). Inducted into Rock and Roll Hall of Fame twice (1997, 2018). Over 48 million records sold."
 careerTimeline:
   - year: "1945"

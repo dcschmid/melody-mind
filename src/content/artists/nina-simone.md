@@ -42,7 +42,8 @@ keySongs:
   - Revolution
   - Four Women
 relatedArticles:
-  - 1950s
+  - "1960s"
+  - "1970s"
 discographyOverview: Nina Simone released over 40 albums during her career spanning five decades, from 1958 to 1993. Her work is marked by its emotional depth, genre-blending approach, and increasingly overt political consciousness, particularly on albums from the late 1960s and early 1970s.
 careerTimeline:
   - year: "1933"

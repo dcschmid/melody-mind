@@ -35,7 +35,9 @@ keySongs:
   - Brenda's Got a Baby (1991)
   - Keep Ya Head Up (1992)
   - Untitled (1996)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: Tupac Shakur released 11 studio albums from 1991 to 1998, with All Eyez on Me (1996) achieving quadruple platinum status. His influence on hip-hop culture, social consciousness, and rap music remains unparalleled.
 careerTimeline:
   - year: "1971"

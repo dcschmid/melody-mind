@@ -27,7 +27,9 @@ keySongs:
   - Roar (2013)
   - Dark Horse (2013)
   - Unconditionally (2013)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: "Katy Perry released 6 studio albums from 2008 to 2020, with Teenage Dream (2010) achieving massive commercial success with five #1 singles."
 careerTimeline:
   - year: "1984"

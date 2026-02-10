@@ -37,7 +37,10 @@ keySongs:
   - The Wanderer (1980)
   - Love to Love You Baby (1975)
   - She Works Hard for the Money (1983)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+  - "1980s"
+
 discographyOverview: "Donna Summer released 22 studio albums from 1974 to 2011, pioneering electronic disco with 'I Feel Love' (1977) and achieving 4 #1 hits with 'MacArthur Park,' 'Hot Stuff,' and 'Bad Girls.' 'Queen of Disco' won 5 Grammy Awards and was posthumously inducted into Rock and Roll Hall of Fame in 2013."
 careerTimeline:
   - year: "1948"

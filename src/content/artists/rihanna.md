@@ -28,7 +28,10 @@ keySongs:
   - Stay (2013)
   - Work (2016)
   - Lemon (2016)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+  - "2010s"
+
 discographyOverview: Rihanna released 8 studio albums from 2005 to 2016, with Good Girl Gone Bad (2007) and Anti (2016) achieving massive commercial and critical success.
 careerTimeline:
   - year: "1988"

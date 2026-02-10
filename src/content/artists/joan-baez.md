@@ -39,11 +39,6 @@ keySongs:
   - Amazing Grace (1970)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
 discographyOverview: "Joan Baez released over 30 albums from 1960 to 2022, with hits like 'The Night They Drove Old Dixie Down' and 'Turn Turn Turn'. Her crystalline soprano voice defined the 1960s folk revival."
 careerTimeline:
   - year: "1941"

@@ -24,7 +24,9 @@ keySongs:
   - Dakiti (2020)
   - Tratando de Olvidar (2022)
   - Un Verano Sin Ti (2022)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Bad Bunny released 6 studio albums from 2018 to 2023, with YHLQMDLG (2020) and Un Verano Sin Ti (2022) achieving massive global success.
 careerTimeline:
   - year: "1994"

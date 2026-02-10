@@ -30,7 +30,9 @@ keySongs:
   - Buried Alive (2013)
   - The Moon Song (2013)
   - Lux Prima (2018)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Karen O released 5 solo albums and 5 albums with Yeah Yeah Yeahs from 2003 to 2018, with Fever to Tell (2003) establishing her as an iconic indie rock figure.
 careerTimeline:
   - year: "1978"

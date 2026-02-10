@@ -25,7 +25,9 @@ keySongs:
   - Girls in the Hood (2020)
   - Cry Baby (2020)
   - Sweet as RYE (2022)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Megan Thee Stallion released 4 studio albums from 2018 to 2022, with Good News (2020) achieving massive commercial success.
 careerTimeline:
   - year: "1995"

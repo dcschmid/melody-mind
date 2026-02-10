@@ -29,7 +29,10 @@ keySongs:
   - Walking to New Orleans (1959)
   - My Blue Heaven (1956)
   - When My Dreamboat Comes Home (1956)
-relatedArticles: []
+relatedArticles:
+  - "1950s"
+  - "from-blues-to-breakdown"
+
 discographyOverview: Fats Domino released 61 studio albums from 1949 to 2012, with The Fat Man (1949) and Blueberry Hill (1956) establishing him as one of rock and roll's foundational figures.
 careerTimeline:
   - year: "1928"

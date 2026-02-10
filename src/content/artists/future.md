@@ -28,7 +28,16 @@ keySongs:
   - Mask Off (2017)
   - Selfish (2017)
   - Incredible (2022)
-relatedArticles: []
+relatedArticles:
+  - "1950s"
+  - "1960s"
+  - "1970s"
+  - "1980s"
+  - "1990s"
+  - "2000s"
+  - "2010s"
+  - "from-blues-to-breakdown"
+
 discographyOverview: Future released 10 studio albums from 2012 to 2022, with DS2 (2015) and Future (2017) achieving massive commercial success.
 careerTimeline:
   - year: "1983"

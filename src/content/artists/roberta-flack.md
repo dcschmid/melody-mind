@@ -36,7 +36,9 @@ keySongs:
   - Oasis (1973)
   - Don't Make Me a Woman (1970)
   - Ballad of the Sad Young Men (1970)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Roberta Flack released 15 albums from 1969 to 2023, achieving breakthrough with 'Killing Me Softly' (1973) and 'Feel Like Makin' Love.' Won four Grammy Awards including Record and Song of the Year. Received Lifetime Achievement Award in 2012."
 careerTimeline:
   - year: "1937"

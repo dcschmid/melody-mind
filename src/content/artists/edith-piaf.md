@@ -37,7 +37,8 @@ keySongs:
   - Le Vieil Homme et le Mer
   - Comme un moineau
 relatedArticles:
-  - 1950s
+  - "1950s"
+  - "1960s"
 discographyOverview: Édith Piaf recorded extensively from the 1930s until her death in 1963, leaving a vast catalog of recordings that defined the chanson genre. Her complete works have been compiled in numerous box sets, with her 1956 Carnegie Hall concert being particularly celebrated.
 careerTimeline:
   - year: "1915"

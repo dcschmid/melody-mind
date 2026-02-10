@@ -49,6 +49,8 @@ keySongs:
   - "That's All Right (1954)"
 relatedArticles:
   - "1950s"
+  - "1960s"
+  - "from-blues-to-breakdown"
 discographyOverview: Elvis Presley released 24 studio albums during his lifetime, with Elvis Presley (1956) and Aloha from Hawaii via Satellite (1973) marking significant milestones in his career.
 careerTimeline:
   - year: "1935"

@@ -28,7 +28,9 @@ keySongs:
   - Same Ole Love (1987)
   - Just Because (1988)
   - Rapture (1986)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: Anita Baker released 8 studio albums from 1983 to 2023, with Rapture (1986) and Giving You the Best That I Got (1988) marking her commercial peak.
 careerTimeline:
   - year: "1958"

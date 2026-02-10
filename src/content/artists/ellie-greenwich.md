@@ -34,11 +34,6 @@ keySongs:
   - The Kind of Boy I Can't Forget (1964)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
 discographyOverview: "Ellie Greenwich wrote or co-wrote over 50 songs from 1963 to 2018, creating classics like 'Leader of the Pack,' 'Christmas (Baby Please Come Home),' and 'Chapel of Love' as Brill Building pioneer. Inducted into Songwriters Hall of Fame (1991) and Rock and Roll Hall of Fame (2010)."
 careerTimeline:
   - year: "1940"

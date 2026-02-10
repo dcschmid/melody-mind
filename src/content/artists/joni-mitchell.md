@@ -37,7 +37,9 @@ keySongs:
   - Raised on Love (1976)
   - California (1976)
   - Hejira (1976)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Joni Mitchell released 19 studio albums from 1968 to 2007, with 'Blue' (1971) consistently ranked among greatest albums of all time. Her distinctive guitar tunings and poetic lyrics influenced generations of singer-songwriters. Won 10 Grammy Awards."
 careerTimeline:
   - year: "1943"

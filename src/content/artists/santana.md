@@ -35,7 +35,9 @@ keySongs:
   - Winning (1981)
   - Hold On (1980)
   - Just Feel Better (2002)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "Carlos Santana led Santana and released over 25 albums from 1969 to 2019, pioneering Latin rock with 'Abraxas' (1970) and 'Supernatural' (1999). Won 9 Grammy Awards for 'Supernatural' including Album of the Year. Over 100 million records sold."
 careerTimeline:
   - year: "1947"

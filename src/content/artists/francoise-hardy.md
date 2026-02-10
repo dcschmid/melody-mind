@@ -37,8 +37,6 @@ keySongs:
   - C'est la premiere fois
   - Je t'aime moi non plus
   - L'amour a la francaise
-relatedArticles:
-  - 1960s
 discographyOverview: Francoise Hardy has released over 30 albums from 1963 to the present day, maintaining a consistent presence in French music while evolving her style over the decades. Her 1960s work is particularly celebrated for its sophisticated blend of French and Anglo-American pop influences.
 careerTimeline:
   - year: "1944"

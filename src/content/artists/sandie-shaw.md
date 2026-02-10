@@ -39,11 +39,6 @@ keySongs:
   - Jeannie's Not for Turning (1965)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
 discographyOverview: "Sandie Shaw released 15 albums from 1964 to 2020, achieving breakthrough with '(There's) Always Something There to Remind Me' (1964) and winning Eurovision with 'Puppet on a String' (1967). The barefoot British pop icon influenced fashion and music."
 careerTimeline:
   - year: "1947"

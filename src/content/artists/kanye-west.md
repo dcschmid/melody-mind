@@ -35,7 +35,10 @@ keySongs:
   - Ultralight Beam (2016)
   - Runaway (2010)
   - All Falls Down (2004)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+  - "2010s"
+
 discographyOverview: Kanye West released 13 studio albums from 2004 to 2021, with My Beautiful Dark Twisted Fantasy (2010) widely considered one of the greatest hip-hop albums ever made.
 careerTimeline:
   - year: "1977"

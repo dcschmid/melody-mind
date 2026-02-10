@@ -36,13 +36,7 @@ keySongs:
   - I Couldn't Live Without Your Love (1966)
   - My Love (1966)
 relatedArticles:
-  - "1940s"
-  - "1950s"
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
 discographyOverview: "Petula Clark released over 30 albums from 1954 to 2022, achieving international success with 'Down Town' (1965) and 'I Know a Place.' The British pop icon's clear voice and optimistic songs made her a 1960s cultural symbol. At 91, she remains active."
 careerTimeline:
   - year: "1932"

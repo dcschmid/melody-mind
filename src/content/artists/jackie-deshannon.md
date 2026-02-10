@@ -37,11 +37,6 @@ keySongs:
   - Heaven Is Being with You (1999)
 relatedArticles:
   - "1960s"
-  - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
 discographyOverview: "Jackie DeShannon released over 20 albums from 1960 to 2020, achieving hits with 'What the World Needs Now Is Love' (1965) and 'Bette Davis Eyes' (1974). Her songwriting spanned folk, pop, and country. Inducted into Songwriters Hall of Fame in 2010."
 careerTimeline:
   - year: "1941"

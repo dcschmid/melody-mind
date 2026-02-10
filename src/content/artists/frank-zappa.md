@@ -31,7 +31,9 @@ keySongs:
   - Muffin Man (1975)
   - Jazz from Hell (1986)
   - Watermelon in Easter Hay (1979)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: Frank Zappa released 62 studio albums from 1966 to 1993, with Freak Out! (1966) pioneering concept albums and Apostrophe (') (1974) achieving gold status. His diverse catalog spans rock, jazz fusion, and orchestral works, with Jazz from Hell (1986) winning a Grammy Award.
 careerTimeline:
   - year: "1940"

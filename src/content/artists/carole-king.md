@@ -37,11 +37,6 @@ keySongs:
 relatedArticles:
   - "1960s"
   - "1970s"
-  - "1980s"
-  - "1990s"
-  - "2000s"
-  - "2010s"
-  - "2020s"
 discographyOverview: "Carole King composed over 400 songs and released 25 albums from 1970 to 2023, with 'Tapestry' (1971) becoming one of best-selling albums ever at 25 million copies. Won 4 Grammy Awards for classics like 'You've Got a Friend' and '(You Make Me Feel Like) A Natural Woman.' Songs have sold over 100 million copies."
 careerTimeline:
   - year: "1942"

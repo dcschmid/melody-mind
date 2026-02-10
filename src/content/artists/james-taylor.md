@@ -38,7 +38,9 @@ keySongs:
   - The Secret of Life (1986)
   - Gaia (2008)
   - Always Look on the Bright Side of Life (2001)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+
 discographyOverview: "James Taylor released 19 studio albums from 1968 to 2021, achieving classics with 'Fire and Rain' (1970), 'You've Got a Friend' (1971), and 'How Sweet It Is' (1975). His warm baritone and guitar work defined 1970s folk-rock. Won 5 Grammy Awards."
 careerTimeline:
   - year: "1948"

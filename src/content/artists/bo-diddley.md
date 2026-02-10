@@ -30,7 +30,10 @@ keySongs:
   - Say Man (1959)
   - Road Runner (1956)
   - Who Do You Love (1956)
-relatedArticles: []
+relatedArticles:
+  - "1950s"
+  - "from-blues-to-breakdown"
+
 discographyOverview: Bo Diddley released 25 studio albums from 1958 to 2007, with his 1955 debut establishing the Bo Diddley beat as one of rock's foundational rhythmic patterns.
 careerTimeline:
   - year: "1928"

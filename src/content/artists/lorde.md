@@ -24,7 +24,9 @@ keySongs:
   - Green Light (2017)
   - Homemade Dynamite (2017)
   - Solar Power (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Lorde released 3 studio albums from 2013 to 2021, with Pure Heroine (2013) and Melodrama (2017) receiving widespread critical acclaim.
 careerTimeline:
   - year: "1996"

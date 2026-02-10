@@ -29,7 +29,9 @@ keySongs:
   - Thank U (1998)
   - Everything (2002)
   - Hands Clean (2002)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: Alanis Morissette released 10 studio albums from 1991 to 2020, with Jagged Little Pill (1995) achieving diamond status and establishing her as one of the defining artists of the 1990s. Her influence on alternative rock and female artists who followed remains significant.
 careerTimeline:
   - year: "1974"

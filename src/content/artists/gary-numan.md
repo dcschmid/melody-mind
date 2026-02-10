@@ -28,7 +28,9 @@ keySongs:
   - We Take Mystery (to Bed) (1981)
   - I Dream of Wires (1984)
   - My Machines (2013)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: "Gary Numan released 22 studio albums from 1979 to 2023, with The Pleasure Principle (1979) reaching #1 in the UK and establishing synth-pop as a major genre. His influence on electronic music extends from Depeche Mode and Moby to Nine Inch Nails."
 careerTimeline:
   - year: "1958"

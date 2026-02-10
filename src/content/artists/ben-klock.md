@@ -23,7 +23,9 @@ keySongs:
   - Clash (2014)
   - Glowing (2015)
   - Work (2016)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Ben Klock released 5 studio albums and numerous EPs from 2007 to 2015, with his work defining the Berlin techno sound.
 careerTimeline:
   - year: "1976"

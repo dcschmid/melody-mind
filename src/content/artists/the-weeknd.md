@@ -28,7 +28,9 @@ keySongs:
   - Blinding Lights (2019)
   - Save Your Tears (2020)
   - Take My Breath (2021)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: The Weeknd released 6 studio albums from 2011 to 2022, with Beauty Behind the Madness (2015) and After Hours (2020) achieving massive commercial success.
 careerTimeline:
   - year: "1990"

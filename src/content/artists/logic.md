@@ -26,7 +26,16 @@ keySongs:
   - Homicide (2019)
   - Contra (2019)
   - Confessions of a Dangerous Mind (2019)
-relatedArticles: []
+relatedArticles:
+  - "1950s"
+  - "1960s"
+  - "1970s"
+  - "1980s"
+  - "1990s"
+  - "2000s"
+  - "2010s"
+  - "from-blues-to-breakdown"
+
 discographyOverview: Logic released 8 studio albums from 2014 to 2020, with The Incredible True Story (2015) and Everybody (2017) achieving critical and commercial success.
 careerTimeline:
   - year: "1990"

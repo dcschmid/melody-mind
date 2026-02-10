@@ -43,8 +43,6 @@ relatedArticles:
   - "1960s"
   - "1970s"
   - "1980s"
-  - "1990s"
-  - "2000s"
 discographyOverview: "Marvin Gaye released 25 studio albums from 1961 to 1984, pioneering soul with groundbreaking albums 'What's Going On' (1971) and 'Let's Get It On' (1973). 'Sexual Healing' (1982) marked his comeback and became his final #1 hit."
 careerTimeline:
   - year: "1939"

@@ -36,7 +36,10 @@ keySongs:
   - Redemption Song (1979)
   - Satisfy My Soul (1978)
   - Babylon System (1974)
-relatedArticles: []
+relatedArticles:
+  - "1970s"
+  - "from-blues-to-breakdown"
+
 discographyOverview: "Bob Marley released 15 albums from 1965 to 1981, pioneering reggae with 'Exodus' (1977) and 'Legend' (1984). 'One Love' became the 'Song of the Millennium' and 'Legend' has spent over 570 weeks on the Billboard charts."
 careerTimeline:
   - year: "1945"

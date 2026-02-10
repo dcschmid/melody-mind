@@ -34,7 +34,9 @@ keySongs:
   - "Glory Days (1984)"
   - "Streets of Philadelphia (1994)"
   - "The Rising (2002)"
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+
 discographyOverview: "Bruce Springsteen released 21 studio albums from 1973 to 2023, with Born in the U.S.A. (1984) achieving seven-times platinum status and featuring seven top-ten singles. His body of work spans heartland rock, folk-rock, and orchestral arrangements, with The Rising (2002) emerging as a post-9/11 masterpiece. Springsteen's poetic documentation of American working-class life has influenced countless artists and earned him recognition as one of the greatest songwriters of all time."
 careerTimeline:
   - year: "1949"

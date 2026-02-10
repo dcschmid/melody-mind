@@ -34,7 +34,11 @@ keySongs:
   - Music (2000)
   - Hung Up (2005)
   - 4 Minutes (2008)
-relatedArticles: []
+relatedArticles:
+  - "1980s"
+  - "1990s"
+  - "2000s"
+
 discographyOverview: Madonna released 14 studio albums from 1983 to 2023, with True Blue (1986) and Ray of Light (1998) marking her commercial and critical peaks.
 careerTimeline:
   - year: "1958"

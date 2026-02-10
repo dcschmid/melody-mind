@@ -32,7 +32,9 @@ keySongs:
   - Love & Meth (2012)
   - Start the Healing (2018)
   - Forgotten (2022)
-relatedArticles: []
+relatedArticles:
+  - "1990s"
+
 discographyOverview: Jonathan Davis released 14 studio albums with Korn from 1994 to 2022, with Follow the Leader (1998) and Issues (1999) achieving multi-platinum status.
 careerTimeline:
   - year: "1971"

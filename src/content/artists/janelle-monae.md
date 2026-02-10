@@ -23,7 +23,9 @@ keySongs:
   - Pynk (2018)
   - Make Me Feel (2018)
   - I Like That (2018)
-relatedArticles: []
+relatedArticles:
+  - "2010s"
+
 discographyOverview: Janelle Monáe released 4 studio albums from 2010 to 2018, with The ArchAndroid (2010) and Dirty Computer (2018) receiving widespread critical acclaim.
 careerTimeline:
   - year: "1985"

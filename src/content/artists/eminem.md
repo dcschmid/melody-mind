@@ -39,7 +39,9 @@ keySongs:
   - Lose Yourself (2002)
   - Berzerk (2013)
   - Lucky You (2018)
-relatedArticles: []
+relatedArticles:
+  - "2000s"
+
 discographyOverview: Eminem released 12 studio albums from 1996 to 2023, with The Marshall Mathers LP (2000) and The Eminem Show (2002) achieving diamond and quadruple platinum status.
 careerTimeline:
   - year: "1972"
