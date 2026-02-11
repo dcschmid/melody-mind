@@ -5,6 +5,7 @@ import { takeaways1980s } from "./1980s";
 import { takeaways1990s } from "./1990s";
 import { takeaways2000s } from "./2000s";
 import { takeaways2010s } from "./2010s";
+import { takeawaysFromClassicalRootsToNeoClassicalSounds } from "./from-classical-roots-to-neo-classical-sounds";
 import { takeawaysFromBluesToBreakdown } from "./from-blues-to-breakdown";
 
 export const takeawaysDecades = [
@@ -15,6 +16,7 @@ export const takeawaysDecades = [
   "1990s",
   "2000s",
   "2010s",
+  "from-classical-roots-to-neo-classical-sounds",
   "from-blues-to-breakdown",
 ] as const;
 
@@ -26,6 +28,8 @@ export const knowledgeTakeaways: Record<string, string[]> = {
   "1990s": takeaways1990s,
   "2000s": takeaways2000s,
   "2010s": takeaways2010s,
+  "from-classical-roots-to-neo-classical-sounds":
+    takeawaysFromClassicalRootsToNeoClassicalSounds,
   "from-blues-to-breakdown": takeawaysFromBluesToBreakdown,
 };
 
