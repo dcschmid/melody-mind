@@ -2,6 +2,7 @@
 import ArtistProfile from "@components/ArtistProfile.astro";
 import InfluenceGraph from "@components/InfluenceGraph.astro";
 import RelatedArtists from "@components/RelatedArtists.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import {
@@ -207,6 +208,7 @@ const pageSeo = buildPageSeo({
     />
     <RelatedArtists artists={similarArtists} />
   </div>
+  <BackToTop lang="en" />
 </Layout>
 
 <style>

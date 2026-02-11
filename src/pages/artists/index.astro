@@ -2,6 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@components/Shared/PageShell.astro";
 import SearchPanel from "@components/Search/SearchPanel.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@utils/siteUrls";
@@ -145,6 +146,7 @@ const pageSeo = buildPageSeo({
       }
     </div>
   </PageShell>
+  <BackToTop lang="en" />
 </Layout>
 
 <style>

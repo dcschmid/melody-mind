@@ -9,6 +9,7 @@
  */
 import Layout from "@layouts/Layout.astro";
 import Timeline from "@components/Timeline/Timeline.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 
 export const prerender = true;
@@ -50,6 +51,7 @@ const pageSeo = buildPageSeo({
   <main id="main-content" tabindex="-1" role="main" class="explore-page">
     <Timeline />
   </main>
+  <BackToTop lang="en" />
 </Layout>
 
 <style>
