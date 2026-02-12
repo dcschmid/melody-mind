@@ -279,6 +279,42 @@
           "icon": "star"
         },
         {
+          "year": 1950,
+          "type": "artist",
+          "title": "Muddy Waters: Chicago Blues Pioneer",
+          "description": "Muddy Waters moved from Mississippi to Chicago in the early 1940s, electrifying the blues by 1950. His powerful voice and sliding guitar sound defined the Chicago blues style. Recordings like 'I Can't Be Satisfied' and 'Mannish Boy' established the blueprint for electric blues that would influence rock music.",
+          "genre": "Blues",
+          "icon": "user",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1951,
+          "type": "artist",
+          "title": "Howlin' Wolf: Raw Power",
+          "description": "Howlin' Wolf arrived in Chicago in the early 1940s and became one of the most powerful voices in blues by the 1950s. His physically imposing presence and guttural vocals created an intense stage show. Songs like 'Smokestack Lightnin'' and 'Spoonful' demonstrated the raw emotional power that would influence heavy music.",
+          "genre": "Blues",
+          "icon": "user",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1953,
+          "type": "album",
+          "title": "T-Bone Walker: Electric Guitar Pioneer",
+          "description": "T-Bone Walker's 'Stormy Monday' became a blues standard in the 1950s, establishing the electric blues guitar as a lead instrument. His smooth yet powerful guitar style influenced B.B. King and countless rock guitarists. Walker showed that the electric guitar could be a vehicle for deep emotional expression.",
+          "genre": "Blues",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1955,
+          "type": "album",
+          "title": "Chess Records: Chicago Blues Sound",
+          "description": "Chess Records in Chicago became the definitive blues and R&B label in the mid-1950s, releasing essential recordings by Muddy Waters, Howlin' Wolf, and Chuck Berry. The label's recordings captured the raw energy of Chicago blues clubs. These recordings would later influence British Invasion artists including The Rolling Stones.",
+          "genre": "Blues",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
           "year": 1959,
           "type": "album",
           "title": "Bobby Darin: Mack the Knife",
