@@ -61,6 +61,14 @@
           "description": "Thomas Edison invented the phonograph in 1877, creating the first device capable of recording and reproducing sound. This invention would eventually revolutionize how music was consumed worldwide.",
           "genre": "Technology",
           "icon": "star"
+        },
+        {
+          "year": 1876,
+          "type": "milestone",
+          "title": "Wagner's Ring Cycle Premieres",
+          "description": "Richard Wagner's complete Ring Cycle premiered at the Bayreuth Festival in 1876. The four-opera cycle revolutionized music theater with its use of leitmotifs, expanded orchestration, and concept of Gesamtkunstwerk (total work of art), influencing all subsequent opera and film scoring.",
+          "genre": "Opera",
+          "icon": "star"
         }
       ]
     },
@@ -149,6 +157,14 @@
           "description": "Benny Goodman's jazz concert at Carnegie Hall on January 16, 1938, legitimized jazz as serious music. The performance was revolutionary for its racially integrated orchestra.",
           "genre": "Jazz",
           "icon": "star"
+        },
+        {
+          "year": 1913,
+          "type": "event",
+          "title": "Stravinsky's Rite of Spring Premiere",
+          "description": "Igor Stravinsky's 'The Rite of Spring' premiered in Paris on May 29, 1913. The ballet's primitive rhythms and dissonances caused a riot at its premiere. It became one of the most influential works of the 20th century, revolutionizing classical music and paving the way for modernism.",
+          "genre": "Modernist",
+          "icon": "calendar"
         }
       ]
     },
@@ -588,6 +604,22 @@
           "description": "The first Grammy Awards were held on May 4, 1959 (for 1958 releases). The ceremony established the recording industry's highest honors and became the 'Oscars of music.'",
           "genre": "Industry",
           "icon": "star"
+        },
+        {
+          "year": 1954,
+          "type": "album",
+          "title": "Elvis Presley: That's All Right",
+          "description": "Elvis Presley recorded 'That's All Right' for Sun Records in 1954. The single blended blues, country, and gospel influences, creating a revolutionary sound that became the foundation of rock 'n' roll.",
+          "genre": "Rock & Roll",
+          "icon": "disc"
+        },
+        {
+          "year": 1956,
+          "type": "album",
+          "title": "Elvis Presley: Heartbreak Hotel",
+          "description": "Elvis Presley's 'Heartbreak Hotel' was recorded in January 1956 and reached #1 on Billboard's pop chart by April. It spent seven weeks at the top, introducing vocal intimacy and rhythmic looseness that contrasted sharply with established pop conventions.",
+          "genre": "Rock & Roll",
+          "icon": "disc"
         }
       ]
     },
@@ -1059,6 +1091,54 @@
           "description": "Bob Dylan released 'Nashville Skyline' in 1969, embracing country music. The album bridged the gap between folk-rock and country, influencing the outlaw country movement.",
           "genre": "Country",
           "icon": "star"
+        },
+        {
+          "year": 1961,
+          "type": "milestone",
+          "title": "Motown Records Founded",
+          "description": "Berry Gordy founded Motown Records in Detroit in 1959, with its first major hit in 1960. By 1961, the 'Motown Sound' was dominating charts with Black artists crossing over to white audiences, creating some of the most enduring popular music ever made.",
+          "genre": "Soul",
+          "icon": "star"
+        },
+        {
+          "year": 1963,
+          "type": "album",
+          "title": "Bob Dylan: Blowin' in the Wind",
+          "description": "Bob Dylan's 'Blowin' in the Wind' (1963) became an anthem of the civil rights movement, reaching #2 on the Billboard Hot 100. The song addressed moral urgency without offering simple resolution, establishing Dylan as the voice of a generation.",
+          "genre": "Folk",
+          "icon": "disc"
+        },
+        {
+          "year": 1964,
+          "type": "event",
+          "title": "The Beatles on Ed Sullivan",
+          "description": "The Beatles appeared on The Ed Sullivan Show on February 9, 1964. The broadcast was watched by 73 million viewers (over 40% of the US population), launching the British Invasion and forever changing American popular culture.",
+          "genre": "Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 1965,
+          "type": "event",
+          "title": "Bob Dylan Goes Electric at Newport",
+          "description": "Bob Dylan plugged in his electric guitar at the Newport Folk Festival on July 25, 1965. The controversial move divided the folk community but expanded rock's lyrical possibilities, marking a pivotal moment in popular music history.",
+          "genre": "Folk Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 1965,
+          "type": "album",
+          "title": "The Rolling Stones: Satisfaction",
+          "description": "The Rolling Stones released '(I Can't Get No) Satisfaction' in 1965. The song's signature fuzz guitar riff, created accidentally by Keith Richards, became the band's first major international hit and a generational anthem of alienation.",
+          "genre": "Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1968,
+          "type": "album",
+          "title": "Johnny Cash: At Folsom Prison",
+          "description": "Johnny Cash recorded 'At Folsom Prison' on January 13, 1968. The live album revitalized his career and brought country music to counterculture audiences, demonstrating music's power to bridge social divides.",
+          "genre": "Country",
+          "icon": "disc"
         }
       ]
     },
@@ -1548,6 +1628,30 @@
           "description": "Frankie Knuckles began DJing at The Warehouse in Chicago in 1977, and by 1979, house music was born. The genre combined disco, electronic, and soul, creating electronic dance music.",
           "genre": "House",
           "icon": "calendar"
+        },
+        {
+          "year": 1972,
+          "type": "album",
+          "title": "David Bowie: Ziggy Stardust",
+          "description": "David Bowie released 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' in 1972. Through the Ziggy persona, Bowie turned the rock star into a character, blurring lines between fiction and autobiography while exploring themes of alienation and fame.",
+          "genre": "Glam Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1975,
+          "type": "album",
+          "title": "Queen: Bohemian Rhapsody",
+          "description": "Queen released 'Bohemian Rhapsody' in 1975. The six-minute operatic rock single was revolutionary for its complex structure and became one of the best-selling singles ever, demonstrating that popular music could accommodate artistic ambition.",
+          "genre": "Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 1980,
+          "type": "technology",
+          "title": "Roland TR-808 Drum Machine Released",
+          "description": "The Roland TR-808 Rhythm Composer was released in 1980. Despite being a commercial failure initially (fewer than 12,000 units sold), its distinctive analog sound became foundational for hip-hop, electronic, and dance music. The 808 kick drum defined the sound of modern music.",
+          "genre": "Technology",
+          "icon": "tv"
         }
       ]
     },
@@ -2055,6 +2159,14 @@
           "description": "Madonna released 'Like a Prayer' in 1989. The controversial video featuring religious imagery sparked protests but demonstrated pop music's power for artistic and social commentary.",
           "genre": "Pop",
           "icon": "calendar"
+        },
+        {
+          "year": 1987,
+          "type": "artist",
+          "title": "Whitney Houston: Whitney",
+          "description": "Whitney Houston's second album 'Whitney' was released in 1987, making her the first woman to debut at #1 on the Billboard 200. Her technical mastery and emotional directness set new standards for vocal performance in popular music.",
+          "genre": "Pop",
+          "icon": "user"
         }
       ]
     },
@@ -2590,6 +2702,14 @@
           "description": "Britney Spears released '...Baby One More Time' in 1999. The single and video launched the teen pop explosion of the late 90s, reviving the pop star phenomenon.",
           "genre": "Pop",
           "icon": "star"
+        },
+        {
+          "year": 1994,
+          "type": "album",
+          "title": "Green Day: Dookie",
+          "description": "Green Day released 'Dookie' in February 1994. The album brought punk rock to the mainstream, selling 20 million copies and launching the pop-punk movement, proving that punk's energy could coexist with commercial success.",
+          "genre": "Punk",
+          "icon": "disc"
         }
       ]
     },
@@ -3163,6 +3283,22 @@
           "description": "Lady Gaga released 'The Fame' in 2008. Her blend of pop hooks, dance beats, and theatrical visuals revived the pop star concept for the digital age.",
           "genre": "Pop",
           "icon": "star"
+        },
+        {
+          "year": 2006,
+          "type": "album",
+          "title": "Arctic Monkeys: Whatever People Say I Am",
+          "description": "Arctic Monkeys released their debut album in 2006. It became the fastest-selling debut album in UK history, launching the post-punk revival and demonstrating that guitar-driven rock could still capture mainstream attention.",
+          "genre": "Indie Rock",
+          "icon": "disc"
+        },
+        {
+          "year": 2007,
+          "type": "milestone",
+          "title": "Radiohead's In Rainbows Experiment",
+          "description": "Radiohead released 'In Rainbows' in 2007 as a pay-what-you-want download. The experiment challenged traditional music distribution models and proved that digital-first releases could work, influencing how artists approached album releases.",
+          "genre": "Alternative",
+          "icon": "star"
         }
       ]
     },
@@ -3713,6 +3849,46 @@
           "title": "Lil Nas X's Old Town Road",
           "description": "Lil Nas X's 'Old Town Road' broke the Billboard Hot 100 record for longest-running #1 single in 2019 (19 weeks). The viral TikTok hit blended country and rap, challenging genre boundaries.",
           "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2012,
+          "type": "milestone",
+          "title": "Gangnam Style Hits 1 Billion Views",
+          "description": "Psy's 'Gangnam Style' became the first YouTube video to reach 1 billion views in December 2012. The viral K-pop hit demonstrated social media's power to create global phenomena and established K-pop as a worldwide force.",
+          "genre": "K-Pop",
+          "icon": "star"
+        },
+        {
+          "year": 2016,
+          "type": "album",
+          "title": "Beyonc\u00e9: Lemonade",
+          "description": "Beyonc\u00e9 released 'Lemonade' in April 2016 as a visual album. The project addressed infidelity, Black identity, and female empowerment through film and music, becoming a cultural phenomenon that transcended traditional album formats.",
+          "genre": "R&B",
+          "icon": "disc"
+        },
+        {
+          "year": 2018,
+          "type": "milestone",
+          "title": "Kendrick Lamar Wins Pulitzer Prize",
+          "description": "Kendrick Lamar's 'DAMN.' won the Pulitzer Prize for Music in 2018. It was the first non-jazz or classical album to win, legitimizing hip-hop as high art and marking a historic moment in the genre's cultural acceptance.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2016,
+          "type": "milestone",
+          "title": "TikTok Launches",
+          "description": "TikTok launched internationally in September 2017 (after Douyin launched in China in September 2016). The short-form video platform revolutionized music discovery and marketing, making songs go viral through user-generated content and fundamentally changing how hits are made in the streaming era.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2013,
+          "type": "milestone",
+          "title": "EDM Goes Mainstream",
+          "description": "Electronic Dance Music exploded into mainstream culture in 2013. Avicii's 'Wake Me Up' and Calvin Harris's 'Summer' topped charts globally. EDM festivals like Tomorrowland and Ultra drew hundreds of thousands, making DJs the new rock stars and EDM a billion-dollar industry.",
+          "genre": "Electronic",
           "icon": "star"
         }
       ]
