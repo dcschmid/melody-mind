@@ -29,7 +29,8 @@ const {
   decadeColor = "var(--gn-accent)",
 } = Astro.props;
 
-const href = isDecade ? `/knowledge/${decadeSlug}` : event.link || null;
+const decadeHref = isDecade && decadeSlug ? `/knowledge/${decadeSlug}` : null;
+const href = isDecade ? decadeHref : event.link || null;
 
 const typeIcons: Record<string, string> = {
   album: "disc",
@@ -41,7 +42,7 @@ const typeIcons: Record<string, string> = {
 };
 
 const icon = typeIcons[event.type || "event"] || "music";
-const hasLink = !!event.link;
+const hasLink = isDecade ? Boolean(decadeHref) : !!event.link;
 ---
 
 <article
@@ -55,20 +56,28 @@ const hasLink = !!event.link;
 >
   {
     isDecade ? (
-      <a href={href} class="timeline-event__decade-card">
-        <div class="timeline-event__decade-header">
-          <span class="timeline-event__decade-year">{event.year}s</span>
-          <Icon
-            name="arrow-right"
-            class="timeline-event__arrow-icon"
-            aria-hidden="true"
-          />
+      hasLink && href ? (
+        <a href={href} class="timeline-event__decade-card">
+          <div class="timeline-event__decade-header">
+            <span class="timeline-event__decade-year">{event.year}s</span>
+            <Icon
+              name="arrow-right"
+              class="timeline-event__arrow-icon"
+              aria-hidden="true"
+            />
+          </div>
+          <span class="timeline-event__decade-cta">
+            <Icon name="book-open" class="timeline-event__cta-icon" aria-hidden="true" />
+            Read Article
+          </span>
+        </a>
+      ) : (
+        <div class="timeline-event__decade-card" aria-disabled="true">
+          <div class="timeline-event__decade-header">
+            <span class="timeline-event__decade-year">{event.year}s</span>
+          </div>
         </div>
-        <span class="timeline-event__decade-cta">
-          <Icon name="book-open" class="timeline-event__cta-icon" aria-hidden="true" />
-          Read Article
-        </span>
-      </a>
+      )
     ) : hasLink ? (
       <a href={event.link} class="timeline-event__link">
         <div class="timeline-event__header">

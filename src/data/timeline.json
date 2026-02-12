@@ -1,6 +1,86 @@
 {
   "decades": [
     {
+      "slug": "1800s",
+      "decade": "1800s",
+      "title": "Classical Era & Romantic Revolution (1800s)",
+      "color": "#8b4513",
+      "items": [
+        {
+          "year": 1800,
+          "type": "artist",
+          "title": "Beethoven's Middle Period Begins",
+          "description": "Ludwig van Beethoven entered his middle creative period around 1800, producing revolutionary works. His 'Eroica' Symphony broke classical conventions. This era bridged Classical and Romantic traditions.",
+          "genre": "Classical",
+          "icon": "user"
+        },
+        {
+          "year": 1824,
+          "type": "album",
+          "title": "Beethoven's Ninth Symphony",
+          "description": "Beethoven's Ninth Symphony premiered in 1824 and became one of the most performed works in history. The final movement's 'Ode to Joy' represented universal brotherhood. It expanded symphonic form and emotional range.",
+          "genre": "Classical",
+          "icon": "disc"
+        },
+        {
+          "year": 1835,
+          "type": "artist",
+          "title": "Clara Schumann's Career",
+          "description": "Clara Schumann established herself as a prominent pianist and composer in the 1830s. She premiered works by Chopin and Brahms. Her career demonstrated women's possibilities in classical music.",
+          "genre": "Classical",
+          "icon": "user"
+        },
+        {
+          "year": 1846,
+          "type": "album",
+          "title": "Fanny Mendelssohn: Das Jahr",
+          "description": "Fanny Mendelssohn's 'Das Jahr' (The Year) was composed in 1846 as a cycle of piano pieces. Each piece represented a month. The work demonstrated her sophisticated compositional voice.",
+          "genre": "Classical",
+          "icon": "disc"
+        },
+        {
+          "year": 1895,
+          "type": "album",
+          "title": "Mahler's First Symphony",
+          "description": "Gustav Mahler's First Symphony premiered in 1889 but achieved prominence by 1895. The work expanded symphonic dimensions and emotional range. It influenced 20th-century classical music development.",
+          "genre": "Romantic",
+          "icon": "disc"
+        }
+      ]
+    },
+    {
+      "slug": "1900s",
+      "decade": "1900s",
+      "title": "Modernism & Atonality (1900s)",
+      "color": "#2c3e50",
+      "items": [
+        {
+          "year": 1908,
+          "type": "album",
+          "title": "Schoenberg's Second String Quartet",
+          "description": "Arnold Schoenberg's Second String Quartet introduced vocal elements in 1908. The work marked a step toward atonality. It influenced 20th-century classical music development.",
+          "genre": "Modernist",
+          "icon": "disc"
+        },
+        {
+          "year": 1913,
+          "type": "milestone",
+          "title": "Stravinsky's Rite of Spring",
+          "description": "Igor Stravinsky's 'The Rite of Spring' premiered in 1913 and caused a riot. The work's primitive rhythms and dissonances shocked audiences. It became one of the most influential works of the 20th century.",
+          "genre": "Modernist",
+          "icon": "star"
+        },
+        {
+          "year": 1921,
+          "type": "artist",
+          "title": "Second Viennese School",
+          "description": "The Second Viennese School (Schoenberg, Berg, Webern) developed twelve-tone technique in the 1920s. Their approach revolutionized classical music harmony. The school's influence extended throughout the 20th century.",
+          "genre": "Modernist",
+          "icon": "user"
+        }
+      ]
+    },
+    {
       "slug": "1950s",
       "decade": "1950s",
       "title": "How 1950s Music Changed Everything",
@@ -321,6 +401,41 @@
           "description": "Bobby Darin's \"Mack the Knife\" from \"The Threepenny Opera\" became a massive hit in 1959, demonstrating the commercial viability of theatrical material in popular music. His sophisticated interpretation bridged jazz and pop audiences. The song won Grammy Awards and established Darin as a major star.",
           "genre": "Jazz",
           "icon": "disc"
+        },
+        {
+          "year": 1952,
+          "type": "album",
+          "title": "John Cage: 4'33\"",
+          "description": "John Cage's '4'33\"' was composed in 1952 but related to 1900s modernism. The piece consisted of silence, with ambient sounds becoming the music. It challenged definitions of music itself.",
+          "genre": "Experimental",
+          "icon": "disc"
+        },
+        {
+          "year": 1950,
+          "type": "artist",
+          "title": "Muddy Waters: Hoochie Coochie Man",
+          "description": "Muddy Waters' 'Hoochie Coochie Man' defined Chicago Blues with amplified intensity. The song brought rural blues into urban spaces with confidence and confrontation. It bridged acoustic tradition and electric innovation.",
+          "genre": "Electric Blues",
+          "icon": "user",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1950,
+          "type": "artist",
+          "title": "Howlin' Wolf: First Electric Recordings",
+          "description": "Howlin' Wolf's early electric recordings brought raw physical presence to blues. His voice, amplified and urgent, made the music impossible to ignore. This intensity became foundational for heavy music.",
+          "genre": "Electric Blues",
+          "icon": "user",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1953,
+          "type": "album",
+          "title": "Big Mama Thornton: Hound Dog",
+          "description": "Big Mama Thornton's 'Hound Dog' was released in 1953, full of energy and confident performance. The song demonstrated R&B's raw power before rock'n'roll mainstream adoption.",
+          "genre": "R&B",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
         }
       ]
     },
@@ -627,6 +742,59 @@
           "description": "Creedence Clearwater Revival achieved commercial dominance in 1969 with hits like \"Proud Mary\" and \"Bad Moon Rising.\" John Fogerty's songwriting and vocal delivery created an American sound. Their Bayou blues rock influenced Southern rock bands.",
           "genre": "Rock",
           "icon": "user"
+        },
+        {
+          "year": 1962,
+          "type": "artist",
+          "title": "La Monte Young: Dream House",
+          "description": "La Monte Young's 'Dream House' installation began in 1962 in New York. The continuous sine wave tones created sustained sound environments. It influenced minimalist and ambient music traditions.",
+          "genre": "Minimalism",
+          "icon": "user",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 1964,
+          "type": "album",
+          "title": "Terry Riley: In C",
+          "description": "Terry Riley's 'In C' premiered in 1964 and became a minimalist landmark. The piece used repeating patterns and gradual transformations. It influenced ambient, electronic, and progressive music.",
+          "genre": "Minimalism",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 1965,
+          "type": "album",
+          "title": "Steve Reich: It's Gonna Rain",
+          "description": "Steve Reich's 'It's Gonna Rain' used tape loop techniques in 1965. The phasing process created hypnotic rhythmic patterns. It established Reich's signature minimalist approach.",
+          "genre": "Minimalism",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 1962,
+          "type": "artist",
+          "title": "Ray Charles: Gospel-Blues Fusion",
+          "description": "Ray Charles combined gospel intensity with blues phrasing and rhythmic drive. His work bridged sacred and secular, creating soul music's foundation. The emotional weight depended on groove and timing.",
+          "genre": "Soul/R&B",
+          "icon": "user",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1969,
+          "type": "album",
+          "title": "Led Zeppelin: Led Zeppelin II",
+          "description": "Led Zeppelin's 'Led Zeppelin II' featured 'Whole Lotta Love' and defined hard rock. The album's heavy sound and powerful riffs bridged blues tradition and metal's emergence.",
+          "genre": "Hard Rock",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1960,
+          "type": "milestone",
+          "title": "Stax Records Founded",
+          "description": "Stax Records was founded in Memphis, Tennessee, becoming one of the most important soul music labels. Along with Motown, Stax defined the Southern soul sound with artists like Otis Redding and Booker T. & the M.G.'s.",
+          "genre": "Soul",
+          "icon": "star"
         }
       ]
     },
@@ -936,6 +1104,57 @@
           "title": "Commodores: Natural",
           "description": "The Commodores' \"Natural\" was released in 1979 and featured \"Sail On,\" a major hit. Lionel Ross's arrangements created sophisticated soul music. The band balanced commercial success with artistic integrity.",
           "genre": "Soul",
+          "icon": "disc"
+        },
+        {
+          "year": 1970,
+          "type": "album",
+          "title": "Black Sabbath: Paranoid",
+          "description": "Black Sabbath's 'Paranoid' was released in 1970 and defined heavy metal. The album's downtuned guitars and dark themes created the metal blueprint. Tony Iommi's riffs influenced generations of musicians.",
+          "genre": "Heavy Metal",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1971,
+          "type": "album",
+          "title": "Led Zeppelin IV",
+          "description": "Led Zeppelin's untitled fourth album was released in 1971 and featured 'Stairway to Heaven.' The album demonstrated their musical diversity. Page's guitar work and Plant's vocals defined rock excellence.",
+          "genre": "Hard Rock",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1976,
+          "type": "album",
+          "title": "Philip Glass: Einstein on the Beach",
+          "description": "Philip Glass's 'Einstein on the Beach' premiered in 1976, created with Robert Wilson. The opera used extended scenes with musical cycles and visual tableaux, showing minimalism could create large forms.",
+          "genre": "Minimalism",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 1973,
+          "type": "milestone",
+          "title": "DJ Kool Herc's Back to School Jam",
+          "description": "DJ Kool Herc hosted the 'Back to School Jam' in the Bronx, New York. This event is widely recognized as the birth of hip-hop culture, introducing breakbeats and MCing to the world.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1976,
+          "type": "album",
+          "title": "Sex Pistols: Anarchy in the UK",
+          "description": "The Sex Pistols released 'Anarchy in the UK' in 1976, becoming the anthem of the punk rock movement. The song's raw aggression and anti-establishment message defined punk's confrontational spirit.",
+          "genre": "Punk",
+          "icon": "disc"
+        },
+        {
+          "year": 1979,
+          "type": "album",
+          "title": "Sugarhill Gang: Rapper's Delight",
+          "description": "Sugarhill Gang's 'Rapper's Delight' was released in 1979 and became the first hip-hop single to reach the Billboard Top 40. The 15-minute track introduced rap music to mainstream audiences worldwide.",
+          "genre": "Hip-Hop",
           "icon": "disc"
         }
       ]
@@ -1264,654 +1483,49 @@
           "genre": "Pop",
           "icon": "disc",
           "link": "/artists/george-michael"
-        }
-      ]
-    },
-    {
-      "slug": "1960s",
-      "decade": "1960s",
-      "title": "Music of the 1960s: British Invasion & Cultural Revolution",
-      "articleSlug": "1960s",
-      "color": "#9b59b6",
-      "items": [
+        },
         {
-          "year": 1960,
+          "year": 1986,
           "type": "album",
-          "title": "Elvis Presley Returns",
-          "description": "Elvis Presley released \"Elvis Is Back!\" in 1960 after his military service, demonstrating his continued commercial viability. The album showcased his mature vocal ability and sophisticated arrangements. While rock & roll had evolved, Elvis remained a major force in popular music.",
-          "genre": "Rock & Roll",
+          "title": "Metallica: Master of Puppets",
+          "description": "Metallica's 'Master of Puppets' was released in 1986 and became a thrash metal masterpiece. The album's technical complexity and aggressive sound defined the genre. It influenced countless metal bands.",
+          "genre": "Thrash Metal",
           "icon": "disc",
-          "link": "/artists/elvis-presley"
+          "link": "/knowledge/from-blues-to-breakdown"
         },
         {
-          "year": 1961,
-          "type": "artist",
-          "title": "Bob Dylan Arrives in New York",
-          "description": "Bob Dylan arrived in New York City in 1961, beginning his transformation from folk prodigy to cultural icon. He began performing in Greenwich Village coffeehouses and quickly attracted attention from the music industry. His early performances blended traditional folk with original compositions.",
-          "genre": "Folk",
-          "icon": "user",
-          "link": "/artists/bob-dylan"
-        },
-        {
-          "year": 1962,
+          "year": 1990,
           "type": "album",
-          "title": "The Beatles: Please Please Me",
-          "description": "The Beatles released \"Please Please Me\" in 1963, but their recording career began in 1962 at EMI's Abbey Road Studios. The album captured the raw energy of their live performances and launched Beatlemania in Britain. Their Lennon-McCartney songwriting partnership produced an unprecedented run of hits.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1962,
-          "type": "artist",
-          "title": "The Beatles in Hamburg",
-          "description": "The Beatles played 270 nights in Hamburg clubs between 1960 and 1962, refining their sound and stagecraft. This intensive performance schedule transformed them from novices into a tight, professional act. The Hamburg experience taught them showmanship and song arrangement.",
-          "genre": "Rock",
-          "icon": "user"
-        },
-        {
-          "year": 1963,
-          "type": "milestone",
-          "title": "The Beatles Arrive in America",
-          "description": "The Beatles arrived in America on February 7, 1964, and performed on The Ed Sullivan Show three days later, beginning the British Invasion. Their arrival transformed American popular culture and created unprecedented Beatlemania. The event is considered a watershed moment in music history.",
-          "genre": "Rock",
-          "icon": "star"
-        },
-        {
-          "year": 1963,
-          "type": "album",
-          "title": "The Beatles: With The Beatles",
-          "description": "\"With The Beatles\" was released in November 1963, becoming the first album to qualify for the UK charts before its official release. The album showcased their growing songwriting sophistication. It spent 21 weeks at #1 on the British charts.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1963,
-          "type": "artist",
-          "title": "The Rolling Stones Sign with Decca",
-          "description": "The Rolling Stones signed with Decca Records in 1963, beginning their journey to become one of rock's greatest bands. Their early repertoire focused on blues covers, establishing their credibility as serious musicians. Mick Jagger and Keith Richards developed their legendary partnership.",
-          "genre": "Rock & Roll",
-          "icon": "user"
-        },
-        {
-          "year": 1964,
-          "type": "milestone",
-          "title": "British Invasion Begins",
-          "description": "The British Invasion transformed American music in 1964 as The Beatles, The Rolling Stones, The Animals, and other UK acts dominated the charts. American record labels rushed to sign British acts, fundamentally changing the music business. This cultural exchange influenced fashion, language, and youth culture.",
-          "genre": "Rock",
-          "icon": "star"
-        },
-        {
-          "year": 1964,
-          "type": "album",
-          "title": "John Coltrane: A Love Supreme",
-          "description": "John Coltrane released \"A Love Supreme\" in 1965, becoming one of the most influential jazz recordings in history. The album's spiritual and meditative approach changed jazz forever. Coltrane's intense musical journey culminated in this profound statement of faith and artistic achievement.",
-          "genre": "Jazz",
-          "icon": "disc"
-        },
-        {
-          "year": 1964,
-          "type": "album",
-          "title": "Bob Dylan: The Freewheelin'",
-          "description": "Bob Dylan's \"The Freewheelin'\" was released in 1963, establishing him as the voice of his generation. The album contained \"Blowin' in the Wind\" and \"The Times They Are a-Changin'.\" These songs became anthems for the civil rights and anti-war movements.",
-          "genre": "Folk",
+          "title": "Pantera: Cowboys from Hell",
+          "description": "Pantera's 'Cowboys from Hell' was released in 1990 and redefined heavy metal. The album's groove metal approach influenced modern metal. Phil Anselmo's vocals and Dimebag Darrell's riffs set new standards.",
+          "genre": "Groove Metal",
           "icon": "disc",
-          "link": "/artists/bob-dylan"
+          "link": "/knowledge/from-blues-to-breakdown"
         },
         {
-          "year": 1964,
-          "type": "artist",
-          "title": "The Kinks: You Really Got Me",
-          "description": "The Kinks released \"You Really Got Me\" in 1964, pioneering hard rock with its distorted guitar riffs. Ray Davies's songwriting blended working-class observations with pop sensibilities. The song's aggressive sound influenced countless rock bands.",
-          "genre": "Rock",
-          "icon": "user"
-        },
-        {
-          "year": 1964,
+          "year": 1985,
           "type": "album",
-          "title": "The Supremes: Baby Love",
-          "description": "The Supremes achieved their fifth consecutive #1 hit with \"Baby Love\" in 1964, establishing Motown's dominance on the pop charts. Diana Ross's elegant stage presence and vocal performance made the group crossover superstars. Their success demonstrated the commercial power of Black female artists.",
-          "genre": "Soul",
-          "icon": "disc"
-        },
-        {
-          "year": 1965,
-          "type": "album",
-          "title": "Bob Dylan: Highway 61 Revisited",
-          "description": "Bob Dylan's \"Highway 61 Revisited\" was released in 1965 with the epic \"Like a Rolling Stone.\" The song's length and complexity were unprecedented in popular music. Dylan's electric backing musicians included Mike Bloomfield and Al Kooper.",
-          "genre": "Folk Rock",
+          "title": "John Adams: Harmonielehre",
+          "description": "John Adams's 'Harmonielehre' was released in 1985 and became a neo-classical landmark. The work balanced minimalism with lush orchestration. Adams established post-minimalism as a major classical movement.",
+          "genre": "Neo-Classical",
           "icon": "disc",
-          "link": "/artists/bob-dylan"
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
         },
         {
-          "year": 1965,
-          "type": "innovation",
-          "title": "Fuzz Guitar Invented",
-          "description": "The fuzz guitar effect was popularized in 1965 with recordings like The Rolling Stones' \"(I Can't Get No) Satisfaction.\" The Maestro Fuzz-Tone and later the Arbiter Fuzz Face became essential tools for rock guitarists. This effect defined the sound of garage rock and psychedelia.",
-          "genre": "Innovation",
-          "icon": "cpu"
-        },
-        {
-          "year": 1965,
-          "type": "artist",
-          "title": "The Beatles: Rubber Soul",
-          "description": "The Beatles' \"Rubber Soul\" was released in 1965, representing a quantum leap in songwriting sophistication and studio experimentation. The album's folk-rock sound influenced the development of the genre. Critics consider it one of the first art rock albums.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1965,
-          "type": "artist",
-          "title": "The Who: My Generation",
-          "description": "The Who released \"My Generation\" in 1965, defining mod culture and punk rock attitudes. Pete Townshend's stuttering vocal delivery and aggressive guitar technique became influential. The song's themes of generational rebellion resonated worldwide.",
-          "genre": "Rock",
-          "icon": "user"
-        },
-        {
-          "year": 1966,
+          "year": 1978,
           "type": "album",
-          "title": "The Beach Boys: Pet Sounds",
-          "description": "The Beach Boys released \"Pet Sounds\" in 1966, considered one of the most influential albums in rock history. Brian Wilson's sophisticated arrangements and emotional depth expanded pop music's possibilities. Paul McCartney declared it his favorite album.",
-          "genre": "Rock",
+          "title": "Arvo P\u00e4rt: Spiegel im Spiegel",
+          "description": "Arvo P\u00e4rt's 'Spiegel im Spiegel' was composed in 1978 but gained popularity in the 1980s. The piece's 'tintinnabuli' technique created meditative soundscapes. It became one of the most performed contemporary classical works.",
+          "genre": "Neo-Classical",
           "icon": "disc",
-          "link": "/artists/beach-boys"
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
         },
         {
-          "year": 1966,
-          "type": "artist",
-          "title": "The Beatles: Revolver",
-          "description": "The Beatles' \"Revolver\" was released in 1966, pioneering studio techniques and psychedelic sound. George Harrison's Indian music influences and tape loop experiments expanded sonic possibilities. The album marked a departure from live performance recording.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1967,
+          "year": 1982,
           "type": "album",
-          "title": "The Beatles: Sgt. Pepper's",
-          "description": "The Beatles' \"Sgt. Pepper's Lonely Hearts Club Band\" was released in 1967, widely considered the most influential album ever recorded. The album's complex arrangements and experimental sounds defined the Summer of Love aesthetic. It marked the first rock album to win the Grammy for Album of the Year.",
-          "genre": "Psychedelic Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1967,
-          "type": "event",
-          "title": "Summer of Love",
-          "description": "The Summer of Love defined 1967 in San Francisco's Haight-Ashbury district, bringing together hippies, musicians, and countercultural activists. The event popularized terms like \"flower power\" and \"peace and love.\" Musicians including Jefferson Airplane and The Grateful Dead became movement icons.",
-          "genre": "Cultural",
-          "icon": "calendar"
-        },
-        {
-          "year": 1967,
-          "type": "album",
-          "title": "Jimi Hendrix: Are You Experienced",
-          "description": "The Jimi Hendrix Experience released \"Are You Experienced\" in 1967, featuring \"Purple Haze\" and \"The Wind Cries Mary.\" Hendrix's revolutionary guitar technique influenced virtually every rock guitarist who followed. His approach to feedback, wah-wah, and volume transformed electric guitar performance.",
-          "genre": "Psychedelic Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1967,
-          "type": "artist",
-          "title": "The Doors Debut",
-          "description": "The Doors released their self-titled debut album in 1967, featuring \"Light My Fire\" which became a #1 hit. Jim Morrison's poetic lyrics and theatrical presence made the band distinctive. Their blend of blues, jazz, and psychedelic rock created a unique sound.",
-          "genre": "Rock",
-          "icon": "user"
-        },
-        {
-          "year": 1967,
-          "type": "album",
-          "title": "The Velvet Underground Debut",
-          "description": "The Velvet Underground & Nico was released in 1967, produced by Andy Warhol and featuring Nico on vocals. The album's minimalist approach and challenging content influenced punk, art rock, and alternative music. Though initially a commercial failure, it became one of the most influential albums.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1968,
-          "type": "album",
-          "title": "Led Zeppelin Debut",
-          "description": "Led Zeppelin released their self-titled debut album in 1969, establishing heavy metal and hard rock conventions. Jimmy Page's riff-based songwriting and John Bonham's powerful drumming created a new sound. The album was produced by The Yardbirds' manager Peter Grant.",
-          "genre": "Hard Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1968,
-          "type": "artist",
-          "title": "The Rolling Stones: Beggars Banquet",
-          "description": "The Rolling Stones released \"Beggars Banquet\" in 1968, featuring \"Sympathy for the Devil\" and \"Street Fighting Man.\" The album marked a return to blues-based rock after psychedelic experimentation. Brian Jones's slide guitar and Mick Taylor's contributions were notable.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1969,
-          "type": "milestone",
-          "title": "Woodstock Festival",
-          "description": "The Woodstock Music & Art Fair in August 1969 became the defining moment of the 1960s counterculture movement. Over 400,000 people gathered for three days of peace, love, and music. Performances by Jimi Hendrix, The Who, and Crosby, Stills & Nash became legendary.",
-          "genre": "Rock",
-          "icon": "star"
-        },
-        {
-          "year": 1969,
-          "type": "album",
-          "title": "The Beatles: Abbey Road",
-          "description": "The Beatles' \"Abbey Road\" was released in 1969, featuring the legendary side two medley and \"Come Together.\" The album's sophisticated production demonstrated the studio as an instrument. McCartney, Lennon, Harrison, and Starr's final recording session together.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1969,
-          "type": "album",
-          "title": "King Crimson: In the Court",
-          "description": "King Crimson released \"In the Court of the Crimson King\" in 1969, establishing progressive rock as a legitimate genre. Greg Lake's vocals and Robert Fripp's guitar work created an ambitious, classical-influenced sound. The album influenced countless progressive and art rock bands.",
-          "genre": "Progressive Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1969,
-          "type": "album",
-          "title": "Bob Dylan: Nashville Skyline",
-          "description": "Bob Dylan's \"Nashville Skyline\" was released in 1970, representing his full embrace of country music. His collaboration with Johnny Cash produced unique performances. The album demonstrated Dylan's genre-defying approach to American music.",
-          "genre": "Country",
-          "icon": "disc",
-          "link": "/artists/bob-dylan"
-        },
-        {
-          "year": 1969,
-          "type": "album",
-          "title": "The Who: Tommy",
-          "description": "The Who released \"Tommy\" in 1969, creating the first successful rock opera with coherent narrative throughout. Pete Townshend's ambitious concept explored themes of childhood trauma and spiritual awakening. Live performances became legendary theatrical events.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1969,
-          "type": "milestone",
-          "title": "Altamont Free Concert",
-          "description": "The Altamont Free Concert in December 1969 featured The Rolling Stones as headliners, with tragic results including a fan's death. The event symbolized the end of the 1960s utopian dream and was documented in the film \"Gimme Shelter.\" It marked a turning point in rock concert culture.",
-          "genre": "Cultural",
-          "icon": "calendar"
-        },
-        {
-          "year": 1969,
-          "type": "album",
-          "title": "Miles Davis: In a Silent Way",
-          "description": "Miles Davis's \"In a Silent Way\" in 1969 marked his transition to electric jazz and fusion. The double LP featured contributions from John McLaughlin, Chick Corea, and Herbie Hancock. The album influenced jazz, rock, and electronic music.",
-          "genre": "Jazz",
-          "icon": "disc",
-          "link": "/artists/miles-davis"
-        },
-        {
-          "year": 1969,
-          "type": "artist",
-          "title": "Sly and the Family Stone",
-          "description": "Sly and the Family Stone released \"Stand!\" in 1969, creating funk's definitive statement with messages of love and unity. Their blend of rock, funk, soul, and psychedelia influenced virtually all subsequent Black music. The band's multi-racial, multi-gender lineup was revolutionary.",
-          "genre": "Funk",
-          "icon": "user"
-        },
-        {
-          "year": 1969,
-          "type": "album",
-          "title": "Santana: Abraxas",
-          "description": "Santana's \"Abraxas\" was released in 1970, blending Latin rhythms with rock guitar in revolutionary ways. Carlos Santana's distinctive tone and improvisational approach influenced guitarists worldwide. The album spent six weeks at #1 on the charts.",
-          "genre": "Rock",
-          "icon": "disc",
-          "link": "/artists/santana"
-        },
-        {
-          "year": 1969,
-          "type": "artist",
-          "title": "James Brown: Cold Sweat",
-          "description": "James Brown's \"Cold Sweat\" in 1967 revolutionized funk with its innovative rhythmic structure and passionate delivery. The song featured musicians who would become the J.B.'s, one of the tightest bands in music history. Brown's \"godfather of soul\" title reflected his genre-defining contributions.",
-          "genre": "Funk",
-          "icon": "user",
-          "link": "/artists/james-brown"
-        },
-        {
-          "year": 1969,
-          "type": "artist",
-          "title": "Creedence Clearwater Revival",
-          "description": "Creedence Clearwater Revival achieved commercial dominance in 1969 with hits like \"Proud Mary\" and \"Bad Moon Rising.\" John Fogerty's songwriting and vocal delivery created an American sound. Their Bayou blues rock influenced Southern rock bands.",
-          "genre": "Rock",
-          "icon": "user"
-        },
-        {
-          "year": 1969,
-          "type": "artist",
-          "title": "Abbey Road Studios",
-          "description": "EMI's Abbey Road Studios in London became the most important recording facility in popular music history during the 1960s. Geoff Emerick's engineering innovations created the Beatles' distinctive sound. The studio's influence extended to rock, pop, and classical recordings.",
-          "genre": "Industry",
-          "icon": "star"
-        }
-      ]
-    },
-    {
-      "slug": "1970s",
-      "decade": "1970s",
-      "title": "Music of the 1970s: Disco, Punk & Progressive Era",
-      "articleSlug": "1970s",
-      "color": "#e67e22",
-      "items": [
-        {
-          "year": 1970,
-          "type": "artist",
-          "title": "James Brown: Sex Machine",
-          "description": "James Brown released \"Get Up (I Feel Like Being a) Sex Machine\" in 1970, cementing his role as the godfather of soul and pioneer of funk. His revolutionary approach to rhythm and groove changed popular music forever. The album showcased his tightest band and most innovative arrangements.",
-          "genre": "Funk",
-          "icon": "user",
-          "link": "/artists/james-brown"
-        },
-        {
-          "year": 1970,
-          "type": "album",
-          "title": "Led Zeppelin IV",
-          "description": "Led Zeppelin's untitled fourth album, commonly known as \"Led Zeppelin IV,\" was released in 1971 and became one of rock's defining records. The album featured \"Stairway to Heaven,\" which became rock's most-played and most-enduring anthem. Its mystical cover art with the painting of the ancient weighted man became iconic.",
-          "genre": "Hard Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1970,
-          "type": "artist",
-          "title": "The Beatles Disband",
-          "description": "The Beatles officially disbanded in 1970 after years of internal tension and legal disputes. Each member pursued solo careers of varying success. The breakup marked the end of an era and influenced how bands would handle success and failure.",
-          "genre": "Rock",
-          "icon": "user"
-        },
-        {
-          "year": 1970,
-          "type": "album",
-          "title": "Carole King: Tapestry",
-          "description": "Carole King's \"Tapestry\" was released in 1971 and became one of the best-selling albums of the 1970s. Her confessional songwriting and gentle piano arrangements defined the singer-songwriter genre. The album demonstrated that female artists could achieve both critical and commercial success.",
-          "genre": "Pop",
-          "icon": "disc",
-          "link": "/artists/carole-king"
-        },
-        {
-          "year": 1971,
-          "type": "album",
-          "title": "Marvin Gaye: What's Going On",
-          "description": "Marvin Gaye's \"What's Going On\" was released in 1971 and became one of the most important albums in soul music history. The title track addressed social issues including war, poverty, and environmental concerns. The album showed that commercially successful music could also be politically and socially conscious.",
-          "genre": "Soul",
-          "icon": "disc",
-          "link": "/artists/marvin-gaye"
-        },
-        {
-          "year": 1971,
-          "type": "album",
-          "title": "Joni Mitchell: Blue",
-          "description": "Joni Mitchell's \"Blue\" was released in 1971 and became a touchstone of confessional songwriting. Her vulnerable lyrics and innovative guitar tunings influenced countless singer-songwriters. The album is often cited as one of the greatest albums of all time.",
-          "genre": "Folk",
-          "icon": "disc",
-          "link": "/artists/joni-mitchell"
-        },
-        {
-          "year": 1971,
-          "type": "album",
-          "title": "Sly and the Family Stone",
-          "description": "Sly and the Family Stone's \"There's a Riot Goin' On\" was released in 1971, marking a darker, more cynical direction than their earlier work. The album reflected the disillusionment of the 1960s counterculture. Its innovative production techniques influenced funk and hip-hop production.",
-          "genre": "Funk",
-          "icon": "disc"
-        },
-        {
-          "year": 1972,
-          "type": "album",
-          "title": "Curtis Mayfield: Superfly",
-          "description": "Curtis Mayfield's \"Superfly\" soundtrack was released in 1972 and became one of the most influential soul soundtracks. Mayfield's sophisticated songwriting addressed urban life and Black identity. The album demonstrated the commercial viability of Black-oriented film soundtracks.",
-          "genre": "Soul",
-          "icon": "disc",
-          "link": "/artists/curtis-mayfield"
-        },
-        {
-          "year": 1972,
-          "type": "artist",
-          "title": "The Rolling Stones: Exile on Main St.",
-          "description": "The Rolling Stones' \"Exile on Main St.\" was released in 1972 and became one of their most acclaimed albums. The double album was recorded in various locations including Keith Richards' villa in France. Its raw, expansive sound captured the band's DNA.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1973,
-          "type": "milestone",
-          "title": "Hip-Hop Born in the Bronx",
-          "description": "DJ Kool Herc hosted a back-to-school party on August 11, 1973, in the Bronx, New York, widely considered the birth of hip-hop culture. His innovative use of drum breaks and two turntables created the foundation for an entirely new genre. The event would eventually transform global music culture.",
+          "title": "Grandmaster Flash: The Message",
+          "description": "Grandmaster Flash & The Furious Five released 'The Message' in 1982. The track was groundbreaking for its socially conscious lyrics about inner-city life, proving hip-hop could be a vehicle for social commentary.",
           "genre": "Hip-Hop",
-          "icon": "star"
-        },
-        {
-          "year": 1973,
-          "type": "album",
-          "title": "Pink Floyd: Dark Side of the Moon",
-          "description": "Pink Floyd's \"The Dark Side of the Moon\" was released in 1973 and became one of the best-selling albums in history. The album explored themes of time, money, death, and mental illness. Its production quality and sonic experimentation set new standards for studio recording.",
-          "genre": "Progressive Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1973,
-          "type": "artist",
-          "title": "Stevie Wonder: Innervisions",
-          "description": "Stevie Wonder's \"Innervisions\" was released in 1973 and demonstrated his full artistic maturity. The album addressed social issues including racism and drug addiction. Tracks like \"Living for the City\" became anthems of social consciousness.",
-          "genre": "Soul",
-          "icon": "disc",
-          "link": "/artists/stevie-wonder"
-        },
-        {
-          "year": 1974,
-          "type": "album",
-          "title": "Bob Dylan: Blood on the Tracks",
-          "description": "Bob Dylan's \"Blood on the Tracks\" was released in 1975 and became one of his most acclaimed albums. The album's raw emotional content reflected Dylan's personal struggles. Its influence on subsequent singer-songwriters remains profound.",
-          "genre": "Rock",
-          "icon": "disc",
-          "link": "/artists/bob-dylan"
-        },
-        {
-          "year": 1974,
-          "type": "album",
-          "title": "Paul Simon: Graceland",
-          "description": "Paul Simon's \"Graceland\" was released in 1986, but his South African music explorations began in the mid-1970s. The album blended American folk and rock with South African a cappella traditions. It demonstrated the potential of world music fusion in popular music.",
-          "genre": "World",
-          "icon": "disc"
-        },
-        {
-          "year": 1975,
-          "type": "innovation",
-          "title": "MIDI Protocol Invented",
-          "description": "The Musical Instrument Digital Interface (MIDI) was developed in the early 1980s and standardized electronic music communication. This innovation revolutionized how musicians could connect instruments, computers, and synthesizers. MIDI became essential to electronic music production.",
-          "genre": "Innovation",
-          "icon": "cpu"
-        },
-        {
-          "year": 1975,
-          "type": "album",
-          "title": "Fleetwood Mac: Rumours",
-          "description": "Fleetwood Mac's \"Rumours\" was released in 1977 and became one of the best-selling albums of all time. The album's creation involved intense interpersonal drama among band members. Its combination of pop hooks and emotional depth created a crossover masterpiece.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1975,
-          "type": "artist",
-          "title": "Bruce Springsteen: Born to Run",
-          "description": "Bruce Springsteen's \"Born to Run\" was released in 1975 and established him as rock's next great hope. The album's cinematic storytelling and ambitious production defined his sound. Tracks like \"Thunder Road\" became anthems of American youth.",
-          "genre": "Rock",
-          "icon": "disc",
-          "link": "/artists/bruce-springsteen"
-        },
-        {
-          "year": 1976,
-          "type": "album",
-          "title": "Stevie Wonder: Songs in the Key of Life",
-          "description": "Stevie Wonder's \"Songs in the Key of Life\" was released in 1976 and became his most ambitious work. The double album showcased his talents as songwriter, producer, and multi-instrumentalist. Its spiritual content and musical sophistication influenced generations of musicians.",
-          "genre": "Soul",
-          "icon": "disc",
-          "link": "/artists/stevie-wonder"
-        },
-        {
-          "year": 1976,
-          "type": "album",
-          "title": "Boston: Debut Album",
-          "description": "Boston's self-titled debut album was released in 1976 and became one of the best-selling debut albums in rock history. The album's pristine guitar sound and vocal harmonies defined classic rock radio. Its production by Tom Scholz raised standards for studio recording.",
-          "genre": "Hard Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1977,
-          "type": "milestone",
-          "title": "Punk Rock Explodes",
-          "description": "The Sex Pistols' \"Anarchy in the UK\" tour in 1977 sparked the punk revolution in Britain. The band's confrontational performances and nihilistic attitude challenged rock establishment. Punk's DIY ethos influenced music, fashion, and youth culture worldwide.",
-          "genre": "Punk",
-          "icon": "star"
-        },
-        {
-          "year": 1977,
-          "type": "artist",
-          "title": "The Ramones Debut",
-          "description": "The Ramones released their self-titled debut album in 1976, establishing the blueprint for punk rock. The album's stripped-down approach and three-chord songs influenced countless bands. Its influence on alternative and indie music remains immeasurable.",
-          "genre": "Punk",
-          "icon": "user"
-        },
-        {
-          "year": 1977,
-          "type": "artist",
-          "title": "The Bee Gees: Saturday Night Fever",
-          "description": "The Bee Gees' soundtrack for \"Saturday Night Fever\" was released in 1977 and defined the disco era. Their falsetto vocals and polished production dominated pop music. The soundtrack became one of the best-selling in history.",
-          "genre": "Disco",
-          "icon": "disc",
-          "link": "/artists/bee-gees"
-        },
-        {
-          "year": 1978,
-          "type": "album",
-          "title": "The Eagles: Hotel California",
-          "description": "The Eagles' \"Hotel California\" was released in 1976 and became one of the best-selling albums of all time. The title track's mysterious lyrics and guitar work became iconic. The album represented the peak of Southern California rock.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1978,
-          "type": "album",
-          "title": "Pink Floyd: The Wall",
-          "description": "Pink Floyd's \"The Wall\" was released in 1979 and became one of rock's most ambitious concept albums. The story of alienation and fame resonated with audiences worldwide. The album's live shows featured elaborate theatrical productions.",
-          "genre": "Progressive Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1978,
-          "type": "artist",
-          "title": "Donna Summer: Love to Love You Baby",
-          "description": "Donna Summer's \"Love to Love You Baby\" was released in 1975 and established her as disco's queen. Her sensuous vocals and Giorgio Moroder's production created a new sound. The album influenced electronic music and dance culture.",
-          "genre": "Disco",
-          "icon": "disc",
-          "link": "/artists/donna-summer"
-        },
-        {
-          "year": 1979,
-          "type": "album",
-          "title": "Michael Jackson: Off the Wall",
-          "description": "Michael Jackson's \"Off the Wall\" was released in 1979 and demonstrated his evolution from child star to mature artist. The album's disco and R&B sound showed his versatility. Producer Quincy Jones established a partnership that would define 1980s pop.",
-          "genre": "Pop",
-          "icon": "disc",
-          "link": "/artists/michael-jackson"
-        },
-        {
-          "year": 1979,
-          "type": "milestone",
-          "title": "Disco Demolition Night",
-          "description": "Disco Demolition Night at Comiskey Park in Chicago in 1979 marked a turning point in music culture. Thousands of fans destroyed disco records in protest of the genre's dominance. The event symbolized the cyclical nature of musical trends.",
-          "genre": "Cultural",
-          "icon": "star"
-        },
-        {
-          "year": 1979,
-          "type": "artist",
-          "title": "Chic Formed",
-          "description": "Chic was formed in 1976 and became one of the most influential bands in disco and funk. Their clean basslines and guitar work influenced dance music production. The band's members became legendary producers for other artists.",
-          "genre": "Disco",
-          "icon": "user"
-        },
-        {
-          "year": 1979,
-          "type": "artist",
-          "title": "Kraftwerk Innovate",
-          "description": "Kraftwerk's \"The Man-Machine\" was released in 1978 and influenced electronic music worldwide. Their robotic vocals and sequencer-based arrangements created a new paradigm. The band influenced synth-pop, techno, and hip-hop production.",
-          "genre": "Electronic",
-          "icon": "user"
-        },
-        {
-          "year": 1979,
-          "type": "album",
-          "title": "Talking Heads: Fear of Music",
-          "description": "Talking Heads' \"Fear of Music\" was released in 1979 and demonstrated their evolution from new wave to art rock. The album's paranoid lyrics and Brian Eno's production created a unique sound. The band influenced alternative and experimental music.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1979,
-          "type": "album",
-          "title": "The Clash: London Calling",
-          "description": "The Clash's \"London Calling\" was released in 1979 and became punk rock's masterpiece. The album expanded punk's musical and thematic range. Its influence on alternative and indie music continues to this day.",
-          "genre": "Punk",
-          "icon": "disc"
-        },
-        {
-          "year": 1979,
-          "type": "artist",
-          "title": "Debbie Harry: Blondie",
-          "description": "Debbie Harry and Blondie achieved commercial breakthrough with \"Parallel Lines\" in 1978. The album blended punk attitude with pop sensibility. Harry became punk's most enduring icon.",
-          "genre": "New Wave",
-          "icon": "disc"
-        },
-        {
-          "year": 1979,
-          "type": "album",
-          "title": "Fleetwood Mac: Tusk",
-          "description": "Fleetwood Mac's \"Tusk\" was released in 1979 and represented their most experimental work. Lindsey Buckingham's avant-garde approach challenged fans expecting another \"Rumours.\" The album demonstrated the band's willingness to take risks.",
-          "genre": "Rock",
-          "icon": "disc"
-        },
-        {
-          "year": 1979,
-          "type": "artist",
-          "title": "Grace Jones Debut",
-          "description": "Grace Jones released \"Nightclubbing\" in 1977, establishing her as a performance artist and musician. Her androgynous style and powerful vocals influenced fashion and music. The album influenced subsequent electronic and new wave artists.",
-          "genre": "Disco",
-          "icon": "disc",
-          "link": "/artists/grace-jones"
-        },
-        {
-          "year": 1979,
-          "type": "album",
-          "title": "Minnie Riperton: Perfect Angel",
-          "description": "Minnie Riperton's \"Perfect Angel\" was released in 1974 and showcased her remarkable five-octave voice. The album featured the hit \"Lovin' You\" with its famous high note. Her spiritual approach to music influenced generations of vocalists.",
-          "genre": "Soul",
-          "icon": "disc",
-          "link": "/artists/minnie-riperton"
-        },
-        {
-          "year": 1979,
-          "type": "artist",
-          "title": "ABBA: Arrival",
-          "description": "ABBA's \"Arrival\" was released in 1976 and established them as Europe's most successful band. The album featured \"Dancing Queen,\" their signature hit. Their sophisticated pop production influenced generations of producers.",
-          "genre": "Pop",
-          "icon": "disc"
-        },
-        {
-          "year": 1979,
-          "type": "album",
-          "title": "Earth, Wind & Fire: I Am",
-          "description": "Earth, Wind & Fire's \"I Am\" was released in 1979 and demonstrated their fusion of funk, jazz, and soul. The band's elaborate live shows and spiritual themes created a unique experience. They became one of Black music's most influential acts.",
-          "genre": "Funk",
-          "icon": "disc"
-        },
-        {
-          "year": 1979,
-          "type": "artist",
-          "title": "Afrika Bambaataa Emerges",
-          "description": "Afrika Bambaataa emerged in the South Bronx hip-hop scene and became one of its founding figures. His \"Planet Rock\" in 1982 would merge electronic music with hip-hop. He established hip-hop as a global cultural movement.",
-          "genre": "Hip-Hop",
-          "icon": "user"
-        },
-        {
-          "year": 1979,
-          "type": "album",
-          "title": " Commodores: Natural",
-          "description": "The Commodores' \"Natural\" was released in 1979 and featured \"Sail On,\" a major hit. Lionel Ross's arrangements created sophisticated soul music. The band balanced commercial success with artistic integrity.",
-          "genre": "Soul",
           "icon": "disc"
         }
       ]
@@ -2253,6 +1867,49 @@
           "genre": "Hip-Hop",
           "icon": "disc",
           "link": "/artists/jay-z"
+        },
+        {
+          "year": 1994,
+          "type": "album",
+          "title": "Korn: Korn",
+          "description": "Korn's self-titled debut album was released in 1994 and launched nu-metal. The combination of metal, hip-hop, and funk created a new genre. Jonathan Davis's distinctive vocals and 7-string guitars influenced a generation.",
+          "genre": "Nu Metal",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1999,
+          "type": "album",
+          "title": "Slipknot: Slipknot",
+          "description": "Slipknot's self-titled debut album was released in 1999 and shocked the music world. The masked band's chaotic energy and nine-member lineup created extreme metal. It influenced heavy music's visual and sonic boundaries.",
+          "genre": "Metal",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1982,
+          "type": "album",
+          "title": "Philip Glass: Koyaanisqatsi",
+          "description": "Philip Glass's 'Koyaanisqatsi' soundtrack was released in 1982 but achieved broader recognition in the 1990s. The repetitive patterns and orchestral electronic fusion created immersive soundscapes. It influenced film music and ambient genres.",
+          "genre": "Neo-Classical",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 1994,
+          "type": "album",
+          "title": "Oasis: Definitely Maybe",
+          "description": "Oasis released 'Definitely Maybe' in 1994, becoming the fastest-selling debut album in UK history. The album defined the Britpop movement and signaled a return to guitar-driven British rock.",
+          "genre": "Britpop",
+          "icon": "disc"
+        },
+        {
+          "year": 1996,
+          "type": "album",
+          "title": "Tupac: All Eyez on Me",
+          "description": "Tupac Shakur released 'All Eyez on Me' in 1996, a double album that became the best-selling rap album of its time. The album defined West Coast gangsta rap before Tupac's tragic death later that year.",
+          "genre": "Hip-Hop",
+          "icon": "disc"
         }
       ]
     },
@@ -2294,7 +1951,7 @@
           "year": 2000,
           "type": "artist",
           "title": "Destiny's Child: Survivor",
-          "description": "Destiny's Child's \"Survivor\" was released in 2001 and demonstrated their resilience. The title track became an anthem of empowerment. Beyoncé's rising prominence hinted at her solo future.",
+          "description": "Destiny's Child's \"Survivor\" was released in 2001 and demonstrated their resilience. The title track became an anthem of empowerment. Beyonc\u00e9's rising prominence hinted at her solo future.",
           "genre": "R&B",
           "icon": "disc",
           "link": "/artists/destiny-child"
@@ -2604,6 +2261,92 @@
           "genre": "Cultural",
           "icon": "star",
           "link": "/artists/michael-jackson"
+        },
+        {
+          "year": 2006,
+          "type": "album",
+          "title": "Hatebreed: The Rise of Brutality",
+          "description": "Hatebreed's 'The Rise of Brutality' was released in 2006 and defined metalcore. The album's aggressive breakdowns and Jamey Jasta's powerful vocals represented hardcore metal fusion. It influenced modern metalcore development.",
+          "genre": "Metalcore",
+          "icon": "disc",
+          "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 2004,
+          "type": "album",
+          "title": "Max Richter: The Blue Notebooks",
+          "description": "Max Richter's 'The Blue Notebooks' was released in 2004 and became neo-classical crossover success. The blend of classical instruments and electronic elements reached new audiences. It influenced modern composition and film scores.",
+          "genre": "Neo-Classical",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 2009,
+          "type": "album",
+          "title": "Nils Frahm: Wintermusik",
+          "description": "Nils Frahm's 'Wintermusik' was released in 2009 and demonstrated neo-classical piano innovation. The intimate compositions combined classical technique with modern sensitivity. Frahm became a leading voice in contemporary classical.",
+          "genre": "Neo-Classical",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 2011,
+          "type": "album",
+          "title": "\u00d3lafur Arnalds: found songs",
+          "description": "\u00d3lafur Arnalds's 'found songs' was released in 2011 and blended classical and electronic elements. The strings and electronics created emotional soundscapes. He represented the new wave of Nordic neo-classical artists.",
+          "genre": "Neo-Classical",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 2006,
+          "type": "album",
+          "title": "Ludovico Einaudi: Divenire",
+          "description": "Ludovico Einaudi's 'Divenire' was released in 2006 and achieved global recognition. The piano compositions with orchestral arrangements reached mainstream audiences. Einaudi became the most streamed classical artist.",
+          "genre": "Neo-Classical",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 2013,
+          "type": "album",
+          "title": "J\u00f3hann J\u00f3hannsson: The Theory of Everything",
+          "description": "J\u00f3hann J\u00f3hannsson's 'The Theory of Everything' soundtrack was released in 2013 and won awards. The blend of orchestra, electronics, and piano created cinematic soundscapes. He established Icelandic neo-classical on the world stage.",
+          "genre": "Neo-Classical",
+          "icon": "disc",
+          "link": "/knowledge/from-classical-roots-to-neo-classical-sounds"
+        },
+        {
+          "year": 2001,
+          "type": "milestone",
+          "title": "Apple iPod Launch",
+          "description": "Apple launched the iPod in 2001, revolutionizing how people consume music. The '1,000 songs in your pocket' device transformed the music industry and paved the way for digital music dominance.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2003,
+          "type": "milestone",
+          "title": "iTunes Store Opens",
+          "description": "Apple opened the iTunes Store in 2003, creating the first widely successful legal digital music marketplace. The 99-cent single model changed how music was purchased and consumed.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2005,
+          "type": "milestone",
+          "title": "YouTube Launches",
+          "description": "YouTube launched in 2005, fundamentally changing how music videos were shared and consumed. The platform democratized music discovery and launched countless artists' careers through viral videos.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2008,
+          "type": "milestone",
+          "title": "Spotify Launches",
+          "description": "Spotify launched in 2008 in Sweden, pioneering the music streaming model. The service would go on to revolutionize the entire music industry, shifting from ownership to access-based consumption.",
+          "genre": "Technology",
+          "icon": "cpu"
         }
       ]
     },
@@ -2716,8 +2459,8 @@
         {
           "year": 2013,
           "type": "album",
-          "title": "Beyoncé: Beyoncé",
-          "description": "Beyoncé's self-titled \"visual album\" was released in 2013 and revolutionized album releases. The surprise drop influenced how artists launched projects. Her artistic control influenced female artists.",
+          "title": "Beyonc\u00e9: Beyonc\u00e9",
+          "description": "Beyonc\u00e9's self-titled \"visual album\" was released in 2013 and revolutionized album releases. The surprise drop influenced how artists launched projects. Her artistic control influenced female artists.",
           "genre": "R&B",
           "icon": "disc",
           "link": "/artists/beyonce"
@@ -2869,8 +2612,8 @@
         {
           "year": 2018,
           "type": "album",
-          "title": "Janelle Monáe: Dirty Computer",
-          "description": "Janelle Monáe's \"Dirty Computer\" was released in 2018 and became a science fiction soul masterpiece. \"Pynk\" and \"I Like That\" celebrated Black female sexuality. The album influenced pop's genre-blending.",
+          "title": "Janelle Mon\u00e1e: Dirty Computer",
+          "description": "Janelle Mon\u00e1e's \"Dirty Computer\" was released in 2018 and became a science fiction soul masterpiece. \"Pynk\" and \"I Like That\" celebrated Black female sexuality. The album influenced pop's genre-blending.",
           "genre": "R&B",
           "icon": "disc",
           "link": "/artists/janelle-monae"
@@ -2896,8 +2639,8 @@
         {
           "year": 2019,
           "type": "album",
-          "title": "Rosalía: El Mal Querer",
-          "description": "Rosalía's \"El Mal Querer\" was released in 2018 and became flamenco-pop's international breakthrough. \"Con Altura\" and \"Milionària\" showcased her Catalan roots. She influenced Latin music's evolution.",
+          "title": "Rosal\u00eda: El Mal Querer",
+          "description": "Rosal\u00eda's \"El Mal Querer\" was released in 2018 and became flamenco-pop's international breakthrough. \"Con Altura\" and \"Milion\u00e0ria\" showcased her Catalan roots. She influenced Latin music's evolution.",
           "genre": "Latin",
           "icon": "disc",
           "link": "/artists/rosalia"
