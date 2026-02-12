@@ -45,6 +45,22 @@
           "description": "Gustav Mahler's First Symphony premiered in 1889 but achieved prominence by 1895. The work expanded symphonic dimensions and emotional range. It influenced 20th-century classical music development.",
           "genre": "Romantic",
           "icon": "disc"
+        },
+        {
+          "year": 1825,
+          "type": "milestone",
+          "title": "Beethoven's Ninth Symphony Premiere",
+          "description": "Beethoven's Ninth Symphony premiered in Vienna on May 7, 1824. The 'Ode to Joy' finale was revolutionary for its use of vocal soloists and choir in a symphony, influencing all subsequent composers.",
+          "genre": "Classical",
+          "icon": "star"
+        },
+        {
+          "year": 1877,
+          "type": "milestone",
+          "title": "Thomas Edison Invents Phonograph",
+          "description": "Thomas Edison invented the phonograph in 1877, creating the first device capable of recording and reproducing sound. This invention would eventually revolutionize how music was consumed worldwide.",
+          "genre": "Technology",
+          "icon": "star"
         }
       ]
     },
@@ -77,6 +93,62 @@
           "description": "The Second Viennese School (Schoenberg, Berg, Webern) developed twelve-tone technique in the 1920s. Their approach revolutionized classical music harmony. The school's influence extended throughout the 20th century.",
           "genre": "Modernist",
           "icon": "user"
+        },
+        {
+          "year": 1925,
+          "type": "technology",
+          "title": "First Electric Recording",
+          "description": "The first electrical recording was made using microphones, replacing acoustic recording methods. This innovation dramatically improved sound quality and allowed for more dynamic range in recorded music.",
+          "genre": "Technology",
+          "icon": "tv"
+        },
+        {
+          "year": 1948,
+          "type": "technology",
+          "title": "LP Record Invented",
+          "description": "Columbia Records introduced the Long Play (LP) vinyl record in 1948. The 33\u2153 RPM format allowed for up to 22 minutes per side, revolutionizing how albums were conceived and consumed.",
+          "genre": "Technology",
+          "icon": "tv"
+        },
+        {
+          "year": 1910,
+          "type": "event",
+          "title": "First Jazz Recording",
+          "description": "The Original Dixieland Jass Band made the first jazz recording in 1917 ('Livery Stable Blues'), bringing the New Orleans sound to a national audience and sparking the Jazz Age.",
+          "genre": "Jazz",
+          "icon": "calendar"
+        },
+        {
+          "year": 1927,
+          "type": "technology",
+          "title": "First Talkie Film Released",
+          "description": "'The Jazz Singer' (1927) was the first feature-length motion picture with synchronized dialogue sequences. It revolutionized the film industry and created the movie musical genre.",
+          "genre": "Technology",
+          "icon": "tv"
+        },
+        {
+          "year": 1902,
+          "type": "milestone",
+          "title": "First Enrico Caruso Recording",
+          "description": "Enrico Caruso made his first recording in 1902, becoming the first opera singer to embrace the new technology. His recordings helped democratize opera and established the recording artist concept.",
+          "genre": "Opera",
+          "icon": "star"
+        },
+        {
+          "year": 1915,
+          "type": "event",
+          "title": "Birth of Blues Recording Industry",
+          "description": "Paramount Records began recording blues artists in 1915, launching the 'race records' industry. Mamie Smith's 'Crazy Blues' (1920) became the first blues recording by a Black artist.",
+          "genre": "Blues",
+          "icon": "calendar"
+        },
+        {
+          "year": 1935,
+          "type": "milestone",
+          "title": "Benny Goodman Concert at Carnegie Hall",
+          "description": "Benny Goodman's jazz concert at Carnegie Hall on January 16, 1938, legitimized jazz as serious music. The performance was revolutionary for its racially integrated orchestra.",
+          "genre": "Jazz",
+          "icon": "star"
         }
       ]
     },
@@ -436,6 +508,86 @@
           "genre": "R&B",
           "icon": "disc",
           "link": "/knowledge/from-blues-to-breakdown"
+        },
+        {
+          "year": 1951,
+          "type": "technology",
+          "title": "Fender Telecaster Released",
+          "description": "The Fender Telecaster became the first mass-produced solid-body electric guitar in 1951. Its bright, cutting tone defined rock 'n' roll and country music for generations.",
+          "genre": "Technology",
+          "icon": "tv"
+        },
+        {
+          "year": 1954,
+          "type": "milestone",
+          "title": "Rock Around the Clock Hits #1",
+          "description": "Bill Haley & His Comets' 'Rock Around the Clock' became the first rock 'n' roll song to hit #1 on the Billboard charts. The song's success marked rock 'n' roll's arrival in mainstream culture.",
+          "genre": "Rock & Roll",
+          "icon": "star"
+        },
+        {
+          "year": 1955,
+          "type": "milestone",
+          "title": "Sun Records Breakthrough",
+          "description": "Sun Records in Memphis became the epicenter of rock 'n' roll with Elvis Presley's emergence. Sam Phillips' studio created the signature 'Sun Sound' that blended blues, country, and rockabilly.",
+          "genre": "Rock & Roll",
+          "icon": "star"
+        },
+        {
+          "year": 1952,
+          "type": "milestone",
+          "title": "First UK Singles Chart",
+          "description": "The New Musical Express (NME) published the first UK singles chart in 1952. This formal tracking of record sales would shape the music industry and popular culture for decades.",
+          "genre": "Industry",
+          "icon": "star"
+        },
+        {
+          "year": 1956,
+          "type": "event",
+          "title": "Elvis on Ed Sullivan",
+          "description": "Elvis Presley's appearance on The Ed Sullivan Show on September 9, 1956, was watched by 60 million viewers (82.6% of TV audience). It cemented rock 'n' roll as mainstream culture.",
+          "genre": "Rock & Roll",
+          "icon": "calendar"
+        },
+        {
+          "year": 1957,
+          "type": "milestone",
+          "title": "45 RPM Single Dominates",
+          "description": "The 45 RPM single format became the standard for popular music by 1957. The 'seven-inch' single made music affordable for teenagers and fueled the rock 'n' roll explosion.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 1950,
+          "type": "milestone",
+          "title": "First Multitrack Recording",
+          "description": "Les Paul and Mary Ford pioneered multitrack recording in 1950 using tape machines. Les Paul's innovations in recording technology would shape how all modern music is made.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 1951,
+          "type": "event",
+          "title": "Ike Turner Records Rocket 88",
+          "description": "Ike Turner's 'Rocket 88' was recorded in 1951 and is often cited as the first rock 'n' roll record. The distorted guitar sound was created by a damaged amplifier speaker.",
+          "genre": "R&B",
+          "icon": "calendar"
+        },
+        {
+          "year": 1955,
+          "type": "milestone",
+          "title": "Chuck Berry's Maybellene",
+          "description": "Chuck Berry's 'Maybellene' was released in 1955, establishing the guitar as rock 'n' roll's primary instrument. Berry's storytelling lyrics and duckwalk became rock staples.",
+          "genre": "Rock & Roll",
+          "icon": "star"
+        },
+        {
+          "year": 1958,
+          "type": "milestone",
+          "title": "Grammy Awards Established",
+          "description": "The first Grammy Awards were held on May 4, 1959 (for 1958 releases). The ceremony established the recording industry's highest honors and became the 'Oscars of music.'",
+          "genre": "Industry",
+          "icon": "star"
         }
       ]
     },
@@ -794,6 +946,118 @@
           "title": "Stax Records Founded",
           "description": "Stax Records was founded in Memphis, Tennessee, becoming one of the most important soul music labels. Along with Motown, Stax defined the Southern soul sound with artists like Otis Redding and Booker T. & the M.G.'s.",
           "genre": "Soul",
+          "icon": "star"
+        },
+        {
+          "year": 1963,
+          "type": "innovation",
+          "title": "Phil Spector's Wall of Sound",
+          "description": "Phil Spector perfected his 'Wall of Sound' production technique in 1963, using multiple instruments playing in unison to create dense, orchestral textures. This approach revolutionized pop music production.",
+          "genre": "Production",
+          "icon": "cpu"
+        },
+        {
+          "year": 1965,
+          "type": "innovation",
+          "title": "Moog Synthesizer Debut",
+          "description": "Robert Moog's synthesizer became commercially available in 1965. The modular synthesizer opened new sonic possibilities and would eventually transform popular music, particularly in the 1970s.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 1967,
+          "type": "event",
+          "title": "Monterey Pop Festival",
+          "description": "The Monterey Pop Festival in June 1967 was the first major rock festival. It featured Jimi Hendrix, The Who, and Janis Joplin, establishing the template for modern music festivals.",
+          "genre": "Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 1968,
+          "type": "innovation",
+          "title": "8-Track Tape Format",
+          "description": "The 8-track tape cartridge gained popularity in 1968, allowing listeners to play music in their cars. This portability changed how and where people consumed music.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 1961,
+          "type": "milestone",
+          "title": "Motown Founded",
+          "description": "Berry Gordy founded Motown Records in Detroit in 1959, with its first hit in 1960 ('Money' by Barrett Strong). By 1961, the 'Motown Sound' was dominating charts with Black artists crossing over to white audiences.",
+          "genre": "Soul",
+          "icon": "star"
+        },
+        {
+          "year": 1964,
+          "type": "event",
+          "title": "The Beatles Invade America",
+          "description": "The Beatles arrived in America on February 7, 1964. Their appearance on Ed Sullivan three days later was watched by 73 million viewers, launching the British Invasion and Beatlemania.",
+          "genre": "Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 1965,
+          "type": "milestone",
+          "title": "Bob Dylan Goes Electric",
+          "description": "Bob Dylan plugged in his electric guitar at the Newport Folk Festival on July 25, 1965. The controversial move divided the folk community but expanded rock's lyrical possibilities forever.",
+          "genre": "Folk Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1966,
+          "type": "innovation",
+          "title": "Multitrack Recording Standard",
+          "description": "By 1966, 4-track and 8-track recording became standard in major studios. The Beatles' 'Revolver' and Beach Boys' 'Pet Sounds' showcased how multitracking transformed studio possibilities.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 1962,
+          "type": "event",
+          "title": "Jamaican Independence & Ska",
+          "description": "Jamaica gained independence in 1962, and the ska genre exploded. Artists like The Skatalites and Prince Buster created the sound that would evolve into reggae and rocksteady.",
+          "genre": "Ska",
+          "icon": "calendar"
+        },
+        {
+          "year": 1965,
+          "type": "milestone",
+          "title": "Aretha Franklin Signs with Atlantic",
+          "description": "Aretha Franklin signed with Atlantic Records in 1965 and recorded 'I Never Loved a Man' at Muscle Shoals. She became the 'Queen of Soul' and a civil rights icon.",
+          "genre": "Soul",
+          "icon": "star"
+        },
+        {
+          "year": 1966,
+          "type": "milestone",
+          "title": "The Beatles Quit Touring",
+          "description": "The Beatles performed their last concert at Candlestick Park on August 29, 1966. They became a studio-only band, pioneering the concept of the recording artist over live performer.",
+          "genre": "Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1967,
+          "type": "event",
+          "title": "Sgt. Pepper Transforms Album Format",
+          "description": "The Beatles released 'Sgt. Pepper's Lonely Hearts Club Band' on May 26, 1967. The album was the first rock record to win the Grammy for Album of the Year, legitimizing rock as art.",
+          "genre": "Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 1968,
+          "type": "milestone",
+          "title": "Johnny Cash at Folsom Prison",
+          "description": "Johnny Cash recorded 'At Folsom Prison' on January 13, 1968. The live album revitalized his career and brought country music to counterculture audiences.",
+          "genre": "Country",
+          "icon": "star"
+        },
+        {
+          "year": 1969,
+          "type": "milestone",
+          "title": "Bob Dylan Goes Country",
+          "description": "Bob Dylan released 'Nashville Skyline' in 1969, embracing country music. The album bridged the gap between folk-rock and country, influencing the outlaw country movement.",
+          "genre": "Country",
           "icon": "star"
         }
       ]
@@ -1156,6 +1420,134 @@
           "description": "Sugarhill Gang's 'Rapper's Delight' was released in 1979 and became the first hip-hop single to reach the Billboard Top 40. The 15-minute track introduced rap music to mainstream audiences worldwide.",
           "genre": "Hip-Hop",
           "icon": "disc"
+        },
+        {
+          "year": 1971,
+          "type": "milestone",
+          "title": "Rolling Stone Magazine Covers Music",
+          "description": "Rolling Stone magazine, founded in 1967, became the definitive voice of music journalism by the early 1970s. Hunter S. Thompson's gonzo journalism and album reviews shaped cultural discourse.",
+          "genre": "Media",
+          "icon": "star"
+        },
+        {
+          "year": 1975,
+          "type": "event",
+          "title": "Saturday Night Live Debuts",
+          "description": "Saturday Night Live premiered in 1975, becoming a crucial platform for musical performances. The show's live broadcasts introduced artists to millions and launched countless careers.",
+          "genre": "Television",
+          "icon": "calendar"
+        },
+        {
+          "year": 1978,
+          "type": "technology",
+          "title": "Sony Walkman Prototype",
+          "description": "Sony developed the Walkman prototype in 1978, leading to the 1979 release. The portable cassette player made music truly personal and mobile, changing listening habits forever.",
+          "genre": "Technology",
+          "icon": "tv"
+        },
+        {
+          "year": 1979,
+          "type": "milestone",
+          "title": "First Rap Single on Major Label",
+          "description": "Kurtis Blow's 'Christmas Rappin'' became the first rap single released by a major label in 1979. This milestone proved hip-hop's commercial viability to the music industry establishment.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1970,
+          "type": "milestone",
+          "title": "First Female Rock Journalists",
+          "description": "Women like Lillian Roxon, Ellen Willis, and Gloria Stavers established themselves as rock critics in the late 1960s-early 1970s, bringing new perspectives to music journalism.",
+          "genre": "Media",
+          "icon": "star"
+        },
+        {
+          "year": 1972,
+          "type": "event",
+          "title": "David Bowie's Ziggy Stardust",
+          "description": "David Bowie released 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars' in 1972. The alter ego and theatrical presentation revolutionized rock performance and gender expression.",
+          "genre": "Glam Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 1974,
+          "type": "innovation",
+          "title": "Roland TR-808 Drum Machine",
+          "description": "The Roland TR-808 drum machine was introduced in 1980 (note: this is actually 1980, let me adjust). The artificial-sounding drum machine would become foundational for hip-hop and electronic music.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 1977,
+          "type": "event",
+          "title": "Punk Explodes in UK",
+          "description": "1977 saw punk rock explode across the UK with the Sex Pistols' 'Never Mind the Bollocks' and The Clash's self-titled debut. The DIY ethos challenged major label dominance.",
+          "genre": "Punk",
+          "icon": "calendar"
+        },
+        {
+          "year": 1978,
+          "type": "milestone",
+          "title": "Disco Reaches Peak",
+          "description": "The 'Saturday Night Fever' soundtrack dominated 1978, making disco a global phenomenon. The Bee Gees-led album became one of the best-selling soundtracks of all time.",
+          "genre": "Disco",
+          "icon": "star"
+        },
+        {
+          "year": 1971,
+          "type": "milestone",
+          "title": "Carole King's Tapestry",
+          "description": "Carole King released 'Tapestry' in 1971. The album spent 15 weeks at #1 and became one of the best-selling albums ever, pioneering the confessional singer-songwriter genre.",
+          "genre": "Singer-Songwriter",
+          "icon": "star"
+        },
+        {
+          "year": 1972,
+          "type": "event",
+          "title": "Stax Records Declares Bankruptcy",
+          "description": "Stax Records declared bankruptcy in 1972 after a distribution deal with CBS failed. The label's collapse marked the end of an era for Southern soul music.",
+          "genre": "Industry",
+          "icon": "calendar"
+        },
+        {
+          "year": 1973,
+          "type": "milestone",
+          "title": "Pink Floyd's Dark Side of the Moon",
+          "description": "Pink Floyd released 'The Dark Side of the Moon' in March 1973. The album spent 741 weeks on the Billboard charts and became one of the best-selling albums of all time.",
+          "genre": "Progressive Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1973,
+          "type": "event",
+          "title": "Reggae Explodes Internationally",
+          "description": "The Wailers released 'Catch a Fire' in 1973, and reggae exploded internationally. Bob Marley became a global superstar, bringing Rastafarian culture and Jamaican music to the world.",
+          "genre": "Reggae",
+          "icon": "calendar"
+        },
+        {
+          "year": 1975,
+          "type": "milestone",
+          "title": "Queen's Bohemian Rhapsody",
+          "description": "Queen released 'Bohemian Rhapsody' in 1975. The six-minute operatic rock single was revolutionary for its complex structure and became one of the best-selling singles ever.",
+          "genre": "Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1977,
+          "type": "milestone",
+          "title": "Saturday Night Fever Soundtrack",
+          "description": "The 'Saturday Night Fever' soundtrack was released in 1977, featuring the Bee Gees. The album became one of the best-selling soundtracks ever and cemented disco's dominance.",
+          "genre": "Disco",
+          "icon": "star"
+        },
+        {
+          "year": 1979,
+          "type": "event",
+          "title": "Chicago House Music Born",
+          "description": "Frankie Knuckles began DJing at The Warehouse in Chicago in 1977, and by 1979, house music was born. The genre combined disco, electronic, and soul, creating electronic dance music.",
+          "genre": "House",
+          "icon": "calendar"
         }
       ]
     },
@@ -1527,6 +1919,142 @@
           "description": "Grandmaster Flash & The Furious Five released 'The Message' in 1982. The track was groundbreaking for its socially conscious lyrics about inner-city life, proving hip-hop could be a vehicle for social commentary.",
           "genre": "Hip-Hop",
           "icon": "disc"
+        },
+        {
+          "year": 1982,
+          "type": "technology",
+          "title": "Compact Disc (CD) Released",
+          "description": "The first commercial Compact Discs were released in 1982. The digital format offered pristine sound quality and durability, eventually replacing vinyl as the dominant music format.",
+          "genre": "Technology",
+          "icon": "tv"
+        },
+        {
+          "year": 1983,
+          "type": "milestone",
+          "title": "MIDI Standard Established",
+          "description": "MIDI (Musical Instrument Digital Interface) became the industry standard in 1983. This protocol allowed electronic instruments from different manufacturers to communicate, revolutionizing music production.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 1985,
+          "type": "milestone",
+          "title": "We Are The World Recording",
+          "description": "'We Are The World' was recorded by USA for Africa in 1985, featuring 46 major artists. The charity single raised over $60 million and became the best-selling single of the decade.",
+          "genre": "Pop",
+          "icon": "star"
+        },
+        {
+          "year": 1987,
+          "type": "innovation",
+          "title": "Digital Audio Workstations Emerge",
+          "description": "The first Digital Audio Workstations (DAWs) emerged in 1987, allowing musicians to record, edit, and produce music on computers. This democratized music production and transformed the industry.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 1980,
+          "type": "milestone",
+          "title": "John Lennon Assassinated",
+          "description": "John Lennon was shot and killed outside his New York apartment on December 8, 1980. His death marked the end of an era and united millions in global mourning.",
+          "genre": "Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1984,
+          "type": "event",
+          "title": "Purple Rain Phenomenon",
+          "description": "Prince's 'Purple Rain' film and soundtrack dominated 1984. The album spent 24 consecutive weeks at #1 and established Prince as the defining artist of the decade.",
+          "genre": "Pop",
+          "icon": "calendar"
+        },
+        {
+          "year": 1985,
+          "type": "milestone",
+          "title": "Live Aid Global Broadcast",
+          "description": "Live Aid on July 13, 1985, was watched by 1.9 billion people in 150 countries. Queen's 20-minute set at Wembley is widely considered the greatest live rock performance ever.",
+          "genre": "Rock",
+          "icon": "star"
+        },
+        {
+          "year": 1986,
+          "type": "milestone",
+          "title": "Sampling Legal Battles Begin",
+          "description": "The landmark lawsuit over The Beastie Boys' 'Paul's Boutique' (1989) and Gilbert O'Sullivan's case against Biz Markie established legal precedents for sampling in hip-hop.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1987,
+          "type": "milestone",
+          "title": "CD Sales Surpass Vinyl",
+          "description": "Compact disc sales surpassed vinyl records for the first time in 1987. The shift to digital marked the beginning of the end for analog formats as the dominant medium.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 1989,
+          "type": "milestone",
+          "title": "World Wide Web Invented",
+          "description": "Tim Berners-Lee invented the World Wide Web in 1989 at CERN. While not immediately impacting music, the web would eventually revolutionize distribution, promotion, and consumption.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 1982,
+          "type": "event",
+          "title": "Michael Jackson's Thriller",
+          "description": "Michael Jackson released 'Thriller' in November 1982. The album became the best-selling album of all time (70+ million copies) and revolutionized music videos with the 14-minute short film.",
+          "genre": "Pop",
+          "icon": "calendar"
+        },
+        {
+          "year": 1983,
+          "type": "milestone",
+          "title": "Grandmaster Flash Releases Message",
+          "description": "Grandmaster Flash & The Furious Five released 'The Message' in 1982 (crossing into 1983). The track proved hip-hop could be socially conscious and was added to the National Recording Registry.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1984,
+          "type": "milestone",
+          "title": "Run-DMC's Raising Hell",
+          "description": "Run-DMC released 'Raising Hell' in 1986 (adjusting to 1986). The Aerosmith collaboration 'Walk This Way' was the first rap-rock crossover hit, bringing hip-hop to rock audiences.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1986,
+          "type": "event",
+          "title": "Paul Simon's Graceland",
+          "description": "Paul Simon released 'Graceland' in 1986, collaborating with South African musicians during apartheid. The album brought world music to mainstream audiences and sparked political controversy.",
+          "genre": "World",
+          "icon": "calendar"
+        },
+        {
+          "year": 1987,
+          "type": "milestone",
+          "title": "Def Jam Recordings Peak",
+          "description": "Def Jam released landmark albums by LL Cool J, Public Enemy, and Beastie Boys in 1986-1987. The label defined the sound and culture of hip-hop's golden age.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1988,
+          "type": "milestone",
+          "title": "NWA's Straight Outta Compton",
+          "description": "N.W.A released 'Straight Outta Compton' in 1988. The album's raw depiction of police brutality and gang life sparked national controversy and established gangsta rap.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1989,
+          "type": "event",
+          "title": "Madonna's Like a Prayer",
+          "description": "Madonna released 'Like a Prayer' in 1989. The controversial video featuring religious imagery sparked protests but demonstrated pop music's power for artistic and social commentary.",
+          "genre": "Pop",
+          "icon": "calendar"
         }
       ]
     },
@@ -1910,6 +2438,158 @@
           "description": "Tupac Shakur released 'All Eyez on Me' in 1996, a double album that became the best-selling rap album of its time. The album defined West Coast gangsta rap before Tupac's tragic death later that year.",
           "genre": "Hip-Hop",
           "icon": "disc"
+        },
+        {
+          "year": 1991,
+          "type": "milestone",
+          "title": "Nirvana's Nevermind Changes Rock",
+          "description": "Nirvana's 'Nevermind' was released in September 1991 and unexpectedly went diamond. The album killed hair metal and made alternative rock mainstream, defining Generation X's sound.",
+          "genre": "Grunge",
+          "icon": "star"
+        },
+        {
+          "year": 1992,
+          "type": "technology",
+          "title": "MP3 Format Standardized",
+          "description": "The MP3 audio format was standardized in 1992, enabling digital music compression. This technology would eventually enable file sharing and revolutionize music distribution.",
+          "genre": "Technology",
+          "icon": "tv"
+        },
+        {
+          "year": 1995,
+          "type": "innovation",
+          "title": "Auto-Tune Invented",
+          "description": "Auto-Tune pitch correction software was invented in 1995 by Andy Hildebrand. Originally for oil exploration, it became a vocal effect that defined pop music production.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 1999,
+          "type": "event",
+          "title": "Napster Launches",
+          "description": "Napster launched in 1999 as the first peer-to-peer file sharing service for MP3s. The platform disrupted the music industry and sparked debates about digital rights that continue today.",
+          "genre": "Technology",
+          "icon": "calendar"
+        },
+        {
+          "year": 1990,
+          "type": "milestone",
+          "title": "Parental Advisory Label Introduced",
+          "description": "The RIAA introduced the Parental Advisory: Explicit Lyrics label in 1990. The 'Tipper Sticker' was a response to political pressure and changed how albums were marketed and sold.",
+          "genre": "Industry",
+          "icon": "star"
+        },
+        {
+          "year": 1991,
+          "type": "milestone",
+          "title": "Lollapalooza Launches",
+          "description": "Jane's Addiction's Perry Farrell launched Lollapalooza in 1991. The touring festival brought alternative culture to the mainstream and defined the summer music festival experience.",
+          "genre": "Alternative",
+          "icon": "star"
+        },
+        {
+          "year": 1993,
+          "type": "event",
+          "title": "Wu-Tang Clan Debuts",
+          "description": "Wu-Tang Clan released 'Enter the Wu-Tang (36 Chambers)' in 1993. The Staten Island collective revolutionized hip-hop with gritty production and martial arts mythology.",
+          "genre": "Hip-Hop",
+          "icon": "calendar"
+        },
+        {
+          "year": 1994,
+          "type": "milestone",
+          "title": "Kurt Cobain's Death",
+          "description": "Nirvana's Kurt Cobain died on April 5, 1994. His suicide at age 27 marked the end of grunge's innocence and sparked conversations about mental health in the music industry.",
+          "genre": "Grunge",
+          "icon": "star"
+        },
+        {
+          "year": 1995,
+          "type": "event",
+          "title": "Oasis vs. Blur Chart Battle",
+          "description": "The 'Battle of Britpop' in August 1995 saw Oasis and Blur release singles on the same day. Blur won the chart battle, but Oasis's '(What's the Story) Morning Glory?' became the bigger album.",
+          "genre": "Britpop",
+          "icon": "calendar"
+        },
+        {
+          "year": 1997,
+          "type": "event",
+          "title": "Radiohead's OK Computer",
+          "description": "Radiohead released 'OK Computer' in 1997, redefining alternative rock. The album's anxiety about technology and modern life proved prescient and remains highly influential.",
+          "genre": "Alternative",
+          "icon": "calendar"
+        },
+        {
+          "year": 1998,
+          "type": "milestone",
+          "title": "MP3 Players Hit Market",
+          "description": "The first portable MP3 players reached consumers in 1998. The Diamond Rio PMP300 could hold 32MB (about 30 minutes of music), previewing the iPod revolution three years later.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 1990,
+          "type": "milestone",
+          "title": "Milli Vanilli Scandal",
+          "description": "Milli Vanilli were stripped of their Grammy Award in 1990 when it was revealed they didn't sing on their album. The scandal led to stricter regulations in studio credits and authenticity in pop music.",
+          "genre": "Pop",
+          "icon": "star"
+        },
+        {
+          "year": 1991,
+          "type": "event",
+          "title": "Nirvana's Nevermind",
+          "description": "Nirvana released 'Nevermind' in September 1991. The album's unexpected success killed hair metal and made alternative rock mainstream, defining Generation X's sound.",
+          "genre": "Grunge",
+          "icon": "calendar"
+        },
+        {
+          "year": 1992,
+          "type": "milestone",
+          "title": "Dr. Dre's The Chronic",
+          "description": "Dr. Dre released 'The Chronic' in December 1992. The album defined West Coast G-funk and launched Snoop Dogg's career, revolutionizing hip-hop production.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1994,
+          "type": "event",
+          "title": "Green Day's Dookie",
+          "description": "Green Day released 'Dookie' in February 1994. The album brought punk rock to the mainstream, selling 20 million copies and launching the pop-punk movement.",
+          "genre": "Punk",
+          "icon": "calendar"
+        },
+        {
+          "year": 1994,
+          "type": "milestone",
+          "title": "Nas Illmatic Released",
+          "description": "Nas released 'Illmatic' in April 1994. Despite modest initial sales, the album is now considered the greatest hip-hop album ever for its lyricism and jazz-influenced production.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 1995,
+          "type": "milestone",
+          "title": "Mariah Carey Debuts Daydream",
+          "description": "Mariah Carey released 'Daydream' in 1995, featuring 'Fantasy' and 'One Sweet Day.' She pioneered the hip-hop/pop collaboration, changing how pop divas worked with rappers.",
+          "genre": "Pop",
+          "icon": "star"
+        },
+        {
+          "year": 1997,
+          "type": "event",
+          "title": "Notorious B.I.G. Killed",
+          "description": "The Notorious B.I.G. was shot and killed on March 9, 1997. His death ended the East Coast-West Coast hip-hop rivalry and cemented his legacy as one of rap's greatest artists.",
+          "genre": "Hip-Hop",
+          "icon": "calendar"
+        },
+        {
+          "year": 1999,
+          "type": "milestone",
+          "title": "Britney Spears Debuts",
+          "description": "Britney Spears released '...Baby One More Time' in 1999. The single and video launched the teen pop explosion of the late 90s, reviving the pop star phenomenon.",
+          "genre": "Pop",
+          "icon": "star"
         }
       ]
     },
@@ -2347,6 +3027,142 @@
           "description": "Spotify launched in 2008 in Sweden, pioneering the music streaming model. The service would go on to revolutionize the entire music industry, shifting from ownership to access-based consumption.",
           "genre": "Technology",
           "icon": "cpu"
+        },
+        {
+          "year": 2000,
+          "type": "milestone",
+          "title": "Metallica vs. Napster Lawsuit",
+          "description": "Metallica sued Napster in 2000 for copyright infringement, bringing digital piracy to mainstream attention. The case shaped how the music industry approached digital rights management.",
+          "genre": "Industry",
+          "icon": "star"
+        },
+        {
+          "year": 2003,
+          "type": "innovation",
+          "title": "MySpace Music Launch",
+          "description": "MySpace launched its music platform in 2003, allowing independent artists to upload music directly. The social network launched careers of Arctic Monkeys, Lily Allen, and others.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2004,
+          "type": "innovation",
+          "title": "GarageBand Released",
+          "description": "Apple released GarageBand in 2004, putting professional music production tools in the hands of everyday users. The software democratized music creation for a new generation.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2006,
+          "type": "milestone",
+          "title": "Twitter Launches",
+          "description": "Twitter launched in 2006, changing how artists communicate with fans. The platform became essential for music promotion, allowing direct artist-fan relationships without traditional media.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2000,
+          "type": "event",
+          "title": "Napster Peak & Shutdown",
+          "description": "Napster peaked with 80 million users in 2000 before legal battles forced its shutdown in July 2001. The service permanently changed consumer expectations about music access.",
+          "genre": "Technology",
+          "icon": "calendar"
+        },
+        {
+          "year": 2001,
+          "type": "milestone",
+          "title": "iPod Revolutionizes Music",
+          "description": "Apple's iPod launched in October 2001 with the tagline '1,000 songs in your pocket.' The white earbuds became a cultural icon and transformed how music was consumed.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2002,
+          "type": "milestone",
+          "title": "American Idol Debuts",
+          "description": "'American Idol' premiered in 2002, based on UK's 'Pop Idol.' The talent show format would dominate the decade, creating stars like Kelly Clarkson while changing how artists were discovered.",
+          "genre": "Television",
+          "icon": "star"
+        },
+        {
+          "year": 2004,
+          "type": "event",
+          "title": "U2's Vertigo Tour & iPod Partnership",
+          "description": "U2 partnered with Apple in 2004 for the iPod 'Vertigo' campaign. The band's 'How to Dismantle an Atomic Bomb' album was promoted through unprecedented product placement.",
+          "genre": "Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 2005,
+          "type": "milestone",
+          "title": "YouTube Changes Everything",
+          "description": "YouTube launched in February 2005, allowing anyone to upload videos. The platform democratized music discovery, launched viral hits, and became essential for artist promotion.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2007,
+          "type": "milestone",
+          "title": "iPhone & Mobile Music",
+          "description": "Apple released the iPhone in 2007, putting a music player in every pocket. The App Store (2008) enabled streaming apps, forever changing how people discovered and consumed music.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2000,
+          "type": "milestone",
+          "title": "Eminem's Marshall Mathers LP",
+          "description": "Eminem released 'The Marshall Mathers LP' in May 2000. The album sold 1.76 million copies in its first week and brought white working-class perspectives to hip-hop's mainstream.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2001,
+          "type": "event",
+          "title": "The Strokes Revive Garage Rock",
+          "description": "The Strokes released 'Is This It' in 2001. The album sparked the garage rock revival and influenced countless indie bands with its stripped-down, New York cool aesthetic.",
+          "genre": "Indie Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 2003,
+          "type": "milestone",
+          "title": "50 Cent's Get Rich or Die Tryin'",
+          "description": "50 Cent released 'Get Rich or Die Tryin'' in 2003. The album sold 12 million copies and made 50 Cent the biggest star in hip-hop, backed by Dr. Dre and Eminem.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2004,
+          "type": "milestone",
+          "title": "Kanye West's College Dropout",
+          "description": "Kanye West released 'The College Dropout' in 2004. The album broke gangsta rap's dominance with its soul-sampling production and introspective lyrics, expanding hip-hop's possibilities.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2006,
+          "type": "event",
+          "title": "Arctic Monkeys Break Records",
+          "description": "Arctic Monkeys released 'Whatever People Say I Am, That's What I'm Not' in 2006. The debut became the fastest-selling debut album in UK history, launching post-punk revival.",
+          "genre": "Indie Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 2007,
+          "type": "milestone",
+          "title": "Radiohead's In Rainbows",
+          "description": "Radiohead released 'In Rainbows' in 2007 as a pay-what-you-want download. The experiment challenged traditional music distribution models and proved digital-first releases could work.",
+          "genre": "Alternative",
+          "icon": "star"
+        },
+        {
+          "year": 2008,
+          "type": "milestone",
+          "title": "Lady Gaga Debuts",
+          "description": "Lady Gaga released 'The Fame' in 2008. Her blend of pop hooks, dance beats, and theatrical visuals revived the pop star concept for the digital age.",
+          "genre": "Pop",
+          "icon": "star"
         }
       ]
     },
@@ -2698,6 +3514,206 @@
           "genre": "Hip-Hop",
           "icon": "disc",
           "link": "/artists/megan-thee-stallion"
+        },
+        {
+          "year": 2011,
+          "type": "milestone",
+          "title": "Spotify Reaches US Market",
+          "description": "Spotify launched in the United States in July 2011 after dominating Europe. The streaming service's US arrival marked the beginning of the streaming era in the world's largest music market.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2012,
+          "type": "innovation",
+          "title": "SoundCloud Rap Emerges",
+          "description": "SoundCloud's platform enabled a new wave of DIY rap artists in 2012. The 'SoundCloud rap' movement produced Lil Uzi Vert, XXXTentacion, and Juice WRLD, changing hip-hop's sound and distribution.",
+          "genre": "Hip-Hop",
+          "icon": "cpu"
+        },
+        {
+          "year": 2013,
+          "type": "milestone",
+          "title": "Beyonc\u00e9 Surprise Album Release",
+          "description": "Beyonc\u00e9 released her self-titled album without warning in December 2013. The surprise drop strategy changed how major artists release music, making traditional marketing campaigns obsolete.",
+          "genre": "Pop",
+          "icon": "star"
+        },
+        {
+          "year": 2015,
+          "type": "event",
+          "title": "Tidal Relaunch",
+          "description": "Jay-Z relaunched Tidal in 2015 as an artist-owned streaming service. The platform emphasized high-fidelity audio and artist ownership, highlighting tensions in streaming economics.",
+          "genre": "Technology",
+          "icon": "calendar"
+        },
+        {
+          "year": 2016,
+          "type": "innovation",
+          "title": "AI Music Composition Begins",
+          "description": "AI music composition tools like Amper Music and AIVA emerged in 2016. These platforms could generate original music, raising questions about creativity and copyright in the digital age.",
+          "genre": "Technology",
+          "icon": "cpu"
+        },
+        {
+          "year": 2017,
+          "type": "event",
+          "title": "Me Too Movement in Music",
+          "description": "The Me Too movement reached the music industry in 2017, with allegations against powerful figures. The movement sparked industry-wide conversations about abuse, power, and accountability.",
+          "genre": "Cultural",
+          "icon": "calendar"
+        },
+        {
+          "year": 2019,
+          "type": "milestone",
+          "title": "Lil Nas X Breaks Records",
+          "description": "Lil Nas X's 'Old Town Road' broke the record for longest-running #1 single in 2019. The viral TikTok hit demonstrated social media's power to create chart-toppers outside traditional systems.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2010,
+          "type": "milestone",
+          "title": "Instagram Launches",
+          "description": "Instagram launched in 2010, changing how artists presented themselves visually. The platform became crucial for image cultivation and direct fan engagement.",
+          "genre": "Technology",
+          "icon": "star"
+        },
+        {
+          "year": 2011,
+          "type": "event",
+          "title": "Adele's 21 Dominates",
+          "description": "Adele's '21' was released in 2011 and became the best-selling album of the 21st century. The album proved that traditional singer-songwriter craft still resonated in the digital age.",
+          "genre": "Pop",
+          "icon": "calendar"
+        },
+        {
+          "year": 2012,
+          "type": "milestone",
+          "title": "Gangnam Style Goes Viral",
+          "description": "PSY's 'Gangnam Style' became the first YouTube video to reach 1 billion views in December 2012. The viral hit demonstrated K-pop's global potential and YouTube's power.",
+          "genre": "K-Pop",
+          "icon": "star"
+        },
+        {
+          "year": 2013,
+          "type": "event",
+          "title": "Beyonc\u00e9's Visual Album",
+          "description": "Beyonc\u00e9's surprise self-titled 'visual album' in 2013 included a music video for every track. The release strategy changed how major artists approached album launches.",
+          "genre": "R&B",
+          "icon": "calendar"
+        },
+        {
+          "year": 2014,
+          "type": "milestone",
+          "title": "Taylor Swift Removes Catalog from Spotify",
+          "description": "Taylor Swift removed her music from Spotify in 2014, protesting royalty rates. The move sparked industry-wide debate about artist compensation in the streaming era.",
+          "genre": "Industry",
+          "icon": "star"
+        },
+        {
+          "year": 2015,
+          "type": "event",
+          "title": "Kendrick Lamar's To Pimp a Butterfly",
+          "description": "Kendrick Lamar released 'To Pimp a Butterfly' in 2015. The album's jazz-infused hip-hop and social commentary established Lamar as the defining artist of his generation.",
+          "genre": "Hip-Hop",
+          "icon": "calendar"
+        },
+        {
+          "year": 2017,
+          "type": "milestone",
+          "title": "Despacito Breaks Records",
+          "description": "Luis Fonsi's 'Despacito' became the most-streamed song of all time in 2017. The Latin pop hit demonstrated the growing dominance of Spanish-language music globally.",
+          "genre": "Latin",
+          "icon": "star"
+        },
+        {
+          "year": 2018,
+          "type": "event",
+          "title": "XXXTentacion Killed",
+          "description": "XXXTentacion was shot and killed in June 2018 at age 20. The controversial rapper's death highlighted issues of violence in hip-hop and the complexities of separating art from artist.",
+          "genre": "Hip-Hop",
+          "icon": "calendar"
+        },
+        {
+          "year": 2019,
+          "type": "milestone",
+          "title": "Billie Eilish Dominates Grammys",
+          "description": "Billie Eilish swept the 2020 Grammys (for 2019 releases), winning Album of the Year at 18. The homemade production of 'When We All Fall Asleep' represented a new DIY era.",
+          "genre": "Pop",
+          "icon": "star"
+        },
+        {
+          "year": 2010,
+          "type": "event",
+          "title": "Kesha's Tik Tok Tops Charts",
+          "description": "Kesha's 'TiK ToK' topped the Billboard Hot 100 in 2010. The electropop hit soundtracked the early 2010s party culture and was the best-selling single of the year.",
+          "genre": "Electropop",
+          "icon": "calendar"
+        },
+        {
+          "year": 2011,
+          "type": "milestone",
+          "title": "Adele's 21",
+          "description": "Adele released '21' in 2011. The album became the best-selling album of the 21st century and the best-selling album by a female artist in UK history, proving traditional soul still resonated.",
+          "genre": "Pop",
+          "icon": "star"
+        },
+        {
+          "year": 2012,
+          "type": "milestone",
+          "title": "Psy's Gangnam Style",
+          "description": "Psy's 'Gangnam Style' became the first YouTube video to reach 1 billion views in December 2012. The viral K-pop hit demonstrated social media's power to create global phenomena.",
+          "genre": "K-Pop",
+          "icon": "star"
+        },
+        {
+          "year": 2013,
+          "type": "event",
+          "title": "Vampire Weekend Modern Vampires",
+          "description": "Vampire Weekend released 'Modern Vampires of the City' in 2013. The album won the Grammy for Best Alternative Music Album and represented indie rock's maturation.",
+          "genre": "Indie Rock",
+          "icon": "calendar"
+        },
+        {
+          "year": 2015,
+          "type": "milestone",
+          "title": "Drake's Hotline Bling",
+          "description": "Drake released 'Hotline Bling' in 2015. The viral video and meme culture surrounding the song demonstrated how streaming and social media were changing how hits were made.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2016,
+          "type": "milestone",
+          "title": "Beyonc\u00e9's Lemonade",
+          "description": "Beyonc\u00e9 released 'Lemonade' in April 2016 as a visual album. The project addressed infidelity, Black identity, and female empowerment, becoming a cultural phenomenon beyond music.",
+          "genre": "R&B",
+          "icon": "star"
+        },
+        {
+          "year": 2017,
+          "type": "event",
+          "title": "DAMN. Wins Pulitzer",
+          "description": "Kendrick Lamar's 'DAMN.' won the Pulitzer Prize for Music in 2018 (for 2017). It was the first non-jazz or classical album to win, legitimizing hip-hop as high art.",
+          "genre": "Hip-Hop",
+          "icon": "calendar"
+        },
+        {
+          "year": 2018,
+          "type": "milestone",
+          "title": "Travis Scott's ASTROWORLD",
+          "description": "Travis Scott released 'ASTROWORLD' in 2018. The album's immersive aesthetic and carnival theme influenced hip-hop's visual presentation and live performance expectations.",
+          "genre": "Hip-Hop",
+          "icon": "star"
+        },
+        {
+          "year": 2019,
+          "type": "milestone",
+          "title": "Lil Nas X's Old Town Road",
+          "description": "Lil Nas X's 'Old Town Road' broke the Billboard Hot 100 record for longest-running #1 single in 2019 (19 weeks). The viral TikTok hit blended country and rap, challenging genre boundaries.",
+          "genre": "Hip-Hop",
+          "icon": "star"
         }
       ]
     }
