@@ -1,0 +1,388 @@
+---
+import { Icon } from "astro-icon/components";
+import type { KeySong } from "../../types/artist";
+
+/**
+ * KeySong Embed Component with Spotify/Deezer Tabs
+ *
+ * DSGVO-compliant: Click-to-load pattern
+ * Only loads embed when user clicks on a tab
+ *
+ * @example
+ * <KeySongEmbed song={{ title: "Song Name", spotifyId: "...", deezerId: "..." }} />
+ */
+
+interface Props {
+  song: string | KeySong;
+  index: number;
+}
+
+const { song, index } = Astro.props;
+
+// Normalize song data (handle both string and object formats)
+const songData: KeySong = typeof song === "string" ? { title: song } : song;
+
+const hasSpotify = Boolean(songData.spotifyId);
+const hasDeezer = Boolean(songData.deezerId);
+const hasEmbeds = hasSpotify || hasDeezer;
+
+// Generate unique IDs for this instance
+const baseId = `keysong-${index}`;
+const tabSpotifyId = `${baseId}-spotify`;
+const tabDeezerId = `${baseId}-deezer`;
+
+// Validate IDs
+const isValidSpotifyId = (id: string): boolean => /^[a-zA-Z0-9]{22}$/.test(id);
+// Deezer IDs can be numeric (old format) or alphanumeric (share link format)
+const isValidDeezerId = (id: string): boolean => /^[a-zA-Z0-9]+$/.test(id);
+
+const spotifyId = songData.spotifyId?.trim() || "";
+const deezerId = songData.deezerId?.trim() || "";
+const isSpotifyValid = hasSpotify && isValidSpotifyId(spotifyId);
+const isDeezerValid = hasDeezer && isValidDeezerId(deezerId);
+
+// Determine default active tab
+const defaultTab = isSpotifyValid ? "spotify" : isDeezerValid ? "deezer" : null;
+---
+
+<article class="keysong-embed" data-testid="keysong-embed" data-keysong-index={index}>
+  <header class="keysong-embed__header">
+    <h3 class="keysong-embed__title">{songData.title}</h3>
+
+    {
+      hasEmbeds && (
+        <div
+          class="keysong-embed__tabs"
+          role="tablist"
+          aria-label={`Music platforms for ${songData.title}`}
+        >
+          {isSpotifyValid && (
+            <button
+              type="button"
+              class="keysong-embed__tab"
+              role="tab"
+              id={tabSpotifyId}
+              aria-selected={defaultTab === "spotify"}
+              aria-controls={`${baseId}-panel-spotify`}
+              data-tab="spotify"
+              data-keysong-index={index}
+            >
+              <Icon name="spotify" size="16" />
+              <span>Spotify</span>
+            </button>
+          )}
+          {isDeezerValid && (
+            <button
+              type="button"
+              class="keysong-embed__tab"
+              role="tab"
+              id={tabDeezerId}
+              aria-selected={defaultTab === "deezer"}
+              aria-controls={`${baseId}-panel-deezer`}
+              data-tab="deezer"
+              data-keysong-index={index}
+            >
+              <Icon name="deezer" size="16" />
+              <span>Deezer</span>
+            </button>
+          )}
+        </div>
+      )
+    }
+  </header>
+
+  {
+    hasEmbeds ? (
+      <div class="keysong-embed__content">
+        {/* Spotify Panel */}
+        {isSpotifyValid && (
+          <div
+            class="keysong-embed__panel"
+            role="tabpanel"
+            id={`${baseId}-panel-spotify`}
+            aria-labelledby={tabSpotifyId}
+            data-panel="spotify"
+            hidden={defaultTab !== "spotify"}
+          >
+            <div
+              class="keysong-embed__placeholder"
+              data-embed-platform="spotify"
+              data-embed-id={spotifyId}
+            >
+              <div class="keysong-embed__placeholder-content">
+                <Icon name="spotify" size="32" />
+                <p>Click to load Spotify player</p>
+                <span class="keysong-embed__privacy-note">
+                  External content • Privacy notice
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Deezer Panel */}
+        {isDeezerValid && (
+          <div
+            class="keysong-embed__panel"
+            role="tabpanel"
+            id={`${baseId}-panel-deezer`}
+            aria-labelledby={tabDeezerId}
+            data-panel="deezer"
+            hidden={defaultTab !== "deezer"}
+          >
+            <div
+              class="keysong-embed__placeholder"
+              data-embed-platform="deezer"
+              data-embed-id={deezerId}
+            >
+              <div class="keysong-embed__placeholder-content">
+                <Icon name="deezer" size="32" />
+                <p>Click to load Deezer player</p>
+                <span class="keysong-embed__privacy-note">
+                  External content • Privacy notice
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    ) : (
+      <p class="keysong-embed__no-embed">Listen on your preferred music platform</p>
+    )
+  }
+</article>
+
+<style>
+  .keysong-embed {
+    background: color-mix(in srgb, var(--gn-bg-muted) 95%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .keysong-embed:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .keysong-embed__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--gn-panel-border) 40%, transparent);
+  }
+
+  .keysong-embed__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    line-height: 1.4;
+  }
+
+  .keysong-embed__tabs {
+    display: flex;
+    gap: 0.25rem;
+    background: color-mix(in srgb, var(--gn-bg-muted) 80%, transparent);
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  }
+
+  .keysong-embed__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.875rem;
+    border: none;
+    border-radius: 0.375rem;
+    background: transparent;
+    color: var(--gn-ink-muted);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .keysong-embed__tab:hover {
+    color: var(--gn-ink);
+    background: color-mix(in srgb, var(--gn-bg) 60%, transparent);
+  }
+
+  .keysong-embed__tab[aria-selected="true"] {
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .keysong-embed__tab:focus-visible {
+    outline: 2px solid var(--gn-accent);
+    outline-offset: 2px;
+  }
+
+  .keysong-embed__content {
+    position: relative;
+  }
+
+  .keysong-embed__panel {
+    display: block;
+  }
+
+  .keysong-embed__panel[hidden] {
+    display: none;
+  }
+
+  .keysong-embed__placeholder {
+    aspect-ratio: 16 / 9;
+    max-height: 152px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--gn-bg-muted) 90%, transparent) 0%,
+      color-mix(in srgb, var(--gn-bg) 70%, transparent) 100%
+    );
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .keysong-embed__placeholder:hover {
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--gn-bg-muted) 85%, transparent) 0%,
+      color-mix(in srgb, var(--gn-bg) 65%, transparent) 100%
+    );
+  }
+
+  .keysong-embed__placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gn-ink-muted);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .keysong-embed__placeholder-content p {
+    margin: 0;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--gn-ink);
+  }
+
+  .keysong-embed__privacy-note {
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .keysong-embed__placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0 0 0.75rem 0.75rem;
+  }
+
+  .keysong-embed__no-embed {
+    margin: 0;
+    padding: 1.25rem;
+    color: var(--gn-ink-muted);
+    font-size: 0.9375rem;
+    font-style: italic;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    .keysong-embed__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .keysong-embed__tabs {
+      width: 100%;
+    }
+
+    .keysong-embed__tab {
+      flex: 1;
+      justify-content: center;
+    }
+
+    .keysong-embed__placeholder {
+      max-height: 120px;
+    }
+  }
+</style>
+
+<script>
+  // Client-side interactivity for tabs and click-to-load
+  document.addEventListener("DOMContentLoaded", () => {
+    const keysongEmbeds = document.querySelectorAll("[data-keysong-index]");
+
+    keysongEmbeds.forEach((embed) => {
+      const index = embed.getAttribute("data-keysong-index");
+      const tabs = embed.querySelectorAll(`[data-keysong-index="${index}"][role="tab"]`);
+      const panels = embed.querySelectorAll(`[data-panel]`);
+
+      // Tab switching
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const platform = tab.getAttribute("data-tab");
+
+          // Update tab states
+          tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
+          tab.setAttribute("aria-selected", "true");
+
+          // Show/hide panels
+          panels.forEach((panel) => {
+            const panelPlatform = panel.getAttribute("data-panel");
+            if (panelPlatform === platform) {
+              panel.removeAttribute("hidden");
+            } else {
+              panel.setAttribute("hidden", "");
+            }
+          });
+        });
+      });
+
+      // Click-to-load for embeds
+      const placeholders = embed.querySelectorAll("[data-embed-platform]");
+      placeholders.forEach((placeholder) => {
+        placeholder.addEventListener("click", () => {
+          const platform = placeholder.getAttribute("data-embed-platform");
+          const id = placeholder.getAttribute("data-embed-id");
+
+          if (!platform || !id) return;
+
+          // Runtime validation to prevent XSS
+          let embedUrl = "";
+          if (platform === "spotify" && /^[a-zA-Z0-9]{22}$/.test(id)) {
+            embedUrl = `https://open.spotify.com/embed/track/${encodeURIComponent(id)}`;
+          } else if (platform === "deezer" && /^[a-zA-Z0-9]+$/.test(id)) {
+            embedUrl = `https://widget.deezer.com/widget/dark/track/${encodeURIComponent(id)}`;
+          }
+
+          if (embedUrl) {
+            const iframe = document.createElement("iframe");
+            iframe.src = embedUrl;
+            iframe.width = "100%";
+            iframe.height = "100%";
+            iframe.allow =
+              "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+            iframe.setAttribute("loading", "lazy");
+            iframe.setAttribute("title", `${platform} player`);
+            iframe.setAttribute("aria-label", `${platform} track player`);
+            iframe.setAttribute("referrerpolicy", "no-referrer");
+
+            placeholder.innerHTML = "";
+            placeholder.appendChild(iframe);
+            placeholder.classList.remove("keysong-embed__placeholder");
+          }
+        });
+      });
+    });
+  });
+</script>

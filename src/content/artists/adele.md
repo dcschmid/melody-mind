@@ -19,14 +19,18 @@ keyAlbums:
   - 25 (2015)
   - 30 (2021)
 keySongs:
-  - Rolling in the Deep (2011)
-  - Someone Like You (2011)
-  - Set Fire to the Rain (2011)
-  - Chasing Pavements (2008)
-  - Skyfall (2012)
-  - Hello (2015)
-  - When We Were Young (2015)
-  - Easy On Me (2021)
+  - title: Rolling in the Deep
+    spotifyId: "4OSBTYWVwsQhGLF9NHvIbR"
+    deezerId: "8086126"
+
+  - title: Someone Like You
+
+  - title: Hello
+
+  - Set Fire to the Rain
+  - Skyfall
+  - When We Were Young
+  - Easy On Me
 relatedArticles:
   - "2010s"
 

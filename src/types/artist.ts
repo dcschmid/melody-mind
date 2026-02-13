@@ -3,6 +3,12 @@ export interface CareerTimelineItem {
   event: string;
 }
 
+export interface KeySong {
+  title: string;
+  spotifyId?: string;
+  deezerId?: string;
+}
+
 export interface ArtistData {
   name: string;
   photo?: string;
@@ -14,7 +20,7 @@ export interface ArtistData {
   influencedBy: string[];
   influenced: string[];
   keyAlbums: string[];
-  keySongs: string[];
+  keySongs: (string | KeySong)[];
   relatedArticles: string[];
   discographyOverview?: string;
   careerTimeline: CareerTimelineItem[];

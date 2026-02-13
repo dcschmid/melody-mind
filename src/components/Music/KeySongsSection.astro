@@ -1,0 +1,124 @@
+---
+import KeySongEmbed from "./KeySongEmbed.astro";
+import type { KeySong } from "../../types/artist";
+
+/**
+ * KeySongs Section Component
+ *
+ * Displays a list of key songs with Spotify/Deezer embeds
+ * DSGVO-compliant with click-to-load pattern
+ *
+ * @example
+ * <KeySongsSection songs={artist.keySongs} />
+ */
+
+interface Props {
+  songs: (string | KeySong)[];
+}
+
+const { songs } = Astro.props;
+
+// Filter out empty songs with defensive check
+const validSongs = (songs || []).filter((song): song is string | KeySong => {
+  if (typeof song === "string") return song.trim().length > 0;
+  return Boolean(
+    song && typeof song === "object" && song.title && song.title.trim().length > 0
+  );
+});
+
+const hasEmbeds = validSongs.some((song) => {
+  if (typeof song === "string") return false;
+  return song.spotifyId || song.deezerId;
+});
+---
+
+{
+  validSongs.length > 0 && (
+    <section class="keysongs-section" aria-labelledby="keysongs-title">
+      <header class="keysongs-section__header">
+        <h2 id="keysongs-title" class="keysongs-section__title">
+          Key Songs
+          {hasEmbeds && <span class="keysongs-section__badge">with previews</span>}
+        </h2>
+        {hasEmbeds && (
+          <p class="keysongs-section__privacy">
+            <span aria-hidden="true">🔒</span>
+            Click to load external content
+          </p>
+        )}
+      </header>
+
+      <div class="keysongs-section__list">
+        {validSongs.map((song, index) => (
+          <KeySongEmbed song={song} index={index} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .keysongs-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .keysongs-section__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid color-mix(in srgb, var(--gn-accent) 30%, transparent);
+  }
+
+  .keysongs-section__title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--gn-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .keysongs-section__badge {
+    display: inline-flex;
+    padding: 0.25rem 0.625rem;
+    background: color-mix(in srgb, var(--gn-accent) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--gn-accent) 40%, transparent);
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gn-accent);
+  }
+
+  .keysongs-section__privacy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--gn-ink-muted);
+    font-style: italic;
+  }
+
+  .keysongs-section__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .keysongs-section__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
