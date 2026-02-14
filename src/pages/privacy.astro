@@ -6,7 +6,7 @@ import { resolvePageUrl } from "@utils/siteUrls";
 
 const title = "Privacy Policy";
 const description =
-  "How we process personal data on Melody Mind Knowledge, including analytics with Fathom, external music embeds (Spotify/Deezer), and AI-generated media details.";
+  "How we process personal data on Melody Mind Knowledge, including analytics with Fathom and AI-generated media details.";
 const currentUrl = resolvePageUrl(Astro.site, "/privacy");
 
 const breadcrumbs = [
@@ -73,49 +73,7 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">3. External Content (Spotify & Deezer)</h2>
-        <p class="legal-page__text">
-          Our artist profiles may include music embeds from Spotify and Deezer. These are
-          not loaded automatically. We use a privacy-friendly "click-to-load" approach:
-          embeds only load after you explicitly click a placeholder. Until then, no data
-          is transferred to Spotify or Deezer.
-        </p>
-        <p class="legal-page__text">
-          Once loaded, these services may process your IP address and set cookies in
-          accordance with their privacy policies. Spotify operates under Spotify AB
-          (Sweden) and Deezer under Deezer SA (France). Both may transfer data to the USA
-          under appropriate safeguards. You can reload the page to stop any external
-          embeds. Legal basis: Art. 6(1)(a) GDPR (consent via your explicit click).
-        </p>
-        <p class="legal-page__text">
-          <strong>Privacy policies of third-party providers:</strong>
-        </p>
-        <ul class="legal-page__list">
-          <li>
-            <a
-              class="legal-page__link"
-              href="https://www.spotify.com/legal/privacy-policy/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Spotify Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a
-              class="legal-page__link"
-              href="https://www.deezer.com/legal/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Deezer Privacy Policy
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">4. Analytics with Fathom</h2>
+        <h2 class="legal-page__section-title">3. Analytics with Fathom</h2>
         <p class="legal-page__text">
           We use Fathom Analytics only after your explicit consent via our cookie banner.
           Until you opt in, no analytics script is loaded. Consent is stored in your
@@ -133,7 +91,7 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">5. AI-Generated Content</h2>
+        <h2 class="legal-page__section-title">4. AI-Generated Content</h2>
         <p class="legal-page__text">
           Some text and images are generated or assisted by OpenAI services. No personal
           data is intentionally sent to OpenAI. If you contact us and share personal
@@ -142,7 +100,7 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">6. Contact</h2>
+        <h2 class="legal-page__section-title">5. Contact</h2>
         <p class="legal-page__text">
           If you email us, we process your message, contact details, and metadata to
           respond. Legal basis: Art. 6(1)(b) GDPR (pre-contractual communication) or Art.
@@ -152,7 +110,7 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">7. Your Rights</h2>
+        <h2 class="legal-page__section-title">6. Your Rights</h2>
         <p class="legal-page__text">
           You have the rights of access, rectification, erasure, restriction, objection
           (including to processing based on Art. 6(1)(f) GDPR), and data portability. You
@@ -162,7 +120,7 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">8. Data Retention</h2>
+        <h2 class="legal-page__section-title">7. Data Retention</h2>
         <p class="legal-page__text">
           We retain personal data only as long as necessary for the stated purposes or
           legal obligations and then delete or anonymize it.
@@ -170,15 +128,48 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">9. Updates</h2>
+        <h2 class="legal-page__section-title">8. Updates</h2>
         <p class="legal-page__text">
           We may update this policy to reflect legal or technical changes. Last updated:
           {new Date().toLocaleDateString("en-GB")}.
         </p>
       </section>
+      <p class="legal-page__text">
+        If you email us, we process your message, contact details, and metadata to
+        respond. Legal basis: Art. 6(1)(b) GDPR (pre-contractual communication) or Art.
+        6(1)(f) GDPR (legitimate interest in replying to inquiries). Data is kept only as
+        long as needed.
+      </p>
     </div>
+
+    <section class="legal-panel legal-page__section">
+      <h2 class="legal-page__section-title">6. Your Rights</h2>
+      <p class="legal-page__text">
+        You have the rights of access, rectification, erasure, restriction, objection
+        (including to processing based on Art. 6(1)(f) GDPR), and data portability. You
+        may also lodge a complaint with your local supervisory authority. In Bavaria, this
+        is the BayLDA (Bayerisches Landesamt für Datenschutzaufsicht).
+      </p>
+    </section>
+
+    <section class="legal-panel legal-page__section">
+      <h2 class="legal-page__section-title">7. Data Retention</h2>
+      <p class="legal-page__text">
+        We retain personal data only as long as necessary for the stated purposes or legal
+        obligations and then delete or anonymize it.
+      </p>
+    </section>
+
+    <section class="legal-panel legal-page__section">
+      <h2 class="legal-page__section-title">8. Updates</h2>
+      <p class="legal-page__text">
+        We may update this policy to reflect legal or technical changes. Last updated:
+        {new Date().toLocaleDateString("en-GB")}.
+      </p>
+    </section>
   </PageShell>
 </Layout>
+
 <style>
   .legal-page {
     display: flex;

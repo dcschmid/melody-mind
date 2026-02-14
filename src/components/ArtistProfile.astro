@@ -1,5 +1,4 @@
 ---
-import KeySongsSection from "./Music/KeySongsSection.astro";
 import type { ArtistData } from "../types/artist";
 
 interface RelatedArticle {
@@ -15,8 +14,6 @@ interface Props {
 const { artist, relatedArticles } = Astro.props;
 const lifeSpan = [artist.born, artist.died].filter(Boolean).join(" - ");
 const hasTimeline = artist.careerTimeline.length > 0;
-const hasAlbums = artist.keyAlbums.length > 0;
-const hasDiscography = artist.discographyOverview || hasAlbums;
 ---
 
 <section class="artist-profile" aria-labelledby="artist-profile-title">
@@ -57,81 +54,71 @@ const hasDiscography = artist.discographyOverview || hasAlbums;
     </div>
   </div>
 
-  <!-- Discography & Key Albums Dropdown -->
-  {
-    hasDiscography && (
-      <details class="artist-profile__dropdown" data-testid="discography-dropdown">
-        <summary class="artist-profile__dropdown-summary">
-          <div class="artist-profile__dropdown-header">
-            <span class="artist-profile__dropdown-icon" aria-hidden="true">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <polygon points="10 8 16 12 10 16 10 8" />
-              </svg>
-            </span>
-            <div class="artist-profile__dropdown-titles">
-              <span class="artist-profile__dropdown-title">Discography</span>
-              {hasAlbums && (
-                <span class="artist-profile__dropdown-subtitle">
-                  {artist.keyAlbums.length} albums
-                </span>
-              )}
-            </div>
-          </div>
-          <span class="artist-profile__dropdown-chevron" aria-hidden="true">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
+  <!-- Discography Dropdown -->
+  <details class="artist-profile__dropdown" data-testid="discography-dropdown">
+    <summary class="artist-profile__dropdown-summary">
+      <div class="artist-profile__dropdown-header">
+        <span class="artist-profile__dropdown-icon" aria-hidden="true">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+          </svg>
+        </span>
+        <div class="artist-profile__dropdown-titles">
+          <span class="artist-profile__dropdown-title">Discography</span>
+          <span class="artist-profile__dropdown-subtitle">
+            {artist.keyAlbums.length} albums · {artist.keySongs.length} songs
           </span>
-        </summary>
-        <div class="artist-profile__dropdown-content">
-          <div class="artist-profile__discography-grid">
-            {artist.discographyOverview && (
-              <article class="artist-profile__discography-panel">
-                <h2 class="artist-profile__discography-title">Overview</h2>
-                <p class="artist-profile__discography-text">
-                  {artist.discographyOverview}
-                </p>
-              </article>
-            )}
-            {hasAlbums && (
-              <article class="artist-profile__discography-panel">
-                <h2 class="artist-profile__discography-title">Key Albums</h2>
-                <ul class="artist-profile__discography-list">
-                  {artist.keyAlbums.map((album) => (
-                    <li>{album}</li>
-                  ))}
-                </ul>
-              </article>
-            )}
-          </div>
-
-          {/* Key Songs inside Discography dropdown */}
-          <div class="artist-profile__discography-keysongs">
-            <KeySongsSection songs={artist.keySongs} />
-          </div>
         </div>
-      </details>
-    )
-  }
+      </div>
+      <span class="artist-profile__dropdown-chevron" aria-hidden="true">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </span>
+    </summary>
+    <div class="artist-profile__dropdown-content">
+      {
+        artist.discographyOverview && (
+          <p class="artist-profile__discography-overview">{artist.discographyOverview}</p>
+        )
+      }
+
+      <div class="artist-profile__discography-grid">
+        <article class="artist-profile__discography-panel">
+          <h2 class="artist-profile__discography-title">Key Albums</h2>
+          <ul class="artist-profile__discography-list">
+            {artist.keyAlbums.map((album) => <li>{album}</li>)}
+          </ul>
+        </article>
+
+        <article class="artist-profile__discography-panel">
+          <h2 class="artist-profile__discography-title">Key Songs</h2>
+          <ul class="artist-profile__discography-list">
+            {artist.keySongs.map((song) => <li>{song}</li>)}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </details>
 
   <!-- Career Timeline Dropdown -->
   {
@@ -425,7 +412,7 @@ const hasDiscography = artist.discographyOverview || hasAlbums;
   }
 
   .artist-profile__dropdown-subtitle {
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: var(--gn-ink-muted);
     font-weight: 500;
   }
@@ -457,13 +444,21 @@ const hasDiscography = artist.discographyOverview || hasAlbums;
     }
   }
 
-  /* Discography Grid */
+  /* Discography Overview */
+  .artist-profile__discography-overview {
+    margin: 0 0 1.5rem;
+    color: var(--gn-ink-muted);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  /* Discography Grid - 2 columns: Albums & Songs */
   .artist-profile__discography-grid {
     display: grid;
     gap: 1.5rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .artist-profile__discography-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -478,18 +473,11 @@ const hasDiscography = artist.discographyOverview || hasAlbums;
 
   .artist-profile__discography-title {
     margin: 0 0 0.875rem;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--gn-ink-muted);
-  }
-
-  .artist-profile__discography-text {
-    margin: 0;
-    color: var(--gn-ink-muted);
-    line-height: 1.6;
-    font-size: 1rem;
   }
 
   .artist-profile__discography-list {
@@ -513,17 +501,10 @@ const hasDiscography = artist.discographyOverview || hasAlbums;
     position: absolute;
     left: 0;
     top: 0.55em;
-    width: 0.3rem;
-    height: 0.3rem;
+    width: 0.35rem;
+    height: 0.35rem;
     border-radius: 50%;
     background: var(--gn-accent);
-  }
-
-  /* Key Songs inside Discography dropdown */
-  .artist-profile__discography-keysongs {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 40%, transparent);
   }
 
   /* Timeline */

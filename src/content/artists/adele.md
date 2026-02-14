@@ -19,14 +19,9 @@ keyAlbums:
   - 25 (2015)
   - 30 (2021)
 keySongs:
-  - title: Rolling in the Deep
-    spotifyId: "4OSBTYWVwsQhGLF9NHvIbR"
-    deezerId: "8086126"
-
-  - title: Someone Like You
-
-  - title: Hello
-
+  - Rolling in the Deep
+  - Someone Like You
+  - Hello
   - Set Fire to the Rain
   - Skyfall
   - When We Were Young

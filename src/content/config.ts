@@ -35,15 +35,6 @@ const knowledgeCollection = defineCollection({
   schema: getKnowledgeSchema,
 });
 
-const keySongSchema = z.union([
-  z.string(),
-  z.object({
-    title: z.string(),
-    spotifyId: z.string().optional(),
-    deezerId: z.string().optional(),
-  }),
-]);
-
 const artistCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/artists" }),
   schema: z.object({
@@ -57,7 +48,7 @@ const artistCollection = defineCollection({
     influencedBy: z.array(z.string()).default([]),
     influenced: z.array(z.string()).default([]),
     keyAlbums: z.array(z.string()).default([]),
-    keySongs: z.array(keySongSchema).default([]),
+    keySongs: z.array(z.string()).default([]),
     relatedArticles: z.array(z.string()).default([]),
     discographyOverview: z.string().optional(),
     careerTimeline: z
