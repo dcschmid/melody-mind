@@ -1,7 +1,19 @@
-export const BOOKMARK_STORAGE_KEY = "mm_bookmarks";
-export const BOOKMARK_CHANGE_EVENT = "mm:bookmarks:changed";
+import { STORAGE_KEYS } from "@constants/storage";
+import { BOOKMARK_EVENTS } from "@constants/events";
+import { safeLocalStorage } from "@utils/storage/safeStorage";
+import { loggers } from "@utils/logging";
+
+// Re-export for backward compatibility with components using inline scripts
+export const BOOKMARK_STORAGE_KEY = STORAGE_KEYS.BOOKMARKS;
+// Re-export event names for backward compatibility
+export const BOOKMARK_CHANGE_EVENT = BOOKMARK_EVENTS.CHANGED;
+export const BOOKMARK_UNDO_REMOVE_EVENT = BOOKMARK_EVENTS.UNDO_REMOVE;
 export const BOOKMARK_IMPORT_MAX_BYTES = 1_500_000;
-export const BOOKMARK_UNDO_REMOVE_EVENT = "mm:bookmarks:undo-remove";
+
+/** Maximum length for bookmark title */
+const MAX_TITLE_LENGTH = 500;
+/** Maximum length for bookmark slug */
+const MAX_SLUG_LENGTH = 200;
 
 export const BOOKMARK_CATEGORIES = ["to-read", "favorites", "research"] as const;
 
@@ -55,8 +67,6 @@ interface ImportResult {
   mode: ImportMode;
 }
 
-const isBrowser = (): boolean => typeof window !== "undefined";
-
 export const normalizeBookmarkSlug = (value: unknown): string => {
   if (typeof value !== "string") return "";
 
@@ -91,7 +101,7 @@ const normalizeDateIso = (value: unknown): string => {
 
 const createBookmarkId = (slug: string): string => {
   if (
-    isBrowser() &&
+    typeof window !== "undefined" &&
     "crypto" in window &&
     typeof window.crypto.randomUUID === "function"
   ) {
@@ -101,9 +111,9 @@ const createBookmarkId = (slug: string): string => {
 };
 
 const dispatchChange = (detail: BookmarkChangeDetail): void => {
-  if (!isBrowser()) return;
+  if (typeof window === "undefined") return;
   window.dispatchEvent(
-    new CustomEvent<BookmarkChangeDetail>(BOOKMARK_CHANGE_EVENT, {
+    new CustomEvent<BookmarkChangeDetail>(BOOKMARK_EVENTS.CHANGED, {
       detail,
     })
   );
@@ -113,16 +123,39 @@ const sanitizeBookmark = (item: unknown): Bookmark | null => {
   if (!item || typeof item !== "object") return null;
 
   const candidate = item as Partial<Bookmark>;
+
+  // Validate and sanitize articleSlug
   const articleSlug = normalizeBookmarkSlug(candidate.articleSlug);
-  const articleTitle =
+  if (!articleSlug || articleSlug.length > MAX_SLUG_LENGTH) return null;
+
+  // Validate and sanitize articleTitle
+  let articleTitle =
     typeof candidate.articleTitle === "string" ? candidate.articleTitle.trim() : "";
-  if (!articleSlug || !articleTitle) return null;
+  if (!articleTitle) return null;
+
+  // Truncate excessively long titles
+  if (articleTitle.length > MAX_TITLE_LENGTH) {
+    articleTitle = articleTitle.slice(0, MAX_TITLE_LENGTH);
+  }
+
+  // Remove potential XSS vectors from title (basic sanitization)
+  // Note: We use textContent when rendering, but extra safety doesn't hurt
+  articleTitle = articleTitle
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+    .replace(/javascript:/gi, "")
+    .replace(/on\w+\s*=/gi, "");
+
+  // Validate id
+  const rawId =
+    typeof candidate.id === "string" && candidate.id.trim()
+      ? candidate.id.trim()
+      : createBookmarkId(articleSlug);
+
+  // Validate id length
+  const id = rawId.length > 100 ? rawId.slice(0, 100) : rawId;
 
   return {
-    id:
-      typeof candidate.id === "string" && candidate.id.trim()
-        ? candidate.id.trim()
-        : createBookmarkId(articleSlug),
+    id,
     articleSlug,
     articleTitle,
     category: isBookmarkCategory(candidate.category)
@@ -168,24 +201,26 @@ const fromLegacy = (items: string[]): Bookmark[] =>
     }));
 
 const readRaw = (): { raw: string | null; parsed: unknown } => {
-  if (!isBrowser() || !window.localStorage) return { raw: null, parsed: [] };
+  const raw = safeLocalStorage.getRaw(BOOKMARK_STORAGE_KEY);
+  if (raw === null) {
+    return { raw: null, parsed: [] };
+  }
+
   try {
-    const raw = window.localStorage.getItem(BOOKMARK_STORAGE_KEY);
     return {
       raw,
-      parsed: raw ? JSON.parse(raw) : [],
+      parsed: JSON.parse(raw),
     };
   } catch {
+    loggers.bookmarks.warn("Failed to parse bookmarks from storage");
     return { raw: null, parsed: [] };
   }
 };
 
 const writeRaw = (bookmarks: Bookmark[]): void => {
-  if (!isBrowser() || !window.localStorage) return;
-  try {
-    window.localStorage.setItem(BOOKMARK_STORAGE_KEY, JSON.stringify(bookmarks));
-  } catch {
-    // ignore storage write errors
+  const success = safeLocalStorage.set(BOOKMARK_STORAGE_KEY, bookmarks);
+  if (!success) {
+    loggers.bookmarks.warn("Failed to save bookmarks to storage");
   }
 };
 

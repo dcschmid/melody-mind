@@ -121,11 +121,13 @@ const pageSeo = buildPageSeo({
   keywordLimit: 28,
   maxDescription: 150,
   image: "/melody-mind.jpg",
+  imageAlt: "Melody Mind - Music Knowledge Platform",
   publishDate: collectionDates.publishDate || undefined,
   modifiedDate: collectionDates.modifiedDate || undefined,
   index: true,
   follow: true,
   autoSocialImage: false,
+  authorName: "Melody Mind",
 });
 ---
 
@@ -281,8 +283,11 @@ const pageSeo = buildPageSeo({
   <BackToTop {lang} />
 </Layout>
 <script>
+  // Recent Reads Script
+  // NOTE: STORAGE_KEY_RECENT_READS must match STORAGE_KEYS.RECENT_READS in src/constants/storage.ts
+  const STORAGE_KEY_RECENT_READS = "mm_recent_reads";
   (() => {
-    const storageKey = "mm_recent_reads";
+    const storageKey = STORAGE_KEY_RECENT_READS;
     const container = document.getElementById("recent-reads");
     const list = document.getElementById("recent-reads-list");
     const emptyState = document.getElementById("recent-reads-empty");

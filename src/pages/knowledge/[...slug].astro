@@ -216,11 +216,13 @@ const pageSeo = buildPageSeo({
   keywordLimit: 24,
   maxDescription: 155,
   image: imageAbsolute,
+  imageAlt: title,
   publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
   modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
   index: true,
   follow: true,
   autoSocialImage: false,
+  authorName: entry.data.author || "Melody Mind",
 });
 
 const shareUrl = canonical;

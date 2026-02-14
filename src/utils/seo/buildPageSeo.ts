@@ -56,6 +56,10 @@ export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptio
   twitterCreator?: string;
   /** Optional breadcrumbs to auto inject into structured data augmentation */
   breadcrumbs?: Array<{ name: string; url: string }>;
+  /** Page author name for meta tag and structured data */
+  authorName?: string;
+  /** Alt text for OpenGraph image (accessibility) */
+  imageAlt?: string;
   /** Enable memoization (default true) */
   memoize?: boolean;
   /** Automatically generate social image (if no explicit image) using provided generator */
@@ -108,11 +112,39 @@ export interface PageSeoResult extends SeoTextResult {
   structuredData: StructuredData[];
   ogLocale?: string;
   alternateLocales?: string[];
+  /** Page author name */
+  authorName?: string;
+  /** Alt text for OpenGraph image */
+  imageAlt?: string;
 }
 
 const BRAND_SUFFIX = " - MelodyMind";
+
 // In-memory memoization cache keyed by JSON of essential inputs
 const seoCache = new Map<string, PageSeoResult>();
+
+/**
+ * Maximum number of entries in the SEO cache.
+ * Prevents memory bloat during long-running dev sessions.
+ */
+const MAX_SEO_CACHE_SIZE = 100;
+
+/**
+ * Evict oldest entries when cache exceeds maximum size.
+ * Simple LRU-style cleanup: removes first-inserted entries.
+ */
+function manageSeoCacheSize(): void {
+  if (seoCache.size <= MAX_SEO_CACHE_SIZE) {
+    return;
+  }
+
+  // Remove oldest entries (Map preserves insertion order)
+  const keysToDelete = Array.from(seoCache.keys()).slice(
+    0,
+    seoCache.size - MAX_SEO_CACHE_SIZE
+  );
+  keysToDelete.forEach((key) => seoCache.delete(key));
+}
 function ensureBrandSuffix(title: string): string {
   return title.endsWith(" - MelodyMind") || title.endsWith(" | Melody Mind")
     ? title.replace(" | Melody Mind", BRAND_SUFFIX)
@@ -348,6 +380,8 @@ interface NormalizedResultBase {
   alternateLocales?: string[];
   twitterCreator?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
+  authorName?: string;
+  imageAlt?: string;
   memoize: boolean;
   autoSocialImage: boolean;
   generateSocialImage?: BuildPageSeoParams["generateSocialImage"];
@@ -386,6 +420,8 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     alternateLocales,
     twitterCreator,
     breadcrumbs,
+    authorName,
+    imageAlt,
     memoize = true,
     autoSocialImage = false,
     generateSocialImage,
@@ -437,6 +473,8 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     alternateLocales,
     twitterCreator,
     breadcrumbs,
+    authorName,
+    imageAlt,
     memoize,
     autoSocialImage,
     generateSocialImage,
@@ -479,6 +517,8 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     alternateLocales,
     twitterCreator,
     breadcrumbs,
+    authorName,
+    imageAlt,
     memoize,
     autoSocialImage,
     generateSocialImage,
@@ -549,11 +589,19 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     structuredData: augmentedStructured,
     ogLocale,
     alternateLocales,
+    authorName,
+    imageAlt,
   };
   if (memoize) {
     seoCache.set(cacheKey, result);
+    manageSeoCacheSize();
   }
   return result;
+}
+
+/** Clear the SEO memoization cache (useful for dev hot reload). */
+export function clearSeoCache(): void {
+  seoCache.clear();
 }
 
 export default buildPageSeo;

@@ -3,6 +3,8 @@
  * Reads ids/labels from the SearchPanel component markup and wires up filtering +
  * ARIA status/no-results handling.
  */
+import { SEARCH_EVENTS } from "@constants/events";
+
 type SearchElements = {
   root: HTMLElement;
   input: HTMLInputElement;
@@ -27,9 +29,6 @@ type SearchResultClickDetail = {
   positionBucket: "1-3" | "4-6" | "7+" | "unknown";
 };
 
-const SEARCH_EVENT_NAME = "search:performed";
-const SEARCH_RESULT_CLICK_EVENT_NAME = "search:result-click";
-
 const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
   if (typeof window === "undefined") {
     return;
@@ -37,7 +36,7 @@ const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
 
   try {
     window.dispatchEvent(
-      new CustomEvent<SearchTelemetryDetail>(SEARCH_EVENT_NAME, {
+      new CustomEvent<SearchTelemetryDetail>(SEARCH_EVENTS.PERFORMED, {
         detail,
       })
     );
@@ -53,7 +52,7 @@ const dispatchSearchResultClick = (detail: SearchResultClickDetail): void => {
 
   try {
     window.dispatchEvent(
-      new CustomEvent<SearchResultClickDetail>(SEARCH_RESULT_CLICK_EVENT_NAME, {
+      new CustomEvent<SearchResultClickDetail>(SEARCH_EVENTS.RESULT_CLICK, {
         detail,
       })
     );

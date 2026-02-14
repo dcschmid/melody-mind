@@ -1,6 +1,19 @@
+---
+/**
+ * Cookie Consent Banner Component
+ *
+ * Configured via environment variable:
+ * - FATHOM_SITE_ID: Your Fathom Analytics site ID (defaults to empty string if not set)
+ *
+ * Set in .env file: FATHOM_SITE_ID=your-site-id
+ */
+const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
+---
+
 <div
   class="cookie-consent"
   data-cookie-consent
+  data-fathom-site-id={FATHOM_SITE_ID}
   role="dialog"
   aria-live="polite"
   aria-label="Cookie consent settings"
@@ -29,13 +42,21 @@
 </div>
 
 <script is:inline>
+  // Cookie Consent Script
+  // NOTE: STORAGE_KEY must match STORAGE_KEYS.COOKIE_CONSENT in src/constants/storage.ts
   (function () {
     var STORAGE_KEY = "cookie_consent";
     var OPEN_EVENT = "cookie-consent:open";
     var CHANGE_EVENT = "cookie-consent:change";
     var FATHOM_SCRIPT_SELECTOR = "script[data-cookie-consent-fathom='true']";
-    var FATHOM_SITE_ID = "RKHOWTTO";
     var RUNTIME_ANALYTICS_FLAG = "__mmAnalyticsAllowed";
+
+    // Read Fathom Site ID from data attribute (injected at build time from env var)
+    var banner = document.querySelector("[data-cookie-consent]");
+    var FATHOM_SITE_ID = banner ? banner.getAttribute("data-fathom-site-id") || "" : "";
+
+    // If no site ID configured, disable analytics functionality
+    var FATHOM_ENABLED = FATHOM_SITE_ID.length > 0;
 
     function getDoNotTrackEnabled() {
       if (typeof window === "undefined") {
@@ -94,6 +115,11 @@
     }
 
     function loadFathomScript() {
+      // Skip if no site ID configured
+      if (!FATHOM_ENABLED) {
+        return;
+      }
+
       if (document.querySelector(FATHOM_SCRIPT_SELECTOR)) {
         return;
       }
@@ -150,7 +176,6 @@
       );
     }
 
-    var banner = document.querySelector("[data-cookie-consent]");
     if (!banner) {
       return;
     }
@@ -185,20 +210,23 @@
       var analyticsAllowed = consent.analytics === true && !dntEnabled;
       setRuntimeAnalyticsAllowed(analyticsAllowed);
 
-      try {
-        if (analyticsAllowed) {
-          loadFathomScript();
-        } else {
-          removeFathomScript();
+      // Only manage Fathom script if site ID is configured
+      if (FATHOM_ENABLED) {
+        try {
+          if (analyticsAllowed) {
+            loadFathomScript();
+          } else {
+            removeFathomScript();
+          }
+        } catch (_error) {
+          // keep consent UX working even if analytics setup fails
         }
-      } catch (_error) {
-        // keep consent UX working even if analytics setup fails
-      }
 
-      try {
-        setFathomTrackingEnabled(analyticsAllowed);
-      } catch (_error) {
-        // ignore analytics runtime issues
+        try {
+          setFathomTrackingEnabled(analyticsAllowed);
+        } catch (_error) {
+          // ignore analytics runtime issues
+        }
       }
 
       if (shouldDispatchEvent) {

@@ -5,6 +5,10 @@
  * Keeps hydration costs low by deferring work to idle time and avoiding duplicate inline scripts.
  */
 
+import { createLogger } from "@utils/logging";
+
+const logger = createLogger("autoInit");
+
 type IdleCallback = (deadline: {
   didTimeout: boolean;
   timeRemaining: () => number;
@@ -89,9 +93,7 @@ export function initInteractiveComponents(): void {
     try {
       shouldInit = Boolean(test());
     } catch (error) {
-      if (import.meta.env?.DEV) {
-        console.error("[autoInit] test failed", error);
-      }
+      logger.error("Test failed", error);
     }
 
     if (!shouldInit) {
@@ -100,9 +102,7 @@ export function initInteractiveComponents(): void {
 
     runWhenIdle(() => {
       init().catch((error) => {
-        if (import.meta.env?.DEV) {
-          console.error("[autoInit] init failed", error);
-        }
+        logger.error("Init failed", error);
       });
     });
   });

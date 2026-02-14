@@ -1,3 +1,5 @@
+import { TOAST_EVENTS } from "@constants/events";
+
 export type ToastVariant = "info" | "success" | "warning" | "error";
 
 export interface ToastOptions {
@@ -9,7 +11,8 @@ export interface ToastOptions {
   actionEventDetail?: Record<string, unknown>;
 }
 
-export const TOAST_EVENT_NAME = "melodymind:toast";
+// Re-export for backward compatibility
+export const TOAST_EVENT_NAME = TOAST_EVENTS.SHOW;
 
 const DEFAULT_DURATION_MS = 3400;
 
@@ -27,5 +30,5 @@ export function emitToast(options: ToastOptions): void {
     actionEventDetail: options.actionEventDetail ?? {},
   };
 
-  window.dispatchEvent(new CustomEvent(TOAST_EVENT_NAME, { detail }));
+  window.dispatchEvent(new CustomEvent(TOAST_EVENTS.SHOW, { detail }));
 }

@@ -1,4 +1,7 @@
-const STORAGE_KEY = "mm_ab_variants";
+import { SESSION_KEYS } from "@constants/storage";
+import { safeLocalStorage } from "@utils/storage/safeStorage";
+
+const STORAGE_KEY = SESSION_KEYS.AB_TESTS;
 
 export type ExperimentVariant = {
   id: string;
@@ -23,25 +26,11 @@ const normalizeVariants = (variants: ExperimentVariant[]): ExperimentVariant[] =
 };
 
 const readStoredVariants = (): StoredVariants => {
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) {
-      return {};
-    }
-
-    const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === "object" ? (parsed as StoredVariants) : {};
-  } catch {
-    return {};
-  }
+  return safeLocalStorage.get<StoredVariants>(STORAGE_KEY, {});
 };
 
 const writeStoredVariants = (next: StoredVariants): void => {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-  } catch {
-    // Keep experience running when storage is unavailable.
-  }
+  safeLocalStorage.set(STORAGE_KEY, next);
 };
 
 const pickWeightedVariant = (variants: ExperimentVariant[]): string => {

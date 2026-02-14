@@ -66,7 +66,7 @@ const { decades } = timelineData;
             />
 
             <div class="timeline__events">
-              {decade.items.map((item, idx) => (
+              {decade.items.map((item) => (
                 <TimelineEvent event={item} />
               ))}
             </div>
@@ -185,7 +185,7 @@ const { decades } = timelineData;
     }
 
     .timeline__subtitle {
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
 
     .timeline__line-column {

@@ -10,6 +10,7 @@ import {
   findUnknownArtistReferences,
   formatArtistReferenceWarnings,
 } from "./artistReferences";
+import { loggers } from "@utils/logging";
 
 type AnyCollectionEntries = CollectionEntry<any>[];
 
@@ -22,6 +23,46 @@ interface CacheEntry {
 const _collectionCache = new Map<string, CacheEntry>();
 const _collectionFailuresLogged = new Set<string>();
 const _collectionValidationLogged = new Set<string>();
+
+/**
+ * Maximum number of cached collections.
+ * Prevents memory bloat with many different collections.
+ */
+const MAX_CACHE_SIZE = 50;
+
+/**
+ * Interval for automatic cleanup of expired cache entries.
+ * Runs every 10 minutes in Node.js runtime.
+ */
+const CLEANUP_INTERVAL_MS = 10 * 60 * 1000;
+
+/**
+ * Remove expired entries from the cache.
+ * Called periodically and when cache size exceeds limit.
+ */
+function cleanupExpiredEntries(): void {
+  const now = Date.now();
+
+  // Remove expired entries
+  for (const [key, entry] of _collectionCache) {
+    if (now - entry.ts > DEFAULT_TTL) {
+      _collectionCache.delete(key);
+    }
+  }
+
+  // If still over limit, remove oldest entries
+  if (_collectionCache.size > MAX_CACHE_SIZE) {
+    const entries = Array.from(_collectionCache.entries());
+    entries.sort((a, b) => a[1].ts - b[1].ts);
+    const toDelete = entries.slice(0, _collectionCache.size - MAX_CACHE_SIZE);
+    toDelete.forEach(([key]) => _collectionCache.delete(key));
+  }
+}
+
+// Schedule periodic cleanup (only in Node.js runtime, not during build)
+if (typeof process !== "undefined" && process.env.NODE_ENV !== "production") {
+  setInterval(cleanupExpiredEntries, CLEANUP_INTERVAL_MS);
+}
 
 export interface GetCollectionCachedOptions {
   /** Optional TTL in ms (default: 5 minutes) */
@@ -60,27 +101,27 @@ export async function getCollectionCached(
       const unknownReferences = findUnknownArtistReferences(items as ArtistEntry[]);
       if (unknownReferences.length) {
         const details = formatArtistReferenceWarnings(unknownReferences).join("\n");
-        const message = `[content] Unknown artist references detected:\n${details}`;
 
         if (process.env.STRICT_ARTIST_REFERENCES === "true") {
-          throw new Error(message);
+          throw new Error(`Unknown artist references detected:\n${details}`);
         }
 
-        console.warn(message);
+        loggers.content.warn(`Unknown artist references detected:\n${details}`);
       }
       _collectionValidationLogged.add(collectionName);
     }
 
     if (!bypass) {
       _collectionCache.set(collectionName, { ts: Date.now(), items });
+      // Trigger cleanup if cache is getting large
+      if (_collectionCache.size > MAX_CACHE_SIZE) {
+        cleanupExpiredEntries();
+      }
     }
     return items;
   } catch (error) {
     if (!_collectionFailuresLogged.has(collectionName)) {
-      const message = error instanceof Error ? error.message : String(error);
-      console.warn(`[content] Failed to load collection "${collectionName}"`, {
-        message,
-      });
+      loggers.content.error(`Failed to load collection "${collectionName}"`, error);
       _collectionFailuresLogged.add(collectionName);
     }
     return [] as AnyCollectionEntries;

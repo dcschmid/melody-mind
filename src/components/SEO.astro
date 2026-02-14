@@ -9,6 +9,7 @@ interface Props {
   image?: string;
   imageWidth?: number;
   imageHeight?: number;
+  imageAlt?: string;
   type?: string;
   publishDate?: Date;
   modifiedDate?: Date;
@@ -31,6 +32,8 @@ const {
   title,
   description,
   keywords,
+  image,
+  imageAlt,
   canonical,
   noIndex,
   noFollow,
@@ -39,6 +42,7 @@ const {
   publishDate,
   modifiedDate,
   structuredDataExtra,
+  authorName,
 } = Astro.props;
 ---
 
@@ -50,6 +54,9 @@ const {
       <meta name="keywords" content={keywords.join(", ")} />
     )
   }
+
+  {/* Author meta tag for SEO */}
+  {authorName && <meta name="author" content={authorName} />}
 
   {/* canonical link (Layout may pass canonical via props) */}
   {canonical && <link rel="canonical" href={canonical} />}
@@ -79,6 +86,9 @@ const {
       <meta name="article:modified_time" content={modifiedDate.toISOString()} />
     )
   }
+
+  {/* OpenGraph image alt text for accessibility */}
+  {image && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
 
   {
     /* Structured data: combine page-provided structuredDataExtra (if any) with any already-built objects */

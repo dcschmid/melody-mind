@@ -146,6 +146,8 @@ interface Props {
     modifiedDate?: Date;
     ogLocale?: string;
     alternateLocales?: string[];
+    authorName?: string;
+    imageAlt?: string;
   };
 
   /**
@@ -361,6 +363,8 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     <!-- Title and description are handled by SEO component to avoid duplication -->
 
     <script is:inline>
+      // Theme initialization script (runs before render to prevent FOUC)
+      // NOTE: THEME_STORAGE_KEY must match STORAGE_KEYS.THEME in src/constants/storage.ts
       (() => {
         const THEME_STORAGE_KEY = "themePreference";
         const DARK_QUERY = "(prefers-color-scheme: dark)";
@@ -484,7 +488,8 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       {nextUrl}
       {disableAlternateLanguages}
       structuredDataExtra={mergedStructuredData}
-      {authorName}
+      authorName={authorName || constructedPageSeo.authorName}
+      imageAlt={constructedPageSeo.imageAlt}
     />
     {/* Robots meta explicit for clarity if differing from default */}
     {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}

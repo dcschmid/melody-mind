@@ -5,12 +5,15 @@ import {
   BOOKMARK_ANALYTICS_EVENTS,
   BOOKMARK_CHANGE_EVENT,
 } from "@utils/bookmarks/clientBookmarks";
+import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "@constants/storage";
+import { safeLocalStorage, safeSessionStorage } from "@utils/storage/safeStorage";
 
-const CONSENT_KEY = "cookie_consent";
-const JOURNEY_KEY = "mm_journey_previous";
+const CONSENT_KEY = STORAGE_KEYS.COOKIE_CONSENT;
+const JOURNEY_KEY = SESSION_KEYS.JOURNEY;
 const BOUNCE_MS = 15_000;
 const ENGAGED_MS = [30_000, 90_000];
 const EVENT_NAME_LIMIT = 80;
+const RUNTIME_ANALYTICS_FLAG = RUNTIME_FLAGS.ANALYTICS_ALLOWED;
 
 type FathomApi = {
   trackEvent?: (eventName: string) => void;
@@ -48,6 +51,7 @@ type JourneyStep = {
 declare global {
   interface Window {
     fathom?: FathomApi;
+    /** Runtime flag for analytics allowed state (key: __mmAnalyticsAllowed) */
     __mmAnalyticsAllowed?: boolean;
     mmAnalytics?: {
       trackEvent: (eventName: string) => void;
@@ -102,21 +106,15 @@ const doNotTrackEnabled = (): boolean => {
 };
 
 const hasConsent = (): boolean => {
-  try {
-    const raw = window.localStorage.getItem(CONSENT_KEY);
-    if (!raw) {
-      return false;
-    }
-
-    const parsed = JSON.parse(raw);
-    return parsed?.essential === true && parsed?.analytics === true;
-  } catch {
-    return false;
-  }
+  const consent = safeLocalStorage.get<{ essential?: boolean; analytics?: boolean }>(
+    CONSENT_KEY,
+    {}
+  );
+  return consent?.essential === true && consent?.analytics === true;
 };
 
 const isAnalyticsEnabled = (): boolean =>
-  window.__mmAnalyticsAllowed === true && hasConsent() && !doNotTrackEnabled();
+  window[RUNTIME_ANALYTICS_FLAG] === true && hasConsent() && !doNotTrackEnabled();
 
 const callFathomEvent = (eventName: string): void => {
   if (!isAnalyticsEnabled()) {
@@ -172,34 +170,20 @@ const classifyPath = (path: string): string => {
 };
 
 const readJourneyStep = (): JourneyStep | null => {
-  try {
-    const raw = window.sessionStorage.getItem(JOURNEY_KEY);
-    if (!raw) {
-      return null;
-    }
-
-    const parsed = JSON.parse(raw);
-    if (
-      parsed &&
-      typeof parsed === "object" &&
-      typeof parsed.kind === "string" &&
-      typeof parsed.path === "string"
-    ) {
-      return { kind: parsed.kind, path: parsed.path };
-    }
-  } catch {
-    // Ignore invalid session values.
+  const step = safeSessionStorage.get<JourneyStep | null>(JOURNEY_KEY, null);
+  if (
+    step &&
+    typeof step === "object" &&
+    typeof step.kind === "string" &&
+    typeof step.path === "string"
+  ) {
+    return step;
   }
-
   return null;
 };
 
 const writeJourneyStep = (step: JourneyStep): void => {
-  try {
-    window.sessionStorage.setItem(JOURNEY_KEY, JSON.stringify(step));
-  } catch {
-    // Journey tracking is optional.
-  }
+  safeSessionStorage.set(JOURNEY_KEY, step);
 };
 
 const trackJourney = (): void => {

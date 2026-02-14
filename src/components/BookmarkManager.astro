@@ -452,6 +452,13 @@ const { entries = [] } = Astro.props;
     window.addEventListener(BOOKMARK_CHANGE_EVENT, () => {
       render();
     });
+
+    // Cleanup undo timers on page unload to prevent memory leaks
+    window.addEventListener("pagehide", () => {
+      undoTimers.forEach((timer) => window.clearTimeout(timer));
+      undoTimers.clear();
+      pendingRemovals.clear();
+    });
   });
 </script>
 
@@ -640,7 +647,7 @@ const { entries = [] } = Astro.props;
     height: 1.4rem;
     padding: 0 0.38rem;
     border-radius: 999px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--gn-ink);
     background: color-mix(in srgb, var(--gn-accent) 28%, transparent);
     border: 1px solid color-mix(in srgb, var(--gn-accent) 38%, transparent);
@@ -734,7 +741,7 @@ const { entries = [] } = Astro.props;
   }
 
   .bookmark-manager__meta {
-    font-size: 0.94rem;
+    font-size: 1rem;
   }
 
   .bookmark-manager__meta-list {
@@ -750,9 +757,9 @@ const { entries = [] } = Astro.props;
     border: 1px solid color-mix(in srgb, var(--gn-panel-border) 78%, transparent);
     background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
     color: var(--gn-ink-muted);
-    font-size: 0.8rem;
+    font-size: 1rem;
     letter-spacing: 0.01em;
-    padding: 0.24rem 0.58rem;
+    padding: 0.3rem 0.65rem;
   }
 
   .bookmark-manager__meta-pill--saved {
@@ -773,13 +780,13 @@ const { entries = [] } = Astro.props;
 
   .bookmark-manager__item-select {
     min-width: 7.4rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding-inline: 0.55rem;
     background: color-mix(in srgb, var(--gn-bg-muted) 82%, transparent);
   }
 
   .bookmark-manager__item-remove {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding-inline: 0.72rem;
     font-weight: 700;
   }
