@@ -5,11 +5,6 @@
  * NOT persistent between server restarts; safe for static hosting / SSR edge.
  */
 import type { CollectionEntry } from "astro:content";
-import type { ArtistEntry } from "../../types/artist";
-import {
-  findUnknownArtistReferences,
-  formatArtistReferenceWarnings,
-} from "./artistReferences";
 import { loggers } from "@utils/logging";
 
 type AnyCollectionEntries = CollectionEntry<any>[];
@@ -22,7 +17,6 @@ interface CacheEntry {
 // Simple module-level cache map
 const _collectionCache = new Map<string, CacheEntry>();
 const _collectionFailuresLogged = new Set<string>();
-const _collectionValidationLogged = new Set<string>();
 
 /**
  * Maximum number of cached collections.
@@ -93,23 +87,6 @@ export async function getCollectionCached(
   try {
     const { getCollection } = await import("astro:content");
     const items = (await getCollection(collectionName as any)) as AnyCollectionEntries;
-
-    if (
-      collectionName === "artists" &&
-      !_collectionValidationLogged.has(collectionName)
-    ) {
-      const unknownReferences = findUnknownArtistReferences(items as ArtistEntry[]);
-      if (unknownReferences.length) {
-        const details = formatArtistReferenceWarnings(unknownReferences).join("\n");
-
-        if (process.env.STRICT_ARTIST_REFERENCES === "true") {
-          throw new Error(`Unknown artist references detected:\n${details}`);
-        }
-
-        loggers.content.warn(`Unknown artist references detected:\n${details}`);
-      }
-      _collectionValidationLogged.add(collectionName);
-    }
 
     if (!bypass) {
       _collectionCache.set(collectionName, { ts: Date.now(), items });

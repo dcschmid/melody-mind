@@ -35,40 +35,12 @@ const knowledgeCollection = defineCollection({
   schema: getKnowledgeSchema,
 });
 
-const artistCollection = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/artists" }),
-  schema: z.object({
-    name: z.string(),
-    photo: z.string().optional(),
-    biography: z.string(),
-    born: z.string().optional(),
-    died: z.string().optional(),
-    origin: z.string(),
-    genres: z.array(z.string()).default([]),
-    influencedBy: z.array(z.string()).default([]),
-    influenced: z.array(z.string()).default([]),
-    keyAlbums: z.array(z.string()).default([]),
-    keySongs: z.array(z.string()).default([]),
-    relatedArticles: z.array(z.string()).default([]),
-    discographyOverview: z.string().optional(),
-    careerTimeline: z
-      .array(
-        z.object({
-          year: z.string(),
-          event: z.string(),
-        })
-      )
-      .default([]),
-  }),
-});
-
 // Export a concrete base schema instance for external type inference (referenced in env.d.ts)
 export const baseKnowledgeSchema = getKnowledgeSchema({} as SchemaContext);
 
 // Define collections
 export const collections = {
   "knowledge-en": knowledgeCollection,
-  artists: artistCollection,
 } as const;
 
 // Type definitions

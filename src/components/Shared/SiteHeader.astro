@@ -15,7 +15,6 @@ const { showIcons = true } = Astro.props;
 const navItems: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/explore", label: "Explore" },
-  { href: "/artists", label: "Artists" },
   { href: "/bookmarks", label: "Bookmarks" },
 ];
 
@@ -63,9 +62,6 @@ const currentPath = Astro.url.pathname;
                   ) : null}
                   {showIcons && item.href === "/explore" ? (
                     <Icon name="compass" aria-hidden="true" />
-                  ) : null}
-                  {showIcons && item.href === "/artists" ? (
-                    <Icon name="music" aria-hidden="true" />
                   ) : null}
                   {showIcons && item.href === "/bookmarks" ? (
                     <Icon name="bookmark" aria-hidden="true" />
