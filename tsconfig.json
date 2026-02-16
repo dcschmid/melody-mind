@@ -8,7 +8,9 @@
       "@utils/*": ["src/utils/*"],
       "@constants/*": ["src/constants/*"],
       "@i18n/*": ["src/i18n/*"],
-      "@content/*": ["src/content/*"]
+      "@content/*": ["src/content/*"],
+      "@types/*": ["src/types/*"],
+      "@data/*": ["src/data/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

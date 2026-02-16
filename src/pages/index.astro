@@ -4,6 +4,7 @@
  */
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@components/Shared/PageShell.astro";
+import TaxonomyCard from "@components/TaxonomyCard.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { buildKnowledgeArticlesItemList } from "@utils/seo/seoSchema";
 import { ui } from "@i18n/ui";
@@ -13,7 +14,8 @@ import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
 import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
-import categories from "../data/categories.json";
+import { musicTaxonomy } from "../data/musicTaxonomy";
+import { countArticlesPerSubsection } from "../utils/taxonomy/taxonomyUtils";
 import { Image } from "astro:assets";
 import SearchPanel from "@components/Search/SearchPanel.astro";
 
@@ -52,7 +54,7 @@ const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
 const title = safeUi["knowledge.title"];
 const description =
   safeUi["knowledge.description"] ||
-  "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
+  "Curated genre deep dives from roots to today's sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
 const baseUrl = resolveBaseUrl(Astro.site);
 const currentUrl = resolvePageUrl(Astro.site, "/");
 
@@ -87,25 +89,22 @@ const articleCollectionSchema = buildKnowledgeArticlesItemList({
 const keywordPool = sortedArticles.flatMap((article) => article.data.keywords || []);
 const metaKeywords = keywordPool.slice(0, 10).join(", ");
 
-type CategoryDef = {
-  slug: string;
-  name: string;
-  description: string;
-  image: string;
-};
+// Count articles per taxonomy subsection
+const subsectionArticleCounts = countArticlesPerSubsection(sortedArticles);
 
-// Pre-compute counts to avoid repeated filters and handle stray whitespace
-const categoryCounts = sortedArticles.reduce<Record<string, number>>((acc, article) => {
-  const key = (article.data.category || "").trim();
-  if (!key) return acc;
-  acc[key] = (acc[key] ?? 0) + 1;
-  return acc;
-}, {});
+// Build taxonomy sections with article counts
+const taxonomySections = musicTaxonomy.map((section) => {
+  const subsectionCount = section.subsections.length;
+  const articleCount = section.subsections.reduce((acc: number, sub: { id: string }) => {
+    return acc + (subsectionArticleCounts[sub.id] || 0);
+  }, 0);
 
-const categoryData = (categories as CategoryDef[]).map((cat) => ({
-  ...cat,
-  count: categoryCounts[cat.slug] ?? 0,
-}));
+  return {
+    ...section,
+    subsectionCount,
+    articleCount,
+  };
+});
 
 const pageSeo = buildPageSeo({
   title,
@@ -233,37 +232,18 @@ const pageSeo = buildPageSeo({
           id="knowledge-categories-list"
         >
           {
-            categoryData.map((cat) => (
-              <li
-                class="category-card"
-                data-search-text={`${cat.name} ${cat.description}`}
-              >
-                <a
-                  href={`/categories/${cat.slug}`}
-                  class="category-card__link"
-                  aria-label={`${cat.name} category with ${cat.count} articles`}
-                >
-                  <div class="category-card__media">
-                    <Image
-                      src={cat.image}
-                      alt={`${cat.name} cover`}
-                      loading="lazy"
-                      decoding="async"
-                      class="category-card__image"
-                      width="640"
-                      height="360"
-                    />
-                    <div class="category-card__overlay" aria-hidden="true" />
-                    <div class="category-card__badge">
-                      <span class="category-card__badge-dot" />
-                      {cat.count} articles
-                    </div>
-                  </div>
-                  <div class="category-card__body">
-                    <p class="category-card__title">{cat.name}</p>
-                    <p class="category-card__description">{cat.description}</p>
-                  </div>
-                </a>
+            taxonomySections.map((section, index) => (
+              <li data-search-text={`${section.title} ${section.description || ""}`}>
+                <TaxonomyCard
+                  id={section.id}
+                  title={section.title}
+                  description={section.description}
+                  image={section.image}
+                  subsectionCount={section.subsectionCount}
+                  articleCount={section.articleCount}
+                  href={`/taxonomy/${section.id}`}
+                  index={index}
+                />
               </li>
             ))
           }

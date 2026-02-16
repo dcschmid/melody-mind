@@ -1,0 +1,13 @@
+---
+/**
+ * Taxonomy Index Page - Redirects to homepage
+ *
+ * Since the homepage now displays the 21 taxonomy sections,
+ * this page redirects there to avoid duplicate content.
+ */
+
+export const prerender = true;
+
+// Redirect to homepage since taxonomy sections are now displayed there
+return Astro.redirect("/");
+---

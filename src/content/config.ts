@@ -28,6 +28,9 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
     draft: z.boolean().default(false),
     aiGenerated: z.boolean().default(false),
     aiTools: z.array(z.string()).optional(),
+    // Taxonomy fields for hierarchical categorization
+    taxonomySubsection: z.string().optional(),
+    taxonomyGroup: z.string().optional(),
   });
 
 const knowledgeCollection = defineCollection({

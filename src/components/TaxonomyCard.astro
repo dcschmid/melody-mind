@@ -1,0 +1,192 @@
+---
+/**
+ * TaxonomyCard Component - Display a taxonomy section
+ *
+ * Used on the homepage to display the 21 main taxonomy sections.
+ */
+import { Image } from "astro:assets";
+
+interface Props {
+  /** Section ID, e.g. "time-change-evolution" */
+  id: string;
+  /** Section title */
+  title: string;
+  /** Optional description */
+  description?: string;
+  /** Image path */
+  image?: string;
+  /** Number of subsections */
+  subsectionCount: number;
+  /** Number of articles in this section */
+  articleCount: number;
+  /** Link URL */
+  href: string;
+  /** Index for animation delay */
+  index?: number;
+}
+
+const {
+  id,
+  title,
+  description,
+  image = "/taxonomy/default.jpg",
+  subsectionCount,
+  articleCount,
+  href,
+  index: _index = 0,
+} = Astro.props;
+
+const cardId = `taxonomy-card-${id}`;
+---
+
+<article
+  class="taxonomy-card"
+  data-testid="taxonomy-card"
+  data-title={title}
+  aria-labelledby={cardId}
+>
+  <a href={href} class="taxonomy-card__link" aria-labelledby={cardId}>
+    <div class="taxonomy-card__media">
+      <Image
+        src={image}
+        alt={`${title} cover`}
+        loading="lazy"
+        decoding="async"
+        class="taxonomy-card__image"
+        width="640"
+        height="360"
+      />
+      <div class="taxonomy-card__overlay" aria-hidden="true"></div>
+      <div class="taxonomy-card__badge">
+        <span class="taxonomy-card__badge-dot"></span>
+        {articleCount > 0 ? `${articleCount} articles` : `${subsectionCount} topics`}
+      </div>
+    </div>
+    <div class="taxonomy-card__body">
+      <h3 id={cardId} class="taxonomy-card__title">{title}</h3>
+      {description && <p class="taxonomy-card__description">{description}</p>}
+    </div>
+  </a>
+</article>
+
+<style>
+  .taxonomy-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 1.25rem;
+    border: 2px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    color: var(--gn-ink);
+    overflow: hidden;
+    box-shadow: var(--gn-offset-shadow);
+    transition:
+      transform var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .taxonomy-card::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid var(--gn-panel-inner);
+    border-radius: 1rem;
+    pointer-events: none;
+  }
+
+  .taxonomy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+  }
+
+  .taxonomy-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .taxonomy-card__link:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 3px;
+  }
+
+  .taxonomy-card__media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--gn-bg);
+  }
+
+  .taxonomy-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 500ms ease;
+  }
+
+  .taxonomy-card:hover .taxonomy-card__image {
+    transform: scale(1.05);
+  }
+
+  .taxonomy-card__overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .taxonomy-card__badge {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    border: 2px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--gn-bg) 90%, transparent);
+    backdrop-filter: blur(8px);
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gn-ink);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .taxonomy-card__badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-gn-amber-400);
+  }
+
+  .taxonomy-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    flex: 1;
+  }
+
+  .taxonomy-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--gn-ink);
+    line-height: 1.3;
+  }
+
+  .taxonomy-card__description {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--gn-ink-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
