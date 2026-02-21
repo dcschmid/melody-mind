@@ -22,7 +22,7 @@
 
 - Blues → Rhythm & Blues → Rock 'n' Roll → Classic Rock → Hard Rock → Metal → Thrash / Death / Black → Metalcore / Deathcore (Done)
 - Classical → Modern Classical → Minimalism → Post-Classical / Neo-Classical (done)
-- Hip Hop → Old School → Golden Age → Conscious / Gangsta → Trap & Drill
+- Hip Hop → Old School → Golden Age → Conscious / Gangsta → Trap & Drill (done)
 - Soul → Funk → Disco → House → Modern Dance Music
 - Folk → Singer-Songwriter → Indie Folk → Bedroom Pop
 - Gospel → Soul → Contemporary R&B → Modern Vocal Pop
