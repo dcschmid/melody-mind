@@ -58,7 +58,6 @@ export default {
   "coins.context.challenge": "completing a challenge",
   "coins.context.daily": "collecting daily rewards",
   "coins.context.game": "playing the game",
-  "coins.context.quiz": "answering quiz questions",
   "coins.context.shop": "making a purchase",
   "coins.context.streak": "maintaining a streak",
   "coins.tooltip.authenticated":
@@ -85,7 +84,6 @@ export default {
   "error.404.actions.home": "Return to homepage",
   "error.404.actions.back": "Go back",
   "error.404.actions.playlists": "Explore playlists",
-  "error.404.actions.quiz": "Jump into a music quiz",
   "error.404.actions.highscores": "Check the highscores",
   "error.extend": "Extend timeout",
   "nav.subtitle": "Discover music, challenge friends, and sharpen your knowledge",
@@ -402,7 +400,7 @@ export default {
     "🎵 Dive into the ultimate music universe! Discover legendary hits, master thrilling challenges, and become a true music champion. Your journey to musical mastery starts now! 🚀",
   "login.welcome": "Welcome to Melody Mind!",
   "meta.keywords":
-    "Music Quiz, Music Game, Song Quiz, Artist Quiz, Online Music Quiz, Music Trivia, Melody Mind, Music Guessing Game",
+    "Music Knowledge, Music History, Music Genres, Music Articles, Music Education, Melody Mind, Music Discovery",
   "musicPlatforms.externalNotice":
     "External music platform links may require accounts or subscriptions for full access.",
   "musicPlatforms.heading": "Listen to Related Music",
@@ -458,7 +456,6 @@ export default {
   "profile.stats.chronology": "Chronology",
   "profile.stats.games_played": "Games played",
   "profile.stats.highest_score": "Highest score",
-  "profile.stats.quiz": "Quiz",
   "profile.stats.title": "Game Statistics",
   "profile.stats.total_score": "Total score",
   "profile.title": "My Profile",
@@ -501,7 +498,7 @@ export default {
   "share.email.label": "Email",
   "share.email.subject": "My Melody Mind score",
   "share.score_line":
-    "I scored {score} points in the {category} quiz on Melody Mind ({difficulty})!",
+    "I scored {score} points in {category} on Melody Mind ({difficulty})!",
   "share.challenge": "🎮 Think you can beat me? Play now at:",
   "share.fallback.manual.label": "Copy page link manually",
   "share.fallback.manual.text": "Copy link",
@@ -542,7 +539,7 @@ export default {
   "musicPlatforms.platform.youtube": "YouTube",
   "index.card.game.title": "Game Overview",
   "index.card.game.desc":
-    "Jump into thrilling music quiz modes that blend speed, strategy and pure music passion — master categories, chase streaks, unlock future achievements and return daily to sharpen your ear and claim the leaderboard. 🎯",
+    "Jump into thrilling music modes that blend speed, strategy and pure music passion — master categories, chase streaks, unlock future achievements and return daily to sharpen your ear and claim the leaderboard. 🎯",
   "index.card.knowledge.title": "Music Knowledge",
   "index.card.knowledge.desc":
     "Explore deep‑dive genre guides, origins, influences, iconic albums and listening tips — turn casual listening into informed discovery, expand taste horizons and become the friend everyone trusts for music insight. 📚",
@@ -554,6 +551,6 @@ export default {
     "Inspiring long‑form talks, behind‑the‑music moments, creative journeys and cultural deep dives — listen on the go, fuel curiosity, meet artists differently and stay motivated on your evolving musical path. 🎙️",
   "index.card.news.title": "News",
   "index.card.news.desc":
-    "Fresh feature drops, interface refinements, performance boosts and music world highlights — stay informed, spot new quiz angles early and never miss improvements that level up your MelodyMind journey. ✨",
+    "Fresh feature drops, interface refinements, performance boosts and music world highlights — stay informed, spot new angles early and never miss improvements that level up your MelodyMind journey. ✨",
   "index.overview.sections": "Homepage feature sections",
 };

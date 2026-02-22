@@ -19,14 +19,14 @@
  * @example Basic usage
  * ```astro
  * <Layout title="Home Page" description="Welcome to MelodyMind">
- *   <h1>Welcome to our music quiz game!</h1>
+ *   <h1>Welcome to our music knowledge platform!</h1>
  * </Layout>
  * ```
  *
  * @example Game page with coins
  * ```astro
  * <Layout
- *   title="Music Quiz - Rock Category"
+ *   title="Music Challenge - Rock Category"
  *   description="Test your rock music knowledge"
  *   type="game"
  *   showCoins={true}
@@ -70,7 +70,7 @@ interface Props {
    * The page title displayed in browser tab and meta tags
    * @type {string}
    * @required
-   * @example "MelodyMind - Music Quiz Game"
+   * @example "MelodyMind - Music Knowledge Platform"
    */
 
   /**
@@ -85,7 +85,7 @@ interface Props {
    * Page meta keywords for SEO optimization (legacy support)
    * @type {string}
    * @optional
-   * @example "music quiz, trivia game, rock music, pop music"
+   * @example "music knowledge, music history, rock music, pop music"
    */
 
   /**
@@ -112,8 +112,6 @@ interface Props {
    * Page content type for structured data and Open Graph metadata
    * @type {"website" | "article" | "music" | "game" | "podcastEpisode"}
    * @optional
-   * @default "website"
-   * @example "game" for quiz pages, "music" for artist content
    */
   /**
    * Consolidated pageSeo object (required). Legacy individual SEO props removed.
@@ -195,7 +193,7 @@ interface Props {
    * @default false
    * @useCase Used in game contexts where coin tracking is needed
    * @accessibility Positioned as overlay with proper touch targets (44x44px minimum)
-   * @example true for active quiz gameplay pages
+   * @example true for active game pages
    */
   showCoins?: boolean;
 

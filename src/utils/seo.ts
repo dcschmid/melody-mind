@@ -18,8 +18,8 @@
  * @param maxKeywords Maximum number of keywords to return, default: 10
  * @returns A comma-separated list of keywords
  * @example
- * // might return "music, quiz, melody, game"
- * extractKeywords("Melody Mind is a music quiz game with multiple categories...");
+ * // might return "music, melody, game, knowledge"
+ * extractKeywords("Melody Mind is a music knowledge platform with multiple categories...");
  */
 /**
  * Language-specific stop words for keyword extraction
@@ -245,7 +245,7 @@ const stopWordsByLanguage: Record<string, string[]> = {
 /**
  * Extract keywords (words + n-grams) from content for SEO meta tag usage.
  * Uses simple frequency & phrase weighting. (Types via signature.)
- * Example: extractKeywords("Melody Mind is a music quiz...", 5, "en")
+ * Example: extractKeywords("Melody Mind is a music knowledge...", 5, "en")
  */
 export function extractKeywords(
   content: string,
@@ -326,8 +326,8 @@ export function extractKeywords(
  * @param {number} [maxLength=160] - Maximum length of the description, default: 160 characters
  * @returns {string} An optimized meta description
  * @example
- * // returns "Learn about music history through interactive quizzes..."
- * generateMetaDescription("<p>Learn about music history through interactive quizzes. Test your knowledge and earn points.</p>");
+ * // returns "Learn about music history through interactive content..."
+ * generateMetaDescription("<p>Learn about music history through interactive content. Explore genres and discover new artists.</p>");
  */
 /**
  * Generate an optimized meta description selecting informative early sentences.

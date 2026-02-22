@@ -23,18 +23,17 @@ The following ten events are prioritized for product decisions and are implement
 current client analytics layer. Fathom receives bucketed event names (no personal data,
 no free text payloads).
 
-| #   | Product question                            | Event name(s)                                                     | Bucketed dimensions                   |
-| --- | ------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------- |
-| 1   | Which article contexts perform best?        | `Article: view <category> quiz-<yes/no>`                          | category, has quiz                    |
-| 2   | Are readers meaningfully consuming content? | `Read depth: 50%`                                                 | article page scope                    |
-| 3   | Which pages reach completion?               | `Read depth: 100%`                                                | article page scope                    |
-| 4   | Which TOC areas get used?                   | `TOC: click top`, `TOC: click mid`, `TOC: click bottom`           | section position bucket               |
-| 5   | How engaging are quizzes?                   | `Quiz: complete low`, `Quiz: complete mid`, `Quiz: complete high` | score bucket                          |
-| 6   | Which article CTAs drive podcast traffic?   | `Podcast: click episode`, `Podcast: click series`                 | CTA target                            |
-| 7   | What content is worth saving?               | `Bookmark: saved`                                                 | event count by page                   |
-| 8   | Does search ranking work?                   | `Search: result click <surface> <position>`                       | surface, position bucket              |
-| 9   | Where does search fail?                     | `Search: zero results`                                            | query-length/token buckets (internal) |
-| 10  | What gets shared and when?                  | `Share: action <channel> <<50\|50-99\|100>`                       | channel, read-depth bucket            |
+| #   | Product question                            | Event name(s)                                           | Bucketed dimensions                   |
+| --- | ------------------------------------------- | ------------------------------------------------------- | ------------------------------------- |
+| 1   | Which article contexts perform best?        | `Article: view <category>`                              | category                              |
+| 2   | Are readers meaningfully consuming content? | `Read depth: 50%`                                       | article page scope                    |
+| 3   | Which pages reach completion?               | `Read depth: 100%`                                      | article page scope                    |
+| 4   | Which TOC areas get used?                   | `TOC: click top`, `TOC: click mid`, `TOC: click bottom` | section position bucket               |
+| 5   | Which article CTAs drive podcast traffic?   | `Podcast: click episode`, `Podcast: click series`       | CTA target                            |
+| 6   | What content is worth saving?               | `Bookmark: saved`                                       | event count by page                   |
+| 7   | Does search ranking work?                   | `Search: result click <surface> <position>`             | surface, position bucket              |
+| 8   | Where does search fail?                     | `Search: zero results`                                  | query-length/token buckets (internal) |
+| 9   | What gets shared and when?                  | `Share: action <channel> <<50\|50-99\|100>`             | channel, read-depth bucket            |
 
 ## Additional implemented event groups
 
@@ -53,7 +52,7 @@ no free text payloads).
   - `Reading settings: open`
   - `Consent: accept analytics`
 - Heatmap-like click zones:
-  - `Heatmap click: header|main|article|share|search|quiz|reading-controls|footer|other`
+  - `Heatmap click: header|main|article|share|search|reading-controls|footer|other`
 
 ## Analytics dashboard setup
 
@@ -64,7 +63,6 @@ In Fathom, create dashboard cards for:
 - Bounce proxy (`Bounce: quick leave`)
 - Engaged visits (`Engaged time: 30s` and `Engaged time: 90s`)
 - TOC behavior (`TOC: click *`)
-- Quiz effectiveness (`Quiz: complete *`)
 - Podcast CTA performance (`Podcast: click *`)
 - Search friction (`Search: zero results`)
 - Search ranking quality (`Search: result click *`)

@@ -40,7 +40,6 @@ export default {
   "coins.context.challenge": "completing a challenge",
   "coins.context.daily": "collecting daily reward",
   "coins.context.game": "playing the game",
-  "coins.context.quiz": "answering quiz questions",
   "coins.context.shop": "making a purchase",
   "coins.context.streak": "maintaining a streak",
   "coins.tooltip.authenticated":
@@ -67,7 +66,6 @@ export default {
   "error.404.actions.home": "Go to homepage",
   "error.404.actions.back": "Go back",
   "error.404.actions.playlists": "Explore playlists",
-  "error.404.actions.quiz": "Start a music quiz",
   "error.404.actions.highscores": "See highscores",
   "error.extend": "Extend timeout",
   "nav.subtitle": "Discover music, compete with friends and test your knowledge",
@@ -190,7 +188,7 @@ export default {
   "game.end.motivation.explorer":
     "Thanks for playing! 🙏 As a music explorer, you've taken the first step in discovering the fascinating world of music. Each game is an opportunity to learn something new. Challenge yourself, play more rounds, and expand your musical knowledge!",
   "game.end.motivation.genius":
-    "Extraordinary! 💫 You're a true music genius! 🎶 Your deep knowledge and musical intuition are truly impressive. You could win a music quiz show or even be a music historian. Share your remarkable achievement and challenge others to compete against you!",
+    "Extraordinary! 💫 You're a true music genius! 🎶 Your deep knowledge and musical intuition are truly impressive. You could win a music trivia show or even be a music historian. Share your remarkable achievement and challenge others to compete against you!",
   "game.end.motivation.lover":
     "Well done! 👏 As a music lover, you've shown considerable knowledge. You're on the right track to becoming a true music connoisseur. With more gameplay practice, you can expand your knowledge and improve your score. Are you ready for a new challenge?",
   "game.end.motivation.pro":
@@ -280,7 +278,7 @@ export default {
   "highscores.rank": "Rank",
   "highscores.results": "Top Scores",
   "highscores.seo.description":
-    "View the top music quiz scores and compete with other players",
+    "View the top music scores and compete with other players",
   "highscores.tableLabel": "Highscores list",
   "highscores.title": "Highscores",
   "index.continue": "Let's go!",
@@ -351,7 +349,7 @@ export default {
     "🎵 Dive into the ultimate music universe! Discover legendary hits, master thrilling challenges, and become the absolute music champion. Your journey to the greatest musical secrets starts now! 🚀",
   "login.welcome": "Welcome to Melody Mind!",
   "meta.keywords":
-    "Music Quiz, Music Game, Song Quiz, Artist Quiz, Online Music Quiz, Music Trivia, Melody Mind, Music Guessing Game",
+    "Music Knowledge, Music History, Music Genres, Music Articles, Music Education, Melody Mind, Music Discovery",
   "musicPlatforms.externalNotice":
     "External music platform links may require accounts or subscriptions for full access.",
   "musicPlatforms.heading": "Listen to Related Music",
@@ -405,7 +403,6 @@ export default {
   "profile.stats.chronology": "Chronology",
   "profile.stats.games_played": "Games Played",
   "profile.stats.highest_score": "Highest Score",
-  "profile.stats.quiz": "Quiz",
   "profile.stats.title": "Game Statistics",
   "profile.stats.total_score": "Total Score",
   "profile.title": "My Profile",
@@ -448,7 +445,7 @@ export default {
   "share.email.label": "Email",
   "share.email.subject": "My Melody Mind Score",
   "share.score_line":
-    "I scored {score} points in Melody Mind's {category} quiz ({difficulty})!",
+    "I scored {score} points in Melody Mind's {category} game ({difficulty})!",
   "share.challenge": "🎮 Think you can beat me? Play now at:",
   "share.fallback.manual.label": "Copy page link manually",
   "share.fallback.manual.text": "Copy Link",

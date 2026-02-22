@@ -37,12 +37,6 @@ type TocClickDetail = {
   position: number;
 };
 
-type QuizCompleteDetail = {
-  questionCount: number;
-  correctCount: number;
-  scorePercent: number;
-};
-
 type JourneyStep = {
   kind: string;
   path: string;
@@ -209,8 +203,7 @@ const trackArticleView = (): void => {
   const category = sanitizeToken(
     articleRoot.dataset.analyticsArticleCategory || "unknown"
   );
-  const hasQuiz = articleRoot.dataset.analyticsHasQuiz === "true" ? "yes" : "no";
-  callFathomEvent(`Article: view ${category} quiz-${hasQuiz}`);
+  callFathomEvent(`Article: view ${category}`);
 };
 
 const trackEngagement = (): void => {
@@ -281,7 +274,6 @@ const inferClickZone = (target: HTMLElement): string => {
   if (target.closest("footer")) return "footer";
   if (target.closest("[data-search-root]")) return "search";
   if (target.closest("#share-section")) return "share";
-  if (target.closest("#knowledge-quiz")) return "quiz";
   if (target.closest(".reading-controls")) return "reading-controls";
   if (target.closest("#article-content")) return "article";
   if (target.closest("main")) return "main";
@@ -444,17 +436,6 @@ const trackStructuredCustomEvents = (): void => {
       seenTocBuckets.add(bucket);
       callFathomEvent(`TOC: click ${bucket}`);
     }
-  });
-
-  window.addEventListener("quiz:complete", (event) => {
-    const detail = (event as CustomEvent<QuizCompleteDetail>).detail;
-    if (!detail || typeof detail !== "object") {
-      return;
-    }
-
-    const score = Number(detail.scorePercent || 0);
-    const scoreBucket = score >= 80 ? "high" : score >= 50 ? "mid" : "low";
-    callFathomEvent(`Quiz: complete ${scoreBucket}`);
   });
 };
 

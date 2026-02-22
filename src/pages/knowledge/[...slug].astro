@@ -12,7 +12,7 @@ import Paragraph from "@components/Paragraph.astro";
 import Prose from "@components/Prose.astro";
 import TableOfContents from "@components/TableOfContents.astro";
 import ReadingControls from "@components/ReadingControls.astro";
-import KnowledgeQuiz from "@components/Knowledge/KnowledgeQuiz.astro";
+
 import KnowledgeTakeaways from "@components/Knowledge/KnowledgeTakeaways.astro";
 import BookmarkButton from "@components/BookmarkButton.astro";
 import PrintButton from "@components/PrintButton.astro";
@@ -23,8 +23,7 @@ import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
 import { resolveAbsoluteUrl, resolvePageUrl } from "@utils/siteUrls";
-import { getKnowledgeQuiz } from "../../data/knowledgeQuizzes";
-import { quizDecades } from "../../data/knowledgeQuizzes";
+
 import { knowledgeTakeaways, takeawaysDecades } from "../../data/knowledgeTakeaways";
 
 export const prerender = true;
@@ -64,9 +63,6 @@ if (!entry) {
 }
 
 const slugKey = resolvedSlug || entry?.slug || entry?.id || "";
-const quizQuestions = quizDecades.includes(slugKey as (typeof quizDecades)[number])
-  ? getKnowledgeQuiz(slugKey)
-  : [];
 
 if (!entry.data.readingTime && entry.body) {
   try {
@@ -261,7 +257,7 @@ const storageUpdatedAt =
     data-analytics-article="true"
     data-analytics-article-slug={slugKey}
     data-analytics-article-category={entry.data.category || "uncategorized"}
-    data-analytics-has-quiz={quizQuestions.length ? "true" : "false"}
+
   >
     <div class="knowledge__backdrop"></div>
     <div class="knowledge__texture"></div>
@@ -321,18 +317,7 @@ const storageUpdatedAt =
               />
               <span>{t("knowledge.word_count", { count: wordsCount })}</span>
             </div>
-            {
-              quizQuestions.length ? (
-                <a href="#knowledge-quiz" class="knowledge__quiz-link">
-                  <Icon
-                    name="help-circle"
-                    class="knowledge__pill-icon knowledge__pill-icon--teal"
-                    aria-hidden="true"
-                  />
-                  <span>Jump to quiz</span>
-                </a>
-              ) : null
-            }
+
             <BookmarkButton articleSlug={storageSlug} articleTitle={title} />
             <PrintButton />
           </div>
@@ -449,11 +434,7 @@ const storageUpdatedAt =
             </div>
           </article>
 
-          {
-            quizQuestions.length ? (
-              <KnowledgeQuiz title="Quick Quiz" questions={quizQuestions} />
-            ) : null
-          }
+
 
           <section
             class="panel panel--compact knowledge-share"
@@ -1028,8 +1009,7 @@ const storageUpdatedAt =
 
       .knowledge--reading-mode .knowledge__hero,
       .knowledge--reading-mode .knowledge-share,
-      .knowledge--reading-mode .knowledge__back,
-      .knowledge--reading-mode #knowledge-quiz {
+      .knowledge--reading-mode .knowledge__back {
         display: none;
       }
 
@@ -1196,33 +1176,6 @@ const storageUpdatedAt =
         .knowledge__stats {
           font-size: 1.125rem;
         }
-      }
-
-      .knowledge__quiz-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        padding: 0.35rem 0.85rem;
-        border-radius: 999px;
-        border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-        background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
-        color: var(--gn-ink);
-        font-weight: 600;
-        text-decoration: none;
-        line-height: 1;
-        transition:
-          transform 160ms ease,
-          border-color 160ms ease,
-          box-shadow 160ms ease;
-      }
-
-      .knowledge__quiz-link:hover {
-        transform: translateY(-2px);
-      }
-
-      .knowledge__quiz-link:focus-visible {
-        outline: 3px solid var(--color-gn-amber-300);
-        outline-offset: 3px;
       }
 
       .knowledge__aside {

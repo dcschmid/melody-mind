@@ -65,13 +65,11 @@ Interpretation:
 - Event trend: `Read depth: 50%`
 - Event trend: `Read depth: 100%`
 - Event trend: `TOC: click *`
-- Event trend: `Quiz: complete *`
 
 Derived KPI checks (manual):
 
 - Read-through proxy = `Read depth: 50%` / `Article: view *`
 - Completion proxy = `Read depth: 100%` / `Article: view *`
-- Learning interaction proxy = `Quiz: complete *` / `Article: view *`
 
 Recommended slice:
 

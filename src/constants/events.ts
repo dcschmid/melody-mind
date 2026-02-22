@@ -64,14 +64,6 @@ export const TOC_EVENTS = {
 } as const;
 
 /**
- * Quiz events.
- */
-export const QUIZ_EVENTS = {
-  /** Fired when a quiz is completed */
-  COMPLETE: "quiz:complete",
-} as const;
-
-/**
  * Toast/notification events.
  */
 export const TOAST_EVENTS = {
@@ -89,7 +81,6 @@ export const EVENTS = {
   ...READING_EVENTS,
   ...SEARCH_EVENTS,
   ...TOC_EVENTS,
-  ...QUIZ_EVENTS,
   ...TOAST_EVENTS,
 } as const;
 

@@ -7,7 +7,6 @@ This document outlines proposed features, improvements, and enhancements for Mel
 **Current Status:**
 
 - 600+ Music Articles (English only)
-- Basic Quiz System (multiple choice)
 - Takeaways System
 - Basic Search functionality
 - Legal pages: Imprint, Privacy Policy (English)
@@ -36,7 +35,7 @@ This document outlines proposed features, improvements, and enhancements for Mel
 | Priority                 | Features                                                            | Impact      | Effort    |
 | ------------------------ | ------------------------------------------------------------------- | ----------- | --------- |
 | 🔴 **P0 - Critical**     | Baseline legal compliance (privacy policy, consent banner, a11y)    | High        | Completed |
-| 🟠 **P1 - High**         | Dark Mode, Interactive Bookmarks, Quiz Enhancements, Search Facets  | High        | Medium    |
+| 🟠 **P1 - High**         | Dark Mode, Interactive Bookmarks, Search Facets                     | High        | Medium    |
 | 🟡 **P2 - Medium**       | Learning Paths, Genre Explorer, Reading Experience, Legal hardening | Medium-High | Medium    |
 | 🟢 **P3 - Nice-to-Have** | Artist Profiles, Audio Player, PWA, Newsletter                      | Medium      | High      |
 | 📅 **Future**            | AI Recommendations, Virtual Museum, Headless CMS                    | High        | Very High |
@@ -286,7 +285,7 @@ interface Genre {
 - Service Worker for caching articles and assets
 - Offline reading capability
 - Add to Homescreen prompt
-- Background sync for quiz results
+- Background sync for reading progress
 - Web App Manifest
 - Installable on mobile devices
 - Offline indicator UI
@@ -391,73 +390,7 @@ links: [{ source: 'blues', target: 'rock', value: 0.8 }]
 
 ### 🟠 P1 - High Priority
 
-#### 3.1 Quiz System Enhancements
-
-**Description**: Extend existing quiz system with more types and features.
-
-**Current State**: Multiple choice quizzes in `src/data/knowledgeQuizzes/`
-
-**Enhancements**:
-
-- Additional quiz types:
-  - Audio Quiz (guess genre/artist from audio)
-  - Image Quiz (guess instrument/album cover)
-  - Timeline Quiz (order chronologically)
-  - Matching Quiz (match artist to genre)
-- Streak tracking (days in a row)
-- Difficulty adaptation (harder after success)
-- Highscore board (local only)
-- Quiz progress indicator
-- Quiz timer (optional)
-- Review incorrect answers
-
-**Privacy**: Safe (LocalStorage only)
-
-**Effort**: Medium (4-5 days)
-
-**Technical Implementation:**
-
-```typescript
-// Extended quiz data structure
-interface Quiz {
-  id: string;
-  articleSlug: string;
-  type: "multiple-choice" | "audio" | "image" | "timeline" | "matching";
-  difficulty: "easy" | "medium" | "hard";
-  questions: QuizQuestion[];
-}
-
-interface QuizQuestion {
-  id: string;
-  question: string;
-  type: string;
-  options?: string[]; // for multiple choice
-  correctAnswer: string | number;
-  audioUrl?: string; // for audio quiz
-  imageUrl?: string; // for image quiz
-  explanation?: string;
-}
-
-interface QuizProgress {
-  quizId: string;
-  score: number;
-  streak: number;
-  lastPlayed: string;
-}
-```
-
-**Deliverables:**
-
-- Extended quiz types in `src/data/knowledgeQuizzes/`
-- `QuizEngine.astro` component
-- `AudioQuizPlayer.astro`
-- `StreakTracker.astro`
-- `HighscoreBoard.astro`
-- Quiz progress tracking
-
----
-
-#### 3.2 Interactive Takeaways System
+#### 3.1 Interactive Takeaways System
 
 **Description**: Make existing takeaways interactive with progress tracking.
 
@@ -626,7 +559,6 @@ function calculateNextReview(review: FlashcardReview, quality: number): number {
 **Requirements**:
 
 - Achievement badges:
-  - First quiz completed
   - 10 articles read
   - Learning path completed
   - 30-day streak
@@ -660,7 +592,6 @@ interface UserAchievement {
 
 interface UserStats {
   articlesRead: number;
-  quizzesCompleted: number;
   streakDays: number;
   takeawaysCompleted: number;
   pathsCompleted: string[];
@@ -1773,7 +1704,6 @@ GET /api/articles
 GET /api/articles/:slug
 GET /api/genres
 GET /api/artists/:slug
-POST /api/quiz/results (optional)
 ```
 
 **Deliverables:**
@@ -1887,19 +1817,19 @@ Features:
 
 #### Week 2: Engagement & Experience
 
-**Goals**: Enhance quiz system, improve reading experience
+**Goals**: Improve reading experience, add interactive features
 
 **Tasks**:
 
-- Day 1-3: Quiz system enhancements (Audio quiz, streak tracking)
-- Day 3-4: Enhanced hero section
-- Day 4-5: Accessibility quick wins
+- Day 1-3: Enhanced hero section
+- Day 3-4: Accessibility quick wins
+- Day 4-5: Performance optimization
 
 **Deliverables**:
 
-- ✅ Enhanced quiz system
 - ✅ Better hero section
 - ✅ Accessibility improvements
+- ✅ Performance improvements
 
 **Effort**: Medium (5 days)
 
@@ -1954,7 +1884,6 @@ Features:
 
 #### Month 2: Engagement
 
-- Quiz enhancements
 - Takeaways interactive
 - Learning paths
 - Achievement system
@@ -2018,7 +1947,6 @@ Features:
 - Average session duration
 - Pages per session
 - Return visitor rate
-- Quiz completion rate
 - Bookmark usage
 
 **Content Discovery**:
@@ -2080,7 +2008,7 @@ This roadmap provides a comprehensive overview of potential features and improve
 1. **Legal compliance baseline first**: keep privacy policy, consent, and a11y compliance verified
 2. **User experience matters**: Dark mode, better search, interactive features
 3. **Music-specific features**: Audio player, timeline, artist profiles
-4. **Learning & gamification**: Enhanced quizzes, takeaways, achievements
+4. **Learning & gamification**: Takeaways, achievements
 5. **Privacy by design**: All features should respect user privacy
 
 ### Recommended Starting Point:
