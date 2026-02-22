@@ -10,7 +10,9 @@
       "@i18n/*": ["src/i18n/*"],
       "@content/*": ["src/content/*"],
       "@types/*": ["src/types/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["src/data/*"],
+      "@styles/*": ["src/styles/*"],
+      "@scripts/*": ["src/scripts/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react",

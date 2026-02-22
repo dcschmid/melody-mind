@@ -44,6 +44,10 @@ export default defineConfig({
         "@constants": path.resolve("./src/constants"),
         "@i18n": path.resolve("./src/i18n"),
         "@content": path.resolve("./src/content"),
+        "@types": path.resolve("./src/types"),
+        "@data": path.resolve("./src/data"),
+        "@styles": path.resolve("./src/styles"),
+        "@scripts": path.resolve("./src/scripts"),
       },
     },
     optimizeDeps: {
