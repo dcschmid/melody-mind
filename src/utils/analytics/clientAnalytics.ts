@@ -7,12 +7,18 @@ import {
 } from "@utils/bookmarks/clientBookmarks";
 import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "@constants/storage";
 import { safeLocalStorage, safeSessionStorage } from "@utils/storage/safeStorage";
+import {
+  ENGAGEMENT_TIMING,
+  ANALYTICS_LIMITS,
+  READING_DEPTH_MILESTONES,
+  SEARCH_QUERY_BUCKETS,
+} from "@constants/analytics";
 
 const CONSENT_KEY = STORAGE_KEYS.COOKIE_CONSENT;
 const JOURNEY_KEY = SESSION_KEYS.JOURNEY;
-const BOUNCE_MS = 15_000;
-const ENGAGED_MS = [30_000, 90_000];
-const EVENT_NAME_LIMIT = 80;
+const BOUNCE_MS = ENGAGEMENT_TIMING.BOUNCE_THRESHOLD_MS;
+const ENGAGED_MS = ENGAGEMENT_TIMING.ENGAGED_MILESTONES_MS;
+const EVENT_NAME_LIMIT = ANALYTICS_LIMITS.EVENT_NAME_MAX_LENGTH;
 const RUNTIME_ANALYTICS_FLAG = RUNTIME_FLAGS.ANALYTICS_ALLOWED;
 
 type FathomApi = {
@@ -59,7 +65,7 @@ declare global {
 let initialized = false;
 
 const clampEventName = (value: string): string =>
-  value.replace(/\s+/g, " ").trim().slice(0, EVENT_NAME_LIMIT);
+  value.replace(/\s+/g, " ").trim().slice(0, ANALYTICS_LIMITS.EVENT_NAME_MAX_LENGTH);
 
 const sanitizeToken = (value: string): string =>
   value
@@ -67,7 +73,7 @@ const sanitizeToken = (value: string): string =>
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
-    .slice(0, 30) || "unknown";
+    .slice(0, ANALYTICS_LIMITS.TOKEN_MAX_LENGTH) || "unknown";
 
 const getCurrentReadDepthBucket = (): "<50" | "50-99" | "100" | "na" => {
   const article = document.getElementById("article-content");
@@ -309,7 +315,7 @@ const trackReadingDepth = (): void => {
     return;
   }
 
-  const milestones = [25, 50, 75, 100];
+  const milestones = [...READING_DEPTH_MILESTONES];
   const sentMilestones = new Set<number>();
   let ticking = false;
 
@@ -348,11 +354,11 @@ const bucketSearchLength = (detail: SearchTelemetryDetail): string => {
     return "empty";
   }
 
-  if (detail.tokenCount >= 4) {
+  if (detail.tokenCount >= SEARCH_QUERY_BUCKETS.LONG_QUERY_MIN_TOKENS) {
     return "long";
   }
 
-  if (detail.queryLength >= 16) {
+  if (detail.queryLength >= SEARCH_QUERY_BUCKETS.MEDIUM_QUERY_MIN_CHARS) {
     return "medium";
   }
 

@@ -13,10 +13,27 @@
 import type { StorageKey, SessionKey } from "@constants/storage";
 
 /**
- * Check if localStorage is available.
+ * Cached availability flags for storage APIs.
+ * Avoids repeated try-catch on every operation.
+ */
+let _localStorageChecked = false;
+let _localStorageAvailable = false;
+let _sessionStorageChecked = false;
+let _sessionStorageAvailable = false;
+
+/**
+ * Check if localStorage is available (cached after first check).
  */
 const isLocalStorageAvailable = (): boolean => {
+  // Return cached result if already checked
+  if (_localStorageChecked) {
+    return _localStorageAvailable;
+  }
+
+  // SSR/build environment check
   if (typeof window === "undefined" || !window.localStorage) {
+    _localStorageChecked = true;
+    _localStorageAvailable = false;
     return false;
   }
 
@@ -25,28 +42,53 @@ const isLocalStorageAvailable = (): boolean => {
     const testKey = "__storage_test__";
     window.localStorage.setItem(testKey, testKey);
     window.localStorage.removeItem(testKey);
-    return true;
+    _localStorageAvailable = true;
   } catch {
-    return false;
+    _localStorageAvailable = false;
   }
+
+  _localStorageChecked = true;
+  return _localStorageAvailable;
 };
 
 /**
- * Check if sessionStorage is available.
+ * Check if sessionStorage is available (cached after first check).
  */
 const isSessionStorageAvailable = (): boolean => {
+  // Return cached result if already checked
+  if (_sessionStorageChecked) {
+    return _sessionStorageAvailable;
+  }
+
+  // SSR/build environment check
   if (typeof window === "undefined" || !window.sessionStorage) {
+    _sessionStorageChecked = true;
+    _sessionStorageAvailable = false;
     return false;
   }
 
+  // Test actual availability
   try {
     const testKey = "__session_test__";
     window.sessionStorage.setItem(testKey, testKey);
     window.sessionStorage.removeItem(testKey);
-    return true;
+    _sessionStorageAvailable = true;
   } catch {
-    return false;
+    _sessionStorageAvailable = false;
   }
+
+  _sessionStorageChecked = true;
+  return _sessionStorageAvailable;
+};
+
+/**
+ * Reset availability cache (useful for testing or after storage permission changes).
+ */
+export const resetStorageCache = (): void => {
+  _localStorageChecked = false;
+  _localStorageAvailable = false;
+  _sessionStorageChecked = false;
+  _sessionStorageAvailable = false;
 };
 
 /**
