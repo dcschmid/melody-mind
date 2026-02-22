@@ -24,7 +24,7 @@ import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { getReadingTime } from "@utils/readingTime";
 import { resolveAbsoluteUrl, resolvePageUrl } from "@utils/siteUrls";
 
-import { knowledgeTakeaways, takeawaysDecades } from "../../data/knowledgeTakeaways";
+
 
 export const prerender = true;
 
@@ -82,15 +82,7 @@ const t = useTranslations(lang);
 
 const { headings, Content } = await render(entry);
 const mergedHeadings = headings;
-const fallbackTakeaways = takeawaysDecades.includes(
-  slugKey as (typeof takeawaysDecades)[number]
-)
-  ? knowledgeTakeaways[slugKey] || []
-  : [];
-const takeaways =
-  entry.data.takeaways && entry.data.takeaways.length
-    ? entry.data.takeaways
-    : fallbackTakeaways;
+const takeaways = entry.data.takeaways || [];
 
 const rawImage = entry.data.image;
 const isValidImage =
