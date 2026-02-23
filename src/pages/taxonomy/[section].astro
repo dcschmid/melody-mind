@@ -136,6 +136,52 @@ const pageSeo = buildPageSeo({
                 {sectionArticles.length} articles
               </span>
             </div>
+
+            {
+              subsectionsData.length > 1 && (
+                <nav class="taxonomy-section__toc" aria-label="Jump to topic">
+                  <button
+                    type="button"
+                    class="taxonomy-section__toc-toggle"
+                    aria-expanded="false"
+                    aria-controls="taxonomy-toc-content"
+                  >
+                    <span class="taxonomy-section__toc-toggle-label">Jump to topic</span>
+                    <svg
+                      class="taxonomy-section__toc-chevron"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  <div id="taxonomy-toc-content" class="taxonomy-section__toc-content">
+                    <ul class="taxonomy-section__toc-list">
+                      {subsectionsData.map((subsection) => (
+                        <li class="taxonomy-section__toc-item">
+                          <a
+                            href={`#${subsection.id}`}
+                            class="taxonomy-section__toc-link"
+                          >
+                            {subsection.title}
+                            <span class="taxonomy-section__toc-count">
+                              {subsection.articleCount}
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </nav>
+              )
+            }
           </div>
         </div>
       </header>
@@ -143,7 +189,7 @@ const pageSeo = buildPageSeo({
       <section class="taxonomy-section__content">
         {
           subsectionsData.map((subsection) => (
-            <div class="taxonomy-section__subsection">
+            <div id={subsection.id} class="taxonomy-section__subsection">
               <div class="taxonomy-section__subsection-header">
                 <div class="taxonomy-section__subsection-info">
                   <h2 class="taxonomy-section__subsection-title">{subsection.title}</h2>
@@ -528,4 +574,222 @@ const pageSeo = buildPageSeo({
     text-align: center;
     margin: 0;
   }
+
+  /* Jump Navigation TOC */
+  .taxonomy-section__toc {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .taxonomy-section__toc-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 90%, transparent);
+    color: var(--gn-ink);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .taxonomy-section__toc-toggle:hover {
+    border-color: var(--color-gn-amber-300);
+    background: color-mix(in srgb, var(--gn-bg-muted) 95%, transparent);
+  }
+
+  .taxonomy-section__toc-toggle:focus-visible {
+    outline: 3px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  .taxonomy-section__toc-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .taxonomy-section__toc-chevron {
+    flex-shrink: 0;
+    color: var(--gn-ink-muted);
+    transition: transform var(--transition-fast);
+  }
+
+  .taxonomy-section__toc[data-open="true"] .taxonomy-section__toc-chevron {
+    transform: rotate(180deg);
+  }
+
+  .taxonomy-section__toc-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 97%, transparent);
+    box-shadow:
+      var(--gn-offset-shadow),
+      0 12px 32px rgba(0, 0, 0, 0.25);
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .taxonomy-section__toc[data-open="true"] .taxonomy-section__toc-content {
+    display: block;
+  }
+
+  .taxonomy-section__toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .taxonomy-section__toc-item {
+    margin: 0;
+  }
+
+  .taxonomy-section__toc-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.75rem;
+    color: var(--gn-ink);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .taxonomy-section__toc-link:hover {
+    background: color-mix(in srgb, var(--gn-accent) 12%, transparent);
+    color: var(--gn-ink);
+  }
+
+  .taxonomy-section__toc-link:focus-visible {
+    outline: 2px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+
+  .taxonomy-section__toc-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.25rem;
+    padding: 0 0.375rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--gn-accent) 20%, transparent);
+    color: var(--gn-ink-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .taxonomy-section__toc-link:hover .taxonomy-section__toc-count {
+    background: color-mix(in srgb, var(--gn-accent) 35%, transparent);
+    color: var(--gn-ink);
+  }
+
+  /* Desktop: Show as pill list */
+  @media (min-width: 640px) {
+    .taxonomy-section__toc-toggle {
+      display: none;
+    }
+
+    .taxonomy-section__toc-content {
+      display: block;
+      position: static;
+      padding: 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .taxonomy-section__toc-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .taxonomy-section__toc-link {
+      padding: 0.5rem 0.875rem;
+      border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
+      background: color-mix(in srgb, var(--gn-bg-muted) 85%, transparent);
+      border-radius: 999px;
+      font-size: 0.875rem;
+    }
+
+    .taxonomy-section__toc-link:hover {
+      border-color: var(--color-gn-amber-300);
+      background: color-mix(in srgb, var(--gn-accent) 15%, transparent);
+    }
+  }
+
+  /* Scroll margin for anchored sections */
+  .taxonomy-section__subsection {
+    scroll-margin-top: 80px;
+  }
 </style>
+
+<script>
+  const tocNav = document.querySelector(".taxonomy-section__toc");
+  const tocToggle = document.querySelector(".taxonomy-section__toc-toggle");
+  const tocContent = document.getElementById("taxonomy-toc-content");
+
+  if (tocNav && tocToggle && tocContent) {
+    const setOpen = (open: boolean): void => {
+      tocNav?.setAttribute("data-open", open ? "true" : "false");
+      tocToggle?.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+
+    tocToggle.addEventListener("click", () => {
+      const isOpen = tocToggle.getAttribute("aria-expanded") === "true";
+      setOpen(!isOpen);
+    });
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      const target = e.target as Node;
+      if (tocNav?.getAttribute("data-open") === "true" && !tocNav.contains(target)) {
+        setOpen(false);
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && tocNav?.getAttribute("data-open") === "true") {
+        setOpen(false);
+        tocToggle?.focus();
+      }
+    });
+
+    // Close on link click (mobile)
+    tocContent.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest<HTMLAnchorElement>("a[href^='#']");
+      if (link && window.innerWidth < 640) {
+        setOpen(false);
+      }
+    });
+  }
+</script>
