@@ -6,6 +6,7 @@
  */
 
 import { VERSIONED_KEYS } from "@constants/storageVersions";
+import { isServer } from "@utils/environment";
 
 const MAX_ENTRIES = 3;
 
@@ -26,7 +27,7 @@ export function initRecentReads(): void {
   };
 
   if (!recentEntry.slug || !recentEntry.title) return;
-  if (typeof window === "undefined" || !window.localStorage) return;
+  if (isServer || !window.localStorage) return;
 
   try {
     const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");

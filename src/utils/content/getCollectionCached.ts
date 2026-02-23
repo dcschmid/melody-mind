@@ -6,17 +6,9 @@
  */
 import type { CollectionEntry } from "astro:content";
 import { loggers } from "@utils/logging";
+import { LRUCache } from "@utils/cache/LRUCache";
 
 type AnyCollectionEntries = CollectionEntry<any>[];
-
-interface CacheEntry {
-  ts: number;
-  items: AnyCollectionEntries;
-}
-
-// Simple module-level cache map
-const _collectionCache = new Map<string, CacheEntry>();
-const _collectionFailuresLogged = new Set<string>();
 
 /**
  * Maximum number of cached collections.
@@ -25,62 +17,46 @@ const _collectionFailuresLogged = new Set<string>();
 const MAX_CACHE_SIZE = 50;
 
 /**
- * Interval for automatic cleanup of expired cache entries.
- * Runs every 10 minutes in Node.js runtime.
+ * Default TTL for cached collections (5 minutes).
  */
-const CLEANUP_INTERVAL_MS = 10 * 60 * 1000;
+const DEFAULT_TTL_MS = 5 * 60 * 1000;
 
 /**
- * Remove expired entries from the cache.
- * Called periodically and when cache size exceeds limit.
+ * LRU cache for collection entries with TTL support.
  */
-function cleanupExpiredEntries(): void {
-  const now = Date.now();
+const _collectionCache = new LRUCache<string, AnyCollectionEntries>({
+  maxSize: MAX_CACHE_SIZE,
+  ttlMs: DEFAULT_TTL_MS,
+});
 
-  // Remove expired entries
-  for (const [key, entry] of _collectionCache) {
-    if (now - entry.ts > DEFAULT_TTL) {
-      _collectionCache.delete(key);
-    }
-  }
-
-  // If still over limit, remove oldest entries
-  if (_collectionCache.size > MAX_CACHE_SIZE) {
-    const entries = Array.from(_collectionCache.entries());
-    entries.sort((a, b) => a[1].ts - b[1].ts);
-    const toDelete = entries.slice(0, _collectionCache.size - MAX_CACHE_SIZE);
-    toDelete.forEach(([key]) => _collectionCache.delete(key));
-  }
-}
-
-// Schedule periodic cleanup (only in Node.js runtime, not during build)
-if (typeof process !== "undefined" && process.env.NODE_ENV !== "production") {
-  setInterval(cleanupExpiredEntries, CLEANUP_INTERVAL_MS);
-}
+/**
+ * Track which collections have logged failures to avoid spam.
+ */
+const _collectionFailuresLogged = new Set<string>();
 
 export interface GetCollectionCachedOptions {
-  /** Optional TTL in ms (default: 5 minutes) */
-  ttlMs?: number;
   /** Disable caching for one-off calls */
   bypass?: boolean;
 }
 
-const DEFAULT_TTL = 5 * 60 * 1000; // 5 minutes
-
 /**
- * Retrieve a content collection, caching the result for a configurable TTL.
+ * Retrieve a content collection, caching the result for the default TTL.
  * Falls back to empty array on failure (caller can decide on fallback language logic).
+ *
+ * @param collectionName - The name of the collection to retrieve
+ * @param opts - Options for caching behavior
+ * @returns The collection entries, or an empty array on failure
  */
 export async function getCollectionCached(
   collectionName: string,
   opts: GetCollectionCachedOptions = {}
 ): Promise<AnyCollectionEntries> {
-  const { ttlMs = DEFAULT_TTL, bypass = false } = opts;
+  const { bypass = false } = opts;
 
   if (!bypass) {
     const cached = _collectionCache.get(collectionName);
-    if (cached && Date.now() - cached.ts < ttlMs) {
-      return cached.items;
+    if (cached !== undefined) {
+      return cached;
     }
   }
 
@@ -89,11 +65,7 @@ export async function getCollectionCached(
     const items = (await getCollection(collectionName as any)) as AnyCollectionEntries;
 
     if (!bypass) {
-      _collectionCache.set(collectionName, { ts: Date.now(), items });
-      // Trigger cleanup if cache is getting large
-      if (_collectionCache.size > MAX_CACHE_SIZE) {
-        cleanupExpiredEntries();
-      }
+      _collectionCache.set(collectionName, items);
     }
     return items;
   } catch (error) {

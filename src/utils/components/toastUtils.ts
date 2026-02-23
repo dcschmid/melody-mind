@@ -1,4 +1,5 @@
 import { TOAST_EVENTS } from "@constants/events";
+import { isServer } from "@utils/environment";
 
 export type ToastVariant = "info" | "success" | "warning" | "error";
 
@@ -17,7 +18,7 @@ export const TOAST_EVENT_NAME = TOAST_EVENTS.SHOW;
 const DEFAULT_DURATION_MS = 3400;
 
 export function emitToast(options: ToastOptions): void {
-  if (typeof window === "undefined" || !options.message.trim()) {
+  if (isServer || !options.message.trim()) {
     return;
   }
 

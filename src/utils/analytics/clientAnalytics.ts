@@ -7,6 +7,7 @@ import {
 } from "@utils/bookmarks/clientBookmarks";
 import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "@constants/storage";
 import { safeLocalStorage, safeSessionStorage } from "@utils/storage/safeStorage";
+import { isServer } from "@utils/environment";
 import {
   ENGAGEMENT_TIMING,
   ANALYTICS_LIMITS,
@@ -571,7 +572,7 @@ const trackUiEvents = (): void => {
 };
 
 export function initClientAnalytics(): void {
-  if (typeof window === "undefined" || initialized) {
+  if (isServer || initialized) {
     return;
   }
 

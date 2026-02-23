@@ -4,6 +4,7 @@
  * This reduces repetitive assembly across Astro pages.
  */
 import { PLAYLIST_COVER_IMAGE, PODCAST_COVER_IMAGE } from "../../constants/assets";
+import { LRUCache } from "@utils/cache/LRUCache";
 
 import buildSeoText from "./textUnified";
 import type { BuildSeoTextParams, SeoTextResult } from "./textUnified";
@@ -120,31 +121,15 @@ export interface PageSeoResult extends SeoTextResult {
 
 const BRAND_SUFFIX = " - MelodyMind";
 
-// In-memory memoization cache keyed by JSON of essential inputs
-const seoCache = new Map<string, PageSeoResult>();
-
 /**
  * Maximum number of entries in the SEO cache.
  * Prevents memory bloat during long-running dev sessions.
  */
 const MAX_SEO_CACHE_SIZE = 100;
 
-/**
- * Evict oldest entries when cache exceeds maximum size.
- * Simple LRU-style cleanup: removes first-inserted entries.
- */
-function manageSeoCacheSize(): void {
-  if (seoCache.size <= MAX_SEO_CACHE_SIZE) {
-    return;
-  }
+// In-memory memoization cache using LRU eviction
+const seoCache = new LRUCache<string, PageSeoResult>({ maxSize: MAX_SEO_CACHE_SIZE });
 
-  // Remove oldest entries (Map preserves insertion order)
-  const keysToDelete = Array.from(seoCache.keys()).slice(
-    0,
-    seoCache.size - MAX_SEO_CACHE_SIZE
-  );
-  keysToDelete.forEach((key) => seoCache.delete(key));
-}
 function ensureBrandSuffix(title: string): string {
   return title.endsWith(" - MelodyMind") || title.endsWith(" | Melody Mind")
     ? title.replace(" | Melody Mind", BRAND_SUFFIX)
@@ -594,7 +579,6 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   };
   if (memoize) {
     seoCache.set(cacheKey, result);
-    manageSeoCacheSize();
   }
   return result;
 }

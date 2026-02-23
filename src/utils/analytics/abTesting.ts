@@ -1,5 +1,6 @@
 import { SESSION_KEYS } from "@constants/storage";
 import { safeLocalStorage } from "@utils/storage/safeStorage";
+import { isServer } from "@utils/environment";
 
 const STORAGE_KEY = SESSION_KEYS.AB_TESTS;
 
@@ -52,7 +53,7 @@ export function getOrAssignVariant(
   experimentId: string,
   variants: ExperimentVariant[]
 ): string {
-  if (typeof window === "undefined" || !isNonEmptyString(experimentId)) {
+  if (isServer || !isNonEmptyString(experimentId)) {
     return "control";
   }
 

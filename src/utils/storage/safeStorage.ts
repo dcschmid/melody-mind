@@ -11,6 +11,7 @@
  */
 
 import type { StorageKey, SessionKey } from "@constants/storage";
+import { isServer } from "@utils/environment";
 
 /**
  * Cached availability flags for storage APIs.
@@ -31,7 +32,7 @@ const isLocalStorageAvailable = (): boolean => {
   }
 
   // SSR/build environment check
-  if (typeof window === "undefined" || !window.localStorage) {
+  if (isServer || !window.localStorage) {
     _localStorageChecked = true;
     _localStorageAvailable = false;
     return false;
@@ -61,7 +62,7 @@ const isSessionStorageAvailable = (): boolean => {
   }
 
   // SSR/build environment check
-  if (typeof window === "undefined" || !window.sessionStorage) {
+  if (isServer || !window.sessionStorage) {
     _sessionStorageChecked = true;
     _sessionStorageAvailable = false;
     return false;

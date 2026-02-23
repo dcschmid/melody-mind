@@ -7,6 +7,8 @@
  * @module constants/events
  */
 
+import { isServer } from "@utils/environment";
+
 /**
  * Bookmark-related events.
  */
@@ -93,7 +95,7 @@ export type EventName = (typeof EVENTS)[keyof typeof EVENTS];
  * Helper to dispatch a typed custom event.
  */
 export function dispatchCustomEvent<T = unknown>(eventName: EventName, detail?: T): void {
-  if (typeof window === "undefined") {
+  if (isServer) {
     return;
   }
 

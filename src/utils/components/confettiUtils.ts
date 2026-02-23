@@ -1,3 +1,5 @@
+import { isBrowser, isServer } from "@utils/environment";
+
 interface AchievementConfettiOptions {
   particleCount?: number;
   spread?: number;
@@ -14,10 +16,7 @@ type CanvasConfettiModule = { default: CanvasConfettiFn };
 let confettiModulePromise: Promise<CanvasConfettiModule> | null = null;
 
 const shouldReduceMotion = (): boolean =>
-  Boolean(
-    typeof window !== "undefined" &&
-    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
-  );
+  Boolean(isBrowser && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
 
 const loadConfettiModule = async (): Promise<CanvasConfettiModule> => {
   if (!confettiModulePromise) {
@@ -30,7 +29,7 @@ const loadConfettiModule = async (): Promise<CanvasConfettiModule> => {
 export async function launchAchievementConfetti(
   options: AchievementConfettiOptions = {}
 ): Promise<void> {
-  if (typeof window === "undefined") {
+  if (isServer) {
     return;
   }
 

@@ -2,6 +2,7 @@ import { STORAGE_KEYS } from "@constants/storage";
 import { BOOKMARK_EVENTS } from "@constants/events";
 import { safeLocalStorage } from "@utils/storage/safeStorage";
 import { loggers } from "@utils/logging";
+import { isServer, hasCryptoUUID } from "@utils/environment";
 
 // Re-export for backward compatibility with components using inline scripts
 export const BOOKMARK_STORAGE_KEY = STORAGE_KEYS.BOOKMARKS;
@@ -100,18 +101,14 @@ const normalizeDateIso = (value: unknown): string => {
 };
 
 const createBookmarkId = (slug: string): string => {
-  if (
-    typeof window !== "undefined" &&
-    "crypto" in window &&
-    typeof window.crypto.randomUUID === "function"
-  ) {
+  if (hasCryptoUUID()) {
     return window.crypto.randomUUID();
   }
   return `${slug}-${Date.now()}`;
 };
 
 const dispatchChange = (detail: BookmarkChangeDetail): void => {
-  if (typeof window === "undefined") return;
+  if (isServer) return;
   window.dispatchEvent(
     new CustomEvent<BookmarkChangeDetail>(BOOKMARK_EVENTS.CHANGED, {
       detail,

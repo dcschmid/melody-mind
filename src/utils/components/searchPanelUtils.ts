@@ -4,6 +4,7 @@
  * ARIA status/no-results handling.
  */
 import { SEARCH_EVENTS } from "@constants/events";
+import { isServer } from "@utils/environment";
 
 type SearchElements = {
   root: HTMLElement;
@@ -30,7 +31,7 @@ type SearchResultClickDetail = {
 };
 
 const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
-  if (typeof window === "undefined") {
+  if (isServer) {
     return;
   }
 
@@ -46,7 +47,7 @@ const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
 };
 
 const dispatchSearchResultClick = (detail: SearchResultClickDetail): void => {
-  if (typeof window === "undefined") {
+  if (isServer) {
     return;
   }
 
@@ -320,7 +321,7 @@ function initSearchPanel(elements: SearchElements): void {
 }
 
 export function initSearchPanelsAuto(): void {
-  if (typeof window === "undefined") return;
+  if (isServer) return;
   const roots = Array.from(document.querySelectorAll<HTMLElement>("[data-search-root]"));
   roots.forEach((root) => {
     const elements = getElements(root);

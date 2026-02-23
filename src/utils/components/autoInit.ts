@@ -6,6 +6,7 @@
  */
 
 import { createLogger } from "@utils/logging";
+import { isServer } from "@utils/environment";
 
 const logger = createLogger("autoInit");
 
@@ -81,7 +82,7 @@ const INIT_TARGETS: InitEntry[] = [
  * Initialize all interactive components present on the current page.
  */
 export function initInteractiveComponents(): void {
-  if (typeof window === "undefined" || hasInitialized) {
+  if (isServer || hasInitialized) {
     return;
   }
 

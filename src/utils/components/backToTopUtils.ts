@@ -3,6 +3,8 @@
  * Replaces the over-engineered class-based approach
  */
 
+import { isBrowser } from "@utils/environment";
+
 interface BackToTopConfig {
   buttonId: string;
   scrollThreshold?: number;
@@ -15,8 +17,7 @@ export function initBackToTop(config: BackToTopConfig): void {
   const button = document.getElementById(config.buttonId) as HTMLButtonElement;
   const scrollThreshold = config.scrollThreshold || 400;
   const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    isBrowser && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
   if (!button) {
     return;
