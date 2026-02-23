@@ -752,14 +752,16 @@ const pageSeo = buildPageSeo({
 </style>
 
 <script>
-  const tocNav = document.querySelector(".taxonomy-section__toc");
-  const tocToggle = document.querySelector(".taxonomy-section__toc-toggle");
+  const tocNav = document.querySelector<HTMLElement>(".taxonomy-section__toc");
+  const tocToggle = document.querySelector<HTMLButtonElement>(
+    ".taxonomy-section__toc-toggle"
+  );
   const tocContent = document.getElementById("taxonomy-toc-content");
 
   if (tocNav && tocToggle && tocContent) {
     const setOpen = (open: boolean): void => {
-      tocNav?.setAttribute("data-open", open ? "true" : "false");
-      tocToggle?.setAttribute("aria-expanded", open ? "true" : "false");
+      tocNav.setAttribute("data-open", open ? "true" : "false");
+      tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
     };
 
     tocToggle.addEventListener("click", () => {
@@ -770,16 +772,16 @@ const pageSeo = buildPageSeo({
     // Close on outside click
     document.addEventListener("click", (e) => {
       const target = e.target as Node;
-      if (tocNav?.getAttribute("data-open") === "true" && !tocNav.contains(target)) {
+      if (tocNav.getAttribute("data-open") === "true" && !tocNav.contains(target)) {
         setOpen(false);
       }
     });
 
     // Close on Escape
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && tocNav?.getAttribute("data-open") === "true") {
+      if (e.key === "Escape" && tocNav.getAttribute("data-open") === "true") {
         setOpen(false);
-        tocToggle?.focus();
+        tocToggle.focus();
       }
     });
 
