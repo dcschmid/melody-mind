@@ -24,7 +24,7 @@
 - Classical → Modern Classical → Minimalism → Post-Classical / Neo-Classical (done)
 - Hip Hop → Old School → Golden Age → Conscious / Gangsta → Trap & Drill (done)
 - Latin → Salsa → Latin Pop → Reggaeton → Latin Trap / Urban (done)
-- Soul → Funk → Disco → House → Modern Dance Music
+- Soul → Funk → Disco → House → Modern Dance Music (done)
 - Folk → Singer-Songwriter → Indie Folk → Bedroom Pop
 - Gospel → Soul → Contemporary R&B → Modern Vocal Pop
 - Jazz → Fusion → Acid Jazz → Neo Soul
