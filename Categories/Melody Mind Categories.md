@@ -26,7 +26,7 @@
 - Latin → Salsa → Latin Pop → Reggaeton → Latin Trap / Urban (done)
 - Soul → Funk → Disco → House → Modern Dance Music (done)
 - Folk → Singer-Songwriter → Indie Folk → Bedroom Pop (done)
-- Gospel → Soul → Contemporary R&B → Modern Vocal Pop
+- Gospel → Soul → Contemporary R&B → Modern Vocal Pop (done)
 - Jazz → Fusion → Acid Jazz → Neo Soul
 - Punk → Post-Punk → Alternative → Indie
 - Post-Punk → Industrial → EBM → Industrial Metal

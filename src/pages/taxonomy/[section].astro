@@ -63,7 +63,7 @@ const sectionArticles = sortKnowledgeEntries(
   )
 );
 
-// Build subsection data with article counts
+// Build subsection data with article counts and groups
 const subsectionsData = section.subsections.map((subsection: TaxonomySubsection) => {
   const articles = sortKnowledgeEntries(
     articlesWithReadingTime.filter(
@@ -71,11 +71,62 @@ const subsectionsData = section.subsections.map((subsection: TaxonomySubsection)
     )
   );
 
+  // Build groups with article counts
+  const groupsWithArticles = (subsection.groups || []).map((group) => {
+    const groupArticles = sortKnowledgeEntries(
+      articlesWithReadingTime.filter(
+        (a: any) =>
+          a.data?.taxonomySubsection === subsection.id &&
+          a.data?.taxonomyGroup === group.id
+      )
+    );
+    return {
+      ...group,
+      anchorId: `${subsection.id}--${group.id}`,
+      articleCount: groupArticles.length,
+    };
+  });
+
   return {
     ...subsection,
     articleCount: articles.length,
     articles,
+    groupsWithArticles,
   };
+});
+
+// Build flat list of jump targets (groups with articles, or subsections without groups)
+interface JumpTarget {
+  anchorId: string;
+  title: string;
+  articleCount: number;
+  parentTitle?: string;
+}
+
+const jumpTargets: JumpTarget[] = subsectionsData.flatMap((subsection) => {
+  const groupsWithContent = subsection.groupsWithArticles.filter(
+    (g) => g.articleCount > 0
+  );
+
+  if (groupsWithContent.length > 0) {
+    // Has groups with articles → list groups
+    return groupsWithContent.map((group) => ({
+      anchorId: group.anchorId,
+      title: group.title,
+      articleCount: group.articleCount,
+      parentTitle: subsection.title,
+    }));
+  } else if (subsection.articleCount > 0) {
+    // No groups but has articles → list subsection
+    return [
+      {
+        anchorId: subsection.id,
+        title: subsection.title,
+        articleCount: subsection.articleCount,
+      },
+    ];
+  }
+  return [];
 });
 
 // SEO
@@ -138,7 +189,7 @@ const pageSeo = buildPageSeo({
             </div>
 
             {
-              subsectionsData.length > 1 && (
+              jumpTargets.length >= 1 && (
                 <nav class="taxonomy-section__toc" aria-label="Jump to topic">
                   <button
                     type="button"
@@ -164,15 +215,17 @@ const pageSeo = buildPageSeo({
                   </button>
                   <div id="taxonomy-toc-content" class="taxonomy-section__toc-content">
                     <ul class="taxonomy-section__toc-list">
-                      {subsectionsData.map((subsection) => (
+                      {jumpTargets.map((target) => (
                         <li class="taxonomy-section__toc-item">
                           <a
-                            href={`#${subsection.id}`}
+                            href={`#${target.anchorId}`}
                             class="taxonomy-section__toc-link"
                           >
-                            {subsection.title}
+                            <span class="taxonomy-section__toc-title">
+                              {target.title}
+                            </span>
                             <span class="taxonomy-section__toc-count">
-                              {subsection.articleCount}
+                              {target.articleCount}
                             </span>
                           </a>
                         </li>
@@ -217,7 +270,10 @@ const pageSeo = buildPageSeo({
                     );
 
                     return (
-                      <div class="taxonomy-section__group">
+                      <div
+                        id={`${subsection.id}--${group.id}`}
+                        class="taxonomy-section__group"
+                      >
                         <div class="taxonomy-section__group-header">
                           <div class="taxonomy-section__group-info">
                             <h3 class="taxonomy-section__group-title">{group.title}</h3>
@@ -746,7 +802,8 @@ const pageSeo = buildPageSeo({
   }
 
   /* Scroll margin for anchored sections */
-  .taxonomy-section__subsection {
+  .taxonomy-section__subsection,
+  .taxonomy-section__group {
     scroll-margin-top: 80px;
   }
 </style>
