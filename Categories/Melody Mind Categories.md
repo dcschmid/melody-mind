@@ -28,7 +28,7 @@
 - Folk → Singer-Songwriter → Indie Folk → Bedroom Pop (done)
 - Gospel → Soul → Contemporary R&B → Modern Vocal Pop (done)
 - Jazz → Fusion → Acid Jazz → Neo Soul (done)
-- Punk → Post-Punk → Alternative → Indie
+- Punk → Post-Punk → Alternative → Indie (done)
 - Post-Punk → Industrial → EBM → Industrial Metal
 - Ska → Rocksteady → Reggae → Dub → Dancehall → Global Bass
 - Pop → Teen Pop → Synth Pop → Global Pop → Streaming Pop
