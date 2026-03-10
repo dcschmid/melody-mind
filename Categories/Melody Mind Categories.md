@@ -29,8 +29,8 @@
 - Gospel → Soul → Contemporary R&B → Modern Vocal Pop (done)
 - Jazz → Fusion → Acid Jazz → Neo Soul (done)
 - Punk → Post-Punk → Alternative → Indie (done)
-- Post-Punk → Industrial → EBM → Industrial Metal
-- Ska → Rocksteady → Reggae → Dub → Dancehall → Global Bass
+- Post-Punk → Industrial → EBM → Industrial Metal (done)
+- Ska → Rocksteady → Reggae → Dub → Dancehall → Global Bass (done)
 - Pop → Teen Pop → Synth Pop → Global Pop → Streaming Pop
 - Pop (East Asia) → J-Pop / K-Pop → Global Pop
 - Electronic → Techno / House → Trance / IDM → EDM → Experimental & Hybrid Forms

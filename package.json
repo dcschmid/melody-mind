@@ -37,6 +37,7 @@
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.0",
+    "astro-pagefind": "^1.8.5",
     "astro-robots-txt": "^1.0.0",
     "canvas-confetti": "^1.9.4",
     "date-fns": "^4.1.0",

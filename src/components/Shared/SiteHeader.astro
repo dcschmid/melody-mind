@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 interface NavItem {
   href: string;
   label: string;
+  icon?: string;
 }
 
 interface Props {
@@ -13,11 +14,12 @@ interface Props {
 const { showIcons = true } = Astro.props;
 
 const navItems: NavItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/bookmarks", label: "Bookmarks" },
+  { href: "/", label: "Home", icon: "home" },
+  { href: "/bookmarks", label: "Bookmarks", icon: "bookmark" },
 ];
 
 const currentPath = Astro.url.pathname;
+const currentQuery = Astro.url.searchParams.get("q") || "";
 ---
 
 <header class="site-header" role="banner">
@@ -43,6 +45,39 @@ const currentPath = Astro.url.pathname;
     </button>
 
     <nav id="site-primary-nav" class="site-header__nav" aria-label="Primary navigation">
+      <div class="site-header__search">
+        <form
+          class="site-header__search-form"
+          action="/search"
+          method="get"
+          role="search"
+        >
+          <label class="site-header__search-label" for="site-header-search-input">
+            Search Melody Mind
+          </label>
+          <div class="site-header__search-field">
+            <Icon name="search" class="site-header__search-icon" aria-hidden="true" />
+            <input
+              id="site-header-search-input"
+              class="site-header__search-input"
+              type="search"
+              name="q"
+              value={currentQuery}
+              placeholder="Search genres, eras, artists"
+              autocomplete="off"
+              data-site-header-search-input
+            />
+            <button class="site-header__search-submit" type="submit">
+              <span class="site-header__search-submit-text">Search</span>
+              <Icon
+                name="arrow-right"
+                class="site-header__search-submit-icon"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
       <ul class="site-header__nav-list">
         {
           navItems.map((item) => {
@@ -56,11 +91,8 @@ const currentPath = Astro.url.pathname;
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  {showIcons && item.href === "/" ? (
-                    <Icon name="home" aria-hidden="true" />
-                  ) : null}
-                  {showIcons && item.href === "/bookmarks" ? (
-                    <Icon name="bookmark" aria-hidden="true" />
+                  {showIcons && item.icon ? (
+                    <Icon name={item.icon} aria-hidden="true" />
                   ) : null}
                   <span>{item.label}</span>
                   {item.href === "/bookmarks" ? (
@@ -117,11 +149,18 @@ const currentPath = Astro.url.pathname;
   const nav = document.getElementById("site-primary-nav");
   const scrim = document.querySelector<HTMLButtonElement>("[data-site-header-scrim]");
   const header = document.querySelector<HTMLElement>(".site-header");
+  const headerSearchInput = document.querySelector<HTMLInputElement>(
+    "[data-site-header-search-input]"
+  );
 
   if (toggle && nav && header) {
     const desktopQuery = window.matchMedia("(min-width: 880px)");
     const getFocusableNavItems = (): HTMLElement[] =>
-      Array.from(nav.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"));
+      Array.from(
+        nav.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])"
+        )
+      );
     let previousFocus: HTMLElement | null = null;
 
     const setOpen = (open: boolean, restoreFocus = true): void => {
@@ -221,6 +260,36 @@ const currentPath = Astro.url.pathname;
     setOpen(false, false);
     desktopQuery.addEventListener("change", handleDesktopChange);
   }
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key !== "/" ||
+      event.defaultPrevented ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const activeElement = document.activeElement;
+    if (
+      activeElement instanceof HTMLInputElement ||
+      activeElement instanceof HTMLTextAreaElement ||
+      activeElement instanceof HTMLSelectElement ||
+      activeElement?.getAttribute("contenteditable") === "true"
+    ) {
+      return;
+    }
+
+    if (!headerSearchInput) {
+      return;
+    }
+
+    event.preventDefault();
+    headerSearchInput.focus();
+    headerSearchInput.select();
+  });
 
   updateBookmarkCount();
   window.addEventListener("storage", (event) => {
@@ -381,6 +450,120 @@ const currentPath = Astro.url.pathname;
       visibility 0s linear var(--transition-fast);
   }
 
+  .site-header__search {
+    margin-bottom: 0.8rem;
+  }
+
+  .site-header__search-form {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .site-header__search-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gn-ink-muted);
+  }
+
+  .site-header__search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-header__search-icon {
+    position: absolute;
+    left: 0.9rem;
+    width: 0.95rem;
+    height: 0.95rem;
+    color: var(--gn-ink-muted);
+    pointer-events: none;
+  }
+
+  .site-header__search-input {
+    width: 100%;
+    min-height: 2.9rem;
+    padding: 0.8rem 6.5rem 0.8rem 2.5rem;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 78%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--gn-bg) 90%, transparent);
+    color: var(--gn-ink);
+    font: inherit;
+    font-size: 0.95rem;
+    box-shadow:
+      0 10px 24px rgba(6, 11, 23, 0.22),
+      inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 8%, transparent);
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .site-header__search-input::placeholder {
+    color: var(--gn-ink-muted);
+  }
+
+  .site-header__search-input:hover {
+    border-color: color-mix(in srgb, var(--gn-accent) 44%, transparent);
+  }
+
+  .site-header__search-input:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--gn-accent) 34%, transparent);
+    outline-offset: 3px;
+    border-color: color-mix(in srgb, var(--gn-accent) 68%, transparent);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--gn-accent) 14%, transparent),
+      0 12px 26px rgba(6, 11, 23, 0.28);
+  }
+
+  .site-header__search-submit {
+    position: absolute;
+    right: 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.2rem;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid color-mix(in srgb, var(--gn-accent) 32%, transparent);
+    border-radius: 999px;
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--gn-accent) 28%, transparent),
+      color-mix(in srgb, var(--gn-accent-strong) 24%, transparent)
+    );
+    color: var(--gn-ink);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .site-header__search-submit:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--gn-accent) 46%, transparent);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--gn-accent) 38%, transparent),
+      color-mix(in srgb, var(--gn-accent-strong) 30%, transparent)
+    );
+  }
+
+  .site-header__search-submit:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--gn-accent) 34%, transparent);
+    outline-offset: 2px;
+  }
+
+  .site-header__search-submit-icon {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
   .site-header__nav::after {
     content: "";
     position: absolute;
@@ -485,7 +668,9 @@ const currentPath = Astro.url.pathname;
 
     .site-header__nav {
       position: static;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
@@ -501,10 +686,40 @@ const currentPath = Astro.url.pathname;
       display: none;
     }
 
+    .site-header__search {
+      margin-bottom: 0;
+      flex: 1 1 18rem;
+      max-width: 24rem;
+    }
+
+    .site-header__search-label {
+      position: absolute;
+      width: var(--sr-only-width);
+      height: var(--sr-only-height);
+      padding: 0;
+      margin: var(--sr-only-margin);
+      overflow: hidden;
+      clip-path: var(--sr-only-clip-path);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .site-header__search-input {
+      min-height: 2.7rem;
+      padding-block: 0.72rem;
+    }
+
+    .site-header__search-submit {
+      min-width: auto;
+      justify-content: center;
+      padding-inline: 0.8rem;
+    }
+
     .site-header__nav-list {
       display: flex;
       align-items: center;
       gap: 0.35rem;
+      margin-left: auto;
     }
 
     .site-header__nav-link {
