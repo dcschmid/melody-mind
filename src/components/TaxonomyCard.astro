@@ -70,34 +70,59 @@ const cardId = `taxonomy-card-${id}`;
 </article>
 
 <style>
+  /* Card Container with CSS Container Query support */
   .taxonomy-card {
+    container-type: inline-size;
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
-    border-radius: 1.25rem;
-    border: 2px solid var(--gn-panel-border);
-    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
-    color: var(--gn-ink);
+    /* Modern, rounded corners */
+    border-radius: 1.5rem;
+    /* Glassmorphism: Semi-transparent with blur */
+    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
+    /* Modern shadow system */
+    box-shadow: var(--shadow-xl);
     overflow: hidden;
-    box-shadow: var(--gn-offset-shadow);
+    /* Performance: Skip rendering off-screen content */
+    content-visibility: auto;
+    contain-intrinsic-size: 320px;
     transition:
       transform var(--transition-base),
-      box-shadow var(--transition-base);
+      box-shadow var(--transition-base),
+      border-color var(--transition-base);
   }
 
+  /* Modern inner border effect */
   .taxonomy-card::after {
     content: "";
     position: absolute;
-    inset: 4px;
-    border: 1px solid var(--gn-panel-inner);
-    border-radius: 1rem;
+    inset: 6px;
+    border: 1px solid color-mix(in srgb, var(--gn-panel-inner) 50%, transparent);
+    border-radius: 1.25rem;
     pointer-events: none;
   }
 
+  /* WCAG AAA: Enhanced hover with reduced motion */
   .taxonomy-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: var(--shadow-2xl);
+    border-color: color-mix(in srgb, var(--gn-accent) 35%, var(--gn-panel-border));
+  }
+
+  /* Active state for touch feedback */
+  .taxonomy-card:active {
+    transform: translateY(-2px) scale(0.99);
+    transition-duration: 50ms;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .taxonomy-card:hover {
+      transform: none;
+    }
   }
 
   .taxonomy-card__link {
@@ -108,9 +133,11 @@ const cardId = `taxonomy-card-${id}`;
     color: inherit;
   }
 
+  /* WCAG AAA: Enhanced focus state */
   .taxonomy-card__link:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
-    outline-offset: 3px;
+    outline: var(--focus-ring-width) var(--focus-ring-style) var(--gn-accent);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--shadow-glow);
   }
 
   .taxonomy-card__media {
@@ -124,11 +151,15 @@ const cardId = `taxonomy-card-${id}`;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 500ms ease;
+    transition: transform 400ms ease;
   }
 
-  .taxonomy-card:hover .taxonomy-card__image {
-    transform: scale(1.05);
+  /* Hover zoom with reduced motion support */
+  @media (prefers-reduced-motion: no-preference) {
+    .taxonomy-card:hover .taxonomy-card__image,
+    .taxonomy-card__link:focus-visible .taxonomy-card__image {
+      transform: scale(1.03);
+    }
   }
 
   .taxonomy-card__overlay {
@@ -136,6 +167,7 @@ const cardId = `taxonomy-card-${id}`;
     inset: 0;
   }
 
+  /* WCAG AAA: Better badge contrast */
   .taxonomy-card__badge {
     position: absolute;
     bottom: 1rem;
@@ -143,17 +175,17 @@ const cardId = `taxonomy-card-${id}`;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.3rem 0.75rem;
+    padding: 0.4rem 0.9rem;
     border-radius: 999px;
     border: 2px solid var(--gn-panel-border);
-    background: color-mix(in srgb, var(--gn-bg) 90%, transparent);
+    background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
     backdrop-filter: blur(8px);
-    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--gn-ink);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-md);
   }
 
   .taxonomy-card__badge-dot {
@@ -163,30 +195,56 @@ const cardId = `taxonomy-card-${id}`;
     background: var(--color-gn-amber-400);
   }
 
+  /* WCAG AAA: Better text contrast */
   .taxonomy-card__body {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     padding: 1.25rem;
     flex: 1;
   }
 
+  /* Fluid title sizing */
   .taxonomy-card__title {
-    font-size: 1.25rem;
+    font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
     font-weight: 600;
     margin: 0;
     color: var(--gn-ink);
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
+  /* WCAG AAA: Improved description contrast */
   .taxonomy-card__description {
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1.05rem);
+    line-height: 1.65;
     color: var(--gn-ink-muted);
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Mobile optimization - better spacing on small screens */
+  @container (max-width: 480px) {
+    .taxonomy-card__body {
+      padding: 1rem;
+      gap: 0.5rem;
+    }
+
+    .taxonomy-card__badge {
+      bottom: 0.75rem;
+      right: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.7rem;
+    }
+
+    .taxonomy-card__title {
+      font-size: clamp(1rem, 0.9rem + 0.2vw, 1.125rem);
+    }
+
+    .taxonomy-card__description {
+      font-size: clamp(0.85rem, 0.8rem + 0.15vw, 0.9rem);
+    }
   }
 </style>

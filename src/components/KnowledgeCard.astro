@@ -230,34 +230,65 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     )
   }
   <style>
+    /* Card Container with CSS Container Query support */
     .knowledge-card {
+      container-type: inline-size;
       position: relative;
       display: flex;
       flex-direction: column;
       height: 100%;
       color: var(--gn-ink);
-      border-radius: 1.25rem;
-      background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+      /* Modern, rounded corners */
+      border-radius: 1.5rem;
+      /* Glassmorphism: Semi-transparent with blur */
+      background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-      box-shadow: var(--gn-offset-shadow);
+      /* Modern shadow system */
+      box-shadow: var(--shadow-lg);
       overflow: hidden;
+      /* Performance: Skip rendering off-screen content */
+      content-visibility: auto;
+      contain-intrinsic-size: 380px;
       transition:
         transform var(--transition-base),
         box-shadow var(--transition-base);
     }
 
+    /* Inner border effect - more subtle */
     .knowledge-card::after {
       content: "";
       position: absolute;
-      inset: 4px;
-      border: 1px solid var(--gn-panel-inner);
-      border-radius: 1rem;
+      inset: 6px;
+      border: 1px solid color-mix(in srgb, var(--gn-panel-inner) 50%, transparent);
+      border-radius: 1.25rem;
       pointer-events: none;
     }
 
     .knowledge-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: var(--shadow-xl);
+      border-color: color-mix(in srgb, var(--gn-accent) 35%, var(--gn-panel-border));
+    }
+
+    /* Active state for touch feedback */
+    .knowledge-card:active {
+      transform: translateY(-2px) scale(0.99);
+      transition-duration: 50ms;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .knowledge-card:hover {
+        transform: none;
+      }
+    }
+
+    /* WCAG AAA: Enhanced focus state */
+    .knowledge-card__link:focus-visible {
+      outline: var(--focus-ring-width) var(--focus-ring-style) var(--gn-accent);
+      outline-offset: var(--focus-ring-offset);
+      box-shadow: var(--shadow-glow);
     }
 
     .knowledge-card__link,
@@ -269,13 +300,14 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       color: inherit;
     }
 
+    /* Shine effect with reduced motion support */
     .knowledge-card__shine {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         135deg,
-        rgba(95, 199, 255, 0.12),
-        rgba(95, 199, 255, 0.06),
+        rgba(95, 199, 255, 0.1),
+        rgba(95, 199, 255, 0.05),
         transparent 65%
       );
       opacity: 0;
@@ -283,36 +315,37 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       pointer-events: none;
     }
 
-    .knowledge-card:hover .knowledge-card__shine,
-    .knowledge-card__link:focus-visible .knowledge-card__shine {
-      opacity: 1;
-    }
-
-    .knowledge-card__link:focus-visible {
-      outline: 3px solid var(--color-gn-amber-300);
-      outline-offset: 3px;
+    @media (prefers-reduced-motion: no-preference) {
+      .knowledge-card:hover .knowledge-card__shine,
+      .knowledge-card__link:focus-visible .knowledge-card__shine {
+        opacity: 1;
+      }
     }
 
     .knowledge-card__media {
       position: relative;
       aspect-ratio: 3 / 2;
       overflow: hidden;
-      border-radius: 0;
+      border-radius: 1.25rem 1.25rem 0 0;
       background: var(--gn-bg);
       border: none;
       margin: 0;
     }
 
+    /* Fluid image sizing */
     .knowledge-card__image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 500ms ease;
+      transition: transform 400ms ease;
     }
 
-    .knowledge-card:hover .knowledge-card__image,
-    .knowledge-card__link:focus-visible .knowledge-card__image {
-      transform: scale(1.05);
+    /* Hover zoom with reduced motion support */
+    @media (prefers-reduced-motion: no-preference) {
+      .knowledge-card:hover .knowledge-card__image,
+      .knowledge-card__link:focus-visible .knowledge-card__image {
+        transform: scale(1.03);
+      }
     }
 
     .knowledge-card__overlay {
@@ -320,55 +353,59 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       inset: 0;
     }
 
+    /* Card body with improved spacing */
     .knowledge-card__body {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      padding: 1.5rem 1.5rem 1.25rem;
+      gap: 1rem;
+      padding: 1.5rem;
       flex: 1;
     }
 
+    /* WCAG AAA: Improved text contrast */
     .knowledge-card__title {
       margin: 0;
       color: var(--gn-ink);
+      font-size: var(--font-size-lg);
     }
 
     .knowledge-card__description {
       margin: 0;
       color: var(--gn-ink-muted);
+      /* Improved line height for readability */
+      line-height: 1.65;
     }
 
+    /* Meta section with better spacing */
     .knowledge-card__meta {
       margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+      padding-top: 1.25rem;
+      border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      font-size: 1rem;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      font-size: var(--font-size-sm);
       color: var(--gn-ink-muted);
     }
 
+    /* Fluid meta item layout */
     .knowledge-card__meta-item {
-      display: grid;
-      grid-template-columns: 1.1rem 1fr;
+      display: inline-flex;
       align-items: center;
-      column-gap: 0.55rem;
+      gap: 0.5rem;
       font-weight: 500;
+      white-space: nowrap;
     }
 
     .knowledge-card__meta-icon {
       display: block;
-      width: 1.05rem;
-      height: 1.05rem;
+      width: 1.125rem;
+      height: 1.125rem;
       flex-shrink: 0;
       color: var(--color-gn-amber-300);
     }
 
-    .knowledge-card__meta-item span {
-      white-space: nowrap;
-    }
-
+    /* Screen reader only text */
     .knowledge-card__sr {
       position: absolute;
       width: var(--sr-only-width);
@@ -378,6 +415,23 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       clip-path: var(--sr-only-clip-path);
       white-space: nowrap;
       border: 0;
+    }
+
+    /* Mobile optimization - better space usage */
+    @container (max-width: 480px) {
+      .knowledge-card__body {
+        padding: 1.25rem;
+        gap: 0.875rem;
+      }
+
+      .knowledge-card__meta {
+        padding-top: 1rem;
+        gap: 0.5rem;
+      }
+
+      .knowledge-card__title {
+        font-size: var(--font-size-base);
+      }
     }
   </style>
 </article>

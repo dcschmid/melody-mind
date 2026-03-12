@@ -27,6 +27,7 @@ const containerClasses = ["page-shell__container", containerClass]
   </div>
 </div>
 <style>
+  /* WCAG AAA: Enhanced Page Shell with better mobile optimization */
   .page-shell {
     position: relative;
     min-height: 100vh;
@@ -39,11 +40,12 @@ const containerClasses = ["page-shell__container", containerClass]
     pointer-events: none;
   }
 
+  /* Fluid padding for better mobile space usage */
   .page-shell__container {
     position: relative;
     max-width: 72rem;
     margin: 0 auto;
-    padding: 2.5rem 1rem 4rem;
+    padding: 2rem 0.75rem 3.5rem;
   }
 
   .page-shell__container--wide {
@@ -51,54 +53,59 @@ const containerClasses = ["page-shell__container", containerClass]
   }
 
   .page-shell__container--spacious {
-    padding: 3rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
+  /* Tablet and up: better spacing */
   @media (min-width: 640px) {
     .page-shell__container {
-      padding: 3rem 1.5rem 4.5rem;
+      padding: 2.5rem 1.25rem 4rem;
     }
 
     .page-shell__container--spacious {
-      padding: 3.5rem 1.5rem;
+      padding: 3rem 1.25rem;
     }
   }
 
+  /* Desktop: optimal spacing */
   @media (min-width: 1024px) {
     .page-shell__container {
-      padding: 3.5rem 2rem 5rem;
+      padding: 3rem 1.75rem 4.5rem;
     }
 
     .page-shell__container--spacious {
-      padding: 4rem 2rem;
+      padding: 3.5rem 1.75rem;
     }
   }
 
+  /* Large screens: max width for wide container */
   @media (width >= 1280px) {
     .page-shell__container--wide {
-      max-inline-size: 88rem;
+      max-inline-size: 92rem;
     }
   }
 
+  /* Modern aurora gradient background */
   .page-shell--aurora {
     background: linear-gradient(145deg, #0a0f18 0%, #0c121c 45%, #0a1320 100%);
   }
 
+  /* Subtle grid pattern with reduced opacity */
   .page-shell--grid::after {
-    content: \"\";
+    content: "";
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 56px 56px;
-    opacity: 0.22;
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.18;
     pointer-events: none;
     mask-image: linear-gradient(
       180deg,
       transparent 0%,
-      rgba(0, 0, 0, 0.6) 10%,
-      rgba(0, 0, 0, 0.9) 100%
+      rgba(0, 0, 0, 0.4) 8%,
+      rgba(0, 0, 0, 0.7) 100%
     );
   }
 </style>
