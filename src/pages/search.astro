@@ -10,7 +10,7 @@ export const prerender = true;
 
 const title = "Search";
 const description =
-  "Search across Melody Mind Knowledge articles, category pages, and music history guides.";
+  "Search Melody Mind articles, category pages, and music history guides.";
 const currentUrl = resolvePageUrl(Astro.site, "/search");
 const pageSeo = buildPageSeo({
   title,
@@ -42,11 +42,11 @@ const pageSeo = buildPageSeo({
             <p class="search-page__eyebrow">Library Search</p>
             <h1 class="search-page__title">Search Melody Mind</h1>
             <p class="search-page__lead">
-              Full-text search across guides, timelines, and taxonomy pages with the
-              native Pagefind interface adapted to Melody Mind.
+              Search across guides, timelines, and taxonomy pages with a fast, built-in
+              index tailored to Melody Mind.
             </p>
             <div class="search-page__feature-list" aria-hidden="true">
-              <span class="search-page__feature-badge">Full-site index</span>
+              <span class="search-page__feature-badge">Full-site search</span>
               <span class="search-page__feature-badge">Fast static results</span>
               <span class="search-page__feature-badge">Shareable query links</span>
             </div>
@@ -55,11 +55,11 @@ const pageSeo = buildPageSeo({
             <p class="search-page__hero-kicker">Search tips</p>
             <ul class="search-page__hero-list">
               <li class="search-page__hero-item">
-                Try genres like dub, grime, or neo soul.
+                Try genres like dub, grime, or neo-soul.
               </li>
               <li class="search-page__hero-item">Search decades, cities, or scenes.</li>
               <li class="search-page__hero-item">
-                Press <kbd>/</kbd> in the header to jump in.
+                Press <kbd>/</kbd> in the header to jump to search.
               </li>
             </ul>
           </div>
@@ -75,7 +75,7 @@ const pageSeo = buildPageSeo({
             </h2>
           </div>
           <p class="search-page__panel-help">
-            Enter at least two characters. Results update as you type.
+            Enter at least two characters. Results update while you type.
           </p>
         </div>
 
@@ -96,7 +96,7 @@ const pageSeo = buildPageSeo({
                 zero_results: "No pages match that query",
                 many_results: "[COUNT] results for [SEARCH_TERM]",
                 one_result: "[COUNT] result for [SEARCH_TERM]",
-                searching: "Searching...",
+                searching: "Searching…",
               },
             }}
           />

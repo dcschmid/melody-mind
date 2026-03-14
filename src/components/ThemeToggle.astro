@@ -3,9 +3,9 @@
   class="theme-toggle"
   data-theme-toggle
   aria-pressed="false"
-  aria-label="Activate dark theme"
+  aria-label="Switch to dark theme"
 >
-  Theme: <span data-theme-toggle-label>system</span>
+  Theme mode: <span data-theme-toggle-label>system</span>
 </button>
 
 <script>
@@ -57,7 +57,7 @@
     toggle.setAttribute("aria-pressed", String(resolved === "dark"));
     toggle.setAttribute(
       "aria-label",
-      resolved === "dark" ? "Activate light theme" : "Activate dark theme"
+      resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
     );
   };
 

@@ -9,9 +9,8 @@ import { resolvePageUrl } from "@utils/siteUrls";
 
 export const prerender = true;
 
-const title = "Bookmarks";
-const description =
-  "Your saved Melody Mind Knowledge articles, stored locally in your browser.";
+const title = "Saved Articles";
+const description = "Your saved Melody Mind articles, stored locally in your browser.";
 const currentUrl = resolvePageUrl(Astro.site, "/bookmarks");
 
 const breadcrumbs = [
@@ -56,11 +55,11 @@ const pageSeo = buildPageSeo({
   breadcrumbs,
   structuredData: [] as StructuredData[],
   enrichedParts: [title, description],
-  fallbackKeywords: ["bookmarks", "saved articles", "local storage"],
+  fallbackKeywords: ["saved articles", "bookmarks", "local storage"],
   keywordLimit: 24,
   maxDescription: 155,
   image: "/melody-mind.jpg",
-  imageAlt: "Bookmarks - Saved Articles",
+  imageAlt: "Saved Articles",
   publishDate: new Date(),
   modifiedDate: new Date(),
   index: true,
@@ -75,9 +74,9 @@ const pageSeo = buildPageSeo({
     <div class="bookmarks-page">
       <header class="bookmarks-page__header">
         <p class="bookmarks-page__eyebrow">Library</p>
-        <h1 class="bookmarks-page__title">Bookmarks</h1>
+        <h1 class="bookmarks-page__title">Saved Articles</h1>
         <p class="bookmarks-page__lead">
-          Saved locally in your browser. Nothing is synced or tracked.
+          Stored locally in your browser. Nothing is synced to an account or tracked.
         </p>
       </header>
 

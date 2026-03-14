@@ -4,9 +4,9 @@ import PageShell from "@components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@utils/siteUrls";
 
-const title = "Imprint (Impressum)";
+const title = "Legal Notice";
 const description =
-  "Legal disclosure for Melody Mind Knowledge in accordance with German law.";
+  "Legal notice for Melody Mind Knowledge in accordance with German law.";
 const currentUrl = resolvePageUrl(Astro.site, "/imprint");
 
 const breadcrumbs = [
@@ -22,11 +22,11 @@ const pageSeo = buildPageSeo({
   breadcrumbs,
   structuredData: [] as StructuredData[],
   enrichedParts: [title, description],
-  fallbackKeywords: ["imprint", "impressum", "legal disclosure"],
+  fallbackKeywords: ["legal notice", "imprint", "impressum"],
   keywordLimit: 24,
   maxDescription: 150,
   image: "/knowledge.png",
-  imageAlt: "Imprint - Legal Disclosure",
+  imageAlt: "Legal Notice",
   publishDate: new Date(),
   modifiedDate: new Date(),
   index: true,
@@ -41,9 +41,9 @@ const pageSeo = buildPageSeo({
     <div class="legal-page">
       <header class="legal-page__header static-page-header">
         <p class="legal-page__eyebrow static-page-eyebrow">Legal</p>
-        <h1 class="legal-page__title static-page-title">Imprint (Impressum)</h1>
+        <h1 class="legal-page__title static-page-title">Legal Notice</h1>
         <p class="legal-page__lead static-page-lead">
-          Required legal information for services provided from Germany.
+          Required legal information for a website operated from Germany.
         </p>
       </header>
 
@@ -51,7 +51,7 @@ const pageSeo = buildPageSeo({
         <h2 class="legal-page__section-title">Service Provider</h2>
         <p class="legal-page__text">Daniel Schmid</p>
         <p class="legal-page__text">Hiltenspergerstr. 78</p>
-        <p class="legal-page__text">80796 München</p>
+        <p class="legal-page__text">80796 Munich</p>
         <p class="legal-page__text">Germany</p>
         <p class="legal-page__text">This website is a non-commercial private project.</p>
       </section>
@@ -71,7 +71,7 @@ const pageSeo = buildPageSeo({
           Responsible for Editorial Content (§ 18 Abs. 2 MStV)
         </h2>
         <p class="legal-page__text">
-          Daniel Schmid, Hiltenspergerstr. 78, 80796 München, Germany
+          Daniel Schmid, Hiltenspergerstr. 78, 80796 Munich, Germany
         </p>
         <p class="legal-page__text">
           (Previously referenced in older legal notices as § 55 RStV.)
@@ -96,7 +96,7 @@ const pageSeo = buildPageSeo({
       <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Dispute Resolution</h2>
         <p class="legal-page__text">
-          The European Commission provides a platform for online dispute resolution (OS):
+          The European Commission provides a platform for online dispute resolution:
           <a
             class="legal-page__link"
             href="https://ec.europa.eu/consumers/odr"
@@ -115,9 +115,9 @@ const pageSeo = buildPageSeo({
       <section class="legal-panel legal-page__section">
         <h2 class="legal-page__section-title">Liability for Own Content</h2>
         <p class="legal-page__text">
-          We create content with great care. However, we cannot guarantee that all
-          information is complete, correct, or up to date at all times. Use of the
-          information on this website is at your own responsibility.
+          We prepare our content with care. However, we cannot guarantee that all
+          information is complete, accurate, or current at all times. You use the
+          information on this website at your own risk.
         </p>
         <p class="legal-page__text">
           As a service provider, we are responsible for our own content on these pages in

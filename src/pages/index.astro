@@ -153,15 +153,14 @@ const pageSeo = buildPageSeo({
             <h1 class="knowledge-index__sr">{title}</h1>
             <p class="knowledge-index__eyebrow">Melody Mind Knowledge</p>
             <p class="knowledge-index__hero-text">
-              <strong>Discover music's DNA:</strong> From genre origins to today's sounds, we
-              decode the cultural stories, key artists, and sonic evolution that shaped every
-              style. 🎧
+              <strong>Trace how music evolves:</strong> From genre roots to current sounds,
+              explore the cultural stories, key artists, and sonic shifts that shape each style.
             </p>
             <div class="knowledge-index__features">
               <span class="knowledge-index__feature-badge">📚 Curated guides</span>
-              <span class="knowledge-index__feature-badge">🎵 Essential tracks</span>
+              <span class="knowledge-index__feature-badge">🎵 Key listening picks</span>
               <span class="knowledge-index__feature-badge">🔗 Genre connections</span>
-              <span class="knowledge-index__feature-badge">💡 Listening insights</span>
+              <span class="knowledge-index__feature-badge">💡 Listening notes</span>
             </div>
           </div>
         </div>
@@ -177,7 +176,7 @@ const pageSeo = buildPageSeo({
               Recently read
             </h2>
             <p class="knowledge-index__section-help">
-              Pick up where you left off on your last few guides.
+              Return to the guides you opened most recently.
             </p>
           </div>
         </div>
@@ -193,7 +192,7 @@ const pageSeo = buildPageSeo({
         </p>
         <div class="recent-reads recent-reads--empty" id="recent-reads-empty">
           <p class="recent-reads__empty-text">
-            No recent reads yet. Open a guide and it will show up here.
+            No recent guides yet. Open an article and it will appear here.
           </p>
         </div>
       </section>
@@ -209,15 +208,14 @@ const pageSeo = buildPageSeo({
               Explore categories
             </h2>
             <p id="knowledge-categories-help" class="knowledge-index__section-help">
-              Browse our genre guides; each card announces the number of articles
-              available.
+              Browse genre sections. Each card includes the number of available articles.
             </p>
           </div>
           <div class="knowledge-index__search search-panel-shell">
             <SearchPanel
               idBase="knowledge-search"
               label="Search categories"
-              placeholder="Search by genre or description"
+              placeholder="Search by genre or summary"
               ariaControls="knowledge-categories-list"
               analyticsSurface="home-categories"
               statusAllText="Showing all categories"
@@ -254,7 +252,7 @@ const pageSeo = buildPageSeo({
           aria-live="polite"
           hidden
         >
-          No categories match your search. Try a different term.
+          No categories match your search. Try another search term.
         </div>
       </section>
     </div>
@@ -292,13 +290,13 @@ const pageSeo = buildPageSeo({
     if (!sanitized.length) {
       container.hidden = true;
       emptyState.hidden = false;
-      status.textContent = "No recent reads available.";
+      status.textContent = "No recent guides available.";
       return;
     }
 
     emptyState.hidden = true;
     container.hidden = false;
-    status.textContent = `Showing ${Math.min(sanitized.length, 3)} recent reads.`;
+    status.textContent = `Showing ${Math.min(sanitized.length, 3)} recent guides.`;
 
     const formatter = new Intl.DateTimeFormat("en", {
       year: "numeric",
@@ -323,7 +321,7 @@ const pageSeo = buildPageSeo({
         if (!Number.isNaN(parsed.valueOf())) {
           const meta = document.createElement("span");
           meta.className = "recent-reads__meta";
-          meta.textContent = `Updated ${formatter.format(parsed)}`;
+          meta.textContent = `Updated on ${formatter.format(parsed)}`;
           li.append(meta);
         }
       }

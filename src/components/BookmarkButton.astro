@@ -29,7 +29,7 @@ const {
   aria-pressed="false"
 >
   <Icon name="bookmark" class="bookmark-button__icon" aria-hidden="true" />
-  <span data-bookmark-label>Save</span>
+  <span data-bookmark-label>Save article</span>
 </button>
 
 <script>
@@ -62,10 +62,10 @@ const {
     button.setAttribute("aria-pressed", isSaved ? "true" : "false");
     button.setAttribute(
       "aria-label",
-      isSaved ? "Remove bookmark for this article" : "Save this article as bookmark"
+      isSaved ? "Remove this saved article" : "Save this article"
     );
     if (label) {
-      label.textContent = isSaved ? "Saved" : "Save";
+      label.textContent = isSaved ? "Saved" : "Save article";
     }
   };
 

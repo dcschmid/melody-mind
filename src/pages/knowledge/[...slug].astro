@@ -240,7 +240,9 @@ const storageUpdatedAt =
       aria-hidden="true"
     >
     </div>
-    <span id="reading-progress-label" class="knowledge__sr">Reading progress: 0%</span>
+    <span id="reading-progress-label" class="knowledge__sr"
+      >Reading progress: 0 percent</span
+    >
   </div>
 
   <div
@@ -256,7 +258,7 @@ const storageUpdatedAt =
       <div class="knowledge__hero">
         <header class="panel knowledge__hero-panel">
           <div class="knowledge__meta">
-            <span class="knowledge__pill knowledge__pill--label">In-depth report</span>
+            <span class="knowledge__pill knowledge__pill--label">In-depth guide</span>
             {
               entry.data.aiGenerated ? (
                 <AIContentBadge
@@ -359,7 +361,7 @@ const storageUpdatedAt =
               <div class="panel panel--compact">
                 <div class="knowledge__panel-title">
                   <Icon name="music" class="knowledge__panel-icon" aria-hidden="true" />
-                  Listen & Explore
+                  Listen and Explore
                 </div>
                 <div class="knowledge__panel-actions">
                   {entry.data.playlists?.spotifyPlaylist ? (
@@ -393,7 +395,7 @@ const storageUpdatedAt =
                       analyticsPodcastTarget="episode"
                       aria-label={`Open podcast page for ${entry.data.title}`}
                     >
-                      Open podcast page
+                      Open podcast episode
                     </ButtonLink>
                   ) : null}
                 </div>
@@ -445,12 +447,7 @@ const storageUpdatedAt =
               <h2 class="knowledge-share__title" id="share-section-title">
                 <Icon name="share-2" class="knowledge__panel-icon" aria-hidden="true" />
                 <span>
-                  {
-                    translate(
-                      "knowledge.share.heading",
-                      "Share this article (privacy-friendly)"
-                    )
-                  }
+                  {translate("knowledge.share.heading", "Share this article")}
                 </span>
               </h2>
               <div class="knowledge-share__actions">
@@ -460,7 +457,7 @@ const storageUpdatedAt =
                   class="share-button share-button--primary"
                   aria-label={translate(
                     "knowledge.share.native",
-                    "Share via your device"
+                    "Share with your device"
                   )}
                 >
                   <Icon name="send" class="share-button__icon" aria-hidden="true" />
@@ -509,7 +506,7 @@ const storageUpdatedAt =
               {
                 translate(
                   "knowledge.share.privacy_note",
-                  "Privacy-friendly: nothing loads until you click a share option."
+                  "Privacy-friendly: nothing loads until you choose a share option."
                 )
               }
             </p>

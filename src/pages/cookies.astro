@@ -6,7 +6,7 @@ import { resolvePageUrl } from "@utils/siteUrls";
 
 const title = "Cookie & Storage Policy";
 const description =
-  "Details about cookies and local storage used on Melody Mind Knowledge, including analytics consent settings.";
+  "Details about cookies and local storage used on Melody Mind Knowledge, including analytics consent preferences.";
 const currentUrl = resolvePageUrl(Astro.site, "/cookies");
 const lastUpdated = "06 February 2026";
 
@@ -45,15 +45,16 @@ const pageSeo = buildPageSeo({
         <h1 class="cookies-page__title static-page-title">Cookie & Storage Policy</h1>
         <p class="cookies-page__lead static-page-lead">
           This page explains which cookies and browser storage technologies we use, why we
-          use them, and how you can control your preferences.
+          use them, and how you can manage your preferences.
         </p>
       </header>
 
       <section class="legal-panel cookies-page__section">
         <h2 class="cookies-page__section-title">1. Do we use cookies?</h2>
         <p class="cookies-page__text">
-          We currently do not set non-essential tracking cookies ourselves. For analytics,
-          we use Fathom only after explicit consent through the cookie banner.
+          We currently do not place non-essential tracking cookies ourselves. For
+          analytics, we use Fathom only after you give explicit consent through the cookie
+          banner.
         </p>
       </section>
 
@@ -79,31 +80,34 @@ const pageSeo = buildPageSeo({
                   >Stores your consent preferences for essential and analytics processing.</td
                 >
                 <td>LocalStorage</td>
-                <td>Until changed or deleted by you.</td>
+                <td>Until you change or delete it.</td>
               </tr>
               <tr>
                 <td><code>mm_recent_reads</code></td>
                 <td>Shows your recently opened articles on the home page.</td>
                 <td>LocalStorage</td>
-                <td>Until replaced or cleared by you.</td>
+                <td>Until it is replaced or cleared by you.</td>
               </tr>
               <tr>
                 <td><code>mm_bookmarks</code></td>
-                <td>Saves your bookmarked knowledge articles.</td>
+                <td>Saves your selected articles.</td>
                 <td>LocalStorage</td>
-                <td>Until changed or cleared by you.</td>
+                <td>Until you change or clear it.</td>
               </tr>
               <tr>
                 <td><code>mm_read_progress</code></td>
-                <td>Stores reading progress per article for continuity.</td>
+                <td>Stores your reading progress for each article.</td>
                 <td>LocalStorage</td>
-                <td>Until replaced or cleared by you.</td>
+                <td>Until it is replaced or cleared by you.</td>
               </tr>
               <tr>
                 <td><code>readingPreferences</code></td>
-                <td>Stores reading settings (font size, line spacing, reading mode).</td>
+                <td
+                  >Stores reading settings such as text size, line spacing, and reading
+                  mode.</td
+                >
                 <td>LocalStorage</td>
-                <td>Until changed or cleared by you.</td>
+                <td>Until you change or clear it.</td>
               </tr>
             </tbody>
           </table>
@@ -113,8 +117,9 @@ const pageSeo = buildPageSeo({
       <section class="legal-panel cookies-page__section">
         <h2 class="cookies-page__section-title">3. Analytics consent and legal basis</h2>
         <p class="cookies-page__text">
-          Non-essential analytics is only active after your explicit opt-in in the cookie
-          banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy Directive.
+          Non-essential analytics turns on only after you explicitly opt in through the
+          cookie banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy
+          Directive.
         </p>
         <p class="cookies-page__text">
           If your browser sends a Do Not Track (DNT) signal, analytics remains disabled.
@@ -124,7 +129,7 @@ const pageSeo = buildPageSeo({
       <section class="legal-panel cookies-page__section">
         <h2 class="cookies-page__section-title">4. How to change or withdraw consent</h2>
         <p class="cookies-page__text">
-          Open <strong>Cookie Settings</strong> in the footer at any time to review and update
+          Open <strong>Cookie settings</strong> in the footer at any time to review or update
           your choice. You can also clear site storage in your browser settings.
         </p>
       </section>

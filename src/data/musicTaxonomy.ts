@@ -17,68 +17,68 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "I",
     title: "Time, Change & Musical Evolution",
     description:
-      "Take a look at how music changed over time, from the start of rock to the digital age. Find out about the different ways music has changed over time and how it has influenced our world.",
+      "Explore how music changed over time, from the birth of rock to the digital age. Discover the forces that shaped those changes and how music continues to influence the world around us.",
     image: "/taxonomy/time-change-evolution.jpg",
     subsections: [
       {
         id: "music-through-decades",
         title: "Music Through the Decades",
         description:
-          "Go on a journey through time, from the 1950s to today, and experience the sounds, artists and cultural changes that defined each era. Learn about the unique features of each period in musical history.",
+          "Travel from the 1950s to today and experience the sounds, artists, and cultural shifts that defined each era. Learn what made each period in music history distinct.",
       },
       {
         id: "cross-decade-lenses",
         title: "Cross-Decade Lenses",
         description:
-          "Take a look at different ways of analysing things that have been happening over many years. These include how music genres have changed, technology, society, business and culture. You can gain new insights by examining music in different ways.",
+          "Explore different ways of studying music across long stretches of time, including genre change, technology, society, business, and culture. Each lens offers a clearer view of how music evolves and why those changes matter.",
         groups: [
           {
             id: "genre-evolution-pathways",
             title: "Genre Evolution Pathways",
             description:
-              "Look at how different types of music have changed over time. Go from blues to metal, and from classical to neo-classical. See how these types of music are connected to each other.",
+              "Follow how different musical styles changed over time, from blues to metal and from classical to neo-classical. See how genres connect, influence one another, and branch into new forms.",
           },
           {
             id: "technology-lens",
             title: "Technology Lens",
             description:
-              "Find out how multitrack recording, synthesizers, sampling, digital audio workstations (DAWs) and streaming changed the sound of music. Learn about the big changes in technology that changed the way we create and listen to music.",
+              "See how multitrack recording, synthesizers, sampling, digital audio workstations (DAWs), and streaming changed the sound of music. Learn how major technological shifts reshaped both music-making and listening habits.",
           },
           {
             id: "society-lens",
             title: "Society Lens",
             description:
-              "Find out how ideas about fairness, the rights of women, people moving from one place to another, young people's cultures and groups campaigning for change have influenced music over time. Society changes and music changes too.",
+              "Discover how social justice, women's rights, migration, youth culture, and activist movements have shaped music over time. As society changes, music changes with it.",
           },
           {
             id: "industry-lens",
             title: "Industry Lens",
             description:
-              "Look at how radio, record labels, MTV, streaming platforms and powerful groups control what we hear. Learn about the business side of musical trends and discovery.",
+              "Examine how radio, record labels, MTV, streaming platforms, and gatekeepers shape what we hear. Learn more about the business side of musical trends, access, and discovery.",
           },
           {
             id: "memory-lens",
             title: "Memory Lens",
             description:
-              "Learn about how things that were popular in the past can still influence the present day. Find out how musical memory affects modern music and cultural trends.",
+              "Explore how the past continues to shape the present. See how musical memory influences current sounds, listening habits, and wider cultural trends.",
           },
           {
             id: "scene-lens",
             title: "Scene Lens",
             description:
-              "Follow the journey from small local groups to big global movements, looking at how people make their own culture, local groups, and how they get popular. Find out how communities built musical movements from the ground up.",
+              "Follow the path from small local scenes to major global movements. Discover how communities build their own culture and turn local energy into lasting musical impact.",
           },
           {
             id: "decade-diagnostic",
             title: "Decade Diagnostic",
             description:
-              "Look closely at each decade, examining how music was produced, the most popular instruments, and the types of singing styles. Find out how each era sounded unique by studying the technical details.",
+              "Take a closer look at each decade by examining production methods, popular instruments, and vocal styles. Learn how technical details gave every era its own sound.",
           },
           {
             id: "legacy-lens",
             title: "Legacy Lens",
             description:
-              "Take a look at songs as signs of a culture, at albums that are very important in history, and at how music continues to be used in new ways. Look at how music still affects people and inspires new generations.",
+              "Look at songs as cultural markers, albums as historical landmarks, and music as something that keeps finding new uses. See how music continues to shape lives and inspire new generations.",
           },
         ],
       },
@@ -188,13 +188,13 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "emotional-human-dimensions",
             title: "Emotional & Human Dimensions",
             description:
-              "Discover how vulnerability, storytelling, and authenticity create deep connection between singer and listener. Explore the emotional power of the voice to convey feelings and tell stories.",
+              "Discover how vulnerability, storytelling, and authenticity create a deep connection between singer and listener. Explore the emotional power of the voice to convey feeling and meaning.",
           },
           {
             id: "identity-lived-experience",
             title: "Identity & Lived Experience",
             description:
-              "Understand the voice as carrier of culture, identity, and personal history. Explore how vocal style, accent, and expression reflect individual and collective identities across music.",
+              "Understand the voice as a carrier of culture, identity, and personal history. Explore how vocal style, accent, and expression reflect both individual and collective identities in music.",
           },
           {
             id: "studio-mediation",
@@ -227,63 +227,63 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "III",
     title: "Classical & Orchestral Mastery",
     description:
-      "Journey through centuries of musical excellence, from medieval polyphony to contemporary minimalism. Explore the traditions, instruments, and masterworks that define classical and orchestral music across time and cultures.",
+      "Move through centuries of musical excellence, from medieval polyphony to contemporary minimalism. Explore the traditions, instruments, and landmark works that define classical and orchestral music across time and cultures.",
     image: "/taxonomy/classical-orchestral.jpg",
     subsections: [
       {
         id: "instrumental-focus",
         title: "Instrumental Focus",
         description:
-          "Discover concertos, sonatas, and solo works that showcase the expressive range of individual instruments. Explore how composers and performers reveal the unique voice of each instrument through dedicated works.",
+          "Discover concertos, sonatas, and solo works that highlight the expressive range of individual instruments. Explore how composers and performers reveal each instrument's unique voice through focused repertoire.",
         image: "/taxonomy/classical-instrumental.jpg",
       },
       {
         id: "ensemble-forms",
         title: "Ensemble Forms",
         description:
-          "Experience chamber music, string quartets, and the intimate art of small ensemble collaboration. Discover how composers create masterful works for limited instrumental combinations and how performers communicate without words.",
+          "Explore chamber music, string quartets, and the intimate art of small-ensemble collaboration. Discover how composers write masterful works for limited forces and how performers communicate without words.",
         image: "/taxonomy/classical-ensemble.jpg",
       },
       {
         id: "vocal-classical-works",
         title: "Vocal Classical Works",
         description:
-          "Explore opera, oratorio, art song, and the fusion of voice with orchestral tradition. Understand how composers combine vocal virtuosity with orchestral grandeur to create dramatic and expressive works.",
+          "Explore opera, oratorio, art song, and the meeting point of voice and orchestral tradition. Understand how composers combine vocal virtuosity with orchestral scale to create dramatic and expressive works.",
         image: "/taxonomy/classical-vocal.jpg",
       },
       {
         id: "historical-periods",
         title: "Historical Periods",
         description:
-          "Journey through Baroque, Classical, Romantic, and the evolution of musical style across centuries. Discover how each period developed unique characteristics, forms, and aesthetics that defined the era.",
+          "Travel through the Baroque, Classical, and Romantic eras as musical style evolves across centuries. Discover how each period developed distinct characteristics, forms, and aesthetics.",
         image: "/taxonomy/classical-periods.jpg",
       },
       {
         id: "modern-classical",
         title: "Modern Classical",
         description:
-          "Explore impressionism, serialism, minimalism, and contemporary composers pushing the boundaries of classical tradition. Understand how 20th and 21st century composers reimagined classical music for new audiences.",
+          "Explore impressionism, serialism, minimalism, and contemporary composers who pushed classical tradition in new directions. Understand how 20th- and 21st-century composers reimagined classical music for new audiences.",
         image: "/taxonomy/modern-classical.jpg",
       },
       {
         id: "performance-interpretation",
         title: "Performance & Interpretation",
         description:
-          "Understand the art of interpretation, historically informed performance, and the performer's voice in classical music. Discover how musicians bring scores to life through personal expression and scholarly understanding.",
+          "Understand the art of interpretation, historically informed performance, and the performer's role in classical music. Discover how musicians bring scores to life through personal expression and informed understanding.",
         image: "/taxonomy/classical-performance.jpg",
       },
       {
         id: "applied-classical",
         title: "Applied Classical",
         description:
-          "Explore how classical music intersects with film, pop, education, and everyday life. Discover how classical techniques and aesthetics influence and enrich diverse aspects of contemporary culture and media.",
+          "Explore how classical music intersects with film, pop, education, and everyday life. Discover how classical techniques and aesthetics continue to shape contemporary culture and media.",
         image: "/taxonomy/applied-classical.jpg",
       },
       {
         id: "global-cross-cultural-classical",
         title: "Global & Cross-Cultural Classical Traditions",
         description:
-          "Discover classical traditions from India, China, Indonesia, and beyond diverse Western traditions. Explore how different cultures developed sophisticated systems of musical theory, notation, and performance practices.",
+          "Discover classical traditions from India, China, Indonesia, and beyond, alongside diverse Western traditions. Explore how different cultures developed sophisticated systems of theory, notation, and performance practice.",
         image: "/taxonomy/global-classical.jpg",
       },
     ],
@@ -304,14 +304,14 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "foundations-early-movements",
         title: "Foundations & Early Movements",
         description:
-          "Discover rockabilly, surf rock, and the birth of rock 'n' roll from blues and country roots. Explore how early rock pioneers created a new sound that would transform popular music forever.",
+          "Discover rockabilly, surf rock, and the birth of rock 'n' roll from blues and country roots. See how early rock pioneers created a sound that transformed popular music.",
         image: "/taxonomy/rock-foundations.jpg",
       },
       {
         id: "classic-rock-expansion",
         title: "Classic Rock Expansion",
         description:
-          "Experience psychedelic, progressive, and hard rock, the stadium-filling sounds of rock's golden age. Discover how bands pushed the boundaries of rock and created the era's most legendary albums and live performances.",
+          "Explore psychedelic, progressive, and hard rock, the stadium-filling sounds of rock's golden age. Discover how bands pushed the genre's boundaries and created some of its most legendary albums and live shows.",
         image: "/taxonomy/classic-rock.jpg",
       },
       {
@@ -332,7 +332,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "alternative-indie-rock",
         title: "Alternative & Indie Rock",
         description:
-          "Experience college rock, grunge, and the alternative explosion that brought indie to the mainstream. Explore how independent artists broke through the dominance of major labels and reshaped rock in the 90s and beyond.",
+          "Explore college rock, grunge, and the alternative explosion that brought indie into the mainstream. See how independent artists broke through the dominance of major labels and reshaped rock in the 1990s and beyond.",
         image: "/taxonomy/alternative-indie.jpg",
       },
       {
@@ -360,7 +360,7 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "V",
     title: "Metal & Heavy Music",
     description:
-      "Journey from proto-metal roots to modern djent and beyond extreme sounds. Explore the subcultures, sonic innovations, and musical developments that define heavy music and its passionate global community.",
+      "Trace heavy music from proto-metal roots to modern djent and other extreme forms. Explore the subcultures, sonic innovations, and musical developments that define this passionate global community.",
     image: "/taxonomy/metal-heavy.jpg",
     subsections: [
       {
@@ -374,14 +374,14 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "extreme-underground-metal",
         title: "Extreme & Underground Metal",
         description:
-          "Explore thrash, death metal, black metal, and the pushing of speed, aggression, and darkness to the absolute limits. Discover how underground scenes cultivated intense, extreme sounds that challenged mainstream conceptions of music.",
+          "Explore thrash, death metal, black metal, and the drive to push speed, aggression, and darkness to their limits. Discover how underground scenes cultivated intense sounds that challenged mainstream ideas about music.",
         image: "/taxonomy/extreme-metal.jpg",
       },
       {
         id: "melodic-atmospheric-metal",
         title: "Melodic & Atmospheric Metal",
         description:
-          "Experience power metal, doom, gothic metal, and the musical space where heaviness meets melody and atmosphere. Understand how metal bands create epic, emotional, and immersive soundscapes beyond sheer aggression.",
+          "Explore power metal, doom, and gothic metal, where heaviness meets melody and atmosphere. Understand how metal bands create epic, emotional, and immersive soundscapes beyond sheer aggression.",
         image: "/taxonomy/melodic-metal.jpg",
       },
       {
@@ -423,14 +423,14 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "core-pop-forms",
         title: "Core Pop Forms",
         description:
-          "Master the essential building blocks of pop music, from hooks and choruses to the art of crafting the perfect pop song. Understand what makes songs memorable, singable, and globally successful across languages and cultures.",
+          "Learn the essential building blocks of pop music, from hooks and choruses to the craft of shaping a standout pop song. Understand what makes songs memorable, singable, and globally successful across languages and cultures.",
         image: "/taxonomy/core-pop.jpg",
       },
       {
         id: "dance-club-pop",
         title: "Dance & Club-Oriented Pop",
         description:
-          "Experience where pop meets the dancefloor, exploring uptempo anthems designed for movement and euphoria. Discover how producers create irresistible beats that drive nightlife and party culture worldwide.",
+          "Experience the point where pop meets the dancefloor through uptempo anthems built for movement and euphoria. Discover how producers create irresistible beats that power nightlife and party culture worldwide.",
         image: "/taxonomy/dance-pop.jpg",
       },
       {
@@ -444,14 +444,14 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "producer-format-pop",
         title: "Producer-Driven & Format Pop",
         description:
-          "Explore hit factories, super-producers, and the science of crafting chart dominance. Understand how behind-the-scenes creators and production teams engineer pop songs for maximum commercial success and radio appeal.",
+          "Explore hit factories, super-producers, and the craft behind chart dominance. Understand how behind-the-scenes creators and production teams shape pop songs for broad commercial reach and radio appeal.",
         image: "/taxonomy/producer-pop.jpg",
       },
       {
         id: "era-based-pop",
         title: "Era-Based Pop",
         description:
-          "Trace the evolving sound of pop music through decades, from the Brill Building to the streaming era. Discover how each generation created its own pop sound, production techniques, and cultural moments that defined the times.",
+          "Trace the evolving sound of pop music across the decades, from the Brill Building era to the streaming age. Discover how each generation developed its own pop style, production approach, and defining cultural moments.",
         image: "/taxonomy/era-pop.jpg",
       },
       {
@@ -472,7 +472,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "visual-performance-spectacle",
         title: "Visual, Performance & Spectacle",
         description:
-          "Understand music videos, choreography, and the visual artistry of pop superstars. Discover how image, fashion, dance, and multimedia spectacle became essential to pop stardom and brand identity.",
+          "Explore music videos, choreography, and the visual artistry of pop superstars. Discover how image, fashion, dance, and multimedia spectacle became central to pop stardom and brand identity.",
         image: "/taxonomy/pop-spectacle.jpg",
       },
     ],
@@ -486,7 +486,7 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "VII",
     title: "Indie & Alternative",
     description:
-      "Explore the intimate, experimental, and emotionally profound world of indie and alternative music. Discover where authenticity meets creative freedom, and how independent artists created movements that challenged mainstream conventions.",
+      "Explore the intimate, experimental, and emotionally rich world of indie and alternative music. Discover how authenticity and creative freedom came together as independent artists built movements that challenged mainstream conventions.",
     image: "/taxonomy/indie-alternative.jpg",
     subsections: [
       {
@@ -528,14 +528,14 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "VIII",
     title: "Hip Hop & Rap Culture",
     description:
-      "Journey from Bronx roots to global dominance, exploring lyrical storytelling, cultural movements, and the sonic evolution of hip hop. Discover how a local street culture became one of the most influential musical and cultural forces in the world.",
+      "Trace hip hop from its Bronx roots to global influence through lyrical storytelling, cultural movements, and sonic innovation. Discover how a local street culture became one of the most powerful musical and cultural forces in the world.",
     image: "/taxonomy/hiphop-rap.jpg",
     subsections: [
       {
         id: "foundations-cultural-elements",
         title: "Foundations & Cultural Elements",
         description:
-          "Understand the four pillars of hip hop culture: MCing, DJing, breakdancing, and graffiti, and experience hip hop's birth in the Bronx. Discover how these elements combine to create a complete cultural movement beyond just music.",
+          "Understand the four pillars of hip hop culture, MCing, DJing, breakdancing, and graffiti, while exploring the genre's birth in the Bronx. Discover how these elements come together to form a cultural movement that extends beyond music.",
         image: "/taxonomy/hiphop-foundations.jpg",
       },
       {
@@ -549,7 +549,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "sound-production-aesthetics",
         title: "Sound & Production Aesthetics",
         description:
-          "Experience boom bap, G-funk, trap beats, and the sonic innovations that defined each era of hip hop. Understand how producers created the sonic landscapes that gave hip hop its distinctive character and influenced all genres.",
+          "Explore boom bap, G-funk, trap beats, and the production innovations that defined each era of hip hop. Understand how producers built the sonic worlds that gave hip hop its distinctive character and influenced many other genres.",
         image: "/taxonomy/hiphop-production.jpg",
       },
       {
@@ -563,7 +563,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "narrative-perspectives",
         title: "Narrative Perspectives",
         description:
-          "Experience storytelling traditions, concept albums, and the diverse voices that shape hip hop's narratives. Understand how rappers create stories, characters, and social commentary through their lyrics and artistic vision.",
+          "Explore storytelling traditions, concept albums, and the diverse voices that shape hip hop's narratives. Understand how rappers build stories, characters, and social commentary through lyrics and artistic vision.",
         image: "/taxonomy/hiphop-narrative.jpg",
       },
       {
@@ -584,7 +584,7 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "IX",
     title: "Jazz, Soul & Funk Expressions",
     description:
-      "Experience the improvisation, emotion, and groove that shaped modern music, from blues and gospel roots to contemporary jazz fusion. Discover how Black musical traditions created the foundation for virtually every popular genre and continue to influence music worldwide.",
+      "Explore the improvisation, emotion, and groove that shaped modern music, from blues and gospel roots to contemporary jazz fusion. Discover how Black musical traditions helped build the foundation of modern popular music and continue to influence sounds around the world.",
     image: "/taxonomy/jazz-soul-funk.jpg",
     subsections: [
       {
@@ -598,7 +598,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "jazz-evolution",
         title: "Jazz Evolution",
         description:
-          "Journey from New Orleans to bebop, cool jazz to free jazz, experiencing the continual reinvention of America's classical music. Discover how each jazz movement created new approaches to improvisation, harmony, and musical expression.",
+          "Follow jazz from New Orleans to bebop and from cool jazz to free jazz, tracing the continual reinvention of America's classical music. Discover how each movement introduced new approaches to improvisation, harmony, and expression.",
         image: "/taxonomy/jazz-evolution.jpg",
       },
       {
@@ -612,7 +612,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "soul-rnb-funk-lineages",
         title: "Soul, R&B & Funk Lineages",
         description:
-          "Experience Motown, Stax, Philadelphia, and the labels, artists, and grooves that defined soul and funk. Discover how these labels created legendary catalogs and developed the distinctive sounds of Black popular music.",
+          "Explore Motown, Stax, Philadelphia, and the labels, artists, and grooves that defined soul and funk. Discover how these institutions built legendary catalogs and shaped the sound of Black popular music.",
         image: "/taxonomy/soul-funk.jpg",
       },
       {
@@ -647,42 +647,42 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "X",
     title: "Electronic, Club & Nightlife Culture",
     description:
-      "Journey from Chicago house and Detroit techno to global club culture, discovering the beats, DJs, and communities that shaped electronic music. Understand how underground dance music became a global phenomenon and influenced all popular genres.",
+      "Trace electronic music from Chicago house and Detroit techno to global club culture through the beats, DJs, and communities that shaped it. Understand how underground dance music became a worldwide force and influenced popular music more broadly.",
     image: "/taxonomy/electronic-club.jpg",
     subsections: [
       {
         id: "house-techno-foundations",
         title: "House & Techno Foundations",
         description:
-          "Experience the Chicago and Detroit origins, from warehouse parties, 808s, 909s, and the birth of modern dance music. Discover how pioneering DJs and producers created the sounds that would define electronic music for decades.",
+          "Explore the Chicago and Detroit origins of modern dance music, from warehouse parties to 808s and 909s. Discover how pioneering DJs and producers created sounds that would define electronic music for decades.",
         image: "/taxonomy/house-techno.jpg",
       },
       {
         id: "global-dance-rave-lineages",
         title: "Global Dance & Rave Lineages",
         description:
-          "Trace from UK rave culture to European festivals, discovering how electronic dance music spread worldwide. Understand how regional scenes created global movements and how club culture became an international phenomenon.",
+          "Trace electronic dance music from UK rave culture to European festivals and beyond. Understand how regional scenes grew into global movements and how club culture became an international phenomenon.",
         image: "/taxonomy/global-rave.jpg",
       },
       {
         id: "dj-culture-performance",
         title: "DJ Culture & Performance",
         description:
-          "Experience mixing, scratching, beatmatching, and the art and technique of the DJ as performer. Understand how DJs evolved from playing records to creating live performances and becoming headliners at the world's biggest venues.",
+          "Explore mixing, scratching, beatmatching, and the art of the DJ as performer. Understand how DJs evolved from playing records to creating live sets and headlining major venues.",
         image: "/taxonomy/dj-culture.jpg",
       },
       {
         id: "club-culture-social-space",
         title: "Club Culture as Social Space",
         description:
-          "Discover the club as community, identity, and liberation, experiencing inclusive spaces and underground movements. Understand how nightlife created sanctuaries for self-expression and built communities around dance music.",
+          "Explore the club as a space for community, identity, and liberation through inclusive environments and underground movements. Understand how nightlife created sanctuaries for self-expression and communities built around dance music.",
         image: "/taxonomy/club-culture.jpg",
       },
       {
         id: "nightlife-escapism-ritual",
         title: "Nightlife, Escapism & Ritual",
         description:
-          "Experience the transcendental experience of the dancefloor, from PLUR and altered states to collective joy. Discover how electronic dance music created rituals of release, connection, and transformation through nightlife.",
+          "Experience the transformative energy of the dancefloor, from PLUR and altered states to collective joy. Discover how electronic dance music created rituals of release, connection, and transformation through nightlife.",
         image: "/taxonomy/nightlife-ritual.jpg",
       },
       {
@@ -710,14 +710,14 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XI",
     title: "Latin, Caribbean & Afro Roots",
     description:
-      "Discover the vibrant rhythms and cultural heritage of Latin America, the Caribbean, and Africa, from salsa and reggae to afrobeats and global bass. Understand how these musical traditions influenced popular music and created global dance movements.",
+      "Discover the vibrant rhythms and cultural heritage of Latin America, the Caribbean, and Africa, from salsa and reggae to Afrobeats and global bass. Understand how these traditions influenced popular music and sparked dance movements around the world.",
     image: "/taxonomy/latin-caribbean-afro.jpg",
     subsections: [
       {
         id: "latin-vibes",
         title: "Latin Vibes",
         description:
-          "Experience from son and salsa to reggaeton and Latin pop, discovering the infectious rhythms of Latin America. Understand how Latin music conquered global charts while maintaining cultural authenticity and regional diversity.",
+          "Explore everything from son and salsa to reggaeton and Latin pop while discovering the infectious rhythms of Latin America. Understand how Latin music reached global charts while preserving cultural depth and regional diversity.",
         image: "/taxonomy/latin-vibes.jpg",
         groups: [
           {
@@ -768,7 +768,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "caribbean-afro-roots",
         title: "Caribbean & Afro Roots",
         description:
-          "Journey from Yoruba traditions to dancehall, experiencing the Caribbean as a crucible of musical innovation. Understand how Caribbean rhythms influenced reggae, dancehall, and ultimately shaped global pop and hip hop.",
+          "Trace a path from Yoruba traditions to dancehall while exploring the Caribbean as a center of musical innovation. Understand how Caribbean rhythms influenced reggae, dancehall, and later shaped global pop and hip hop.",
         image: "/taxonomy/caribbean-afro.jpg",
         groups: [
           {
@@ -820,7 +820,7 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XII",
     title: "Folk & Regional Expressions",
     description:
-      "Experience traditional, folk, and regional music from around the world, celebrating storytelling, cultural identity, and acoustic craftsmanship. Discover how local musical traditions preserve heritage and evolve through contemporary interpretation and cross-cultural exchange.",
+      "Explore traditional, folk, and regional music from around the world through storytelling, cultural identity, and acoustic craftsmanship. Discover how local traditions preserve heritage while evolving through reinterpretation and cross-cultural exchange.",
     image: "/taxonomy/folk-regional.jpg",
     subsections: [
       {
@@ -834,7 +834,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "revival-songwriting-modern",
         title: "Revival, Songwriting & Modern Folk",
         description:
-          "Experience the folk revival, singer-songwriter movement, and the contemporary folk artists. Discover how musicians reimagined traditional acoustic music for modern audiences while maintaining authenticity and storytelling traditions.",
+          "Explore the folk revival, the singer-songwriter movement, and contemporary folk artists. Discover how musicians reimagined traditional acoustic music for modern audiences while preserving authenticity and storytelling.",
         image: "/taxonomy/folk-revival.jpg",
       },
       {
@@ -848,7 +848,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "northern-european-folk",
         title: "Northern & European Folk Traditions",
         description:
-          "Experience Celtic, Nordic, Baltic, and Eastern European folk music and its modern revival. Discover how European folk traditions influenced popular music and how contemporary artists preserve and reinterpret these musical heritages.",
+          "Explore Celtic, Nordic, Baltic, and Eastern European folk music and its modern revival. Discover how European folk traditions influenced popular music and how contemporary artists preserve and reinterpret these musical heritages.",
         image: "/taxonomy/european-folk.jpg",
       },
       {
@@ -869,7 +869,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "popular-folk-cultural",
         title: "Popular Folk Forms & Cultural Specificity",
         description:
-          "Experience chanson, canzone, fado, and the national folk styles that became popular traditions. Understand how regional folk music became national symbols and influenced each country's popular music identity.",
+          "Explore chanson, canzone, fado, and other national folk styles that grew into popular traditions. Understand how regional folk music became a national symbol and shaped each country's musical identity.",
         image: "/taxonomy/popular-folk.jpg",
       },
       {
@@ -890,21 +890,21 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XIII",
     title: "Countries & Regional Music Traditions",
     description:
-      "Take a global exploration of traditional, contemporary, and culturally rooted musical styles that define regions worldwide. Discover how each region developed distinctive sounds that reflect its history, culture, and identity while influencing global music.",
+      "Take a global journey through traditional, contemporary, and culturally rooted musical styles from around the world. Discover how each region developed distinctive sounds that reflect its history, culture, and identity while influencing global music.",
     image: "/taxonomy/countries-regional.jpg",
     subsections: [
       {
         id: "europe-regional",
         title: "Europe",
         description:
-          "Discover from Flamenco to Fado, from Balkan brass to Nordic folk, Europe's diverse regional traditions. Understand how European regions created distinctive musical styles that influenced global classical and popular music.",
+          "Explore Europe's diverse regional traditions, from flamenco to fado and from Balkan brass to Nordic folk. Understand how different parts of Europe developed musical styles that shaped both classical and popular music around the world.",
         image: "/taxonomy/europe-music.jpg",
       },
       {
         id: "latin-america-regional",
         title: "Latin America",
         description:
-          "Experience son, tango, cumbia, and the rich musical heritage of Central and South America. Discover how Latin American regions developed unique styles that became globally influential and define cultural identity.",
+          "Explore son, tango, cumbia, and the rich musical heritage of Central and South America. Discover how Latin American regions developed unique styles that became globally influential and continue to define cultural identity.",
         image: "/taxonomy/latin-america-music.jpg",
       },
       {
@@ -932,7 +932,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "south-asia-regional",
         title: "South Asia",
         description:
-          "Experience Hindustani and Carnatic classical, Bollywood, and the musical traditions of India and beyond. Understand how South Asian classical systems and popular music created distinctive sounds and influenced global film and popular music.",
+          "Explore Hindustani and Carnatic classical music, Bollywood, and the wider musical traditions of South Asia. Understand how classical systems and popular forms from the region created distinctive sounds and influenced global music and film.",
         image: "/taxonomy/south-asia-music.jpg",
       },
       {
@@ -946,7 +946,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "indigenous-ancestral",
         title: "Indigenous & Ancestral Traditions",
         description:
-          "Experience First Nations, Aboriginal, and the indigenous musical traditions worldwide. Discover how ancient musical practices preserve cultural wisdom and continue to influence contemporary music and cultural revitalization movements.",
+          "Explore First Nations, Aboriginal, and other Indigenous musical traditions from around the world. Discover how ancestral practices preserve cultural knowledge and continue to shape contemporary music and revitalization movements.",
         image: "/taxonomy/indigenous-music.jpg",
       },
     ],
@@ -960,7 +960,7 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XIV",
     title: "Emotional, Seasonal & Situational Dimensions",
     description:
-      "Discover music that speaks to our emotions, seasons, and life moments, from intimate reflection to celebration and healing. Understand how we use music to navigate feelings, mark occasions, and create meaning in every aspect of daily life.",
+      "Explore music that speaks to emotion, season, and circumstance, from quiet reflection to celebration and healing. Understand how people use music to navigate feelings, mark occasions, and create meaning in daily life.",
     image: "/taxonomy/emotional-seasonal.jpg",
     subsections: [
       {
@@ -974,7 +974,7 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "light-positive-states",
             title: "Light & Positive States",
             description:
-              "Find joy, hope, energy, and the music that lifts your spirit and enhances positive moods. Understand how major, upbeat, and optimistic music creates emotional balance and motivation.",
+              "Explore joy, hope, energy, and the music that lifts the spirit and supports positive moods. Understand how bright, upbeat music can create emotional balance and motivation.",
           },
           {
             id: "dream-memory-reflection",
@@ -986,7 +986,7 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "vulnerability-loss-healing",
             title: "Vulnerability, Loss & Healing",
             description:
-              "Find sad songs, grief, and the music that helps us process pain and heal. Understand how melancholic and vulnerable music provides comfort, validates emotions, and supports emotional recovery.",
+              "Explore sad songs, grief, and the music that helps people process pain and heal. Understand how melancholic and vulnerable music can provide comfort, validate emotion, and support recovery.",
           },
           {
             id: "energy-power-release",
@@ -1013,7 +1013,7 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "spring-renewal",
             title: "Spring & Renewal",
             description:
-              "Find fresh starts, blooming, and the music for new beginnings and growth. Discover how spring-themed music captures the energy of renewal and hope that comes with the changing season.",
+              "Explore fresh starts, blooming, and the music that accompanies new beginnings and growth. Discover how spring-themed music captures the energy of renewal and hope.",
           },
           {
             id: "summer-collective-joy",
@@ -1025,13 +1025,13 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "autumn-reflection",
             title: "Autumn & Reflection",
             description:
-              "Discover harvest, change, and the music for contemplation and transition. Find how autumn-themed music captures the mood of change, nostalgia, and preparation that defines this reflective season.",
+              "Discover music shaped by harvest, change, and reflection. See how autumn-themed music captures the mood of transition, nostalgia, and preparation that defines the season.",
           },
           {
             id: "winter-intimacy",
             title: "Winter & Intimacy",
             description:
-              "Find cozy sounds, holiday music, and the warmth of indoor listening. Experience how winter music creates comfort, celebrates traditions, and provides solace during the coldest, darkest months.",
+              "Explore cozy sounds, holiday music, and the warmth of indoor listening. Discover how winter music creates comfort, celebrates tradition, and offers solace during the coldest months.",
           },
         ],
       },
@@ -1046,19 +1046,19 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "social-shared-moments",
             title: "Social & Shared Moments",
             description:
-              "Find parties, dinners, and the music that brings people together and enhances social gatherings. Discover how music facilitates connection, sets the mood, and creates the soundtrack for shared human experiences.",
+              "Explore parties, dinners, and the music that brings people together and enriches social gatherings. Discover how music helps shape mood, build connection, and soundtrack shared experiences.",
           },
           {
             id: "travel-movement",
             title: "Travel & Movement",
             description:
-              "Discover road trips, flights, commuting, and the journey soundtrack. Find how music accompanies us through physical movement and transforms the experience of traveling between places.",
+              "Explore road trips, flights, commuting, and the soundtracks of movement. See how music travels with us and transforms the experience of moving from place to place.",
           },
           {
             id: "energy-fitness",
             title: "Energy & Fitness",
             description:
-              "Find workout motivation, running, and the high-energy listening that powers physical activity. Discover how rhythmic, upbeat, and motivating music enhances exercise and performance.",
+              "Explore workout motivation, running, and high-energy listening that powers physical activity. Discover how rhythmic, upbeat music can enhance exercise and performance.",
           },
           {
             id: "focus-work-creation",
@@ -1070,13 +1070,13 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "relax-unwind",
             title: "Relax & Unwind",
             description:
-              "Find evening chill, stress relief, and the music for winding down and restoration. Experience how calming, soothing, and peaceful music helps us decompress and prepare for rest after demanding days.",
+              "Explore evening chill, stress relief, and music for winding down and restoration. Discover how calming, peaceful music helps people decompress and prepare for rest after demanding days.",
           },
           {
             id: "daily-rituals",
             title: "Daily Rituals",
             description:
-              "Discover morning routines, cooking, shower concerts, and the music for everyday moments and self-care. Find how personal soundtracks enhance daily life and create meaning in mundane activities and rituals.",
+              "Discover morning routines, cooking, shower concerts, and the music that shapes everyday moments and self-care. See how personal soundtracks enrich daily life and bring meaning to ordinary routines.",
           },
           {
             id: "holidays-celebrations",
@@ -1088,7 +1088,7 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "life-moments-transitions",
             title: "Life Moments & Transitions",
             description:
-              "Discover graduations, breakups, new chapters, and the music for milestone moments and life transitions. Find how music helps us process change, mark chapters, and navigate the emotional landscape of major life events.",
+              "Discover the music that accompanies graduations, breakups, new chapters, and other major transitions. See how music helps us process change, mark turning points, and navigate the emotional weight of important life events.",
           },
           {
             id: "calm-wellness",
@@ -1100,7 +1100,7 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "family-kids",
             title: "Family & Kids",
             description:
-              "Discover children's music, family sing-alongs, and the kid-friendly playlists that nurture young listeners. Find how music supports child development, creates family bonding, and introduces musical appreciation from early ages.",
+              "Discover children's music, family sing-alongs, and kid-friendly playlists that support young listeners. See how music encourages child development, strengthens family bonds, and builds musical appreciation from an early age.",
           },
         ],
       },
@@ -1115,7 +1115,7 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XV",
     title: "Music, Media, Technology & Industry",
     description:
-      "Explore the business, technology, and media landscape of music, from streaming platforms and AI to labels, publishing, and industry economics. Understand how technological revolutions transformed how music is created, distributed, and consumed worldwide.",
+      "Explore the business, technology, and media systems that shape music, from streaming platforms and AI to labels, publishing, and industry economics. Understand how technological change transformed the way music is created, distributed, and consumed.",
     image: "/taxonomy/music-media-tech.jpg",
     subsections: [
       {
@@ -1129,7 +1129,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "creation-production",
         title: "Creation & Production",
         description:
-          "Experience home recording, AI tools, and the democratization of music creation technology. Discover how affordable technology enables independent artists to create professional music from anywhere and challenges traditional production models.",
+          "Explore home recording, AI tools, and the broader democratization of music-making technology. Discover how affordable tools allow independent artists to create professional work from almost anywhere and challenge older production models.",
         image: "/taxonomy/music-creation.jpg",
       },
       {
@@ -1164,27 +1164,27 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XVI",
     title: "Musical Instruments & Timbre",
     description:
-      "Discover the tools that create sound, from strings and keyboards to winds, percussion, and electronic instruments, plus the science of timbre. Understand how instrumental design, materials, and acoustic physics create the infinite palette of musical colors and textures.",
+      "Discover the tools that create sound, from strings and keyboards to winds, percussion, and electronic instruments, along with the science of timbre. Understand how design, materials, and acoustics create music's wide palette of color and texture.",
     image: "/taxonomy/instruments-timbre.jpg",
     subsections: [
       {
         id: "string-instruments",
         title: "String Instruments",
         description:
-          "Experience from classical violin to electric guitar, the vibrating strings that sing across all genres. Discover how string instruments became the backbone of musical ensembles and created distinctive playing techniques and expressive possibilities.",
+          "Explore everything from classical violin to electric guitar and the vibrating strings that resonate across genres. Discover how string instruments became central to musical ensembles and opened up distinctive playing techniques and expressive possibilities.",
         image: "/taxonomy/string-instruments.jpg",
         groups: [
           {
             id: "guitar-family",
             title: "Guitar Family",
             description:
-              "Discover acoustic, electric, bass, the world's most popular instrument family. Understand how the guitar's versatility, portability, and expressive range made it essential across rock, pop, blues, and virtually every genre.",
+              "Discover acoustic, electric, and bass guitars, one of the world's most influential instrument families. Understand how the guitar's versatility, portability, and expressive range made it essential across rock, pop, blues, and many other genres.",
           },
           {
             id: "orchestral-strings",
             title: "Orchestral Strings",
             description:
-              "Experience violin, viola, cello, double bass, the soul of the orchestra. Discover how orchestral strings create the foundation of classical ensembles and provide the melodic and harmonic core of symphonic music.",
+              "Explore violin, viola, cello, and double bass, the core of the orchestral string section. Discover how these instruments provide the melodic and harmonic foundation of symphonic music.",
           },
           {
             id: "plucked-strings-global",
@@ -1198,27 +1198,27 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "keyboard-instruments",
         title: "Keyboard Instruments",
         description:
-          "Discover piano, organ, synthesizer, and the keyboards that shaped classical, jazz, and pop music. Understand how keyboard instruments' harmonic and melodic capabilities made them central to composition across virtually all musical traditions.",
+          "Explore piano, organ, synthesizer, and other keyboard instruments that shaped classical, jazz, and pop music. Understand how their harmonic and melodic range made them central to composition across many traditions.",
         image: "/taxonomy/keyboard-instruments.jpg",
       },
       {
         id: "wind-instruments",
         title: "Wind Instruments",
         description:
-          "Experience brass and woodwinds, the breath-powered instruments that give music its voice. Discover how wind instruments provide distinctive timbres and expressive capabilities across classical, jazz, folk, and world traditions.",
+          "Explore brass and woodwinds, the breath-powered instruments that give music much of its voice. Discover how wind instruments bring distinctive timbres and expressive possibilities to classical, jazz, folk, and global traditions.",
         image: "/taxonomy/wind-instruments.jpg",
         groups: [
           {
             id: "brass-family",
             title: "Brass Family",
             description:
-              "Discover trumpet, saxophone, trombone, the bold and brilliant instruments that lead the orchestra. Understand how brass instruments create powerful statements, carry melodies, and provide excitement and drama to musical performances.",
+              "Discover trumpet, saxophone, trombone, and other bold, brilliant brass voices. Understand how brass instruments project power, carry melody, and add drama to musical performance.",
           },
           {
             id: "woodwind-family",
             title: "Woodwind Family",
             description:
-              "Discover flute, clarinet, oboe, the expressive and versatile instruments of the ensemble. Understand how woodwinds provide agility, nuance, and beautiful timbres that define the color of orchestral music.",
+              "Explore flute, clarinet, oboe, and other expressive woodwinds within the ensemble. Understand how woodwinds add agility, nuance, and color to orchestral music.",
           },
           {
             id: "global-wind-traditions",
@@ -1232,26 +1232,26 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "percussion-drums",
         title: "Percussion & Drums",
         description:
-          "Discover from trap kits to taiko, the instruments that give music its heartbeat and groove. Understand how percussion provides rhythmic foundation and drives the momentum of music across all cultures and genres.",
+          "Explore everything from trap kits to taiko, the instruments that give music its heartbeat and groove. Understand how percussion provides rhythmic foundation and drives momentum across cultures and genres.",
         image: "/taxonomy/percussion-drums.jpg",
         groups: [
           {
             id: "drum-kit-modern",
             title: "Drum Kit & Modern Percussion",
             description:
-              "Experience the modern drum set and its role in rock, jazz, and pop music. Understand how the drum kit became the rhythmic foundation of contemporary music and enabled new playing techniques and musical styles.",
+              "Explore the modern drum set and its role in rock, jazz, and pop music. Understand how the kit became a rhythmic foundation of contemporary music and enabled new playing techniques and styles.",
           },
           {
             id: "hand-drums-frame",
             title: "Hand Drums & Frame Drums",
             description:
-              "Discover djembe, congas, frame drums, the instruments played with hands across cultures. Understand how hand percussion traditions create complex rhythms and are central to folk, classical, and world music practices.",
+              "Discover djembe, congas, frame drums, and other hand-played instruments found across cultures. Understand how hand percussion traditions create complex rhythms and remain central to folk, classical, and world music.",
           },
           {
             id: "orchestral-classical-percussion",
             title: "Orchestral & Classical Percussion",
             description:
-              "Discover timpani, snare, cymbals, the percussion of the orchestra. Understand how orchestral percussion provides dramatic accents, rhythmic drive, and special effects that enhance symphonic performances.",
+              "Explore timpani, snare, cymbals, and other percussion instruments used in the orchestra. Understand how orchestral percussion adds rhythmic drive, dramatic accents, and color to symphonic performance.",
           },
           {
             id: "global-percussion-traditions",
@@ -1272,7 +1272,7 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "synthesizers",
             title: "Synthesizers",
             description:
-              "Discover analog, digital, modular, and the sound synthesis and electronic tone. Understand how synthesizers created new possibilities for musical expression and shaped the sound of virtually all electronic music.",
+              "Discover analog, digital, and modular synthesis, along with the electronic tones these instruments can create. Understand how synthesizers opened new possibilities for musical expression and shaped the sound of electronic music.",
           },
           {
             id: "drum-machines-sequencers",
@@ -1284,7 +1284,7 @@ export const musicTaxonomy: TaxonomySection[] = [
             id: "samplers-sampling",
             title: "Samplers & Sampling Technology",
             description:
-              "Explore from Fairlight to SP-1200, the art and technology of sampling. Discover how sampling enabled creative reuse of sounds, created new musical techniques, and became a foundation of hip hop and electronic production.",
+              "Explore the art and technology of sampling, from the Fairlight to the SP-1200. Discover how sampling enabled creative reuse, inspired new techniques, and became a foundation of hip hop and electronic production.",
           },
           {
             id: "other-electronic",
@@ -1298,14 +1298,14 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "instrument-craft-innovation",
         title: "Instrument Craft, Innovation & Culture",
         description:
-          "Discover luthiers, builders, and the craftsmanship behind the world's greatest instruments. Understand how instrument design, materials, and construction techniques create the tools that musicians use to express themselves across all musical traditions.",
+          "Discover luthiers, builders, and the craftsmanship behind great instruments. Understand how design, materials, and construction techniques shape the tools musicians use across musical traditions.",
         image: "/taxonomy/instrument-craft.jpg",
       },
       {
         id: "timbre-sound-design-sonic",
         title: "Timbre, Sound Design & Sonic Identity",
         description:
-          "Understand the color of sound, how timbre shapes musical character and creates sonic identity. Discover how the unique qualities of instruments and sounds give music its emotional impact and distinctive fingerprint across genres and styles.",
+          "Understand the color of sound and how timbre shapes musical character and sonic identity. Discover how the unique qualities of instruments and textures give music its emotional impact and distinctive fingerprint.",
         image: "/taxonomy/timbre-sound.jpg",
       },
     ],
@@ -1319,14 +1319,14 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XVII",
     title: "Music Theory & Composition",
     description:
-      "Discover the language of music, from harmony, melody, and rhythm to form, structure, and the compositional approaches that create musical meaning. Understand how theoretical knowledge provides the foundation for musical creation, analysis, and appreciation across all traditions.",
+      "Discover the language of music, from harmony, melody, and rhythm to form, structure, and the compositional ideas that create meaning. Understand how theory supports musical creation, analysis, and appreciation across traditions.",
     image: "/taxonomy/music-theory.jpg",
     subsections: [
       {
         id: "harmony-chord-progressions",
         title: "Harmony & Chord Progressions",
         description:
-          "Explore the vertical dimension of music, understanding how chords create emotional landscapes and harmonic foundation. Discover how different harmonic systems, from triads to complex jazz voicings, shape the emotional and structural basis of musical works.",
+          "Explore the vertical dimension of music and how chords create both emotional color and harmonic foundation. Discover how systems ranging from simple triads to advanced jazz voicings shape musical structure and feeling.",
         image: "/taxonomy/harmony-chords.jpg",
         groups: [
           {
@@ -1353,7 +1353,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "melody-counterpoint",
         title: "Melody & Counterpoint",
         description:
-          "Explore the horizontal dimension, understanding how melodic lines move, interact, and create meaning independently and together. Discover how melody construction and the art of combining lines create the narrative and expressive content of music.",
+          "Explore the horizontal dimension of music and how melodic lines move, interact, and create meaning alone and together. Discover how melody and counterpoint shape the narrative and expressive content of a piece.",
         image: "/taxonomy/melody-counterpoint.jpg",
         groups: [
           {
@@ -1380,7 +1380,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "rhythm-meter-groove",
         title: "Rhythm, Meter & Groove",
         description:
-          "Explore the temporal dimension, understanding how time, pulse, and feel create musical motion and energy. Discover how rhythmic complexity and groove provide the foundation that makes music move and connects with listeners physically and emotionally.",
+          "Explore the temporal dimension of music and how time, pulse, and feel create motion and energy. Discover how rhythmic complexity and groove help music move listeners both physically and emotionally.",
         image: "/taxonomy/rhythm-meter.jpg",
         groups: [
           {
@@ -1407,7 +1407,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "form-structure",
         title: "Form & Structure",
         description:
-          "Explore the architectural dimension, understanding how sections build into complete musical works and create narrative through structure. Discover how formal systems, from classical sonata forms to song structures, provide frameworks for musical development and listener expectations.",
+          "Explore the architectural side of music and how sections grow into complete works that create narrative through structure. Discover how forms, from sonata design to popular song structure, shape development and listener expectation.",
         image: "/taxonomy/form-structure.jpg",
         groups: [
           {
@@ -1434,7 +1434,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "orchestration-arrangement",
         title: "Orchestration & Arrangement",
         description:
-          "Explore the instrumental dimension, understanding how to assign, combine, and balance sounds for musical works. Discover how orchestration and arrangement transform compositions and determine the final sonic texture and impact on listeners.",
+          "Explore the instrumental dimension of music and how sounds are assigned, combined, and balanced within a work. Discover how orchestration and arrangement transform compositions and shape their final sonic impact.",
         image: "/taxonomy/orchestration.jpg",
         groups: [
           {
@@ -1461,7 +1461,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "composition-approaches-philosophy",
         title: "Composition Approaches & Philosophy",
         description:
-          "Explore the creative dimension, understanding methods, mindsets, and philosophies of musical creation. Discover how composers approach their art and what beliefs and systems guide the process of bringing new music into existence.",
+          "Explore the creative dimension of music through methods, mindsets, and philosophies of composition. Discover how composers approach their craft and what ideas guide the process of bringing new music into being.",
         image: "/taxonomy/composition-philosophy.jpg",
         groups: [
           {
@@ -1488,7 +1488,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "ear-training-literacy",
         title: "Ear Training & Musical Literacy",
         description:
-          "Develop the perceptual dimension, creating ears that hear accurately and eyes that read music notation. Understand how aural skills and notation literacy provide the foundation for musical understanding, communication, and participation across all styles.",
+          "Develop the perceptual side of musicianship by training the ear and learning to read notation clearly. Understand how aural skill and literacy support musical understanding, communication, and participation across styles.",
         image: "/taxonomy/ear-training.jpg",
       },
     ],
@@ -1502,7 +1502,7 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XVIII",
     title: "Music Therapy, Wellness & Healing",
     description:
-      "Explore the therapeutic and wellness applications of music, from clinical practice to daily self-care and the neuroscience of musical healing. Understand how music supports mental health, facilitates recovery, and enhances quality of life through evidence-based practices and personal engagement.",
+      "Explore the therapeutic and wellness applications of music, from clinical practice to daily self-care and the neuroscience of healing. Understand how music can support mental health, recovery, and quality of life through both evidence-based practice and personal engagement.",
     image: "/taxonomy/music-therapy.jpg",
     subsections: [
       {
@@ -1530,27 +1530,27 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "music-mental-health",
         title: "Music & Mental Health",
         description:
-          "Discover how music addresses depression, anxiety, trauma, and supports psychological wellbeing. Understand how musical engagement provides coping mechanisms, emotional regulation, and therapeutic benefits for mental health conditions and daily stress.",
+          "Discover how music can support people dealing with depression, anxiety, trauma, and other mental health challenges. Understand how musical engagement can offer coping tools, emotional regulation, and relief from daily stress.",
         image: "/taxonomy/music-mental-health.jpg",
       },
       {
         id: "wellness-self-care",
         title: "Wellness & Self-Care Applications",
         description:
-          "Find daily practices for balance, stress relief, and emotional regulation through music. Discover how intentional listening, musical activities, and sound-based rituals support holistic health and create sustainable wellbeing practices.",
+          "Explore daily practices for balance, stress relief, and emotional regulation through music. Discover how intentional listening, musical activity, and sound-based rituals can support sustainable wellbeing.",
         image: "/taxonomy/wellness-self-care.jpg",
         groups: [
           {
             id: "daily-wellness",
             title: "Daily Wellness Practices",
             description:
-              "Find morning music, mood management, and intentional listening for everyday balance. Understand how starting and ending the day with music sets positive intentions, manages energy, and creates structure for daily life.",
+              "Explore morning music, mood management, and intentional listening for everyday balance. Understand how music can help shape daily routines, guide energy, and create structure.",
           },
           {
             id: "mindfulness-meditation",
             title: "Mindfulness & Meditation",
             description:
-              "Discover sound baths, chanting, and the music for contemplative practice and inner peace. Find how sonic environments and sacred sounds support meditation, mindfulness, and spiritual wellbeing through focused listening.",
+              "Discover sound baths, chanting, and music for contemplative practice and inner peace. See how sonic environments and sacred sounds support meditation, mindfulness, and spiritual wellbeing through focused listening.",
           },
           {
             id: "movement-body",
@@ -1564,7 +1564,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "community-social-wellness",
         title: "Community & Social Wellness",
         description:
-          "Experience group singing, community music, and the healing power of making music together. Discover how collective musical activities build social bonds, create belonging, and support community health through shared creative expression.",
+          "Explore group singing, community music, and the healing power of making music together. Discover how collective musical activity can build social bonds, create belonging, and support community wellbeing.",
         image: "/taxonomy/community-wellness.jpg",
       },
       {
@@ -1585,14 +1585,14 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XIX",
     title: "Production Techniques & Audio Engineering",
     description:
-      "Explore the craft of capturing and shaping sound, from microphone techniques and mixing to mastering and genre-specific production. Understand how audio engineering transforms raw performances into polished recordings and defines the sonic quality of music we hear.",
+      "Explore the craft of capturing and shaping sound, from microphone technique and mixing to mastering and genre-specific production. Understand how audio engineering turns raw performances into polished recordings and shapes the sound of the music we hear.",
     image: "/taxonomy/production-engineering.jpg",
     subsections: [
       {
         id: "recording-fundamentals",
         title: "Recording Fundamentals",
         description:
-          "Discover the art of capture, understanding microphones, acoustics, and getting the best source. Learn how proper recording technique preserves the essence of a performance and provides the foundation for all subsequent production work.",
+          "Explore the art of capture through microphones, acoustics, and strong source recording. Learn how good recording technique preserves the essence of a performance and lays the foundation for everything that follows.",
         image: "/taxonomy/recording-fundamentals.jpg",
         groups: [
           {
@@ -1619,7 +1619,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "mixing-techniques",
         title: "Mixing Techniques",
         description:
-          "Experience the art of balance, shaping individual tracks into a cohesive whole. Discover how mixing transforms recorded performances into polished songs through EQ, dynamics, and spatial processing that define modern production.",
+          "Explore the art of balance as individual tracks are shaped into a cohesive whole. Discover how mixing transforms recorded performances into polished songs through EQ, dynamics, and spatial processing.",
         image: "/taxonomy/mixing-techniques.jpg",
         groups: [
           {
@@ -1664,7 +1664,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "mastering",
         title: "Mastering",
         description:
-          "Discover the final polish, preparing mixes for distribution and ensuring translation across systems. Learn how mastering adds the final EQ, compression, and loudness that makes recordings sound their best on every platform.",
+          "Explore the final stage of polish that prepares mixes for distribution and reliable playback across systems. Learn how mastering adds the last EQ, compression, and level adjustments that help recordings translate well on every platform.",
         image: "/taxonomy/mastering.jpg",
         groups: [
           {
@@ -1712,14 +1712,14 @@ export const musicTaxonomy: TaxonomySection[] = [
     numeral: "XX",
     title: "Live Performance & Stagecraft",
     description:
-      "Explore the art of live performance, from stage presence and touring logistics to sound, lighting, and the history of legendary shows. Understand how live music creates unforgettable experiences and connects artists with audiences in shared moments of musical magic.",
+      "Explore the art of live performance, from stage presence and touring logistics to sound, lighting, and the history of major shows. Understand how live music creates memorable experiences and connects artists with audiences in shared moments.",
     image: "/taxonomy/live-performance.jpg",
     subsections: [
       {
         id: "performance-skills",
         title: "Performance Skills",
         description:
-          "Master commanding the stage, understanding presence, communication, and connecting with audiences. Discover how great performers captivate, engage, and create lasting impact through authentic live musical expression.",
+          "Learn how to command the stage through presence, communication, and audience connection. Discover how strong performers captivate listeners and create lasting impact through authentic live expression.",
         image: "/taxonomy/performance-skills.jpg",
         groups: [
           {
@@ -1740,7 +1740,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "touring-logistics",
         title: "Touring & Logistics",
         description:
-          "Experience life on the road, understanding planning, routing, and the realities of touring. Discover how successful tours balance artistic vision with practical logistics, crew management, and the challenges of bringing shows to audiences worldwide.",
+          "Explore life on the road through planning, routing, and the realities of touring. Discover how successful tours balance artistic goals with practical logistics, crew management, and the demands of bringing shows to audiences.",
         image: "/taxonomy/touring-logistics.jpg",
         groups: [
           {
@@ -1794,7 +1794,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "lighting-visual-production",
         title: "Lighting & Visual Production",
         description:
-          "Discover beyond music, understanding lighting, video, and the visual spectacle of live shows. Explore how visual production creates immersive environments, enhances the musical experience, and becomes an essential part of modern concert presentation.",
+          "Look beyond the music to understand lighting, video, and the visual spectacle of live shows. Explore how visual production creates immersive environments, deepens the musical experience, and has become an essential part of modern concert presentation.",
         image: "/taxonomy/lighting-visual.jpg",
         groups: [
           {
@@ -1828,7 +1828,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "club-venue-performance",
         title: "Club & Venue Performance",
         description:
-          "Experience intimate venues, club shows, and the connection and energy of small-room performance. Discover how proximity to the audience creates unique opportunities for direct communication and musical intimacy in nightlife settings.",
+          "Explore intimate venues, club shows, and the special energy of small-room performance. Discover how closeness to the audience creates opportunities for direct communication and musical intimacy.",
         image: "/taxonomy/club-performance.jpg",
       },
       {
@@ -1842,7 +1842,7 @@ export const musicTaxonomy: TaxonomySection[] = [
         id: "legendary-performances-history",
         title: "Legendary Performances & History",
         description:
-          "Experience Woodstock, Live Aid, and the shows that changed music history forever. Understand how certain performances transcended entertainment to become cultural moments that defined generations and influenced how we experience live music.",
+          "Explore Woodstock, Live Aid, and other shows that changed music history. Understand how certain performances moved beyond entertainment to become defining cultural moments.",
         image: "/taxonomy/legendary-performances.jpg",
       },
       {
@@ -1864,98 +1864,98 @@ export const musicTaxonomy: TaxonomySection[] = [
     title: "Canon & Key Artists",
     fullTitle: "XXI. Canon & Key Artists",
     description:
-      "Discover the legendary artists who shaped music history across all genres and eras. Experience the iconic voices, innovators, and visionaries whose work defined musical movements and continue to inspire new generations of musicians and listeners worldwide.",
+      "Discover the legendary artists who shaped music history across genres and eras. Explore the iconic voices, innovators, and visionaries whose work defined major movements and continues to inspire new generations of musicians and listeners.",
     image: "/taxonomy/canon-key-artists.jpg",
     subsections: [
       {
         id: "classical-orchestral-leading-vocalists",
         title: "Classical & Orchestral Mastery: Leading Vocal Virtuosos",
         description:
-          "Discover opera legends, classical singers, and the voices that defined operatic and art music traditions. Experience how these virtuosos pushed the boundaries of human vocal capability and created the standard for classical excellence.",
+          "Discover opera legends, classical singers, and the voices that defined operatic and art-music traditions. Explore how these virtuosos pushed the limits of vocal technique and set standards for classical excellence.",
         image: "/taxonomy/canon-classical.jpg",
       },
       {
         id: "rock-icons-golden-age-heavy",
         title: "Rock Icons: The Golden Age & Heavy Edge",
         description:
-          "Experience from Zeppelin to Metallica, the guitar heroes and frontmen of rock's golden eras. Discover how these icons created the archetypes of rock stardom and influenced generations of guitarists and bands.",
+          "Explore the guitar heroes and frontmen of rock's golden eras, from Zeppelin to Metallica. Discover how these icons shaped the archetype of rock stardom and influenced generations of guitarists and bands.",
         image: "/taxonomy/canon-rock.jpg",
       },
       {
         id: "metal-queens-kings-rule-breakers",
         title: "Metal: Queens, Kings & Rule-Breakers",
         description:
-          "Discover Ozzy, Dio, Bruce Dickinson, and the icons who defined heavy metal's evolution. Experience how these artists created the vocal styles, imagery, and musical innovations that became the template for metal genres worldwide.",
+          "Discover Ozzy, Dio, Bruce Dickinson, and other icons who defined heavy metal's evolution. Explore how these artists shaped the vocal styles, imagery, and innovations that became templates for metal worldwide.",
         image: "/taxonomy/canon-metal.jpg",
       },
       {
         id: "pop-powerhouses",
         title: "Pop Powerhouses",
         description:
-          "Discover Michael, Madonna, Beyoncé, and the superstars who defined pop music across decades. Experience how these artists created the standards for pop performance, visual presentation, and global celebrity that influenced popular culture.",
+          "Discover Michael, Madonna, Beyoncé, and other superstars who defined pop music across decades. Explore how these artists set standards for performance, visual presentation, and global celebrity.",
         image: "/taxonomy/canon-pop.jpg",
       },
       {
         id: "indie-alternative-leading-voices",
         title: "Indie & Alternative: Leading Voices",
         description:
-          "Discover Cobain, St. Vincent, Thom Yorke, and the artists who shaped alternative and indie music. Experience how these musicians defined authenticity and artistic integrity that became the foundation of independent music.",
+          "Discover Cobain, St. Vincent, Thom Yorke, and other artists who shaped alternative and indie music. Explore how these musicians helped define authenticity and artistic independence.",
         image: "/taxonomy/canon-indie.jpg",
       },
       {
         id: "hiphop-rap-leading-voices-lyric-icons",
         title: "Hip Hop & Rap: Leading Voices & Lyric Icons",
         description:
-          "Experience Tupac, Biggie, Jay-Z, Kendrick, and the MCs who elevated rap to high art. Discover how these artists pioneered lyrical storytelling, influenced hip hop culture, and became the voices of their generations and beyond.",
+          "Explore Tupac, Biggie, Jay-Z, Kendrick, and other MCs who elevated rap to a high art. Discover how these artists advanced lyrical storytelling, shaped hip hop culture, and became defining voices of their generations.",
         image: "/taxonomy/canon-hiphop.jpg",
       },
       {
         id: "jazz-soul-funk-leading-voices-legends",
         title: "Jazz, Soul & Funk: Leading Voices & Legends",
         description:
-          "Discover Coltrane, Miles, Aretha, Prince, and the visionaries of jazz, soul, and funk. Experience how these masters created revolutionary approaches to improvisation, vocal performance, and composition that transformed popular music.",
+          "Discover Coltrane, Miles, Aretha, Prince, and other visionaries of jazz, soul, and funk. Explore how these artists transformed popular music through improvisation, vocal performance, and composition.",
         image: "/taxonomy/canon-jazz-soul.jpg",
       },
       {
         id: "house-techno-leading-vocal-innovators",
         title: "House & Techno Culture: Leading Vocal Innovators",
         description:
-          "Discover Daft Punk, Frankie Knuckles, and the pioneers of electronic dance music. Experience how these innovators created the sounds, production techniques, and culture that defined house, techno, and electronic music worldwide.",
+          "Discover Daft Punk, Frankie Knuckles, and other pioneers of electronic dance music. Explore how these innovators created the sounds, production techniques, and culture that defined house, techno, and electronic music around the world.",
         image: "/taxonomy/canon-house-techno.jpg",
       },
       {
         id: "club-sounds-leading-voices-night",
         title: "Club Sounds: Leading Voices of the Night",
         description:
-          "Discover the DJs and producers who defined club culture and created the soundtracks of nightlife. Experience how these artists built global dance movements and influenced electronic music, pop, and hip hop with their club-oriented productions.",
+          "Discover the DJs and producers who defined club culture and shaped the soundtracks of nightlife. Explore how these artists built global dance movements and influenced electronic music, pop, and hip hop.",
         image: "/taxonomy/canon-club.jpg",
       },
       {
         id: "breaks-experimental-leading-avant-voices",
         title: "Breaks & Experimental: Leading Avant-Voices",
         description:
-          "Discover Aphex Twin, Björk, and the artists pushing music into uncharted territories. Experience how these experimentalists expanded the boundaries of sound, created new musical languages, and influenced avant-garde and popular music.",
+          "Discover Aphex Twin, Bjork, and other artists pushing music into uncharted territory. Explore how these experimentalists expanded the boundaries of sound, created new musical languages, and influenced both avant-garde and popular music.",
         image: "/taxonomy/canon-experimental.jpg",
       },
       {
         id: "latin-vibes-leading-voices-global",
         title: "Latin Vibes: Leading Voices & Global Rhythms",
         description:
-          "Discover Celia Cruz, Bad Bunny, and the icons of Latin music's global conquest. Experience how these artists blended regional traditions with contemporary sounds and conquered international charts while maintaining cultural authenticity.",
+          "Discover Celia Cruz, Bad Bunny, and other icons of Latin music's global rise. Explore how these artists blended regional traditions with contemporary sounds while reaching international audiences.",
         image: "/taxonomy/canon-latin.jpg",
       },
       {
         id: "caribbean-afro-roots-leading-voices",
         title: "Caribbean & Afro Roots: Leading Voices & Global Rhythms",
         description:
-          "Discover Bob Marley, Fela Kuti, and the voices that carried global rhythms and messages worldwide. Experience how these icons used music as a force for social change, cultural pride, and liberation across the African diaspora.",
+          "Discover Bob Marley, Fela Kuti, and other voices that carried global rhythms and powerful messages around the world. Explore how these icons used music as a force for social change, cultural pride, and liberation across the African diaspora.",
         image: "/taxonomy/canon-caribbean-afro.jpg",
       },
       {
         id: "folk-regional-leading-voices-global",
         title: "Folk & Regional Expressions: Leading Voices & Global Rhythms",
         description:
-          "Discover Joni Mitchell, Ali Farka Touré, and the keepers of traditional and folk music heritage. Experience how these artists preserved ancient musical traditions while innovating and influencing contemporary popular music across genres and cultures.",
+          "Discover Joni Mitchell, Ali Farka Toure, and other keepers of folk and regional music heritage. Explore how these artists preserved older traditions while innovating and influencing contemporary music across genres and cultures.",
         image: "/taxonomy/canon-folk.jpg",
       },
     ],

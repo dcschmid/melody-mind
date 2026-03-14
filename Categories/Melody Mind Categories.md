@@ -31,7 +31,7 @@
 - Punk → Post-Punk → Alternative → Indie (done)
 - Post-Punk → Industrial → EBM → Industrial Metal (done)
 - Ska → Rocksteady → Reggae → Dub → Dancehall → Global Bass (done)
-- Pop → Teen Pop → Synth Pop → Global Pop → Streaming Pop
+- Pop → Teen Pop → Synth Pop → Global Pop → Streaming Pop (done)
 - Pop (East Asia) → J-Pop / K-Pop → Global Pop
 - Electronic → Techno / House → Trance / IDM → EDM → Experimental & Hybrid Forms
 - Ambient → Downtempo → Chillwave → Lo-Fi

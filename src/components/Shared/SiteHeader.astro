@@ -24,7 +24,7 @@ const currentQuery = Astro.url.searchParams.get("q") || "";
 
 <header class="site-header" role="banner">
   <div class="site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="Go to Melody Mind homepage">
+    <a class="site-header__brand" href="/" aria-label="Go to the Melody Mind homepage">
       <span class="site-header__brand-mark" aria-hidden="true">MM</span>
       <span class="site-header__brand-text">Melody Mind</span>
     </a>
@@ -63,7 +63,7 @@ const currentQuery = Astro.url.searchParams.get("q") || "";
               type="search"
               name="q"
               value={currentQuery}
-              placeholder="Search genres, eras, artists"
+              placeholder="Search genres, eras, or artists"
               autocomplete="off"
               data-site-header-search-input
             />
@@ -111,7 +111,7 @@ const currentQuery = Astro.url.searchParams.get("q") || "";
   <button
     type="button"
     class="site-header__scrim"
-    aria-label="Close menu"
+    aria-label="Close main menu"
     tabindex="-1"
     data-site-header-scrim></button>
 </header>
@@ -136,7 +136,7 @@ const currentQuery = Astro.url.searchParams.get("q") || "";
 
       const link = node.closest<HTMLAnchorElement>("a");
       if (!link) return;
-      const baseLabel = "Bookmarks";
+      const baseLabel = "Saved articles";
       const ariaLabel =
         count > 0
           ? `${baseLabel}, ${count} saved article${count === 1 ? "" : "s"}`

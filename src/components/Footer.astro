@@ -8,7 +8,7 @@ import ThemeToggle from "@components/ThemeToggle.astro";
       <div class="site-footer__section">
         <p class="site-footer__title">Melody Mind</p>
         <p class="site-footer__text">
-          Curated knowledge and playlists to help you listen with intent and discover new
+          Curated guides and playlists to help you listen more closely and discover new
           sounds.
         </p>
       </div>
@@ -19,7 +19,7 @@ import ThemeToggle from "@components/ThemeToggle.astro";
           aria-label="Footer navigation"
           class="site-footer__nav site-footer__nav--two-column"
         >
-          <a class="site-footer__link" href="/bookmarks"> Bookmarks </a>
+          <a class="site-footer__link" href="/bookmarks">Saved articles</a>
           <a
             class="site-footer__link"
             href="https://podcasts.melody-mind.de"
@@ -27,7 +27,7 @@ import ThemeToggle from "@components/ThemeToggle.astro";
             rel="noopener noreferrer"
             aria-label="Open Melody Mind podcast site (opens in a new tab)"
           >
-            Podcast
+            Podcasts
           </a>
         </nav>
       </div>
@@ -51,7 +51,7 @@ import ThemeToggle from "@components/ThemeToggle.astro";
             rel="noopener noreferrer"
             aria-label="Support on Buy Me a Coffee (opens in a new tab)"
           >
-            Buy me a coffee
+            Buy Me a Coffee
           </a>
         </nav>
       </div>
@@ -59,7 +59,7 @@ import ThemeToggle from "@components/ThemeToggle.astro";
       <div class="site-footer__section">
         <p class="site-footer__title">Legal</p>
         <nav aria-label="Legal navigation" class="site-footer__nav">
-          <a class="site-footer__link" href="/imprint"> Imprint </a>
+          <a class="site-footer__link" href="/imprint">Legal Notice</a>
           <a class="site-footer__link" href="/privacy"> Privacy Policy </a>
           <a class="site-footer__link" href="/ai-content"> AI Content </a>
         </nav>
@@ -74,23 +74,23 @@ import ThemeToggle from "@components/ThemeToggle.astro";
             class="site-footer__link site-footer__cookie-button"
             data-cookie-settings-trigger
           >
-            Cookie Settings
+            Cookie settings
           </button>
           <button
             type="button"
             class="site-footer__link site-footer__cookie-button"
             data-reading-settings-trigger
           >
-            Reading Settings
+            Reading settings
           </button>
         </nav>
         <div class="site-footer__status-list">
-          <p class="site-footer__cookie-status" data-theme-status>Theme status: system</p>
+          <p class="site-footer__cookie-status" data-theme-status>Theme: system</p>
           <p class="site-footer__cookie-status" data-cookie-consent-status>
-            Cookie status: pending choice
+            Cookies: waiting for your choice
           </p>
           <p class="site-footer__cookie-status" data-reading-preferences-status>
-            Reading status: default
+            Reading: default settings
           </p>
         </div>
       </div>
@@ -99,7 +99,7 @@ import ThemeToggle from "@components/ThemeToggle.astro";
     <div class="site-footer__meta">
       <p>© 2025 MelodyMind. All rights reserved.</p>
       <p class="site-footer__meta-note">
-        Optimized for accessibility (WCAG AAA) and responsive on all screens.
+        Designed for accessibility and a consistent reading experience across devices.
       </p>
     </div>
   </div>
@@ -218,21 +218,21 @@ import ThemeToggle from "@components/ThemeToggle.astro";
     }
 
     if (!consent) {
-      statusElement.textContent = "Cookie status: pending choice";
+      statusElement.textContent = "Cookies: waiting for your choice";
       return;
     }
 
     if (!consent.analytics) {
-      statusElement.textContent = "Cookie status: essential only";
+      statusElement.textContent = "Cookies: essential only";
       return;
     }
 
     if (dntEnabled()) {
-      statusElement.textContent = "Cookie status: analytics consented (DNT active)";
+      statusElement.textContent = "Cookies: analytics consented (Do Not Track active)";
       return;
     }
 
-    statusElement.textContent = "Cookie status: analytics allowed";
+    statusElement.textContent = "Cookies: analytics allowed";
   };
 
   renderStatus();
@@ -258,7 +258,7 @@ import ThemeToggle from "@components/ThemeToggle.astro";
     }
 
     if (!prefs) {
-      readingStatusElement.textContent = "Reading status: default";
+      readingStatusElement.textContent = "Reading: default settings";
       return;
     }
 

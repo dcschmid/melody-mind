@@ -161,7 +161,7 @@ const pageSeo = buildPageSeo({
         <div class="category-hero__headline">
           <div class="category-hero__eyebrow">
             <span class="category-hero__dot"></span>
-            Explore category
+            Explore this category
           </div>
           <h1 id="category-heading" class="category-hero__title">
             {category.name}
@@ -201,14 +201,14 @@ const pageSeo = buildPageSeo({
       >
         <div class="category-page__tools">
           <p id="category-helper-text" class="category-page__helper">
-            Article cards announce title, description, publish date, and estimated reading
-            time.
+            Each article card includes the title, description, publish date, and estimated
+            reading time.
           </p>
           <div class="category-page__search search-panel-shell">
             <SearchPanel
               idBase="category-search"
               label="Search articles"
-              placeholder="Search by title, description, or keyword"
+              placeholder="Search by title, summary, or keyword"
               ariaControls="category-articles-list"
               analyticsSurface="category-articles"
               statusAllText="Showing all articles"
@@ -258,7 +258,7 @@ const pageSeo = buildPageSeo({
                 aria-live="polite"
                 hidden
               >
-                No results match your search. Try a different keyword.
+                No results match your search. Try another keyword.
               </div>
             </>
           ) : (
@@ -269,9 +269,7 @@ const pageSeo = buildPageSeo({
               id="category-search-no-results"
             >
               <p class="category-page__empty-title">No articles in this category yet.</p>
-              <p class="category-page__empty-text">
-                Check back soon for fresh additions.
-              </p>
+              <p class="category-page__empty-text">Check back soon for new additions.</p>
             </div>
           )
         }

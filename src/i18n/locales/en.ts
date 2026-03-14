@@ -23,14 +23,14 @@ export default {
     "Sharing isn't available here, so we've copied the link for you.",
   "knowledge.share.copy": "Copy link",
   "knowledge.share.copied": "Link copied!",
-  "knowledge.share.copy_error": "Copy failed - please copy it manually.",
+  "knowledge.share.copy_error": "Copy failed. Please copy the link manually.",
   "knowledge.share.email": "Share via email",
   "knowledge.share.mastodon": "Share on Mastodon",
   "knowledge.share.privacy_note":
-    "Privacy-friendly: nothing loads until you click a share option.",
+    "Privacy-friendly: nothing loads until you choose a share option.",
   // Podcast translations removed (migrated to podcasts subdomain)
 
-  "share.challenge_fallback": "🎮 Think you can beat me? Take the challenge now:",
+  "share.challenge_fallback": "Think you can beat me? Try the challenge here:",
   "category.difficulty.hard": "Hard",
   "category.difficulty.heading": "Pick Your Challenge Level",
   "category.difficulty.medium": "Medium",
@@ -42,7 +42,7 @@ export default {
   "category.filter.aria_label": "Filter by category",
   "category.filter.option_all": "All",
   "coins.announce.earned_excellent":
-    "Amazing! You earned {difference} coins for {context}! Your new balance: {newCount} coins.",
+    "Excellent! You earned {difference} coins for {context}. New balance: {newCount} coins.",
   "coins.announce.earned_great":
     "Nice work! You gained {difference} coin{plural} while {context}. Total: {newCount} coins.",
   "coins.announce.earned_normal":
@@ -61,7 +61,7 @@ export default {
   "coins.context.shop": "making a purchase",
   "coins.context.streak": "maintaining a streak",
   "coins.tooltip.authenticated":
-    "Your coin balance — progress is automatically saved to your account.",
+    "Your coin balance. Progress is saved automatically to your account.",
   "coins.tooltip.guest": "Your current coin balance for this session.",
   "common.back.to.top": "Back to top",
   "common.loading": "Loading…",
@@ -74,9 +74,9 @@ export default {
   "error.default": "Something went wrong. Please try again.",
 
   // 404 error page fallbacks
-  "error.404.title": "404 - Page Not Found | MelodyMind",
+  "error.404.title": "404 - Page Not Found | Melody Mind",
   "error.404.description":
-    "No worries — there's a world of music waiting! Try one of the options below to get back on track.",
+    "That page isn't available. Try one of the options below to get back on track.",
   "error.404.heading": "Page Not Found",
   "error.404.message":
     "Oops! That page doesn't exist. It may have been moved or removed, or the URL might be incorrect.",
@@ -84,7 +84,7 @@ export default {
   "error.404.actions.home": "Return to homepage",
   "error.404.actions.back": "Go back",
   "error.404.actions.playlists": "Explore playlists",
-  "error.404.actions.highscores": "Check the highscores",
+  "error.404.actions.highscores": "View the highscores",
   "error.extend": "Extend timeout",
   "nav.subtitle": "Discover music, challenge friends, and sharpen your knowledge",
   "nav.section.main": "Main",
@@ -94,10 +94,10 @@ export default {
   "nav.menu.playlists.desc": "Browse curated music playlists",
   "nav.menu.podcasts": "Podcasts",
   "nav.podcasts.description":
-    "Discover inspiring music podcasts with interviews, stories, and insights",
+    "Explore music podcasts with interviews, stories, and insights",
   "news.title": "News",
   "news.description":
-    "Stay on the pulse — fresh hits, artist news, and global music trends. ✨",
+    "Stay up to date with new releases, artist news, and global music trends.",
   "news.lastUpdated": "Last updated: {date}",
   "news.sourcesCount": "Sources: {count}",
   "news.readMore": "Read more",
@@ -106,8 +106,7 @@ export default {
     "Images and content are attributed to their respective publishers.",
   "news.disclaimer.text":
     "The news feed aggregates content from external publishers. We do not claim ownership of third-party content. Click through to the original article for full context.",
-  "nav.donate.description":
-    "Support Melody Mind and help us create more music moments ✨",
+  "nav.donate.description": "Support Melody Mind and help us create more music content.",
   "error.extend.tooltip": "Extend the error message display by 5 seconds",
   "error.invalid.question": "Invalid question or no options available",
   "error.no.albums.found": "No albums found for category {category}",
@@ -146,9 +145,9 @@ export default {
   "footer.github": "GitHub",
   "footer.kofi": "Ko-fi",
   "footer.opens_in_new_tab": "opens in a new tab",
-  "ai.badge.label": "AI-Generated",
+  "ai.badge.label": "AI-generated",
   "ai.badge.tooltip": "Content created with AI assistance",
-  "ai.tools.title": "AI Tools Used",
+  "ai.tools.title": "AI tools used",
   "ai.disclaimer.title": "AI Content Disclaimer",
   "ai.page.title": "AI Content Policy",
   "ai.page.description":
@@ -179,7 +178,7 @@ export default {
     "You can request access, rectification, deletion, or restriction of your personal data.",
   "pages.privacy.analytics": "We use privacy‑respecting analytics to measure site usage.",
   "pages.imprint.legal_notice_intro":
-    "Legal notice — this page contains provider legal and contact information.",
+    "This page contains the required legal and contact information for the provider.",
   "pages.imprint.company_name": "Daniel Schmid",
   "pages.imprint.address": "Hiltenspergerstr. 78\n80796 Munich\nGermany",
   "pages.imprint.contact_label": "Email:",
@@ -195,25 +194,25 @@ export default {
     "We are neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
   "pages.legal.disclaimer.title": "Disclaimer",
   "pages.legal.disclaimer.content":
-    "All information is provided without guarantee. We strive for accuracy but assume no liability for external content or links. Use of the site is at your own risk.",
-  "game.answer.correct": "Correct! {points} points + {bonus} bonus points — awesome! 🎉",
-  "game.answer.wrong": "Not quite — the correct answer was: {answer}. Try again! 💪",
-  "game.area.label": "Game Area",
+    "All information is provided without guarantee. We aim for accuracy but accept no liability for external content or links. Use of the site is at your own risk.",
+  "game.answer.correct": "Correct! {points} points + {bonus} bonus points.",
+  "game.answer.wrong": "Not quite. The correct answer was: {answer}.",
+  "game.area.label": "Game area",
   "game.categories.empty.headline": "No Genres Found",
   "game.categories.empty.text":
     "We couldn't find any categories right now. Check back later or try a different filter.",
   "game.categories.loading": "Loading music categories…",
   "game.categories.title": "Music Categories",
   "game.chronology.aria.main": "Main area of the chronology game",
-  "game.chronology.correct": "Spot on! 🎉",
+  "game.chronology.correct": "Correct!",
   "game.chronology.correct_order": "Correct order:",
   "game.chronology.correct_order_description":
     "A list showing the correct chronological order of events",
   "game.chronology.description":
-    "⏰ Travel through music time! Put these legendary albums in the correct chronological order and prove your music mastery. Every right move pushes you closer to perfection! 🎯",
+    "Put these albums in the correct chronological order and test your knowledge of music history.",
   "game.timepressure.title": "Time Pressure Mode",
   "game.timepressure.description":
-    "⚡ Be lightning-fast! Take on mixed difficulty levels in {category} under time pressure and show that you can outpace the clock. Speed and skill win the crown! 🏆",
+    "Take on mixed difficulty levels in {category} under time pressure and see how fast you can respond.",
   "game.chronology.incorrect": "Not quite! 😔",
   "game.chronology.info.aria": "Game information and statistics",
   "game.chronology.instructions": "Arrange the albums in the correct chronological order",
@@ -230,11 +229,11 @@ export default {
   "game.default.headline": "Game",
   "game.difficulty.easy": "Easy",
   "game.end.achievementBadge": "Achievement trophy icon",
-  "game.end.defaultMotivation": "Great job! Keep playing to climb the leaderboard! 🚀",
+  "game.end.defaultMotivation": "Great job. Keep playing to move up the leaderboard.",
   "game.end.difficultyDescription": "Shows the difficulty level you completed",
   "game.end.difficultyLevel": "Difficulty level indicator",
   "game.end.finalScore": "Final Score:",
-  "game.end.home": "Homepage",
+  "game.end.home": "Home",
   "game.end.homeButtonHelp":
     "Go back to the homepage to pick a new game mode or category",
   "game.end.homeDescription": "Return to the main menu and start page",
@@ -251,22 +250,22 @@ export default {
   "game.end.level.lover": "Lover",
   "game.end.level.pro": "Pro",
   "game.end.motivation.enthusiast":
-    "Impressive! 👍 You're a true music enthusiast — your foundation is solid. Keep playing and you might reach pro level sooner than you think. Ready for another round?",
+    "Impressive. You're building a strong foundation. Keep playing and you may reach pro level sooner than you think.",
   "game.end.motivation.explorer":
-    "Thanks for playing! 🙏 You're an adventurous listener — each game helps you discover something new. Keep exploring and boost your knowledge every round!",
+    "Thanks for playing. You're an adventurous listener, and each game helps you discover something new.",
   "game.end.motivation.genius":
-    "Extraordinary! 💫 You're a music genius! 🎶 Your deep knowledge and instincts are outstanding. Share your achievement and dare others to take you on!",
+    "Outstanding. Your musical knowledge and instincts are exceptional. Share your result and challenge others.",
   "game.end.motivation.lover":
-    "Well done! 👏 Your love for music shows — your knowledge is impressive. Keep practicing to fine-tune your expertise. Want another challenge?",
+    "Well done. Your love of music shows, and your knowledge is impressive. Keep practicing to sharpen your expertise.",
   "game.end.motivation.pro":
-    "Fantastic! 🌟 You clearly play at a pro level — your understanding of artists and genres is top-tier. Keep it up and challenge your friends!",
-  "game.end.newgame": "New Game",
+    "Excellent. You clearly play at a pro level, with a strong understanding of artists and genres.",
+  "game.end.newgame": "New game",
   "game.end.newgameDescription": "Start a fresh game with the same settings",
   "game.end.progressDescription":
     "Visual progress bar highlighting your achievement level",
   "game.end.restartButtonHelp":
     "Start a new round immediately with the same difficulty and category",
-  "game.end.restartSameGame": "Restart Game",
+  "game.end.restartSameGame": "Restart game",
   "game.end.restartSameGameDescription": "Restart with the same settings",
   "game.end.restartSameGameHelp":
     "Start a new game using the same category, difficulty, and game mode",
@@ -278,7 +277,7 @@ export default {
     "Open sharing options to post your score on social platforms",
   "game.end.shareResults": "Share your game results on social media",
   "game.end.shareSection": "Share your results",
-  "game.end.title": "Game Over!",
+  "game.end.title": "Game over",
   "game.feedback.audio.failed": "Audio playback failed",
   "game.feedback.audio.fallback": "Download audio file",
   "game.feedback.audio.paused": "Audio paused",
@@ -287,21 +286,21 @@ export default {
   "game.feedback.listen.apple": "Listen on Apple Music",
   "game.feedback.listen.deezer": "Listen on Deezer",
   "game.feedback.listen.spotify": "Listen on Spotify",
-  "game.feedback.media.section": "Media Section",
-  "game.feedback.next.round": "Next Round",
+  "game.feedback.media.section": "Media section",
+  "game.feedback.next.round": "Next round",
   "game.feedback.next.starting": "The next round is about to start!",
   "game.feedback.play.audio": "Play audio",
   "game.feedback.resolution": "Resolution",
   "game.feedback.streaming.links": "Music streaming links",
   "game.feedback.subtitles": "Subtitles",
-  "game.genre.list": "Genre Selection",
+  "game.genre.list": "Genre selection",
   "game.genre.selection.description":
-    "Pick your favorite genre — from rock and pop to jazz and classical. Each category features hand‑picked questions designed to challenge and grow your musical knowledge. 🎶",
-  "game.joker": "50:50 Joker",
+    "Choose a genre, from rock and pop to jazz and classical. Each category includes hand-picked questions designed to challenge and expand your musical knowledge.",
+  "game.joker": "50:50 lifeline",
   "game.joker.description":
-    "Removes two incorrect options — use it smartly to secure the win! 🃏",
-  "game.joker.options": "Joker Options",
-  "game.joker.use": "Use 50:50 Joker",
+    "Removes two incorrect options. Use it carefully when you need help.",
+  "game.joker.options": "Lifeline options",
+  "game.joker.use": "Use 50:50 lifeline",
   "game.meta.description.prefix": "Play",
   "game.meta.description.suffix": "in difficulty level",
   "game.move.down": "Down",
@@ -320,7 +319,7 @@ export default {
   "game.search.results": "genres found",
   "game.search.showing.all": "Showing all genres",
   "game.select":
-    "🎵 Ready for the ultimate music adventure? Dive into rhythm, melody, and unforgettable tracks! From epic guitar solos to timeless classics — find your musical battleground and prove your mastery!",
+    "Choose a category and test your knowledge of rhythm, melody, artists, and unforgettable tracks.",
   "game.submit.answer": "Check answer",
   "game.submit.answer.aria": "Check current order and proceed to next round",
   "game.welcome": "Welcome to Melody Mind",
@@ -331,35 +330,35 @@ export default {
   "general.keyboard.space": "Space",
   "general.keyboard.tab": "Tab",
   "general.navigate.elements": "Navigate elements",
-  "highscores.allCategories": "All Categories",
-  "highscores.allModes": "All Modes",
+  "highscores.allCategories": "All categories",
+  "highscores.allModes": "All modes",
   "highscores.category": "Category",
   "highscores.date": "Date",
   "highscores.description":
-    "Discover music legends! See who tops the charts and get inspired by top players 🎵🏆",
+    "See who is leading the charts and compare your results with other players.",
   "highscores.error": "Error loading highscores",
   "highscores.filters": "Filter results",
   "highscores.gameMode": "Game Mode",
   "highscores.noResults": "No scores found with the selected filters.",
   "highscores.points": "Points",
   "highscores.rank": "Rank",
-  "highscores.results": "Top Scores",
+  "highscores.results": "Top scores",
   "highscores.seo.description":
-    "See top scores, compare your results, and claim the top spot! 🏆",
-  "highscores.tableLabel": "Highscores",
-  "highscores.title": "Highscores",
-  "index.continue": "Let's go!",
+    "See top scores, compare your results, and compete for the top spot.",
+  "highscores.tableLabel": "High scores",
+  "highscores.title": "High scores",
+  "index.continue": "Start now",
   "index.start.game.label": "Start your musical journey",
   "index.welcome.footnote":
-    "🎶 Built with passion for true music fans — let the magic begin! ✨",
+    "Built for listeners who want more context, better discovery, and stronger music knowledge.",
   "knowledge.play.description":
-    "🎵 Ready for the ultimate challenge? Test your music skills, collect points, use clever jokers, and prove you've got what it takes to be a music champion! 🏆",
+    "Test your music knowledge, collect points, use lifelines, and see how far you can go.",
   "knowledge.published": "Published",
   "knowledge.reading.time": "min read",
   "knowledge.reading.time.label": "Reading time",
   "knowledge.title": "Melody Mind",
   "knowledge.description":
-    "Curated genre deep dives from roots to today’s sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context. 🎧",
+    "Curated genre deep dives from roots to today's sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.",
   "language.change.error": "Language change failed. Please try again.",
   "language.change.success": "Language changed to {language}",
   "language.de": "German",
@@ -397,8 +396,8 @@ export default {
   "loading.progress.indicator": "Progress indicator",
   "loading.started": "Loading started",
   "login.description":
-    "🎵 Dive into the ultimate music universe! Discover legendary hits, master thrilling challenges, and become a true music champion. Your journey to musical mastery starts now! 🚀",
-  "login.welcome": "Welcome to Melody Mind!",
+    "Discover legendary music, take on new challenges, and build your knowledge step by step.",
+  "login.welcome": "Welcome to Melody Mind",
   "meta.keywords":
     "Music Knowledge, Music History, Music Genres, Music Articles, Music Education, Melody Mind, Music Discovery",
   "musicPlatforms.externalNotice":
@@ -408,13 +407,13 @@ export default {
     "Navigate music platforms using Tab. Press Enter or Space to open platforms in new tabs.",
   "nav.ariaLabel": "Main navigation",
   "nav.donate.coffee": "Buy us a coffee",
-  "nav.donate.heading": "Support Us",
-  "nav.donate.paypal": "Donate via PayPal",
-  "nav.home": "Homepage",
+  "nav.donate.heading": "Support us",
+  "nav.donate.paypal": "Donate with PayPal",
+  "nav.home": "Home",
   "nav.logout.label": "Log out of the application",
   "nav.menu.close": "Close menu",
-  "nav.menu.highscores": "Highscores",
-  "nav.menu.home": "Homepage",
+  "nav.menu.highscores": "High scores",
+  "nav.menu.home": "Home",
   "nav.menu.logout": "Logout",
   "nav.menu.open": "Open menu",
   "nav.menu.rules": "Game rules",
@@ -428,35 +427,35 @@ export default {
   "notice.fallback_content": "Fallback content available",
   "playlist.accessibility.info": "Playlist accessibility information",
   "playlist.accessibility.public":
-    "Public playlist - no authentication required for streaming service access",
+    "Public playlist. No authentication is required to open the streaming service.",
   "playlist.item.coming.soon": "Coming soon",
   "playlist.item.status": "Status",
   "playlist.item.status.changed.available": "This playlist is now available for play",
   "playlist.item.status.changed.disabled": "This playlist is currently unavailable",
   "playlist.item.unavailable": "This content is not yet available",
   "playlist.no.results": "No matching playlists found. Try a different search term.",
-  "playlist.no.results.heading": "No Playlists Found",
+  "playlist.no.results.heading": "No playlists found",
   "playlist.page.description":
-    "🎵 Embark on an epic musical journey across legendary eras! Our curated playlists bring the greatest hits to life — from timeless classics to unforgettable chart‑toppers. Perfect to expand your music knowledge or spark nostalgia. 🎶",
-  "playlist.page.heading": "Discover Our Music Playlists",
+    "Explore curated playlists across eras, moods, and scenes, from timeless classics to defining hits.",
+  "playlist.page.heading": "Discover our music playlists",
   "playlist.reset.search": "Show all playlists",
   "playlist.search.aria.label": "Search music playlists",
   "playlist.search.heading": "Search Playlists",
   "playlist.search.placeholder": "Search by artist or style…",
   "profile.auth.required": "You must be logged in to view your profile",
   "profile.description":
-    "Manage your data and explore your game stats — improve with every round! 📈",
+    "Manage your data and review your game stats as you improve over time.",
   "profile.error": "Error loading profile data",
   "profile.loading": "Loading profile data…",
   "profile.nav.aria": "Navigation to user profile",
   "profile.nav.link": "Go to profile",
   "profile.recent_games.empty": "No recent games",
   "profile.recent_games.points": "Points",
-  "profile.recent_games.title": "Recent Games",
+  "profile.recent_games.title": "Recent games",
   "profile.stats.chronology": "Chronology",
   "profile.stats.games_played": "Games played",
   "profile.stats.highest_score": "Highest score",
-  "profile.stats.title": "Game Statistics",
+  "profile.stats.title": "Game statistics",
   "profile.stats.total_score": "Total score",
   "profile.title": "My Profile",
   "profile.user.email": "Email",
@@ -469,22 +468,22 @@ export default {
   "session.timeout.warning": "Your session will expire in {0} seconds.",
   "share.accessibility.copy_failed_manual":
     "Copy failed. Please manually copy the page URL from your browser.",
-  "share.accessibility.data_found": "Game data found! Sharing options are now available.",
+  "share.accessibility.data_found": "Game data found. Sharing options are now available.",
   "share.accessibility.data_still_unavailable":
     "Game data still unavailable. Try refreshing the page or use manual copy.",
   "share.accessibility.data_unavailable":
     "Game data unavailable. Please retry or copy manually.",
   "share.accessibility.link_copied_fallback":
-    "Game link copied to clipboard using fallback method!",
+    "Game link copied to the clipboard using a fallback method.",
   "share.accessibility.native_share_failed":
     "Native sharing failed: {errorMessage}. {recoveryMessage}",
-  "share.accessibility.platform_opened": "Opened {platform} sharing successfully.",
+  "share.accessibility.platform_opened": "{platform} sharing opened successfully.",
   "share.accessibility.platform_share_failed":
     "Failed to share to {platform}: {errorMessage}. {recoveryMessage}",
   "share.accessibility.retry_failed":
     "Retry failed. Please try manual copy or refresh the page.",
   "share.accessibility.retrying": "Retrying to find game data…",
-  "share.accessibility.score_copied": "Score copied to clipboard successfully!",
+  "share.accessibility.score_copied": "Score copied to the clipboard successfully.",
   "share.accessibility.score_shared": "Successfully shared your score.",
   "share.accessibility.sharing_cancelled": "Sharing cancelled.",
   "share.accessibility.try_alternative_methods":
@@ -508,7 +507,7 @@ export default {
   "share.fallback.retry.text": "Retry",
   "share.native": "Share with…",
   "share.native.label": "Share",
-  "share.title": "Share your success! 🎉",
+  "share.title": "Share your result",
   "share.twitter": "Share on X/Twitter",
   "share.whatsapp": "Share via WhatsApp",
   "share.achievement.genius": "🎵 Music Genius! 🎵",
@@ -527,7 +526,7 @@ export default {
   "toc.toggle.label": "Toggle table of contents",
   "knowledge.section.title": "Learn More",
   "knowledge.section.description":
-    "Dive deeper — this article brings context, examples, and listening tips. 📚",
+    "Dive deeper with more context, examples, and listening tips.",
   "knowledge.read.more": "Read more",
   "knowledge.read.article": "Read article",
   "musicPlatforms.description":
@@ -537,20 +536,20 @@ export default {
   "musicPlatforms.platform.deezer": "Deezer",
   "musicPlatforms.platform.apple": "Apple Music",
   "musicPlatforms.platform.youtube": "YouTube",
-  "index.card.game.title": "Game Overview",
+  "index.card.game.title": "Game overview",
   "index.card.game.desc":
-    "Jump into thrilling music modes that blend speed, strategy and pure music passion — master categories, chase streaks, unlock future achievements and return daily to sharpen your ear and claim the leaderboard. 🎯",
+    "Explore music game modes that combine speed, strategy, and listening knowledge. Build streaks, improve your accuracy, and keep returning to climb the leaderboard.",
   "index.card.knowledge.title": "Music Knowledge",
   "index.card.knowledge.desc":
-    "Explore deep‑dive genre guides, origins, influences, iconic albums and listening tips — turn casual listening into informed discovery, expand taste horizons and become the friend everyone trusts for music insight. 📚",
+    "Explore deep-dive genre guides, origins, influences, iconic albums, and listening tips. Turn casual listening into informed discovery and broaden your musical perspective.",
   "index.card.playlists.title": "Playlists",
   "index.card.playlists.desc":
-    "Travel across eras, moods and global scenes with lovingly curated playlists — discover hidden gems, revive timeless anthems, spark focus or chill sessions and grow musical literacy while enjoying every track. 🎶",
-  "index.card.podcast.title": "Podcast",
+    "Move across eras, moods, and global scenes with curated playlists that help you discover hidden gems, revisit classics, and expand your musical frame of reference.",
+  "index.card.podcast.title": "Podcasts",
   "index.card.podcast.desc":
-    "Inspiring long‑form talks, behind‑the‑music moments, creative journeys and cultural deep dives — listen on the go, fuel curiosity, meet artists differently and stay motivated on your evolving musical path. 🎙️",
+    "Listen to long-form conversations, behind-the-music stories, creative journeys, and cultural deep dives that add more context to what you hear.",
   "index.card.news.title": "News",
   "index.card.news.desc":
-    "Fresh feature drops, interface refinements, performance boosts and music world highlights — stay informed, spot new angles early and never miss improvements that level up your MelodyMind journey. ✨",
-  "index.overview.sections": "Homepage feature sections",
+    "Follow new features, interface improvements, performance updates, and selected music-world highlights.",
+  "index.overview.sections": "Home page feature sections",
 };

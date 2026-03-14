@@ -3,10 +3,7 @@ import { Icon } from "astro-icon/components";
 import ReadingModeToggle from "@components/ReadingModeToggle.astro";
 ---
 
-<section
-  class="panel panel--compact reading-controls"
-  aria-label="Reading settings panel"
->
+<section class="panel panel--compact reading-controls" aria-label="Reading settings">
   <button
     id="reading-controls-toggle"
     aria-expanded="false"
@@ -19,10 +16,10 @@ import ReadingModeToggle from "@components/ReadingModeToggle.astro";
     </span>
     <span
       class="reading-controls__sr"
-      data-expanded="Collapse reading settings"
-      data-collapsed="Expand reading settings"
+      data-expanded="Hide reading settings"
+      data-collapsed="Show reading settings"
     >
-      Expand reading settings
+      Show reading settings
     </span>
     <Icon
       name="chevron-down"
@@ -104,7 +101,7 @@ import ReadingModeToggle from "@components/ReadingModeToggle.astro";
     </div>
 
     <div class="reading-controls__row reading-controls__row--mode">
-      <span class="reading-controls__label">Focus mode</span>
+      <span class="reading-controls__label">Reading mode</span>
       <ReadingModeToggle />
     </div>
   </div>

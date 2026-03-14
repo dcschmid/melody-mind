@@ -186,7 +186,7 @@ const tocTitle = title || t("toc.nav.label");
       anchor.href = `#${id}`;
       anchor.className = "prose__heading-anchor";
       anchor.textContent = "#";
-      anchor.setAttribute("aria-label", `Link to section: ${text}`);
+      anchor.setAttribute("aria-label", `Copy link to section: ${text}`);
       applyScopeAttr(anchor, proseScopeAttr);
       heading.appendChild(anchor);
     };

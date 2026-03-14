@@ -22,16 +22,20 @@ const { entries = [] } = Astro.props;
   />
 
   <div class="bookmark-manager__toolbar">
-    <div class="bookmark-manager__actions" role="group" aria-label="Export bookmarks">
+    <div
+      class="bookmark-manager__actions"
+      role="group"
+      aria-label="Export saved articles"
+    >
       <button type="button" class="bookmark-manager__button" data-bookmark-export-json>
-        Export JSON
+        Export as JSON
       </button>
       <button type="button" class="bookmark-manager__button" data-bookmark-export-md>
-        Export Markdown
+        Export as Markdown
       </button>
     </div>
 
-    <div class="bookmark-manager__import" role="group" aria-label="Import bookmarks">
+    <div class="bookmark-manager__import" role="group" aria-label="Import saved articles">
       <label class="bookmark-manager__label" for="bookmark-import-mode">Import mode</label
       >
       <select
@@ -58,14 +62,14 @@ const { entries = [] } = Astro.props;
 
   <div class="bookmark-manager__empty" data-bookmark-empty>
     <p class="bookmark-manager__empty-text">
-      You have no bookmarks yet. Save an article to see it here.
+      You do not have any saved articles yet. Save an article to see it here.
     </p>
   </div>
 
   <div class="bookmark-manager__groups" data-bookmark-groups hidden>
     <section class="bookmark-manager__group" data-bookmark-group="to-read">
       <h2 class="bookmark-manager__group-title">
-        To-Read <span class="bookmark-manager__count" data-bookmark-count="to-read"
+        To Read <span class="bookmark-manager__count" data-bookmark-count="to-read"
           >0</span
         >
       </h2>
@@ -189,13 +193,14 @@ const { entries = [] } = Astro.props;
 
     if (!empty || !groups || !feedback || !entriesDataNode) return;
 
-    let entries: BookmarkEntryMeta[] = [];
-    try {
-      const parsed = JSON.parse(entriesDataNode.textContent || "[]");
-      entries = Array.isArray(parsed) ? parsed : [];
-    } catch {
-      entries = [];
-    }
+    const entries: BookmarkEntryMeta[] = (() => {
+      try {
+        const parsed = JSON.parse(entriesDataNode.textContent || "[]");
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    })();
 
     const entryMap = new Map<string, BookmarkEntryMeta>();
     entries.forEach((entry) => {
@@ -247,7 +252,7 @@ const { entries = [] } = Astro.props;
         if (!items.length) {
           const emptyItem = document.createElement("li");
           emptyItem.className = "bookmark-manager__group-empty";
-          emptyItem.textContent = "No bookmarks in this category yet.";
+          emptyItem.textContent = "No saved articles in this section yet.";
           listNode.append(emptyItem);
         }
 
@@ -275,14 +280,14 @@ const { entries = [] } = Astro.props;
           if (articleMeta?.updatedAt) {
             const updated = document.createElement("span");
             updated.className = "bookmark-manager__meta-pill";
-            updated.textContent = `Updated ${formatDate(articleMeta.updatedAt)}`;
+            updated.textContent = `Updated on ${formatDate(articleMeta.updatedAt)}`;
             meta.append(updated);
           }
 
           const saved = document.createElement("span");
           saved.className =
             "bookmark-manager__meta-pill bookmark-manager__meta-pill--saved";
-          saved.textContent = `Saved ${formatDate(bookmark.createdAt)}`;
+          saved.textContent = `Saved on ${formatDate(bookmark.createdAt)}`;
           meta.append(saved);
 
           const controls = document.createElement("div");
@@ -291,7 +296,7 @@ const { entries = [] } = Astro.props;
           const categorySelect = document.createElement("select");
           categorySelect.className =
             "bookmark-manager__select bookmark-manager__item-select";
-          categorySelect.setAttribute("aria-label", "Change bookmark category");
+          categorySelect.setAttribute("aria-label", "Change saved article category");
 
           BOOKMARK_CATEGORIES.forEach((optionCategory) => {
             const option = document.createElement("option");
@@ -313,13 +318,16 @@ const { entries = [] } = Astro.props;
           removeButton.textContent = "Remove";
           removeButton.setAttribute(
             "aria-label",
-            `Remove bookmark for ${bookmark.articleTitle || bookmark.articleSlug}`
+            `Remove saved article: ${bookmark.articleTitle || bookmark.articleSlug}`
           );
           removeButton.addEventListener("click", () => {
             const undoToken = createUndoToken();
             pendingRemovals.set(undoToken, bookmark);
             removeBookmark(bookmark.articleSlug);
-            setFeedback("Bookmark removed. Undo is available for 10 seconds.", "warning");
+            setFeedback(
+              "Saved article removed. Undo is available for 10 seconds.",
+              "warning"
+            );
             const timer = window.setTimeout(() => {
               pendingRemovals.delete(undoToken);
               undoTimers.delete(undoToken);
@@ -359,7 +367,7 @@ const { entries = [] } = Astro.props;
         exportBookmarksAsJson(),
         "application/json"
       );
-      setFeedback("Bookmarks exported as JSON.", "success");
+      setFeedback("Saved articles exported as JSON.", "success");
     });
 
     exportMarkdownButton?.addEventListener("click", () => {
@@ -369,7 +377,7 @@ const { entries = [] } = Astro.props;
         exportBookmarksAsMarkdown(),
         "text/markdown"
       );
-      setFeedback("Bookmarks exported as Markdown.", "success");
+      setFeedback("Saved articles exported as Markdown.", "success");
     });
 
     importTrigger?.addEventListener("click", () => {
@@ -396,7 +404,7 @@ const { entries = [] } = Astro.props;
 
         if (mode === "replace") {
           const confirmed = window.confirm(
-            "Replace mode will remove your current bookmarks before importing the selected file. Continue?"
+            "Replace mode will remove your current saved articles before importing the selected file. Continue?"
           );
           if (!confirmed) {
             setFeedback("Import canceled.", "neutral");
@@ -408,15 +416,18 @@ const { entries = [] } = Astro.props;
         if (!result.importedCount) {
           if (mode === "replace") {
             setFeedback(
-              "Replace import skipped: no valid bookmarks found. Existing bookmarks were kept.",
+              "Replace import skipped: no valid saved articles were found. Your existing saved articles were kept.",
               "warning"
             );
           } else {
-            setFeedback("No valid bookmarks found in the selected file.", "warning");
+            setFeedback(
+              "No valid saved articles were found in the selected file.",
+              "warning"
+            );
           }
         } else {
           setFeedback(
-            `${result.importedCount} bookmarks imported (${result.mode}). Total: ${result.totalCount}.`,
+            `${result.importedCount} saved articles imported (${result.mode}). Total: ${result.totalCount}.`,
             "success"
           );
         }
@@ -447,7 +458,7 @@ const { entries = [] } = Astro.props;
         undoTimers.delete(token);
       }
       pendingRemovals.delete(token);
-      setFeedback("Bookmark restored.", "success");
+      setFeedback("Saved article restored.", "success");
     });
     window.addEventListener(BOOKMARK_CHANGE_EVENT, () => {
       render();
