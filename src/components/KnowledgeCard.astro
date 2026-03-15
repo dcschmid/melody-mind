@@ -1,34 +1,9 @@
 ---
 /**
- * KnowledgeCard Component - Responsive & Accessible
+ * KnowledgeCard Component - Minimal & Accessible
  *
- * An enhanced card component for displaying music knowledge articles with image,
- * title, description, and metadata. Fully responsive with WCAG AAA compliance.
- *
- * @component
- * @example
- * ```astro
- * // Standalone card with own link
- * <KnowledgeCard
- *   title="The History of Rock Music"
- *   description="Explore the evolution of rock from the 1950s to today..."
- *   image="/images/rock-history.jpg"
- *   createdAt={new Date('2024-01-15')}
- *   slug="history-of-rock-music"
- *   lang="en"
- *   readingTime={8}
- *   articleUrl="/en/knowledge/history-of-rock-music"
- * />
- *
- * // Card for use within parent link
- * <KnowledgeCard
- *   title="Jazz Fundamentals"
- *   description="Learn the basic elements that define jazz music..."
- *   slug="jazz-fundamentals"
- *   lang="en"
- *   readingTime={5}
- * />
- * ```
+ * A simple card for displaying music knowledge articles.
+ * WCAG AAA compliant with essential hover feedback for links only.
  */
 import { useTranslations } from "@utils/i18n";
 import { format } from "date-fns";
@@ -41,25 +16,15 @@ import { Image } from "astro:assets";
 export const prerender = true;
 
 interface Props {
-  /** Title of the knowledge article */
   title: string;
-  /** Brief description or excerpt of the article */
   description: string;
-  /** Path to the article's cover image (uses default if not provided) */
   image?: string;
-  /** Date when the article was created/published */
   createdAt: Date;
-  /** URL slug for the article link */
   slug: string;
-  /** Language code for localization */
   lang: string;
-  /** Estimated reading time in minutes */
   readingTime?: number;
-  /** Complete URL to the article (optional - if omitted, component will be a non-linking card) */
   articleUrl?: string;
-  /** Comma-separated keywords for searchability */
   keywords?: string;
-  /** Index for animation delay calculation */
   index?: number;
 }
 
@@ -76,20 +41,13 @@ const {
   index = 0,
 } = Astro.props;
 
-// English-only formatting and translations
 const locale = en;
 const lang_t = useTranslations(lang);
 const formattedDate = format(createdAt, "MMMM d, yyyy", { locale });
-
-// Use articleUrl if provided, otherwise let the parent handle the link
 const hasOwnLink = Boolean(articleUrl);
-
-// Generate unique IDs for this card for accessibility
 const cardId = `card-title-${slug}-${index}`;
 const metaId = `${cardId}-meta`;
 const descId = `${cardId}-desc`;
-
-// Generate appropriate alt text for the image
 const imageAltText = title ? `Cover image for ${title}` : "";
 ---
 
@@ -111,7 +69,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
         aria-describedby={`${descId} ${metaId}`}
       >
         <div class="knowledge-card__content">
-          <div class="knowledge-card__shine" aria-hidden="true" />
           <div class="knowledge-card__media">
             <Image
               src={image}
@@ -122,7 +79,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
               height="360"
               class="knowledge-card__image"
             />
-            <div class="knowledge-card__overlay" aria-hidden="true" />
           </div>
 
           <div class="knowledge-card__body">
@@ -171,7 +127,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       </a>
     ) : (
       <div class="knowledge-card__content">
-        <div class="knowledge-card__shine" aria-hidden="true" />
         <div class="knowledge-card__media">
           <Image
             src={image}
@@ -182,7 +137,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
             height="360"
             class="knowledge-card__image"
           />
-          <div class="knowledge-card__overlay" aria-hidden="true" />
         </div>
 
         <div class="knowledge-card__body">
@@ -230,7 +184,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     )
   }
   <style>
-    /* Card Container with CSS Container Query support */
     .knowledge-card {
       container-type: inline-size;
       position: relative;
@@ -238,57 +191,22 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       flex-direction: column;
       height: 100%;
       color: var(--gn-ink);
-      /* Modern, rounded corners */
-      border-radius: 1.5rem;
-      /* Glassmorphism: Semi-transparent with blur */
-      background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-      /* Modern shadow system */
-      box-shadow: var(--shadow-lg);
+      border-radius: 1rem;
+      background: var(--gn-bg-muted);
+      border: 2px solid var(--gn-panel-border);
       overflow: hidden;
-      /* Performance: Skip rendering off-screen content */
       content-visibility: auto;
       contain-intrinsic-size: 380px;
-      transition:
-        transform var(--transition-base),
-        box-shadow var(--transition-base);
     }
 
-    /* Inner border effect - more subtle */
-    .knowledge-card::after {
-      content: "";
-      position: absolute;
-      inset: 6px;
-      border: 1px solid color-mix(in srgb, var(--gn-panel-inner) 50%, transparent);
-      border-radius: 1.25rem;
-      pointer-events: none;
-    }
-
-    .knowledge-card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: var(--shadow-xl);
-      border-color: color-mix(in srgb, var(--gn-accent) 35%, var(--gn-panel-border));
-    }
-
-    /* Active state for touch feedback */
-    .knowledge-card:active {
-      transform: translateY(-2px) scale(0.99);
-      transition-duration: 50ms;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .knowledge-card:hover {
-        transform: none;
-      }
-    }
-
-    /* WCAG AAA: Enhanced focus state */
+    /* WCAG AAA: Focus ring directly on card border */
     .knowledge-card__link:focus-visible {
-      outline: var(--focus-ring-width) var(--focus-ring-style) var(--gn-accent);
-      outline-offset: var(--focus-ring-offset);
-      box-shadow: var(--shadow-glow);
+      outline: none;
+    }
+
+    .knowledge-card:has(.knowledge-card__link:focus-visible) {
+      border-color: var(--gn-accent);
+      box-shadow: inset 0 0 0 3px var(--gn-accent);
     }
 
     .knowledge-card__link,
@@ -300,60 +218,19 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       color: inherit;
     }
 
-    /* Shine effect with reduced motion support */
-    .knowledge-card__shine {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(95, 199, 255, 0.1),
-        rgba(95, 199, 255, 0.05),
-        transparent 65%
-      );
-      opacity: 0;
-      transition: opacity var(--transition-base);
-      pointer-events: none;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .knowledge-card:hover .knowledge-card__shine,
-      .knowledge-card__link:focus-visible .knowledge-card__shine {
-        opacity: 1;
-      }
-    }
-
     .knowledge-card__media {
       position: relative;
       aspect-ratio: 3 / 2;
       overflow: hidden;
-      border-radius: 1.25rem 1.25rem 0 0;
       background: var(--gn-bg);
-      border: none;
-      margin: 0;
     }
 
-    /* Fluid image sizing */
     .knowledge-card__image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 400ms ease;
     }
 
-    /* Hover zoom with reduced motion support */
-    @media (prefers-reduced-motion: no-preference) {
-      .knowledge-card:hover .knowledge-card__image,
-      .knowledge-card__link:focus-visible .knowledge-card__image {
-        transform: scale(1.03);
-      }
-    }
-
-    .knowledge-card__overlay {
-      position: absolute;
-      inset: 0;
-    }
-
-    /* Card body with improved spacing */
     .knowledge-card__body {
       display: flex;
       flex-direction: column;
@@ -362,7 +239,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       flex: 1;
     }
 
-    /* WCAG AAA: Improved text contrast */
     .knowledge-card__title {
       margin: 0;
       color: var(--gn-ink);
@@ -372,15 +248,13 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     .knowledge-card__description {
       margin: 0;
       color: var(--gn-ink-muted);
-      /* Improved line height for readability */
       line-height: 1.65;
     }
 
-    /* Meta section with better spacing */
     .knowledge-card__meta {
       margin-top: auto;
       padding-top: 1.25rem;
-      border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
+      border-top: 1px solid var(--gn-panel-border);
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem 1.5rem;
@@ -388,7 +262,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       color: var(--gn-ink-muted);
     }
 
-    /* Fluid meta item layout */
     .knowledge-card__meta-item {
       display: inline-flex;
       align-items: center;
@@ -405,7 +278,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       color: var(--color-gn-amber-300);
     }
 
-    /* Screen reader only text */
     .knowledge-card__sr {
       position: absolute;
       width: var(--sr-only-width);
@@ -417,7 +289,6 @@ const imageAltText = title ? `Cover image for ${title}` : "";
       border: 0;
     }
 
-    /* Mobile optimization - better space usage */
     @container (max-width: 480px) {
       .knowledge-card__body {
         padding: 1.25rem;

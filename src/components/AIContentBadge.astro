@@ -45,36 +45,25 @@ const hasTools = aiTools.length > 0;
     align-items: center;
     padding: 0.35rem 0.9rem;
     border-radius: 999px;
-    background: linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.25),
-      rgba(59, 130, 246, 0.2)
-    );
-    border: 2px solid rgba(139, 92, 246, 0.5);
-    color: rgb(192, 132, 252);
+    background: var(--gn-bg);
+    border: 2px solid #8b5cf6;
+    color: #c084fc;
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
-    transition: all 0.2s ease;
     text-decoration: none;
     cursor: pointer;
   }
 
   .ai-content-badge:hover {
-    border-color: rgb(139, 92, 246);
-    background: linear-gradient(
-      135deg,
-      rgba(139, 92, 246, 0.35),
-      rgba(59, 130, 246, 0.3)
-    );
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
-    transform: translateY(-1px);
+    background: rgba(139, 92, 246, 0.15);
+    border-color: #a78bfa;
+    color: #d8b4fe;
   }
 
   .ai-content-badge:focus-visible {
-    outline: 3px solid rgba(139, 92, 246, 0.4);
+    outline: 3px solid #8b5cf6;
     outline-offset: 3px;
   }
 
@@ -104,30 +93,18 @@ const hasTools = aiTools.length > 0;
   }
 
   :root[data-theme="light"] .ai-content-badge {
-    background: linear-gradient(135deg, rgba(109, 40, 217, 0.13), rgba(79, 70, 229, 0.1));
-    border-color: rgba(109, 40, 217, 0.45);
+    background: var(--gn-bg);
+    border-color: #6d28d9;
     color: #5b21b6;
-    box-shadow: 0 2px 8px rgba(109, 40, 217, 0.12);
   }
 
   :root[data-theme="light"] .ai-content-badge:hover {
-    border-color: #6d28d9;
-    background: linear-gradient(135deg, rgba(109, 40, 217, 0.2), rgba(79, 70, 229, 0.16));
+    background: rgba(109, 40, 217, 0.1);
+    border-color: #7c3aed;
     color: #4c1d95;
-    box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
   }
 
   :root[data-theme="light"] .ai-content-badge:focus-visible {
-    outline-color: rgba(109, 40, 217, 0.45);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ai-content-badge {
-      transition: none;
-    }
-
-    .ai-content-badge:hover {
-      transform: none;
-    }
+    outline-color: #6d28d9;
   }
 </style>

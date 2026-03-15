@@ -11,12 +11,8 @@
   .reading-mode-toggle {
     min-height: 2.5rem;
     border-radius: 999px;
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
-    background: linear-gradient(
-      140deg,
-      color-mix(in srgb, var(--gn-bg-muted) 88%, transparent),
-      color-mix(in srgb, var(--gn-bg) 82%, transparent)
-    );
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
     color: var(--gn-ink);
     padding: 0.45rem 1.2rem;
     font-size: 1rem;
@@ -24,32 +20,21 @@
     letter-spacing: 0.01em;
     cursor: pointer;
     justify-self: start;
-    transition:
-      transform 150ms ease,
-      border-color var(--transition-fast),
-      background-color var(--transition-fast),
-      box-shadow var(--transition-fast);
   }
 
   .reading-mode-toggle:hover {
-    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
-    transform: translateY(-1px);
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.24);
+    border-color: var(--gn-accent);
+    background: var(--gn-bg);
   }
 
   .reading-mode-toggle[aria-pressed="true"] {
-    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
-    background: linear-gradient(
-      140deg,
-      color-mix(in srgb, var(--color-gn-amber-300) 24%, transparent),
-      color-mix(in srgb, var(--color-gn-teal-300) 20%, transparent)
-    );
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-gn-amber-300) 35%, transparent)
-      inset;
+    border-color: var(--gn-accent);
+    background: var(--gn-accent);
+    color: var(--gn-bg);
   }
 
   .reading-mode-toggle:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
+    outline: 3px solid var(--gn-accent);
     outline-offset: 2px;
   }
 </style>

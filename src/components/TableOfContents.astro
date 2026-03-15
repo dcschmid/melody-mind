@@ -2,47 +2,19 @@
 /**
  * TableOfContents Component
  *
- * A responsive, accessible dropdown component that creates a table of contents
- * from h2 and h3 headings. Automatically extracts and displays navigation links.
- *
- * Features:
- * - Responsive design with mobile-first breakpoints
- * - WCAG AAA compliant with proper keyboard navigation
- * - Focus management and ARIA attributes
- * - Touch-friendly with appropriate target sizes
- * - Visual feedback for hover and focus states
- * - Support for reduced motion preferences
- * - Performance optimized with smooth animations
- *
- * @component
- * @accessibility WCAG AAA compliant
- */
-
-/**
- * Interface for heading objects extracted from content
- * @interface Heading
+ * A responsive, accessible dropdown for table of contents.
+ * WCAG AAA compliant with proper keyboard navigation.
  */
 interface Heading {
-  /** The heading level (2 for h2, 3 for h3) */
   depth: number;
-  /** The slug ID for the heading */
   slug: string;
-  /** The heading text content */
   text: string;
 }
 
-/**
- * Props interface for the TableOfContents component
- * @interface Props
- */
 interface Props {
-  /** Array of heading objects extracted from content */
   headings: Heading[];
-  /** Optional custom title for the table of contents */
   title?: string;
-  /** Optional language code for localization */
   lang?: string;
-  /** Optional class overrides for the panel wrapper */
   className?: string;
 }
 
@@ -50,23 +22,15 @@ import { getLangFromUrl, useTranslations } from "@utils/i18n";
 import { Icon } from "astro-icon/components";
 
 const { headings = [], title, lang, className = "" } = Astro.props;
-
-// Get language from URL if not provided
 const currentLang = lang || getLangFromUrl(Astro.url);
-
-// Get translations function
 const t = useTranslations(currentLang);
-
-// Filter to only include h2 and h3 headings
 const filteredHeadings = headings.filter(
   (heading) => heading.depth === 2 || heading.depth === 3
 );
-
-// Use title from props or default to translated title
 const tocTitle = title || t("toc.nav.label");
 ---
 
-<div class={`panel panel--compact toc ${className}`.trim()} data-toc-shell>
+<div class={`toc ${className}`.trim()} data-toc-shell>
   <div data-toc-root>
     <button
       id="toc-toggle"
@@ -247,14 +211,10 @@ const tocTitle = title || t("toc.nav.label");
 
     tocList?.addEventListener("click", (event): void => {
       const target = event.target;
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
+      if (!(target instanceof HTMLElement)) return;
 
       const link = target.closest<HTMLAnchorElement>("a[href^='#']");
-      if (!link) {
-        return;
-      }
+      if (!link) return;
 
       const href = link.getAttribute("href") || "";
       const sectionId = href.startsWith("#") ? href.slice(1) : "";
@@ -265,15 +225,10 @@ const tocTitle = title || t("toc.nav.label");
 
       try {
         window.dispatchEvent(
-          new CustomEvent("toc:click", {
-            detail: {
-              sectionId,
-              position,
-            },
-          })
+          new CustomEvent("toc:click", { detail: { sectionId, position } })
         );
       } catch {
-        // Navigation should continue even if telemetry dispatch fails.
+        // Navigation continues even if telemetry fails
       }
     });
 
@@ -305,43 +260,12 @@ const tocTitle = title || t("toc.nav.label");
   })();
 </script>
 <style>
-  .panel {
-    --panel-radius: 1.5rem;
-    --panel-padding: 1.5rem;
-    --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
-    --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    position: relative;
-    border-radius: var(--panel-radius);
-    background: var(--panel-bg);
-    border: 2px solid var(--panel-border);
-    box-shadow: var(--gn-offset-shadow);
-    padding: var(--panel-padding);
-  }
-
-  .panel::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border: 1px solid var(--gn-panel-inner);
-    border-radius: calc(var(--panel-radius) - 0.25rem);
-    pointer-events: none;
-  }
-
-  .panel--compact {
-    --panel-padding: 1rem;
-  }
-
-  .panel--tight {
-    --panel-padding: 1.25rem;
-  }
-
-  .panel--card {
-    --panel-radius: 1.25rem;
-    --panel-padding: 1.25rem;
-  }
-
   .toc {
     margin-bottom: 2rem;
+    border-radius: 1rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
+    padding: 1rem;
   }
 
   .toc__toggle {
@@ -351,35 +275,23 @@ const tocTitle = title || t("toc.nav.label");
     gap: 0.75rem;
     width: 100%;
     min-height: 48px;
-    padding: 0.75rem 1.25rem;
-    border-radius: 1rem;
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 65%, transparent);
+    padding: 0.8rem 1rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg);
     color: var(--gn-ink);
     font-size: 1.125rem;
     font-weight: 600;
     text-align: left;
     cursor: pointer;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.06),
-      4px 4px 0 rgba(0, 0, 0, 0.75);
-    transition:
-      border-color var(--transition-fast),
-      background-color var(--transition-fast),
-      box-shadow var(--transition-fast),
-      transform var(--transition-fast);
   }
 
   .toc__toggle:hover {
-    border-color: var(--color-gn-amber-300);
-    background: color-mix(in srgb, var(--gn-bg-muted) 90%, transparent);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.08),
-      6px 6px 0 rgba(0, 0, 0, 0.82);
+    background: var(--gn-bg-muted);
   }
 
   .toc__toggle:focus-visible {
-    outline: 4px solid var(--color-gn-amber-300);
+    outline: 3px solid var(--gn-accent);
     outline-offset: 2px;
   }
 
@@ -393,7 +305,7 @@ const tocTitle = title || t("toc.nav.label");
     display: block;
     width: 1.1rem;
     height: 1.1rem;
-    color: var(--gn-ink-muted);
+    color: var(--gn-accent);
   }
 
   .toc__toggle-chevron {
@@ -401,7 +313,6 @@ const tocTitle = title || t("toc.nav.label");
     width: 1.1rem;
     height: 1.1rem;
     color: var(--gn-ink-muted);
-    transition: transform var(--transition-fast);
   }
 
   .toc--open .toc__toggle-chevron {
@@ -411,12 +322,9 @@ const tocTitle = title || t("toc.nav.label");
   .toc__content {
     display: none;
     margin-top: 1rem;
-    border-radius: 1rem;
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 75%, transparent);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.04),
-      4px 4px 0 rgba(0, 0, 0, 0.7);
+    border-radius: 0.75rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg);
   }
 
   .toc--open .toc__content {
@@ -432,15 +340,14 @@ const tocTitle = title || t("toc.nav.label");
     align-items: center;
     min-height: 44px;
     margin-bottom: 1rem;
-    color: var(--color-gn-amber-300);
+    color: var(--gn-accent);
     font-size: 1.125rem;
     font-weight: 600;
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   .toc__skip:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    color: var(--gn-accent-strong);
   }
 
   .toc__list {
@@ -449,25 +356,6 @@ const tocTitle = title || t("toc.nav.label");
     padding: 0;
     max-height: 50vh;
     overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-gn-soot-600) var(--color-gn-soot-800);
-  }
-
-  .toc__list::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .toc__list::-webkit-scrollbar-track {
-    background: var(--color-gn-soot-800);
-  }
-
-  .toc__list::-webkit-scrollbar-thumb {
-    background: var(--color-gn-soot-600);
-    border-radius: 999px;
-  }
-
-  .toc__list::-webkit-scrollbar-thumb:hover {
-    background: var(--color-gn-amber-400);
   }
 
   .toc__item {
@@ -475,7 +363,7 @@ const tocTitle = title || t("toc.nav.label");
   }
 
   .toc__item--child {
-    margin-left: 1rem;
+    margin-left: 1.25rem;
   }
 
   .toc__link {
@@ -485,26 +373,23 @@ const tocTitle = title || t("toc.nav.label");
     padding: 0.5rem 0.75rem;
     color: var(--gn-ink);
     text-decoration: none;
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    transition:
-      background-color var(--transition-fast),
-      color var(--transition-fast);
   }
 
   .toc__link--child {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--gn-ink-muted);
   }
 
   .toc__link:hover {
-    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
-    color: var(--gn-ink);
+    background: var(--gn-bg-muted);
+    color: var(--gn-accent);
   }
 
   .toc__link:focus-visible {
-    outline: 2px solid var(--color-gn-amber-300);
+    outline: 3px solid var(--gn-accent);
     outline-offset: 2px;
   }
 

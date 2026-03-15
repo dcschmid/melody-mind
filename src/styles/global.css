@@ -3,20 +3,17 @@
   --static-page-header-gap: 0.75rem;
   --static-page-section-gap: 0.5rem;
   --static-page-section-gap-wide: 1.5rem;
+
   /* Light Mode - WCAG AAA compliant (7:1 contrast ratio) */
   --theme-gn-bg-primary: #f7f9fc;
   --theme-gn-bg: #f7f9fc;
   --theme-gn-bg-muted: #e8edf5;
-  --theme-gn-ink: #0d111b; /* Darker for 7:1 contrast */
-  --theme-gn-ink-muted: #2a3446; /* Darker for 7:1 contrast */
-  --theme-gn-panel-border: #4a5c78; /* Darker for visibility */
-  --theme-gn-panel-inner: color-mix(
-    in srgb,
-    #1a2230 40%,
-    transparent
-  ); /* Darker inner border */
-  --theme-gn-accent: #b45c00; /* Deeper amber for 7:1 contrast */
-  --theme-gn-accent-strong: #8f5600; /* Deeper for 7:1 contrast */
+  --theme-gn-ink: #0d111b;
+  --theme-gn-ink-muted: #2a3446;
+  --theme-gn-panel-border: #4a5c78;
+  --theme-gn-panel-inner: color-mix(in srgb, #1a2230 40%, transparent);
+  --theme-gn-accent: #b45c00;
+  --theme-gn-accent-strong: #8f5600;
   --theme-color-gn-amber-300: #b45c00;
   --theme-color-gn-amber-400: #8f5600;
   --theme-link-default: #8f5600;
@@ -48,17 +45,12 @@
   --theme-prose-pre-bg: rgba(15, 23, 42, 0.08);
   --theme-prose-th-borders: rgba(16, 23, 38, 0.24);
   --theme-prose-td-borders: rgba(16, 23, 38, 0.14);
-  --theme-gn-offset-shadow:
-    2px 2px 0 rgba(63, 77, 101, 0.22), 0 16px 32px rgba(16, 23, 38, 0.16);
-  --theme-gn-halftone:
-    radial-gradient(circle at 20% 20%, rgba(95, 157, 217, 0.08), transparent 24%),
-    radial-gradient(circle at 80% 10%, rgba(123, 152, 198, 0.08), transparent 26%),
-    radial-gradient(circle at 60% 70%, rgba(95, 157, 217, 0.06), transparent 25%);
+  --theme-gn-offset-shadow: 2px 2px 0 rgba(63, 77, 101, 0.22);
 }
 
 /* Global minimum font size of 18px for better readability */
 html {
-  font-size: 112.5%; /* 18px = 1rem at standard browser settings */
+  font-size: 112.5%;
 }
 
 body {
@@ -76,16 +68,12 @@ body {
   --theme-gn-bg-primary: #080c14;
   --theme-gn-bg: #0a0f17;
   --theme-gn-bg-muted: #141b26;
-  --theme-gn-ink: #f6f9fc; /* Brighter for 7:1 contrast */
-  --theme-gn-ink-muted: #c5d0e5; /* Brighter for 7:1 contrast */
-  --theme-gn-panel-border: #2f3850; /* Brighter for visibility */
-  --theme-gn-panel-inner: color-mix(
-    in srgb,
-    #f2f6fb 15%,
-    transparent
-  ); /* Brighter inner border */
-  --theme-gn-accent: #99d9ff; /* Brighter cyan for 7:1 contrast */
-  --theme-gn-accent-strong: #b3e5ff; /* Brighter for 7:1 contrast */
+  --theme-gn-ink: #f6f9fc;
+  --theme-gn-ink-muted: #c5d0e5;
+  --theme-gn-panel-border: #2f3850;
+  --theme-gn-panel-inner: color-mix(in srgb, #f2f6fb 15%, transparent);
+  --theme-gn-accent: #99d9ff;
+  --theme-gn-accent-strong: #b3e5ff;
   --theme-color-gn-amber-300: #99d9ff;
   --theme-color-gn-amber-400: #b3e5ff;
   --theme-link-default: #99d9ff;
@@ -117,49 +105,7 @@ body {
   --theme-prose-pre-bg: rgba(255, 255, 255, 0.06);
   --theme-prose-th-borders: rgba(255, 255, 255, 0.25);
   --theme-prose-td-borders: rgba(255, 255, 255, 0.15);
-  --theme-gn-offset-shadow: 4px 4px 0 rgba(0, 0, 0, 0.7), 0 20px 44px rgba(0, 0, 0, 0.55);
-  --theme-gn-halftone:
-    radial-gradient(circle at 20% 20%, rgba(123, 214, 255, 0.05), transparent 24%),
-    radial-gradient(circle at 80% 10%, rgba(95, 199, 255, 0.06), transparent 26%),
-    radial-gradient(circle at 60% 70%, rgba(123, 214, 255, 0.04), transparent 25%);
-}
-
-:root[data-theme="light"] .page-shell--aurora {
-  background: linear-gradient(145deg, #f7f9fc 0%, #edf2f8 45%, #e5ecf6 100%);
-}
-
-:root[data-theme="light"] .knowledge__backdrop {
-  background: linear-gradient(180deg, #f7f9fc 0%, #edf2f8 65%, #e2eaf5 100%);
-}
-
-:root[data-theme="light"] .knowledge__texture {
-  opacity: 0.12;
-}
-
-:root[data-theme="light"] .reading-progress {
-  background: color-mix(in srgb, #e2eaf5 88%, transparent);
-}
-
-:root[data-theme="light"] .reading-progress__bar {
-  box-shadow: 0 0 8px rgba(154, 81, 0, 0.35);
-}
-
-:root[data-theme="light"] .page-shell--grid::after {
-  background-image:
-    linear-gradient(rgba(16, 23, 38, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 23, 38, 0.06) 1px, transparent 1px);
-  opacity: 0.3;
-}
-
-:root[data-theme="dark"] .page-shell--aurora {
-  background: linear-gradient(145deg, #0a0f18 0%, #0c121c 45%, #0a1320 100%);
-}
-
-:root[data-theme="dark"] .page-shell--grid::after {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  opacity: 0.22;
+  --theme-gn-offset-shadow: 4px 4px 0 rgba(0, 0, 0, 0.7);
 }
 
 .legal-panel {
@@ -224,40 +170,6 @@ body {
   }
 }
 
-/* Smooth transitions with reduced motion support */
-:root,
-:root *,
-:root *::before,
-:root *::after {
-  transition:
-    background-color 200ms ease-out,
-    color 180ms ease-out,
-    border-color 180ms ease-out,
-    box-shadow 200ms ease-out,
-    fill 180ms ease-out,
-    stroke 180ms ease-out,
-    opacity 150ms ease-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root,
-  :root *,
-  :root *::before,
-  :root *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :root,
-  :root *,
-  :root *::before,
-  :root *::after {
-    transition-duration: 1ms !important;
-  }
-}
-
 /* ========================================
    HIGH CONTRAST MODE SUPPORT (WCAG AAA)
    Windows High Contrast + Forced Colors
@@ -289,7 +201,6 @@ body {
 
 /* Forced Colors Mode (Windows High Contrast) */
 @media (forced-colors: active) {
-  /* Ensure borders are visible */
   .knowledge-card,
   .taxonomy-card,
   .legal-panel,
@@ -298,7 +209,6 @@ body {
     border: 2px solid CanvasText;
   }
 
-  /* Links must be clearly distinguishable */
   a,
   a:visited {
     text-decoration: underline;
@@ -310,33 +220,22 @@ body {
     color: Highlight;
   }
 
-  /* Focus states must use system colors */
   :focus-visible {
     outline: 3px solid Highlight;
     outline-offset: 2px;
   }
 
-  /* Buttons must use system colors */
   button {
     border: 2px solid ButtonText;
     color: ButtonText;
     background: ButtonFace;
   }
 
-  /* Hide decorative elements */
-  .knowledge-card__shine,
-  .taxonomy-card__overlay,
-  .knowledge-index__stage-glow {
-    display: none;
-  }
-
-  /* Ensure text remains readable */
   .knowledge-card__title,
   .taxonomy-card__title {
     color: CanvasText;
   }
 
-  /* Badges need clear borders */
   .taxonomy-card__badge,
   .knowledge-index__feature-badge {
     border: 2px solid CanvasText;

@@ -281,25 +281,13 @@ const pageSeo = buildPageSeo({
 </Layout>
 <style>
   .panel {
-    --panel-radius: 1.5rem;
+    --panel-radius: 1rem;
     --panel-padding: 1.5rem;
-    --panel-bg: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
-    --panel-border: color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
     position: relative;
     border-radius: var(--panel-radius);
-    background: var(--panel-bg);
-    border: 2px solid var(--panel-border);
-    box-shadow: var(--gn-offset-shadow);
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
     padding: var(--panel-padding);
-  }
-
-  .panel::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border: 1px solid var(--gn-panel-inner);
-    border-radius: calc(var(--panel-radius) - 0.25rem);
-    pointer-events: none;
   }
 
   .panel--compact {
@@ -311,7 +299,7 @@ const pageSeo = buildPageSeo({
   }
 
   .panel--card {
-    --panel-radius: 1.25rem;
+    --panel-radius: 1rem;
     --panel-padding: 1.25rem;
   }
 
@@ -364,12 +352,9 @@ const pageSeo = buildPageSeo({
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 2;
-    border-radius: 2rem;
+    border-radius: 1rem;
     overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
-    box-shadow:
-      0 30px 80px rgba(7, 12, 24, 0.55),
-      0 12px 24px rgba(7, 12, 24, 0.35);
+    border: 2px solid var(--gn-panel-border);
   }
 
   .category-hero__image {
@@ -416,17 +401,9 @@ const pageSeo = buildPageSeo({
   .category-hero__content {
     width: min(820px, 100%);
     padding: 2rem 2.25rem;
-    border-radius: 1.5rem;
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--gn-bg) 70%, transparent),
-      color-mix(in srgb, var(--gn-bg) 50%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
-    box-shadow:
-      0 18px 40px rgba(7, 12, 24, 0.45),
-      inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 8%, transparent);
-    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
   }
 
   .category-hero__eyebrow {
@@ -441,9 +418,8 @@ const pageSeo = buildPageSeo({
     margin-bottom: 1.5rem;
     padding: 0.4rem 0.9rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 4%, transparent);
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
   }
 
   @media (min-width: 640px) {
@@ -456,21 +432,7 @@ const pageSeo = buildPageSeo({
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 999px;
-    background: var(--color-gn-amber-300);
-    box-shadow: 0 0 10px color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%,
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.7;
-      transform: scale(0.95);
-    }
+    background: var(--gn-accent);
   }
 
   .category-hero__title {
@@ -480,8 +442,6 @@ const pageSeo = buildPageSeo({
     line-height: 1.1;
     color: var(--gn-ink);
     letter-spacing: -0.02em;
-    text-shadow: 0 4px 18px rgba(7, 12, 24, 0.35);
-    background: none;
   }
 
   @media (min-width: 640px) {
@@ -503,7 +463,6 @@ const pageSeo = buildPageSeo({
     color: var(--gn-ink-muted);
     font-weight: 400;
     max-width: 60ch;
-    text-shadow: 0 2px 10px rgba(7, 12, 24, 0.3);
   }
 
   @media (min-width: 640px) {
@@ -532,29 +491,11 @@ const pageSeo = buildPageSeo({
     gap: 0.625rem;
     padding: 0.7rem 1.4rem;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--gn-bg) 88%, transparent),
-      color-mix(in srgb, var(--gn-bg) 72%, transparent)
-    );
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg);
     font-weight: 600;
     font-size: 0.95rem;
     color: var(--gn-ink);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(12px);
-    box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.15),
-      inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 6%, transparent);
-  }
-
-  .category-hero__stat:hover {
-    border-color: color-mix(in srgb, var(--color-gn-amber-300) 70%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
-    transform: translateY(-2px);
-    box-shadow:
-      0 6px 20px rgba(0, 0, 0, 0.2),
-      inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 10%, transparent);
   }
 
   .category-page__tools {
@@ -576,16 +517,9 @@ const pageSeo = buildPageSeo({
     line-height: 1.6;
     font-weight: 400;
     padding: 1.25rem 1.5rem;
-    border-radius: 1rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--gn-bg-muted) 92%, transparent),
-      color-mix(in srgb, var(--gn-bg) 85%, transparent)
-    );
-    box-shadow:
-      0 10px 24px rgba(7, 12, 24, 0.3),
-      inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
+    border-radius: 0.75rem;
+    border: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
   }
 
   @media (min-width: 640px) {
@@ -597,23 +531,15 @@ const pageSeo = buildPageSeo({
 
   .category-page__search {
     padding: 1.25rem 1.5rem;
-    border-radius: 1.25rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
-    background: linear-gradient(
-      155deg,
-      color-mix(in srgb, var(--gn-bg) 92%, transparent),
-      color-mix(in srgb, var(--gn-bg-muted) 85%, transparent)
-    );
-    box-shadow:
-      0 16px 32px rgba(7, 12, 24, 0.35),
-      inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
+    border-radius: 0.75rem;
+    border: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
   }
 
   .category-page__search :global(.search-panel__input) {
-    border-radius: 1.1rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 65%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 88%, transparent);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 4%, transparent);
+    border-radius: 0.75rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg);
     font-size: 1.05rem;
   }
 
@@ -624,37 +550,23 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__search :global(.search-panel__input:hover) {
-    border-color: color-mix(in srgb, var(--color-gn-amber-300) 65%, transparent);
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--gn-ink) 6%, transparent),
-      0 10px 18px rgba(7, 12, 24, 0.18);
+    border-color: var(--gn-accent);
   }
 
   .category-page__search :global(.search-panel__input:focus-visible) {
-    box-shadow:
-      0 0 0 3px color-mix(in srgb, var(--color-gn-amber-300) 35%, transparent),
-      0 12px 22px rgba(7, 12, 24, 0.22);
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
   }
 
   .category-page__search :global(.search-panel__reset) {
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 60%, transparent);
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--color-gn-amber-400) 85%, transparent),
-      color-mix(in srgb, var(--color-gn-amber-300) 75%, transparent)
-    );
-    color: var(--color-gn-soot-950);
-    box-shadow:
-      0 8px 18px rgba(7, 12, 24, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border: 2px solid var(--gn-accent);
+    background: var(--gn-bg);
+    color: var(--gn-ink);
   }
 
   .category-page__search :global(.search-panel__reset:hover) {
-    transform: translateY(-1px);
-    box-shadow:
-      0 12px 24px rgba(7, 12, 24, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    background: var(--gn-bg-muted);
   }
 
   .category-page__grid {
@@ -681,24 +593,11 @@ const pageSeo = buildPageSeo({
 
   .category-page__empty {
     padding: 3rem 2rem;
-    border-radius: 1.25rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
-    background:
-      radial-gradient(
-        circle at top,
-        color-mix(in srgb, var(--color-gn-amber-300) 10%, transparent),
-        transparent 55%
-      ),
-      linear-gradient(
-        165deg,
-        color-mix(in srgb, var(--gn-bg) 92%, transparent),
-        color-mix(in srgb, var(--gn-bg-muted) 82%, transparent)
-      );
+    border-radius: 0.75rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
     text-align: center;
     color: var(--gn-ink-muted);
-    box-shadow:
-      0 18px 36px rgba(7, 12, 24, 0.35),
-      inset 0 1px 0 color-mix(in srgb, var(--gn-ink) 6%, transparent);
   }
 
   .category-page__empty-title {

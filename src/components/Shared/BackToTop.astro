@@ -1,37 +1,20 @@
 ---
 /**
  * @component BackToTop
- * @description Reusable back-to-top button component with optimized scroll behavior.
- * Provides consistent styling, accessibility, and performance across all pages.
- *
- * @example
- * ```astro
- * <BackToTop lang="en" />
- * <BackToTop lang="de" className="custom-position" />
- * ```
+ * @description Simple back-to-top button with accessibility support.
  */
-
 import { Icon } from "astro-icon/components";
 import { useTranslations } from "@utils/i18n";
 
-/**
- * Props interface for the BackToTop component
- */
 interface Props {
-  /** Language code for internationalization */
   lang: string;
-  /** Additional CSS class for custom positioning or styling */
   className?: string;
-  /** Custom aria-label (overrides default translation) */
   ariaLabel?: string;
-  /** Custom scroll threshold in pixels (uses CSS variable if not provided) */
   scrollThreshold?: number;
 }
 
 const { lang = "en", className = "", ariaLabel, scrollThreshold } = Astro.props;
 const t = useTranslations(lang);
-
-// Use custom aria-label or fallback to translation
 const buttonAriaLabel = ariaLabel || t("common.back.to.top");
 const screenReaderText = t("common.back.to.top");
 ---
@@ -50,37 +33,25 @@ const screenReaderText = t("common.back.to.top");
 <style>
   .back-to-top {
     position: fixed;
-    right: 1rem;
-    bottom: 1rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
     z-index: 30;
-    min-width: 48px;
-    min-height: 48px;
-    padding: 0.9rem;
+    min-width: 52px;
+    min-height: 52px;
+    padding: 1rem;
     border-radius: 999px;
     border: 2px solid var(--gn-panel-border);
-    background: var(--color-gn-amber-500);
-    color: var(--color-gn-soot-950);
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.8);
+    background: var(--gn-bg-muted);
+    color: var(--gn-ink);
     cursor: pointer;
-    transition:
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast),
-      background-color var(--transition-fast);
   }
 
   .back-to-top:hover {
-    background: var(--color-gn-amber-400);
-    transform: translateY(-4px);
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.85);
-  }
-
-  .back-to-top:active {
-    transform: translateY(0);
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.85);
+    background: var(--gn-bg);
   }
 
   .back-to-top:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
+    outline: 3px solid var(--gn-accent);
     outline-offset: 2px;
   }
 
@@ -92,8 +63,8 @@ const screenReaderText = t("common.back.to.top");
 
   @media (min-width: 768px) {
     .back-to-top__icon {
-      width: 2rem;
-      height: 2rem;
+      width: 1.75rem;
+      height: 1.75rem;
     }
   }
 

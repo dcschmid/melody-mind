@@ -252,13 +252,9 @@ const pageSeo = buildPageSeo({
 
 <style>
   .ai-policy {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--gn-bg) 97%, transparent),
-      color-mix(in srgb, var(--gn-bg-muted) 95%, transparent)
-    );
-    border-radius: 1.5rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 38%, transparent);
+    background: var(--gn-bg-muted);
+    border-radius: 1rem;
+    border: 1px solid var(--gn-panel-border);
     padding: 1.25rem;
   }
 
@@ -279,14 +275,13 @@ const pageSeo = buildPageSeo({
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--link-default) 12%, var(--gn-bg));
-    border: 2px solid color-mix(in srgb, var(--link-default) 52%, var(--gn-panel-border));
-    color: var(--link-default);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-accent);
+    color: var(--gn-accent);
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    box-shadow: 0 2px 8px color-mix(in srgb, var(--link-default) 20%, transparent);
     justify-self: start;
   }
 
@@ -294,22 +289,11 @@ const pageSeo = buildPageSeo({
     padding: 2rem;
     display: grid;
     gap: var(--static-page-section-gap-wide);
-    transition: all 0.3s ease;
-  }
-
-  .ai-policy__section:hover {
-    border-color: color-mix(in srgb, var(--gn-accent) 45%, var(--gn-panel-border));
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--gn-accent) 22%, transparent);
-    transform: translateY(-2px);
   }
 
   .ai-policy__section--contact {
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--gn-accent) 12%, var(--gn-bg-muted)),
-      color-mix(in srgb, var(--gn-bg) 92%, transparent)
-    );
-    border-color: color-mix(in srgb, var(--gn-accent) 40%, var(--gn-panel-border));
+    background: var(--gn-bg);
+    border-color: var(--gn-accent);
   }
 
   .ai-policy__section-header {
@@ -317,7 +301,7 @@ const pageSeo = buildPageSeo({
     align-items: center;
     gap: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    border-bottom: 2px solid var(--gn-panel-border);
   }
 
   .ai-policy__icon {
@@ -325,16 +309,6 @@ const pageSeo = buildPageSeo({
     height: 1.75rem;
     color: var(--gn-accent);
     flex-shrink: 0;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ai-policy__section {
-      transition: none;
-    }
-
-    .ai-policy__section:hover {
-      transform: none;
-    }
   }
 
   @media (min-width: 720px) {

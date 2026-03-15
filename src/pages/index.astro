@@ -131,12 +131,11 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo}>
-  <PageShell className="page-shell--aurora page-shell--grid">
+  <PageShell>
     <div class="knowledge-index">
       <header class="knowledge-index__intro">
         <div class="knowledge-index__stage">
           <div class="knowledge-index__stage-media">
-            <div class="knowledge-index__stage-glow" aria-hidden="true"></div>
             <div class="knowledge-index__stage-frame">
               <Image
                 class="knowledge-index__stage-image"
@@ -331,11 +330,14 @@ const pageSeo = buildPageSeo({
   })();
 </script>
 <style>
-  /* WCAG AAA: Modernized Index Page with better mobile optimization */
+  /* ========================================
+     KNOWLEDGE INDEX - MINIMAL LAYOUT
+     ======================================== */
+
   .knowledge-index {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 3rem;
   }
 
   .knowledge-index__intro {
@@ -343,18 +345,25 @@ const pageSeo = buildPageSeo({
     border-bottom: 1px solid var(--gn-panel-border);
   }
 
-  /* Hero Stage - Fluid grid layout */
+  /* ========================================
+     HERO STAGE
+     ======================================== */
+
   .knowledge-index__stage {
     position: relative;
     display: grid;
     gap: 1.5rem;
-    align-items: center;
+    align-items: stretch;
   }
 
   @media (min-width: 960px) {
     .knowledge-index__stage {
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      grid-template-rows: auto auto;
+    }
+
+    .knowledge-index__stage-media {
+      grid-row: span 2;
     }
   }
 
@@ -362,37 +371,12 @@ const pageSeo = buildPageSeo({
     position: relative;
   }
 
-  /* WCAG AAA: Enhanced glow effect */
-  .knowledge-index__stage-glow {
-    position: absolute;
-    inset: -18% -10% -20% -10%;
-    background: radial-gradient(
-      circle at 25% 35%,
-      color-mix(in srgb, var(--gn-accent-strong) 30%, transparent) 0%,
-      transparent 60%
-    );
-    filter: blur(20px);
-    opacity: 0.6;
-    pointer-events: none;
-  }
-
-  /* WCAG AAA: Modern frame with improved shadows */
   .knowledge-index__stage-frame {
     position: relative;
-    border-radius: 1.75rem;
+    border-radius: 1rem;
     overflow: hidden;
-    border: 2px solid color-mix(in srgb, var(--gn-accent) 25%, transparent);
-    background: color-mix(in srgb, var(--gn-bg-muted) 94%, var(--gn-accent) 6%);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .knowledge-index__stage-frame::after {
-    content: "";
-    position: absolute;
-    inset: 6px;
-    border-radius: calc(1.75rem - 0.4rem);
-    border: 1px solid var(--gn-panel-inner);
-    pointer-events: none;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
   }
 
   .knowledge-index__stage-image {
@@ -403,110 +387,91 @@ const pageSeo = buildPageSeo({
     object-fit: cover;
   }
 
-  /* WCAG AAA: Panel with improved text contrast */
+  /* ========================================
+     STAGE PANEL
+     ======================================== */
+
   .knowledge-index__stage-panel {
-    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
     padding: 1.5rem;
-    border-radius: 1.5rem;
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
-    box-shadow: var(--shadow-lg);
+    border-radius: 1rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
     text-align: center;
-  }
-
-  .knowledge-index__stage-panel::after {
-    content: "";
-    position: absolute;
-    inset: 5px;
-    border-radius: calc(1.5rem - 0.35rem);
-    border: 1px solid var(--gn-panel-inner);
-    pointer-events: none;
   }
 
   @media (min-width: 960px) {
     .knowledge-index__stage-panel {
       text-align: left;
-      align-self: center;
     }
   }
 
-  /* WCAG AAA: Fluid typography for eyebrow */
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
   .knowledge-index__eyebrow {
-    font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1.125rem);
-    letter-spacing: 0.16em;
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--gn-accent);
   }
 
-  /* WCAG AAA: Improved hero text contrast */
   .knowledge-index__hero-text {
-    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.375rem);
+    font-size: 1.1rem;
     color: var(--gn-ink-muted);
-    line-height: 1.7;
+    line-height: 1.75;
     margin: 0;
   }
 
   .knowledge-index__hero-text strong {
     color: var(--gn-ink);
-    font-weight: 600;
+    font-weight: 700;
   }
 
-  /* Feature badges with improved spacing */
+  /* ========================================
+     FEATURE BADGES
+     ======================================== */
+
   .knowledge-index__features {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.6rem;
+    gap: 0.7rem;
     margin-top: 0.5rem;
   }
 
   @media (min-width: 960px) {
     .knowledge-index__features {
       justify-content: flex-start;
-      gap: 0.75rem;
     }
   }
 
-  /* WCAG AAA: Feature badges with better touch targets */
   .knowledge-index__feature-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.4rem;
     padding: 0.5rem 0.9rem;
-    background: color-mix(in srgb, var(--gn-accent) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-accent) 28%, transparent);
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-accent);
     border-radius: 1.5rem;
-    font-size: clamp(0.85rem, 0.8rem + 0.2vw, 1.05rem);
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--gn-ink);
     min-height: 44px;
-    transition:
-      background-color var(--transition-fast),
-      border-color var(--transition-fast),
-      transform var(--transition-fast);
   }
 
-  .knowledge-index__feature-badge:hover {
-    background: color-mix(in srgb, var(--gn-accent) 18%, transparent);
-    border-color: color-mix(in srgb, var(--gn-accent) 40%, transparent);
-    transform: translateY(-2px);
-  }
+  /* ========================================
+     SECTIONS
+     ======================================== */
 
-  @media (prefers-reduced-motion: no-preference) {
-    .knowledge-index__feature-badge:hover {
-      transform: none;
-    }
-  }
-
-  /* Section spacing - fluid */
   .knowledge-index__section {
     display: flex;
     flex-direction: column;
-    gap: clamp(1.25rem, 2vi, 2rem);
+    gap: 1.5rem;
   }
 
   .knowledge-index__section-head {
@@ -519,14 +484,14 @@ const pageSeo = buildPageSeo({
   @media (min-width: 640px) {
     .knowledge-index__section-head {
       flex-direction: row;
-      align-items: flex-end;
+      align-items: end;
       justify-content: space-between;
     }
   }
 
   .knowledge-index__section-copy {
     display: grid;
-    gap: 0.35rem;
+    gap: 0.4rem;
     max-inline-size: 42rem;
   }
 
@@ -535,26 +500,27 @@ const pageSeo = buildPageSeo({
     --search-shell-max-inline-size: 30rem;
   }
 
-  /* WCAG AAA: Section titles with fluid sizing */
   .knowledge-index__section-title {
-    font-size: clamp(1.5rem, 1.3rem + 0.5vw, 2rem);
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--gn-ink);
     margin: 0;
   }
 
-  /* WCAG AAA: Section help text with improved contrast */
   .knowledge-index__section-help {
-    font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.1rem);
+    font-size: 1rem;
     color: var(--gn-ink-muted);
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
-  /* Responsive grid - auto-fill for better mobile usage */
+  /* ========================================
+     RESPONSIVE GRID
+     ======================================== */
+
   .knowledge-index__grid {
     display: grid;
-    gap: clamp(1rem, 1.25vi, 1.5rem);
+    gap: 1.25rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -563,59 +529,43 @@ const pageSeo = buildPageSeo({
 
   @media (min-width: 500px) {
     .knowledge-index__grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     }
   }
 
   @media (min-width: 1024px) {
     .knowledge-index__grid {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
     }
   }
 
-  /* Empty state */
+  /* ========================================
+     EMPTY STATE
+     ======================================== */
+
   .knowledge-index__empty {
     margin-top: 1.5rem;
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 1rem;
     border: 2px solid var(--gn-panel-border);
     background: var(--gn-bg-muted);
     text-align: center;
     color: var(--gn-ink-muted);
-    box-shadow: var(--shadow-md);
   }
 
   .knowledge-index__section--recent {
     margin-top: 0.5rem;
   }
 
-  /* Recent reads - WCAG AAA enhanced */
-  :global(.recent-reads) {
-    position: relative;
-    padding: 1rem;
-    border-radius: 1.25rem;
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    background:
-      radial-gradient(
-        circle at 15% 20%,
-        color-mix(in srgb, var(--gn-accent) 18%, transparent) 0%,
-        transparent 50%
-      ),
-      linear-gradient(
-        140deg,
-        color-mix(in srgb, var(--gn-bg-muted) 90%, transparent),
-        color-mix(in srgb, var(--gn-bg) 88%, transparent)
-      );
-    box-shadow: var(--shadow-xl);
-  }
+  /* ========================================
+     RECENT READS
+     ======================================== */
 
-  :global(.recent-reads)::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
+  :global(.recent-reads) {
+    padding: 1.25rem;
     border-radius: 1rem;
-    border: 1px solid var(--gn-panel-inner);
-    pointer-events: none;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
   }
 
   :global(.recent-reads--empty) {
@@ -625,7 +575,8 @@ const pageSeo = buildPageSeo({
 
   :global(.recent-reads__empty-text) {
     margin: 0;
-    font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.1rem);
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   :global(.recent-reads__list) {
@@ -633,103 +584,64 @@ const pageSeo = buildPageSeo({
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 0.75rem;
+    gap: 0.85rem;
     grid-template-columns: 1fr;
   }
 
   @media (min-width: 600px) {
     :global(.recent-reads__list) {
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
   }
 
-  /* Recent read items - WCAG AAA enhanced */
+  /* ========================================
+     RECENT READ ITEMS
+     ======================================== */
+
   :global(.recent-reads__item) {
-    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
-    padding: 0.75rem 0rem;
-    border-radius: 1rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
-    background: linear-gradient(
-      150deg,
-      color-mix(in srgb, var(--gn-bg) 86%, transparent),
-      color-mix(in srgb, var(--gn-bg-muted) 90%, transparent)
-    );
-    box-shadow: var(--shadow-md);
-    overflow: hidden;
-    transition:
-      transform var(--transition-fast),
-      box-shadow var(--transition-fast),
-      border-color var(--transition-fast);
+    gap: 0.4rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg);
   }
 
-  :global(.recent-reads__item)::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      120deg,
-      color-mix(in srgb, var(--gn-accent) 30%, transparent),
-      transparent 45%,
-      color-mix(in srgb, var(--gn-accent-strong) 25%, transparent) 100%
-    );
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--transition-fast);
-  }
-
-  :global(.recent-reads__item:hover) {
-    transform: translateY(-3px);
-    border-color: color-mix(in srgb, var(--gn-accent) 42%, transparent);
-    box-shadow: var(--shadow-lg);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    :global(.recent-reads__item:hover) {
-      transform: none;
-    }
-  }
-
-  :global(.recent-reads__item:hover)::before {
-    opacity: 0.3;
-  }
-
-  /* WCAG AAA: Recent reads links with improved contrast */
   :global(.recent-reads__link) {
-    font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.1rem);
+    font-size: 1rem;
     font-weight: 600;
     color: var(--gn-ink);
     text-decoration: none;
-    line-height: 1.4;
+    line-height: 1.45;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  :global(.recent-reads__link:hover) {
-    text-decoration: underline;
+  :global(.recent-reads__link):hover {
     color: var(--gn-accent);
   }
 
-  /* WCAG AAA: Enhanced focus state */
-  :global(.recent-reads__link:focus-visible) {
-    outline: var(--focus-ring-width) var(--focus-ring-style) var(--gn-accent);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--shadow-glow);
+  :global(.recent-reads__link):focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--gn-accent) 35%, transparent);
   }
 
-  /* WCAG AAA: Meta text with improved contrast */
   :global(.recent-reads__meta) {
-    font-size: clamp(0.8rem, 0.75rem + 0.2vw, 0.95rem);
+    font-size: 0.8rem;
     color: var(--gn-ink-muted);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
+    font-weight: 500;
   }
 
-  /* Screen reader only */
+  /* ========================================
+     SCREEN READER ONLY
+     ======================================== */
+
   .knowledge-index__sr {
     position: absolute;
     width: var(--sr-only-width);
@@ -740,6 +652,4 @@ const pageSeo = buildPageSeo({
     white-space: nowrap;
     border: 0;
   }
-
-  /* Category card fallback - using TaxonomyCard component instead */
 </style>

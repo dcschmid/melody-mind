@@ -38,53 +38,44 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
 
 <style>
   .knowledge-takeaways {
-    position: relative;
     display: grid;
-    gap: 1rem;
+    gap: 1.25rem;
     padding: 1.5rem;
-    border-radius: 1.25rem;
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
-    box-shadow: var(--gn-offset-shadow);
-  }
-
-  .knowledge-takeaways::after {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border-radius: calc(1.25rem - 0.25rem);
-    border: 1px solid var(--gn-panel-inner);
-    pointer-events: none;
+    border-radius: 1rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
   }
 
   .knowledge-takeaways__header {
     display: grid;
-    gap: 0.35rem;
+    gap: 0.45rem;
   }
 
   .knowledge-takeaways__badge {
     width: fit-content;
-    padding: 0.2rem 0.7rem;
+    padding: 0.25rem 0.85rem;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
-    background: rgba(123, 214, 255, 0.16);
-    color: var(--color-gn-amber-200);
-    font-size: 0.85rem;
+    border: 1px solid var(--gn-accent);
+    background: var(--gn-bg);
+    color: var(--gn-accent);
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
   }
 
   .knowledge-takeaways__title {
     margin: 0;
-    font-size: clamp(1.4rem, 1.2rem + 1vw, 1.8rem);
+    font-size: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
     color: var(--gn-ink);
+    font-weight: 700;
   }
 
   .knowledge-takeaways__subtitle {
     margin: 0;
     color: var(--gn-ink-muted);
     max-width: 60ch;
+    line-height: 1.6;
   }
 
   .knowledge-takeaways__list {
@@ -92,18 +83,18 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     padding: 0;
     list-style: none;
     display: grid;
-    gap: 0.75rem;
+    gap: 0.85rem;
   }
 
   .knowledge-takeaways__item {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 0.65rem;
+    gap: 0.75rem;
     align-items: start;
-    padding: 0.75rem 0.9rem;
-    border-radius: 0.9rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 80%, transparent);
-    background: color-mix(in srgb, var(--gn-bg-muted) 88%, transparent);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg);
   }
 
   .knowledge-takeaways__icon {
@@ -112,21 +103,21 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     justify-content: center;
     width: 2rem;
     height: 2rem;
-    border-radius: 0.65rem;
-    background: rgba(123, 214, 255, 0.18);
-    color: var(--color-gn-teal-300);
+    border-radius: 0.5rem;
+    background: var(--gn-bg-muted);
+    color: var(--gn-accent);
     flex-shrink: 0;
   }
 
   .knowledge-takeaways__icon :global(svg) {
-    width: 1.1rem;
-    height: 1.1rem;
+    width: 1rem;
+    height: 1rem;
   }
 
   .knowledge-takeaways__text {
     color: var(--gn-ink);
     font-size: 1.05rem;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   @media (min-width: 768px) {

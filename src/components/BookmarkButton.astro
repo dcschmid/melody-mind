@@ -54,24 +54,15 @@ const {
   const updateButtonState = (button: HTMLButtonElement): void => {
     const slug = normalizeBookmarkSlug(button.dataset.bookmarkSlug || "");
     if (!slug) return;
-
     const label = button.querySelector<HTMLElement>("[data-bookmark-label]");
     const isSaved = Boolean(getBookmarkBySlug(slug));
-
     button.dataset.bookmarkState = isSaved ? "saved" : "empty";
     button.setAttribute("aria-pressed", isSaved ? "true" : "false");
-    button.setAttribute(
-      "aria-label",
-      isSaved ? "Remove this saved article" : "Save this article"
-    );
-    if (label) {
-      label.textContent = isSaved ? "Saved" : "Save article";
-    }
+    if (label) label.textContent = isSaved ? "Saved" : "Save article";
   };
 
   buttons.forEach((button) => {
     updateButtonState(button);
-
     button.addEventListener("click", () => {
       const slug = button.dataset.bookmarkSlug || "";
       const title = button.dataset.bookmarkTitle || "";
@@ -80,56 +71,48 @@ const {
         typeof category === "string" && isBookmarkCategory(category)
           ? category
           : DEFAULT_BOOKMARK_CATEGORY;
-      toggleBookmark({
-        articleSlug: slug,
-        articleTitle: title,
-        category: safeCategory,
-      });
+      toggleBookmark({ articleSlug: slug, articleTitle: title, category: safeCategory });
       updateButtonState(button);
     });
   });
 
-  window.addEventListener(BOOKMARK_CHANGE_EVENT, () => {
-    buttons.forEach((button) => updateButtonState(button));
-  });
+  window.addEventListener(BOOKMARK_CHANGE_EVENT, () =>
+    buttons.forEach(updateButtonState)
+  );
 </script>
 
 <style>
   .bookmark-button {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    min-height: 2.2rem;
-    padding: 0.35rem 0.85rem;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0.45rem 1rem;
     border-radius: 999px;
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 80%, transparent);
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
     color: var(--gn-ink);
     font-weight: 600;
     cursor: pointer;
-    transition:
-      transform 160ms ease,
-      border-color 160ms ease,
-      box-shadow 160ms ease;
+  }
+
+  .bookmark-button:hover {
+    background: var(--gn-bg);
+  }
+
+  .bookmark-button:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
   }
 
   .bookmark-button__icon {
     width: 1rem;
     height: 1rem;
-    color: var(--color-gn-amber-300);
+    color: var(--gn-accent);
   }
 
   .bookmark-button[data-bookmark-state="saved"] {
-    border-color: color-mix(in srgb, var(--gn-accent) 45%, transparent);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
-  }
-
-  .bookmark-button:hover {
-    transform: translateY(-2px);
-  }
-
-  .bookmark-button:focus-visible {
-    outline: 3px solid var(--color-gn-amber-300);
-    outline-offset: 3px;
+    border-color: var(--gn-accent);
+    background: var(--gn-bg);
   }
 </style>

@@ -39,7 +39,6 @@
     "astro-meta-tags": "^0.4.0",
     "astro-pagefind": "^1.8.5",
     "astro-robots-txt": "^1.0.0",
-    "canvas-confetti": "^1.9.4",
     "date-fns": "^4.1.0",
     "jimp": "^1.5.3",
     "jpeg-js": "^0.4.4",
@@ -50,7 +49,6 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
     "@eslint/js": "^10.0.1",
-    "@types/canvas-confetti": "^1.9.0",
     "@typescript-eslint/parser": "^8.56.0",
     "eslint": "^10.0.1",
     "eslint-plugin-astro": "^1.6.0",

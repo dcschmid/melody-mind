@@ -18,10 +18,7 @@
   const root = document.querySelector<HTMLElement>("[data-toast-root]");
 
   const dismissToast = (toastEl: HTMLElement): void => {
-    toastEl.dataset.state = "leaving";
-    window.setTimeout(() => {
-      toastEl.remove();
-    }, 220);
+    toastEl.remove();
   };
 
   const addToast = (detail: ToastDetail): void => {
@@ -35,7 +32,6 @@
 
     const toastEl = document.createElement("section");
     toastEl.className = `toast__item toast__item--${detail.variant}`;
-    toastEl.dataset.state = "entering";
     toastEl.setAttribute("role", detail.variant === "error" ? "alert" : "status");
 
     const messageEl = document.createElement("p");
@@ -73,10 +69,6 @@
     toastEl.append(messageEl, actionsEl);
     root.append(toastEl);
 
-    requestAnimationFrame(() => {
-      toastEl.dataset.state = "entered";
-    });
-
     window.setTimeout(
       () => {
         dismissToast(toastEl);
@@ -112,43 +104,24 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
-    border-radius: 0.95rem;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 72%, transparent);
-    background: color-mix(in srgb, var(--gn-bg) 90%, black 10%);
+    border-radius: 0.75rem;
+    border: 2px solid var(--gn-panel-border);
+    background: var(--gn-bg);
     color: var(--gn-ink);
-    box-shadow: var(--shadow-xl);
     padding: 0.75rem 0.9rem;
     pointer-events: auto;
-    transition:
-      transform var(--transition-fast),
-      opacity var(--transition-fast);
-  }
-
-  .toast__item[data-state="entering"] {
-    opacity: 0;
-    transform: translateY(10px) scale(0.98);
-  }
-
-  .toast__item[data-state="entered"] {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  .toast__item[data-state="leaving"] {
-    opacity: 0;
-    transform: translateY(8px) scale(0.98);
   }
 
   .toast__item--success {
-    border-color: color-mix(in srgb, var(--color-success-500) 58%, transparent);
+    border-color: var(--color-success-500);
   }
 
   .toast__item--warning {
-    border-color: color-mix(in srgb, var(--color-warning-500) 58%, transparent);
+    border-color: var(--color-warning-500);
   }
 
   .toast__item--error {
-    border-color: color-mix(in srgb, var(--color-error-500) 58%, transparent);
+    border-color: var(--color-error-500);
   }
 
   .toast__message {
@@ -160,15 +133,16 @@
   .toast__close {
     border: 0;
     border-radius: 999px;
-    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
+    background: var(--gn-bg-muted);
     color: var(--gn-ink);
     padding: 0.4rem 0.8rem;
     font: inherit;
     font-size: 1rem;
     cursor: pointer;
-    transition:
-      transform var(--transition-fast),
-      background-color var(--transition-fast);
+  }
+
+  .toast__close:hover {
+    background: var(--gn-bg);
   }
 
   .toast__actions {
@@ -178,34 +152,17 @@
   }
 
   .toast__action {
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 72%, transparent);
+    border: 1px solid var(--gn-panel-border);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--gn-accent) 28%, transparent);
+    background: var(--gn-accent);
     color: var(--gn-ink);
     padding: 0.4rem 0.8rem;
     font: inherit;
     font-size: 1rem;
     cursor: pointer;
-    transition:
-      transform var(--transition-fast),
-      background-color var(--transition-fast);
   }
 
   .toast__action:hover {
-    transform: translateY(-1px);
-    background: color-mix(in srgb, var(--gn-accent) 38%, transparent);
-  }
-
-  .toast__action:active {
-    transform: translateY(0);
-  }
-
-  .toast__close:hover {
-    transform: translateY(-1px);
-    background: color-mix(in srgb, var(--color-gn-amber-400) 22%, var(--gn-bg-muted));
-  }
-
-  .toast__close:active {
-    transform: translateY(0);
+    background: var(--gn-accent-strong);
   }
 </style>

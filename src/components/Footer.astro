@@ -15,17 +15,13 @@ import ThemeToggle from "@components/ThemeToggle.astro";
 
       <div class="site-footer__section">
         <p class="site-footer__title">Explore</p>
-        <nav
-          aria-label="Footer navigation"
-          class="site-footer__nav site-footer__nav--two-column"
-        >
+        <nav aria-label="Footer navigation" class="site-footer__nav">
           <a class="site-footer__link" href="/bookmarks">Saved articles</a>
           <a
             class="site-footer__link"
             href="https://podcasts.melody-mind.de"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Open Melody Mind podcast site (opens in a new tab)"
           >
             Podcasts
           </a>
@@ -39,20 +35,14 @@ import ThemeToggle from "@components/ThemeToggle.astro";
             class="site-footer__link"
             href="https://www.paypal.me/dcschmid"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Donate via PayPal (opens in a new tab)"
+            rel="noopener noreferrer">PayPal</a
           >
-            PayPal
-          </a>
           <a
             class="site-footer__link"
             href="https://www.buymeacoffee.com/dcschmid"
             target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Support on Buy Me a Coffee (opens in a new tab)"
+            rel="noopener noreferrer">Buy Me a Coffee</a
           >
-            Buy Me a Coffee
-          </a>
         </nav>
       </div>
 
@@ -60,8 +50,8 @@ import ThemeToggle from "@components/ThemeToggle.astro";
         <p class="site-footer__title">Legal</p>
         <nav aria-label="Legal navigation" class="site-footer__nav">
           <a class="site-footer__link" href="/imprint">Legal Notice</a>
-          <a class="site-footer__link" href="/privacy"> Privacy Policy </a>
-          <a class="site-footer__link" href="/ai-content"> AI Content </a>
+          <a class="site-footer__link" href="/privacy">Privacy Policy</a>
+          <a class="site-footer__link" href="/ai-content">AI Content</a>
         </nav>
       </div>
 
@@ -87,10 +77,10 @@ import ThemeToggle from "@components/ThemeToggle.astro";
         <div class="site-footer__status-list">
           <p class="site-footer__cookie-status" data-theme-status>Theme: system</p>
           <p class="site-footer__cookie-status" data-cookie-consent-status>
-            Cookies: waiting for your choice
+            Cookies: waiting
           </p>
           <p class="site-footer__cookie-status" data-reading-preferences-status>
-            Reading: default settings
+            Reading: default
           </p>
         </div>
       </div>
@@ -98,12 +88,10 @@ import ThemeToggle from "@components/ThemeToggle.astro";
 
     <div class="site-footer__meta">
       <p>© 2025 MelodyMind. All rights reserved.</p>
-      <p class="site-footer__meta-note">
-        Designed for accessibility and a consistent reading experience across devices.
-      </p>
     </div>
   </div>
 </footer>
+
 <script>
   const STORAGE_KEY = "cookie_consent";
   const READING_KEY = "readingPreferences";
@@ -120,7 +108,6 @@ import ThemeToggle from "@components/ThemeToggle.astro";
     essential: true;
     analytics: boolean;
   }
-
   interface ReadingPreference {
     fontSize: "small" | "medium" | "large";
     lineHeight: "compact" | "normal" | "relaxed";
@@ -141,41 +128,18 @@ import ThemeToggle from "@components/ThemeToggle.astro";
 
   const getResolvedTheme = (): "light" | "dark" => {
     const rootTheme = document.documentElement.getAttribute("data-theme");
-    if (isTheme(rootTheme)) {
-      return rootTheme;
-    }
-
+    if (isTheme(rootTheme)) return rootTheme;
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  };
-
-  const dntEnabled = () => {
-    const navigatorAny = window.navigator as Navigator & {
-      msDoNotTrack?: string;
-    };
-    const windowAny = window as Window & { doNotTrack?: string };
-    const navigatorValue = navigatorAny.doNotTrack;
-    const windowValue = windowAny.doNotTrack;
-    const legacyMsValue = navigatorAny.msDoNotTrack;
-
-    return navigatorValue === "1" || windowValue === "1" || legacyMsValue === "1";
   };
 
   const readConsent = (): ConsentPreference | null => {
     try {
       const raw = window.localStorage?.getItem(STORAGE_KEY);
-      if (!raw) {
-        return null;
-      }
-
+      if (!raw) return null;
       const parsed = JSON.parse(raw);
-      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean") {
+      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean")
         return null;
-      }
-
-      return {
-        essential: true,
-        analytics: parsed.analytics,
-      };
+      return { essential: true, analytics: parsed.analytics };
     } catch {
       return null;
     }
@@ -183,7 +147,6 @@ import ThemeToggle from "@components/ThemeToggle.astro";
 
   const isReadingFontSize = (value: unknown): value is ReadingPreference["fontSize"] =>
     value === "small" || value === "medium" || value === "large";
-
   const isReadingLineHeight = (
     value: unknown
   ): value is ReadingPreference["lineHeight"] =>
@@ -193,15 +156,12 @@ import ThemeToggle from "@components/ThemeToggle.astro";
     try {
       const raw = window.localStorage?.getItem(READING_KEY);
       if (!raw) return null;
-
       const parsed = JSON.parse(raw);
       if (
         !isReadingFontSize(parsed?.fontSize) ||
         !isReadingLineHeight(parsed?.lineHeight)
-      ) {
+      )
         return null;
-      }
-
       return {
         fontSize: parsed.fontSize,
         lineHeight: parsed.lineHeight,
@@ -213,186 +173,84 @@ import ThemeToggle from "@components/ThemeToggle.astro";
   };
 
   const renderStatus = (consent: ConsentPreference | null = readConsent()) => {
-    if (!statusElement) {
-      return;
-    }
-
+    if (!statusElement) return;
     if (!consent) {
-      statusElement.textContent = "Cookies: waiting for your choice";
+      statusElement.textContent = "Cookies: waiting";
       return;
     }
-
-    if (!consent.analytics) {
-      statusElement.textContent = "Cookies: essential only";
-      return;
-    }
-
-    if (dntEnabled()) {
-      statusElement.textContent = "Cookies: analytics consented (Do Not Track active)";
-      return;
-    }
-
-    statusElement.textContent = "Cookies: analytics allowed";
+    statusElement.textContent = consent.analytics
+      ? "Cookies: analytics allowed"
+      : "Cookies: essential only";
   };
-
-  renderStatus();
 
   const renderThemeStatus = () => {
-    if (!themeStatusElement) {
-      return;
-    }
-
+    if (!themeStatusElement) return;
     const storedTheme = getStoredTheme();
     const resolvedTheme = getResolvedTheme();
-    const source = storedTheme ? "manual" : "system";
-    themeStatusElement.textContent = `Theme status: ${resolvedTheme} (${source})`;
+    themeStatusElement.textContent = `Theme: ${resolvedTheme} (${storedTheme ? "manual" : "system"})`;
   };
-
-  renderThemeStatus();
 
   const renderReadingStatus = (
     prefs: ReadingPreference | null = readReadingPreferences()
   ) => {
-    if (!readingStatusElement) {
-      return;
-    }
-
+    if (!readingStatusElement) return;
     if (!prefs) {
-      readingStatusElement.textContent = "Reading: default settings";
+      readingStatusElement.textContent = "Reading: default";
       return;
     }
-
     const size =
       prefs.fontSize === "small" ? "A-" : prefs.fontSize === "large" ? "A+" : "A";
-    const spacing =
-      prefs.lineHeight === "compact"
-        ? "compact"
-        : prefs.lineHeight === "relaxed"
-          ? "relaxed"
-          : "normal";
-    const mode = prefs.readingMode ? "focus on" : "focus off";
-
-    readingStatusElement.textContent = `Reading status: ${size}, ${spacing}, ${mode}`;
+    readingStatusElement.textContent = `Reading: ${size}, ${prefs.lineHeight}`;
   };
 
+  renderStatus();
+  renderThemeStatus();
   renderReadingStatus();
 
-  if (trigger) {
-    trigger.addEventListener("click", () => {
-      window.dispatchEvent(new CustomEvent("cookie-consent:open"));
-    });
-  }
+  trigger?.addEventListener("click", () =>
+    window.dispatchEvent(new CustomEvent("cookie-consent:open"))
+  );
+  readingTrigger?.addEventListener("click", () =>
+    window.dispatchEvent(new CustomEvent("reading-settings:open"))
+  );
 
-  if (readingTrigger) {
-    const hasReadingControls = Boolean(document.querySelector(".reading-controls"));
-
-    if (!hasReadingControls) {
-      readingTrigger.setAttribute("hidden", "true");
-      readingTrigger.setAttribute("aria-hidden", "true");
-      readingTrigger.setAttribute("tabindex", "-1");
-    }
-
-    readingTrigger.addEventListener("click", () => {
-      if (!hasReadingControls) {
-        return;
-      }
-
-      window.dispatchEvent(new CustomEvent("reading-settings:open"));
-    });
-  }
-
-  window.addEventListener("cookie-consent:change", (event) => {
-    const detail = (event as CustomEvent<{ consent?: unknown }>).detail;
-    const consent = detail && typeof detail === "object" ? detail.consent : null;
-
-    if (
-      consent &&
-      typeof consent === "object" &&
-      (consent as ConsentPreference).essential === true &&
-      typeof (consent as ConsentPreference).analytics === "boolean"
-    ) {
-      renderStatus(consent as ConsentPreference);
-      return;
-    }
-
-    renderStatus(readConsent());
-  });
-
-  window.addEventListener("reading-preferences:change", (event) => {
-    const detail = (event as CustomEvent<{ preferences?: unknown }>).detail;
-    const preferences =
-      detail && typeof detail === "object"
-        ? detail.preferences
-        : readReadingPreferences();
-
-    if (
-      preferences &&
-      typeof preferences === "object" &&
-      isReadingFontSize((preferences as ReadingPreference).fontSize) &&
-      isReadingLineHeight((preferences as ReadingPreference).lineHeight)
-    ) {
-      renderReadingStatus(preferences as ReadingPreference);
-      return;
-    }
-
-    renderReadingStatus(readReadingPreferences());
-  });
-
-  window.addEventListener("theme:change", () => {
-    renderThemeStatus();
-  });
+  window.addEventListener("cookie-consent:change", () => renderStatus());
+  window.addEventListener("reading-preferences:change", () => renderReadingStatus());
+  window.addEventListener("theme:change", () => renderThemeStatus());
 </script>
+
 <style>
-  /* WCAG AAA: Footer with enhanced accessibility */
   .site-footer {
     margin-top: 4rem;
-    border-top: 2px solid var(--gn-panel-border);
-    background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
-    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg);
   }
 
-  /* Fluid padding for better mobile space usage */
   .site-footer__container {
     max-width: 72rem;
     margin: 0 auto;
-    padding: 2rem 0.75rem;
+    padding: 2rem 1rem;
     color: var(--gn-ink);
     display: flex;
     flex-direction: column;
-    gap: 1.75rem;
+    gap: 2rem;
   }
 
-  /* Fluid responsive padding */
-  @media (min-width: 640px) {
-    .site-footer__container {
-      padding: 2.5rem 1.25rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .site-footer__container {
-      padding: 3rem 2rem;
-    }
-  }
-
-  /* Responsive grid with better mobile layout */
   .site-footer__grid {
     display: grid;
     gap: 1.5rem;
-    /* Mobile: Better space usage with dense grid */
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 640px) {
     .site-footer__grid {
-      gap: 2rem;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   @media (min-width: 1024px) {
     .site-footer__grid {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 
@@ -402,88 +260,50 @@ import ThemeToggle from "@components/ThemeToggle.astro";
     gap: 0.75rem;
   }
 
-  /* WCAG AAA: Improved title contrast */
   .site-footer__title {
-    font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--gn-accent);
   }
 
-  /* WCAG AAA: Improved text contrast */
   .site-footer__text {
-    font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
-    line-height: 1.65;
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--gn-ink-muted);
   }
 
   .site-footer__nav {
     display: grid;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
-  @media (min-width: 640px) {
-    .site-footer__nav--two-column {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .site-footer__nav--two-column {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  /* WCAG AAA: Enhanced link with better touch targets */
   .site-footer__link {
-    font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+    font-size: 0.95rem;
     color: var(--gn-ink-muted);
     text-decoration: none;
-    border-radius: 0.35rem;
-    padding: 0.3rem 0.4rem;
-    /* WCAG AAA: 44px minimum touch target */
+    padding: 0.35rem 0;
     min-height: 44px;
     display: flex;
     align-items: center;
-    transition:
-      color var(--transition-fast),
-      background-color var(--transition-fast);
   }
 
   .site-footer__link:hover {
-    color: var(--gn-ink);
-    background-color: color-mix(in srgb, var(--gn-accent) 10%, transparent);
+    color: var(--gn-accent);
   }
 
-  /* WCAG AAA: Enhanced focus state */
   .site-footer__link:focus-visible {
-    outline: var(--focus-ring-width) var(--focus-ring-style) var(--gn-accent);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--shadow-glow);
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--gn-accent) 35%, transparent);
   }
 
   .site-footer__meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding-top: 1rem;
+    padding-top: 1.25rem;
     border-top: 1px solid var(--gn-panel-border);
-    font-size: clamp(0.85rem, 0.8rem + 0.25vw, 1rem);
+    font-size: 0.9rem;
     color: var(--gn-ink-muted);
-  }
-
-  @media (min-width: 640px) {
-    .site-footer__meta {
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
-  .site-footer__meta-note {
-    font-size: clamp(0.85rem, 0.8rem + 0.25vw, 0.9rem);
-    color: color-mix(in srgb, var(--gn-ink-muted) 80%, transparent);
   }
 
   .site-footer__cookie-button {
@@ -491,21 +311,21 @@ import ThemeToggle from "@components/ThemeToggle.astro";
     border: 0;
     text-align: left;
     cursor: pointer;
-    width: fit-content;
     font-family: inherit;
   }
 
   .site-footer__cookie-status {
     margin: 0;
-    font-size: clamp(0.8rem, 0.75rem + 0.25vw, 0.9rem);
-    color: color-mix(in srgb, var(--gn-ink-muted) 86%, transparent);
+    font-size: 0.75rem;
+    color: var(--gn-ink-muted);
+    font-family: var(--font-mono);
   }
 
   .site-footer__status-list {
     display: grid;
-    gap: 0.25rem;
-    margin-top: 0.45rem;
-    padding-top: 0.4rem;
-    border-top: 1px solid color-mix(in srgb, var(--gn-panel-border) 50%, transparent);
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--gn-panel-border);
   }
 </style>

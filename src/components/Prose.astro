@@ -3,26 +3,12 @@
  * Prose Component - BEM Prose Wrapper
  *
  * A reusable component that wraps rendered Markdown content with BEM-based prose styles.
- *
- * @component
- * @example
- * ```astro
- * <Prose>
- *   <Content />
- * </Prose>
- * ```
  */
-
 export interface Props {
-  /** Additional CSS classes for customization */
   className?: string;
-  /** Raw HTML to render (if provided, rendered via set:html) */
   html?: string;
-  /** Size variant: sm | md | lg | xl */
   size?: "sm" | "md" | "lg" | "xl";
-  /** Invert colors (useful for dark mode) */
   invert?: boolean;
-  /** When true, keeps max width none (full width). Otherwise the component will use prose default max-width */
   fullWidth?: boolean;
 }
 
@@ -34,22 +20,16 @@ const {
   fullWidth = true,
 } = Astro.props as Props;
 
-// Sanitize HTML string: remove visible literal "\n" sequences and trim whitespace.
 let sanitizedHtml =
   typeof html === "string" ? html.replace(/\\n/g, "\n").trim() : undefined;
 
-// Remove trailing triple backticks (```) that might have been appended accidentally
 if (typeof sanitizedHtml === "string") {
   sanitizedHtml = sanitizedHtml.replace(/\n?\s*```\s*$/m, "");
 }
 
-// Aggressive removal: remove any remaining triple backticks, escaped backticks, or HTML-encoded backticks
 if (typeof sanitizedHtml === "string") {
-  // Remove occurrences of ``` anywhere
   sanitizedHtml = sanitizedHtml.replace(/```/g, "");
-  // Remove escaped backticks like \`\`\`
   sanitizedHtml = sanitizedHtml.replace(/\\`/g, "");
-  // Remove HTML entity for backtick if present
   sanitizedHtml = sanitizedHtml.replace(/&#96;|&#x60;|&grave;/g, "");
   sanitizedHtml = sanitizedHtml.trim();
 }
@@ -91,10 +71,7 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     hyphens: auto;
   }
 
-  .prose--invert {
-    color: var(--gn-ink-muted);
-  }
-
+  .prose--invert,
   .prose--standard {
     color: var(--gn-ink-muted);
   }
@@ -153,39 +130,21 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     margin: 0.4rem 0;
   }
 
+  /* WCAG AAA: Links with underline for visibility */
   .prose a {
-    color: var(--prose-links, var(--color-gn-amber-300));
+    color: var(--gn-accent);
     font-weight: 550;
     text-decoration-line: underline;
     text-decoration-thickness: 0.1em;
     text-underline-offset: 0.16em;
-    text-decoration-color: color-mix(
-      in srgb,
-      var(--prose-links, var(--color-gn-amber-300)) 55%,
-      transparent
-    );
-    border-radius: 0.2rem;
-    box-shadow: inset 0 -0.18em 0
-      color-mix(in srgb, var(--prose-links, var(--color-gn-amber-300)) 14%, transparent);
-    transition:
-      color var(--transition-fast),
-      text-decoration-color var(--transition-fast),
-      box-shadow var(--transition-fast);
   }
 
   .prose a:hover {
-    color: color-mix(in srgb, var(--prose-links, var(--color-gn-amber-300)) 82%, white);
-    text-decoration-color: color-mix(
-      in srgb,
-      var(--prose-links, var(--color-gn-amber-300)) 75%,
-      transparent
-    );
-    box-shadow: inset 0 -0.28em 0
-      color-mix(in srgb, var(--prose-links, var(--color-gn-amber-300)) 26%, transparent);
+    text-decoration-thickness: 0.15em;
   }
 
   .prose a:focus-visible {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 3px solid var(--gn-accent);
     outline-offset: 2px;
   }
 
@@ -224,7 +183,6 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     aspect-ratio: 3 / 2;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
     background: var(--gn-bg);
     margin: 1.5rem auto;
   }
@@ -243,7 +201,6 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     object-fit: cover;
     border-radius: 0;
     border: 0;
-    box-shadow: none;
     background: transparent;
     margin: 0;
   }
@@ -253,6 +210,7 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     scroll-margin-top: 6rem;
   }
 
+  /* Heading anchor links */
   .prose :is(h2, h3) .prose__heading-anchor {
     display: inline-flex;
     align-items: center;
@@ -265,16 +223,9 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     color: transparent;
     text-decoration: none;
     border-radius: 0.35rem;
-    border: 1px solid color-mix(in srgb, var(--link-default) 25%, transparent);
-    background: color-mix(in srgb, var(--link-default) 12%, transparent);
+    border: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg-muted);
     opacity: 0;
-    transform: translateY(2px);
-    transition:
-      opacity 150ms ease,
-      transform 150ms ease,
-      background 150ms ease,
-      color 150ms ease,
-      border-color 150ms ease;
   }
 
   .prose :is(h2, h3) .prose__heading-anchor::before {
@@ -290,21 +241,11 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
   .prose :is(h2, h3):hover .prose__heading-anchor,
   .prose :is(h2, h3):focus-within .prose__heading-anchor {
     opacity: 1;
-    transform: translateY(0);
-    color: transparent;
-    border-color: color-mix(in srgb, var(--link-hover) 55%, transparent);
-    background: color-mix(in srgb, var(--link-hover) 18%, transparent);
   }
 
   .prose :is(h2, h3) .prose__heading-anchor:focus-visible {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 2px solid var(--gn-accent);
     outline-offset: 2px;
-    border-radius: 4px;
-  }
-
-  .prose :is(h2, h3):hover .prose__heading-anchor::before,
-  .prose :is(h2, h3):focus-within .prose__heading-anchor::before {
-    background-color: var(--link-hover);
   }
 
   .prose .subsection-figure {
@@ -328,7 +269,6 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
     background: var(--gn-bg);
   }
 
@@ -338,7 +278,6 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     display: block;
     margin: 0;
     border: 0;
-    box-shadow: none;
     background: transparent;
   }
 
@@ -346,15 +285,10 @@ const classes = [...baseClasses, extra].filter(Boolean).join(" ");
     object-fit: cover;
   }
 
-  .prose .subsection-figure__media picture img {
-    border-radius: 0;
-  }
-
   .prose .subsection-figure figcaption {
     color: var(--gn-ink-muted);
     font-size: 1.125rem;
     line-height: 1.55;
-    letter-spacing: 0.01em;
   }
 
   @media (min-width: 1024px) {

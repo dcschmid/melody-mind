@@ -1,27 +1,20 @@
 ---
 /**
- * TaxonomyCard Component - Display a taxonomy section
+ * TaxonomyCard Component - Minimal & Accessible
  *
- * Used on the homepage to display the 21 main taxonomy sections.
+ * Used on the homepage to display taxonomy sections.
+ * WCAG AAA compliant with minimal styling.
  */
 import { Image } from "astro:assets";
 
 interface Props {
-  /** Section ID, e.g. "time-change-evolution" */
   id: string;
-  /** Section title */
   title: string;
-  /** Optional description */
   description?: string;
-  /** Image path */
   image?: string;
-  /** Number of subsections */
   subsectionCount: number;
-  /** Number of articles in this section */
   articleCount: number;
-  /** Link URL */
   href: string;
-  /** Index for animation delay */
   index?: number;
 }
 
@@ -56,9 +49,7 @@ const cardId = `taxonomy-card-${id}`;
         width="640"
         height="360"
       />
-      <div class="taxonomy-card__overlay" aria-hidden="true"></div>
       <div class="taxonomy-card__badge">
-        <span class="taxonomy-card__badge-dot"></span>
         {articleCount > 0 ? `${articleCount} articles` : `${subsectionCount} topics`}
       </div>
     </div>
@@ -70,59 +61,18 @@ const cardId = `taxonomy-card-${id}`;
 </article>
 
 <style>
-  /* Card Container with CSS Container Query support */
   .taxonomy-card {
     container-type: inline-size;
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* Modern, rounded corners */
-    border-radius: 1.5rem;
-    /* Glassmorphism: Semi-transparent with blur */
-    background: color-mix(in srgb, var(--gn-bg-muted) 75%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 2px solid color-mix(in srgb, var(--gn-panel-border) 85%, transparent);
-    /* Modern shadow system */
-    box-shadow: var(--shadow-xl);
+    border-radius: 1rem;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
     overflow: hidden;
-    /* Performance: Skip rendering off-screen content */
     content-visibility: auto;
     contain-intrinsic-size: 320px;
-    transition:
-      transform var(--transition-base),
-      box-shadow var(--transition-base),
-      border-color var(--transition-base);
-  }
-
-  /* Modern inner border effect */
-  .taxonomy-card::after {
-    content: "";
-    position: absolute;
-    inset: 6px;
-    border: 1px solid color-mix(in srgb, var(--gn-panel-inner) 50%, transparent);
-    border-radius: 1.25rem;
-    pointer-events: none;
-  }
-
-  /* WCAG AAA: Enhanced hover with reduced motion */
-  .taxonomy-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: var(--shadow-2xl);
-    border-color: color-mix(in srgb, var(--gn-accent) 35%, var(--gn-panel-border));
-  }
-
-  /* Active state for touch feedback */
-  .taxonomy-card:active {
-    transform: translateY(-2px) scale(0.99);
-    transition-duration: 50ms;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .taxonomy-card:hover {
-      transform: none;
-    }
   }
 
   .taxonomy-card__link {
@@ -133,11 +83,14 @@ const cardId = `taxonomy-card-${id}`;
     color: inherit;
   }
 
-  /* WCAG AAA: Enhanced focus state */
+  /* WCAG AAA: Focus ring directly on card border */
   .taxonomy-card__link:focus-visible {
-    outline: var(--focus-ring-width) var(--focus-ring-style) var(--gn-accent);
-    outline-offset: var(--focus-ring-offset);
-    box-shadow: var(--shadow-glow);
+    outline: none;
+  }
+
+  .taxonomy-card:has(.taxonomy-card__link:focus-visible) {
+    border-color: var(--gn-accent);
+    box-shadow: inset 0 0 0 3px var(--gn-accent);
   }
 
   .taxonomy-card__media {
@@ -151,23 +104,8 @@ const cardId = `taxonomy-card-${id}`;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 400ms ease;
   }
 
-  /* Hover zoom with reduced motion support */
-  @media (prefers-reduced-motion: no-preference) {
-    .taxonomy-card:hover .taxonomy-card__image,
-    .taxonomy-card__link:focus-visible .taxonomy-card__image {
-      transform: scale(1.03);
-    }
-  }
-
-  .taxonomy-card__overlay {
-    position: absolute;
-    inset: 0;
-  }
-
-  /* WCAG AAA: Better badge contrast */
   .taxonomy-card__badge {
     position: absolute;
     bottom: 1rem;
@@ -175,27 +113,17 @@ const cardId = `taxonomy-card-${id}`;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.4rem 0.9rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 999px;
-    border: 2px solid var(--gn-panel-border);
-    background: color-mix(in srgb, var(--gn-bg) 92%, transparent);
-    backdrop-filter: blur(8px);
-    font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-    letter-spacing: 0.05em;
+    border: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     font-weight: 700;
     color: var(--gn-ink);
-    box-shadow: var(--shadow-md);
   }
 
-  .taxonomy-card__badge-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999px;
-    background: var(--color-gn-amber-400);
-  }
-
-  /* WCAG AAA: Better text contrast */
   .taxonomy-card__body {
     display: flex;
     flex-direction: column;
@@ -204,19 +132,17 @@ const cardId = `taxonomy-card-${id}`;
     flex: 1;
   }
 
-  /* Fluid title sizing */
   .taxonomy-card__title {
-    font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+    font-size: 1.2rem;
     font-weight: 600;
     margin: 0;
     color: var(--gn-ink);
     line-height: 1.4;
   }
 
-  /* WCAG AAA: Improved description contrast */
   .taxonomy-card__description {
     margin: 0;
-    font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1.05rem);
+    font-size: 0.95rem;
     line-height: 1.65;
     color: var(--gn-ink-muted);
     display: -webkit-box;
@@ -225,7 +151,6 @@ const cardId = `taxonomy-card-${id}`;
     overflow: hidden;
   }
 
-  /* Mobile optimization - better spacing on small screens */
   @container (max-width: 480px) {
     .taxonomy-card__body {
       padding: 1rem;
@@ -235,16 +160,16 @@ const cardId = `taxonomy-card-${id}`;
     .taxonomy-card__badge {
       bottom: 0.75rem;
       right: 0.75rem;
-      padding: 0.3rem 0.6rem;
+      padding: 0.3rem 0.7rem;
       font-size: 0.7rem;
     }
 
     .taxonomy-card__title {
-      font-size: clamp(1rem, 0.9rem + 0.2vw, 1.125rem);
+      font-size: 1.1rem;
     }
 
     .taxonomy-card__description {
-      font-size: clamp(0.85rem, 0.8rem + 0.15vw, 0.9rem);
+      font-size: 0.9rem;
     }
   }
 </style>
