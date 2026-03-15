@@ -6,8 +6,7 @@ import robotsTxt from "astro-robots-txt";
 import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import pagefind from "astro-pagefind";
-
-import playformCompress from "@playform/compress";
+import minify from "astro-minify-html-swc";
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +27,7 @@ export default defineConfig({
     }),
     sitemap(),
     metaTags(),
-    playformCompress({ Image: false }),
+    minify(),
   ],
 
   i18n: {
@@ -55,6 +54,9 @@ export default defineConfig({
     optimizeDeps: {
       include: ["sharp"],
       exclude: ["@fontsource/atkinson-hyperlegible"],
+    },
+    css: {
+      transformer: "lightningcss",
     },
   },
 

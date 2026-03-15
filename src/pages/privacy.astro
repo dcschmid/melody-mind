@@ -8,6 +8,7 @@ const title = "Privacy Policy";
 const description =
   "How we process personal data on Melody Mind Knowledge, including analytics with Fathom and AI-generated media details.";
 const currentUrl = resolvePageUrl(Astro.site, "/privacy");
+const lastUpdated = "15 March 2026";
 
 const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
@@ -27,9 +28,8 @@ const pageSeo = buildPageSeo({
   maxDescription: 160,
   image: "/knowledge.png",
   imageAlt: "Privacy Policy",
-  publishDate: new Date(),
-  modifiedDate: new Date(),
-  index: true,
+  modifiedDate: new Date(lastUpdated),
+  index: false,
   follow: true,
   autoSocialImage: false,
   authorName: "Melody Mind",
@@ -132,7 +132,7 @@ const pageSeo = buildPageSeo({
         <h2 class="legal-page__section-title">8. Updates</h2>
         <p class="legal-page__text">
           We may update this policy to reflect legal or technical changes. Last updated:
-          {new Date().toLocaleDateString("en-GB")}.
+          {lastUpdated}.
         </p>
       </section>
     </div>

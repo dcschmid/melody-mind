@@ -8,12 +8,13 @@
 import { VERSIONED_KEYS } from "@constants/storageVersions";
 import { isServer } from "@utils/environment";
 
-const MAX_ENTRIES = 3;
+const MAX_ENTRIES = 5;
 
 interface RecentReadEntry {
   slug: string;
   title: string;
   updatedAt: string;
+  image?: string;
 }
 
 export function initRecentReads(): void {
@@ -24,6 +25,7 @@ export function initRecentReads(): void {
     slug: dataEl.dataset.slug || "",
     title: dataEl.dataset.title || "",
     updatedAt: dataEl.dataset.updatedAt || "",
+    image: dataEl.dataset.image || "",
   };
 
   if (!recentEntry.slug || !recentEntry.title) return;

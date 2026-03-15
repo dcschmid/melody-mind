@@ -4,6 +4,7 @@ interface BookmarkEntryMeta {
   title: string;
   description?: string;
   updatedAt?: string;
+  image?: string;
 }
 
 interface Props {
@@ -121,6 +122,7 @@ const { entries = [] } = Astro.props;
     title: string;
     description?: string;
     updatedAt?: string;
+    image?: string;
   }
 
   const createUndoToken = (): string => {
@@ -261,6 +263,25 @@ const { entries = [] } = Astro.props;
 
           const item = document.createElement("li");
           item.className = "bookmark-manager__item";
+
+          if (articleMeta?.image) {
+            const mediaLink = document.createElement("a");
+            mediaLink.className = "bookmark-manager__media";
+            mediaLink.href = `/knowledge/${bookmark.articleSlug}`;
+            mediaLink.setAttribute(
+              "aria-label",
+              bookmark.articleTitle || articleMeta?.title || bookmark.articleSlug
+            );
+
+            const image = document.createElement("img");
+            image.className = "bookmark-manager__image";
+            image.src = articleMeta.image;
+            image.alt = `${bookmark.articleTitle || articleMeta?.title || bookmark.articleSlug} cover`;
+            image.loading = "lazy";
+
+            mediaLink.append(image);
+            item.append(mediaLink);
+          }
 
           const content = document.createElement("div");
           content.className = "bookmark-manager__item-content";
@@ -670,11 +691,11 @@ const { entries = [] } = Astro.props;
   .bookmark-manager__item {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.9rem;
     border-radius: 0.5rem;
     border: 1px solid var(--gn-panel-border);
     background: var(--gn-bg);
-    padding: 1rem 1rem 1.15rem;
+    padding: 0.9rem;
   }
 
   .bookmark-manager__item:hover {
@@ -685,6 +706,22 @@ const { entries = [] } = Astro.props;
     display: none;
   }
 
+  .bookmark-manager__media {
+    display: block;
+    aspect-ratio: 3 / 2;
+    border-radius: 0.65rem;
+    overflow: hidden;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+  }
+
+  .bookmark-manager__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .bookmark-manager__item-content {
     display: flex;
     flex-direction: column;
@@ -692,20 +729,20 @@ const { entries = [] } = Astro.props;
   }
 
   .bookmark-manager__link {
-    font-size: 1.14rem;
-    color: var(--gn-accent);
+    font-size: 1.2rem;
+    color: var(--gn-ink);
     text-decoration: none;
     font-weight: 700;
-    line-height: 1.35;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
   }
 
   .bookmark-manager__link:visited {
-    color: var(--gn-accent);
+    color: var(--gn-ink);
   }
 
   .bookmark-manager__link:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    color: var(--gn-accent);
   }
 
   .bookmark-manager__description,
@@ -715,7 +752,8 @@ const { entries = [] } = Astro.props;
   }
 
   .bookmark-manager__description {
-    line-height: 1.45;
+    line-height: 1.6;
+    font-size: 0.98rem;
   }
 
   .bookmark-manager__meta {

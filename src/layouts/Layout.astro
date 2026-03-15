@@ -64,6 +64,8 @@ import "../styles/print.css";
 // 4. Utility imports
 import { getLangFromUrl } from "@utils/i18n";
 import type { StructuredData } from "@utils/seo/buildPageSeo";
+import { buildOrganizationSchema, buildWebSiteSchema } from "@utils/seo/seoSchema";
+import { resolveBaseUrl } from "@utils/siteUrls";
 
 interface Props {
   /**
@@ -304,6 +306,32 @@ const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
 const mergedStructuredData: StructuredData[] = constructedPageSeo.structuredData;
 const robotsTag = constructedPageSeo.robots;
+const siteUrl = resolveBaseUrl(Astro.site);
+const globalStructuredData: StructuredData[] = [];
+
+if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
+  globalStructuredData.push(
+    buildOrganizationSchema({
+      siteUrl,
+      siteName: "Melody Mind",
+      description:
+        "Music knowledge platform for genres, timelines, and guided listening.",
+    })
+  );
+}
+
+if (!mergedStructuredData.some((entry) => entry["@type"] === "WebSite")) {
+  globalStructuredData.push(
+    buildWebSiteSchema({
+      siteUrl,
+      siteName: "Melody Mind",
+      description:
+        "Music knowledge platform for genres, timelines, and guided listening.",
+    })
+  );
+}
+
+const finalStructuredData = [...globalStructuredData, ...mergedStructuredData];
 
 const lang = getLangFromUrl(Astro.url);
 // Derive BCP47 language and map to common OG locale fallback (en -> en_US etc.)
@@ -485,7 +513,7 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       {prevUrl}
       {nextUrl}
       {disableAlternateLanguages}
-      structuredDataExtra={mergedStructuredData}
+      structuredDataExtra={finalStructuredData}
       authorName={authorName || constructedPageSeo.authorName}
       imageAlt={constructedPageSeo.imageAlt}
     />
@@ -597,10 +625,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --color-primary-700: #2b7bab;
     --color-primary-800: #215d83;
     --color-primary-900: #1a4765;
-    --color-emerald-400: #34d399;
-    --color-emerald-500: #10b981;
-    --color-sky-400: #38bdf8;
-    --color-sky-500: #0ea5e9;
     --color-success-400: #4ade80;
     --color-success-500: #22c55e;
     --color-warning-400: #fbbf24;
@@ -625,8 +649,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --color-gn-amber-400: var(--theme-color-gn-amber-400, #5fc7ff);
     --color-gn-amber-500: #4bb6f0;
     --color-gn-amber-600: #369ad1;
-    --color-gn-rust-400: #8fe7ff;
-    --color-gn-rust-500: #6ed8ff;
     --color-gn-teal-300: #7fd2e8;
     --color-gn-teal-400: #5dbfdc;
     --color-gn-teal-500: #3ea5c2;
@@ -638,8 +660,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
     --spacing-3xl: 4rem;
-    --spacing-4xl: 5rem;
-    --spacing-5xl: 6rem;
     --font-sans:
       "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", monospace;
@@ -682,9 +702,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --shadow-lg: 0 8px 16px rgba(0 0 0 / 0.12), 0 4px 8px rgba(0 0 0 / 0.06);
     --shadow-xl: 0 16px 32px rgba(0 0 0 / 0.16), 0 8px 16px rgba(0 0 0 / 0.08);
     --shadow-2xl: 0 24px 48px rgba(0 0 0 / 0.24), 0 12px 24px rgba(0 0 0 / 0.12);
-    --shadow-3xl: 0 32px 64px rgba(0 0 0 / 0.32), 0 16px 32px rgba(0 0 0 / 0.16);
-    /* Glow shadow for interactive elements */
-    --shadow-glow: 0 0 20px rgba(123, 214, 255, 0.25), 0 0 40px rgba(123, 214, 255, 0.15);
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -765,8 +782,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --btn-secondary-hover: var(--theme-btn-secondary-hover, rgba(123, 214, 255, 0.08));
     --card-bg: var(--theme-card-bg, var(--color-gn-soot-800));
     --card-border: var(--border-primary);
-    --card-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
-    --card-shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.55);
     --prose-body: var(--theme-prose-body, var(--color-gn-parchment-100));
     --prose-headings: var(--theme-prose-headings, var(--color-gn-parchment-50));
     --prose-links: var(--color-gn-amber-300);
@@ -792,8 +807,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --gn-ink-muted: var(--theme-gn-ink-muted, var(--color-gn-parchment-200));
     --gn-accent: var(--theme-gn-accent, var(--color-gn-amber-400));
     --gn-accent-strong: var(--theme-gn-accent-strong, var(--color-gn-amber-300));
-    /* WCAG AAA: Higher contrast accent colors (7:1 ratio) */
-    --gn-accent-wcag: #a8e5ff; /* Light mode - deeper blue for 7:1 contrast */
     --gn-accent-teal: var(--color-gn-teal-400);
     --gn-panel-border: var(--theme-gn-panel-border, var(--color-gn-soot-600));
     --gn-panel-inner: var(
@@ -805,13 +818,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       4px 4px 0 rgba(0, 0, 0, 0.7),
       0 20px 44px rgba(0, 0, 0, 0.55)
     );
-    --gn-halftone: var(
-      --theme-gn-halftone,
-      radial-gradient(circle at 20% 20%, rgba(123, 214, 255, 0.05), transparent 24%),
-      radial-gradient(circle at 80% 10%, rgba(95, 199, 255, 0.06), transparent 26%),
-      radial-gradient(circle at 60% 70%, rgba(123, 214, 255, 0.04), transparent 25%)
-    );
-    --gn-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E");
     --surface-1: var(--theme-surface-1, var(--color-gn-soot-950));
     --surface-2: var(--theme-surface-2, var(--color-gn-soot-900));
     --surface-3: var(

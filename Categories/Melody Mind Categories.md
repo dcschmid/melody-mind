@@ -32,7 +32,7 @@
 - Post-Punk → Industrial → EBM → Industrial Metal (done)
 - Ska → Rocksteady → Reggae → Dub → Dancehall → Global Bass (done)
 - Pop → Teen Pop → Synth Pop → Global Pop → Streaming Pop (done)
-- Pop (East Asia) → J-Pop / K-Pop → Global Pop
+- Pop (East Asia) → J-Pop / K-Pop → Global Pop (done)
 - Electronic → Techno / House → Trance / IDM → EDM → Experimental & Hybrid Forms
 - Ambient → Downtempo → Chillwave → Lo-Fi
 - Country → Honky-Tonk → Outlaw → Americana → Alt-Country / Indie Country

@@ -4,6 +4,10 @@ import KnowledgeCard from "@components/KnowledgeCard.astro";
 import BackToTop from "@components/Shared/BackToTop.astro";
 import PageShell from "@components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import {
+  buildCollectionPageSchema,
+  buildKnowledgeArticlesItemList,
+} from "@utils/seo/seoSchema";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
@@ -82,6 +86,7 @@ const seoBreadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: category.name, url: currentUrl },
 ];
+const articleItemListId = `${currentUrl}#article-itemlist`;
 
 const breadcrumbSchema = seoBreadcrumbs.length
   ? {
@@ -96,43 +101,41 @@ const breadcrumbSchema = seoBreadcrumbs.length
     }
   : undefined;
 
-const itemListSchema = filteredArticles.length
-  ? {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      name: `${category.name} articles`,
-      numberOfItems: filteredArticles.length,
-      itemListElement: filteredArticles.map((article, index: number) => {
-        const articleSlug = "slug" in article ? article.slug : article.id;
-        return {
-          "@type": "ListItem",
-          position: index + 1,
-          item: {
-            "@type": "Article",
-            name: article.data.title,
-            description: article.data.description,
-            url: `${baseUrl}/knowledge/${articleSlug}`,
-            dateCreated: article.data.createdAt
-              ? new Date(String(article.data.createdAt)).toISOString()
-              : undefined,
-            dateModified: article.data.updatedAt
-              ? new Date(String(article.data.updatedAt)).toISOString()
-              : undefined,
-            keywords: article.data.keywords?.join(", "),
-            image: article.data.image,
-          },
-        };
-      }),
-    }
-  : undefined;
+const itemListSchema = buildKnowledgeArticlesItemList({
+  articles: filteredArticles.map((article: any) => ({
+    slug: "slug" in article ? article.slug : article.id,
+    data: {
+      title: article.data.title,
+      description: article.data.description,
+      createdAt: article.data.createdAt,
+      updatedAt: article.data.updatedAt,
+      keywords: article.data.keywords,
+      image: article.data.image,
+    },
+  })),
+  baseUrl,
+  lang: "en",
+  listName: `${category.name} articles`,
+  itemListId: articleItemListId,
+});
+const collectionPageSchema = buildCollectionPageSchema({
+  url: currentUrl,
+  name: category.name,
+  description: category.description,
+  lang: "en",
+  image: `${baseUrl}${category.image}`,
+  mainEntityId: articleItemListId,
+});
 
 const pageSeo = buildPageSeo({
-  title: `${category.name} | Categories`,
+  title: `${category.name} Guides`,
   description: category.description,
   url: currentUrl,
   contentKind: "generic",
   breadcrumbs: seoBreadcrumbs,
-  structuredData: [breadcrumbSchema, itemListSchema].filter(Boolean) as StructuredData[],
+  structuredData: [collectionPageSchema, breadcrumbSchema, itemListSchema].filter(
+    Boolean
+  ) as StructuredData[],
   enrichedParts: [category.name, category.description],
   fallbackKeywords: metaKeywords
     .split(",")

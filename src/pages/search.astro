@@ -8,7 +8,7 @@ import { resolvePageUrl } from "@utils/siteUrls";
 
 export const prerender = true;
 
-const title = "Search";
+const title = "Search Melody Mind";
 const description =
   "Search Melody Mind articles, category pages, and music history guides.";
 const currentUrl = resolvePageUrl(Astro.site, "/search");
@@ -24,9 +24,7 @@ const pageSeo = buildPageSeo({
   maxDescription: 155,
   image: "/melody-mind.jpg",
   imageAlt: "Search Melody Mind Knowledge",
-  publishDate: new Date(),
-  modifiedDate: new Date(),
-  index: true,
+  index: false,
   follow: true,
   autoSocialImage: false,
   authorName: "Melody Mind",

@@ -23,6 +23,7 @@ let entries: Array<{
   title: string;
   description?: string;
   updatedAt?: string;
+  image?: string;
 }> = [];
 
 try {
@@ -38,6 +39,7 @@ try {
         title: entry?.data?.title || slug,
         description: entry?.data?.description || "",
         updatedAt: updated ? updated.toISOString() : "",
+        image: entry?.data?.image || "",
       };
     })
     .filter(Boolean) as typeof entries;
@@ -60,9 +62,7 @@ const pageSeo = buildPageSeo({
   maxDescription: 155,
   image: "/melody-mind.jpg",
   imageAlt: "Saved Articles",
-  publishDate: new Date(),
-  modifiedDate: new Date(),
-  index: true,
+  index: false,
   follow: true,
   autoSocialImage: false,
   authorName: "Melody Mind",

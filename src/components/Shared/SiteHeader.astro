@@ -14,8 +14,8 @@ interface Props {
 const { showIcons = true } = Astro.props;
 
 const navItems: NavItem[] = [
-  { href: "/", label: "Home", icon: "home" },
   { href: "/bookmarks", label: "Bookmarks", icon: "bookmark" },
+  { href: "/quiz", label: "Quizzes", icon: "grid" },
 ];
 
 const currentPath = Astro.url.pathname;

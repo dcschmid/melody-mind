@@ -51,25 +51,3 @@ export interface TaxonomySection {
   /** Subsections within this section */
   subsections: TaxonomySubsection[];
 }
-
-/** Flat topic reference for article frontmatter */
-export interface TaxonomyReference {
-  /** Section ID, e.g. "time-change-evolution" */
-  section?: string;
-  /** Subsection ID, e.g. "music-through-decades" */
-  subsection?: string;
-  /** Optional group ID, e.g. "genre-evolution-pathways" */
-  group?: string;
-}
-
-/** Article with taxonomy info for display */
-export interface TaxonomyArticle {
-  slug: string;
-  title: string;
-  description: string;
-  image?: string;
-  createdAt?: Date;
-  readingTime?: number;
-  taxonomySubsection?: string;
-  taxonomyGroup?: string;
-}

@@ -3,9 +3,11 @@
  * Knowledge Article Page (English only)
  */
 import { Picture } from "astro:assets";
-import { render } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
+import KnowledgeCard from "@components/KnowledgeCard.astro";
+import QuizCard from "@components/Quiz/QuizCard.astro";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -21,6 +23,7 @@ import AIContentBadge from "@components/AIContentBadge.astro";
 import { Icon } from "astro-icon/components";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
+import { normalizeDate } from "@utils/content/dateUtils";
 import { getReadingTime } from "@utils/readingTime";
 import { resolveAbsoluteUrl, resolvePageUrl } from "@utils/siteUrls";
 import "@styles/knowledge.css";
@@ -62,6 +65,24 @@ if (!entry) {
 }
 
 const slugKey = resolvedSlug || entry?.slug || entry?.id || "";
+const seoTitleOverrides: Record<string, string> = {
+  "1960s": "1960s Music History: Pop, Protest and Psychedelia",
+  "1980s": "1980s Music History: MTV, Synths and Global Pop",
+  "2010s": "2010s Music History: Streaming and Global Pop",
+  "from-asia-pop-to-global-pop": "J-Pop and K-Pop: From Regional Scenes to Global Pop",
+  "from-blues-to-breakdown": "Heavy Music History: From Blues to Metalcore",
+  "from-folk-to-bedroom-pop": "Intimate Songwriting: From Folk to Bedroom Pop",
+  "from-gospel-to-modern-vocal-pop-": "Gospel to Modern Vocal Pop",
+  "from-hip-hop-to-trap-drill": "Hip Hop History: Block Parties, Trap and Drill",
+  "from-jazz-to-neo-soul": "Jazz to Neo Soul: Fusion, Acid Jazz and Modern Soul",
+  "from-latin-to-latin-trap": "Latin Music History: From Salsa to Latin Trap",
+  "from-pop-to-streaming-pop": "Pop Music History: From Radio to Streaming",
+  "from-post-punk-to-industrial-metal":
+    "Industrial Rock History: From Post-Punk to Metal",
+  "from-punk-to-indie": "Alternative Music: From Punk to Indie",
+  "from-ska-to-global-bass": "Jamaican Music History: From Ska to Global Bass",
+  "from-soul-to-modern-dance-music": "Dance Music History: From Soul to House and Techno",
+};
 
 if (!entry.data.readingTime && entry.body) {
   try {
@@ -88,9 +109,9 @@ const isValidImage =
   typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
 const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
 const title = entry.data.title;
+const seoTitle = seoTitleOverrides[slugKey] || title;
 const description = entry.data.description;
-const pageContent = `${title} ${description} ${entry.data.keywords?.join(" ") || ""}`;
-const optimizedDescription = pageContent;
+const optimizedDescription = description || title;
 
 const imageAbsolute = resolveAbsoluteUrl(Astro.site, imageSource);
 const imageWidth = 1200;
@@ -182,6 +203,133 @@ const publishedDateLabel = publishedDate.toLocaleDateString(lang, {
   month: "long",
   day: "numeric",
 });
+const currentKeywords = new Set(
+  Array.isArray(entry.data.keywords)
+    ? entry.data.keywords
+        .map((keyword: unknown) =>
+          typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
+        )
+        .filter(Boolean)
+    : []
+);
+const currentCategory =
+  typeof entry.data.category === "string" ? entry.data.category.trim() : "";
+const currentTaxonomySubsection =
+  typeof entry.data.taxonomySubsection === "string"
+    ? entry.data.taxonomySubsection.trim()
+    : "";
+const currentTaxonomyGroup =
+  typeof entry.data.taxonomyGroup === "string" ? entry.data.taxonomyGroup.trim() : "";
+
+let relatedArticles: Array<{
+  slug: string;
+  title: string;
+  description: string;
+  image?: string;
+  createdAt: Date;
+  readingTime: number;
+}> = [];
+let relatedQuizzes: Array<{
+  slug: string;
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+}> = [];
+
+try {
+  const allArticles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+  relatedArticles = allArticles
+    .filter((article) => {
+      const articleSlug = String(article?.slug || article?.id || "");
+      return articleSlug && articleSlug !== slugKey;
+    })
+    .map((article) => {
+      const articleKeywords = new Set(
+        Array.isArray(article?.data?.keywords)
+          ? article.data.keywords
+              .map((keyword: unknown) =>
+                typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
+              )
+              .filter(Boolean)
+          : []
+      );
+      let score = 0;
+
+      if (
+        currentTaxonomySubsection &&
+        article?.data?.taxonomySubsection === currentTaxonomySubsection
+      ) {
+        score += 12;
+      }
+      if (currentCategory && article?.data?.category === currentCategory) {
+        score += 8;
+      }
+      if (currentTaxonomyGroup && article?.data?.taxonomyGroup === currentTaxonomyGroup) {
+        score += 4;
+      }
+
+      let keywordOverlap = 0;
+      for (const keyword of articleKeywords) {
+        if (currentKeywords.has(keyword)) {
+          keywordOverlap += 1;
+        }
+      }
+      score += Math.min(keywordOverlap, 4);
+
+      const createdAt = normalizeDate(article?.data?.createdAt) || new Date(0);
+      const updatedAt = normalizeDate(article?.data?.updatedAt) || createdAt;
+      const readingTime =
+        typeof article?.data?.readingTime === "number"
+          ? article.data.readingTime
+          : getReadingTime(article?.body || "", { languageCode: lang }).minutes;
+
+      return {
+        slug: String(article?.slug || article?.id || ""),
+        title: String(article?.data?.title || ""),
+        description: String(article?.data?.description || ""),
+        image: typeof article?.data?.image === "string" ? article.data.image : undefined,
+        createdAt,
+        updatedAt,
+        readingTime,
+        score,
+      };
+    })
+    .filter((article) => article.title && article.description && article.score > 0)
+    .sort((a, b) => {
+      if (b.score !== a.score) {
+        return b.score - a.score;
+      }
+      if (b.updatedAt.getTime() !== a.updatedAt.getTime()) {
+        return b.updatedAt.getTime() - a.updatedAt.getTime();
+      }
+      return a.slug.localeCompare(b.slug);
+    })
+    .slice(0, 3)
+    .map(({ updatedAt: _updatedAt, score: _score, ...article }) => article);
+} catch (e) {
+  globalThis.console?.warn?.("knowledge article: related articles load issue", {
+    error: (e as any)?.message || e,
+  });
+}
+
+try {
+  const quizzes = await getCollection("quizzes");
+  relatedQuizzes = quizzes
+    .filter((quiz) => quiz.data.relatedArticles.includes(slugKey))
+    .slice(0, 2)
+    .map((quiz) => ({
+      slug: quiz.id,
+      title: quiz.data.title,
+      description: quiz.data.description,
+      image: typeof rawImage === "string" ? rawImage : undefined,
+      imageAlt: `${quiz.data.title} quiz cover`,
+    }));
+} catch (e) {
+  globalThis.console?.warn?.("knowledge article: related quizzes load issue", {
+    error: (e as any)?.message || e,
+  });
+}
 
 function translate(key: string, fallback: string): string {
   try {
@@ -192,7 +340,7 @@ function translate(key: string, fallback: string): string {
 }
 
 const pageSeo = buildPageSeo({
-  title,
+  title: seoTitle,
   description: optimizedDescription,
   url: canonical,
   contentKind: "generic",
@@ -227,6 +375,7 @@ const storageUpdatedAt =
   parsedStorageDate && !Number.isNaN(parsedStorageDate.valueOf())
     ? parsedStorageDate.toISOString()
     : "";
+const storageImage = typeof rawImage === "string" ? rawImage : "";
 ---
 
 <Layout {pageSeo}>
@@ -512,6 +661,79 @@ const storageUpdatedAt =
             </p>
           </section>
 
+          {
+            relatedQuizzes.length ? (
+              <section
+                class="panel panel--compact knowledge-quizzes"
+                aria-labelledby="knowledge-quizzes-title"
+              >
+                <div class="knowledge-quizzes__header">
+                  <h2 class="knowledge-quizzes__title" id="knowledge-quizzes-title">
+                    <Icon name="play" class="knowledge__panel-icon" aria-hidden="true" />
+                    <span>Test this topic</span>
+                  </h2>
+                  <p class="knowledge-quizzes__copy">
+                    Reinforce the article with a quiz based on the same research.
+                  </p>
+                </div>
+                <ul class="knowledge-quizzes__grid" aria-label="Related quizzes">
+                  {relatedQuizzes.map((quiz) => (
+                    <li class="knowledge-quizzes__item">
+                      <QuizCard
+                        title={quiz.title}
+                        description={quiz.description}
+                        slug={quiz.slug}
+                        image={quiz.image}
+                        imageAlt={quiz.imageAlt}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null
+          }
+
+          {
+            relatedArticles.length ? (
+              <section
+                class="panel panel--compact knowledge-related"
+                aria-labelledby="knowledge-related-title"
+              >
+                <div class="knowledge-related__header">
+                  <h2 class="knowledge-related__title" id="knowledge-related-title">
+                    <Icon
+                      name="share-2"
+                      class="knowledge__panel-icon"
+                      aria-hidden="true"
+                    />
+                    <span>Related articles</span>
+                  </h2>
+                  <p class="knowledge-related__copy">
+                    Continue with guides from the same category, taxonomy branch, or
+                    closely related keywords.
+                  </p>
+                </div>
+                <ul class="knowledge-related__grid" aria-label="Related articles">
+                  {relatedArticles.map((article, index) => (
+                    <li class="knowledge-related__item">
+                      <KnowledgeCard
+                        title={article.title}
+                        description={article.description}
+                        image={article.image}
+                        createdAt={article.createdAt}
+                        slug={article.slug}
+                        lang={lang}
+                        readingTime={article.readingTime}
+                        articleUrl={`/knowledge/${article.slug}`}
+                        index={index}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null
+          }
+
           <div class="knowledge__back">
             <ButtonLink
               href="/"
@@ -531,6 +753,7 @@ const storageUpdatedAt =
             data-slug={storageSlug}
             data-title={title}
             data-updated-at={storageUpdatedAt}
+            data-image={storageImage}
             hidden
           >
           </div>
@@ -544,5 +767,101 @@ const storageUpdatedAt =
 
       <BackToTop lang={lang} />
     </div>
-  </div></Layout
->
+  </div>
+</Layout>
+
+<style>
+  .knowledge-quizzes {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .knowledge-quizzes__header {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .knowledge-quizzes__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.85rem);
+    color: var(--gn-ink);
+  }
+
+  .knowledge-quizzes__copy {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--gn-ink-muted);
+    line-height: 1.65;
+  }
+
+  .knowledge-quizzes__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .knowledge-quizzes__item {
+    min-width: 0;
+  }
+
+  .knowledge-related {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .knowledge-related__header {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .knowledge-related__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.85rem);
+    color: var(--gn-ink);
+  }
+
+  .knowledge-related__copy {
+    margin: 0;
+    max-width: 62ch;
+    color: var(--gn-ink-muted);
+    line-height: 1.65;
+  }
+
+  .knowledge-related__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .knowledge-related__item {
+    min-width: 0;
+  }
+
+  @media (min-width: 50rem) {
+    .knowledge-quizzes__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .knowledge-related__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 75rem) {
+    .knowledge-related__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
