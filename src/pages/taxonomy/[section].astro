@@ -16,6 +16,7 @@ import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { derivePublishModified, normalizeDate } from "@utils/content/dateUtils";
 import { calculateReadingTime } from "@utils/readingTime";
 import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+import { loggers } from "@utils/logging";
 import { musicTaxonomy } from "../../data/musicTaxonomy";
 import type { TaxonomySubsection } from "../../types/taxonomy";
 import { Image } from "astro:assets";
@@ -68,7 +69,7 @@ let baseArticles: any[] = [];
 try {
   baseArticles = await getCollectionCached("knowledge-en").catch(() => []);
 } catch (e) {
-  console.warn("taxonomy section: collection load issue", {
+  loggers.pages.warn("taxonomy section: collection load issue", {
     error: (e as any)?.message || e,
   });
 }

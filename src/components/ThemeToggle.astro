@@ -9,41 +9,16 @@
 </button>
 
 <script>
-  const THEME_STORAGE_KEY = "themePreference";
+  import {
+    getStoredTheme,
+    getSystemTheme,
+    getResolvedTheme,
+    setStoredTheme,
+    applyTheme,
+  } from "@utils/theme/themeStorage";
+
   const toggle = document.querySelector("[data-theme-toggle]");
   const label = document.querySelector("[data-theme-toggle-label]");
-
-  const isTheme = (value: unknown): value is "light" | "dark" =>
-    value === "light" || value === "dark";
-
-  const getStoredTheme = (): "light" | "dark" | null => {
-    try {
-      const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-      return isTheme(stored) ? stored : null;
-    } catch {
-      return null;
-    }
-  };
-
-  const getSystemTheme = (): "light" | "dark" =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-
-  const getResolvedTheme = (): "light" | "dark" => {
-    const stored = getStoredTheme();
-    return stored ?? getSystemTheme();
-  };
-
-  const setResolvedTheme = (theme: "light" | "dark"): void => {
-    document.documentElement.setAttribute("data-theme", theme);
-    window.dispatchEvent(
-      new CustomEvent("theme:change", {
-        detail: {
-          theme,
-          source: getStoredTheme() ? "manual" : "system",
-        },
-      })
-    );
-  };
 
   const updateToggle = (): void => {
     if (!toggle || !label) {
@@ -64,14 +39,8 @@
   if (toggle) {
     toggle.addEventListener("click", () => {
       const nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
-
-      try {
-        window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-      } catch {
-        // no-op when storage is blocked
-      }
-
-      setResolvedTheme(nextTheme);
+      setStoredTheme(nextTheme);
+      applyTheme(nextTheme, "manual");
       updateToggle();
     });
   }
@@ -81,7 +50,7 @@
       return;
     }
 
-    setResolvedTheme(getSystemTheme());
+    applyTheme(getSystemTheme(), "system");
     updateToggle();
   });
 

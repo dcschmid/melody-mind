@@ -7,7 +7,6 @@ import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
-import QuizCard from "@components/Quiz/QuizCard.astro";
 import { useTranslations } from "@utils/i18n";
 import Headline from "@components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
@@ -332,6 +331,8 @@ try {
   });
 }
 
+const primaryQuiz = relatedQuizzes[0];
+
 function translate(key: string, fallback: string): string {
   try {
     return t(key);
@@ -459,6 +460,23 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
               />
               <span>{t("knowledge.word_count", { count: wordsCount })}</span>
             </div>
+
+            {
+              primaryQuiz ? (
+                <a
+                  href={`/quiz/${primaryQuiz.slug}`}
+                  class="knowledge__quiz-button"
+                  aria-label={`Open quiz: ${primaryQuiz.title}`}
+                >
+                  <Icon
+                    name="play"
+                    class="knowledge__quiz-button-icon"
+                    aria-hidden="true"
+                  />
+                  <span>Play quiz</span>
+                </a>
+              ) : null
+            }
 
             <BookmarkButton articleSlug={storageSlug} articleTitle={title} />
             <PrintButton />
@@ -663,38 +681,6 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
           </section>
 
           {
-            relatedQuizzes.length ? (
-              <section
-                class="panel panel--compact knowledge-quizzes"
-                aria-labelledby="knowledge-quizzes-title"
-              >
-                <div class="knowledge-quizzes__header">
-                  <h2 class="knowledge-quizzes__title" id="knowledge-quizzes-title">
-                    <Icon name="play" class="knowledge__panel-icon" aria-hidden="true" />
-                    <span>Test this topic</span>
-                  </h2>
-                  <p class="knowledge-quizzes__copy">
-                    Reinforce the article with a quiz based on the same research.
-                  </p>
-                </div>
-                <ul class="knowledge-quizzes__grid" aria-label="Related quizzes">
-                  {relatedQuizzes.map((quiz) => (
-                    <li class="knowledge-quizzes__item">
-                      <QuizCard
-                        title={quiz.title}
-                        description={quiz.description}
-                        slug={quiz.slug}
-                        image={quiz.image}
-                        imageAlt={quiz.imageAlt}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ) : null
-          }
-
-          {
             relatedArticles.length ? (
               <section
                 class="panel panel--compact knowledge-related"
@@ -772,48 +758,10 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
 </Layout>
 
 <style>
-  .knowledge-quizzes {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .knowledge-quizzes__header {
-    display: grid;
-    gap: 0.6rem;
-  }
-
-  .knowledge-quizzes__title {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    margin: 0;
-    font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.85rem);
-    color: var(--gn-ink);
-  }
-
-  .knowledge-quizzes__copy {
-    margin: 0;
-    max-width: 62ch;
-    color: var(--gn-ink-muted);
-    line-height: 1.65;
-  }
-
-  .knowledge-quizzes__grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  .knowledge-quizzes__item {
-    min-width: 0;
-  }
-
   .knowledge-related {
     display: grid;
     gap: 1.5rem;
+    margin-top: 2rem;
   }
 
   .knowledge-related__header {
@@ -851,10 +799,6 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
   }
 
   @media (min-width: 50rem) {
-    .knowledge-quizzes__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .knowledge-related__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
