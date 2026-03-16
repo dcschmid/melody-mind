@@ -20,6 +20,7 @@ import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
 import { musicTaxonomy } from "../data/musicTaxonomy";
 import { countArticlesPerSubsection } from "../utils/taxonomy/taxonomyUtils";
 import { Image } from "astro:assets";
+import { loggers } from "@utils/logging";
 
 export const prerender = true;
 
@@ -31,7 +32,7 @@ let baseArticles: any[] = [];
 try {
   baseArticles = await getCollectionCached("knowledge-en").catch(() => []);
 } catch (e) {
-  globalThis.console?.warn?.("knowledge index: collection load issue", {
+  loggers.pages.warn("knowledge index: collection load issue", {
     error: (e as any)?.message || e,
   });
 }

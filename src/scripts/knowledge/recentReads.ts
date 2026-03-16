@@ -6,7 +6,7 @@
  */
 
 import { VERSIONED_KEYS } from "@constants/storageVersions";
-import { isServer } from "@utils/environment";
+import { safeLocalStorage } from "@utils/storage/safeStorage";
 
 const MAX_ENTRIES = 5;
 
@@ -29,32 +29,20 @@ export function initRecentReads(): void {
   };
 
   if (!recentEntry.slug || !recentEntry.title) return;
-  if (isServer || !window.localStorage) return;
 
-  try {
-    const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
-    const raw = window.localStorage.getItem(VERSIONED_KEYS.RECENT_READS);
-    const parsed = raw ? JSON.parse(raw) : [];
+  const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
+  const raw = safeLocalStorage.getRaw(VERSIONED_KEYS.RECENT_READS);
+  const parsed = raw ? JSON.parse(raw) : [];
 
-    const items: RecentReadEntry[] = Array.isArray(parsed)
-      ? parsed.filter(
-          (item): item is RecentReadEntry =>
-            item && typeof item.slug === "string" && typeof item.title === "string"
-        )
-      : [];
+  // Remove existing entry for this slug
+  const filtered = parsed.filter(
+    (entry: RecentReadEntry) => entry.slug !== normalizedSlug
+  );
 
-    const next: RecentReadEntry[] = [
-      { ...recentEntry, slug: normalizedSlug },
-      ...items.filter((item) => item.slug !== normalizedSlug),
-    ];
+  // Add new entry at the beginning
+  const updated = [recentEntry, ...filtered].slice(0, MAX_ENTRIES);
 
-    window.localStorage.setItem(
-      VERSIONED_KEYS.RECENT_READS,
-      JSON.stringify(next.slice(0, MAX_ENTRIES))
-    );
-  } catch {
-    // Ignore storage errors
-  }
+  safeLocalStorage.set(VERSIONED_KEYS.RECENT_READS, updated);
 }
 
 // Auto-initialize when script loads

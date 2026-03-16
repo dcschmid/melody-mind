@@ -5,6 +5,10 @@
  * All state is managed in memory and optionally saved to localStorage.
  */
 
+import { safeLocalStorage } from "@utils/storage/safeStorage";
+
+const QUIZ_RESULTS_KEY = "quiz-results";
+
 export interface QuizQuestion {
   question: string;
   type: "single-choice" | "multi-choice" | "true-false";
@@ -453,20 +457,17 @@ export function initQuiz(
   }
 
   function saveResult(score: number, passed: boolean) {
-    try {
-      const results = JSON.parse(localStorage.getItem("quiz-results") || "{}");
-      const slug = window.location.pathname.replace("/quiz/", "");
-      results[slug] = {
-        score,
-        passed,
-        correctCount: state.correctCount,
-        totalQuestions: questions.length,
-        completedAt: new Date().toISOString(),
-      };
-      localStorage.setItem("quiz-results", JSON.stringify(results));
-    } catch {
-      // Ignore localStorage errors
-    }
+    const raw = safeLocalStorage.getRaw(QUIZ_RESULTS_KEY);
+    const results = raw ? JSON.parse(raw) : {};
+    const slug = window.location.pathname.replace("/quiz/", "");
+    results[slug] = {
+      score,
+      passed,
+      correctCount: state.correctCount,
+      totalQuestions: questions.length,
+      completedAt: new Date().toISOString(),
+    };
+    safeLocalStorage.set(QUIZ_RESULTS_KEY, results);
   }
 
   // Event listeners

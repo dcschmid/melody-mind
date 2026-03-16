@@ -6,6 +6,7 @@ import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { normalizeDate } from "@utils/content/dateUtils";
 import { resolvePageUrl } from "@utils/siteUrls";
+import { loggers } from "@utils/logging";
 
 export const prerender = true;
 
@@ -44,7 +45,7 @@ try {
     })
     .filter(Boolean) as typeof entries;
 } catch (e) {
-  globalThis.console?.warn?.("bookmarks: collection load issue", {
+  loggers.pages.warn("bookmarks: collection load issue", {
     error: (e as any)?.message || e,
   });
 }

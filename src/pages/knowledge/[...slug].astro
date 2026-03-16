@@ -26,6 +26,7 @@ import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { normalizeDate } from "@utils/content/dateUtils";
 import { getReadingTime } from "@utils/readingTime";
 import { resolveAbsoluteUrl, resolvePageUrl } from "@utils/siteUrls";
+import { loggers } from "@utils/logging";
 import "@styles/knowledge.css";
 
 export const prerender = true;
@@ -54,7 +55,7 @@ if (!entry) {
       entry = articles.find((a) => a.slug === resolvedSlug || a.id === resolvedSlug);
     }
   } catch (e) {
-    globalThis.console?.warn?.("knowledge article: collection load issue (fallback)", {
+    loggers.pages.warn("knowledge article: collection load issue (fallback)", {
       error: (e as any)?.message || e,
     });
   }
@@ -326,7 +327,7 @@ try {
       imageAlt: `${quiz.data.title} quiz cover`,
     }));
 } catch (e) {
-  globalThis.console?.warn?.("knowledge article: related quizzes load issue", {
+  loggers.pages.warn("knowledge article: related quizzes load issue", {
     error: (e as any)?.message || e,
   });
 }

@@ -145,6 +145,8 @@ export const loggers = {
   analytics: createLogger("analytics"),
   bookmarks: createLogger("bookmarks"),
   content: createLogger("content"),
+  pages: createLogger("pages"),
+  quiz: createLogger("quiz"),
   seo: createLogger("seo"),
   theme: createLogger("theme"),
   storage: createLogger("storage"),
