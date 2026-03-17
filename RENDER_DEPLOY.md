@@ -2,13 +2,19 @@
 
 ## Overview
 
-This monorepo uses Render Blueprints for Infrastructure as Code. The `render.yaml` file defines 3 static sites:
+This monorepo uses [Render Blueprints](https://render.com/docs/blueprint-spec) for Infrastructure as Code. The `render.yaml` file defines 3 static sites that deploy for free:
 
-| Site | Domain | Publish Directory |
-|------|--------|-------------------|
-| Knowledge | melody-mind.de | `apps/knowledge/dist` |
-| Quiz | quiz.melody-mind.de | `apps/quiz/dist` |
-| Podcasts | podcasts.melody-mind.de | `apps/podcasts/dist` |
+| Service | Domain | Pages | Build Time |
+|---------|--------|-------|------------|
+| melody-mind-knowledge | melody-mind.de | 85 | ~28s |
+| melody-mind-quiz | quiz.melody-mind.de | 21 | ~4s |
+| melody-mind-podcasts | podcasts.melody-mind.de | 22 | ~4s |
+
+**Cost: $0/month** (3 free static sites)  
+**Previous cost: $7/month** (1 SSR web service)  
+**Savings: $84/year**
+
+---
 
 ## Setup Instructions
 
@@ -16,101 +22,143 @@ This monorepo uses Render Blueprints for Infrastructure as Code. The `render.yam
 
 1. Go to [Render Dashboard](https://dashboard.render.com)
 2. Click **New** → **Blueprint**
-3. Connect your GitHub repository (`dcschmid/melody-mind`)
-4. Render will detect the `render.yaml` file
-5. Review and create the services
+3. Connect your GitHub repository: `dcschmid/melody-mind`
+4. Render will detect the `render.yaml` file automatically
+5. Review the 3 services and click **Apply**
+6. Wait for initial deployment (~2-3 minutes per service)
 
 ### 2. Configure Custom Domains
 
-After services are created, add custom domains in Render Dashboard:
+After services are deployed, add custom domains:
 
-#### Knowledge Site
-- Service: `melody-mind-knowledge`
-- Add domain: `melody-mind.de`
-- Add domain: `www.melody-mind.de` (auto-redirects to root)
+#### Knowledge Site (`melody-mind-knowledge`)
+1. Go to service → Settings → Custom Domains
+2. Add domain: `melody-mind.de`
+3. Add domain: `www.melody-mind.de` (auto-redirects to root)
+4. Note the DNS records Render provides
 
-#### Quiz Site
-- Service: `melody-mind-quiz`
-- Add domain: `quiz.melody-mind.de`
+#### Quiz Site (`melody-mind-quiz`)
+1. Go to service → Settings → Custom Domains
+2. Add domain: `quiz.melody-mind.de`
+3. Note the CNAME record Render provides
 
-#### Podcasts Site
-- Service: `melody-mind-podcasts`
-- Add domain: `podcasts.melody-mind.de`
+#### Podcasts Site (`melody-mind-podcasts`)
+1. Go to service → Settings → Custom Domains
+2. Add domain: `podcasts.melody-mind.de`
+3. Note the CNAME record Render provides
 
 ### 3. Configure DNS Records
 
-In your DNS provider (e.g., Cloudflare), configure:
+In your DNS provider (e.g., Cloudflare, Namecheap), configure:
 
 ```
-# Knowledge (main domain)
-A       @           → Render IP (from dashboard)
+# Knowledge (main domain - use A record for root)
+TYPE    NAME        VALUE
+A       @           → <Render IP from dashboard>
 CNAME   www         → melody-mind-knowledge.onrender.com
 
 # Quiz subdomain
+TYPE    NAME        VALUE
 CNAME   quiz        → melody-mind-quiz.onrender.com
 
 # Podcasts subdomain
+TYPE    NAME        VALUE
 CNAME   podcasts    → melody-mind-podcasts.onrender.com
 ```
 
-## Build Configuration
+**Note:** Render provides the exact IP address in the dashboard after adding the custom domain.
 
-Each service has a `buildFilter` to only trigger builds when relevant files change:
+### 4. Verify Deployment
+
+1. Wait for DNS propagation (up to 48 hours, usually faster)
+2. Check SSL certificates are provisioned (automatic)
+3. Test each site:
+   - https://melody-mind.de
+   - https://quiz.melody-mind.de
+   - https://podcasts.melody-mind.de
+
+---
+
+## Configuration Details
+
+### Build Filters
+
+Each service only rebuilds when relevant files change:
 
 ```yaml
 buildFilter:
   paths:
-    - apps/knowledge/**    # Only this app's files
-    - package.json         # Root config changes
+    - apps/knowledge/**     # App-specific files
+    - package.json          # Root config changes
     - pnpm-lock.yaml
     - turbo.json
     - pnpm-workspace.yaml
 ```
 
-## Headers Configuration
+This means:
+- Changes to `apps/knowledge/**` → Only knowledge rebuilds
+- Changes to `apps/quiz/**` → Only quiz rebuilds
+- Changes to root configs → All services rebuild
 
-Security headers are applied to all sites:
+### Security Headers
 
-- `X-Content-Type-Options: nosniff`
-- `X-Frame-Options: DENY`
-- `X-XSS-Protection: 1; mode=block`
-- `Referrer-Policy: strict-origin-when-cross-origin`
+All sites have these security headers configured:
 
-Cache headers for static assets:
+| Header | Value |
+|--------|-------|
+| `X-Content-Type-Options` | `nosniff` |
+| `X-Frame-Options` | `DENY` |
+| `X-XSS-Protection` | `1; mode=block` |
+| `Referrer-Policy` | `strict-origin-when-cross-origin` |
 
-- `/assets/*` → 1 year cache (immutable)
-- `/fonts/*` → 1 year cache (immutable)
-- `/audio/*` → 1 year cache (immutable, podcasts only)
+### Cache Headers
 
-## Cost
+Static assets are cached for 1 year with immutable flag:
 
-- 3 Static Sites: **$0/month** (free tier)
-- Previous cost (1 SSR web service): $7/month
-- **Savings: $84/year**
+| Path | Cache-Control |
+|------|---------------|
+| `/assets/*` | `public, max-age=31536000, immutable` |
+| `/fonts/*` | `public, max-age=31536000, immutable` |
+| `/audio/*` | `public, max-age=31536000, immutable` (podcasts only) |
 
-## Build Times (approximate)
+### Environment Variables
 
-| App | Pages | Build Time |
-|-----|-------|------------|
-| Knowledge | 85 | ~28s |
-| Quiz | 21 | ~4s |
-| Podcasts | 22 | ~4s |
+| Variable | Value | Description |
+|----------|-------|-------------|
+| `NODE_VERSION` | `22` | Required for Astro v6 |
 
-## Troubleshooting
+---
 
-### Build Fails
-- Check Node.js version (must be 22+)
-- Verify `pnpm-lock.yaml` is committed
-- Check build logs in Render dashboard
+## Blueprint File Reference
 
-### Domain Not Working
-- Wait for DNS propagation (up to 48 hours)
-- Verify CNAME/A records match Render's instructions
-- Check domain is verified in Render dashboard
+The complete `render.yaml` structure:
 
-### 404 on Subpages
-- Ensure `astro.config.mjs` has correct `site` URL
-- Check that routes are generated in sitemap
+```yaml
+services:
+  - type: web                    # Static sites use type: web
+    name: melody-mind-knowledge  # Service identifier
+    runtime: static              # Required for static sites
+    buildCommand: pnpm install && pnpm build:knowledge
+    staticPublishPath: apps/knowledge/dist
+    buildFilter:
+      paths:
+        - apps/knowledge/**
+        - package.json
+        - pnpm-lock.yaml
+        - turbo.json
+        - pnpm-workspace.yaml
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+```
+
+See [Render Blueprint Spec](https://render.com/docs/blueprint-spec) for all available options.
+
+---
 
 ## Local Testing
 
@@ -127,4 +175,104 @@ pnpm build:podcasts
 
 # Preview locally
 cd apps/knowledge && pnpm preview
+cd apps/quiz && pnpm preview
+cd apps/podcasts && pnpm preview
 ```
+
+---
+
+## Troubleshooting
+
+### Build Fails
+
+**Symptom:** Build exits with error code
+
+**Solutions:**
+- Check Node.js version: `node --version` (must be 22+)
+- Verify `pnpm-lock.yaml` is committed to repo
+- Check build logs in Render dashboard for specific error
+- Test build locally first: `pnpm build:knowledge`
+
+### Domain Not Working
+
+**Symptom:** Custom domain shows 404 or SSL error
+
+**Solutions:**
+- Wait for DNS propagation (up to 48 hours)
+- Verify DNS records match Render's instructions exactly
+- Check domain verification status in Render dashboard
+- Ensure no CNAME flattening if using Cloudflare (use DNS only)
+
+### 404 on Subpages
+
+**Symptom:** Homepage works but subpages return 404
+
+**Solutions:**
+- Ensure `astro.config.mjs` has correct `site` URL:
+  ```js
+  site: 'https://melody-mind.de'
+  ```
+- Check `dist/` folder contains all HTML files
+- Verify sitemap includes all routes
+
+### Changes Not Deploying
+
+**Symptom:** Push to main branch but site doesn't update
+
+**Solutions:**
+- Check build filter paths match your changed files
+- Verify branch is set to `main` (or your default branch)
+- Check Render dashboard for deploy status
+- Manual deploy: Service → Manual Deploy → Deploy latest commit
+
+---
+
+## CI/CD Flow
+
+```
+Push to main branch
+        ↓
+Render detects changes
+        ↓
+Build filter matches?
+    ├── Yes → Trigger build
+    └── No  → Skip build
+        ↓
+pnpm install
+        ↓
+pnpm build:<app>
+        ↓
+Deploy to .onrender.com
+        ↓
+Custom domain serves new version
+```
+
+---
+
+## Monitoring
+
+### View Logs
+1. Go to service in Render dashboard
+2. Click **Logs** tab
+3. Real-time build and runtime logs
+
+### View Deploys
+1. Go to service in Render dashboard
+2. Click **Deploys** tab
+3. History of all deployments with commit info
+
+### Set Up Alerts
+1. Go to Account Settings → Notifications
+2. Enable email/Slack notifications for:
+   - Deploy successes
+   - Deploy failures
+   - Service issues
+
+---
+
+## Additional Resources
+
+- [Render Blueprint Spec](https://render.com/docs/blueprint-spec)
+- [Render Static Sites](https://render.com/docs/static-sites)
+- [Custom Domains on Render](https://render.com/docs/custom-domains)
+- [Render CLI](https://render.com/docs/cli) for local validation
