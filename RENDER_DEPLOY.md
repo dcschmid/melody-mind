@@ -2,100 +2,129 @@
 
 ## Overview
 
-This monorepo deploys 3 static sites to Render (all on free tier):
+This monorepo uses Render Blueprints for Infrastructure as Code. The `render.yaml` file defines 3 static sites:
 
-| Site | Domain | Build Command | Publish Directory |
-|------|--------|---------------|-------------------|
-| Knowledge | melody-mind.de | `pnpm build:knowledge` | `apps/knowledge/dist` |
-| Quiz | quiz.melody-mind.de | `pnpm build:quiz` | `apps/quiz/dist` |
-| Podcasts | podcasts.melody-mind.de | `pnpm build:podcasts` | `apps/podcasts/dist` |
-
-## Prerequisites
-
-1. Render account (free tier)
-2. GitHub repository connected to Render
-3. Custom domains configured in Render dashboard
+| Site | Domain | Publish Directory |
+|------|--------|-------------------|
+| Knowledge | melody-mind.de | `apps/knowledge/dist` |
+| Quiz | quiz.melody-mind.de | `apps/quiz/dist` |
+| Podcasts | podcasts.melody-mind.de | `apps/podcasts/dist` |
 
 ## Setup Instructions
 
-### 1. Add Build Scripts to Root package.json
+### 1. Create Blueprint in Render Dashboard
 
-The following scripts are already added:
+1. Go to [Render Dashboard](https://dashboard.render.com)
+2. Click **New** → **Blueprint**
+3. Connect your GitHub repository (`dcschmid/melody-mind`)
+4. Render will detect the `render.yaml` file
+5. Review and create the services
 
-```json
-{
-  "scripts": {
-    "build:knowledge": "turbo run build --filter=knowledge",
-    "build:quiz": "turbo run build --filter=quiz", 
-    "build:podcasts": "turbo run build --filter=podcasts"
-  }
-}
-```
+### 2. Configure Custom Domains
 
-### 2. Create Static Sites on Render
-
-For each site, create a new **Static Site** in Render:
+After services are created, add custom domains in Render Dashboard:
 
 #### Knowledge Site
-- **Name**: melody-mind-knowledge
-- **Build Command**: `pnpm install && pnpm build:knowledge`
-- **Publish Directory**: `apps/knowledge/dist`
-- **Custom Domain**: melody-mind.de
+- Service: `melody-mind-knowledge`
+- Add domain: `melody-mind.de`
+- Add domain: `www.melody-mind.de` (auto-redirects to root)
 
 #### Quiz Site
-- **Name**: melody-mind-quiz
-- **Build Command**: `pnpm install && pnpm build:quiz`
-- **Publish Directory**: `apps/quiz/dist`
-- **Custom Domain**: quiz.melody-mind.de
+- Service: `melody-mind-quiz`
+- Add domain: `quiz.melody-mind.de`
 
 #### Podcasts Site
-- **Name**: melody-mind-podcasts
-- **Build Command**: `pnpm install && pnpm build:podcasts`
-- **Publish Directory**: `apps/podcasts/dist`
-- **Custom Domain**: podcasts.melody-mind.de
+- Service: `melody-mind-podcasts`
+- Add domain: `podcasts.melody-mind.de`
 
-### 3. Environment Variables
+### 3. Configure DNS Records
 
-Set in Render dashboard for each site:
+In your DNS provider (e.g., Cloudflare), configure:
 
 ```
-NODE_VERSION=22
+# Knowledge (main domain)
+A       @           → Render IP (from dashboard)
+CNAME   www         → melody-mind-knowledge.onrender.com
+
+# Quiz subdomain
+CNAME   quiz        → melody-mind-quiz.onrender.com
+
+# Podcasts subdomain
+CNAME   podcasts    → melody-mind-podcasts.onrender.com
 ```
 
-### 4. Custom Domain Configuration
+## Build Configuration
 
-For each custom domain:
-1. Add domain in Render dashboard
-2. Configure DNS records:
-   - **A Record**: Point to Render's IP (provided in dashboard)
-   - **CNAME**: For subdomains (quiz, podcasts)
+Each service has a `buildFilter` to only trigger builds when relevant files change:
 
-## Cost Savings
+```yaml
+buildFilter:
+  paths:
+    - apps/knowledge/**    # Only this app's files
+    - package.json         # Root config changes
+    - pnpm-lock.yaml
+    - turbo.json
+    - pnpm-workspace.yaml
+```
 
-**Before (single app with SSR):**
-- 1 Web Service: $7/month
+## Headers Configuration
 
-**After (3 static sites):**
-- 3 Static Sites: $0/month (free tier)
-- **Savings**: $84/year
+Security headers are applied to all sites:
+
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+
+Cache headers for static assets:
+
+- `/assets/*` → 1 year cache (immutable)
+- `/fonts/*` → 1 year cache (immutable)
+- `/audio/*` → 1 year cache (immutable, podcasts only)
+
+## Cost
+
+- 3 Static Sites: **$0/month** (free tier)
+- Previous cost (1 SSR web service): $7/month
+- **Savings: $84/year**
+
+## Build Times (approximate)
+
+| App | Pages | Build Time |
+|-----|-------|------------|
+| Knowledge | 85 | ~28s |
+| Quiz | 21 | ~4s |
+| Podcasts | 22 | ~4s |
 
 ## Troubleshooting
 
 ### Build Fails
 - Check Node.js version (must be 22+)
-- Verify all dependencies in pnpm-lock.yaml
+- Verify `pnpm-lock.yaml` is committed
+- Check build logs in Render dashboard
 
 ### Domain Not Working
 - Wait for DNS propagation (up to 48 hours)
-- Verify CNAME/A records in DNS provider
+- Verify CNAME/A records match Render's instructions
+- Check domain is verified in Render dashboard
 
 ### 404 on Subpages
 - Ensure `astro.config.mjs` has correct `site` URL
-- Check sitemap generation
+- Check that routes are generated in sitemap
 
-## Build Times (approximate)
+## Local Testing
 
-- Knowledge: ~28s
-- Quiz: ~4s
-- Podcasts: ~4s
-- **Total parallel**: ~42s
+Test builds locally before pushing:
+
+```bash
+# Build all apps
+pnpm build
+
+# Build specific app
+pnpm build:knowledge
+pnpm build:quiz
+pnpm build:podcasts
+
+# Preview locally
+cd apps/knowledge && pnpm preview
+```
