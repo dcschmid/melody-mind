@@ -112,6 +112,70 @@ importers:
         specifier: ^8.57.1
         version: 8.57.1(eslint@10.0.3)(typescript@5.9.3)
 
+  apps/quiz:
+    dependencies:
+      '@astrojs/mdx':
+        specifier: ^5.0.0
+        version: 5.0.1(astro@6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2))
+      '@astrojs/sitemap':
+        specifier: ^3.7.1
+        version: 3.7.1
+      '@fontsource/atkinson-hyperlegible':
+        specifier: ^5.2.8
+        version: 5.2.8
+      astro:
+        specifier: ^6.0.0
+        version: 6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2)
+      astro-capo:
+        specifier: ^0.0.1
+        version: 0.0.1(astro@6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2))
+      astro-icon:
+        specifier: ^1.1.5
+        version: 1.1.5
+      astro-meta-tags:
+        specifier: ^0.4.1
+        version: 0.4.1(astro@6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2))
+      astro-minify-html-swc:
+        specifier: ^0.1.11
+        version: 0.1.11
+      astro-robots-txt:
+        specifier: ^1.0.0
+        version: 1.0.0
+      lightningcss:
+        specifier: ^1.31.1
+        version: 1.32.0
+    devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.8
+        version: 0.9.8(prettier-plugin-astro@0.14.1)(prettier@3.8.1)(typescript@5.9.3)
+      '@eslint/js':
+        specifier: ^10.0.1
+        version: 10.0.1(eslint@10.0.3)
+      '@typescript-eslint/parser':
+        specifier: ^8.57.1
+        version: 8.57.1(eslint@10.0.3)(typescript@5.9.3)
+      eslint:
+        specifier: ^10.0.3
+        version: 10.0.3
+      eslint-plugin-astro:
+        specifier: ^1.6.0
+        version: 1.6.0(eslint@10.0.3)
+      eslint-plugin-jsx-a11y:
+        specifier: ^6.10.2
+        version: 6.10.2(eslint@10.0.3)
+      prettier:
+        specifier: ^3.8.1
+        version: 3.8.1
+      prettier-plugin-astro:
+        specifier: ^0.14.1
+        version: 0.14.1
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+      typescript-eslint:
+        specifier: ^8.57.1
+        version: 8.57.1(eslint@10.0.3)(typescript@5.9.3)
+
 packages:
 
   '@antfu/install-pkg@1.1.0':

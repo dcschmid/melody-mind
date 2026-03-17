@@ -1,0 +1,314 @@
+---
+import ThemeToggle from "@components/ThemeToggle.astro";
+---
+
+<footer class="site-footer">
+  <div class="site-footer__container">
+    <div class="site-footer__grid">
+      <div class="site-footer__section">
+        <p class="site-footer__title">Melody Mind</p>
+        <p class="site-footer__text">
+          Curated guides and playlists to help you listen more closely and discover new
+          sounds.
+        </p>
+      </div>
+
+      <div class="site-footer__section">
+        <p class="site-footer__title">Explore</p>
+        <nav aria-label="Footer navigation" class="site-footer__nav">
+          <a class="site-footer__link" href="/bookmarks">Saved articles</a>
+          <a
+            class="site-footer__link"
+            href="https://podcasts.melody-mind.de"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Podcasts
+          </a>
+        </nav>
+      </div>
+
+      <div class="site-footer__section">
+        <p class="site-footer__title">Support</p>
+        <nav aria-label="Support links" class="site-footer__nav">
+          <a
+            class="site-footer__link"
+            href="https://www.paypal.me/dcschmid"
+            target="_blank"
+            rel="noopener noreferrer">PayPal</a
+          >
+          <a
+            class="site-footer__link"
+            href="https://www.buymeacoffee.com/dcschmid"
+            target="_blank"
+            rel="noopener noreferrer">Buy Me a Coffee</a
+          >
+        </nav>
+      </div>
+
+      <div class="site-footer__section">
+        <p class="site-footer__title">Legal</p>
+        <nav aria-label="Legal navigation" class="site-footer__nav">
+          <a class="site-footer__link" href="/imprint">Legal Notice</a>
+          <a class="site-footer__link" href="/privacy">Privacy Policy</a>
+          <a class="site-footer__link" href="/ai-content">AI Content</a>
+        </nav>
+      </div>
+
+      <div class="site-footer__section">
+        <p class="site-footer__title">Settings</p>
+        <nav aria-label="Settings navigation" class="site-footer__nav">
+          <ThemeToggle />
+          <button
+            type="button"
+            class="site-footer__link site-footer__cookie-button"
+            data-cookie-settings-trigger
+          >
+            Cookie settings
+          </button>
+          <button
+            type="button"
+            class="site-footer__link site-footer__cookie-button"
+            data-reading-settings-trigger
+          >
+            Reading settings
+          </button>
+        </nav>
+        <div class="site-footer__status-list">
+          <p class="site-footer__cookie-status" data-theme-status>Theme: system</p>
+          <p class="site-footer__cookie-status" data-cookie-consent-status>
+            Cookies: waiting
+          </p>
+          <p class="site-footer__cookie-status" data-reading-preferences-status>
+            Reading: default
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__meta">
+      <p>© 2025 MelodyMind. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  import { getStoredTheme, getResolvedTheme } from "@utils/theme/themeStorage";
+
+  const STORAGE_KEY = "cookie_consent";
+  const READING_KEY = "readingPreferences";
+  const trigger = document.querySelector("[data-cookie-settings-trigger]");
+  const readingTrigger = document.querySelector("[data-reading-settings-trigger]");
+  const themeStatusElement = document.querySelector("[data-theme-status]");
+  const statusElement = document.querySelector("[data-cookie-consent-status]");
+  const readingStatusElement = document.querySelector(
+    "[data-reading-preferences-status]"
+  );
+
+  interface ConsentPreference {
+    essential: true;
+    analytics: boolean;
+  }
+  interface ReadingPreference {
+    fontSize: "small" | "medium" | "large";
+    lineHeight: "compact" | "normal" | "relaxed";
+    readingMode: boolean;
+  }
+
+  const readConsent = (): ConsentPreference | null => {
+    try {
+      const raw = window.localStorage?.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean")
+        return null;
+      return { essential: true, analytics: parsed.analytics };
+    } catch {
+      return null;
+    }
+  };
+
+  const isReadingFontSize = (value: unknown): value is ReadingPreference["fontSize"] =>
+    value === "small" || value === "medium" || value === "large";
+  const isReadingLineHeight = (
+    value: unknown
+  ): value is ReadingPreference["lineHeight"] =>
+    value === "compact" || value === "normal" || value === "relaxed";
+
+  const readReadingPreferences = (): ReadingPreference | null => {
+    try {
+      const raw = window.localStorage?.getItem(READING_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (
+        !isReadingFontSize(parsed?.fontSize) ||
+        !isReadingLineHeight(parsed?.lineHeight)
+      )
+        return null;
+      return {
+        fontSize: parsed.fontSize,
+        lineHeight: parsed.lineHeight,
+        readingMode: typeof parsed.readingMode === "boolean" ? parsed.readingMode : false,
+      };
+    } catch {
+      return null;
+    }
+  };
+
+  const renderStatus = (consent: ConsentPreference | null = readConsent()) => {
+    if (!statusElement) return;
+    if (!consent) {
+      statusElement.textContent = "Cookies: waiting";
+      return;
+    }
+    statusElement.textContent = consent.analytics
+      ? "Cookies: analytics allowed"
+      : "Cookies: essential only";
+  };
+
+  const renderThemeStatus = () => {
+    if (!themeStatusElement) return;
+    const storedTheme = getStoredTheme();
+    const resolvedTheme = getResolvedTheme();
+    themeStatusElement.textContent = `Theme: ${resolvedTheme} (${storedTheme ? "manual" : "system"})`;
+  };
+
+  const renderReadingStatus = (
+    prefs: ReadingPreference | null = readReadingPreferences()
+  ) => {
+    if (!readingStatusElement) return;
+    if (!prefs) {
+      readingStatusElement.textContent = "Reading: default";
+      return;
+    }
+    const size =
+      prefs.fontSize === "small" ? "A-" : prefs.fontSize === "large" ? "A+" : "A";
+    readingStatusElement.textContent = `Reading: ${size}, ${prefs.lineHeight}`;
+  };
+
+  renderStatus();
+  renderThemeStatus();
+  renderReadingStatus();
+
+  trigger?.addEventListener("click", () =>
+    window.dispatchEvent(new CustomEvent("cookie-consent:open"))
+  );
+  readingTrigger?.addEventListener("click", () =>
+    window.dispatchEvent(new CustomEvent("reading-settings:open"))
+  );
+
+  window.addEventListener("cookie-consent:change", () => renderStatus());
+  window.addEventListener("reading-preferences:change", () => renderReadingStatus());
+  window.addEventListener("theme:change", () => renderThemeStatus());
+</script>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    border-top: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg);
+  }
+
+  .site-footer__container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    color: var(--gn-ink);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .site-footer__grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .site-footer__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .site-footer__title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gn-accent);
+  }
+
+  .site-footer__text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--gn-ink-muted);
+  }
+
+  .site-footer__nav {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .site-footer__link {
+    font-size: 0.95rem;
+    color: var(--gn-ink-muted);
+    text-decoration: none;
+    padding: 0.35rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-footer__link:hover {
+    color: var(--gn-accent);
+  }
+
+  .site-footer__link:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--gn-accent) 35%, transparent);
+  }
+
+  .site-footer__meta {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--gn-panel-border);
+    font-size: 0.9rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .site-footer__cookie-button {
+    background: none;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .site-footer__cookie-status {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--gn-ink-muted);
+    font-family: var(--font-mono);
+  }
+
+  .site-footer__status-list {
+    display: grid;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--gn-panel-border);
+  }
+</style>

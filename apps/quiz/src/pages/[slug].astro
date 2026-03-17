@@ -1,0 +1,252 @@
+---
+/**
+ * Quiz Detail Page
+ *
+ * Renders an individual quiz with questions and interactive quiz logic.
+ */
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@components/Shared/PageShell.astro";
+import BackToTop from "@components/Shared/BackToTop.astro";
+import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@utils/siteUrls";
+import { getCollection } from "astro:content";
+import type { QuizData, QuizQuestion } from "../content.config";
+
+export const prerender = true;
+
+interface Props {
+  quiz: {
+    id: string;
+    data: QuizData;
+  };
+}
+
+export async function getStaticPaths() {
+  const quizzes = await getCollection("quizzes");
+  return quizzes.map((quiz: any) => ({
+    params: { slug: quiz.id },
+    props: { quiz: { id: quiz.id, data: quiz.data } },
+  }));
+}
+
+const { quiz } = Astro.props as Props;
+
+const currentUrl = resolvePageUrl(Astro.site, `/${quiz.id}`);
+
+const seoBreadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: quiz.data.title, url: currentUrl },
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: seoBreadcrumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: crumb.name,
+    item: crumb.url,
+  })),
+};
+
+const quizSeoTitle = quiz.data.seoTitle || `${quiz.data.title} Music Quiz`;
+const quizSeoDescription = quiz.data.seoDescription || quiz.data.description;
+const quizFeaturedTopics = quiz.data.featuredTopics.length
+  ? quiz.data.featuredTopics
+  : [quiz.data.category.replace(/-/g, " "), ...quiz.data.relatedArticles];
+
+const quizSchema = {
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  name: quiz.data.title,
+  description: quizSeoDescription,
+  url: currentUrl,
+  numberOfQuestions: quiz.data.questionsPerSession,
+  about: quizFeaturedTopics.map((topic: string) => ({
+    "@type": "Thing",
+    name: topic,
+  })),
+  keywords: quizFeaturedTopics.join(", "),
+};
+
+const pageSeo = buildPageSeo({
+  title: quizSeoTitle,
+  description: quizSeoDescription,
+  url: currentUrl,
+  structuredData: [breadcrumbSchema, quizSchema] as StructuredData[],
+});
+
+const questionsData = quiz.data.questions.map((q: QuizQuestion) => ({
+  question: q.question,
+  type: q.type,
+  difficulty: q.difficulty,
+  options: q.options,
+  correct: q.correct,
+  explanation: q.explanation,
+  source: q.source,
+  sourceLine: q.sourceLine,
+}));
+
+const passingScore = quiz.data.passingScore;
+const questionsPerSession = quiz.data.questionsPerSession;
+const totalPoolSize = quiz.data.questions.length;
+---
+
+<Layout {pageSeo}>
+  <PageShell className="page-shell--aurora page-shell--grid">
+    <div class="quiz-detail">
+      <header class="quiz-detail__header">
+        <div class="quiz-detail__hero">
+          <div class="quiz-detail__hero-main">
+            <nav aria-label="Breadcrumb" class="quiz-detail__breadcrumb">
+              <a href="/">← All Quizzes</a>
+            </nav>
+
+            <h1 class="quiz-detail__title">{quiz.data.title}</h1>
+            <p class="quiz-detail__description">{quiz.data.description}</p>
+
+            <div class="quiz-detail__meta">
+              <span class="quiz-detail__badge"
+                >{quiz.data.category.replace(/-/g, " ")}</span
+              >
+              <span class="quiz-detail__badge">{questionsPerSession} questions</span>
+              <span class="quiz-detail__badge">{passingScore}% to pass</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="quiz-detail__content">
+        <aside class="quiz-detail__sidebar">
+          <div class="quiz-detail__sidebar-card">
+            <div id="quiz-progress-container"></div>
+          </div>
+        </aside>
+
+        <main class="quiz-detail__main">
+          <section class="quiz-detail__panel" aria-labelledby="quiz-play-heading">
+            <div class="quiz-detail__panel-header">
+              <h2 id="quiz-play-heading" class="quiz-detail__panel-title">
+                Answer the question
+              </h2>
+            </div>
+
+            <div id="quiz-question-container"></div>
+            <div id="quiz-result-container"></div>
+          </section>
+
+          <div class="quiz-detail__nav" id="quiz-nav">
+            <button
+              type="button"
+              id="quiz-nav-prev"
+              class="quiz-detail__nav-btn quiz-detail__nav-btn--prev"
+              hidden
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M15 18l-6-6 6-6"></path>
+              </svg>
+              Previous
+            </button>
+
+            <button
+              type="button"
+              id="quiz-check-answer"
+              class="quiz-detail__nav-btn quiz-detail__nav-btn--check"
+            >
+              Check Answer
+            </button>
+
+            <button
+              type="button"
+              id="quiz-nav-next"
+              class="quiz-detail__nav-btn quiz-detail__nav-btn--next"
+            >
+              Next
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M9 18l6-6-6-6"></path>
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              id="quiz-nav-submit"
+              class="quiz-detail__nav-btn quiz-detail__nav-btn--submit"
+              hidden
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              Show Results
+            </button>
+          </div>
+        </main>
+      </div>
+
+      <footer class="quiz-detail__footer">
+        <div class="quiz-detail__footer-head">
+          <h2 class="quiz-detail__footer-title">About this quiz</h2>
+          <p class="quiz-detail__source">
+            Questions based on: {quiz.data.relatedArticles.map((slug: string, i: number) => (
+              <>
+                {i > 0 && ", "}
+                <span>{slug.replace(/-/g, " ")}</span>
+              </>
+            ))}
+          </p>
+        </div>
+      </footer>
+    </div>
+  </PageShell>
+
+  <BackToTop lang="en" />
+
+  <script
+    is:inline
+    type="application/json"
+    id="quiz-questions-data"
+    set:html={JSON.stringify(questionsData)}
+  />
+  <span id="quiz-passing-score" data-value={passingScore} hidden></span>
+  <span id="quiz-questions-per-session" data-value={questionsPerSession} hidden></span>
+  <span id="quiz-total-pool-size" data-value={totalPoolSize} hidden></span>
+</Layout>
+
+<script>
+  import { initQuiz, type QuizQuestion } from "../scripts/quiz/quizClient";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const questionsEl = document.getElementById("quiz-questions-data");
+    const passingScoreEl = document.getElementById("quiz-passing-score");
+    const questionsPerSessionEl = document.getElementById("quiz-questions-per-session");
+
+    if (!questionsEl || !passingScoreEl || !questionsPerSessionEl) return;
+
+    const questions: QuizQuestion[] = JSON.parse(questionsEl.textContent || "[]");
+    const passingScore: number = parseInt(passingScoreEl.dataset.value || "70", 10);
+    const questionsPerSession: number = parseInt(
+      questionsPerSessionEl.dataset.value || "20",
+      10
+    );
+
+    initQuiz(questions, passingScore, questionsPerSession);
+  });
+</script>

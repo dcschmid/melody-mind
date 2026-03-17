@@ -1,0 +1,616 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface NavItem {
+  href: string;
+  label: string;
+  icon?: string;
+}
+
+interface Props {
+  showIcons?: boolean;
+}
+
+const { showIcons = true } = Astro.props;
+
+const navItems: NavItem[] = [
+  { href: "/bookmarks", label: "Bookmarks", icon: "bookmark" },
+  { href: "/quiz", label: "Quizzes", icon: "grid" },
+];
+
+const currentPath = Astro.url.pathname;
+const currentQuery = Astro.url.searchParams.get("q") || "";
+---
+
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="Go to the Melody Mind homepage">
+      <span class="site-header__brand-mark" aria-hidden="true">MM</span>
+      <span class="site-header__brand-text">Melody Mind</span>
+    </a>
+
+    <button
+      type="button"
+      class="site-header__menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-primary-nav"
+      aria-label="Open main menu"
+      data-site-header-toggle
+    >
+      <span class="site-header__menu-icon-wrap" aria-hidden="true">
+        <Icon name="menu" class="site-header__menu-icon site-header__menu-icon--open" />
+        <Icon name="x" class="site-header__menu-icon site-header__menu-icon--close" />
+      </span>
+      <span>Menu</span>
+    </button>
+
+    <nav id="site-primary-nav" class="site-header__nav" aria-label="Primary navigation">
+      <div class="site-header__search">
+        <form
+          class="site-header__search-form"
+          action="/search"
+          method="get"
+          role="search"
+        >
+          <label class="site-header__search-label" for="site-header-search-input">
+            Search Melody Mind
+          </label>
+          <div class="site-header__search-field">
+            <Icon name="search" class="site-header__search-icon" aria-hidden="true" />
+            <input
+              id="site-header-search-input"
+              class="site-header__search-input"
+              type="search"
+              name="q"
+              value={currentQuery}
+              placeholder="Search genres, eras, or artists"
+              autocomplete="off"
+              data-site-header-search-input
+            />
+            <button class="site-header__search-submit" type="submit">
+              <span class="site-header__search-submit-text">Search</span>
+              <Icon
+                name="arrow-right"
+                class="site-header__search-submit-icon"
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+        </form>
+      </div>
+      <ul class="site-header__nav-list">
+        {
+          navItems.map((item) => {
+            const isActive =
+              item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href);
+
+            return (
+              <li>
+                <a
+                  class="site-header__nav-link"
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {showIcons && item.icon ? (
+                    <Icon name={item.icon} aria-hidden="true" />
+                  ) : null}
+                  <span>{item.label}</span>
+                  {item.href === "/bookmarks" ? (
+                    <span class="site-header__badge" data-bookmark-count hidden>
+                      0
+                    </span>
+                  ) : null}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+  <button
+    type="button"
+    class="site-header__scrim"
+    aria-label="Close main menu"
+    tabindex="-1"
+    data-site-header-scrim></button>
+</header>
+
+<script>
+  import {
+    BOOKMARK_CHANGE_EVENT,
+    getBookmarkCount,
+    BOOKMARK_STORAGE_KEY,
+  } from "@utils/bookmarks/clientBookmarks";
+
+  const bookmarkCountNodes = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-bookmark-count]")
+  );
+
+  const updateBookmarkCount = (): void => {
+    if (!bookmarkCountNodes.length) return;
+    const count = getBookmarkCount();
+    bookmarkCountNodes.forEach((node) => {
+      node.textContent = String(count);
+      node.hidden = count <= 0;
+
+      const link = node.closest<HTMLAnchorElement>("a");
+      if (!link) return;
+      const baseLabel = "Saved articles";
+      const ariaLabel =
+        count > 0
+          ? `${baseLabel}, ${count} saved article${count === 1 ? "" : "s"}`
+          : baseLabel;
+      link.setAttribute("aria-label", ariaLabel);
+    });
+  };
+
+  const toggle = document.querySelector<HTMLButtonElement>("[data-site-header-toggle]");
+  const nav = document.getElementById("site-primary-nav");
+  const scrim = document.querySelector<HTMLButtonElement>("[data-site-header-scrim]");
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const headerSearchInput = document.querySelector<HTMLInputElement>(
+    "[data-site-header-search-input]"
+  );
+
+  if (toggle && nav && header) {
+    const desktopQuery = window.matchMedia("(min-width: 880px)");
+    const getFocusableNavItems = (): HTMLElement[] =>
+      Array.from(
+        nav.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])"
+        )
+      );
+    let previousFocus: HTMLElement | null = null;
+
+    const setOpen = (open: boolean, restoreFocus = true): void => {
+      if (open) {
+        previousFocus =
+          document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      }
+
+      header.dataset.open = open ? "true" : "false";
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      nav.dataset.open = open ? "true" : "false";
+      toggle.setAttribute("aria-label", open ? "Close main menu" : "Open main menu");
+
+      if (open) {
+        window.requestAnimationFrame(() => {
+          getFocusableNavItems()[0]?.focus();
+        });
+        return;
+      }
+
+      if (!restoreFocus) return;
+
+      const activeElement = document.activeElement;
+      const shouldRestoreFocus =
+        activeElement instanceof HTMLElement &&
+        (nav.contains(activeElement) || activeElement === scrim);
+
+      if (!shouldRestoreFocus) return;
+
+      if (previousFocus) {
+        previousFocus.focus();
+        return;
+      }
+
+      toggle.focus();
+    };
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      setOpen(!isOpen);
+    });
+
+    const handleDesktopChange = (event: MediaQueryListEvent): void => {
+      if (event.matches) setOpen(false);
+    };
+
+    const navLinks = Array.from(nav.querySelectorAll<HTMLAnchorElement>("a[href]"));
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (!desktopQuery.matches) setOpen(false);
+      });
+    });
+
+    scrim?.addEventListener("click", () => setOpen(false));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || toggle.getAttribute("aria-expanded") !== "true") return;
+
+      const focusable = [toggle, ...getFocusableNavItems()];
+      if (!focusable.length) return;
+
+      const activeElement = document.activeElement;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && activeElement === first) {
+        event.preventDefault();
+        last.focus();
+        return;
+      }
+
+      if (!event.shiftKey && activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    setOpen(false, false);
+    desktopQuery.addEventListener("change", handleDesktopChange);
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key !== "/" ||
+      event.defaultPrevented ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.altKey
+    )
+      return;
+
+    const activeElement = document.activeElement;
+    if (
+      activeElement instanceof HTMLInputElement ||
+      activeElement instanceof HTMLTextAreaElement ||
+      activeElement instanceof HTMLSelectElement ||
+      activeElement?.getAttribute("contenteditable") === "true"
+    )
+      return;
+
+    if (!headerSearchInput) return;
+
+    event.preventDefault();
+    headerSearchInput.focus();
+    headerSearchInput.select();
+  });
+
+  updateBookmarkCount();
+  window.addEventListener("storage", (event) => {
+    if (event.key && event.key !== BOOKMARK_STORAGE_KEY) return;
+    updateBookmarkCount();
+  });
+  window.addEventListener(BOOKMARK_CHANGE_EVENT, () => updateBookmarkCount());
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--gn-panel-border);
+    background: var(--gn-bg);
+  }
+
+  .site-header__inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .site-header__inner {
+      padding: 0.85rem 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-header__inner {
+      padding: 1rem 2rem;
+    }
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--gn-ink);
+    font-weight: 700;
+  }
+
+  .site-header__brand:hover {
+    color: var(--gn-accent);
+  }
+
+  .site-header__brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1px solid var(--gn-accent);
+    background: var(--gn-bg-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .site-header__brand-text {
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .site-header__menu-toggle {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
+    background: var(--gn-bg-muted);
+    color: var(--gn-ink);
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .site-header__menu-toggle:hover {
+    background: var(--gn-bg);
+  }
+
+  .site-header__menu-icon {
+    position: absolute;
+    inset: 0;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .site-header__menu-icon-wrap {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+  }
+
+  .site-header__menu-icon--close {
+    opacity: 0;
+  }
+
+  .site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon--open {
+    opacity: 0;
+  }
+
+  .site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon--close {
+    opacity: 1;
+  }
+
+  .site-header__nav {
+    position: absolute;
+    top: calc(100% + 0.3rem);
+    right: 1rem;
+    left: 1rem;
+    z-index: 2;
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
+    background: var(--gn-bg);
+    padding: 0.75rem;
+    display: none;
+  }
+
+  .site-header__nav[data-open="true"] {
+    display: block;
+  }
+
+  .site-header__search {
+    margin-bottom: 0.75rem;
+  }
+
+  .site-header__search-form {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .site-header__search-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gn-ink-muted);
+  }
+
+  .site-header__search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-header__search-icon {
+    position: absolute;
+    left: 0.9rem;
+    width: 0.95rem;
+    height: 0.95rem;
+    color: var(--gn-ink-muted);
+    pointer-events: none;
+  }
+
+  .site-header__search-input {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.75rem 6rem 0.75rem 2.5rem;
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
+    background: var(--gn-bg-muted);
+    color: var(--gn-ink);
+    font: inherit;
+    font-size: 0.95rem;
+  }
+
+  .site-header__search-input::placeholder {
+    color: var(--gn-ink-muted);
+  }
+
+  .site-header__search-input:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+  }
+
+  .site-header__search-submit {
+    position: absolute;
+    right: 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.2rem;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--gn-accent);
+    border-radius: 999px;
+    background: var(--gn-accent);
+    color: var(--gn-bg);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .site-header__search-submit:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+  }
+
+  .site-header__search-submit-icon {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  .site-header__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .site-header__nav-link {
+    display: inline-flex;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    color: var(--gn-ink);
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .site-header__badge {
+    margin-left: 0.2rem;
+    min-width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 999px;
+    padding: 0 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--gn-bg);
+    background: var(--gn-accent);
+  }
+
+  .site-header__nav-link[aria-current="page"] {
+    border-color: var(--gn-accent);
+    background: var(--gn-bg-muted);
+  }
+
+  .site-header__nav-link:hover {
+    background: var(--gn-bg-muted);
+  }
+
+  .site-header__nav-link:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--gn-accent) 35%, transparent);
+  }
+
+  .site-header__scrim {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: calc(100dvh - 1px);
+    z-index: 1;
+    border: 0;
+    background: var(--gn-bg);
+    opacity: 0.5;
+    display: none;
+  }
+
+  .site-header[data-open="true"] .site-header__scrim {
+    display: block;
+  }
+
+  @media (min-width: 880px) {
+    .site-header__menu-toggle {
+      display: none;
+    }
+
+    .site-header__nav {
+      position: static;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .site-header__search {
+      margin-bottom: 0;
+      flex: 1 1 18rem;
+      max-width: 24rem;
+    }
+
+    .site-header__search-label {
+      position: absolute;
+      width: var(--sr-only-width);
+      height: var(--sr-only-height);
+      padding: 0;
+      margin: var(--sr-only-margin);
+      overflow: hidden;
+      clip-path: var(--sr-only-clip-path);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .site-header__search-input {
+      min-height: 2.5rem;
+      padding-block: 0.65rem;
+    }
+
+    .site-header__nav-list {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-left: auto;
+    }
+
+    .site-header__nav-link {
+      width: auto;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+    }
+
+    .site-header__scrim {
+      display: none;
+    }
+  }
+</style>

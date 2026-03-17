@@ -3,7 +3,7 @@
  * Knowledge Article Page (English only)
  */
 import { Picture } from "astro:assets";
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
@@ -229,13 +229,6 @@ let relatedArticles: Array<{
   createdAt: Date;
   readingTime: number;
 }> = [];
-let relatedQuizzes: Array<{
-  slug: string;
-  title: string;
-  description: string;
-  image?: string;
-  imageAlt?: string;
-}> = [];
 
 try {
   const allArticles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
@@ -312,26 +305,6 @@ try {
     error: (e as any)?.message || e,
   });
 }
-
-try {
-  const quizzes = await getCollection("quizzes");
-  relatedQuizzes = quizzes
-    .filter((quiz) => quiz.data.relatedArticles.includes(slugKey))
-    .slice(0, 2)
-    .map((quiz) => ({
-      slug: quiz.id,
-      title: quiz.data.title,
-      description: quiz.data.description,
-      image: typeof rawImage === "string" ? rawImage : undefined,
-      imageAlt: `${quiz.data.title} quiz cover`,
-    }));
-} catch (e) {
-  loggers.pages.warn("knowledge article: related quizzes load issue", {
-    error: (e as any)?.message || e,
-  });
-}
-
-const primaryQuiz = relatedQuizzes[0];
 
 function translate(key: string, fallback: string): string {
   try {
@@ -461,22 +434,7 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
               <span>{t("knowledge.word_count", { count: wordsCount })}</span>
             </div>
 
-            {
-              primaryQuiz ? (
-                <a
-                  href={`/quiz/${primaryQuiz.slug}`}
-                  class="knowledge__quiz-button"
-                  aria-label={`Open quiz: ${primaryQuiz.title}`}
-                >
-                  <Icon
-                    name="play"
-                    class="knowledge__quiz-button-icon"
-                    aria-hidden="true"
-                  />
-                  <span>Play quiz</span>
-                </a>
-              ) : null
-            }
+            {/* Quiz button removed - quizzes are now in separate app */}
 
             <BookmarkButton articleSlug={storageSlug} articleTitle={title} />
             <PrintButton />
