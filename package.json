@@ -1,78 +1,26 @@
 {
-  "name": "melody-mind",
-  "type": "module",
+  "name": "melody-mind-monorepo",
+  "private": true,
   "version": "1.0.0",
-  "license": "MIT",
-  "description": "Music knowledge articles for MelodyMind",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "description": "MelodyMind - Music Knowledge Platform (Monorepo)",
   "scripts": {
-    "dev": "astro dev",
-    "start": "node dist/server/entry.mjs",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096' astro check && NODE_OPTIONS='--max-old-space-size=4096' astro build",
-    "build:production": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=4096' yarn build",
-    "preview": "astro preview",
-    "lint": "yarn format && eslint --fix \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "lint:check": "eslint \"src/**/*.{js,ts,jsx,tsx,astro}\"",
-    "check:scoped-css": "node scripts/check_scoped_css.mjs",
-    "check:seo": "node scripts/check_seo_meta.mjs",
-    "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
-    "format:check": "prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
-    "crosslink-artists": "npx tsx scripts/crosslink-artists.ts",
-    "crosslink-artists:dry": "npx tsx scripts/crosslink-artists.ts --dry-run",
-    "convert-images": "python3 scripts/convert_pngs.py",
-    "convert-images:exec": "python3 scripts/convert_pngs.py --execute --quality 80 --width 1024",
-    "convert-images:exec:delete": "python3 scripts/convert_pngs.py --execute --delete --quality 80 --width 1024",
-    "lint-staged": "lint-staged",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "build:knowledge": "turbo run build --filter=knowledge",
+    "build:quiz": "turbo run build --filter=quiz",
+    "build:podcasts": "turbo run build --filter=podcasts",
+    "preview": "turbo run preview",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "clean": "turbo run clean && rm -rf node_modules",
     "prepare": "husky"
   },
-  "dependencies": {
-    "@astrojs/markdown-remark": "^7.0.0",
-    "@astrojs/mdx": "^5.0.0",
-    "@astrojs/rss": "^4.0.17",
-    "@astrojs/sitemap": "^3.7.1",
-    "@fontsource/atkinson-hyperlegible": "^5.2.8",
-    "@playform/compress": "^0.2.2",
-    "astro": "^6.0.0",
-    "astro-capo": "^0.0.1",
-    "astro-icon": "^1.1.5",
-    "astro-meta-tags": "^0.4.1",
-    "astro-minify-html-swc": "^0.1.11",
-    "astro-pagefind": "^1.8.5",
-    "astro-robots-txt": "^1.0.0",
-    "date-fns": "^4.1.0",
-    "jimp": "^1.5.3",
-    "jpeg-js": "^0.4.4",
-    "lightningcss": "^1.31.1",
-    "pngjs": "^7.0.0",
-    "sharp": "^0.34.5"
-  },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.57.1",
-    "eslint": "^10.0.3",
-    "eslint-plugin-astro": "^1.6.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "gray-matter": "^4.0.3",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
-    "mdast-util-to-string": "^4.0.0",
-    "prettier": "^3.8.1",
-    "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1"
+    "turbo": "^2.4.0",
+    "husky": "^9.1.7"
   },
-  "lint-staged": {
-    "src/content/knowledge-en/**/*.{md,mdx}": [
-      "node scripts/check_content.mjs",
-      "prettier --write"
-    ],
-    "src/**/*.{astro,ts,tsx,js}": [
-      "prettier --write",
-      "eslint --fix --max-warnings=0"
-    ]
-  },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22.12.0"
+  }
 }
