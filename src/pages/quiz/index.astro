@@ -206,59 +206,6 @@ const pageSeo = buildPageSeo({
       }
 
       {
-        quizzesByCategory["genre-evolution"].length > 0 && (
-          <section class="quiz-section" aria-labelledby="genre-heading">
-            <h2 id="genre-heading" class="quiz-section__title">
-              {categoryLabels["genre-evolution"]}
-            </h2>
-            <p class="quiz-section__description">
-              Explore how genres transformed over time, from blues to rock, jazz to neo
-              soul.
-            </p>
-            <ul class="quiz-section__grid" aria-label={categoryLabels["genre-evolution"]}>
-              {quizzesByCategory["genre-evolution"].map((quiz) => (
-                <li>
-                  <QuizCard
-                    title={quiz.data.title}
-                    description={quiz.data.description}
-                    slug={quiz.id}
-                    image={quiz.image}
-                    imageAlt={quiz.imageAlt}
-                  />
-                </li>
-              ))}
-            </ul>
-          </section>
-        )
-      }
-
-      {
-        quizzesByCategory.mixed.length > 0 && (
-          <section class="quiz-section" aria-labelledby="mixed-heading">
-            <h2 id="mixed-heading" class="quiz-section__title">
-              {categoryLabels.mixed}
-            </h2>
-            <p class="quiz-section__description">
-              Comprehensive quizzes covering multiple topics and time periods.
-            </p>
-            <ul class="quiz-section__grid" aria-label={categoryLabels.mixed}>
-              {quizzesByCategory.mixed.map((quiz) => (
-                <li>
-                  <QuizCard
-                    title={quiz.data.title}
-                    description={quiz.data.description}
-                    slug={quiz.id}
-                    image={quiz.image}
-                    imageAlt={quiz.imageAlt}
-                  />
-                </li>
-              ))}
-            </ul>
-          </section>
-        )
-      }
-
-      {
         quizzes.length === 0 && (
           <div class="quiz-empty" role="status">
             <p class="quiz-empty__title">No quizzes available yet</p>
