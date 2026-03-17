@@ -1,0 +1,427 @@
+---
+interface Props {
+  title: string;
+  audioUrl: string;
+  subtitleUrl?: string | undefined;
+}
+
+const { title, audioUrl, subtitleUrl } = Astro.props as Props;
+const playerId = subtitleUrl ?? audioUrl;
+---
+
+<div
+  class="episode-player"
+  data-episode-player
+  data-player-id={playerId}
+  tabindex="0"
+  aria-label={`Audio player for ${title}`}
+>
+  <div class="episode-player__controls">
+    <button
+      class="episode-player__control"
+      type="button"
+      data-action="toggle"
+      aria-label={`Play ${title}`}
+      aria-pressed="false"
+      aria-describedby="episode-player-status"
+    >
+      <svg
+        class="episode-player__control-icon episode-player__control-icon--play"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+      <svg
+        class="episode-player__control-icon episode-player__control-icon--pause"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+      </svg>
+    </button>
+    <button
+      class="episode-player__retry"
+      type="button"
+      data-action="retry"
+      aria-label="Retry loading audio"
+      hidden
+    >
+      Retry
+    </button>
+  </div>
+
+  <div
+    class="episode-player__status"
+    id="episode-player-status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    {title}
+  </div>
+
+  <div class="episode-player__progress-wrap">
+    <span id="episode-player-progress-label" class="episode-player__sr-only">
+      Playback progress
+    </span>
+    <div
+      class="episode-player__progress"
+      role="slider"
+      aria-labelledby="episode-player-progress-label"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      aria-valuetext="0:00 of 0:00"
+      tabindex="0"
+    >
+      <div class="episode-player__progress-fill" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="episode-player__meta">
+    <span
+      class="episode-player__time"
+      id="episode-player-time"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      0:00 / 0:00
+    </span>
+    <span class="episode-player__shortcut-hint" id="episode-player-hint" aria-live="polite">
+      Keyboard shortcuts: Space, left/right arrows, Home/End, and Page Up/Page Down. Press ? to show
+      or hide this hint.
+    </span>
+  </div>
+
+  <div class="episode-player__transport" role="group" aria-label="Playback controls">
+    <button
+      class="episode-player__transport-button"
+      type="button"
+      data-action="rewind"
+      aria-label="Go back 10 seconds"
+      title="Go back 10 seconds"
+    >
+      <svg
+        class="episode-player__transport-icon"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+        ></path>
+      </svg>
+    </button>
+    <button
+      class="episode-player__transport-button"
+      type="button"
+      data-action="forward"
+      aria-label="Skip forward 10 seconds"
+      title="Skip forward 10 seconds"
+    >
+      <svg
+        class="episode-player__transport-icon"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+
+  <audio
+    class="episode-player__audio"
+    preload="metadata"
+    aria-label={`Audio playback for ${title}`}
+    data-title={title}
+    crossorigin=""
+  >
+    <source src={audioUrl} type="audio/mpeg" />
+    {
+      subtitleUrl && (
+        <track kind="captions" src={subtitleUrl} srclang="en" label="English" default />
+      )
+    }
+    Your browser does not support audio playback.
+  </audio>
+</div>
+
+<script>
+  import '../scripts/audio-player';
+</script>
+
+<style>
+  .episode-player {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+    outline: none;
+  }
+
+  .episode-player:focus-visible {
+    border-radius: 0.85rem;
+    box-shadow: var(--focus-ring);
+  }
+
+  .episode-player__controls {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .episode-player__retry {
+    padding: 0.5rem 1rem;
+    font-size: var(--font-size-ui);
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    border-radius: 0.5rem;
+  }
+
+  .episode-player__retry:hover,
+  .episode-player__retry:focus {
+    background: var(--color-layer-3);
+    border-color: var(--color-primary);
+  }
+
+  .episode-player__retry[hidden] {
+    display: none;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: clamp(3.4rem, 6vi, 3.75rem);
+      block-size: clamp(3.4rem, 6vi, 3.75rem);
+      color: var(--color-background);
+      cursor: pointer;
+      background: var(--color-primary);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+      border-radius: 999px;
+      box-shadow: var(--shadow-strong);
+      transition: none;
+    }
+  }
+
+  .episode-player__control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: clamp(3.4rem, 6vi, 3.75rem);
+    block-size: clamp(3.4rem, 6vi, 3.75rem);
+    color: var(--color-background);
+    cursor: pointer;
+    background: var(--color-primary);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+    border-radius: 999px;
+    box-shadow: var(--shadow-strong);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .episode-player__control[data-state='playing'] {
+    background: var(--color-secondary);
+  }
+
+  .episode-player__control:focus-visible {
+    outline: none;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring);
+  }
+
+  .episode-player__control:hover,
+  .episode-player__control:focus {
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  .episode-player__control-icon {
+    display: block;
+    inline-size: 1.8rem;
+    block-size: 1.8rem;
+  }
+
+  .episode-player__control-icon--pause {
+    display: none;
+  }
+
+  .episode-player__control[data-state='playing'] .episode-player__control-icon--play {
+    display: none;
+  }
+
+  .episode-player__control[data-state='playing'] .episode-player__control-icon--pause {
+    display: block;
+  }
+
+  .episode-player__status {
+    font-size: var(--font-size-body);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .episode-player__progress-wrap {
+    inline-size: 100%;
+  }
+
+  .episode-player__progress {
+    position: relative;
+    inline-size: 100%;
+    block-size: clamp(0.65rem, 1.2vi, 0.85rem);
+    cursor: pointer;
+    background: var(--color-layer-3);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border-radius: 999px;
+  }
+
+  .episode-player__progress:focus-visible {
+    outline: none;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__progress-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      inline-size: 0%;
+      background: var(--brand-gradient);
+      border-radius: inherit;
+      box-shadow: 0 0 0 1px rgb(255 255 255 / 10%);
+      transition: none;
+    }
+  }
+
+  .episode-player__progress-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    inline-size: 0%;
+    background: var(--brand-gradient);
+    border-radius: inherit;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 10%);
+    transition: inline-size 0.15s ease-out;
+  }
+
+  .episode-player__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    align-items: center;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+  }
+
+  .episode-player__shortcut-hint {
+    font-size: var(--font-size-caption);
+  }
+
+  .episode-player__shortcut-hint--hidden {
+    display: none;
+  }
+
+  .episode-player__transport {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__transport-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: clamp(2.75rem, 5vi, 3.1rem);
+      block-size: clamp(2.75rem, 5vi, 3.1rem);
+      padding: 0.35rem;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+      border-radius: 0.6rem;
+      transition: none;
+    }
+  }
+
+  .episode-player__transport-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: clamp(2.75rem, 5vi, 3.1rem);
+    block-size: clamp(2.75rem, 5vi, 3.1rem);
+    padding: 0.35rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    border-radius: 0.6rem;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .episode-player__transport-button:hover,
+  .episode-player__transport-button:focus {
+    color: var(--color-text);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+  }
+
+  .episode-player__transport-button:focus-visible {
+    outline: none;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring);
+  }
+
+  .episode-player__transport-icon {
+    inline-size: 1.4rem;
+    block-size: 1.4rem;
+  }
+
+  .episode-player__audio {
+    display: none;
+  }
+
+  .episode-player__sr-only {
+    position: absolute !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+  }
+
+  @supports not (color-mix(in srgb, #000 50%, transparent)) {
+    .episode-player__control {
+      border-color: rgb(111 225 255 / 35%);
+    }
+
+    .episode-player__progress {
+      border-color: rgb(111 225 255 / 32%);
+    }
+
+    .episode-player__transport-button {
+      border-color: rgb(111 225 255 / 30%);
+    }
+
+    .episode-player__transport-button:hover,
+    .episode-player__transport-button:focus {
+      border-color: rgb(111 225 255 / 60%);
+    }
+  }
+</style>

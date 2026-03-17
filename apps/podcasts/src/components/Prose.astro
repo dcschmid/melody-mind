@@ -1,0 +1,115 @@
+---
+export interface Props {
+  html: string;
+  size?: 'sm' | 'base' | 'lg';
+}
+
+const { html, size = 'base' } = Astro.props;
+
+const classes = `prose prose--${size}`;
+---
+
+<div class={classes} set:html={html} />
+
+<style>
+  .prose {
+    max-inline-size: 70ch;
+    line-height: var(--leading-enhanced, 1.8);
+    color: var(--color-text);
+  }
+
+  .prose--sm {
+    font-size: var(--font-size-ui);
+  }
+
+  .prose--base {
+    font-size: var(--font-size-body);
+  }
+
+  .prose--lg {
+    font-size: var(--font-size-body-strong);
+  }
+
+  .prose p {
+    margin: 0 0 1.2em;
+    line-height: var(--leading-enhanced, 1.8);
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3 {
+    margin: 1.4em 0 0.7em;
+    font-weight: 700;
+    line-height: var(--leading-tight, 1.25);
+    color: var(--color-text);
+  }
+
+  .prose h1 {
+    font-size: var(--font-size-title-lg);
+  }
+
+  .prose h2 {
+    font-size: var(--font-size-title-md);
+  }
+
+  .prose h3 {
+    font-size: var(--font-size-title-sm);
+  }
+
+  .prose a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .prose a:focus-visible {
+    outline: none;
+    border-radius: 0.3rem;
+    box-shadow: var(--focus-ring);
+  }
+
+  .prose ul,
+  .prose ol {
+    display: grid;
+    gap: 1.4em;
+    padding-inline-start: 1.2em;
+    margin: 0 0 1.4em;
+    list-style-position: outside;
+  }
+
+  .prose ul {
+    list-style-type: disc;
+  }
+
+  .prose ol {
+    list-style-type: decimal;
+  }
+
+  .prose li {
+    margin: 0;
+    line-height: var(--leading-enhanced, 1.8);
+  }
+
+  .prose strong {
+    color: var(--color-text);
+  }
+
+  .prose code {
+    padding: 0.1em 0.35em;
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+      monospace;
+    font-size: 0.9em;
+    background: var(--color-layer-2);
+    border-radius: 0.25rem;
+  }
+
+  .prose blockquote {
+    padding-inline-start: 1em;
+    margin: 1.2em 0;
+    font-style: italic;
+    color: var(--color-text-muted);
+    border-inline-start: 4px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  }
+</style>

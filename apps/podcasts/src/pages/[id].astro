@@ -1,0 +1,461 @@
+---
+import PodcastLayout from '../layouts/PodcastLayout.astro';
+import TranscriptDropdown from '../components/TranscriptDropdown.astro';
+import AudioPlayer from '../components/AudioPlayer.astro';
+import Prose from '../components/Prose.astro';
+import Headline from '../components/Headline.astro';
+import { getAvailablePodcasts, getPodcastById } from '../utils/podcasts';
+import { getAdjacentByKey } from '../utils/array';
+import { buildMetaDescription, formatDate } from '../utils/helpers';
+import type { PodcastData } from '../types/podcast';
+
+export async function getStaticPaths() {
+  const podcasts = await getAvailablePodcasts();
+  return podcasts.map((podcast) => ({
+    params: { id: podcast.id },
+  }));
+}
+
+const { id } = Astro.params;
+
+const podcasts: PodcastData[] = await getAvailablePodcasts();
+const currentPodcast = await getPodcastById(id ?? '', podcasts);
+
+if (!currentPodcast) {
+  return Astro.redirect('/404');
+}
+
+// Use utility for navigation
+const { prev, next, index } = getAdjacentByKey(podcasts, 'id', id ?? '');
+const episodeNumber = index + 1;
+const metaDescription =
+  currentPodcast.metaDescription ||
+  buildMetaDescription(currentPodcast.description, 155, 'MelodyMind Podcasts');
+
+const t = {
+  backToAll: '← Back to all podcasts',
+  listenToEpisode: '🎧 Listen to the Episode',
+  episode: 'Episode',
+  previousEpisode: 'Previous Episode',
+  nextEpisode: 'Next Episode',
+  episodeNavigation: 'Episode navigation',
+  publishedOn: 'Published',
+  musicHistory: 'Music History',
+  knowledge: 'Related Article',
+  readArticle: 'Read the related article',
+};
+---
+
+<PodcastLayout
+  title={currentPodcast.title}
+  description={metaDescription}
+  type="article"
+  publishedTime={currentPodcast.publishedAt}
+  modifiedTime={currentPodcast.publishedAt}
+  image={`/square/${currentPodcast.imageUrl}.jpg`}
+  episodeImage={`/square/${currentPodcast.imageUrl}.jpg`}
+  language="en"
+  locale="en-US"
+  episodeNumber={episodeNumber}
+  durationSeconds={currentPodcast.durationSeconds}
+  audioUrl={currentPodcast.audioUrl}
+  keywords={[
+    currentPodcast.title.toLowerCase(),
+    t.musicHistory.toLowerCase(),
+    'music podcast',
+    'audio story',
+    'music history',
+    'melodymind podcasts',
+    'daniel and annabelle',
+    'music documentary',
+    'music education',
+  ]}
+  canonical={`https://podcasts.melody-mind.de/${currentPodcast.id}`}
+>
+  <div class="episode">
+    <nav class="episode__breadcrumb" aria-label="Breadcrumb navigation">
+      <a href="/" class="episode__breadcrumb-link" aria-label="Return to all podcasts">
+        {t.backToAll}
+      </a>
+    </nav>
+
+    <section class="episode__hero" aria-labelledby="episode-title">
+      <div class="episode__hero-media">
+        <picture>
+          <source srcset={`/images/${currentPodcast.imageUrl}.avif`} type="image/avif" />
+          <source srcset={`/images/${currentPodcast.imageUrl}.webp`} type="image/webp" />
+          <img
+            src={`/images/${currentPodcast.imageUrl}.jpg`}
+            alt={`Cover art for the podcast episode ${currentPodcast.title}`}
+            width="400"
+            height="267"
+            loading="eager"
+            class="episode__hero-image"
+            decoding="async"
+            fetchpriority="high"
+            sizes="(max-width: 960px) 100vw, 50vw"
+          />
+        </picture>
+      </div>
+
+      <div class="episode__hero-body">
+        <div class="episode__meta">
+          <span class="episode__pill" aria-label={`${t.episode} number ${episodeNumber}`}>
+            {t.episode}
+            {episodeNumber}
+          </span>
+          <time
+            class="episode__date"
+            datetime={currentPodcast.publishedAt}
+            aria-label={`${t.publishedOn} ${formatDate(currentPodcast.publishedAt)}`}
+          >
+            {t.publishedOn}
+            {formatDate(currentPodcast.publishedAt)}
+          </time>
+        </div>
+
+        <Headline level="h1" textSize="2xl" className="episode__title">
+          <span id="episode-title">{currentPodcast.title}</span>
+        </Headline>
+
+        <p class="episode__description">{currentPodcast.description}</p>
+      </div>
+    </section>
+
+    {
+      currentPodcast.knowledgeUrl && (
+        <section class="episode__knowledge" aria-labelledby="knowledge-link">
+          <div class="episode__knowledge-body">
+            <p class="episode__kicker" id="knowledge-link">
+              {t.knowledge}
+            </p>
+            <p class="episode__knowledge-text">Go deeper with the related Melody Mind article.</p>
+          </div>
+          <a
+            href={currentPodcast.knowledgeUrl}
+            class="episode__knowledge-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.readArticle}: ${currentPodcast.title}`}
+          >
+            {t.readArticle}
+          </a>
+        </section>
+      )
+    }
+
+    {
+      currentPodcast.audioUrl && (
+        <section class="episode__audio" aria-labelledby="audio-player-heading">
+          <Headline level="h2" textSize="lg" className="episode__section-title">
+            <span id="audio-player-heading">{t.listenToEpisode}</span>
+          </Headline>
+
+          <AudioPlayer
+            title={currentPodcast.title}
+            audioUrl={currentPodcast.audioUrl}
+            subtitleUrl={currentPodcast.subtitleUrl}
+          />
+        </section>
+      )
+    }
+
+    <TranscriptDropdown
+      subtitleUrl={currentPodcast.subtitleUrl}
+      podcastTitle={currentPodcast.title}
+    />
+
+    {
+      currentPodcast.showNotesHtml && (
+        <article role="region" aria-labelledby="show-notes-heading">
+          <Prose html={currentPodcast.showNotesHtml} size="lg" />
+        </article>
+      )
+    }
+
+    {
+      (prev || next) && (
+        <nav class="episode__nav" aria-labelledby="episode-nav-heading">
+          <h2 id="episode-nav-heading" class="episode__sr-only">
+            {t.episodeNavigation}
+          </h2>
+          <div class="episode__nav-grid">
+            {prev && (
+              <a
+                href={`/${prev.id}`}
+                class="episode__nav-card"
+                aria-label={`Go to the previous episode: ${prev.title}`}
+              >
+                <span class="episode__nav-direction" aria-hidden="true">
+                  ←
+                </span>
+                <div class="episode__nav-body">
+                  <span class="episode__nav-label">{t.previousEpisode}</span>
+                  <span class="episode__nav-title">{prev.title}</span>
+                </div>
+              </a>
+            )}
+
+            {next && (
+              <a
+                href={`/${next.id}`}
+                class="episode__nav-card episode__nav-card--next"
+                aria-label={`Go to the next episode: ${next.title}`}
+              >
+                <div class="episode__nav-body">
+                  <span class="episode__nav-label">{t.nextEpisode}</span>
+                  <span class="episode__nav-title">{next.title}</span>
+                </div>
+                <span class="episode__nav-direction" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            )}
+          </div>
+        </nav>
+      )
+    }
+  </div>
+</PodcastLayout>
+
+<style>
+  .episode {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .episode__breadcrumb {
+    margin-block-start: 0.25rem;
+  }
+
+  .episode__breadcrumb-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border-radius: 0.8rem;
+  }
+
+  .episode__breadcrumb-link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .episode__hero {
+    display: grid;
+    gap: 2rem;
+    padding: 1.75rem;
+    background: var(--color-surface);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border-radius: 1.6rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .episode__hero-media {
+    inline-size: 100%;
+  }
+
+  .episode__hero-image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .episode__hero-body {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .episode__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .episode__pill {
+    padding: 0.4em 0.9em;
+    font-size: var(--font-size-caption);
+    font-weight: 700;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+    border-radius: 999px;
+  }
+
+  .episode__date {
+    padding: 0.35em 0.75em;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    background: var(--color-layer-1);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    border-radius: 999px;
+  }
+
+  .episode__title {
+    margin-block-start: 0.25rem;
+  }
+
+  .episode__description {
+    max-inline-size: 70ch;
+    margin: 0;
+    font-size: var(--font-size-body);
+    line-height: var(--leading-relaxed, 1.75);
+    color: var(--color-text-muted);
+  }
+
+  .episode__knowledge {
+    display: grid;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border-radius: 1.25rem;
+  }
+
+  .episode__knowledge-body {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .episode__kicker {
+    margin: 0;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }
+
+  .episode__knowledge-text {
+    max-inline-size: 68ch;
+    margin: 0;
+    line-height: var(--leading-relaxed, 1.75);
+    color: var(--color-text);
+  }
+
+  .episode__knowledge-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    font-weight: 700;
+    color: var(--color-background);
+    text-decoration: none;
+    background: var(--color-primary);
+    border-radius: 0.75rem;
+  }
+
+  .episode__knowledge-link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .episode__audio {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-layer-4);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+    border-radius: 1.25rem;
+  }
+
+  .episode__notes {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .episode__section-title {
+    margin: 0;
+  }
+
+  .episode__nav {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .episode__sr-only {
+    position: absolute !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+  }
+
+  .episode__nav-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .episode__nav-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    color: var(--color-text);
+    text-decoration: none;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .episode__nav-card--next {
+    grid-template-columns: 1fr auto;
+    text-align: end;
+  }
+
+  .episode__nav-card:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .episode__nav-direction {
+    font-size: var(--font-size-title-sm);
+    color: var(--color-primary);
+  }
+
+  .episode__nav-body {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .episode__nav-label {
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .episode__nav-title {
+    font-weight: 700;
+  }
+
+  @media (width >= 960px) {
+    .episode__hero {
+      grid-template-columns: 1fr 1.4fr;
+      align-items: center;
+    }
+
+    .episode__knowledge {
+      grid-template-columns: 1fr auto;
+    }
+
+    .episode__nav-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

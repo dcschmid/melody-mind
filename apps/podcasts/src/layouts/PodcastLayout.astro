@@ -1,0 +1,573 @@
+---
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  keywords?: string[];
+  canonical?: string;
+  language?: string;
+  locale?: string;
+  episodeNumber?: number;
+  durationSeconds?: number | undefined;
+  audioUrl?: string;
+  episodeImage?: string;
+  seriesDescription?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/images/default-og.jpg',
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author = 'MelodyMind Podcasts',
+  keywords = [],
+  canonical,
+  language = 'en',
+  locale = 'en-US',
+  episodeNumber,
+  durationSeconds,
+  audioUrl,
+  episodeImage,
+  seriesDescription,
+} = Astro.props;
+
+const siteTitle = 'MelodyMind Podcasts';
+const normalizedTitle = normalizeMetaText(title);
+const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
+  ? normalizedTitle
+  : `${normalizedTitle} | ${siteTitle}`;
+const siteUrl = 'https://podcasts.melody-mind.de';
+const currentPath = canonical ? canonical.replace(siteUrl, '') : Astro.url.pathname;
+const currentUrl = `${siteUrl}${ensureTrailingSlash(currentPath)}`;
+const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const episodeImageUrl = episodeImage
+  ? episodeImage.startsWith('http')
+    ? episodeImage
+    : `${siteUrl}${episodeImage}`
+  : imageUrl;
+const podcastFeedUrl = `${siteUrl}/podcast.xml`;
+const podcastImage = `${siteUrl}/the-melody-mind-podcast.jpg`;
+const seriesCopy =
+  seriesDescription ||
+  'Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.';
+const genres = ['Music', 'History'];
+const defaultKeywords = ['podcast', 'music history', 'audio', 'streaming', 'entertainment'];
+const allKeywords = [...defaultKeywords, ...keywords].join(', ');
+const skipLinkText = 'Skip to main content';
+const normalizedDescription = normalizeMetaText(description);
+const imageAlt =
+  type === 'article' ? `Cover artwork for ${normalizedTitle}` : `Cover artwork for ${siteTitle}`;
+
+const publisher = {
+  '@type': 'Organization',
+  name: 'MelodyMind Podcasts',
+  url: siteUrl,
+  logo: {
+    '@type': 'ImageObject',
+    url: podcastImage,
+  },
+};
+
+const podcastSeriesJson = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastSeries',
+  name: siteTitle,
+  description: seriesCopy,
+  url: siteUrl,
+  inLanguage: locale,
+  image: podcastImage,
+  genre: genres,
+  isAccessibleForFree: true,
+  sameAs: [
+    'https://open.spotify.com/show/6iLbxIzJ4x5nMuuK5qySOQ',
+    'https://www.deezer.com/en/show/1002446242',
+    'https://podcasts.apple.com/us/podcast/melody-mind-–-english/id1847445333',
+  ],
+  publisher,
+  webFeed: podcastFeedUrl,
+  author: [
+    {
+      '@type': 'Person',
+      name: 'Daniel Schmid',
+      url: 'https://melody-mind.de',
+    },
+    {
+      '@type': 'Person',
+      name: 'Annabelle',
+    },
+  ],
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const episodeDurationIso =
+  typeof durationSeconds === 'number' && durationSeconds > 0
+    ? toIsoDuration(durationSeconds)
+    : undefined;
+
+const podcastEpisodeJson =
+  type === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'PodcastEpisode',
+        name: title,
+        description: normalizedDescription,
+        url: currentUrl,
+        partOfSeries: {
+          '@type': 'PodcastSeries',
+          name: siteTitle,
+          url: siteUrl,
+        },
+        episodeNumber,
+        datePublished: publishedTime,
+        dateModified: modifiedTime || publishedTime,
+        inLanguage: locale,
+        image: episodeImageUrl,
+        genre: genres,
+        isAccessibleForFree: true,
+        timeRequired: episodeDurationIso,
+        author: [
+          {
+            '@type': 'Person',
+            name: 'Daniel Schmid',
+            url: 'https://melody-mind.de',
+          },
+          {
+            '@type': 'Person',
+            name: 'Annabelle',
+          },
+        ],
+        audio: audioUrl
+          ? {
+              '@type': 'AudioObject',
+              url: audioUrl,
+              encodingFormat: 'audio/mpeg',
+              duration: episodeDurationIso,
+            }
+          : undefined,
+        publisher,
+      }
+    : undefined;
+
+const jsonLd = [podcastSeriesJson, podcastEpisodeJson].filter(Boolean);
+
+function ensureTrailingSlash(pathname: string) {
+  if (!pathname.startsWith('/')) {
+    return `/${pathname}/`;
+  }
+  return pathname.endsWith('/') ? pathname : `${pathname}/`;
+}
+
+function normalizeMetaText(value: string) {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+function toIsoDuration(totalSeconds: number) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+  return `PT${hours > 0 ? `${hours}H` : ''}${minutes > 0 ? `${minutes}M` : ''}${seconds || (!hours && !minutes) ? `${seconds}S` : ''}`;
+}
+---
+
+<!doctype html>
+<html lang={language} data-view-transition>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1119" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Melody Mind Podcasts" />
+    <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
+
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload critical font for faster First Paint -->
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Preconnect to external platforms for faster connections -->
+    <link rel="preconnect" href="https://open.spotify.com" crossorigin />
+    <link rel="preconnect" href="https://www.deezer.com" crossorigin />
+    <link rel="preconnect" href="https://www.youtube.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
+
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={normalizedDescription} />
+    <meta name="keywords" content={allKeywords} />
+    <meta name="author" content={author} />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="language" content={language} />
+    <meta name="revisit-after" content="7 days" />
+
+    <link rel="canonical" href={currentUrl} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={normalizedDescription} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:locale" content={locale.replace('-', '_')} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    {type === 'article' && <meta property="article:author" content={author} />}
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={currentUrl} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={normalizedDescription} />
+    <meta property="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <meta property="twitter:creator" content="@melodymind" />
+    <meta property="twitter:site" content="@melodymind" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed - English"
+      href="/podcast.xml"
+      hreflang={locale}
+    />
+
+    <link rel="dns-prefetch" href="//cdn.usefathom.com" />
+    <script src="https://cdn.usefathom.com/script.js" data-site="IGOFKHTB" defer></script>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(
+        jsonLd.map((entry) => ({
+          ...entry,
+          potentialAction:
+            type === 'website'
+              ? {
+                  '@type': 'SearchAction',
+                  target: `${siteUrl}/?q={search_term_string}`,
+                  'query-input': 'required name=search_term_string',
+                }
+              : undefined,
+        })),
+      )}
+    />
+  </head>
+  <body class="podcast-layout" id="top">
+    <div class="podcast-layout__container">
+      <a href="#main-content" class="podcast-layout__skip-link">
+        {skipLinkText}
+      </a>
+
+      <main id="main-content" role="main" class="podcast-layout__main">
+        <slot />
+      </main>
+
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style>
+  /* Font: Atkinson Hyperlegible - loaded locally for consistency with Melody Mind */
+  @font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/atkinson-hyperlegible-regular.woff2') format('woff2');
+    font-display: swap;
+  }
+
+  /* Modern Design System with WCAG AAA Compliance */
+  :root {
+    font-size: 112.5%; /* 18px = 1rem at standard browser settings */
+
+    /* WCAG AAA Line heights for readability */
+    --leading-tight: 1.3;
+    --leading-normal: 1.55;
+    --leading-relaxed: 1.75;
+    --leading-enhanced: 1.85;
+
+    /* Modern Typography Scale - Mobile First */
+    --font-size-xs: 0.875rem;
+    --font-size-sm: 0.9375rem;
+    --font-size-caption: 1rem;
+    --font-size-ui: 1.0625rem;
+    --font-size-body: 1.125rem;
+    --font-size-body-lg: 1.25rem;
+    --font-size-title-sm: 1.375rem;
+    --font-size-title-md: 1.625rem;
+    --font-size-title-lg: 2rem;
+    --font-size-hero: clamp(1.75rem, 5vi, 3rem);
+    --font-size-hero-lg: clamp(2rem, 6vi, 3.5rem);
+
+    /* Touch target sizes - WCAG minimum 44x44px */
+    --touch-min: 2.75rem;
+    --touch-sm: 2.5rem;
+    --touch-md: 3rem;
+    --touch-lg: 3.5rem;
+
+    /* Border Radius System */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.25rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* Spacing Scale - Mobile Optimized */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    /* Transition Timing */
+    --transition-fast: 150ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 300ms ease;
+  }
+
+  .podcast-layout {
+    /* Modern OKLCH Color System - WCAG AAA Compliant (7:1+ contrast) */
+
+    /* Primary - Vibrant Cyan */
+    --color-primary: oklch(82% 0.14 200deg);
+    --color-primary-hover: oklch(88% 0.12 200deg);
+    --color-primary-strong: oklch(92% 0.08 200deg);
+
+    /* Background Layers - Deep Blues */
+    --color-background: oklch(13% 0.02 250deg);
+    --color-surface: oklch(18% 0.03 250deg);
+    --color-surface-2: oklch(22% 0.03 250deg);
+    --color-layer-1: oklch(20% 0.03 250deg);
+    --color-layer-2: oklch(25% 0.03 250deg);
+    --color-layer-3: oklch(28% 0.03 250deg);
+    --color-layer-4: oklch(15% 0.02 250deg);
+
+    /* Text - High Contrast for WCAG AAA (7:1+) */
+    --color-text: oklch(98% 0 0deg);
+    --color-text-muted: oklch(85% 0.01 250deg);
+    --color-text-subtle: oklch(70% 0.01 250deg);
+
+    /* Accent Colors */
+    --color-accent: oklch(75% 0.18 320deg);
+    --color-success: oklch(72% 0.19 145deg);
+    --color-warning: oklch(80% 0.18 85deg);
+    --color-error: oklch(70% 0.22 25deg);
+    --color-error-soft: oklch(85% 0.1 25deg);
+    --color-error-strong: oklch(90% 0.08 25deg);
+
+    /* Modern Gradients */
+    --brand-gradient: linear-gradient(
+      135deg,
+      oklch(92% 0.08 200deg) 0%,
+      oklch(82% 0.14 200deg) 50%,
+      oklch(72% 0.16 190deg) 100%
+    );
+    --brand-gradient-subtle: linear-gradient(
+      135deg,
+      oklch(25% 0.04 250deg) 0%,
+      oklch(20% 0.03 250deg) 100%
+    );
+
+    /* Glass Effect */
+    --glass-bg: oklch(20% 0.03 250deg / 0.7);
+    --glass-border: oklch(82% 0.14 200deg / 0.25);
+
+    /* Modern Shadow System */
+    --shadow-sm: 0 2px 8px oklch(10% 0.02 250deg / 0.4);
+    --shadow-md: 0 8px 24px oklch(10% 0.02 250deg / 0.5);
+    --shadow-lg: 0 16px 48px oklch(10% 0.02 250deg / 0.6);
+    --shadow-xl: 0 24px 64px oklch(10% 0.02 250deg / 0.7);
+    --shadow-glow: 0 0 32px oklch(82% 0.14 200deg / 0.3);
+
+    /* Focus Ring - High Visibility for WCAG AAA */
+    --focus-ring: 0 0 0 3px oklch(98% 0 0deg), 0 0 0 6px oklch(82% 0.14 200deg);
+    --focus-ring-offset: 0 0 0 4px oklch(82% 0.14 200deg / 0.5);
+
+    /* Layout */
+    --max-width: 80rem;
+    --content-width: 72rem;
+
+    min-block-size: 100vb;
+    margin: 0;
+    font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+    font-size: 1.125rem;
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+    letter-spacing: 0.005em;
+    text-wrap: pretty;
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(ellipse at 10% 10%, oklch(82% 0.14 200deg / 0.08), transparent 40%),
+      radial-gradient(ellipse at 90% 20%, oklch(72% 0.16 190deg / 0.06), transparent 35%),
+      radial-gradient(ellipse at 50% 80%, oklch(75% 0.18 320deg / 0.04), transparent 45%);
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  .podcast-layout__container {
+    display: grid;
+    gap: var(--space-6);
+    max-inline-size: var(--max-width);
+    padding-block: var(--space-4);
+    padding-inline: var(--space-3);
+    margin: 0 auto;
+  }
+
+  .podcast-layout__main {
+    outline: none;
+  }
+
+  /* Skip Link - Enhanced Visibility */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .podcast-layout__skip-link {
+      position: fixed;
+      inset-block-start: var(--space-3);
+      inset-inline-start: 50%;
+      z-index: 1000;
+      inline-size: auto;
+      block-size: auto;
+      padding: var(--space-3) var(--space-5);
+      font-weight: 600;
+      color: var(--color-background);
+      text-decoration: none;
+      background: var(--color-primary);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg), var(--shadow-glow);
+      transform: translateX(-50%) translateY(-200%);
+      transition: none;
+    }
+  }
+
+  .podcast-layout__skip-link {
+    position: fixed;
+    inset-block-start: var(--space-3);
+    inset-inline-start: 50%;
+    z-index: 1000;
+    inline-size: auto;
+    block-size: auto;
+    padding: var(--space-3) var(--space-5);
+    font-weight: 600;
+    color: var(--color-background);
+    text-decoration: none;
+    background: var(--color-primary);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform: translateX(-50%) translateY(-200%);
+    transition: transform var(--transition-fast);
+  }
+
+  .podcast-layout__skip-link:focus,
+  .podcast-layout__skip-link:focus-visible {
+    outline: 3px solid var(--color-text);
+    outline-offset: 3px;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Mobile: Minimal padding, maximize space */
+  @media (width >= 480px) {
+    .podcast-layout__container {
+      gap: var(--space-8);
+      padding-block: var(--space-6);
+      padding-inline: var(--space-4);
+    }
+  }
+
+  /* Tablet */
+  @media (width >= 768px) {
+    .podcast-layout__container {
+      gap: var(--space-10);
+      padding-block: var(--space-8);
+      padding-inline: var(--space-6);
+    }
+  }
+
+  /* Desktop */
+  @media (width >= 1024px) {
+    .podcast-layout__container {
+      gap: var(--space-12);
+      padding-block: var(--space-10);
+      padding-inline: var(--space-8);
+    }
+  }
+
+  /* Large Desktop */
+  @media (width >= 1280px) {
+    .podcast-layout__container {
+      padding-inline: var(--space-10);
+    }
+  }
+
+  /* Small screens - absolute minimal padding */
+  @media (width <= 380px) {
+    .podcast-layout__container {
+      padding-inline: var(--space-2);
+    }
+
+    .podcast-layout {
+      font-size: 1rem;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+
+  /* High Contrast Mode Support */
+  @media (prefers-contrast: more) {
+    .podcast-layout {
+      --color-text: oklch(100% 0 0deg);
+      --color-text-muted: oklch(95% 0 0deg);
+      --color-primary: oklch(85% 0.16 200deg);
+    }
+  }
+</style>

@@ -1,0 +1,6 @@
+node_modules
+dist
+.astro
+coverage
+yarn.lock
+package-lock.json

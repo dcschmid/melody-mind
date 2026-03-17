@@ -1,0 +1,64 @@
+---
+export interface Props {
+  level?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  textSize?: 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
+  className?: string;
+}
+
+const { level = 'h2', textSize = 'xl', className = '' } = Astro.props;
+
+const Tag = level;
+const sizeClasses = {
+  sm: 'headline--sm',
+  base: 'headline--base',
+  lg: 'headline--lg',
+  xl: 'headline--xl',
+  '2xl': 'headline--2xl',
+  '3xl': 'headline--3xl',
+  '4xl': 'headline--4xl',
+};
+
+const classes = ['headline', sizeClasses[textSize], className].filter(Boolean).join(' ');
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>
+
+<style>
+  .headline {
+    margin: 0;
+    font-weight: 700;
+    line-height: var(--leading-tight, 1.25);
+    color: var(--color-text);
+    letter-spacing: 0.01em;
+  }
+
+  .headline--sm {
+    font-size: var(--font-size-ui);
+  }
+
+  .headline--base {
+    font-size: var(--font-size-body);
+  }
+
+  .headline--lg {
+    font-size: var(--font-size-title-sm);
+  }
+
+  .headline--xl {
+    font-size: var(--font-size-title-md);
+  }
+
+  .headline--2xl {
+    font-size: var(--font-size-title-lg);
+  }
+
+  .headline--3xl {
+    font-size: clamp(2.5rem, 4.3vi, 3rem);
+  }
+
+  .headline--4xl {
+    font-size: clamp(2.85rem, 5vi, 3.6rem);
+  }
+</style>

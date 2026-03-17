@@ -1,0 +1,231 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  durationSeconds?: number | undefined;
+  searchText: string;
+  publishedAt: string;
+  publishedLabel: string;
+  isLatest: boolean;
+}
+
+const {
+  id,
+  title,
+  description,
+  imageUrl,
+  durationSeconds,
+  searchText,
+  publishedAt,
+  publishedLabel,
+  isLatest,
+} = Astro.props as Props;
+---
+
+<article data-episode data-search={searchText} class="episode-card" role="listitem">
+  <div class="episode-card__media">
+    <picture>
+      <source srcset={`/images/${imageUrl}.avif`} type="image/avif" />
+      <source srcset={`/images/${imageUrl}.webp`} type="image/webp" />
+      <img
+        src={`/images/${imageUrl}.jpg`}
+        alt={`Cover art for the podcast episode ${title}`}
+        class="episode-card__image"
+        loading="lazy"
+        decoding="async"
+        width={600}
+        height={400}
+        sizes="(max-width: 760px) 100vw, (max-width: 1024px) 168px, 192px"
+      />
+    </picture>
+  </div>
+  <div class="episode-card__body">
+    <div class="episode-card__meta">
+      <time class="episode-card__date" datetime={publishedAt}>
+        {publishedLabel}
+      </time>
+      {isLatest && <span class="episode-card__badge">Latest</span>}
+      {
+        durationSeconds && (
+          <span class="episode-card__duration">{Math.floor(durationSeconds / 60)} min</span>
+        )
+      }
+    </div>
+    <h3 class="episode-card__title">
+      {title}
+    </h3>
+    <p class="episode-card__description">
+      {description}
+    </p>
+    <a href={`/${id}`} class="episode-card__link" aria-label={`View the episode ${title}`}>
+      View Episode
+    </a>
+  </div>
+</article>
+
+<style>
+  .episode-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 1.1rem 0;
+    border-block-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+
+  .episode-card[hidden] {
+    display: none;
+  }
+
+  .episode-card__media {
+    position: relative;
+    inline-size: 100%;
+    container-type: inline-size;
+  }
+
+  .episode-card__image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: cover;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    border-radius: 0.75rem;
+  }
+
+  @container (min-width: 300px) {
+    .episode-card__image {
+      block-size: 180px;
+    }
+  }
+
+  .episode-card__body {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .episode-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: var(--font-size-ui);
+    color: var(--color-text-muted);
+  }
+
+  .episode-card__date {
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .episode-card__badge,
+  .episode-card__duration {
+    padding: 0.2em 0.6em;
+    font-size: var(--font-size-caption);
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border-radius: 999px;
+  }
+
+  .episode-card__badge {
+    color: var(--color-text);
+    background: color-mix(in srgb, var(--color-primary) 16%, var(--color-layer-2));
+  }
+
+  .episode-card__title {
+    margin: 0;
+    font-size: clamp(var(--font-size-title-sm), 2.2vi, 1.9rem);
+    color: var(--color-text);
+  }
+
+  .episode-card__description {
+    margin: 0;
+    line-height: var(--leading-relaxed, 1.75);
+    color: var(--color-text-muted);
+  }
+
+  .episode-card__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: fit-content;
+    min-block-size: 2.75rem;
+    padding: 0.65rem 1.1rem;
+    font-weight: 700;
+    color: var(--color-background);
+    text-decoration: none;
+    background: var(--color-primary);
+    border-radius: 0.75rem;
+  }
+
+  .episode-card__link:focus-visible {
+    outline: none;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring);
+  }
+
+  @supports (content-visibility: auto) {
+    .episode-card {
+      contain-intrinsic-size: 320px;
+      content-visibility: auto;
+    }
+  }
+
+  @supports (text-wrap: balance) {
+    .episode-card__title {
+      text-wrap: balance;
+    }
+  }
+
+  @supports not (color-mix(in srgb, #000 50%, transparent)) {
+    .episode-card {
+      border-block-end-color: rgb(111 225 255 / 22%);
+    }
+
+    .episode-card__image {
+      border-color: rgb(111 225 255 / 28%);
+    }
+
+    .episode-card__badge,
+    .episode-card__duration {
+      border-color: rgb(111 225 255 / 28%);
+    }
+  }
+
+  @media (width >= 760px) {
+    .episode-card {
+      flex-direction: row;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+    }
+
+    .episode-card__media {
+      flex: 0 0 10.5rem;
+      align-self: flex-start;
+    }
+
+    .episode-card__image {
+      inline-size: 100%;
+      block-size: 6rem;
+      object-fit: cover;
+    }
+
+    .episode-card__body {
+      flex: 1;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .episode-card__media {
+      flex: 0 0 12rem;
+    }
+
+    .episode-card__image {
+      block-size: 6.75rem;
+    }
+  }
+</style>

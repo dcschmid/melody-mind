@@ -1,0 +1,269 @@
+---
+import PayPal from '../assets/paypal.svg';
+import BuyMeACoffee from '../assets/buy-me-a-coffee.svg';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__grid">
+    <div class="site-footer__section">
+      <h2 class="site-footer__title">Melody Mind</h2>
+      <p class="site-footer__text">
+        Curated stories, timelines, and playlists to help you listen more closely and discover new
+        sounds.
+      </p>
+    </div>
+
+    <div class="site-footer__section">
+      <h2 class="site-footer__title">Explore</h2>
+      <div class="site-footer__stack">
+        <a
+          href="https://melody-mind.de/"
+          class="site-footer__link site-footer__link--brand"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Melody Mind
+        </a>
+        <div class="site-footer__pill-row">
+          <a href="/podcast.xml" class="site-footer__pill" aria-label="Subscribe via RSS"> RSS </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__section">
+      <h2 class="site-footer__title">Support</h2>
+      <div class="site-footer__button-row">
+        <a
+          href="https://www.paypal.me/dcschmid"
+          class="site-footer__button"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span class="site-footer__icon" aria-hidden="true">
+            <PayPal />
+          </span>
+          PayPal
+        </a>
+        <a
+          href="https://www.buymeacoffee.com/dcschmid"
+          class="site-footer__button"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span class="site-footer__icon" aria-hidden="true">
+            <BuyMeACoffee />
+          </span>
+          Buy Me a Coffee
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer__legal">
+    <div class="site-footer__legal-group">
+      <h3 class="site-footer__subtitle">Legal</h3>
+      <div class="site-footer__legal-links">
+        <a
+          href="https://melody-mind.de/imprint"
+          class="site-footer__link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Legal Notice
+        </a>
+        <a
+          href="https://melody-mind.de/privacy"
+          class="site-footer__link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Privacy Policy
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <span>© {year} MelodyMind. All rights reserved.</span>
+      <span>Built for accessibility and designed to work across screen sizes.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 2.75rem 1.5rem 2.5rem;
+    margin-block-start: 4rem;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .site-footer__section {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .site-footer__title {
+    margin: 0;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }
+
+  .site-footer__text {
+    margin: 0;
+    font-size: var(--font-size-body);
+    line-height: var(--leading-relaxed, 1.75);
+    color: var(--color-text);
+  }
+
+  .site-footer__stack {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .site-footer__link {
+    padding: 0.2rem 0.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: 0.35rem;
+  }
+
+  .site-footer__link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .site-footer__link--brand {
+    font-size: var(--font-size-body);
+    color: transparent;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .site-footer__pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .site-footer__pill {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;
+    padding: 0.5rem 1.1rem;
+    font-weight: 700;
+    color: var(--color-background);
+    text-decoration: none;
+    background: var(--color-primary);
+    border-radius: 999px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .site-footer__pill:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .site-footer__button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .site-footer__button {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    border-radius: 999px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .site-footer__button:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .site-footer__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+
+  .site-footer__icon svg {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .site-footer__legal {
+    display: grid;
+    gap: 1.75rem;
+    padding-block-start: 1.5rem;
+    margin-block-start: 2.5rem;
+    border-block-start: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+
+  .site-footer__subtitle {
+    margin: 0;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }
+
+  .site-footer__legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-block-start: 0.75rem;
+  }
+
+  .site-footer__meta {
+    display: grid;
+    gap: 0.5rem;
+    font-size: var(--font-size-ui);
+    line-height: var(--leading-relaxed, 1.75);
+  }
+
+  @media (width >= 1024px) {
+    .site-footer__grid {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .site-footer__legal {
+      grid-template-columns: 2fr 1fr;
+      align-items: start;
+    }
+
+    .site-footer__meta {
+      text-align: end;
+    }
+  }
+
+  @media (width >= 1200px) {
+    .site-footer {
+      padding: 3rem 2rem 2.75rem;
+    }
+  }
+</style>

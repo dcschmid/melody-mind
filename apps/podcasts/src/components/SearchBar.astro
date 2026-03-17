@@ -1,0 +1,276 @@
+---
+const { total } = Astro.props as { total: number };
+
+const labels = {
+  placeholder: 'Search by title or description',
+  label: 'Search episodes',
+  results: 'episodes',
+  resultOne: 'episode',
+  clear: 'Clear search',
+  hint: 'Type to filter episodes by title and description.',
+  empty: 'No matching episodes.',
+  statusTemplate: 'Showing {shown} of {found} matching {word} out of {total}.',
+};
+---
+
+<form role="search" class="search-bar" aria-label={labels.label} aria-controls="episodes-list">
+  <div class="search-bar__row">
+    <div class="search-bar__field">
+      <label for="episode-search" class="search-bar__label search-bar__label--visually-hidden">
+        {labels.label}
+      </label>
+      <input
+        id="episode-search"
+        name="q"
+        type="search"
+        inputmode="search"
+        autocomplete="off"
+        placeholder={labels.placeholder}
+        aria-describedby="search-hint"
+        aria-live="polite"
+        class="search-bar__input"
+      />
+      <button type="button" aria-label={labels.clear} class="search-bar__clear"> × </button>
+    </div>
+  </div>
+  <p id="search-hint" class="search-bar__hint">
+    {labels.hint}
+  </p>
+  <div
+    aria-live="polite"
+    aria-atomic="true"
+    id="search-status"
+    class="search-bar__status"
+    data-total={total}
+  >
+    {
+      labels.statusTemplate
+        .replace('{shown}', String(total))
+        .replace('{found}', String(total))
+        .replace('{total}', String(total))
+        .replace('{word}', total === 1 ? labels.resultOne : labels.results)
+    }
+  </div>
+  <div id="search-empty" class="search-bar__empty" role="status" hidden>
+    {labels.empty}
+  </div>
+</form>
+
+<style>
+  .search-bar {
+    display: grid;
+    gap: 0.85rem;
+    inline-size: min(100%, 68rem);
+    margin: 0 auto 3rem;
+  }
+
+  .search-bar__row {
+    display: grid;
+    padding: 0.6rem;
+    background: linear-gradient(
+      150deg,
+      color-mix(in srgb, var(--color-layer-2) 92%, transparent),
+      color-mix(in srgb, var(--color-layer-1) 96%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border-radius: 1.25rem;
+    box-shadow:
+      0 20px 44px rgb(2 8 18 / 45%),
+      0 0 0 1px rgb(120 200 255 / 8%);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .search-bar__field {
+      position: relative;
+      inline-size: 100%;
+      background: color-mix(in srgb, var(--color-layer-1) 92%, transparent);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+      border-radius: 0.95rem;
+      box-shadow: inset 0 0 0 1px rgb(10 18 32 / 35%);
+      transition: none;
+    }
+  }
+
+  .search-bar__field {
+    position: relative;
+    inline-size: 100%;
+    background: color-mix(in srgb, var(--color-layer-1) 92%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border-radius: 0.95rem;
+    box-shadow: inset 0 0 0 1px rgb(10 18 32 / 35%);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .search-bar__field:has(input:focus-visible) {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    border-color: var(--color-primary-strong);
+    box-shadow: var(--focus-ring);
+  }
+
+  .search-bar__label--visually-hidden {
+    position: absolute !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+  }
+
+  .search-bar__input {
+    inline-size: 100%;
+    padding-block: 0.95rem;
+    padding-inline: 1.2rem 3.6rem;
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    border-radius: 0.9rem;
+  }
+
+  .search-bar__input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .search-bar__input:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .search-bar__clear {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: 0.55rem;
+      display: grid;
+      place-items: center;
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
+      font-size: var(--font-size-body);
+      line-height: var(--leading-normal, 1.5);
+      color: var(--color-text);
+      cursor: pointer;
+      background: var(--color-layer-2);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+      border-radius: 999px;
+      transform: translateY(-50%);
+      transition: none;
+    }
+  }
+
+  .search-bar__clear {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 0.55rem;
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    font-size: var(--font-size-body);
+    line-height: var(--leading-normal, 1.5);
+    color: var(--color-text);
+    cursor: pointer;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border-radius: 999px;
+    transform: translateY(-50%);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .search-bar__clear:focus-visible {
+    outline: none;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring);
+  }
+
+  .search-bar__clear:hover,
+  .search-bar__clear:focus {
+    border-color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+    box-shadow: 0 10px 18px rgb(2 8 18 / 35%);
+    transform: translateY(-50%) scale(1.03);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .search-bar__clear {
+      animation: subtle-pulse 3s ease-in-out infinite;
+    }
+  }
+
+  @keyframes subtle-pulse {
+    0%,
+    100% {
+      opacity: 0.9;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .search-bar__hint {
+    margin: 0;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+  }
+
+  .search-bar__status {
+    margin: 0;
+    font-size: var(--font-size-ui);
+    color: var(--color-primary-strong);
+  }
+
+  .search-bar__empty {
+    margin: 0;
+    font-size: var(--font-size-ui);
+    color: var(--color-error-strong);
+  }
+
+  @media (width <= 380px) {
+    .search-bar {
+      margin-block-end: 2.2rem;
+    }
+
+    .search-bar__row {
+      padding: 0.45rem;
+      border-radius: 1rem;
+    }
+
+    .search-bar__input {
+      padding-inline: 1rem 3.2rem;
+      font-size: var(--font-size-ui);
+    }
+
+    .search-bar__clear {
+      inline-size: 2.6rem;
+      block-size: 2.6rem;
+    }
+  }
+
+  @supports not (color-mix(in srgb, #000 50%, transparent)) {
+    .search-bar__row {
+      border-color: rgb(111 225 255 / 28%);
+    }
+
+    .search-bar__field {
+      border-color: rgb(111 225 255 / 24%);
+    }
+
+    .search-bar__clear {
+      border-color: rgb(111 225 255 / 24%);
+    }
+
+    .search-bar__clear:hover,
+    .search-bar__clear:focus {
+      border-color: rgb(111 225 255 / 55%);
+    }
+  }
+</style>

@@ -1,0 +1,418 @@
+---
+import Deezer from '../assets/deezer.svg';
+import YouTube from '../assets/youtube.svg';
+import Spotify from '../assets/spotify.svg';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  totalEpisodes: number;
+  featuredContent: string;
+  availableOn: string;
+  spotifyUrl: string;
+  deezerUrl: string;
+  youtubeUrl: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  totalEpisodes,
+  featuredContent,
+  availableOn,
+  spotifyUrl,
+  deezerUrl,
+  youtubeUrl,
+} = Astro.props as Props;
+---
+
+<section class="home-hero">
+  <div class="home-hero__inner">
+    <div class="home-hero__grid">
+      <div class="home-hero__copy">
+        <div class="home-hero__intro">
+          <h1 class="home-hero__title">{title}</h1>
+          <p class="home-hero__subtitle">{subtitle}</p>
+          <p class="home-hero__description">{description}</p>
+        </div>
+
+        <div class="home-hero__cta-row">
+          <a href="#episodes-heading" class="home-hero__cta home-hero__cta--primary">
+            Explore episodes
+          </a>
+          <a
+            href="/podcast.xml"
+            class="home-hero__cta home-hero__cta--secondary"
+            aria-label="Subscribe via RSS"
+          >
+            RSS Feed
+          </a>
+        </div>
+      </div>
+
+      <div class="home-hero__visual">
+        <img
+          src="/the-melody-mind-podcast.jpg"
+          alt="Illustrated podcast cover art"
+          class="home-hero__image"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+    <div class="home-hero__info">
+      <div class="home-hero__highlights">
+        <div class="home-hero__highlight">
+          <span aria-hidden="true">🎧</span>
+          <span> New episodes for walks, commutes, or quiet evenings. </span>
+        </div>
+        <div class="home-hero__highlight">
+          <span aria-hidden="true">✨</span>
+          <span> Stories first, facts second - always warm, curious, and welcoming. </span>
+        </div>
+        <div class="home-hero__highlight">
+          <span aria-hidden="true">🎶</span>
+          <span>
+            From early rock 'n' roll sparks to modern electronic worlds, hear how music became part
+            of everyday life.
+          </span>
+        </div>
+      </div>
+
+      <div class="home-hero__platforms">
+        <span class="home-hero__platforms-label">{availableOn}</span>
+        <div class="home-hero__platforms-row">
+          <a
+            href={spotifyUrl}
+            class="home-hero__platform-link home-hero__platform-link--spotify"
+            aria-label="Listen on Spotify"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="home-hero__platform-icon" aria-hidden="true">
+              <Spotify />
+            </span>
+            Spotify
+          </a>
+          <a
+            href={deezerUrl}
+            class="home-hero__platform-link home-hero__platform-link--deezer"
+            aria-label="Listen on Deezer"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="home-hero__platform-icon" aria-hidden="true">
+              <Deezer />
+            </span>
+            Deezer
+          </a>
+          <a
+            href={youtubeUrl}
+            class="home-hero__platform-link home-hero__platform-link--youtube"
+            aria-label="Listen on YouTube"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="home-hero__platform-icon" aria-hidden="true">
+              <YouTube />
+            </span>
+            YouTube
+          </a>
+        </div>
+      </div>
+
+      <div class="home-hero__meta">
+        <span class="home-hero__meta-item">
+          {totalEpisodes} episodes available
+        </span>
+        <span class="home-hero__meta-item">
+          {featuredContent}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-hero {
+    position: relative;
+    padding: 3rem 2rem;
+    overflow: hidden;
+    background: linear-gradient(140deg, rgb(13 18 26 / 80%), transparent 55%), var(--color-surface);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+    border-radius: 2rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .home-hero::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background:
+      radial-gradient(circle at 18% 22%, rgb(79 211 255 / 12%), transparent 35%),
+      radial-gradient(circle at 82% 12%, rgb(44 198 255 / 12%), transparent 32%),
+      radial-gradient(circle at 70% 68%, rgb(138 217 255 / 10%), transparent 38%);
+    opacity: 0.85;
+  }
+
+  .home-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+    max-inline-size: 68rem;
+    margin: 0 auto;
+  }
+
+  .home-hero__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .home-hero__copy {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .home-hero__intro {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .home-hero__title {
+    margin: 0;
+    font-size: var(--font-size-hero);
+    font-weight: 800;
+    color: transparent;
+    text-shadow: 0 18px 40px rgb(0 0 0 / 40%);
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .home-hero__subtitle {
+    margin: 0;
+    font-size: var(--font-size-title-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .home-hero__description {
+    margin: 0;
+    font-size: var(--font-size-body-strong);
+    line-height: var(--leading-relaxed, 1.75);
+    color: var(--color-text-muted);
+  }
+
+  .home-hero__visual {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .home-hero__image {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    border-radius: 1.6rem;
+    box-shadow: var(--shadow-strong);
+  }
+
+  .home-hero__info {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .home-hero__highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+  }
+
+  .home-hero__highlight {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    min-inline-size: 0;
+    padding: 1rem 1.2rem;
+    color: var(--color-text);
+    background: var(--color-layer-1);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border-radius: 1.1rem;
+  }
+
+  .home-hero__highlight span:last-child {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .home-hero__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .home-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.4rem;
+    font-size: var(--font-size-ui);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0.9rem;
+  }
+
+  .home-hero__cta--primary {
+    color: var(--color-background);
+    background: var(--color-primary);
+    box-shadow: var(--shadow-strong);
+  }
+
+  .home-hero__cta--secondary {
+    color: var(--color-text);
+    background: var(--color-layer-1);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .home-hero__cta:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .home-hero__platforms {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: start;
+  }
+
+  .home-hero__platforms-label {
+    font-size: var(--font-size-caption);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .home-hero__platforms-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .home-hero__platform-link {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    min-inline-size: 0;
+    padding: 0.5rem 0.95rem;
+    font-size: var(--font-size-ui);
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: normal;
+    text-decoration: none;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border-radius: 0.9rem;
+  }
+
+  .home-hero__platform-icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.35rem;
+    block-size: 1.35rem;
+    color: var(--platform-color, var(--color-primary));
+  }
+
+  .home-hero__platform-icon svg {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .home-hero__platform-link--spotify {
+    --platform-color: #1db954;
+  }
+
+  .home-hero__platform-link--deezer {
+    --platform-color: #ef5466;
+  }
+
+  .home-hero__platform-link--youtube {
+    --platform-color: #f00;
+  }
+
+  .home-hero__platform-link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .home-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+  }
+
+  .home-hero__meta-item {
+    min-inline-size: 0;
+    padding: 0.4rem 0.85rem;
+    overflow-wrap: anywhere;
+    background: var(--color-layer-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    border-radius: 0.75rem;
+  }
+
+  @media (width <= 380px) {
+    .home-hero {
+      padding: 2rem 1.1rem;
+    }
+
+    .home-hero__title {
+      font-size: 2.2rem;
+    }
+
+    .home-hero__cta {
+      justify-content: center;
+      inline-size: 100%;
+    }
+
+    .home-hero__platform-link {
+      justify-content: center;
+      inline-size: 100%;
+    }
+
+    .home-hero__meta {
+      inline-size: 100%;
+    }
+
+    .home-hero__meta-item {
+      inline-size: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (width >= 900px) {
+    .home-hero__grid {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 3rem;
+    }
+
+    .home-hero__title {
+      font-size: clamp(2.85rem, 4.8vi, 3.4rem);
+    }
+
+    .home-hero__subtitle {
+      font-size: var(--font-size-title-md);
+    }
+  }
+</style>

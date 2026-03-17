@@ -1,0 +1,12 @@
+# Legacy episode slugs to current paths
+# Format: <from> <to> <status>
+/en/1950s /1950s 301
+/en/1960s /1960s 301
+/en/1970s /1970s 301
+/en/1980s /1980s 301
+/en/1990s /1990s 301
+/en/2000s /2000s 301
+/en/2010s /2010s 301
+
+# Catch-all for missing old slugs
+/en/* /404 410
