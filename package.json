@@ -5,7 +5,7 @@
   "license": "MIT",
   "description": "Music knowledge articles for MelodyMind",
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
@@ -28,16 +28,16 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^6.3.10",
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/markdown-remark": "^7.0.0",
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/rss": "^4.0.17",
+    "@astrojs/sitemap": "^3.7.1",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
-    "@playform/compress": "^0.2.1",
-    "astro": "^5.17.3",
+    "@playform/compress": "^0.2.2",
+    "astro": "^6.0.0",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
-    "astro-meta-tags": "^0.4.0",
+    "astro-meta-tags": "^0.4.1",
     "astro-minify-html-swc": "^0.1.11",
     "astro-pagefind": "^1.8.5",
     "astro-robots-txt": "^1.0.0",
@@ -49,20 +49,20 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.6",
+    "@astrojs/check": "^0.9.8",
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.56.0",
-    "eslint": "^10.0.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.0.3",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^16.4.0",
     "mdast-util-to-string": "^4.0.0",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.56.0"
+    "typescript-eslint": "^8.57.1"
   },
   "lint-staged": {
     "src/content/knowledge-en/**/*.{md,mdx}": [

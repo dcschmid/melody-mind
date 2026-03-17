@@ -30,12 +30,6 @@ export default defineConfig({
     minify(),
   ],
 
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
-    routing: { prefixDefaultLocale: false },
-  },
-
   vite: {
     resolve: {
       alias: {

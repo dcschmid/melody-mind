@@ -1,5 +1,6 @@
-import { defineCollection, type SchemaContext, z } from "astro:content";
+import { defineCollection, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 export const difficultyEnum = ["easy", "medium", "hard"] as const;
 export const quizCategoryEnum = ["decade", "genre-evolution", "mixed"] as const;

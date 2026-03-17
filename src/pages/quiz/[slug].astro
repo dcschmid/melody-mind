@@ -15,7 +15,7 @@ import { getCollectionCached } from "@utils/content/getCollectionCached";
 import { normalizeDate } from "@utils/content/dateUtils";
 import { getReadingTime } from "@utils/readingTime";
 import { loggers } from "@utils/logging";
-import type { QuizData } from "../../content/config";
+import type { QuizData, QuizQuestion } from "../../content.config";
 
 export const prerender = true;
 
@@ -76,7 +76,7 @@ const quizSchema = {
   description: quizSeoDescription,
   url: currentUrl,
   numberOfQuestions: quiz.data.questionsPerSession,
-  about: quizFeaturedTopics.map((topic) => ({
+  about: quizFeaturedTopics.map((topic: string) => ({
     "@type": "Thing",
     name: topic,
   })),
@@ -105,7 +105,7 @@ const pageSeo = buildPageSeo({
   follow: true,
 });
 
-const questionsData = quiz.data.questions.map((q) => ({
+const questionsData = quiz.data.questions.map((q: QuizQuestion) => ({
   question: q.question,
   type: q.type,
   difficulty: q.difficulty,
@@ -129,7 +129,7 @@ try {
   );
 
   relatedKnowledgeArticles = quiz.data.relatedArticles
-    .map((articleSlug) => knowledgeBySlug.get(articleSlug))
+    .map((articleSlug: string) => knowledgeBySlug.get(articleSlug))
     .filter(Boolean)
     .map((article: any) => {
       const createdAt = normalizeDate(article?.data?.createdAt) || new Date();
@@ -145,7 +145,7 @@ try {
             : getReadingTime(article?.body || "", { languageCode: "en" }).minutes,
       };
     })
-    .filter((article) => article.slug && article.title);
+    .filter((article: { slug: string; title: string }) => article.slug && article.title);
 } catch (e) {
   loggers.pages.warn("quiz detail: related article load issue", {
     error: (e as any)?.message || e,

@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection, type CollectionEntry } from "astro:content";
 import type { APIContext } from "astro";
+import type { KnowledgeData } from "../content.config";
 
 export async function GET(context: APIContext) {
   type KnowledgeEntry = CollectionEntry<"knowledge-en">;
@@ -13,8 +14,8 @@ export async function GET(context: APIContext) {
   const publishedArticles = knowledgeArticles
     .filter((article) => !article.data.draft)
     .sort((a, b) => {
-      const dateA = a.data.updatedAt || a.data.createdAt || new Date(0);
-      const dateB = b.data.updatedAt || b.data.createdAt || new Date(0);
+      const dateA = (a.data.updatedAt || a.data.createdAt || new Date(0)) as Date;
+      const dateB = (b.data.updatedAt || b.data.createdAt || new Date(0)) as Date;
       return dateB.getTime() - dateA.getTime();
     });
 
@@ -24,19 +25,20 @@ export async function GET(context: APIContext) {
       "Deep dives into music history, genres, artists, and cultural movements that shaped the sound of each era.",
     site,
     items: publishedArticles.map((article) => {
+      const data = article.data as KnowledgeData;
       const slug = article.id.replace(/\.mdx?$/, "");
       const link = new URL(`/knowledge/${slug}`, site).toString();
       const pubDate = new Date(
-        article.data.updatedAt || article.data.createdAt || Date.now()
+        (data.updatedAt || data.createdAt || Date.now()) as string | number | Date
       );
       return {
-        title: article.data.title,
-        description: article.data.description,
+        title: data.title as string,
+        description: data.description as string,
         link,
         guid: link,
         pubDate,
-        author: article.data.author,
-        categories: article.data.keywords,
+        author: data.author as string | undefined,
+        categories: data.keywords as string[] | undefined,
       };
     }),
     customData: `<language>en-us</language>
