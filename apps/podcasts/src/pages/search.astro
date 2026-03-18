@@ -1,0 +1,81 @@
+---
+import PodcastLayout from "../layouts/PodcastLayout.astro";
+import SearchPageSection from "@shared-ui/components/Shared/SearchPageSection.astro";
+import { getAvailablePodcasts } from "../utils/podcasts";
+import type { PodcastData } from "../types/podcast";
+
+export const prerender = true;
+
+interface SearchPageItem {
+  title: string;
+  description?: string;
+  url: string;
+}
+
+const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
+const podcasts: PodcastData[] = await getAvailablePodcasts();
+const items: SearchPageItem[] = podcasts.map((podcast) => ({
+  title: podcast.title,
+  description: podcast.description,
+  url: `/${podcast.id}`,
+}));
+
+const t = {
+  seoTitle: "Search MelodyMind Podcasts",
+  seoDescription:
+    "Search podcast episode titles and descriptions across MelodyMind Podcasts.",
+};
+---
+
+<PodcastLayout
+  title={t.seoTitle}
+  description={t.seoDescription}
+  type="website"
+  language="en"
+  locale="en-US"
+  seriesDescription={t.seoDescription}
+  keywords={[
+    "podcast search",
+    "music history podcast",
+    "episode search",
+    "melodymind podcasts",
+  ]}
+  canonical="https://podcasts.melody-mind.de/search"
+>
+  <div class="podcast-search">
+    <SearchPageSection
+      items={items}
+      initialQuery={initialQuery}
+      heroEyebrow="Episode Search"
+      title="Search MelodyMind Podcasts"
+      lead="Search episode titles and descriptions with a shareable query URL."
+      tipsTitle="Search tips"
+      tips={[
+        "Search artists, eras, or cultural scenes.",
+        "Try topics like rock and roll, streaming, or synth pop.",
+        "Use /search?q=... to share a search directly.",
+      ]}
+      resultsEyebrow="Search the episode archive"
+      resultsTitle="Results"
+      resultsHelp="Results update while you type, and the current query stays in the URL."
+      searchPlaceholder="Search episode titles or descriptions..."
+      searchEmptyText="Type an episode title or keyword."
+      searchNoResultsText="No matching episodes found."
+      searchLimit={30}
+    />
+  </div>
+</PodcastLayout>
+
+<style>
+  .podcast-search {
+    --gn-bg: var(--color-layer-1);
+    --gn-bg-muted: var(--color-layer-2);
+    --gn-ink: var(--color-text);
+    --gn-ink-muted: var(--color-text-muted);
+    --gn-accent: var(--color-primary);
+    --gn-panel-border: color-mix(in srgb, var(--color-primary) 22%, transparent);
+
+    display: grid;
+    gap: 1.5rem;
+  }
+</style>

@@ -278,7 +278,7 @@ const pageSeo = buildPageSeo({
     </div>
   </PageShell>
 
-  <BackToTop {lang} />
+  <BackToTop />
 </Layout>
 <script>
   // Recent Reads Script
@@ -293,7 +293,9 @@ const pageSeo = buildPageSeo({
     const emptyState = document.getElementById("recent-reads-empty");
     const status = document.getElementById("recent-reads-status");
     const imageMapEl = document.getElementById("recent-read-images");
-    if (!container || !list || !emptyState || !status || !imageMapEl) {return;}
+    if (!container || !list || !emptyState || !status || !imageMapEl) {
+      return;
+    }
 
     let imageMap: Record<string, string> = {};
     try {
@@ -305,7 +307,9 @@ const pageSeo = buildPageSeo({
     let items = [];
     try {
       const raw = window.localStorage?.getItem(storageKey);
-      if (raw) {items = JSON.parse(raw);}
+      if (raw) {
+        items = JSON.parse(raw);
+      }
     } catch {
       items = [];
     }
@@ -358,7 +362,9 @@ const pageSeo = buildPageSeo({
           ? image.src
           : RECENT_READS_FALLBACK_IMAGE;
       image.onerror = () => {
-        if (image.src.endsWith(RECENT_READS_FALLBACK_IMAGE)) {return;}
+        if (image.src.endsWith(RECENT_READS_FALLBACK_IMAGE)) {
+          return;
+        }
         image.src = RECENT_READS_FALLBACK_IMAGE;
       };
 
@@ -653,24 +659,23 @@ const pageSeo = buildPageSeo({
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-:global(.recent-reads__link) {
-    display: block;
-    overflow: hidden;
-    color: var(--gn-ink);
-    text-decoration: none;
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--gn-accent) 18%, transparent),
-        transparent
-      ),
-      var(--gn-bg);
-    border: 1px solid var(--gn-panel-border);
-    border-radius: 0.75rem;
-    transition:
-      none;
-}
-}
+    :global(.recent-reads__link) {
+      display: block;
+      overflow: hidden;
+      color: var(--gn-ink);
+      text-decoration: none;
+      background:
+        linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--gn-accent) 18%, transparent),
+          transparent
+        ),
+        var(--gn-bg);
+      border: 1px solid var(--gn-panel-border);
+      border-radius: 0.75rem;
+      transition: none;
+    }
+  }
 
   :global(.recent-reads__link) {
     display: block;
@@ -692,7 +697,8 @@ const pageSeo = buildPageSeo({
       box-shadow 160ms ease;
   }
 
-  :global(.recent-reads__link:hover), :global(.recent-reads__link:focus) {
+  :global(.recent-reads__link:hover),
+  :global(.recent-reads__link:focus) {
     border-color: color-mix(in srgb, var(--gn-accent) 45%, var(--gn-panel-border));
     box-shadow: 0 18px 36px color-mix(in srgb, var(--gn-shadow) 45%, transparent);
     transform: translateY(-2px);

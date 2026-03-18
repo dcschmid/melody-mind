@@ -1,0 +1,221 @@
+---
+import Headline from "../Headline.astro";
+import SimpleSearch from "./SimpleSearch.astro";
+
+interface SearchItem {
+  title: string;
+  description?: string;
+  url: string;
+}
+
+interface Props {
+  items: SearchItem[];
+  initialQuery?: string;
+  heroEyebrow?: string;
+  title?: string;
+  lead?: string;
+  tipsTitle?: string;
+  tips?: string[];
+  resultsEyebrow?: string;
+  resultsTitle?: string;
+  resultsHelp?: string;
+  searchPlaceholder?: string;
+  searchEmptyText?: string;
+  searchNoResultsText?: string;
+  searchLimit?: number;
+}
+
+const {
+  items,
+  initialQuery = "",
+  heroEyebrow = "Library Search",
+  title = "Search",
+  lead = "Search locally across titles and descriptions with shareable query URLs.",
+  tipsTitle = "Search tips",
+  tips = [],
+  resultsEyebrow = "Search",
+  resultsTitle = "Results",
+  resultsHelp = "Results update while you type, and the current query stays in the URL.",
+  searchPlaceholder = "Search...",
+  searchEmptyText = "Type to search.",
+  searchNoResultsText = "No matching results found.",
+  searchLimit = 20,
+} = Astro.props as Props;
+---
+
+<section class="search-page-section">
+  <header class="search-page-section__header">
+    <div class="search-page-section__hero">
+      <div class="search-page-section__hero-copy">
+        <p class="search-page-section__eyebrow">{heroEyebrow}</p>
+        <Headline level="h1" textSize="3xl" className="search-page-section__title">
+          {title}
+        </Headline>
+        <p class="search-page-section__lead">{lead}</p>
+      </div>
+      {
+        tips.length ? (
+          <div class="search-page-section__hero-panel">
+            <p class="search-page-section__hero-kicker">{tipsTitle}</p>
+            <ul class="search-page-section__hero-list">
+              {tips.map((tip) => (
+                <li class="search-page-section__hero-item">{tip}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null
+      }
+    </div>
+  </header>
+
+  <section
+    class="search-page-section__panel"
+    aria-labelledby="search-page-section-results-title"
+  >
+    <div class="search-page-section__panel-head">
+      <div class="search-page-section__panel-copy">
+        <p class="search-page-section__panel-eyebrow">{resultsEyebrow}</p>
+        <Headline level="h2" textSize="lg" className="search-page-section__panel-title">
+          <span id="search-page-section-results-title">{resultsTitle}</span>
+        </Headline>
+      </div>
+      <p class="search-page-section__panel-help">{resultsHelp}</p>
+    </div>
+
+    <div class="search-page-section__search-ui">
+      <SimpleSearch
+        items={items}
+        initialQuery={initialQuery}
+        placeholder={searchPlaceholder}
+        emptyText={searchEmptyText}
+        noResultsText={searchNoResultsText}
+        limit={searchLimit}
+      />
+    </div>
+  </section>
+</section>
+
+<style>
+  .search-page-section {
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .search-page-section__header {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .search-page-section__hero {
+    display: grid;
+    gap: 1.15rem;
+    align-items: start;
+  }
+
+  .search-page-section__hero-copy,
+  .search-page-section__hero-panel,
+  .search-page-section__panel {
+    position: relative;
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.35rem;
+    overflow: hidden;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
+  }
+
+  .search-page-section__eyebrow,
+  .search-page-section__hero-kicker,
+  .search-page-section__panel-eyebrow {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gn-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .search-page-section__title {
+    max-inline-size: 11ch;
+    margin: 0;
+    font-size: clamp(2.8rem, 8vi, 5rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+  }
+
+  .search-page-section__lead {
+    max-inline-size: 56ch;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--gn-ink-muted);
+  }
+
+  .search-page-section__hero-list {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .search-page-section__hero-item {
+    position: relative;
+    padding-inline-start: 1rem;
+    line-height: 1.6;
+    color: var(--gn-ink-muted);
+  }
+
+  .search-page-section__hero-item::before {
+    position: absolute;
+    inset-block-start: 0.7rem;
+    inset-inline-start: 0;
+    inline-size: 0.45rem;
+    block-size: 0.45rem;
+    content: "";
+    background: var(--gn-accent);
+    border-radius: 999px;
+  }
+
+  .search-page-section__panel {
+    gap: 1.2rem;
+  }
+
+  .search-page-section__panel-head {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .search-page-section__panel-copy {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .search-page-section__panel-title {
+    margin: 0;
+    font-size: clamp(1.7rem, 4vi, 2.4rem);
+    line-height: 1.05;
+    color: var(--gn-ink);
+    letter-spacing: -0.03em;
+  }
+
+  .search-page-section__panel-help {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--gn-ink-muted);
+  }
+
+  .search-page-section__search-ui {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (width >= 960px) {
+    .search-page-section__hero {
+      grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 0.9fr);
+    }
+  }
+</style>

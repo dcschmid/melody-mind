@@ -16,6 +16,11 @@ interface Props {
   brandText?: string;
   brandMark?: string;
   brandAriaLabel?: string;
+  searchAction?: string;
+  searchInputName?: string;
+  searchInputLabel?: string;
+  searchInputPlaceholder?: string;
+  searchSubmitLabel?: string;
   menuOpenLabel?: string;
   menuCloseLabel?: string;
   menuText?: string;
@@ -29,6 +34,11 @@ const {
   brandText = "Melody Mind",
   brandMark = "MM",
   brandAriaLabel = "Go to the homepage",
+  searchAction,
+  searchInputName = "q",
+  searchInputLabel = "Search the site",
+  searchInputPlaceholder = "Search titles or descriptions...",
+  searchSubmitLabel = "Search",
   menuOpenLabel = "Open main menu",
   menuCloseLabel = "Close main menu",
   menuText = "Menu",
@@ -63,6 +73,42 @@ const currentPath = Astro.url.pathname;
     </button>
 
     <nav id="site-primary-nav" class="site-header__nav" aria-label={navAriaLabel}>
+      {
+        searchAction ? (
+          <div class="site-header__search">
+            <form
+              action={searchAction}
+              method="get"
+              class="site-header__search-form"
+              role="search"
+            >
+              <label class="site-header__search-label" for="site-header-search-input">
+                {searchInputLabel}
+              </label>
+              <div class="site-header__search-field">
+                <Icon name="search" class="site-header__search-icon" aria-hidden="true" />
+                <input
+                  id="site-header-search-input"
+                  class="site-header__search-input"
+                  type="search"
+                  name={searchInputName}
+                  placeholder={searchInputPlaceholder}
+                  aria-label={searchInputLabel}
+                  data-site-header-search-input
+                />
+                <button class="site-header__search-submit" type="submit">
+                  <Icon
+                    name="search"
+                    class="site-header__search-submit-icon"
+                    aria-hidden="true"
+                  />
+                  <span>{searchSubmitLabel}</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        ) : null
+      }
       <ul class="site-header__nav-list">
         {
           navItems.map((item) => {

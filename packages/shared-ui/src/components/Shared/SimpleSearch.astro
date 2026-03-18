@@ -1,0 +1,265 @@
+---
+export interface SearchItem {
+  title: string;
+  description?: string;
+  url: string;
+}
+
+interface Props {
+  items: SearchItem[];
+  placeholder?: string;
+  emptyText?: string;
+  noResultsText?: string;
+  limit?: number;
+  initialQuery?: string;
+}
+
+const {
+  items,
+  placeholder = "Search...",
+  emptyText = "Start typing to search.",
+  noResultsText = "No results found.",
+  limit = 20,
+  initialQuery = "",
+} = Astro.props as Props;
+---
+
+<div class="simple-search" data-simple-search-root>
+  <div class="simple-search__field">
+    <label class="simple-search__label" for="simple-search-input">Search</label>
+    <input
+      id="simple-search-input"
+      class="simple-search__input"
+      type="search"
+      placeholder={placeholder}
+      autocomplete="off"
+      value={initialQuery}
+      data-simple-search-input
+    />
+  </div>
+
+  <p class="simple-search__status" data-simple-search-status aria-live="polite">
+    {emptyText}
+  </p>
+
+  <ul class="simple-search__results" data-simple-search-results></ul>
+</div>
+
+<script is:inline define:vars={{ items, emptyText, noResultsText, limit, initialQuery }}>
+  const root = document.querySelector("[data-simple-search-root]");
+  const input = root?.querySelector("[data-simple-search-input]");
+  const results = root?.querySelector("[data-simple-search-results]");
+  const status = root?.querySelector("[data-simple-search-status]");
+
+  const escapeHtml = (value) =>
+    (value || "")
+      .toString()
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+
+  const normalize = (value) =>
+    (value || "")
+      .toString()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+
+  const scoreItem = (item, query) => {
+    const q = normalize(query);
+    const title = normalize(item.title);
+    const description = normalize(item.description);
+
+    let score = 0;
+
+    if (title === q) score += 100;
+    if (title.startsWith(q)) score += 50;
+    if (title.includes(q)) score += 20;
+    if (description.includes(q)) score += 10;
+
+    return score;
+  };
+
+  const updateUrl = (query) => {
+    const url = new URL(window.location.href);
+    const trimmedQuery = query.trim();
+
+    if (trimmedQuery) {
+      url.searchParams.set("q", trimmedQuery);
+    } else {
+      url.searchParams.delete("q");
+    }
+
+    window.history.replaceState({}, "", url);
+  };
+
+  const renderResults = (matches) => {
+    if (!results || !status) return;
+
+    if (!matches.length) {
+      results.innerHTML = "";
+      status.textContent = noResultsText;
+      return;
+    }
+
+    status.textContent = `${matches.length} result${matches.length === 1 ? "" : "s"} found`;
+
+    results.innerHTML = matches
+      .map(
+        (item) => `
+          <li class="simple-search__result-item">
+            <a href="${escapeHtml(item.url)}" class="simple-search__result-link">
+              <strong class="simple-search__result-title">${escapeHtml(item.title)}</strong>
+              ${
+                item.description
+                  ? `<span class="simple-search__result-description">${escapeHtml(item.description)}</span>`
+                  : ""
+              }
+            </a>
+          </li>
+        `
+      )
+      .join("");
+  };
+
+  const runSearch = (query) => {
+    if (!results || !status) return;
+
+    const q = normalize(query);
+
+    if (!q) {
+      results.innerHTML = "";
+      status.textContent = emptyText;
+      return;
+    }
+
+    const matches = items
+      .map((item) => ({
+        ...item,
+        _score: scoreItem(item, q),
+      }))
+      .filter((item) => item._score > 0)
+      .sort((a, b) => b._score - a._score || a.title.localeCompare(b.title))
+      .slice(0, limit);
+
+    renderResults(matches);
+  };
+
+  const getUrlQuery = () =>
+    new URL(window.location.href).searchParams.get("q")?.trim() || "";
+
+  input?.addEventListener("input", (event) => {
+    const value =
+      event.currentTarget instanceof HTMLInputElement ? event.currentTarget.value : "";
+    updateUrl(value);
+    runSearch(value);
+  });
+
+  const startupQuery = initialQuery || getUrlQuery();
+
+  if (input instanceof HTMLInputElement && input.value !== startupQuery) {
+    input.value = startupQuery;
+  }
+
+  if (startupQuery) {
+    runSearch(startupQuery);
+  }
+</script>
+
+<style>
+  .simple-search {
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .simple-search__field {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .simple-search__label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--gn-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .simple-search__input {
+    min-block-size: 3.5rem;
+    padding: 0.85rem 1rem;
+    font: inherit;
+    font-size: 1.05rem;
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
+  }
+
+  .simple-search__input::placeholder {
+    color: var(--gn-ink-muted);
+  }
+
+  .simple-search__input:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 3px;
+    border-color: var(--gn-accent);
+  }
+
+  .simple-search__status {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gn-ink-muted);
+  }
+
+  .simple-search__results {
+    display: grid;
+    gap: 0.9rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .simple-search__result-item {
+    display: grid;
+  }
+
+  .simple-search__result-link {
+    display: grid;
+    gap: 0.45rem;
+    padding: 1rem 1.05rem;
+    color: var(--gn-ink);
+    text-decoration: none;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 1rem;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .simple-search__result-link:hover,
+  .simple-search__result-link:focus-visible {
+    border-color: var(--gn-accent);
+    transform: translateY(-1px);
+  }
+
+  .simple-search__result-link:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 3px;
+  }
+
+  .simple-search__result-title {
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+
+  .simple-search__result-description {
+    line-height: 1.6;
+    color: var(--gn-ink-muted);
+  }
+</style>

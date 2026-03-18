@@ -1,12 +1,12 @@
 ---
-import SEO from '@shared-ui/components/SEO.astro';
-import Footer from '../components/Footer.astro';
+import SEO from "@shared-ui/components/SEO.astro";
+import Footer from "../components/Footer.astro";
 
 export interface Props {
   title: string;
   description: string;
   image?: string;
-  type?: 'website' | 'article';
+  type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
@@ -24,15 +24,15 @@ export interface Props {
 const {
   title,
   description,
-  image = '/images/default-og.jpg',
-  type = 'website',
+  image = "/images/default-og.jpg",
+  type = "website",
   publishedTime,
   modifiedTime,
-  author = 'MelodyMind Podcasts',
+  author = "MelodyMind Podcasts",
   keywords = [],
   canonical,
-  language = 'en',
-  locale = 'en-US',
+  language = "en",
+  locale = "en-US",
   episodeNumber,
   durationSeconds,
   audioUrl,
@@ -40,17 +40,17 @@ const {
   seriesDescription,
 } = Astro.props;
 
-const siteTitle = 'MelodyMind Podcasts';
+const siteTitle = "MelodyMind Podcasts";
 const normalizedTitle = normalizeMetaText(title);
 const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
   ? normalizedTitle
   : `${normalizedTitle} | ${siteTitle}`;
-const siteUrl = 'https://podcasts.melody-mind.de';
-const currentPath = canonical ? canonical.replace(siteUrl, '') : Astro.url.pathname;
+const siteUrl = "https://podcasts.melody-mind.de";
+const currentPath = canonical ? canonical.replace(siteUrl, "") : Astro.url.pathname;
 const currentUrl = `${siteUrl}${ensureTrailingSlash(currentPath)}`;
-const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const imageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
 const episodeImageUrl = episodeImage
-  ? episodeImage.startsWith('http')
+  ? episodeImage.startsWith("http")
     ? episodeImage
     : `${siteUrl}${episodeImage}`
   : imageUrl;
@@ -58,29 +58,37 @@ const podcastFeedUrl = `${siteUrl}/podcast.xml`;
 const podcastImage = `${siteUrl}/the-melody-mind-podcast.jpg`;
 const seriesCopy =
   seriesDescription ||
-  'Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.';
-const genres = ['Music', 'History'];
-const defaultKeywords = ['podcast', 'music history', 'audio', 'streaming', 'entertainment'];
-const skipLinkText = 'Skip to main content';
+  "Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.";
+const genres = ["Music", "History"];
+const defaultKeywords = [
+  "podcast",
+  "music history",
+  "audio",
+  "streaming",
+  "entertainment",
+];
+const skipLinkText = "Skip to main content";
 const normalizedDescription = normalizeMetaText(description);
 const imageAlt =
-  type === 'article' ? `Cover artwork for ${normalizedTitle}` : `Cover artwork for ${siteTitle}`;
+  type === "article"
+    ? `Cover artwork for ${normalizedTitle}`
+    : `Cover artwork for ${siteTitle}`;
 const publishDate = publishedTime ? new Date(publishedTime) : undefined;
 const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
 
 const publisher = {
-  '@type': 'Organization',
-  name: 'MelodyMind Podcasts',
+  "@type": "Organization",
+  name: "MelodyMind Podcasts",
   url: siteUrl,
   logo: {
-    '@type': 'ImageObject',
+    "@type": "ImageObject",
     url: podcastImage,
   },
 };
 
 const podcastSeriesJson = {
-  '@context': 'https://schema.org',
-  '@type': 'PodcastSeries',
+  "@context": "https://schema.org",
+  "@type": "PodcastSeries",
   name: siteTitle,
   description: seriesCopy,
   url: siteUrl,
@@ -89,48 +97,48 @@ const podcastSeriesJson = {
   genre: genres,
   isAccessibleForFree: true,
   sameAs: [
-    'https://open.spotify.com/show/6iLbxIzJ4x5nMuuK5qySOQ',
-    'https://www.deezer.com/en/show/1002446242',
-    'https://podcasts.apple.com/us/podcast/melody-mind-–-english/id1847445333',
+    "https://open.spotify.com/show/6iLbxIzJ4x5nMuuK5qySOQ",
+    "https://www.deezer.com/en/show/1002446242",
+    "https://podcasts.apple.com/us/podcast/melody-mind-–-english/id1847445333",
   ],
   publisher,
   webFeed: podcastFeedUrl,
   author: [
     {
-      '@type': 'Person',
-      name: 'Daniel Schmid',
-      url: 'https://melody-mind.de',
+      "@type": "Person",
+      name: "Daniel Schmid",
+      url: "https://melody-mind.de",
     },
     {
-      '@type': 'Person',
-      name: 'Annabelle',
+      "@type": "Person",
+      name: "Annabelle",
     },
   ],
   potentialAction: {
-    '@type': 'SearchAction',
+    "@type": "SearchAction",
     target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/?q={search_term_string}`,
+      "@type": "EntryPoint",
+      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
     },
-    'query-input': 'required name=search_term_string',
+    "query-input": "required name=search_term_string",
   },
 };
 
 const episodeDurationIso =
-  typeof durationSeconds === 'number' && durationSeconds > 0
+  typeof durationSeconds === "number" && durationSeconds > 0
     ? toIsoDuration(durationSeconds)
     : undefined;
 
 const podcastEpisodeJson =
-  type === 'article'
+  type === "article"
     ? {
-        '@context': 'https://schema.org',
-        '@type': 'PodcastEpisode',
+        "@context": "https://schema.org",
+        "@type": "PodcastEpisode",
         name: title,
         description: normalizedDescription,
         url: currentUrl,
         partOfSeries: {
-          '@type': 'PodcastSeries',
+          "@type": "PodcastSeries",
           name: siteTitle,
           url: siteUrl,
         },
@@ -144,20 +152,20 @@ const podcastEpisodeJson =
         timeRequired: episodeDurationIso,
         author: [
           {
-            '@type': 'Person',
-            name: 'Daniel Schmid',
-            url: 'https://melody-mind.de',
+            "@type": "Person",
+            name: "Daniel Schmid",
+            url: "https://melody-mind.de",
           },
           {
-            '@type': 'Person',
-            name: 'Annabelle',
+            "@type": "Person",
+            name: "Annabelle",
           },
         ],
         audio: audioUrl
           ? {
-              '@type': 'AudioObject',
+              "@type": "AudioObject",
               url: audioUrl,
-              encodingFormat: 'audio/mpeg',
+              encodingFormat: "audio/mpeg",
               duration: episodeDurationIso,
             }
           : undefined,
@@ -168,21 +176,21 @@ const podcastEpisodeJson =
 const jsonLd = [podcastSeriesJson, podcastEpisodeJson].filter(Boolean);
 
 function ensureTrailingSlash(pathname: string) {
-  if (!pathname.startsWith('/')) {
+  if (!pathname.startsWith("/")) {
     return `/${pathname}/`;
   }
-  return pathname.endsWith('/') ? pathname : `${pathname}/`;
+  return pathname.endsWith("/") ? pathname : `${pathname}/`;
 }
 
 function normalizeMetaText(value: string) {
-  return value.replace(/\s+/g, ' ').trim();
+  return value.replace(/\s+/g, " ").trim();
 }
 
 function toIsoDuration(totalSeconds: number) {
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = Math.floor(totalSeconds % 60);
-  return `PT${hours > 0 ? `${hours}H` : ''}${minutes > 0 ? `${minutes}M` : ''}${seconds || (!hours && !minutes) ? `${seconds}S` : ''}`;
+  return `PT${hours > 0 ? `${hours}H` : ""}${minutes > 0 ? `${minutes}M` : ""}${seconds || (!hours && !minutes) ? `${seconds}S` : ""}`;
 }
 ---
 
@@ -198,7 +206,10 @@ function toIsoDuration(totalSeconds: number) {
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Melody Mind Podcasts" />
-    <meta name="google-site-verification" content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M" />
+    <meta
+      name="google-site-verification"
+      content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M"
+    />
 
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -230,11 +241,11 @@ function toIsoDuration(totalSeconds: number) {
       structuredDataExtra={jsonLd.map((entry) => ({
         ...entry,
         potentialAction:
-          type === 'website'
+          type === "website"
             ? {
-                '@type': 'SearchAction',
-                target: `${siteUrl}/?q={search_term_string}`,
-                'query-input': 'required name=search_term_string',
+                "@type": "SearchAction",
+                target: `${siteUrl}/search?q={search_term_string}`,
+                "query-input": "required name=search_term_string",
               }
             : undefined,
       }))}
@@ -258,8 +269,8 @@ function toIsoDuration(totalSeconds: number) {
     <meta property="og:description" content={normalizedDescription} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:site_name" content={siteTitle} />
-    <meta property="og:locale" content={locale.replace('-', '_')} />
-    {type === 'article' && <meta property="article:author" content={author} />}
+    <meta property="og:locale" content={locale.replace("-", "_")} />
+    {type === "article" && <meta property="article:author" content={author} />}
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={currentUrl} />
@@ -298,10 +309,10 @@ function toIsoDuration(totalSeconds: number) {
 <style>
   /* Font: Atkinson Hyperlegible - loaded locally for consistency with Melody Mind */
   @font-face {
-    font-family: 'Atkinson Hyperlegible';
+    font-family: "Atkinson Hyperlegible";
     font-style: normal;
     font-weight: 400;
-    src: url('/fonts/atkinson-hyperlegible-regular.woff2') format('woff2');
+    src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
     font-display: swap;
   }
 
@@ -424,7 +435,7 @@ function toIsoDuration(totalSeconds: number) {
 
     min-block-size: 100vb;
     margin: 0;
-    font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
     font-size: 1.125rem;
     line-height: var(--leading-relaxed);
     color: var(--color-text);

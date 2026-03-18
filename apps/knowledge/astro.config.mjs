@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
-import pagefind from "astro-pagefind";
 import minify from "astro-minify-html-swc";
 
 // https://astro.build/config
@@ -18,7 +17,6 @@ export default defineConfig({
 
   integrations: [
     mdx(),
-    pagefind(),
     robotsTxt({
       sitemap: ["https://melody-mind.de/sitemap-index.xml"],
       host: "melody-mind.de",

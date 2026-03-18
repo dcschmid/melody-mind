@@ -12,45 +12,41 @@ export const prerender = true;
 
 const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
 
-const title = "Search Melody Mind";
-const description = "Search Melody Mind article titles and descriptions.";
+const title = "Search Melody Mind Quizzes";
+const description = "Search Melody Mind quiz titles and descriptions.";
 const currentUrl = resolvePageUrl(Astro.site, "/search");
 const pageSeo = buildPageSeo({
   title,
   description,
   url: currentUrl,
-  contentKind: "generic",
   structuredData: [] as StructuredData[],
-  enrichedParts: [title, description, "site search music knowledge articles"],
-  fallbackKeywords: ["search", "music knowledge", "article search", "genre guides"],
-  keywordLimit: 24,
-  maxDescription: 155,
-  image: "/melody-mind.jpg",
-  imageAlt: "Search Melody Mind Knowledge",
+  fallbackKeywords: [
+    "quiz search",
+    "music quiz",
+    "music trivia",
+    "quiz topics",
+    "music knowledge",
+  ],
   index: false,
   follow: true,
-  autoSocialImage: false,
-  authorName: "Melody Mind",
 });
 
-type KnowledgeEntry = CollectionEntry<"knowledge-en">;
+type QuizEntry = CollectionEntry<"quizzes">;
 interface SearchPageItem {
   title: string;
   description?: string;
   url: string;
 }
 
-const entries: KnowledgeEntry[] = await getCollection(
-  "knowledge-en",
-  ({ data }) => !data.draft
-);
+const allEntries: QuizEntry[] = (await getCollection("quizzes")) as QuizEntry[];
+const entries = allEntries.filter((entry) => !(entry.data as { draft?: boolean }).draft);
 const items: SearchPageItem[] = entries.map((entry) => {
   const data = entry.data as { title: string; description?: string };
 
   return {
     title: data.title,
     description: data.description ?? "",
-    url: `/knowledge/${entry.id}/`,
+    url: `/${entry.id}`,
   };
 });
 ---
@@ -60,21 +56,21 @@ const items: SearchPageItem[] = entries.map((entry) => {
     <SearchPageSection
       items={items}
       initialQuery={initialQuery}
-      heroEyebrow="Library Search"
-      title="Search Melody Mind"
-      lead="Search locally across article titles and descriptions with shareable query URLs."
+      heroEyebrow="Quiz Search"
+      title="Search Melody Mind Quizzes"
+      lead="Search quiz titles and descriptions to jump straight into a topic or era."
       tipsTitle="Search tips"
       tips={[
-        "Try genres like j-pop, dub, or neo-soul.",
-        "Search movements, decades, or regional scenes.",
-        "Use the header search to jump in directly with /search?q=...",
+        "Try decade names like 1980s or 1990s.",
+        "Search genres like jazz, hip hop, or soul.",
+        "Use the header search to open /search?q=... directly.",
       ]}
-      resultsEyebrow="Search the archive"
+      resultsEyebrow="Search the quiz archive"
       resultsTitle="Results"
       resultsHelp="Results update while you type, and the current query stays in the URL."
-      searchPlaceholder="Search by title or description..."
-      searchEmptyText="Type a title or keyword."
-      searchNoResultsText="No matching results found."
+      searchPlaceholder="Search quiz titles or descriptions..."
+      searchEmptyText="Type a quiz title or keyword."
+      searchNoResultsText="No matching quizzes found."
       searchLimit={24}
     />
   </PageShell>

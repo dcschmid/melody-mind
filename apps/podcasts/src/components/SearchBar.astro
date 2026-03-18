@@ -1,22 +1,25 @@
 ---
-const { total } = Astro.props as { total: number };
-
 const labels = {
-  placeholder: 'Search by title or description',
-  label: 'Search episodes',
-  results: 'episodes',
-  resultOne: 'episode',
-  clear: 'Clear search',
-  hint: 'Type to filter episodes by title and description.',
-  empty: 'No matching episodes.',
-  statusTemplate: 'Showing {shown} of {found} matching {word} out of {total}.',
+  placeholder: "Search by title or description",
+  label: "Search episodes",
+  clear: "Clear search",
+  hint: "Submit to open the dedicated search page with a shareable query URL.",
 };
 ---
 
-<form role="search" class="search-bar" aria-label={labels.label} aria-controls="episodes-list">
+<form
+  role="search"
+  class="search-bar"
+  aria-label={labels.label}
+  action="/search"
+  method="get"
+>
   <div class="search-bar__row">
     <div class="search-bar__field">
-      <label for="episode-search" class="search-bar__label search-bar__label--visually-hidden">
+      <label
+        for="episode-search"
+        class="search-bar__label search-bar__label--visually-hidden"
+      >
         {labels.label}
       </label>
       <input
@@ -30,30 +33,14 @@ const labels = {
         aria-live="polite"
         class="search-bar__input"
       />
-      <button type="button" aria-label={labels.clear} class="search-bar__clear"> × </button>
+      <button type="reset" aria-label={labels.clear} class="search-bar__clear">
+        ×
+      </button>
     </div>
   </div>
   <p id="search-hint" class="search-bar__hint">
     {labels.hint}
   </p>
-  <div
-    aria-live="polite"
-    aria-atomic="true"
-    id="search-status"
-    class="search-bar__status"
-    data-total={total}
-  >
-    {
-      labels.statusTemplate
-        .replace('{shown}', String(total))
-        .replace('{found}', String(total))
-        .replace('{total}', String(total))
-        .replace('{word}', total === 1 ? labels.resultOne : labels.results)
-    }
-  </div>
-  <div id="search-empty" class="search-bar__empty" role="status" hidden>
-    {labels.empty}
-  </div>
 </form>
 
 <style>
@@ -220,18 +207,6 @@ const labels = {
     margin: 0;
     font-size: var(--font-size-caption);
     color: var(--color-text-muted);
-  }
-
-  .search-bar__status {
-    margin: 0;
-    font-size: var(--font-size-ui);
-    color: var(--color-primary-strong);
-  }
-
-  .search-bar__empty {
-    margin: 0;
-    font-size: var(--font-size-ui);
-    color: var(--color-error-strong);
   }
 
   @media (width <= 380px) {
