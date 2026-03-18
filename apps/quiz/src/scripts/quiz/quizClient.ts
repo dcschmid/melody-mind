@@ -43,10 +43,7 @@ function shuffleArray<T>(array: T[]): T[] {
 /**
  * Selects a random subset of questions and shuffles them
  */
-function selectRandomQuestions(
-  questions: QuizQuestion[],
-  count: number,
-): QuizQuestion[] {
+function selectRandomQuestions(questions: QuizQuestion[], count: number): QuizQuestion[] {
   const shuffled = shuffleArray(questions);
   return shuffled.slice(0, count);
 }
@@ -70,7 +67,7 @@ const icons = {
 export function initQuiz(
   allQuestions: QuizQuestion[],
   passingScore: number,
-  questionsPerSession: number = 20,
+  questionsPerSession: number = 20
 ) {
   // Select random questions for this session
   const questions = selectRandomQuestions(allQuestions, questionsPerSession);
@@ -92,16 +89,18 @@ export function initQuiz(
   const navSubmit = document.getElementById("quiz-nav-submit");
   const checkAnswerBtn = document.getElementById("quiz-check-answer");
 
-  if (!questionContainer) {return;}
+  if (!questionContainer) {
+    return;
+  }
 
   function renderProgress() {
-    if (!progressContainer) {return;}
+    if (!progressContainer) {
+      return;
+    }
 
     const answeredCount = state.isAnswered.filter(Boolean).length;
     const scorePercentage =
-      answeredCount > 0
-        ? Math.round((state.correctCount / answeredCount) * 100)
-        : 0;
+      answeredCount > 0 ? Math.round((state.correctCount / answeredCount) * 100) : 0;
     progressContainer.innerHTML = `
       <div class="quiz-progress" role="progressbar" aria-valuenow="${answeredCount}" aria-valuemin="0" aria-valuemax="${questions.length}">
         <p class="quiz-progress__eyebrow">Quiz progress</p>
@@ -131,7 +130,9 @@ export function initQuiz(
   }
 
   function renderQuestion() {
-    if (!questionContainer) {return;}
+    if (!questionContainer) {
+      return;
+    }
 
     const q = questions[state.currentQuestion];
     const selectedAnswer = state.answers[state.currentQuestion];
@@ -152,8 +153,7 @@ export function initQuiz(
       }
     }
 
-    const displayOptions =
-      q.type === "true-false" ? ["True", "False"] : q.options;
+    const displayOptions = q.type === "true-false" ? ["True", "False"] : q.options;
 
     function isOptionCorrect(index: number): boolean {
       if (q.type === "true-false") {
@@ -166,7 +166,9 @@ export function initQuiz(
     }
 
     function isOptionSelected(index: number): boolean {
-      if (selectedAnswer === null) {return false;}
+      if (selectedAnswer === null) {
+        return false;
+      }
       if (q.type === "multi-choice") {
         return (selectedAnswer as number[]).includes(index);
       }
@@ -180,8 +182,11 @@ export function initQuiz(
 
         let optionState = "";
         if (isAnswered) {
-          if (isCorrectOption) {optionState = "correct";}
-          else if (isSelected && !isCorrectOption) {optionState = "incorrect";}
+          if (isCorrectOption) {
+            optionState = "correct";
+          } else if (isSelected && !isCorrectOption) {
+            optionState = "incorrect";
+          }
         } else if (isSelected) {
           optionState = "selected";
         }
@@ -276,11 +281,9 @@ export function initQuiz(
     `;
 
     // Add event listeners to options
-    questionContainer
-      .querySelectorAll(".quiz-question__option")
-      .forEach((btn) => {
-        btn.addEventListener("click", handleOptionClick);
-      });
+    questionContainer.querySelectorAll(".quiz-question__option").forEach((btn) => {
+      btn.addEventListener("click", handleOptionClick);
+    });
 
     updateNavigation();
   }
@@ -290,11 +293,12 @@ export function initQuiz(
     const index = parseInt(btn.dataset.index || "0", 10);
     const type = btn.dataset.type as QuizQuestion["type"];
 
-    if (state.isAnswered[state.currentQuestion]) {return;}
+    if (state.isAnswered[state.currentQuestion]) {
+      return;
+    }
 
     if (type === "multi-choice") {
-      let currentSelection =
-        (state.answers[state.currentQuestion] as number[]) || [];
+      let currentSelection = (state.answers[state.currentQuestion] as number[]) || [];
       if (currentSelection.includes(index)) {
         currentSelection = currentSelection.filter((i) => i !== index);
       } else {
@@ -312,7 +316,9 @@ export function initQuiz(
   function submitAnswer() {
     const selectedAnswer = state.answers[state.currentQuestion];
 
-    if (selectedAnswer === null) {return;}
+    if (selectedAnswer === null) {
+      return;
+    }
 
     const q = questions[state.currentQuestion];
     let isCorrect: boolean;
@@ -339,7 +345,9 @@ export function initQuiz(
   }
 
   function updateNavigation() {
-    if (!navPrev || !navNext || !navSubmit || !checkAnswerBtn) {return;}
+    if (!navPrev || !navNext || !navSubmit || !checkAnswerBtn) {
+      return;
+    }
 
     navPrev.hidden = state.currentQuestion === 0;
 
@@ -351,13 +359,14 @@ export function initQuiz(
     checkAnswerBtn.hidden = isCurrentAnswered;
 
     if (navNext) {
-      (navNext as HTMLButtonElement).disabled =
-        !isCurrentAnswered && !navNext.hidden;
+      (navNext as HTMLButtonElement).disabled = !isCurrentAnswered && !navNext.hidden;
     }
   }
 
   function goToQuestion(index: number) {
-    if (index < 0 || index >= questions.length) {return;}
+    if (index < 0 || index >= questions.length) {
+      return;
+    }
     state.currentQuestion = index;
     renderQuestion();
   }
@@ -365,7 +374,9 @@ export function initQuiz(
   function showResults() {
     state.isComplete = true;
 
-    if (!resultContainer) {return;}
+    if (!resultContainer) {
+      return;
+    }
 
     const score = Math.round((state.correctCount / questions.length) * 100);
     const passed = score >= passingScore;
@@ -373,11 +384,21 @@ export function initQuiz(
     const dashArray = `${(score / 100) * circumference} ${circumference}`;
 
     // Hide question and nav
-    if (questionContainer) {questionContainer.innerHTML = "";}
-    if (navPrev) {navPrev.hidden = true;}
-    if (navNext) {navNext.hidden = true;}
-    if (navSubmit) {navSubmit.hidden = true;}
-    if (checkAnswerBtn) {checkAnswerBtn.hidden = true;}
+    if (questionContainer) {
+      questionContainer.innerHTML = "";
+    }
+    if (navPrev) {
+      navPrev.hidden = true;
+    }
+    if (navNext) {
+      navNext.hidden = true;
+    }
+    if (navSubmit) {
+      navSubmit.hidden = true;
+    }
+    if (checkAnswerBtn) {
+      checkAnswerBtn.hidden = true;
+    }
 
     // Show results
     resultContainer.innerHTML = `
@@ -474,9 +495,7 @@ export function initQuiz(
 
   // Event listeners
   if (navPrev) {
-    navPrev.addEventListener("click", () =>
-      goToQuestion(state.currentQuestion - 1),
-    );
+    navPrev.addEventListener("click", () => goToQuestion(state.currentQuestion - 1));
   }
 
   if (navNext) {

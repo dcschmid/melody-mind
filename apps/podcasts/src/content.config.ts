@@ -1,6 +1,6 @@
-import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
-import { z } from 'astro/zod';
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 /**
  * Podcast Collection Schema
@@ -10,8 +10,8 @@ import { z } from 'astro/zod';
  */
 const podcasts = defineCollection({
   loader: glob({
-    pattern: '**/*.mdx',
-    base: './src/content/podcasts',
+    pattern: "**/*.mdx",
+    base: "./src/content/podcasts",
   }),
   schema: z.object({
     id: z.string(),
@@ -20,7 +20,7 @@ const podcasts = defineCollection({
     audioUrl: z.string().url(),
     imageUrl: z.string(),
     publishedAt: z.coerce.date(),
-    language: z.string().default('en'),
+    language: z.string().default("en"),
     isAvailable: z.boolean().default(true),
     durationSeconds: z.number().optional(),
     episodeNumber: z.number().optional(),

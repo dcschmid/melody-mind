@@ -72,21 +72,27 @@ const { entries = [] } = Astro.props;
   <div class="bookmark-manager__groups" data-bookmark-groups hidden>
     <section class="bookmark-manager__group" data-bookmark-group="to-read">
       <Headline level="h2" textSize="base" className="bookmark-manager__group-title">
-        To Read <span class="bookmark-manager__count" data-bookmark-count="to-read">0</span>
+        To Read <span class="bookmark-manager__count" data-bookmark-count="to-read"
+          >0</span
+        >
       </Headline>
       <ul class="bookmark-manager__list" data-bookmark-list="to-read"></ul>
     </section>
 
     <section class="bookmark-manager__group" data-bookmark-group="favorites">
       <Headline level="h2" textSize="base" className="bookmark-manager__group-title">
-        Favorites <span class="bookmark-manager__count" data-bookmark-count="favorites">0</span>
+        Favorites <span class="bookmark-manager__count" data-bookmark-count="favorites"
+          >0</span
+        >
       </Headline>
       <ul class="bookmark-manager__list" data-bookmark-list="favorites"></ul>
     </section>
 
     <section class="bookmark-manager__group" data-bookmark-group="research">
       <Headline level="h2" textSize="base" className="bookmark-manager__group-title">
-        Research <span class="bookmark-manager__count" data-bookmark-count="research">0</span>
+        Research <span class="bookmark-manager__count" data-bookmark-count="research"
+          >0</span
+        >
       </Headline>
       <ul class="bookmark-manager__list" data-bookmark-list="research"></ul>
     </section>
@@ -130,7 +136,9 @@ const { entries = [] } = Astro.props;
 
   const formatDate = (value: string): string => {
     const parsed = new Date(value);
-    if (Number.isNaN(parsed.valueOf())) {return "";}
+    if (Number.isNaN(parsed.valueOf())) {
+      return "";
+    }
 
     return new Intl.DateTimeFormat("en", {
       year: "numeric",
@@ -189,7 +197,9 @@ const { entries = [] } = Astro.props;
     const pendingRemovals = new Map<string, Bookmark>();
     const undoTimers = new Map<string, number>();
 
-    if (!empty || !groups || !feedback || !entriesDataNode) {return;}
+    if (!empty || !groups || !feedback || !entriesDataNode) {
+      return;
+    }
 
     const entries: BookmarkEntryMeta[] = (() => {
       try {
@@ -202,9 +212,13 @@ const { entries = [] } = Astro.props;
 
     const entryMap = new Map<string, BookmarkEntryMeta>();
     entries.forEach((entry) => {
-      if (!entry || typeof entry.slug !== "string") {return;}
+      if (!entry || typeof entry.slug !== "string") {
+        return;
+      }
       const slug = normalizeBookmarkSlug(entry.slug);
-      if (!slug) {return;}
+      if (!slug) {
+        return;
+      }
       entryMap.set(slug, entry);
     });
 
@@ -225,25 +239,33 @@ const { entries = [] } = Astro.props;
 
       bookmarks.forEach((bookmark) => {
         const group = grouped.get(bookmark.category);
-        if (group) {group.push(bookmark);}
+        if (group) {
+          group.push(bookmark);
+        }
       });
 
       countNodes.forEach((node) => {
         const category = node.dataset.bookmarkCount as BookmarkCategory | undefined;
-        if (!category) {return;}
+        if (!category) {
+          return;
+        }
         node.textContent = String(grouped.get(category)?.length || 0);
       });
 
       groupNodes.forEach((groupNode) => {
         const category = groupNode.dataset.bookmarkGroup as BookmarkCategory | undefined;
-        if (!category) {return;}
+        if (!category) {
+          return;
+        }
         const count = grouped.get(category)?.length || 0;
         groupNode.dataset.empty = count ? "false" : "true";
       });
 
       listNodes.forEach((listNode) => {
         const category = listNode.dataset.bookmarkList as BookmarkCategory | undefined;
-        if (!category) {return;}
+        if (!category) {
+          return;
+        }
         listNode.innerHTML = "";
 
         const items = grouped.get(category) || [];
@@ -403,7 +425,9 @@ const { entries = [] } = Astro.props;
 
     importFile?.addEventListener("change", async () => {
       const file = importFile.files?.[0];
-      if (!file) {return;}
+      if (!file) {
+        return;
+      }
 
       if (file.size > BOOKMARK_IMPORT_MAX_BYTES) {
         const maxMb = (BOOKMARK_IMPORT_MAX_BYTES / 1_000_000).toFixed(1);
@@ -541,7 +565,8 @@ const { entries = [] } = Astro.props;
   }
 
   .bookmark-manager__button:hover,
-  .bookmark-manager__select:hover, .bookmark-manager__button:focus,
+  .bookmark-manager__select:hover,
+  .bookmark-manager__button:focus,
   .bookmark-manager__select:focus {
     background: var(--gn-bg-muted);
     border-color: var(--gn-accent);
@@ -695,7 +720,8 @@ const { entries = [] } = Astro.props;
     border-radius: 0.5rem;
   }
 
-  .bookmark-manager__item:hover, .bookmark-manager__item:focus {
+  .bookmark-manager__item:hover,
+  .bookmark-manager__item:focus {
     border-color: var(--gn-accent);
   }
 
@@ -738,7 +764,8 @@ const { entries = [] } = Astro.props;
     color: var(--gn-ink);
   }
 
-  .bookmark-manager__link:hover, .bookmark-manager__link:focus {
+  .bookmark-manager__link:hover,
+  .bookmark-manager__link:focus {
     color: var(--gn-accent);
   }
 

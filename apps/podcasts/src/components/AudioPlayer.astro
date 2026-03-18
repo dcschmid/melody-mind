@@ -89,9 +89,13 @@ const playerId = subtitleUrl ?? audioUrl;
     >
       0:00 / 0:00
     </span>
-    <span class="episode-player__shortcut-hint" id="episode-player-hint" aria-live="polite">
-      Keyboard shortcuts: Space, left/right arrows, Home/End, and Page Up/Page Down. Press ? to show
-      or hide this hint.
+    <span
+      class="episode-player__shortcut-hint"
+      id="episode-player-hint"
+      aria-live="polite"
+    >
+      Keyboard shortcuts: Space, left/right arrows, Home/End, and Page Up/Page Down. Press
+      ? to show or hide this hint.
     </span>
   </div>
 
@@ -151,7 +155,7 @@ const playerId = subtitleUrl ?? audioUrl;
 </div>
 
 <script>
-  import '../scripts/audio-player';
+  import "../scripts/audio-player";
 </script>
 
 <style>
@@ -229,7 +233,7 @@ const playerId = subtitleUrl ?? audioUrl;
       box-shadow 0.15s ease;
   }
 
-  .episode-player__control[data-state='playing'] {
+  .episode-player__control[data-state="playing"] {
     background: var(--color-secondary);
   }
 
@@ -255,11 +259,11 @@ const playerId = subtitleUrl ?? audioUrl;
     display: none;
   }
 
-  .episode-player__control[data-state='playing'] .episode-player__control-icon--play {
+  .episode-player__control[data-state="playing"] .episode-player__control-icon--play {
     display: none;
   }
 
-  .episode-player__control[data-state='playing'] .episode-player__control-icon--pause {
+  .episode-player__control[data-state="playing"] .episode-player__control-icon--pause {
     display: block;
   }
 

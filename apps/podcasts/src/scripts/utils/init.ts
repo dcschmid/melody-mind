@@ -1,4 +1,4 @@
-import { logError } from '../../utils/error-handler';
+import { logError } from "../../utils/error-handler";
 
 /**
  * Script Initialization Utilities
@@ -54,8 +54,8 @@ export function createInitializer(name: string, init: () => void): () => void {
     setWindowFlag(flagName, true);
 
     // Handle DOM ready state
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init, { once: true });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init, { once: true });
     } else {
       init();
     }
@@ -75,7 +75,10 @@ export function createInitializer(name: string, init: () => void): () => void {
  *   setupTranscripts(data);
  * });
  */
-export function createAsyncInitializer(name: string, init: () => Promise<void>): () => void {
+export function createAsyncInitializer(
+  name: string,
+  init: () => Promise<void>
+): () => void {
   const flagName = `__mm${name}Initialized`;
 
   return () => {
@@ -92,13 +95,13 @@ export function createAsyncInitializer(name: string, init: () => Promise<void>):
       }
     };
 
-    if (document.readyState === 'loading') {
+    if (document.readyState === "loading") {
       document.addEventListener(
-        'DOMContentLoaded',
+        "DOMContentLoaded",
         () => {
           void runInit();
         },
-        { once: true },
+        { once: true }
       );
     } else {
       void runInit();

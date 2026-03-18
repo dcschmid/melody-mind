@@ -75,10 +75,18 @@ const {
 
     let score = 0;
 
-    if (title === q) score += 100;
-    if (title.startsWith(q)) score += 50;
-    if (title.includes(q)) score += 20;
-    if (description.includes(q)) score += 10;
+    if (title === q) {
+      score += 100;
+    }
+    if (title.startsWith(q)) {
+      score += 50;
+    }
+    if (title.includes(q)) {
+      score += 20;
+    }
+    if (description.includes(q)) {
+      score += 10;
+    }
 
     return score;
   };
@@ -97,7 +105,9 @@ const {
   };
 
   const renderResults = (matches) => {
-    if (!results || !status) return;
+    if (!results || !status) {
+      return;
+    }
 
     if (!matches.length) {
       results.innerHTML = "";
@@ -126,7 +136,9 @@ const {
   };
 
   const runSearch = (query) => {
-    if (!results || !status) return;
+    if (!results || !status) {
+      return;
+    }
 
     const q = normalize(query);
 
@@ -251,6 +263,12 @@ const {
   .simple-search__result-link:focus-visible {
     outline: 3px solid var(--gn-accent);
     outline-offset: 3px;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .simple-search__result-link {
+      transition: none;
+    }
   }
 
   .simple-search__result-title {

@@ -42,7 +42,11 @@ const pageSeo = buildPageSeo({
     <div class="cookies-page">
       <header class="cookies-page__header static-page-header">
         <p class="cookies-page__eyebrow static-page-eyebrow">Privacy</p>
-        <Headline level="h1" textSize="2xl" className="cookies-page__title static-page-title">
+        <Headline
+          level="h1"
+          textSize="2xl"
+          className="cookies-page__title static-page-title"
+        >
           Cookie & Storage Policy
         </Headline>
         <p class="cookies-page__lead static-page-lead">
@@ -201,7 +205,8 @@ const pageSeo = buildPageSeo({
     vertical-align: top;
     color: var(--text-secondary);
     text-align: start;
-    border-block-end: 1px solid color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
+    border-block-end: 1px solid
+      color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
   }
 
   .cookies-page__table th {
@@ -221,7 +226,8 @@ const pageSeo = buildPageSeo({
     text-underline-offset: 2px;
   }
 
-  .cookies-page__link:hover, .cookies-page__link:focus {
+  .cookies-page__link:hover,
+  .cookies-page__link:focus {
     color: var(--link-hover);
   }
 

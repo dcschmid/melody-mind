@@ -33,7 +33,7 @@ export function findByKey<T, K extends keyof T>(array: T[], key: K, value: T[K])
  */
 export function getAdjacentItems<T>(
   array: T[],
-  currentIndex: number,
+  currentIndex: number
 ): { prev: T | null; next: T | null } {
   if (currentIndex < 0 || currentIndex >= array.length) {
     return { prev: null, next: null };
@@ -60,7 +60,7 @@ export function getAdjacentItems<T>(
 export function getAdjacentByKey<T, K extends keyof T>(
   array: T[],
   key: K,
-  value: T[K],
+  value: T[K]
 ): { prev: T | null; next: T | null; index: number } {
   const index = findByKey(array, key, value);
   const { prev, next } = getAdjacentItems(array, index);

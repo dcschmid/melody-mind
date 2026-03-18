@@ -1,27 +1,27 @@
 ---
 export interface Props {
-  textSize?: 'sm' | 'base' | 'lg' | 'xl';
-  tone?: 'default' | 'muted';
+  textSize?: "sm" | "base" | "lg" | "xl";
+  tone?: "default" | "muted";
   className?: string;
 }
 
-const { textSize = 'base', tone = 'muted', className = '' } = Astro.props;
+const { textSize = "base", tone = "muted", className = "" } = Astro.props;
 
 const sizeClasses = {
-  sm: 'paragraph--sm',
-  base: 'paragraph--base',
-  lg: 'paragraph--lg',
-  xl: 'paragraph--xl',
+  sm: "paragraph--sm",
+  base: "paragraph--base",
+  lg: "paragraph--lg",
+  xl: "paragraph--xl",
 };
 
 const toneClasses = {
-  default: 'paragraph--default',
-  muted: 'paragraph--muted',
+  default: "paragraph--default",
+  muted: "paragraph--muted",
 };
 
-const classes = ['paragraph', sizeClasses[textSize], toneClasses[tone], className]
+const classes = ["paragraph", sizeClasses[textSize], toneClasses[tone], className]
   .filter(Boolean)
-  .join(' ');
+  .join(" ");
 ---
 
 <p class={classes}>

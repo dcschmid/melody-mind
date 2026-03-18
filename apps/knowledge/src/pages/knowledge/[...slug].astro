@@ -127,9 +127,7 @@ const podcastUrl =
     : podcastSlug
       ? `${podcastBase}/${encodeURI(podcastSlug)}`
       : null;
-const seoBreadcrumbsBase = [
-  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
-];
+const seoBreadcrumbsBase = [{ name: "Home", url: resolvePageUrl(Astro.site, "/") }];
 const seoCategoryCrumb =
   entry.data.category && typeof entry.data.category === "string"
     ? {
@@ -521,18 +519,13 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
 
       <div class="knowledge__body">
         <div class="knowledge__main">
-
           <TableOfContents headings={mergedHeadings} />
 
           {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
 
           <article id="article-content" class="panel knowledge-article">
             <div id="article-title" class="knowledge__title-sr">{entry.data.title}</div>
-            <div
-              role="region"
-              aria-labelledby="article-title"
-              aria-label="Main content"
-            >
+            <div role="region" aria-labelledby="article-title" aria-label="Main content">
               <Prose fullWidth={true}>
                 <Content />
               </Prose>
@@ -552,11 +545,11 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
           >
             <div class="knowledge-share__header">
               <Headline level="h2" textSize="lg" className="knowledge-share__title">
-                  <span id="share-section-title">
-                    <Icon name="share-2" class="knowledge__panel-icon" aria-hidden="true" />
-                    <span>Share this article</span>
-                  </span>
-                </Headline>
+                <span id="share-section-title">
+                  <Icon name="share-2" class="knowledge__panel-icon" aria-hidden="true" />
+                  <span>Share this article</span>
+                </span>
+              </Headline>
               <div class="knowledge-share__actions">
                 <button
                   type="button"
@@ -648,11 +641,7 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
           }
 
           <div class="knowledge__back">
-            <ButtonLink
-              href="/"
-              icon="arrow-left"
-              aria-label="Back to knowledge list"
-            >
+            <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
               <span>Back to knowledge list</span>
             </ButtonLink>
           </div>

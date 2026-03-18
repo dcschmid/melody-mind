@@ -68,7 +68,9 @@ const {
 }
 
 {
-  publishDate && <meta name="article:published_time" content={publishDate.toISOString()} />
+  publishDate && (
+    <meta name="article:published_time" content={publishDate.toISOString()} />
+  )
 }
 {
   modifiedDate && (

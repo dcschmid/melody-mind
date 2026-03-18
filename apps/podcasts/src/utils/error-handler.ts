@@ -6,16 +6,16 @@
  */
 
 /** Prefix for all logged messages */
-const LOG_PREFIX = '[MelodyMind]';
+const LOG_PREFIX = "[MelodyMind]";
 
 /** Error categories for classification */
 export type ErrorCategory =
-  | 'network'
-  | 'audio'
-  | 'transcript'
-  | 'storage'
-  | 'validation'
-  | 'unknown';
+  | "network"
+  | "audio"
+  | "transcript"
+  | "storage"
+  | "validation"
+  | "unknown";
 
 /** Structured error information */
 export interface ErrorInfo {
@@ -32,14 +32,18 @@ export interface ErrorInfo {
  * @param error - The error to log
  * @param context - Additional context about where the error occurred
  */
-export function logError(error: unknown, context?: string | Record<string, unknown>): void {
+export function logError(
+  error: unknown,
+  context?: string | Record<string, unknown>
+): void {
   const errorInfo = extractErrorInfo(error);
 
-  const contextStr = typeof context === 'string' ? context : context ? JSON.stringify(context) : '';
+  const contextStr =
+    typeof context === "string" ? context : context ? JSON.stringify(context) : "";
   const message = `${LOG_PREFIX} [${errorInfo.category}] ${errorInfo.message}${
-    contextStr ? ` (${contextStr})` : ''
+    contextStr ? ` (${contextStr})` : ""
   }`;
-  const report = typeof reportError === 'function' ? reportError : undefined;
+  const report = typeof reportError === "function" ? reportError : undefined;
   const errorToReport =
     errorInfo.originalError instanceof Error
       ? new Error(message, { cause: errorInfo.originalError })
@@ -62,16 +66,16 @@ function extractErrorInfo(error: unknown): ErrorInfo {
     };
   }
 
-  if (typeof error === 'string') {
+  if (typeof error === "string") {
     return {
       message: error,
-      category: 'unknown',
+      category: "unknown",
     };
   }
 
   return {
-    message: 'An unknown error occurred',
-    category: 'unknown',
+    message: "An unknown error occurred",
+    category: "unknown",
     originalError: error,
   };
 }
@@ -84,40 +88,40 @@ function categorizeError(error: Error): ErrorCategory {
   const name = error.name.toLowerCase();
 
   if (
-    name.includes('network') ||
-    message.includes('fetch') ||
-    message.includes('network') ||
-    message.includes('failed to fetch')
+    name.includes("network") ||
+    message.includes("fetch") ||
+    message.includes("network") ||
+    message.includes("failed to fetch")
   ) {
-    return 'network';
+    return "network";
   }
 
   if (
-    name.includes('audio') ||
-    message.includes('audio') ||
-    message.includes('play') ||
-    message.includes('media')
+    name.includes("audio") ||
+    message.includes("audio") ||
+    message.includes("play") ||
+    message.includes("media")
   ) {
-    return 'audio';
+    return "audio";
   }
 
-  if (message.includes('transcript') || message.includes('vtt')) {
-    return 'transcript';
+  if (message.includes("transcript") || message.includes("vtt")) {
+    return "transcript";
   }
 
-  if (message.includes('storage') || message.includes('localstorage')) {
-    return 'storage';
+  if (message.includes("storage") || message.includes("localstorage")) {
+    return "storage";
   }
 
   if (
-    message.includes('invalid') ||
-    message.includes('required') ||
-    message.includes('validation')
+    message.includes("invalid") ||
+    message.includes("required") ||
+    message.includes("validation")
   ) {
-    return 'validation';
+    return "validation";
   }
 
-  return 'unknown';
+  return "unknown";
 }
 
 /**
@@ -135,7 +139,7 @@ function categorizeError(error: Error): ErrorCategory {
 export async function handleAsyncError<T>(
   promise: Promise<T>,
   fallback?: T,
-  context?: string,
+  context?: string
 ): Promise<T | undefined> {
   try {
     return await promise;
@@ -160,7 +164,7 @@ export async function handleAsyncError<T>(
  */
 export function safeAsyncHandler<T>(
   fn: () => Promise<T>,
-  fallback?: T,
+  fallback?: T
 ): () => Promise<T | undefined> {
   return async () => handleAsyncError(fn(), fallback);
 }
@@ -181,7 +185,7 @@ export function safeAsyncHandler<T>(
  * }
  */
 export function safeExecute<T>(
-  fn: () => T,
+  fn: () => T
 ): { success: true; data: T } | { success: false; error: ErrorInfo } {
   try {
     return { success: true, data: fn() };
@@ -197,7 +201,7 @@ export function safeExecute<T>(
  * @returns A promise resolving to a result object
  */
 export async function safeAsyncExecute<T>(
-  fn: () => Promise<T>,
+  fn: () => Promise<T>
 ): Promise<{ success: true; data: T } | { success: false; error: ErrorInfo }> {
   try {
     return { success: true, data: await fn() };

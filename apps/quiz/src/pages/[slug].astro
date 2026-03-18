@@ -101,7 +101,6 @@ const totalPoolSize = quiz.data.questions.length;
     containerClass="page-shell__container--narrow"
   >
     <div class="quiz-detail">
-    
       <div class="quiz-detail__content">
         <main class="quiz-detail__main">
           <section class="quiz-detail__progress-shell" aria-label="Quiz progress">
@@ -184,7 +183,6 @@ const totalPoolSize = quiz.data.questions.length;
           </div>
         </main>
       </div>
-
     </div>
   </PageShell>
 
@@ -209,7 +207,9 @@ const totalPoolSize = quiz.data.questions.length;
     const passingScoreEl = document.getElementById("quiz-passing-score");
     const questionsPerSessionEl = document.getElementById("quiz-questions-per-session");
 
-    if (!questionsEl || !passingScoreEl || !questionsPerSessionEl) {return;}
+    if (!questionsEl || !passingScoreEl || !questionsPerSessionEl) {
+      return;
+    }
 
     const questions: QuizQuestion[] = JSON.parse(questionsEl.textContent || "[]");
     const passingScore: number = parseInt(passingScoreEl.dataset.value || "70", 10);
@@ -237,7 +237,8 @@ const totalPoolSize = quiz.data.questions.length;
     display: grid;
     gap: 0.6rem;
     padding: 0.5rem 0 0.75rem;
-    border-block-end: 1px solid color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
+    border-block-end: 1px solid
+      color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
   }
 
   @media (width >= 960px) {
@@ -389,24 +390,23 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.quiz-detail__nav-btn {
-    display: inline-flex;
-    gap: 0.55rem;
-    align-items: center;
-    justify-content: center;
-    inline-size: 100%;
-    min-block-size: 3rem;
-    padding: 0.8rem 1rem;
-    font-weight: 700;
-    color: var(--gn-ink);
-    cursor: pointer;
-    background: color-mix(in srgb, var(--gn-bg) 96%, transparent);
-    border: 1px solid var(--gn-panel-border);
-    border-radius: 999px;
-    transition:
-      none;
-}
-}
+    .quiz-detail__nav-btn {
+      display: inline-flex;
+      gap: 0.55rem;
+      align-items: center;
+      justify-content: center;
+      inline-size: 100%;
+      min-block-size: 3rem;
+      padding: 0.8rem 1rem;
+      font-weight: 700;
+      color: var(--gn-ink);
+      cursor: pointer;
+      background: color-mix(in srgb, var(--gn-bg) 96%, transparent);
+      border: 1px solid var(--gn-panel-border);
+      border-radius: 999px;
+      transition: none;
+    }
+  }
 
   .quiz-detail__nav-btn {
     display: inline-flex;
@@ -559,13 +559,13 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-:global(#quiz-progress-container .quiz-progress__fill) {
-    block-size: 100%;
-    background: linear-gradient(90deg, var(--gn-accent), var(--gn-accent-strong));
-    border-radius: inherit;
-    transition: none;
-}
-}
+    :global(#quiz-progress-container .quiz-progress__fill) {
+      block-size: 100%;
+      background: linear-gradient(90deg, var(--gn-accent), var(--gn-accent-strong));
+      border-radius: inherit;
+      transition: none;
+    }
+  }
 
   :global(#quiz-progress-container .quiz-progress__fill) {
     block-size: 100%;
@@ -714,23 +714,22 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-:global(#quiz-question-container .quiz-question__option) {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: 0.7rem;
-    align-items: center;
-    inline-size: 100%;
-    padding: 0.85rem 0.9rem;
-    color: var(--gn-ink);
-    text-align: start;
-    cursor: pointer;
-    background: color-mix(in srgb, var(--gn-bg) 100%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 86%, transparent);
-    border-radius: 0.9rem;
-    transition:
-      none;
-}
-}
+    :global(#quiz-question-container .quiz-question__option) {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 0.7rem;
+      align-items: center;
+      inline-size: 100%;
+      padding: 0.85rem 0.9rem;
+      color: var(--gn-ink);
+      text-align: start;
+      cursor: pointer;
+      background: color-mix(in srgb, var(--gn-bg) 100%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gn-panel-border) 86%, transparent);
+      border-radius: 0.9rem;
+      transition: none;
+    }
+  }
 
   :global(#quiz-question-container .quiz-question__option) {
     display: grid;
@@ -773,7 +772,11 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-question-container .quiz-question__option--correct) {
     background: color-mix(in srgb, var(--color-gn-green-400) 10%, var(--gn-bg));
-    border-color: color-mix(in srgb, var(--color-gn-green-400) 50%, var(--gn-panel-border));
+    border-color: color-mix(
+      in srgb,
+      var(--color-gn-green-400) 50%,
+      var(--gn-panel-border)
+    );
   }
 
   :global(#quiz-question-container .quiz-question__option--incorrect) {
@@ -847,7 +850,11 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   :global(#quiz-result-container .quiz-result--passed) {
-    border-color: color-mix(in srgb, var(--color-gn-green-400) 34%, var(--gn-panel-border));
+    border-color: color-mix(
+      in srgb,
+      var(--color-gn-green-400) 34%,
+      var(--gn-panel-border)
+    );
   }
 
   :global(#quiz-result-container .quiz-result--failed) {
@@ -939,10 +946,10 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-:global(#quiz-result-container .quiz-result__score-arc) {
-    transition: none;
-}
-}
+    :global(#quiz-result-container .quiz-result__score-arc) {
+      transition: none;
+    }
+  }
 
   :global(#quiz-result-container .quiz-result__score-arc) {
     transition: stroke-dasharray 0.35s ease;
@@ -956,21 +963,20 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-:global(#quiz-result-container .quiz-result__btn) {
-    display: inline-flex;
-    gap: 0.55rem;
-    align-items: center;
-    justify-content: center;
-    min-block-size: 3rem;
-    padding: 0.8rem 1.15rem;
-    font-weight: 700;
-    text-decoration: none;
-    border: 1px solid var(--gn-panel-border);
-    border-radius: 999px;
-    transition:
-      none;
-}
-}
+    :global(#quiz-result-container .quiz-result__btn) {
+      display: inline-flex;
+      gap: 0.55rem;
+      align-items: center;
+      justify-content: center;
+      min-block-size: 3rem;
+      padding: 0.8rem 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--gn-panel-border);
+      border-radius: 999px;
+      transition: none;
+    }
+  }
 
   :global(#quiz-result-container .quiz-result__btn) {
     display: inline-flex;

@@ -1,7 +1,7 @@
 export function queryElement<T extends Element>(
   container: Element | Document,
   selector: string,
-  expectedType: { new (): T },
+  expectedType: { new (): T }
 ): T | null {
   const element = container.querySelector(selector);
   return element instanceof expectedType ? element : null;
@@ -10,7 +10,7 @@ export function queryElement<T extends Element>(
 export function queryAll<T extends Element>(
   container: Element | Document,
   selector: string,
-  expectedType: { new (): T },
+  expectedType: { new (): T }
 ): T[] {
   const elements = container.querySelectorAll(selector);
   return Array.from(elements).filter((el): el is T => el instanceof expectedType);

@@ -39,11 +39,7 @@ const tocTitle = title || "Table of contents";
         <Icon name="menu" class="toc__toggle-icon" aria-hidden="true" />
         <span>{tocTitle}</span>
       </span>
-      <span
-        class="toc__sr"
-        data-expanded="expanded"
-        data-collapsed="collapsed"
-      >
+      <span class="toc__sr" data-expanded="expanded" data-collapsed="collapsed">
         collapsed
       </span>
       <Icon
@@ -56,9 +52,7 @@ const tocTitle = title || "Table of contents";
 
     <div id="toc-content" aria-labelledby="toc-toggle" class="toc__content">
       <nav aria-label="Table of contents" class="toc__nav">
-        <a href="#article-content" class="toc__skip">
-          Skip to article content
-        </a>
+        <a href="#article-content" class="toc__skip"> Skip to article content </a>
         <ul id="toc-list" class="toc__list">
           {
             filteredHeadings.map((heading) => (
@@ -91,7 +85,9 @@ const tocTitle = title || "Table of contents";
     const proseRoot = articleRoot?.querySelector(".prose") ?? null;
 
     const getScopeAttr = (element: Element | null): string | null => {
-      if (!element) {return null;}
+      if (!element) {
+        return null;
+      }
       const scopeAttr = element
         .getAttributeNames()
         .find((name) => name.startsWith("data-astro-cid"));
@@ -99,7 +95,9 @@ const tocTitle = title || "Table of contents";
     };
 
     const applyScopeAttr = (element: Element, scopeAttr: string | null): void => {
-      if (!scopeAttr) {return;}
+      if (!scopeAttr) {
+        return;
+      }
       element.setAttribute(scopeAttr, "");
     };
 
@@ -107,7 +105,9 @@ const tocTitle = title || "Table of contents";
     const proseScopeAttr = getScopeAttr(proseRoot);
 
     const setShellVisibility = (visible: boolean): void => {
-      if (!(shell instanceof HTMLElement)) {return;}
+      if (!(shell instanceof HTMLElement)) {
+        return;
+      }
       shell.hidden = !visible;
       shell.setAttribute("aria-hidden", visible ? "false" : "true");
     };
@@ -141,7 +141,9 @@ const tocTitle = title || "Table of contents";
     setExpanded(isOpen);
 
     const ensureAnchor = (heading: HTMLElement, text: string, id: string): void => {
-      if (heading.querySelector(".prose__heading-anchor")) {return;}
+      if (heading.querySelector(".prose__heading-anchor")) {
+        return;
+      }
       const anchor = document.createElement("a");
       anchor.href = `#${id}`;
       anchor.className = "prose__heading-anchor";
@@ -167,9 +169,13 @@ const tocTitle = title || "Table of contents";
       const headings = headingNodes
         .map((node) => {
           const depth = Number(node.tagName.substring(1));
-          if (depth !== 2 && depth !== 3) {return null;}
+          if (depth !== 2 && depth !== 3) {
+            return null;
+          }
           const text = (node.textContent || "").trim();
-          if (!text) {return null;}
+          if (!text) {
+            return null;
+          }
 
           let id = node.id || slugify(text) || "section";
           let counter = 2;
@@ -177,14 +183,18 @@ const tocTitle = title || "Table of contents";
             id = `${slugify(text) || "section"}-${counter++}`;
           }
           seenIds.add(id);
-          if (!node.id) {node.id = id;}
+          if (!node.id) {
+            node.id = id;
+          }
           ensureAnchor(node as HTMLElement, text, id);
 
           return { depth, id, text };
         })
         .filter(Boolean) as Array<{ depth: number; id: string; text: string }>;
 
-      if (!headings.length) {return;}
+      if (!headings.length) {
+        return;
+      }
 
       tocList.innerHTML = "";
       headings.forEach((heading) => {
@@ -207,10 +217,14 @@ const tocTitle = title || "Table of contents";
 
     tocList?.addEventListener("click", (event): void => {
       const target = event.target;
-      if (!(target instanceof HTMLElement)) {return;}
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
 
       const link = target.closest<HTMLAnchorElement>("a[href^='#']");
-      if (!link) {return;}
+      if (!link) {
+        return;
+      }
 
       const href = link.getAttribute("href") || "";
       const sectionId = href.startsWith("#") ? href.slice(1) : "";
@@ -246,7 +260,9 @@ const tocTitle = title || "Table of contents";
     });
 
     document.addEventListener("click", (e): void => {
-      if (!isOpen) {return;}
+      if (!isOpen) {
+        return;
+      }
       const target = e.target as Node;
       if (target && !toggle.contains(target) && !content.contains(target)) {
         isOpen = false;
@@ -282,7 +298,8 @@ const tocTitle = title || "Table of contents";
     border-radius: 0.75rem;
   }
 
-  .toc__toggle:hover, .toc__toggle:focus {
+  .toc__toggle:hover,
+  .toc__toggle:focus {
     background: var(--gn-bg-muted);
   }
 
@@ -342,7 +359,8 @@ const tocTitle = title || "Table of contents";
     text-decoration: underline;
   }
 
-  .toc__skip:hover, .toc__skip:focus {
+  .toc__skip:hover,
+  .toc__skip:focus {
     color: var(--gn-accent-strong);
   }
 
@@ -379,7 +397,8 @@ const tocTitle = title || "Table of contents";
     color: var(--gn-ink-muted);
   }
 
-  .toc__link:hover, .toc__link:focus {
+  .toc__link:hover,
+  .toc__link:focus {
     color: var(--gn-accent);
     background: var(--gn-bg-muted);
   }

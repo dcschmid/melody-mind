@@ -42,9 +42,7 @@ const categoryLabels = {
 const baseUrl = resolveBaseUrl(Astro.site);
 const currentUrl = resolvePageUrl(Astro.site, "/");
 
-const seoBreadcrumbs = [
-  { name: "Home", url: currentUrl },
-];
+const seoBreadcrumbs = [{ name: "Home", url: currentUrl }];
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -115,11 +113,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
       {
         quizzesByCategory.decade.length > 0 && (
           <section class="quiz-section" aria-labelledby="decade-heading">
-            <Headline
-              level="h2"
-              textSize="lg"
-              className="quiz-section__title"
-            >
+            <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="decade-heading">{categoryLabels.decade}</span>
             </Headline>
             <p class="quiz-section__description">
@@ -146,11 +140,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
       {
         quizzesByCategory["genre-evolution"].length > 0 && (
           <section class="quiz-section" aria-labelledby="genre-heading">
-            <Headline
-              level="h2"
-              textSize="lg"
-              className="quiz-section__title"
-            >
+            <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="genre-heading">{categoryLabels["genre-evolution"]}</span>
             </Headline>
             <p class="quiz-section__description">
@@ -177,11 +167,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
       {
         quizzesByCategory.mixed.length > 0 && (
           <section class="quiz-section" aria-labelledby="mixed-heading">
-            <Headline
-              level="h2"
-              textSize="lg"
-              className="quiz-section__title"
-            >
+            <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="mixed-heading">{categoryLabels.mixed}</span>
             </Headline>
             <p class="quiz-section__description">

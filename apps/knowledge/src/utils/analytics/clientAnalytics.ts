@@ -5,7 +5,11 @@ import {
   BOOKMARK_ANALYTICS_EVENTS,
   BOOKMARK_CHANGE_EVENT,
 } from "@shared-utils/utils/bookmarks/clientBookmarks";
-import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "@shared-utils/constants/storage";
+import {
+  STORAGE_KEYS,
+  SESSION_KEYS,
+  RUNTIME_FLAGS,
+} from "@shared-utils/constants/storage";
 import {
   safeLocalStorage,
   safeSessionStorage,
@@ -279,13 +283,27 @@ const inferClickZone = (target: HTMLElement): string => {
     return explicit;
   }
 
-  if (target.closest("header")) {return "header";}
-  if (target.closest("footer")) {return "footer";}
-  if (target.closest("[data-search-root]")) {return "search";}
-  if (target.closest("#share-section")) {return "share";}
-  if (target.closest(".reading-controls")) {return "reading-controls";}
-  if (target.closest("#article-content")) {return "article";}
-  if (target.closest("main")) {return "main";}
+  if (target.closest("header")) {
+    return "header";
+  }
+  if (target.closest("footer")) {
+    return "footer";
+  }
+  if (target.closest("[data-search-root]")) {
+    return "search";
+  }
+  if (target.closest("#share-section")) {
+    return "share";
+  }
+  if (target.closest(".reading-controls")) {
+    return "reading-controls";
+  }
+  if (target.closest("#article-content")) {
+    return "article";
+  }
+  if (target.closest("main")) {
+    return "main";
+  }
   return "other";
 };
 

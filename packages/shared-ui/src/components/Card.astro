@@ -68,21 +68,19 @@ const resolvedMediaAspectRatio =
             class:list={["card__media", `card__media--${mediaObjectFit}`]}
             style={`--card-media-aspect-ratio: ${resolvedMediaAspectRatio}; --card-media-object-fit: ${mediaObjectFit};`}
           >
-            {
-              imageSrc ? (
-                <img
-                  src={imageSrc}
-                  alt={imageAlt}
-                  class:list={["card__media-image", imageClassName]}
-                  width={imageWidth}
-                  height={imageHeight}
-                  loading={imageLoading}
-                  decoding={imageDecoding}
-                />
-              ) : (
-                <slot name="media" />
-              )
-            }
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                class:list={["card__media-image", imageClassName]}
+                width={imageWidth}
+                height={imageHeight}
+                loading={imageLoading}
+                decoding={imageDecoding}
+              />
+            ) : (
+              <slot name="media" />
+            )}
             {hasBadge && (
               <div class="card__badge">
                 <slot name="badge" />
@@ -113,21 +111,19 @@ const resolvedMediaAspectRatio =
             class:list={["card__media", `card__media--${mediaObjectFit}`]}
             style={`--card-media-aspect-ratio: ${resolvedMediaAspectRatio}; --card-media-object-fit: ${mediaObjectFit};`}
           >
-            {
-              imageSrc ? (
-                <img
-                  src={imageSrc}
-                  alt={imageAlt}
-                  class:list={["card__media-image", imageClassName]}
-                  width={imageWidth}
-                  height={imageHeight}
-                  loading={imageLoading}
-                  decoding={imageDecoding}
-                />
-              ) : (
-                <slot name="media" />
-              )
-            }
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                class:list={["card__media-image", imageClassName]}
+                width={imageWidth}
+                height={imageHeight}
+                loading={imageLoading}
+                decoding={imageDecoding}
+              />
+            ) : (
+              <slot name="media" />
+            )}
             {hasBadge && (
               <div class="card__badge">
                 <slot name="badge" />
@@ -156,11 +152,11 @@ const resolvedMediaAspectRatio =
     display: flex;
     flex-direction: column;
     block-size: 100%;
+    contain-intrinsic-size: 360px;
     container-type: inline-size;
+    content-visibility: auto;
     overflow: hidden;
     border-radius: 1rem;
-    contain-intrinsic-size: 360px;
-    content-visibility: auto;
   }
 
   .card--default {
@@ -214,7 +210,8 @@ const resolvedMediaAspectRatio =
     );
   }
 
-  .card--interactive.card--elevated:hover {
+  .card--interactive.card--elevated:hover,
+  .card--interactive.card--elevated:focus-visible {
     border-color: var(
       --card-elevated-hover-border-color,
       color-mix(in srgb, var(--gn-accent) 36%, var(--gn-panel-border))
@@ -273,10 +270,8 @@ const resolvedMediaAspectRatio =
   .card__media--contain :global(svg) {
     display: block;
     inline-size: 100%;
-    width: 100%;
-    block-size: auto;
-    height: auto;
     max-inline-size: 100%;
+    block-size: auto;
     max-block-size: 100%;
     object-fit: contain;
   }
@@ -285,7 +280,8 @@ const resolvedMediaAspectRatio =
     transition: transform 0.35s ease;
   }
 
-  .card--interactive.card--elevated:hover .card__media :global(img) {
+  .card--interactive.card--elevated:hover .card__media :global(img),
+  .card--interactive.card--elevated:focus-visible .card__media :global(img) {
     transform: scale(1.03);
   }
 
@@ -317,12 +313,21 @@ const resolvedMediaAspectRatio =
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
+    .card--elevated {
+      transition: none;
+    }
+
+    .card--interactive.card--elevated .card__media :global(img) {
+      transition: none;
+    }
+
     .card--elevated,
     .card--interactive.card--elevated .card__media :global(img) {
       transition: none;
     }
 
-    .card--interactive.card--elevated:hover {
+    .card--interactive.card--elevated:hover,
+    .card--interactive.card--elevated:focus-visible {
       transform: none;
     }
   }

@@ -2,9 +2,9 @@
  * Transcript loader + cue navigation wired to the audio player events.
  * Uses shared utilities for time formatting and initialization.
  */
-import { formatTime, parseTimeToSeconds } from '../utils/format-time';
-import { logError } from '../utils/error-handler';
-import { createInitializer } from './utils/init';
+import { formatTime, parseTimeToSeconds } from "../utils/format-time";
+import { logError } from "../utils/error-handler";
+import { createInitializer } from "./utils/init";
 
 type TranscriptCue = {
   start: string;
@@ -13,11 +13,11 @@ type TranscriptCue = {
 };
 
 const initTranscripts = () => {
-  const roots = document.querySelectorAll('.transcript');
+  const roots = document.querySelectorAll(".transcript");
   const cleanupFunctions: (() => void)[] = [];
 
   roots.forEach((root) => {
-    const subtitleUrl = root.getAttribute('data-subtitle-url');
+    const subtitleUrl = root.getAttribute("data-subtitle-url");
     if (!subtitleUrl) {
       return;
     }
@@ -25,12 +25,12 @@ const initTranscripts = () => {
     const controller = new AbortController();
     const { signal } = controller;
 
-    const playerId = root.getAttribute('data-player-id') || '';
-    const details = root.querySelector('.transcript__details');
-    const hint = root.querySelector('.transcript__summary-hint');
-    const loading = root.querySelector('.transcript__status--loading');
-    const error = root.querySelector('.transcript__status--error');
-    const content = root.querySelector('.transcript__content');
+    const playerId = root.getAttribute("data-player-id") || "";
+    const details = root.querySelector(".transcript__details");
+    const hint = root.querySelector(".transcript__summary-hint");
+    const loading = root.querySelector(".transcript__status--loading");
+    const error = root.querySelector(".transcript__status--error");
+    const content = root.querySelector(".transcript__content");
 
     if (!(details instanceof HTMLDetailsElement)) {
       return;
@@ -56,35 +56,35 @@ const initTranscripts = () => {
     let lastAudioTime: number | null = null;
 
     const updateHint = () => {
-      hint.textContent = details.open ? 'Hide transcript' : 'Show transcript';
+      hint.textContent = details.open ? "Hide transcript" : "Show transcript";
     };
 
     const parseVtt = (vttText: string) => {
-      const lines = vttText.split('\n');
+      const lines = vttText.split("\n");
       const parsedCues: TranscriptCue[] = [];
       let i = 0;
 
-      while (i < lines.length && !(lines[i] ?? '').includes('-->')) {
+      while (i < lines.length && !(lines[i] ?? "").includes("-->")) {
         i += 1;
       }
 
       while (i < lines.length) {
-        const line = (lines[i] ?? '').trim();
-        if (line.includes('-->')) {
-          const [startStr = ''] = line.split('-->').map((part) => part.trim());
+        const line = (lines[i] ?? "").trim();
+        if (line.includes("-->")) {
+          const [startStr = ""] = line.split("-->").map((part) => part.trim());
           i += 1;
-          let cueText = '';
+          let cueText = "";
 
           while (
             i < lines.length &&
-            (lines[i] ?? '').trim() !== '' &&
-            !(lines[i] ?? '').includes('-->')
+            (lines[i] ?? "").trim() !== "" &&
+            !(lines[i] ?? "").includes("-->")
           ) {
-            cueText += (cueText ? ' ' : '') + (lines[i] ?? '').trim();
+            cueText += (cueText ? " " : "") + (lines[i] ?? "").trim();
             i += 1;
           }
 
-          cueText = cueText.replace(/<[^>]*>/g, '').trim();
+          cueText = cueText.replace(/<[^>]*>/g, "").trim();
           if (cueText) {
             parsedCues.push({
               start: startStr,
@@ -101,22 +101,22 @@ const initTranscripts = () => {
     };
 
     const renderCues = (nextCues: TranscriptCue[]) => {
-      content.innerHTML = '';
+      content.innerHTML = "";
       cueButtons = [];
       activeCueIndex = -1;
       nextCues.forEach((cue) => {
-        const cueRow = document.createElement('button');
-        cueRow.type = 'button';
-        cueRow.className = 'transcript__cue';
+        const cueRow = document.createElement("button");
+        cueRow.type = "button";
+        cueRow.className = "transcript__cue";
         cueRow.dataset.start = cue.startSeconds.toString();
-        cueRow.setAttribute('aria-label', `Jump to ${formatTime(cue.startSeconds)}`);
+        cueRow.setAttribute("aria-label", `Jump to ${formatTime(cue.startSeconds)}`);
 
-        const time = document.createElement('span');
-        time.className = 'transcript__time';
+        const time = document.createElement("span");
+        time.className = "transcript__time";
         time.textContent = formatTime(cue.startSeconds);
 
-        const text = document.createElement('span');
-        text.className = 'transcript__text';
+        const text = document.createElement("span");
+        text.className = "transcript__text";
         text.textContent = cue.text;
 
         cueRow.appendChild(time);
@@ -163,17 +163,17 @@ const initTranscripts = () => {
       if (activeCueIndex >= 0) {
         const previousButton = cueButtons[activeCueIndex];
         if (previousButton) {
-          previousButton.classList.remove('transcript__cue--active');
-          previousButton.removeAttribute('aria-current');
+          previousButton.classList.remove("transcript__cue--active");
+          previousButton.removeAttribute("aria-current");
         }
       }
       activeCueIndex = nextIndex;
       if (activeCueIndex >= 0) {
         const nextButton = cueButtons[activeCueIndex];
         if (nextButton) {
-          nextButton.classList.add('transcript__cue--active');
-          nextButton.setAttribute('aria-current', 'true');
-          nextButton.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          nextButton.classList.add("transcript__cue--active");
+          nextButton.setAttribute("aria-current", "true");
+          nextButton.scrollIntoView({ block: "nearest", behavior: "smooth" });
         }
       }
     };
@@ -184,13 +184,13 @@ const initTranscripts = () => {
         return;
       }
       window.dispatchEvent(
-        new CustomEvent('transcript:seek', {
+        new CustomEvent("transcript:seek", {
           detail: {
             playerId,
             time: timeSeconds,
             autoplay: true,
           },
-        }),
+        })
       );
     };
 
@@ -210,18 +210,21 @@ const initTranscripts = () => {
           throw new Error(`HTTP ${response.status}`);
         }
 
-        const contentType = response.headers.get('content-type') || '';
-        const isValidType = contentType.includes('text/vtt') || contentType.includes('text/plain');
+        const contentType = response.headers.get("content-type") || "";
+        const isValidType =
+          contentType.includes("text/vtt") || contentType.includes("text/plain");
 
         if (!isValidType) {
-          throw new Error(`Invalid content-type: ${contentType}. Expected text/vtt or text/plain.`);
+          throw new Error(
+            `Invalid content-type: ${contentType}. Expected text/vtt or text/plain.`
+          );
         }
 
         const vttText = await response.text();
         const parsedCues = parseVtt(vttText);
 
         if (parsedCues.length === 0) {
-          throw new Error('No cues found.');
+          throw new Error("No cues found.");
         }
 
         cues = parsedCues;
@@ -233,7 +236,7 @@ const initTranscripts = () => {
         loaded = true;
       } catch (err) {
         error.hidden = false;
-        logError(err, 'loading transcript');
+        logError(err, "loading transcript");
       } finally {
         loading.hidden = true;
         loadingInProgress = false;
@@ -241,23 +244,23 @@ const initTranscripts = () => {
     };
 
     content.addEventListener(
-      'click',
+      "click",
       (event) => {
         if (!(event.target instanceof Element)) {
           return;
         }
-        const cueButton = event.target.closest('.transcript__cue');
+        const cueButton = event.target.closest(".transcript__cue");
         if (!(cueButton instanceof HTMLButtonElement)) {
           return;
         }
         const startSeconds = Number(cueButton.dataset.start);
         dispatchSeekEvent(startSeconds);
       },
-      { signal },
+      { signal }
     );
 
     window.addEventListener(
-      'audio:time',
+      "audio:time",
       (event) => {
         if (!(event instanceof CustomEvent)) {
           return;
@@ -276,11 +279,11 @@ const initTranscripts = () => {
         }
         setActiveCue(getActiveCueIndex(currentTime));
       },
-      { signal },
+      { signal }
     );
 
     details.addEventListener(
-      'toggle',
+      "toggle",
       () => {
         updateHint();
         if (details.open) {
@@ -290,7 +293,7 @@ const initTranscripts = () => {
           }
         }
       },
-      { signal },
+      { signal }
     );
 
     updateHint();
@@ -302,4 +305,4 @@ const initTranscripts = () => {
 };
 
 // Initialize using shared utility
-createInitializer('Transcript', initTranscripts)();
+createInitializer("Transcript", initTranscripts)();

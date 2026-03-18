@@ -1,21 +1,23 @@
-import type { PodcastData } from '../types/podcast';
-import { formatDuration } from './format-time';
+import type { PodcastData } from "../types/podcast";
+import { formatDuration } from "./format-time";
 
-const EXPLICIT_RATING = 'clean';
+const EXPLICIT_RATING = "clean";
 
 export async function generatePodcastRSSFeed(
   episodes: PodcastData[],
-  baseUrl: string = 'https://podcasts.melody-mind.de',
+  baseUrl: string = "https://podcasts.melody-mind.de"
 ): Promise<string> {
-  const lang = 'en';
-  const locale = 'en-US';
-  const title = 'Melody Mind Podcast – Where Music Becomes Story';
+  const lang = "en";
+  const locale = "en-US";
+  const title = "Melody Mind Podcast – Where Music Becomes Story";
   const description =
     "Every song has a story. Every ten years, there's a soundtrack for the decade. Join Annabelle and Daniel as they take you on an unforgettable journey through music history. You'll hear everything from the birth of Rock 'n' Roll to today's chart-toppers. Learn about the artists who changed the world, the moments that defined generations, and the emotions that connect us all through sound. Your musical time machine starts here.";
 
   const sortedEpisodes = episodes
     .filter((episode) => episode.isAvailable)
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+    .sort(
+      (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    );
 
   const channelLink = `${baseUrl}/`;
   const rssLink = `${baseUrl}/podcast.xml`;
@@ -30,28 +32,28 @@ export async function generatePodcastRSSFeed(
         index,
         total,
         locale,
-      }),
+      })
     )
-    .join('\n');
+    .join("\n");
 
-  let personsTags = '';
+  let personsTags = "";
   try {
-    const personsModule = await import('../data/persons.json');
+    const personsModule = await import("../data/persons.json");
     const persons = personsModule.default ?? personsModule;
     if (Array.isArray(persons)) {
       personsTags = persons
         .map((p: any) => {
           if (!p || !p.name) {
-            return '';
+            return "";
           }
           const name = escapeXML(p.name);
-          const role = p.role ? escapeXML(p.role) : 'host';
-          const href = p.href ? ` href="${p.href}"` : '';
-          const img = p.img ? ` img="${p.img}"` : '';
+          const role = p.role ? escapeXML(p.role) : "host";
+          const href = p.href ? ` href="${p.href}"` : "";
+          const img = p.img ? ` img="${p.img}"` : "";
           return `<podcast:person${href}${img} role="${role}" name="${name}"/>`;
         })
         .filter(Boolean)
-        .join('\n    ');
+        .join("\n    ");
     }
   } catch {
     // ignore if file missing
@@ -122,7 +124,13 @@ type GenerateItemArgs = {
   locale: string;
 };
 
-function generateRSSItem({ episode, baseUrl, index, total, locale }: GenerateItemArgs): string {
+function generateRSSItem({
+  episode,
+  baseUrl,
+  index,
+  total,
+  locale,
+}: GenerateItemArgs): string {
   const episodeLink = `${baseUrl}/${episode.id}`;
   const pubDate = new Date(episode.publishedAt).toUTCString();
   const guid = `melody-mind-en-${episode.id}`;
@@ -131,21 +139,23 @@ function generateRSSItem({ episode, baseUrl, index, total, locale }: GenerateIte
   if (episode.imageUrl) {
     const baseName = episode.imageUrl;
     if (baseName) {
-      imageUrl = baseName.startsWith('http') ? baseName : `${baseUrl}/images/${baseName}.jpg`;
+      imageUrl = baseName.startsWith("http")
+        ? baseName
+        : `${baseUrl}/images/${baseName}.jpg`;
     }
   }
 
   const contentHtml = episode.showNotesHtml || episode.description;
 
-  let itunesEpisodeTag = '';
+  let itunesEpisodeTag = "";
   if (episode.episodeNumber !== undefined) {
     itunesEpisodeTag = `<itunes:episode>${episode.episodeNumber}</itunes:episode>`;
-  } else if (typeof index === 'number' && typeof total === 'number') {
+  } else if (typeof index === "number" && typeof total === "number") {
     const derived = total - index;
     itunesEpisodeTag = `<itunes:episode>${derived}</itunes:episode>`;
   }
 
-  let durationTag = '';
+  let durationTag = "";
   if (episode.durationSeconds && episode.durationSeconds > 0) {
     durationTag = `<itunes:duration>${formatDuration(episode.durationSeconds)}</itunes:duration>`;
   }
@@ -156,7 +166,7 @@ function generateRSSItem({ episode, baseUrl, index, total, locale }: GenerateIte
 
   const transcriptTag = episode.subtitleUrl
     ? `\n      <podcast:transcript url="${episode.subtitleUrl}" type="text/vtt" language="${locale}" rel="captions"/>`
-    : '';
+    : "";
 
   return `    <item>
       <title>${escapeXML(episode.title)}</title>
@@ -189,9 +199,9 @@ function generateRSSItem({ episode, baseUrl, index, total, locale }: GenerateIte
 
 function escapeXML(text: string): string {
   return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }

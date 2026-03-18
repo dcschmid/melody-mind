@@ -148,12 +148,17 @@ const {
 </FooterShell>
 
 <script>
-  import { getStoredTheme, getResolvedTheme } from "@shared-utils/utils/theme/themeStorage";
+  import {
+    getStoredTheme,
+    getResolvedTheme,
+  } from "@shared-utils/utils/theme/themeStorage";
 
   const STORAGE_KEY = "cookie_consent";
   const trigger = document.querySelector<HTMLElement>("[data-cookie-settings-trigger]");
   const themeStatusElement = document.querySelector<HTMLElement>("[data-theme-status]");
-  const statusElement = document.querySelector<HTMLElement>("[data-cookie-consent-status]");
+  const statusElement = document.querySelector<HTMLElement>(
+    "[data-cookie-consent-status]"
+  );
 
   interface ConsentPreference {
     essential: true;
@@ -163,10 +168,13 @@ const {
   const readConsent = (): ConsentPreference | null => {
     try {
       const raw = window.localStorage?.getItem(STORAGE_KEY);
-      if (!raw) {return null;}
+      if (!raw) {
+        return null;
+      }
       const parsed = JSON.parse(raw);
-      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean")
-        {return null;}
+      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean") {
+        return null;
+      }
       return { essential: true, analytics: parsed.analytics };
     } catch {
       return null;
@@ -174,7 +182,9 @@ const {
   };
 
   const renderStatus = (consent: ConsentPreference | null = readConsent()) => {
-    if (!statusElement) {return;}
+    if (!statusElement) {
+      return;
+    }
     const waitingLabel = statusElement.dataset.cookieWaitingLabel || "Cookies: waiting";
     const allowedLabel =
       statusElement.dataset.cookieAllowedLabel || "Cookies: analytics allowed";
@@ -184,13 +194,13 @@ const {
       statusElement.textContent = waitingLabel;
       return;
     }
-    statusElement.textContent = consent.analytics
-      ? allowedLabel
-      : essentialLabel;
+    statusElement.textContent = consent.analytics ? allowedLabel : essentialLabel;
   };
 
   const renderThemeStatus = () => {
-    if (!themeStatusElement) {return;}
+    if (!themeStatusElement) {
+      return;
+    }
     const storedTheme = getStoredTheme();
     const resolvedTheme = getResolvedTheme();
     themeStatusElement.textContent = `Theme: ${resolvedTheme} (${storedTheme ? "manual" : "system"})`;
@@ -273,7 +283,8 @@ const {
     text-decoration: none;
   }
 
-  .site-footer__link:hover, .site-footer__link:focus {
+  .site-footer__link:hover,
+  .site-footer__link:focus {
     color: var(--gn-accent);
   }
 

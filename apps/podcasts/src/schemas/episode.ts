@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const EpisodeEntrySchema = z.object({
   id: z.string().min(1),

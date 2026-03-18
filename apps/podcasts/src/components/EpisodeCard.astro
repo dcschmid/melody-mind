@@ -1,6 +1,6 @@
 ---
-import Card from '@shared-ui/components/Card.astro';
-import Headline from '@shared-ui/components/Headline.astro';
+import Card from "@shared-ui/components/Card.astro";
+import Headline from "@shared-ui/components/Headline.astro";
 
 interface Props {
   id: string;
@@ -67,7 +67,9 @@ const metaId = `${cardId}-meta`;
       {isLatest && <span class="episode-card__badge">Latest</span>}
       {
         durationSeconds && (
-          <span class="episode-card__duration">{Math.floor(durationSeconds / 60)} min</span>
+          <span class="episode-card__duration">
+            {Math.floor(durationSeconds / 60)} min
+          </span>
         )
       }
     </div>
@@ -94,6 +96,7 @@ const metaId = `${cardId}-meta`;
     --card-border-color: color-mix(in srgb, var(--color-primary) 22%, transparent);
     --card-focus-color: var(--color-primary);
     --card-media-bg: var(--color-layer-3);
+
     box-shadow:
       0 18px 42px rgb(2 8 18 / 34%),
       0 0 0 1px rgb(120 200 255 / 8%);
@@ -160,8 +163,8 @@ const metaId = `${cardId}-meta`;
   }
 
   .episode-card__description {
-    margin: 0;
     display: -webkit-box;
+    margin: 0;
     overflow: hidden;
     -webkit-line-clamp: 3;
     line-height: var(--leading-relaxed, 1.75);
@@ -192,7 +195,8 @@ const metaId = `${cardId}-meta`;
       box-shadow 0.2s ease;
   }
 
-  :global(.episode-card.card--default:hover) .episode-card__cta {
+  :global(.episode-card.card--default:hover) .episode-card__cta,
+  :global(.episode-card.card--default:focus-visible) .episode-card__cta {
     background: var(--color-primary-hover);
     box-shadow: 0 12px 24px rgb(2 8 18 / 30%);
     transform: translateY(-1px);

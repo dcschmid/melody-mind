@@ -50,7 +50,7 @@ export function isCustomEvent(event: unknown): event is CustomEvent {
   return event instanceof CustomEvent;
 }
 
-export function assertHTMLElement(el: unknown, context = 'element'): HTMLElement {
+export function assertHTMLElement(el: unknown, context = "element"): HTMLElement {
   if (!isHTMLElement(el)) {
     throw new Error(`Expected ${context} to be HTMLElement`);
   }

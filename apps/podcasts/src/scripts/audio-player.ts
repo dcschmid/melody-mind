@@ -2,13 +2,13 @@
  * Custom audio player behavior with keyboard and progress control.
  * Uses shared utilities for time formatting and initialization.
  */
-import { formatTime } from '../utils/format-time';
-import { logError } from '../utils/error-handler';
-import { createInitializer } from './utils/init';
-import { AUDIO_CONFIG } from '../constants';
+import { formatTime } from "../utils/format-time";
+import { logError } from "../utils/error-handler";
+import { createInitializer } from "./utils/init";
+import { AUDIO_CONFIG } from "../constants";
 
 const initAudioPlayers = () => {
-  const players = document.querySelectorAll('.episode-player');
+  const players = document.querySelectorAll(".episode-player");
   if (!players.length) {
     return;
   }
@@ -16,7 +16,7 @@ const initAudioPlayers = () => {
   const cleanupFunctions: (() => void)[] = [];
 
   players.forEach((player) => {
-    const audio = player.querySelector('.episode-player__audio');
+    const audio = player.querySelector(".episode-player__audio");
     if (!(audio instanceof HTMLAudioElement)) {
       return;
     }
@@ -24,21 +24,21 @@ const initAudioPlayers = () => {
     const controller = new AbortController();
     const { signal } = controller;
 
-    const playerId = player.getAttribute('data-player-id') || '';
+    const playerId = player.getAttribute("data-player-id") || "";
     const toggleButton = player.querySelector('[data-action="toggle"]');
     const rewindButton = player.querySelector('[data-action="rewind"]');
     const forwardButton = player.querySelector('[data-action="forward"]');
     const retryButton = player.querySelector('[data-action="retry"]');
-    const playIcon = toggleButton?.querySelector('.episode-player__control-icon--play');
-    const pauseIcon = toggleButton?.querySelector('.episode-player__control-icon--pause');
-    const progress = player.querySelector('.episode-player__progress');
-    const progressFill = player.querySelector('.episode-player__progress-fill');
-    const timeDisplay = player.querySelector('.episode-player__time');
-    const status = player.querySelector('.episode-player__status');
-    const hint = player.querySelector('.episode-player__shortcut-hint');
+    const playIcon = toggleButton?.querySelector(".episode-player__control-icon--play");
+    const pauseIcon = toggleButton?.querySelector(".episode-player__control-icon--pause");
+    const progress = player.querySelector(".episode-player__progress");
+    const progressFill = player.querySelector(".episode-player__progress-fill");
+    const timeDisplay = player.querySelector(".episode-player__time");
+    const status = player.querySelector(".episode-player__status");
+    const hint = player.querySelector(".episode-player__shortcut-hint");
 
     let isPlaying = false;
-    const title = audio.dataset.title || 'episode';
+    const title = audio.dataset.title || "episode";
 
     // Broadcast progress for transcript sync.
     const dispatchTimeEvent = () => {
@@ -48,14 +48,14 @@ const initAudioPlayers = () => {
       const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
       const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
       window.dispatchEvent(
-        new CustomEvent('audio:time', {
+        new CustomEvent("audio:time", {
           detail: {
             playerId,
             currentTime,
             duration,
             isPlaying,
           },
-        }),
+        })
       );
     };
 
@@ -69,14 +69,14 @@ const initAudioPlayers = () => {
       if (!(toggleButton instanceof HTMLButtonElement)) {
         return;
       }
-      toggleButton.dataset.state = isPlaying ? 'playing' : 'paused';
-      toggleButton.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
-      toggleButton.setAttribute('aria-label', `${isPlaying ? 'Pause' : 'Play'} ${title}`);
+      toggleButton.dataset.state = isPlaying ? "playing" : "paused";
+      toggleButton.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+      toggleButton.setAttribute("aria-label", `${isPlaying ? "Pause" : "Play"} ${title}`);
       if (playIcon instanceof SVGElement) {
-        playIcon.style.display = isPlaying ? 'none' : 'block';
+        playIcon.style.display = isPlaying ? "none" : "block";
       }
       if (pauseIcon instanceof SVGElement) {
-        pauseIcon.style.display = isPlaying ? 'block' : 'none';
+        pauseIcon.style.display = isPlaying ? "block" : "none";
       }
     };
 
@@ -94,12 +94,15 @@ const initAudioPlayers = () => {
       const progressValue = duration ? (currentTime / duration) * 100 : 0;
 
       progressFill.style.width = `${progressValue}%`;
-      progress.setAttribute('aria-valuenow', Math.round(progressValue).toString());
+      progress.setAttribute("aria-valuenow", Math.round(progressValue).toString());
 
       const currentFormatted = formatTime(currentTime);
-      const durationFormatted = duration ? formatTime(duration) : '0:00';
+      const durationFormatted = duration ? formatTime(duration) : "0:00";
       timeDisplay.textContent = `${currentFormatted} / ${durationFormatted}`;
-      progress.setAttribute('aria-valuetext', `${currentFormatted} of ${durationFormatted}`);
+      progress.setAttribute(
+        "aria-valuetext",
+        `${currentFormatted} of ${durationFormatted}`
+      );
     };
 
     const applySeek = (timeSeconds: number, autoplay: boolean) => {
@@ -108,11 +111,13 @@ const initAudioPlayers = () => {
       }
       const duration = Number.isFinite(audio.duration) ? audio.duration : null;
       const clampedTime =
-        duration === null ? Math.max(0, timeSeconds) : Math.min(Math.max(0, timeSeconds), duration);
+        duration === null
+          ? Math.max(0, timeSeconds)
+          : Math.min(Math.max(0, timeSeconds), duration);
       audio.currentTime = clampedTime;
       if (autoplay) {
         const playPromise = audio.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
+        if (playPromise && typeof playPromise.catch === "function") {
           playPromise.catch(() => {
             // Silently handle play errors (e.g., autoplay restrictions)
           });
@@ -132,7 +137,7 @@ const initAudioPlayers = () => {
     };
 
     toggleButton?.addEventListener(
-      'click',
+      "click",
       () => {
         if (audio.paused || audio.ended) {
           audio.play();
@@ -140,36 +145,36 @@ const initAudioPlayers = () => {
           audio.pause();
         }
       },
-      { signal },
+      { signal }
     );
 
     rewindButton?.addEventListener(
-      'click',
+      "click",
       () => {
         audio.currentTime = Math.max(0, audio.currentTime - AUDIO_CONFIG.SKIP_SECONDS);
         updateProgress();
         dispatchTimeEvent();
       },
-      { signal },
+      { signal }
     );
 
     forwardButton?.addEventListener(
-      'click',
+      "click",
       () => {
         if (Number.isFinite(audio.duration)) {
           audio.currentTime = Math.min(
             audio.duration,
-            audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS,
+            audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS
           );
           updateProgress();
           dispatchTimeEvent();
         }
       },
-      { signal },
+      { signal }
     );
 
     progress?.addEventListener(
-      'click',
+      "click",
       (event) => {
         if (event instanceof MouseEvent) {
           seekToPosition(event.clientX);
@@ -177,11 +182,11 @@ const initAudioPlayers = () => {
           dispatchTimeEvent();
         }
       },
-      { signal },
+      { signal }
     );
 
     progress?.addEventListener(
-      'keydown',
+      "keydown",
       (event) => {
         if (!(event instanceof KeyboardEvent)) {
           return;
@@ -190,43 +195,53 @@ const initAudioPlayers = () => {
           return;
         }
 
-        if (['ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown'].includes(event.key)) {
+        if (
+          ["ArrowLeft", "ArrowRight", "Home", "End", "PageUp", "PageDown"].includes(
+            event.key
+          )
+        ) {
           event.preventDefault();
           switch (event.key) {
-            case 'ArrowLeft':
-              audio.currentTime = Math.max(0, audio.currentTime - AUDIO_CONFIG.SKIP_SECONDS);
-              break;
-            case 'ArrowRight':
-              audio.currentTime = Math.min(
-                audio.duration,
-                audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS,
+            case "ArrowLeft":
+              audio.currentTime = Math.max(
+                0,
+                audio.currentTime - AUDIO_CONFIG.SKIP_SECONDS
               );
               break;
-            case 'Home':
+            case "ArrowRight":
+              audio.currentTime = Math.min(
+                audio.duration,
+                audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS
+              );
+              break;
+            case "Home":
               audio.currentTime = 0;
               break;
-            case 'End':
+            case "End":
               audio.currentTime = audio.duration;
               break;
-            case 'PageUp':
+            case "PageUp":
               audio.currentTime = Math.min(
                 audio.duration,
-                audio.currentTime + AUDIO_CONFIG.SKIP_LARGE_SECONDS,
+                audio.currentTime + AUDIO_CONFIG.SKIP_LARGE_SECONDS
               );
               break;
-            case 'PageDown':
-              audio.currentTime = Math.max(0, audio.currentTime - AUDIO_CONFIG.SKIP_LARGE_SECONDS);
+            case "PageDown":
+              audio.currentTime = Math.max(
+                0,
+                audio.currentTime - AUDIO_CONFIG.SKIP_LARGE_SECONDS
+              );
               break;
           }
           updateProgress();
           dispatchTimeEvent();
         }
       },
-      { signal },
+      { signal }
     );
 
     player.addEventListener(
-      'keydown',
+      "keydown",
       (event) => {
         if (!(event instanceof KeyboardEvent)) {
           return;
@@ -235,38 +250,38 @@ const initAudioPlayers = () => {
         if (!(target instanceof HTMLElement)) {
           return;
         }
-        if (target.classList.contains('episode-player__progress')) {
+        if (target.classList.contains("episode-player__progress")) {
           return;
         }
-        if (['BUTTON', 'A', 'INPUT', 'TEXTAREA'].includes(target.tagName)) {
+        if (["BUTTON", "A", "INPUT", "TEXTAREA"].includes(target.tagName)) {
           return;
         }
 
-        if (event.code === 'Space') {
+        if (event.code === "Space") {
           event.preventDefault();
           if (toggleButton instanceof HTMLButtonElement) {
             toggleButton.click();
           }
-        } else if (event.code === 'ArrowLeft') {
+        } else if (event.code === "ArrowLeft") {
           if (rewindButton instanceof HTMLButtonElement) {
             rewindButton.click();
           }
-        } else if (event.code === 'ArrowRight') {
+        } else if (event.code === "ArrowRight") {
           if (forwardButton instanceof HTMLButtonElement) {
             forwardButton.click();
           }
-        } else if (event.key === '?') {
+        } else if (event.key === "?") {
           event.preventDefault();
           if (hint instanceof HTMLElement) {
-            hint.classList.toggle('episode-player__shortcut-hint--hidden');
+            hint.classList.toggle("episode-player__shortcut-hint--hidden");
           }
         }
       },
-      { signal },
+      { signal }
     );
 
     window.addEventListener(
-      'transcript:seek',
+      "transcript:seek",
       (event) => {
         if (!(event instanceof CustomEvent)) {
           return;
@@ -278,22 +293,22 @@ const initAudioPlayers = () => {
         const targetTime = Number(detail.time);
         applySeek(targetTime, Boolean(detail.autoplay));
       },
-      { signal },
+      { signal }
     );
 
     audio.addEventListener(
-      'loadedmetadata',
+      "loadedmetadata",
       () => {
         updateProgress();
         dispatchTimeEvent();
       },
-      { signal },
+      { signal }
     );
 
     let lastTimeUpdate = 0;
 
     audio.addEventListener(
-      'timeupdate',
+      "timeupdate",
       () => {
         const now = performance.now();
         if (now - lastTimeUpdate < AUDIO_CONFIG.TIME_UPDATE_THROTTLE_MS) {
@@ -303,34 +318,34 @@ const initAudioPlayers = () => {
         updateProgress();
         dispatchTimeEvent();
       },
-      { signal },
+      { signal }
     );
 
     audio.addEventListener(
-      'waiting',
+      "waiting",
       () => {
         setStatus(`Buffering ${title}...`);
       },
-      { signal },
+      { signal }
     );
 
     audio.addEventListener(
-      'error',
+      "error",
       () => {
         const errorInfo = audio.error
           ? `${audio.error.message || audio.error.code}`
-          : 'Unknown error';
+          : "Unknown error";
         setStatus(`Could not load ${title}. Click retry to try again.`);
         logError(errorInfo, `audio player: ${title}`);
         if (retryButton instanceof HTMLButtonElement) {
           retryButton.hidden = false;
         }
       },
-      { signal },
+      { signal }
     );
 
     retryButton?.addEventListener(
-      'click',
+      "click",
       () => {
         audio.load();
         if (retryButton instanceof HTMLButtonElement) {
@@ -338,22 +353,22 @@ const initAudioPlayers = () => {
         }
         setStatus(`Loading ${title}...`);
       },
-      { signal },
+      { signal }
     );
 
     audio.addEventListener(
-      'playing',
+      "playing",
       () => {
         isPlaying = true;
         updateToggleButton();
         setStatus(`Now playing: ${title}`);
         dispatchTimeEvent();
       },
-      { signal },
+      { signal }
     );
 
     audio.addEventListener(
-      'pause',
+      "pause",
       () => {
         if (audio.ended) {
           return;
@@ -363,39 +378,42 @@ const initAudioPlayers = () => {
         setStatus(`Paused: ${title}`);
         dispatchTimeEvent();
       },
-      { signal },
+      { signal }
     );
 
     audio.addEventListener(
-      'ended',
+      "ended",
       () => {
         isPlaying = false;
         updateToggleButton();
         if (progressFill instanceof HTMLElement) {
-          progressFill.style.width = '0%';
+          progressFill.style.width = "0%";
         }
         updateProgress();
         setStatus(`Finished: ${title}`);
         dispatchTimeEvent();
       },
-      { signal },
+      { signal }
     );
 
-    rewindButton?.addEventListener('click', () => {
+    rewindButton?.addEventListener("click", () => {
       audio.currentTime = Math.max(0, audio.currentTime - AUDIO_CONFIG.SKIP_SECONDS);
       updateProgress();
       dispatchTimeEvent();
     });
 
-    forwardButton?.addEventListener('click', () => {
+    forwardButton?.addEventListener("click", () => {
       if (Number.isFinite(audio.duration)) {
-        audio.currentTime = Math.min(audio.duration, audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS);
+        audio.currentTime = Math.min(
+          audio.duration,
+          audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS
+        );
         updateProgress();
         dispatchTimeEvent();
       }
     });
 
-    progress?.addEventListener('click', (event) => {
+    progress?.addEventListener("click", (event) => {
       if (event instanceof MouseEvent) {
         seekToPosition(event.clientX);
         updateProgress();
@@ -403,7 +421,7 @@ const initAudioPlayers = () => {
       }
     });
 
-    progress?.addEventListener('keydown', (event) => {
+    progress?.addEventListener("keydown", (event) => {
       if (!(event instanceof KeyboardEvent)) {
         return;
       }
@@ -411,32 +429,42 @@ const initAudioPlayers = () => {
         return;
       }
 
-      if (['ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown'].includes(event.key)) {
+      if (
+        ["ArrowLeft", "ArrowRight", "Home", "End", "PageUp", "PageDown"].includes(
+          event.key
+        )
+      ) {
         event.preventDefault();
         switch (event.key) {
-          case 'ArrowLeft':
-            audio.currentTime = Math.max(0, audio.currentTime - AUDIO_CONFIG.SKIP_SECONDS);
-            break;
-          case 'ArrowRight':
-            audio.currentTime = Math.min(
-              audio.duration,
-              audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS,
+          case "ArrowLeft":
+            audio.currentTime = Math.max(
+              0,
+              audio.currentTime - AUDIO_CONFIG.SKIP_SECONDS
             );
             break;
-          case 'Home':
+          case "ArrowRight":
+            audio.currentTime = Math.min(
+              audio.duration,
+              audio.currentTime + AUDIO_CONFIG.SKIP_SECONDS
+            );
+            break;
+          case "Home":
             audio.currentTime = 0;
             break;
-          case 'End':
+          case "End":
             audio.currentTime = audio.duration;
             break;
-          case 'PageUp':
+          case "PageUp":
             audio.currentTime = Math.min(
               audio.duration,
-              audio.currentTime + AUDIO_CONFIG.SKIP_LARGE_SECONDS,
+              audio.currentTime + AUDIO_CONFIG.SKIP_LARGE_SECONDS
             );
             break;
-          case 'PageDown':
-            audio.currentTime = Math.max(0, audio.currentTime - AUDIO_CONFIG.SKIP_LARGE_SECONDS);
+          case "PageDown":
+            audio.currentTime = Math.max(
+              0,
+              audio.currentTime - AUDIO_CONFIG.SKIP_LARGE_SECONDS
+            );
             break;
         }
         updateProgress();
@@ -444,7 +472,7 @@ const initAudioPlayers = () => {
       }
     });
 
-    player.addEventListener('keydown', (event) => {
+    player.addEventListener("keydown", (event) => {
       if (!(event instanceof KeyboardEvent)) {
         return;
       }
@@ -452,36 +480,36 @@ const initAudioPlayers = () => {
       if (!(target instanceof HTMLElement)) {
         return;
       }
-      if (target.classList.contains('episode-player__progress')) {
+      if (target.classList.contains("episode-player__progress")) {
         return;
       }
-      if (['BUTTON', 'A', 'INPUT', 'TEXTAREA'].includes(target.tagName)) {
+      if (["BUTTON", "A", "INPUT", "TEXTAREA"].includes(target.tagName)) {
         return;
       }
 
-      if (event.code === 'Space') {
+      if (event.code === "Space") {
         event.preventDefault();
         if (toggleButton instanceof HTMLButtonElement) {
           toggleButton.click();
         }
-      } else if (event.code === 'ArrowLeft') {
+      } else if (event.code === "ArrowLeft") {
         if (rewindButton instanceof HTMLButtonElement) {
           rewindButton.click();
         }
-      } else if (event.code === 'ArrowRight') {
+      } else if (event.code === "ArrowRight") {
         if (forwardButton instanceof HTMLButtonElement) {
           forwardButton.click();
         }
-      } else if (event.key === '?') {
+      } else if (event.key === "?") {
         event.preventDefault();
         if (hint instanceof HTMLElement) {
-          hint.classList.toggle('episode-player__shortcut-hint--hidden');
+          hint.classList.toggle("episode-player__shortcut-hint--hidden");
         }
       }
     });
 
     // Listen for transcript cue jumps.
-    window.addEventListener('transcript:seek', (event) => {
+    window.addEventListener("transcript:seek", (event) => {
       if (!(event instanceof CustomEvent)) {
         return;
       }
@@ -504,4 +532,4 @@ const initAudioPlayers = () => {
 };
 
 // Initialize using shared utility
-createInitializer('AudioPlayer', initAudioPlayers)();
+createInitializer("AudioPlayer", initAudioPlayers)();

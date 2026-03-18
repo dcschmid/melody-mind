@@ -504,54 +504,55 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     {/* Robots meta explicit for clarity if differing from default */}
     {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
     {/* OpenGraph / Twitter Cards (generated when pageSeo supplied) */}
-    {constructedPageSeo.openGraph && (
-      <Fragment>
-        <meta property="og:title" content={constructedPageSeo.openGraph.title} />
-        <meta
-          property="og:description"
-          content={constructedPageSeo.openGraph.description}
-        />
-        <meta property="og:type" content={constructedPageSeo.openGraph.type} />
-        <meta property="og:url" content={constructedPageSeo.openGraph.url} />
-        <meta
-          property="og:locale"
-          content={(constructedPageSeo.openGraph as any).locale ||
-            (constructedPageSeo as any).ogLocale ||
-            autoOgLocale}
-        />
-        {
-          Array.isArray((constructedPageSeo as any).alternateLocales) &&
+    {
+      constructedPageSeo.openGraph && (
+        <Fragment>
+          <meta property="og:title" content={constructedPageSeo.openGraph.title} />
+          <meta
+            property="og:description"
+            content={constructedPageSeo.openGraph.description}
+          />
+          <meta property="og:type" content={constructedPageSeo.openGraph.type} />
+          <meta property="og:url" content={constructedPageSeo.openGraph.url} />
+          <meta
+            property="og:locale"
+            content={
+              (constructedPageSeo.openGraph as any).locale ||
+              (constructedPageSeo as any).ogLocale ||
+              autoOgLocale
+            }
+          />
+          {Array.isArray((constructedPageSeo as any).alternateLocales) &&
             (constructedPageSeo as any).alternateLocales.map((loc: string) => (
               <meta property="og:locale:alternate" content={loc} />
-            ))
-        }
-        {
-          constructedPageSeo.openGraph.image && (
+            ))}
+          {constructedPageSeo.openGraph.image && (
             <meta property="og:image" content={constructedPageSeo.openGraph.image} />
-          )
-        }
-      </Fragment>
-    )}
-    {constructedPageSeo.twitter && (
-      <Fragment>
-        <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
-        <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
-        <meta name="twitter:description" content={constructedPageSeo.twitter.description} />
-        {
-          constructedPageSeo.twitter.image && (
+          )}
+        </Fragment>
+      )
+    }
+    {
+      constructedPageSeo.twitter && (
+        <Fragment>
+          <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
+          <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
+          <meta
+            name="twitter:description"
+            content={constructedPageSeo.twitter.description}
+          />
+          {constructedPageSeo.twitter.image && (
             <meta name="twitter:image" content={constructedPageSeo.twitter.image} />
-          )
-        }
-        {
-          (constructedPageSeo.twitter as any).creator && (
+          )}
+          {(constructedPageSeo.twitter as any).creator && (
             <meta
               name="twitter:creator"
               content={(constructedPageSeo.twitter as any).creator}
             />
-          )
-        }
-      </Fragment>
-    )}
+          )}
+        </Fragment>
+      )
+    }
   </Head>
   <body class="app__body">
     {/* Skip link for keyboard navigation */}
@@ -819,7 +820,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     --link-default: var(--theme-link-default, var(--color-gn-amber-300));
     --link-hover: var(--theme-link-hover, var(--color-gn-amber-200));
   }
-
 
   .app__body {
     inline-size: 100%;

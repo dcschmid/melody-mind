@@ -112,7 +112,9 @@ export function filterArticlesByGroup(articles: any[], groupId: string): any[] {
  */
 export function filterArticlesBySection(articles: any[], sectionId: string): any[] {
   const section = getSectionById(sectionId);
-  if (!section) {return [];}
+  if (!section) {
+    return [];
+  }
 
   const subsectionIds = section.subsections.map((s) => s.id);
   return articles.filter((article) =>

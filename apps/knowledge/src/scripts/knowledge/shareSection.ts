@@ -7,7 +7,9 @@
 
 export function initShareSection(): void {
   const shareSection = document.getElementById("share-section");
-  if (!shareSection) {return;}
+  if (!shareSection) {
+    return;
+  }
 
   const shareUrl = shareSection.dataset.shareUrl || "";
   const shareTitle = shareSection.dataset.shareTitle || "";
@@ -20,9 +22,13 @@ export function initShareSection(): void {
   let resetTimer: number | undefined;
 
   const setStatus = (message: string | null): void => {
-    if (!statusEl) {return;}
+    if (!statusEl) {
+      return;
+    }
     statusEl.textContent = message;
-    if (resetTimer) {window.clearTimeout(resetTimer);}
+    if (resetTimer) {
+      window.clearTimeout(resetTimer);
+    }
     resetTimer = window.setTimeout(() => {
       statusEl.textContent = defaultStatus;
     }, 4500);
@@ -30,7 +36,9 @@ export function initShareSection(): void {
 
   const copyLink = async (): Promise<void> => {
     try {
-      if (!navigator.clipboard) {throw new Error("clipboard unavailable");}
+      if (!navigator.clipboard) {
+        throw new Error("clipboard unavailable");
+      }
       await navigator.clipboard.writeText(shareUrl);
       setStatus(copySuccessMessage);
     } catch {
@@ -53,7 +61,9 @@ export function initShareSection(): void {
         setStatus(copySuccessMessage);
         return;
       } catch (error: unknown) {
-        if ((error as Error)?.name === "AbortError") {return;}
+        if ((error as Error)?.name === "AbortError") {
+          return;
+        }
       }
     }
 

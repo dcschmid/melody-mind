@@ -1,13 +1,13 @@
 ---
-import PodcastLayout from '../layouts/PodcastLayout.astro';
-import TranscriptDropdown from '../components/TranscriptDropdown.astro';
-import AudioPlayer from '../components/AudioPlayer.astro';
-import Prose from '@shared-ui/components/Prose.astro';
-import Headline from '@shared-ui/components/Headline.astro';
-import { getAvailablePodcasts, getPodcastById } from '../utils/podcasts';
-import { getAdjacentByKey } from '../utils/array';
-import { buildMetaDescription, formatDate } from '../utils/helpers';
-import type { PodcastData } from '../types/podcast';
+import PodcastLayout from "../layouts/PodcastLayout.astro";
+import TranscriptDropdown from "../components/TranscriptDropdown.astro";
+import AudioPlayer from "../components/AudioPlayer.astro";
+import Prose from "@shared-ui/components/Prose.astro";
+import Headline from "@shared-ui/components/Headline.astro";
+import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
+import { getAdjacentByKey } from "../utils/array";
+import { buildMetaDescription, formatDate } from "../utils/helpers";
+import type { PodcastData } from "../types/podcast";
 
 export async function getStaticPaths() {
   const podcasts = await getAvailablePodcasts();
@@ -19,30 +19,30 @@ export async function getStaticPaths() {
 const { id } = Astro.params;
 
 const podcasts: PodcastData[] = await getAvailablePodcasts();
-const currentPodcast = await getPodcastById(id ?? '', podcasts);
+const currentPodcast = await getPodcastById(id ?? "", podcasts);
 
 if (!currentPodcast) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404");
 }
 
 // Use utility for navigation
-const { prev, next, index } = getAdjacentByKey(podcasts, 'id', id ?? '');
+const { prev, next, index } = getAdjacentByKey(podcasts, "id", id ?? "");
 const episodeNumber = index + 1;
 const metaDescription =
   currentPodcast.metaDescription ||
-  buildMetaDescription(currentPodcast.description, 155, 'MelodyMind Podcasts');
+  buildMetaDescription(currentPodcast.description, 155, "MelodyMind Podcasts");
 
 const t = {
-  backToAll: '← Back to all podcasts',
-  listenToEpisode: '🎧 Listen to the Episode',
-  episode: 'Episode',
-  previousEpisode: 'Previous Episode',
-  nextEpisode: 'Next Episode',
-  episodeNavigation: 'Episode navigation',
-  publishedOn: 'Published',
-  musicHistory: 'Music History',
-  knowledge: 'Related Article',
-  readArticle: 'Read the related article',
+  backToAll: "← Back to all podcasts",
+  listenToEpisode: "🎧 Listen to the Episode",
+  episode: "Episode",
+  previousEpisode: "Previous Episode",
+  nextEpisode: "Next Episode",
+  episodeNavigation: "Episode navigation",
+  publishedOn: "Published",
+  musicHistory: "Music History",
+  knowledge: "Related Article",
+  readArticle: "Read the related article",
 };
 ---
 
@@ -62,13 +62,13 @@ const t = {
   keywords={[
     currentPodcast.title.toLowerCase(),
     t.musicHistory.toLowerCase(),
-    'music podcast',
-    'audio story',
-    'music history',
-    'melodymind podcasts',
-    'daniel and annabelle',
-    'music documentary',
-    'music education',
+    "music podcast",
+    "audio story",
+    "music history",
+    "melodymind podcasts",
+    "daniel and annabelle",
+    "music documentary",
+    "music education",
   ]}
   canonical={`https://podcasts.melody-mind.de/${currentPodcast.id}`}
 >
@@ -129,7 +129,9 @@ const t = {
             <p class="episode__kicker" id="knowledge-link">
               {t.knowledge}
             </p>
-            <p class="episode__knowledge-text">Go deeper with the related Melody Mind article.</p>
+            <p class="episode__knowledge-text">
+              Go deeper with the related Melody Mind article.
+            </p>
           </div>
           <a
             href={currentPodcast.knowledgeUrl}

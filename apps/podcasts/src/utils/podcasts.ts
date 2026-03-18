@@ -1,7 +1,7 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
-import type { PodcastData } from '../types/podcast';
+import { getCollection, type CollectionEntry } from "astro:content";
+import type { PodcastData } from "../types/podcast";
 
-type PodcastEntry = CollectionEntry<'podcasts'>;
+type PodcastEntry = CollectionEntry<"podcasts">;
 
 const markdownCache = new Map<string, string>();
 
@@ -11,7 +11,7 @@ type PodcastEntryWithBody = PodcastEntry & {
 
 function getEntryBody(entry: PodcastEntry): string {
   const entryWithBody = entry as PodcastEntryWithBody;
-  return entryWithBody.body || '';
+  return entryWithBody.body || "";
 }
 
 const markdownToHtml = (markdown: string): string => {
@@ -21,25 +21,25 @@ const markdownToHtml = (markdown: string): string => {
   }
 
   const html = markdown
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
+    .replace(/^#### (.+)$/gm, "<h4>$1</h4>")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/^- (.+)$/gm, "<li>$1</li>")
     .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
-    .split('\n\n')
+    .split("\n\n")
     .map((block) => {
       block = block.trim();
       if (!block) {
-        return '';
+        return "";
       }
-      if (block.startsWith('<h') || block.startsWith('<ul')) {
+      if (block.startsWith("<h") || block.startsWith("<ul")) {
         return block;
       }
-      return `<p>${block.replace(/\n/g, '<br>')}</p>`;
+      return `<p>${block.replace(/\n/g, "<br>")}</p>`;
     })
-    .join('\n');
+    .join("\n");
 
   markdownCache.set(markdown, html);
   return html;
@@ -84,7 +84,7 @@ const entryToPodcastData = (entry: PodcastEntry): PodcastData => {
  * Loads all podcast entries from the Astro content collection.
  */
 export const getPodcastList = async (): Promise<PodcastData[]> => {
-  const entries = await getCollection('podcasts');
+  const entries = await getCollection("podcasts");
   return entries.map(entryToPodcastData);
 };
 
@@ -92,7 +92,7 @@ export const getPodcastList = async (): Promise<PodcastData[]> => {
  * Returns only episodes marked as available.
  */
 export const getAvailablePodcasts = async (): Promise<PodcastData[]> => {
-  const entries = await getCollection('podcasts', ({ data }) => data.isAvailable);
+  const entries = await getCollection("podcasts", ({ data }) => data.isAvailable);
   return entries.map(entryToPodcastData);
 };
 
@@ -101,7 +101,7 @@ export const getAvailablePodcasts = async (): Promise<PodcastData[]> => {
  */
 export const getPodcastById = async (
   id: string,
-  podcasts?: PodcastData[],
+  podcasts?: PodcastData[]
 ): Promise<PodcastData | undefined> => {
   const list = podcasts ?? (await getPodcastList());
   return list.find((podcast) => podcast.id === id);

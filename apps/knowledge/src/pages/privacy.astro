@@ -42,7 +42,11 @@ const pageSeo = buildPageSeo({
     <div class="legal-page">
       <header class="legal-page__header static-page-header">
         <p class="legal-page__eyebrow static-page-eyebrow">Privacy</p>
-        <Headline level="h1" textSize="2xl" className="legal-page__title static-page-title">
+        <Headline
+          level="h1"
+          textSize="2xl"
+          className="legal-page__title static-page-title"
+        >
           Privacy Policy
         </Headline>
         <p class="legal-page__lead static-page-lead">
@@ -190,7 +194,8 @@ const pageSeo = buildPageSeo({
     text-underline-offset: 2px;
   }
 
-  .legal-page__link:hover, .legal-page__link:focus {
+  .legal-page__link:hover,
+  .legal-page__link:focus {
     color: var(--link-hover);
   }
 

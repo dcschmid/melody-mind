@@ -49,8 +49,8 @@ const cardId = id ?? `quiz-card-${href.replaceAll("/", "-").replace(/^-+/, "")}`
 
 <style>
   .quiz-card__title {
-    margin: 0;
     padding: 1.2rem 1.25rem 0;
+    margin: 0;
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.22;
@@ -60,8 +60,8 @@ const cardId = id ?? `quiz-card-${href.replaceAll("/", "-").replace(/^-+/, "")}`
 
   .quiz-card__description {
     display: -webkit-box;
-    margin: 0;
     padding: 0.85rem 1.25rem 1rem;
+    margin: 0;
     overflow: hidden;
     -webkit-line-clamp: 3;
     font-size: 0.95rem;
@@ -90,7 +90,8 @@ const cardId = id ?? `quiz-card-${href.replaceAll("/", "-").replace(/^-+/, "")}`
       background-color 0.2s ease;
   }
 
-  :global(.card--interactive.card--elevated:hover) .quiz-card__cta {
+  :global(.card--interactive.card--elevated:hover) .quiz-card__cta,
+  :global(.card--interactive.card--elevated:focus-visible) .quiz-card__cta {
     background: color-mix(in srgb, var(--gn-ink) 90%, var(--color-white) 10%);
     transform: translateY(-1px);
   }

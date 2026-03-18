@@ -60,7 +60,10 @@ const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
     font-size: var(--prose-size, var(--knowledge-prose-size, 1.175rem));
     line-height: var(
       --prose-line-height,
-      var(--knowledge-prose-line-height, var(--line-height-relaxed, var(--leading-relaxed, 1.75)))
+      var(
+        --knowledge-prose-line-height,
+        var(--line-height-relaxed, var(--leading-relaxed, 1.75))
+      )
     );
     color: var(--prose-color, var(--gn-ink-muted, var(--color-text, currentColor)));
     hyphens: auto;
@@ -159,7 +162,10 @@ const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
     color: var(--prose-blockquote-color, var(--gn-ink, var(--color-text, currentColor)));
     background: var(--prose-blockquote-bg, rgba(6, 9, 15, 0.8));
     border-inline-start: 4px solid
-      var(--prose-blockquote-border, var(--color-gn-amber-400, var(--color-primary, currentColor)));
+      var(
+        --prose-blockquote-border,
+        var(--color-gn-amber-400, var(--color-primary, currentColor))
+      );
     border-radius: 0 0.75rem 0.75rem 0;
   }
 
@@ -217,9 +223,15 @@ const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
     font-weight: 600;
     color: transparent;
     text-decoration: none;
-    background: var(--prose-anchor-bg, var(--gn-bg-muted, var(--color-layer-2, transparent)));
+    background: var(
+      --prose-anchor-bg,
+      var(--gn-bg-muted, var(--color-layer-2, transparent))
+    );
     border: 1px solid
-      var(--prose-anchor-border, var(--gn-panel-border, var(--color-primary, currentColor)));
+      var(
+        --prose-anchor-border,
+        var(--gn-panel-border, var(--color-primary, currentColor))
+      );
     border-radius: 0.35rem;
     opacity: 0;
   }

@@ -19,7 +19,9 @@ interface RecentReadEntry {
 
 export function initRecentReads(): void {
   const dataEl = document.getElementById("recent-read-data");
-  if (!dataEl) {return;}
+  if (!dataEl) {
+    return;
+  }
 
   const recentEntry: RecentReadEntry = {
     slug: dataEl.dataset.slug || "",
@@ -28,7 +30,9 @@ export function initRecentReads(): void {
     image: dataEl.dataset.image || "",
   };
 
-  if (!recentEntry.slug || !recentEntry.title) {return;}
+  if (!recentEntry.slug || !recentEntry.title) {
+    return;
+  }
 
   const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
   const raw = safeLocalStorage.getRaw(VERSIONED_KEYS.RECENT_READS);

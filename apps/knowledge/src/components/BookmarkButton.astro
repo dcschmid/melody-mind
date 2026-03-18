@@ -53,12 +53,16 @@ const {
 
   const updateButtonState = (button: HTMLButtonElement): void => {
     const slug = normalizeBookmarkSlug(button.dataset.bookmarkSlug || "");
-    if (!slug) {return;}
+    if (!slug) {
+      return;
+    }
     const label = button.querySelector<HTMLElement>("[data-bookmark-label]");
     const isSaved = Boolean(getBookmarkBySlug(slug));
     button.dataset.bookmarkState = isSaved ? "saved" : "empty";
     button.setAttribute("aria-pressed", isSaved ? "true" : "false");
-    if (label) {label.textContent = isSaved ? "Saved" : "Save article";}
+    if (label) {
+      label.textContent = isSaved ? "Saved" : "Save article";
+    }
   };
 
   buttons.forEach((button) => {
@@ -96,7 +100,8 @@ const {
     border-radius: 999px;
   }
 
-  .bookmark-button:hover, .bookmark-button:focus {
+  .bookmark-button:hover,
+  .bookmark-button:focus {
     background: var(--gn-bg);
   }
 
