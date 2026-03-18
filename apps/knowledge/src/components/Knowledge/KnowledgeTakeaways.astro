@@ -1,4 +1,6 @@
 ---
+import Headline from "@shared-ui/components/Headline.astro";
+
 const { title = "Key takeaways", items = [] } = Astro.props as {
   title?: string;
   items?: string[];
@@ -10,9 +12,9 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     <aside class="knowledge-takeaways" aria-labelledby="knowledge-takeaways-title">
       <div class="knowledge-takeaways__header">
         <div class="knowledge-takeaways__badge">What you'll take away</div>
-        <h2 class="knowledge-takeaways__title" id="knowledge-takeaways-title">
-          {title}
-        </h2>
+        <Headline level="h2" textSize="lg" className="knowledge-takeaways__title">
+          <span id="knowledge-takeaways-title">{title}</span>
+        </Headline>
         <p class="knowledge-takeaways__subtitle">
           Short points to remember after reading.
         </p>
@@ -41,9 +43,9 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     display: grid;
     gap: 1.25rem;
     padding: 1.5rem;
-    border-radius: 1rem;
-    border: 2px solid var(--gn-panel-border);
     background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
   }
 
   .knowledge-takeaways__header {
@@ -52,38 +54,38 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
   }
 
   .knowledge-takeaways__badge {
-    width: fit-content;
+    inline-size: fit-content;
     padding: 0.25rem 0.85rem;
-    border-radius: 999px;
-    border: 1px solid var(--gn-accent);
-    background: var(--gn-bg);
-    color: var(--gn-accent);
     font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.14em;
+    color: var(--gn-accent);
     text-transform: uppercase;
+    letter-spacing: 0.14em;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-accent);
+    border-radius: 999px;
   }
 
   .knowledge-takeaways__title {
     margin: 0;
-    font-size: clamp(1.35rem, 1.15rem + 1vw, 1.75rem);
-    color: var(--gn-ink);
+    font-size: clamp(1.35rem, 1.15rem + 1vi, 1.75rem);
     font-weight: 700;
+    color: var(--gn-ink);
   }
 
   .knowledge-takeaways__subtitle {
+    max-inline-size: 60ch;
     margin: 0;
-    color: var(--gn-ink-muted);
-    max-width: 60ch;
     line-height: 1.6;
+    color: var(--gn-ink-muted);
   }
 
   .knowledge-takeaways__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
     display: grid;
     gap: 0.85rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   .knowledge-takeaways__item {
@@ -92,35 +94,35 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     gap: 0.75rem;
     align-items: start;
     padding: 1rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--gn-panel-border);
     background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
   }
 
   .knowledge-takeaways__icon {
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    background: var(--gn-bg-muted);
+    inline-size: 2rem;
+    block-size: 2rem;
     color: var(--gn-accent);
-    flex-shrink: 0;
+    background: var(--gn-bg-muted);
+    border-radius: 0.5rem;
   }
 
   .knowledge-takeaways__icon :global(svg) {
-    width: 1rem;
-    height: 1rem;
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
   .knowledge-takeaways__text {
-    color: var(--gn-ink);
     font-size: 1.05rem;
     line-height: 1.65;
+    color: var(--gn-ink);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .knowledge-takeaways__list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

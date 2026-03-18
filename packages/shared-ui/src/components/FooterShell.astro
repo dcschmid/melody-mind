@@ -1,0 +1,49 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  variant?: "default" | "podcast";
+  class?: string;
+}
+
+const { variant = "default", class: className, ...rest } = Astro.props as Props;
+
+const hasBottom = Astro.slots.has("bottom");
+---
+
+<footer
+  {...rest}
+  class:list={["footer-shell", `footer-shell--${variant}`, className]}
+  role="contentinfo"
+>
+  <div class="footer-shell__container">
+    <div class="footer-shell__main">
+      <slot />
+    </div>
+
+    {
+      hasBottom && (
+        <div class="footer-shell__bottom">
+          <slot name="bottom" />
+        </div>
+      )
+    }
+  </div>
+</footer>
+
+<style>
+  .footer-shell {
+    margin-block-start: 4rem;
+  }
+
+  .footer-shell__container {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .footer-shell__main {
+    display: block;
+  }
+
+  .footer-shell__bottom {
+    display: block;
+  }
+</style>

@@ -1,8 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
-import BackToTop from "@components/Shared/BackToTop.astro";
-import PageShell from "@components/Shared/PageShell.astro";
+import Headline from "@shared-ui/components/Headline.astro";
+import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
+import PageShell from "@shared-ui/components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import {
   buildCollectionPageSchema,
@@ -13,7 +14,7 @@ import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
 import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
 import { calculateReadingTime } from "@utils/readingTime";
 import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
-import { loggers } from "@utils/logging";
+import { loggers } from "@shared-utils/utils/logging";
 import categories from "../../data/categories.json";
 import { Image } from "astro:assets";
 import SearchPanel from "@components/Search/SearchPanel.astro";
@@ -167,9 +168,9 @@ const pageSeo = buildPageSeo({
             <span class="category-hero__dot"></span>
             Explore this category
           </div>
-          <h1 id="category-heading" class="category-hero__title">
-            {category.name}
-          </h1>
+          <Headline level="h1" textSize="2xl" className="category-hero__title">
+            <span id="category-heading">{category.name}</span>
+          </Headline>
         </div>
         <div class="category-hero__media">
           <div class="category-hero__background">
@@ -246,7 +247,6 @@ const pageSeo = buildPageSeo({
                         image={article.data.image as string}
                         createdAt={createdAt}
                         slug={articleSlug}
-                        lang="en"
                         readingTime={article.data.readingTime}
                         articleUrl={`/knowledge/${articleSlug}`}
                         keywords={article.data.keywords?.join(", ")}
@@ -281,17 +281,18 @@ const pageSeo = buildPageSeo({
     </div>
   </PageShell>
 
-  <BackToTop lang="en" />
+  <BackToTop />
 </Layout>
 <style>
   .panel {
     --panel-radius: 1rem;
     --panel-padding: 1.5rem;
+
     position: relative;
-    border-radius: var(--panel-radius);
+    padding: var(--panel-padding);
     background: var(--gn-bg-muted);
     border: 2px solid var(--gn-panel-border);
-    padding: var(--panel-padding);
+    border-radius: var(--panel-radius);
   }
 
   .panel--compact {
@@ -326,7 +327,7 @@ const pageSeo = buildPageSeo({
     gap: 1.75rem;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .category-hero {
       gap: 2rem;
     }
@@ -344,29 +345,29 @@ const pageSeo = buildPageSeo({
     gap: 1.75rem;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .category-hero__media {
       flex-direction: row;
-      align-items: stretch;
       gap: 2rem;
+      align-items: stretch;
     }
   }
 
   .category-hero__background {
     position: relative;
-    width: 100%;
+    inline-size: 100%;
     aspect-ratio: 3 / 2;
-    border-radius: 1rem;
     overflow: hidden;
     border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
   }
 
   .category-hero__image {
-    width: 100%;
-    height: 100%;
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
     object-fit: cover;
     object-position: center;
-    display: block;
   }
 
   .category-hero__overlay {
@@ -376,15 +377,15 @@ const pageSeo = buildPageSeo({
   }
 
   .category-hero__body {
-    width: 100%;
     display: flex;
     justify-content: center;
+    inline-size: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .category-hero__background,
     .category-hero__body {
-      width: 50%;
+      inline-size: 50%;
     }
 
     .category-hero__body {
@@ -392,51 +393,51 @@ const pageSeo = buildPageSeo({
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-hero__background {
-      width: 58%;
+      inline-size: 58%;
     }
 
     .category-hero__body {
-      width: 42%;
+      inline-size: 42%;
     }
   }
 
   .category-hero__content {
-    width: min(820px, 100%);
+    inline-size: min(820px, 100%);
     padding: 2rem 2.25rem;
-    border-radius: 1rem;
     background: var(--gn-bg-muted);
     border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
   }
 
   .category-hero__eyebrow {
     display: inline-flex;
-    align-items: center;
     gap: 0.625rem;
+    align-items: center;
+    padding: 0.4rem 0.9rem;
+    margin-block-end: 1.5rem;
     font-size: 0.75rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
     font-weight: 700;
     color: var(--gn-ink);
-    margin-bottom: 1.5rem;
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
     background: var(--gn-bg);
     border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-hero__eyebrow {
       font-size: 0.875rem;
     }
   }
 
   .category-hero__dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999px;
+    inline-size: 0.5rem;
+    block-size: 0.5rem;
     background: var(--gn-accent);
+    border-radius: 999px;
   }
 
   .category-hero__title {
@@ -448,38 +449,38 @@ const pageSeo = buildPageSeo({
     letter-spacing: -0.02em;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-hero__title {
       font-size: 3.25rem;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-hero__title {
       font-size: 4rem;
     }
   }
 
   .category-hero__description {
+    max-inline-size: 60ch;
     margin: 0 0 2rem;
     font-size: 1.05rem;
+    font-weight: 400;
     line-height: 1.75;
     color: var(--gn-ink-muted);
-    font-weight: 400;
-    max-width: 60ch;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-hero__description {
       font-size: 1.125rem;
       line-height: 1.75;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-hero__description {
+      margin-block-end: 2.25rem;
       font-size: 1.2rem;
-      margin-bottom: 2.25rem;
     }
   }
 
@@ -491,15 +492,15 @@ const pageSeo = buildPageSeo({
 
   .category-hero__stat {
     display: inline-flex;
-    align-items: center;
     gap: 0.625rem;
+    align-items: center;
     padding: 0.7rem 1.4rem;
-    border-radius: 999px;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg);
-    font-weight: 600;
     font-size: 0.95rem;
+    font-weight: 600;
     color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 999px;
   }
 
   .category-page__tools {
@@ -507,7 +508,7 @@ const pageSeo = buildPageSeo({
     gap: 1.25rem;
   }
 
-  @media (min-width: 960px) {
+  @media (width >= 960px) {
     .category-page__tools {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       align-items: stretch;
@@ -515,18 +516,18 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__helper {
-    font-size: 1rem;
-    color: var(--gn-ink-muted);
-    margin: 0;
-    line-height: 1.6;
-    font-weight: 400;
     padding: 1.25rem 1.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--gn-panel-border);
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--gn-ink-muted);
     background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-page__helper {
       padding: 1rem 1.2rem;
       font-size: 1.0625rem;
@@ -535,25 +536,25 @@ const pageSeo = buildPageSeo({
 
   .category-page__search {
     padding: 1.25rem 1.5rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--gn-panel-border);
     background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
   }
 
   .category-page__search :global(.search-panel__input) {
-    border-radius: 0.75rem;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg);
     font-size: 1.05rem;
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-page__search :global(.search-panel__input) {
       font-size: 1.15rem;
     }
   }
 
-  .category-page__search :global(.search-panel__input:hover) {
+  .category-page__search :global(.search-panel__input:hover), .category-page__search :global(.search-panel__input:focus) {
     border-color: var(--gn-accent);
   }
 
@@ -563,32 +564,32 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__search :global(.search-panel__reset) {
-    border-radius: 999px;
-    border: 2px solid var(--gn-accent);
-    background: var(--gn-bg);
     color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-accent);
+    border-radius: 999px;
   }
 
-  .category-page__search :global(.search-panel__reset:hover) {
+  .category-page__search :global(.search-panel__reset:hover), .category-page__search :global(.search-panel__reset:focus) {
     background: var(--gn-bg-muted);
   }
 
   .category-page__grid {
     display: grid;
     gap: 2rem;
-    list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .category-page__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.75rem;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .category-page__grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 2rem;
@@ -597,11 +598,11 @@ const pageSeo = buildPageSeo({
 
   .category-page__empty {
     padding: 3rem 2rem;
-    border-radius: 0.75rem;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
-    text-align: center;
     color: var(--gn-ink-muted);
+    text-align: center;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
   }
 
   .category-page__empty-title {
@@ -613,9 +614,9 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__empty-text {
-    margin-top: 0.75rem;
+    margin-block-start: 0.75rem;
     font-size: 1.0625rem;
-    color: var(--gn-ink-muted);
     line-height: 1.6;
+    color: var(--gn-ink-muted);
   }
 </style>

@@ -1,0 +1,261 @@
+---
+export interface Props {
+  className?: string;
+  class?: string;
+  html?: string;
+  size?: "sm" | "base" | "md" | "lg" | "xl";
+  invert?: boolean;
+  fullWidth?: boolean;
+}
+
+const {
+  className: extra = "",
+  class: classProp = "",
+  html = undefined,
+  size = "lg",
+  invert = true,
+  fullWidth = true,
+} = Astro.props as Props;
+
+let sanitizedHtml =
+  typeof html === "string" ? html.replace(/\\n/g, "\n").trim() : undefined;
+
+if (typeof sanitizedHtml === "string") {
+  sanitizedHtml = sanitizedHtml.replace(/\n?\s*```\s*$/m, "");
+  sanitizedHtml = sanitizedHtml.replace(/```/g, "");
+  sanitizedHtml = sanitizedHtml.replace(/\\`/g, "");
+  sanitizedHtml = sanitizedHtml.replace(/&#96;|&#x60;|&grave;/g, "");
+  sanitizedHtml = sanitizedHtml.trim();
+}
+
+const sizeClass = (() => {
+  switch (size) {
+    case "sm":
+      return "prose--sm";
+    case "base":
+    case "md":
+      return "prose--md";
+    case "xl":
+      return "prose--xl";
+    case "lg":
+    default:
+      return "prose--lg";
+  }
+})();
+
+const invertClass = invert ? "prose--invert" : "prose--standard";
+const widthClass = fullWidth ? "prose--full" : "";
+const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div class={classes}>
+  {sanitizedHtml ? <div set:html={sanitizedHtml} /> : <slot />}
+</div>
+
+<style>
+  .prose {
+    max-inline-size: 72ch;
+    font-size: var(--prose-size, var(--knowledge-prose-size, 1.175rem));
+    line-height: var(
+      --prose-line-height,
+      var(--knowledge-prose-line-height, var(--line-height-relaxed, var(--leading-relaxed, 1.75)))
+    );
+    color: var(--prose-color, var(--gn-ink-muted, var(--color-text, currentColor)));
+    hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  .prose--invert,
+  .prose--standard {
+    color: var(--prose-color, var(--gn-ink-muted, var(--color-text, currentColor)));
+  }
+
+  .prose--full {
+    max-inline-size: none;
+  }
+
+  .prose--sm {
+    --prose-size: 1.125rem;
+  }
+
+  .prose--md {
+    --prose-size: 1.125rem;
+  }
+
+  .prose--lg {
+    --prose-size: 1.175rem;
+  }
+
+  .prose--xl {
+    --prose-size: 1.325rem;
+  }
+
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    font-family: var(--prose-heading-font-family, var(--font-display, inherit));
+    line-height: var(--prose-heading-line-height, var(--line-height-tight, 1.25));
+    color: var(--prose-heading-color, var(--gn-ink, var(--color-text, currentColor)));
+  }
+
+  .prose h2 {
+    margin-block: 3rem 1rem;
+    font-size: var(--prose-h2-size, 2.125rem);
+  }
+
+  .prose h3 {
+    margin-block: 2.5rem 0.75rem;
+    font-size: var(--prose-h3-size, 1.625rem);
+  }
+
+  .prose p {
+    margin: 1.25rem 0;
+  }
+
+  .prose ul,
+  .prose ol {
+    padding-inline-start: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .prose li {
+    margin: 0.4rem 0;
+  }
+
+  .prose a {
+    font-weight: 550;
+    color: var(--prose-link-color, var(--gn-accent, var(--color-primary, currentColor)));
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.16em;
+  }
+
+  .prose a:hover,
+  .prose a:focus {
+    text-decoration-thickness: 0.15em;
+  }
+
+  .prose a:focus-visible {
+    outline: 3px solid
+      var(--prose-link-focus-color, var(--gn-accent, var(--color-primary, currentColor)));
+    outline-offset: 2px;
+  }
+
+  .prose strong {
+    color: var(--prose-strong-color, var(--gn-ink, var(--color-text, currentColor)));
+  }
+
+  .prose code {
+    padding: 0.1rem 0.4rem;
+    color: var(--prose-code-color, var(--gn-ink, var(--color-text, currentColor)));
+    background: var(--prose-code-bg, rgba(6, 9, 15, 0.85));
+    border-radius: 0.4rem;
+  }
+
+  .prose blockquote {
+    padding: 0.5rem 1rem;
+    color: var(--prose-blockquote-color, var(--gn-ink, var(--color-text, currentColor)));
+    background: var(--prose-blockquote-bg, rgba(6, 9, 15, 0.8));
+    border-inline-start: 4px solid
+      var(--prose-blockquote-border, var(--color-gn-amber-400, var(--color-primary, currentColor)));
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+
+  .prose hr {
+    margin: 2.5rem 0;
+    border: none;
+    border-block-start: 1px solid var(--prose-rule-color, rgba(255, 255, 255, 0.2));
+  }
+
+  .prose :is(img, picture) {
+    display: block;
+    inline-size: 100%;
+  }
+
+  .prose picture,
+  .prose img {
+    aspect-ratio: 3 / 2;
+    margin: 1.5rem auto;
+    background: var(--prose-media-bg, var(--gn-bg, var(--color-layer-2, transparent)));
+    border: 1px solid var(--prose-media-border, rgba(255, 255, 255, 0.12));
+    border-radius: 16px;
+  }
+
+  .prose img {
+    object-fit: cover;
+  }
+
+  .prose picture {
+    overflow: hidden;
+  }
+
+  .prose picture img {
+    inline-size: 100%;
+    block-size: 100%;
+    margin: 0;
+    object-fit: cover;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .prose :is(h2, h3) {
+    position: relative;
+    scroll-margin-block-start: 6rem;
+  }
+
+  .prose :is(h2, h3) .prose__heading-anchor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    margin-inline-start: 0.4rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: transparent;
+    text-decoration: none;
+    background: var(--prose-anchor-bg, var(--gn-bg-muted, var(--color-layer-2, transparent)));
+    border: 1px solid
+      var(--prose-anchor-border, var(--gn-panel-border, var(--color-primary, currentColor)));
+    border-radius: 0.35rem;
+    opacity: 0;
+  }
+
+  .prose :is(h2, h3) .prose__heading-anchor::before {
+    display: block;
+    inline-size: 0.85rem;
+    block-size: 0.85rem;
+    content: "";
+    background-color: var(--prose-anchor-icon, var(--link-default, currentColor));
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M10.59 13.41a1 1 0 0 1 0-1.41l3.18-3.18a3 3 0 1 1 4.24 4.24l-3.18 3.18a1 1 0 0 1-1.41-1.41l3.18-3.18a1 1 0 0 0-1.41-1.41l-3.18 3.18a1 1 0 0 1-1.41 0ZM13.41 10.59a1 1 0 0 1 0 1.41l-3.18 3.18a3 3 0 1 1-4.24-4.24l3.18-3.18a1 1 0 1 1 1.41 1.41L7.4 12.35a1 1 0 1 0 1.41 1.41l3.18-3.18a1 1 0 0 1 1.41 0Z'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+  }
+
+  .prose :is(h2, h3):hover .prose__heading-anchor,
+  .prose :is(h2, h3):focus-within .prose__heading-anchor {
+    opacity: 1;
+  }
+
+  .prose :is(h2, h3) .prose__heading-anchor:focus-visible {
+    outline: 2px solid
+      var(--prose-link-focus-color, var(--gn-accent, var(--color-primary, currentColor)));
+    outline-offset: 2px;
+  }
+
+  .prose .subsection-figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    place-items: start start;
+    max-inline-size: 1100px;
+    margin: 1.5rem 0;
+    border-radius: 12px;
+  }
+
+  .prose .subsection-figure :is(h2, h3, h4) {
+    margin: 0;
+  }
+</style>

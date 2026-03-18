@@ -6,8 +6,9 @@
  */
 import Layout from "@layouts/Layout.astro";
 import QuizCard from "@components/Quiz/QuizCard.astro";
-import PageShell from "@components/Shared/PageShell.astro";
-import BackToTop from "@components/Shared/BackToTop.astro";
+import Headline from "@shared-ui/components/Headline.astro";
+import PageShell from "@shared-ui/components/Shared/PageShell.astro";
+import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
 import { getCollection } from "astro:content";
@@ -90,6 +91,8 @@ const pageSeo = buildPageSeo({
   ],
   index: true,
 });
+
+const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
 ---
 
 <Layout {pageSeo}>
@@ -98,7 +101,9 @@ const pageSeo = buildPageSeo({
       <header class="quiz-hero">
         <div class="quiz-hero__panel">
           <div class="quiz-hero__copy">
-            <h1 class="quiz-hero__title">Music Quizzes</h1>
+            <Headline level="h1" textSize="2xl" className="quiz-hero__title">
+              Music Quizzes
+            </Headline>
             <p class="quiz-hero__description">
               Challenge yourself with quizzes covering music history, genres, and artists.
               Each question is grounded in research-driven content.
@@ -110,9 +115,13 @@ const pageSeo = buildPageSeo({
       {
         quizzesByCategory.decade.length > 0 && (
           <section class="quiz-section" aria-labelledby="decade-heading">
-            <h2 id="decade-heading" class="quiz-section__title">
-              {categoryLabels.decade}
-            </h2>
+            <Headline
+              level="h2"
+              textSize="lg"
+              className="quiz-section__title"
+            >
+              <span id="decade-heading">{categoryLabels.decade}</span>
+            </Headline>
             <p class="quiz-section__description">
               Test your knowledge of music from different decades, from the birth of rock
               and roll to modern streaming pop.
@@ -124,6 +133,8 @@ const pageSeo = buildPageSeo({
                     title={quiz.data.title}
                     description={quiz.data.description}
                     slug={quiz.id}
+                    image={buildQuizImagePath(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
                   />
                 </li>
               ))}
@@ -135,9 +146,13 @@ const pageSeo = buildPageSeo({
       {
         quizzesByCategory["genre-evolution"].length > 0 && (
           <section class="quiz-section" aria-labelledby="genre-heading">
-            <h2 id="genre-heading" class="quiz-section__title">
-              {categoryLabels["genre-evolution"]}
-            </h2>
+            <Headline
+              level="h2"
+              textSize="lg"
+              className="quiz-section__title"
+            >
+              <span id="genre-heading">{categoryLabels["genre-evolution"]}</span>
+            </Headline>
             <p class="quiz-section__description">
               Explore how genres transformed over time, from blues to rock, jazz to neo
               soul.
@@ -149,6 +164,8 @@ const pageSeo = buildPageSeo({
                     title={quiz.data.title}
                     description={quiz.data.description}
                     slug={quiz.id}
+                    image={buildQuizImagePath(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
                   />
                 </li>
               ))}
@@ -160,9 +177,13 @@ const pageSeo = buildPageSeo({
       {
         quizzesByCategory.mixed.length > 0 && (
           <section class="quiz-section" aria-labelledby="mixed-heading">
-            <h2 id="mixed-heading" class="quiz-section__title">
-              {categoryLabels.mixed}
-            </h2>
+            <Headline
+              level="h2"
+              textSize="lg"
+              className="quiz-section__title"
+            >
+              <span id="mixed-heading">{categoryLabels.mixed}</span>
+            </Headline>
             <p class="quiz-section__description">
               Comprehensive quizzes covering multiple topics and time periods.
             </p>
@@ -173,6 +194,8 @@ const pageSeo = buildPageSeo({
                     title={quiz.data.title}
                     description={quiz.data.description}
                     slug={quiz.id}
+                    image={buildQuizImagePath(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
                   />
                 </li>
               ))}
@@ -192,7 +215,7 @@ const pageSeo = buildPageSeo({
     </div>
   </PageShell>
 
-  <BackToTop lang="en" />
+  <BackToTop />
 </Layout>
 
 <style>
@@ -210,8 +233,6 @@ const pageSeo = buildPageSeo({
     position: relative;
     display: flex;
     padding: 1.5rem;
-    border-radius: 1.5rem;
-    border: 1px solid color-mix(in srgb, var(--gn-accent) 24%, var(--gn-panel-border));
     background:
       radial-gradient(
         circle at top right,
@@ -223,12 +244,14 @@ const pageSeo = buildPageSeo({
         color-mix(in srgb, var(--gn-bg) 92%, transparent),
         var(--gn-bg-muted)
       );
+    border: 1px solid color-mix(in srgb, var(--gn-accent) 24%, var(--gn-panel-border));
+    border-radius: 1.5rem;
     box-shadow:
       0 24px 48px color-mix(in srgb, var(--gn-accent) 10%, transparent),
-      inset 0 1px 0 color-mix(in srgb, white 28%, transparent);
+      inset 0 1px 0 color-mix(in srgb, var(--color-white) 28%, transparent);
   }
 
-  @media (min-width: 960px) {
+  @media (width >= 960px) {
     .quiz-hero__panel {
       padding: 2rem;
     }
@@ -238,7 +261,7 @@ const pageSeo = buildPageSeo({
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-width: 62ch;
+    max-inline-size: 62ch;
   }
 
   .quiz-hero__title {
@@ -250,13 +273,13 @@ const pageSeo = buildPageSeo({
     letter-spacing: -0.035em;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .quiz-hero__title {
       font-size: 3.4rem;
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .quiz-hero__title {
       font-size: 4.4rem;
     }
@@ -269,7 +292,7 @@ const pageSeo = buildPageSeo({
     color: var(--gn-ink-muted);
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .quiz-hero__description {
       font-size: 1.125rem;
     }
@@ -280,17 +303,17 @@ const pageSeo = buildPageSeo({
     flex-direction: column;
     gap: 1.25rem;
     padding: 1.5rem;
-    border-radius: 1.35rem;
-    border: 1px solid var(--gn-panel-border);
     background: linear-gradient(
       180deg,
       color-mix(in srgb, var(--gn-bg) 94%, transparent),
       var(--gn-bg-muted)
     );
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 1.35rem;
     box-shadow: 0 16px 34px color-mix(in srgb, var(--gn-ink) 4%, transparent);
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .quiz-section {
       padding: 1.75rem;
     }
@@ -304,35 +327,35 @@ const pageSeo = buildPageSeo({
     letter-spacing: -0.02em;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .quiz-section__title {
       font-size: 1.75rem;
     }
   }
 
   .quiz-section__description {
+    max-inline-size: 65ch;
     margin: 0;
     font-size: 1rem;
     line-height: 1.7;
     color: var(--gn-ink-muted);
-    max-width: 65ch;
   }
 
   .quiz-section__grid {
     display: grid;
     gap: 1.5rem;
-    list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .quiz-section__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (width >= 1024px) {
     .quiz-section__grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -340,8 +363,7 @@ const pageSeo = buildPageSeo({
 
   .quiz-empty {
     padding: 3rem 2rem;
-    border-radius: 1.25rem;
-    border: 1px solid var(--gn-panel-border);
+    text-align: center;
     background:
       radial-gradient(
         circle at top center,
@@ -349,7 +371,8 @@ const pageSeo = buildPageSeo({
         transparent 42%
       ),
       var(--gn-bg-muted);
-    text-align: center;
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 1.25rem;
   }
 
   .quiz-empty__title {
@@ -360,7 +383,7 @@ const pageSeo = buildPageSeo({
   }
 
   .quiz-empty__text {
-    margin-top: 0.75rem;
+    margin-block-start: 0.75rem;
     font-size: 1rem;
     color: var(--gn-ink-muted);
   }

@@ -1,23 +1,19 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageShell from "@components/Shared/PageShell.astro";
-import { useTranslations } from "@utils/i18n";
-import Headline from "@components/Headline.astro";
+import PageShell from "@shared-ui/components/Shared/PageShell.astro";
+import Headline from "@shared-ui/components/Headline.astro";
 import Paragraph from "@components/Paragraph.astro";
-import Prose from "@components/Prose.astro";
-import { Icon } from "astro-icon/components";
+import Prose from "@shared-ui/components/Prose.astro";
+import Icon from "@shared-ui/components/Icon.astro";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@utils/siteUrls";
 
 export const prerender = true;
 
-const lang = "en";
-const t = useTranslations(lang);
-
 const canonical = resolvePageUrl(Astro.site, "/ai-content");
 
 const seoBreadcrumbs = [
-  { name: t("nav.home") || "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: "AI Content Policy", url: canonical },
 ];
 
@@ -42,7 +38,7 @@ const structuredDataExtra = [
     datePublished: new Date().toISOString(),
     dateModified: new Date().toISOString(),
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    inLanguage: lang,
+    inLanguage: "en",
     articleSection: "About",
   },
 ];
@@ -252,17 +248,17 @@ const pageSeo = buildPageSeo({
 
 <style>
   .ai-policy {
-    background: var(--gn-bg-muted);
-    border-radius: 1rem;
-    border: 1px solid var(--gn-panel-border);
     padding: 1.25rem;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 1rem;
   }
 
   .ai-policy__container {
-    max-width: 800px;
-    margin: 0 auto;
     display: grid;
     gap: var(--static-page-gap);
+    max-inline-size: 800px;
+    margin: 0 auto;
   }
 
   .ai-policy__header {
@@ -271,24 +267,24 @@ const pageSeo = buildPageSeo({
 
   .ai-policy__badge {
     display: inline-flex;
-    align-items: center;
     gap: 0.5rem;
+    align-items: center;
+    justify-self: start;
     padding: 0.5rem 1rem;
-    border-radius: 999px;
-    background: var(--gn-bg);
-    border: 2px solid var(--gn-accent);
-    color: var(--gn-accent);
     font-size: 0.85rem;
     font-weight: 700;
+    color: var(--gn-accent);
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    justify-self: start;
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-accent);
+    border-radius: 999px;
   }
 
   .ai-policy__section {
-    padding: 2rem;
     display: grid;
     gap: var(--static-page-section-gap-wide);
+    padding: 2rem;
   }
 
   .ai-policy__section--contact {
@@ -298,20 +294,20 @@ const pageSeo = buildPageSeo({
 
   .ai-policy__section-header {
     display: flex;
-    align-items: center;
     gap: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--gn-panel-border);
+    align-items: center;
+    padding-block-end: 1rem;
+    border-block-end: 2px solid var(--gn-panel-border);
   }
 
   .ai-policy__icon {
-    width: 1.75rem;
-    height: 1.75rem;
-    color: var(--gn-accent);
     flex-shrink: 0;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    color: var(--gn-accent);
   }
 
-  @media (min-width: 720px) {
+  @media (width >= 720px) {
     .ai-policy {
       padding: 1.75rem;
     }

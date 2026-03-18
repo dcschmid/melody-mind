@@ -1,4 +1,5 @@
 ---
+/* eslint astro/jsx-a11y/media-has-caption: "off" */
 interface Props {
   title: string;
   audioUrl: string;
@@ -13,7 +14,6 @@ const playerId = subtitleUrl ?? audioUrl;
   class="episode-player"
   data-episode-player
   data-player-id={playerId}
-  tabindex="0"
   aria-label={`Audio player for ${title}`}
 >
   <div class="episode-player__controls">
@@ -133,7 +133,6 @@ const playerId = subtitleUrl ?? audioUrl;
       </svg>
     </button>
   </div>
-
   <audio
     class="episode-player__audio"
     preload="metadata"

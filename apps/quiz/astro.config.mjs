@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import icon from "astro-icon";
 import path from "path";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
@@ -18,7 +17,6 @@ export default defineConfig({
 
   integrations: [
     mdx(),
-    icon(),
     robotsTxt({
       sitemap: ["https://quiz.melody-mind.de/sitemap-index.xml"],
       host: "quiz.melody-mind.de",
@@ -31,11 +29,13 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
+        "@shared-icons": path.resolve("../../packages/shared-icons/src"),
+        "@shared-ui": path.resolve("../../packages/shared-ui/src"),
+        "@shared-utils": path.resolve("../../packages/shared-utils/src"),
         "@components": path.resolve("./src/components"),
         "@layouts": path.resolve("./src/layouts"),
         "@utils": path.resolve("./src/utils"),
         "@constants": path.resolve("./src/constants"),
-        "@i18n": path.resolve("./src/i18n"),
         "@content": path.resolve("./src/content"),
         "@types": path.resolve("./src/types"),
         "@data": path.resolve("./src/data"),

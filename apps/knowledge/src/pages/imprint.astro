@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageShell from "@components/Shared/PageShell.astro";
+import Headline from "@shared-ui/components/Headline.astro";
+import PageShell from "@shared-ui/components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@utils/siteUrls";
 
@@ -39,14 +40,18 @@ const pageSeo = buildPageSeo({
     <div class="legal-page">
       <header class="legal-page__header static-page-header">
         <p class="legal-page__eyebrow static-page-eyebrow">Legal</p>
-        <h1 class="legal-page__title static-page-title">Legal Notice</h1>
+        <Headline level="h1" textSize="2xl" className="legal-page__title static-page-title">
+          Legal Notice
+        </Headline>
         <p class="legal-page__lead static-page-lead">
           Required legal information for a website operated from Germany.
         </p>
       </header>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">Service Provider</h2>
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
+          Service Provider
+        </Headline>
         <p class="legal-page__text">Daniel Schmid</p>
         <p class="legal-page__text">Hiltenspergerstr. 78</p>
         <p class="legal-page__text">80796 Munich</p>
@@ -55,7 +60,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">Contact</h2>
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
+          Contact
+        </Headline>
         <p class="legal-page__text">
           Email:
           <a class="legal-page__link" href="mailto:dcschmid@murena.io">
@@ -65,9 +72,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
           Responsible for Editorial Content (§ 18 Abs. 2 MStV)
-        </h2>
+        </Headline>
         <p class="legal-page__text">
           Daniel Schmid, Hiltenspergerstr. 78, 80796 Munich, Germany
         </p>
@@ -77,14 +84,18 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">Register Entry</h2>
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
+          Register Entry
+        </Headline>
         <p class="legal-page__text">
           No commercial register entry exists for this private, non-commercial project.
         </p>
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">VAT Identification Number</h2>
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
+          VAT Identification Number
+        </Headline>
         <p class="legal-page__text">
           No VAT identification number (USt-IdNr.) is available, as this is not a
           commercial activity.
@@ -92,7 +103,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">Dispute Resolution</h2>
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
+          Dispute Resolution
+        </Headline>
         <p class="legal-page__text">
           The European Commission provides a platform for online dispute resolution:
           <a
@@ -111,7 +124,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">Liability for Own Content</h2>
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
+          Liability for Own Content
+        </Headline>
         <p class="legal-page__text">
           We prepare our content with care. However, we cannot guarantee that all
           information is complete, accurate, or current at all times. You use the
@@ -125,7 +140,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel legal-page__section">
-        <h2 class="legal-page__section-title">Liability for External Links (§ 8 TMG)</h2>
+        <Headline level="h2" textSize="base" className="legal-page__section-title">
+          Liability for External Links (§ 8 TMG)
+        </Headline>
         <p class="legal-page__text">
           This website contains links to external third-party websites. We have no
           influence over the content of those websites and therefore cannot accept any
@@ -155,16 +172,16 @@ const pageSeo = buildPageSeo({
   }
 
   .legal-page__section-title {
+    margin: 0;
     font-size: 1.225rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin: 0;
   }
 
   .legal-page__text {
     margin: 0;
-    color: var(--text-secondary);
     line-height: 1.6;
+    color: var(--text-secondary);
   }
 
   .legal-page__link {
@@ -173,7 +190,7 @@ const pageSeo = buildPageSeo({
     text-underline-offset: 2px;
   }
 
-  .legal-page__link:hover {
+  .legal-page__link:hover, .legal-page__link:focus {
     color: var(--link-hover);
   }
 </style>

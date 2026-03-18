@@ -5,8 +5,8 @@
  * Keeps hydration costs low by deferring work to idle time and avoiding duplicate inline scripts.
  */
 
-import { createLogger } from "@utils/logging";
-import { isServer } from "@utils/environment";
+import { createLogger } from "@shared-utils/utils/logging";
+import { isServer } from "@shared-utils/utils/environment";
 
 const logger = createLogger("autoInit");
 

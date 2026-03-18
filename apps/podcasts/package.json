@@ -8,6 +8,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
+    "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint:check",
+    "format": "pnpm exec prettier --write \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
+    "format:check": "pnpm exec prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
+    "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
+    "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
     "update:audio-metadata": "node scripts/update-audio-metadata.mjs",
     "validate:podcasts": "node scripts/validate-podcasts.mjs"
   },

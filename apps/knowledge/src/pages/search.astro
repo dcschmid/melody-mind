@@ -2,7 +2,8 @@
 import PagefindSearch from "astro-pagefind/components/Search";
 
 import Layout from "@layouts/Layout.astro";
-import PageShell from "@components/Shared/PageShell.astro";
+import Headline from "@shared-ui/components/Headline.astro";
+import PageShell from "@shared-ui/components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@utils/siteUrls";
 
@@ -38,7 +39,9 @@ const pageSeo = buildPageSeo({
         <div class="search-page__hero">
           <div class="search-page__hero-copy">
             <p class="search-page__eyebrow">Library Search</p>
-            <h1 class="search-page__title">Search Melody Mind</h1>
+            <Headline level="h1" textSize="3xl" className="search-page__title">
+              Search Melody Mind
+            </Headline>
             <p class="search-page__lead">
               Search across guides, timelines, and taxonomy pages with a fast, built-in
               index tailored to Melody Mind.
@@ -68,9 +71,9 @@ const pageSeo = buildPageSeo({
         <div class="search-page__panel-head">
           <div class="search-page__panel-copy">
             <p class="search-page__panel-eyebrow">Search the site</p>
-            <h2 id="search-page-results-title" class="search-page__panel-title">
-              Results
-            </h2>
+            <Headline level="h2" textSize="lg" className="search-page__panel-title">
+              <span id="search-page-results-title">Results</span>
+            </Headline>
           </div>
           <p class="search-page__panel-help">
             Enter at least two characters. Results update while you type.
@@ -173,38 +176,38 @@ const pageSeo = buildPageSeo({
     display: grid;
     gap: 0.8rem;
     padding: 1.35rem;
-    border-radius: 1rem;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
     overflow: hidden;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
   }
 
   .search-page__eyebrow,
   .search-page__hero-kicker,
   .search-page__panel-eyebrow {
     margin: 0;
-    color: var(--gn-accent);
     font-size: 0.9rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    color: var(--gn-accent);
     text-transform: uppercase;
+    letter-spacing: 0.18em;
   }
 
   .search-page__title {
+    max-inline-size: 11ch;
     margin: 0;
-    max-width: 11ch;
-    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-size: clamp(2.8rem, 8vi, 5rem);
     line-height: 0.95;
     letter-spacing: -0.05em;
     text-wrap: balance;
   }
 
   .search-page__lead {
+    max-inline-size: 56ch;
     margin: 0;
-    max-width: 56ch;
-    color: var(--gn-ink-muted);
     font-size: 1.05rem;
     line-height: 1.7;
+    color: var(--gn-ink-muted);
   }
 
   .search-page__feature-list {
@@ -216,56 +219,56 @@ const pageSeo = buildPageSeo({
   .search-page__feature-badge {
     display: inline-flex;
     align-items: center;
-    min-height: 2.25rem;
+    min-block-size: 2.25rem;
     padding: 0.45rem 0.85rem;
-    border-radius: 999px;
-    border: 1px solid var(--gn-accent);
-    background: var(--gn-bg);
-    color: var(--gn-ink);
     font-size: 0.92rem;
     font-weight: 600;
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-accent);
+    border-radius: 999px;
   }
 
   .search-page__hero-list {
-    margin: 0;
-    padding: 0;
     display: grid;
     gap: 0.75rem;
+    padding: 0;
+    margin: 0;
     list-style: none;
   }
 
   .search-page__hero-item {
     position: relative;
-    padding-left: 1rem;
-    color: var(--gn-ink-muted);
+    padding-inline-start: 1rem;
     line-height: 1.6;
+    color: var(--gn-ink-muted);
   }
 
   .search-page__hero-item::before {
-    content: "";
     position: absolute;
-    left: 0;
-    top: 0.7rem;
-    width: 0.45rem;
-    height: 0.45rem;
-    border-radius: 999px;
+    inset-block-start: 0.7rem;
+    inset-inline-start: 0;
+    inline-size: 0.45rem;
+    block-size: 0.45rem;
+    content: "";
     background: var(--gn-accent);
+    border-radius: 999px;
   }
 
   .search-page__hero-item kbd {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 1.6rem;
-    min-height: 1.6rem;
+    min-inline-size: 1.6rem;
+    min-block-size: 1.6rem;
     padding: 0 0.35rem;
-    border-radius: 0.35rem;
-    border: 1px solid var(--gn-panel-border);
-    background: var(--gn-bg);
-    color: var(--gn-ink);
     font: inherit;
     font-size: 0.88rem;
     font-weight: 700;
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.35rem;
   }
 
   .search-page__panel {
@@ -289,16 +292,16 @@ const pageSeo = buildPageSeo({
   }
 
   .search-page__panel-title {
-    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-size: clamp(1.7rem, 4vi, 2.4rem);
     line-height: 1.05;
     letter-spacing: -0.03em;
   }
 
   .search-page__panel-help {
     margin: 0;
-    color: var(--gn-ink-muted);
     font-size: 1.125rem;
     line-height: 1.6;
+    color: var(--gn-ink-muted);
   }
 
   .search-page__search-ui {
@@ -314,20 +317,21 @@ const pageSeo = buildPageSeo({
     --pagefind-ui-tag: rgba(var(--gn-accent-rgb, 139, 92, 246), 0.16);
     --pagefind-ui-border-width: 2px;
     --pagefind-ui-border-radius: 1rem;
+
     font-family: inherit;
     color: var(--gn-ink);
   }
 
   :global(.search-page__pagefind .pagefind-ui__search-input) {
-    min-height: 3.5rem;
-    border-radius: 999px;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg);
-    color: var(--gn-ink);
+    min-block-size: 3.5rem;
     font-size: 1.125rem;
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 999px;
   }
 
-  :global(.search-page__pagefind .pagefind-ui__search-input:hover) {
+  :global(.search-page__pagefind .pagefind-ui__search-input:hover), :global(.search-page__pagefind .pagefind-ui__search-input:focus) {
     border-color: var(--gn-accent);
   }
 
@@ -339,38 +343,38 @@ const pageSeo = buildPageSeo({
 
   :global(.search-page__pagefind .pagefind-ui__search-clear),
   :global(.search-page__pagefind .pagefind-ui__button) {
-    border-radius: 999px;
     font: inherit;
+    border-radius: 999px;
   }
 
   :global(.search-page__pagefind .pagefind-ui__search-clear) {
-    top: 0.4rem;
-    right: 0.4rem;
-    height: 2.7rem;
-    min-width: 4.5rem;
+    inset-block-start: 0.4rem;
+    inset-inline-end: 0.4rem;
+    min-inline-size: 4.5rem;
+    block-size: 2.7rem;
     padding: 0 1rem;
-    border: 2px solid var(--gn-accent);
-    background: var(--gn-bg);
-    color: var(--gn-ink);
     font-size: 0.85rem;
     font-weight: 700;
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-accent);
   }
 
-  :global(.search-page__pagefind .pagefind-ui__search-clear:hover) {
+  :global(.search-page__pagefind .pagefind-ui__search-clear:hover), :global(.search-page__pagefind .pagefind-ui__search-clear:focus) {
     background: var(--gn-bg-muted);
   }
 
   :global(.search-page__pagefind .pagefind-ui__drawer) {
-    margin-top: 1.2rem;
+    margin-block-start: 1.2rem;
     background: transparent;
   }
 
   :global(.search-page__pagefind .pagefind-ui__message) {
     padding: 0.25rem 0;
-    color: var(--gn-ink-muted);
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.5;
+    color: var(--gn-ink-muted);
   }
 
   :global(.search-page__pagefind .pagefind-ui__results) {
@@ -383,29 +387,28 @@ const pageSeo = buildPageSeo({
     position: relative;
     display: block;
     padding: 1.7rem 0.2rem 1.55rem 1.1rem;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
     overflow: hidden;
     font-size: 1.125rem;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result::before) {
-    content: "";
     position: absolute;
     inset: 0 auto 0 0;
-    width: 0.28rem;
+    inline-size: 0.28rem;
+    content: "";
   }
 
   :global(.search-page__pagefind .pagefind-ui__result::after) {
-    content: "";
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
+    inset-block-end: 0;
+    inset-inline: 0;
+    block-size: 1px;
     pointer-events: none;
+    content: "";
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-link) {
@@ -420,13 +423,13 @@ const pageSeo = buildPageSeo({
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-inner) {
-    margin-top: 0;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    align-items: start;
     gap: 1.2rem;
-    min-width: 0;
-    width: 100%;
+    align-items: start;
+    inline-size: 100%;
+    min-inline-size: 0;
+    margin-block-start: 0;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-nested) {
@@ -435,23 +438,23 @@ const pageSeo = buildPageSeo({
 
   :global(.search-page__pagefind .pagefind-ui__result-title) {
     display: block;
+    inline-size: 100%;
+    min-inline-size: 0;
     margin: 0;
-    min-width: 0;
-    width: 100%;
-    color: var(--gn-ink);
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.18;
+    color: var(--gn-ink);
     letter-spacing: -0.02em;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-title .pagefind-ui__result-link) {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 0.95rem;
-    width: 100%;
-    min-width: 0;
+    align-items: flex-start;
+    inline-size: 100%;
+    min-inline-size: 0;
     color: var(--gn-ink);
     text-decoration: none;
     -webkit-text-fill-color: var(--gn-ink);
@@ -459,6 +462,8 @@ const pageSeo = buildPageSeo({
 
   :global(
     .search-page__pagefind .pagefind-ui__result-title .pagefind-ui__result-link:hover
+  ), :global(
+    .search-page__pagefind .pagefind-ui__result-title .pagefind-ui__result-link:focus
   ) {
     color: var(--gn-accent);
     -webkit-text-fill-color: var(--gn-accent);
@@ -500,41 +505,42 @@ const pageSeo = buildPageSeo({
   ) {
     display: inline-flex;
     align-items: center;
-    width: fit-content;
-    min-height: 1.9rem;
+    inline-size: fit-content;
+    min-block-size: 1.9rem;
     padding: 0.2rem 0.65rem;
-    border-radius: 999px;
-    border: 1px solid var(--gn-accent);
-    background: var(--gn-bg);
-    color: var(--gn-accent);
     font-size: 1rem;
     font-weight: 800;
-    letter-spacing: 0.12em;
     line-height: 1;
-    text-decoration: none;
+    color: var(--gn-accent);
     text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-accent);
+    border-radius: 999px;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-excerpt) {
-    margin: 0;
     display: block;
-    min-width: 0;
-    width: 100%;
-    color: var(--gn-ink-muted);
+    display: -webkit-box;
+    inline-size: 100%;
+    min-inline-size: 0;
+    max-inline-size: none;
+    margin: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
     font-size: 1.125rem;
     line-height: 1.84;
-    max-width: none;
+    color: var(--gn-ink-muted);
     text-wrap: pretty;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    /* stylelint-disable-next-line property-no-deprecated */
+    -webkit-box-orient: block-axis;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-excerpt mark) {
+    padding: 0 0.16em;
     color: var(--gn-ink);
     background: rgba(251, 191, 36, 0.36);
-    padding: 0 0.16em;
     border-radius: 0.2rem;
   }
 
@@ -543,21 +549,21 @@ const pageSeo = buildPageSeo({
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-tags) {
-    margin-top: 0.45rem;
     gap: 0.45rem;
+    margin-block-start: 0.45rem;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-tag) {
     display: inline-flex;
     align-items: center;
-    min-height: 1.85rem;
+    min-block-size: 1.85rem;
     padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    border: 1px solid var(--gn-accent);
-    background: var(--gn-bg);
-    color: var(--gn-ink-muted);
     font-size: 1rem;
     font-weight: 600;
+    color: var(--gn-ink-muted);
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-accent);
+    border-radius: 999px;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result *) {
@@ -569,8 +575,8 @@ const pageSeo = buildPageSeo({
   :global(.search-page__pagefind .pagefind-ui__result-inner),
   :global(.search-page__pagefind .pagefind-ui__result-excerpt),
   :global(.search-page__pagefind .pagefind-ui__result-excerpt *) {
-    min-width: 0;
-    width: 100%;
+    inline-size: 100%;
+    min-inline-size: 0;
   }
 
   :global(.search-page__pagefind .pagefind-ui__result-title),
@@ -584,24 +590,24 @@ const pageSeo = buildPageSeo({
   }
 
   :global(.search-page__pagefind .pagefind-ui__result + .pagefind-ui__result) {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   :global(.search-page__pagefind .pagefind-ui__button) {
-    min-height: 2.7rem;
+    min-block-size: 2.7rem;
     padding: 0.65rem 1rem;
-    border: 2px solid var(--gn-accent);
-    background: var(--gn-bg);
-    color: var(--gn-ink);
     font-size: 1.125rem;
     font-weight: 700;
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-accent);
   }
 
-  :global(.search-page__pagefind .pagefind-ui__button:hover) {
+  :global(.search-page__pagefind .pagefind-ui__button:hover), :global(.search-page__pagefind .pagefind-ui__button:focus) {
     background: var(--gn-bg-muted);
   }
 
-  @media (min-width: 640px) {
+  @media (width >= 640px) {
     .search-page {
       gap: 2.2rem;
     }

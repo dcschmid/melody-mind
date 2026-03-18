@@ -3,7 +3,7 @@
  * Replaces the over-engineered class-based approach
  */
 
-import { isBrowser } from "@utils/environment";
+import { isBrowser } from "@shared-utils/utils/environment";
 
 interface BackToTopConfig {
   buttonId: string;

@@ -1,9 +1,9 @@
 ---
-import { Icon } from "astro-icon/components";
+import Icon from "@shared-ui/components/Icon.astro";
 import {
   DEFAULT_BOOKMARK_CATEGORY,
   type BookmarkCategory,
-} from "@utils/bookmarks/clientBookmarks";
+} from "@shared-utils/utils/bookmarks/clientBookmarks";
 
 interface Props {
   articleSlug: string;
@@ -40,7 +40,7 @@ const {
     getBookmarkBySlug,
     normalizeBookmarkSlug,
     toggleBookmark,
-  } from "@utils/bookmarks/clientBookmarks";
+  } from "@shared-utils/utils/bookmarks/clientBookmarks";
 
   const isBookmarkCategory = (
     value: string
@@ -53,12 +53,12 @@ const {
 
   const updateButtonState = (button: HTMLButtonElement): void => {
     const slug = normalizeBookmarkSlug(button.dataset.bookmarkSlug || "");
-    if (!slug) return;
+    if (!slug) {return;}
     const label = button.querySelector<HTMLElement>("[data-bookmark-label]");
     const isSaved = Boolean(getBookmarkBySlug(slug));
     button.dataset.bookmarkState = isSaved ? "saved" : "empty";
     button.setAttribute("aria-pressed", isSaved ? "true" : "false");
-    if (label) label.textContent = isSaved ? "Saved" : "Save article";
+    if (label) {label.textContent = isSaved ? "Saved" : "Save article";}
   };
 
   buttons.forEach((button) => {
@@ -84,19 +84,19 @@ const {
 <style>
   .bookmark-button {
     display: inline-flex;
-    align-items: center;
     gap: 0.45rem;
-    min-height: 44px;
+    align-items: center;
+    min-block-size: 44px;
     padding: 0.45rem 1rem;
-    border-radius: 999px;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
-    color: var(--gn-ink);
     font-weight: 600;
+    color: var(--gn-ink);
     cursor: pointer;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 999px;
   }
 
-  .bookmark-button:hover {
+  .bookmark-button:hover, .bookmark-button:focus {
     background: var(--gn-bg);
   }
 
@@ -106,13 +106,13 @@ const {
   }
 
   .bookmark-button__icon {
-    width: 1rem;
-    height: 1rem;
+    inline-size: 1rem;
+    block-size: 1rem;
     color: var(--gn-accent);
   }
 
   .bookmark-button[data-bookmark-state="saved"] {
-    border-color: var(--gn-accent);
     background: var(--gn-bg);
+    border-color: var(--gn-accent);
   }
 </style>

@@ -1,4 +1,6 @@
 ---
+import Headline from "@shared-ui/components/Headline.astro";
+
 interface BookmarkEntryMeta {
   slug: string;
   title: string;
@@ -69,29 +71,23 @@ const { entries = [] } = Astro.props;
 
   <div class="bookmark-manager__groups" data-bookmark-groups hidden>
     <section class="bookmark-manager__group" data-bookmark-group="to-read">
-      <h2 class="bookmark-manager__group-title">
-        To Read <span class="bookmark-manager__count" data-bookmark-count="to-read"
-          >0</span
-        >
-      </h2>
+      <Headline level="h2" textSize="base" className="bookmark-manager__group-title">
+        To Read <span class="bookmark-manager__count" data-bookmark-count="to-read">0</span>
+      </Headline>
       <ul class="bookmark-manager__list" data-bookmark-list="to-read"></ul>
     </section>
 
     <section class="bookmark-manager__group" data-bookmark-group="favorites">
-      <h2 class="bookmark-manager__group-title">
-        Favorites <span class="bookmark-manager__count" data-bookmark-count="favorites"
-          >0</span
-        >
-      </h2>
+      <Headline level="h2" textSize="base" className="bookmark-manager__group-title">
+        Favorites <span class="bookmark-manager__count" data-bookmark-count="favorites">0</span>
+      </Headline>
       <ul class="bookmark-manager__list" data-bookmark-list="favorites"></ul>
     </section>
 
     <section class="bookmark-manager__group" data-bookmark-group="research">
-      <h2 class="bookmark-manager__group-title">
-        Research <span class="bookmark-manager__count" data-bookmark-count="research"
-          >0</span
-        >
-      </h2>
+      <Headline level="h2" textSize="base" className="bookmark-manager__group-title">
+        Research <span class="bookmark-manager__count" data-bookmark-count="research">0</span>
+      </Headline>
       <ul class="bookmark-manager__list" data-bookmark-list="research"></ul>
     </section>
   </div>
@@ -114,8 +110,8 @@ const { entries = [] } = Astro.props;
     setBookmarkCategory,
     type Bookmark,
     type BookmarkCategory,
-  } from "@utils/bookmarks/clientBookmarks";
-  import { emitToast } from "@utils/components/toastUtils";
+  } from "@shared-utils/utils/bookmarks/clientBookmarks";
+  import { emitToast } from "@shared-utils/utils/components/toastUtils";
 
   interface BookmarkEntryMeta {
     slug: string;
@@ -134,7 +130,7 @@ const { entries = [] } = Astro.props;
 
   const formatDate = (value: string): string => {
     const parsed = new Date(value);
-    if (Number.isNaN(parsed.valueOf())) return "";
+    if (Number.isNaN(parsed.valueOf())) {return "";}
 
     return new Intl.DateTimeFormat("en", {
       year: "numeric",
@@ -193,7 +189,7 @@ const { entries = [] } = Astro.props;
     const pendingRemovals = new Map<string, Bookmark>();
     const undoTimers = new Map<string, number>();
 
-    if (!empty || !groups || !feedback || !entriesDataNode) return;
+    if (!empty || !groups || !feedback || !entriesDataNode) {return;}
 
     const entries: BookmarkEntryMeta[] = (() => {
       try {
@@ -206,9 +202,9 @@ const { entries = [] } = Astro.props;
 
     const entryMap = new Map<string, BookmarkEntryMeta>();
     entries.forEach((entry) => {
-      if (!entry || typeof entry.slug !== "string") return;
+      if (!entry || typeof entry.slug !== "string") {return;}
       const slug = normalizeBookmarkSlug(entry.slug);
-      if (!slug) return;
+      if (!slug) {return;}
       entryMap.set(slug, entry);
     });
 
@@ -229,25 +225,25 @@ const { entries = [] } = Astro.props;
 
       bookmarks.forEach((bookmark) => {
         const group = grouped.get(bookmark.category);
-        if (group) group.push(bookmark);
+        if (group) {group.push(bookmark);}
       });
 
       countNodes.forEach((node) => {
         const category = node.dataset.bookmarkCount as BookmarkCategory | undefined;
-        if (!category) return;
+        if (!category) {return;}
         node.textContent = String(grouped.get(category)?.length || 0);
       });
 
       groupNodes.forEach((groupNode) => {
         const category = groupNode.dataset.bookmarkGroup as BookmarkCategory | undefined;
-        if (!category) return;
+        if (!category) {return;}
         const count = grouped.get(category)?.length || 0;
         groupNode.dataset.empty = count ? "false" : "true";
       });
 
       listNodes.forEach((listNode) => {
         const category = listNode.dataset.bookmarkList as BookmarkCategory | undefined;
-        if (!category) return;
+        if (!category) {return;}
         listNode.innerHTML = "";
 
         const items = grouped.get(category) || [];
@@ -407,7 +403,7 @@ const { entries = [] } = Astro.props;
 
     importFile?.addEventListener("change", async () => {
       const file = importFile.files?.[0];
-      if (!file) return;
+      if (!file) {return;}
 
       if (file.size > BOOKMARK_IMPORT_MAX_BYTES) {
         const maxMb = (BOOKMARK_IMPORT_MAX_BYTES / 1_000_000).toFixed(1);
@@ -505,12 +501,12 @@ const { entries = [] } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem;
-    justify-content: space-between;
     align-items: center;
-    border-radius: 0.75rem;
-    border: 1px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
+    justify-content: space-between;
     padding: 0.8rem;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
   }
 
   .bookmark-manager__actions,
@@ -523,31 +519,32 @@ const { entries = [] } = Astro.props;
 
   .bookmark-manager__label {
     font-size: 1rem;
-    color: var(--gn-ink-muted);
     font-weight: 600;
+    color: var(--gn-ink-muted);
   }
 
   .bookmark-manager__button,
   .bookmark-manager__select {
-    appearance: none;
-    min-height: 2.25rem;
-    border-radius: 0.5rem;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg);
-    color: var(--gn-ink);
-    font-size: 1rem;
+    min-block-size: 2.25rem;
     padding: 0.35rem 0.65rem;
+    font-size: 1rem;
+    color: var(--gn-ink);
+    appearance: none;
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 0.5rem;
   }
 
   .bookmark-manager__button {
-    cursor: pointer;
     font-weight: 600;
+    cursor: pointer;
   }
 
   .bookmark-manager__button:hover,
-  .bookmark-manager__select:hover {
-    border-color: var(--gn-accent);
+  .bookmark-manager__select:hover, .bookmark-manager__button:focus,
+  .bookmark-manager__select:focus {
     background: var(--gn-bg-muted);
+    border-color: var(--gn-accent);
   }
 
   .bookmark-manager__button:focus-visible,
@@ -557,63 +554,63 @@ const { entries = [] } = Astro.props;
   }
 
   .bookmark-manager__button--danger {
-    border-color: #d84a4a;
-    background: var(--gn-bg);
     color: #d84a4a;
+    background: var(--gn-bg);
+    border-color: #d84a4a;
   }
 
   .bookmark-manager__file {
     position: absolute;
     inline-size: 1px;
     block-size: 1px;
-    opacity: 0;
     pointer-events: none;
+    opacity: 0;
   }
 
   .bookmark-manager__feedback {
-    margin: 0;
-    color: var(--gn-ink-muted);
-    min-height: 1.4rem;
+    min-block-size: 1.4rem;
     padding: 0.45rem 0.65rem;
-    border-radius: 0.5rem;
-    border: 1px dashed var(--gn-panel-border);
-    background: var(--gn-bg-muted);
+    margin: 0;
     font-size: 1rem;
+    color: var(--gn-ink-muted);
+    background: var(--gn-bg-muted);
+    border: 1px dashed var(--gn-panel-border);
+    border-radius: 0.5rem;
   }
 
   .bookmark-manager__feedback[data-tone="success"] {
     color: #2f8a52;
-    border-color: #2f8a52;
     background: rgba(47, 138, 82, 0.1);
+    border-color: #2f8a52;
   }
 
   .bookmark-manager__feedback[data-tone="warning"] {
     color: #a06a16;
-    border-color: #a06a16;
     background: rgba(160, 106, 22, 0.1);
+    border-color: #a06a16;
   }
 
   .bookmark-manager__feedback[data-tone="error"] {
     color: #b33b3b;
-    border-color: #b33b3b;
     background: rgba(179, 59, 59, 0.1);
+    border-color: #b33b3b;
   }
 
   .bookmark-manager__empty-text {
     margin: 0;
+    font-size: 1.05rem;
     color: var(--gn-ink-muted);
     text-align: center;
-    font-size: 1.05rem;
   }
 
   .bookmark-manager__groups {
     display: grid;
-    gap: 1.4rem;
     grid-template-columns: minmax(0, 1fr);
+    gap: 1.4rem;
     align-items: start;
   }
 
-  @media (min-width: 1160px) {
+  @media (width >= 1160px) {
     .bookmark-manager__groups {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       align-items: start;
@@ -624,10 +621,10 @@ const { entries = [] } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    border-radius: 0.75rem;
-    border: 2px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
     padding: 0.95rem;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
   }
 
   .bookmark-manager__group[data-bookmark-group="to-read"] {
@@ -643,62 +640,62 @@ const { entries = [] } = Astro.props;
   }
 
   .bookmark-manager__group-title {
-    margin: 0;
     display: inline-flex;
-    align-items: center;
     gap: 0.5rem;
+    align-items: center;
+    padding-block-end: 0.4rem;
+    margin: 0;
     font-size: 1.25rem;
     color: var(--gn-ink);
     letter-spacing: 0.01em;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--gn-panel-border);
+    border-block-end: 1px solid var(--gn-panel-border);
   }
 
   .bookmark-manager__count {
-    min-width: 1.4rem;
-    height: 1.4rem;
-    padding: 0 0.38rem;
-    border-radius: 999px;
-    font-size: 1rem;
-    color: var(--gn-bg);
-    background: var(--gn-accent);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-inline-size: 1.4rem;
+    block-size: 1.4rem;
+    padding: 0 0.38rem;
+    font-size: 1rem;
+    color: var(--gn-bg);
+    background: var(--gn-accent);
+    border-radius: 999px;
   }
 
   .bookmark-manager__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 0.95rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   .bookmark-manager__group-empty {
     display: flex;
     align-items: center;
-    min-height: 5.25rem;
-    border-radius: 0.5rem;
-    border: 1px dashed var(--gn-panel-border);
+    min-block-size: 5.25rem;
     padding: 0.7rem 0.8rem;
-    color: var(--gn-ink-muted);
     font-size: 1rem;
+    color: var(--gn-ink-muted);
     background: var(--gn-bg);
+    border: 1px dashed var(--gn-panel-border);
+    border-radius: 0.5rem;
   }
 
   .bookmark-manager__item {
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--gn-panel-border);
-    background: var(--gn-bg);
     padding: 0.9rem;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.5rem;
   }
 
-  .bookmark-manager__item:hover {
+  .bookmark-manager__item:hover, .bookmark-manager__item:focus {
     border-color: var(--gn-accent);
   }
 
@@ -709,16 +706,16 @@ const { entries = [] } = Astro.props;
   .bookmark-manager__media {
     display: block;
     aspect-ratio: 3 / 2;
-    border-radius: 0.65rem;
     overflow: hidden;
     background: var(--gn-bg-muted);
     border: 1px solid var(--gn-panel-border);
+    border-radius: 0.65rem;
   }
 
   .bookmark-manager__image {
     display: block;
-    width: 100%;
-    height: 100%;
+    inline-size: 100%;
+    block-size: 100%;
     object-fit: cover;
   }
 
@@ -730,18 +727,18 @@ const { entries = [] } = Astro.props;
 
   .bookmark-manager__link {
     font-size: 1.2rem;
-    color: var(--gn-ink);
-    text-decoration: none;
     font-weight: 700;
     line-height: 1.3;
+    color: var(--gn-ink);
     letter-spacing: -0.02em;
+    text-decoration: none;
   }
 
   .bookmark-manager__link:visited {
     color: var(--gn-ink);
   }
 
-  .bookmark-manager__link:hover {
+  .bookmark-manager__link:hover, .bookmark-manager__link:focus {
     color: var(--gn-accent);
   }
 
@@ -752,8 +749,8 @@ const { entries = [] } = Astro.props;
   }
 
   .bookmark-manager__description {
-    line-height: 1.6;
     font-size: 0.98rem;
+    line-height: 1.6;
   }
 
   .bookmark-manager__meta {
@@ -769,58 +766,57 @@ const { entries = [] } = Astro.props;
   .bookmark-manager__meta-pill {
     display: inline-flex;
     align-items: center;
-    border-radius: 999px;
-    border: 1px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
-    color: var(--gn-ink-muted);
-    font-size: 1rem;
-    letter-spacing: 0.01em;
     padding: 0.3rem 0.65rem;
+    font-size: 1rem;
+    color: var(--gn-ink-muted);
+    letter-spacing: 0.01em;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
   }
 
   .bookmark-manager__meta-pill--saved {
-    border-color: var(--gn-accent);
     color: var(--gn-accent);
+    border-color: var(--gn-accent);
   }
 
   .bookmark-manager__item-controls {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    margin-top: 0.35rem;
-    padding-top: 0.65rem;
-    padding-bottom: 0.1rem;
-    border-top: 1px solid var(--gn-panel-border);
     align-items: center;
+    padding-block: 0.65rem 0.1rem;
+    margin-block-start: 0.35rem;
+    border-block-start: 1px solid var(--gn-panel-border);
   }
 
   .bookmark-manager__item-select {
-    min-width: 7.4rem;
-    font-size: 1rem;
+    min-inline-size: 7.4rem;
     padding-inline: 0.55rem;
+    font-size: 1rem;
     background: var(--gn-bg-muted);
   }
 
   .bookmark-manager__item-remove {
-    font-size: 1rem;
     padding-inline: 0.72rem;
+    font-size: 1rem;
     font-weight: 700;
   }
 
-  @media (max-width: 840px) {
+  @media (width <= 840px) {
     .bookmark-manager__toolbar {
       align-items: stretch;
     }
 
     .bookmark-manager__actions,
     .bookmark-manager__import {
-      width: 100%;
+      inline-size: 100%;
     }
 
     .bookmark-manager__button,
     .bookmark-manager__select {
       flex: 1 1 auto;
-      min-width: 0;
+      min-inline-size: 0;
     }
   }
 </style>

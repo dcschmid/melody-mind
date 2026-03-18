@@ -3,6 +3,7 @@ import PodcastLayout from '../layouts/PodcastLayout.astro';
 import SearchBar from '../components/SearchBar.astro';
 import EpisodeCard from '../components/EpisodeCard.astro';
 import HomeHero from '../components/HomeHero.astro';
+import Headline from '@shared-ui/components/Headline.astro';
 import type { PodcastData } from '../types/podcast';
 import { formatDate } from '../utils/helpers';
 
@@ -84,9 +85,9 @@ const t = {
     <SearchBar total={podcasts.length} />
 
     <section class="home__episodes" aria-labelledby="episodes-heading">
-      <h2 id="episodes-heading" class="home__section-title">
-        {t.episodes}
-      </h2>
+      <Headline level="h2" textSize="xl" className="home__section-title">
+        <span id="episodes-heading">{t.episodes}</span>
+      </Headline>
 
       <div class="home__episodes-grid" role="list" id="episodes-list">
         {
@@ -176,15 +177,13 @@ const t = {
     color: transparent;
     text-shadow: 0 10px 26px rgb(2 6 13 / 60%);
     background: var(--brand-gradient);
-    -webkit-background-clip: text;
     background-clip: text;
   }
 
   .home__episodes-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
-    border-block-start: 1px solid var(--card-divider);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1.25rem;
   }
 
   .home__load-more {
@@ -289,5 +288,11 @@ const t = {
     font-size: var(--font-size-body);
     line-height: var(--leading-relaxed, 1.75);
     color: var(--color-text-muted);
+  }
+
+  @media (width >= 960px) {
+    .home__episodes-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 </style>

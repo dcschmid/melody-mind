@@ -1,0 +1,89 @@
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-pressed="false"
+  aria-label="Switch to dark theme"
+>
+  Theme mode: <span data-theme-toggle-label>system</span>
+</button>
+
+<script>
+  import {
+    getStoredTheme,
+    getSystemTheme,
+    getResolvedTheme,
+    setStoredTheme,
+    applyTheme,
+  } from "@shared-utils/utils/theme/themeStorage";
+
+  const toggle = document.querySelector("[data-theme-toggle]");
+  const label = document.querySelector("[data-theme-toggle-label]");
+
+  const updateToggle = (): void => {
+    if (!toggle || !label) {
+      return;
+    }
+
+    const stored = getStoredTheme();
+    const resolved = stored ?? getSystemTheme();
+
+    label.textContent = stored ? stored : `system (${resolved})`;
+    toggle.setAttribute("aria-pressed", String(resolved === "dark"));
+    toggle.setAttribute(
+      "aria-label",
+      resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    );
+  };
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
+      setStoredTheme(nextTheme);
+      applyTheme(nextTheme, "manual");
+      updateToggle();
+    });
+  }
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (getStoredTheme()) {
+      return;
+    }
+
+    applyTheme(getSystemTheme(), "system");
+    updateToggle();
+  });
+
+  window.addEventListener("theme:change", () => {
+    updateToggle();
+  });
+
+  updateToggle();
+</script>
+
+<style>
+  .theme-toggle {
+    min-block-size: 2.5rem;
+    padding: 0.3rem 0.55rem;
+    font-family: inherit;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    color: var(--gn-ink);
+    text-align: start;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, transparent);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.35rem;
+  }
+
+  .theme-toggle:hover, .theme-toggle:focus {
+    color: var(--gn-ink);
+    background: color-mix(in srgb, var(--gn-bg-muted) 75%, var(--color-gn-amber-300) 25%);
+    border-color: var(--color-gn-amber-300);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--color-gn-amber-300);
+    outline-offset: 2px;
+  }
+</style>

@@ -1,0 +1,315 @@
+---
+import FooterShell from "./FooterShell.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+interface FooterLink {
+  href: string;
+  label: string;
+  target?: "_blank" | "_self";
+  rel?: string;
+}
+
+interface Props {
+  brandTitle?: string;
+  brandText: string;
+  exploreTitle?: string;
+  exploreLinks?: FooterLink[];
+  supportTitle?: string;
+  supportLinks?: FooterLink[];
+  legalTitle?: string;
+  legalLinks?: FooterLink[];
+  settingsTitle?: string;
+  showSettings?: boolean;
+  cookieSettingsLabel?: string;
+  themeStatusPrefix?: string;
+  cookiesWaitingLabel?: string;
+  cookiesAllowedLabel?: string;
+  cookiesEssentialLabel?: string;
+  copyrightText: string;
+}
+
+const {
+  brandTitle = "Brand",
+  brandText,
+  exploreTitle = "Explore",
+  exploreLinks = [],
+  supportTitle = "Support",
+  supportLinks = [],
+  legalTitle = "Legal",
+  legalLinks = [],
+  settingsTitle = "Settings",
+  showSettings = true,
+  cookieSettingsLabel = "Cookie settings",
+  themeStatusPrefix = "Theme",
+  cookiesWaitingLabel = "Cookies: waiting",
+  cookiesAllowedLabel = "Cookies: analytics allowed",
+  cookiesEssentialLabel = "Cookies: essential only",
+  copyrightText,
+} = Astro.props as Props;
+---
+
+<FooterShell class="site-footer">
+  <div class="site-footer__grid">
+    <div class="site-footer__section">
+      <p class="site-footer__title">{brandTitle}</p>
+      <p class="site-footer__text">{brandText}</p>
+    </div>
+
+    <div class="site-footer__section">
+      <p class="site-footer__title">{exploreTitle}</p>
+      <nav aria-label="Footer navigation" class="site-footer__nav">
+        {
+          exploreLinks.map((link) => (
+            <a
+              class="site-footer__link"
+              href={link.href}
+              target={link.target}
+              rel={link.rel}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <div class="site-footer__section">
+      <p class="site-footer__title">{supportTitle}</p>
+      <nav aria-label="Support links" class="site-footer__nav">
+        {
+          supportLinks.map((link) => (
+            <a
+              class="site-footer__link"
+              href={link.href}
+              target={link.target}
+              rel={link.rel}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <div class="site-footer__section">
+      <p class="site-footer__title">{legalTitle}</p>
+      <nav aria-label="Legal navigation" class="site-footer__nav">
+        {
+          legalLinks.map((link) => (
+            <a
+              class="site-footer__link"
+              href={link.href}
+              target={link.target}
+              rel={link.rel}
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    {
+      showSettings && (
+        <div class="site-footer__section">
+          <p class="site-footer__title">{settingsTitle}</p>
+          <nav aria-label="Settings navigation" class="site-footer__nav">
+            <ThemeToggle />
+            <button
+              type="button"
+              class="site-footer__link site-footer__cookie-button"
+              data-cookie-settings-trigger
+            >
+              {cookieSettingsLabel}
+            </button>
+          </nav>
+          <div class="site-footer__status-list">
+            <p class="site-footer__cookie-status" data-theme-status>
+              {themeStatusPrefix}: system
+            </p>
+            <p
+              class="site-footer__cookie-status"
+              data-cookie-consent-status
+              data-cookie-waiting-label={cookiesWaitingLabel}
+              data-cookie-allowed-label={cookiesAllowedLabel}
+              data-cookie-essential-label={cookiesEssentialLabel}
+            >
+              {cookiesWaitingLabel}
+            </p>
+          </div>
+        </div>
+      )
+    }
+  </div>
+
+  <div slot="bottom" class="site-footer__meta">
+    <p>{copyrightText}</p>
+  </div>
+</FooterShell>
+
+<script>
+  import { getStoredTheme, getResolvedTheme } from "@shared-utils/utils/theme/themeStorage";
+
+  const STORAGE_KEY = "cookie_consent";
+  const trigger = document.querySelector<HTMLElement>("[data-cookie-settings-trigger]");
+  const themeStatusElement = document.querySelector<HTMLElement>("[data-theme-status]");
+  const statusElement = document.querySelector<HTMLElement>("[data-cookie-consent-status]");
+
+  interface ConsentPreference {
+    essential: true;
+    analytics: boolean;
+  }
+
+  const readConsent = (): ConsentPreference | null => {
+    try {
+      const raw = window.localStorage?.getItem(STORAGE_KEY);
+      if (!raw) {return null;}
+      const parsed = JSON.parse(raw);
+      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean")
+        {return null;}
+      return { essential: true, analytics: parsed.analytics };
+    } catch {
+      return null;
+    }
+  };
+
+  const renderStatus = (consent: ConsentPreference | null = readConsent()) => {
+    if (!statusElement) {return;}
+    const waitingLabel = statusElement.dataset.cookieWaitingLabel || "Cookies: waiting";
+    const allowedLabel =
+      statusElement.dataset.cookieAllowedLabel || "Cookies: analytics allowed";
+    const essentialLabel =
+      statusElement.dataset.cookieEssentialLabel || "Cookies: essential only";
+    if (!consent) {
+      statusElement.textContent = waitingLabel;
+      return;
+    }
+    statusElement.textContent = consent.analytics
+      ? allowedLabel
+      : essentialLabel;
+  };
+
+  const renderThemeStatus = () => {
+    if (!themeStatusElement) {return;}
+    const storedTheme = getStoredTheme();
+    const resolvedTheme = getResolvedTheme();
+    themeStatusElement.textContent = `Theme: ${resolvedTheme} (${storedTheme ? "manual" : "system"})`;
+  };
+
+  renderStatus();
+  renderThemeStatus();
+
+  trigger?.addEventListener("click", () =>
+    window.dispatchEvent(new CustomEvent("cookie-consent:open"))
+  );
+
+  window.addEventListener("cookie-consent:change", () => renderStatus());
+  window.addEventListener("theme:change", () => renderThemeStatus());
+</script>
+
+<style>
+  .site-footer {
+    background: var(--gn-bg);
+    border-block-start: 1px solid var(--gn-panel-border);
+  }
+
+  .site-footer :global(.footer-shell__container) {
+    max-inline-size: 72rem;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    color: var(--gn-ink);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (width >= 640px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .site-footer__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .site-footer__title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--gn-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .site-footer__text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--gn-ink-muted);
+  }
+
+  .site-footer__nav {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .site-footer__link {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+    color: var(--gn-ink-muted);
+    text-decoration: none;
+  }
+
+  .site-footer__link:hover, .site-footer__link:focus {
+    color: var(--gn-accent);
+  }
+
+  .site-footer__link:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--gn-accent) 35%, transparent);
+  }
+
+  .site-footer__meta {
+    padding-block-start: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--gn-ink-muted);
+    border-block-start: 1px solid var(--gn-panel-border);
+  }
+
+  .site-footer__cookie-button {
+    font-family: inherit;
+    text-align: start;
+    cursor: pointer;
+    background: none;
+    border: 0;
+  }
+
+  .site-footer__cookie-status {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .site-footer__status-list {
+    display: grid;
+    gap: 0.3rem;
+    padding-block-start: 0.5rem;
+    margin-block-start: 0.5rem;
+    border-block-start: 1px solid var(--gn-panel-border);
+  }
+</style>

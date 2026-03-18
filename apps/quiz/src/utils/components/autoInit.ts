@@ -1,12 +1,12 @@
 /**
  * Simplified interactive component initialization for quiz app.
  */
-import { isServer } from "@utils/environment";
+import { isServer } from "@shared-utils/utils/environment";
 
 let hasInitialized = false;
 
 const runWhenIdle = (cb: () => void): void => {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") {return;}
   
   if ("requestIdleCallback" in window) {
     (window as any).requestIdleCallback(

@@ -6,7 +6,7 @@
  */
 
 import { VERSIONED_KEYS } from "@constants/storageVersions";
-import { safeLocalStorage } from "@utils/storage/safeStorage";
+import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
 
 const MAX_ENTRIES = 5;
 
@@ -19,7 +19,7 @@ interface RecentReadEntry {
 
 export function initRecentReads(): void {
   const dataEl = document.getElementById("recent-read-data");
-  if (!dataEl) return;
+  if (!dataEl) {return;}
 
   const recentEntry: RecentReadEntry = {
     slug: dataEl.dataset.slug || "",
@@ -28,7 +28,7 @@ export function initRecentReads(): void {
     image: dataEl.dataset.image || "",
   };
 
-  if (!recentEntry.slug || !recentEntry.title) return;
+  if (!recentEntry.slug || !recentEntry.title) {return;}
 
   const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
   const raw = safeLocalStorage.getRaw(VERSIONED_KEYS.RECENT_READS);

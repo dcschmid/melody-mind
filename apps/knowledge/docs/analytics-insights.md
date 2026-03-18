@@ -49,7 +49,6 @@ no free text payloads).
   - `Search: short query`, `Search: medium query`, `Search: long query`
 - Consent/settings interactions:
   - `Cookie settings: open`
-  - `Reading settings: open`
   - `Consent: accept analytics`
 - Heatmap-like click zones:
   - `Heatmap click: header|main|article|share|search|reading-controls|footer|other`

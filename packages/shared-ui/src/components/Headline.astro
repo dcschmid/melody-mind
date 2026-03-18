@@ -1,0 +1,130 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  title?: string;
+  level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  className?: string;
+  class?: string;
+  textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  textAlign?: "left" | "center" | "right";
+}
+
+const {
+  title,
+  level = "h1",
+  className = "",
+  class: classProp = "",
+  textSize = "lg",
+  textAlign = "left",
+  ...rest
+} = Astro.props as Props;
+
+const Tag = level;
+
+const textSizeClasses: Record<NonNullable<Props["textSize"]>, string> = {
+  sm: "headline--size-sm",
+  base: "headline--size-base",
+  lg: "headline--size-lg",
+  xl: "headline--size-xl",
+  "2xl": "headline--size-2xl",
+  "3xl": "headline--size-3xl",
+  "4xl": "headline--size-4xl",
+};
+
+const textAlignClasses: Record<NonNullable<Props["textAlign"]>, string> = {
+  left: "headline--align-left",
+  center: "headline--align-center",
+  right: "headline--align-right",
+};
+
+const classes = [
+  "headline",
+  textSizeClasses[textSize],
+  textAlignClasses[textAlign],
+  className,
+  classProp,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag {...rest} class={classes}>{title || <slot />}</Tag>
+
+<style>
+  .headline {
+    margin: 0;
+    font-family: var(--headline-font-family, var(--font-display, inherit));
+    font-weight: var(--headline-font-weight, 700);
+    line-height: var(--headline-line-height, var(--line-height-tight, 1.25));
+    color: var(--headline-color, var(--gn-ink, var(--color-text, currentColor)));
+    letter-spacing: var(--headline-letter-spacing, 0);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    text-shadow: var(--headline-shadow, none);
+  }
+
+  .headline--size-sm {
+    font-size: var(--headline-size-sm, 1.25rem);
+  }
+
+  .headline--size-base {
+    font-size: var(--headline-size-base, 1.375rem);
+  }
+
+  .headline--size-lg {
+    font-size: var(--headline-size-lg, 1.625rem);
+  }
+
+  .headline--size-xl {
+    font-size: var(--headline-size-xl, 2.125rem);
+  }
+
+  .headline--size-2xl {
+    font-size: var(--headline-size-2xl, 2.625rem);
+  }
+
+  .headline--size-3xl {
+    font-size: var(--headline-size-3xl, 3.125rem);
+  }
+
+  .headline--size-4xl {
+    font-size: var(--headline-size-4xl, clamp(2.85rem, 5vi, 3.6rem));
+  }
+
+  @media (width >= 768px) {
+    .headline--size-sm {
+      font-size: var(--headline-size-sm-desktop, 1.375rem);
+    }
+
+    .headline--size-base {
+      font-size: var(--headline-size-base-desktop, 1.625rem);
+    }
+
+    .headline--size-lg {
+      font-size: var(--headline-size-lg-desktop, 1.875rem);
+    }
+
+    .headline--size-xl {
+      font-size: var(--headline-size-xl-desktop, 2.625rem);
+    }
+
+    .headline--size-2xl {
+      font-size: var(--headline-size-2xl-desktop, 3.125rem);
+    }
+
+    .headline--size-3xl {
+      font-size: var(--headline-size-3xl-desktop, 3.625rem);
+    }
+  }
+
+  .headline--align-left {
+    text-align: start;
+  }
+
+  .headline--align-center {
+    text-align: center;
+  }
+
+  .headline--align-right {
+    text-align: end;
+  }
+</style>

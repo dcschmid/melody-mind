@@ -1,0 +1,619 @@
+---
+import Icon from "../Icon.astro";
+
+interface NavItem {
+  href: string;
+  label: string;
+  icon?: string;
+  badgeType?: "bookmarkCount";
+  badgeBaseLabel?: string;
+}
+
+interface Props {
+  navItems: NavItem[];
+  showIcons?: boolean;
+  brandHref?: string;
+  brandText?: string;
+  brandMark?: string;
+  brandAriaLabel?: string;
+  menuOpenLabel?: string;
+  menuCloseLabel?: string;
+  menuText?: string;
+  navAriaLabel?: string;
+}
+
+const {
+  navItems,
+  showIcons = true,
+  brandHref = "/",
+  brandText = "Melody Mind",
+  brandMark = "MM",
+  brandAriaLabel = "Go to the homepage",
+  menuOpenLabel = "Open main menu",
+  menuCloseLabel = "Close main menu",
+  menuText = "Menu",
+  navAriaLabel = "Primary navigation",
+} = Astro.props as Props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href={brandHref} aria-label={brandAriaLabel}>
+      <span class="site-header__brand-mark" aria-hidden="true">{brandMark}</span>
+      <span class="site-header__brand-text">{brandText}</span>
+    </a>
+
+    <button
+      type="button"
+      class="site-header__menu-toggle"
+      aria-expanded="false"
+      aria-controls="site-primary-nav"
+      aria-label={menuOpenLabel}
+      data-menu-open-label={menuOpenLabel}
+      data-menu-close-label={menuCloseLabel}
+      data-site-header-toggle
+    >
+      <span class="site-header__menu-icon-wrap" aria-hidden="true">
+        <Icon name="menu" class="site-header__menu-icon site-header__menu-icon--open" />
+        <Icon name="x" class="site-header__menu-icon site-header__menu-icon--close" />
+      </span>
+      <span>{menuText}</span>
+    </button>
+
+    <nav id="site-primary-nav" class="site-header__nav" aria-label={navAriaLabel}>
+      <ul class="site-header__nav-list">
+        {
+          navItems.map((item) => {
+            const isActive =
+              item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href);
+
+            return (
+              <li>
+                <a
+                  class="site-header__nav-link"
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {showIcons && item.icon ? (
+                    <Icon
+                      name={item.icon}
+                      class="site-header__nav-icon"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                  <span>{item.label}</span>
+                  {item.badgeType === "bookmarkCount" ? (
+                    <span
+                      class="site-header__badge"
+                      data-bookmark-count
+                      data-bookmark-base-label={item.badgeBaseLabel ?? item.label}
+                      hidden
+                    >
+                      0
+                    </span>
+                  ) : null}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+  </div>
+  <button
+    type="button"
+    class="site-header__scrim"
+    aria-label="Close main menu"
+    tabindex="-1"
+    data-site-header-scrim></button>
+</header>
+
+<script>
+  import {
+    BOOKMARK_CHANGE_EVENT,
+    getBookmarkCount,
+    BOOKMARK_STORAGE_KEY,
+  } from "@shared-utils/utils/bookmarks/clientBookmarks";
+
+  const bookmarkCountNodes = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-bookmark-count]")
+  );
+
+  const updateBookmarkCount = (): void => {
+    if (!bookmarkCountNodes.length) {
+      return;
+    }
+    const count = getBookmarkCount();
+    bookmarkCountNodes.forEach((node) => {
+      node.textContent = String(count);
+      node.hidden = count <= 0;
+
+      const link = node.closest<HTMLAnchorElement>("a");
+      if (!link) {
+        return;
+      }
+      const baseLabel = node.dataset.bookmarkBaseLabel || "Bookmarks";
+      const ariaLabel =
+        count > 0
+          ? `${baseLabel}, ${count} saved article${count === 1 ? "" : "s"}`
+          : baseLabel;
+      link.setAttribute("aria-label", ariaLabel);
+    });
+  };
+
+  const toggle = document.querySelector<HTMLButtonElement>("[data-site-header-toggle]");
+  const nav = document.getElementById("site-primary-nav");
+  const scrim = document.querySelector<HTMLButtonElement>("[data-site-header-scrim]");
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const headerSearchInput = document.querySelector<HTMLInputElement>(
+    "[data-site-header-search-input]"
+  );
+
+  if (toggle && nav && header) {
+    const desktopQuery = window.matchMedia("(min-width: 880px)");
+    const getFocusableNavItems = (): HTMLElement[] =>
+      Array.from(
+        nav.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])"
+        )
+      );
+    let previousFocus: HTMLElement | null = null;
+
+    const setOpen = (open: boolean, restoreFocus = true): void => {
+      if (open) {
+        previousFocus =
+          document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      }
+
+      header.dataset.open = open ? "true" : "false";
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      nav.dataset.open = open ? "true" : "false";
+      const openLabel = toggle.dataset.menuOpenLabel || "Open main menu";
+      const closeLabel = toggle.dataset.menuCloseLabel || "Close main menu";
+      toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
+
+      if (open) {
+        window.requestAnimationFrame(() => {
+          getFocusableNavItems()[0]?.focus();
+        });
+        return;
+      }
+
+      if (!restoreFocus) {
+        return;
+      }
+
+      const activeElement = document.activeElement;
+      const shouldRestoreFocus =
+        activeElement instanceof HTMLElement &&
+        (nav.contains(activeElement) || activeElement === scrim);
+
+      if (!shouldRestoreFocus) {
+        return;
+      }
+
+      if (previousFocus) {
+        previousFocus.focus();
+        return;
+      }
+
+      toggle.focus();
+    };
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      setOpen(!isOpen);
+    });
+
+    const handleDesktopChange = (event: MediaQueryListEvent): void => {
+      if (event.matches) {
+        setOpen(false);
+      }
+    };
+
+    const navLinks = Array.from(nav.querySelectorAll<HTMLAnchorElement>("a[href]"));
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (!desktopQuery.matches) {
+          setOpen(false);
+        }
+      });
+    });
+
+    scrim?.addEventListener("click", () => setOpen(false));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || toggle.getAttribute("aria-expanded") !== "true") {
+        return;
+      }
+
+      const focusable = [toggle, ...getFocusableNavItems()];
+      if (!focusable.length) {
+        return;
+      }
+
+      const activeElement = document.activeElement;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && activeElement === first) {
+        event.preventDefault();
+        last.focus();
+        return;
+      }
+
+      if (!event.shiftKey && activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    setOpen(false, false);
+    desktopQuery.addEventListener("change", handleDesktopChange);
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key !== "/" ||
+      event.defaultPrevented ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    const activeElement = document.activeElement;
+    if (
+      activeElement instanceof HTMLInputElement ||
+      activeElement instanceof HTMLTextAreaElement ||
+      activeElement instanceof HTMLSelectElement ||
+      activeElement?.getAttribute("contenteditable") === "true"
+    ) {
+      return;
+    }
+
+    if (!headerSearchInput) {
+      return;
+    }
+
+    event.preventDefault();
+    headerSearchInput.focus();
+    headerSearchInput.select();
+  });
+
+  updateBookmarkCount();
+  window.addEventListener("storage", (event) => {
+    if (event.key && event.key !== BOOKMARK_STORAGE_KEY) {
+      return;
+    }
+    updateBookmarkCount();
+  });
+  window.addEventListener(BOOKMARK_CHANGE_EVENT, () => updateBookmarkCount());
+</script>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 50;
+    background: var(--gn-bg);
+    border-block-end: 1px solid var(--gn-panel-border);
+  }
+
+  .site-header__inner {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    max-inline-size: 72rem;
+    padding: 0.75rem 1rem;
+    margin: 0 auto;
+  }
+
+  @media (width >= 640px) {
+    .site-header__inner {
+      padding: 0.85rem 1.5rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .site-header__inner {
+      padding: 1rem 2rem;
+    }
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-shrink: 0;
+    font-weight: 700;
+    color: var(--gn-ink);
+    text-decoration: none;
+  }
+
+  .site-header__brand:hover,
+  .site-header__brand:focus {
+    color: var(--gn-accent);
+  }
+
+  .site-header__brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-accent);
+    border-radius: 999px;
+  }
+
+  .site-header__brand-text {
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .site-header__menu-toggle {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    min-block-size: 44px;
+    padding: 0.55rem 0.9rem;
+    font: inherit;
+    font-weight: 600;
+    color: var(--gn-ink);
+    cursor: pointer;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
+  }
+
+  .site-header__menu-icon-wrap {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .site-header__menu-icon {
+    position: absolute;
+    inline-size: 1rem;
+    block-size: 1rem;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .site-header__menu-icon--close {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .site-header[data-open="true"] .site-header__menu-icon--open {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .site-header[data-open="true"] .site-header__menu-icon--close {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .site-header__nav {
+    position: fixed;
+    inset-block: 0;
+    inset-inline-end: 0;
+    z-index: 60;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    inline-size: min(24rem, 100%);
+    padding: 5rem 1rem 1.5rem;
+    overflow-y: auto;
+    background: var(--gn-bg);
+    border-inline-start: 1px solid var(--gn-panel-border);
+    transform: translateX(100%);
+    transition: transform 0.24s ease;
+  }
+
+  .site-header__nav[data-open="true"] {
+    transform: translateX(0);
+  }
+
+  .site-header__search {
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+    gap: 0.6rem;
+  }
+
+  .site-header__search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .site-header__search-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+  }
+
+  .site-header__search-field {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.65rem;
+    align-items: center;
+    padding: 0.55rem 0.7rem;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 1rem;
+  }
+
+  .site-header__search-icon,
+  .site-header__search-submit-icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .site-header__search-input {
+    min-inline-size: 0;
+    font: inherit;
+    color: var(--gn-ink);
+    background: transparent;
+    border: 0;
+  }
+
+  .site-header__search-input::placeholder {
+    color: var(--gn-ink-muted);
+  }
+
+  .site-header__search-input:focus {
+    outline: 0;
+  }
+
+  .site-header__search-submit {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    min-block-size: 2.25rem;
+    padding: 0.4rem 0.8rem;
+    font: inherit;
+    font-weight: 600;
+    color: var(--gn-ink);
+    cursor: pointer;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
+  }
+
+  .site-header__nav-list {
+    display: grid;
+    gap: 0.65rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .site-header__nav-link {
+    display: inline-flex;
+    gap: 0.55rem;
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: 44px;
+    padding: 0.7rem 0.9rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    text-decoration: none;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.9rem;
+  }
+
+  .site-header__nav-icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .site-header__nav-link[aria-current="page"] {
+    border-color: var(--gn-accent);
+  }
+
+  .site-header__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 1.5rem;
+    min-block-size: 1.5rem;
+    padding: 0 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gn-bg);
+    background: var(--gn-accent);
+    border-radius: 999px;
+  }
+
+  .site-header__scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    background: rgb(0 0 0 / 38%);
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.24s ease;
+  }
+
+  .site-header[data-open="true"] .site-header__scrim {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .site-header__brand:focus-visible,
+  .site-header__menu-toggle:focus-visible,
+  .site-header__search-input:focus-visible,
+  .site-header__search-submit:focus-visible,
+  .site-header__nav-link:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+  }
+
+  @media (width >= 880px) {
+    .site-header__menu-toggle {
+      display: none;
+    }
+
+    .site-header__nav {
+      position: static;
+      inset: auto;
+      flex: 1;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      min-inline-size: 0;
+      inline-size: auto;
+      padding: 0;
+      overflow: visible;
+      background: transparent;
+      border: 0;
+      transform: none;
+    }
+
+    .site-header__search {
+      flex: 1;
+      inline-size: min(26rem, 42vw);
+      max-inline-size: 26rem;
+    }
+
+    .site-header__nav-list {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .site-header__nav-link {
+      min-block-size: 2.5rem;
+      padding: 0.55rem 0.85rem;
+      background: transparent;
+    }
+
+    .site-header__scrim {
+      display: none;
+    }
+  }
+</style>

@@ -1,10 +1,5 @@
 ---
-/**
- * QuizCard Component
- *
- * A simplified card for displaying quiz information on the quiz overview page.
- */
-import { Icon } from "astro-icon/components";
+import SharedQuizCard from "@shared-ui/components/QuizCard.astro";
 
 export const prerender = true;
 
@@ -16,166 +11,14 @@ interface Props {
   imageAlt?: string;
 }
 
-const {
-  title,
-  description,
-  slug,
-  image,
-  imageAlt = `${title} cover image`,
-} = Astro.props;
-
-const cardId = `quiz-card-${slug}`;
+const { title, description, slug, image, imageAlt } = Astro.props as Props;
 ---
 
-<article class="quiz-card" data-testid="quiz-card" aria-labelledby={cardId}>
-  <a href={`/quiz/${slug}`} class="quiz-card__link" aria-labelledby={cardId}>
-    {
-      image && (
-        <div class="quiz-card__media">
-          <img class="quiz-card__image" src={image} alt={imageAlt} loading="lazy" />
-        </div>
-      )
-    }
-
-    <div class="quiz-card__body">
-      <h3 id={cardId} class="quiz-card__title">{title}</h3>
-      <p class="quiz-card__description">{description}</p>
-    </div>
-
-    <div class="quiz-card__footer">
-      <span class="quiz-card__cta">
-        <Icon name="play" class="quiz-card__cta-icon" aria-hidden="true" />
-        <span>Play Quiz</span>
-      </span>
-    </div>
-  </a>
-</article>
-
-<style>
-  .quiz-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    border-radius: 1rem;
-    background: linear-gradient(180deg, var(--gn-bg) 0%, var(--gn-bg-muted) 100%);
-    border: 1px solid var(--gn-panel-border);
-    overflow: hidden;
-    content-visibility: auto;
-    contain-intrinsic-size: 420px;
-    box-shadow:
-      0 18px 40px color-mix(in srgb, var(--gn-accent) 10%, transparent),
-      inset 0 1px 0 color-mix(in srgb, white 18%, transparent);
-    transition:
-      transform 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-
-  .quiz-card:hover {
-    transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--gn-accent) 36%, var(--gn-panel-border));
-    box-shadow:
-      0 22px 44px color-mix(in srgb, var(--gn-accent) 14%, transparent),
-      inset 0 1px 0 color-mix(in srgb, white 24%, transparent);
-  }
-
-  .quiz-card__link {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .quiz-card__link:focus-visible {
-    outline: none;
-  }
-
-  .quiz-card:has(.quiz-card__link:focus-visible) {
-    border-color: var(--gn-accent);
-    box-shadow:
-      inset 0 0 0 3px color-mix(in srgb, var(--gn-accent) 44%, transparent),
-      0 20px 42px color-mix(in srgb, var(--gn-accent) 16%, transparent);
-  }
-
-  .quiz-card__media {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    border-bottom: 1px solid var(--gn-panel-border);
-    background: color-mix(in srgb, var(--gn-bg-muted) 88%, black);
-  }
-
-  .quiz-card__image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.35s ease;
-  }
-
-  .quiz-card:hover .quiz-card__image {
-    transform: scale(1.03);
-  }
-
-  .quiz-card__body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    padding: 1.2rem 1.25rem 1rem;
-    flex: 1;
-  }
-
-  .quiz-card__title {
-    margin: 0;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--gn-ink);
-    line-height: 1.22;
-    letter-spacing: -0.02em;
-  }
-
-  .quiz-card__description {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--gn-ink-muted);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .quiz-card__footer {
-    padding: 0 1.25rem 1.25rem;
-  }
-
-  .quiz-card__cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    width: fit-content;
-    min-width: 9.5rem;
-    padding: 0.8rem 1.1rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--gn-bg);
-    background: var(--gn-ink);
-    box-shadow: 0 10px 22px color-mix(in srgb, var(--gn-ink) 18%, transparent);
-    transition:
-      transform 0.2s ease,
-      background-color 0.2s ease;
-  }
-
-  .quiz-card:hover .quiz-card__cta {
-    transform: translateY(-1px);
-    background: color-mix(in srgb, var(--gn-ink) 90%, white 10%);
-  }
-
-  .quiz-card__cta-icon {
-    width: 0.95rem;
-    height: 0.95rem;
-  }
-</style>
+<SharedQuizCard
+  title={title}
+  description={description}
+  href={`/${slug}`}
+  image={image}
+  imageAlt={imageAlt}
+  id={`quiz-card-${slug}`}
+/>

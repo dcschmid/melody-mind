@@ -2,8 +2,8 @@
 import PodcastLayout from '../layouts/PodcastLayout.astro';
 import TranscriptDropdown from '../components/TranscriptDropdown.astro';
 import AudioPlayer from '../components/AudioPlayer.astro';
-import Prose from '../components/Prose.astro';
-import Headline from '../components/Headline.astro';
+import Prose from '@shared-ui/components/Prose.astro';
+import Headline from '@shared-ui/components/Headline.astro';
 import { getAvailablePodcasts, getPodcastById } from '../utils/podcasts';
 import { getAdjacentByKey } from '../utils/array';
 import { buildMetaDescription, formatDate } from '../utils/helpers';

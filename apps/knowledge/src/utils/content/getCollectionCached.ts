@@ -5,7 +5,7 @@
  * NOT persistent between server restarts; safe for static hosting / SSR edge.
  */
 import type { CollectionEntry } from "astro:content";
-import { loggers } from "@utils/logging";
+import { loggers } from "@shared-utils/utils/logging";
 import { LRUCache } from "@utils/cache/LRUCache";
 
 type AnyCollectionEntries = CollectionEntry<any>[];

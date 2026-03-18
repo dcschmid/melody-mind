@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+import Icon from "@shared-ui/components/Icon.astro";
 
 export const prerender = true;
 
@@ -35,21 +35,21 @@ const { label = "Save as PDF", className = "" } = Astro.props;
 <style>
   .print-button {
     display: inline-flex;
-    align-items: center;
     gap: 0.5rem;
-    min-height: 44px;
+    align-items: center;
+    min-block-size: 44px;
     padding: 0.45rem 1rem;
-    border-radius: 999px;
-    border: 1px solid var(--gn-panel-border);
-    background: var(--gn-bg-muted);
-    color: var(--gn-ink);
     font-family: inherit;
     font-size: inherit;
     font-weight: 600;
+    color: var(--gn-ink);
     cursor: pointer;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
   }
 
-  .print-button:hover {
+  .print-button:hover, .print-button:focus {
     background: var(--gn-bg);
   }
 
@@ -59,8 +59,8 @@ const { label = "Save as PDF", className = "" } = Astro.props;
   }
 
   .print-button__icon {
-    width: 1rem;
-    height: 1rem;
+    inline-size: 1rem;
+    block-size: 1rem;
     color: var(--gn-accent);
   }
 

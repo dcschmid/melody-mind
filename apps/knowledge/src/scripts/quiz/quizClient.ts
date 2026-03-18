@@ -5,7 +5,7 @@
  * All state is managed in memory and optionally saved to localStorage.
  */
 
-import { safeLocalStorage } from "@utils/storage/safeStorage";
+import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
 
 const QUIZ_RESULTS_KEY = "quiz-results";
 
@@ -89,10 +89,10 @@ export function initQuiz(
   const navSubmit = document.getElementById("quiz-nav-submit");
   const checkAnswerBtn = document.getElementById("quiz-check-answer");
 
-  if (!questionContainer) return;
+  if (!questionContainer) {return;}
 
   function renderProgress() {
-    if (!progressContainer) return;
+    if (!progressContainer) {return;}
 
     const answeredCount = state.isAnswered.filter(Boolean).length;
     const scorePercentage =
@@ -134,7 +134,7 @@ export function initQuiz(
   }
 
   function renderQuestion() {
-    if (!questionContainer) return;
+    if (!questionContainer) {return;}
 
     const q = questions[state.currentQuestion];
     const selectedAnswer = state.answers[state.currentQuestion];
@@ -168,7 +168,7 @@ export function initQuiz(
     }
 
     function isOptionSelected(index: number): boolean {
-      if (selectedAnswer === null) return false;
+      if (selectedAnswer === null) {return false;}
       if (q.type === "multi-choice") {
         return (selectedAnswer as number[]).includes(index);
       }
@@ -182,8 +182,8 @@ export function initQuiz(
 
         let optionState = "";
         if (isAnswered) {
-          if (isCorrectOption) optionState = "correct";
-          else if (isSelected && !isCorrectOption) optionState = "incorrect";
+          if (isCorrectOption) {optionState = "correct";}
+          else if (isSelected && !isCorrectOption) {optionState = "incorrect";}
         } else if (isSelected) {
           optionState = "selected";
         }
@@ -290,7 +290,7 @@ export function initQuiz(
     const index = parseInt(btn.dataset.index || "0", 10);
     const type = btn.dataset.type as QuizQuestion["type"];
 
-    if (state.isAnswered[state.currentQuestion]) return;
+    if (state.isAnswered[state.currentQuestion]) {return;}
 
     if (type === "multi-choice") {
       let currentSelection = (state.answers[state.currentQuestion] as number[]) || [];
@@ -311,7 +311,7 @@ export function initQuiz(
   function submitAnswer() {
     const selectedAnswer = state.answers[state.currentQuestion];
 
-    if (selectedAnswer === null) return;
+    if (selectedAnswer === null) {return;}
 
     const q = questions[state.currentQuestion];
     let isCorrect: boolean;
@@ -338,7 +338,7 @@ export function initQuiz(
   }
 
   function updateNavigation() {
-    if (!navPrev || !navNext || !navSubmit || !checkAnswerBtn) return;
+    if (!navPrev || !navNext || !navSubmit || !checkAnswerBtn) {return;}
 
     navPrev.hidden = state.currentQuestion === 0;
 
@@ -355,7 +355,7 @@ export function initQuiz(
   }
 
   function goToQuestion(index: number) {
-    if (index < 0 || index >= questions.length) return;
+    if (index < 0 || index >= questions.length) {return;}
     state.currentQuestion = index;
     renderQuestion();
   }
@@ -363,7 +363,7 @@ export function initQuiz(
   function showResults() {
     state.isComplete = true;
 
-    if (!resultContainer) return;
+    if (!resultContainer) {return;}
 
     const score = Math.round((state.correctCount / questions.length) * 100);
     const passed = score >= passingScore;
@@ -371,11 +371,11 @@ export function initQuiz(
     const dashArray = `${(score / 100) * circumference} ${circumference}`;
 
     // Hide question and nav
-    if (questionContainer) questionContainer.innerHTML = "";
-    if (navPrev) navPrev.hidden = true;
-    if (navNext) navNext.hidden = true;
-    if (navSubmit) navSubmit.hidden = true;
-    if (checkAnswerBtn) checkAnswerBtn.hidden = true;
+    if (questionContainer) {questionContainer.innerHTML = "";}
+    if (navPrev) {navPrev.hidden = true;}
+    if (navNext) {navNext.hidden = true;}
+    if (navSubmit) {navSubmit.hidden = true;}
+    if (checkAnswerBtn) {checkAnswerBtn.hidden = true;}
 
     // Show results
     resultContainer.innerHTML = `

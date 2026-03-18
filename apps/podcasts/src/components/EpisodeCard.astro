@@ -1,4 +1,7 @@
 ---
+import Card from '@shared-ui/components/Card.astro';
+import Headline from '@shared-ui/components/Headline.astro';
+
 interface Props {
   id: string;
   title: string;
@@ -22,10 +25,24 @@ const {
   publishedLabel,
   isLatest,
 } = Astro.props as Props;
+
+const cardId = `episode-card-${id}`;
+const descriptionId = `${cardId}-description`;
+const metaId = `${cardId}-meta`;
 ---
 
-<article data-episode data-search={searchText} class="episode-card" role="listitem">
-  <div class="episode-card__media">
+<Card
+  class="episode-card"
+  data-episode
+  data-search={searchText}
+  role="listitem"
+  href={`/${id}`}
+  linkClassName="episode-card__link"
+  labelledBy={cardId}
+  describedBy={`${metaId} ${descriptionId}`}
+  variant="default"
+>
+  <Fragment slot="media">
     <picture>
       <source srcset={`/images/${imageUrl}.avif`} type="image/avif" />
       <source srcset={`/images/${imageUrl}.webp`} type="image/webp" />
@@ -37,12 +54,13 @@ const {
         decoding="async"
         width={600}
         height={400}
-        sizes="(max-width: 760px) 100vw, (max-width: 1024px) 168px, 192px"
+        sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw"
       />
     </picture>
-  </div>
+  </Fragment>
+
   <div class="episode-card__body">
-    <div class="episode-card__meta">
+    <div class="episode-card__meta" id={metaId}>
       <time class="episode-card__date" datetime={publishedAt}>
         {publishedLabel}
       </time>
@@ -53,55 +71,55 @@ const {
         )
       }
     </div>
-    <h3 class="episode-card__title">
-      {title}
-    </h3>
-    <p class="episode-card__description">
-      {description}
-    </p>
-    <a href={`/${id}`} class="episode-card__link" aria-label={`View the episode ${title}`}>
-      View Episode
-    </a>
+    <Headline level="h3" textSize="lg" className="episode-card__title">
+      <span id={cardId}>{title}</span>
+    </Headline>
+    <p id={descriptionId} class="episode-card__description">{description}</p>
   </div>
-</article>
+
+  <Fragment slot="footer">
+    <span class="episode-card__cta">View Episode</span>
+  </Fragment>
+</Card>
 
 <style>
   .episode-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
-    padding: 1.1rem 0;
-    border-block-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    --card-text: var(--color-text);
+    --card-bg: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--color-layer-2) 92%, transparent),
+      color-mix(in srgb, var(--color-layer-1) 96%, transparent)
+    );
+    --card-border-width: 1px;
+    --card-border-color: color-mix(in srgb, var(--color-primary) 22%, transparent);
+    --card-focus-color: var(--color-primary);
+    --card-media-bg: var(--color-layer-3);
+    box-shadow:
+      0 18px 42px rgb(2 8 18 / 34%),
+      0 0 0 1px rgb(120 200 255 / 8%);
   }
 
   .episode-card[hidden] {
     display: none;
   }
 
-  .episode-card__media {
-    position: relative;
-    inline-size: 100%;
-    container-type: inline-size;
+  :global(.episode-card.card--default:has(.card__link:focus-visible)) {
+    box-shadow:
+      inset 0 0 0 3px color-mix(in srgb, var(--color-primary) 35%, transparent),
+      0 18px 42px rgb(2 8 18 / 40%);
   }
 
   .episode-card__image {
-    display: block;
-    inline-size: 100%;
-    block-size: auto;
     object-fit: cover;
-    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
-    border-radius: 0.75rem;
-  }
-
-  @container (min-width: 300px) {
-    .episode-card__image {
-      block-size: 180px;
-    }
+    border-block-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
   }
 
   .episode-card__body {
-    display: grid;
-    gap: 0.7rem;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.1rem 1.15rem 1rem;
   }
 
   .episode-card__meta {
@@ -136,96 +154,63 @@ const {
 
   .episode-card__title {
     margin: 0;
-    font-size: clamp(var(--font-size-title-sm), 2.2vi, 1.9rem);
+    font-size: clamp(1.3rem, 1.2rem + 0.5vw, 1.7rem);
     color: var(--color-text);
+    text-wrap: balance;
   }
 
   .episode-card__description {
     margin: 0;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
     line-height: var(--leading-relaxed, 1.75);
     color: var(--color-text-muted);
+    /* stylelint-disable-next-line property-no-deprecated */
+    -webkit-box-orient: block-axis;
   }
 
   .episode-card__link {
+    block-size: 100%;
+  }
+
+  .episode-card__cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     inline-size: fit-content;
+    min-inline-size: 10rem;
     min-block-size: 2.75rem;
     padding: 0.65rem 1.1rem;
     font-weight: 700;
     color: var(--color-background);
-    text-decoration: none;
     background: var(--color-primary);
     border-radius: 0.75rem;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
   }
 
-  .episode-card__link:focus-visible {
-    outline: none;
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
+  :global(.episode-card.card--default:hover) .episode-card__cta {
+    background: var(--color-primary-hover);
+    box-shadow: 0 12px 24px rgb(2 8 18 / 30%);
+    transform: translateY(-1px);
   }
 
-  @supports (content-visibility: auto) {
-    .episode-card {
-      contain-intrinsic-size: 320px;
-      content-visibility: auto;
-    }
-  }
-
-  @supports (text-wrap: balance) {
-    .episode-card__title {
-      text-wrap: balance;
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-card__cta {
+      transition: none;
     }
   }
 
-  @supports not (color-mix(in srgb, #000 50%, transparent)) {
-    .episode-card {
-      border-block-end-color: rgb(111 225 255 / 22%);
-    }
-
-    .episode-card__image {
-      border-color: rgb(111 225 255 / 28%);
-    }
-
-    .episode-card__badge,
-    .episode-card__duration {
-      border-color: rgb(111 225 255 / 28%);
-    }
-  }
-
-  @media (width >= 760px) {
-    .episode-card {
-      flex-direction: row;
-      gap: 1.5rem;
-      align-items: flex-start;
-      padding: 1.5rem 0;
-    }
-
-    .episode-card__media {
-      flex: 0 0 10.5rem;
-      align-self: flex-start;
-    }
-
-    .episode-card__image {
-      inline-size: 100%;
-      block-size: 6rem;
-      object-fit: cover;
-    }
-
+  @container (max-width: 480px) {
     .episode-card__body {
-      flex: 1;
-    }
-  }
-
-  @media (width >= 1024px) {
-    .episode-card__media {
-      flex: 0 0 12rem;
+      padding: 1rem;
     }
 
-    .episode-card__image {
-      block-size: 6.75rem;
+    .episode-card__title {
+      font-size: 1.2rem;
     }
   }
 </style>

@@ -61,7 +61,6 @@ export function buildPageSeo(params: BuildPageSeoParams): PageSeoResult {
     title,
     description,
     url,
-    breadcrumbs = [],
     structuredData = [],
     fallbackKeywords = [],
     index = true,

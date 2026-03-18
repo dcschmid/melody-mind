@@ -1,6 +1,6 @@
-import { SESSION_KEYS } from "@constants/storage";
-import { safeLocalStorage } from "@utils/storage/safeStorage";
-import { isServer } from "@utils/environment";
+import { SESSION_KEYS } from "@shared-utils/constants/storage";
+import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
+import { isServer } from "@shared-utils/utils/environment";
 
 const STORAGE_KEY = SESSION_KEYS.AB_TESTS;
 

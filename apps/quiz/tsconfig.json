@@ -3,11 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@shared-icons/*": ["../../packages/shared-icons/src/*"],
+      "@shared-ui/*": ["../../packages/shared-ui/src/*"],
+      "@shared-utils/*": ["../../packages/shared-utils/src/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["src/utils/*"],
       "@constants/*": ["src/constants/*"],
-      "@i18n/*": ["src/i18n/*"],
       "@content/*": ["src/content/*"],
       "@types/*": ["src/types/*"],
       "@data/*": ["src/data/*"],

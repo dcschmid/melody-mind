@@ -44,22 +44,22 @@ const hasTools = aiTools.length > 0;
     display: inline-flex;
     align-items: center;
     padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    background: var(--gn-bg);
-    border: 2px solid #8b5cf6;
-    color: #c084fc;
     font-size: 0.85rem;
     font-weight: 700;
+    color: #c084fc;
     text-transform: uppercase;
     letter-spacing: 0.16em;
     text-decoration: none;
     cursor: pointer;
+    background: var(--gn-bg);
+    border: 2px solid #8b5cf6;
+    border-radius: 999px;
   }
 
-  .ai-content-badge:hover {
+  .ai-content-badge:hover, .ai-content-badge:focus {
+    color: #d8b4fe;
     background: rgba(139, 92, 246, 0.15);
     border-color: #a78bfa;
-    color: #d8b4fe;
   }
 
   .ai-content-badge:focus-visible {
@@ -69,8 +69,8 @@ const hasTools = aiTools.length > 0;
 
   .ai-content-badge__content {
     display: flex;
-    align-items: center;
     gap: 0.5rem;
+    align-items: center;
   }
 
   .ai-content-badge__icon {
@@ -93,15 +93,15 @@ const hasTools = aiTools.length > 0;
   }
 
   :root[data-theme="light"] .ai-content-badge {
+    color: #5b21b6;
     background: var(--gn-bg);
     border-color: #6d28d9;
-    color: #5b21b6;
   }
 
-  :root[data-theme="light"] .ai-content-badge:hover {
+  :root[data-theme="light"] .ai-content-badge:hover, :root[data-theme="light"] .ai-content-badge:focus {
+    color: #4c1d95;
     background: rgba(109, 40, 217, 0.1);
     border-color: #7c3aed;
-    color: #4c1d95;
   }
 
   :root[data-theme="light"] .ai-content-badge:focus-visible {

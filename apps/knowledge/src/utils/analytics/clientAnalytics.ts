@@ -4,10 +4,13 @@ import {
   BOOKMARK_ACTIONS,
   BOOKMARK_ANALYTICS_EVENTS,
   BOOKMARK_CHANGE_EVENT,
-} from "@utils/bookmarks/clientBookmarks";
-import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "@constants/storage";
-import { safeLocalStorage, safeSessionStorage } from "@utils/storage/safeStorage";
-import { isServer } from "@utils/environment";
+} from "@shared-utils/utils/bookmarks/clientBookmarks";
+import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "@shared-utils/constants/storage";
+import {
+  safeLocalStorage,
+  safeSessionStorage,
+} from "@shared-utils/utils/storage/safeStorage";
+import { isServer } from "@shared-utils/utils/environment";
 import {
   ENGAGEMENT_TIMING,
   ANALYTICS_LIMITS,
@@ -276,13 +279,13 @@ const inferClickZone = (target: HTMLElement): string => {
     return explicit;
   }
 
-  if (target.closest("header")) return "header";
-  if (target.closest("footer")) return "footer";
-  if (target.closest("[data-search-root]")) return "search";
-  if (target.closest("#share-section")) return "share";
-  if (target.closest(".reading-controls")) return "reading-controls";
-  if (target.closest("#article-content")) return "article";
-  if (target.closest("main")) return "main";
+  if (target.closest("header")) {return "header";}
+  if (target.closest("footer")) {return "footer";}
+  if (target.closest("[data-search-root]")) {return "search";}
+  if (target.closest("#share-section")) {return "share";}
+  if (target.closest(".reading-controls")) {return "reading-controls";}
+  if (target.closest("#article-content")) {return "article";}
+  if (target.closest("main")) {return "main";}
   return "other";
 };
 
@@ -519,12 +522,6 @@ const trackUiEvents = (): void => {
       if (cookieSettingsButton && !oncePerPage.has("Cookie settings: open")) {
         oncePerPage.add("Cookie settings: open");
         callFathomEvent("Cookie settings: open");
-      }
-
-      const readingSettingsButton = target.closest("[data-reading-settings-trigger]");
-      if (readingSettingsButton && !oncePerPage.has("Reading settings: open")) {
-        oncePerPage.add("Reading settings: open");
-        callFathomEvent("Reading settings: open");
       }
 
       if (target.closest("[data-cookie-action='accept']")) {

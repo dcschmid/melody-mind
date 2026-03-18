@@ -1,0 +1,73 @@
+---
+interface Props {
+  className?: string;
+  containerClass?: string;
+}
+
+const { className = "", containerClass = "" } = Astro.props as Props;
+
+const rootClasses = ["page-shell", className].filter(Boolean).join(" ");
+const containerClasses = ["page-shell__container", containerClass]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div class={rootClasses}>
+  <div class={containerClasses}>
+    <slot />
+  </div>
+</div>
+<style>
+  .page-shell {
+    position: relative;
+    min-block-size: 100vb;
+    overflow-inline: hidden;
+    color: var(--gn-ink);
+  }
+
+  .page-shell__container {
+    position: relative;
+    z-index: 1;
+    max-inline-size: 72rem;
+    padding: 2rem 0.75rem 3.5rem;
+    margin: 0 auto;
+  }
+
+  .page-shell__container--wide {
+    max-inline-size: 82rem;
+  }
+
+  .page-shell__container--spacious {
+    padding: 2.5rem 1rem;
+  }
+
+  .page-shell__container--narrow {
+    max-inline-size: 58rem;
+  }
+
+  @media (width >= 640px) {
+    .page-shell__container {
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .page-shell__container--spacious {
+      padding: 3rem 1.25rem;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .page-shell__container {
+      padding: 3rem 1.75rem 4.5rem;
+    }
+
+    .page-shell__container--spacious {
+      padding: 3.5rem 1.75rem;
+    }
+  }
+
+  @media (width >= 1280px) {
+    .page-shell__container--wide {
+      max-inline-size: 92rem;
+    }
+  }
+</style>

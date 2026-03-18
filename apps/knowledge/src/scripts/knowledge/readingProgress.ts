@@ -24,7 +24,7 @@ type ProgressStore = Record<string, ProgressEntry>;
 export function initReadingProgress(): void {
   const bar = document.getElementById("reading-progress-bar");
   const label = document.getElementById("reading-progress-label");
-  if (!bar || !label) return;
+  if (!bar || !label) {return;}
 
   const progressData = document.getElementById("recent-read-data");
   const progressSlug = progressData?.dataset.slug
@@ -39,7 +39,7 @@ export function initReadingProgress(): void {
   }
 
   const getProgressStore = (): ProgressStore | null => {
-    if (!progressSlug) return null;
+    if (!progressSlug) {return null;}
     try {
       const raw = window.localStorage?.getItem(VERSIONED_KEYS.READ_PROGRESS);
       const parsed = raw ? JSON.parse(raw) : {};
@@ -50,7 +50,7 @@ export function initReadingProgress(): void {
   };
 
   const setProgressStore = (store: ProgressStore): void => {
-    if (!progressSlug) return;
+    if (!progressSlug) {return;}
     try {
       window.localStorage?.setItem(VERSIONED_KEYS.READ_PROGRESS, JSON.stringify(store));
     } catch {
@@ -59,19 +59,19 @@ export function initReadingProgress(): void {
   };
 
   const restoreProgress = (): void => {
-    if (!progressSlug) return;
+    if (!progressSlug) {return;}
     const store = getProgressStore();
-    if (!store || typeof store !== "object") return;
+    if (!store || typeof store !== "object") {return;}
 
     const entry = store[progressSlug];
     const progress = entry && typeof entry.progress === "number" ? entry.progress : 0;
 
-    if (progress < MIN_RESTORE_PROGRESS || progress > MAX_RESTORE_PROGRESS) return;
+    if (progress < MIN_RESTORE_PROGRESS || progress > MAX_RESTORE_PROGRESS) {return;}
 
     const doc = document.documentElement;
     const scrollable = doc.scrollHeight - doc.clientHeight;
-    if (scrollable <= 0) return;
-    if (doc.scrollTop > SCROLL_TOP_THRESHOLD) return;
+    if (scrollable <= 0) {return;}
+    if (doc.scrollTop > SCROLL_TOP_THRESHOLD) {return;}
 
     const target = Math.round(scrollable * progress);
     window.scrollTo({
@@ -116,7 +116,7 @@ export function initReadingProgress(): void {
 
   const onScroll = (): void => {
     hasInteracted = true;
-    if (ticking) return;
+    if (ticking) {return;}
     ticking = true;
     requestAnimationFrame(compute);
   };
@@ -127,14 +127,14 @@ export function initReadingProgress(): void {
 
   const scheduleRestore = (): void => {
     window.setTimeout(() => {
-      if (!hasInteracted) restoreProgress();
+      if (!hasInteracted) {restoreProgress();}
     }, RESTORE_DELAY_MS);
   };
 
   scheduleRestore();
   window.addEventListener("load", scheduleRestore, { once: true });
   window.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden" && hasInteracted) compute();
+    if (document.visibilityState === "hidden" && hasInteracted) {compute();}
   });
 }
 

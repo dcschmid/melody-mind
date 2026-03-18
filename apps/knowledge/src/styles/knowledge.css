@@ -79,43 +79,6 @@
   line-height: var(--line-height-relaxed);
 }
 
-/* Reading Preferences - Font Size */
-.knowledge[data-reading-font-size="small"] {
-  --knowledge-prose-size: 1.05rem;
-}
-
-.knowledge[data-reading-font-size="medium"] {
-  --knowledge-prose-size: 1.175rem;
-}
-
-.knowledge[data-reading-font-size="large"] {
-  --knowledge-prose-size: 1.325rem;
-}
-
-/* Reading Preferences - Line Height */
-.knowledge[data-reading-line-height="compact"] {
-  --knowledge-prose-line-height: 1.5;
-}
-
-.knowledge[data-reading-line-height="normal"] {
-  --knowledge-prose-line-height: 1.62;
-}
-
-.knowledge[data-reading-line-height="relaxed"] {
-  --knowledge-prose-line-height: 1.78;
-}
-
-/* Reading Mode */
-.knowledge--reading-mode .knowledge__hero,
-.knowledge--reading-mode .knowledge-share,
-.knowledge--reading-mode .knowledge__back {
-  display: none;
-}
-
-.knowledge--reading-mode .knowledge__main {
-  gap: 1rem;
-}
-
 /* Container */
 .knowledge__container {
   position: relative;

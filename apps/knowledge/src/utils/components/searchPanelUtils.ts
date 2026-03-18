@@ -3,8 +3,8 @@
  * Reads ids/labels from the SearchPanel component markup and wires up filtering +
  * ARIA status/no-results handling.
  */
-import { SEARCH_EVENTS } from "@constants/events";
-import { isServer } from "@utils/environment";
+import { SEARCH_EVENTS } from "@shared-utils/constants/events";
+import { isServer } from "@shared-utils/utils/environment";
 
 type SearchElements = {
   root: HTMLElement;
@@ -82,7 +82,7 @@ const getPositionBucket = (
 
 const getElements = (root: HTMLElement): SearchElements | null => {
   const input = root.querySelector<HTMLInputElement>("[data-search-input]");
-  if (!input) return null;
+  if (!input) {return null;}
 
   const ariaControlsId = input.getAttribute("aria-controls") || "";
   const list = ariaControlsId
@@ -90,7 +90,7 @@ const getElements = (root: HTMLElement): SearchElements | null => {
     : null;
   const listItems = list ? (Array.from(list.children) as HTMLElement[]) : [];
 
-  if (!listItems.length) return null;
+  if (!listItems.length) {return null;}
 
   const externalGenreInput = ariaControlsId
     ? document.querySelector<HTMLInputElement | HTMLSelectElement>(
@@ -171,7 +171,7 @@ function initSearchPanel(elements: SearchElements): void {
   const { input, genreInput, clearBtn, resetBtn, statusEl, noResultsEl, listItems } =
     elements;
 
-  if ((elements.root as any).__searchInitialized) return;
+  if ((elements.root as any).__searchInitialized) {return;}
   (elements.root as any).__searchInitialized = true;
 
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
@@ -274,7 +274,7 @@ function initSearchPanel(elements: SearchElements): void {
 
   input.addEventListener("input", (e: Event) => {
     const value = (e.target as HTMLInputElement)?.value || "";
-    if (debounceTimer) clearTimeout(debounceTimer);
+    if (debounceTimer) {clearTimeout(debounceTimer);}
     debounceTimer = setTimeout(() => performSearch(value, genreInput?.value || ""), 150);
   });
 
@@ -289,7 +289,7 @@ function initSearchPanel(elements: SearchElements): void {
 
   const handleGenreFilterInput = (e: Event): void => {
     const value = (e.target as HTMLInputElement | HTMLSelectElement)?.value || "";
-    if (debounceTimer) clearTimeout(debounceTimer);
+    if (debounceTimer) {clearTimeout(debounceTimer);}
     debounceTimer = setTimeout(() => performSearch(input.value, value), 120);
   };
 
@@ -321,11 +321,11 @@ function initSearchPanel(elements: SearchElements): void {
 }
 
 export function initSearchPanelsAuto(): void {
-  if (isServer) return;
+  if (isServer) {return;}
   const roots = Array.from(document.querySelectorAll<HTMLElement>("[data-search-root]"));
   roots.forEach((root) => {
     const elements = getElements(root);
-    if (!elements) return;
+    if (!elements) {return;}
     initSearchPanel(elements);
   });
 }

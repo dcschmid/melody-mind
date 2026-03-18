@@ -1,0 +1,107 @@
+---
+import type { StructuredDataExtra } from "./seo.types";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageAlt?: string;
+  type?: string;
+  publishDate?: Date;
+  modifiedDate?: Date;
+  ogMusic?: unknown;
+  audioSrc?: string;
+  episodeNumber?: number;
+  seriesName?: string;
+  seriesUrl?: string;
+  canonical?: string;
+  noIndex?: boolean;
+  noFollow?: boolean;
+  prevUrl?: string;
+  nextUrl?: string;
+  disableAlternateLanguages?: boolean;
+  structuredDataExtra?: StructuredDataExtra;
+  authorName?: string;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  image,
+  imageAlt,
+  canonical,
+  noIndex,
+  noFollow,
+  prevUrl,
+  nextUrl,
+  publishDate,
+  modifiedDate,
+  structuredDataExtra,
+  authorName,
+} = Astro.props as Props;
+---
+
+{title && <title>{title}</title>}
+{description && <meta name="description" content={description} />}
+{
+  Array.isArray(keywords) && keywords.length > 0 && (
+    <meta name="keywords" content={keywords.join(", ")} />
+  )
+}
+
+{authorName && <meta name="author" content={authorName} />}
+{canonical && <link rel="canonical" href={canonical} />}
+{prevUrl && <link rel="prev" href={prevUrl} />}
+{nextUrl && <link rel="next" href={nextUrl} />}
+
+{
+  (noIndex || noFollow) && (
+    <meta
+      name="robots"
+      content={`${noIndex ? "noindex" : "index"},${noFollow ? "nofollow" : "follow"}`}
+    />
+  )
+}
+
+{
+  publishDate && <meta name="article:published_time" content={publishDate.toISOString()} />
+}
+{
+  modifiedDate && (
+    <meta name="article:modified_time" content={modifiedDate.toISOString()} />
+  )
+}
+
+{image && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+
+{
+  (() => {
+    const all = Array.isArray(structuredDataExtra)
+      ? structuredDataExtra
+      : structuredDataExtra
+        ? [structuredDataExtra]
+        : [];
+
+    if (all.length === 0) {
+      return null;
+    }
+
+    try {
+      const cleaned = all.map((obj) => {
+        const replacer = (_key: string, value: unknown) =>
+          value instanceof Date ? value.toISOString() : value;
+        return JSON.stringify(obj, replacer, 2);
+      });
+
+      return cleaned.map((jsonString) => (
+        <script is:inline type="application/ld+json" set:html={jsonString} />
+      ));
+    } catch {
+      return null;
+    }
+  })()
+}

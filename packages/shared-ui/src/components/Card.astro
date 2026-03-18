@@ -1,0 +1,336 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  href?: string;
+  labelledBy: string;
+  describedBy?: string;
+  variant?: "default" | "elevated";
+  dataTestId?: string;
+  linkClassName?: string;
+  mediaAspectRatio?: string;
+  mediaObjectFit?: "cover" | "contain";
+  class?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageClassName?: string;
+  imageWidth?: number | string;
+  imageHeight?: number | string;
+  imageLoading?: "eager" | "lazy";
+  imageDecoding?: "sync" | "async" | "auto";
+}
+
+const {
+  href,
+  labelledBy,
+  describedBy,
+  variant = "default",
+  dataTestId,
+  linkClassName,
+  mediaAspectRatio,
+  mediaObjectFit = "cover",
+  imageSrc,
+  imageAlt = "",
+  imageClassName,
+  imageWidth,
+  imageHeight,
+  imageLoading = "lazy",
+  imageDecoding = "async",
+  class: className,
+  ...rest
+} = Astro.props as Props;
+
+const hasSlottedMedia = Astro.slots.has("media");
+const hasMedia = Boolean(imageSrc) || hasSlottedMedia;
+const hasBadge = Astro.slots.has("badge");
+const hasFooter = Astro.slots.has("footer");
+const hasScreenReaderText = Astro.slots.has("sr");
+const resolvedMediaAspectRatio =
+  mediaAspectRatio ??
+  (imageWidth && imageHeight ? `${imageWidth} / ${imageHeight}` : "3 / 2");
+---
+
+<article
+  {...rest}
+  class:list={["card", `card--${variant}`, href && "card--interactive", className]}
+  data-testid={dataTestId}
+  aria-labelledby={labelledBy}
+  aria-describedby={describedBy}
+>
+  {
+    href ? (
+      <a
+        href={href}
+        class:list={["card__link", linkClassName]}
+        aria-labelledby={labelledBy}
+        aria-describedby={describedBy}
+      >
+        {hasMedia && (
+          <div
+            class:list={["card__media", `card__media--${mediaObjectFit}`]}
+            style={`--card-media-aspect-ratio: ${resolvedMediaAspectRatio}; --card-media-object-fit: ${mediaObjectFit};`}
+          >
+            {
+              imageSrc ? (
+                <img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  class:list={["card__media-image", imageClassName]}
+                  width={imageWidth}
+                  height={imageHeight}
+                  loading={imageLoading}
+                  decoding={imageDecoding}
+                />
+              ) : (
+                <slot name="media" />
+              )
+            }
+            {hasBadge && (
+              <div class="card__badge">
+                <slot name="badge" />
+              </div>
+            )}
+          </div>
+        )}
+
+        <div class="card__body">
+          <slot />
+        </div>
+
+        {hasFooter && (
+          <div class="card__footer">
+            <slot name="footer" />
+          </div>
+        )}
+        {hasScreenReaderText && (
+          <span class="card__sr">
+            <slot name="sr" />
+          </span>
+        )}
+      </a>
+    ) : (
+      <>
+        {hasMedia && (
+          <div
+            class:list={["card__media", `card__media--${mediaObjectFit}`]}
+            style={`--card-media-aspect-ratio: ${resolvedMediaAspectRatio}; --card-media-object-fit: ${mediaObjectFit};`}
+          >
+            {
+              imageSrc ? (
+                <img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  class:list={["card__media-image", imageClassName]}
+                  width={imageWidth}
+                  height={imageHeight}
+                  loading={imageLoading}
+                  decoding={imageDecoding}
+                />
+              ) : (
+                <slot name="media" />
+              )
+            }
+            {hasBadge && (
+              <div class="card__badge">
+                <slot name="badge" />
+              </div>
+            )}
+          </div>
+        )}
+
+        <div class="card__body">
+          <slot />
+        </div>
+
+        {hasFooter && (
+          <div class="card__footer">
+            <slot name="footer" />
+          </div>
+        )}
+      </>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    block-size: 100%;
+    container-type: inline-size;
+    overflow: hidden;
+    border-radius: 1rem;
+    contain-intrinsic-size: 360px;
+    content-visibility: auto;
+  }
+
+  .card--default {
+    color: var(--card-text, var(--gn-ink));
+    background: var(--card-bg, var(--gn-bg-muted));
+    border: var(--card-border-width, 2px) solid
+      var(--card-border-color, var(--gn-panel-border));
+  }
+
+  .card--elevated {
+    background: var(
+      --card-elevated-bg,
+      linear-gradient(180deg, var(--gn-bg) 0%, var(--gn-bg-muted) 100%)
+    );
+    border: var(--card-elevated-border-width, 1px) solid
+      var(--card-elevated-border-color, var(--gn-panel-border));
+    box-shadow: var(
+      --card-elevated-shadow,
+      0 18px 40px color-mix(in srgb, var(--gn-accent) 10%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--color-white) 18%, transparent)
+    );
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .card__link {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .card__link:focus-visible {
+    outline: 2px solid transparent;
+  }
+
+  .card--default:has(.card__link:focus-visible) {
+    border-color: var(--card-focus-color, var(--gn-accent));
+    box-shadow: inset 0 0 0 3px var(--card-focus-color, var(--gn-accent));
+  }
+
+  .card--elevated:has(.card__link:focus-visible) {
+    border-color: var(--card-focus-color, var(--gn-accent));
+    box-shadow: var(
+      --card-elevated-focus-shadow,
+      inset 0 0 0 3px color-mix(in srgb, var(--gn-accent) 44%, transparent),
+      0 20px 42px color-mix(in srgb, var(--gn-accent) 16%, transparent)
+    );
+  }
+
+  .card--interactive.card--elevated:hover {
+    border-color: var(
+      --card-elevated-hover-border-color,
+      color-mix(in srgb, var(--gn-accent) 36%, var(--gn-panel-border))
+    );
+    box-shadow: var(
+      --card-elevated-hover-shadow,
+      0 22px 44px color-mix(in srgb, var(--gn-accent) 14%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--color-white) 24%, transparent)
+    );
+    transform: translateY(-4px);
+  }
+
+  .card__media {
+    position: relative;
+    aspect-ratio: var(--card-media-aspect-ratio, 3 / 2);
+    overflow: hidden;
+    background: var(--card-media-bg, var(--gn-bg));
+  }
+
+  .card--elevated .card__media {
+    background: var(
+      --card-elevated-media-bg,
+      color-mix(in srgb, var(--gn-bg-muted) 88%, var(--color-black))
+    );
+    border-block-end: 1px solid
+      var(--card-elevated-media-border-color, var(--gn-panel-border));
+  }
+
+  .card__media--cover :global(img),
+  .card__media--cover .card__media-image,
+  .card__media--cover :global(picture),
+  .card__media--cover :global(svg) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .card__media--cover :global(img),
+  .card__media--cover .card__media-image,
+  .card__media--cover :global(svg) {
+    object-fit: cover;
+  }
+
+  .card__media--contain {
+    display: grid;
+    place-items: center;
+  }
+
+  .card__media--contain :global(picture) {
+    display: block;
+    inline-size: 100%;
+  }
+
+  .card__media--contain :global(img),
+  .card__media--contain .card__media-image,
+  .card__media--contain :global(svg) {
+    display: block;
+    inline-size: 100%;
+    width: 100%;
+    block-size: auto;
+    height: auto;
+    max-inline-size: 100%;
+    max-block-size: 100%;
+    object-fit: contain;
+  }
+
+  .card--interactive.card--elevated .card__media :global(img) {
+    transition: transform 0.35s ease;
+  }
+
+  .card--interactive.card--elevated:hover .card__media :global(img) {
+    transform: scale(1.03);
+  }
+
+  .card__badge {
+    position: absolute;
+    inset-block-end: 1rem;
+    inset-inline-end: 1rem;
+  }
+
+  .card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .card__footer {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .card__sr {
+    position: absolute;
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: var(--sr-only-clip-path);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .card--elevated,
+    .card--interactive.card--elevated .card__media :global(img) {
+      transition: none;
+    }
+
+    .card--interactive.card--elevated:hover {
+      transform: none;
+    }
+  }
+
+  @container (max-width: 480px) {
+    .card__badge {
+      inset-block-end: 0.75rem;
+      inset-inline-end: 0.75rem;
+    }
+  }
+</style>

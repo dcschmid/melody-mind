@@ -1,4 +1,5 @@
 ---
+import SEO from '@shared-ui/components/SEO.astro';
 import Footer from '../components/Footer.astro';
 
 export interface Props {
@@ -60,11 +61,12 @@ const seriesCopy =
   'Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.';
 const genres = ['Music', 'History'];
 const defaultKeywords = ['podcast', 'music history', 'audio', 'streaming', 'entertainment'];
-const allKeywords = [...defaultKeywords, ...keywords].join(', ');
 const skipLinkText = 'Skip to main content';
 const normalizedDescription = normalizeMetaText(description);
 const imageAlt =
   type === 'article' ? `Cover artwork for ${normalizedTitle}` : `Cover artwork for ${siteTitle}`;
+const publishDate = publishedTime ? new Date(publishedTime) : undefined;
+const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
 
 const publisher = {
   '@type': 'Organization',
@@ -215,11 +217,29 @@ function toIsoDuration(totalSeconds: number) {
     <link rel="preconnect" href="https://www.youtube.com" crossorigin />
     <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
 
-    <title>{fullTitle}</title>
+    <SEO
+      title={fullTitle}
+      description={normalizedDescription}
+      keywords={[...defaultKeywords, ...keywords]}
+      authorName={author}
+      canonical={currentUrl}
+      image={imageUrl}
+      imageAlt={imageAlt}
+      publishDate={publishDate}
+      modifiedDate={modifiedDate}
+      structuredDataExtra={jsonLd.map((entry) => ({
+        ...entry,
+        potentialAction:
+          type === 'website'
+            ? {
+                '@type': 'SearchAction',
+                target: `${siteUrl}/?q={search_term_string}`,
+                'query-input': 'required name=search_term_string',
+              }
+            : undefined,
+      }))}
+    />
     <meta name="title" content={fullTitle} />
-    <meta name="description" content={normalizedDescription} />
-    <meta name="keywords" content={allKeywords} />
-    <meta name="author" content={author} />
     <meta
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
@@ -227,7 +247,6 @@ function toIsoDuration(totalSeconds: number) {
     <meta name="language" content={language} />
     <meta name="revisit-after" content="7 days" />
 
-    <link rel="canonical" href={currentUrl} />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -238,11 +257,8 @@ function toIsoDuration(totalSeconds: number) {
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={normalizedDescription} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:site_name" content={siteTitle} />
     <meta property="og:locale" content={locale.replace('-', '_')} />
-    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
     {type === 'article' && <meta property="article:author" content={author} />}
 
     <meta property="twitter:card" content="summary_large_image" />
@@ -263,22 +279,6 @@ function toIsoDuration(totalSeconds: number) {
 
     <link rel="dns-prefetch" href="//cdn.usefathom.com" />
     <script src="https://cdn.usefathom.com/script.js" data-site="IGOFKHTB" defer></script>
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(
-        jsonLd.map((entry) => ({
-          ...entry,
-          potentialAction:
-            type === 'website'
-              ? {
-                  '@type': 'SearchAction',
-                  target: `${siteUrl}/?q={search_term_string}`,
-                  'query-input': 'required name=search_term_string',
-                }
-              : undefined,
-        })),
-      )}
-    />
   </head>
   <body class="podcast-layout" id="top">
     <div class="podcast-layout__container">

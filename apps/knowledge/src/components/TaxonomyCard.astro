@@ -5,7 +5,8 @@
  * Used on the homepage to display taxonomy sections.
  * WCAG AAA compliant with minimal styling.
  */
-import { Image } from "astro:assets";
+import Card from "@shared-ui/components/Card.astro";
+import Headline from "@shared-ui/components/Headline.astro";
 
 interface Props {
   id: string;
@@ -32,134 +33,84 @@ const {
 const cardId = `taxonomy-card-${id}`;
 ---
 
-<article
-  class="taxonomy-card"
+<Card
   data-testid="taxonomy-card"
   data-title={title}
-  aria-labelledby={cardId}
+  href={href}
+  labelledBy={cardId}
+  variant="default"
+  mediaObjectFit="contain"
+  imageSrc={image}
+  imageAlt={`${title} cover`}
+  imageClassName="taxonomy-card__image"
+  imageWidth={1024}
+  imageHeight={683}
 >
-  <a href={href} class="taxonomy-card__link" aria-labelledby={cardId}>
-    <div class="taxonomy-card__media">
-      <Image
-        src={image}
-        alt={`${title} cover`}
-        loading="lazy"
-        decoding="async"
-        class="taxonomy-card__image"
-        width="640"
-        height="360"
-      />
-      <div class="taxonomy-card__badge">
-        {articleCount > 0 ? `${articleCount} articles` : `${subsectionCount} topics`}
-      </div>
-    </div>
-    <div class="taxonomy-card__body">
-      <h3 id={cardId} class="taxonomy-card__title">{title}</h3>
-      {description && <p class="taxonomy-card__description">{description}</p>}
-    </div>
-  </a>
-</article>
+  <Fragment slot="badge">
+    <span class="taxonomy-card__badge">
+      {articleCount > 0 ? `${articleCount} articles` : `${subsectionCount} topics`}
+    </span>
+  </Fragment>
+
+  <div class="taxonomy-card__body">
+    <Headline level="h3" textSize="base" className="taxonomy-card__title">
+      <span id={cardId}>{title}</span>
+    </Headline>
+    {description && <p class="taxonomy-card__description">{description}</p>}
+  </div>
+</Card>
 
 <style>
-  .taxonomy-card {
-    container-type: inline-size;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    border-radius: 1rem;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
-    overflow: hidden;
-    content-visibility: auto;
-    contain-intrinsic-size: 320px;
-  }
-
-  .taxonomy-card__link {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* WCAG AAA: Focus ring directly on card border */
-  .taxonomy-card__link:focus-visible {
-    outline: none;
-  }
-
-  .taxonomy-card:has(.taxonomy-card__link:focus-visible) {
-    border-color: var(--gn-accent);
-    box-shadow: inset 0 0 0 3px var(--gn-accent);
-  }
-
-  .taxonomy-card__media {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    background: var(--gn-bg);
-  }
-
-  .taxonomy-card__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   .taxonomy-card__badge {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
     display: inline-flex;
-    align-items: center;
     gap: 0.5rem;
+    align-items: center;
     padding: 0.4rem 0.8rem;
-    border-radius: 999px;
-    border: 1px solid var(--gn-panel-border);
-    background: var(--gn-bg);
     font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
     font-weight: 700;
     color: var(--gn-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 999px;
   }
 
   .taxonomy-card__body {
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 0.75rem;
     padding: 1.25rem;
-    flex: 1;
   }
 
   .taxonomy-card__title {
+    margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
-    margin: 0;
-    color: var(--gn-ink);
     line-height: 1.4;
+    color: var(--gn-ink);
   }
 
   .taxonomy-card__description {
+    display: -webkit-box;
     margin: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
     font-size: 0.95rem;
     line-height: 1.65;
     color: var(--gn-ink-muted);
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    /* stylelint-disable-next-line property-no-deprecated */
+    -webkit-box-orient: block-axis;
   }
 
   @container (max-width: 480px) {
     .taxonomy-card__body {
-      padding: 1rem;
       gap: 0.5rem;
+      padding: 1rem;
     }
 
     .taxonomy-card__badge {
-      bottom: 0.75rem;
-      right: 0.75rem;
       padding: 0.3rem 0.7rem;
       font-size: 0.7rem;
     }

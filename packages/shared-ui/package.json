@@ -1,0 +1,13 @@
+{
+  "name": "@melody-mind/shared-ui",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "astro": "^6.0.5"
+  },
+  "devDependencies": {
+    "astro": "^6.0.5",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageShell from "@components/Shared/PageShell.astro";
+import Headline from "@shared-ui/components/Headline.astro";
+import PageShell from "@shared-ui/components/Shared/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@utils/siteUrls";
 
@@ -41,7 +42,9 @@ const pageSeo = buildPageSeo({
     <div class="cookies-page">
       <header class="cookies-page__header static-page-header">
         <p class="cookies-page__eyebrow static-page-eyebrow">Privacy</p>
-        <h1 class="cookies-page__title static-page-title">Cookie & Storage Policy</h1>
+        <Headline level="h1" textSize="2xl" className="cookies-page__title static-page-title">
+          Cookie & Storage Policy
+        </Headline>
         <p class="cookies-page__lead static-page-lead">
           This page explains which cookies and browser storage technologies we use, why we
           use them, and how you can manage your preferences.
@@ -49,7 +52,9 @@ const pageSeo = buildPageSeo({
       </header>
 
       <section class="legal-panel cookies-page__section">
-        <h2 class="cookies-page__section-title">1. Do we use cookies?</h2>
+        <Headline level="h2" textSize="base" className="cookies-page__section-title">
+          1. Do we use cookies?
+        </Headline>
         <p class="cookies-page__text">
           We currently do not place non-essential tracking cookies ourselves. For
           analytics, we use Fathom only after you give explicit consent through the cookie
@@ -58,7 +63,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel cookies-page__section">
-        <h2 class="cookies-page__section-title">2. Local storage entries we use</h2>
+        <Headline level="h2" textSize="base" className="cookies-page__section-title">
+          2. Local storage entries we use
+        </Headline>
         <div class="cookies-page__table-wrap">
           <table class="cookies-page__table">
             <caption class="cookies-page__sr-only">
@@ -99,22 +106,15 @@ const pageSeo = buildPageSeo({
                 <td>LocalStorage</td>
                 <td>Until it is replaced or cleared by you.</td>
               </tr>
-              <tr>
-                <td><code>readingPreferences</code></td>
-                <td
-                  >Stores reading settings such as text size, line spacing, and reading
-                  mode.</td
-                >
-                <td>LocalStorage</td>
-                <td>Until you change or clear it.</td>
-              </tr>
             </tbody>
           </table>
         </div>
       </section>
 
       <section class="legal-panel cookies-page__section">
-        <h2 class="cookies-page__section-title">3. Analytics consent and legal basis</h2>
+        <Headline level="h2" textSize="base" className="cookies-page__section-title">
+          3. Analytics consent and legal basis
+        </Headline>
         <p class="cookies-page__text">
           Non-essential analytics turns on only after you explicitly opt in through the
           cookie banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy
@@ -126,7 +126,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel cookies-page__section">
-        <h2 class="cookies-page__section-title">4. How to change or withdraw consent</h2>
+        <Headline level="h2" textSize="base" className="cookies-page__section-title">
+          4. How to change or withdraw consent
+        </Headline>
         <p class="cookies-page__text">
           Open <strong>Cookie settings</strong> in the footer at any time to review or update
           your choice. You can also clear site storage in your browser settings.
@@ -134,7 +136,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel cookies-page__section">
-        <h2 class="cookies-page__section-title">5. Related privacy information</h2>
+        <Headline level="h2" textSize="base" className="cookies-page__section-title">
+          5. Related privacy information
+        </Headline>
         <p class="cookies-page__text">
           For full details about personal data processing and your rights, see our
           <a class="cookies-page__link" href="/privacy"> Privacy Policy</a>.
@@ -142,7 +146,9 @@ const pageSeo = buildPageSeo({
       </section>
 
       <section class="legal-panel cookies-page__section">
-        <h2 class="cookies-page__section-title">6. Policy updates</h2>
+        <Headline level="h2" textSize="base" className="cookies-page__section-title">
+          6. Policy updates
+        </Headline>
         <p class="cookies-page__text">
           We update this page when storage technologies, analytics settings, or legal
           requirements change.
@@ -167,46 +173,46 @@ const pageSeo = buildPageSeo({
   }
 
   .cookies-page__section-title {
+    margin: 0;
     font-size: 1.225rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin: 0;
   }
 
   .cookies-page__text {
     margin: 0;
-    color: var(--text-secondary);
     line-height: 1.6;
+    color: var(--text-secondary);
   }
 
   .cookies-page__table-wrap {
-    overflow-x: auto;
+    overflow-inline: auto;
   }
 
   .cookies-page__table {
-    width: 100%;
+    inline-size: 100%;
+    min-inline-size: 40rem;
     border-collapse: collapse;
-    min-width: 40rem;
   }
 
   .cookies-page__table th,
   .cookies-page__table td {
-    text-align: left;
-    vertical-align: top;
-    border-bottom: 1px solid color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
     padding: 0.7rem 0.5rem;
+    vertical-align: top;
     color: var(--text-secondary);
+    text-align: start;
+    border-block-end: 1px solid color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
   }
 
   .cookies-page__table th {
-    color: var(--text-primary);
     font-weight: 600;
+    color: var(--text-primary);
   }
 
   .cookies-page__table code {
-    color: var(--link-default);
     font-family: var(--font-mono);
     font-size: 1rem;
+    color: var(--link-default);
   }
 
   .cookies-page__link {
@@ -215,18 +221,18 @@ const pageSeo = buildPageSeo({
     text-underline-offset: 2px;
   }
 
-  .cookies-page__link:hover {
+  .cookies-page__link:hover, .cookies-page__link:focus {
     color: var(--link-hover);
   }
 
   .cookies-page__sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    inline-size: 1px;
+    block-size: 1px;
     margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+    clip-path: inset(50%);
   }
 </style>

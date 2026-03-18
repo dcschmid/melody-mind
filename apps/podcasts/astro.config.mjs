@@ -56,6 +56,8 @@ export default defineConfig({
         '@utils': path.resolve('./src/utils'),
         '@data': path.resolve('./src/data'),
         '@types': path.resolve('./src/types'),
+        '@shared-ui': path.resolve('../../packages/shared-ui/src'),
+        '@shared-utils': path.resolve('../../packages/shared-utils/src'),
       },
     },
     server: {

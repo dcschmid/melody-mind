@@ -1,0 +1,108 @@
+---
+import Card from "./Card.astro";
+import Icon from "./Icon.astro";
+
+export const prerender = true;
+
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  image?: string;
+  imageAlt?: string;
+  ctaLabel?: string;
+  id?: string;
+}
+
+const {
+  title,
+  description,
+  href,
+  image,
+  imageAlt = `${title} cover image`,
+  ctaLabel = "Play Quiz",
+  id,
+} = Astro.props as Props;
+
+const cardId = id ?? `quiz-card-${href.replaceAll("/", "-").replace(/^-+/, "")}`;
+---
+
+<Card
+  variant="elevated"
+  href={href}
+  labelledBy={cardId}
+  dataTestId="quiz-card"
+  imageSrc={image}
+  imageAlt={imageAlt}
+  imageClassName="quiz-card__image"
+>
+  <h3 id={cardId} class="quiz-card__title">{title}</h3>
+  <p class="quiz-card__description">{description}</p>
+
+  <Fragment slot="footer">
+    <span class="quiz-card__cta">
+      <Icon name="play" class="quiz-card__cta-icon" aria-hidden="true" />
+      <span>{ctaLabel}</span>
+    </span>
+  </Fragment>
+</Card>
+
+<style>
+  .quiz-card__title {
+    margin: 0;
+    padding: 1.2rem 1.25rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.22;
+    color: var(--gn-ink);
+    letter-spacing: -0.02em;
+  }
+
+  .quiz-card__description {
+    display: -webkit-box;
+    margin: 0;
+    padding: 0.85rem 1.25rem 1rem;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--gn-ink-muted);
+    /* stylelint-disable-next-line property-no-deprecated */
+    -webkit-box-orient: block-axis;
+  }
+
+  .quiz-card__cta {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    inline-size: fit-content;
+    min-inline-size: 9.5rem;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--gn-bg);
+    background: var(--gn-ink);
+    border-radius: 999px;
+    box-shadow: 0 10px 22px color-mix(in srgb, var(--gn-ink) 18%, transparent);
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  :global(.card--interactive.card--elevated:hover) .quiz-card__cta {
+    background: color-mix(in srgb, var(--gn-ink) 90%, var(--color-white) 10%);
+    transform: translateY(-1px);
+  }
+
+  .quiz-card__cta-icon {
+    inline-size: 0.95rem;
+    block-size: 0.95rem;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .quiz-card__cta {
+      transition: none;
+    }
+  }
+</style>

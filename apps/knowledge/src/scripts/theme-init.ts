@@ -7,9 +7,9 @@
  * @module scripts/theme-init
  */
 
-import { STORAGE_KEYS } from "@constants/storage";
-import { THEME_EVENTS } from "@constants/events";
-import { safeLocalStorage } from "@utils/storage/safeStorage";
+import { STORAGE_KEYS } from "@shared-utils/constants/storage";
+import { THEME_EVENTS } from "@shared-utils/constants/events";
+import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
 
 /** CSS dark mode media query */
 const DARK_QUERY = "(prefers-color-scheme: dark)";
