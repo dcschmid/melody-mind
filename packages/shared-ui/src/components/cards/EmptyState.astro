@@ -1,0 +1,72 @@
+---
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  title: string;
+  description?: string;
+  role?: "status" | "note" | "alert";
+  live?: "off" | "polite" | "assertive";
+  atomic?: boolean;
+  className?: string;
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  role = "status",
+  live = "polite",
+  atomic = true,
+  className = "",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const classes = ["empty-state", className, classProp].filter(Boolean).join(" ");
+---
+
+<div
+  {...rest}
+  class={classes}
+  role={role}
+  aria-live={live}
+  aria-atomic={atomic ? "true" : "false"}
+>
+  <Paragraph textSize="lg" className="empty-state__title">{title}</Paragraph>
+  {
+    description ? (
+      <Paragraph textSize="sm" className="empty-state__description">
+        {description}
+      </Paragraph>
+    ) : null
+  }
+</div>
+
+<style>
+  .empty-state {
+    padding: var(--empty-state-padding, 3rem 2rem);
+    color: var(--empty-state-description-color, var(--text-secondary));
+    text-align: var(--empty-state-align, center);
+    background: var(
+      --empty-state-bg,
+      linear-gradient(160deg, var(--surface-2), var(--surface-1))
+    );
+    border: var(--empty-state-border, 1px solid var(--border-default));
+    border-radius: var(--empty-state-radius, var(--radius-lg));
+  }
+
+  .empty-state__title {
+    margin: 0;
+    font-size: var(--empty-state-title-size, 1.375rem);
+    font-weight: var(--empty-state-title-weight, 700);
+    color: var(--empty-state-title-color, var(--text-primary));
+    letter-spacing: var(--empty-state-title-tracking, -0.01em);
+  }
+
+  .empty-state__description {
+    margin-block-start: var(--empty-state-description-spacing, 0.75rem);
+    font-size: var(--empty-state-description-size, 1.0625rem);
+    line-height: var(--empty-state-description-line-height, 1.6);
+    color: var(--empty-state-description-color, var(--text-secondary));
+  }
+</style>

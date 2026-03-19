@@ -5,6 +5,7 @@ import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import EmptyState from "@shared-ui/components/cards/EmptyState.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildCollectionPageSchema,
@@ -187,7 +188,6 @@ const pageSeo = buildPageSeo({
               width="1920"
               height="1280"
             />
-            <div class="category-hero__overlay" aria-hidden="true"></div>
           </div>
           <div class="category-hero__body">
             <div class="category-hero__content">
@@ -266,32 +266,14 @@ const pageSeo = buildPageSeo({
                   );
                 })}
               </ul>
-              <div
-                id="category-search-empty"
-                class="category-page__empty"
-                role="status"
-                aria-live="polite"
-                aria-atomic="true"
-                hidden
-              >
-                No results match your search. Try another keyword.
-              </div>
             </>
           ) : (
-            <div
-              class="category-page__empty"
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
+            <EmptyState
               id="category-search-no-results"
-            >
-              <Paragraph textSize="lg" className="category-page__empty-title">
-                No articles in this category yet.
-              </Paragraph>
-              <Paragraph textSize="sm" className="category-page__empty-text">
-                Check back soon for new additions.
-              </Paragraph>
-            </div>
+              className="category-page__empty"
+              title="No articles in this category yet."
+              description="Check back soon for new additions."
+            />
           )
         }
       </section>
@@ -301,31 +283,20 @@ const pageSeo = buildPageSeo({
   <BackToTop />
 </Layout>
 <style>
-  .panel {
-    --panel-radius: var(--radius-lg);
-    --panel-padding: var(--spacing-lg);
-
-    position: relative;
-    padding: var(--panel-padding);
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: var(--panel-radius);
-  }
-
-  .panel--compact {
-    --panel-padding: var(--spacing-base);
-  }
-
-  .panel--tight {
-    --panel-padding: var(--spacing-lg);
-  }
-
-  .panel--card {
-    --panel-radius: var(--radius-lg);
-    --panel-padding: var(--spacing-lg);
-  }
-
   .category-page {
+    --category-surface-bg: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    --category-surface-border: 1px solid var(--border-default);
+    --category-surface-border-muted: 1px solid
+      color-mix(in srgb, var(--border-default) 88%, transparent);
+    --category-surface-radius: 0.75rem;
+    --category-surface-radius-lg: 1rem;
+    --category-pill-bg: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    --category-pill-border: 1px solid
+      color-mix(in srgb, var(--border-default) 88%, transparent);
+    --category-pill-radius: 999px;
+    --category-search-reset-border: 1px solid
+      color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
+
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -375,8 +346,8 @@ const pageSeo = buildPageSeo({
     inline-size: 100%;
     aspect-ratio: 3 / 2;
     overflow: hidden;
-    border: 1px solid var(--border-default);
-    border-radius: 1rem;
+    border: var(--category-surface-border);
+    border-radius: var(--category-surface-radius-lg);
   }
 
   .category-hero__image {
@@ -385,12 +356,6 @@ const pageSeo = buildPageSeo({
     block-size: 100%;
     object-fit: cover;
     object-position: center;
-  }
-
-  .category-hero__overlay {
-    position: absolute;
-    inset: 0;
-    display: none;
   }
 
   .category-hero__body {
@@ -423,9 +388,9 @@ const pageSeo = buildPageSeo({
   .category-hero__content {
     inline-size: min(820px, 100%);
     padding: 2rem 2.25rem;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: 1rem;
+    background: var(--category-surface-bg);
+    border: var(--category-surface-border);
+    border-radius: var(--category-surface-radius-lg);
   }
 
   .category-hero__eyebrow {
@@ -439,9 +404,9 @@ const pageSeo = buildPageSeo({
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.24em;
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-    border-radius: 999px;
+    background: var(--category-pill-bg);
+    border: var(--category-pill-border);
+    border-radius: var(--category-pill-radius);
   }
 
   @media (width >= 640px) {
@@ -515,9 +480,9 @@ const pageSeo = buildPageSeo({
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border: 1px solid var(--border-default);
-    border-radius: 999px;
+    background: var(--category-pill-bg);
+    border: var(--category-surface-border);
+    border-radius: var(--category-pill-radius);
   }
 
   .category-page__tools {
@@ -539,9 +504,9 @@ const pageSeo = buildPageSeo({
     font-weight: 400;
     line-height: 1.6;
     color: var(--text-secondary);
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-    border-radius: 0.75rem;
+    background: var(--category-surface-bg);
+    border: var(--category-surface-border-muted);
+    border-radius: var(--category-surface-radius);
   }
 
   @media (width >= 640px) {
@@ -553,16 +518,16 @@ const pageSeo = buildPageSeo({
 
   .category-page__search {
     padding: 1.25rem 1.5rem;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-    border-radius: 0.75rem;
+    background: var(--category-surface-bg);
+    border: var(--category-surface-border-muted);
+    border-radius: var(--category-surface-radius);
   }
 
   .category-page__search :global(.search-panel__input) {
     font-size: 1.05rem;
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border: 1px solid var(--border-default);
-    border-radius: 0.75rem;
+    background: var(--category-pill-bg);
+    border: var(--category-surface-border);
+    border-radius: var(--category-surface-radius);
   }
 
   @media (width >= 640px) {
@@ -584,14 +549,14 @@ const pageSeo = buildPageSeo({
 
   .category-page__search :global(.search-panel__reset) {
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
-    border-radius: 999px;
+    background: var(--category-pill-bg);
+    border: var(--category-search-reset-border);
+    border-radius: var(--category-pill-radius);
   }
 
   .category-page__search :global(.search-panel__reset:hover),
   .category-page__search :global(.search-panel__reset:focus-visible) {
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    background: var(--category-surface-bg);
   }
 
   .category-page__grid {
@@ -617,26 +582,10 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__empty {
-    padding: 3rem 2rem;
-    color: var(--text-secondary);
-    text-align: center;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: 0.75rem;
-  }
-
-  .category-page__empty-title {
-    margin: 0;
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-  }
-
-  .category-page__empty-text {
-    margin-block-start: 0.75rem;
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
+    --empty-state-bg: var(--category-surface-bg);
+    --empty-state-border: var(--category-surface-border);
+    --empty-state-radius: var(--category-surface-radius);
+    --empty-state-title-color: var(--text-primary);
+    --empty-state-description-color: var(--text-secondary);
   }
 </style>
