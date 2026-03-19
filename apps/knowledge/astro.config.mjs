@@ -6,11 +6,20 @@ import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import minify from "astro-minify-html-swc";
 import icon from "astro-icon";
+import { LEGACY_CATEGORY_REDIRECTS } from "./src/constants/categoryRedirects.js";
+
+const redirects = Object.fromEntries(
+  Object.entries(LEGACY_CATEGORY_REDIRECTS).map(([slug, destination]) => [
+    `/categories/${slug}`,
+    destination,
+  ])
+);
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "static",
+  redirects,
 
   prefetch: {
     defaultStrategy: "hover",

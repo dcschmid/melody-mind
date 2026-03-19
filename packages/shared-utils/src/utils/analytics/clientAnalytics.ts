@@ -5,15 +5,8 @@ import {
   BOOKMARK_ANALYTICS_EVENTS,
   BOOKMARK_CHANGE_EVENT,
 } from "../bookmarks/clientBookmarks";
-import {
-  STORAGE_KEYS,
-  SESSION_KEYS,
-  RUNTIME_FLAGS,
-} from "../../constants/storage";
-import {
-  safeLocalStorage,
-  safeSessionStorage,
-} from "../storage/safeStorage";
+import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "../../constants/storage";
+import { safeLocalStorage, safeSessionStorage } from "../storage/safeStorage";
 import { isServer } from "../environment";
 import {
   ENGAGEMENT_TIMING,
@@ -161,8 +154,8 @@ const classifyPath = (path: string): string => {
     return "knowledge";
   }
 
-  if (path.startsWith("/categories/")) {
-    return "category";
+  if (path.startsWith("/taxonomy/")) {
+    return "taxonomy";
   }
 
   if (path === "/bookmarks") {

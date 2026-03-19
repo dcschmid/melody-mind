@@ -177,37 +177,3 @@ export function buildKnowledgeArticlesItemList(opts: {
 /**
  * Build ItemList schema for music categories.
  */
-export function buildCategoryItemListSchema(opts: {
-  categories: Array<{ id: string; name: string; description?: string }>;
-  baseUrl: string;
-  lang: string;
-  listName?: string;
-  itemListId?: string;
-}): Record<string, unknown> | undefined {
-  const { categories, baseUrl, lang, listName = "Music Categories", itemListId } = opts;
-  if (!categories.length) {
-    return undefined;
-  }
-
-  const normalizedBase = baseUrl.replace(/\/$/, "");
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    ...(itemListId ? { "@id": itemListId } : {}),
-    name: listName,
-    numberOfItems: categories.length,
-    itemListElement: categories.map((category, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Thing",
-        "@id": `${normalizedBase}/categories/${category.id}`,
-        name: category.name,
-        description: category.description,
-        url: `${normalizedBase}/categories/${category.id}`,
-        inLanguage: lang || "en",
-      },
-    })),
-  };
-}

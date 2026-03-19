@@ -818,16 +818,16 @@ function getRecommendations(readingHistory: string[], allArticles: Article[]): A
 
 #### 4.3 Category Explorer
 
-**Description**: Hierarchical category navigation and exploration.
+**Description**: Hierarchical taxonomy navigation and exploration.
 
 **Requirements**:
 
-- Hierarchical categories (Genre → Subgenre → Articles)
-- Visual category cloud with size by article count
-- Category pages with filters
+- Hierarchical taxonomy (Section → Topic → Articles)
+- Visual taxonomy cloud with size by article count
+- Taxonomy pages with filters
 - Breadcrumb navigation
 - Quick filter buttons
-- Category search
+- Taxonomy search
 
 **Privacy**: Safe (no data collection)
 
@@ -849,11 +849,11 @@ interface Category {
 
 **Deliverables:**
 
-- `CategoryExplorer.astro` component
-- Category data structure
-- Category pages: `/categories/[slug].astro`
+- `TaxonomyExplorer.astro` component
+- Taxonomy data structure
+- Taxonomy pages: `/taxonomy/[section].astro`
 - Breadcrumb component
-- Category cloud visualization
+- Taxonomy cloud visualization
 
 ---
 

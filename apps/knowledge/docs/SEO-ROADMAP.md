@@ -26,6 +26,7 @@ meta handling.
 - Confirm no redirecting or duplicate routes appear in the sitemap.
 
 Success signal:
+
 - Search Console shows fewer "Crawled - currently not indexed" and duplicate clusters.
 
 ### 2. Content freshness signals
@@ -35,6 +36,7 @@ Success signal:
 - Ensure all knowledge articles have consistent `createdAt` and `updatedAt`.
 
 Success signal:
+
 - Structured data and meta dates match visible editorial dates on page.
 
 ### 3. Structured data consistency
@@ -46,6 +48,7 @@ Success signal:
 - Homepage / knowledge hub: `CollectionPage` plus `ItemList`.
 
 Success signal:
+
 - Rich Results Test returns valid schema on representative URLs with no avoidable warnings.
 
 ## Priority 2
@@ -58,6 +61,7 @@ Success signal:
 - Link category pages to taxonomy pages where the topical relationship is explicit.
 
 Success signal:
+
 - Higher average pages per session and better crawl depth for long-tail articles.
 
 ### 5. Title and description quality control
@@ -71,6 +75,7 @@ Success signal:
 - Keep descriptions unique and search-intent aligned.
 
 Success signal:
+
 - Fewer duplicate title/description warnings in audits and better CTR from search.
 
 ### 6. Image SEO
@@ -80,6 +85,7 @@ Success signal:
 - Prefer source-specific images for articles and category hubs over generic defaults.
 
 Success signal:
+
 - Stronger social previews and fewer pages falling back to the generic site image.
 
 ## Priority 3
@@ -93,6 +99,7 @@ Success signal:
 - Consider `FAQPage` only where the page visibly contains real FAQ content.
 
 Success signal:
+
 - Better entity clarity without introducing schema spam.
 
 ### 8. Search-facing landing pages
@@ -106,6 +113,7 @@ Success signal:
 - Avoid thin archive pages that only list cards without context.
 
 Success signal:
+
 - More impressions for non-branded long-tail queries.
 
 ### 9. Measurement
@@ -118,6 +126,7 @@ Success signal:
 - Track Search Console metrics per page type, not only site-wide.
 
 Success signal:
+
 - SEO regressions become visible before deploys.
 
 ## Page-Type Recommendations
@@ -133,11 +142,6 @@ Success signal:
 - Best SEO opportunity in the project.
 - Require real dates, breadcrumbs, strong intro copy, related links, and stable images.
 - Add visible "last updated" only if editorially maintained.
-
-### Category pages
-
-- Treat as indexable hubs if they contain meaningful intro text and curated article sets.
-- Add `CollectionPage` schema around the existing `ItemList`.
 
 ### Taxonomy section pages
 

@@ -23,6 +23,7 @@ import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
+import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
 import "@styles/knowledge.css";
 
 export const prerender = true;
@@ -127,11 +128,33 @@ const podcastUrl =
       ? `${podcastBase}/${encodeURI(podcastSlug)}`
       : null;
 const seoBreadcrumbsBase = [{ name: "Home", url: resolvePageUrl(Astro.site, "/") }];
-const seoCategoryCrumb =
-  entry.data.category && typeof entry.data.category === "string"
+const currentTaxonomySubsection =
+  typeof entry.data.taxonomySubsection === "string"
+    ? entry.data.taxonomySubsection.trim()
+    : "";
+const currentTaxonomyGroup =
+  typeof entry.data.taxonomyGroup === "string" ? entry.data.taxonomyGroup.trim() : "";
+const resolvedTaxonomySubsection = currentTaxonomySubsection
+  ? getSubsectionById(currentTaxonomySubsection)
+  : undefined;
+const resolvedTaxonomyGroup = currentTaxonomyGroup
+  ? getGroupById(currentTaxonomyGroup)
+  : undefined;
+const seoCategoryCrumb = resolvedTaxonomyGroup
+  ? {
+      name: resolvedTaxonomyGroup.group.title,
+      url: resolvePageUrl(
+        Astro.site,
+        `/taxonomy/${resolvedTaxonomyGroup.section.id}#${resolvedTaxonomyGroup.subsection.id}--${resolvedTaxonomyGroup.group.id}`
+      ),
+    }
+  : resolvedTaxonomySubsection
     ? {
-        name: entry.data.category,
-        url: resolvePageUrl(Astro.site, `/categories/${entry.data.category}`),
+        name: resolvedTaxonomySubsection.subsection.title,
+        url: resolvePageUrl(
+          Astro.site,
+          `/taxonomy/${resolvedTaxonomySubsection.section.id}#${resolvedTaxonomySubsection.subsection.id}`
+        ),
       }
     : null;
 const seoBreadcrumbs = [
@@ -205,14 +228,10 @@ const currentKeywords = new Set(
         .filter(Boolean)
     : []
 );
-const currentCategory =
-  typeof entry.data.category === "string" ? entry.data.category.trim() : "";
-const currentTaxonomySubsection =
-  typeof entry.data.taxonomySubsection === "string"
-    ? entry.data.taxonomySubsection.trim()
-    : "";
-const currentTaxonomyGroup =
-  typeof entry.data.taxonomyGroup === "string" ? entry.data.taxonomyGroup.trim() : "";
+const taxonomyPillLabel =
+  resolvedTaxonomyGroup?.group.title ||
+  resolvedTaxonomySubsection?.subsection.title ||
+  "";
 
 let relatedArticles: Array<{
   slug: string;
@@ -247,9 +266,6 @@ try {
         article?.data?.taxonomySubsection === currentTaxonomySubsection
       ) {
         score += 12;
-      }
-      if (currentCategory && article?.data?.category === currentCategory) {
-        score += 8;
       }
       if (currentTaxonomyGroup && article?.data?.taxonomyGroup === currentTaxonomyGroup) {
         score += 4;
@@ -358,7 +374,9 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
     class="knowledge"
     data-analytics-article="true"
     data-analytics-article-slug={slugKey}
-    data-analytics-article-category={entry.data.category || "uncategorized"}
+    data-analytics-article-category={currentTaxonomyGroup ||
+      currentTaxonomySubsection ||
+      "uncategorized"}
   >
     <div class="knowledge__backdrop"></div>
     <div class="knowledge__texture"></div>
@@ -386,14 +404,14 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
               <span>{readingResult.text}</span>
             </span>
             {
-              entry.data.category ? (
+              taxonomyPillLabel ? (
                 <span class="knowledge__pill">
                   <Icon
                     name="tag"
                     class="knowledge__pill-icon knowledge__pill-icon--teal"
                     aria-hidden="true"
                   />
-                  <span>{entry.data.category}</span>
+                  <span>{taxonomyPillLabel}</span>
                 </span>
               ) : null
             }

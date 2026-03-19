@@ -9,7 +9,6 @@ schema and internal-linking work.
 
 ### 1. Generic hub-page suffixes
 
-- Category pages used the pattern `{name} | Categories`.
 - Taxonomy pages used the pattern `{name} | Taxonomy`.
 
 These patterns are technically unique, but weak in search results because they describe
@@ -36,8 +35,6 @@ description is usually the stronger search snippet.
 
 - Knowledge articles:
   Keep editorial article title, rely on the shared builder to append the site brand.
-- Category pages:
-  `{Category Name} Music Guides`
 - Taxonomy pages:
   `{Section Name} Music Topics`
 - Quiz detail pages:
@@ -53,7 +50,7 @@ description is usually the stronger search snippet.
 
 ## Rules Going Forward
 
-- Do not use structural labels like `Category`, `Taxonomy`, or `Page` in SEO titles unless
+- Do not use structural labels like `Taxonomy` or `Page` in SEO titles unless
   they are necessary for disambiguation.
 - Prefer search-intent language:
   `music guides`, `music topics`, `music quiz`, `music history`, `genre evolution`.
