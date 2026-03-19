@@ -6,6 +6,7 @@
  */
 import Layout from "@layouts/Layout.astro";
 import QuizCard from "@components/Quiz/QuizCard.astro";
+import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
@@ -193,14 +194,11 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
 
       {
         quizzes.length === 0 && (
-          <div class="quiz-empty" role="status">
-            <Paragraph textSize="lg" className="quiz-empty__title">
-              No quizzes available yet
-            </Paragraph>
-            <Paragraph textSize="sm" className="quiz-empty__text">
-              Check back soon for new music quizzes!
-            </Paragraph>
-          </div>
+          <EmptyState
+            className="quiz-empty"
+            title="No quizzes available yet"
+            description="Check back soon for new music quizzes!"
+          />
         )
       }
     </div>
@@ -353,8 +351,6 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
   }
 
   .quiz-empty {
-    padding: 3rem 2rem;
-    text-align: center;
     background:
       radial-gradient(
         circle at top center,
@@ -363,19 +359,6 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
       ),
       var(--surface-2);
     border: 1px solid var(--border-default);
-    border-radius: 1.25rem;
-  }
-
-  .quiz-empty__title {
-    margin: 0;
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-
-  .quiz-empty__text {
-    margin-block-start: 0.75rem;
-    font-size: 1rem;
-    color: var(--text-secondary);
+    border-radius: var(--radius-xl);
   }
 </style>

@@ -3,6 +3,7 @@
  * Knowledge Index Page - Professional Dark Mode with WCAG AAA
  */
 import Layout from "@layouts/Layout.astro";
+import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
@@ -229,11 +230,11 @@ const pageSeo = buildPageSeo({
           aria-atomic="true"
         >
         </p>
-        <div class="recent-reads recent-reads--empty" id="recent-reads-empty">
-          <Paragraph textSize="sm" className="recent-reads__empty-text">
-            No recent guides yet. Open an article and it will appear here.
-          </Paragraph>
-        </div>
+        <EmptyState
+          className="recent-reads recent-reads--empty"
+          id="recent-reads-empty"
+          description="No recent guides yet. Open an article and it will appear here."
+        />
       </section>
 
       <section
@@ -638,14 +639,16 @@ const pageSeo = buildPageSeo({
   }
 
   :global(.recent-reads--empty) {
-    color: var(--text-secondary);
-    text-align: center;
+    padding: var(--spacing-lg);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
   }
 
-  :global(.recent-reads__empty-text) {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.6;
+  :global(.recent-reads--empty .empty-state__description) {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
   }
 
   :global(.recent-reads__list) {

@@ -2,6 +2,7 @@
 import PodcastLayout from "../layouts/PodcastLayout.astro";
 import EpisodeCard from "../components/EpisodeCard.astro";
 import HomeHero from "../components/HomeHero.astro";
+import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import SearchForm from "@shared-ui/components/search/SearchForm.astro";
@@ -120,11 +121,10 @@ const t = {
       </div>
       {
         podcasts.length === 0 && (
-          <div class="home__empty" role="status">
-            <Paragraph textSize="base" className="home__empty-text">
-              No episodes available yet. Check back soon for new content!
-            </Paragraph>
-          </div>
+          <EmptyState
+            className="home__empty"
+            description="No episodes available yet. Check back soon for new content!"
+          />
         )
       }
       <div id="episodes-data" data-episodes={encodedEpisodes} hidden></div>
@@ -289,22 +289,17 @@ const t = {
   }
 
   .home__empty {
-    display: grid;
-    gap: 1rem;
-    justify-items: center;
-    padding: 3rem 1.5rem;
-    text-align: center;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border-soft);
-    border-radius: 1.25rem;
-    box-shadow: var(--shadow-soft);
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    background: var(--surface-1);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-base);
   }
 
-  .home__empty-text {
-    margin: 0;
-    font-size: var(--font-size-body);
-    line-height: var(--leading-relaxed, 1.75);
-    color: var(--color-text-muted);
+  :global(.home__empty .empty-state__description) {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-loose);
+    color: var(--text-secondary);
   }
 
   @media (width >= 960px) {

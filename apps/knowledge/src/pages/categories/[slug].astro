@@ -4,8 +4,8 @@ import KnowledgeCard from "@components/KnowledgeCard.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
+import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import EmptyState from "@shared-ui/components/cards/EmptyState.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildCollectionPageSchema,
@@ -582,10 +582,8 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__empty {
-    --empty-state-bg: var(--category-surface-bg);
-    --empty-state-border: var(--category-surface-border);
-    --empty-state-radius: var(--category-surface-radius);
-    --empty-state-title-color: var(--text-primary);
-    --empty-state-description-color: var(--text-secondary);
+    background: var(--category-surface-bg);
+    border: var(--category-surface-border);
+    border-radius: var(--category-surface-radius);
   }
 </style>
