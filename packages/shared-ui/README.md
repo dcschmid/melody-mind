@@ -1,30 +1,52 @@
 # Shared UI
 
-Shared UI provides the Astro components, tokens, and small client bootstraps used across MelodyMind apps.
+`@melody-mind/shared-ui` provides the shared Astro components, layout primitives, and
+theme tokens used across the MelodyMind apps.
 
-## Styling rules
+## Scope
+
+- layout primitives
+- navigation components
+- typography components
+- cards, buttons, badges, and search UI
+- theme initialization helpers
+- semantic design tokens in `src/styles/master-theme.css`
+
+## Styling Rules
 
 - Use semantic tokens from `src/styles/master-theme.css` instead of raw palette values.
-- Keep component CSS scoped in the `.astro` file and follow BEM naming.
-- Prefer serious, low-noise surfaces: subtle gradients, restrained shadows, and clear spacing.
-- Support both light and dark mode through existing semantic variables, not component-specific palette forks.
-- Use `:focus-visible` for interactive focus treatment and keep reduced-motion fallbacks in the component.
+- Keep CSS scoped in the `.astro` file.
+- Follow BEM naming.
+- Support both light and dark mode through shared semantic variables.
+- Prefer existing spacing, radius, border, and shadow tokens before introducing new ones.
 
-## Accessibility baseline
+## Accessibility Baseline
 
-- Interactive controls should meet at least `48px` target size where practical.
-- Labels must stay present for forms, even when visually hidden.
+- Prefer semantic HTML first.
+- Keep labels available for forms, even when visually hidden.
 - Decorative icons should be `aria-hidden="true"`.
-- Status and helper messages should use live regions only where state actually changes.
+- Use live regions only for real state changes.
+- Maintain usable focus states with `:focus-visible`.
 
-## Component conventions
+## Commands
 
-- `MasterLayout.astro` owns document-level background, theme initialization, and shell slots.
-- `PageShell.astro` owns page width and vertical rhythm, not component-specific decoration.
-- `FooterShell.astro` and `Footer.astro` separate structural layout from footer content styling.
-- `AutoInitScript.astro` should import bundled client entries only; avoid bare module specifiers in inline browser code.
+```bash
+pnpm --filter @melody-mind/shared-ui lint
+pnpm --filter @melody-mind/shared-ui lint:check
+pnpm --filter @melody-mind/shared-ui format
+pnpm --filter @melody-mind/shared-ui format:check
+```
 
 ## Verification
 
-- Run `pnpm build` from the repo root after Shared UI changes.
-- Use `rg` to catch raw legacy tokens or stray emojis before shipping.
+After Shared UI changes, usually run:
+
+- `pnpm --filter @melody-mind/shared-ui format:check`
+- `pnpm --filter @melody-mind/shared-ui lint:check`
+- `pnpm build`
+
+## Notes
+
+- `MasterLayout.astro` owns document-level shell concerns.
+- `PageShell.astro` owns width and page rhythm, not app-specific decoration.
+- Shared empty and status patterns should live here when they are reused across apps.

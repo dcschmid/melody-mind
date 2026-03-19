@@ -1,178 +1,102 @@
-# MelodyMind Knowledge
+# MelodyMind Monorepo
 
-Music knowledge articles and education content for MelodyMind - A standalone static site serving content at `melody-mind.de`.
+MelodyMind is a content-focused Astro monorepo with three public apps and two shared
+packages:
 
-## Features
+- `apps/knowledge`: editorial music knowledge and taxonomy-driven discovery
+- `apps/quiz`: music history quizzes
+- `apps/podcasts`: podcast site and episode archive
+- `packages/shared-ui`: shared Astro UI components and theme tokens
+- `packages/shared-utils`: shared utilities for SEO, content, analytics, and site helpers
 
-- 🌍 **English-only**: streamlined single-language experience
-- 📚 **600+ Music Articles**: Comprehensive knowledge base about music genres, artists, and history
-- ⚡ **Static Site Generation**: Fast loading with pre-rendered pages
-- 🔍 **Full-text Search**: Client-side search functionality
-- 📖 **Table of Contents**: Auto-generated navigation for long articles
-- 🎨 **Responsive Design**: Mobile-first BEM CSS styling
+## Stack
 
-## Tech Stack
+- Astro 6
+- TypeScript
+- pnpm workspaces
+- Turbo
+- Scoped Astro component CSS with BEM naming
 
-- **Framework**: [Astro](https://astro.build/) v5+ with SSG
-- **Content**: Markdown with Frontmatter (Content Collections)
-- **Styling**: BEM-based CSS
-- **Fonts**: Atkinson Hyperlegible (accessible font)
-- **Search**: Client-side JavaScript search
-- **Runtime**: Node.js 18.19.0+
-- **Package Manager**: Yarn
+## Requirements
 
-## Getting Started
+- Node.js `>=22.12.0`
+- pnpm `9.x`
 
-### Prerequisites
-
-- Node.js >= 18.19.0
-- Yarn
-
-### Installation
+## Install
 
 ```bash
-# Install dependencies
-yarn install
-
-# Start development server
-yarn dev
-
-# Build for production
-yarn build
-
-# Preview production build
-yarn preview
+pnpm install
 ```
 
-## Project Structure
+## Common Commands
 
-```
-melody-mind/
-├── src/
-│   ├── components/       # Reusable UI components
-│   │   ├── Search/       # Search panel component
-│   │   └── Shared/       # Shared components (BackToTop, etc.)
-│   ├── constants/        # App constants
-│   ├── content/          # Knowledge articles (Markdown)
-│   │   ├── knowledge-en/ # English articles (active)
-│   │   └── config.ts     # Content collection schema
-│   ├── i18n/             # Translations
-│   │   └── locales/      # Language-specific translations
-│   ├── layouts/          # Page layouts
-│   ├── pages/            # Astro pages (routes)
-│   │   ├── knowledge/    # Knowledge listing & detail pages
-│   │   │   ├── index.astro
-│   │   │   └── [...slug].astro
-│   │   └── index.astro   # Root redirect to /knowledge
-│   ├── styles/           # Global styles
-│   └── utils/            # Utility functions
-│       ├── content/      # Content utilities
-│       ├── dates/        # Date formatting
-│       ├── i18n/         # i18n utilities
-│       └── seo/          # SEO helpers
-├── public/               # Static assets
-└── astro.config.mjs      # Astro configuration
-```
-
-## Content Collections
-
-Knowledge articles are organized as Astro Content Collections:
-
-- `knowledge-en`: English articles (canonical and only active collection)
-
-Legacy folders for other locales may exist but are no longer part of the build.
-
-Each article includes:
-- Title, description, keywords
-- Created/updated dates
-- Reading time estimation
-- Optional category metadata (Spotify/Deezer/Apple Music links)
-- Rich markdown content
-
-## Development
+### Monorepo
 
 ```bash
-# Run development server with hot reload
-yarn dev
-
-# Lint code
-yarn lint
-
-# Format code
-yarn format
-
-# Type check
-astro check
+pnpm dev
+pnpm build
+pnpm lint
+pnpm lint:check
+pnpm format
+pnpm format:check
 ```
 
-### Editor setup (VS Code)
-
-We recommend enabling Prettier + ESLint on save:
-
-1. Install extensions:
-   - `esbenp.prettier-vscode`
-   - `dbaeumer.vscode-eslint`
-   - `astro-build.astro-vscode`
-2. Workspace settings are included in `.vscode/settings.json`.
-
-## Deployment
-
-### Static Site Generation
-
-The site is built as a static site (SSG):
+### App-specific
 
 ```bash
-# Build static files
-yarn build:production
+pnpm dev:knowledge
+pnpm build:knowledge
+
+pnpm dev:quiz
+pnpm build:quiz
+
+pnpm dev:podcasts
+pnpm build:podcasts
 ```
 
-Output will be in `dist/` directory, ready to deploy to any static hosting.
+## Repository Layout
 
-### Subdomain Setup
-
-1. Configure DNS to point `melody-mind.de` to your server
-2. Set up web server (nginx/Apache/Caddy) to serve the `dist/` directory
-3. Enable gzip/brotli compression for better performance
-
-### Example nginx config
-
-```nginx
-server {
-    listen 443 ssl http2;
-    server_name melody-mind.de;
-    
-    root /var/www/melody-mind/dist;
-    index index.html;
-    
-    location / {
-        try_files $uri $uri/ =404;
-    }
-    
-    # Cache static assets
-    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2)$ {
-        expires 1y;
-        add_header Cache-Control "public, immutable";
-    }
-}
+```text
+.
+├── apps/
+│   ├── knowledge/
+│   ├── podcasts/
+│   └── quiz/
+├── packages/
+│   ├── shared-ui/
+│   └── shared-utils/
+├── AGENTS.md
+├── eslint.config.mjs
+├── stylelint.config.cjs
+└── package.json
 ```
 
-## Search Functionality
+## Knowledge Architecture
 
-The site includes a client-side search feature that:
-- Searches article titles, descriptions, and keywords
-- Provides instant results without page reload
-- Supports multiple languages
-- Highlights search results
+The Knowledge app now uses taxonomy as its primary content structure.
 
-## License
+- Main source: `apps/knowledge/src/data/musicTaxonomy.ts`
+- Section route: `apps/knowledge/src/pages/taxonomy/[section].astro`
+- Article frontmatter uses:
+  - `taxonomySubsection`
+  - `taxonomyGroup` (optional)
 
-MIT
+Legacy `/categories/*` pages were removed. Historical category URLs are preserved through
+redirect mappings in `apps/knowledge/src/constants/categoryRedirects.js`.
 
-## Related Projects
+## Quality Gates
 
-- [MelodyMind](https://github.com/dcschmid/melody-mind) - Main application
-- [MelodyMind Podcasts](https://github.com/dcschmid/melody-mind-podcasts) - Podcast subdomain
+There is no conventional test suite at the moment. The main validation path is:
 
----
+- `pnpm format:check`
+- `pnpm lint:check`
+- `pnpm build`
 
-Built with ❤️ for music lovers
+For narrower work, use the package-specific commands instead of always running the whole
+monorepo.
+
+## Notes
+
+- Husky is enabled through the root `prepare` script.
+- Shared UI theme tokens live in `packages/shared-ui/src/styles/master-theme.css`.
+- Knowledge-specific working rules are documented in `AGENTS.md`.
