@@ -9,6 +9,12 @@ interface Props {
 
 const { title, audioUrl, subtitleUrl } = Astro.props as Props;
 const playerId = subtitleUrl ?? audioUrl;
+const playerSlug =
+  playerId.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "audio";
+const statusId = `episode-player-status-${playerSlug}`;
+const progressLabelId = `episode-player-progress-label-${playerSlug}`;
+const timeId = `episode-player-time-${playerSlug}`;
+const hintId = `episode-player-hint-${playerSlug}`;
 ---
 
 <div
@@ -24,7 +30,7 @@ const playerId = subtitleUrl ?? audioUrl;
       data-action="toggle"
       aria-label={`Play ${title}`}
       aria-pressed="false"
-      aria-describedby="episode-player-status"
+      aria-describedby={`${statusId} ${hintId}`}
     >
       <Icon
         name="tabler:player-play-filled"
@@ -48,23 +54,16 @@ const playerId = subtitleUrl ?? audioUrl;
     </button>
   </div>
 
-  <div
-    class="episode-player__status"
-    id="episode-player-status"
-    aria-live="polite"
-    aria-atomic="true"
-  >
+  <div class="episode-player__status" id={statusId} aria-live="polite" aria-atomic="true">
     {title}
   </div>
 
   <div class="episode-player__progress-wrap">
-    <span id="episode-player-progress-label" class="episode-player__sr-only">
-      Playback progress
-    </span>
+    <span id={progressLabelId} class="episode-player__sr-only"> Playback progress </span>
     <div
       class="episode-player__progress"
       role="slider"
-      aria-labelledby="episode-player-progress-label"
+      aria-labelledby={progressLabelId}
       aria-valuemin="0"
       aria-valuemax="100"
       aria-valuenow="0"
@@ -76,19 +75,10 @@ const playerId = subtitleUrl ?? audioUrl;
   </div>
 
   <div class="episode-player__meta">
-    <span
-      class="episode-player__time"
-      id="episode-player-time"
-      aria-live="polite"
-      aria-atomic="true"
-    >
+    <span class="episode-player__time" id={timeId} aria-live="polite" aria-atomic="true">
       0:00 / 0:00
     </span>
-    <span
-      class="episode-player__shortcut-hint"
-      id="episode-player-hint"
-      aria-live="polite"
-    >
+    <span class="episode-player__shortcut-hint" id={hintId}>
       Keyboard shortcuts: Space, left/right arrows, Home/End, and Page Up/Page Down. Press
       ? to show or hide this hint.
     </span>
@@ -139,108 +129,167 @@ const playerId = subtitleUrl ?? audioUrl;
     />
     Your browser does not support audio playback.
   </audio>
-  <script is:inline type="module">
-    import "../../scripts/audio-player.ts";
+  <script>
+    import "@shared-ui/scripts/audio-player.ts";
   </script>
 </div>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     AudioPlayer Component Styles
+     Accessible audio player with keyboard controls
+     WCAG AAA compliant with clear visual feedback
+     ----------------------------------------------------------------------------- */
+
   .episode-player {
+    /* Layout */
     display: grid;
-    gap: 1rem;
+    gap: var(--spacing-base);
+    padding: var(--spacing-lg);
     text-align: center;
     outline: none;
+
+    /* Visual styling */
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      color-mix(in srgb, var(--surface-2) 72%, transparent)
+    );
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
   }
 
+  /* Focus state for entire player */
   .episode-player:focus-visible {
-    border-radius: 0.85rem;
-    box-shadow: var(--focus-ring);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-lg);
   }
 
+  /* Controls container */
   .episode-player__controls {
     display: flex;
-    gap: 0.75rem;
+    gap: var(--spacing-md);
     align-items: center;
     justify-content: center;
   }
 
+  /* Retry button - shown on error */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__retry {
+      padding: var(--spacing-sm) var(--spacing-base);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      cursor: pointer;
+      background: var(--surface-2);
+      border: 2px solid var(--border-default);
+      border-radius: var(--radius-base);
+      transition: none;
+    }
+  }
+
   .episode-player__retry {
-    padding: 0.5rem 1rem;
-    font-size: var(--font-size-ui);
-    font-weight: 600;
-    color: var(--color-text);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
     cursor: pointer;
-    background: var(--color-layer-2);
-    border: 1px solid var(--color-border-soft);
-    border-radius: 0.5rem;
+    background: var(--surface-2);
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-base);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast);
   }
 
   .episode-player__retry:hover,
-  .episode-player__retry:focus {
-    background: var(--color-layer-3);
-    border-color: var(--color-primary);
+  .episode-player__retry:focus-visible {
+    background: var(--surface-3);
+    border-color: var(--accent-primary);
   }
 
   .episode-player__retry[hidden] {
     display: none;
   }
 
+  /* Main play/pause control button */
   @media screen and (prefers-reduced-motion: reduce) {
     .episode-player__control {
+      /* Layout */
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
+      /* Responsive sizing with clamp */
       inline-size: clamp(3.4rem, 6vi, 3.75rem);
       block-size: clamp(3.4rem, 6vi, 3.75rem);
-      color: var(--color-background);
+      color: var(--button-text-accent);
+
+      /* Visual styling */
       cursor: pointer;
-      background: var(--color-primary);
-      border: 1px solid var(--color-border-default);
-      border-radius: 999px;
-      box-shadow: var(--shadow-strong);
+      background: var(--accent-primary);
+      border: 2px solid var(--accent-strong);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-lg);
+
+      /* Smooth transitions */
       transition: none;
     }
   }
 
   .episode-player__control {
+    /* Layout */
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    /* Responsive sizing with clamp */
     inline-size: clamp(3.4rem, 6vi, 3.75rem);
     block-size: clamp(3.4rem, 6vi, 3.75rem);
-    color: var(--color-background);
+    color: var(--button-text-accent);
+
+    /* Visual styling */
     cursor: pointer;
-    background: var(--color-primary);
-    border: 1px solid var(--color-border-default);
-    border-radius: 999px;
-    box-shadow: var(--shadow-strong);
+    background: var(--accent-primary);
+    border: 2px solid var(--accent-strong);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-lg);
+
+    /* Smooth transitions */
     transition:
-      transform 0.15s ease,
-      box-shadow 0.15s ease;
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background var(--transition-fast);
   }
 
+  /* Playing state - different accent color */
   .episode-player__control[data-state="playing"] {
-    background: var(--color-secondary);
+    background: var(--accent-strong);
   }
 
+  /* Focus state - WCAG AAA compliant */
   .episode-player__control:focus-visible {
-    outline: none;
-    outline: var(--effect-outline-contrast);
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  /* Hover and focus states - subtle lift */
   .episode-player__control:hover,
-  .episode-player__control:focus {
+  .episode-player__control:focus-visible {
+    box-shadow: var(--shadow-xl);
     transform: translateY(-1px) scale(1.02);
   }
 
+  /* Control icon sizing */
   .episode-player__control-icon {
     display: block;
     inline-size: 1.8rem;
     block-size: 1.8rem;
   }
 
+  /* Icon visibility toggle based on state */
   .episode-player__control-icon--pause {
     display: none;
   }
@@ -253,14 +302,32 @@ const playerId = subtitleUrl ?? audioUrl;
     display: block;
   }
 
+  /* Status text - shows current playback info */
   .episode-player__status {
-    font-size: var(--font-size-body);
-    font-weight: 600;
-    color: var(--color-text);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    text-wrap: balance;
   }
 
+  /* Progress bar wrapper */
   .episode-player__progress-wrap {
     inline-size: 100%;
+  }
+
+  /* Progress bar - interactive slider */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__progress {
+      position: relative;
+      inline-size: 100%;
+      block-size: clamp(0.65rem, 1.2vi, 0.85rem);
+      cursor: pointer;
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-full);
+      box-shadow: inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent);
+      transition: none;
+    }
   }
 
   .episode-player__progress {
@@ -268,26 +335,40 @@ const playerId = subtitleUrl ?? audioUrl;
     inline-size: 100%;
     block-size: clamp(0.65rem, 1.2vi, 0.85rem);
     cursor: pointer;
-    background: var(--color-layer-3);
-    border: 1px solid var(--color-border-default);
-    border-radius: 999px;
+    background: var(--surface-3);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+    box-shadow: inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent);
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .episode-player__progress:hover,
+  .episode-player__progress:focus {
+    border-color: var(--accent-primary);
+    box-shadow:
+      inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent),
+      var(--interactive-shadow-focus);
   }
 
   .episode-player__progress:focus-visible {
-    outline: none;
-    outline: var(--effect-outline-contrast);
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  /* Progress fill - shows elapsed time */
   @media screen and (prefers-reduced-motion: reduce) {
     .episode-player__progress-fill {
       position: absolute;
       inset: 0 auto 0 0;
       inline-size: 0%;
-      background: var(--brand-gradient);
+      background: linear-gradient(
+        90deg,
+        var(--accent-primary) 0%,
+        var(--accent-strong) 100%
+      );
       border-radius: inherit;
-      box-shadow: var(--effect-hairline-contrast);
       transition: none;
     }
   }
@@ -296,91 +377,120 @@ const playerId = subtitleUrl ?? audioUrl;
     position: absolute;
     inset: 0 auto 0 0;
     inline-size: 0%;
-    background: var(--brand-gradient);
+    background: linear-gradient(
+      90deg,
+      var(--accent-primary) 0%,
+      var(--accent-strong) 100%
+    );
     border-radius: inherit;
-    box-shadow: var(--effect-hairline-contrast);
-    transition: inline-size 0.15s ease-out;
+    transition: inline-size var(--transition-fast) ease-out;
   }
 
+  /* Metadata container - time and hints */
   .episode-player__meta {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: var(--spacing-xs);
     align-items: center;
-    font-size: var(--font-size-caption);
-    color: var(--color-text-muted);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-2) 78%, transparent);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-md);
   }
 
+  /* Keyboard shortcut hint */
   .episode-player__shortcut-hint {
-    font-size: var(--font-size-caption);
+    font-size: var(--font-size-xs);
   }
 
   .episode-player__shortcut-hint--hidden {
     display: none;
   }
 
+  /* Transport controls - seek buttons */
   .episode-player__transport {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-base);
     justify-content: center;
+    padding-block-start: var(--spacing-xs);
   }
 
+  /* Transport button styling */
   @media screen and (prefers-reduced-motion: reduce) {
     .episode-player__transport-button {
+      /* Layout */
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
+      /* Responsive sizing */
       inline-size: clamp(2.75rem, 5vi, 3.1rem);
       block-size: clamp(2.75rem, 5vi, 3.1rem);
-      color: var(--color-text-muted);
+
+      /* Visual styling */
+      color: var(--text-secondary);
       cursor: pointer;
       background: transparent;
-      border: 1px solid var(--color-border-soft);
-      border-radius: 0.6rem;
+      border: 2px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 18%, transparent);
+
+      /* Smooth transitions */
       transition: none;
     }
   }
 
   .episode-player__transport-button {
+    /* Layout */
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    /* Responsive sizing */
     inline-size: clamp(2.75rem, 5vi, 3.1rem);
     block-size: clamp(2.75rem, 5vi, 3.1rem);
-    color: var(--color-text-muted);
+
+    /* Visual styling */
+    color: var(--text-secondary);
     cursor: pointer;
     background: transparent;
-    border: 1px solid var(--color-border-soft);
-    border-radius: 0.6rem;
+    border: 2px solid var(--border-muted);
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 18%, transparent);
+
+    /* Smooth transitions */
     transition:
-      color 0.15s ease,
-      border-color 0.15s ease,
-      transform 0.15s ease;
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
   }
 
   .episode-player__transport-button:hover,
-  .episode-player__transport-button:focus {
-    color: var(--color-text);
-    border-color: var(--color-primary);
+  .episode-player__transport-button:focus-visible {
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
     transform: translateY(-1px);
   }
 
   .episode-player__transport-button:focus-visible {
-    outline: none;
-    outline: var(--effect-outline-contrast);
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  /* Transport icon sizing */
   .episode-player__transport-icon {
     inline-size: 1.4rem;
     block-size: 1.4rem;
   }
 
+  /* Audio element - hidden */
   .episode-player__audio {
     display: none;
   }
 
+  /* Screen reader only utility */
   .episode-player__sr-only {
     position: absolute !important;
     inline-size: 1px !important;
@@ -391,5 +501,21 @@ const playerId = subtitleUrl ?? audioUrl;
     white-space: nowrap !important;
     border: 0 !important;
     clip-path: inset(50%) !important;
+  }
+
+  /* Reduced motion support - disable all animations */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control,
+    .episode-player__transport-button,
+    .episode-player__progress-fill {
+      transition: none;
+    }
+
+    .episode-player__control:hover,
+    .episode-player__control:focus-visible,
+    .episode-player__transport-button:hover,
+    .episode-player__transport-button:focus-visible {
+      transform: none;
+    }
   }
 </style>

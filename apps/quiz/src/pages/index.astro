@@ -227,18 +227,18 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     background:
       radial-gradient(
         circle at top right,
-        color-mix(in srgb, var(--gn-accent) 20%, transparent),
+        color-mix(in srgb, var(--accent-primary) 20%, transparent),
         transparent 30%
       ),
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--gn-bg) 92%, transparent),
-        var(--gn-bg-muted)
+        color-mix(in srgb, var(--surface-1) 92%, transparent),
+        var(--surface-2)
       );
-    border: 1px solid color-mix(in srgb, var(--gn-accent) 24%, var(--gn-panel-border));
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 24%, var(--border-default));
     border-radius: 1.5rem;
     box-shadow:
-      0 24px 48px color-mix(in srgb, var(--gn-accent) 10%, transparent),
+      0 24px 48px color-mix(in srgb, var(--accent-primary) 10%, transparent),
       inset 0 1px 0 color-mix(in srgb, var(--color-white) 28%, transparent);
   }
 
@@ -260,7 +260,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     font-size: 2.6rem;
     font-weight: 700;
     line-height: 1.1;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.035em;
   }
 
@@ -280,7 +280,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     margin: 0;
     font-size: 1.05rem;
     line-height: 1.8;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   @media (width >= 640px) {
@@ -296,12 +296,12 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     padding: 1.5rem;
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--gn-bg) 94%, transparent),
-      var(--gn-bg-muted)
+      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      var(--surface-2)
     );
-    border: 1px solid var(--gn-panel-border);
+    border: 1px solid var(--border-default);
     border-radius: 1.35rem;
-    box-shadow: 0 16px 34px color-mix(in srgb, var(--gn-ink) 4%, transparent);
+    box-shadow: var(--shadow-md);
   }
 
   @media (width >= 768px) {
@@ -314,7 +314,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     margin: 0;
     font-size: 1.55rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.02em;
   }
 
@@ -329,7 +329,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     margin: 0;
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   .quiz-section__grid {
@@ -358,11 +358,11 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     background:
       radial-gradient(
         circle at top center,
-        color-mix(in srgb, var(--gn-accent) 10%, transparent),
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
         transparent 42%
       ),
-      var(--gn-bg-muted);
-    border: 1px solid var(--gn-panel-border);
+      var(--surface-2);
+    border: 1px solid var(--border-default);
     border-radius: 1.25rem;
   }
 
@@ -370,12 +370,12 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     margin: 0;
     font-size: 1.375rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   .quiz-empty__text {
     margin-block-start: 0.75rem;
     font-size: 1rem;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 </style>

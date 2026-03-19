@@ -5,6 +5,7 @@ import AudioPlayer from "../components/AudioPlayer.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
 import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
 import { getAdjacentByKey } from "../utils/array";
 import { buildMetaDescription, formatDate } from "../utils/helpers";
@@ -35,7 +36,7 @@ const metaDescription =
 
 const t = {
   backToAll: "← Back to all podcasts",
-  listenToEpisode: "🎧 Listen to the Episode",
+  listenToEpisode: "Listen to the Episode",
   episode: "Episode",
   previousEpisode: "Previous Episode",
   nextEpisode: "Next Episode",
@@ -153,7 +154,14 @@ const t = {
       currentPodcast.audioUrl && (
         <section class="episode__audio" aria-labelledby="audio-player-heading">
           <Headline level="h2" textSize="lg" className="episode__section-title">
-            <span id="audio-player-heading">{t.listenToEpisode}</span>
+            <span id="audio-player-heading">
+              <Icon
+                name="headphones"
+                class="episode__section-title-icon"
+                aria-hidden="true"
+              />
+              {t.listenToEpisode}
+            </span>
           </Headline>
 
           <AudioPlayer
@@ -381,6 +389,19 @@ const t = {
 
   .episode__section-title {
     margin: 0;
+  }
+
+  .episode__section-title :global(span) {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .episode__section-title-icon {
+    flex: 0 0 auto;
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--color-primary);
   }
 
   .episode__nav {

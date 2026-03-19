@@ -1,14 +1,21 @@
 ---
-interface Props {
+interface Props extends astroHTML.JSX.HTMLAttributes {
   /** Additional CSS classes to apply */
   className?: string;
   /** Text size variant */
   textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
   /** Text alignment option */
   textAlign?: "left" | "center" | "right";
+  class?: string;
 }
 
-const { textSize = "xl", className = "", textAlign = "left" } = Astro.props as Props;
+const {
+  textSize = "xl",
+  className = "",
+  textAlign = "left",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
 
 const baseClasses = "paragraph";
 
@@ -36,11 +43,13 @@ const classes = [
   textSizeClasses[textSize],
   textAlignClasses[textAlign],
   className,
+  classProp,
 ]
   .filter(Boolean)
   .join(" ");
 
 const attributes: Record<string, unknown> = {
+  ...rest,
   class: classes,
 };
 ---
@@ -49,70 +58,57 @@ const attributes: Record<string, unknown> = {
   <slot />
 </p>
 <style>
+  /* -----------------------------------------------------------------------------
+     Paragraph Component Styles
+     Semantic paragraph text with responsive sizing
+     WCAG AAA compliant with readable line heights
+     ----------------------------------------------------------------------------- */
+
   .paragraph {
+    /* Reset margins */
     margin: 0;
+
+    /* Typography - uses design system tokens */
     font-family: var(--font-sans);
-    line-height: var(--line-height-relaxed);
-    color: var(--gn-ink-muted);
+    line-height: var(--prose-line-height);
+    color: var(--prose-color);
+
+    /* Improved text rendering */
     hyphens: auto;
     text-wrap: pretty;
     overflow-wrap: break-word;
   }
 
+  /* Size variants - uses responsive typography scale */
   .paragraph--size-sm {
-    font-size: 1.125rem;
+    font-size: var(--font-size-sm);
   }
 
   .paragraph--size-base {
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
   }
 
   .paragraph--size-lg {
-    font-size: 1.25rem;
+    font-size: var(--font-size-md);
   }
 
   .paragraph--size-xl {
-    font-size: 1.375rem;
+    font-size: var(--font-size-lg);
   }
 
   .paragraph--size-2xl {
-    font-size: 1.475rem;
+    font-size: var(--font-size-xl);
   }
 
   .paragraph--size-3xl {
-    font-size: 1.625rem;
+    font-size: var(--font-size-2xl);
   }
 
   .paragraph--size-4xl {
-    font-size: 1.875rem;
+    font-size: var(--font-size-3xl);
   }
 
-  @media (width >= 768px) {
-    .paragraph--size-base {
-      font-size: 1.225rem;
-    }
-
-    .paragraph--size-lg {
-      font-size: 1.325rem;
-    }
-
-    .paragraph--size-xl {
-      font-size: 1.475rem;
-    }
-
-    .paragraph--size-2xl {
-      font-size: 1.625rem;
-    }
-
-    .paragraph--size-3xl {
-      font-size: 1.825rem;
-    }
-
-    .paragraph--size-4xl {
-      font-size: 2.125rem;
-    }
-  }
-
+  /* Text alignment options */
   .paragraph--align-left {
     text-align: start;
   }

@@ -50,72 +50,64 @@ const classes = [
 <Tag {...rest} class={classes}>{title || <slot />}</Tag>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     Headline Component Styles
+     Semantic, responsive heading system with WCAG AAA compliance
+     Supports multiple sizes and text alignment options
+     ----------------------------------------------------------------------------- */
+
   .headline {
+    /* Reset default margins */
     margin: 0;
-    font-family: var(--headline-font-family, var(--font-display, inherit));
-    font-weight: var(--headline-font-weight, 700);
-    line-height: var(--headline-line-height, var(--line-height-tight, 1.25));
-    color: var(--headline-color, var(--gn-ink, var(--color-text, currentColor)));
-    letter-spacing: var(--headline-letter-spacing, 0);
+
+    /* Typography - semantic tokens from design system */
+    font-family: var(--font-sans);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    color: var(--heading-color);
+    letter-spacing: var(--heading-letter-spacing);
+
+    /* Improved text rendering */
     text-wrap: balance;
     overflow-wrap: break-word;
-    text-shadow: var(--headline-shadow, none);
   }
 
+  /* Small size - uses responsive typography scale */
   .headline--size-sm {
-    font-size: var(--headline-size-sm, 1.25rem);
+    font-size: var(--font-size-lg);
   }
 
+  /* Base size - default size for h2/h3 */
   .headline--size-base {
-    font-size: var(--headline-size-base, 1.375rem);
+    font-size: var(--font-size-xl);
   }
 
+  /* Large size - section headings */
   .headline--size-lg {
-    font-size: var(--headline-size-lg, 1.625rem);
+    font-size: var(--font-size-2xl);
   }
 
+  /* Extra large - page titles */
   .headline--size-xl {
-    font-size: var(--headline-size-xl, 2.125rem);
+    font-size: var(--font-size-3xl);
   }
 
+  /* 2xl size - hero sections */
   .headline--size-2xl {
-    font-size: var(--headline-size-2xl, 2.625rem);
+    font-size: var(--font-size-3xl);
   }
 
+  /* 3xl size - major landing pages */
   .headline--size-3xl {
-    font-size: var(--headline-size-3xl, 3.125rem);
+    font-size: var(--font-size-4xl);
   }
 
+  /* 4xl size - hero headings, fully responsive */
   .headline--size-4xl {
-    font-size: var(--headline-size-4xl, clamp(2.85rem, 5vi, 3.6rem));
+    font-size: var(--font-size-4xl);
   }
 
-  @media (width >= 768px) {
-    .headline--size-sm {
-      font-size: var(--headline-size-sm-desktop, 1.375rem);
-    }
-
-    .headline--size-base {
-      font-size: var(--headline-size-base-desktop, 1.625rem);
-    }
-
-    .headline--size-lg {
-      font-size: var(--headline-size-lg-desktop, 1.875rem);
-    }
-
-    .headline--size-xl {
-      font-size: var(--headline-size-xl-desktop, 2.625rem);
-    }
-
-    .headline--size-2xl {
-      font-size: var(--headline-size-2xl-desktop, 3.125rem);
-    }
-
-    .headline--size-3xl {
-      font-size: var(--headline-size-3xl-desktop, 3.625rem);
-    }
-  }
-
+  /* Text alignment options */
   .headline--align-left {
     text-align: start;
   }

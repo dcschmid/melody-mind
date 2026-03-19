@@ -1,7 +1,6 @@
 ---
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
-import Toast from "@shared-ui/components/actions/Toast.astro";
 import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
@@ -52,8 +51,6 @@ interface Props {
   imageWidth?: number;
   imageHeight?: number;
   pageSeo: PageSeo;
-  showHeader?: boolean;
-  showHeaderIcons?: boolean;
   ogMusic?: {
     creator?: string;
     album?: string;
@@ -79,8 +76,6 @@ const {
   episodeNumber,
   seriesName,
   seriesUrl,
-  showHeader = true,
-  showHeaderIcons = true,
   prevUrl,
   nextUrl,
   disableAlternateLanguages,
@@ -162,11 +157,23 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
 const navItems: NavItem[] = [
   {
-    href: "/bookmarks",
-    label: "Bookmarks",
-    icon: "bookmark",
-    badgeType: "bookmarkCount",
-    badgeBaseLabel: "Saved articles",
+    href: "https://podcasts.melody-mind.de",
+    label: "Podcast",
+    icon: "headphones",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    href: "https://quiz.melody-mind.de",
+    label: "Quiz",
+    icon: "help-circle",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    href: "/search",
+    label: "Search",
+    icon: "search",
   },
 ];
 ---
@@ -274,18 +281,16 @@ const navItems: NavItem[] = [
     brandHref="/"
     brandText="Melody Mind"
     brandMark="MM"
+    brandLogoSrc="/melody-mind.png"
+    brandLogoAlt="Melody Mind"
+    brandLogoWidth={1536}
+    brandLogoHeight={1024}
     brandAriaLabel="Go to the Melody Mind homepage"
-    searchAction="/search"
-    searchInputName="q"
-    searchInputLabel="Search Melody Mind"
-    searchInputPlaceholder="Search titles or descriptions..."
-    searchSubmitLabel="Search"
     menuOpenLabel="Open main menu"
     menuCloseLabel="Close main menu"
     menuText="Menu"
     navAriaLabel="Primary navigation"
   />
-  <Toast slot="after-main" />
 
   <slot />
 
@@ -293,7 +298,6 @@ const navItems: NavItem[] = [
     brandTitle="Melody Mind"
     brandText="Curated guides and playlists to help you listen more closely and discover new sounds."
     exploreLinks={[
-      { href: "/bookmarks", label: "Saved articles" },
       {
         href: "https://podcasts.melody-mind.de",
         label: "Podcasts",

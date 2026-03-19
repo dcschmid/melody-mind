@@ -6,7 +6,6 @@
  */
 
 import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
-import { icons as tablerIconSet } from "@iconify-json/tabler";
 
 const QUIZ_RESULTS_KEY = "quiz-results";
 
@@ -49,46 +48,28 @@ function selectRandomQuestions(questions: QuizQuestion[], count: number): QuizQu
   return shuffled.slice(0, count);
 }
 
-interface IconifyCollection {
-  width?: number;
-  height?: number;
-  icons: Record<
-    string,
-    {
-      body: string;
-      width?: number;
-      height?: number;
-    }
-  >;
-}
-
-const TABLER_ICONS = tablerIconSet as IconifyCollection;
-
-function renderTablerIcon(name: string): string {
-  const icon = TABLER_ICONS.icons[name];
-  if (!icon) {
-    return "";
-  }
-
-  const width = icon.width ?? TABLER_ICONS.width ?? 24;
-  const height = icon.height ?? TABLER_ICONS.height ?? 24;
-
-  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${icon.body}</svg>`;
-}
-
 const icons = {
-  check: renderTablerIcon("check"),
-  x: renderTablerIcon("x"),
-  circle: renderTablerIcon("circle"),
-  circleCheck: renderTablerIcon("circle-check"),
-  square: renderTablerIcon("square"),
-  squareCheck: renderTablerIcon("square-check"),
-  info: renderTablerIcon("info-circle"),
-  refresh: renderTablerIcon("refresh"),
-  grid: renderTablerIcon("layout-grid"),
-  trophy: renderTablerIcon("trophy"),
-  arrowLeft: renderTablerIcon("arrow-left"),
-  arrowRight: renderTablerIcon("arrow-right"),
+  check:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l5 5L20 7"/></svg>',
+  x: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m18 6l-12 12M6 6l12 12"/></svg>',
+  circle:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>',
+  circleCheck:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12l2 2l4-4"/></svg>',
+  square:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>',
+  squareCheck:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="5" y="5" width="14" height="14" rx="2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 12l2 2l4-4"/></svg>',
+  info: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11v4"/><path fill="currentColor" d="M12 8.25a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5"/></svg>',
+  refresh:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 11a8.1 8.1 0 0 0-15.5-2M4 5v4h4M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></svg>',
+  grid: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 5a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm9 0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zM7 14a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2zm9 0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2z"/></svg>',
+  trophy:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8M12 17v4M7 4h10v3a5 5 0 0 1-10 0zm10 1h2a2 2 0 0 1 0 4h-2M7 5H5a2 2 0 1 0 0 4h2"/></svg>',
+  arrowLeft:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 6l-6 6l6 6"/></svg>',
+  arrowRight:
+    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 6l6 6l-6 6"/></svg>',
 };
 
 export function initQuiz(
@@ -156,7 +137,7 @@ export function initQuiz(
     `;
   }
 
-  function renderQuestion() {
+  function renderQuestion(focusTarget?: "question" | "explanation" | number) {
     if (!questionContainer) {
       return;
     }
@@ -253,7 +234,7 @@ export function initQuiz(
     const explanationHtml =
       isAnswered && q.explanation
         ? `
-        <div class="quiz-question__explanation" aria-live="polite">
+        <div class="quiz-question__explanation" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
           <div class="quiz-question__explanation-header">
             ${icons.info}
             <span>Explanation</span>
@@ -296,7 +277,7 @@ export function initQuiz(
         </div>
         <div class="quiz-question__card">
           <p class="quiz-question__prompt">Question</p>
-          <h3 class="quiz-question__text">${q.question}</h3>
+          <h3 class="quiz-question__text" tabindex="-1">${q.question}</h3>
           ${hintHtml}
           <div class="quiz-question__options" role="group">
             ${optionsHtml}
@@ -313,6 +294,28 @@ export function initQuiz(
     });
 
     updateNavigation();
+
+    if (typeof focusTarget === "number") {
+      const option = questionContainer.querySelector<HTMLButtonElement>(
+        `.quiz-question__option[data-index="${focusTarget}"]`
+      );
+      option?.focus();
+      return;
+    }
+
+    if (focusTarget === "explanation") {
+      const explanation = questionContainer.querySelector<HTMLElement>(
+        ".quiz-question__explanation"
+      );
+      explanation?.focus();
+      return;
+    }
+
+    if (focusTarget === "question") {
+      const heading =
+        questionContainer.querySelector<HTMLElement>(".quiz-question__text");
+      heading?.focus();
+    }
   }
 
   function handleOptionClick(e: Event) {
@@ -337,7 +340,7 @@ export function initQuiz(
       state.answers[state.currentQuestion] = index;
     }
 
-    renderQuestion();
+    renderQuestion(index);
   }
 
   function submitAnswer() {
@@ -367,8 +370,17 @@ export function initQuiz(
       state.correctCount++;
     }
 
-    renderQuestion();
+    renderQuestion(q.explanation ? "explanation" : "question");
     renderProgress();
+
+    if (!q.explanation) {
+      const nextAction = !navNext?.hidden
+        ? navNext
+        : !navSubmit?.hidden
+          ? navSubmit
+          : null;
+      nextAction?.focus();
+    }
   }
 
   function updateNavigation() {
@@ -395,7 +407,7 @@ export function initQuiz(
       return;
     }
     state.currentQuestion = index;
-    renderQuestion();
+    renderQuestion("question");
   }
 
   function showResults() {
@@ -431,7 +443,7 @@ export function initQuiz(
           <div class="quiz-result__icon">
             ${passed ? icons.trophy : icons.refresh}
           </div>
-          <h2 class="quiz-result__title">${passed ? "Congratulations!" : "Keep Learning!"}</h2>
+          <h2 class="quiz-result__title" tabindex="-1">${passed ? "Congratulations!" : "Keep Learning!"}</h2>
           <p class="quiz-result__subtitle">
             ${passed ? `You passed this quiz!` : `You didn't pass this quiz this time.`}
           </p>
@@ -457,12 +469,12 @@ export function initQuiz(
             <span
               class="quiz-result__score-ring"
               aria-hidden="true"
-              style="display:block; inline-size:9rem; block-size:9rem; border-radius:50%; background:conic-gradient(${passed ? "var(--color-gn-green-400)" : "var(--color-gn-red-400)"} 0 ${score}%, var(--gn-panel-border) ${score}% 100%);"
+              style="display:block; inline-size:9rem; block-size:9rem; border-radius:50%; background:conic-gradient(${passed ? "var(--color-success-500)" : "var(--color-error-500)"} 0 ${score}%, var(--border-default) ${score}% 100%);"
             ></span>
             <span
               class="quiz-result__score-ring-core"
               aria-hidden="true"
-              style="position:absolute; inline-size:7.75rem; block-size:7.75rem; border-radius:50%; background:var(--gn-bg);"
+              style="position:absolute; inline-size:7.75rem; block-size:7.75rem; border-radius:50%; background:var(--surface-1);"
             ></span>
             <span class="quiz-result__score-value">${score}%</span>
           </div>
@@ -489,6 +501,9 @@ export function initQuiz(
 
     // Save result to localStorage
     saveResult(score, passed);
+
+    const resultTitle = resultContainer.querySelector<HTMLElement>(".quiz-result__title");
+    resultTitle?.focus();
   }
 
   function saveResult(score: number, passed: boolean) {

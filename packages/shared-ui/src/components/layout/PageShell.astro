@@ -18,53 +18,105 @@ const containerClasses = ["page-shell__container", containerClass]
   </div>
 </div>
 <style>
+  /* -----------------------------------------------------------------------------
+     PageShell Component Styles
+     Main page container with responsive padding and max-width variants
+     ----------------------------------------------------------------------------- */
+
   .page-shell {
+    /* Positioning */
     position: relative;
+
+    /* Layout */
     min-block-size: 100vb;
     overflow-inline: hidden;
-    color: var(--gn-ink);
+
+    /* Typography */
+    color: var(--text-primary);
+    isolation: isolate;
   }
 
+  .page-shell::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 12%, transparent),
+        transparent 48%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-2) 65%, transparent),
+        transparent 22rem
+      );
+    opacity: 0.9;
+  }
+
+  /* Main container - default width */
   .page-shell__container {
+    /* Positioning */
     position: relative;
     z-index: 1;
-    max-inline-size: 72rem;
-    padding: 2rem 0.75rem 3.5rem;
+
+    /* Layout */
+    max-inline-size: min(72rem, var(--page-max-width));
+    padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-4xl);
     margin: 0 auto;
   }
 
+  .page-shell__container > :first-child {
+    margin-block-start: 0;
+  }
+
+  .page-shell__container > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* Variant: Wide container */
   .page-shell__container--wide {
     max-inline-size: 82rem;
   }
 
+  /* Variant: Extra spacious padding */
   .page-shell__container--spacious {
-    padding: 2.5rem 1rem;
+    padding: var(--spacing-3xl) var(--spacing-lg);
   }
 
+  /* Variant: Narrow container for reading */
   .page-shell__container--narrow {
     max-inline-size: 58rem;
   }
 
+  /* Tablet breakpoint - increase padding */
   @media (width >= 640px) {
     .page-shell__container {
-      padding: 2.5rem 1.25rem 4rem;
+      padding: calc(var(--page-padding-y) + var(--spacing-base)) var(--page-padding-x)
+        var(--spacing-4xl);
     }
 
     .page-shell__container--spacious {
-      padding: 3rem 1.25rem;
+      padding: var(--spacing-4xl) var(--spacing-lg);
     }
   }
 
+  /* Desktop breakpoint - more padding */
   @media (width >= 1024px) {
     .page-shell__container {
-      padding: 3rem 1.75rem 4.5rem;
+      padding: calc(var(--page-padding-y) + var(--spacing-lg))
+        clamp(var(--spacing-xl), 4vw, var(--spacing-2xl))
+        clamp(var(--spacing-4xl), 7vw, 6rem);
     }
 
     .page-shell__container--spacious {
-      padding: 3.5rem 1.75rem;
+      padding: 3.5rem var(--spacing-2xl);
     }
   }
 
+  /* Large desktop - expand wide variant */
   @media (width >= 1280px) {
     .page-shell__container--wide {
       max-inline-size: 92rem;

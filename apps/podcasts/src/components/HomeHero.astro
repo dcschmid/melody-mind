@@ -72,17 +72,23 @@ const {
     <div class="home-hero__info">
       <div class="home-hero__highlights">
         <div class="home-hero__highlight">
-          <span aria-hidden="true">🎧</span>
+          <span class="home-hero__highlight-icon" aria-hidden="true">
+            <Icon name="headphones" aria-hidden="true" />
+          </span>
           <span> New episodes for walks, commutes, or quiet evenings. </span>
         </div>
         <div class="home-hero__highlight">
-          <span aria-hidden="true">✨</span>
+          <span class="home-hero__highlight-icon" aria-hidden="true">
+            <Icon name="sparkles" aria-hidden="true" />
+          </span>
           <span>
             Stories first, facts second - always warm, curious, and welcoming.
           </span>
         </div>
         <div class="home-hero__highlight">
-          <span aria-hidden="true">🎶</span>
+          <span class="home-hero__highlight-icon" aria-hidden="true">
+            <Icon name="music" aria-hidden="true" />
+          </span>
           <span>
             From early rock 'n' roll sparks to modern electronic worlds, hear how music
             became part of everyday life.
@@ -250,6 +256,19 @@ const {
     background: var(--color-layer-1);
     border: 1px solid var(--color-border-soft);
     border-radius: 1.1rem;
+  }
+
+  .home-hero__highlight-icon {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 14%, var(--color-layer-1));
+    border: 1px solid var(--color-border-soft);
+    border-radius: 999px;
   }
 
   .home-hero__highlight span:last-child {

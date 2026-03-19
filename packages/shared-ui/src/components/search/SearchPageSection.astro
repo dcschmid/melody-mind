@@ -29,12 +29,12 @@ interface Props {
 const {
   items,
   initialQuery = "",
-  heroEyebrow = "Library Search",
-  title = "Search",
-  lead = "Search locally across titles and descriptions with shareable query URLs.",
+  heroEyebrow = "",
+  title = "",
+  lead = "",
   tipsTitle = "Search tips",
   tips = [],
-  resultsEyebrow = "Search",
+  resultsEyebrow = "Search the archive",
   resultsTitle = "Results",
   resultsHelp = "Results update while you type, and the current query stays in the URL.",
   searchPlaceholder = "Search...",
@@ -45,35 +45,44 @@ const {
 ---
 
 <section class="search-page-section">
-  <header class="search-page-section__header">
-    <div class="search-page-section__hero">
-      <div class="search-page-section__hero-copy">
-        <Paragraph textSize="sm" className="search-page-section__eyebrow">
-          {heroEyebrow}
-        </Paragraph>
-        <Headline level="h1" textSize="3xl" className="search-page-section__title">
-          {title}
-        </Headline>
-        <Paragraph textSize="base" className="search-page-section__lead">
-          {lead}
-        </Paragraph>
-      </div>
-      {
-        tips.length ? (
-          <div class="search-page-section__hero-panel">
-            <Paragraph textSize="sm" className="search-page-section__hero-kicker">
-              {tipsTitle}
-            </Paragraph>
-            <ul class="search-page-section__hero-list">
-              {tips.map((tip) => (
-                <li class="search-page-section__hero-item">{tip}</li>
-              ))}
-            </ul>
+  {
+    (heroEyebrow || title || lead || tips.length > 0) && (
+      <header class="search-page-section__header">
+        <div class="search-page-section__hero">
+          <div class="search-page-section__hero-copy">
+            {heroEyebrow && (
+              <Paragraph textSize="sm" className="search-page-section__eyebrow">
+                {heroEyebrow}
+              </Paragraph>
+            )}
+            {title && (
+              <Headline level="h1" className="search-page-section__title">
+                {title}
+              </Headline>
+            )}
+            {lead && (
+              <Paragraph textSize="lg" className="search-page-section__lead">
+                {lead}
+              </Paragraph>
+            )}
           </div>
-        ) : null
-      }
-    </div>
-  </header>
+
+          {tips.length > 0 && (
+            <aside class="search-page-section__hero-panel" aria-label={tipsTitle}>
+              <Paragraph textSize="sm" className="search-page-section__hero-kicker">
+                {tipsTitle}
+              </Paragraph>
+              <ul class="search-page-section__hero-list">
+                {tips.map((tip) => (
+                  <li class="search-page-section__hero-item">{tip}</li>
+                ))}
+              </ul>
+            </aside>
+          )}
+        </div>
+      </header>
+    )
+  }
 
   <section
     class="search-page-section__panel"
@@ -107,66 +116,90 @@ const {
 </section>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     SearchPageSection Component Styles
+     Full search page with hero, tips, and results section
+     WCAG AAA compliant with proper spacing and contrast
+     ----------------------------------------------------------------------------- */
+
   .search-page-section {
     display: grid;
-    gap: 1.75rem;
+    gap: var(--spacing-2xl);
+    min-inline-size: 0;
   }
 
   .search-page-section__header {
     display: grid;
-    gap: 1rem;
+    gap: var(--spacing-lg);
   }
 
+  /* Hero section - main search introduction */
   .search-page-section__hero {
     display: grid;
-    gap: 1.15rem;
+    gap: var(--spacing-lg);
     align-items: start;
   }
 
+  /* Panel containers - elevated card style */
   .search-page-section__hero-copy,
   .search-page-section__hero-panel,
   .search-page-section__panel {
+    /* Positioning */
     position: relative;
+
+    /* Layout */
     display: grid;
-    gap: 0.8rem;
-    padding: 1.35rem;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
     overflow: hidden;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
-    border-radius: 1rem;
+
+    /* Visual styling */
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      color-mix(in srgb, var(--surface-2) 66%, transparent)
+    );
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
   }
 
+  /* Eyebrow text - small uppercase labels */
   .search-page-section__eyebrow,
   .search-page-section__hero-kicker,
   .search-page-section__panel-eyebrow {
     margin: 0;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--gn-accent);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: var(--letter-spacing-widest);
   }
 
+  /* Main title - large responsive heading */
   .search-page-section__title {
     max-inline-size: 11ch;
     margin: 0;
     font-size: clamp(2.8rem, 8vi, 5rem);
-    line-height: 0.95;
+    line-height: var(--line-height-tight);
+    color: var(--heading-color);
     letter-spacing: -0.05em;
     text-wrap: balance;
   }
 
+  /* Lead paragraph */
   .search-page-section__lead {
     max-inline-size: 56ch;
     margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--gn-ink-muted);
+    font-size: var(--font-size-lg);
+    line-height: var(--prose-line-height);
+    color: var(--text-secondary);
   }
 
+  /* Tips list - bullet points with custom styling */
   .search-page-section__hero-list {
     display: grid;
-    gap: 0.75rem;
+    gap: var(--spacing-sm);
     padding: 0;
     margin: 0;
     list-style: none;
@@ -174,11 +207,12 @@ const {
 
   .search-page-section__hero-item {
     position: relative;
-    padding-inline-start: 1rem;
-    line-height: 1.6;
-    color: var(--gn-ink-muted);
+    padding-inline-start: var(--spacing-lg);
+    line-height: var(--prose-line-height);
+    color: var(--text-secondary);
   }
 
+  /* Custom bullet point - accent color dot */
   .search-page-section__hero-item::before {
     position: absolute;
     inset-block-start: 0.7rem;
@@ -186,44 +220,90 @@ const {
     inline-size: 0.45rem;
     block-size: 0.45rem;
     content: "";
-    background: var(--gn-accent);
-    border-radius: 999px;
+    background: var(--accent-primary);
+    border-radius: var(--radius-full);
   }
 
+  /* Results panel */
   .search-page-section__panel {
-    gap: 1.2rem;
+    gap: var(--spacing-lg);
   }
 
   .search-page-section__panel-head {
     display: grid;
-    gap: 0.65rem;
+    gap: var(--spacing-sm);
   }
 
   .search-page-section__panel-copy {
     display: grid;
-    gap: 0.35rem;
+    gap: var(--spacing-xs);
   }
 
   .search-page-section__panel-title {
     margin: 0;
     font-size: clamp(1.7rem, 4vi, 2.4rem);
-    line-height: 1.05;
-    color: var(--gn-ink);
+    line-height: var(--line-height-snug);
+    color: var(--heading-color);
     letter-spacing: -0.03em;
   }
 
   .search-page-section__panel-help {
     margin: 0;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: var(--gn-ink-muted);
+    font-size: var(--font-size-lg);
+    line-height: var(--prose-line-height);
+    color: var(--text-secondary);
   }
 
+  /* Search UI container */
   .search-page-section__search-ui {
     position: relative;
     z-index: 1;
+    min-inline-size: 0;
+    padding: var(--spacing-lg);
+    background: color-mix(in srgb, var(--surface-1) 78%, transparent);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-lg);
   }
 
+  @media (width < 640px) {
+    .search-page-section {
+      gap: var(--spacing-xl);
+    }
+
+    .search-page-section__panel {
+      gap: var(--spacing-md);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+    }
+
+    .search-page-section__panel-head {
+      gap: var(--spacing-md);
+    }
+
+    .search-page-section__panel-title {
+      font-size: clamp(1.9rem, 8vw, 2.35rem);
+    }
+
+    .search-page-section__panel-help {
+      max-inline-size: 32ch;
+      font-size: var(--font-size-base);
+      text-wrap: pretty;
+    }
+
+    .search-page-section__search-ui {
+      padding: var(--spacing-md);
+      border-radius: calc(var(--radius-lg) - 0.125rem);
+    }
+  }
+
+  @media (width >= 768px) {
+    .search-page-section__panel-head {
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
+      align-items: end;
+    }
+  }
+
+  /* Desktop layout - two column hero */
   @media (width >= 960px) {
     .search-page-section__hero {
       grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 0.9fr);

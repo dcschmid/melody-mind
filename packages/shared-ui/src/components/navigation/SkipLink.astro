@@ -32,32 +32,60 @@ const iconClasses = "skip-link__icon";
   {label}
 </a>
 <style>
+  /* -----------------------------------------------------------------------------
+     SkipLink Component Styles
+     WCAG AAA accessibility feature for keyboard navigation
+     Hidden until focused, then appears at top of page
+     ----------------------------------------------------------------------------- */
+
   .skip-link {
+    /* Absolute positioning - hidden off-screen by default */
     position: absolute;
     inset-block-start: -9999px;
     inset-inline-start: 50%;
     z-index: 50;
+
+    /* Layout */
     display: inline-flex;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
     align-items: center;
-    padding: 0.5rem 1rem;
-    font-weight: 700;
-    color: var(--skip-link-text);
+    padding: var(--spacing-sm) var(--spacing-base);
+
+    /* Typography */
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+
+    /* Visual styling - high contrast for accessibility */
+    color: var(--button-text-accent);
     text-decoration: none;
-    background: var(--skip-link-bg);
-    border-radius: 0 0 0.5rem 0.5rem;
-    box-shadow: var(--skip-link-shadow);
+    background: var(--accent-primary);
+    border-radius: 0 0 var(--radius-base) var(--radius-base);
+    box-shadow: var(--shadow-xl);
+
+    /* Centered positioning */
     transform: translateX(-50%);
+
+    /* Smooth transition */
+    transition: inset-block-start var(--transition-fast);
   }
 
+  /* Show when focused - moves to top of viewport */
   .skip-link:focus-visible {
     inset-block-start: 0;
-    outline: 2px solid var(--skip-link-outline);
-    outline-offset: 4px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  /* Icon sizing */
   .skip-link__icon {
     inline-size: 1rem;
     block-size: 1rem;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .skip-link {
+      transition: none;
+    }
   }
 </style>

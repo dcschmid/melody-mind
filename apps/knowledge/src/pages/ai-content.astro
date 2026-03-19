@@ -249,8 +249,8 @@ const pageSeo = buildPageSeo({
 <style>
   .ai-policy {
     padding: 1.25rem;
-    background: var(--gn-bg-muted);
-    border: 1px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 1rem;
   }
 
@@ -273,11 +273,11 @@ const pageSeo = buildPageSeo({
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--gn-accent);
+    color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: 0.16em;
-    background: var(--gn-bg);
-    border: 2px solid var(--gn-accent);
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
     border-radius: 999px;
   }
 
@@ -288,8 +288,8 @@ const pageSeo = buildPageSeo({
   }
 
   .ai-policy__section--contact {
-    background: var(--gn-bg);
-    border-color: var(--gn-accent);
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border-color: var(--accent-primary);
   }
 
   .ai-policy__section-header {
@@ -297,14 +297,14 @@ const pageSeo = buildPageSeo({
     gap: 1rem;
     align-items: center;
     padding-block-end: 1rem;
-    border-block-end: 2px solid var(--gn-panel-border);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
   }
 
   .ai-policy__icon {
     flex-shrink: 0;
     inline-size: 1.75rem;
     block-size: 1.75rem;
-    color: var(--gn-accent);
+    color: var(--accent-primary);
   }
 
   @media (width >= 720px) {

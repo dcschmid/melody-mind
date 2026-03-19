@@ -55,126 +55,144 @@ const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
 </div>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     Prose Component Styles
+     Semantic rich text content styling
+     WCAG AAA compliant with responsive typography
+     ----------------------------------------------------------------------------- */
+
   .prose {
+    /* Layout */
     max-inline-size: 72ch;
-    font-size: var(--prose-size, var(--knowledge-prose-size, 1.175rem));
-    line-height: var(
-      --prose-line-height,
-      var(
-        --knowledge-prose-line-height,
-        var(--line-height-relaxed, var(--leading-relaxed, 1.75))
-      )
-    );
-    color: var(--prose-color, var(--gn-ink-muted, var(--color-text, currentColor)));
+
+    /* Typography - uses design system tokens */
+    font-size: var(--font-size-md);
+    line-height: var(--prose-line-height);
+    color: var(--prose-color);
+
+    /* Improved text rendering */
     hyphens: auto;
     text-wrap: pretty;
   }
 
-  .prose--invert,
-  .prose--standard {
-    color: var(--prose-color, var(--gn-ink-muted, var(--color-text, currentColor)));
-  }
-
+  /* Full width variant */
   .prose--full {
     max-inline-size: none;
   }
 
+  /* Size variants */
   .prose--sm {
-    --prose-size: 1.125rem;
+    font-size: var(--font-size-sm);
   }
 
   .prose--md {
-    --prose-size: 1.125rem;
+    font-size: var(--font-size-base);
   }
 
   .prose--lg {
-    --prose-size: 1.175rem;
+    font-size: var(--font-size-md);
   }
 
   .prose--xl {
-    --prose-size: 1.325rem;
+    font-size: var(--font-size-lg);
   }
 
+  /* Headings - semantic styling */
   .prose h2,
   .prose h3,
   .prose h4 {
-    font-family: var(--prose-heading-font-family, var(--font-display, inherit));
-    line-height: var(--prose-heading-line-height, var(--line-height-tight, 1.25));
-    color: var(--prose-heading-color, var(--gn-ink, var(--color-text, currentColor)));
+    font-family: var(--font-sans);
+    line-height: var(--heading-line-height);
+    color: var(--heading-color);
   }
 
   .prose h2 {
-    margin-block: 3rem 1rem;
-    font-size: var(--prose-h2-size, 2.125rem);
+    margin-block: var(--spacing-3xl) var(--spacing-base);
+    font-size: var(--font-size-2xl);
   }
 
   .prose h3 {
-    margin-block: 2.5rem 0.75rem;
-    font-size: var(--prose-h3-size, 1.625rem);
+    margin-block: var(--spacing-2xl) var(--spacing-md);
+    font-size: var(--font-size-xl);
   }
 
+  /* Paragraphs */
   .prose p {
-    margin: 1.25rem 0;
+    margin: var(--spacing-lg) 0;
   }
 
+  /* Lists */
   .prose ul,
   .prose ol {
-    padding-inline-start: 1.5rem;
-    margin: 1.5rem 0;
+    padding-inline-start: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
   }
 
   .prose li {
-    margin: 0.4rem 0;
+    margin: var(--spacing-xs) 0;
+  }
+
+  /* Links - with underline and accent color */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .prose a {
+      font-weight: var(--font-weight-medium);
+      color: var(--accent-primary);
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.16em;
+      transition: none;
+    }
   }
 
   .prose a {
-    font-weight: 550;
-    color: var(--prose-link-color, var(--gn-accent, var(--color-primary, currentColor)));
+    font-weight: var(--font-weight-medium);
+    color: var(--accent-primary);
     text-decoration-line: underline;
     text-decoration-thickness: 0.1em;
     text-underline-offset: 0.16em;
+    transition: text-decoration-thickness var(--transition-fast);
   }
 
   .prose a:hover,
-  .prose a:focus {
+  .prose a:focus-visible {
     text-decoration-thickness: 0.15em;
   }
 
   .prose a:focus-visible {
-    outline: 3px solid
-      var(--prose-link-focus-color, var(--gn-accent, var(--color-primary, currentColor)));
-    outline-offset: 2px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  /* Strong text */
   .prose strong {
-    color: var(--prose-strong-color, var(--gn-ink, var(--color-text, currentColor)));
+    color: var(--text-primary);
   }
 
+  /* Inline code */
   .prose code {
     padding: 0.1rem 0.4rem;
-    color: var(--prose-code-color, var(--gn-ink, var(--color-text, currentColor)));
-    background: var(--prose-code-bg, var(--surface-3, transparent));
-    border-radius: 0.4rem;
+    color: var(--text-primary);
+    background: var(--surface-3);
+    border-radius: var(--radius-sm);
   }
 
+  /* Blockquotes */
   .prose blockquote {
-    padding: 0.5rem 1rem;
-    color: var(--prose-blockquote-color, var(--gn-ink, var(--color-text, currentColor)));
-    background: var(--prose-blockquote-bg, var(--surface-2, transparent));
-    border-inline-start: 4px solid
-      var(
-        --prose-blockquote-border,
-        var(--color-gn-amber-400, var(--color-primary, currentColor))
-      );
-    border-radius: 0 0.75rem 0.75rem 0;
+    padding: var(--spacing-sm) var(--spacing-base);
+    color: var(--text-primary);
+    background: var(--surface-2);
+    border-inline-start: 4px solid var(--accent-primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
   }
 
+  /* Horizontal rules */
   .prose hr {
-    margin: 2.5rem 0;
+    margin: var(--spacing-3xl) 0;
     border: none;
-    border-block-start: 1px solid var(--prose-rule-color, currentColor);
+    border-block-start: 1px solid var(--border-default);
   }
 
+  /* Images - responsive sizing */
   .prose :is(img, picture) {
     display: block;
     inline-size: 100%;
@@ -183,10 +201,10 @@ const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
   .prose picture,
   .prose img {
     aspect-ratio: 3 / 2;
-    margin: 1.5rem auto;
-    background: var(--prose-media-bg, var(--gn-bg, var(--color-layer-2, transparent)));
-    border: 1px solid var(--prose-media-border, currentColor);
-    border-radius: 16px;
+    margin: var(--spacing-xl) auto;
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
   }
 
   .prose img {
@@ -207,67 +225,106 @@ const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
     border-radius: 0;
   }
 
+  /* Heading anchors - for deep linking */
   .prose :is(h2, h3) {
     position: relative;
     scroll-margin-block-start: 6rem;
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .prose :is(h2, h3) .prose__heading-anchor {
+      /* Layout */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 1.1rem;
+      block-size: 1.1rem;
+      margin-inline-start: var(--spacing-xs);
+
+      /* Typography */
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: transparent;
+      text-decoration: none;
+
+      /* Visual styling */
+      background: var(--surface-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+
+      /* Hidden by default */
+      opacity: 0;
+      transition: none;
+    }
+  }
+
   .prose :is(h2, h3) .prose__heading-anchor {
+    /* Layout */
     display: inline-flex;
     align-items: center;
     justify-content: center;
     inline-size: 1.1rem;
     block-size: 1.1rem;
-    margin-inline-start: 0.4rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    margin-inline-start: var(--spacing-xs);
+
+    /* Typography */
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
     color: transparent;
     text-decoration: none;
-    background: var(
-      --prose-anchor-bg,
-      var(--gn-bg-muted, var(--color-layer-2, transparent))
-    );
-    border: 1px solid
-      var(
-        --prose-anchor-border,
-        var(--gn-panel-border, var(--color-primary, currentColor))
-      );
-    border-radius: 0.35rem;
+
+    /* Visual styling */
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+
+    /* Hidden by default */
     opacity: 0;
+    transition: opacity var(--transition-fast);
   }
 
+  /* Link icon using mask */
   .prose :is(h2, h3) .prose__heading-anchor::before {
     display: block;
     inline-size: 0.85rem;
     block-size: 0.85rem;
     content: "";
-    background-color: var(--prose-anchor-icon, var(--link-default, currentColor));
+    background-color: var(--accent-primary);
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M10.59 13.41a1 1 0 0 1 0-1.41l3.18-3.18a3 3 0 1 1 4.24 4.24l-3.18 3.18a1 1 0 0 1-1.41-1.41l3.18-3.18a1 1 0 0 0-1.41-1.41l-3.18 3.18a1 1 0 0 1-1.41 0ZM13.41 10.59a1 1 0 0 1 0 1.41l-3.18 3.18a3 3 0 1 1-4.24-4.24l3.18-3.18a1 1 0 1 1 1.41 1.41L7.4 12.35a1 1 0 1 0 1.41 1.41l3.18-3.18a1 1 0 0 1 1.41 0Z'/%3E%3C/svg%3E")
       no-repeat center / contain;
   }
 
+  /* Show anchor on hover or focus */
   .prose :is(h2, h3):hover .prose__heading-anchor,
   .prose :is(h2, h3):focus-within .prose__heading-anchor {
     opacity: 1;
   }
 
   .prose :is(h2, h3) .prose__heading-anchor:focus-visible {
-    outline: 2px solid
-      var(--prose-link-focus-color, var(--gn-accent, var(--color-primary, currentColor)));
-    outline-offset: 2px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  /* Nested subsection figures */
   .prose .subsection-figure {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.8rem;
+    gap: var(--spacing-sm);
     place-items: start start;
     max-inline-size: 1100px;
-    margin: 1.5rem 0;
-    border-radius: 12px;
+    margin: var(--spacing-xl) 0;
+    border-radius: var(--radius-lg);
   }
 
   .prose .subsection-figure :is(h2, h3, h4) {
     margin: 0;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .prose a,
+    .prose :is(h2, h3) .prose__heading-anchor {
+      transition: none;
+    }
   }
 </style>

@@ -11,7 +11,7 @@
   content: "";
   position: absolute;
   inset: 4px;
-  border: 1px solid var(--gn-panel-inner);
+  border: 1px solid color-mix(in srgb, var(--border-default) 72%, transparent);
   border-radius: calc(var(--legal-panel-radius) - 0.25rem);
   pointer-events: none;
 }
@@ -42,7 +42,7 @@
   margin: 0;
   font-size: 1.125rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: color-mix(in srgb, var(--text-primary) 82%, transparent);
 }
 
 @media (min-width: 640px) {
@@ -97,7 +97,7 @@
   }
 
   a:hover,
-  a:focus {
+  a:focus-visible {
     color: Highlight;
   }
 

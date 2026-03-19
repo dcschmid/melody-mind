@@ -217,8 +217,7 @@ const totalPoolSize = quiz.data.questions.length;
     display: grid;
     gap: 0.6rem;
     padding: 0.5rem 0 0.75rem;
-    border-block-end: 1px solid
-      color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
   }
 
   @media (width >= 960px) {
@@ -238,20 +237,20 @@ const totalPoolSize = quiz.data.questions.length;
 
   .quiz-detail__breadcrumb a {
     font-size: 0.95rem;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
     text-decoration: none;
   }
 
   .quiz-detail__breadcrumb a:hover,
   .quiz-detail__breadcrumb a:focus-visible {
-    color: var(--gn-accent);
+    color: var(--accent-primary);
   }
 
   .quiz-detail__title {
     margin: 0;
     font-size: clamp(1.45rem, 4vi, 2rem);
     line-height: 1.04;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.045em;
   }
 
@@ -268,9 +267,9 @@ const totalPoolSize = quiz.data.questions.length;
     padding: 0.3rem 0.65rem;
     font-size: 0.78rem;
     font-weight: 700;
-    color: var(--gn-ink-muted);
-    background: color-mix(in srgb, var(--gn-bg-muted) 70%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 92%, transparent);
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 92%, transparent);
     border-radius: 999px;
   }
 
@@ -280,8 +279,8 @@ const totalPoolSize = quiz.data.questions.length;
     max-inline-size: 11rem;
     min-block-size: 6.5rem;
     overflow: hidden;
-    background: color-mix(in srgb, var(--gn-bg-muted) 86%, var(--color-black));
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 86%, transparent);
+    background: color-mix(in srgb, var(--surface-2) 86%, var(--color-black));
+    border: 1px solid color-mix(in srgb, var(--border-default) 86%, transparent);
     border-radius: 1rem;
     opacity: 0.9;
   }
@@ -314,8 +313,8 @@ const totalPoolSize = quiz.data.questions.length;
   .quiz-detail__progress-shell,
   .quiz-detail__panel,
   .quiz-detail__footer {
-    background: color-mix(in srgb, var(--gn-bg) 99%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 92%, transparent);
+    background: color-mix(in srgb, var(--surface-1) 99%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 92%, transparent);
     border-radius: 1rem;
   }
 
@@ -346,13 +345,13 @@ const totalPoolSize = quiz.data.questions.length;
   .quiz-detail__panel-title,
   .quiz-detail__footer-title {
     margin: 0;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.03em;
   }
 
   .quiz-detail__panel-title {
     font-size: 0.95rem;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   .quiz-detail__nav {
@@ -379,10 +378,10 @@ const totalPoolSize = quiz.data.questions.length;
       min-block-size: 3rem;
       padding: 0.8rem 1rem;
       font-weight: 700;
-      color: var(--gn-ink);
+      color: var(--text-primary);
       cursor: pointer;
-      background: color-mix(in srgb, var(--gn-bg) 96%, transparent);
-      border: 1px solid var(--gn-panel-border);
+      background: color-mix(in srgb, var(--surface-1) 96%, transparent);
+      border: 1px solid var(--border-default);
       border-radius: 999px;
       transition: none;
     }
@@ -397,10 +396,10 @@ const totalPoolSize = quiz.data.questions.length;
     min-block-size: 3rem;
     padding: 0.8rem 1rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     cursor: pointer;
-    background: color-mix(in srgb, var(--gn-bg) 96%, transparent);
-    border: 1px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--surface-1) 96%, transparent);
+    border: 1px solid var(--border-default);
     border-radius: 999px;
     transition:
       transform 0.2s ease,
@@ -422,15 +421,15 @@ const totalPoolSize = quiz.data.questions.length;
 
   .quiz-detail__nav-btn:focus-visible,
   .quiz-detail__nav-btn:hover:not(:disabled) {
-    border-color: color-mix(in srgb, var(--gn-accent) 40%, var(--gn-panel-border));
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--gn-accent) 58%, transparent);
+    border-color: color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
+    box-shadow: var(--interactive-shadow-focus);
     transform: translateY(-1px);
   }
 
   .quiz-detail__nav-btn--check,
   .quiz-detail__nav-btn--submit {
-    color: var(--gn-bg);
-    background: var(--gn-ink);
+    color: var(--accent-contrast);
+    background: var(--accent-primary);
   }
 
   .quiz-detail__nav-icon {
@@ -453,7 +452,7 @@ const totalPoolSize = quiz.data.questions.length;
     margin: 0;
     font-size: 0.88rem;
     line-height: 1.5;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   :global(#quiz-progress-container .quiz-progress) {
@@ -473,7 +472,7 @@ const totalPoolSize = quiz.data.questions.length;
     margin: 0;
     font-size: 0.68rem;
     font-weight: 700;
-    color: var(--gn-accent);
+    color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: 0.14em;
   }
@@ -512,13 +511,13 @@ const totalPoolSize = quiz.data.questions.length;
   :global(#quiz-progress-container .quiz-progress__index) {
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   :global(#quiz-progress-container .quiz-progress__target),
   :global(#quiz-progress-container .quiz-progress__stat-label) {
     font-size: 0.82rem;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   :global(#quiz-progress-container .quiz-progress__target) {
@@ -534,14 +533,14 @@ const totalPoolSize = quiz.data.questions.length;
   :global(#quiz-progress-container .quiz-progress__bar) {
     block-size: 0.8rem;
     overflow: hidden;
-    background: color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    background: color-mix(in srgb, var(--border-default) 70%, transparent);
     border-radius: 999px;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
     :global(#quiz-progress-container .quiz-progress__fill) {
       block-size: 100%;
-      background: linear-gradient(90deg, var(--gn-accent), var(--gn-accent-strong));
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-strong));
       border-radius: inherit;
       transition: none;
     }
@@ -549,7 +548,7 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-progress-container .quiz-progress__fill) {
     block-size: 100%;
-    background: linear-gradient(90deg, var(--gn-accent), var(--gn-accent-strong));
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-strong));
     border-radius: inherit;
     transition: inline-size 0.25s ease;
   }
@@ -574,8 +573,8 @@ const totalPoolSize = quiz.data.questions.length;
     align-items: baseline;
     justify-content: space-between;
     padding: 0.5rem 0.6rem;
-    background: color-mix(in srgb, var(--gn-bg-muted) 42%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 74%, transparent);
+    background: color-mix(in srgb, var(--surface-2) 42%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 74%, transparent);
     border-radius: 999px;
   }
 
@@ -601,7 +600,7 @@ const totalPoolSize = quiz.data.questions.length;
   :global(#quiz-progress-container .quiz-progress__stat-value) {
     font-size: 0.88rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     white-space: nowrap;
   }
 
@@ -628,35 +627,31 @@ const totalPoolSize = quiz.data.questions.length;
     padding: 0.35rem 0.7rem;
     font-size: 0.8rem;
     font-weight: 700;
-    border: 1px solid var(--gn-panel-border);
+    border: 1px solid var(--border-default);
     border-radius: 999px;
   }
 
   :global(#quiz-question-container .quiz-question__number) {
-    color: var(--gn-ink);
-    background: color-mix(in srgb, var(--gn-accent) 18%, var(--gn-bg) 82%);
-    border-color: color-mix(in srgb, var(--gn-accent) 46%, var(--gn-panel-border));
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 18%, var(--surface-1) 82%);
+    border-color: color-mix(in srgb, var(--accent-primary) 46%, var(--border-default));
   }
 
   :global(#quiz-question-container .quiz-question__type) {
-    color: var(--gn-ink-muted);
-    background: color-mix(in srgb, var(--gn-bg-muted) 92%, var(--gn-bg) 8%);
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1) 8%);
   }
 
   :global(#quiz-question-container .quiz-question__badge--correct) {
-    color: var(--gn-ink);
-    background: color-mix(in srgb, var(--color-gn-green-400) 20%, var(--gn-bg) 80%);
-    border-color: color-mix(
-      in srgb,
-      var(--color-gn-green-400) 52%,
-      var(--gn-panel-border)
-    );
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--color-success-500) 20%, var(--surface-1) 80%);
+    border-color: color-mix(in srgb, var(--color-success-500) 52%, var(--border-default));
   }
 
   :global(#quiz-question-container .quiz-question__badge--incorrect) {
-    color: var(--gn-ink);
-    background: color-mix(in srgb, var(--color-gn-red-400) 18%, var(--gn-bg) 82%);
-    border-color: color-mix(in srgb, var(--color-gn-red-400) 52%, var(--gn-panel-border));
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--color-error-500) 18%, var(--surface-1) 82%);
+    border-color: color-mix(in srgb, var(--color-error-500) 52%, var(--border-default));
   }
 
   :global(#quiz-question-container .quiz-question__badge svg) {
@@ -677,7 +672,7 @@ const totalPoolSize = quiz.data.questions.length;
   :global(#quiz-question-container .quiz-question__prompt),
   :global(#quiz-question-container .quiz-question__hint) {
     margin: 0;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   :global(#quiz-question-container .quiz-question__prompt) {
@@ -691,7 +686,7 @@ const totalPoolSize = quiz.data.questions.length;
     margin: 0;
     font-size: clamp(1.05rem, 3vi, 1.35rem);
     line-height: 1.4;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.03em;
   }
 
@@ -709,11 +704,11 @@ const totalPoolSize = quiz.data.questions.length;
       align-items: center;
       inline-size: 100%;
       padding: 0.85rem 0.9rem;
-      color: var(--gn-ink);
+      color: var(--text-primary);
       text-align: start;
       cursor: pointer;
-      background: color-mix(in srgb, var(--gn-bg) 100%, transparent);
-      border: 1px solid color-mix(in srgb, var(--gn-panel-border) 86%, transparent);
+      background: color-mix(in srgb, var(--surface-1) 100%, transparent);
+      border: 1px solid color-mix(in srgb, var(--border-default) 86%, transparent);
       border-radius: 0.9rem;
       transition: none;
     }
@@ -726,11 +721,11 @@ const totalPoolSize = quiz.data.questions.length;
     align-items: center;
     inline-size: 100%;
     padding: 0.85rem 0.9rem;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     text-align: start;
     cursor: pointer;
-    background: color-mix(in srgb, var(--gn-bg) 100%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 86%, transparent);
+    background: color-mix(in srgb, var(--surface-1) 100%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 86%, transparent);
     border-radius: 0.9rem;
     transition:
       transform 0.2s ease,
@@ -740,12 +735,12 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-question-container .quiz-question__option:hover:not(:disabled)),
   :global(#quiz-question-container .quiz-question__option:focus-visible) {
-    border-color: color-mix(in srgb, var(--gn-accent) 38%, var(--gn-panel-border));
+    border-color: color-mix(in srgb, var(--accent-primary) 38%, var(--border-default));
     transform: translateY(-1px);
   }
 
   :global(#quiz-question-container .quiz-question__option:focus-visible) {
-    outline: 2px solid color-mix(in srgb, var(--gn-accent) 58%, transparent);
+    outline: 2px solid color-mix(in srgb, var(--accent-primary) 58%, transparent);
     outline-offset: 2px;
   }
 
@@ -754,22 +749,18 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   :global(#quiz-question-container .quiz-question__option--selected) {
-    background: color-mix(in srgb, var(--gn-accent) 10%, var(--gn-bg));
-    border-color: color-mix(in srgb, var(--gn-accent) 46%, var(--gn-panel-border));
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: color-mix(in srgb, var(--accent-primary) 46%, var(--border-default));
   }
 
   :global(#quiz-question-container .quiz-question__option--correct) {
-    background: color-mix(in srgb, var(--color-gn-green-400) 10%, var(--gn-bg));
-    border-color: color-mix(
-      in srgb,
-      var(--color-gn-green-400) 50%,
-      var(--gn-panel-border)
-    );
+    background: color-mix(in srgb, var(--color-success-500) 10%, var(--surface-1));
+    border-color: color-mix(in srgb, var(--color-success-500) 50%, var(--border-default));
   }
 
   :global(#quiz-question-container .quiz-question__option--incorrect) {
-    background: color-mix(in srgb, var(--color-gn-red-400) 10%, var(--gn-bg));
-    border-color: color-mix(in srgb, var(--color-gn-red-400) 50%, var(--gn-panel-border));
+    background: color-mix(in srgb, var(--color-error-500) 10%, var(--surface-1));
+    border-color: color-mix(in srgb, var(--color-error-500) 50%, var(--border-default));
   }
 
   :global(#quiz-question-container .quiz-question__option-marker),
@@ -793,17 +784,17 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   :global(#quiz-question-container .quiz-question__option-status--correct) {
-    color: var(--color-gn-green-400);
+    color: var(--color-success-500);
   }
 
   :global(#quiz-question-container .quiz-question__option-status--incorrect) {
-    color: var(--color-gn-red-400);
+    color: var(--color-error-500);
   }
 
   :global(#quiz-question-container .quiz-question__explanation) {
     padding: 0.85rem 0.95rem;
-    background: color-mix(in srgb, var(--gn-bg-muted) 48%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 86%, transparent);
+    background: color-mix(in srgb, var(--surface-2) 48%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 86%, transparent);
     border-radius: 0.95rem;
   }
 
@@ -813,14 +804,14 @@ const totalPoolSize = quiz.data.questions.length;
     align-items: center;
     margin-block-end: 0.65rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   :global(#quiz-question-container .quiz-question__explanation-text),
   :global(#quiz-question-container .quiz-question__explanation-source) {
     margin: 0;
     line-height: 1.6;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   :global(#quiz-question-container .quiz-question__explanation-source) {
@@ -832,21 +823,17 @@ const totalPoolSize = quiz.data.questions.length;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
-    background: color-mix(in srgb, var(--gn-bg) 100%, transparent);
-    border: 1px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--surface-1) 100%, transparent);
+    border: 1px solid var(--border-default);
     border-radius: 1rem;
   }
 
   :global(#quiz-result-container .quiz-result--passed) {
-    border-color: color-mix(
-      in srgb,
-      var(--color-gn-green-400) 34%,
-      var(--gn-panel-border)
-    );
+    border-color: color-mix(in srgb, var(--color-success-500) 34%, var(--border-default));
   }
 
   :global(#quiz-result-container .quiz-result--failed) {
-    border-color: color-mix(in srgb, var(--color-gn-red-400) 34%, var(--gn-panel-border));
+    border-color: color-mix(in srgb, var(--color-error-500) 34%, var(--border-default));
   }
 
   :global(#quiz-result-container .quiz-result__header),
@@ -864,8 +851,8 @@ const totalPoolSize = quiz.data.questions.length;
     justify-content: center;
     inline-size: 4rem;
     block-size: 4rem;
-    color: var(--gn-ink);
-    background: color-mix(in srgb, var(--gn-accent) 12%, transparent);
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
     border-radius: 50%;
   }
 
@@ -877,7 +864,7 @@ const totalPoolSize = quiz.data.questions.length;
   :global(#quiz-result-container .quiz-result__title) {
     margin: 0;
     font-size: 1.8rem;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.03em;
   }
 
@@ -886,7 +873,7 @@ const totalPoolSize = quiz.data.questions.length;
   :global(#quiz-result-container .quiz-result__passing) {
     margin: 0;
     line-height: 1.6;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   :global(#quiz-result-container .quiz-result__summary) {
@@ -901,21 +888,21 @@ const totalPoolSize = quiz.data.questions.length;
     gap: 0.4rem;
     padding: 0.9rem;
     text-align: center;
-    background: color-mix(in srgb, var(--gn-bg-muted) 90%, transparent);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 74%, transparent);
+    background: color-mix(in srgb, var(--surface-2) 90%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 74%, transparent);
     border-radius: 1rem;
   }
 
   :global(#quiz-result-container .quiz-result__summary-label) {
     font-size: 0.9rem;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   :global(#quiz-result-container .quiz-result__summary-value),
   :global(#quiz-result-container .quiz-result__score-value) {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   :global(#quiz-result-container .quiz-result__score-circle) {
@@ -945,7 +932,7 @@ const totalPoolSize = quiz.data.questions.length;
       padding: 0.8rem 1.15rem;
       font-weight: 700;
       text-decoration: none;
-      border: 1px solid var(--gn-panel-border);
+      border: 1px solid var(--border-default);
       border-radius: 999px;
       transition: none;
     }
@@ -960,7 +947,7 @@ const totalPoolSize = quiz.data.questions.length;
     padding: 0.8rem 1.15rem;
     font-weight: 700;
     text-decoration: none;
-    border: 1px solid var(--gn-panel-border);
+    border: 1px solid var(--border-default);
     border-radius: 999px;
     transition:
       transform 0.2s ease,
@@ -970,22 +957,22 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-result-container .quiz-result__btn:hover),
   :global(#quiz-result-container .quiz-result__btn:focus-visible) {
-    border-color: color-mix(in srgb, var(--gn-accent) 38%, var(--gn-panel-border));
+    border-color: color-mix(in srgb, var(--accent-primary) 38%, var(--border-default));
     transform: translateY(-1px);
   }
 
   :global(#quiz-result-container .quiz-result__btn:focus-visible) {
-    outline: 2px solid color-mix(in srgb, var(--gn-accent) 58%, transparent);
+    outline: 2px solid color-mix(in srgb, var(--accent-primary) 58%, transparent);
     outline-offset: 2px;
   }
 
   :global(#quiz-result-container .quiz-result__btn--primary) {
-    color: var(--gn-bg);
-    background: var(--gn-ink);
+    color: var(--accent-contrast);
+    background: var(--accent-primary);
   }
 
   :global(#quiz-result-container .quiz-result__btn--secondary) {
-    color: var(--gn-ink);
-    background: color-mix(in srgb, var(--gn-bg) 96%, transparent);
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-1) 96%, transparent);
   }
 </style>

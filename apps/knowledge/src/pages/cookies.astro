@@ -210,8 +210,7 @@ const pageSeo = buildPageSeo({
     vertical-align: top;
     color: var(--text-secondary);
     text-align: start;
-    border-block-end: 1px solid
-      color-mix(in srgb, var(--gn-panel-border) 88%, transparent);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
   }
 
   .cookies-page__table th {
@@ -232,7 +231,7 @@ const pageSeo = buildPageSeo({
   }
 
   .cookies-page__link:hover,
-  .cookies-page__link:focus {
+  .cookies-page__link:focus-visible {
     color: var(--link-hover);
   }
 

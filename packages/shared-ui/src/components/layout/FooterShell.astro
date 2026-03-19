@@ -30,13 +30,25 @@ const hasBottom = Astro.slots.has("bottom");
 </footer>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     FooterShell Component Styles
+     Simple container wrapper for footer content
+     ----------------------------------------------------------------------------- */
+
   .footer-shell {
-    margin-block-start: 4rem;
+    margin-block-start: var(--spacing-4xl);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-2) 72%, transparent),
+      color-mix(in srgb, var(--bg-primary) 92%, transparent)
+    );
+    border-block-start: 1px solid var(--border-default);
   }
 
   .footer-shell__container {
     display: grid;
-    gap: 2rem;
+    gap: var(--spacing-2xl);
+    padding-block: var(--spacing-2xl) var(--spacing-xl);
   }
 
   .footer-shell__main {
@@ -45,5 +57,16 @@ const hasBottom = Astro.slots.has("bottom");
 
   .footer-shell__bottom {
     display: block;
+  }
+
+  @media (width >= 768px) {
+    .footer-shell {
+      margin-block-start: clamp(var(--spacing-4xl), 8vw, 6rem);
+    }
+
+    .footer-shell__container {
+      gap: var(--spacing-3xl);
+      padding-block: var(--spacing-3xl) var(--spacing-2xl);
+    }
   }
 </style>

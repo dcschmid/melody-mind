@@ -151,7 +151,9 @@ const t = {
             textSize="sm"
             className="home__load-more-status"
             id="episodes-load-more-status"
+            role="status"
             aria-live="polite"
+            aria-atomic="true"
           >
             Showing {Math.min(PAGINATION_CONFIG.EPISODES_PER_PAGE, podcasts.length)} of {
               podcasts.length
@@ -222,7 +224,7 @@ const t = {
     );
     border: 1px solid var(--color-border-soft);
     border-radius: 1.25rem;
-    box-shadow: var(--effect-elevated-xl);
+    box-shadow: var(--effect-elevated-md);
   }
 
   .home__load-more-status {
@@ -273,7 +275,7 @@ const t = {
   }
 
   .home__load-more-button:hover,
-  .home__load-more-button:focus {
+  .home__load-more-button:focus-visible {
     border-color: var(--color-border-strong);
     box-shadow: var(--effect-elevated-soft);
     transform: translateY(-1px);

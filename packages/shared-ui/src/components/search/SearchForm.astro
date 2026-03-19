@@ -52,7 +52,6 @@ const describedBy = hintText ? hintId : undefined;
         autocomplete="off"
         placeholder={placeholder}
         aria-describedby={describedBy}
-        aria-live="polite"
         class="search-form__input"
       />
       <button type="reset" aria-label={clearLabel} class="search-form__clear">
@@ -70,34 +69,38 @@ const describedBy = hintText ? hintId : undefined;
 </form>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     SearchForm Component Styles
+     Accessible search input with clear button
+     WCAG AAA compliant with high contrast and clear focus states
+     ----------------------------------------------------------------------------- */
+
   .search-form {
+    /* Layout */
     display: grid;
-    gap: 0.85rem;
+    gap: var(--spacing-lg);
     inline-size: min(100%, 68rem);
-    margin: 0 auto 3rem;
+    margin: 0 auto var(--spacing-3xl);
   }
 
+  /* Form row wrapper - elevated styling */
   .search-form__row {
     display: grid;
-    padding: 0.6rem;
-    background: linear-gradient(
-      150deg,
-      color-mix(in srgb, var(--color-layer-2) 92%, transparent),
-      color-mix(in srgb, var(--color-layer-1) 96%, transparent)
-    );
-    border: 1px solid var(--color-border-soft);
-    border-radius: 1.25rem;
-    box-shadow: var(--effect-elevated-lg);
+    padding: var(--spacing-sm);
+    background: linear-gradient(150deg, var(--surface-2), var(--surface-1));
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
   }
 
+  /* Input field wrapper */
   @media screen and (prefers-reduced-motion: reduce) {
     .search-form__field {
       position: relative;
       inline-size: 100%;
-      background: color-mix(in srgb, var(--color-layer-1) 92%, transparent);
-      border: 1px solid var(--color-border-soft);
-      border-radius: 0.95rem;
-      box-shadow: var(--effect-inset-contrast);
+      background: var(--surface-1);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-lg);
       transition: none;
     }
   }
@@ -105,22 +108,23 @@ const describedBy = hintText ? hintId : undefined;
   .search-form__field {
     position: relative;
     inline-size: 100%;
-    background: color-mix(in srgb, var(--color-layer-1) 92%, transparent);
-    border: 1px solid var(--color-border-soft);
-    border-radius: 0.95rem;
-    box-shadow: var(--effect-inset-contrast);
+    background: var(--surface-1);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-lg);
     transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
   }
 
+  /* Focus state - WCAG AAA compliant */
   .search-form__field:has(input:focus-visible) {
-    outline: var(--effect-outline-contrast);
-    outline-offset: 2px;
-    border-color: var(--color-primary-strong);
-    box-shadow: var(--focus-ring);
+    border-color: var(--accent-primary);
+    box-shadow:
+      inset 0 0 0 1px var(--accent-primary),
+      var(--interactive-shadow-focus);
   }
 
+  /* Visually hidden label for accessibility */
   .search-form__label--visually-hidden {
     position: absolute !important;
     inline-size: 1px !important;
@@ -133,125 +137,139 @@ const describedBy = hintText ? hintId : undefined;
     clip-path: inset(50%) !important;
   }
 
+  /* Search input field */
   .search-form__input {
     inline-size: 100%;
-    padding-block: 0.95rem;
-    padding-inline: 1.2rem 3.6rem;
-    font-size: var(--font-size-body);
-    color: var(--color-text);
+    padding-block: var(--spacing-base);
+    padding-inline: var(--spacing-lg) 3.6rem;
+    font-size: var(--font-size-md);
+    color: var(--text-primary);
     background: transparent;
     border: none;
-    border-radius: 0.9rem;
+    border-radius: var(--radius-lg);
   }
 
+  /* Placeholder styling */
   .search-form__input::placeholder {
-    color: var(--color-text-muted);
+    color: var(--text-tertiary);
   }
 
-  .search-form__input:focus-visible {
-    outline: var(--effect-outline-contrast);
-    outline-offset: 2px;
-  }
-
+  /* Clear button - reset search */
   @media screen and (prefers-reduced-motion: reduce) {
     .search-form__clear {
+      /* Positioning */
       position: absolute;
       inset-block-start: 50%;
-      inset-inline-end: 0.55rem;
+      inset-inline-end: var(--spacing-sm);
+
+      /* Layout */
       display: grid;
       place-items: center;
+
+      /* Sizing - WCAG AAA touch target */
       inline-size: 2.75rem;
       block-size: 2.75rem;
-      color: var(--color-text);
+
+      /* Visual styling */
+      color: var(--text-primary);
       cursor: pointer;
-      background: var(--color-layer-2);
-      border: 1px solid var(--color-border-soft);
-      border-radius: 999px;
+      background: var(--surface-2);
+      border: 2px solid var(--border-default);
+      border-radius: var(--radius-full);
+
+      /* Positioning transform */
       transform: translateY(-50%);
+
+      /* Smooth transitions */
       transition: none;
     }
   }
 
   .search-form__clear {
+    /* Positioning */
     position: absolute;
     inset-block-start: 50%;
-    inset-inline-end: 0.55rem;
+    inset-inline-end: var(--spacing-sm);
+
+    /* Layout */
     display: grid;
     place-items: center;
+
+    /* Sizing - WCAG AAA touch target */
     inline-size: 2.75rem;
     block-size: 2.75rem;
-    color: var(--color-text);
+
+    /* Visual styling */
+    color: var(--text-primary);
     cursor: pointer;
-    background: var(--color-layer-2);
-    border: 1px solid var(--color-border-soft);
-    border-radius: 999px;
+    background: var(--surface-2);
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-full);
+
+    /* Positioning transform */
     transform: translateY(-50%);
+
+    /* Smooth transitions */
     transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      transform 0.2s ease;
+      border-color var(--transition-base),
+      box-shadow var(--transition-base),
+      transform var(--transition-base);
   }
 
+  /* SVG icon sizing */
   .search-form__clear :global(svg) {
     inline-size: 1rem;
     block-size: 1rem;
   }
 
+  /* Focus state - WCAG AAA compliant */
   .search-form__clear:focus-visible {
-    outline: none;
-    outline: var(--effect-outline-contrast);
-    outline-offset: 2px;
-    box-shadow: var(--focus-ring);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  /* Hover and focus states */
   .search-form__clear:hover,
-  .search-form__clear:focus {
-    border-color: var(--color-border-strong);
-    box-shadow: var(--effect-elevated-soft);
+  .search-form__clear:focus-visible {
+    border-color: var(--accent-primary);
+    box-shadow: var(--interactive-shadow-focus);
     transform: translateY(-50%) scale(1.03);
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .search-form__clear {
-      animation: search-form__subtle-pulse 3s ease-in-out infinite;
-    }
-  }
-
-  @keyframes search-form__subtle-pulse {
-    0%,
-    100% {
-      opacity: 0.9;
-    }
-
-    50% {
-      opacity: 1;
-    }
-  }
-
+  /* Hint text styling */
   .search-form__hint {
     margin: 0;
-    font-size: var(--font-size-caption);
-    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
   }
 
+  /* Mobile optimizations */
   @media (width <= 380px) {
     .search-form {
-      margin-block-end: 2.2rem;
+      margin-block-end: var(--spacing-2xl);
     }
 
     .search-form__row {
-      padding: 0.45rem;
-      border-radius: 1rem;
+      padding: var(--spacing-xs);
+      border-radius: var(--radius-base);
     }
 
     .search-form__input {
-      padding-inline: 1rem 3.2rem;
-      font-size: var(--font-size-ui);
+      padding-inline: var(--spacing-base) 3.2rem;
+      font-size: var(--font-size-base);
+    }
+  }
+
+  /* Reduced motion support - disable animations */
+  @media (prefers-reduced-motion: reduce) {
+    .search-form__field,
+    .search-form__clear {
+      transition: none;
     }
 
-    .search-form__clear {
-      inline-size: 2.6rem;
-      block-size: 2.6rem;
+    .search-form__clear:hover,
+    .search-form__clear:focus-visible {
+      transform: translateY(-50%);
     }
   }
 </style>

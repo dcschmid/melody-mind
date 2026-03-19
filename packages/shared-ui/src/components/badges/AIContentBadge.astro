@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface Props extends HTMLAttributes<"a"> {
   aiTools?: string[];
@@ -8,6 +9,14 @@ interface Props extends HTMLAttributes<"a"> {
   href?: string;
 }
 
+/**
+ * Badge that highlights AI-generated content.
+ * @param aiTools list of AI tools to include in the badge hover/focus text
+ * @param size badge size variant ("sm" or "md")
+ * @param className additional classes for the root anchor
+ * @param href destination url when the badge is clicked
+ * @param attributes forwarded HTML attributes
+ */
 const {
   aiTools = [],
   size = "md",
@@ -34,62 +43,97 @@ const hasTools = aiTools.length > 0;
   {...attributes}
 >
   <div class="ai-content-badge__content">
-    <span class="ai-content-badge__icon" aria-hidden="true">✨</span>
+    <span class="ai-content-badge__icon" aria-hidden="true">
+      <Icon name="cpu" />
+    </span>
     <span class="ai-content-badge__label">AI-generated</span>
   </div>
 </a>
 
 <style>
+  @media screen and (prefers-reduced-motion: reduce) {
+    .ai-content-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.75rem);
+      font-family: var(--font-sans);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-tight);
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      background: linear-gradient(145deg, var(--surface-2), var(--surface-1));
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      box-shadow: var(--shadow-xs);
+      transition: none;
+    }
+  }
+
   .ai-content-badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.35rem 0.9rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--ai-badge-text);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
+    padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.75rem);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
     text-decoration: none;
-    cursor: pointer;
-    background: var(--gn-bg);
-    border: 2px solid var(--ai-badge-border);
+    background: linear-gradient(145deg, var(--surface-2), var(--surface-1));
+    border: 1px solid var(--border-default);
     border-radius: 999px;
+    box-shadow: var(--shadow-xs);
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .ai-content-badge--sm {
+    padding: calc(var(--spacing-xs, 0.25rem) * 0.6) var(--spacing-sm, 0.5rem);
+    font-size: var(--font-size-xs, 0.75rem);
   }
 
   .ai-content-badge:hover,
-  .ai-content-badge:focus {
-    color: var(--ai-badge-hover-text);
-    background: var(--ai-badge-hover-bg);
-    border-color: var(--ai-badge-hover-border);
+  .ai-content-badge:focus-visible {
+    color: var(--text-primary);
+    background: linear-gradient(145deg, var(--surface-3), var(--surface-2));
+    border-color: var(--accent-primary);
+    box-shadow: var(--interactive-shadow-focus);
+    transform: translateY(-1px);
   }
 
   .ai-content-badge:focus-visible {
-    outline: 3px solid var(--ai-badge-focus);
-    outline-offset: 3px;
+    outline: var(--focus-ring-width, 3px) solid var(--accent-primary);
+    outline-offset: var(--focus-ring-offset, 2px);
   }
 
   .ai-content-badge__content {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--spacing-xs, 0.35rem);
     align-items: center;
   }
 
   .ai-content-badge__icon {
-    font-size: 0.95rem;
-    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--accent-strong);
+  }
+
+  .ai-content-badge__icon :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
   .ai-content-badge__label {
-    line-height: 1.2;
-  }
-
-  .ai-content-badge--sm {
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-  }
-
-  .ai-content-badge--sm .ai-content-badge__icon {
-    font-size: 0.85rem;
+    white-space: nowrap;
   }
 </style>

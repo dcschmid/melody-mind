@@ -5,6 +5,25 @@
    ========================================================================== */
 
 @media print {
+  :root {
+    --print-paper: var(--color-surface-1);
+    --print-ink: var(--color-text-primary);
+    --print-muted: var(--color-text-secondary);
+    --print-subtle: var(--color-text-tertiary);
+    --print-faint: color-mix(in srgb, var(--color-text-tertiary) 56%, transparent);
+    --print-rule: color-mix(in srgb, var(--color-border-default) 48%, var(--print-paper));
+    --print-rule-strong: color-mix(
+      in srgb,
+      var(--color-border-default) 68%,
+      var(--print-paper)
+    );
+    --print-rule-soft: color-mix(
+      in srgb,
+      var(--color-border-default) 28%,
+      var(--print-paper)
+    );
+  }
+
   /* ------------------------------------------------------------------
      1. Page Setup
      ------------------------------------------------------------------ */
@@ -89,10 +108,10 @@
   *::before,
   *::after {
     background: transparent !important;
-    color: #000 !important;
+    color: var(--print-ink) !important;
     box-shadow: none !important;
     text-shadow: none !important;
-    border-color: #ccc !important;
+    border-color: var(--print-rule) !important;
     transition: none !important;
     animation: none !important;
   }
@@ -104,8 +123,8 @@
   .knowledge,
   .knowledge__container,
   .panel {
-    background: #fff !important;
-    color: #000 !important;
+    background: var(--print-paper) !important;
+    color: var(--print-ink) !important;
   }
 
   /* ------------------------------------------------------------------
@@ -120,7 +139,7 @@
     font-family: Georgia, "Times New Roman", Times, serif;
     font-size: 10.5pt;
     line-height: 1.55;
-    color: #000 !important;
+    color: var(--print-ink) !important;
     width: 100% !important;
     overflow: visible !important;
     margin: 0 !important;
@@ -170,14 +189,14 @@
     line-height: 1.45 !important;
     margin: 0 0 0.25cm !important;
     padding: 0 !important;
-    color: #333 !important;
+    color: var(--print-muted) !important;
   }
 
   /* Meta pills (date, reading time, category) – inline, compact */
   .knowledge__meta {
     font-size: 8pt !important;
-    color: #555 !important;
-    border-bottom: 0.5pt solid #bbb !important;
+    color: var(--print-subtle) !important;
+    border-bottom: 0.5pt solid var(--print-rule-strong) !important;
     padding: 0 0 0.2cm !important;
     margin: 0 0 0.3cm !important;
     gap: 0.3rem !important;
@@ -188,14 +207,14 @@
     padding: 0 !important;
     font-size: 8pt !important;
     font-weight: 400 !important;
-    color: #555 !important;
+    color: var(--print-subtle) !important;
   }
 
   /* Separator between pills */
   .knowledge__pill + .knowledge__pill::before {
     content: "·" !important;
     margin-right: 0.3rem !important;
-    color: #999 !important;
+    color: var(--print-faint) !important;
   }
 
   /* ------------------------------------------------------------------
@@ -227,7 +246,7 @@
     font-size: 10.5pt !important;
     line-height: 1.55 !important;
     max-width: none !important;
-    color: #000 !important;
+    color: var(--print-ink) !important;
     hyphens: auto !important;
   }
 
@@ -243,7 +262,7 @@
     font-weight: 700 !important;
     margin: 0.6cm 0 0.15cm !important;
     padding-bottom: 0.08cm !important;
-    border-bottom: 0.5pt solid #ddd !important;
+    border-bottom: 0.5pt solid var(--print-rule-soft) !important;
     page-break-after: avoid !important;
     break-after: avoid !important;
   }
@@ -299,7 +318,7 @@
     font-size: 7.5pt !important;
     font-weight: 400 !important;
     font-style: italic !important;
-    color: #666 !important;
+    color: var(--print-subtle) !important;
     word-break: break-all !important;
   }
 
@@ -313,11 +332,11 @@
      9. Blockquotes
      ------------------------------------------------------------------ */
   .prose blockquote {
-    border-left: 2.5pt solid #888 !important;
+    border-left: 2.5pt solid var(--print-rule-strong) !important;
     padding: 0.15cm 0.4cm !important;
     margin: 0.3cm 0 !important;
     font-style: italic !important;
-    color: #333 !important;
+    color: var(--print-muted) !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
@@ -330,7 +349,7 @@
     float: right;
     max-width: 38% !important;
     height: auto !important;
-    border: 0.5pt solid #ccc !important;
+    border: 0.5pt solid var(--print-rule) !important;
     border-radius: 0 !important;
     margin: 0.15cm 0 0.15cm 0.4cm !important;
     page-break-inside: avoid !important;
@@ -369,7 +388,7 @@
     float: right;
     max-width: 38% !important;
     margin: 0 0 0.15cm 0.4cm !important;
-    border: 0.5pt solid #ccc !important;
+    border: 0.5pt solid var(--print-rule) !important;
     border-radius: 0 !important;
     box-shadow: none !important;
   }
@@ -385,10 +404,10 @@
     float: left;
     width: 58% !important;
     font-size: 8.5pt !important;
-    color: #555 !important;
+    color: var(--print-subtle) !important;
     padding: 0.1cm 0 0 0 !important;
     margin: 0.15cm 0 0 0 !important;
-    border-top: 0.25pt solid #ddd !important;
+    border-top: 0.25pt solid var(--print-rule-soft) !important;
   }
 
   /* ------------------------------------------------------------------
@@ -396,7 +415,7 @@
      ------------------------------------------------------------------ */
   .prose hr {
     border: none !important;
-    border-top: 0.5pt solid #bbb !important;
+    border-top: 0.5pt solid var(--print-rule-strong) !important;
     margin: 0.3cm 0 !important;
   }
 
@@ -405,13 +424,13 @@
      ------------------------------------------------------------------ */
   .prose code {
     font-size: 8.5pt !important;
-    border: 0.5pt solid #ccc !important;
+    border: 0.5pt solid var(--print-rule) !important;
     padding: 1pt 3pt !important;
     border-radius: 0 !important;
   }
 
   .prose pre {
-    border: 0.5pt solid #ccc !important;
+    border: 0.5pt solid var(--print-rule) !important;
     padding: 0.2cm !important;
     font-size: 8.5pt !important;
     overflow: visible !important;
@@ -428,9 +447,9 @@
     display: block !important;
     margin-top: 0.6cm;
     padding-top: 0.2cm;
-    border-top: 0.5pt solid #bbb;
+    border-top: 0.5pt solid var(--print-rule-strong);
     font-size: 7.5pt;
-    color: #888 !important;
+    color: var(--print-faint) !important;
     text-align: center;
   }
 

@@ -489,7 +489,7 @@ const pageSeo = buildPageSeo({
 
   .taxonomy-section__header {
     padding-block-end: 2rem;
-    border-block-end: 1px solid var(--gn-panel-border);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
   }
 
   .taxonomy-section__hero {
@@ -510,7 +510,7 @@ const pageSeo = buildPageSeo({
     inline-size: 100%;
     aspect-ratio: 3 / 1;
     overflow: hidden;
-    border: 2px solid var(--gn-panel-border);
+    border: 1px solid var(--border-default);
     border-radius: 1rem;
   }
 
@@ -544,7 +544,7 @@ const pageSeo = buildPageSeo({
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   @media (width >= 768px) {
@@ -557,7 +557,7 @@ const pageSeo = buildPageSeo({
     margin: 0;
     font-size: 1.125rem;
     line-height: 1.6;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   .taxonomy-section__stats {
@@ -572,9 +572,9 @@ const pageSeo = buildPageSeo({
     padding: 0.4rem 0.9rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--gn-ink-muted);
-    background: var(--gn-bg-muted);
-    border: 1px solid var(--gn-panel-border);
+    color: var(--text-secondary);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 999px;
   }
 
@@ -616,21 +616,21 @@ const pageSeo = buildPageSeo({
     margin: 0;
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--gn-ink);
-    border-block-end: 2px solid var(--gn-panel-border);
+    color: var(--text-primary);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
   }
 
   .taxonomy-section__subsection-description {
     margin: 0;
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   .taxonomy-section__subsection-count {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--gn-accent);
+    color: var(--accent-primary);
   }
 
   .taxonomy-section__subsection-image {
@@ -638,7 +638,7 @@ const pageSeo = buildPageSeo({
     inline-size: 100%;
     max-inline-size: 300px;
     overflow: hidden;
-    border: 2px solid var(--gn-panel-border);
+    border: 1px solid var(--border-default);
     border-radius: 1rem;
   }
 
@@ -661,8 +661,8 @@ const pageSeo = buildPageSeo({
     flex-direction: column;
     gap: 1rem;
     padding: 1.25rem;
-    background: var(--gn-bg-muted);
-    border: 1px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 1rem;
   }
 
@@ -691,20 +691,20 @@ const pageSeo = buildPageSeo({
     margin: 0;
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   .taxonomy-section__group-description {
     margin: 0;
     font-size: 0.9375rem;
     line-height: 1.5;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   .taxonomy-section__group-count {
     font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--gn-accent);
+    color: var(--accent-primary);
   }
 
   .taxonomy-section__group-image {
@@ -712,7 +712,7 @@ const pageSeo = buildPageSeo({
     inline-size: 100%;
     max-inline-size: 180px;
     overflow: hidden;
-    border: 1px solid var(--gn-panel-border);
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 0.75rem;
   }
 
@@ -747,10 +747,10 @@ const pageSeo = buildPageSeo({
   .taxonomy-section__empty {
     padding: 1.5rem;
     margin: 0;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
     text-align: center;
-    background: var(--gn-bg-muted);
-    border: 1px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 1rem;
   }
 
@@ -770,23 +770,24 @@ const pageSeo = buildPageSeo({
     padding: 0.75rem 1rem;
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     text-align: start;
     cursor: pointer;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid var(--border-default);
     border-radius: 1rem;
   }
 
   .taxonomy-section__toc-toggle:hover,
-  .taxonomy-section__toc-toggle:focus {
-    background: var(--gn-bg);
-    border-color: var(--gn-accent);
+  .taxonomy-section__toc-toggle:focus-visible {
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border-color: var(--accent-primary);
   }
 
   .taxonomy-section__toc-toggle:focus-visible {
-    outline: 3px solid var(--gn-accent);
+    outline: none;
     outline-offset: 2px;
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .taxonomy-section__toc-toggle-label {
@@ -797,7 +798,7 @@ const pageSeo = buildPageSeo({
 
   .taxonomy-section__toc-chevron {
     flex-shrink: 0;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   .taxonomy-section__toc[data-open="true"] .taxonomy-section__toc-chevron {
@@ -813,8 +814,8 @@ const pageSeo = buildPageSeo({
     max-block-size: 50vb;
     padding: 1rem;
     overflow-block: auto;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid var(--border-default);
     border-radius: 1rem;
     box-shadow: var(--effect-floating-panel-shadow);
   }
@@ -844,19 +845,20 @@ const pageSeo = buildPageSeo({
     padding: 0.625rem 0.875rem;
     font-size: 0.9375rem;
     font-weight: 500;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     text-decoration: none;
     border-radius: 0.75rem;
   }
 
   .taxonomy-section__toc-link:hover,
-  .taxonomy-section__toc-link:focus {
-    background: var(--gn-bg);
+  .taxonomy-section__toc-link:focus-visible {
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
   }
 
   .taxonomy-section__toc-link:focus-visible {
-    outline: 2px solid var(--gn-accent);
+    outline: none;
     outline-offset: 2px;
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .taxonomy-section__toc-count {
@@ -870,46 +872,47 @@ const pageSeo = buildPageSeo({
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     line-height: 1;
-    color: var(--gn-bg);
-    background: var(--gn-accent);
+    color: var(--accent-contrast);
+    background: var(--accent-primary);
     border-radius: 999px;
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gn-ink) 10%, transparent);
+    box-shadow: inset 0 0 0 1px
+      color-mix(in srgb, var(--accent-contrast) 12%, transparent);
   }
 
   :global(:root[data-theme="light"]) .taxonomy-section__toc-count {
-    color: var(--gn-bg-primary);
-    background: var(--gn-accent-strong);
+    color: var(--accent-contrast);
+    background: var(--accent-strong);
   }
 
   :global(:root[data-theme="dark"]) .taxonomy-section__toc-count {
-    color: var(--gn-bg-primary);
-    background: var(--gn-accent);
+    color: var(--accent-contrast);
+    background: var(--accent-primary);
   }
 
   .taxonomy-section__toc-link:hover .taxonomy-section__toc-count,
-  .taxonomy-section__toc-link:focus .taxonomy-section__toc-count {
-    color: var(--gn-bg);
-    background: var(--gn-accent-strong);
+  .taxonomy-section__toc-link:focus-visible .taxonomy-section__toc-count {
+    color: var(--accent-contrast);
+    background: var(--accent-strong);
   }
 
   :global(:root[data-theme="light"])
     .taxonomy-section__toc-link:hover
     .taxonomy-section__toc-count,
   :global(:root[data-theme="light"])
-    .taxonomy-section__toc-link:focus
+    .taxonomy-section__toc-link:focus-visible
     .taxonomy-section__toc-count {
-    color: var(--gn-bg-primary);
-    background: var(--gn-accent);
+    color: var(--accent-contrast);
+    background: var(--accent-primary);
   }
 
   :global(:root[data-theme="dark"])
     .taxonomy-section__toc-link:hover
     .taxonomy-section__toc-count,
   :global(:root[data-theme="dark"])
-    .taxonomy-section__toc-link:focus
+    .taxonomy-section__toc-link:focus-visible
     .taxonomy-section__toc-count {
-    color: var(--gn-bg-primary);
-    background: var(--gn-accent-strong);
+    color: var(--accent-contrast);
+    background: var(--accent-strong);
   }
 
   /* Desktop: Show as pill list */
@@ -937,15 +940,15 @@ const pageSeo = buildPageSeo({
     .taxonomy-section__toc-link {
       padding: 0.5rem 0.875rem;
       font-size: 0.875rem;
-      background: var(--gn-bg-muted);
-      border: 1px solid var(--gn-panel-border);
+      background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+      border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
       border-radius: 999px;
     }
 
     .taxonomy-section__toc-link:hover,
-    .taxonomy-section__toc-link:focus {
-      background: var(--gn-bg);
-      border-color: var(--gn-accent);
+    .taxonomy-section__toc-link:focus-visible {
+      background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+      border-color: var(--accent-primary);
     }
   }
 

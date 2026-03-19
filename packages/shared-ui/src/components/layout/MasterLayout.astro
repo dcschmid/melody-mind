@@ -156,3 +156,28 @@ const contentShellClasses = contentShellClass.trim();
     }
   </body>
 </html>
+
+<style>
+  .app {
+    color: var(--text-primary);
+    background: var(--bg-primary);
+  }
+
+  .app__body {
+    min-block-size: 100vb;
+    margin: 0;
+    color: var(--text-primary);
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 36rem
+      ),
+      var(--bg-primary);
+  }
+
+  .app__main {
+    position: relative;
+    min-block-size: 0;
+  }
+</style>

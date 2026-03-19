@@ -1,4 +1,5 @@
 ---
+import Icon from "@shared-ui/components/visual/Icon.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 interface Props {
   subtitleUrl?: string | undefined;
@@ -6,28 +7,36 @@ interface Props {
 }
 
 const { subtitleUrl, podcastTitle } = Astro.props as Props;
+const transcriptSlug =
+  (subtitleUrl || podcastTitle).replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") ||
+  "transcript";
+const transcriptTitleId = `transcript-title-${transcriptSlug}`;
+const transcriptContentId = `transcript-content-${transcriptSlug}`;
 ---
 
 {
   subtitleUrl && (
     <section
       class="transcript"
-      aria-labelledby="transcript-title"
+      aria-labelledby={transcriptTitleId}
       data-subtitle-url={subtitleUrl}
       data-podcast-title={podcastTitle}
       data-player-id={subtitleUrl}
     >
       <details class="transcript__details">
-        <summary class="transcript__summary">
-          <span class="transcript__summary-title" id="transcript-title">
-            📄 Transcript
+        <summary class="transcript__summary" aria-controls={transcriptContentId}>
+          <span class="transcript__summary-title" id={transcriptTitleId}>
+            <Icon name="file-text" class="transcript__summary-icon" aria-hidden="true" />
+            Transcript
           </span>
           <span class="transcript__summary-hint">Show transcript</span>
         </summary>
-        <div class="transcript__body">
+        <div class="transcript__body" id={transcriptContentId}>
           <Paragraph
             textSize="sm"
             className="transcript__status transcript__status--loading"
+            role="status"
+            aria-atomic="true"
             hidden
           >
             Loading transcript...
@@ -35,6 +44,8 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
           <Paragraph
             textSize="sm"
             className="transcript__status transcript__status--error"
+            role="status"
+            aria-atomic="true"
             hidden
           >
             Could not load the transcript.
@@ -46,7 +57,7 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
   )
 }
 
-<script is:inline type="module">
+<script>
   import "@shared-ui/scripts/transcript.ts";
 </script>
 
@@ -81,8 +92,18 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
   }
 
   .transcript__summary-title {
+    display: inline-flex;
+    gap: 0.55rem;
+    align-items: center;
     font-weight: 700;
     color: var(--color-text);
+  }
+
+  .transcript__summary-icon {
+    flex: 0 0 auto;
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--color-primary);
   }
 
   .transcript__summary-hint {

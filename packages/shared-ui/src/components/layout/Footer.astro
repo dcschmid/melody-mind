@@ -12,7 +12,7 @@ interface FooterLink {
 
 interface Props {
   brandTitle?: string;
-  brandText: string;
+  brandText?: string;
   exploreTitle?: string;
   exploreLinks?: FooterLink[];
   supportTitle?: string;
@@ -26,12 +26,12 @@ interface Props {
   cookiesWaitingLabel?: string;
   cookiesAllowedLabel?: string;
   cookiesEssentialLabel?: string;
-  copyrightText: string;
+  copyrightText?: string;
 }
 
 const {
   brandTitle = "Brand",
-  brandText,
+  brandText = "Curated guides, playlists, and tools for focused listening.",
   exploreTitle = "Explore",
   exploreLinks = [],
   supportTitle = "Support",
@@ -45,7 +45,7 @@ const {
   cookiesWaitingLabel = "Cookies: waiting",
   cookiesAllowedLabel = "Cookies: analytics allowed",
   cookiesEssentialLabel = "Cookies: essential only",
-  copyrightText,
+  copyrightText = `© ${new Date().getFullYear()} MelodyMind. All rights reserved.`,
 } = Astro.props as Props;
 ---
 
@@ -236,22 +236,28 @@ const {
 </script>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     Footer Component Styles
+     Site footer with navigation links and settings
+     WCAG AAA compliant with proper touch targets and focus states
+     ----------------------------------------------------------------------------- */
+
   .site-footer {
-    background: var(--gn-bg);
-    border-block-start: 1px solid var(--gn-panel-border);
+    background: transparent;
   }
 
   .site-footer :global(.footer-shell__container) {
     max-inline-size: 72rem;
-    padding: 2rem 1rem;
+    padding: var(--spacing-2xl) var(--spacing-lg);
     margin: 0 auto;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
+  /* Footer grid - responsive columns */
   .site-footer__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: var(--spacing-xl);
   }
 
   @media (width >= 640px) {
@@ -266,59 +272,74 @@ const {
     }
   }
 
+  /* Footer section - column container */
   .site-footer__section {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--spacing-sm);
+    min-inline-size: 0;
   }
 
+  /* Section title */
   .site-footer__title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--gn-accent);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
   }
 
+  /* Section text */
   .site-footer__text {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--gn-ink-muted);
+    font-size: var(--font-size-base);
+    line-height: var(--prose-line-height);
+    color: var(--text-secondary);
   }
 
+  /* Navigation container */
   .site-footer__nav {
     display: grid;
-    gap: 0.4rem;
+    gap: var(--spacing-xs);
   }
 
+  /* Navigation links - WCAG AAA touch targets */
   .site-footer__link {
     display: flex;
     align-items: center;
-    min-block-size: 44px;
-    padding: 0.35rem 0;
-    font-size: 0.95rem;
-    color: var(--gn-ink-muted);
+    min-block-size: 48px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    margin-inline: calc(var(--spacing-sm) * -1);
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
     text-decoration: none;
+    border-radius: var(--radius-md);
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast);
   }
 
   .site-footer__link:hover,
-  .site-footer__link:focus {
-    color: var(--gn-accent);
+  .site-footer__link:focus-visible {
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--surface-2) 88%, transparent);
   }
 
   .site-footer__link:focus-visible {
-    outline: 3px solid var(--gn-accent);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 6px color-mix(in srgb, var(--gn-accent) 35%, transparent);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--interactive-shadow-strong);
   }
 
+  /* Meta section - copyright and bottom content */
   .site-footer__meta {
-    padding-block-start: 1.25rem;
-    font-size: 0.9rem;
-    color: var(--gn-ink-muted);
-    border-block-start: 1px solid var(--gn-panel-border);
+    padding-block-start: var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    border-block-start: 1px solid var(--border-default);
   }
 
+  /* Cookie settings button */
   .site-footer__cookie-button {
     font-family: inherit;
     text-align: start;
@@ -327,18 +348,43 @@ const {
     border: 0;
   }
 
+  /* Cookie and theme status text */
   .site-footer__cookie-status {
     margin: 0;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--gn-ink-muted);
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
   }
 
+  /* Status list container */
   .site-footer__status-list {
     display: grid;
-    gap: 0.3rem;
-    padding-block-start: 0.5rem;
-    margin-block-start: 0.5rem;
-    border-block-start: 1px solid var(--gn-panel-border);
+    gap: var(--spacing-xs);
+    padding-block-start: var(--spacing-sm);
+    margin-block-start: var(--spacing-sm);
+    border-block-start: 1px solid var(--border-default);
+  }
+
+  @media (width <= 639px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (width >= 768px) {
+    .site-footer :global(.footer-shell__container) {
+      padding-inline: var(--spacing-xl);
+    }
+
+    .site-footer__grid {
+      gap: var(--spacing-2xl);
+    }
+  }
+
+  /* Reduced motion support - disable transitions */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .site-footer__link {
+      transition: none;
+    }
   }
 </style>

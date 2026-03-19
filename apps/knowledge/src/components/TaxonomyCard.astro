@@ -75,11 +75,11 @@ const cardId = `taxonomy-card-${id}`;
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    background: var(--gn-bg);
-    border: 1px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--surface-1) 96%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 999px;
   }
 
@@ -96,7 +96,7 @@ const cardId = `taxonomy-card-${id}`;
     font-size: 1.2rem;
     font-weight: 600;
     line-height: 1.4;
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   .taxonomy-card__description {
@@ -106,7 +106,7 @@ const cardId = `taxonomy-card-${id}`;
     -webkit-line-clamp: 3;
     font-size: 0.95rem;
     line-height: 1.65;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
     /* stylelint-disable-next-line property-no-deprecated */
     -webkit-box-orient: block-axis;
   }

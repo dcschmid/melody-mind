@@ -56,14 +56,6 @@ export const TOC_EVENTS = {
 } as const;
 
 /**
- * Toast/notification events.
- */
-export const TOAST_EVENTS = {
-  /** Fired when a toast should be shown */
-  SHOW: "melodymind:toast",
-} as const;
-
-/**
  * All custom event names combined.
  */
 export const EVENTS = {
@@ -72,7 +64,6 @@ export const EVENTS = {
   ...CONSENT_EVENTS,
   ...SEARCH_EVENTS,
   ...TOC_EVENTS,
-  ...TOAST_EVENTS,
 } as const;
 
 /**

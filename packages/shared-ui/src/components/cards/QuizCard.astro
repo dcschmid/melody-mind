@@ -51,62 +51,97 @@ const cardId = id ?? `quiz-card-${href.replaceAll("/", "-").replace(/^-+/, "")}`
 </Card>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     QuizCard Component Styles
+     Specialized card for quiz content with CTA button
+     WCAG AAA compliant with clear visual hierarchy
+     ----------------------------------------------------------------------------- */
+
   .quiz-card__title {
-    padding: 1.2rem 1.25rem 0;
+    /* Layout */
+    padding: var(--spacing-lg) var(--spacing-lg) 0;
     margin: 0;
-    font-size: 1.3rem;
-    font-weight: 700;
-    line-height: 1.22;
-    color: var(--gn-ink);
-    letter-spacing: -0.02em;
+
+    /* Typography */
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--heading-color);
+    letter-spacing: var(--letter-spacing-tight);
   }
 
   .quiz-card__description {
+    /* Line clamping for consistent card heights */
     display: -webkit-box;
-    padding: 0.85rem 1.25rem 1rem;
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-base);
     margin: 0;
     overflow: hidden;
     -webkit-line-clamp: 3;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--gn-ink-muted);
-    /* stylelint-disable-next-line property-no-deprecated */
-    -webkit-box-orient: block-axis;
+
+    /* Typography */
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--prose-color);
+
+    /* Required for line clamping */
+    -webkit-box-orient: vertical;
   }
 
+  /* Call-to-action button */
   .quiz-card__cta {
+    /* Layout */
     display: inline-flex;
-    gap: 0.6rem;
+    gap: var(--spacing-sm);
     align-items: center;
     justify-content: center;
     inline-size: fit-content;
     min-inline-size: 9.5rem;
-    padding: 0.8rem 1.1rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--gn-bg);
-    background: var(--gn-ink);
-    border-radius: 999px;
-    box-shadow: 0 10px 22px color-mix(in srgb, var(--gn-ink) 18%, transparent);
+    padding: var(--spacing-sm) var(--spacing-lg);
+
+    /* Typography */
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+
+    /* Visual styling */
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-lg);
+
+    /* Smooth transitions */
     transition:
-      transform 0.2s ease,
-      background-color 0.2s ease;
+      transform var(--transition-base),
+      background-color var(--transition-base),
+      box-shadow var(--transition-base);
   }
 
+  .quiz-card__image {
+    background: color-mix(in srgb, var(--surface-2) 82%, transparent);
+  }
+
+  /* Hover state when parent card is interactive */
   :global(.card--interactive.card--elevated:hover) .quiz-card__cta,
   :global(.card--interactive.card--elevated:focus-visible) .quiz-card__cta {
-    background: color-mix(in srgb, var(--gn-ink) 90%, var(--color-white) 10%);
+    background: var(--accent-strong);
+    box-shadow: var(--shadow-xl);
     transform: translateY(-1px);
   }
 
+  /* Icon sizing */
   .quiz-card__cta-icon {
     inline-size: 0.95rem;
     block-size: 0.95rem;
   }
 
+  /* Reduced motion support */
   @media screen and (prefers-reduced-motion: reduce) {
     .quiz-card__cta {
       transition: none;
+    }
+
+    :global(.card--interactive.card--elevated:hover) .quiz-card__cta,
+    :global(.card--interactive.card--elevated:focus-visible) .quiz-card__cta {
+      transform: none;
     }
   }
 </style>

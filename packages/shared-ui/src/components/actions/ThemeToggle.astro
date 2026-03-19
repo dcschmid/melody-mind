@@ -27,7 +27,7 @@ import Icon from "../visual/Icon.astro";
       />
     </span>
   </span>
-  <span class="theme-toggle__sr">
+  <span class="theme-toggle__sr" aria-live="polite" aria-atomic="true">
     Theme mode: <span data-theme-toggle-label>system</span>
   </span>
 </button>
@@ -45,37 +45,41 @@ import Icon from "../visual/Icon.astro";
     applyTheme,
   } from "@shared-utils/utils/theme/themeStorage";
 
-  const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
-  const label = document.querySelector<HTMLSpanElement>("[data-theme-toggle-label]");
+  const toggles = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
+  );
 
   const updateToggle = (): void => {
-    if (!toggle || !label) {
+    if (!toggles.length) {
       return;
     }
 
     const stored = getStoredTheme();
     const resolved = stored ?? getSystemTheme();
-    // Track the resolved mode and whether we rely on system preference.
-    toggle.dataset.theme = resolved;
-    toggle.dataset.mode = stored ? "manual" : "system";
-
-    label.textContent = resolved;
-    toggle.setAttribute("aria-pressed", String(resolved === "dark"));
-    toggle.setAttribute(
-      "aria-label",
-      resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
-    );
+    toggles.forEach((toggle) => {
+      const label = toggle.querySelector<HTMLSpanElement>("[data-theme-toggle-label]");
+      toggle.dataset.theme = resolved;
+      toggle.dataset.mode = stored ? "manual" : "system";
+      if (label) {
+        label.textContent = resolved;
+      }
+      toggle.setAttribute("aria-pressed", String(resolved === "dark"));
+      toggle.setAttribute(
+        "aria-label",
+        resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      );
+    });
   };
 
   // Toggle manually switches between light/dark and persists the selection.
-  if (toggle) {
+  toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
       const nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
       setStoredTheme(nextTheme);
       applyTheme(nextTheme, "manual");
       updateToggle();
     });
-  }
+  });
 
   // Re-apply the system theme only when the user has not locked in a preference.
   window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
@@ -99,16 +103,14 @@ import Icon from "../visual/Icon.astro";
   .theme-toggle {
     position: relative;
     display: inline-flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     align-items: center;
-    justify-content: space-between;
-    min-inline-size: 12.5rem;
+    justify-content: flex-start;
+    min-inline-size: 0;
     font-family: var(--font-sans);
-    font-size: var(--font-size-md);
-    line-height: 1.4;
-    color: var(--surface-1);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
     cursor: pointer;
     background: none;
     border: none;
@@ -124,8 +126,8 @@ import Icon from "../visual/Icon.astro";
       display: flex;
       gap: 0.4rem;
       padding: 0.35rem;
-      background: var(--surface-3); /* Dunklerer Hintergrund für die Schiene */
-      border: 1px solid var(--gn-panel-border);
+      background: var(--surface-3);
+      border: 1px solid var(--border-default);
       border-radius: 999px;
       transition: none;
     }
@@ -135,8 +137,8 @@ import Icon from "../visual/Icon.astro";
     display: flex;
     gap: 0.4rem;
     padding: 0.35rem;
-    background: color-mix(in srgb, var(--surface-3) 80%, var(--gn-bg) 20%);
-    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    background: color-mix(in srgb, var(--surface-3) 80%, var(--bg-primary) 20%);
+    border: 1px solid color-mix(in srgb, var(--border-default) 70%, transparent);
     border-radius: 999px;
     transition:
       background var(--transition-fast),
@@ -151,7 +153,7 @@ import Icon from "../visual/Icon.astro";
       height: 2.25rem;
       color: var(--text-secondary);
       border-radius: 999px;
-      opacity: 0.3; /* Inaktive Icons noch dezentere Opacity */
+      opacity: 0.3;
       transition: none;
     }
   }
@@ -161,14 +163,20 @@ import Icon from "../visual/Icon.astro";
     place-items: center;
     width: 2.25rem;
     height: 2.25rem;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     border-radius: 999px;
-    opacity: 0.3; /* Inaktive Icons noch dezentere Opacity */
+    opacity: 0.55;
     transition:
       opacity var(--transition-fast),
       background var(--transition-fast),
       color var(--transition-fast),
       box-shadow var(--transition-fast);
+  }
+
+  .theme-toggle:hover .theme-toggle__pill,
+  .theme-toggle:focus-visible .theme-toggle__pill {
+    border-color: var(--accent-primary);
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .theme-toggle__icon {
@@ -179,9 +187,9 @@ import Icon from "../visual/Icon.astro";
   .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="light"],
   .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="dark"] {
     color: var(--text-primary);
-    background: var(--surface-1); /* Der "Knopf" ist heller als die Schiene */
+    background: var(--surface-1);
     box-shadow:
-      0 4px 12px color-mix(in srgb, #000 45%, transparent),
+      var(--shadow-lg),
       inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 10%, transparent);
     opacity: 1;
   }
@@ -189,18 +197,18 @@ import Icon from "../visual/Icon.astro";
   .theme-toggle[data-theme="light"]
     .theme-toggle__pill-icon[data-option="light"]
     .theme-toggle__icon {
-    color: var(--color-gn-amber-300);
+    color: var(--accent-strong);
     filter: drop-shadow(
-      0 0 4px color-mix(in srgb, var(--color-gn-amber-300) 60%, transparent)
+      0 0 4px color-mix(in srgb, var(--accent-primary) 40%, transparent)
     );
   }
 
   .theme-toggle[data-theme="dark"]
     .theme-toggle__pill-icon[data-option="dark"]
     .theme-toggle__icon {
-    color: var(--color-primary);
+    color: var(--accent-primary);
     filter: drop-shadow(
-      0 0 4px color-mix(in srgb, var(--color-primary) 60%, transparent)
+      0 0 4px color-mix(in srgb, var(--accent-primary) 50%, transparent)
     );
   }
 
@@ -211,6 +219,7 @@ import Icon from "../visual/Icon.astro";
     padding: 0;
     margin: -1px;
     overflow: hidden;
+    white-space: nowrap;
     border: 0;
     clip-path: inset(50%);
   }

@@ -147,43 +147,64 @@ const resolvedMediaAspectRatio =
 </article>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     Card Component Styles
+     Flexible card layout with media support, WCAG AAA compliance
+     Supports default and elevated variants with hover interactions
+     ----------------------------------------------------------------------------- */
+
   .card {
+    /* Layout */
     position: relative;
     display: flex;
     flex-direction: column;
     block-size: 100%;
+
+    /* Performance optimizations */
     contain-intrinsic-size: 360px;
     container-type: inline-size;
     content-visibility: auto;
+
+    /* Visual styling */
     overflow: hidden;
-    border-radius: 1rem;
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-base);
+  }
+
+  /* Default variant - standard card with border */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .card--default {
+      color: var(--text-primary);
+      background: var(--card-bg);
+      border: var(--card-border-width) solid var(--card-border-color);
+      transition: none;
+    }
   }
 
   .card--default {
-    color: var(--card-text, var(--gn-ink));
-    background: var(--card-bg, var(--gn-bg-muted));
-    border: var(--card-border-width, 2px) solid
-      var(--card-border-color, var(--gn-panel-border));
-  }
-
-  .card--elevated {
-    background: var(
-      --card-elevated-bg,
-      linear-gradient(180deg, var(--gn-bg) 0%, var(--gn-bg-muted) 100%)
-    );
-    border: var(--card-elevated-border-width, 1px) solid
-      var(--card-elevated-border-color, var(--gn-panel-border));
-    box-shadow: var(
-      --card-elevated-shadow,
-      0 18px 40px color-mix(in srgb, var(--gn-accent) 10%, transparent),
-      inset 0 1px 0 color-mix(in srgb, var(--color-white) 18%, transparent)
-    );
+    color: var(--text-primary);
+    background: var(--card-bg);
+    border: var(--card-border-width) solid var(--card-border-color);
     transition:
-      transform 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
+      border-color var(--transition-base),
+      box-shadow var(--transition-base),
+      transform var(--transition-base);
   }
 
+  /* Elevated variant - gradient background with shadow */
+  .card--elevated {
+    background: linear-gradient(180deg, var(--surface-1) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border-default);
+    box-shadow:
+      var(--shadow-lg),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 18%, transparent);
+    transition:
+      transform var(--transition-base),
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  /* Card link wrapper - inherits color and fills card */
   .card__link {
     display: flex;
     flex: 1;
@@ -192,54 +213,59 @@ const resolvedMediaAspectRatio =
     text-decoration: none;
   }
 
+  /* Remove default outline, use parent card border */
   .card__link:focus-visible {
     outline: 2px solid transparent;
   }
 
+  /* Focus state for default cards - accent border and inset shadow */
   .card--default:has(.card__link:focus-visible) {
-    border-color: var(--card-focus-color, var(--gn-accent));
-    box-shadow: inset 0 0 0 3px var(--card-focus-color, var(--gn-accent));
+    border-color: var(--accent-primary);
+    box-shadow:
+      inset 0 0 0 3px var(--accent-primary),
+      var(--shadow-md);
   }
 
+  .card--interactive.card--default:hover,
+  .card--interactive.card--default:focus {
+    border-color: color-mix(in srgb, var(--accent-primary) 28%, var(--border-default));
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  /* Focus state for elevated cards - enhanced shadow */
   .card--elevated:has(.card__link:focus-visible) {
-    border-color: var(--card-focus-color, var(--gn-accent));
-    box-shadow: var(
-      --card-elevated-focus-shadow,
-      inset 0 0 0 3px color-mix(in srgb, var(--gn-accent) 44%, transparent),
-      0 20px 42px color-mix(in srgb, var(--gn-accent) 16%, transparent)
-    );
+    border-color: var(--accent-primary);
+    box-shadow:
+      inset 0 0 0 3px color-mix(in srgb, var(--accent-primary) 44%, transparent),
+      var(--shadow-xl);
   }
 
+  /* Interactive elevated card hover state */
   .card--interactive.card--elevated:hover,
   .card--interactive.card--elevated:focus-visible {
-    border-color: var(
-      --card-elevated-hover-border-color,
-      color-mix(in srgb, var(--gn-accent) 36%, var(--gn-panel-border))
-    );
-    box-shadow: var(
-      --card-elevated-hover-shadow,
-      0 22px 44px color-mix(in srgb, var(--gn-accent) 14%, transparent),
-      inset 0 1px 0 color-mix(in srgb, var(--color-white) 24%, transparent)
-    );
+    border-color: color-mix(in srgb, var(--accent-primary) 36%, var(--border-default));
+    box-shadow:
+      var(--shadow-2xl),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 24%, transparent);
     transform: translateY(-4px);
   }
 
+  /* Media container - responsive aspect ratio */
   .card__media {
     position: relative;
     aspect-ratio: var(--card-media-aspect-ratio, 3 / 2);
     overflow: hidden;
-    background: var(--card-media-bg, var(--gn-bg));
+    background: var(--surface-2);
   }
 
+  /* Elevated card media - darker background with border */
   .card--elevated .card__media {
-    background: var(
-      --card-elevated-media-bg,
-      color-mix(in srgb, var(--gn-bg-muted) 88%, var(--color-black))
-    );
-    border-block-end: 1px solid
-      var(--card-elevated-media-border-color, var(--gn-panel-border));
+    background: var(--surface-3);
+    border-block-end: 1px solid var(--border-muted);
   }
 
+  /* Cover mode - image fills container */
   .card__media--cover :global(img),
   .card__media--cover .card__media-image,
   .card__media--cover :global(picture),
@@ -255,6 +281,7 @@ const resolvedMediaAspectRatio =
     object-fit: cover;
   }
 
+  /* Contain mode - image centered, maintains aspect ratio */
   .card__media--contain {
     display: grid;
     place-items: center;
@@ -276,8 +303,9 @@ const resolvedMediaAspectRatio =
     object-fit: contain;
   }
 
+  /* Interactive card image zoom on hover */
   .card--interactive.card--elevated .card__media :global(img) {
-    transition: transform 0.35s ease;
+    transition: transform var(--transition-slow);
   }
 
   .card--interactive.card--elevated:hover .card__media :global(img),
@@ -285,43 +313,49 @@ const resolvedMediaAspectRatio =
     transform: scale(1.03);
   }
 
+  /* Badge positioning - bottom right corner */
   .card__badge {
     position: absolute;
-    inset-block-end: 1rem;
-    inset-inline-end: 1rem;
+    inset-block-end: var(--spacing-base);
+    inset-inline-end: var(--spacing-base);
   }
 
+  /* Card body - flexible content area */
   .card__body {
     display: flex;
     flex: 1;
     flex-direction: column;
   }
 
+  /* Card footer - consistent padding */
   .card__footer {
-    padding: 0 1.25rem 1.25rem;
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
   }
 
+  /* Screen reader only text for accessibility */
   .card__sr {
     position: absolute;
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    margin: var(--sr-only-margin);
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
     overflow: hidden;
     white-space: nowrap;
     border: 0;
-    clip-path: var(--sr-only-clip-path);
+    clip-path: inset(50%);
   }
 
+  /* Reduced motion support - disable animations */
   @media screen and (prefers-reduced-motion: reduce) {
     .card--elevated {
       transition: none;
     }
 
-    .card--interactive.card--elevated .card__media :global(img) {
-      transition: none;
+    .card--interactive.card--default:hover,
+    .card--interactive.card--default:focus {
+      transform: none;
     }
 
-    .card--elevated,
     .card--interactive.card--elevated .card__media :global(img) {
       transition: none;
     }
@@ -330,12 +364,18 @@ const resolvedMediaAspectRatio =
     .card--interactive.card--elevated:focus-visible {
       transform: none;
     }
+
+    .card--interactive.card--elevated:hover .card__media :global(img),
+    .card--interactive.card--elevated:focus-visible .card__media :global(img) {
+      transform: none;
+    }
   }
 
+  /* Container query - responsive badge positioning */
   @container (max-width: 480px) {
     .card__badge {
-      inset-block-end: 0.75rem;
-      inset-inline-end: 0.75rem;
+      inset-block-end: var(--spacing-md);
+      inset-inline-end: var(--spacing-md);
     }
   }
 </style>

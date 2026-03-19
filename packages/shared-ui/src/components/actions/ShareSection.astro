@@ -1,0 +1,296 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Props {
+  shareUrl: string;
+  shareTitle: string;
+  shareText: string;
+  shareMailSubject: string;
+  shareMailBody: string;
+  mastodonShareUrl: string;
+  title?: string;
+  note?: string;
+  successMessage?: string;
+  errorMessage?: string;
+  fallbackMessage?: string;
+}
+
+const {
+  shareUrl,
+  shareTitle,
+  shareText,
+  shareMailSubject,
+  shareMailBody,
+  mastodonShareUrl,
+  title = "Share this article",
+  note = "Privacy-friendly: nothing loads until you choose a share option.",
+  successMessage = "Link copied!",
+  errorMessage = "Copy failed - please copy it manually.",
+  fallbackMessage = "Sharing isn't available here, so we've copied the link for you.",
+} = Astro.props as Props;
+---
+
+<section
+  class="share-section"
+  id="share-section"
+  aria-labelledby="share-section-title"
+  data-share-url={shareUrl}
+  data-share-title={shareTitle}
+  data-share-text={shareText}
+  data-share-success={successMessage}
+  data-share-error={errorMessage}
+  data-share-fallback={fallbackMessage}
+>
+  <div class="share-section__header">
+    <div class="share-section__copy">
+      <h2 class="share-section__title" id="share-section-title">
+        <span>{title}</span>
+      </h2>
+      <p
+        class="share-section__note"
+        data-share-status
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {note}
+      </p>
+    </div>
+
+    <div class="share-section__actions" aria-label="Share options">
+      <button
+        type="button"
+        data-share="native"
+        class="share-section__button share-section__button--primary"
+        aria-label="Share with your device"
+      >
+        <Icon name="send" class="share-section__button-icon" aria-hidden="true" />
+        <span>Share</span>
+      </button>
+      <button
+        type="button"
+        data-share="copy"
+        class="share-section__button"
+        aria-label="Copy link to this article"
+      >
+        <Icon name="copy" class="share-section__button-icon" aria-hidden="true" />
+        <span>Copy link</span>
+      </button>
+      <a
+        href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
+        class="share-section__button"
+        aria-label="Share via email"
+      >
+        <Icon name="mail" class="share-section__button-icon" aria-hidden="true" />
+        <span>Email</span>
+      </a>
+      <a
+        href={mastodonShareUrl}
+        target="_blank"
+        rel="noreferrer noopener"
+        class="share-section__button"
+        aria-label="Share on Mastodon (opens in a new tab)"
+      >
+        <Icon
+          name="message-circle"
+          class="share-section__button-icon"
+          aria-hidden="true"
+        />
+        <span>Mastodon</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .share-section {
+    --share-section-margin-start: var(--spacing-xl);
+    --share-section-max-copy-width: 56rem;
+    --share-section-title-size: var(--font-size-3xl);
+    --share-section-title-line-height: var(--line-height-none);
+    --share-section-button-height: calc(var(--spacing-xl) + var(--spacing-lg));
+    --share-section-button-padding-inline: 1.2rem;
+
+    display: grid;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    margin-block-start: var(--share-section-margin-start);
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--surface-2) 96%, transparent),
+      color-mix(in srgb, var(--surface-1) 82%, transparent)
+    );
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .share-section__header {
+    display: grid;
+    gap: var(--spacing-md);
+    align-items: start;
+  }
+
+  .share-section__copy {
+    display: grid;
+    gap: var(--spacing-sm);
+    min-inline-size: 0;
+    max-inline-size: var(--share-section-max-copy-width);
+  }
+
+  .share-section__title {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+    max-inline-size: none;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--share-section-title-line-height);
+    color: var(--heading-color);
+    letter-spacing: var(--letter-spacing-wider);
+    text-wrap: nowrap;
+  }
+
+  .share-section__title-icon {
+    flex-shrink: 0;
+    inline-size: 1rem;
+    block-size: 1rem;
+    margin-block-start: 0.25rem;
+    color: var(--accent-strong);
+  }
+
+  .share-section__note {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--text-secondary);
+  }
+
+  .share-section__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    min-inline-size: 0;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .share-section__button {
+      box-sizing: border-box;
+      display: inline-grid;
+      grid-auto-columns: max-content;
+      grid-auto-flow: column;
+      gap: var(--spacing-sm);
+      align-items: center;
+      justify-content: center;
+      min-inline-size: 0;
+      block-size: var(--share-section-button-height);
+      padding: 0 var(--share-section-button-padding-inline);
+      font: inherit;
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      line-height: 1;
+      color: var(--text-primary);
+      white-space: nowrap;
+      text-decoration: none;
+      cursor: pointer;
+      background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+      border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+      border-radius: var(--radius-full);
+      transition: none;
+    }
+  }
+
+  .share-section__button {
+    box-sizing: border-box;
+    display: inline-grid;
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 0;
+    block-size: var(--share-section-button-height);
+    padding: 0 var(--share-section-button-padding-inline);
+    font: inherit;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    color: var(--text-primary);
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    border-radius: var(--radius-full);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .share-section__button:hover,
+  .share-section__button:focus {
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+  }
+
+  .share-section__button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .share-section__button--primary {
+    color: var(--accent-contrast);
+    background: var(--accent-primary);
+    border-color: color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
+  }
+
+  .share-section__button--primary:hover,
+  .share-section__button--primary:focus {
+    background: var(--accent-strong);
+  }
+
+  .share-section__button-icon {
+    flex-shrink: 0;
+    inline-size: var(--spacing-base);
+    block-size: var(--spacing-base);
+  }
+
+  .share-section__button > span:last-child {
+    display: block;
+    line-height: 1;
+  }
+
+  @media (width < 48rem) {
+    .share-section {
+      --share-section-title-size: var(--font-size-2xl);
+      --share-section-button-padding-inline: var(--spacing-base);
+
+      padding: var(--spacing-md);
+    }
+
+    .share-section__header {
+      gap: var(--spacing-md);
+    }
+
+    .share-section__title {
+      max-inline-size: none;
+      letter-spacing: var(--letter-spacing-wider);
+      text-wrap: balance;
+    }
+
+    .share-section__actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .share-section__button {
+      inline-size: 100%;
+      padding-inline: 1rem;
+    }
+  }
+</style>

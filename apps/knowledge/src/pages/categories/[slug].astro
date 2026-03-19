@@ -269,7 +269,9 @@ const pageSeo = buildPageSeo({
               <div
                 id="category-search-empty"
                 class="category-page__empty"
+                role="status"
                 aria-live="polite"
+                aria-atomic="true"
                 hidden
               >
                 No results match your search. Try another keyword.
@@ -280,6 +282,7 @@ const pageSeo = buildPageSeo({
               class="category-page__empty"
               role="status"
               aria-live="polite"
+              aria-atomic="true"
               id="category-search-no-results"
             >
               <Paragraph textSize="lg" className="category-page__empty-title">
@@ -299,27 +302,27 @@ const pageSeo = buildPageSeo({
 </Layout>
 <style>
   .panel {
-    --panel-radius: 1rem;
-    --panel-padding: 1.5rem;
+    --panel-radius: var(--radius-lg);
+    --panel-padding: var(--spacing-lg);
 
     position: relative;
     padding: var(--panel-padding);
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid var(--border-default);
     border-radius: var(--panel-radius);
   }
 
   .panel--compact {
-    --panel-padding: 1rem;
+    --panel-padding: var(--spacing-base);
   }
 
   .panel--tight {
-    --panel-padding: 1.25rem;
+    --panel-padding: var(--spacing-lg);
   }
 
   .panel--card {
-    --panel-radius: 1rem;
-    --panel-padding: 1.25rem;
+    --panel-radius: var(--radius-lg);
+    --panel-padding: var(--spacing-lg);
   }
 
   .category-page {
@@ -372,7 +375,7 @@ const pageSeo = buildPageSeo({
     inline-size: 100%;
     aspect-ratio: 3 / 2;
     overflow: hidden;
-    border: 2px solid var(--gn-panel-border);
+    border: 1px solid var(--border-default);
     border-radius: 1rem;
   }
 
@@ -420,8 +423,8 @@ const pageSeo = buildPageSeo({
   .category-hero__content {
     inline-size: min(820px, 100%);
     padding: 2rem 2.25rem;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid var(--border-default);
     border-radius: 1rem;
   }
 
@@ -433,11 +436,11 @@ const pageSeo = buildPageSeo({
     margin-block-end: 1.5rem;
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.24em;
-    background: var(--gn-bg);
-    border: 1px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 999px;
   }
 
@@ -450,7 +453,7 @@ const pageSeo = buildPageSeo({
   .category-hero__dot {
     inline-size: 0.5rem;
     block-size: 0.5rem;
-    background: var(--gn-accent);
+    background: var(--accent-primary);
     border-radius: 999px;
   }
 
@@ -459,7 +462,7 @@ const pageSeo = buildPageSeo({
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 1.1;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.02em;
   }
 
@@ -481,7 +484,7 @@ const pageSeo = buildPageSeo({
     font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.75;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   @media (width >= 640px) {
@@ -511,9 +514,9 @@ const pageSeo = buildPageSeo({
     padding: 0.7rem 1.4rem;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--gn-ink);
-    background: var(--gn-bg);
-    border: 2px solid var(--gn-panel-border);
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border: 1px solid var(--border-default);
     border-radius: 999px;
   }
 
@@ -535,9 +538,9 @@ const pageSeo = buildPageSeo({
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
-    color: var(--gn-ink-muted);
-    background: var(--gn-bg-muted);
-    border: 1px solid var(--gn-panel-border);
+    color: var(--text-secondary);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 0.75rem;
   }
 
@@ -550,15 +553,15 @@ const pageSeo = buildPageSeo({
 
   .category-page__search {
     padding: 1.25rem 1.5rem;
-    background: var(--gn-bg-muted);
-    border: 1px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
     border-radius: 0.75rem;
   }
 
   .category-page__search :global(.search-panel__input) {
     font-size: 1.05rem;
-    background: var(--gn-bg);
-    border: 2px solid var(--gn-panel-border);
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border: 1px solid var(--border-default);
     border-radius: 0.75rem;
   }
 
@@ -569,25 +572,26 @@ const pageSeo = buildPageSeo({
   }
 
   .category-page__search :global(.search-panel__input:hover),
-  .category-page__search :global(.search-panel__input:focus) {
-    border-color: var(--gn-accent);
+  .category-page__search :global(.search-panel__input:focus-visible) {
+    border-color: var(--accent-primary);
   }
 
   .category-page__search :global(.search-panel__input:focus-visible) {
-    outline: 3px solid var(--gn-accent);
+    outline: none;
     outline-offset: 2px;
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .category-page__search :global(.search-panel__reset) {
-    color: var(--gn-ink);
-    background: var(--gn-bg);
-    border: 2px solid var(--gn-accent);
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
     border-radius: 999px;
   }
 
   .category-page__search :global(.search-panel__reset:hover),
-  .category-page__search :global(.search-panel__reset:focus) {
-    background: var(--gn-bg-muted);
+  .category-page__search :global(.search-panel__reset:focus-visible) {
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
   }
 
   .category-page__grid {
@@ -614,10 +618,10 @@ const pageSeo = buildPageSeo({
 
   .category-page__empty {
     padding: 3rem 2rem;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
     text-align: center;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid var(--border-default);
     border-radius: 0.75rem;
   }
 
@@ -625,7 +629,7 @@ const pageSeo = buildPageSeo({
     margin: 0;
     font-size: 1.375rem;
     font-weight: 700;
-    color: var(--gn-ink);
+    color: var(--text-primary);
     letter-spacing: -0.01em;
   }
 
@@ -633,6 +637,6 @@ const pageSeo = buildPageSeo({
     margin-block-start: 0.75rem;
     font-size: 1.0625rem;
     line-height: 1.6;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 </style>

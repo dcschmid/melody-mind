@@ -120,7 +120,7 @@ const descriptionClassName = [
   .knowledge-card__title {
     margin: 0;
     font-size: var(--font-size-lg);
-    color: var(--gn-ink);
+    color: var(--text-primary);
   }
 
   .knowledge-card__title--centered {
@@ -130,7 +130,7 @@ const descriptionClassName = [
   .knowledge-card__description {
     margin: 0;
     line-height: 1.65;
-    color: var(--gn-ink-muted);
+    color: var(--text-secondary);
   }
 
   .knowledge-card__description--centered {
@@ -144,8 +144,9 @@ const descriptionClassName = [
     padding-block-start: 1.25rem;
     margin-block-start: auto;
     font-size: var(--font-size-sm);
-    color: var(--gn-ink-muted);
-    border-block-start: 1px solid var(--gn-panel-border);
+    color: var(--text-secondary);
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--border-default) 88%, transparent);
   }
 
   .knowledge-card__meta-item {
@@ -161,7 +162,7 @@ const descriptionClassName = [
     flex-shrink: 0;
     inline-size: 1.125rem;
     block-size: 1.125rem;
-    color: var(--color-gn-amber-300);
+    color: var(--accent-primary);
   }
 
   @container (max-width: 480px) {

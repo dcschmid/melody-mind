@@ -11,27 +11,28 @@
 
 .panel {
   position: relative;
-  --panel-radius: 1.5rem;
-  --panel-padding: 1.5rem;
-  --panel-bg: var(--gn-bg-muted);
-  --panel-border: var(--gn-panel-border);
+  --panel-radius: var(--radius-xl);
+  --panel-padding: var(--spacing-lg);
+  --panel-bg: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+  --panel-border: var(--border-default);
   border-radius: var(--panel-radius);
   background: var(--panel-bg);
-  border: 2px solid var(--panel-border);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow-md);
   padding: var(--panel-padding);
 }
 
 .panel--compact {
-  --panel-padding: 1rem;
+  --panel-padding: var(--spacing-base);
 }
 
 .panel--tight {
-  --panel-padding: 1.25rem;
+  --panel-padding: var(--spacing-lg);
 }
 
 .panel--card {
-  --panel-radius: 1.25rem;
-  --panel-padding: 1.25rem;
+  --panel-radius: var(--radius-lg);
+  --panel-padding: var(--spacing-lg);
 }
 
 /* ============================================================
@@ -44,13 +45,13 @@
   top: 0;
   z-index: 60;
   height: 0.25rem;
-  background: var(--gn-bg-muted);
+  background: color-mix(in srgb, var(--surface-3) 88%, transparent);
 }
 
 .reading-progress__bar {
   height: 100%;
   width: 0;
-  background: var(--gn-accent);
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-strong));
 }
 
 @media (min-width: 640px) {
@@ -73,8 +74,8 @@
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  color: var(--gn-ink);
-  background-color: var(--gn-bg);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   font-family: var(--font-sans);
   line-height: var(--line-height-relaxed);
 }
@@ -131,7 +132,7 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 1.125rem;
-  color: var(--gn-ink-muted);
+  color: var(--text-secondary);
 }
 
 .knowledge__pill {
@@ -140,8 +141,8 @@
   gap: 0.45rem;
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  border: 2px solid var(--gn-panel-border);
-  background: var(--gn-bg);
+  border: 1px solid var(--border-default);
+  background: color-mix(in srgb, var(--surface-1) 92%, transparent);
   font-weight: 600;
   line-height: 1;
 }
@@ -164,17 +165,17 @@
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
-  color: var(--color-gn-amber-300);
+  color: var(--accent-strong);
 }
 
 .knowledge__pill-icon--teal {
-  color: var(--color-gn-teal-300);
+  color: var(--accent-primary);
 }
 
 /* Title & Summary */
 .knowledge__title {
   margin: 0;
-  color: var(--gn-ink);
+  color: var(--text-primary);
 }
 
 .knowledge__summary {
@@ -189,7 +190,7 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   font-size: 1rem;
-  color: var(--gn-ink-muted);
+  color: var(--text-secondary);
 }
 
 .knowledge__quiz-button {
@@ -199,9 +200,9 @@
   min-height: 44px;
   padding: 0.45rem 1rem;
   border-radius: 999px;
-  border: 2px solid color-mix(in srgb, var(--gn-accent) 55%, var(--gn-panel-border));
-  background: color-mix(in srgb, var(--gn-accent) 14%, var(--gn-bg-muted));
-  color: var(--gn-ink);
+  border: 1px solid color-mix(in srgb, var(--accent-primary) 50%, var(--border-default));
+  background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-2));
+  color: var(--text-primary);
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
@@ -212,20 +213,20 @@
 }
 
 .knowledge__quiz-button:hover {
-  background: color-mix(in srgb, var(--gn-accent) 22%, var(--gn-bg));
-  border-color: var(--gn-accent);
+  background: color-mix(in srgb, var(--accent-primary) 18%, var(--surface-1));
+  border-color: var(--accent-primary);
   transform: translateY(-1px);
 }
 
 .knowledge__quiz-button:focus-visible {
-  outline: 3px solid var(--gn-accent);
+  outline: 3px solid var(--accent-primary);
   outline-offset: 2px;
 }
 
 .knowledge__quiz-button-icon {
   width: 1rem;
   height: 1rem;
-  color: var(--gn-accent);
+  color: var(--accent-primary);
 }
 
 @media (min-width: 640px) {
@@ -285,8 +286,8 @@
   aspect-ratio: 3 / 2;
   text-align: center;
   padding: 2rem;
-  background: var(--gn-bg-muted);
-  color: var(--gn-ink-muted);
+  background: color-mix(in srgb, var(--surface-2) 84%, transparent);
+  color: var(--text-secondary);
 }
 
 .knowledge__media-placeholder-content {
@@ -317,7 +318,7 @@
   font-size: 1.125rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--gn-ink-muted);
+  color: var(--text-secondary);
   font-weight: 600;
 }
 
@@ -332,7 +333,7 @@
   width: 1rem;
   height: 1rem;
   flex-shrink: 0;
-  color: var(--color-gn-amber-300);
+  color: var(--accent-strong);
 }
 
 /* ============================================================
@@ -344,45 +345,6 @@
 }
 
 /* ============================================================
-   Share Section
-   ============================================================ */
-
-.knowledge-share {
-  margin-top: 2.5rem;
-}
-
-.knowledge-share__header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.knowledge-share__title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--gn-ink);
-}
-
-.knowledge-share__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  font-size: 1.125rem;
-}
-
-.knowledge-share__note {
-  margin-top: 0.75rem;
-  font-size: 1.125rem;
-  color: var(--gn-ink-muted);
-}
-
-/* ============================================================
    Back Button
    ============================================================ */
 
@@ -390,52 +352,6 @@
   margin-top: 3rem;
   display: flex;
   justify-content: center;
-}
-
-/* ============================================================
-   Share Buttons
-   ============================================================ */
-
-.share-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 44px;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  border: 2px solid var(--gn-panel-border);
-  font-size: 1.125rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--gn-ink);
-  background: var(--gn-bg-muted);
-}
-
-.share-button:hover {
-  background: var(--gn-bg);
-}
-
-.share-button:focus-visible {
-  outline: 3px solid var(--gn-accent);
-  outline-offset: 2px;
-}
-
-.share-button--primary {
-  background: var(--color-gn-amber-500);
-  color: var(--color-gn-soot-950);
-  border-color: var(--gn-panel-border);
-}
-
-.share-button--primary:hover {
-  background: var(--color-gn-amber-400);
-}
-
-.share-button__icon {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
 }
 
 /* ============================================================

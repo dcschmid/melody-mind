@@ -1,7 +1,6 @@
 ---
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
-import Toast from "@shared-ui/components/actions/Toast.astro";
 import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import Footer from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
@@ -281,7 +280,6 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
   </Fragment>
 
   {showHeader && <SiteHeader slot="before-main" showIcons={showHeaderIcons} />}
-  <Toast slot="after-main" />
   {showFooter && <Footer slot="after-main" />}
 
   <slot />

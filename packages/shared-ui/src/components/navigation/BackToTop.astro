@@ -28,52 +28,93 @@ const screenReaderText = "Back to top";
   <span class="back-to-top__sr">{screenReaderText}</span>
 </button>
 <style>
+  /* -----------------------------------------------------------------------------
+     BackToTop Button Component
+     Fixed position scroll-to-top with accessibility support
+     WCAG AAA compliant with 52px minimum touch target
+     ----------------------------------------------------------------------------- */
+
   .back-to-top {
     position: fixed;
-    inset-block-end: 1.25rem;
-    inset-inline-end: 1.25rem;
+    inset-block-end: calc(var(--spacing-lg) + env(safe-area-inset-bottom, 0px));
+    inset-inline-end: var(--spacing-lg);
     z-index: 30;
+
+    /* WCAG AAA minimum touch target size */
     min-inline-size: 52px;
     min-block-size: 52px;
-    padding: 1rem;
-    color: var(--gn-ink);
+    padding: var(--spacing-base);
+    color: var(--text-primary);
     cursor: pointer;
-    background: var(--gn-bg-muted);
-    border: 2px solid var(--gn-panel-border);
-    border-radius: 999px;
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 2px solid var(--border-default);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-lg);
+
+    /* Smooth transitions */
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      transform var(--transition-fast);
   }
 
+  /* Hover and focus states - enhanced visual feedback */
   .back-to-top:hover,
-  .back-to-top:focus {
-    background: var(--gn-bg);
-  }
-
   .back-to-top:focus-visible {
-    outline: 3px solid var(--gn-accent);
-    outline-offset: 2px;
+    background: var(--surface-3);
+    border-color: var(--accent-primary);
+    box-shadow: var(--interactive-shadow-focus);
+    transform: translateY(-2px);
   }
 
+  /* Focus visible state - WCAG AAA compliant */
+  .back-to-top:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Icon sizing - scales responsively */
   .back-to-top__icon {
     display: block;
     inline-size: 1.5rem;
     block-size: 1.5rem;
   }
 
+  /* Larger icon on desktop for better visibility */
   @media (width >= 768px) {
+    .back-to-top {
+      inset-inline-end: calc(var(--spacing-xl) + env(safe-area-inset-right, 0px));
+    }
+
     .back-to-top__icon {
       inline-size: 1.75rem;
       block-size: 1.75rem;
     }
   }
 
+  /* Screen reader only text for accessibility */
   .back-to-top__sr {
     position: absolute;
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    margin: var(--sr-only-margin);
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
     overflow: hidden;
     white-space: nowrap;
     border: 0;
-    clip-path: var(--sr-only-clip-path);
+    clip-path: inset(50%);
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+      transition: none;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus-visible {
+      transform: none;
+    }
   }
 </style>

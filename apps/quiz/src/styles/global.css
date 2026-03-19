@@ -11,7 +11,7 @@
   content: "";
   position: absolute;
   inset: 4px;
-  border: 1px solid var(--gn-panel-inner);
+  border: 1px solid color-mix(in srgb, var(--border-default) 72%, transparent);
   border-radius: calc(var(--legal-panel-radius) - 0.25rem);
   pointer-events: none;
 }
@@ -58,25 +58,14 @@
 
 @media (prefers-contrast: more) {
   :root {
-    --gn-panel-border: currentColor;
-    --gn-accent: Highlight;
-    --gn-accent-strong: Highlight;
-  }
-
-  :root[data-theme="dark"] {
-    --gn-bg-primary: Canvas;
-    --gn-bg: Canvas;
-    --gn-bg-muted: Canvas;
-    --gn-ink: CanvasText;
-    --gn-ink-muted: CanvasText;
-  }
-
-  :root[data-theme="light"] {
-    --gn-bg-primary: Canvas;
-    --gn-bg: Canvas;
-    --gn-bg-muted: Canvas;
-    --gn-ink: CanvasText;
-    --gn-ink-muted: CanvasText;
+    --border-default: currentColor;
+    --accent-primary: Highlight;
+    --accent-strong: Highlight;
+    --bg-primary: Canvas;
+    --surface-1: Canvas;
+    --surface-2: Canvas;
+    --text-primary: CanvasText;
+    --text-secondary: CanvasText;
   }
 }
 
