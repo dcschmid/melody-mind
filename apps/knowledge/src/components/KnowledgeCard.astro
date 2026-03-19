@@ -7,9 +7,10 @@
  */
 import { format } from "date-fns";
 import { enUS as en } from "date-fns/locale";
-import Icon from "@shared-ui/components/Icon.astro";
-import Card from "@shared-ui/components/Card.astro";
-import Headline from "@shared-ui/components/Headline.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import Card from "@shared-ui/components/cards/Card.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 
 export const prerender = true;
 
@@ -44,6 +45,12 @@ const cardId = `card-title-${slug}-${index}`;
 const metaId = `${cardId}-meta`;
 const descId = `${cardId}-desc`;
 const imageAltText = title ? `Cover image for ${title}` : "";
+const descriptionClassName = [
+  "knowledge-card__description",
+  !hasOwnLink && "knowledge-card__description--centered",
+]
+  .filter(Boolean)
+  .join(" ");
 ---
 
 <Card
@@ -75,14 +82,9 @@ const imageAltText = title ? `Cover image for ${title}` : "";
     </Headline>
 
     <div id={descId}>
-      <p
-        class:list={[
-          "knowledge-card__description",
-          !hasOwnLink && "knowledge-card__description--centered",
-        ]}
-      >
+      <Paragraph className={descriptionClassName} textSize="base">
         {description}
-      </p>
+      </Paragraph>
     </div>
 
     <div class="knowledge-card__meta" id={metaId}>

@@ -1,0 +1,127 @@
+---
+interface Props {
+  /** Additional CSS classes to apply */
+  className?: string;
+  /** Text size variant */
+  textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  /** Text alignment option */
+  textAlign?: "left" | "center" | "right";
+}
+
+const { textSize = "xl", className = "", textAlign = "left" } = Astro.props as Props;
+
+const baseClasses = "paragraph";
+
+type TextSize = NonNullable<Props["textSize"]>;
+type TextAlign = NonNullable<Props["textAlign"]>;
+
+const textSizeClasses: Record<TextSize, string> = {
+  sm: "paragraph--size-sm",
+  base: "paragraph--size-base",
+  lg: "paragraph--size-lg",
+  xl: "paragraph--size-xl",
+  "2xl": "paragraph--size-2xl",
+  "3xl": "paragraph--size-3xl",
+  "4xl": "paragraph--size-4xl",
+};
+
+const textAlignClasses: Record<TextAlign, string> = {
+  left: "paragraph--align-left",
+  center: "paragraph--align-center",
+  right: "paragraph--align-right",
+};
+
+const classes = [
+  baseClasses,
+  textSizeClasses[textSize],
+  textAlignClasses[textAlign],
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+
+const attributes: Record<string, unknown> = {
+  class: classes,
+};
+---
+
+<p {...attributes}>
+  <slot />
+</p>
+<style>
+  .paragraph {
+    margin: 0;
+    font-family: var(--font-sans);
+    line-height: var(--line-height-relaxed);
+    color: var(--gn-ink-muted);
+    hyphens: auto;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  .paragraph--size-sm {
+    font-size: 1.125rem;
+  }
+
+  .paragraph--size-base {
+    font-size: 1.125rem;
+  }
+
+  .paragraph--size-lg {
+    font-size: 1.25rem;
+  }
+
+  .paragraph--size-xl {
+    font-size: 1.375rem;
+  }
+
+  .paragraph--size-2xl {
+    font-size: 1.475rem;
+  }
+
+  .paragraph--size-3xl {
+    font-size: 1.625rem;
+  }
+
+  .paragraph--size-4xl {
+    font-size: 1.875rem;
+  }
+
+  @media (width >= 768px) {
+    .paragraph--size-base {
+      font-size: 1.225rem;
+    }
+
+    .paragraph--size-lg {
+      font-size: 1.325rem;
+    }
+
+    .paragraph--size-xl {
+      font-size: 1.475rem;
+    }
+
+    .paragraph--size-2xl {
+      font-size: 1.625rem;
+    }
+
+    .paragraph--size-3xl {
+      font-size: 1.825rem;
+    }
+
+    .paragraph--size-4xl {
+      font-size: 2.125rem;
+    }
+  }
+
+  .paragraph--align-left {
+    text-align: start;
+  }
+
+  .paragraph--align-center {
+    text-align: center;
+  }
+
+  .paragraph--align-right {
+    text-align: end;
+  }
+</style>

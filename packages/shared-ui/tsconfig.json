@@ -5,7 +5,6 @@
     "types": ["astro/client"],
     "baseUrl": ".",
     "paths": {
-      "@shared-icons/*": ["../shared-icons/src/*"],
       "@shared-utils/*": ["../shared-utils/src/*"]
     }
   },

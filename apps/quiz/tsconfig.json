@@ -3,7 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@shared-icons/*": ["../../packages/shared-icons/src/*"],
       "@shared-ui/*": ["../../packages/shared-ui/src/*"],
       "@shared-utils/*": ["../../packages/shared-utils/src/*"],
       "@components/*": ["src/components/*"],

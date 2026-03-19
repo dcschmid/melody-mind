@@ -1,12 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import Paragraph from "@components/Paragraph.astro";
-import Prose from "@shared-ui/components/Prose.astro";
-import Icon from "@shared-ui/components/Icon.astro";
-import { buildPageSeo } from "@utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@utils/siteUrls";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import Prose from "@shared-ui/components/typography/Prose.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export const prerender = true;
 

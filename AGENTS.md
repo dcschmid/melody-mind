@@ -46,7 +46,7 @@ import { Image } from "astro:assets";
 
 // 2. Internal packages using path aliases
 import Layout from "@layouts/Layout.astro";
-import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 ```
 
 **Path Aliases**: `@components/*`, `@layouts/*`, `@utils/*`, `@constants/*`, `@i18n/*`, `@content/*`

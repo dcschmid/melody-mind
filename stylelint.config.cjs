@@ -4,13 +4,7 @@ module.exports = {
     "stylelint-config-standard",
     "stylelint-config-recess-order",
   ],
-  plugins: [
-    "@double-great/stylelint-a11y",
-    "stylelint-order",
-    "stylelint-no-unsupported-browser-features",
-    "stylelint-high-performance-animation",
-    "stylelint-plugin-logical-css",
-  ],
+  plugins: ["@double-great/stylelint-a11y"],
   rules: {
     "function-no-unknown": [true, { ignoreFunctions: ["color-mix", "clamp"] }],
     "property-no-unknown": [true, { ignoreProperties: ["text-wrap", "content-visibility"] }],
@@ -20,30 +14,8 @@ module.exports = {
     "alpha-value-notation": null,
     "max-nesting-depth": 2,
     "declaration-no-important": null,
-    "plugin/use-logical-properties-and-values": [true, { severity: "warning" }],
-    "plugin/use-logical-units": [true, { severity: "warning" }],
-    "plugin/no-unsupported-browser-features": [
-      true,
-      {
-        severity: "warning",
-        browsers: ["> 1%", "last 2 versions", "not op_mini all"],
-        ignorePartialSupport: true,
-        ignore: [
-          "color-mix",
-          "content-visibility",
-          "text-wrap",
-          "css-clip-path",
-          "css-marker-pseudo",
-          "extended-system-fonts",
-          "text-decoration",
-          "intrinsic-width",
-        ],
-      },
-    ],
-    "selector-class-pattern": "^[a-z][a-z0-9-]*(?:__(?:[a-z0-9-]+))?(?:--(?:[a-z0-9-]+))?$",
-    "a11y/content-property-no-static-value": [true, { severity: "warning" }],
     "a11y/font-size-is-readable": true,
-    "a11y/line-height-is-vertical-rhythmed": [true, { severity: "warning" }],
+    "a11y/line-height-is-vertical-rhythmed": null,
     "a11y/media-prefers-color-scheme": null,
     "a11y/media-prefers-reduced-motion": true,
     "a11y/no-display-none": null,
@@ -59,12 +31,16 @@ module.exports = {
         ignore: ["consecutive-duplicates-with-different-values"],
       },
     ],
+    "selector-class-pattern":
+      "^[a-z][a-z0-9-]*(?:__(?:[a-z0-9-]+))?(?:--(?:[a-z0-9-]+))?$",
+    "a11y/content-property-no-static-value": [true, { severity: "warning" }],
     "selector-pseudo-class-no-unknown": [
       true,
       {
         ignorePseudoClasses: ["global"],
       },
     ],
+    "keyframes-name-pattern": null,
     "property-no-vendor-prefix": [
       true,
       {

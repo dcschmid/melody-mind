@@ -1,0 +1,136 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  imageSrc: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  heading: string;
+  headingLevel?: "h2" | "h3" | "h4";
+  sizes?: string;
+  className?: string;
+}
+
+const {
+  imageSrc,
+  imageAlt = "",
+  imageWidth = 1024,
+  imageHeight = 683,
+  heading,
+  headingLevel = "h3",
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 40vw",
+  className = "",
+} = Astro.props as Props;
+
+const Tag = headingLevel;
+const classes = ["subsection-figure", className].filter(Boolean).join(" ");
+---
+
+<figure class={classes}>
+  <div class="subsection-figure__media">
+    <Image
+      class="subsection-figure__image"
+      src={imageSrc}
+      alt={imageAlt}
+      width={imageWidth}
+      height={imageHeight}
+      sizes={sizes}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <figcaption class="subsection-figure__content">
+    <Tag class="subsection-figure__title">{heading}</Tag>
+  </figcaption>
+</figure>
+
+<style>
+  .subsection-figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin: 2.25rem 0;
+  }
+
+  .subsection-figure__media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--figure-media-bg);
+    border: 1px solid var(--figure-media-border);
+    border-radius: 14px;
+    box-shadow: var(--figure-media-shadow);
+  }
+
+  .subsection-figure__media::after {
+    position: absolute;
+    inset: 6px;
+    pointer-events: none;
+    content: "";
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 75%, transparent);
+    border-radius: 10px;
+  }
+
+  .subsection-figure__image {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .subsection-figure__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-block-size: 100%;
+    padding-inline-start: 1.5rem;
+  }
+
+  .subsection-figure__content::before {
+    position: absolute;
+    inset-block: 0.2rem;
+    inset-inline-start: 0;
+    inline-size: 3px;
+    content: "";
+    background: var(--figure-accent);
+    border-radius: 999px;
+    box-shadow: var(--figure-accent-glow);
+  }
+
+  .subsection-figure__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.725rem;
+    line-height: 1.2;
+    color: var(--gn-ink);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    text-shadow: var(--figure-title-shadow);
+  }
+
+  @media (width >= 900px) {
+    .subsection-figure {
+      grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+      gap: 1.5rem;
+    }
+
+    .subsection-figure__title {
+      font-size: 2.025rem;
+    }
+  }
+
+  @media (width <= 899px) {
+    .subsection-figure__content {
+      padding-block-start: 0.9rem;
+      padding-inline-start: 0;
+    }
+
+    .subsection-figure__content::before {
+      inset-block: 0 auto;
+      inline-size: 2.75rem;
+      block-size: 3px;
+    }
+  }
+</style>

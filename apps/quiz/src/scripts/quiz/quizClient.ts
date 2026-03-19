@@ -6,6 +6,7 @@
  */
 
 import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
+import { icons as tablerIconSet } from "@iconify-json/tabler";
 
 const QUIZ_RESULTS_KEY = "quiz-results";
 
@@ -48,20 +49,46 @@ function selectRandomQuestions(questions: QuizQuestion[], count: number): QuizQu
   return shuffled.slice(0, count);
 }
 
-// SVG Icons as strings
+interface IconifyCollection {
+  width?: number;
+  height?: number;
+  icons: Record<
+    string,
+    {
+      body: string;
+      width?: number;
+      height?: number;
+    }
+  >;
+}
+
+const TABLER_ICONS = tablerIconSet as IconifyCollection;
+
+function renderTablerIcon(name: string): string {
+  const icon = TABLER_ICONS.icons[name];
+  if (!icon) {
+    return "";
+  }
+
+  const width = icon.width ?? TABLER_ICONS.width ?? 24;
+  const height = icon.height ?? TABLER_ICONS.height ?? 24;
+
+  return `<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${icon.body}</svg>`;
+}
+
 const icons = {
-  check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
-  x: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`,
-  circle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle></svg>`,
-  circleCheck: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><polyline points="16 10 11 15 8 12" stroke-width="2.5"></polyline></svg>`,
-  square: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect></svg>`,
-  squareCheck: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><polyline points="16 10 11 15 8 12" stroke-width="2.5"></polyline></svg>`,
-  info: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`,
-  refresh: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path><path d="M16 16h5v5"></path></svg>`,
-  grid: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>`,
-  trophy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>`,
-  arrowLeft: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>`,
-  arrowRight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"></path></svg>`,
+  check: renderTablerIcon("check"),
+  x: renderTablerIcon("x"),
+  circle: renderTablerIcon("circle"),
+  circleCheck: renderTablerIcon("circle-check"),
+  square: renderTablerIcon("square"),
+  squareCheck: renderTablerIcon("square-check"),
+  info: renderTablerIcon("info-circle"),
+  refresh: renderTablerIcon("refresh"),
+  grid: renderTablerIcon("layout-grid"),
+  trophy: renderTablerIcon("trophy"),
+  arrowLeft: renderTablerIcon("arrow-left"),
+  arrowRight: renderTablerIcon("arrow-right"),
 };
 
 export function initQuiz(
@@ -380,9 +407,6 @@ export function initQuiz(
 
     const score = Math.round((state.correctCount / questions.length) * 100);
     const passed = score >= passingScore;
-    const circumference = 2 * Math.PI * 45;
-    const dashArray = `${(score / 100) * circumference} ${circumference}`;
-
     // Hide question and nav
     if (questionContainer) {
       questionContainer.innerHTML = "";
@@ -430,28 +454,16 @@ export function initQuiz(
         
         <div class="quiz-result__score">
           <div class="quiz-result__score-circle">
-            <svg viewBox="0 0 100 100" class="quiz-result__score-svg">
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
-                fill="none"
-                stroke="var(--gn-panel-border)"
-                stroke-width="6"
-              />
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
-                fill="none"
-                stroke="${passed ? "var(--color-gn-green-400)" : "var(--color-gn-red-400)"}"
-                stroke-width="6"
-                stroke-linecap="round"
-                stroke-dasharray="${dashArray}"
-                transform="rotate(-90 50 50)"
-                class="quiz-result__score-arc"
-              />
-            </svg>
+            <span
+              class="quiz-result__score-ring"
+              aria-hidden="true"
+              style="display:block; inline-size:9rem; block-size:9rem; border-radius:50%; background:conic-gradient(${passed ? "var(--color-gn-green-400)" : "var(--color-gn-red-400)"} 0 ${score}%, var(--gn-panel-border) ${score}% 100%);"
+            ></span>
+            <span
+              class="quiz-result__score-ring-core"
+              aria-hidden="true"
+              style="position:absolute; inline-size:7.75rem; block-size:7.75rem; border-radius:50%; background:var(--gn-bg);"
+            ></span>
             <span class="quiz-result__score-value">${score}%</span>
           </div>
           <p class="quiz-result__score-text">

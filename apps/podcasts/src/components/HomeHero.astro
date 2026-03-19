@@ -1,8 +1,7 @@
 ---
-import Headline from "@shared-ui/components/Headline.astro";
-import Deezer from "../assets/deezer.svg";
-import YouTube from "../assets/youtube.svg";
-import Spotify from "../assets/spotify.svg";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 
 interface Props {
   title: string;
@@ -37,8 +36,12 @@ const {
           <Headline level="h1" textSize="4xl" className="home-hero__title">
             {title}
           </Headline>
-          <p class="home-hero__subtitle">{subtitle}</p>
-          <p class="home-hero__description">{description}</p>
+          <Paragraph textSize="base" className="home-hero__subtitle">
+            {subtitle}
+          </Paragraph>
+          <Paragraph textSize="base" className="home-hero__description">
+            {description}
+          </Paragraph>
         </div>
 
         <div class="home-hero__cta-row">
@@ -98,7 +101,7 @@ const {
             rel="noopener"
           >
             <span class="home-hero__platform-icon" aria-hidden="true">
-              <Spotify />
+              <Icon name="spotify" aria-hidden="true" />
             </span>
             Spotify
           </a>
@@ -110,7 +113,7 @@ const {
             rel="noopener"
           >
             <span class="home-hero__platform-icon" aria-hidden="true">
-              <Deezer />
+              <Icon name="deezer" aria-hidden="true" />
             </span>
             Deezer
           </a>
@@ -122,7 +125,7 @@ const {
             rel="noopener"
           >
             <span class="home-hero__platform-icon" aria-hidden="true">
-              <YouTube />
+              <Icon name="simple-icons:youtube" aria-hidden="true" />
             </span>
             YouTube
           </a>
@@ -146,9 +149,8 @@ const {
     position: relative;
     padding: 3rem 2rem;
     overflow: hidden;
-    background:
-      linear-gradient(140deg, rgb(13 18 26 / 80%), transparent 55%), var(--color-surface);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+    background: var(--effect-hero-surface);
+    border: 1px solid var(--color-border-soft);
     border-radius: 2rem;
     box-shadow: var(--shadow-soft);
   }
@@ -158,9 +160,7 @@ const {
     inset: 0;
     content: "";
     background:
-      radial-gradient(circle at 18% 22%, rgb(79 211 255 / 12%), transparent 35%),
-      radial-gradient(circle at 82% 12%, rgb(44 198 255 / 12%), transparent 32%),
-      radial-gradient(circle at 70% 68%, rgb(138 217 255 / 10%), transparent 38%);
+      var(--effect-hero-orb-1), var(--effect-hero-orb-2), var(--effect-hero-orb-3);
     opacity: 0.85;
   }
 
@@ -196,7 +196,7 @@ const {
     font-size: var(--font-size-hero);
     font-weight: 800;
     color: transparent;
-    text-shadow: 0 18px 40px rgb(0 0 0 / 40%);
+    text-shadow: var(--effect-hero-title-shadow);
     background: var(--brand-gradient);
     background-clip: text;
   }
@@ -224,7 +224,7 @@ const {
     display: block;
     inline-size: 100%;
     block-size: auto;
-    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 1.6rem;
     box-shadow: var(--shadow-strong);
   }
@@ -248,7 +248,7 @@ const {
     padding: 1rem 1.2rem;
     color: var(--color-text);
     background: var(--color-layer-1);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 1.1rem;
   }
 
@@ -284,7 +284,7 @@ const {
   .home-hero__cta--secondary {
     color: var(--color-text);
     background: var(--color-layer-1);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+    border: 1px solid var(--color-border-default);
   }
 
   .home-hero__cta:focus-visible {
@@ -323,7 +323,7 @@ const {
     white-space: normal;
     text-decoration: none;
     background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border: 1px solid var(--color-border-default);
     border-radius: 0.9rem;
   }
 
@@ -337,7 +337,7 @@ const {
     color: var(--platform-color, var(--color-primary));
   }
 
-  .home-hero__platform-icon svg {
+  .home-hero__platform-icon :global(svg) {
     inline-size: 100%;
     block-size: 100%;
   }
@@ -373,7 +373,7 @@ const {
     padding: 0.4rem 0.85rem;
     overflow-wrap: anywhere;
     background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 0.75rem;
   }
 

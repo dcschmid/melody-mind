@@ -1,23 +1,27 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildCollectionPageSchema,
   buildKnowledgeArticlesItemList,
-} from "@utils/seo/seoSchema";
-import { getCollectionCached } from "@utils/content/getCollectionCached";
-import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
-import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
-import { calculateReadingTime } from "@utils/readingTime";
-import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+} from "@shared-utils/utils/seo/seoSchema";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { sortEntries } from "@shared-utils/utils/content/sortEntries";
+import {
+  normalizeDate,
+  derivePublishModified,
+} from "@shared-utils/utils/content/dateUtils";
+import { calculateReadingTime } from "@shared-utils/utils/readingTime";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
 import categories from "../../data/categories.json";
 import { Image } from "astro:assets";
-import SearchPanel from "@components/Search/SearchPanel.astro";
+import SearchPanel from "@shared-ui/components/search/SearchPanel.astro";
 
 export const prerender = true;
 
@@ -44,7 +48,7 @@ if (!category) {
 
 let baseArticles: any[] = [];
 try {
-  baseArticles = await getCollectionCached("knowledge-en").catch(() => []);
+  baseArticles = await getCollectionEntries("knowledge-en");
 } catch (e) {
   loggers.pages.warn("category page: collection load issue", {
     error: (e as any)?.message || e,
@@ -64,7 +68,7 @@ const articlesWithReadingTime = baseArticles.map((article: any) => {
   };
 });
 
-const filteredArticles = sortKnowledgeEntries(
+const filteredArticles = sortEntries(
   articlesWithReadingTime.filter((a) => a.data.category === slug)
 );
 
@@ -187,7 +191,9 @@ const pageSeo = buildPageSeo({
           </div>
           <div class="category-hero__body">
             <div class="category-hero__content">
-              <p class="category-hero__description">{category.description}</p>
+              <Paragraph textSize="base" className="category-hero__description">
+                {category.description}
+              </Paragraph>
               <div class="category-hero__stats">
                 <span class="category-hero__stat">
                   <span class="category-hero__dot"></span>
@@ -205,10 +211,14 @@ const pageSeo = buildPageSeo({
         aria-describedby="category-helper-text"
       >
         <div class="category-page__tools">
-          <p id="category-helper-text" class="category-page__helper">
+          <Paragraph
+            id="category-helper-text"
+            textSize="sm"
+            className="category-page__helper"
+          >
             Each article card includes the title, description, publish date, and estimated
             reading time.
-          </p>
+          </Paragraph>
           <div class="category-page__search search-panel-shell">
             <SearchPanel
               idBase="category-search"
@@ -272,8 +282,12 @@ const pageSeo = buildPageSeo({
               aria-live="polite"
               id="category-search-no-results"
             >
-              <p class="category-page__empty-title">No articles in this category yet.</p>
-              <p class="category-page__empty-text">Check back soon for new additions.</p>
+              <Paragraph textSize="lg" className="category-page__empty-title">
+                No articles in this category yet.
+              </Paragraph>
+              <Paragraph textSize="sm" className="category-page__empty-text">
+                Check back soon for new additions.
+              </Paragraph>
             </div>
           )
         }

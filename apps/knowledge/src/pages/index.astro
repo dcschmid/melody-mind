@@ -3,20 +3,24 @@
  * Knowledge Index Page - Professional Dark Mode with WCAG AAA
  */
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import TaxonomyCard from "@components/TaxonomyCard.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildCollectionPageSchema,
   buildKnowledgeArticlesItemList,
-} from "@utils/seo/seoSchema";
-import { calculateReadingTime } from "@utils/readingTime";
-import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
-import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
-import { getCollectionCached } from "@utils/content/getCollectionCached";
-import { normalizeDate, derivePublishModified } from "@utils/content/dateUtils";
-import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+} from "@shared-utils/utils/seo/seoSchema";
+import { calculateReadingTime } from "@shared-utils/utils/readingTime";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
+import { sortEntries } from "@shared-utils/utils/content/sortEntries";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import {
+  normalizeDate,
+  derivePublishModified,
+} from "@shared-utils/utils/content/dateUtils";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { musicTaxonomy } from "../data/musicTaxonomy";
 import { countArticlesPerSubsection } from "../utils/taxonomy/taxonomyUtils";
 import { Image } from "astro:assets";
@@ -29,7 +33,7 @@ const lang = "en";
 // Load English knowledge collection
 let baseArticles: any[] = [];
 try {
-  baseArticles = await getCollectionCached("knowledge-en").catch(() => []);
+  baseArticles = await getCollectionEntries("knowledge-en");
 } catch (e) {
   loggers.pages.warn("knowledge index: collection load issue", {
     error: (e as any)?.message || e,
@@ -50,7 +54,7 @@ const articlesWithReadingTime = baseArticles.map((article: any) => {
   };
 });
 
-const sortedArticles = sortKnowledgeEntries(articlesWithReadingTime);
+const sortedArticles = sortEntries(articlesWithReadingTime);
 const recentReadImageMap = Object.fromEntries(
   sortedArticles.map((article: any) => {
     const articleSlug =
@@ -177,11 +181,13 @@ const pageSeo = buildPageSeo({
           </div>
           <div class="knowledge-index__stage-panel">
             <Headline level="h1" className="knowledge-index__sr">{title}</Headline>
-            <p class="knowledge-index__eyebrow">Melody Mind Knowledge</p>
-            <p class="knowledge-index__hero-text">
+            <Paragraph textSize="sm" className="knowledge-index__eyebrow">
+              Melody Mind Knowledge
+            </Paragraph>
+            <Paragraph textSize="lg" className="knowledge-index__hero-text">
               <strong>Trace how music evolves:</strong> From genre roots to current sounds,
               explore the cultural stories, key artists, and sonic shifts that shape each style.
-            </p>
+            </Paragraph>
             <div class="knowledge-index__features">
               <span class="knowledge-index__feature-badge">📚 Curated guides</span>
               <span class="knowledge-index__feature-badge">🎵 Key listening picks</span>
@@ -201,9 +207,9 @@ const pageSeo = buildPageSeo({
             <Headline level="h2" textSize="lg" className="knowledge-index__section-title">
               <span id="recent-reads-title">Recently read</span>
             </Headline>
-            <p class="knowledge-index__section-help">
+            <Paragraph textSize="sm" className="knowledge-index__section-help">
               Return to the guides you opened most recently.
-            </p>
+            </Paragraph>
           </div>
         </div>
         <div class="recent-reads" id="recent-reads" hidden>
@@ -223,9 +229,9 @@ const pageSeo = buildPageSeo({
         >
         </p>
         <div class="recent-reads recent-reads--empty" id="recent-reads-empty">
-          <p class="recent-reads__empty-text">
+          <Paragraph textSize="sm" className="recent-reads__empty-text">
             No recent guides yet. Open an article and it will appear here.
-          </p>
+          </Paragraph>
         </div>
       </section>
 
@@ -239,9 +245,13 @@ const pageSeo = buildPageSeo({
             <Headline level="h2" textSize="lg" className="knowledge-index__section-title">
               <span id="knowledge-categories-title">Explore categories</span>
             </Headline>
-            <p id="knowledge-categories-help" class="knowledge-index__section-help">
+            <Paragraph
+              textSize="sm"
+              className="knowledge-index__section-help"
+              id="knowledge-categories-help"
+            >
               Browse genre sections. Each card includes the number of available articles.
-            </p>
+            </Paragraph>
           </div>
         </div>
         <ul
@@ -754,7 +764,7 @@ const pageSeo = buildPageSeo({
     font-weight: 700;
     line-height: 1.35;
     color: var(--color-white);
-    text-shadow: 0 2px 18px rgb(0 0 0 / 55%);
+    text-shadow: var(--effect-title-shadow-soft);
     /* stylelint-disable-next-line property-no-deprecated */
     -webkit-box-orient: block-axis;
   }

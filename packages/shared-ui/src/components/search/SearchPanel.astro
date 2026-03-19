@@ -1,0 +1,347 @@
+---
+/**
+ * Lightweight Search Panel
+ *
+ * Provides the consistent markup needed by `initSearchPanel` without the previous
+ * prop explosion. Only the essentials remain: ids/labels and optional text templates
+ * for the auto-managed status + no-results helpers.
+ */
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+export interface Props {
+  idBase: string;
+  label: string;
+  placeholder: string;
+  ariaControls: string;
+  /** Analytics surface key for result-click tracking */
+  analyticsSurface?: string;
+  /** Text shown when all items visible */
+  statusAllText?: string;
+  /** Template for results count (use {count}) */
+  statusCountTemplate?: string;
+  /** Template for no results (use {term}) */
+  noResultsTemplate?: string;
+}
+
+const {
+  idBase,
+  label,
+  placeholder,
+  ariaControls,
+  analyticsSurface = "unknown",
+  statusAllText = "Showing all results",
+  statusCountTemplate = "{count} results",
+  noResultsTemplate = 'No results for "{term}"',
+} = Astro.props as Props;
+
+const inputId = `${idBase}-input`;
+const clearId = `${idBase}-clear`;
+const resetId = `${idBase}-reset`;
+const statusId = `${idBase}-status`;
+const noResultsId = `${idBase}-no-results`;
+const inputClasses = "search-panel__input";
+---
+
+<div class="search-panel" data-search-root data-search-surface={analyticsSurface}>
+  <div class="search-panel__bar">
+    <div class="search-panel__field">
+      <label for={inputId} class="search-panel__sr">{label}</label>
+      <div class="search-panel__icon">
+        <Icon name="search" aria-hidden="true" />
+      </div>
+      <input
+        id={inputId}
+        type="search"
+        class={inputClasses}
+        {placeholder}
+        aria-controls={ariaControls}
+        aria-describedby={statusId}
+        autocomplete="off"
+        data-search-input
+      />
+      <button
+        id={clearId}
+        class="search-panel__clear"
+        type="button"
+        aria-label="Clear search input"
+        data-search-clear
+        hidden
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <Icon name="x" aria-hidden="true" />
+      </button>
+    </div>
+    <slot name="controls" />
+    <button
+      id={resetId}
+      class="search-panel__reset"
+      type="button"
+      aria-label="Reset search"
+      aria-controls={ariaControls}
+      data-search-reset
+    >
+      <Icon name="refresh-ccw" class="search-panel__reset-icon" aria-hidden="true" />
+      <span>Reset search</span>
+    </button>
+  </div>
+  <div class="search-panel__meta">
+    <div
+      id={statusId}
+      data-search-status
+      class="search-panel__status"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      data-search-status-all={statusAllText}
+      data-search-status-count={statusCountTemplate}
+    >
+    </div>
+    <div
+      id={noResultsId}
+      data-search-no-results
+      hidden
+      data-search-no-results-tpl={noResultsTemplate}
+      class="search-panel__no-results"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+    </div>
+    <slot name="status" />
+    <slot name="no-results" />
+  </div>
+</div>
+<style>
+  /* ========================================
+     SEARCH PANEL - MINIMAL DESIGN
+     ======================================== */
+
+  .search-panel {
+    display: grid;
+    gap: 0.9rem;
+    inline-size: 100%;
+  }
+
+  :global(.search-panel-shell) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    inline-size: 100%;
+    max-inline-size: var(--search-shell-max-inline-size, none);
+    min-block-size: var(--search-shell-min-block-size, auto);
+    padding: 0.9rem 1.1rem;
+    background: var(--gn-bg-muted);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 1rem;
+  }
+
+  @media (width >= 640px) {
+    :global(.search-panel-shell) {
+      padding: 1.1rem 1.3rem;
+    }
+  }
+
+  :global(.search-panel-shell .search-panel) {
+    gap: 0.6rem;
+  }
+
+  .search-panel__bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .search-panel__field {
+    position: relative;
+    flex: 1 1 18rem;
+    min-inline-size: 0;
+  }
+
+  .search-panel__sr {
+    position: absolute;
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: 0;
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: var(--sr-only-clip-path);
+  }
+
+  .search-panel__icon {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    display: flex;
+    align-items: center;
+    padding-inline-start: 1.3rem;
+    color: var(--gn-ink-muted);
+    pointer-events: none;
+  }
+
+  .search-panel__icon :global(svg) {
+    display: block;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .search-panel__input {
+      inline-size: 100%;
+      padding: 0.9rem 3.75rem 0.9rem 3.2rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gn-ink);
+      background: var(--gn-bg);
+      border: 2px solid var(--gn-panel-border);
+      border-radius: 999px;
+      transition: none;
+    }
+  }
+
+  .search-panel__input {
+    inline-size: 100%;
+    padding: 0.9rem 3.75rem 0.9rem 3.2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 999px;
+    transition:
+      border 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  @media (width >= 640px) {
+    .search-panel__input {
+      font-size: 1.15rem;
+    }
+  }
+
+  .search-panel__input::placeholder {
+    color: var(--gn-ink-muted);
+  }
+
+  .search-panel__input:hover,
+  .search-panel__input:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px var(--gn-panel-border);
+  }
+
+  .search-panel__input:focus-visible + .search-panel__icon,
+  .search-panel__input:hover + .search-panel__icon {
+    color: var(--gn-ink);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .search-panel__clear {
+      padding: 0.3rem;
+      color: var(--gn-ink-muted);
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      transition: none;
+    }
+  }
+
+  .search-panel__clear {
+    padding: 0.3rem;
+    color: var(--gn-ink-muted);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: color 0.2s ease;
+  }
+
+  .search-panel__clear :global(svg) {
+    display: block;
+    inline-size: 1.2rem;
+    block-size: 1.2rem;
+  }
+
+  .search-panel__clear:hover,
+  .search-panel__clear:focus {
+    color: var(--gn-ink);
+  }
+
+  .search-panel__clear:focus-visible {
+    outline: 2px solid var(--gn-ink);
+    outline-offset: 2px;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .search-panel__reset {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      padding: 0.5rem 0.85rem;
+      font-weight: 600;
+      color: var(--gn-ink);
+      cursor: pointer;
+      background: var(--gn-bg-muted);
+      border: none;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      transition: none;
+    }
+  }
+
+  .search-panel__reset {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    padding: 0.5rem 0.85rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    cursor: pointer;
+    background: var(--gn-bg-muted);
+    border: none;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    transition:
+      background 0.2s ease,
+      border 0.2s ease;
+  }
+
+  .search-panel__reset:hover,
+  .search-panel__reset:focus {
+    border-color: var(--gn-ink-muted);
+  }
+
+  .search-panel__reset:focus-visible {
+    outline: 2px solid var(--gn-ink);
+    outline-offset: 2px;
+  }
+
+  .search-panel__reset-icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .search-panel__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .search-panel__status,
+  .search-panel__no-results {
+    font-size: 0.85rem;
+    color: var(--gn-ink-muted);
+  }
+
+  :root[data-theme="light"] :global(.search-panel-shell) {
+    background: var(--gn-bg);
+    border-color: var(--gn-panel-border);
+  }
+
+  :root[data-theme="light"] .search-panel__input {
+    background: var(--gn-bg);
+  }
+</style>

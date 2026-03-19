@@ -1,11 +1,6 @@
 ---
-import SharedSiteHeader from "@shared-ui/components/Shared/SiteHeader.astro";
-
-interface NavItem {
-  href: string;
-  label: string;
-  icon?: string;
-}
+import SharedSiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
+import type { NavItem } from "@shared-ui/components/navigation/types";
 
 interface Props {
   showIcons?: boolean;

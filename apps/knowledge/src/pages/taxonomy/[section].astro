@@ -3,20 +3,25 @@
  * Taxonomy Section Page - Display subsections and articles for a taxonomy section
  */
 import Layout from "@layouts/Layout.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildCollectionPageSchema,
   buildKnowledgeArticlesItemList,
-} from "@utils/seo/seoSchema";
-import { getCollectionCached } from "@utils/content/getCollectionCached";
-import { sortKnowledgeEntries } from "@utils/content/sortKnowledgeEntries";
-import { derivePublishModified, normalizeDate } from "@utils/content/dateUtils";
-import { calculateReadingTime } from "@utils/readingTime";
-import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+} from "@shared-utils/utils/seo/seoSchema";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { sortEntries } from "@shared-utils/utils/content/sortEntries";
+import {
+  derivePublishModified,
+  normalizeDate,
+} from "@shared-utils/utils/content/dateUtils";
+import { calculateReadingTime } from "@shared-utils/utils/readingTime";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
 import { musicTaxonomy } from "../../data/musicTaxonomy";
 import type { TaxonomySubsection } from "../../types/taxonomy";
@@ -68,7 +73,7 @@ if (!section) {
 // Load articles
 let baseArticles: any[] = [];
 try {
-  baseArticles = await getCollectionCached("knowledge-en").catch(() => []);
+  baseArticles = await getCollectionEntries("knowledge-en");
 } catch (e) {
   loggers.pages.warn("taxonomy section: collection load issue", {
     error: (e as any)?.message || e,
@@ -91,7 +96,7 @@ const articlesWithReadingTime = baseArticles.map((article: any) => {
 const subsectionIds = section.subsections.map((s) => s.id);
 
 // Filter articles for this section
-const sectionArticles = sortKnowledgeEntries(
+const sectionArticles = sortEntries(
   articlesWithReadingTime.filter((a: any) =>
     subsectionIds.includes(a.data?.taxonomySubsection)
   )
@@ -99,7 +104,7 @@ const sectionArticles = sortKnowledgeEntries(
 
 // Build subsection data with article counts and groups
 const subsectionsData = section.subsections.map((subsection: TaxonomySubsection) => {
-  const articles = sortKnowledgeEntries(
+  const articles = sortEntries(
     articlesWithReadingTime.filter(
       (a: any) => a.data?.taxonomySubsection === subsection.id
     )
@@ -107,7 +112,7 @@ const subsectionsData = section.subsections.map((subsection: TaxonomySubsection)
 
   // Build groups with article counts
   const groupsWithArticles = (subsection.groups || []).map((group) => {
-    const groupArticles = sortKnowledgeEntries(
+    const groupArticles = sortEntries(
       articlesWithReadingTime.filter(
         (a: any) =>
           a.data?.taxonomySubsection === subsection.id &&
@@ -279,7 +284,9 @@ const pageSeo = buildPageSeo({
             </Headline>
             {
               section.description && (
-                <p class="taxonomy-section__description">{section.description}</p>
+                <Paragraph textSize="base" className="taxonomy-section__description">
+                  {section.description}
+                </Paragraph>
               )
             }
             <div class="taxonomy-section__stats">
@@ -303,20 +310,11 @@ const pageSeo = buildPageSeo({
                     <span class="taxonomy-section__toc-toggle-label">
                       Jump to a topic
                     </span>
-                    <svg
+                    <Icon
+                      name="chevron-down"
                       class="taxonomy-section__toc-chevron"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
                       aria-hidden="true"
-                    >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
+                    />
                   </button>
                   <div id="taxonomy-toc-content" class="taxonomy-section__toc-content">
                     <ul class="taxonomy-section__toc-list">
@@ -358,9 +356,12 @@ const pageSeo = buildPageSeo({
                     {subsection.title}
                   </Headline>
                   {subsection.description && (
-                    <p class="taxonomy-section__subsection-description">
+                    <Paragraph
+                      textSize="sm"
+                      className="taxonomy-section__subsection-description"
+                    >
                       {subsection.description}
-                    </p>
+                    </Paragraph>
                   )}
                   <span class="taxonomy-section__subsection-count">
                     {subsection.articleCount}{" "}
@@ -372,7 +373,7 @@ const pageSeo = buildPageSeo({
               {subsection.groups && subsection.groups.length > 0 && (
                 <div class="taxonomy-section__groups">
                   {subsection.groups.map((group) => {
-                    const groupArticles = sortKnowledgeEntries(
+                    const groupArticles = sortEntries(
                       articlesWithReadingTime.filter(
                         (a: any) =>
                           a.data?.taxonomySubsection === subsection.id &&
@@ -395,9 +396,12 @@ const pageSeo = buildPageSeo({
                               {group.title}
                             </Headline>
                             {group.description && (
-                              <p class="taxonomy-section__group-description">
+                              <Paragraph
+                                textSize="sm"
+                                className="taxonomy-section__group-description"
+                              >
                                 {group.description}
-                              </p>
+                              </Paragraph>
                             )}
                             <span class="taxonomy-section__group-count">
                               {groupArticles.length}{" "}
@@ -427,7 +431,9 @@ const pageSeo = buildPageSeo({
                             })}
                           </ul>
                         ) : (
-                          <p class="taxonomy-section__empty">No articles yet.</p>
+                          <Paragraph textSize="sm" className="taxonomy-section__empty">
+                            No articles yet.
+                          </Paragraph>
                         )}
                       </div>
                     );
@@ -458,7 +464,9 @@ const pageSeo = buildPageSeo({
                       })}
                     </ul>
                   ) : (
-                    <p class="taxonomy-section__empty">No articles in this topic yet.</p>
+                    <Paragraph textSize="sm" className="taxonomy-section__empty">
+                      No articles in this topic yet.
+                    </Paragraph>
                   )}
                 </>
               )}
@@ -808,7 +816,7 @@ const pageSeo = buildPageSeo({
     background: var(--gn-bg-muted);
     border: 2px solid var(--gn-panel-border);
     border-radius: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--effect-floating-panel-shadow);
   }
 
   .taxonomy-section__toc[data-open="true"] .taxonomy-section__toc-content {

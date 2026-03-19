@@ -1,0 +1,421 @@
+---
+/**
+ * TableOfContents Component
+ *
+ * A responsive, accessible dropdown for table of contents.
+ * WCAG AAA compliant with proper keyboard navigation.
+ */
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  title?: string;
+  className?: string;
+}
+
+const { headings = [], title, className = "" } = Astro.props;
+const filteredHeadings = headings.filter(
+  (heading) => heading.depth === 2 || heading.depth === 3
+);
+const tocTitle = title || "Table of contents";
+---
+
+<div class={`toc ${className}`.trim()} data-toc-shell>
+  <div data-toc-root>
+    <button
+      id="toc-toggle"
+      aria-expanded="false"
+      aria-controls="toc-content"
+      aria-label="Toggle table of contents"
+      class="toc__toggle"
+    >
+      <span class="toc__toggle-label">
+        <Icon name="menu" class="toc__toggle-icon" aria-hidden="true" />
+        <span>{tocTitle}</span>
+      </span>
+      <span class="toc__sr" data-expanded="expanded" data-collapsed="collapsed">
+        collapsed
+      </span>
+      <Icon
+        name="chevron-down"
+        id="toc-icon"
+        class="toc__toggle-chevron"
+        aria-hidden="true"
+      />
+    </button>
+
+    <div id="toc-content" aria-labelledby="toc-toggle" class="toc__content">
+      <nav aria-label="Table of contents" class="toc__nav">
+        <a href="#article-content" class="toc__skip"> Skip to article content </a>
+        <ul id="toc-list" class="toc__list">
+          {
+            filteredHeadings.map((heading) => (
+              <li
+                class={`toc__item ${heading.depth === 3 ? "toc__item--child" : ""}`.trim()}
+              >
+                <a
+                  href={`#${heading.slug}`}
+                  class={`toc__link ${heading.depth === 3 ? "toc__link--child" : ""}`.trim()}
+                >
+                  {heading.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const shell = document.querySelector("[data-toc-shell]");
+    const toggle = document.getElementById("toc-toggle");
+    const content = document.getElementById("toc-content");
+    const stateText = toggle?.querySelector("[data-expanded]") as HTMLElement | null;
+    const tocList = document.getElementById("toc-list");
+    const articleRoot = document.getElementById("article-content");
+    const proseRoot = articleRoot?.querySelector(".prose") ?? null;
+
+    const getScopeAttr = (element: Element | null): string | null => {
+      if (!element) {
+        return null;
+      }
+      const scopeAttr = element
+        .getAttributeNames()
+        .find((name) => name.startsWith("data-astro-cid"));
+      return scopeAttr || null;
+    };
+
+    const applyScopeAttr = (element: Element, scopeAttr: string | null): void => {
+      if (!scopeAttr) {
+        return;
+      }
+      element.setAttribute(scopeAttr, "");
+    };
+
+    const tocScopeAttr = getScopeAttr(tocList);
+    const proseScopeAttr = getScopeAttr(proseRoot);
+
+    const setShellVisibility = (visible: boolean): void => {
+      if (!(shell instanceof HTMLElement)) {
+        return;
+      }
+      shell.hidden = !visible;
+      shell.setAttribute("aria-hidden", visible ? "false" : "true");
+    };
+
+    if (!toggle || !content) {
+      setShellVisibility(false);
+      return;
+    }
+
+    const slugify = (text: string): string =>
+      text
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+    const setExpanded = (expanded: boolean): void => {
+      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      content.setAttribute("aria-hidden", expanded ? "false" : "true");
+      if (shell instanceof HTMLElement) {
+        shell.classList.toggle("toc--open", expanded);
+      }
+      if (stateText) {
+        stateText.textContent = expanded
+          ? stateText.getAttribute("data-expanded") || ""
+          : stateText.getAttribute("data-collapsed") || "";
+      }
+    };
+
+    let isOpen = false;
+    setExpanded(isOpen);
+
+    const ensureAnchor = (heading: HTMLElement, text: string, id: string): void => {
+      if (heading.querySelector(".prose__heading-anchor")) {
+        return;
+      }
+      const anchor = document.createElement("a");
+      anchor.href = `#${id}`;
+      anchor.className = "prose__heading-anchor";
+      anchor.textContent = "#";
+      anchor.setAttribute("aria-label", `Copy link to section: ${text}`);
+      applyScopeAttr(anchor, proseScopeAttr);
+      heading.appendChild(anchor);
+    };
+
+    const buildTocFromDom = (): void => {
+      if (!tocList || !articleRoot) {
+        setShellVisibility(Boolean(tocList?.children.length));
+        return;
+      }
+      const headingNodes = Array.from(articleRoot.querySelectorAll("h2, h3"));
+      if (!headingNodes.length) {
+        setShellVisibility(Boolean(tocList?.children.length));
+        return;
+      }
+      setShellVisibility(true);
+
+      const seenIds = new Set<string>();
+      const headings = headingNodes
+        .map((node) => {
+          const depth = Number(node.tagName.substring(1));
+          if (depth !== 2 && depth !== 3) {
+            return null;
+          }
+          const text = (node.textContent || "").trim();
+          if (!text) {
+            return null;
+          }
+
+          let id = node.id || slugify(text) || "section";
+          let counter = 2;
+          while (seenIds.has(id)) {
+            id = `${slugify(text) || "section"}-${counter++}`;
+          }
+          seenIds.add(id);
+          if (!node.id) {
+            node.id = id;
+          }
+          ensureAnchor(node as HTMLElement, text, id);
+
+          return { depth, id, text };
+        })
+        .filter(Boolean) as Array<{ depth: number; id: string; text: string }>;
+
+      if (!headings.length) {
+        return;
+      }
+
+      tocList.innerHTML = "";
+      headings.forEach((heading) => {
+        const li = document.createElement("li");
+        li.className = `toc__item ${heading.depth === 3 ? "toc__item--child" : ""}`;
+        applyScopeAttr(li, tocScopeAttr);
+
+        const a = document.createElement("a");
+        a.href = `#${heading.id}`;
+        a.className = heading.depth === 2 ? "toc__link" : "toc__link toc__link--child";
+        a.textContent = heading.text;
+        applyScopeAttr(a, tocScopeAttr);
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    };
+
+    buildTocFromDom();
+
+    tocList?.addEventListener("click", (event): void => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const link = target.closest<HTMLAnchorElement>("a[href^='#']");
+      if (!link) {
+        return;
+      }
+
+      const href = link.getAttribute("href") || "";
+      const sectionId = href.startsWith("#") ? href.slice(1) : "";
+      const parentItem = link.closest("li");
+      const position = parentItem
+        ? Array.from(tocList.querySelectorAll("li")).indexOf(parentItem) + 1
+        : 0;
+
+      try {
+        window.dispatchEvent(
+          new CustomEvent("toc:click", { detail: { sectionId, position } })
+        );
+      } catch {
+        // Navigation continues even if telemetry fails
+      }
+    });
+
+    const toggleContent = (): void => {
+      isOpen = !isOpen;
+      setExpanded(isOpen);
+    };
+
+    toggle.addEventListener("click", (e): void => {
+      e.preventDefault();
+      toggleContent();
+    });
+
+    toggle.addEventListener("keydown", (e): void => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleContent();
+      }
+    });
+
+    document.addEventListener("click", (e): void => {
+      if (!isOpen) {
+        return;
+      }
+      const target = e.target as Node;
+      if (target && !toggle.contains(target) && !content.contains(target)) {
+        isOpen = false;
+        setExpanded(false);
+      }
+    });
+  })();
+</script>
+<style>
+  .toc {
+    padding: 1rem;
+    margin-block-end: 2rem;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
+  }
+
+  .toc__toggle {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+    inline-size: 100%;
+    min-block-size: 48px;
+    padding: 0.8rem 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    text-align: start;
+    cursor: pointer;
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
+  }
+
+  .toc__toggle:hover,
+  .toc__toggle:focus {
+    background: var(--gn-bg-muted);
+  }
+
+  .toc__toggle:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+  }
+
+  .toc__toggle-label {
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .toc__toggle-icon {
+    display: block;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    color: var(--gn-accent);
+  }
+
+  .toc__toggle-chevron {
+    display: block;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    color: var(--gn-ink-muted);
+  }
+
+  .toc--open .toc__toggle-chevron {
+    transform: rotate(180deg);
+  }
+
+  .toc__content {
+    display: none;
+    margin-block-start: 1rem;
+    background: var(--gn-bg);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
+  }
+
+  .toc--open .toc__content {
+    display: block;
+  }
+
+  .toc__nav {
+    padding: 1.25rem;
+  }
+
+  .toc__skip {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 44px;
+    margin-block-end: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--gn-accent);
+    text-decoration: underline;
+  }
+
+  .toc__skip:hover,
+  .toc__skip:focus {
+    color: var(--gn-accent-strong);
+  }
+
+  .toc__list {
+    max-block-size: 50vb;
+    padding: 0;
+    margin: 0;
+    overflow-block: auto;
+    list-style: none;
+  }
+
+  .toc__item {
+    margin-block-end: 0.25rem;
+  }
+
+  .toc__item--child {
+    margin-inline-start: 1.25rem;
+  }
+
+  .toc__link {
+    display: block;
+    min-block-size: 44px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gn-ink);
+    text-decoration: none;
+    border-radius: 0.5rem;
+  }
+
+  .toc__link--child {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gn-ink-muted);
+  }
+
+  .toc__link:hover,
+  .toc__link:focus {
+    color: var(--gn-accent);
+    background: var(--gn-bg-muted);
+  }
+
+  .toc__link:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+  }
+
+  .toc__sr {
+    position: absolute;
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: var(--sr-only-clip-path);
+  }
+</style>

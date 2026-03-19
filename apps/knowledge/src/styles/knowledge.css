@@ -147,26 +147,16 @@
 }
 
 .knowledge__pill--label {
-  background: rgba(123, 214, 255, 0.18);
-  color: var(--color-gn-amber-200);
+  background: var(--pill-accent-bg);
+  color: var(--pill-accent-text);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 1.125rem;
 }
 
 .knowledge__pill--accent {
-  background: rgba(123, 214, 255, 0.16);
-  color: var(--color-gn-amber-200);
-}
-
-:root[data-theme="light"] .knowledge__pill--label {
-  background: rgba(15, 79, 121, 0.1);
-  color: #0f3f68;
-}
-
-:root[data-theme="light"] .knowledge__pill--accent {
-  background: rgba(15, 79, 121, 0.08);
-  color: #0f3f68;
+  background: var(--pill-accent-bg);
+  color: var(--pill-accent-text);
 }
 
 .knowledge__pill-icon {
@@ -190,7 +180,7 @@
 .knowledge__summary {
   margin: 0;
   max-width: 64ch;
-  color: var(--color-gn-parchment-100);
+  color: var(--text-secondary);
 }
 
 /* Stats */

@@ -1,0 +1,257 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+
+interface Props {
+  action?: string;
+  method?: "get" | "post";
+  inputId?: string;
+  inputName?: string;
+  label: string;
+  placeholder?: string;
+  clearLabel?: string;
+  hintText?: string;
+  hintId?: string;
+  className?: string;
+}
+
+const {
+  action = "/search",
+  method = "get",
+  inputId = "shared-search-form-input",
+  inputName = "q",
+  label,
+  placeholder = "Search...",
+  clearLabel = "Clear search",
+  hintText,
+  hintId = `${inputId}-hint`,
+  className = "",
+} = Astro.props as Props;
+
+const formClasses = ["search-form", className].filter(Boolean).join(" ");
+const describedBy = hintText ? hintId : undefined;
+---
+
+<form
+  role="search"
+  class={formClasses}
+  aria-label={label}
+  action={action}
+  method={method}
+>
+  <div class="search-form__row">
+    <div class="search-form__field">
+      <label for={inputId} class="search-form__label search-form__label--visually-hidden">
+        {label}
+      </label>
+      <input
+        id={inputId}
+        name={inputName}
+        type="search"
+        inputmode="search"
+        autocomplete="off"
+        placeholder={placeholder}
+        aria-describedby={describedBy}
+        aria-live="polite"
+        class="search-form__input"
+      />
+      <button type="reset" aria-label={clearLabel} class="search-form__clear">
+        <Icon name="x" aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+  {
+    hintText ? (
+      <Paragraph id={hintId} textSize="sm" className="search-form__hint">
+        {hintText}
+      </Paragraph>
+    ) : null
+  }
+</form>
+
+<style>
+  .search-form {
+    display: grid;
+    gap: 0.85rem;
+    inline-size: min(100%, 68rem);
+    margin: 0 auto 3rem;
+  }
+
+  .search-form__row {
+    display: grid;
+    padding: 0.6rem;
+    background: linear-gradient(
+      150deg,
+      color-mix(in srgb, var(--color-layer-2) 92%, transparent),
+      color-mix(in srgb, var(--color-layer-1) 96%, transparent)
+    );
+    border: 1px solid var(--color-border-soft);
+    border-radius: 1.25rem;
+    box-shadow: var(--effect-elevated-lg);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .search-form__field {
+      position: relative;
+      inline-size: 100%;
+      background: color-mix(in srgb, var(--color-layer-1) 92%, transparent);
+      border: 1px solid var(--color-border-soft);
+      border-radius: 0.95rem;
+      box-shadow: var(--effect-inset-contrast);
+      transition: none;
+    }
+  }
+
+  .search-form__field {
+    position: relative;
+    inline-size: 100%;
+    background: color-mix(in srgb, var(--color-layer-1) 92%, transparent);
+    border: 1px solid var(--color-border-soft);
+    border-radius: 0.95rem;
+    box-shadow: var(--effect-inset-contrast);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .search-form__field:has(input:focus-visible) {
+    outline: var(--effect-outline-contrast);
+    outline-offset: 2px;
+    border-color: var(--color-primary-strong);
+    box-shadow: var(--focus-ring);
+  }
+
+  .search-form__label--visually-hidden {
+    position: absolute !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+  }
+
+  .search-form__input {
+    inline-size: 100%;
+    padding-block: 0.95rem;
+    padding-inline: 1.2rem 3.6rem;
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    border-radius: 0.9rem;
+  }
+
+  .search-form__input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .search-form__input:focus-visible {
+    outline: var(--effect-outline-contrast);
+    outline-offset: 2px;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .search-form__clear {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-end: 0.55rem;
+      display: grid;
+      place-items: center;
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
+      color: var(--color-text);
+      cursor: pointer;
+      background: var(--color-layer-2);
+      border: 1px solid var(--color-border-soft);
+      border-radius: 999px;
+      transform: translateY(-50%);
+      transition: none;
+    }
+  }
+
+  .search-form__clear {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 0.55rem;
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    color: var(--color-text);
+    cursor: pointer;
+    background: var(--color-layer-2);
+    border: 1px solid var(--color-border-soft);
+    border-radius: 999px;
+    transform: translateY(-50%);
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .search-form__clear :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .search-form__clear:focus-visible {
+    outline: none;
+    outline: var(--effect-outline-contrast);
+    outline-offset: 2px;
+    box-shadow: var(--focus-ring);
+  }
+
+  .search-form__clear:hover,
+  .search-form__clear:focus {
+    border-color: var(--color-border-strong);
+    box-shadow: var(--effect-elevated-soft);
+    transform: translateY(-50%) scale(1.03);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .search-form__clear {
+      animation: search-form__subtle-pulse 3s ease-in-out infinite;
+    }
+  }
+
+  @keyframes search-form__subtle-pulse {
+    0%,
+    100% {
+      opacity: 0.9;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .search-form__hint {
+    margin: 0;
+    font-size: var(--font-size-caption);
+    color: var(--color-text-muted);
+  }
+
+  @media (width <= 380px) {
+    .search-form {
+      margin-block-end: 2.2rem;
+    }
+
+    .search-form__row {
+      padding: 0.45rem;
+      border-radius: 1rem;
+    }
+
+    .search-form__input {
+      padding-inline: 1rem 3.2rem;
+      font-size: var(--font-size-ui);
+    }
+
+    .search-form__clear {
+      inline-size: 2.6rem;
+      block-size: 2.6rem;
+    }
+  }
+</style>

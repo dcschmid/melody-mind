@@ -6,11 +6,12 @@
  */
 import Layout from "@layouts/Layout.astro";
 import QuizCard from "@components/Quiz/QuizCard.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
-import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getCollection } from "astro:content";
 import type { QuizData } from "../content.config";
 
@@ -102,10 +103,10 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
             <Headline level="h1" textSize="2xl" className="quiz-hero__title">
               Music Quizzes
             </Headline>
-            <p class="quiz-hero__description">
+            <Paragraph textSize="base" className="quiz-hero__description">
               Challenge yourself with quizzes covering music history, genres, and artists.
               Each question is grounded in research-driven content.
-            </p>
+            </Paragraph>
           </div>
         </div>
       </header>
@@ -116,10 +117,10 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
             <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="decade-heading">{categoryLabels.decade}</span>
             </Headline>
-            <p class="quiz-section__description">
+            <Paragraph textSize="base" className="quiz-section__description">
               Test your knowledge of music from different decades, from the birth of rock
               and roll to modern streaming pop.
-            </p>
+            </Paragraph>
             <ul class="quiz-section__grid" aria-label={categoryLabels.decade}>
               {quizzesByCategory.decade.map((quiz) => (
                 <li>
@@ -143,10 +144,10 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
             <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="genre-heading">{categoryLabels["genre-evolution"]}</span>
             </Headline>
-            <p class="quiz-section__description">
+            <Paragraph textSize="base" className="quiz-section__description">
               Explore how genres transformed over time, from blues to rock, jazz to neo
               soul.
-            </p>
+            </Paragraph>
             <ul class="quiz-section__grid" aria-label={categoryLabels["genre-evolution"]}>
               {quizzesByCategory["genre-evolution"].map((quiz) => (
                 <li>
@@ -170,9 +171,9 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
             <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="mixed-heading">{categoryLabels.mixed}</span>
             </Headline>
-            <p class="quiz-section__description">
+            <Paragraph textSize="base" className="quiz-section__description">
               Comprehensive quizzes covering multiple topics and time periods.
-            </p>
+            </Paragraph>
             <ul class="quiz-section__grid" aria-label={categoryLabels.mixed}>
               {quizzesByCategory.mixed.map((quiz) => (
                 <li>
@@ -193,8 +194,12 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
       {
         quizzes.length === 0 && (
           <div class="quiz-empty" role="status">
-            <p class="quiz-empty__title">No quizzes available yet</p>
-            <p class="quiz-empty__text">Check back soon for new music quizzes!</p>
+            <Paragraph textSize="lg" className="quiz-empty__title">
+              No quizzes available yet
+            </Paragraph>
+            <Paragraph textSize="sm" className="quiz-empty__text">
+              Check back soon for new music quizzes!
+            </Paragraph>
           </div>
         )
       }

@@ -5,8 +5,9 @@
  * Used on the homepage to display taxonomy sections.
  * WCAG AAA compliant with minimal styling.
  */
-import Card from "@shared-ui/components/Card.astro";
-import Headline from "@shared-ui/components/Headline.astro";
+import Card from "@shared-ui/components/cards/Card.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 
 interface Props {
   id: string;
@@ -56,7 +57,13 @@ const cardId = `taxonomy-card-${id}`;
     <Headline level="h3" textSize="base" className="taxonomy-card__title">
       <span id={cardId}>{title}</span>
     </Headline>
-    {description && <p class="taxonomy-card__description">{description}</p>}
+    {
+      description && (
+        <Paragraph textSize="sm" className="taxonomy-card__description">
+          {description}
+        </Paragraph>
+      )
+    }
   </div>
 </Card>
 

@@ -1,12 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import BookmarkManager from "@components/BookmarkManager.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
-import { getCollectionCached } from "@utils/content/getCollectionCached";
-import { normalizeDate } from "@utils/content/dateUtils";
-import { resolvePageUrl } from "@utils/siteUrls";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import BookmarkManager from "@shared-ui/components/bookmarks/BookmarkManager.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
 
 export const prerender = true;
@@ -29,7 +30,7 @@ let entries: Array<{
 }> = [];
 
 try {
-  const collection = await getCollectionCached("knowledge-en").catch(() => []);
+  const collection = await getCollectionEntries("knowledge-en");
   entries = (collection || [])
     .map((entry: any) => {
       const rawSlug = entry?.slug || entry?.id;
@@ -75,13 +76,13 @@ const pageSeo = buildPageSeo({
   <PageShell className="page-shell--aurora page-shell--grid">
     <div class="bookmarks-page">
       <header class="bookmarks-page__header">
-        <p class="bookmarks-page__eyebrow">Library</p>
+        <Paragraph textSize="sm" className="bookmarks-page__eyebrow"> Library </Paragraph>
         <Headline level="h1" textSize="2xl" className="bookmarks-page__title">
           Saved Articles
         </Headline>
-        <p class="bookmarks-page__lead">
+        <Paragraph textSize="base" className="bookmarks-page__lead">
           Stored locally in your browser. Nothing is synced to an account or tracked.
-        </p>
+        </Paragraph>
       </header>
 
       <section class="bookmarks-panel" aria-live="polite">

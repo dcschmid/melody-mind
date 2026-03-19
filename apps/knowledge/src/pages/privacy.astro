@@ -1,9 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@utils/siteUrls";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 const title = "Privacy Policy";
 const description =
@@ -41,7 +42,9 @@ const pageSeo = buildPageSeo({
   <PageShell containerClass="page-shell__container--spacious">
     <div class="legal-page">
       <header class="legal-page__header static-page-header">
-        <p class="legal-page__eyebrow static-page-eyebrow">Privacy</p>
+        <Paragraph textSize="sm" className="legal-page__eyebrow static-page-eyebrow">
+          Privacy
+        </Paragraph>
         <Headline
           level="h1"
           textSize="2xl"
@@ -49,114 +52,116 @@ const pageSeo = buildPageSeo({
         >
           Privacy Policy
         </Headline>
-        <p class="legal-page__lead static-page-lead">
+        <Paragraph textSize="lg" className="legal-page__lead static-page-lead">
           This notice explains how we process personal data on Melody Mind Knowledge in
           line with EU and German data protection law.
-        </p>
+        </Paragraph>
       </header>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           1. Controller
         </Headline>
-        <p class="legal-page__text">Daniel Schmid</p>
-        <p class="legal-page__text">Hiltenspergerstr. 78, 80796 Munich, Germany</p>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">Daniel Schmid</Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
+          Hiltenspergerstr. 78, 80796 Munich, Germany
+        </Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
           Email:
           <a class="legal-page__link" href="mailto:dcschmid@murena.io">
             dcschmid@murena.io
           </a>
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           2. Hosting & Access Logs
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           We host this site on Render (render.com). Render processes server logs such as
           IP address, timestamp, requested URL, and user agent to maintain site stability
           and security. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in secure
           operation). Logs are deleted automatically on a rolling basis. Depending on the
           Render region, data may be processed in the EU or transferred to the United
           States under appropriate safeguards, such as standard contractual clauses.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           3. Analytics with Fathom
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           We use Fathom Analytics only after you give explicit consent through our cookie
           banner. Until you opt in, no analytics script is loaded. Your choice is stored
           in your browser's local storage (`cookie_consent`) with separate settings for
           essential and analytics preferences. Legal basis: Art. 6(1)(a) GDPR (consent)
           and the ePrivacy Directive. If your browser sends a Do Not Track (DNT) signal,
           analytics remain disabled.
-        </p>
-        <p class="legal-page__text">
+        </Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
           You can change or withdraw your choice at any time via "Cookie settings" in the
           footer. Withdrawal applies from that moment onward and does not affect prior
           lawful processing. For a detailed list of storage technologies, see our
           <a class="legal-page__link" href="/cookies"> Cookie &amp; Storage Policy</a>.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           4. AI-Generated Content
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           Some text and images are generated with assistance from OpenAI services. We do
           not intentionally send personal data to OpenAI. If you contact us and share
           personal information, we do not use that content in AI prompts without your
           consent.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           5. Contact
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           If you email us, we process your message, contact details, and related metadata
           to respond. Legal basis: Art. 6(1)(b) GDPR (pre-contractual communication) or
           Art. 6(1)(f) GDPR (legitimate interest in responding to inquiries). We keep this
           data only as long as necessary.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           6. Your Rights
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           You have the rights of access, rectification, erasure, restriction, objection
           (including to processing based on Art. 6(1)(f) GDPR), and data portability. You
           may also lodge a complaint with your local supervisory authority. In Bavaria,
           this is the BayLDA (Bayerisches Landesamt für Datenschutzaufsicht).
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           7. Data Retention
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           We retain personal data only as long as necessary for the stated purposes or
           legal obligations and then delete or anonymize it.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           8. Updates
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           We may update this policy to reflect legal or technical changes. Last updated:
           {lastUpdated}.
-        </p>
+        </Paragraph>
       </section>
     </div>
   </PageShell>

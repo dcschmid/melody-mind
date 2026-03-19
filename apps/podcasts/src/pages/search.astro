@@ -1,6 +1,6 @@
 ---
 import PodcastLayout from "../layouts/PodcastLayout.astro";
-import SearchPageSection from "@shared-ui/components/Shared/SearchPageSection.astro";
+import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
 import { getAvailablePodcasts } from "../utils/podcasts";
 import type { PodcastData } from "../types/podcast";
 
@@ -73,7 +73,7 @@ const t = {
     --gn-ink: var(--color-text);
     --gn-ink-muted: var(--color-text-muted);
     --gn-accent: var(--color-primary);
-    --gn-panel-border: color-mix(in srgb, var(--color-primary) 22%, transparent);
+    --gn-panel-border: var(--color-border-soft);
 
     display: grid;
     gap: 1.5rem;

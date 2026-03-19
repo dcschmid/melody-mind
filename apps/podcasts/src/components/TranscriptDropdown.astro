@@ -1,4 +1,5 @@
 ---
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 interface Props {
   subtitleUrl?: string | undefined;
   podcastTitle: string;
@@ -24,12 +25,20 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
           <span class="transcript__summary-hint">Show transcript</span>
         </summary>
         <div class="transcript__body">
-          <p class="transcript__status transcript__status--loading" hidden>
+          <Paragraph
+            textSize="sm"
+            className="transcript__status transcript__status--loading"
+            hidden
+          >
             Loading transcript...
-          </p>
-          <p class="transcript__status transcript__status--error" hidden>
+          </Paragraph>
+          <Paragraph
+            textSize="sm"
+            className="transcript__status transcript__status--error"
+            hidden
+          >
             Could not load the transcript.
-          </p>
+          </Paragraph>
           <div class="transcript__content" hidden />
         </div>
       </details>
@@ -37,15 +46,15 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
   )
 }
 
-<script>
-  import "../scripts/transcript";
+<script is:inline type="module">
+  import "@shared-ui/scripts/transcript.ts";
 </script>
 
 <style>
   .transcript {
     margin-block-start: 2rem;
     background: var(--color-layer-4);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border: 1px solid var(--color-border-default);
     border-radius: 1rem;
     box-shadow: var(--shadow-soft);
   }
@@ -83,8 +92,7 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
 
   .transcript__body {
     padding: 1rem 1.25rem 1.25rem;
-    border-block-start: 1px solid
-      color-mix(in srgb, var(--color-primary) 24%, transparent);
+    border-block-start: 1px solid var(--color-border-soft);
   }
 
   .transcript__status {
@@ -119,7 +127,7 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
     appearance: none;
     cursor: pointer;
     background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 0.85rem;
   }
 
@@ -129,8 +137,8 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
   }
 
   :global(.transcript .transcript__cue--active) {
-    background: color-mix(in srgb, var(--color-primary) 18%, var(--color-layer-2));
-    border-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
+    background: var(--color-accent-soft-bg);
+    border-color: var(--color-border-strong);
   }
 
   :global(.transcript .transcript__time) {
@@ -144,23 +152,5 @@ const { subtitleUrl, podcastTitle } = Astro.props as Props;
 
   :global(.transcript .transcript__text) {
     color: var(--color-text);
-  }
-
-  @supports not (color-mix(in srgb, #000 50%, transparent)) {
-    .transcript {
-      border-color: rgb(111 225 255 / 32%);
-    }
-
-    .transcript__body {
-      border-block-start-color: rgb(111 225 255 / 28%);
-    }
-
-    :global(.transcript .transcript__cue) {
-      border-color: rgb(111 225 255 / 28%);
-    }
-
-    :global(.transcript .transcript__cue--active) {
-      border-color: rgb(111 225 255 / 60%);
-    }
   }
 </style>

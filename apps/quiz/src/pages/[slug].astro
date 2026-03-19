@@ -5,11 +5,12 @@
  * Renders an individual quiz with questions and interactive quiz logic.
  */
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@utils/siteUrls";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getCollection } from "astro:content";
 import type { QuizData, QuizQuestion } from "../content.config";
 
@@ -125,15 +126,7 @@ const totalPoolSize = quiz.data.questions.length;
               class="quiz-detail__nav-btn quiz-detail__nav-btn--prev"
               hidden
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path d="M15 18l-6-6 6-6"></path>
-              </svg>
+              <Icon name="arrow-left" class="quiz-detail__nav-icon" aria-hidden="true" />
               Previous
             </button>
 
@@ -151,15 +144,7 @@ const totalPoolSize = quiz.data.questions.length;
               class="quiz-detail__nav-btn quiz-detail__nav-btn--next"
             >
               Next
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path d="M9 18l6-6-6-6"></path>
-              </svg>
+              <Icon name="arrow-right" class="quiz-detail__nav-icon" aria-hidden="true" />
             </button>
 
             <button
@@ -168,16 +153,11 @@ const totalPoolSize = quiz.data.questions.length;
               class="quiz-detail__nav-btn quiz-detail__nav-btn--submit"
               hidden
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
+              <Icon
+                name="tabler:circle-check"
+                class="quiz-detail__nav-icon"
                 aria-hidden="true"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
+              />
               Show Results
             </button>
           </div>
@@ -453,7 +433,7 @@ const totalPoolSize = quiz.data.questions.length;
     background: var(--gn-ink);
   }
 
-  .quiz-detail__nav-btn svg {
+  .quiz-detail__nav-icon {
     flex: 0 0 auto;
     inline-size: 1rem;
     block-size: 1rem;
@@ -648,27 +628,35 @@ const totalPoolSize = quiz.data.questions.length;
     padding: 0.35rem 0.7rem;
     font-size: 0.8rem;
     font-weight: 700;
+    border: 1px solid var(--gn-panel-border);
     border-radius: 999px;
   }
 
   :global(#quiz-question-container .quiz-question__number) {
-    color: var(--gn-accent-strong);
-    background: color-mix(in srgb, var(--gn-accent) 14%, transparent);
+    color: var(--gn-ink);
+    background: color-mix(in srgb, var(--gn-accent) 18%, var(--gn-bg) 82%);
+    border-color: color-mix(in srgb, var(--gn-accent) 46%, var(--gn-panel-border));
   }
 
   :global(#quiz-question-container .quiz-question__type) {
     color: var(--gn-ink-muted);
-    background: color-mix(in srgb, var(--gn-bg-muted) 88%, transparent);
+    background: color-mix(in srgb, var(--gn-bg-muted) 92%, var(--gn-bg) 8%);
   }
 
   :global(#quiz-question-container .quiz-question__badge--correct) {
-    color: var(--color-gn-green-700, var(--color-gn-green-400));
-    background: color-mix(in srgb, var(--color-gn-green-400) 16%, transparent);
+    color: var(--gn-ink);
+    background: color-mix(in srgb, var(--color-gn-green-400) 20%, var(--gn-bg) 80%);
+    border-color: color-mix(
+      in srgb,
+      var(--color-gn-green-400) 52%,
+      var(--gn-panel-border)
+    );
   }
 
   :global(#quiz-question-container .quiz-question__badge--incorrect) {
-    color: var(--color-gn-red-700, var(--color-gn-red-400));
-    background: color-mix(in srgb, var(--color-gn-red-400) 14%, transparent);
+    color: var(--gn-ink);
+    background: color-mix(in srgb, var(--color-gn-red-400) 18%, var(--gn-bg) 82%);
+    border-color: color-mix(in srgb, var(--color-gn-red-400) 52%, var(--gn-panel-border));
   }
 
   :global(#quiz-question-container .quiz-question__badge svg) {
@@ -936,23 +924,8 @@ const totalPoolSize = quiz.data.questions.length;
     place-items: center;
   }
 
-  :global(#quiz-result-container .quiz-result__score-svg) {
-    inline-size: 9rem;
-    block-size: 9rem;
-  }
-
   :global(#quiz-result-container .quiz-result__score-value) {
     position: absolute;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    :global(#quiz-result-container .quiz-result__score-arc) {
-      transition: none;
-    }
-  }
-
-  :global(#quiz-result-container .quiz-result__score-arc) {
-    transition: stroke-dasharray 0.35s ease;
   }
 
   :global(#quiz-result-container .quiz-result__actions) {

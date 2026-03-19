@@ -1,0 +1,95 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+  aiTools?: string[];
+  size?: "sm" | "md";
+  className?: string;
+  href?: string;
+}
+
+const {
+  aiTools = [],
+  size = "md",
+  className = "",
+  href = "/ai-content",
+  ...attributes
+} = Astro.props as Props;
+
+const sizeClass = size === "sm" ? "ai-content-badge--sm" : "ai-content-badge--md";
+const hasTools = aiTools.length > 0;
+---
+
+<a
+  class:list={[["ai-content-badge", sizeClass], className]}
+  href={href}
+  title={hasTools
+    ? `AI-generated content created with: ${aiTools.join(", ")}`
+    : "AI-generated content"}
+  aria-label={hasTools
+    ? `AI-generated content created with ${aiTools.length} AI tool${
+        aiTools.length > 1 ? "s" : ""
+      }. Learn more`
+    : "AI-generated content. Learn more"}
+  {...attributes}
+>
+  <div class="ai-content-badge__content">
+    <span class="ai-content-badge__icon" aria-hidden="true">✨</span>
+    <span class="ai-content-badge__label">AI-generated</span>
+  </div>
+</a>
+
+<style>
+  .ai-content-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ai-badge-text);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    cursor: pointer;
+    background: var(--gn-bg);
+    border: 2px solid var(--ai-badge-border);
+    border-radius: 999px;
+  }
+
+  .ai-content-badge:hover,
+  .ai-content-badge:focus {
+    color: var(--ai-badge-hover-text);
+    background: var(--ai-badge-hover-bg);
+    border-color: var(--ai-badge-hover-border);
+  }
+
+  .ai-content-badge:focus-visible {
+    outline: 3px solid var(--ai-badge-focus);
+    outline-offset: 3px;
+  }
+
+  .ai-content-badge__content {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .ai-content-badge__icon {
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+
+  .ai-content-badge__label {
+    line-height: 1.2;
+  }
+
+  .ai-content-badge--sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+
+  .ai-content-badge--sm .ai-content-badge__icon {
+    font-size: 0.85rem;
+  }
+</style>

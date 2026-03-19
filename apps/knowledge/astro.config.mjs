@@ -5,6 +5,7 @@ import robotsTxt from "astro-robots-txt";
 import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import minify from "astro-minify-html-swc";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +17,9 @@ export default defineConfig({
   },
 
   integrations: [
+    icon({
+      collections: ["tabler", "simple-icons"],
+    }),
     mdx(),
     robotsTxt({
       sitemap: ["https://melody-mind.de/sitemap-index.xml"],
@@ -29,7 +33,6 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@shared-icons": path.resolve("../../packages/shared-icons/src"),
         "@shared-ui": path.resolve("../../packages/shared-ui/src"),
         "@shared-utils": path.resolve("../../packages/shared-utils/src"),
         "@components": path.resolve("./src/components"),

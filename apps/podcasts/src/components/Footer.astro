@@ -1,5 +1,5 @@
 ---
-import SharedFooter from "@shared-ui/components/Footer.astro";
+import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 
 const year = new Date().getFullYear();
 ---
@@ -44,6 +44,6 @@ const year = new Date().getFullYear();
       rel: "noopener noreferrer",
     },
   ]}
-  showSettings={false}
+  showSettings={true}
   copyrightText={`© ${year} MelodyMind. All rights reserved.`}
 />

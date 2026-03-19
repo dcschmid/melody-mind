@@ -1,0 +1,217 @@
+---
+import Icon from "../visual/Icon.astro";
+---
+
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-pressed="false"
+  aria-label="Switch to dark theme"
+>
+  <span class="theme-toggle__pill" aria-hidden="true">
+    <span class="theme-toggle__pill-icon" data-option="light">
+      <Icon
+        name="sun"
+        class="theme-toggle__icon theme-toggle__icon--sun"
+        aria-hidden="true"
+        role="presentation"
+      />
+    </span>
+    <span class="theme-toggle__pill-icon" data-option="dark">
+      <Icon
+        name="moon"
+        class="theme-toggle__icon theme-toggle__icon--moon"
+        aria-hidden="true"
+        role="presentation"
+      />
+    </span>
+  </span>
+  <span class="theme-toggle__sr">
+    Theme mode: <span data-theme-toggle-label>system</span>
+  </span>
+</button>
+
+<script>
+  /**
+   * ThemeToggle keeps the toggle button in sync with the stored, system, or resolved theme.
+   * It writes ARIA attributes for the active mode and updates the system preference listener.
+   */
+  import {
+    getStoredTheme,
+    getSystemTheme,
+    getResolvedTheme,
+    setStoredTheme,
+    applyTheme,
+  } from "@shared-utils/utils/theme/themeStorage";
+
+  const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+  const label = document.querySelector<HTMLSpanElement>("[data-theme-toggle-label]");
+
+  const updateToggle = (): void => {
+    if (!toggle || !label) {
+      return;
+    }
+
+    const stored = getStoredTheme();
+    const resolved = stored ?? getSystemTheme();
+    // Track the resolved mode and whether we rely on system preference.
+    toggle.dataset.theme = resolved;
+    toggle.dataset.mode = stored ? "manual" : "system";
+
+    label.textContent = resolved;
+    toggle.setAttribute("aria-pressed", String(resolved === "dark"));
+    toggle.setAttribute(
+      "aria-label",
+      resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    );
+  };
+
+  // Toggle manually switches between light/dark and persists the selection.
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
+      setStoredTheme(nextTheme);
+      applyTheme(nextTheme, "manual");
+      updateToggle();
+    });
+  }
+
+  // Re-apply the system theme only when the user has not locked in a preference.
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if (getStoredTheme()) {
+      return;
+    }
+
+    applyTheme(getSystemTheme(), "system");
+    updateToggle();
+  });
+
+  // External theme changes (e.g., storage updates) trigger a quick refresh of the toggle state.
+  window.addEventListener("theme:change", () => {
+    updateToggle();
+  });
+
+  updateToggle();
+</script>
+
+<style>
+  .theme-toggle {
+    position: relative;
+    display: inline-flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: space-between;
+    min-inline-size: 12.5rem;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-md);
+    line-height: 1.4;
+    color: var(--surface-1);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .theme-toggle:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .theme-toggle__pill {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.35rem;
+      background: var(--surface-3); /* Dunklerer Hintergrund für die Schiene */
+      border: 1px solid var(--gn-panel-border);
+      border-radius: 999px;
+      transition: none;
+    }
+  }
+
+  .theme-toggle__pill {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.35rem;
+    background: color-mix(in srgb, var(--surface-3) 80%, var(--gn-bg) 20%);
+    border: 1px solid color-mix(in srgb, var(--gn-panel-border) 70%, transparent);
+    border-radius: 999px;
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .theme-toggle__pill-icon {
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      color: var(--text-secondary);
+      border-radius: 999px;
+      opacity: 0.3; /* Inaktive Icons noch dezentere Opacity */
+      transition: none;
+    }
+  }
+
+  .theme-toggle__pill-icon {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--text-secondary);
+    border-radius: 999px;
+    opacity: 0.3; /* Inaktive Icons noch dezentere Opacity */
+    transition:
+      opacity var(--transition-fast),
+      background var(--transition-fast),
+      color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .theme-toggle__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="light"],
+  .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="dark"] {
+    color: var(--text-primary);
+    background: var(--surface-1); /* Der "Knopf" ist heller als die Schiene */
+    box-shadow:
+      0 4px 12px color-mix(in srgb, #000 45%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 10%, transparent);
+    opacity: 1;
+  }
+
+  .theme-toggle[data-theme="light"]
+    .theme-toggle__pill-icon[data-option="light"]
+    .theme-toggle__icon {
+    color: var(--color-gn-amber-300);
+    filter: drop-shadow(
+      0 0 4px color-mix(in srgb, var(--color-gn-amber-300) 60%, transparent)
+    );
+  }
+
+  .theme-toggle[data-theme="dark"]
+    .theme-toggle__pill-icon[data-option="dark"]
+    .theme-toggle__icon {
+    color: var(--color-primary);
+    filter: drop-shadow(
+      0 0 4px color-mix(in srgb, var(--color-primary) 60%, transparent)
+    );
+  }
+
+  .theme-toggle__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    border: 0;
+    clip-path: inset(50%);
+  }
+</style>

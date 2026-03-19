@@ -1,9 +1,10 @@
 ---
 import PodcastLayout from "../layouts/PodcastLayout.astro";
-import SearchBar from "../components/SearchBar.astro";
 import EpisodeCard from "../components/EpisodeCard.astro";
 import HomeHero from "../components/HomeHero.astro";
-import Headline from "@shared-ui/components/Headline.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import SearchForm from "@shared-ui/components/search/SearchForm.astro";
 import type { PodcastData } from "../types/podcast";
 import { formatDate } from "../utils/helpers";
 
@@ -84,7 +85,16 @@ const t = {
       youtubeUrl={t.youtubeUrl}
     />
 
-    <SearchBar />
+    <SearchForm
+      label="Search episodes"
+      placeholder="Search by title or description"
+      clearLabel="Clear search"
+      hintText="Submit to open the dedicated search page with a shareable query URL."
+      inputId="episode-search"
+      hintId="search-hint"
+      action="/search"
+      method="get"
+    />
 
     <section class="home__episodes" aria-labelledby="episodes-heading">
       <Headline level="h2" textSize="xl" className="home__section-title">
@@ -111,9 +121,9 @@ const t = {
       {
         podcasts.length === 0 && (
           <div class="home__empty" role="status">
-            <p class="home__empty-text">
+            <Paragraph textSize="base" className="home__empty-text">
               No episodes available yet. Check back soon for new content!
-            </p>
+            </Paragraph>
           </div>
         )
       }
@@ -137,15 +147,16 @@ const t = {
       }
       <div class="home__load-more" id="episodes-load-more" hidden>
         <div class="home__load-more-panel" role="group" aria-label="More episodes">
-          <p
-            class="home__load-more-status"
+          <Paragraph
+            textSize="sm"
+            className="home__load-more-status"
             id="episodes-load-more-status"
             aria-live="polite"
           >
             Showing {Math.min(PAGINATION_CONFIG.EPISODES_PER_PAGE, podcasts.length)} of {
               podcasts.length
             } episodes.
-          </p>
+          </Paragraph>
           <button
             class="home__load-more-button"
             id="episodes-load-more-button"
@@ -181,7 +192,7 @@ const t = {
     font-size: var(--font-size-title-lg);
     font-weight: 800;
     color: transparent;
-    text-shadow: 0 10px 26px rgb(2 6 13 / 60%);
+    text-shadow: var(--effect-title-shadow);
     background: var(--brand-gradient);
     background-clip: text;
   }
@@ -209,11 +220,9 @@ const t = {
       color-mix(in srgb, var(--color-layer-2) 92%, transparent),
       color-mix(in srgb, var(--color-layer-1) 95%, transparent)
     );
-    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 1.25rem;
-    box-shadow:
-      0 22px 50px rgb(2 8 18 / 45%),
-      0 0 0 1px rgb(120 200 255 / 8%);
+    box-shadow: var(--effect-elevated-xl);
   }
 
   .home__load-more-status {
@@ -234,7 +243,7 @@ const t = {
         color-mix(in srgb, var(--color-primary) 35%, var(--color-layer-1)),
         color-mix(in srgb, var(--color-primary) 22%, var(--color-layer-2))
       );
-      border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+      border: 1px solid var(--color-border-default);
       border-radius: 999px;
       transition: none;
     }
@@ -250,7 +259,7 @@ const t = {
       color-mix(in srgb, var(--color-primary) 35%, var(--color-layer-1)),
       color-mix(in srgb, var(--color-primary) 22%, var(--color-layer-2))
     );
-    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border: 1px solid var(--color-border-default);
     border-radius: 999px;
     transition:
       transform 0.2s ease,
@@ -265,8 +274,8 @@ const t = {
 
   .home__load-more-button:hover,
   .home__load-more-button:focus {
-    border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
-    box-shadow: 0 12px 24px rgb(2 8 18 / 40%);
+    border-color: var(--color-border-strong);
+    box-shadow: var(--effect-elevated-soft);
     transform: translateY(-1px);
   }
 
@@ -284,7 +293,7 @@ const t = {
     padding: 3rem 1.5rem;
     text-align: center;
     background: var(--color-surface);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 1.25rem;
     box-shadow: var(--shadow-soft);
   }

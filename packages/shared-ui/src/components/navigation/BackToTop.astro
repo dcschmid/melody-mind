@@ -1,0 +1,79 @@
+---
+/**
+ * @component BackToTop
+ * @description Simple back-to-top button with accessibility support.
+ */
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Props {
+  className?: string;
+  ariaLabel?: string;
+  scrollThreshold?: number;
+}
+
+const { className = "", ariaLabel, scrollThreshold } = Astro.props;
+const buttonAriaLabel = ariaLabel || "Back to top";
+const screenReaderText = "Back to top";
+---
+
+<button
+  id="back-to-top"
+  class={`back-to-top ${className}`.trim()}
+  aria-label={buttonAriaLabel}
+  type="button"
+  style="display: none;"
+  data-scroll-threshold={scrollThreshold}
+>
+  <Icon name="arrow-up" class="back-to-top__icon" aria-hidden="true" />
+  <span class="back-to-top__sr">{screenReaderText}</span>
+</button>
+<style>
+  .back-to-top {
+    position: fixed;
+    inset-block-end: 1.25rem;
+    inset-inline-end: 1.25rem;
+    z-index: 30;
+    min-inline-size: 52px;
+    min-block-size: 52px;
+    padding: 1rem;
+    color: var(--gn-ink);
+    cursor: pointer;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 999px;
+  }
+
+  .back-to-top:hover,
+  .back-to-top:focus {
+    background: var(--gn-bg);
+  }
+
+  .back-to-top:focus-visible {
+    outline: 3px solid var(--gn-accent);
+    outline-offset: 2px;
+  }
+
+  .back-to-top__icon {
+    display: block;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+  }
+
+  @media (width >= 768px) {
+    .back-to-top__icon {
+      inline-size: 1.75rem;
+      block-size: 1.75rem;
+    }
+  }
+
+  .back-to-top__sr {
+    position: absolute;
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: var(--sr-only-clip-path);
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
-import Card from "@shared-ui/components/Card.astro";
-import Headline from "@shared-ui/components/Headline.astro";
+import Card from "@shared-ui/components/cards/Card.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 
 interface Props {
   id: string;
@@ -76,7 +77,9 @@ const metaId = `${cardId}-meta`;
     <Headline level="h3" textSize="lg" className="episode-card__title">
       <span id={cardId}>{title}</span>
     </Headline>
-    <p id={descriptionId} class="episode-card__description">{description}</p>
+    <Paragraph id={descriptionId} textSize="sm" className="episode-card__description">
+      {description}
+    </Paragraph>
   </div>
 
   <Fragment slot="footer">
@@ -93,13 +96,11 @@ const metaId = `${cardId}-meta`;
       color-mix(in srgb, var(--color-layer-1) 96%, transparent)
     );
     --card-border-width: 1px;
-    --card-border-color: color-mix(in srgb, var(--color-primary) 22%, transparent);
+    --card-border-color: var(--color-border-soft);
     --card-focus-color: var(--color-primary);
     --card-media-bg: var(--color-layer-3);
 
-    box-shadow:
-      0 18px 42px rgb(2 8 18 / 34%),
-      0 0 0 1px rgb(120 200 255 / 8%);
+    box-shadow: var(--effect-elevated-md);
   }
 
   .episode-card[hidden] {
@@ -108,13 +109,13 @@ const metaId = `${cardId}-meta`;
 
   :global(.episode-card.card--default:has(.card__link:focus-visible)) {
     box-shadow:
-      inset 0 0 0 3px color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 18px 42px rgb(2 8 18 / 40%);
+      inset 0 0 0 3px var(--color-border-default),
+      var(--effect-elevated-soft);
   }
 
   .episode-card__image {
     object-fit: cover;
-    border-block-end: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border-block-end: 1px solid var(--color-border-soft);
   }
 
   .episode-card__body {
@@ -146,13 +147,13 @@ const metaId = `${cardId}-meta`;
     font-weight: 600;
     color: var(--color-text);
     background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 999px;
   }
 
   .episode-card__badge {
     color: var(--color-text);
-    background: color-mix(in srgb, var(--color-primary) 16%, var(--color-layer-2));
+    background: var(--color-accent-soft-bg);
   }
 
   .episode-card__title {
@@ -198,7 +199,7 @@ const metaId = `${cardId}-meta`;
   :global(.episode-card.card--default:hover) .episode-card__cta,
   :global(.episode-card.card--default:focus-visible) .episode-card__cta {
     background: var(--color-primary-hover);
-    box-shadow: 0 12px 24px rgb(2 8 18 / 30%);
+    box-shadow: var(--effect-elevated-soft);
     transform: translateY(-1px);
   }
 

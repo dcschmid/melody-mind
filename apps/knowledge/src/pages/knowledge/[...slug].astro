@@ -5,24 +5,23 @@
 import { Picture } from "astro:assets";
 import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import ButtonLink from "@components/ButtonLink.astro";
+import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import Paragraph from "@components/Paragraph.astro";
-import Prose from "@shared-ui/components/Prose.astro";
-import TableOfContents from "@components/TableOfContents.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import Prose from "@shared-ui/components/typography/Prose.astro";
+import TableOfContents from "@shared-ui/components/navigation/TableOfContents.astro";
 
-import KnowledgeTakeaways from "@components/Knowledge/KnowledgeTakeaways.astro";
-import BookmarkButton from "@components/BookmarkButton.astro";
-import PrintButton from "@components/PrintButton.astro";
-import BackToTop from "@shared-ui/components/Shared/BackToTop.astro";
-import AIContentBadge from "@components/AIContentBadge.astro";
-import Icon from "@shared-ui/components/Icon.astro";
-import { buildPageSeo } from "@utils/seo/buildPageSeo";
-import { getCollectionCached } from "@utils/content/getCollectionCached";
-import { normalizeDate } from "@utils/content/dateUtils";
-import { getReadingTime } from "@utils/readingTime";
-import { resolveAbsoluteUrl, resolvePageUrl } from "@utils/siteUrls";
+import KnowledgeTakeaways from "@shared-ui/components/cards/KnowledgeTakeaways.astro";
+import BookmarkButton from "@shared-ui/components/bookmarks/BookmarkButton.astro";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
+import AIContentBadge from "@shared-ui/components/badges/AIContentBadge.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
+import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
+import { getReadingTime } from "@shared-utils/utils/readingTime";
+import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
 import "@styles/knowledge.css";
 
@@ -423,7 +422,6 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
             {/* Quiz button removed - quizzes are now in separate app */}
 
             <BookmarkButton articleSlug={storageSlug} articleTitle={title} />
-            <PrintButton />
           </div>
         </header>
 
@@ -593,9 +591,14 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
                 </a>
               </div>
             </div>
-            <p data-share-status class="knowledge-share__note" aria-live="polite">
+            <Paragraph
+              textSize="sm"
+              className="knowledge-share__note"
+              data-share-status
+              aria-live="polite"
+            >
               Privacy-friendly: nothing loads until you choose a share option.
-            </p>
+            </Paragraph>
           </section>
 
           {
@@ -615,10 +618,10 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
                       <span>Related articles</span>
                     </span>
                   </Headline>
-                  <p class="knowledge-related__copy">
+                  <Paragraph textSize="base" className="knowledge-related__copy">
                     Continue with guides from the same category, taxonomy branch, or
                     closely related keywords.
-                  </p>
+                  </Paragraph>
                 </div>
                 <ul class="knowledge-related__grid" aria-label="Related articles">
                   {relatedArticles.map((article, index) => (

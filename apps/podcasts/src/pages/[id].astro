@@ -2,8 +2,9 @@
 import PodcastLayout from "../layouts/PodcastLayout.astro";
 import TranscriptDropdown from "../components/TranscriptDropdown.astro";
 import AudioPlayer from "../components/AudioPlayer.astro";
-import Prose from "@shared-ui/components/Prose.astro";
-import Headline from "@shared-ui/components/Headline.astro";
+import Prose from "@shared-ui/components/typography/Prose.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
 import { getAdjacentByKey } from "../utils/array";
 import { buildMetaDescription, formatDate } from "../utils/helpers";
@@ -118,7 +119,9 @@ const t = {
           <span id="episode-title">{currentPodcast.title}</span>
         </Headline>
 
-        <p class="episode__description">{currentPodcast.description}</p>
+        <Paragraph textSize="base" className="episode__description">
+          {currentPodcast.description}
+        </Paragraph>
       </div>
     </section>
 
@@ -126,12 +129,12 @@ const t = {
       currentPodcast.knowledgeUrl && (
         <section class="episode__knowledge" aria-labelledby="knowledge-link">
           <div class="episode__knowledge-body">
-            <p class="episode__kicker" id="knowledge-link">
+            <Paragraph textSize="sm" className="episode__kicker" id="knowledge-link">
               {t.knowledge}
-            </p>
-            <p class="episode__knowledge-text">
+            </Paragraph>
+            <Paragraph textSize="base" className="episode__knowledge-text">
               Go deeper with the related Melody Mind article.
-            </p>
+            </Paragraph>
           </div>
           <a
             href={currentPodcast.knowledgeUrl}
@@ -238,7 +241,7 @@ const t = {
     color: var(--color-text);
     text-decoration: none;
     background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border: 1px solid var(--color-border-default);
     border-radius: 0.8rem;
   }
 
@@ -252,7 +255,7 @@ const t = {
     gap: 2rem;
     padding: 1.75rem;
     background: var(--color-surface);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 1.6rem;
     box-shadow: var(--shadow-soft);
   }
@@ -265,7 +268,7 @@ const t = {
     display: block;
     inline-size: 100%;
     block-size: auto;
-    border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 1.5rem;
     box-shadow: var(--shadow-soft);
   }
@@ -290,7 +293,7 @@ const t = {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+    border: 1px solid var(--color-border-default);
     border-radius: 999px;
   }
 
@@ -299,7 +302,7 @@ const t = {
     font-size: var(--font-size-caption);
     color: var(--color-text-muted);
     background: var(--color-layer-1);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 999px;
   }
 
@@ -321,7 +324,7 @@ const t = {
     align-items: center;
     padding: 1.5rem;
     background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border: 1px solid var(--color-border-default);
     border-radius: 1.25rem;
   }
 
@@ -367,7 +370,7 @@ const t = {
     gap: 1rem;
     padding: 1.5rem;
     background: var(--color-layer-4);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 24%, transparent);
+    border: 1px solid var(--color-border-soft);
     border-radius: 1.25rem;
   }
 

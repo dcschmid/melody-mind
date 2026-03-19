@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 import Layout from "@layouts/Layout.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import SearchPageSection from "@shared-ui/components/Shared/SearchPageSection.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@utils/siteUrls";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export const prerender = true;
 

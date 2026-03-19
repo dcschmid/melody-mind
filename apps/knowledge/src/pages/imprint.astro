@@ -1,9 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/Headline.astro";
-import PageShell from "@shared-ui/components/Shared/PageShell.astro";
-import { buildPageSeo, type StructuredData } from "@utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@utils/siteUrls";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 const title = "Legal Notice";
 const description =
@@ -39,7 +40,9 @@ const pageSeo = buildPageSeo({
   <PageShell containerClass="page-shell__container--spacious">
     <div class="legal-page">
       <header class="legal-page__header static-page-header">
-        <p class="legal-page__eyebrow static-page-eyebrow">Legal</p>
+        <Paragraph textSize="sm" className="legal-page__eyebrow static-page-eyebrow">
+          Legal
+        </Paragraph>
         <Headline
           level="h1"
           textSize="2xl"
@@ -47,70 +50,74 @@ const pageSeo = buildPageSeo({
         >
           Legal Notice
         </Headline>
-        <p class="legal-page__lead static-page-lead">
+        <Paragraph textSize="lg" className="legal-page__lead static-page-lead">
           Required legal information for a website operated from Germany.
-        </p>
+        </Paragraph>
       </header>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           Service Provider
         </Headline>
-        <p class="legal-page__text">Daniel Schmid</p>
-        <p class="legal-page__text">Hiltenspergerstr. 78</p>
-        <p class="legal-page__text">80796 Munich</p>
-        <p class="legal-page__text">Germany</p>
-        <p class="legal-page__text">This website is a non-commercial private project.</p>
+        <Paragraph textSize="sm" className="legal-page__text">Daniel Schmid</Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text"
+          >Hiltenspergerstr. 78</Paragraph
+        >
+        <Paragraph textSize="sm" className="legal-page__text">80796 Munich</Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">Germany</Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
+          This website is a non-commercial private project.
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           Contact
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           Email:
           <a class="legal-page__link" href="mailto:dcschmid@murena.io">
             dcschmid@murena.io
           </a>
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           Responsible for Editorial Content (§ 18 Abs. 2 MStV)
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           Daniel Schmid, Hiltenspergerstr. 78, 80796 Munich, Germany
-        </p>
-        <p class="legal-page__text">
+        </Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
           (Previously referenced in older legal notices as § 55 RStV.)
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           Register Entry
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           No commercial register entry exists for this private, non-commercial project.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           VAT Identification Number
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           No VAT identification number (USt-IdNr.) is available, as this is not a
           commercial activity.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           Dispute Resolution
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           The European Commission provides a platform for online dispute resolution:
           <a
             class="legal-page__link"
@@ -120,44 +127,44 @@ const pageSeo = buildPageSeo({
           >
             https://ec.europa.eu/consumers/odr
           </a>
-        </p>
-        <p class="legal-page__text">
+        </Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
           We are neither willing nor obliged to participate in dispute resolution
           proceedings before a consumer arbitration board.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           Liability for Own Content
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           We prepare our content with care. However, we cannot guarantee that all
           information is complete, accurate, or current at all times. You use the
           information on this website at your own risk.
-        </p>
-        <p class="legal-page__text">
+        </Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
           As a service provider, we are responsible for our own content on these pages in
           accordance with general laws (§ 5 TMG). Mandatory legal obligations remain
           unaffected.
-        </p>
+        </Paragraph>
       </section>
 
       <section class="legal-panel legal-page__section">
         <Headline level="h2" textSize="base" className="legal-page__section-title">
           Liability for External Links (§ 8 TMG)
         </Headline>
-        <p class="legal-page__text">
+        <Paragraph textSize="sm" className="legal-page__text">
           This website contains links to external third-party websites. We have no
           influence over the content of those websites and therefore cannot accept any
           liability for third-party content.
-        </p>
-        <p class="legal-page__text">
+        </Paragraph>
+        <Paragraph textSize="sm" className="legal-page__text">
           Linked pages were checked for possible legal violations at the time of linking.
           Permanent monitoring of linked content is not reasonable without concrete
           evidence of a violation. If we become aware of legal infringements, such links
           will be removed promptly.
-        </p>
+        </Paragraph>
       </section>
     </div>
   </PageShell>

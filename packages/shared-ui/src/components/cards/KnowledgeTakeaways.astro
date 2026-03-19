@@ -1,0 +1,127 @@
+---
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+
+const { title = "Key takeaways", items = [] } = Astro.props as {
+  title?: string;
+  items?: string[];
+};
+---
+
+{
+  items.length ? (
+    <aside class="knowledge-takeaways" aria-labelledby="knowledge-takeaways-title">
+      <div class="knowledge-takeaways__header">
+        <div class="knowledge-takeaways__badge">What you'll take away</div>
+        <Headline level="h2" textSize="lg" className="knowledge-takeaways__title">
+          <span id="knowledge-takeaways-title">{title}</span>
+        </Headline>
+        <Paragraph textSize="base" className="knowledge-takeaways__subtitle">
+          Short points to remember after reading.
+        </Paragraph>
+      </div>
+      <ol class="knowledge-takeaways__list">
+        {items.map((item) => (
+          <li class="knowledge-takeaways__item">
+            <span class="knowledge-takeaways__icon" aria-hidden="true">
+              <Icon name="star" role="img" aria-hidden="true" />
+            </span>
+            <span class="knowledge-takeaways__text">{item}</span>
+          </li>
+        ))}
+      </ol>
+    </aside>
+  ) : null
+}
+
+<style>
+  .knowledge-takeaways {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: var(--gn-bg-muted);
+    border: 2px solid var(--gn-panel-border);
+    border-radius: 1rem;
+  }
+
+  .knowledge-takeaways__header {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .knowledge-takeaways__badge {
+    inline-size: fit-content;
+    padding: 0.25rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gn-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-accent);
+    border-radius: 999px;
+  }
+
+  .knowledge-takeaways__title {
+    margin: 0;
+    font-size: clamp(1.35rem, 1.15rem + 1vi, 1.75rem);
+    font-weight: 700;
+    color: var(--gn-ink);
+  }
+
+  .knowledge-takeaways__subtitle {
+    max-inline-size: 60ch;
+    margin: 0;
+    line-height: 1.6;
+    color: var(--gn-ink-muted);
+  }
+
+  .knowledge-takeaways__list {
+    display: grid;
+    gap: 0.85rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .knowledge-takeaways__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    padding: 1rem;
+    background: var(--gn-bg);
+    border: 1px solid var(--gn-panel-border);
+    border-radius: 0.75rem;
+  }
+
+  .knowledge-takeaways__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    color: var(--gn-accent);
+    background: var(--gn-bg-muted);
+    border-radius: 0.5rem;
+  }
+
+  .knowledge-takeaways__icon :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .knowledge-takeaways__text {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--gn-ink);
+  }
+
+  @media (width >= 768px) {
+    .knowledge-takeaways__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

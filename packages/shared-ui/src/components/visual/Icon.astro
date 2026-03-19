@@ -1,0 +1,92 @@
+---
+import { Icon as AstroIcon } from "astro-icon/components";
+
+const iconRegistry = {
+  "apple-music": "simple-icons:applemusic",
+  "arrow-left": "tabler:arrow-left",
+  "arrow-right": "tabler:arrow-right",
+  "arrow-up": "tabler:arrow-up",
+  "book-open": "tabler:book-2",
+  book: "tabler:book",
+  bookmark: "tabler:bookmark",
+  calendar: "tabler:calendar",
+  "chevron-down": "tabler:chevron-down",
+  "chevron-right-duo-svgrepo-com": "tabler:chevron-right",
+  "chevron-right": "tabler:chevron-right",
+  clock: "tabler:clock",
+  cloud: "tabler:cloud",
+  compass: "tabler:compass",
+  copy: "tabler:copy",
+  cpu: "tabler:cpu",
+  deezer: "simple-icons:deezer",
+  disc: "tabler:disc",
+  "external-link": "tabler:external-link",
+  eye: "tabler:eye",
+  "file-text": "tabler:file-text",
+  filter: "tabler:filter",
+  flag: "tabler:flag",
+  flame: "tabler:flame",
+  globe: "tabler:world",
+  moon: "tabler:moon",
+  grid: "tabler:grid-dots",
+  sun: "tabler:sun",
+  guitar: "tabler:guitar-pick",
+  headphones: "tabler:headphones",
+  heart: "tabler:heart",
+  "help-circle": "tabler:help-circle",
+  home: "tabler:home",
+  image: "tabler:photo",
+  info: "tabler:info-circle",
+  leaf: "tabler:leaf",
+  mail: "tabler:mail",
+  menu: "tabler:menu-2",
+  "message-circle": "tabler:message-circle",
+  mic: "tabler:microphone",
+  music: "tabler:music",
+  play: "tabler:player-play",
+  printer: "tabler:printer",
+  "refresh-ccw": "tabler:refresh",
+  search: "tabler:search",
+  send: "tabler:send",
+  settings: "tabler:settings",
+  "share-2": "tabler:share-2",
+  shield: "tabler:shield",
+  sparkles: "tabler:sparkles",
+  spotify: "simple-icons:spotify",
+  moon: "tabler:moon",
+  monitor: "tabler:device-desktop",
+  star: "tabler:star",
+  tag: "tabler:tag",
+  tv: "tabler:device-tv",
+  user: "tabler:user",
+  wave: "tabler:wave-sine",
+  x: "tabler:x",
+  zap: "tabler:bolt",
+} as const;
+
+export type IconName = keyof typeof iconRegistry | `${string}:${string}`;
+
+interface Props extends astroHTML.JSX.SVGAttributes {
+  name: IconName | string;
+}
+
+const {
+  name,
+  width = "1em",
+  height = "1em",
+  "aria-hidden": ariaHidden,
+  focusable = "false",
+  ...restProps
+} = Astro.props as Props & Record<string, unknown>;
+const ariaHiddenProp = ariaHidden ?? undefined;
+const resolvedName = iconRegistry[name as keyof typeof iconRegistry] ?? name;
+---
+
+<AstroIcon
+  name={resolvedName}
+  width={width}
+  height={height}
+  aria-hidden={ariaHiddenProp}
+  focusable={focusable}
+  {...restProps}
+/>

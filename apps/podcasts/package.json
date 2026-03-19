@@ -20,14 +20,19 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.0",
     "@astrojs/sitemap": "^3.7.1",
+    "@melody-mind/shared-ui": "workspace:*",
+    "@melody-mind/shared-utils": "workspace:*",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
+    "@iconify-json/simple-icons": "^1.2.36",
+    "@iconify-json/tabler": "^1.2.21",
     "astro": "^6.0.4",
+    "astro-icon": "^1.1.5",
+    "astro-minify-html-swc": "^0.1.11",
     "image-size": "^2.0.2",
     "lightningcss": "^1.32.0",
     "music-metadata": "^11.12.3",
     "sharp": "^0.34.5",
     "typescript": "^5.5.0",
-    "zod": "^4.3.6",
-    "astro-minify-html-swc": "^0.1.11"
+    "zod": "^4.3.6"
   }
 }

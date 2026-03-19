@@ -12,10 +12,17 @@
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet"
   },
   "peerDependencies": {
-    "astro": "^6.0.5"
+    "astro": "^6.0.5",
+    "astro-icon": "^1.1.5"
   },
   "devDependencies": {
     "astro": "^6.0.5",
-    "typescript": "^5.9.3"
+    "astro-icon": "^1.1.5",
+    "typescript": "^5.9.3",
+    "@double-great/stylelint-a11y": "^3.4.6",
+    "stylelint-high-performance-animation": "^2.0.0",
+    "stylelint-no-unsupported-browser-features": "^8.1.1",
+    "stylelint-order": "^8.1.1",
+    "stylelint-plugin-logical-css": "^2.0.2"
   }
 }
