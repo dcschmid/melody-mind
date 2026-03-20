@@ -7,9 +7,11 @@ import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
 import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
-import KnowledgeCard from "@components/KnowledgeCard.astro";
+import RecentReadTracker from "@components/RecentReadTracker.astro";
+import RelatedKnowledgeArticles from "@components/RelatedKnowledgeArticles.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import ReadingProgress from "@shared-ui/components/navigation/ReadingProgress.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import TableOfContents from "@shared-ui/components/navigation/TableOfContents.astro";
 
@@ -19,15 +21,26 @@ import AIContentBadge from "@shared-ui/components/badges/AIContentBadge.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
-import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
-import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
+import { VERSIONED_KEYS } from "@constants/storageVersions";
+import {
+  buildKnowledgeArticleStructuredData,
+  getKnowledgePodcastUrl,
+  getKnowledgeSeoTitle,
+  getKnowledgeTaxonomyMeta,
+  getRelatedKnowledgeArticles,
+  resolveKnowledgeSlug,
+} from "@utils/knowledge/articlePage";
 import "@styles/knowledge.css";
 
 export const prerender = true;
 
+/**
+ * Prebuilds one static route per knowledge article.
+ * We pass the full entry through `props` so the page can render without re-fetching during build.
+ */
 export async function getStaticPaths() {
   const entries: any[] = await getCollectionCached("knowledge-en").catch(() => []);
   const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
@@ -42,11 +55,12 @@ export async function getStaticPaths() {
 const lang = "en";
 let entry: any = (Astro.props as { entry?: any }).entry;
 
-const slugParam = (Astro as any).params?.slug;
-const resolvedSlug = Array.isArray(slugParam) ? slugParam.join("/") : slugParam;
+// `[...slug]` can arrive either as an array or as a flat string depending on the route shape.
+const resolvedSlug = resolveKnowledgeSlug((Astro as any).params?.slug);
 
 if (!entry) {
   try {
+    // Fallback for preview/runtime scenarios where `getStaticPaths()` props are not present.
     const articles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
     if (resolvedSlug) {
       entry = articles.find((a) => a.slug === resolvedSlug || a.id === resolvedSlug);
@@ -63,25 +77,8 @@ if (!entry) {
 }
 
 const slugKey = resolvedSlug || entry?.slug || entry?.id || "";
-const seoTitleOverrides: Record<string, string> = {
-  "1960s": "1960s Music History: Pop, Protest and Psychedelia",
-  "1980s": "1980s Music History: MTV, Synths and Global Pop",
-  "2010s": "2010s Music History: Streaming and Global Pop",
-  "from-asia-pop-to-global-pop": "J-Pop and K-Pop: From Regional Scenes to Global Pop",
-  "from-blues-to-breakdown": "Heavy Music History: From Blues to Metalcore",
-  "from-folk-to-bedroom-pop": "Intimate Songwriting: From Folk to Bedroom Pop",
-  "from-gospel-to-modern-vocal-pop-": "Gospel to Modern Vocal Pop",
-  "from-hip-hop-to-trap-drill": "Hip Hop History: Block Parties, Trap and Drill",
-  "from-jazz-to-neo-soul": "Jazz to Neo Soul: Fusion, Acid Jazz and Modern Soul",
-  "from-latin-to-latin-trap": "Latin Music History: From Salsa to Latin Trap",
-  "from-pop-to-streaming-pop": "Pop Music History: From Radio to Streaming",
-  "from-post-punk-to-industrial-metal":
-    "Industrial Rock History: From Post-Punk to Metal",
-  "from-punk-to-indie": "Alternative Music: From Punk to Indie",
-  "from-ska-to-global-bass": "Jamaican Music History: From Ska to Global Bass",
-  "from-soul-to-modern-dance-music": "Dance Music History: From Soul to House and Techno",
-};
 
+// Persist reading time into the local entry object if older content has not been backfilled yet.
 if (!entry.data.readingTime && entry.body) {
   try {
     entry = {
@@ -105,7 +102,7 @@ const isValidImage =
   typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
 const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
 const title = entry.data.title;
-const seoTitle = seoTitleOverrides[slugKey] || title;
+const seoTitle = getKnowledgeSeoTitle(slugKey, title);
 const description = entry.data.description;
 const optimizedDescription = description || title;
 
@@ -113,103 +110,45 @@ const imageAbsolute = resolveAbsoluteUrl(Astro.site, imageSource);
 const imageWidth = 1200;
 const imageHeight = 800;
 
+// Canonical URLs always point to the routed `/knowledge/*` path, not legacy URLs.
 const canonical = resolvedSlug
   ? resolvePageUrl(Astro.site, `/knowledge/${resolvedSlug}`)
   : resolvePageUrl(Astro.site, "/");
 const podcastBase = "https://podcasts.melody-mind.de";
-const podcastSlug =
-  [entry.data.podcastSlug, entry.data.podcast]
-    .find((value) => typeof value === "string" && value.trim())
-    ?.trim() || "";
-const podcastUrl =
-  typeof entry.data.podcastUrl === "string" && entry.data.podcastUrl.trim()
-    ? entry.data.podcastUrl.trim()
-    : podcastSlug
-      ? `${podcastBase}/${encodeURI(podcastSlug)}`
-      : null;
+const podcastUrl = getKnowledgePodcastUrl(entry.data, podcastBase);
 const seoBreadcrumbsBase = [{ name: "Home", url: resolvePageUrl(Astro.site, "/") }];
-const currentTaxonomySubsection =
-  typeof entry.data.taxonomySubsection === "string"
-    ? entry.data.taxonomySubsection.trim()
-    : "";
-const currentTaxonomyGroup =
-  typeof entry.data.taxonomyGroup === "string" ? entry.data.taxonomyGroup.trim() : "";
-const resolvedTaxonomySubsection = currentTaxonomySubsection
-  ? getSubsectionById(currentTaxonomySubsection)
-  : undefined;
-const resolvedTaxonomyGroup = currentTaxonomyGroup
-  ? getGroupById(currentTaxonomyGroup)
-  : undefined;
-const seoCategoryCrumb = resolvedTaxonomyGroup
-  ? {
-      name: resolvedTaxonomyGroup.group.title,
-      url: resolvePageUrl(
-        Astro.site,
-        `/taxonomy/${resolvedTaxonomyGroup.section.id}#${resolvedTaxonomyGroup.subsection.id}--${resolvedTaxonomyGroup.group.id}`
-      ),
-    }
-  : resolvedTaxonomySubsection
-    ? {
-        name: resolvedTaxonomySubsection.subsection.title,
-        url: resolvePageUrl(
-          Astro.site,
-          `/taxonomy/${resolvedTaxonomySubsection.section.id}#${resolvedTaxonomySubsection.subsection.id}`
-        ),
-      }
-    : null;
+const {
+  currentTaxonomySubsection,
+  currentTaxonomyGroup,
+  seoCategoryCrumb,
+  taxonomyPillLabel,
+} = getKnowledgeTaxonomyMeta(
+  Astro.site,
+  entry.data.taxonomySubsection,
+  entry.data.taxonomyGroup
+);
 const seoBreadcrumbs = [
   ...seoBreadcrumbsBase,
   ...(seoCategoryCrumb ? [seoCategoryCrumb] : []),
   { name: title, url: canonical },
 ];
-const schemaType = podcastUrl ? "PodcastEpisode" : "Article";
-const structuredDataExtra = [
-  {
-    "@context": "https://schema.org",
-    "@type": schemaType,
-    headline: title,
-    name: title,
-    description: description,
-    image: {
-      "@type": "ImageObject",
-      url: imageAbsolute,
-      width: imageWidth,
-      height: imageHeight,
-    },
-    url: canonical,
-    author: { "@type": "Organization", name: "Melody Mind" },
-    publisher: {
-      "@type": "Organization",
-      name: "Melody Mind",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://melody-mind.de/melody-mind.png",
-      },
-    },
-    ...(podcastUrl
-      ? {
-          isPartOf: {
-            "@type": "PodcastSeries",
-            name: "Melody Mind Podcasts",
-            url: podcastBase,
-          },
-          potentialAction: {
-            "@type": "ListenAction",
-            target: podcastUrl,
-          },
-        }
-      : {}),
-    datePublished: entry.data.createdAt?.toISOString(),
-    dateModified: entry.data.updatedAt?.toISOString(),
-    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    inLanguage: lang,
-    keywords: entry.data.keywords?.join(", ") || "",
-    articleSection: "Music Knowledge",
-    wordCount: entry.body?.length || 0,
-  },
-];
+// The page always emits article-like schema and upgrades to podcast semantics when episode data exists.
+const structuredDataExtra = buildKnowledgeArticleStructuredData({
+  canonical,
+  description,
+  imageAbsolute,
+  imageHeight,
+  imageWidth,
+  keywords: Array.isArray(entry.data.keywords) ? entry.data.keywords : [],
+  lang,
+  podcastBase,
+  podcastUrl,
+  title,
+  createdAt: entry.data.createdAt,
+  updatedAt: entry.data.updatedAt,
+  body: entry.body,
+});
 
-const wordsCount = entry.body ? entry.body.trim().split(/\s+/).length : 0;
 const readingResult = getReadingTime(entry.body || "", { languageCode: lang });
 const publishedDate = new Date(
   entry.data.updatedAt || entry.data.createdAt || new Date()
@@ -219,20 +158,22 @@ const publishedDateLabel = publishedDate.toLocaleDateString(lang, {
   month: "long",
   day: "numeric",
 });
-const currentKeywords = new Set(
+const currentKeywords = new Set<string>(
   Array.isArray(entry.data.keywords)
     ? entry.data.keywords
         .map((keyword: unknown) =>
           typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
         )
-        .filter(Boolean)
+        .filter((keyword: string): keyword is string => Boolean(keyword))
     : []
 );
-const taxonomyPillLabel =
-  resolvedTaxonomyGroup?.group.title ||
-  resolvedTaxonomySubsection?.subsection.title ||
-  "";
 
+/**
+ * Related article ranking:
+ * - same taxonomy subsection carries the strongest signal
+ * - same group adds a smaller precision boost
+ * - keyword overlap breaks ties and broadens recommendations
+ */
 let relatedArticles: Array<{
   slug: string;
   title: string;
@@ -244,77 +185,21 @@ let relatedArticles: Array<{
 
 try {
   const allArticles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
-  relatedArticles = allArticles
-    .filter((article) => {
-      const articleSlug = String(article?.slug || article?.id || "");
-      return articleSlug && articleSlug !== slugKey;
-    })
-    .map((article) => {
-      const articleKeywords = new Set(
-        Array.isArray(article?.data?.keywords)
-          ? article.data.keywords
-              .map((keyword: unknown) =>
-                typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
-              )
-              .filter(Boolean)
-          : []
-      );
-      let score = 0;
-
-      if (
-        currentTaxonomySubsection &&
-        article?.data?.taxonomySubsection === currentTaxonomySubsection
-      ) {
-        score += 12;
-      }
-      if (currentTaxonomyGroup && article?.data?.taxonomyGroup === currentTaxonomyGroup) {
-        score += 4;
-      }
-
-      let keywordOverlap = 0;
-      for (const keyword of articleKeywords) {
-        if (currentKeywords.has(keyword)) {
-          keywordOverlap += 1;
-        }
-      }
-      score += Math.min(keywordOverlap, 4);
-
-      const createdAt = normalizeDate(article?.data?.createdAt) || new Date(0);
-      const updatedAt = normalizeDate(article?.data?.updatedAt) || createdAt;
-      const readingTime =
-        typeof article?.data?.readingTime === "number"
-          ? article.data.readingTime
-          : getReadingTime(article?.body || "", { languageCode: lang }).minutes;
-
-      return {
-        slug: String(article?.slug || article?.id || ""),
-        title: String(article?.data?.title || ""),
-        description: String(article?.data?.description || ""),
-        image: typeof article?.data?.image === "string" ? article.data.image : undefined,
-        createdAt,
-        updatedAt,
-        readingTime,
-        score,
-      };
-    })
-    .filter((article) => article.title && article.description && article.score > 0)
-    .sort((a, b) => {
-      if (b.score !== a.score) {
-        return b.score - a.score;
-      }
-      if (b.updatedAt.getTime() !== a.updatedAt.getTime()) {
-        return b.updatedAt.getTime() - a.updatedAt.getTime();
-      }
-      return a.slug.localeCompare(b.slug);
-    })
-    .slice(0, 3)
-    .map(({ updatedAt: _updatedAt, score: _score, ...article }) => article);
+  relatedArticles = getRelatedKnowledgeArticles({
+    articles: allArticles,
+    currentKeywords,
+    currentTaxonomyGroup,
+    currentTaxonomySubsection,
+    currentSlug: slugKey,
+    lang,
+  });
 } catch (e) {
   globalThis.console?.warn?.("knowledge article: related articles load issue", {
     error: (e as any)?.message || e,
   });
 }
 
+// `buildPageSeo()` normalizes title/description/keyword output across the whole monorepo.
 const pageSeo = buildPageSeo({
   title: seoTitle,
   description: optimizedDescription,
@@ -357,18 +242,7 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
 <Layout {pageSeo}>
   <Fragment slot="head"></Fragment>
 
-  <div class="reading-progress">
-    <div
-      id="reading-progress-bar"
-      class="reading-progress__bar"
-      role="presentation"
-      aria-hidden="true"
-    >
-    </div>
-    <span id="reading-progress-label" class="knowledge__sr"
-      >Reading progress: 0 percent</span
-    >
-  </div>
+  <ReadingProgress storageKey={VERSIONED_KEYS.READ_PROGRESS} />
 
   <div
     class="knowledge"
@@ -427,16 +301,6 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
           <Paragraph textSize="lg" textAlign="left" className="knowledge__summary">
             {entry.data.description}
           </Paragraph>
-          <div class="knowledge__stats">
-            <div class="knowledge__pill">
-              <Icon
-                name="file-text"
-                class="knowledge__pill-icon knowledge__pill-icon--teal"
-                aria-hidden="true"
-              />
-              <span>{wordsCount.toLocaleString("en")} words</span>
-            </div>
-          </div>
         </header>
 
         <div class="knowledge__aside">
@@ -553,42 +417,7 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
             mastodonShareUrl={mastodonShareUrl}
           />
 
-          {
-            relatedArticles.length ? (
-              <section
-                class="panel panel--compact knowledge-related"
-                aria-labelledby="knowledge-related-title"
-              >
-                <div class="knowledge-related__header">
-                  <Headline level="h2" textSize="lg" className="knowledge-related__title">
-                    <span id="knowledge-related-title">
-                      <span>Related articles</span>
-                    </span>
-                  </Headline>
-                  <Paragraph textSize="base" className="knowledge-related__copy">
-                    Continue with guides from the same category, taxonomy branch, or
-                    closely related keywords.
-                  </Paragraph>
-                </div>
-                <ul class="knowledge-related__grid" aria-label="Related articles">
-                  {relatedArticles.map((article, index) => (
-                    <li class="knowledge-related__item">
-                      <KnowledgeCard
-                        title={article.title}
-                        description={article.description}
-                        image={article.image}
-                        createdAt={article.createdAt}
-                        slug={article.slug}
-                        readingTime={article.readingTime}
-                        articleUrl={`/knowledge/${article.slug}`}
-                        index={index}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ) : null
-          }
+          <RelatedKnowledgeArticles articles={relatedArticles} />
 
           <div class="knowledge__back">
             <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
@@ -600,77 +429,18 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
               publishedDateLabel
             }
           </aside>
-          <div
-            id="recent-read-data"
-            data-slug={storageSlug}
-            data-title={title}
-            data-updated-at={storageUpdatedAt}
-            data-image={storageImage}
-            hidden
-          >
-          </div>
+          <RecentReadTracker
+            slug={storageSlug}
+            title={title}
+            updatedAt={storageUpdatedAt}
+            image={storageImage}
+            storageKey={VERSIONED_KEYS.RECENT_READS}
+          />
         </div>
       </div>
 
-      <script src="@scripts/knowledge/shareSection.ts"></script>
-      <script src="@scripts/knowledge/recentReads.ts"></script>
-      <script src="@scripts/knowledge/readingProgress.ts"></script>
-
+      <!-- DOM hooks for lightweight client features. Data is passed via attributes to avoid inline scripts. -->
       <BackToTop />
     </div>
   </div>
 </Layout>
-
-<style>
-  .knowledge-related {
-    display: grid;
-    gap: 1.5rem;
-    margin-block-start: 2rem;
-  }
-
-  .knowledge-related__header {
-    display: grid;
-    gap: 0.6rem;
-  }
-
-  .knowledge-related__title {
-    display: inline-flex;
-    gap: 0.65rem;
-    align-items: center;
-    margin: 0;
-    font-size: clamp(1.3rem, 1.1rem + 0.8vi, 1.85rem);
-    color: var(--text-primary);
-  }
-
-  .knowledge-related__copy {
-    max-inline-size: 62ch;
-    margin: 0;
-    line-height: 1.65;
-    color: var(--text-secondary);
-  }
-
-  .knowledge-related__grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .knowledge-related__item {
-    min-inline-size: 0;
-  }
-
-  @media (width >= 50rem) {
-    .knowledge-related__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (width >= 75rem) {
-    .knowledge-related__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-</style>

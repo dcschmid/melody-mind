@@ -36,37 +36,6 @@
 }
 
 /* ============================================================
-   Reading Progress Bar
-   ============================================================ */
-
-.reading-progress {
-  position: fixed;
-  inset-inline: 0;
-  top: 0;
-  z-index: 60;
-  height: 0.25rem;
-  background: color-mix(in srgb, var(--surface-3) 88%, transparent);
-}
-
-.reading-progress__bar {
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-strong));
-}
-
-@media (min-width: 640px) {
-  .reading-progress {
-    height: 0.375rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .reading-progress {
-    height: 0.5rem;
-  }
-}
-
-/* ============================================================
    Knowledge Article Container
    ============================================================ */
 

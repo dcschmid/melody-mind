@@ -102,6 +102,73 @@ const {
   </div>
 </section>
 
+<script>
+  const shareSection = document.getElementById("share-section");
+
+  if (shareSection instanceof HTMLElement) {
+    const shareUrl = shareSection.dataset.shareUrl || "";
+    const shareTitle = shareSection.dataset.shareTitle || "";
+    const shareText = shareSection.dataset.shareText || "";
+    const copySuccessMessage = shareSection.dataset.shareSuccess || "";
+    const copyErrorMessage = shareSection.dataset.shareError || "";
+    const nativeShareUnavailable = shareSection.dataset.shareFallback || "";
+    const statusEl = shareSection.querySelector("[data-share-status]");
+    const defaultStatus = statusEl?.textContent || "";
+    let resetTimer: number | undefined;
+
+    const setStatus = (message: string) => {
+      if (!(statusEl instanceof HTMLElement)) {
+        return;
+      }
+
+      statusEl.textContent = message;
+      if (resetTimer) {
+        window.clearTimeout(resetTimer);
+      }
+      resetTimer = window.setTimeout(() => {
+        statusEl.textContent = defaultStatus;
+      }, 4500);
+    };
+
+    const copyLink = async () => {
+      try {
+        if (!navigator.clipboard) {
+          throw new Error("clipboard unavailable");
+        }
+        await navigator.clipboard.writeText(shareUrl);
+        setStatus(copySuccessMessage);
+      } catch {
+        setStatus(copyErrorMessage);
+      }
+    };
+
+    const copyButton = shareSection.querySelector('[data-share="copy"]');
+    copyButton?.addEventListener("click", () => copyLink());
+
+    const nativeButton = shareSection.querySelector('[data-share="native"]');
+    nativeButton?.addEventListener("click", async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: shareTitle,
+            text: shareText,
+            url: shareUrl,
+          });
+          setStatus(copySuccessMessage);
+          return;
+        } catch (error) {
+          if (error instanceof Error && error.name === "AbortError") {
+            return;
+          }
+        }
+      }
+
+      setStatus(nativeShareUnavailable);
+      copyLink();
+    });
+  }
+</script>
+
 <style>
   .share-section {
     --share-section-margin-start: var(--spacing-xl);

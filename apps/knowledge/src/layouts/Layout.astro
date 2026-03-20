@@ -15,6 +15,10 @@ import {
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
 import type { NavItem } from "@shared-ui/components/navigation/types";
 
+/**
+ * Normalized SEO payload expected by the shared `<SEO />` component.
+ * Knowledge pages build this upstream and Layout only merges in global defaults.
+ */
 interface PageSeo {
   title: string;
   description: string;
@@ -47,6 +51,10 @@ interface PageSeo {
   imageAlt?: string;
 }
 
+/**
+ * Shared layout contract for all knowledge pages.
+ * Keep this surface narrow: page-specific SEO should be prepared before reaching the layout.
+ */
 interface Props {
   imageWidth?: number;
   imageHeight?: number;
@@ -82,6 +90,10 @@ const {
   authorName,
 } = Astro.props;
 
+/**
+ * The layout currently treats incoming SEO as the source of truth and only appends
+ * global fallbacks such as default images and baseline structured data.
+ */
 const constructedPageSeo = pageSeo;
 const mergedTitle = constructedPageSeo.title;
 const mergedDescription = constructedPageSeo.description;
@@ -95,14 +107,17 @@ const mergedStructuredData = constructedPageSeo.structuredData;
 const robotsTag = constructedPageSeo.robots;
 const siteUrl = resolveBaseUrl(Astro.site);
 const globalStructuredData: StructuredData[] = [];
+const siteName = "Melody Mind";
+const siteDescription =
+  "Music knowledge platform for genres, timelines, and guided listening.";
 
+// Ensure every page ships the site-level schemas even if the page config omitted them.
 if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
   globalStructuredData.push(
     buildOrganizationSchema({
       siteUrl,
-      siteName: "Melody Mind",
-      description:
-        "Music knowledge platform for genres, timelines, and guided listening.",
+      siteName,
+      description: siteDescription,
     })
   );
 }
@@ -111,9 +126,8 @@ if (!mergedStructuredData.some((entry) => entry["@type"] === "WebSite")) {
   globalStructuredData.push(
     buildWebSiteSchema({
       siteUrl,
-      siteName: "Melody Mind",
-      description:
-        "Music knowledge platform for genres, timelines, and guided listening.",
+      siteName,
+      description: siteDescription,
     })
   );
 }
@@ -121,6 +135,10 @@ if (!mergedStructuredData.some((entry) => entry["@type"] === "WebSite")) {
 const finalStructuredData = [...globalStructuredData, ...mergedStructuredData];
 const lang = "en";
 
+/**
+ * Maps a simple locale code to the Open Graph locale format expected by social platforms.
+ * The fallback keeps the language prefix and guesses a region where no explicit mapping exists.
+ */
 function mapOgLocale(locale: string): string {
   if (!locale) {
     return "en_US";
@@ -142,6 +160,10 @@ function mapOgLocale(locale: string): string {
 }
 
 const autoOgLocale = mapOgLocale(lang);
+/**
+ * Kept as typed arrays so future performance optimizations can be added centrally
+ * without changing the `<head>` rendering logic below.
+ */
 const preloadedResources: Array<{
   href: string;
   as: "style" | "script" | "font" | "image";
@@ -155,6 +177,7 @@ const fontPreloads: Array<{
 }> = [];
 const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
 
+// Shared primary navigation for the Knowledge app shell.
 const navItems: NavItem[] = [
   {
     href: "https://podcasts.melody-mind.de",
@@ -209,6 +232,7 @@ const navItems: NavItem[] = [
       title="MelodyMind Knowledge RSS Feed"
       href="/rss.xml"
     />
+    {/* Shared SEO renders canonical, robots, JSON-LD, and article-specific meta tags. */}
     <SEO
       title={mergedTitle}
       description={mergedDescription}
@@ -279,13 +303,13 @@ const navItems: NavItem[] = [
   <SiteHeader
     {navItems}
     brandHref="/"
-    brandText="Melody Mind"
+    brandText={siteName}
     brandMark="MM"
     brandLogoSrc="/melody-mind.png"
-    brandLogoAlt="Melody Mind"
+    brandLogoAlt={siteName}
     brandLogoWidth={1536}
     brandLogoHeight={1024}
-    brandAriaLabel="Go to the Melody Mind homepage"
+    brandAriaLabel={`Go to the ${siteName} homepage`}
     menuOpenLabel="Open main menu"
     menuCloseLabel="Close main menu"
     menuText="Menu"
@@ -295,7 +319,7 @@ const navItems: NavItem[] = [
   <slot />
 
   <SharedFooter
-    brandTitle="Melody Mind"
+    brandTitle={siteName}
     brandText="Curated guides and playlists to help you listen more closely and discover new sounds."
     exploreLinks={[
       {

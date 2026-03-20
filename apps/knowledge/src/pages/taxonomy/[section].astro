@@ -5,8 +5,8 @@
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
-import Icon from "@shared-ui/components/visual/Icon.astro";
 import KnowledgeCard from "@components/KnowledgeCard.astro";
+import TaxonomyJumpNav from "@components/TaxonomyJumpNav.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
@@ -24,6 +24,10 @@ import {
 import { calculateReadingTime } from "@shared-utils/utils/readingTime";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
+import {
+  getTaxonomySectionSeoDescription,
+  getTaxonomySectionSeoTitle,
+} from "@utils/knowledge/taxonomyPage";
 import { musicTaxonomy } from "../../data/musicTaxonomy";
 import type { TaxonomySubsection } from "../../types/taxonomy";
 import { Image } from "astro:assets";
@@ -38,34 +42,6 @@ export async function getStaticPaths() {
 
 const sectionId = Astro.params.section as string;
 const section = musicTaxonomy.find((s) => s.id === sectionId);
-const seoDescriptionOverrides: Record<string, string> = {
-  "canon-key-artists":
-    "Discover the artists who shaped music history across genres, eras, and major cultural movements.",
-  "countries-regional-traditions":
-    "Explore traditional and contemporary music shaped by regional identity, local history, and cultural exchange around the world.",
-  "electronic-club-nightlife":
-    "Trace electronic music from house and techno to global club culture through the DJs, scenes, and communities that shaped it.",
-  "folk-regional-expressions":
-    "Explore folk and regional music through storytelling, place, tradition, and evolving cultural identity across communities.",
-  "hiphop-rap-culture":
-    "Trace hip hop from Bronx origins to global influence through lyrical storytelling, scenes, production, and cultural change.",
-  "latin-caribbean-afro-roots":
-    "Discover Latin, Caribbean, and Afro-rooted music through rhythm, migration, heritage, and cross-cultural exchange.",
-  "live-performance-stagecraft":
-    "Explore live performance through stage presence, touring, sound, lighting, and the craft of connecting with audiences.",
-  "mainstream-pop-global-hits":
-    "Explore chart pop, breakout stars, and global hits through the artists, sounds, and moments that shaped mass audiences.",
-  "music-media-technology-industry":
-    "Explore the business, media, and technology systems that shape music, from streaming and radio to platforms and AI.",
-  "music-theory-composition":
-    "Discover harmony, melody, rhythm, form, and composition ideas that shape musical meaning across traditions.",
-  "music-therapy-wellness-healing":
-    "Explore how music supports wellbeing, recovery, and mental health through therapy, self-care, and research.",
-};
-
-const seoTitleOverrides: Record<string, string> = {
-  "emotional-seasonal-situational": "Emotional, Seasonal & Situational Music",
-};
 
 if (!section) {
   return new Response("Not found", { status: 404 });
@@ -172,10 +148,11 @@ const jumpTargets: JumpTarget[] = subsectionsData.flatMap((subsection) => {
 // SEO
 const currentUrl = resolvePageUrl(Astro.site, `/taxonomy/${sectionId}`);
 const baseUrl = resolveBaseUrl(Astro.site);
-const seoDescription =
-  seoDescriptionOverrides[sectionId] ||
-  section.description ||
-  `Explore ${section.title} - music knowledge and guides.`;
+const seoDescription = getTaxonomySectionSeoDescription({
+  sectionId,
+  sectionTitle: section.title,
+  sectionDescription: section.description,
+});
 const seoBreadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: section.title, url: currentUrl },
@@ -236,7 +213,7 @@ const collectionPageSchema = buildCollectionPageSchema({
 });
 
 const pageSeo = buildPageSeo({
-  title: seoTitleOverrides[sectionId] || `${section.title} Topics`,
+  title: getTaxonomySectionSeoTitle(sectionId, section.title),
   description: seoDescription,
   url: currentUrl,
   contentKind: "generic",
@@ -299,46 +276,7 @@ const pageSeo = buildPageSeo({
               </span>
             </div>
 
-            {
-              jumpTargets.length >= 1 && (
-                <nav class="taxonomy-section__toc" aria-label="Jump to a topic">
-                  <button
-                    type="button"
-                    class="taxonomy-section__toc-toggle"
-                    aria-expanded="false"
-                    aria-controls="taxonomy-toc-content"
-                  >
-                    <span class="taxonomy-section__toc-toggle-label">
-                      Jump to a topic
-                    </span>
-                    <Icon
-                      name="chevron-down"
-                      class="taxonomy-section__toc-chevron"
-                      aria-hidden="true"
-                    />
-                  </button>
-                  <div id="taxonomy-toc-content" class="taxonomy-section__toc-content">
-                    <ul class="taxonomy-section__toc-list">
-                      {jumpTargets.map((target) => (
-                        <li class="taxonomy-section__toc-item">
-                          <a
-                            href={`#${target.anchorId}`}
-                            class="taxonomy-section__toc-link"
-                          >
-                            <span class="taxonomy-section__toc-title">
-                              {target.title}
-                            </span>
-                            <span class="taxonomy-section__toc-count">
-                              {target.articleCount}
-                            </span>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </nav>
-              )
-            }
+            {jumpTargets.length >= 1 && <TaxonomyJumpNav targets={jumpTargets} />}
           </div>
         </div>
       </header>
@@ -754,252 +692,9 @@ const pageSeo = buildPageSeo({
     border-radius: var(--radius-lg);
   }
 
-  /* Jump Navigation TOC */
-  .taxonomy-section__toc {
-    position: relative;
-    margin-block-end: 1rem;
-  }
-
-  .taxonomy-section__toc-toggle {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    justify-content: space-between;
-    inline-size: 100%;
-    min-block-size: 48px;
-    padding: 0.75rem 1rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    text-align: start;
-    cursor: pointer;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: 1rem;
-  }
-
-  .taxonomy-section__toc-toggle:hover,
-  .taxonomy-section__toc-toggle:focus-visible {
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border-color: var(--accent-primary);
-  }
-
-  .taxonomy-section__toc-toggle:focus-visible {
-    outline: none;
-    outline-offset: 2px;
-    box-shadow: var(--interactive-shadow-focus);
-  }
-
-  .taxonomy-section__toc-toggle-label {
-    display: inline-flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .taxonomy-section__toc-chevron {
-    flex-shrink: 0;
-    color: var(--text-secondary);
-  }
-
-  .taxonomy-section__toc[data-open="true"] .taxonomy-section__toc-chevron {
-    transform: rotate(180deg);
-  }
-
-  .taxonomy-section__toc-content {
-    position: absolute;
-    inset-block-start: calc(100% + 0.5rem);
-    inset-inline: 0;
-    z-index: 20;
-    display: none;
-    max-block-size: 50vb;
-    padding: 1rem;
-    overflow-block: auto;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: 1rem;
-    box-shadow: var(--effect-floating-panel-shadow);
-  }
-
-  .taxonomy-section__toc[data-open="true"] .taxonomy-section__toc-content {
-    display: block;
-  }
-
-  .taxonomy-section__toc-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .taxonomy-section__toc-item {
-    margin: 0;
-  }
-
-  .taxonomy-section__toc-link {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.625rem 0.875rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    text-decoration: none;
-    border-radius: 0.75rem;
-  }
-
-  .taxonomy-section__toc-link:hover,
-  .taxonomy-section__toc-link:focus-visible {
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-  }
-
-  .taxonomy-section__toc-link:focus-visible {
-    outline: none;
-    outline-offset: 2px;
-    box-shadow: var(--interactive-shadow-focus);
-  }
-
-  .taxonomy-section__toc-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-inline-size: 2rem;
-    min-block-size: 2rem;
-    padding: 0 0.625rem;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    line-height: 1;
-    color: var(--accent-contrast);
-    background: var(--accent-primary);
-    border-radius: 999px;
-    box-shadow: inset 0 0 0 1px
-      color-mix(in srgb, var(--accent-contrast) 12%, transparent);
-  }
-
-  :global(:root[data-theme="light"]) .taxonomy-section__toc-count {
-    color: var(--accent-contrast);
-    background: var(--accent-strong);
-  }
-
-  :global(:root[data-theme="dark"]) .taxonomy-section__toc-count {
-    color: var(--accent-contrast);
-    background: var(--accent-primary);
-  }
-
-  .taxonomy-section__toc-link:hover .taxonomy-section__toc-count,
-  .taxonomy-section__toc-link:focus-visible .taxonomy-section__toc-count {
-    color: var(--accent-contrast);
-    background: var(--accent-strong);
-  }
-
-  :global(:root[data-theme="light"])
-    .taxonomy-section__toc-link:hover
-    .taxonomy-section__toc-count,
-  :global(:root[data-theme="light"])
-    .taxonomy-section__toc-link:focus-visible
-    .taxonomy-section__toc-count {
-    color: var(--accent-contrast);
-    background: var(--accent-primary);
-  }
-
-  :global(:root[data-theme="dark"])
-    .taxonomy-section__toc-link:hover
-    .taxonomy-section__toc-count,
-  :global(:root[data-theme="dark"])
-    .taxonomy-section__toc-link:focus-visible
-    .taxonomy-section__toc-count {
-    color: var(--accent-contrast);
-    background: var(--accent-strong);
-  }
-
-  /* Desktop: Show as pill list */
-  @media (width >= 640px) {
-    .taxonomy-section__toc-toggle {
-      display: none;
-    }
-
-    .taxonomy-section__toc-content {
-      position: static;
-      display: block;
-      max-block-size: none;
-      padding: 0;
-      overflow: visible;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-
-    .taxonomy-section__toc-list {
-      flex-flow: row wrap;
-      gap: 0.5rem;
-    }
-
-    .taxonomy-section__toc-link {
-      padding: 0.5rem 0.875rem;
-      font-size: 0.875rem;
-      background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-      border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-      border-radius: 999px;
-    }
-
-    .taxonomy-section__toc-link:hover,
-    .taxonomy-section__toc-link:focus-visible {
-      background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-      border-color: var(--accent-primary);
-    }
-  }
-
   /* Scroll margin for anchored sections */
   .taxonomy-section__subsection,
   .taxonomy-section__group {
     scroll-margin-block-start: 80px;
   }
 </style>
-
-<script>
-  const tocNav = document.querySelector<HTMLElement>(".taxonomy-section__toc");
-  const tocToggle = document.querySelector<HTMLButtonElement>(
-    ".taxonomy-section__toc-toggle"
-  );
-  const tocContent = document.getElementById("taxonomy-toc-content");
-
-  if (tocNav && tocToggle && tocContent) {
-    const setOpen = (open: boolean): void => {
-      tocNav.setAttribute("data-open", open ? "true" : "false");
-      tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    };
-
-    tocToggle.addEventListener("click", () => {
-      const isOpen = tocToggle.getAttribute("aria-expanded") === "true";
-      setOpen(!isOpen);
-    });
-
-    // Close on outside click
-    document.addEventListener("click", (e) => {
-      const target = e.target as Node;
-      if (tocNav.getAttribute("data-open") === "true" && !tocNav.contains(target)) {
-        setOpen(false);
-      }
-    });
-
-    // Close on Escape
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && tocNav.getAttribute("data-open") === "true") {
-        setOpen(false);
-        tocToggle.focus();
-      }
-    });
-
-    // Close on link click (mobile)
-    tocContent.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest<HTMLAnchorElement>("a[href^='#']");
-      if (link && window.innerWidth < 640) {
-        setOpen(false);
-      }
-    });
-  }
-</script>

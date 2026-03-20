@@ -1,0 +1,219 @@
+---
+/**
+ * Shared reading progress bar with self-contained styles and client behavior.
+ *
+ * Progress persistence is optional. When `storageKey` is provided, the component
+ * restores and saves progress using the slug stored on a companion DOM node.
+ */
+interface Props {
+  className?: string;
+  barClassName?: string;
+  labelClassName?: string;
+  barId?: string;
+  labelId?: string;
+  labelText?: string;
+  progressDataId?: string;
+  storageKey?: string;
+}
+
+const {
+  className = "reading-progress",
+  barClassName = "reading-progress__bar",
+  labelClassName = "knowledge__sr",
+  barId = "reading-progress-bar",
+  labelId = "reading-progress-label",
+  labelText = "Reading progress: 0 percent",
+  progressDataId = "recent-read-data",
+  storageKey = "",
+} = Astro.props;
+---
+
+<div
+  class={className}
+  data-reading-progress="true"
+  data-progress-data-id={progressDataId}
+  data-storage-key={storageKey}
+>
+  <div id={barId} class={barClassName} role="presentation" aria-hidden="true"></div>
+  <span id={labelId} class={labelClassName}>{labelText}</span>
+</div>
+
+<script>
+  const SAVE_THROTTLE_MS = 1000;
+  const RESTORE_DELAY_MS = 200;
+  const MIN_RESTORE_PROGRESS = 0.02;
+  const MAX_RESTORE_PROGRESS = 0.95;
+  const SCROLL_TOP_THRESHOLD = 4;
+
+  const root = document.querySelector("[data-reading-progress='true']");
+  const bar = root?.querySelector("#reading-progress-bar");
+  const label = root?.querySelector("#reading-progress-label");
+
+  if (
+    root instanceof HTMLElement &&
+    bar instanceof HTMLElement &&
+    label instanceof HTMLElement
+  ) {
+    const progressDataId = root.dataset.progressDataId || "recent-read-data";
+    const storageKey = root.dataset.storageKey || "";
+    const progressData = document.getElementById(progressDataId);
+    const progressSlug = progressData?.dataset.slug
+      ? progressData.dataset.slug.replace(/^\/+/, "")
+      : "";
+
+    const prefersReduced =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+
+    if (!prefersReduced) {
+      bar.style.transition = "width 120ms ease-out";
+    }
+
+    const getProgressStore = () => {
+      if (!progressSlug || !storageKey) {
+        return null;
+      }
+      try {
+        const raw = window.localStorage?.getItem(storageKey);
+        const parsed = raw ? JSON.parse(raw) : {};
+        return parsed && typeof parsed === "object" ? parsed : {};
+      } catch {
+        return {};
+      }
+    };
+
+    const setProgressStore = (
+      store: Record<string, { progress: number; updatedAt: string }>
+    ) => {
+      if (!progressSlug || !storageKey) {
+        return;
+      }
+      try {
+        window.localStorage?.setItem(storageKey, JSON.stringify(store));
+      } catch {
+        // Ignore storage errors.
+      }
+    };
+
+    const restoreProgress = () => {
+      if (!progressSlug || !storageKey) {
+        return;
+      }
+
+      const store = getProgressStore();
+      if (!store || typeof store !== "object") {
+        return;
+      }
+
+      const entry = store[progressSlug];
+      const progress = entry && typeof entry.progress === "number" ? entry.progress : 0;
+
+      if (progress < MIN_RESTORE_PROGRESS || progress > MAX_RESTORE_PROGRESS) {
+        return;
+      }
+
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      if (scrollable <= 0 || doc.scrollTop > SCROLL_TOP_THRESHOLD) {
+        return;
+      }
+
+      const target = Math.round(scrollable * progress);
+      window.scrollTo({
+        top: target,
+        behavior: prefersReduced ? "auto" : "smooth",
+      });
+    };
+
+    let ticking = false;
+    let hasInteracted = false;
+    let lastSavedAt = 0;
+
+    const compute = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      const raw = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
+      const clamped = Math.min(Math.max(raw, 0), 100);
+
+      bar.style.width = `${clamped}%`;
+      label.textContent = `Reading progress: ${clamped.toFixed(0)}%`;
+
+      if (progressSlug && storageKey && scrollable > 0 && hasInteracted) {
+        const now = Date.now();
+        if (now - lastSavedAt > SAVE_THROTTLE_MS) {
+          lastSavedAt = now;
+          const store = getProgressStore() || {};
+
+          if (clamped >= 98) {
+            delete store[progressSlug];
+          } else {
+            store[progressSlug] = {
+              progress: clamped / 100,
+              updatedAt: new Date().toISOString(),
+            };
+          }
+          setProgressStore(store);
+        }
+      }
+
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      hasInteracted = true;
+      if (ticking) {
+        return;
+      }
+      ticking = true;
+      requestAnimationFrame(compute);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    compute();
+
+    const scheduleRestore = () => {
+      window.setTimeout(() => {
+        if (!hasInteracted) {
+          restoreProgress();
+        }
+      }, RESTORE_DELAY_MS);
+    };
+
+    scheduleRestore();
+    window.addEventListener("load", scheduleRestore, { once: true });
+    window.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden" && hasInteracted) {
+        compute();
+      }
+    });
+  }
+</script>
+
+<style>
+  .reading-progress {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 60;
+    height: 0.25rem;
+    background: color-mix(in srgb, var(--surface-3) 88%, transparent);
+  }
+
+  .reading-progress__bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-strong));
+  }
+
+  @media (width >= 40rem) {
+    .reading-progress {
+      height: 0.375rem;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .reading-progress {
+      height: 0.5rem;
+    }
+  }
+</style>

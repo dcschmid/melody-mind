@@ -1,0 +1,67 @@
+---
+/**
+ * Persists the current article into the recent-reads store.
+ *
+ * This is intentionally knowledge-local because it depends on the article
+ * metadata shape and current storage contract used by the app homepage.
+ */
+interface Props {
+  slug: string;
+  title: string;
+  updatedAt?: string;
+  image?: string;
+  storageKey: string;
+  dataId?: string;
+}
+
+const {
+  slug,
+  title,
+  updatedAt = "",
+  image = "",
+  storageKey,
+  dataId = "recent-read-data",
+} = Astro.props;
+---
+
+<div
+  id={dataId}
+  data-recent-read-tracker="true"
+  data-storage-key={storageKey}
+  data-slug={slug}
+  data-title={title}
+  data-updated-at={updatedAt}
+  data-image={image}
+  hidden
+>
+</div>
+
+<script>
+  const MAX_ENTRIES = 5;
+  const tracker = document.querySelector("[data-recent-read-tracker='true']");
+
+  if (tracker instanceof HTMLElement) {
+    const storageKey = tracker.dataset.storageKey || "";
+    const recentEntry = {
+      slug: tracker.dataset.slug || "",
+      title: tracker.dataset.title || "",
+      updatedAt: tracker.dataset.updatedAt || "",
+      image: tracker.dataset.image || "",
+    };
+
+    if (storageKey && recentEntry.slug && recentEntry.title) {
+      try {
+        const normalizedSlug = recentEntry.slug.replace(/^\/+/, "");
+        const raw = window.localStorage?.getItem(storageKey);
+        const parsed = raw ? JSON.parse(raw) : [];
+        const safeParsed = Array.isArray(parsed) ? parsed : [];
+        const filtered = safeParsed.filter((entry) => entry?.slug !== normalizedSlug);
+        const updated = [recentEntry, ...filtered].slice(0, MAX_ENTRIES);
+
+        window.localStorage?.setItem(storageKey, JSON.stringify(updated));
+      } catch {
+        // Ignore storage errors.
+      }
+    }
+  }
+</script>
