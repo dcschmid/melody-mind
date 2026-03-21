@@ -1,11 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export const prerender = true;
@@ -39,8 +39,11 @@ interface SearchPageItem {
   url: string;
 }
 
-const allEntries: QuizEntry[] = (await getCollection("quizzes")) as QuizEntry[];
-const entries = allEntries.filter((entry) => !(entry.data as { draft?: boolean }).draft);
+const allEntries = await getCollectionEntries("quizzes");
+const typedEntries: QuizEntry[] = allEntries as QuizEntry[];
+const entries = typedEntries.filter(
+  (entry) => !(entry.data as { draft?: boolean }).draft
+);
 const items: SearchPageItem[] = entries.map((entry) => {
   const data = entry.data as { title: string; description?: string };
 

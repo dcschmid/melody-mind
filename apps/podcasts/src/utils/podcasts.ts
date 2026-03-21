@@ -1,9 +1,18 @@
-import { getCollection, type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { LRUCache } from "@shared-utils/utils/cache/LRUCache";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import type { PodcastData } from "../types/podcast";
 
 type PodcastEntry = CollectionEntry<"podcasts">;
 
-const markdownCache = new Map<string, string>();
+const markdownCache = new LRUCache<string, string>({
+  maxSize: 64,
+  ttlMs: 5 * 60 * 1000,
+});
+const podcastListCache = new LRUCache<string, PodcastData[]>({
+  maxSize: 4,
+  ttlMs: 5 * 60 * 1000,
+});
 
 type PodcastEntryWithBody = PodcastEntry & {
   body?: string;
@@ -84,16 +93,29 @@ const entryToPodcastData = (entry: PodcastEntry): PodcastData => {
  * Loads all podcast entries from the Astro content collection.
  */
 export const getPodcastList = async (): Promise<PodcastData[]> => {
-  const entries = await getCollection("podcasts");
-  return entries.map(entryToPodcastData);
+  const cached = podcastListCache.get("all");
+  if (cached !== undefined) {
+    return cached;
+  }
+
+  const entries = await getCollectionEntries("podcasts");
+  const list = entries.map(entryToPodcastData);
+  podcastListCache.set("all", list);
+  return list;
 };
 
 /**
  * Returns only episodes marked as available.
  */
 export const getAvailablePodcasts = async (): Promise<PodcastData[]> => {
-  const entries = await getCollection("podcasts", ({ data }) => data.isAvailable);
-  return entries.map(entryToPodcastData);
+  const cached = podcastListCache.get("available");
+  if (cached !== undefined) {
+    return cached;
+  }
+
+  const list = (await getPodcastList()).filter((entry) => entry.isAvailable);
+  podcastListCache.set("available", list);
+  return list;
 };
 
 /**
@@ -106,3 +128,11 @@ export const getPodcastById = async (
   const list = podcasts ?? (await getPodcastList());
   return list.find((podcast) => podcast.id === id);
 };
+
+/**
+ * Clear in-memory podcast caches for dev hot reloads or tests.
+ */
+export function clearPodcastCaches(): void {
+  markdownCache.clear();
+  podcastListCache.clear();
+}

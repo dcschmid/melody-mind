@@ -12,13 +12,13 @@ import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import {
   buildBreadcrumbListSchema,
   buildCollectionPageSchema,
   buildQuizItemListSchema,
 } from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
-import { getCollection } from "astro:content";
 import type { QuizData } from "../content.config";
 
 export const prerender = true;
@@ -28,7 +28,7 @@ interface QuizEntry {
   data: QuizData;
 }
 
-const allQuizzes = await getCollection("quizzes");
+const allQuizzes = await getCollectionEntries("quizzes");
 const quizzes: QuizEntry[] = allQuizzes.map((q: any) => ({
   id: q.id,
   data: q.data as QuizData,

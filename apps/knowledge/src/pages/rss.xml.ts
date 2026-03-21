@@ -1,12 +1,13 @@
 import rss from "@astrojs/rss";
-import { getCollection, type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { APIContext } from "astro";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import type { KnowledgeData } from "../content.config";
 
 export async function GET(context: APIContext) {
   type KnowledgeEntry = CollectionEntry<"knowledge-en">;
   // Get all knowledge articles
-  const knowledgeArticles: KnowledgeEntry[] = await getCollection("knowledge-en");
+  const knowledgeArticles: KnowledgeEntry[] = await getCollectionEntries("knowledge-en");
   const site = (context.site || "https://melody-mind.de").toString().replace(/\/$/, "");
   const feedUrl = `${site}/rss.xml`;
 

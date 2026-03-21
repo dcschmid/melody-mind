@@ -80,4 +80,5 @@ export async function getCollectionCached(
 /** Clear the entire in-memory cache (useful for dev hot reload triggers). */
 export function clearCollectionCache(): void {
   _collectionCache.clear();
+  _collectionFailuresLogged.clear();
 }

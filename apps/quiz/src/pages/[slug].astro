@@ -10,12 +10,12 @@ import Icon from "@shared-ui/components/visual/Icon.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import {
   buildBreadcrumbListSchema,
   buildQuizSchema,
 } from "@shared-utils/utils/seo/seoSchema";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
-import { getCollection } from "astro:content";
 import type { QuizData, QuizQuestion } from "../content.config";
 
 export const prerender = true;
@@ -28,7 +28,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const quizzes = await getCollection("quizzes");
+  const quizzes = await getCollectionEntries("quizzes");
   return quizzes.map((quiz: any) => ({
     params: { slug: quiz.id },
     props: { quiz: { id: quiz.id, data: quiz.data } },
