@@ -12,6 +12,11 @@ import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import {
+  buildBreadcrumbListSchema,
+  buildCollectionPageSchema,
+  buildQuizItemListSchema,
+} from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getCollection } from "astro:content";
 import type { QuizData } from "../content.config";
@@ -45,43 +50,40 @@ const baseUrl = resolveBaseUrl(Astro.site);
 const currentUrl = resolvePageUrl(Astro.site, "/");
 
 const seoBreadcrumbs = [{ name: "Home", url: currentUrl }];
+const itemListId = `${currentUrl}#quiz-itemlist`;
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: seoBreadcrumbs.map((crumb, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    name: crumb.name,
-    item: crumb.url,
+const breadcrumbSchema = buildBreadcrumbListSchema(seoBreadcrumbs);
+const collectionPageSchema = buildCollectionPageSchema({
+  url: currentUrl,
+  name: "Music History Quizzes And Trivia",
+  description:
+    "Play music history quizzes on decades, genres, artists, and cultural shifts from rock and roll to modern streaming pop.",
+  lang: "en",
+  image: `${baseUrl}/category/from-pop-to-streaming-pop.jpg`,
+  mainEntityId: itemListId,
+});
+
+const itemListSchema = buildQuizItemListSchema({
+  quizzes: quizzes.map((quiz) => ({
+    slug: quiz.id,
+    title: quiz.data.title,
+    description: quiz.data.description,
+    url: `${baseUrl}/${quiz.id}`,
+    image: `/category/${quiz.id}.jpg`,
+    keywords: quiz.data.featuredTopics,
   })),
-};
-
-const itemListSchema = quizzes.length
-  ? {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      name: "Music Knowledge Quizzes",
-      numberOfItems: quizzes.length,
-      itemListElement: quizzes.map((quiz, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        item: {
-          "@type": "Quiz",
-          name: quiz.data.title,
-          description: quiz.data.description,
-          url: `${baseUrl}/${quiz.id}`,
-        },
-      })),
-    }
-  : undefined;
+  listName: "Music Knowledge Quizzes",
+  itemListId,
+});
 
 const pageSeo = buildPageSeo({
   title: "Music History Quizzes And Trivia",
   description:
     "Play music history quizzes on decades, genres, artists, and cultural shifts from rock and roll to modern streaming pop.",
   url: currentUrl,
-  structuredData: [breadcrumbSchema, itemListSchema].filter(Boolean) as StructuredData[],
+  structuredData: [collectionPageSchema, breadcrumbSchema, itemListSchema].filter(
+    Boolean
+  ) as StructuredData[],
   fallbackKeywords: [
     "music quiz",
     "music trivia",
@@ -90,6 +92,7 @@ const pageSeo = buildPageSeo({
     "music knowledge",
   ],
   index: true,
+  brandSuffix: " - MelodyMind Quiz",
 });
 
 const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;

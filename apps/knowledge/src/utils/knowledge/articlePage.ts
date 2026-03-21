@@ -5,6 +5,7 @@ import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCa
 import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { loggers } from "@shared-utils/utils/logging";
+import { buildArticleSchema } from "@shared-utils/utils/seo/seoSchema";
 import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
 
@@ -435,51 +436,34 @@ export function buildKnowledgeArticleStructuredData({
   const schemaType = podcastUrl ? "PodcastEpisode" : "Article";
 
   return [
-    {
-      "@context": "https://schema.org",
-      "@type": schemaType,
-      headline: title,
-      name: title,
+    buildArticleSchema({
+      canonical,
+      title,
       description,
-      image: {
-        "@type": "ImageObject",
-        url: imageAbsolute,
-        width: imageWidth,
-        height: imageHeight,
-      },
-      url: canonical,
-      author: { "@type": "Organization", name: "Melody Mind" },
-      publisher: {
-        "@type": "Organization",
-        name: "Melody Mind",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://melody-mind.de/melody-mind.png",
-        },
-      },
-      ...(podcastUrl
-        ? {
-            isPartOf: {
-              "@type": "PodcastSeries",
-              name: "Melody Mind Podcasts",
-              url: podcastBase,
-            },
-            potentialAction: {
-              "@type": "ListenAction",
-              target: podcastUrl,
-            },
-          }
-        : {}),
-      datePublished:
-        createdAt instanceof Date ? createdAt.toISOString() : createdAt?.toString(),
-      dateModified:
-        updatedAt instanceof Date ? updatedAt.toISOString() : updatedAt?.toString(),
-      mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-      inLanguage: lang,
-      keywords: keywords.join(", "),
+      imageUrl: imageAbsolute,
+      imageWidth,
+      imageHeight,
+      keywords,
+      lang,
+      createdAt,
+      updatedAt,
+      body,
+      schemaType,
       articleSection: "Music Knowledge",
-      wordCount: body?.length || 0,
-    },
+      isPartOf: podcastUrl
+        ? {
+            "@type": "PodcastSeries",
+            name: "Melody Mind Podcasts",
+            url: podcastBase,
+          }
+        : undefined,
+      potentialAction: podcastUrl
+        ? {
+            "@type": "ListenAction",
+            target: podcastUrl,
+          }
+        : undefined,
+    }),
   ];
 }
 

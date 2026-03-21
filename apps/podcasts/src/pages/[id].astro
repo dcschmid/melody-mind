@@ -14,6 +14,7 @@ import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
 import { getAdjacentByKey } from "../utils/array";
 import { buildMetaDescription, formatDate } from "../utils/helpers";
 import type { PodcastData } from "../types/podcast";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export async function getStaticPaths() {
   const podcasts = await getAvailablePodcasts();
@@ -37,6 +38,11 @@ const episodeNumber = index + 1;
 const metaDescription =
   currentPodcast.metaDescription ||
   buildMetaDescription(currentPodcast.description, 155, "MelodyMind Podcasts");
+const canonical = resolvePageUrl(Astro.site, `/${currentPodcast.id}`);
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: currentPodcast.title, url: canonical },
+];
 
 const t = {
   backToAll: "← Back to all podcasts",
@@ -106,7 +112,8 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
     "music documentary",
     "music education",
   ]}
-  canonical={`https://podcasts.melody-mind.de/${currentPodcast.id}`}
+  canonical={canonical}
+  {breadcrumbs}
 >
   <PageShell className="page-shell--aurora">
     <div class="episode">

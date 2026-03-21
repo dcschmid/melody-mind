@@ -3,6 +3,13 @@ import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
 import Footer from "../components/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import {
+  buildOrganizationSchema,
+  buildPodcastEpisodeSchema,
+  buildPodcastSeriesSchema,
+  buildWebSiteSchema,
+} from "@shared-utils/utils/seo/seoSchema";
 
 export interface Props {
   title: string;
@@ -21,6 +28,10 @@ export interface Props {
   audioUrl?: string;
   episodeImage?: string;
   seriesDescription?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  structuredData?: Array<Record<string, unknown>>;
+  index?: boolean;
+  follow?: boolean;
 }
 
 const {
@@ -40,6 +51,10 @@ const {
   audioUrl,
   episodeImage,
   seriesDescription,
+  breadcrumbs = [],
+  structuredData = [],
+  index = true,
+  follow = true,
 } = Astro.props;
 
 const siteTitle = "MelodyMind Podcasts";
@@ -61,7 +76,6 @@ const podcastImage = `${siteUrl}/the-melody-mind-podcast.jpg`;
 const seriesCopy =
   seriesDescription ||
   "Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.";
-const genres = ["Music", "History"];
 const defaultKeywords = [
   "podcast",
   "music history",
@@ -88,117 +102,94 @@ const publisher = {
   },
 };
 
-const podcastSeriesJson = {
-  "@context": "https://schema.org",
-  "@type": "PodcastSeries",
-  name: siteTitle,
+const episodeDurationIso =
+  typeof durationSeconds === "number" && durationSeconds > 0
+    ? toIsoDuration(durationSeconds)
+    : undefined;
+const authorNames = ["Daniel Schmid", "Annabelle"];
+
+const organizationSchema = buildOrganizationSchema({
+  siteUrl,
+  siteName: siteTitle,
   description: seriesCopy,
-  url: siteUrl,
-  inLanguage: locale,
-  image: podcastImage,
-  genre: genres,
-  isAccessibleForFree: true,
+  logoUrl: podcastImage,
+});
+
+const webSiteSchema = buildWebSiteSchema({
+  siteUrl,
+  siteName: siteTitle,
+  description: seriesCopy,
+  searchPathTemplate: "/search?q={search_term_string}",
+});
+
+const podcastSeriesJson = buildPodcastSeriesSchema({
+  siteUrl,
+  title: siteTitle,
+  description: seriesCopy,
+  locale,
+  imageUrl: podcastImage,
+  feedUrl: podcastFeedUrl,
   sameAs: [
     "https://open.spotify.com/show/6iLbxIzJ4x5nMuuK5qySOQ",
     "https://www.deezer.com/en/show/1002446242",
     "https://podcasts.apple.com/us/podcast/melody-mind-–-english/id1847445333",
   ],
-  publisher,
-  webFeed: podcastFeedUrl,
-  author: [
-    {
-      "@type": "Person",
-      name: "Daniel Schmid",
-      url: "https://melody-mind.de",
-    },
-    {
-      "@type": "Person",
-      name: "Annabelle",
-    },
-  ],
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
-};
-
-const episodeDurationIso =
-  typeof durationSeconds === "number" && durationSeconds > 0
-    ? toIsoDuration(durationSeconds)
-    : undefined;
+  authorNames,
+  publisherName: publisher.name,
+  publisherLogoUrl: podcastImage,
+});
 
 const podcastEpisodeJson =
   type === "article"
-    ? {
-        "@context": "https://schema.org",
-        "@type": "PodcastEpisode",
-        name: title,
+    ? buildPodcastEpisodeSchema({
+        title: normalizedTitle,
         description: normalizedDescription,
         url: currentUrl,
-        partOfSeries: {
-          "@type": "PodcastSeries",
-          name: siteTitle,
-          url: siteUrl,
-        },
+        seriesTitle: siteTitle,
+        seriesUrl: siteUrl,
+        locale,
+        imageUrl: episodeImageUrl,
+        publishedAt: publishedTime,
+        modifiedAt: modifiedTime || publishedTime,
         episodeNumber,
-        datePublished: publishedTime,
-        dateModified: modifiedTime || publishedTime,
-        inLanguage: locale,
-        image: episodeImageUrl,
-        genre: genres,
-        isAccessibleForFree: true,
-        timeRequired: episodeDurationIso,
-        author: [
-          {
-            "@type": "Person",
-            name: "Daniel Schmid",
-            url: "https://melody-mind.de",
-          },
-          {
-            "@type": "Person",
-            name: "Annabelle",
-          },
-        ],
-        audio: audioUrl
-          ? {
-              "@type": "AudioObject",
-              url: audioUrl,
-              encodingFormat: "audio/mpeg",
-              duration: episodeDurationIso,
-            }
-          : undefined,
-        publisher,
-      }
+        durationIso: episodeDurationIso,
+        audioUrl,
+        authorNames,
+        publisherName: publisher.name,
+        publisherLogoUrl: podcastImage,
+      })
     : undefined;
 
-const jsonLd = [podcastSeriesJson, podcastEpisodeJson].filter(Boolean);
-const seoStructuredData = jsonLd.map((entry) => ({
-  ...entry,
-  potentialAction:
-    type === "website"
-      ? {
-          "@type": "SearchAction",
-          target: `${siteUrl}/search?q={search_term_string}`,
-          "query-input": "required name=search_term_string",
-        }
-      : undefined,
-}));
-const seoProps = {
+const seoStructuredData = [
+  organizationSchema,
+  webSiteSchema,
+  podcastSeriesJson,
+  podcastEpisodeJson,
+  ...structuredData,
+].filter(Boolean);
+
+const pageSeo = buildPageSeo({
   title: fullTitle,
   description: normalizedDescription,
-  keywords: [...defaultKeywords, ...keywords],
-  authorName: author,
-  canonical: currentUrl,
+  url: currentUrl,
   image: imageUrl,
   imageAlt,
-  structuredDataExtra: seoStructuredData,
+  type: type === "article" ? "article" : "website",
+  structuredData: seoStructuredData,
+  fallbackKeywords: [...defaultKeywords, ...keywords],
+  breadcrumbs,
+  index,
+  follow,
+  maxImagePreview: "large",
+  maxSnippet: -1,
+  maxVideoPreview: -1,
+  ogLocale: locale.replace("-", "_"),
+  twitterCreator: "@melodymind",
+  authorName: author,
+  brandSuffix: false,
   ...(publishDate ? { publishDate } : {}),
   ...(modifiedDate ? { modifiedDate } : {}),
-};
+});
 
 function ensureTrailingSlash(pathname: string) {
   if (!pathname.startsWith("/")) {
@@ -241,32 +232,54 @@ function toIsoDuration(totalSeconds: number) {
     <link rel="preconnect" href="https://www.deezer.com" crossorigin />
     <link rel="preconnect" href="https://www.youtube.com" crossorigin />
     <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
-    <SEO {...seoProps} />
-    <meta name="title" content={fullTitle} />
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    <SEO
+      title={pageSeo.title}
+      description={pageSeo.description}
+      keywords={pageSeo.keywordArray}
+      image={pageSeo.image}
+      imageAlt={pageSeo.imageAlt}
+      canonical={pageSeo.canonical}
+      publishDate={pageSeo.publishDate}
+      modifiedDate={pageSeo.modifiedDate}
+      structuredDataExtra={pageSeo.structuredData}
+      authorName={pageSeo.authorName}
     />
+    <meta name="robots" content={pageSeo.robots} />
     <meta name="language" content={language} />
     <meta name="revisit-after" content="7 days" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <meta property="og:type" content={type} />
-    <meta property="og:url" content={currentUrl} />
-    <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={normalizedDescription} />
-    <meta property="og:image" content={imageUrl} />
+    <meta property="og:type" content={pageSeo.openGraph.type} />
+    <meta property="og:url" content={pageSeo.openGraph.url} />
+    <meta property="og:title" content={pageSeo.openGraph.title} />
+    <meta property="og:description" content={pageSeo.openGraph.description} />
+    {
+      pageSeo.openGraph.image && (
+        <meta property="og:image" content={pageSeo.openGraph.image} />
+      )
+    }
     <meta property="og:site_name" content={siteTitle} />
-    <meta property="og:locale" content={locale.replace("-", "_")} />
+    <meta
+      property="og:locale"
+      content={pageSeo.openGraph.locale || locale.replace("-", "_")}
+    />
     {type === "article" && <meta property="article:author" content={author} />}
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={currentUrl} />
-    <meta property="twitter:title" content={fullTitle} />
-    <meta property="twitter:description" content={normalizedDescription} />
-    <meta property="twitter:image" content={imageUrl} />
+    <meta property="twitter:card" content={pageSeo.twitter.card} />
+    <meta property="twitter:url" content={pageSeo.canonical} />
+    <meta property="twitter:title" content={pageSeo.twitter.title} />
+    <meta property="twitter:description" content={pageSeo.twitter.description} />
+    {
+      pageSeo.twitter.image && (
+        <meta property="twitter:image" content={pageSeo.twitter.image} />
+      )
+    }
     <meta name="twitter:image:alt" content={imageAlt} />
-    <meta property="twitter:creator" content="@melodymind" />
+    {
+      pageSeo.twitter.creator && (
+        <meta property="twitter:creator" content={pageSeo.twitter.creator} />
+      )
+    }
     <meta property="twitter:site" content="@melodymind" />
     <link
       rel="alternate"

@@ -3,7 +3,10 @@
  * Central wrapper combining title, description, keywords, canonical, social image and structured data hooks.
  * This reduces repetitive assembly across Astro pages.
  */
-import { PLAYLIST_COVER_IMAGE, PODCAST_COVER_IMAGE } from "@shared-utils/constants/assets";
+import {
+  PLAYLIST_COVER_IMAGE,
+  PODCAST_COVER_IMAGE,
+} from "@shared-utils/constants/assets";
 import { LRUCache } from "@shared-utils/utils/cache/LRUCache";
 
 import buildSeoText from "@shared-utils/utils/seo/textUnified";
@@ -78,6 +81,8 @@ export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptio
     error: unknown,
     context: { title: string; contentKind: PageContentKind }
   ) => void;
+  /** Override default title branding, or disable branding with false */
+  brandSuffix?: string | false;
 }
 
 export interface PageSeoResult extends SeoTextResult {
@@ -133,10 +138,23 @@ const MAX_SEO_CACHE_SIZE = 100;
 // In-memory memoization cache using LRU eviction
 const seoCache = new LRUCache<string, PageSeoResult>({ maxSize: MAX_SEO_CACHE_SIZE });
 
-function ensureBrandSuffix(title: string): string {
-  return title.endsWith(" - MelodyMind") || title.endsWith(" | Melody Mind")
-    ? title.replace(" | Melody Mind", BRAND_SUFFIX)
-    : `${title}${BRAND_SUFFIX}`;
+function ensureBrandSuffix(
+  title: string,
+  brandSuffix: string | false = BRAND_SUFFIX
+): string {
+  if (brandSuffix === false) {
+    return title;
+  }
+
+  if (title.endsWith(brandSuffix)) {
+    return title;
+  }
+
+  if (brandSuffix === BRAND_SUFFIX && title.endsWith(" | Melody Mind")) {
+    return title.replace(" | Melody Mind", BRAND_SUFFIX);
+  }
+
+  return `${title}${brandSuffix}`;
 }
 
 /**
@@ -198,6 +216,7 @@ function buildCacheKey(o: {
   language?: string;
   index: boolean;
   follow: boolean;
+  brandSuffix?: string | false;
 }): string {
   return JSON.stringify(o);
 }
@@ -370,6 +389,7 @@ interface NormalizedResultBase {
   breadcrumbs?: Array<{ name: string; url: string }>;
   authorName?: string;
   imageAlt?: string;
+  brandSuffix: string | false;
   memoize: boolean;
   autoSocialImage: boolean;
   generateSocialImage?: BuildPageSeoParams["generateSocialImage"];
@@ -410,6 +430,7 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     breadcrumbs,
     authorName,
     imageAlt,
+    brandSuffix = BRAND_SUFFIX,
     memoize = true,
     autoSocialImage = false,
     generateSocialImage,
@@ -428,6 +449,7 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
         language: (rest as { language?: string }).language,
         index,
         follow,
+        brandSuffix,
       })
     : "";
   if (memoize && seoCache.has(cacheKey)) {
@@ -463,6 +485,7 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     breadcrumbs,
     authorName,
     imageAlt,
+    brandSuffix,
     memoize,
     autoSocialImage,
     generateSocialImage,
@@ -507,6 +530,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     breadcrumbs,
     authorName,
     imageAlt,
+    brandSuffix,
     memoize,
     autoSocialImage,
     generateSocialImage,
@@ -515,7 +539,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     cacheKey,
   } = norm;
 
-  const normalizedTitle = ensureBrandSuffix(title);
+  const normalizedTitle = ensureBrandSuffix(title, brandSuffix);
   const seoText = prepareSeoText(normalizedTitle, description, enrichedParts, rest);
   const { inferredType, finalImage: baseImage } = inferTypeAndImage(
     contentKind,
@@ -560,7 +584,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     robots,
     robotsDirectives: parseRobots(robots),
     openGraph: {
-      title,
+      title: normalizedTitle,
       description: seoText.description,
       type: inferredType,
       url,
@@ -569,7 +593,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     },
     twitter: {
       card: finalImage ? "summary_large_image" : "summary",
-      title,
+      title: normalizedTitle,
       description: seoText.description,
       image: finalImage,
       creator: twitterCreator,

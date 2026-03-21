@@ -6,6 +6,7 @@ export { buildTaxonomySectionPageData } from "./buildTaxonomySectionPageData";
 
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {
+  buildBreadcrumbListSchema,
   buildCollectionPageSchema,
   buildKnowledgeArticlesItemList,
 } from "@shared-utils/utils/seo/seoSchema";
@@ -119,16 +120,7 @@ export function buildTaxonomySectionSeo({
   }
 
   const sectionDates = derivePublishModified(earliestCreated, latestUpdated);
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: crumb.name,
-      item: crumb.url,
-    })),
-  };
+  const breadcrumbSchema = buildBreadcrumbListSchema(breadcrumbs);
   const itemListSchema = buildKnowledgeArticlesItemList({
     articles: sectionArticles.map((article) => ({
       slug: article.id,

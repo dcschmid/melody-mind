@@ -10,6 +10,10 @@ import Icon from "@shared-ui/components/visual/Icon.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import {
+  buildBreadcrumbListSchema,
+  buildQuizSchema,
+} from "@shared-utils/utils/seo/seoSchema";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getCollection } from "astro:content";
 import type { QuizData, QuizQuestion } from "../content.config";
@@ -40,16 +44,7 @@ const seoBreadcrumbs = [
   { name: quiz.data.title, url: currentUrl },
 ];
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: seoBreadcrumbs.map((crumb, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    name: crumb.name,
-    item: crumb.url,
-  })),
-};
+const breadcrumbSchema = buildBreadcrumbListSchema(seoBreadcrumbs);
 
 const quizSeoTitle = quiz.data.seoTitle || `${quiz.data.title} Music Quiz`;
 const quizSeoDescription = quiz.data.seoDescription || quiz.data.description;
@@ -58,19 +53,14 @@ const quizFeaturedTopics = quiz.data.featuredTopics.length
   ? quiz.data.featuredTopics
   : [quiz.data.category.replace(/-/g, " "), ...quiz.data.relatedArticles];
 
-const quizSchema = {
-  "@context": "https://schema.org",
-  "@type": "Quiz",
-  name: quiz.data.title,
+const quizSchema = buildQuizSchema({
+  title: quiz.data.title,
   description: quizSeoDescription,
   url: currentUrl,
   numberOfQuestions: quiz.data.questionsPerSession,
-  about: quizFeaturedTopics.map((topic: string) => ({
-    "@type": "Thing",
-    name: topic,
-  })),
-  keywords: quizFeaturedTopics.join(", "),
-};
+  topics: quizFeaturedTopics,
+  keywords: quizFeaturedTopics,
+});
 
 const pageSeo = buildPageSeo({
   title: quizSeoTitle,
@@ -78,6 +68,7 @@ const pageSeo = buildPageSeo({
   url: currentUrl,
   image: quizImage,
   structuredData: [breadcrumbSchema, quizSchema] as StructuredData[],
+  brandSuffix: " - MelodyMind Quiz",
 });
 
 const questionsData = quiz.data.questions.map((q: QuizQuestion) => ({

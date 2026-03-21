@@ -7,11 +7,17 @@ import Prose from "@shared-ui/components/typography/Prose.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import StaticPageHero from "../components/StaticPageHero.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import {
+  buildArticleSchema,
+  buildFaqPageSchema,
+} from "@shared-utils/utils/seo/seoSchema";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export const prerender = true;
 
 const canonical = resolvePageUrl(Astro.site, "/ai-content");
+const publishedAt = new Date("2026-03-15T00:00:00.000Z");
+const modifiedAt = new Date("2026-03-21T00:00:00.000Z");
 
 const seoBreadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
@@ -19,29 +25,16 @@ const seoBreadcrumbs = [
 ];
 
 const structuredDataExtra = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "AI Content Policy",
-    name: "AI Content Policy",
+  buildArticleSchema({
+    canonical,
+    title: "AI Content Policy",
     description:
       "How we use AI tools at Melody Mind and ensure content quality, transparency, and compliance with copyright law.",
-    url: canonical,
-    author: { "@type": "Organization", name: "Melody Mind" },
-    publisher: {
-      "@type": "Organization",
-      name: "Melody Mind",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://melody-mind.de/melody-mind.png",
-      },
-    },
-    datePublished: new Date().toISOString(),
-    dateModified: new Date().toISOString(),
-    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-    inLanguage: "en",
+    lang: "en",
+    createdAt: publishedAt,
+    updatedAt: modifiedAt,
     articleSection: "About",
-  },
+  }),
 ];
 
 const highlights = [
@@ -122,6 +115,11 @@ const faqItems = [
   },
 ] as const;
 
+const faqPageSchema = buildFaqPageSchema([...faqItems]);
+if (faqPageSchema) {
+  structuredDataExtra.push(faqPageSchema);
+}
+
 const principles = [
   "Transparency about where AI supports our workflow",
   "Human review before anything is published",
@@ -157,8 +155,8 @@ const pageSeo = buildPageSeo({
   maxDescription: 155,
   image: "/knowledge.png",
   imageAlt: "AI Content Policy",
-  publishDate: new Date(),
-  modifiedDate: new Date(),
+  publishDate: publishedAt,
+  modifiedDate: modifiedAt,
   index: true,
   follow: true,
   autoSocialImage: false,

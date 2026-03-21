@@ -1,6 +1,7 @@
 ---
 import PodcastLayout from "../layouts/PodcastLayout.astro";
 import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getAvailablePodcasts } from "../utils/podcasts";
 import type { PodcastData } from "../types/podcast";
 
@@ -19,6 +20,11 @@ const items: SearchPageItem[] = podcasts.map((podcast) => ({
   description: podcast.description,
   url: `/${podcast.id}`,
 }));
+const canonical = resolvePageUrl(Astro.site, "/search");
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "Search", url: canonical },
+];
 
 const t = {
   seoTitle: "Search MelodyMind Podcasts",
@@ -40,7 +46,10 @@ const t = {
     "episode search",
     "melodymind podcasts",
   ]}
-  canonical="https://podcasts.melody-mind.de/search"
+  canonical={canonical}
+  {breadcrumbs}
+  index={false}
+  follow={true}
 >
   <div class="podcast-search">
     <SearchPageSection

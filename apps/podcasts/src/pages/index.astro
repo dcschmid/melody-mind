@@ -8,8 +8,13 @@ import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import SearchForm from "@shared-ui/components/search/SearchForm.astro";
 import type { ContentCardMetaItem } from "@shared-ui/components/cards/contentCard";
+import {
+  buildCollectionPageSchema,
+  buildPodcastEpisodesItemListSchema,
+} from "@shared-utils/utils/seo/seoSchema";
 import type { PodcastData } from "../types/podcast";
 import { formatDate } from "../utils/helpers";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 import { getAvailablePodcasts } from "../utils/podcasts";
 import { PAGINATION_CONFIG } from "../constants";
@@ -42,6 +47,18 @@ const buildEpisodeMetaItems = (
   return items;
 };
 
+const toIsoDuration = (durationSeconds?: number): string | undefined => {
+  if (!durationSeconds || durationSeconds <= 0) {
+    return undefined;
+  }
+
+  const hours = Math.floor(durationSeconds / 3600);
+  const minutes = Math.floor((durationSeconds % 3600) / 60);
+  const seconds = Math.floor(durationSeconds % 60);
+
+  return `PT${hours > 0 ? `${hours}H` : ""}${minutes > 0 ? `${minutes}M` : ""}${seconds || (!hours && !minutes) ? `${seconds}S` : ""}`;
+};
+
 const episodeEntries = sortedPodcasts.map((podcast, index) => ({
   id: podcast.id,
   title: podcast.title,
@@ -58,6 +75,9 @@ const initialEpisodes = episodeEntries.slice(0, PAGINATION_CONFIG.EPISODES_PER_P
 const templateEpisode = episodeEntries[0];
 const serializedEpisodes = JSON.stringify(episodeEntries).replace(/</g, "\\u003c");
 const encodedEpisodes = Buffer.from(serializedEpisodes, "utf8").toString("base64");
+const canonical = resolvePageUrl(Astro.site, "/");
+const breadcrumbs = [{ name: "Home", url: canonical }];
+const episodeListId = `${canonical}#podcast-itemlist`;
 
 const t = {
   title: "MelodyMind Podcasts",
@@ -87,6 +107,28 @@ const t = {
     "audio stories",
   ],
 };
+
+const collectionPageSchema = buildCollectionPageSchema({
+  url: canonical,
+  name: t.title,
+  description: t.seoDescription,
+  lang: "en",
+  image: "https://podcasts.melody-mind.de/the-melody-mind-podcast.jpg",
+  mainEntityId: episodeListId,
+});
+
+const episodeListSchema = buildPodcastEpisodesItemListSchema({
+  episodes: sortedPodcasts.map((podcast) => ({
+    title: podcast.title,
+    description: podcast.description,
+    url: resolvePageUrl(Astro.site, `/${podcast.id}`),
+    image: `https://podcasts.melody-mind.de/images/${podcast.imageUrl}.jpg`,
+    publishedAt: podcast.publishedAt,
+    durationIso: toIsoDuration(podcast.durationSeconds),
+  })),
+  listName: "MelodyMind Podcast Episodes",
+  itemListId: episodeListId,
+});
 ---
 
 <PodcastLayout
@@ -97,6 +139,9 @@ const t = {
   language="en"
   locale="en-US"
   seriesDescription={t.seoDescription}
+  canonical={canonical}
+  {breadcrumbs}
+  structuredData={[collectionPageSchema, episodeListSchema].filter(Boolean)}
 >
   <PageShell className="page-shell--aurora">
     <div class="home">
