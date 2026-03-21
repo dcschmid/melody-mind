@@ -1,8 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
-import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import LegalDocumentSection from "../components/LegalDocumentSection.astro";
+import StaticPageHero from "../components/StaticPageHero.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
@@ -16,6 +16,61 @@ const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: title, url: currentUrl },
 ];
+
+const highlights = [
+  {
+    value: "Consent-based",
+    label: "Analytics only turns on after you explicitly opt in.",
+  },
+  {
+    value: "Local-first",
+    label: "Most entries are browser storage keys for reading features.",
+  },
+  {
+    value: "Always manageable",
+    label: "You can update consent or clear storage at any time.",
+  },
+] as const;
+
+const policySections = [
+  {
+    icon: "shield",
+    title: "Do we use cookies?",
+    body: [
+      "We currently do not place non-essential tracking cookies ourselves. For analytics, we use Fathom only after you give explicit consent through the cookie banner.",
+    ],
+  },
+  {
+    icon: "shield",
+    title: "Analytics consent and legal basis",
+    body: [
+      "Non-essential analytics turns on only after you explicitly opt in through the cookie banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy Directive.",
+      "If your browser sends a Do Not Track (DNT) signal, analytics remains disabled.",
+    ],
+  },
+  {
+    icon: "settings",
+    title: "How to change or withdraw consent",
+    body: [
+      "Open <strong>Cookie settings</strong> in the footer at any time to review or update your choice. You can also clear site storage in your browser settings.",
+    ],
+  },
+  {
+    icon: "file-text",
+    title: "Related privacy information",
+    body: [
+      'For full details about personal data processing and your rights, see our <a href="/privacy">Privacy Policy</a>.',
+    ],
+  },
+  {
+    icon: "refresh-ccw",
+    title: "Policy updates",
+    body: [
+      "We update this page when storage technologies, analytics settings, or legal requirements change.",
+      `Last updated: ${lastUpdated}.`,
+    ],
+  },
+] as const;
 
 const pageSeo = buildPageSeo({
   title,
@@ -39,210 +94,150 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo}>
-  <PageShell containerClass="page-shell__container--spacious">
+  <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
     <div class="cookies-page">
-      <header class="cookies-page__header static-page-header">
-        <Paragraph textSize="sm" className="cookies-page__eyebrow static-page-eyebrow">
-          Privacy
-        </Paragraph>
-        <Headline
-          level="h1"
-          textSize="2xl"
-          className="cookies-page__title static-page-title"
+      <StaticPageHero
+        eyebrow="Privacy"
+        title="Cookie & Storage Policy"
+        lead="This page explains which cookies and browser storage technologies we use, why we use them, and how you can manage your preferences."
+        {highlights}
+        highlightsLabel="Key cookie policy points"
+      />
+
+      <div class="cookies-page__content-grid">
+        {
+          policySections.map((section) => (
+            <LegalDocumentSection
+              icon={section.icon}
+              title={section.title}
+              body={section.body}
+            />
+          ))
+        }
+
+        <LegalDocumentSection
+          icon="book-open"
+          title="Local storage entries we use"
+          class="cookies-page__section--table"
         >
-          Cookie & Storage Policy
-        </Headline>
-        <Paragraph textSize="lg" className="cookies-page__lead static-page-lead">
-          This page explains which cookies and browser storage technologies we use, why we
-          use them, and how you can manage your preferences.
-        </Paragraph>
-      </header>
-
-      <section class="legal-panel cookies-page__section">
-        <Headline level="h2" textSize="base" className="cookies-page__section-title">
-          1. Do we use cookies?
-        </Headline>
-        <Paragraph textSize="sm" className="cookies-page__text">
-          We currently do not place non-essential tracking cookies ourselves. For
-          analytics, we use Fathom only after you give explicit consent through the cookie
-          banner.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel cookies-page__section">
-        <Headline level="h2" textSize="base" className="cookies-page__section-title">
-          2. Local storage entries we use
-        </Headline>
-        <div class="cookies-page__table-wrap">
-          <table class="cookies-page__table">
-            <caption class="cookies-page__sr-only">
-              Browser storage keys used by Melody Mind Knowledge
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Key</th>
-                <th scope="col">Purpose</th>
-                <th scope="col">Type</th>
-                <th scope="col">Retention</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>cookie_consent</code></td>
-                <td
-                  >Stores your consent preferences for essential and analytics processing.</td
-                >
-                <td>LocalStorage</td>
-                <td>Until you change or delete it.</td>
-              </tr>
-              <tr>
-                <td><code>mm_recent_reads</code></td>
-                <td>Shows your recently opened articles on the home page.</td>
-                <td>LocalStorage</td>
-                <td>Until it is replaced or cleared by you.</td>
-              </tr>
-              <tr>
-                <td><code>mm_bookmarks</code></td>
-                <td>Saves your selected articles.</td>
-                <td>LocalStorage</td>
-                <td>Until you change or clear it.</td>
-              </tr>
-              <tr>
-                <td><code>mm_read_progress</code></td>
-                <td>Stores your reading progress for each article.</td>
-                <td>LocalStorage</td>
-                <td>Until it is replaced or cleared by you.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="legal-panel cookies-page__section">
-        <Headline level="h2" textSize="base" className="cookies-page__section-title">
-          3. Analytics consent and legal basis
-        </Headline>
-        <Paragraph textSize="sm" className="cookies-page__text">
-          Non-essential analytics turns on only after you explicitly opt in through the
-          cookie banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy
-          Directive.
-        </Paragraph>
-        <Paragraph textSize="sm" className="cookies-page__text">
-          If your browser sends a Do Not Track (DNT) signal, analytics remains disabled.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel cookies-page__section">
-        <Headline level="h2" textSize="base" className="cookies-page__section-title">
-          4. How to change or withdraw consent
-        </Headline>
-        <Paragraph textSize="sm" className="cookies-page__text">
-          Open <strong>Cookie settings</strong> in the footer at any time to review or update
-          your choice. You can also clear site storage in your browser settings.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel cookies-page__section">
-        <Headline level="h2" textSize="base" className="cookies-page__section-title">
-          5. Related privacy information
-        </Headline>
-        <Paragraph textSize="sm" className="cookies-page__text">
-          For full details about personal data processing and your rights, see our
-          <a class="cookies-page__link" href="/privacy"> Privacy Policy</a>.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel cookies-page__section">
-        <Headline level="h2" textSize="base" className="cookies-page__section-title">
-          6. Policy updates
-        </Headline>
-        <Paragraph textSize="sm" className="cookies-page__text">
-          We update this page when storage technologies, analytics settings, or legal
-          requirements change.
-        </Paragraph>
-        <Paragraph textSize="sm" className="cookies-page__text">
-          Last updated: {lastUpdated}.
-        </Paragraph>
-      </section>
+          <div class="cookies-page__table-wrap">
+            <table class="cookies-page__table">
+              <caption class="cookies-page__sr-only">
+                Browser storage keys used by Melody Mind Knowledge
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Key</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Retention</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>cookie_consent</code></td>
+                  <td
+                    >Stores your consent preferences for essential and analytics
+                    processing.</td
+                  >
+                  <td>LocalStorage</td>
+                  <td>Until you change or delete it.</td>
+                </tr>
+                <tr>
+                  <td><code>mm_recent_reads</code></td>
+                  <td>Shows your recently opened articles on the home page.</td>
+                  <td>LocalStorage</td>
+                  <td>Until it is replaced or cleared by you.</td>
+                </tr>
+                <tr>
+                  <td><code>mm_read_progress</code></td>
+                  <td>Stores your reading progress for each article.</td>
+                  <td>LocalStorage</td>
+                  <td>Until it is replaced or cleared by you.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </LegalDocumentSection>
+      </div>
     </div>
   </PageShell>
 </Layout>
 
 <style>
   .cookies-page {
-    display: flex;
-    flex-direction: column;
-    gap: var(--static-page-gap);
+    display: grid;
+    gap: var(--spacing-2xl);
   }
 
-  .cookies-page__section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--static-page-section-gap);
-  }
-
-  .cookies-page__section-title {
-    margin: 0;
-    font-size: 1.225rem;
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  .cookies-page__text {
-    margin: 0;
-    line-height: 1.6;
-    color: var(--text-secondary);
+  .cookies-page__content-grid {
+    display: grid;
+    gap: var(--section-gap);
   }
 
   .cookies-page__table-wrap {
+    padding: var(--spacing-sm);
     overflow-inline: auto;
+    background: color-mix(in srgb, var(--surface-1) 82%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 68%, transparent);
+    border-radius: var(--card-radius);
   }
 
   .cookies-page__table {
     inline-size: 100%;
-    min-inline-size: 40rem;
+    min-inline-size: min(40rem, 100%);
     border-collapse: collapse;
   }
 
   .cookies-page__table th,
   .cookies-page__table td {
-    padding: 0.7rem 0.5rem;
+    padding: var(--spacing-md) var(--spacing-sm);
     vertical-align: top;
     color: var(--text-secondary);
     text-align: start;
-    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
   }
 
   .cookies-page__table th {
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
   }
 
   .cookies-page__table code {
     font-family: var(--font-mono);
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
     color: var(--link-default);
-  }
-
-  .cookies-page__link {
-    color: var(--link-default);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .cookies-page__link:hover,
-  .cookies-page__link:focus-visible {
-    color: var(--link-hover);
   }
 
   .cookies-page__sr-only {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    margin: -1px;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
     clip-path: inset(50%);
+  }
+
+  @media (width >= 720px) {
+    .cookies-page {
+      padding: var(--spacing-xl);
+    }
+
+    .cookies-page__content-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 1100px) {
+    .cookies-page__content-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-lg);
+    }
+
+    .cookies-page__section--table {
+      grid-column: 1 / -1;
+    }
   }
 </style>

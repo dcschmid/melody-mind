@@ -2,13 +2,12 @@
 /**
  * Knowledge Article Page (English only)
  */
-import { Picture } from "astro:assets";
 import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
 import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
+import KnowledgeArticleHero from "@components/KnowledgeArticleHero.astro";
 import RelatedKnowledgeArticles from "@components/RelatedKnowledgeArticles.astro";
-import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import LinkPanel from "@shared-ui/components/cards/LinkPanel.astro";
 import ReadingProgress from "@shared-ui/components/navigation/ReadingProgress.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
@@ -17,19 +16,12 @@ import RecentItemsTracker from "@shared-ui/components/init/RecentItemsTracker.as
 
 import KnowledgeTakeaways from "@shared-ui/components/cards/KnowledgeTakeaways.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
-import AIContentBadge from "@shared-ui/components/badges/AIContentBadge.astro";
-import Icon from "@shared-ui/components/visual/Icon.astro";
-import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
-import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
-import { getReadingTime } from "@shared-utils/utils/readingTime";
-import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
-import { loggers } from "@shared-utils/utils/logging";
 import { VERSIONED_KEYS } from "@constants/storageVersions";
 import {
-  buildKnowledgeArticleStructuredData,
-  getKnowledgePodcastUrl,
-  getKnowledgeSeoTitle,
-  getKnowledgeTaxonomyMeta,
+  buildKnowledgeArticleStorageMeta,
+  buildKnowledgeArticlePageData,
+  getKnowledgeArticleStaticPaths,
+  resolveKnowledgeArticleEntry,
   resolveKnowledgeSlug,
 } from "@utils/knowledge/articlePage";
 import "@styles/knowledge.css";
@@ -41,202 +33,51 @@ export const prerender = true;
  * We pass the full entry through `props` so the page can render without re-fetching during build.
  */
 export async function getStaticPaths() {
-  const entries: any[] = await getCollectionCached("knowledge-en").catch(() => []);
-  const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
-  for (const entry of entries) {
-    const slug = entry?.slug || entry?.id;
-    if (!slug) continue;
-    paths.push({ params: { slug }, props: { entry } });
-  }
-  return paths;
+  return getKnowledgeArticleStaticPaths();
 }
 
 const lang = "en";
-let entry: any = (Astro.props as { entry?: any }).entry;
+const initialEntry: any = (Astro.props as { entry?: any }).entry;
 
 // `[...slug]` can arrive either as an array or as a flat string depending on the route shape.
 const resolvedSlug = resolveKnowledgeSlug((Astro as any).params?.slug);
-
-if (!entry) {
-  try {
-    // Fallback for preview/runtime scenarios where `getStaticPaths()` props are not present.
-    const articles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
-    if (resolvedSlug) {
-      entry = articles.find((a) => a.slug === resolvedSlug || a.id === resolvedSlug);
-    }
-  } catch (e) {
-    loggers.pages.warn("knowledge article: collection load issue (fallback)", {
-      error: (e as any)?.message || e,
-    });
-  }
-}
+const entry = await resolveKnowledgeArticleEntry({
+  entry: initialEntry,
+  slug: resolvedSlug,
+  lang,
+});
 
 if (!entry) {
   return new Response("Not found", { status: 404 });
 }
 
 const slugKey = resolvedSlug || entry?.slug || entry?.id || "";
-
-// Persist reading time into the local entry object if older content has not been backfilled yet.
-if (!entry.data.readingTime && entry.body) {
-  try {
-    entry = {
-      ...entry,
-      data: {
-        ...entry.data,
-        readingTime: getReadingTime(entry.body || "", { languageCode: lang }).minutes,
-      },
-    };
-  } catch {
-    // ignore reading time calculation errors
-  }
-}
-
 const { headings, Content } = await render(entry);
 const mergedHeadings = headings;
 const takeaways = entry.data.takeaways || [];
-
-const rawImage = entry.data.image;
-const isValidImage =
-  typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
-const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
-const title = entry.data.title;
-const seoTitle = getKnowledgeSeoTitle(slugKey, title);
-const description = entry.data.description;
-const optimizedDescription = description || title;
-
-const imageAbsolute = resolveAbsoluteUrl(Astro.site, imageSource);
-const imageWidth = 1200;
-const imageHeight = 800;
-
-// Canonical URLs always point to the routed `/knowledge/*` path, not legacy URLs.
-const canonical = resolvedSlug
-  ? resolvePageUrl(Astro.site, `/knowledge/${resolvedSlug}`)
-  : resolvePageUrl(Astro.site, "/");
-const podcastBase = "https://podcasts.melody-mind.de";
-const podcastUrl = getKnowledgePodcastUrl(entry.data, podcastBase);
-const seoBreadcrumbsBase = [{ name: "Home", url: resolvePageUrl(Astro.site, "/") }];
 const {
+  articleLinks,
+  canonical,
+  currentKeywords,
   currentTaxonomySubsection,
   currentTaxonomyGroup,
-  seoCategoryCrumb,
-  taxonomyPillLabel,
-} = getKnowledgeTaxonomyMeta(
-  Astro.site,
-  entry.data.taxonomySubsection,
-  entry.data.taxonomyGroup
-);
-const seoBreadcrumbs = [
-  ...seoBreadcrumbsBase,
-  ...(seoCategoryCrumb ? [seoCategoryCrumb] : []),
-  { name: title, url: canonical },
-];
-// The page always emits article-like schema and upgrades to podcast semantics when episode data exists.
-const structuredDataExtra = buildKnowledgeArticleStructuredData({
-  canonical,
   description,
-  imageAbsolute,
-  imageHeight,
-  imageWidth,
-  keywords: Array.isArray(entry.data.keywords) ? entry.data.keywords : [],
-  lang,
-  podcastBase,
-  podcastUrl,
+  imageSource,
+  pageSeo,
+  publishedDate,
+  publishedDateLabel,
+  readingResult,
+  taxonomyPillLabel,
   title,
-  createdAt: entry.data.createdAt,
-  updatedAt: entry.data.updatedAt,
-  body: entry.body,
+} = buildKnowledgeArticlePageData({
+  site: Astro.site,
+  entry,
+  lang,
+  slugKey,
 });
-
-const readingResult = getReadingTime(entry.body || "", { languageCode: lang });
-const publishedDate = new Date(
-  entry.data.updatedAt || entry.data.createdAt || new Date()
-);
-const publishedDateLabel = publishedDate.toLocaleDateString(lang, {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-});
-const currentKeywords = (
-  Array.isArray(entry.data.keywords)
-    ? entry.data.keywords
-        .map((keyword: unknown) =>
-          typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
-        )
-        .filter((keyword: string): keyword is string => Boolean(keyword))
-    : []
-).slice();
-
-// `buildPageSeo()` normalizes title/description/keyword output across the whole monorepo.
-const pageSeo = buildPageSeo({
-  title: seoTitle,
-  description: optimizedDescription,
-  url: canonical,
-  contentKind: "generic",
-  breadcrumbs: seoBreadcrumbs,
-  structuredData: structuredDataExtra,
-  enrichedParts: [title, description].filter(Boolean) as string[],
-  fallbackKeywords: (entry.data.keywords || []).slice(0, 20),
-  keywordLimit: 24,
-  maxDescription: 155,
-  image: imageAbsolute,
-  imageAlt: title,
-  publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
-  modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
-  index: true,
-  follow: true,
-  autoSocialImage: false,
-  authorName: entry.data.author || "Melody Mind",
-});
-
-const storageSlug = resolvedSlug || entry?.slug || entry?.id || "";
-const storageUpdatedAtRaw = entry?.data?.updatedAt || entry?.data?.createdAt || "";
-const parsedStorageDate = storageUpdatedAtRaw ? new Date(storageUpdatedAtRaw) : null;
-const storageUpdatedAt =
-  parsedStorageDate && !Number.isNaN(parsedStorageDate.valueOf())
-    ? parsedStorageDate.toISOString()
-    : "";
-const storageImage = typeof rawImage === "string" ? rawImage : "";
-
-interface ArticleHeroLink {
-  href?: string | null;
-  label: string;
-  icon: string;
-  variant: "primary" | "secondary";
-  ariaLabel: string;
-  analyticsPodcastTarget?: "episode" | "series";
-}
-
-const spotifyPlaylist = entry.data.playlists?.spotifyPlaylist;
-const deezerPlaylist = entry.data.playlists?.deezerPlaylist;
-const articleLinksSource: ArticleHeroLink[] = [
-  {
-    href: spotifyPlaylist,
-    label: "Spotify",
-    icon: "spotify",
-    variant: "secondary",
-    ariaLabel: `Open Spotify playlist for ${title}`,
-  },
-  {
-    href: deezerPlaylist,
-    label: "Deezer",
-    icon: "deezer",
-    variant: "secondary",
-    ariaLabel: `Open Deezer playlist for ${title}`,
-  },
-  {
-    href: podcastUrl,
-    label: "Open podcast episode",
-    icon: "headphones",
-    variant: "primary",
-    ariaLabel: `Open podcast page for ${title}`,
-    analyticsPodcastTarget: "episode",
-  },
-];
-
-const articleLinks = articleLinksSource.filter(
-  (link): link is ArticleHeroLink & { href: string } =>
-    typeof link.href === "string" && link.href.trim().length > 0
+const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleStorageMeta(
+  entry,
+  slugKey
 );
 ---
 
@@ -253,91 +94,16 @@ const articleLinks = articleLinksSource.filter(
       currentTaxonomySubsection ||
       "uncategorized"}
   >
-    <div class="knowledge__backdrop"></div>
-    <div class="knowledge__texture"></div>
-
     <div class="knowledge__container">
-      <div class="knowledge__hero">
-        <HeroTeaser
-          id={`knowledge-article-hero-${slugKey || "entry"}`}
-          title={entry.data.title}
-          titleLevel="h1"
-          description={entry.data.description}
-          mediaPosition="end"
-          mediaAspectRatio="3 / 2"
-          class="knowledge__hero-teaser"
-        >
-          <div slot="meta" class="knowledge__meta">
-            <span class="knowledge__pill knowledge__pill--label">In-depth guide</span>
-            {
-              entry.data.aiGenerated ? (
-                <AIContentBadge
-                  aiTools={entry.data.aiTools}
-                  size="md"
-                  className="knowledge__ai-badge"
-                />
-              ) : null
-            }
-            <span class="knowledge__pill">
-              <Icon name="calendar" class="knowledge__pill-icon" aria-hidden="true" />
-              <time datetime={publishedDate.toISOString()}>{publishedDateLabel}</time>
-            </span>
-            <span class="knowledge__pill">
-              <Icon name="clock" class="knowledge__pill-icon" aria-hidden="true" />
-              <span>{readingResult.text}</span>
-            </span>
-            {
-              taxonomyPillLabel ? (
-                <span class="knowledge__pill">
-                  <Icon
-                    name="tag"
-                    class="knowledge__pill-icon knowledge__pill-icon--teal"
-                    aria-hidden="true"
-                  />
-                  <span>{taxonomyPillLabel}</span>
-                </span>
-              ) : null
-            }
-          </div>
-          <Fragment slot="media">
-            {
-              imageSource ? (
-                <div class="knowledge__media-frame">
-                  <div class="knowledge__media-overlay" aria-hidden="true" />
-                  <Picture
-                    class="knowledge__media-image"
-                    src={imageSource}
-                    widths={[600, 800, 1000, 1200]}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
-                    formats={["avif", "webp", "jpg"]}
-                    alt={title}
-                    loading="eager"
-                    fetchpriority="high"
-                    width={1200}
-                    height={800}
-                    decoding="async"
-                  />
-                </div>
-              ) : (
-                <div
-                  class="knowledge__media-placeholder"
-                  role="img"
-                  aria-label="No image available"
-                >
-                  <div class="knowledge__media-placeholder-content">
-                    <Icon
-                      name="image"
-                      class="knowledge__media-placeholder-icon"
-                      aria-hidden="true"
-                    />
-                    <span>No image available</span>
-                  </div>
-                </div>
-              )
-            }
-          </Fragment>
-        </HeroTeaser>
-      </div>
+      <KnowledgeArticleHero
+        entry={entry}
+        imageSource={imageSource}
+        publishedDate={publishedDate}
+        publishedDateLabel={publishedDateLabel}
+        readingText={readingResult.text}
+        slugKey={slugKey}
+        taxonomyPillLabel={taxonomyPillLabel}
+      />
 
       {
         articleLinks.length ? (
@@ -354,7 +120,7 @@ const articleLinks = articleLinksSource.filter(
           <article id="article-content" class="panel knowledge-article">
             <div id="article-title" class="knowledge__title-sr">{entry.data.title}</div>
             <div role="region" aria-labelledby="article-title" aria-label="Main content">
-              <Prose fullWidth={true} size="lg">
+              <Prose>
                 <Content />
               </Prose>
             </div>

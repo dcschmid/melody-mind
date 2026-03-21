@@ -4,29 +4,17 @@
  */
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import TaxonomyJumpNav from "@components/TaxonomyJumpNav.astro";
+import TaxonomySectionHero from "@components/TaxonomySectionHero.astro";
 import TaxonomySubsectionBlock from "@components/TaxonomySubsectionBlock.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
-import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import {
-  buildCollectionPageSchema,
-  buildKnowledgeArticlesItemList,
-} from "@shared-utils/utils/seo/seoSchema";
 import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
-import {
-  derivePublishModified,
-  normalizeDate,
-} from "@shared-utils/utils/content/dateUtils";
-import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { loggers } from "@shared-utils/utils/logging";
 import {
+  buildTaxonomySectionSeo,
   buildTaxonomySectionPageData,
-  getTaxonomySectionSeoDescription,
-  getTaxonomySectionSeoTitle,
-} from "@utils/knowledge/taxonomyPage";
+} from "@utils/taxonomy/taxonomyPage";
 import { musicTaxonomy } from "../../data/musicTaxonomy";
-import { Image } from "astro:assets";
 
 export const prerender = true;
 
@@ -58,134 +46,22 @@ const { sectionArticles, subsectionsData, jumpTargets } = buildTaxonomySectionPa
   section,
 });
 
-// SEO
-const currentUrl = resolvePageUrl(Astro.site, `/taxonomy/${sectionId}`);
-const baseUrl = resolveBaseUrl(Astro.site);
-const seoDescription = getTaxonomySectionSeoDescription({
+const pageSeo = buildTaxonomySectionSeo({
+  site: Astro.site,
   sectionId,
-  sectionTitle: section.title,
-  sectionDescription: section.description,
-});
-const seoBreadcrumbs = [
-  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
-  { name: section.title, url: currentUrl },
-];
-const articleItemListId = `${currentUrl}#article-itemlist`;
-let earliestCreated: Date | null = null;
-let latestUpdated: Date | null = null;
-
-for (const article of sectionArticles) {
-  const createdAt = normalizeDate(article.data.createdAt);
-  const updatedAt = normalizeDate(article.data.updatedAt);
-  if (
-    createdAt &&
-    (!earliestCreated || createdAt.getTime() < earliestCreated.getTime())
-  ) {
-    earliestCreated = createdAt;
-  }
-  if (updatedAt && (!latestUpdated || updatedAt.getTime() > latestUpdated.getTime())) {
-    latestUpdated = updatedAt;
-  }
-}
-
-const sectionDates = derivePublishModified(earliestCreated, latestUpdated);
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: seoBreadcrumbs.map((crumb, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    name: crumb.name,
-    item: crumb.url,
-  })),
-};
-const itemListSchema = buildKnowledgeArticlesItemList({
-  articles: sectionArticles.map((article: any) => ({
-    slug: "slug" in article ? article.slug : article.id,
-    data: {
-      title: article.data.title,
-      description: article.data.description,
-      createdAt: article.data.createdAt,
-      updatedAt: article.data.updatedAt,
-      keywords: article.data.keywords,
-      image: article.data.image,
-    },
-  })),
-  baseUrl,
-  lang: "en",
-  listName: `${section.title} articles`,
-  itemListId: articleItemListId,
-});
-const collectionPageSchema = buildCollectionPageSchema({
-  url: currentUrl,
-  name: section.title,
-  description: seoDescription,
-  lang: "en",
-  image: section.image ? `${baseUrl}${section.image}` : undefined,
-  mainEntityId: articleItemListId,
-});
-
-const pageSeo = buildPageSeo({
-  title: getTaxonomySectionSeoTitle(sectionId, section.title),
-  description: seoDescription,
-  url: currentUrl,
-  contentKind: "generic",
-  breadcrumbs: seoBreadcrumbs,
-  structuredData: [collectionPageSchema, breadcrumbSchema, itemListSchema].filter(
-    Boolean
-  ) as StructuredData[],
-  enrichedParts: [section.title, section.description || ""],
-  fallbackKeywords: [],
-  keywordLimit: 28,
-  maxDescription: 160,
-  image: section.image,
-  imageAlt: `${section.title} - Melody Mind`,
-  publishDate: sectionDates.publishDate || undefined,
-  modifiedDate: sectionDates.modifiedDate || undefined,
-  index: true,
-  follow: true,
-  autoSocialImage: false,
-  authorName: "Melody Mind",
+  section,
+  sectionArticles,
 });
 ---
 
 <Layout {pageSeo}>
   <PageShell className="page-shell--aurora page-shell--grid">
     <div class="taxonomy-section">
-      <header class="taxonomy-section__header">
-        <HeroTeaser
-          id={`taxonomy-hero-${section.id}`}
-          title={section.title}
-          titleLevel="h1"
-          description={section.description ||
-            "Explore the connected topics and articles in this section."}
-          mediaPosition="start"
-          mediaAspectRatio="4 / 3"
-        >
-          {
-            section.image ? (
-              <Fragment slot="media">
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  loading="eager"
-                  class="taxonomy-section__hero-image"
-                  width="1200"
-                  height="900"
-                />
-              </Fragment>
-            ) : null
-          }
-          <div
-            slot="meta"
-            class="taxonomy-section__stats"
-            aria-label="Section statistics"
-          >
-            <span class="taxonomy-section__stat">{subsectionsData.length} topics</span>
-            <span class="taxonomy-section__stat">{sectionArticles.length} articles</span>
-          </div>
-        </HeroTeaser>
-      </header>
+      <TaxonomySectionHero
+        section={section}
+        subsectionCount={subsectionsData.length}
+        articleCount={sectionArticles.length}
+      />
 
       {jumpTargets.length >= 1 && <TaxonomyJumpNav targets={jumpTargets} />}
 
@@ -206,44 +82,12 @@ const pageSeo = buildPageSeo({
   .taxonomy-section {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
-  }
-
-  .taxonomy-section__header {
-    padding-block-end: var(--spacing-xl);
-    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-  }
-
-  .taxonomy-section__hero-image {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-  }
-
-  .taxonomy-section__stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-base);
-  }
-
-  .taxonomy-section__stat {
-    display: inline-flex;
-    align-items: center;
-    min-block-size: var(--spacing-2xl);
-    padding: var(--spacing-md) var(--spacing-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-1) 92%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-sm);
+    gap: var(--spacing-2xl);
   }
 
   .taxonomy-section__content {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2xl);
+    gap: var(--section-gap);
   }
 </style>

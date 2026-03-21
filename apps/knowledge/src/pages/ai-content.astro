@@ -5,6 +5,7 @@ import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import StaticPageHero from "../components/StaticPageHero.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
@@ -42,6 +43,91 @@ const structuredDataExtra = [
     articleSection: "About",
   },
 ];
+
+const highlights = [
+  { value: "Human-reviewed", label: "Every AI-assisted piece is checked by editors" },
+  { value: "Clearly labeled", label: "AI-supported content is marked transparently" },
+  {
+    value: "Legally aligned",
+    label: "Processes follow copyright and EU transparency rules",
+  },
+] as const;
+
+const policySections = [
+  {
+    icon: "sparkles",
+    title: "What AI Tools We Use",
+    sectionClass: "ai-policy__section--tools",
+    body: [
+      "At Melody Mind, we use AI tools to support content creation, research, and optimization. The main tools we use include:",
+    ],
+    items: [
+      "<strong>ChatGPT (OpenAI)</strong> - Content drafting, research support, and idea development",
+      "<strong>Claude (Anthropic)</strong> - Technical writing, code explanation, and content refinement",
+      "<strong>Other AI tools</strong> - Image generation, translation, and SEO support",
+    ],
+  },
+  {
+    icon: "shield",
+    title: "Human Oversight & Quality Assurance",
+    sectionClass: "ai-policy__section--oversight",
+    body: [
+      "AI-generated content is never published without human review. Our editorial process includes:",
+      "The AI-Generated badge shown on some articles indicates that AI tools contributed to the creation process. It is there to make that use clear and transparent.",
+    ],
+    items: [
+      "Fact-checking all information against reliable sources",
+      "Ensuring historical and musical accuracy",
+      "Reviewing for clarity, tone, and style consistency",
+      "Verifying compliance with copyright laws",
+      "Adding human insights and expertise",
+    ],
+  },
+  {
+    icon: "file-text",
+    title: "Copyright & Legal Compliance",
+    sectionClass: "ai-policy__section--copyright",
+    body: [
+      "We take copyright law seriously. Our AI content practices align with:",
+      "AI does not replace human judgment or creativity. It is a tool that helps us work more efficiently, while our editorial review maintains quality, accuracy, and originality.",
+    ],
+    items: [
+      "<strong>German Copyright Act (UrhG)</strong> - We respect intellectual property rights and do not intentionally create content that infringes existing copyrights",
+      "<strong>EU AI Act transparency requirements</strong> - AI-generated content is clearly labeled in line with EU rules",
+      "<strong>Transparency principle</strong> - Users can identify AI-generated content and understand how we use AI tools",
+    ],
+  },
+] as const;
+
+const faqItems = [
+  {
+    question: "Does AI write all your content?",
+    answer:
+      "No. AI assists with drafting, research, and optimization, but human editors review, refine, and verify all content before publication.",
+  },
+  {
+    question: "Is AI-generated content reliable?",
+    answer:
+      "Yes. Human oversight helps ensure that AI-generated content meets our standards for accuracy, clarity, and musical expertise. We fact-check information and verify sources.",
+  },
+  {
+    question: "Can I trust AI-generated articles?",
+    answer:
+      "Yes. Our editorial process ensures that all content, whether AI-assisted or not, goes through review for accuracy and quality.",
+  },
+  {
+    question: "What about images and media?",
+    answer:
+      "We use AI tools for image generation when appropriate, while following copyright and licensing requirements. AI-generated images are also clearly labeled.",
+  },
+] as const;
+
+const principles = [
+  "Transparency about where AI supports our workflow",
+  "Human review before anything is published",
+  "Source checks for factual, historical, and musical claims",
+  "Clear legal and copyright boundaries",
+] as const;
 
 const pageSeo = buildPageSeo({
   title: "AI Content Policy | Melody Mind",
@@ -81,239 +167,305 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo}>
-  <PageShell containerClass="page-shell__container--spacious">
+  <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
     <div class="ai-policy">
       <div class="ai-policy__container">
-        <header class="ai-policy__header static-page-header">
-          <div class="ai-policy__badge">AI Content Policy</div>
-          <Headline
-            level="h1"
-            textSize="xl"
-            textAlign="left"
-            className="ai-policy__title static-page-title"
-          >
-            Transparency About AI-Generated Content
-          </Headline>
-          <Paragraph
-            textSize="lg"
-            textAlign="left"
-            className="ai-policy__summary static-page-lead"
-          >
-            We use AI tools to enhance our content creation process while maintaining
-            quality, accuracy, and legal compliance.
-          </Paragraph>
-        </header>
+        <StaticPageHero
+          class="ai-policy__hero"
+          badge="AI Content Policy"
+          title="Transparency About AI-Generated Content"
+          titleTextSize="xl"
+          lead="We use AI tools to enhance our content creation process while maintaining quality, accuracy, and legal compliance."
+          {highlights}
+          highlightsLabel="Key policy points"
+        />
 
-        <section class="legal-panel ai-policy__section">
-          <div class="ai-policy__section-header">
-            <Icon name="sparkles" class="ai-policy__icon" aria-hidden="true" />
-            <Headline level="h2" textSize="lg" textAlign="left">
-              What AI Tools We Use
-            </Headline>
-          </div>
-          <Prose>
-            <p>
-              At Melody Mind, we use AI tools to support content creation, research, and
-              optimization. The main tools we use include:
-            </p>
-            <ul>
-              <li>
-                <strong>ChatGPT (OpenAI)</strong> - Content drafting, research support, and
-                idea development
-              </li>
-              <li>
-                <strong>Claude (Anthropic)</strong> - Technical writing, code explanation, and
-                content refinement
-              </li>
-              <li>
-                <strong>Other AI tools</strong> - Image generation, translation, and SEO support
-              </li>
+        <div class="ai-policy__content-grid">
+          {
+            policySections.map((section) => (
+              <section class={`legal-panel ai-policy__section ${section.sectionClass}`}>
+                <div class="ai-policy__section-header">
+                  <Icon name={section.icon} class="ai-policy__icon" aria-hidden="true" />
+                  <Headline level="h2" textSize="lg" textAlign="left">
+                    {section.title}
+                  </Headline>
+                </div>
+                <Prose className="ai-policy__prose">
+                  <p set:html={section.body[0]} />
+                  <ul>
+                    {section.items.map((item) => (
+                      <li set:html={item} />
+                    ))}
+                  </ul>
+                  {section.body[1] && <p set:html={section.body[1]} />}
+                </Prose>
+              </section>
+            ))
+          }
+
+          <section class="legal-panel ai-policy__section ai-policy__section--principles">
+            <div class="ai-policy__section-header">
+              <Icon name="shield" class="ai-policy__icon" aria-hidden="true" />
+              <Headline level="h2" textSize="lg" textAlign="left">
+                Core Principles
+              </Headline>
+            </div>
+            <ul class="ai-policy__principles">
+              {
+                principles.map((principle) => (
+                  <li class="ai-policy__principle">{principle}</li>
+                ))
+              }
             </ul>
-          </Prose>
-        </section>
+          </section>
 
-        <section class="legal-panel ai-policy__section">
-          <div class="ai-policy__section-header">
-            <Icon name="shield" class="ai-policy__icon" aria-hidden="true" />
-            <Headline level="h2" textSize="lg" textAlign="left">
-              Human Oversight & Quality Assurance
-            </Headline>
-          </div>
-          <Prose>
-            <p>
-              AI-generated content is never published without human review. Our editorial
-              process includes:
-            </p>
-            <ul>
-              <li>Fact-checking all information against reliable sources</li>
-              <li>Ensuring historical and musical accuracy</li>
-              <li>Reviewing for clarity, tone, and style consistency</li>
-              <li>Verifying compliance with copyright laws</li>
-              <li>Adding human insights and expertise</li>
-            </ul>
-            <p>
-              The AI-Generated badge shown on some articles indicates that AI tools
-              contributed to the creation process. It is there to make that use clear and
-              transparent.
-            </p>
-          </Prose>
-        </section>
+          <section class="legal-panel ai-policy__section ai-policy__section--contact">
+            <div class="ai-policy__section-header">
+              <Icon name="mail" class="ai-policy__icon" aria-hidden="true" />
+              <Headline level="h2" textSize="lg" textAlign="left">
+                Questions or Feedback?
+              </Headline>
+            </div>
+            <Prose>
+              <p>
+                If you have questions about our AI content policy or would like to share
+                feedback, please contact us. We are committed to transparency and ongoing
+                improvement.
+              </p>
+            </Prose>
+          </section>
 
-        <section class="legal-panel ai-policy__section">
-          <div class="ai-policy__section-header">
-            <Icon name="file-text" class="ai-policy__icon" aria-hidden="true" />
-            <Headline level="h2" textSize="lg" textAlign="left">
-              Copyright & Legal Compliance
-            </Headline>
-          </div>
-          <Prose>
-            <p>We take copyright law seriously. Our AI content practices align with:</p>
-            <ul>
-              <li>
-                <strong>German Copyright Act (UrhG)</strong> - We respect intellectual property
-                rights and do not intentionally create content that infringes existing copyrights
-              </li>
-              <li>
-                <strong>EU AI Act transparency requirements</strong> - AI-generated content
-                is clearly labeled in line with EU rules
-              </li>
-              <li>
-                <strong>Transparency principle</strong> - Users can identify AI-generated content
-                and understand how we use AI tools
-              </li>
-            </ul>
-            <p>
-              AI does not replace human judgment or creativity. It is a tool that helps us
-              work more efficiently, while our editorial review maintains quality,
-              accuracy, and originality.
-            </p>
-          </Prose>
-        </section>
-
-        <section class="legal-panel ai-policy__section">
-          <div class="ai-policy__section-header">
-            <Icon name="help-circle" class="ai-policy__icon" aria-hidden="true" />
-            <Headline level="h2" textSize="lg" textAlign="left">
-              Frequently Asked Questions
-            </Headline>
-          </div>
-          <Prose>
-            <p><strong>Does AI write all your content?</strong></p>
-            <p>
-              No. AI assists with drafting, research, and optimization, but human editors
-              review, refine, and verify all content before publication.
-            </p>
-
-            <p><strong>Is AI-generated content reliable?</strong></p>
-            <p>
-              Yes. Human oversight helps ensure that AI-generated content meets our
-              standards for accuracy, clarity, and musical expertise. We fact-check
-              information and verify sources.
-            </p>
-
-            <p><strong>Can I trust AI-generated articles?</strong></p>
-            <p>
-              Yes. Our editorial process ensures that all content, whether AI-assisted or
-              not, goes through review for accuracy and quality.
-            </p>
-
-            <p><strong>What about images and media?</strong></p>
-            <p>
-              We use AI tools for image generation when appropriate, while following
-              copyright and licensing requirements. AI-generated images are also clearly
-              labeled.
-            </p>
-          </Prose>
-        </section>
-
-        <section class="legal-panel ai-policy__section ai-policy__section--contact">
-          <div class="ai-policy__section-header">
-            <Icon name="mail" class="ai-policy__icon" aria-hidden="true" />
-            <Headline level="h2" textSize="lg" textAlign="left">
-              Questions or Feedback?
-            </Headline>
-          </div>
-          <Prose>
-            <p>
-              If you have questions about our AI content policy or would like to share
-              feedback, please contact us. We are committed to transparency and ongoing
-              improvement.
-            </p>
-          </Prose>
-        </section>
+          <section class="legal-panel ai-policy__section ai-policy__section--faq">
+            <div class="ai-policy__section-header">
+              <Icon name="help-circle" class="ai-policy__icon" aria-hidden="true" />
+              <Headline level="h2" textSize="lg" textAlign="left">
+                Frequently Asked Questions
+              </Headline>
+            </div>
+            <div class="ai-policy__faq-list">
+              {
+                faqItems.map((item) => (
+                  <article class="ai-policy__faq-item">
+                    <h3 class="ai-policy__faq-question">{item.question}</h3>
+                    <Paragraph
+                      textSize="base"
+                      textAlign="left"
+                      className="ai-policy__faq-answer"
+                    >
+                      {item.answer}
+                    </Paragraph>
+                  </article>
+                ))
+              }
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </PageShell>
 </Layout>
 
 <style>
-  .ai-policy {
-    padding: 1.25rem;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-    border-radius: 1rem;
-  }
-
   .ai-policy__container {
     display: grid;
-    gap: var(--static-page-gap);
-    max-inline-size: 800px;
-    margin: 0 auto;
+    gap: var(--spacing-2xl);
   }
 
-  .ai-policy__header {
-    gap: 1rem;
+  .ai-policy__hero {
+    overflow: hidden;
   }
 
-  .ai-policy__badge {
-    display: inline-flex;
-    gap: 0.5rem;
-    align-items: center;
-    justify-self: start;
-    padding: 0.5rem 1rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
-    border-radius: 999px;
+  .ai-policy__content-grid {
+    display: grid;
+    gap: var(--section-gap);
   }
 
   .ai-policy__section {
+    position: relative;
     display: grid;
-    gap: var(--static-page-section-gap-wide);
-    padding: 2rem;
+    gap: var(--spacing-xl);
+    min-width: 0;
+    padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    overflow: hidden;
+    border: var(--card-border-width) solid
+      color-mix(in srgb, var(--card-border-color) 82%, transparent);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-base);
+  }
+
+  .ai-policy__section::after {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid color-mix(in srgb, var(--border-default) 34%, transparent);
+    border-radius: calc(var(--card-radius) - var(--spacing-xs));
   }
 
   .ai-policy__section--contact {
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border-color: var(--accent-primary);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 96%, transparent),
+        color-mix(in srgb, var(--surface-2) 92%, transparent)
+      ),
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-primary) 11%, transparent),
+        transparent 38%
+      );
+  }
+
+  .ai-policy__section--principles {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1)),
+      color-mix(in srgb, var(--surface-1) 98%, transparent)
+    );
+  }
+
+  .ai-policy__section--faq {
+    grid-column: 1 / -1;
   }
 
   .ai-policy__section-header {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-md);
     align-items: center;
-    padding-block-end: 1rem;
-    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    padding-block-end: var(--spacing-base);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 72%, transparent);
   }
 
   .ai-policy__icon {
     flex-shrink: 0;
-    inline-size: 1.75rem;
-    block-size: 1.75rem;
+    inline-size: var(--spacing-xl);
+    block-size: var(--spacing-xl);
+    margin-block-start: 0;
     color: var(--accent-primary);
+  }
+
+  .ai-policy__prose {
+    max-inline-size: none;
+  }
+
+  .ai-policy__faq-list {
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .ai-policy__faq-item {
+    padding: var(--spacing-base);
+    background: color-mix(in srgb, var(--surface-1) 88%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 68%, transparent);
+    border-radius: var(--card-radius);
+  }
+
+  .ai-policy__faq-question {
+    margin: 0 0 var(--spacing-sm);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+  }
+
+  .ai-policy__faq-answer {
+    margin: 0;
+  }
+
+  .ai-policy__principles {
+    display: grid;
+    gap: var(--spacing-base);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .ai-policy__principle {
+    position: relative;
+    padding-inline-start: calc(var(--spacing-base) + var(--spacing-sm));
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+  }
+
+  .ai-policy__principle::before {
+    position: absolute;
+    inset-block-start: var(--spacing-sm);
+    inset-inline-start: 0;
+    inline-size: var(--spacing-sm);
+    block-size: var(--spacing-sm);
+    content: "";
+    background: var(--accent-primary);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 0 var(--spacing-sm)
+      color-mix(in srgb, var(--accent-primary) 14%, transparent);
   }
 
   @media (width >= 720px) {
     .ai-policy {
-      padding: 1.75rem;
+      padding: var(--spacing-xl);
     }
 
     .ai-policy__section {
-      padding: 2.5rem;
+      padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    }
+
+    .ai-policy__content-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ai-policy__faq-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 1100px) {
+    .ai-policy__content-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ai-policy__prose {
+      font-size: var(--font-size-base);
+    }
+
+    .ai-policy__prose p:first-child {
+      margin-block-start: 0;
+    }
+
+    .ai-policy__prose p:last-child {
+      margin-block-end: 0;
+    }
+
+    .ai-policy__prose ul {
+      columns: 2;
+      column-gap: calc(var(--spacing-xl) + var(--spacing-sm));
+    }
+
+    .ai-policy__prose li {
+      break-inside: avoid;
+    }
+
+    .ai-policy__section--tools {
+      grid-column: 1 / -1;
+    }
+
+    .ai-policy__section--oversight {
+      grid-column: 1 / -1;
+    }
+
+    .ai-policy__section--principles {
+      grid-column: 1 / -1;
+    }
+
+    .ai-policy__section--copyright {
+      grid-column: 1 / -1;
+    }
+
+    .ai-policy__section--contact {
+      grid-column: 1 / -1;
+      align-self: stretch;
+    }
+
+    .ai-policy__section--faq .ai-policy__section-header {
+      max-inline-size: 38rem;
     }
   }
 </style>

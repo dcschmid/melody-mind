@@ -1,8 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
-import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import LegalDocumentPage from "../components/LegalDocumentPage.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
@@ -15,6 +14,86 @@ const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: title, url: currentUrl },
 ];
+
+const highlights = [
+  {
+    value: "German legal notice",
+    label: "Required provider information for a Germany-based website.",
+  },
+  {
+    value: "Private project",
+    label: "Melody Mind Knowledge is presented here as a non-commercial project.",
+  },
+  {
+    value: "Direct contact",
+    label: "A contact address and dispute-resolution information are included below.",
+  },
+] as const;
+
+const sections = [
+  {
+    icon: "user",
+    title: "Service Provider",
+    body: [
+      "Daniel Schmid",
+      "Hiltenspergerstr. 78",
+      "80796 Munich",
+      "Germany",
+      "This website is a non-commercial private project.",
+    ],
+  },
+  {
+    icon: "mail",
+    title: "Contact",
+    body: ['Email: <a href="mailto:dcschmid@murena.io">dcschmid@murena.io</a>'],
+  },
+  {
+    icon: "book-open",
+    title: "Responsible for Editorial Content (§ 18 Abs. 2 MStV)",
+    body: [
+      "Daniel Schmid, Hiltenspergerstr. 78, 80796 Munich, Germany",
+      "(Previously referenced in older legal notices as § 55 RStV.)",
+    ],
+  },
+  {
+    icon: "shield",
+    title: "Register Entry",
+    body: [
+      "No commercial register entry exists for this private, non-commercial project.",
+    ],
+  },
+  {
+    icon: "tag",
+    title: "VAT Identification Number",
+    body: [
+      "No VAT identification number (USt-IdNr.) is available, as this is not a commercial activity.",
+    ],
+  },
+  {
+    icon: "help-circle",
+    title: "Dispute Resolution",
+    body: [
+      'The European Commission provides a platform for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noreferrer">https://ec.europa.eu/consumers/odr</a>',
+      "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+    ],
+  },
+  {
+    icon: "info",
+    title: "Liability for Own Content",
+    body: [
+      "We prepare our content with care. However, we cannot guarantee that all information is complete, accurate, or current at all times. You use the information on this website at your own risk.",
+      "As a service provider, we are responsible for our own content on these pages in accordance with general laws (§ 5 TMG). Mandatory legal obligations remain unaffected.",
+    ],
+  },
+  {
+    icon: "external-link",
+    title: "Liability for External Links (§ 8 TMG)",
+    body: [
+      "This website contains links to external third-party websites. We have no influence over the content of those websites and therefore cannot accept any liability for third-party content.",
+      "Linked pages were checked for possible legal violations at the time of linking. Permanent monitoring of linked content is not reasonable without concrete evidence of a violation. If we become aware of legal infringements, such links will be removed promptly.",
+    ],
+  },
+] as const;
 
 const pageSeo = buildPageSeo({
   title,
@@ -37,172 +116,14 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo}>
-  <PageShell containerClass="page-shell__container--spacious">
-    <div class="legal-page">
-      <header class="legal-page__header static-page-header">
-        <Paragraph textSize="sm" className="legal-page__eyebrow static-page-eyebrow">
-          Legal
-        </Paragraph>
-        <Headline
-          level="h1"
-          textSize="2xl"
-          className="legal-page__title static-page-title"
-        >
-          Legal Notice
-        </Headline>
-        <Paragraph textSize="lg" className="legal-page__lead static-page-lead">
-          Required legal information for a website operated from Germany.
-        </Paragraph>
-      </header>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          Service Provider
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">Daniel Schmid</Paragraph>
-        <Paragraph textSize="sm" className="legal-page__text"
-          >Hiltenspergerstr. 78</Paragraph
-        >
-        <Paragraph textSize="sm" className="legal-page__text">80796 Munich</Paragraph>
-        <Paragraph textSize="sm" className="legal-page__text">Germany</Paragraph>
-        <Paragraph textSize="sm" className="legal-page__text">
-          This website is a non-commercial private project.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          Contact
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">
-          Email:
-          <a class="legal-page__link" href="mailto:dcschmid@murena.io">
-            dcschmid@murena.io
-          </a>
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          Responsible for Editorial Content (§ 18 Abs. 2 MStV)
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">
-          Daniel Schmid, Hiltenspergerstr. 78, 80796 Munich, Germany
-        </Paragraph>
-        <Paragraph textSize="sm" className="legal-page__text">
-          (Previously referenced in older legal notices as § 55 RStV.)
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          Register Entry
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">
-          No commercial register entry exists for this private, non-commercial project.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          VAT Identification Number
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">
-          No VAT identification number (USt-IdNr.) is available, as this is not a
-          commercial activity.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          Dispute Resolution
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">
-          The European Commission provides a platform for online dispute resolution:
-          <a
-            class="legal-page__link"
-            href="https://ec.europa.eu/consumers/odr"
-            target="_blank"
-            rel="noreferrer"
-          >
-            https://ec.europa.eu/consumers/odr
-          </a>
-        </Paragraph>
-        <Paragraph textSize="sm" className="legal-page__text">
-          We are neither willing nor obliged to participate in dispute resolution
-          proceedings before a consumer arbitration board.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          Liability for Own Content
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">
-          We prepare our content with care. However, we cannot guarantee that all
-          information is complete, accurate, or current at all times. You use the
-          information on this website at your own risk.
-        </Paragraph>
-        <Paragraph textSize="sm" className="legal-page__text">
-          As a service provider, we are responsible for our own content on these pages in
-          accordance with general laws (§ 5 TMG). Mandatory legal obligations remain
-          unaffected.
-        </Paragraph>
-      </section>
-
-      <section class="legal-panel legal-page__section">
-        <Headline level="h2" textSize="base" className="legal-page__section-title">
-          Liability for External Links (§ 8 TMG)
-        </Headline>
-        <Paragraph textSize="sm" className="legal-page__text">
-          This website contains links to external third-party websites. We have no
-          influence over the content of those websites and therefore cannot accept any
-          liability for third-party content.
-        </Paragraph>
-        <Paragraph textSize="sm" className="legal-page__text">
-          Linked pages were checked for possible legal violations at the time of linking.
-          Permanent monitoring of linked content is not reasonable without concrete
-          evidence of a violation. If we become aware of legal infringements, such links
-          will be removed promptly.
-        </Paragraph>
-      </section>
-    </div>
+  <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
+    <LegalDocumentPage
+      eyebrow="Legal"
+      title="Legal Notice"
+      lead="Required legal information for a website operated from Germany."
+      {highlights}
+      highlightsLabel="Key legal notice points"
+      {sections}
+    />
   </PageShell>
 </Layout>
-<style>
-  .legal-page {
-    display: flex;
-    flex-direction: column;
-    gap: var(--static-page-gap);
-  }
-
-  .legal-page__section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--static-page-section-gap);
-  }
-
-  .legal-page__section-title {
-    margin: 0;
-    font-size: 1.225rem;
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  .legal-page__text {
-    margin: 0;
-    line-height: 1.6;
-    color: var(--text-secondary);
-  }
-
-  .legal-page__link {
-    color: var(--link-default);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .legal-page__link:hover,
-  .legal-page__link:focus-visible {
-    color: var(--link-hover);
-  }
-</style>

@@ -1,0 +1,34 @@
+---
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+
+interface Props {
+  countLabel: string;
+  description?: string;
+  level: "h2" | "h3";
+  title: string;
+  titleClassName: string;
+  wrapperClassName: string;
+}
+
+const { countLabel, description, level, title, titleClassName, wrapperClassName } =
+  Astro.props as Props;
+---
+
+<div class={wrapperClassName}>
+  <Headline
+    level={level}
+    textSize={level === "h2" ? "lg" : "base"}
+    className={titleClassName}
+  >
+    {title}
+  </Headline>
+  {
+    description && (
+      <Paragraph textSize="sm" className={`${wrapperClassName}__description`}>
+        {description}
+      </Paragraph>
+    )
+  }
+  <span class={`${wrapperClassName}__count`}>{countLabel}</span>
+</div>

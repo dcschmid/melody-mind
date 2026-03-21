@@ -115,8 +115,7 @@
     color: CanvasText;
   }
 
-  .taxonomy-card__badge,
-  .knowledge-index__feature-badge {
+  .taxonomy-card__badge {
     border: 2px solid CanvasText;
     background: Canvas;
     color: CanvasText;

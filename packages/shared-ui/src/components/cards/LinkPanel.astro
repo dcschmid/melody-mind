@@ -1,15 +1,7 @@
 ---
+import type { LinkPanelItem } from "@shared-ui/components/cards/linkPanel";
 import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
-
-interface LinkPanelItem {
-  href: string;
-  label: string;
-  icon?: string;
-  variant?: "primary" | "secondary";
-  ariaLabel?: string;
-  analyticsPodcastTarget?: "episode" | "series";
-}
 
 interface Props {
   title?: string;

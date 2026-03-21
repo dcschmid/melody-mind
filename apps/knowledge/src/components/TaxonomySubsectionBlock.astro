@@ -1,9 +1,8 @@
 ---
 import TaxonomyArticleGrid from "@components/TaxonomyArticleGrid.astro";
+import TaxonomyBlockHeader from "@components/TaxonomyBlockHeader.astro";
 import TaxonomyGroupBlock from "@components/TaxonomyGroupBlock.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
-import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
-import type { TaxonomySubsectionWithArticles } from "@utils/knowledge/buildTaxonomySectionPageData";
+import type { TaxonomySubsectionWithArticles } from "@utils/taxonomy/buildTaxonomySectionPageData";
 
 interface Props {
   subsection: TaxonomySubsectionWithArticles;
@@ -15,22 +14,14 @@ const hasGroups = Boolean(subsection.groups && subsection.groups.length > 0);
 
 <div id={subsection.id} class="taxonomy-subsection-block">
   <div class="taxonomy-subsection-block__header">
-    <div class="taxonomy-subsection-block__info">
-      <Headline level="h2" textSize="lg" className="taxonomy-subsection-block__title">
-        {subsection.title}
-      </Headline>
-      {
-        subsection.description && (
-          <Paragraph textSize="sm" className="taxonomy-subsection-block__description">
-            {subsection.description}
-          </Paragraph>
-        )
-      }
-      <span class="taxonomy-subsection-block__count">
-        {subsection.articleCount}{" "}
-        {subsection.articleCount === 1 ? "article" : "articles"}
-      </span>
-    </div>
+    <TaxonomyBlockHeader
+      wrapperClassName="taxonomy-subsection-block__info"
+      titleClassName="taxonomy-subsection-block__title"
+      level="h2"
+      title={subsection.title}
+      description={subsection.description}
+      countLabel={`${subsection.articleCount} ${subsection.articleCount === 1 ? "article" : "articles"}`}
+    />
   </div>
 
   {
@@ -53,20 +44,52 @@ const hasGroups = Boolean(subsection.groups && subsection.groups.length > 0);
   .taxonomy-subsection-block {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-xl);
     scroll-margin-block-start: var(--spacing-3xl);
   }
 
   .taxonomy-subsection-block__header {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-base);
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    overflow: hidden;
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--surface-2) 94%, transparent),
+        color-mix(in srgb, var(--surface-1) 98%, transparent)
+      ),
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 42%
+      );
+    border: var(--card-border-width) solid
+      color-mix(in srgb, var(--card-border-color) 82%, transparent);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-base);
+  }
+
+  .taxonomy-subsection-block__header::before {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: var(--spacing-2xs);
+    content: "";
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-primary) 72%, transparent),
+      color-mix(in srgb, var(--accent-strong) 56%, transparent),
+      transparent
+    );
   }
 
   @media (width >= 768px) {
     .taxonomy-subsection-block__header {
       flex-direction: row;
-      gap: var(--spacing-lg);
+      gap: var(--spacing-xl);
       align-items: flex-start;
     }
   }
@@ -79,12 +102,14 @@ const hasGroups = Boolean(subsection.groups && subsection.groups.length > 0);
   }
 
   .taxonomy-subsection-block__title {
-    padding-block-end: var(--spacing-sm);
+    padding-block-end: var(--spacing-md);
     margin: 0;
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
     color: var(--text-primary);
-    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    letter-spacing: var(--heading-letter-spacing);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 72%, transparent);
   }
 
   .taxonomy-subsection-block__description {
@@ -95,9 +120,20 @@ const hasGroups = Boolean(subsection.groups && subsection.groups.length > 0);
   }
 
   .taxonomy-subsection-block__count {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    color: var(--accent-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: start;
+    min-block-size: calc(var(--spacing-xl) + var(--spacing-xs));
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-strong);
+    letter-spacing: var(--letter-spacing-wide);
+    background: color-mix(in srgb, var(--surface-1) 92%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 35%, var(--border-default));
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
   }
 
   .taxonomy-subsection-block__groups {

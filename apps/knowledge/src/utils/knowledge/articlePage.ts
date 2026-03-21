@@ -1,7 +1,11 @@
-import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import type { RenderedContent } from "astro:content";
+import type { LinkPanelItem } from "@shared-ui/components/cards/linkPanel";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { loggers } from "@shared-utils/utils/logging";
+import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
 
 /**
@@ -41,9 +45,258 @@ export interface KnowledgeArticleLike {
     readingTime?: number;
     taxonomySubsection?: string;
     taxonomyGroup?: string;
+    takeaways?: string[];
+    author?: string;
+    aiGenerated?: boolean;
+    aiTools?: string[];
+    playlists?: {
+      spotifyPlaylist?: string;
+      deezerPlaylist?: string;
+    };
     podcastSlug?: string;
     podcast?: string;
     podcastUrl?: string;
+  };
+}
+
+export interface ArticleHeroLink extends Omit<LinkPanelItem, "href"> {
+  href?: string | null;
+}
+
+export interface ResolvedKnowledgeEntry extends KnowledgeArticleLike {
+  collection: "knowledge-en";
+  filePath?: string;
+  rendered?: RenderedContent;
+  id: string;
+  body?: string;
+  data: NonNullable<KnowledgeArticleLike["data"]> & {
+    title: string;
+    description: string;
+  };
+}
+
+interface BuildKnowledgeArticlePageDataParams {
+  site: URL | undefined;
+  entry: ResolvedKnowledgeEntry;
+  lang: string;
+  slugKey: string;
+}
+
+export async function getKnowledgeArticleStaticPaths() {
+  const entries: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+  const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
+
+  for (const entry of entries) {
+    const slug = entry?.slug || entry?.id;
+    if (!slug) {
+      continue;
+    }
+
+    paths.push({ params: { slug }, props: { entry } });
+  }
+
+  return paths;
+}
+
+export async function resolveKnowledgeArticleEntry(params: {
+  entry?: any;
+  slug: string | undefined;
+  lang: string;
+}): Promise<ResolvedKnowledgeEntry | null> {
+  const { entry: initialEntry, slug, lang } = params;
+  let entry = initialEntry;
+
+  if (!entry) {
+    try {
+      const articles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+      if (slug) {
+        entry = articles.find((article) => article.slug === slug || article.id === slug);
+      }
+    } catch (e) {
+      loggers.pages.warn("knowledge article: collection load issue (fallback)", {
+        error: (e as any)?.message || e,
+      });
+    }
+  }
+
+  if (!entry?.data?.title || !entry?.data?.description) {
+    return null;
+  }
+
+  if (!entry.data.readingTime && entry.body) {
+    try {
+      entry = {
+        ...entry,
+        data: {
+          ...entry.data,
+          readingTime: getReadingTime(entry.body || "", { languageCode: lang }).minutes,
+        },
+      };
+    } catch {
+      // ignore reading time calculation errors
+    }
+  }
+
+  return entry as ResolvedKnowledgeEntry;
+}
+
+export function buildKnowledgeArticlePageData({
+  site,
+  entry,
+  lang,
+  slugKey,
+}: BuildKnowledgeArticlePageDataParams) {
+  const normalizedKeywords = Array.isArray(entry.data.keywords)
+    ? entry.data.keywords.filter(
+        (keyword): keyword is string =>
+          typeof keyword === "string" && keyword.trim().length > 0
+      )
+    : [];
+  const rawImage = entry.data.image;
+  const isValidImage =
+    typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
+  const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
+  const title = entry.data.title;
+  const seoTitle = getKnowledgeSeoTitle(slugKey, title);
+  const description = entry.data.description;
+  const optimizedDescription = description || title;
+  const imageAbsolute = resolveAbsoluteUrl(site, imageSource);
+  const imageWidth = 1200;
+  const imageHeight = 800;
+  const canonical = slugKey
+    ? resolvePageUrl(site, `/knowledge/${slugKey}`)
+    : resolvePageUrl(site, "/");
+  const podcastBase = "https://podcasts.melody-mind.de";
+  const podcastUrl = getKnowledgePodcastUrl(entry.data, podcastBase);
+  const {
+    currentTaxonomySubsection,
+    currentTaxonomyGroup,
+    seoCategoryCrumb,
+    taxonomyPillLabel,
+  } = getKnowledgeTaxonomyMeta(
+    site,
+    entry.data.taxonomySubsection,
+    entry.data.taxonomyGroup
+  );
+  const seoBreadcrumbs = [
+    { name: "Home", url: resolvePageUrl(site, "/") },
+    ...(seoCategoryCrumb ? [seoCategoryCrumb] : []),
+    { name: title, url: canonical },
+  ];
+  const structuredData = buildKnowledgeArticleStructuredData({
+    canonical,
+    description,
+    imageAbsolute,
+    imageHeight,
+    imageWidth,
+    keywords: normalizedKeywords,
+    lang,
+    podcastBase,
+    podcastUrl,
+    title,
+    createdAt: entry.data.createdAt,
+    updatedAt: entry.data.updatedAt,
+    body: entry.body,
+  });
+  const readingResult = getReadingTime(entry.body || "", { languageCode: lang });
+  const publishedDate = new Date(
+    entry.data.updatedAt || entry.data.createdAt || new Date()
+  );
+  const publishedDateLabel = publishedDate.toLocaleDateString(lang, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const currentKeywords = (
+    Array.isArray(entry.data.keywords)
+      ? entry.data.keywords
+          .map((keyword: unknown) =>
+            typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
+          )
+          .filter((keyword: string): keyword is string => Boolean(keyword))
+      : []
+  ).slice();
+  const pageSeo = buildPageSeo({
+    title: seoTitle,
+    description: optimizedDescription,
+    url: canonical,
+    contentKind: "generic",
+    breadcrumbs: seoBreadcrumbs,
+    structuredData,
+    enrichedParts: [title, description].filter(Boolean) as string[],
+    fallbackKeywords: normalizedKeywords.slice(0, 20),
+    keywordLimit: 24,
+    maxDescription: 155,
+    image: imageAbsolute,
+    imageAlt: title,
+    publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
+    modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
+    index: true,
+    follow: true,
+    autoSocialImage: false,
+    authorName: entry.data.author || "Melody Mind",
+  });
+  const articleLinksSource: ArticleHeroLink[] = [
+    {
+      href: entry.data.playlists?.spotifyPlaylist,
+      label: "Spotify",
+      icon: "spotify",
+      variant: "secondary",
+      ariaLabel: `Open Spotify playlist for ${title}`,
+    },
+    {
+      href: entry.data.playlists?.deezerPlaylist,
+      label: "Deezer",
+      icon: "deezer",
+      variant: "secondary",
+      ariaLabel: `Open Deezer playlist for ${title}`,
+    },
+    {
+      href: podcastUrl,
+      label: "Open podcast episode",
+      icon: "headphones",
+      variant: "primary",
+      ariaLabel: `Open podcast page for ${title}`,
+      analyticsPodcastTarget: "episode",
+    },
+  ];
+  const articleLinks = articleLinksSource.filter(
+    (link): link is ArticleHeroLink & { href: string } =>
+      typeof link.href === "string" && link.href.trim().length > 0
+  );
+
+  return {
+    articleLinks,
+    canonical,
+    currentKeywords,
+    currentTaxonomyGroup,
+    currentTaxonomySubsection,
+    description,
+    imageSource,
+    pageSeo,
+    publishedDate,
+    publishedDateLabel,
+    readingResult,
+    taxonomyPillLabel,
+    title,
+  };
+}
+
+export function buildKnowledgeArticleStorageMeta(
+  entry: ResolvedKnowledgeEntry,
+  slug: string
+) {
+  const storageUpdatedAtRaw = entry.data.updatedAt || entry.data.createdAt || "";
+  const parsedStorageDate = storageUpdatedAtRaw ? new Date(storageUpdatedAtRaw) : null;
+  const storageUpdatedAt =
+    parsedStorageDate && !Number.isNaN(parsedStorageDate.valueOf())
+      ? parsedStorageDate.toISOString()
+      : "";
+
+  return {
+    storageSlug: slug || entry.id,
+    storageUpdatedAt,
+    storageImage: typeof entry.data.image === "string" ? entry.data.image : "",
   };
 }
 
