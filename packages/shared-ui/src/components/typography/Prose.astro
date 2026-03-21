@@ -4,7 +4,6 @@ export interface Props {
   class?: string;
   html?: string;
   invert?: boolean;
-  fullWidth?: boolean;
 }
 
 const {
@@ -12,7 +11,6 @@ const {
   class: classProp = "",
   html = undefined,
   invert = true,
-  fullWidth = true,
 } = Astro.props as Props;
 
 let sanitizedHtml =
@@ -27,10 +25,7 @@ if (typeof sanitizedHtml === "string") {
 }
 
 const invertClass = invert ? "prose--invert" : "prose--standard";
-const widthClass = fullWidth ? "prose--full" : "";
-const classes = ["prose", invertClass, widthClass, extra, classProp]
-  .filter(Boolean)
-  .join(" ");
+const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" ");
 ---
 
 <div class={classes}>
@@ -45,9 +40,6 @@ const classes = ["prose", invertClass, widthClass, extra, classProp]
      ----------------------------------------------------------------------------- */
 
   .prose {
-    /* Layout */
-    max-inline-size: 72ch;
-
     /* Typography - uses design system tokens */
     font-size: var(--font-size-md);
     line-height: var(--prose-line-height);
@@ -56,11 +48,6 @@ const classes = ["prose", invertClass, widthClass, extra, classProp]
     /* Improved text rendering */
     hyphens: auto;
     text-wrap: pretty;
-  }
-
-  /* Full width variant */
-  .prose--full {
-    max-inline-size: none;
   }
 
   /* Headings - semantic styling */

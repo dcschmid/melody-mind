@@ -89,6 +89,12 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.2.21
         version: 1.2.31
+      '@melody-mind/shared-ui':
+        specifier: workspace:*
+        version: link:../../packages/shared-ui
+      '@melody-mind/shared-utils':
+        specifier: workspace:*
+        version: link:../../packages/shared-utils
       '@playform/compress':
         specifier: ^0.2.2
         version: 0.2.2(@types/node@25.5.0)(rollup@4.59.0)(typescript@5.9.3)(yaml@2.8.2)
@@ -107,6 +113,9 @@ importers:
       astro-minify-html-swc:
         specifier: ^0.1.11
         version: 0.1.11
+      astro-noemail:
+        specifier: ^0.1.0
+        version: 0.1.0(astro@6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2))
       astro-robots-txt:
         specifier: ^1.0.0
         version: 1.0.0
@@ -159,6 +168,12 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.2.21
         version: 1.2.31
+      '@melody-mind/shared-ui':
+        specifier: workspace:*
+        version: link:../../packages/shared-ui
+      '@melody-mind/shared-utils':
+        specifier: workspace:*
+        version: link:../../packages/shared-utils
       astro:
         specifier: ^6.0.4
         version: 6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2)
@@ -204,6 +219,12 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.2.21
         version: 1.2.31
+      '@melody-mind/shared-ui':
+        specifier: workspace:*
+        version: link:../../packages/shared-ui
+      '@melody-mind/shared-utils':
+        specifier: workspace:*
+        version: link:../../packages/shared-utils
       astro:
         specifier: ^6.0.5
         version: 6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2)
@@ -259,6 +280,8 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+
+  packages/shared-utils: {}
 
 packages:
 
@@ -1495,6 +1518,11 @@ packages:
 
   astro-minify-html-swc@0.1.11:
     resolution: {integrity: sha512-4M7x2g1SATucjOrdpSEwqXBSwKF8ZykbWmSTg+Pb1CEWOYdW1cn4/JSLpyuL0GGkwQnhRTyQwVwf4q0FxwoUWg==}
+
+  astro-noemail@0.1.0:
+    resolution: {integrity: sha512-rhbmPpIzzA25vFzjqjWBHV4euk8ta9VRCRJAo3c83QX+glZeHCX9W4JGj/rUrnuw4NHBQMlYtJIkQZC2K5CjQQ==}
+    peerDependencies:
+      astro: ^4.0.0 || ^5.0.0
 
   astro-robots-txt@1.0.0:
     resolution: {integrity: sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA==}
@@ -5607,6 +5635,10 @@ snapshots:
       '@ocavue/utils': 1.6.0
       '@swc/html': 1.15.18
       fast-glob: 3.3.3
+
+  astro-noemail@0.1.0(astro@6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2)):
+    dependencies:
+      astro: 6.0.5(@types/node@25.5.0)(lightningcss@1.32.0)(rollup@4.59.0)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.2)
 
   astro-robots-txt@1.0.0:
     dependencies:

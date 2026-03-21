@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "types": ["astro/client"],
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@shared-utils/*": ["../shared-utils/src/*"]

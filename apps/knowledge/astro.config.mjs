@@ -6,6 +6,7 @@ import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import minify from "astro-minify-html-swc";
 import icon from "astro-icon";
+import astroNoEmail from "astro-noemail";
 import { LEGACY_CATEGORY_REDIRECTS } from "./src/constants/categoryRedirects.js";
 
 const redirects = Object.fromEntries(
@@ -36,6 +37,7 @@ export default defineConfig({
     }),
     sitemap(),
     metaTags(),
+    astroNoEmail(),
     minify(),
   ],
 
