@@ -111,3 +111,117 @@ const {
     </Fragment>
   </HeroTeaser>
 </div>
+
+<style>
+  .knowledge__hero {
+    margin-bottom: 0;
+  }
+
+  .knowledge__hero-teaser {
+    inline-size: 100%;
+  }
+
+  .knowledge__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+  }
+
+  .knowledge__hero-teaser .knowledge__meta {
+    font-size: var(--font-size-base);
+  }
+
+  .knowledge__hero-teaser .knowledge__title {
+    max-inline-size: 16ch;
+  }
+
+  .knowledge__hero-teaser .knowledge__summary {
+    max-inline-size: 40ch;
+  }
+
+  .knowledge__pill {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+  }
+
+  .knowledge__pill--label {
+    font-size: var(--font-size-sm);
+    color: var(--pill-accent-text);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    background: var(--pill-accent-bg);
+  }
+
+  .knowledge__pill-icon {
+    display: block;
+    flex-shrink: 0;
+    inline-size: var(--spacing-base);
+    block-size: var(--spacing-base);
+    color: var(--accent-strong);
+  }
+
+  .knowledge__pill-icon--teal {
+    color: var(--accent-primary);
+  }
+
+  .knowledge__media-frame {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  .knowledge__media-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .knowledge__media-image img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .knowledge__media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 3 / 2;
+    padding: var(--spacing-xl);
+    color: var(--text-secondary);
+    text-align: center;
+    background: color-mix(in srgb, var(--surface-2) 84%, transparent);
+  }
+
+  .knowledge__media-placeholder-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .knowledge__media-placeholder-icon {
+    inline-size: var(--spacing-3xl);
+    block-size: var(--spacing-3xl);
+  }
+
+  @media (width >= 1024px) {
+    .knowledge__media-placeholder-icon {
+      inline-size: calc(var(--spacing-3xl) + var(--spacing-base));
+      block-size: calc(var(--spacing-3xl) + var(--spacing-base));
+    }
+  }
+</style>

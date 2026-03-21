@@ -382,9 +382,33 @@
 
   /* Layout */
   --page-max-width: 80rem;
+  --content-max-width: 72rem;
+  --measure-wide: 56rem;
+  --measure-readable: 42rem;
+  --measure-standard: 40rem;
+  --measure-compact: 38rem;
+  --overlay-max-block-size: 24rem;
   --page-padding-x: var(--spacing-lg);
   --page-padding-y: var(--spacing-2xl);
   --section-gap: var(--spacing-3xl);
+
+  /* Surfaces */
+  --surface-panel-bg: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+  --surface-chip-bg: color-mix(in srgb, var(--surface-1) 96%, transparent);
+  --surface-pill-bg: color-mix(in srgb, var(--surface-1) 92%, transparent);
+  --surface-border-subtle: color-mix(in srgb, var(--border-default) 34%, transparent);
+  --surface-border-soft: color-mix(in srgb, var(--border-default) 72%, transparent);
+  --surface-border-strong: color-mix(in srgb, var(--border-default) 88%, transparent);
+  --surface-border-accent: color-mix(
+    in srgb,
+    var(--accent-primary) 36%,
+    var(--border-default)
+  );
+  --surface-border-accent-strong: color-mix(
+    in srgb,
+    var(--accent-primary) 40%,
+    var(--border-default)
+  );
 }
 
 /* =============================================================================

@@ -13,7 +13,7 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
 const { body = [], icon, title, class: className, ...rest } = Astro.props;
 ---
 
-<section {...rest} class:list={["legal-panel", "legal-document-section", className]}>
+<section {...rest} class:list={["legal-document-section", className]}>
   <div class="legal-document-section__header">
     <Icon name={icon} class="legal-document-section__icon" aria-hidden="true" />
     <Headline level="h2" textSize="lg" className="legal-document-section__title">

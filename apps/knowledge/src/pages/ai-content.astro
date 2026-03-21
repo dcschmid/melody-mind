@@ -183,7 +183,7 @@ const pageSeo = buildPageSeo({
         <div class="ai-policy__content-grid">
           {
             policySections.map((section) => (
-              <section class={`legal-panel ai-policy__section ${section.sectionClass}`}>
+              <section class={`ai-policy__section ${section.sectionClass}`}>
                 <div class="ai-policy__section-header">
                   <Icon name={section.icon} class="ai-policy__icon" aria-hidden="true" />
                   <Headline level="h2" textSize="lg" textAlign="left">
@@ -203,7 +203,7 @@ const pageSeo = buildPageSeo({
             ))
           }
 
-          <section class="legal-panel ai-policy__section ai-policy__section--principles">
+          <section class="ai-policy__section ai-policy__section--principles">
             <div class="ai-policy__section-header">
               <Icon name="shield" class="ai-policy__icon" aria-hidden="true" />
               <Headline level="h2" textSize="lg" textAlign="left">
@@ -219,7 +219,7 @@ const pageSeo = buildPageSeo({
             </ul>
           </section>
 
-          <section class="legal-panel ai-policy__section ai-policy__section--contact">
+          <section class="ai-policy__section ai-policy__section--contact">
             <div class="ai-policy__section-header">
               <Icon name="mail" class="ai-policy__icon" aria-hidden="true" />
               <Headline level="h2" textSize="lg" textAlign="left">
@@ -235,7 +235,7 @@ const pageSeo = buildPageSeo({
             </Prose>
           </section>
 
-          <section class="legal-panel ai-policy__section ai-policy__section--faq">
+          <section class="ai-policy__section ai-policy__section--faq">
             <div class="ai-policy__section-header">
               <Icon name="help-circle" class="ai-policy__icon" aria-hidden="true" />
               <Headline level="h2" textSize="lg" textAlign="left">
@@ -356,7 +356,7 @@ const pageSeo = buildPageSeo({
   .ai-policy__faq-item {
     padding: var(--spacing-base);
     background: color-mix(in srgb, var(--surface-1) 88%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 68%, transparent);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--card-radius);
   }
 
@@ -465,7 +465,7 @@ const pageSeo = buildPageSeo({
     }
 
     .ai-policy__section--faq .ai-policy__section-header {
-      max-inline-size: 38rem;
+      max-inline-size: var(--measure-compact);
     }
   }
 </style>

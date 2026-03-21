@@ -420,7 +420,7 @@ const pageSeo = buildPageSeo({
   .knowledge-index {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: var(--section-gap);
   }
 
   .knowledge-index__intro {
@@ -445,8 +445,8 @@ const pageSeo = buildPageSeo({
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
-    background: color-mix(in srgb, var(--surface-1) 96%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-strong);
     border-radius: var(--radius-full);
   }
 
@@ -465,8 +465,8 @@ const pageSeo = buildPageSeo({
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-1) 92%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-accent-strong);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-sm);
   }
@@ -503,7 +503,7 @@ const pageSeo = buildPageSeo({
   .knowledge-index__section-copy {
     display: grid;
     gap: var(--spacing-sm);
-    max-inline-size: 42rem;
+    max-inline-size: var(--measure-readable);
   }
 
   .knowledge-index__section-title {

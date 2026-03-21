@@ -305,11 +305,11 @@ const {
   }
 
   :global(:root[data-theme="light"]) .taxonomy-jump-nav__count {
-    background: color-mix(in srgb, var(--surface-3) 96%, rgb(255 255 255) 4%);
+    background: color-mix(in srgb, var(--surface-3) 96%, var(--surface-1) 4%);
   }
 
   :global(:root[data-theme="dark"]) .taxonomy-jump-nav__count {
-    background: color-mix(in srgb, var(--surface-3) 78%, rgb(0 0 0) 22%);
+    background: color-mix(in srgb, var(--surface-3) 78%, var(--bg-primary) 22%);
   }
 
   .taxonomy-jump-nav__link:hover .taxonomy-jump-nav__count,
@@ -320,7 +320,7 @@ const {
   @media (width < 40rem) {
     .taxonomy-jump-nav {
       position: relative;
-      gap: 0.6rem;
+      gap: var(--spacing-md);
     }
 
     .taxonomy-jump-nav__toggle {
@@ -332,22 +332,22 @@ const {
 
     .taxonomy-jump-nav__content {
       position: absolute;
-      top: calc(100% + 0.6rem);
+      top: calc(100% + var(--spacing-md));
       left: 0;
       z-index: 20;
       visibility: hidden;
       width: 100%;
       min-width: 0;
-      max-height: min(24rem, 60vh);
-      padding: 0.85rem;
+      max-height: min(var(--overlay-max-block-size), 60vh);
+      padding: var(--spacing-base);
       overflow: auto;
       pointer-events: none;
-      background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+      background: var(--surface-panel-bg);
       border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-      border-radius: 1.2rem;
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow-lg);
       opacity: 0;
-      transform: translateY(-0.35rem);
+      transform: translateY(calc((var(--spacing-xs) + var(--spacing-2xs)) * -1));
     }
 
     .taxonomy-jump-nav[data-open="true"] .taxonomy-jump-nav__content {
@@ -359,13 +359,13 @@ const {
 
     .taxonomy-jump-nav__list {
       display: grid;
-      gap: 0.45rem;
+      gap: var(--spacing-sm);
     }
 
     .taxonomy-jump-nav__link {
       display: flex;
       justify-content: space-between;
-      padding: 0.8rem 0.9rem;
+      padding: var(--spacing-md) var(--spacing-base);
       border-radius: var(--radius-lg);
     }
 

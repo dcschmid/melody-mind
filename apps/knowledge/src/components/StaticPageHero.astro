@@ -43,19 +43,13 @@ const {
 } = Astro.props;
 ---
 
-<header
-  {...rest}
-  class:list={["legal-panel", "static-page-header", "static-page-hero", className]}
->
+<header {...rest} class:list={["static-page-hero", className]}>
   <div class="static-page-hero__main">
     {
       badge ? (
         <div class="static-page-hero__badge">{badge}</div>
       ) : eyebrow ? (
-        <Paragraph
-          textSize="sm"
-          className="static-page-hero__eyebrow static-page-eyebrow"
-        >
+        <Paragraph textSize="sm" className="static-page-hero__eyebrow">
           {eyebrow}
         </Paragraph>
       ) : null
@@ -64,14 +58,14 @@ const {
       level={titleLevel}
       textSize={titleTextSize}
       textAlign={titleTextAlign}
-      className={`static-page-hero__title static-page-title ${titleClassName || ""}`.trim()}
+      className={`static-page-hero__title ${titleClassName || ""}`.trim()}
     >
       {title}
     </Headline>
     <Paragraph
       textSize={leadTextSize}
       textAlign={leadTextAlign}
-      className={`static-page-hero__lead static-page-lead ${leadClassName || ""}`.trim()}
+      className={`static-page-hero__lead ${leadClassName || ""}`.trim()}
     >
       {lead}
     </Paragraph>
@@ -139,13 +133,29 @@ const {
   .static-page-hero__main {
     display: grid;
     gap: var(--spacing-base);
-    max-inline-size: 56rem;
+    max-inline-size: var(--measure-wide);
+  }
+
+  .static-page-hero__eyebrow {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--link-default);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
   }
 
   .static-page-hero__title {
+    margin: 0;
     font-size: var(--font-size-4xl);
+    font-weight: var(--heading-font-weight);
     line-height: var(--heading-line-height);
     letter-spacing: var(--heading-letter-spacing);
+  }
+
+  .static-page-hero__lead {
+    margin: 0;
+    color: color-mix(in srgb, var(--text-primary) 82%, transparent);
   }
 
   .static-page-hero__badge {
@@ -159,8 +169,8 @@ const {
     color: var(--accent-strong);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-widest);
-    background: color-mix(in srgb, var(--surface-1) 92%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 36%, var(--border-default));
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-sm);
   }
@@ -176,8 +186,8 @@ const {
     gap: var(--spacing-sm);
     align-content: start;
     padding: var(--spacing-base);
-    background: color-mix(in srgb, var(--surface-1) 88%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 72%, transparent);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--card-radius);
   }
 
