@@ -55,25 +55,53 @@ const {
   const nav = document.querySelector(".taxonomy-jump-nav");
   const toggle = nav?.querySelector(".taxonomy-jump-nav__toggle");
   const content = nav?.querySelector(".taxonomy-jump-nav__content");
+  const mobileMedia = window.matchMedia("(max-width: 39.999rem)");
 
   if (
     nav instanceof HTMLElement &&
     toggle instanceof HTMLButtonElement &&
     content instanceof HTMLElement
   ) {
+    const syncMode = () => {
+      const isMobile = mobileMedia.matches;
+
+      nav.setAttribute("data-mobile", isMobile ? "true" : "false");
+
+      if (!isMobile) {
+        nav.setAttribute("data-open", "true");
+        toggle.setAttribute("aria-expanded", "true");
+        return;
+      }
+
+      nav.setAttribute("data-open", "false");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
     const setOpen = (open: boolean) => {
+      if (!mobileMedia.matches) {
+        return;
+      }
+
       nav.setAttribute("data-open", open ? "true" : "false");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     };
 
     toggle.addEventListener("click", () => {
+      if (!mobileMedia.matches) {
+        return;
+      }
+
       const isOpen = toggle.getAttribute("aria-expanded") === "true";
       setOpen(!isOpen);
     });
 
     document.addEventListener("click", (event) => {
       const target = event.target;
-      if (nav.getAttribute("data-open") === "true" && target instanceof Node) {
+      if (
+        mobileMedia.matches &&
+        nav.getAttribute("data-open") === "true" &&
+        target instanceof Node
+      ) {
         if (!nav.contains(target)) {
           setOpen(false);
         }
@@ -81,7 +109,11 @@ const {
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && nav.getAttribute("data-open") === "true") {
+      if (
+        mobileMedia.matches &&
+        event.key === "Escape" &&
+        nav.getAttribute("data-open") === "true"
+      ) {
         setOpen(false);
         toggle.focus();
       }
@@ -94,29 +126,32 @@ const {
       }
 
       const link = target.closest("a[href^='#']");
-      if (link && window.innerWidth < 640) {
+      if (link && mobileMedia.matches) {
         setOpen(false);
       }
     });
+
+    syncMode();
+    mobileMedia.addEventListener("change", syncMode);
   }
 </script>
 
 <style>
   .taxonomy-jump-nav {
-    position: relative;
+    position: static;
     display: grid;
-    gap: 0.6rem;
+    gap: var(--spacing-base);
   }
 
   .taxonomy-jump-nav__toggle {
-    display: inline-flex;
-    gap: 0.65rem;
+    display: none;
+    gap: var(--spacing-md);
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0.95rem 1.2rem;
+    padding: var(--spacing-md) var(--spacing-lg);
     font: inherit;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     text-align: center;
     cursor: pointer;
@@ -126,7 +161,7 @@ const {
       color-mix(in srgb, var(--surface-1) 88%, transparent)
     );
     border: 1px solid color-mix(in srgb, var(--border-default) 90%, transparent);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     box-shadow: var(--shadow-sm);
     transition:
       transform var(--transition-fast),
@@ -153,12 +188,12 @@ const {
   }
 
   .taxonomy-jump-nav__toggle-label {
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
   }
 
   .taxonomy-jump-nav__chevron {
-    width: 1rem;
-    height: 1rem;
+    width: var(--spacing-base);
+    height: var(--spacing-base);
     color: var(--accent-primary);
     transition: transform var(--transition-fast);
   }
@@ -174,27 +209,21 @@ const {
   }
 
   .taxonomy-jump-nav__content {
-    position: absolute;
-    top: calc(100% + 0.6rem);
-    left: 0;
-    z-index: 20;
-    visibility: hidden;
-    width: min(100%, 28rem);
-    min-width: min(100%, 18rem);
-    max-height: min(24rem, 60vh);
-    padding: 0.85rem;
-    overflow: auto;
-    pointer-events: none;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
-    border-radius: 1.2rem;
-    box-shadow: var(--shadow-lg);
-    opacity: 0;
-    transform: translateY(-0.35rem);
-    transition:
-      opacity var(--transition-fast),
-      transform var(--transition-fast),
-      visibility var(--transition-fast);
+    position: static;
+    visibility: visible;
+    width: 100%;
+    min-width: 0;
+    max-height: none;
+    padding: 0;
+    overflow: visible;
+    pointer-events: auto;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -203,16 +232,10 @@ const {
     }
   }
 
-  .taxonomy-jump-nav[data-open="true"] .taxonomy-jump-nav__content {
-    visibility: visible;
-    pointer-events: auto;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   .taxonomy-jump-nav__list {
-    display: grid;
-    gap: 0.55rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
     padding: 0;
     margin: 0;
     list-style: none;
@@ -223,16 +246,16 @@ const {
   }
 
   .taxonomy-jump-nav__link {
-    display: flex;
-    gap: 0.85rem;
+    display: inline-flex;
+    gap: var(--spacing-sm);
     align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 0.95rem;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-base);
     color: var(--text-primary);
     text-decoration: none;
     background: color-mix(in srgb, var(--surface-2) 90%, transparent);
     border: 1px solid color-mix(in srgb, var(--border-default) 82%, transparent);
-    border-radius: 1rem;
+    border-radius: var(--radius-full);
     transition:
       background-color var(--transition-fast),
       border-color var(--transition-fast),
@@ -259,16 +282,16 @@ const {
 
   .taxonomy-jump-nav__count {
     flex-shrink: 0;
-    min-width: 2.4rem;
-    padding: 0.3rem 0.65rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    line-height: 1;
+    min-width: calc(var(--spacing-xl) + var(--spacing-xs));
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-none);
     color: var(--text-primary);
     text-align: center;
     background: color-mix(in srgb, var(--surface-3) 92%, transparent);
     border: 1px solid color-mix(in srgb, var(--border-default) 80%, transparent);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     transition:
       background-color var(--transition-fast),
       border-color var(--transition-fast),
@@ -295,36 +318,55 @@ const {
   }
 
   @media (width < 40rem) {
+    .taxonomy-jump-nav {
+      position: relative;
+      gap: 0.6rem;
+    }
+
     .taxonomy-jump-nav__toggle {
+      display: inline-flex;
       justify-content: space-between;
+      width: 100%;
       text-align: left;
     }
 
     .taxonomy-jump-nav__content {
-      position: static;
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      left: 0;
+      z-index: 20;
+      visibility: hidden;
       width: 100%;
       min-width: 0;
-      max-height: 0;
-      padding: 0;
-      margin-top: 0;
-      overflow: clip;
-      border: 0;
-      box-shadow: none;
-      transform: none;
+      max-height: min(24rem, 60vh);
+      padding: 0.85rem;
+      overflow: auto;
+      pointer-events: none;
+      background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+      border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+      border-radius: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transform: translateY(-0.35rem);
     }
 
     .taxonomy-jump-nav[data-open="true"] .taxonomy-jump-nav__content {
-      max-height: 24rem;
-      padding-top: 0.35rem;
+      visibility: visible;
+      pointer-events: auto;
       opacity: 1;
+      transform: translateY(0);
     }
 
     .taxonomy-jump-nav__list {
+      display: grid;
       gap: 0.45rem;
     }
 
     .taxonomy-jump-nav__link {
+      display: flex;
+      justify-content: space-between;
       padding: 0.8rem 0.9rem;
+      border-radius: var(--radius-lg);
     }
 
     .taxonomy-jump-nav__link:hover,

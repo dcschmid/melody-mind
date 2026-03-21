@@ -5,7 +5,7 @@
  * Displays all available quizzes organized by category.
  */
 import Layout from "@layouts/Layout.astro";
-import QuizCard from "@components/Quiz/QuizCard.astro";
+import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
@@ -125,12 +125,19 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
             <ul class="quiz-section__grid" aria-label={categoryLabels.decade}>
               {quizzesByCategory.decade.map((quiz) => (
                 <li>
-                  <QuizCard
+                  <ContentCard
+                    id={`quiz-card-${quiz.id}`}
+                    variant="action"
+                    href={`/${quiz.id}`}
+                    dataTestId="quiz-card"
+                    imageSrc={buildQuizImagePath(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
                     title={quiz.data.title}
                     description={quiz.data.description}
-                    slug={quiz.id}
-                    image={buildQuizImagePath(quiz.id)}
-                    imageAlt={`${quiz.data.title} quiz cover`}
+                    size="default"
+                    descriptionLineClamp={3}
+                    ctaLabel="Play Quiz"
+                    ctaIconName="play"
                   />
                 </li>
               ))}
@@ -152,12 +159,19 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
             <ul class="quiz-section__grid" aria-label={categoryLabels["genre-evolution"]}>
               {quizzesByCategory["genre-evolution"].map((quiz) => (
                 <li>
-                  <QuizCard
+                  <ContentCard
+                    id={`quiz-card-${quiz.id}`}
+                    variant="action"
+                    href={`/${quiz.id}`}
+                    dataTestId="quiz-card"
+                    imageSrc={buildQuizImagePath(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
                     title={quiz.data.title}
                     description={quiz.data.description}
-                    slug={quiz.id}
-                    image={buildQuizImagePath(quiz.id)}
-                    imageAlt={`${quiz.data.title} quiz cover`}
+                    size="default"
+                    descriptionLineClamp={3}
+                    ctaLabel="Play Quiz"
+                    ctaIconName="play"
                   />
                 </li>
               ))}
@@ -178,12 +192,19 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
             <ul class="quiz-section__grid" aria-label={categoryLabels.mixed}>
               {quizzesByCategory.mixed.map((quiz) => (
                 <li>
-                  <QuizCard
+                  <ContentCard
+                    id={`quiz-card-${quiz.id}`}
+                    variant="action"
+                    href={`/${quiz.id}`}
+                    dataTestId="quiz-card"
+                    imageSrc={buildQuizImagePath(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
                     title={quiz.data.title}
                     description={quiz.data.description}
-                    slug={quiz.id}
-                    image={buildQuizImagePath(quiz.id)}
-                    imageAlt={`${quiz.data.title} quiz cover`}
+                    size="default"
+                    descriptionLineClamp={3}
+                    ctaLabel="Play Quiz"
+                    ctaIconName="play"
                   />
                 </li>
               ))}
@@ -276,7 +297,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
 
   .quiz-hero__description {
     margin: 0;
-    font-size: 1.05rem;
+    font-size: 1.125rem;
     line-height: 1.8;
     color: var(--text-secondary);
   }
@@ -325,7 +346,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
   .quiz-section__description {
     max-inline-size: 65ch;
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.7;
     color: var(--text-secondary);
   }

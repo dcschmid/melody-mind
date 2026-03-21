@@ -1,0 +1,134 @@
+---
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import type { RelatedContentCardItem } from "./relatedContent";
+
+interface Props {
+  id?: string;
+  title: string;
+  copy?: string;
+  listAriaLabel?: string;
+  items: RelatedContentCardItem[];
+}
+
+const {
+  id = "related-content-section",
+  title,
+  copy,
+  listAriaLabel = title,
+  items,
+} = Astro.props as Props;
+
+const titleId = `${id}-title`;
+---
+
+{
+  items.length ? (
+    <section class="related-content-section" aria-labelledby={titleId}>
+      <div class="related-content-section__header">
+        <Headline level="h2" textSize="lg" className="related-content-section__title">
+          <span id={titleId}>{title}</span>
+        </Headline>
+        {copy ? (
+          <Paragraph textSize="base" className="related-content-section__copy">
+            {copy}
+          </Paragraph>
+        ) : null}
+      </div>
+
+      <ul class="related-content-section__grid" aria-label={listAriaLabel}>
+        {items.map((item) => (
+          <li class="related-content-section__item">
+            <ContentCard
+              id={item.id}
+              data-testid="related-content-card"
+              href={item.href}
+              variant="default"
+              size="compact"
+              mediaObjectFit="contain"
+              imageSrc={item.imageSrc || "/default-cover.jpg"}
+              imageAlt={item.imageAlt ?? `Cover image for ${item.title}`}
+              imageWidth={1024}
+              imageHeight={683}
+              title={item.title}
+              description={item.description}
+              metaItems={item.metaItems || []}
+              descriptionLineClamp={3}
+              ctaSrText={item.ctaSrText || "Opens content"}
+            />
+          </li>
+        ))}
+      </ul>
+    </section>
+  ) : null
+}
+
+<style>
+  .related-content-section {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-block-start: 2rem;
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--surface-2) 96%, transparent),
+      color-mix(in srgb, var(--surface-1) 82%, transparent)
+    );
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .related-content-section__header {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .related-content-section__title {
+    display: inline-flex;
+    gap: 0.65rem;
+    align-items: center;
+    margin: 0;
+    font-size: clamp(1.3rem, 1.1rem + 0.8vi, 1.85rem);
+    color: var(--text-primary);
+  }
+
+  .related-content-section__copy {
+    max-inline-size: 62ch;
+    margin: 0;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .related-content-section__grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .related-content-section__item {
+    min-inline-size: 0;
+  }
+
+  @media (width >= 50rem) {
+    .related-content-section__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 75rem) {
+    .related-content-section__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (width < 40rem) {
+    .related-content-section {
+      padding: 1.25rem;
+    }
+  }
+</style>

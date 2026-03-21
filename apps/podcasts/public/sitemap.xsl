@@ -74,14 +74,14 @@
           a { color: var(--accent-primary); text-decoration: none; }
           a:hover { text-decoration: underline; color: var(--accent-strong); }
           .locale {
-            font-size: 0.75rem;
+            font-size: 1.125rem;
             padding: 0.15rem 0.4rem;
             border-radius: 0.25rem;
             background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-2));
             color: var(--accent-strong);
             border: 1px solid var(--border-muted);
           }
-          footer { margin-top: 2rem; font-size: 0.85rem; color: var(--text-secondary); }
+          footer { margin-top: 2rem; font-size: 1.125rem; color: var(--text-secondary); }
         </style>
       </head>
       <body>

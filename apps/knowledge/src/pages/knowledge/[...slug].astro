@@ -7,13 +7,13 @@ import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
 import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
-import RecentReadTracker from "@components/RecentReadTracker.astro";
 import RelatedKnowledgeArticles from "@components/RelatedKnowledgeArticles.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
-import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import LinkPanel from "@shared-ui/components/cards/LinkPanel.astro";
 import ReadingProgress from "@shared-ui/components/navigation/ReadingProgress.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import TableOfContents from "@shared-ui/components/navigation/TableOfContents.astro";
+import RecentItemsTracker from "@shared-ui/components/init/RecentItemsTracker.astro";
 
 import KnowledgeTakeaways from "@shared-ui/components/cards/KnowledgeTakeaways.astro";
 import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
@@ -30,7 +30,6 @@ import {
   getKnowledgePodcastUrl,
   getKnowledgeSeoTitle,
   getKnowledgeTaxonomyMeta,
-  getRelatedKnowledgeArticles,
   resolveKnowledgeSlug,
 } from "@utils/knowledge/articlePage";
 import "@styles/knowledge.css";
@@ -158,7 +157,7 @@ const publishedDateLabel = publishedDate.toLocaleDateString(lang, {
   month: "long",
   day: "numeric",
 });
-const currentKeywords = new Set<string>(
+const currentKeywords = (
   Array.isArray(entry.data.keywords)
     ? entry.data.keywords
         .map((keyword: unknown) =>
@@ -166,38 +165,7 @@ const currentKeywords = new Set<string>(
         )
         .filter((keyword: string): keyword is string => Boolean(keyword))
     : []
-);
-
-/**
- * Related article ranking:
- * - same taxonomy subsection carries the strongest signal
- * - same group adds a smaller precision boost
- * - keyword overlap breaks ties and broadens recommendations
- */
-let relatedArticles: Array<{
-  slug: string;
-  title: string;
-  description: string;
-  image?: string;
-  createdAt: Date;
-  readingTime: number;
-}> = [];
-
-try {
-  const allArticles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
-  relatedArticles = getRelatedKnowledgeArticles({
-    articles: allArticles,
-    currentKeywords,
-    currentTaxonomyGroup,
-    currentTaxonomySubsection,
-    currentSlug: slugKey,
-    lang,
-  });
-} catch (e) {
-  globalThis.console?.warn?.("knowledge article: related articles load issue", {
-    error: (e as any)?.message || e,
-  });
-}
+).slice();
 
 // `buildPageSeo()` normalizes title/description/keyword output across the whole monorepo.
 const pageSeo = buildPageSeo({
@@ -221,14 +189,6 @@ const pageSeo = buildPageSeo({
   authorName: entry.data.author || "Melody Mind",
 });
 
-const shareUrl = canonical;
-const shareTitle = `${title} | Melody Mind`;
-const shareText = `${title} - ${description || ""}`.trim();
-const shareMailSubject = encodeURIComponent(shareTitle);
-const shareMailBody = encodeURIComponent(`${description || ""}\n\n${shareUrl}`);
-const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponent(
-  `${shareText} ${shareUrl}`
-)}`;
 const storageSlug = resolvedSlug || entry?.slug || entry?.id || "";
 const storageUpdatedAtRaw = entry?.data?.updatedAt || entry?.data?.createdAt || "";
 const parsedStorageDate = storageUpdatedAtRaw ? new Date(storageUpdatedAtRaw) : null;
@@ -237,6 +197,47 @@ const storageUpdatedAt =
     ? parsedStorageDate.toISOString()
     : "";
 const storageImage = typeof rawImage === "string" ? rawImage : "";
+
+interface ArticleHeroLink {
+  href?: string | null;
+  label: string;
+  icon: string;
+  variant: "primary" | "secondary";
+  ariaLabel: string;
+  analyticsPodcastTarget?: "episode" | "series";
+}
+
+const spotifyPlaylist = entry.data.playlists?.spotifyPlaylist;
+const deezerPlaylist = entry.data.playlists?.deezerPlaylist;
+const articleLinksSource: ArticleHeroLink[] = [
+  {
+    href: spotifyPlaylist,
+    label: "Spotify",
+    icon: "spotify",
+    variant: "secondary",
+    ariaLabel: `Open Spotify playlist for ${title}`,
+  },
+  {
+    href: deezerPlaylist,
+    label: "Deezer",
+    icon: "deezer",
+    variant: "secondary",
+    ariaLabel: `Open Deezer playlist for ${title}`,
+  },
+  {
+    href: podcastUrl,
+    label: "Open podcast episode",
+    icon: "headphones",
+    variant: "primary",
+    ariaLabel: `Open podcast page for ${title}`,
+    analyticsPodcastTarget: "episode",
+  },
+];
+
+const articleLinks = articleLinksSource.filter(
+  (link): link is ArticleHeroLink & { href: string } =>
+    typeof link.href === "string" && link.href.trim().length > 0
+);
 ---
 
 <Layout {pageSeo}>
@@ -257,8 +258,16 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
 
     <div class="knowledge__container">
       <div class="knowledge__hero">
-        <header class="panel knowledge__hero-panel">
-          <div class="knowledge__meta">
+        <HeroTeaser
+          id={`knowledge-article-hero-${slugKey || "entry"}`}
+          title={entry.data.title}
+          titleLevel="h1"
+          description={entry.data.description}
+          mediaPosition="end"
+          mediaAspectRatio="3 / 2"
+          class="knowledge__hero-teaser"
+        >
+          <div slot="meta" class="knowledge__meta">
             <span class="knowledge__pill knowledge__pill--label">In-depth guide</span>
             {
               entry.data.aiGenerated ? (
@@ -290,21 +299,7 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
               ) : null
             }
           </div>
-          <Headline
-            level="h1"
-            textSize="xl"
-            textAlign="left"
-            className="knowledge__title"
-          >
-            {entry.data.title}
-          </Headline>
-          <Paragraph textSize="lg" textAlign="left" className="knowledge__summary">
-            {entry.data.description}
-          </Paragraph>
-        </header>
-
-        <div class="knowledge__aside">
-          <div class="panel knowledge__media-panel">
+          <Fragment slot="media">
             {
               imageSource ? (
                 <div class="knowledge__media-frame">
@@ -315,7 +310,7 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
                     widths={[600, 800, 1000, 1200]}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
                     formats={["avif", "webp", "jpg"]}
-                    alt={entry.data.title}
+                    alt={title}
                     loading="eager"
                     fetchpriority="high"
                     width={1200}
@@ -340,100 +335,58 @@ const storageImage = typeof rawImage === "string" ? rawImage : "";
                 </div>
               )
             }
-          </div>
-
-          {
-            entry.data.playlists?.spotifyPlaylist ||
-            entry.data.playlists?.deezerPlaylist ||
-            podcastUrl ? (
-              <div class="panel panel--compact">
-                <div class="knowledge__panel-title">
-                  <Icon name="music" class="knowledge__panel-icon" aria-hidden="true" />
-                  Listen and Explore
-                </div>
-                <div class="knowledge__panel-actions">
-                  {entry.data.playlists?.spotifyPlaylist ? (
-                    <ButtonLink
-                      href={entry.data.playlists?.spotifyPlaylist}
-                      variant="secondary"
-                      icon="spotify"
-                      className="button-link--sm"
-                      aria-label={`Open Spotify playlist for ${entry.data.title}`}
-                    >
-                      Spotify
-                    </ButtonLink>
-                  ) : null}
-                  {entry.data.playlists?.deezerPlaylist ? (
-                    <ButtonLink
-                      href={entry.data.playlists?.deezerPlaylist}
-                      variant="secondary"
-                      icon="deezer"
-                      className="button-link--sm"
-                      aria-label={`Open Deezer playlist for ${entry.data.title}`}
-                    >
-                      Deezer
-                    </ButtonLink>
-                  ) : null}
-                  {podcastUrl ? (
-                    <ButtonLink
-                      href={podcastUrl}
-                      icon="headphones"
-                      variant="primary"
-                      className="button-link--sm"
-                      analyticsPodcastTarget="episode"
-                      aria-label={`Open podcast page for ${entry.data.title}`}
-                    >
-                      Open podcast episode
-                    </ButtonLink>
-                  ) : null}
-                </div>
-              </div>
-            ) : null
-          }
-        </div>
+          </Fragment>
+        </HeroTeaser>
       </div>
+
+      {
+        articleLinks.length ? (
+          <LinkPanel title="Listen and Explore" titleIcon="music" items={articleLinks} />
+        ) : null
+      }
 
       <div class="knowledge__body">
         <div class="knowledge__main">
-          <TableOfContents headings={mergedHeadings} />
+          <TableOfContents headings={mergedHeadings} className="knowledge__toc" />
 
           {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
 
           <article id="article-content" class="panel knowledge-article">
             <div id="article-title" class="knowledge__title-sr">{entry.data.title}</div>
             <div role="region" aria-labelledby="article-title" aria-label="Main content">
-              <Prose fullWidth={true}>
+              <Prose fullWidth={true} size="lg">
                 <Content />
               </Prose>
             </div>
           </article>
 
           <ShareSection
-            shareUrl={shareUrl}
-            shareTitle={shareTitle}
-            shareText={shareText}
-            shareMailSubject={shareMailSubject}
-            shareMailBody={shareMailBody}
-            mastodonShareUrl={mastodonShareUrl}
+            shareUrl={canonical}
+            contentTitle={title}
+            contentDescription={description}
           />
 
-          <RelatedKnowledgeArticles articles={relatedArticles} />
+          <RelatedKnowledgeArticles
+            currentKeywords={currentKeywords}
+            currentTaxonomyGroup={currentTaxonomyGroup}
+            currentTaxonomySubsection={currentTaxonomySubsection}
+            currentSlug={slugKey}
+            lang={lang}
+          />
 
           <div class="knowledge__back">
             <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
               <span>Back to knowledge list</span>
             </ButtonLink>
           </div>
-          <aside class="print-footer" aria-hidden="true">
-            <span class="print-footer__url">melody-mind.de</span> &mdash; {title} &mdash; {
-              publishedDateLabel
-            }
-          </aside>
-          <RecentReadTracker
-            slug={storageSlug}
-            title={title}
-            updatedAt={storageUpdatedAt}
-            image={storageImage}
+
+          <RecentItemsTracker
+            item={{
+              slug: storageSlug,
+              title,
+              updatedAt: storageUpdatedAt,
+              image: storageImage,
+            }}
             storageKey={VERSIONED_KEYS.RECENT_READS}
           />
         </div>

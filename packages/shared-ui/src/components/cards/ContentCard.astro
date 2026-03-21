@@ -1,0 +1,657 @@
+---
+import type { ContentCardMetaItem } from "@shared-ui/components/cards/contentCard";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  id: string;
+  title: string;
+  href?: string;
+  description?: string;
+  variant?: "default" | "feature" | "action";
+  size?: "compact" | "default" | "spacious";
+  dataTestId?: string;
+  mediaAspectRatio?: string;
+  mediaObjectFit?: "cover" | "contain";
+  imageSrc?: string;
+  imageAlt?: string;
+  imageWidth?: number | string;
+  imageHeight?: number | string;
+  imageLoading?: "eager" | "lazy";
+  imageDecoding?: "sync" | "async" | "auto";
+  titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  metaItems?: ContentCardMetaItem[];
+  descriptionLineClamp?: number;
+  ctaLabel?: string;
+  ctaIconName?: string;
+  ctaSrText?: string;
+  class?: string;
+}
+
+const {
+  id,
+  title,
+  href,
+  description,
+  variant = "default",
+  size = "default",
+  dataTestId,
+  mediaAspectRatio,
+  mediaObjectFit = "cover",
+  imageSrc,
+  imageAlt = "",
+  imageWidth,
+  imageHeight,
+  imageLoading = "lazy",
+  imageDecoding = "async",
+  titleLevel = "h3",
+  metaItems = [],
+  descriptionLineClamp = 0,
+  ctaLabel,
+  ctaIconName,
+  ctaSrText,
+  class: className,
+  ...rest
+} = Astro.props as Props;
+
+const TitleTag = titleLevel;
+const ContentTag = href ? "a" : "div";
+const titleId = `${id}-title`;
+const descriptionId = `${id}-description`;
+const metaId = `${id}-meta`;
+const hasSlottedMedia = Astro.slots.has("media");
+const hasMedia = Boolean(imageSrc) || hasSlottedMedia;
+const hasHeader = Astro.slots.has("header");
+const hasBadge = Astro.slots.has("badge");
+const hasFooterMetaSlot = Astro.slots.has("footer-meta");
+const hasFooter = Astro.slots.has("footer");
+const hasScreenReaderSlot = Astro.slots.has("sr");
+const hasMeta = metaItems.length > 0 || hasFooterMetaSlot;
+const hasCta = Boolean(ctaLabel);
+const describedBy = [description ? descriptionId : null, hasMeta ? metaId : null]
+  .filter(Boolean)
+  .join(" ");
+const descriptionStyle =
+  descriptionLineClamp > 0
+    ? `--content-card-description-line-clamp: ${descriptionLineClamp};`
+    : undefined;
+const resolvedMediaAspectRatio =
+  mediaAspectRatio ??
+  (imageWidth && imageHeight ? `${imageWidth} / ${imageHeight}` : "3 / 2");
+const contentProps = href
+  ? {
+      href,
+      "aria-labelledby": titleId,
+      "aria-describedby": describedBy || undefined,
+    }
+  : {};
+---
+
+<article
+  {...rest}
+  class:list={[
+    "content-card",
+    `content-card--${variant}`,
+    `content-card--size-${size}`,
+    href && "content-card--interactive",
+    className,
+  ]}
+  data-testid={dataTestId}
+  aria-labelledby={titleId}
+  aria-describedby={describedBy || undefined}
+>
+  <ContentTag class="content-card__content" {...contentProps}>
+    {
+      hasMedia ? (
+        <div
+          class:list={["content-card__media", `content-card__media--${mediaObjectFit}`]}
+          style={`--content-card-media-aspect-ratio: ${resolvedMediaAspectRatio};`}
+        >
+          {imageSrc ? (
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              class="content-card__media-image"
+              width={imageWidth}
+              height={imageHeight}
+              loading={imageLoading}
+              decoding={imageDecoding}
+            />
+          ) : (
+            <slot name="media" />
+          )}
+          {hasBadge ? (
+            <div class="content-card__badge">
+              <slot name="badge" />
+            </div>
+          ) : null}
+        </div>
+      ) : null
+    }
+
+    <div class="content-card__body">
+      {hasHeader ? <slot name="header" /> : null}
+
+      <TitleTag class="content-card__title" id={titleId}>
+        {title}
+      </TitleTag>
+
+      {
+        description ? (
+          <p
+            id={descriptionId}
+            class:list={[
+              "content-card__description",
+              descriptionLineClamp > 0 && "content-card__description--clamped",
+            ]}
+            style={descriptionStyle}
+          >
+            {description}
+          </p>
+        ) : null
+      }
+
+      {
+        hasMeta ? (
+          <div class="content-card__meta" id={metaId}>
+            {metaItems.map((item) =>
+              item.datetime ? (
+                <time
+                  class="content-card__meta-item"
+                  datetime={item.datetime}
+                  aria-label={item.label}
+                >
+                  {item.iconName ? (
+                    <Icon
+                      name={item.iconName}
+                      class="content-card__meta-icon"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                  <span>{item.label}</span>
+                </time>
+              ) : (
+                <span class="content-card__meta-item">
+                  {item.iconName ? (
+                    <Icon
+                      name={item.iconName}
+                      class="content-card__meta-icon"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                  <span>{item.label}</span>
+                </span>
+              )
+            )}
+            {hasFooterMetaSlot ? <slot name="footer-meta" /> : null}
+          </div>
+        ) : null
+      }
+    </div>
+
+    {
+      hasFooter ? (
+        <div class="content-card__footer">
+          <slot name="footer" />
+        </div>
+      ) : hasCta ? (
+        <div class="content-card__footer">
+          <span class="content-card__cta">
+            {ctaIconName ? (
+              <Icon
+                name={ctaIconName}
+                class="content-card__cta-icon"
+                aria-hidden="true"
+              />
+            ) : null}
+            <span>{ctaLabel}</span>
+          </span>
+        </div>
+      ) : null
+    }
+
+    {
+      hasScreenReaderSlot ? (
+        <span class="content-card__sr">
+          <slot name="sr" />
+        </span>
+      ) : ctaSrText ? (
+        <span class="content-card__sr">{ctaSrText}</span>
+      ) : null
+    }
+  </ContentTag>
+</article>
+
+<style>
+  .content-card {
+    position: relative;
+    display: flex;
+    inline-size: 100%;
+    min-inline-size: 0;
+    block-size: 100%;
+    container-type: inline-size;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-base);
+    transition:
+      transform var(--transition-base),
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .content-card--feature {
+    background: var(--surface-2);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .content-card--action {
+    border-color: var(--accent-muted);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .content-card__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    inline-size: 100%;
+    min-inline-size: 0;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .content-card__content:focus-visible {
+    outline: 2px solid transparent;
+  }
+
+  .content-card--interactive:hover,
+  .content-card--interactive:focus-within {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .content-card--interactive:focus-within {
+    border-color: var(--border-strong);
+    box-shadow: var(--interactive-shadow-focus), var(--shadow-lg);
+  }
+
+  .content-card--interactive.content-card--feature:hover,
+  .content-card--interactive.content-card--feature:focus-within {
+    border-color: var(--accent-strong);
+    transform: translateY(-3px);
+  }
+
+  .content-card--interactive.content-card--feature:focus-within {
+    box-shadow: var(--interactive-shadow-focus), var(--shadow-2xl);
+  }
+
+  .content-card--interactive.content-card--action:hover,
+  .content-card--interactive.content-card--action:focus-within {
+    border-color: var(--accent-primary);
+    transform: translateY(-3px);
+  }
+
+  .content-card--interactive.content-card--action:focus-within {
+    box-shadow: var(--interactive-shadow-focus), var(--shadow-xl);
+  }
+
+  .content-card__media {
+    position: relative;
+    inline-size: 100%;
+    aspect-ratio: var(--content-card-media-aspect-ratio, 3 / 2);
+    overflow: hidden;
+    background: var(--surface-2);
+    border-block-end: 1px solid var(--border-muted);
+  }
+
+  .content-card--feature .content-card__media {
+    background: var(--surface-1);
+    border-block-end-color: var(--accent-muted);
+  }
+
+  .content-card__media-image {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .content-card__media :global(picture) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .content-card__media :global(picture > img) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .content-card__media--cover .content-card__media-image,
+  .content-card__media--cover :global(img),
+  .content-card__media--cover :global(picture > img),
+  .content-card__media--cover :global(svg) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .content-card__media--cover :global(picture) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .content-card__media--contain {
+    display: grid;
+    place-items: center;
+  }
+
+  .content-card__media--contain .content-card__media-image,
+  .content-card__media--contain :global(img),
+  .content-card__media--contain :global(picture > img),
+  .content-card__media--contain :global(svg) {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    block-size: 100%;
+    object-fit: contain;
+  }
+
+  .content-card__media--contain :global(picture) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .content-card--interactive.content-card--action:hover .content-card__media :global(img),
+  .content-card--interactive.content-card--action:hover
+    .content-card__media
+    :global(picture > img),
+  .content-card--interactive.content-card--action:focus-within
+    .content-card__media
+    :global(img),
+  .content-card--interactive.content-card--action:focus-within
+    .content-card__media
+    :global(picture > img),
+  .content-card--interactive.content-card--feature:hover
+    .content-card__media
+    :global(img),
+  .content-card--interactive.content-card--feature:hover
+    .content-card__media
+    :global(picture > img),
+  .content-card--interactive.content-card--feature:focus-within
+    .content-card__media
+    :global(img),
+  .content-card--interactive.content-card--feature:focus-within
+    .content-card__media
+    :global(picture > img) {
+    transform: scale(1.03);
+  }
+
+  .content-card__badge {
+    position: absolute;
+    inset-block-end: var(--spacing-base);
+    inset-inline-end: var(--spacing-base);
+  }
+
+  .content-card__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--card-padding);
+  }
+
+  .content-card--size-compact .content-card__body {
+    gap: var(--spacing-sm);
+    padding: var(--spacing-base);
+  }
+
+  .content-card--size-spacious .content-card__body {
+    gap: var(--spacing-base);
+    padding: var(--spacing-xl);
+  }
+
+  .content-card__title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    color: var(--heading-color);
+    letter-spacing: var(--heading-letter-spacing);
+    text-wrap: balance;
+    overflow-wrap: break-word;
+  }
+
+  .content-card--size-compact .content-card__title {
+    font-size: var(--font-size-base);
+  }
+
+  .content-card--size-spacious .content-card__title {
+    font-size: clamp(1.2rem, 1.05rem + 0.45vw, 1.55rem);
+  }
+
+  .content-card__description {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: var(--prose-line-height);
+    color: var(--text-secondary);
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  .content-card--size-compact .content-card__description {
+    font-size: var(--font-size-sm);
+  }
+
+  .content-card__description--clamped {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: var(--content-card-description-line-clamp);
+    /* stylelint-disable-next-line property-no-deprecated */
+    -webkit-box-orient: vertical;
+  }
+
+  .content-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-lg);
+    padding-block-start: var(--spacing-base);
+    margin-block-start: auto;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    border-block-start: 1px solid var(--border-muted);
+  }
+
+  .content-card--size-compact .content-card__meta {
+    gap: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .content-card--size-spacious .content-card__meta {
+    padding-block-start: var(--spacing-md);
+  }
+
+  .content-card__meta-item {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    min-inline-size: 0;
+    font-weight: var(--font-weight-medium);
+  }
+
+  .content-card__meta-icon {
+    display: block;
+    flex-shrink: 0;
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--accent-primary);
+  }
+
+  .content-card__footer {
+    padding: 0 var(--card-padding) var(--card-padding);
+  }
+
+  .content-card--size-compact .content-card__footer {
+    padding: 0 var(--spacing-base) var(--spacing-base);
+  }
+
+  .content-card--size-spacious .content-card__footer {
+    padding: 0 var(--spacing-xl) var(--spacing-xl);
+  }
+
+  .content-card__cta {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 9.5rem;
+    min-block-size: 2.75rem;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    font-size: var(--font-size-sm);
+    font-weight: var(--button-font-weight);
+    color: var(--text-primary);
+    text-align: center;
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--button-radius);
+    box-shadow: none;
+    transition:
+      transform var(--transition-base),
+      background-color var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .content-card__cta-icon {
+    inline-size: 0.95rem;
+    block-size: 0.95rem;
+  }
+
+  .content-card--feature .content-card__cta {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .content-card--action .content-card__cta {
+    background: var(--surface-3);
+    border-color: var(--accent-primary);
+  }
+
+  .content-card--interactive:hover .content-card__cta,
+  .content-card--interactive:focus-within .content-card__cta {
+    background: var(--surface-3);
+    box-shadow: none;
+    transform: translateY(-1px);
+  }
+
+  .content-card--interactive.content-card--feature:hover .content-card__cta,
+  .content-card--interactive.content-card--feature:focus-within .content-card__cta {
+    background: var(--accent-strong);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .content-card--interactive.content-card--action:hover .content-card__cta,
+  .content-card--interactive.content-card--action:focus-within .content-card__cta {
+    background: var(--surface-2);
+  }
+
+  .content-card__sr {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: inset(50%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .content-card {
+      transition: none;
+    }
+
+    .content-card__cta {
+      transition: none;
+    }
+
+    .content-card--interactive.content-card--action .content-card__media :global(img),
+    .content-card--interactive.content-card--action
+      .content-card__media
+      :global(picture > img),
+    .content-card--interactive.content-card--feature .content-card__media :global(img),
+    .content-card--interactive.content-card--feature
+      .content-card__media
+      :global(picture > img) {
+      transition: none;
+    }
+
+    .content-card--interactive:hover,
+    .content-card--interactive:focus-within,
+    .content-card--interactive:hover .content-card__cta,
+    .content-card--interactive:focus-within .content-card__cta,
+    .content-card--interactive.content-card--action:hover
+      .content-card__media
+      :global(img),
+    .content-card--interactive.content-card--action:focus-within
+      .content-card__media
+      :global(img),
+    .content-card--interactive.content-card--action:hover
+      .content-card__media
+      :global(picture > img),
+    .content-card--interactive.content-card--action:focus-within
+      .content-card__media
+      :global(picture > img),
+    .content-card--interactive.content-card--feature:hover
+      .content-card__media
+      :global(img),
+    .content-card--interactive.content-card--feature:focus-within
+      .content-card__media
+      :global(img),
+    .content-card--interactive.content-card--feature:hover
+      .content-card__media
+      :global(picture > img),
+    .content-card--interactive.content-card--feature:focus-within
+      .content-card__media
+      :global(picture > img) {
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .content-card--interactive.content-card--action .content-card__media :global(img),
+    .content-card--interactive.content-card--action
+      .content-card__media
+      :global(picture > img),
+    .content-card--interactive.content-card--feature .content-card__media :global(img),
+    .content-card--interactive.content-card--feature
+      .content-card__media
+      :global(picture > img) {
+      transition: transform var(--transition-slow);
+    }
+  }
+
+  @container (max-width: 24rem) {
+    .content-card--size-spacious .content-card__body {
+      gap: var(--spacing-sm);
+      padding: var(--spacing-base);
+    }
+
+    .content-card--size-spacious .content-card__title {
+      font-size: var(--font-size-lg);
+    }
+
+    .content-card--size-spacious .content-card__footer {
+      padding: 0 var(--spacing-base) var(--spacing-base);
+    }
+
+    .content-card__badge {
+      inset-block-end: var(--spacing-sm);
+      inset-inline-end: var(--spacing-sm);
+    }
+  }
+</style>

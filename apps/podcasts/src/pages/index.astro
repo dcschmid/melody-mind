@@ -1,11 +1,13 @@
 ---
 import PodcastLayout from "../layouts/PodcastLayout.astro";
-import EpisodeCard from "../components/EpisodeCard.astro";
 import HomeHero from "../components/HomeHero.astro";
+import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import SearchForm from "@shared-ui/components/search/SearchForm.astro";
+import type { ContentCardMetaItem } from "@shared-ui/components/cards/contentCard";
 import type { PodcastData } from "../types/podcast";
 import { formatDate } from "../utils/helpers";
 
@@ -18,6 +20,28 @@ const sortedPodcasts = [...podcasts].sort(
 );
 const normalizeSearchText = (value: string) =>
   value.toLowerCase().replace(/\s+/g, " ").trim();
+const buildEpisodeMetaItems = (
+  publishedAt: string,
+  durationSeconds?: number
+): ContentCardMetaItem[] => {
+  const items: ContentCardMetaItem[] = [
+    {
+      iconName: "calendar",
+      label: formatDate(publishedAt),
+      datetime: publishedAt,
+    },
+  ];
+
+  if (durationSeconds) {
+    items.push({
+      iconName: "headphones",
+      label: `${Math.floor(durationSeconds / 60)} min`,
+    });
+  }
+
+  return items;
+};
+
 const episodeEntries = sortedPodcasts.map((podcast, index) => ({
   id: podcast.id,
   title: podcast.title,
@@ -28,6 +52,7 @@ const episodeEntries = sortedPodcasts.map((podcast, index) => ({
   publishedLabel: formatDate(podcast.publishedAt),
   isLatest: index === 0,
   searchText: normalizeSearchText(`${podcast.title} ${podcast.description}`),
+  metaItems: buildEpisodeMetaItems(podcast.publishedAt, podcast.durationSeconds),
 }));
 const initialEpisodes = episodeEntries.slice(0, PAGINATION_CONFIG.EPISODES_PER_PAGE);
 const templateEpisode = episodeEntries[0];
@@ -73,104 +98,130 @@ const t = {
   locale="en-US"
   seriesDescription={t.seoDescription}
 >
-  <div class="home">
-    <HomeHero
-      title={t.title}
-      subtitle={t.subtitle}
-      description={t.description}
-      totalEpisodes={podcasts.length}
-      featuredContent={t.featuredContent}
-      availableOn={t.availableOn}
-      spotifyUrl={t.spotifyUrl}
-      deezerUrl={t.deezerUrl}
-      youtubeUrl={t.youtubeUrl}
-    />
+  <PageShell className="page-shell--aurora">
+    <div class="home">
+      <HomeHero
+        title={t.title}
+        subtitle={t.subtitle}
+        description={t.description}
+        totalEpisodes={podcasts.length}
+        featuredContent={t.featuredContent}
+        availableOn={t.availableOn}
+        spotifyUrl={t.spotifyUrl}
+        deezerUrl={t.deezerUrl}
+        youtubeUrl={t.youtubeUrl}
+      />
 
-    <SearchForm
-      label="Search episodes"
-      placeholder="Search by title or description"
-      clearLabel="Clear search"
-      hintText="Submit to open the dedicated search page with a shareable query URL."
-      inputId="episode-search"
-      hintId="search-hint"
-      action="/search"
-      method="get"
-    />
+      <SearchForm
+        label="Search episodes"
+        placeholder="Search by title or description"
+        clearLabel="Clear search"
+        hintText="Submit to open the dedicated search page with a shareable query URL."
+        inputId="episode-search"
+        hintId="search-hint"
+        action="/search"
+        method="get"
+      />
 
-    <section class="home__episodes" aria-labelledby="episodes-heading">
-      <Headline level="h2" textSize="xl" className="home__section-title">
-        <span id="episodes-heading">{t.episodes}</span>
-      </Headline>
+      <section class="home__episodes" aria-labelledby="episodes-heading">
+        <Headline level="h2" textSize="xl" className="home__section-title">
+          <span id="episodes-heading">{t.episodes}</span>
+        </Headline>
 
-      <div class="home__episodes-grid" role="list" id="episodes-list">
-        {
-          initialEpisodes.map((podcast) => (
-            <EpisodeCard
-              id={podcast.id}
-              title={podcast.title}
-              description={podcast.description}
-              imageUrl={podcast.imageUrl}
-              durationSeconds={podcast.durationSeconds}
-              searchText={podcast.searchText}
-              publishedAt={podcast.publishedAt}
-              publishedLabel={podcast.publishedLabel}
-              isLatest={podcast.isLatest}
-            />
-          ))
-        }
-      </div>
-      {
-        podcasts.length === 0 && (
-          <EmptyState
-            className="home__empty"
-            description="No episodes available yet. Check back soon for new content!"
-          />
-        )
-      }
-      <div id="episodes-data" data-episodes={encodedEpisodes} hidden></div>
-      {
-        templateEpisode && (
-          <div id="episode-template" hidden>
-            <EpisodeCard
-              id={templateEpisode.id}
-              title={templateEpisode.title}
-              description={templateEpisode.description}
-              imageUrl={templateEpisode.imageUrl}
-              durationSeconds={templateEpisode.durationSeconds}
-              searchText={templateEpisode.searchText}
-              publishedAt={templateEpisode.publishedAt}
-              publishedLabel={templateEpisode.publishedLabel}
-              isLatest={templateEpisode.isLatest}
-            />
-          </div>
-        )
-      }
-      <div class="home__load-more" id="episodes-load-more" hidden>
-        <div class="home__load-more-panel" role="group" aria-label="More episodes">
-          <Paragraph
-            textSize="sm"
-            className="home__load-more-status"
-            id="episodes-load-more-status"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            Showing {Math.min(PAGINATION_CONFIG.EPISODES_PER_PAGE, podcasts.length)} of {
-              podcasts.length
-            } episodes.
-          </Paragraph>
-          <button
-            class="home__load-more-button"
-            id="episodes-load-more-button"
-            type="button"
-            aria-controls="episodes-list"
-          >
-            Show more episodes
-          </button>
+        <div class="home__episodes-grid" role="list" id="episodes-list">
+          {
+            initialEpisodes.map((podcast) => (
+              <ContentCard
+                id={`episode-card-${podcast.id}`}
+                data-episode
+                data-search={podcast.searchText}
+                role="listitem"
+                href={`/${podcast.id}`}
+                variant="feature"
+                size="spacious"
+                imageSrc={`/images/${podcast.imageUrl}.jpg`}
+                imageAlt={`Cover art for the podcast episode ${podcast.title}`}
+                imageWidth={1536}
+                imageHeight={1024}
+                title={podcast.title}
+                description={podcast.description}
+                metaItems={podcast.metaItems}
+                descriptionLineClamp={3}
+                ctaLabel="View Episode"
+              >
+                <Fragment slot="badge">
+                  {podcast.isLatest && <span class="episode-card__badge">Latest</span>}
+                </Fragment>
+              </ContentCard>
+            ))
+          }
         </div>
-      </div>
-    </section>
-  </div>
+        {
+          podcasts.length === 0 && (
+            <EmptyState
+              className="home__empty"
+              description="No episodes available yet. Check back soon for new content!"
+            />
+          )
+        }
+        <div id="episodes-data" data-episodes={encodedEpisodes} hidden></div>
+        {
+          templateEpisode && (
+            <div id="episode-template" hidden>
+              <ContentCard
+                id={`episode-card-${templateEpisode.id}`}
+                data-episode
+                data-search={templateEpisode.searchText}
+                role="listitem"
+                href={`/${templateEpisode.id}`}
+                variant="feature"
+                size="spacious"
+                imageSrc={`/images/${templateEpisode.imageUrl}.jpg`}
+                imageAlt={`Cover art for the podcast episode ${templateEpisode.title}`}
+                imageWidth={1536}
+                imageHeight={1024}
+                title={templateEpisode.title}
+                description={templateEpisode.description}
+                metaItems={templateEpisode.metaItems}
+                descriptionLineClamp={3}
+                ctaLabel="View Episode"
+              >
+                <Fragment slot="badge">
+                  {templateEpisode.isLatest && (
+                    <span class="episode-card__badge">Latest</span>
+                  )}
+                </Fragment>
+              </ContentCard>
+            </div>
+          )
+        }
+        <div class="home__load-more" id="episodes-load-more" hidden>
+          <div class="home__load-more-panel" role="group" aria-label="More episodes">
+            <Paragraph
+              textSize="sm"
+              className="home__load-more-status"
+              id="episodes-load-more-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              Showing {Math.min(PAGINATION_CONFIG.EPISODES_PER_PAGE, podcasts.length)} of {
+                podcasts.length
+              } episodes.
+            </Paragraph>
+            <button
+              class="home__load-more-button"
+              id="episodes-load-more-button"
+              type="button"
+              aria-controls="episodes-list"
+            >
+              Show more episodes
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </PageShell>
 
   <script>
     import "../scripts/episodes";
@@ -178,25 +229,43 @@ const t = {
 </PodcastLayout>
 
 <style>
+  .episode-card__image {
+    object-fit: cover;
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 85%, transparent);
+  }
+
+  .episode-card__badge {
+    padding: 0.2em 0.6em;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 14%, var(--surface-2));
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 26%, var(--border-default));
+    border-radius: var(--radius-full);
+  }
+
   .home {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 2rem;
   }
 
   .home__episodes {
     display: grid;
-    gap: 1rem;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      var(--surface-2)
+    );
+    border: 1px solid var(--border-default);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
   }
 
   .home__section-title {
     margin: 0;
-    font-size: var(--font-size-title-lg);
-    font-weight: 800;
-    color: transparent;
-    text-shadow: var(--effect-title-shadow);
-    background: var(--brand-gradient);
-    background-clip: text;
+    color: var(--text-primary);
   }
 
   .home__episodes-grid {
@@ -219,18 +288,18 @@ const t = {
     padding: 1.1rem 1.5rem;
     background: linear-gradient(
       150deg,
-      color-mix(in srgb, var(--color-layer-2) 92%, transparent),
-      color-mix(in srgb, var(--color-layer-1) 95%, transparent)
+      color-mix(in srgb, var(--surface-3) 92%, transparent),
+      color-mix(in srgb, var(--surface-2) 95%, transparent)
     );
-    border: 1px solid var(--color-border-soft);
+    border: 1px solid var(--podcast-border-soft);
     border-radius: 1.25rem;
-    box-shadow: var(--effect-elevated-md);
+    box-shadow: var(--shadow-lg);
   }
 
   .home__load-more-status {
     margin: 0;
-    font-size: var(--font-size-ui);
-    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    color: var(--podcast-text-muted);
     text-align: center;
   }
 
@@ -238,14 +307,14 @@ const t = {
     .home__load-more-button {
       padding: 0.65rem 1.35rem;
       font-weight: 700;
-      color: var(--color-text);
+      color: var(--text-primary);
       cursor: pointer;
       background: linear-gradient(
         135deg,
-        color-mix(in srgb, var(--color-primary) 35%, var(--color-layer-1)),
-        color-mix(in srgb, var(--color-primary) 22%, var(--color-layer-2))
+        color-mix(in srgb, var(--accent-primary) 35%, var(--surface-2)),
+        color-mix(in srgb, var(--accent-primary) 22%, var(--surface-3))
       );
-      border: 1px solid var(--color-border-default);
+      border: 1px solid var(--podcast-border-default);
       border-radius: 999px;
       transition: none;
     }
@@ -254,14 +323,14 @@ const t = {
   .home__load-more-button {
     padding: 0.65rem 1.35rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--text-primary);
     cursor: pointer;
     background: linear-gradient(
       135deg,
-      color-mix(in srgb, var(--color-primary) 35%, var(--color-layer-1)),
-      color-mix(in srgb, var(--color-primary) 22%, var(--color-layer-2))
+      color-mix(in srgb, var(--accent-primary) 35%, var(--surface-2)),
+      color-mix(in srgb, var(--accent-primary) 22%, var(--surface-3))
     );
-    border: 1px solid var(--color-border-default);
+    border: 1px solid var(--podcast-border-default);
     border-radius: 999px;
     transition:
       transform 0.2s ease,
@@ -271,13 +340,13 @@ const t = {
 
   .home__load-more-button:focus-visible {
     outline: none;
-    box-shadow: var(--focus-ring);
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .home__load-more-button:hover,
   .home__load-more-button:focus-visible {
-    border-color: var(--color-border-strong);
-    box-shadow: var(--effect-elevated-soft);
+    border-color: var(--podcast-border-strong);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-1px);
   }
 
@@ -305,6 +374,12 @@ const t = {
   @media (width >= 960px) {
     .home__episodes-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (width < 40rem) {
+    .home__episodes {
+      padding: 1.25rem;
     }
   }
 </style>

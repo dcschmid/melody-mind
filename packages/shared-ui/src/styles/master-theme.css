@@ -40,9 +40,9 @@
   --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
 
   /* Font sizes */
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-base: 1rem; /* 16px */
+  --font-size-xs: 1.125rem; /* 18px minimum */
+  --font-size-sm: 1.125rem; /* 18px minimum */
+  --font-size-base: 1.125rem; /* 18px minimum */
   --font-size-md: 1.125rem; /* 18px */
   --font-size-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); /* 20-24px */
   --font-size-xl: clamp(1.5rem, 1.3rem + 0.7vw, 2rem); /* 24-32px */

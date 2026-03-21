@@ -3,11 +3,8 @@ import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface Props {
   shareUrl: string;
-  shareTitle: string;
-  shareText: string;
-  shareMailSubject: string;
-  shareMailBody: string;
-  mastodonShareUrl: string;
+  contentTitle: string;
+  contentDescription?: string;
   title?: string;
   note?: string;
   successMessage?: string;
@@ -17,17 +14,22 @@ interface Props {
 
 const {
   shareUrl,
-  shareTitle,
-  shareText,
-  shareMailSubject,
-  shareMailBody,
-  mastodonShareUrl,
+  contentTitle,
+  contentDescription = "",
   title = "Share this article",
   note = "Privacy-friendly: nothing loads until you choose a share option.",
   successMessage = "Link copied!",
   errorMessage = "Copy failed - please copy it manually.",
   fallbackMessage = "Sharing isn't available here, so we've copied the link for you.",
 } = Astro.props as Props;
+
+const shareTitle = `${contentTitle} | Melody Mind`;
+const shareText = `${contentTitle} - ${contentDescription}`.trim();
+const shareMailSubject = encodeURIComponent(shareTitle);
+const shareMailBody = encodeURIComponent(`${contentDescription}\n\n${shareUrl}`);
+const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponent(
+  `${shareText} ${shareUrl}`
+)}`;
 ---
 
 <section

@@ -71,8 +71,7 @@
 
 /* Forced Colors Mode (Windows High Contrast) */
 @media (forced-colors: active) {
-  .knowledge-card,
-  .taxonomy-card,
+  .content-card,
   .legal-panel,
   .site-header,
   .site-footer {
@@ -101,8 +100,7 @@
     background: ButtonFace;
   }
 
-  .knowledge-card__title,
-  .taxonomy-card__title {
+  .content-card__title {
     color: CanvasText;
   }
 

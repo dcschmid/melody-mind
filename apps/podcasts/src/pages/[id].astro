@@ -5,6 +5,10 @@ import AudioPlayer from "../components/AudioPlayer.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSection.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import type { RelatedContentCardItem } from "@shared-ui/components/cards/relatedContent";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
 import { getAdjacentByKey } from "../utils/array";
@@ -45,7 +49,37 @@ const t = {
   musicHistory: "Music History",
   knowledge: "Related Article",
   readArticle: "Read the related article",
+  continueListening: "Continue listening",
+  continueListeningCopy:
+    "Move to the previous or next episode without leaving the shared Melody Mind card flow.",
 };
+
+const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
+  .filter(Boolean)
+  .map((podcast, itemIndex) => ({
+    id: `related-episode-${podcast.id}-${itemIndex}`,
+    title: podcast.title,
+    description: podcast.description,
+    href: `/${podcast.id}`,
+    imageSrc: `/images/${podcast.imageUrl}.jpg`,
+    imageAlt: `Cover art for the podcast episode ${podcast.title}`,
+    ctaSrText: "Opens episode",
+    metaItems: [
+      {
+        iconName: "calendar",
+        label: formatDate(podcast.publishedAt),
+        datetime: podcast.publishedAt,
+      },
+      ...(podcast.durationSeconds
+        ? [
+            {
+              iconName: "headphones",
+              label: `${Math.floor(podcast.durationSeconds / 60)} min`,
+            },
+          ]
+        : []),
+    ],
+  }));
 ---
 
 <PodcastLayout
@@ -74,161 +108,146 @@ const t = {
   ]}
   canonical={`https://podcasts.melody-mind.de/${currentPodcast.id}`}
 >
-  <div class="episode">
-    <nav class="episode__breadcrumb" aria-label="Breadcrumb navigation">
-      <a href="/" class="episode__breadcrumb-link" aria-label="Return to all podcasts">
-        {t.backToAll}
-      </a>
-    </nav>
+  <PageShell className="page-shell--aurora">
+    <div class="episode">
+      <nav class="episode__breadcrumb" aria-label="Breadcrumb navigation">
+        <a href="/" class="episode__breadcrumb-link" aria-label="Return to all podcasts">
+          {t.backToAll}
+        </a>
+      </nav>
 
-    <section class="episode__hero" aria-labelledby="episode-title">
-      <div class="episode__hero-media">
-        <picture>
-          <source srcset={`/images/${currentPodcast.imageUrl}.avif`} type="image/avif" />
-          <source srcset={`/images/${currentPodcast.imageUrl}.webp`} type="image/webp" />
-          <img
-            src={`/images/${currentPodcast.imageUrl}.jpg`}
-            alt={`Cover art for the podcast episode ${currentPodcast.title}`}
-            width="400"
-            height="267"
-            loading="eager"
-            class="episode__hero-image"
-            decoding="async"
-            fetchpriority="high"
-            sizes="(max-width: 960px) 100vw, 50vw"
-          />
-        </picture>
-      </div>
-
-      <div class="episode__hero-body">
-        <div class="episode__meta">
-          <span class="episode__pill" aria-label={`${t.episode} number ${episodeNumber}`}>
-            {t.episode}
-            {episodeNumber}
-          </span>
-          <time
-            class="episode__date"
-            datetime={currentPodcast.publishedAt}
-            aria-label={`${t.publishedOn} ${formatDate(currentPodcast.publishedAt)}`}
-          >
-            {t.publishedOn}
-            {formatDate(currentPodcast.publishedAt)}
-          </time>
+      <section class="episode__hero" aria-labelledby="episode-title">
+        <div class="episode__hero-media">
+          <picture>
+            <source
+              srcset={`/images/${currentPodcast.imageUrl}.avif`}
+              type="image/avif"
+            />
+            <source
+              srcset={`/images/${currentPodcast.imageUrl}.webp`}
+              type="image/webp"
+            />
+            <img
+              src={`/images/${currentPodcast.imageUrl}.jpg`}
+              alt={`Cover art for the podcast episode ${currentPodcast.title}`}
+              width="400"
+              height="267"
+              loading="eager"
+              class="episode__hero-image"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 960px) 100vw, 50vw"
+            />
+          </picture>
         </div>
 
-        <Headline level="h1" textSize="2xl" className="episode__title">
-          <span id="episode-title">{currentPodcast.title}</span>
-        </Headline>
+        <div class="episode__hero-body">
+          <div class="episode__meta">
+            <span
+              class="episode__pill"
+              aria-label={`${t.episode} number ${episodeNumber}`}
+            >
+              {t.episode}
+              {episodeNumber}
+            </span>
+            <time
+              class="episode__date"
+              datetime={currentPodcast.publishedAt}
+              aria-label={`${t.publishedOn} ${formatDate(currentPodcast.publishedAt)}`}
+            >
+              {t.publishedOn}
+              {formatDate(currentPodcast.publishedAt)}
+            </time>
+          </div>
 
-        <Paragraph textSize="base" className="episode__description">
-          {currentPodcast.description}
-        </Paragraph>
-      </div>
-    </section>
+          <Headline level="h1" textSize="2xl" className="episode__title">
+            <span id="episode-title">{currentPodcast.title}</span>
+          </Headline>
 
-    {
-      currentPodcast.knowledgeUrl && (
-        <section class="episode__knowledge" aria-labelledby="knowledge-link">
-          <div class="episode__knowledge-body">
+          <Paragraph textSize="base" className="episode__description">
+            {currentPodcast.description}
+          </Paragraph>
+        </div>
+      </section>
+
+      {
+        currentPodcast.knowledgeUrl && (
+          <section class="episode__knowledge" aria-labelledby="knowledge-link">
             <Paragraph textSize="sm" className="episode__kicker" id="knowledge-link">
               {t.knowledge}
             </Paragraph>
-            <Paragraph textSize="base" className="episode__knowledge-text">
-              Go deeper with the related Melody Mind article.
-            </Paragraph>
-          </div>
-          <a
-            href={currentPodcast.knowledgeUrl}
-            class="episode__knowledge-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${t.readArticle}: ${currentPodcast.title}`}
-          >
-            {t.readArticle}
-          </a>
-        </section>
-      )
-    }
+            <ContentCard
+              id={`episode-knowledge-${currentPodcast.id}`}
+              href={currentPodcast.knowledgeUrl}
+              variant="action"
+              size="compact"
+              title={currentPodcast.title}
+              description="Go deeper with the related Melody Mind article and keep the story moving from audio into context."
+              ctaLabel={t.readArticle}
+              ctaIconName="book-open"
+              target="_blank"
+              rel="noopener noreferrer"
+              metaItems={[
+                {
+                  iconName: "music",
+                  label: "Knowledge companion",
+                },
+              ]}
+              aria-label={`${t.readArticle}: ${currentPodcast.title}`}
+            />
+          </section>
+        )
+      }
 
-    {
-      currentPodcast.audioUrl && (
-        <section class="episode__audio" aria-labelledby="audio-player-heading">
-          <Headline level="h2" textSize="lg" className="episode__section-title">
-            <span id="audio-player-heading">
-              <Icon
-                name="headphones"
-                class="episode__section-title-icon"
-                aria-hidden="true"
-              />
-              {t.listenToEpisode}
-            </span>
-          </Headline>
+      {
+        currentPodcast.audioUrl && (
+          <section class="episode__audio" aria-labelledby="audio-player-heading">
+            <Headline level="h2" textSize="lg" className="episode__section-title">
+              <span id="audio-player-heading">
+                <Icon
+                  name="headphones"
+                  class="episode__section-title-icon"
+                  aria-hidden="true"
+                />
+                {t.listenToEpisode}
+              </span>
+            </Headline>
 
-          <AudioPlayer
-            title={currentPodcast.title}
-            audioUrl={currentPodcast.audioUrl}
-            subtitleUrl={currentPodcast.subtitleUrl}
+            <AudioPlayer
+              title={currentPodcast.title}
+              audioUrl={currentPodcast.audioUrl}
+              subtitleUrl={currentPodcast.subtitleUrl}
+            />
+          </section>
+        )
+      }
+
+      <TranscriptDropdown
+        subtitleUrl={currentPodcast.subtitleUrl}
+        podcastTitle={currentPodcast.title}
+      />
+
+      {
+        currentPodcast.showNotesHtml && (
+          <article role="region" aria-labelledby="show-notes-heading">
+            <Prose html={currentPodcast.showNotesHtml} size="lg" />
+          </article>
+        )
+      }
+
+      {
+        relatedEpisodes.length > 0 && (
+          <RelatedContentSection
+            id="episode-nav-heading"
+            title={t.continueListening}
+            copy={t.continueListeningCopy}
+            listAriaLabel={t.episodeNavigation}
+            items={relatedEpisodes}
           />
-        </section>
-      )
-    }
-
-    <TranscriptDropdown
-      subtitleUrl={currentPodcast.subtitleUrl}
-      podcastTitle={currentPodcast.title}
-    />
-
-    {
-      currentPodcast.showNotesHtml && (
-        <article role="region" aria-labelledby="show-notes-heading">
-          <Prose html={currentPodcast.showNotesHtml} size="lg" />
-        </article>
-      )
-    }
-
-    {
-      (prev || next) && (
-        <nav class="episode__nav" aria-labelledby="episode-nav-heading">
-          <h2 id="episode-nav-heading" class="episode__sr-only">
-            {t.episodeNavigation}
-          </h2>
-          <div class="episode__nav-grid">
-            {prev && (
-              <a
-                href={`/${prev.id}`}
-                class="episode__nav-card"
-                aria-label={`Go to the previous episode: ${prev.title}`}
-              >
-                <span class="episode__nav-direction" aria-hidden="true">
-                  ←
-                </span>
-                <div class="episode__nav-body">
-                  <span class="episode__nav-label">{t.previousEpisode}</span>
-                  <span class="episode__nav-title">{prev.title}</span>
-                </div>
-              </a>
-            )}
-
-            {next && (
-              <a
-                href={`/${next.id}`}
-                class="episode__nav-card episode__nav-card--next"
-                aria-label={`Go to the next episode: ${next.title}`}
-              >
-                <div class="episode__nav-body">
-                  <span class="episode__nav-label">{t.nextEpisode}</span>
-                  <span class="episode__nav-title">{next.title}</span>
-                </div>
-                <span class="episode__nav-direction" aria-hidden="true">
-                  →
-                </span>
-              </a>
-            )}
-          </div>
-        </nav>
-      )
-    }
-  </div>
+        )
+      }
+    </div>
+  </PageShell>
 </PodcastLayout>
 
 <style>
@@ -246,26 +265,30 @@ const t = {
     align-items: center;
     padding: 0.6rem 1rem;
     font-weight: 600;
-    color: var(--color-text);
+    color: var(--text-primary);
     text-decoration: none;
-    background: var(--color-layer-2);
-    border: 1px solid var(--color-border-default);
+    background: var(--podcast-surface-strong);
+    border: 1px solid var(--podcast-border-default);
     border-radius: 0.8rem;
   }
 
   .episode__breadcrumb-link:focus-visible {
     outline: none;
-    box-shadow: var(--focus-ring);
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .episode__hero {
     display: grid;
     gap: 2rem;
     padding: 1.75rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border-soft);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      var(--surface-2)
+    );
+    border: 1px solid var(--podcast-border-soft);
     border-radius: 1.6rem;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-md);
   }
 
   .episode__hero-media {
@@ -276,9 +299,9 @@ const t = {
     display: block;
     inline-size: 100%;
     block-size: auto;
-    border: 1px solid var(--color-border-soft);
+    border: 1px solid var(--podcast-border-soft);
     border-radius: 1.5rem;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-md);
   }
 
   .episode__hero-body {
@@ -295,22 +318,22 @@ const t = {
 
   .episode__pill {
     padding: 0.4em 0.9em;
-    font-size: var(--font-size-caption);
+    font-size: var(--font-size-sm);
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    background: var(--color-layer-2);
-    border: 1px solid var(--color-border-default);
+    background: var(--podcast-surface-strong);
+    border: 1px solid var(--podcast-border-default);
     border-radius: 999px;
   }
 
   .episode__date {
     padding: 0.35em 0.75em;
-    font-size: var(--font-size-caption);
-    color: var(--color-text-muted);
-    background: var(--color-layer-1);
-    border: 1px solid var(--color-border-soft);
+    font-size: var(--font-size-sm);
+    color: var(--podcast-text-muted);
+    background: var(--podcast-surface-soft);
+    border: 1px solid var(--podcast-border-soft);
     border-radius: 999px;
   }
 
@@ -321,9 +344,9 @@ const t = {
   .episode__description {
     max-inline-size: 70ch;
     margin: 0;
-    font-size: var(--font-size-body);
-    line-height: var(--leading-relaxed, 1.75);
-    color: var(--color-text-muted);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
   }
 
   .episode__knowledge {
@@ -331,55 +354,32 @@ const t = {
     gap: 1rem;
     align-items: center;
     padding: 1.5rem;
-    background: var(--color-layer-2);
-    border: 1px solid var(--color-border-default);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-2) 94%, transparent),
+      var(--surface-1)
+    );
+    border: 1px solid var(--podcast-border-default);
     border-radius: 1.25rem;
-  }
-
-  .episode__knowledge-body {
-    display: grid;
-    gap: 0.5rem;
+    box-shadow: var(--shadow-md);
   }
 
   .episode__kicker {
     margin: 0;
-    font-size: var(--font-size-caption);
-    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    color: var(--podcast-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.25em;
-  }
-
-  .episode__knowledge-text {
-    max-inline-size: 68ch;
-    margin: 0;
-    line-height: var(--leading-relaxed, 1.75);
-    color: var(--color-text);
-  }
-
-  .episode__knowledge-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.6rem 1rem;
-    font-weight: 700;
-    color: var(--color-background);
-    text-decoration: none;
-    background: var(--color-primary);
-    border-radius: 0.75rem;
-  }
-
-  .episode__knowledge-link:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring);
   }
 
   .episode__audio {
     display: grid;
     gap: 1rem;
     padding: 1.5rem;
-    background: var(--color-layer-4);
-    border: 1px solid var(--color-border-soft);
+    background: var(--podcast-surface-raised);
+    border: 1px solid var(--podcast-border-soft);
     border-radius: 1.25rem;
+    box-shadow: var(--shadow-md);
   }
 
   .episode__notes {
@@ -401,87 +401,13 @@ const t = {
     flex: 0 0 auto;
     inline-size: 1rem;
     block-size: 1rem;
-    color: var(--color-primary);
-  }
-
-  .episode__nav {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .episode__sr-only {
-    position: absolute !important;
-    inline-size: 1px !important;
-    block-size: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-    clip-path: inset(50%) !important;
-  }
-
-  .episode__nav-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .episode__nav-card {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
-    padding: 1.1rem 1.25rem;
-    color: var(--color-text);
-    text-decoration: none;
-    background: var(--color-layer-2);
-    border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
-    border-radius: 1rem;
-    box-shadow: var(--shadow-soft);
-  }
-
-  .episode__nav-card--next {
-    grid-template-columns: 1fr auto;
-    text-align: end;
-  }
-
-  .episode__nav-card:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring);
-  }
-
-  .episode__nav-direction {
-    font-size: var(--font-size-title-sm);
-    color: var(--color-primary);
-  }
-
-  .episode__nav-body {
-    display: grid;
-    gap: 0.25rem;
-  }
-
-  .episode__nav-label {
-    font-size: var(--font-size-caption);
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-  }
-
-  .episode__nav-title {
-    font-weight: 700;
+    color: var(--accent-primary);
   }
 
   @media (width >= 960px) {
     .episode__hero {
       grid-template-columns: 1fr 1.4fr;
       align-items: center;
-    }
-
-    .episode__knowledge {
-      grid-template-columns: 1fr auto;
-    }
-
-    .episode__nav-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>

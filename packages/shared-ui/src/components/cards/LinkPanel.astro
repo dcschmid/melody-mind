@@ -1,0 +1,80 @@
+---
+import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface LinkPanelItem {
+  href: string;
+  label: string;
+  icon?: string;
+  variant?: "primary" | "secondary";
+  ariaLabel?: string;
+  analyticsPodcastTarget?: "episode" | "series";
+}
+
+interface Props {
+  title?: string;
+  titleIcon?: string;
+  items?: readonly LinkPanelItem[];
+  class?: string;
+}
+
+const { title, titleIcon, items = [], class: className } = Astro.props as Props;
+---
+
+{
+  items.length ? (
+    <div class:list={["link-panel", "panel", "panel--compact", className]}>
+      {title ? (
+        <div class="link-panel__title">
+          {titleIcon ? (
+            <Icon name={titleIcon} class="link-panel__title-icon" aria-hidden="true" />
+          ) : null}
+          <span>{title}</span>
+        </div>
+      ) : null}
+      <div class="link-panel__actions">
+        {items.map((item) => (
+          <ButtonLink
+            href={item.href}
+            variant={item.variant ?? "secondary"}
+            icon={item.icon}
+            className="button-link--sm"
+            analyticsPodcastTarget={item.analyticsPodcastTarget}
+            aria-label={item.ariaLabel}
+          >
+            {item.label}
+          </ButtonLink>
+        ))}
+      </div>
+    </div>
+  ) : null
+}
+
+<style>
+  .link-panel__title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .link-panel__title-icon {
+    display: block;
+    flex-shrink: 0;
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--accent-strong);
+  }
+
+  .link-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>

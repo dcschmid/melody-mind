@@ -1,0 +1,108 @@
+---
+import TaxonomyArticleGrid from "@components/TaxonomyArticleGrid.astro";
+import TaxonomyGroupBlock from "@components/TaxonomyGroupBlock.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import type { TaxonomySubsectionWithArticles } from "@utils/knowledge/buildTaxonomySectionPageData";
+
+interface Props {
+  subsection: TaxonomySubsectionWithArticles;
+}
+
+const { subsection } = Astro.props as Props;
+const hasGroups = Boolean(subsection.groups && subsection.groups.length > 0);
+---
+
+<div id={subsection.id} class="taxonomy-subsection-block">
+  <div class="taxonomy-subsection-block__header">
+    <div class="taxonomy-subsection-block__info">
+      <Headline level="h2" textSize="lg" className="taxonomy-subsection-block__title">
+        {subsection.title}
+      </Headline>
+      {
+        subsection.description && (
+          <Paragraph textSize="sm" className="taxonomy-subsection-block__description">
+            {subsection.description}
+          </Paragraph>
+        )
+      }
+      <span class="taxonomy-subsection-block__count">
+        {subsection.articleCount}{" "}
+        {subsection.articleCount === 1 ? "article" : "articles"}
+      </span>
+    </div>
+  </div>
+
+  {
+    hasGroups ? (
+      <div class="taxonomy-subsection-block__groups">
+        {subsection.groupsWithArticles.map((group) => (
+          <TaxonomyGroupBlock subsectionId={subsection.id} group={group} />
+        ))}
+      </div>
+    ) : (
+      <TaxonomyArticleGrid
+        articles={subsection.articles}
+        emptyDescription="No articles in this topic yet."
+      />
+    )
+  }
+</div>
+
+<style>
+  .taxonomy-subsection-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    scroll-margin-block-start: var(--spacing-3xl);
+  }
+
+  .taxonomy-subsection-block__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+  }
+
+  @media (width >= 768px) {
+    .taxonomy-subsection-block__header {
+      flex-direction: row;
+      gap: var(--spacing-lg);
+      align-items: flex-start;
+    }
+  }
+
+  .taxonomy-subsection-block__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .taxonomy-subsection-block__title {
+    padding-block-end: var(--spacing-sm);
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+  }
+
+  .taxonomy-subsection-block__description {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .taxonomy-subsection-block__count {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--accent-primary);
+  }
+
+  .taxonomy-subsection-block__groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+</style>

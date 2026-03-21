@@ -291,115 +291,88 @@ function toIsoDuration(totalSeconds: number) {
 
 <style>
   .podcast-layout {
-    --color-primary: var(--accent-primary);
-    --color-primary-hover: var(--accent-strong);
-    --color-primary-strong: var(--accent-contrast);
-    --color-background: var(--bg-primary);
-    --color-surface: var(--surface-1);
-    --color-surface-2: var(--surface-2);
-    --color-layer-1: color-mix(in srgb, var(--surface-2) 84%, transparent);
-    --color-layer-2: color-mix(in srgb, var(--surface-3) 88%, transparent);
-    --color-layer-3: color-mix(in srgb, var(--surface-3) 96%, var(--accent-primary) 4%);
-    --color-layer-4: color-mix(in srgb, var(--surface-1) 92%, var(--bg-primary) 8%);
-    --color-border-soft: color-mix(
+    --podcast-surface-soft: color-mix(in srgb, var(--surface-2) 84%, transparent);
+    --podcast-surface-strong: color-mix(in srgb, var(--surface-3) 88%, transparent);
+    --podcast-surface-accent: color-mix(
       in srgb,
-      var(--color-primary) 38%,
+      var(--surface-3) 96%,
+      var(--accent-primary) 4%
+    );
+    --podcast-surface-raised: color-mix(
+      in srgb,
+      var(--surface-1) 92%,
+      var(--bg-primary) 8%
+    );
+    --podcast-border-soft: color-mix(
+      in srgb,
+      var(--accent-primary) 38%,
       var(--border-default) 62%
     );
-    --color-border-default: color-mix(
+    --podcast-border-default: color-mix(
       in srgb,
-      var(--color-primary) 52%,
+      var(--accent-primary) 52%,
       var(--border-default) 48%
     );
-    --color-border-strong: color-mix(
+    --podcast-border-strong: color-mix(
       in srgb,
-      var(--color-primary) 68%,
+      var(--accent-primary) 68%,
       var(--border-default) 32%
     );
-    --color-accent-soft-bg: color-mix(
+    --podcast-accent-soft-bg: color-mix(
       in srgb,
-      var(--color-primary) 24%,
-      var(--color-layer-2) 76%
+      var(--accent-primary) 24%,
+      var(--podcast-surface-strong) 76%
     );
-    --color-text: var(--text-primary);
-    --color-text-muted: color-mix(in srgb, var(--text-primary) 82%, transparent);
-    --color-text-subtle: color-mix(in srgb, var(--text-primary) 72%, transparent);
-    --color-accent: var(--accent-primary);
-    --color-success: var(--color-success);
-    --color-warning: var(--color-warning);
-    --color-error: var(--color-error);
-    --color-error-soft: color-mix(in srgb, var(--color-error) 24%, transparent);
-    --color-error-strong: var(--color-error);
-
-    /* Legacy podcast aliases mapped to the shared master theme */
-    --space-3: var(--spacing-sm);
-    --space-4: var(--spacing-base);
-    --space-5: var(--spacing-lg);
-    --space-6: var(--spacing-xl);
-    --space-8: var(--spacing-2xl);
-    --space-10: var(--spacing-3xl);
-    --leading-relaxed: var(--line-height-relaxed);
-    --font-size-title-sm: var(--font-size-lg);
-    --font-size-title-md: var(--font-size-xl);
-    --font-size-title-lg: var(--font-size-2xl);
-    --font-size-body: var(--font-size-base);
-    --font-size-body-strong: var(--font-size-md);
-    --font-size-caption: var(--font-size-sm);
-    --shadow-soft: var(--shadow-md);
-    --shadow-strong: var(--shadow-lg);
-    --effect-elevated-soft: var(--shadow-lg);
-    --effect-elevated-md: var(--shadow-xl);
-    --effect-title-shadow: 0 1px 0 color-mix(in srgb, var(--surface-1) 36%, transparent);
-    --effect-hero-surface: linear-gradient(
+    --podcast-text-muted: color-mix(in srgb, var(--text-primary) 82%, transparent);
+    --podcast-text-subtle: color-mix(in srgb, var(--text-primary) 72%, transparent);
+    --podcast-error-soft: color-mix(in srgb, var(--color-error) 24%, transparent);
+    --podcast-title-shadow: 0 1px 0 color-mix(in srgb, var(--surface-1) 36%, transparent);
+    --podcast-hero-surface: linear-gradient(
       160deg,
       color-mix(in srgb, var(--surface-2) 90%, transparent),
       color-mix(in srgb, var(--surface-1) 94%, transparent)
     );
-    --effect-hero-orb-1: radial-gradient(
+    --podcast-hero-orb-1: radial-gradient(
       ellipse at 12% 18%,
       color-mix(in srgb, var(--accent-primary) 16%, transparent),
       transparent 48%
     );
-    --effect-hero-orb-2: radial-gradient(
+    --podcast-hero-orb-2: radial-gradient(
       ellipse at 88% 16%,
       color-mix(in srgb, var(--accent-strong) 14%, transparent),
       transparent 44%
     );
-    --effect-hero-orb-3: radial-gradient(
+    --podcast-hero-orb-3: radial-gradient(
       ellipse at 52% 86%,
       color-mix(in srgb, var(--accent-muted) 12%, transparent),
       transparent 52%
     );
-    --effect-hero-title-shadow: var(--effect-title-shadow);
-    --brand-gradient: linear-gradient(
+    --podcast-brand-gradient: linear-gradient(
       135deg,
       color-mix(in srgb, var(--surface-1) 72%, var(--accent-primary) 28%) 0%,
       color-mix(in srgb, var(--surface-2) 58%, var(--accent-primary) 42%) 50%,
       color-mix(in srgb, var(--surface-3) 56%, var(--accent-strong) 44%) 100%
     );
-    --brand-gradient-subtle: linear-gradient(
+    --podcast-brand-gradient-subtle: linear-gradient(
       135deg,
       color-mix(in srgb, var(--surface-2) 88%, transparent) 0%,
       color-mix(in srgb, var(--surface-1) 92%, var(--accent-primary) 8%) 100%
     );
-    --glass-bg: color-mix(in srgb, var(--surface-2) 72%, transparent);
-    --glass-border: var(--color-border-soft);
+    --podcast-glass-bg: color-mix(in srgb, var(--surface-2) 72%, transparent);
+    --podcast-glass-border: var(--podcast-border-soft);
     --podcast-shadow-glow: 0 0 32px
       color-mix(in srgb, var(--accent-primary) 30%, transparent);
-    --focus-ring: var(--interactive-shadow-focus);
-    --focus-ring-offset: var(--interactive-shadow-strong);
     --max-width: 80rem;
-    --content-width: 72rem;
 
     min-block-size: 100vb;
     margin: 0;
     font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
     font-size: var(--font-size-md);
     line-height: var(--line-height-relaxed);
-    color: var(--color-text);
+    color: var(--text-primary);
     letter-spacing: 0.005em;
     text-wrap: pretty;
-    background-color: var(--color-background);
+    background-color: var(--bg-primary);
     background-image:
       radial-gradient(
         ellipse at 10% 10%,
@@ -455,9 +428,9 @@ function toIsoDuration(totalSeconds: number) {
     block-size: auto;
     padding: var(--spacing-sm) var(--spacing-lg);
     font-weight: 600;
-    color: var(--color-background);
+    color: var(--bg-primary);
     text-decoration: none;
-    background: var(--color-primary);
+    background: var(--accent-primary);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-lg), var(--podcast-shadow-glow);
     transform: translateX(-50%) translateY(-200%);
@@ -466,7 +439,7 @@ function toIsoDuration(totalSeconds: number) {
 
   .podcast-layout__skip-link:focus,
   .podcast-layout__skip-link:focus-visible {
-    outline: 3px solid var(--color-text);
+    outline: 3px solid var(--text-primary);
     outline-offset: 3px;
     transform: translateX(-50%) translateY(0);
   }

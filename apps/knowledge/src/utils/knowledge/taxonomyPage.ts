@@ -2,6 +2,8 @@
  * Search-focused metadata overrides for taxonomy landing pages.
  * These stay centralized so routing pages do not each maintain their own SEO maps.
  */
+export { buildTaxonomySectionPageData } from "./buildTaxonomySectionPageData";
+
 export const TAXONOMY_SECTION_SEO_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "canon-key-artists":
     "Discover the artists who shaped music history across genres, eras, and major cultural movements.",

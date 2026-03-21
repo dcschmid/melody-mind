@@ -53,6 +53,8 @@
 .knowledge__container {
   position: relative;
   z-index: 2;
+  display: grid;
+  gap: 2rem;
   max-width: 72rem;
   margin: 0 auto;
   padding: 2.5rem 1rem 4rem;
@@ -75,23 +77,23 @@
    ============================================================ */
 
 .knowledge__hero {
-  display: grid;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
-@media (min-width: 1024px) {
-  .knowledge__hero {
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: stretch;
-  }
+.knowledge__hero-teaser {
+  inline-size: 100%;
 }
 
-.knowledge__hero-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  min-inline-size: 0;
+.knowledge__hero-teaser .knowledge__meta {
+  font-size: 1rem;
+}
+
+.knowledge__hero-teaser .knowledge__title {
+  max-inline-size: 16ch;
+}
+
+.knowledge__hero-teaser .knowledge__summary {
+  max-inline-size: 40ch;
 }
 
 /* Meta Pills */
@@ -158,7 +160,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--text-secondary);
 }
 
@@ -207,24 +209,6 @@
 /* ============================================================
    Aside / Media Section
    ============================================================ */
-
-.knowledge__aside {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  min-inline-size: 0;
-}
-
-@media (min-width: 1024px) {
-  .knowledge__aside {
-    gap: 1.5rem;
-  }
-}
-
-.knowledge__media-panel {
-  --panel-padding: 0;
-  overflow: hidden;
-}
 
 .knowledge__media-frame {
   position: relative;
@@ -278,39 +262,22 @@
   }
 }
 
-/* Panel Elements */
-.knowledge__panel-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  font-size: 1.125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.knowledge__panel-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.knowledge__panel-icon {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  color: var(--accent-strong);
-}
-
 /* ============================================================
    Article Content
    ============================================================ */
 
+.knowledge__body,
+.knowledge__main {
+  display: grid;
+  gap: 2rem;
+}
+
+.knowledge__main :global(.knowledge__toc) {
+  margin-block-end: 0;
+}
+
 .knowledge-article {
-  margin-top: 0.5rem;
+  margin-top: 0;
 }
 
 /* ============================================================
@@ -318,7 +285,7 @@
    ============================================================ */
 
 .knowledge__back {
-  margin-top: 3rem;
+  margin-top: 0;
   display: flex;
   justify-content: center;
 }

@@ -57,31 +57,57 @@ const initEpisodes = () => {
       return null;
     }
 
-    node.setAttribute("data-search", episode.searchText || "");
+    const titleId = `episode-card-${episode.id}-title`;
+    const descriptionId = `episode-card-${episode.id}-description`;
+    const metaId = `episode-card-${episode.id}-meta`;
 
-    const image = node.querySelector(".episode-card__image");
+    node.setAttribute("data-search", episode.searchText || "");
+    node.setAttribute("aria-labelledby", titleId);
+    node.setAttribute("aria-describedby", `${descriptionId} ${metaId}`);
+
+    const image = node.querySelector(".content-card__media-image");
     if (image instanceof HTMLImageElement) {
-      // Update all sources (AVIF, WebP) and img fallback
-      const picture = image.closest("picture");
-      if (picture) {
-        const sources = picture.querySelectorAll("source");
-        sources.forEach((source) => {
-          const type = source.getAttribute("type");
-          if (type === "image/avif") {
-            source.srcset = `/images/${episode.imageUrl}.avif`;
-          } else if (type === "image/webp") {
-            source.srcset = `/images/${episode.imageUrl}.webp`;
-          }
-        });
-      }
       image.src = `/images/${episode.imageUrl}.jpg`;
       image.alt = `Cover art for the podcast episode ${episode.title}`;
     }
 
-    const time = node.querySelector(".episode-card__date");
-    if (time instanceof HTMLTimeElement) {
-      time.dateTime = episode.publishedAt;
-      time.textContent = episode.publishedLabel;
+    const title = node.querySelector(".content-card__title");
+    if (title instanceof HTMLElement) {
+      title.id = titleId;
+      title.textContent = episode.title;
+    }
+
+    const description = node.querySelector(".content-card__description");
+    if (description instanceof HTMLElement) {
+      description.id = descriptionId;
+      description.textContent = episode.description;
+    }
+
+    const meta = node.querySelector(".content-card__meta");
+    if (meta instanceof HTMLElement) {
+      meta.id = metaId;
+      const metaItems = Array.from(meta.querySelectorAll(".content-card__meta-item"));
+      const publishedItem = metaItems[0];
+      const durationItem = metaItems[1];
+
+      if (publishedItem instanceof HTMLTimeElement) {
+        publishedItem.dateTime = episode.publishedAt;
+        const publishedText = publishedItem.querySelector("span:last-child");
+        if (publishedText instanceof HTMLElement) {
+          publishedText.textContent = episode.publishedLabel;
+        }
+      }
+
+      if (durationItem instanceof HTMLElement) {
+        if (typeof episode.durationSeconds === "number" && episode.durationSeconds > 0) {
+          const durationText = durationItem.querySelector("span:last-child");
+          if (durationText instanceof HTMLElement) {
+            durationText.textContent = `${Math.floor(episode.durationSeconds / 60)} min`;
+          }
+        } else {
+          durationItem.remove();
+        }
+      }
     }
 
     const badge = node.querySelector(".episode-card__badge");
@@ -89,29 +115,11 @@ const initEpisodes = () => {
       badge.remove();
     }
 
-    const duration = node.querySelector(".episode-card__duration");
-    if (duration instanceof HTMLElement) {
-      if (typeof episode.durationSeconds === "number" && episode.durationSeconds > 0) {
-        duration.textContent = `${Math.floor(episode.durationSeconds / 60)} min`;
-      } else {
-        duration.remove();
-      }
-    }
-
-    const title = node.querySelector(".episode-card__title");
-    if (title instanceof HTMLElement) {
-      title.textContent = episode.title;
-    }
-
-    const description = node.querySelector(".episode-card__description");
-    if (description instanceof HTMLElement) {
-      description.textContent = episode.description;
-    }
-
-    const link = node.querySelector(".episode-card__link");
+    const link = node.querySelector(".content-card__content");
     if (link instanceof HTMLAnchorElement) {
       link.href = `/${episode.id}`;
-      link.setAttribute("aria-label", `View the episode ${episode.title}`);
+      link.setAttribute("aria-labelledby", titleId);
+      link.setAttribute("aria-describedby", `${descriptionId} ${metaId}`);
     }
 
     return node;

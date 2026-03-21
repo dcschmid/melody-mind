@@ -1,0 +1,53 @@
+---
+import type { RecentItem } from "@shared-utils/utils/storage/recentItems";
+
+interface Props {
+  item: RecentItem;
+  storageKey: string;
+  dataId?: string;
+  maxEntries?: number;
+}
+
+const {
+  item,
+  storageKey,
+  dataId = "recent-read-data",
+  maxEntries = 5,
+} = Astro.props as Props;
+---
+
+<div
+  id={dataId}
+  data-recent-items-tracker="true"
+  data-storage-key={storageKey}
+  data-max-entries={String(maxEntries)}
+  data-item={JSON.stringify(item)}
+  hidden
+>
+</div>
+
+<script>
+  import { upsertRecentItem } from "@shared-utils/utils/storage/recentItems";
+
+  const trackers = document.querySelectorAll("[data-recent-items-tracker='true']");
+
+  trackers.forEach((tracker) => {
+    if (!(tracker instanceof HTMLElement)) {
+      return;
+    }
+
+    const storageKey = tracker.dataset.storageKey || "";
+    const maxEntries = Number.parseInt(tracker.dataset.maxEntries || "5", 10);
+    const rawItem = tracker.dataset.item || "";
+
+    if (!storageKey || !rawItem) {
+      return;
+    }
+
+    try {
+      upsertRecentItem(storageKey, JSON.parse(rawItem), maxEntries);
+    } catch {
+      // Ignore storage and parse errors.
+    }
+  });
+</script>

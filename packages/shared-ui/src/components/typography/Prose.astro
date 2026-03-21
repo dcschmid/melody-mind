@@ -3,7 +3,6 @@ export interface Props {
   className?: string;
   class?: string;
   html?: string;
-  size?: "sm" | "base" | "md" | "lg" | "xl";
   invert?: boolean;
   fullWidth?: boolean;
 }
@@ -12,7 +11,6 @@ const {
   className: extra = "",
   class: classProp = "",
   html = undefined,
-  size = "lg",
   invert = true,
   fullWidth = true,
 } = Astro.props as Props;
@@ -28,24 +26,9 @@ if (typeof sanitizedHtml === "string") {
   sanitizedHtml = sanitizedHtml.trim();
 }
 
-const sizeClass = (() => {
-  switch (size) {
-    case "sm":
-      return "prose--sm";
-    case "base":
-    case "md":
-      return "prose--md";
-    case "xl":
-      return "prose--xl";
-    case "lg":
-    default:
-      return "prose--lg";
-  }
-})();
-
 const invertClass = invert ? "prose--invert" : "prose--standard";
 const widthClass = fullWidth ? "prose--full" : "";
-const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
+const classes = ["prose", invertClass, widthClass, extra, classProp]
   .filter(Boolean)
   .join(" ");
 ---
@@ -78,23 +61,6 @@ const classes = ["prose", sizeClass, invertClass, widthClass, extra, classProp]
   /* Full width variant */
   .prose--full {
     max-inline-size: none;
-  }
-
-  /* Size variants */
-  .prose--sm {
-    font-size: var(--font-size-sm);
-  }
-
-  .prose--md {
-    font-size: var(--font-size-base);
-  }
-
-  .prose--lg {
-    font-size: var(--font-size-md);
-  }
-
-  .prose--xl {
-    font-size: var(--font-size-lg);
   }
 
   /* Headings - semantic styling */

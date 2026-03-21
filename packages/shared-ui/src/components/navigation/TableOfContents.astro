@@ -278,22 +278,6 @@ const tocTitle = title || "Table of contents";
      Responsive with keyboard navigation support
      ----------------------------------------------------------------------------- */
 
-  .toc {
-    /* Layout */
-    padding: var(--spacing-sm);
-    margin-block-end: var(--spacing-2xl);
-
-    /* Visual styling */
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-2) 92%, transparent),
-      color-mix(in srgb, var(--surface-1) 72%, transparent)
-    );
-    border: 2px solid var(--border-default);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-  }
-
   /* Toggle button - opens/closes menu */
   @media screen and (prefers-reduced-motion: reduce) {
     .toc__toggle {
@@ -556,10 +540,6 @@ const tocTitle = title || "Table of contents";
   }
 
   @media (width >= 960px) {
-    .toc {
-      padding: var(--spacing-base);
-    }
-
     .toc__nav {
       padding: var(--spacing-lg);
     }

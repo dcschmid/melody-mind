@@ -1,111 +1,82 @@
 ---
-import KnowledgeCard from "@components/KnowledgeCard.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
-import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
-
-interface RelatedKnowledgeArticle {
-  slug: string;
-  title: string;
-  description: string;
-  image?: string;
-  createdAt: Date;
-  readingTime: number;
-}
+import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSection.astro";
+import type { RelatedContentCardItem } from "@shared-ui/components/cards/relatedContent";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
+import {
+  getRelatedKnowledgeArticles,
+  type RelatedKnowledgeArticle,
+} from "@utils/knowledge/articlePage";
 
 interface Props {
-  articles: RelatedKnowledgeArticle[];
+  currentKeywords: string[];
+  currentTaxonomyGroup: string;
+  currentTaxonomySubsection: string;
+  currentSlug: string;
+  lang: string;
 }
 
-const { articles } = Astro.props;
+const {
+  currentKeywords,
+  currentTaxonomyGroup,
+  currentTaxonomySubsection,
+  currentSlug,
+  lang,
+} = Astro.props as Props;
+
+let articles: RelatedKnowledgeArticle[] = [];
+
+try {
+  const allArticles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+  articles = getRelatedKnowledgeArticles({
+    articles: allArticles,
+    currentKeywords: new Set(currentKeywords),
+    currentTaxonomyGroup,
+    currentTaxonomySubsection,
+    currentSlug,
+    lang,
+  });
+} catch (e) {
+  globalThis.console?.warn?.("knowledge article: related articles load issue", {
+    error: (e as any)?.message || e,
+  });
+}
+
+const locale = lang || "en";
+const items: RelatedContentCardItem[] = articles.map((article, index) => {
+  const publishedAt = article.createdAt;
+  const publishedLabel = publishedAt.toLocaleDateString(locale, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
+  return {
+    id: `related-knowledge-${article.slug}-${index}`,
+    title: article.title,
+    description: article.description,
+    href: `/knowledge/${article.slug}`,
+    imageSrc: article.image,
+    imageAlt: article.title ? `Cover image for ${article.title}` : "",
+    ctaSrText: "Opens article",
+    metaItems: [
+      {
+        iconName: "clock",
+        label: `${article.readingTime} min read`,
+      },
+      {
+        iconName: "calendar",
+        label: publishedLabel,
+        datetime: publishedAt.toISOString(),
+      },
+    ],
+  };
+});
 ---
 
-{
-  articles.length ? (
-    <section
-      class="related-knowledge-articles panel panel--compact"
-      aria-labelledby="related-knowledge-articles-title"
-    >
-      <div class="related-knowledge-articles__header">
-        <Headline level="h2" textSize="lg" className="related-knowledge-articles__title">
-          <span id="related-knowledge-articles-title">
-            <span>Related articles</span>
-          </span>
-        </Headline>
-        <Paragraph textSize="base" className="related-knowledge-articles__copy">
-          Continue with guides from the same category, taxonomy branch, or closely related
-          keywords.
-        </Paragraph>
-      </div>
-      <ul class="related-knowledge-articles__grid" aria-label="Related articles">
-        {articles.map((article, index) => (
-          <li class="related-knowledge-articles__item">
-            <KnowledgeCard
-              title={article.title}
-              description={article.description}
-              image={article.image}
-              createdAt={article.createdAt}
-              slug={article.slug}
-              readingTime={article.readingTime}
-              articleUrl={`/knowledge/${article.slug}`}
-              index={index}
-            />
-          </li>
-        ))}
-      </ul>
-    </section>
-  ) : null
-}
-
-<style>
-  .related-knowledge-articles {
-    display: grid;
-    gap: 1.5rem;
-    margin-block-start: 2rem;
-  }
-
-  .related-knowledge-articles__header {
-    display: grid;
-    gap: 0.6rem;
-  }
-
-  .related-knowledge-articles__title {
-    display: inline-flex;
-    gap: 0.65rem;
-    align-items: center;
-    margin: 0;
-    font-size: clamp(1.3rem, 1.1rem + 0.8vi, 1.85rem);
-    color: var(--text-primary);
-  }
-
-  .related-knowledge-articles__copy {
-    max-inline-size: 62ch;
-    margin: 0;
-    line-height: 1.65;
-    color: var(--text-secondary);
-  }
-
-  .related-knowledge-articles__grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .related-knowledge-articles__item {
-    min-inline-size: 0;
-  }
-
-  @media (width >= 50rem) {
-    .related-knowledge-articles__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (width >= 75rem) {
-    .related-knowledge-articles__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-</style>
+<RelatedContentSection
+  id="related-knowledge-articles"
+  title="Related articles"
+  copy="Continue with guides from the same category, taxonomy branch, or closely related keywords."
+  listAriaLabel="Related articles"
+  items={items}
+/>

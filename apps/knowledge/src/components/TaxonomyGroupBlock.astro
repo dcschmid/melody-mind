@@ -1,0 +1,90 @@
+---
+import TaxonomyArticleGrid from "@components/TaxonomyArticleGrid.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import type { TaxonomyGroupWithArticles } from "@utils/knowledge/buildTaxonomySectionPageData";
+
+interface Props {
+  subsectionId: string;
+  group: TaxonomyGroupWithArticles;
+}
+
+const { subsectionId, group } = Astro.props as Props;
+---
+
+<div id={`${subsectionId}--${group.id}`} class="taxonomy-group-block">
+  <div class="taxonomy-group-block__header">
+    <div class="taxonomy-group-block__info">
+      <Headline level="h3" textSize="base" className="taxonomy-group-block__title">
+        {group.title}
+      </Headline>
+      {
+        group.description && (
+          <Paragraph textSize="sm" className="taxonomy-group-block__description">
+            {group.description}
+          </Paragraph>
+        )
+      }
+      <span class="taxonomy-group-block__count">
+        {group.articleCount}
+        {group.articleCount === 1 ? "article" : "articles"}
+      </span>
+    </div>
+  </div>
+
+  <TaxonomyArticleGrid articles={group.articles} emptyDescription="No articles yet." />
+</div>
+
+<style>
+  .taxonomy-group-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+    padding: var(--spacing-lg);
+    scroll-margin-block-start: var(--spacing-3xl);
+    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    border-radius: var(--radius-lg);
+  }
+
+  .taxonomy-group-block__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  @media (width >= 640px) {
+    .taxonomy-group-block__header {
+      flex-direction: row;
+      gap: var(--spacing-base);
+      align-items: flex-start;
+    }
+  }
+
+  .taxonomy-group-block__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .taxonomy-group-block__title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .taxonomy-group-block__description {
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--text-secondary);
+  }
+
+  .taxonomy-group-block__count {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--accent-primary);
+  }
+</style>

@@ -79,7 +79,7 @@
           }
           .description {
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1.125rem;
           }
           .info-box {
             background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-2));
@@ -112,7 +112,7 @@
           }
           .item-meta {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 1.125rem;
             margin-bottom: 10px;
           }
           .item-description {
@@ -129,7 +129,7 @@
             padding: 4px 12px;
             border: 1px solid var(--border-muted);
             border-radius: var(--radius-pill);
-            font-size: 0.85rem;
+            font-size: 1.125rem;
             margin-right: 6px;
             margin-top: 6px;
           }
@@ -139,7 +139,7 @@
             border-top: 2px solid var(--border-default);
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 1.125rem;
           }
           footer a {
             color: var(--accent-primary);

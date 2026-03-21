@@ -7,7 +7,9 @@ import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import TaxonomyCard from "@components/TaxonomyCard.astro";
+import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildCollectionPageSchema,
@@ -166,37 +168,65 @@ const pageSeo = buildPageSeo({
   <PageShell>
     <div class="knowledge-index">
       <header class="knowledge-index__intro">
-        <div class="knowledge-index__stage">
-          <div class="knowledge-index__stage-media">
-            <div class="knowledge-index__stage-frame">
-              <Image
-                class="knowledge-index__stage-image"
-                src="/melody-mind.jpg"
-                width="1080"
-                height="720"
-                alt="Melody Mind Logo"
-                loading="eager"
-                fetchpriority="high"
+        <HeroTeaser
+          id="knowledge-home-hero"
+          eyebrow="Melody Mind Knowledge"
+          title="Trace how music evolves"
+          titleLevel="h1"
+          description="From genre roots to current sounds, explore the cultural stories, key artists, and sonic shifts that shape each style."
+          mediaPosition="start"
+          mediaAspectRatio="3 / 2"
+        >
+          <Fragment slot="media">
+            <Image
+              class="knowledge-index__hero-image"
+              src="/melody-mind.jpg"
+              width="1080"
+              height="720"
+              alt="Melody Mind collage artwork representing music history and genre connections"
+              loading="eager"
+              fetchpriority="high"
+            />
+          </Fragment>
+          <div
+            slot="meta"
+            class="knowledge-index__feature-list"
+            aria-label="Knowledge features"
+          >
+            <span class="knowledge-index__feature-item">
+              <Icon
+                name="book-open"
+                class="knowledge-index__feature-icon"
+                aria-hidden="true"
               />
-            </div>
+              <span>Curated guides</span>
+            </span>
+            <span class="knowledge-index__feature-item">
+              <Icon
+                name="music"
+                class="knowledge-index__feature-icon"
+                aria-hidden="true"
+              />
+              <span>Key listening picks</span>
+            </span>
+            <span class="knowledge-index__feature-item">
+              <Icon
+                name="globe"
+                class="knowledge-index__feature-icon"
+                aria-hidden="true"
+              />
+              <span>Genre connections</span>
+            </span>
+            <span class="knowledge-index__feature-item">
+              <Icon
+                name="sparkles"
+                class="knowledge-index__feature-icon"
+                aria-hidden="true"
+              />
+              <span>Listening notes</span>
+            </span>
           </div>
-          <div class="knowledge-index__stage-panel">
-            <Headline level="h1" className="knowledge-index__sr">{title}</Headline>
-            <Paragraph textSize="sm" className="knowledge-index__eyebrow">
-              Melody Mind Knowledge
-            </Paragraph>
-            <Paragraph textSize="lg" className="knowledge-index__hero-text">
-              <strong>Trace how music evolves:</strong> From genre roots to current sounds,
-              explore the cultural stories, key artists, and sonic shifts that shape each style.
-            </Paragraph>
-            <div class="knowledge-index__features">
-              <span class="knowledge-index__feature-badge">📚 Curated guides</span>
-              <span class="knowledge-index__feature-badge">🎵 Key listening picks</span>
-              <span class="knowledge-index__feature-badge">🔗 Genre connections</span>
-              <span class="knowledge-index__feature-badge">💡 Listening notes</span>
-            </div>
-          </div>
-        </div>
+        </HeroTeaser>
       </header>
 
       <section
@@ -262,18 +292,32 @@ const pageSeo = buildPageSeo({
           id="knowledge-categories-list"
         >
           {
-            taxonomySections.map((section, index) => (
+            taxonomySections.map((section) => (
               <li data-search-text={`${section.title} ${section.description || ""}`}>
-                <TaxonomyCard
-                  id={section.id}
+                <ContentCard
+                  id={`taxonomy-card-${section.id}`}
+                  data-testid="taxonomy-card"
+                  data-title={section.title}
+                  href={`/taxonomy/${section.id}`}
+                  variant="default"
+                  size="default"
+                  mediaObjectFit="contain"
+                  imageSrc={section.image}
+                  imageAlt={`${section.title} cover`}
+                  imageWidth={1024}
+                  imageHeight={683}
                   title={section.title}
                   description={section.description}
-                  image={section.image}
-                  subsectionCount={section.subsectionCount}
-                  articleCount={section.articleCount}
-                  href={`/taxonomy/${section.id}`}
-                  index={index}
-                />
+                  descriptionLineClamp={3}
+                >
+                  <Fragment slot="badge">
+                    <span class="taxonomy-card__badge">
+                      {section.articleCount > 0
+                        ? `${section.articleCount} articles`
+                        : `${section.subsectionCount} topics`}
+                    </span>
+                  </Fragment>
+                </ContentCard>
               </li>
             ))
           }
@@ -415,122 +459,58 @@ const pageSeo = buildPageSeo({
   }
 
   /* ========================================
-     HERO STAGE
+     HERO
      ======================================== */
 
-  .knowledge-index__stage {
-    position: relative;
-    display: grid;
-    gap: 1.5rem;
-    align-items: stretch;
-  }
-
-  @media (width >= 960px) {
-    .knowledge-index__stage {
-      grid-template-rows: auto auto;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    }
-
-    .knowledge-index__stage-media {
-      grid-row: span 2;
-    }
-  }
-
-  .knowledge-index__stage-media {
-    position: relative;
-  }
-
-  .knowledge-index__stage-frame {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: 1rem;
-  }
-
-  .knowledge-index__stage-image {
+  .knowledge-index__hero-image {
     display: block;
     inline-size: 100%;
-    block-size: auto;
-    aspect-ratio: 3 / 2;
+    block-size: 100%;
     object-fit: cover;
   }
 
-  /* ========================================
-     STAGE PANEL
-     ======================================== */
-
-  .knowledge-index__stage-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    text-align: center;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: 1rem;
-  }
-
-  @media (width >= 960px) {
-    .knowledge-index__stage-panel {
-      text-align: start;
-    }
-  }
-
-  /* ========================================
-     TYPOGRAPHY
-     ======================================== */
-
-  .knowledge-index__eyebrow {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .knowledge-index__hero-text {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.75;
-    color: var(--text-secondary);
-  }
-
-  .knowledge-index__hero-text strong {
-    font-weight: 700;
+  .taxonomy-card__badge {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: color-mix(in srgb, var(--surface-1) 96%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    border-radius: var(--radius-full);
   }
 
-  /* ========================================
-     FEATURE BADGES
-     ======================================== */
-
-  .knowledge-index__features {
+  .knowledge-index__feature-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem;
-    justify-content: center;
-    margin-block-start: 0.5rem;
+    gap: var(--spacing-sm);
   }
 
-  @media (width >= 960px) {
-    .knowledge-index__features {
-      justify-content: flex-start;
-    }
-  }
-
-  .knowledge-index__feature-badge {
+  .knowledge-index__feature-item {
     display: inline-flex;
-    gap: 0.4rem;
+    gap: var(--spacing-sm);
     align-items: center;
-    min-block-size: 44px;
-    padding: 0.5rem 0.9rem;
-    font-size: 0.85rem;
-    font-weight: 600;
+    min-block-size: 48px;
+    padding: 0.65rem 1rem;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     background: color-mix(in srgb, var(--surface-1) 92%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 50%, var(--border-default));
-    border-radius: 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .knowledge-index__feature-icon {
+    display: block;
+    flex-shrink: 0;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    color: var(--accent-primary);
   }
 
   /* ========================================
@@ -579,7 +559,7 @@ const pageSeo = buildPageSeo({
 
   .knowledge-index__section-help {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.65;
     color: var(--text-secondary);
   }
@@ -766,7 +746,7 @@ const pageSeo = buildPageSeo({
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 2;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.35;
     color: var(--color-white);

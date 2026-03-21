@@ -64,10 +64,10 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 <style>
   .transcript {
     margin-block-start: 2rem;
-    background: var(--color-layer-4);
-    border: 1px solid var(--color-border-default);
+    background: var(--podcast-surface-raised);
+    border: 1px solid var(--podcast-border-default);
     border-radius: 1rem;
-    box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-md);
   }
 
   .transcript__summary {
@@ -77,7 +77,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     padding: 1rem 1.25rem;
     cursor: pointer;
     list-style: none;
-    background: var(--color-layer-3);
+    background: var(--podcast-surface-accent);
     border-radius: 1rem 1rem 0 0;
   }
 
@@ -88,7 +88,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   .transcript__summary:focus-visible {
     outline: none;
     border-radius: 0.5rem;
-    box-shadow: var(--focus-ring);
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .transcript__summary-title {
@@ -96,33 +96,33 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     gap: 0.55rem;
     align-items: center;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--text-primary);
   }
 
   .transcript__summary-icon {
     flex: 0 0 auto;
     inline-size: 1rem;
     block-size: 1rem;
-    color: var(--color-primary);
+    color: var(--accent-primary);
   }
 
   .transcript__summary-hint {
-    font-size: var(--font-size-caption);
-    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    color: var(--podcast-text-muted);
   }
 
   .transcript__body {
     padding: 1rem 1.25rem 1.25rem;
-    border-block-start: 1px solid var(--color-border-soft);
+    border-block-start: 1px solid var(--podcast-border-soft);
   }
 
   .transcript__status {
     margin: 0 0 0.75rem;
-    color: var(--color-text-muted);
+    color: var(--podcast-text-muted);
   }
 
   .transcript__status--error {
-    color: var(--color-error-soft);
+    color: var(--podcast-error-soft);
   }
 
   .transcript__content {
@@ -142,24 +142,24 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     padding: 0.85rem 1rem;
     margin: 0;
     font: inherit;
-    line-height: var(--leading-relaxed, 1.75);
-    color: var(--color-text);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-primary);
     text-align: start;
     appearance: none;
     cursor: pointer;
-    background: var(--color-layer-2);
-    border: 1px solid var(--color-border-soft);
+    background: var(--podcast-surface-strong);
+    border: 1px solid var(--podcast-border-soft);
     border-radius: 0.85rem;
   }
 
   :global(.transcript .transcript__cue:focus-visible) {
     outline: none;
-    box-shadow: var(--focus-ring);
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   :global(.transcript .transcript__cue--active) {
-    background: var(--color-accent-soft-bg);
-    border-color: var(--color-border-strong);
+    background: var(--podcast-accent-soft-bg);
+    border-color: var(--podcast-border-strong);
   }
 
   :global(.transcript .transcript__time) {
@@ -167,11 +167,11 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     min-inline-size: 3.5rem;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
-    color: var(--color-primary);
+    color: var(--accent-primary);
     text-align: end;
   }
 
   :global(.transcript .transcript__text) {
-    color: var(--color-text);
+    color: var(--text-primary);
   }
 </style>
