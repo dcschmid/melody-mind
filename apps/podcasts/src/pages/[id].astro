@@ -1,8 +1,9 @@
 ---
 import PodcastLayout from "../layouts/PodcastLayout.astro";
-import TranscriptDropdown from "../components/TranscriptDropdown.astro";
-import AudioPlayer from "../components/AudioPlayer.astro";
+import AudioPlayer from "@shared-ui/components/media/AudioPlayer.astro";
+import TranscriptDropdown from "@shared-ui/components/media/TranscriptDropdown.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
@@ -10,11 +11,11 @@ import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSec
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import type { RelatedContentCardItem } from "@shared-ui/components/cards/relatedContent";
 import Icon from "@shared-ui/components/visual/Icon.astro";
-import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
-import { getAdjacentByKey } from "../utils/array";
-import { buildMetaDescription, formatDate } from "../utils/helpers";
-import type { PodcastData } from "../types/podcast";
+import { getAdjacentByKey } from "@shared-utils/utils/array";
+import { buildMetaDescription, formatDate } from "@shared-utils/utils/format";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
+import type { PodcastData } from "../types/podcast";
 
 export async function getStaticPaths() {
   const podcasts = await getAvailablePodcasts();
@@ -61,7 +62,7 @@ const t = {
 };
 
 const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
-  .filter(Boolean)
+  .filter((podcast): podcast is PodcastData => Boolean(podcast))
   .map((podcast, itemIndex) => ({
     id: `related-episode-${podcast.id}-${itemIndex}`,
     title: podcast.title,
@@ -117,38 +118,18 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
 >
   <PageShell className="page-shell--aurora">
     <div class="episode">
-      <nav class="episode__breadcrumb" aria-label="Breadcrumb navigation">
-        <a href="/" class="episode__breadcrumb-link" aria-label="Return to all podcasts">
-          {t.backToAll}
-        </a>
-      </nav>
-
-      <section class="episode__hero" aria-labelledby="episode-title">
-        <div class="episode__hero-media">
-          <picture>
-            <source
-              srcset={`/images/${currentPodcast.imageUrl}.avif`}
-              type="image/avif"
-            />
-            <source
-              srcset={`/images/${currentPodcast.imageUrl}.webp`}
-              type="image/webp"
-            />
-            <img
-              src={`/images/${currentPodcast.imageUrl}.jpg`}
-              alt={`Cover art for the podcast episode ${currentPodcast.title}`}
-              width="400"
-              height="267"
-              loading="eager"
-              class="episode__hero-image"
-              decoding="async"
-              fetchpriority="high"
-              sizes="(max-width: 960px) 100vw, 50vw"
-            />
-          </picture>
-        </div>
-
-        <div class="episode__hero-body">
+      <HeroTeaser
+        id={`episode-hero-${currentPodcast.id}`}
+        title={currentPodcast.title}
+        eyebrow={t.musicHistory}
+        description={currentPodcast.description}
+        mediaPosition="start"
+        mediaAspectRatio="3 / 2"
+        mediaObjectFit="cover"
+        titleLevel="h1"
+        class="episode__hero"
+      >
+        <Fragment slot="meta">
           <div class="episode__meta">
             <span
               class="episode__pill"
@@ -166,16 +147,32 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
               {formatDate(currentPodcast.publishedAt)}
             </time>
           </div>
+        </Fragment>
 
-          <Headline level="h1" textSize="2xl" className="episode__title">
-            <span id="episode-title">{currentPodcast.title}</span>
-          </Headline>
-
-          <Paragraph textSize="base" className="episode__description">
-            {currentPodcast.description}
-          </Paragraph>
-        </div>
-      </section>
+        <Fragment slot="media">
+          <picture>
+            <source
+              srcset={`/images/${currentPodcast.imageUrl}.avif`}
+              type="image/avif"
+            />
+            <source
+              srcset={`/images/${currentPodcast.imageUrl}.webp`}
+              type="image/webp"
+            />
+            <img
+              src={`/images/${currentPodcast.imageUrl}.jpg`}
+              alt={`Cover art for the podcast episode ${currentPodcast.title}`}
+              width="400"
+              height="267"
+              class="episode__hero-image"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              sizes="(max-width: 960px) 100vw, 50vw"
+            />
+          </picture>
+        </Fragment>
+      </HeroTeaser>
 
       {
         currentPodcast.knowledgeUrl && (
@@ -237,7 +234,7 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
       {
         currentPodcast.showNotesHtml && (
           <article role="region" aria-labelledby="show-notes-heading">
-            <Prose html={currentPodcast.showNotesHtml} size="lg" />
+            <Prose html={currentPodcast.showNotesHtml} />
           </article>
         )
       }
@@ -260,23 +257,24 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
 <style>
   .episode {
     display: grid;
-    gap: 2.5rem;
+    gap: var(--spacing-2xl);
   }
 
   .episode__breadcrumb {
-    margin-block-start: 0.25rem;
+    margin-block-start: var(--spacing-xs);
   }
 
   .episode__breadcrumb-link {
     display: inline-flex;
+    gap: var(--spacing-sm);
     align-items: center;
-    padding: 0.6rem 1rem;
-    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     text-decoration: none;
-    background: var(--podcast-surface-strong);
-    border: 1px solid var(--podcast-border-default);
-    border-radius: 0.8rem;
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-md);
   }
 
   .episode__breadcrumb-link:focus-visible {
@@ -285,113 +283,94 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
   }
 
   .episode__hero {
-    display: grid;
-    gap: 2rem;
-    padding: 1.75rem;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 94%, transparent),
-      var(--surface-2)
-    );
-    border: 1px solid var(--podcast-border-soft);
-    border-radius: 1.6rem;
-    box-shadow: var(--shadow-md);
-  }
-
-  .episode__hero-media {
-    inline-size: 100%;
+    background:
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-primary) 18%, transparent),
+        transparent 36%
+      ),
+      var(--surface-panel-bg);
+    border-color: var(--surface-border-soft);
   }
 
   .episode__hero-image {
     display: block;
     inline-size: 100%;
-    block-size: auto;
-    border: 1px solid var(--podcast-border-soft);
-    border-radius: 1.5rem;
+    block-size: 100%;
+    object-fit: cover;
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
-  }
-
-  .episode__hero-body {
-    display: grid;
-    gap: 1rem;
   }
 
   .episode__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: var(--spacing-md);
     align-items: center;
   }
 
   .episode__pill {
-    padding: 0.4em 0.9em;
+    padding: var(--spacing-xs) var(--spacing-md);
     font-size: var(--font-size-sm);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    background: var(--podcast-surface-strong);
-    border: 1px solid var(--podcast-border-default);
-    border-radius: 999px;
+    letter-spacing: var(--letter-spacing-wider);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-accent);
+    border-radius: var(--radius-full);
   }
 
   .episode__date {
-    padding: 0.35em 0.75em;
+    padding: var(--spacing-xs) var(--spacing-md);
     font-size: var(--font-size-sm);
-    color: var(--podcast-text-muted);
-    background: var(--podcast-surface-soft);
-    border: 1px solid var(--podcast-border-soft);
-    border-radius: 999px;
-  }
-
-  .episode__title {
-    margin-block-start: 0.25rem;
-  }
-
-  .episode__description {
-    max-inline-size: 70ch;
-    margin: 0;
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-relaxed);
     color: var(--text-secondary);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
+  }
+
+  .episode__hero :global(.hero-teaser__title) {
+    max-inline-size: 14ch;
+  }
+
+  .episode__hero :global(.hero-teaser__description) {
+    max-inline-size: 62ch;
   }
 
   .episode__knowledge {
     display: grid;
-    gap: 1rem;
+    gap: var(--spacing-base);
     align-items: center;
-    padding: 1.5rem;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-2) 94%, transparent),
-      var(--surface-1)
-    );
-    border: 1px solid var(--podcast-border-default);
-    border-radius: 1.25rem;
+    padding: var(--spacing-lg);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-accent);
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
   }
 
   .episode__kicker {
     margin: 0;
     font-size: var(--font-size-sm);
-    color: var(--podcast-text-muted);
+    color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: var(--letter-spacing-widest);
   }
 
   .episode__audio {
     display: grid;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: var(--podcast-surface-raised);
-    border: 1px solid var(--podcast-border-soft);
-    border-radius: 1.25rem;
+    gap: var(--spacing-base);
+    padding: var(--spacing-lg);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
   }
 
   .episode__notes {
     display: grid;
-    gap: 1rem;
+    gap: var(--spacing-base);
   }
 
   .episode__section-title {
@@ -400,7 +379,7 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
 
   .episode__section-title :global(span) {
     display: inline-flex;
-    gap: 0.6rem;
+    gap: var(--spacing-sm);
     align-items: center;
   }
 
@@ -409,12 +388,5 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
     inline-size: 1rem;
     block-size: 1rem;
     color: var(--accent-primary);
-  }
-
-  @media (width >= 960px) {
-    .episode__hero {
-      grid-template-columns: 1fr 1.4fr;
-      align-items: center;
-    }
   }
 </style>

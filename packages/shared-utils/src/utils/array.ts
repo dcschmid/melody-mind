@@ -1,20 +1,6 @@
 /**
- * Array Utility Functions
- *
- * Shared utilities for array operations.
- */
-
-/**
  * Finds the index of an item by a key value.
  * Returns -1 if not found.
- *
- * @param array - The array to search
- * @param key - The key to match
- * @param value - The value to find
- * @returns Index of the matching item, or -1
- *
- * @example
- * const index = findByKey(podcasts, 'id', '1950s');
  */
 export function findByKey<T, K extends keyof T>(array: T[], key: K, value: T[K]): number {
   return array.findIndex((item) => item[key] === value);
@@ -23,13 +9,6 @@ export function findByKey<T, K extends keyof T>(array: T[], key: K, value: T[K])
 /**
  * Gets adjacent items in an array by index.
  * Useful for navigation (prev/next).
- *
- * @param array - The array
- * @param currentIndex - Current position
- * @returns Object with prev and next items (null if at boundaries)
- *
- * @example
- * const { prev, next } = getAdjacentItems(podcasts, 2);
  */
 export function getAdjacentItems<T>(
   array: T[],
@@ -48,14 +27,6 @@ export function getAdjacentItems<T>(
 /**
  * Gets adjacent items by a key value.
  * Combines findByKey and getAdjacentItems.
- *
- * @param array - The array
- * @param key - The key to match
- * @param value - The value to find
- * @returns Object with prev and next items
- *
- * @example
- * const { prev, next } = getAdjacentByKey(podcasts, 'id', '1950s');
  */
 export function getAdjacentByKey<T, K extends keyof T>(
   array: T[],

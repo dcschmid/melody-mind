@@ -1,4 +1,4 @@
-import { formatTime, parseTimeToSeconds } from "./utils/time";
+import { formatTime, parseTimeToSeconds } from "@shared-utils/utils/time";
 import { logError } from "./utils/error";
 import { createInitializer } from "./utils/init";
 

@@ -1,9 +1,13 @@
 ---
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
-import Footer from "../components/Footer.astro";
+import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
+import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
+import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import type { NavItem } from "@shared-ui/components/navigation/types";
 import {
   buildOrganizationSchema,
   buildPodcastEpisodeSchema,
@@ -83,7 +87,6 @@ const defaultKeywords = [
   "streaming",
   "entertainment",
 ];
-const skipLinkText = "Skip to main content";
 const normalizedDescription = normalizeMetaText(description);
 const imageAlt =
   type === "article"
@@ -91,6 +94,27 @@ const imageAlt =
     : `Cover artwork for ${siteTitle}`;
 const publishDate = publishedTime ? new Date(publishedTime) : undefined;
 const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
+const navItems: NavItem[] = [
+  {
+    href: "https://www.melody-mind.de",
+    label: "Knowledge",
+    icon: "book-open",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    href: "https://www.quiz.melody-mind.de",
+    label: "Quiz",
+    icon: "book-open",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    href: "/search",
+    label: "Search",
+    icon: "search",
+  },
+];
 
 const publisher = {
   "@type": "Organization",
@@ -149,11 +173,13 @@ const podcastEpisodeJson =
         seriesUrl: siteUrl,
         locale,
         imageUrl: episodeImageUrl,
-        publishedAt: publishedTime,
-        modifiedAt: modifiedTime || publishedTime,
-        episodeNumber,
-        durationIso: episodeDurationIso,
-        audioUrl,
+        ...(publishedTime ? { publishedAt: publishedTime } : {}),
+        ...(modifiedTime || publishedTime
+          ? { modifiedAt: modifiedTime || publishedTime }
+          : {}),
+        ...(typeof episodeNumber === "number" ? { episodeNumber } : {}),
+        ...(episodeDurationIso ? { durationIso: episodeDurationIso } : {}),
+        ...(audioUrl ? { audioUrl } : {}),
         authorNames,
         publisherName: publisher.name,
         publisherLogoUrl: podcastImage,
@@ -166,7 +192,7 @@ const seoStructuredData = [
   podcastSeriesJson,
   podcastEpisodeJson,
   ...structuredData,
-].filter(Boolean);
+].filter((item): item is StructuredData => Boolean(item));
 
 const pageSeo = buildPageSeo({
   title: fullTitle,
@@ -190,6 +216,19 @@ const pageSeo = buildPageSeo({
   ...(publishDate ? { publishDate } : {}),
   ...(modifiedDate ? { modifiedDate } : {}),
 });
+
+const seoProps = {
+  title: pageSeo.title,
+  description: pageSeo.description,
+  keywords: pageSeo.keywordArray,
+  canonical: pageSeo.canonical,
+  structuredDataExtra: pageSeo.structuredData,
+  ...(pageSeo.image ? { image: pageSeo.image } : {}),
+  ...(pageSeo.imageAlt ? { imageAlt: pageSeo.imageAlt } : {}),
+  ...(pageSeo.publishDate ? { publishDate: pageSeo.publishDate } : {}),
+  ...(pageSeo.modifiedDate ? { modifiedDate: pageSeo.modifiedDate } : {}),
+  ...(pageSeo.authorName ? { authorName: pageSeo.authorName } : {}),
+};
 
 function ensureTrailingSlash(pathname: string) {
   if (!pathname.startsWith("/")) {
@@ -232,18 +271,7 @@ function toIsoDuration(totalSeconds: number) {
     <link rel="preconnect" href="https://www.deezer.com" crossorigin />
     <link rel="preconnect" href="https://www.youtube.com" crossorigin />
     <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
-    <SEO
-      title={pageSeo.title}
-      description={pageSeo.description}
-      keywords={pageSeo.keywordArray}
-      image={pageSeo.image}
-      imageAlt={pageSeo.imageAlt}
-      canonical={pageSeo.canonical}
-      publishDate={pageSeo.publishDate}
-      modifiedDate={pageSeo.modifiedDate}
-      structuredDataExtra={pageSeo.structuredData}
-      authorName={pageSeo.authorName}
-    />
+    <SEO {...seoProps} />
     <meta name="robots" content={pageSeo.robots} />
     <meta name="language" content={language} />
     <meta name="revisit-after" content="7 days" />
@@ -293,126 +321,74 @@ function toIsoDuration(totalSeconds: number) {
     ></script>
   </Fragment>
 
-  <a slot="body-start" href="#main-content" class="podcast-layout__skip-link">
-    {skipLinkText}
-  </a>
-  <Footer slot="after-main" />
+  <SkipLink slot="body-start" />
+  <SiteHeader
+    slot="before-main"
+    {navItems}
+    brandHref="/"
+    brandText={siteTitle}
+    brandLogoSrc="/melody-mind-podcast.png"
+    brandLogoAlt={siteTitle}
+    brandLogoWidth={1024}
+    brandLogoHeight={1024}
+    brandAriaLabel={`Go to the ${siteTitle} homepage`}
+    menuOpenLabel="Open main menu"
+    menuCloseLabel="Close main menu"
+    menuText="Menu"
+    navAriaLabel="Podcast navigation"
+  />
+
+  <SharedFooter
+    slot="after-main"
+    brandTitle="Melody Mind"
+    brandText="Curated stories, timelines, and playlists to help you listen more closely and discover new sounds."
+    exploreLinks={[
+      {
+        href: "https://melody-mind.de/",
+        label: "Melody Mind",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      { href: "/podcast.xml", label: "RSS" },
+    ]}
+    supportLinks={[
+      {
+        href: "https://www.paypal.me/dcschmid",
+        label: "PayPal",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      {
+        href: "https://www.buymeacoffee.com/dcschmid",
+        label: "Buy Me a Coffee",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+    ]}
+    legalLinks={[
+      {
+        href: "https://melody-mind.de/imprint",
+        label: "Legal Notice",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+      {
+        href: "https://melody-mind.de/privacy",
+        label: "Privacy Policy",
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+    ]}
+    showSettings={true}
+    copyrightText={`© ${new Date().getFullYear()} MelodyMind. All rights reserved.`}
+  />
+
   <AutoInitScript slot="body-end" />
 
   <slot />
 </MasterLayout>
 
 <style>
-  .podcast-layout {
-    --podcast-surface-soft: color-mix(in srgb, var(--surface-2) 84%, transparent);
-    --podcast-surface-strong: color-mix(in srgb, var(--surface-3) 88%, transparent);
-    --podcast-surface-accent: color-mix(
-      in srgb,
-      var(--surface-3) 96%,
-      var(--accent-primary) 4%
-    );
-    --podcast-surface-raised: color-mix(
-      in srgb,
-      var(--surface-1) 92%,
-      var(--bg-primary) 8%
-    );
-    --podcast-border-soft: color-mix(
-      in srgb,
-      var(--accent-primary) 38%,
-      var(--border-default) 62%
-    );
-    --podcast-border-default: color-mix(
-      in srgb,
-      var(--accent-primary) 52%,
-      var(--border-default) 48%
-    );
-    --podcast-border-strong: color-mix(
-      in srgb,
-      var(--accent-primary) 68%,
-      var(--border-default) 32%
-    );
-    --podcast-accent-soft-bg: color-mix(
-      in srgb,
-      var(--accent-primary) 24%,
-      var(--podcast-surface-strong) 76%
-    );
-    --podcast-text-muted: color-mix(in srgb, var(--text-primary) 82%, transparent);
-    --podcast-text-subtle: color-mix(in srgb, var(--text-primary) 72%, transparent);
-    --podcast-error-soft: color-mix(in srgb, var(--color-error) 24%, transparent);
-    --podcast-title-shadow: 0 1px 0 color-mix(in srgb, var(--surface-1) 36%, transparent);
-    --podcast-hero-surface: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--surface-2) 90%, transparent),
-      color-mix(in srgb, var(--surface-1) 94%, transparent)
-    );
-    --podcast-hero-orb-1: radial-gradient(
-      ellipse at 12% 18%,
-      color-mix(in srgb, var(--accent-primary) 16%, transparent),
-      transparent 48%
-    );
-    --podcast-hero-orb-2: radial-gradient(
-      ellipse at 88% 16%,
-      color-mix(in srgb, var(--accent-strong) 14%, transparent),
-      transparent 44%
-    );
-    --podcast-hero-orb-3: radial-gradient(
-      ellipse at 52% 86%,
-      color-mix(in srgb, var(--accent-muted) 12%, transparent),
-      transparent 52%
-    );
-    --podcast-brand-gradient: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--surface-1) 72%, var(--accent-primary) 28%) 0%,
-      color-mix(in srgb, var(--surface-2) 58%, var(--accent-primary) 42%) 50%,
-      color-mix(in srgb, var(--surface-3) 56%, var(--accent-strong) 44%) 100%
-    );
-    --podcast-brand-gradient-subtle: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--surface-2) 88%, transparent) 0%,
-      color-mix(in srgb, var(--surface-1) 92%, var(--accent-primary) 8%) 100%
-    );
-    --podcast-glass-bg: color-mix(in srgb, var(--surface-2) 72%, transparent);
-    --podcast-glass-border: var(--podcast-border-soft);
-    --podcast-shadow-glow: 0 0 32px
-      color-mix(in srgb, var(--accent-primary) 30%, transparent);
-    --max-width: 80rem;
-
-    min-block-size: 100vb;
-    margin: 0;
-    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
-    font-size: var(--font-size-md);
-    line-height: var(--line-height-relaxed);
-    color: var(--text-primary);
-    letter-spacing: 0.005em;
-    text-wrap: pretty;
-    background-color: var(--bg-primary);
-    background-image:
-      radial-gradient(
-        ellipse at 10% 10%,
-        color-mix(in srgb, var(--accent-primary) 12%, transparent),
-        transparent 40%
-      ),
-      radial-gradient(
-        ellipse at 90% 20%,
-        color-mix(in srgb, var(--accent-strong) 10%, transparent),
-        transparent 35%
-      ),
-      radial-gradient(
-        ellipse at 50% 80%,
-        color-mix(in srgb, var(--accent-muted) 8%, transparent),
-        transparent 45%
-      );
-    text-rendering: optimizelegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
   .podcast-layout__container {
     display: grid;
     gap: var(--spacing-xl);
@@ -420,41 +396,6 @@ function toIsoDuration(totalSeconds: number) {
     padding-block: var(--spacing-base);
     padding-inline: var(--spacing-sm);
     margin: 0 auto;
-  }
-
-  .podcast-layout__main {
-    outline: none;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .podcast-layout__skip-link {
-      transition: none;
-    }
-  }
-
-  .podcast-layout__skip-link {
-    position: fixed;
-    inset-block-start: var(--spacing-sm);
-    inset-inline-start: 50%;
-    z-index: 1000;
-    inline-size: auto;
-    block-size: auto;
-    padding: var(--spacing-sm) var(--spacing-lg);
-    font-weight: 600;
-    color: var(--bg-primary);
-    text-decoration: none;
-    background: var(--accent-primary);
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-lg), var(--podcast-shadow-glow);
-    transform: translateX(-50%) translateY(-200%);
-    transition: transform var(--transition-fast);
-  }
-
-  .podcast-layout__skip-link:focus,
-  .podcast-layout__skip-link:focus-visible {
-    outline: 3px solid var(--text-primary);
-    outline-offset: 3px;
-    transform: translateX(-50%) translateY(0);
   }
 
   @media (width >= 480px) {

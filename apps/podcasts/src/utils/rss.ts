@@ -1,5 +1,5 @@
 import type { PodcastData } from "../types/podcast";
-import { formatDuration } from "./format-time";
+import { formatDuration } from "@shared-utils/utils/time";
 
 const EXPLICIT_RATING = "clean";
 

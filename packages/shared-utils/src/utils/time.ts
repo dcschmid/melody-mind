@@ -2,10 +2,11 @@ const safeNumber = (value: unknown, fallback: number = 0): number => {
   if (value === null || value === undefined) {
     return fallback;
   }
+
   return Number.isFinite(value as number) ? (value as number) : fallback;
 };
 
-interface FormatOptions {
+export interface FormatOptions {
   includeHours?: boolean;
   padMinutes?: boolean;
 }
@@ -19,13 +20,20 @@ export const formatTime = (seconds: number, options?: FormatOptions): string => 
   const mm = minutes.toString().padStart(2, "0");
   const ss = secs.toString().padStart(2, "0");
   const showHours = includeHours || hours > 0;
+
   if (showHours) {
     return `${hours}:${mm}:${ss}`;
   }
+
   if (padMinutes) {
     return `${mm}:${ss}`;
   }
+
   return `${minutes}:${ss}`;
+};
+
+export const formatDuration = (totalSeconds: number): string => {
+  return formatTime(totalSeconds, { includeHours: false });
 };
 
 export const parseTimeToSeconds = (timeStr: string): number => {

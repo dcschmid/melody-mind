@@ -24,6 +24,8 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   ctaLabel?: string;
   ctaIconName?: string;
   ctaSrText?: string;
+  target?: string;
+  rel?: string;
   class?: string;
 }
 
@@ -49,6 +51,8 @@ const {
   ctaLabel,
   ctaIconName,
   ctaSrText,
+  target,
+  rel,
   class: className,
   ...rest
 } = Astro.props as Props;
@@ -80,6 +84,8 @@ const resolvedMediaAspectRatio =
 const contentProps = href
   ? {
       href,
+      ...(target ? { target } : {}),
+      ...(rel ? { rel } : {}),
       "aria-labelledby": titleId,
       "aria-describedby": describedBy || undefined,
     }

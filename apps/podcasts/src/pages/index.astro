@@ -1,23 +1,23 @@
 ---
 import PodcastLayout from "../layouts/PodcastLayout.astro";
-import HomeHero from "../components/HomeHero.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
-import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
-import SearchForm from "@shared-ui/components/search/SearchForm.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
 import type { ContentCardMetaItem } from "@shared-ui/components/cards/contentCard";
 import {
   buildCollectionPageSchema,
   buildPodcastEpisodesItemListSchema,
+  type PodcastEpisodeListItem,
 } from "@shared-utils/utils/seo/seoSchema";
-import type { PodcastData } from "../types/podcast";
-import { formatDate } from "../utils/helpers";
+import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { formatDate } from "@shared-utils/utils/format";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import type { PodcastData } from "../types/podcast";
 
 import { getAvailablePodcasts } from "../utils/podcasts";
-import { PAGINATION_CONFIG } from "../constants";
 
 const podcasts: PodcastData[] = await getAvailablePodcasts();
 const sortedPodcasts = [...podcasts].sort(
@@ -59,6 +59,19 @@ const toIsoDuration = (durationSeconds?: number): string | undefined => {
   return `PT${hours > 0 ? `${hours}H` : ""}${minutes > 0 ? `${minutes}M` : ""}${seconds || (!hours && !minutes) ? `${seconds}S` : ""}`;
 };
 
+const buildEpisodeListItem = (podcast: PodcastData): PodcastEpisodeListItem => {
+  const durationIso = toIsoDuration(podcast.durationSeconds);
+
+  return {
+    title: podcast.title,
+    description: podcast.description,
+    url: resolvePageUrl(Astro.site, `/${podcast.id}`),
+    image: `https://podcasts.melody-mind.de/images/${podcast.imageUrl}.jpg`,
+    publishedAt: podcast.publishedAt,
+    ...(durationIso ? { durationIso } : {}),
+  };
+};
+
 const episodeEntries = sortedPodcasts.map((podcast, index) => ({
   id: podcast.id,
   title: podcast.title,
@@ -71,10 +84,6 @@ const episodeEntries = sortedPodcasts.map((podcast, index) => ({
   searchText: normalizeSearchText(`${podcast.title} ${podcast.description}`),
   metaItems: buildEpisodeMetaItems(podcast.publishedAt, podcast.durationSeconds),
 }));
-const initialEpisodes = episodeEntries.slice(0, PAGINATION_CONFIG.EPISODES_PER_PAGE);
-const templateEpisode = episodeEntries[0];
-const serializedEpisodes = JSON.stringify(episodeEntries).replace(/</g, "\\u003c");
-const encodedEpisodes = Buffer.from(serializedEpisodes, "utf8").toString("base64");
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
 const episodeListId = `${canonical}#podcast-itemlist`;
@@ -88,9 +97,6 @@ const t = {
   seoDescription:
     "Official site of MelodyMind Podcasts, a music history podcast with Daniel and Annabelle. Explore episodes that move from 1950s rock 'n' roll to the present day.",
   episodes: "Episodes",
-  featuredContent:
-    "Discover the voices, rhythms, and turning points that shaped each musical era",
-  totalEpisodes: " episodes available",
   availableOn: "Listen on:",
   spotifyUrl: "https://open.spotify.com/show/1qCTySbRctOad9Oi3FGpoF",
   deezerUrl: "https://www.deezer.com/en/show/1002678961",
@@ -106,6 +112,8 @@ const t = {
     "music documentary",
     "audio stories",
   ],
+  rssFeed: "RSS Feed",
+  heroImageAlt: "Illustrated podcast cover art",
 };
 
 const collectionPageSchema = buildCollectionPageSchema({
@@ -118,17 +126,14 @@ const collectionPageSchema = buildCollectionPageSchema({
 });
 
 const episodeListSchema = buildPodcastEpisodesItemListSchema({
-  episodes: sortedPodcasts.map((podcast) => ({
-    title: podcast.title,
-    description: podcast.description,
-    url: resolvePageUrl(Astro.site, `/${podcast.id}`),
-    image: `https://podcasts.melody-mind.de/images/${podcast.imageUrl}.jpg`,
-    publishedAt: podcast.publishedAt,
-    durationIso: toIsoDuration(podcast.durationSeconds),
-  })),
+  episodes: sortedPodcasts.map(buildEpisodeListItem),
   listName: "MelodyMind Podcast Episodes",
   itemListId: episodeListId,
 });
+
+const structuredData = [collectionPageSchema, episodeListSchema].filter(
+  (item): item is StructuredData => Boolean(item)
+);
 ---
 
 <PodcastLayout
@@ -141,32 +146,68 @@ const episodeListSchema = buildPodcastEpisodesItemListSchema({
   seriesDescription={t.seoDescription}
   canonical={canonical}
   {breadcrumbs}
-  structuredData={[collectionPageSchema, episodeListSchema].filter(Boolean)}
+  {structuredData}
 >
   <PageShell className="page-shell--aurora">
     <div class="home">
-      <HomeHero
+      <HeroTeaser
+        id="podcast-home-hero"
         title={t.title}
-        subtitle={t.subtitle}
+        eyebrow={t.subtitle}
         description={t.description}
-        totalEpisodes={podcasts.length}
-        featuredContent={t.featuredContent}
-        availableOn={t.availableOn}
-        spotifyUrl={t.spotifyUrl}
-        deezerUrl={t.deezerUrl}
-        youtubeUrl={t.youtubeUrl}
-      />
-
-      <SearchForm
-        label="Search episodes"
-        placeholder="Search by title or description"
-        clearLabel="Clear search"
-        hintText="Submit to open the dedicated search page with a shareable query URL."
-        inputId="episode-search"
-        hintId="search-hint"
-        action="/search"
-        method="get"
-      />
+        imageSrc="/the-melody-mind-podcast.jpg"
+        imageAlt={t.heroImageAlt}
+        imageWidth={1024}
+        imageHeight={1024}
+        imageLoading="eager"
+        mediaAspectRatio="1 / 1"
+        mediaObjectFit="cover"
+        mediaPosition="end"
+        titleLevel="h1"
+      >
+        <Fragment slot="actions">
+          <div class="home__hero-platforms" aria-label={t.availableOn}>
+            <a
+              href={t.spotifyUrl}
+              class="home__hero-platform-link"
+              aria-label="Listen on Spotify"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="spotify" aria-hidden="true" />
+              <span>Spotify</span>
+            </a>
+            <a
+              href={t.deezerUrl}
+              class="home__hero-platform-link"
+              aria-label="Listen on Deezer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="deezer" aria-hidden="true" />
+              <span>Deezer</span>
+            </a>
+            <a
+              href={t.youtubeUrl}
+              class="home__hero-platform-link"
+              aria-label="Listen on YouTube"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="simple-icons:youtube" aria-hidden="true" />
+              <span>YouTube</span>
+            </a>
+            <a
+              href="/podcast.xml"
+              class="home__hero-link home__hero-link--secondary"
+              aria-label="Subscribe via RSS"
+            >
+              <Icon name="wave" aria-hidden="true" />
+              {t.rssFeed}
+            </a>
+          </div>
+        </Fragment>
+      </HeroTeaser>
 
       <section class="home__episodes" aria-labelledby="episodes-heading">
         <Headline level="h2" textSize="xl" className="home__section-title">
@@ -175,7 +216,7 @@ const episodeListSchema = buildPodcastEpisodesItemListSchema({
 
         <div class="home__episodes-grid" role="list" id="episodes-list">
           {
-            initialEpisodes.map((podcast) => (
+            episodeEntries.map((podcast) => (
               <ContentCard
                 id={`episode-card-${podcast.id}`}
                 data-episode
@@ -209,102 +250,113 @@ const episodeListSchema = buildPodcastEpisodesItemListSchema({
             />
           )
         }
-        <div id="episodes-data" data-episodes={encodedEpisodes} hidden></div>
-        {
-          templateEpisode && (
-            <div id="episode-template" hidden>
-              <ContentCard
-                id={`episode-card-${templateEpisode.id}`}
-                data-episode
-                data-search={templateEpisode.searchText}
-                role="listitem"
-                href={`/${templateEpisode.id}`}
-                variant="feature"
-                size="spacious"
-                imageSrc={`/images/${templateEpisode.imageUrl}.jpg`}
-                imageAlt={`Cover art for the podcast episode ${templateEpisode.title}`}
-                imageWidth={1536}
-                imageHeight={1024}
-                title={templateEpisode.title}
-                description={templateEpisode.description}
-                metaItems={templateEpisode.metaItems}
-                descriptionLineClamp={3}
-                ctaLabel="View Episode"
-              >
-                <Fragment slot="badge">
-                  {templateEpisode.isLatest && (
-                    <span class="episode-card__badge">Latest</span>
-                  )}
-                </Fragment>
-              </ContentCard>
-            </div>
-          )
-        }
-        <div class="home__load-more" id="episodes-load-more" hidden>
-          <div class="home__load-more-panel" role="group" aria-label="More episodes">
-            <Paragraph
-              textSize="sm"
-              className="home__load-more-status"
-              id="episodes-load-more-status"
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              Showing {Math.min(PAGINATION_CONFIG.EPISODES_PER_PAGE, podcasts.length)} of {
-                podcasts.length
-              } episodes.
-            </Paragraph>
-            <button
-              class="home__load-more-button"
-              id="episodes-load-more-button"
-              type="button"
-              aria-controls="episodes-list"
-            >
-              Show more episodes
-            </button>
-          </div>
-        </div>
       </section>
     </div>
   </PageShell>
-
-  <script>
-    import "../scripts/episodes";
-  </script>
 </PodcastLayout>
 
 <style>
-  .episode-card__image {
-    object-fit: cover;
-    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 85%, transparent);
-  }
-
   .episode-card__badge {
-    padding: 0.2em 0.6em;
+    padding: var(--spacing-2xs) var(--spacing-md);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--accent-primary) 14%, var(--surface-2));
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 26%, var(--border-default));
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-full);
   }
 
   .home {
     display: grid;
-    gap: 2rem;
+    gap: var(--spacing-xl);
+  }
+
+  .home__hero-link {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    min-block-size: calc(var(--spacing-2xl) + var(--spacing-xs));
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition:
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .home__hero-link:hover,
+  .home__hero-link:focus-visible {
+    transform: translateY(-1px);
+  }
+
+  .home__hero-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .home__hero-link--secondary {
+    color: var(--text-primary);
+    background: transparent;
+    border: 1px solid var(--surface-border-soft);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .home__hero-link {
+      transition: none;
+    }
+  }
+
+  .home__hero-platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .home__hero-platform-link {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    min-block-size: calc(var(--spacing-xl) + var(--spacing-sm));
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
+    transition:
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .home__hero-platform-link:hover,
+  .home__hero-platform-link:focus-visible {
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+  }
+
+  .home__hero-platform-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .home__hero-platform-link {
+      transition: none;
+    }
   }
 
   .home__episodes {
     display: grid;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 94%, transparent),
-      var(--surface-2)
-    );
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--surface-panel-bg);
     border: 1px solid var(--border-default);
-    border-radius: 1.5rem;
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
   }
 
@@ -316,96 +368,13 @@ const episodeListSchema = buildPodcastEpisodesItemListSchema({
   .home__episodes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-    gap: 1.25rem;
-  }
-
-  .home__load-more {
-    display: grid;
-    justify-items: center;
-    margin-block-start: 1.5rem;
-  }
-
-  .home__load-more-panel {
-    display: grid;
-    gap: 0.85rem;
-    justify-items: center;
-    inline-size: min(28rem, 100%);
-    padding: 1.1rem 1.5rem;
-    background: linear-gradient(
-      150deg,
-      color-mix(in srgb, var(--surface-3) 92%, transparent),
-      color-mix(in srgb, var(--surface-2) 95%, transparent)
-    );
-    border: 1px solid var(--podcast-border-soft);
-    border-radius: 1.25rem;
-    box-shadow: var(--shadow-lg);
-  }
-
-  .home__load-more-status {
-    margin: 0;
-    font-size: var(--font-size-sm);
-    color: var(--podcast-text-muted);
-    text-align: center;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .home__load-more-button {
-      padding: 0.65rem 1.35rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      cursor: pointer;
-      background: linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--accent-primary) 35%, var(--surface-2)),
-        color-mix(in srgb, var(--accent-primary) 22%, var(--surface-3))
-      );
-      border: 1px solid var(--podcast-border-default);
-      border-radius: 999px;
-      transition: none;
-    }
-  }
-
-  .home__load-more-button {
-    padding: 0.65rem 1.35rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    cursor: pointer;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--accent-primary) 35%, var(--surface-2)),
-      color-mix(in srgb, var(--accent-primary) 22%, var(--surface-3))
-    );
-    border: 1px solid var(--podcast-border-default);
-    border-radius: 999px;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease,
-      border-color 0.2s ease;
-  }
-
-  .home__load-more-button:focus-visible {
-    outline: none;
-    box-shadow: var(--interactive-shadow-focus);
-  }
-
-  .home__load-more-button:hover,
-  .home__load-more-button:focus-visible {
-    border-color: var(--podcast-border-strong);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-1px);
-  }
-
-  .home__load-more-button[disabled] {
-    cursor: not-allowed;
-    box-shadow: none;
-    opacity: 0.55;
-    transform: none;
+    gap: var(--spacing-lg);
   }
 
   .home__empty {
     padding: var(--spacing-2xl) var(--spacing-lg);
     background: var(--surface-1);
-    border: 1px solid var(--border-muted);
+    border: 1px solid var(--surface-border-subtle);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-base);
   }

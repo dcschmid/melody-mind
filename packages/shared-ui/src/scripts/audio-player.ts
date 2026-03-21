@@ -1,6 +1,6 @@
 import { AUDIO_PLAYER_CONFIG } from "../constants/audio-player-config";
+import { formatTime } from "@shared-utils/utils/time";
 import { createInitializer } from "./utils/init";
-import { formatTime } from "./utils/time";
 import { logError } from "./utils/error";
 
 const initAudioPlayers = (): (() => void) => {
