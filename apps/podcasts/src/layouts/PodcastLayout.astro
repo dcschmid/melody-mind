@@ -17,12 +17,13 @@ import {
 import {
   PODCAST_FEED_PATH,
   PODCAST_FEED_URL,
-  PODCAST_IMAGE_URL,
   PODCAST_PLATFORM_URLS,
   PODCAST_PRECONNECT_ORIGINS,
   PODCAST_SITE_URL,
 } from "../constants/podcastLinks";
+import { podcastHeroImageUrl } from "../utils/podcastImages";
 import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
+import podcastBrandLogo from "../assets/melody-mind-podcast.png";
 
 export interface Props {
   title: string;
@@ -50,7 +51,7 @@ export interface Props {
 const {
   title,
   description,
-  image = "/images/default-og.jpg",
+  image = podcastHeroImageUrl,
   type = "website",
   publishedTime,
   modifiedTime,
@@ -85,7 +86,7 @@ const episodeImageUrl = episodeImage
     : `${siteUrl}${episodeImage}`
   : imageUrl;
 const podcastFeedUrl = PODCAST_FEED_URL;
-const podcastImage = PODCAST_IMAGE_URL;
+const podcastImage = podcastHeroImageUrl;
 const seriesCopy =
   seriesDescription ||
   "Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.";
@@ -323,10 +324,10 @@ function ensureTrailingSlash(pathname: string) {
     {navItems}
     brandHref="/"
     brandText={siteTitle}
-    brandLogoSrc="/melody-mind-podcast.png"
+    brandLogoSrc={podcastBrandLogo}
     brandLogoAlt={siteTitle}
-    brandLogoWidth={1024}
-    brandLogoHeight={1024}
+    brandLogoWidth={150}
+    brandLogoHeight={100}
     brandAriaLabel={`Go to the ${siteTitle} homepage`}
     menuOpenLabel="Open main menu"
     menuCloseLabel="Close main menu"

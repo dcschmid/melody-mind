@@ -15,6 +15,12 @@ import { getAdjacentByKey } from "@shared-utils/utils/array";
 import { buildMetaDescription, formatDate } from "@shared-utils/utils/format";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
+import {
+  getPodcastCoverImage,
+  getPodcastCoverImageUrl,
+  podcastHeroImage,
+  podcastHeroImageUrl,
+} from "../utils/podcastImages";
 import { buildEpisodeMetaItems } from "../utils/podcastPresentation";
 import type { PodcastData } from "../types/podcast";
 
@@ -62,6 +68,11 @@ const t = {
     "Move to the previous or next episode without leaving the shared Melody Mind card flow.",
 };
 
+const currentPodcastCoverImage =
+  getPodcastCoverImage(currentPodcast.imageUrl) ?? podcastHeroImage;
+const currentPodcastCoverImageUrl =
+  getPodcastCoverImageUrl(currentPodcast.imageUrl) ?? podcastHeroImageUrl;
+
 const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
   .filter((podcast): podcast is PodcastData => Boolean(podcast))
   .map((podcast, itemIndex) => ({
@@ -69,7 +80,7 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
     title: podcast.title,
     description: podcast.description,
     href: `/${podcast.id}`,
-    imageSrc: `/images/${podcast.imageUrl}.jpg`,
+    imageSrc: getPodcastCoverImage(podcast.imageUrl) ?? podcastHeroImage,
     imageAlt: `Cover art for the podcast episode ${podcast.title}`,
     ctaSrText: "Opens episode",
     metaItems: buildEpisodeMetaItems(podcast.publishedAt, podcast.durationSeconds),
@@ -84,8 +95,8 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   type="article"
   publishedTime={currentPodcast.publishedAt}
   modifiedTime={currentPodcast.publishedAt}
-  image={`/square/${currentPodcast.imageUrl}.jpg`}
-  episodeImage={`/square/${currentPodcast.imageUrl}.jpg`}
+  image={currentPodcastCoverImageUrl}
+  episodeImage={currentPodcastCoverImageUrl}
   language="en"
   locale="en-US"
   episodeNumber={episodeNumber}
@@ -111,6 +122,11 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
         id={`episode-hero-${currentPodcast.id}`}
         title={currentPodcast.title}
         description={currentPodcast.description}
+        imageSrc={currentPodcastCoverImage}
+        imageAlt={`Cover art for the podcast episode ${currentPodcast.title}`}
+        imageWidth={400}
+        imageHeight={267}
+        imageLoading="eager"
         mediaPosition="start"
         mediaAspectRatio="3 / 2"
         mediaObjectFit="cover"
@@ -135,30 +151,6 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
               {publishedLabel}
             </time>
           </div>
-        </Fragment>
-
-        <Fragment slot="media">
-          <picture>
-            <source
-              srcset={`/images/${currentPodcast.imageUrl}.avif`}
-              type="image/avif"
-            />
-            <source
-              srcset={`/images/${currentPodcast.imageUrl}.webp`}
-              type="image/webp"
-            />
-            <img
-              src={`/images/${currentPodcast.imageUrl}.jpg`}
-              alt={`Cover art for the podcast episode ${currentPodcast.title}`}
-              width="400"
-              height="267"
-              class="episode__hero-image"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-              sizes="(max-width: 960px) 100vw, 50vw"
-            />
-          </picture>
         </Fragment>
       </HeroTeaser>
 
@@ -285,7 +277,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
     border-color: var(--surface-border-soft);
   }
 
-  .episode__hero-image {
+  .episode__hero :global(.hero-teaser__image) {
     display: block;
     inline-size: 100%;
     block-size: 100%;

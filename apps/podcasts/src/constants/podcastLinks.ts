@@ -1,8 +1,6 @@
 export const PODCAST_SITE_URL = "https://podcasts.melody-mind.de";
 export const PODCAST_FEED_PATH = "/podcast.xml";
 export const PODCAST_FEED_URL = `${PODCAST_SITE_URL}${PODCAST_FEED_PATH}`;
-export const PODCAST_IMAGE_PATH = "/the-melody-mind-podcast.jpg";
-export const PODCAST_IMAGE_URL = `${PODCAST_SITE_URL}${PODCAST_IMAGE_PATH}`;
 
 export type PodcastPlatformLink = {
   href: string;

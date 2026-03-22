@@ -18,6 +18,12 @@ import type { PodcastData } from "../types/podcast";
 
 import { getAvailablePodcasts } from "../utils/podcasts";
 import {
+  getPodcastCoverImage,
+  getPodcastCoverImageUrl,
+  podcastHeroImage,
+  podcastHeroImageUrl,
+} from "../utils/podcastImages";
+import {
   buildEpisodeMetaItems,
   normalizeSearchText,
   toIsoDuration,
@@ -35,7 +41,7 @@ const buildEpisodeListItem = (podcast: PodcastData): PodcastEpisodeListItem => {
     title: podcast.title,
     description: podcast.description,
     url: resolvePageUrl(Astro.site, `/${podcast.id}`),
-    image: `https://podcasts.melody-mind.de/images/${podcast.imageUrl}.jpg`,
+    image: getPodcastCoverImageUrl(podcast.imageUrl) ?? podcastHeroImageUrl,
     publishedAt: podcast.publishedAt,
     ...(durationIso ? { durationIso } : {}),
   };
@@ -45,7 +51,7 @@ const episodeEntries = sortedPodcasts.map((podcast, index) => ({
   id: podcast.id,
   title: podcast.title,
   description: podcast.description,
-  imageUrl: podcast.imageUrl,
+  imageSrc: getPodcastCoverImage(podcast.imageUrl) ?? podcastHeroImage,
   durationSeconds: podcast.durationSeconds,
   publishedAt: podcast.publishedAt,
   publishedLabel: formatDate(podcast.publishedAt),
@@ -87,7 +93,7 @@ const collectionPageSchema = buildCollectionPageSchema({
   name: t.title,
   description: t.seoDescription,
   lang: "en",
-  image: "https://podcasts.melody-mind.de/the-melody-mind-podcast.jpg",
+  image: podcastHeroImageUrl,
   mainEntityId: episodeListId,
 });
 
@@ -107,6 +113,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
   description={t.seoDescription}
   keywords={t.keywords}
   type="website"
+  image={podcastHeroImageUrl}
   language="en"
   locale="en-US"
   seriesDescription={t.seoDescription}
@@ -120,12 +127,12 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
         id="podcast-home-hero"
         title={t.title}
         description={t.description}
-        imageSrc="/the-melody-mind-podcast.jpg"
+        imageSrc={podcastHeroImage}
         imageAlt={t.heroImageAlt}
-        imageWidth={1024}
+        imageWidth={1536}
         imageHeight={1024}
         imageLoading="eager"
-        mediaAspectRatio="3 / 2"
+        mediaAspectRatio="4 / 3"
         mediaObjectFit="cover"
         mediaPosition="end"
         titleLevel="h1"
@@ -151,7 +158,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
                 href={`/${podcast.id}`}
                 variant="feature"
                 size="spacious"
-                imageSrc={`/images/${podcast.imageUrl}.jpg`}
+                imageSrc={podcast.imageSrc}
                 imageAlt={`Cover art for the podcast episode ${podcast.title}`}
                 imageWidth={1536}
                 imageHeight={1024}

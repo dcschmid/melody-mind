@@ -1,5 +1,6 @@
 import type { PodcastData } from "../types/podcast";
 import { formatDuration } from "@shared-utils/utils/time";
+import { getPodcastCoverImageUrl, podcastHeroImageUrl } from "./podcastImages";
 
 const EXPLICIT_RATING = "clean";
 
@@ -48,8 +49,8 @@ export async function generatePodcastRSSFeed(
           }
           const name = escapeXML(p.name);
           const role = p.role ? escapeXML(p.role) : "host";
-          const href = p.href ? ` href="${p.href}"` : "";
-          const img = p.img ? ` img="${p.img}"` : "";
+          const href = p.href ? ` href="${escapeXML(p.href)}"` : "";
+          const img = p.img ? ` img="${escapeXML(p.img)}"` : "";
           return `<podcast:person${href}${img} role="${role}" name="${name}"/>`;
         })
         .filter(Boolean)
@@ -69,7 +70,7 @@ export async function generatePodcastRSSFeed(
     <!-- Basic Channel Info -->
     <title>${escapeXML(title)}</title>
     <description>${escapeXML(description)}</description>
-    <link>${channelLink}</link>
+    <link>${escapeXML(channelLink)}</link>
     <language>${locale}</language>
     <copyright>© ${new Date().getFullYear()} MelodyMind</copyright>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
@@ -78,13 +79,13 @@ export async function generatePodcastRSSFeed(
     <managingEditor>dcschmid@murena.io</managingEditor>
 
     <!-- Atom Self-Reference -->
-    <atom:link href="${rssLink}" rel="self" type="application/rss+xml"/>
+    <atom:link href="${escapeXML(rssLink)}" rel="self" type="application/rss+xml"/>
 
     <!-- Channel Image -->
     <image>
-      <url>${baseUrl}/the-melody-mind-podcast.jpg</url>
+      <url>${escapeXML(podcastHeroImageUrl)}</url>
       <title>${escapeXML(title)}</title>
-      <link>${channelLink}</link>
+      <link>${escapeXML(channelLink)}</link>
       <width>1400</width>
       <height>1400</height>
     </image>
@@ -96,7 +97,7 @@ export async function generatePodcastRSSFeed(
       <itunes:name>Daniel Schmid</itunes:name>
       <itunes:email>dcschmid@murena.io</itunes:email>
     </itunes:owner>
-    <itunes:image href="${baseUrl}/the-melody-mind-podcast.jpg"/>
+    <itunes:image href="${escapeXML(podcastHeroImageUrl)}"/>
     <itunes:category text="Music">
       <itunes:category text="Music History"/>
     </itunes:category>
@@ -135,13 +136,13 @@ function generateRSSItem({
   const pubDate = new Date(episode.publishedAt).toUTCString();
   const guid = `melody-mind-en-${episode.id}`;
 
-  let imageUrl = `${baseUrl}/the-melody-mind-podcast.jpg`;
+  let imageUrl = podcastHeroImageUrl;
   if (episode.imageUrl) {
     const baseName = episode.imageUrl;
     if (baseName) {
       imageUrl = baseName.startsWith("http")
         ? baseName
-        : `${baseUrl}/images/${baseName}.jpg`;
+        : (getPodcastCoverImageUrl(baseName) ?? podcastHeroImageUrl);
     }
   }
 
@@ -165,17 +166,17 @@ function generateRSSItem({
     : ' length="25000000"';
 
   const transcriptTag = episode.subtitleUrl
-    ? `\n      <podcast:transcript url="${episode.subtitleUrl}" type="text/vtt" language="${locale}" rel="captions"/>`
+    ? `\n      <podcast:transcript url="${escapeXML(episode.subtitleUrl)}" type="text/vtt" language="${locale}" rel="captions"/>`
     : "";
 
   return `    <item>
       <title>${escapeXML(episode.title)}</title>
       <description>${escapeXML(episode.description)}</description>
       <itunes:subtitle>${escapeXML(episode.title)}</itunes:subtitle>
-      <link>${episodeLink}</link>
+      <link>${escapeXML(episodeLink)}</link>
       <guid isPermaLink="false">${guid}</guid>
       <pubDate>${pubDate}</pubDate>
-      <enclosure url="${episode.audioUrl}" type="audio/mpeg"${enclosureLength}/>
+      <enclosure url="${escapeXML(episode.audioUrl)}" type="audio/mpeg"${enclosureLength}/>
 
       <!-- Categories -->
       <category>Music</category>
@@ -185,7 +186,7 @@ function generateRSSItem({
       <!-- iTunes -->
       <itunes:title>${escapeXML(episode.title)}</itunes:title>
       <itunes:summary>${escapeXML(episode.description)}</itunes:summary>
-      <itunes:image href="${imageUrl}"/>
+      <itunes:image href="${escapeXML(imageUrl)}"/>
       ${durationTag}
       <itunes:explicit>${EXPLICIT_RATING}</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>
