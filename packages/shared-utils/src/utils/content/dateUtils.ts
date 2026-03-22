@@ -1,20 +1,14 @@
 /**
- * Date helper utilities for content normalization.
+ * Normalizes a loose date-like input into a valid `Date` instance or `null`.
  *
- * Provides consistent date handling across the application, with support
- * for various input formats and fallback logic.
- *
- * @module utils/content/dateUtils
- */
-
-/**
- * Normalize various date input forms into a valid Date or null.
- *
- * Handles:
+ * Accepted input forms:
  * - Date objects (returned if valid)
- * - ISO date strings
- * - Unix timestamps (numbers)
+ * - parseable date strings
+ * - numeric timestamps
  * - null/undefined (returns null)
+ *
+ * This helper is intentionally permissive because content frontmatter and derived
+ * metadata may arrive as strings, numbers or already-instantiated `Date` objects.
  *
  * @param input - The date input to normalize
  * @returns A valid Date object or null if input is invalid
@@ -45,7 +39,7 @@ export function normalizeDate(input: unknown): Date | null {
 }
 
 /**
- * Result of deriving publish and modified dates.
+ * Normalized publish/modified pair returned by `derivePublishModified`.
  */
 export interface DeriveDatesResult {
   /** The derived publish date, or null if unavailable */
@@ -55,16 +49,16 @@ export interface DeriveDatesResult {
 }
 
 /**
- * Derive publish and modified dates with intelligent fallbacks.
+ * Derives a consistent publish/modified pair from loose raw inputs.
  *
- * Fallback logic:
+ * Fallback rules:
  * - If publish exists but modified is missing → use publish for both
  * - If modified exists but publish is missing → use modified for both
  * - If both missing → return nulls
  * - If both exist → use as-is
  *
- * This ensures content always has consistent date information for SEO
- * and display purposes.
+ * This is useful when downstream consumers require both dates for SEO or display
+ * logic, but upstream content may only provide one of them.
  *
  * @param publishRaw - The raw publish date input
  * @param modifiedRaw - The raw modified date input

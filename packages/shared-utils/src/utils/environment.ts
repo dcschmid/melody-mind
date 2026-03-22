@@ -1,91 +1,27 @@
 /**
- * Environment detection utilities for SSR/CSR safety.
+ * Small runtime-environment helpers shared across browser-aware utilities.
  *
- * Provides consistent guards to protect client-only code from running
- * during server-side rendering (SSR) or build time.
- *
- * @module utils/environment
+ * The main purpose of this module is to give the rest of the codebase one consistent place
+ * for SSR-vs-browser guards. The exported surface is intentionally small and limited to the
+ * runtime checks that are actually reused across packages.
  */
 
-/**
- * True if running in a browser environment.
- * Use this guard to protect client-only code.
- *
- * @example
- * ```typescript
- * if (isBrowser) {
- *   window.localStorage.setItem(key, value);
- * }
- * ```
- */
+/** True when a browser `window` object is available. */
 export const isBrowser: boolean = typeof window !== "undefined";
 
 /**
- * True if running on the server (SSR/build).
+ * True during SSR/build execution where browser globals are unavailable.
  *
- * @example
- * ```typescript
- * if (isServer) {
- *   return fallback; // Skip client-only operations
- * }
- * ```
+ * This is the primary guard used by shared client-side helpers before touching `window`,
+ * `document`, storage APIs or other browser-only capabilities.
  */
 export const isServer: boolean = typeof window === "undefined";
 
 /**
- * Check if localStorage is available.
- * Returns false in SSR or when storage is blocked (private mode).
- *
- * @example
- * ```typescript
- * if (hasLocalStorage()) {
- *   localStorage.setItem(key, value);
- * }
- * ```
- */
-export function hasLocalStorage(): boolean {
-  return isBrowser && typeof window.localStorage !== "undefined";
-}
-
-/**
- * Check if sessionStorage is available.
- * Returns false in SSR or when storage is blocked.
- *
- * @example
- * ```typescript
- * if (hasSessionStorage()) {
- *   sessionStorage.setItem(key, value);
- * }
- * ```
- */
-export function hasSessionStorage(): boolean {
-  return isBrowser && typeof window.sessionStorage !== "undefined";
-}
-
-/**
- * Check if the crypto.randomUUID function is available.
- * Useful for generating IDs client-side.
- *
- * @example
- * ```typescript
- * const id = hasCryptoUUID() ? crypto.randomUUID() : fallbackId();
- * ```
+ * Checks whether `crypto.randomUUID()` is available for client-side ID generation.
  */
 export function hasCryptoUUID(): boolean {
   return (
     isBrowser && "crypto" in window && typeof window.crypto.randomUUID === "function"
   );
-}
-
-/**
- * Execute a function only in browser environment.
- * Returns undefined if on server.
- *
- * @example
- * ```typescript
- * const result = runInBrowser(() => window.innerWidth);
- * ```
- */
-export function runInBrowser<T>(fn: () => T): T | undefined {
-  return isBrowser ? fn() : undefined;
 }

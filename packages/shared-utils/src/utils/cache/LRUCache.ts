@@ -1,15 +1,21 @@
 /**
- * Generic LRU (Least Recently Used) Cache implementation.
+ * Generic in-memory LRU (Least Recently Used) cache with optional TTL expiry.
  *
- * Provides an in-memory cache with automatic eviction of oldest entries
- * when the maximum size is exceeded. Optional TTL (time-to-live) support
- * for automatic expiration of stale entries.
+ * Implementation notes:
+ * - recency is tracked via `Map` insertion order,
+ * - reads through `get()` promote an entry to most-recently-used,
+ * - `set()` replaces existing keys and also makes them most-recently-used,
+ * - and TTL expiry is checked lazily on access or explicit cleanup rather than by
+ *   background timers.
+ *
+ * This makes the cache cheap and deterministic for utility-layer usage such as SEO,
+ * content collection caching, and lightweight parsing memoization.
  *
  * @module utils/cache/LRUCache
  */
 
 /**
- * Cache entry with value and metadata.
+ * Internal cache record storing the value plus its insertion/update timestamp.
  */
 interface CacheEntry<V> {
   /** The cached value */
@@ -19,17 +25,24 @@ interface CacheEntry<V> {
 }
 
 /**
- * LRU Cache options.
+ * Constructor options for `LRUCache`.
  */
 export interface LRUCacheOptions {
-  /** Maximum number of entries in the cache (default: 100) */
+  /** Maximum number of entries allowed before least-recently-used eviction starts. */
   maxSize?: number;
-  /** Time-to-live in milliseconds (default: no TTL) */
+  /** Optional time-to-live in milliseconds. Expiry is enforced lazily, not proactively. */
   ttlMs?: number;
 }
 
 /**
- * Generic LRU Cache with optional TTL support.
+ * Generic LRU cache whose keys and values are fully typed.
+ *
+ * Semantics:
+ * - "least recently used" means the oldest surviving insertion-order entry,
+ * - `get()` promotes entries,
+ * - `has()` does not promote entries,
+ * - TTL expiry removes entries only when they are touched by cache operations or
+ *   when `cleanup()` is called explicitly.
  *
  * @example
  * ```typescript
@@ -54,8 +67,11 @@ export class LRUCache<K, V> {
   }
 
   /**
-   * Get a value from the cache.
-   * Returns undefined if the key doesn't exist or the entry has expired.
+   * Returns a cached value and promotes the entry to most-recently-used.
+   *
+   * Returns `undefined` when:
+   * - the key does not exist,
+   * - or the entry exists but has expired under the configured TTL.
    */
   get(key: K): V | undefined {
     const entry = this.cache.get(key);
@@ -78,8 +94,11 @@ export class LRUCache<K, V> {
   }
 
   /**
-   * Set a value in the cache.
-   * If the cache is full, the oldest entry is evicted.
+   * Inserts or replaces a cached value.
+   *
+   * If the key already exists, the old entry is removed first so the replacement
+   * becomes most-recently-used. If the cache is already at capacity, least-recently-
+   * used entries are evicted before the new value is inserted.
    */
   set(key: K, value: V): void {
     // Remove existing entry if present (to update position)
@@ -98,7 +117,9 @@ export class LRUCache<K, V> {
   }
 
   /**
-   * Check if a key exists in the cache (and hasn't expired).
+   * Returns whether a key currently exists and is still fresh.
+   *
+   * Unlike `get()`, this does not refresh recency ordering.
    */
   has(key: K): boolean {
     const entry = this.cache.get(key);
@@ -117,35 +138,45 @@ export class LRUCache<K, V> {
   }
 
   /**
-   * Delete a key from the cache.
+   * Removes a single entry from the cache.
+   *
+   * Returns `true` when an entry was removed.
    */
   delete(key: K): boolean {
     return this.cache.delete(key);
   }
 
   /**
-   * Clear all entries from the cache.
+   * Removes every entry from the cache immediately.
    */
   clear(): void {
     this.cache.clear();
   }
 
   /**
-   * Get the current number of entries in the cache.
+   * Current raw entry count in the underlying map.
+   *
+   * Note: this may include expired entries that have not yet been touched or
+   * cleaned up explicitly.
    */
   get size(): number {
     return this.cache.size;
   }
 
   /**
-   * Get all keys in the cache.
+   * Returns an iterator over keys in current LRU order.
+   *
+   * The iterator comes directly from the underlying `Map`, so expired entries are
+   * not filtered out here.
    */
   keys(): IterableIterator<K> {
     return this.cache.keys();
   }
 
   /**
-   * Get all values in the cache.
+   * Iterates over non-expired values in LRU order.
+   *
+   * Expired entries are skipped but not deleted as a side effect.
    */
   *values(): Generator<V> {
     for (const entry of this.cache.values()) {
@@ -158,7 +189,9 @@ export class LRUCache<K, V> {
   }
 
   /**
-   * Get all entries in the cache.
+   * Iterates over non-expired `[key, value]` pairs in LRU order.
+   *
+   * Expired entries are skipped but not deleted as a side effect.
    */
   *entries(): Generator<[K, V]> {
     for (const [key, entry] of this.cache.entries()) {
@@ -171,8 +204,9 @@ export class LRUCache<K, V> {
   }
 
   /**
-   * Remove expired entries from the cache.
-   * Only has effect if TTL is configured.
+   * Removes all currently expired entries and returns the number removed.
+   *
+   * This only has an effect when TTL support is enabled.
    */
   cleanup(): number {
     if (this.ttlMs === undefined) {
@@ -193,7 +227,7 @@ export class LRUCache<K, V> {
   }
 
   /**
-   * Evict oldest entries if cache is at capacity.
+   * Evicts least-recently-used entries until there is room for one more insert.
    */
   private evictIfNeeded(): void {
     while (this.cache.size >= this.maxSize) {

@@ -75,6 +75,8 @@ const tocTitle = title || "Table of contents";
 </div>
 
 <script>
+  import { TOC_EVENTS, dispatchCustomEvent } from "@shared-utils/constants/events";
+
   (() => {
     const shell = document.querySelector("[data-toc-shell]");
     const toggle = document.getElementById("toc-toggle");
@@ -234,9 +236,7 @@ const tocTitle = title || "Table of contents";
         : 0;
 
       try {
-        window.dispatchEvent(
-          new CustomEvent("toc:click", { detail: { sectionId, position } })
-        );
+        dispatchCustomEvent(TOC_EVENTS.CLICK, { sectionId, position });
       } catch {
         // Navigation continues even if telemetry fails
       }

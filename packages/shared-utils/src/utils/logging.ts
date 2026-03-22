@@ -1,17 +1,17 @@
 /**
- * Consistent logging utility for the application.
+ * Lightweight structured logging helper shared across apps and packages.
  *
- * Provides a structured way to log messages with module prefixes,
- * making it easier to filter and identify log sources.
+ * The module provides:
+ * - a small severity model (`debug` → `error`)
+ * - module-prefixed logger instances for consistent console output
  *
- * @module utils/logging
+ * It is intentionally minimal and console-backed. This is a developer-facing utility for local
+ * diagnostics and coarse production logging, not a full remote observability layer.
  */
 
 type LogLevel = "debug" | "info" | "warn" | "error";
 
-/**
- * Log levels in order of severity.
- */
+/** Log levels in ascending order of severity. */
 const LOG_LEVEL_PRIORITY: Record<LogLevel, number> = {
   debug: 0,
   info: 1,
@@ -20,45 +20,46 @@ const LOG_LEVEL_PRIORITY: Record<LogLevel, number> = {
 };
 
 /**
- * Current minimum log level (can be adjusted at runtime).
- * Defaults to 'warn' in production, 'debug' in development.
+ * Detects production mode without requiring Node.js type definitions.
+ *
+ * The helper reads a process-like object from `globalThis` when available, which preserves the
+ * existing runtime behavior in Node-based builds while keeping the file browser-safe to typecheck.
  */
-let currentLogLevel: LogLevel =
-  typeof process !== "undefined" && process.env.NODE_ENV === "production"
-    ? "warn"
-    : "debug";
+function isProductionRuntime(): boolean {
+  const processLike = (globalThis as {
+    process?: {
+      env?: {
+        NODE_ENV?: string;
+      };
+    };
+  }).process;
 
-/**
- * Set the minimum log level.
- * Messages below this level will be suppressed.
- */
-export function setLogLevel(level: LogLevel): void {
-  currentLogLevel = level;
+  return processLike?.env?.NODE_ENV === "production";
 }
 
 /**
- * Get the current log level.
+ * Current minimum log level.
+ *
+ * Defaults to `warn` in production and `debug` otherwise so development keeps richer output
+ * while production suppresses lower-signal console noise by default.
  */
-export function getLogLevel(): LogLevel {
-  return currentLogLevel;
-}
+let currentLogLevel: LogLevel = isProductionRuntime() ? "warn" : "debug";
 
-/**
- * Check if a log level should be displayed.
- */
+/** Returns whether a message at the given severity should currently be emitted. */
 function shouldLog(level: LogLevel): boolean {
   return LOG_LEVEL_PRIORITY[level] >= LOG_LEVEL_PRIORITY[currentLogLevel];
 }
 
-/**
- * Format a log message with module prefix.
- */
+/** Formats log output with a stable module prefix for easy scanning and filtering. */
 function formatMessage(module: string, message: string): string {
   return `[${module}] ${message}`;
 }
 
 /**
  * Create a logger for a specific module.
+ *
+ * The returned logger mirrors common console operations plus a few convenience helpers for
+ * deprecations and simple timing output. All methods honor the shared global log level.
  *
  * @example
  * ```typescript
@@ -72,7 +73,7 @@ function formatMessage(module: string, message: string): string {
 export function createLogger(module: string) {
   return {
     /**
-     * Log a debug message (development only).
+     * Emits a debug-level message when the current log level allows it.
      */
     debug(message: string, data?: unknown): void {
       if (!shouldLog("debug")) {return;}
@@ -80,7 +81,7 @@ export function createLogger(module: string) {
     },
 
     /**
-     * Log an informational message.
+     * Emits an informational message.
      */
     info(message: string, data?: unknown): void {
       if (!shouldLog("info")) {return;}
@@ -88,7 +89,7 @@ export function createLogger(module: string) {
     },
 
     /**
-     * Log a warning message.
+     * Emits a warning message.
      */
     warn(message: string, data?: unknown): void {
       if (!shouldLog("warn")) {return;}
@@ -96,7 +97,10 @@ export function createLogger(module: string) {
     },
 
     /**
-     * Log an error message.
+     * Emits an error message.
+     *
+     * Native `Error` objects are normalized to a small structured payload so the message and
+     * stack remain visible without relying on browser-specific console formatting.
      */
     error(message: string, error?: unknown): void {
       if (!shouldLog("error")) {return;}
@@ -114,7 +118,7 @@ export function createLogger(module: string) {
     },
 
     /**
-     * Log a deprecation warning.
+     * Emits a standardized deprecation warning for renamed or legacy features.
      */
     deprecated(feature: string, replacement?: string): void {
       if (!shouldLog("warn")) {return;}
@@ -127,7 +131,7 @@ export function createLogger(module: string) {
     },
 
     /**
-     * Log a performance timing.
+     * Emits a simple timing/debug line for ad-hoc performance measurements.
      */
     timing(operation: string, durationMs: number): void {
       if (!shouldLog("debug")) {return;}
@@ -138,9 +142,7 @@ export function createLogger(module: string) {
   };
 }
 
-/**
- * Pre-defined loggers for common modules.
- */
+/** Pre-created loggers for the most common module names used across the monorepo. */
 export const loggers = {
   analytics: createLogger("analytics"),
   bookmarks: createLogger("bookmarks"),

@@ -1,6 +1,8 @@
 ---
 import CookieConsent from "@shared-ui/components/policies/CookieConsent.astro";
 import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
+import { THEME_EVENTS } from "@shared-utils/constants/events";
+import { STORAGE_KEYS } from "@shared-utils/constants/storage";
 import "../../styles/master-theme.css";
 
 interface Props {
@@ -85,8 +87,9 @@ const contentShellClasses = contentShellClass.trim();
         <script is:inline>
           {`
             (() => {
-              const THEME_STORAGE_KEY = "themePreference";
+              const THEME_STORAGE_KEY = "${STORAGE_KEYS.THEME}";
               const DARK_QUERY = "(prefers-color-scheme: dark)";
+              const THEME_CHANGE_EVENT = "${THEME_EVENTS.CHANGED}";
 
               const isTheme = (value) => value === "light" || value === "dark";
               const readStoredTheme = () => {
@@ -103,7 +106,7 @@ const contentShellClasses = contentShellClass.trim();
               const applyTheme = (theme, source) => {
                 document.documentElement.setAttribute("data-theme", theme);
                 window.dispatchEvent(
-                  new CustomEvent("theme:change", {
+                  new CustomEvent(THEME_CHANGE_EVENT, {
                     detail: { theme, source },
                   })
                 );

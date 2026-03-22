@@ -1,50 +1,76 @@
 /**
- * Unified SEO Text Utilities
- * (Post‑deprecation version – legacy helpers `seoText.ts` & `metaUtils.ts` removed.)
- * Provides a single facade for building meta description + keyword list.
+ * Unified SEO text builder for meta descriptions and keyword lists.
  *
- * Internalized replacements:
- *  - generateMetaDescription (lightweight sentence / length heuristic)
- *  - truncateMeta (inline logic)
- *  - extractKeywordsFallback (frequency fallback) & buildKeywordsString (unique join)
+ * This module replaced older fragmented helpers and now acts as the single façade for
+ * turning page copy into:
+ * - a meta-description-sized summary
+ * - an ordered keyword array
+ * - a comma-separated keyword string for tag output
+ *
+ * The implementation is intentionally heuristic rather than editorially perfect. It aims
+ * for stable, reusable defaults that work across content pages, indexes and programmatic SEO.
  */
 import { extractKeywords } from "../seo";
 
+/** Input contract for `buildSeoText()`. */
 export interface BuildSeoTextParams {
   title?: string;
   descriptionBase: string;
-  enrichedParts?: string[]; // additional content pieces to feed into description/keywords
-  maxDescription?: number; // override length
+  /** Additional text fragments to feed into description and keyword extraction. */
+  enrichedParts?: string[];
+  /** Maximum output length for the generated description. */
+  maxDescription?: number;
   language?: string;
   keywordLimit?: number;
-  fallbackKeywords?: string[]; // static fallback keywords to merge
-  combineStrategy?: "truncate-first" | "generate-first"; // control order of operations
+  /** Static keywords that should be merged after extraction. */
+  fallbackKeywords?: string[];
+  /** Controls whether summary generation or truncation gets first priority. */
+  combineStrategy?: "truncate-first" | "generate-first";
   /** Optional sanitize hook to clean raw text (HTML stripping, whitespace collapse) */
   sanitizeFn?: (raw: string) => string;
 }
 
+/** Final SEO text payload returned to page-level SEO helpers. */
 export interface SeoTextResult {
   description: string;
   keywords: string;
   keywordArray: string[];
-  enrichedContent: string; // final concatenated content fed to extractors
+  /** Final concatenated content used as extraction input after optional sanitization. */
+  enrichedContent: string;
 }
 
 /**
- * Produce a description + keywords from unified parameters.
- * Strategy: Build enriched content, generate description (preferring generateMetaDescription),
- * fallback to truncate if needed, then keyword extraction with fallback extractor.
+ * Produces a description and keyword set from normalized text inputs.
+ *
+ * Strategy overview:
+ * 1. concatenate title, base description and optional enrichment fragments
+ * 2. optionally sanitize the combined text
+ * 3. generate a bounded description using truncation/generation heuristics
+ * 4. run the primary keyword extractor
+ * 5. fall back to a lightweight frequency-based extractor if the primary result is sparse
+ * 6. merge in explicit fallback keywords without duplicates
  */
 // --- Internal helpers (formerly from deprecated files) --------------------
 
+/** Removes simple HTML tags before text-based SEO processing. */
 function stripHtml(input: string): string {
   return input.replace(/<[^>]*>/g, " ");
 }
 
+/** Collapses repeated whitespace into a single-space plain text string. */
 function normalizeWhitespace(input: string): string {
   return input.replace(/\s+/g, " ").trim();
 }
 
+/**
+ * Truncates text without cutting too aggressively mid-sentence.
+ *
+ * Preference order:
+ * - keep the whole string if already short enough
+ * - cut at a late sentence boundary
+ * - otherwise cut at the last reasonable word boundary
+ * - otherwise fall back to a hard trim plus ellipsis
+ */
 function truncateSmart(text: string, maxLength: number): string {
   if (text.length <= maxLength) {
     return text;
@@ -63,6 +89,7 @@ function truncateSmart(text: string, maxLength: number): string {
   return `${slice.trimEnd()}...`;
 }
 
+/** Generates a meta-description-sized summary from plain text content. */
 function internalGenerateMetaDescription(content: string, maxLength: number): string {
   const base = normalizeWhitespace(stripHtml(content));
   if (base.length <= maxLength) {
@@ -71,6 +98,12 @@ function internalGenerateMetaDescription(content: string, maxLength: number): st
   return truncateSmart(base, maxLength);
 }
 
+/**
+ * Secondary keyword extractor used when the primary extractor returns too little signal.
+ *
+ * This is intentionally simple: it strips markup, removes short/common words and uses
+ * frequency as a fallback ranking heuristic.
+ */
 function extractKeywordsFallbackInternal(
   content: string,
   limit: number,
@@ -119,6 +152,7 @@ function extractKeywordsFallbackInternal(
   return sorted;
 }
 
+/** Joins keywords into a stable comma-separated string while deduplicating case-insensitively. */
 function joinKeywordsUnique(primary: string[], extra: string[]): string {
   const seen = new Set<string>();
   const out: string[] = [];
@@ -137,6 +171,12 @@ function joinKeywordsUnique(primary: string[], extra: string[]): string {
   return out.join(", ");
 }
 
+/**
+ * Builds the final description using the requested strategy.
+ *
+ * If the preferred strategy yields a result that is too short to be useful, the alternative
+ * path is used as a fallback.
+ */
 function buildDescription(
   enrichedContent: string,
   strategy: "truncate-first" | "generate-first",
@@ -160,6 +200,7 @@ function buildDescription(
   return d;
 }
 
+/** Splits a comma-separated keyword string into trimmed keyword tokens. */
 function splitKeywords(raw: string): string[] {
   return raw
     .split(",")
@@ -167,6 +208,7 @@ function splitKeywords(raw: string): string[] {
     .filter((k) => k.length > 0);
 }
 
+/** Appends missing keywords in-place while preserving the original order of the base list. */
 function mergeUnique(base: string[], extra: string[]): string[] {
   const seen = new Set(base.map((k) => k.toLowerCase()));
   for (const e of extra) {
@@ -180,7 +222,13 @@ function mergeUnique(base: string[], extra: string[]): string[] {
 }
 
 /**
- * High-level convenience wrapper building description + keywords consistently.
+ * High-level convenience wrapper for SEO text generation.
+ *
+ * The returned fields intentionally serve different downstream needs:
+ * - `description`: bounded summary for meta tags
+ * - `keywordArray`: ordered list for programmatic reuse
+ * - `keywords`: comma-separated serialization of that list
+ * - `enrichedContent`: the normalized extraction input, useful for inspection/debugging
  */
 export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
   const {

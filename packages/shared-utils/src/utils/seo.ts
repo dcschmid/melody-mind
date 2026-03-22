@@ -1,26 +1,14 @@
 /**
- * SEO Helper Functions for Melody Mind
+ * Low-level SEO text and URL helpers.
  *
- * A collection of utility functions to optimize content for search engines
- * and improve discoverability of the Melody Mind application.
+ * This module contains the older foundational primitives that are still reused by newer SEO
+ * composition utilities. In practice it provides:
+ * - keyword extraction from raw text
+ *
+ * The higher-level page and text builders now own most SEO composition concerns. This file
+ * remains only as the low-level keyword extraction primitive used by that newer layer.
  */
 
-/**
- * Extracts keywords from text content for SEO meta tags
- *
- * - Removing common stop words
- * - Calculating word frequency
- * - Selecting the most common words as keywords
- *
- * This helps in generating relevant meta keywords for SEO optimization.
- *
- * @param content The text content to extract keywords from
- * @param maxKeywords Maximum number of keywords to return, default: 10
- * @returns A comma-separated list of keywords
- * @example
- * // might return "music, melody, game, knowledge"
- * extractKeywords("Melody Mind is a music knowledge platform with multiple categories...");
- */
 /**
  * Language-specific stop words for keyword extraction
  * These common words are filtered out when extracting keywords
@@ -243,9 +231,16 @@ const stopWordsByLanguage: Record<string, string[]> = {
 };
 
 /**
- * Extract keywords (words + n-grams) from content for SEO meta tag usage.
- * Uses simple frequency & phrase weighting. (Types via signature.)
- * Example: extractKeywords("Melody Mind is a music knowledge...", 5, "en")
+ * Extracts SEO-style keywords from raw content as a comma-separated string.
+ *
+ * The heuristic is intentionally lightweight:
+ * - normalize and lowercase the input
+ * - remove language-specific stop words
+ * - collect unigrams, bigrams and trigrams
+ * - weight multi-word phrases above single words
+ * - return the top-ranked terms as a comma-separated list
+ *
+ * The result is useful for coarse metadata enrichment, not for linguistically exact tagging.
  */
 export function extractKeywords(
   content: string,
@@ -311,156 +306,4 @@ export function extractKeywords(
     .slice(0, maxKeywords);
 
   return sortedTerms.join(", ");
-}
-
-/**
- * Generates an optimized meta description from content
- *
- * - Removing HTML tags
- * - Trimming to the specified maximum length
- * - Ensuring the description ends with a complete sentence when possible
- *
- * This helps improve search engine results and click-through rates.
- *
- * @param {string} content - The full content to extract a description from
- * @param {number} [maxLength=160] - Maximum length of the description, default: 160 characters
- * @returns {string} An optimized meta description
- * @example
- * // returns "Learn about music history through interactive content..."
- * generateMetaDescription("<p>Learn about music history through interactive content. Explore genres and discover new artists.</p>");
- */
-/**
- * Generate an optimized meta description selecting informative early sentences.
- * Strips HTML and trims to maxLength. (Types via signature.)
- */
-export function generateMetaDescription(content: string, maxLength = 160): string {
-  // Remove HTML tags and excess whitespace
-  const text = content
-    .replace(/<[^>]*>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
-  // Return the text if it's already shorter than the maximum length
-  if (text.length <= maxLength) {
-    return text;
-  }
-
-  // Split into sentences
-  const sentenceRegex = /([.!?])\s+/g;
-  const sentences = text
-    .split(sentenceRegex)
-    .reduce((result: string[], item, index, array) => {
-      if (index % 2 === 0) {
-        // Even indices contain the text before the delimiter
-        const nextIndex = index + 1;
-        if (nextIndex < array.length) {
-          // Add the delimiter back to the sentence
-          result.push(item + array[nextIndex]);
-        } else {
-          // Last item might not have a delimiter
-          result.push(item);
-        }
-      }
-      return result;
-    }, []);
-
-  // Score sentences based on position and keyword density
-  const scoredSentences = sentences.map((sentence, index) => {
-    // Position score - earlier sentences are more important (especially the first)
-    const positionScore = index === 0 ? 3 : 1 / (index + 1);
-
-    // Length score - prefer sentences of moderate length (not too short, not too long)
-    const words = sentence.split(/\s+/).length;
-    const lengthScore = words > 5 && words < 20 ? 2 : 1;
-
-    // Keyword score - sentences with important terms get higher scores
-    const importantTerms = [
-      "music",
-      "melody",
-      "song",
-      "artist",
-      "band",
-      "genre",
-      "playlist",
-      "album",
-    ];
-    const keywordScore = importantTerms.some((term) =>
-      sentence.toLowerCase().includes(term)
-    )
-      ? 2
-      : 1;
-
-    // Calculate total score
-    const totalScore = positionScore * lengthScore * keywordScore;
-
-    return { sentence, score: totalScore };
-  });
-
-  // Sort sentences by score (highest first)
-  scoredSentences.sort((a, b) => b.score - a.score);
-
-  // Build description from highest-scoring sentences until we approach max length
-  let description = "";
-  let currentLength = 0;
-
-  for (const { sentence } of scoredSentences) {
-    if (currentLength + sentence.length <= maxLength) {
-      description += `${sentence} `;
-      currentLength += sentence.length + 1;
-    } else {
-      break;
-    }
-  }
-
-  // Trim and ensure we don't end with a space
-  description = description.trim();
-
-  // If we're still over the max length, truncate properly
-  if (description.length > maxLength) {
-    const truncated = description.substring(0, maxLength);
-    const lastPeriod = truncated.lastIndexOf(".");
-
-    if (lastPeriod > maxLength * 0.7) {
-      // Only use period truncation if it doesn't cut off too much
-      return truncated.substring(0, lastPeriod + 1);
-    }
-
-    // Otherwise truncate at the last word
-    const lastSpace = truncated.lastIndexOf(" ");
-    return lastSpace > 0 ? `${truncated.substring(0, lastSpace)}...` : `${truncated}...`;
-  }
-
-  return description;
-}
-
-/**
- * Ensure a clean canonical URL by joining a site base (Astro.site) and a pathname.
- * - Removes duplicate slashes
- * - Strips query/hash fragments
- * - Forces trailing slash removal (except root)
- *
- * @param {string} siteBase Base site URL (e.g. "https://example.com")
- * @param {string} path URL path (e.g. "/en/podcasts/episode-1")
- * @returns {string} Normalized canonical URL
- * @example buildCanonicalUrl('https://example.com/', '/en/') => 'https://example.com/en'
- */
-export function buildCanonicalUrl(siteBase: string, path: string): string {
-  if (!siteBase) {
-    return path; // fallback if misconfigured
-  }
-  const base = siteBase.replace(/\/$/, "");
-  const cleanPath = path.replace(/https?:\/\/[^/]+/i, ""); // if accidentally passed absolute
-  const joined = `${base}${cleanPath.startsWith("/") ? "" : "/"}${cleanPath}`;
-  try {
-    const url = new URL(joined);
-    url.hash = "";
-    url.search = "";
-    // drop trailing slash (except root)
-    if (url.pathname !== "/" && url.pathname.endsWith("/")) {
-      url.pathname = url.pathname.replace(/\/$/, "");
-    }
-    return url.toString();
-  } catch {
-    return joined; // fallback without normalization
-  }
 }

@@ -1,3 +1,17 @@
+/**
+ * Client-side analytics orchestration for Melody Mind web properties.
+ *
+ * This module coordinates the browser-only tracking behavior built on top of
+ * Fathom. Rather than logging every raw interaction, it emits a curated,
+ * low-cardinality set of events for journeys, engagement, read depth, search,
+ * sharing, bookmarks, consent actions, podcast CTAs, TOC usage, and A/B exposures.
+ *
+ * Design goals:
+ * - stay disabled until runtime consent allows analytics,
+ * - tolerate missing browser APIs and missing Fathom globals,
+ * - keep event names human-readable and bounded,
+ * - and initialize safely even if multiple clients try to bootstrap analytics.
+ */
 import { getOrAssignVariant, type ExperimentVariant } from "./abTesting";
 
 import {
@@ -8,6 +22,7 @@ import {
 import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "../../constants/storage";
 import { safeLocalStorage, safeSessionStorage } from "../storage/safeStorage";
 import { isServer } from "../environment";
+import { SEARCH_EVENTS, TOC_EVENTS } from "../../constants/events";
 import {
   ENGAGEMENT_TIMING,
   ANALYTICS_LIMITS,
@@ -15,17 +30,24 @@ import {
   SEARCH_QUERY_BUCKETS,
 } from "../../constants/analytics";
 
+/** Canonical storage entry containing persisted consent state. */
 const CONSENT_KEY = STORAGE_KEYS.COOKIE_CONSENT;
+/** Session-scoped storage entry used for coarse journey tracking. */
 const JOURNEY_KEY = SESSION_KEYS.JOURNEY;
+/** Threshold after which a low-interaction visit is considered a quick leave. */
 const BOUNCE_MS = ENGAGEMENT_TIMING.BOUNCE_THRESHOLD_MS;
+/** Ordered time milestones used for engaged-time events. */
 const ENGAGED_MS = ENGAGEMENT_TIMING.ENGAGED_MILESTONES_MS;
+/** Window flag indicating the current runtime analytics gate. */
 const RUNTIME_ANALYTICS_FLAG = RUNTIME_FLAGS.ANALYTICS_ALLOWED;
 
+/** Minimal subset of the Fathom browser API used by this module. */
 type FathomApi = {
   trackEvent?: (eventName: string) => void;
   trackGoal?: (goalId: string, valueInCents: number) => void;
 };
 
+/** Shared payload shape expected from search telemetry events. */
 type SearchTelemetryDetail = {
   hasQuery: boolean;
   resultsCount: number;
@@ -33,16 +55,19 @@ type SearchTelemetryDetail = {
   tokenCount: number;
 };
 
+/** Shared payload shape expected from search result click events. */
 type SearchResultClickDetail = {
   surface: string;
   positionBucket: "1-3" | "4-6" | "7+" | "unknown";
 };
 
+/** Shared payload shape expected from table-of-contents click events. */
 type TocClickDetail = {
   sectionId: string;
   position: number;
 };
 
+/** Session-scoped journey descriptor persisted between page views. */
 type JourneyStep = {
   kind: string;
   path: string;
@@ -62,11 +87,14 @@ declare global {
   }
 }
 
+/** Guards against double initialization within the same page lifecycle. */
 let initialized = false;
 
+/** Normalizes outbound Fathom event names to a bounded, whitespace-clean string. */
 const clampEventName = (value: string): string =>
   value.replace(/\s+/g, " ").trim().slice(0, ANALYTICS_LIMITS.EVENT_NAME_MAX_LENGTH);
 
+/** Converts arbitrary labels into short analytics-safe slug fragments. */
 const sanitizeToken = (value: string): string =>
   value
     .toLowerCase()
@@ -75,6 +103,10 @@ const sanitizeToken = (value: string): string =>
     .replace(/^-+|-+$/g, "")
     .slice(0, ANALYTICS_LIMITS.TOKEN_MAX_LENGTH) || "unknown";
 
+/**
+ * Buckets current article scroll depth into a coarse range for context-sensitive
+ * events such as share actions.
+ */
 const getCurrentReadDepthBucket = (): "<50" | "50-99" | "100" | "na" => {
   const article = document.getElementById("article-content");
   if (!article) {
@@ -97,6 +129,7 @@ const getCurrentReadDepthBucket = (): "<50" | "50-99" | "100" | "na" => {
   return "<50";
 };
 
+/** Detects whether the browser currently advertises Do Not Track. */
 const doNotTrackEnabled = (): boolean => {
   const navigatorValue = window.navigator?.doNotTrack;
   const windowValue = (window as Window & { doNotTrack?: string }).doNotTrack;
@@ -105,6 +138,7 @@ const doNotTrackEnabled = (): boolean => {
   return navigatorValue === "1" || windowValue === "1" || msValue === "1";
 };
 
+/** Returns whether persisted consent currently allows analytics. */
 const hasConsent = (): boolean => {
   const consent = safeLocalStorage.get<{ essential?: boolean; analytics?: boolean }>(
     CONSENT_KEY,
@@ -113,9 +147,20 @@ const hasConsent = (): boolean => {
   return consent?.essential === true && consent?.analytics === true;
 };
 
+/**
+ * Computes the effective analytics-enabled state for the current browser runtime.
+ *
+ * Tracking is only active when the runtime gate is enabled, consent allows
+ * analytics, and Do Not Track is not enabled.
+ */
 const isAnalyticsEnabled = (): boolean =>
   window[RUNTIME_ANALYTICS_FLAG] === true && hasConsent() && !doNotTrackEnabled();
 
+/**
+ * Sends a normalized event to Fathom when analytics is enabled.
+ *
+ * Errors are swallowed intentionally because telemetry must remain non-critical.
+ */
 const callFathomEvent = (eventName: string): void => {
   if (!isAnalyticsEnabled()) {
     return;
@@ -133,6 +178,7 @@ const callFathomEvent = (eventName: string): void => {
   }
 };
 
+/** Sends a goal conversion to Fathom when analytics is enabled. */
 const callFathomGoal = (goalId: string, valueInCents: number): void => {
   if (!isAnalyticsEnabled()) {
     return;
@@ -145,6 +191,7 @@ const callFathomGoal = (goalId: string, valueInCents: number): void => {
   }
 };
 
+/** Maps raw paths into a small vocabulary for journey transition analytics. */
 const classifyPath = (path: string): string => {
   if (path === "/") {
     return "home";
@@ -169,6 +216,7 @@ const classifyPath = (path: string): string => {
   return "other";
 };
 
+/** Reads the previously stored journey step from session storage. */
 const readJourneyStep = (): JourneyStep | null => {
   const step = safeSessionStorage.get<JourneyStep | null>(JOURNEY_KEY, null);
   if (
@@ -182,10 +230,12 @@ const readJourneyStep = (): JourneyStep | null => {
   return null;
 };
 
+/** Persists the current journey step for later cross-page comparison. */
 const writeJourneyStep = (step: JourneyStep): void => {
   safeSessionStorage.set(JOURNEY_KEY, step);
 };
 
+/** Emits a journey transition event when page category changes between views. */
 const trackJourney = (): void => {
   const path = window.location.pathname || "/";
   const currentKind = classifyPath(path);
@@ -198,6 +248,7 @@ const trackJourney = (): void => {
   writeJourneyStep({ kind: currentKind, path });
 };
 
+/** Emits an article-view event when article analytics metadata is present. */
 const trackArticleView = (): void => {
   const articleRoot = document.querySelector<HTMLElement>(
     "[data-analytics-article='true']"
@@ -212,6 +263,12 @@ const trackArticleView = (): void => {
   callFathomEvent(`Article: view ${category}`);
 };
 
+/**
+ * Tracks quick exits and engaged-time milestones based on interaction and timers.
+ *
+ * The logic is intentionally approximate and optimized for low-noise analytics
+ * rather than precise session replay semantics.
+ */
 const trackEngagement = (): void => {
   const pendingTimers: number[] = [];
   let hasInteraction = false;
@@ -269,6 +326,12 @@ const trackEngagement = (): void => {
   );
 };
 
+/**
+ * Infers a coarse click zone from DOM context for lightweight heatmap-style events.
+ *
+ * This intentionally avoids exact selector logging and instead groups clicks into
+ * broad layout regions such as header, footer, search, article, or main.
+ */
 const inferClickZone = (target: HTMLElement): string => {
   const explicit = target.closest<HTMLElement>("[data-analytics-zone]")?.dataset
     .analyticsZone;
@@ -300,6 +363,7 @@ const inferClickZone = (target: HTMLElement): string => {
   return "other";
 };
 
+/** Emits at most one click event per inferred page zone. */
 const trackHeatmapEvents = (): void => {
   const sentZones = new Set<string>();
 
@@ -323,6 +387,7 @@ const trackHeatmapEvents = (): void => {
   );
 };
 
+/** Tracks configured article read-depth milestones and emits each at most once. */
 const trackReadingDepth = (): void => {
   const article = document.getElementById("article-content");
   if (!article) {
@@ -363,6 +428,7 @@ const trackReadingDepth = (): void => {
   emitProgress();
 };
 
+/** Buckets search usage into a small set of query-length categories. */
 const bucketSearchLength = (detail: SearchTelemetryDetail): string => {
   if (!detail.hasQuery) {
     return "empty";
@@ -379,13 +445,19 @@ const bucketSearchLength = (detail: SearchTelemetryDetail): string => {
   return "short";
 };
 
+/**
+ * Subscribes to shared search events and emits deduplicated search usage metrics.
+ *
+ * The tracker records broad patterns like first use, query size buckets, zero-result
+ * situations, and result-click buckets rather than every keystroke.
+ */
 const trackSearchMetrics = (): void => {
   let searchUsedTracked = false;
   const trackedLengthBuckets = new Set<string>();
   const emptyQueryResultSent = new Set<string>();
   const trackedResultClickBuckets = new Set<string>();
 
-  window.addEventListener("search:performed", (event) => {
+  window.addEventListener(SEARCH_EVENTS.PERFORMED, (event) => {
     const detail = (event as CustomEvent<SearchTelemetryDetail>).detail;
     if (!detail || typeof detail !== "object") {
       return;
@@ -415,7 +487,7 @@ const trackSearchMetrics = (): void => {
     }
   });
 
-  window.addEventListener("search:result-click", (event) => {
+  window.addEventListener(SEARCH_EVENTS.RESULT_CLICK, (event) => {
     const detail = (event as CustomEvent<SearchResultClickDetail>).detail;
     if (!detail || typeof detail !== "object") {
       return;
@@ -434,10 +506,16 @@ const trackSearchMetrics = (): void => {
   });
 };
 
+/**
+ * Tracks higher-level custom browser events emitted by shared UI components.
+ *
+ * At the moment this covers TOC interaction buckets, but the separation keeps
+ * structured event subscriptions distinct from raw DOM click listeners.
+ */
 const trackStructuredCustomEvents = (): void => {
   const seenTocBuckets = new Set<string>();
 
-  window.addEventListener("toc:click", (event) => {
+  window.addEventListener(TOC_EVENTS.CLICK, (event) => {
     const detail = (event as CustomEvent<TocClickDetail>).detail;
     if (!detail || typeof detail !== "object") {
       return;
@@ -459,6 +537,7 @@ const trackStructuredCustomEvents = (): void => {
   });
 };
 
+/** Parses `data-ab-variants` strings such as `control:1,variant:2`. */
 const parseVariants = (raw: string): ExperimentVariant[] => {
   const pairs = raw
     .split(",")
@@ -476,6 +555,12 @@ const parseVariants = (raw: string): ExperimentVariant[] => {
   return pairs.length ? pairs : [{ id: "control", weight: 1 }];
 };
 
+/**
+ * Applies DOM-driven A/B assignments and tracks first exposure per variant.
+ *
+ * Each matching node receives both a `data-ab-variant` attribute and a CSS class
+ * based on the configured class prefix.
+ */
 const setupAbTests = (): void => {
   const experimentNodes = Array.from(
     document.querySelectorAll<HTMLElement>("[data-ab-experiment]")
@@ -503,6 +588,12 @@ const setupAbTests = (): void => {
   });
 };
 
+/**
+ * Exposes a tiny imperative analytics API on `window.mmAnalytics`.
+ *
+ * This is mainly for integration points that cannot import the module directly
+ * but still need to trigger an event, goal, or experiment assignment.
+ */
 const setupCustomEventApi = (): void => {
   window.mmAnalytics = {
     trackEvent: (eventName: string) => {
@@ -517,6 +608,12 @@ const setupCustomEventApi = (): void => {
   };
 };
 
+/**
+ * Tracks assorted UI interactions that do not justify their own dedicated module.
+ *
+ * These include consent actions, podcast CTAs, share triggers, and bookmark change
+ * events emitted by the bookmark subsystem.
+ */
 const trackUiEvents = (): void => {
   const oncePerPage = new Set<string>();
   const shareSeenKeys = new Set<string>();
@@ -579,6 +676,11 @@ const trackUiEvents = (): void => {
   });
 };
 
+/**
+ * Boots the full client analytics runtime once per page lifecycle.
+ *
+ * Safe to call repeatedly; subsequent calls after the first are ignored.
+ */
 export function initClientAnalytics(): void {
   if (isServer || initialized) {
     return;

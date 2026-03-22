@@ -1,29 +1,31 @@
 /**
- * Safe localStorage and sessionStorage utilities.
+ * Safe wrappers around `localStorage` and `sessionStorage`.
  *
- * Provides type-safe, browser-checking wrappers around Web Storage APIs.
- * All methods gracefully handle:
- * - SSR/build environments (no window object)
- * - Private browsing mode (storage quota exceeded)
- * - Corrupted data (JSON parse errors)
+ * These helpers exist so the rest of the codebase can treat browser storage as an optional
+ * capability instead of a guaranteed runtime primitive. Every operation degrades safely in:
+ * - SSR or build contexts
+ * - browsers that block storage access
+ * - quota or private-mode failures
+ * - corrupted JSON payloads
  *
- * @module utils/storage/safeStorage
+ * The wrappers intentionally swallow storage errors and return predictable fallbacks instead
+ * of surfacing exceptions to feature code.
  */
 
 import type { StorageKey, SessionKey } from "../../constants/storage";
 import { isServer } from "../environment";
 
-/**
- * Cached availability flags for storage APIs.
- * Avoids repeated try-catch on every operation.
- */
+/** Cached availability flags so each storage backend is probed at most once per reset. */
 let _localStorageChecked = false;
 let _localStorageAvailable = false;
 let _sessionStorageChecked = false;
 let _sessionStorageAvailable = false;
 
 /**
- * Check if localStorage is available (cached after first check).
+ * Checks whether `localStorage` is actually usable in the current runtime.
+ *
+ * The result is memoized because probing storage requires guarded browser access and may
+ * throw in some environments.
  */
 const isLocalStorageAvailable = (): boolean => {
   // Return cached result if already checked
@@ -53,7 +55,9 @@ const isLocalStorageAvailable = (): boolean => {
 };
 
 /**
- * Check if sessionStorage is available (cached after first check).
+ * Checks whether `sessionStorage` is actually usable in the current runtime.
+ *
+ * Like the local-storage probe, this is cached after the first check.
  */
 const isSessionStorageAvailable = (): boolean => {
   // Return cached result if already checked
@@ -83,22 +87,17 @@ const isSessionStorageAvailable = (): boolean => {
 };
 
 /**
- * Reset availability cache (useful for testing or after storage permission changes).
- */
-export const resetStorageCache = (): void => {
-  _localStorageChecked = false;
-  _localStorageAvailable = false;
-  _sessionStorageChecked = false;
-  _sessionStorageAvailable = false;
-};
-
-/**
- * Safe localStorage wrapper with type safety and error handling.
+ * Safe `localStorage` wrapper.
+ *
+ * `get()`/`set()` operate on JSON-serialized values, while `getRaw()`/`setRaw()` preserve
+ * plain strings for cases where callers manage serialization themselves.
  */
 export const safeLocalStorage = {
   /**
-   * Get a value from localStorage.
-   * Returns fallback if key doesn't exist, storage is unavailable, or JSON parsing fails.
+   * Reads and JSON-parses a value from `localStorage`.
+   *
+   * Returns the provided fallback when the key is missing, storage is unavailable or the
+   * stored payload cannot be parsed successfully.
    */
   get<T>(key: StorageKey | string, fallback: T): T {
     if (!isLocalStorageAvailable()) {
@@ -117,7 +116,7 @@ export const safeLocalStorage = {
   },
 
   /**
-   * Get a raw string value from localStorage (no JSON parsing).
+   * Reads a raw string value from `localStorage` without JSON parsing.
    */
   getRaw(key: StorageKey | string): string | null {
     if (!isLocalStorageAvailable()) {
@@ -132,8 +131,9 @@ export const safeLocalStorage = {
   },
 
   /**
-   * Set a value in localStorage.
-   * Returns true if successful, false if storage is unavailable or quota exceeded.
+   * Serializes and writes a value to `localStorage`.
+   *
+   * Returns `false` instead of throwing when storage is unavailable or the write fails.
    */
   set<T>(key: StorageKey | string, value: T): boolean {
     if (!isLocalStorageAvailable()) {
@@ -150,7 +150,7 @@ export const safeLocalStorage = {
   },
 
   /**
-   * Set a raw string value in localStorage (no JSON serialization).
+   * Writes a raw string value to `localStorage` without JSON serialization.
    */
   setRaw(key: StorageKey | string, value: string): boolean {
     if (!isLocalStorageAvailable()) {
@@ -166,7 +166,7 @@ export const safeLocalStorage = {
   },
 
   /**
-   * Remove a key from localStorage.
+   * Removes a key from `localStorage`, ignoring runtime failures.
    */
   remove(key: StorageKey | string): void {
     if (!isLocalStorageAvailable()) {
@@ -181,7 +181,7 @@ export const safeLocalStorage = {
   },
 
   /**
-   * Check if a key exists in localStorage.
+   * Returns whether a key currently exists in `localStorage`.
    */
   has(key: StorageKey | string): boolean {
     if (!isLocalStorageAvailable()) {
@@ -196,18 +196,20 @@ export const safeLocalStorage = {
   },
 
   /**
-   * Check if localStorage is available.
+   * Exposes the cached runtime availability probe for callers that need a pre-check.
    */
   isAvailable: isLocalStorageAvailable,
 };
 
 /**
- * Safe sessionStorage wrapper with type safety and error handling.
+ * Safe `sessionStorage` wrapper.
+ *
+ * This mirrors the JSON-based subset of the local-storage API and is typically used for
+ * short-lived per-tab state such as transient analytics journey progress.
  */
 export const safeSessionStorage = {
   /**
-   * Get a value from sessionStorage.
-   * Returns fallback if key doesn't exist, storage is unavailable, or JSON parsing fails.
+   * Reads and JSON-parses a value from `sessionStorage`, falling back safely on failure.
    */
   get<T>(key: SessionKey | string, fallback: T): T {
     if (!isSessionStorageAvailable()) {
@@ -226,8 +228,7 @@ export const safeSessionStorage = {
   },
 
   /**
-   * Set a value in sessionStorage.
-   * Returns true if successful, false if storage is unavailable or quota exceeded.
+   * Serializes and writes a value to `sessionStorage`.
    */
   set<T>(key: SessionKey | string, value: T): boolean {
     if (!isSessionStorageAvailable()) {
@@ -243,7 +244,7 @@ export const safeSessionStorage = {
   },
 
   /**
-   * Remove a key from sessionStorage.
+   * Removes a key from `sessionStorage`, ignoring runtime failures.
    */
   remove(key: SessionKey | string): void {
     if (!isSessionStorageAvailable()) {
@@ -258,7 +259,7 @@ export const safeSessionStorage = {
   },
 
   /**
-   * Check if a key exists in sessionStorage.
+   * Returns whether a key currently exists in `sessionStorage`.
    */
   has(key: SessionKey | string): boolean {
     if (!isSessionStorageAvailable()) {
@@ -273,7 +274,7 @@ export const safeSessionStorage = {
   },
 
   /**
-   * Check if sessionStorage is available.
+   * Exposes the cached runtime availability probe for callers that need a pre-check.
    */
   isAvailable: isSessionStorageAvailable,
 };

@@ -2,18 +2,11 @@
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import LegalDocumentPage from "../components/LegalDocumentPage.astro";
-import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Legal Notice";
 const description =
   "Legal notice for Melody Mind Knowledge in accordance with German law.";
-const currentUrl = resolvePageUrl(Astro.site, "/imprint");
-
-const breadcrumbs = [
-  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
-  { name: title, url: currentUrl },
-];
 
 const highlights = [
   {
@@ -95,23 +88,14 @@ const sections = [
   },
 ] as const;
 
-const pageSeo = buildPageSeo({
+const pageSeo = buildLegalPageSeo({
+  site: Astro.site,
+  path: "/imprint",
   title,
   description,
-  url: currentUrl,
-  contentKind: "generic",
-  breadcrumbs,
-  structuredData: [] as StructuredData[],
-  enrichedParts: [title, description],
-  fallbackKeywords: ["legal notice", "imprint", "impressum"],
-  keywordLimit: 24,
-  maxDescription: 150,
-  image: "/knowledge.png",
   imageAlt: "Legal Notice",
-  index: false,
-  follow: true,
-  autoSocialImage: false,
-  authorName: "Melody Mind",
+  fallbackKeywords: ["legal notice", "imprint", "impressum"],
+  maxDescription: 150,
 });
 ---
 

@@ -2,20 +2,14 @@
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import LegalDocumentSection from "../components/LegalDocumentSection.astro";
+import StorageKeysTable from "../components/StorageKeysTable.astro";
 import StaticPageHero from "../components/StaticPageHero.astro";
-import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Cookie & Storage Policy";
 const description =
   "Details about cookies and local storage used on Melody Mind Knowledge, including analytics consent preferences.";
-const currentUrl = resolvePageUrl(Astro.site, "/cookies");
 const lastUpdated = "06 February 2026";
-
-const breadcrumbs = [
-  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
-  { name: title, url: currentUrl },
-];
 
 const highlights = [
   {
@@ -72,24 +66,36 @@ const policySections = [
   },
 ] as const;
 
-const pageSeo = buildPageSeo({
+const storageKeys = [
+  {
+    keyName: "cookie_consent",
+    purpose: "Stores your consent preferences for essential and analytics processing.",
+    storageType: "LocalStorage",
+    retention: "Until you change or delete it.",
+  },
+  {
+    keyName: "mm_recent_reads",
+    purpose: "Shows your recently opened articles on the home page.",
+    storageType: "LocalStorage",
+    retention: "Until it is replaced or cleared by you.",
+  },
+  {
+    keyName: "mm_read_progress",
+    purpose: "Stores your reading progress for each article.",
+    storageType: "LocalStorage",
+    retention: "Until it is replaced or cleared by you.",
+  },
+] as const;
+
+const pageSeo = buildLegalPageSeo({
+  site: Astro.site,
+  path: "/cookies",
   title,
   description,
-  url: currentUrl,
-  contentKind: "generic",
-  breadcrumbs,
-  structuredData: [] as StructuredData[],
-  enrichedParts: [title, description],
-  fallbackKeywords: ["cookies", "localStorage", "privacy", "consent", "fathom"],
-  keywordLimit: 24,
-  maxDescription: 160,
-  image: "/knowledge.png",
   imageAlt: "Cookie Policy",
+  fallbackKeywords: ["cookies", "localStorage", "privacy", "consent", "fathom"],
+  maxDescription: 160,
   modifiedDate: new Date(lastUpdated),
-  index: false,
-  follow: true,
-  autoSocialImage: false,
-  authorName: "Melody Mind",
 });
 ---
 
@@ -120,44 +126,7 @@ const pageSeo = buildPageSeo({
           title="Local storage entries we use"
           class="cookies-page__section--table"
         >
-          <div class="cookies-page__table-wrap">
-            <table class="cookies-page__table">
-              <caption class="cookies-page__sr-only">
-                Browser storage keys used by Melody Mind Knowledge
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Key</th>
-                  <th scope="col">Purpose</th>
-                  <th scope="col">Type</th>
-                  <th scope="col">Retention</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>cookie_consent</code></td>
-                  <td
-                    >Stores your consent preferences for essential and analytics
-                    processing.</td
-                  >
-                  <td>LocalStorage</td>
-                  <td>Until you change or delete it.</td>
-                </tr>
-                <tr>
-                  <td><code>mm_recent_reads</code></td>
-                  <td>Shows your recently opened articles on the home page.</td>
-                  <td>LocalStorage</td>
-                  <td>Until it is replaced or cleared by you.</td>
-                </tr>
-                <tr>
-                  <td><code>mm_read_progress</code></td>
-                  <td>Stores your reading progress for each article.</td>
-                  <td>LocalStorage</td>
-                  <td>Until it is replaced or cleared by you.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <StorageKeysTable rows={storageKeys} />
         </LegalDocumentSection>
       </div>
     </div>
@@ -173,51 +142,6 @@ const pageSeo = buildPageSeo({
   .cookies-page__content-grid {
     display: grid;
     gap: var(--section-gap);
-  }
-
-  .cookies-page__table-wrap {
-    padding: var(--spacing-sm);
-    overflow-inline: auto;
-    background: color-mix(in srgb, var(--surface-1) 82%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 68%, transparent);
-    border-radius: var(--card-radius);
-  }
-
-  .cookies-page__table {
-    inline-size: 100%;
-    min-inline-size: min(var(--measure-standard), 100%);
-    border-collapse: collapse;
-  }
-
-  .cookies-page__table th,
-  .cookies-page__table td {
-    padding: var(--spacing-md) var(--spacing-sm);
-    vertical-align: top;
-    color: var(--text-secondary);
-    text-align: start;
-  }
-
-  .cookies-page__table th {
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
-  }
-
-  .cookies-page__table code {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-base);
-    color: var(--link-default);
-  }
-
-  .cookies-page__sr-only {
-    position: var(--sr-only);
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    padding: var(--sr-only-padding);
-    margin: var(--sr-only-margin);
-    overflow: var(--sr-only-overflow);
-    white-space: var(--sr-only-white-space);
-    border: var(--sr-only-border);
-    clip-path: inset(50%);
   }
 
   @media (width >= 720px) {

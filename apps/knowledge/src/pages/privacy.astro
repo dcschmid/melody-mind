@@ -2,19 +2,12 @@
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import LegalDocumentPage from "../components/LegalDocumentPage.astro";
-import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Privacy Policy";
 const description =
   "How we process personal data on Melody Mind Knowledge, including analytics with Fathom and AI-generated media details.";
-const currentUrl = resolvePageUrl(Astro.site, "/privacy");
 const lastUpdated = "15 March 2026";
-
-const breadcrumbs = [
-  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
-  { name: title, url: currentUrl },
-];
 
 const highlights = [
   {
@@ -93,24 +86,15 @@ const sections = [
   },
 ] as const;
 
-const pageSeo = buildPageSeo({
+const pageSeo = buildLegalPageSeo({
+  site: Astro.site,
+  path: "/privacy",
   title,
   description,
-  url: currentUrl,
-  contentKind: "generic",
-  breadcrumbs,
-  structuredData: [] as StructuredData[],
-  enrichedParts: [title, description],
-  fallbackKeywords: ["privacy", "data protection", "fathom analytics", "openai media"],
-  keywordLimit: 24,
-  maxDescription: 160,
-  image: "/knowledge.png",
   imageAlt: "Privacy Policy",
+  fallbackKeywords: ["privacy", "data protection", "fathom analytics", "openai media"],
+  maxDescription: 160,
   modifiedDate: new Date(lastUpdated),
-  index: false,
-  follow: true,
-  autoSocialImage: false,
-  authorName: "Melody Mind",
 });
 ---
 

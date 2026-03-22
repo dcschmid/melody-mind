@@ -1,11 +1,19 @@
 /**
- * Deterministically sort knowledge collection entries by `slug` (fallback `id`).
- * Pure (non-mutating) – always returns a shallow-copied sorted array.
- * Locale aware via `String.localeCompare` (default runtime locale).
+ * Deterministically sorts entry-like objects by `slug`, falling back to `id`.
+ *
+ * Characteristics:
+ * - non-mutating: the input array is never changed,
+ * - shallow: entries themselves are not cloned,
+ * - deterministic for the provided runtime locale via `localeCompare`,
+ * - and tolerant of partial data by treating missing `slug`/`id` as empty strings.
+ *
+ * This helper is intentionally simple and is mainly used where Melody Mind needs a
+ * stable alphabetical order for content groupings without introducing date- or
+ * score-based ranking logic.
  *
  * @template T extends object
- * @param {T[]} entries Array of entries containing an optional `slug` or `id` field.
- * @returns {T[]} New sorted array (original order left intact).
+ * @param entries - Array of objects containing an optional `slug` or `id` field
+ * @returns A new shallow-copied array sorted lexicographically by `slug` then `id`
  */
 export function sortEntries<T extends { slug?: string; id?: string }>(
   entries: readonly T[]

@@ -1,16 +1,28 @@
 /**
- * Finds the index of an item by a key value.
- * Returns -1 if not found.
+ * Small array-navigation helpers shared by pages that need stable previous/next behavior.
+ *
+ * These utilities are intentionally minimal:
+ * - they never mutate the input array
+ * - they preserve the caller's existing ordering
+ * - and they return `null`/`-1` instead of throwing for missing items or invalid positions
  */
-export function findByKey<T, K extends keyof T>(array: T[], key: K, value: T[K]): number {
+
+/**
+ * Finds the index of the first item whose property value matches the provided key value.
+ *
+ * Returns `-1` when no matching item exists.
+ */
+function findByKey<T, K extends keyof T>(array: T[], key: K, value: T[K]): number {
   return array.findIndex((item) => item[key] === value);
 }
 
 /**
- * Gets adjacent items in an array by index.
- * Useful for navigation (prev/next).
+ * Returns the previous and next neighbors for a given array index.
+ *
+ * Out-of-range indexes resolve to `{ prev: null, next: null }`, which keeps caller code simple
+ * for edge cases such as the first/last item or a failed lookup upstream.
  */
-export function getAdjacentItems<T>(
+function getAdjacentItems<T>(
   array: T[],
   currentIndex: number
 ): { prev: T | null; next: T | null } {
@@ -25,8 +37,10 @@ export function getAdjacentItems<T>(
 }
 
 /**
- * Gets adjacent items by a key value.
- * Combines findByKey and getAdjacentItems.
+ * Resolves the array index by key lookup and then returns the adjacent neighbors.
+ *
+ * This is primarily useful for detail pages that need previous/next navigation based on
+ * the existing collection order without duplicating lookup logic.
  */
 export function getAdjacentByKey<T, K extends keyof T>(
   array: T[],

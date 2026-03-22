@@ -1,7 +1,16 @@
 /**
- * High-level SEO Page Builder
- * Central wrapper combining title, description, keywords, canonical, social image and structured data hooks.
- * This reduces repetitive assembly across Astro pages.
+ * High-level page SEO composer used by Astro pages across the monorepo.
+ *
+ * The helper centralizes the recurring assembly work around:
+ * - branded titles and enriched descriptions/keywords via `buildSeoText()`
+ * - canonical, Open Graph and Twitter meta payloads
+ * - robots directives
+ * - optional JSON-LD augmentation such as breadcrumbs
+ * - lightweight in-memory memoization for repeated calls during a single process
+ *
+ * The function is intentionally presentation-oriented: callers provide the page URL
+ * and core copy, and this module turns that into a stable metadata object that layouts
+ * can map onto `<meta>` tags and JSON-LD output.
  */
 import {
   PLAYLIST_COVER_IMAGE,
@@ -15,11 +24,18 @@ import type {
   SeoTextResult,
 } from "@shared-utils/utils/seo/textUnified";
 
-// Minimal JSON-LD structured data shape
+/** Minimal JSON-LD object shape accepted by the builder. */
 export type StructuredData = Record<string, unknown>;
 
+/** Coarse page classification used for default OG type and fallback social image inference. */
 export type PageContentKind = "generic" | "news" | "playlist" | "podcast";
 
+/**
+ * Input contract for `buildPageSeo()`.
+ *
+ * This extends the lower-level SEO text builder with page-level concerns such as
+ * canonical URL, social image handling, robots directives and JSON-LD.
+ */
 export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptionBase"> {
   /** Base description text before enrichment */
   description: string;
@@ -135,9 +151,20 @@ const BRAND_SUFFIX = " - MelodyMind";
  */
 const MAX_SEO_CACHE_SIZE = 100;
 
-// In-memory memoization cache using LRU eviction
+/**
+ * Process-local cache only.
+ *
+ * This improves repeated calls in dev/SSR runs, but it is not persistent across requests,
+ * builds or browser sessions.
+ */
 const seoCache = new LRUCache<string, PageSeoResult>({ maxSize: MAX_SEO_CACHE_SIZE });
 
+/**
+ * Ensures page titles follow the shared branding convention exactly once.
+ *
+ * When the legacy `| Melody Mind` suffix appears, it is normalized to the current
+ * ` - MelodyMind` format so downstream pages do not have to care about historical variants.
+ */
 function ensureBrandSuffix(
   title: string,
   brandSuffix: string | false = BRAND_SUFFIX
@@ -157,12 +184,7 @@ function ensureBrandSuffix(
   return `${title}${brandSuffix}`;
 }
 
-/**
- * Build complete page-level SEO metadata in one call.
- * Wraps buildSeoText and augments with canonical URL, image, type and dates.
- *
- * @returns {PageSeoResult} Result containing description, keywords, canonical and social meta fields.
- */
+/** Maps the high-level page kind to the default Open Graph/content type. */
 function inferType(
   contentKind: PageContentKind,
   explicit?: PageSeoResult["type"]
@@ -182,6 +204,7 @@ function inferType(
   }
 }
 
+/** Picks a content-kind-specific fallback social image when callers do not provide one. */
 function resolveFallbackImage(
   contentKind: PageContentKind,
   override?: string
@@ -199,28 +222,41 @@ function resolveFallbackImage(
   }
 }
 
-/**
- * High-level builder composing SEO description/keywords plus canonical, OG/Twitter meta,
- * robots directives, type inference and optional structured data.
- *
- * @returns {PageSeoResult} consolidated SEO result
- */
-function buildCacheKey(o: {
-  title: string;
-  description: string;
-  url: string;
-  image?: string;
-  type?: string;
-  contentKind: string;
-  enrichedParts?: string[];
-  language?: string;
-  index: boolean;
-  follow: boolean;
-  brandSuffix?: string | false;
-}): string {
-  return JSON.stringify(o);
+function normalizeCacheValue(value: unknown): unknown {
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((entry) => normalizeCacheValue(entry));
+  }
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([key, entry]) => [key, normalizeCacheValue(entry)])
+    );
+  }
+
+  return value;
 }
 
+/**
+ * Produces the memoization key for the normalized SEO inputs.
+ *
+ * The key intentionally includes every option that can change the public SEO payload.
+ * Objects are normalized recursively so equivalent inputs with different key orderings
+ * still resolve to the same cache entry.
+ */
+function buildCacheKey(value: unknown): string {
+  return JSON.stringify(normalizeCacheValue(value));
+}
+
+/**
+ * Adds a BreadcrumbList JSON-LD object when breadcrumbs are supplied and the caller
+ * has not already provided one explicitly.
+ */
 function augmentStructuredData(
   base: StructuredData[],
   breadcrumbs?: Array<{ name: string; url: string }>
@@ -247,6 +283,7 @@ function augmentStructuredData(
   ];
 }
 
+/** Serializes robots booleans and preview limits into a single meta robots string. */
 function buildRobots(
   index: boolean,
   follow: boolean,
@@ -277,6 +314,10 @@ function buildRobots(
   return parts.join(",");
 }
 
+/**
+ * Parses the serialized robots string back into a structured shape so layouts and tests
+ * can reason about the directives without reparsing the raw meta value themselves.
+ */
 function parseRobots(robots: string): PageSeoResult["robotsDirectives"] {
   const tokens = robots.split(/\s*,\s*/g).filter(Boolean);
   const map: Record<string, string | true> = {};
@@ -306,6 +347,7 @@ function parseRobots(robots: string): PageSeoResult["robotsDirectives"] {
   return rd;
 }
 
+/** Delegates text generation to `buildSeoText()` while locking in page-level title/description inputs. */
 function prepareSeoText(
   normalizedTitle: string,
   description: string,
@@ -322,6 +364,7 @@ function prepareSeoText(
   });
 }
 
+/** Resolves the effective OG type and base social image before optional image generation runs. */
 function inferTypeAndImage(
   contentKind: PageContentKind,
   type: PageSeoResult["type"] | undefined,
@@ -334,12 +377,11 @@ function inferTypeAndImage(
 }
 
 /**
- * Build complete page-level SEO object with memoization, type & image inference,
- * OG/Twitter meta model and optional structured data augmentation.
+ * Optionally derives a social image if the caller opted in and no explicit image is already present.
  *
- * @returns {PageSeoResult} SEO result object
+ * Generator errors are swallowed so SEO generation remains resilient; callers can still observe
+ * failures through `onSocialImageError`.
  */
-// Isolated helper to optionally derive a social image (kept pure & small)
 function maybeGenerateSocialImage(
   current: string | undefined,
   flag: boolean,
@@ -361,6 +403,7 @@ function maybeGenerateSocialImage(
   }
 }
 
+/** Normalized option bag used after defaulting and optional early cache short-circuiting. */
 interface NormalizedResultBase {
   exited: false;
   cached?: undefined;
@@ -403,6 +446,12 @@ interface NormalizedResultCached {
 }
 type NormalizedResult = NormalizedResultBase | NormalizedResultCached;
 
+/**
+ * Applies defaults, computes the cache key and returns an early cached result when possible.
+ *
+ * Keeping this normalization isolated prevents the public builder from mixing option parsing
+ * with SEO payload assembly.
+ */
 function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResult {
   const {
     title = "",
@@ -434,10 +483,12 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     memoize = true,
     autoSocialImage = false,
     generateSocialImage,
+    onSocialImageError,
     ...rest
   } = options;
 
-  const cacheKey = memoize
+  const canMemoize = memoize && !(autoSocialImage && typeof generateSocialImage === "function");
+  const cacheKey = canMemoize
     ? buildCacheKey({
         title,
         description,
@@ -445,14 +496,31 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
         image,
         type,
         contentKind,
+        fallbackImage,
+        publishDate,
+        modifiedDate,
+        extraMeta,
         enrichedParts,
-        language: (rest as { language?: string }).language,
         index,
         follow,
+        noArchive,
+        noImageIndex,
+        maxSnippet,
+        maxImagePreview,
+        maxVideoPreview,
+        structuredData,
+        ogLocale,
+        alternateLocales,
+        twitterCreator,
+        breadcrumbs,
+        authorName,
+        imageAlt,
         brandSuffix,
+        autoSocialImage,
+        rest,
       })
     : "";
-  if (memoize && seoCache.has(cacheKey)) {
+  if (canMemoize && seoCache.has(cacheKey)) {
     return {
       cached: seoCache.get(cacheKey)!,
       exited: true,
@@ -486,17 +554,27 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     authorName,
     imageAlt,
     brandSuffix,
-    memoize,
+    memoize: canMemoize,
     autoSocialImage,
     generateSocialImage,
+    onSocialImageError,
     rest,
     cacheKey,
   };
 }
 
 /**
- * Public entry: build consolidated SEO object from higher-level params.
- * Handles memoization, type/image inference, optional social image generation and robots directives.
+ * Builds the consolidated page SEO model consumed by layouts and page components.
+ *
+ * The returned object is already normalized for common downstream needs:
+ * - branded title
+ * - enriched description and keyword list
+ * - Open Graph and Twitter payloads
+ * - parsed robots directives
+ * - breadcrumb-aware structured data
+ *
+ * The function is pure from the caller's perspective except for optional cache writes and
+ * optional error callbacks from social image generation.
  */
 export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   const norm = normalizeAndMaybeGetCache(options);
@@ -610,7 +688,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   return result;
 }
 
-/** Clear the SEO memoization cache (useful for dev hot reload). */
+/** Clears the process-local SEO memoization cache, mainly for dev hot reload scenarios. */
 export function clearSeoCache(): void {
   seoCache.clear();
 }

@@ -167,11 +167,14 @@ const {
 
 <script>
   import {
-    getStoredTheme,
-    getResolvedTheme,
-  } from "@shared-utils/utils/theme/themeStorage";
+    CONSENT_EVENTS,
+    THEME_EVENTS,
+    dispatchCustomEvent,
+  } from "@shared-utils/constants/events";
+  import { STORAGE_KEYS } from "@shared-utils/constants/storage";
+  import { getStoredTheme, getSystemTheme } from "@shared-utils/utils/theme/themeStorage";
 
-  const STORAGE_KEY = "cookie_consent";
+  const STORAGE_KEY = STORAGE_KEYS.COOKIE_CONSENT;
   const trigger = document.querySelector<HTMLElement>("[data-cookie-settings-trigger]");
   const themeStatusElement = document.querySelector<HTMLElement>("[data-theme-status]");
   const statusElement = document.querySelector<HTMLElement>(
@@ -220,19 +223,17 @@ const {
       return;
     }
     const storedTheme = getStoredTheme();
-    const resolvedTheme = getResolvedTheme();
+    const resolvedTheme = storedTheme ?? getSystemTheme();
     themeStatusElement.textContent = `Theme: ${resolvedTheme} (${storedTheme ? "manual" : "system"})`;
   };
 
   renderStatus();
   renderThemeStatus();
 
-  trigger?.addEventListener("click", () =>
-    window.dispatchEvent(new CustomEvent("cookie-consent:open"))
-  );
+  trigger?.addEventListener("click", () => dispatchCustomEvent(CONSENT_EVENTS.OPEN));
 
-  window.addEventListener("cookie-consent:change", () => renderStatus());
-  window.addEventListener("theme:change", () => renderThemeStatus());
+  window.addEventListener(CONSENT_EVENTS.CHANGED, () => renderStatus());
+  window.addEventListener(THEME_EVENTS.CHANGED, () => renderThemeStatus());
 </script>
 
 <style>

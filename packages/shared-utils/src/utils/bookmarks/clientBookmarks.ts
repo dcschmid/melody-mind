@@ -1,14 +1,33 @@
+/**
+ * Client-side bookmark persistence and import/export utilities.
+ *
+ * This module is the browser-side source of truth for Melody Mind bookmarks. It
+ * handles:
+ * - bookmark normalization and sanitization,
+ * - legacy data migration,
+ * - deduplication by article slug,
+ * - localStorage persistence,
+ * - bookmark lifecycle event dispatching,
+ * - and JSON/Markdown import-export helpers.
+ *
+ * Data model assumptions:
+ * - bookmarks are uniquely identified by `articleSlug` for dedupe purposes,
+ * - a bookmark keeps the most recent `createdAt` entry when duplicates exist,
+ * - and all public read/write helpers return already-sanitized bookmark arrays.
+ */
 import { STORAGE_KEYS } from "../../constants/storage";
 import { BOOKMARK_EVENTS } from "../../constants/events";
 import { safeLocalStorage } from "../storage/safeStorage";
 import { loggers } from "../logging";
 import { isServer, hasCryptoUUID } from "../environment";
 
-// Re-export for backward compatibility with components using inline scripts
+/** Re-exported storage key for older consumers that still import it from here. */
 export const BOOKMARK_STORAGE_KEY = STORAGE_KEYS.BOOKMARKS;
-// Re-export event names for backward compatibility
+/** Re-exported change event name for backward compatibility. */
 export const BOOKMARK_CHANGE_EVENT = BOOKMARK_EVENTS.CHANGED;
+/** Re-exported undo-remove event name for backward compatibility. */
 export const BOOKMARK_UNDO_REMOVE_EVENT = BOOKMARK_EVENTS.UNDO_REMOVE;
+/** Maximum accepted bookmark import payload size, in bytes. */
 export const BOOKMARK_IMPORT_MAX_BYTES = 1_500_000;
 
 /** Maximum length for bookmark title */
@@ -16,15 +35,21 @@ const MAX_TITLE_LENGTH = 500;
 /** Maximum length for bookmark slug */
 const MAX_SLUG_LENGTH = 200;
 
+/** Supported bookmark buckets exposed in the UI. */
 export const BOOKMARK_CATEGORIES = ["to-read", "favorites", "research"] as const;
 
+/** Union of all supported bookmark category ids. */
 export type BookmarkCategory = (typeof BOOKMARK_CATEGORIES)[number];
+/** Default category used when input is missing or invalid. */
 export const DEFAULT_BOOKMARK_CATEGORY: BookmarkCategory = "to-read";
+/** Human-readable labels for each supported bookmark category. */
 export const BOOKMARK_CATEGORY_LABELS: Record<BookmarkCategory, string> = {
   "to-read": "To-Read",
   favorites: "Favorites",
   research: "Research",
 };
+
+/** Internal action vocabulary emitted with bookmark lifecycle change events. */
 export const BOOKMARK_ACTIONS = {
   add: "add",
   remove: "remove",
@@ -33,13 +58,18 @@ export const BOOKMARK_ACTIONS = {
   replace: "replace",
   sync: "sync",
 } as const;
+
+/** Union of all bookmark lifecycle actions emitted by this module. */
 export type BookmarkAction = (typeof BOOKMARK_ACTIONS)[keyof typeof BOOKMARK_ACTIONS];
+
+/** Human-readable analytics event names consumed by the analytics layer. */
 export const BOOKMARK_ANALYTICS_EVENTS = {
   add: "Bookmark: add",
   remove: "Bookmark: remove",
   categoryChanged: "Bookmark: category changed",
 } as const;
 
+/** Persisted bookmark record stored in browser storage and returned to callers. */
 export interface Bookmark {
   id: string;
   articleSlug: string;
@@ -48,26 +78,38 @@ export interface Bookmark {
   createdAt: string;
 }
 
+/** Minimal caller input required to create or toggle a bookmark. */
 export interface BookmarkInput {
   articleSlug: string;
   articleTitle: string;
   category?: BookmarkCategory;
 }
 
+/** Import behavior used when merging incoming bookmarks with existing ones. */
 type ImportMode = "merge" | "replace";
 
+/** Payload emitted with the shared bookmark change event. */
 interface BookmarkChangeDetail {
   action: BookmarkAction;
   count: number;
   bookmark?: Bookmark;
 }
 
+/** Summary returned after an import operation completes. */
 interface ImportResult {
   importedCount: number;
   totalCount: number;
   mode: ImportMode;
 }
 
+/**
+ * Normalizes arbitrary bookmark slug input to the canonical article slug form.
+ *
+ * Accepted input may be:
+ * - a bare slug like `from-jazz-to-neo-soul`,
+ * - a prefixed path like `/knowledge/from-jazz-to-neo-soul`,
+ * - or a full URL pointing at a knowledge article.
+ */
 export const normalizeBookmarkSlug = (value: unknown): string => {
   if (typeof value !== "string") {return "";}
 
@@ -94,12 +136,14 @@ const isBookmarkCategory = (value: unknown): value is BookmarkCategory =>
   typeof value === "string" &&
   (BOOKMARK_CATEGORIES as readonly string[]).includes(value as BookmarkCategory);
 
+/** Returns a valid ISO timestamp, defaulting to "now" when input is invalid. */
 const normalizeDateIso = (value: unknown): string => {
   if (typeof value !== "string") {return new Date().toISOString();}
   const parsed = new Date(value);
   return Number.isNaN(parsed.valueOf()) ? new Date().toISOString() : parsed.toISOString();
 };
 
+/** Creates a bookmark id, preferring `crypto.randomUUID()` when available. */
 const createBookmarkId = (slug: string): string => {
   if (hasCryptoUUID()) {
     return window.crypto.randomUUID();
@@ -107,6 +151,7 @@ const createBookmarkId = (slug: string): string => {
   return `${slug}-${Date.now()}`;
 };
 
+/** Emits the shared bookmark change event unless code is executing on the server. */
 const dispatchChange = (detail: BookmarkChangeDetail): void => {
   if (isServer) {return;}
   window.dispatchEvent(
@@ -116,6 +161,17 @@ const dispatchChange = (detail: BookmarkChangeDetail): void => {
   );
 };
 
+/**
+ * Sanitizes a raw unknown value into a valid bookmark record or `null`.
+ *
+ * The sanitizer enforces:
+ * - valid slug shape and length,
+ * - non-empty title,
+ * - bounded title/id lengths,
+ * - basic title cleanup against obvious script-like input,
+ * - valid category fallback,
+ * - and normalized ISO timestamps.
+ */
 const sanitizeBookmark = (item: unknown): Bookmark | null => {
   if (!item || typeof item !== "object") {return null;}
 
@@ -162,29 +218,44 @@ const sanitizeBookmark = (item: unknown): Bookmark | null => {
   };
 };
 
+/** Convenience type guard for filtered sanitizer results. */
 const isBookmark = (value: Bookmark | null): value is Bookmark => value !== null;
 
+const toTimestamp = (value: string): number => {
+  const parsed = Date.parse(value);
+  return Number.isNaN(parsed) ? 0 : parsed;
+};
+
+/**
+ * Deduplicates bookmarks by `articleSlug`, keeping the newest entry when duplicates
+ * exist, then sorts newest-first.
+ */
 const dedupeBookmarks = (bookmarks: Bookmark[]): Bookmark[] => {
-  const map = new Map<string, Bookmark>();
+  const map = new Map<string, { bookmark: Bookmark; timestamp: number }>();
   bookmarks.forEach((bookmark) => {
+    const timestamp = toTimestamp(bookmark.createdAt);
     const existing = map.get(bookmark.articleSlug);
     if (!existing) {
-      map.set(bookmark.articleSlug, bookmark);
+      map.set(bookmark.articleSlug, { bookmark, timestamp });
       return;
     }
 
-    const existingDate = new Date(existing.createdAt).valueOf();
-    const nextDate = new Date(bookmark.createdAt).valueOf();
-    if (nextDate >= existingDate) {
-      map.set(bookmark.articleSlug, bookmark);
+    if (timestamp >= existing.timestamp) {
+      map.set(bookmark.articleSlug, { bookmark, timestamp });
     }
   });
 
-  return Array.from(map.values()).sort(
-    (a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()
-  );
+  return Array.from(map.values())
+    .sort((a, b) => b.timestamp - a.timestamp)
+    .map(({ bookmark }) => bookmark);
 };
 
+/**
+ * Migrates legacy string-only bookmark arrays into the structured bookmark shape.
+ *
+ * Older storage formats stored only slugs. These are converted into full bookmark
+ * objects with generated ids, default category, and a current timestamp.
+ */
 const fromLegacy = (items: string[]): Bookmark[] =>
   items
     .map((value) => normalizeBookmarkSlug(value))
@@ -197,6 +268,7 @@ const fromLegacy = (items: string[]): Bookmark[] =>
       createdAt: new Date().toISOString(),
     }));
 
+/** Reads the raw bookmark storage payload and attempts to parse JSON from it. */
 const readRaw = (): { raw: string | null; parsed: unknown } => {
   const raw = safeLocalStorage.getRaw(BOOKMARK_STORAGE_KEY);
   if (raw === null) {
@@ -214,6 +286,7 @@ const readRaw = (): { raw: string | null; parsed: unknown } => {
   }
 };
 
+/** Persists a bookmark array to browser storage and logs failures non-fatally. */
 const writeRaw = (bookmarks: Bookmark[]): void => {
   const success = safeLocalStorage.set(BOOKMARK_STORAGE_KEY, bookmarks);
   if (!success) {
@@ -221,6 +294,10 @@ const writeRaw = (bookmarks: Bookmark[]): void => {
   }
 };
 
+/**
+ * Loads bookmarks from storage, sanitizes them, performs legacy migration when
+ * necessary, and writes back normalized data if the stored payload was dirty.
+ */
 export const loadBookmarks = (): Bookmark[] => {
   const { raw, parsed } = readRaw();
   if (!Array.isArray(parsed)) {
@@ -247,6 +324,12 @@ export const loadBookmarks = (): Bookmark[] => {
   return sanitized;
 };
 
+/**
+ * Persists a caller-provided bookmark array after full sanitization and dedupe.
+ *
+ * This is the low-level "replace with normalized state" write path used by other
+ * bookmark operations.
+ */
 export const saveBookmarks = (bookmarks: Bookmark[]): Bookmark[] => {
   const sanitized = dedupeBookmarks(
     bookmarks.map((item) => sanitizeBookmark(item)).filter(isBookmark)
@@ -256,14 +339,21 @@ export const saveBookmarks = (bookmarks: Bookmark[]): Bookmark[] => {
   return sanitized;
 };
 
+/** Returns the bookmark for a slug, or `null` if none exists. */
 export const getBookmarkBySlug = (slug: string): Bookmark | null => {
   const normalizedSlug = normalizeBookmarkSlug(slug);
   if (!normalizedSlug) {return null;}
   return loadBookmarks().find((item) => item.articleSlug === normalizedSlug) || null;
 };
 
+/** Returns the current bookmark count after normalization. */
 export const getBookmarkCount = (): number => loadBookmarks().length;
 
+/**
+ * Adds a bookmark when absent or removes it when already present.
+ *
+ * This is the primary UI-facing convenience helper for bookmark toggles.
+ */
 export const toggleBookmark = (input: BookmarkInput): Bookmark[] => {
   const articleSlug = normalizeBookmarkSlug(input.articleSlug);
   const articleTitle =
@@ -301,6 +391,7 @@ export const toggleBookmark = (input: BookmarkInput): Bookmark[] => {
   return next;
 };
 
+/** Removes a bookmark by slug if present. */
 export const removeBookmark = (slug: string): Bookmark[] => {
   const normalizedSlug = normalizeBookmarkSlug(slug);
   if (!normalizedSlug) {return loadBookmarks();}
@@ -317,6 +408,7 @@ export const removeBookmark = (slug: string): Bookmark[] => {
   return next;
 };
 
+/** Updates the category of an existing bookmark and emits a category-change event. */
 export const setBookmarkCategory = (
   slug: string,
   category: BookmarkCategory
@@ -338,9 +430,11 @@ export const setBookmarkCategory = (
   return next;
 };
 
+/** Exports the full bookmark set as pretty-printed JSON. */
 export const exportBookmarksAsJson = (): string =>
   JSON.stringify(loadBookmarks(), null, 2);
 
+/** Exports the full bookmark set as a Markdown table for human-readable sharing. */
 export const exportBookmarksAsMarkdown = (): string => {
   const lines = [
     "# Melody Mind Bookmarks",
@@ -358,6 +452,12 @@ export const exportBookmarksAsMarkdown = (): string => {
   return `${lines.join("\n")}\n`;
 };
 
+/**
+ * Parses bookmark rows from the Markdown export format.
+ *
+ * The parser is intentionally tolerant: it skips malformed rows and falls back to
+ * default categories where needed.
+ */
 const parseMarkdownBookmarks = (input: string): Bookmark[] => {
   const isMarkdownSeparatorRow = (line: string): boolean =>
     /^\|\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(line);
@@ -421,6 +521,11 @@ const parseMarkdownBookmarks = (input: string): Bookmark[] => {
   return dedupeBookmarks(parsed);
 };
 
+/**
+ * Parses an import payload, trying JSON first and Markdown second.
+ *
+ * Unsupported or empty input resolves to an empty bookmark list.
+ */
 const parseImport = (input: string): Bookmark[] => {
   const normalized = input.trim();
   if (!normalized) {return [];}
@@ -439,6 +544,12 @@ const parseImport = (input: string): Bookmark[] => {
   return [];
 };
 
+/**
+ * Imports bookmarks from a JSON or Markdown payload using merge or replace mode.
+ *
+ * - `merge` keeps existing bookmarks and overlays imported ones.
+ * - `replace` swaps the bookmark set entirely, unless the imported payload is empty.
+ */
 export const importBookmarks = (input: string, mode: ImportMode): ImportResult => {
   const imported = parseImport(input);
   const current = loadBookmarks();

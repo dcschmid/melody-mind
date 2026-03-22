@@ -1,4 +1,4 @@
-import type { RenderedContent } from "astro:content";
+import { getCollection, type RenderedContent } from "astro:content";
 import type { LinkPanelItem } from "@shared-ui/components/cards/linkPanel";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
@@ -84,7 +84,9 @@ interface BuildKnowledgeArticlePageDataParams {
 }
 
 export async function getKnowledgeArticleStaticPaths() {
-  const entries: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+  const entries: any[] = await getCollectionCached("knowledge-en", {
+    getCollection,
+  }).catch(() => []);
   const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
 
   for (const entry of entries) {
@@ -109,7 +111,9 @@ export async function resolveKnowledgeArticleEntry(params: {
 
   if (!entry) {
     try {
-      const articles: any[] = await getCollectionCached("knowledge-en").catch(() => []);
+      const articles: any[] = await getCollectionCached("knowledge-en", {
+        getCollection,
+      }).catch(() => []);
       if (slug) {
         entry = articles.find((article) => article.slug === slug || article.id === slug);
       }

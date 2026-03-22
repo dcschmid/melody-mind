@@ -1,10 +1,14 @@
 /**
- * Central Schema.org JSON-LD Builders
- * Consolidates structured data generation for reuse across pages.
- * Podcast-related functions moved to separate subdomain.
+ * Central Schema.org JSON-LD builders shared across Knowledge, Quiz and Podcasts.
+ *
+ * The module provides small, predictable factory functions that convert existing page
+ * metadata into JSON-LD objects without coupling callers to Schema.org field names.
+ * Most helpers are deliberately tolerant: optional inputs are omitted from the result
+ * instead of forcing callers to pre-normalize every value.
  */
 import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 
+/** Minimal shape required to describe a Knowledge article in list schemas. */
 export interface KnowledgeArticleLike {
   slug: string;
   data: {
@@ -17,6 +21,7 @@ export interface KnowledgeArticleLike {
   };
 }
 
+/** Minimal shape required to describe a quiz in list schemas. */
 export interface QuizLike {
   slug: string;
   title: string;
@@ -28,6 +33,7 @@ export interface QuizLike {
   topics?: string[];
 }
 
+/** Shared site identity fields used by organization and website schemas. */
 export interface SiteIdentitySchemaOptions {
   siteUrl: string;
   siteName: string;
@@ -36,6 +42,7 @@ export interface SiteIdentitySchemaOptions {
   searchPathTemplate?: string;
 }
 
+/** Options for indexable hub pages such as topic, taxonomy or archive views. */
 export interface CollectionPageSchemaOptions {
   url: string;
   name: string;
@@ -45,11 +52,13 @@ export interface CollectionPageSchemaOptions {
   mainEntityId?: string;
 }
 
+/** Shared breadcrumb input shape used to build `BreadcrumbList` JSON-LD. */
 export interface BreadcrumbItem {
   name: string;
   url: string;
 }
 
+/** Normalized article-like input used for article and podcast-episode detail schemas. */
 export interface ArticleSchemaOptions {
   canonical: string;
   title: string;
@@ -71,6 +80,7 @@ export interface ArticleSchemaOptions {
   potentialAction?: Record<string, unknown>;
 }
 
+/** Input contract for quiz detail page schema output. */
 export interface QuizSchemaOptions {
   title: string;
   description: string;
@@ -80,11 +90,13 @@ export interface QuizSchemaOptions {
   topics?: string[];
 }
 
+/** FAQ entry contract for static FAQ-style pages. */
 export interface FaqPageItem {
   question: string;
   answer: string;
 }
 
+/** Input contract for top-level podcast series JSON-LD. */
 export interface PodcastSeriesSchemaOptions {
   siteUrl: string;
   title: string;
@@ -99,6 +111,7 @@ export interface PodcastSeriesSchemaOptions {
   searchPathTemplate?: string;
 }
 
+/** Input contract for podcast episode detail JSON-LD. */
 export interface PodcastEpisodeSchemaOptions {
   title: string;
   description: string;
@@ -117,6 +130,7 @@ export interface PodcastEpisodeSchemaOptions {
   publisherLogoUrl?: string;
 }
 
+/** Minimal episode shape used in podcast `ItemList` output. */
 export interface PodcastEpisodeListItem {
   title: string;
   description: string;
@@ -126,6 +140,12 @@ export interface PodcastEpisodeListItem {
   durationIso?: string;
 }
 
+/**
+ * Derives a lightweight word count from rich text or HTML-ish input.
+ *
+ * This is intentionally approximate and good enough for schema enrichment; it is not meant
+ * to be used as an editorially exact reading metric.
+ */
 function countWords(text: string | undefined): number | undefined {
   if (!text) {
     return undefined;
@@ -143,9 +163,17 @@ function countWords(text: string | undefined): number | undefined {
   return normalized.split(" ").length;
 }
 
-/**
- * Build Organization schema for the site owner / publisher.
- */
+const toIsoDate = (value: Date | string | undefined): string | undefined => {
+  const normalized = normalizeDate(value);
+  return normalized?.toISOString();
+};
+
+const toSortableTimestamp = (value: Date | string | undefined): number => {
+  const normalized = normalizeDate(value);
+  return normalized?.getTime() ?? 0;
+};
+
+/** Builds the canonical `Organization` node representing the site owner/publisher. */
 export function buildOrganizationSchema(
   opts: SiteIdentitySchemaOptions
 ): Record<string, unknown> {
@@ -171,7 +199,10 @@ export function buildOrganizationSchema(
 }
 
 /**
- * Build WebSite schema with optional SearchAction for internal site search.
+ * Builds the top-level `WebSite` schema and wires it to the shared organization node.
+ *
+ * A `SearchAction` is included by default so pages can advertise internal site search
+ * without repeating that structure at each call site.
  */
 export function buildWebSiteSchema(
   opts: SiteIdentitySchemaOptions
@@ -203,9 +234,7 @@ export function buildWebSiteSchema(
   };
 }
 
-/**
- * Build BreadcrumbList schema from shared breadcrumb navigation items.
- */
+/** Converts shared breadcrumb UI data into a `BreadcrumbList` schema, or returns nothing. */
 export function buildBreadcrumbListSchema(
   breadcrumbs: BreadcrumbItem[]
 ): Record<string, unknown> | undefined {
@@ -226,7 +255,10 @@ export function buildBreadcrumbListSchema(
 }
 
 /**
- * Build CollectionPage schema for indexable hub pages.
+ * Builds a `CollectionPage` schema for indexable overview pages.
+ *
+ * The helper automatically links the page back to the site-wide `WebSite` and
+ * `Organization` nodes derived from the URL origin.
  */
 export function buildCollectionPageSchema(
   opts: CollectionPageSchemaOptions
@@ -260,7 +292,12 @@ export function buildCollectionPageSchema(
 }
 
 /**
- * Build reusable Article or PodcastEpisode schema with normalized dates and word count.
+ * Builds an `Article`-style schema for detail pages.
+ *
+ * The default output is `Article`, but callers may switch to `PodcastEpisode` when they
+ * want to reuse the same article-like structure with different Schema.org typing.
+ * Dates are normalized through `normalizeDate()`, and body text is used only to derive
+ * an approximate `wordCount`.
  */
 export function buildArticleSchema(opts: ArticleSchemaOptions): Record<string, unknown> {
   const {
@@ -326,9 +363,7 @@ export function buildArticleSchema(opts: ArticleSchemaOptions): Record<string, u
   };
 }
 
-/**
- * Build Quiz schema for quiz detail pages.
- */
+/** Builds a `Quiz` schema for quiz detail pages. */
 export function buildQuizSchema(opts: QuizSchemaOptions): Record<string, unknown> {
   const { title, description, url, numberOfQuestions, keywords = [], topics = [] } = opts;
 
@@ -351,9 +386,7 @@ export function buildQuizSchema(opts: QuizSchemaOptions): Record<string, unknown
   };
 }
 
-/**
- * Build FAQPage schema for static support and policy pages.
- */
+/** Builds a `FAQPage` schema when at least one valid FAQ item exists. */
 export function buildFaqPageSchema(
   items: FaqPageItem[]
 ): Record<string, unknown> | undefined {
@@ -376,7 +409,9 @@ export function buildFaqPageSchema(
 }
 
 /**
- * Build PodcastSeries schema for podcast app home/search pages.
+ * Builds the canonical `PodcastSeries` schema for the podcast app and listing pages.
+ *
+ * This represents the show as a whole, not an individual episode.
  */
 export function buildPodcastSeriesSchema(
   opts: PodcastSeriesSchemaOptions
@@ -436,7 +471,10 @@ export function buildPodcastSeriesSchema(
 }
 
 /**
- * Build PodcastEpisode schema for podcast detail pages.
+ * Builds a `PodcastEpisode` schema for individual episode pages.
+ *
+ * If `modifiedAt` is absent, the published date is reused as the modified date so callers
+ * still get stable date metadata without having to duplicate values upstream.
  */
 export function buildPodcastEpisodeSchema(
   opts: PodcastEpisodeSchemaOptions
@@ -515,7 +553,9 @@ export function buildPodcastEpisodeSchema(
 }
 
 /**
- * Build ItemList schema for podcast episode collections.
+ * Builds an `ItemList` of podcast episodes for archive or homepage-style listings.
+ *
+ * The item order is preserved exactly as provided by the caller.
  */
 export function buildPodcastEpisodesItemListSchema(opts: {
   episodes: PodcastEpisodeListItem[];
@@ -554,7 +594,10 @@ export function buildPodcastEpisodesItemListSchema(opts: {
 }
 
 /**
- * Build ItemList schema for knowledge articles.
+ * Builds an `ItemList` for Knowledge article collections.
+ *
+ * Articles are sorted newest-first using `updatedAt` with `createdAt` as fallback so the
+ * schema order reflects the most recently maintained entries rather than filesystem order.
  */
 export function buildKnowledgeArticlesItemList(opts: {
   articles: KnowledgeArticleLike[];
@@ -570,7 +613,7 @@ export function buildKnowledgeArticlesItemList(opts: {
   const sorted = [...articles].sort((a, b) => {
     const aDate = a.data.updatedAt || a.data.createdAt;
     const bDate = b.data.updatedAt || b.data.createdAt;
-    return new Date(String(bDate)).getTime() - new Date(String(aDate)).getTime();
+    return toSortableTimestamp(bDate) - toSortableTimestamp(aDate);
   });
 
   return {
@@ -587,12 +630,8 @@ export function buildKnowledgeArticlesItemList(opts: {
         name: article.data.title,
         description: article.data.description,
         url: `${baseUrl.replace(/\/$/, "")}/knowledge/${article.slug}`,
-        dateCreated: article.data.createdAt
-          ? new Date(String(article.data.createdAt)).toISOString()
-          : undefined,
-        dateModified: article.data.updatedAt
-          ? new Date(String(article.data.updatedAt)).toISOString()
-          : undefined,
+        dateCreated: toIsoDate(article.data.createdAt),
+        dateModified: toIsoDate(article.data.updatedAt),
         keywords: article.data.keywords?.join(", "),
         inLanguage: lang || "en",
       },
@@ -600,9 +639,7 @@ export function buildKnowledgeArticlesItemList(opts: {
   };
 }
 
-/**
- * Build ItemList schema for quiz collections.
- */
+/** Builds an `ItemList` for quiz index pages and similar collections. */
 export function buildQuizItemListSchema(opts: {
   quizzes: QuizLike[];
   listName?: string;
@@ -633,7 +670,3 @@ export function buildQuizItemListSchema(opts: {
     })),
   };
 }
-
-/**
- * Build ItemList schema for music categories.
- */

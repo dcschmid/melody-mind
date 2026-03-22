@@ -1,52 +1,80 @@
 /**
- * Centralized localStorage and sessionStorage key constants.
- * Prevents typos and makes refactoring easier.
+ * Central registry for browser persistence keys and transient runtime flags.
+ *
+ * This module defines the canonical names used when shared utilities read from or
+ * write to `localStorage`, `sessionStorage`, or window-scoped runtime state.
+ * Centralizing them here helps with:
+ * - avoiding string drift across apps and packages,
+ * - keeping migration or versioning work discoverable,
+ * - and documenting the intended lifetime of each value.
  *
  * @module constants/storage
  */
 
 /**
- * localStorage keys used across the application.
+ * Stable `localStorage` keys shared across client-side features.
+ *
+ * Values in this group are intended to survive reloads and browser restarts until
+ * the user clears site data or a feature-specific migration replaces the key.
+ *
+ * Note: some app-specific features may wrap or version these canonical names
+ * elsewhere, for example to introduce schema migrations without changing the
+ * semantic identifier documented here.
  */
 export const STORAGE_KEYS = {
-  /** Bookmark data storage */
+  /** Stores the serialized bookmark collection for saved articles or items. */
   BOOKMARKS: "mm_bookmarks",
-  /** Cookie consent preferences */
+  /** Stores cookie-consent preferences, including the analytics opt-in state. */
   COOKIE_CONSENT: "cookie_consent",
-  /** Recent reads history */
+  /** Base identifier for recently viewed content history. */
   RECENT_READS: "mm_recent_reads",
-  /** Theme preference (light/dark) */
+  /** Stores the user's explicit light/dark theme preference. */
   THEME: "themePreference",
-  /** Reading mode preference */
+  /** Stores the preferred reading mode or content presentation mode. */
   READING_MODE: "mm_reading_mode",
-  /** Font size preference */
+  /** Stores the preferred reading font size override. */
   FONT_SIZE: "mm_font_size",
 } as const;
 
 /**
- * sessionStorage keys used across the application.
+ * `sessionStorage` keys whose values should only live for the current browser tab.
+ *
+ * Use these for ephemeral state that should reset when the tab or window closes,
+ * such as in-session journey tracking or temporary experiment assignments.
  */
 export const SESSION_KEYS = {
-  /** User journey tracking (previous page) */
+  /** Tracks the previous journey step so cross-page navigation patterns can be inferred in-session. */
   JOURNEY: "mm_journey_previous",
-  /** A/B test variant assignments */
+  /** Stores experiment variant assignments scoped to the active tab session. */
   AB_TESTS: "mm_ab_variants",
 } as const;
 
 /**
- * Type for localStorage keys.
+ * Union of all canonical shared `localStorage` key names.
+ *
+ * Useful when utility code should only accept one of the curated storage keys
+ * defined in this module.
  */
 export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS];
 
 /**
- * Type for sessionStorage keys.
+ * Union of all canonical shared `sessionStorage` key names.
  */
 export type SessionKey = (typeof SESSION_KEYS)[keyof typeof SESSION_KEYS];
 
 /**
- * Runtime analytics flag set on window object.
+ * Window-scoped runtime flags that are intentionally not persisted to browser storage.
+ *
+ * These flags are useful for fast in-memory gating after the initial preference
+ * state has been resolved. They should be treated as volatile and recomputable.
  */
 export const RUNTIME_FLAGS = {
-  /** Whether analytics tracking is allowed */
+  /**
+   * In-memory flag indicating whether analytics execution is currently allowed.
+   *
+   * This complements, but does not replace, persisted consent state:
+   * consent may live in `COOKIE_CONSENT`, while this flag reflects the current
+   * effective runtime decision after initialization.
+   */
   ANALYTICS_ALLOWED: "__mmAnalyticsAllowed",
 } as const;

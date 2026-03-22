@@ -15,6 +15,7 @@ import { getAdjacentByKey } from "@shared-utils/utils/array";
 import { buildMetaDescription, formatDate } from "@shared-utils/utils/format";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getAvailablePodcasts, getPodcastById } from "../utils/podcasts";
+import { buildEpisodeMetaItems } from "../utils/podcastPresentation";
 import type { PodcastData } from "../types/podcast";
 
 export async function getStaticPaths() {
@@ -71,22 +72,10 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
     imageSrc: `/images/${podcast.imageUrl}.jpg`,
     imageAlt: `Cover art for the podcast episode ${podcast.title}`,
     ctaSrText: "Opens episode",
-    metaItems: [
-      {
-        iconName: "calendar",
-        label: formatDate(podcast.publishedAt),
-        datetime: podcast.publishedAt,
-      },
-      ...(podcast.durationSeconds
-        ? [
-            {
-              iconName: "headphones",
-              label: `${Math.floor(podcast.durationSeconds / 60)} min`,
-            },
-          ]
-        : []),
-    ],
+    metaItems: buildEpisodeMetaItems(podcast.publishedAt, podcast.durationSeconds),
   }));
+
+const publishedLabel = formatDate(currentPodcast.publishedAt);
 ---
 
 <PodcastLayout
@@ -141,10 +130,10 @@ const relatedEpisodes: RelatedContentCardItem[] = [prev, next]
             <time
               class="episode__date"
               datetime={currentPodcast.publishedAt}
-              aria-label={`${t.publishedOn} ${formatDate(currentPodcast.publishedAt)}`}
+              aria-label={`${t.publishedOn} ${publishedLabel}`}
             >
               {t.publishedOn}
-              {formatDate(currentPodcast.publishedAt)}
+              {publishedLabel}
             </time>
           </div>
         </Fragment>

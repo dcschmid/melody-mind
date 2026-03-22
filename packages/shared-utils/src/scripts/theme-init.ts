@@ -1,104 +1,126 @@
 /**
- * Theme initialization and management utilities.
+ * Theme initialization and runtime management helpers for browser-only UI code.
  *
- * The inline theme script in Layout.astro runs before page render to prevent FOUC.
- * This module provides utilities for other components that need to interact with theme.
+ * Responsibilities of this module:
+ * - validate persisted theme values,
+ * - resolve the current theme from stored preference or system preference,
+ * - apply the resolved theme to `document.documentElement`,
+ * - emit the shared theme-change event for interested listeners,
+ * - and provide small imperative helpers for theme toggles or other controls.
+ *
+ * Important execution model:
+ * - the inline script in `MasterLayout.astro` applies the initial theme early to
+ *   avoid a flash of incorrect theme,
+ * - this module is then used by interactive components after hydration when they
+ *   need to read, change, or re-broadcast theme state.
+ *
+ * This module builds on the lower-level helpers in `utils/theme/themeStorage.ts` and adds
+ * the post-hydration synchronization behavior that interactive pages need.
  *
  * @module scripts/theme-init
  */
 
-import { STORAGE_KEYS } from "../constants/storage";
 import { THEME_EVENTS } from "../constants/events";
-import { safeLocalStorage } from "../utils/storage/safeStorage";
+import {
+  applyTheme,
+  getStoredTheme,
+  getSystemTheme,
+  isTheme,
+  setStoredTheme,
+  THEME_STORAGE_KEY,
+  type Theme,
+} from "../utils/theme/themeStorage";
 
-/** CSS dark mode media query */
+/** Media query used to mirror the operating system's dark-mode preference. */
 const DARK_QUERY = "(prefers-color-scheme: dark)";
+let hasInitializedThemeSystem = false;
+let themeMediaQuery: MediaQueryList | null = null;
 
-/** Theme source identifier */
+const handleThemeSystemChange = (): void => {
+  if (!readStoredTheme()) {
+    applyTheme(getSystemTheme(), "system");
+  }
+};
+
+/**
+ * Describes where the active theme decision came from.
+ *
+ * - `manual`: a user explicitly selected a theme and it may be persisted.
+ * - `system`: no manual override exists, so the OS/browser preference is in control.
+ */
 export type ThemeSource = "manual" | "system";
 
-/** Theme change event detail */
+/**
+ * Payload shape emitted with the shared `theme:change` browser event.
+ *
+ * Consumers can use this to distinguish whether a theme update happened because
+ * the user toggled it or because the system preference changed.
+ */
 export interface ThemeChangeDetail {
-  theme: "light" | "dark";
+  theme: Theme;
   source: ThemeSource;
 }
 
-/** Re-export for backward compatibility */
+/**
+ * Shared event name re-exported here for callers that still import theme-related
+ * constants from this script module.
+ */
 export const THEME_CHANGE_EVENT = THEME_EVENTS.CHANGED;
-export const THEME_STORAGE_KEY = STORAGE_KEYS.THEME;
 
 /**
- * Check if a value is a valid theme.
+ * Shared storage key re-exported for the same compatibility reason as
+ * `THEME_CHANGE_EVENT`.
  */
-export const isValidTheme = (value: unknown): value is "light" | "dark" =>
-  value === "light" || value === "dark";
+export { THEME_STORAGE_KEY };
+
+/** Backward-compatible alias for the shared theme type guard. */
+export const isValidTheme = isTheme;
+
+/** Backward-compatible alias for reading the stored theme override. */
+export const readStoredTheme = getStoredTheme;
 
 /**
- * Read the stored theme preference from localStorage.
- * Returns null if not set or invalid.
- */
-export const readStoredTheme = (): "light" | "dark" | null => {
-  const stored = safeLocalStorage.getRaw(STORAGE_KEYS.THEME);
-  return isValidTheme(stored) ? stored : null;
-};
-
-/**
- * Get the system's preferred color scheme.
- */
-export const getSystemTheme = (): "light" | "dark" =>
-  window.matchMedia(DARK_QUERY).matches ? "dark" : "light";
-
-/**
- * Apply a theme to the document.
- * Dispatches a custom event for other components to react.
- */
-export const applyTheme = (theme: "light" | "dark", source: ThemeSource): void => {
-  document.documentElement.setAttribute("data-theme", theme);
-  window.dispatchEvent(
-    new CustomEvent<ThemeChangeDetail>(THEME_EVENTS.CHANGED, {
-      detail: { theme, source },
-    })
-  );
-};
-
-/**
- * Store the theme preference in localStorage.
- */
-export const storeTheme = (theme: "light" | "dark"): void => {
-  safeLocalStorage.setRaw(STORAGE_KEYS.THEME, theme);
-};
-
-/**
- * Initialize theme system.
- * Sets up system preference listener and applies stored or system theme.
+ * Initializes post-hydration theme synchronization.
  *
- * Note: The inline script in Layout.astro handles initial theme application
- * to prevent FOUC. This function is for use by interactive components.
+ * Behavior:
+ * 1. read any stored manual override,
+ * 2. fall back to the current system preference when none exists,
+ * 3. apply the resolved theme and emit the shared event,
+ * 4. subscribe to future system preference changes,
+ * 5. only react to system changes while no manual preference is stored.
+ *
+ * Note: the inline layout script already applies the initial theme early to avoid
+ * FOUC. This initializer is meant for hydrated interactive environments that need
+ * the full runtime synchronization behavior.
  */
 export const initThemeSystem = (): void => {
+  if (hasInitializedThemeSystem) {
+    return;
+  }
+  hasInitializedThemeSystem = true;
+
   const storedTheme = readStoredTheme();
   const resolvedTheme = storedTheme ?? getSystemTheme();
   applyTheme(resolvedTheme, storedTheme ? "manual" : "system");
 
-  // Listen for system preference changes
-  window.matchMedia(DARK_QUERY).addEventListener("change", () => {
-    // Only update if no manual preference is stored
-    if (!readStoredTheme()) {
-      applyTheme(getSystemTheme(), "system");
-    }
-  });
+  // Keep following the OS only while the user has not stored a manual override.
+  themeMediaQuery ??= window.matchMedia(DARK_QUERY);
+  themeMediaQuery.addEventListener("change", handleThemeSystemChange);
 };
 
 /**
- * Set theme manually and persist the preference.
+ * Persists and applies a user-selected theme override.
  */
-export const setTheme = (theme: "light" | "dark"): void => {
-  storeTheme(theme);
+export const setTheme = (theme: Theme): void => {
+  setStoredTheme(theme);
   applyTheme(theme, "manual");
 };
 
 /**
- * Toggle between light and dark themes.
+ * Toggles the current root theme and stores the result as a manual preference.
+ *
+ * If no `data-theme` attribute is present yet, the function treats the current
+ * state as light and switches to dark.
  */
 export const toggleTheme = (): void => {
   const current = document.documentElement.getAttribute("data-theme");

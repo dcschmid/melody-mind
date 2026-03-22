@@ -1,12 +1,11 @@
 ---
 import PodcastLayout from "../layouts/PodcastLayout.astro";
+import PodcastPlatformLinks from "../components/PodcastPlatformLinks.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
-import Icon from "@shared-ui/components/visual/Icon.astro";
-import type { ContentCardMetaItem } from "@shared-ui/components/cards/contentCard";
 import {
   buildCollectionPageSchema,
   buildPodcastEpisodesItemListSchema,
@@ -18,46 +17,16 @@ import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import type { PodcastData } from "../types/podcast";
 
 import { getAvailablePodcasts } from "../utils/podcasts";
+import {
+  buildEpisodeMetaItems,
+  normalizeSearchText,
+  toIsoDuration,
+} from "../utils/podcastPresentation";
 
 const podcasts: PodcastData[] = await getAvailablePodcasts();
 const sortedPodcasts = [...podcasts].sort(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 );
-const normalizeSearchText = (value: string) =>
-  value.toLowerCase().replace(/\s+/g, " ").trim();
-const buildEpisodeMetaItems = (
-  publishedAt: string,
-  durationSeconds?: number
-): ContentCardMetaItem[] => {
-  const items: ContentCardMetaItem[] = [
-    {
-      iconName: "calendar",
-      label: formatDate(publishedAt),
-      datetime: publishedAt,
-    },
-  ];
-
-  if (durationSeconds) {
-    items.push({
-      iconName: "headphones",
-      label: `${Math.floor(durationSeconds / 60)} min`,
-    });
-  }
-
-  return items;
-};
-
-const toIsoDuration = (durationSeconds?: number): string | undefined => {
-  if (!durationSeconds || durationSeconds <= 0) {
-    return undefined;
-  }
-
-  const hours = Math.floor(durationSeconds / 3600);
-  const minutes = Math.floor((durationSeconds % 3600) / 60);
-  const seconds = Math.floor(durationSeconds % 60);
-
-  return `PT${hours > 0 ? `${hours}H` : ""}${minutes > 0 ? `${minutes}M` : ""}${seconds || (!hours && !minutes) ? `${seconds}S` : ""}`;
-};
 
 const buildEpisodeListItem = (podcast: PodcastData): PodcastEpisodeListItem => {
   const durationIso = toIsoDuration(podcast.durationSeconds);
@@ -98,9 +67,6 @@ const t = {
     "Official site of MelodyMind Podcasts, a music history podcast with Daniel and Annabelle. Explore episodes that move from 1950s rock 'n' roll to the present day.",
   episodes: "Episodes",
   availableOn: "Listen on:",
-  spotifyUrl: "https://open.spotify.com/show/1qCTySbRctOad9Oi3FGpoF",
-  deezerUrl: "https://www.deezer.com/en/show/1002678961",
-  youtubeUrl: "https://www.youtube.com/channel/UCD7MQkWw4P5Pd5xA_o6McLg",
   keywords: [
     "melodymind podcasts",
     "music history podcast",
@@ -166,46 +132,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
         titleLevel="h1"
       >
         <Fragment slot="actions">
-          <div class="home__hero-platforms" aria-label={t.availableOn}>
-            <a
-              href={t.spotifyUrl}
-              class="home__hero-platform-link"
-              aria-label="Listen on Spotify"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="spotify" aria-hidden="true" />
-              <span>Spotify</span>
-            </a>
-            <a
-              href={t.deezerUrl}
-              class="home__hero-platform-link"
-              aria-label="Listen on Deezer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="deezer" aria-hidden="true" />
-              <span>Deezer</span>
-            </a>
-            <a
-              href={t.youtubeUrl}
-              class="home__hero-platform-link"
-              aria-label="Listen on YouTube"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="simple-icons:youtube" aria-hidden="true" />
-              <span>YouTube</span>
-            </a>
-            <a
-              href="/podcast.xml"
-              class="home__hero-link home__hero-link--secondary"
-              aria-label="Subscribe via RSS"
-            >
-              <Icon name="wave" aria-hidden="true" />
-              {t.rssFeed}
-            </a>
-          </div>
+          <PodcastPlatformLinks ariaLabel={t.availableOn} rssLabel={t.rssFeed} />
         </Fragment>
       </HeroTeaser>
 
@@ -269,85 +196,6 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
   .home {
     display: grid;
     gap: var(--spacing-xl);
-  }
-
-  .home__hero-link {
-    display: inline-flex;
-    gap: var(--spacing-sm);
-    align-items: center;
-    justify-content: center;
-    min-block-size: calc(var(--spacing-2xl) + var(--spacing-xs));
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
-    border-radius: var(--radius-full);
-    transition:
-      transform var(--transition-fast),
-      border-color var(--transition-fast),
-      background-color var(--transition-fast);
-  }
-
-  .home__hero-link:hover,
-  .home__hero-link:focus-visible {
-    transform: translateY(-1px);
-  }
-
-  .home__hero-link:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .home__hero-link--secondary {
-    color: var(--text-primary);
-    background: transparent;
-    border: 1px solid var(--surface-border-soft);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .home__hero-link {
-      transition: none;
-    }
-  }
-
-  .home__hero-platforms {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    align-items: center;
-  }
-
-  .home__hero-platform-link {
-    display: inline-flex;
-    gap: var(--spacing-sm);
-    align-items: center;
-    min-block-size: calc(var(--spacing-xl) + var(--spacing-sm));
-    padding: var(--spacing-sm) var(--spacing-md);
-    color: var(--text-primary);
-    text-decoration: none;
-    background: var(--surface-pill-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
-    transition:
-      transform var(--transition-fast),
-      border-color var(--transition-fast),
-      background-color var(--transition-fast);
-  }
-
-  .home__hero-platform-link:hover,
-  .home__hero-platform-link:focus-visible {
-    border-color: var(--accent-primary);
-    transform: translateY(-1px);
-  }
-
-  .home__hero-platform-link:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .home__hero-platform-link {
-      transition: none;
-    }
   }
 
   .home__episodes {

@@ -14,6 +14,15 @@ import {
   buildPodcastSeriesSchema,
   buildWebSiteSchema,
 } from "@shared-utils/utils/seo/seoSchema";
+import {
+  PODCAST_FEED_PATH,
+  PODCAST_FEED_URL,
+  PODCAST_IMAGE_URL,
+  PODCAST_PLATFORM_URLS,
+  PODCAST_PRECONNECT_ORIGINS,
+  PODCAST_SITE_URL,
+} from "../constants/podcastLinks";
+import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
 
 export interface Props {
   title: string;
@@ -62,11 +71,11 @@ const {
 } = Astro.props;
 
 const siteTitle = "MelodyMind Podcasts";
-const normalizedTitle = normalizeMetaText(title);
+const normalizedTitle = normalizeWhitespace(title);
 const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
   ? normalizedTitle
   : `${normalizedTitle} | ${siteTitle}`;
-const siteUrl = "https://podcasts.melody-mind.de";
+const siteUrl = PODCAST_SITE_URL;
 const currentPath = canonical ? canonical.replace(siteUrl, "") : Astro.url.pathname;
 const currentUrl = `${siteUrl}${ensureTrailingSlash(currentPath)}`;
 const imageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
@@ -75,8 +84,8 @@ const episodeImageUrl = episodeImage
     ? episodeImage
     : `${siteUrl}${episodeImage}`
   : imageUrl;
-const podcastFeedUrl = `${siteUrl}/podcast.xml`;
-const podcastImage = `${siteUrl}/the-melody-mind-podcast.jpg`;
+const podcastFeedUrl = PODCAST_FEED_URL;
+const podcastImage = PODCAST_IMAGE_URL;
 const seriesCopy =
   seriesDescription ||
   "Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.";
@@ -87,7 +96,7 @@ const defaultKeywords = [
   "streaming",
   "entertainment",
 ];
-const normalizedDescription = normalizeMetaText(description);
+const normalizedDescription = normalizeWhitespace(description);
 const imageAlt =
   type === "article"
     ? `Cover artwork for ${normalizedTitle}`
@@ -153,11 +162,7 @@ const podcastSeriesJson = buildPodcastSeriesSchema({
   locale,
   imageUrl: podcastImage,
   feedUrl: podcastFeedUrl,
-  sameAs: [
-    "https://open.spotify.com/show/6iLbxIzJ4x5nMuuK5qySOQ",
-    "https://www.deezer.com/en/show/1002446242",
-    "https://podcasts.apple.com/us/podcast/melody-mind-–-english/id1847445333",
-  ],
+  sameAs: PODCAST_PLATFORM_URLS,
   authorNames,
   publisherName: publisher.name,
   publisherLogoUrl: podcastImage,
@@ -237,17 +242,6 @@ function ensureTrailingSlash(pathname: string) {
 
   return pathname.endsWith("/") ? pathname : `${pathname}/`;
 }
-
-function normalizeMetaText(value: string) {
-  return value.replace(/\s+/g, " ").trim();
-}
-
-function toIsoDuration(totalSeconds: number) {
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = Math.floor(totalSeconds % 60);
-  return `PT${hours > 0 ? `${hours}H` : ""}${minutes > 0 ? `${minutes}M` : ""}${seconds || (!hours && !minutes) ? `${seconds}S` : ""}`;
-}
 ---
 
 <MasterLayout
@@ -267,9 +261,11 @@ function toIsoDuration(totalSeconds: number) {
       type="font/woff2"
       crossorigin
     />
-    <link rel="preconnect" href="https://open.spotify.com" crossorigin />
-    <link rel="preconnect" href="https://www.deezer.com" crossorigin />
-    <link rel="preconnect" href="https://www.youtube.com" crossorigin />
+    {
+      PODCAST_PRECONNECT_ORIGINS.map((origin) => (
+        <link rel="preconnect" href={origin} crossorigin />
+      ))
+    }
     <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
     <SEO {...seoProps} />
     <meta name="robots" content={pageSeo.robots} />
@@ -313,7 +309,7 @@ function toIsoDuration(totalSeconds: number) {
       rel="alternate"
       type="application/rss+xml"
       title="RSS Feed - English"
-      href="/podcast.xml"
+      href={PODCAST_FEED_PATH}
       hreflang={locale}
     />
     <link rel="dns-prefetch" href="//cdn.usefathom.com" />
@@ -349,7 +345,7 @@ function toIsoDuration(totalSeconds: number) {
         target: "_blank",
         rel: "noopener noreferrer",
       },
-      { href: "/podcast.xml", label: "RSS" },
+      { href: PODCAST_FEED_PATH, label: "RSS" },
     ]}
     supportLinks={[
       {

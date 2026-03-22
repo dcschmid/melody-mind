@@ -1,4 +1,4 @@
-import { SEARCH_EVENTS } from "@shared-utils/constants/events";
+import { SEARCH_EVENTS, dispatchCustomEvent } from "@shared-utils/constants/events";
 import { isServer } from "@shared-utils/utils/environment";
 
 type SearchElements = {
@@ -31,11 +31,7 @@ const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
   }
 
   try {
-    window.dispatchEvent(
-      new CustomEvent<SearchTelemetryDetail>(SEARCH_EVENTS.PERFORMED, {
-        detail,
-      })
-    );
+    dispatchCustomEvent<SearchTelemetryDetail>(SEARCH_EVENTS.PERFORMED, detail);
   } catch {
     // no-op
   }
@@ -47,11 +43,7 @@ const dispatchSearchResultClick = (detail: SearchResultClickDetail): void => {
   }
 
   try {
-    window.dispatchEvent(
-      new CustomEvent<SearchResultClickDetail>(SEARCH_EVENTS.RESULT_CLICK, {
-        detail,
-      })
-    );
+    dispatchCustomEvent<SearchResultClickDetail>(SEARCH_EVENTS.RESULT_CLICK, detail);
   } catch {
     // no-op
   }
