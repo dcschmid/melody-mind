@@ -15,20 +15,68 @@ const { countLabel, description, level, title, titleClassName, wrapperClassName 
   Astro.props as Props;
 ---
 
-<div class={wrapperClassName}>
+<div class:list={["taxonomy-block-header", wrapperClassName]}>
   <Headline
     level={level}
     textSize={level === "h2" ? "lg" : "base"}
-    className={titleClassName}
+    className={`taxonomy-block-header__title ${titleClassName}`}
   >
     {title}
   </Headline>
   {
     description && (
-      <Paragraph textSize="sm" className={`${wrapperClassName}__description`}>
+      <Paragraph
+        textSize="sm"
+        className={`taxonomy-block-header__description ${wrapperClassName}__description`}
+      >
         {description}
       </Paragraph>
     )
   }
-  <span class={`${wrapperClassName}__count`}>{countLabel}</span>
+  <span class:list={["taxonomy-block-header__count", `${wrapperClassName}__count`]}>
+    {countLabel}
+  </span>
 </div>
+
+<style>
+  .taxonomy-block-header {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .taxonomy-block-header__title {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .taxonomy-block-header__description {
+    margin: 0;
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .taxonomy-block-header__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: start;
+    min-block-size: calc(var(--spacing-lg) + var(--spacing-sm));
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-strong);
+    letter-spacing: var(--letter-spacing-wide);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-accent);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (width >= 768px) {
+    .taxonomy-block-header__count {
+      align-self: flex-start;
+    }
+  }
+</style>

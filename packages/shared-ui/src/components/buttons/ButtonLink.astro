@@ -176,27 +176,27 @@ const forwardedAttrs = (() => {
   .button-link--primary {
     color: var(--button-text-accent);
     background: var(--accent-primary);
-    border-color: var(--accent-strong);
+    border-color: var(--surface-border-accent);
   }
 
   .button-link--primary:hover,
   .button-link--primary:focus-visible {
-    background: var(--accent-strong);
-    border-color: var(--accent-strong);
+    background: var(--accent-primary-hover);
+    border-color: var(--surface-border-accent-strong);
   }
 
   /* Secondary variant - subtle background, bordered */
   .button-link--secondary {
     color: var(--text-primary);
-    background: var(--surface-2);
-    border-color: var(--border-default);
+    background: var(--surface-pill-bg);
+    border-color: var(--surface-border-soft);
   }
 
   .button-link--secondary:hover,
   .button-link--secondary:focus-visible {
     color: var(--text-primary);
-    background: var(--surface-3);
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
   }
 
   /* Small size variant - reduced padding and font */

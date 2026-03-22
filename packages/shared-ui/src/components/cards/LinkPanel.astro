@@ -47,9 +47,18 @@ const { title, titleIcon, items = [], class: className } = Astro.props as Props;
     position: relative;
     padding: var(--spacing-base);
     background: var(--surface-panel-bg);
-    border: 1px solid var(--border-default);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+  }
+
+  .link-panel::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   .link-panel__title {

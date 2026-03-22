@@ -80,14 +80,32 @@ const pageSeo = buildTaxonomySectionSeo({
 
 <style>
   .taxonomy-section {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-2xl);
   }
 
   .taxonomy-section__content {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--section-gap);
+    padding-block-start: var(--spacing-xl);
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .taxonomy-section__content::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: min(8rem, 22%);
+    height: 1px;
+    content: "";
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-primary) 52%, transparent),
+      transparent
+    );
   }
 </style>

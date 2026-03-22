@@ -69,8 +69,8 @@ const classes = ["subsection-figure", className].filter(Boolean).join(" ");
     overflow: hidden;
 
     /* Visual styling */
-    background: var(--surface-2);
-    border: 1px solid var(--border-default);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
   }
@@ -78,8 +78,11 @@ const classes = ["subsection-figure", className].filter(Boolean).join(" ");
   /* Inner decorative border */
   .subsection-figure__media::after {
     position: absolute;
+    inset: var(--spacing-xs);
     pointer-events: none;
     content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-lg) - var(--spacing-xs));
   }
 
   /* Image sizing */

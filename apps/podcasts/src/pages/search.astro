@@ -87,9 +87,21 @@ const t = {
   .podcast-search :global(.search-page-section__hero-copy),
   .podcast-search :global(.search-page-section__hero-panel),
   .podcast-search :global(.search-page-section__panel) {
+    position: relative;
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
+  }
+
+  .podcast-search :global(.search-page-section__hero-copy::before),
+  .podcast-search :global(.search-page-section__hero-panel::before),
+  .podcast-search :global(.search-page-section__panel::before) {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   .podcast-search :global(.search-page-section__hero-copy),
@@ -119,13 +131,13 @@ const t = {
 
   .podcast-search :global(.search-page-section__search-ui) {
     padding: var(--spacing-md);
-    background: color-mix(in srgb, var(--surface-1) 82%, transparent);
+    background: var(--surface-chip-bg);
     border: 1px solid var(--surface-border-subtle);
     border-radius: var(--radius-lg);
   }
 
   .podcast-search :global(.simple-search__input) {
-    background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+    background: var(--surface-pill-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
   }

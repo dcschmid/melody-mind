@@ -49,13 +49,39 @@ const { eyebrow, highlights, highlightsLabel, lead, sections, title } = Astro.pr
 
 <style>
   .legal-document {
+    position: relative;
     display: grid;
     gap: var(--spacing-2xl);
+    isolation: isolate;
+  }
+
+  .legal-document::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at top left,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 34rem
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-overlay) 62%, transparent),
+        transparent 22rem
+      );
   }
 
   .legal-document__content-grid {
     display: grid;
     gap: var(--section-gap);
+    padding: var(--spacing-lg);
+    background: color-mix(in srgb, var(--surface-1) 54%, transparent);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 68%, transparent);
   }
 
   @media (width >= 720px) {
@@ -68,6 +94,7 @@ const { eyebrow, highlights, highlightsLabel, lead, sections, title } = Astro.pr
     .legal-document__content-grid {
       grid-template-columns: minmax(0, 1fr);
       gap: var(--spacing-lg);
+      padding: var(--spacing-xl);
     }
   }
 </style>

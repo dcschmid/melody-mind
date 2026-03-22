@@ -235,7 +235,7 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
   .quiz-page {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: var(--spacing-3xl);
   }
 
   .quiz-hero {
@@ -245,35 +245,38 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
   .quiz-hero__panel {
     position: relative;
     display: flex;
-    padding: 1.5rem;
+    padding: var(--spacing-xl);
     background:
       radial-gradient(
         circle at top right,
-        color-mix(in srgb, var(--accent-primary) 20%, transparent),
+        color-mix(in srgb, var(--accent-primary) 14%, transparent),
         transparent 30%
       ),
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 92%, transparent),
-        var(--surface-2)
-      );
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 24%, var(--border-default));
-    border-radius: 1.5rem;
-    box-shadow:
-      0 24px 48px color-mix(in srgb, var(--accent-primary) 10%, transparent),
-      inset 0 1px 0 color-mix(in srgb, var(--color-white) 28%, transparent);
+      var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .quiz-hero__panel::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-2xl) - var(--spacing-xs));
   }
 
   @media (width >= 960px) {
     .quiz-hero__panel {
-      padding: 2rem;
+      padding: var(--spacing-2xl);
     }
   }
 
   .quiz-hero__copy {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--spacing-base);
     max-inline-size: 62ch;
   }
 
@@ -300,35 +303,41 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
 
   .quiz-hero__description {
     margin: 0;
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
     line-height: 1.8;
     color: var(--text-secondary);
   }
 
   @media (width >= 640px) {
     .quiz-hero__description {
-      font-size: 1.125rem;
+      font-size: var(--font-size-base);
     }
   }
 
   .quiz-section {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 94%, transparent),
-      var(--surface-2)
-    );
-    border: 1px solid var(--border-default);
-    border-radius: 1.35rem;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+  }
+
+  .quiz-section::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   @media (width >= 768px) {
     .quiz-section {
-      padding: 1.75rem;
+      padding: calc(var(--spacing-xl) + var(--spacing-sm));
     }
   }
 
@@ -349,14 +358,14 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
   .quiz-section__description {
     max-inline-size: 65ch;
     margin: 0;
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
     line-height: 1.7;
     color: var(--text-secondary);
   }
 
   .quiz-section__grid {
     display: grid;
-    gap: 1.5rem;
+    gap: var(--spacing-xl);
     padding: 0;
     margin: 0;
     list-style: none;
@@ -381,8 +390,8 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
         color-mix(in srgb, var(--accent-primary) 10%, transparent),
         transparent 42%
       ),
-      var(--surface-2);
-    border: 1px solid var(--border-default);
+      var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
   }
 </style>

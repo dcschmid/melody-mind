@@ -90,8 +90,11 @@ const articleDateFormatter = new Intl.DateTimeFormat("en-US", {
 
   .taxonomy-article-grid__empty {
     padding: var(--spacing-lg);
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
   }
 </style>

@@ -171,7 +171,7 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     font-family: var(--font-sans);
     line-height: var(--line-height-relaxed);
     color: var(--text-primary);
-    background-color: var(--bg-primary);
+    background: var(--page-background);
   }
 
   .knowledge__container {
@@ -199,10 +199,19 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     position: relative;
     padding: var(--spacing-lg);
     margin-top: 0;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+  }
+
+  .knowledge-article::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   .knowledge__back {

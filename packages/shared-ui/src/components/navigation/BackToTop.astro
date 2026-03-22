@@ -46,7 +46,11 @@ const screenReaderText = "Back to top";
     padding: var(--spacing-base);
     color: var(--text-primary);
     cursor: pointer;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--surface-2) 92%, var(--bg-primary)),
+      color-mix(in srgb, var(--surface-1) 96%, transparent)
+    );
     border: 2px solid var(--border-default);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-lg);
@@ -62,8 +66,8 @@ const screenReaderText = "Back to top";
   /* Hover and focus states - enhanced visual feedback */
   .back-to-top:hover,
   .back-to-top:focus-visible {
-    background: var(--surface-3);
-    border-color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
     box-shadow: var(--interactive-shadow-focus);
     transform: translateY(-2px);
   }

@@ -385,7 +385,35 @@ function ensureTrailingSlash(pathname: string) {
 </MasterLayout>
 
 <style>
+  :global(.podcast-layout) {
+    background: var(--page-background);
+  }
+
+  :global(.podcast-layout__main) {
+    position: relative;
+  }
+
+  :global(.podcast-layout__main)::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 48%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 18%, transparent),
+        transparent 28%
+      );
+  }
+
   .podcast-layout__container {
+    position: relative;
+    z-index: 1;
     display: grid;
     gap: var(--spacing-xl);
     max-inline-size: var(--max-width);

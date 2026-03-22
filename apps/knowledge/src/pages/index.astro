@@ -425,7 +425,7 @@ const pageSeo = buildPageSeo({
 
   .knowledge-index__intro {
     padding-block-end: calc(var(--spacing-xl) + var(--spacing-sm));
-    border-block-end: 1px solid var(--border-default);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .knowledge-index__hero-image {
@@ -446,7 +446,7 @@ const pageSeo = buildPageSeo({
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
     background: var(--surface-chip-bg);
-    border: 1px solid var(--surface-border-strong);
+    border: 1px solid var(--surface-border-subtle);
     border-radius: var(--radius-full);
   }
 
@@ -465,8 +465,8 @@ const pageSeo = buildPageSeo({
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    background: var(--surface-pill-bg);
-    border: 1px solid var(--surface-border-accent-strong);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-sm);
   }
@@ -547,10 +547,23 @@ const pageSeo = buildPageSeo({
 
   :global(.recent-reads),
   :global(.recent-reads--empty) {
+    position: relative;
     padding: var(--spacing-lg);
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
+    overflow: hidden;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-base);
+  }
+
+  :global(.recent-reads)::before,
+  :global(.recent-reads--empty)::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-lg) - var(--spacing-xs));
   }
 
   :global(.recent-reads--empty .empty-state__description) {
@@ -586,12 +599,13 @@ const pageSeo = buildPageSeo({
     background:
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--accent-primary) 18%, transparent),
+        color-mix(in srgb, var(--accent-primary) 12%, transparent),
         transparent
       ),
-      var(--surface-1);
-    border: 1px solid var(--border-default);
+      var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
     transition:
       transform var(--transition-fast),
       border-color var(--transition-fast),
@@ -606,7 +620,7 @@ const pageSeo = buildPageSeo({
 
   :global(.recent-reads__link:hover),
   :global(.recent-reads__link:focus) {
-    border-color: color-mix(in srgb, var(--accent-primary) 45%, var(--border-default));
+    border-color: var(--surface-border-accent);
     box-shadow: var(--interactive-shadow-focus);
     transform: translateY(-2px);
   }
@@ -624,9 +638,9 @@ const pageSeo = buildPageSeo({
       linear-gradient(
         145deg,
         var(--surface-2),
-        color-mix(in srgb, var(--accent-primary) 20%, var(--surface-1))
+        color-mix(in srgb, var(--accent-primary) 14%, var(--surface-1))
       ),
-      var(--surface-1);
+      var(--surface-panel-bg);
   }
 
   :global(.recent-reads__image) {
@@ -647,8 +661,8 @@ const pageSeo = buildPageSeo({
     background: linear-gradient(
       180deg,
       transparent 0%,
-      color-mix(in srgb, var(--surface-1) 15%, transparent) 30%,
-      color-mix(in srgb, var(--surface-1) 92%, transparent) 100%
+      color-mix(in srgb, var(--surface-1) 18%, transparent) 30%,
+      color-mix(in srgb, var(--surface-1) 94%, transparent) 100%
     );
     border-radius: var(--radius-md);
   }

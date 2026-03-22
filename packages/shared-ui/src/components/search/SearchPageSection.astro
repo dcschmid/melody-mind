@@ -156,12 +156,23 @@ const {
     /* Visual styling */
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--surface-1) 94%, transparent),
-      color-mix(in srgb, var(--surface-2) 66%, transparent)
+      color-mix(in srgb, var(--surface-1) 96%, transparent),
+      color-mix(in srgb, var(--surface-2) 78%, transparent)
     );
-    border: 2px solid var(--border-default);
+    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+  }
+
+  .search-page-section__hero-copy::before,
+  .search-page-section__hero-panel::before,
+  .search-page-section__panel::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid color-mix(in srgb, var(--border-default) 24%, transparent);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   /* Eyebrow text - small uppercase labels */
@@ -260,8 +271,8 @@ const {
     z-index: 1;
     min-inline-size: 0;
     padding: var(--spacing-lg);
-    background: color-mix(in srgb, var(--surface-1) 78%, transparent);
-    border: 1px solid var(--border-muted);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 24%, transparent);
     border-radius: var(--radius-lg);
   }
 

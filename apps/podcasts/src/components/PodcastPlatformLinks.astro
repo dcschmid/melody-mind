@@ -53,9 +53,10 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
     text-decoration: none;
-    background: color-mix(in srgb, var(--surface-1) 78%, transparent);
+    background: var(--surface-pill-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
     transition:
       transform var(--transition-fast),
       border-color var(--transition-fast),
@@ -64,7 +65,7 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
 
   .podcast-platform-links__link:hover,
   .podcast-platform-links__link:focus-visible {
-    background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+    background: var(--surface-chip-bg);
     border-color: var(--surface-border-accent);
     transform: translateY(-1px);
   }
@@ -77,13 +78,13 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
   .podcast-platform-links__link--secondary {
     color: var(--button-text-accent);
     background: var(--accent-primary);
-    border-color: var(--accent-strong);
+    border-color: var(--surface-border-accent);
   }
 
   .podcast-platform-links__link--secondary:hover,
   .podcast-platform-links__link--secondary:focus-visible {
     background: var(--accent-primary-hover);
-    border-color: var(--accent-strong);
+    border-color: var(--surface-border-accent-strong);
   }
 
   @media (prefers-reduced-motion: reduce) {

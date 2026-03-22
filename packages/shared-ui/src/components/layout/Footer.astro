@@ -52,108 +52,121 @@ const {
 <FooterShell class="site-footer">
   <div class="site-footer__grid">
     <div class="site-footer__section">
-      <Paragraph textSize="sm" className="site-footer__title">
-        {brandTitle}
-      </Paragraph>
-      <Paragraph textSize="sm" className="site-footer__text">
-        {brandText}
-      </Paragraph>
+      <div data-animate="soft-fade">
+        <Paragraph textSize="sm" className="site-footer__title">
+          {brandTitle}
+        </Paragraph>
+        <Paragraph textSize="sm" className="site-footer__text">
+          {brandText}
+        </Paragraph>
+      </div>
     </div>
 
     <div class="site-footer__section">
-      <Paragraph textSize="sm" className="site-footer__title">
-        {exploreTitle}
-      </Paragraph>
-      <nav aria-label="Footer navigation" class="site-footer__nav">
-        {
-          exploreLinks.map((link) => (
-            <a
-              class="site-footer__link"
-              href={link.href}
-              target={link.target}
-              rel={link.rel}
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </nav>
+      <div class="site-footer__motion site-footer__motion--fast" data-animate="rise-in">
+        <Paragraph textSize="sm" className="site-footer__title">
+          {exploreTitle}
+        </Paragraph>
+        <nav aria-label="Footer navigation" class="site-footer__nav">
+          {
+            exploreLinks.map((link) => (
+              <a
+                class="site-footer__link"
+                href={link.href}
+                target={link.target}
+                rel={link.rel}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
     </div>
 
     <div class="site-footer__section">
-      <Paragraph textSize="sm" className="site-footer__title">
-        {supportTitle}
-      </Paragraph>
-      <nav aria-label="Support links" class="site-footer__nav">
-        {
-          supportLinks.map((link) => (
-            <a
-              class="site-footer__link"
-              href={link.href}
-              target={link.target}
-              rel={link.rel}
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </nav>
+      <div class="site-footer__motion site-footer__motion--base" data-animate="rise-in">
+        <Paragraph textSize="sm" className="site-footer__title">
+          {supportTitle}
+        </Paragraph>
+        <nav aria-label="Support links" class="site-footer__nav">
+          {
+            supportLinks.map((link) => (
+              <a
+                class="site-footer__link"
+                href={link.href}
+                target={link.target}
+                rel={link.rel}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
     </div>
 
     <div class="site-footer__section">
-      <Paragraph textSize="sm" className="site-footer__title">
-        {legalTitle}
-      </Paragraph>
-      <nav aria-label="Legal navigation" class="site-footer__nav">
-        {
-          legalLinks.map((link) => (
-            <a
-              class="site-footer__link"
-              href={link.href}
-              target={link.target}
-              rel={link.rel}
-            >
-              {link.label}
-            </a>
-          ))
-        }
-      </nav>
+      <div class="site-footer__motion site-footer__motion--slow" data-animate="rise-in">
+        <Paragraph textSize="sm" className="site-footer__title">
+          {legalTitle}
+        </Paragraph>
+        <nav aria-label="Legal navigation" class="site-footer__nav">
+          {
+            legalLinks.map((link) => (
+              <a
+                class="site-footer__link"
+                href={link.href}
+                target={link.target}
+                rel={link.rel}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
     </div>
 
     {
       showSettings && (
         <div class="site-footer__section">
-          <Paragraph textSize="sm" className="site-footer__title">
-            {settingsTitle}
-          </Paragraph>
-          <nav aria-label="Settings navigation" class="site-footer__nav">
-            <ThemeToggle />
-            <button
-              type="button"
-              class="site-footer__link site-footer__cookie-button"
-              data-cookie-settings-trigger
-            >
-              {cookieSettingsLabel}
-            </button>
-          </nav>
-          <div class="site-footer__status-list">
-            <Paragraph
-              textSize="sm"
-              className="site-footer__cookie-status"
-              data-theme-status
-            >
-              {themeStatusPrefix}: system
+          <div
+            class="site-footer__motion site-footer__motion--settings"
+            data-animate="rise-in"
+          >
+            <Paragraph textSize="sm" className="site-footer__title">
+              {settingsTitle}
             </Paragraph>
-            <Paragraph
-              textSize="sm"
-              className="site-footer__cookie-status"
-              data-cookie-consent-status
-              data-cookie-waiting-label={cookiesWaitingLabel}
-              data-cookie-allowed-label={cookiesAllowedLabel}
-              data-cookie-essential-label={cookiesEssentialLabel}
-            >
-              {cookiesWaitingLabel}
-            </Paragraph>
+            <nav aria-label="Settings navigation" class="site-footer__nav">
+              <ThemeToggle />
+              <button
+                type="button"
+                class="site-footer__link site-footer__cookie-button"
+                data-cookie-settings-trigger
+              >
+                {cookieSettingsLabel}
+              </button>
+            </nav>
+            <div class="site-footer__status-list">
+              <Paragraph
+                textSize="sm"
+                className="site-footer__cookie-status"
+                data-theme-status
+              >
+                {themeStatusPrefix}: system
+              </Paragraph>
+              <Paragraph
+                textSize="sm"
+                className="site-footer__cookie-status"
+                data-cookie-consent-status
+                data-cookie-waiting-label={cookiesWaitingLabel}
+                data-cookie-allowed-label={cookiesAllowedLabel}
+                data-cookie-essential-label={cookiesEssentialLabel}
+              >
+                {cookiesWaitingLabel}
+              </Paragraph>
+            </div>
           </div>
         </div>
       )
@@ -225,7 +238,13 @@ const {
      ----------------------------------------------------------------------------- */
 
   .site-footer {
-    background: transparent;
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 28%, transparent),
+        transparent 40%
+      ),
+      transparent;
   }
 
   .site-footer :global(.footer-shell__container) {
@@ -260,13 +279,18 @@ const {
     flex-direction: column;
     gap: var(--spacing-sm);
     min-inline-size: 0;
+    padding: var(--spacing-lg);
+    background: color-mix(in srgb, var(--surface-1) 72%, transparent);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 62%, transparent);
   }
 
   /* Section title */
   .site-footer__title {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
-    color: var(--accent-primary);
+    color: var(--accent-strong);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -294,17 +318,20 @@ const {
     font-size: var(--font-size-base);
     color: var(--text-secondary);
     text-decoration: none;
+    border: 1px solid transparent;
     border-radius: var(--radius-md);
     transition:
       color var(--transition-fast),
       background-color var(--transition-fast),
+      border-color var(--transition-fast),
       box-shadow var(--transition-fast);
   }
 
   .site-footer__link:hover,
   .site-footer__link:focus-visible {
     color: var(--accent-primary);
-    background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent-strong);
   }
 
   .site-footer__link:focus-visible {
@@ -318,7 +345,7 @@ const {
     padding-block-start: var(--spacing-lg);
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
-    border-block-start: 1px solid var(--border-default);
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   /* Cookie settings button */
@@ -344,7 +371,28 @@ const {
     gap: var(--spacing-xs);
     padding-block-start: var(--spacing-sm);
     margin-block-start: var(--spacing-sm);
-    border-block-start: 1px solid var(--border-default);
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .site-footer__motion {
+    display: grid;
+    gap: var(--spacing-sm);
+  }
+
+  .site-footer__motion--fast {
+    --motion-delay: var(--motion-delay-fast);
+  }
+
+  .site-footer__motion--base {
+    --motion-delay: var(--motion-delay-base);
+  }
+
+  .site-footer__motion--slow {
+    --motion-delay: var(--motion-delay-slow);
+  }
+
+  .site-footer__motion--settings {
+    --motion-delay: 280ms;
   }
 
   @media (width <= 639px) {

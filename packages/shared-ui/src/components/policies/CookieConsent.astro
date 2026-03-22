@@ -14,6 +14,7 @@ const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
 <div
   class="cookie-consent"
   data-cookie-consent
+  data-animate="soft-fade"
   data-fathom-site-id={FATHOM_SITE_ID}
   role="dialog"
   aria-modal="true"
@@ -211,12 +212,15 @@ const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
     color: var(--text-primary);
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      color-mix(in srgb, var(--surface-1) 96%, transparent),
       color-mix(in srgb, var(--surface-2) 78%, transparent)
     );
-    border: 2px solid var(--border-default);
+    border: 2px solid color-mix(in srgb, var(--accent-primary) 42%, transparent);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-2xl);
+    box-shadow:
+      var(--shadow-2xl),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent);
+    backdrop-filter: blur(18px);
   }
 
   /* Text content spacing */
@@ -272,14 +276,14 @@ const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
   /* Secondary button - subtle styling */
   .cookie-consent__button--secondary {
     color: var(--text-primary);
-    background: var(--surface-2);
-    border-color: var(--border-default);
+    background: color-mix(in srgb, var(--surface-1) 92%, var(--surface-2));
+    border-color: color-mix(in srgb, var(--border-default) 82%, transparent);
   }
 
   .cookie-consent__button--secondary:hover,
   .cookie-consent__button--secondary:focus {
-    background: var(--surface-3);
-    border-color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
     box-shadow: var(--interactive-shadow-focus);
   }
 
@@ -288,11 +292,12 @@ const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
     color: var(--button-text-accent);
     background: var(--accent-primary);
     border-color: var(--accent-strong);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 16%, transparent);
   }
 
   .cookie-consent__button--primary:hover,
   .cookie-consent__button--primary:focus {
-    background: var(--accent-strong);
+    background: var(--accent-primary-hover);
     box-shadow: var(--interactive-shadow-focus);
   }
 

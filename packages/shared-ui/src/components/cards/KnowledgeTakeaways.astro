@@ -49,12 +49,8 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     padding: var(--spacing-lg);
 
     /* Visual styling */
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-2) 92%, transparent),
-      color-mix(in srgb, var(--surface-1) 76%, transparent)
-    );
-    border: 2px solid var(--border-default);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
   }
@@ -78,8 +74,8 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     letter-spacing: var(--letter-spacing-wide);
 
     /* Visual styling */
-    background: var(--surface-1);
-    border: 1px solid var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-full);
   }
 
@@ -118,8 +114,8 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     padding: var(--spacing-base);
 
     /* Visual styling */
-    background: var(--surface-1);
-    border: 1px solid var(--border-default);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-md);
 
     /* Smooth transition on hover */
@@ -131,7 +127,7 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
 
   .knowledge-takeaways__item:hover,
   .knowledge-takeaways__item:focus {
-    border-color: var(--accent-muted);
+    border-color: var(--surface-border-accent);
     box-shadow: var(--shadow-sm);
     transform: translateY(-1px);
   }
@@ -148,7 +144,7 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
 
     /* Visual styling */
     color: var(--accent-primary);
-    background: var(--surface-2);
+    background: var(--surface-chip-bg);
     border-radius: var(--radius-base);
   }
 

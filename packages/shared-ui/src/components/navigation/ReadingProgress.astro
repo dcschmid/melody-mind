@@ -19,7 +19,7 @@ interface Props {
 const {
   className = "reading-progress",
   barClassName = "reading-progress__bar",
-  labelClassName = "knowledge__sr",
+  labelClassName = "sr-only",
   barId = "reading-progress-bar",
   labelId = "reading-progress-label",
   labelText = "Reading progress: 0 percent",
@@ -31,6 +31,7 @@ const {
 <div
   class={className}
   data-reading-progress="true"
+  data-animate="soft-fade"
   data-progress-data-id={progressDataId}
   data-storage-key={storageKey}
 >
@@ -67,7 +68,8 @@ const {
       window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
     if (!prefersReduced) {
-      bar.style.transition = "width 120ms ease-out";
+      bar.style.transition =
+        "width var(--motion-duration-fast) var(--motion-ease-standard)";
     }
 
     const getProgressStore = () => {
@@ -189,13 +191,19 @@ const {
     top: 0;
     z-index: 60;
     height: 0.25rem;
-    background: color-mix(in srgb, var(--surface-3) 88%, transparent);
+    background: color-mix(in srgb, var(--surface-3) 84%, transparent);
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--border-default) 42%, transparent);
   }
 
   .reading-progress__bar {
     width: 0;
     height: 100%;
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-strong));
+    background: linear-gradient(
+      90deg,
+      var(--accent-primary),
+      color-mix(in srgb, var(--accent-strong) 54%, var(--accent-muted))
+    );
+    box-shadow: 0 0 12px color-mix(in srgb, var(--accent-primary) 28%, transparent);
   }
 
   @media (width >= 40rem) {

@@ -253,7 +253,7 @@ const {
   .simple-search__input:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
-    border-color: var(--accent-primary);
+    border-color: var(--accent-strong);
   }
 
   /* Status message - shows result count */
@@ -304,7 +304,8 @@ const {
 
   :global(.simple-search__result-link:hover),
   :global(.simple-search__result-link:focus-visible) {
-    border-color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
     box-shadow: var(--shadow-md);
     transform: translateY(-1px);
   }
@@ -323,7 +324,7 @@ const {
     padding: 0 var(--spacing-xs);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    color: var(--accent-primary);
+    color: var(--accent-strong);
     background: color-mix(in srgb, var(--accent-primary) 10%, transparent);
     border: 1px solid color-mix(in srgb, var(--accent-primary) 28%, transparent);
     border-radius: var(--radius-full);
@@ -377,7 +378,7 @@ const {
 
   :global(.simple-search__result-link:hover .simple-search__result-arrow),
   :global(.simple-search__result-link:focus-visible .simple-search__result-arrow) {
-    color: var(--accent-primary);
+    color: var(--accent-strong);
     transform: translateX(2px);
   }
 

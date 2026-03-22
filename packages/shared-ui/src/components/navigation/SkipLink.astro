@@ -53,12 +53,15 @@ const iconClasses = "skip-link__icon";
 
     /* Typography */
     font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
 
     /* Visual styling - high contrast for accessibility */
     color: var(--button-text-accent);
     text-decoration: none;
-    background: var(--accent-primary);
+    background: linear-gradient(
+      180deg,
+      var(--accent-primary),
+      color-mix(in srgb, var(--accent-strong) 78%, var(--accent-primary))
+    );
     border-radius: 0 0 var(--radius-base) var(--radius-base);
     box-shadow: var(--shadow-xl);
 

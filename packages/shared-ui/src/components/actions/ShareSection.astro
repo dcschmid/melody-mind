@@ -184,12 +184,8 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     gap: var(--spacing-md);
     padding: var(--spacing-lg);
     margin-block-start: var(--share-section-margin-start);
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--surface-2) 96%, transparent),
-      color-mix(in srgb, var(--surface-1) 82%, transparent)
-    );
-    border: 1px solid var(--border-default);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
   }
@@ -265,8 +261,8 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       white-space: nowrap;
       text-decoration: none;
       cursor: pointer;
-      background: color-mix(in srgb, var(--surface-2) 88%, transparent);
-      border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+      background: var(--surface-pill-bg);
+      border: 1px solid var(--surface-border-soft);
       border-radius: var(--radius-full);
       transition: none;
     }
@@ -291,8 +287,8 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
-    background: color-mix(in srgb, var(--surface-2) 88%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
     transition:
       background-color var(--transition-fast),
@@ -302,8 +298,8 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
 
   .share-section__button:hover,
   .share-section__button:focus {
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
     transform: translateY(-1px);
   }
 
@@ -315,12 +311,13 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
   .share-section__button--primary {
     color: var(--accent-contrast);
     background: var(--accent-primary);
-    border-color: color-mix(in srgb, var(--accent-primary) 40%, var(--border-default));
+    border-color: var(--surface-border-accent);
   }
 
   .share-section__button--primary:hover,
   .share-section__button--primary:focus {
-    background: var(--accent-strong);
+    background: var(--accent-primary-hover);
+    border-color: var(--surface-border-accent-strong);
   }
 
   .share-section__button-icon {

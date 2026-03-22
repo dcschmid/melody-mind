@@ -285,9 +285,9 @@ const pageSeo = buildPageSeo({
     min-width: 0;
     padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
     overflow: hidden;
-    border: var(--card-border-width) solid
-      color-mix(in srgb, var(--card-border-color) 82%, transparent);
-    border-radius: var(--card-radius);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-base);
   }
 
@@ -296,30 +296,32 @@ const pageSeo = buildPageSeo({
     inset: var(--spacing-xs);
     pointer-events: none;
     content: "";
-    border: 1px solid color-mix(in srgb, var(--border-default) 34%, transparent);
-    border-radius: calc(var(--card-radius) - var(--spacing-xs));
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   .ai-policy__section--contact {
     background:
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--surface-1) 96%, transparent),
-        color-mix(in srgb, var(--surface-2) 92%, transparent)
+        color-mix(in srgb, var(--surface-1) 48%, transparent),
+        transparent 72%
       ),
       radial-gradient(
         circle at top right,
         color-mix(in srgb, var(--accent-primary) 11%, transparent),
         transparent 38%
-      );
+      ),
+      var(--surface-panel-bg);
   }
 
   .ai-policy__section--principles {
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1)),
-      color-mix(in srgb, var(--surface-1) 98%, transparent)
+      color-mix(in srgb, var(--accent-primary) 10%, transparent),
+      transparent 58%
     );
+    background-color: var(--surface-panel-bg);
   }
 
   .ai-policy__section--faq {
@@ -331,7 +333,7 @@ const pageSeo = buildPageSeo({
     gap: var(--spacing-md);
     align-items: center;
     padding-block-end: var(--spacing-base);
-    border-block-end: 1px solid color-mix(in srgb, var(--border-default) 72%, transparent);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .ai-policy__icon {
@@ -353,9 +355,9 @@ const pageSeo = buildPageSeo({
 
   .ai-policy__faq-item {
     padding: var(--spacing-base);
-    background: color-mix(in srgb, var(--surface-1) 88%, transparent);
+    background: var(--surface-chip-bg);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--card-radius);
+    border-radius: var(--radius-lg);
   }
 
   .ai-policy__faq-question {
@@ -394,7 +396,7 @@ const pageSeo = buildPageSeo({
     background: var(--accent-primary);
     border-radius: var(--radius-full);
     box-shadow: 0 0 0 var(--spacing-sm)
-      color-mix(in srgb, var(--accent-primary) 14%, transparent);
+      color-mix(in srgb, var(--accent-primary) 12%, transparent);
   }
 
   @media (width >= 720px) {

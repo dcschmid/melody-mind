@@ -275,7 +275,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
     background:
       radial-gradient(
         circle at top right,
-        color-mix(in srgb, var(--accent-primary) 18%, transparent),
+        color-mix(in srgb, var(--accent-primary) 12%, transparent),
         transparent 36%
       ),
       var(--surface-panel-bg);
@@ -306,7 +306,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
     color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
-    background: var(--surface-pill-bg);
+    background: var(--surface-chip-bg);
     border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-full);
   }
@@ -329,6 +329,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   }
 
   .episode__knowledge {
+    position: relative;
     display: grid;
     gap: var(--spacing-base);
     align-items: center;
@@ -337,6 +338,15 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
     border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
+  }
+
+  .episode__knowledge::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-lg) - var(--spacing-xs));
   }
 
   .episode__kicker {
@@ -348,6 +358,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   }
 
   .episode__audio {
+    position: relative;
     display: grid;
     gap: var(--spacing-base);
     padding: var(--spacing-lg);
@@ -355,6 +366,15 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
+  }
+
+  .episode__audio::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-lg) - var(--spacing-xs));
   }
 
   .episode__notes {

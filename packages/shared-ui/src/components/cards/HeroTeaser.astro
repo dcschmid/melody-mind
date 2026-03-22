@@ -76,22 +76,6 @@ const resolvedMediaAspectRatio =
       <Paragraph id={descriptionId} textSize="xl" className="hero-teaser__description">
         {description}
       </Paragraph>
-
-      {
-        hasMetaSlot ? (
-          <div class="hero-teaser__meta">
-            <slot name="meta" />
-          </div>
-        ) : null
-      }
-
-      {
-        hasActionsSlot ? (
-          <div class="hero-teaser__actions">
-            <slot name="actions" />
-          </div>
-        ) : null
-      }
     </div>
 
     <div
@@ -128,6 +112,22 @@ const resolvedMediaAspectRatio =
       }
     </div>
   </div>
+  {
+    hasMetaSlot || hasActionsSlot ? (
+      <div class="hero-teaser__footer">
+        {hasMetaSlot ? (
+          <div class="hero-teaser__meta">
+            <slot name="meta" />
+          </div>
+        ) : null}
+        {hasActionsSlot ? (
+          <div class="hero-teaser__actions">
+            <slot name="actions" />
+          </div>
+        ) : null}
+      </div>
+    ) : null
+  }
 </section>
 
 <style>
@@ -145,8 +145,8 @@ const resolvedMediaAspectRatio =
         color-mix(in srgb, var(--accent-primary) 14%, transparent),
         transparent 38%
       ),
-      linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
+      var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-lg);
     isolation: isolate;
@@ -170,6 +170,16 @@ const resolvedMediaAspectRatio =
     display: grid;
     gap: clamp(var(--spacing-base), 3vw, var(--spacing-2xl));
     align-items: center;
+  }
+
+  .hero-teaser__footer {
+    display: grid;
+    gap: clamp(var(--spacing-md), 2.4vw, var(--spacing-lg));
+    inline-size: 100%;
+    padding-block-start: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
+    margin-block-start: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--border-default) 42%, transparent);
   }
 
   .hero-teaser__copy {
@@ -203,10 +213,25 @@ const resolvedMediaAspectRatio =
 
   .hero-teaser__meta,
   .hero-teaser__actions {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
-    align-items: center;
+    align-items: stretch;
+    inline-size: 100%;
+  }
+
+  .hero-teaser__meta {
+    justify-content: flex-start;
+  }
+
+  .hero-teaser__actions {
+    justify-content: flex-start;
+  }
+
+  .hero-teaser__meta > :global(*),
+  .hero-teaser__actions > :global(*) {
+    inline-size: 100%;
+    min-block-size: 100%;
   }
 
   .hero-teaser__actions :global(a),
@@ -225,8 +250,8 @@ const resolvedMediaAspectRatio =
         color-mix(in srgb, var(--surface-1) 45%, transparent),
         transparent
       ),
-      var(--surface-3);
-    border: 1px solid var(--border-muted);
+      var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: calc(var(--radius-2xl) - var(--spacing-xs));
     box-shadow: var(--shadow-md);
   }
@@ -325,6 +350,10 @@ const resolvedMediaAspectRatio =
 
     .hero-teaser--media-end .hero-teaser__media {
       order: 2;
+    }
+
+    .hero-teaser__footer {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 

@@ -199,13 +199,23 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
   }
 
   .home__episodes {
+    position: relative;
     display: grid;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
     background: var(--surface-panel-bg);
-    border: 1px solid var(--border-default);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+  }
+
+  .home__episodes::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   .home__section-title {
@@ -221,7 +231,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
 
   .home__empty {
     padding: var(--spacing-2xl) var(--spacing-lg);
-    background: var(--surface-1);
+    background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-subtle);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-base);

@@ -63,9 +63,9 @@ const hasTools = aiTools.length > 0;
       color: var(--text-secondary);
       letter-spacing: 0.02em;
       text-decoration: none;
-      background: linear-gradient(145deg, var(--surface-2), var(--surface-1));
-      border: 1px solid var(--border-default);
-      border-radius: 999px;
+      background: var(--surface-pill-bg);
+      border: 1px solid var(--surface-border-soft);
+      border-radius: var(--radius-full);
       box-shadow: var(--shadow-xs);
       transition: none;
     }
@@ -82,9 +82,9 @@ const hasTools = aiTools.length > 0;
     color: var(--text-secondary);
     letter-spacing: 0.02em;
     text-decoration: none;
-    background: linear-gradient(145deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
-    border-radius: 999px;
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
     box-shadow: var(--shadow-xs);
     transition:
       color var(--transition-fast),
@@ -102,15 +102,15 @@ const hasTools = aiTools.length > 0;
   .ai-content-badge:hover,
   .ai-content-badge:focus-visible {
     color: var(--text-primary);
-    background: linear-gradient(145deg, var(--surface-3), var(--surface-2));
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
     box-shadow: var(--interactive-shadow-focus);
     transform: translateY(-1px);
   }
 
   .ai-content-badge:focus-visible {
-    outline: var(--focus-ring-width, 3px) solid var(--accent-primary);
-    outline-offset: var(--focus-ring-offset, 2px);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .ai-content-badge__content {

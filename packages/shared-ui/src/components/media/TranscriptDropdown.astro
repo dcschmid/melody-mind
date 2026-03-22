@@ -65,8 +65,12 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 <style>
   .transcript {
     margin-block-start: var(--spacing-xl);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-accent);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 96%, transparent),
+      color-mix(in srgb, var(--surface-2) 78%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 28%, transparent);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
   }
@@ -79,7 +83,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     padding: var(--spacing-base) var(--spacing-lg);
     cursor: pointer;
     list-style: none;
-    background: var(--surface-pill-bg);
+    background: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2));
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 
@@ -115,7 +119,8 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 
   .transcript__body {
     padding: var(--spacing-base) var(--spacing-lg) var(--spacing-lg);
-    border-block-start: 1px solid var(--surface-border-soft);
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--border-default) 58%, transparent);
   }
 
   .transcript__status {
@@ -124,13 +129,13 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   }
 
   .transcript__status--error {
-    color: var(--form-error-color);
+    color: var(--color-error);
   }
 
   .transcript__content {
     display: grid;
     gap: var(--spacing-md);
-    max-block-size: var(--overlay-max-block-size);
+    max-block-size: 24rem;
     padding-inline-end: var(--spacing-xs);
     overflow-block: auto;
   }
@@ -149,8 +154,8 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     text-align: start;
     appearance: none;
     cursor: pointer;
-    background: var(--surface-pill-bg);
-    border: 1px solid var(--surface-border-soft);
+    background: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2));
+    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
     border-radius: var(--radius-md);
   }
 
@@ -160,8 +165,8 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   }
 
   :global(.transcript .transcript__cue--active) {
-    background: var(--surface-chip-bg);
-    border-color: var(--surface-border-accent-strong);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: color-mix(in srgb, var(--accent-primary) 42%, transparent);
   }
 
   :global(.transcript .transcript__time) {

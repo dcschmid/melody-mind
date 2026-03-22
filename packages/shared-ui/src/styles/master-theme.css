@@ -77,34 +77,35 @@
      LIGHT MODE COLORS (WCAG AAA Compliant: 7:1 contrast minimum)
      --------------------------------------------------------------------------- */
   /* Primary background surfaces */
-  --color-bg-primary: #f7f9fc; /* Base canvas */
-  --color-bg-secondary: #e8edf5; /* Elevated surface */
-  --color-bg-tertiary: #dde4ef; /* Highest elevation */
+  --color-bg-primary: #f6f1e8; /* Warm canvas */
+  --color-bg-secondary: #ede2d2; /* Section surface */
+  --color-bg-tertiary: #decebb; /* Elevated backdrop */
 
-  /* Surface colors (white-based) */
-  --color-surface-1: #ffffff; /* Cards, panels */
-  --color-surface-2: #f2f6fb; /* Slightly tinted */
-  --color-surface-3: #e8edf5; /* More visible elevation */
+  /* Surface colors */
+  --color-surface-1: #fcfaf6; /* Cards, panels */
+  --color-surface-2: #f4ece0; /* Secondary card surface */
+  --color-surface-3: #e9dcc9; /* Strongest elevated surface */
 
-  /* Text colors (WCAG AAA: 7:1+ on backgrounds) */
-  --color-text-primary: #0d111b; /* Body text (10.8:1 on white) */
-  --color-text-secondary: #2a3446; /* Secondary text (8.2:1 on white) */
-  --color-text-tertiary: #3f4d65; /* Muted text (5.8:1, use sparingly) */
+  /* Text colors (WCAG AAA: 7:1+ on surfaces) */
+  --color-text-primary: #1c140f;
+  --color-text-secondary: #3b2d24;
+  --color-text-tertiary: #5a4739;
 
-  /* Accent colors (Amber/Brown for light, Cyan for dark) */
-  --color-accent-primary: #7a4700; /* Main brand color (7.5:1 on white) */
-  --color-accent-strong: #5b3000; /* Stronger variant (10.2:1 on white) */
-  --color-accent-light: #9a5800; /* Lighter variant (5.8:1 on white) */
+  /* Accent colors */
+  --color-accent-primary: #72451f;
+  --color-accent-strong: #583114;
+  --color-accent-light: #8d5327;
+  --color-accent-primary-hover: #5f3414;
 
   /* Link colors */
-  --color-link-default: #6a3f00; /* Links (8.5:1 on white) */
-  --color-link-hover: #5b3000; /* Hover state */
-  --color-link-visited: #7a4700; /* Visited links */
+  --color-link-default: #6a3d18;
+  --color-link-hover: #4d2810;
+  --color-link-visited: #5e3767;
 
   /* Border colors */
-  --color-border-default: #4a5c78; /* Standard borders (4.8:1) */
-  --color-border-muted: rgba(74, 92, 120, 0.5); /* Subtle borders */
-  --color-border-strong: #2a3446; /* Emphasized borders */
+  --color-border-default: #6b5545;
+  --color-border-muted: rgba(107, 85, 69, 0.42);
+  --color-border-strong: #4d392c;
 
   /* Status colors (WCAG AAA compliant) */
   --color-success: #1e8449; /* Success (7.2:1 on white) */
@@ -115,29 +116,30 @@
   /* ---------------------------------------------------------------------------
      DARK MODE COLORS (WCAG AAA Compliant)
      --------------------------------------------------------------------------- */
-  --color-dark-bg-primary: #080c14;
-  --color-dark-bg-secondary: #0f1420;
-  --color-dark-bg-tertiary: #161d2c;
+  --color-dark-bg-primary: #08131a;
+  --color-dark-bg-secondary: #10202a;
+  --color-dark-bg-tertiary: #18303d;
 
-  --color-dark-surface-1: #06090f;
-  --color-dark-surface-2: #0d1219;
-  --color-dark-surface-3: #141b26;
+  --color-dark-surface-1: #0e1a22;
+  --color-dark-surface-2: #142530;
+  --color-dark-surface-3: #1b3441;
 
-  --color-dark-text-primary: #f6f9fc; /* 14.5:1 on dark bg */
-  --color-dark-text-secondary: #c5d0e5; /* 10.2:1 on dark bg */
-  --color-dark-text-tertiary: #a8b7d1; /* 7.8:1 on dark bg */
+  --color-dark-text-primary: #f5f7fb;
+  --color-dark-text-secondary: #d8e3ed;
+  --color-dark-text-tertiary: #bccbda;
 
-  --color-dark-accent-primary: #99d9ff; /* Cyan (11.5:1 on dark bg) */
-  --color-dark-accent-strong: #c5ebff; /* Lighter cyan (13.2:1) */
-  --color-dark-accent-light: #7dcbf5; /* Darker cyan (9.5:1) */
+  --color-dark-accent-primary: #8fe6d4;
+  --color-dark-accent-strong: #baf4e7;
+  --color-dark-accent-light: #72ceb9;
+  --color-dark-accent-primary-hover: #79d8c4;
 
-  --color-dark-link-default: #99d9ff;
-  --color-dark-link-hover: #c5ebff;
-  --color-dark-link-visited: #b3e5ff;
+  --color-dark-link-default: #9cecdf;
+  --color-dark-link-hover: #c8fbef;
+  --color-dark-link-visited: #d7c5ff;
 
-  --color-dark-border-default: #5b6d8d;
-  --color-dark-border-muted: rgba(91, 109, 141, 0.4);
-  --color-dark-border-strong: #7a8eab;
+  --color-dark-border-default: #7d95a6;
+  --color-dark-border-muted: rgba(125, 149, 166, 0.4);
+  --color-dark-border-strong: #a8bdcb;
 
   /* ---------------------------------------------------------------------------
      RADIUS & SHADOWS
@@ -163,14 +165,29 @@
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-duration-instant: 0ms;
+  --motion-duration-fast: 140ms;
+  --motion-duration-base: 220ms;
+  --motion-duration-slow: 320ms;
+  --motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-emphasis: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-distance-xs: 0.125rem;
+  --motion-distance-sm: 0.25rem;
+  --motion-distance-md: 0.5rem;
+  --motion-opacity-soft: 0.72;
+  --motion-opacity-full: 1;
+  --motion-delay-none: 0ms;
+  --motion-delay-fast: 80ms;
+  --motion-delay-base: 140ms;
+  --motion-delay-slow: 220ms;
 
   /* ---------------------------------------------------------------------------
      ACCESSIBILITY & FOCUS
      --------------------------------------------------------------------------- */
   --focus-ring-width: 3px;
   --focus-ring-offset: 2px;
-  --focus-ring-color: var(--color-accent-primary);
-  --focus-ring-color-dark: var(--color-dark-accent-primary);
+  --focus-ring-color: #8d5327;
+  --focus-ring-color-dark: #baf4e7;
 
   /* Screen reader only */
   --sr-only: absolute;
@@ -204,6 +221,7 @@
   --accent-primary: var(--color-accent-primary);
   --accent-strong: var(--color-accent-strong);
   --accent-muted: var(--color-accent-light);
+  --accent-primary-hover: var(--color-accent-primary-hover);
   --accent-contrast: var(--color-surface-1);
 
   --gn-accent: var(--accent-primary);
@@ -219,10 +237,21 @@
   --border-strong: var(--color-border-strong);
 
   --gn-panel-border: var(--border-default);
-  --surface-overlay: color-mix(in srgb, var(--bg-primary) 72%, transparent);
-  --surface-scrim: color-mix(in srgb, var(--text-primary) 28%, transparent);
-  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 26%, transparent);
-  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--accent-primary) 22%, transparent);
+  --page-background:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--accent-primary) 8%, transparent),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 72%, var(--bg-primary)),
+      var(--bg-primary)
+    );
+  --surface-overlay: color-mix(in srgb, var(--surface-1) 84%, transparent);
+  --surface-scrim: color-mix(in srgb, var(--text-primary) 24%, transparent);
+  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 28%, transparent);
+  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 20%, transparent);
   --button-text-accent: var(--accent-contrast);
 
   /* Legacy aliases for compatibility */
@@ -234,6 +263,13 @@
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-duration-fast: 140ms;
+  --motion-duration-base: 220ms;
+  --motion-duration-slow: 320ms;
+  --motion-delay-fast: 80ms;
+  --motion-delay-base: 140ms;
+  --motion-delay-slow: 220ms;
+  --motion-ok: 1;
 }
 
 /* =============================================================================
@@ -258,6 +294,7 @@
     --accent-primary: var(--color-dark-accent-primary);
     --accent-strong: var(--color-dark-accent-strong);
     --accent-muted: var(--color-dark-accent-light);
+    --accent-primary-hover: var(--color-dark-accent-primary-hover);
     --accent-contrast: var(--color-dark-bg-primary);
 
     --gn-accent: var(--accent-primary);
@@ -273,10 +310,21 @@
     --border-strong: var(--color-dark-border-strong);
 
     --gn-panel-border: var(--border-default);
-    --surface-overlay: color-mix(in srgb, var(--bg-primary) 78%, transparent);
-    --surface-scrim: color-mix(in srgb, var(--bg-primary) 62%, transparent);
-    --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 26%, transparent);
-    --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--accent-primary) 28%, transparent);
+    --page-background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 14%, transparent),
+        transparent 34%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-2) 42%, var(--bg-primary)),
+        var(--bg-primary)
+      );
+    --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
+    --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
+    --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+    --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
     --button-text-accent: var(--color-dark-bg-primary);
 
     /* Legacy aliases */
@@ -315,6 +363,7 @@
   --accent-primary: var(--color-dark-accent-primary);
   --accent-strong: var(--color-dark-accent-strong);
   --accent-muted: var(--color-dark-accent-light);
+  --accent-primary-hover: var(--color-dark-accent-primary-hover);
   --accent-contrast: var(--color-dark-bg-primary);
 
   --gn-accent: var(--accent-primary);
@@ -330,10 +379,21 @@
   --border-strong: var(--color-dark-border-strong);
 
   --gn-panel-border: var(--border-default);
-  --surface-overlay: color-mix(in srgb, var(--bg-primary) 78%, transparent);
-  --surface-scrim: color-mix(in srgb, var(--bg-primary) 62%, transparent);
-  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--accent-primary) 26%, transparent);
-  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--accent-primary) 28%, transparent);
+  --page-background:
+    radial-gradient(
+      circle at top center,
+      color-mix(in srgb, var(--accent-primary) 14%, transparent),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-2) 42%, var(--bg-primary)),
+      var(--bg-primary)
+    );
+  --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
+  --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
+  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
   --button-text-accent: var(--color-dark-bg-primary);
 
   /* Legacy aliases */
@@ -393,20 +453,24 @@
   --section-gap: var(--spacing-3xl);
 
   /* Surfaces */
-  --surface-panel-bg: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-  --surface-chip-bg: color-mix(in srgb, var(--surface-1) 96%, transparent);
-  --surface-pill-bg: color-mix(in srgb, var(--surface-1) 92%, transparent);
-  --surface-border-subtle: color-mix(in srgb, var(--border-default) 34%, transparent);
-  --surface-border-soft: color-mix(in srgb, var(--border-default) 72%, transparent);
-  --surface-border-strong: color-mix(in srgb, var(--border-default) 88%, transparent);
+  --surface-panel-bg: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--surface-2) 88%, var(--surface-3)),
+    var(--surface-1)
+  );
+  --surface-chip-bg: color-mix(in srgb, var(--surface-1) 94%, var(--bg-primary));
+  --surface-pill-bg: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2));
+  --surface-border-subtle: color-mix(in srgb, var(--border-default) 24%, transparent);
+  --surface-border-soft: color-mix(in srgb, var(--border-default) 58%, transparent);
+  --surface-border-strong: color-mix(in srgb, var(--border-default) 82%, transparent);
   --surface-border-accent: color-mix(
     in srgb,
-    var(--accent-primary) 36%,
+    var(--accent-primary) 28%,
     var(--border-default)
   );
   --surface-border-accent-strong: color-mix(
     in srgb,
-    var(--accent-primary) 40%,
+    var(--accent-primary) 42%,
     var(--border-default)
   );
 }
@@ -418,6 +482,7 @@ html {
   font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -427,7 +492,31 @@ body {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
   color: var(--text-primary);
-  background: var(--bg-primary);
+  background: var(--page-background);
+  background-color: var(--bg-primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    animation: theme-fade-in var(--motion-duration-slow) var(--motion-ease-standard);
+  }
+
+  [data-animate="rise-in"] {
+    animation:
+      theme-rise-in var(--motion-duration-base) var(--motion-ease-standard)
+        var(--motion-delay, var(--motion-delay-none)) both,
+      theme-fade-in var(--motion-duration-base) linear
+        var(--motion-delay, var(--motion-delay-none)) both;
+  }
+
+  [data-animate="soft-fade"] {
+    animation: theme-fade-in var(--motion-duration-base) linear
+      var(--motion-delay, var(--motion-delay-none)) both;
+  }
+
+  [data-animate="glow-pulse"] {
+    animation: theme-glow-pulse 2.8s ease-in-out infinite;
+  }
 }
 
 /* =============================================================================
@@ -456,6 +545,29 @@ body {
    REDUCED MOTION
    ============================================================================= */
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms linear;
+    --transition-base: 0ms linear;
+    --transition-slow: 0ms linear;
+    --motion-duration-instant: 0ms;
+    --motion-duration-fast: 0ms;
+    --motion-duration-base: 0ms;
+    --motion-duration-slow: 0ms;
+    --motion-delay-none: 0ms;
+    --motion-delay-fast: 0ms;
+    --motion-delay-base: 0ms;
+    --motion-delay-slow: 0ms;
+    --motion-distance-xs: 0rem;
+    --motion-distance-sm: 0rem;
+    --motion-distance-md: 0rem;
+    --motion-opacity-soft: 1;
+    --motion-ok: 0;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
@@ -463,5 +575,107 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@keyframes theme-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes theme-rise-in {
+  from {
+    opacity: var(--motion-opacity-soft);
+    transform: translateY(var(--motion-distance-sm));
+  }
+
+  to {
+    opacity: var(--motion-opacity-full);
+    transform: translateY(0);
+  }
+}
+
+@keyframes theme-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 0 0.35rem
+      color-mix(in srgb, var(--accent-primary) 10%, transparent);
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --surface-1: #ffffff;
+    --surface-2: #ffffff;
+    --surface-3: #f2ede6;
+    --text-secondary: var(--text-primary);
+    --text-tertiary: var(--text-primary);
+    --border-default: var(--border-strong);
+    --border-muted: var(--border-default);
+    --link-default: var(--accent-strong);
+    --link-hover: var(--accent-strong);
+    --page-background: none;
+    --surface-panel-bg: var(--surface-1);
+    --surface-chip-bg: var(--surface-1);
+    --surface-pill-bg: var(--surface-1);
+    --interactive-shadow-focus: 0 0 0 4px
+      color-mix(in srgb, var(--focus-ring-color) 38%, transparent);
+    --interactive-shadow-strong: 0 0 0 6px
+      color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+  }
+
+  :root[data-theme="dark"] {
+    --surface-1: #0d1820;
+    --surface-2: #0d1820;
+    --surface-3: #132631;
+    --text-secondary: var(--text-primary);
+    --text-tertiary: var(--text-primary);
+    --border-default: var(--border-strong);
+    --border-muted: var(--border-default);
+    --link-default: var(--accent-strong);
+    --link-hover: var(--accent-strong);
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --bg-primary: Canvas;
+    --bg-secondary: Canvas;
+    --bg-tertiary: Canvas;
+    --surface-1: Canvas;
+    --surface-2: Canvas;
+    --surface-3: Canvas;
+    --text-primary: CanvasText;
+    --text-secondary: CanvasText;
+    --text-tertiary: CanvasText;
+    --accent-primary: LinkText;
+    --accent-strong: LinkText;
+    --accent-muted: LinkText;
+    --accent-primary-hover: Highlight;
+    --link-default: LinkText;
+    --link-hover: Highlight;
+    --link-visited: VisitedText;
+    --border-default: CanvasText;
+    --border-muted: CanvasText;
+    --border-strong: CanvasText;
+    --focus-ring-color: Highlight;
+    --page-background: none;
+    --surface-panel-bg: Canvas;
+    --surface-chip-bg: Canvas;
+    --surface-pill-bg: Canvas;
+    --surface-overlay: transparent;
+    --surface-scrim: rgba(0, 0, 0, 0.65);
+    --interactive-shadow-focus: none;
+    --interactive-shadow-strong: none;
+    --button-text-accent: ButtonText;
   }
 }

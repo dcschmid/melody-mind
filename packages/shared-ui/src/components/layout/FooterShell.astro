@@ -37,12 +37,19 @@ const hasBottom = Astro.slots.has("bottom");
 
   .footer-shell {
     margin-block-start: var(--spacing-4xl);
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-2) 72%, transparent),
-      color-mix(in srgb, var(--bg-primary) 92%, transparent)
-    );
-    border-block-start: 1px solid var(--border-default);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-overlay) 82%, transparent),
+        transparent 14rem
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-2) 88%, var(--bg-secondary)),
+        color-mix(in srgb, var(--surface-1) 78%, var(--bg-primary))
+      );
+    border-block-start: 1px solid var(--surface-border-soft);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 64%, transparent);
   }
 
   .footer-shell__container {

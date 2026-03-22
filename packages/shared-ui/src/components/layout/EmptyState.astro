@@ -1,6 +1,7 @@
 ---
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 
+// EmptyState stays intentionally small: callers pass copy and optional ARIA behavior.
 interface Props extends astroHTML.JSX.HTMLAttributes {
   title?: string;
   description?: string;
@@ -22,9 +23,11 @@ const {
   ...rest
 } = Astro.props as Props;
 
+// Preserve the shared block class while still allowing local extension hooks.
 const classes = ["empty-state", className, classProp].filter(Boolean).join(" ");
 ---
 
+<!-- Default live-region behavior makes async empty results announce politely. -->
 <div
   {...rest}
   class={classes}
@@ -49,15 +52,20 @@ const classes = ["empty-state", className, classProp].filter(Boolean).join(" ");
 </div>
 
 <style>
+  /* Token-driven panel surface so empty states stay aligned with cards and dialogs. */
   .empty-state {
     padding: var(--spacing-2xl) var(--spacing-xl);
     color: var(--text-secondary);
     text-align: center;
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
-    border: 1px solid var(--border-default);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
   }
 
+  /* Title keeps the stronger text token for a clear empty-state hierarchy. */
   .empty-state__title {
     margin: 0;
     font-size: var(--font-size-lg);
@@ -66,6 +74,7 @@ const classes = ["empty-state", className, classProp].filter(Boolean).join(" ");
     letter-spacing: var(--letter-spacing-tight);
   }
 
+  /* Body copy stays softer, but with enough spacing to read as a follow-up message. */
   .empty-state__description {
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);

@@ -150,12 +150,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
     outline: none;
 
     /* Visual styling */
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 94%, transparent),
-      color-mix(in srgb, var(--surface-2) 72%, transparent)
-    );
-    border: 1px solid var(--border-default);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
   }
@@ -183,8 +179,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
       font-weight: var(--font-weight-semibold);
       color: var(--text-primary);
       cursor: pointer;
-      background: var(--surface-2);
-      border: 2px solid var(--border-default);
+      background: var(--surface-pill-bg);
+      border: 2px solid var(--surface-border-soft);
       border-radius: var(--radius-base);
       transition: none;
     }
@@ -196,8 +192,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     cursor: pointer;
-    background: var(--surface-2);
-    border: 2px solid var(--border-default);
+    background: var(--surface-pill-bg);
+    border: 2px solid var(--surface-border-soft);
     border-radius: var(--radius-base);
     transition:
       background var(--transition-fast),
@@ -206,8 +202,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   .episode-player__retry:hover,
   .episode-player__retry:focus-visible {
-    background: var(--surface-3);
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
   }
 
   .episode-player__retry[hidden] {
@@ -230,7 +226,7 @@ const hintId = `episode-player-hint-${playerSlug}`;
       /* Visual styling */
       cursor: pointer;
       background: var(--accent-primary);
-      border: 2px solid var(--accent-strong);
+      border: 2px solid var(--surface-border-accent);
       border-radius: var(--radius-full);
       box-shadow: var(--shadow-lg);
 
@@ -253,7 +249,7 @@ const hintId = `episode-player-hint-${playerSlug}`;
     /* Visual styling */
     cursor: pointer;
     background: var(--accent-primary);
-    border: 2px solid var(--accent-strong);
+    border: 2px solid var(--surface-border-accent);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-lg);
 
@@ -322,8 +318,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
       inline-size: 100%;
       block-size: clamp(0.65rem, 1.2vi, 0.85rem);
       cursor: pointer;
-      background: var(--surface-3);
-      border: 1px solid var(--border-default);
+      background: var(--surface-chip-bg);
+      border: 1px solid var(--surface-border-soft);
       border-radius: var(--radius-full);
       box-shadow: inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent);
       transition: none;
@@ -335,8 +331,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
     inline-size: 100%;
     block-size: clamp(0.65rem, 1.2vi, 0.85rem);
     cursor: pointer;
-    background: var(--surface-3);
-    border: 1px solid var(--border-default);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
     box-shadow: inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent);
     transition:
@@ -346,7 +342,7 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   .episode-player__progress:hover,
   .episode-player__progress:focus {
-    border-color: var(--accent-primary);
+    border-color: var(--surface-border-accent);
     box-shadow:
       inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent),
       var(--interactive-shadow-focus);
@@ -395,8 +391,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
     padding: var(--spacing-sm) var(--spacing-base);
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
-    background: color-mix(in srgb, var(--surface-2) 78%, transparent);
-    border: 1px solid var(--border-muted);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-subtle);
     border-radius: var(--radius-md);
   }
 
@@ -432,10 +428,10 @@ const hintId = `episode-player-hint-${playerSlug}`;
       /* Visual styling */
       color: var(--text-secondary);
       cursor: pointer;
-      background: transparent;
-      border: 2px solid var(--border-muted);
+      background: var(--surface-pill-bg);
+      border: 2px solid var(--surface-border-soft);
       border-radius: var(--radius-md);
-      box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 18%, transparent);
+      box-shadow: var(--shadow-xs);
 
       /* Smooth transitions */
       transition: none;
@@ -455,10 +451,10 @@ const hintId = `episode-player-hint-${playerSlug}`;
     /* Visual styling */
     color: var(--text-secondary);
     cursor: pointer;
-    background: transparent;
-    border: 2px solid var(--border-muted);
+    background: var(--surface-pill-bg);
+    border: 2px solid var(--surface-border-soft);
     border-radius: var(--radius-md);
-    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 18%, transparent);
+    box-shadow: var(--shadow-xs);
 
     /* Smooth transitions */
     transition:
@@ -470,7 +466,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
   .episode-player__transport-button:hover,
   .episode-player__transport-button:focus-visible {
     color: var(--text-primary);
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
     transform: translateY(-1px);
   }
 

@@ -135,13 +135,31 @@ const pageSeo = buildLegalPageSeo({
 
 <style>
   .cookies-page {
+    position: relative;
     display: grid;
     gap: var(--spacing-2xl);
   }
 
   .cookies-page__content-grid {
+    position: relative;
     display: grid;
     gap: var(--section-gap);
+    padding-block-start: var(--spacing-xl);
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .cookies-page__content-grid::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: min(8rem, 22%);
+    height: 1px;
+    content: "";
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-primary) 52%, transparent),
+      transparent
+    );
   }
 
   @media (width >= 720px) {

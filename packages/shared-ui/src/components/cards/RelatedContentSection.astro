@@ -66,18 +66,24 @@ const titleId = `${id}-title`;
 
 <style>
   .related-content-section {
+    position: relative;
     display: grid;
     gap: 1.5rem;
     padding: 1.5rem;
     margin-block-start: 2rem;
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--surface-2) 96%, transparent),
-      color-mix(in srgb, var(--surface-1) 82%, transparent)
-    );
-    border: 1px solid var(--border-default);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
+  }
+
+  .related-content-section::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   .related-content-section__header {

@@ -47,9 +47,12 @@ const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
   .storage-keys-table {
     padding: var(--spacing-sm);
     overflow-inline: auto;
-    background: color-mix(in srgb, var(--surface-1) 82%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 68%, transparent);
-    border-radius: var(--card-radius);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
   }
 
   .storage-keys-table__table {
@@ -64,17 +67,28 @@ const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
     vertical-align: top;
     color: var(--text-secondary);
     text-align: start;
+    border-block-end: 1px solid var(--surface-border-subtle);
   }
 
   .storage-keys-table__table th {
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-pill-bg) 74%, var(--surface-1));
   }
 
   .storage-keys-table__table code {
+    display: inline-block;
+    padding: var(--spacing-2xs) var(--spacing-xs);
     font-family: var(--font-mono);
     font-size: var(--font-size-base);
     color: var(--link-default);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-sm);
+  }
+
+  .storage-keys-table__table tbody tr:last-child td {
+    border-block-end: 0;
   }
 
   .storage-keys-table__sr-only {

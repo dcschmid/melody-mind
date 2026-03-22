@@ -1,4 +1,5 @@
 ---
+import Headline from "@shared-ui/components/typography/Headline.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface JumpTarget {
@@ -26,26 +27,37 @@ const {
 {
   targets.length >= 1 && (
     <nav class="taxonomy-jump-nav" aria-label={navLabel}>
-      <button
-        type="button"
-        class="taxonomy-jump-nav__toggle"
-        aria-expanded="false"
-        aria-controls={contentId}
-      >
-        <span class="taxonomy-jump-nav__toggle-label">{title}</span>
-        <Icon name="chevron-down" class="taxonomy-jump-nav__chevron" aria-hidden="true" />
-      </button>
-      <div id={contentId} class="taxonomy-jump-nav__content">
-        <ul class="taxonomy-jump-nav__list">
-          {targets.map((target) => (
-            <li class="taxonomy-jump-nav__item">
-              <a href={`#${target.anchorId}`} class="taxonomy-jump-nav__link">
-                <span class="taxonomy-jump-nav__title">{target.title}</span>
-                <span class="taxonomy-jump-nav__count">{target.articleCount}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
+      <div class="taxonomy-jump-nav__panel">
+        <div class="taxonomy-jump-nav__header">
+          <Headline level="h2" textSize="base" className="taxonomy-jump-nav__headline">
+            {title}
+          </Headline>
+          <button
+            type="button"
+            class="taxonomy-jump-nav__toggle"
+            aria-expanded="false"
+            aria-controls={contentId}
+          >
+            <span class="taxonomy-jump-nav__toggle-label">{title}</span>
+            <Icon
+              name="chevron-down"
+              class="taxonomy-jump-nav__chevron"
+              aria-hidden="true"
+            />
+          </button>
+        </div>
+        <div id={contentId} class="taxonomy-jump-nav__content">
+          <ul class="taxonomy-jump-nav__list">
+            {targets.map((target) => (
+              <li class="taxonomy-jump-nav__item">
+                <a href={`#${target.anchorId}`} class="taxonomy-jump-nav__link">
+                  <span class="taxonomy-jump-nav__title">{target.title}</span>
+                  <span class="taxonomy-jump-nav__count">{target.articleCount}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </nav>
   )
@@ -139,8 +151,49 @@ const {
 <style>
   .taxonomy-jump-nav {
     position: static;
+    display: block;
+  }
+
+  .taxonomy-jump-nav__panel {
+    position: relative;
     display: grid;
     gap: var(--spacing-base);
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    overflow: hidden;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-base);
+  }
+
+  .taxonomy-jump-nav__panel::after {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+  }
+
+  .taxonomy-jump-nav__header {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .taxonomy-jump-nav__headline {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  @media (width >= 40rem) {
+    .taxonomy-jump-nav__header {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--spacing-lg);
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   .taxonomy-jump-nav__toggle {
@@ -155,12 +208,8 @@ const {
     color: var(--text-primary);
     text-align: center;
     cursor: pointer;
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--surface-2) 96%, transparent),
-      color-mix(in srgb, var(--surface-1) 88%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--border-default) 90%, transparent);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-sm);
     transition:
@@ -177,8 +226,8 @@ const {
 
   .taxonomy-jump-nav__toggle:hover,
   .taxonomy-jump-nav__toggle:focus-visible {
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
     transform: translateY(-1px);
   }
 
@@ -210,6 +259,7 @@ const {
 
   .taxonomy-jump-nav__content {
     position: static;
+    z-index: 1;
     visibility: visible;
     width: 100%;
     min-width: 0;
@@ -253,9 +303,10 @@ const {
     padding: var(--spacing-sm) var(--spacing-base);
     color: var(--text-primary);
     text-decoration: none;
-    background: color-mix(in srgb, var(--surface-2) 90%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 82%, transparent);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
     transition:
       background-color var(--transition-fast),
       border-color var(--transition-fast),
@@ -270,8 +321,8 @@ const {
 
   .taxonomy-jump-nav__link:hover,
   .taxonomy-jump-nav__link:focus-visible {
-    background: color-mix(in srgb, var(--surface-1) 98%, transparent);
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
     transform: translateY(-1px);
   }
 
@@ -289,8 +340,8 @@ const {
     line-height: var(--line-height-none);
     color: var(--text-primary);
     text-align: center;
-    background: color-mix(in srgb, var(--surface-3) 92%, transparent);
-    border: 1px solid color-mix(in srgb, var(--border-default) 80%, transparent);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-subtle);
     border-radius: var(--radius-full);
     transition:
       background-color var(--transition-fast),
@@ -304,25 +355,12 @@ const {
     }
   }
 
-  :global(:root[data-theme="light"]) .taxonomy-jump-nav__count {
-    background: color-mix(in srgb, var(--surface-3) 96%, var(--surface-1) 4%);
-  }
-
-  :global(:root[data-theme="dark"]) .taxonomy-jump-nav__count {
-    background: color-mix(in srgb, var(--surface-3) 78%, var(--bg-primary) 22%);
-  }
-
   .taxonomy-jump-nav__link:hover .taxonomy-jump-nav__count,
   .taxonomy-jump-nav__link:focus-visible .taxonomy-jump-nav__count {
-    border-color: var(--accent-primary);
+    border-color: var(--surface-border-accent);
   }
 
   @media (width < 40rem) {
-    .taxonomy-jump-nav {
-      position: relative;
-      gap: var(--spacing-md);
-    }
-
     .taxonomy-jump-nav__toggle {
       display: inline-flex;
       justify-content: space-between;
@@ -333,17 +371,21 @@ const {
     .taxonomy-jump-nav__content {
       position: absolute;
       top: calc(100% + var(--spacing-md));
+      right: 0;
       left: 0;
       z-index: 20;
       visibility: hidden;
-      width: 100%;
-      min-width: 0;
       max-height: min(var(--overlay-max-block-size), 60vh);
       padding: var(--spacing-base);
       overflow: auto;
       pointer-events: none;
       background: var(--surface-panel-bg);
-      border: 1px solid color-mix(in srgb, var(--border-default) 88%, transparent);
+      background-image: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 42%, transparent),
+        transparent 45%
+      );
+      border: 1px solid var(--surface-border-soft);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-lg);
       opacity: 0;

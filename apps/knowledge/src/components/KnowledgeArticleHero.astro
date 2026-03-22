@@ -42,7 +42,7 @@ const {
     class="knowledge__hero-teaser"
   >
     <div slot="meta" class="knowledge__meta">
-      <span class="knowledge__pill knowledge__pill--label">In-depth guide</span>
+      <span class="knowledge__pill">In-depth guide</span>
       {
         entry.data.aiGenerated ? (
           <AIContentBadge
@@ -150,16 +150,9 @@ const {
     font-weight: var(--font-weight-semibold);
     line-height: 1;
     background: var(--surface-pill-bg);
-    border: 1px solid var(--border-default);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
-  }
-
-  .knowledge__pill--label {
-    font-size: var(--font-size-sm);
-    color: var(--pill-accent-text);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
-    background: var(--pill-accent-bg);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent);
   }
 
   .knowledge__pill-icon {
@@ -178,6 +171,12 @@ const {
     position: relative;
     aspect-ratio: 3 / 2;
     overflow: hidden;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
   }
 
   .knowledge__media-image {
@@ -203,7 +202,12 @@ const {
     padding: var(--spacing-xl);
     color: var(--text-secondary);
     text-align: center;
-    background: color-mix(in srgb, var(--surface-2) 84%, transparent);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
   }
 
   .knowledge__media-placeholder-content {

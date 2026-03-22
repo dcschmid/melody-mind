@@ -34,8 +34,8 @@ const {
   showSkipLink = true,
   enableThemeInit = true,
   colorScheme = "dark light",
-  themeColorDark = "#080c14",
-  themeColorLight = "#f7f9fc",
+  themeColorDark = "#08131a",
+  themeColorLight = "#f6f1e8",
   appTitle = "MelodyMind",
   manifestPath = "/site.webmanifest",
   googleSiteVerification = "ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M",
@@ -161,7 +161,8 @@ const themeInitScript = enableThemeInit
 <style>
   .app {
     color: var(--text-primary);
-    background: var(--bg-primary);
+    background: var(--page-background);
+    background-color: var(--bg-primary);
   }
 
   .app__body {
@@ -170,15 +171,41 @@ const themeInitScript = enableThemeInit
     color: var(--text-primary);
     background:
       radial-gradient(
-        circle at top center,
-        color-mix(in srgb, var(--accent-primary) 10%, transparent),
-        transparent 36rem
+        circle at top,
+        color-mix(in srgb, var(--accent-primary) 12%, transparent),
+        transparent 32rem
       ),
-      var(--bg-primary);
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 28%, transparent),
+        transparent 24rem
+      ),
+      var(--page-background);
+    background-color: var(--bg-primary);
   }
 
   .app__main {
     position: relative;
     min-block-size: 0;
+    isolation: isolate;
+  }
+
+  .app__main::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-overlay) 66%, transparent),
+        transparent 18rem
+      ),
+      radial-gradient(
+        circle at top left,
+        color-mix(in srgb, var(--accent-primary) 8%, transparent),
+        transparent 28rem
+      );
   }
 </style>

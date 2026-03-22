@@ -236,9 +236,9 @@ const contentProps = href
     block-size: 100%;
     container-type: inline-size;
     overflow: hidden;
-    background: var(--card-bg);
-    border: var(--card-border-width) solid var(--card-border-color);
-    border-radius: var(--card-radius);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-base);
     transition:
       transform var(--transition-base),
@@ -247,13 +247,19 @@ const contentProps = href
   }
 
   .content-card--feature {
-    background: var(--surface-2);
-    border-color: var(--accent-primary);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 58%
+      ),
+      var(--surface-panel-bg);
+    border-color: var(--surface-border-accent);
     box-shadow: var(--shadow-xl);
   }
 
   .content-card--action {
-    border-color: var(--accent-muted);
+    border-color: var(--surface-border-subtle);
     box-shadow: var(--shadow-lg);
   }
 
@@ -273,12 +279,12 @@ const contentProps = href
 
   .content-card--interactive:hover,
   .content-card--interactive:focus-within {
-    border-color: var(--border-strong);
+    border-color: var(--surface-border-accent);
     transform: translateY(-2px);
   }
 
   .content-card--interactive:focus-within {
-    border-color: var(--border-strong);
+    border-color: var(--surface-border-accent);
     box-shadow: var(--interactive-shadow-focus), var(--shadow-lg);
   }
 
@@ -307,13 +313,13 @@ const contentProps = href
     inline-size: 100%;
     aspect-ratio: var(--content-card-media-aspect-ratio, 3 / 2);
     overflow: hidden;
-    background: var(--surface-2);
-    border-block-end: 1px solid var(--border-muted);
+    background: var(--surface-chip-bg);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .content-card--feature .content-card__media {
-    background: var(--surface-1);
-    border-block-end-color: var(--accent-muted);
+    background: var(--surface-pill-bg);
+    border-block-end-color: var(--surface-border-accent);
   }
 
   .content-card__media-image {
@@ -407,7 +413,7 @@ const contentProps = href
     flex: 1;
     flex-direction: column;
     gap: var(--spacing-md);
-    padding: var(--card-padding);
+    padding: var(--spacing-lg);
   }
 
   .content-card--size-compact .content-card__body {
@@ -468,7 +474,7 @@ const contentProps = href
     margin-block-start: auto;
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
-    border-block-start: 1px solid var(--border-muted);
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .content-card--size-compact .content-card__meta {
@@ -496,7 +502,7 @@ const contentProps = href
   }
 
   .content-card__footer {
-    padding: 0 var(--card-padding) var(--card-padding);
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
   }
 
   .content-card--size-compact .content-card__footer {
@@ -519,13 +525,14 @@ const contentProps = href
     font-weight: var(--button-font-weight);
     color: var(--text-primary);
     text-align: center;
-    background: var(--surface-2);
-    border: 1px solid var(--border-default);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--button-radius);
     box-shadow: none;
     transition:
       transform var(--transition-base),
       background-color var(--transition-base),
+      border-color var(--transition-base),
       box-shadow var(--transition-base);
   }
 
@@ -537,31 +544,33 @@ const contentProps = href
   .content-card--feature .content-card__cta {
     color: var(--button-text-accent);
     background: var(--accent-primary);
-    border-color: var(--accent-primary);
+    border-color: var(--surface-border-accent);
     box-shadow: var(--shadow-lg);
   }
 
   .content-card--action .content-card__cta {
-    background: var(--surface-3);
-    border-color: var(--accent-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
   }
 
   .content-card--interactive:hover .content-card__cta,
   .content-card--interactive:focus-within .content-card__cta {
-    background: var(--surface-3);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
     box-shadow: none;
     transform: translateY(-1px);
   }
 
   .content-card--interactive.content-card--feature:hover .content-card__cta,
   .content-card--interactive.content-card--feature:focus-within .content-card__cta {
-    background: var(--accent-strong);
+    background: var(--accent-primary-hover);
+    border-color: var(--surface-border-accent-strong);
     box-shadow: var(--shadow-xl);
   }
 
   .content-card--interactive.content-card--action:hover .content-card__cta,
   .content-card--interactive.content-card--action:focus-within .content-card__cta {
-    background: var(--surface-2);
+    background: var(--surface-pill-bg);
   }
 
   .content-card__sr {

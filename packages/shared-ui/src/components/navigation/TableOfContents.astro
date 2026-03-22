@@ -300,7 +300,11 @@ const tocTitle = title || "Table of contents";
 
       /* Visual styling */
       cursor: pointer;
-      background: var(--surface-1);
+      background: linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--surface-2) 92%, var(--bg-primary)),
+        color-mix(in srgb, var(--surface-1) 96%, transparent)
+      );
       border: 2px solid var(--border-default);
       border-radius: var(--radius-md);
 
@@ -329,7 +333,11 @@ const tocTitle = title || "Table of contents";
 
     /* Visual styling */
     cursor: pointer;
-    background: var(--surface-1);
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--surface-2) 92%, var(--bg-primary)),
+      color-mix(in srgb, var(--surface-1) 96%, transparent)
+    );
     border: 2px solid var(--border-default);
     border-radius: var(--radius-md);
 
@@ -341,8 +349,8 @@ const tocTitle = title || "Table of contents";
 
   .toc__toggle:hover,
   .toc__toggle:focus-visible {
-    background: var(--surface-3);
-    border-color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
     box-shadow: var(--interactive-shadow-focus);
   }
 
@@ -395,7 +403,11 @@ const tocTitle = title || "Table of contents";
   .toc__content {
     display: none;
     margin-block-start: var(--spacing-sm);
-    background: var(--surface-1);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 96%, transparent),
+      color-mix(in srgb, var(--surface-2) 78%, transparent)
+    );
     border: 2px solid var(--border-default);
     border-radius: var(--radius-md);
     box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-2) 50%, transparent);
@@ -515,8 +527,8 @@ const tocTitle = title || "Table of contents";
   /* Link hover states */
   .toc__link:hover,
   .toc__link:focus-visible {
-    color: var(--accent-primary);
-    background: var(--surface-2);
+    color: var(--accent-strong);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-primary) 18%, transparent);
   }
 

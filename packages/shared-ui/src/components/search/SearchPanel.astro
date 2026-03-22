@@ -135,7 +135,11 @@ const inputClasses = "search-panel__input";
     max-inline-size: var(--search-shell-max-inline-size, none);
     min-block-size: var(--search-shell-min-block-size, auto);
     padding: var(--spacing-md) var(--spacing-lg);
-    background: linear-gradient(160deg, var(--surface-2), var(--surface-1));
+    background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--surface-2) 92%, var(--bg-primary)),
+      color-mix(in srgb, var(--surface-1) 96%, transparent)
+    );
     border: 1px solid var(--border-default);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
@@ -257,9 +261,9 @@ const inputClasses = "search-panel__input";
 
   .search-panel__input:hover,
   .search-panel__input:focus-visible {
-    border-color: var(--accent-primary);
+    border-color: var(--accent-strong);
     box-shadow:
-      inset 0 0 0 1px var(--accent-primary),
+      inset 0 0 0 1px var(--accent-strong),
       var(--interactive-shadow-focus);
   }
 
@@ -320,7 +324,7 @@ const inputClasses = "search-panel__input";
 
       /* Visual styling */
       cursor: pointer;
-      background: var(--surface-2);
+      background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
       border: 2px solid transparent;
       border-radius: var(--radius-full);
 
@@ -342,7 +346,7 @@ const inputClasses = "search-panel__input";
 
     /* Visual styling */
     cursor: pointer;
-    background: var(--surface-2);
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
     border: 2px solid transparent;
     border-radius: var(--radius-full);
 
@@ -354,7 +358,9 @@ const inputClasses = "search-panel__input";
 
   .search-panel__reset:hover,
   .search-panel__reset:focus-visible {
-    border-color: var(--border-default);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
+    box-shadow: var(--interactive-shadow-focus);
   }
 
   .search-panel__reset:focus-visible {
