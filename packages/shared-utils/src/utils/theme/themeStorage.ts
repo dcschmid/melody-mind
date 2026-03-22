@@ -13,7 +13,6 @@
  */
 import { THEME_EVENTS, dispatchCustomEvent } from "../../constants/events";
 import { STORAGE_KEYS } from "../../constants/storage";
-import { safeLocalStorage } from "../storage/safeStorage";
 
 /** Canonical storage key for the persisted theme preference. */
 export const THEME_STORAGE_KEY = STORAGE_KEYS.THEME;
@@ -28,13 +27,30 @@ export function isTheme(value: unknown): value is Theme {
 
 /** Reads the stored manual theme override, or `null` if none is present/valid. */
 export function getStoredTheme(): Theme | null {
-  const raw = safeLocalStorage.getRaw(THEME_STORAGE_KEY);
-  return isTheme(raw) ? raw : null;
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  try {
+    const raw = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return isTheme(raw) ? raw : null;
+  } catch {
+    return null;
+  }
 }
 
 /** Persists a manual theme override using the shared theme storage key. */
 export function setStoredTheme(theme: Theme): boolean {
-  return safeLocalStorage.setRaw(THEME_STORAGE_KEY, theme);
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  try {
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -64,5 +80,6 @@ export function getResolvedTheme(): Theme {
  */
 export function applyTheme(theme: Theme, source: "manual" | "system" = "manual"): void {
   document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.style.colorScheme = theme;
   dispatchCustomEvent(THEME_EVENTS.CHANGED, { theme, source });
 }

@@ -37,12 +37,14 @@ import Icon from "../visual/Icon.astro";
    * ThemeToggle keeps the toggle button in sync with the stored, system, or resolved theme.
    * It writes ARIA attributes for the active mode and updates the system preference listener.
    */
+  import { THEME_EVENTS } from "@shared-utils/constants/events";
   import {
     getStoredTheme,
     getSystemTheme,
     getResolvedTheme,
     setStoredTheme,
     applyTheme,
+    THEME_STORAGE_KEY,
   } from "@shared-utils/utils/theme/themeStorage";
 
   const toggles = Array.from(
@@ -92,7 +94,16 @@ import Icon from "../visual/Icon.astro";
   });
 
   // External theme changes (e.g., storage updates) trigger a quick refresh of the toggle state.
-  window.addEventListener("theme:change", () => {
+  window.addEventListener(THEME_EVENTS.CHANGED, () => {
+    updateToggle();
+  });
+
+  // Cross-tab or external storage writes should also refresh the visible toggle state.
+  window.addEventListener("storage", (event) => {
+    if (event.key !== THEME_STORAGE_KEY) {
+      return;
+    }
+
     updateToggle();
   });
 

@@ -1,7 +1,5 @@
 ---
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
-import { CONSENT_EVENTS } from "@shared-utils/constants/events";
-import { RUNTIME_FLAGS, STORAGE_KEYS } from "@shared-utils/constants/storage";
 /**
  * Cookie Consent Banner Component
  *
@@ -17,10 +15,6 @@ const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
   class="cookie-consent"
   data-cookie-consent
   data-fathom-site-id={FATHOM_SITE_ID}
-  data-storage-key={STORAGE_KEYS.COOKIE_CONSENT}
-  data-open-event={CONSENT_EVENTS.OPEN}
-  data-change-event={CONSENT_EVENTS.CHANGED}
-  data-runtime-analytics-flag={RUNTIME_FLAGS.ANALYTICS_ALLOWED}
   role="dialog"
   aria-modal="true"
   aria-label="Cookie consent"
@@ -53,227 +47,146 @@ const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
   </div>
 </div>
 
-<script is:inline>
-  (function () {
-    var FATHOM_SCRIPT_SELECTOR = "script[data-cookie-consent-fathom='true']";
+<script>
+  import { CONSENT_EVENTS } from "@shared-utils/constants/events";
+  import {
+    dispatchConsentChange,
+    getDoNotTrackEnabled,
+    getRuntimeAnalyticsAllowed,
+    readConsentPreference,
+    setRuntimeAnalyticsAllowed,
+    writeConsentPreference,
+    type ConsentPreference,
+  } from "@shared-utils/utils/consent/clientConsent";
 
-    var banner = document.querySelector("[data-cookie-consent]");
-    if (!banner) {
+  const FATHOM_SCRIPT_SELECTOR = "script[data-cookie-consent-fathom='true']";
+
+  const banner = document.querySelector<HTMLElement>("[data-cookie-consent]");
+  if (!banner) {
+    throw new Error("CookieConsent banner root not found");
+  }
+
+  const fathomSiteId = banner.dataset.fathomSiteId || "";
+  const fathomEnabled = fathomSiteId.length > 0;
+  let lastFocusBeforeOpen: Element | null = null;
+
+  const loadFathomScript = (): void => {
+    if (!fathomEnabled || document.querySelector(FATHOM_SCRIPT_SELECTOR)) {
       return;
     }
 
-    var STORAGE_KEY = banner.getAttribute("data-storage-key") || "cookie_consent";
-    var OPEN_EVENT = banner.getAttribute("data-open-event") || "cookie-consent:open";
-    var CHANGE_EVENT =
-      banner.getAttribute("data-change-event") || "cookie-consent:change";
-    var RUNTIME_ANALYTICS_FLAG =
-      banner.getAttribute("data-runtime-analytics-flag") || "__mmAnalyticsAllowed";
-    var FATHOM_SITE_ID = banner ? banner.getAttribute("data-fathom-site-id") || "" : "";
-
-    var FATHOM_ENABLED = FATHOM_SITE_ID.length > 0;
-
-    function getDoNotTrackEnabled() {
-      if (typeof window === "undefined") {
-        return false;
-      }
-
-      var navigatorValue = window.navigator && window.navigator.doNotTrack;
-      var windowValue = window.doNotTrack;
-      var legacyMsValue = window.navigator && window.navigator.msDoNotTrack;
-
-      return navigatorValue === "1" || windowValue === "1" || legacyMsValue === "1";
-    }
-
-    function readConsent() {
-      try {
-        var value = window.localStorage.getItem(STORAGE_KEY);
-
-        if (!value) {
-          return null;
-        }
-
-        var parsed = JSON.parse(value);
-
-        if (
-          !parsed ||
-          parsed.essential !== true ||
-          typeof parsed.analytics !== "boolean"
-        ) {
-          return null;
-        }
-
-        return {
-          essential: true,
-          analytics: parsed.analytics,
-          date: typeof parsed.date === "number" ? parsed.date : Date.now(),
-        };
-      } catch (_error) {
-        return null;
-      }
-    }
-
-    function writeConsent(analyticsEnabled) {
-      var consent = {
-        essential: true,
-        analytics: analyticsEnabled,
-        date: Date.now(),
-      };
-
-      try {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
-      } catch (_error) {
-        return consent;
-      }
-
-      return consent;
-    }
-
-    function loadFathomScript() {
-      // Skip if no site ID configured
-      if (!FATHOM_ENABLED) {
-        return;
-      }
-
-      if (document.querySelector(FATHOM_SCRIPT_SELECTOR)) {
-        return;
-      }
-
-      var script = document.createElement("script");
-      script.src = "https://cdn.usefathom.com/script.js";
-      script.defer = true;
-      script.setAttribute("data-site", FATHOM_SITE_ID);
-      script.setAttribute("data-honor-dnt", "true");
-      script.setAttribute("data-cookie-consent-fathom", "true");
-      script.addEventListener("load", function () {
-        setFathomTrackingEnabled(getRuntimeAnalyticsAllowed());
-      });
-      document.head.appendChild(script);
-    }
-
-    function removeFathomScript() {
-      var existing = document.querySelector(FATHOM_SCRIPT_SELECTOR);
-      if (existing && existing.parentNode) {
-        existing.parentNode.removeChild(existing);
-      }
-    }
-
-    function setRuntimeAnalyticsAllowed(enabled) {
-      window[RUNTIME_ANALYTICS_FLAG] = enabled;
-    }
-
-    function getRuntimeAnalyticsAllowed() {
-      return window[RUNTIME_ANALYTICS_FLAG] === true;
-    }
-
-    function setFathomTrackingEnabled(enabled) {
-      if (!window.fathom) {
-        return;
-      }
-
-      if (enabled && typeof window.fathom.enableTrackingForMe === "function") {
-        window.fathom.enableTrackingForMe();
-      }
-
-      if (!enabled && typeof window.fathom.blockTrackingForMe === "function") {
-        window.fathom.blockTrackingForMe();
-      }
-    }
-
-    function dispatchConsentChange(consent, dntEnabled) {
-      window.dispatchEvent(
-        new CustomEvent(CHANGE_EVENT, {
-          detail: {
-            consent: consent,
-            dntEnabled: dntEnabled,
-          },
-        })
-      );
-    }
-
-    var lastFocusBeforeOpen = null;
-
-    function hideBanner() {
-      banner.setAttribute("hidden", "true");
-
-      if (lastFocusBeforeOpen && typeof lastFocusBeforeOpen.focus === "function") {
-        lastFocusBeforeOpen.focus();
-      }
-
-      lastFocusBeforeOpen = null;
-    }
-
-    function showBanner(shouldMoveFocus) {
-      banner.removeAttribute("hidden");
-
-      if (!shouldMoveFocus) {
-        return;
-      }
-
-      var firstAction = banner.querySelector("[data-cookie-action]");
-      if (firstAction && typeof firstAction.focus === "function") {
-        firstAction.focus();
-      }
-    }
-
-    function applyConsent(consent, shouldDispatchEvent) {
-      var dntEnabled = getDoNotTrackEnabled();
-      var analyticsAllowed = consent.analytics === true && !dntEnabled;
-      setRuntimeAnalyticsAllowed(analyticsAllowed);
-
-      // Only manage Fathom script if site ID is configured
-      if (FATHOM_ENABLED) {
-        try {
-          if (analyticsAllowed) {
-            loadFathomScript();
-          } else {
-            removeFathomScript();
-          }
-        } catch (_error) {
-          // Ignore script management failures and continue with consent state updates.
-        }
-      }
-
-      setFathomTrackingEnabled(analyticsAllowed);
-      hideBanner();
-
-      if (shouldDispatchEvent) {
-        dispatchConsentChange(consent, dntEnabled);
-      }
-    }
-
-    function openBanner() {
-      lastFocusBeforeOpen = document.activeElement;
-      showBanner(true);
-      window.dispatchEvent(new CustomEvent(OPEN_EVENT));
-    }
-
-    var storedConsent = readConsent();
-
-    if (storedConsent) {
-      applyConsent(storedConsent, false);
-    } else {
-      showBanner(false);
-    }
-
-    banner.addEventListener("click", function (event) {
-      var target = event.target;
-
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
-
-      var action = target.getAttribute("data-cookie-action");
-
-      if (action !== "accept" && action !== "reject") {
-        return;
-      }
-
-      var consent = writeConsent(action === "accept");
-      applyConsent(consent, true);
+    const script = document.createElement("script");
+    script.src = "https://cdn.usefathom.com/script.js";
+    script.defer = true;
+    script.setAttribute("data-site", fathomSiteId);
+    script.setAttribute("data-honor-dnt", "true");
+    script.setAttribute("data-cookie-consent-fathom", "true");
+    script.addEventListener("load", () => {
+      setFathomTrackingEnabled(getRuntimeAnalyticsAllowed());
     });
+    document.head.appendChild(script);
+  };
 
-    window.addEventListener(OPEN_EVENT, openBanner);
-  })();
+  const removeFathomScript = (): void => {
+    const existing = document.querySelector(FATHOM_SCRIPT_SELECTOR);
+    if (existing?.parentNode) {
+      existing.parentNode.removeChild(existing);
+    }
+  };
+
+  const setFathomTrackingEnabled = (enabled: boolean): void => {
+    if (!window.fathom) {
+      return;
+    }
+
+    if (enabled && typeof window.fathom.enableTrackingForMe === "function") {
+      window.fathom.enableTrackingForMe();
+    }
+
+    if (!enabled && typeof window.fathom.blockTrackingForMe === "function") {
+      window.fathom.blockTrackingForMe();
+    }
+  };
+
+  const hideBanner = (): void => {
+    banner.setAttribute("hidden", "true");
+
+    if (lastFocusBeforeOpen && "focus" in lastFocusBeforeOpen) {
+      (lastFocusBeforeOpen as HTMLElement).focus();
+    }
+
+    lastFocusBeforeOpen = null;
+  };
+
+  const showBanner = (shouldMoveFocus: boolean): void => {
+    banner.removeAttribute("hidden");
+
+    if (!shouldMoveFocus) {
+      return;
+    }
+
+    const firstAction = banner.querySelector<HTMLElement>("[data-cookie-action]");
+    firstAction?.focus();
+  };
+
+  const applyConsent = (
+    consent: ConsentPreference,
+    shouldDispatchEvent: boolean
+  ): void => {
+    const dntEnabled = getDoNotTrackEnabled();
+    const analyticsAllowed = consent.analytics === true && !dntEnabled;
+    setRuntimeAnalyticsAllowed(analyticsAllowed);
+
+    if (fathomEnabled) {
+      try {
+        if (analyticsAllowed) {
+          loadFathomScript();
+        } else {
+          removeFathomScript();
+        }
+      } catch {
+        // Ignore script management failures and continue with consent state updates.
+      }
+    }
+
+    setFathomTrackingEnabled(analyticsAllowed);
+    hideBanner();
+
+    if (shouldDispatchEvent) {
+      dispatchConsentChange(consent, dntEnabled);
+    }
+  };
+
+  const openBanner = (): void => {
+    lastFocusBeforeOpen = document.activeElement;
+    showBanner(true);
+  };
+
+  const storedConsent = readConsentPreference();
+
+  if (storedConsent) {
+    applyConsent(storedConsent, false);
+  } else {
+    showBanner(false);
+  }
+
+  banner.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const action = target.getAttribute("data-cookie-action");
+    if (action !== "accept" && action !== "reject") {
+      return;
+    }
+
+    const consent = writeConsentPreference(action === "accept");
+    applyConsent(consent, true);
+  });
+
+  window.addEventListener(CONSENT_EVENTS.OPEN, openBanner);
 </script>
 <style>
   /* -----------------------------------------------------------------------------

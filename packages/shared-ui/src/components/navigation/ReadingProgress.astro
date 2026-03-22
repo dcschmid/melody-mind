@@ -39,6 +39,8 @@ const {
 </div>
 
 <script>
+  import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
+
   const SAVE_THROTTLE_MS = 1000;
   const RESTORE_DELAY_MS = 200;
   const MIN_RESTORE_PROGRESS = 0.02;
@@ -72,13 +74,8 @@ const {
       if (!progressSlug || !storageKey) {
         return null;
       }
-      try {
-        const raw = window.localStorage?.getItem(storageKey);
-        const parsed = raw ? JSON.parse(raw) : {};
-        return parsed && typeof parsed === "object" ? parsed : {};
-      } catch {
-        return {};
-      }
+      const parsed = safeLocalStorage.get<unknown>(storageKey, {});
+      return parsed && typeof parsed === "object" ? parsed : {};
     };
 
     const setProgressStore = (
@@ -87,11 +84,7 @@ const {
       if (!progressSlug || !storageKey) {
         return;
       }
-      try {
-        window.localStorage?.setItem(storageKey, JSON.stringify(store));
-      } catch {
-        // Ignore storage errors.
-      }
+      safeLocalStorage.set(storageKey, store);
     };
 
     const restoreProgress = () => {

@@ -171,38 +171,19 @@ const {
     THEME_EVENTS,
     dispatchCustomEvent,
   } from "@shared-utils/constants/events";
-  import { STORAGE_KEYS } from "@shared-utils/constants/storage";
+  import {
+    readConsentPreference,
+    type ConsentPreference,
+  } from "@shared-utils/utils/consent/clientConsent";
   import { getStoredTheme, getSystemTheme } from "@shared-utils/utils/theme/themeStorage";
 
-  const STORAGE_KEY = STORAGE_KEYS.COOKIE_CONSENT;
   const trigger = document.querySelector<HTMLElement>("[data-cookie-settings-trigger]");
   const themeStatusElement = document.querySelector<HTMLElement>("[data-theme-status]");
   const statusElement = document.querySelector<HTMLElement>(
     "[data-cookie-consent-status]"
   );
 
-  interface ConsentPreference {
-    essential: true;
-    analytics: boolean;
-  }
-
-  const readConsent = (): ConsentPreference | null => {
-    try {
-      const raw = window.localStorage?.getItem(STORAGE_KEY);
-      if (!raw) {
-        return null;
-      }
-      const parsed = JSON.parse(raw);
-      if (!parsed || parsed.essential !== true || typeof parsed.analytics !== "boolean") {
-        return null;
-      }
-      return { essential: true, analytics: parsed.analytics };
-    } catch {
-      return null;
-    }
-  };
-
-  const renderStatus = (consent: ConsentPreference | null = readConsent()) => {
+  const renderStatus = (consent: ConsentPreference | null = readConsentPreference()) => {
     if (!statusElement) {
       return;
     }
