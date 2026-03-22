@@ -8,7 +8,6 @@ import Layout from "@layouts/Layout.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import {
@@ -156,8 +155,6 @@ const totalPoolSize = quiz.data.questions.length;
       </div>
     </div>
   </PageShell>
-
-  <BackToTop />
 
   <script
     is:inline
@@ -635,22 +632,20 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-question-container .quiz-question__badge--correct) {
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--color-success-500) 20%, var(--surface-pill-bg));
+    background: color-mix(in srgb, var(--color-success) 18%, var(--surface-pill-bg));
     border-color: color-mix(
       in srgb,
-      var(--color-success-500) 52%,
+      var(--color-success) 56%,
       var(--surface-border-soft)
     );
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-success) 18%, transparent);
   }
 
   :global(#quiz-question-container .quiz-question__badge--incorrect) {
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--color-error-500) 18%, var(--surface-pill-bg));
-    border-color: color-mix(
-      in srgb,
-      var(--color-error-500) 52%,
-      var(--surface-border-soft)
-    );
+    background: color-mix(in srgb, var(--color-error) 16%, var(--surface-pill-bg));
+    border-color: color-mix(in srgb, var(--color-error) 56%, var(--surface-border-soft));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-error) 16%, transparent);
   }
 
   :global(#quiz-question-container .quiz-question__badge svg) {
@@ -748,26 +743,47 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   :global(#quiz-question-container .quiz-question__option--selected) {
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-pill-bg));
-    border-color: var(--surface-border-accent);
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-primary) 14%, transparent),
+      color-mix(in srgb, var(--accent-primary) 8%, var(--surface-pill-bg))
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--accent-primary) 52%,
+      var(--surface-border-soft)
+    );
+    box-shadow:
+      inset 0.28rem 0 0 color-mix(in srgb, var(--accent-primary) 88%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--accent-primary) 14%, transparent);
   }
 
   :global(#quiz-question-container .quiz-question__option--correct) {
-    background: color-mix(in srgb, var(--color-success-500) 10%, var(--surface-pill-bg));
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-success) 18%, transparent),
+      color-mix(in srgb, var(--color-success) 8%, var(--surface-pill-bg))
+    );
     border-color: color-mix(
       in srgb,
-      var(--color-success-500) 50%,
+      var(--color-success) 58%,
       var(--surface-border-soft)
     );
+    box-shadow:
+      inset 0.28rem 0 0 color-mix(in srgb, var(--color-success) 88%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--color-success) 16%, transparent);
   }
 
   :global(#quiz-question-container .quiz-question__option--incorrect) {
-    background: color-mix(in srgb, var(--color-error-500) 10%, var(--surface-pill-bg));
-    border-color: color-mix(
-      in srgb,
-      var(--color-error-500) 50%,
-      var(--surface-border-soft)
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-error) 16%, transparent),
+      color-mix(in srgb, var(--color-error) 7%, var(--surface-pill-bg))
     );
+    border-color: color-mix(in srgb, var(--color-error) 58%, var(--surface-border-soft));
+    box-shadow:
+      inset 0.28rem 0 0 color-mix(in srgb, var(--color-error) 88%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--color-error) 14%, transparent);
   }
 
   :global(#quiz-question-container .quiz-question__option-marker),
@@ -791,11 +807,11 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   :global(#quiz-question-container .quiz-question__option-status--correct) {
-    color: var(--color-success-500);
+    color: var(--color-success);
   }
 
   :global(#quiz-question-container .quiz-question__option-status--incorrect) {
-    color: var(--color-error-500);
+    color: var(--color-error);
   }
 
   :global(#quiz-question-container .quiz-question__explanation) {
@@ -814,15 +830,10 @@ const totalPoolSize = quiz.data.questions.length;
     color: var(--text-primary);
   }
 
-  :global(#quiz-question-container .quiz-question__explanation-text),
-  :global(#quiz-question-container .quiz-question__explanation-source) {
+  :global(#quiz-question-container .quiz-question__explanation-text) {
     margin: 0;
     line-height: 1.6;
     color: var(--text-secondary);
-  }
-
-  :global(#quiz-question-container .quiz-question__explanation-source) {
-    font-size: var(--font-size-base);
   }
 
   :global(#quiz-result-container .quiz-result) {

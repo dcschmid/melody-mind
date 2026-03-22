@@ -7,7 +7,6 @@ import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import TaxonomyJumpNav from "@components/TaxonomyJumpNav.astro";
 import TaxonomySectionHero from "@components/TaxonomySectionHero.astro";
 import TaxonomySubsectionBlock from "@components/TaxonomySubsectionBlock.astro";
-import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import { loggers } from "@shared-utils/utils/logging";
 import {
@@ -74,8 +73,6 @@ const pageSeo = buildTaxonomySectionSeo({
       </section>
     </div>
   </PageShell>
-
-  <BackToTop />
 </Layout>
 
 <style>

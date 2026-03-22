@@ -14,7 +14,6 @@ const playerSlug =
 const statusId = `episode-player-status-${playerSlug}`;
 const progressLabelId = `episode-player-progress-label-${playerSlug}`;
 const timeId = `episode-player-time-${playerSlug}`;
-const hintId = `episode-player-hint-${playerSlug}`;
 ---
 
 <div
@@ -25,12 +24,25 @@ const hintId = `episode-player-hint-${playerSlug}`;
 >
   <div class="episode-player__controls">
     <button
+      class="episode-player__transport-button"
+      type="button"
+      data-action="rewind"
+      aria-label="Go back 10 seconds"
+      title="Go back 10 seconds"
+    >
+      <Icon
+        name="tabler:arrow-back-up"
+        class="episode-player__transport-icon"
+        aria-hidden="true"
+      />
+    </button>
+    <button
       class="episode-player__control"
       type="button"
       data-action="toggle"
       aria-label={`Play ${title}`}
       aria-pressed="false"
-      aria-describedby={`${statusId} ${hintId}`}
+      aria-describedby={statusId}
     >
       <Icon
         name="tabler:player-play-filled"
@@ -51,6 +63,19 @@ const hintId = `episode-player-hint-${playerSlug}`;
       hidden
     >
       Retry
+    </button>
+    <button
+      class="episode-player__transport-button"
+      type="button"
+      data-action="forward"
+      aria-label="Skip forward 10 seconds"
+      title="Skip forward 10 seconds"
+    >
+      <Icon
+        name="tabler:arrow-forward-up"
+        class="episode-player__transport-icon"
+        aria-hidden="true"
+      />
     </button>
   </div>
 
@@ -78,39 +103,6 @@ const hintId = `episode-player-hint-${playerSlug}`;
     <span class="episode-player__time" id={timeId} aria-live="polite" aria-atomic="true">
       0:00 / 0:00
     </span>
-    <span class="episode-player__shortcut-hint" id={hintId}>
-      Keyboard shortcuts: Space, left/right arrows, Home/End, and Page Up/Page Down. Press
-      ? to show or hide this hint.
-    </span>
-  </div>
-
-  <div class="episode-player__transport" role="group" aria-label="Playback controls">
-    <button
-      class="episode-player__transport-button"
-      type="button"
-      data-action="rewind"
-      aria-label="Go back 10 seconds"
-      title="Go back 10 seconds"
-    >
-      <Icon
-        name="tabler:arrow-back-up"
-        class="episode-player__transport-icon"
-        aria-hidden="true"
-      />
-    </button>
-    <button
-      class="episode-player__transport-button"
-      type="button"
-      data-action="forward"
-      aria-label="Skip forward 10 seconds"
-      title="Skip forward 10 seconds"
-    >
-      <Icon
-        name="tabler:arrow-forward-up"
-        class="episode-player__transport-icon"
-        aria-hidden="true"
-      />
-    </button>
   </div>
   <audio
     class="episode-player__audio"
@@ -144,16 +136,28 @@ const hintId = `episode-player-hint-${playerSlug}`;
   .episode-player {
     /* Layout */
     display: grid;
-    gap: var(--spacing-base);
-    padding: var(--spacing-lg);
+    gap: clamp(var(--spacing-sm), 1.6vw, var(--spacing-base));
+    padding: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
     text-align: center;
     outline: none;
 
     /* Visual styling */
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 34%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 96%, transparent),
+        color-mix(in srgb, var(--surface-2) 82%, transparent)
+      );
+    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 80%, transparent),
+      var(--shadow-lg);
   }
 
   /* Focus state for entire player */
@@ -165,7 +169,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   /* Controls container */
   .episode-player__controls {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     gap: var(--spacing-md);
     align-items: center;
     justify-content: center;
@@ -179,8 +184,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
       font-weight: var(--font-weight-semibold);
       color: var(--text-primary);
       cursor: pointer;
-      background: var(--surface-pill-bg);
-      border: 2px solid var(--surface-border-soft);
+      background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+      border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
       border-radius: var(--radius-base);
       transition: none;
     }
@@ -192,8 +197,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     cursor: pointer;
-    background: var(--surface-pill-bg);
-    border: 2px solid var(--surface-border-soft);
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
     border-radius: var(--radius-base);
     transition:
       background var(--transition-fast),
@@ -202,8 +207,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   .episode-player__retry:hover,
   .episode-player__retry:focus-visible {
-    background: var(--surface-chip-bg);
-    border-color: var(--surface-border-accent);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
   }
 
   .episode-player__retry[hidden] {
@@ -219,16 +224,23 @@ const hintId = `episode-player-hint-${playerSlug}`;
       justify-content: center;
 
       /* Responsive sizing with clamp */
-      inline-size: clamp(3.4rem, 6vi, 3.75rem);
-      block-size: clamp(3.4rem, 6vi, 3.75rem);
+      inline-size: clamp(3.4rem, 6vi, 4rem);
+      block-size: clamp(3.4rem, 6vi, 4rem);
       color: var(--button-text-accent);
 
       /* Visual styling */
       cursor: pointer;
-      background: var(--accent-primary);
-      border: 2px solid var(--surface-border-accent);
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--accent-primary) 88%, var(--accent-muted)),
+        var(--accent-strong)
+      );
+      border: 2px solid color-mix(in srgb, var(--accent-primary) 42%, transparent);
       border-radius: var(--radius-full);
-      box-shadow: var(--shadow-lg);
+      box-shadow:
+        0 18px 30px -18px color-mix(in srgb, var(--accent-primary) 60%, transparent),
+        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 28%, transparent),
+        var(--shadow-lg);
 
       /* Smooth transitions */
       transition: none;
@@ -242,16 +254,23 @@ const hintId = `episode-player-hint-${playerSlug}`;
     justify-content: center;
 
     /* Responsive sizing with clamp */
-    inline-size: clamp(3.4rem, 6vi, 3.75rem);
-    block-size: clamp(3.4rem, 6vi, 3.75rem);
+    inline-size: clamp(3.4rem, 6vi, 4rem);
+    block-size: clamp(3.4rem, 6vi, 4rem);
     color: var(--button-text-accent);
 
     /* Visual styling */
     cursor: pointer;
-    background: var(--accent-primary);
-    border: 2px solid var(--surface-border-accent);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-primary) 88%, var(--accent-muted)),
+      var(--accent-strong)
+    );
+    border: 2px solid color-mix(in srgb, var(--accent-primary) 42%, transparent);
     border-radius: var(--radius-full);
-    box-shadow: var(--shadow-lg);
+    box-shadow:
+      0 18px 30px -18px color-mix(in srgb, var(--accent-primary) 60%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 28%, transparent),
+      var(--shadow-lg);
 
     /* Smooth transitions */
     transition:
@@ -262,7 +281,11 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   /* Playing state - different accent color */
   .episode-player__control[data-state="playing"] {
-    background: var(--accent-strong);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-strong) 84%, var(--accent-primary)),
+      var(--accent-strong)
+    );
   }
 
   /* Focus state - WCAG AAA compliant */
@@ -274,15 +297,18 @@ const hintId = `episode-player-hint-${playerSlug}`;
   /* Hover and focus states - subtle lift */
   .episode-player__control:hover,
   .episode-player__control:focus-visible {
-    box-shadow: var(--shadow-xl);
+    box-shadow:
+      0 20px 36px -18px color-mix(in srgb, var(--accent-primary) 66%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 28%, transparent),
+      var(--shadow-xl);
     transform: translateY(-1px) scale(1.02);
   }
 
   /* Control icon sizing */
   .episode-player__control-icon {
     display: block;
-    inline-size: 1.8rem;
-    block-size: 1.8rem;
+    inline-size: 1.55rem;
+    block-size: 1.55rem;
   }
 
   /* Icon visibility toggle based on state */
@@ -300,8 +326,11 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   /* Status text - shows current playback info */
   .episode-player__status {
+    max-inline-size: 44ch;
+    margin-inline: auto;
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
     color: var(--text-primary);
     text-wrap: balance;
   }
@@ -309,6 +338,7 @@ const hintId = `episode-player-hint-${playerSlug}`;
   /* Progress bar wrapper */
   .episode-player__progress-wrap {
     inline-size: 100%;
+    padding: var(--spacing-xs) 0;
   }
 
   /* Progress bar - interactive slider */
@@ -316,12 +346,14 @@ const hintId = `episode-player-hint-${playerSlug}`;
     .episode-player__progress {
       position: relative;
       inline-size: 100%;
-      block-size: clamp(0.65rem, 1.2vi, 0.85rem);
+      block-size: clamp(0.8rem, 1.4vi, 1rem);
       cursor: pointer;
-      background: var(--surface-chip-bg);
-      border: 1px solid var(--surface-border-soft);
+      background: color-mix(in srgb, var(--surface-2) 72%, var(--bg-primary));
+      border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
       border-radius: var(--radius-full);
-      box-shadow: inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent);
+      box-shadow:
+        inset 0 1px 2px color-mix(in srgb, var(--text-primary) 14%, transparent),
+        inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 28%, transparent);
       transition: none;
     }
   }
@@ -329,12 +361,14 @@ const hintId = `episode-player-hint-${playerSlug}`;
   .episode-player__progress {
     position: relative;
     inline-size: 100%;
-    block-size: clamp(0.65rem, 1.2vi, 0.85rem);
+    block-size: clamp(0.8rem, 1.4vi, 1rem);
     cursor: pointer;
-    background: var(--surface-chip-bg);
-    border: 1px solid var(--surface-border-soft);
+    background: color-mix(in srgb, var(--surface-2) 72%, var(--bg-primary));
+    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
     border-radius: var(--radius-full);
-    box-shadow: inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent);
+    box-shadow:
+      inset 0 1px 2px color-mix(in srgb, var(--text-primary) 14%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 28%, transparent);
     transition:
       border-color var(--transition-fast),
       box-shadow var(--transition-fast);
@@ -342,9 +376,10 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   .episode-player__progress:hover,
   .episode-player__progress:focus {
-    border-color: var(--surface-border-accent);
+    border-color: color-mix(in srgb, var(--accent-primary) 42%, transparent);
     box-shadow:
-      inset 0 1px 2px color-mix(in srgb, var(--text-primary) 10%, transparent),
+      inset 0 1px 2px color-mix(in srgb, var(--text-primary) 14%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 28%, transparent),
       var(--interactive-shadow-focus);
   }
 
@@ -361,10 +396,11 @@ const hintId = `episode-player-hint-${playerSlug}`;
       inline-size: 0%;
       background: linear-gradient(
         90deg,
-        var(--accent-primary) 0%,
+        color-mix(in srgb, var(--accent-primary) 92%, var(--accent-muted)) 0%,
         var(--accent-strong) 100%
       );
       border-radius: inherit;
+      box-shadow: 0 0 18px color-mix(in srgb, var(--accent-primary) 34%, transparent);
       transition: none;
     }
   }
@@ -375,42 +411,39 @@ const hintId = `episode-player-hint-${playerSlug}`;
     inline-size: 0%;
     background: linear-gradient(
       90deg,
-      var(--accent-primary) 0%,
+      color-mix(in srgb, var(--accent-primary) 92%, var(--accent-muted)) 0%,
       var(--accent-strong) 100%
     );
     border-radius: inherit;
+    box-shadow: 0 0 18px color-mix(in srgb, var(--accent-primary) 34%, transparent);
     transition: inline-size var(--transition-fast) ease-out;
   }
 
-  /* Metadata container - time and hints */
+  /* Metadata container - time only */
   .episode-player__meta {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
+    display: grid;
+    gap: 0;
     align-items: center;
-    padding: var(--spacing-sm) var(--spacing-base);
+    min-block-size: 5.5rem;
+    padding: var(--spacing-base) clamp(var(--spacing-base), 2vw, var(--spacing-lg));
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
-    background: var(--surface-chip-bg);
-    border: 1px solid var(--surface-border-subtle);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      color-mix(in srgb, var(--surface-2) 82%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--border-default) 24%, transparent);
     border-radius: var(--radius-md);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent);
   }
 
-  /* Keyboard shortcut hint */
-  .episode-player__shortcut-hint {
-    font-size: var(--font-size-xs);
-  }
-
-  .episode-player__shortcut-hint--hidden {
-    display: none;
-  }
-
-  /* Transport controls - seek buttons */
-  .episode-player__transport {
-    display: flex;
-    gap: var(--spacing-base);
-    justify-content: center;
-    padding-block-start: var(--spacing-xs);
+  .episode-player__time {
+    font-size: clamp(var(--font-size-base), 1.6vw, var(--font-size-md));
+    font-weight: var(--font-weight-bold);
+    font-variant-numeric: tabular-nums;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
   }
 
   /* Transport button styling */
@@ -423,13 +456,13 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
       /* Responsive sizing */
       inline-size: clamp(2.75rem, 5vi, 3.1rem);
-      block-size: clamp(2.75rem, 5vi, 3.1rem);
+      block-size: clamp(2.75rem, 5vi, 3rem);
 
       /* Visual styling */
       color: var(--text-secondary);
       cursor: pointer;
-      background: var(--surface-pill-bg);
-      border: 2px solid var(--surface-border-soft);
+      background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+      border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-xs);
 
@@ -446,13 +479,13 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
     /* Responsive sizing */
     inline-size: clamp(2.75rem, 5vi, 3.1rem);
-    block-size: clamp(2.75rem, 5vi, 3.1rem);
+    block-size: clamp(2.75rem, 5vi, 3rem);
 
     /* Visual styling */
     color: var(--text-secondary);
     cursor: pointer;
-    background: var(--surface-pill-bg);
-    border: 2px solid var(--surface-border-soft);
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-xs);
 
@@ -466,8 +499,9 @@ const hintId = `episode-player-hint-${playerSlug}`;
   .episode-player__transport-button:hover,
   .episode-player__transport-button:focus-visible {
     color: var(--text-primary);
-    background: var(--surface-chip-bg);
-    border-color: var(--surface-border-accent);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
+    box-shadow: var(--interactive-shadow-focus);
     transform: translateY(-1px);
   }
 
@@ -478,8 +512,8 @@ const hintId = `episode-player-hint-${playerSlug}`;
 
   /* Transport icon sizing */
   .episode-player__transport-icon {
-    inline-size: 1.4rem;
-    block-size: 1.4rem;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
   }
 
   /* Audio element - hidden */

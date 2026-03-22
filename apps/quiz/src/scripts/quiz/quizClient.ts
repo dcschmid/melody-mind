@@ -263,11 +263,6 @@ export function initQuiz(
         ? `<p class="quiz-question__hint">Select all that apply</p>`
         : "";
 
-    const sourceHtml =
-      isAnswered && q.source
-        ? `<p class="quiz-question__explanation-source"><strong>Source:</strong> ${q.source}${q.sourceLine ? `, line ${q.sourceLine}` : ""}</p>`
-        : "";
-
     questionContainer.innerHTML = `
       <div class="quiz-question" data-answered="${isAnswered}" data-correct="${isCorrect}">
         <div class="quiz-question__topline">
@@ -284,7 +279,6 @@ export function initQuiz(
           </div>
         </div>
         ${explanationHtml}
-        ${sourceHtml}
       </div>
     `;
 

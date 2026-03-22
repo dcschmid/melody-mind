@@ -110,7 +110,6 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
       <HeroTeaser
         id={`episode-hero-${currentPodcast.id}`}
         title={currentPodcast.title}
-        eyebrow={t.musicHistory}
         description={currentPodcast.description}
         mediaPosition="start"
         mediaAspectRatio="3 / 2"
@@ -222,8 +221,12 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
 
       {
         currentPodcast.showNotesHtml && (
-          <article role="region" aria-labelledby="show-notes-heading">
-            <Prose html={currentPodcast.showNotesHtml} />
+          <article
+            class="episode__notes"
+            role="region"
+            aria-labelledby="show-notes-heading"
+          >
+            <Prose html={currentPodcast.showNotesHtml} className="episode__notes-prose" />
           </article>
         )
       }
@@ -246,7 +249,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
 <style>
   .episode {
     display: grid;
-    gap: var(--spacing-2xl);
+    gap: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
   }
 
   .episode__breadcrumb {
@@ -331,9 +334,9 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   .episode__knowledge {
     position: relative;
     display: grid;
-    gap: var(--spacing-base);
+    gap: var(--spacing-lg);
     align-items: center;
-    padding: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2.4vw, var(--spacing-xl));
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-lg);
@@ -360,8 +363,8 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   .episode__audio {
     position: relative;
     display: grid;
-    gap: var(--spacing-base);
-    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2.4vw, var(--spacing-xl));
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
@@ -378,8 +381,36 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   }
 
   .episode__notes {
+    position: relative;
     display: grid;
-    gap: var(--spacing-base);
+    gap: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2.4vw, var(--spacing-xl));
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .episode__notes::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-lg) - var(--spacing-xs));
+  }
+
+  .episode__notes-prose {
+    position: relative;
+    z-index: 1;
+  }
+
+  .episode__notes-prose :global(:first-child) {
+    margin-block-start: 0;
+  }
+
+  .episode__notes-prose :global(:last-child) {
+    margin-block-end: 0;
   }
 
   .episode__section-title {
@@ -388,14 +419,20 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
 
   .episode__section-title :global(span) {
     display: inline-flex;
-    gap: var(--spacing-sm);
-    align-items: center;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    line-height: 1;
   }
 
   .episode__section-title-icon {
     flex: 0 0 auto;
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: 1.45rem;
+    block-size: 1.45rem;
+    margin-block-start: 0.2rem;
     color: var(--accent-primary);
+  }
+
+  .episode :global(.transcript) {
+    margin-block-start: 0;
   }
 </style>

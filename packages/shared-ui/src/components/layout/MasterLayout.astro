@@ -1,5 +1,6 @@
 ---
 import CookieConsent from "@shared-ui/components/policies/CookieConsent.astro";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
 import { THEME_EVENTS } from "@shared-utils/constants/events";
 import { STORAGE_KEYS } from "@shared-utils/constants/storage";
@@ -138,6 +139,7 @@ const themeInitScript = enableThemeInit
           <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
             <slot />
           </main>
+          <BackToTop />
           <CookieConsent />
           <slot name="after-main" />
           <slot name="body-end" />
@@ -149,6 +151,7 @@ const themeInitScript = enableThemeInit
           <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
             <slot />
           </main>
+          <BackToTop />
           <CookieConsent />
           <slot name="after-main" />
           <slot name="body-end" />

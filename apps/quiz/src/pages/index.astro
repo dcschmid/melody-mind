@@ -6,11 +6,11 @@
  */
 import Layout from "@layouts/Layout.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import {
@@ -101,19 +101,19 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
 <Layout {pageSeo}>
   <PageShell className="page-shell--aurora page-shell--grid">
     <div class="quiz-page">
-      <header class="quiz-hero">
-        <div class="quiz-hero__panel">
-          <div class="quiz-hero__copy">
-            <Headline level="h1" textSize="2xl" className="quiz-hero__title">
-              Music Quizzes
-            </Headline>
-            <Paragraph textSize="base" className="quiz-hero__description">
-              Challenge yourself with quizzes covering music history, genres, and artists.
-              Each question is grounded in research-driven content.
-            </Paragraph>
-          </div>
-        </div>
-      </header>
+      <HeroTeaser
+        id="quiz-home-hero"
+        class="quiz-hero"
+        title="Music Quizzes"
+        description="Challenge yourself with quizzes covering music history, genres, and artists. Each question is grounded in research-driven content."
+        titleLevel="h1"
+        imageSrc="/melody-mind-quiz.jpg"
+        imageAlt="A colorful music-themed collage representing pop eras and quiz topics."
+        imageWidth={1600}
+        imageHeight={900}
+        imageLoading="eager"
+        mediaAspectRatio="3 / 2"
+      />
 
       {
         quizzesByCategory.decade.length > 0 && (
@@ -227,8 +227,6 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
       }
     </div>
   </PageShell>
-
-  <BackToTop />
 </Layout>
 
 <style>
@@ -236,82 +234,6 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-3xl);
-  }
-
-  .quiz-hero {
-    position: relative;
-  }
-
-  .quiz-hero__panel {
-    position: relative;
-    display: flex;
-    padding: var(--spacing-xl);
-    background:
-      radial-gradient(
-        circle at top right,
-        color-mix(in srgb, var(--accent-primary) 14%, transparent),
-        transparent 30%
-      ),
-      var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .quiz-hero__panel::before {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-2xl) - var(--spacing-xs));
-  }
-
-  @media (width >= 960px) {
-    .quiz-hero__panel {
-      padding: var(--spacing-2xl);
-    }
-  }
-
-  .quiz-hero__copy {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-base);
-    max-inline-size: 62ch;
-  }
-
-  .quiz-hero__title {
-    margin: 0;
-    font-size: 2.6rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--text-primary);
-    letter-spacing: -0.035em;
-  }
-
-  @media (width >= 640px) {
-    .quiz-hero__title {
-      font-size: 3.4rem;
-    }
-  }
-
-  @media (width >= 1024px) {
-    .quiz-hero__title {
-      font-size: 4.4rem;
-    }
-  }
-
-  .quiz-hero__description {
-    margin: 0;
-    font-size: var(--font-size-base);
-    line-height: 1.8;
-    color: var(--text-secondary);
-  }
-
-  @media (width >= 640px) {
-    .quiz-hero__description {
-      font-size: var(--font-size-base);
-    }
   }
 
   .quiz-section {

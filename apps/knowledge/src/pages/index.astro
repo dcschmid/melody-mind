@@ -13,7 +13,6 @@ import {
   buildKnowledgeArticlesItemList,
 } from "@shared-utils/utils/seo/seoSchema";
 import { calculateReadingTime } from "@shared-utils/utils/readingTime";
-import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { sortEntries } from "@shared-utils/utils/content/sortEntries";
 import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import {
@@ -309,8 +308,6 @@ const pageSeo = buildPageSeo({
       </section>
     </div>
   </PageShell>
-
-  <BackToTop />
 </Layout>
 <script>
   // Recent Reads Script

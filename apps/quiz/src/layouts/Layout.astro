@@ -4,10 +4,9 @@ import SEO from "@shared-ui/components/meta/SEO.astro";
 import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import Footer from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
-import "../styles/global.css";
-import "../styles/print.css";
 
 import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import type { NavItem } from "@shared-ui/components/navigation/types";
 import {
   buildOrganizationSchema,
   buildWebSiteSchema,
@@ -145,6 +144,29 @@ function mapOgLocale(locale: string): string {
 }
 
 const autoOgLocale = mapOgLocale(lang);
+const year = new Date().getFullYear();
+const navItems: NavItem[] = [
+  {
+    href: "https://www.melody-mind.de",
+    label: "Knowledge",
+    icon: "book-open",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    href: "https://www.podcast.melody-mind.de",
+    label: "Podcast",
+    icon: "headphones",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    href: "/search",
+    label: "Search",
+    icon: "search",
+  },
+];
+
 const preloadedResources: Array<{
   href: string;
   as: "style" | "script" | "font" | "image";
@@ -279,8 +301,91 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     }
   </Fragment>
 
-  {showHeader && <SiteHeader slot="before-main" showIcons={showHeaderIcons} />}
-  {showFooter && <Footer slot="after-main" />}
+  {
+    showHeader && (
+      <SiteHeader
+        slot="before-main"
+        showIcons={showHeaderIcons}
+        {navItems}
+        brandHref="/"
+        brandLogoSrc="/melody-mind-quiz.png"
+        brandAriaLabel="Go to the Melody Mind homepage"
+        menuOpenLabel="Open main menu"
+        menuCloseLabel="Close main menu"
+        menuText="Menu"
+        navAriaLabel="Primary navigation"
+      />
+    )
+  }
+  {
+    showFooter && (
+      <Footer
+        slot="after-main"
+        brandTitle="Melody Mind"
+        brandText="Curated guides and playlists to help you listen more closely and discover new sounds."
+        exploreLinks={[
+          {
+            href: "https://melody-mind.de",
+            label: "Knowledge",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          {
+            href: "https://podcasts.melody-mind.de",
+            label: "Podcasts",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+        ]}
+        supportLinks={[
+          {
+            href: "https://www.paypal.me/dcschmid",
+            label: "PayPal",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          {
+            href: "https://www.buymeacoffee.com/dcschmid",
+            label: "Buy Me a Coffee",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+        ]}
+        legalLinks={[
+          {
+            href: "https://melody-mind.de/imprint",
+            label: "Legal Notice",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          {
+            href: "https://melody-mind.de/privacy",
+            label: "Privacy Policy",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          {
+            href: "https://melody-mind.de/cookies",
+            label: "Cookie Policy",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+          {
+            href: "https://melody-mind.de/ai-content",
+            label: "AI Content",
+            target: "_blank",
+            rel: "noopener noreferrer",
+          },
+        ]}
+        cookieSettingsLabel="Cookie settings"
+        themeStatusPrefix="Theme"
+        cookiesWaitingLabel="Cookies: waiting"
+        cookiesAllowedLabel="Cookies: analytics allowed"
+        cookiesEssentialLabel="Cookies: essential only"
+        copyrightText={`© ${year} MelodyMind. All rights reserved.`}
+      />
+    )
+  }
 
   <slot />
 

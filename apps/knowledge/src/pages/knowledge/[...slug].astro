@@ -15,7 +15,6 @@ import TableOfContents from "@shared-ui/components/navigation/TableOfContents.as
 import RecentItemsTracker from "@shared-ui/components/init/RecentItemsTracker.astro";
 
 import KnowledgeTakeaways from "@shared-ui/components/cards/KnowledgeTakeaways.astro";
-import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import { VERSIONED_KEYS } from "@constants/storageVersions";
 import {
   buildKnowledgeArticleStorageMeta,
@@ -158,7 +157,6 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
       </div>
 
       <!-- DOM hooks for lightweight client features. Data is passed via attributes to avoid inline scripts. -->
-      <BackToTop />
     </div>
   </div>
 </Layout>

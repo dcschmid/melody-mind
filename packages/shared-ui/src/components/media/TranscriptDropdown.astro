@@ -181,4 +181,41 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   :global(.transcript .transcript__text) {
     color: var(--text-primary);
   }
+
+  @media (width < 640px) {
+    .transcript__summary {
+      flex-wrap: wrap;
+      align-items: start;
+      padding: var(--spacing-base);
+    }
+
+    .transcript__summary-title {
+      min-inline-size: 0;
+    }
+
+    .transcript__summary-hint {
+      inline-size: 100%;
+      font-size: var(--font-size-xs);
+      text-align: start;
+    }
+
+    .transcript__body {
+      padding: var(--spacing-base);
+    }
+
+    .transcript__content {
+      padding-inline-end: 0;
+    }
+
+    :global(.transcript .transcript__cue) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-sm);
+      padding: var(--spacing-base);
+    }
+
+    :global(.transcript .transcript__time) {
+      min-inline-size: 0;
+      text-align: start;
+    }
+  }
 </style>
