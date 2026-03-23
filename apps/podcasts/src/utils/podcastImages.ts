@@ -17,16 +17,22 @@ const podcastCoverModules = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true }
 );
 
-const podcastCoverImages = buildImageMap(podcastCoverModules);
+const podcastCoverImages = buildImageMap(podcastCoverModules, [
+  "jpg",
+  "jpeg",
+  "png",
+  "webp",
+  "avif",
+]);
 
 const podcastHeroImage = findAssetByFileName(
   podcastAssetModules,
   [
     "the-melody-mind-podcast.jpg",
     "the-melody-mind-podcast.jpeg",
+    "the-melody-mind-podcast.png",
     "the-melody-mind-podcast.webp",
     "the-melody-mind-podcast.avif",
-    "the-melody-mind-podcast.png",
   ],
   "Missing podcast asset"
 );

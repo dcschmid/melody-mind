@@ -31,10 +31,10 @@ const quizBrandLogo = findAssetByFileName(
 const quizHeroImage = findAssetByFileName(
   quizAssetModules,
   [
-    "melody-mind-quiz.jpg",
-    "melody-mind-quiz.jpeg",
     "melody-mind-quiz.webp",
     "melody-mind-quiz.avif",
+    "melody-mind-quiz.jpg",
+    "melody-mind-quiz.jpeg",
     "melody-mind-quiz.png",
   ],
   "Missing quiz asset"

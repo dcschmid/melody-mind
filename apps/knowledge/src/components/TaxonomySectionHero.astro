@@ -1,6 +1,6 @@
 ---
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import type { TaxonomySection } from "../types/taxonomy";
 import { getKnowledgeTaxonomyImage } from "@utils/knowledgeImages";
 
@@ -28,9 +28,8 @@ const importedSectionImage = getKnowledgeTaxonomyImage(section.image) || undefin
     {
       importedSectionImage ? (
         <Fragment slot="media">
-          <Picture
+          <Image
             src={importedSectionImage}
-            formats={["avif", "webp"]}
             alt={section.title}
             loading="eager"
             class="taxonomy-section-hero__image"

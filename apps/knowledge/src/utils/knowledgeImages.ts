@@ -39,10 +39,10 @@ const knowledgeBrandLogo = findAssetByFileName(
 const knowledgeHeroImage = findAssetByFileName(
   knowledgeAssetModules,
   [
-    "melody-mind.jpg",
-    "melody-mind.jpeg",
     "melody-mind.webp",
     "melody-mind.avif",
+    "melody-mind.jpg",
+    "melody-mind.jpeg",
     "melody-mind.png",
   ],
   "Missing knowledge asset"

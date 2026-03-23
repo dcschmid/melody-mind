@@ -1,5 +1,5 @@
 ---
-import { Image, Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 interface Props {
@@ -11,7 +11,6 @@ interface Props {
   sizes?: string;
   loading?: "eager" | "lazy";
   decoding?: "sync" | "async" | "auto";
-  formats?: ("avif" | "webp" | "png" | "jpg" | "jpeg")[];
 }
 
 const {
@@ -23,22 +22,57 @@ const {
   sizes,
   loading = "lazy",
   decoding = "async",
-  formats = ["avif", "webp"],
 } = Astro.props as Props;
 
 const importedImageSrc = typeof src !== "string" ? src : undefined;
 const stringImageSrc = typeof src === "string" ? src : undefined;
+const requestedWidth = Number(width);
+const requestedHeight = Number(height);
+const hasValidRequestedWidth = Number.isFinite(requestedWidth) && requestedWidth > 0;
+const hasValidRequestedHeight = Number.isFinite(requestedHeight) && requestedHeight > 0;
+
+const resolvedImportedDimensions = importedImageSrc
+  ? (() => {
+      const intrinsicWidth = importedImageSrc.width;
+      const intrinsicHeight = importedImageSrc.height;
+
+      if (hasValidRequestedWidth && hasValidRequestedHeight) {
+        return {
+          width: requestedWidth,
+          height: Math.round((requestedWidth * intrinsicHeight) / intrinsicWidth),
+        };
+      }
+
+      if (hasValidRequestedWidth) {
+        return {
+          width: requestedWidth,
+          height: Math.round((requestedWidth * intrinsicHeight) / intrinsicWidth),
+        };
+      }
+
+      if (hasValidRequestedHeight) {
+        return {
+          width: Math.round((requestedHeight * intrinsicWidth) / intrinsicHeight),
+          height: requestedHeight,
+        };
+      }
+
+      return {
+        width: intrinsicWidth,
+        height: intrinsicHeight,
+      };
+    })()
+  : undefined;
 ---
 
 {
   importedImageSrc ? (
-    <Picture
+    <Image
       src={importedImageSrc}
-      formats={formats}
       alt={alt}
       class={className}
-      width={width}
-      height={height}
+      width={resolvedImportedDimensions?.width ?? width}
+      height={resolvedImportedDimensions?.height ?? height}
       sizes={sizes}
       loading={loading}
       decoding={decoding}

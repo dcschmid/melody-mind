@@ -259,38 +259,9 @@ const resolvedMediaAspectRatio =
     box-shadow: var(--shadow-md);
   }
 
-  .hero-teaser__image,
-  .hero-teaser__media :global(img),
-  .hero-teaser__media :global(picture > img),
-  .hero-teaser__media :global(svg) {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-  }
-
-  .hero-teaser__media :global(picture) {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-  }
-
-  .hero-teaser__media--cover .hero-teaser__image,
-  .hero-teaser__media--cover :global(img),
-  .hero-teaser__media--cover :global(picture > img),
-  .hero-teaser__media--cover :global(svg) {
-    object-fit: cover;
-  }
-
   .hero-teaser__media--contain {
     display: grid;
     place-items: center;
-  }
-
-  .hero-teaser__media--contain .hero-teaser__image,
-  .hero-teaser__media--contain :global(img),
-  .hero-teaser__media--contain :global(picture > img),
-  .hero-teaser__media--contain :global(svg) {
-    object-fit: contain;
   }
 
   .hero-teaser__media--placeholder {
@@ -374,5 +345,53 @@ const resolvedMediaAspectRatio =
     .hero-teaser {
       scroll-behavior: auto;
     }
+  }
+</style>
+
+<style is:global>
+  :where(
+    .hero-teaser__media img,
+    .hero-teaser__media picture,
+    .hero-teaser__media picture > img,
+    .hero-teaser__media svg
+  ) {
+    display: block;
+  }
+
+  :where(
+    .hero-teaser__media--cover img,
+    .hero-teaser__media--cover picture,
+    .hero-teaser__media--cover picture > img,
+    .hero-teaser__media--cover svg
+  ) {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  :where(
+    .hero-teaser__media--cover img,
+    .hero-teaser__media--cover picture > img,
+    .hero-teaser__media--cover svg
+  ) {
+    object-fit: cover;
+  }
+
+  :where(.hero-teaser__media--contain picture) {
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  :where(
+    .hero-teaser__media--contain img,
+    .hero-teaser__media--contain picture > img,
+    .hero-teaser__media--contain svg
+  ) {
+    inline-size: auto;
+    max-inline-size: 100%;
+    block-size: auto;
+    max-block-size: 100%;
+    object-fit: contain;
   }
 </style>

@@ -132,8 +132,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
         imageWidth={1536}
         imageHeight={1024}
         imageLoading="eager"
-        mediaAspectRatio="4 / 3"
-        mediaObjectFit="cover"
+        mediaObjectFit="contain"
         mediaPosition="end"
         titleLevel="h1"
       >
@@ -158,6 +157,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
                 href={`/${podcast.id}`}
                 variant="feature"
                 size="spacious"
+                mediaObjectFit="contain"
                 imageSrc={podcast.imageSrc}
                 imageAlt={`Cover art for the podcast episode ${podcast.title}`}
                 imageWidth={1536}
