@@ -1,6 +1,6 @@
 ---
-import { Image, Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
+import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
@@ -52,8 +52,6 @@ const hasActionsSlot = Astro.slots.has("actions");
 const hasMedia = Boolean(imageSrc) || hasMediaSlot;
 const resolvedImageWidth = imageWidth ?? 1200;
 const resolvedImageHeight = imageHeight ?? 900;
-const importedImageSrc = imageSrc && typeof imageSrc !== "string" ? imageSrc : undefined;
-const stringImageSrc = typeof imageSrc === "string" ? imageSrc : undefined;
 const resolvedMediaAspectRatio =
   mediaAspectRatio ?? `${resolvedImageWidth} / ${resolvedImageHeight}`;
 ---
@@ -92,20 +90,9 @@ const resolvedMediaAspectRatio =
       style={`--hero-teaser-media-aspect-ratio: ${resolvedMediaAspectRatio};`}
     >
       {
-        importedImageSrc ? (
-          <Picture
-            src={importedImageSrc}
-            formats={["avif", "webp"]}
-            alt={imageAlt}
-            class="hero-teaser__image"
-            width={resolvedImageWidth}
-            height={resolvedImageHeight}
-            loading={imageLoading}
-            decoding={imageDecoding}
-          />
-        ) : stringImageSrc ? (
-          <Image
-            src={stringImageSrc}
+        imageSrc ? (
+          <OptimizedImage
+            src={imageSrc}
             alt={imageAlt}
             class="hero-teaser__image"
             width={resolvedImageWidth}

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 
 interface Props {
   imageSrc: string;
@@ -29,7 +29,7 @@ const classes = ["subsection-figure", className].filter(Boolean).join(" ");
 
 <figure class={classes}>
   <div class="subsection-figure__media">
-    <Image
+    <OptimizedImage
       class="subsection-figure__image"
       src={imageSrc}
       alt={imageAlt}
