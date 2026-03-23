@@ -11,11 +11,13 @@ import {
   buildArticleSchema,
   buildFaqPageSchema,
 } from "@shared-utils/utils/seo/seoSchema";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { knowledgeHeroImageUrl } from "@utils/knowledgeImages";
 
 export const prerender = true;
 
 const canonical = resolvePageUrl(Astro.site, "/ai-content");
+const baseUrl = resolveBaseUrl(Astro.site);
 const publishedAt = new Date("2026-03-15T00:00:00.000Z");
 const modifiedAt = new Date("2026-03-21T00:00:00.000Z");
 
@@ -153,7 +155,7 @@ const pageSeo = buildPageSeo({
   ],
   keywordLimit: 24,
   maxDescription: 155,
-  image: "/knowledge.png",
+  image: knowledgeHeroImageUrl(baseUrl),
   imageAlt: "AI Content Policy",
   publishDate: publishedAt,
   modifiedDate: modifiedAt,

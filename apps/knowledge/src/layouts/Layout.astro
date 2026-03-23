@@ -12,6 +12,11 @@ import {
 } from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
 import type { NavItem } from "@shared-ui/components/navigation/types";
+import {
+  knowledgeBrandLogo,
+  knowledgeBrandLogoUrl,
+  knowledgeHeroImageUrl,
+} from "@utils/knowledgeImages";
 
 /**
  * Normalized SEO payload expected by the shared `<SEO />` component.
@@ -98,16 +103,17 @@ const mergedDescription = constructedPageSeo.description;
 const mergedKeywords = constructedPageSeo.keywords;
 const mergedType = constructedPageSeo.type;
 const mergedCanonical = constructedPageSeo.canonical;
-const mergedImage = constructedPageSeo.image || "/melody-mind.png";
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
 const mergedStructuredData = constructedPageSeo.structuredData;
 const robotsTag = constructedPageSeo.robots;
 const siteUrl = resolveBaseUrl(Astro.site);
+const mergedImage = constructedPageSeo.image || knowledgeHeroImageUrl(siteUrl);
 const globalStructuredData: StructuredData[] = [];
 const siteName = "Melody Mind";
 const siteDescription =
   "Music knowledge platform for genres, timelines, and guided listening.";
+const siteLogoUrl = knowledgeBrandLogoUrl(siteUrl);
 
 // Ensure every page ships the site-level schemas even if the page config omitted them.
 if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
@@ -116,6 +122,7 @@ if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
       siteUrl,
       siteName,
       description: siteDescription,
+      logoUrl: siteLogoUrl,
     })
   );
 }
@@ -303,10 +310,10 @@ const navItems: NavItem[] = [
     brandHref="/"
     brandText={siteName}
     brandMark="MM"
-    brandLogoSrc="/melody-mind.png"
+    brandLogoSrc={knowledgeBrandLogo}
     brandLogoAlt={siteName}
-    brandLogoWidth={1536}
-    brandLogoHeight={1024}
+    brandLogoWidth={150}
+    brandLogoHeight={100}
     brandAriaLabel={`Go to the ${siteName} homepage`}
     menuOpenLabel="Open main menu"
     menuCloseLabel="Close main menu"

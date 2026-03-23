@@ -3,7 +3,8 @@ import {
   type PageSeoResult,
   type StructuredData,
 } from "@shared-utils/utils/seo/buildPageSeo";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { knowledgeHeroImageUrl } from "@utils/knowledgeImages";
 
 type BuildLegalPageSeoArgs = {
   site: URL | undefined;
@@ -27,6 +28,7 @@ export const buildLegalPageSeo = ({
   modifiedDate,
 }: BuildLegalPageSeoArgs): PageSeoResult => {
   const currentUrl = resolvePageUrl(site, path);
+  const baseUrl = resolveBaseUrl(site);
   const breadcrumbs = [
     { name: "Home", url: resolvePageUrl(site, "/") },
     { name: title, url: currentUrl },
@@ -43,7 +45,7 @@ export const buildLegalPageSeo = ({
     fallbackKeywords,
     keywordLimit: 24,
     maxDescription,
-    image: "/knowledge.png",
+    image: knowledgeHeroImageUrl(baseUrl),
     imageAlt,
     index: false,
     follow: true,

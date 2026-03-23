@@ -1,13 +1,17 @@
 ---
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import type { TaxonomySection } from "../types/taxonomy";
+import { getKnowledgeTaxonomyImage } from "@utils/knowledgeImages";
 
 interface Props {
   section: TaxonomySection;
+  subsectionCount?: number;
+  articleCount?: number;
 }
 
 const { section } = Astro.props as Props;
+const importedSectionImage = getKnowledgeTaxonomyImage(section.image) || undefined;
 ---
 
 <header class="taxonomy-section-hero">
@@ -22,15 +26,16 @@ const { section } = Astro.props as Props;
     mediaAspectRatio="4 / 3"
   >
     {
-      section.image ? (
+      importedSectionImage ? (
         <Fragment slot="media">
-          <Image
-            src={section.image}
+          <Picture
+            src={importedSectionImage}
+            formats={["avif", "webp"]}
             alt={section.title}
             loading="eager"
             class="taxonomy-section-hero__image"
-            width="1200"
-            height="900"
+            width={importedSectionImage.width}
+            height={importedSectionImage.height}
           />
         </Fragment>
       ) : null

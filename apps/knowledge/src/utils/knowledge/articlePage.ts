@@ -6,8 +6,14 @@ import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { loggers } from "@shared-utils/utils/logging";
 import { buildArticleSchema } from "@shared-utils/utils/seo/seoSchema";
-import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
+import {
+  getKnowledgeCategoryImage,
+  getKnowledgeCategoryImageSrc,
+  getKnowledgeCategoryImageUrl,
+  knowledgeHeroImageUrl,
+} from "@utils/knowledgeImages";
 
 /**
  * Search-focused title overrides for specific high-value knowledge articles.
@@ -160,14 +166,17 @@ export function buildKnowledgeArticlePageData({
   const rawImage = entry.data.image;
   const isValidImage =
     typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
-  const imageSource = isValidImage ? rawImage : "/default-cover.jpg";
+  const baseUrl = resolveBaseUrl(site);
+  const imageSource = isValidImage ? getKnowledgeCategoryImage(rawImage) : undefined;
   const title = entry.data.title;
   const seoTitle = getKnowledgeSeoTitle(slugKey, title);
   const description = entry.data.description;
   const optimizedDescription = description || title;
-  const imageAbsolute = resolveAbsoluteUrl(site, imageSource);
-  const imageWidth = 1200;
-  const imageHeight = 800;
+  const imageAbsolute =
+    (isValidImage && getKnowledgeCategoryImageUrl(rawImage, baseUrl)) ||
+    knowledgeHeroImageUrl(baseUrl);
+  const imageWidth = imageSource?.width || 1024;
+  const imageHeight = imageSource?.height || 683;
   const canonical = slugKey
     ? resolvePageUrl(site, `/knowledge/${slugKey}`)
     : resolvePageUrl(site, "/");
@@ -301,7 +310,7 @@ export function buildKnowledgeArticleStorageMeta(
   return {
     storageSlug: slug || entry.id,
     storageUpdatedAt,
-    storageImage: typeof entry.data.image === "string" ? entry.data.image : "",
+    storageImage: getKnowledgeCategoryImageSrc(entry.data.image) || "",
   };
 }
 
@@ -309,7 +318,7 @@ export interface RelatedKnowledgeArticle {
   slug: string;
   title: string;
   description: string;
-  image?: string;
+  image?: string | import("astro").ImageMetadata;
   createdAt: Date;
   readingTime: number;
 }
@@ -544,7 +553,9 @@ export function getRelatedKnowledgeArticles(params: {
         slug: String(article?.slug || article?.id || ""),
         title: String(article?.data?.title || ""),
         description: String(article?.data?.description || ""),
-        image: typeof article?.data?.image === "string" ? article.data.image : undefined,
+        image: getKnowledgeCategoryImage(
+          typeof article?.data?.image === "string" ? article.data.image : undefined
+        ),
         createdAt,
         updatedAt,
         readingTime,

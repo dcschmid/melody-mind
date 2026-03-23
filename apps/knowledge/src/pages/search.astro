@@ -6,7 +6,8 @@ import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { knowledgeHeroImageUrl } from "@utils/knowledgeImages";
 
 export const prerender = true;
 
@@ -14,6 +15,7 @@ const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
 
 const title = "Search Melody Mind";
 const description = "Search Melody Mind article titles and descriptions.";
+const baseUrl = resolveBaseUrl(Astro.site);
 const currentUrl = resolvePageUrl(Astro.site, "/search");
 const pageSeo = buildPageSeo({
   title,
@@ -25,7 +27,7 @@ const pageSeo = buildPageSeo({
   fallbackKeywords: ["search", "music knowledge", "article search", "genre guides"],
   keywordLimit: 24,
   maxDescription: 155,
-  image: "/melody-mind.jpg",
+  image: knowledgeHeroImageUrl(baseUrl),
   imageAlt: "Search Melody Mind Knowledge",
   index: false,
   follow: true,

@@ -2,6 +2,7 @@
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import type { TaxonomyArticle } from "@utils/taxonomy/buildTaxonomySectionPageData";
+import { getKnowledgeCategoryImage } from "@utils/knowledgeImages";
 
 interface Props {
   articles: TaxonomyArticle[];
@@ -35,7 +36,7 @@ const articleDateFormatter = new Intl.DateTimeFormat("en-US", {
               variant="default"
               size="default"
               mediaObjectFit="contain"
-              imageSrc={article.data.image || "/default-cover.jpg"}
+              imageSrc={getKnowledgeCategoryImage(article.data.image)}
               imageAlt={`Cover image for ${article.data.title}`}
               imageWidth={1024}
               imageHeight={683}

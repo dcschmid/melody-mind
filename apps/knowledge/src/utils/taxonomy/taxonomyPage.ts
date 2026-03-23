@@ -17,6 +17,10 @@ import {
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import type { TaxonomySection } from "../../types/taxonomy";
 import type { TaxonomyArticle } from "./buildTaxonomySectionPageData";
+import {
+  getKnowledgeCategoryImageUrl,
+  getKnowledgeTaxonomyImageUrl,
+} from "@utils/knowledgeImages";
 
 export const TAXONOMY_SECTION_SEO_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "canon-key-artists":
@@ -89,6 +93,7 @@ export function buildTaxonomySectionSeo({
 }: BuildTaxonomySectionSeoParams) {
   const currentUrl = resolvePageUrl(site, `/taxonomy/${sectionId}`);
   const baseUrl = resolveBaseUrl(site);
+  const sectionImageUrl = getKnowledgeTaxonomyImageUrl(section.image, baseUrl);
   const seoDescription = getTaxonomySectionSeoDescription({
     sectionId,
     sectionTitle: section.title,
@@ -130,7 +135,7 @@ export function buildTaxonomySectionSeo({
         createdAt: article.data.createdAt || undefined,
         updatedAt: article.data.updatedAt || undefined,
         keywords: article.data.keywords,
-        image: article.data.image,
+        image: getKnowledgeCategoryImageUrl(article.data.image, baseUrl),
       },
     })),
     baseUrl,
@@ -143,7 +148,7 @@ export function buildTaxonomySectionSeo({
     name: section.title,
     description: seoDescription,
     lang: "en",
-    image: section.image ? `${baseUrl}${section.image}` : undefined,
+    image: sectionImageUrl,
     mainEntityId: articleItemListId,
   });
 
@@ -160,7 +165,7 @@ export function buildTaxonomySectionSeo({
     fallbackKeywords: [],
     keywordLimit: 28,
     maxDescription: 160,
-    image: section.image,
+    image: sectionImageUrl,
     imageAlt: `${section.title} - Melody Mind`,
     publishDate: sectionDates.publishDate || undefined,
     modifiedDate: sectionDates.modifiedDate || undefined,

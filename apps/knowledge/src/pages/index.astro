@@ -22,8 +22,15 @@ import {
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { musicTaxonomy } from "../data/musicTaxonomy";
 import { countArticlesPerSubsection } from "../utils/taxonomy/taxonomyUtils";
-import { Image } from "astro:assets";
 import { loggers } from "@shared-utils/utils/logging";
+import {
+  getKnowledgeCategoryImageUrl,
+  getKnowledgeCategoryImageSrc,
+  getKnowledgeTaxonomyImage,
+  knowledgeHeroImage,
+  knowledgeHeroImageSrc,
+  knowledgeHeroImageUrl,
+} from "@utils/knowledgeImages";
 
 export const prerender = true;
 
@@ -63,7 +70,9 @@ const recentReadImageMap = Object.fromEntries(
           ? article.id.replace(/^\/+/, "")
           : "";
     const articleImage =
-      typeof article?.data?.image === "string" ? article.data.image.trim() : "";
+      getKnowledgeCategoryImageSrc(
+        typeof article?.data?.image === "string" ? article.data.image.trim() : ""
+      ) || "";
 
     return [articleSlug, articleImage];
   })
@@ -97,7 +106,7 @@ const articleCollectionSchema = buildKnowledgeArticlesItemList({
       createdAt: a.data.createdAt,
       updatedAt: a.data.updatedAt,
       keywords: a.data.keywords,
-      image: a.data.image,
+      image: getKnowledgeCategoryImageUrl(a.data.image, baseUrl),
     },
   })),
   baseUrl,
@@ -110,7 +119,7 @@ const collectionPageSchema = buildCollectionPageSchema({
   name: title,
   description,
   lang,
-  image: `${baseUrl}/melody-mind.jpg`,
+  image: knowledgeHeroImageUrl(baseUrl),
   mainEntityId: articleCollectionId,
 });
 
@@ -156,7 +165,7 @@ const pageSeo = buildPageSeo({
     .filter(Boolean),
   keywordLimit: 28,
   maxDescription: 150,
-  image: "/melody-mind.jpg",
+  image: knowledgeHeroImageUrl(baseUrl),
   imageAlt: "Melody Mind - Music Knowledge Platform",
   publishDate: collectionDates.publishDate || undefined,
   modifiedDate: collectionDates.modifiedDate || undefined,
@@ -177,20 +186,14 @@ const pageSeo = buildPageSeo({
           title="Trace how music evolves"
           titleLevel="h1"
           description="From genre roots to current sounds, explore the cultural stories, key artists, and sonic shifts that shape each style."
+          imageSrc={knowledgeHeroImage}
+          imageAlt="Melody Mind collage artwork representing music history and genre connections"
+          imageWidth={1024}
+          imageHeight={683}
+          imageLoading="eager"
           mediaPosition="start"
           mediaAspectRatio="3 / 2"
         >
-          <Fragment slot="media">
-            <Image
-              class="knowledge-index__hero-image"
-              src="/melody-mind.jpg"
-              width="1080"
-              height="720"
-              alt="Melody Mind collage artwork representing music history and genre connections"
-              loading="eager"
-              fetchpriority="high"
-            />
-          </Fragment>
           <div
             slot="meta"
             class="knowledge-index__feature-list"
@@ -234,6 +237,12 @@ const pageSeo = buildPageSeo({
           id="recent-read-images"
           type="application/json"
           set:html={JSON.stringify(recentReadImageMap)}
+        />
+        <script
+          is:inline
+          id="recent-reads-fallback-image"
+          type="application/json"
+          set:html={JSON.stringify(knowledgeHeroImageSrc)}
         />
         <p
           id="recent-reads-status"
@@ -285,7 +294,7 @@ const pageSeo = buildPageSeo({
                   variant="default"
                   size="default"
                   mediaObjectFit="contain"
-                  imageSrc={section.image}
+                  imageSrc={getKnowledgeTaxonomyImage(section.image) || section.image}
                   imageAlt={`${section.title} cover`}
                   imageWidth={1024}
                   imageHeight={683}
@@ -309,12 +318,11 @@ const pageSeo = buildPageSeo({
     </div>
   </PageShell>
 </Layout>
-<script>
+<script is:inline>
   // Recent Reads Script
   // NOTE: STORAGE_KEY_RECENT_READS must match VERSIONED_KEYS.RECENT_READS in
   // src/constants/storageVersions.ts
   const STORAGE_KEY_RECENT_READS = "mm_recent_reads_v1";
-  const RECENT_READS_FALLBACK_IMAGE = "/melody-mind.jpg";
   (() => {
     const storageKey = STORAGE_KEY_RECENT_READS;
     const container = document.getElementById("recent-reads");
@@ -322,11 +330,26 @@ const pageSeo = buildPageSeo({
     const emptyState = document.getElementById("recent-reads-empty");
     const status = document.getElementById("recent-reads-status");
     const imageMapEl = document.getElementById("recent-read-images");
-    if (!container || !list || !emptyState || !status || !imageMapEl) {
+    const fallbackImageEl = document.getElementById("recent-reads-fallback-image");
+    if (
+      !container ||
+      !list ||
+      !emptyState ||
+      !status ||
+      !imageMapEl ||
+      !fallbackImageEl
+    ) {
       return;
     }
 
-    let imageMap: Record<string, string> = {};
+    const fallbackImage =
+      typeof fallbackImageEl.textContent === "string"
+        ? JSON.parse(fallbackImageEl.textContent || '""')
+        : "";
+    const RECENT_READS_FALLBACK_IMAGE =
+      typeof fallbackImage === "string" && fallbackImage ? fallbackImage : "/favicon.svg";
+
+    let imageMap = {};
     try {
       imageMap = JSON.parse(imageMapEl.textContent || "{}");
     } catch {
@@ -423,13 +446,6 @@ const pageSeo = buildPageSeo({
   .knowledge-index__intro {
     padding-block-end: calc(var(--spacing-xl) + var(--spacing-sm));
     border-block-end: 1px solid var(--surface-border-soft);
-  }
-
-  .knowledge-index__hero-image {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
   }
 
   .taxonomy-card__badge {
