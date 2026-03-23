@@ -212,9 +212,9 @@ Typical examples:
 
 ## Additional Documentation
 
-- [Knowledge README](/home/daniel/dev/github/melody-mind/apps/knowledge/README.md)
-- [Knowledge Scripts README](/home/daniel/dev/github/melody-mind/apps/knowledge/scripts/README.md)
-- [Quiz README](/home/daniel/dev/github/melody-mind/apps/quiz/README.md)
-- [Podcasts README](/home/daniel/dev/github/melody-mind/apps/podcasts/README.md)
-- [Shared UI README](/home/daniel/dev/github/melody-mind/packages/shared-ui/README.md)
-- [Shared Utils README](/home/daniel/dev/github/melody-mind/packages/shared-utils/README.md)
+- [Knowledge README](./apps/knowledge/README.md)
+- [Knowledge Scripts README](./apps/knowledge/scripts/README.md)
+- [Quiz README](./apps/quiz/README.md)
+- [Podcasts README](./apps/podcasts/README.md)
+- [Shared UI README](./packages/shared-ui/README.md)
+- [Shared Utils README](./packages/shared-utils/README.md)
