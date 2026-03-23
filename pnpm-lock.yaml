@@ -246,6 +246,9 @@ importers:
       lightningcss:
         specifier: ^1.32.0
         version: 1.32.0
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.8

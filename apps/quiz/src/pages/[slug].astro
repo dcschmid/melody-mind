@@ -14,8 +14,9 @@ import {
   buildBreadcrumbListSchema,
   buildQuizSchema,
 } from "@shared-utils/utils/seo/seoSchema";
-import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import type { QuizData, QuizQuestion } from "../content.config";
+import { getQuizImageUrl, quizHeroImageUrl } from "../utils/quizImages";
 
 export const prerender = true;
 
@@ -36,6 +37,7 @@ export async function getStaticPaths() {
 
 const { quiz } = Astro.props as Props;
 
+const baseUrl = resolveBaseUrl(Astro.site);
 const currentUrl = resolvePageUrl(Astro.site, `/${quiz.id}`);
 
 const seoBreadcrumbs = [
@@ -47,7 +49,7 @@ const breadcrumbSchema = buildBreadcrumbListSchema(seoBreadcrumbs);
 
 const quizSeoTitle = quiz.data.seoTitle || `${quiz.data.title} Music Quiz`;
 const quizSeoDescription = quiz.data.seoDescription || quiz.data.description;
-const quizImage = `/category/${quiz.id}.jpg`;
+const quizImage = getQuizImageUrl(quiz.id, baseUrl) ?? quizHeroImageUrl(baseUrl);
 const quizFeaturedTopics = quiz.data.featuredTopics.length
   ? quiz.data.featuredTopics
   : [quiz.data.category.replace(/-/g, " "), ...quiz.data.relatedArticles];

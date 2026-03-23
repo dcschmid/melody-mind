@@ -20,6 +20,12 @@ import {
 } from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import type { QuizData } from "../content.config";
+import {
+  getQuizImage,
+  getQuizImageUrl,
+  quizHeroImage,
+  quizHeroImageUrl,
+} from "../utils/quizImages";
 
 export const prerender = true;
 
@@ -59,7 +65,8 @@ const collectionPageSchema = buildCollectionPageSchema({
   description:
     "Play music history quizzes on decades, genres, artists, and cultural shifts from rock and roll to modern streaming pop.",
   lang: "en",
-  image: `${baseUrl}/category/from-pop-to-streaming-pop.jpg`,
+  image:
+    getQuizImageUrl("from-pop-to-streaming-pop", baseUrl) ?? quizHeroImageUrl(baseUrl),
   mainEntityId: itemListId,
 });
 
@@ -69,7 +76,7 @@ const itemListSchema = buildQuizItemListSchema({
     title: quiz.data.title,
     description: quiz.data.description,
     url: `${baseUrl}/${quiz.id}`,
-    image: `/category/${quiz.id}.jpg`,
+    image: getQuizImageUrl(quiz.id, baseUrl) ?? quizHeroImageUrl(baseUrl),
     keywords: quiz.data.featuredTopics,
   })),
   listName: "Music Knowledge Quizzes",
@@ -94,8 +101,6 @@ const pageSeo = buildPageSeo({
   index: true,
   brandSuffix: " - MelodyMind Quiz",
 });
-
-const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
 ---
 
 <Layout {pageSeo}>
@@ -107,10 +112,10 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
         title="Music Quizzes"
         description="Challenge yourself with quizzes covering music history, genres, and artists. Each question is grounded in research-driven content."
         titleLevel="h1"
-        imageSrc="/melody-mind-quiz.jpg"
+        imageSrc={quizHeroImage}
         imageAlt="A colorful music-themed collage representing pop eras and quiz topics."
-        imageWidth={1600}
-        imageHeight={900}
+        imageWidth={1024}
+        imageHeight={683}
         imageLoading="eager"
         mediaAspectRatio="3 / 2"
       />
@@ -133,8 +138,10 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
                     variant="action"
                     href={`/${quiz.id}`}
                     dataTestId="quiz-card"
-                    imageSrc={buildQuizImagePath(quiz.id)}
+                    imageSrc={getQuizImage(quiz.id)}
                     imageAlt={`${quiz.data.title} quiz cover`}
+                    imageWidth={1024}
+                    imageHeight={683}
                     title={quiz.data.title}
                     description={quiz.data.description}
                     size="default"
@@ -167,8 +174,10 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
                     variant="action"
                     href={`/${quiz.id}`}
                     dataTestId="quiz-card"
-                    imageSrc={buildQuizImagePath(quiz.id)}
+                    imageSrc={getQuizImage(quiz.id)}
                     imageAlt={`${quiz.data.title} quiz cover`}
+                    imageWidth={1024}
+                    imageHeight={683}
                     title={quiz.data.title}
                     description={quiz.data.description}
                     size="default"
@@ -200,8 +209,10 @@ const buildQuizImagePath = (slug: string): string => `/category/${slug}.jpg`;
                     variant="action"
                     href={`/${quiz.id}`}
                     dataTestId="quiz-card"
-                    imageSrc={buildQuizImagePath(quiz.id)}
+                    imageSrc={getQuizImage(quiz.id)}
                     imageAlt={`${quiz.data.title} quiz cover`}
+                    imageWidth={1024}
+                    imageHeight={683}
                     title={quiz.data.title}
                     description={quiz.data.description}
                     size="default"

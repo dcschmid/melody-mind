@@ -12,6 +12,7 @@ import {
   buildWebSiteSchema,
 } from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
+import { quizBrandLogo, quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
 
 interface Props {
   imageWidth?: number;
@@ -90,12 +91,12 @@ const mergedDescription = constructedPageSeo.description;
 const mergedKeywords = constructedPageSeo.keywords || "";
 const mergedType = constructedPageSeo.type || "website";
 const mergedCanonical = constructedPageSeo.canonical;
-const mergedImage = constructedPageSeo.image || "/melody-mind.png";
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
 const mergedStructuredData = constructedPageSeo.structuredData || [];
 const robotsTag = constructedPageSeo.robots || "index, follow";
 const siteUrl = resolveBaseUrl(Astro.site);
+const mergedImage = constructedPageSeo.image || quizHeroImageUrl(siteUrl);
 const globalStructuredData: StructuredData[] = [];
 
 if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
@@ -105,6 +106,7 @@ if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
       siteName: "Melody Mind",
       description:
         "Music knowledge platform for genres, timelines, and guided listening.",
+      logoUrl: quizBrandLogoUrl(siteUrl),
     })
   );
 }
@@ -308,7 +310,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
         showIcons={showHeaderIcons}
         {navItems}
         brandHref="/"
-        brandLogoSrc="/melody-mind-quiz.png"
+        brandLogoSrc={quizBrandLogo}
+        brandLogoAlt="Melody Mind Quiz"
+        brandLogoWidth={150}
+        brandLogoHeight={100}
         brandAriaLabel="Go to the Melody Mind homepage"
         menuOpenLabel="Open main menu"
         menuCloseLabel="Close main menu"
