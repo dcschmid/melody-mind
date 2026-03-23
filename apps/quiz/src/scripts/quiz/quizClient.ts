@@ -96,9 +96,20 @@ export function initQuiz(
   const navNext = document.getElementById("quiz-nav-next");
   const navSubmit = document.getElementById("quiz-nav-submit");
   const checkAnswerBtn = document.getElementById("quiz-check-answer");
+  const navNextLabel = navNext?.childNodes[0];
 
   if (!questionContainer) {
     return;
+  }
+
+  function getCurrentSelectionCount(): number {
+    const currentAnswer = state.answers[state.currentQuestion];
+
+    if (currentAnswer === null) {
+      return 0;
+    }
+
+    return Array.isArray(currentAnswer) ? currentAnswer.length : 1;
   }
 
   function renderProgress() {
@@ -221,6 +232,8 @@ export function initQuiz(
             class="quiz-question__option ${optionState ? `quiz-question__option--${optionState}` : ""}"
             data-index="${index}"
             data-type="${q.type}"
+            role="${q.type === "multi-choice" ? "checkbox" : "radio"}"
+            aria-checked="${isSelected ? "true" : "false"}"
             ${isAnswered ? "disabled" : ""}
           >
             <span class="quiz-question__option-marker">${markerIcon}</span>
@@ -257,11 +270,16 @@ export function initQuiz(
         : q.type === "multi-choice"
           ? "Multi-select"
           : "Single choice";
+    const selectionCount = getCurrentSelectionCount();
 
     const hintHtml =
       q.type === "multi-choice"
-        ? `<p class="quiz-question__hint">Select all that apply</p>`
-        : "";
+        ? `<p class="quiz-question__hint">${
+            selectionCount > 0
+              ? `${selectionCount} selected. You can choose more than one answer.`
+              : "Select all that apply."
+          }</p>`
+        : `<p class="quiz-question__hint">Choose one answer.</p>`;
 
     questionContainer.innerHTML = `
       <div class="quiz-question" data-answered="${isAnswered}" data-correct="${isCorrect}">
@@ -274,7 +292,11 @@ export function initQuiz(
           <p class="quiz-question__prompt">Question</p>
           <h3 class="quiz-question__text" tabindex="-1">${q.question}</h3>
           ${hintHtml}
-          <div class="quiz-question__options" role="group">
+          <div
+            class="quiz-question__options"
+            role="${q.type === "multi-choice" ? "group" : "radiogroup"}"
+            aria-label="Answer options"
+          >
             ${optionsHtml}
           </div>
         </div>
@@ -386,13 +408,26 @@ export function initQuiz(
 
     const isCurrentAnswered = state.isAnswered[state.currentQuestion];
     const isLastQuestion = state.currentQuestion === questions.length - 1;
+    const hasSelection = state.answers[state.currentQuestion] !== null;
 
     navNext.hidden = isLastQuestion && isCurrentAnswered;
     navSubmit.hidden = !isLastQuestion || !isCurrentAnswered;
     checkAnswerBtn.hidden = isCurrentAnswered;
+    (checkAnswerBtn as HTMLButtonElement).disabled = !hasSelection || isCurrentAnswered;
+
+    if (navNextLabel) {
+      navNextLabel.textContent =
+        isLastQuestion && !isCurrentAnswered ? "Check & Finish" : "Next";
+    }
 
     if (navNext) {
       (navNext as HTMLButtonElement).disabled = !isCurrentAnswered && !navNext.hidden;
+      navNext.setAttribute(
+        "aria-label",
+        isLastQuestion && !isCurrentAnswered
+          ? "Check answer and finish quiz"
+          : "Next question"
+      );
     }
   }
 

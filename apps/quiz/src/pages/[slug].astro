@@ -729,6 +729,13 @@ const totalPoolSize = quiz.data.questions.length;
       background-color var(--transition-fast);
   }
 
+  @media (width <= 639px) {
+    :global(#quiz-question-container .quiz-question__option) {
+      min-block-size: 3.5rem;
+      padding: 1rem;
+    }
+  }
+
   :global(#quiz-question-container .quiz-question__option:hover:not(:disabled)),
   :global(#quiz-question-container .quiz-question__option:focus-visible) {
     border-color: var(--surface-border-accent);
