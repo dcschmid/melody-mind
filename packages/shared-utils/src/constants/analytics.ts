@@ -19,11 +19,40 @@ export const ENGAGEMENT_TIMING = {
    */
   BOUNCE_THRESHOLD_MS: 15_000,
   /**
+   * Window after the most recent interaction during which a visible page is still
+   * treated as actively engaged.
+   */
+  ACTIVE_IDLE_WINDOW_MS: 20_000,
+  /**
+   * Polling cadence used to accumulate visible active time without relying on a
+   * timer per milestone.
+   */
+  ENGAGEMENT_TICK_MS: 5_000,
+  /**
    * Ordered time milestones that trigger engagement events while a user remains
    * active on the page.
    */
   ENGAGED_MILESTONES_MS: [30_000, 90_000] as const,
 } as const;
+
+/** Supported Melody Mind web apps sharing the analytics runtime. */
+export const ANALYTICS_APPS = ["knowledge", "quiz", "podcasts"] as const;
+
+/** Union of all supported analytics app identifiers. */
+export type AnalyticsApp = (typeof ANALYTICS_APPS)[number];
+
+/** Named conversion hooks used across Melody Mind apps. */
+export const ANALYTICS_CONVERSION_KEYS = [
+  "podcastEpisodeClick",
+  "podcastSeriesClick",
+  "quizComplete",
+  "quizPass",
+  "quizStart",
+  "searchResultClick",
+] as const;
+
+/** Union of supported analytics conversion keys. */
+export type AnalyticsConversionKey = (typeof ANALYTICS_CONVERSION_KEYS)[number];
 
 /**
  * Upper bounds applied while sanitizing analytics payload fragments.

@@ -112,6 +112,7 @@ const imageAlt =
     : `Cover artwork for ${siteTitle}`;
 const publishDate = publishedTime ? new Date(publishedTime) : undefined;
 const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
+const FATHOM_SITE_ID = "IGOFKHTB";
 
 const publisher = {
   "@type": "Organization",
@@ -226,6 +227,8 @@ const seoProps = {
 
 <MasterLayout
   lang={language}
+  analyticsApp="podcasts"
+  fathomSiteId={FATHOM_SITE_ID}
   bodyClass="podcast-layout"
   mainClass="podcast-layout__main"
   contentShellClass="podcast-layout__container"
@@ -271,8 +274,6 @@ const seoProps = {
     <meta name="revisit-after" content="7 days" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="IGOFKHTB" defer
-    ></script>
   </Fragment>
 
   <SkipLink slot="body-start" />

@@ -1,21 +1,18 @@
 ---
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
-/**
- * Cookie Consent Banner Component
- *
- * Configured via environment variable:
- * - FATHOM_SITE_ID: Your Fathom Analytics site ID (defaults to empty string if not set)
- *
- * Set in .env file: FATHOM_SITE_ID=your-site-id
- */
-const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
+
+interface Props {
+  fathomSiteId?: string;
+}
+
+const { fathomSiteId = "" } = Astro.props as Props;
 ---
 
 <div
   class="cookie-consent"
   data-cookie-consent
   data-animate="soft-fade"
-  data-fathom-site-id={FATHOM_SITE_ID}
+  data-fathom-site-id={fathomSiteId}
   role="dialog"
   aria-modal="true"
   aria-label="Cookie consent"

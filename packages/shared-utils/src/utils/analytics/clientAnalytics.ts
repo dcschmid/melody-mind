@@ -4,7 +4,7 @@
  * This module coordinates the browser-only tracking behavior built on top of
  * Fathom. Rather than logging every raw interaction, it emits a curated,
  * low-cardinality set of events for journeys, engagement, read depth, search,
- * sharing, bookmarks, consent actions, podcast CTAs, TOC usage, and A/B exposures.
+ * sharing, consent actions, podcast CTAs, TOC usage, and A/B exposures.
  *
  * Design goals:
  * - stay disabled until runtime consent allows analytics,
@@ -13,17 +13,14 @@
  * - and initialize safely even if multiple clients try to bootstrap analytics.
  */
 import { getOrAssignVariant, type ExperimentVariant } from "./abTesting";
-
-import {
-  BOOKMARK_ACTIONS,
-  BOOKMARK_ANALYTICS_EVENTS,
-  BOOKMARK_CHANGE_EVENT,
-} from "../bookmarks/clientBookmarks";
 import { STORAGE_KEYS, SESSION_KEYS, RUNTIME_FLAGS } from "../../constants/storage";
 import { safeLocalStorage, safeSessionStorage } from "../storage/safeStorage";
 import { isServer } from "../environment";
 import { SEARCH_EVENTS, TOC_EVENTS } from "../../constants/events";
 import {
+  ANALYTICS_APPS,
+  type AnalyticsApp,
+  type AnalyticsConversionKey,
   ENGAGEMENT_TIMING,
   ANALYTICS_LIMITS,
   READING_DEPTH_MILESTONES,
@@ -36,15 +33,30 @@ const CONSENT_KEY = STORAGE_KEYS.COOKIE_CONSENT;
 const JOURNEY_KEY = SESSION_KEYS.JOURNEY;
 /** Threshold after which a low-interaction visit is considered a quick leave. */
 const BOUNCE_MS = ENGAGEMENT_TIMING.BOUNCE_THRESHOLD_MS;
+/** Maximum idle gap still counted as active engagement. */
+const ACTIVE_IDLE_MS = ENGAGEMENT_TIMING.ACTIVE_IDLE_WINDOW_MS;
+/** Polling interval for visible active-time accumulation. */
+const ENGAGEMENT_TICK_MS = ENGAGEMENT_TIMING.ENGAGEMENT_TICK_MS;
 /** Ordered time milestones used for engaged-time events. */
 const ENGAGED_MS = ENGAGEMENT_TIMING.ENGAGED_MILESTONES_MS;
 /** Window flag indicating the current runtime analytics gate. */
 const RUNTIME_ANALYTICS_FLAG = RUNTIME_FLAGS.ANALYTICS_ALLOWED;
+/** Maps named conversions to their stable Fathom event names. */
+const CONVERSION_EVENT_MAP: Record<AnalyticsConversionKey, string> = {
+  podcastEpisodeClick: "podcast_episode_click",
+  podcastSeriesClick: "podcast_series_click",
+  quizComplete: "quiz_complete",
+  quizPass: "quiz_pass",
+  quizStart: "quiz_start",
+  searchResultClick: "search_result_click",
+};
 
 /** Minimal subset of the Fathom browser API used by this module. */
 type FathomApi = {
   trackEvent?: (eventName: string) => void;
   trackGoal?: (goalId: string, valueInCents: number) => void;
+  enableTrackingForMe?: () => void;
+  blockTrackingForMe?: () => void;
 };
 
 /** Shared payload shape expected from search telemetry events. */
@@ -81,6 +93,7 @@ declare global {
     mmAnalytics?: {
       trackEvent: (eventName: string) => void;
       trackGoal: (goalId: string, valueInCents: number) => void;
+      trackConversion: (goalKey: AnalyticsConversionKey) => void;
       assignVariant: (experimentId: string, variants: ExperimentVariant[]) => string;
       isEnabled: () => boolean;
     };
@@ -102,6 +115,14 @@ const sanitizeToken = (value: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .slice(0, ANALYTICS_LIMITS.TOKEN_MAX_LENGTH) || "unknown";
+
+/** Returns the current Melody Mind app identifier from the shell dataset. */
+const getAnalyticsApp = (): AnalyticsApp | "unknown" => {
+  const app = document.documentElement.dataset.analyticsApp;
+  return ANALYTICS_APPS.includes(app as AnalyticsApp)
+    ? (app as AnalyticsApp)
+    : "unknown";
+};
 
 /**
  * Buckets current article scroll depth into a coarse range for context-sensitive
@@ -178,7 +199,7 @@ const callFathomEvent = (eventName: string): void => {
   }
 };
 
-/** Sends a goal conversion to Fathom when analytics is enabled. */
+/** Sends a legacy goal conversion to Fathom when analytics is enabled. */
 const callFathomGoal = (goalId: string, valueInCents: number): void => {
   if (!isAnalyticsEnabled()) {
     return;
@@ -191,26 +212,71 @@ const callFathomGoal = (goalId: string, valueInCents: number): void => {
   }
 };
 
+/** Tracks a named conversion as a stable Fathom event. */
+const trackNamedConversion = (goalKey: AnalyticsConversionKey): void => {
+  callFathomEvent(CONVERSION_EVENT_MAP[goalKey]);
+};
+
 /** Maps raw paths into a small vocabulary for journey transition analytics. */
 const classifyPath = (path: string): string => {
+  const app = getAnalyticsApp();
+  const trimmedPath = path.replace(/\/+$/, "") || "/";
+  const singleSegment = trimmedPath.split("/").filter(Boolean);
+  const isEraPath =
+    singleSegment.length === 1 && /^(19|20)\d0s$/i.test(singleSegment[0] || "");
+
   if (path === "/") {
     return "home";
   }
 
-  if (path.startsWith("/knowledge/")) {
-    return "knowledge";
+  if (trimmedPath === "/search") {
+    return "search";
   }
 
-  if (path.startsWith("/taxonomy/")) {
-    return "taxonomy";
-  }
-
-  if (path === "/bookmarks") {
-    return "bookmarks";
-  }
-
-  if (["/privacy", "/cookies", "/imprint"].includes(path)) {
+  if (["/privacy", "/cookies", "/imprint"].includes(trimmedPath)) {
     return "legal";
+  }
+
+  if (app === "knowledge") {
+    if (trimmedPath.startsWith("/knowledge/")) {
+      return "article";
+    }
+    if (trimmedPath.startsWith("/taxonomy/")) {
+      return "taxonomy";
+    }
+    if (trimmedPath.startsWith("/categories/")) {
+      return "legacy-category";
+    }
+    if (trimmedPath === "/ai-content") {
+      return "ai-content";
+    }
+    return "other";
+  }
+
+  if (app === "quiz") {
+    if (isEraPath) {
+      return "quiz-era";
+    }
+    if (trimmedPath.startsWith("/from-")) {
+      return "quiz-journey";
+    }
+    if (singleSegment.length === 1) {
+      return "quiz";
+    }
+    return "other";
+  }
+
+  if (app === "podcasts") {
+    if (trimmedPath === "/podcast.xml") {
+      return "feed";
+    }
+    if (isEraPath) {
+      return "podcast-era";
+    }
+    if (singleSegment.length === 1) {
+      return "podcast-episode";
+    }
+    return "other";
   }
 
   return "other";
@@ -270,9 +336,12 @@ const trackArticleView = (): void => {
  * rather than precise session replay semantics.
  */
 const trackEngagement = (): void => {
-  const pendingTimers: number[] = [];
   let hasInteraction = false;
   let bounceTracked = false;
+  let engagedVisibleMs = 0;
+  let lastInteractionAt = 0;
+  let lastTickAt = Date.now();
+  const interactionEvents = ["click", "keydown", "pointerdown", "touchstart", "scroll"];
 
   const trackBounce = () => {
     if (bounceTracked) {
@@ -285,40 +354,58 @@ const trackEngagement = (): void => {
 
   const onInteraction = () => {
     hasInteraction = true;
+    lastInteractionAt = Date.now();
   };
 
   const onVisibilityChange = () => {
     if (document.visibilityState === "hidden" && !hasInteraction) {
       trackBounce();
     }
+
+    if (document.visibilityState === "visible") {
+      lastTickAt = Date.now();
+    }
   };
 
-  pendingTimers.push(
-    window.setTimeout(() => {
-      if (!hasInteraction) {
-        trackBounce();
-      }
-    }, BOUNCE_MS)
-  );
+  const bounceTimer = window.setTimeout(() => {
+    if (!hasInteraction) {
+      trackBounce();
+    }
+  }, BOUNCE_MS);
 
-  ENGAGED_MS.forEach((delay) => {
-    pendingTimers.push(
-      window.setTimeout(() => {
+  const engagementTimer = window.setInterval(() => {
+    const now = Date.now();
+    const delta = now - lastTickAt;
+    lastTickAt = now;
+
+    if (
+      document.visibilityState !== "visible" ||
+      !hasInteraction ||
+      now - lastInteractionAt > ACTIVE_IDLE_MS
+    ) {
+      return;
+    }
+
+    engagedVisibleMs += delta;
+    ENGAGED_MS.forEach((delay) => {
+      if (engagedVisibleMs >= delay && engagedVisibleMs - delta < delay) {
         callFathomEvent(`Engaged time: ${Math.round(delay / 1000)}s`);
-      }, delay)
-    );
-  });
+      }
+    });
+  }, ENGAGEMENT_TICK_MS);
 
-  window.addEventListener("click", onInteraction, { passive: true });
-  window.addEventListener("keydown", onInteraction, { passive: true });
-  window.addEventListener("scroll", onInteraction, { passive: true });
+  interactionEvents.forEach((eventName) => {
+    window.addEventListener(eventName, onInteraction, { passive: true });
+  });
   document.addEventListener("visibilitychange", onVisibilityChange);
 
   window.addEventListener(
     "beforeunload",
     () => {
-      pendingTimers.forEach((timer) => {
-        window.clearTimeout(timer);
+      window.clearTimeout(bounceTimer);
+      window.clearInterval(engagementTimer);
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, onInteraction);
       });
       document.removeEventListener("visibilitychange", onVisibilityChange);
     },
@@ -399,10 +486,15 @@ const trackReadingDepth = (): void => {
   let ticking = false;
 
   const emitProgress = () => {
-    const documentElement = document.documentElement;
-    const scrollableHeight = documentElement.scrollHeight - documentElement.clientHeight;
-    const depth =
-      scrollableHeight > 0 ? (documentElement.scrollTop / scrollableHeight) * 100 : 0;
+    const articleRect = article.getBoundingClientRect();
+    const articleTop = window.scrollY + articleRect.top;
+    const articleHeight = Math.max(article.scrollHeight, articleRect.height, 1);
+    const viewportBottom = window.scrollY + window.innerHeight;
+    const articleReadPx = Math.min(
+      Math.max(viewportBottom - articleTop, 0),
+      articleHeight
+    );
+    const depth = (articleReadPx / articleHeight) * 100;
 
     milestones.forEach((milestone) => {
       if (depth >= milestone && !sentMilestones.has(milestone)) {
@@ -503,6 +595,7 @@ const trackSearchMetrics = (): void => {
 
     trackedResultClickBuckets.add(key);
     callFathomEvent(`Search: result click ${surface} ${bucket}`);
+    trackNamedConversion("searchResultClick");
   });
 };
 
@@ -592,7 +685,7 @@ const setupAbTests = (): void => {
  * Exposes a tiny imperative analytics API on `window.mmAnalytics`.
  *
  * This is mainly for integration points that cannot import the module directly
- * but still need to trigger an event, goal, or experiment assignment.
+ * but still need to trigger an event, conversion, goal, or experiment assignment.
  */
 const setupCustomEventApi = (): void => {
   window.mmAnalytics = {
@@ -601,6 +694,9 @@ const setupCustomEventApi = (): void => {
     },
     trackGoal: (goalId: string, valueInCents: number) => {
       callFathomGoal(goalId, valueInCents);
+    },
+    trackConversion: (goalKey: AnalyticsConversionKey) => {
+      trackNamedConversion(goalKey);
     },
     assignVariant: (experimentId: string, variants: ExperimentVariant[]) =>
       getOrAssignVariant(experimentId, variants),
@@ -611,8 +707,7 @@ const setupCustomEventApi = (): void => {
 /**
  * Tracks assorted UI interactions that do not justify their own dedicated module.
  *
- * These include consent actions, podcast CTAs, share triggers, and bookmark change
- * events emitted by the bookmark subsystem.
+ * These include consent actions, podcast CTAs, and share triggers.
  */
 const trackUiEvents = (): void => {
   const oncePerPage = new Set<string>();
@@ -642,6 +737,11 @@ const trackUiEvents = (): void => {
           podcastCta.dataset.analyticsPodcastTarget || "unknown"
         );
         callFathomEvent(`Podcast: click ${podcastTarget}`);
+        if (podcastTarget === "episode") {
+          trackNamedConversion("podcastEpisodeClick");
+        } else if (podcastTarget === "series") {
+          trackNamedConversion("podcastSeriesClick");
+        }
       }
 
       const shareTrigger = target.closest<HTMLElement>("[data-share]");
@@ -657,23 +757,6 @@ const trackUiEvents = (): void => {
     },
     { passive: true }
   );
-
-  window.addEventListener(BOOKMARK_CHANGE_EVENT, (event: Event) => {
-    const customEvent = event as CustomEvent<{ action?: string }>;
-    const action = customEvent.detail?.action;
-
-    if (action === BOOKMARK_ACTIONS.add) {
-      callFathomEvent(BOOKMARK_ANALYTICS_EVENTS.add);
-      return;
-    }
-    if (action === BOOKMARK_ACTIONS.remove) {
-      callFathomEvent(BOOKMARK_ANALYTICS_EVENTS.remove);
-      return;
-    }
-    if (action === BOOKMARK_ACTIONS.category) {
-      callFathomEvent(BOOKMARK_ANALYTICS_EVENTS.categoryChanged);
-    }
-  });
 };
 
 /**

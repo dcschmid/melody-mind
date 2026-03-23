@@ -103,9 +103,15 @@ const fontPreloads: Array<{
   crossorigin?: "anonymous" | "use-credentials";
 }> = [];
 const dnsPrefetch = DEFAULT_DNS_PREFETCH;
+const FATHOM_SITE_ID = "RKHOWTTO";
 ---
 
-<MasterLayout lang={lang} appTitle="MelodyMind">
+<MasterLayout
+  lang={lang}
+  appTitle="MelodyMind"
+  analyticsApp="knowledge"
+  fathomSiteId={FATHOM_SITE_ID}
+>
   <Fragment slot="head">
     <AppHeadResources
       {dnsPrefetch}

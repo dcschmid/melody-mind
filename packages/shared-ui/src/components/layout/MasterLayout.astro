@@ -4,6 +4,7 @@ import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
 import { THEME_EVENTS } from "@shared-utils/constants/events";
 import { STORAGE_KEYS } from "@shared-utils/constants/storage";
+import type { AnalyticsApp } from "@shared-utils/constants/analytics";
 import "../../styles/master-theme.css";
 
 interface Props {
@@ -19,6 +20,8 @@ interface Props {
   themeColorDark?: string;
   themeColorLight?: string;
   appTitle?: string;
+  analyticsApp?: AnalyticsApp;
+  fathomSiteId?: string;
   manifestPath?: string;
   googleSiteVerification?: string;
   appleMobileWebAppCapable?: boolean;
@@ -38,6 +41,8 @@ const {
   themeColorDark = "#08131a",
   themeColorLight = "#f6f1e8",
   appTitle = "MelodyMind",
+  analyticsApp,
+  fathomSiteId = "",
   manifestPath = "/site.webmanifest",
   googleSiteVerification = "ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M",
   appleMobileWebAppCapable = true,
@@ -93,7 +98,12 @@ const themeInitScript = enableThemeInit
 ---
 
 <!doctype html>
-<html lang={lang} class="app" dir={dir}>
+<html
+  lang={lang}
+  class="app"
+  dir={dir}
+  data-analytics-app={analyticsApp}
+>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -140,7 +150,7 @@ const themeInitScript = enableThemeInit
             <slot />
           </main>
           <BackToTop />
-          <CookieConsent />
+          <CookieConsent fathomSiteId={fathomSiteId} />
           <slot name="after-main" />
           <slot name="body-end" />
         </div>
@@ -152,7 +162,7 @@ const themeInitScript = enableThemeInit
             <slot />
           </main>
           <BackToTop />
-          <CookieConsent />
+          <CookieConsent fathomSiteId={fathomSiteId} />
           <slot name="after-main" />
           <slot name="body-end" />
         </>

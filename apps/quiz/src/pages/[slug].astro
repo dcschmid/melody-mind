@@ -93,7 +93,12 @@ const totalPoolSize = quiz.data.questions.length;
     className="page-shell--aurora page-shell--grid"
     containerClass="page-shell__container--narrow"
   >
-    <div class="quiz-detail">
+    <div
+      class="quiz-detail"
+      data-analytics-quiz="true"
+      data-analytics-quiz-slug={quiz.id}
+      data-analytics-quiz-category={quiz.data.category}
+    >
       <div class="quiz-detail__content">
         <main class="quiz-detail__main">
           <section class="quiz-detail__progress-shell" aria-label="Quiz progress">
