@@ -48,8 +48,9 @@ questions:
     correct: 1
     explanation:
       "Kyu Sakamoto's 'Sukiyaki' (known in Japan as 'Ue o Muite Aruko') reached number one on
-      the American Billboard Hot 100 in 1963. For many international listeners, it became
-      their first encounter with Japanese popular music."
+      the American Billboard Hot 100 in 1963. That made it a historic crossover moment, since
+      it became the first Japanese-language song to top that chart. For many international
+      listeners, it was also one of the earliest major encounters with Japanese popular music."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 185
 
@@ -336,7 +337,9 @@ questions:
     explanation:
       "BoA debuted at age thirteen under SM Entertainment and became one of the most important
       figures in early K-Pop expansion. Her Japanese album 'Listen to My Heart' (2002) reached
-      the top of the Japanese charts."
+      the top of the Japanese charts, proving that a Korean artist could succeed in one of the
+      region's most competitive music markets. That success helped turn overseas expansion into
+      a realistic strategy for later K-Pop companies."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 1036
 
@@ -508,16 +511,18 @@ questions:
     type: "multi-choice"
     difficulty: "hard"
     options:
-      - "Max Martin"
+      - "Dr. Luke"
       - "Scandinavian songwriting teams"
       - "Dem Jointz"
       - "Quincy Jones"
       - "Rick Rubin"
     correct: [1, 2]
     explanation:
-      "Scandinavian songwriting teams and Dem Jointz have contributed to K-Pop. While Max
-      Martin's influence can be heard indirectly, Quincy Jones and Rick Rubin are not known
-      for K-Pop collaborations."
+      "Scandinavian songwriting teams and Dem Jointz have contributed directly to K-Pop
+      production. Many Korean agencies have worked with writers from Sweden and other European
+      pop centers, while Dem Jointz has created songs for SM Entertainment artists. Quincy
+      Jones and Rick Rubin are major Western producers, but they are not closely associated
+      with K-Pop's production network in the way those other contributors are."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 1517
 
@@ -545,7 +550,10 @@ questions:
       - "True"
       - "False"
     correct: false
-    explanation: "False. BTS's fan community is called ARMY. BLINK is the name for BLACKPINK's fans."
+    explanation:
+      "False. BTS's fan community is called ARMY, a name that became globally recognized as the
+      group built its international audience. BLINK is the fandom name for BLACKPINK, so the
+      statement mixes up two different major K-Pop fan communities."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 2019
 
@@ -575,12 +583,13 @@ questions:
       - "Sixteen"
       - "American Idol"
       - "The Voice"
-      - "Mix Nine"
+      - "Girls Planet 999"
     correct: [0, 1, 4]
     explanation:
-      "Produce 101 (created I.O.I), Sixteen (created TWICE), and Mix Nine were Korean survival
-      shows. American Idol and The Voice are Western talent competitions not related to K-Pop
-      group formation."
+      "Produce 101 led to I.O.I, Sixteen led to TWICE, and Girls Planet 999 led to Kep1er.
+      These programs are good examples of how Korean survival shows have been used to form idol
+      groups directly. American Idol and The Voice are major talent shows, but they were not
+      designed around creating K-Pop groups."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 1833
 
@@ -597,7 +606,8 @@ questions:
     explanation:
       "Lisa (Lalisa Manobal) was born in Thailand and later moved to Korea to pursue her
       career under YG Entertainment. Her success illustrates how K-Pop groups increasingly
-      include members from different cultural backgrounds."
+      include members from different cultural backgrounds, especially as agencies recruit
+      talent from across Asia and build groups with a broader international identity."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 1949
 
@@ -678,8 +688,9 @@ questions:
     correct: false
     explanation:
       "False. NewJeans has gained attention for a relaxed, understated style compared with
-      earlier K-Pop. Their songs emphasize smooth melodies and subtle R&B influences, creating
-      a contrast with dramatic earlier idol concepts."
+      earlier K-Pop. Their songs emphasize smooth melodies, understated rhythms, and subtle R&B
+      influences, creating a clear contrast with the louder, more dramatic concepts that shaped
+      many earlier idol groups."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 2308
 
@@ -730,8 +741,9 @@ questions:
     correct: 1
     explanation:
       "YOASOBI combines electronic pop production with narrative songwriting inspired by short
-      stories. Their song 'Yoru ni Kakeru' gained widespread popularity through streaming
-      platforms."
+      stories. That literary concept became a defining part of their identity, and songs such
+      as 'Yoru ni Kakeru' gained wide attention through streaming platforms and video-sharing
+      culture. The duo shows how modern J-Pop can connect storytelling and digital pop design."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 2200
 
@@ -745,8 +757,9 @@ questions:
     correct: true
     explanation:
       "True. Hikaru Utada's debut album 'First Love,' released in 1999, became one of the
-      best-selling albums in Japanese history. Tracks like 'Automatic' paired thoughtful
-      lyrics with smooth R&B-inspired production."
+      best-selling albums in Japanese history. Its success helped define a new late-1990s
+      sound in Japanese pop by combining thoughtful lyrics, polished melodies, and smooth
+      R&B-inspired production on tracks such as 'Automatic' and the title song."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 537
 
@@ -763,7 +776,9 @@ questions:
     explanation:
       "BLACKPINK worked with Lady Gaga on 'Sour Candy' and with Selena Gomez on 'Ice Cream.'
       These partnerships reflected a new stage where Korean artists participated in mainstream
-      pop collaborations with established Western stars."
+      pop collaborations with established Western stars. Instead of being treated as a regional
+      act entering foreign markets from the outside, BLACKPINK was positioned as part of the
+      global pop conversation itself."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 1763
 
@@ -846,7 +861,8 @@ questions:
     explanation:
       "True. YouTube, streaming services, and online communities removed barriers that
       previously limited access to East Asian pop. A viewer anywhere could watch the latest
-      release moments after it appeared online."
+      release soon after it appeared online, share it through social media, and join fan
+      communities that translated interviews, lyrics, and news for global audiences."
     source: "from-asia-pop-to-global-pop"
     sourceLine: 1667
 ---

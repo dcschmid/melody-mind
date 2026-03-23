@@ -128,7 +128,10 @@ questions:
       - "Back Stabbers by The O'Jays"
       - "When Will I See You Again by The Three Degrees"
     correct: 1
-    explanation: "The house band MFSB recorded 'TSOP (The Sound of Philadelphia)' in 1974, a track that would become the theme for the television program Soul Train."
+    explanation: "The house band MFSB recorded 'TSOP (The Sound of Philadelphia)' in 1974.
+      It was written for Soul Train and became strongly associated with the program, even
+      though the show later used updated versions and alternate themes at different points
+      in its long run."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 232
 
@@ -217,8 +220,8 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
-    explanation: "Chaka Khan was the lead singer of Rufus. The song 'Tell Me Something Good,' written by Stevie Wonder, showed her ability to move from warmth to force in a single phrase. She later launched her solo career."
+    correct: true
+    explanation: "True. Chaka Khan was the lead singer of Rufus before launching her solo career. 'Tell Me Something Good,' written by Stevie Wonder, showed how easily she could move from warmth to force in a single phrase."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 452
 
@@ -259,7 +262,7 @@ questions:
       - "Prince Buster"
       - "Coxsone Dodd"
     correct: 1
-    explanation: "King Tubby started breaking songs down into their separate parts. The vocals would disappear. The drums and bass would come forward. Echo would fade into space. Reverb would make a snare hit sound longer."
+    explanation: "King Tubby broke songs down into separate parts, pulling vocals away and bringing drums and bass to the front. Echo and reverb became central tools, turning the mix itself into a creative space."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 565
 
@@ -351,7 +354,10 @@ questions:
       - "Hot Stuff"
       - "Bad Girls"
     correct: 1
-    explanation: "'I Feel Love' from 1977 did not use a full orchestra or a live band. Instead, a pulsing synthesizer pattern played continuously from beginning to end. The bass line was made using a computer."
+    explanation: "'I Feel Love' from 1977 replaced the lush orchestral approach heard in
+      much disco with an insistent sequenced synthesizer pattern. Giorgio Moroder and his
+      collaborators built the track around a Moog-driven pulse, making it sound futuristic
+      and helping point dance music toward a more fully electronic future."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 834
 
@@ -390,7 +396,7 @@ questions:
       - "Tony Thompson"
       - "Norma Jean Wright"
     correct: [0, 1]
-    explanation: "Guitarist Nile Rodgers and bassist Bernard Edwards founded Chic, a band that approached disco with discipline and clarity. They didn't build their records on excess. They were built to be precise."
+    explanation: "Guitarist Nile Rodgers and bassist Bernard Edwards founded Chic, a band that approached disco with discipline and clarity. Their records were built on precision rather than excess."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 876
 
@@ -403,7 +409,7 @@ questions:
       - "The Anti-Disco Rally"
       - "Rock Against Disco"
     correct: 1
-    explanation: "Disco Demolition Night at Chicago's Comiskey Park in July 1979 invited fans to bring disco records to be destroyed between baseball games. The situation quickly got out of hand. Crowds rushed the field. Records were burned and smashed."
+    explanation: "Disco Demolition Night at Chicago's Comiskey Park in July 1979 invited fans to bring disco records to be destroyed between baseball games. The event quickly spun out of control as crowds rushed the field and records were burned and smashed."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 978
 
@@ -416,7 +422,11 @@ questions:
       - "Do Ya Wanna Funk"
       - "Stars"
     correct: 0
-    explanation: "Sylvester's 'You Make Me Feel (Mighty Real)' mixed soulful singing with strong electronic rhythms. His high-pitched voice sang above the beat of the music. At a time when most culture did not accept them, his presence made people feel accepted."
+    explanation:
+      "Sylvester's 'You Make Me Feel (Mighty Real)' mixed ecstatic, gospel-shaped
+      singing with strong electronic rhythms. His voice floated above the beat with joy and
+      control, and his presence gave many dancers, especially queer listeners, a sense of
+      visibility and freedom on the dance floor."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 934
 
@@ -697,7 +707,7 @@ questions:
     source: "from-soul-to-modern-dance-music"
     sourceLine: 1672
 
-  - question: "Which French DJ is known for playing long, technical sets that blend house and techno, with residencies in Ibiza?"
+  - question: "Which veteran DJ is known for playing long, technical sets that blend house and techno, with major residencies in Ibiza?"
     type: single-choice
     difficulty: medium
     options:
@@ -706,7 +716,10 @@ questions:
       - "Daft Punk"
       - "Bob Sinclar"
     correct: 1
-    explanation: "Carl Cox is an example of someone who used the residency model in Ibiza. He is known for playing long, technical sets that blend house and techno music. He focused on being a good DJ instead of putting on a big show."
+    explanation: "Carl Cox became one of the defining residency DJs of Ibiza through long,
+      technically confident sets that moved between house and techno without losing their
+      momentum. His reputation was built less on pop-star branding than on deep selection,
+      stamina, and command of the room."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 1837
 
@@ -732,7 +745,10 @@ questions:
       - "Caiiro"
       - "Manoo"
     correct: 0
-    explanation: "When Black Coffee began gaining global attention in the 2000s, his music was influenced by South African house traditions. His music often mixes deep house beats with different kinds of percussion and subtle melodies inspired by local music."
+    explanation: "When Black Coffee gained major international attention in the 2010s, he
+      helped bring Afro-house to larger global stages. His tracks often combine deep-house
+      structure with local rhythmic detail, restrained melodic writing, and production that
+      feels spacious rather than overloaded."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 2002
 
@@ -768,8 +784,8 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
-    explanation: "By the 2000s, digital audio workstations (DAWs) allowed people to create, arrange, and mix songs completely on a laptop. Software like Ableton Live and Logic Pro let you use professional tools in your own home."
+    correct: true
+    explanation: "True. By the 2000s, digital audio workstations (DAWs) allowed producers to create, arrange, and mix complete songs on a laptop. Software like Ableton Live and Logic Pro brought professional tools into home studios."
     source: "from-soul-to-modern-dance-music"
     sourceLine: 2129
 ---

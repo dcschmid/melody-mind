@@ -280,8 +280,10 @@ questions:
     correct: true
     explanation:
       "True. Uncle Tupelo's albums No Depression and Anodyne mixed country music with punk
-      rock. The band's name would later inspire the term 'No Depression,' used to describe
-      the emerging alt-country music style."
+      rock. More precisely, the album title No Depression became strongly associated with the
+      emerging alt-country style, and the phrase itself also reached back to the older Carter
+      Family song 'No Depression in Heaven.' Over time, 'No Depression' became shorthand for
+      that wider roots-oriented scene."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 1046
 
@@ -390,7 +392,9 @@ questions:
     correct: 2
     explanation:
       "Elliott Smith first gained wider attention with the 1997 album Either/Or. His voice was
-      close to the microphone, and his recordings felt almost whispered."
+      close to the microphone, and his recordings felt almost whispered. That intimate sound
+      became hugely influential because it made emotional fragility feel deliberate rather than
+      unfinished."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 1322
 
@@ -445,7 +449,10 @@ questions:
     correct: 1
     explanation:
       "In 2007, Bon Iver's For Emma, Forever Ago became a defining indie release. Justin
-      Vernon recorded most of the album in a cabin in the countryside of Wisconsin."
+      Vernon recorded most of the album in a cabin in rural Wisconsin after a difficult period
+      in his life. The setting became part of the record's mythology, but the deeper impact
+      came from how isolation, layered vocals, and sparse arrangements created a new model of
+      intimate indie songwriting."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 1459
 
@@ -519,7 +526,9 @@ questions:
     explanation:
       "MySpace let musicians upload tracks directly to their profile pages. YouTube allowed
       bedroom recordings to reach many people. Bandcamp, launched in 2008, gave artists a way
-      to sell music directly to fans."
+      to sell music directly to fans while keeping a more direct relationship with listeners.
+      Together, these platforms reduced the distance between recording a song and finding an
+      audience for it."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 1666
 
@@ -588,8 +597,9 @@ questions:
     correct: 1
     explanation:
       "In 2017, Clairo uploaded 'Pretty Girl' to YouTube. The video, recorded in a simple
-      bedroom setting, quickly went viral. The simple production and relaxed singing style
-      felt immediate."
+      bedroom setting, quickly went viral. The simple production, webcam-style visual, and
+      relaxed singing felt immediate and unforced, which helped define how many listeners came
+      to imagine bedroom pop in the late 2010s."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 1832
 
@@ -626,8 +636,10 @@ questions:
     correct: 2
     explanation:
       "The use of beabadoobee's 'Coffee' in the hit 'Death Bed (Coffee for Your Head)' brought
-      her wider recognition. The path from bedroom upload to global fame moved quickly
-      through digital circulation."
+      her wider recognition. That moment showed how a small, intimate song could travel into a
+      massive mainstream context through sampling, streaming, and social media circulation.
+      The path from bedroom upload to global recognition moved much faster than it had in
+      earlier singer-songwriter eras."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 1929
 
@@ -645,8 +657,9 @@ questions:
     correct: 1
     explanation:
       "Billie Eilish's 2019 album When We All Fall Asleep, Where Do We Go? featured simple
-      production that allowed her voice to stand out. Her success showed that minimalism
-      could be successful on international charts."
+      production that allowed her voice to stand out. Even when the arrangements became darker
+      or bass-heavier, the close and controlled vocal sound stayed central. Her success showed
+      that minimalist, intimate production could work on the largest global pop stages."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 1973
 
@@ -855,7 +868,9 @@ questions:
     correct: true
     explanation:
       "True. Lead Belly was recorded while he was in prison in Louisiana. He reached a much
-      wider audience after Lomax helped make his songs well-known."
+      wider audience after Lomax helped make his songs well-known. His case also shows how
+      field recording could preserve a voice while simultaneously reshaping it for a much
+      larger public."
     source: "from-folk-to-bedroom-pop"
     sourceLine: 166
 

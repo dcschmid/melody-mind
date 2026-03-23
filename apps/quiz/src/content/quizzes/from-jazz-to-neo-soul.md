@@ -30,8 +30,9 @@ questions:
       - "Charlie Parker"
     correct: 1
     explanation:
-      "Louis Armstrong helped change the focus from group improvisation to the solo
-      performance. His trumpet work on 'West End Blues' made the solo the centerpiece."
+      "Louis Armstrong helped move early jazz away from collective front-line improvisation
+      toward the featured solo. His trumpet work on 'West End Blues' showed that a single
+      player could shape the emotional center of a performance while the band supported it."
     source: "from-jazz-to-neo-soul"
     sourceLine: 88
 
@@ -160,8 +161,9 @@ questions:
       - "Birth of the Cool"
     correct: 1
     explanation:
-      "In 1959, Miles Davis and collaborators explored modal jazz on Kind of Blue. Instead
-      of rapid chord changes, the music stays on single scales longer, creating space."
+      "In 1959, Miles Davis and his collaborators explored modal jazz on Kind of Blue.
+      Instead of moving quickly through dense chord changes, the music often lingers on a
+      mode or scale, giving soloists more space to shape melody, tone, and mood."
     source: "from-jazz-to-neo-soul"
     sourceLine: 220
 
@@ -258,8 +260,9 @@ questions:
       - "Verve"
     correct: 1
     explanation:
-      "ECM Records, founded by Manfred Eicher in Germany in 1969, created a unique sound
-      with big production, attention to tone, and calm intensity."
+      "ECM Records, founded by Manfred Eicher in 1969, became known for a spacious, highly
+      detailed sound. Its recordings often emphasized clarity, tone, and a calm intensity
+      that helped define one influential strand of European jazz."
     source: "from-jazz-to-neo-soul"
     sourceLine: 488
 
@@ -281,8 +284,8 @@ questions:
     sourceLine: 555
 
   - question:
-      "Which 1966 Cannonball Adderley song 'Mercy, Mercy, Mercy' made jazz more popular
-      without changing its style?"
+      "Which 1966 Cannonball Adderley song 'Mercy, Mercy, Mercy' helped bring a more
+      welcoming, soul-influenced sound to a wider jazz audience?"
     type: single-choice
     difficulty: medium
     options:
@@ -292,8 +295,10 @@ questions:
       - "Donald Byrd"
     correct: 1
     explanation:
-      "Cannonball Adderley's 'Mercy, Mercy, Mercy' (1966) had a simple, welcoming sound.
-      The electric piano and rhythm section created a relaxed atmosphere."
+      "Cannonball Adderley's 'Mercy, Mercy, Mercy' (1966), written by Joe Zawinul, had a
+      simple, welcoming feel that connected easily with broader audiences. Its electric
+      piano, relaxed groove, and sermon-like warmth showed how jazz could feel accessible
+      without giving up its musical depth."
     source: "from-jazz-to-neo-soul"
     sourceLine: 562
 
@@ -513,8 +518,10 @@ questions:
       - "The Crusaders"
     correct: 2
     explanation:
-      "Weather Report, founded by Joe Zawinul and Wayne Shorter, created 'Birdland' on
-      Heavy Weather. Its melody was clear and inviting, almost pop in accessibility."
+      "Weather Report, co-led by Joe Zawinul and Wayne Shorter, created 'Birdland' on
+      Heavy Weather. The tune became one of fusion's best-known pieces because its melody
+      was memorable and inviting while the arrangement still reflected the band's layered,
+      electric jazz language."
     source: "from-jazz-to-neo-soul"
     sourceLine: 1141
 
@@ -563,8 +570,10 @@ questions:
       - "Ministry of Sound"
     correct: 1
     explanation:
-      "Clubs like Dingwalls in Camden and the Jazz Café brought together Caribbean sound
-      system culture, American soul, and local jazz talent in London's acid jazz scene."
+      "Dingwalls in Camden became one of the defining spaces for London's rare groove and
+      early acid jazz culture. Alongside venues like the Jazz Cafe, it helped connect
+      Caribbean sound-system culture, American soul and funk records, and local jazz
+      players into one shared scene."
     source: "from-jazz-to-neo-soul"
     sourceLine: 1309
 
@@ -646,9 +655,9 @@ questions:
       - "Madlib"
     correct: 2
     explanation:
-      "J Dilla's music had subtle rhythmic changes with drum hits landing behind or ahead
-      of the grid. Albums like Donuts showed how he could create emotionally rich
-      miniatures."
+      "J Dilla's music often placed drum hits slightly ahead of or behind the grid, making
+      the groove feel off-center but deeply human. Donuts turned that feel into a defining
+      production language, influencing later neo soul, jazz, and hip hop musicians."
     source: "from-jazz-to-neo-soul"
     sourceLine: 1914
 
@@ -664,12 +673,15 @@ questions:
       - "Maxwell's Urban Hang Suite"
     correct: 1
     explanation:
-      "D'Angelo's Voodoo (2000) featured Questlove and The Roots. The drum placement was
-      similar to the off-center swing popularized by J Dilla."
+      "D'Angelo's Voodoo (2000) featured Questlove and key members of The Roots, and its
+      rhythmic feel became one of neo soul's defining sounds. The drums lean into the
+      slightly off-center pocket associated with J Dilla, making the groove feel loose,
+      deep, and intensely human."
     source: "from-jazz-to-neo-soul"
     sourceLine: 2076
 
-  - question: "Which Erykah Badu album released in 1997 established her as the Queen of Neo Soul?"
+  - question: "Which Erykah Badu album released in 1997 helped establish her as one of neo
+      soul's defining voices?"
     type: single-choice
     difficulty: easy
     options:
@@ -679,8 +691,10 @@ questions:
       - "New Amerykah"
     correct: 1
     explanation:
-      "Erykah Badu's Baduizm (1997) sounded calm and confident. 'On & On' mixed spiritual
-      thinking with a steady beat and phrasing similar to Billie Holiday and Betty Carter."
+      "Erykah Badu's Baduizm (1997) quickly became a landmark neo soul debut. Songs like
+      'On & On' combined spiritual reflection, relaxed groove, and vocal phrasing that
+      recalled earlier jazz singers such as Billie Holiday and Betty Carter while still
+      sounding unmistakably contemporary."
     source: "from-jazz-to-neo-soul"
     sourceLine: 2106
 
@@ -779,13 +793,15 @@ questions:
     correct: 0
     explanation:
       "Robert Glasper's Black Radio (2012) mixed live jazz instruments with R&B vocals and
-      hip hop rhythm, featuring collaborations with Erykah Badu and Bilal."
+      hip hop rhythm in a way that reached beyond traditional jazz audiences. Collaborators
+      such as Erykah Badu and Bilal helped show how modern jazz could move naturally inside
+      contemporary Black popular music."
     source: "from-jazz-to-neo-soul"
     sourceLine: 2573
 
   - question:
-      "Which bassist and singer won Best New Artist Grammy in 2011, surprising pop-focused
-      expectations?"
+      "Which bassist and singer won the Best New Artist Grammy in 2011, beating several
+      more mainstream nominees?"
     type: single-choice
     difficulty: medium
     options:
@@ -795,8 +811,10 @@ questions:
       - "Kamasi Washington"
     correct: 0
     explanation:
-      "Esperanza Spalding won Best New Artist Grammy in 2011, showing jazz-inspired music
-      could succeed in mainstream award culture. She plays complex bass while singing."
+      "Esperanza Spalding won the Best New Artist Grammy in 2011, a result that drew wide
+      attention because many viewers expected a more mainstream pop or rap act to win. Her
+      victory showed that jazz-informed musicianship could still break through on a major
+      awards stage."
     source: "from-jazz-to-neo-soul"
     sourceLine: 2625
 

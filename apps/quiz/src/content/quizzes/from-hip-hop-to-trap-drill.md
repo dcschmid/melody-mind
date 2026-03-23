@@ -588,7 +588,7 @@ questions:
     sourceLine: 1971
 
   # Question 42 - Multi-Select - MEDIUM
-  - question: "Which female MCs were pioneers in early hip hop, breaking barriers in the 1980s?"
+  - question: "Which female MCs were pioneers in early hip hop, helping break barriers from the late 1970s through the 1980s?"
     type: "multi-choice"
     difficulty: "medium"
     options:
@@ -597,8 +597,8 @@ questions:
       - "Salt-N-Pepa"
       - "MC Lyte"
       - "Queen Latifah"
-    correct: [0, 1, 2]
-    explanation: "Sha-Rock (Funky 4 + 1), Roxanne Shanté ('Roxanne's Revenge'), and Salt-N-Pepa ('Push It') were 1980s pioneers. MC Lyte and Queen Latifah became more prominent in the late 1980s/early 1990s."
+    correct: [0, 1, 2, 3, 4]
+    explanation: "Sha-Rock, Roxanne Shanté, Salt-N-Pepa, MC Lyte, and Queen Latifah all helped expand what was possible for women in rap. They did so in different ways: through battle skill, radio success, feminist messaging, technical control, and public visibility. Together, they made it harder for the industry to treat women in hip hop as exceptions."
     source: "from-hip-hop-to-trap-drill"
     sourceLine: 361
 

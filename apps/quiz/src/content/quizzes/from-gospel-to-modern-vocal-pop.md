@@ -215,14 +215,14 @@ questions:
     sourceLine: 905
 
   # Question 15 - True/False - MEDIUM
-  - question: "Melisma, the technique of stretching a single syllable across multiple notes, originated in Gospel singing."
+  - question: "Melisma, the technique of stretching a single syllable across multiple notes, became a defining expressive tool in Gospel singing."
     type: "true-false"
     difficulty: "medium"
     options:
       - "True"
       - "False"
     correct: true
-    explanation: "True. In church settings, melisma allowed singers to extend emotional expression. Aretha Franklin, Whitney Houston, and Mariah Carey all perfected this Gospel-born technique for secular pop music."
+    explanation: "True. Melisma did not begin historically in Gospel alone, but Gospel singing made it a defining modern expressive tool. In church settings, it allowed singers to stretch emotional feeling across multiple notes, and artists like Aretha Franklin, Whitney Houston, and Mariah Carey later brought that approach into secular popular music."
     source: "from-gospel-to-modern-vocal-pop"
     sourceLine: 959
 
@@ -522,7 +522,7 @@ questions:
     sourceLine: 2160
 
   # Question 37 - Single Choice - MEDIUM
-  - question: "Which pop artist's melismatic runs and four-octave range made R&B phrasing commonplace in mainstream pop?"
+  - question: "Which pop artist's melismatic runs and four-octave range helped keep R&B phrasing highly visible in mainstream pop during the 2010s?"
     type: "single-choice"
     difficulty: "medium"
     options:
@@ -531,7 +531,7 @@ questions:
       - "Christina Aguilera"
       - "Beyoncé"
     correct: 0
-    explanation: "Ariana Grande's melismatic runs and four-octave range made R&B phrasing commonplace. She moves easily through runs with precision, using Gospel-shaped dynamics and stacked background vocals."
+    explanation: "Ariana Grande's melismatic runs and four-octave range helped keep R&B phrasing highly visible in 2010s mainstream pop. She moves through runs with precision, using Gospel-shaped dynamics and stacked background vocals that connect contemporary pop technique to earlier Soul and R&B traditions."
     source: "from-gospel-to-modern-vocal-pop"
     sourceLine: 2198
 
@@ -659,7 +659,7 @@ questions:
     sourceLine: 986
 
   # Question 47 - Single Choice - MEDIUM
-  - question: "Which singer's 1972 album 'Hot Buttered Soul' featured long tracks with spoken passages and dramatic builds?"
+  - question: "Which singer's 1969 album 'Hot Buttered Soul' featured long tracks with spoken passages and dramatic builds?"
     type: "single-choice"
     difficulty: "medium"
     options:
@@ -668,7 +668,7 @@ questions:
       - "Marvin Gaye"
       - "Curtis Mayfield"
     correct: 0
-    explanation: "Isaac Hayes' 1969 album 'Hot Buttered Soul' featured long tracks with spoken passages and dramatic builds. His deep voice mixed sensuality with Gospel conviction in extended arrangements."
+    explanation: "Isaac Hayes' 1969 album 'Hot Buttered Soul' featured long tracks with spoken passages and dramatic builds. Its scale and pacing pushed Soul in a more expansive direction, while his deep voice mixed sensuality with Gospel-rooted conviction in extended arrangements."
     source: "from-gospel-to-modern-vocal-pop"
     sourceLine: 706
 

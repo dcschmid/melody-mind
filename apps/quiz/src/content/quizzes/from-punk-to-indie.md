@@ -197,7 +197,7 @@ questions:
       - "1977"
       - "March 1978"
     correct: 0
-    explanation: "Joy Division's debut album Unknown Pleasures was released on 15 June 1979 on the Manchester label Factory Records. The record sounded unlike most guitar music of the time."
+    explanation: "Joy Division's debut album Unknown Pleasures was released on 15 June 1979 on the Manchester label Factory Records. Its spacious production, stark mood, and unusual treatment of drums and bass made it sound unlike most guitar records of the time."
     source: "from-punk-to-indie"
     sourceLine: 373
 
@@ -355,7 +355,7 @@ questions:
       - "Bizarre Love Triangle"
       - "Regret"
     correct: 1
-    explanation: "New Order's single 'Blue Monday' pushed even further into electronic territory. Built around drum machines and sequenced bass, the track became one of the most successful twelve-inch singles ever released."
+    explanation: "New Order's single 'Blue Monday' pushed even further into electronic territory. Built around drum machines and sequenced bass, the track became one of the most successful 12-inch singles in pop history and helped show how club-oriented electronics could reshape alternative music."
     source: "from-punk-to-indie"
     sourceLine: 595
 
@@ -369,7 +369,7 @@ questions:
       - "Can"
       - "Faust"
     correct: 1
-    explanation: "Einstürzende Neubauten formed in 1980 by Blixa Bargeld. Instead of relying solely on guitars and drums, they incorporated scrap metal, construction tools, steel plates, and other found objects into their performances."
+    explanation: "Einstürzende Neubauten formed in West Berlin in 1980 around Blixa Bargeld and collaborators. Instead of relying only on guitars and drums, they incorporated scrap metal, construction tools, steel plates, and other found objects into performances that felt raw, physical, and architectural."
     source: "from-punk-to-indie"
     sourceLine: 623
 
@@ -608,7 +608,7 @@ questions:
       - "1993"
       - "October 1990"
     correct: 0
-    explanation: "Nirvana's album Nevermind was released in September 1991. Within months, it climbed to the top of the charts, eventually displacing Michael Jackson's Dangerous from number one in the United States."
+    explanation: "Nirvana's album Nevermind was released in September 1991. Within months, it climbed to the top of the charts and famously displaced Michael Jackson's Dangerous from number one in the United States, turning an underground-oriented band into a global mainstream force."
     source: "from-punk-to-indie"
     sourceLine: 1331
 
@@ -755,7 +755,7 @@ questions:
       - "A music festival"
       - "A radio station"
     correct: 1
-    explanation: "C86 was a compilation cassette released in 1986 by the British magazine NME. The tape gathered songs from emerging bands whose music favored jangling melodies, simple arrangements, and emotional openness."
+    explanation: "C86 was a compilation cassette released in 1986 by the British magazine NME. It gathered songs from emerging bands and later became shorthand for a style associated with jangling guitars, modest arrangements, and a softer, emotionally open alternative to macho rock posturing."
     source: "from-punk-to-indie"
     sourceLine: 1741
 ---

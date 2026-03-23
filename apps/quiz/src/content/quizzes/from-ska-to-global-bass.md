@@ -133,9 +133,10 @@ questions:
       - "Israelites"
     correct: 0
     explanation:
-      "Millie Small's 'My Boy Lollipop' became a global hit in 1964, reaching the top of
-      the UK charts. For many international listeners, this was their first encounter with
-      Jamaican music."
+      "Millie Small's 'My Boy Lollipop' became a global hit in 1964, reaching number two
+      in the UK and becoming one of the first Jamaican recordings to break strongly into
+      international pop markets. For many listeners outside the Caribbean, it was an early
+      introduction to ska-inflected Jamaican music."
     source: "from-ska-to-global-bass"
     sourceLine: 307
 
@@ -217,9 +218,10 @@ questions:
       - "False"
     correct: true
     explanation:
-      "True. Chris Blackwell of Island Records produced 'Catch a Fire' (1973). He believed
-      reggae could reach audiences far beyond the Caribbean and helped introduce many
-      international listeners to the genre."
+      "True. Chris Blackwell is widely credited as a producer or co-producer on Catch a
+      Fire and played a decisive role in shaping how the album was presented to rock
+      audiences outside Jamaica. His support through Island Records helped bring the
+      Wailers to a much broader international public."
     source: "from-ska-to-global-bass"
     sourceLine: 750
 
@@ -423,9 +425,9 @@ questions:
       - "Jimmy Cliff"
     correct: [0, 1, 2]
     explanation:
-      "Yellowman, Big Youth, and Sister Nancy were key dancehall DJs. Bob Marley and Jimmy
-      Cliff were singers, not DJs - they performed melodic songs rather than rhythmic
-      speech."
+      "Yellowman, Big Youth, and Sister Nancy were important figures in the Jamaican DJ
+      tradition that fed directly into early dancehall culture. Bob Marley and Jimmy Cliff
+      were central reggae singers, but they were not known primarily as DJs or toasters."
     source: "from-ska-to-global-bass"
     sourceLine: 1633
 
@@ -438,9 +440,10 @@ questions:
       - "False"
     correct: true
     explanation:
-      "True. Producer King Jammy and Wayne Smith discovered the Sleng Teng rhythm on a
-      preset of the Casio MT-40 keyboard. This single digital rhythm launched the era of
-      digital dancehall in 1985."
+      "True. The breakthrough rhythm behind 'Sleng Teng' came from a preset on a Casio
+      MT-40 keyboard. Accounts often emphasize Wayne Smith's role in finding the sound,
+      while King Jammy helped turn it into the defining production that launched digital
+      dancehall in 1985."
     source: "from-ska-to-global-bass"
     sourceLine: 1879
 
@@ -462,7 +465,7 @@ questions:
     sourceLine: 1879
 
   # Question 27 - Single Choice - HARD
-  - question: "Which dancehall star became known as the 'Crown Prince of Reggae'?"
+  - question: "Which reggae singer became known as the 'Crown Prince of Reggae'?"
     type: "single-choice"
     difficulty: "hard"
     options:
@@ -472,9 +475,10 @@ questions:
       - "Beenie Man"
     correct: 1
     explanation:
-      "Dennis Brown was called the 'Crown Prince of Reggae.' He began recording as a
-      teenager and gained recognition for his warm voice and expressive phrasing. Many
-      younger singers named him as a major influence."
+      "Dennis Brown was called the 'Crown Prince of Reggae,' a title closely associated
+      with his extraordinary run of recordings from his youth onward. He was not a
+      dancehall deejay but a major reggae singer whose warm tone and emotional phrasing
+      influenced generations of vocalists."
     source: "from-ska-to-global-bass"
     sourceLine: 812
 

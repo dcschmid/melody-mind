@@ -305,9 +305,9 @@ questions:
       - "KMFDM"
     correct: 1
     explanation:
-      "Front 242's 'No Comment' (1984) is often cited as a key EBM development. The tracks
-      presented powerful electronic rhythms with dark, minimal atmosphere, defining the
-      genre's disciplined aesthetic."
+      "Front 242's 'No Comment' (1984) is often cited as one of the key records in EBM's
+      emergence. Its hard sequenced rhythms, clipped vocals, and disciplined electronic
+      sound helped define the genre's colder and more physically driven aesthetic."
     source: "from-post-punk-to-industrial-metal"
     sourceLine: 1236
 
@@ -465,7 +465,9 @@ questions:
     sourceLine: 1998
 
   # Question 27 - Single Choice - MEDIUM
-  - question: "Which band created 'Streetcleaner' (1989), a influential album in industrial metal development?"
+  - question:
+      "Which band created 'Streetcleaner' (1989), an influential album in industrial
+      metal development?"
     type: "single-choice"
     difficulty: "medium"
     options:
@@ -476,8 +478,9 @@ questions:
     correct: 0
     explanation:
       "Godflesh's 'Streetcleaner' (1989) became one of the most influential records in
-      industrial metal development. Its production emphasized distortion, depth, and
-      minimal arrangement with grinding guitar riffs."
+      industrial metal development. Its use of drum-machine rigidity, grinding guitar
+      weight, and stripped-down arrangement gave industrial metal a colder and heavier
+      identity than most earlier industrial rock."
     source: "from-post-punk-to-industrial-metal"
     sourceLine: 2003
 
@@ -595,8 +598,8 @@ questions:
     correct: [0, 1, 2]
     explanation:
       "Rammstein's concerts featured elaborate pyrotechnics, complex stage structures, and
-      dramatic lighting. They did not use acoustic sets or minimal stage design - their
-      shows were known for spectacular visual spectacle."
+      dramatic lighting. They did not rely on acoustic sets or minimal staging; their live
+      identity was built around scale, theatrical precision, and overwhelming visual force."
     source: "from-post-punk-to-industrial-metal"
     sourceLine: 2569
 
@@ -748,9 +751,10 @@ questions:
       - "Blixa Bargeld"
     correct: 0
     explanation:
-      "Monte Cazazza, an American performance artist and musician, maintained close
-      connections with Throbbing Gristle and is sometimes credited with helping popularize
-      the phrase 'industrial music.'"
+      "Monte Cazazza, an American performance artist and musician, maintained close ties
+      with Throbbing Gristle and the wider Industrial Records circle. He is sometimes
+      credited with helping popularize the phrase 'industrial music,' which fits his role
+      in the movement's confrontational early culture."
     source: "from-post-punk-to-industrial-metal"
     sourceLine: 817
 

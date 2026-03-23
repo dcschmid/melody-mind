@@ -154,7 +154,8 @@ questions:
     sourceLine: 332
 
   # Question 11 - Single Choice - MEDIUM
-  - question: "Which teen pop artist wrote and produced much of her own material on the 1987 album 'Out of the Blue'?"
+  - question: "Which teen pop artist wrote and co-produced much of her own material on the
+    1987 album 'Out of the Blue'?"
     type: "single-choice"
     difficulty: "medium"
     options:
@@ -163,7 +164,10 @@ questions:
       - "Madonna"
       - "Cyndi Lauper"
     correct: 1
-    explanation: "Debbie Gibson achieved remarkable success while still a teenager with her 1987 album 'Out of the Blue.' She also wrote and produced much of her own material, showing teen pop artists could participate directly in the creative process."
+    explanation: "Debbie Gibson achieved remarkable success while still a teenager with her
+      1987 album 'Out of the Blue.' She wrote the songs and was closely involved in the
+      production, showing that teen pop artists could participate directly in the creative
+      process rather than only performing material shaped by others."
     source: "from-pop-to-streaming-pop"
     sourceLine: 345
 
@@ -191,8 +195,11 @@ questions:
       - "Spice Girls"
       - "Destiny's Child"
       - "Take That"
-    correct: [0, 1]
-    explanation: "The Backstreet Boys and NSYNC were the defining vocal groups of the late 1990s teen pop era. NSYNC's 'No Strings Attached' (2000) broke several sales records, and 'Bye Bye Bye' became a defining pop anthem."
+    correct: [0, 1, 2]
+    explanation: "The Backstreet Boys, NSYNC, and the Spice Girls were central to the late
+      1990s teen pop era. The Backstreet Boys and NSYNC defined the boy-band side of the
+      boom, while the Spice Girls turned group identity, image, and catchy pop hooks into
+      a global phenomenon."
     source: "from-pop-to-streaming-pop"
     sourceLine: 391
 
@@ -627,7 +634,10 @@ questions:
       - "Lovely"
       - "Everything I Wanted"
     correct: 1
-    explanation: "Billie Eilish's 'Bad Guy' demonstrated how minimal production could still achieve massive global success. The song's playful bass line and rhythmic shifts gave it a distinctive character that stood out in streaming playlists."
+    explanation: "Billie Eilish's 'Bad Guy' demonstrated how minimal production could still
+      achieve massive global success. Its sparse beat, playful bass line, and abrupt
+      rhythmic shifts made it stand out immediately, showing that a pop hit no longer
+      needed dense production to dominate playlists and charts."
     source: "from-pop-to-streaming-pop"
     sourceLine: 2110
 
@@ -701,7 +711,8 @@ questions:
     sourceLine: 2467
 
   # Question 50 - Single Choice - HARD
-  - question: "Taylor Swift's decision to re-record her early albums was primarily about what issue?"
+  - question: "Taylor Swift's decision to begin re-recording her early albums was primarily
+    about what issue?"
     type: "single-choice"
     difficulty: "hard"
     options:
@@ -710,7 +721,10 @@ questions:
       - "Regaining control of master recordings"
       - "Creating acoustic versions"
     correct: 2
-    explanation: "Taylor Swift's decision to re-record several early albums was about regaining control of their master recordings. This action revealed how pop stars increasingly participate in conversations about artistic rights and professional independence."
+    explanation: "Taylor Swift began re-recording several early albums in order to regain
+      leverage over the use and value of her master recordings. The project turned a
+      private contract dispute into a much wider public conversation about artist rights,
+      ownership, and professional independence in pop music."
     source: "from-pop-to-streaming-pop"
     sourceLine: 2359
 ---

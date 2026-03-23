@@ -130,8 +130,9 @@ questions:
       - "Johnny Pacheco"
     correct: 1
     explanation:
-      "Joe Cuba was one of the most important people in the boogaloo movement. His group
-      created 'Bang Bang' which perfectly blended Latin rhythm with a cool, urban vibe."
+      "Joe Cuba was one of the central figures in boogaloo. His group's hit 'Bang Bang'
+      captured the style's mix of Latin rhythm, bilingual street energy, and a looser,
+      more urban feel than earlier dance-band arrangements."
     source: "from-latin-to-latin-trap"
     sourceLine: 285
 
@@ -198,9 +199,10 @@ questions:
       - "Ivy Queen"
     correct: 2
     explanation:
-      "Celia Cruz, born in Havana, is the most famous female figure in salsa. She joined
-      the Fania roster and became one of its most important members with songs like
-      'Quimbara' and 'La Vida Es Un Carnaval.'"
+      "Celia Cruz, born in Havana, became the most widely recognized woman in salsa. After
+      joining the Fania orbit in the 1970s, she reinforced that status with songs such as
+      'Quimbara,' while later hits like 'La Vida Es Un Carnaval' showed how long her reach
+      extended beyond the classic Fania era."
     source: "from-latin-to-latin-trap"
     sourceLine: 511
 
@@ -234,9 +236,10 @@ questions:
       - "El Alfa"
     correct: 0
     explanation:
-      "Juan Luis Guerra made merengue more popular without changing its character. His
-      1990 album Bachata Rosa was a big commercial success in Latin America and
-      Spanish-speaking communities in the United States."
+      "Juan Luis Guerra helped bring merengue and bachata-influenced songwriting to a much
+      wider international audience without stripping away their Dominican identity. His
+      1990 album Bachata Rosa was a major commercial and critical success across Latin
+      America and Spanish-speaking communities in the United States."
     source: "from-latin-to-latin-trap"
     sourceLine: 696
 
@@ -324,8 +327,9 @@ questions:
       - "2000"
     correct: 2
     explanation:
-      "1999 is considered the year Latin pop exploded. Ricky Martin's performance at the
-      Grammy Awards and 'Livin' la Vida Loca' became a defining moment for Latin crossover."
+      "1999 is widely treated as the breakout year of the late-1990s Latin pop crossover.
+      Ricky Martin's Grammy performance and the success of 'Livin' la Vida Loca' turned a
+      gradual rise into a visible mainstream media event."
     source: "from-latin-to-latin-trap"
     sourceLine: 963
 
@@ -377,8 +381,9 @@ questions:
       - "Club 507"
     correct: 1
     explanation:
-      "The Noise in San Juan was more than just a club. It was a place where the community
-      came together, allowing young artists to test new material and build visibility."
+      "The Noise in San Juan was more than a single venue name. It became a crucial
+      performance and promotional space where young reggaeton artists tested songs, built
+      reputations, and connected club energy to the cassette underground."
     source: "from-latin-to-latin-trap"
     sourceLine: 1195
 
@@ -464,9 +469,10 @@ questions:
       - "Shakira"
     correct: 1
     explanation:
-      "J Balvin became one of the artists who benefited most from YouTube's rise. He was
-      known for bright colors and distinctive visual style, gaining worldwide recognition
-      without relying only on English-language music."
+      "J Balvin became one of the clearest examples of a global Latin urban star in the
+      platform era. His bright visual style, major YouTube presence, and mostly
+      Spanish-language catalog showed that worldwide recognition no longer depended on a
+      full move into English."
     source: "from-latin-to-latin-trap"
     sourceLine: 1503
 
@@ -482,8 +488,10 @@ questions:
       - "Danza Kuduro"
     correct: 1
     explanation:
-      "'Despacito' by Luis Fonsi featuring Daddy Yankee proved that a Spanish-language
-      song could top the Billboard Hot 100 for weeks without being translated."
+      "'Despacito' by Luis Fonsi featuring Daddy Yankee became a landmark because it
+      reached number one on the Billboard Hot 100 and stayed there for weeks, proving that
+      a Spanish-language-led song could dominate the U.S. pop mainstream on a massive
+      scale."
     source: "from-latin-to-latin-trap"
     sourceLine: 1590
 
@@ -516,8 +524,10 @@ questions:
       - "Spain"
     correct: 2
     explanation:
-      "Mexico became one of the world's largest markets for digital music streaming. Its
-      listener scale alone had a big impact on charts and playlist placement."
+      "Mexico became one of the largest streaming markets in Latin music, with sheer
+      listener scale shaping chart performance, playlist placement, and label strategy
+      across the region. That made the country especially influential in the Latin urban
+      era."
     source: "from-latin-to-latin-trap"
     sourceLine: 1690
 
@@ -581,11 +591,11 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
+    correct: true
     explanation:
-      "Short-form video platforms like TikTok changed attention patterns. Producers
-      adapted by making intros shorter, hooks arriving earlier, and songs more clip-
-      friendly for viral content."
+      "True. Short-form video platforms like TikTok changed listening habits. Producers
+      adapted by making intros shorter, bringing hooks in earlier, and shaping songs to
+      work well in short clips."
     source: "from-latin-to-latin-trap"
     sourceLine: 1923
 
@@ -601,9 +611,9 @@ questions:
       - "Arcángel"
     correct: 1
     explanation:
-      "Anuel AA was one of the first artists to define Latin trap's public image. His
-      style mixed raw honesty and boastful confidence, addressing street life, ambition,
-      loyalty, and vulnerability."
+      "Anuel AA was one of the artists who most clearly defined Latin trap's early public
+      image. His style mixed raw street detail, boastful confidence, and flashes of
+      vulnerability, helping give the genre a recognizable emotional and visual identity."
     source: "from-latin-to-latin-trap"
     sourceLine: 1999
 
@@ -690,9 +700,10 @@ questions:
       - "Anuel AA"
     correct: 1
     explanation:
-      "Young Miko represents a new generation mixing melodic singing with trap rhythm. Her
-      presence shows that people are more open about gender and sexuality in Latin urban
-      culture."
+      "Young Miko represents a newer generation that mixes melodic singing with trap-based
+      production while speaking more openly about gender and sexuality. Her visibility also
+      reflects how parts of Latin urban music have become more open to identities that were
+      often less visible in earlier eras."
     source: "from-latin-to-latin-trap"
     sourceLine: 2253
 
@@ -740,10 +751,11 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
+    correct: true
     explanation:
-      "Streaming platforms made song lengths shorter. Songs under three minutes can get
-      more streams if played repeatedly. The economic incentive is to keep it short."
+      "True. In the streaming era, songs have often become shorter. Tracks under three
+      minutes can generate more repeat plays, so there is a clear incentive to keep them
+      concise."
     source: "from-latin-to-latin-trap"
     sourceLine: 2583
 
@@ -808,11 +820,11 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
+    correct: false
     explanation:
-      "Fania did not create the rhythms of salsa. It packaged and marketed the sound that
-      was already forming in clubs, bringing together artists under one brand and making
-      salsa a recognizable movement."
+      "False. Fania did not create salsa's rhythms. It helped package and market a sound
+      that was already taking shape in clubs, bringing artists together under one label
+      and turning salsa into a recognizable movement."
     source: "from-latin-to-latin-trap"
     sourceLine: 459
 ---

@@ -23,7 +23,7 @@ questions:
       - "Johann Sebastian Bach and George Frideric Handel"
       - "Franz Liszt and Frédéric Chopin"
     correct: 1
-    explanation: "Ludwig van Beethoven and Johannes Brahms are described as the most important composers whose symphonies, chamber works, and piano pieces became examples of artistic seriousness."
+    explanation: "Ludwig van Beethoven and Johannes Brahms are described as two central figures in the classical canon. Their symphonies, chamber works, and piano music became models of artistic seriousness, helping later audiences and institutions define what 'great' concert music was supposed to sound like."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 80
 
@@ -77,7 +77,7 @@ questions:
       - "Approximately 50 works"
       - "Over 1,000 works"
     correct: 1
-    explanation: "Fanny Mendelssohn wrote more than four hundred works, including orchestral music, cantatas, and chamber pieces."
+    explanation: "Fanny Mendelssohn wrote more than four hundred works during her lifetime. That output included songs, piano music, chamber works, cantatas, and larger pieces, which makes the limits placed on her public career even more striking."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 188
 
@@ -87,8 +87,8 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
-    explanation: "Some of Fanny Mendelssohn's songs were published under her brother Felix Mendelssohn's name, not because it served her art, but because it fit public expectations."
+    correct: true
+    explanation: "True. Some of Fanny Mendelssohn's songs were published under her brother Felix Mendelssohn's name, not because it served her art, but because it matched public expectations."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 189
 
@@ -258,8 +258,8 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
-    explanation: "With recordings, a performance was no longer a single event. Conductors and soloists became recognizable through their recorded sound. The responsibility for the music shifted from the composer to the performer. Interpretation became permanent."
+    correct: true
+    explanation: "True. With recordings, a performance was no longer a one-time event. Conductors and soloists became recognizable through their recorded sound, and interpretation took on a more lasting role. In that sense, the performer's choices became more visible and durable than they had been in a purely live tradition."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 507
 
@@ -362,8 +362,8 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 0
-    explanation: "Steve Reich studied drumming in Ghana and explored rhythmic cycles that emphasized repetition and collective energy. These experiences influenced works like Drumming and later Music for 18 Musicians."
+    correct: true
+    explanation: "True. Steve Reich studied drumming in Ghana and explored rhythmic cycles that emphasized repetition and collective energy. Those experiences influenced works like Drumming and later Music for 18 Musicians."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 807
 
@@ -376,7 +376,7 @@ questions:
       - "1980s"
       - "1990s"
     correct: 1
-    explanation: "Music for 18 Musicians, which was first performed in the 1970s, was a big change. The piece changes over time, moving smoothly and clearly."
+    explanation: "Music for 18 Musicians was first performed in 1976, so the correct decade is the 1970s. The piece became one of the clearest examples of Reich's mature style, using pulse, gradual change, and a bright ensemble sound to create continuous forward motion."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 812
 
@@ -507,7 +507,7 @@ questions:
       - "Nonesuch Records"
       - "Blue Note"
     correct: 1
-    explanation: "ECM Records was founded in 1969. It is known for its clear and spacious sound. While ECM is best known for its jazz recordings, the label also released works by composers who blended classical and contemporary styles."
+    explanation: "ECM Records was founded in 1969. It became known for a clear, spacious recorded sound that shaped how many listeners imagined both modern jazz and contemporary classical music. Its catalog helped create a bridge between those worlds."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 1167
 
@@ -534,7 +534,7 @@ questions:
       - "It is performed entirely underwater"
       - "It has no musical instruments"
     correct: 1
-    explanation: "Sleep, which premiered in 2015, takes minimalism's focus on duration and puts it in a new context. The work lasts around eight hours and is designed to be done while you rest."
+    explanation: "Sleep, which premiered in 2015, takes minimalism's focus on duration and places it in a new context. The work lasts around eight hours and is designed to be experienced while resting, which turns listening into an overnight environment rather than a standard concert event."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 1304
 
@@ -615,7 +615,7 @@ questions:
       - "Anna Thorvaldsdottir"
       - "Hildur Guðnadóttir"
     correct: 1
-    explanation: "Canadian composer Alexandra Stréliski mostly uses the piano and strings. Her album Inscape gained popularity through online music services and appearances on TV."
+    explanation: "Canadian composer Alexandra Stréliski mainly works with piano and strings. Her album Inscape gained visibility through streaming services, television exposure, and online sharing, helping her reach listeners far beyond traditional classical audiences."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 1438
 
@@ -642,7 +642,7 @@ questions:
       - "Max Richter"
       - "Hildur Guðnadóttir"
     correct: 1
-    explanation: "Ólafur Arnalds's album re:member uses self-playing pianos controlled by software that responds to his live performance. The system generates extra notes based on rules that have been set up in advance, combining human and algorithmic input."
+    explanation: "Ólafur Arnalds's album re:member uses self-playing pianos controlled by software that responds to his live performance. The system generates additional notes according to pre-set rules, so the music feels partly composed, partly performed, and partly shaped in real time by the interaction between player and machine."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 1484
 
@@ -652,8 +652,8 @@ questions:
     options:
       - "True"
       - "False"
-    correct: 1
-    explanation: "The lone genius model is no longer the only way to be successful. Instead, it recognizes that modern creation is part of networks. The composer helps to make the music happen, just like an author helps make a book."
+    correct: false
+    explanation: "False. The lone-genius model is no longer the only path to success. Post-classical work often grows through networks of collaborators, producers, performers, and technical systems."
     source: "from-classical-roots-to-neo-classical-sounds"
     sourceLine: 1511
 

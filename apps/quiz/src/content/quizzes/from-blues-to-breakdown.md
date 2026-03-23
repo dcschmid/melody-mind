@@ -84,7 +84,9 @@ questions:
     correct: true
     explanation:
       "True. Memphis Minnie was born in 1897 in Algiers, Louisiana. She was one of the first
-      blues musicians to use electrified instruments in her recordings."
+      blues musicians to use electrified instruments in her recordings. That matters because
+      she showed that amplified sound could carry the same emotional authority as earlier
+      acoustic blues while adding a harder physical edge."
     source: "from-blues-to-breakdown"
     sourceLine: 145
 
@@ -267,7 +269,8 @@ questions:
     explanation:
       "The New Wave of British Heavy Metal made music that felt more intense and added a
       story to it. Bands like Iron Maiden created songs with distinct sections, where rhythm
-      and guitars guide them."
+      and guitars guide the listener through clear changes in pace, mood, and direction.
+      That made metal feel more focused, disciplined, and structurally deliberate."
     source: "from-blues-to-breakdown"
     sourceLine: 1101
 
@@ -376,8 +379,10 @@ questions:
       - "New Orleans"
     correct: 1
     explanation:
-      "The Bay Area in California becomes an important center for thrash metal, especially
-      in places where people feel economic and political pressure every day."
+      "The Bay Area in California becomes an important center for thrash metal in a wider
+      moment shaped by economic and political pressure. The Bay Area scene became especially
+      influential, even though related sounds were also developing in other places at roughly
+      the same time."
     source: "from-blues-to-breakdown"
     sourceLine: 1322
 
@@ -576,8 +581,9 @@ questions:
     correct: 1
     explanation:
       "Spiritbox's sound combines elements of atmosphere, heaviness, and vulnerability in a
-      way that feels modern and doesn't feel like it's trying to fix something. Power comes
-      from control and intention."
+      way that feels modern and doesn't feel like it's trying to fix something. The emotional
+      tension remains present instead of being resolved too neatly, so the music feels heavy
+      through control, contrast, and intention rather than force alone."
     source: "from-blues-to-breakdown"
     sourceLine: 1675
 
@@ -687,7 +693,7 @@ questions:
     sourceLine: 66
 
   # Question 38 - Multi-Select - EASY
-  - question: "Which genres emerged from extreme metal's push to new limits?"
+  - question: "Which genres formed the main branches of metal's move into more extreme territory?"
     type: "multi-choice"
     difficulty: "easy"
     options:
@@ -698,9 +704,10 @@ questions:
       - "Glam metal"
     correct: [0, 1, 2]
     explanation:
-      "From extreme metal's split, thrash, death, and black metal emerged. These styles are
-      spaces where the genre challenges its own rules, pushing limits of speed, sound, and
-      ideology."
+      "Thrash, death, and black metal became three of the main branches in metal's move toward
+      more extreme forms. Each pushed heaviness in a different direction: thrash through speed
+      and discipline, death metal through physical extremity, and black metal through
+      atmosphere, ideology, and distance."
     source: "from-blues-to-breakdown"
     sourceLine: 1280
 
@@ -894,7 +901,9 @@ questions:
     correct: 2
     explanation:
       "If heaviness is going to last, it has to be carried with care, not just intensity.
-      Heavy music survives when it remembers its history not as archive, but as practice."
+      Heavy music survives when it remembers its history not as archive, but as practice.
+      According to the article, continuity matters because heaviness loses meaning if it
+      forgets where its emotional and cultural weight came from."
     source: "from-blues-to-breakdown"
     sourceLine: 1831
 
