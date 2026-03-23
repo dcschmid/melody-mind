@@ -1,0 +1,245 @@
+---
+/**
+ * Knowledge Article Page (English only)
+ */
+import { render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
+import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
+import KnowledgeArticleHero from "@components/KnowledgeArticleHero.astro";
+import RelatedKnowledgeArticles from "@components/RelatedKnowledgeArticles.astro";
+import LinkPanel from "@shared-ui/components/cards/LinkPanel.astro";
+import ReadingProgress from "@shared-ui/components/navigation/ReadingProgress.astro";
+import Prose from "@shared-ui/components/typography/Prose.astro";
+import TableOfContents from "@shared-ui/components/navigation/TableOfContents.astro";
+import RecentItemsTracker from "@shared-ui/components/init/RecentItemsTracker.astro";
+
+import KnowledgeTakeaways from "@shared-ui/components/cards/KnowledgeTakeaways.astro";
+import { VERSIONED_KEYS } from "@constants/storageVersions";
+import {
+  buildKnowledgeArticleStorageMeta,
+  buildKnowledgeArticlePageData,
+  getKnowledgeArticleStaticPaths,
+  resolveKnowledgeArticleEntry,
+  resolveKnowledgeSlug,
+} from "@utils/knowledge/articlePage";
+
+export const prerender = true;
+
+/**
+ * Prebuilds one static route per knowledge article.
+ * We pass the full entry through `props` so the page can render without re-fetching during build.
+ */
+export async function getStaticPaths() {
+  return getKnowledgeArticleStaticPaths();
+}
+
+const lang = "en";
+const initialEntry: any = (Astro.props as { entry?: any }).entry;
+
+// `[...slug]` can arrive either as an array or as a flat string depending on the route shape.
+const resolvedSlug = resolveKnowledgeSlug((Astro as any).params?.slug);
+const entry = await resolveKnowledgeArticleEntry({
+  entry: initialEntry,
+  slug: resolvedSlug,
+  lang,
+});
+
+if (!entry) {
+  return new Response("Not found", { status: 404 });
+}
+
+const slugKey = resolvedSlug || entry?.slug || entry?.id || "";
+const { headings, Content } = await render(entry);
+const mergedHeadings = headings;
+const takeaways = entry.data.takeaways || [];
+const {
+  articleLinks,
+  canonical,
+  currentKeywords,
+  currentTaxonomySubsection,
+  currentTaxonomyGroup,
+  description,
+  imageSource,
+  pageSeo,
+  publishedDate,
+  publishedDateLabel,
+  readingResult,
+  taxonomyPillLabel,
+  title,
+} = buildKnowledgeArticlePageData({
+  site: Astro.site,
+  entry,
+  lang,
+  slugKey,
+});
+const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleStorageMeta(
+  entry,
+  slugKey
+);
+---
+
+<Layout {pageSeo}>
+  <Fragment slot="head"></Fragment>
+
+  <ReadingProgress storageKey={VERSIONED_KEYS.READ_PROGRESS} />
+
+  <div
+    class="knowledge"
+    data-analytics-article="true"
+    data-analytics-article-slug={slugKey}
+    data-analytics-article-category={currentTaxonomyGroup ||
+      currentTaxonomySubsection ||
+      "uncategorized"}
+  >
+    <div class="knowledge__container">
+      <KnowledgeArticleHero
+        entry={entry}
+        imageSource={imageSource}
+        publishedDate={publishedDate}
+        publishedDateLabel={publishedDateLabel}
+        readingText={readingResult.text}
+        slugKey={slugKey}
+        taxonomyPillLabel={taxonomyPillLabel}
+      />
+
+      {
+        articleLinks.length ? (
+          <LinkPanel title="Listen and Explore" titleIcon="music" items={articleLinks} />
+        ) : null
+      }
+
+      <div class="knowledge__body">
+        <div class="knowledge__main">
+          <TableOfContents headings={mergedHeadings} className="knowledge__toc" />
+
+          {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
+
+          <article id="article-content" class="knowledge-article">
+            <div id="article-title" class="knowledge__title-sr">{entry.data.title}</div>
+            <div role="region" aria-labelledby="article-title" aria-label="Main content">
+              <Prose>
+                <Content />
+              </Prose>
+            </div>
+          </article>
+
+          <ShareSection
+            shareUrl={canonical}
+            contentTitle={title}
+            contentDescription={description}
+          />
+
+          <RelatedKnowledgeArticles
+            currentKeywords={currentKeywords}
+            currentTaxonomyGroup={currentTaxonomyGroup}
+            currentTaxonomySubsection={currentTaxonomySubsection}
+            currentSlug={slugKey}
+            lang={lang}
+          />
+
+          <div class="knowledge__back">
+            <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
+              <span>Back to knowledge list</span>
+            </ButtonLink>
+          </div>
+
+          <RecentItemsTracker
+            item={{
+              slug: storageSlug,
+              title,
+              updatedAt: storageUpdatedAt,
+              image: storageImage,
+            }}
+            storageKey={VERSIONED_KEYS.RECENT_READS}
+          />
+        </div>
+      </div>
+
+      <!-- DOM hooks for lightweight client features. Data is passed via attributes to avoid inline scripts. -->
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .knowledge {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-primary);
+    background: var(--page-background);
+  }
+
+  .knowledge__container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: var(--spacing-xl);
+    max-width: var(--content-max-width);
+    padding: calc(var(--spacing-xl) + var(--spacing-sm)) var(--spacing-base)
+      var(--spacing-3xl);
+    margin: 0 auto;
+  }
+
+  .knowledge__body,
+  .knowledge__main {
+    display: grid;
+    gap: var(--spacing-xl);
+  }
+
+  .knowledge__main :global(.knowledge__toc) {
+    margin-block-end: 0;
+  }
+
+  .knowledge-article {
+    position: relative;
+    padding: var(--spacing-lg);
+    margin-top: 0;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .knowledge-article::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+  }
+
+  .knowledge__back {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .knowledge__title-sr {
+    position: absolute;
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    margin: var(--sr-only-margin);
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: var(--sr-only-clip-path);
+  }
+
+  @media (width >= 640px) {
+    .knowledge__container {
+      padding: var(--spacing-2xl) var(--spacing-lg)
+        calc(var(--spacing-2xl) + var(--spacing-lg));
+    }
+  }
+
+  @media (width >= 1024px) {
+    .knowledge__container {
+      padding: calc(var(--spacing-2xl) + var(--spacing-sm)) var(--spacing-xl)
+        calc(var(--spacing-2xl) + var(--spacing-xl));
+    }
+  }
+</style>

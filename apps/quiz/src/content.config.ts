@@ -1,0 +1,55 @@
+import { defineCollection, type SchemaContext } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
+
+export const difficultyEnum = ["easy", "medium", "hard"] as const;
+export const quizCategoryEnum = ["decade", "genre-evolution", "mixed"] as const;
+export const questionTypeEnum = ["single-choice", "multi-choice", "true-false"] as const;
+
+// Quiz question schema
+const quizQuestionSchema = z.object({
+  question: z.string(),
+  type: z.enum(questionTypeEnum),
+  difficulty: z.enum(difficultyEnum),
+  options: z.array(z.string()),
+  correct: z.union([z.number(), z.array(z.number()), z.boolean()]),
+  explanation: z.string(),
+  source: z.string(),
+  sourceLine: z.number().optional(),
+});
+
+// Quiz collection schema
+const getQuizSchema = (_ctx: SchemaContext) =>
+  z.object({
+    title: z.string(),
+    description: z.string(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    featuredTopics: z.array(z.string()).default([]),
+    category: z.enum(quizCategoryEnum),
+    relatedArticles: z.array(z.string()).min(1),
+    questions: z.array(quizQuestionSchema).min(20).max(100),
+    questionsPerSession: z.number().default(20),
+    passingScore: z.number().default(70),
+    timeLimit: z.number().optional(),
+    draft: z.boolean().default(false),
+  });
+
+// Quiz collection
+const quizCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/quizzes" }),
+  schema: getQuizSchema,
+});
+
+// Define collections
+export const collections = {
+  quizzes: quizCollection,
+} as const;
+
+// Type definitions
+export type QuizData = z.infer<ReturnType<typeof getQuizSchema>>;
+export type QuizQuestion = z.infer<typeof quizQuestionSchema>;
+export type CollectionKey = keyof typeof collections;
+export type Difficulty = (typeof difficultyEnum)[number];
+export type QuizCategory = (typeof quizCategoryEnum)[number];
+export type QuestionType = (typeof questionTypeEnum)[number];

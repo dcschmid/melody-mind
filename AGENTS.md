@@ -4,33 +4,48 @@ This document provides essential guidelines for AI agents working on the MelodyM
 
 ## Project Overview
 
-- **Framework**: Astro v5+ with Static Site Generation (SSG)
+- **Framework**: Astro v6+ with Static Site Generation (SSG)
 - **Language**: TypeScript (strict mode)
 - **Styling**: BEM-based CSS (scoped in Astro components)
 - **Content**: Markdown articles via Astro Content Collections
 - **Language**: English-only (knowledge-en collection)
-- **Package Manager**: Yarn
+- **Package Manager**: pnpm
+- **Workspace**: Monorepo with `apps/knowledge`, `apps/quiz`, `apps/podcasts`, `packages/shared-ui`, and `packages/shared-utils`
+
+## Knowledge Structure
+
+- `taxonomy` is the primary information architecture for Knowledge.
+- Main taxonomy source: `apps/knowledge/src/data/musicTaxonomy.ts`
+- Primary routed taxonomy page: `apps/knowledge/src/pages/taxonomy/[section].astro`
+- Articles are assigned via frontmatter fields:
+  - `taxonomySubsection`
+  - `taxonomyGroup` (optional)
+- Legacy `/categories/*` pages were removed.
+- Old category URLs are preserved only through redirects defined in:
+  `apps/knowledge/src/constants/categoryRedirects.js`
 
 ## Essential Commands
 
 ### Development
 
 ```bash
-yarn dev              # Start dev server with hot reload
-yarn build            # Build for production (includes astro check)
-yarn build:production # Production build with NODE_ENV=production
-yarn preview          # Preview production build locally
+pnpm dev                 # Run all app dev tasks via turbo
+pnpm dev:knowledge       # Start only Knowledge locally
+pnpm build               # Build the monorepo
+pnpm build:knowledge     # Build only Knowledge
+pnpm preview             # Preview app builds where supported
 ```
 
 ### Code Quality
 
 ```bash
-yarn lint             # Format + lint (prettier + eslint --fix)
-yarn lint:check       # Check without auto-fix
-yarn format           # Format with Prettier only
-yarn format:check     # Check formatting
-yarn check:scoped-css # Verify CSS scoping
-astro check           # TypeScript type checking
+pnpm lint                      # Format + lint across the monorepo
+pnpm lint:check                # Check without auto-fix across the monorepo
+pnpm format                    # Format across the monorepo
+pnpm format:check              # Check formatting across the monorepo
+pnpm --filter knowledge build  # Knowledge build, includes astro check
+pnpm --filter knowledge lint:check
+pnpm --filter knowledge check:scoped-css
 ```
 
 **Note**: No test suite. Test manually via dev server.
@@ -46,7 +61,7 @@ import { Image } from "astro:assets";
 
 // 2. Internal packages using path aliases
 import Layout from "@layouts/Layout.astro";
-import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 ```
 
 **Path Aliases**: `@components/*`, `@layouts/*`, `@utils/*`, `@constants/*`, `@i18n/*`, `@content/*`
@@ -54,7 +69,8 @@ import { buildPageSeo } from "@utils/seo/buildPageSeo";
 ### Formatting
 
 - Print width: 90 chars, trailing commas: ES5, double quotes, semicolons always
-- Run `yarn format` before committing
+- Run `pnpm format` before committing when broad changes span packages
+- For Knowledge-only work, prefer `pnpm --filter knowledge format`
 
 ### Component Structure
 
@@ -129,21 +145,26 @@ try {
 
 - Use `buildPageSeo()` utility, include JSON-LD structured data
 - Articles in `src/content/knowledge-en/`, schema in `src/content/config.ts`
-- Required: `title`, `description`. Optional: `image`, `createdAt`, `category`
+- Required: `title`, `description`
+- Common optional fields: `image`, `createdAt`, `updatedAt`, `taxonomySubsection`, `taxonomyGroup`, `keywords`, `takeaways`
+- Do not introduce new `category` frontmatter for Knowledge articles
+- If an old `/categories/*` URL must keep working, update the redirect map instead of recreating category pages
 
 ## Before Committing
 
-1. Run `yarn lint` (format + fix)
-2. Run `yarn build` (verify build)
-3. Run `astro check` (type check)
-4. Test in `yarn dev` (manual testing)
+1. Run `pnpm lint` or the narrower package-specific checks you actually changed
+2. Run `pnpm build` or at minimum `pnpm --filter knowledge build` for Knowledge work
+3. If Knowledge routing or content changed, verify affected taxonomy pages manually in `pnpm dev:knowledge`
+4. If redirects changed, verify legacy `/categories/*` routes resolve to the intended taxonomy targets
 
 ## Common Pitfalls
 
-- Don't forget `yarn format` before commit
+- Don't forget `pnpm format` or the package-specific formatter before commit
 - Don't use inline styles (use scoped CSS)
 - Don't skip error handling in async functions
 - Don't forget `export const prerender = true` for static pages
+- Don't reintroduce `category` as the primary Knowledge content model
+- Don't delete legacy redirects casually; they currently preserve historical `/categories/*` URLs
 
 ## Resources
 

@@ -1,0 +1,72 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+
+export const prerender = true;
+
+const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
+
+const title = "Search Melody Mind Quizzes";
+const description = "Search Melody Mind quiz titles and descriptions.";
+const currentUrl = resolvePageUrl(Astro.site, "/search");
+const pageSeo = buildPageSeo({
+  title,
+  description,
+  url: currentUrl,
+  structuredData: [] as StructuredData[],
+  fallbackKeywords: [
+    "quiz search",
+    "music quiz",
+    "music trivia",
+    "quiz topics",
+    "music knowledge",
+  ],
+  index: false,
+  follow: true,
+  brandSuffix: " - MelodyMind Quiz",
+});
+
+type QuizEntry = CollectionEntry<"quizzes">;
+interface SearchPageItem {
+  title: string;
+  description?: string;
+  url: string;
+}
+
+const allEntries = await getCollectionEntries("quizzes");
+const typedEntries: QuizEntry[] = allEntries as QuizEntry[];
+const entries = typedEntries.filter(
+  (entry) => !(entry.data as { draft?: boolean }).draft
+);
+const items: SearchPageItem[] = entries.map((entry) => {
+  const data = entry.data as { title: string; description?: string };
+
+  return {
+    title: data.title,
+    description: data.description ?? "",
+    url: `/${entry.id}`,
+  };
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell className="page-shell--aurora page-shell--grid">
+    <SearchPageSection
+      items={items}
+      initialQuery={initialQuery}
+      resultsEyebrow="Search the quiz archive"
+      resultsTitle="Results"
+      resultsHelp="Results update while you type, and the current query stays in the URL."
+      searchPlaceholder="Search quiz titles or descriptions..."
+      searchEmptyText="Type a quiz title or keyword."
+      searchNoResultsText="No matching quizzes found."
+      searchLimit={24}
+    />
+  </PageShell>
+</Layout>

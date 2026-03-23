@@ -1,0 +1,552 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Props {
+  title: string;
+  audioUrl: string;
+  subtitleUrl?: string | undefined;
+}
+
+const { title, audioUrl, subtitleUrl } = Astro.props as Props;
+const playerId = subtitleUrl ?? audioUrl;
+const playerSlug =
+  playerId.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "audio";
+const statusId = `episode-player-status-${playerSlug}`;
+const progressLabelId = `episode-player-progress-label-${playerSlug}`;
+const timeId = `episode-player-time-${playerSlug}`;
+---
+
+<div
+  class="episode-player"
+  data-episode-player
+  data-player-id={playerId}
+  aria-label={`Audio player for ${title}`}
+>
+  <div class="episode-player__controls">
+    <button
+      class="episode-player__transport-button"
+      type="button"
+      data-action="rewind"
+      aria-label="Go back 10 seconds"
+      title="Go back 10 seconds"
+    >
+      <Icon
+        name="tabler:arrow-back-up"
+        class="episode-player__transport-icon"
+        aria-hidden="true"
+      />
+    </button>
+    <button
+      class="episode-player__control"
+      type="button"
+      data-action="toggle"
+      aria-label={`Play ${title}`}
+      aria-pressed="false"
+      aria-describedby={statusId}
+    >
+      <Icon
+        name="tabler:player-play-filled"
+        class="episode-player__control-icon episode-player__control-icon--play"
+        aria-hidden="true"
+      />
+      <Icon
+        name="tabler:player-pause-filled"
+        class="episode-player__control-icon episode-player__control-icon--pause"
+        aria-hidden="true"
+      />
+    </button>
+    <button
+      class="episode-player__retry"
+      type="button"
+      data-action="retry"
+      aria-label="Retry loading audio"
+      hidden
+    >
+      Retry
+    </button>
+    <button
+      class="episode-player__transport-button"
+      type="button"
+      data-action="forward"
+      aria-label="Skip forward 10 seconds"
+      title="Skip forward 10 seconds"
+    >
+      <Icon
+        name="tabler:arrow-forward-up"
+        class="episode-player__transport-icon"
+        aria-hidden="true"
+      />
+    </button>
+  </div>
+
+  <div class="episode-player__status" id={statusId} aria-live="polite" aria-atomic="true">
+    {title}
+  </div>
+
+  <div class="episode-player__progress-wrap">
+    <span id={progressLabelId} class="episode-player__sr-only"> Playback progress </span>
+    <div
+      class="episode-player__progress"
+      role="slider"
+      aria-labelledby={progressLabelId}
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+      aria-valuetext="0:00 of 0:00"
+      tabindex="0"
+    >
+      <div class="episode-player__progress-fill" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="episode-player__meta">
+    <span class="episode-player__time" id={timeId} aria-live="polite" aria-atomic="true">
+      0:00 / 0:00
+    </span>
+  </div>
+  <audio
+    class="episode-player__audio"
+    preload="metadata"
+    aria-label={`Audio playback for ${title}`}
+    data-title={title}
+    crossorigin=""
+  >
+    <source src={audioUrl} type="audio/mpeg" />
+    <track
+      kind="captions"
+      src={subtitleUrl ?? undefined}
+      srclang="en"
+      label="English"
+      default={Boolean(subtitleUrl)}
+    />
+    Your browser does not support audio playback.
+  </audio>
+  <script>
+    import "@shared-ui/scripts/audio-player.ts";
+  </script>
+</div>
+
+<style>
+  /* -----------------------------------------------------------------------------
+     AudioPlayer Component Styles
+     Accessible audio player with keyboard controls
+     WCAG AAA compliant with clear visual feedback
+     ----------------------------------------------------------------------------- */
+
+  .episode-player {
+    /* Layout */
+    display: grid;
+    gap: clamp(var(--spacing-sm), 1.6vw, var(--spacing-base));
+    padding: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+    text-align: center;
+    outline: none;
+
+    /* Visual styling */
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 34%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 96%, transparent),
+        color-mix(in srgb, var(--surface-2) 82%, transparent)
+      );
+    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+    border-radius: var(--radius-xl);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 80%, transparent),
+      var(--shadow-lg);
+  }
+
+  /* Focus state for entire player */
+  .episode-player:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Controls container */
+  .episode-player__controls {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Retry button - shown on error */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__retry {
+      padding: var(--spacing-sm) var(--spacing-base);
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-primary);
+      cursor: pointer;
+      background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+      border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+      border-radius: var(--radius-base);
+      transition: none;
+    }
+  }
+
+  .episode-player__retry {
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+    border-radius: var(--radius-base);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .episode-player__retry:hover,
+  .episode-player__retry:focus-visible {
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
+  }
+
+  .episode-player__retry[hidden] {
+    display: none;
+  }
+
+  /* Main play/pause control button */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control {
+      /* Layout */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      /* Responsive sizing with clamp */
+      inline-size: clamp(3.4rem, 6vi, 4rem);
+      block-size: clamp(3.4rem, 6vi, 4rem);
+      color: var(--button-text-accent);
+
+      /* Visual styling */
+      cursor: pointer;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--accent-primary) 88%, var(--accent-muted)),
+        var(--accent-strong)
+      );
+      border: 2px solid color-mix(in srgb, var(--accent-primary) 42%, transparent);
+      border-radius: var(--radius-full);
+      box-shadow:
+        0 18px 30px -18px color-mix(in srgb, var(--accent-primary) 60%, transparent),
+        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 28%, transparent),
+        var(--shadow-lg);
+
+      /* Smooth transitions */
+      transition: none;
+    }
+  }
+
+  .episode-player__control {
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Responsive sizing with clamp */
+    inline-size: clamp(3.4rem, 6vi, 4rem);
+    block-size: clamp(3.4rem, 6vi, 4rem);
+    color: var(--button-text-accent);
+
+    /* Visual styling */
+    cursor: pointer;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-primary) 88%, var(--accent-muted)),
+      var(--accent-strong)
+    );
+    border: 2px solid color-mix(in srgb, var(--accent-primary) 42%, transparent);
+    border-radius: var(--radius-full);
+    box-shadow:
+      0 18px 30px -18px color-mix(in srgb, var(--accent-primary) 60%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 28%, transparent),
+      var(--shadow-lg);
+
+    /* Smooth transitions */
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  /* Playing state - different accent color */
+  .episode-player__control[data-state="playing"] {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-strong) 84%, var(--accent-primary)),
+      var(--accent-strong)
+    );
+  }
+
+  /* Focus state - WCAG AAA compliant */
+  .episode-player__control:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Hover and focus states - subtle lift */
+  .episode-player__control:hover,
+  .episode-player__control:focus-visible {
+    box-shadow:
+      0 20px 36px -18px color-mix(in srgb, var(--accent-primary) 66%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 28%, transparent),
+      var(--shadow-xl);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  /* Control icon sizing */
+  .episode-player__control-icon {
+    display: block;
+    inline-size: 1.55rem;
+    block-size: 1.55rem;
+  }
+
+  /* Icon visibility toggle based on state */
+  .episode-player__control-icon--pause {
+    display: none;
+  }
+
+  .episode-player__control[data-state="playing"] .episode-player__control-icon--play {
+    display: none;
+  }
+
+  .episode-player__control[data-state="playing"] .episode-player__control-icon--pause {
+    display: block;
+  }
+
+  /* Status text - shows current playback info */
+  .episode-player__status {
+    max-inline-size: 44ch;
+    margin-inline: auto;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-snug);
+    color: var(--text-primary);
+    text-wrap: balance;
+  }
+
+  /* Progress bar wrapper */
+  .episode-player__progress-wrap {
+    inline-size: 100%;
+    padding: var(--spacing-xs) 0;
+  }
+
+  /* Progress bar - interactive slider */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__progress {
+      position: relative;
+      inline-size: 100%;
+      block-size: clamp(0.8rem, 1.4vi, 1rem);
+      cursor: pointer;
+      background: color-mix(in srgb, var(--surface-2) 72%, var(--bg-primary));
+      border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+      border-radius: var(--radius-full);
+      box-shadow:
+        inset 0 1px 2px color-mix(in srgb, var(--text-primary) 14%, transparent),
+        inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 28%, transparent);
+      transition: none;
+    }
+  }
+
+  .episode-player__progress {
+    position: relative;
+    inline-size: 100%;
+    block-size: clamp(0.8rem, 1.4vi, 1rem);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--surface-2) 72%, var(--bg-primary));
+    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+    border-radius: var(--radius-full);
+    box-shadow:
+      inset 0 1px 2px color-mix(in srgb, var(--text-primary) 14%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 28%, transparent);
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .episode-player__progress:hover,
+  .episode-player__progress:focus {
+    border-color: color-mix(in srgb, var(--accent-primary) 42%, transparent);
+    box-shadow:
+      inset 0 1px 2px color-mix(in srgb, var(--text-primary) 14%, transparent),
+      inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 28%, transparent),
+      var(--interactive-shadow-focus);
+  }
+
+  .episode-player__progress:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Progress fill - shows elapsed time */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__progress-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      inline-size: 0%;
+      background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--accent-primary) 92%, var(--accent-muted)) 0%,
+        var(--accent-strong) 100%
+      );
+      border-radius: inherit;
+      box-shadow: 0 0 18px color-mix(in srgb, var(--accent-primary) 34%, transparent);
+      transition: none;
+    }
+  }
+
+  .episode-player__progress-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    inline-size: 0%;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-primary) 92%, var(--accent-muted)) 0%,
+      var(--accent-strong) 100%
+    );
+    border-radius: inherit;
+    box-shadow: 0 0 18px color-mix(in srgb, var(--accent-primary) 34%, transparent);
+    transition: inline-size var(--transition-fast) ease-out;
+  }
+
+  /* Metadata container - time only */
+  .episode-player__meta {
+    display: grid;
+    gap: 0;
+    align-items: center;
+    min-block-size: 5.5rem;
+    padding: var(--spacing-base) clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 94%, transparent),
+      color-mix(in srgb, var(--surface-2) 82%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--border-default) 24%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent);
+  }
+
+  .episode-player__time {
+    font-size: clamp(var(--font-size-base), 1.6vw, var(--font-size-md));
+    font-weight: var(--font-weight-bold);
+    font-variant-numeric: tabular-nums;
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+  }
+
+  /* Transport button styling */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__transport-button {
+      /* Layout */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      /* Responsive sizing */
+      inline-size: clamp(2.75rem, 5vi, 3.1rem);
+      block-size: clamp(2.75rem, 5vi, 3rem);
+
+      /* Visual styling */
+      color: var(--text-secondary);
+      cursor: pointer;
+      background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+      border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xs);
+
+      /* Smooth transitions */
+      transition: none;
+    }
+  }
+
+  .episode-player__transport-button {
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Responsive sizing */
+    inline-size: clamp(2.75rem, 5vi, 3.1rem);
+    block-size: clamp(2.75rem, 5vi, 3rem);
+
+    /* Visual styling */
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    border: 2px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+
+    /* Smooth transitions */
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .episode-player__transport-button:hover,
+  .episode-player__transport-button:focus-visible {
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
+    box-shadow: var(--interactive-shadow-focus);
+    transform: translateY(-1px);
+  }
+
+  .episode-player__transport-button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Transport icon sizing */
+  .episode-player__transport-icon {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+
+  /* Audio element - hidden */
+  .episode-player__audio {
+    display: none;
+  }
+
+  /* Screen reader only utility */
+  .episode-player__sr-only {
+    position: absolute !important;
+    inline-size: 1px !important;
+    block-size: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    clip-path: inset(50%) !important;
+  }
+
+  /* Reduced motion support - disable all animations */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control,
+    .episode-player__transport-button,
+    .episode-player__progress-fill {
+      transition: none;
+    }
+
+    .episode-player__control:hover,
+    .episode-player__control:focus-visible,
+    .episode-player__transport-button:hover,
+    .episode-player__transport-button:focus-visible {
+      transform: none;
+    }
+  }
+</style>

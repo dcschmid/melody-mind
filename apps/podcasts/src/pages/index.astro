@@ -1,0 +1,263 @@
+---
+import PodcastLayout from "../layouts/PodcastLayout.astro";
+import PodcastPlatformLinks from "../components/PodcastPlatformLinks.astro";
+import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import {
+  buildCollectionPageSchema,
+  buildPodcastEpisodesItemListSchema,
+  type PodcastEpisodeListItem,
+} from "@shared-utils/utils/seo/seoSchema";
+import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { formatDate } from "@shared-utils/utils/format";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import type { PodcastData } from "../types/podcast";
+
+import { getAvailablePodcasts } from "../utils/podcasts";
+import {
+  getPodcastCoverImage,
+  getPodcastCoverImageUrl,
+  podcastHeroImage,
+  podcastHeroImageUrl,
+} from "../utils/podcastImages";
+import {
+  buildEpisodeMetaItems,
+  normalizeSearchText,
+  toIsoDuration,
+} from "../utils/podcastPresentation";
+
+const podcasts: PodcastData[] = await getAvailablePodcasts();
+const sortedPodcasts = [...podcasts].sort(
+  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+);
+
+const buildEpisodeListItem = (podcast: PodcastData): PodcastEpisodeListItem => {
+  const durationIso = toIsoDuration(podcast.durationSeconds);
+
+  return {
+    title: podcast.title,
+    description: podcast.description,
+    url: resolvePageUrl(Astro.site, `/${podcast.id}`),
+    image: getPodcastCoverImageUrl(podcast.imageUrl) ?? podcastHeroImageUrl,
+    publishedAt: podcast.publishedAt,
+    ...(durationIso ? { durationIso } : {}),
+  };
+};
+
+const episodeEntries = sortedPodcasts.map((podcast, index) => ({
+  id: podcast.id,
+  title: podcast.title,
+  description: podcast.description,
+  imageSrc: getPodcastCoverImage(podcast.imageUrl) ?? podcastHeroImage,
+  durationSeconds: podcast.durationSeconds,
+  publishedAt: podcast.publishedAt,
+  publishedLabel: formatDate(podcast.publishedAt),
+  isLatest: index === 0,
+  searchText: normalizeSearchText(`${podcast.title} ${podcast.description}`),
+  metaItems: buildEpisodeMetaItems(podcast.publishedAt, podcast.durationSeconds),
+}));
+const canonical = resolvePageUrl(Astro.site, "/");
+const breadcrumbs = [{ name: "Home", url: canonical }];
+const episodeListId = `${canonical}#podcast-itemlist`;
+
+const t = {
+  title: "MelodyMind Podcasts",
+  seoTitle: "MelodyMind Podcasts | Music History with Daniel and Annabelle",
+  subtitle: "A music history podcast with Daniel & Annabelle",
+  description:
+    "Welcome to MelodyMind Podcasts, a music history podcast about the stories, scenes, and artists that shaped each era. Daniel and Annabelle guide you from 1950s rock 'n' roll to the streaming era with thoughtful listening and cultural context.",
+  seoDescription:
+    "Official site of MelodyMind Podcasts, a music history podcast with Daniel and Annabelle. Explore episodes that move from 1950s rock 'n' roll to the present day.",
+  episodes: "Episodes",
+  availableOn: "Listen on:",
+  keywords: [
+    "melodymind podcasts",
+    "music history podcast",
+    "daniel and annabelle",
+    "music decades",
+    "rock and roll",
+    "music culture",
+    "vintage music",
+    "music documentary",
+    "audio stories",
+  ],
+  rssFeed: "RSS Feed",
+  heroImageAlt: "Illustrated podcast cover art",
+};
+
+const collectionPageSchema = buildCollectionPageSchema({
+  url: canonical,
+  name: t.title,
+  description: t.seoDescription,
+  lang: "en",
+  image: podcastHeroImageUrl,
+  mainEntityId: episodeListId,
+});
+
+const episodeListSchema = buildPodcastEpisodesItemListSchema({
+  episodes: sortedPodcasts.map(buildEpisodeListItem),
+  listName: "MelodyMind Podcast Episodes",
+  itemListId: episodeListId,
+});
+
+const structuredData = [collectionPageSchema, episodeListSchema].filter(
+  (item): item is StructuredData => Boolean(item)
+);
+---
+
+<PodcastLayout
+  title={t.seoTitle}
+  description={t.seoDescription}
+  keywords={t.keywords}
+  type="website"
+  image={podcastHeroImageUrl}
+  language="en"
+  locale="en-US"
+  seriesDescription={t.seoDescription}
+  canonical={canonical}
+  {breadcrumbs}
+  {structuredData}
+>
+  <PageShell className="page-shell--aurora">
+    <div class="home">
+      <HeroTeaser
+        id="podcast-home-hero"
+        title={t.title}
+        description={t.description}
+        imageSrc={podcastHeroImage}
+        imageAlt={t.heroImageAlt}
+        imageWidth={1536}
+        imageHeight={1024}
+        imageLoading="eager"
+        mediaAspectRatio="4 / 3"
+        mediaObjectFit="cover"
+        mediaPosition="end"
+        titleLevel="h1"
+      >
+        <Fragment slot="actions">
+          <PodcastPlatformLinks ariaLabel={t.availableOn} rssLabel={t.rssFeed} />
+        </Fragment>
+      </HeroTeaser>
+
+      <section class="home__episodes" aria-labelledby="episodes-heading">
+        <Headline level="h2" textSize="xl" className="home__section-title">
+          <span id="episodes-heading">{t.episodes}</span>
+        </Headline>
+
+        <div class="home__episodes-grid" role="list" id="episodes-list">
+          {
+            episodeEntries.map((podcast) => (
+              <ContentCard
+                id={`episode-card-${podcast.id}`}
+                data-episode
+                data-search={podcast.searchText}
+                role="listitem"
+                href={`/${podcast.id}`}
+                variant="feature"
+                size="spacious"
+                imageSrc={podcast.imageSrc}
+                imageAlt={`Cover art for the podcast episode ${podcast.title}`}
+                imageWidth={1536}
+                imageHeight={1024}
+                title={podcast.title}
+                description={podcast.description}
+                metaItems={podcast.metaItems}
+                descriptionLineClamp={3}
+                ctaLabel="View Episode"
+              >
+                <Fragment slot="badge">
+                  {podcast.isLatest && <span class="episode-card__badge">Latest</span>}
+                </Fragment>
+              </ContentCard>
+            ))
+          }
+        </div>
+        {
+          podcasts.length === 0 && (
+            <EmptyState
+              className="home__empty"
+              description="No episodes available yet. Check back soon for new content!"
+            />
+          )
+        }
+      </section>
+    </div>
+  </PageShell>
+</PodcastLayout>
+
+<style>
+  .episode-card__badge {
+    padding: var(--spacing-2xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-accent);
+    border-radius: var(--radius-full);
+  }
+
+  .home {
+    display: grid;
+    gap: var(--spacing-xl);
+  }
+
+  .home__episodes {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .home__episodes::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+  }
+
+  .home__section-title {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .home__episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .home__empty {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-base);
+  }
+
+  :global(.home__empty .empty-state__description) {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-loose);
+    color: var(--text-secondary);
+  }
+
+  @media (width >= 960px) {
+    .home__episodes-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (width < 40rem) {
+    .home__episodes {
+      padding: 1.25rem;
+    }
+  }
+</style>

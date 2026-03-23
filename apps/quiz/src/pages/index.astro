@@ -1,0 +1,330 @@
+---
+/**
+ * Quiz Overview Page
+ *
+ * Displays all available quizzes organized by category.
+ */
+import Layout from "@layouts/Layout.astro";
+import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import {
+  buildBreadcrumbListSchema,
+  buildCollectionPageSchema,
+  buildQuizItemListSchema,
+} from "@shared-utils/utils/seo/seoSchema";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import type { QuizData } from "../content.config";
+import {
+  getQuizImage,
+  getQuizImageUrl,
+  quizHeroImage,
+  quizHeroImageUrl,
+} from "../utils/quizImages";
+
+export const prerender = true;
+
+interface QuizEntry {
+  id: string;
+  data: QuizData;
+}
+
+const allQuizzes = await getCollectionEntries("quizzes");
+const quizzes: QuizEntry[] = allQuizzes.map((q: any) => ({
+  id: q.id,
+  data: q.data as QuizData,
+}));
+
+const quizzesByCategory = {
+  decade: quizzes.filter((q) => q.data.category === "decade"),
+  "genre-evolution": quizzes.filter((q) => q.data.category === "genre-evolution"),
+  mixed: quizzes.filter((q) => q.data.category === "mixed"),
+};
+
+const categoryLabels = {
+  decade: "Decade Quizzes",
+  "genre-evolution": "Genre Evolution",
+  mixed: "Mixed Topics",
+};
+
+const baseUrl = resolveBaseUrl(Astro.site);
+const currentUrl = resolvePageUrl(Astro.site, "/");
+
+const seoBreadcrumbs = [{ name: "Home", url: currentUrl }];
+const itemListId = `${currentUrl}#quiz-itemlist`;
+
+const breadcrumbSchema = buildBreadcrumbListSchema(seoBreadcrumbs);
+const collectionPageSchema = buildCollectionPageSchema({
+  url: currentUrl,
+  name: "Music History Quizzes And Trivia",
+  description:
+    "Play music history quizzes on decades, genres, artists, and cultural shifts from rock and roll to modern streaming pop.",
+  lang: "en",
+  image:
+    getQuizImageUrl("from-pop-to-streaming-pop", baseUrl) ?? quizHeroImageUrl(baseUrl),
+  mainEntityId: itemListId,
+});
+
+const itemListSchema = buildQuizItemListSchema({
+  quizzes: quizzes.map((quiz) => ({
+    slug: quiz.id,
+    title: quiz.data.title,
+    description: quiz.data.description,
+    url: `${baseUrl}/${quiz.id}`,
+    image: getQuizImageUrl(quiz.id, baseUrl) ?? quizHeroImageUrl(baseUrl),
+    keywords: quiz.data.featuredTopics,
+  })),
+  listName: "Music Knowledge Quizzes",
+  itemListId,
+});
+
+const pageSeo = buildPageSeo({
+  title: "Music History Quizzes And Trivia",
+  description:
+    "Play music history quizzes on decades, genres, artists, and cultural shifts from rock and roll to modern streaming pop.",
+  url: currentUrl,
+  structuredData: [collectionPageSchema, breadcrumbSchema, itemListSchema].filter(
+    Boolean
+  ) as StructuredData[],
+  fallbackKeywords: [
+    "music quiz",
+    "music trivia",
+    "rock history quiz",
+    "jazz quiz",
+    "music knowledge",
+  ],
+  index: true,
+  brandSuffix: " - MelodyMind Quiz",
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell className="page-shell--aurora page-shell--grid">
+    <div class="quiz-page">
+      <HeroTeaser
+        id="quiz-home-hero"
+        class="quiz-hero"
+        title="Music Quizzes"
+        description="Challenge yourself with quizzes covering music history, genres, and artists. Each question is grounded in research-driven content."
+        titleLevel="h1"
+        imageSrc={quizHeroImage}
+        imageAlt="A colorful music-themed collage representing pop eras and quiz topics."
+        imageWidth={1024}
+        imageHeight={683}
+        imageLoading="eager"
+        mediaAspectRatio="3 / 2"
+      />
+
+      {
+        quizzesByCategory.decade.length > 0 && (
+          <section class="quiz-section" aria-labelledby="decade-heading">
+            <Headline level="h2" textSize="lg" className="quiz-section__title">
+              <span id="decade-heading">{categoryLabels.decade}</span>
+            </Headline>
+            <Paragraph textSize="base" className="quiz-section__description">
+              Test your knowledge of music from different decades, from the birth of rock
+              and roll to modern streaming pop.
+            </Paragraph>
+            <ul class="quiz-section__grid" aria-label={categoryLabels.decade}>
+              {quizzesByCategory.decade.map((quiz) => (
+                <li>
+                  <ContentCard
+                    id={`quiz-card-${quiz.id}`}
+                    variant="action"
+                    href={`/${quiz.id}`}
+                    dataTestId="quiz-card"
+                    imageSrc={getQuizImage(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
+                    imageWidth={1024}
+                    imageHeight={683}
+                    title={quiz.data.title}
+                    description={quiz.data.description}
+                    size="default"
+                    descriptionLineClamp={3}
+                    ctaLabel="Play Quiz"
+                    ctaIconName="play"
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        quizzesByCategory["genre-evolution"].length > 0 && (
+          <section class="quiz-section" aria-labelledby="genre-heading">
+            <Headline level="h2" textSize="lg" className="quiz-section__title">
+              <span id="genre-heading">{categoryLabels["genre-evolution"]}</span>
+            </Headline>
+            <Paragraph textSize="base" className="quiz-section__description">
+              Explore how genres transformed over time, from blues to rock, jazz to neo
+              soul.
+            </Paragraph>
+            <ul class="quiz-section__grid" aria-label={categoryLabels["genre-evolution"]}>
+              {quizzesByCategory["genre-evolution"].map((quiz) => (
+                <li>
+                  <ContentCard
+                    id={`quiz-card-${quiz.id}`}
+                    variant="action"
+                    href={`/${quiz.id}`}
+                    dataTestId="quiz-card"
+                    imageSrc={getQuizImage(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
+                    imageWidth={1024}
+                    imageHeight={683}
+                    title={quiz.data.title}
+                    description={quiz.data.description}
+                    size="default"
+                    descriptionLineClamp={3}
+                    ctaLabel="Play Quiz"
+                    ctaIconName="play"
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        quizzesByCategory.mixed.length > 0 && (
+          <section class="quiz-section" aria-labelledby="mixed-heading">
+            <Headline level="h2" textSize="lg" className="quiz-section__title">
+              <span id="mixed-heading">{categoryLabels.mixed}</span>
+            </Headline>
+            <Paragraph textSize="base" className="quiz-section__description">
+              Comprehensive quizzes covering multiple topics and time periods.
+            </Paragraph>
+            <ul class="quiz-section__grid" aria-label={categoryLabels.mixed}>
+              {quizzesByCategory.mixed.map((quiz) => (
+                <li>
+                  <ContentCard
+                    id={`quiz-card-${quiz.id}`}
+                    variant="action"
+                    href={`/${quiz.id}`}
+                    dataTestId="quiz-card"
+                    imageSrc={getQuizImage(quiz.id)}
+                    imageAlt={`${quiz.data.title} quiz cover`}
+                    imageWidth={1024}
+                    imageHeight={683}
+                    title={quiz.data.title}
+                    description={quiz.data.description}
+                    size="default"
+                    descriptionLineClamp={3}
+                    ctaLabel="Play Quiz"
+                    ctaIconName="play"
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        quizzes.length === 0 && (
+          <EmptyState
+            className="quiz-empty"
+            title="No quizzes available yet"
+            description="Check back soon for new music quizzes!"
+          />
+        )
+      }
+    </div>
+  </PageShell>
+</Layout>
+
+<style>
+  .quiz-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3xl);
+  }
+
+  .quiz-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .quiz-section::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+  }
+
+  @media (width >= 768px) {
+    .quiz-section {
+      padding: calc(var(--spacing-xl) + var(--spacing-sm));
+    }
+  }
+
+  .quiz-section__title {
+    margin: 0;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  @media (width >= 640px) {
+    .quiz-section__title {
+      font-size: 1.75rem;
+    }
+  }
+
+  .quiz-section__description {
+    max-inline-size: 65ch;
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .quiz-section__grid {
+    display: grid;
+    gap: var(--spacing-xl);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  @media (width >= 640px) {
+    .quiz-section__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 1024px) {
+    .quiz-section__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .quiz-empty {
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 42%
+      ),
+      var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+  }
+</style>

@@ -1,0 +1,153 @@
+---
+import type { OpenGraphMeta, StructuredDataExtra, TwitterMeta } from "./seo.types";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageAlt?: string;
+  type?: string;
+  publishDate?: Date;
+  modifiedDate?: Date;
+  ogMusic?: unknown;
+  audioSrc?: string;
+  episodeNumber?: number;
+  seriesName?: string;
+  seriesUrl?: string;
+  canonical?: string;
+  noIndex?: boolean;
+  noFollow?: boolean;
+  prevUrl?: string;
+  nextUrl?: string;
+  disableAlternateLanguages?: boolean;
+  structuredDataExtra?: StructuredDataExtra;
+  authorName?: string;
+  articleAuthor?: string;
+  openGraph?: OpenGraphMeta;
+  alternateLocales?: string[];
+  ogSiteName?: string;
+  twitter?: TwitterMeta;
+  twitterSite?: string;
+  twitterUrl?: string;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  image,
+  imageAlt,
+  canonical,
+  noIndex,
+  noFollow,
+  prevUrl,
+  nextUrl,
+  publishDate,
+  modifiedDate,
+  structuredDataExtra,
+  authorName,
+  articleAuthor,
+  openGraph,
+  alternateLocales,
+  ogSiteName,
+  twitter,
+  twitterSite,
+  twitterUrl,
+} = Astro.props as Props;
+---
+
+{title && <title>{title}</title>}
+{description && <meta name="description" content={description} />}
+{
+  Array.isArray(keywords) && keywords.length > 0 && (
+    <meta name="keywords" content={keywords.join(", ")} />
+  )
+}
+
+{authorName && <meta name="author" content={authorName} />}
+{articleAuthor && <meta property="article:author" content={articleAuthor} />}
+{canonical && <link rel="canonical" href={canonical} />}
+{prevUrl && <link rel="prev" href={prevUrl} />}
+{nextUrl && <link rel="next" href={nextUrl} />}
+
+{
+  (noIndex || noFollow) && (
+    <meta
+      name="robots"
+      content={`${noIndex ? "noindex" : "index"},${noFollow ? "nofollow" : "follow"}`}
+    />
+  )
+}
+
+{
+  publishDate && (
+    <meta name="article:published_time" content={publishDate.toISOString()} />
+  )
+}
+{
+  modifiedDate && (
+    <meta name="article:modified_time" content={modifiedDate.toISOString()} />
+  )
+}
+
+{openGraph?.title && <meta property="og:title" content={openGraph.title} />}
+{
+  openGraph?.description && (
+    <meta property="og:description" content={openGraph.description} />
+  )
+}
+{openGraph?.type && <meta property="og:type" content={openGraph.type} />}
+{openGraph?.url && <meta property="og:url" content={openGraph.url} />}
+{openGraph?.image && <meta property="og:image" content={openGraph.image} />}
+{openGraph?.locale && <meta property="og:locale" content={openGraph.locale} />}
+{
+  Array.isArray(alternateLocales) &&
+    alternateLocales.map((locale) => (
+      <meta property="og:locale:alternate" content={locale} />
+    ))
+}
+{ogSiteName && <meta property="og:site_name" content={ogSiteName} />}
+{image && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+{twitter?.card && <meta name="twitter:card" content={twitter.card} />}
+{twitterUrl && <meta name="twitter:url" content={twitterUrl} />}
+{twitter?.title && <meta name="twitter:title" content={twitter.title} />}
+{
+  twitter?.description && (
+    <meta name="twitter:description" content={twitter.description} />
+  )
+}
+{twitter?.image && <meta name="twitter:image" content={twitter.image} />}
+{imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+{twitter?.creator && <meta name="twitter:creator" content={twitter.creator} />}
+{twitterSite && <meta name="twitter:site" content={twitterSite} />}
+
+{
+  (() => {
+    const all = Array.isArray(structuredDataExtra)
+      ? structuredDataExtra
+      : structuredDataExtra
+        ? [structuredDataExtra]
+        : [];
+
+    if (all.length === 0) {
+      return null;
+    }
+
+    try {
+      const cleaned = all.map((obj) => {
+        const replacer = (_key: string, value: unknown) =>
+          value instanceof Date ? value.toISOString() : value;
+        return JSON.stringify(obj, replacer, 2);
+      });
+
+      return cleaned.map((jsonString) => (
+        <script is:inline type="application/ld+json" set:html={jsonString} />
+      ));
+    } catch {
+      return null;
+    }
+  })()
+}

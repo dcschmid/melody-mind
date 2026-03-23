@@ -1,0 +1,108 @@
+---
+/**
+ * Taxonomy Section Page - Display subsections and articles for a taxonomy section
+ */
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import TaxonomyJumpNav from "@components/TaxonomyJumpNav.astro";
+import TaxonomySectionHero from "@components/TaxonomySectionHero.astro";
+import TaxonomySubsectionBlock from "@components/TaxonomySubsectionBlock.astro";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { loggers } from "@shared-utils/utils/logging";
+import {
+  buildTaxonomySectionSeo,
+  buildTaxonomySectionPageData,
+} from "@utils/taxonomy/taxonomyPage";
+import { musicTaxonomy } from "../../data/musicTaxonomy";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  return musicTaxonomy.map((section) => ({
+    params: { section: section.id },
+  }));
+}
+
+const sectionId = Astro.params.section as string;
+const section = musicTaxonomy.find((s) => s.id === sectionId);
+
+if (!section) {
+  return new Response("Not found", { status: 404 });
+}
+
+// Load articles
+let baseArticles: any[] = [];
+try {
+  baseArticles = await getCollectionEntries("knowledge-en");
+} catch (e) {
+  loggers.pages.warn("taxonomy section: collection load issue", {
+    error: (e as any)?.message || e,
+  });
+}
+
+const { sectionArticles, subsectionsData, jumpTargets } = buildTaxonomySectionPageData({
+  baseArticles,
+  section,
+});
+
+const pageSeo = buildTaxonomySectionSeo({
+  site: Astro.site,
+  sectionId,
+  section,
+  sectionArticles,
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell className="page-shell--aurora page-shell--grid">
+    <div class="taxonomy-section">
+      <TaxonomySectionHero
+        section={section}
+        subsectionCount={subsectionsData.length}
+        articleCount={sectionArticles.length}
+      />
+
+      {jumpTargets.length >= 1 && <TaxonomyJumpNav targets={jumpTargets} />}
+
+      <section class="taxonomy-section__content">
+        {
+          subsectionsData.map((subsection) => (
+            <TaxonomySubsectionBlock subsection={subsection} />
+          ))
+        }
+      </section>
+    </div>
+  </PageShell>
+</Layout>
+
+<style>
+  .taxonomy-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .taxonomy-section__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
+    padding-block-start: var(--spacing-xl);
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .taxonomy-section__content::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: min(8rem, 22%);
+    height: 1px;
+    content: "";
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-primary) 52%, transparent),
+      transparent
+    );
+  }
+</style>

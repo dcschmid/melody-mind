@@ -1,0 +1,123 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  /** Additional CSS classes to apply */
+  className?: string;
+  /** Text size variant */
+  textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  /** Text alignment option */
+  textAlign?: "left" | "center" | "right";
+  class?: string;
+}
+
+const {
+  textSize = "xl",
+  className = "",
+  textAlign = "left",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const baseClasses = "paragraph";
+
+type TextSize = NonNullable<Props["textSize"]>;
+type TextAlign = NonNullable<Props["textAlign"]>;
+
+const textSizeClasses: Record<TextSize, string> = {
+  sm: "paragraph--size-sm",
+  base: "paragraph--size-base",
+  lg: "paragraph--size-lg",
+  xl: "paragraph--size-xl",
+  "2xl": "paragraph--size-2xl",
+  "3xl": "paragraph--size-3xl",
+  "4xl": "paragraph--size-4xl",
+};
+
+const textAlignClasses: Record<TextAlign, string> = {
+  left: "paragraph--align-left",
+  center: "paragraph--align-center",
+  right: "paragraph--align-right",
+};
+
+const classes = [
+  baseClasses,
+  textSizeClasses[textSize],
+  textAlignClasses[textAlign],
+  className,
+  classProp,
+]
+  .filter(Boolean)
+  .join(" ");
+
+const attributes: Record<string, unknown> = {
+  ...rest,
+  class: classes,
+};
+---
+
+<p {...attributes}>
+  <slot />
+</p>
+<style>
+  /* -----------------------------------------------------------------------------
+     Paragraph Component Styles
+     Semantic paragraph text with responsive sizing
+     WCAG AAA compliant with readable line heights
+     ----------------------------------------------------------------------------- */
+
+  .paragraph {
+    /* Reset margins */
+    margin: 0;
+
+    /* Typography - uses design system tokens */
+    font-family: var(--font-sans);
+    line-height: var(--prose-line-height);
+    color: var(--prose-color);
+
+    /* Improved text rendering */
+    hyphens: auto;
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  /* Size variants - uses responsive typography scale */
+  .paragraph--size-sm {
+    font-size: var(--font-size-sm);
+  }
+
+  .paragraph--size-base {
+    font-size: var(--font-size-base);
+  }
+
+  .paragraph--size-lg {
+    font-size: var(--font-size-md);
+  }
+
+  .paragraph--size-xl {
+    font-size: var(--font-size-lg);
+  }
+
+  .paragraph--size-2xl {
+    font-size: var(--font-size-xl);
+  }
+
+  .paragraph--size-3xl {
+    font-size: var(--font-size-2xl);
+  }
+
+  .paragraph--size-4xl {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* Text alignment options */
+  .paragraph--align-left {
+    text-align: start;
+  }
+
+  .paragraph--align-center {
+    text-align: center;
+  }
+
+  .paragraph--align-right {
+    text-align: end;
+  }
+</style>

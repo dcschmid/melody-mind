@@ -1,0 +1,95 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import { PODCAST_FEED_PATH, PODCAST_PLATFORM_LINKS } from "../constants/podcastLinks";
+
+interface Props {
+  ariaLabel?: string;
+  rssLabel?: string;
+}
+
+const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
+---
+
+<div class="podcast-platform-links" aria-label={ariaLabel}>
+  {
+    PODCAST_PLATFORM_LINKS.map((link) => (
+      <a
+        href={link.href}
+        class="podcast-platform-links__link"
+        aria-label={link.ariaLabel}
+        target={link.target}
+        rel={link.rel}
+      >
+        <Icon name={link.iconName} aria-hidden="true" />
+        <span>{link.label}</span>
+      </a>
+    ))
+  }
+  <a
+    href={PODCAST_FEED_PATH}
+    class="podcast-platform-links__link podcast-platform-links__link--secondary"
+    aria-label="Subscribe via RSS"
+  >
+    <Icon name="wave" aria-hidden="true" />
+    {rssLabel}
+  </a>
+</div>
+
+<style>
+  .podcast-platform-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .podcast-platform-links__link {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    min-block-size: calc(var(--spacing-2xl) + var(--spacing-xs));
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-decoration: none;
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .podcast-platform-links__link:hover,
+  .podcast-platform-links__link:focus-visible {
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
+    transform: translateY(-1px);
+  }
+
+  .podcast-platform-links__link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .podcast-platform-links__link--secondary {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: var(--surface-border-accent);
+  }
+
+  .podcast-platform-links__link--secondary:hover,
+  .podcast-platform-links__link--secondary:focus-visible {
+    background: var(--accent-primary-hover);
+    border-color: var(--surface-border-accent-strong);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .podcast-platform-links__link {
+      transition: none;
+    }
+  }
+</style>

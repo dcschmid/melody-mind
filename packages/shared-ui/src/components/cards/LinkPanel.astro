@@ -1,0 +1,90 @@
+---
+import type { LinkPanelItem } from "@shared-ui/components/cards/linkPanel";
+import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Props {
+  title?: string;
+  titleIcon?: string;
+  items?: readonly LinkPanelItem[];
+  class?: string;
+}
+
+const { title, titleIcon, items = [], class: className } = Astro.props as Props;
+---
+
+{
+  items.length ? (
+    <div class:list={["link-panel", className]}>
+      {title ? (
+        <div class="link-panel__title">
+          {titleIcon ? (
+            <Icon name={titleIcon} class="link-panel__title-icon" aria-hidden="true" />
+          ) : null}
+          <span>{title}</span>
+        </div>
+      ) : null}
+      <div class="link-panel__actions">
+        {items.map((item) => (
+          <ButtonLink
+            href={item.href}
+            variant={item.variant ?? "secondary"}
+            icon={item.icon}
+            className="button-link--sm"
+            analyticsPodcastTarget={item.analyticsPodcastTarget}
+            aria-label={item.ariaLabel}
+          >
+            {item.label}
+          </ButtonLink>
+        ))}
+      </div>
+    </div>
+  ) : null
+}
+
+<style>
+  .link-panel {
+    position: relative;
+    padding: var(--spacing-base);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .link-panel::before {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+  }
+
+  .link-panel__title {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+  }
+
+  .link-panel__title-icon {
+    display: block;
+    flex-shrink: 0;
+    inline-size: var(--spacing-base);
+    block-size: var(--spacing-base);
+    color: var(--accent-strong);
+  }
+
+  .link-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+</style>

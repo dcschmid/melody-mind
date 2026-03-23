@@ -1,0 +1,251 @@
+---
+/**
+ * ButtonLink Component - Shared variant
+ *
+ * Renders a full-width link styled as a pill button and optionally injects
+ * iconography + accessibility hints for external targets. Forwarded attributes
+ * allow callers to pass custom data/aria props without duplicating the main API.
+ */
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+type ButtonVariant = "primary" | "secondary";
+
+interface Props {
+  href: string;
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
+  className?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
+  variant?: ButtonVariant;
+  icon?: string;
+  analyticsPodcastTarget?: "episode" | "series";
+}
+
+const rawProps = Astro.props as Props & Record<string, unknown>;
+
+const {
+  href,
+  ariaLabel,
+  ariaDescribedBy,
+  className = "",
+  target = "_self",
+  rel,
+  variant = "primary",
+  icon,
+  analyticsPodcastTarget,
+} = rawProps;
+
+const isExternal = target === "_blank";
+const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
+const externalLinkText = "opens in a new tab";
+
+const baseClasses = "button-link";
+
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: "button-link--primary",
+  secondary: "button-link--secondary",
+};
+
+const classes = [baseClasses, variantClasses[variant], String(className)]
+  .filter(Boolean)
+  .join(" ");
+
+const iconClasses = "button-link__icon";
+
+const ariaLabelAttr =
+  (ariaLabel as string | undefined) ?? (rawProps["aria-label"] as string | undefined);
+
+const ariaDescribedByAttr =
+  (ariaDescribedBy as string | undefined) ??
+  (rawProps["aria-describedby"] as string | undefined);
+
+// Capture any additional attributes so consumers can pass through data/aria/etc.
+const forwardedAttrs = (() => {
+  const restAttrs: Record<string, unknown> = { ...rawProps };
+  for (const key of [
+    "href",
+    "ariaLabel",
+    "ariaDescribedBy",
+    "className",
+    "target",
+    "rel",
+    "variant",
+    "icon",
+    "analyticsPodcastTarget",
+    "aria-describedby",
+    "aria-label",
+  ]) {
+    if (key in restAttrs) {
+      delete (restAttrs as Record<string, unknown>)[key];
+    }
+  }
+  return restAttrs;
+})();
+---
+
+<a
+  {href}
+  class={classes}
+  aria-label={ariaLabelAttr
+    ? `${ariaLabelAttr}${isExternal ? ` (${externalLinkText})` : ""}`
+    : undefined}
+  aria-describedby={ariaDescribedByAttr}
+  {target}
+  rel={finalRel}
+  data-analytics-podcast-target={analyticsPodcastTarget}
+  {...forwardedAttrs}
+>
+  {icon && <Icon name={icon} class={iconClasses} aria-hidden="true" />}
+  <slot />
+  {isExternal && <span class="button-link__sr"> ({externalLinkText})</span>}
+</a>
+
+<style>
+  /* -----------------------------------------------------------------------------
+     ButtonLink Component Styles
+     Accessible, responsive button-styled link with WCAG AAA compliance
+     ----------------------------------------------------------------------------- */
+
+  .button-link {
+    /* Layout and positioning */
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    inline-size: 100%;
+    min-inline-size: 48px;
+    max-inline-size: 100%;
+
+    /* Minimum touch target size (WCAG AAA) */
+    min-block-size: 48px;
+    padding-block: var(--spacing-md);
+    padding-inline: var(--spacing-lg);
+
+    /* Typography - responsive sizing */
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    text-decoration: none;
+
+    /* Interaction */
+    cursor: pointer;
+
+    /* Visual styling */
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+
+    /* Smooth transitions for all interactive states */
+    transition:
+      box-shadow var(--transition-fast),
+      border-color var(--transition-fast),
+      background var(--transition-fast),
+      color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  /* Desktop: auto width instead of full width */
+  @media (width >= 640px) {
+    .button-link {
+      inline-size: auto;
+    }
+  }
+
+  /* Focus state - WCAG AAA compliant high contrast ring */
+  .button-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Hover and focus states - enhanced shadow */
+  .button-link:hover,
+  .button-link:focus-visible {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+  }
+
+  /* Active state - pressed effect */
+  .button-link:active {
+    box-shadow: var(--shadow-sm);
+    transform: translateY(0);
+  }
+
+  /* Primary variant - accent background with high contrast text */
+  .button-link--primary {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: var(--surface-border-accent);
+  }
+
+  .button-link--primary:hover,
+  .button-link--primary:focus-visible {
+    background: var(--accent-primary-hover);
+    border-color: var(--surface-border-accent-strong);
+  }
+
+  /* Secondary variant - subtle background, bordered */
+  .button-link--secondary {
+    color: var(--text-primary);
+    background: var(--surface-pill-bg);
+    border-color: var(--surface-border-soft);
+  }
+
+  .button-link--secondary:hover,
+  .button-link--secondary:focus-visible {
+    color: var(--text-primary);
+    background: var(--surface-chip-bg);
+    border-color: var(--surface-border-accent);
+  }
+
+  /* Small size variant - reduced padding and font */
+  .button-link--sm {
+    min-block-size: 36px;
+    padding-block: var(--spacing-xs);
+    padding-inline: var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Medium size variant */
+  .button-link--md {
+    min-block-size: 40px;
+    padding-block: var(--spacing-sm);
+    padding-inline: var(--spacing-base);
+    font-size: var(--font-size-base);
+  }
+
+  /* Icon sizing - scales with font size */
+  .button-link__icon {
+    display: block;
+    flex-shrink: 0;
+    inline-size: 1.1em;
+    block-size: 1.1em;
+  }
+
+  /* Screen reader only text for accessibility */
+  .button-link__sr {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: inset(50%);
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .button-link {
+      transition: none;
+    }
+
+    .button-link:hover,
+    .button-link:focus-visible,
+    .button-link:active {
+      transform: none;
+    }
+  }
+</style>

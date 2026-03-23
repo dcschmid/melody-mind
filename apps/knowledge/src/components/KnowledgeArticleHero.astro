@@ -1,0 +1,232 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import AIContentBadge from "@shared-ui/components/badges/AIContentBadge.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { KnowledgeArticleLike } from "@utils/knowledge/articlePage";
+
+interface Props {
+  entry: KnowledgeArticleLike & {
+    data: NonNullable<KnowledgeArticleLike["data"]> & {
+      title: string;
+      description: string;
+    };
+  };
+  imageSource?: ImageMetadata;
+  publishedDate: Date;
+  publishedDateLabel: string;
+  readingText: string;
+  slugKey: string;
+  taxonomyPillLabel: string;
+}
+
+const {
+  entry,
+  imageSource,
+  publishedDate,
+  publishedDateLabel,
+  readingText,
+  slugKey,
+  taxonomyPillLabel,
+} = Astro.props as Props;
+---
+
+<div class="knowledge__hero">
+  <HeroTeaser
+    id={`knowledge-article-hero-${slugKey || "entry"}`}
+    title={entry.data.title}
+    titleLevel="h1"
+    description={entry.data.description}
+    mediaPosition="end"
+    mediaAspectRatio="3 / 2"
+    class="knowledge__hero-teaser"
+  >
+    <div slot="meta" class="knowledge__meta">
+      <span class="knowledge__pill">In-depth guide</span>
+      {
+        entry.data.aiGenerated ? (
+          <AIContentBadge
+            aiTools={entry.data.aiTools}
+            size="md"
+            className="knowledge__ai-badge"
+          />
+        ) : null
+      }
+      <span class="knowledge__pill">
+        <Icon name="calendar" class="knowledge__pill-icon" aria-hidden="true" />
+        <time datetime={publishedDate.toISOString()}>{publishedDateLabel}</time>
+      </span>
+      <span class="knowledge__pill">
+        <Icon name="clock" class="knowledge__pill-icon" aria-hidden="true" />
+        <span>{readingText}</span>
+      </span>
+      {
+        taxonomyPillLabel ? (
+          <span class="knowledge__pill">
+            <Icon
+              name="tag"
+              class="knowledge__pill-icon knowledge__pill-icon--teal"
+              aria-hidden="true"
+            />
+            <span>{taxonomyPillLabel}</span>
+          </span>
+        ) : null
+      }
+    </div>
+    <Fragment slot="media">
+      {
+        imageSource ? (
+          <div class="knowledge__media-frame">
+            <Picture
+              class="knowledge__media-image"
+              src={imageSource}
+              widths={[600, 800, 1000, 1200]}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, (max-width: 1280px) 800px, 1000px"
+              formats={["avif", "webp", "jpg"]}
+              alt={entry.data.title}
+              loading="eager"
+              fetchpriority="high"
+              width={imageSource.width}
+              height={imageSource.height}
+              decoding="async"
+            />
+          </div>
+        ) : (
+          <div
+            class="knowledge__media-placeholder"
+            role="img"
+            aria-label="No image available"
+          >
+            <div class="knowledge__media-placeholder-content">
+              <Icon
+                name="image"
+                class="knowledge__media-placeholder-icon"
+                aria-hidden="true"
+              />
+              <span>No image available</span>
+            </div>
+          </div>
+        )
+      }
+    </Fragment>
+  </HeroTeaser>
+</div>
+
+<style>
+  .knowledge__hero {
+    margin-bottom: 0;
+  }
+
+  .knowledge__hero-teaser {
+    inline-size: 100%;
+  }
+
+  .knowledge__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+  }
+
+  .knowledge__hero-teaser .knowledge__meta {
+    font-size: var(--font-size-base);
+  }
+
+  .knowledge__hero-teaser .knowledge__title {
+    max-inline-size: 16ch;
+  }
+
+  .knowledge__hero-teaser .knowledge__summary {
+    max-inline-size: 40ch;
+  }
+
+  .knowledge__pill {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent);
+  }
+
+  .knowledge__pill-icon {
+    display: block;
+    flex-shrink: 0;
+    inline-size: var(--spacing-base);
+    block-size: var(--spacing-base);
+    color: var(--accent-strong);
+  }
+
+  .knowledge__pill-icon--teal {
+    color: var(--accent-primary);
+  }
+
+  .knowledge__media-frame {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
+  }
+
+  .knowledge__media-image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .knowledge__media-image img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .knowledge__media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 3 / 2;
+    padding: var(--spacing-xl);
+    color: var(--text-secondary);
+    text-align: center;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
+  }
+
+  .knowledge__media-placeholder-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .knowledge__media-placeholder-icon {
+    inline-size: var(--spacing-3xl);
+    block-size: var(--spacing-3xl);
+  }
+
+  @media (width >= 1024px) {
+    .knowledge__media-placeholder-icon {
+      inline-size: calc(var(--spacing-3xl) + var(--spacing-base));
+      block-size: calc(var(--spacing-3xl) + var(--spacing-base));
+    }
+  }
+</style>

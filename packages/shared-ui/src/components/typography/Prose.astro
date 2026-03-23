@@ -1,0 +1,283 @@
+---
+export interface Props {
+  className?: string;
+  class?: string;
+  html?: string;
+  invert?: boolean;
+}
+
+const {
+  className: extra = "",
+  class: classProp = "",
+  html = undefined,
+  invert = true,
+} = Astro.props as Props;
+
+let sanitizedHtml =
+  typeof html === "string" ? html.replace(/\\n/g, "\n").trim() : undefined;
+
+if (typeof sanitizedHtml === "string") {
+  sanitizedHtml = sanitizedHtml.replace(/\n?\s*```\s*$/m, "");
+  sanitizedHtml = sanitizedHtml.replace(/```/g, "");
+  sanitizedHtml = sanitizedHtml.replace(/\\`/g, "");
+  sanitizedHtml = sanitizedHtml.replace(/&#96;|&#x60;|&grave;/g, "");
+  sanitizedHtml = sanitizedHtml.trim();
+}
+
+const invertClass = invert ? "prose--invert" : "prose--standard";
+const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" ");
+---
+
+<div class={classes}>
+  {sanitizedHtml ? <div set:html={sanitizedHtml} /> : <slot />}
+</div>
+
+<style>
+  /* -----------------------------------------------------------------------------
+     Prose Component Styles
+     Semantic rich text content styling
+     WCAG AAA compliant with responsive typography
+     ----------------------------------------------------------------------------- */
+
+  .prose {
+    /* Typography - uses design system tokens */
+    font-size: var(--font-size-md);
+    line-height: var(--prose-line-height);
+    color: var(--prose-color);
+
+    /* Improved text rendering */
+    hyphens: auto;
+    text-wrap: pretty;
+  }
+
+  /* Headings - semantic styling */
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    font-family: var(--font-sans);
+    line-height: var(--heading-line-height);
+    color: var(--heading-color);
+  }
+
+  .prose h2 {
+    margin-block: var(--spacing-3xl) var(--spacing-base);
+    font-size: var(--font-size-2xl);
+  }
+
+  .prose h3 {
+    margin-block: var(--spacing-2xl) var(--spacing-md);
+    font-size: var(--font-size-xl);
+  }
+
+  /* Paragraphs */
+  .prose p {
+    margin: var(--spacing-lg) 0;
+  }
+
+  /* Lists */
+  .prose ul,
+  .prose ol {
+    padding-inline-start: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+  }
+
+  .prose li {
+    margin: var(--spacing-xs) 0;
+  }
+
+  /* Links - with underline and accent color */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .prose a {
+      font-weight: var(--font-weight-medium);
+      color: var(--accent-primary);
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.1em;
+      text-underline-offset: 0.16em;
+      transition: none;
+    }
+  }
+
+  .prose a {
+    font-weight: var(--font-weight-medium);
+    color: var(--accent-primary);
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.16em;
+    transition: text-decoration-thickness var(--transition-fast);
+  }
+
+  .prose a:hover,
+  .prose a:focus-visible {
+    text-decoration-thickness: 0.15em;
+  }
+
+  .prose a:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Strong text */
+  .prose strong {
+    color: var(--text-primary);
+  }
+
+  /* Inline code */
+  .prose code {
+    padding: 0.1rem 0.4rem;
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-3));
+    border-radius: var(--radius-sm);
+  }
+
+  /* Blockquotes */
+  .prose blockquote {
+    padding: var(--spacing-sm) var(--spacing-base);
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
+    border-inline-start: 4px solid var(--accent-strong);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  /* Horizontal rules */
+  .prose hr {
+    margin: var(--spacing-3xl) 0;
+    border: none;
+    border-block-start: 1px solid var(--border-default);
+  }
+
+  /* Images - responsive sizing */
+  .prose :is(img, picture) {
+    display: block;
+    inline-size: 100%;
+  }
+
+  .prose picture,
+  .prose img {
+    aspect-ratio: 3 / 2;
+    margin: var(--spacing-xl) auto;
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 78%, transparent);
+    border-radius: var(--radius-lg);
+  }
+
+  .prose img {
+    object-fit: cover;
+  }
+
+  .prose picture {
+    overflow: hidden;
+  }
+
+  .prose picture img {
+    inline-size: 100%;
+    block-size: 100%;
+    margin: 0;
+    object-fit: cover;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  /* Heading anchors - for deep linking */
+  .prose :is(h2, h3) {
+    position: relative;
+    scroll-margin-block-start: 6rem;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .prose :is(h2, h3) .prose__heading-anchor {
+      /* Layout */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 1.1rem;
+      block-size: 1.1rem;
+      margin-inline-start: var(--spacing-xs);
+
+      /* Typography */
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: transparent;
+      text-decoration: none;
+
+      /* Visual styling */
+      background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+      border: 1px solid color-mix(in srgb, var(--border-default) 78%, transparent);
+      border-radius: var(--radius-sm);
+
+      /* Hidden by default */
+      opacity: 0;
+      transition: none;
+    }
+  }
+
+  .prose :is(h2, h3) .prose__heading-anchor {
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    margin-inline-start: var(--spacing-xs);
+
+    /* Typography */
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: transparent;
+    text-decoration: none;
+
+    /* Visual styling */
+    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--border-default) 78%, transparent);
+    border-radius: var(--radius-sm);
+
+    /* Hidden by default */
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  /* Link icon using mask */
+  .prose :is(h2, h3) .prose__heading-anchor::before {
+    display: block;
+    inline-size: 0.85rem;
+    block-size: 0.85rem;
+    content: "";
+    background-color: var(--accent-strong);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M10.59 13.41a1 1 0 0 1 0-1.41l3.18-3.18a3 3 0 1 1 4.24 4.24l-3.18 3.18a1 1 0 0 1-1.41-1.41l3.18-3.18a1 1 0 0 0-1.41-1.41l-3.18 3.18a1 1 0 0 1-1.41 0ZM13.41 10.59a1 1 0 0 1 0 1.41l-3.18 3.18a3 3 0 1 1-4.24-4.24l3.18-3.18a1 1 0 1 1 1.41 1.41L7.4 12.35a1 1 0 1 0 1.41 1.41l3.18-3.18a1 1 0 0 1 1.41 0Z'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+  }
+
+  /* Show anchor on hover or focus */
+  .prose :is(h2, h3):hover .prose__heading-anchor,
+  .prose :is(h2, h3):focus-within .prose__heading-anchor {
+    opacity: 1;
+  }
+
+  .prose :is(h2, h3) .prose__heading-anchor:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Nested subsection figures */
+  .prose .subsection-figure {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    place-items: start start;
+    max-inline-size: 1100px;
+    margin: var(--spacing-xl) 0;
+    border-radius: var(--radius-lg);
+  }
+
+  .prose .subsection-figure :is(h2, h3, h4) {
+    margin: 0;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .prose a,
+    .prose :is(h2, h3) .prose__heading-anchor {
+      transition: none;
+    }
+  }
+</style>

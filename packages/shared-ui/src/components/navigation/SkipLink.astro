@@ -1,0 +1,94 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+/**
+ * @component SkipLink
+ * @description Accessibility component that allows keyboard users to bypass repetitive navigation
+ * and quickly access the main content. Initially hidden visually but appears when focused.
+ *
+ * @example
+ * ```astro
+ * <SkipLink targetId="article-content" />
+ * <SkipLink targetId="main-content" />
+ * ```
+ */
+interface Props {
+  /**
+   * The ID of the element to target when the skip link is activated
+   * @default "main-content"
+   */
+  targetId?: string;
+  label?: string;
+}
+
+const { targetId = "main-content", label = "Skip to main content" } = Astro.props;
+
+const skipLinkClasses = "skip-link";
+const iconClasses = "skip-link__icon";
+---
+
+<a href={`#${targetId}`} class={skipLinkClasses} data-skip-link aria-label={label}>
+  <Icon name="external-link" class={iconClasses} aria-hidden="true" />
+  {label}
+</a>
+<style>
+  /* -----------------------------------------------------------------------------
+     SkipLink Component Styles
+     WCAG AAA accessibility feature for keyboard navigation
+     Hidden until focused, then appears at top of page
+     ----------------------------------------------------------------------------- */
+
+  .skip-link {
+    /* Absolute positioning - hidden off-screen by default */
+    position: absolute;
+    inset-block-start: -9999px;
+    inset-inline-start: 50%;
+    z-index: 100;
+
+    /* Layout */
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-base);
+
+    /* Typography */
+    font-weight: var(--font-weight-bold);
+
+    /* Visual styling - high contrast for accessibility */
+    color: var(--button-text-accent);
+    text-decoration: none;
+    background: linear-gradient(
+      180deg,
+      var(--accent-primary),
+      color-mix(in srgb, var(--accent-strong) 78%, var(--accent-primary))
+    );
+    border-radius: 0 0 var(--radius-base) var(--radius-base);
+    box-shadow: var(--shadow-xl);
+
+    /* Centered positioning */
+    transform: translateX(-50%);
+
+    /* Smooth transition */
+    transition: inset-block-start var(--transition-fast);
+  }
+
+  /* Show when focused - moves to top of viewport */
+  .skip-link:focus-visible {
+    inset-block-start: 0;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Icon sizing */
+  .skip-link__icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .skip-link {
+      transition: none;
+    }
+  }
+</style>

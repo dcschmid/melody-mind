@@ -1,0 +1,19 @@
+# Robots.txt for MelodyMind Podcasts
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://podcasts.melody-mind.de/sitemap-index.xml
+
+# Allow search engines to crawl all content
+# Optimize crawl budget by indicating important sections
+Crawl-delay: 1
+
+# Block access to any private or temporary files
+Disallow: /temp/
+Disallow: /_private/
+Disallow: /.well-known/
+
+# Allow all audio files for proper indexing
+Allow: /audio/
+Allow: /images/

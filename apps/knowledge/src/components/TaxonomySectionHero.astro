@@ -1,0 +1,100 @@
+---
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import { Picture } from "astro:assets";
+import type { TaxonomySection } from "../types/taxonomy";
+import { getKnowledgeTaxonomyImage } from "@utils/knowledgeImages";
+
+interface Props {
+  section: TaxonomySection;
+  subsectionCount?: number;
+  articleCount?: number;
+}
+
+const { section } = Astro.props as Props;
+const importedSectionImage = getKnowledgeTaxonomyImage(section.image) || undefined;
+---
+
+<header class="taxonomy-section-hero">
+  <HeroTeaser
+    id={`taxonomy-hero-${section.id}`}
+    class="taxonomy-section-hero__teaser"
+    title={section.title}
+    titleLevel="h1"
+    description={section.description ||
+      "Explore the connected topics and articles in this section."}
+    mediaPosition="start"
+    mediaAspectRatio="4 / 3"
+  >
+    {
+      importedSectionImage ? (
+        <Fragment slot="media">
+          <Picture
+            src={importedSectionImage}
+            formats={["avif", "webp"]}
+            alt={section.title}
+            loading="eager"
+            class="taxonomy-section-hero__image"
+            width={importedSectionImage.width}
+            height={importedSectionImage.height}
+          />
+        </Fragment>
+      ) : null
+    }
+  </HeroTeaser>
+</header>
+
+<style>
+  .taxonomy-section-hero {
+    padding-block-end: var(--spacing-xl);
+    border-block-end: 1px solid var(--surface-border-soft);
+  }
+
+  .taxonomy-section-hero :global(.taxonomy-section-hero__teaser.hero-teaser) {
+    background:
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-primary) 12%, transparent),
+        transparent 38%
+      ),
+      linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--surface-2) 98%, transparent),
+        color-mix(in srgb, var(--surface-1) 94%, transparent)
+      );
+    border-color: var(--surface-border-soft);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .taxonomy-section-hero :global(.taxonomy-section-hero__teaser.hero-teaser::after) {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--accent-primary) 42%, transparent),
+      transparent
+    );
+  }
+
+  .taxonomy-section-hero :global(.taxonomy-section-hero__teaser .hero-teaser__media) {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 42%, transparent),
+        transparent
+      ),
+      var(--surface-panel-bg);
+    border-color: var(--surface-border-soft);
+    box-shadow: var(--shadow-md);
+  }
+
+  .taxonomy-section-hero
+    :global(.taxonomy-section-hero__teaser .hero-teaser__description) {
+    color: var(--text-secondary);
+  }
+
+  .taxonomy-section-hero__image {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+</style>

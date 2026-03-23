@@ -1,0 +1,72 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
+import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { knowledgeHeroImageUrl } from "@utils/knowledgeImages";
+
+export const prerender = true;
+
+const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
+
+const title = "Search Melody Mind";
+const description = "Search Melody Mind article titles and descriptions.";
+const baseUrl = resolveBaseUrl(Astro.site);
+const currentUrl = resolvePageUrl(Astro.site, "/search");
+const pageSeo = buildPageSeo({
+  title,
+  description,
+  url: currentUrl,
+  contentKind: "generic",
+  structuredData: [] as StructuredData[],
+  enrichedParts: [title, description, "site search music knowledge articles"],
+  fallbackKeywords: ["search", "music knowledge", "article search", "genre guides"],
+  keywordLimit: 24,
+  maxDescription: 155,
+  image: knowledgeHeroImageUrl(baseUrl),
+  imageAlt: "Search Melody Mind Knowledge",
+  index: false,
+  follow: true,
+  autoSocialImage: false,
+  authorName: "Melody Mind",
+});
+
+type KnowledgeEntry = CollectionEntry<"knowledge-en">;
+interface SearchPageItem {
+  title: string;
+  description?: string;
+  url: string;
+}
+
+const allEntries = await getCollectionEntries("knowledge-en");
+const entries: KnowledgeEntry[] = allEntries.filter(({ data }) => !data.draft);
+const items: SearchPageItem[] = entries.map((entry) => {
+  const data = entry.data as { title: string; description?: string };
+
+  return {
+    title: data.title,
+    description: data.description ?? "",
+    url: `/knowledge/${entry.id}/`,
+  };
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell className="page-shell--aurora page-shell--grid">
+    <SearchPageSection
+      items={items}
+      initialQuery={initialQuery}
+      resultsEyebrow="Search the archive"
+      resultsTitle="Results"
+      resultsHelp="Results update while you type, and the current query stays in the URL."
+      searchPlaceholder="Search by title or description..."
+      searchEmptyText="Type a title or keyword."
+      searchNoResultsText="No matching results found."
+      searchLimit={24}
+    />
+  </PageShell>
+</Layout>

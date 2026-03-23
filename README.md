@@ -1,178 +1,220 @@
-# MelodyMind Knowledge
+# MelodyMind Monorepo
 
-Music knowledge articles and education content for MelodyMind - A standalone static site serving content at `melody-mind.de`.
+MelodyMind is an Astro-based monorepo for three public-facing music products plus the
+shared packages they build on:
 
-## Features
+- `apps/knowledge`: editorial music knowledge, taxonomy pages, and long-form articles
+- `apps/quiz`: music history quizzes and category landing pages
+- `apps/podcasts`: podcast homepage, episode archive, and RSS feed generation
+- `packages/shared-ui`: shared Astro components, layouts, tokens, and interaction helpers
+- `packages/shared-utils`: shared URL, SEO, analytics, content, and app-shell utilities
 
-- 🌍 **English-only**: streamlined single-language experience
-- 📚 **600+ Music Articles**: Comprehensive knowledge base about music genres, artists, and history
-- ⚡ **Static Site Generation**: Fast loading with pre-rendered pages
-- 🔍 **Full-text Search**: Client-side search functionality
-- 📖 **Table of Contents**: Auto-generated navigation for long articles
-- 🎨 **Responsive Design**: Mobile-first BEM CSS styling
+The repository is organized around one rule: cross-app concerns belong in shared
+packages, while routing, content models, and domain logic stay inside the app that owns
+them.
 
-## Tech Stack
+## Stack
 
-- **Framework**: [Astro](https://astro.build/) v5+ with SSG
-- **Content**: Markdown with Frontmatter (Content Collections)
-- **Styling**: BEM-based CSS
-- **Fonts**: Atkinson Hyperlegible (accessible font)
-- **Search**: Client-side JavaScript search
-- **Runtime**: Node.js 18.19.0+
-- **Package Manager**: Yarn
+- Astro 6 with static output
+- TypeScript
+- pnpm workspaces
+- Turbo for task orchestration
+- Scoped Astro component CSS with BEM naming
+- Shared SEO, app-shell, and image helpers via local workspace packages
+
+## Requirements
+
+- Node.js `>=22.12.0`
+- pnpm `9.x`
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js >= 18.19.0
-- Yarn
-
-### Installation
+Install dependencies from the repository root:
 
 ```bash
-# Install dependencies
-yarn install
-
-# Start development server
-yarn dev
-
-# Build for production
-yarn build
-
-# Preview production build
-yarn preview
+pnpm install
 ```
 
-## Project Structure
-
-```
-melody-mind/
-├── src/
-│   ├── components/       # Reusable UI components
-│   │   ├── Search/       # Search panel component
-│   │   └── Shared/       # Shared components (BackToTop, etc.)
-│   ├── constants/        # App constants
-│   ├── content/          # Knowledge articles (Markdown)
-│   │   ├── knowledge-en/ # English articles (active)
-│   │   └── config.ts     # Content collection schema
-│   ├── i18n/             # Translations
-│   │   └── locales/      # Language-specific translations
-│   ├── layouts/          # Page layouts
-│   ├── pages/            # Astro pages (routes)
-│   │   ├── knowledge/    # Knowledge listing & detail pages
-│   │   │   ├── index.astro
-│   │   │   └── [...slug].astro
-│   │   └── index.astro   # Root redirect to /knowledge
-│   ├── styles/           # Global styles
-│   └── utils/            # Utility functions
-│       ├── content/      # Content utilities
-│       ├── dates/        # Date formatting
-│       ├── i18n/         # i18n utilities
-│       └── seo/          # SEO helpers
-├── public/               # Static assets
-└── astro.config.mjs      # Astro configuration
-```
-
-## Content Collections
-
-Knowledge articles are organized as Astro Content Collections:
-
-- `knowledge-en`: English articles (canonical and only active collection)
-
-Legacy folders for other locales may exist but are no longer part of the build.
-
-Each article includes:
-- Title, description, keywords
-- Created/updated dates
-- Reading time estimation
-- Optional category metadata (Spotify/Deezer/Apple Music links)
-- Rich markdown content
-
-## Development
+Start all workspace dev tasks:
 
 ```bash
-# Run development server with hot reload
-yarn dev
-
-# Lint code
-yarn lint
-
-# Format code
-yarn format
-
-# Type check
-astro check
+pnpm dev
 ```
 
-### Editor setup (VS Code)
-
-We recommend enabling Prettier + ESLint on save:
-
-1. Install extensions:
-   - `esbenp.prettier-vscode`
-   - `dbaeumer.vscode-eslint`
-   - `astro-build.astro-vscode`
-2. Workspace settings are included in `.vscode/settings.json`.
-
-## Deployment
-
-### Static Site Generation
-
-The site is built as a static site (SSG):
+Or run a single app locally:
 
 ```bash
-# Build static files
-yarn build:production
+pnpm dev:knowledge
+pnpm dev:quiz
+pnpm dev:podcasts
 ```
 
-Output will be in `dist/` directory, ready to deploy to any static hosting.
+## Repository Layout
 
-### Subdomain Setup
-
-1. Configure DNS to point `melody-mind.de` to your server
-2. Set up web server (nginx/Apache/Caddy) to serve the `dist/` directory
-3. Enable gzip/brotli compression for better performance
-
-### Example nginx config
-
-```nginx
-server {
-    listen 443 ssl http2;
-    server_name melody-mind.de;
-    
-    root /var/www/melody-mind/dist;
-    index index.html;
-    
-    location / {
-        try_files $uri $uri/ =404;
-    }
-    
-    # Cache static assets
-    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2)$ {
-        expires 1y;
-        add_header Cache-Control "public, immutable";
-    }
-}
+```text
+.
+├── apps/
+│   ├── knowledge/
+│   ├── podcasts/
+│   └── quiz/
+├── packages/
+│   ├── shared-ui/
+│   └── shared-utils/
+├── AGENTS.md
+├── eslint.config.mjs
+├── stylelint.config.cjs
+├── turbo.json
+└── package.json
 ```
 
-## Search Functionality
+## Workspace Overview
 
-The site includes a client-side search feature that:
-- Searches article titles, descriptions, and keywords
-- Provides instant results without page reload
-- Supports multiple languages
-- Highlights search results
+### `apps/knowledge`
 
-## License
+The Knowledge app is the editorial foundation of the project. It contains long-form music
+articles, taxonomy landing pages, legal pages, and search/discovery routes.
 
-MIT
+Important directories:
 
-## Related Projects
+- `src/content/knowledge-en/`: article content
+- `src/data/musicTaxonomy.ts`: taxonomy source of truth
+- `src/pages/knowledge/`: article routes
+- `src/pages/taxonomy/`: taxonomy routes
+- `src/utils/knowledge/` and `src/utils/taxonomy/`: page builders and helpers
 
-- [MelodyMind](https://github.com/dcschmid/melody-mind) - Main application
-- [MelodyMind Podcasts](https://github.com/dcschmid/melody-mind-podcasts) - Podcast subdomain
+### `apps/quiz`
 
----
+The Quiz app delivers music quiz entry points and quiz detail pages using the shared UI
+and shared SEO/image stack.
 
-Built with ❤️ for music lovers
+Important directories:
+
+- `src/content/quizzes/`: quiz content
+- `src/pages/`: landing and quiz routes
+- `src/utils/quizImages.ts`: quiz-specific Astro asset mapping
+
+### `apps/podcasts`
+
+The Podcasts app owns the podcast homepage, episode pages, RSS feed generation, and audio
+metadata workflows.
+
+Important directories:
+
+- `src/content/podcasts/`: episode content
+- `src/pages/podcast.xml.ts`: feed route
+- `src/utils/rss.ts`: RSS rendering
+- `src/utils/podcasts.ts`: episode loading helpers
+
+### `packages/shared-ui`
+
+Shared Astro UI components, layouts, navigation, cards, media primitives, and theme
+tokens. This package should stay app-agnostic.
+
+### `packages/shared-utils`
+
+Shared helpers for URLs, SEO, consent, analytics, content utilities, app-shell config,
+and related low-level logic. This package should stay framework-light where possible.
+
+## Common Commands
+
+### Monorepo
+
+```bash
+pnpm dev
+pnpm build
+pnpm preview
+pnpm lint
+pnpm lint:check
+pnpm format
+pnpm format:check
+pnpm clean
+```
+
+### App-specific
+
+```bash
+pnpm dev:knowledge
+pnpm build:knowledge
+
+pnpm dev:quiz
+pnpm build:quiz
+
+pnpm dev:podcasts
+pnpm build:podcasts
+```
+
+You can also target packages directly with workspace filters:
+
+```bash
+pnpm --filter knowledge build
+pnpm --filter quiz lint:check
+pnpm --filter podcasts format
+pnpm --filter @melody-mind/shared-ui lint:check
+```
+
+## Images and Assets
+
+Visible UI images are now handled through Astro assets in app-local `src/assets`
+directories. Shared rendering and URL helpers live in the workspace packages.
+
+Current pattern:
+
+- app-specific asset discovery stays local to each app
+- shared image rendering lives in `packages/shared-ui`
+- shared image/path helpers live in `packages/shared-utils`
+- RSS and SEO reuse the same imported source assets where possible
+
+This keeps optimization centralized without forcing app-specific content structure into
+shared packages.
+
+## Knowledge Taxonomy Model
+
+Knowledge uses taxonomy as its primary information architecture.
+
+- Source of truth: `apps/knowledge/src/data/musicTaxonomy.ts`
+- Primary route: `apps/knowledge/src/pages/taxonomy/[section].astro`
+- Article frontmatter fields:
+  - `taxonomySubsection`
+  - `taxonomyGroup` (optional)
+
+Legacy `/categories/*` pages were removed. Historical URLs are preserved through redirect
+mappings in `apps/knowledge/src/constants/categoryRedirects.js`.
+
+## Quality Gates
+
+There is currently no conventional automated test suite. The primary validation path is:
+
+```bash
+pnpm format:check
+pnpm lint:check
+pnpm build
+```
+
+For scoped work, prefer the narrowest affected package checks rather than always building
+the whole monorepo.
+
+Typical examples:
+
+- app-only UI change: package `format:check`, `lint:check`, and app `build`
+- shared utility change: package checks plus all affected app builds
+- content/routing change in Knowledge: `pnpm --filter knowledge build` plus manual route
+  verification
+
+## Working Conventions
+
+- Keep shared code generic. If a helper knows too much about one app's route model, move
+  that logic back into the app.
+- Keep CSS scoped and BEM-based.
+- Prefer semantic design tokens from `packages/shared-ui/src/styles/master-theme.css`.
+- Avoid duplicating SEO, URL, image, or app-shell logic across apps when a shared helper
+  already exists.
+- Follow the additional repo-specific working rules in `AGENTS.md`.
+
+## Additional Documentation
+
+- [Knowledge README](/home/daniel/dev/github/melody-mind/apps/knowledge/README.md)
+- [Knowledge Scripts README](/home/daniel/dev/github/melody-mind/apps/knowledge/scripts/README.md)
+- [Quiz README](/home/daniel/dev/github/melody-mind/apps/quiz/README.md)
+- [Podcasts README](/home/daniel/dev/github/melody-mind/apps/podcasts/README.md)
+- [Shared UI README](/home/daniel/dev/github/melody-mind/packages/shared-ui/README.md)
+- [Shared Utils README](/home/daniel/dev/github/melody-mind/packages/shared-utils/README.md)

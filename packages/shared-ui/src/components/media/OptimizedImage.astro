@@ -1,0 +1,58 @@
+---
+import { Image, Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  src: string | ImageMetadata;
+  alt: string;
+  class?: string;
+  width: number | `${number}`;
+  height: number | `${number}`;
+  sizes?: string;
+  loading?: "eager" | "lazy";
+  decoding?: "sync" | "async" | "auto";
+  formats?: ("avif" | "webp" | "png" | "jpg" | "jpeg")[];
+}
+
+const {
+  src,
+  alt,
+  class: className,
+  width,
+  height,
+  sizes,
+  loading = "lazy",
+  decoding = "async",
+  formats = ["avif", "webp"],
+} = Astro.props as Props;
+
+const importedImageSrc = typeof src !== "string" ? src : undefined;
+const stringImageSrc = typeof src === "string" ? src : undefined;
+---
+
+{
+  importedImageSrc ? (
+    <Picture
+      src={importedImageSrc}
+      formats={formats}
+      alt={alt}
+      class={className}
+      width={width}
+      height={height}
+      sizes={sizes}
+      loading={loading}
+      decoding={decoding}
+    />
+  ) : stringImageSrc ? (
+    <Image
+      src={stringImageSrc}
+      alt={alt}
+      class={className}
+      width={width}
+      height={height}
+      sizes={sizes}
+      loading={loading}
+      decoding={decoding}
+    />
+  ) : null
+}

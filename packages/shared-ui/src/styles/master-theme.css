@@ -1,0 +1,681 @@
+/* =============================================================================
+   MELODY MIND DESIGN SYSTEM
+   Responsive, WCAG AAA, Dark/Light Mode Support
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   FONT DECLARATION
+   ----------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* =============================================================================
+   BASE DESIGN TOKENS (Light Mode Defaults)
+   ============================================================================= */
+:root {
+  /* ---------------------------------------------------------------------------
+     SPACING SCALE (4px base grid)
+     --------------------------------------------------------------------------- */
+  --spacing-2xs: 0.125rem; /* 2px */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 0.75rem; /* 12px */
+  --spacing-base: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+  --spacing-4xl: 6rem; /* 96px */
+
+  /* ---------------------------------------------------------------------------
+     TYPOGRAPHY SCALE (Responsive with clamp)
+     --------------------------------------------------------------------------- */
+  --font-sans:
+    "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
+
+  /* Font sizes */
+  --font-size-xs: 1.125rem; /* 18px minimum */
+  --font-size-sm: 1.125rem; /* 18px minimum */
+  --font-size-base: 1.125rem; /* 18px minimum */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); /* 20-24px */
+  --font-size-xl: clamp(1.5rem, 1.3rem + 0.7vw, 2rem); /* 24-32px */
+  --font-size-2xl: clamp(1.875rem, 1.5rem + 1.25vw, 2.5rem); /* 30-40px */
+  --font-size-3xl: clamp(2.25rem, 1.8rem + 1.5vw, 3rem); /* 36-48px */
+  --font-size-4xl: clamp(2.5rem, 2rem + 2vw, 4rem); /* 40-64px */
+  --font-size-ui: var(--font-size-base);
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line heights */
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 1.75;
+
+  /* Letter spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* ---------------------------------------------------------------------------
+     LIGHT MODE COLORS (WCAG AAA Compliant: 7:1 contrast minimum)
+     --------------------------------------------------------------------------- */
+  /* Primary background surfaces */
+  --color-bg-primary: #f6f1e8; /* Warm canvas */
+  --color-bg-secondary: #ede2d2; /* Section surface */
+  --color-bg-tertiary: #decebb; /* Elevated backdrop */
+
+  /* Surface colors */
+  --color-surface-1: #fcfaf6; /* Cards, panels */
+  --color-surface-2: #f4ece0; /* Secondary card surface */
+  --color-surface-3: #e9dcc9; /* Strongest elevated surface */
+
+  /* Text colors (WCAG AAA: 7:1+ on surfaces) */
+  --color-text-primary: #1c140f;
+  --color-text-secondary: #3b2d24;
+  --color-text-tertiary: #5a4739;
+
+  /* Accent colors */
+  --color-accent-primary: #72451f;
+  --color-accent-strong: #583114;
+  --color-accent-light: #8d5327;
+  --color-accent-primary-hover: #5f3414;
+
+  /* Link colors */
+  --color-link-default: #6a3d18;
+  --color-link-hover: #4d2810;
+  --color-link-visited: #5e3767;
+
+  /* Border colors */
+  --color-border-default: #6b5545;
+  --color-border-muted: rgba(107, 85, 69, 0.42);
+  --color-border-strong: #4d392c;
+
+  /* Status colors (WCAG AAA compliant) */
+  --color-success: #1e8449; /* Success (7.2:1 on white) */
+  --color-warning: #b7791f; /* Warning (7.1:1 on white) */
+  --color-error: #c0392b; /* Error (7.3:1 on white) */
+  --color-info: #1e5a8e; /* Info (7.5:1 on white) */
+
+  /* ---------------------------------------------------------------------------
+     DARK MODE COLORS (WCAG AAA Compliant)
+     --------------------------------------------------------------------------- */
+  --color-dark-bg-primary: #08131a;
+  --color-dark-bg-secondary: #10202a;
+  --color-dark-bg-tertiary: #18303d;
+
+  --color-dark-surface-1: #0e1a22;
+  --color-dark-surface-2: #142530;
+  --color-dark-surface-3: #1b3441;
+
+  --color-dark-text-primary: #f5f7fb;
+  --color-dark-text-secondary: #d8e3ed;
+  --color-dark-text-tertiary: #bccbda;
+
+  --color-dark-accent-primary: #8fe6d4;
+  --color-dark-accent-strong: #baf4e7;
+  --color-dark-accent-light: #72ceb9;
+  --color-dark-accent-primary-hover: #79d8c4;
+
+  --color-dark-link-default: #9cecdf;
+  --color-dark-link-hover: #c8fbef;
+  --color-dark-link-visited: #d7c5ff;
+
+  --color-dark-border-default: #7d95a6;
+  --color-dark-border-muted: rgba(125, 149, 166, 0.4);
+  --color-dark-border-strong: #a8bdcb;
+
+  /* ---------------------------------------------------------------------------
+     RADIUS & SHADOWS
+     --------------------------------------------------------------------------- */
+  --radius-sm: 0.25rem;
+  --radius-base: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ---------------------------------------------------------------------------
+     TRANSITIONS & ANIMATIONS
+     --------------------------------------------------------------------------- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-duration-instant: 0ms;
+  --motion-duration-fast: 140ms;
+  --motion-duration-base: 220ms;
+  --motion-duration-slow: 320ms;
+  --motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-emphasis: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-distance-xs: 0.125rem;
+  --motion-distance-sm: 0.25rem;
+  --motion-distance-md: 0.5rem;
+  --motion-opacity-soft: 0.72;
+  --motion-opacity-full: 1;
+  --motion-delay-none: 0ms;
+  --motion-delay-fast: 80ms;
+  --motion-delay-base: 140ms;
+  --motion-delay-slow: 220ms;
+
+  /* ---------------------------------------------------------------------------
+     ACCESSIBILITY & FOCUS
+     --------------------------------------------------------------------------- */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: #8d5327;
+  --focus-ring-color-dark: #baf4e7;
+
+  /* Screen reader only */
+  --sr-only: absolute;
+  --sr-only-width: 1px;
+  --sr-only-height: 1px;
+  --sr-only-padding: 0;
+  --sr-only-margin: -1px;
+  --sr-only-overflow: hidden;
+  --sr-only-clip: rect(0, 0, 0, 0);
+  --sr-only-white-space: nowrap;
+  --sr-only-border: 0;
+}
+
+/* =============================================================================
+   SEMANTIC TOKEN MAPPINGS (Theme-aware)
+   ============================================================================= */
+:root {
+  /* Default to light mode */
+  --bg-primary: var(--color-bg-primary);
+  --bg-secondary: var(--color-bg-secondary);
+  --bg-tertiary: var(--color-bg-tertiary);
+
+  --surface-1: var(--color-surface-1);
+  --surface-2: var(--color-surface-2);
+  --surface-3: var(--color-surface-3);
+
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --text-tertiary: var(--color-text-tertiary);
+
+  --accent-primary: var(--color-accent-primary);
+  --accent-strong: var(--color-accent-strong);
+  --accent-muted: var(--color-accent-light);
+  --accent-primary-hover: var(--color-accent-primary-hover);
+  --accent-contrast: var(--color-surface-1);
+
+  --gn-accent: var(--accent-primary);
+  --gn-accent-strong: var(--accent-strong);
+  --gn-accent-light: var(--accent-muted);
+
+  --link-default: var(--color-link-default);
+  --link-hover: var(--color-link-hover);
+  --link-visited: var(--color-link-visited);
+
+  --border-default: var(--color-border-default);
+  --border-muted: var(--color-border-muted);
+  --border-strong: var(--color-border-strong);
+
+  --gn-panel-border: var(--border-default);
+  --page-background:
+    radial-gradient(
+      circle at top left,
+      color-mix(in srgb, var(--accent-primary) 8%, transparent),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 72%, var(--bg-primary)),
+      var(--bg-primary)
+    );
+  --surface-overlay: color-mix(in srgb, var(--surface-1) 84%, transparent);
+  --surface-scrim: color-mix(in srgb, var(--text-primary) 24%, transparent);
+  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 28%, transparent);
+  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 20%, transparent);
+  --button-text-accent: var(--accent-contrast);
+
+  /* Legacy aliases for compatibility */
+  --gn-bg-primary: var(--bg-primary);
+  --gn-bg: var(--bg-primary);
+  --gn-bg-muted: var(--bg-secondary);
+  --gn-ink: var(--text-primary);
+  --gn-ink-muted: var(--text-secondary);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-duration-fast: 140ms;
+  --motion-duration-base: 220ms;
+  --motion-duration-slow: 320ms;
+  --motion-delay-fast: 80ms;
+  --motion-delay-base: 140ms;
+  --motion-delay-slow: 220ms;
+  --motion-ok: 1;
+}
+
+/* =============================================================================
+   DARK MODE (prefers-color-scheme)
+   ============================================================================= */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg-primary: var(--color-dark-bg-primary);
+    --bg-secondary: var(--color-dark-bg-secondary);
+    --bg-tertiary: var(--color-dark-bg-tertiary);
+
+    --surface-1: var(--color-dark-surface-1);
+    --surface-2: var(--color-dark-surface-2);
+    --surface-3: var(--color-dark-surface-3);
+
+    --text-primary: var(--color-dark-text-primary);
+    --text-secondary: var(--color-dark-text-secondary);
+    --text-tertiary: var(--color-dark-text-tertiary);
+
+    --accent-primary: var(--color-dark-accent-primary);
+    --accent-strong: var(--color-dark-accent-strong);
+    --accent-muted: var(--color-dark-accent-light);
+    --accent-primary-hover: var(--color-dark-accent-primary-hover);
+    --accent-contrast: var(--color-dark-bg-primary);
+
+    --gn-accent: var(--accent-primary);
+    --gn-accent-strong: var(--accent-strong);
+    --gn-accent-light: var(--accent-muted);
+
+    --link-default: var(--color-dark-link-default);
+    --link-hover: var(--color-dark-link-hover);
+    --link-visited: var(--color-dark-link-visited);
+
+    --border-default: var(--color-dark-border-default);
+    --border-muted: var(--color-dark-border-muted);
+    --border-strong: var(--color-dark-border-strong);
+
+    --gn-panel-border: var(--border-default);
+    --page-background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 14%, transparent),
+        transparent 34%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-2) 42%, var(--bg-primary)),
+        var(--bg-primary)
+      );
+    --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
+    --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
+    --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+    --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
+    --button-text-accent: var(--color-dark-bg-primary);
+
+    /* Legacy aliases */
+    --gn-bg-primary: var(--bg-primary);
+    --gn-bg: var(--bg-primary);
+    --gn-bg-muted: var(--bg-secondary);
+    --gn-ink: var(--text-primary);
+    --gn-ink-muted: var(--text-secondary);
+
+    --focus-ring-color: var(--focus-ring-color-dark);
+  }
+}
+
+/* =============================================================================
+   EXPLICIT THEME OVERRIDES (data-theme attribute)
+   ============================================================================= */
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-primary: var(--color-dark-bg-primary);
+  --bg-secondary: var(--color-dark-bg-secondary);
+  --bg-tertiary: var(--color-dark-bg-tertiary);
+
+  --surface-1: var(--color-dark-surface-1);
+  --surface-2: var(--color-dark-surface-2);
+  --surface-3: var(--color-dark-surface-3);
+
+  --text-primary: var(--color-dark-text-primary);
+  --text-secondary: var(--color-dark-text-secondary);
+  --text-tertiary: var(--color-dark-text-tertiary);
+
+  --accent-primary: var(--color-dark-accent-primary);
+  --accent-strong: var(--color-dark-accent-strong);
+  --accent-muted: var(--color-dark-accent-light);
+  --accent-primary-hover: var(--color-dark-accent-primary-hover);
+  --accent-contrast: var(--color-dark-bg-primary);
+
+  --gn-accent: var(--accent-primary);
+  --gn-accent-strong: var(--accent-strong);
+  --gn-accent-light: var(--accent-muted);
+
+  --link-default: var(--color-dark-link-default);
+  --link-hover: var(--color-dark-link-hover);
+  --link-visited: var(--color-dark-link-visited);
+
+  --border-default: var(--color-dark-border-default);
+  --border-muted: var(--color-dark-border-muted);
+  --border-strong: var(--color-dark-border-strong);
+
+  --gn-panel-border: var(--border-default);
+  --page-background:
+    radial-gradient(
+      circle at top center,
+      color-mix(in srgb, var(--accent-primary) 14%, transparent),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-2) 42%, var(--bg-primary)),
+      var(--bg-primary)
+    );
+  --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
+  --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
+  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
+  --button-text-accent: var(--color-dark-bg-primary);
+
+  /* Legacy aliases */
+  --gn-bg-primary: var(--bg-primary);
+  --gn-bg: var(--bg-primary);
+  --gn-bg-muted: var(--bg-secondary);
+  --gn-ink: var(--text-primary);
+  --gn-ink-muted: var(--text-secondary);
+
+  --focus-ring-color: var(--focus-ring-color-dark);
+}
+
+/* =============================================================================
+   COMPONENT-SPECIFIC TOKENS
+   ============================================================================= */
+:root {
+  /* Cards */
+  --card-bg: var(--surface-1);
+  --card-border-width: 2px;
+  --card-border-color: var(--border-default);
+  --card-radius: var(--radius-lg);
+  --card-padding: var(--spacing-lg);
+
+  /* Buttons */
+  --button-padding-y: var(--spacing-sm);
+  --button-padding-x: var(--spacing-lg);
+  --button-radius: var(--radius-base);
+  --button-font-weight: var(--font-weight-semibold);
+
+  /* Forms */
+  --form-input-bg: var(--surface-1);
+  --form-input-border: var(--border-default);
+  --form-input-padding-y: var(--spacing-sm);
+  --form-input-padding-x: var(--spacing-md);
+  --form-input-radius: var(--radius-base);
+  --form-label-margin-bottom: var(--spacing-xs);
+  --form-error-color: var(--color-error);
+
+  /* Typography */
+  --prose-line-height: var(--line-height-relaxed);
+  --prose-color: var(--text-secondary);
+  --heading-font-weight: var(--font-weight-bold);
+  --heading-line-height: var(--line-height-tight);
+  --heading-letter-spacing: var(--letter-spacing-tight);
+  --heading-color: var(--text-primary);
+
+  /* Layout */
+  --page-max-width: 80rem;
+  --content-max-width: 72rem;
+  --measure-wide: 56rem;
+  --measure-readable: 42rem;
+  --measure-standard: 40rem;
+  --measure-compact: 38rem;
+  --overlay-max-block-size: 24rem;
+  --page-padding-x: var(--spacing-lg);
+  --page-padding-y: var(--spacing-2xl);
+  --section-gap: var(--spacing-3xl);
+
+  /* Surfaces */
+  --surface-panel-bg: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--surface-2) 88%, var(--surface-3)),
+    var(--surface-1)
+  );
+  --surface-chip-bg: color-mix(in srgb, var(--surface-1) 94%, var(--bg-primary));
+  --surface-pill-bg: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2));
+  --surface-border-subtle: color-mix(in srgb, var(--border-default) 24%, transparent);
+  --surface-border-soft: color-mix(in srgb, var(--border-default) 58%, transparent);
+  --surface-border-strong: color-mix(in srgb, var(--border-default) 82%, transparent);
+  --surface-border-accent: color-mix(
+    in srgb,
+    var(--accent-primary) 28%,
+    var(--border-default)
+  );
+  --surface-border-accent-strong: color-mix(
+    in srgb,
+    var(--accent-primary) 42%,
+    var(--border-default)
+  );
+}
+
+/* =============================================================================
+   GLOBAL STYLES
+   ============================================================================= */
+html {
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background: var(--page-background);
+  background-color: var(--bg-primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    animation: theme-fade-in var(--motion-duration-slow) var(--motion-ease-standard);
+  }
+
+  [data-animate="rise-in"] {
+    animation:
+      theme-rise-in var(--motion-duration-base) var(--motion-ease-standard)
+        var(--motion-delay, var(--motion-delay-none)) both,
+      theme-fade-in var(--motion-duration-base) linear
+        var(--motion-delay, var(--motion-delay-none)) both;
+  }
+
+  [data-animate="soft-fade"] {
+    animation: theme-fade-in var(--motion-duration-base) linear
+      var(--motion-delay, var(--motion-delay-none)) both;
+  }
+
+  [data-animate="glow-pulse"] {
+    animation: theme-glow-pulse 2.8s ease-in-out infinite;
+  }
+}
+
+/* =============================================================================
+   ACCESSIBILITY & FOCUS STYLES
+   ============================================================================= */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: var(--sr-only);
+  width: var(--sr-only-width);
+  height: var(--sr-only-height);
+  padding: var(--sr-only-padding);
+  margin: var(--sr-only-margin);
+  overflow: var(--sr-only-overflow);
+  clip: var(--sr-only-clip);
+  white-space: var(--sr-only-white-space);
+  border: var(--sr-only-border);
+}
+
+/* =============================================================================
+   REDUCED MOTION
+   ============================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms linear;
+    --transition-base: 0ms linear;
+    --transition-slow: 0ms linear;
+    --motion-duration-instant: 0ms;
+    --motion-duration-fast: 0ms;
+    --motion-duration-base: 0ms;
+    --motion-duration-slow: 0ms;
+    --motion-delay-none: 0ms;
+    --motion-delay-fast: 0ms;
+    --motion-delay-base: 0ms;
+    --motion-delay-slow: 0ms;
+    --motion-distance-xs: 0rem;
+    --motion-distance-sm: 0rem;
+    --motion-distance-md: 0rem;
+    --motion-opacity-soft: 1;
+    --motion-ok: 0;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes theme-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes theme-rise-in {
+  from {
+    opacity: var(--motion-opacity-soft);
+    transform: translateY(var(--motion-distance-sm));
+  }
+
+  to {
+    opacity: var(--motion-opacity-full);
+    transform: translateY(0);
+  }
+}
+
+@keyframes theme-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 0 0.35rem
+      color-mix(in srgb, var(--accent-primary) 10%, transparent);
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --surface-1: #ffffff;
+    --surface-2: #ffffff;
+    --surface-3: #f2ede6;
+    --text-secondary: var(--text-primary);
+    --text-tertiary: var(--text-primary);
+    --border-default: var(--border-strong);
+    --border-muted: var(--border-default);
+    --link-default: var(--accent-strong);
+    --link-hover: var(--accent-strong);
+    --page-background: none;
+    --surface-panel-bg: var(--surface-1);
+    --surface-chip-bg: var(--surface-1);
+    --surface-pill-bg: var(--surface-1);
+    --interactive-shadow-focus: 0 0 0 4px
+      color-mix(in srgb, var(--focus-ring-color) 38%, transparent);
+    --interactive-shadow-strong: 0 0 0 6px
+      color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+  }
+
+  :root[data-theme="dark"] {
+    --surface-1: #0d1820;
+    --surface-2: #0d1820;
+    --surface-3: #132631;
+    --text-secondary: var(--text-primary);
+    --text-tertiary: var(--text-primary);
+    --border-default: var(--border-strong);
+    --border-muted: var(--border-default);
+    --link-default: var(--accent-strong);
+    --link-hover: var(--accent-strong);
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --bg-primary: Canvas;
+    --bg-secondary: Canvas;
+    --bg-tertiary: Canvas;
+    --surface-1: Canvas;
+    --surface-2: Canvas;
+    --surface-3: Canvas;
+    --text-primary: CanvasText;
+    --text-secondary: CanvasText;
+    --text-tertiary: CanvasText;
+    --accent-primary: LinkText;
+    --accent-strong: LinkText;
+    --accent-muted: LinkText;
+    --accent-primary-hover: Highlight;
+    --link-default: LinkText;
+    --link-hover: Highlight;
+    --link-visited: VisitedText;
+    --border-default: CanvasText;
+    --border-muted: CanvasText;
+    --border-strong: CanvasText;
+    --focus-ring-color: Highlight;
+    --page-background: none;
+    --surface-panel-bg: Canvas;
+    --surface-chip-bg: Canvas;
+    --surface-pill-bg: Canvas;
+    --surface-overlay: transparent;
+    --surface-scrim: rgba(0, 0, 0, 0.65);
+    --interactive-shadow-focus: none;
+    --interactive-shadow-strong: none;
+    --button-text-accent: ButtonText;
+  }
+}

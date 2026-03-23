@@ -1,0 +1,331 @@
+---
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+/**
+ * Cookie Consent Banner Component
+ *
+ * Configured via environment variable:
+ * - FATHOM_SITE_ID: Your Fathom Analytics site ID (defaults to empty string if not set)
+ *
+ * Set in .env file: FATHOM_SITE_ID=your-site-id
+ */
+const FATHOM_SITE_ID = import.meta.env.FATHOM_SITE_ID || "";
+---
+
+<div
+  class="cookie-consent"
+  data-cookie-consent
+  data-animate="soft-fade"
+  data-fathom-site-id={FATHOM_SITE_ID}
+  role="dialog"
+  aria-modal="true"
+  aria-label="Cookie consent"
+  aria-describedby="cookie-consent-description"
+  hidden
+>
+  <Paragraph
+    id="cookie-consent-description"
+    textSize="sm"
+    className="cookie-consent__text"
+  >
+    We use essential storage for core site functions. Analytics with Fathom is optional
+    and only turns on if you give consent.
+  </Paragraph>
+  <div class="cookie-consent__actions">
+    <button
+      type="button"
+      class="cookie-consent__button cookie-consent__button--secondary"
+      data-cookie-action="reject"
+    >
+      Essential only
+    </button>
+    <button
+      type="button"
+      class="cookie-consent__button cookie-consent__button--primary"
+      data-cookie-action="accept"
+    >
+      Allow analytics
+    </button>
+  </div>
+</div>
+
+<script>
+  import { CONSENT_EVENTS } from "@shared-utils/constants/events";
+  import {
+    dispatchConsentChange,
+    getDoNotTrackEnabled,
+    getRuntimeAnalyticsAllowed,
+    readConsentPreference,
+    setRuntimeAnalyticsAllowed,
+    writeConsentPreference,
+    type ConsentPreference,
+  } from "@shared-utils/utils/consent/clientConsent";
+
+  const FATHOM_SCRIPT_SELECTOR = "script[data-cookie-consent-fathom='true']";
+
+  const banner = document.querySelector<HTMLElement>("[data-cookie-consent]");
+  if (!banner) {
+    throw new Error("CookieConsent banner root not found");
+  }
+
+  const fathomSiteId = banner.dataset.fathomSiteId || "";
+  const fathomEnabled = fathomSiteId.length > 0;
+  let lastFocusBeforeOpen: Element | null = null;
+
+  const loadFathomScript = (): void => {
+    if (!fathomEnabled || document.querySelector(FATHOM_SCRIPT_SELECTOR)) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://cdn.usefathom.com/script.js";
+    script.defer = true;
+    script.setAttribute("data-site", fathomSiteId);
+    script.setAttribute("data-honor-dnt", "true");
+    script.setAttribute("data-cookie-consent-fathom", "true");
+    script.addEventListener("load", () => {
+      setFathomTrackingEnabled(getRuntimeAnalyticsAllowed());
+    });
+    document.head.appendChild(script);
+  };
+
+  const removeFathomScript = (): void => {
+    const existing = document.querySelector(FATHOM_SCRIPT_SELECTOR);
+    if (existing?.parentNode) {
+      existing.parentNode.removeChild(existing);
+    }
+  };
+
+  const setFathomTrackingEnabled = (enabled: boolean): void => {
+    if (!window.fathom) {
+      return;
+    }
+
+    if (enabled && typeof window.fathom.enableTrackingForMe === "function") {
+      window.fathom.enableTrackingForMe();
+    }
+
+    if (!enabled && typeof window.fathom.blockTrackingForMe === "function") {
+      window.fathom.blockTrackingForMe();
+    }
+  };
+
+  const hideBanner = (): void => {
+    banner.setAttribute("hidden", "true");
+
+    if (lastFocusBeforeOpen && "focus" in lastFocusBeforeOpen) {
+      (lastFocusBeforeOpen as HTMLElement).focus();
+    }
+
+    lastFocusBeforeOpen = null;
+  };
+
+  const showBanner = (shouldMoveFocus: boolean): void => {
+    banner.removeAttribute("hidden");
+
+    if (!shouldMoveFocus) {
+      return;
+    }
+
+    const firstAction = banner.querySelector<HTMLElement>("[data-cookie-action]");
+    firstAction?.focus();
+  };
+
+  const applyConsent = (
+    consent: ConsentPreference,
+    shouldDispatchEvent: boolean
+  ): void => {
+    const dntEnabled = getDoNotTrackEnabled();
+    const analyticsAllowed = consent.analytics === true && !dntEnabled;
+    setRuntimeAnalyticsAllowed(analyticsAllowed);
+
+    if (fathomEnabled) {
+      try {
+        if (analyticsAllowed) {
+          loadFathomScript();
+        } else {
+          removeFathomScript();
+        }
+      } catch {
+        // Ignore script management failures and continue with consent state updates.
+      }
+    }
+
+    setFathomTrackingEnabled(analyticsAllowed);
+    hideBanner();
+
+    if (shouldDispatchEvent) {
+      dispatchConsentChange(consent, dntEnabled);
+    }
+  };
+
+  const openBanner = (): void => {
+    lastFocusBeforeOpen = document.activeElement;
+    showBanner(true);
+  };
+
+  const storedConsent = readConsentPreference();
+
+  if (storedConsent) {
+    applyConsent(storedConsent, false);
+  } else {
+    showBanner(false);
+  }
+
+  banner.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const action = target.getAttribute("data-cookie-action");
+    if (action !== "accept" && action !== "reject") {
+      return;
+    }
+
+    const consent = writeConsentPreference(action === "accept");
+    applyConsent(consent, true);
+  });
+
+  window.addEventListener(CONSENT_EVENTS.OPEN, openBanner);
+</script>
+<style>
+  /* -----------------------------------------------------------------------------
+     CookieConsent Banner Component
+     Fixed position consent dialog with WCAG AAA compliance
+     Responsive layout with clear action buttons
+     ----------------------------------------------------------------------------- */
+
+  .cookie-consent {
+    /* Fixed positioning - bottom center */
+    position: fixed;
+    inset-block-end: var(--spacing-base);
+    inset-inline: var(--spacing-base);
+    z-index: 60;
+
+    /* Layout constraints */
+    max-inline-size: 36rem;
+    padding: var(--spacing-lg);
+    margin-inline: auto;
+
+    /* Visual styling */
+    color: var(--text-primary);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 96%, transparent),
+      color-mix(in srgb, var(--surface-2) 78%, transparent)
+    );
+    border: 2px solid color-mix(in srgb, var(--accent-primary) 42%, transparent);
+    border-radius: var(--radius-xl);
+    box-shadow:
+      var(--shadow-2xl),
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent);
+    backdrop-filter: blur(18px);
+  }
+
+  /* Text content spacing */
+  .cookie-consent__text {
+    margin: 0 0 var(--spacing-base);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Action buttons container */
+  .cookie-consent__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+  }
+
+  /* Button base styles */
+  .cookie-consent__button {
+    /* WCAG AAA minimum touch target */
+    min-block-size: 48px;
+    padding: var(--spacing-md) var(--spacing-lg);
+
+    /* Typography */
+    font: inherit;
+    font-weight: var(--font-weight-bold);
+
+    /* Interaction */
+    cursor: pointer;
+
+    /* Visual styling */
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+
+    /* Smooth transitions */
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  /* Focus state - WCAG AAA compliant */
+  .cookie-consent__button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  /* Hover state for all buttons */
+  .cookie-consent__button:hover,
+  .cookie-consent__button:focus {
+    transform: translateY(-1px);
+  }
+
+  /* Secondary button - subtle styling */
+  .cookie-consent__button--secondary {
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-1) 92%, var(--surface-2));
+    border-color: color-mix(in srgb, var(--border-default) 82%, transparent);
+  }
+
+  .cookie-consent__button--secondary:hover,
+  .cookie-consent__button--secondary:focus {
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
+    border-color: var(--accent-strong);
+    box-shadow: var(--interactive-shadow-focus);
+  }
+
+  /* Primary button - high contrast accent */
+  .cookie-consent__button--primary {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: var(--accent-strong);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 16%, transparent);
+  }
+
+  .cookie-consent__button--primary:hover,
+  .cookie-consent__button--primary:focus {
+    background: var(--accent-primary-hover);
+    box-shadow: var(--interactive-shadow-focus);
+  }
+
+  @media (width <= 640px) {
+    .cookie-consent {
+      inset-inline: var(--spacing-sm);
+      padding: var(--spacing-base);
+    }
+
+    .cookie-consent__actions {
+      flex-direction: column;
+    }
+
+    .cookie-consent__button {
+      justify-content: center;
+      inline-size: 100%;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .cookie-consent__button {
+      transition: none;
+    }
+
+    .cookie-consent__button:hover,
+    .cookie-consent__button:focus {
+      transform: none;
+    }
+  }
+</style>

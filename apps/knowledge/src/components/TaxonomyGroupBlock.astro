@@ -1,0 +1,85 @@
+---
+import TaxonomyArticleGrid from "@components/TaxonomyArticleGrid.astro";
+import TaxonomyBlockHeader from "@components/TaxonomyBlockHeader.astro";
+import type { TaxonomyGroupWithArticles } from "@utils/taxonomy/buildTaxonomySectionPageData";
+
+interface Props {
+  subsectionId: string;
+  group: TaxonomyGroupWithArticles;
+}
+
+const { subsectionId, group } = Astro.props as Props;
+---
+
+<div id={`${subsectionId}--${group.id}`} class="taxonomy-group-block">
+  <div class="taxonomy-group-block__header">
+    <TaxonomyBlockHeader
+      wrapperClassName="taxonomy-group-block__info"
+      titleClassName="taxonomy-group-block__title"
+      level="h3"
+      title={group.title}
+      description={group.description}
+      countLabel={`${group.articleCount} ${group.articleCount === 1 ? "article" : "articles"}`}
+    />
+  </div>
+
+  <TaxonomyArticleGrid articles={group.articles} emptyDescription="No articles yet." />
+</div>
+
+<style>
+  .taxonomy-group-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    overflow: hidden;
+    scroll-margin-block-start: var(--spacing-3xl);
+    background:
+      linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--card-bg) 96%, transparent),
+        color-mix(in srgb, var(--surface-2) 94%, transparent)
+      ),
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-primary) 9%, transparent),
+        transparent 40%
+      );
+    border: var(--card-border-width) solid
+      color-mix(in srgb, var(--card-border-color) 82%, transparent);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-base);
+  }
+
+  .taxonomy-group-block::after {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid color-mix(in srgb, var(--border-default) 36%, transparent);
+    border-radius: calc(var(--card-radius) - var(--spacing-xs));
+  }
+
+  .taxonomy-group-block__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  @media (width >= 640px) {
+    .taxonomy-group-block__header {
+      flex-direction: row;
+      gap: var(--spacing-base);
+      align-items: flex-start;
+    }
+  }
+
+  .taxonomy-group-block__info {
+    flex: 1;
+  }
+
+  .taxonomy-group-block__title {
+    color: var(--text-primary);
+  }
+</style>

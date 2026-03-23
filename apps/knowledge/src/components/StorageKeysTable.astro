@@ -1,0 +1,105 @@
+---
+type StorageKeyRow = {
+  keyName: string;
+  purpose: string;
+  storageType: string;
+  retention: string;
+};
+
+interface Props {
+  caption?: string;
+  rows: readonly StorageKeyRow[] | StorageKeyRow[];
+}
+
+const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
+  Astro.props;
+---
+
+<div class="storage-keys-table">
+  <table class="storage-keys-table__table">
+    <caption class="storage-keys-table__sr-only">{caption}</caption>
+    <thead>
+      <tr>
+        <th scope="col">Key</th>
+        <th scope="col">Purpose</th>
+        <th scope="col">Type</th>
+        <th scope="col">Retention</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            <td>
+              <code>{row.keyName}</code>
+            </td>
+            <td>{row.purpose}</td>
+            <td>{row.storageType}</td>
+            <td>{row.retention}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .storage-keys-table {
+    padding: var(--spacing-sm);
+    overflow-inline: auto;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-sm);
+  }
+
+  .storage-keys-table__table {
+    inline-size: 100%;
+    min-inline-size: min(var(--measure-standard), 100%);
+    border-collapse: collapse;
+  }
+
+  .storage-keys-table__table th,
+  .storage-keys-table__table td {
+    padding: var(--spacing-md) var(--spacing-sm);
+    vertical-align: top;
+    color: var(--text-secondary);
+    text-align: start;
+    border-block-end: 1px solid var(--surface-border-subtle);
+  }
+
+  .storage-keys-table__table th {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-pill-bg) 74%, var(--surface-1));
+  }
+
+  .storage-keys-table__table code {
+    display: inline-block;
+    padding: var(--spacing-2xs) var(--spacing-xs);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-base);
+    color: var(--link-default);
+    background: var(--surface-pill-bg);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-sm);
+  }
+
+  .storage-keys-table__table tbody tr:last-child td {
+    border-block-end: 0;
+  }
+
+  .storage-keys-table__sr-only {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: inset(50%);
+  }
+</style>

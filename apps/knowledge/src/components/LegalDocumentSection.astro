@@ -1,0 +1,112 @@
+---
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  body?: readonly string[] | string[];
+  icon: string;
+  title: string;
+  class?: string;
+}
+
+const { body = [], icon, title, class: className, ...rest } = Astro.props;
+---
+
+<section {...rest} class:list={["legal-document-section", className]}>
+  <div class="legal-document-section__header">
+    <Icon name={icon} class="legal-document-section__icon" aria-hidden="true" />
+    <Headline level="h2" textSize="lg" className="legal-document-section__title">
+      {title}
+    </Headline>
+  </div>
+  {
+    body.length > 0 && (
+      <div class="legal-document-section__text-group">
+        {body.map((text) => (
+          <Paragraph
+            textSize="sm"
+            className="legal-document-section__text"
+            set:html={text}
+          />
+        ))}
+      </div>
+    )
+  }
+  <slot />
+</section>
+
+<style>
+  .legal-document-section {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-xl);
+    padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    overflow: hidden;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-base);
+  }
+
+  .legal-document-section::after {
+    position: absolute;
+    inset: var(--spacing-xs);
+    pointer-events: none;
+    content: "";
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+  }
+
+  .legal-document-section__header {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    padding-block-end: var(--spacing-base);
+    border-block-end: 1px solid var(--surface-border-soft);
+  }
+
+  .legal-document-section__icon {
+    flex-shrink: 0;
+    inline-size: var(--spacing-xl);
+    block-size: var(--spacing-xl);
+    color: var(--accent-primary);
+  }
+
+  .legal-document-section__title {
+    margin: 0;
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    color: var(--text-primary);
+    letter-spacing: var(--heading-letter-spacing);
+  }
+
+  .legal-document-section__text-group {
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .legal-document-section__text {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .legal-document-section__text :global(a) {
+    color: var(--link-default);
+    text-decoration: underline;
+    text-underline-offset: var(--spacing-2xs);
+  }
+
+  .legal-document-section__text :global(a:hover),
+  .legal-document-section__text :global(a:focus-visible) {
+    color: var(--link-hover);
+  }
+
+  @media (width >= 720px) {
+    .legal-document-section {
+      padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    }
+  }
+</style>

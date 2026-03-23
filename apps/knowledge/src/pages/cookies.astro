@@ -1,0 +1,185 @@
+---
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import LegalDocumentSection from "../components/LegalDocumentSection.astro";
+import StorageKeysTable from "../components/StorageKeysTable.astro";
+import StaticPageHero from "../components/StaticPageHero.astro";
+import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
+
+const title = "Cookie & Storage Policy";
+const description =
+  "Details about cookies and local storage used on Melody Mind Knowledge, including analytics consent preferences.";
+const lastUpdated = "06 February 2026";
+
+const highlights = [
+  {
+    value: "Consent-based",
+    label: "Analytics only turns on after you explicitly opt in.",
+  },
+  {
+    value: "Local-first",
+    label: "Most entries are browser storage keys for reading features.",
+  },
+  {
+    value: "Always manageable",
+    label: "You can update consent or clear storage at any time.",
+  },
+] as const;
+
+const policySections = [
+  {
+    icon: "shield",
+    title: "Do we use cookies?",
+    body: [
+      "We currently do not place non-essential tracking cookies ourselves. For analytics, we use Fathom only after you give explicit consent through the cookie banner.",
+    ],
+  },
+  {
+    icon: "shield",
+    title: "Analytics consent and legal basis",
+    body: [
+      "Non-essential analytics turns on only after you explicitly opt in through the cookie banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy Directive.",
+      "If your browser sends a Do Not Track (DNT) signal, analytics remains disabled.",
+    ],
+  },
+  {
+    icon: "settings",
+    title: "How to change or withdraw consent",
+    body: [
+      "Open <strong>Cookie settings</strong> in the footer at any time to review or update your choice. You can also clear site storage in your browser settings.",
+    ],
+  },
+  {
+    icon: "file-text",
+    title: "Related privacy information",
+    body: [
+      'For full details about personal data processing and your rights, see our <a href="/privacy">Privacy Policy</a>.',
+    ],
+  },
+  {
+    icon: "refresh-ccw",
+    title: "Policy updates",
+    body: [
+      "We update this page when storage technologies, analytics settings, or legal requirements change.",
+      `Last updated: ${lastUpdated}.`,
+    ],
+  },
+] as const;
+
+const storageKeys = [
+  {
+    keyName: "cookie_consent",
+    purpose: "Stores your consent preferences for essential and analytics processing.",
+    storageType: "LocalStorage",
+    retention: "Until you change or delete it.",
+  },
+  {
+    keyName: "mm_recent_reads",
+    purpose: "Shows your recently opened articles on the home page.",
+    storageType: "LocalStorage",
+    retention: "Until it is replaced or cleared by you.",
+  },
+  {
+    keyName: "mm_read_progress",
+    purpose: "Stores your reading progress for each article.",
+    storageType: "LocalStorage",
+    retention: "Until it is replaced or cleared by you.",
+  },
+] as const;
+
+const pageSeo = buildLegalPageSeo({
+  site: Astro.site,
+  path: "/cookies",
+  title,
+  description,
+  imageAlt: "Cookie Policy",
+  fallbackKeywords: ["cookies", "localStorage", "privacy", "consent", "fathom"],
+  maxDescription: 160,
+  modifiedDate: new Date(lastUpdated),
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
+    <div class="cookies-page">
+      <StaticPageHero
+        eyebrow="Privacy"
+        title="Cookie & Storage Policy"
+        lead="This page explains which cookies and browser storage technologies we use, why we use them, and how you can manage your preferences."
+        {highlights}
+        highlightsLabel="Key cookie policy points"
+      />
+
+      <div class="cookies-page__content-grid">
+        {
+          policySections.map((section) => (
+            <LegalDocumentSection
+              icon={section.icon}
+              title={section.title}
+              body={section.body}
+            />
+          ))
+        }
+
+        <LegalDocumentSection
+          icon="book-open"
+          title="Local storage entries we use"
+          class="cookies-page__section--table"
+        >
+          <StorageKeysTable rows={storageKeys} />
+        </LegalDocumentSection>
+      </div>
+    </div>
+  </PageShell>
+</Layout>
+
+<style>
+  .cookies-page {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-2xl);
+  }
+
+  .cookies-page__content-grid {
+    position: relative;
+    display: grid;
+    gap: var(--section-gap);
+    padding-block-start: var(--spacing-xl);
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .cookies-page__content-grid::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: min(8rem, 22%);
+    height: 1px;
+    content: "";
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent-primary) 52%, transparent),
+      transparent
+    );
+  }
+
+  @media (width >= 720px) {
+    .cookies-page {
+      padding: var(--spacing-xl);
+    }
+
+    .cookies-page__content-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 1100px) {
+    .cookies-page__content-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-lg);
+    }
+
+    .cookies-page__section--table {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

@@ -1,0 +1,363 @@
+---
+import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
+import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
+import SEO from "@shared-ui/components/meta/SEO.astro";
+import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
+import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
+import SharedFooter from "@shared-ui/components/layout/Footer.astro";
+import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { buildDefaultCopyrightText } from "@shared-utils/utils/appShell";
+import {
+  ensureTrailingSlash,
+  resolveAbsoluteUrl,
+  resolveBaseUrl,
+} from "@shared-utils/utils/siteUrls";
+import {
+  buildOrganizationSchema,
+  buildPodcastEpisodeSchema,
+  buildPodcastSeriesSchema,
+  buildWebSiteSchema,
+} from "@shared-utils/utils/seo/seoSchema";
+import {
+  PODCAST_FEED_PATH,
+  PODCAST_FEED_URL,
+  PODCAST_PLATFORM_URLS,
+  PODCAST_PRECONNECT_ORIGINS,
+  PODCAST_SITE_URL,
+} from "../constants/podcastLinks";
+import { podcastHeroImageUrl } from "../utils/podcastImages";
+import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
+import podcastBrandLogo from "../assets/melody-mind-podcast.png";
+import { podcastAppShellConfig } from "../utils/appShellConfig";
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  keywords?: string[];
+  canonical?: string;
+  language?: string;
+  locale?: string;
+  episodeNumber?: number;
+  durationSeconds?: number | undefined;
+  audioUrl?: string;
+  episodeImage?: string;
+  seriesDescription?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  structuredData?: Array<Record<string, unknown>>;
+  index?: boolean;
+  follow?: boolean;
+}
+
+const {
+  title,
+  description,
+  image = podcastHeroImageUrl,
+  type = "website",
+  publishedTime,
+  modifiedTime,
+  author = "MelodyMind Podcasts",
+  keywords = [],
+  canonical,
+  language = "en",
+  locale = "en-US",
+  episodeNumber,
+  durationSeconds,
+  audioUrl,
+  episodeImage,
+  seriesDescription,
+  breadcrumbs = [],
+  structuredData = [],
+  index = true,
+  follow = true,
+} = Astro.props;
+
+const siteTitle = "MelodyMind Podcasts";
+const normalizedTitle = normalizeWhitespace(title);
+const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
+  ? normalizedTitle
+  : `${normalizedTitle} | ${siteTitle}`;
+const siteUrl = resolveBaseUrl(PODCAST_SITE_URL);
+const canonicalPath = canonical
+  ? new URL(canonical, `${siteUrl}/`).pathname
+  : Astro.url.pathname;
+const currentUrl = resolveAbsoluteUrl(siteUrl, ensureTrailingSlash(canonicalPath));
+const imageUrl = resolveAbsoluteUrl(siteUrl, image);
+const episodeImageUrl = episodeImage
+  ? resolveAbsoluteUrl(siteUrl, episodeImage)
+  : imageUrl;
+const podcastFeedUrl = PODCAST_FEED_URL;
+const podcastImage = podcastHeroImageUrl;
+const seriesCopy =
+  seriesDescription ||
+  "Melody Mind explores the stories behind the music that shaped generations, with Daniel and Annabelle.";
+const defaultKeywords = [
+  "podcast",
+  "music history",
+  "audio",
+  "streaming",
+  "entertainment",
+];
+const normalizedDescription = normalizeWhitespace(description);
+const shellConfig = podcastAppShellConfig;
+const imageAlt =
+  type === "article"
+    ? `Cover artwork for ${normalizedTitle}`
+    : `Cover artwork for ${siteTitle}`;
+const publishDate = publishedTime ? new Date(publishedTime) : undefined;
+const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
+
+const publisher = {
+  "@type": "Organization",
+  name: "MelodyMind Podcasts",
+  url: siteUrl,
+  logo: {
+    "@type": "ImageObject",
+    url: podcastImage,
+  },
+};
+
+const episodeDurationIso =
+  typeof durationSeconds === "number" && durationSeconds > 0
+    ? toIsoDuration(durationSeconds)
+    : undefined;
+const authorNames = ["Daniel Schmid", "Annabelle"];
+
+const organizationSchema = buildOrganizationSchema({
+  siteUrl,
+  siteName: siteTitle,
+  description: seriesCopy,
+  logoUrl: podcastImage,
+});
+
+const webSiteSchema = buildWebSiteSchema({
+  siteUrl,
+  siteName: siteTitle,
+  description: seriesCopy,
+  searchPathTemplate: "/search?q={search_term_string}",
+});
+
+const podcastSeriesJson = buildPodcastSeriesSchema({
+  siteUrl,
+  title: siteTitle,
+  description: seriesCopy,
+  locale,
+  imageUrl: podcastImage,
+  feedUrl: podcastFeedUrl,
+  sameAs: PODCAST_PLATFORM_URLS,
+  authorNames,
+  publisherName: publisher.name,
+  publisherLogoUrl: podcastImage,
+});
+
+const podcastEpisodeJson =
+  type === "article"
+    ? buildPodcastEpisodeSchema({
+        title: normalizedTitle,
+        description: normalizedDescription,
+        url: currentUrl,
+        seriesTitle: siteTitle,
+        seriesUrl: siteUrl,
+        locale,
+        imageUrl: episodeImageUrl,
+        ...(publishedTime ? { publishedAt: publishedTime } : {}),
+        ...(modifiedTime || publishedTime
+          ? { modifiedAt: modifiedTime || publishedTime }
+          : {}),
+        ...(typeof episodeNumber === "number" ? { episodeNumber } : {}),
+        ...(episodeDurationIso ? { durationIso: episodeDurationIso } : {}),
+        ...(audioUrl ? { audioUrl } : {}),
+        authorNames,
+        publisherName: publisher.name,
+        publisherLogoUrl: podcastImage,
+      })
+    : undefined;
+
+const seoStructuredData = [
+  organizationSchema,
+  webSiteSchema,
+  podcastSeriesJson,
+  podcastEpisodeJson,
+  ...structuredData,
+].filter((item): item is StructuredData => Boolean(item));
+
+const pageSeo = buildPageSeo({
+  title: fullTitle,
+  description: normalizedDescription,
+  url: currentUrl,
+  image: imageUrl,
+  imageAlt,
+  type: type === "article" ? "article" : "website",
+  structuredData: seoStructuredData,
+  fallbackKeywords: [...defaultKeywords, ...keywords],
+  breadcrumbs,
+  index,
+  follow,
+  maxImagePreview: "large",
+  maxSnippet: -1,
+  maxVideoPreview: -1,
+  ogLocale: locale.replace("-", "_"),
+  twitterCreator: "@melodymind",
+  authorName: author,
+  brandSuffix: false,
+  ...(publishDate ? { publishDate } : {}),
+  ...(modifiedDate ? { modifiedDate } : {}),
+});
+
+const seoProps = {
+  title: pageSeo.title,
+  description: pageSeo.description,
+  keywords: pageSeo.keywordArray,
+  canonical: pageSeo.canonical,
+  structuredDataExtra: pageSeo.structuredData,
+  ...(pageSeo.image ? { image: pageSeo.image } : {}),
+  ...(pageSeo.imageAlt ? { imageAlt: pageSeo.imageAlt } : {}),
+  ...(pageSeo.publishDate ? { publishDate: pageSeo.publishDate } : {}),
+  ...(pageSeo.modifiedDate ? { modifiedDate: pageSeo.modifiedDate } : {}),
+  ...(pageSeo.authorName ? { authorName: pageSeo.authorName } : {}),
+};
+---
+
+<MasterLayout
+  lang={language}
+  bodyClass="podcast-layout"
+  mainClass="podcast-layout__main"
+  contentShellClass="podcast-layout__container"
+  showSkipLink={false}
+  enableThemeInit={true}
+  appTitle="Melody Mind Podcasts"
+>
+  <Fragment slot="head">
+    <AppHeadResources
+      fontPreloads={[
+        {
+          href: "/fonts/atkinson-hyperlegible-regular.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: true,
+        },
+      ]}
+      dnsPrefetch={[{ href: "//cdn.usefathom.com" }]}
+      rssTitle={shellConfig.rssTitle}
+      rssHref={PODCAST_FEED_PATH}
+      rssHrefLang={locale}
+    />
+    {
+      PODCAST_PRECONNECT_ORIGINS.map((origin) => (
+        <link rel="preconnect" href={origin} crossorigin />
+      ))
+    }
+    <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
+    <SEO
+      {...seoProps}
+      openGraph={{
+        ...pageSeo.openGraph,
+        locale: pageSeo.openGraph.locale || locale.replace("-", "_"),
+      }}
+      ogSiteName={siteTitle}
+      twitter={pageSeo.twitter}
+      twitterUrl={pageSeo.canonical}
+      twitterSite="@melodymind"
+      articleAuthor={type === "article" ? author : undefined}
+    />
+    <meta name="robots" content={pageSeo.robots} />
+    <meta name="language" content={language} />
+    <meta name="revisit-after" content="7 days" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="IGOFKHTB" defer
+    ></script>
+  </Fragment>
+
+  <SkipLink slot="body-start" />
+  <SiteHeader
+    slot="before-main"
+    headerConfig={{
+      ...shellConfig.header,
+      brandLogoSrc: podcastBrandLogo,
+    }}
+  />
+
+  <SharedFooter
+    slot="after-main"
+    footerConfig={{
+      ...shellConfig.footer,
+      showSettings: true,
+      copyrightText: buildDefaultCopyrightText(new Date().getFullYear()),
+    }}
+  />
+
+  <AutoInitScript slot="body-end" />
+
+  <slot />
+</MasterLayout>
+
+<style>
+  :global(.podcast-layout) {
+    background: var(--page-background);
+  }
+
+  :global(.podcast-layout__main) {
+    position: relative;
+  }
+
+  :global(.podcast-layout__main)::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 48%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 18%, transparent),
+        transparent 28%
+      );
+  }
+
+  .podcast-layout__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--spacing-xl);
+    max-inline-size: var(--max-width);
+    padding-block: var(--spacing-base);
+    padding-inline: var(--spacing-sm);
+    margin: 0 auto;
+  }
+
+  @media (width >= 480px) {
+    .podcast-layout__container {
+      padding-inline: var(--spacing-base);
+    }
+  }
+
+  @media (width >= 768px) {
+    .podcast-layout__container {
+      padding-block: var(--spacing-xl);
+      padding-inline: var(--spacing-xl);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .podcast-layout__container {
+      padding-inline: var(--spacing-2xl);
+    }
+  }
+
+  @media (width >= 1280px) {
+    .podcast-layout__container {
+      padding-inline: var(--spacing-3xl);
+    }
+  }
+</style>

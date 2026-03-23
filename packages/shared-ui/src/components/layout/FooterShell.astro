@@ -1,0 +1,79 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  variant?: "default" | "podcast";
+  class?: string;
+}
+
+const { variant = "default", class: className, ...rest } = Astro.props as Props;
+
+const hasBottom = Astro.slots.has("bottom");
+---
+
+<footer
+  {...rest}
+  class:list={["footer-shell", `footer-shell--${variant}`, className]}
+  role="contentinfo"
+>
+  <div class="footer-shell__container">
+    <div class="footer-shell__main">
+      <slot />
+    </div>
+
+    {
+      hasBottom && (
+        <div class="footer-shell__bottom">
+          <slot name="bottom" />
+        </div>
+      )
+    }
+  </div>
+</footer>
+
+<style>
+  /* -----------------------------------------------------------------------------
+     FooterShell Component Styles
+     Simple container wrapper for footer content
+     ----------------------------------------------------------------------------- */
+
+  .footer-shell {
+    margin-block-start: var(--spacing-4xl);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-overlay) 82%, transparent),
+        transparent 14rem
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-2) 88%, var(--bg-secondary)),
+        color-mix(in srgb, var(--surface-1) 78%, var(--bg-primary))
+      );
+    border-block-start: 1px solid var(--surface-border-soft);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 64%, transparent);
+  }
+
+  .footer-shell__container {
+    display: grid;
+    gap: var(--spacing-2xl);
+    padding-block: var(--spacing-2xl) var(--spacing-xl);
+  }
+
+  .footer-shell__main {
+    display: block;
+  }
+
+  .footer-shell__bottom {
+    display: block;
+  }
+
+  @media (width >= 768px) {
+    .footer-shell {
+      margin-block-start: clamp(var(--spacing-4xl), 8vw, 6rem);
+    }
+
+    .footer-shell__container {
+      gap: var(--spacing-3xl);
+      padding-block: var(--spacing-3xl) var(--spacing-2xl);
+    }
+  }
+</style>

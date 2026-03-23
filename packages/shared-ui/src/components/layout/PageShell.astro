@@ -1,0 +1,174 @@
+---
+interface Props {
+  className?: string;
+  containerClass?: string;
+}
+
+const { className = "", containerClass = "" } = Astro.props as Props;
+
+const rootClasses = ["page-shell", className].filter(Boolean).join(" ");
+const containerClasses = ["page-shell__container", containerClass]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<div class={rootClasses}>
+  <div class={containerClasses}>
+    <slot />
+  </div>
+</div>
+<style>
+  /* -----------------------------------------------------------------------------
+     PageShell Component Styles
+     Main page container with responsive padding and max-width variants
+     ----------------------------------------------------------------------------- */
+
+  .page-shell {
+    /* Positioning */
+    position: relative;
+
+    /* Layout */
+    min-block-size: 100vb;
+    overflow-inline: hidden;
+
+    /* Typography */
+    color: var(--text-primary);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-overlay) 58%, transparent),
+      transparent 18rem
+    );
+    isolation: isolate;
+  }
+
+  .page-shell::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 46%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-2) 62%, transparent),
+        transparent 20rem
+      );
+    opacity: 0.82;
+  }
+
+  .page-shell::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at top left,
+        color-mix(in srgb, var(--surface-1) 26%, transparent),
+        transparent 34rem
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--bg-secondary) 24%, transparent),
+        transparent 28rem
+      );
+  }
+
+  /* Main container - default width */
+  .page-shell__container {
+    /* Positioning */
+    position: relative;
+    z-index: 1;
+
+    /* Layout */
+    max-inline-size: min(72rem, var(--page-max-width));
+    padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-4xl);
+    margin: 0 auto;
+  }
+
+  .page-shell--grid .page-shell__container {
+    display: grid;
+    gap: var(--section-gap);
+  }
+
+  .page-shell--aurora::before {
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 14%, transparent),
+        transparent 42%
+      ),
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-muted) 12%, transparent),
+        transparent 34rem
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-2) 68%, transparent),
+        transparent 20rem
+      );
+    opacity: 0.9;
+  }
+
+  .page-shell__container > :first-child {
+    margin-block-start: 0;
+  }
+
+  .page-shell__container > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* Variant: Wide container */
+  .page-shell__container--wide {
+    max-inline-size: 82rem;
+  }
+
+  /* Variant: Extra spacious padding */
+  .page-shell__container--spacious {
+    padding: var(--spacing-3xl) var(--spacing-lg);
+  }
+
+  /* Variant: Narrow container for reading */
+  .page-shell__container--narrow {
+    max-inline-size: 58rem;
+  }
+
+  /* Tablet breakpoint - increase padding */
+  @media (width >= 640px) {
+    .page-shell__container {
+      padding: calc(var(--page-padding-y) + var(--spacing-base)) var(--page-padding-x)
+        var(--spacing-4xl);
+    }
+
+    .page-shell__container--spacious {
+      padding: var(--spacing-4xl) var(--spacing-lg);
+    }
+  }
+
+  /* Desktop breakpoint - more padding */
+  @media (width >= 1024px) {
+    .page-shell__container {
+      padding: calc(var(--page-padding-y) + var(--spacing-lg))
+        clamp(var(--spacing-xl), 4vw, var(--spacing-2xl))
+        clamp(var(--spacing-4xl), 7vw, 6rem);
+    }
+
+    .page-shell__container--spacious {
+      padding: 3.5rem var(--spacing-2xl);
+    }
+  }
+
+  /* Large desktop - expand wide variant */
+  @media (width >= 1280px) {
+    .page-shell__container--wide {
+      max-inline-size: 92rem;
+    }
+  }
+</style>
