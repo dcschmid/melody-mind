@@ -1,119 +1,122 @@
-# Scripts
+# Knowledge Scripts
 
-This directory contains utility scripts for the MelodyMind project.
+This directory contains maintenance and migration scripts for the Knowledge app. Most of
+them operate on content files directly, so treat them as editorial tooling, not casual
+helpers.
 
-## Crosslinking Script
+## Safety Expectations
 
-### `crosslink-artists.ts`
+Before running any file-modifying script:
 
-Creates bidirectional links between Artist and Knowledge pages.
+1. commit or stash unrelated work
+2. run a dry-run mode if one exists
+3. read the script options first
+4. review the resulting diff before committing
 
-**Features:**
+For scripts that touch many content files, validating with
+`pnpm --filter knowledge build` afterwards is strongly recommended.
 
-- **Knowledge → Artists**: Adds markdown links in content when artist name is found
-- **Artist → Knowledge**: Adds knowledge articles to `relatedArticles` array
-- **Dry-run mode**: Preview changes without modifying files
-- **Atomic writes**: Writes to temporary files first, then renames (prevents data loss)
-- **Backup**: Creates `.backup` files before modifications
-- **Smart matching**: Whole-word matching with word boundaries
-- **Validation**: Validates required fields (`name` for artists, `title` for knowledge)
-- **Logging**: Warns when files are skipped due to errors
+## `crosslink-artists.ts`
 
-**Usage:**
+Creates bidirectional links between Artist and Knowledge content.
+
+### What It Does
+
+- scans artist pages in `src/content/artists/`
+- scans knowledge pages in `src/content/knowledge-en/`
+- finds artist name mentions in Knowledge content
+- converts plain-text matches to markdown links
+- appends related Knowledge articles to artist `relatedArticles`
+
+### Safety Features
+
+- dry-run mode
+- atomic writes
+- optional backup creation
+- whole-word matching
+- validation of required fields
+- warnings for skipped or malformed files
+
+### Usage
 
 ```bash
-# Preview changes (recommended first)
-yarn crosslink-artists:dry
+# Recommended first pass
+pnpm --filter knowledge crosslink-artists:dry
 
 # Apply changes
-yarn crosslink-artists
+pnpm --filter knowledge crosslink-artists
 
-# Or with tsx directly
+# Direct invocation
 npx tsx scripts/crosslink-artists.ts --dry-run
 npx tsx scripts/crosslink-artists.ts
 
-# Force overwrite existing backups
+# Overwrite existing backups
 npx tsx scripts/crosslink-artists.ts --force
 
-# Skip backup creation (not recommended)
+# Skip backups
 npx tsx scripts/crosslink-artists.ts --no-backup
 ```
 
-**Example Output:**
+### Command-Line Options
 
+- `--dry-run`: preview changes without writing files
+- `--no-backup`: skip creating `.backup` files
+- `--force`: overwrite existing backups instead of skipping files
+
+### Example Outcome
+
+- `Ella Fitzgerald` becomes `[Ella Fitzgerald](/artists/ella-fitzgerald)`
+- the referenced Knowledge article is added to the artist's `relatedArticles`
+
+## `check_content.mjs`
+
+Validates Knowledge content files for consistency and formatting expectations. Use this
+when you suspect frontmatter drift, malformed content, or content-level integrity issues.
+
+## `check_scoped_css.mjs`
+
+Verifies that Astro component styles are properly scoped. This is useful when working on
+shared UI patterns inside the Knowledge app and wanting to avoid style leakage.
+
+Typical usage:
+
+```bash
+pnpm --filter knowledge check:scoped-css
 ```
-🔗 Crosslinking Script: Artists ↔ Knowledge
-==================================================
-Mode: DRY-RUN
-Backup: enabled
-Force backup overwrite: disabled
 
-⚠️  Missing or invalid 'title' field in 2010s.mdx
+## `check_seo_meta.mjs`
 
-🔍 Scanning 14 artists and 7 knowledge pages...
+Performs Knowledge-specific SEO checks. Use this when touching metadata builders, layout
+head rendering, article frontmatter, or page-level SEO utilities.
 
-==================================================
-📊 SUMMARY
-==================================================
-Knowledge pages to update: 3
-Artist pages to update: 4
-Total artist links to add: 21
-Total related articles to add: 4
+Typical usage:
+
+```bash
+pnpm --filter knowledge check:seo
 ```
 
-**Command Line Options:**
+## `convert_pngs.py`
 
-- `--dry-run`: Run in preview mode without modifying files
-- `--no-backup`: Skip creating backup files (not recommended)
-- `--force`: Overwrite existing `.backup` files instead of skipping
+Converts PNG images to optimized output for better frontend performance.
 
-**How it works:**
+### Related Package Scripts
 
-1. Scans all artist pages in `src/content/artists/`
-2. Scans all knowledge pages in `src/content/knowledge-en/`
-3. Finds artist name mentions in knowledge content (whole-word matches)
-4. Converts plain text mentions to markdown links: `[Ella Fitzgerald](/artists/ella-fitzgerald)`
-5. Adds knowledge articles to artist's `relatedArticles` if artist is mentioned
+```bash
+pnpm --filter knowledge convert-images
+pnpm --filter knowledge convert-images:exec
+pnpm --filter knowledge convert-images:exec:delete
+```
 
-**Safety Features:**
+The non-`exec` command is the safer inspection step. The `:delete` variant is destructive
+and should only be used once you have reviewed the generated output carefully.
 
-- ✅ Only creates links for exact name matches (whole words)
-- ✅ Won't link if text is already inside a markdown link
-- ✅ Creates `.backup` files before any modifications
-- ✅ Atomic file writes (temp file → rename) prevents data loss
-- ✅ Won't overwrite existing backups without `--force` flag
-- ✅ Validates required fields (`name`, `title`) with warnings
-- ✅ Logs warnings when files are skipped due to errors
-- ✅ Dry-run mode lets you preview before committing
-- ✅ Graceful error handling with detailed error messages
+## Contributing New Scripts
 
-**What gets linked:**
+When adding a new script here:
 
-- **Artist names**: "Ella Fitzgerald" → `/artists/ella-fitzgerald`
-- **Related articles**: Knowledge pages mentioning artists → added to `relatedArticles` array
-- **Keywords**: Also searches in frontmatter keywords for additional matches
-
-## Other Scripts
-
-### `check_content.mjs`
-
-Validates content files for consistency and proper formatting.
-
-### `check_scoped_css.mjs`
-
-Verifies that CSS is properly scoped in Astro components.
-
-### `convert_pngs.py`
-
-Converts PNG images to WebP format for better performance.
-
-## Contributing
-
-When adding new scripts:
-
-1. Use TypeScript or JavaScript with ES modules
-2. Follow the project's code style guidelines
-3. Include a dry-run mode for file-modifying scripts
-4. Create backups before modifying files
-5. Add documentation to this README
-6. Test thoroughly before running on production data
+1. prefer TypeScript or modern ESM JavaScript
+2. add a dry-run mode if files can be modified
+3. create backups or otherwise preserve recoverability
+4. log skipped/error cases clearly
+5. document the script in this README
+6. verify the Knowledge build after applying content changes
