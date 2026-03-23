@@ -1,5 +1,14 @@
 # Render Blueprint for MelodyMind Monorepo
 # https://render.com/docs/blueprint-spec
+#
+# To add another static Astro app later:
+# 1. Copy one of the service blocks below
+# 2. Change `name`, `buildCommand`, `staticPublishPath`
+# 3. Replace the app-specific `buildFilter.paths` entry (for example `apps/new-app/**`)
+# 4. Apply the Blueprint in Render
+#
+# If Blueprint Auto Sync is enabled in Render, newly added services in this file are
+# created automatically on the next sync. Removed services are not deleted automatically.
 
 services:
   # Knowledge App - Main Domain (melody-mind.de)
@@ -11,6 +20,8 @@ services:
     buildFilter:
       paths:
         - apps/knowledge/**
+        - packages/shared-ui/**
+        - packages/shared-utils/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
@@ -47,6 +58,8 @@ services:
     buildFilter:
       paths:
         - apps/quiz/**
+        - packages/shared-ui/**
+        - packages/shared-utils/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
@@ -83,6 +96,8 @@ services:
     buildFilter:
       paths:
         - apps/podcasts/**
+        - packages/shared-ui/**
+        - packages/shared-utils/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json

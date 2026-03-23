@@ -27,6 +27,16 @@ This monorepo uses [Render Blueprints](https://render.com/docs/blueprint-spec) f
 5. Review the 3 services and click **Apply**
 6. Wait for initial deployment (~2-3 minutes per service)
 
+### Blueprint Auto Sync
+
+If you enable **Auto Sync** for the Blueprint in Render:
+
+- Changes to existing services in `render.yaml` are applied automatically
+- Newly added services in `render.yaml` are created automatically
+- Removed services are **not** deleted automatically
+
+This is separate from normal service Auto-Deploy on code pushes.
+
 ### 2. Configure Custom Domains
 
 After services are deployed, add custom domains:
@@ -89,6 +99,8 @@ Each service only rebuilds when relevant files change:
 buildFilter:
   paths:
     - apps/knowledge/**     # App-specific files
+    - packages/shared-ui/** # Shared workspace package changes
+    - packages/shared-utils/**
     - package.json          # Root config changes
     - pnpm-lock.yaml
     - turbo.json
@@ -98,6 +110,7 @@ buildFilter:
 This means:
 - Changes to `apps/knowledge/**` → Only knowledge rebuilds
 - Changes to `apps/quiz/**` → Only quiz rebuilds
+- Changes to `packages/shared-ui/**` or `packages/shared-utils/**` → All apps rebuild
 - Changes to root configs → All services rebuild
 
 ### Security Headers
@@ -143,6 +156,8 @@ services:
     buildFilter:
       paths:
         - apps/knowledge/**
+        - packages/shared-ui/**
+        - packages/shared-utils/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
@@ -178,6 +193,48 @@ cd apps/knowledge && pnpm preview
 cd apps/quiz && pnpm preview
 cd apps/podcasts && pnpm preview
 ```
+
+---
+
+## Adding Another App Later
+
+If you later add another app to this monorepo, Render will only create it automatically if
+you also add it to `render.yaml`.
+
+Example for a fourth static Astro app:
+
+```yaml
+- type: web
+  name: melody-mind-new-app
+  runtime: static
+  buildCommand: pnpm install && pnpm build:new-app
+  staticPublishPath: apps/new-app/dist
+  buildFilter:
+    paths:
+      - apps/new-app/**
+      - packages/shared-ui/**
+      - packages/shared-utils/**
+      - package.json
+      - pnpm-lock.yaml
+      - turbo.json
+      - pnpm-workspace.yaml
+  headers:
+    - path: /*
+      name: X-Content-Type-Options
+      value: nosniff
+  envVars:
+    - key: NODE_VERSION
+      value: "22"
+```
+
+Checklist:
+
+1. Add the app under `apps/<name>`
+2. Add a root script like `build:new-app` in [package.json](/home/daniel/dev/github/melody-mind/package.json)
+3. Add a new service block to [render.yaml](/home/daniel/dev/github/melody-mind/render.yaml)
+4. Push the change
+5. If Blueprint Auto Sync is enabled, Render creates the new service automatically
+6. Add the custom domain for that new service in the Render dashboard
 
 ---
 
