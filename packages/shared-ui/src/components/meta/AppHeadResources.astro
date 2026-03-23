@@ -1,0 +1,64 @@
+---
+interface HeadResourceLink {
+  href: string;
+  as?: "style" | "script" | "font" | "image";
+  type?: string;
+  crossorigin?: "anonymous" | "use-credentials" | boolean;
+}
+
+interface Props {
+  dnsPrefetch?: ReadonlyArray<Pick<HeadResourceLink, "href">>;
+  preloadedResources?: ReadonlyArray<HeadResourceLink>;
+  fontPreloads?: ReadonlyArray<HeadResourceLink>;
+  sitemapHref?: string;
+  rssTitle?: string;
+  rssHref?: string;
+  rssHrefLang?: string;
+}
+
+const {
+  dnsPrefetch = [],
+  preloadedResources = [],
+  fontPreloads = [],
+  sitemapHref = "/sitemap-index.xml",
+  rssTitle,
+  rssHref,
+  rssHrefLang,
+} = Astro.props as Props;
+---
+
+{dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
+{
+  preloadedResources.map((resource) => (
+    <link
+      rel="preload"
+      href={resource.href}
+      as={resource.as}
+      type={resource.type}
+      crossorigin={resource.crossorigin}
+    />
+  ))
+}
+{
+  fontPreloads.map((font) => (
+    <link
+      rel="preload"
+      href={font.href}
+      as={font.as}
+      type={font.type}
+      crossorigin={font.crossorigin}
+    />
+  ))
+}
+<link rel="sitemap" href={sitemapHref} />
+{
+  rssTitle && rssHref && (
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={rssTitle}
+      href={rssHref}
+      hreflang={rssHrefLang}
+    />
+  )
+}

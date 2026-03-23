@@ -2,15 +2,13 @@
 import FooterShell from "./FooterShell.astro";
 import Paragraph from "../typography/Paragraph.astro";
 import ThemeToggle from "../actions/ThemeToggle.astro";
+import type { AppShellFooterConfig } from "@shared-utils/utils/appShell";
 
-interface FooterLink {
-  href: string;
-  label: string;
-  target?: "_blank" | "_self";
-  rel?: string;
-}
+type FooterLink = AppShellFooterConfig["exploreLinks"][number];
+type FooterConfig = AppShellFooterConfig;
 
 interface Props {
+  footerConfig?: FooterConfig;
   brandTitle?: string;
   brandText?: string;
   exploreTitle?: string;
@@ -30,6 +28,7 @@ interface Props {
 }
 
 const {
+  footerConfig,
   brandTitle = "Brand",
   brandText = "Curated guides, playlists, and tools for focused listening.",
   exploreTitle = "Explore",
@@ -47,6 +46,26 @@ const {
   cookiesEssentialLabel = "Cookies: essential only",
   copyrightText = `© ${new Date().getFullYear()} MelodyMind. All rights reserved.`,
 } = Astro.props as Props;
+
+const resolvedFooterConfig = {
+  brandTitle,
+  brandText,
+  exploreTitle,
+  exploreLinks,
+  supportTitle,
+  supportLinks,
+  legalTitle,
+  legalLinks,
+  settingsTitle,
+  showSettings,
+  cookieSettingsLabel,
+  themeStatusPrefix,
+  cookiesWaitingLabel,
+  cookiesAllowedLabel,
+  cookiesEssentialLabel,
+  copyrightText,
+  ...footerConfig,
+};
 ---
 
 <FooterShell class="site-footer">
@@ -54,10 +73,10 @@ const {
     <div class="site-footer__section">
       <div data-animate="soft-fade">
         <Paragraph textSize="sm" className="site-footer__title">
-          {brandTitle}
+          {resolvedFooterConfig.brandTitle}
         </Paragraph>
         <Paragraph textSize="sm" className="site-footer__text">
-          {brandText}
+          {resolvedFooterConfig.brandText}
         </Paragraph>
       </div>
     </div>
@@ -65,11 +84,11 @@ const {
     <div class="site-footer__section">
       <div class="site-footer__motion site-footer__motion--fast" data-animate="rise-in">
         <Paragraph textSize="sm" className="site-footer__title">
-          {exploreTitle}
+          {resolvedFooterConfig.exploreTitle}
         </Paragraph>
         <nav aria-label="Footer navigation" class="site-footer__nav">
           {
-            exploreLinks.map((link) => (
+            resolvedFooterConfig.exploreLinks.map((link) => (
               <a
                 class="site-footer__link"
                 href={link.href}
@@ -87,11 +106,11 @@ const {
     <div class="site-footer__section">
       <div class="site-footer__motion site-footer__motion--base" data-animate="rise-in">
         <Paragraph textSize="sm" className="site-footer__title">
-          {supportTitle}
+          {resolvedFooterConfig.supportTitle}
         </Paragraph>
         <nav aria-label="Support links" class="site-footer__nav">
           {
-            supportLinks.map((link) => (
+            resolvedFooterConfig.supportLinks.map((link) => (
               <a
                 class="site-footer__link"
                 href={link.href}
@@ -109,11 +128,11 @@ const {
     <div class="site-footer__section">
       <div class="site-footer__motion site-footer__motion--slow" data-animate="rise-in">
         <Paragraph textSize="sm" className="site-footer__title">
-          {legalTitle}
+          {resolvedFooterConfig.legalTitle}
         </Paragraph>
         <nav aria-label="Legal navigation" class="site-footer__nav">
           {
-            legalLinks.map((link) => (
+            resolvedFooterConfig.legalLinks.map((link) => (
               <a
                 class="site-footer__link"
                 href={link.href}
@@ -129,14 +148,14 @@ const {
     </div>
 
     {
-      showSettings && (
+      resolvedFooterConfig.showSettings && (
         <div class="site-footer__section">
           <div
             class="site-footer__motion site-footer__motion--settings"
             data-animate="rise-in"
           >
             <Paragraph textSize="sm" className="site-footer__title">
-              {settingsTitle}
+              {resolvedFooterConfig.settingsTitle}
             </Paragraph>
             <nav aria-label="Settings navigation" class="site-footer__nav">
               <ThemeToggle />
@@ -145,7 +164,7 @@ const {
                 class="site-footer__link site-footer__cookie-button"
                 data-cookie-settings-trigger
               >
-                {cookieSettingsLabel}
+                {resolvedFooterConfig.cookieSettingsLabel}
               </button>
             </nav>
             <div class="site-footer__status-list">
@@ -154,17 +173,17 @@ const {
                 className="site-footer__cookie-status"
                 data-theme-status
               >
-                {themeStatusPrefix}: system
+                {resolvedFooterConfig.themeStatusPrefix}: system
               </Paragraph>
               <Paragraph
                 textSize="sm"
                 className="site-footer__cookie-status"
                 data-cookie-consent-status
-                data-cookie-waiting-label={cookiesWaitingLabel}
-                data-cookie-allowed-label={cookiesAllowedLabel}
-                data-cookie-essential-label={cookiesEssentialLabel}
+                data-cookie-waiting-label={resolvedFooterConfig.cookiesWaitingLabel}
+                data-cookie-allowed-label={resolvedFooterConfig.cookiesAllowedLabel}
+                data-cookie-essential-label={resolvedFooterConfig.cookiesEssentialLabel}
               >
-                {cookiesWaitingLabel}
+                {resolvedFooterConfig.cookiesWaitingLabel}
               </Paragraph>
             </div>
           </div>
@@ -174,7 +193,7 @@ const {
   </div>
 
   <div slot="bottom" class="site-footer__meta">
-    <Paragraph textSize="sm">{copyrightText}</Paragraph>
+    <Paragraph textSize="sm">{resolvedFooterConfig.copyrightText}</Paragraph>
   </div>
 </FooterShell>
 

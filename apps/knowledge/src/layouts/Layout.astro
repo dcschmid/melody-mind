@@ -1,58 +1,24 @@
 ---
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
+import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
 import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 
-import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 import {
-  buildOrganizationSchema,
-  buildWebSiteSchema,
-} from "@shared-utils/utils/seo/seoSchema";
+  buildAppShellSeoContext,
+  buildDefaultCopyrightText,
+  DEFAULT_DNS_PREFETCH,
+} from "@shared-utils/utils/appShell";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
-import type { NavItem } from "@shared-ui/components/navigation/types";
 import {
   knowledgeBrandLogo,
   knowledgeBrandLogoUrl,
   knowledgeHeroImageUrl,
 } from "@utils/knowledgeImages";
-
-/**
- * Normalized SEO payload expected by the shared `<SEO />` component.
- * Knowledge pages build this upstream and Layout only merges in global defaults.
- */
-interface PageSeo {
-  title: string;
-  description: string;
-  keywords: string;
-  canonical: string;
-  image?: string;
-  type: "website" | "article" | "music" | "game" | "podcastEpisode";
-  robots: string;
-  openGraph: {
-    title: string;
-    description: string;
-    type: string;
-    url: string;
-    image?: string;
-    locale?: string;
-  };
-  twitter: {
-    card: string;
-    title: string;
-    description: string;
-    image?: string;
-    creator?: string;
-  };
-  structuredData: StructuredData[];
-  publishDate?: Date;
-  modifiedDate?: Date;
-  ogLocale?: string;
-  alternateLocales?: string[];
-  authorName?: string;
-  imageAlt?: string;
-}
+import { knowledgeAppShellConfig } from "@utils/appShellConfig";
 
 /**
  * Shared layout contract for all knowledge pages.
@@ -61,7 +27,7 @@ interface PageSeo {
 interface Props {
   imageWidth?: number;
   imageHeight?: number;
-  pageSeo: PageSeo;
+  pageSeo: PageSeoResult;
   ogMusic?: {
     creator?: string;
     album?: string;
@@ -105,66 +71,22 @@ const mergedType = constructedPageSeo.type;
 const mergedCanonical = constructedPageSeo.canonical;
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
-const mergedStructuredData = constructedPageSeo.structuredData;
 const robotsTag = constructedPageSeo.robots;
 const siteUrl = resolveBaseUrl(Astro.site);
-const mergedImage = constructedPageSeo.image || knowledgeHeroImageUrl(siteUrl);
-const globalStructuredData: StructuredData[] = [];
-const siteName = "Melody Mind";
-const siteDescription =
-  "Music knowledge platform for genres, timelines, and guided listening.";
+const shellConfig = knowledgeAppShellConfig;
+const siteName = shellConfig.siteName;
+const siteDescription = shellConfig.siteDescription;
 const siteLogoUrl = knowledgeBrandLogoUrl(siteUrl);
-
-// Ensure every page ships the site-level schemas even if the page config omitted them.
-if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
-  globalStructuredData.push(
-    buildOrganizationSchema({
-      siteUrl,
-      siteName,
-      description: siteDescription,
-      logoUrl: siteLogoUrl,
-    })
-  );
-}
-
-if (!mergedStructuredData.some((entry) => entry["@type"] === "WebSite")) {
-  globalStructuredData.push(
-    buildWebSiteSchema({
-      siteUrl,
-      siteName,
-      description: siteDescription,
-    })
-  );
-}
-
-const finalStructuredData = [...globalStructuredData, ...mergedStructuredData];
-const lang = "en";
-
-/**
- * Maps a simple locale code to the Open Graph locale format expected by social platforms.
- * The fallback keeps the language prefix and guesses a region where no explicit mapping exists.
- */
-function mapOgLocale(locale: string): string {
-  if (!locale) {
-    return "en_US";
-  }
-
-  const base = locale.toLowerCase();
-  switch (base) {
-    case "en":
-      return "en_US";
-    case "de":
-      return "de_DE";
-    case "fr":
-      return "fr_FR";
-    case "es":
-      return "es_ES";
-    default:
-      return base.replace(/-.+$/, "").concat("_", base.toUpperCase().slice(-2) || "US");
-  }
-}
-
-const autoOgLocale = mapOgLocale(lang);
+const lang = shellConfig.lang;
+const { mergedImage, finalStructuredData, autoOgLocale } = buildAppShellSeoContext({
+  pageSeo: constructedPageSeo,
+  siteUrl,
+  siteName,
+  siteDescription,
+  logoUrl: siteLogoUrl,
+  fallbackImageUrl: knowledgeHeroImageUrl(siteUrl),
+  locale: lang,
+});
 /**
  * Kept as typed arrays so future performance optimizations can be added centrally
  * without changing the `<head>` rendering logic below.
@@ -180,62 +102,17 @@ const fontPreloads: Array<{
   type?: string;
   crossorigin?: "anonymous" | "use-credentials";
 }> = [];
-const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
-
-// Shared primary navigation for the Knowledge app shell.
-const navItems: NavItem[] = [
-  {
-    href: "https://podcasts.melody-mind.de",
-    label: "Podcast",
-    icon: "headphones",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    href: "https://quiz.melody-mind.de",
-    label: "Quiz",
-    icon: "help-circle",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    href: "/search",
-    label: "Search",
-    icon: "search",
-  },
-];
+const dnsPrefetch = DEFAULT_DNS_PREFETCH;
 ---
 
 <MasterLayout lang={lang} appTitle="MelodyMind">
   <Fragment slot="head">
-    {dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
-    {
-      preloadedResources.map((resource) => (
-        <link
-          rel="preload"
-          href={resource.href}
-          as={resource.as}
-          crossorigin={resource.crossorigin}
-        />
-      ))
-    }
-    {
-      fontPreloads.map((font) => (
-        <link
-          rel="preload"
-          href={font.href}
-          as={font.as}
-          type={font.type}
-          crossorigin={font.crossorigin}
-        />
-      ))
-    }
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="MelodyMind Knowledge RSS Feed"
-      href="/rss.xml"
+    <AppHeadResources
+      {dnsPrefetch}
+      {preloadedResources}
+      {fontPreloads}
+      rssTitle={shellConfig.rssTitle}
+      rssHref="/rss.xml"
     />
     {/* Shared SEO renders canonical, robots, JSON-LD, and article-specific meta tags. */}
     <SEO
@@ -262,110 +139,33 @@ const navItems: NavItem[] = [
       structuredDataExtra={finalStructuredData}
       authorName={authorName || constructedPageSeo.authorName}
       imageAlt={constructedPageSeo.imageAlt}
+      openGraph={{
+        ...constructedPageSeo.openGraph,
+        locale:
+          constructedPageSeo.openGraph.locale ||
+          constructedPageSeo.ogLocale ||
+          autoOgLocale,
+      }}
+      alternateLocales={constructedPageSeo.alternateLocales}
+      twitter={constructedPageSeo.twitter}
     />
     {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
-    <meta property="og:title" content={constructedPageSeo.openGraph.title} />
-    <meta property="og:description" content={constructedPageSeo.openGraph.description} />
-    <meta property="og:type" content={constructedPageSeo.openGraph.type} />
-    <meta property="og:url" content={constructedPageSeo.openGraph.url} />
-    <meta
-      property="og:locale"
-      content={constructedPageSeo.openGraph.locale ||
-        constructedPageSeo.ogLocale ||
-        autoOgLocale}
-    />
-    {
-      Array.isArray(constructedPageSeo.alternateLocales) &&
-        constructedPageSeo.alternateLocales.map((locale) => (
-          <meta property="og:locale:alternate" content={locale} />
-        ))
-    }
-    {
-      constructedPageSeo.openGraph.image && (
-        <meta property="og:image" content={constructedPageSeo.openGraph.image} />
-      )
-    }
-    {
-      constructedPageSeo.imageAlt && (
-        <meta property="og:image:alt" content={constructedPageSeo.imageAlt} />
-      )
-    }
-    <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
-    <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
-    <meta name="twitter:description" content={constructedPageSeo.twitter.description} />
-    {
-      constructedPageSeo.twitter.image && (
-        <meta name="twitter:image" content={constructedPageSeo.twitter.image} />
-      )
-    }
-    {
-      constructedPageSeo.twitter.creator && (
-        <meta name="twitter:creator" content={constructedPageSeo.twitter.creator} />
-      )
-    }
   </Fragment>
 
   <SiteHeader
-    {navItems}
-    brandHref="/"
-    brandText={siteName}
-    brandMark="MM"
-    brandLogoSrc={knowledgeBrandLogo}
-    brandLogoAlt={siteName}
-    brandLogoWidth={150}
-    brandLogoHeight={100}
-    brandAriaLabel={`Go to the ${siteName} homepage`}
-    menuOpenLabel="Open main menu"
-    menuCloseLabel="Close main menu"
-    menuText="Menu"
-    navAriaLabel="Primary navigation"
+    headerConfig={{
+      ...shellConfig.header,
+      brandLogoSrc: knowledgeBrandLogo,
+    }}
   />
 
   <slot />
 
   <SharedFooter
-    brandTitle={siteName}
-    brandText="Curated guides and playlists to help you listen more closely and discover new sounds."
-    exploreLinks={[
-      {
-        href: "https://quiz.melody-mind.de",
-        label: "Quiz",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://podcasts.melody-mind.de",
-        label: "Podcasts",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-    ]}
-    supportLinks={[
-      {
-        href: "https://www.paypal.me/dcschmid",
-        label: "PayPal",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://www.buymeacoffee.com/dcschmid",
-        label: "Buy Me a Coffee",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-    ]}
-    legalLinks={[
-      { href: "/imprint", label: "Legal Notice" },
-      { href: "/privacy", label: "Privacy Policy" },
-      { href: "/ai-content", label: "AI Content" },
-      { href: "/cookies", label: "Cookie Policy" },
-    ]}
-    cookieSettingsLabel="Cookie settings"
-    themeStatusPrefix="Theme"
-    cookiesWaitingLabel="Cookies: waiting"
-    cookiesAllowedLabel="Cookies: analytics allowed"
-    cookiesEssentialLabel="Cookies: essential only"
-    copyrightText={`© ${new Date().getFullYear()} MelodyMind. All rights reserved.`}
+    footerConfig={{
+      ...shellConfig.footer,
+      copyrightText: buildDefaultCopyrightText(new Date().getFullYear()),
+    }}
   />
 
   <AutoInitScript slot="body-end" />

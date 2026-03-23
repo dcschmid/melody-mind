@@ -1,5 +1,6 @@
 ---
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
+import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
 import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
@@ -7,7 +8,12 @@ import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import type { NavItem } from "@shared-ui/components/navigation/types";
+import { buildDefaultCopyrightText } from "@shared-utils/utils/appShell";
+import {
+  ensureTrailingSlash,
+  resolveAbsoluteUrl,
+  resolveBaseUrl,
+} from "@shared-utils/utils/siteUrls";
 import {
   buildOrganizationSchema,
   buildPodcastEpisodeSchema,
@@ -24,6 +30,7 @@ import {
 import { podcastHeroImageUrl } from "../utils/podcastImages";
 import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
 import podcastBrandLogo from "../assets/melody-mind-podcast.png";
+import { podcastAppShellConfig } from "../utils/appShellConfig";
 
 export interface Props {
   title: string;
@@ -76,14 +83,14 @@ const normalizedTitle = normalizeWhitespace(title);
 const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
   ? normalizedTitle
   : `${normalizedTitle} | ${siteTitle}`;
-const siteUrl = PODCAST_SITE_URL;
-const currentPath = canonical ? canonical.replace(siteUrl, "") : Astro.url.pathname;
-const currentUrl = `${siteUrl}${ensureTrailingSlash(currentPath)}`;
-const imageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
+const siteUrl = resolveBaseUrl(PODCAST_SITE_URL);
+const canonicalPath = canonical
+  ? new URL(canonical, `${siteUrl}/`).pathname
+  : Astro.url.pathname;
+const currentUrl = resolveAbsoluteUrl(siteUrl, ensureTrailingSlash(canonicalPath));
+const imageUrl = resolveAbsoluteUrl(siteUrl, image);
 const episodeImageUrl = episodeImage
-  ? episodeImage.startsWith("http")
-    ? episodeImage
-    : `${siteUrl}${episodeImage}`
+  ? resolveAbsoluteUrl(siteUrl, episodeImage)
   : imageUrl;
 const podcastFeedUrl = PODCAST_FEED_URL;
 const podcastImage = podcastHeroImageUrl;
@@ -98,33 +105,13 @@ const defaultKeywords = [
   "entertainment",
 ];
 const normalizedDescription = normalizeWhitespace(description);
+const shellConfig = podcastAppShellConfig;
 const imageAlt =
   type === "article"
     ? `Cover artwork for ${normalizedTitle}`
     : `Cover artwork for ${siteTitle}`;
 const publishDate = publishedTime ? new Date(publishedTime) : undefined;
 const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
-const navItems: NavItem[] = [
-  {
-    href: "https://www.melody-mind.de",
-    label: "Knowledge",
-    icon: "book-open",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    href: "https://www.quiz.melody-mind.de",
-    label: "Quiz",
-    icon: "book-open",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    href: "/search",
-    label: "Search",
-    icon: "search",
-  },
-];
 
 const publisher = {
   "@type": "Organization",
@@ -235,14 +222,6 @@ const seoProps = {
   ...(pageSeo.modifiedDate ? { modifiedDate: pageSeo.modifiedDate } : {}),
   ...(pageSeo.authorName ? { authorName: pageSeo.authorName } : {}),
 };
-
-function ensureTrailingSlash(pathname: string) {
-  if (!pathname.startsWith("/")) {
-    return `/${pathname}/`;
-  }
-
-  return pathname.endsWith("/") ? pathname : `${pathname}/`;
-}
 ---
 
 <MasterLayout
@@ -255,12 +234,19 @@ function ensureTrailingSlash(pathname: string) {
   appTitle="Melody Mind Podcasts"
 >
   <Fragment slot="head">
-    <link
-      rel="preload"
-      href="/fonts/atkinson-hyperlegible-regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
+    <AppHeadResources
+      fontPreloads={[
+        {
+          href: "/fonts/atkinson-hyperlegible-regular.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: true,
+        },
+      ]}
+      dnsPrefetch={[{ href: "//cdn.usefathom.com" }]}
+      rssTitle={shellConfig.rssTitle}
+      rssHref={PODCAST_FEED_PATH}
+      rssHrefLang={locale}
     />
     {
       PODCAST_PRECONNECT_ORIGINS.map((origin) => (
@@ -268,52 +254,23 @@ function ensureTrailingSlash(pathname: string) {
       ))
     }
     <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
-    <SEO {...seoProps} />
+    <SEO
+      {...seoProps}
+      openGraph={{
+        ...pageSeo.openGraph,
+        locale: pageSeo.openGraph.locale || locale.replace("-", "_"),
+      }}
+      ogSiteName={siteTitle}
+      twitter={pageSeo.twitter}
+      twitterUrl={pageSeo.canonical}
+      twitterSite="@melodymind"
+      articleAuthor={type === "article" ? author : undefined}
+    />
     <meta name="robots" content={pageSeo.robots} />
     <meta name="language" content={language} />
     <meta name="revisit-after" content="7 days" />
-    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <meta property="og:type" content={pageSeo.openGraph.type} />
-    <meta property="og:url" content={pageSeo.openGraph.url} />
-    <meta property="og:title" content={pageSeo.openGraph.title} />
-    <meta property="og:description" content={pageSeo.openGraph.description} />
-    {
-      pageSeo.openGraph.image && (
-        <meta property="og:image" content={pageSeo.openGraph.image} />
-      )
-    }
-    <meta property="og:site_name" content={siteTitle} />
-    <meta
-      property="og:locale"
-      content={pageSeo.openGraph.locale || locale.replace("-", "_")}
-    />
-    {type === "article" && <meta property="article:author" content={author} />}
-    <meta property="twitter:card" content={pageSeo.twitter.card} />
-    <meta property="twitter:url" content={pageSeo.canonical} />
-    <meta property="twitter:title" content={pageSeo.twitter.title} />
-    <meta property="twitter:description" content={pageSeo.twitter.description} />
-    {
-      pageSeo.twitter.image && (
-        <meta property="twitter:image" content={pageSeo.twitter.image} />
-      )
-    }
-    <meta name="twitter:image:alt" content={imageAlt} />
-    {
-      pageSeo.twitter.creator && (
-        <meta property="twitter:creator" content={pageSeo.twitter.creator} />
-      )
-    }
-    <meta property="twitter:site" content="@melodymind" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="RSS Feed - English"
-      href={PODCAST_FEED_PATH}
-      hreflang={locale}
-    />
-    <link rel="dns-prefetch" href="//cdn.usefathom.com" />
     <script is:inline src="https://cdn.usefathom.com/script.js" data-site="IGOFKHTB" defer
     ></script>
   </Fragment>
@@ -321,81 +278,19 @@ function ensureTrailingSlash(pathname: string) {
   <SkipLink slot="body-start" />
   <SiteHeader
     slot="before-main"
-    {navItems}
-    brandHref="/"
-    brandText={siteTitle}
-    brandLogoSrc={podcastBrandLogo}
-    brandLogoAlt={siteTitle}
-    brandLogoWidth={150}
-    brandLogoHeight={100}
-    brandAriaLabel={`Go to the ${siteTitle} homepage`}
-    menuOpenLabel="Open main menu"
-    menuCloseLabel="Close main menu"
-    menuText="Menu"
-    navAriaLabel="Podcast navigation"
+    headerConfig={{
+      ...shellConfig.header,
+      brandLogoSrc: podcastBrandLogo,
+    }}
   />
 
   <SharedFooter
     slot="after-main"
-    brandTitle="Melody Mind"
-    brandText="Curated stories, timelines, and playlists to help you listen more closely and discover new sounds."
-    exploreLinks={[
-      {
-        href: "https://quiz.melody-mind.de",
-        label: "Quiz",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de",
-        label: "Knowledge",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      { href: PODCAST_FEED_PATH, label: "RSS" },
-    ]}
-    supportLinks={[
-      {
-        href: "https://www.paypal.me/dcschmid",
-        label: "PayPal",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://www.buymeacoffee.com/dcschmid",
-        label: "Buy Me a Coffee",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-    ]}
-    legalLinks={[
-      {
-        href: "https://melody-mind.de/imprint",
-        label: "Legal Notice",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de/privacy",
-        label: "Privacy Policy",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de/cookies",
-        label: "Cookie Policy",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de/ai-content",
-        label: "AI Content",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-    ]}
-    showSettings={true}
-    copyrightText={`© ${new Date().getFullYear()} MelodyMind. All rights reserved.`}
+    footerConfig={{
+      ...shellConfig.footer,
+      showSettings: true,
+      copyrightText: buildDefaultCopyrightText(new Date().getFullYear()),
+    }}
   />
 
   <AutoInitScript slot="body-end" />

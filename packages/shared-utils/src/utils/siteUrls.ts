@@ -11,6 +11,21 @@ const DEFAULT_SITE_URL = "https://melody-mind.de";
 type URLLike = { toString(): string };
 
 /**
+ * Ensures a pathname uses a leading slash and ends with a trailing slash.
+ *
+ * This is useful for canonical route URLs where the app expects directory-style
+ * routes such as `/episode-slug/` instead of `/episode-slug`.
+ */
+export function ensureTrailingSlash(pathname: string): string {
+  if (!pathname) {
+    return "/";
+  }
+
+  const normalizedPath = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  return normalizedPath.endsWith("/") ? normalizedPath : `${normalizedPath}/`;
+}
+
+/**
  * Resolves the configured site base URL into a normalized origin-like string.
  *
  * The returned value never ends with a trailing slash so it can be joined consistently with

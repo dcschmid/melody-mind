@@ -1,53 +1,25 @@
 ---
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
+import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
 import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import Footer from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 
-import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import type { NavItem } from "@shared-ui/components/navigation/types";
+import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 import {
-  buildOrganizationSchema,
-  buildWebSiteSchema,
-} from "@shared-utils/utils/seo/seoSchema";
+  buildAppShellSeoContext,
+  buildDefaultCopyrightText,
+  DEFAULT_DNS_PREFETCH,
+} from "@shared-utils/utils/appShell";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
 import { quizBrandLogo, quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
+import { quizAppShellConfig } from "../utils/appShellConfig";
 
 interface Props {
   imageWidth?: number;
   imageHeight?: number;
-  pageSeo: {
-    title: string;
-    description: string;
-    keywords?: string;
-    canonical: string;
-    image?: string;
-    type?: string;
-    robots?: string;
-    openGraph?: {
-      title?: string;
-      description?: string;
-      type?: string;
-      url?: string;
-      image?: string;
-      locale?: string;
-    };
-    twitter?: {
-      card?: string;
-      title?: string;
-      description?: string;
-      image?: string;
-      creator?: string;
-    };
-    structuredData?: StructuredData[];
-    publishDate?: Date;
-    modifiedDate?: Date;
-    ogLocale?: string;
-    alternateLocales?: string[];
-    authorName?: string;
-    imageAlt?: string;
-  };
+  pageSeo: PageSeoResult;
   showHeader?: boolean;
   showHeaderIcons?: boolean;
   showFooter?: boolean;
@@ -88,86 +60,25 @@ const {
 const constructedPageSeo = pageSeo;
 const mergedTitle = constructedPageSeo.title;
 const mergedDescription = constructedPageSeo.description;
-const mergedKeywords = constructedPageSeo.keywords || "";
-const mergedType = constructedPageSeo.type || "website";
+const mergedKeywords = constructedPageSeo.keywords;
+const mergedType = constructedPageSeo.type;
 const mergedCanonical = constructedPageSeo.canonical;
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
-const mergedStructuredData = constructedPageSeo.structuredData || [];
-const robotsTag = constructedPageSeo.robots || "index, follow";
+const robotsTag = constructedPageSeo.robots;
 const siteUrl = resolveBaseUrl(Astro.site);
-const mergedImage = constructedPageSeo.image || quizHeroImageUrl(siteUrl);
-const globalStructuredData: StructuredData[] = [];
-
-if (!mergedStructuredData.some((entry) => entry["@type"] === "Organization")) {
-  globalStructuredData.push(
-    buildOrganizationSchema({
-      siteUrl,
-      siteName: "Melody Mind",
-      description:
-        "Music knowledge platform for genres, timelines, and guided listening.",
-      logoUrl: quizBrandLogoUrl(siteUrl),
-    })
-  );
-}
-
-if (!mergedStructuredData.some((entry) => entry["@type"] === "WebSite")) {
-  globalStructuredData.push(
-    buildWebSiteSchema({
-      siteUrl,
-      siteName: "Melody Mind",
-      description:
-        "Music knowledge platform for genres, timelines, and guided listening.",
-    })
-  );
-}
-
-const finalStructuredData = [...globalStructuredData, ...mergedStructuredData];
-const lang = "en";
-
-function mapOgLocale(locale: string): string {
-  if (!locale) {
-    return "en_US";
-  }
-
-  const base = locale.toLowerCase();
-  switch (base) {
-    case "en":
-      return "en_US";
-    case "de":
-      return "de_DE";
-    case "fr":
-      return "fr_FR";
-    case "es":
-      return "es_ES";
-    default:
-      return base.replace(/-.+$/, "").concat("_", base.toUpperCase().slice(-2) || "US");
-  }
-}
-
-const autoOgLocale = mapOgLocale(lang);
+const shellConfig = quizAppShellConfig;
+const lang = shellConfig.lang;
+const { mergedImage, finalStructuredData, autoOgLocale } = buildAppShellSeoContext({
+  pageSeo: constructedPageSeo,
+  siteUrl,
+  siteName: shellConfig.siteName,
+  siteDescription: shellConfig.siteDescription,
+  logoUrl: quizBrandLogoUrl(siteUrl),
+  fallbackImageUrl: quizHeroImageUrl(siteUrl),
+  locale: lang,
+});
 const year = new Date().getFullYear();
-const navItems: NavItem[] = [
-  {
-    href: "https://www.melody-mind.de",
-    label: "Knowledge",
-    icon: "book-open",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    href: "https://www.podcast.melody-mind.de",
-    label: "Podcast",
-    icon: "headphones",
-    target: "_blank",
-    rel: "noopener noreferrer",
-  },
-  {
-    href: "/search",
-    label: "Search",
-    icon: "search",
-  },
-];
 
 const preloadedResources: Array<{
   href: string;
@@ -180,39 +91,17 @@ const fontPreloads: Array<{
   type?: string;
   crossorigin?: "anonymous" | "use-credentials";
 }> = [];
-const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
+const dnsPrefetch = DEFAULT_DNS_PREFETCH;
 ---
 
 <MasterLayout lang={lang} appTitle="MelodyMind">
   <Fragment slot="head">
-    {dnsPrefetch.map((resource) => <link rel="dns-prefetch" href={resource.href} />)}
-    {
-      preloadedResources.map((resource) => (
-        <link
-          rel="preload"
-          href={resource.href}
-          as={resource.as}
-          crossorigin={resource.crossorigin}
-        />
-      ))
-    }
-    {
-      fontPreloads.map((font) => (
-        <link
-          rel="preload"
-          href={font.href}
-          as={font.as}
-          type={font.type}
-          crossorigin={font.crossorigin}
-        />
-      ))
-    }
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="MelodyMind Quiz RSS Feed"
-      href="/rss.xml"
+    <AppHeadResources
+      {dnsPrefetch}
+      {preloadedResources}
+      {fontPreloads}
+      rssTitle={shellConfig.rssTitle}
+      rssHref="/rss.xml"
     />
     <SEO
       title={mergedTitle}
@@ -238,87 +127,28 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
       structuredDataExtra={finalStructuredData}
       authorName={authorName || constructedPageSeo.authorName}
       imageAlt={constructedPageSeo.imageAlt}
+      openGraph={{
+        ...constructedPageSeo.openGraph,
+        locale:
+          constructedPageSeo.openGraph.locale ||
+          constructedPageSeo.ogLocale ||
+          autoOgLocale,
+      }}
+      alternateLocales={constructedPageSeo.alternateLocales}
+      twitter={constructedPageSeo.twitter}
     />
     {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
-    {
-      constructedPageSeo.openGraph && (
-        <>
-          <meta property="og:title" content={constructedPageSeo.openGraph.title} />
-          <meta
-            property="og:description"
-            content={constructedPageSeo.openGraph.description}
-          />
-          <meta property="og:type" content={constructedPageSeo.openGraph.type} />
-          <meta property="og:url" content={constructedPageSeo.openGraph.url} />
-          <meta
-            property="og:locale"
-            content={
-              constructedPageSeo.openGraph.locale ||
-              constructedPageSeo.ogLocale ||
-              autoOgLocale
-            }
-          />
-          {Array.isArray(constructedPageSeo.alternateLocales) &&
-            constructedPageSeo.alternateLocales.map((locale) => (
-              <meta property="og:locale:alternate" content={locale} />
-            ))}
-          {constructedPageSeo.openGraph.image && (
-            <meta property="og:image" content={constructedPageSeo.openGraph.image} />
-          )}
-        </>
-      )
-    }
-    {
-      constructedPageSeo.imageAlt && (
-        <meta property="og:image:alt" content={constructedPageSeo.imageAlt} />
-      )
-    }
-    {
-      constructedPageSeo.twitter?.card && (
-        <meta name="twitter:card" content={constructedPageSeo.twitter.card} />
-      )
-    }
-    {
-      constructedPageSeo.twitter?.title && (
-        <meta name="twitter:title" content={constructedPageSeo.twitter.title} />
-      )
-    }
-    {
-      constructedPageSeo.twitter?.description && (
-        <meta
-          name="twitter:description"
-          content={constructedPageSeo.twitter.description}
-        />
-      )
-    }
-    {
-      constructedPageSeo.twitter?.image && (
-        <meta name="twitter:image" content={constructedPageSeo.twitter.image} />
-      )
-    }
-    {
-      constructedPageSeo.twitter?.creator && (
-        <meta name="twitter:creator" content={constructedPageSeo.twitter.creator} />
-      )
-    }
   </Fragment>
 
   {
     showHeader && (
       <SiteHeader
         slot="before-main"
-        showIcons={showHeaderIcons}
-        {navItems}
-        brandHref="/"
-        brandLogoSrc={quizBrandLogo}
-        brandLogoAlt="Melody Mind Quiz"
-        brandLogoWidth={150}
-        brandLogoHeight={100}
-        brandAriaLabel="Go to the Melody Mind homepage"
-        menuOpenLabel="Open main menu"
-        menuCloseLabel="Close main menu"
-        menuText="Menu"
-        navAriaLabel="Primary navigation"
+        headerConfig={{
+          ...shellConfig.header,
+          showIcons: showHeaderIcons,
+          brandLogoSrc: quizBrandLogo,
+        }}
       />
     )
   }
@@ -326,68 +156,10 @@ const dnsPrefetch = [{ href: "https://cdn.usefathom.com" }];
     showFooter && (
       <Footer
         slot="after-main"
-        brandTitle="Melody Mind"
-        brandText="Curated guides and playlists to help you listen more closely and discover new sounds."
-        exploreLinks={[
-          {
-            href: "https://melody-mind.de",
-            label: "Knowledge",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-          {
-            href: "https://podcasts.melody-mind.de",
-            label: "Podcasts",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-        ]}
-        supportLinks={[
-          {
-            href: "https://www.paypal.me/dcschmid",
-            label: "PayPal",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-          {
-            href: "https://www.buymeacoffee.com/dcschmid",
-            label: "Buy Me a Coffee",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-        ]}
-        legalLinks={[
-          {
-            href: "https://melody-mind.de/imprint",
-            label: "Legal Notice",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-          {
-            href: "https://melody-mind.de/privacy",
-            label: "Privacy Policy",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-          {
-            href: "https://melody-mind.de/cookies",
-            label: "Cookie Policy",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-          {
-            href: "https://melody-mind.de/ai-content",
-            label: "AI Content",
-            target: "_blank",
-            rel: "noopener noreferrer",
-          },
-        ]}
-        cookieSettingsLabel="Cookie settings"
-        themeStatusPrefix="Theme"
-        cookiesWaitingLabel="Cookies: waiting"
-        cookiesAllowedLabel="Cookies: analytics allowed"
-        cookiesEssentialLabel="Cookies: essential only"
-        copyrightText={`© ${year} MelodyMind. All rights reserved.`}
+        footerConfig={{
+          ...shellConfig.footer,
+          copyrightText: buildDefaultCopyrightText(year),
+        }}
       />
     )
   }

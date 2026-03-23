@@ -4,8 +4,14 @@ import ThemeToggle from "@shared-ui/components/actions/ThemeToggle.astro";
 import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import type { NavItem } from "@shared-ui/components/navigation/types";
+import type { AppShellHeaderConfig } from "@shared-utils/utils/appShell";
+
+type SiteHeaderConfig = AppShellHeaderConfig & {
+  brandLogoSrc?: string | ImageMetadata;
+};
 
 interface Props {
+  headerConfig?: SiteHeaderConfig;
   navItems?: NavItem[];
   showIcons?: boolean;
   brandHref?: string;
@@ -23,6 +29,7 @@ interface Props {
 }
 
 const {
+  headerConfig,
   navItems = [],
   showIcons = true,
   brandHref = "/",
@@ -39,23 +46,45 @@ const {
   navAriaLabel = "Primary navigation",
 } = Astro.props as Props;
 
+const resolvedHeaderConfig = {
+  navItems,
+  showIcons,
+  brandHref,
+  brandText,
+  brandMark,
+  brandLogoSrc,
+  brandLogoAlt,
+  brandLogoWidth,
+  brandLogoHeight,
+  brandAriaLabel,
+  menuOpenLabel,
+  menuCloseLabel,
+  menuText,
+  navAriaLabel,
+  ...headerConfig,
+};
+
 const currentPath = Astro.url.pathname;
-const hasBrandLogo = Boolean(brandLogoSrc);
+const hasBrandLogo = Boolean(resolvedHeaderConfig.brandLogoSrc);
 ---
 
 <header class="site-header" role="banner">
   <div class="site-header__inner">
-    <a class="site-header__brand" href={brandHref} aria-label={brandAriaLabel}>
+    <a
+      class="site-header__brand"
+      href={resolvedHeaderConfig.brandHref}
+      aria-label={resolvedHeaderConfig.brandAriaLabel}
+    >
       {
         hasBrandLogo ? (
           <span class="site-header__brand-logo-wrap">
-            {brandLogoSrc ? (
+            {resolvedHeaderConfig.brandLogoSrc ? (
               <OptimizedImage
-                src={brandLogoSrc}
+                src={resolvedHeaderConfig.brandLogoSrc}
                 class="site-header__brand-logo"
-                alt={brandLogoAlt}
-                width={brandLogoWidth}
-                height={brandLogoHeight}
+                alt={resolvedHeaderConfig.brandLogoAlt}
+                width={resolvedHeaderConfig.brandLogoWidth}
+                height={resolvedHeaderConfig.brandLogoHeight}
                 loading="eager"
                 decoding="async"
               />
@@ -64,9 +93,9 @@ const hasBrandLogo = Boolean(brandLogoSrc);
         ) : (
           <>
             <span class="site-header__brand-mark" aria-hidden="true">
-              {brandMark}
+              {resolvedHeaderConfig.brandMark}
             </span>
-            <span class="site-header__brand-text">{brandText}</span>
+            <span class="site-header__brand-text">{resolvedHeaderConfig.brandText}</span>
           </>
         )
       }
@@ -77,19 +106,23 @@ const hasBrandLogo = Boolean(brandLogoSrc);
       class="site-header__menu-toggle"
       aria-expanded="false"
       aria-controls="site-primary-nav"
-      aria-label={menuOpenLabel}
-      data-menu-open-label={menuOpenLabel}
-      data-menu-close-label={menuCloseLabel}
+      aria-label={resolvedHeaderConfig.menuOpenLabel}
+      data-menu-open-label={resolvedHeaderConfig.menuOpenLabel}
+      data-menu-close-label={resolvedHeaderConfig.menuCloseLabel}
       data-site-header-toggle
     >
       <span class="site-header__menu-icon-wrap" aria-hidden="true">
         <Icon name="menu" class="site-header__menu-icon site-header__menu-icon--open" />
         <Icon name="x" class="site-header__menu-icon site-header__menu-icon--close" />
       </span>
-      <span>{menuText}</span>
+      <span>{resolvedHeaderConfig.menuText}</span>
     </button>
 
-    <nav id="site-primary-nav" class="site-header__nav" aria-label={navAriaLabel}>
+    <nav
+      id="site-primary-nav"
+      class="site-header__nav"
+      aria-label={resolvedHeaderConfig.navAriaLabel}
+    >
       <div class="site-header__actions">
         <div class="site-header__theme-toggle">
           <ThemeToggle />
@@ -97,7 +130,7 @@ const hasBrandLogo = Boolean(brandLogoSrc);
       </div>
       <ul class="site-header__nav-list">
         {
-          navItems.map((item) => {
+          resolvedHeaderConfig.navItems.map((item) => {
             const isExternal = /^https?:\/\//.test(item.href);
             const isActive = isExternal
               ? false
@@ -114,7 +147,7 @@ const hasBrandLogo = Boolean(brandLogoSrc);
                   rel={item.rel}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  {showIcons && item.icon ? (
+                  {resolvedHeaderConfig.showIcons && item.icon ? (
                     <Icon
                       name={item.icon}
                       class="site-header__nav-icon"
