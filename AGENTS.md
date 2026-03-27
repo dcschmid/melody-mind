@@ -8,7 +8,7 @@ This document provides essential guidelines for AI agents working on the MelodyM
 - **Language**: TypeScript (strict mode)
 - **Styling**: BEM-based CSS (scoped in Astro components)
 - **Content**: Markdown articles via Astro Content Collections
-- **Language**: English-only (knowledge-en collection)
+- **Editorial Language**: English-only (knowledge-en collection)
 - **Package Manager**: pnpm
 - **Workspace**: Monorepo with `apps/knowledge`, `apps/quiz`, `apps/podcasts`, `packages/shared-ui`, and `packages/shared-utils`
 
@@ -150,6 +150,27 @@ try {
 - Do not introduce new `category` frontmatter for Knowledge articles
 - If an old `/categories/*` URL must keep working, update the redirect map instead of recreating category pages
 
+### Editorial Standards
+
+- Write in international, clear, neutral American English at a B2-C1 reading level
+- Prefer short sentences, common words, and consistent terminology
+- Use US spelling and avoid idioms, slang, sarcasm, and culture-specific references
+- Prefer active voice unless passive voice improves accuracy or readability
+- Explain specialized music or technical terms in context when they may be unclear to a broad audience
+- Keep claims specific and proportionate; avoid hype, vague superlatives, and unsupported historical "first" or "best" statements
+- When dates matter, use exact dates or clearly bounded timeframes instead of relative wording such as "recently" or "nowadays"
+
+### Fact Accuracy & Research
+
+- Factual correctness is mandatory for all user-facing knowledge content
+- Verify any claim that is time-sensitive, disputed, niche, or likely to be misremembered
+- If a statement depends on current information, validate it with up-to-date primary or otherwise authoritative sources before publishing
+- Prefer primary sources first: official artist, label, festival, chart, museum, archive, standards body, academic publisher, or platform documentation
+- If no reliable source confirms a claim, rewrite conservatively or omit the claim
+- Do not present inference, synthesis, or genre interpretation as a confirmed fact
+- When multiple reputable sources disagree, reflect the disagreement neutrally and avoid false certainty
+- Keep source language out of the article unless the user explicitly asks for citations; use research to improve accuracy, not to stuff copy with references
+
 ## Before Committing
 
 1. Run `pnpm lint` or the narrower package-specific checks you actually changed
@@ -172,3 +193,6 @@ try {
 - [TypeScript Docs](https://www.typescriptlang.org/docs)
 - [BEM CSS](https://getbem.com)
 - [WCAG Guidelines](https://www.w3.org/WAI/WCAG22/quickref/)
+- [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/)
+- [Google Technical Writing](https://developers.google.com/tech-writing)
+- [Introduction to Plain Language](https://digital.gov/resources/an-introduction-to-plain-language/)
