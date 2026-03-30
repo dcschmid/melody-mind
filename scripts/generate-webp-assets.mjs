@@ -12,9 +12,7 @@ const sharp = require(
   require.resolve("sharp", { paths: [path.join(repoRoot, "apps/knowledge")] })
 );
 const WEBP_SOURCE_PATTERN = /\.(jpg|jpeg|png|avif|webp)$/iu;
-const JPG_SOURCE_PATTERN = /\.(png|webp|avif)$/iu;
 const DEFAULT_WEBP_QUALITY = 82;
-const DEFAULT_JPG_QUALITY = 86;
 const DEFAULT_EFFORT = 6;
 const DEFAULT_MAX_WIDTH = 900;
 
