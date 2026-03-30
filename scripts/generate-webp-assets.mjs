@@ -11,11 +11,12 @@ const require = createRequire(import.meta.url);
 const sharp = require(
   require.resolve("sharp", { paths: [path.join(repoRoot, "apps/knowledge")] })
 );
-const WEBP_SOURCE_PATTERN = /\.(jpg|jpeg|png|avif)$/iu;
+const WEBP_SOURCE_PATTERN = /\.(jpg|jpeg|png|avif|webp)$/iu;
 const JPG_SOURCE_PATTERN = /\.(png|webp|avif)$/iu;
 const DEFAULT_WEBP_QUALITY = 82;
 const DEFAULT_JPG_QUALITY = 86;
 const DEFAULT_EFFORT = 6;
+const DEFAULT_MAX_WIDTH = 900;
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
@@ -35,29 +36,21 @@ const tasks = [
       "apps/podcasts/src/assets",
     ],
     sourcePattern: WEBP_SOURCE_PATTERN,
-    sourcePreference: ["jpg", "jpeg", "png", "avif"],
-    toOutputPath: (filePath) => filePath.replace(WEBP_SOURCE_PATTERN, ".webp"),
+    sourcePreference: ["jpg", "jpeg", "png", "avif", "webp"],
+    toOutputPath: (filePath) =>
+      getSourceExtension(filePath) === "webp"
+        ? filePath
+        : filePath.replace(WEBP_SOURCE_PATTERN, ".webp"),
     encode: (pipeline, outputPath) =>
       pipeline
         .rotate()
+        .resize({
+          width: DEFAULT_MAX_WIDTH,
+          withoutEnlargement: true,
+        })
         .webp({
           quality: webpQuality,
           effort,
-        })
-        .toFile(outputPath),
-  },
-  {
-    name: "jpg",
-    directories: ["apps/podcasts/src/assets"],
-    sourcePattern: JPG_SOURCE_PATTERN,
-    sourcePreference: ["png", "webp", "avif"],
-    toOutputPath: (filePath) => filePath.replace(JPG_SOURCE_PATTERN, ".jpg"),
-    encode: (pipeline, outputPath) =>
-      pipeline
-        .rotate()
-        .jpeg({
-          quality: DEFAULT_JPG_QUALITY,
-          mozjpeg: true,
         })
         .toFile(outputPath),
   },
@@ -120,8 +113,19 @@ const ensureOutputVariant = async (task, inputPath) => {
     fs.stat(inputPath),
     fs.stat(outputPath).catch(() => null),
   ]);
+  const shouldRefreshOversizedOutput = outputStats
+    ? await sharp(outputPath)
+        .metadata()
+        .then((metadata) => (metadata.width ?? 0) > DEFAULT_MAX_WIDTH)
+        .catch(() => false)
+    : false;
 
-  if (!force && outputStats && outputStats.mtimeMs >= inputStats.mtimeMs) {
+  if (
+    !force &&
+    outputStats &&
+    outputStats.mtimeMs >= inputStats.mtimeMs &&
+    !shouldRefreshOversizedOutput
+  ) {
     return { status: "skipped", inputPath, outputPath };
   }
 
@@ -129,7 +133,13 @@ const ensureOutputVariant = async (task, inputPath) => {
     return { status: "planned", inputPath, outputPath };
   }
 
-  await task.encode(sharp(inputPath), outputPath);
+  if (inputPath === outputPath) {
+    const tempOutputPath = `${outputPath}.tmp-${process.pid}`;
+    await task.encode(sharp(inputPath), tempOutputPath);
+    await fs.rename(tempOutputPath, outputPath);
+  } else {
+    await task.encode(sharp(inputPath), outputPath);
+  }
 
   return { status: outputStats ? "updated" : "created", inputPath, outputPath };
 };
