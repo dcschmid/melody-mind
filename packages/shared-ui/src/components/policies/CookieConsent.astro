@@ -95,18 +95,6 @@ const { fathomSiteId = "" } = Astro.props as Props;
     }
   };
 
-  const setFathomTrackingEnabled = (enabled: boolean): void => {
-    if (!window.fathom) {
-      return;
-    }
-    if (enabled && typeof window.fathom.enableTrackingForMe === "function") {
-      window.fathom.enableTrackingForMe();
-    }
-    if (!enabled && typeof window.fathom.blockTrackingForMe === "function") {
-      window.fathom.blockTrackingForMe();
-    }
-  };
-
   const hideBanner = (): void => {
     banner.setAttribute("hidden", "true");
     if (lastFocusBeforeOpen && "focus" in lastFocusBeforeOpen) {
@@ -143,7 +131,6 @@ const { fathomSiteId = "" } = Astro.props as Props;
       }
     }
 
-    setFathomTrackingEnabled(analyticsAllowed);
     hideBanner();
 
     if (shouldDispatchEvent) {
