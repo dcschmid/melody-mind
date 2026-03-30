@@ -61,6 +61,12 @@ const { fathomSiteId = "" } = Astro.props as Props;
   if (!banner) {
     throw new Error("CookieConsent banner root not found");
   }
+  const acceptButton = banner.querySelector<HTMLButtonElement>(
+    "[data-cookie-action='accept']"
+  );
+  const rejectButton = banner.querySelector<HTMLButtonElement>(
+    "[data-cookie-action='reject']"
+  );
 
   const fathomSiteId = banner.dataset.fathomSiteId || "";
   const fathomEnabled = fathomSiteId.length > 0;
@@ -157,18 +163,13 @@ const { fathomSiteId = "" } = Astro.props as Props;
     showBanner(false);
   }
 
-  banner.addEventListener("click", (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLElement)) {
-      return;
-    }
-    const action = target.getAttribute("data-cookie-action");
-    if (action !== "accept" && action !== "reject") {
-      return;
-    }
+  const handleConsentAction = (action: "accept" | "reject"): void => {
     const consent = writeConsentPreference(action === "accept");
     applyConsent(consent, true);
-  });
+  };
+
+  acceptButton?.addEventListener("click", () => handleConsentAction("accept"));
+  rejectButton?.addEventListener("click", () => handleConsentAction("reject"));
 
   window.addEventListener(CONSENT_EVENTS.OPEN, openBanner);
 </script>
