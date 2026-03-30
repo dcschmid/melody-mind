@@ -34,9 +34,7 @@ const knowledgeImageModules = import.meta.glob<{ default: ImageMetadata }>(
 
 const knowledgeImagesByPath = Object.fromEntries(
   Object.entries(knowledgeImageModules).map(([path, module]) => {
-    const normalizedPath = path
-      .replace(/^\/src\/assets\//u, "")
-      .replace(/\?.*$/u, "");
+    const normalizedPath = path.replace(/^\/src\/assets\//u, "").replace(/\?.*$/u, "");
     return [normalizedPath, module.default];
   })
 ) as Record<string, ImageMetadata>;
