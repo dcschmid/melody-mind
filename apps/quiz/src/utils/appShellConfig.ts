@@ -32,6 +32,7 @@ export const quizAppShellConfig: AppShellConfig = {
         icon: "search",
       },
     ],
+    showBrand: false,
     brandHref: "/",
     brandText: "Melody Mind",
     brandLogoAlt: "Melody Mind Quiz",

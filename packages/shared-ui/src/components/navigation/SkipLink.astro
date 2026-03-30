@@ -49,7 +49,8 @@ const iconClasses = "skip-link__icon";
     display: inline-flex;
     gap: var(--spacing-sm);
     align-items: center;
-    padding: var(--spacing-sm) var(--spacing-base);
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-xs) var(--spacing-base);
 
     /* Typography */
     font-weight: var(--font-weight-bold);
@@ -57,13 +58,9 @@ const iconClasses = "skip-link__icon";
     /* Visual styling - high contrast for accessibility */
     color: var(--button-text-accent);
     text-decoration: none;
-    background: linear-gradient(
-      180deg,
-      var(--accent-primary),
-      color-mix(in srgb, var(--accent-strong) 78%, var(--accent-primary))
-    );
-    border-radius: 0 0 var(--radius-base) var(--radius-base);
-    box-shadow: var(--shadow-xl);
+    background: var(--accent-primary);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    box-shadow: var(--shadow-sm);
 
     /* Centered positioning */
     transform: translateX(-50%);

@@ -6,7 +6,6 @@ import Icon from "../visual/Icon.astro";
   type="button"
   class="theme-toggle"
   data-theme-toggle
-  data-animate="rise-in"
   aria-pressed="false"
   aria-label="Switch to dark theme"
 >
@@ -14,7 +13,7 @@ import Icon from "../visual/Icon.astro";
     <span class="theme-toggle__pill-icon" data-option="light">
       <Icon
         name="sun"
-        class="theme-toggle__icon theme-toggle__icon--sun"
+        class="theme-toggle__icon"
         aria-hidden="true"
         role="presentation"
       />
@@ -22,7 +21,7 @@ import Icon from "../visual/Icon.astro";
     <span class="theme-toggle__pill-icon" data-option="dark">
       <Icon
         name="moon"
-        class="theme-toggle__icon theme-toggle__icon--moon"
+        class="theme-toggle__icon"
         aria-hidden="true"
         role="presentation"
       />
@@ -34,10 +33,6 @@ import Icon from "../visual/Icon.astro";
 </button>
 
 <script>
-  /**
-   * ThemeToggle keeps the toggle button in sync with the stored, system, or resolved theme.
-   * It writes ARIA attributes for the active mode and updates the system preference listener.
-   */
   import { THEME_EVENTS } from "@shared-utils/constants/events";
   import {
     getStoredTheme,
@@ -50,82 +45,80 @@ import Icon from "../visual/Icon.astro";
 
   const toggles = Array.from(
     document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
-  );
+  ).filter((toggle) => toggle.dataset.themeToggleBound !== "true");
 
-  const updateToggle = (): void => {
-    if (!toggles.length) {
-      return;
-    }
-
+  const updateToggle = (toggle: HTMLButtonElement): void => {
     const stored = getStoredTheme();
     const resolved = stored ?? getSystemTheme();
-    toggles.forEach((toggle) => {
-      const label = toggle.querySelector<HTMLSpanElement>("[data-theme-toggle-label]");
-      toggle.dataset.theme = resolved;
-      toggle.dataset.mode = stored ? "manual" : "system";
-      if (label) {
-        label.textContent = resolved;
-      }
-      toggle.setAttribute("aria-pressed", String(resolved === "dark"));
-      toggle.setAttribute(
-        "aria-label",
-        resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
-      );
-    });
+    const label = toggle.querySelector<HTMLSpanElement>("[data-theme-toggle-label]");
+    toggle.dataset.theme = resolved;
+    toggle.dataset.mode = stored ? "manual" : "system";
+    if (label) {
+      label.textContent = resolved;
+    }
+    toggle.setAttribute("aria-pressed", String(resolved === "dark"));
+    toggle.setAttribute(
+      "aria-label",
+      resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    );
   };
 
-  // Toggle manually switches between light/dark and persists the selection.
   toggles.forEach((toggle) => {
+    toggle.dataset.themeToggleBound = "true";
     toggle.addEventListener("click", () => {
       const nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
       setStoredTheme(nextTheme);
       applyTheme(nextTheme, "manual");
-      updateToggle();
+      document
+        .querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
+        .forEach(updateToggle);
     });
+    updateToggle(toggle);
   });
 
-  // Re-apply the system theme only when the user has not locked in a preference.
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-    if (getStoredTheme()) {
-      return;
-    }
+  if (!(window as Window & { __themeToggleSyncBound?: boolean }).__themeToggleSyncBound) {
+    (window as Window & { __themeToggleSyncBound?: boolean }).__themeToggleSyncBound =
+      true;
 
-    applyTheme(getSystemTheme(), "system");
-    updateToggle();
-  });
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+      if (getStoredTheme()) {
+        return;
+      }
+      applyTheme(getSystemTheme(), "system");
+      document
+        .querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
+        .forEach(updateToggle);
+    });
 
-  // External theme changes (e.g., storage updates) trigger a quick refresh of the toggle state.
-  window.addEventListener(THEME_EVENTS.CHANGED, () => {
-    updateToggle();
-  });
+    window.addEventListener(THEME_EVENTS.CHANGED, () => {
+      document
+        .querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
+        .forEach(updateToggle);
+    });
 
-  // Cross-tab or external storage writes should also refresh the visible toggle state.
-  window.addEventListener("storage", (event) => {
-    if (event.key !== THEME_STORAGE_KEY) {
-      return;
-    }
-
-    updateToggle();
-  });
-
-  updateToggle();
+    window.addEventListener("storage", (event) => {
+      if (event.key !== THEME_STORAGE_KEY) {
+        return;
+      }
+      document
+        .querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
+        .forEach(updateToggle);
+    });
+  }
 </script>
 
 <style>
   .theme-toggle {
     position: relative;
     display: inline-flex;
-    gap: var(--spacing-sm);
     align-items: center;
-    justify-content: flex-start;
     min-inline-size: 0;
-    font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    line-height: var(--line-height-tight);
+    padding: 0;
     color: var(--text-primary);
     cursor: pointer;
     background: none;
-    border: none;
+    border: 0;
+    border-radius: var(--radius-lg);
   }
 
   .theme-toggle:focus-visible {
@@ -133,116 +126,40 @@ import Icon from "../visual/Icon.astro";
     outline-offset: var(--focus-ring-offset);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .theme-toggle__pill {
-      display: flex;
-      gap: 0.4rem;
-      padding: 0.35rem;
-      background: var(--surface-3);
-      border: 1px solid var(--border-default);
-      border-radius: 999px;
-      transition: none;
-    }
-  }
-
   .theme-toggle__pill {
-    display: flex;
-    gap: 0.4rem;
-    padding: 0.35rem;
-    background: linear-gradient(
-      145deg,
-      color-mix(in srgb, var(--surface-2) 88%, var(--surface-3)),
-      color-mix(in srgb, var(--surface-1) 92%, var(--bg-primary))
-    );
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    padding: 0.2rem;
+    background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
-    border-radius: 999px;
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 80%, transparent),
-      var(--shadow-sm);
-    transition:
-      background var(--transition-fast),
-      border-color var(--transition-fast),
-      box-shadow var(--transition-fast);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .theme-toggle__pill-icon {
-      display: grid;
-      place-items: center;
-      width: 2.25rem;
-      height: 2.25rem;
-      color: var(--text-secondary);
-      border-radius: 999px;
-      opacity: 0.3;
-      transition: none;
-    }
+    border-radius: var(--radius-full);
   }
 
   .theme-toggle__pill-icon {
     display: grid;
     place-items: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    inline-size: 2rem;
+    block-size: 2rem;
     color: var(--text-secondary);
-    border-radius: 999px;
-    opacity: 0.72;
-    transition:
-      opacity var(--transition-fast),
-      background var(--transition-fast),
-      color var(--transition-fast),
-      box-shadow var(--transition-fast),
-      transform var(--transition-fast);
-  }
-
-  .theme-toggle:hover .theme-toggle__pill,
-  .theme-toggle:focus-visible .theme-toggle__pill {
-    border-color: var(--surface-border-accent-strong);
-    box-shadow: var(--interactive-shadow-focus);
+    border-radius: var(--radius-full);
   }
 
   .theme-toggle__icon {
-    width: 1.25rem;
-    height: 1.25rem;
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
   .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="light"],
   .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="dark"] {
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-1) 96%, var(--surface-2));
-    box-shadow:
-      var(--shadow-md),
-      inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 86%, transparent);
-    opacity: 1;
-    transform: translateY(-1px);
-  }
-
-  .theme-toggle[data-theme="light"]
-    .theme-toggle__pill-icon[data-option="light"]
-    .theme-toggle__icon {
-    color: var(--accent-strong);
-    filter: drop-shadow(
-      0 0 4px color-mix(in srgb, var(--accent-primary) 40%, transparent)
-    );
-  }
-
-  .theme-toggle[data-theme="dark"]
-    .theme-toggle__pill-icon[data-option="dark"]
-    .theme-toggle__icon {
-    color: var(--accent-primary);
-    filter: drop-shadow(
-      0 0 4px color-mix(in srgb, var(--accent-primary) 50%, transparent)
-    );
-  }
-
-  .theme-toggle:hover .theme-toggle__pill-icon,
-  .theme-toggle:focus-visible .theme-toggle__pill-icon {
-    opacity: 0.92;
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
   }
 
   .theme-toggle__sr {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    inline-size: 1px;
+    block-size: 1px;
     padding: 0;
     margin: -1px;
     overflow: hidden;

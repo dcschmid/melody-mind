@@ -239,31 +239,50 @@ const contentProps = href
     block-size: 100%;
     container-type: inline-size;
     overflow: hidden;
-    background: var(--surface-panel-bg);
+    background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-base);
+    border-radius: calc(var(--radius-xl) + var(--spacing-xs));
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
+      var(--shadow-lg);
     transition:
       transform var(--transition-base),
+      background var(--transition-base),
       border-color var(--transition-base),
       box-shadow var(--transition-base);
+  }
+
+  .content-card::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 1px;
+    content: "";
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-primary) 0%, transparent),
+      color-mix(in srgb, var(--accent-primary) 28%, transparent),
+      color-mix(in srgb, var(--accent-primary) 0%, transparent)
+    );
+    opacity: 0.75;
   }
 
   .content-card--feature {
     background:
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        color-mix(in srgb, var(--accent-primary) 12%, transparent),
         transparent 58%
       ),
-      var(--surface-panel-bg);
+      var(--surface-panel-raised);
     border-color: var(--surface-border-accent);
     box-shadow: var(--shadow-xl);
   }
 
   .content-card--action {
-    border-color: var(--surface-border-subtle);
-    box-shadow: var(--shadow-lg);
+    background: var(--section-surface-bg);
+    border-color: var(--surface-border-accent);
+    box-shadow: var(--shadow-xl);
   }
 
   .content-card__content {
@@ -282,8 +301,9 @@ const contentProps = href
 
   .content-card--interactive:hover,
   .content-card--interactive:focus-within {
+    background: var(--surface-card-hover);
     border-color: var(--surface-border-accent);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
   }
 
   .content-card--interactive:focus-within {
@@ -325,15 +345,80 @@ const contentProps = href
     border-block-end-color: var(--surface-border-accent);
   }
 
+  .content-card__media::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-scrim) 6%, transparent),
+        transparent 36%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 55%,
+        color-mix(in srgb, var(--surface-scrim) 22%, transparent)
+      );
+  }
+
   .content-card__media--contain {
     display: grid;
     place-items: center;
+  }
+
+  .content-card__media :global(img),
+  .content-card__media :global(picture),
+  .content-card__media :global(picture > img),
+  .content-card__media :global(svg) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .content-card__media :global(img),
+    .content-card__media :global(picture > img),
+    .content-card__media :global(svg) {
+      object-fit: cover;
+      transition: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .content-card__media :global(img),
+    .content-card__media :global(picture > img),
+    .content-card__media :global(svg) {
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+  }
+
+  .content-card__media :global(img),
+  .content-card__media :global(picture > img),
+  .content-card__media :global(svg) {
+    object-fit: cover;
+  }
+
+  .content-card__media--contain :global(img),
+  .content-card__media--contain :global(picture > img),
+  .content-card__media--contain :global(svg) {
+    object-fit: contain;
+  }
+
+  .content-card--interactive:hover .content-card__media :global(img),
+  .content-card--interactive:focus-within .content-card__media :global(img),
+  .content-card--interactive:hover .content-card__media :global(picture > img),
+  .content-card--interactive:focus-within .content-card__media :global(picture > img) {
+    transform: scale(1.05);
   }
 
   .content-card__badge {
     position: absolute;
     inset-block-end: var(--spacing-base);
     inset-inline-end: var(--spacing-base);
+    z-index: 1;
   }
 
   .content-card__body {
@@ -341,7 +426,7 @@ const contentProps = href
     flex: 1;
     flex-direction: column;
     gap: var(--spacing-md);
-    padding: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
   }
 
   .content-card--size-compact .content-card__body {
@@ -356,7 +441,7 @@ const contentProps = href
 
   .content-card__title {
     margin: 0;
-    font-size: var(--font-size-lg);
+    font-size: clamp(1.2rem, 1.05rem + 0.45vw, 1.55rem);
     font-weight: var(--heading-font-weight);
     line-height: var(--heading-line-height);
     color: var(--heading-color);
@@ -430,7 +515,8 @@ const contentProps = href
   }
 
   .content-card__footer {
-    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    padding: 0 clamp(var(--spacing-lg), 2vw, var(--spacing-xl))
+      clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
   }
 
   .content-card--size-compact .content-card__footer {
@@ -453,10 +539,10 @@ const contentProps = href
     font-weight: var(--button-font-weight);
     color: var(--text-primary);
     text-align: center;
-    background: var(--surface-pill-bg);
+    background: color-mix(in srgb, var(--surface-1) 78%, transparent);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--button-radius);
-    box-shadow: none;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-xs);
     transition:
       transform var(--transition-base),
       background-color var(--transition-base),
@@ -471,7 +557,11 @@ const contentProps = href
 
   .content-card--feature .content-card__cta {
     color: var(--button-text-accent);
-    background: var(--accent-primary);
+    background: linear-gradient(
+      135deg,
+      var(--accent-primary),
+      color-mix(in srgb, var(--accent-primary) 76%, var(--accent-strong))
+    );
     border-color: var(--surface-border-accent);
     box-shadow: var(--shadow-lg);
   }
@@ -483,9 +573,9 @@ const contentProps = href
 
   .content-card--interactive:hover .content-card__cta,
   .content-card--interactive:focus-within .content-card__cta {
-    background: var(--surface-chip-bg);
+    background: var(--surface-card-hover);
     border-color: var(--surface-border-accent);
-    box-shadow: none;
+    box-shadow: var(--shadow-sm);
     transform: translateY(-1px);
   }
 
@@ -515,6 +605,13 @@ const contentProps = href
 
   @media (prefers-reduced-motion: reduce) {
     .content-card {
+      transition: none;
+    }
+
+    .content-card__media :global(img),
+    .content-card__media :global(picture > img),
+    .content-card__media :global(svg) {
+      transform: none;
       transition: none;
     }
 

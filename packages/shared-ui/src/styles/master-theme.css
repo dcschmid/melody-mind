@@ -152,6 +152,7 @@
   --radius-2xl: 2rem;
   --radius-full: 9999px;
 
+  --shadow-xs: 0 1px 1px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
@@ -238,21 +239,22 @@
 
   --gn-panel-border: var(--border-default);
   --page-background:
-    radial-gradient(
-      circle at top left,
-      color-mix(in srgb, var(--accent-primary) 8%, transparent),
-      transparent 42%
-    ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--surface-1) 72%, var(--bg-primary)),
+      color-mix(in srgb, var(--surface-1) 28%, var(--bg-primary)),
       var(--bg-primary)
     );
   --surface-overlay: color-mix(in srgb, var(--surface-1) 84%, transparent);
   --surface-scrim: color-mix(in srgb, var(--text-primary) 24%, transparent);
-  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 28%, transparent);
-  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 20%, transparent);
+  --interactive-shadow-focus: 0 0 0 3px
+    color-mix(in srgb, var(--focus-ring-color) 28%, transparent);
+  --interactive-shadow-strong: 0 0 0 6px
+    color-mix(in srgb, var(--focus-ring-color) 20%, transparent);
   --button-text-accent: var(--accent-contrast);
+  --control-min-block-size: 2.75rem;
+  --control-min-inline-size: 2.75rem;
+  --control-padding-inline: var(--spacing-lg);
+  --control-padding-block: var(--spacing-sm);
 
   /* Legacy aliases for compatibility */
   --gn-bg-primary: var(--bg-primary);
@@ -311,20 +313,17 @@
 
     --gn-panel-border: var(--border-default);
     --page-background:
-      radial-gradient(
-        circle at top center,
-        color-mix(in srgb, var(--accent-primary) 14%, transparent),
-        transparent 34%
-      ),
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--surface-2) 42%, var(--bg-primary)),
+        color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
         var(--bg-primary)
       );
     --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
     --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
-    --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
-    --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
+    --interactive-shadow-focus: 0 0 0 3px
+      color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+    --interactive-shadow-strong: 0 0 0 6px
+      color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
     --button-text-accent: var(--color-dark-bg-primary);
 
     /* Legacy aliases */
@@ -380,20 +379,17 @@
 
   --gn-panel-border: var(--border-default);
   --page-background:
-    radial-gradient(
-      circle at top center,
-      color-mix(in srgb, var(--accent-primary) 14%, transparent),
-      transparent 34%
-    ),
     linear-gradient(
       180deg,
-      color-mix(in srgb, var(--surface-2) 42%, var(--bg-primary)),
+      color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
       var(--bg-primary)
     );
   --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
-  --interactive-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
-  --interactive-shadow-strong: 0 0 0 6px color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
+  --interactive-shadow-focus: 0 0 0 3px
+    color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+  --interactive-shadow-strong: 0 0 0 6px
+    color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
   --button-text-accent: var(--color-dark-bg-primary);
 
   /* Legacy aliases */
@@ -441,8 +437,8 @@
   --heading-color: var(--text-primary);
 
   /* Layout */
-  --page-max-width: 80rem;
-  --content-max-width: 72rem;
+  --page-max-width: 84rem;
+  --content-max-width: 74rem;
   --measure-wide: 56rem;
   --measure-readable: 42rem;
   --measure-standard: 40rem;
@@ -451,15 +447,26 @@
   --page-padding-x: var(--spacing-lg);
   --page-padding-y: var(--spacing-2xl);
   --section-gap: var(--spacing-3xl);
+  --site-header-height: clamp(4rem, 4vw, 4.75rem);
+  --site-header-shell-bg: color-mix(in srgb, var(--surface-1) 94%, transparent);
+  --site-header-shell-border: color-mix(
+    in srgb,
+    var(--accent-primary) 14%,
+    var(--border-default)
+  );
 
   /* Surfaces */
-  --surface-panel-bg: linear-gradient(
-    160deg,
-    color-mix(in srgb, var(--surface-2) 88%, var(--surface-3)),
-    var(--surface-1)
+  --surface-panel-bg: color-mix(in srgb, var(--surface-1) 92%, var(--surface-2));
+  --surface-panel-raised: color-mix(in srgb, var(--surface-1) 96%, var(--surface-2));
+  --surface-card-hover: color-mix(in srgb, var(--accent-primary) 6%, var(--surface-1));
+  --section-surface-bg: color-mix(in srgb, var(--surface-1) 90%, var(--surface-2));
+  --section-surface-accent-bg: color-mix(
+    in srgb,
+    var(--accent-primary) 6%,
+    var(--section-surface-bg)
   );
-  --surface-chip-bg: color-mix(in srgb, var(--surface-1) 94%, var(--bg-primary));
-  --surface-pill-bg: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2));
+  --surface-chip-bg: color-mix(in srgb, var(--surface-1) 92%, var(--bg-primary));
+  --surface-pill-bg: color-mix(in srgb, var(--surface-1) 82%, var(--surface-2));
   --surface-border-subtle: color-mix(in srgb, var(--border-default) 24%, transparent);
   --surface-border-soft: color-mix(in srgb, var(--border-default) 58%, transparent);
   --surface-border-strong: color-mix(in srgb, var(--border-default) 82%, transparent);
@@ -497,10 +504,6 @@ body {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  body {
-    animation: theme-fade-in var(--motion-duration-slow) var(--motion-ease-standard);
-  }
-
   [data-animate="rise-in"] {
     animation:
       theme-rise-in var(--motion-duration-base) var(--motion-ease-standard)
@@ -578,16 +581,6 @@ body {
   }
 }
 
-@keyframes theme-fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes theme-rise-in {
   from {
     opacity: var(--motion-opacity-soft);
@@ -597,18 +590,6 @@ body {
   to {
     opacity: var(--motion-opacity-full);
     transform: translateY(0);
-  }
-}
-
-@keyframes theme-glow-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
-  }
-
-  50% {
-    box-shadow: 0 0 0 0.35rem
-      color-mix(in srgb, var(--accent-primary) 10%, transparent);
   }
 }
 
@@ -623,8 +604,12 @@ body {
     --border-muted: var(--border-default);
     --link-default: var(--accent-strong);
     --link-hover: var(--accent-strong);
-    --page-background: none;
+    --page-background: var(--bg-primary);
     --surface-panel-bg: var(--surface-1);
+    --surface-panel-raised: var(--surface-1);
+    --surface-card-hover: var(--surface-1);
+    --section-surface-bg: var(--surface-1);
+    --section-surface-accent-bg: var(--surface-1);
     --surface-chip-bg: var(--surface-1);
     --surface-pill-bg: var(--surface-1);
     --interactive-shadow-focus: 0 0 0 4px
@@ -643,6 +628,12 @@ body {
     --border-muted: var(--border-default);
     --link-default: var(--accent-strong);
     --link-hover: var(--accent-strong);
+    --page-background: var(--bg-primary);
+    --surface-panel-bg: var(--surface-1);
+    --surface-panel-raised: var(--surface-1);
+    --surface-card-hover: var(--surface-1);
+    --section-surface-bg: var(--surface-1);
+    --section-surface-accent-bg: var(--surface-1);
   }
 }
 
@@ -668,8 +659,12 @@ body {
     --border-muted: CanvasText;
     --border-strong: CanvasText;
     --focus-ring-color: Highlight;
-    --page-background: none;
+    --page-background: Canvas;
     --surface-panel-bg: Canvas;
+    --surface-panel-raised: Canvas;
+    --surface-card-hover: Canvas;
+    --section-surface-bg: Canvas;
+    --section-surface-accent-bg: Canvas;
     --surface-chip-bg: Canvas;
     --surface-pill-bg: Canvas;
     --surface-overlay: transparent;

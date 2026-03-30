@@ -33,6 +33,7 @@ export const podcastAppShellConfig: AppShellConfig = {
         icon: "search",
       },
     ],
+    showBrand: false,
     brandHref: "/",
     brandText: "MelodyMind Podcasts",
     brandLogoAlt: "MelodyMind Podcasts",

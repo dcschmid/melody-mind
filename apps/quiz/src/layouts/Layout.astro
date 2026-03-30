@@ -13,7 +13,7 @@ import {
   DEFAULT_DNS_PREFETCH,
 } from "@shared-utils/utils/appShell";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
-import { quizBrandLogo, quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
+import { quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
 import { quizAppShellConfig } from "../utils/appShellConfig";
 
 interface Props {
@@ -153,7 +153,6 @@ const FATHOM_SITE_ID = "ZIWRKHTE";
         headerConfig={{
           ...shellConfig.header,
           showIcons: showHeaderIcons,
-          brandLogoSrc: quizBrandLogo,
         }}
       />
     )

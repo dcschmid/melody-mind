@@ -18,8 +18,9 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   imageDecoding?: "sync" | "async" | "auto";
   mediaAspectRatio?: string;
   mediaObjectFit?: "cover" | "contain";
-  mediaPosition?: "start" | "end";
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  titleMaxWidth?: string;
+  descriptionMaxWidth?: string;
   dataTestId?: string;
   class?: string;
 }
@@ -37,8 +38,9 @@ const {
   imageDecoding = "async",
   mediaAspectRatio,
   mediaObjectFit = "cover",
-  mediaPosition = "start",
   titleLevel = "h2",
+  titleMaxWidth,
+  descriptionMaxWidth,
   dataTestId,
   class: className,
   ...rest
@@ -58,7 +60,7 @@ const resolvedMediaAspectRatio =
 
 <section
   {...rest}
-  class:list={["hero-teaser", `hero-teaser--media-${mediaPosition}`, className]}
+  class:list={["hero-teaser", className]}
   data-testid={dataTestId}
   aria-labelledby={headingId}
   aria-describedby={descriptionId}
@@ -72,11 +74,19 @@ const resolvedMediaAspectRatio =
         level={titleLevel}
         textSize="3xl"
         className="hero-teaser__title"
+        style={titleMaxWidth ? `max-inline-size: ${titleMaxWidth};` : undefined}
       >
         {title}
       </Headline>
 
-      <Paragraph id={descriptionId} textSize="xl" className="hero-teaser__description">
+      <Paragraph
+        id={descriptionId}
+        textSize="xl"
+        className="hero-teaser__description"
+        style={descriptionMaxWidth
+          ? `max-inline-size: ${descriptionMaxWidth};`
+          : undefined}
+      >
         {description}
       </Paragraph>
     </div>
@@ -135,43 +145,19 @@ const resolvedMediaAspectRatio =
 
 <style>
   .hero-teaser {
-    position: relative;
-    box-sizing: border-box;
     inline-size: 100%;
-    padding: clamp(var(--spacing-base), 4vw, var(--spacing-2xl));
+    padding: 0;
     margin-inline: auto;
-    overflow: hidden;
     color: var(--text-primary);
-    background:
-      radial-gradient(
-        circle at top right,
-        color-mix(in srgb, var(--accent-primary) 14%, transparent),
-        transparent 38%
-      ),
-      var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-lg);
-    isolation: isolate;
-  }
-
-  .hero-teaser::after {
-    position: absolute;
-    inset: auto 0 0;
-    block-size: 1px;
-    content: "";
-    background: linear-gradient(
-      90deg,
-      transparent,
-      color-mix(in srgb, var(--accent-primary) 38%, transparent),
-      transparent
-    );
-    opacity: 0.9;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .hero-teaser__grid {
     display: grid;
-    gap: clamp(var(--spacing-base), 3vw, var(--spacing-2xl));
+    gap: clamp(var(--spacing-lg), 3vw, var(--spacing-3xl));
     align-items: center;
   }
 
@@ -182,12 +168,14 @@ const resolvedMediaAspectRatio =
     padding-block-start: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
     margin-block-start: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
     border-block-start: 1px solid
-      color-mix(in srgb, var(--border-default) 42%, transparent);
+      color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
   }
 
   .hero-teaser__copy {
+    position: relative;
     display: grid;
     gap: clamp(var(--spacing-base), 2.5vw, var(--spacing-lg));
+    align-content: center;
     min-inline-size: 0;
   }
 
@@ -198,19 +186,19 @@ const resolvedMediaAspectRatio =
     line-height: var(--line-height-tight);
     color: var(--accent-primary);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
+    letter-spacing: 0.16em;
   }
 
   .hero-teaser__title {
-    max-inline-size: 16ch;
-    font-size: var(--font-size-2xl);
-    line-height: 1.1;
-    text-wrap: pretty;
+    max-inline-size: 12ch;
+    font-size: clamp(2.6rem, 2rem + 2.6vw, 4.8rem);
+    line-height: 0.95;
+    text-wrap: balance;
   }
 
   .hero-teaser__description {
-    max-inline-size: 40ch;
-    font-size: var(--font-size-lg);
+    max-inline-size: 42ch;
+    font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.5rem);
     color: var(--text-secondary);
   }
 
@@ -221,14 +209,6 @@ const resolvedMediaAspectRatio =
     gap: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
     align-items: stretch;
     inline-size: 100%;
-  }
-
-  .hero-teaser__meta {
-    justify-content: flex-start;
-  }
-
-  .hero-teaser__actions {
-    justify-content: flex-start;
   }
 
   .hero-teaser__meta > :global(*),
@@ -243,20 +223,13 @@ const resolvedMediaAspectRatio =
   }
 
   .hero-teaser__media {
-    position: relative;
     min-inline-size: 0;
     aspect-ratio: var(--hero-teaser-media-aspect-ratio, 4 / 3);
     overflow: hidden;
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 45%, transparent),
-        transparent
-      ),
-      var(--surface-chip-bg);
+    background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-2xl) - var(--spacing-xs));
-    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
   }
 
   .hero-teaser__media--contain {
@@ -291,59 +264,30 @@ const resolvedMediaAspectRatio =
   }
 
   @media (width >= 640px) {
-    .hero-teaser {
-      padding: clamp(var(--spacing-lg), 2.8vw, var(--spacing-2xl));
-    }
-
-    .hero-teaser__title {
-      font-size: var(--font-size-2xl);
-      line-height: var(--heading-line-height);
-    }
-
-    .hero-teaser__description {
-      font-size: var(--font-size-lg);
+    .hero-teaser__footer {
+      grid-template-columns: minmax(0, 1.4fr) minmax(14rem, auto);
+      align-items: start;
     }
   }
 
   @media (width >= 960px) {
     .hero-teaser__grid {
-      grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.95fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 1fr);
     }
 
-    .hero-teaser--media-start .hero-teaser__copy {
+    .hero-teaser__copy {
       order: 2;
+      padding-inline-start: clamp(0rem, 1.5vw, var(--spacing-base));
     }
 
-    .hero-teaser--media-start .hero-teaser__media {
+    .hero-teaser__media {
       order: 1;
-    }
-
-    .hero-teaser--media-end .hero-teaser__copy {
-      order: 1;
-    }
-
-    .hero-teaser--media-end .hero-teaser__media {
-      order: 2;
-    }
-
-    .hero-teaser__footer {
-      grid-template-columns: minmax(0, 1fr);
     }
   }
 
   @media (width >= 1200px) {
-    .hero-teaser__title {
-      max-inline-size: 18ch;
-    }
-
     .hero-teaser__description {
       max-inline-size: 44ch;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-teaser {
-      scroll-behavior: auto;
     }
   }
 </style>

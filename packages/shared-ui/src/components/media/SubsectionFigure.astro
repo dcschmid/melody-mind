@@ -1,5 +1,7 @@
 ---
-import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { normalizeImageKey } from "@shared-utils/utils/imageAssets";
 
 interface Props {
   imageSrc: string;
@@ -8,6 +10,7 @@ interface Props {
   imageHeight?: number;
   heading: string;
   headingLevel?: "h2" | "h3" | "h4";
+  headingId?: string;
   sizes?: string;
   className?: string;
 }
@@ -19,29 +22,72 @@ const {
   imageHeight = 683,
   heading,
   headingLevel = "h3",
+  headingId,
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 40vw",
   className = "",
 } = Astro.props as Props;
 
+const knowledgeImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/knowledge/**/*.{jpg,jpeg,png,webp,avif}",
+  { eager: true }
+);
+
+const knowledgeImagesByPath = Object.fromEntries(
+  Object.entries(knowledgeImageModules).map(([path, module]) => {
+    const normalizedPath = path
+      .replace(/^\/src\/assets\//u, "")
+      .replace(/\?.*$/u, "");
+    return [normalizedPath, module.default];
+  })
+) as Record<string, ImageMetadata>;
+
+const knowledgeImagesByKey = Object.fromEntries(
+  Object.entries(knowledgeImageModules).map(([path, module]) => {
+    const fileName = path.split("/").pop() ?? "";
+    return [normalizeImageKey(fileName), module.default];
+  })
+) as Record<string, ImageMetadata>;
+
+const normalizedImageKey = imageSrc.replace(/^\/+/u, "").replace(/\?.*$/u, "");
+const resolvedImage =
+  knowledgeImagesByPath[normalizedImageKey] ||
+  knowledgeImagesByKey[normalizeImageKey(normalizedImageKey)];
+
+if (!resolvedImage) {
+  throw new Error(`Unknown knowledge subsection image: ${imageSrc}`);
+}
+
+const resolvedImageWidth = imageWidth || resolvedImage.width;
+const resolvedImageHeight = imageHeight || resolvedImage.height;
 const Tag = headingLevel;
 const classes = ["subsection-figure", className].filter(Boolean).join(" ");
+const resolvedHeadingId =
+  headingId ||
+  heading
+    .toLowerCase()
+    .trim()
+    .replace(/&/gu, " and ")
+    .replace(/[^a-z0-9]+/gu, "-")
+    .replace(/^-+|-+$/gu, "");
 ---
 
 <figure class={classes}>
   <div class="subsection-figure__media">
-    <OptimizedImage
+    <Image
       class="subsection-figure__image"
-      src={imageSrc}
+      src={resolvedImage}
       alt={imageAlt}
-      width={imageWidth}
-      height={imageHeight}
+      width={resolvedImageWidth}
+      height={resolvedImageHeight}
       sizes={sizes}
       loading="lazy"
       decoding="async"
     />
   </div>
   <figcaption class="subsection-figure__content">
-    <Tag class="subsection-figure__title">{heading}</Tag>
+    <Tag id={resolvedHeadingId} class="subsection-figure__title">
+      {heading}
+    </Tag>
   </figcaption>
 </figure>
 
@@ -63,26 +109,13 @@ const classes = ["subsection-figure", className].filter(Boolean).join(" ");
 
   /* Media container */
   .subsection-figure__media {
-    /* Layout */
     position: relative;
     aspect-ratio: 3 / 2;
     overflow: hidden;
-
-    /* Visual styling */
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* Inner decorative border */
-  .subsection-figure__media::after {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-lg) - var(--spacing-xs));
+    box-shadow: var(--shadow-sm);
   }
 
   /* Image sizing */
@@ -93,9 +126,7 @@ const classes = ["subsection-figure", className].filter(Boolean).join(" ");
     object-fit: cover;
   }
 
-  /* Content section with accent border */
   .subsection-figure__content {
-    /* Layout */
     position: relative;
     display: flex;
     align-items: center;

@@ -67,11 +67,10 @@ const { countLabel, description, level, title, titleClassName, wrapperClassName 
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
     color: var(--accent-strong);
-    letter-spacing: var(--letter-spacing-wide);
-    background: var(--surface-pill-bg);
+    letter-spacing: normal;
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
     border: 1px solid var(--surface-border-accent);
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
   }
 
   @media (width >= 768px) {

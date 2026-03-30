@@ -18,6 +18,7 @@ export interface AppShellNavItem extends AppShellLink {
 export interface AppShellHeaderConfig {
   navItems: AppShellNavItem[];
   showIcons?: boolean;
+  showBrand?: boolean;
   brandHref: string;
   brandText: string;
   brandMark?: string;

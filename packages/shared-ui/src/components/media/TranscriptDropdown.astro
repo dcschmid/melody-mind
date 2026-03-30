@@ -5,9 +5,10 @@ import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 interface Props {
   subtitleUrl?: string | undefined;
   podcastTitle: string;
+  flushTop?: boolean;
 }
 
-const { subtitleUrl, podcastTitle } = Astro.props as Props;
+const { subtitleUrl, podcastTitle, flushTop = false } = Astro.props as Props;
 const transcriptSlug =
   (subtitleUrl || podcastTitle).replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") ||
   "transcript";
@@ -16,9 +17,9 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 ---
 
 {
-  subtitleUrl && (
+  subtitleUrl ? (
     <section
-      class="transcript"
+      class:list={["transcript", flushTop && "transcript--flush-top"]}
       aria-labelledby={transcriptTitleId}
       data-subtitle-url={subtitleUrl}
       data-podcast-title={podcastTitle}
@@ -55,7 +56,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
         </div>
       </details>
     </section>
-  )
+  ) : null
 }
 
 <script>
@@ -65,14 +66,13 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 <style>
   .transcript {
     margin-block-start: var(--spacing-xl);
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 96%, transparent),
-      color-mix(in srgb, var(--surface-2) 78%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 28%, transparent);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+  }
+
+  .transcript--flush-top {
+    margin-block-start: 0;
   }
 
   .transcript__summary {
@@ -80,11 +80,10 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     gap: var(--spacing-md);
     align-items: center;
     justify-content: space-between;
+    min-block-size: var(--control-min-block-size);
     padding: var(--spacing-base) var(--spacing-lg);
     cursor: pointer;
     list-style: none;
-    background: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2));
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 
   .transcript__summary::-webkit-details-marker {
@@ -92,61 +91,48 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   }
 
   .transcript__summary:focus-visible {
-    outline: none;
-    border-radius: var(--radius-base);
-    box-shadow: var(--interactive-shadow-focus);
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .transcript__summary-title {
     display: inline-flex;
     gap: var(--spacing-sm);
     align-items: center;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
   }
 
   .transcript__summary-icon {
-    flex: 0 0 auto;
     inline-size: 1rem;
     block-size: 1rem;
     color: var(--accent-primary);
   }
 
-  .transcript__summary-hint {
-    font-size: var(--font-size-sm);
+  .transcript__summary-hint,
+  .transcript__status {
     color: var(--text-secondary);
   }
 
   .transcript__body {
-    padding: var(--spacing-base) var(--spacing-lg) var(--spacing-lg);
-    border-block-start: 1px solid
-      color-mix(in srgb, var(--border-default) 58%, transparent);
-  }
-
-  .transcript__status {
-    margin: 0 0 var(--spacing-md);
-    color: var(--text-secondary);
-  }
-
-  .transcript__status--error {
-    color: var(--color-error);
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .transcript__content {
     display: grid;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     max-block-size: 24rem;
-    padding-inline-end: var(--spacing-xs);
     overflow-block: auto;
   }
 
-  :global(.transcript .transcript__cue) {
+  .transcript__content :global(.transcript__cue) {
     display: grid;
     grid-template-columns: minmax(3.5rem, auto) 1fr;
     gap: var(--spacing-md);
     align-items: start;
     inline-size: 100%;
-    padding: var(--spacing-md) var(--spacing-base);
+    padding: var(--spacing-base);
     margin: 0;
     font: inherit;
     line-height: var(--line-height-relaxed);
@@ -154,32 +140,26 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     text-align: start;
     appearance: none;
     cursor: pointer;
-    background: color-mix(in srgb, var(--surface-1) 88%, var(--surface-2));
-    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
-    border-radius: var(--radius-md);
+    background: var(--surface-panel-raised);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
   }
 
-  :global(.transcript .transcript__cue:focus-visible) {
-    outline: none;
-    box-shadow: var(--interactive-shadow-focus);
+  .transcript__content :global(.transcript__cue:focus-visible) {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
-  :global(.transcript .transcript__cue--active) {
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    border-color: color-mix(in srgb, var(--accent-primary) 42%, transparent);
+  .transcript__content :global(.transcript__cue--active) {
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
+    border-color: var(--surface-border-accent);
   }
 
-  :global(.transcript .transcript__time) {
-    display: inline-block;
-    min-inline-size: 3.5rem;
+  .transcript__content :global(.transcript__time) {
     font-weight: var(--font-weight-semibold);
     font-variant-numeric: tabular-nums;
     color: var(--accent-primary);
     text-align: end;
-  }
-
-  :global(.transcript .transcript__text) {
-    color: var(--text-primary);
   }
 
   @media (width < 640px) {
@@ -189,33 +169,17 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
       padding: var(--spacing-base);
     }
 
-    .transcript__summary-title {
-      min-inline-size: 0;
-    }
-
     .transcript__summary-hint {
       inline-size: 100%;
-      font-size: var(--font-size-xs);
-      text-align: start;
     }
 
     .transcript__body {
-      padding: var(--spacing-base);
+      padding: 0 var(--spacing-base) var(--spacing-base);
     }
 
-    .transcript__content {
-      padding-inline-end: 0;
-    }
-
-    :global(.transcript .transcript__cue) {
+    .transcript__content :global(.transcript__cue) {
       grid-template-columns: minmax(0, 1fr);
       gap: var(--spacing-sm);
-      padding: var(--spacing-base);
-    }
-
-    :global(.transcript .transcript__time) {
-      min-inline-size: 0;
-      text-align: start;
     }
   }
 </style>

@@ -15,22 +15,23 @@ const { title, titleIcon, items = [], class: className } = Astro.props as Props;
 
 {
   items.length ? (
-    <div class:list={["link-panel", className]}>
+    <section class:list={["link-panel", className]}>
       {title ? (
-        <div class="link-panel__title">
+        <header class="link-panel__header">
           {titleIcon ? (
             <Icon name={titleIcon} class="link-panel__title-icon" aria-hidden="true" />
           ) : null}
-          <span>{title}</span>
-        </div>
+          <h2 class="link-panel__title">{title}</h2>
+        </header>
       ) : null}
+
       <div class="link-panel__actions">
         {items.map((item) => (
           <ButtonLink
             href={item.href}
             variant={item.variant ?? "secondary"}
+            size="compact"
             icon={item.icon}
-            className="button-link--sm"
             analyticsPodcastTarget={item.analyticsPodcastTarget}
             aria-label={item.ariaLabel}
           >
@@ -38,48 +39,35 @@ const { title, titleIcon, items = [], class: className } = Astro.props as Props;
           </ButtonLink>
         ))}
       </div>
-    </div>
+    </section>
   ) : null
 }
 
 <style>
   .link-panel {
-    position: relative;
-    padding: var(--spacing-base);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
+    display: grid;
+    gap: var(--spacing-base);
+    padding: var(--spacing-lg) 0;
+    border-block: 1px solid var(--surface-border-soft);
   }
 
-  .link-panel::before {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
-  }
-
-  .link-panel__title {
+  .link-panel__header {
     display: flex;
     gap: var(--spacing-sm);
     align-items: center;
-    margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-sm);
+  }
+
+  .link-panel__title {
+    margin: 0;
+    font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-tight);
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
+    color: var(--text-primary);
   }
 
   .link-panel__title-icon {
-    display: block;
-    flex-shrink: 0;
-    inline-size: var(--spacing-base);
-    block-size: var(--spacing-base);
-    color: var(--accent-strong);
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--accent-primary);
   }
 
   .link-panel__actions {

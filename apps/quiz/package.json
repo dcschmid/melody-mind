@@ -20,14 +20,14 @@
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.2",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/sitemap": "^3.7.2",
     "@fontsource/atkinson-hyperlegible": "^5.2.8",
     "@iconify-json/simple-icons": "^1.2.75",
-    "@iconify-json/tabler": "^1.2.32",
+    "@iconify-json/tabler": "^1.2.33",
     "@melody-mind/shared-ui": "workspace:*",
     "@melody-mind/shared-utils": "workspace:*",
-    "astro": "^6.0.8",
+    "astro": "^6.1.1",
     "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.1",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "packageManager": "pnpm@9.15.0"
 }

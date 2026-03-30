@@ -1,5 +1,6 @@
 ---
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+
 export interface SearchItem {
   title: string;
   description?: string;
@@ -7,6 +8,7 @@ export interface SearchItem {
 }
 
 interface Props {
+  idBase: string;
   items: SearchItem[];
   placeholder?: string;
   emptyText?: string;
@@ -16,6 +18,7 @@ interface Props {
 }
 
 const {
+  idBase,
   items,
   placeholder = "Search...",
   emptyText = "Start typing to search.",
@@ -23,13 +26,15 @@ const {
   limit = 20,
   initialQuery = "",
 } = Astro.props as Props;
+
+const inputId = `${idBase}-input`;
 ---
 
-<div class="simple-search" data-simple-search-root>
+<div class="simple-search" data-simple-search-root data-simple-search-id={idBase}>
   <div class="simple-search__field">
-    <label class="simple-search__label" for="simple-search-input">Search</label>
+    <label class="simple-search__label" for={inputId}>Search</label>
     <input
-      id="simple-search-input"
+      id={inputId}
       class="simple-search__input"
       type="search"
       placeholder={placeholder}
@@ -59,20 +64,9 @@ const {
 </div>
 
 <script is:inline define:vars={{ items, emptyText, noResultsText, limit, initialQuery }}>
-  const root = document.querySelector("[data-simple-search-root]");
-  const input = root?.querySelector("[data-simple-search-input]");
-  const results = root?.querySelector("[data-simple-search-results]");
-  const status = root?.querySelector("[data-simple-search-status]");
+  const roots = document.querySelectorAll("[data-simple-search-root]");
 
-  const escapeHtml = (value) =>
-    (value || "")
-      .toString()
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#39;");
-
+  const escapeText = (value) => (value || "").toString();
   const normalize = (value) =>
     (value || "")
       .toString()
@@ -85,9 +79,7 @@ const {
     const q = normalize(query);
     const title = normalize(item.title);
     const description = normalize(item.description);
-
     let score = 0;
-
     if (title === q) {
       score += 100;
     }
@@ -100,338 +92,246 @@ const {
     if (description.includes(q)) {
       score += 10;
     }
-
     return score;
   };
 
-  const updateUrl = (query) => {
-    const url = new URL(window.location.href);
-    const trimmedQuery = query.trim();
-
-    if (trimmedQuery) {
-      url.searchParams.set("q", trimmedQuery);
-    } else {
-      url.searchParams.delete("q");
-    }
-
-    window.history.replaceState({}, "", url);
-  };
-
-  const renderResults = (matches) => {
-    if (!results || !status) {
+  roots.forEach((root) => {
+    const input = root.querySelector("[data-simple-search-input]");
+    const results = root.querySelector("[data-simple-search-results]");
+    const status = root.querySelector("[data-simple-search-status]");
+    if (
+      !(input instanceof HTMLInputElement) ||
+      !(results instanceof HTMLElement) ||
+      !(status instanceof HTMLElement)
+    ) {
       return;
     }
 
-    if (!matches.length) {
-      results.innerHTML = "";
-      status.textContent = noResultsText;
-      return;
+    const updateUrl = (query) => {
+      const url = new URL(window.location.href);
+      const trimmedQuery = query.trim();
+      if (trimmedQuery) {
+        url.searchParams.set("q", trimmedQuery);
+      } else {
+        url.searchParams.delete("q");
+      }
+      window.history.replaceState({}, "", url);
+    };
+
+    const renderResults = (matches) => {
+      results.replaceChildren();
+      if (!matches.length) {
+        status.textContent = noResultsText;
+        return;
+      }
+
+      status.textContent = `${matches.length} result${matches.length === 1 ? "" : "s"} found`;
+
+      matches.forEach((item, index) => {
+        const listItem = document.createElement("li");
+        listItem.className = "simple-search__result-item";
+
+        const link = document.createElement("a");
+        link.href = escapeText(item.url);
+        link.className = "simple-search__result-link";
+
+        const rank = document.createElement("span");
+        rank.className = "simple-search__result-rank";
+        rank.setAttribute("aria-hidden", "true");
+        rank.textContent = String(index + 1);
+
+        const copy = document.createElement("span");
+        copy.className = "simple-search__result-copy";
+
+        const title = document.createElement("strong");
+        title.className = "simple-search__result-title";
+        title.textContent = escapeText(item.title);
+        copy.appendChild(title);
+
+        if (item.description) {
+          const description = document.createElement("span");
+          description.className = "simple-search__result-description";
+          description.textContent = escapeText(item.description);
+          copy.appendChild(description);
+        }
+
+        const arrow = document.createElement("span");
+        arrow.className = "simple-search__result-arrow";
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = "→";
+
+        link.append(rank, copy, arrow);
+        listItem.appendChild(link);
+        results.appendChild(listItem);
+      });
+    };
+
+    const runSearch = (query) => {
+      const q = normalize(query);
+      if (!q) {
+        results.replaceChildren();
+        status.textContent = emptyText;
+        return;
+      }
+
+      const matches = items
+        .map((item) => ({ ...item, _score: scoreItem(item, q) }))
+        .filter((item) => item._score > 0)
+        .sort((a, b) => b._score - a._score || a.title.localeCompare(b.title))
+        .slice(0, limit);
+
+      renderResults(matches);
+    };
+
+    const startupQuery =
+      input.value ||
+      initialQuery ||
+      new URL(window.location.href).searchParams.get("q") ||
+      "";
+
+    if (startupQuery) {
+      input.value = startupQuery;
+      runSearch(startupQuery);
     }
 
-    status.textContent = `${matches.length} result${matches.length === 1 ? "" : "s"} found`;
-
-    results.innerHTML = matches
-      .map(
-        (item, index) => `
-          <li class="simple-search__result-item">
-            <a href="${escapeHtml(item.url)}" class="simple-search__result-link">
-              <span class="simple-search__result-rank" aria-hidden="true">${index + 1}</span>
-              <span class="simple-search__result-copy">
-                <strong class="simple-search__result-title">${escapeHtml(item.title)}</strong>
-                ${
-                  item.description
-                    ? `<span class="simple-search__result-description">${escapeHtml(item.description)}</span>`
-                    : ""
-                }
-              </span>
-              <span class="simple-search__result-arrow" aria-hidden="true">&rarr;</span>
-            </a>
-          </li>
-        `
-      )
-      .join("");
-  };
-
-  const runSearch = (query) => {
-    if (!results || !status) {
-      return;
-    }
-
-    const q = normalize(query);
-
-    if (!q) {
-      results.innerHTML = "";
-      status.textContent = emptyText;
-      return;
-    }
-
-    const matches = items
-      .map((item) => ({
-        ...item,
-        _score: scoreItem(item, q),
-      }))
-      .filter((item) => item._score > 0)
-      .sort((a, b) => b._score - a._score || a.title.localeCompare(b.title))
-      .slice(0, limit);
-
-    renderResults(matches);
-  };
-
-  const getUrlQuery = () =>
-    new URL(window.location.href).searchParams.get("q")?.trim() || "";
-
-  input?.addEventListener("input", (event) => {
-    const value =
-      event.currentTarget instanceof HTMLInputElement ? event.currentTarget.value : "";
-    updateUrl(value);
-    runSearch(value);
+    input.addEventListener("input", (event) => {
+      const value =
+        event.currentTarget instanceof HTMLInputElement ? event.currentTarget.value : "";
+      updateUrl(value);
+      runSearch(value);
+    });
   });
-
-  const startupQuery = initialQuery || getUrlQuery();
-
-  if (input instanceof HTMLInputElement && input.value !== startupQuery) {
-    input.value = startupQuery;
-  }
-
-  if (startupQuery) {
-    runSearch(startupQuery);
-  }
 </script>
 
 <style>
-  /* -----------------------------------------------------------------------------
-     SimpleSearch Component Styles
-     Basic search with input field and inline results
-     WCAG AAA compliant with proper focus states and touch targets
-     ----------------------------------------------------------------------------- */
-
   .simple-search {
     display: grid;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-base);
     min-inline-size: 0;
   }
 
-  /* Search field container */
   .simple-search__field {
     display: grid;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-xs);
   }
 
-  /* Search label */
   .simple-search__label {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
-  }
-
-  /* Search input field */
-  .simple-search__input {
-    box-sizing: border-box;
-
-    /* Sizing */
-    inline-size: 100%;
-    min-block-size: 3.5rem;
-    padding: var(--spacing-md) var(--spacing-lg);
-
-    /* Typography */
-    font: inherit;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-
-    /* Visual styling */
-    background: var(--bg-primary);
-    border: 2px solid var(--border-default);
-    border-radius: var(--radius-xl);
   }
 
-  .simple-search__input::placeholder {
-    color: var(--text-tertiary);
+  .simple-search__input {
+    inline-size: 100%;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    background: var(--surface-panel-raised);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
   }
 
   .simple-search__input:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
-    border-color: var(--accent-strong);
+    border-color: var(--surface-border-accent-strong);
   }
 
-  /* Status message - shows result count */
   .simple-search__status {
     margin: 0;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
+    color: var(--text-secondary);
   }
 
-  /* Results list */
   .simple-search__results {
     display: grid;
-    gap: var(--spacing-md);
-    min-inline-size: 0;
+    gap: var(--spacing-sm);
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
-  :global(.simple-search__result-item) {
+  .simple-search__result-item {
     display: grid;
   }
 
-  /* Result link - card style */
-  :global(.simple-search__result-link) {
+  .simple-search__result-link {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     align-items: start;
-    min-inline-size: 0;
-    padding: var(--spacing-lg) var(--spacing-lg);
+    padding: var(--spacing-base);
     color: var(--text-primary);
     text-decoration: none;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 94%, transparent),
-      color-mix(in srgb, var(--surface-2) 72%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--border-default) 78%, transparent);
-    border-radius: var(--radius-xl);
+    background: var(--surface-panel-raised);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
     transition:
-      border-color var(--transition-fast),
       background-color var(--transition-fast),
-      transform var(--transition-fast),
+      border-color var(--transition-fast),
       box-shadow var(--transition-fast);
   }
 
-  :global(.simple-search__result-link:hover),
-  :global(.simple-search__result-link:focus-visible) {
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    border-color: var(--accent-strong);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
+  .simple-search__result-link:hover,
+  .simple-search__result-link:focus {
+    background: var(--surface-card-hover);
+    border-color: var(--surface-border-accent);
   }
 
-  :global(.simple-search__result-link:focus-visible) {
+  .simple-search__result-link:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+    border-color: var(--surface-border-accent-strong);
   }
 
-  :global(.simple-search__result-rank) {
+  .simple-search__result-rank {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-inline-size: 2rem;
-    min-block-size: 2rem;
-    padding: 0 var(--spacing-xs);
+    inline-size: 2rem;
+    block-size: 2rem;
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-strong);
-    background: color-mix(in srgb, var(--accent-primary) 10%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-primary) 28%, transparent);
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
     border-radius: var(--radius-full);
   }
 
-  :global(.simple-search__result-copy) {
+  .simple-search__result-copy {
     display: grid;
     gap: var(--spacing-xs);
     min-inline-size: 0;
   }
 
-  /* Result title */
-  :global(.simple-search__result-title) {
-    display: block;
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
+  .simple-search__result-title {
+    font-size: var(--font-size-base);
     line-height: var(--line-height-snug);
-    color: var(--heading-color);
-    text-wrap: balance;
+    color: var(--text-primary);
   }
 
-  /* Result description */
-  :global(.simple-search__result-description) {
-    display: block;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 3;
-    line-height: var(--prose-line-height);
+  .simple-search__result-description {
+    line-height: var(--line-height-relaxed);
     color: var(--text-secondary);
-    text-wrap: pretty;
-    -webkit-box-orient: vertical;
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    :global(.simple-search__result-arrow) {
-      align-self: center;
-      font-size: 1.125rem;
-      color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
-      transition: none;
-    }
-  }
-
-  :global(.simple-search__result-arrow) {
-    align-self: center;
-    font-size: 1.125rem;
-    color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
-    transition:
-      transform var(--transition-fast),
-      color var(--transition-fast);
-  }
-
-  :global(.simple-search__result-link:hover .simple-search__result-arrow),
-  :global(.simple-search__result-link:focus-visible .simple-search__result-arrow) {
-    color: var(--accent-strong);
-    transform: translateX(2px);
+  .simple-search__result-arrow {
+    color: var(--text-tertiary);
   }
 
   @media (width < 640px) {
-    .simple-search {
-      gap: var(--spacing-md);
-    }
-
-    .simple-search__input {
-      min-block-size: 3.25rem;
-      padding: 0.875rem 1rem;
-      font-size: var(--font-size-base);
-    }
-
-    .simple-search__status {
-      font-size: var(--font-size-sm);
-    }
-
-    :global(.simple-search__result-link) {
+    .simple-search__result-link {
       grid-template-columns: minmax(0, 1fr);
-      gap: var(--spacing-sm);
-      padding: var(--spacing-md);
     }
 
-    :global(.simple-search__result-rank) {
-      min-inline-size: 2.25rem;
-      min-block-size: 2.25rem;
-      font-size: var(--font-size-xs);
-    }
-
-    :global(.simple-search__result-title) {
-      font-size: var(--font-size-lg);
-      text-wrap: pretty;
-    }
-
-    :global(.simple-search__result-description) {
-      -webkit-line-clamp: 2;
-    }
-
-    :global(.simple-search__result-arrow) {
+    .simple-search__result-arrow {
       display: none;
     }
   }
 
-  /* Reduced motion support - disable all animations */
-  @media screen and (prefers-reduced-motion: reduce) {
-    :global(.simple-search__result-link) {
+  @media (prefers-reduced-motion: reduce) {
+    .simple-search__result-link {
       transition: none;
-    }
-
-    :global(.simple-search__result-link:hover),
-    :global(.simple-search__result-link:focus-visible) {
-      transform: none;
     }
   }
 </style>

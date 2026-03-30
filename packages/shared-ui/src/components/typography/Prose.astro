@@ -51,37 +51,37 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   }
 
   /* Headings - semantic styling */
-  .prose h2,
-  .prose h3,
-  .prose h4 {
+  .prose > h2,
+  .prose > h3,
+  .prose > h4 {
     font-family: var(--font-sans);
     line-height: var(--heading-line-height);
     color: var(--heading-color);
   }
 
-  .prose h2 {
+  .prose > h2 {
     margin-block: var(--spacing-3xl) var(--spacing-base);
     font-size: var(--font-size-2xl);
   }
 
-  .prose h3 {
+  .prose > h3 {
     margin-block: var(--spacing-2xl) var(--spacing-md);
     font-size: var(--font-size-xl);
   }
 
   /* Paragraphs */
-  .prose p {
+  .prose > p {
     margin: var(--spacing-lg) 0;
   }
 
   /* Lists */
-  .prose ul,
-  .prose ol {
+  .prose > ul,
+  .prose > ol {
     padding-inline-start: var(--spacing-xl);
     margin: var(--spacing-xl) 0;
   }
 
-  .prose li {
+  .prose > :is(ul, ol) li {
     margin: var(--spacing-xs) 0;
   }
 
@@ -130,7 +130,7 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   }
 
   /* Blockquotes */
-  .prose blockquote {
+  .prose > blockquote {
     padding: var(--spacing-sm) var(--spacing-base);
     color: var(--text-primary);
     background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
@@ -139,20 +139,20 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   }
 
   /* Horizontal rules */
-  .prose hr {
+  .prose > hr {
     margin: var(--spacing-3xl) 0;
     border: none;
     border-block-start: 1px solid var(--border-default);
   }
 
   /* Images - responsive sizing */
-  .prose :is(img, picture) {
+  .prose > :is(img, picture) {
     display: block;
     inline-size: 100%;
   }
 
-  .prose picture,
-  .prose img {
+  .prose > picture,
+  .prose > img {
     aspect-ratio: 3 / 2;
     margin: var(--spacing-xl) auto;
     background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
@@ -160,15 +160,15 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
     border-radius: var(--radius-lg);
   }
 
-  .prose img {
+  .prose > img {
     object-fit: cover;
   }
 
-  .prose picture {
+  .prose > picture {
     overflow: hidden;
   }
 
-  .prose picture img {
+  .prose > picture > img {
     inline-size: 100%;
     block-size: 100%;
     margin: 0;
@@ -179,13 +179,13 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   }
 
   /* Heading anchors - for deep linking */
-  .prose :is(h2, h3) {
+  .prose > :is(h2, h3) {
     position: relative;
     scroll-margin-block-start: 6rem;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-    .prose :is(h2, h3) .prose__heading-anchor {
+    .prose > :is(h2, h3) .prose__heading-anchor {
       /* Layout */
       display: inline-flex;
       align-items: center;
@@ -211,7 +211,7 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
     }
   }
 
-  .prose :is(h2, h3) .prose__heading-anchor {
+  .prose > :is(h2, h3) .prose__heading-anchor {
     /* Layout */
     display: inline-flex;
     align-items: center;
@@ -237,7 +237,7 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   }
 
   /* Link icon using mask */
-  .prose :is(h2, h3) .prose__heading-anchor::before {
+  .prose > :is(h2, h3) .prose__heading-anchor::before {
     display: block;
     inline-size: 0.85rem;
     block-size: 0.85rem;
@@ -248,35 +248,20 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   }
 
   /* Show anchor on hover or focus */
-  .prose :is(h2, h3):hover .prose__heading-anchor,
-  .prose :is(h2, h3):focus-within .prose__heading-anchor {
+  .prose > :is(h2, h3):hover .prose__heading-anchor,
+  .prose > :is(h2, h3):focus-within .prose__heading-anchor {
     opacity: 1;
   }
 
-  .prose :is(h2, h3) .prose__heading-anchor:focus-visible {
+  .prose > :is(h2, h3) .prose__heading-anchor:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
-  }
-
-  /* Nested subsection figures */
-  .prose .subsection-figure {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-    place-items: start start;
-    max-inline-size: 1100px;
-    margin: var(--spacing-xl) 0;
-    border-radius: var(--radius-lg);
-  }
-
-  .prose .subsection-figure :is(h2, h3, h4) {
-    margin: 0;
   }
 
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .prose a,
-    .prose :is(h2, h3) .prose__heading-anchor {
+    .prose > :is(h2, h3) .prose__heading-anchor {
       transition: none;
     }
   }

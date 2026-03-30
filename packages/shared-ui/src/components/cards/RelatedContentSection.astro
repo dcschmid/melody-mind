@@ -66,24 +66,12 @@ const titleId = `${id}-title`;
 
 <style>
   .related-content-section {
-    position: relative;
     display: grid;
     gap: 1.5rem;
-    padding: 1.5rem;
+    padding-block: var(--spacing-xl);
+    padding-inline: 0;
     margin-block-start: 2rem;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-  }
-
-  .related-content-section::before {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .related-content-section__header {
@@ -134,7 +122,7 @@ const titleId = `${id}-title`;
 
   @media (width < 40rem) {
     .related-content-section {
-      padding: 1.25rem;
+      gap: 1.25rem;
     }
   }
 </style>

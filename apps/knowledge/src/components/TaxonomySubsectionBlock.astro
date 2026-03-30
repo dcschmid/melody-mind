@@ -48,48 +48,21 @@ const hasGroups = Boolean(subsection.groups && subsection.groups.length > 0);
     scroll-margin-block-start: var(--spacing-3xl);
   }
 
-  .taxonomy-subsection-block__header {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-base);
-    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
-    overflow: hidden;
-    background:
-      linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--surface-2) 94%, transparent),
-        color-mix(in srgb, var(--surface-1) 98%, transparent)
-      ),
-      radial-gradient(
-        circle at top right,
-        color-mix(in srgb, var(--accent-primary) 10%, transparent),
-        transparent 42%
-      );
-    border: var(--card-border-width) solid
-      color-mix(in srgb, var(--card-border-color) 82%, transparent);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-base);
+  .taxonomy-subsection-block + .taxonomy-subsection-block {
+    padding-block-start: clamp(var(--spacing-2xl), 4vw, var(--spacing-3xl));
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
-  .taxonomy-subsection-block__header::before {
-    position: absolute;
-    inset-block-start: 0;
-    inset-inline: 0;
-    block-size: var(--spacing-2xs);
-    content: "";
-    background: linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--accent-primary) 72%, transparent),
-      color-mix(in srgb, var(--accent-strong) 56%, transparent),
-      transparent
-    );
+  .taxonomy-subsection-block__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
   }
 
   @media (width >= 768px) {
     .taxonomy-subsection-block__header {
       flex-direction: row;
-      gap: var(--spacing-xl);
+      gap: var(--spacing-lg);
       align-items: flex-start;
     }
   }
@@ -99,13 +72,13 @@ const hasGroups = Boolean(subsection.groups && subsection.groups.length > 0);
   }
 
   .taxonomy-subsection-block__title {
-    padding-block-end: var(--spacing-md);
-    border-block-end: 1px solid var(--surface-border-soft);
+    padding: 0;
+    border: 0;
   }
 
   .taxonomy-subsection-block__groups {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
   }
 </style>

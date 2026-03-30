@@ -17,10 +17,10 @@ const {
   contentTitle,
   contentDescription = "",
   title = "Share this article",
-  note = "Privacy-friendly: nothing loads until you choose a share option.",
-  successMessage = "Link copied!",
-  errorMessage = "Copy failed - please copy it manually.",
-  fallbackMessage = "Sharing isn't available here, so we've copied the link for you.",
+  note = "Choose one way to share this page.",
+  successMessage = "Link copied.",
+  errorMessage = "Copy failed. Please copy the link manually.",
+  fallbackMessage = "Sharing is not available here. The link has been copied instead.",
 } = Astro.props as Props;
 
 const shareTitle = `${contentTitle} | Melody Mind`;
@@ -30,12 +30,16 @@ const shareMailBody = encodeURIComponent(`${contentDescription}\n\n${shareUrl}`)
 const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponent(
   `${shareText} ${shareUrl}`
 )}`;
+const rootId =
+  `share-section-${contentTitle}`.toLowerCase().replace(/[^a-z0-9]+/g, "-") ||
+  "share-section";
 ---
 
 <section
   class="share-section"
-  id="share-section"
-  aria-labelledby="share-section-title"
+  id={rootId}
+  aria-labelledby={`${rootId}-title`}
+  data-share-root
   data-share-url={shareUrl}
   data-share-title={shareTitle}
   data-share-text={shareText}
@@ -43,93 +47,87 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
   data-share-error={errorMessage}
   data-share-fallback={fallbackMessage}
 >
-  <div class="share-section__header">
-    <div class="share-section__copy">
-      <h2 class="share-section__title" id="share-section-title">
-        <span>{title}</span>
-      </h2>
-      <p
-        class="share-section__note"
-        data-share-status
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {note}
-      </p>
-    </div>
+  <div class="share-section__copy">
+    <h2 class="share-section__title" id={`${rootId}-title`}>{title}</h2>
+    <p
+      class="share-section__note"
+      data-share-status
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      {note}
+    </p>
+  </div>
 
-    <div class="share-section__actions" aria-label="Share options">
-      <button
-        type="button"
-        data-share="native"
-        class="share-section__button share-section__button--primary"
-        aria-label="Share with your device"
-      >
-        <Icon name="send" class="share-section__button-icon" aria-hidden="true" />
-        <span>Share</span>
-      </button>
-      <button
-        type="button"
-        data-share="copy"
-        class="share-section__button"
-        aria-label="Copy link to this article"
-      >
-        <Icon name="copy" class="share-section__button-icon" aria-hidden="true" />
-        <span>Copy link</span>
-      </button>
-      <a
-        href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
-        class="share-section__button"
-        aria-label="Share via email"
-      >
-        <Icon name="mail" class="share-section__button-icon" aria-hidden="true" />
-        <span>Email</span>
-      </a>
-      <a
-        href={mastodonShareUrl}
-        target="_blank"
-        rel="noreferrer noopener"
-        class="share-section__button"
-        aria-label="Share on Mastodon (opens in a new tab)"
-      >
-        <Icon
-          name="message-circle"
-          class="share-section__button-icon"
-          aria-hidden="true"
-        />
-        <span>Mastodon</span>
-      </a>
-    </div>
+  <div class="share-section__actions" aria-label="Share options">
+    <button
+      type="button"
+      data-share="native"
+      class="share-section__button share-section__button--primary"
+      aria-label="Share with your device"
+    >
+      <Icon name="send" class="share-section__button-icon" aria-hidden="true" />
+      <span>Share</span>
+    </button>
+    <button
+      type="button"
+      data-share="copy"
+      class="share-section__button"
+      aria-label="Copy link to this article"
+    >
+      <Icon name="copy" class="share-section__button-icon" aria-hidden="true" />
+      <span>Copy link</span>
+    </button>
+    <a
+      href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
+      class="share-section__button"
+      aria-label="Share via email"
+    >
+      <Icon name="mail" class="share-section__button-icon" aria-hidden="true" />
+      <span>Email</span>
+    </a>
+    <a
+      href={mastodonShareUrl}
+      target="_blank"
+      rel="noreferrer noopener"
+      class="share-section__button"
+      aria-label="Share on Mastodon (opens in a new tab)"
+    >
+      <Icon name="message-circle" class="share-section__button-icon" aria-hidden="true" />
+      <span>Mastodon</span>
+    </a>
   </div>
 </section>
 
 <script>
-  const shareSection = document.getElementById("share-section");
+  const shareRoots = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-share-root]")
+  ).filter((root) => root.dataset.shareBound !== "true");
 
-  if (shareSection instanceof HTMLElement) {
+  shareRoots.forEach((shareSection) => {
+    shareSection.dataset.shareBound = "true";
     const shareUrl = shareSection.dataset.shareUrl || "";
     const shareTitle = shareSection.dataset.shareTitle || "";
     const shareText = shareSection.dataset.shareText || "";
     const copySuccessMessage = shareSection.dataset.shareSuccess || "";
     const copyErrorMessage = shareSection.dataset.shareError || "";
     const nativeShareUnavailable = shareSection.dataset.shareFallback || "";
-    const statusEl = shareSection.querySelector("[data-share-status]");
+    const statusEl = shareSection.querySelector<HTMLElement>("[data-share-status]");
     const defaultStatus = statusEl?.textContent || "";
     let resetTimer: number | undefined;
 
     const setStatus = (message: string) => {
-      if (!(statusEl instanceof HTMLElement)) {
+      if (!statusEl) {
         return;
       }
-
       statusEl.textContent = message;
       if (resetTimer) {
         window.clearTimeout(resetTimer);
       }
       resetTimer = window.setTimeout(() => {
         statusEl.textContent = defaultStatus;
-      }, 4500);
+      }, 4000);
     };
 
     const copyLink = async () => {
@@ -144,163 +142,95 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
       }
     };
 
-    const copyButton = shareSection.querySelector('[data-share="copy"]');
-    copyButton?.addEventListener("click", () => copyLink());
-
-    const nativeButton = shareSection.querySelector('[data-share="native"]');
-    nativeButton?.addEventListener("click", async () => {
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            title: shareTitle,
-            text: shareText,
-            url: shareUrl,
-          });
-          setStatus(copySuccessMessage);
-          return;
-        } catch (error) {
-          if (error instanceof Error && error.name === "AbortError") {
-            return;
-          }
-        }
-      }
-
-      setStatus(nativeShareUnavailable);
+    shareSection.querySelector('[data-share="copy"]')?.addEventListener("click", () => {
       copyLink();
     });
-  }
+
+    shareSection
+      .querySelector('[data-share="native"]')
+      ?.addEventListener("click", async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
+            setStatus(copySuccessMessage);
+            return;
+          } catch (error) {
+            if (error instanceof Error && error.name === "AbortError") {
+              return;
+            }
+          }
+        }
+        setStatus(nativeShareUnavailable);
+        copyLink();
+      });
+  });
 </script>
 
 <style>
   .share-section {
-    --share-section-margin-start: var(--spacing-xl);
-    --share-section-max-copy-width: 56rem;
-    --share-section-title-size: var(--font-size-3xl);
-    --share-section-title-line-height: var(--line-height-none);
-    --share-section-button-height: calc(var(--spacing-xl) + var(--spacing-lg));
-    --share-section-button-padding-inline: 1.2rem;
-
     display: grid;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg);
-    margin-block-start: var(--share-section-margin-start);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-  }
-
-  .share-section__header {
-    display: grid;
-    gap: var(--spacing-md);
-    align-items: start;
+    gap: var(--spacing-lg);
+    padding-block: var(--spacing-xl);
+    padding-inline: 0;
+    margin-block-start: var(--spacing-xl);
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .share-section__copy {
     display: grid;
-    gap: var(--spacing-sm);
-    min-inline-size: 0;
-    max-inline-size: var(--share-section-max-copy-width);
+    gap: var(--spacing-xs);
   }
 
   .share-section__title {
-    display: inline-flex;
-    gap: var(--spacing-sm);
-    align-items: flex-start;
-    max-inline-size: none;
     margin: 0;
-    font-family: var(--font-sans);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--share-section-title-line-height);
-    color: var(--heading-color);
-    letter-spacing: var(--letter-spacing-wider);
-    text-wrap: nowrap;
-  }
-
-  .share-section__title-icon {
-    flex-shrink: 0;
-    inline-size: 1rem;
-    block-size: 1rem;
-    margin-block-start: 0.25rem;
-    color: var(--accent-strong);
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
   }
 
   .share-section__note {
     margin: 0;
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-normal);
     color: var(--text-secondary);
   }
 
   .share-section__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    min-inline-size: 0;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .share-section__button {
-      box-sizing: border-box;
-      display: inline-grid;
-      grid-auto-columns: max-content;
-      grid-auto-flow: column;
-      gap: var(--spacing-sm);
-      align-items: center;
-      justify-content: center;
-      min-inline-size: 0;
-      block-size: var(--share-section-button-height);
-      padding: 0 var(--share-section-button-padding-inline);
-      font: inherit;
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-semibold);
-      line-height: 1;
-      color: var(--text-primary);
-      white-space: nowrap;
-      text-decoration: none;
-      cursor: pointer;
-      background: var(--surface-pill-bg);
-      border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-full);
-      transition: none;
-    }
+    gap: var(--spacing-sm);
   }
 
   .share-section__button {
-    box-sizing: border-box;
-    display: inline-grid;
-    grid-auto-columns: max-content;
-    grid-auto-flow: column;
+    display: inline-flex;
     gap: var(--spacing-sm);
     align-items: center;
     justify-content: center;
-    min-inline-size: 0;
-    block-size: var(--share-section-button-height);
-    padding: 0 var(--share-section-button-padding-inline);
+    min-block-size: var(--control-min-block-size);
+    padding: var(--control-padding-block) var(--control-padding-inline);
     font: inherit;
-    font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
-    line-height: 1;
     color: var(--text-primary);
-    white-space: nowrap;
     text-decoration: none;
     cursor: pointer;
-    background: var(--surface-pill-bg);
+    background: transparent;
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
-    transition:
-      background-color var(--transition-fast),
-      border-color var(--transition-fast),
-      transform var(--transition-fast);
+    border-radius: var(--radius-lg);
+  }
+
+  .share-section__button--primary {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
   }
 
   .share-section__button:hover,
   .share-section__button:focus {
-    background: var(--surface-chip-bg);
-    border-color: var(--surface-border-accent);
-    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
+    border-color: var(--surface-border-medium);
+  }
+
+  .share-section__button--primary:hover,
+  .share-section__button--primary:focus {
+    background: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
   }
 
   .share-section__button:focus-visible {
@@ -308,55 +238,14 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
     outline-offset: var(--focus-ring-offset);
   }
 
-  .share-section__button--primary {
-    color: var(--accent-contrast);
-    background: var(--accent-primary);
-    border-color: var(--surface-border-accent);
-  }
-
-  .share-section__button--primary:hover,
-  .share-section__button--primary:focus {
-    background: var(--accent-primary-hover);
-    border-color: var(--surface-border-accent-strong);
-  }
-
   .share-section__button-icon {
-    flex-shrink: 0;
-    inline-size: var(--spacing-base);
-    block-size: var(--spacing-base);
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
-  .share-section__button > span:last-child {
-    display: block;
-    line-height: 1;
-  }
-
-  @media (width < 48rem) {
+  @media (width >= 640px) {
     .share-section {
-      --share-section-title-size: var(--font-size-2xl);
-      --share-section-button-padding-inline: var(--spacing-base);
-
-      padding: var(--spacing-md);
-    }
-
-    .share-section__header {
-      gap: var(--spacing-md);
-    }
-
-    .share-section__title {
-      max-inline-size: none;
-      letter-spacing: var(--letter-spacing-wider);
-      text-wrap: balance;
-    }
-
-    .share-section__actions {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .share-section__button {
-      inline-size: 100%;
-      padding-inline: 1rem;
+      gap: var(--spacing-base);
     }
   }
 </style>

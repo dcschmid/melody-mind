@@ -28,43 +28,22 @@ const { subsectionId, group } = Astro.props as Props;
 
 <style>
   .taxonomy-group-block {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
-    overflow: hidden;
+    padding-block-start: var(--spacing-lg);
     scroll-margin-block-start: var(--spacing-3xl);
-    background:
-      linear-gradient(
-        160deg,
-        color-mix(in srgb, var(--card-bg) 96%, transparent),
-        color-mix(in srgb, var(--surface-2) 94%, transparent)
-      ),
-      radial-gradient(
-        circle at top right,
-        color-mix(in srgb, var(--accent-primary) 9%, transparent),
-        transparent 40%
-      );
-    border: var(--card-border-width) solid
-      color-mix(in srgb, var(--card-border-color) 82%, transparent);
-    border-radius: var(--card-radius);
-    box-shadow: var(--shadow-base);
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
-  .taxonomy-group-block::after {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid color-mix(in srgb, var(--border-default) 36%, transparent);
-    border-radius: calc(var(--card-radius) - var(--spacing-xs));
+  .taxonomy-group-block + .taxonomy-group-block {
+    margin-block-start: var(--spacing-sm);
   }
 
   .taxonomy-group-block__header {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
   }
 
   @media (width >= 640px) {

@@ -174,21 +174,12 @@ const themeInitScript = enableThemeInit
   }
 
   .app__body {
+    position: relative;
     min-block-size: 100vb;
     margin: 0;
+    overflow-x: clip;
     color: var(--text-primary);
-    background:
-      radial-gradient(
-        circle at top,
-        color-mix(in srgb, var(--accent-primary) 12%, transparent),
-        transparent 32rem
-      ),
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 28%, transparent),
-        transparent 24rem
-      ),
-      var(--page-background);
+    background: var(--page-background);
     background-color: var(--bg-primary);
   }
 
@@ -204,16 +195,38 @@ const themeInitScript = enableThemeInit
     z-index: -1;
     pointer-events: none;
     content: "";
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-overlay) 52%, transparent),
+      transparent 12rem
+    );
+  }
+
+  .app__main::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
     background:
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--surface-overlay) 66%, transparent),
-        transparent 18rem
+        transparent,
+        color-mix(in srgb, var(--surface-1) 16%, transparent) 35%,
+        transparent 65%
       ),
       radial-gradient(
-        circle at top left,
-        color-mix(in srgb, var(--accent-primary) 8%, transparent),
-        transparent 28rem
+        circle at 85% 14rem,
+        color-mix(in srgb, var(--accent-muted) 8%, transparent),
+        transparent 24rem
       );
+    opacity: 0.85;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app__body::before,
+    .app__body::after {
+      filter: none;
+    }
   }
 </style>

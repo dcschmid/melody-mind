@@ -11,6 +11,7 @@ interface SearchItem {
 
 interface Props {
   items: SearchItem[];
+  variant?: "default" | "soft";
   initialQuery?: string;
   heroEyebrow?: string;
   title?: string;
@@ -28,6 +29,7 @@ interface Props {
 
 const {
   items,
+  variant = "default",
   initialQuery = "",
   heroEyebrow = "",
   title = "",
@@ -42,90 +44,77 @@ const {
   searchNoResultsText = "No matching results found.",
   searchLimit = 20,
 } = Astro.props as Props;
+
+const sectionId = `search-page-section-${variant}`;
 ---
 
-<section class="search-page-section">
+<section class:list={["search-page-section", `search-page-section--${variant}`]}>
   {
-    (heroEyebrow || title || lead || tips.length > 0) && (
+    heroEyebrow || title || lead || tips.length > 0 ? (
       <header class="search-page-section__header">
-        <div class="search-page-section__hero">
-          <div class="search-page-section__hero-copy">
-            {heroEyebrow && (
-              <Paragraph textSize="sm" className="search-page-section__eyebrow">
-                {heroEyebrow}
-              </Paragraph>
-            )}
-            {title && (
-              <Headline level="h1" className="search-page-section__title">
-                {title}
-              </Headline>
-            )}
-            {lead && (
-              <Paragraph textSize="lg" className="search-page-section__lead">
-                {lead}
-              </Paragraph>
-            )}
-          </div>
-
-          {tips.length > 0 && (
-            <aside class="search-page-section__hero-panel" aria-label={tipsTitle}>
-              <Paragraph textSize="sm" className="search-page-section__hero-kicker">
-                {tipsTitle}
-              </Paragraph>
-              <ul class="search-page-section__hero-list">
-                {tips.map((tip) => (
-                  <li class="search-page-section__hero-item">{tip}</li>
-                ))}
-              </ul>
-            </aside>
-          )}
+        <div class="search-page-section__intro">
+          {heroEyebrow ? (
+            <Paragraph textSize="sm" className="search-page-section__eyebrow">
+              {heroEyebrow}
+            </Paragraph>
+          ) : null}
+          {title ? (
+            <Headline level="h1" className="search-page-section__title">
+              {title}
+            </Headline>
+          ) : null}
+          {lead ? (
+            <Paragraph textSize="lg" className="search-page-section__lead">
+              {lead}
+            </Paragraph>
+          ) : null}
         </div>
+
+        {tips.length > 0 ? (
+          <aside class="search-page-section__tips" aria-label={tipsTitle}>
+            <Paragraph textSize="sm" className="search-page-section__tips-title">
+              {tipsTitle}
+            </Paragraph>
+            <ul class="search-page-section__tips-list">
+              {tips.map((tip) => (
+                <li class="search-page-section__tips-item">{tip}</li>
+              ))}
+            </ul>
+          </aside>
+        ) : null}
       </header>
-    )
+    ) : null
   }
 
-  <section
-    class="search-page-section__panel"
-    aria-labelledby="search-page-section-results-title"
-  >
-    <div class="search-page-section__panel-head">
-      <div class="search-page-section__panel-copy">
-        <Paragraph textSize="sm" className="search-page-section__panel-eyebrow">
-          {resultsEyebrow}
-        </Paragraph>
-        <Headline level="h2" textSize="lg" className="search-page-section__panel-title">
-          <span id="search-page-section-results-title">{resultsTitle}</span>
-        </Headline>
-      </div>
-      <Paragraph textSize="base" className="search-page-section__panel-help">
-        {resultsHelp}
-      </Paragraph>
+  <section class="search-page-section__results" aria-labelledby={`${sectionId}-title`}>
+    <div class="search-page-section__results-head">
+      <Paragraph textSize="sm" className="search-page-section__eyebrow"
+        >{resultsEyebrow}</Paragraph
+      >
+      <Headline level="h2" textSize="lg" className="search-page-section__results-title">
+        <span id={`${sectionId}-title`}>{resultsTitle}</span>
+      </Headline>
+      <Paragraph textSize="base" className="search-page-section__results-help"
+        >{resultsHelp}</Paragraph
+      >
     </div>
 
-    <div class="search-page-section__search-ui">
-      <SimpleSearch
-        items={items}
-        initialQuery={initialQuery}
-        placeholder={searchPlaceholder}
-        emptyText={searchEmptyText}
-        noResultsText={searchNoResultsText}
-        limit={searchLimit}
-      />
-    </div>
+    <SimpleSearch
+      idBase={sectionId}
+      items={items}
+      initialQuery={initialQuery}
+      placeholder={searchPlaceholder}
+      emptyText={searchEmptyText}
+      noResultsText={searchNoResultsText}
+      limit={searchLimit}
+    />
   </section>
 </section>
 
 <style>
-  /* -----------------------------------------------------------------------------
-     SearchPageSection Component Styles
-     Full search page with hero, tips, and results section
-     WCAG AAA compliant with proper spacing and contrast
-     ----------------------------------------------------------------------------- */
-
   .search-page-section {
     display: grid;
     gap: var(--spacing-2xl);
-    min-inline-size: 0;
   }
 
   .search-page-section__header {
@@ -133,191 +122,59 @@ const {
     gap: var(--spacing-lg);
   }
 
-  /* Hero section - main search introduction */
-  .search-page-section__hero {
+  .search-page-section__intro,
+  .search-page-section__tips,
+  .search-page-section__results {
     display: grid;
-    gap: var(--spacing-lg);
-    align-items: start;
-  }
-
-  /* Panel containers - elevated card style */
-  .search-page-section__hero-copy,
-  .search-page-section__hero-panel,
-  .search-page-section__panel {
-    /* Positioning */
-    position: relative;
-
-    /* Layout */
-    display: grid;
-    gap: var(--spacing-md);
-    padding: var(--spacing-xl);
-    overflow: hidden;
-
-    /* Visual styling */
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 96%, transparent),
-      color-mix(in srgb, var(--surface-2) 78%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
+    gap: var(--spacing-base);
+    padding: var(--spacing-lg);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
   }
 
-  .search-page-section__hero-copy::before,
-  .search-page-section__hero-panel::before,
-  .search-page-section__panel::before {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid color-mix(in srgb, var(--border-default) 24%, transparent);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
-  }
-
-  /* Eyebrow text - small uppercase labels */
   .search-page-section__eyebrow,
-  .search-page-section__hero-kicker,
-  .search-page-section__panel-eyebrow {
+  .search-page-section__tips-title {
     margin: 0;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
     color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
   }
 
-  /* Main title - large responsive heading */
-  .search-page-section__title {
-    max-inline-size: 11ch;
+  .search-page-section__title,
+  .search-page-section__results-title {
     margin: 0;
-    font-size: clamp(2.8rem, 8vi, 5rem);
-    line-height: var(--line-height-tight);
-    color: var(--heading-color);
-    letter-spacing: -0.05em;
-    text-wrap: balance;
   }
 
-  /* Lead paragraph */
-  .search-page-section__lead {
-    max-inline-size: 56ch;
+  .search-page-section__lead,
+  .search-page-section__results-help {
     margin: 0;
-    font-size: var(--font-size-lg);
-    line-height: var(--prose-line-height);
     color: var(--text-secondary);
   }
 
-  /* Tips list - bullet points with custom styling */
-  .search-page-section__hero-list {
+  .search-page-section__tips-list {
     display: grid;
     gap: var(--spacing-sm);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .search-page-section__hero-item {
-    position: relative;
     padding-inline-start: var(--spacing-lg);
-    line-height: var(--prose-line-height);
+    margin: 0;
     color: var(--text-secondary);
   }
 
-  /* Custom bullet point - accent color dot */
-  .search-page-section__hero-item::before {
-    position: absolute;
-    inset-block-start: 0.7rem;
-    inset-inline-start: 0;
-    inline-size: 0.45rem;
-    block-size: 0.45rem;
-    content: "";
-    background: var(--accent-primary);
-    border-radius: var(--radius-full);
-  }
-
-  /* Results panel */
-  .search-page-section__panel {
-    gap: var(--spacing-lg);
-  }
-
-  .search-page-section__panel-head {
-    display: grid;
-    gap: var(--spacing-sm);
-  }
-
-  .search-page-section__panel-copy {
+  .search-page-section__results-head {
     display: grid;
     gap: var(--spacing-xs);
   }
 
-  .search-page-section__panel-title {
-    margin: 0;
-    font-size: clamp(1.7rem, 4vi, 2.4rem);
-    line-height: var(--line-height-snug);
-    color: var(--heading-color);
-    letter-spacing: -0.03em;
-  }
-
-  .search-page-section__panel-help {
-    margin: 0;
-    font-size: var(--font-size-lg);
-    line-height: var(--prose-line-height);
-    color: var(--text-secondary);
-  }
-
-  /* Search UI container */
-  .search-page-section__search-ui {
-    position: relative;
-    z-index: 1;
-    min-inline-size: 0;
-    padding: var(--spacing-lg);
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 24%, transparent);
-    border-radius: var(--radius-lg);
-  }
-
-  @media (width < 640px) {
-    .search-page-section {
-      gap: var(--spacing-xl);
-    }
-
-    .search-page-section__panel {
-      gap: var(--spacing-md);
-      padding: var(--spacing-lg);
-      border-radius: var(--radius-lg);
-    }
-
-    .search-page-section__panel-head {
-      gap: var(--spacing-md);
-    }
-
-    .search-page-section__panel-title {
-      font-size: clamp(1.9rem, 8vw, 2.35rem);
-    }
-
-    .search-page-section__panel-help {
-      max-inline-size: 32ch;
-      font-size: var(--font-size-base);
-      text-wrap: pretty;
-    }
-
-    .search-page-section__search-ui {
-      padding: var(--spacing-md);
-      border-radius: calc(var(--radius-lg) - 0.125rem);
-    }
+  .search-page-section--soft .search-page-section__intro,
+  .search-page-section--soft .search-page-section__tips,
+  .search-page-section--soft .search-page-section__results {
+    background: color-mix(in srgb, var(--surface-1) 84%, transparent);
   }
 
   @media (width >= 768px) {
-    .search-page-section__panel-head {
-      grid-template-columns: minmax(0, 1fr) minmax(18rem, 28rem);
-      align-items: end;
-    }
-  }
-
-  /* Desktop layout - two column hero */
-  @media (width >= 960px) {
-    .search-page-section__hero {
-      grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 0.9fr);
+    .search-page-section__header {
+      grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+      align-items: start;
     }
   }
 </style>

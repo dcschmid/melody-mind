@@ -194,28 +194,19 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   }
 
   .knowledge-article {
-    position: relative;
-    padding: var(--spacing-lg);
+    padding: 0;
     margin-top: 0;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-  }
-
-  .knowledge-article::before {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .knowledge__back {
     display: flex;
     justify-content: center;
-    margin-top: 0;
+    padding-block-start: var(--spacing-base);
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .knowledge__title-sr {

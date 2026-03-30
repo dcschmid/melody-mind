@@ -41,19 +41,15 @@ const screenReaderText = "Back to top";
     z-index: 30;
 
     /* WCAG AAA minimum touch target size */
-    min-inline-size: 52px;
-    min-block-size: 52px;
-    padding: var(--spacing-base);
+    min-inline-size: var(--control-min-inline-size);
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm);
     color: var(--text-primary);
     cursor: pointer;
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--surface-2) 92%, var(--bg-primary)),
-      color-mix(in srgb, var(--surface-1) 96%, transparent)
-    );
-    border: 2px solid var(--border-default);
+    background: var(--surface-panel-raised);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-sm);
 
     /* Smooth transitions */
     transition:
@@ -66,10 +62,9 @@ const screenReaderText = "Back to top";
   /* Hover and focus states - enhanced visual feedback */
   .back-to-top:hover,
   .back-to-top:focus-visible {
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    border-color: var(--accent-strong);
+    background: var(--surface-card-hover);
+    border-color: var(--surface-border-accent);
     box-shadow: var(--interactive-shadow-focus);
-    transform: translateY(-2px);
   }
 
   /* Focus visible state - WCAG AAA compliant */
@@ -114,11 +109,6 @@ const screenReaderText = "Back to top";
   @media (prefers-reduced-motion: reduce) {
     .back-to-top {
       transition: none;
-    }
-
-    .back-to-top:hover,
-    .back-to-top:focus-visible {
-      transform: none;
     }
   }
 </style>

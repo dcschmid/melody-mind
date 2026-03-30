@@ -6,6 +6,7 @@ import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
+import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
 import {
   buildCollectionPageSchema,
   buildPodcastEpisodesItemListSchema,
@@ -133,7 +134,6 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
         imageHeight={1024}
         imageLoading="eager"
         mediaObjectFit="contain"
-        mediaPosition="end"
         titleLevel="h1"
       >
         <Fragment slot="actions">
@@ -141,7 +141,12 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
         </Fragment>
       </HeroTeaser>
 
-      <section class="home__episodes" aria-labelledby="episodes-heading">
+      <SectionSurface
+        as="section"
+        className="home__episodes"
+        variant="accent"
+        aria-labelledby="episodes-heading"
+      >
         <Headline level="h2" textSize="xl" className="home__section-title">
           <span id="episodes-heading">{t.episodes}</span>
         </Headline>
@@ -183,7 +188,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
             />
           )
         }
-      </section>
+      </SectionSurface>
     </div>
   </PageShell>
 </PodcastLayout>
@@ -194,9 +199,12 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    background: var(--surface-chip-bg);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
     border: 1px solid var(--surface-border-accent);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
   }
 
   .home {
@@ -205,23 +213,8 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
   }
 
   .home__episodes {
-    position: relative;
     display: grid;
     gap: var(--spacing-lg);
-    padding: var(--spacing-lg);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-  }
-
-  .home__episodes::before {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   .home__section-title {
@@ -235,20 +228,6 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
     gap: var(--spacing-lg);
   }
 
-  .home__empty {
-    padding: var(--spacing-2xl) var(--spacing-lg);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-base);
-  }
-
-  :global(.home__empty .empty-state__description) {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-loose);
-    color: var(--text-secondary);
-  }
-
   @media (width >= 960px) {
     .home__episodes-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -257,7 +236,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
 
   @media (width < 40rem) {
     .home__episodes {
-      padding: 1.25rem;
+      gap: var(--spacing-base);
     }
   }
 </style>

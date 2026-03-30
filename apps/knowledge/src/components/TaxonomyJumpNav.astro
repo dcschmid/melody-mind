@@ -155,31 +155,14 @@ const {
   }
 
   .taxonomy-jump-nav__panel {
-    position: relative;
     display: grid;
     gap: var(--spacing-base);
-    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
-    overflow: hidden;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-base);
-  }
-
-  .taxonomy-jump-nav__panel::after {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+    padding-block: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
   }
 
   .taxonomy-jump-nav__header {
-    position: relative;
-    z-index: 1;
     display: grid;
-    gap: var(--spacing-base);
+    gap: var(--spacing-sm);
   }
 
   .taxonomy-jump-nav__headline {
@@ -209,9 +192,8 @@ const {
     text-align: center;
     cursor: pointer;
     background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--surface-border-subtle);
+    border-radius: var(--radius-lg);
     transition:
       transform var(--transition-fast),
       border-color var(--transition-fast),
@@ -226,7 +208,7 @@ const {
 
   .taxonomy-jump-nav__toggle:hover,
   .taxonomy-jump-nav__toggle:focus-visible {
-    background: var(--surface-chip-bg);
+    background: var(--surface-card-hover);
     border-color: var(--surface-border-accent);
     transform: translateY(-1px);
   }
@@ -299,18 +281,17 @@ const {
     display: inline-flex;
     gap: var(--spacing-sm);
     align-items: center;
-    justify-content: center;
-    padding: var(--spacing-sm) var(--spacing-base);
+    min-block-size: 44px;
+    padding: var(--spacing-xs) var(--spacing-sm);
     color: var(--text-primary);
     text-decoration: none;
-    background: var(--surface-pill-bg);
-    border: 1px solid var(--surface-border-soft);
+    background: none;
+    border: 1px solid var(--surface-border-subtle);
     border-radius: var(--radius-full);
-    box-shadow: var(--shadow-sm);
     transition:
-      background-color var(--transition-fast),
+      color var(--transition-fast),
       border-color var(--transition-fast),
-      transform var(--transition-fast);
+      background-color var(--transition-fast);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -321,9 +302,9 @@ const {
 
   .taxonomy-jump-nav__link:hover,
   .taxonomy-jump-nav__link:focus-visible {
-    background: var(--surface-chip-bg);
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 5%, transparent);
     border-color: var(--surface-border-accent);
-    transform: translateY(-1px);
   }
 
   .taxonomy-jump-nav__link:focus-visible {
@@ -333,31 +314,10 @@ const {
 
   .taxonomy-jump-nav__count {
     flex-shrink: 0;
-    min-width: calc(var(--spacing-xl) + var(--spacing-xs));
-    padding: var(--spacing-xs) var(--spacing-sm);
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-regular);
     line-height: var(--line-height-none);
-    color: var(--text-primary);
-    text-align: center;
-    background: var(--surface-chip-bg);
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: var(--radius-full);
-    transition:
-      background-color var(--transition-fast),
-      border-color var(--transition-fast),
-      color var(--transition-fast);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .taxonomy-jump-nav__count {
-      transition: none;
-    }
-  }
-
-  .taxonomy-jump-nav__link:hover .taxonomy-jump-nav__count,
-  .taxonomy-jump-nav__link:focus-visible .taxonomy-jump-nav__count {
-    border-color: var(--surface-border-accent);
+    color: var(--text-tertiary);
   }
 
   @media (width < 40rem) {
@@ -386,8 +346,8 @@ const {
         transparent 45%
       );
       border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-lg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-base);
       opacity: 0;
       transform: translateY(calc((var(--spacing-xs) + var(--spacing-2xs)) * -1));
     }

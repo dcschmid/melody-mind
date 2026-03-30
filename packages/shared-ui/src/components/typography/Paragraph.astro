@@ -77,6 +77,7 @@ const attributes: Record<string, unknown> = {
     hyphens: auto;
     text-wrap: pretty;
     overflow-wrap: break-word;
+    text-rendering: optimizelegibility;
   }
 
   /* Size variants - uses responsive typography scale */
@@ -93,11 +94,11 @@ const attributes: Record<string, unknown> = {
   }
 
   .paragraph--size-xl {
-    font-size: var(--font-size-lg);
+    font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.45rem);
   }
 
   .paragraph--size-2xl {
-    font-size: var(--font-size-xl);
+    font-size: clamp(1.3rem, 1.12rem + 0.65vw, 1.8rem);
   }
 
   .paragraph--size-3xl {

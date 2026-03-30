@@ -1,0 +1,70 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  as?: "section" | "div" | "aside";
+  variant?: "default" | "accent" | "subtle";
+  padding?: "default" | "compact" | "spacious";
+  className?: string;
+  class?: string;
+}
+
+const {
+  as = "section",
+  variant = "default",
+  padding = "default",
+  className = "",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const Tag = as;
+const classes = [
+  "section-surface",
+  `section-surface--${variant}`,
+  `section-surface--padding-${padding}`,
+  className,
+  classProp,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag {...rest} class={classes}>
+  <slot />
+</Tag>
+
+<style>
+  .section-surface {
+    display: grid;
+    gap: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-2xl));
+    background: var(--section-surface-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .section-surface--accent {
+    background: var(--section-surface-accent-bg);
+    border-color: var(--surface-border-accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .section-surface--subtle {
+    background: color-mix(in srgb, var(--surface-1) 86%, transparent);
+    box-shadow: none;
+  }
+
+  .section-surface--padding-compact {
+    padding: var(--spacing-lg);
+  }
+
+  .section-surface--padding-spacious {
+    padding: clamp(var(--spacing-xl), 2.8vw, var(--spacing-3xl));
+  }
+
+  @media (width >= 768px) {
+    .section-surface {
+      gap: var(--spacing-xl);
+    }
+  }
+</style>

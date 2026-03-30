@@ -63,106 +63,21 @@ const t = {
   follow={true}
 >
   <PageShell className="page-shell--aurora">
-    <div class="podcast-search">
-      <SearchPageSection
-        items={items}
-        initialQuery={initialQuery}
-        resultsTitle="Results"
-        resultsHelp="Results update while you type, and the current query stays in the URL."
-        searchPlaceholder="Search episode titles or descriptions..."
-        searchEmptyText="Type an episode title or keyword."
-        searchNoResultsText="No matching episodes found."
-        searchLimit={30}
-      />
-    </div>
+    <SearchPageSection
+      items={items}
+      variant="soft"
+      initialQuery={initialQuery}
+      heroEyebrow={t.heroEyebrow}
+      title={t.heroTitle}
+      lead={t.heroLead}
+      tipsTitle={t.tipsTitle}
+      tips={t.tips}
+      resultsTitle="Results"
+      resultsHelp="Results update while you type, and the current query stays in the URL."
+      searchPlaceholder="Search episode titles or descriptions..."
+      searchEmptyText="Type an episode title or keyword."
+      searchNoResultsText="No matching episodes found."
+      searchLimit={30}
+    />
   </PageShell>
 </PodcastLayout>
-
-<style>
-  .podcast-search {
-    display: grid;
-    gap: var(--spacing-lg);
-  }
-
-  .podcast-search :global(.search-page-section__hero-copy),
-  .podcast-search :global(.search-page-section__hero-panel),
-  .podcast-search :global(.search-page-section__panel) {
-    position: relative;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-  }
-
-  .podcast-search :global(.search-page-section__hero-copy::before),
-  .podcast-search :global(.search-page-section__hero-panel::before),
-  .podcast-search :global(.search-page-section__panel::before) {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
-  }
-
-  .podcast-search :global(.search-page-section__hero-copy),
-  .podcast-search :global(.search-page-section__hero-panel) {
-    padding: var(--spacing-lg);
-  }
-
-  .podcast-search :global(.search-page-section__panel) {
-    gap: var(--spacing-lg);
-    padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .podcast-search :global(.search-page-section__title) {
-    max-inline-size: 12ch;
-    font-size: clamp(2.4rem, 6vw, 4.25rem);
-  }
-
-  .podcast-search :global(.search-page-section__panel-head) {
-    gap: var(--spacing-lg);
-  }
-
-  .podcast-search :global(.search-page-section__panel-help) {
-    max-inline-size: 30ch;
-    color: var(--text-secondary);
-  }
-
-  .podcast-search :global(.search-page-section__search-ui) {
-    padding: var(--spacing-md);
-    background: var(--surface-chip-bg);
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: var(--radius-lg);
-  }
-
-  .podcast-search :global(.simple-search__input) {
-    background: var(--surface-pill-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-  }
-
-  .podcast-search :global(.simple-search__result-link) {
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
-  }
-
-  .podcast-search :global(.simple-search__result-link:hover),
-  .podcast-search :global(.simple-search__result-link:focus-visible) {
-    border-color: var(--surface-border-accent);
-  }
-
-  .podcast-search :global(.simple-search__result-rank) {
-    background: var(--surface-chip-bg);
-    border: 1px solid var(--surface-border-accent);
-  }
-
-  @media (width < 640px) {
-    .podcast-search :global(.search-page-section__hero-copy),
-    .podcast-search :global(.search-page-section__hero-panel),
-    .podcast-search :global(.search-page-section__panel) {
-      padding: var(--spacing-base);
-    }
-  }
-</style>

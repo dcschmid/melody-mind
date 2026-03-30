@@ -250,22 +250,23 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   .quiz-detail__meta {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, max-content));
     gap: 0.5rem;
   }
 
   .quiz-detail__badge {
     display: inline-flex;
     align-items: center;
-    min-block-size: 1.9rem;
-    padding: 0.3rem 0.65rem;
-    font-size: var(--font-size-base);
+    min-block-size: 2.3rem;
+    padding: 0.45rem 0.8rem;
+    font-size: var(--font-size-sm);
     font-weight: 700;
     color: var(--text-secondary);
-    background: var(--surface-pill-bg);
+    background: color-mix(in srgb, var(--surface-1) 74%, transparent);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
   }
 
   .quiz-detail__hero-media {
@@ -375,9 +376,9 @@ const totalPoolSize = quiz.data.questions.length;
       font-weight: 700;
       color: var(--text-primary);
       cursor: pointer;
-      background: var(--surface-pill-bg);
+      background: color-mix(in srgb, var(--surface-1) 76%, transparent);
       border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-full);
+      border-radius: var(--radius-lg);
       transition: none;
     }
   }
@@ -393,13 +394,15 @@ const totalPoolSize = quiz.data.questions.length;
     font-weight: 700;
     color: var(--text-primary);
     cursor: pointer;
-    background: var(--surface-pill-bg);
+    background: color-mix(in srgb, var(--surface-1) 76%, transparent);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
     transition:
       transform var(--transition-fast),
       border-color var(--transition-fast),
-      background-color var(--transition-fast);
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast);
   }
 
   @media (width >= 640px) {
@@ -529,7 +532,7 @@ const totalPoolSize = quiz.data.questions.length;
     block-size: 0.8rem;
     overflow: hidden;
     background: color-mix(in srgb, var(--surface-border-soft) 88%, transparent);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
@@ -568,9 +571,9 @@ const totalPoolSize = quiz.data.questions.length;
     align-items: baseline;
     justify-content: space-between;
     padding: 0.5rem 0.6rem;
-    background: var(--surface-chip-bg);
+    background: color-mix(in srgb, var(--surface-1) 74%, transparent);
     border: 1px solid var(--surface-border-subtle);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
   }
 
   @media (width <= 639px) {
@@ -620,26 +623,26 @@ const totalPoolSize = quiz.data.questions.length;
     align-items: center;
     min-block-size: 2rem;
     padding: 0.35rem 0.7rem;
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     font-weight: 700;
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-md);
   }
 
   :global(#quiz-question-container .quiz-question__number) {
     color: var(--text-primary);
-    background: var(--surface-chip-bg);
+    background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1));
     border-color: var(--surface-border-accent);
   }
 
   :global(#quiz-question-container .quiz-question__type) {
     color: var(--text-secondary);
-    background: var(--surface-pill-bg);
+    background: color-mix(in srgb, var(--surface-1) 74%, transparent);
   }
 
   :global(#quiz-question-container .quiz-question__badge--correct) {
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--color-success) 18%, var(--surface-pill-bg));
+    background: color-mix(in srgb, var(--color-success) 18%, var(--surface-1));
     border-color: color-mix(
       in srgb,
       var(--color-success) 56%,
@@ -650,7 +653,7 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-question-container .quiz-question__badge--incorrect) {
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--color-error) 16%, var(--surface-pill-bg));
+    background: color-mix(in srgb, var(--color-error) 16%, var(--surface-1));
     border-color: color-mix(in srgb, var(--color-error) 56%, var(--surface-border-soft));
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-error) 16%, transparent);
   }
@@ -708,7 +711,7 @@ const totalPoolSize = quiz.data.questions.length;
       color: var(--text-primary);
       text-align: start;
       cursor: pointer;
-      background: var(--surface-pill-bg);
+      background: color-mix(in srgb, var(--surface-1) 76%, transparent);
       border: 1px solid var(--surface-border-soft);
       border-radius: var(--radius-lg);
       transition: none;
@@ -725,13 +728,15 @@ const totalPoolSize = quiz.data.questions.length;
     color: var(--text-primary);
     text-align: start;
     cursor: pointer;
-    background: var(--surface-pill-bg);
+    background: color-mix(in srgb, var(--surface-1) 76%, transparent);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
     transition:
       transform var(--transition-fast),
       border-color var(--transition-fast),
-      background-color var(--transition-fast);
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast);
   }
 
   @media (width <= 639px) {
@@ -760,7 +765,7 @@ const totalPoolSize = quiz.data.questions.length;
     background: linear-gradient(
       90deg,
       color-mix(in srgb, var(--accent-primary) 14%, transparent),
-      color-mix(in srgb, var(--accent-primary) 8%, var(--surface-pill-bg))
+      color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1))
     );
     border-color: color-mix(
       in srgb,
@@ -776,7 +781,7 @@ const totalPoolSize = quiz.data.questions.length;
     background: linear-gradient(
       90deg,
       color-mix(in srgb, var(--color-success) 18%, transparent),
-      color-mix(in srgb, var(--color-success) 8%, var(--surface-pill-bg))
+      color-mix(in srgb, var(--color-success) 8%, var(--surface-1))
     );
     border-color: color-mix(
       in srgb,
@@ -792,7 +797,7 @@ const totalPoolSize = quiz.data.questions.length;
     background: linear-gradient(
       90deg,
       color-mix(in srgb, var(--color-error) 16%, transparent),
-      color-mix(in srgb, var(--color-error) 7%, var(--surface-pill-bg))
+      color-mix(in srgb, var(--color-error) 7%, var(--surface-1))
     );
     border-color: color-mix(in srgb, var(--color-error) 58%, var(--surface-border-soft));
     box-shadow:
@@ -830,7 +835,7 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-question-container .quiz-question__explanation) {
     padding: 0.85rem 0.95rem;
-    background: var(--surface-chip-bg);
+    background: color-mix(in srgb, var(--surface-1) 78%, transparent);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
   }
@@ -973,7 +978,7 @@ const totalPoolSize = quiz.data.questions.length;
       font-weight: 700;
       text-decoration: none;
       border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-full);
+      border-radius: var(--radius-lg);
       transition: none;
     }
   }
@@ -988,11 +993,13 @@ const totalPoolSize = quiz.data.questions.length;
     font-weight: 700;
     text-decoration: none;
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
     transition:
       transform var(--transition-fast),
       border-color var(--transition-fast),
-      background-color var(--transition-fast);
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast);
   }
 
   :global(#quiz-result-container .quiz-result__btn:hover),
@@ -1013,6 +1020,6 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-result-container .quiz-result__btn--secondary) {
     color: var(--text-primary);
-    background: var(--surface-pill-bg);
+    background: color-mix(in srgb, var(--surface-1) 76%, transparent);
   }
 </style>

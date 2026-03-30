@@ -8,7 +8,9 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 const require = createRequire(import.meta.url);
-const sharp = require(require.resolve("sharp", { paths: [path.join(repoRoot, "apps/knowledge")] }));
+const sharp = require(
+  require.resolve("sharp", { paths: [path.join(repoRoot, "apps/knowledge")] })
+);
 const WEBP_SOURCE_PATTERN = /\.(jpg|jpeg|png|avif)$/iu;
 const JPG_SOURCE_PATTERN = /\.(png|webp|avif)$/iu;
 const DEFAULT_WEBP_QUALITY = 82;
@@ -27,7 +29,11 @@ const effort = Number.parseInt(effortArg?.split("=")[1] ?? "", 10) || DEFAULT_EF
 const tasks = [
   {
     name: "webp",
-    directories: ["apps/knowledge/src/assets", "apps/quiz/src/assets"],
+    directories: [
+      "apps/knowledge/src/assets",
+      "apps/quiz/src/assets",
+      "apps/podcasts/src/assets",
+    ],
     sourcePattern: WEBP_SOURCE_PATTERN,
     sourcePreference: ["jpg", "jpeg", "png", "avif"],
     toOutputPath: (filePath) => filePath.replace(WEBP_SOURCE_PATTERN, ".webp"),
@@ -57,7 +63,8 @@ const tasks = [
   },
 ];
 
-const getSourceExtension = (filePath) => path.extname(filePath).replace(".", "").toLowerCase();
+const getSourceExtension = (filePath) =>
+  path.extname(filePath).replace(".", "").toLowerCase();
 
 const listRasterFiles = async (directoryPath, sourcePattern) => {
   const entries = await fs.readdir(directoryPath, { withFileTypes: true });
@@ -91,7 +98,9 @@ const dedupeSourceFiles = (sourceFiles, toOutputPath, sourcePreference) =>
         return map;
       }
 
-      const existingIndex = sourcePreference.indexOf(getSourceExtension(existingSourceFile));
+      const existingIndex = sourcePreference.indexOf(
+        getSourceExtension(existingSourceFile)
+      );
       const nextIndex = sourcePreference.indexOf(getSourceExtension(sourceFile));
       const normalizedExistingIndex =
         existingIndex === -1 ? sourcePreference.length : existingIndex;
@@ -138,7 +147,9 @@ const main = async () => {
     const sourceFiles = dedupeSourceFiles(
       (
         await Promise.all(
-          resolvedDirectories.map((directory) => listRasterFiles(directory, task.sourcePattern))
+          resolvedDirectories.map((directory) =>
+            listRasterFiles(directory, task.sourcePattern)
+          )
         )
       ).flat(),
       task.toOutputPath,
@@ -172,7 +183,11 @@ const main = async () => {
         continue;
       }
 
-      if (result.status === "skipped" || result.status === "created" || result.status === "updated") {
+      if (
+        result.status === "skipped" ||
+        result.status === "created" ||
+        result.status === "updated"
+      ) {
         await fs.unlink(result.inputPath);
         console.log(`deleted ${relativeInputPath}`);
       }

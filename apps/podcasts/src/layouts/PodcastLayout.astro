@@ -29,7 +29,6 @@ import {
 } from "../constants/podcastLinks";
 import { podcastHeroImageUrl } from "../utils/podcastImages";
 import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
-import podcastBrandLogo from "../assets/melody-mind-podcast.jpg";
 import { podcastAppShellConfig } from "../utils/appShellConfig";
 
 export interface Props {
@@ -281,7 +280,6 @@ const seoProps = {
     slot="before-main"
     headerConfig={{
       ...shellConfig.header,
-      brandLogoSrc: podcastBrandLogo,
     }}
   />
 

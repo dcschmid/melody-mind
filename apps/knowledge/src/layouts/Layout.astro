@@ -13,12 +13,9 @@ import {
   DEFAULT_DNS_PREFETCH,
 } from "@shared-utils/utils/appShell";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
-import {
-  knowledgeBrandLogo,
-  knowledgeBrandLogoUrl,
-  knowledgeHeroImageUrl,
-} from "@utils/knowledgeImages";
+import { knowledgeBrandLogoUrl, knowledgeHeroImageUrl } from "@utils/knowledgeImages";
 import { knowledgeAppShellConfig } from "@utils/appShellConfig";
+import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
 /**
  * Shared layout contract for all knowledge pages.
@@ -161,7 +158,10 @@ const FATHOM_SITE_ID = "RKHOWTTO";
   <SiteHeader
     headerConfig={{
       ...shellConfig.header,
-      brandLogoSrc: knowledgeBrandLogo,
+      showBrand: true,
+      brandText: "",
+      brandLogoSrc: melodyMindLogo,
+      brandLogoAlt: "",
     }}
   />
 

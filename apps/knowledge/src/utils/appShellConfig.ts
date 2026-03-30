@@ -32,6 +32,7 @@ export const knowledgeAppShellConfig: AppShellConfig = {
         icon: "search",
       },
     ],
+    showBrand: false,
     brandHref: "/",
     brandText: "Melody Mind",
     brandMark: "MM",

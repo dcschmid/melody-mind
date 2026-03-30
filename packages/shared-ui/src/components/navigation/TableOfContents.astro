@@ -1,10 +1,4 @@
 ---
-/**
- * TableOfContents Component
- *
- * A responsive, accessible dropdown for table of contents.
- * WCAG AAA compliant with proper keyboard navigation.
- */
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface Heading {
@@ -17,557 +11,311 @@ interface Props {
   headings: Heading[];
   title?: string;
   className?: string;
+  idBase?: string;
 }
 
-const { headings = [], title, className = "" } = Astro.props;
+const { headings = [], title, className = "", idBase = "toc" } = Astro.props as Props;
 const filteredHeadings = headings.filter(
-  (heading) => heading.depth === 2 || heading.depth === 3
+  (heading) => heading.depth >= 2 && heading.depth <= 4
 );
 const tocTitle = title || "Table of contents";
+const safeIdBase = idBase.replace(/[^a-zA-Z0-9_-]+/g, "-");
+const toggleId = `${safeIdBase}-toggle`;
+const contentId = `${safeIdBase}-content`;
 ---
 
-<div class={`toc ${className}`.trim()} data-toc-shell>
-  <div data-toc-root>
-    <button
-      id="toc-toggle"
-      aria-expanded="false"
-      aria-controls="toc-content"
-      aria-label="Toggle table of contents"
-      class="toc__toggle"
-    >
-      <span class="toc__toggle-label">
-        <Icon name="menu" class="toc__toggle-icon" aria-hidden="true" />
-        <span>{tocTitle}</span>
-      </span>
-      <span class="toc__sr" data-expanded="expanded" data-collapsed="collapsed">
-        collapsed
-      </span>
-      <Icon
-        name="chevron-down"
-        id="toc-icon"
-        class="toc__toggle-chevron"
-        aria-hidden="true"
-      />
-    </button>
+<div class={`toc ${className}`.trim()} data-toc-root data-toc-id={safeIdBase}>
+  <button
+    id={toggleId}
+    type="button"
+    aria-expanded="false"
+    aria-controls={contentId}
+    aria-label={tocTitle}
+    class="toc__toggle"
+    data-toc-toggle
+  >
+    <span class="toc__toggle-label">
+      <Icon name="menu" class="toc__toggle-icon" aria-hidden="true" />
+      <span>{tocTitle}</span>
+    </span>
+    <Icon name="chevron-down" class="toc__toggle-chevron" aria-hidden="true" />
+  </button>
 
-    <div id="toc-content" aria-labelledby="toc-toggle" class="toc__content">
-      <nav aria-label="Table of contents" class="toc__nav">
-        <a href="#article-content" class="toc__skip"> Skip to article content </a>
-        <ul id="toc-list" class="toc__list">
-          {
-            filteredHeadings.map((heading) => (
-              <li
-                class={`toc__item ${heading.depth === 3 ? "toc__item--child" : ""}`.trim()}
+  <div
+    id={contentId}
+    aria-labelledby={toggleId}
+    class="toc__content"
+    data-toc-content
+    hidden
+  >
+    <nav aria-label="Table of contents" class="toc__nav">
+      <a href="#article-content" class="toc__skip">Skip to article content</a>
+      <ul class="toc__list">
+        {
+          filteredHeadings.map((heading) => (
+            <li class:list={["toc__item", heading.depth > 2 && "toc__item--child"]}>
+              <a
+                href={`#${heading.slug}`}
+                class:list={["toc__link", heading.depth > 2 && "toc__link--child"]}
               >
-                <a
-                  href={`#${heading.slug}`}
-                  class={`toc__link ${heading.depth === 3 ? "toc__link--child" : ""}`.trim()}
-                >
-                  {heading.text}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </div>
+                {heading.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </div>
 </div>
 
 <script>
-  import { TOC_EVENTS, dispatchCustomEvent } from "@shared-utils/constants/events";
+  const tocRoots = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-toc-root]")
+  ).filter((root) => root.dataset.tocBound !== "true");
 
-  (() => {
-    const shell = document.querySelector("[data-toc-shell]");
-    const toggle = document.getElementById("toc-toggle");
-    const content = document.getElementById("toc-content");
-    const stateText = toggle?.querySelector("[data-expanded]") as HTMLElement | null;
-    const tocList = document.getElementById("toc-list");
-    const articleRoot = document.getElementById("article-content");
-    const proseRoot = articleRoot?.querySelector(".prose") ?? null;
-
-    const getScopeAttr = (element: Element | null): string | null => {
-      if (!element) {
-        return null;
-      }
-      const scopeAttr = element
-        .getAttributeNames()
-        .find((name) => name.startsWith("data-astro-cid"));
-      return scopeAttr || null;
-    };
-
-    const applyScopeAttr = (element: Element, scopeAttr: string | null): void => {
-      if (!scopeAttr) {
-        return;
-      }
-      element.setAttribute(scopeAttr, "");
-    };
-
-    const tocScopeAttr = getScopeAttr(tocList);
-    const proseScopeAttr = getScopeAttr(proseRoot);
-
-    const setShellVisibility = (visible: boolean): void => {
-      if (!(shell instanceof HTMLElement)) {
-        return;
-      }
-      shell.hidden = !visible;
-      shell.setAttribute("aria-hidden", visible ? "false" : "true");
-    };
-
+  tocRoots.forEach((root) => {
+    root.dataset.tocBound = "true";
+    const toggle = root.querySelector<HTMLButtonElement>("[data-toc-toggle]");
+    const content = root.querySelector<HTMLElement>("[data-toc-content]");
+    const list = root.querySelector<HTMLUListElement>(".toc__list");
     if (!toggle || !content) {
-      setShellVisibility(false);
       return;
     }
 
-    const slugify = (text: string): string =>
-      text
-        .toLowerCase()
-        .trim()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-
-    const setExpanded = (expanded: boolean): void => {
-      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-      content.setAttribute("aria-hidden", expanded ? "false" : "true");
-      if (shell instanceof HTMLElement) {
-        shell.classList.toggle("toc--open", expanded);
-      }
-      if (stateText) {
-        stateText.textContent = expanded
-          ? stateText.getAttribute("data-expanded") || ""
-          : stateText.getAttribute("data-collapsed") || "";
-      }
-    };
-
-    let isOpen = false;
-    setExpanded(isOpen);
-
-    const ensureAnchor = (heading: HTMLElement, text: string, id: string): void => {
-      if (heading.querySelector(".prose__heading-anchor")) {
-        return;
-      }
-      const anchor = document.createElement("a");
-      anchor.href = `#${id}`;
-      anchor.className = "prose__heading-anchor";
-      anchor.textContent = "#";
-      anchor.setAttribute("aria-label", `Copy link to section: ${text}`);
-      applyScopeAttr(anchor, proseScopeAttr);
-      heading.appendChild(anchor);
-    };
-
-    const buildTocFromDom = (): void => {
-      if (!tocList || !articleRoot) {
-        setShellVisibility(Boolean(tocList?.children.length));
-        return;
-      }
-      const headingNodes = Array.from(articleRoot.querySelectorAll("h2, h3"));
-      if (!headingNodes.length) {
-        setShellVisibility(Boolean(tocList?.children.length));
-        return;
-      }
-      setShellVisibility(true);
-
-      const seenIds = new Set<string>();
-      const headings = headingNodes
-        .map((node) => {
-          const depth = Number(node.tagName.substring(1));
-          if (depth !== 2 && depth !== 3) {
-            return null;
-          }
-          const text = (node.textContent || "").trim();
-          if (!text) {
-            return null;
-          }
-
-          let id = node.id || slugify(text) || "section";
-          let counter = 2;
-          while (seenIds.has(id)) {
-            id = `${slugify(text) || "section"}-${counter++}`;
-          }
-          seenIds.add(id);
-          if (!node.id) {
-            node.id = id;
-          }
-          ensureAnchor(node as HTMLElement, text, id);
-
-          return { depth, id, text };
-        })
-        .filter(Boolean) as Array<{ depth: number; id: string; text: string }>;
-
-      if (!headings.length) {
+    const buildListFromDom = () => {
+      if (!list) {
         return;
       }
 
-      tocList.innerHTML = "";
-      headings.forEach((heading) => {
-        const li = document.createElement("li");
-        li.className = `toc__item ${heading.depth === 3 ? "toc__item--child" : ""}`;
-        applyScopeAttr(li, tocScopeAttr);
+      const articleRoot =
+        root.closest("main")?.querySelector<HTMLElement>("#article-content") ||
+        document.querySelector<HTMLElement>("#article-content");
+      if (!articleRoot) {
+        return;
+      }
 
-        const a = document.createElement("a");
-        a.href = `#${heading.id}`;
-        a.className = heading.depth === 2 ? "toc__link" : "toc__link toc__link--child";
-        a.textContent = heading.text;
-        applyScopeAttr(a, tocScopeAttr);
+      const articleHeadings = Array.from(
+        articleRoot.querySelectorAll<HTMLElement>(":is(h2, h3, h4)")
+      )
+        .filter((heading) => Boolean(heading.id && heading.textContent?.trim()))
+        .map((heading) => ({
+          depth: Number.parseInt(heading.tagName.slice(1), 10),
+          slug: heading.id,
+          text: heading.textContent?.trim() || "",
+        }));
 
-        li.appendChild(a);
-        tocList.appendChild(li);
+      if (!articleHeadings.length) {
+        return;
+      }
+
+      list.replaceChildren();
+
+      articleHeadings.forEach((heading) => {
+        const item = document.createElement("li");
+        item.className = "toc__item";
+        if (heading.depth > 2) {
+          item.classList.add("toc__item--child");
+        }
+
+        const link = document.createElement("a");
+        link.href = `#${heading.slug}`;
+        link.className = "toc__link";
+        if (heading.depth > 2) {
+          link.classList.add("toc__link--child");
+        }
+        link.textContent = heading.text;
+
+        item.append(link);
+        list.append(item);
       });
     };
 
-    buildTocFromDom();
+    const setExpanded = (expanded: boolean) => {
+      toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      content.hidden = !expanded;
+      root.classList.toggle("toc--open", expanded);
+    };
 
-    tocList?.addEventListener("click", (event): void => {
+    setExpanded(false);
+
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      if (!expanded) {
+        buildListFromDom();
+      }
+      setExpanded(!expanded);
+    });
+
+    content.addEventListener("click", (event) => {
       const target = event.target;
       if (!(target instanceof HTMLElement)) {
         return;
       }
 
       const link = target.closest<HTMLAnchorElement>("a[href^='#']");
-      if (!link) {
-        return;
-      }
-
-      const href = link.getAttribute("href") || "";
-      const sectionId = href.startsWith("#") ? href.slice(1) : "";
-      const parentItem = link.closest("li");
-      const position = parentItem
-        ? Array.from(tocList.querySelectorAll("li")).indexOf(parentItem) + 1
-        : 0;
-
-      try {
-        dispatchCustomEvent(TOC_EVENTS.CLICK, { sectionId, position });
-      } catch {
-        // Navigation continues even if telemetry fails
-      }
-    });
-
-    const toggleContent = (): void => {
-      isOpen = !isOpen;
-      setExpanded(isOpen);
-    };
-
-    toggle.addEventListener("click", (e): void => {
-      e.preventDefault();
-      toggleContent();
-    });
-
-    toggle.addEventListener("keydown", (e): void => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleContent();
-      }
-    });
-
-    document.addEventListener("click", (e): void => {
-      if (!isOpen) {
-        return;
-      }
-      const target = e.target as Node;
-      if (target && !toggle.contains(target) && !content.contains(target)) {
-        isOpen = false;
+      if (link) {
         setExpanded(false);
       }
     });
-  })();
-</script>
-<style>
-  /* -----------------------------------------------------------------------------
-     TableOfContents Component Styles
-     Collapsible navigation menu with WCAG AAA compliance
-     Responsive with keyboard navigation support
-     ----------------------------------------------------------------------------- */
 
-  /* Toggle button - opens/closes menu */
-  @media screen and (prefers-reduced-motion: reduce) {
-    .toc__toggle {
-      /* Layout */
-      display: flex;
-      gap: var(--spacing-md);
-      align-items: center;
-      justify-content: space-between;
-      inline-size: 100%;
-
-      /* WCAG AAA touch target */
-      min-block-size: 48px;
-      padding: var(--spacing-sm) var(--spacing-base);
-
-      /* Typography */
-      font-size: var(--font-size-md);
-      font-weight: var(--font-weight-semibold);
-      color: var(--text-primary);
-      text-align: start;
-
-      /* Visual styling */
-      cursor: pointer;
-      background: linear-gradient(
-        160deg,
-        color-mix(in srgb, var(--surface-2) 92%, var(--bg-primary)),
-        color-mix(in srgb, var(--surface-1) 96%, transparent)
-      );
-      border: 2px solid var(--border-default);
-      border-radius: var(--radius-md);
-
-      /* Smooth transitions */
-      transition: none;
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", buildListFromDom, { once: true });
+    } else {
+      requestAnimationFrame(buildListFromDom);
     }
+  });
+</script>
+
+<style is:global>
+  .toc[data-toc-root] {
+    display: grid;
+    gap: var(--spacing-xs);
   }
 
-  .toc__toggle {
-    /* Layout */
+  .toc[data-toc-root] .toc__toggle {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     align-items: center;
     justify-content: space-between;
     inline-size: 100%;
-
-    /* WCAG AAA touch target */
-    min-block-size: 48px;
-    padding: var(--spacing-sm) var(--spacing-base);
-
-    /* Typography */
-    font-size: var(--font-size-md);
+    min-block-size: var(--control-min-block-size);
+    padding: var(--control-padding-block) var(--control-padding-inline);
+    font: inherit;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    text-align: start;
-
-    /* Visual styling */
     cursor: pointer;
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--surface-2) 92%, var(--bg-primary)),
-      color-mix(in srgb, var(--surface-1) 96%, transparent)
-    );
-    border: 2px solid var(--border-default);
-    border-radius: var(--radius-md);
-
-    /* Smooth transitions */
+    background: none;
+    border: 1px solid var(--surface-border-soft);
+    background: var(--surface-section-bg);
+    border-radius: var(--radius-lg);
     transition:
-      background var(--transition-fast),
-      border-color var(--transition-fast);
+      border-color 160ms ease,
+      background-color 160ms ease;
   }
 
-  .toc__toggle:hover,
-  .toc__toggle:focus-visible {
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    border-color: var(--accent-strong);
-    box-shadow: var(--interactive-shadow-focus);
-  }
-
-  /* Focus state - WCAG AAA compliant */
-  .toc__toggle:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  /* Toggle label with icon */
-  .toc__toggle-label {
+  .toc[data-toc-root] .toc__toggle-label {
     display: inline-flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-sm);
     align-items: center;
   }
 
-  /* Menu icon */
-  .toc__toggle-icon {
-    display: block;
-    inline-size: 1.1rem;
-    block-size: 1.1rem;
-    color: var(--accent-primary);
+  .toc[data-toc-root] .toc__toggle-icon,
+  .toc[data-toc-root] .toc__toggle-chevron {
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
-  /* Chevron indicator */
-  @media screen and (prefers-reduced-motion: reduce) {
-    .toc__toggle-chevron {
-      display: block;
-      inline-size: 1.1rem;
-      block-size: 1.1rem;
-      color: var(--text-secondary);
-      transition: none;
-    }
-  }
-
-  .toc__toggle-chevron {
-    display: block;
-    inline-size: 1.1rem;
-    block-size: 1.1rem;
+  .toc[data-toc-root] .toc__toggle-chevron {
     color: var(--text-secondary);
-    transition: transform var(--transition-base);
+    transition: transform 160ms ease;
   }
 
-  /* Rotate chevron when open */
-  .toc--open .toc__toggle-chevron {
-    transform: rotate(180deg);
+  .toc[data-toc-root] .toc__content {
+    padding: var(--spacing-sm);
+    background: var(--surface-section-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
   }
 
-  /* Content container - hidden by default */
-  .toc__content {
-    display: none;
-    margin-block-start: var(--spacing-sm);
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 96%, transparent),
-      color-mix(in srgb, var(--surface-2) 78%, transparent)
-    );
-    border: 2px solid var(--border-default);
-    border-radius: var(--radius-md);
-    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-2) 50%, transparent);
+  .toc[data-toc-root] .toc__nav {
+    display: grid;
+    gap: var(--spacing-xs);
+    max-block-size: min(24rem, calc(100vh - 11rem));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
   }
 
-  /* Show content when open */
-  .toc--open .toc__content {
-    display: block;
-  }
-
-  /* Navigation wrapper */
-  .toc__nav {
-    padding: var(--spacing-base);
-  }
-
-  /* Skip to content link */
-  @media screen and (prefers-reduced-motion: reduce) {
-    .toc__skip {
-      display: inline-flex;
-      align-items: center;
-      min-block-size: 44px;
-      margin-block-end: var(--spacing-xs);
-      font-size: var(--font-size-md);
-      font-weight: var(--font-weight-semibold);
-      color: var(--accent-primary);
-      text-decoration: underline;
-      transition: none;
-    }
-  }
-
-  .toc__skip {
-    display: inline-flex;
-    align-items: center;
-    min-block-size: 44px;
-    margin-block-end: var(--spacing-xs);
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-semibold);
-    color: var(--accent-primary);
-    text-decoration: underline;
-    transition: color var(--transition-fast);
-  }
-
-  .toc__skip:hover,
-  .toc__skip:focus-visible {
-    color: var(--accent-strong);
-  }
-
-  /* Link list */
-  .toc__list {
-    max-block-size: 50vb;
+  .toc[data-toc-root] .toc__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
     padding: 0;
     margin: 0;
-    overflow-block: auto;
     list-style: none;
   }
 
-  /* List item spacing */
-  .toc__item {
-    margin-block-end: 0;
-  }
-
-  /* Child items (h3) indented */
-  .toc__item--child {
-    margin-inline-start: var(--spacing-lg);
-  }
-
-  /* Link styling */
-  @media screen and (prefers-reduced-motion: reduce) {
-    .toc__link {
-      /* Layout */
-      display: block;
-      min-block-size: 2.75rem;
-      padding: 0.35rem var(--spacing-sm);
-
-      /* Typography */
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-semibold);
-      color: var(--text-primary);
-      text-decoration: none;
-
-      /* Visual styling */
-      border-radius: var(--radius-base);
-
-      /* Smooth transitions */
-      transition: none;
-    }
-  }
-
-  .toc__link {
-    /* Layout */
-    display: block;
+  .toc[data-toc-root] .toc__skip,
+  .toc[data-toc-root] .toc__link {
+    display: flex;
+    align-items: center;
     min-block-size: 2.75rem;
-    padding: 0.35rem var(--spacing-sm);
-
-    /* Typography */
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
+    padding: 0.625rem var(--spacing-sm);
     color: var(--text-primary);
-    text-decoration: none;
-
-    /* Visual styling */
-    border-radius: var(--radius-base);
-
-    /* Smooth transitions */
-    transition:
-      color var(--transition-fast),
-      background var(--transition-fast);
-  }
-
-  /* Child link styling */
-  .toc__link--child {
-    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
+    line-height: 1.35;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+  }
+
+  .toc[data-toc-root] .toc__skip {
+    margin-block-end: var(--spacing-2xs);
     color: var(--text-secondary);
+    font-size: var(--font-size-sm);
   }
 
-  /* Link hover states */
-  .toc__link:hover,
-  .toc__link:focus-visible {
-    color: var(--accent-strong);
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-primary) 18%, transparent);
+  .toc[data-toc-root] .toc__link--child {
+    min-block-size: 2.375rem;
+    padding-inline-start: calc(var(--spacing-sm) + 1rem);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
   }
 
-  /* Focus state - WCAG AAA compliant */
-  .toc__link:focus-visible {
+  .toc[data-toc-root] .toc__item--child {
+    position: relative;
+  }
+
+  .toc[data-toc-root] .toc__item--child::before {
+    position: absolute;
+    inset-block: 0.625rem 0.625rem;
+    inset-inline-start: var(--spacing-sm);
+    inline-size: 1px;
+    content: "";
+    background: var(--surface-border-soft);
+  }
+
+  .toc[data-toc-root] .toc__skip:hover,
+  .toc[data-toc-root] .toc__skip:focus-visible,
+  .toc[data-toc-root] .toc__link:hover,
+  .toc[data-toc-root] .toc__link:focus-visible {
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 9%, transparent);
+  }
+
+  .toc[data-toc-root] .toc__toggle:focus-visible,
+  .toc[data-toc-root] .toc__skip:focus-visible,
+  .toc[data-toc-root] .toc__link:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
 
-  /* Screen reader only text */
-  .toc__sr {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip-path: inset(50%);
+  .toc[data-toc-root] .toc__toggle:hover {
+    background: color-mix(in srgb, var(--surface-section-bg) 82%, var(--accent-primary));
+    border-color: var(--surface-border-medium);
   }
 
-  @media (width >= 960px) {
-    .toc__nav {
-      padding: var(--spacing-lg);
-    }
+  .toc[data-toc-root].toc--open .toc__toggle-chevron {
+    transform: rotate(180deg);
   }
 
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .toc__toggle,
-    .toc__link,
-    .toc__skip,
-    .toc__toggle-chevron {
-      transition: none;
+  @media (min-width: 48rem) {
+    .toc[data-toc-root] .toc__content {
+      padding: var(--spacing-base);
     }
 
-    .toc--open .toc__toggle-chevron {
-      transform: none;
+    .toc[data-toc-root] .toc__nav {
+      max-block-size: min(26rem, calc(100vh - 12rem));
+    }
+
+    .toc[data-toc-root] .toc__link {
+      min-block-size: 2.5rem;
+      padding-inline: 0.875rem;
+    }
+
+    .toc[data-toc-root] .toc__link--child {
+      padding-inline-start: calc(0.875rem + 1rem);
     }
   }
 </style>

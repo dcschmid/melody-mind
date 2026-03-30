@@ -11,6 +11,7 @@ import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
 import {
@@ -122,7 +123,12 @@ const pageSeo = buildPageSeo({
 
       {
         quizzesByCategory.decade.length > 0 && (
-          <section class="quiz-section" aria-labelledby="decade-heading">
+          <SectionSurface
+            as="section"
+            className="quiz-section"
+            variant="accent"
+            aria-labelledby="decade-heading"
+          >
             <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="decade-heading">{categoryLabels.decade}</span>
             </Headline>
@@ -152,13 +158,17 @@ const pageSeo = buildPageSeo({
                 </li>
               ))}
             </ul>
-          </section>
+          </SectionSurface>
         )
       }
 
       {
         quizzesByCategory["genre-evolution"].length > 0 && (
-          <section class="quiz-section" aria-labelledby="genre-heading">
+          <SectionSurface
+            as="section"
+            className="quiz-section"
+            aria-labelledby="genre-heading"
+          >
             <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="genre-heading">{categoryLabels["genre-evolution"]}</span>
             </Headline>
@@ -188,13 +198,17 @@ const pageSeo = buildPageSeo({
                 </li>
               ))}
             </ul>
-          </section>
+          </SectionSurface>
         )
       }
 
       {
         quizzesByCategory.mixed.length > 0 && (
-          <section class="quiz-section" aria-labelledby="mixed-heading">
+          <SectionSurface
+            as="section"
+            className="quiz-section"
+            aria-labelledby="mixed-heading"
+          >
             <Headline level="h2" textSize="lg" className="quiz-section__title">
               <span id="mixed-heading">{categoryLabels.mixed}</span>
             </Headline>
@@ -223,7 +237,7 @@ const pageSeo = buildPageSeo({
                 </li>
               ))}
             </ul>
-          </section>
+          </SectionSurface>
         )
       }
 
@@ -248,29 +262,14 @@ const pageSeo = buildPageSeo({
   }
 
   .quiz-section {
-    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
-    padding: var(--spacing-xl);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-  }
-
-  .quiz-section::before {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
   }
 
   @media (width >= 768px) {
     .quiz-section {
-      padding: calc(var(--spacing-xl) + var(--spacing-sm));
+      gap: var(--spacing-xl);
     }
   }
 
@@ -314,17 +313,5 @@ const pageSeo = buildPageSeo({
     .quiz-section__grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-  }
-
-  .quiz-empty {
-    background:
-      radial-gradient(
-        circle at top center,
-        color-mix(in srgb, var(--accent-primary) 10%, transparent),
-        transparent 42%
-      ),
-      var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
   }
 </style>

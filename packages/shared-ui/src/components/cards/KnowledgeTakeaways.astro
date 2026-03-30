@@ -43,40 +43,39 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
      ----------------------------------------------------------------------------- */
 
   .knowledge-takeaways {
-    /* Layout */
     display: grid;
     gap: var(--spacing-lg);
-    padding: var(--spacing-lg);
-
-    /* Visual styling */
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    padding: clamp(var(--spacing-lg), 2.2vw, var(--spacing-xl)) 0 0;
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
-  /* Header section */
   .knowledge-takeaways__header {
+    position: relative;
     display: grid;
     gap: var(--spacing-xs);
   }
 
-  /* Badge label */
   .knowledge-takeaways__badge {
     inline-size: fit-content;
-    padding: var(--spacing-xs) var(--spacing-sm);
-
-    /* Typography */
+    padding-inline-start: var(--spacing-base);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     color: var(--accent-primary);
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
+    letter-spacing: 0.16em;
+    background: none;
+    border: 0;
+    border-radius: 0;
+  }
 
-    /* Visual styling */
-    background: var(--surface-chip-bg);
-    border: 1px solid var(--surface-border-accent);
-    border-radius: var(--radius-full);
+  .knowledge-takeaways__badge::before {
+    position: absolute;
+    inset-inline-start: 0;
+    inline-size: 0.65rem;
+    block-size: 1px;
+    margin-block-start: 0.55rem;
+    content: "";
+    background: currentcolor;
   }
 
   /* Section title */
@@ -87,7 +86,6 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     color: var(--heading-color);
   }
 
-  /* Subtitle description */
   .knowledge-takeaways__subtitle {
     max-inline-size: 60ch;
     margin: 0;
@@ -95,7 +93,6 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     color: var(--prose-color);
   }
 
-  /* List container */
   .knowledge-takeaways__list {
     display: grid;
     gap: var(--spacing-md);
@@ -104,78 +101,38 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
     list-style: none;
   }
 
-  /* Individual takeaway item */
   .knowledge-takeaways__item {
-    /* Layout */
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--spacing-md);
     align-items: start;
     padding: var(--spacing-base);
-
-    /* Visual styling */
-    background: var(--surface-pill-bg);
+    background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-md);
-
-    /* Smooth transition on hover */
-    transition:
-      border-color var(--transition-fast),
-      box-shadow var(--transition-fast),
-      transform var(--transition-fast);
+    border-radius: var(--radius-lg);
   }
 
-  .knowledge-takeaways__item:hover,
-  .knowledge-takeaways__item:focus {
-    border-color: var(--surface-border-accent);
-    box-shadow: var(--shadow-sm);
-    transform: translateY(-1px);
-  }
-
-  /* Icon container */
   .knowledge-takeaways__icon {
-    /* Layout */
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
     inline-size: 2rem;
     block-size: 2rem;
-
-    /* Visual styling */
     color: var(--accent-primary);
-    background: var(--surface-chip-bg);
+    background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1));
     border-radius: var(--radius-base);
   }
 
-  .knowledge-takeaways__icon :global(svg) {
-    inline-size: 1rem;
-    block-size: 1rem;
-  }
-
-  /* Takeaway text */
   .knowledge-takeaways__text {
     font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
     color: var(--text-primary);
   }
 
-  /* Responsive: Two columns on tablet and larger */
   @media (width >= 768px) {
     .knowledge-takeaways__list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .knowledge-takeaways__item {
-      transition: none;
-    }
-
-    .knowledge-takeaways__item:hover,
-    .knowledge-takeaways__item:focus {
-      transform: none;
     }
   }
 </style>
