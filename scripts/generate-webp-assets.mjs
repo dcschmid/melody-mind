@@ -14,7 +14,7 @@ const sharp = require(
 const WEBP_SOURCE_PATTERN = /\.(jpg|jpeg|png|avif|webp)$/iu;
 const DEFAULT_WEBP_QUALITY = 82;
 const DEFAULT_EFFORT = 6;
-const DEFAULT_MAX_WIDTH = 900;
+const DEFAULT_MAX_WIDTH = 700;
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
