@@ -184,9 +184,8 @@ const contentId = `${safeIdBase}-content`;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     cursor: pointer;
-    background: none;
-    border: 1px solid var(--surface-border-soft);
     background: var(--surface-section-bg);
+    border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
     transition:
       border-color 160ms ease,
@@ -222,9 +221,9 @@ const contentId = `${safeIdBase}-content`;
     gap: var(--spacing-xs);
     max-block-size: min(24rem, calc(100vh - 11rem));
     overflow-y: auto;
+    scrollbar-gutter: stable;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    scrollbar-gutter: stable;
   }
 
   .toc[data-toc-root] .toc__list {
@@ -242,25 +241,25 @@ const contentId = `${safeIdBase}-content`;
     align-items: center;
     min-block-size: 2.75rem;
     padding: 0.625rem var(--spacing-sm);
-    color: var(--text-primary);
     font-weight: var(--font-weight-medium);
     line-height: 1.35;
+    color: var(--text-primary);
     text-decoration: none;
     border-radius: var(--radius-md);
   }
 
   .toc[data-toc-root] .toc__skip {
     margin-block-end: var(--spacing-2xs);
-    color: var(--text-secondary);
     font-size: var(--font-size-sm);
+    color: var(--text-secondary);
   }
 
   .toc[data-toc-root] .toc__link--child {
     min-block-size: 2.375rem;
     padding-inline-start: calc(var(--spacing-sm) + 1rem);
-    color: var(--text-secondary);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
+    color: var(--text-secondary);
   }
 
   .toc[data-toc-root] .toc__item--child {
@@ -269,7 +268,7 @@ const contentId = `${safeIdBase}-content`;
 
   .toc[data-toc-root] .toc__item--child::before {
     position: absolute;
-    inset-block: 0.625rem 0.625rem;
+    inset-block: 0.625rem;
     inset-inline-start: var(--spacing-sm);
     inline-size: 1px;
     content: "";
@@ -296,11 +295,26 @@ const contentId = `${safeIdBase}-content`;
     border-color: var(--surface-border-medium);
   }
 
+  .toc[data-toc-root] .toc__toggle:focus {
+    background: color-mix(in srgb, var(--surface-section-bg) 82%, var(--accent-primary));
+    border-color: var(--surface-border-medium);
+  }
+
   .toc[data-toc-root].toc--open .toc__toggle-chevron {
     transform: rotate(180deg);
   }
 
-  @media (min-width: 48rem) {
+  @media (prefers-reduced-motion: reduce) {
+    .toc[data-toc-root] .toc__toggle {
+      transition: none;
+    }
+
+    .toc[data-toc-root] .toc__toggle-chevron {
+      transition: none;
+    }
+  }
+
+  @media (width >= 48rem) {
     .toc[data-toc-root] .toc__content {
       padding: var(--spacing-base);
     }
