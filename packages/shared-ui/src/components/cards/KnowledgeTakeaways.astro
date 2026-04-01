@@ -7,10 +7,11 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
   title?: string;
   items?: string[];
 };
+const visibleItems = items.slice(0, 4);
 ---
 
 {
-  items.length ? (
+  visibleItems.length ? (
     <aside class="knowledge-takeaways" aria-labelledby="knowledge-takeaways-title">
       <div class="knowledge-takeaways__header">
         <div class="knowledge-takeaways__badge">What you'll take away</div>
@@ -22,7 +23,7 @@ const { title = "Key takeaways", items = [] } = Astro.props as {
         </Paragraph>
       </div>
       <ol class="knowledge-takeaways__list">
-        {items.map((item) => (
+        {visibleItems.map((item) => (
           <li class="knowledge-takeaways__item">
             <span class="knowledge-takeaways__icon" aria-hidden="true">
               <Icon name="star" role="img" aria-hidden="true" />

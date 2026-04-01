@@ -2,6 +2,7 @@
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface Props {
+  id?: string;
   shareUrl: string;
   contentTitle: string;
   contentDescription?: string;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const {
+  id,
   shareUrl,
   contentTitle,
   contentDescription = "",
@@ -31,6 +33,7 @@ const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponen
   `${shareText} ${shareUrl}`
 )}`;
 const rootId =
+  id ||
   `share-section-${contentTitle}`.toLowerCase().replace(/[^a-z0-9]+/g, "-") ||
   "share-section";
 ---

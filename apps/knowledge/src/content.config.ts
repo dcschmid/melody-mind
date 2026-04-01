@@ -22,7 +22,7 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
     podcast: z.string().optional(),
     podcastSlug: z.string().optional(),
     podcastUrl: z.string().optional(),
-    takeaways: z.array(z.string()).optional(),
+    takeaways: z.array(z.string()).max(4).optional(),
     draft: z.boolean().default(false),
     aiGenerated: z.boolean().default(false),
     aiTools: z.array(z.string()).optional(),

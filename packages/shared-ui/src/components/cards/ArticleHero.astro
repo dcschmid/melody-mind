@@ -1,0 +1,437 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import AIContentBadge from "@shared-ui/components/badges/AIContentBadge.astro";
+import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { LinkPanelItem } from "@shared-ui/components/cards/linkPanel";
+
+interface Props {
+  title: string;
+  description: string;
+  imageSource?: ImageMetadata;
+  imageAlt?: string;
+  publishedDate: Date;
+  publishedDateLabel: string;
+  readingText: string;
+  idBase?: string;
+  aiGenerated?: boolean;
+  aiTools?: string[];
+  links?: readonly LinkPanelItem[];
+}
+
+const {
+  title,
+  description,
+  imageSource,
+  imageAlt = title,
+  publishedDate,
+  publishedDateLabel,
+  readingText,
+  idBase = "article-hero",
+  aiGenerated = false,
+  aiTools = [],
+  links = [],
+} = Astro.props as Props;
+
+const monthYearLabel = publishedDate.toLocaleDateString("en-US", {
+  month: "long",
+  year: "numeric",
+});
+const titleId = `${idBase}-title`;
+---
+
+<section class="article-hero" aria-labelledby={titleId}>
+  <div class="article-hero__shell">
+    <div class="article-hero__layout">
+      <div class="article-hero__content">
+        <div class="article-hero__topline">
+          <ul class="article-hero__meta-list" aria-label="Article details">
+            <li class="article-hero__meta-item">
+              <Icon name="clock" class="article-hero__meta-icon" aria-hidden="true" />
+              <span>{readingText}</span>
+            </li>
+            <li class="article-hero__meta-item">
+              <Icon name="calendar" class="article-hero__meta-icon" aria-hidden="true" />
+              <time datetime={publishedDate.toISOString()}>{monthYearLabel}</time>
+            </li>
+            {
+              aiGenerated ? (
+                <li class="article-hero__meta-item article-hero__meta-item--badge">
+                  <AIContentBadge
+                    aiTools={aiTools}
+                    size="md"
+                    className="article-hero__ai-badge"
+                  />
+                </li>
+              ) : null
+            }
+          </ul>
+        </div>
+
+        <div class="article-hero__intro">
+          <h1 id={titleId} class="article-hero__title">{title}</h1>
+          <p class="article-hero__description">{description}</p>
+        </div>
+
+        <ul class="article-hero__signals" aria-label="Article signals">
+          <li class="article-hero__signal">
+            <Icon name="eye" class="article-hero__signal-icon" aria-hidden="true" />
+            <span>Long-form analysis</span>
+          </li>
+          <li class="article-hero__signal">
+            <Icon name="heart" class="article-hero__signal-icon" aria-hidden="true" />
+            <span>Editorially curated</span>
+          </li>
+          <li class="article-hero__signal">
+            <Icon
+              name="message-circle"
+              class="article-hero__signal-icon"
+              aria-hidden="true"
+            />
+            <span>Updated {publishedDateLabel}</span>
+          </li>
+        </ul>
+
+        {
+          links.length ? (
+            <div class="article-hero__links" aria-label="Listen and explore">
+              {links.map((link) => (
+                <ButtonLink
+                  href={link.href}
+                  variant={link.variant ?? "secondary"}
+                  size="compact"
+                  icon={link.icon}
+                  analyticsPodcastTarget={link.analyticsPodcastTarget}
+                  aria-label={link.ariaLabel}
+                  className="article-hero__link"
+                >
+                  {link.label}
+                </ButtonLink>
+              ))}
+            </div>
+          ) : null
+        }
+      </div>
+
+      <div class="article-hero__media-column">
+        {
+          imageSource ? (
+            <div class="article-hero__media-frame">
+              <Image
+                class="article-hero__image"
+                src={imageSource}
+                alt={imageAlt}
+                loading="eager"
+                fetchpriority="high"
+                width={imageSource.width}
+                height={imageSource.height}
+                decoding="async"
+              />
+            </div>
+          ) : (
+            <div
+              class="article-hero__media-placeholder"
+              role="img"
+              aria-label="No image available"
+            >
+              <Icon
+                name="image"
+                class="article-hero__media-placeholder-icon"
+                aria-hidden="true"
+              />
+              <span>No image available</span>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .article-hero {
+    position: relative;
+  }
+
+  .article-hero__shell {
+    position: relative;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .article-hero__layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: clamp(1.5rem, 2.8vw, 2.4rem);
+    align-items: stretch;
+  }
+
+  .article-hero__content {
+    display: grid;
+    gap: clamp(0.9rem, 1.5vw, 1.15rem);
+    align-content: start;
+    min-inline-size: 0;
+    color: #f8fafc;
+  }
+
+  .article-hero__topline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-base);
+    align-items: center;
+  }
+
+  .article-hero__meta-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-base);
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .article-hero__meta-item {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    font-size: 0.98rem;
+    color: color-mix(in srgb, #c7d2fe 70%, #94a3b8);
+  }
+
+  .article-hero__meta-item--badge {
+    color: inherit;
+  }
+
+  .article-hero__meta-icon {
+    inline-size: 0.95rem;
+    block-size: 0.95rem;
+    color: color-mix(in srgb, #94a3b8 90%, #fff);
+  }
+
+  .article-hero__intro {
+    display: grid;
+    gap: clamp(0.9rem, 1.4vw, 1.1rem);
+  }
+
+  .article-hero__title {
+    margin: 0;
+    font-size: clamp(2.7rem, 2.05rem + 1.25vw, 4.25rem);
+    font-weight: 800;
+    line-height: 0.91;
+    color: #f8fafc;
+    letter-spacing: -0.068em;
+    text-wrap: initial;
+  }
+
+  .article-hero__description {
+    margin: 0;
+    font-size: clamp(1.04rem, 0.98rem + 0.16vw, 1.18rem);
+    line-height: 1.64;
+    color: color-mix(in srgb, #d8e3ed 78%, #94a3b8);
+    text-wrap: pretty;
+  }
+
+  .article-hero__signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.2rem;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .article-hero__signal {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.92rem;
+    color: color-mix(in srgb, #94a3b8 90%, #e2e8f0);
+  }
+
+  .article-hero__signal-icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: color-mix(in srgb, #94a3b8 94%, #fff);
+  }
+
+  .article-hero__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing-sm) + var(--spacing-xs));
+    align-items: center;
+  }
+
+  .article-hero__links :global(.article-hero__link) {
+    min-inline-size: 0;
+  }
+
+  .article-hero__links :global(.article-hero__link.button-link) {
+    min-block-size: 2.25rem;
+    padding: 0.45rem 0.95rem;
+    font-size: 0.98rem;
+    border-radius: calc(var(--radius-lg) - 0.1rem);
+  }
+
+  .article-hero__links :global(.article-hero__link .button-link__icon) {
+    inline-size: 0.95rem;
+    block-size: 0.95rem;
+  }
+
+  .article-hero__media-column {
+    min-inline-size: 0;
+    block-size: 100%;
+  }
+
+  .article-hero__media-frame,
+  .article-hero__media-placeholder {
+    position: relative;
+    overflow: hidden;
+    border-radius: clamp(1.75rem, 3vw, 2.2rem);
+  }
+
+  .article-hero__media-frame {
+    block-size: 100%;
+    min-block-size: 100%;
+    background: #0f172a;
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, #fff 12%, transparent),
+      0 24px 70px color-mix(in srgb, #000 36%, transparent);
+  }
+
+  .article-hero__media-frame::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at 80% 82%,
+        color-mix(in srgb, #ef4444 32%, transparent),
+        transparent 24%
+      ),
+      linear-gradient(180deg, color-mix(in srgb, #000 18%, transparent), transparent 30%),
+      linear-gradient(0deg, color-mix(in srgb, #000 34%, transparent), transparent 34%);
+  }
+
+  .article-hero__image,
+  .article-hero__image :global(img) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .article-hero__media-placeholder {
+    display: grid;
+    gap: var(--spacing-sm);
+    place-items: center;
+    block-size: 100%;
+    min-block-size: 100%;
+    padding: var(--spacing-xl);
+    color: color-mix(in srgb, #d8e3ed 72%, #94a3b8);
+    background: linear-gradient(180deg, #0f172a, #111827);
+    border: 1px solid color-mix(in srgb, #93c5fd 18%, transparent);
+  }
+
+  .article-hero__media-placeholder-icon {
+    inline-size: 2rem;
+    block-size: 2rem;
+  }
+
+  @media (width >= 960px) {
+    .article-hero__layout {
+      grid-template-columns: minmax(24rem, 1fr) minmax(34rem, 1.02fr);
+      gap: clamp(2.2rem, 2.8vw, 3.25rem);
+      min-block-size: 18.5rem;
+    }
+
+    .article-hero__title {
+      font-size: clamp(2.8rem, 2.2rem + 0.95vw, 3.85rem);
+    }
+
+    .article-hero__content {
+      gap: 1rem;
+      padding-block-start: 0.1rem;
+    }
+
+    .article-hero__topline {
+      gap: 0.55rem 0.9rem;
+    }
+
+    .article-hero__signals {
+      gap: 0.85rem 1.45rem;
+      margin-block-start: 0;
+    }
+
+    .article-hero__media-column {
+      display: flex;
+      align-items: flex-start;
+      padding-block-start: 0.25rem;
+    }
+
+    .article-hero__media-frame,
+    .article-hero__media-placeholder {
+      inline-size: 100%;
+      min-block-size: 0;
+      max-block-size: none;
+      aspect-ratio: 3 / 2;
+    }
+  }
+
+  @media (width < 640px) {
+    .article-hero__content {
+      order: 2;
+    }
+
+    .article-hero__media-column {
+      order: 1;
+      padding-block-start: 0;
+      margin-block-end: var(--spacing-sm);
+    }
+
+    .article-hero__shell {
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .article-hero__title {
+      font-size: clamp(2.2rem, 9vw, 3.4rem);
+      line-height: 0.94;
+    }
+
+    .article-hero__description {
+      font-size: 1.06rem;
+    }
+
+    .article-hero__signals {
+      gap: var(--spacing-sm) var(--spacing-base);
+    }
+
+    .article-hero__signal {
+      font-size: 0.94rem;
+    }
+
+    .article-hero__links {
+      gap: var(--spacing-sm);
+    }
+
+    .article-hero__links :global(.article-hero__link.button-link) {
+      min-block-size: 2.125rem;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.94rem;
+    }
+
+    .article-hero__media-frame,
+    .article-hero__media-placeholder {
+      min-block-size: 0;
+      aspect-ratio: 3 / 2;
+    }
+  }
+</style>

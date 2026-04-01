@@ -6,9 +6,8 @@ import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
 import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
-import KnowledgeArticleHero from "@components/KnowledgeArticleHero.astro";
+import ArticleHero from "@shared-ui/components/cards/ArticleHero.astro";
 import RelatedKnowledgeArticles from "@components/RelatedKnowledgeArticles.astro";
-import LinkPanel from "@shared-ui/components/cards/LinkPanel.astro";
 import ReadingProgress from "@shared-ui/components/navigation/ReadingProgress.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import TableOfContents from "@shared-ui/components/navigation/TableOfContents.astro";
@@ -65,7 +64,6 @@ const {
   publishedDate,
   publishedDateLabel,
   readingResult,
-  taxonomyPillLabel,
   title,
 } = buildKnowledgeArticlePageData({
   site: Astro.site,
@@ -93,66 +91,89 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
       "uncategorized"}
   >
     <div class="knowledge__container">
-      <KnowledgeArticleHero
-        entry={entry}
+      <ArticleHero
+        title={entry.data.title}
+        description={entry.data.description}
         imageSource={imageSource}
+        imageAlt={entry.data.title}
         publishedDate={publishedDate}
         publishedDateLabel={publishedDateLabel}
         readingText={readingResult.text}
-        slugKey={slugKey}
-        taxonomyPillLabel={taxonomyPillLabel}
+        idBase={`knowledge-article-hero-${slugKey || "entry"}`}
+        aiGenerated={entry.data.aiGenerated}
+        aiTools={entry.data.aiTools}
+        links={articleLinks}
       />
 
-      {
-        articleLinks.length ? (
-          <LinkPanel title="Listen and Explore" titleIcon="music" items={articleLinks} />
-        ) : null
-      }
-
       <div class="knowledge__body">
-        <div class="knowledge__main">
-          <TableOfContents headings={mergedHeadings} className="knowledge__toc" />
+        <div class="knowledge__content-grid">
+          <aside class="knowledge__rail" aria-label="Article navigation and summary">
+            <div class="knowledge__rail-stack">
+              <TableOfContents headings={mergedHeadings} className="knowledge__toc" />
 
-          {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
-
-          <article id="article-content" class="knowledge-article">
-            <div id="article-title" class="knowledge__title-sr">{entry.data.title}</div>
-            <div role="region" aria-labelledby="article-title" aria-label="Main content">
-              <Prose>
-                <Content />
-              </Prose>
+              {
+                takeaways.length ? (
+                  <div class="knowledge__rail-panel knowledge__rail-panel--takeaways">
+                    <KnowledgeTakeaways items={takeaways} />
+                  </div>
+                ) : null
+              }
             </div>
-          </article>
+          </aside>
 
-          <ShareSection
-            shareUrl={canonical}
-            contentTitle={title}
-            contentDescription={description}
-          />
+          <div class="knowledge__main">
+            <section class="knowledge__article-shell" data-animate="rise-in">
+              <article id="article-content" class="knowledge-article">
+                <div id="article-title" class="knowledge__title-sr">
+                  {entry.data.title}
+                </div>
+                <div
+                  role="region"
+                  aria-labelledby="article-title"
+                  aria-label="Main content"
+                >
+                  <Prose className="knowledge-article__prose">
+                    <Content />
+                  </Prose>
+                </div>
+              </article>
+            </section>
 
-          <RelatedKnowledgeArticles
-            currentKeywords={currentKeywords}
-            currentTaxonomyGroup={currentTaxonomyGroup}
-            currentTaxonomySubsection={currentTaxonomySubsection}
-            currentSlug={slugKey}
-            lang={lang}
-          />
+            <section class="knowledge__section-shell knowledge__section-shell--share">
+              <ShareSection
+                id="knowledge-share"
+                shareUrl={canonical}
+                contentTitle={title}
+                contentDescription={description}
+              />
+            </section>
 
-          <div class="knowledge__back">
-            <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
-              <span>Back to knowledge list</span>
-            </ButtonLink>
+            <section class="knowledge__section-shell knowledge__section-shell--related">
+              <RelatedKnowledgeArticles
+                currentKeywords={currentKeywords}
+                currentTaxonomyGroup={currentTaxonomyGroup}
+                currentTaxonomySubsection={currentTaxonomySubsection}
+                currentSlug={slugKey}
+                lang={lang}
+              />
+            </section>
+
+            <div class="knowledge__back">
+              <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
+                <span>Back to knowledge list</span>
+              </ButtonLink>
+            </div>
+
+            <RecentItemsTracker
+              item={{
+                slug: storageSlug,
+                title,
+                updatedAt: storageUpdatedAt,
+                image: storageImage,
+              }}
+              storageKey={VERSIONED_KEYS.RECENT_READS}
+            />
           </div>
-
-          <RecentItemsTracker
-            item={{
-              slug: storageSlug,
-              title,
-              updatedAt: storageUpdatedAt,
-              image: storageImage,
-            }}
-            storageKey={VERSIONED_KEYS.RECENT_READS}
-          />
         </div>
       </div>
 
@@ -176,7 +197,7 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     position: relative;
     z-index: 2;
     display: grid;
-    gap: var(--spacing-xl);
+    gap: clamp(var(--spacing-lg), 2.2vw, var(--spacing-2xl));
     max-width: var(--content-max-width);
     padding: calc(var(--spacing-xl) + var(--spacing-sm)) var(--spacing-base)
       var(--spacing-3xl);
@@ -184,22 +205,224 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   }
 
   .knowledge__body,
-  .knowledge__main {
+  .knowledge__content-grid,
+  .knowledge__main,
+  .knowledge__rail-stack {
     display: grid;
     gap: var(--spacing-xl);
   }
 
-  .knowledge__main :global(.knowledge__toc) {
-    margin-block-end: 0;
+  .knowledge__support-panel,
+  .knowledge__article-shell,
+  .knowledge__section-shell,
+  .knowledge__rail-panel {
+    position: relative;
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-panel-raised) 92%, transparent),
+      color-mix(in srgb, var(--surface-panel-bg) 96%, transparent)
+    );
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
+      var(--shadow-lg);
+  }
+
+  .knowledge__article-shell {
+    padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    overflow: hidden;
+  }
+
+  .knowledge__support-panel {
+    padding-block: clamp(var(--spacing-base), 1.75vw, var(--spacing-lg));
+  }
+
+  .knowledge__support-panel::before,
+  .knowledge__article-shell::before,
+  .knowledge__section-shell::before,
+  .knowledge__rail-panel::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 12%, transparent);
+  }
+
+  .knowledge__support-panel :global(.link-panel) {
+    padding-block: 0;
+    border-block: 0;
+  }
+
+  .knowledge__rail {
+    min-inline-size: 0;
+  }
+
+  .knowledge__rail-panel {
+    padding: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
+  }
+
+  .knowledge__toc {
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .knowledge__toc :global(.toc[data-toc-root]),
+  .knowledge__rail-panel--takeaways :global(.knowledge-takeaways) {
+    gap: var(--spacing-base);
+  }
+
+  .knowledge__toc :global(.toc__content) {
+    background: color-mix(in srgb, var(--section-surface-bg) 94%, transparent);
+  }
+
+  .knowledge__toc :global(.toc__link) {
+    font-size: var(--font-size-sm);
+  }
+
+  .knowledge__rail-panel--takeaways :global(.knowledge-takeaways) {
+    padding-top: 0;
+    border-block-start: 0;
+  }
+
+  .knowledge__rail-panel--takeaways :global(.knowledge-takeaways__list) {
+    grid-template-columns: 1fr;
   }
 
   .knowledge-article {
     padding: 0;
-    margin-top: 0;
+    margin: 0;
     background: none;
     border: 0;
     border-radius: 0;
     box-shadow: none;
+  }
+
+  .knowledge-article__prose {
+    max-inline-size: min(100%, var(--measure-readable));
+    margin-inline: auto;
+  }
+
+  .knowledge-article__prose :global(> h2) {
+    position: relative;
+    padding-block-start: var(--spacing-base);
+  }
+
+  .knowledge-article__prose :global(> h2::before) {
+    display: block;
+    inline-size: clamp(2.5rem, 8vw, 4rem);
+    block-size: 1px;
+    margin-block-end: var(--spacing-base);
+    content: "";
+    background: color-mix(in srgb, var(--accent-primary) 44%, var(--surface-border-soft));
+  }
+
+  .knowledge-article__prose :global(> p) {
+    max-inline-size: 60ch;
+  }
+
+  .knowledge-article__prose :global(> blockquote) {
+    margin-inline: 0;
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 32%, transparent);
+  }
+
+  .knowledge-article__prose :global(> :first-child) {
+    margin-block-start: 0;
+  }
+
+  .knowledge-article__prose :global(> :last-child) {
+    margin-block-end: 0;
+  }
+
+  .knowledge__section-shell {
+    padding-block: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
+  }
+
+  .knowledge__section-shell--share :global(.share-section),
+  .knowledge__section-shell--related :global(.related-content-section) {
+    padding-block: 0;
+    margin-block-start: 0;
+    border-block-start: 0;
+  }
+
+  .knowledge__section-shell--share :global(.share-section__copy),
+  .knowledge__section-shell--related :global(.related-content-section__header) {
+    gap: var(--spacing-sm);
+  }
+
+  .knowledge__section-shell--share :global(.share-section) {
+    gap: var(--spacing-base);
+  }
+
+  .knowledge__section-shell--share :global(.share-section__actions) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  .knowledge__section-shell--share :global(.share-section__button) {
+    justify-content: flex-start;
+    inline-size: 100%;
+    padding-inline: var(--spacing-base);
+    background: color-mix(in srgb, var(--surface-1) 68%, transparent);
+  }
+
+  .knowledge__section-shell--share :global(.share-section__button--primary) {
+    justify-content: center;
+    background: linear-gradient(
+      135deg,
+      var(--accent-primary),
+      color-mix(in srgb, var(--accent-primary) 72%, var(--accent-strong))
+    );
+  }
+
+  .knowledge__section-shell--related :global(.related-content-section) {
+    gap: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+  }
+
+  .knowledge__section-shell--related :global(.related-content-section__header) {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .knowledge__section-shell--related :global(.related-content-section__copy) {
+    max-inline-size: 48ch;
+  }
+
+  .knowledge__section-shell--related :global(.related-content-section__grid) {
+    gap: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
+  }
+
+  .knowledge__section-shell--related :global(.content-card) {
+    border-radius: var(--radius-xl);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
+      var(--shadow-md);
+  }
+
+  .knowledge__section-shell--related :global(.content-card__media) {
+    aspect-ratio: 16 / 10;
+  }
+
+  .knowledge__section-shell--related :global(.content-card__body) {
+    gap: var(--spacing-sm);
+  }
+
+  .knowledge__section-shell--related :global(.content-card__title) {
+    font-size: clamp(1.05rem, 0.98rem + 0.24vw, 1.22rem);
+    line-height: 1.2;
+  }
+
+  .knowledge__section-shell--related :global(.content-card__description) {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+
+  .knowledge__section-shell--related :global(.content-card__meta) {
+    gap: var(--spacing-sm) var(--spacing-md);
+    padding-block-start: var(--spacing-sm);
   }
 
   .knowledge__back {
@@ -225,12 +448,40 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
       padding: var(--spacing-2xl) var(--spacing-lg)
         calc(var(--spacing-2xl) + var(--spacing-lg));
     }
+
+    .knowledge__support-panel,
+    .knowledge__article-shell,
+    .knowledge__section-shell,
+    .knowledge__rail-panel {
+      border-radius: calc(var(--radius-xl) + var(--spacing-xs));
+    }
+
+    .knowledge__section-shell--share :global(.share-section__actions) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 
   @media (width >= 1024px) {
     .knowledge__container {
       padding: calc(var(--spacing-2xl) + var(--spacing-sm)) var(--spacing-xl)
         calc(var(--spacing-2xl) + var(--spacing-xl));
+    }
+
+    .knowledge__main {
+      gap: clamp(var(--spacing-lg), 2vw, var(--spacing-2xl));
+    }
+
+    .knowledge__article-shell {
+      min-block-size: clamp(44rem, 60vw, 54rem);
+    }
+
+    .knowledge__section-shell--related :global(.related-content-section__header) {
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .knowledge__section-shell--related :global(.related-content-section__grid) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 </style>
