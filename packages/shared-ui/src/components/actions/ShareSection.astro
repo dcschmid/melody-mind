@@ -172,50 +172,65 @@ const rootId =
 <style>
   .share-section {
     display: grid;
-    gap: var(--spacing-lg);
-    padding-block: var(--spacing-xl);
+    gap: clamp(var(--spacing-base), 1.6vw, var(--spacing-lg));
+    align-items: center;
+    padding-block: clamp(0.5rem, 1.1vw, 0.9rem);
     padding-inline: 0;
-    margin-block-start: var(--spacing-xl);
-    border-block-start: 1px solid var(--surface-border-soft);
+    margin-block-start: 0;
+    border-block-start: 0;
   }
 
   .share-section__copy {
     display: grid;
-    gap: var(--spacing-xs);
+    gap: 0.18rem;
   }
 
   .share-section__title {
     margin: 0;
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-sm);
+    line-height: 1.15;
     color: var(--text-primary);
   }
 
   .share-section__note {
     margin: 0;
+    font-size: var(--font-size-xs);
+    line-height: 1.45;
     color: var(--text-secondary);
   }
 
   .share-section__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--spacing-sm);
+    gap: 0.7rem;
   }
 
   .share-section__button {
     display: inline-flex;
-    gap: var(--spacing-sm);
+    gap: 0.42rem;
     align-items: center;
     justify-content: center;
-    min-block-size: var(--control-min-block-size);
-    padding: var(--control-padding-block) var(--control-padding-inline);
+    min-block-size: 2.25rem;
+    padding: 0.52rem 0.9rem;
     font: inherit;
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     text-decoration: none;
     cursor: pointer;
     background: transparent;
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
+    border-radius: calc(var(--radius-lg) - 0.18rem);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .share-section__button {
+      transition: none;
+    }
   }
 
   .share-section__button--primary {
@@ -228,6 +243,7 @@ const rootId =
   .share-section__button:focus {
     background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
     border-color: var(--surface-border-medium);
+    transform: translateY(-1px);
   }
 
   .share-section__button--primary:hover,
@@ -242,13 +258,14 @@ const rootId =
   }
 
   .share-section__button-icon {
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: 0.88rem;
+    block-size: 0.88rem;
   }
 
   @media (width >= 640px) {
     .share-section {
-      gap: var(--spacing-base);
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(var(--spacing-base), 2vw, var(--spacing-xl));
     }
   }
 </style>

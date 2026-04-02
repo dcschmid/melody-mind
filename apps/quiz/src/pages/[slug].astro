@@ -231,7 +231,7 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   .quiz-detail__breadcrumb a {
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
     text-decoration: none;
   }
@@ -243,7 +243,7 @@ const totalPoolSize = quiz.data.questions.length;
 
   .quiz-detail__title {
     margin: 0;
-    font-size: clamp(1.45rem, 4vi, 2rem);
+    font-size: var(--font-size-xl);
     line-height: 1.04;
     color: var(--text-primary);
     letter-spacing: -0.045em;
@@ -346,7 +346,7 @@ const totalPoolSize = quiz.data.questions.length;
   }
 
   .quiz-detail__panel-title {
-    font-size: 1.125rem;
+    font-size: var(--font-size-base);
     color: var(--text-secondary);
   }
 
@@ -688,7 +688,7 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-question-container .quiz-question__text) {
     margin: 0;
-    font-size: clamp(1.125rem, 3vi, 1.35rem);
+    font-size: var(--font-size-md);
     line-height: 1.4;
     color: var(--text-primary);
     letter-spacing: -0.03em;
@@ -908,7 +908,7 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-result-container .quiz-result__title) {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: var(--font-size-xl);
     color: var(--text-primary);
     letter-spacing: -0.03em;
   }
@@ -945,7 +945,7 @@ const totalPoolSize = quiz.data.questions.length;
 
   :global(#quiz-result-container .quiz-result__summary-value),
   :global(#quiz-result-container .quiz-result__score-value) {
-    font-size: 1.3rem;
+    font-size: var(--font-size-lg);
     font-weight: 700;
     color: var(--text-primary);
   }

@@ -274,7 +274,7 @@ const summaryLabel = summaryParts.join(" · ");
     min-block-size: 1.5rem;
     padding-inline: 0.625rem;
     margin-inline-start: var(--spacing-xs);
-    font-size: 0.82rem;
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     color: var(--text-secondary);
     content: attr(data-toc-summary);
@@ -347,6 +347,7 @@ const summaryLabel = summaryParts.join(" · ");
     align-items: center;
     min-block-size: 3rem;
     padding: 0.75rem 0.25rem;
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     line-height: 1.35;
     color: var(--text-primary);
@@ -368,7 +369,7 @@ const summaryLabel = summaryParts.join(" · ");
   .toc[data-toc-root] .toc__link--child {
     min-block-size: 2.35rem;
     padding-inline-start: calc(var(--spacing-md) + 0.75rem);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-regular);
     color: var(--text-secondary);
   }

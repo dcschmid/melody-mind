@@ -40,15 +40,15 @@
   --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
 
   /* Font sizes */
-  --font-size-xs: 1.125rem; /* 18px minimum */
-  --font-size-sm: 1.125rem; /* 18px minimum */
-  --font-size-base: 1.125rem; /* 18px minimum */
-  --font-size-md: 1.125rem; /* 18px */
-  --font-size-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem); /* 20-24px */
-  --font-size-xl: clamp(1.5rem, 1.3rem + 0.7vw, 2rem); /* 24-32px */
-  --font-size-2xl: clamp(1.875rem, 1.5rem + 1.25vw, 2.5rem); /* 30-40px */
-  --font-size-3xl: clamp(2.25rem, 1.8rem + 1.5vw, 3rem); /* 36-48px */
-  --font-size-4xl: clamp(2.5rem, 2rem + 2vw, 4rem); /* 40-64px */
+  --font-size-xs: clamp(1rem, 0.98rem + 0.2vw, 1.125rem); /* 16-18px */
+  --font-size-sm: clamp(1.0625rem, 1.03rem + 0.28vw, 1.1875rem); /* 17-19px */
+  --font-size-base: clamp(1.125rem, 1.1rem + 0.5vw, 1.5rem); /* 18-24px */
+  --font-size-md: clamp(1.1875rem, 1.14rem + 0.56vw, 1.5625rem); /* 19-25px */
+  --font-size-lg: clamp(1.3125rem, 1.22rem + 0.72vw, 1.75rem); /* 21-28px */
+  --font-size-xl: clamp(1.5rem, 1.34rem + 0.9vw, 2rem); /* 24-32px */
+  --font-size-2xl: clamp(1.875rem, 1.58rem + 1.3vw, 2.625rem); /* 30-42px */
+  --font-size-3xl: clamp(2.25rem, 1.88rem + 1.7vw, 3.25rem); /* 36-52px */
+  --font-size-4xl: clamp(2.75rem, 2.15rem + 2.35vw, 4.5rem); /* 44-72px */
   --font-size-ui: var(--font-size-base);
 
   /* Font weights */
@@ -238,12 +238,11 @@
   --border-strong: var(--color-border-strong);
 
   --gn-panel-border: var(--border-default);
-  --page-background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 28%, var(--bg-primary)),
-      var(--bg-primary)
-    );
+  --page-background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-1) 28%, var(--bg-primary)),
+    var(--bg-primary)
+  );
   --surface-overlay: color-mix(in srgb, var(--surface-1) 84%, transparent);
   --surface-scrim: color-mix(in srgb, var(--text-primary) 24%, transparent);
   --interactive-shadow-focus: 0 0 0 3px
@@ -312,12 +311,11 @@
     --border-strong: var(--color-dark-border-strong);
 
     --gn-panel-border: var(--border-default);
-    --page-background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
-        var(--bg-primary)
-      );
+    --page-background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
+      var(--bg-primary)
+    );
     --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
     --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
     --interactive-shadow-focus: 0 0 0 3px
@@ -378,12 +376,11 @@
   --border-strong: var(--color-dark-border-strong);
 
   --gn-panel-border: var(--border-default);
-  --page-background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
-      var(--bg-primary)
-    );
+  --page-background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
+    var(--bg-primary)
+  );
   --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
   --interactive-shadow-focus: 0 0 0 3px

@@ -213,7 +213,6 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   }
 
   .knowledge__support-panel,
-  .knowledge__article-shell,
   .knowledge__section-shell,
   .knowledge__rail-panel {
     position: relative;
@@ -230,17 +229,11 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
       var(--shadow-lg);
   }
 
-  .knowledge__article-shell {
-    padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
-    overflow: hidden;
-  }
-
   .knowledge__support-panel {
     padding-block: clamp(var(--spacing-base), 1.75vw, var(--spacing-lg));
   }
 
   .knowledge__support-panel::before,
-  .knowledge__article-shell::before,
   .knowledge__section-shell::before,
   .knowledge__rail-panel::before {
     position: absolute;
@@ -249,6 +242,19 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     content: "";
     border-radius: inherit;
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--surface-1) 12%, transparent);
+  }
+
+  .knowledge__article-shell {
+    padding: 0;
+    overflow: visible;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .knowledge__article-shell::before {
+    display: none;
   }
 
   .knowledge__support-panel :global(.link-panel) {
@@ -283,12 +289,18 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   }
 
   .knowledge__rail-panel--takeaways :global(.knowledge-takeaways) {
-    padding-top: 0;
     border-block-start: 0;
   }
 
-  .knowledge__rail-panel--takeaways :global(.knowledge-takeaways__list) {
-    grid-template-columns: 1fr;
+  .knowledge__rail-panel--takeaways {
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .knowledge__rail-panel--takeaways::before {
+    display: none;
   }
 
   .knowledge-article {
@@ -347,25 +359,37 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     border-block-start: 0;
   }
 
+  .knowledge__section-shell--share {
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .knowledge__section-shell--share::before {
+    display: none;
+  }
+
   .knowledge__section-shell--share :global(.share-section__copy),
   .knowledge__section-shell--related :global(.related-content-section__header) {
     gap: var(--spacing-sm);
   }
 
   .knowledge__section-shell--share :global(.share-section) {
-    gap: var(--spacing-base);
+    gap: clamp(0.8rem, 1.4vw, 1rem);
   }
 
   .knowledge__section-shell--share :global(.share-section__actions) {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-sm);
+    justify-content: flex-end;
   }
 
   .knowledge__section-shell--share :global(.share-section__button) {
-    justify-content: flex-start;
-    inline-size: 100%;
-    padding-inline: var(--spacing-base);
+    flex: 0 0 auto;
+    justify-content: center;
     background: color-mix(in srgb, var(--surface-1) 68%, transparent);
   }
 
@@ -382,6 +406,18 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     gap: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
   }
 
+  .knowledge__section-shell--related {
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .knowledge__section-shell--related::before {
+    display: none;
+  }
+
   .knowledge__section-shell--related :global(.related-content-section__header) {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
@@ -396,33 +432,33 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   }
 
   .knowledge__section-shell--related :global(.content-card) {
-    border-radius: var(--radius-xl);
+    border-radius: calc(var(--radius-xl) - 0.1rem);
     box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
-      var(--shadow-md);
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 68%, transparent),
+      var(--shadow-sm);
   }
 
   .knowledge__section-shell--related :global(.content-card__media) {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
   }
 
   .knowledge__section-shell--related :global(.content-card__body) {
-    gap: var(--spacing-sm);
+    gap: 0.72rem;
   }
 
   .knowledge__section-shell--related :global(.content-card__title) {
-    font-size: clamp(1.05rem, 0.98rem + 0.24vw, 1.22rem);
+    font-size: var(--font-size-sm);
     line-height: 1.2;
   }
 
   .knowledge__section-shell--related :global(.content-card__description) {
-    font-size: var(--font-size-sm);
-    line-height: 1.5;
+    font-size: var(--font-size-xs);
+    line-height: 1.55;
   }
 
   .knowledge__section-shell--related :global(.content-card__meta) {
-    gap: var(--spacing-sm) var(--spacing-md);
-    padding-block-start: var(--spacing-sm);
+    gap: 0.55rem 0.85rem;
+    padding-block-start: 0.7rem;
   }
 
   .knowledge__back {
@@ -450,14 +486,13 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     }
 
     .knowledge__support-panel,
-    .knowledge__article-shell,
     .knowledge__section-shell,
     .knowledge__rail-panel {
       border-radius: calc(var(--radius-xl) + var(--spacing-xs));
     }
 
-    .knowledge__section-shell--share :global(.share-section__actions) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    .knowledge__section-shell--share :global(.share-section__copy) {
+      max-inline-size: 22rem;
     }
   }
 
@@ -469,10 +504,6 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
 
     .knowledge__main {
       gap: clamp(var(--spacing-lg), 2vw, var(--spacing-2xl));
-    }
-
-    .knowledge__article-shell {
-      min-block-size: clamp(44rem, 60vw, 54rem);
     }
 
     .knowledge__section-shell--related :global(.related-content-section__header) {

@@ -6,7 +6,7 @@ description:
   popular culture.
 image: "/category/1980s.webp"
 createdAt: "2025-12-08"
-updatedAt: "2026-03-27"
+updatedAt: "2026-04-02"
 author: "MelodyMind"
 locale: "en"
 taxonomySubsection: music-through-decades
@@ -29,24 +29,30 @@ keywords:
   - Walkman
   - new wave
 takeaways:
-  - "Technology and MTV fused sound with image, reshaping power, visibility, and control."
-  - "Global pop expanded dramatically, but authorship and autonomy stayed contested."
-  - "Hip-hop, house, and underground scenes drove innovation outside the mainstream
-    center."
-  - "Listening became more private through cassettes and personal stereos, changing
-    identity and taste."
+  - "Image became part of the music. MTV, video culture, and new technology fused sound
+    with visual identity and changed who controlled visibility."
+  - "Pop went global at scale. International stars and formats expanded dramatically, even
+    as questions of authorship, labor, and artistic autonomy stayed unresolved."
+  - "Innovation often came from the margins. Hip-hop, house, and other underground scenes
+    pushed the decade forward outside the polished mainstream center."
+  - "Listening turned more private. Cassettes and personal stereos made taste feel more
+    individual and changed how people carried music through daily life."
 ---
 
+import DidYouKnowCard from "@shared-ui/components/cards/DidYouKnowCard.astro";
+import QuoteCard from "@shared-ui/components/cards/QuoteCard.astro";
 import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro";
 
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-1.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Why the 1980s Still Matter"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 The 1980s are often remembered through bright colors, big hair, and songs repeated on
 radio and television. That surface is real, but it is only part of the story. The decade
@@ -69,14 +75,17 @@ To understand 1980s music, we need to look beyond sound alone. The decade change
 music demanded, what it rewarded, and what it quietly took away. That larger story begins
 with transition rather than rupture.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-2.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Morning After: When the 1970s Became the 1980s"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 The move from the 1970s to the 1980s is often described as a dramatic break. In reality,
 it was slower, messier, and more revealing than that. Many sounds associated with the
@@ -115,14 +124,17 @@ Music still mattered culturally, just as it had in the 1970s. But the environmen
 it had to survive had changed. The 1980s did not erase the past. They reorganized it in
 ways that were easy to miss at first and impossible to ignore later.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-3.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Michael Jackson, Madonna, Prince: The Rise of Global Icons"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The global pop star did not begin in the 1980s, but the decade accelerated the form
 dramatically. American stars had long traveled abroad, but they still moved through
@@ -170,14 +182,17 @@ expectations. The 1980s did not simply produce famous pop stars. They placed the
 center of cultural life, where music, identity, business, and criticism increasingly
 merged.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-4.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Image Era: Music Learns to Be Seen"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 By the early 1980s, music arrived attached to faces, gestures, clothing, interviews, and
 carefully managed stories. Visual identity had always mattered in popular culture, but in
@@ -217,14 +232,17 @@ In the 1980s, music did not give up sound to focus more on visuals. It learned t
 with them. Songs became like chapters in a book. Artists became like authors of the worlds
 that listeners entered as well as heard.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-5.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Technology Becomes the Sound"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 Technology had always influenced music, but in the 1980s it moved closer to the center of
 the creative process. New tools did not simply improve existing sounds. They changed how
@@ -249,14 +267,17 @@ To understand 1980s music, you have to understand the tools that made it possibl
 tools were not neutral. They redistributed creativity, access, and control, and they set
 up many of the arguments that still define popular music today.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-6.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Synths, Drum Machines, and the Sound of Tomorrow"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Synthesizers and drum machines began as specialist tools and then became central to
 mainstream production. The change brought more than new textures. It changed the grammar
@@ -288,6 +309,13 @@ devices, layer parts, synchronize rhythm and melody, and build songs through pro
 as well as performance. It helped turn the studio into a connected system rather than a
 room full of isolated machines.
 
+<DidYouKnowCard title="MIDI's first public proof mattered immediately">
+  MIDI.org notes that the first successful public MIDI demonstration happened at the 1983
+  NAMM Show, when a Sequential Circuits Prophet-600 controlled a Roland Jupiter-6. That
+  moment proved instruments from rival manufacturers could finally speak the same
+  language.
+</DidYouKnowCard>
+
 Other instruments pushed that shift in different directions. Yamaha's DX7, released in
 1983, helped popularize digital synthesis on a mass scale and brought a brighter, sharper
 palette into mainstream pop. At the higher end of the market, the Fairlight CMI remained
@@ -316,14 +344,26 @@ lay the groundwork for genres that would dominate decades later. The decade did 
 the human from music. It translated human feeling into stranger and often more uneasy
 forms.
 
+<QuoteCard
+  quote="Every song works together to create one album that gives the listener a dramatic experience in nine scenes."
+  authorName="Quincy Jones"
+  authorRole="Producer of Thriller"
+  sourceLabel="Library of Congress interview, 2016"
+  sourceUrl="https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf"
+/>
+
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-7.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Producers Take Over: The Studio as Creative Lab"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 As the 1980s progressed, the recording studio stopped functioning mainly as a place of
 documentation and became a site of active construction. Layers were built piece by piece,
@@ -369,14 +409,17 @@ The 1980s did not make musicianship irrelevant. They changed what the word could
 Playing an instrument still mattered, but so did shaping sound after recording. Music was
 performed, assembled, and in many cases effectively composed inside the studio.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-8.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Who Could Afford the Future? Access and Inequality"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 New technology widened creative possibility in the 1980s, but not everyone had the same
 access to it. The promise of openness was limited by money, geography, and entrenched
@@ -415,14 +458,17 @@ spread and transform music, but access remained uneven. That helps explain why s
 rose quickly while others remained harder to hear despite equal originality. Technology
 expanded possibility, but it did not distribute it fairly.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-9.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Digital Trap: Perfection and Its Discontents"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 As digital tools became more common, they produced a quieter psychological shift. Music no
 longer felt as temporary. Recordings sounded more polished and more fixed, as though they
@@ -462,14 +508,26 @@ would intensify. Music became more permanent in one sense and more disposable in
 The anxiety surrounding that contradiction was not caused by technology alone, but
 technology made it impossible to ignore.
 
+<QuoteCard
+  quote="Michael, the music and MTV all took it to the stratosphere."
+  authorName="Quincy Jones"
+  authorRole="Producer of Thriller"
+  sourceLabel="Library of Congress interview, 2016"
+  sourceUrl="https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf"
+/>
+
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-10.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="MTV: The Channel That Changed Music"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 When MTV began broadcasting on August 1, 1981, it changed popular music quickly and
 lastingly. Music and image had always been connected, but now they were fused more tightly
@@ -492,14 +550,24 @@ artists dramatically more visible than others and expanded the reach of corporat
 power. It also prepared the ground for the more intimate, more exhausting form of stardom
 that followed.
 
+<DidYouKnowCard title="MTV announced its own message immediately">
+  When MTV debuted in 1981, the first video it aired was The Buggles'
+  <em>Video Killed the Radio Star</em>. The choice made the network's premise
+  unmistakable: image was becoming part of how pop itself worked.
+</DidYouKnowCard>
+
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-11.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Color Line on MTV: Who Got Played"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 MTV launched on August 1, 1981, promising a new way to experience youth culture, but it
 quickly reproduced old industry biases instead of escaping them. White guitar-based rock
@@ -536,14 +604,17 @@ but the exclusions of its early years left a deep mark. New media rarely arrive 
 older hierarchies attached. MTV made music more visible, but it also made inequality in
 visibility easier to see.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-12.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Music Video Becomes Art Form"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 As MTV became central, some artists and directors began treating music videos as more than
 promotion. What had started as marketing became a space for experiment, narrative, and
@@ -581,14 +652,17 @@ They came with images that influenced how they were understood, remembered, and 
 video did not replace listening, but it permanently changed how sound could be perceived
 and recalled.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-13.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Bodies on Display: Gender, Power, and the Camera"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In the 1980s, visibility became essential to success. As a result, the body itself became
 a site of negotiation. Image was no longer an extra layer. It had become a requirement for
@@ -630,14 +704,17 @@ Image became a form of currency, and that currency was distributed unevenly. The
 was not only an era of confident icons. It was also a time when visibility carried a cost,
 and resilience often mattered as much as talent.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-14.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Soundtracks, Film, and the Cinematic 80s"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 The 1980s did not only merge music with television. They also tightened the relationship
 between music and film. Soundtracks became major commercial events, and songs written for
@@ -662,14 +739,17 @@ The result was a more cinematic understanding of popular music. Songs no longer 
 as records or videos. They also lived as scenes, credits, and emotional cues carried out
 of theaters and back into everyday listening.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-15.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Pop Takes the Throne"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 By the mid-1980s, pop music was no longer just one genre among many. It had become the
 center of gravity. Pop artists became highly successful, and that success translated into
@@ -691,14 +771,17 @@ created genuinely shared cultural experiences. At its worst, it rewarded predict
 What follows connects creativity, control, and business success. It shows who gained
 power, who fought back, and how global fame changed the meaning of success itself.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-16.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Prince, Kate Bush, and the Fight for Creative Control"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 One of the central questions in 1980s pop concerned authorship. As the industry grew more
 organized and more profitable, creative control often drifted away from performers and
@@ -735,14 +818,17 @@ coexist with popularity. In doing so, they revealed a central truth of 1980s pop
 power came from the tension between creativity and structure, not from the absence of that
 tension.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-17.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Madonna, Whitney, Janet: Women Who Ruled the 80s"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 For women in 1980s pop, visibility was never neutral. Being seen meant opportunity, but it
 also meant constant interpretation. Every action, clothing choice, and vocal inflection
@@ -782,14 +868,17 @@ on their own terms and shifted the center of popular music in the process. The p
 that shaped their work have not disappeared, which is part of why their example still
 matters.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-18.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="From Europe to Australia: Pop Without Borders"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 The United States and the United Kingdom remained the dominant centers of the 1980s pop
 economy, but the decade also marked a turning point for artists working outside them.
@@ -829,14 +918,17 @@ followings. Pop traveled farther than ever before, but it still moved along rout
 by language, economics, and institutional power. Globalization widened opportunity without
 erasing difference.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-19.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Rock After Punk: Reinvention and Fragmentation"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 By the time the 1980s arrived, rock music was no longer a one-way conversation. Punk had
 stripped rock back and exposed its limits, but it did not replace the old order with a
@@ -859,14 +951,17 @@ vulnerability all found room in the decade, but rarely in the same places.
 Rock's response to punk then unfolds in different directions. Some bands embraced punk's
 impact, others resisted it, and many landed somewhere in between.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-20.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Post-Punk, New Wave, and the Art School Aesthetic"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 After punk music first became popular, many artists took its intensity seriously, but they
 didn't simply copy its style. In the late 1970s and early 1980s, musicians began making
@@ -911,14 +1006,17 @@ recognition.
 These artists kept rock culturally important not by competing with pop on pop's terms, but
 by changing what relevance itself could mean.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-21.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Stadium Rock: Bigger, Louder, Everywhere"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Some types of rock music became more focused on themselves after punk rock. Others moved
 in the opposite direction. In the 1980s, rock music got bigger. Bands used bigger
@@ -961,14 +1059,17 @@ happened even though other types of music were challenging rock's dominance. The
 was a type of rock music that was louder, more polished, and more popular around the
 world. However, it was also more closely connected to the systems that supported it.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-22.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Indie and Alternative: The Sound of Resistance"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 During the 1980s, a less visible but still important group of alternative music scenes
 emerged. These scenes were separate from the popular arena stages and rock music that was
@@ -1016,14 +1117,17 @@ increasing standardization and polish, these scenes let people try new things, h
 doubts, and say "no." They would become more visible in the years that followed, but in
 the 1980s, they were known for their persistence rather than their dominance.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-23.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Black Music in the 80s: Innovation and Barriers"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 To understand 1980s music, you have to think about Black artists. A lot of the most
 important new ideas of the decade came from Black musical traditions. But even though
@@ -1048,14 +1152,17 @@ Black creativity is central here not as an abstract ideal, but as work produced 
 pressure, negotiation, and constraint. That work shaped the decade while also confronting
 structural limits on how and where it could be shared and remembered.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-24.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Regional Black Radio, Mixshows, and Format Power"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Black music in the 1980s did not move through the culture evenly. It traveled through
 local radio ecosystems, mixshows, club networks, and regional habits of listening that
@@ -1078,14 +1185,17 @@ budgets, and the language used to describe success itself. To understand how Bla
 circulated in the 1980s, it is not enough to look at charts. You also have to look at the
 local systems that gave those records life long before national institutions caught up.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-25.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="R&B, Funk, and the Digital Revolution"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 As the 1980s went on, rhythm and blues (R&B) and funk music went through a period of
 change that was both technological and cultural. Electronic instruments did not replace
@@ -1129,14 +1239,17 @@ The digital change in R&B and funk was a balance between new ideas and staying t
 old ways. Black artists helped shape the future of popular music. At the same time, they
 faced systems that often did not fully recognize their leadership.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-26.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Hip-Hop is Born: From the Bronx to the World"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Hip-hop started as a local culture in the 1980s and became a global force by the end of
 the decade. It did not rise suddenly, and its growth was not smooth. Hip-hop started in
@@ -1189,14 +1302,17 @@ specific social realities even as it traveled. That rise did not simply add a ne
 the market. It changed who could speak, how directly they could do it, and what popular
 music was now expected to contain.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-27.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Sampling, Copyright, and the Coming Legal Battles"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 As hip-hop and sample-based production grew more ambitious, they also exposed a conflict
 the industry had not fully resolved. Producers were building new music from fragments of
@@ -1218,14 +1334,17 @@ could be reworked rather than merely preserved. That helped push popular music f
 but it also made clear that innovation in the late 1980s often relied on materials still
 controlled by older corporate structures.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-28.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Crossover and Its Discontents"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1980s, Black music became more popular. This made it more visible, but it also made
 it more difficult to control. Success was often described as "crossover," a term that
@@ -1272,14 +1391,17 @@ access, framing, and power. Black music had a big influence on the decade's soun
 there was ongoing disagreement about how it should be celebrated. This showed that there
 was inequality in the systems that said they were rewarding talent alone.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-29.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Roxanne Shanté, Salt-N-Pepa, Janet Jackson: Women Make Noise"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Women were involved in every part of hip-hop and modern R&B in the 1980s. But their
 contributions were rarely given the same respect or lasting impact as those of their male
@@ -1326,14 +1448,17 @@ out of nowhere. They were already there, but they weren't obvious. They were par
 decade that celebrated new ideas, but they didn't give the people who helped create them
 the same power.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-30.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Politics, Protest, and Moral Panic"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 The 1980s were a time of constant tension. Politicians spoke more strongly, economic
 disagreements grew worse, and the possibility of a world war did not go away. These
@@ -1358,14 +1483,17 @@ contradiction decided which opinions were supported and which were challenged.
 The focus now is on how music expressed unease: how political pressure affected artists,
 how fear shaped sound and lyrics, and how popular music became both mirror and refuge.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-31.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Cold War Echoes Through Music"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The political atmosphere of the 1980s was marked by a resurgence of heated rhetoric about
 the Cold War. The threat of nuclear weapons was no longer just a distant memory from the
@@ -1413,14 +1541,17 @@ The music of the 1980s Cold War era was not only about urging people to take act
 was also about acknowledging that living under constant threat changes how people listen,
 think, and feel. This is true even when the worst never happens.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-32.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The PMRC and the Battle Over Lyrics"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1980s, cultural anxiety often settled on popular music. As youth culture became
 more visible through television and global media, it also became easier to target. Claims
@@ -1469,14 +1600,17 @@ claims, and struggles over authority became visible. The decade's moral panics d
 expression. They revealed how threatening expression can appear when it cannot be neatly
 classified or controlled.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-33.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="We Are the World: When Pop Tried to Save the World"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In the 1980s, political anxiety and moral debate were widespread. People also started to
 care more openly about global crises, and popular music played a major role in this.
@@ -1527,14 +1661,17 @@ story. Their legacy is therefore double: they mobilized attention on an enormous
 and they also raised difficult questions about representation, responsibility, and who
 gets to speak for whom.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-34.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Price of Fame: What Success Really Cost"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 The 1980s are often remembered as a time of confidence and excess. But behind the scenes,
 there was a growing strain. Fame became faster, louder, and more demanding than ever
@@ -1558,14 +1695,17 @@ The focus now shifts inward to what fame felt like from the inside: how it chang
 life, how artists handled its demands, and how the industry reacted when people could not
 keep up.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-35.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Life on the Road: Touring as Endurance Test"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In the 1980s, touring was more than just a way to promote a record. It became a key source
 of economic growth and a test of how long people could last. As albums became more
@@ -1608,14 +1748,17 @@ that energy was driven by people and minds pushing themselves to their limits. T
 context helps explain why exhaustion became one of the decade's hidden rhythms, affecting
 careers in ways that charts and headlines rarely captured.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-36.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Addiction, Burnout, and Public Collapse"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1980s, many visible artists struggled under the weight of attention. Addiction was
 one of the most visible, and most misunderstood, responses to that pressure. It was often
@@ -1644,14 +1787,17 @@ not create every crisis, but it often intensified them and then turned them into
 spectacle. That was part of the cost of visibility in the 1980s, and it helps explain why
 the decade's glamour can sound different once you listen for what it concealed.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-37.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Invisible Work: Managing Feelings Under the Spotlight"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The pressures of fame in the 1980s were not felt the same way by everyone. Gender had a
 big impact on how artists were seen and how they were expected to feel, behave, and
@@ -1702,14 +1848,17 @@ required talent and endurance, but also the ability to absorb pressure without v
 breaking. For many artists, especially women, this hidden labor shaped careers as much as
 any chart position or review.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-38.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Where Music Lived: Cities, Scenes, and Spaces"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 Even though public attention focused on famous musicians and mass media in the 1980s, much
 of the most important music of that time was created away from the public eye. It appeared
@@ -1734,14 +1883,17 @@ The focus now moves from charts to geography: how cities influenced sound, how s
 communities protected creative space, and how local identities stayed strong while
 standardization expanded.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-39.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="New York, London, Berlin: Cities That Shaped the Sound"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In the 1980s, cities were more than just places with music scenes. They actively shaped
 them. The sounds of daily life, such as people talking, were absorbed by the architecture,
@@ -1792,14 +1944,17 @@ try new things, and make mistakes without being judged right away. In the last t
 music has become more popular around the world. But cities have remained places where
 music can belong.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-40.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Indie Labels, Zines, and Cassette Culture"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Many of the most popular songs and bands from the 1980s were supported by a network of
 independent record labels, distributors, radio stations, and fans. This group worked
@@ -1850,14 +2005,17 @@ building, self-release, and creative autonomy. In a time when things are becomin
 similar, DIY networks allowed for variety, showing listeners that culture could still
 develop naturally.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-41.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="World Music, Migration, and Cultural Mixing"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Much writing about the 1980s focuses on music from Western capitals. However, some of the
 decade's most exciting developments in music came from regions where people moved a lot,
@@ -1913,14 +2071,17 @@ decade's sound didn't come from just one place. It was put together through move
 interaction, and adaptation. It was shaped by displacement (being moved) as much as by
 connection.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-42.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Club: Where Bodies, Beats, and Freedom Met"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 If part of the 1980s belonged to stadiums and television, another part belonged to clubs.
 Dance floors were spaces where sound, bodies, and community came together without much
@@ -1945,14 +2106,17 @@ remained constant.
 At this point, dance floors emerge as key forces of the decade: laboratories of sound,
 sites of resistance, and engines of cultural change.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-43.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The DJ as Author: How Clubs Shaped Music"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In the 1980s, clubs were not just places where records were played. They were places where
 DJs decided how records would live. Tracks were tested on dance floors long before they
@@ -1999,14 +2163,17 @@ people, and last for hours. This demand had a long-lasting impact on sound, emph
 rhythm, patience, and connection. Even after the clubs closed, their influence spread,
 encouraging people to hear music as a shared practice rather than a private possession.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-44.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The 12-Inch, the Remix, and the Extended Version"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 One of the most important formal changes of the decade came through the 12-inch single.
 What looked at first like a format detail became a new way of thinking about time,
@@ -2026,14 +2193,17 @@ dance music. Mainstream pop began absorbing club logic, and listeners grew used 
 idea that records could be revised, expanded, and repurposed instead of simply released
 once in final form.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-45.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Queer Clubs: Where Identity Found Its Beat"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Queer spaces were central in creating the sound, style, and social meaning of 1980s dance
 music. Long before being openly gay was accepted by the general public, gay clubs let
@@ -2083,14 +2253,17 @@ identity are all connected. These environments influenced how music was created,
 performed, and appreciated. They had a long-lasting impact on popular culture that exceeds
 their initial popularity.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-46.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="AIDS, Silence, and Cultural Loss"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Any serious account of 1980s club culture has to acknowledge the AIDS crisis. In queer
 spaces especially, music was never only about pleasure or escape. As the decade moved on,
@@ -2110,14 +2283,17 @@ made them did not survive to tell them. That absence matters. It reminds us that
 of the 1980s was shaped not only by visibility and ambition, but also by grief, silence,
 and the struggle to remain alive inside a hostile public world.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-47.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="House and Techno: Electronic Music's Chicago-Detroit Origins"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 By the late 1980s, rock no longer held an uncontested claim on the future. Attention
 shifted toward the dance floor, repetition, and collective motion. House and techno did
@@ -2131,6 +2307,14 @@ the group than the individual. The tracks were built to be mixed, extended, and 
 right away. When there were vocals, they were often short and didn't tell a story, but
 added texture to the music. The important thing was how the music affected the room, not
 how it told a story.
+
+<QuoteCard
+  quote="disco's revenge"
+  authorName="Frankie Knuckles"
+  authorRole="DJ and producer"
+  sourceLabel="GRAMMY house music timeline"
+  sourceUrl="https://www.grammy.com/news/house-music-timeline-important-artists-songs-moments"
+/>
 
 In Detroit, techno took shape differently. Economic decline, racial division, and an
 industrial landscape fed a more abstract and futuristic sound. Producers such as Juan
@@ -2165,14 +2349,17 @@ this path, rhythm, repetition, and collective experience mattered more than spec
 belief that rock was the center of popular music did not disappear, but it was no longer
 the only model. Music had found new ways to exist and new ways to matter.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-48.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Industry Grows Up: Corporate Power and Artist Contracts"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 The 1980s were a time of big changes in the economy, even if they weren't always obvious.
 Popular music became a highly profitable industry. Record companies joined together,
@@ -2197,14 +2384,17 @@ This perspective leads into the business structures shaping 1980s music from ins
 industry: consolidation, contract control, and the tension between opportunity and
 artists' rights.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-49.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="When Labels Ruled the World"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In the 1980s, the music industry became more consolidated. Record labels that used to
 operate with relative independence were taken over by larger companies, which were often
@@ -2256,14 +2446,17 @@ did decide which types of creativity would be shown more and which types would b
 The 1980s were defined by the sound that corporations created. They decided how far this
 sound could travel and on what terms.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-50.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="What Musicians Lost in the Fine Print"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1980s, many artists made the most important decisions about their careers early on
 and often under pressure. Record contracts promised to be clear, steady, and professional,
@@ -2314,14 +2507,17 @@ revisiting their old works, or changing what success means. Being visible came a
 Many people felt like they were slowly losing control over the work that had made them
 visible.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-51.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Indie Labels: Freedom, Struggle, and Survival"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Independent labels in the 1980s were somewhere between idealism and necessity. They
 existed because many artists needed other options besides working for companies. But they
@@ -2373,14 +2569,17 @@ rely on the same market forces that controlled most of the music industry. Their
 not perfection, but the possibility of perfection. They showed that music can be organized
 around values other than scale, even if those values need to be negotiated all the time.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-52.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Music Gets Personal: Headphones and Private Worlds"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 One of the most important changes from the 1980s happened outside of places like stages,
 studios, and boardrooms. It happened in bedrooms, on buses, and in private. People started
@@ -2405,14 +2604,17 @@ The focus then moves to how changing listening habits changed music's role in so
 Technology became a habit, and audiences took an active role in creating meaning by
 deciding how, where, and why they listened.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-53.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="From Shared to Solo: The Walkman Revolution"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 For most of the 20th century, popular music was something people often experienced
 together. Families gathered around radios, friends shared records, and public spaces
@@ -2470,14 +2672,25 @@ began to carry music with them more consistently. That change prepared the artic
 question: what happened when access itself depended on political borders and state
 control?
 
+<DidYouKnowCard title="The Walkman became a durable listening habit">
+  In its 2003 annual report, Sony described Walkman products as evolving continuously
+  since 1979, when the company first made portable personal listening a mass habit. That
+  helps explain why the Walkman mattered as more than a gadget: it changed routine
+  listening for decades.
+</DidYouKnowCard>
+
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-54.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Mixtapes, Bootlegs, and Cassette Culture"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 If the Walkman made listening private, the cassette made music available to everyone.
 Before digital files and streaming, the compact cassette made copying easy, cheap, and
@@ -2524,14 +2737,17 @@ they were not as large. People traveled to learn and share music because they ca
 it. The cassette revolution went along with the industry, reminding listeners that they
 could take part without permission, as long as they were interested.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-55.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Who Got to Listen: Class, Age, and Access"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Changes in listening habits during the 1980s affected some people more than others. Who
 could access music and the technologies that carried it was determined by class, age, and
@@ -2582,14 +2798,17 @@ democratization more complicated. The personal nature of music did not automatic
 to fairness. It brought new ways for people to connect, but it didn't change the older
 divisions.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-56.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Music Behind the Iron Curtain"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 The story of 1980s music is often told as if it happened inside one large cultural market.
 In reality, listening, making, and sharing music were strongly shaped by political
@@ -2613,14 +2832,17 @@ became more careful about how meaning traveled.
 In this context, politics and music have to be read together through restriction, creative
 workarounds, and ideological limits on cultural exchange.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-57.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Making Music Under Surveillance"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In many parts of Eastern Europe during the 1980s, music was created and experienced in a
 way that was difficult to imagine for people outside of the region. The government closely
@@ -2668,14 +2890,17 @@ weaker version of Western pop; it was a parallel culture shaped by caution, resi
 and secret communication. Knowing this background helps us see that freedom in music is
 about more than just sound. It is about the conditions under which sound can exist.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-58.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Western Pop as Forbidden Fruit"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1980s, for many people living in countries outside the West, Western music was more
 than just music. It was more than just its melodies and lyrics; it had deep symbolic
@@ -2730,14 +2955,17 @@ us understand why music was so important in places where people were divided. It
 than just a popularity contest. They chose it, often carefully, because they knew that
 their choice was important.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-59.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Musicians Between Two Worlds"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Some artists in the 1980s experienced the East-West divide firsthand. For them, it was not
 an abstraction but daily reality. They worked between systems, dealing with access,
@@ -2792,14 +3020,17 @@ power, context, and risk. In the 1980s, making music across borders meant more t
 crossing a line on a map. The goal was to live with uncertainty, using sound as a way to
 stay connected to both sides of a divided world.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-60.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Youth Cult: When Age Became a Commodity"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 In the 1980s, there was an unusual focus on youth. Popular music had always been popular
 with young people, but in this decade, being young became a good thing that could be
@@ -2823,14 +3054,17 @@ those feelings.
 Here, age appears as a hidden form of power: youth as a market category, aging as a source
 of anxiety, and reinvention as a survival strategy.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-61.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Marketing Youth: The Industry's Obsession with Young"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 By the early 1980s, young people weren't the only ones listening to popular music. It had
 become one of the industry's most valuable products. Age was translated into attitude,
@@ -2885,14 +3119,17 @@ This helps explain the decade's restless energy. It also explains why fear of ag
 irrelevance, and replacement became so common, not just among artists, but also among
 listeners who thought that being current was more important than anything else.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-62.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Getting Older in a Youth-Obsessed Industry"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 As youth became the industry's main focus, aging became a hidden problem. Artists who had
 built careers in earlier decades found themselves in a situation where new ideas were
@@ -2945,14 +3182,17 @@ This showed that there are limits to how much the industry can focus on young pe
 Music can change over time, but only if we understand aging as a transformation, not a
 decline.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-63.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Reinvent or Fade: Survival Strategies"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In the 1980s, artists were expected to remain legible to youth culture. They responded in
 different ways. Some reinvented themselves publicly, others held their line, and many
@@ -3006,14 +3246,17 @@ important. They show how artists kept their connection to music strong, even whe
 weren't as popular. In a culture that values loud success, survival often happens quietly,
 supported by dedication rather than praise.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-64.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The Stories We Tell About Stars"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 By the 1980s, music was no longer separate from the stories around it. Media coverage did
 more than report success; it actively shaped it. Television, tabloids, and entertainment
@@ -3035,14 +3278,17 @@ In this environment, public narrative became a force of its own. Tabloids and TV
 how people interpreted events. Scandal could be both threat and opportunity, and artists
 worked constantly to take back control.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-65.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Tabloids, Scandals, and Public Judgment"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 By the 1980s, music journalism had grown to include many different types of content beyond
 just reviews and interviews. In a busy media world, magazines, TV shows, and newspapers
@@ -3094,14 +3340,17 @@ artists as ongoing stories of virtue, excess, or collapse. Even though music was
 heard, it was becoming more and more understood through stories that claimed to explain
 what it meant and what it cost to be seen.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-66.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="When Media Treats Artists Differently"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1980s, the media did not report on events in a neutral way. They were shaped by
 long-standing assumptions about race, gender, and respectability. These assumptions
@@ -3157,14 +3406,17 @@ some careers did well despite problems, while others did poorly even though ther
 fewer problems. The media didn't just notice the differences in the 1980s. It made a big
 impact on popular music by establishing new boundaries of what was considered acceptable.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-67.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Stepping Back: When Silence Becomes Strategy"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 In a media environment that rewarded constant visibility, silence was one of the most
 misunderstood choices an artist could make. In the 1980s, it was rare for people to
@@ -3218,14 +3470,17 @@ In the 1980s, artists learned that controlling the story was as important as cre
 art. For some people, the most extreme action was not to change or confront others, but
 rather to stay silent until things calmed down.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-68.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="The 1980s Today: Memory, Nostalgia, and Rediscovery"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 The 1980s did not end neatly. Their sounds, images, and conflicts did not disappear when
 the calendar changed. Instead, they entered memory, where repetition, nostalgia, and
@@ -3250,14 +3505,17 @@ counts as important and which histories remain easy to ignore. To understand the
 today, we have to listen not only to the music, but also to the stories that continue to
 frame it.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-69.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="When the Past Becomes a Style"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The 1980s are remembered today through repetition as much as through history. Over time, a
 small cluster of images and sounds has come to stand in for the whole decade: bright
@@ -3302,14 +3560,17 @@ as what is celebrated. The visible canon shows where media power succeeded. The 
 where access, ownership, and repetition were uneven. Those absences are not side issues.
 They help explain why the decade still matters and why its history remains contested.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-70.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Who Gets Rediscovered and Why"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 The afterlife of 1980s music has been shaped by both the original force of the work and
 the later decisions of labels, editors, filmmakers, archivists, and platforms. Reissues,
@@ -3356,14 +3617,17 @@ because someone decides it should. Real rediscovery is not only about replaying 
 It is about listening with attention and asking why some sounds had to wait so long to be
 heard on their own terms.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-71.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="Hearing the 80s Without the Nostalgia Filter"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Listening to the 1980s without nostalgia does not mean rejecting pleasure or memory. It
 means resisting the urge to treat the decade as a free-floating style detached from its
@@ -3410,14 +3674,17 @@ Choosing to hear the decade without nostalgia does not take away its meaning. It
 its friction, letting the music speak not as a safe memory, but as a body of work that can
 still feel surprising, complicated, and alive.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-72.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="What the 1980s Still Ask of Us"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 The music of the 1980s remains everywhere. It is replayed, reissued, sampled,
 synchronized, quoted, and rediscovered by new listeners. Recognition, however, is not the
@@ -3454,14 +3721,17 @@ requires context, patience, and curiosity. In return, the decade offers more tha
 of excess or style. It offers a dense record of how music responds to pressure, adapts to
 change, and continues to matter long after the original moment has passed.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1980s/1980s-73.webp"
   imageAlt=""
   imageWidth={1536}
   imageHeight={1024}
   heading="50 Songs That Defined the 1980s"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 The music of the 1980s was shaped by shifting power, expanding media systems, new studio
 tools, political pressure, and more intimate forms of listening. It became more visible
@@ -3482,6 +3752,7 @@ compared, developed, and revisited.
 
 ---
 
+</SubsectionFigure>
 ### I. New Beginnings: Post-Punk Awakens
 
 1. Joy Division – Love Will Tear Us Apart (1980)

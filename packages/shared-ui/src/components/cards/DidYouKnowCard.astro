@@ -1,0 +1,144 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface Props {
+  title?: string;
+  icon?: string;
+  className?: string;
+}
+
+const {
+  title = "Did You Know?",
+  icon = "tabler:antenna-bars-5",
+  className = "",
+} = Astro.props as Props;
+
+const titleId = `did-you-know-${Math.random().toString(36).slice(2, 10)}`;
+const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
+---
+
+<aside class={classes} aria-labelledby={titleId}>
+  <span class="did-you-know-card__icon-shell" aria-hidden="true">
+    <span class="did-you-know-card__icon-ring">
+      <Icon name={icon} class="did-you-know-card__icon" aria-hidden="true" />
+    </span>
+  </span>
+  <div class="did-you-know-card__content">
+    <h3 id={titleId} class="did-you-know-card__title">{title}</h3>
+    <div class="did-you-know-card__body">
+      <slot />
+    </div>
+  </div>
+</aside>
+
+<style>
+  .did-you-know-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.95rem 1rem;
+    align-items: start;
+    padding: clamp(1rem, 1.65vw, 1.28rem);
+    margin-block: clamp(1.1rem, 2vw, 1.7rem);
+    overflow: hidden;
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--surface-panel-raised) 97%, transparent),
+      color-mix(in srgb, var(--surface-panel-bg) 93%, transparent) 58%,
+      color-mix(in srgb, var(--surface-panel-raised) 94%, transparent)
+    );
+    border: 1px solid var(--surface-border-soft);
+    border-radius: calc(var(--radius-xl) - 0.02rem);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 54%, transparent),
+      inset 0 -1px 0 color-mix(in srgb, var(--surface-border-soft) 22%, transparent),
+      0 0 0.9rem color-mix(in srgb, var(--surface-panel-bg) 18%, transparent);
+  }
+
+  .did-you-know-card::before {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    inline-size: 0.18rem;
+    content: "";
+    background: color-mix(in srgb, var(--accent-primary) 88%, #fff 12%);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 1rem color-mix(in srgb, var(--accent-primary) 18%, transparent);
+  }
+
+  .did-you-know-card__icon-shell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.45rem;
+    block-size: 2.45rem;
+    padding: 0.16rem;
+    background: color-mix(in srgb, var(--surface-1) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 84%, transparent);
+    border-radius: calc(var(--radius-lg) - 0.12rem);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 42%, transparent);
+  }
+
+  .did-you-know-card__icon-ring {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 100%;
+    block-size: 100%;
+    background: color-mix(in srgb, var(--surface-panel-raised) 70%, transparent);
+    border-radius: calc(var(--radius-lg) - 0.28rem);
+  }
+
+  .did-you-know-card__icon {
+    inline-size: 0.95rem;
+    block-size: 0.95rem;
+    color: var(--accent-primary);
+  }
+
+  .did-you-know-card__content {
+    display: grid;
+    gap: 0.38rem;
+    min-inline-size: 0;
+    padding-block-start: 0.2rem;
+  }
+
+  .did-you-know-card__title {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.18;
+    color: var(--heading-color);
+    letter-spacing: var(--letter-spacing-tight);
+  }
+
+  .did-you-know-card__body {
+    font-size: var(--font-size-xs);
+    line-height: 1.58;
+    color: color-mix(in srgb, var(--text-secondary) 96%, #d8e3ed);
+  }
+
+  .did-you-know-card__body :global(p) {
+    margin: 0;
+  }
+
+  .did-you-know-card__body :global(p + p) {
+    margin-block-start: 0.75em;
+  }
+
+  @media (width < 640px) {
+    .did-you-know-card {
+      gap: 0.82rem 0.88rem;
+      padding: 0.92rem;
+      margin-block: 1rem;
+    }
+
+    .did-you-know-card__icon-shell {
+      inline-size: 2.25rem;
+      block-size: 2.25rem;
+    }
+
+    .did-you-know-card__body {
+      font-size: var(--font-size-xs);
+    }
+  }
+</style>

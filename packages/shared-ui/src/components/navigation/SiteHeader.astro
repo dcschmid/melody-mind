@@ -368,7 +368,7 @@ const navId = `${navIdBase}-nav`;
     justify-content: center;
     inline-size: 2.5rem;
     block-size: 2.5rem;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     letter-spacing: var(--letter-spacing-wide);
     background: var(--surface-panel-raised);
@@ -399,7 +399,7 @@ const navId = `${navIdBase}-nav`;
 
   .site-header__brand-text {
     min-inline-size: 0;
-    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.2rem);
+    font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
   }
@@ -411,6 +411,7 @@ const navId = `${navIdBase}-nav`;
     min-block-size: var(--control-min-block-size);
     padding: var(--control-padding-block) var(--control-padding-inline);
     font: inherit;
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     cursor: pointer;

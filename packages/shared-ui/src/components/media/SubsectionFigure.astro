@@ -13,6 +13,9 @@ interface Props {
   headingId?: string;
   sizes?: string;
   className?: string;
+  variant?: "auto" | "inline-left" | "inline-right";
+  imageBadge?: string;
+  textWrap?: boolean;
 }
 
 const {
@@ -25,6 +28,9 @@ const {
   headingId,
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 40vw",
   className = "",
+  variant = "auto",
+  imageBadge,
+  textWrap = false,
 } = Astro.props as Props;
 
 const knowledgeImageModules = import.meta.glob<{ default: ImageMetadata }>(
@@ -58,7 +64,6 @@ if (!resolvedImage) {
 const resolvedImageWidth = imageWidth || resolvedImage.width;
 const resolvedImageHeight = imageHeight || resolvedImage.height;
 const Tag = headingLevel;
-const classes = ["subsection-figure", className].filter(Boolean).join(" ");
 const resolvedHeadingId =
   headingId ||
   heading
@@ -67,56 +72,104 @@ const resolvedHeadingId =
     .replace(/&/gu, " and ")
     .replace(/[^a-z0-9]+/gu, "-")
     .replace(/^-+|-+$/gu, "");
+
+const resolvedVariant = variant === "auto" ? "inline-left" : variant;
+
+const hasBody = Astro.slots.has("default");
+const classes = [
+  "subsection-figure",
+  `subsection-figure--${resolvedVariant}`,
+  `subsection-figure--level-${headingLevel}`,
+  hasBody ? "subsection-figure--with-body" : "subsection-figure--title-only",
+  textWrap && hasBody ? "subsection-figure--text-wrap" : "",
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
 ---
 
 <figure class={classes}>
-  <div class="subsection-figure__media">
-    <Image
-      class="subsection-figure__image"
-      src={resolvedImage}
-      alt={imageAlt}
-      width={resolvedImageWidth}
-      height={resolvedImageHeight}
-      sizes={sizes}
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
-  <figcaption class="subsection-figure__content">
-    <Tag id={resolvedHeadingId} class="subsection-figure__title">
-      {heading}
-    </Tag>
-  </figcaption>
+  {
+    resolvedVariant === "inline-right" && !textWrap ? (
+      <>
+        <figcaption class="subsection-figure__content">
+          <Tag id={resolvedHeadingId} class="subsection-figure__title">
+            {heading}
+          </Tag>
+          {hasBody ? (
+            <div class="subsection-figure__body">
+              <slot />
+            </div>
+          ) : null}
+        </figcaption>
+        <div class="subsection-figure__media">
+          <Image
+            class="subsection-figure__image"
+            src={resolvedImage}
+            alt={imageAlt}
+            width={resolvedImageWidth}
+            height={resolvedImageHeight}
+            sizes={sizes}
+            loading="lazy"
+            decoding="async"
+          />
+          {imageBadge ? (
+            <span class="subsection-figure__badge" aria-hidden="true">
+              {imageBadge}
+            </span>
+          ) : null}
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="subsection-figure__media">
+          <Image
+            class="subsection-figure__image"
+            src={resolvedImage}
+            alt={imageAlt}
+            width={resolvedImageWidth}
+            height={resolvedImageHeight}
+            sizes={sizes}
+            loading="lazy"
+            decoding="async"
+          />
+          {imageBadge ? (
+            <span class="subsection-figure__badge" aria-hidden="true">
+              {imageBadge}
+            </span>
+          ) : null}
+        </div>
+        <figcaption class="subsection-figure__content">
+          <Tag id={resolvedHeadingId} class="subsection-figure__title">
+            {heading}
+          </Tag>
+          {hasBody ? (
+            <div class="subsection-figure__body">
+              <slot />
+            </div>
+          ) : null}
+        </figcaption>
+      </>
+    )
+  }
 </figure>
 
 <style>
-  /* -----------------------------------------------------------------------------
-     SubsectionFigure Component Styles
-     Image with heading in responsive layout
-     WCAG AAA compliant with decorative borders
-     ----------------------------------------------------------------------------- */
-
   .subsection-figure {
-    /* Layout - responsive grid */
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-base);
-    align-items: center;
-    margin: var(--spacing-xl) 0;
+    gap: clamp(1rem, 1.8vw, 1.35rem);
+    align-items: start;
+    margin: clamp(var(--spacing-xl), 3.2vw, calc(var(--spacing-xl) * 1.45)) 0;
   }
 
-  /* Media container */
   .subsection-figure__media {
     position: relative;
-    aspect-ratio: 3 / 2;
     overflow: hidden;
     background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
+    border-radius: var(--radius-xl);
   }
 
-  /* Image sizing */
   .subsection-figure__image {
     display: block;
     inline-size: 100%;
@@ -124,56 +177,258 @@ const resolvedHeadingId =
     object-fit: cover;
   }
 
-  .subsection-figure__content {
-    position: relative;
-    display: flex;
+  .subsection-figure__badge {
+    position: absolute;
+    inset-block-end: var(--spacing-base);
+    inset-inline-start: var(--spacing-base);
+    display: inline-flex;
     align-items: center;
-    min-block-size: 100%;
-    padding-inline-start: var(--spacing-lg);
+    min-block-size: 1.9rem;
+    padding: 0.3rem 0.7rem;
+    font-size: var(--font-size-xs);
+    line-height: 1;
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-panel-bg) 84%, transparent);
+    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 94%, transparent);
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(12px);
   }
 
-  /* Accent bar indicator */
-  .subsection-figure__content::before {
+  .subsection-figure__content {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    min-inline-size: 0;
+  }
+
+  .subsection-figure__title {
+    position: relative;
+    padding-inline-start: 0.88rem;
+    margin: 0;
+    font-family: var(--font-sans);
+    line-height: 1.12;
+    color: var(--heading-color);
+    letter-spacing: var(--letter-spacing-tighter);
+    text-wrap: balance;
+  }
+
+  .subsection-figure__title::before {
     position: absolute;
-    inset-block: var(--spacing-xs);
+    inset-block: 0.15em;
     inset-inline-start: 0;
-    inline-size: 3px;
+    inline-size: 0.18rem;
     content: "";
     background: var(--accent-primary);
     border-radius: var(--radius-full);
   }
 
-  /* Heading text */
-  .subsection-figure__title {
+  .subsection-figure__body {
+    display: grid;
+    gap: 1rem;
+    max-inline-size: 66ch;
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .subsection-figure__body :global(p) {
     margin: 0;
-    font-family: var(--font-sans);
+  }
+
+  .subsection-figure__body :global(p + p) {
+    margin-block-start: 1em;
+  }
+
+  .subsection-figure--inline-left,
+  .subsection-figure--inline-right {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .subsection-figure--inline-left .subsection-figure__media,
+  .subsection-figure--inline-right .subsection-figure__media {
+    aspect-ratio: 3 / 2;
+  }
+
+  .subsection-figure--inline-left .subsection-figure__title,
+  .subsection-figure--inline-right .subsection-figure__title {
+    font-size: var(--font-size-lg);
+  }
+
+  .subsection-figure--inline-left .subsection-figure__body,
+  .subsection-figure--inline-right .subsection-figure__body {
+    font-size: var(--font-size-base);
+    line-height: 1.72;
+  }
+
+  .subsection-figure--level-h2 .subsection-figure__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .subsection-figure--level-h3 .subsection-figure__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .subsection-figure--level-h4 .subsection-figure__title {
     font-size: var(--font-size-xl);
-    line-height: var(--line-height-tight);
-    color: var(--heading-color);
-    letter-spacing: var(--letter-spacing-tight);
-    text-wrap: balance;
   }
 
-  /* Desktop: Side-by-side layout */
+  .subsection-figure--level-h2 .subsection-figure__body {
+    font-size: var(--font-size-base);
+    line-height: 1.74;
+  }
+
+  .subsection-figure--inline-left.subsection-figure--with-body
+    .subsection-figure__body
+    :global(p:first-child)::first-letter,
+  .subsection-figure--inline-right.subsection-figure--with-body
+    .subsection-figure__body
+    :global(p:first-child)::first-letter {
+    float: inline-start;
+    margin-inline-end: 0.14em;
+    font-size: 2.45em;
+    font-weight: var(--font-weight-medium);
+    line-height: 0.84;
+    color: var(--accent-primary);
+  }
+
   @media (width >= 900px) {
-    .subsection-figure {
-      grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-      gap: var(--spacing-xl);
+    .subsection-figure--text-wrap {
+      display: flow-root;
+    }
+
+    .subsection-figure--text-wrap .subsection-figure__media {
+      inline-size: clamp(16rem, 41%, 28rem);
+      max-inline-size: none;
+      margin-block-end: clamp(0.9rem, 1.6vw, 1.25rem);
+    }
+
+    .subsection-figure--text-wrap.subsection-figure--inline-left
+      .subsection-figure__media {
+      float: left;
+      margin-inline-end: clamp(1.35rem, 2.5vw, 2.2rem);
+    }
+
+    .subsection-figure--text-wrap.subsection-figure--inline-right
+      .subsection-figure__media {
+      float: right;
+      margin-inline-start: clamp(1.35rem, 2.5vw, 2.2rem);
+    }
+
+    .subsection-figure--text-wrap .subsection-figure__content {
+      display: block;
+      min-inline-size: 0;
+    }
+
+    .subsection-figure--text-wrap .subsection-figure__title {
+      display: flow-root;
+      max-inline-size: none;
+      margin-block-end: clamp(1.1rem, 1.5vw, 2rem);
+    }
+
+    .subsection-figure--text-wrap .subsection-figure__body {
+      display: block;
+      max-inline-size: none;
+    }
+
+    .subsection-figure--text-wrap .subsection-figure__body :global(.quote-card),
+    .subsection-figure--text-wrap .subsection-figure__body :global(.did-you-know-card) {
+      clear: both;
+    }
+
+    .subsection-figure--inline-left {
+      grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 1.18fr);
+      gap: clamp(1.4rem, 2.5vw, 2.15rem);
+    }
+
+    .subsection-figure--inline-right {
+      grid-template-columns: minmax(0, 1.18fr) minmax(16rem, 0.9fr);
+      gap: clamp(1.4rem, 2.5vw, 2.15rem);
+    }
+
+    .subsection-figure--inline-left .subsection-figure__content,
+    .subsection-figure--inline-right .subsection-figure__content {
+      padding-block-start: 0.2rem;
+    }
+
+    .subsection-figure--level-h2.subsection-figure--inline-left {
+      grid-template-columns: minmax(17.25rem, 0.98fr) minmax(0, 1.12fr);
+    }
+
+    .subsection-figure--level-h2.subsection-figure--inline-right {
+      grid-template-columns: minmax(0, 1.12fr) minmax(17.25rem, 0.98fr);
     }
   }
 
-  /* Mobile: Stacked layout with horizontal accent */
-  @media (width <= 899px) {
-    .subsection-figure__content {
-      padding-block-start: var(--spacing-base);
-      padding-inline-start: 0;
+  @media (width < 900px) {
+    .subsection-figure {
+      gap: 0.9rem;
+      margin: var(--spacing-xl) 0;
     }
 
-    /* Horizontal accent bar on mobile */
-    .subsection-figure__content::before {
-      inset-block: 0 auto;
-      inline-size: 2.75rem;
-      block-size: 3px;
+    .subsection-figure__media {
+      order: 1;
+    }
+
+    .subsection-figure__content {
+      order: 2;
+    }
+
+    .subsection-figure--text-wrap {
+      display: grid;
+    }
+
+    .subsection-figure--text-wrap .subsection-figure__media {
+      float: none;
+      inline-size: auto;
+      margin: 0;
+    }
+
+    .subsection-figure__badge {
+      inset-block-end: 0.8rem;
+      inset-inline-start: 0.8rem;
+      min-block-size: 1.7rem;
+      padding: 0.26rem 0.62rem;
+      font-size: var(--font-size-xs);
+    }
+
+    .subsection-figure__title {
+      padding-inline-start: 0.74rem;
+    }
+
+    .subsection-figure--level-h2 .subsection-figure__title {
+      max-inline-size: none;
+      font-size: var(--font-size-xl);
+    }
+
+    .subsection-figure--level-h3 .subsection-figure__title {
+      max-inline-size: none;
+      font-size: var(--font-size-lg);
+    }
+
+    .subsection-figure--level-h4 .subsection-figure__title {
+      max-inline-size: none;
+      font-size: var(--font-size-md);
+    }
+
+    .subsection-figure__body {
+      gap: 0.82rem;
+      font-size: var(--font-size-base);
+      line-height: 1.66;
+    }
+
+    .subsection-figure--inline-left .subsection-figure__body,
+    .subsection-figure--inline-right .subsection-figure__body {
+      max-inline-size: none;
+    }
+
+    .subsection-figure--inline-left.subsection-figure--with-body
+      .subsection-figure__body
+      :global(p:first-child)::first-letter,
+    .subsection-figure--inline-right.subsection-figure--with-body
+      .subsection-figure__body
+      :global(p:first-child)::first-letter {
+      font-size: 2.15em;
     }
   }
 </style>

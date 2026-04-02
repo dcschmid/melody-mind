@@ -10,6 +10,9 @@ interface Props {
   copy?: string;
   listAriaLabel?: string;
   items: RelatedContentCardItem[];
+  eyebrow?: string;
+  linkHref?: string;
+  linkLabel?: string;
 }
 
 const {
@@ -18,6 +21,9 @@ const {
   copy,
   listAriaLabel = title,
   items,
+  eyebrow = "Keep reading",
+  linkHref = "/",
+  linkLabel = "View all articles",
 } = Astro.props as Props;
 
 const titleId = `${id}-title`;
@@ -27,14 +33,21 @@ const titleId = `${id}-title`;
   items.length ? (
     <section class="related-content-section" aria-labelledby={titleId}>
       <div class="related-content-section__header">
-        <Headline level="h2" textSize="lg" className="related-content-section__title">
-          <span id={titleId}>{title}</span>
-        </Headline>
-        {copy ? (
-          <Paragraph textSize="base" className="related-content-section__copy">
-            {copy}
-          </Paragraph>
-        ) : null}
+        <div class="related-content-section__copy-block">
+          <p class="related-content-section__eyebrow">{eyebrow}</p>
+          <Headline level="h2" textSize="lg" className="related-content-section__title">
+            <span id={titleId}>{title}</span>
+          </Headline>
+          {copy ? (
+            <Paragraph textSize="base" className="related-content-section__copy">
+              {copy}
+            </Paragraph>
+          ) : null}
+        </div>
+        <a class="related-content-section__link" href={linkHref}>
+          <span>{linkLabel}</span>
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
 
       <ul class="related-content-section__grid" aria-label={listAriaLabel}>
@@ -67,38 +80,82 @@ const titleId = `${id}-title`;
 <style>
   .related-content-section {
     display: grid;
-    gap: 1.5rem;
-    padding-block: var(--spacing-xl);
+    gap: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    padding-block: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
     padding-inline: 0;
-    margin-block-start: 2rem;
+    margin-block-start: var(--spacing-xl);
     border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .related-content-section__header {
     display: grid;
-    gap: 0.6rem;
+    gap: var(--spacing-base);
+  }
+
+  .related-content-section__copy-block {
+    display: grid;
+    gap: 0.4rem;
+    max-inline-size: 36rem;
+  }
+
+  .related-content-section__eyebrow {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .related-content-section__eyebrow::before {
+    inline-size: 0.85rem;
+    block-size: 0.85rem;
+    content: "";
+    background: currentcolor;
+    border-radius: 0.2rem;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M12 2L1 7l11 5l9-4.09V17h2V7z'/%3E%3Cpath fill='currentColor' d='M5 10.18v4L12 18l7-3.82v-4L12 13z'/%3E%3C/svg%3E")
+      no-repeat center / contain;
   }
 
   .related-content-section__title {
-    display: inline-flex;
-    gap: 0.65rem;
-    align-items: center;
     margin: 0;
-    font-size: clamp(1.3rem, 1.1rem + 0.8vi, 1.85rem);
+    font-size: var(--font-size-xl);
+    line-height: 1.08;
     color: var(--text-primary);
   }
 
   .related-content-section__copy {
-    max-inline-size: 62ch;
+    max-inline-size: 34rem;
     margin: 0;
-    line-height: 1.65;
+    font-size: var(--font-size-xs);
+    line-height: 1.55;
     color: var(--text-secondary);
+  }
+
+  .related-content-section__link {
+    display: inline-flex;
+    gap: 0.45rem;
+    place-self: start;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--accent-primary);
+    text-decoration: none;
+  }
+
+  .related-content-section__link:hover,
+  .related-content-section__link:focus-visible {
+    color: var(--accent-strong);
   }
 
   .related-content-section__grid {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 1rem;
+    gap: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
     padding: 0;
     margin: 0;
     list-style: none;
@@ -109,6 +166,15 @@ const titleId = `${id}-title`;
   }
 
   @media (width >= 50rem) {
+    .related-content-section__header {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+    }
+
+    .related-content-section__link {
+      justify-self: end;
+    }
+
     .related-content-section__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

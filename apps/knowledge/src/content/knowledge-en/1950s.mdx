@@ -6,7 +6,7 @@ description:
   traces the sounds, artists, and social changes that defined the decade.
 image: /category/1950s.webp
 createdAt: 2025-12-18
-updatedAt: 2026-03-27
+updatedAt: 2026-04-02
 taxonomySubsection: music-through-decades
 keywords:
   - 1950s music
@@ -22,10 +22,14 @@ keywords:
 author: MelodyMind
 locale: en
 takeaways:
-  - "Rock and roll and R&B reshaped youth culture and the music business."
-  - "Radio, 45s, and TV accelerated how music spread and who it reached."
-  - "Jazz diversified into hard bop, cool jazz, and modern styles with lasting influence."
-  - "Segregation and gatekeeping coexisted with groundbreaking Black artists."
+  - "Youth culture became a market. Rock and roll and R&B gave young listeners a distinct
+    identity and forced the music business to follow their tastes."
+  - "Mass media changed the speed of fame. Radio, 45s, and television accelerated how
+    songs spread and who could suddenly reach a national audience."
+  - "Jazz kept moving forward. Hard bop, cool jazz, and other modern styles expanded the
+    decade beyond pop headlines and left a lasting musical vocabulary."
+  - "Breakthrough and exclusion coexisted. Groundbreaking Black artists transformed
+    popular music even as segregation and industry gatekeeping still shaped opportunity."
 playlists:
   spotifyPlaylist: "https://open.spotify.com/playlist/20oDFWmydnX2TSf8b1I9u1"
   deezerPlaylist: "https://www.deezer.com/de/playlist/14666137081"
@@ -36,16 +40,21 @@ aiTools:
   - z.AI GLM
 ---
 
+import DidYouKnowCard from "@shared-ui/components/cards/DidYouKnowCard.astro";
+import QuoteCard from "@shared-ui/components/cards/QuoteCard.astro";
 import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro";
 
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-1.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Why the 1950s Still Echo Today"
   headingLevel="h2"
-/>
+  variant="inline-left"
+  textWrap={true}
+>
 
 The 1950s didn't just produce new sounds—they reshaped how music lived in the world. After
 years of war and uncertainty, everyday life was changing. Cities grew, industries
@@ -76,14 +85,19 @@ August 4, 1958, Billboard launched the Hot 100, giving the industry a single nat
 chart. By 1959, Motown had been founded in Detroit, signaling the next phase of Black
 popular music entrepreneurship.
 
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-2.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Post-War America: New Audiences, New Rhythms"
   headingLevel="h3"
-/>
+  variant="inline-right"
+  textWrap={true}
+>
 
 When the Second World War ended, everyday life across much of the Western world entered a
 period of rapid and uneven transformation. In the United States, industrial growth and
@@ -125,20 +139,32 @@ the music industry overnight, but they changed the public atmosphere in which Bl
 artists worked, traveled, and were heard. Music and civil rights were not the same
 struggle, yet in the 1950s they were increasingly part of the same social reality.
 
+<DidYouKnowCard title="Brown v. Board changed the legal climate">
+  The National Archives notes that the Supreme Court's decision of May 17, 1954,
+  overturned the public-school basis of <em>Plessy v. Ferguson</em>'s "separate but equal"
+  doctrine. The ruling was about education, but its pressure on segregation shaped the
+  wider public world in which musicians toured, broadcast, and performed.
+</DidYouKnowCard>
+
 Youth culture in the 1950s was not yet a unified movement. It was tentative, curious, and
 often contested by parents, educators, and religious leaders. Music became a safe but
 powerful outlet for that tension. Songs allowed young listeners to explore desire,
 restlessness, and belonging without fully naming them. In that process, they created a
 feedback loop between audience and artist that would soon reshape popular music.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-3.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Radio, Records, and the Making of Mass Culture"
   headingLevel="h3"
-/>
+  variant="inline-left"
+  textWrap={true}
+
+>
 
 In the 1950s, music spread at a speed that would have been unimaginable only a decade
 earlier. Radio was a central force behind this change. AM stations reached deep into
@@ -169,6 +195,12 @@ Teenagers could listen in bedrooms, on sidewalks, or while moving through the ci
 shift seems simple, but it helped make musical taste feel more personal, private, and
 independent.
 
+<DidYouKnowCard title="Portable listening changed youth culture">
+  The Smithsonian notes that the Regency TR-1, the first commercial transistor radio, hit
+  stores on October 18, 1954. That made music easier to carry into bedrooms, sidewalks,
+  and schoolyards instead of keeping it in the family living room.
+</DidYouKnowCard>
+
 The final years of the decade also introduced a quieter technical shift: stereo LPs began
 entering the commercial market in 1958. Their immediate effect was strongest in jazz,
 classical, and adult pop, where listeners were already using the album as a focused
@@ -193,14 +225,19 @@ vast distances. Music no longer belonged only to local scenes or live venues. It
 easily, carrying with it both the promise of connection and the weight of industry
 control—weight that fell unevenly across a divided nation.
 
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-4.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Segregation and Sound in a Divided America"
   headingLevel="h3"
-/>
+  variant="inline-right"
+  textWrap={true}
+>
 
 That shared language, however, carried contradictions. Music in the 1950s moved across
 racial boundaries more freely than almost any other part of American life, yet it did so
@@ -256,14 +293,17 @@ Understanding this dynamic matters. The point is not to reduce the decade to inj
 alone, but to recognize how deeply social structures shaped both the sound of the era and
 the lives of the people who created it.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-5.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Teenagers, Taste, and a New Music Market"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 By the middle of the 1950s, the music industry had come to a clear realization. Teenagers
 were no longer just listeners. They were consumers, tastemakers, and cultural drivers.
@@ -307,14 +347,18 @@ unified market took hold. In treating teenagers as a collective audience, the mu
 business helped create the very group it sought to profit from. The consequences of that
 decision would shape popular culture for decades to come.
 
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-6.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Rock and Roll: The Sound That Changed Everything"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 Rock and roll did not announce itself politely. When it began to spread in the early
 1950s, it felt disruptive, noisy, and difficult to place. To some listeners it sounded raw
@@ -330,20 +374,31 @@ challenge ideas of respectability, discipline, and control. Debates about morali
 sexuality, and race followed quickly. They turned songs into symbols of broader social
 change.
 
+<QuoteCard
+  quote="Everything I wrote about wasn't about me, but about the people listening."
+  authorName="Chuck Berry"
+  authorRole="Musician and songwriter"
+  sourceLabel="Rock & Roll Hall of Fame essay"
+  sourceUrl="https://www.rockhall.com/wp-content/uploads/2024/03/Chuck_Berry_1986.pdf"
+/>
+
 The next chapters trace how rock and roll emerged, spread, and provoked reaction. They
 look closely at the musical roots that shaped the style, the artists who brought it into
 public view, and the environments in which rock and roll was performed and heard. Just as
 importantly, they consider why this music mattered so deeply to those who embraced it and
 why it alarmed those who did not.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-7.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Rock and Roll's Musical Roots"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Rock and roll did not emerge from a single place or moment. Its foundations were laid over
 decades through musical traditions that developed largely within Black communities in the
@@ -386,6 +441,7 @@ weight of these traditions, even when their origins were obscured or simplified.
 Understanding these roots helps explain why the music felt so alive and why it carried
 such cultural force when it finally reached a wider audience.
 
+</SubsectionFigure>
 ### Rockabilly, Memphis, and the Sun Sound
 
 One especially important bridge between country and rhythm and blues was rockabilly.
@@ -403,6 +459,20 @@ of the same Memphis logic forward. Perkins emphasized guitar drive, Lewis brough
 violence and gospel intensity, and Cash reduced arrangements to a stark pulse that felt
 both country and modern.
 
+<QuoteCard
+  quote="Man, that's good. It's different. What is it?"
+  authorName="Sam Phillips"
+  authorRole="Producer and Sun Records founder"
+  sourceLabel="Library of Congress essay on the Sun sessions"
+  sourceUrl="https://www.loc.gov/static/programs/national-recording-preservation-board/documents/sun%20sessions.pdf"
+/>
+
+<DidYouKnowCard title="The first Sun single moved fast">
+  A Library of Congress essay on the Sun sessions notes that Elvis Presley's
+  <em>That's All Right</em> / <em>Blue Moon of Kentucky</em> single was released on July
+  19, 1954, just two weeks after the original session on July 5.
+</DidYouKnowCard>
+
 Rockabilly did not replace rhythm and blues or country. It linked them in a form that
 white southern audiences could recognize quickly, while still drawing heavily on Black
 musical language. That does not make the style less important. It makes its history more
@@ -410,13 +480,15 @@ revealing. Rockabilly shows how musical exchange, regional identity, and unequal
 were all built into rock and roll from the start.
 
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-8.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Elvis, Chuck Berry, and Rock's Public Faces"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 As rock and roll moved from regional scenes into the national spotlight, a small group of
 performers became its public face. They came from different backgrounds and represented
@@ -460,14 +532,17 @@ songs traveled far beyond local scenes. In doing so, they transformed a set of m
 practices into a shared cultural reference point that would soon reshape popular music
 across genres and generations.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-9.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Live Energy and Studio Control"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The tension between live performance and studio recording was central to the identity of
 early rock and roll. On stage, the music often felt volatile and unpredictable. In clubs,
@@ -512,14 +587,17 @@ influenced how songs were written. It influenced how artists were presented. It 
 how audiences understood authenticity. Rock and roll's power came not from choosing one
 side over the other. It came from constantly negotiating the space between them.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-10.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Why Rock and Roll Alarmed Adults"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 As rock and roll gained visibility, it also attracted resistance. By the mid-1950s, public
 concern about the music had grown into something closer to moral panic. Critics rarely
@@ -527,6 +605,12 @@ focused on musical structure or lyrical detail alone. Instead, they responded to
 and roll seemed to represent. Movement, volume, sexuality, and racial mixing became
 symbols. They represented a broader fear: that traditional social order was slipping out
 of reach.
+
+<DidYouKnowCard title="A film helped turn one song into a youth anthem">
+  The Library of Congress notes that Bill Haley and His Comets'{" "}
+  <em>(We're Gonna) Rock Around the Clock</em> only fully exploded with young audiences
+  after its use in the 1955 film <em>Blackboard Jungle</em>.
+</DidYouKnowCard>
 
 Newspapers, parent organizations, and religious leaders often framed rock and roll as a
 threat to discipline and decency. Headlines warned of delinquency. Editorials linked music
@@ -565,14 +649,17 @@ Rock and roll had become too widespread to contain. The conflict between generat
 not end. It reshaped the terms of popular culture. It established music as a central
 arena—and not only along generational lines.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-11.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Women Who Shaped the Sound of the 1950s"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 Gender, too, shaped who was heard and who was silenced. Women were not peripheral figures
 in the music of the 1950s but central voices who shaped how popular music sounded, felt,
@@ -594,14 +681,17 @@ female performers shaped pop, jazz, rhythm and blues, and rock and roll, how the
 helped define the decade's sound, the structural limits they faced, and the quiet forms of
 resistance embedded in their music, performance, and career choices.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-12.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Peggy Lee, Ella Fitzgerald, and Vocal Authority"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1950s, pop and traditional vocal music offered women some of the most visible
 platforms in the industry. These styles valued clarity, emotional nuance, and interpretive
@@ -648,14 +738,17 @@ worked within those limits without being defined by them. Their recordings conti
 resonate not because they conformed, but because they brought personal truth into familiar
 forms.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-13.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Women in Rock and R&B: Force, Risk, and Presence"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 While pop and jazz offered women a degree of visibility, rock and rhythm and blues
 presented a different kind of challenge. These styles were louder, more physical, and more
@@ -702,14 +795,17 @@ within prescribed roles. Their recordings remain powerful reminders that the roo
 and roll were never exclusively male, despite historical narratives that often suggest
 otherwise.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-14.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="The Industry's Grip: Image, Access, and Control"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Behind the visibility of female performers in the 1950s stood an industry that exercised
 careful and often intrusive control. Record labels, managers, and promoters shaped careers
@@ -753,14 +849,17 @@ despite the systems meant to support them. Recognizing these dynamics clarifies 
 than diminishes their artistry, revealing the resilience and quiet resistance embedded in
 their work.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-15.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Jazz's Golden Age: When Music Became Art"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 While teenagers danced to rock and roll and women fought for recognition in pop and R&B,
 jazz was undergoing its own transformation. The genre entered the 1950s as a mature art
@@ -787,14 +886,17 @@ changing identity. The following pages show how jazz navigated shifting audience
 technological advances, and cultural expectations, ultimately laying groundwork that would
 influence both the avant-garde and the mainstream in the years to come.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-16.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="From Swing to Bebop and Beyond"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 The shift from swing to bebop and later to cool jazz marked one of the most significant
 turning points in jazz history. Swing had dominated the 1930s and early 1940s. It was
@@ -840,14 +942,17 @@ chord progressions influenced countless musicians and expanded the possibilities
 expression. More importantly, the decade established a new understanding of jazz as a
 flexible, evolving art form, capable of reinvention without losing its core identity.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-17.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Landmark Jazz Albums of the 1950s"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The 1950s marked a turning point in how jazz was recorded, packaged, and understood. The
 long-playing album changed the relationship between musicians and listeners, allowing
@@ -882,20 +987,32 @@ became a space for storytelling, emotional continuity, and artistic identity. Ra
 chasing immediate hits, many jazz artists focused on building bodies of work that
 reflected their evolving voices.
 
+<QuoteCard
+  quote="I stole from everything I heard, but mostly I stole from the horns."
+  authorName="Ella Fitzgerald"
+  authorRole="Jazz vocalist"
+  sourceLabel="Smithsonian Magazine"
+  sourceUrl="https://www.smithsonianmag.com/smithsonian-institution/get-face-to-face-with-ellaellaella-125674980/"
+/>
+
 These landmark albums and sessions did more than document performances. They shaped how
 jazz was heard, studied, and remembered. By capturing extended improvisation and subtle
 interaction, recordings from the 1950s preserved moments that might otherwise have been
 lost. They also helped define the album as a serious artistic medium, influencing not only
 jazz, but the future of popular music as a whole.
 
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-18.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="The Clubs Where Jazz Lived"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 While recordings shaped jazz’s legacy in the 1950s, live performance remained the music’s
 lifeblood. Clubs were where ideas were tested, refined, and exchanged, often night after
@@ -943,14 +1060,17 @@ to sustain small venues. Still, the live jazz economy of the decade left a lasti
 imprint. It shaped the sound, discipline, and resilience of musicians whose influence
 would extend far beyond the rooms in which they played.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-19.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Jazz, Authority, and Recognition"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 By the 1950s, jazz occupied an uneasy position within American culture. It was
 increasingly described as serious art, discussed in critical language, and presented in
@@ -990,14 +1110,17 @@ engagement. But it also revealed how cultural authority is negotiated, not given
 journey shows how art can gain prestige while its creators continue fighting for
 recognition and control—struggles rooted in traditions that long predated the decade.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-20.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Blues, Country, and Gospel: The Deeper Roots"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 Those traditions deserve attention on their own terms. Jazz, rock and roll, and R&B didn't
 emerge from nowhere. Beneath the decade's innovations lay older traditions with deep
@@ -1020,14 +1143,17 @@ or historical recognition. By examining these roots closely, it becomes easier t
 understand why the music of the 1950s felt both grounded and restless, anchored in
 tradition while constantly pushing toward something new.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-21.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Chicago Blues and the Electric City Sound"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The electric blues of the 1950s was shaped as much by geography as by sound. As Black
 Americans migrated from the rural South to northern cities in search of work and relative
@@ -1072,14 +1198,17 @@ emotional directness while embracing new technology. Its legacy is not only audi
 later rock and soul, but in the enduring idea that music can adapt to new environments
 without losing its core truth.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-22.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Country Music and the Nashville Shift"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Country music in the 1950s was undergoing its own quiet transformation. Often framed as
 conservative or static, the genre was in fact responding actively to the same social and
@@ -1129,14 +1258,18 @@ but its influence was profound. Through its evolving sound and expanding reach, 
 music helped define ideas of sincerity, regional identity, and emotional storytelling that
 would continue to shape American popular music in the decades that followed.
 
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-23.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Gospel's Emotional Power"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Gospel music remained one of the most powerful and influential forces in the 1950s, even
 when it was not always visible within the mainstream industry. Rooted in church
@@ -1154,6 +1287,20 @@ confidence. For many artists, the church was where their musical identity first 
 shape. By the start of the decade, gospel was also reaching major concert spaces. Mahalia
 Jackson's Carnegie Hall debut in 1950 showed that the music could command national
 attention beyond church audiences alone.
+
+<QuoteCard
+  quote="When you sing gospel you have a feeling there is a cure for what's wrong. But when you are through with the blues, you've got nothing to rest on."
+  authorName="Mahalia Jackson"
+  authorRole="Gospel singer"
+  sourceLabel="Library of Congress exhibition text"
+  sourceUrl="https://www.loc.gov/exhibits/african-american-odyssey/civil-rights-era.html"
+/>
+
+<DidYouKnowCard title="Mahalia Jackson broke through on record before TV fully opened up">
+  The Library of Congress describes <em>Move On Up a Little Higher</em> as Mahalia
+  Jackson's breakthrough disc and notes that it appealed to both Black and white
+  audiences, becoming one of the defining gospel bestsellers of its time.
+</DidYouKnowCard>
 
 The boundary between sacred and secular music was often contested. Crossing it could
 provoke controversy, particularly when gospel-trained singers brought religious intensity
@@ -1186,14 +1333,17 @@ secular traditions were. Rather than existing in isolation, they formed a contin
 exchange, one that shaped not only sound, but values, performance, and the emotional
 language of modern popular music.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-24.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Small Studios, Big Revolution: Sun, Chess, and Atlantic"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Much of the most influential music of the 1950s did not originate in major corporate
 offices or carefully planned marketing campaigns. It emerged from small studios,
@@ -1238,14 +1388,17 @@ at a time when commercialization was accelerating. Their legacy is woven through
 music of the 1950s, reminding us that innovation often begins at the margins before it
 reshapes the center.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-25.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Pop Perfection: How the Mainstream Was Built"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 As regional roots moved into wider circulation, another system of popular music quietly
 defined how songs were written, recorded, and remembered. Pop in the 1950s was not only a
@@ -1268,14 +1421,17 @@ across genres. The larger point is that the decade’s musical revolution was no
 disruption. It was also about design, continuity, and the careful shaping of sound into
 lasting form.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-26.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Doo-Wop and the Art of Harmony"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Doo-wop and vocal group music formed one of the most distinctive and emotionally resonant
 sounds of the 1950s. The style emerged largely from urban neighborhoods and informal
@@ -1314,14 +1470,17 @@ and commercial pop. Its influence can be heard in later soul and R&B. It also li
 an enduring idea: voices joined together can express feelings that no single voice can
 fully carry alone.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-27.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Sinatra, Nat King Cole, and the Art of Intimacy"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Crooners occupied a central place in the musical life of the 1950s. They offered a form of
 pop that was intimate, controlled, and carefully shaped for adult listeners. Their appeal
@@ -1363,14 +1522,17 @@ revealed how diverse the decade's musical landscape truly was. The crooner tradi
 demonstrated that innovation could occur through refinement as much as rebellion. It
 shaped how popular music would be heard and understood long after the decade ended.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-28.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Songwriters, Producers, and the Hidden Architecture"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Behind the voices and faces that defined 1950s popular music stood a network of
 songwriters, producers, and arrangers. Their influence was profound but often understated.
@@ -1411,14 +1573,17 @@ defining how songs were written, recorded, and presented, they influenced which 
 were heard and how long they endured. Their role reminds us that the sound of the 1950s
 was not only performed. It was also carefully built, one decision at a time.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-29.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Technology, Gatekeeping, and Control"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 As pop, jazz, blues, and rock moved through larger markets, the systems behind them became
 more decisive. The sound of 1950s music was shaped not only by artists and songs, but also
@@ -1442,14 +1607,17 @@ collided with artistic freedom. Seen together, these forces help explain why cer
 sounds flourished, why others struggled, and why debates about fairness and influence
 became impossible to ignore as the decade progressed.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-30.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Recording Limits That Became Style"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Recording technology in the 1950s imposed clear limits. Those limits became part of the
 music's character. Most commercial recordings were made in mono. Musicians performed
@@ -1491,14 +1659,17 @@ place and time, anchoring them in lived experience. Far from being obstacles, te
 limits helped define the warmth, immediacy, and honesty that continue to characterize the
 music of the decade.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-31.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Majors, Independents, and the Fight for Power"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The 1950s music industry was defined by a clear imbalance of power. Major record labels
 controlled manufacturing, distribution, and access to national media. Independent
@@ -1542,14 +1713,17 @@ center. This imbalance would become a recurring point of contention in later dec
 its foundations were firmly laid in the 1950s, shaping not only careers, but the ethical
 landscape of popular music.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-32.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Payola and the Battle Over Airplay"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 As radio’s influence grew in the 1950s, so did questions about how music reached the
 airwaves. By the end of the decade, these questions had erupted into public scandal.
@@ -1577,6 +1751,13 @@ This system became more centralized on August 4, 1958, when Billboard introduced
 ranking. The change did not eliminate bias or behind-the-scenes influence, but it gave the
 industry a more uniform language of success. From that point on, chart position carried
 even more symbolic and commercial power.
+
+<DidYouKnowCard title="The first Hot 100 leader was Ricky Nelson">
+  Billboard marks August 4, 1958, as the launch date of the Hot 100 and notes that the
+  chart's first number-one song was Ricky Nelson's <em>Poor Little Fool</em>. That gave
+  the business a single weekly national scoreboard with much more symbolic weight than the
+  older chart system.
+</DidYouKnowCard>
 
 The payola hearings of 1959 and 1960 exposed these dynamics to a national audience.
 High-profile figures were called before Congress, careers were damaged, and public trust
@@ -1607,14 +1788,17 @@ The payola era marked the end of a more informal, if imperfect, system. In its p
 emerged a regulated industry that would shape popular music for decades, often at the
 expense of spontaneity and local influence.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-33.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="From Sound to Sight: Music Becomes Visual"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 But as radio tightened its controls, a new frontier was opening—one where sound alone was
 no longer enough. By the late 1950s, music was becoming visual. Film and television
@@ -1635,14 +1819,17 @@ sparked cultural debates about what audiences were allowed to see. Together, the
 developments show how the decade laid the groundwork for a media-driven music culture in
 which sound and image became inseparable.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-34.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Hollywood, Stardom, and Control"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Hollywood had been intertwining music and image long before the 1950s, but during this
 decade the relationship deepened and became more strategic. Musicals and music-centered
@@ -1682,14 +1869,17 @@ who succeeded in this space learned to balance performance with presentation, au
 with acceptability. In doing so, they helped establish a model of stardom that continues
 to define popular music culture today.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-35.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Television Brings Music Home"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Television changed the scale and intimacy of popular music in the 1950s. Unlike film,
 which required audiences to leave their homes, television entered domestic space directly.
@@ -1713,12 +1903,26 @@ Presley appeared on the show, camera angles and staging were carefully managed, 
 anxiety about youth culture and sexuality. The performance still reached millions, but in
 a form shaped by caution.
 
+<DidYouKnowCard title="Elvis turned television into a national event">
+  A Library of Congress study notes that Elvis Presley's first 1956 appearance on
+  <em>The Ed Sullivan Show</em> drew an estimated 54 million viewers, or about 82 percent
+  of the American viewing public at the time. That scale showed how television could turn
+  one performance into a national cultural moment.
+</DidYouKnowCard>
+
 Another key force was American Bandstand. The program began in Philadelphia in 1952 and
 went national on ABC on August 5, 1957, under Dick Clark. Unlike a one-time variety-show
 appearance, it normalized the sight of teenagers dancing to current records week after
 week. That repetition mattered. It helped turn youth taste into visible market power and
 gave labels, artists, and advertisers a clearer picture of which sounds, dances, and
 personalities were connecting with young audiences.
+
+<DidYouKnowCard title="American Bandstand scaled youth taste nationally">
+  A Library of Congress essay notes that when <em>Bandstand</em> went national as
+  <em>American Bandstand</em> on August 5, 1957, it reached 105 ABC affiliates and some 40
+  million mostly teenage viewers. That helped turn local dance-floor trends into a
+  national market signal.
+</DidYouKnowCard>
 
 Television also affected how artists prepared and rehearsed. Timing was strict, errors
 were highly visible, and spontaneity was limited. Musicians adapted by refining concise
@@ -1739,14 +1943,18 @@ comfortably they inhabited the screen. That shift marked a lasting change. Music
 1950s became inseparable from its visual presentation, setting expectations that would
 only intensify in the decades that followed.
 
+</SubsectionFigure>
+
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-36.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Censorship, Image, and Broadcast Limits"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 As music became increasingly visible through film and television, control over image grew
 tighter. The 1950s were marked by a constant negotiation between expression and
@@ -1794,14 +2002,17 @@ to negotiate visibility, they highlighted the power of image in shaping cultural
 The decade established patterns of control and resistance that would reappear whenever
 music challenged social norms, long after the television cameras first began to roll.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-37.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Global Reach: Music Crosses Borders"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 The same era of visibility and control also widened the music’s reach. Although much of
 the industry in the 1950s was centered in the United States, the decade’s sound did not
@@ -1826,14 +2037,17 @@ musical conversation. By tracing these exchanges, the decade comes into focus no
 isolated phenomenon, but as part of a growing global dialogue that would reshape popular
 music in the years to come.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-38.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Europe and Britain Hear America Differently"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the years following the Second World War, Europe and the United Kingdom became some of
 the most attentive audiences for American music. Jazz had already established a foothold
@@ -1882,14 +2096,17 @@ future musical revolutions, proving that popular music was no longer confined by
 geography. It was becoming a shared language shaped by movement, curiosity, and connection
 across borders.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-39.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Latin America and the Caribbean: Local Rhythms, Wider Reach"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 While American popular music traveled outward in the 1950s, it encountered regions with
 rich musical traditions of their own. In Latin America and the Caribbean, exchange was
@@ -1932,14 +2149,17 @@ turn, global exposure brought local traditions into wider awareness, even if imp
 The result was not a single shared style, but a growing sense that popular music was
 becoming genuinely international, shaped by encounter, adaptation, and mutual influence.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-40.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Black Music's Global Language"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 As American music traveled internationally in the 1950s, it was African-American musical
 traditions that often left the deepest imprint. Jazz, blues, gospel, and rhythm and blues
@@ -1987,14 +2207,17 @@ cultures ensured that the music of the decade would not remain local or temporar
 became part of a shared global vocabulary that continues to shape how popular music is
 heard and understood.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-41.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Eartha Kitt and Early Global Stardom"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 By the late 1950s, a small number of artists were no longer defined by a single national
 market. Their careers unfolded across borders, shaped by touring, recordings, and media
@@ -2046,14 +2269,17 @@ end of the 1950s, the idea of an artist existing beyond national boundaries was 
 exceptional. It was emerging as a viable, if challenging, path—one that often came at a
 personal price.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-42.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="The Hidden Cost of Success"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 That wider reach came with a cost that is rarely visible in the historical record. Behind
 the energy, innovation, and cultural change of 1950s music lay a quieter story, one that
@@ -2080,14 +2306,17 @@ records and charts to the lived experiences of artists, acknowledging both resil
 vulnerability. It adds necessary depth to the decade’s story, reminding us that cultural
 transformation was carried by people whose struggles were as real as their achievements.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-43.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Touring: Freedom, Exhaustion, and Risk"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 For many musicians in the 1950s, touring was not a glamorous extension of success, but a
 demanding and often punishing necessity. Live performance remained one of the few reliable
@@ -2130,14 +2359,17 @@ Understanding these conditions helps explain why burnout, health problems, and e
 from the spotlight were so common. The music carried joy and excitement, but the lives
 behind it were often shaped by exhaustion and resilience in equal measure.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-44.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Mental Health, Addiction, and Collapse"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 In the 1950s, conversations about mental health were largely absent from public life. The
 music industry was no exception. Emotional distress, anxiety, and depression were rarely
@@ -2184,14 +2416,17 @@ that the music was made by individuals navigating systems that did not yet recog
 as part of success. Their resilience deserves recognition, but so does the cost they paid
 to sustain it.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-45.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Gone Too Soon: Loss and Fragility"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The pressures of the 1950s music industry left lasting marks, and for some artists, the
 consequences were devastatingly final. Early deaths, derailed careers, and long periods of
@@ -2231,14 +2466,17 @@ smoothly or inevitably. It reminds us that history is shaped as much by what dis
 by what endures. The cost of cultural progress was often borne quietly by those who made
 it possible.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-46.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Songs That Captured the Decade"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 If artists give music its voice, songs give it memory. Even amid pressure and loss, the
 1950s produced songs that often carried meanings far beyond their original context. A
@@ -2261,14 +2499,17 @@ small number of recordings came to define the emotional and cultural landscape o
 1950s. They shaped how the decade is remembered long after the last notes faded from the
 radio.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-47.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Teen Anthems and the Sound of Rebellion"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Few themes defined the 1950s more visibly than the emergence of youth as a cultural force.
 Music was where this shift was heard most clearly. Songs about young love, restlessness,
@@ -2309,14 +2550,17 @@ and independence could be explored safely, even as they provoked debate. The leg
 these recordings lies in how they opened popular music to voices that would continue to
 redefine it in the decades that followed.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-48.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Midnight Ballads and Private Feeling"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 Alongside the music of youth and outward energy, the 1950s produced a rich body of songs
 that turned inward. These recordings spoke quietly about loneliness, regret, longing, and
@@ -2356,14 +2600,17 @@ acknowledge complexity in their own lives. The endurance of these recordings lie
 honesty. They remind us that the music of the 1950s was not only about change and
 excitement, but also about understanding oneself in moments of stillness.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-49.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Quiet Resistance and Coded Expression"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 Not all resistance in the 1950s was loud or confrontational. In an era shaped by
 censorship, segregation, and strict social expectations, many musicians communicated
@@ -2408,14 +2655,17 @@ change does not always announce itself loudly. Sometimes it moves through sugges
 persistence, and the steady refusal to be reduced to silence—a refusal that would echo
 long after the decade ended.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-50.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="The 1950s at the Edge of the 1960s"
   headingLevel="h2"
-/>
+  variant="inline-right"
+>
 
 As the 1950s drew to a close, that echo was already spreading. The music of the decade did
 not simply fade into history. It carried forward, reshaped expectations, and opened paths
@@ -2437,14 +2687,17 @@ traces the lines of continuity and rupture that connected the decade to the musi
 1960s, showing how legacy is shaped not only by influence, but also by contrast. The aim
 is to bring the story to a close without losing sight of its consequences.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-51.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="What Was Fading by the End of the Decade"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 As the 1950s came to an end, certain sounds, images, and industry systems began to lose
 their hold. The change was gradual rather than abrupt. Musical styles that had once felt
@@ -2484,14 +2737,17 @@ rapid circulation. As these conditions shifted, so did the sound. The close of t
 reminds us that musical eras do not disappear because they fail, but because the world
 around them moves on, asking new questions that demand new answers.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-52.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="What the 1950s Made Possible"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 While certain sounds and systems receded at the end of the 1950s, much of what the decade
 created carried forward with lasting force. The most obvious inheritance was artistic.
@@ -2539,14 +2795,17 @@ quickly, speak honestly, and matter deeply. Those lessons shaped the creative co
 of the 1960s and beyond, ensuring that the 1950s would remain present, not as nostalgia,
 but as foundation.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-53.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Crossover Covers and Unequal Credit"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 The crossover story of the 1950s was never only about sound. It was also about access,
 marketing, and who was allowed to carry a song into the most profitable parts of the
@@ -2575,14 +2834,17 @@ audiences to hear Black musical innovation through white intermediaries. That im
 would continue to shape debates about ownership, influence, and authenticity long after
 the decade ended.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-54.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Teen Media and the New Star Machine"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 The teenage market of the 1950s was built not only through records and radio, but through
 an expanding media ecosystem that taught young listeners how to attach themselves to
@@ -2610,14 +2872,17 @@ ongoing narration of a performer's life. That model remains central to popular m
 culture today, from pop fandom to social media presence, and much of it traces back to the
 fan habits first consolidated in the 1950s.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-55.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="1959: The Industry Taking Shape"
   headingLevel="h3"
-/>
+  variant="inline-left"
+>
 
 By 1959, many of the forces that would define the 1960s were already visible in outline.
 The decade had not ended in a neat stylistic handoff. Instead, several new business and
@@ -2632,6 +2897,14 @@ production, and branding. It suggested that Black popular music could be present
 both artistic focus and national commercial ambition under Black ownership. That
 combination would become one of the most consequential developments of the next decade.
 
+<QuoteCard
+  quote="A kid could walk in one door an unknown off the street and come out the other a polished performer."
+  authorName="Berry Gordy"
+  authorRole="Motown founder"
+  sourceLabel="Motown Museum profile"
+  sourceUrl="https://www.motownmuseum.org/legacy/berry-gordy/"
+/>
+
 At the same time, the mainstream industry was learning its own lessons from the 1950s.
 Labels wanted reproducible hits, stronger control over image, and more predictable routes
 from local success to national exposure. Television had made visual polish indispensable.
@@ -2645,14 +2918,17 @@ cross-platform stardom, highly managed labels, and genre systems flexible enough
 constant change. The decade's legacy was not just a set of songs, but an industrial and
 emotional blueprint.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-56.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="Why the 1950s Still Matter"
   headingLevel="h3"
-/>
+  variant="inline-right"
+>
 
 The 1950s didn't just produce memorable songs. They changed the conditions under which
 popular music exists. Before this decade, styles rose and fell, audiences shifted, and
@@ -2695,14 +2971,17 @@ gone away.
 The playlist that follows turns that argument into a listening path. It moves from roots
 to crossover, from intimacy to rebellion, and from local scenes to global circulation.
 
+</SubsectionFigure>
 <SubsectionFigure
+  textWrap={true}
   imageSrc="/knowledge/1950s/1950s-57.webp"
   imageAlt=""
   imageWidth={1024}
   imageHeight={683}
   heading="50 Songs That Shaped a Decade"
   headingLevel="h2"
-/>
+  variant="inline-left"
+>
 
 The music of the 1950s transformed popular culture at a fundamental level. Rock and roll
 emerged as a disruptive force, rhythm and blues crossed social boundaries, jazz evolved
@@ -2712,6 +2991,7 @@ and jazz foundations to the global sounds that helped set up the 1960s. Most ent
 1950s releases, but a few late-1940s recordings remain because they continued to shape the
 decade's sound. Each artist appears only once.
 
+</SubsectionFigure>
 ### I. Roots & Foundations: Gospel, Blues, and Jazz
 
 1. Mahalia Jackson – Move On Up a Little Higher (1948)
