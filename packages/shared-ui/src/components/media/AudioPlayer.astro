@@ -148,8 +148,8 @@ const timeId = `episode-player-time-${playerSlug}`;
 <style>
   .episode-player {
     position: relative;
-    overflow: hidden;
     padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    overflow: hidden;
     background:
       radial-gradient(
         circle at 100% 100%,
@@ -198,17 +198,12 @@ const timeId = `episode-player-time-${playerSlug}`;
     background: color-mix(in srgb, var(--surface-1) 60%, transparent);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
-    transition:
-      transform var(--transition-base),
-      background-color var(--transition-base),
-      border-color var(--transition-base),
-      box-shadow var(--transition-base);
   }
 
   .episode-player__control {
-    color: var(--button-text-accent);
     min-inline-size: 6.25rem;
     min-block-size: 6.25rem;
+    color: var(--button-text-accent);
     background: linear-gradient(
       135deg,
       var(--accent-primary),
@@ -354,8 +349,8 @@ const timeId = `episode-player-time-${playerSlug}`;
   .episode-player__time {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
-    color: var(--text-secondary);
     font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
   }
 
   .episode-player__control:focus-visible,
@@ -368,7 +363,10 @@ const timeId = `episode-player-time-${playerSlug}`;
 
   .episode-player__control:hover,
   .episode-player__transport-button:hover,
-  .episode-player__retry:hover {
+  .episode-player__retry:hover,
+  .episode-player__control:focus-visible,
+  .episode-player__transport-button:focus-visible,
+  .episode-player__retry:focus-visible {
     border-color: var(--surface-border-accent);
     box-shadow: var(--shadow-sm);
     transform: translateY(-1px);
@@ -386,8 +384,8 @@ const timeId = `episode-player-time-${playerSlug}`;
 
   @media (width < 480px) {
     .episode-player__controls {
-      justify-content: flex-start;
       flex-wrap: wrap;
+      justify-content: flex-start;
     }
 
     .episode-player__control {

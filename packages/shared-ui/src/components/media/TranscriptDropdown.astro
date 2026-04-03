@@ -170,6 +170,12 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     border-block-start: 1px solid var(--surface-border-soft);
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .transcript__summary-chevron {
+      transition: none;
+    }
+  }
+
   .transcript__content {
     display: grid;
     gap: var(--spacing-sm);
