@@ -1,9 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import LegalDocumentSection from "@shared-ui/components/layout/LegalDocumentSection.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import LegalDocumentSection from "../components/LegalDocumentSection.astro";
-import StorageKeysTable from "../components/StorageKeysTable.astro";
-import StaticPageHero from "../components/StaticPageHero.astro";
+import DataTable from "@shared-ui/components/policies/DataTable.astro";
+import StaticPageHero from "@shared-ui/components/layout/StaticPageHero.astro";
 import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Cookie & Storage Policy";
@@ -87,6 +87,13 @@ const storageKeys = [
   },
 ] as const;
 
+const storageKeyColumns = [
+  { key: "keyName", label: "Key", renderAsCode: true },
+  { key: "purpose", label: "Purpose" },
+  { key: "storageType", label: "Type" },
+  { key: "retention", label: "Retention" },
+] as const;
+
 const pageSeo = buildLegalPageSeo({
   site: Astro.site,
   path: "/cookies",
@@ -126,7 +133,11 @@ const pageSeo = buildLegalPageSeo({
           title="Local storage entries we use"
           class="cookies-page__section--table"
         >
-          <StorageKeysTable rows={storageKeys} />
+          <DataTable
+            caption="Browser storage keys used by Melody Mind Knowledge"
+            columns={storageKeyColumns}
+            rows={storageKeys}
+          />
         </LegalDocumentSection>
       </div>
     </div>

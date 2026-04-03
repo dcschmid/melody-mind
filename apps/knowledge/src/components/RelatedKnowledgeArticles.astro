@@ -1,12 +1,7 @@
 ---
-import { getCollection } from "astro:content";
 import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSection.astro";
 import type { RelatedContentCardItem } from "@shared-ui/components/cards/relatedContent";
-import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
-import {
-  getRelatedKnowledgeArticles,
-  type RelatedKnowledgeArticle,
-} from "@utils/knowledge/articlePage";
+import { loadRelatedKnowledgeArticleCardItems } from "@utils/knowledge/articlePage";
 
 interface Props {
   currentKeywords: string[];
@@ -24,55 +19,12 @@ const {
   lang,
 } = Astro.props as Props;
 
-let articles: RelatedKnowledgeArticle[] = [];
-
-try {
-  const allArticles: any[] = await getCollectionCached("knowledge-en", {
-    getCollection,
-  }).catch(() => []);
-  articles = getRelatedKnowledgeArticles({
-    articles: allArticles,
-    currentKeywords: new Set(currentKeywords),
-    currentTaxonomyGroup,
-    currentTaxonomySubsection,
-    currentSlug,
-    lang,
-  });
-} catch (e) {
-  globalThis.console?.warn?.("knowledge article: related articles load issue", {
-    error: (e as any)?.message || e,
-  });
-}
-
-const locale = lang || "en";
-const items: RelatedContentCardItem[] = articles.map((article, index) => {
-  const publishedAt = article.createdAt;
-  const publishedLabel = publishedAt.toLocaleDateString(locale, {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  return {
-    id: `related-knowledge-${article.slug}-${index}`,
-    title: article.title,
-    description: article.description,
-    href: `/knowledge/${article.slug}`,
-    imageSrc: article.image,
-    imageAlt: article.title ? `Cover image for ${article.title}` : "",
-    ctaSrText: "Opens article",
-    metaItems: [
-      {
-        iconName: "clock",
-        label: `${article.readingTime} min read`,
-      },
-      {
-        iconName: "calendar",
-        label: publishedLabel,
-        datetime: publishedAt.toISOString(),
-      },
-    ],
-  };
+const items: RelatedContentCardItem[] = await loadRelatedKnowledgeArticleCardItems({
+  currentKeywords,
+  currentTaxonomyGroup,
+  currentTaxonomySubsection,
+  currentSlug,
+  lang,
 });
 ---
 

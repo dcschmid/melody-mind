@@ -1,41 +1,35 @@
 ---
-type StorageKeyRow = {
-  keyName: string;
-  purpose: string;
-  storageType: string;
-  retention: string;
-};
+interface DataTableColumn {
+  key: string;
+  label: string;
+  renderAsCode?: boolean;
+}
 
 interface Props {
   caption?: string;
-  rows: readonly StorageKeyRow[] | StorageKeyRow[];
+  columns: readonly DataTableColumn[] | DataTableColumn[];
+  rows: readonly Record<string, string>[] | Record<string, string>[];
 }
 
-const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
-  Astro.props;
+const { caption, columns, rows } = Astro.props as Props;
 ---
 
-<div class="storage-keys-table">
-  <table class="storage-keys-table__table">
-    <caption class="storage-keys-table__sr-only">{caption}</caption>
+<div class="data-table">
+  <table class="data-table__table">
+    {caption ? <caption class="data-table__sr-only">{caption}</caption> : null}
     <thead>
       <tr>
-        <th scope="col">Key</th>
-        <th scope="col">Purpose</th>
-        <th scope="col">Type</th>
-        <th scope="col">Retention</th>
+        {columns.map((column) => <th scope="col">{column.label}</th>)}
       </tr>
     </thead>
     <tbody>
       {
         rows.map((row) => (
           <tr>
-            <td>
-              <code>{row.keyName}</code>
-            </td>
-            <td>{row.purpose}</td>
-            <td>{row.storageType}</td>
-            <td>{row.retention}</td>
+            {columns.map((column) => {
+              const value = row[column.key] ?? "";
+              return <td>{column.renderAsCode ? <code>{value}</code> : value}</td>;
+            })}
           </tr>
         ))
       }
@@ -44,7 +38,7 @@ const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
 </div>
 
 <style>
-  .storage-keys-table {
+  .data-table {
     padding: var(--spacing-sm);
     overflow-inline: auto;
     background: var(--surface-panel-bg);
@@ -55,14 +49,14 @@ const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
       var(--shadow-sm);
   }
 
-  .storage-keys-table__table {
+  .data-table__table {
     inline-size: 100%;
     min-inline-size: min(var(--measure-standard), 100%);
     border-collapse: collapse;
   }
 
-  .storage-keys-table__table th,
-  .storage-keys-table__table td {
+  .data-table__table th,
+  .data-table__table td {
     padding: var(--spacing-md) var(--spacing-sm);
     vertical-align: top;
     color: var(--text-secondary);
@@ -70,13 +64,13 @@ const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
     border-block-end: 1px solid var(--surface-border-subtle);
   }
 
-  .storage-keys-table__table th {
+  .data-table__table th {
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     background: color-mix(in srgb, var(--surface-pill-bg) 74%, var(--surface-1));
   }
 
-  .storage-keys-table__table code {
+  .data-table__table code {
     display: inline-block;
     padding: var(--spacing-2xs) var(--spacing-xs);
     font-family: var(--font-mono);
@@ -87,11 +81,11 @@ const { caption = "Browser storage keys used by Melody Mind Knowledge", rows } =
     border-radius: var(--radius-sm);
   }
 
-  .storage-keys-table__table tbody tr:last-child td {
+  .data-table__table tbody tr:last-child td {
     border-block-end: 0;
   }
 
-  .storage-keys-table__sr-only {
+  .data-table__sr-only {
     position: var(--sr-only);
     inline-size: var(--sr-only-width);
     block-size: var(--sr-only-height);
