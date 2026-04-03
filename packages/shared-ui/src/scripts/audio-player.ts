@@ -29,7 +29,13 @@ const initAudioPlayers = (): (() => void) => {
     );
     const retryButton = player.querySelector<HTMLButtonElement>('[data-action="retry"]');
     const progress = player.querySelector<HTMLInputElement>("[data-episode-progress]");
-    const timeDisplay = player.querySelector<HTMLElement>(".episode-player__time");
+    const timeDisplay = player.querySelector<HTMLElement>(".episode-player__meta");
+    const currentTimeDisplay = player.querySelector<HTMLElement>(
+      ".episode-player__time--current"
+    );
+    const remainingTimeDisplay = player.querySelector<HTMLElement>(
+      ".episode-player__time--remaining"
+    );
     const status = player.querySelector<HTMLElement>(".episode-player__status");
     const playIcon = toggleButton?.querySelector<SVGElement>(
       ".episode-player__control-icon--play"
@@ -46,6 +52,8 @@ const initAudioPlayers = (): (() => void) => {
       !retryButton ||
       !progress ||
       !timeDisplay ||
+      !currentTimeDisplay ||
+      !remainingTimeDisplay ||
       !status
     ) {
       return;
@@ -90,7 +98,12 @@ const initAudioPlayers = (): (() => void) => {
       const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
       progress.max = duration ? String(Math.floor(duration)) : "0";
       progress.value = String(Math.floor(currentTime));
-      timeDisplay.textContent = `${formatTime(currentTime)} / ${duration ? formatTime(duration) : "0:00"}`;
+      currentTimeDisplay.textContent = formatTime(currentTime);
+      remainingTimeDisplay.textContent = `-${duration ? formatTime(Math.max(duration - currentTime, 0)) : "0:00"}`;
+      timeDisplay.setAttribute(
+        "aria-label",
+        `${formatTime(currentTime)} elapsed, ${duration ? formatTime(Math.max(duration - currentTime, 0)) : "0:00"} remaining`
+      );
       dispatchTimeEvent();
     };
 

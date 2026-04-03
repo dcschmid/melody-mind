@@ -191,28 +191,11 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
 
       {
         currentPodcast.audioUrl && (
-          <SectionSurface
-            as="section"
-            className="episode__audio"
-            aria-labelledby="audio-player-heading"
-          >
-            <Headline level="h2" textSize="lg" className="episode__section-title">
-              <span id="audio-player-heading">
-                <Icon
-                  name="headphones"
-                  class="episode__section-title-icon"
-                  aria-hidden="true"
-                />
-                {t.listenToEpisode}
-              </span>
-            </Headline>
-
-            <AudioPlayer
-              title={currentPodcast.title}
-              audioUrl={currentPodcast.audioUrl}
-              subtitleUrl={currentPodcast.subtitleUrl}
-            />
-          </SectionSurface>
+          <AudioPlayer
+            title={currentPodcast.title}
+            audioUrl={currentPodcast.audioUrl}
+            subtitleUrl={currentPodcast.subtitleUrl}
+          />
         )
       }
 
@@ -331,6 +314,14 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   .episode__audio {
     display: grid;
     gap: var(--spacing-lg);
+  }
+
+  .episode :global(.episode__audio) {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .episode__notes {

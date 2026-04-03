@@ -24,6 +24,7 @@ const initTranscripts = () => {
     const playerId = root.getAttribute("data-player-id") || "";
     const details = root.querySelector(".transcript__details");
     const hint = root.querySelector(".transcript__summary-hint");
+    const hintText = root.querySelector(".transcript__summary-hint-text");
     const loading = root.querySelector(".transcript__status--loading");
     const error = root.querySelector(".transcript__status--error");
     const content = root.querySelector(".transcript__content");
@@ -43,6 +44,9 @@ const initTranscripts = () => {
     if (!(hint instanceof HTMLElement)) {
       return;
     }
+    if (!(hintText instanceof HTMLElement)) {
+      return;
+    }
 
     let loaded = false;
     let loadingInProgress = false;
@@ -52,7 +56,9 @@ const initTranscripts = () => {
     let lastAudioTime: number | null = null;
 
     const updateHint = () => {
-      hint.textContent = details.open ? "Hide transcript" : "Show transcript";
+      const message = details.open ? "Hide transcript" : "Show transcript";
+      hintText.textContent = message;
+      hint.setAttribute("aria-label", message);
     };
 
     const parseVtt = (vttText: string) => {

@@ -22,88 +22,105 @@ const timeId = `episode-player-time-${playerSlug}`;
   data-player-id={playerId}
   aria-label={`Audio player for ${title}`}
 >
-  <div class="episode-player__controls">
-    <button
-      class="episode-player__transport-button"
-      type="button"
-      data-action="rewind"
-      aria-label="Go back 10 seconds"
-      title="Go back 10 seconds"
-    >
-      <Icon
-        name="tabler:arrow-back-up"
-        class="episode-player__transport-icon"
-        aria-hidden="true"
-      />
-    </button>
-    <button
-      class="episode-player__control"
-      type="button"
-      data-action="toggle"
-      aria-label={`Play ${title}`}
-      aria-pressed="false"
-      aria-describedby={statusId}
-    >
-      <Icon
-        name="tabler:player-play-filled"
-        class="episode-player__control-icon episode-player__control-icon--play"
-        aria-hidden="true"
-      />
-      <Icon
-        name="tabler:player-pause-filled"
-        class="episode-player__control-icon episode-player__control-icon--pause"
-        aria-hidden="true"
-      />
-    </button>
-    <button
-      class="episode-player__retry"
-      type="button"
-      data-action="retry"
-      aria-label="Retry loading audio"
-      hidden
-    >
-      Retry
-    </button>
-    <button
-      class="episode-player__transport-button"
-      type="button"
-      data-action="forward"
-      aria-label="Skip forward 10 seconds"
-      title="Skip forward 10 seconds"
-    >
-      <Icon
-        name="tabler:arrow-forward-up"
-        class="episode-player__transport-icon"
-        aria-hidden="true"
-      />
-    </button>
-  </div>
+  <div class="episode-player__shell">
+    <div class="episode-player__controls">
+      <button
+        class="episode-player__transport-button"
+        type="button"
+        data-action="rewind"
+        aria-label="Go back 10 seconds"
+        title="Go back 10 seconds"
+      >
+        <Icon
+          name="tabler:arrow-back-up"
+          class="episode-player__transport-icon"
+          aria-hidden="true"
+        />
+      </button>
+      <button
+        class="episode-player__control"
+        type="button"
+        data-action="toggle"
+        aria-label={`Play ${title}`}
+        aria-pressed="false"
+        aria-describedby={statusId}
+      >
+        <Icon
+          name="tabler:player-play-filled"
+          class="episode-player__control-icon episode-player__control-icon--play"
+          aria-hidden="true"
+        />
+        <Icon
+          name="tabler:player-pause-filled"
+          class="episode-player__control-icon episode-player__control-icon--pause"
+          aria-hidden="true"
+        />
+      </button>
+      <button
+        class="episode-player__retry"
+        type="button"
+        data-action="retry"
+        aria-label="Retry loading audio"
+        hidden
+      >
+        Retry
+      </button>
+      <button
+        class="episode-player__transport-button"
+        type="button"
+        data-action="forward"
+        aria-label="Skip forward 10 seconds"
+        title="Skip forward 10 seconds"
+      >
+        <Icon
+          name="tabler:arrow-forward-up"
+          class="episode-player__transport-icon"
+          aria-hidden="true"
+        />
+      </button>
+    </div>
 
-  <div class="episode-player__status" id={statusId} aria-live="polite" aria-atomic="true">
-    {title}
-  </div>
+    <div class="episode-player__content">
+      <div class="episode-player__header">
+        <div class="episode-player__identity">
+          <p class="episode-player__title">{title}</p>
+          <div
+            class="episode-player__status episode-player__status--sr-only"
+            id={statusId}
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            Ready to play
+          </div>
+        </div>
+        <div class="episode-player__visualizer" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span
+          ></span><span></span>
+        </div>
+      </div>
 
-  <div class="episode-player__progress-wrap">
-    <label class="episode-player__progress-label" for={progressId}
-      >Playback progress</label
-    >
-    <input
-      id={progressId}
-      class="episode-player__progress"
-      type="range"
-      min="0"
-      max="0"
-      step="1"
-      value="0"
-      data-episode-progress
-      aria-describedby={timeId}
-    />
-  </div>
+      <div class="episode-player__progress-wrap">
+        <label class="episode-player__progress-label" for={progressId}
+          >Playback progress</label
+        >
+        <input
+          id={progressId}
+          class="episode-player__progress"
+          type="range"
+          min="0"
+          max="0"
+          step="1"
+          value="0"
+          data-episode-progress
+          aria-describedby={timeId}
+        />
+      </div>
 
-  <div class="episode-player__meta">
-    <span class="episode-player__time" id={timeId} aria-live="polite" aria-atomic="true"
-      >0:00 / 0:00</span
-    >
+      <div class="episode-player__meta" id={timeId} aria-live="polite" aria-atomic="true">
+        <span class="episode-player__time episode-player__time--current">0:00</span>
+        <span class="episode-player__time episode-player__time--remaining">-0:00</span>
+      </div>
+    </div>
   </div>
 
   <audio
@@ -130,18 +147,37 @@ const timeId = `episode-player-time-${playerSlug}`;
 
 <style>
   .episode-player {
-    display: grid;
-    gap: var(--spacing-base);
-    padding: var(--spacing-lg);
-    background: var(--surface-panel-bg);
+    position: relative;
+    overflow: hidden;
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    background:
+      radial-gradient(
+        circle at 100% 100%,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 35%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 28%, transparent),
+        color-mix(in srgb, var(--surface-1) 12%, transparent)
+      ),
+      var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-2xl);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent),
+      var(--shadow-xl);
+  }
+
+  .episode-player__shell {
+    display: grid;
+    gap: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    align-items: center;
   }
 
   .episode-player__controls {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-base);
     align-items: center;
     justify-content: center;
   }
@@ -159,25 +195,131 @@ const timeId = `episode-player-time-${playerSlug}`;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     cursor: pointer;
-    background: var(--surface-panel-raised);
+    background: color-mix(in srgb, var(--surface-1) 60%, transparent);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
+    transition:
+      transform var(--transition-base),
+      background-color var(--transition-base),
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
   }
 
   .episode-player__control {
     color: var(--button-text-accent);
-    background: var(--accent-primary);
-    border-color: var(--accent-primary);
+    min-inline-size: 6.25rem;
+    min-block-size: 6.25rem;
+    background: linear-gradient(
+      135deg,
+      var(--accent-primary),
+      color-mix(in srgb, var(--accent-primary) 82%, var(--accent-strong))
+    );
+    border-color: color-mix(
+      in srgb,
+      var(--accent-primary) 72%,
+      var(--surface-border-accent)
+    );
+    box-shadow:
+      0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 10%, transparent),
+      var(--shadow-lg);
+  }
+
+  .episode-player__control-icon {
+    inline-size: 2rem;
+    block-size: 2rem;
   }
 
   .episode-player__control-icon--pause {
     display: none;
   }
 
-  .episode-player__status,
-  .episode-player__time {
-    color: var(--text-secondary);
-    text-align: center;
+  .episode-player__content {
+    display: grid;
+    gap: var(--spacing-base);
+    min-inline-size: 0;
+  }
+
+  .episode-player__header {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .episode-player__identity {
+    display: grid;
+    gap: var(--spacing-xs);
+    min-inline-size: 0;
+  }
+
+  .episode-player__title {
+    margin: 0;
+    font-size: clamp(var(--font-size-lg), 1.2vw, var(--font-size-xl));
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+    text-wrap: pretty;
+  }
+
+  .episode-player__status {
+    font-size: var(--font-size-base);
+    color: var(--accent-primary);
+  }
+
+  .episode-player__status--sr-only {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
+  }
+
+  .episode-player__visualizer {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--spacing-sm);
+    align-items: end;
+    min-block-size: 2.5rem;
+    padding-inline-end: var(--spacing-sm);
+    opacity: 0.85;
+  }
+
+  .episode-player__visualizer > span {
+    inline-size: 0.3rem;
+    background: color-mix(in srgb, var(--accent-primary) 80%, var(--accent-strong));
+    border-radius: var(--radius-full);
+  }
+
+  .episode-player__visualizer > span:nth-child(1) {
+    block-size: 1.7rem;
+  }
+
+  .episode-player__visualizer > span:nth-child(2) {
+    block-size: 1.95rem;
+  }
+
+  .episode-player__visualizer > span:nth-child(3) {
+    block-size: 0.95rem;
+  }
+
+  .episode-player__visualizer > span:nth-child(4) {
+    block-size: 1.35rem;
+  }
+
+  .episode-player__visualizer > span:nth-child(5) {
+    block-size: 0.85rem;
+  }
+
+  .episode-player__visualizer > span:nth-child(6) {
+    block-size: 2.3rem;
+  }
+
+  .episode-player__visualizer > span:nth-child(7) {
+    block-size: 1.5rem;
   }
 
   .episode-player__progress-wrap {
@@ -186,14 +328,34 @@ const timeId = `episode-player-time-${playerSlug}`;
   }
 
   .episode-player__progress-label {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   .episode-player__progress {
     inline-size: 100%;
     accent-color: var(--accent-primary);
+  }
+
+  .episode-player__meta {
+    display: flex;
+    gap: var(--spacing-base);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .episode-player__time {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
   }
 
   .episode-player__control:focus-visible,
@@ -204,13 +366,38 @@ const timeId = `episode-player-time-${playerSlug}`;
     outline-offset: var(--focus-ring-offset);
   }
 
+  .episode-player__control:hover,
+  .episode-player__transport-button:hover,
+  .episode-player__retry:hover {
+    border-color: var(--surface-border-accent);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+  }
+
   .episode-player__retry[hidden] {
     display: none;
   }
 
+  @media (width >= 768px) {
+    .episode-player__shell {
+      grid-template-columns: auto minmax(0, 1fr);
+    }
+  }
+
   @media (width < 480px) {
     .episode-player__controls {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .episode-player__control {
+      min-inline-size: 4.75rem;
+      min-block-size: 4.75rem;
+    }
+
+    .episode-player__header {
+      flex-wrap: wrap;
+      align-items: start;
     }
   }
 </style>

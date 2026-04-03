@@ -31,7 +31,14 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
             <Icon name="file-text" class="transcript__summary-icon" aria-hidden="true" />
             Transcript
           </span>
-          <span class="transcript__summary-hint">Show transcript</span>
+          <span class="transcript__summary-hint">
+            <span class="transcript__summary-hint-text">Show transcript</span>
+            <Icon
+              name="tabler:chevron-down"
+              class="transcript__summary-chevron"
+              aria-hidden="true"
+            />
+          </span>
         </summary>
         <div class="transcript__body" id={transcriptContentId}>
           <Paragraph
@@ -66,9 +73,17 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 <style>
   .transcript {
     margin-block-start: var(--spacing-xl);
-    background: var(--surface-panel-bg);
+    overflow: hidden;
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--surface-1) 20%, transparent),
+        color-mix(in srgb, var(--accent-primary) 6%, transparent)
+      ),
+      var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
   }
 
   .transcript--flush-top {
@@ -81,7 +96,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     align-items: center;
     justify-content: space-between;
     min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-base) var(--spacing-lg);
+    padding: var(--spacing-lg);
     cursor: pointer;
     list-style: none;
   }
@@ -97,21 +112,57 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 
   .transcript__summary-title {
     display: inline-flex;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-base);
     align-items: center;
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
   }
 
   .transcript__summary-icon {
-    inline-size: var(--icon-size-sm);
-    block-size: var(--icon-size-sm);
-    color: var(--accent-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    padding: var(--spacing-sm);
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-1) 55%, transparent);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-md);
   }
 
   .transcript__summary-hint,
   .transcript__status {
     color: var(--text-secondary);
+  }
+
+  .transcript__summary-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .transcript__summary-hint-text {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
+  }
+
+  .transcript__summary-chevron {
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    transition: transform var(--transition-base);
+  }
+
+  .transcript__details[open] .transcript__summary-chevron {
+    transform: rotate(180deg);
   }
 
   .transcript__body {
@@ -170,7 +221,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     }
 
     .transcript__summary-hint {
-      inline-size: 100%;
+      inline-size: auto;
     }
 
     .transcript__body {

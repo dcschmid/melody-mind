@@ -2,7 +2,6 @@
 import PodcastLayout from "../layouts/PodcastLayout.astro";
 import PodcastPlatformLinks from "../components/PodcastPlatformLinks.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
-import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
@@ -86,7 +85,7 @@ const t = {
     "audio stories",
   ],
   rssFeed: "RSS Feed",
-  heroImageAlt: "Illustrated podcast cover art",
+  heroImageAlt: "MelodyMind Podcasts cover image",
 };
 
 const collectionPageSchema = buildCollectionPageSchema({
@@ -124,22 +123,42 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
 >
   <PageShell className="page-shell--aurora">
     <div class="home">
-      <HeroTeaser
+      <section
         id="podcast-home-hero"
-        title={t.title}
-        description={t.description}
-        imageSrc={podcastHeroImage}
-        imageAlt={t.heroImageAlt}
-        imageWidth={1536}
-        imageHeight={1024}
-        imageLoading="eager"
-        mediaObjectFit="contain"
-        titleLevel="h1"
+        class="home__hero"
+        aria-labelledby="podcast-home-hero-title"
+        aria-describedby="podcast-home-hero-description"
       >
-        <Fragment slot="actions">
-          <PodcastPlatformLinks ariaLabel={t.availableOn} rssLabel={t.rssFeed} />
-        </Fragment>
-      </HeroTeaser>
+        <div class="home__hero-media">
+          <img
+            src={podcastHeroImage.src}
+            alt={t.heroImageAlt}
+            class="home__hero-image"
+            width="1200"
+            height="800"
+            loading="eager"
+            decoding="sync"
+          />
+        </div>
+
+        <div class="home__hero-copy">
+          <p class="home__hero-eyebrow">{t.subtitle}</p>
+          <Headline
+            id="podcast-home-hero-title"
+            level="h1"
+            textSize="xl"
+            className="home__hero-title"
+          >
+            MelodyMind Podcasts
+          </Headline>
+          <p id="podcast-home-hero-description" class="home__hero-description">
+            {t.description}
+          </p>
+          <div class="home__hero-actions">
+            <PodcastPlatformLinks ariaLabel={t.availableOn} rssLabel={t.rssFeed} />
+          </div>
+        </div>
+      </section>
 
       <SectionSurface
         as="section"
@@ -212,9 +231,149 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
     gap: var(--spacing-xl);
   }
 
+  .home__hero {
+    position: relative;
+    display: grid;
+    gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+    align-items: center;
+    padding-block-end: clamp(var(--spacing-xl), 4vw, var(--spacing-2xl));
+  }
+
+  .home__hero-media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-2) 82%, transparent),
+      color-mix(in srgb, var(--surface-1) 88%, transparent)
+    );
+    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 90%, transparent);
+    border-radius: calc(var(--radius-xl) + var(--spacing-2xs));
+    box-shadow: var(--shadow-lg);
+  }
+
+  .home__hero-media::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background:
+      linear-gradient(
+        180deg,
+        transparent 55%,
+        color-mix(in srgb, var(--surface-1) 18%, transparent)
+      ),
+      linear-gradient(
+        90deg,
+        transparent 60%,
+        color-mix(in srgb, var(--surface-1) 14%, transparent)
+      );
+    pointer-events: none;
+  }
+
+  .home__hero-image {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .home__hero-copy {
+    display: grid;
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+    align-content: center;
+    min-inline-size: 0;
+  }
+
+  .home__hero-eyebrow {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--accent-primary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .home__hero-title {
+    margin: 0;
+    font-size: clamp(2.8rem, 5.8vw, 5rem);
+    line-height: 0.94;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+
+  .home__hero-title-line {
+    display: block;
+  }
+
+  .home__hero-description {
+    max-inline-size: 38rem;
+    margin: 0;
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+
+  .home__hero-actions {
+    display: grid;
+    margin-block-start: var(--spacing-xs);
+  }
+
+  .home__hero-actions :global(.podcast-platform-links) {
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, max-content));
+    gap: var(--spacing-sm);
+  }
+
+  .home__hero-actions :global(.podcast-platform-links__link) {
+    min-block-size: 3rem;
+    padding: 0.8rem 1rem;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    background: color-mix(in srgb, var(--surface-1) 86%, transparent);
+    border-color: color-mix(in srgb, var(--surface-border-soft) 94%, transparent);
+    box-shadow: none;
+  }
+
+  .home__hero-actions :global(.podcast-platform-links__link:hover),
+  .home__hero-actions :global(.podcast-platform-links__link:focus-visible) {
+    background: color-mix(in srgb, var(--surface-card-hover) 92%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .home__hero-actions :global(.podcast-platform-links__link--secondary) {
+    color: #05292b;
+    background: linear-gradient(135deg, #35dfd0, #2dc7d7);
+    border-color: color-mix(in srgb, #62efe3 40%, transparent);
+    box-shadow: 0 1rem 2rem color-mix(in srgb, #35dfd0 20%, transparent);
+  }
+
+  .home__hero-actions :global(.podcast-platform-links__link--secondary:hover),
+  .home__hero-actions :global(.podcast-platform-links__link--secondary:focus-visible) {
+    background: linear-gradient(135deg, #45ead9, #39d4e3);
+    border-color: color-mix(in srgb, #8ef4ec 48%, transparent);
+  }
+
   .home__episodes {
     display: grid;
     gap: var(--spacing-lg);
+  }
+
+  .home :global(.home__episodes) {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .home :global(.content-card) {
+    border-color: transparent;
+  }
+
+  .home :global(.content-card__media) {
+    border-block-end: 0;
   }
 
   .home__section-title {
@@ -229,12 +388,22 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
   }
 
   @media (width >= 960px) {
+    .home__hero {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+      gap: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
+    }
+
     .home__episodes-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
   @media (width < 40rem) {
+    .home__hero {
+      gap: var(--spacing-lg);
+      padding-block-end: var(--spacing-xl);
+    }
+
     .home__episodes {
       gap: var(--spacing-base);
     }
