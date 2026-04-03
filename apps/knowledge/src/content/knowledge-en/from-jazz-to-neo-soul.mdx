@@ -8,7 +8,7 @@ description:
   culture."
 image: "/category/from-jazz-to-neo-soul.jpg"
 createdAt: "2026-03-01"
-updatedAt: "2026-03-01"
+updatedAt: "2026-04-03"
 author: "MelodyMind"
 locale: "en"
 taxonomySubsection: cross-decade-lenses
@@ -32,17 +32,26 @@ keywords:
   - acid jazz
   - neo soul
 takeaways:
-  - "Jazz evolved through various styles, from traditional to fusion, acid jazz, and neo
-    soul."
-  - "Key artists and influential albums shaped the direction of modern soul music."
-  - "Music institutions, technology, and industry power played significant roles in the
-    global evolution of jazz."
+  - "Jazz began as a living, collective language before it became an institution. Swing,
+    bebop, hard bop, and later forms kept redefining how freedom, groove, and technical
+    discipline could coexist."
+  - "Fusion was not just jazz adding electricity. It reflected new studio tools, new
+    audience expectations, and a widening relationship between improvisation, funk, rock,
+    and global rhythm."
+  - "Acid jazz and related club cultures turned older Black musical vocabularies into new
+    urban nightlife languages. DJs, crate-diggers, and producers helped reconnect jazz,
+    soul, funk, and dance-floor listening."
+  - "Neo soul carried that history forward by making warmth, musicianship, and emotional
+    depth feel contemporary again. Artists from Erykah Badu to Robert Glasper showed that
+    modern soul could stay rooted in jazz without sounding nostalgic."
 playlists:
   spotifyPlaylist: "https://open.spotify.com/playlist/3DoIYjdGLfmjnxDelqN4LR"
   deezerPlaylist: "https://www.deezer.com/en/playlist/15018081823"
 podcast: from-hip-hop-to-trap-drill
 ---
 
+import DidYouKnowCard from "@shared-ui/components/cards/DidYouKnowCard.astro";
+import QuoteCard from "@shared-ui/components/cards/QuoteCard.astro";
 import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro";
 
 <SubsectionFigure
@@ -52,7 +61,9 @@ import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro
   imageHeight={1024}
   heading="Jazz as a Living Language"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Jazz did not begin as a museum piece. It grew in crowded places, on street corners, in
 churches, and in dance halls. In those spaces, the floor mattered as much as the stage.
@@ -69,6 +80,8 @@ in unfamiliar ways. Solos became statements of identity.
 That language did not stay contained. It traveled, changed its accents, and absorbed new
 influences. Every phase that followed built on that early grammar.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-2.jpg"
   imageAlt=""
@@ -76,7 +89,9 @@ influences. Every phase that followed built on that early grammar.
   imageHeight={1024}
   heading="The Swing Era: Moving Together"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 In the beginning, jazz was all about having a shared rhythm. Swing was more than just a
 rhythm pattern. It was a way of moving together. The music sounded a little livelier, like
@@ -114,6 +129,8 @@ freedom and control would be seen again later, in jazz-funk and neo soul. Today,
 producers talk about "feel," they're still trying to recreate the subtle energy of the
 early swing musicians.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-3.jpg"
   imageAlt=""
@@ -121,7 +138,9 @@ early swing musicians.
   imageHeight={1024}
   heading="Bebop: Jazz Gets Complex"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the mid-1940s, a new generation of musicians wanted something different from the
 dance-driven swing era. They weren't rejecting rhythm, but they weren't as interested in
@@ -162,6 +181,8 @@ and studio production. When fusion artists later pushed jazz outward, they were 
 working from bebop's belief that the music could become more complex, more personal, and
 more adventurous.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-4.jpg"
   imageAlt=""
@@ -169,7 +190,9 @@ more adventurous.
   imageHeight={1024}
   heading="Jazz as Composition"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While bebop emphasized improvisation, another strand of jazz placed equal weight on
 composition. Some bandleaders treated their groups almost like orchestras, shaping the
@@ -206,6 +229,8 @@ The compositions are carefully layered, the tones are precise, and the composers
 enough to leave silence in their music. All of these things come from the compositional
 lineage mentioned earlier.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-5.jpg"
   imageAlt=""
@@ -213,7 +238,9 @@ lineage mentioned earlier.
   imageHeight={1024}
   heading="Finding Space and Spirit"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the end of the 1950s, some musicians started to look for more space within the harmony
 itself. Bebop's rapid chord changes made the music exciting, but they could also feel a
@@ -250,6 +277,8 @@ music would use sustained chords and atmosphere. The deep spiritual feeling that
 embraced also appears in later artists who see music as a reflection of life rather than
 just a form of entertainment. The search for depth never really stopped once it began.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-6.jpg"
   imageAlt=""
@@ -257,7 +286,9 @@ just a form of entertainment. The search for depth never really stopped once it 
   imageHeight={1024}
   heading="Women Who Built Jazz"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 The history of jazz is often told through a narrow list of names. But from the beginning,
 women were key to its development. They were composers, arrangers, instrumentalists, and
@@ -295,6 +326,8 @@ its complexity. Their presence reminds us that innovation rarely belongs to one 
 one narrative. The evolution toward fusion, acid jazz, and neo soul clearly shows their
 influence, just like it does with the better-known bandleaders.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-7.jpg"
   imageAlt=""
@@ -302,7 +335,9 @@ influence, just like it does with the better-known bandleaders.
   imageHeight={1024}
   heading="Jazz Travels the World"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As jazz grew in the United States, it also started to travel. Musicians traveled to other
 countries. Records traveled across oceans. Radio brought new sounds to distant cities.
@@ -338,6 +373,8 @@ and acid jazz used this network as well. The music had already gone beyond the l
 any single city. It was part of a larger community of people who listened to each other
 and shared ideas.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-8.jpg"
   imageAlt=""
@@ -345,7 +382,9 @@ and shared ideas.
   imageHeight={1024}
   heading="From Street Corners to Conservatories"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Jazz started in casual places. It was popular in clubs, churches, rented halls, and on
 touring circuits that were often unstable. But over time, it started to be used in
@@ -366,6 +405,8 @@ added new systems on top of it. Those systems would shape the next generations o
 musicians, including many who later moved into fusion, acid jazz, and neo soul. The change
 in institutions is one reason why jazz is still around and has become more formal.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-9.jpg"
   imageAlt=""
@@ -373,7 +414,9 @@ in institutions is one reason why jazz is still around and has become more forma
   imageHeight={1024}
   heading="Jazz Goes to school"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the 1970s and 1980s, jazz education had become a structured program instead of an
 informal apprenticeship. Well-known schools like Berklee College of Music in Boston and
@@ -412,6 +455,8 @@ skills. The classroom was one of several places where jazz continued to evolve. 
 still had a strong connection to the community. At the same time, it gained another layer
 of transmission that would quietly shape the sound of decades to come.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-10.jpg"
   imageAlt=""
@@ -419,7 +464,9 @@ of transmission that would quietly shape the sound of decades to come.
   imageHeight={1024}
   heading="Who Gets Remembered"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 When jazz started being taught in schools, the question of what should be included in the
 curriculum became important. A syllabus has limits. Teachers must choose which recordings
@@ -463,6 +510,8 @@ from something played mainly in communities to something performed and evaluated
 institutions. This change affected how people thought about jazz, talked about it, and
 defended it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-11.jpg"
   imageAlt=""
@@ -470,7 +519,9 @@ defended it.
   imageHeight={1024}
   heading="Different Ways to Pay the Bills"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 The way jazz developed outside the United States was influenced by culture and economics.
 In the U.S., jazz musicians often work within a market-driven system. The money made from
@@ -510,6 +561,8 @@ markets are strong, artists often balance innovation and accessibility. Jazz and
 types of music that came from it show both systems. Their evolution was affected by the
 financial realities that supported or limited them.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-12.jpg"
   imageAlt=""
@@ -517,7 +570,9 @@ financial realities that supported or limited them.
   imageHeight={1024}
   heading="When Jazz Found Its Groove Again"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the late 1950s and into the 1960s, jazz was facing some big changes. Bebop had taken
 harmony to a new level of complexity. Experiments with different musical styles allowed
@@ -537,6 +592,8 @@ was laid for fusion, as well as for later club movements and neo soul. The groov
 an important part of jazz history. It was a big change that made the music more open,
 ready to mix with funk, R&B, and eventually hip hop.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-13.jpg"
   imageAlt=""
@@ -544,7 +601,9 @@ ready to mix with funk, R&B, and eventually hip hop.
   imageHeight={1024}
   heading="The Sound of Soul Jazz"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 If swing was built for dance halls and bebop for late-night listening, soul jazz brought
 the music back to a more communal rhythm. The Hammond organ became its most famous
@@ -582,6 +641,8 @@ strong groove can carry complex harmony without announcing it. Decades later, th
 would influence neo soul, a style where long-lasting chords go well with relaxed rhythms.
 The return of the body did not mean giving up the mind. It meant reconnecting both.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-14.jpg"
   imageAlt=""
@@ -589,7 +650,9 @@ The return of the body did not mean giving up the mind. It meant reconnecting bo
   imageHeight={1024}
   heading="Jazz-Funk: The Bridge to Tomorrow"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As the 1970s approached, the music got louder and more electric. Jazz musicians listened
 closely to James Brown, Sly and the Family Stone, and the rising wave of funk. The groove
@@ -625,6 +688,8 @@ recordings in large collections of old records. Neo soul musicians took on the c
 progressions and steady rhythms. Jazz-funk showed that being sophisticated and being easy
 to listen to don't have to be opposites. They can share the same beat.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-15.jpg"
   imageAlt=""
@@ -632,7 +697,9 @@ to listen to don't have to be opposites. They can share the same beat.
   imageHeight={1024}
   heading="When Producers Took Over"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As jazz moved deeper into the 1970s, the role of the producer became more visible. Creed
 Taylor, the man who started CTI Records, created one of the most unique jazz-funk sounds
@@ -669,6 +736,8 @@ The producer era did not get rid of improvisation. It changed it by carefully de
 new spaces. That balance between being spontaneous and being polished would be very
 important as jazz moved toward fusion and beyond.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-16.jpg"
   imageAlt=""
@@ -676,7 +745,9 @@ important as jazz moved toward fusion and beyond.
   imageHeight={1024}
   heading="Women Kept the Groove Alive"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 The 1970s brought new opportunities for women in the industry, but there was still a lack
 of recognition for their work. Some artists navigated that barrier with remarkable skill.
@@ -712,6 +783,8 @@ recordings by male bandleaders. Songs by Rushen and others became popular again 
 bringing together people from different generations. The groove shift carried forward
 their contributions, even when they were not in the spotlight.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-17.jpg"
   imageAlt=""
@@ -719,7 +792,9 @@ their contributions, even when they were not in the spotlight.
   imageHeight={1024}
   heading="Brazil: Adding New Colors"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While jazz-funk developed in the United States, Brazil created its own style of harmony
 and rhythm that would later be popular all over the world. The connection between
@@ -757,6 +832,8 @@ This exchange was not a simple borrowing. It was a conversation about migration,
 and recording networks. Brazilian musicians took jazz ideas and changed them. This helped
 show a key point: jazz grows when it pays attention to other music.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-18.jpg"
   imageAlt=""
@@ -764,7 +841,9 @@ show a key point: jazz grows when it pays attention to other music.
   imageHeight={1024}
   heading="Afrobeat: Politics on the Dance Floor"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While jazz-funk and Brazilian music combined to create new sounds, another groove-based
 movement was happening in West Africa. Afrobeat, created by the Nigerian bandleader Fela
@@ -804,6 +883,8 @@ experiences. The jazz continuum uses these influences not just for decoration, b
 important parts of the structure. The long political history of Afrobeat adds weight and
 depth to the evolving story.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-19.jpg"
   imageAlt=""
@@ -811,7 +892,9 @@ depth to the evolving story.
   imageHeight={1024}
   heading="The Instruments That Changed Everything"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Musical ideas and the tools that carry them are inseparable. A new instrument can change
 the harmony, rhythm, and even the way musicians work together. When electric keyboards,
@@ -830,6 +913,8 @@ experimented on stage and in the studio. When fusion music first appeared in the
 jazz and neo soul, heavily featured these electric textures. Knowing about the instruments
 helps explain why the groove got deeper and why the harmony started to sound different.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-20.jpg"
   imageAlt=""
@@ -837,7 +922,9 @@ helps explain why the groove got deeper and why the harmony started to sound dif
   imageHeight={1024}
   heading="The Fender Rhodes: A New Sound"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 The Fender Rhodes electric piano is one of the most important instruments in the sound of
 modern jazz. It has a warm tone that sounds a little like a bell. It can hold notes for a
@@ -875,6 +962,8 @@ they are hearing the impact of this change. This instrument helped bring acousti
 and electric experimentation together. It didn't replace the piano. It expanded the range
 of possibilities.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-21.jpg"
   imageAlt=""
@@ -882,7 +971,9 @@ of possibilities.
   imageHeight={1024}
   heading="Synthesizers Enter the Picture"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 The Fender Rhodes added warmth, and the synthesizer brought a new sense of space and
 possibility. Early analog synths, like the Moog, let musicians make sounds that were
@@ -920,6 +1011,8 @@ The synthesizer did not get rid of jazz's improvisational core. It made more col
 available. By embracing electronic textures, musicians expanded the possibilities of music
 and laid the foundation for genres that heavily relied on studio creativity.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-22.jpg"
   imageAlt=""
@@ -927,7 +1020,9 @@ and laid the foundation for genres that heavily relied on studio creativity.
   imageHeight={1024}
   heading="The Bass Steps Forward"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 If electric keyboards reshaped harmony, the bass reshaped physical impact. In early jazz,
 the upright bass provided a steady walking foundation. It clearly showed chord changes and
@@ -966,6 +1061,8 @@ experienced music physically. The low frequencies became a way for them to expre
 identity and power. The bass revolution created the foundation for many other genres of
 music that came after it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-23.jpg"
   imageAlt=""
@@ -973,7 +1070,9 @@ music that came after it.
   imageHeight={1024}
   heading="Fusion: When Jazz Went Electric"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the late 1960s, it was clear that electric guitars were becoming more popular. Rock
 audiences were filling arenas. The amplifiers got louder. Studio technology got better
@@ -995,6 +1094,8 @@ technology and mass culture directly. This led to later developments in club mus
 mixing of different genres. To understand fusion, you have to understand how jazz gained
 popularity, influence, and change.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-24.jpg"
   imageAlt=""
@@ -1002,7 +1103,9 @@ popularity, influence, and change.
   imageHeight={1024}
   heading="Miles Davis Goes Electric"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 If we look at the history of fusion, we can point to Miles Davis in the late 1960s as the
 beginning. Davis had already changed jazz many times. He took a big step into electric
@@ -1025,6 +1128,12 @@ world around him. Rock bands like Jimi Hendrix's Experience were changing how pe
 thought about stage presence and sound volume. Davis wanted jazz to be as energetic as
 possible.
 
+<DidYouKnowCard title="Bitches Brew is now recognized as a national recording landmark">
+  The Library of Congress added Bitches Brew to the National Recording Registry in 2025,
+  decades after the GRAMMY Hall of Fame had already honored it. What once sounded like a
+  rupture now sits firmly inside the official canon.
+</DidYouKnowCard>
+
 The musicians involved in these sessions would go on to form key fusion groups. Other
 musicians, like Herbie Hancock, Wayne Shorter, Joe Zawinul, and Chick Corea, also
 incorporated electric sounds into their own music. The effect was immediate.
@@ -1039,6 +1148,8 @@ But history shows that the album opened doors rather than closing them. It expan
 vocabulary and proved that jazz could incorporate modern technology without losing its
 edge.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-25.jpg"
   imageAlt=""
@@ -1046,7 +1157,9 @@ edge.
   imageHeight={1024}
   heading="Hancock’s Funk Architecture"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While Miles Davis pushed boundaries through large, layered studio projects, Herbie Hancock
 built a different kind of electric framework. After leaving Davis's band, Hancock moved
@@ -1072,6 +1185,14 @@ concert. This increased visibility led to a discussion. Some critics worried tha
 music was too popular. But Hancock's musical complexity was still evident. He was not
 making his craft easier. He was changing how he saw it.
 
+<QuoteCard
+  quote="I had no idea I was creating something brand-new."
+  authorName="Herbie Hancock"
+  authorRole="Pianist and composer"
+  sourceLabel="GRAMMY.com interview, 2014"
+  sourceUrl="https://www.grammy.com/news/herbie-hancock-is-still-a-musical-chameleon"
+/>
+
 The most important thing about Hancock's approach is that it lasts a long time. The
 groove-centered structure of Head Hunters became a template for acid jazz bands and later
 neo soul producers. Many modern soul recordings use repetition, subtle variation, and
@@ -1081,6 +1202,8 @@ Hancock showed that jazz musicians could embrace funk while still maintaining th
 styles. His work shows how structure and groove can coexist, creating a sound that feels
 both solid and exploratory.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-26.jpg"
   imageAlt=""
@@ -1088,7 +1211,9 @@ both solid and exploratory.
   imageHeight={1024}
   heading="Mahavishnu Orchestra and Return to Forever"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While Herbie Hancock focused on creating rhythmic beats, other fusion artists emphasized
 playing with more intensity and technical skill. The Mahavishnu Orchestra, led by
@@ -1128,6 +1253,8 @@ Mahavishnu Orchestra and Return to Forever showed that jazz could be as big and 
 as contemporary rock. Their work made jazz more popular and showed that jazz could
 continue to evolve.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-27.jpg"
   imageAlt=""
@@ -1135,7 +1262,9 @@ continue to evolve.
   imageHeight={1024}
   heading="Weather Report: Jazz Without Borders"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 If Mahavishnu Orchestra was intense, Return to Forever was melodic. Weather Report was
 another way of thinking about fusion. Joe Zawinul and Wayne Shorter, two musicians who
@@ -1175,6 +1304,8 @@ how jazz can take in influences from around the world, electronic instruments, a
 production methods without losing its own style. This helped prepare the ground for the
 club-oriented reinterpretations that would follow in the 1990s.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-28.jpg"
   imageAlt=""
@@ -1182,7 +1313,9 @@ club-oriented reinterpretations that would follow in the 1990s.
   imageHeight={1024}
   heading="Fusion Around the World"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As fusion spread through the 1970s, it became popular in other countries too. Musicians in
 Europe and Japan started using electric textures and complex rhythms, adapting them to fit
@@ -1222,6 +1355,8 @@ The international phase of fusion shows that the evolution of jazz is not a simp
 straight line. It branches, intersects, and returns in unexpected forms. Each local
 version of the story makes the larger story stronger.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-29.jpg"
   imageAlt=""
@@ -1229,7 +1364,9 @@ version of the story makes the larger story stronger.
   imageHeight={1024}
   heading="The Sellout Debate: Was It Real Jazz?"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As fusion gained popularity in the 1970s, more and more people started to criticize it.
 Some jazz writers and listeners thought that electric instruments and rock rhythms changed
@@ -1270,6 +1407,8 @@ just about music. It is connected to ideas about what is valuable, race, and the
 Fusion made people talk about these issues in public. People either loved or hated it, but
 it expanded the range of styles that later artists could use.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-30.jpg"
   imageAlt=""
@@ -1277,7 +1416,9 @@ it expanded the range of styles that later artists could use.
   imageHeight={1024}
   heading="Where the Music Lived: Clubs as Creative Labs"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Music doesn't change on its own. It grows in places where people regularly gather to share
 interests. After fusion music started being played in larger venues, another kind of space
@@ -1296,6 +1437,8 @@ was important. The setting of a scene often reflected the city's social and econ
 realities. Knowing about these clubs helps us understand how jazz moved from big concert
 halls back to smaller, dance-oriented venues.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-31.jpg"
   imageAlt=""
@@ -1303,7 +1446,9 @@ halls back to smaller, dance-oriented venues.
   imageHeight={1024}
   heading="London: Where the Groove Came Back"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 In the late 1980s and early 1990s, London was a place where different kinds of music met
 and influenced each other. Clubs like Dingwalls in Camden and the Jazz Café brought
@@ -1336,6 +1481,8 @@ This club environment did not reject musicianship. Many players were formally tr
 jazz. They just decided to use their skills in dance. The London clubs showed that jazz
 could be successful in discos just as much as in concert halls.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-32.jpg"
   imageAlt=""
@@ -1343,7 +1490,9 @@ could be successful in discos just as much as in concert halls.
   imageHeight={1024}
   heading="New York: Tradition Meets Tomorrow"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While London's club scene reshaped jazz-funk for a new generation, New York maintained its
 own complex music scene. The city has always been important to jazz. For example, it was
@@ -1380,6 +1529,8 @@ radio programs helped people share ideas quickly. The city kept its tradition of
 jazz. It allowed new grooves to emerge alongside it. This coexistence prepared the ground
 for neo soul's later rise, combining live musicianship with modern production.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-33.jpg"
   imageAlt=""
@@ -1387,7 +1538,9 @@ for neo soul's later rise, combining live musicianship with modern production.
   imageHeight={1024}
   heading="Philadelphia’s Neo Soul Network"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While London's clubs were important for nurturing acid jazz and New York's venues were key
 to facilitating dialogue across different genres, Philadelphia built a network that would
@@ -1426,6 +1579,8 @@ skill. Clubs and community spaces helped new ideas take root. The results would 
 seen by the whole country, but the scene first came together in those simple rooms where
 rhythm and melody came together.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-34.jpg"
   imageAlt=""
@@ -1433,7 +1588,9 @@ rhythm and melody came together.
   imageHeight={1024}
   heading="Acid Jazz: When Old Records Became New Again"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the early 1990s, a name for the sound that London clubs had been creating was starting
 to spread: acid jazz. The term was vague and sometimes people disagreed about it, but it
@@ -1441,6 +1598,13 @@ showed a real change. DJs were playing a variety of music, not just old jazz-fun
 They were building new tracks that had the same warm sound, strong bass, and layered
 harmony. There were live bands playing next to turntables. Horns were back on the dance
 floors.
+
+<DidYouKnowCard title="The label helped name the scene">
+  Acid Jazz Records says founder Eddie Piller set up the label with Gilles Peterson to
+  document music coming out of their small London scene, and that the label later gave its
+  name to the wider international movement. In other words, infrastructure and genre
+  language grew together.
+</DidYouKnowCard>
 
 Acid jazz was more of a way of listening than a strict genre. It treated the 1970s as a
 set of memories that could be brought back to life. Producers tested out different beats.
@@ -1457,6 +1621,8 @@ Acid jazz didn't set out to be a big hit on the pop charts. It tried to bring ba
 connection between musicianship and groove in a club setting. Its influence spread quietly
 into hip hop and neo soul, showing that reinterpretation can be as creative as invention.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-35.jpg"
   imageAlt=""
@@ -1464,7 +1630,9 @@ into hip hop and neo soul, showing that reinterpretation can be as creative as i
   imageHeight={1024}
   heading="DJs as Musical Historians"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Before there was an "acid jazz" label, DJs treated vinyl records like living documents. In
 London, music experts like Gilles Peterson and Chris Bangs spent years searching for
@@ -1499,6 +1667,8 @@ The DJ played a quiet but important role as historian. If people hadn't taken th
 listen, many of these songs might have remained hidden. Instead, they laid the groundwork
 for a new conversation between jazz, funk, and modern club culture.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-36.jpg"
   imageAlt=""
@@ -1506,7 +1676,9 @@ for a new conversation between jazz, funk, and modern club culture.
   imageHeight={1024}
   heading="Talkin’ Loud and Scene Infrastructure"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Scenes need infrastructure. Clubs create momentum, but record labels, distributors, and
 media platforms turn momentum into continuity. In the early 1990s, Talkin' Loud became one
@@ -1544,6 +1716,8 @@ structures, many acid jazz recordings might have remained local phenomena. They 
 make jazz popular around the world and helped shape the style of jazz music that came
 later.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-37.jpg"
   imageAlt=""
@@ -1551,7 +1725,9 @@ later.
   imageHeight={1024}
   heading="Live Bands Return"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While DJs were in charge of the past and record labels were in charge of the present, live
 bands made acid jazz popular. Groups like Jamiroquai, The Brand New Heavies, and Incognito
@@ -1564,6 +1740,12 @@ of this mix. The grooves are based on 1970s funk and jazz-funk styles. The bass 
 strong and melodic. The rhythm is punctuated by precise horn sections. But the songs are
 written for today. The song's lyrics talk about environmental and social issues, combining
 music with commentary.
+
+<DidYouKnowCard title="Acid Jazz's indie infrastructure produced international stars">
+  Acid Jazz Records says its early momentum helped make international stars of Jamiroquai,
+  The Brand New Heavies, and The James Taylor Quartet. A local crate-digger scene became a
+  transnational pop pipeline surprisingly quickly.
+</DidYouKnowCard>
 
 The Brand New Heavies focused even more on using live instruments. Their early recordings
 feature good drumming, nice keyboards, and strong singing. Instead of hiding their
@@ -1590,6 +1772,8 @@ These bands kept jazz harmony alive by combining groove with visible musicianshi
 revival wasn't just a reminder of the past. It was a statement that in today's urban
 culture, skill and style are still important.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-38.jpg"
   imageAlt=""
@@ -1597,7 +1781,9 @@ culture, skill and style are still important.
   imageHeight={1024}
   heading="Acid Jazz Crosses the Atlantic"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Although acid jazz is often associated with London, similar developments were happening in
 the United States. The American scene used different labels, but the desire to bring jazz
@@ -1636,6 +1822,8 @@ already a part of urban music cultures that were influenced by hip hop and R&B. 
 of music might have changed, but the main idea stayed the same: bring jazz vocabulary back
 together with modern rhythms and real-life experiences.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-39.jpg"
   imageAlt=""
@@ -1643,7 +1831,9 @@ together with modern rhythms and real-life experiences.
   imageHeight={1024}
   heading="Women in 1990s Groove Scene"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As acid jazz and related club music gained popularity, people started to ask questions
 about visibility again. Women have always been part of jazz and soul traditions. But
@@ -1682,6 +1872,8 @@ the contributions of women in acid jazz and similar styles to have a balanced st
 presence made sure that the evolving group included many different points of view, not
 just one dominant voice.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-40.jpg"
   imageAlt=""
@@ -1689,7 +1881,9 @@ just one dominant voice.
   imageHeight={1024}
   heading="Broken Beat: Rhythm Gets Elastic"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As acid jazz grew in popularity in the 1990s, a new rhythmic variation began to emerge in
 West London. Broken beat, also called bruk, moved the groove slightly off center. Instead
@@ -1724,6 +1918,8 @@ By changing how time feels, Broken Beat took jazz in a new direction. It focused
 harmony while changing the foundation. This balance would continue as thoughtful
 songwriting met meticulously designed rhythms.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-41.jpg"
   imageAlt=""
@@ -1731,7 +1927,9 @@ songwriting met meticulously designed rhythms.
   imageHeight={1024}
   heading="Acid Jazz Goes Global"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While London's acid jazz scene became popular, similar types of music were also becoming
 popular in Europe and Japan. These movements were not just copies of British trends. They
@@ -1770,6 +1968,8 @@ popularity of jazz-funk and acid jazz led to audiences who were eager for though
 harmony-driven songwriting, performed by talented musicians. The range of possibilities
 had widened, and its next phase was already taking shape.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-42.jpg"
   imageAlt=""
@@ -1777,7 +1977,9 @@ had widened, and its next phase was already taking shape.
   imageHeight={1024}
   heading="Jazz Meets Hip Hop: The Art of Sampling"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While acid jazz brought back the live groove in clubs, hip hop changed jazz through
 production. Technology allowed producers to take pieces from old records and rebuild them
@@ -1798,6 +2000,8 @@ to do so. This change in perspective would have an impact on neo soul, a genre t
 blended live instrumentation and hip hop production. The continuum moved forward through
 reconstruction as much as performance.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-43.jpg"
   imageAlt=""
@@ -1805,7 +2009,9 @@ reconstruction as much as performance.
   imageHeight={1024}
   heading="A Tribe Called Quest: Less Is More"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 When A Tribe Called Quest released The Low End Theory in 1991, the connection between jazz
 and hip hop felt both natural and intentional. The album features strong bass lines and
@@ -1841,6 +2047,8 @@ instead of stealing from it. It used older recordings as a basis for new stories
 A Tribe Called Quest showed that the jazz continuum didn't just depend on live bands. It
 could move through turntables and samplers, guided by ears attuned to rhythm and texture.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-44.jpg"
   imageAlt=""
@@ -1848,7 +2056,9 @@ could move through turntables and samplers, guided by ears attuned to rhythm and
   imageHeight={1024}
   heading="Guru’s Jazzmatazz and Live Collaboration"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 If A Tribe Called Quest showed how jazz samples could shape hip hop production, Guru took
 the idea a step further. In 1993, he released Jazzmatazz, Vol. 1, which brought jazz
@@ -1886,6 +2096,8 @@ he showed that history can be a living, changing thing. The conversation between
 generations moved from one person playing a small part of a song to everyone performing
 together, which made the connection between rhythm and improvisation stronger.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-45.jpg"
   imageAlt=""
@@ -1893,7 +2105,9 @@ together, which made the connection between rhythm and improvisation stronger.
   imageHeight={1024}
   heading="The Producers Who Changed Everything"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As hip hop grew up, the producer became an important creative person. Sampling was more
 than just a technical trick. It became a way of writing music. The producers were the ones
@@ -1933,6 +2147,8 @@ The focus of the music industry shifted from live performances to recorded music
 connection to jazz was still clear in the emphasis on groove, timing, and layered harmony.
 By using samples and rhythmic nuances, these producers explored new musical territory.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-46.jpg"
   imageAlt=""
@@ -1940,7 +2156,9 @@ By using samples and rhythmic nuances, these producers explored new musical terr
   imageHeight={1024}
   heading="Sampling: Who Owns the Music?"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Sampling opened creative doors, but it also raised difficult questions. When producers
 built tracks from parts of older recordings, problems with who owns what and how much they
@@ -1981,6 +2199,8 @@ jazz and hip hop are connected because they both reuse and reinterpret music. Wh
 approach the past with respect and transparency, it can shape the present. It shows that
 the continuum moves forward through dialogue, not isolation.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-47.jpg"
   imageAlt=""
@@ -1988,7 +2208,9 @@ the continuum moves forward through dialogue, not isolation.
   imageHeight={1024}
   heading="Women Behind the Boards"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 When people talk about producers, they usually mean men. But women have also influenced
 the studio music scene in ways that can be heard in neo soul and other types of music.
@@ -2027,6 +2249,8 @@ that the transition from jazz to hip hop to neo soul was driven by a variety of 
 leaders. The studio, like the bandstand, has always been a shared space, even when some
 people could be seen and others couldn't.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-48.jpg"
   imageAlt=""
@@ -2034,7 +2258,9 @@ people could be seen and others couldn't.
   imageHeight={1024}
   heading="Neo Soul: Music for the Soul"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the mid-1990s, jazz, soul, hip hop, and club culture started to mix together in new
 ways. The term "neo soul" was used to describe artists who drew deeply from classic soul
@@ -2052,6 +2278,8 @@ vulnerability, social tension, and spiritual search in a clear but careful way. 
 movement may not have been as popular as mainstream R&B, but it had a significant impact.
 It offered an alternative path, grounded in craft and community.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-49.jpg"
   imageAlt=""
@@ -2059,7 +2287,9 @@ It offered an alternative path, grounded in craft and community.
   imageHeight={1024}
   heading="D’Angelo: Craft, Pressure, Retreat"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 When D'Angelo released Brown Sugar in 1995, the sound felt both familiar and newly
 focused. The album is mostly 1970s soul and jazz-funk. The Rhodes piano glows softly. The
@@ -2080,6 +2310,20 @@ This allows space for silence and subtle changes in the music. The rhythm often 
 loose and unpolished, but that's actually the point. The drum placement is similar to the
 off-center swing popularized by J Dilla.
 
+<QuoteCard
+  quote="It was a ministry in itself."
+  authorName="D'Angelo"
+  authorRole="Singer-songwriter"
+  sourceLabel="GRAMMY artist page"
+  sourceUrl="https://www.grammy.com/artists/dangelo/1902"
+/>
+
+<DidYouKnowCard title="Voodoo was both a chart and awards breakthrough">
+  GRAMMY's artist page notes that Voodoo debuted at No. 1 on the Billboard 200 and won
+  Best R&B Album, while "Untitled (How Does It Feel)" won Best Male R&B Vocal Performance.
+  Neo soul's patient musicianship had reached the center of the market.
+</DidYouKnowCard>
+
 The success of Voodoo made him highly visible. The music video for "Untitled" amplified
 that visibility, and public attention often reduced the work to image. Interviews from
 that time show the tension between artistic control and what the media expected. This
@@ -2094,6 +2338,8 @@ person. Neo soul valued authenticity, but the industry often viewed artists in a
 way. D'Angelo's retreat reminds us that the continuum is built by human beings navigating
 complex environments. The craft remains, even when the artist takes a break.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-50.jpg"
   imageAlt=""
@@ -2101,7 +2347,9 @@ complex environments. The craft remains, even when the artist takes a break.
   imageHeight={1024}
   heading="Erykah Badu: Queen of Neo Soul"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 When Erykah Badu released Baduizm in 1997, the album sounded calm and confident. The music
 was rooted in soul tradition, but the phrasing and harmonic choices showed a clear jazz
@@ -2119,6 +2367,20 @@ Badu is a singer and a curator of sound. Her style was inspired by African cultu
 word poetry, and the rhythmic beats of hip hop music. The production, guided in part by
 producers such as Madukwu Chinwah and members of The Roots Circle, balanced live
 instrumentation with studio precision. Nothing feels rushed.
+
+<QuoteCard
+  quote="I represent the artists who are often unheard, and this is for us."
+  authorName="Erykah Badu"
+  authorRole="Singer-songwriter"
+  sourceLabel="GRAMMY Rewind, 2023"
+  sourceUrl="https://www.grammy.com/news/erykah-badu-baduizm-1998-grammys-best-r-b-album-acceptance-speech-video-rewind"
+/>
+
+<DidYouKnowCard title="Baduizm won two key GRAMMYs immediately">
+  GRAMMY notes that Baduizm won Best R&B Album at the 1998 ceremony and that "On & On"
+  also won Best Female R&B Vocal Performance. Neo soul announced itself institutionally
+  almost as soon as it reached a mass audience.
+</DidYouKnowCard>
 
 Her presence also changed the conversation about Black womanhood in mainstream music.
 Instead of presenting a highly polished pop style, Badu chose to be herself. Her style was
@@ -2138,6 +2400,8 @@ Her work bridges different eras. It pays tribute to earlier jazz and soul styles
 remaining relevant to today. Erykah Badu reinforced a key idea of the continuum: progress
 grows strongest when it remembers where it began.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-51.jpg"
   imageAlt=""
@@ -2145,7 +2409,9 @@ grows strongest when it remembers where it began.
   imageHeight={1024}
   heading="Lauryn Hill: Authenticity as Art"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 When Lauryn Hill released The Miseducation of Lauryn Hill in 1998, the album clearly
 crossed over between different genres. Hill was already famous as a member of The Fugees,
@@ -2183,6 +2449,8 @@ reminds listeners that artistic integrity exists within complicated networks of 
 power, and expectation. Her contributions to the industry are twofold: she created new
 sounds and forced the industry to confront important questions.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-52.jpg"
   imageAlt=""
@@ -2190,7 +2458,9 @@ sounds and forced the industry to confront important questions.
   imageHeight={1024}
   heading="Jill Scott: Poetry in Motion"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Jill Scott's first album, Who Is Jill Scott? Words and Sounds Vol. 1, released in 2000,
 shows the influence of Philadelphia's tight-knit music scene. Scott's work is different
@@ -2218,6 +2488,12 @@ The production environment around Scott included musicians from The Roots and ot
 groups. This network strengthened the connection between neo soul and live hip hop.
 Players felt comfortable making small changes to the music.
 
+<DidYouKnowCard title="Jill Scott's first breakthrough came before her debut album">
+  GRAMMY's artist page notes that Scott was discovered by Questlove and co-wrote the
+  Roots' GRAMMY-winning "You Got Me," though her original vocals were replaced by Erykah
+  Badu. That detail captures how collaborative and scene-based neo soul really was.
+</DidYouKnowCard>
+
 Scott's presence made neo soul music more emotional. She didn't use mystique or
 abstraction. Her storytelling felt direct. But the complex rhythms in her songs were still
 connected to the jazz tradition.
@@ -2232,6 +2508,8 @@ jazz, the production awareness of hip hop, and the harmonic language of jazz. He
 shows that neo soul is not a new style; it's a continuation of the music that came before
 it. It is a careful continuation.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-53.jpg"
   imageAlt=""
@@ -2239,7 +2517,9 @@ it. It is a careful continuation.
   imageHeight={1024}
   heading="Maxwell & Sade: The Power of Restraint"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Maxwell's debut album, Maxwell's Urban Hang Suite, came out in 1996. This album is
 considered a major influence on the development of neo soul. The record moves slowly and
@@ -2277,6 +2557,8 @@ involves improving the existing elements until they are clear. Romantic minimali
 important part of neo soul music. It kept jazz's sensitivity to timing and tone, but
 expressed it in a modern R&B style.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-54.jpg"
   imageAlt=""
@@ -2284,7 +2566,9 @@ expressed it in a modern R&B style.
   imageHeight={1024}
   heading="The Architects Behind the Sound"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 The musicians and producers who defined neo soul were the ones who shaped its sound. Their
 work was less visible than that of the artists in the spotlight, but it had a major
@@ -2321,6 +2605,8 @@ depends on more than just charismatic voices; it also depends on careful structu
 design. The popularity of neo soul music will continue because of the people who created
 it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-55.jpg"
   imageAlt=""
@@ -2328,7 +2614,9 @@ it.
   imageHeight={1024}
   heading="Expanding the Canon: India.Arie, Angie Stone, Me’Shell Ndegeocello"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As neo soul became more popular in the late 1990s and early 2000s, it started to be seen
 as more than just a small group of artists. India.Arie, Angie Stone, and Me'Shell
@@ -2364,6 +2652,8 @@ using a few well-known artists as examples. Including Arie, Stone, and Ndegeocel
 a broader field. The range of musical styles grows not through uniformity, but through
 variation grounded in shared harmonic and rhythmic values.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-56.jpg"
   imageAlt=""
@@ -2371,7 +2661,9 @@ variation grounded in shared harmonic and rhythmic values.
   imageHeight={1024}
   heading="The Sound of Neo Soul: Harmony and Groove"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Every time there's a change in style in this range, there's also a change in the language.
 Jazz brought new sounds and tempos. Fusion expanded the texture through electricity. A new
@@ -2392,6 +2684,8 @@ What follows doesn't try to break music down like a machine. Instead, it shows h
 harmonic and rhythmic practices from bebop and modal jazz made their way into contemporary
 soul music. The goal is to listen more closely, not to reduce the music to formulas.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-57.jpg"
   imageAlt=""
@@ -2399,7 +2693,9 @@ soul music. The goal is to listen more closely, not to reduce the music to formu
   imageHeight={1024}
   heading="From Bebop to Neo Soul: The Harmony Journey"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Jazz added more complex chords to the music. Instead of stopping at three notes, musicians
 started adding sevenths, ninths, elevenths, and thirteenths. These extensions make things
@@ -2435,6 +2731,8 @@ musical ideas can change without losing their original character. The words are 
 there, but the timing is different. Harmony becomes a quiet companion to storytelling. It
 is rooted in jazz, but adapted to a new context.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-58.jpg"
   imageAlt=""
@@ -2442,7 +2740,9 @@ is rooted in jazz, but adapted to a new context.
   imageHeight={1024}
   heading="Swing: Then and Now"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Swing has never had one fixed rhythm. In early jazz, it referred to the subtle push and
 pull between beats, the way musicians leaned into the rhythm rather than dividing it
@@ -2481,6 +2781,8 @@ deeper layer. In that depth, the subtle choices about timing can have a strong e
 effect. The continuum adapts, but the principle remains the same: time is flexible, and
 how something feels is more important than exact measurement.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-59.jpg"
   imageAlt=""
@@ -2488,7 +2790,9 @@ how something feels is more important than exact measurement.
   imageHeight={1024}
   heading="The Power of Space and Silence"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Not every change in music comes from adding layers. Sometimes it's revealed through what's
 left out. One of neo soul's most important features is its connection to space. The music
@@ -2528,6 +2832,8 @@ principle: music is like conversation. What you don't play can matter as much as
 do. In that quiet, the continuum continues. It is shaped by attention and care rather than
 spectacle.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-60.jpg"
   imageAlt=""
@@ -2535,7 +2841,9 @@ spectacle.
   imageHeight={1024}
   heading="The New Jazz Renaissance"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the early 2000s, some people were wondering if neo soul would become a thing of the
 past. Instead, a new group of musicians started to combine jazz training with contemporary
@@ -2556,6 +2864,8 @@ studied harmony formally and then used it in new ways.
 This phase of the continuum does not reject the past. It reinterprets it through global
 networks and digital tools. The conversation is becoming increasingly complex, not less.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-61.jpg"
   imageAlt=""
@@ -2563,7 +2873,9 @@ networks and digital tools. The conversation is becoming increasingly complex, n
   imageHeight={1024}
   heading="Robert Glasper: Jazz for Today"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Robert Glasper is a great example of how jazz and contemporary R&B are connected. Glasper
 graduated from Houston's High School for the Performing and Visual Arts and later from the
@@ -2584,6 +2896,20 @@ The success of Black Radio showed that people were more accepting of genres bein
 The album reached a wider audience and won a Grammy. It showed that musicians who are
 inspired by jazz can succeed in modern styles of music.
 
+<QuoteCard
+  quote="When you open it up, more people are prone to walk through that door."
+  authorName="Robert Glasper"
+  authorRole="Pianist and producer"
+  sourceLabel="GRAMMY.com interview, 2022"
+  sourceUrl="https://www.grammy.com/news/robert-glasper-reflects-on-blue-note-jazz-festival-black-radio-iii-dream-collaborations"
+/>
+
+<DidYouKnowCard title="Black Radio turned the crossover into a GRAMMY fact">
+  GRAMMY's artist page notes that Black Radio won Glasper his first career GRAMMY for Best
+  R&B Album. By 2012, the jazz-hip-hop-soul continuum no longer needed to justify itself
+  as a fringe experiment.
+</DidYouKnowCard>
+
 Glasper also emphasizes working together. His projects bring together rappers, singers,
 and instrumentalists without a strict hierarchy. This approach is similar to earlier
 scenes in Philadelphia and London, where the community influenced the sound.
@@ -2596,6 +2922,8 @@ He does this by mixing styles such as fusion and neo soul in a way that's easy t
 He shows that technical mastery and accessibility can work together to reinforce each
 other.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-62.jpg"
   imageAlt=""
@@ -2603,7 +2931,9 @@ other.
   imageHeight={1024}
   heading="Esperanza Spalding: Defying Categories"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Esperanza Spalding is another important part of the music of the 21st century. She is a
 bassist, singer, and composer who moves easily between different types of music, such as
@@ -2642,6 +2972,8 @@ In a world of constantly changing trends and algorithms, Spalding's dedication t
 stands out. Her work shows that deep training and contemporary vision are not opposites.
 They are both important parts of the ongoing changes in jazz-derived music.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-63.jpg"
   imageAlt=""
@@ -2649,7 +2981,9 @@ They are both important parts of the ongoing changes in jazz-derived music.
   imageHeight={1024}
   heading="Los Angeles: The New Laboratory"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 New York and Philadelphia were important in the early stages, but Los Angeles became
 another important city in the late 2000s. The independent record label Brainfeeder,
@@ -2688,6 +3022,8 @@ Los Angeles adds to the conversation happening all over the world. It shows that
 used in jazz can easily adapt to new tools. The continuum continues not through strict
 preservation, but through open-ended experimentation rooted in listening.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-64.jpg"
   imageAlt=""
@@ -2695,7 +3031,9 @@ preservation, but through open-ended experimentation rooted in listening.
   imageHeight={1024}
   heading="UK Modern Soul: A Continuing Story"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While Los Angeles explored electronic hybridity, the United Kingdom cultivated a modern
 soul strand that remained closely tied to songwriting and vocal presence. Amy Winehouse's
@@ -2730,6 +3068,8 @@ Each region adapts the shared language to fit its own experiences. Modern Britis
 influenced by acid jazz, neo soul, and classic jazz, and it's used to tell new stories.
 The conversation continues to be active and transnational.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-65.jpg"
   imageAlt=""
@@ -2737,7 +3077,9 @@ The conversation continues to be active and transnational.
   imageHeight={1024}
   heading="Hiatus Kaiyote: Jazz from Down Under"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 The United States and the United Kingdom were key in shaping the early neo soul movement,
 but by the 2010s, it was clear that this style had spread all over the world. Hiatus
@@ -2774,6 +3116,8 @@ spread quickly and come back changed. Hiatus Kaiyote shows that the evolution of
 neo soul isn't limited to any one place. It is part of a network that focuses on listening
 to people from different backgrounds.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-66.jpg"
   imageAlt=""
@@ -2781,7 +3125,9 @@ to people from different backgrounds.
   imageHeight={1024}
   heading="Who Decides What We Hear"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 All musical movements eventually come up against institutions. Record labels, award
 committees, streaming platforms, and academic programs decide which artists are popular.
@@ -2801,6 +3147,8 @@ From here, the focus shifts to how industry structures intersect with artistic e
 visibility, inequality, and the making of cultural memory. The continuum is shaped not
 only by sound, but also by who is heard and remembered.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-67.jpg"
   imageAlt=""
@@ -2808,7 +3156,9 @@ only by sound, but also by who is heard and remembered.
   imageHeight={1024}
   heading="Different Ways to Pay the Bills"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 The conditions in which musicians work vary widely by region. In some parts of Europe, the
 government gives money to jazz festivals, art centers, and educational programs.
@@ -2845,6 +3195,8 @@ survives not only because of artistic drive, but also because communities find w
 support it. Institutions can make things louder or quieter, but they don't completely
 control the direction of sound.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-68.jpg"
   imageAlt=""
@@ -2852,7 +3204,9 @@ control the direction of sound.
   imageHeight={1024}
   heading="How Algorithms Shape What We Hear"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Now, most people discover new music through playlists on streaming platforms, rather than
 in record stores or on radio shows. Platforms group artists into categories like "neo
@@ -2894,6 +3248,8 @@ Knowing how algorithms work helps us understand how genres have changed and now 
 with digital systems. Perception is shaped by code as well as by critics. The story
 continues, with new infrastructures added to older traditions.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-69.jpg"
   imageAlt=""
@@ -2901,7 +3257,9 @@ continues, with new infrastructures added to older traditions.
   imageHeight={1024}
   heading="Who Gets Taught and Remembered"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Jazz education has expanded significantly in the last few decades. Now, colleges and
 universities offer degrees in jazz performance, composition, and even contemporary
@@ -2941,6 +3299,8 @@ expanded, they strengthen the educational system by making its threads visible. 
 important to understand that jazz didn't stop evolving with bebop. It continues through
 fusion, acid jazz, and neo soul.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-70.jpg"
   imageAlt=""
@@ -2948,7 +3308,9 @@ fusion, acid jazz, and neo soul.
   imageHeight={1024}
   heading="The Human Cost of Making Music"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Even though styles and industry rules have changed, musicians' lives are still shaped by
 what they can and cannot do. The jazz-to-neo-soul continuum includes stories of creative
@@ -2988,6 +3350,8 @@ The evolution of genres isn't just about sound. It's about people dealing with h
 see them, what others expect, and how much of their lives they are asked to expose. Paying
 attention means recognizing that human cost.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-71.jpg"
   imageAlt=""
@@ -2995,7 +3359,9 @@ attention means recognizing that human cost.
   imageHeight={1024}
   heading="What Changed, What Stayed the Same"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 If you look at the evolution of jazz music, starting with early forms and then moving on
 to fusion and acid jazz, and finally arriving at neo soul, you'll see that much has
@@ -3020,6 +3386,8 @@ form, but to understand how ideas travel and adapt.
 The closing sections return to these patterns and consider how the continuum might move
 forward without losing its roots.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-72.jpg"
   imageAlt=""
@@ -3027,7 +3395,9 @@ forward without losing its roots.
   imageHeight={1024}
   heading="The Groove That Never Stopped"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 No matter what stage of this journey we're in, groove is always important. In the early
 days of jazz, swing brought a feeling of movement to both dancers and listeners. The pulse
@@ -3062,6 +3432,8 @@ The groove continued because it met a basic human need for connection. It is enr
 harmony and melody, but its rhythm keeps it steady. The continuum's strength comes from
 its ability to be both steady and flexible.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-73.jpg"
   imageAlt=""
@@ -3069,7 +3441,9 @@ its ability to be both steady and flexible.
   imageHeight={1024}
   heading="Women Who Shaped the Story"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Any honest account of this continuum must acknowledge that women were not just minor
 contributors. They influenced its direction at every stage, even when historical stories
@@ -3108,6 +3482,8 @@ The future of the continuum depends on balanced recognition. When schools and li
 have information about all the people who contributed, the story becomes richer and more
 accurate. Inclusion strengthens the musical lineage instead of narrowing it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-74.jpg"
   imageAlt=""
@@ -3115,7 +3491,9 @@ accurate. Inclusion strengthens the musical lineage instead of narrowing it.
   imageHeight={1024}
   heading="Music Without Borders"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 One of the most striking developments across this continuum is its global reach. Jazz
 started in some American communities, but it spread quickly. When fusion music appeared,
@@ -3156,6 +3534,8 @@ If you can recognize sources and maintain context, you can make sure that exchan
 creative and doesn't become too simple. The evolution of jazz to neo soul is now a global
 phenomenon, influenced by many people and cultures.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-75.jpg"
   imageAlt=""
@@ -3163,7 +3543,9 @@ phenomenon, influenced by many people and cultures.
   imageHeight={1024}
   heading="Where the Music Goes Next"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 In the future, the question is not whether jazz will survive in today's music. It already
 has. The big question is how it will keep getting better without losing its depth.
@@ -3202,6 +3584,8 @@ to evolve.
 It doesn't fit neatly into just one genre. It unfolds quietly and persistently, wherever
 groove and harmony meet with intention.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-jazz-to-neo-soul/from-jazz-to-neo-soul-76.jpg"
   imageAlt=""
@@ -3209,7 +3593,9 @@ groove and harmony meet with intention.
   imageHeight={1024}
   heading="50 Essential Songs: The Journey in Music"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 The story of modern soul does not begin in the 1990s. It begins in early jazz clubs, in
 horn sections shaping extended harmony, in rhythm sections discovering swing. From there,
@@ -3318,3 +3704,5 @@ The journey from jazz to neo soul is not a straight line. It is a network of con
 between musicians, cities, and generations. These 50 songs capture that exchange.
 
 Listen in order. Let the groove evolve. The continuum is still unfolding.
+
+</SubsectionFigure>

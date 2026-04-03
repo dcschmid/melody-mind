@@ -5,7 +5,7 @@ description:
   the artists, innovations, and cultural movements that shaped every beat."
 image: "/category/from-soul-to-modern-dance-music.jpg"
 createdAt: "2026-02-22"
-updatedAt: "2026-02-22"
+updatedAt: "2026-04-03"
 author: "MelodyMind"
 locale: "en"
 taxonomySubsection: cross-decade-lenses
@@ -23,20 +23,23 @@ keywords:
   - motown
   - stax records
 takeaways:
-  - "Soul emerged from gospel and R&B, transforming church-born emotion into secular
-    anthems that bridged racial and cultural divides."
-  - "Funk shifted the focus from melody to rhythm—James Brown's 'the one' and Sly Stone's
-    experimentation laid the blueprint for all dance music that followed."
-  - "Disco was born in Black, Latino, and queer communities, where clubs like The Loft and
-    Paradise Garage became sanctuaries of belonging."
-  - "From Giorgio Moroder's synthesizers to Chicago house and Detroit techno, electronic
-    dance music carries the groove, soul, and spirit of its ancestors."
+  - "Dance music did not begin with machines. Its emotional and rhythmic foundation was
+    built in gospel, rhythm and blues, and soul long before house and techno appeared."
+  - "Funk changed the center of gravity from song form to groove. James Brown, Sly Stone,
+    and their peers made repetition, bass, and syncopation the engine of movement."
+  - "Disco turned that rhythmic logic into a social world. Black, Latino, and queer club
+    spaces made the dance floor into both a sanctuary and a laboratory."
+  - "House and techno extended those ideas through electronics rather than replacing them.
+    The machines changed the texture, but the pulse still carried soul, funk, and disco
+    inside it."
 playlists:
   spotifyPlaylist: "https://open.spotify.com/playlist/2vAMuREhWBckcfuYj8TQCW"
   deezerPlaylist: "https://www.deezer.com/en/playlist/14990713163"
 podcast: from-soul-to-modern-dance-music
 ---
 
+import DidYouKnowCard from "@shared-ui/components/cards/DidYouKnowCard.astro";
+import QuoteCard from "@shared-ui/components/cards/QuoteCard.astro";
 import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro";
 
 <SubsectionFigure
@@ -46,7 +49,9 @@ import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro
   imageHeight={1024}
   heading="Soul: Where Every Beat Found Its Heart"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Before there were drum machines, festival stages, and laser towers, there was a voice. A
 human voice shaped by church walls, Sunday mornings, struggle, and hope, carried on
@@ -64,6 +69,8 @@ Soul's contributions went beyond popular songs. It changed how rhythm felt in th
 made groove feel more central. Every style that follows in this story carries a piece of
 that heritage, even when the machines arrive and the dance floor gets louder.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-2.jpg"
   imageAlt=""
@@ -71,7 +78,9 @@ that heritage, even when the machines arrive and the dance floor gets louder.
   imageHeight={1024}
   heading="From Church Pews to Club Floors"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Soul didn't just appear out of nowhere. Its language was already being used in Black
 churches across the American South. Gospel singers stretched out syllables until they
@@ -115,6 +124,8 @@ airplay. Most of all, it taught popular music how to speak honestly about love, 
 faith, and injustice without losing rhythm. The balance between feeling and groove would
 become the foundation for everything that followed.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-3.jpg"
   imageAlt=""
@@ -122,7 +133,9 @@ become the foundation for everything that followed.
   imageHeight={1024}
   heading="Motown and Stax: Two Visions of Soul"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As soul moved from local scenes into national charts, two labels shaped its direction in
 very different ways: Motown Records in Detroit and Stax Records in Memphis. Both were
@@ -136,6 +149,11 @@ that played in the house later became known as the Funk Brothers. They created a
 that was smooth, full of melody, and perfect for the radio. Artists rehearsed their
 choreography and how they would appear on camera just as carefully as their music. The
 goal was crossover success, and it worked.
+
+<DidYouKnowCard title="Berry Gordy explicitly borrowed factory logic from Detroit's auto plants">
+  The Motown Museum notes that Gordy used lessons from assembly-line work to build a hit
+  system in 1959, aiming to turn unknown local talent into polished national performers.
+</DidYouKnowCard>
 
 Groups like The Supremes became international stars. The song "Stop! In the Name of Love"
 was dramatic and precise, with Diana Ross in the center of a carefully designed image. The
@@ -163,6 +181,8 @@ showed that Southern soul music could be respected without being changed. They c
 together and took soul to new heights. They built studio practices and audience networks
 that later genres would inherit and transform in nightclubs.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-4.jpg"
   imageAlt=""
@@ -170,7 +190,9 @@ that later genres would inherit and transform in nightclubs.
   imageHeight={1024}
   heading="When Soul Found Its Voice in Protest"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the late 1960s, soul music was changing again. The singles were still popular, still
 climbing the charts, and still filling dance halls. But there was more going on with the
@@ -213,6 +235,8 @@ house, and modern electronic dance music don't seem to be connected to protest. 
 idea that rhythm can have social meaning starts here. The dance floor would get more than
 just the beat. It would get the voice.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-5.jpg"
   imageAlt=""
@@ -220,7 +244,9 @@ just the beat. It would get the voice.
   imageHeight={1024}
   heading="Philadelphia: Where Disco Found Its Groove"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As political soul deepened the album form, another branch of the genre was refining rhythm
 for a different purpose. In Philadelphia, producers and arrangers began shaping a sound
@@ -257,6 +283,8 @@ already been laid in places like Philadelphia. The emotional clarity of soul, th
 focus of funk, and the orchestral sweep of Philly production merged into something
 designed for clubs. The shift felt natural because the pieces were already in motion.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-6.jpg"
   imageAlt=""
@@ -264,7 +292,9 @@ designed for clubs. The shift felt natural because the pieces were already in mo
   imageHeight={1024}
   heading="Funk: When the Rhythm Took Over"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the end of the 1960s, the dance floor moved to center stage. Soul had already given
 popular music a deeper emotional language. Now, rhythm itself stepped forward. The beat
@@ -282,6 +312,8 @@ pride, and urban realities found expression in sound. Funk did not give up on fe
 reorganized it around the pulse. The dancefloor was getting louder, more intense, and more
 focused.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-7.jpg"
   imageAlt=""
@@ -289,7 +321,9 @@ focused.
   imageHeight={1024}
   heading="James Brown: The Man Who Locked the Beat"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 When people talk about funk as a turning point, they often start by talking about James
 Brown. He had already become a well-known figure in the world of soul music by the early
@@ -320,6 +354,12 @@ reportedly fined for missing cues. The result was a sound that felt almost mecha
 its tightness, yet it was built entirely from human interaction. The audience reacted with
 physical movement. The groove didn't need to be explained. It asked for people to join in.
 
+<DidYouKnowCard title="<em>What'd I Say</em> is treated as an institutional bridge into soul">
+  The Library of Congress describes Ray Charles' 1959 hit as a fusion of church
+  call-and-response and sexually charged blues, one reason it was selected for the
+  National Recording Registry.
+</DidYouKnowCard>
+
 Funk music of this time reflected the era. In the late 1960s, there was an increasing
 demand for Black pride and for Black people to define what it means to be Black. Brown's
 music had that confidence. The rhythm was strong. The band sounded confident and in
@@ -331,6 +371,8 @@ rhythmic focus that gets stronger over time was new and exciting. Later disco pr
 house DJs, and techno artists would use that idea in their music. The plan for repetition
 to increase power had been set.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-8.jpg"
   imageAlt=""
@@ -338,7 +380,9 @@ to increase power had been set.
   imageHeight={1024}
   heading="Sly Stone: Funk as Freedom"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While James Brown made the rhythm more precise and controlled, Sly and the Family Stone
 approached groove from a different angle. Their music felt looser, more colorful, and
@@ -379,6 +423,8 @@ culture today. Sly and the Family Stone showed that groove can be both joyful an
 doubt. It could be bright and unsettled, or unified and fractured. This complexity would
 continue to shape the music that came after it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-9.jpg"
   imageAlt=""
@@ -386,7 +432,9 @@ continue to shape the music that came after it.
   imageHeight={1024}
   heading="Parliament-Funkadelic: Cosmic Funk for a New World"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 If James Brown built funk like a machine and Sly Stone treated it as a social experiment,
 George Clinton turned it into a whole universe. Through the groups Parliament and
@@ -428,6 +476,8 @@ Parliament-Funkadelic showed that funk could be more than just tight minimalism.
 be big, funny, about politics, or strange. But the foundation was simple: a steady beat, a
 deep bass line, and a crowd moving together.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-10.jpg"
   imageAlt=""
@@ -435,7 +485,9 @@ deep bass line, and a crowd moving together.
   imageHeight={1024}
   heading="The Women Who Made Funk Fierce"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Funk is often remembered through its bandleaders and bass players, but women also played
 an essential role in shaping the genre. They were bold, complex artists who deserve more
@@ -473,6 +525,8 @@ stayed the same, but the way it looked changed. Autonomy became a regular part o
 rhythm. In a genre that relies on repetition, these artists innovated without losing the
 beat.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-11.jpg"
   imageAlt=""
@@ -480,7 +534,9 @@ beat.
   imageHeight={1024}
   heading="Afrobeat: The Atlantic Rhythm Exchange"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While funk was developing in the United States, a similar but different style was emerging
 in West Africa. Fela Kuti combined highlife, jazz, and American funk to create Afrobeat, a
@@ -517,6 +573,8 @@ continents, change their meaning, and return in new forms. Afrobeat is an early 
 that process. This shows that groove isn't just for one city or one industry. It exists in
 movement, in conversation, and in communities willing to shape it to their own realities.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-12.jpg"
   imageAlt=""
@@ -524,7 +582,9 @@ movement, in conversation, and in communities willing to shape it to their own r
   imageHeight={1024}
   heading="Dub: How the Studio Became an Instrument"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the mid-1970s, rhythm had already become central. Funk had made it denser. Philadelphia
 soul had made it smoother. Disco was starting to push the limits of the dance floor.
@@ -545,6 +605,8 @@ Dub introduced a new idea that would influence disco, house, and techno music: a
 isn't set in stone. You can rebuild it, extend it, strip it down, and transform it. The
 dancefloor would soon start thinking the same way.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-13.jpg"
   imageAlt=""
@@ -552,7 +614,9 @@ dancefloor would soon start thinking the same way.
   imageHeight={1024}
   heading="King Tubby: The Man Who Remixed Reality"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 In Kingston, during the late 1960s and early 1970s, sound systems played a central role in
 community life. Large speaker stacks filled open-air yards. The DJs played records at high
@@ -598,6 +662,8 @@ The dancefloor would fully embrace version culture. What started as technical
 experimentation in Kingston turned into a philosophy: groove is flexible, and the studio
 can change it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-14.jpg"
   imageAlt=""
@@ -605,7 +671,9 @@ can change it.
   imageHeight={1024}
   heading="Lee 'Scratch' Perry: Mad Genius of Dub"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 If King Tubby approached the mixing desk with the focus of an engineer, Lee Scratch Perry
 treated it like a laboratory. Working mainly at his Black Ark Studio in Kingston during
@@ -648,6 +716,8 @@ studio, that atmosphere can deepen groove rather than distract from it, owes muc
 “Scratch” Perry. His work widened the idea of what dance music could sound like, even
 before it was called dance music in the modern sense.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-15.jpg"
   imageAlt=""
@@ -655,7 +725,9 @@ before it was called dance music in the modern sense.
   imageHeight={1024}
   heading="Sound Systems Cross the Ocean"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Dub did not stay in Jamaica. In the 1970s, large Caribbean communities in cities like
 London and Birmingham brought their sound system culture with them. Weekend dances
@@ -696,6 +768,8 @@ possible to create new rhythms and use new spaces. It taught producers and DJs t
 recorded music as something that can be changed, rather than a perfect, unchanging work of
 art.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-16.jpg"
   imageAlt=""
@@ -703,7 +777,9 @@ art.
   imageHeight={1024}
   heading="Disco: The Night That Changed Everything"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the mid-1970s, several trends were moving in the same direction. Soul had made popular
 music more emotional. Funk had sharpened the groove. Dub had made people think differently
@@ -724,6 +800,8 @@ Disco turned repetition into celebration. It rose during a time when many commun
 facing discrimination and economic hardship. The groove became continuous. The night
 became a space for everyone to feel like they belonged.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-17.jpg"
   imageAlt=""
@@ -731,7 +809,9 @@ became a space for everyone to feel like they belonged.
   imageHeight={1024}
   heading="The Clubs That Built Disco Culture"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Disco’s early history cannot be separated from the rooms where it lived. In the early
 1970s, before the genre had a clear commercial identity, parties were organized in lofts
@@ -756,6 +836,12 @@ queer New Yorkers. The dancefloor offered safety and visibility at a time when m
 culture often denied both. Music became a shared language. The repetition of a groove
 created a sense of unity that extended beyond the walls.
 
+<DidYouKnowCard title="GRAMMY still defines disco through Black, Latinx, and queer refuge spaces">
+  In its dance/electronic genre overview, GRAMMY describes disco as a refuge especially
+  for Black, Latinx, and queer listeners, which matches why rooms like The Loft and
+  Paradise Garage mattered so much.
+</DidYouKnowCard>
+
 These DJs relied heavily on extended mixes and imported records. They worked with
 producers and remixers who understood that the club required space for movement. The idea
 of the 12-inch single, with longer instrumental sections and deeper bass, gained
@@ -771,6 +857,8 @@ respect. The DJ emerged as a central figure, not because of ego, but because som
 to shape the flow of the night. That role would grow in significance as dance music
 evolved.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-18.jpg"
   imageAlt=""
@@ -778,7 +866,9 @@ evolved.
   imageHeight={1024}
   heading="The 12-Inch Single: More Music, More Freedom"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As disco nights got longer, producers and DJs faced a practical problem. Most pop songs
 were made for the radio. They lasted three or four minutes, often fading out just as the
@@ -817,6 +907,8 @@ disco production. This technical change may seem small, but it had a long-lastin
 House and techno would later depend on similar long song formats. The dance floor wasn't
 simply responding to songs anymore. Songs were being built around the dance floor.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-19.jpg"
   imageAlt=""
@@ -824,7 +916,9 @@ simply responding to songs anymore. Songs were being built around the dance floo
   imageHeight={1024}
   heading="Moroder & Summer: The Electronic Revolution Begins"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While New York DJs perfected the art of the extended mix, another change was happening in
 the studio. In Munich, Italian producer Giorgio Moroder started experimenting with
@@ -853,6 +947,12 @@ music style played in underground clubs. It had become international. European d
 was becoming popular in the United States. Technology spread quickly across the world.
 Producers in New York and Chicago paid close attention to these changes.
 
+<DidYouKnowCard title="<em>I Feel Love</em> is preserved as a formal turning point in electronic dance music">
+  The Library of Congress added the track to the National Recording Registry and describes
+  it as a record built to signify the future, with repetitive synthesizer loops helping
+  open the road to house, techno, and synth-pop.
+</DidYouKnowCard>
+
 "I Feel Love" didn't immediately replace orchestral disco, but it created a new
 opportunity. It suggested that the future of dance music might be electronic. The steady
 four-on-the-floor beat, paired with synthesizer bass, would later become a defining
@@ -863,6 +963,8 @@ translated it into a new language. The groove stayed in the center. The voice so
 same. The difference was the engine. For the first time, the dancefloor felt fully in sync
 with the machines, and the transition sounded natural rather than sudden.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-20.jpg"
   imageAlt=""
@@ -870,7 +972,9 @@ with the machines, and the transition sounded natural rather than sudden.
   imageHeight={1024}
   heading="Chic: The Art of the Perfect Groove"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Giorgio Moroder helped bring electronic music to disco, but Chic showed that having live
 musicians was still an important part of the genre at its best. Guitarist Nile Rodgers and
@@ -911,6 +1015,8 @@ rhythm must be clear, bass must be strong, and repetition must feel intentional.
 showed that even when disco was most popular, making music that was fun to dance to was
 still an art.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-21.jpg"
   imageAlt=""
@@ -918,7 +1024,9 @@ still an art.
   imageHeight={1024}
   heading="The Divas Who Defined Disco"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Disco wasn't just about changing the rhythm. It changed who was in the most important spot
 on the stage. Women and queer artists claimed space in ways that felt direct and
@@ -960,6 +1068,8 @@ repeatedly. Diva traditions, gospel influences, and declarations of independence
 reappear in Chicago clubs and other places. Disco's women weren't just dancing to the
 music. They defined it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-22.jpg"
   imageAlt=""
@@ -967,7 +1077,9 @@ music. They defined it.
   imageHeight={1024}
   heading="Disco Demolition: When the Backlash Came"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the end of the 1970s, disco was everywhere. It was played on the radio, in films, and
 on TV. Its success was unmistakable. But popularity also made it a target. Some people who
@@ -1008,6 +1120,8 @@ extended structure, bass-driven sound systems, DJ-centered culture, and vocal au
 would all carry forward. The next phase would emerge not from stadium spectacles, but from
 warehouses and neighborhood clubs once again.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-23.jpg"
   imageAlt=""
@@ -1015,7 +1129,9 @@ warehouses and neighborhood clubs once again.
   imageHeight={1024}
   heading="The Bridge: When Machines Learned to Groove"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 When disco stopped being popular around 1979, the groove didn't disappear. It broke into
 pieces. Some strands became more electronic. Others moved to smaller club circuits.
@@ -1035,6 +1151,8 @@ four-on-the-floor logic of disco into machine-driven forms.
 Some people call this time a "gap" between disco and house music. It was not a gap. It was
 a bridge.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-24.jpg"
   imageAlt=""
@@ -1042,7 +1160,9 @@ a bridge.
   imageHeight={1024}
   heading="Afrika Bambaataa: Electro's Big Bang"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 In the early 1980s, New York was still a place where people danced, even though the word
 "disco" was no longer used on radio stations. In the Bronx, hip-hop culture was developing
@@ -1082,6 +1202,8 @@ songs. Electro stripped that groove down and rebuilt it with circuitry. House mu
 on that idea, using a steady kick drum that repeats itself. The bridge between live disco
 orchestration and machine-driven dance was now firmly in place.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-25.jpg"
   imageAlt=""
@@ -1089,7 +1211,9 @@ orchestration and machine-driven dance was now firmly in place.
   imageHeight={1024}
   heading="Arthur Baker: Where Genres Met and Merged"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 If Afrika Bambaataa was the DJ who connected different cultures, Arthur Baker was the
 producer who translated different musical styles. In the early 1980s, Baker moved easily
@@ -1130,6 +1254,8 @@ changes. He was an important bridge between the disco era and the electronic mus
 future. The bridge to house was not built in one city or moment. It developed over time as
 producers recognized that there was continuity even though the surface was changing.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-26.jpg"
   imageAlt=""
@@ -1137,7 +1263,9 @@ producers recognized that there was continuity even though the surface was chang
   imageHeight={1024}
   heading="Freestyle: Latin Beats in the Electronic Age"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While electronic music was becoming more rhythmic and focused on machines, another type of
 music was emerging in New York's Latin club scene. This style is also called freestyle. It
@@ -1179,6 +1307,8 @@ new. In Chicago, young DJs were listening closely. They had access to drum machi
 imported records, and clubs eager for change. The next chapter would begin there, but the
 bridge had already been built.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-27.jpg"
   imageAlt=""
@@ -1186,7 +1316,9 @@ bridge had already been built.
   imageHeight={1024}
   heading="House Music: Born in Chicago, Heard Worldwide"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the early 1980s, Chicago had a strong record culture. Disco never really went away
 there. Even after radio formats changed, clubs kept playing extended mixes and underground
@@ -1204,6 +1336,10 @@ Frankie Knuckles was a central figure in that shift. He worked at a club called 
 Warehouse, where he created a unique sound that felt familiar but simpler. The soul
 remained. The disco structure continued. But the tools were changing.
 
+<QuoteCard quote="House music is disco's revenge." author="Frankie Knuckles" />
+
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-28.jpg"
   imageAlt=""
@@ -1211,7 +1347,9 @@ remained. The disco structure continued. But the tools were changing.
   imageHeight={1024}
   heading="Frankie Knuckles: The Godfather of House"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 When Frankie Knuckles moved from New York to Chicago in the late 1970s, he brought with
 him the style and feeling of disco music. In Chicago, he started working as a DJ at a club
@@ -1230,6 +1368,12 @@ that they were right for the club. The music was based on disco's four-on-the-fl
 but it was more minimal. The strings and complex arrangements became less noticeable. Drum
 machines like the Roland TR-909 became more popular. They played steady beats that you
 could hear throughout the room.
+
+<DidYouKnowCard title="Chicago later renamed the original Warehouse block for Frankie Knuckles">
+  GRAMMY's house timeline notes that the section of Jefferson Street tied to the Warehouse
+  became Frankie Knuckles Way in 2004, and the building was landmarked by the city in
+  2023.
+</DidYouKnowCard>
 
 Knuckles also kept disco's emotional core. Vocal tracks were still important. The music
 was gospel-influenced, and the themes were uplifting, which connected the dancers to the
@@ -1251,6 +1395,8 @@ disco while also embracing new technology. His edits and programming prepared th
 producers who would soon begin creating original house tracks. The groove stayed the same.
 The arrangement became simpler. The dance floor responded quickly.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-29.jpg"
   imageAlt=""
@@ -1258,7 +1404,9 @@ The arrangement became simpler. The dance floor responded quickly.
   imageHeight={1024}
   heading="Ron Hardy: Pushing the Limits at the Music Box"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Frankie Knuckles was known for warm, smooth sets, while another Chicago DJ was known for
 loud, intense ones. Ron Hardy, who worked at the Music Box, came to the dance floor with a
@@ -1294,6 +1442,8 @@ Ron Hardy's sets showed the more minimalist and intense forms that would become 
 Europe later in the decade. The steady four-on-the-floor kick remained the foundation. The
 textures around it became sharper and more artificial. The dance floor adapted with it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-30.jpg"
   imageAlt=""
@@ -1301,7 +1451,9 @@ textures around it became sharper and more artificial. The dance floor adapted w
   imageHeight={1024}
   heading="The First House Records: From DJ Booth to Vinyl"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As DJs in Chicago changed disco music using edits and drum machines, the next step was
 obvious. Instead of changing records that already existed, producers started making their
@@ -1313,6 +1465,12 @@ line. It was simple compared to most disco productions. The singing was simple a
 The focus was on rhythm and repetition. It sounded a little rough, but that's what made it
 authentic. It showed that a small studio and cheap equipment were enough to make music
 that clubs were ready to play.
+
+<DidYouKnowCard title="<em>On and On</em> is still treated as house music's first key vinyl document">
+  GRAMMY's house timeline identifies Jesse Saunders' 1984 single as the first house record
+  put to wax, marking the point where the club sound clearly moved from edits to original
+  production.
+</DidYouKnowCard>
 
 Marshall Jefferson brought a different style. His song "Move Your Body" from 1986 used
 piano notes and happy chords that reminded people of gospel-influenced disco music. The
@@ -1345,6 +1503,8 @@ replaced by drum machines and synthesizers. The emotional core remained, but the
 arrangement was more minimalist. The sound was clearly new, but it also had the foundation
 of everything that had come before.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-31.jpg"
   imageAlt=""
@@ -1352,7 +1512,9 @@ of everything that had come before.
   imageHeight={1024}
   heading="Vocal House: When Gospel Met the Drum Machine"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Even as house music started using drum machines and simple structures, the voice remained
 a key part of it. In fact, one of the most powerful types of early house music connected
@@ -1395,6 +1557,8 @@ coexist.
 As house gained international attention, the balance between rhythm and voice continued to
 shape its growth.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-32.jpg"
   imageAlt=""
@@ -1402,7 +1566,9 @@ shape its growth.
   imageHeight={1024}
   heading="Detroit Techno: The Sound of Tomorrow"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While Chicago house focused on repetition and incorporated gospel elements into electronic
 music, another sound was developing a few hours north. The city of Detroit had a different
@@ -1416,9 +1582,17 @@ and synthesizers, yet its mood was distinct. The groove felt more minimal, somet
 colder, often more futuristic. The pulse was steady, but the emotional tone shifted from
 feeling good to feeling excited.
 
+<DidYouKnowCard title="Detroit is still publicly described as techno's birthplace">
+  GRAMMY's Detroit Sound Conservancy feature explicitly cites Detroit as the birthplace of
+  techno and names Juan Atkins, Derrick May, and Kevin Saunderson as the core first-wave
+  figures.
+</DidYouKnowCard>
+
 Juan Atkins, Derrick May, and Kevin Saunderson were the most important people in this
 development. Later, they became known as the Belleville Three. They created a sound that
 would travel far beyond Michigan.
+
+</SubsectionFigure>
 
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-33.jpg"
@@ -1427,7 +1601,9 @@ would travel far beyond Michigan.
   imageHeight={1024}
   heading="The Belleville Three: Detroit's Electronic Pioneers"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 In the suburbs of Detroit, three high school friends started experimenting with electronic
 music in the early 1980s. Juan Atkins, Derrick May, and Kevin Saunderson were all into
@@ -1469,6 +1645,8 @@ traveled to Chicago, New York, and eventually Europe, the term "techno" caught o
 Techno did not replace house music. It made the map bigger. The dance floor now had two
 paths, both of which were related to disco's steady beat and funk's rhythmic structure.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-34.jpg"
   imageAlt=""
@@ -1476,7 +1654,9 @@ paths, both of which were related to disco's steady beat and funk's rhythmic str
   imageHeight={1024}
   heading="Underground Resistance: Techno with a Message"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As techno gained popularity outside of Detroit, some artists worked to protect its
 independence and clarify its message. In the late 1980s, the group Underground Resistance
@@ -1521,6 +1701,8 @@ But you could still see where they came from. The steady beat, the importance of
 repetition, and the central role of the DJ connected Detroit's warehouses to earlier
 dancefloors.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-35.jpg"
   imageAlt=""
@@ -1528,7 +1710,9 @@ dancefloors.
   imageHeight={1024}
   heading="The Women of Detroit Techno"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 People often talk about Detroit techno using just a few names. But women were very
 important in creating and maintaining the scene. They contributed in many ways, such as
@@ -1572,6 +1756,8 @@ including women who had helped create the foundation, continued to influence new
 generations. The steady beat of the kick drum continued. The quiet insistence on creative
 autonomy did too.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-36.jpg"
   imageAlt=""
@@ -1579,7 +1765,9 @@ autonomy did too.
   imageHeight={1024}
   heading="Berlin: Where Techno Found a New Home"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 When techno music arrived in Europe in the late 1980s, it found a welcoming environment in
 a city that was undergoing significant change. After the Berlin Wall fell in 1989, people
@@ -1623,6 +1811,8 @@ shared a common language. The story was no longer tied to one region. It was net
 The dance floor had become a place where people from around the world met, and the next
 phase would scale that growth even further.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-37.jpg"
   imageAlt=""
@@ -1630,7 +1820,9 @@ phase would scale that growth even further.
   imageHeight={1024}
   heading="The 90s: When Bass Got Heavy and Beats Broke Free"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the early 1990s, house and techno music were already popular on both sides of the
 Atlantic. But the story did not move in a straight line. Scenes started to change in new
@@ -1649,6 +1841,8 @@ helped keep the connection between gospel-influenced vocals and club music alive
 The 1990s did not forget the past. They put it back together. The pulse changed shape, but
 the family history was still clear.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-38.jpg"
   imageAlt=""
@@ -1656,7 +1850,9 @@ the family history was still clear.
   imageHeight={1024}
   heading="New York Garage: Soul Never Left the Building"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As Chicago house music changed and Detroit techno music became more minimalist, New York
 focused on a different style. Garage is named after the famous Paradise Garage, which kept
@@ -1696,6 +1892,8 @@ experimented with abstraction, garage insisted on connection through voice and g
 transition from church music to disco to house music was clear and consistent beneath the
 rhythm.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-39.jpg"
   imageAlt=""
@@ -1703,7 +1901,9 @@ rhythm.
   imageHeight={1024}
   heading="Jungle & Drum & Bass: When the Beat Broke Apart"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 New York garage kept the vocals warm, while the United Kingdom pushed the rhythm to a
 higher level. In the early 1990s, in cities like London and Bristol, music producers
@@ -1746,6 +1946,8 @@ heavier and faster. Others moved toward more melodic forms. The map widened. No 
 the music is played, fast or slow, the most important thing is that the beat creates a
 feeling of order, and the low, thumping sounds make you feel grounded.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-40.jpg"
   imageAlt=""
@@ -1753,7 +1955,9 @@ feeling of order, and the low, thumping sounds make you feel grounded.
   imageHeight={1024}
   heading="Big Beat: Electronica Hits the Mainstream"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the mid to late 1990s, electronic dance music in the UK was growing fast and moving to
 larger stages. This style is often described as a mix of big beat, breakbeats, rock
@@ -1795,6 +1999,8 @@ As the new millennium approached, electronic dance music faced a choice: remain
 underground, scale up commercially, or do both at once. The next phase would test that
 balance.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-41.jpg"
   imageAlt=""
@@ -1802,7 +2008,9 @@ balance.
   imageHeight={1024}
   heading="The DJ as Superstar: Dance Music Goes Global"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the late 1990s and early 2000s, electronic dance music had moved from warehouses and
 pirate radio into large venues and international circuits. Low-cost flights, digital
@@ -1820,6 +2028,8 @@ and mainstream pop music.
 The groove stayed the same. The scale changed. The dance floor was no longer just for one
 neighborhood. It had become global, with new opportunities and new pressures.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-42.jpg"
   imageAlt=""
@@ -1827,7 +2037,9 @@ neighborhood. It had become global, with new opportunities and new pressures.
   imageHeight={1024}
   heading="Ibiza: The Island That Made DJs Stars"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Ibiza had been on Europe's club map since the 1980s, but by the late 1990s it had become
 very important. Clubs like Pacha, Space, and Amnesia attracted international crowds every
@@ -1869,6 +2081,8 @@ Ibiza's rise shows how dance music has adapted to globalization. What started in
 communities is now part of international networks. The groove went in easily. The
 challenge was keeping the connection going as the distance grew.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-43.jpg"
   imageAlt=""
@@ -1876,7 +2090,9 @@ challenge was keeping the connection going as the distance grew.
   imageHeight={1024}
   heading="French Touch: Disco's Digital Renaissance"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While Ibiza represented the globalization of DJ culture, France offered an alternative
 path in the late 1990s. Often called "French touch," a group of producers used modern
@@ -1916,6 +2132,8 @@ The wave reinforced the idea that dance music always comes back around in cycles
 become popular, then lose popularity and change. The pulse stays the same. The surface
 changes.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-44.jpg"
   imageAlt=""
@@ -1923,7 +2141,9 @@ changes.
   imageHeight={1024}
   heading="EDM: America Falls in Love with the Drop"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 In the late 2000s and early 2010s, electronic dance music surged in the United States.
 What had been mostly underground moved into the mainstream under the label EDM. Festivals
@@ -1964,6 +2184,8 @@ EDM didn't replace house or techno. It became one part of a larger whole. The st
 of the kick drum, a style influenced by disco and improved over time, kept thousands of
 dancers moving. The scale had changed. The pulse continued.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-45.jpg"
   imageAlt=""
@@ -1971,7 +2193,9 @@ dancers moving. The scale had changed. The pulse continued.
   imageHeight={1024}
   heading="New Voices: The Global South Takes the Stage"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As festival culture grew in North America and Europe, new centers of gravity were forming
 elsewhere. Dance music isn't tied to any one area. The rhythms that shaped house and
@@ -1990,6 +2214,8 @@ vocals, and melodies reflected distinct regional histories.
 The shift did not erase earlier traditions. It reframed them. The pulse moved back and
 forth across regions, reshaped by new communities.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-46.jpg"
   imageAlt=""
@@ -1997,7 +2223,9 @@ forth across regions, reshaped by new communities.
   imageHeight={1024}
   heading="Afro-House & Amapiano: South Africa's Global Sound"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 When Black Coffee began gaining global attention in the 2000s, his music was influenced by
 South African house traditions. His music often mixes deep house beats with different
@@ -2016,6 +2244,17 @@ music was becoming a staple at global festivals. It stood on main stages. His se
 focus on maintaining a steady beat rather than on sudden, dramatic changes. The music
 gradually gets louder. The different percussion layers play off each other. The dancefloor
 moves as a group, not just when there are sudden peaks.
+
+<QuoteCard
+  quote="Music is life to me and I want you to feel that with every beat and melody."
+  author="Black Coffee"
+/>
+
+<DidYouKnowCard title="Black Coffee broke a GRAMMY barrier for African electronic music">
+  GRAMMY notes that <em>Subconsciously</em> won Best Dance/Electronic Album in 2022,
+  making Black Coffee the first African artist to win that category for an original
+  project.
+</DidYouKnowCard>
 
 Amapiano, a type of South African dance music, gained popularity in the late 2010s.
 Amapiano is known for its slow tempos, rolling bass lines, and log drum patterns, which
@@ -2038,6 +2277,8 @@ Percussion patterns highlight different accents. The way the voice is sung adds 
 to the music. The dance floor adapts quickly. As in the past, technology allows us to move
 around, but it's our community that gives our lives meaning.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-47.jpg"
   imageAlt=""
@@ -2045,7 +2286,9 @@ around, but it's our community that gives our lives meaning.
   imageHeight={1024}
   heading="New Voices, New Visibility: The Culture Evolves"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As dance music became more popular around the world, people started talking more about
 access and representation. Women and queer artists have always been a part of the culture,
@@ -2058,6 +2301,12 @@ in Chicago and later lived in New York and Europe. She mixes classic house music
 modern production styles. Her sets pay tribute to disco, garage, and techno while proudly
 declaring her identity as a trans woman. The music still has a strong rhythm, but her
 presence has a wider cultural impact.
+
+<DidYouKnowCard title="GRAMMY now treats Honey Dijon as part of house music's roots-to-present line">
+  GRAMMY's house coverage places Dijon inside Chicago house's Black queer lineage rather
+  than outside it, linking her directly to warehouse culture and later mainstream tributes
+  like <em>Renaissance</em>.
+</DidYouKnowCard>
 
 Clubs and festivals started to change their lineups to include more variety. Initiatives
 promoting gender diversity became more popular. Independent collectives organized events
@@ -2089,6 +2338,8 @@ Today's leaders, including artists like Honey Dijon, show that change doesn't er
 past. It reinterprets it. The steady kick drum still keeps the beat. Voices all around it
 continue to claim space and shape the next part of the story.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-48.jpg"
   imageAlt=""
@@ -2096,7 +2347,9 @@ continue to claim space and shape the next part of the story.
   imageHeight={1024}
   heading="The Digital Shift: Algorithms, Streams, and the New Dancefloor"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 In the past, dance music was shared through record shops, radio shows, and word of mouth.
 DJs carried large collections of records. Promoters printed flyers. The scenes were built
@@ -2116,6 +2369,8 @@ from the studio to the listener is different now.
 Electronic dance music is now found in two places: the physical dance floor and online.
 Understanding this dual reality helps explain the current moment.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-49.jpg"
   imageAlt=""
@@ -2123,7 +2378,9 @@ Understanding this dual reality helps explain the current moment.
   imageHeight={1024}
   heading="Bedroom Producers: Anyone Can Make a Hit Now"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 In the 1980s, making dance music meant using drum machines, hardware synthesizers, and
 access to recording studios. By the 2000s, digital audio workstations, also known as DAWs,
@@ -2166,6 +2423,8 @@ eliminate the need for groove discipline. The steady kick drum still needs to be
 carefully. The style of music that combines soul and disco continues to exist, even when
 it's created using a computer mouse instead of physical knobs on a synthesizer.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-50.jpg"
   imageAlt=""
@@ -2173,7 +2432,9 @@ it's created using a computer mouse instead of physical knobs on a synthesizer.
   imageHeight={1024}
   heading="Streaming & Algorithms: The Attention Economy"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As production tools became more accessible, distribution changed just as dramatically.
 Streaming platforms replaced many traditional sales channels. Instead of buying a 12-inch
@@ -2215,6 +2476,8 @@ respond to the bass weight and repetition. The algorithm may shape discovery, bu
 shapes meaning. The steady kick drum doesn't care about measurements. It demands your
 attention.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-51.jpg"
   imageAlt=""
@@ -2222,7 +2485,9 @@ attention.
   imageHeight={1024}
   heading="The Price of the Global Circuit"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As electronic dance music became more popular around the world, the number of performances
 also increased. In the past, DJs gained popularity by performing in their local areas and
@@ -2264,6 +2529,8 @@ Dance music is all about connection. To keep that connection, we have to recogni
 human side of the industry. Creative workers are the ones who make the culture happen. The
 steady pulse that unites thousands at once also depends on their resilience.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-52.jpg"
   imageAlt=""
@@ -2271,7 +2538,9 @@ steady pulse that unites thousands at once also depends on their resilience.
   imageHeight={1024}
   heading="The Thread That Binds: Soul in Every Beat"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 After so much change over the years, one question remains: what connects a gospel choir in
 the 1950s to a festival crowd in the 2020s? The instruments have changed. The venues have
@@ -2289,6 +2558,8 @@ shaped by sound systems, and the instinct to gather and move together.
 The surface changes. The foundation is solid. Understanding how genres change without
 losing their main ideas can help us understand how they evolve.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-53.jpg"
   imageAlt=""
@@ -2296,7 +2567,9 @@ losing their main ideas can help us understand how they evolve.
   imageHeight={1024}
   heading="The Voice That Remembers"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Even in the most electronic parts of today's dance music, the human voice is still
 important. It may appear as a full gospel-style performance, or as a brief phrase in a
@@ -2333,6 +2606,8 @@ The vocal acts as memory within the dance music's forward motion. It connects th
 to the past. It makes sure that even as technology improves, the emotional connection
 stays the same.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-54.jpg"
   imageAlt=""
@@ -2340,7 +2615,9 @@ stays the same.
   imageHeight={1024}
   heading="The Groove That Unites Us"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 If the voice carries memory, the groove carries agreement. A steady rhythm is more than a
 musical device. It is a shared structure that encourages participation. From the soul
@@ -2382,6 +2659,8 @@ raves to global festivals. The groove organizes time and space. It connects peop
 temporary groups. This consistency is why dance music, despite changes in style, continues
 to attract new fans. The beat remains a meeting point.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-55.jpg"
   imageAlt=""
@@ -2389,7 +2668,9 @@ to attract new fans. The beat remains a meeting point.
   imageHeight={1024}
   heading="Giving Credit Where It's Due"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 When you study musical history, you have to be careful not to be too selective. Some names
 stand out. Others fade, even when their contributions were essential. Dance music is no
@@ -2434,6 +2715,8 @@ a lot of history there, too. Keeping that history visible makes sure that evolut
 grounded. The groove can change in many ways, but it also carries names, stories, and
 communities within it.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-56.jpg"
   imageAlt=""
@@ -2441,7 +2724,9 @@ communities within it.
   imageHeight={1024}
   heading="The Pulse Lives On: A Journey Without End"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 From church choirs to warehouse speakers, from vinyl records to digital playlists, the
 journey from soul to modern dance music is not a straight line. It is a series of changes.
@@ -2473,6 +2758,8 @@ The desire to move to the rhythm of the music remains steady. As long as that in
 endures, the connection between soul and modern dance music will remain audible, carried
 forward in every steady beat.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-soul-to-modern-dance-music/from-soul-to-modern-dance-music-57.jpg"
   imageAlt=""
@@ -2480,7 +2767,9 @@ forward in every steady beat.
   imageHeight={1024}
   heading="50 Tracks That Shaped Dance Music Forever"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 How did we go from the emotional depth of 1960s soul to the hypnotic pulse of modern house
 and techno? The journey is not a sudden leap into electronics. It is a slow change in
@@ -2627,3 +2916,5 @@ musical journey from church-inspired soul to global electronic culture.
 
 If you want to understand modern dance music, start at the beginning. The groove has
 always been there.
+
+</SubsectionFigure>

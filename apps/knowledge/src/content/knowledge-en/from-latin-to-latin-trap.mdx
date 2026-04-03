@@ -6,7 +6,7 @@ description:
   phenomenon."
 image: "/category/from-latin-to-latin-trap.jpg"
 createdAt: "2026-02-20"
-updatedAt: "2026-02-20"
+updatedAt: "2026-04-03"
 author: "MelodyMind"
 locale: "en"
 taxonomySubsection: cross-decade-lenses
@@ -24,20 +24,26 @@ keywords:
   - afro-caribbean music
   - cultural context
 takeaways:
-  - "Latin music began as a fusion of Afro-Caribbean rhythms and European melodies,
-    creating a rich tapestry of sound."
-  - "Salsa, Latin pop, reggaeton, and Latin trap each reflect different cultural, social,
-    and technological influences."
-  - "Key artists and producers played crucial roles in shaping the evolution of Latin
-    music."
-  - "Globalization and digital platforms have expanded the reach of Latin music while
-    influencing its production and consumption."
+  - "The story begins before the modern industry and before the label 'Latin music.' Afro-
+    Caribbean rhythm, Spanish melody, migration, and port-city exchange created the
+    rhythmic grammar that later genres would keep reshaping."
+  - "Salsa, Latin pop, reggaeton, and Latin trap are not isolated chapters. They reflect
+    changing routes of migration, media, and technology, from New York orchestras and TV
+    crossover to bedroom production and platform-driven circulation."
+  - "Producers, DJs, and arrangers were as important as stars. The evolution of the music
+    depended on people who translated local street sound into formats that could travel
+    across radio, clubs, labels, and streaming systems."
+  - "Global success did not erase local identity. Even at the level of reggaeton and Latin
+    trap, the music still carries older Caribbean pulse, Afro-Latin history, and the
+    tensions of language, race, and visibility."
 playlists:
   spotifyPlaylist: "https://open.spotify.com/playlist/7jHgdssmz9vbTA7Vf9LgUL"
   deezerPlaylist: "https://www.deezer.com/en/playlist/14985079563"
 podcast: from-latin-to-latin-trap
 ---
 
+import DidYouKnowCard from "@shared-ui/components/cards/DidYouKnowCard.astro";
+import QuoteCard from "@shared-ui/components/cards/QuoteCard.astro";
 import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro";
 
 <SubsectionFigure
@@ -47,7 +53,9 @@ import SubsectionFigure from "@shared-ui/components/media/SubsectionFigure.astro
   imageHeight={1024}
   heading="The Rhythmic Soul of Latin Music"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Latin music did not begin in a studio, and it did not begin with a marketing plan. It
 began with movement: ships crossing the Atlantic, languages meeting and mixing, and
@@ -70,6 +78,8 @@ rooted in centuries-old traditions.
 
 To understand that evolution, we have to begin there.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-2.jpg"
   imageAlt=""
@@ -77,7 +87,9 @@ To understand that evolution, we have to begin there.
   imageHeight={1024}
   heading="Where African Drums Met Spanish Melodies"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Long before the word "Latin" was used to describe a marketing category, the Caribbean was
 already a place where different cultures met. These cultures were forced together by
@@ -126,6 +138,8 @@ emerged there spread beyond one island and one decade. It moved with people and 
 changing over time. Knowing that early Latin urban music was influenced by both the past
 and the present helps explain why it feels both modern and deeply connected to the past.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-3.jpg"
   imageAlt=""
@@ -133,7 +147,9 @@ and the present helps explain why it feels both modern and deeply connected to t
   imageHeight={1024}
   heading="New York: The New Heart of Latin Music"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the middle of the 1900s, things started to change. The Caribbean was still important,
 but something new was happening in New York. After World War II, more people left Cuba and
@@ -180,6 +196,8 @@ small spaces. The result was a sound that felt sharper, louder, and more urban, 
 still clearly based on the rhythms that had traveled north with the people who played
 them.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-4.jpg"
   imageAlt=""
@@ -187,7 +205,9 @@ them.
   imageHeight={1024}
   heading="How Vinyl and Radio Built an Industry"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As the sound evolved in clubs and ballrooms, another force quietly shaped its direction:
 recording technology. By the 1950s and 1960s, vinyl records had become central to how
@@ -232,6 +252,8 @@ industry with recognizable stars and global distribution. The groundwork had bee
 Rhythm, migration, and identity had found a commercial frame. At the same time, younger
 musicians were already reshaping that sound from within.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-5.jpg"
   imageAlt=""
@@ -239,7 +261,9 @@ musicians were already reshaping that sound from within.
   imageHeight={1024}
   heading="Before Salsa: When Latin Music Got Young"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the time "salsa" became a popular term, the sound in New York was already changing.
 Younger musicians were listening to soul, R&B, and early rock alongside Afro-Cuban records
@@ -261,6 +285,8 @@ That transitional period was short, but it mattered. It explains how salsa could
 become both a commercial brand and a cultural movement. Musicians were already mixing
 different styles without asking permission.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-6.jpg"
   imageAlt=""
@@ -268,7 +294,9 @@ different styles without asking permission.
   imageHeight={1024}
   heading="Boogaloo: The Sound of Bilingual Streets"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Boogaloo was not around for very long as a popular style, but it still has a lasting
 impact. It started in the mid-1960s and peaked between 1966 and 1968. It was influenced by
@@ -312,6 +340,8 @@ that Latin music could quickly adapt to the urban youth culture. It showed that 
 identities in New York were not set in stone. It was negotiated through sound. That
 negotiation would continue in every phase that followed.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-7.jpg"
   imageAlt=""
@@ -319,7 +349,9 @@ negotiation would continue in every phase that followed.
   imageHeight={1024}
   heading="Latin Jazz: When Orchestras Swung"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While boogaloo focused on short songs and catchy radio hooks, another part of the scene
 was different. Latin jazz added new types of arrangements, deeper harmonies, and more
@@ -369,6 +401,8 @@ of salsa. It also set the stage for future producers who would approach reggaeto
 Latin urban music with similar attention to sound structure, even when tools changed from
 live horns to digital software.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-8.jpg"
   imageAlt=""
@@ -376,7 +410,9 @@ live horns to digital software.
   imageHeight={1024}
   heading="Poetry of the Streets: The Nuyorican Voice"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As the music changed, the lyrics started to express strong opinions about society. Life in
 New York wasn't seen as something to dream about. Poverty, discrimination, and cultural
@@ -418,6 +454,8 @@ remembering the past. It was a modern urban voice. Migration had not weakened id
 had sharpened it. That sharper voice would soon reach a much wider audience. Salsa was
 becoming more than a style. It was becoming a cultural symbol.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-9.jpg"
   imageAlt=""
@@ -425,7 +463,9 @@ becoming more than a style. It was becoming a cultural symbol.
   imageHeight={1024}
   heading="Salsa: The Sound of Migration and Identity"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the early 1970s, the music that had been forming in clubs and studios needed a name
 that could travel. "Salsa" became that name. It was simple, catchy, and easy to market.
@@ -447,6 +487,8 @@ The focus here is salsa during its most popular period. It looks at how industry
 influenced it, how artists defined it, and how questions of race, gender, and identity
 were still present beneath the dance floor energy.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-10.jpg"
   imageAlt=""
@@ -454,7 +496,9 @@ were still present beneath the dance floor energy.
   imageHeight={1024}
   heading="Fania Records: The Label That Defined Salsa"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 When Fania Records started putting all its artists under one label, it changed the Latin
 music scene in New York. The label was started by Johnny Pacheco and Jerry Masucci. They
@@ -465,6 +509,12 @@ Fania did not create the rhythms. It made things easier to see. Large concerts c
 Fania All-Stars made musicians into symbols of their group. Recordings captured live
 energy and shared it beyond local neighborhoods. Salsa went from being a sound to a
 recognizable movement.
+
+<DidYouKnowCard title="Fania's live circuit helped turn salsa into a movement">
+  Fania's own history treats the August 26, 1971 Fania All-Stars concert at the Cheetah
+  Club as a transitional moment in salsa history, showing how the label used live
+  spectacles as infrastructure as much as branding.
+</DidYouKnowCard>
 
 Willie Colón and Héctor Lavoe were the perfect example of this. Colón's trombone-heavy
 arrangements sounded gritty and urban. Lavoe sang with confidence and emotion. They worked
@@ -496,6 +546,8 @@ for a community that was spread out. The label remained the same, even as the st
 changed. This group identity would later be used as a reference point when new genres
 emerged and asked whether they belonged inside or outside the tradition.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-11.jpg"
   imageAlt=""
@@ -503,7 +555,9 @@ emerged and asked whether they belonged inside or outside the tradition.
   imageHeight={1024}
   heading="Celia Cruz: The Queen Who Demanded the Stage"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 People often think of salsa as being led by male bandleaders and singers. Orchestras were
 large, and the people in charge were usually men. But women had a big impact on the
@@ -545,6 +599,8 @@ story of Latin music itself. Her voice had rhythm, history, and exile in it. It'
 one of the clearest connections between early Afro-Cuban traditions and the global stages
 that came later.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-12.jpg"
   imageAlt=""
@@ -552,7 +608,9 @@ that came later.
   imageHeight={1024}
   heading="Rubén Blades: Salsa's Storyteller"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As salsa grew in popularity, some artists started using storytelling more in their music.
 Dance remained an important part of the music, but the lyrics began to include topics
@@ -563,6 +621,11 @@ Rubén Blades is the best example of this change. Before fully committing to mus
 studied law and wrote songs with a focus on storytelling. He worked with Willie Colón, and
 their collaboration reached its peak with the 1978 album Siembra. Siembra was one of the
 best-selling salsa records of its time.
+
+<QuoteCard
+  quote="I imagined that salsa fans would be interested in lyrics that ventured beyond the usual party vibes."
+  author="Rubén Blades"
+/>
 
 "Pedro Navaja," one of the most memorable songs on the album, tells the story of a street
 hustler whose life ends suddenly. The song sounded like a short movie. The listeners knew
@@ -599,6 +662,8 @@ People often think of salsa as being full of energy and dance, but its lyrics ar
 not considered that deep. Blades helped change that idea. His work made the genre more
 serious and emotional.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-13.jpg"
   imageAlt=""
@@ -606,7 +671,9 @@ serious and emotional.
   imageHeight={1024}
   heading="Salsa Romántica: When Love Took Over the Radio"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the 1980s, salsa was entering a new phase. The big orchestral style stayed the same,
 but the arrangements became more relaxed. Romantic themes became more prominent. Radio
@@ -651,6 +718,8 @@ allowed it to switch from realistic stories set in urban areas to more emotional
 without losing its rhythmic identity. This ability to adapt would become a defining trait
 as Latin music entered the era of global crossover.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-14.jpg"
   imageAlt=""
@@ -658,7 +727,9 @@ as Latin music entered the era of global crossover.
   imageHeight={1024}
   heading="Beyond Salsa: Merengue, Bachata, and the Club Revolution"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Salsa was the most popular dance music in the 1970s and 1980s, but it wasn't the only kind
 of music people danced to. In other parts of the Caribbean and among migrant communities
@@ -679,6 +750,8 @@ expanded.
 
 These developments weren't minor details. They were part of the same evolving network.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-15.jpg"
   imageAlt=""
@@ -686,7 +759,9 @@ These developments weren't minor details. They were part of the same evolving ne
   imageHeight={1024}
   heading="Juan Luis Guerra: The Poet of Merengue"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Merengue has always been an important part of Dominican culture. It was fast, rhythmic,
 and driven by accordion and brass. It filled dance halls throughout the Caribbean. For
@@ -725,6 +800,8 @@ As the 1990s progressed, bachata would undergo a similar transformation, moving 
 marginalized beginnings into global visibility. The dance floor was already preparing for
 another shift.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-16.jpg"
   imageAlt=""
@@ -732,7 +809,9 @@ another shift.
   imageHeight={1024}
   heading="Aventura: How Bachata Won the World"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 For much of the 20th century, bachata was seen in a bad light in the Dominican Republic.
 It was usually found in rural bars and working-class neighborhoods. The instruments were
@@ -774,6 +853,8 @@ and merengue. Its modernization helped show that Latin genres could evolve witho
 their identity. This mindset was very important when reggaeton and Latin trap started to
 change mainstream music.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-17.jpg"
   imageAlt=""
@@ -781,7 +862,9 @@ change mainstream music.
   imageHeight={1024}
   heading="Latin Freestyle: Electronic Beats, Bilingual Hearts"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While merengue and bachata were developing in the Caribbean and other Latin American
 regions, another sound was shaping urban dance culture in New York. Latin freestyle music
@@ -828,6 +911,8 @@ completely eliminate older traditions. They added new tools. When reggaeton came
 soon after, it fit into a world that had already been shaped by club culture, youth
 identity, and new production technology.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-18.jpg"
   imageAlt=""
@@ -835,7 +920,9 @@ identity, and new production technology.
   imageHeight={1024}
   heading="Latin Pop Goes Global: The Television Revolution"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the mid-1990s, Latin music was no longer just played in diaspora neighborhoods or on
 regional charts. Television, award shows, and global touring circuits made it more
@@ -857,6 +944,8 @@ about Latin pop. Before that explosion, however, the groundwork had to be set. M
 studios, bilingual performers, and networks of people from the same ethnic background
 played important roles in that preparation.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-19.jpg"
   imageAlt=""
@@ -864,7 +953,9 @@ played important roles in that preparation.
   imageHeight={1024}
   heading="Gloria Estefan: The Bridge Between Worlds"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Before the big crossover boom of 1999, Gloria Estefan had already made a connection
 between Latin rhythm and American pop music. Estefan was born in Havana and raised in
@@ -900,6 +991,8 @@ more visible. Latin pop was no longer a rare occurrence. It became a planned app
 By the late 1990s, the infrastructure was ready for a larger surge. Younger artists took
 advantage of this foundation and helped make Latin pop a global sensation.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-20.jpg"
   imageAlt=""
@@ -907,7 +1000,9 @@ advantage of this foundation and helped make Latin pop a global sensation.
   imageHeight={1024}
   heading="Selena: The Star Who Redefined Crossover"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Selena is a great example of an artist who can reach a wide audience. Selena Quintanilla
 was born in Texas to Mexican-American parents. She grew up performing Tejano music with
@@ -952,6 +1047,8 @@ Her influence is still being felt. The crossover conversation that dominated the
 These artists believed their stories could reach more people than the industry thought
 they could.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-21.jpg"
   imageAlt=""
@@ -959,7 +1056,9 @@ they could.
   imageHeight={1024}
   heading="1999: The Year Latin Pop Exploded"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 If Selena opened the door, 1999 pushed it wide open. In the late 1990s, Latin pop music
 became a big part of global pop culture. Award show performances, expensive music videos,
@@ -1007,6 +1106,8 @@ But the stage would soon change again. While Latin pop was in the spotlight, und
 music was starting to take shape in Puerto Rico and Panama. The next big change would not
 come from fancy TV studios. It would start with mixtapes and local networks.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-22.jpg"
   imageAlt=""
@@ -1014,7 +1115,9 @@ come from fancy TV studios. It would start with mixtapes and local networks.
   imageHeight={1024}
   heading="Behind the Crossover: Gatekeepers and Stereotypes"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 The crossover boom of the late 1990s created more opportunities, but it also showed how
 strictly controlled the industry could be. Audience expectations shaped what labels and
@@ -1059,6 +1162,8 @@ traditional avenues. Television had helped build underground networks, and these
 would soon challenge the status quo. That shift from polished studios to mixtapes and club
 speakers marked reggaeton's turning point.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-23.jpg"
   imageAlt=""
@@ -1066,7 +1171,9 @@ speakers marked reggaeton's turning point.
   imageHeight={1024}
   heading="Reggaeton: Born in the Streets, Built by Producers"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While Latin pop was taking over award stages and television screens, another movement was
 forming far from the polished studios. In Puerto Rico and Panama, DJs and producers were
@@ -1087,6 +1194,8 @@ What follows traces reggaeton's early development through the DJs, producers, an
 performers who created an alternate industry. The movement would eventually reach global
 charts, but it started in neighborhoods that mainstream media rarely visited.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-24.jpg"
   imageAlt=""
@@ -1094,7 +1203,9 @@ charts, but it started in neighborhoods that mainstream media rarely visited.
   imageHeight={1024}
   heading="Panama: Where Spanish Dancehall Began"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Before people started to think of reggaeton as being from Puerto Rico, Panama was an
 important place for it. In the 1980s, many Jamaicans moved to Panama to work. They brought
@@ -1104,6 +1215,12 @@ into performances in Spanish.
 El General was one of the first people from this style to be recognized around the world.
 His songs kept the dancehall rhythm going while he sang in Spanish. Songs like "Te Ves
 Buena" became popular in more places, like the United States and Latin America.
+
+<DidYouKnowCard title="GRAMMY's reggaeton history starts in Panama, not Puerto Rico">
+  GRAMMY's 2023 reggaeton history places the genre's roots in Panama, where artists such
+  as El General and Nando Boom were already rapping in Spanish over Jamaican dancehall
+  riddims in the early 1990s.
+</DidYouKnowCard>
 
 The adaptation was not just imitation. Panamanian artists made the themes and delivery
 more relatable to their local audience. They changed the flow and words to match the
@@ -1130,6 +1247,8 @@ quickly.
 Panama was the first to do this. Puerto Rico would improve and expand on it. All of these
 places helped shape what we now call reggaeton.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-25.jpg"
   imageAlt=""
@@ -1137,7 +1256,9 @@ places helped shape what we now call reggaeton.
   imageHeight={1024}
   heading="The Mixtape Kings: Puerto Rico's Underground"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 In Puerto Rico in the early 1990s, reggaeton wasn't considered part of the music industry.
 It was popular in cassettes, in car stereos, and in small clubs. Producers and DJs put
@@ -1183,6 +1304,8 @@ From there, stronger production teams and clearer branding became essential. The
 foundation, however, was built through mixtapes and neighborhood networks. Without that
 underground infrastructure, reggaeton would not have become popular around the world.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-26.jpg"
   imageAlt=""
@@ -1190,7 +1313,9 @@ underground infrastructure, reggaeton would not have become popular around the w
   imageHeight={1024}
   heading="The Noise: The Club That Scared the Establishment"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As mixtapes spread and more people came out to listen, clubs started to be the main places
 where people met up. In San Juan, places like The Noise helped new talent grow. Performers
@@ -1239,6 +1364,8 @@ The underground era was more than just a beginning. It had a big impact on the d
 of reggaeton. Even after it became popular worldwide, it still showed its sense of
 independence, resistance, and community.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-27.jpg"
   imageAlt=""
@@ -1246,7 +1373,9 @@ independence, resistance, and community.
   imageHeight={1024}
   heading="Luny Tunes: The Architects of Reggaeton's Sound"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As reggaeton moved from raw mixtapes to wider popularity, producers became more visible.
 The sound needed to be clear without losing its rhythm. Studio craft became central. The
@@ -1291,6 +1420,8 @@ created a distinctive sound. The industry now had a product it could confidently
 The next big change happened when a song was played on the radio in different places.
 Reggaeton was ready for a defining mainstream moment.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-28.jpg"
   imageAlt=""
@@ -1298,7 +1429,9 @@ Reggaeton was ready for a defining mainstream moment.
   imageHeight={1024}
   heading="Daddy Yankee: The King of Barrio Fino"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 When Barrio Fino was released in 2004, reggaeton became more popular. Daddy Yankee had
 already gained credibility through the underground scene, but this album made him a global
@@ -1308,6 +1441,12 @@ The song "Gasolina" was a defining moment for the genre. Its rhythm was clearly 
 The hook was direct and repetitive. Radio programmers who had been unsure started playing
 it more often. Clubs in Latin America, the United States, and Europe quickly adopted it.
 The track didn't dilute reggaeton's style. It made it sharper.
+
+<DidYouKnowCard title="'Gasolina' became a formal industry milestone, not just a club hit">
+  GRAMMY's Daddy Yankee history notes that "Gasolina" became the first reggaeton song ever
+  nominated for Latin GRAMMY Record of the Year in 2005, while <em>Barrio Fino</em> won
+  Best Urban Music Album.
+</DidYouKnowCard>
 
 Barrio Fino combined street authenticity with a polished production style. The beats were
 polished without losing their impact. The album felt like a whole, not a bunch of random
@@ -1344,6 +1483,8 @@ built in previous years had created a global star.
 The genre kept growing with each new release. Other artists quickly took advantage of this
 success, expanding the genre's commercial reach even further.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-29.jpg"
   imageAlt=""
@@ -1351,7 +1492,9 @@ success, expanding the genre's commercial reach even further.
   imageHeight={1024}
   heading="The Stars Who Took Reggaeton Global"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 After Barrio Fino became successful, reggaeton didn't just become one type of music. It
 got bigger. Different voices added different textures to the mainstream stage.
@@ -1398,6 +1541,8 @@ one.
 But one important voice made sure that the female point of view wouldn't be forgotten
 during this growth. That presence deserves its own space.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-30.jpg"
   imageAlt=""
@@ -1405,7 +1550,9 @@ during this growth. That presence deserves its own space.
   imageHeight={1024}
   heading="Ivy Queen: The Woman Who Ruled Reggaeton"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As reggaeton grew louder and more popular, it often showed a picture of men being in
 charge. The lineups were mostly male. The lyrics often focused on men's strong and
@@ -1447,6 +1594,8 @@ female leaders who were clearly visible. The next transformation would not repla
 would extend it. Streaming platforms and digital distribution would once again change how
 Latin urban music reached the world.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-31.jpg"
   imageAlt=""
@@ -1454,7 +1603,9 @@ Latin urban music reached the world.
   imageHeight={1024}
   heading="The Streaming Era: A New Map of Latin Music"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 By the early 2010s, Latin urban music was changing. People were no longer wondering if
 reggaeton could survive. The question was who would control its future. The industry's
@@ -1478,6 +1629,8 @@ contracts.
 From there, digital platforms reshaped Latin music and highlighted new centers of gravity
 and the artists who created them.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-32.jpg"
   imageAlt=""
@@ -1485,7 +1638,9 @@ and the artists who created them.
   imageHeight={1024}
   heading="YouTube: Latin Music's New Global Stage"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 In the 1990s, television was the main way to reach a global audience. By the 2010s,
 YouTube had taken over that role. Music videos are no longer shown on TV during specific
@@ -1527,6 +1682,8 @@ charts, not just a passing fad.
 
 The map was getting bigger. Colombia would soon become one of its most dynamic centers.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-33.jpg"
   imageAlt=""
@@ -1534,7 +1691,9 @@ The map was getting bigger. Colombia would soon become one of its most dynamic c
   imageHeight={1024}
   heading="The Colombian Wave: A New Generation Takes Over"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 For years, Puerto Rico was considered the center of reggaeton. By the 2010s, Colombia was
 starting to change that perception. Medellín became a major production hub. Local studios
@@ -1578,6 +1737,8 @@ That leadership shift would soon create a path that would change industry standa
 the world. That moment showed that Latin music had gone from being a little-known
 curiosity to a staple of the mainstream.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-34.jpg"
   imageAlt=""
@@ -1585,7 +1746,9 @@ curiosity to a staple of the mainstream.
   imageHeight={1024}
   heading="Despacito: The Song That Changed Everything"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 In 2017, one song changed the conversation. Luis Fonsi released "Despacito," featuring
 Daddy Yankee. The song mixed pop music with reggaeton rhythm. It was melodic, polished,
@@ -1627,6 +1790,8 @@ After 2017, Latin music didn't need approval from English-speaking markets anymo
 its own place in the world. The map of influence widened further, reaching into Brazil,
 Mexico, and Europe with renewed intensity.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-35.jpg"
   imageAlt=""
@@ -1634,7 +1799,9 @@ Mexico, and Europe with renewed intensity.
   imageHeight={1024}
   heading="Brazil's Funk Carioca: A Rhythm of Its Own"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 While Latin music in Spanish was becoming popular around the world, Brazil was doing its
 own thing. Portuguese separates Brazil linguistically from much of Latin America, yet
@@ -1678,6 +1845,8 @@ The digital era has made it easier for people to communicate with each other, re
 of where they are. What used to feel separate now feels close. This partnership is
 growing, especially as Mexico and Europe play a bigger role in the ecosystem.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-36.jpg"
   imageAlt=""
@@ -1685,7 +1854,9 @@ growing, especially as Mexico and Europe play a bigger role in the ecosystem.
   imageHeight={1024}
   heading="Mexico: The Streaming Giant"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 For many years, Mexico has been an important part of Latin music. It has many different
 styles of music, like regional styles, ballads, and pop. In the streaming era, its
@@ -1728,6 +1899,8 @@ As this circulation grew, Europe became another important place for the spread o
 Spain has a vibrant city life that is influenced by both local traditions and the Latin
 American community there. This change marks the next step in the evolving map.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-37.jpg"
   imageAlt=""
@@ -1735,7 +1908,9 @@ American community there. This change marks the next step in the evolving map.
   imageHeight={1024}
   heading="Spain's Urban Explosion: From Flamenco to Trap"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As streaming made it easier to reach fans all over the world, Europe became more than just
 a touring destination. It developed its own active role within Latin urban culture. Spain
@@ -1779,6 +1954,8 @@ global phenomenon. Many different factors influenced its direction at the same t
 of the most dynamic areas was Dominican dembow, where song structures became even shorter
 because of viral culture.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-38.jpg"
   imageAlt=""
@@ -1786,7 +1963,9 @@ because of viral culture.
   imageHeight={1024}
   heading="Dominican Dembow: Faster, Shorter, Viral"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 As reggaeton spread around the world, one of its most important rhythmic elements took on
 a life of its own. The dembow dance style, which started in Jamaica and spread through
@@ -1808,6 +1987,8 @@ and fit perfectly with the way social media platforms worked. It also looks at h
 dealt with discussions about gender, visibility, and how the public reacted in a world
 that is more connected than ever.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-39.jpg"
   imageAlt=""
@@ -1815,7 +1996,9 @@ that is more connected than ever.
   imageHeight={1024}
   heading="Dominican Dembow: A Nation's Rhythmic Identity"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 The dancehall rhythm was first popularized in the early 1990s by Shabba Ranks' song "Dem
 Bow." The beat became very important for reggaeton music in Panama and Puerto Rico. In the
@@ -1856,6 +2039,8 @@ The genre grew quickly, and it fit well with the way short-form video platforms 
 Songs with short, catchy hooks were popular. The connection between rhythm and virality
 would become even more obvious in the next phase of Latin urban culture.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-40.jpg"
   imageAlt=""
@@ -1863,7 +2048,9 @@ would become even more obvious in the next phase of Latin urban culture.
   imageHeight={1024}
   heading="Tokischa: Breaking Rules, Breaking Barriers"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Dominican dembow made the rhythm more intense. It also made people more interested in the
 debate. The genre's direct style often dealt with topics that were considered taboo, such
@@ -1907,6 +2094,8 @@ As dembow gained popularity online, it started to look a lot like short-form vid
 Songs made for immediate impact were used in viral loops. The connection between rhythm
 and platform logic became clearer.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-41.jpg"
   imageAlt=""
@@ -1914,7 +2103,9 @@ and platform logic became clearer.
   imageHeight={1024}
   heading="TikTok Era: How 15 Seconds Changed Music"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As Dominican dembow gained popularity, short-form video platforms changed how songs were
 made and enjoyed. TikTok in particular changed attention patterns. A fifteen-second video
@@ -1960,6 +2151,8 @@ changes the setting, but people still want to move together. As dembow music bec
 popular, another branch of Latin urban music was also growing. That sound was based on
 trap production and had a more thoughtful sound.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-42.jpg"
   imageAlt=""
@@ -1967,7 +2160,9 @@ trap production and had a more thoughtful sound.
   imageHeight={1024}
   heading="Latin Trap: Made in the Bedroom, Heard Around the World"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 While reggaeton was the most popular music in clubs and dembow was becoming more popular
 on the internet, another style was rising. Latin trap drew inspiration from Atlanta's trap
@@ -1987,6 +2182,8 @@ At this point, the narrative highlights the people who created Latin trap and ho
 production changed the music industry. The bedroom studio became as important as the
 nightclub stage.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-43.jpg"
   imageAlt=""
@@ -1994,7 +2191,9 @@ nightclub stage.
   imageHeight={1024}
   heading="Anuel AA: The Voice of Latin Trap's Beginning"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Anuel AA was one of the first artists to define Latin trap's public image. He started
 gaining popularity in the mid-2010s by releasing music online that mixed reggaeton's
@@ -2031,6 +2230,8 @@ step in the evolution of trap music would be an artist who makes music that expr
 emotions and ideas. This artist would also change how people listen to albums in the
 streaming era.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-44.jpg"
   imageAlt=""
@@ -2038,7 +2239,9 @@ streaming era.
   imageHeight={1024}
   heading="Bad Bunny: The Artist Who Changed the Game"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 If early Latin trap set the tone, Bad Bunny expanded it. He started to become well-known
 in the mid-2010s through uploads to the music platform SoundCloud and collaborations with
@@ -2049,6 +2252,11 @@ His 2018 debut album, X 100PRE, marked a shift. The project did not depend on ju
 formula. It blended elements of trap, reggaeton, and alternative pop music. Melancholic
 melodies and club-ready beats coexisted. The album format was important. Instead of
 releasing individual songs, Bad Bunny put out a collection of songs that all fit together.
+
+<QuoteCard
+  quote="Despite how high people will take me ... I remain with my feet on the ground."
+  author="Bad Bunny"
+/>
 
 He continued to use this approach with later releases. Albums were not just filler between
 hits. They were conceptual spaces where the mood and sequence of the music shaped the
@@ -2062,6 +2270,11 @@ audience could tell that he was both vulnerable and confident.
 He also did things differently than most people. The fashion choices, interviews, and
 images went against traditional ideas about gender in Latin urban culture. The message was
 not presented as a formal declaration of intentions. It appeared through presence.
+
+<DidYouKnowCard title="Bad Bunny broke the Billboard 200 language barrier in 2020">
+  When <em>El Último Tour del Mundo</em> opened at No. 1 on the Billboard 200 in December
+  2020, it became the first all-Spanish-language album ever to top the chart.
+</DidYouKnowCard>
 
 His rise showed that Latin urban music had become central. Albums debuted at the top of
 global charts without relying on English-language transitions. After that, there were
@@ -2083,6 +2296,8 @@ Latin trap, which started as a small part of Latin music, has become a central p
 thanks to Bad Bunny. The next shift would highlight the producers and home studio culture
 that enabled such quick changes in style.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-45.jpg"
   imageAlt=""
@@ -2090,7 +2305,9 @@ that enabled such quick changes in style.
   imageHeight={1024}
   heading="The Home Studio Revolution: Producers in Charge"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Many of the most popular reggaeton and Latin trap songs were produced by a generation of
 producers who grew up with laptops instead of big studio budgets. Tainy is one of the most
@@ -2100,6 +2317,12 @@ Tainy started working with well-known reggaeton artists when he was a teenager. 
 2010s, he was one of the most important sound architects in Latin urban music. His style
 of production was used in different eras. He knew how classic dembow is structured, but he
 also liked the sounds of trap and the melodies of pop.
+
+<DidYouKnowCard title="Tainy's producer path began with FL Studio and teenage beat-selling">
+  In GRAMMY's 2020 profile, Tainy traces his breakthrough to learning FL Studio through
+  producer Nely and then selling his first beat while still very young, a useful snapshot
+  of how laptop production became central to modern reggaeton.
+</DidYouKnowCard>
 
 Digital audio workstations changed the way people worked. Producers no longer needed to
 spend money on expensive studios to experiment. They could program beats at home. Vocals
@@ -2114,6 +2337,11 @@ Tainy's work shows how having a long-term vision can shape a genre. His producti
 supported artists across multiple phases, from early reggaeton to contemporary
 trap-infused pop. Instead of following trends without thinking, he changed basic rhythms
 to fit changing situations.
+
+<QuoteCard
+  quote="I have something that's me. Nobody else can be this or do this."
+  author="Tainy"
+/>
 
 Digital tools also allowed for quick changes. Songs could be changed after they were first
 released. People shared remixes of the song quickly. The line between underground
@@ -2135,6 +2363,8 @@ infrastructure. As production tools changed, geographic centers became more dive
 Argentina quickly became an important center for this movement, thanks to the creativity
 of its young artists and the fresh ideas they brought to the studio.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-46.jpg"
   imageAlt=""
@@ -2142,7 +2372,9 @@ of its young artists and the fresh ideas they brought to the studio.
   imageHeight={1024}
   heading="Argentina's Trap Wave: From Buenos Aires to the World"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the late 2010s, Argentina had become one of the most important places for Latin trap
 music. Freestyle battles in Buenos Aires parks started out small, but they grew into a
@@ -2166,6 +2398,12 @@ at regular intervals, Bizarrap invited artists to record music in the studio. Th
 sessions were filmed and released as individual episodes. The format made people excited
 and kept the audience interested.
 
+<DidYouKnowCard title="Bizarrap built a global format from a suburban home studio">
+  GRAMMY described Bizarrap's rise as a transformation of Latin music coming "from a home
+  studio in the suburbs of Buenos Aires," with the <em>BZRP Music Sessions</em> becoming a
+  globally anticipated release format.
+</DidYouKnowCard>
+
 The session model made people focus more on producer identity. Bizarrap's simple studio
 visuals and tag are consistent with the brand, even when he works with different
 collaborators. Each session felt different, but they were all part of a bigger story.
@@ -2187,6 +2425,8 @@ Colombia, Argentina, and Spain each added their own unique flavors. The conversa
 identity and roots became more complicated, especially as artists in Europe started using
 traditional elements in urban settings.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-47.jpg"
   imageAlt=""
@@ -2194,7 +2434,9 @@ traditional elements in urban settings.
   imageHeight={1024}
   heading="Rosalía: Tradition Meets Trap"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 As Latin trap and reggaeton music spread across continents, Spain's urban music scene
 became more popular. Rosalía is one of the most discussed figures in the music world right
@@ -2205,6 +2447,12 @@ flamenco music with modern production styles like trap and R&B.
 Rosalía's later work moved more directly into reggaeton and Latin urban music. Her songs
 had a mix of Caribbean and electronic styles. People had mixed feelings about her ability
 to switch between styles.
+
+<DidYouKnowCard title="Rosalía turned crossover into a Latin GRAMMY first">
+  GRAMMY's 2022 coverage notes that <em>Motomami</em> made Rosalía the first woman in
+  Latin GRAMMY history to win Album of the Year twice, after <em>El Mal Querer</em> had
+  already taken the same prize in 2019.
+</DidYouKnowCard>
 
 People talked extensively about where her work came from and who owns which traditions.
 Critics wondered how traditional flamenco, which is closely tied to Andalusian and Romani
@@ -2236,6 +2484,8 @@ entirely in this digital and cross-border environment. Their visibility shows a 
 how they are represented and how their audience engages with them. This change marks the
 next part of the story.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-48.jpg"
   imageAlt=""
@@ -2243,7 +2493,9 @@ next part of the story.
   imageHeight={1024}
   heading="Young Miko: A New Kind of Star"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 By the early 2020s, a new generation of fans entered Latin urban music without knowing
 about its underground beginnings. They grew up with streaming platforms, social media, and
@@ -2283,6 +2535,8 @@ the identity of young people around the world.
 From that growth came structural questions about power, ownership, and access. Being
 successful in business does not solve these problems. It often makes them worse.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-49.jpg"
   imageAlt=""
@@ -2290,7 +2544,9 @@ successful in business does not solve these problems. It often makes them worse.
   imageHeight={1024}
   heading="The Business Behind the Beats"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Latin urban music is now popular in stadiums and on streaming charts. Its artists perform
 at festivals around the world. But visibility does not resolve structural inequality.
@@ -2312,6 +2568,8 @@ including who owns what, the contracts people have, who they're representing, an
 media cycle. Success has grown dramatically. People are still debating who should control
 that success.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-50.jpg"
   imageAlt=""
@@ -2319,7 +2577,9 @@ that success.
   imageHeight={1024}
   heading="Who Owns the Music?"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Ownership has had a big impact on Latin music since it began. During the salsa era, record
 labels like Fania Records collected a lot of music that would later be seen as important
@@ -2367,6 +2627,8 @@ of African and Latin American descent, as well as colorism, continue to influenc
 visible people are in both creative and executive jobs. This complexity needs to be looked
 at closely.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-51.jpg"
   imageAlt=""
@@ -2374,7 +2636,9 @@ at closely.
   imageHeight={1024}
   heading="Afro-Latin Identity: The Unseen Foundation"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Black and Afro-descendant communities have influenced Latin music since it was first
 created. They have contributed to it in a variety of ways, from the earliest Afro-Cuban
@@ -2391,6 +2655,12 @@ representation. Tego Calderón has talked about Afro-Latin identity. His work fo
 the lives of Black Puerto Ricans. At that time, most images of Puerto Ricans in the media
 showed people with lighter skin. Songs like "Pa' Que Retozen" mixed a danceable rhythm
 with lyrics that openly addressed issues of race and class.
+
+<DidYouKnowCard title="Tego Calderón made Afro-Puerto Rican identity audible inside reggaeton">
+  GRAMMY's reggaeton history highlights <em>El Abayarde</em> as more than a party record:
+  tracks such as "Loíza" used Afro-Puerto Rican bomba percussion and made Black Puerto
+  Rican identity more visible within the genre's early mainstream rise.
+</DidYouKnowCard>
 
 Colorism affects the casting of musicians, the promotion of musicians, and the leadership
 of the music industry. Artists with darker skin tones sometimes have a harder time
@@ -2423,6 +2693,8 @@ and sexuality. Women and queer artists work in a world that gives them more oppo
 but still criticizes them a lot. These dynamics intersect with racial identity, shaping
 experience differently across communities. The next part examines these different ideas.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-52.jpg"
   imageAlt=""
@@ -2430,7 +2702,9 @@ experience differently across communities. The next part examines these differen
   imageHeight={1024}
   heading="Women in Latin Music: Progress and Pushback"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 From salsa orchestras to reggaeton stages and Latin trap festivals, gender dynamics have
 played a big role in the evolution of Latin music. Women have always been present, but
@@ -2479,6 +2753,8 @@ A final structural dimension is media framing and scandal cycles. In the streami
 attention itself has become a form of currency. How that money moves around can have a big
 impact on people's careers.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-53.jpg"
   imageAlt=""
@@ -2486,7 +2762,9 @@ impact on people's careers.
   imageHeight={1024}
   heading="Viral Fame: The Price of Attention"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 In the streaming era, people are paying attention faster than ever. A song can become
 popular around the world in just a few hours. Controversy can spread quickly. For Latin
@@ -2537,6 +2815,8 @@ change, what stays the same? What has changed forever? The answer lies in rhythm
 migration, and the shared language of movement that began long before streaming platforms
 existed.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-54.jpg"
   imageAlt=""
@@ -2544,7 +2824,9 @@ existed.
   imageHeight={1024}
   heading="The Thread That Binds: Legacy and Evolution"
   headingLevel="h2"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 After decades of change, Latin music is now very different from what it was like in the
 1970s. It no longer tries to get into global markets. It shapes them. Salsa filled dance
@@ -2567,6 +2849,8 @@ because of playlists and what traces of early Afro-Caribbean rhythm can still be
 today's global hits. Latin urban music has become popular all over the world, but its
 grammar still has a lot of influence.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-55.jpg"
   imageAlt=""
@@ -2574,7 +2858,9 @@ grammar still has a lot of influence.
   imageHeight={1024}
   heading="How Playlists Changed the Song"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Streaming platforms did more than reach more people. They changed composition habits. Now,
 songs compete against each other within seconds. Listeners can skip right away. In
@@ -2611,6 +2897,8 @@ As music styles change over time, it's interesting to see which elements of sals
 Latin pop music are still around. Modern production methods still reflect earlier
 traditions.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-56.jpg"
   imageAlt=""
@@ -2618,7 +2906,9 @@ traditions.
   imageHeight={1024}
   heading="The Echo of Salsa in Modern Beats"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 If you listen closely to modern Latin urban music, you can hear elements from earlier
 eras. The Afro-Caribbean son's rhythmic foundation remains a key part of modern dembow.
@@ -2666,6 +2956,8 @@ In the final reflection, this interconnected history places Latin urban music wi
 global culture today. It is no longer just a small part of the whole. It's a language that
 people speak all over the world.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-57.jpg"
   imageAlt=""
@@ -2673,7 +2965,9 @@ people speak all over the world.
   imageHeight={1024}
   heading="A Shared Language: How Latin Music Unites the World"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-left"
+>
 
 Today, Latin urban music circulates without needing translation into dominant pop norms.
 Artists release Spanish-language albums that reach the top of international charts.
@@ -2713,6 +3007,8 @@ ballrooms. It is now available on the internet all over the world.
 
 The evolution continues, but its foundation remains audible. Rhythm remembers.
 
+</SubsectionFigure>
+
 <SubsectionFigure
   imageSrc="/knowledge/from-latin-to-latin-trap/from-latin-to-latin-trap-58.jpg"
   imageAlt=""
@@ -2720,7 +3016,9 @@ The evolution continues, but its foundation remains audible. Rhythm remembers.
   imageHeight={1024}
   heading="50 Essential Songs: The Soundtrack of Evolution"
   headingLevel="h3"
-/>
+  textWrap={true}
+  variant="inline-right"
+>
 
 Latin music did not evolve in a straight line. It spread through migration, radio waves,
 underground mixtapes, and eventually streaming platforms. Rhythm-driven social music
@@ -2893,3 +3191,5 @@ Today, Latin urban music doesn't try to get approval from global markets. It sha
 And it keeps getting better.
 
 This playlist captures the journey.
+
+</SubsectionFigure>
