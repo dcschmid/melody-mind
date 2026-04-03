@@ -42,17 +42,17 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     margin-block: clamp(1.1rem, 2vw, 1.7rem);
     overflow: hidden;
     background: linear-gradient(
-      145deg,
-      color-mix(in srgb, var(--surface-panel-raised) 97%, transparent),
-      color-mix(in srgb, var(--surface-panel-bg) 93%, transparent) 58%,
-      color-mix(in srgb, var(--surface-panel-raised) 94%, transparent)
+      160deg,
+      color-mix(in srgb, var(--surface-panel-raised) 98%, transparent),
+      color-mix(in srgb, var(--surface-panel-bg) 94%, transparent) 62%,
+      color-mix(in srgb, var(--surface-panel-raised) 96%, transparent)
     );
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-xl) - 0.02rem);
+    border-radius: calc(var(--radius-xl) - 0.08rem);
     box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 54%, transparent),
-      inset 0 -1px 0 color-mix(in srgb, var(--surface-border-soft) 22%, transparent),
-      0 0 0.9rem color-mix(in srgb, var(--surface-panel-bg) 18%, transparent);
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 48%, transparent),
+      inset 0 -1px 0 color-mix(in srgb, var(--surface-border-soft) 18%, transparent),
+      var(--shadow-sm);
   }
 
   .did-you-know-card::before {
@@ -97,7 +97,7 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
 
   .did-you-know-card__content {
     display: grid;
-    gap: 0.38rem;
+    gap: 0.46rem;
     min-inline-size: 0;
     padding-block-start: 0.2rem;
   }
@@ -106,9 +106,10 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     margin: 0;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
-    line-height: 1.18;
+    line-height: 1.14;
     color: var(--heading-color);
     letter-spacing: var(--letter-spacing-tight);
+    text-wrap: balance;
   }
 
   .did-you-know-card__body {
@@ -119,6 +120,15 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
 
   .did-you-know-card__body :global(p) {
     margin: 0;
+  }
+
+  .did-you-know-card__body :global(p:first-child)::first-letter {
+    float: none;
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
   }
 
   .did-you-know-card__body :global(p + p) {

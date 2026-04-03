@@ -280,10 +280,10 @@ const classes = [
 
   .subsection-figure--inline-left.subsection-figure--with-body
     .subsection-figure__body
-    :global(p:first-child)::first-letter,
+    > :global(p:first-child)::first-letter,
   .subsection-figure--inline-right.subsection-figure--with-body
     .subsection-figure__body
-    :global(p:first-child)::first-letter {
+    > :global(p:first-child)::first-letter {
     float: inline-start;
     margin-inline-end: 0.14em;
     font-size: 2.45em;
@@ -424,10 +424,10 @@ const classes = [
 
     .subsection-figure--inline-left.subsection-figure--with-body
       .subsection-figure__body
-      :global(p:first-child)::first-letter,
+      > :global(p:first-child)::first-letter,
     .subsection-figure--inline-right.subsection-figure--with-body
       .subsection-figure__body
-      :global(p:first-child)::first-letter {
+      > :global(p:first-child)::first-letter {
       font-size: 2.15em;
     }
   }
