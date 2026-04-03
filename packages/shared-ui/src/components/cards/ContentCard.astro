@@ -256,7 +256,7 @@ const contentProps = href
     position: absolute;
     inset-block: 0;
     inset-inline-start: 0;
-    inline-size: 1px;
+    inline-size: calc(var(--accent-bar-width) / 2);
     content: "";
     background: linear-gradient(
       180deg,
@@ -509,8 +509,8 @@ const contentProps = href
   .content-card__meta-icon {
     display: block;
     flex-shrink: 0;
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
     color: var(--accent-primary);
   }
 
@@ -532,8 +532,8 @@ const contentProps = href
     gap: var(--spacing-sm);
     align-items: center;
     justify-content: center;
-    min-inline-size: 9.5rem;
-    min-block-size: 2.75rem;
+    min-inline-size: calc(var(--spacing-4xl) + var(--spacing-3xl) - var(--spacing-xs));
+    min-block-size: var(--control-min-block-size);
     padding: var(--button-padding-y) var(--button-padding-x);
     font-size: var(--font-size-sm);
     font-weight: var(--button-font-weight);
@@ -551,8 +551,8 @@ const contentProps = href
   }
 
   .content-card__cta-icon {
-    inline-size: 0.95rem;
-    block-size: 0.95rem;
+    inline-size: var(--icon-size-xs);
+    block-size: var(--icon-size-xs);
   }
 
   .content-card--feature .content-card__cta {
@@ -592,15 +592,15 @@ const contentProps = href
   }
 
   .content-card__sr {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip-path: inset(50%);
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   @media (prefers-reduced-motion: reduce) {

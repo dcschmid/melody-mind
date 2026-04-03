@@ -197,7 +197,7 @@
   --sr-only-padding: 0;
   --sr-only-margin: -1px;
   --sr-only-overflow: hidden;
-  --sr-only-clip: rect(0, 0, 0, 0);
+  --sr-only-clip-path: inset(50%);
   --sr-only-white-space: nowrap;
   --sr-only-border: 0;
 }
@@ -441,6 +441,15 @@
   --measure-standard: 40rem;
   --measure-compact: 38rem;
   --overlay-max-block-size: 24rem;
+  --page-shell-max-inline: min(78rem, var(--page-max-width));
+  --page-shell-max-inline-wide: min(88rem, calc(var(--page-max-width) + 4rem));
+  --page-shell-max-inline-wide-xl: 92rem;
+  --page-shell-max-inline-narrow: 58rem;
+  --page-shell-padding-y-top: calc(var(--spacing-2xl) - var(--spacing-sm));
+  --page-shell-padding-y-bottom: calc(var(--spacing-4xl) - var(--spacing-base));
+  --page-shell-padding-y-top-desktop: calc(var(--page-padding-y) + var(--spacing-base));
+  --page-shell-padding-y-bottom-desktop: clamp(var(--spacing-4xl), 7vw, 6rem);
+  --page-shell-padding-y-spacious: 3.5rem;
   --page-padding-x: var(--spacing-lg);
   --page-padding-y: var(--spacing-2xl);
   --section-gap: var(--spacing-3xl);
@@ -477,6 +486,39 @@
     var(--accent-primary) 42%,
     var(--border-default)
   );
+  --control-min-block-size-compact: 2.25rem;
+  --control-min-inline-size-compact: 2.25rem;
+  --control-padding-inline-compact: var(--spacing-base);
+  --control-padding-block-compact: calc(var(--spacing-sm) - 0.1rem);
+  --control-gap-compact: var(--spacing-xs);
+  --control-radius-compact: calc(var(--radius-lg) - 0.18rem);
+  --icon-size-xs: 0.88rem;
+  --icon-size-sm: 1rem;
+  --icon-size-md: 1.125rem;
+  --icon-size-lg: 1.5rem;
+  --icon-size-xl: 2rem;
+  --text-underline-offset-base: 0.1875rem;
+  --measure-copy-narrow: 34rem;
+  --measure-copy-compact: 36rem;
+  --measure-copy-aside: 22rem;
+  --panel-padding-sm: clamp(0.95rem, 1.5vw, 1.2rem);
+  --panel-padding-md: clamp(1rem, 1.6vw, 1.25rem);
+  --panel-padding-lg: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+  --stack-gap-sm: clamp(var(--spacing-sm), 1.05vw, var(--spacing-base));
+  --stack-gap-md: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
+  --stack-gap-lg: clamp(var(--spacing-lg), 2.5vw, var(--spacing-xl));
+  --content-margin-block: clamp(1.1rem, 2vw, 1.7rem);
+  --accent-bar-width: 0.18rem;
+  --icon-shell-size-sm: 2.25rem;
+  --icon-shell-size-md: 2.45rem;
+  --pill-min-block-size-sm: 1.7rem;
+  --pill-min-block-size-md: 1.9rem;
+  --pill-padding-block-sm: 0.26rem;
+  --pill-padding-inline-sm: 0.62rem;
+  --pill-padding-block-md: 0.3rem;
+  --pill-padding-inline-md: 0.7rem;
+  --title-gap-md: clamp(1.1rem, 1.5vw, 2rem);
+  --media-offset-inline: clamp(1.35rem, 2.5vw, 2.2rem);
 }
 
 /* =============================================================================
@@ -536,7 +578,7 @@ body {
   padding: var(--sr-only-padding);
   margin: var(--sr-only-margin);
   overflow: var(--sr-only-overflow);
-  clip: var(--sr-only-clip);
+  clip-path: var(--sr-only-clip-path);
   white-space: var(--sr-only-white-space);
   border: var(--sr-only-border);
 }

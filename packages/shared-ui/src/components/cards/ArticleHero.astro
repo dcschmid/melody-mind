@@ -167,13 +167,13 @@ const titleId = `${idBase}-title`;
     position: relative;
     z-index: 1;
     display: grid;
-    gap: clamp(1.5rem, 2.8vw, 2.4rem);
+    gap: var(--stack-gap-lg);
     align-items: stretch;
   }
 
   .article-hero__content {
     display: grid;
-    gap: clamp(0.9rem, 1.5vw, 1.15rem);
+    gap: var(--stack-gap-md);
     align-content: start;
     min-inline-size: 0;
     color: var(--heading-color);
@@ -198,7 +198,7 @@ const titleId = `${idBase}-title`;
 
   .article-hero__meta-item {
     display: inline-flex;
-    gap: 0.45rem;
+    gap: calc(var(--spacing-xs) + 0.08rem);
     align-items: center;
     font-size: var(--font-size-xs);
     color: var(--text-secondary);
@@ -209,14 +209,14 @@ const titleId = `${idBase}-title`;
   }
 
   .article-hero__meta-icon {
-    inline-size: 0.95rem;
-    block-size: 0.95rem;
+    inline-size: var(--icon-size-xs);
+    block-size: var(--icon-size-xs);
     color: var(--text-tertiary);
   }
 
   .article-hero__intro {
     display: grid;
-    gap: clamp(0.9rem, 1.4vw, 1.1rem);
+    gap: var(--stack-gap-md);
   }
 
   .article-hero__title {
@@ -240,7 +240,7 @@ const titleId = `${idBase}-title`;
   .article-hero__signals {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem 1.2rem;
+    gap: calc(var(--spacing-sm) + 0.3rem) calc(var(--spacing-lg) - 0.3rem);
     align-items: center;
     padding: 0;
     margin: 0;
@@ -249,15 +249,15 @@ const titleId = `${idBase}-title`;
 
   .article-hero__signal {
     display: inline-flex;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
     align-items: center;
     font-size: var(--font-size-xs);
     color: var(--text-secondary);
   }
 
   .article-hero__signal-icon {
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
     color: var(--text-tertiary);
   }
 
@@ -274,14 +274,15 @@ const titleId = `${idBase}-title`;
 
   .article-hero__links :global(.article-hero__link.button-link) {
     min-block-size: 2.25rem;
-    padding: 0.45rem 0.95rem;
+    padding: var(--control-padding-block-compact)
+      calc(var(--control-padding-inline-compact) - 0.05rem);
     font-size: var(--font-size-xs);
-    border-radius: calc(var(--radius-lg) - 0.1rem);
+    border-radius: var(--control-radius-compact);
   }
 
   .article-hero__links :global(.article-hero__link .button-link__icon) {
-    inline-size: 0.95rem;
-    block-size: 0.95rem;
+    inline-size: var(--icon-size-xs);
+    block-size: var(--icon-size-xs);
   }
 
   .article-hero__media-column {
@@ -343,14 +344,14 @@ const titleId = `${idBase}-title`;
   }
 
   .article-hero__media-placeholder-icon {
-    inline-size: 2rem;
-    block-size: 2rem;
+    inline-size: var(--icon-size-xl);
+    block-size: var(--icon-size-xl);
   }
 
   @media (width >= 960px) {
     .article-hero__layout {
       grid-template-columns: minmax(24rem, 1fr) minmax(34rem, 1.02fr);
-      gap: clamp(2.2rem, 2.8vw, 3.25rem);
+      gap: clamp(var(--spacing-xl), 2.8vw, calc(var(--spacing-3xl) - 0.75rem));
       min-block-size: 18.5rem;
     }
 
@@ -359,23 +360,23 @@ const titleId = `${idBase}-title`;
     }
 
     .article-hero__content {
-      gap: 1rem;
-      padding-block-start: 0.1rem;
+      gap: var(--stack-gap-md);
+      padding-block-start: calc(var(--spacing-xs) - 0.15rem);
     }
 
     .article-hero__topline {
-      gap: 0.55rem 0.9rem;
+      gap: calc(var(--spacing-sm) + 0.05rem) calc(var(--spacing-base) - 0.1rem);
     }
 
     .article-hero__signals {
-      gap: 0.85rem 1.45rem;
+      gap: calc(var(--spacing-sm) + 0.35rem) calc(var(--spacing-lg) - 0.05rem);
       margin-block-start: 0;
     }
 
     .article-hero__media-column {
       display: flex;
       align-items: flex-start;
-      padding-block-start: 0.25rem;
+      padding-block-start: var(--spacing-xs);
     }
 
     .article-hero__media-frame,
@@ -426,7 +427,8 @@ const titleId = `${idBase}-title`;
 
     .article-hero__links :global(.article-hero__link.button-link) {
       min-block-size: 2.125rem;
-      padding: 0.4rem 0.85rem;
+      padding: calc(var(--control-padding-block-compact) - 0.05rem)
+        calc(var(--control-padding-inline-compact) - 0.15rem);
       font-size: var(--font-size-xs);
     }
 

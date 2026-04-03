@@ -76,28 +76,28 @@ const takeawayEntries = visibleItems.map((item, index) => {
 
   .knowledge-takeaways__header {
     display: grid;
-    gap: 0.35rem;
+    gap: calc(var(--spacing-xs) + 0.1rem);
     justify-items: center;
     text-align: center;
   }
 
   .knowledge-takeaways__badge {
     display: inline-flex;
-    gap: 0.45rem;
+    gap: calc(var(--spacing-xs) + 0.08rem);
     align-items: center;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     color: var(--accent-primary);
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: var(--letter-spacing-wider);
   }
 
   .knowledge-takeaways__badge::before {
-    inline-size: 0.7rem;
-    block-size: 0.7rem;
+    inline-size: calc(var(--icon-size-xs) - 0.18rem);
+    block-size: calc(var(--icon-size-xs) - 0.18rem);
     content: "";
     border: 1px solid currentcolor;
-    border-radius: 0.18rem;
+    border-radius: var(--radius-sm);
   }
 
   .knowledge-takeaways__title {
@@ -115,9 +115,9 @@ const takeawayEntries = visibleItems.map((item, index) => {
   }
 
   .knowledge-takeaways__accent {
-    inline-size: 3.25rem;
+    inline-size: calc(var(--spacing-3xl) - 0.75rem);
     block-size: 2px;
-    margin-block-start: 0.45rem;
+    margin-block-start: calc(var(--spacing-xs) + 0.2rem);
     background: var(--accent-primary);
     border-radius: var(--radius-full);
   }
@@ -133,12 +133,12 @@ const takeawayEntries = visibleItems.map((item, index) => {
   .knowledge-takeaways__item {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    gap: 0.75rem 0.9rem;
+    gap: calc(var(--spacing-sm) + 0.25rem) calc(var(--spacing-base) - 0.1rem);
     align-items: start;
-    padding: clamp(0.95rem, 1.6vw, 1.2rem);
+    padding: var(--panel-padding-sm);
     background: color-mix(in srgb, var(--surface-panel-raised) 94%, transparent);
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-xl) - 0.1rem);
+    border-radius: var(--radius-xl);
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--surface-1) 58%, transparent),
       var(--shadow-md);
@@ -147,7 +147,7 @@ const takeawayEntries = visibleItems.map((item, index) => {
   .knowledge-takeaways__copy {
     display: grid;
     grid-column: 2;
-    gap: 0.4rem;
+    gap: calc(var(--spacing-xs) + 0.15rem);
     min-inline-size: 0;
   }
 
@@ -156,12 +156,12 @@ const takeawayEntries = visibleItems.map((item, index) => {
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    inline-size: 1.95rem;
-    block-size: 1.95rem;
+    inline-size: calc(var(--icon-shell-size-sm) - 0.3rem);
+    block-size: calc(var(--icon-shell-size-sm) - 0.3rem);
     color: var(--text-primary);
     background: color-mix(in srgb, var(--surface-1) 12%, transparent);
     border: 1px solid color-mix(in srgb, var(--surface-border-soft) 95%, transparent);
-    border-radius: 0.65rem;
+    border-radius: var(--radius-md);
   }
 
   .knowledge-takeaways__icon--1 {

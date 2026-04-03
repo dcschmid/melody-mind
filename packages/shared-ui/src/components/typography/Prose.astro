@@ -92,7 +92,7 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
       color: var(--accent-primary);
       text-decoration-line: underline;
       text-decoration-thickness: 0.1em;
-      text-underline-offset: 0.16em;
+      text-underline-offset: var(--text-underline-offset-base);
       transition: none;
     }
   }
@@ -102,7 +102,7 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
     color: var(--accent-primary);
     text-decoration-line: underline;
     text-decoration-thickness: 0.1em;
-    text-underline-offset: 0.16em;
+    text-underline-offset: var(--text-underline-offset-base);
     transition: text-decoration-thickness var(--transition-fast);
   }
 
@@ -123,7 +123,7 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
 
   /* Inline code */
   .prose code {
-    padding: 0.1rem 0.4rem;
+    padding: calc(var(--spacing-xs) - 0.15rem) calc(var(--spacing-sm) - 0.1rem);
     color: var(--text-primary);
     background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-3));
     border-radius: var(--radius-sm);
@@ -190,8 +190,8 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      inline-size: 1.1rem;
-      block-size: 1.1rem;
+      inline-size: calc(var(--icon-size-sm) + 0.1rem);
+      block-size: calc(var(--icon-size-sm) + 0.1rem);
       margin-inline-start: var(--spacing-xs);
 
       /* Typography */
@@ -216,8 +216,8 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 1.1rem;
-    block-size: 1.1rem;
+    inline-size: calc(var(--icon-size-sm) + 0.1rem);
+    block-size: calc(var(--icon-size-sm) + 0.1rem);
     margin-inline-start: var(--spacing-xs);
 
     /* Typography */
@@ -239,8 +239,8 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   /* Link icon using mask */
   .prose > :is(h2, h3) .prose__heading-anchor::before {
     display: block;
-    inline-size: 0.85rem;
-    block-size: 0.85rem;
+    inline-size: calc(var(--icon-size-xs) - 0.03rem);
+    block-size: calc(var(--icon-size-xs) - 0.03rem);
     content: "";
     background-color: var(--accent-strong);
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M10.59 13.41a1 1 0 0 1 0-1.41l3.18-3.18a3 3 0 1 1 4.24 4.24l-3.18 3.18a1 1 0 0 1-1.41-1.41l3.18-3.18a1 1 0 0 0-1.41-1.41l-3.18 3.18a1 1 0 0 1-1.41 0ZM13.41 10.59a1 1 0 0 1 0 1.41l-3.18 3.18a3 3 0 1 1-4.24-4.24l3.18-3.18a1 1 0 1 1 1.41 1.41L7.4 12.35a1 1 0 1 0 1.41 1.41l3.18-3.18a1 1 0 0 1 1.41 0Z'/%3E%3C/svg%3E")

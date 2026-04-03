@@ -241,14 +241,14 @@ const summaryLabel = summaryParts.join(" · ");
     justify-content: space-between;
     inline-size: 100%;
     min-block-size: var(--control-min-block-size);
-    padding: 0.875rem 1rem;
+    padding: var(--control-padding-block-compact) var(--control-padding-inline-compact);
     font: inherit;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     cursor: pointer;
     background: color-mix(in srgb, var(--surface-section-bg) 88%, transparent);
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-xl) - 0.15rem);
+    border-radius: var(--radius-xl);
     transition:
       border-color 160ms ease,
       background-color 160ms ease;
@@ -264,15 +264,15 @@ const summaryLabel = summaryParts.join(" · ");
   .toc[data-toc-root] .toc__toggle-icon,
   .toc[data-toc-root] .toc__toggle-chevron,
   .toc[data-toc-root] .toc__link-chevron {
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
   }
 
   .toc[data-toc-root] .toc__toggle-label::after {
     display: inline-flex;
     align-items: center;
-    min-block-size: 1.5rem;
-    padding-inline: 0.625rem;
+    min-block-size: var(--control-min-block-size-compact);
+    padding-inline: var(--control-padding-inline-compact);
     margin-inline-start: var(--spacing-xs);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
@@ -290,10 +290,10 @@ const summaryLabel = summaryParts.join(" · ");
   .toc[data-toc-root] .toc__content {
     display: grid;
     gap: var(--spacing-base);
-    padding: 1.25rem;
+    padding: var(--panel-padding-md);
     background: color-mix(in srgb, var(--surface-section-bg) 96%, transparent);
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-xl) + 0.1rem);
+    border-radius: var(--radius-xl);
     box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 16%, transparent);
   }
 
@@ -318,22 +318,22 @@ const summaryLabel = summaryParts.join(" · ");
   .toc[data-toc-root] .toc__list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
   .toc[data-toc-root] .toc__skip {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip-path: inset(50%);
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   .toc[data-toc-root] .toc__item {
@@ -345,8 +345,8 @@ const summaryLabel = summaryParts.join(" · ");
     grid-template-columns: 1fr auto;
     gap: var(--spacing-sm);
     align-items: center;
-    min-block-size: 3rem;
-    padding: 0.75rem 0.25rem;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-xs);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     line-height: 1.35;
@@ -367,8 +367,8 @@ const summaryLabel = summaryParts.join(" · ");
   }
 
   .toc[data-toc-root] .toc__link--child {
-    min-block-size: 2.35rem;
-    padding-inline-start: calc(var(--spacing-md) + 0.75rem);
+    min-block-size: var(--control-min-block-size-compact);
+    padding-inline-start: calc(var(--spacing-md) + var(--spacing-lg));
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-regular);
     color: var(--text-secondary);
@@ -380,9 +380,9 @@ const summaryLabel = summaryParts.join(" · ");
 
   .toc[data-toc-root] .toc__item--child::before {
     position: absolute;
-    inset-block: 0.6rem;
-    inset-inline-start: 0.75rem;
-    inline-size: 1px;
+    inset-block: calc(var(--spacing-base) - var(--spacing-2xs));
+    inset-inline-start: var(--spacing-md);
+    inline-size: var(--sr-only-width);
     content: "";
     background: color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
   }
@@ -425,7 +425,7 @@ const summaryLabel = summaryParts.join(" · ");
 
   @media (width >= 48rem) {
     .toc[data-toc-root] .toc__content {
-      padding: 1.35rem 1.4rem;
+      padding: var(--panel-padding-sm);
     }
 
     .toc[data-toc-root] .toc__nav {

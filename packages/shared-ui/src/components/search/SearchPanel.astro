@@ -141,7 +141,10 @@ const noResultsId = `${idBase}-no-results`;
   .search-panel__input {
     inline-size: 100%;
     min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-sm) 3.25rem var(--spacing-sm) 3rem;
+    padding: var(--spacing-sm)
+      calc(var(--control-min-inline-size) + var(--spacing-sm))
+      var(--spacing-sm)
+      calc(var(--control-min-inline-size) + var(--spacing-xs));
     font: inherit;
     font-size: var(--font-size-base);
     color: var(--text-primary);
@@ -171,8 +174,8 @@ const noResultsId = `${idBase}-no-results`;
 
   .search-panel__clear :global(svg),
   .search-panel__reset-icon {
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
   }
 
   .search-panel__reset {

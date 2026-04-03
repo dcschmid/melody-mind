@@ -95,8 +95,8 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
   .quote-card {
     position: relative;
     display: grid;
-    gap: clamp(0.78rem, 1.05vw, 0.95rem);
-    padding: clamp(0.95rem, 1.55vw, 1.22rem);
+    gap: var(--stack-gap-sm);
+    padding: var(--panel-padding-sm);
     overflow: hidden;
     background: linear-gradient(
       145deg,
@@ -105,7 +105,7 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
       color-mix(in srgb, var(--surface-panel-raised) 94%, transparent)
     );
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-xl) + 0.05rem);
+    border-radius: var(--radius-xl);
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--surface-1) 58%, transparent),
       inset 0 -1px 0 color-mix(in srgb, var(--surface-border-soft) 28%, transparent),
@@ -116,7 +116,7 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     position: absolute;
     inset-block: 0;
     inset-inline-start: 0;
-    inline-size: 0.24rem;
+    inline-size: calc(var(--accent-bar-width) + 0.06rem);
     content: "";
     background: var(--accent-primary);
     border-radius: var(--radius-full);
@@ -141,13 +141,13 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
 
   .quote-card__author {
     display: flex;
-    gap: 0.7rem;
+    gap: calc(var(--spacing-sm) + 0.2rem);
     align-items: center;
     width: fit-content;
     max-width: 100%;
     padding: 0;
     margin: 0;
-    margin-block-start: 0.04rem;
+    margin-block-start: var(--spacing-2xs);
   }
 
   .quote-card__avatar-image,
@@ -156,8 +156,8 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    inline-size: 2.4rem;
-    block-size: 2.4rem;
+    inline-size: var(--icon-shell-size-md);
+    block-size: var(--icon-shell-size-md);
     overflow: hidden;
     background: linear-gradient(
       180deg,
@@ -165,7 +165,7 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
       color-mix(in srgb, var(--surface-panel-bg) 92%, transparent)
     );
     border: 1px solid color-mix(in srgb, var(--surface-border-soft) 92%, transparent);
-    border-radius: calc(var(--radius-lg) - 0.15rem);
+    border-radius: var(--radius-lg);
     box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 54%, transparent);
   }
 
@@ -181,7 +181,7 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
 
   .quote-card__author-copy {
     display: grid;
-    gap: 0.04rem;
+    gap: var(--spacing-2xs);
     min-inline-size: 0;
   }
 
@@ -209,13 +209,13 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
   a.quote-card__source:focus-visible {
     color: var(--heading-color);
     text-decoration: underline;
-    text-underline-offset: 0.12em;
+    text-underline-offset: var(--text-underline-offset-base);
   }
 
   @media (width < 640px) {
     .quote-card {
-      gap: 0.9rem;
-      padding: 0.9rem;
+      gap: var(--stack-gap-sm);
+      padding: var(--panel-padding-sm);
     }
 
     .quote-card__quote {
@@ -228,14 +228,14 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     }
 
     .quote-card__author {
-      gap: 0.65rem;
+      gap: calc(var(--spacing-sm) + 0.15rem);
       width: 100%;
     }
 
     .quote-card__avatar-image,
     .quote-card__avatar-fallback {
-      inline-size: 2.45rem;
-      block-size: 2.45rem;
+      inline-size: var(--icon-shell-size-md);
+      block-size: var(--icon-shell-size-md);
     }
   }
 </style>

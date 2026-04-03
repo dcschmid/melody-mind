@@ -64,7 +64,7 @@ const hasTools = aiTools.length > 0;
       letter-spacing: 0.02em;
       text-decoration: underline;
       text-decoration-color: color-mix(in srgb, var(--text-secondary) 30%, transparent);
-      text-underline-offset: 3px;
+      text-underline-offset: var(--text-underline-offset-base);
       background: none;
       border: none;
       border-radius: 0;
@@ -85,7 +85,7 @@ const hasTools = aiTools.length > 0;
     letter-spacing: 0.02em;
     text-decoration: underline;
     text-decoration-color: color-mix(in srgb, var(--text-secondary) 30%, transparent);
-    text-underline-offset: 3px;
+    text-underline-offset: var(--text-underline-offset-base);
     background: none;
     border: none;
     border-radius: 0;
@@ -125,14 +125,14 @@ const hasTools = aiTools.length > 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
     color: var(--accent-strong);
   }
 
   .ai-content-badge__icon :global(svg) {
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
   }
 
   .ai-content-badge__label {

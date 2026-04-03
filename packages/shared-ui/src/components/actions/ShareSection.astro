@@ -174,7 +174,11 @@ const rootId =
     display: grid;
     gap: clamp(var(--spacing-base), 1.6vw, var(--spacing-lg));
     align-items: center;
-    padding-block: clamp(0.5rem, 1.1vw, 0.9rem);
+    padding-block: clamp(
+      calc(var(--spacing-sm) - 0.1rem),
+      1.1vw,
+      calc(var(--spacing-base) - 0.1rem)
+    );
     padding-inline: 0;
     margin-block-start: 0;
     border-block-start: 0;
@@ -182,7 +186,7 @@ const rootId =
 
   .share-section__copy {
     display: grid;
-    gap: 0.18rem;
+    gap: var(--spacing-2xs);
   }
 
   .share-section__title {
@@ -202,16 +206,17 @@ const rootId =
   .share-section__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem;
+    gap: var(--stack-gap-sm);
   }
 
   .share-section__button {
     display: inline-flex;
-    gap: 0.42rem;
+    gap: var(--control-gap-compact);
     align-items: center;
     justify-content: center;
-    min-block-size: 2.25rem;
-    padding: 0.52rem 0.9rem;
+    min-block-size: var(--control-min-block-size-compact);
+    padding: var(--control-padding-block-compact)
+      var(--control-padding-inline-compact);
     font: inherit;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
@@ -220,7 +225,7 @@ const rootId =
     cursor: pointer;
     background: transparent;
     border: 1px solid var(--surface-border-soft);
-    border-radius: calc(var(--radius-lg) - 0.18rem);
+    border-radius: var(--control-radius-compact);
     transition:
       background var(--transition-fast),
       border-color var(--transition-fast),
@@ -258,8 +263,8 @@ const rootId =
   }
 
   .share-section__button-icon {
-    inline-size: 0.88rem;
-    block-size: 0.88rem;
+    inline-size: var(--icon-size-xs);
+    block-size: var(--icon-size-xs);
   }
 
   @media (width >= 640px) {

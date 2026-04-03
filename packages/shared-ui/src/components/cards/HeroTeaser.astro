@@ -217,7 +217,7 @@ const resolvedMediaAspectRatio =
 
   .hero-teaser__actions :global(a),
   .hero-teaser__actions :global(button) {
-    min-block-size: 48px;
+    min-block-size: var(--control-min-block-size);
   }
 
   .hero-teaser__media {
@@ -251,8 +251,8 @@ const resolvedMediaAspectRatio =
   }
 
   .hero-teaser__placeholder-icon {
-    inline-size: 2rem;
-    block-size: 2rem;
+    inline-size: var(--icon-size-xl);
+    block-size: var(--icon-size-xl);
     color: var(--accent-primary);
   }
 

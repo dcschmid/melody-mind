@@ -130,7 +130,7 @@ import Icon from "../visual/Icon.astro";
     display: inline-flex;
     gap: var(--spacing-xs);
     align-items: center;
-    padding: 0.2rem;
+    padding: calc(var(--spacing-xs) - 0.05rem);
     background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
@@ -139,15 +139,15 @@ import Icon from "../visual/Icon.astro";
   .theme-toggle__pill-icon {
     display: grid;
     place-items: center;
-    inline-size: 2rem;
-    block-size: 2rem;
+    inline-size: var(--control-min-inline-size-compact);
+    block-size: var(--control-min-block-size-compact);
     color: var(--text-secondary);
     border-radius: var(--radius-full);
   }
 
   .theme-toggle__icon {
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
   }
 
   .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="light"],
@@ -157,14 +157,14 @@ import Icon from "../visual/Icon.astro";
   }
 
   .theme-toggle__sr {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip-path: inset(50%);
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 </style>

@@ -148,15 +148,15 @@ const forwardedAttrs = (() => {
   }
 
   .button-link--compact {
-    min-block-size: 2.5rem;
+    min-block-size: var(--control-min-block-size);
     padding: var(--spacing-xs) var(--spacing-base);
     font-size: var(--font-size-sm);
   }
 
   .button-link__icon {
     flex-shrink: 0;
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
   }
 
   .button-link__label {
@@ -164,15 +164,15 @@ const forwardedAttrs = (() => {
   }
 
   .button-link__sr {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip-path: inset(50%);
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   @media (width >= 640px) {

@@ -157,7 +157,7 @@ const classes = [
 <style>
   .subsection-figure {
     display: grid;
-    gap: clamp(1rem, 1.8vw, 1.35rem);
+    gap: var(--stack-gap-md);
     align-items: start;
     margin: clamp(var(--spacing-xl), 3.2vw, calc(var(--spacing-xl) * 1.45)) 0;
   }
@@ -183,8 +183,8 @@ const classes = [
     inset-inline-start: var(--spacing-base);
     display: inline-flex;
     align-items: center;
-    min-block-size: 1.9rem;
-    padding: 0.3rem 0.7rem;
+    min-block-size: var(--pill-min-block-size-md);
+    padding: var(--pill-padding-block-md) var(--pill-padding-inline-md);
     font-size: var(--font-size-xs);
     line-height: 1;
     color: var(--text-secondary);
@@ -197,13 +197,13 @@ const classes = [
   .subsection-figure__content {
     position: relative;
     display: grid;
-    gap: 1.25rem;
+    gap: var(--stack-gap-lg);
     min-inline-size: 0;
   }
 
   .subsection-figure__title {
     position: relative;
-    padding-inline-start: 0.88rem;
+    padding-inline-start: calc(var(--spacing-lg) - 0.12rem);
     margin: 0;
     font-family: var(--font-sans);
     line-height: 1.12;
@@ -216,7 +216,7 @@ const classes = [
     position: absolute;
     inset-block: 0.15em;
     inset-inline-start: 0;
-    inline-size: 0.18rem;
+    inline-size: var(--accent-bar-width);
     content: "";
     background: var(--accent-primary);
     border-radius: var(--radius-full);
@@ -224,10 +224,10 @@ const classes = [
 
   .subsection-figure__body {
     display: grid;
-    gap: 1rem;
-    max-inline-size: 66ch;
+    gap: var(--stack-gap-md);
+    max-inline-size: var(--measure-readable);
     font-size: var(--font-size-base);
-    line-height: 1.7;
+    line-height: var(--line-height-relaxed);
     color: var(--text-secondary);
   }
 
@@ -242,7 +242,7 @@ const classes = [
   .subsection-figure--inline-left,
   .subsection-figure--inline-right {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: var(--stack-gap-md);
   }
 
   .subsection-figure--inline-left .subsection-figure__media,
@@ -258,7 +258,7 @@ const classes = [
   .subsection-figure--inline-left .subsection-figure__body,
   .subsection-figure--inline-right .subsection-figure__body {
     font-size: var(--font-size-base);
-    line-height: 1.72;
+    line-height: var(--line-height-relaxed);
   }
 
   .subsection-figure--level-h2 .subsection-figure__title {
@@ -275,7 +275,7 @@ const classes = [
 
   .subsection-figure--level-h2 .subsection-figure__body {
     font-size: var(--font-size-base);
-    line-height: 1.74;
+    line-height: var(--line-height-relaxed);
   }
 
   .subsection-figure--inline-left.subsection-figure--with-body
@@ -306,13 +306,13 @@ const classes = [
     .subsection-figure--text-wrap.subsection-figure--inline-left
       .subsection-figure__media {
       float: left;
-      margin-inline-end: clamp(1.35rem, 2.5vw, 2.2rem);
+      margin-inline-end: var(--media-offset-inline);
     }
 
     .subsection-figure--text-wrap.subsection-figure--inline-right
       .subsection-figure__media {
       float: right;
-      margin-inline-start: clamp(1.35rem, 2.5vw, 2.2rem);
+      margin-inline-start: var(--media-offset-inline);
     }
 
     .subsection-figure--text-wrap .subsection-figure__content {
@@ -323,7 +323,7 @@ const classes = [
     .subsection-figure--text-wrap .subsection-figure__title {
       display: flow-root;
       max-inline-size: none;
-      margin-block-end: clamp(1.1rem, 1.5vw, 2rem);
+      margin-block-end: var(--title-gap-md);
     }
 
     .subsection-figure--text-wrap .subsection-figure__body {
@@ -338,12 +338,12 @@ const classes = [
 
     .subsection-figure--inline-left {
       grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 1.18fr);
-      gap: clamp(1.4rem, 2.5vw, 2.15rem);
+      gap: var(--stack-gap-lg);
     }
 
     .subsection-figure--inline-right {
       grid-template-columns: minmax(0, 1.18fr) minmax(16rem, 0.9fr);
-      gap: clamp(1.4rem, 2.5vw, 2.15rem);
+      gap: var(--stack-gap-lg);
     }
 
     .subsection-figure--inline-left .subsection-figure__content,
@@ -362,7 +362,7 @@ const classes = [
 
   @media (width < 900px) {
     .subsection-figure {
-      gap: 0.9rem;
+      gap: var(--stack-gap-sm);
       margin: var(--spacing-xl) 0;
     }
 
@@ -387,8 +387,8 @@ const classes = [
     .subsection-figure__badge {
       inset-block-end: 0.8rem;
       inset-inline-start: 0.8rem;
-      min-block-size: 1.7rem;
-      padding: 0.26rem 0.62rem;
+      min-block-size: var(--pill-min-block-size-sm);
+      padding: var(--pill-padding-block-sm) var(--pill-padding-inline-sm);
       font-size: var(--font-size-xs);
     }
 
@@ -412,7 +412,7 @@ const classes = [
     }
 
     .subsection-figure__body {
-      gap: 0.82rem;
+      gap: calc(var(--spacing-sm) + 0.32rem);
       font-size: var(--font-size-base);
       line-height: 1.66;
     }
