@@ -30,21 +30,10 @@ const filteredHeadings = headings.filter(
 const topLevelDepth = filteredHeadings.length
   ? Math.min(...filteredHeadings.map((heading) => heading.depth))
   : 2;
-const chapterCount = filteredHeadings.filter(
-  (heading) => heading.depth === topLevelDepth
-).length;
-const sectionCount = filteredHeadings.filter(
-  (heading) => heading.depth > topLevelDepth
-).length;
 const tocTitle = title || "Table of contents";
 const safeIdBase = idBase.replace(/[^a-zA-Z0-9_-]+/g, "-");
 const toggleId = `${safeIdBase}-toggle`;
 const contentId = `${safeIdBase}-content`;
-const summaryParts = [`${chapterCount} chapter${chapterCount === 1 ? "" : "s"}`];
-if (sectionCount > 0) {
-  summaryParts.push(`${sectionCount} section${sectionCount === 1 ? "" : "s"}`);
-}
-const summaryLabel = summaryParts.join(" · ");
 ---
 
 <div
@@ -63,7 +52,7 @@ const summaryLabel = summaryParts.join(" · ");
     class="toc__toggle"
     data-toc-toggle
   >
-    <span class="toc__toggle-label" data-toc-summary={summaryLabel}>
+    <span class="toc__toggle-label">
       <Icon name="menu" class="toc__toggle-icon" aria-hidden="true" />
       <span>{tocTitle}</span>
     </span>
@@ -266,20 +255,6 @@ const summaryLabel = summaryParts.join(" · ");
   .toc[data-toc-root] .toc__link-chevron {
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
-  }
-
-  .toc[data-toc-root] .toc__toggle-label::after {
-    display: inline-flex;
-    align-items: center;
-    min-block-size: var(--control-min-block-size-compact);
-    padding-inline: var(--control-padding-inline-compact);
-    margin-inline-start: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-regular);
-    color: var(--text-secondary);
-    content: attr(data-toc-summary);
-    background: color-mix(in srgb, var(--surface-1) 12%, transparent);
-    border-radius: var(--radius-full);
   }
 
   .toc[data-toc-root] .toc__toggle-chevron {
