@@ -12,7 +12,6 @@ import {
   type PodcastEpisodeListItem,
 } from "@shared-utils/utils/seo/seoSchema";
 import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { formatDate } from "@shared-utils/utils/format";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import type { PodcastData } from "../types/podcast";
 
@@ -52,9 +51,7 @@ const episodeEntries = sortedPodcasts.map((podcast, index) => ({
   title: podcast.title,
   description: podcast.description,
   imageSrc: getPodcastCoverImage(podcast.imageUrl) ?? podcastHeroImage,
-  durationSeconds: podcast.durationSeconds,
   publishedAt: podcast.publishedAt,
-  publishedLabel: formatDate(podcast.publishedAt),
   isLatest: index === 0,
   searchText: normalizeSearchText(`${podcast.title} ${podcast.description}`),
   metaItems: buildEpisodeMetaItems(podcast.publishedAt, podcast.durationSeconds),
@@ -302,10 +299,6 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
     line-height: 0.94;
     letter-spacing: -0.04em;
     text-wrap: balance;
-  }
-
-  .home__hero-title-line {
-    display: block;
   }
 
   .home__hero-description {

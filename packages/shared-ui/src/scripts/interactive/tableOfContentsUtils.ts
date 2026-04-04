@@ -130,10 +130,6 @@ export class TableOfContentsUtils {
   }
 }
 
-export function initTableOfContents(config: TableOfContentsConfig): TableOfContentsUtils {
-  return new TableOfContentsUtils(config);
-}
-
 export function initDefaultTableOfContents(): TableOfContentsUtils {
   return new TableOfContentsUtils({
     toggleId: "toc-toggle",

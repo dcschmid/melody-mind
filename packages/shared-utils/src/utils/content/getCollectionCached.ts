@@ -111,13 +111,3 @@ export async function getCollectionCached(
     return [] as AnyCollectionEntries;
   }
 }
-
-/**
- * Clears both cached collection entries and the "already logged failure" registry.
- *
- * Primarily useful in dev flows, tests, or hot-reload scenarios.
- */
-export function clearCollectionCache(): void {
-  _collectionCache.clear();
-  _collectionFailuresLogged.clear();
-}

@@ -36,9 +36,6 @@ const knowledgeCollection = defineCollection({
   schema: getKnowledgeSchema,
 });
 
-// Export a concrete base schema instance for external type inference
-export const baseKnowledgeSchema = getKnowledgeSchema({} as SchemaContext);
-
 // Define collections
 export const collections = {
   "knowledge-en": knowledgeCollection,

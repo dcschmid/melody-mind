@@ -7,9 +7,8 @@
  * - resolve the effective theme against the system preference
  * - apply the resolved theme to the document and broadcast a change event
  *
- * It is intentionally narrower than `scripts/theme-init.ts`. The script handles early-page
- * bootstrapping and reactive system/theme synchronization, while this file provides the
- * lightweight imperative helpers used after the page is already running.
+ * It is intentionally focused on low-level theme storage and application concerns,
+ * while higher-level UI entry points can compose these helpers as needed.
  */
 import { THEME_EVENTS, dispatchCustomEvent } from "../../constants/events";
 import { STORAGE_KEYS } from "../../constants/storage";

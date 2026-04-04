@@ -2,7 +2,6 @@ import type { ImageMetadata } from "astro";
 import {
   buildImageMap,
   findAssetByFileName,
-  stripAssetQuery,
   toAbsoluteAssetUrl,
 } from "@shared-utils/utils/imageAssets";
 import { PODCAST_SITE_URL } from "../constants/podcastLinks";
@@ -48,7 +47,6 @@ export const getPodcastCoverImageUrl = (imageSlug: string): string | undefined =
   return image ? toPodcastAssetUrl(image) : undefined;
 };
 
-export const podcastHeroImageSrc = stripAssetQuery(podcastHeroImage.src);
 export const podcastHeroImageUrl = toPodcastAssetUrl(podcastHeroImage);
 
 export { podcastHeroImage };

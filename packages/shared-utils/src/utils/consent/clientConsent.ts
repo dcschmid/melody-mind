@@ -52,14 +52,6 @@ export const setRuntimeAnalyticsAllowed = (enabled: boolean): void => {
   window[RUNTIME_ANALYTICS_FLAG] = enabled;
 };
 
-export const getRuntimeAnalyticsAllowed = (): boolean => {
-  if (isServer) {
-    return false;
-  }
-
-  return window[RUNTIME_ANALYTICS_FLAG] === true;
-};
-
 export const getDoNotTrackEnabled = (): boolean => {
   if (isServer) {
     return false;

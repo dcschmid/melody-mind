@@ -38,23 +38,6 @@ export function initBackToTop(config: BackToTopConfig): void {
   updateVisibility();
 }
 
-export function initBackToTopAuto(): void {
-  if (isServer) {
-    return;
-  }
-
-  const button = document.querySelector("[data-back-to-top]") as HTMLButtonElement | null;
-
-  if (!button) {
-    return;
-  }
-
-  const buttonId = button.id || "back-to-top";
-  const threshold = parseInt(button.dataset.scrollThreshold || "400", 10);
-
-  initBackToTop({ buttonId, scrollThreshold: threshold });
-}
-
 export function initDefaultBackToTop(): void {
   initBackToTop({ buttonId: "back-to-top" });
 }

@@ -83,13 +83,6 @@ export const getKnowledgeTaxonomyImage = (
   return knowledgeTaxonomyImages[normalizeImageKey(imagePathOrSlug)];
 };
 
-export const getKnowledgeTaxonomyImageSrc = (
-  imagePathOrSlug: string | undefined
-): string | undefined => {
-  const image = getKnowledgeTaxonomyImage(imagePathOrSlug);
-  return image ? stripAssetQuery(image.src) : undefined;
-};
-
 export const getKnowledgeTaxonomyImageUrl = (
   imagePathOrSlug: string | undefined,
   baseUrl: string

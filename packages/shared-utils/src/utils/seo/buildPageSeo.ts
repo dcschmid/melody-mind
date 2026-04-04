@@ -487,7 +487,8 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     ...rest
   } = options;
 
-  const canMemoize = memoize && !(autoSocialImage && typeof generateSocialImage === "function");
+  const canMemoize =
+    memoize && !(autoSocialImage && typeof generateSocialImage === "function");
   const cacheKey = canMemoize
     ? buildCacheKey({
         title,
@@ -686,11 +687,6 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     seoCache.set(cacheKey, result);
   }
   return result;
-}
-
-/** Clears the process-local SEO memoization cache, mainly for dev hot reload scenarios. */
-export function clearSeoCache(): void {
-  seoCache.clear();
 }
 
 export default buildPageSeo;

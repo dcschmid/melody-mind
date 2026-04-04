@@ -76,20 +76,6 @@ export const TOC_EVENTS = {
   CLICK: "toc:click",
 } as const;
 
-/**
- * Flattened registry of every shared custom event name.
- *
- * This provides one union source for typing and a single export when a consumer
- * needs the full shared event vocabulary rather than one specific group.
- */
-export const EVENTS = {
-  ...BOOKMARK_EVENTS,
-  ...THEME_EVENTS,
-  ...CONSENT_EVENTS,
-  ...SEARCH_EVENTS,
-  ...TOC_EVENTS,
-} as const;
-
 type EventValues<T extends Record<string, string>> = T[keyof T];
 
 /**
