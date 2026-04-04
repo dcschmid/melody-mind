@@ -374,6 +374,10 @@ const classes = [
       order: 2;
     }
 
+    .subsection-figure--with-body .subsection-figure__content {
+      gap: var(--spacing-md);
+    }
+
     .subsection-figure--text-wrap {
       display: grid;
     }
@@ -398,17 +402,23 @@ const classes = [
 
     .subsection-figure--level-h2 .subsection-figure__title {
       max-inline-size: none;
-      font-size: var(--font-size-xl);
+      font-size: clamp(2rem, 4.8vw + 0.95rem, 2.5rem);
+      line-height: 1.1;
     }
 
     .subsection-figure--level-h3 .subsection-figure__title {
       max-inline-size: none;
-      font-size: var(--font-size-lg);
+      font-size: clamp(1.65rem, 3.4vw + 0.95rem, 2rem);
+      line-height: 1.12;
     }
 
     .subsection-figure--level-h4 .subsection-figure__title {
       max-inline-size: none;
       font-size: var(--font-size-md);
+    }
+
+    .subsection-figure--with-body .subsection-figure__title {
+      margin-block: var(--spacing-md);
     }
 
     .subsection-figure__body {

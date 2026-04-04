@@ -42,7 +42,7 @@
   /* Font sizes */
   --font-size-xs: clamp(1rem, 0.98rem + 0.2vw, 1.125rem); /* 16-18px */
   --font-size-sm: clamp(1.0625rem, 1.03rem + 0.28vw, 1.1875rem); /* 17-19px */
-  --font-size-base: clamp(1.125rem, 1.1rem + 0.5vw, 1.5rem); /* 18-24px */
+  --font-size-base: clamp(1.125rem, 1.1rem + 0.5vw, 1.25rem); /* 18-24px */
   --font-size-md: clamp(1.1875rem, 1.14rem + 0.56vw, 1.5625rem); /* 19-25px */
   --font-size-lg: clamp(1.3125rem, 1.22rem + 0.72vw, 1.75rem); /* 21-28px */
   --font-size-xl: clamp(1.5rem, 1.34rem + 0.9vw, 2rem); /* 24-32px */
