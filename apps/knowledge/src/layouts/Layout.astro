@@ -10,7 +10,6 @@ import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildAppShellSeoContext,
   buildDefaultCopyrightText,
-  DEFAULT_DNS_PREFETCH,
 } from "@shared-utils/utils/appShell";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
 import { knowledgeBrandLogoUrl, knowledgeHeroImageUrl } from "@utils/knowledgeImages";
@@ -99,16 +98,10 @@ const fontPreloads: Array<{
   type?: string;
   crossorigin?: "anonymous" | "use-credentials";
 }> = [];
-const dnsPrefetch = DEFAULT_DNS_PREFETCH;
-const FATHOM_SITE_ID = "RKHOWTTO";
+const dnsPrefetch: Array<{ href: string }> = [];
 ---
 
-<MasterLayout
-  lang={lang}
-  appTitle="MelodyMind"
-  analyticsApp="knowledge"
-  fathomSiteId={FATHOM_SITE_ID}
->
+<MasterLayout lang={lang} appTitle="MelodyMind">
   <Fragment slot="head">
     <AppHeadResources
       {dnsPrefetch}

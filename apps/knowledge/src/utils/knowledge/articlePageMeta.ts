@@ -300,7 +300,6 @@ export function buildKnowledgeArticlePageData({
       icon: "headphones",
       variant: "primary",
       ariaLabel: `Open podcast page for ${title}`,
-      analyticsPodcastTarget: "episode",
     },
   ];
   const articleLinks = articleLinksSource.filter(

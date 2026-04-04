@@ -1,5 +1,5 @@
 import {
-  DEFAULT_FOOTER_UI_TEXT,
+  DEFAULT_FOOTER_SETTINGS_TEXT,
   DEFAULT_SUPPORT_LINKS,
   type AppShellConfig,
 } from "@shared-utils/utils/appShell";
@@ -80,7 +80,7 @@ export const podcastAppShellConfig: AppShellConfig = {
       },
       {
         href: "https://melody-mind.de/cookies",
-        label: "Cookie Policy",
+        label: "Storage Policy",
         target: "_blank",
         rel: "noopener noreferrer",
       },
@@ -91,6 +91,6 @@ export const podcastAppShellConfig: AppShellConfig = {
         rel: "noopener noreferrer",
       },
     ],
-    ...DEFAULT_FOOTER_UI_TEXT,
+    ...DEFAULT_FOOTER_SETTINGS_TEXT,
   },
 };

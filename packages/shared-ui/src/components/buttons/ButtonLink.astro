@@ -14,7 +14,6 @@ interface Props {
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: string;
-  analyticsPodcastTarget?: "episode" | "series";
 }
 
 const rawProps = Astro.props as Props & Record<string, unknown>;
@@ -29,7 +28,6 @@ const {
   variant = "primary",
   size = "default",
   icon,
-  analyticsPodcastTarget,
 } = rawProps;
 
 const isExternal = target === "_blank";
@@ -63,7 +61,6 @@ const forwardedAttrs = (() => {
     "variant",
     "size",
     "icon",
-    "analyticsPodcastTarget",
     "aria-describedby",
     "aria-label",
   ]) {
@@ -84,7 +81,6 @@ const forwardedAttrs = (() => {
   aria-describedby={ariaDescribedByAttr}
   {target}
   rel={finalRel}
-  data-analytics-podcast-target={analyticsPodcastTarget}
   {...forwardedAttrs}
 >
   {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}

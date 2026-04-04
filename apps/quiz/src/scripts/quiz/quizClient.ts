@@ -8,30 +8,6 @@
 import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
 
 const QUIZ_RESULTS_KEY = "quiz-results";
-const QUIZ_ROOT_SELECTOR = "[data-analytics-quiz='true']";
-
-function sanitizeAnalyticsToken(value: string): string {
-  return (
-    value
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "") || "unknown"
-  );
-}
-
-function bucketScore(score: number): string {
-  if (score >= 85) {
-    return "85-100";
-  }
-  if (score >= 70) {
-    return "70-84";
-  }
-  if (score >= 50) {
-    return "50-69";
-  }
-  return "0-49";
-}
 
 export interface QuizQuestion {
   question: string;
@@ -51,13 +27,6 @@ export interface QuizState {
   correctCount: number;
   isComplete: boolean;
 }
-
-type AnalyticsWindow = Window & {
-  mmAnalytics?: {
-    trackEvent: (eventName: string) => void;
-    trackConversion: (goalKey: "quizStart" | "quizComplete" | "quizPass") => void;
-  };
-};
 
 /**
  * Shuffles an array using Fisher-Yates algorithm
@@ -131,40 +100,6 @@ export function initQuiz(
 
   if (!questionContainer) {
     return;
-  }
-
-  const quizRoot = document.querySelector<HTMLElement>(QUIZ_ROOT_SELECTOR);
-  const quizSlug = quizRoot?.dataset.analyticsQuizSlug || "unknown";
-  const quizCategory = quizRoot?.dataset.analyticsQuizCategory || "unknown";
-  const analyticsCategory = sanitizeAnalyticsToken(quizCategory);
-  const analytics = (window as AnalyticsWindow).mmAnalytics;
-  let hasTrackedStart = false;
-  let hasTrackedCompletion = false;
-
-  function trackQuizStart() {
-    if (hasTrackedStart) {
-      return;
-    }
-
-    hasTrackedStart = true;
-    analytics?.trackEvent(`Quiz: start ${analyticsCategory}`);
-    analytics?.trackConversion("quizStart");
-  }
-
-  function trackQuizCompletion(score: number, passed: boolean) {
-    if (hasTrackedCompletion) {
-      return;
-    }
-
-    hasTrackedCompletion = true;
-    analytics?.trackEvent(`Quiz: complete ${analyticsCategory}`);
-    analytics?.trackEvent(`Quiz: result ${passed ? "pass" : "fail"}`);
-    analytics?.trackEvent(`Quiz: score ${bucketScore(score)}`);
-    analytics?.trackConversion("quizComplete");
-
-    if (passed) {
-      analytics?.trackConversion("quizPass");
-    }
   }
 
   function getCurrentSelectionCount(): number {
@@ -400,8 +335,6 @@ export function initQuiz(
   }
 
   function handleOptionClick(e: Event) {
-    trackQuizStart();
-
     const btn = e.currentTarget as HTMLButtonElement;
     const index = parseInt(btn.dataset.index || "0", 10);
     const type = btn.dataset.type as QuizQuestion["type"];
@@ -597,7 +530,6 @@ export function initQuiz(
 
     // Save result to localStorage
     saveResult(score, passed);
-    trackQuizCompletion(score, passed);
 
     const resultTitle = resultContainer.querySelector<HTMLElement>(".quiz-result__title");
     resultTitle?.focus();
@@ -607,7 +539,7 @@ export function initQuiz(
     const raw = safeLocalStorage.getRaw(QUIZ_RESULTS_KEY);
     const results = raw ? JSON.parse(raw) : {};
     const slug = window.location.pathname.replace("/", "");
-    results[slug || quizSlug] = {
+    results[slug || "quiz"] = {
       score,
       passed,
       correctCount: state.correctCount,

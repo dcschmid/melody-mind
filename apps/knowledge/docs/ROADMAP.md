@@ -2086,7 +2086,6 @@ This roadmap provides a comprehensive overview of potential features and improve
 - [Astro Documentation](https://docs.astro.build)
 - [TypeScript Documentation](https://www.typescriptlang.org/docs)
 - [BEM CSS](https://getbem.com)
-- [Fathom Analytics](https://usefathom.com)
 
 ### Design Resources
 

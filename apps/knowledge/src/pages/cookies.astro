@@ -8,13 +8,13 @@ import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Cookie & Storage Policy";
 const description =
-  "Details about cookies and local storage used on Melody Mind Knowledge, including analytics consent preferences.";
+  "Details about cookies and local storage used on Melody Mind Knowledge for core site features.";
 const lastUpdated = "06 February 2026";
 
 const highlights = [
   {
-    value: "Consent-based",
-    label: "Analytics only turns on after you explicitly opt in.",
+    value: "Storage only",
+    label: "We currently rely on browser storage for site features, not analytics.",
   },
   {
     value: "Local-first",
@@ -22,7 +22,7 @@ const highlights = [
   },
   {
     value: "Always manageable",
-    label: "You can update consent or clear storage at any time.",
+    label: "You can clear browser storage at any time in your browser settings.",
   },
 ] as const;
 
@@ -31,22 +31,15 @@ const policySections = [
     icon: "shield",
     title: "Do we use cookies?",
     body: [
-      "We currently do not place non-essential tracking cookies ourselves. For analytics, we use Fathom only after you give explicit consent through the cookie banner.",
-    ],
-  },
-  {
-    icon: "shield",
-    title: "Analytics consent and legal basis",
-    body: [
-      "Non-essential analytics turns on only after you explicitly opt in through the cookie banner. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy Directive.",
-      "If your browser sends a Do Not Track (DNT) signal, analytics remains disabled.",
+      "We currently do not rely on a cookie-based analytics or consent system. Most client-side persistence on this site uses local storage for functional features.",
     ],
   },
   {
     icon: "settings",
-    title: "How to change or withdraw consent",
+    title: "How we use browser storage",
     body: [
-      "Open <strong>Cookie settings</strong> in the footer at any time to review or update your choice. You can also clear site storage in your browser settings.",
+      "We use local storage to remember feature-level preferences and site state, such as reading progress and recently opened content.",
+      "You can clear this storage at any time through your browser settings.",
     ],
   },
   {
@@ -60,19 +53,13 @@ const policySections = [
     icon: "refresh-ccw",
     title: "Policy updates",
     body: [
-      "We update this page when storage technologies, analytics settings, or legal requirements change.",
+      "We update this page when storage technologies or legal requirements change.",
       `Last updated: ${lastUpdated}.`,
     ],
   },
 ] as const;
 
 const storageKeys = [
-  {
-    keyName: "cookie_consent",
-    purpose: "Stores your consent preferences for essential and analytics processing.",
-    storageType: "LocalStorage",
-    retention: "Until you change or delete it.",
-  },
   {
     keyName: "mm_recent_reads",
     purpose: "Shows your recently opened articles on the home page.",
@@ -100,7 +87,7 @@ const pageSeo = buildLegalPageSeo({
   title,
   description,
   imageAlt: "Cookie Policy",
-  fallbackKeywords: ["cookies", "localStorage", "privacy", "consent", "fathom"],
+  fallbackKeywords: ["cookies", "localStorage", "privacy", "storage policy"],
   maxDescription: 160,
   modifiedDate: new Date(lastUpdated),
 });
@@ -112,7 +99,7 @@ const pageSeo = buildLegalPageSeo({
       <StaticPageHero
         eyebrow="Privacy"
         title="Cookie & Storage Policy"
-        lead="This page explains which cookies and browser storage technologies we use, why we use them, and how you can manage your preferences."
+        lead="This page explains which browser storage technologies we use, why we use them, and how you can manage them."
         {highlights}
         highlightsLabel="Key cookie policy points"
       />

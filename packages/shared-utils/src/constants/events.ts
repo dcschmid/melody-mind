@@ -3,8 +3,7 @@
  *
  * These constants define the lightweight event contract used for browser-only
  * communication between otherwise decoupled modules, for example:
- * - interactive UI components notifying analytics code,
- * - footer or consent controls opening shared overlays,
+ * - interactive UI components notifying surrounding code,
  * - theme and bookmark changes propagating across the page.
  *
  * Keeping event names here avoids string drift, makes cross-package event usage
@@ -18,8 +17,8 @@ import { isServer } from "../utils/environment";
 /**
  * Bookmark lifecycle events emitted when bookmark state changes on the client.
  *
- * Consumers typically use these to refresh bookmark-dependent UI or trigger
- * analytics side effects without tightly coupling to bookmark storage internals.
+ * Consumers typically use these to refresh bookmark-dependent UI without tightly
+ * coupling to bookmark storage internals.
  */
 export const BOOKMARK_EVENTS = {
   /** Fired after bookmark state changes, regardless of whether the action was add, remove, or edit. */
@@ -40,23 +39,10 @@ export const THEME_EVENTS = {
 } as const;
 
 /**
- * Cookie-consent workflow events used by the consent banner and footer controls.
- *
- * They allow any part of the UI to request opening the consent dialog or react
- * when the effective preference set changes.
- */
-export const CONSENT_EVENTS = {
-  /** Fired when the consent UI should open or regain focus. */
-  OPEN: "cookie-consent:open",
-  /** Fired after consent preferences are saved or updated. */
-  CHANGED: "cookie-consent:change",
-} as const;
-
-/**
  * Search interaction events emitted by shared search UI components.
  *
- * These events are intentionally coarse-grained so analytics and surrounding UI
- * can react to search usage without receiving the entire component internals.
+ * These events are intentionally coarse-grained so surrounding UI can react to
+ * search usage without receiving the entire component internals.
  */
 export const SEARCH_EVENTS = {
   /** Fired when a search query is submitted or updated into a tracked result set. */
@@ -69,7 +55,7 @@ export const SEARCH_EVENTS = {
  * Table-of-contents interaction events.
  *
  * Currently used to signal that a section link in the TOC was activated, which is
- * useful for analytics and reading-behavior instrumentation.
+ * useful for reading-behavior instrumentation.
  */
 export const TOC_EVENTS = {
   /** Fired when a TOC entry is activated. */
@@ -87,7 +73,6 @@ type EventValues<T extends Record<string, string>> = T[keyof T];
 export type EventName =
   | EventValues<typeof BOOKMARK_EVENTS>
   | EventValues<typeof THEME_EVENTS>
-  | EventValues<typeof CONSENT_EVENTS>
   | EventValues<typeof SEARCH_EVENTS>
   | EventValues<typeof TOC_EVENTS>;
 

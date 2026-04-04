@@ -1,5 +1,5 @@
 import {
-  DEFAULT_FOOTER_UI_TEXT,
+  DEFAULT_FOOTER_SETTINGS_TEXT,
   DEFAULT_SUPPORT_LINKS,
   type AppShellConfig,
 } from "@shared-utils/utils/appShell";
@@ -68,8 +68,8 @@ export const knowledgeAppShellConfig: AppShellConfig = {
       { href: "/imprint", label: "Legal Notice" },
       { href: "/privacy", label: "Privacy Policy" },
       { href: "/ai-content", label: "AI Content" },
-      { href: "/cookies", label: "Cookie Policy" },
+      { href: "/cookies", label: "Storage Policy" },
     ],
-    ...DEFAULT_FOOTER_UI_TEXT,
+    ...DEFAULT_FOOTER_SETTINGS_TEXT,
   },
 };

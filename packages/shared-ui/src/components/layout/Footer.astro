@@ -19,11 +19,7 @@ interface Props {
   legalLinks?: FooterLink[];
   settingsTitle?: string;
   showSettings?: boolean;
-  cookieSettingsLabel?: string;
   themeStatusPrefix?: string;
-  cookiesWaitingLabel?: string;
-  cookiesAllowedLabel?: string;
-  cookiesEssentialLabel?: string;
   copyrightText?: string;
 }
 
@@ -39,11 +35,7 @@ const {
   legalLinks = [],
   settingsTitle = "Settings",
   showSettings = true,
-  cookieSettingsLabel = "Cookie settings",
   themeStatusPrefix = "Theme",
-  cookiesWaitingLabel = "Cookies: waiting",
-  cookiesAllowedLabel = "Cookies: analytics allowed",
-  cookiesEssentialLabel = "Cookies: essential only",
   copyrightText = `© ${new Date().getFullYear()} MelodyMind. All rights reserved.`,
 } = Astro.props as Props;
 
@@ -58,11 +50,7 @@ const resolvedFooterConfig = {
   legalLinks,
   settingsTitle,
   showSettings,
-  cookieSettingsLabel,
   themeStatusPrefix,
-  cookiesWaitingLabel,
-  cookiesAllowedLabel,
-  cookiesEssentialLabel,
   copyrightText,
   ...footerConfig,
 };
@@ -159,13 +147,6 @@ const resolvedFooterConfig = {
             </Paragraph>
             <nav aria-label="Settings navigation" class="site-footer__nav">
               <ThemeToggle />
-              <button
-                type="button"
-                class="site-footer__link site-footer__cookie-button"
-                data-cookie-settings-trigger
-              >
-                {resolvedFooterConfig.cookieSettingsLabel}
-              </button>
             </nav>
             <div class="site-footer__status-list">
               <Paragraph
@@ -174,16 +155,6 @@ const resolvedFooterConfig = {
                 data-theme-status
               >
                 {resolvedFooterConfig.themeStatusPrefix}: system
-              </Paragraph>
-              <Paragraph
-                textSize="sm"
-                className="site-footer__cookie-status"
-                data-cookie-consent-status
-                data-cookie-waiting-label={resolvedFooterConfig.cookiesWaitingLabel}
-                data-cookie-allowed-label={resolvedFooterConfig.cookiesAllowedLabel}
-                data-cookie-essential-label={resolvedFooterConfig.cookiesEssentialLabel}
-              >
-                {resolvedFooterConfig.cookiesWaitingLabel}
               </Paragraph>
             </div>
           </div>
@@ -198,38 +169,10 @@ const resolvedFooterConfig = {
 </FooterShell>
 
 <script>
-  import {
-    CONSENT_EVENTS,
-    THEME_EVENTS,
-    dispatchCustomEvent,
-  } from "@shared-utils/constants/events";
-  import {
-    readConsentPreference,
-    type ConsentPreference,
-  } from "@shared-utils/utils/consent/clientConsent";
+  import { THEME_EVENTS } from "@shared-utils/constants/events";
   import { getStoredTheme, getSystemTheme } from "@shared-utils/utils/theme/themeStorage";
 
-  const trigger = document.querySelector<HTMLElement>("[data-cookie-settings-trigger]");
   const themeStatusElement = document.querySelector<HTMLElement>("[data-theme-status]");
-  const statusElement = document.querySelector<HTMLElement>(
-    "[data-cookie-consent-status]"
-  );
-
-  const renderStatus = (consent: ConsentPreference | null = readConsentPreference()) => {
-    if (!statusElement) {
-      return;
-    }
-    const waitingLabel = statusElement.dataset.cookieWaitingLabel || "Cookies: waiting";
-    const allowedLabel =
-      statusElement.dataset.cookieAllowedLabel || "Cookies: analytics allowed";
-    const essentialLabel =
-      statusElement.dataset.cookieEssentialLabel || "Cookies: essential only";
-    if (!consent) {
-      statusElement.textContent = waitingLabel;
-      return;
-    }
-    statusElement.textContent = consent.analytics ? allowedLabel : essentialLabel;
-  };
 
   const renderThemeStatus = () => {
     if (!themeStatusElement) {
@@ -240,12 +183,7 @@ const resolvedFooterConfig = {
     themeStatusElement.textContent = `Theme: ${resolvedTheme} (${storedTheme ? "manual" : "system"})`;
   };
 
-  renderStatus();
   renderThemeStatus();
-
-  trigger?.addEventListener("click", () => dispatchCustomEvent(CONSENT_EVENTS.OPEN));
-
-  window.addEventListener(CONSENT_EVENTS.CHANGED, () => renderStatus());
   window.addEventListener(THEME_EVENTS.CHANGED, () => renderThemeStatus());
 </script>
 

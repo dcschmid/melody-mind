@@ -16,8 +16,6 @@ export const STORAGE_VERSIONS = {
   READ_PROGRESS: 1,
   /** Bookmarks list */
   BOOKMARKS: 1,
-  /** Cookie consent state */
-  COOKIE_CONSENT: 1,
 } as const;
 
 /**

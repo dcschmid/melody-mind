@@ -24,8 +24,6 @@
 export const STORAGE_KEYS = {
   /** Stores the serialized bookmark collection for saved articles or items. */
   BOOKMARKS: "mm_bookmarks",
-  /** Stores cookie-consent preferences, including the analytics opt-in state. */
-  COOKIE_CONSENT: "cookie_consent",
   /** Base identifier for recently viewed content history. */
   RECENT_READS: "mm_recent_reads",
   /** Stores the user's explicit light/dark theme preference. */
@@ -61,20 +59,3 @@ export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS];
  * Union of all canonical shared `sessionStorage` key names.
  */
 export type SessionKey = (typeof SESSION_KEYS)[keyof typeof SESSION_KEYS];
-
-/**
- * Window-scoped runtime flags that are intentionally not persisted to browser storage.
- *
- * These flags are useful for fast in-memory gating after the initial preference
- * state has been resolved. They should be treated as volatile and recomputable.
- */
-export const RUNTIME_FLAGS = {
-  /**
-   * In-memory flag indicating whether analytics execution is currently allowed.
-   *
-   * This complements, but does not replace, persisted consent state:
-   * consent may live in `COOKIE_CONSENT`, while this flag reflects the current
-   * effective runtime decision after initialization.
-   */
-  ANALYTICS_ALLOWED: "__mmAnalyticsAllowed",
-} as const;

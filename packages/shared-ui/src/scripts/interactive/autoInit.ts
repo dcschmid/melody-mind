@@ -57,14 +57,6 @@ const INIT_TARGETS: InitEntry[] = [
       initSearchPanelsAuto();
     },
   },
-  {
-    test: (): boolean => typeof window !== "undefined",
-    init: async (): Promise<void> => {
-      const { initClientAnalytics } =
-        await import("@shared-utils/utils/analytics/clientAnalytics");
-      initClientAnalytics();
-    },
-  },
 ];
 
 export function initInteractiveComponents(): void {

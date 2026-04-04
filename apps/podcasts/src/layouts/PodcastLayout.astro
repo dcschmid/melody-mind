@@ -111,7 +111,6 @@ const imageAlt =
     : `Cover artwork for ${siteTitle}`;
 const publishDate = publishedTime ? new Date(publishedTime) : undefined;
 const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
-const FATHOM_SITE_ID = "IGOFKHTB";
 
 const publisher = {
   "@type": "Organization",
@@ -226,8 +225,6 @@ const seoProps = {
 
 <MasterLayout
   lang={language}
-  analyticsApp="podcasts"
-  fathomSiteId={FATHOM_SITE_ID}
   bodyClass="podcast-layout"
   mainClass="podcast-layout__main"
   contentShellClass="podcast-layout__container"
@@ -245,7 +242,6 @@ const seoProps = {
           crossorigin: true,
         },
       ]}
-      dnsPrefetch={[{ href: "//cdn.usefathom.com" }]}
       rssTitle={shellConfig.rssTitle}
       rssHref={PODCAST_FEED_PATH}
       rssHrefLang={locale}
@@ -255,7 +251,6 @@ const seoProps = {
         <link rel="preconnect" href={origin} crossorigin />
       ))
     }
-    <link rel="preconnect" href="https://cdn.usefathom.com" crossorigin />
     <SEO
       {...seoProps}
       openGraph={{

@@ -6,13 +6,13 @@ import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Privacy Policy";
 const description =
-  "How we process personal data on Melody Mind Knowledge, including analytics with Fathom and AI-generated media details.";
+  "How we process personal data on Melody Mind Knowledge, including hosting logs, contact requests, and AI-generated media details.";
 const lastUpdated = "15 March 2026";
 
 const highlights = [
   {
-    value: "Consent first",
-    label: "Analytics only activates after explicit opt-in.",
+    value: "Limited processing",
+    label: "We aim to process only the data needed to run the site.",
   },
   {
     value: "Minimal data",
@@ -43,10 +43,10 @@ const sections = [
   },
   {
     icon: "grid",
-    title: "Analytics with Fathom",
+    title: "Browser Storage",
     body: [
-      "We use Fathom Analytics only after you give explicit consent through our cookie banner. Until you opt in, no analytics script is loaded. Your choice is stored in your browser's local storage (`cookie_consent`) with separate settings for essential and analytics preferences. Legal basis: Art. 6(1)(a) GDPR (consent) and the ePrivacy Directive. If your browser sends a Do Not Track (DNT) signal, analytics remain disabled.",
-      'You can change or withdraw your choice at any time via "Cookie settings" in the footer. Withdrawal applies from that moment onward and does not affect prior lawful processing. For a detailed list of storage technologies, see our <a href="/cookies">Cookie &amp; Storage Policy</a>.',
+      "We use browser storage for site features such as reading progress and recently viewed content. We do not run an analytics or consent banner on the site at this time.",
+      'For a current overview of local storage entries, see our <a href="/cookies">Cookie &amp; Storage Policy</a>.',
     ],
   },
   {
@@ -92,7 +92,7 @@ const pageSeo = buildLegalPageSeo({
   title,
   description,
   imageAlt: "Privacy Policy",
-  fallbackKeywords: ["privacy", "data protection", "fathom analytics", "openai media"],
+  fallbackKeywords: ["privacy", "data protection", "browser storage", "openai media"],
   maxDescription: 160,
   modifiedDate: new Date(lastUpdated),
 });

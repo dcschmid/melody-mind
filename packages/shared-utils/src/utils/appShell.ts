@@ -43,11 +43,7 @@ export interface AppShellFooterConfig {
   legalLinks: AppShellLink[];
   settingsTitle?: string;
   showSettings?: boolean;
-  cookieSettingsLabel: string;
   themeStatusPrefix: string;
-  cookiesWaitingLabel: string;
-  cookiesAllowedLabel: string;
-  cookiesEssentialLabel: string;
   copyrightText?: string;
 }
 
@@ -71,8 +67,6 @@ interface BuildAppShellSeoContextParams {
   searchPathTemplate?: string;
 }
 
-export const DEFAULT_DNS_PREFETCH = [{ href: "https://cdn.usefathom.com" }] as const;
-
 export const DEFAULT_SUPPORT_LINKS: AppShellLink[] = [
   {
     href: "https://www.paypal.me/dcschmid",
@@ -88,12 +82,8 @@ export const DEFAULT_SUPPORT_LINKS: AppShellLink[] = [
   },
 ];
 
-export const DEFAULT_FOOTER_UI_TEXT = {
-  cookieSettingsLabel: "Cookie settings",
+export const DEFAULT_FOOTER_SETTINGS_TEXT = {
   themeStatusPrefix: "Theme",
-  cookiesWaitingLabel: "Cookies: waiting",
-  cookiesAllowedLabel: "Cookies: analytics allowed",
-  cookiesEssentialLabel: "Cookies: essential only",
 } as const;
 
 export function mapOgLocale(locale: string): string {

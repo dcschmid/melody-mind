@@ -82,14 +82,7 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
 
   <ReadingProgress storageKey={VERSIONED_KEYS.READ_PROGRESS} />
 
-  <div
-    class="knowledge"
-    data-analytics-article="true"
-    data-analytics-article-slug={slugKey}
-    data-analytics-article-category={currentTaxonomyGroup ||
-      currentTaxonomySubsection ||
-      "uncategorized"}
-  >
+  <div class="knowledge">
     <div class="knowledge__container">
       <ArticleHero
         title={entry.data.title}
