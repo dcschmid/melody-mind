@@ -170,6 +170,23 @@ function initSearchPanel(elements: SearchElements): void {
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
   let lastStatusAnnouncement = "";
 
+  const syncClearButton = (term: string, genreTerm: string): void => {
+    if (!clearBtn) {
+      return;
+    }
+
+    const shouldShow = term.trim().length > 0 || genreTerm.trim().length > 0;
+    clearBtn.hidden = !shouldShow;
+    clearBtn.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+
+    if (shouldShow) {
+      clearBtn.removeAttribute("tabindex");
+      return;
+    }
+
+    clearBtn.setAttribute("tabindex", "-1");
+  };
+
   const updateStatus = (count: number, term: string, genreTerm: string): void => {
     const hasQuery = term.trim().length > 0 || genreTerm.trim().length > 0;
     if (statusEl) {
@@ -210,6 +227,7 @@ function initSearchPanel(elements: SearchElements): void {
       }
     });
 
+    syncClearButton(term, genreTerm);
     updateStatus(matchCount, term, genreTerm);
     dispatchSearchTelemetry({
       hasQuery: term.trim().length > 0 || genreTerm.trim().length > 0,
@@ -234,8 +252,11 @@ function initSearchPanel(elements: SearchElements): void {
 
   const handleClear = () => {
     input.value = "";
-    genreInput && (genreInput.value = "");
+    if (genreInput) {
+      genreInput.value = "";
+    }
     updateFilteredItems("", "");
+    input.focus();
     dispatchSearchTelemetry({
       hasQuery: false,
       resultsCount: listItems.length,

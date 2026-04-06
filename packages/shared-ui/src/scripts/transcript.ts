@@ -54,6 +54,8 @@ const initTranscripts = () => {
     let cueButtons: HTMLButtonElement[] = [];
     let activeCueIndex = -1;
     let lastAudioTime: number | null = null;
+    const prefersReducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
 
     const updateHint = () => {
       const message = details.open ? "Hide transcript" : "Show transcript";
@@ -169,7 +171,10 @@ const initTranscripts = () => {
         if (nextButton) {
           nextButton.classList.add("transcript__cue--active");
           nextButton.setAttribute("aria-current", "true");
-          nextButton.scrollIntoView({ block: "nearest", behavior: "smooth" });
+          nextButton.scrollIntoView({
+            block: "nearest",
+            behavior: prefersReducedMotion ? "auto" : "smooth",
+          });
         }
       }
     };

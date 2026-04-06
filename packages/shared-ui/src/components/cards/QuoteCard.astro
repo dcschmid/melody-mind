@@ -78,8 +78,10 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
                 href={sourceUrl}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`${sourceLabel} (opens in a new tab)`}
               >
                 {sourceLabel}
+                <span class="quote-card__sr"> (opens in a new tab)</span>
               </a>
             ) : (
               <span class="quote-card__source">{sourceLabel}</span>
@@ -203,6 +205,18 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     line-height: 1.35;
     color: var(--text-tertiary);
     text-decoration: none;
+  }
+
+  .quote-card__sr {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   a.quote-card__source:hover,

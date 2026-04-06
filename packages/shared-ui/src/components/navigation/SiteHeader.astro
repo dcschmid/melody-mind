@@ -172,6 +172,11 @@ const navId = `${navIdBase}-nav`;
                   target={item.target}
                   rel={item.rel}
                   aria-current={isActive ? "page" : undefined}
+                  aria-label={
+                    item.target === "_blank"
+                      ? `${item.label} (opens in a new tab)`
+                      : undefined
+                  }
                 >
                   {resolvedHeaderConfig.showIcons && item.icon ? (
                     <Icon
@@ -181,6 +186,9 @@ const navId = `${navIdBase}-nav`;
                     />
                   ) : null}
                   <span>{item.label}</span>
+                  {item.target === "_blank" ? (
+                    <span class="site-header__sr"> (opens in a new tab)</span>
+                  ) : null}
                 </a>
               </li>
             );
@@ -209,6 +217,9 @@ const navId = `${navIdBase}-nav`;
 
     const desktopQuery = window.matchMedia("(min-width: 880px)");
     let previousFocus: HTMLElement | null = null;
+    const siblingRegions = Array.from(document.body.children).filter(
+      (element) => element !== header
+    ) as HTMLElement[];
     const openLabel = toggle.dataset.menuOpenLabel || "Open main menu";
     const closeLabel = toggle.dataset.menuCloseLabel || "Close main menu";
 
@@ -219,10 +230,28 @@ const navId = `${navIdBase}-nav`;
         )
       );
 
+    const syncOutsideInteractivity = (open: boolean) => {
+      const lockOutside = open && !desktopQuery.matches;
+      document.body.classList.toggle("site-header-menu-open", lockOutside);
+
+      siblingRegions.forEach((region) => {
+        if ("inert" in region) {
+          region.inert = lockOutside;
+        }
+        if (lockOutside) {
+          region.setAttribute("aria-hidden", "true");
+          return;
+        }
+
+        region.removeAttribute("aria-hidden");
+      });
+    };
+
     const syncState = () => {
       toggle.setAttribute("aria-expanded", "false");
       toggle.setAttribute("aria-label", openLabel);
       header.dataset.open = "false";
+      syncOutsideInteractivity(false);
 
       if (desktopQuery.matches) {
         nav.removeAttribute("aria-hidden");
@@ -247,6 +276,7 @@ const navId = `${navIdBase}-nav`;
       toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
       nav.setAttribute("aria-hidden", open ? "false" : "true");
       header.dataset.open = open ? "true" : "false";
+      syncOutsideInteractivity(open);
 
       if (open) {
         window.requestAnimationFrame(() => getFocusable()[0]?.focus());
@@ -306,6 +336,10 @@ const navId = `${navIdBase}-nav`;
 </script>
 
 <style>
+  :global(body.site-header-menu-open) {
+    overflow: hidden;
+  }
+
   .site-header {
     position: relative;
     z-index: 80;
@@ -406,6 +440,18 @@ const navId = `${navIdBase}-nav`;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
+  }
+
+  .site-header__sr {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   .site-header__menu-toggle {

@@ -94,6 +94,8 @@ const contentId = `${safeIdBase}-content`;
 
   tocRoots.forEach((root) => {
     root.dataset.tocBound = "true";
+    const controller = new AbortController();
+    const { signal } = controller;
     const toggle = root.querySelector<HTMLButtonElement>("[data-toc-toggle]");
     const content = root.querySelector<HTMLElement>("[data-toc-content]");
     const list = root.querySelector<HTMLUListElement>(".toc__list");
@@ -184,36 +186,52 @@ const contentId = `${safeIdBase}-content`;
     };
 
     applyResponsiveMode();
-    window.addEventListener("resize", applyResponsiveMode);
+    window.addEventListener("resize", applyResponsiveMode, { signal });
 
-    toggle.addEventListener("click", () => {
-      if (root.classList.contains("toc--desktop-static")) {
-        return;
-      }
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
-      if (!expanded) {
-        buildListFromDom();
-      }
-      setExpanded(!expanded);
-    });
+    toggle.addEventListener(
+      "click",
+      () => {
+        if (root.classList.contains("toc--desktop-static")) {
+          return;
+        }
+        const expanded = toggle.getAttribute("aria-expanded") === "true";
+        if (!expanded) {
+          buildListFromDom();
+        }
+        setExpanded(!expanded);
+      },
+      { signal }
+    );
 
-    content.addEventListener("click", (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
+    content.addEventListener(
+      "click",
+      (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) {
+          return;
+        }
 
-      const link = target.closest<HTMLAnchorElement>("a[href^='#']");
-      if (link && !root.classList.contains("toc--desktop-static")) {
-        setExpanded(false);
-      }
-    });
+        const link = target.closest<HTMLAnchorElement>("a[href^='#']");
+        if (link && !root.classList.contains("toc--desktop-static")) {
+          setExpanded(false);
+        }
+      },
+      { signal }
+    );
 
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", buildListFromDom, { once: true });
+      document.addEventListener("DOMContentLoaded", buildListFromDom, {
+        once: true,
+        signal,
+      });
     } else {
       requestAnimationFrame(buildListFromDom);
     }
+
+    window.addEventListener("pagehide", () => controller.abort(), {
+      once: true,
+      signal,
+    });
   });
 </script>
 

@@ -16,12 +16,13 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
       <a
         href={link.href}
         class="podcast-platform-links__link"
-        aria-label={link.ariaLabel}
+        aria-label={`${link.ariaLabel} (opens in a new tab)`}
         target={link.target}
         rel={link.rel}
       >
         <Icon name={link.iconName} aria-hidden="true" />
         <span>{link.label}</span>
+        <span class="podcast-platform-links__sr"> (opens in a new tab)</span>
       </a>
     ))
   }
@@ -91,6 +92,18 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
   .podcast-platform-links__link--secondary:focus-visible {
     background: var(--accent-primary-hover);
     border-color: var(--surface-border-accent-strong);
+  }
+
+  .podcast-platform-links__sr {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   @media (prefers-reduced-motion: reduce) {

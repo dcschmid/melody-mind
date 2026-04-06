@@ -82,8 +82,16 @@ const resolvedFooterConfig = {
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
+                aria-label={
+                  link.target === "_blank"
+                    ? `${link.label} (opens in a new tab)`
+                    : undefined
+                }
               >
                 {link.label}
+                {link.target === "_blank" ? (
+                  <span class="site-footer__sr"> (opens in a new tab)</span>
+                ) : null}
               </a>
             ))
           }
@@ -104,8 +112,16 @@ const resolvedFooterConfig = {
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
+                aria-label={
+                  link.target === "_blank"
+                    ? `${link.label} (opens in a new tab)`
+                    : undefined
+                }
               >
                 {link.label}
+                {link.target === "_blank" ? (
+                  <span class="site-footer__sr"> (opens in a new tab)</span>
+                ) : null}
               </a>
             ))
           }
@@ -126,8 +142,16 @@ const resolvedFooterConfig = {
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
+                aria-label={
+                  link.target === "_blank"
+                    ? `${link.label} (opens in a new tab)`
+                    : undefined
+                }
               >
                 {link.label}
+                {link.target === "_blank" ? (
+                  <span class="site-footer__sr"> (opens in a new tab)</span>
+                ) : null}
               </a>
             ))
           }
@@ -315,6 +339,18 @@ const resolvedFooterConfig = {
     padding-block-start: var(--spacing-sm);
     margin-block-start: var(--spacing-sm);
     border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .site-footer__sr {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   .site-footer__motion {

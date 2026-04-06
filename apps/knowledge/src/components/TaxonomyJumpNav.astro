@@ -46,13 +46,18 @@ const {
             />
           </button>
         </div>
-        <div id={contentId} class="taxonomy-jump-nav__content">
+        <div id={contentId} class="taxonomy-jump-nav__content" hidden>
           <ul class="taxonomy-jump-nav__list">
             {targets.map((target) => (
               <li class="taxonomy-jump-nav__item">
                 <a href={`#${target.anchorId}`} class="taxonomy-jump-nav__link">
                   <span class="taxonomy-jump-nav__title">{target.title}</span>
-                  <span class="taxonomy-jump-nav__count">{target.articleCount}</span>
+                  <span
+                    class="taxonomy-jump-nav__count"
+                    aria-label={`${target.articleCount} articles`}
+                  >
+                    {target.articleCount}
+                  </span>
                 </a>
               </li>
             ))}
@@ -64,38 +69,75 @@ const {
 }
 
 <script>
-  const nav = document.querySelector(".taxonomy-jump-nav");
-  const toggle = nav?.querySelector(".taxonomy-jump-nav__toggle");
-  const content = nav?.querySelector(".taxonomy-jump-nav__content");
-  const mobileMedia = window.matchMedia("(max-width: 39.999rem)");
+  const navRoots = Array.from(
+    document.querySelectorAll<HTMLElement>(".taxonomy-jump-nav")
+  ).filter((root) => root.dataset.taxonomyJumpNavBound !== "true");
 
-  if (
-    nav instanceof HTMLElement &&
-    toggle instanceof HTMLButtonElement &&
-    content instanceof HTMLElement
-  ) {
-    const syncMode = () => {
-      const isMobile = mobileMedia.matches;
+  navRoots.forEach((nav) => {
+    nav.dataset.taxonomyJumpNavBound = "true";
+    const toggle = nav.querySelector<HTMLButtonElement>(".taxonomy-jump-nav__toggle");
+    const content = nav.querySelector<HTMLElement>(".taxonomy-jump-nav__content");
+    const mobileMedia = window.matchMedia("(max-width: 39.999rem)");
+    let previousFocus: HTMLElement | null = null;
 
-      nav.setAttribute("data-mobile", isMobile ? "true" : "false");
+    if (!(toggle instanceof HTMLButtonElement) || !(content instanceof HTMLElement)) {
+      return;
+    }
 
-      if (!isMobile) {
+    const siblingRegions = Array.from(document.body.children).filter(
+      (element) => element !== nav.closest("header") && element !== nav
+    ) as HTMLElement[];
+
+    const getFocusable = (): HTMLElement[] =>
+      Array.from(
+        content.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")
+      );
+
+    const syncOutsideInteractivity = (open: boolean) => {
+      const lockOutside = open && mobileMedia.matches;
+      document.body.classList.toggle("taxonomy-jump-nav-open", lockOutside);
+
+      siblingRegions.forEach((region) => {
+        if ("inert" in region) {
+          region.inert = lockOutside;
+        }
+        if (lockOutside) {
+          region.setAttribute("aria-hidden", "true");
+          return;
+        }
+        region.removeAttribute("aria-hidden");
+      });
+    };
+
+    const setOpen = (open: boolean, restoreFocus = true) => {
+      if (!mobileMedia.matches) {
         nav.setAttribute("data-open", "true");
         toggle.setAttribute("aria-expanded", "true");
+        content.hidden = false;
+        syncOutsideInteractivity(false);
         return;
       }
 
-      nav.setAttribute("data-open", "false");
-      toggle.setAttribute("aria-expanded", "false");
-    };
-
-    const setOpen = (open: boolean) => {
-      if (!mobileMedia.matches) {
-        return;
+      if (open) {
+        previousFocus =
+          document.activeElement instanceof HTMLElement ? document.activeElement : null;
       }
 
       nav.setAttribute("data-open", open ? "true" : "false");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      content.hidden = !open;
+      syncOutsideInteractivity(open);
+
+      if (open) {
+        window.requestAnimationFrame(() => getFocusable()[0]?.focus());
+      } else if (restoreFocus && previousFocus) {
+        previousFocus.focus();
+      }
+    };
+
+    const syncMode = () => {
+      nav.setAttribute("data-mobile", mobileMedia.matches ? "true" : "false");
+      setOpen(!mobileMedia.matches, false);
     };
 
     toggle.addEventListener("click", () => {
@@ -112,22 +154,39 @@ const {
       if (
         mobileMedia.matches &&
         nav.getAttribute("data-open") === "true" &&
-        target instanceof Node
+        target instanceof Node &&
+        !nav.contains(target)
       ) {
-        if (!nav.contains(target)) {
-          setOpen(false);
-        }
+        setOpen(false);
       }
     });
 
     document.addEventListener("keydown", (event) => {
-      if (
-        mobileMedia.matches &&
-        event.key === "Escape" &&
-        nav.getAttribute("data-open") === "true"
-      ) {
+      if (!mobileMedia.matches || nav.getAttribute("data-open") !== "true") {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        event.preventDefault();
         setOpen(false);
-        toggle.focus();
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusable = [toggle, ...getFocusable()];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first?.focus();
       }
     });
 
@@ -145,10 +204,14 @@ const {
 
     syncMode();
     mobileMedia.addEventListener("change", syncMode);
-  }
+  });
 </script>
 
 <style>
+  :global(body.taxonomy-jump-nav-open) {
+    overflow: hidden;
+  }
+
   .taxonomy-jump-nav {
     position: static;
     display: block;
@@ -256,6 +319,10 @@ const {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .taxonomy-jump-nav__content[hidden] {
+    display: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
