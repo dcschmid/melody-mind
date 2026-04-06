@@ -2,10 +2,14 @@
 import PodcastLayout from "../layouts/PodcastLayout.astro";
 import PodcastPlatformLinks from "../components/PodcastPlatformLinks.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import DetailPill from "@shared-ui/components/data-display/DetailPill.astro";
+import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
 import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
+import Headline from "@shared-ui/components/typography/Headline.astro";
 import {
   buildCollectionPageSchema,
   buildPodcastEpisodesItemListSchema,
@@ -119,55 +123,40 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
   {structuredData}
 >
   <PageShell className="page-shell--aurora">
-    <div class="home">
-      <section
+    <Stack gap="xl">
+      <HeroTeaser
         id="podcast-home-hero"
         class="home__hero"
-        aria-labelledby="podcast-home-hero-title"
-        aria-describedby="podcast-home-hero-description"
+        eyebrow={t.subtitle}
+        title="MelodyMind Podcasts"
+        description={t.description}
+        imageSrc={podcastHeroImage}
+        imageAlt={t.heroImageAlt}
+        imageWidth={1200}
+        imageHeight={800}
+        imageLoading="eager"
+        imageDecoding="sync"
+        mediaAspectRatio="3 / 2"
+        titleLevel="h1"
+        titleMaxWidth="10ch"
+        descriptionMaxWidth="38rem"
       >
-        <div class="home__hero-media">
-          <img
-            src={podcastHeroImage.src}
-            alt={t.heroImageAlt}
-            class="home__hero-image"
-            width="1200"
-            height="800"
-            loading="eager"
-            decoding="sync"
+        <Fragment slot="actions">
+          <PodcastPlatformLinks
+            ariaLabel={t.availableOn}
+            rssLabel={t.rssFeed}
+            appearance="hero"
+            size="compact"
           />
-        </div>
+        </Fragment>
+      </HeroTeaser>
 
-        <div class="home__hero-copy">
-          <p class="home__hero-eyebrow">{t.subtitle}</p>
-          <Headline
-            id="podcast-home-hero-title"
-            level="h1"
-            textSize="xl"
-            className="home__hero-title"
-          >
-            MelodyMind Podcasts
-          </Headline>
-          <p id="podcast-home-hero-description" class="home__hero-description">
-            {t.description}
-          </p>
-          <div class="home__hero-actions">
-            <PodcastPlatformLinks ariaLabel={t.availableOn} rssLabel={t.rssFeed} />
-          </div>
-        </div>
-      </section>
-
-      <SectionSurface
-        as="section"
-        className="home__episodes"
-        variant="accent"
-        aria-labelledby="episodes-heading"
-      >
-        <Headline level="h2" textSize="xl" className="home__section-title">
-          <span id="episodes-heading">{t.episodes}</span>
+      <SectionSurface as="section" variant="plain" aria-labelledby="episodes-heading">
+        <Headline id="episodes-heading" level="h2" textSize="xl">
+          {t.episodes}
         </Headline>
 
-        <div class="home__episodes-grid" role="list" id="episodes-list">
+        <AutoGrid preset="fill" min="lg" gap="lg" role="list" id="episodes-list">
           {
             episodeEntries.map((podcast) => (
               <ContentCard
@@ -177,6 +166,7 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
                 role="listitem"
                 href={`/${podcast.id}`}
                 variant="feature"
+                chrome="minimal"
                 size="spacious"
                 mediaObjectFit="contain"
                 imageSrc={podcast.imageSrc}
@@ -190,215 +180,24 @@ const structuredData = [collectionPageSchema, episodeListSchema].filter(
                 ctaLabel="View Episode"
               >
                 <Fragment slot="badge">
-                  {podcast.isLatest && <span class="episode-card__badge">Latest</span>}
+                  {podcast.isLatest && <DetailPill tone="accent">Latest</DetailPill>}
                 </Fragment>
               </ContentCard>
             ))
           }
-        </div>
+        </AutoGrid>
         {
           podcasts.length === 0 && (
-            <EmptyState
-              className="home__empty"
-              description="No episodes available yet. Check back soon for new content!"
-            />
+            <EmptyState description="No episodes available yet. Check back soon for new content!" />
           )
         }
       </SectionSurface>
-    </div>
+    </Stack>
   </PageShell>
 </PodcastLayout>
 
 <style>
-  .episode-card__badge {
-    padding: var(--spacing-2xs) var(--spacing-md);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    border: 1px solid var(--surface-border-accent);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-xs);
-  }
-
-  .home {
-    display: grid;
-    gap: var(--spacing-xl);
-  }
-
   .home__hero {
-    position: relative;
-    display: grid;
     gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
-    align-items: center;
-    padding-block-end: clamp(var(--spacing-xl), 4vw, var(--spacing-2xl));
-  }
-
-  .home__hero-media {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-2) 82%, transparent),
-      color-mix(in srgb, var(--surface-1) 88%, transparent)
-    );
-    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 90%, transparent);
-    border-radius: calc(var(--radius-xl) + var(--spacing-2xs));
-    box-shadow: var(--shadow-lg);
-  }
-
-  .home__hero-media::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-    background:
-      linear-gradient(
-        180deg,
-        transparent 55%,
-        color-mix(in srgb, var(--surface-1) 18%, transparent)
-      ),
-      linear-gradient(
-        90deg,
-        transparent 60%,
-        color-mix(in srgb, var(--surface-1) 14%, transparent)
-      );
-  }
-
-  .home__hero-image {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .home__hero-copy {
-    display: grid;
-    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
-    align-content: center;
-    min-inline-size: 0;
-  }
-
-  .home__hero-eyebrow {
-    margin: 0;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-tight);
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .home__hero-title {
-    margin: 0;
-    font-size: clamp(2.8rem, 5.8vw, 5rem);
-    line-height: 0.94;
-    letter-spacing: -0.04em;
-    text-wrap: balance;
-  }
-
-  .home__hero-description {
-    max-inline-size: 38rem;
-    margin: 0;
-    font-size: clamp(1rem, 1.4vw, 1.18rem);
-    line-height: 1.75;
-    color: var(--text-secondary);
-  }
-
-  .home__hero-actions {
-    display: grid;
-    margin-block-start: var(--spacing-xs);
-  }
-
-  .home__hero-actions :global(.podcast-platform-links) {
-    grid-template-columns: repeat(auto-fit, minmax(7.5rem, max-content));
-    gap: var(--spacing-sm);
-  }
-
-  .home__hero-actions :global(.podcast-platform-links__link) {
-    min-block-size: 3rem;
-    padding: 0.8rem 1rem;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    background: color-mix(in srgb, var(--surface-1) 86%, transparent);
-    border-color: color-mix(in srgb, var(--surface-border-soft) 94%, transparent);
-    box-shadow: none;
-  }
-
-  .home__hero-actions :global(.podcast-platform-links__link:hover),
-  .home__hero-actions :global(.podcast-platform-links__link:focus-visible) {
-    background: color-mix(in srgb, var(--surface-card-hover) 92%, transparent);
-    transform: translateY(-2px);
-  }
-
-  .home__hero-actions :global(.podcast-platform-links__link--secondary) {
-    color: #05292b;
-    background: linear-gradient(135deg, #35dfd0, #2dc7d7);
-    border-color: color-mix(in srgb, #62efe3 40%, transparent);
-    box-shadow: 0 1rem 2rem color-mix(in srgb, #35dfd0 20%, transparent);
-  }
-
-  .home__hero-actions :global(.podcast-platform-links__link--secondary:hover),
-  .home__hero-actions :global(.podcast-platform-links__link--secondary:focus-visible) {
-    background: linear-gradient(135deg, #45ead9, #39d4e3);
-    border-color: color-mix(in srgb, #8ef4ec 48%, transparent);
-  }
-
-  .home__episodes {
-    display: grid;
-    gap: var(--spacing-lg);
-  }
-
-  .home :global(.home__episodes) {
-    padding: 0;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .home :global(.content-card) {
-    border-color: transparent;
-  }
-
-  .home :global(.content-card__media) {
-    border-block-end: 0;
-  }
-
-  .home__section-title {
-    margin: 0;
-    color: var(--text-primary);
-  }
-
-  .home__episodes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-    gap: var(--spacing-lg);
-  }
-
-  @media (width >= 960px) {
-    .home__hero {
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
-      gap: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
-    }
-
-    .home__episodes-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (width < 40rem) {
-    .home__hero {
-      gap: var(--spacing-lg);
-      padding-block-end: var(--spacing-xl);
-    }
-
-    .home__episodes {
-      gap: var(--spacing-base);
-    }
   }
 </style>

@@ -1,0 +1,170 @@
+---
+import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
+import SectionHeader from "@shared-ui/components/layout/SectionHeader.astro";
+import VisuallyHidden from "@shared-ui/components/utilities/VisuallyHidden.astro";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  copy?: string;
+  emptyDescription?: string;
+  fallbackImage: string;
+  imageMap: Record<string, string>;
+  maxItems?: number;
+  storageKey: string;
+  title?: string;
+  titleId?: string;
+  className?: string;
+  class?: string;
+}
+
+const {
+  copy = "Return to the guides you opened most recently.",
+  emptyDescription = "No recent guides yet. Open an article and it will appear here.",
+  fallbackImage,
+  imageMap,
+  maxItems = 3,
+  storageKey,
+  title = "Recently read",
+  titleId = "recent-reads-title",
+  className = "",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const classes = ["recent-reads-panel", className, classProp].filter(Boolean).join(" ");
+---
+
+<section {...rest} class={classes} aria-labelledby={titleId}>
+  <SectionHeader title={title} titleId={titleId} copy={copy} />
+
+  <div
+    class="recent-reads-panel__mount"
+    data-recent-reads="true"
+    data-storage-key={storageKey}
+    data-max-items={String(maxItems)}
+    data-image-map={JSON.stringify(imageMap)}
+    data-fallback-image={fallbackImage}
+  >
+    <div class="recent-reads-panel__results" data-role="container" hidden>
+      <ul class="recent-reads-panel__list" data-role="list"></ul>
+    </div>
+
+    <VisuallyHidden
+      data-role="status"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    />
+
+    <EmptyState
+      className="recent-reads-panel__empty"
+      data-role="empty"
+      description={emptyDescription}
+    />
+  </div>
+</section>
+
+<script>
+  import { initRecentReadsPanels } from "@shared-ui/scripts/init/recentReads";
+
+  initRecentReadsPanels();
+</script>
+
+<style>
+  .recent-reads-panel {
+    display: grid;
+    gap: var(--spacing-lg);
+  }
+
+  .recent-reads-panel__results {
+    display: block;
+  }
+
+  .recent-reads-panel__empty {
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__list) {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__item) {
+    min-inline-size: 0;
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__link) {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-block-size: 100%;
+    color: var(--text-primary);
+    text-decoration: none;
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__link:hover),
+  .recent-reads-panel__mount :global(.recent-reads-panel__link:focus) {
+    background: var(--surface-panel-raised);
+    border-color: var(--surface-border-accent);
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__link):focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__media) {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__image) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__body) {
+    display: flex;
+    align-items: start;
+    padding: var(--spacing-base);
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__title) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-snug);
+    color: var(--text-primary);
+    /* stylelint-disable-next-line property-no-deprecated */
+    -webkit-box-orient: block-axis;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .recent-reads-panel__mount :global(.recent-reads-panel__link) {
+      transition: none;
+    }
+  }
+
+  @media (width >= 600px) {
+    .recent-reads-panel__mount :global(.recent-reads-panel__list) {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+  }
+</style>

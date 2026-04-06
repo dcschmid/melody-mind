@@ -5,16 +5,41 @@ import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface Props extends astroHTML.JSX.HTMLAttributes {
   body?: readonly string[] | string[];
+  desktopSpan?: "default" | "full";
+  headerWidth?: "default" | "compact";
   icon: string;
   title: string;
+  variant?: "default" | "accent" | "spotlight";
   class?: string;
 }
 
-const { body = [], icon, title, class: className, ...rest } = Astro.props;
+const {
+  body = [],
+  desktopSpan = "default",
+  headerWidth = "default",
+  icon,
+  title,
+  variant = "default",
+  class: className,
+  ...rest
+} = Astro.props as Props;
 ---
 
-<section {...rest} class:list={["legal-document-section", className]}>
-  <div class="legal-document-section__header">
+<section
+  {...rest}
+  class:list={[
+    "legal-document-section",
+    `legal-document-section--${variant}`,
+    `legal-document-section--desktop-span-${desktopSpan}`,
+    className,
+  ]}
+>
+  <div
+    class:list={[
+      "legal-document-section__header",
+      `legal-document-section__header--${headerWidth}`,
+    ]}
+  >
     <Icon name={icon} class="legal-document-section__icon" aria-hidden="true" />
     <Headline level="h2" textSize="lg" className="legal-document-section__title">
       {title}
@@ -51,6 +76,30 @@ const { body = [], icon, title, class: className, ...rest } = Astro.props;
       var(--shadow-base);
   }
 
+  .legal-document-section--accent {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-primary) 10%, transparent),
+      transparent 58%
+    );
+    background-color: var(--surface-panel-bg);
+  }
+
+  .legal-document-section--spotlight {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 48%, transparent),
+        transparent 72%
+      ),
+      radial-gradient(
+        circle at top right,
+        color-mix(in srgb, var(--accent-primary) 11%, transparent),
+        transparent 38%
+      ),
+      var(--surface-panel-bg);
+  }
+
   .legal-document-section::after {
     position: absolute;
     inset: var(--spacing-xs);
@@ -66,6 +115,10 @@ const { body = [], icon, title, class: className, ...rest } = Astro.props;
     align-items: center;
     padding-block-end: var(--spacing-base);
     border-block-end: 1px solid var(--surface-border-soft);
+  }
+
+  .legal-document-section__header--compact {
+    max-inline-size: var(--measure-compact);
   }
 
   .legal-document-section__icon {
@@ -107,6 +160,12 @@ const { body = [], icon, title, class: className, ...rest } = Astro.props;
   @media (width >= 720px) {
     .legal-document-section {
       padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    }
+  }
+
+  @media (width >= 1100px) {
+    .legal-document-section--desktop-span-full {
+      grid-column: 1 / -1;
     }
   }
 </style>

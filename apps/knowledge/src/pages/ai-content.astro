@@ -1,11 +1,12 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
+import LegalDocumentSection from "@shared-ui/components/layout/LegalDocumentSection.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
 import StaticPageHero from "@shared-ui/components/layout/StaticPageHero.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
-import Icon from "@shared-ui/components/visual/Icon.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import {
   buildArticleSchema,
@@ -52,7 +53,6 @@ const policySections = [
   {
     icon: "sparkles",
     title: "What AI Tools We Use",
-    sectionClass: "ai-policy__section--tools",
     body: [
       "At Melody Mind, we use AI tools to support content creation, research, and optimization. The main tools we use include:",
     ],
@@ -65,7 +65,6 @@ const policySections = [
   {
     icon: "shield",
     title: "Human Oversight & Quality Assurance",
-    sectionClass: "ai-policy__section--oversight",
     body: [
       "AI-generated content is never published without human review. Our editorial process includes:",
       "The AI-Generated badge shown on some articles indicates that AI tools contributed to the creation process. It is there to make that use clear and transparent.",
@@ -81,7 +80,6 @@ const policySections = [
   {
     icon: "file-text",
     title: "Copyright & Legal Compliance",
-    sectionClass: "ai-policy__section--copyright",
     body: [
       "We take copyright law seriously. Our AI content practices align with:",
       "AI does not replace human judgment or creativity. It is a tool that helps us work more efficiently, while our editorial review maintains quality, accuracy, and originality.",
@@ -168,191 +166,103 @@ const pageSeo = buildPageSeo({
 
 <Layout {pageSeo}>
   <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
-    <div class="ai-policy">
-      <div class="ai-policy__container">
-        <StaticPageHero
-          class="ai-policy__hero"
-          badge="AI Content Policy"
-          title="Transparency About AI-Generated Content"
-          titleTextSize="xl"
-          lead="We use AI tools to enhance our content creation process while maintaining quality, accuracy, and legal compliance."
-          {highlights}
-          highlightsLabel="Key policy points"
-        />
+    <Stack className="ai-policy" gap="2xl">
+      <StaticPageHero
+        class="ai-policy__hero"
+        badge="AI Content Policy"
+        title="Transparency About AI-Generated Content"
+        titleTextSize="xl"
+        lead="We use AI tools to enhance our content creation process while maintaining quality, accuracy, and legal compliance."
+        {highlights}
+        highlightsLabel="Key policy points"
+      />
 
-        <div class="ai-policy__content-grid">
-          {
-            policySections.map((section) => (
-              <section class={`ai-policy__section ${section.sectionClass}`}>
-                <div class="ai-policy__section-header">
-                  <Icon name={section.icon} class="ai-policy__icon" aria-hidden="true" />
-                  <Headline level="h2" textSize="lg" textAlign="left">
-                    {section.title}
-                  </Headline>
-                </div>
-                <Prose className="ai-policy__prose">
-                  <p set:html={section.body[0]} />
-                  <ul>
-                    {section.items.map((item) => (
-                      <li set:html={item} />
-                    ))}
-                  </ul>
-                  {section.body[1] && <p set:html={section.body[1]} />}
-                </Prose>
-              </section>
-            ))
-          }
+      <AutoGrid className="ai-policy__content-grid" preset="legal" gap="section">
+        {
+          policySections.map((section) => (
+            <LegalDocumentSection
+              icon={section.icon}
+              title={section.title}
+              desktopSpan="full"
+            >
+              <Prose className="ai-policy__prose">
+                <p set:html={section.body[0]} />
+                <ul>
+                  {section.items.map((item) => (
+                    <li set:html={item} />
+                  ))}
+                </ul>
+                {section.body[1] && <p set:html={section.body[1]} />}
+              </Prose>
+            </LegalDocumentSection>
+          ))
+        }
 
-          <section class="ai-policy__section ai-policy__section--principles">
-            <div class="ai-policy__section-header">
-              <Icon name="shield" class="ai-policy__icon" aria-hidden="true" />
-              <Headline level="h2" textSize="lg" textAlign="left">
-                Core Principles
-              </Headline>
-            </div>
-            <ul class="ai-policy__principles">
-              {
-                principles.map((principle) => (
-                  <li class="ai-policy__principle">{principle}</li>
-                ))
-              }
-            </ul>
-          </section>
+        <LegalDocumentSection
+          icon="shield"
+          title="Core Principles"
+          desktopSpan="full"
+          variant="accent"
+        >
+          <ul class="ai-policy__principles">
+            {
+              principles.map((principle) => (
+                <li class="ai-policy__principle">{principle}</li>
+              ))
+            }
+          </ul>
+        </LegalDocumentSection>
 
-          <section class="ai-policy__section ai-policy__section--contact">
-            <div class="ai-policy__section-header">
-              <Icon name="mail" class="ai-policy__icon" aria-hidden="true" />
-              <Headline level="h2" textSize="lg" textAlign="left">
-                Questions or Feedback?
-              </Headline>
-            </div>
-            <Prose>
-              <p>
-                If you have questions about our AI content policy or would like to share
-                feedback, please contact us. We are committed to transparency and ongoing
-                improvement.
-              </p>
-            </Prose>
-          </section>
+        <LegalDocumentSection
+          icon="mail"
+          title="Questions or Feedback?"
+          desktopSpan="full"
+          variant="spotlight"
+        >
+          <Prose>
+            <p>
+              If you have questions about our AI content policy or would like to share
+              feedback, please contact us. We are committed to transparency and ongoing
+              improvement.
+            </p>
+          </Prose>
+        </LegalDocumentSection>
 
-          <section class="ai-policy__section ai-policy__section--faq">
-            <div class="ai-policy__section-header">
-              <Icon name="help-circle" class="ai-policy__icon" aria-hidden="true" />
-              <Headline level="h2" textSize="lg" textAlign="left">
-                Frequently Asked Questions
-              </Headline>
-            </div>
-            <div class="ai-policy__faq-list">
-              {
-                faqItems.map((item) => (
-                  <article class="ai-policy__faq-item">
-                    <h3 class="ai-policy__faq-question">{item.question}</h3>
-                    <Paragraph
-                      textSize="base"
-                      textAlign="left"
-                      className="ai-policy__faq-answer"
-                    >
-                      {item.answer}
-                    </Paragraph>
-                  </article>
-                ))
-              }
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
+        <LegalDocumentSection
+          icon="help-circle"
+          title="Frequently Asked Questions"
+          desktopSpan="full"
+          headerWidth="compact"
+        >
+          <AutoGrid className="ai-policy__faq-list" preset="pair" gap="base">
+            {
+              faqItems.map((item) => (
+                <article class="ai-policy__faq-item">
+                  <h3 class="ai-policy__faq-question">{item.question}</h3>
+                  <Paragraph
+                    textSize="base"
+                    textAlign="left"
+                    className="ai-policy__faq-answer"
+                  >
+                    {item.answer}
+                  </Paragraph>
+                </article>
+              ))
+            }
+          </AutoGrid>
+        </LegalDocumentSection>
+      </AutoGrid>
+    </Stack>
   </PageShell>
 </Layout>
 
 <style>
-  .ai-policy__container {
-    display: grid;
-    gap: var(--spacing-2xl);
-  }
-
   .ai-policy__hero {
     overflow: hidden;
   }
 
-  .ai-policy__content-grid {
-    display: grid;
-    gap: var(--section-gap);
-  }
-
-  .ai-policy__section {
-    position: relative;
-    display: grid;
-    gap: var(--spacing-xl);
-    min-width: 0;
-    padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
-    overflow: hidden;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-base);
-  }
-
-  .ai-policy__section::after {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
-  }
-
-  .ai-policy__section--contact {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 48%, transparent),
-        transparent 72%
-      ),
-      radial-gradient(
-        circle at top right,
-        color-mix(in srgb, var(--accent-primary) 11%, transparent),
-        transparent 38%
-      ),
-      var(--surface-panel-bg);
-  }
-
-  .ai-policy__section--principles {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--accent-primary) 10%, transparent),
-      transparent 58%
-    );
-    background-color: var(--surface-panel-bg);
-  }
-
-  .ai-policy__section--faq {
-    grid-column: 1 / -1;
-  }
-
-  .ai-policy__section-header {
-    display: flex;
-    gap: var(--spacing-md);
-    align-items: center;
-    padding-block-end: var(--spacing-base);
-    border-block-end: 1px solid var(--surface-border-soft);
-  }
-
-  .ai-policy__icon {
-    flex-shrink: 0;
-    inline-size: var(--spacing-xl);
-    block-size: var(--spacing-xl);
-    margin-block-start: 0;
-    color: var(--accent-primary);
-  }
-
   .ai-policy__prose {
     max-inline-size: none;
-  }
-
-  .ai-policy__faq-list {
-    display: grid;
-    gap: var(--spacing-base);
   }
 
   .ai-policy__faq-item {
@@ -401,29 +311,7 @@ const pageSeo = buildPageSeo({
       color-mix(in srgb, var(--accent-primary) 12%, transparent);
   }
 
-  @media (width >= 720px) {
-    .ai-policy {
-      padding: var(--spacing-xl);
-    }
-
-    .ai-policy__section {
-      padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
-    }
-
-    .ai-policy__content-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .ai-policy__faq-list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
   @media (width >= 1100px) {
-    .ai-policy__content-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
     .ai-policy__prose {
       font-size: var(--font-size-base);
     }
@@ -445,29 +333,5 @@ const pageSeo = buildPageSeo({
       break-inside: avoid;
     }
 
-    .ai-policy__section--tools {
-      grid-column: 1 / -1;
-    }
-
-    .ai-policy__section--oversight {
-      grid-column: 1 / -1;
-    }
-
-    .ai-policy__section--principles {
-      grid-column: 1 / -1;
-    }
-
-    .ai-policy__section--copyright {
-      grid-column: 1 / -1;
-    }
-
-    .ai-policy__section--contact {
-      grid-column: 1 / -1;
-      align-self: stretch;
-    }
-
-    .ai-policy__section--faq .ai-policy__section-header {
-      max-inline-size: var(--measure-compact);
-    }
   }
 </style>

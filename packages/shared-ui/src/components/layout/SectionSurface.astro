@@ -1,7 +1,7 @@
 ---
 interface Props extends astroHTML.JSX.HTMLAttributes {
   as?: "section" | "div" | "aside";
-  variant?: "default" | "accent" | "subtle";
+  variant?: "default" | "accent" | "subtle" | "plain";
   padding?: "default" | "compact" | "spacious";
   className?: string;
   class?: string;
@@ -51,6 +51,14 @@ const classes = [
 
   .section-surface--subtle {
     background: color-mix(in srgb, var(--surface-1) 86%, transparent);
+    box-shadow: none;
+  }
+
+  .section-surface--plain {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
     box-shadow: none;
   }
 

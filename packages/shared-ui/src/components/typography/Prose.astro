@@ -4,6 +4,7 @@ export interface Props {
   class?: string;
   html?: string;
   invert?: boolean;
+  variant?: "default" | "article" | "notes";
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   class: classProp = "",
   html = undefined,
   invert = true,
+  variant = "default",
 } = Astro.props as Props;
 
 let sanitizedHtml =
@@ -25,7 +27,9 @@ if (typeof sanitizedHtml === "string") {
 }
 
 const invertClass = invert ? "prose--invert" : "prose--standard";
-const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" ");
+const classes = ["prose", invertClass, `prose--${variant}`, extra, classProp]
+  .filter(Boolean)
+  .join(" ");
 ---
 
 <div class={classes}>
@@ -256,6 +260,49 @@ const classes = ["prose", invertClass, extra, classProp].filter(Boolean).join(" 
   .prose > :is(h2, h3) .prose__heading-anchor:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  .prose--article {
+    max-inline-size: min(100%, var(--measure-readable));
+    margin-inline: auto;
+  }
+
+  .prose--article > h2 {
+    position: relative;
+    padding-block-start: var(--spacing-base);
+  }
+
+  .prose--article > h2::before {
+    display: block;
+    inline-size: clamp(2.5rem, 8vw, 4rem);
+    block-size: 1px;
+    margin-block-end: var(--spacing-base);
+    content: "";
+    background: color-mix(in srgb, var(--accent-primary) 44%, var(--surface-border-soft));
+  }
+
+  .prose--article > p {
+    max-inline-size: var(--measure-readable);
+  }
+
+  .prose--article > blockquote {
+    margin-inline: 0;
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 32%, transparent);
+  }
+
+  .prose--article > :first-child,
+  .prose--notes > :first-child {
+    margin-block-start: 0;
+  }
+
+  .prose--article > :last-child,
+  .prose--notes > :last-child {
+    margin-block-end: 0;
+  }
+
+  .prose--notes {
+    position: relative;
+    z-index: 1;
   }
 
   /* Reduced motion support */

@@ -4,11 +4,15 @@ import AudioPlayer from "@shared-ui/components/media/AudioPlayer.astro";
 import TranscriptDropdown from "@shared-ui/components/media/TranscriptDropdown.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import DetailPill from "@shared-ui/components/data-display/DetailPill.astro";
+import MetaPillGroup from "@shared-ui/components/data-display/MetaPillGroup.astro";
+import Eyebrow from "@shared-ui/components/typography/Eyebrow.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSection.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
 import type { RelatedContentCardItem } from "@shared-ui/components/cards/relatedContent";
 import { getAdjacentByKey } from "@shared-utils/utils/array";
 import { buildMetaDescription, formatDate } from "@shared-utils/utils/format";
@@ -112,7 +116,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
   {breadcrumbs}
 >
   <PageShell className="page-shell--aurora">
-    <div class="episode">
+    <Stack gap="2xl">
       <HeroTeaser
         id={`episode-hero-${currentPodcast.id}`}
         title={currentPodcast.title}
@@ -129,37 +133,30 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
         descriptionMaxWidth="62ch"
       >
         <Fragment slot="meta">
-          <div class="episode__meta">
-            <span
-              class="episode__pill"
-              aria-label={`${t.episode} number ${episodeNumber}`}
-            >
+          <MetaPillGroup>
+            <DetailPill tone="accent" aria-label={`${t.episode} number ${episodeNumber}`}>
               <span>{t.episode}</span>
               <span>{episodeNumber}</span>
-            </span>
-            <time
-              class="episode__date"
+            </DetailPill>
+            <DetailPill
+              as="time"
+              tone="neutral"
               datetime={currentPodcast.publishedAt}
               aria-label={`${t.publishedOn} ${publishedLabel}`}
             >
               <span>{t.publishedOn}</span>
               <span>{publishedLabel}</span>
-            </time>
-          </div>
+            </DetailPill>
+          </MetaPillGroup>
         </Fragment>
       </HeroTeaser>
 
       {
         currentPodcast.knowledgeUrl && (
-          <SectionSurface
-            as="section"
-            className="episode__knowledge"
-            variant="accent"
-            aria-labelledby="knowledge-link"
-          >
-            <Paragraph textSize="sm" className="episode__kicker" id="knowledge-link">
+          <Stack as="section" aria-labelledby="knowledge-link" gap="lg">
+            <Eyebrow tone="muted" size="sm" id="knowledge-link">
               {t.knowledge}
-            </Paragraph>
+            </Eyebrow>
             <ContentCard
               id={`episode-knowledge-${currentPodcast.id}`}
               href={currentPodcast.knowledgeUrl}
@@ -180,7 +177,7 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
               ]}
               aria-label={`${t.readArticle}: ${currentPodcast.title}`}
             />
-          </SectionSurface>
+          </Stack>
         )
       }
 
@@ -202,14 +199,9 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
 
       {
         currentPodcast.showNotesHtml && (
-          <SectionSurface
-            as="article"
-            class="episode__notes"
-            role="region"
-            aria-labelledby="show-notes-heading"
-          >
-            <Prose html={currentPodcast.showNotesHtml} className="episode__notes-prose" />
-          </SectionSurface>
+          <Stack as="article" role="region" aria-labelledby="show-notes-heading" gap="lg">
+            <Prose html={currentPodcast.showNotesHtml} variant="notes" />
+          </Stack>
         )
       }
 
@@ -224,81 +216,6 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
           />
         )
       }
-    </div>
+    </Stack>
   </PageShell>
 </PodcastLayout>
-
-<style>
-  .episode {
-    display: grid;
-    gap: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
-  }
-
-  .episode__meta {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, max-content));
-    gap: var(--spacing-md);
-    align-items: center;
-  }
-
-  .episode__pill {
-    display: inline-grid;
-    align-items: center;
-    min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-sm) var(--spacing-base);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    color: var(--text-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1));
-    border: 1px solid var(--surface-border-accent);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xs);
-  }
-
-  .episode__date {
-    display: inline-grid;
-    align-items: center;
-    min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-sm) var(--spacing-base);
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    background: color-mix(in srgb, var(--surface-1) 72%, transparent);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xs);
-  }
-
-  .episode__knowledge {
-    display: grid;
-    gap: var(--spacing-lg);
-    align-items: center;
-  }
-
-  .episode__kicker {
-    margin: 0;
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
-  }
-
-  .episode__notes {
-    display: grid;
-    gap: var(--spacing-lg);
-  }
-
-  .episode__notes-prose {
-    position: relative;
-    z-index: 1;
-  }
-
-  .episode__notes-prose :global(:first-child) {
-    margin-block-start: 0;
-  }
-
-  .episode__notes-prose :global(:last-child) {
-    margin-block-end: 0;
-  }
-</style>

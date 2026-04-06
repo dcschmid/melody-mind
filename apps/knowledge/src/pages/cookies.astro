@@ -1,8 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
 import LegalDocumentSection from "@shared-ui/components/layout/LegalDocumentSection.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import DataTable from "@shared-ui/components/policies/DataTable.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
 import StaticPageHero from "@shared-ui/components/layout/StaticPageHero.astro";
 import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
@@ -95,7 +97,7 @@ const pageSeo = buildLegalPageSeo({
 
 <Layout {pageSeo}>
   <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
-    <div class="cookies-page">
+    <Stack className="cookies-page" gap="2xl">
       <StaticPageHero
         eyebrow="Privacy"
         title="Cookie & Storage Policy"
@@ -104,7 +106,7 @@ const pageSeo = buildLegalPageSeo({
         highlightsLabel="Key cookie policy points"
       />
 
-      <div class="cookies-page__content-grid">
+      <AutoGrid className="cookies-page__content-grid" preset="legal" gap="section">
         {
           policySections.map((section) => (
             <LegalDocumentSection
@@ -118,7 +120,7 @@ const pageSeo = buildLegalPageSeo({
         <LegalDocumentSection
           icon="book-open"
           title="Local storage entries we use"
-          class="cookies-page__section--table"
+          desktopSpan="full"
         >
           <DataTable
             caption="Browser storage keys used by Melody Mind Knowledge"
@@ -126,58 +128,7 @@ const pageSeo = buildLegalPageSeo({
             rows={storageKeys}
           />
         </LegalDocumentSection>
-      </div>
-    </div>
+      </AutoGrid>
+    </Stack>
   </PageShell>
 </Layout>
-
-<style>
-  .cookies-page {
-    position: relative;
-    display: grid;
-    gap: var(--spacing-2xl);
-  }
-
-  .cookies-page__content-grid {
-    position: relative;
-    display: grid;
-    gap: var(--section-gap);
-    padding-block-start: var(--spacing-xl);
-    border-block-start: 1px solid var(--surface-border-soft);
-  }
-
-  .cookies-page__content-grid::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: min(8rem, 22%);
-    height: 1px;
-    content: "";
-    background: linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--accent-primary) 52%, transparent),
-      transparent
-    );
-  }
-
-  @media (width >= 720px) {
-    .cookies-page {
-      padding: var(--spacing-xl);
-    }
-
-    .cookies-page__content-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (width >= 1100px) {
-    .cookies-page__content-grid {
-      grid-template-columns: minmax(0, 1fr);
-      gap: var(--spacing-lg);
-    }
-
-    .cookies-page__section--table {
-      grid-column: 1 / -1;
-    }
-  }
-</style>

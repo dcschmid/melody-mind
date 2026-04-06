@@ -9,6 +9,7 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   title: string;
   href?: string;
   description?: string;
+  chrome?: "default" | "minimal";
   variant?: "default" | "feature" | "action";
   size?: "compact" | "default" | "spacious";
   dataTestId?: string;
@@ -36,6 +37,7 @@ const {
   title,
   href,
   description,
+  chrome = "default",
   variant = "default",
   size = "default",
   dataTestId,
@@ -99,6 +101,7 @@ const contentProps = href
   {...rest}
   class:list={[
     "content-card",
+    `content-card--chrome-${chrome}`,
     `content-card--${variant}`,
     `content-card--size-${size}`,
     href && "content-card--interactive",
@@ -285,6 +288,10 @@ const contentProps = href
     box-shadow: var(--shadow-xl);
   }
 
+  .content-card--chrome-minimal {
+    border-color: transparent;
+  }
+
   .content-card__content {
     display: flex;
     flex: 1;
@@ -343,6 +350,10 @@ const contentProps = href
   .content-card--feature .content-card__media {
     background: var(--surface-pill-bg);
     border-block-end-color: var(--surface-border-accent);
+  }
+
+  .content-card--chrome-minimal .content-card__media {
+    border-block-end: 0;
   }
 
   .content-card__media::after {

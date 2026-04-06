@@ -7,13 +7,20 @@ import { PODCAST_FEED_PATH, PODCAST_PLATFORM_LINKS } from "../constants/podcastL
 interface Props {
   ariaLabel?: string;
   rssLabel?: string;
+  appearance?: "default" | "hero";
+  size?: "default" | "compact";
 }
 
-const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
+const {
+  ariaLabel = "Listen on",
+  rssLabel = "RSS Feed",
+  appearance = "default",
+  size = "default",
+} = Astro.props as Props;
 ---
 
 <AutoGrid
-  className="podcast-platform-links"
+  className={`podcast-platform-links podcast-platform-links--${appearance} podcast-platform-links--size-${size}`}
   aria-label={ariaLabel}
   preset="auto-fit"
   min="sm"
@@ -69,6 +76,13 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
       box-shadow var(--transition-fast);
   }
 
+  .podcast-platform-links--size-compact .podcast-platform-links__link {
+    min-block-size: 3rem;
+    padding: 0.8rem 1rem;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+
   .podcast-platform-links__link:hover,
   .podcast-platform-links__link:focus-visible {
     background: var(--surface-card-hover);
@@ -96,6 +110,31 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
   .podcast-platform-links__link--secondary:focus-visible {
     background: var(--accent-primary-hover);
     border-color: var(--surface-border-accent-strong);
+  }
+
+  .podcast-platform-links--hero .podcast-platform-links__link {
+    background: color-mix(in srgb, var(--surface-1) 86%, transparent);
+    border-color: color-mix(in srgb, var(--surface-border-soft) 94%, transparent);
+    box-shadow: none;
+  }
+
+  .podcast-platform-links--hero .podcast-platform-links__link:hover,
+  .podcast-platform-links--hero .podcast-platform-links__link:focus-visible {
+    background: color-mix(in srgb, var(--surface-card-hover) 92%, transparent);
+    transform: translateY(-2px);
+  }
+
+  .podcast-platform-links--hero .podcast-platform-links__link--secondary {
+    color: #05292b;
+    background: linear-gradient(135deg, #35dfd0, #2dc7d7);
+    border-color: color-mix(in srgb, #62efe3 40%, transparent);
+    box-shadow: 0 1rem 2rem color-mix(in srgb, #35dfd0 20%, transparent);
+  }
+
+  .podcast-platform-links--hero .podcast-platform-links__link--secondary:hover,
+  .podcast-platform-links--hero .podcast-platform-links__link--secondary:focus-visible {
+    background: linear-gradient(135deg, #45ead9, #39d4e3);
+    border-color: color-mix(in srgb, #8ef4ec 48%, transparent);
   }
 
   @media (prefers-reduced-motion: reduce) {

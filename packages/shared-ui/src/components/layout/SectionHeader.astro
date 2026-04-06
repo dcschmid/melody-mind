@@ -1,0 +1,77 @@
+---
+import Headline from "@shared-ui/components/typography/Headline.astro";
+import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  title: string;
+  titleId?: string;
+  copy?: string;
+  titleSize?: "base" | "lg" | "xl";
+  copySize?: "sm" | "base";
+  className?: string;
+  class?: string;
+}
+
+const {
+  title,
+  titleId,
+  copy,
+  titleSize = "lg",
+  copySize = "sm",
+  className = "",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const classes = ["section-header", className, classProp].filter(Boolean).join(" ");
+---
+
+<div {...rest} class={classes}>
+  <div class="section-header__copy">
+    <Headline level="h2" textSize={titleSize} className="section-header__title">
+      {titleId ? <span id={titleId}>{title}</span> : title}
+    </Headline>
+    {
+      copy ? (
+        <Paragraph textSize={copySize} className="section-header__description">
+          {copy}
+        </Paragraph>
+      ) : null
+    }
+  </div>
+  <slot />
+</div>
+
+<style>
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+    align-items: flex-start;
+  }
+
+  .section-header__copy {
+    display: grid;
+    gap: var(--spacing-sm);
+    max-inline-size: var(--measure-readable);
+  }
+
+  .section-header__title {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .section-header__description {
+    margin: 0;
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  @media (width >= 640px) {
+    .section-header {
+      flex-direction: row;
+      align-items: end;
+      justify-content: space-between;
+    }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  asideLabel?: string;
+  className?: string;
+  class?: string;
+}
+
+const {
+  asideLabel = "Sidebar",
+  className = "",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const hasRail = Astro.slots.has("rail");
+const classes = ["rail-layout", className, classProp].filter(Boolean).join(" ");
+---
+
+<div {...rest} class={classes}>
+  {
+    hasRail ? (
+      <aside class="rail-layout__rail" aria-label={asideLabel}>
+        <slot name="rail" />
+      </aside>
+    ) : null
+  }
+
+  <div class="rail-layout__main">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .rail-layout {
+    display: grid;
+    gap: var(--spacing-xl);
+  }
+
+  .rail-layout__rail,
+  .rail-layout__main {
+    min-inline-size: 0;
+  }
+
+  @media (width >= 1024px) {
+    .rail-layout {
+      grid-template-columns: minmax(16rem, 19rem) minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .rail-layout__rail {
+      position: sticky;
+      top: var(--spacing-xl);
+    }
+  }
+</style>

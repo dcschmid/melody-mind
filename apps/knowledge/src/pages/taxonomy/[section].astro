@@ -4,6 +4,7 @@
  */
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
 import TaxonomyJumpNav from "@components/TaxonomyJumpNav.astro";
 import TaxonomySectionHero from "@components/TaxonomySectionHero.astro";
 import TaxonomySubsectionBlock from "@components/TaxonomySubsectionBlock.astro";
@@ -55,7 +56,7 @@ const pageSeo = buildTaxonomySectionSeo({
 
 <Layout {pageSeo}>
   <PageShell className="page-shell--aurora page-shell--grid">
-    <div class="taxonomy-section">
+    <Stack className="taxonomy-section" gap="2xl">
       <TaxonomySectionHero
         section={section}
         subsectionCount={subsectionsData.length}
@@ -64,30 +65,13 @@ const pageSeo = buildTaxonomySectionSeo({
 
       {jumpTargets.length >= 1 && <TaxonomyJumpNav targets={jumpTargets} />}
 
-      <section class="taxonomy-section__content">
+      <Stack as="section" className="taxonomy-section__content" gap="2xl">
         {
           subsectionsData.map((subsection) => (
             <TaxonomySubsectionBlock subsection={subsection} />
           ))
         }
-      </section>
-    </div>
+      </Stack>
+    </Stack>
   </PageShell>
 </Layout>
-
-<style>
-  .taxonomy-section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-2xl);
-  }
-
-  .taxonomy-section__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--section-gap);
-    padding-block-start: var(--spacing-xl);
-    border-block-start: 1px solid var(--surface-border-soft);
-  }
-</style>

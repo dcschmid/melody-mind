@@ -1,12 +1,12 @@
 ---
-interface Props {
+interface Props extends astroHTML.JSX.HTMLAttributes {
   class?: string;
 }
 
-const { class: className = "" } = Astro.props as Props;
+const { class: className = "", ...rest } = Astro.props as Props;
 ---
 
-<span class:list={["visually-hidden", className]}>
+<span {...rest} class:list={["visually-hidden", className]}>
   <slot />
 </span>
 

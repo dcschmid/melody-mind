@@ -1,0 +1,23 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  className?: string;
+  class?: string;
+}
+
+const { className = "", class: classProp = "", ...rest } = Astro.props as Props;
+
+const classes = ["meta-pill-group", className, classProp].filter(Boolean).join(" ");
+---
+
+<div {...rest} class={classes}>
+  <slot />
+</div>
+
+<style>
+  .meta-pill-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, max-content));
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+</style>

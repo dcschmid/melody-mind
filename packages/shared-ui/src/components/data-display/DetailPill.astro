@@ -1,0 +1,52 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  as?: keyof astroHTML.JSX.IntrinsicElements;
+  tone?: "accent" | "neutral";
+  className?: string;
+  class?: string;
+}
+
+const {
+  as = "span",
+  tone = "neutral",
+  className = "",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const Tag = as;
+const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag {...rest} class={classes}>
+  <slot />
+</Tag>
+
+<style>
+  .detail-pill {
+    display: inline-grid;
+    align-items: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .detail-pill--neutral {
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-1) 72%, transparent);
+  }
+
+  .detail-pill--accent {
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1));
+    border-color: var(--surface-border-accent);
+  }
+</style>
