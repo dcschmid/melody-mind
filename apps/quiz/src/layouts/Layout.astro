@@ -12,7 +12,7 @@ import {
   buildDefaultCopyrightText,
 } from "@shared-utils/utils/appShell";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
-import { quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
+import { quizBrandLogo, quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
 import { quizAppShellConfig } from "../utils/appShellConfig";
 
 interface Props {
@@ -145,6 +145,10 @@ const dnsPrefetch: Array<{ href: string }> = [];
         slot="before-main"
         headerConfig={{
           ...shellConfig.header,
+          showBrand: true,
+          brandText: "",
+          brandLogoSrc: quizBrandLogo,
+          brandLogoAlt: "",
           showIcons: showHeaderIcons,
         }}
       />

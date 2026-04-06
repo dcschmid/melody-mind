@@ -20,11 +20,11 @@ const quizCategoryImages = buildImageMap(quizCategoryModules);
 const quizBrandLogo = findAssetByFileName(
   quizAssetModules,
   [
-    "melody-mind-quiz.png",
-    "melody-mind-quiz.webp",
-    "melody-mind-quiz.avif",
-    "melody-mind-quiz.jpg",
-    "melody-mind-quiz.jpeg",
+    "melody-mind--quiz-logo.webp",
+    "melody-mind--quiz-logo.png",
+    "melody-mind--quiz-logo.avif",
+    "melody-mind--quiz-logo.jpg",
+    "melody-mind--quiz-logo.jpeg",
   ],
   "Missing quiz asset"
 );

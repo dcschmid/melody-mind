@@ -36,6 +36,18 @@ const podcastHeroImage = findAssetByFileName(
   "Missing podcast asset"
 );
 
+const podcastBrandLogo = findAssetByFileName(
+  podcastAssetModules,
+  [
+    "melody-mind--podcasts-logo.png",
+    "melody-mind--podcasts-logo.webp",
+    "melody-mind--podcasts-logo.avif",
+    "melody-mind--podcasts-logo.jpg",
+    "melody-mind--podcasts-logo.jpeg",
+  ],
+  "Missing podcast asset"
+);
+
 export const getPodcastCoverImage = (imageSlug: string): ImageMetadata | undefined =>
   podcastCoverImages[imageSlug];
 
@@ -49,4 +61,6 @@ export const getPodcastCoverImageUrl = (imageSlug: string): string | undefined =
 
 export const podcastHeroImageUrl = toPodcastAssetUrl(podcastHeroImage);
 
-export { podcastHeroImage };
+export const podcastBrandLogoUrl = toPodcastAssetUrl(podcastBrandLogo);
+
+export { podcastBrandLogo, podcastHeroImage };

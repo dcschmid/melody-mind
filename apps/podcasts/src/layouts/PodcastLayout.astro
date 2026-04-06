@@ -27,7 +27,7 @@ import {
   PODCAST_PRECONNECT_ORIGINS,
   PODCAST_SITE_URL,
 } from "../constants/podcastLinks";
-import { podcastHeroImageUrl } from "../utils/podcastImages";
+import { podcastBrandLogo, podcastHeroImageUrl } from "../utils/podcastImages";
 import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
 import { podcastAppShellConfig } from "../utils/appShellConfig";
 
@@ -275,6 +275,10 @@ const seoProps = {
     slot="before-main"
     headerConfig={{
       ...shellConfig.header,
+      showBrand: true,
+      brandText: "",
+      brandLogoSrc: podcastBrandLogo,
+      brandLogoAlt: "",
     }}
   />
 
