@@ -1,4 +1,6 @@
 ---
+import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
@@ -32,8 +34,8 @@ const titleId = `${id}-title`;
 {
   items.length ? (
     <section class="related-content-section" aria-labelledby={titleId}>
-      <div class="related-content-section__header">
-        <div class="related-content-section__copy-block">
+      <Stack className="related-content-section__header" gap="base">
+        <Stack className="related-content-section__copy-block" gap="2xs">
           <p class="related-content-section__eyebrow">{eyebrow}</p>
           <Headline level="h2" textSize="lg" className="related-content-section__title">
             <span id={titleId}>{title}</span>
@@ -43,14 +45,20 @@ const titleId = `${id}-title`;
               {copy}
             </Paragraph>
           ) : null}
-        </div>
+        </Stack>
         <a class="related-content-section__link" href={linkHref}>
           <span>{linkLabel}</span>
           <span aria-hidden="true">→</span>
         </a>
-      </div>
+      </Stack>
 
-      <ul class="related-content-section__grid" aria-label={listAriaLabel}>
+      <AutoGrid
+        as="ul"
+        className="related-content-section__grid"
+        preset="cards"
+        gap="lg"
+        aria-label={listAriaLabel}
+      >
         {items.map((item) => (
           <li class="related-content-section__item">
             <ContentCard
@@ -72,7 +80,7 @@ const titleId = `${id}-title`;
             />
           </li>
         ))}
-      </ul>
+      </AutoGrid>
     </section>
   ) : null
 }
@@ -87,14 +95,7 @@ const titleId = `${id}-title`;
     border-block-start: 1px solid var(--surface-border-soft);
   }
 
-  .related-content-section__header {
-    display: grid;
-    gap: var(--spacing-base);
-  }
-
   .related-content-section__copy-block {
-    display: grid;
-    gap: var(--spacing-2xs);
     max-inline-size: var(--measure-copy-compact);
   }
 
@@ -153,9 +154,6 @@ const titleId = `${id}-title`;
   }
 
   .related-content-section__grid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
     padding: 0;
     margin: 0;
     list-style: none;
@@ -173,16 +171,6 @@ const titleId = `${id}-title`;
 
     .related-content-section__link {
       justify-self: end;
-    }
-
-    .related-content-section__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (width >= 75rem) {
-    .related-content-section__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 

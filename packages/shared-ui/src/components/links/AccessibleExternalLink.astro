@@ -1,0 +1,56 @@
+---
+import VisuallyHidden from "@shared-ui/components/utilities/VisuallyHidden.astro";
+
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  announceNewTab?: boolean;
+  className?: string;
+  newTabText?: string;
+  class?: string;
+}
+
+const rawProps = Astro.props as Props & Record<string, unknown>;
+
+const {
+  announceNewTab,
+  className = "",
+  newTabText = "opens in a new tab",
+  class: classProp = "",
+  target,
+  rel,
+} = rawProps;
+
+const shouldAnnounceNewTab = announceNewTab ?? target === "_blank";
+const finalRel =
+  target === "_blank"
+    ? Array.from(new Set(`noopener noreferrer ${rel || ""}`.trim().split(/\s+/)))
+        .filter(Boolean)
+        .join(" ")
+    : rel;
+
+const ariaLabelAttr = rawProps["aria-label"] as string | undefined;
+const finalAriaLabel =
+  shouldAnnounceNewTab && ariaLabelAttr
+    ? `${ariaLabelAttr} (${newTabText})`
+    : ariaLabelAttr;
+
+const forwardedAttrs = (() => {
+  const restAttrs: Record<string, unknown> = { ...rawProps };
+  for (const key of ["announceNewTab", "className", "newTabText", "class"]) {
+    if (key in restAttrs) {
+      delete restAttrs[key];
+    }
+  }
+  return restAttrs;
+})();
+---
+
+<a
+  {...forwardedAttrs}
+  class:list={[className, classProp]}
+  target={target}
+  rel={finalRel}
+  aria-label={finalAriaLabel}
+>
+  <slot />
+  {shouldAnnounceNewTab ? <VisuallyHidden> ({newTabText})</VisuallyHidden> : null}
+</a>

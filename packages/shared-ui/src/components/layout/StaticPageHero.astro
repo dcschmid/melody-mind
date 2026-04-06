@@ -1,4 +1,6 @@
 ---
+import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 
@@ -44,7 +46,7 @@ const {
 ---
 
 <header {...rest} class:list={["static-page-hero", className]}>
-  <div class="static-page-hero__main">
+  <Stack className="static-page-hero__main" gap="base">
     {
       badge ? (
         <div class="static-page-hero__badge">{badge}</div>
@@ -69,18 +71,23 @@ const {
     >
       {lead}
     </Paragraph>
-  </div>
+  </Stack>
 
-  <div class="static-page-hero__highlights" aria-label={highlightsLabel}>
+  <AutoGrid
+    className="static-page-hero__highlights"
+    aria-label={highlightsLabel}
+    preset="highlights"
+    gap="md"
+  >
     {
       highlights.map((highlight) => (
-        <div class="static-page-hero__highlight">
+        <Stack className="static-page-hero__highlight" gap="sm">
           <p class="static-page-hero__highlight-value">{highlight.value}</p>
           <p class="static-page-hero__highlight-label">{highlight.label}</p>
-        </div>
+        </Stack>
       ))
     }
-  </div>
+  </AutoGrid>
 </header>
 
 <style>
@@ -128,8 +135,6 @@ const {
   }
 
   .static-page-hero__main {
-    display: grid;
-    gap: var(--spacing-base);
     max-inline-size: var(--measure-wide);
   }
 
@@ -174,15 +179,8 @@ const {
       var(--shadow-sm);
   }
 
-  .static-page-hero__highlights {
-    display: grid;
-    gap: var(--spacing-md);
-  }
-
   .static-page-hero__highlight {
     position: relative;
-    display: grid;
-    gap: var(--spacing-sm);
     align-content: start;
     padding: var(--spacing-base);
     background: color-mix(in srgb, var(--surface-1) 72%, transparent);
@@ -219,10 +217,6 @@ const {
   @media (width >= 720px) {
     .static-page-hero {
       padding: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
-    }
-
-    .static-page-hero__highlights {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 </style>

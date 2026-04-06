@@ -1,4 +1,5 @@
 ---
+import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
@@ -73,16 +74,14 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
           {authorRole ? <span class="quote-card__author-role">{authorRole}</span> : null}
           {sourceLabel ? (
             sourceUrl ? (
-              <a
-                class="quote-card__source"
+              <AccessibleExternalLink
+                className="quote-card__source"
                 href={sourceUrl}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`${sourceLabel} (opens in a new tab)`}
               >
                 {sourceLabel}
-                <span class="quote-card__sr"> (opens in a new tab)</span>
-              </a>
+              </AccessibleExternalLink>
             ) : (
               <span class="quote-card__source">{sourceLabel}</span>
             )
@@ -205,18 +204,6 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     line-height: 1.35;
     color: var(--text-tertiary);
     text-decoration: none;
-  }
-
-  .quote-card__sr {
-    position: var(--sr-only);
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    padding: var(--sr-only-padding);
-    margin: var(--sr-only-margin);
-    overflow: var(--sr-only-overflow);
-    white-space: var(--sr-only-white-space);
-    border: var(--sr-only-border);
-    clip-path: var(--sr-only-clip-path);
   }
 
   a.quote-card__source:hover,

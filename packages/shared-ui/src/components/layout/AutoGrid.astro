@@ -1,0 +1,121 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  as?: keyof astroHTML.JSX.IntrinsicElements;
+  className?: string;
+  gap?: "sm" | "base" | "lg" | "xl" | "section";
+  min?: "sm" | "md" | "lg";
+  preset?: "auto-fit" | "cards" | "legal" | "highlights";
+  class?: string;
+}
+
+const {
+  as = "div",
+  className = "",
+  gap = "lg",
+  min = "md",
+  preset = "auto-fit",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const Tag = as;
+const classes = [
+  "auto-grid",
+  `auto-grid--gap-${gap}`,
+  `auto-grid--min-${min}`,
+  `auto-grid--preset-${preset}`,
+  className,
+  classProp,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag {...rest} class={classes}>
+  <slot />
+</Tag>
+
+<style>
+  .auto-grid {
+    display: grid;
+  }
+
+  .auto-grid--gap-sm {
+    gap: var(--spacing-sm);
+  }
+
+  .auto-grid--gap-base {
+    gap: var(--spacing-base);
+  }
+
+  .auto-grid--gap-lg {
+    gap: var(--spacing-lg);
+  }
+
+  .auto-grid--gap-xl {
+    gap: var(--spacing-xl);
+  }
+
+  .auto-grid--gap-section {
+    gap: var(--section-gap);
+  }
+
+  .auto-grid--min-sm {
+    --auto-grid-min: 10rem;
+  }
+
+  .auto-grid--min-md {
+    --auto-grid-min: 16rem;
+  }
+
+  .auto-grid--min-lg {
+    --auto-grid-min: 18rem;
+  }
+
+  .auto-grid--preset-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(var(--auto-grid-min), max-content));
+  }
+
+  .auto-grid--preset-cards {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .auto-grid--preset-legal {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .auto-grid--preset-highlights {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  @media (width >= 50rem) {
+    .auto-grid--preset-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 45rem) {
+    .auto-grid--preset-highlights {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 45rem) {
+    .auto-grid--preset-legal {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 68.75rem) {
+    .auto-grid--preset-legal {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-lg);
+    }
+  }
+
+  @media (width >= 75rem) {
+    .auto-grid--preset-cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

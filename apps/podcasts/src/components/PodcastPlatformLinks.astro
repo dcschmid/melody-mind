@@ -1,4 +1,6 @@
 ---
+import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
+import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import { PODCAST_FEED_PATH, PODCAST_PLATFORM_LINKS } from "../constants/podcastLinks";
 
@@ -10,20 +12,25 @@ interface Props {
 const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
 ---
 
-<div class="podcast-platform-links" aria-label={ariaLabel}>
+<AutoGrid
+  className="podcast-platform-links"
+  aria-label={ariaLabel}
+  preset="auto-fit"
+  min="sm"
+  gap="sm"
+>
   {
     PODCAST_PLATFORM_LINKS.map((link) => (
-      <a
+      <AccessibleExternalLink
         href={link.href}
-        class="podcast-platform-links__link"
-        aria-label={`${link.ariaLabel} (opens in a new tab)`}
+        className="podcast-platform-links__link"
+        aria-label={link.ariaLabel}
         target={link.target}
         rel={link.rel}
       >
         <Icon name={link.iconName} aria-hidden="true" />
         <span>{link.label}</span>
-        <span class="podcast-platform-links__sr"> (opens in a new tab)</span>
-      </a>
+      </AccessibleExternalLink>
     ))
   }
   <a
@@ -34,13 +41,10 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
     <Icon name="wave" aria-hidden="true" />
     {rssLabel}
   </a>
-</div>
+</AutoGrid>
 
 <style>
   .podcast-platform-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, max-content));
-    gap: var(--spacing-sm);
     align-items: center;
   }
 
@@ -92,18 +96,6 @@ const { ariaLabel = "Listen on", rssLabel = "RSS Feed" } = Astro.props as Props;
   .podcast-platform-links__link--secondary:focus-visible {
     background: var(--accent-primary-hover);
     border-color: var(--surface-border-accent-strong);
-  }
-
-  .podcast-platform-links__sr {
-    position: var(--sr-only);
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    padding: var(--sr-only-padding);
-    margin: var(--sr-only-margin);
-    overflow: var(--sr-only-overflow);
-    white-space: var(--sr-only-white-space);
-    border: var(--sr-only-border);
-    clip-path: var(--sr-only-clip-path);
   }
 
   @media (prefers-reduced-motion: reduce) {

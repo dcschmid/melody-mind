@@ -1,4 +1,5 @@
 ---
+import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import type { ImageMetadata } from "astro";
 import ThemeToggle from "@shared-ui/components/actions/ThemeToggle.astro";
 import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
@@ -166,17 +167,12 @@ const navId = `${navIdBase}-nav`;
 
             return (
               <li class="site-header__nav-item">
-                <a
-                  class="site-header__nav-link"
+                <AccessibleExternalLink
+                  className="site-header__nav-link"
                   href={item.href}
                   target={item.target}
                   rel={item.rel}
                   aria-current={isActive ? "page" : undefined}
-                  aria-label={
-                    item.target === "_blank"
-                      ? `${item.label} (opens in a new tab)`
-                      : undefined
-                  }
                 >
                   {resolvedHeaderConfig.showIcons && item.icon ? (
                     <Icon
@@ -186,10 +182,7 @@ const navId = `${navIdBase}-nav`;
                     />
                   ) : null}
                   <span>{item.label}</span>
-                  {item.target === "_blank" ? (
-                    <span class="site-header__sr"> (opens in a new tab)</span>
-                  ) : null}
-                </a>
+                </AccessibleExternalLink>
               </li>
             );
           })
@@ -203,6 +196,8 @@ const navId = `${navIdBase}-nav`;
 </header>
 
 <script>
+  import { bindOverlayDisclosure } from "@shared-ui/scripts/interactive/overlayDisclosure";
+
   const headerRoots = Array.from(
     document.querySelectorAll<HTMLElement>("[data-site-header]")
   ).filter((root) => root.dataset.siteHeaderBound !== "true");
@@ -215,123 +210,36 @@ const navId = `${navIdBase}-nav`;
       return;
     }
 
-    const desktopQuery = window.matchMedia("(min-width: 880px)");
-    let previousFocus: HTMLElement | null = null;
-    const siblingRegions = Array.from(document.body.children).filter(
-      (element) => element !== header
-    ) as HTMLElement[];
+    const mobileMedia = window.matchMedia("(max-width: 879.98px)");
     const openLabel = toggle.dataset.menuOpenLabel || "Open main menu";
     const closeLabel = toggle.dataset.menuCloseLabel || "Close main menu";
 
-    const getFocusable = (): HTMLElement[] =>
-      Array.from(
-        nav.querySelectorAll<HTMLElement>(
-          "a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])"
-        )
-      );
-
-    const syncOutsideInteractivity = (open: boolean) => {
-      const lockOutside = open && !desktopQuery.matches;
-      document.body.classList.toggle("site-header-menu-open", lockOutside);
-
-      siblingRegions.forEach((region) => {
-        if ("inert" in region) {
-          region.inert = lockOutside;
-        }
-        if (lockOutside) {
-          region.setAttribute("aria-hidden", "true");
-          return;
-        }
-
-        region.removeAttribute("aria-hidden");
-      });
-    };
-
-    const syncState = () => {
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", openLabel);
-      header.dataset.open = "false";
-      syncOutsideInteractivity(false);
-
-      if (desktopQuery.matches) {
+    bindOverlayDisclosure({
+      root: header,
+      toggle,
+      panel: nav,
+      mobileMedia,
+      bodyClass: "site-header-menu-open",
+      manageHidden: false,
+      excludeFromOutsideLock: (element) => element === header,
+      onOpenChange: (open) => {
+        toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
+        nav.setAttribute("aria-hidden", open ? "false" : "true");
+      },
+      applyDesktopState: () => {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", openLabel);
+        header.dataset.open = "false";
         nav.removeAttribute("aria-hidden");
-        return;
-      }
-
-      nav.setAttribute("aria-hidden", "true");
-    };
-
-    const setOpen = (open: boolean, restoreFocus = true) => {
-      if (desktopQuery.matches) {
-        syncState();
-        return;
-      }
-
-      if (open) {
-        previousFocus =
-          document.activeElement instanceof HTMLElement ? document.activeElement : null;
-      }
-
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
-      nav.setAttribute("aria-hidden", open ? "false" : "true");
-      header.dataset.open = open ? "true" : "false";
-      syncOutsideInteractivity(open);
-
-      if (open) {
-        window.requestAnimationFrame(() => getFocusable()[0]?.focus());
-      } else if (restoreFocus && previousFocus) {
-        previousFocus.focus();
-      }
-    };
-
-    toggle.addEventListener("click", () => {
-      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+      },
+      applyMobileClosedState: () => {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", openLabel);
+        header.dataset.open = "false";
+        nav.setAttribute("aria-hidden", "true");
+      },
+      closeOnLinkSelector: "a[href]",
     });
-
-    nav.querySelectorAll<HTMLAnchorElement>("a[href]").forEach((link) => {
-      link.addEventListener("click", () => {
-        if (!desktopQuery.matches) {
-          setOpen(false);
-        }
-      });
-    });
-
-    header.addEventListener("keydown", (event) => {
-      if (desktopQuery.matches || toggle.getAttribute("aria-expanded") !== "true") {
-        return;
-      }
-
-      if (event.key === "Escape") {
-        event.preventDefault();
-        setOpen(false);
-        return;
-      }
-
-      if (event.key !== "Tab") {
-        return;
-      }
-
-      const focusable = [toggle, ...getFocusable()];
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      const active = document.activeElement;
-
-      if (event.shiftKey && active === first) {
-        event.preventDefault();
-        last?.focus();
-      } else if (!event.shiftKey && active === last) {
-        event.preventDefault();
-        first?.focus();
-      }
-    });
-
-    desktopQuery.addEventListener("change", () => {
-      setOpen(false, false);
-      syncState();
-    });
-
-    syncState();
   });
 </script>
 
@@ -440,18 +348,6 @@ const navId = `${navIdBase}-nav`;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
-  }
-
-  .site-header__sr {
-    position: var(--sr-only);
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    padding: var(--sr-only-padding);
-    margin: var(--sr-only-margin);
-    overflow: var(--sr-only-overflow);
-    white-space: var(--sr-only-white-space);
-    border: var(--sr-only-border);
-    clip-path: var(--sr-only-clip-path);
   }
 
   .site-header__menu-toggle {

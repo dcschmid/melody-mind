@@ -1,0 +1,106 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  align?: "stretch" | "start" | "center" | "end";
+  as?: keyof astroHTML.JSX.IntrinsicElements;
+  className?: string;
+  gap?: "2xs" | "xs" | "sm" | "base" | "md" | "lg" | "xl" | "2xl";
+  justify?: "start" | "center" | "end" | "between";
+  class?: string;
+}
+
+const {
+  align = "stretch",
+  as = "div",
+  className = "",
+  gap = "base",
+  justify = "start",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
+
+const Tag = as;
+const classes = [
+  "stack",
+  `stack--gap-${gap}`,
+  `stack--align-${align}`,
+  `stack--justify-${justify}`,
+  className,
+  classProp,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Tag {...rest} class={classes}>
+  <slot />
+</Tag>
+
+<style>
+  .stack {
+    display: grid;
+  }
+
+  .stack--gap-2xs {
+    gap: var(--spacing-2xs);
+  }
+
+  .stack--gap-xs {
+    gap: var(--spacing-xs);
+  }
+
+  .stack--gap-sm {
+    gap: var(--spacing-sm);
+  }
+
+  .stack--gap-base {
+    gap: var(--spacing-base);
+  }
+
+  .stack--gap-md {
+    gap: var(--spacing-md);
+  }
+
+  .stack--gap-lg {
+    gap: var(--spacing-lg);
+  }
+
+  .stack--gap-xl {
+    gap: var(--spacing-xl);
+  }
+
+  .stack--gap-2xl {
+    gap: var(--spacing-2xl);
+  }
+
+  .stack--align-stretch {
+    align-items: stretch;
+  }
+
+  .stack--align-start {
+    align-items: start;
+  }
+
+  .stack--align-center {
+    align-items: center;
+  }
+
+  .stack--align-end {
+    align-items: end;
+  }
+
+  .stack--justify-start {
+    justify-content: start;
+  }
+
+  .stack--justify-center {
+    justify-content: center;
+  }
+
+  .stack--justify-end {
+    justify-content: end;
+  }
+
+  .stack--justify-between {
+    justify-content: space-between;
+  }
+</style>

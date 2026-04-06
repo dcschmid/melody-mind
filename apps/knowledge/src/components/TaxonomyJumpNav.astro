@@ -69,6 +69,8 @@ const {
 }
 
 <script>
+  import { bindOverlayDisclosure } from "@shared-ui/scripts/interactive/overlayDisclosure";
+
   const navRoots = Array.from(
     document.querySelectorAll<HTMLElement>(".taxonomy-jump-nav")
   ).filter((root) => root.dataset.taxonomyJumpNavBound !== "true");
@@ -78,132 +80,31 @@ const {
     const toggle = nav.querySelector<HTMLButtonElement>(".taxonomy-jump-nav__toggle");
     const content = nav.querySelector<HTMLElement>(".taxonomy-jump-nav__content");
     const mobileMedia = window.matchMedia("(max-width: 39.999rem)");
-    let previousFocus: HTMLElement | null = null;
 
     if (!(toggle instanceof HTMLButtonElement) || !(content instanceof HTMLElement)) {
       return;
     }
 
-    const siblingRegions = Array.from(document.body.children).filter(
-      (element) => element !== nav.closest("header") && element !== nav
-    ) as HTMLElement[];
-
-    const getFocusable = (): HTMLElement[] =>
-      Array.from(
-        content.querySelectorAll<HTMLElement>("a[href], button:not([disabled])")
-      );
-
-    const syncOutsideInteractivity = (open: boolean) => {
-      const lockOutside = open && mobileMedia.matches;
-      document.body.classList.toggle("taxonomy-jump-nav-open", lockOutside);
-
-      siblingRegions.forEach((region) => {
-        if ("inert" in region) {
-          region.inert = lockOutside;
-        }
-        if (lockOutside) {
-          region.setAttribute("aria-hidden", "true");
-          return;
-        }
-        region.removeAttribute("aria-hidden");
-      });
-    };
-
-    const setOpen = (open: boolean, restoreFocus = true) => {
-      if (!mobileMedia.matches) {
+    bindOverlayDisclosure({
+      root: nav,
+      toggle,
+      panel: content,
+      mobileMedia,
+      bodyClass: "taxonomy-jump-nav-open",
+      excludeFromOutsideLock: (element: Element, currentRoot: HTMLElement) =>
+        element === currentRoot || element === currentRoot.closest("header"),
+      applyDesktopState: () => {
         nav.setAttribute("data-open", "true");
         toggle.setAttribute("aria-expanded", "true");
         content.hidden = false;
-        syncOutsideInteractivity(false);
-        return;
-      }
-
-      if (open) {
-        previousFocus =
-          document.activeElement instanceof HTMLElement ? document.activeElement : null;
-      }
-
-      nav.setAttribute("data-open", open ? "true" : "false");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      content.hidden = !open;
-      syncOutsideInteractivity(open);
-
-      if (open) {
-        window.requestAnimationFrame(() => getFocusable()[0]?.focus());
-      } else if (restoreFocus && previousFocus) {
-        previousFocus.focus();
-      }
-    };
-
-    const syncMode = () => {
-      nav.setAttribute("data-mobile", mobileMedia.matches ? "true" : "false");
-      setOpen(!mobileMedia.matches, false);
-    };
-
-    toggle.addEventListener("click", () => {
-      if (!mobileMedia.matches) {
-        return;
-      }
-
-      const isOpen = toggle.getAttribute("aria-expanded") === "true";
-      setOpen(!isOpen);
+      },
+      applyMobileClosedState: () => {
+        nav.setAttribute("data-open", "false");
+        toggle.setAttribute("aria-expanded", "false");
+        content.hidden = true;
+      },
+      closeOnLinkSelector: "a[href^='#']",
     });
-
-    document.addEventListener("click", (event) => {
-      const target = event.target;
-      if (
-        mobileMedia.matches &&
-        nav.getAttribute("data-open") === "true" &&
-        target instanceof Node &&
-        !nav.contains(target)
-      ) {
-        setOpen(false);
-      }
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (!mobileMedia.matches || nav.getAttribute("data-open") !== "true") {
-        return;
-      }
-
-      if (event.key === "Escape") {
-        event.preventDefault();
-        setOpen(false);
-        return;
-      }
-
-      if (event.key !== "Tab") {
-        return;
-      }
-
-      const focusable = [toggle, ...getFocusable()];
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      const active = document.activeElement;
-
-      if (event.shiftKey && active === first) {
-        event.preventDefault();
-        last?.focus();
-      } else if (!event.shiftKey && active === last) {
-        event.preventDefault();
-        first?.focus();
-      }
-    });
-
-    content.addEventListener("click", (event) => {
-      const target = event.target;
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
-
-      const link = target.closest("a[href^='#']");
-      if (link && mobileMedia.matches) {
-        setOpen(false);
-      }
-    });
-
-    syncMode();
-    mobileMedia.addEventListener("change", syncMode);
   });
 </script>
 

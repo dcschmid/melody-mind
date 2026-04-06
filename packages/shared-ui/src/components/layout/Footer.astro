@@ -1,4 +1,5 @@
 ---
+import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import FooterShell from "./FooterShell.astro";
 import Paragraph from "../typography/Paragraph.astro";
 import ThemeToggle from "../actions/ThemeToggle.astro";
@@ -77,22 +78,14 @@ const resolvedFooterConfig = {
         <nav aria-label="Footer navigation" class="site-footer__nav">
           {
             resolvedFooterConfig.exploreLinks.map((link) => (
-              <a
-                class="site-footer__link"
+              <AccessibleExternalLink
+                className="site-footer__link"
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
-                aria-label={
-                  link.target === "_blank"
-                    ? `${link.label} (opens in a new tab)`
-                    : undefined
-                }
               >
                 {link.label}
-                {link.target === "_blank" ? (
-                  <span class="site-footer__sr"> (opens in a new tab)</span>
-                ) : null}
-              </a>
+              </AccessibleExternalLink>
             ))
           }
         </nav>
@@ -107,22 +100,14 @@ const resolvedFooterConfig = {
         <nav aria-label="Support links" class="site-footer__nav">
           {
             resolvedFooterConfig.supportLinks.map((link) => (
-              <a
-                class="site-footer__link"
+              <AccessibleExternalLink
+                className="site-footer__link"
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
-                aria-label={
-                  link.target === "_blank"
-                    ? `${link.label} (opens in a new tab)`
-                    : undefined
-                }
               >
                 {link.label}
-                {link.target === "_blank" ? (
-                  <span class="site-footer__sr"> (opens in a new tab)</span>
-                ) : null}
-              </a>
+              </AccessibleExternalLink>
             ))
           }
         </nav>
@@ -137,22 +122,14 @@ const resolvedFooterConfig = {
         <nav aria-label="Legal navigation" class="site-footer__nav">
           {
             resolvedFooterConfig.legalLinks.map((link) => (
-              <a
-                class="site-footer__link"
+              <AccessibleExternalLink
+                className="site-footer__link"
                 href={link.href}
                 target={link.target}
                 rel={link.rel}
-                aria-label={
-                  link.target === "_blank"
-                    ? `${link.label} (opens in a new tab)`
-                    : undefined
-                }
               >
                 {link.label}
-                {link.target === "_blank" ? (
-                  <span class="site-footer__sr"> (opens in a new tab)</span>
-                ) : null}
-              </a>
+              </AccessibleExternalLink>
             ))
           }
         </nav>
@@ -339,18 +316,6 @@ const resolvedFooterConfig = {
     padding-block-start: var(--spacing-sm);
     margin-block-start: var(--spacing-sm);
     border-block-start: 1px solid var(--surface-border-soft);
-  }
-
-  .site-footer__sr {
-    position: var(--sr-only);
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    padding: var(--sr-only-padding);
-    margin: var(--sr-only-margin);
-    overflow: var(--sr-only-overflow);
-    white-space: var(--sr-only-white-space);
-    border: var(--sr-only-border);
-    clip-path: var(--sr-only-clip-path);
   }
 
   .site-footer__motion {
