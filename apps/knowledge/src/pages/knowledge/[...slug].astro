@@ -109,9 +109,7 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
               <TableOfContents headings={mergedHeadings} />
             </SectionSurface>
 
-            {
-              takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null
-            }
+            {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
           </Stack>
         </Fragment>
 
