@@ -3,7 +3,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", ".astro/**"]
     },
     "dev": {
       "cache": false,
@@ -14,10 +14,12 @@
       "persistent": true
     },
     "lint": {
-      "dependsOn": ["^build"]
+      "inputs": ["src/**"],
+      "outputLogs": "new-only"
     },
     "lint:check": {
-      "dependsOn": ["^build"]
+      "inputs": ["src/**"],
+      "outputLogs": "new-only"
     },
     "format": {
       "cache": false
