@@ -114,8 +114,6 @@ pnpm --filter knowledge check:seo
 ### Content Tooling
 
 ```bash
-pnpm --filter knowledge crosslink-artists:dry
-pnpm --filter knowledge crosslink-artists
 pnpm --filter knowledge convert-images
 pnpm --filter knowledge convert-images:exec
 pnpm --filter knowledge convert-images:exec:delete

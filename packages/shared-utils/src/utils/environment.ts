@@ -6,9 +6,6 @@
  * runtime checks that are actually reused across packages.
  */
 
-/** True when a browser `window` object is available. */
-export const isBrowser: boolean = typeof window !== "undefined";
-
 /**
  * True during SSR/build execution where browser globals are unavailable.
  *
@@ -16,12 +13,3 @@ export const isBrowser: boolean = typeof window !== "undefined";
  * `document`, storage APIs or other browser-only capabilities.
  */
 export const isServer: boolean = typeof window === "undefined";
-
-/**
- * Checks whether `crypto.randomUUID()` is available for client-side ID generation.
- */
-export function hasCryptoUUID(): boolean {
-  return (
-    isBrowser && "crypto" in window && typeof window.crypto.randomUUID === "function"
-  );
-}

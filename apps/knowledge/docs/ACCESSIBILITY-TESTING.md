@@ -276,7 +276,7 @@ Use this checklist before marking accessibility work as done.
 - [ ] Run `yarn dev`
 - [ ] Open Chrome and Firefox
 - [ ] Enable a screen reader (NVDA or VoiceOver)
-- [ ] Open core routes: `/`, `/taxonomy/time-change-evolution`, `/knowledge/2010s`, `/bookmarks`
+- [ ] Open core routes: `/`, `/taxonomy/time-change-evolution`, `/knowledge/2010s`, `/search`
 
 ### 2) Keyboard Flow (15 minutes)
 
@@ -322,7 +322,7 @@ Use this checklist before marking accessibility work as done.
 
 | Date       | Tester            | Scope                                                                    | Result           | Notes                                                                                                                                           |
 | ---------- | ----------------- | ------------------------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-02-06 | Team QA (Example) | `/`, `/taxonomy/time-change-evolution`, `/knowledge/2010s`, `/bookmarks` | GO (conditional) | Lint/build/scoped-css pass; keyboard flow and live-region behavior pass; complete NVDA + VoiceOver manual run before final compliance sign-off. |
+| 2026-02-06 | Team QA (Example) | `/`, `/taxonomy/time-change-evolution`, `/knowledge/2010s`, `/search` | GO (conditional) | Lint/build/scoped-css pass; keyboard flow and live-region behavior pass; complete NVDA + VoiceOver manual run before final compliance sign-off. |
 
 ---
 

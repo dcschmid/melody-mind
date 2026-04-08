@@ -4,7 +4,7 @@
  * These constants define the lightweight event contract used for browser-only
  * communication between otherwise decoupled modules, for example:
  * - interactive UI components notifying surrounding code,
- * - theme and bookmark changes propagating across the page.
+ * - theme and search changes propagating across the page.
  *
  * Keeping event names here avoids string drift, makes cross-package event usage
  * easier to grep, and provides a single place to document naming intent.
@@ -13,19 +13,6 @@
  */
 
 import { isServer } from "../utils/environment";
-
-/**
- * Bookmark lifecycle events emitted when bookmark state changes on the client.
- *
- * Consumers typically use these to refresh bookmark-dependent UI without tightly
- * coupling to bookmark storage internals.
- */
-export const BOOKMARK_EVENTS = {
-  /** Fired after bookmark state changes, regardless of whether the action was add, remove, or edit. */
-  CHANGED: "mm:bookmarks:changed",
-  /** Fired when the UI offers an undo path for a recent bookmark removal. */
-  UNDO_REMOVE: "mm:bookmarks:undo-remove",
-} as const;
 
 /**
  * Theme synchronization events for propagating light/dark preference changes.
@@ -51,17 +38,6 @@ export const SEARCH_EVENTS = {
   RESULT_CLICK: "search:result-click",
 } as const;
 
-/**
- * Table-of-contents interaction events.
- *
- * Currently used to signal that a section link in the TOC was activated, which is
- * useful for reading-behavior instrumentation.
- */
-export const TOC_EVENTS = {
-  /** Fired when a TOC entry is activated. */
-  CLICK: "toc:click",
-} as const;
-
 type EventValues<T extends Record<string, string>> = T[keyof T];
 
 /**
@@ -70,11 +46,7 @@ type EventValues<T extends Record<string, string>> = T[keyof T];
  * Useful for typed helpers and for constraining callers to the curated event
  * contract defined in this module.
  */
-export type EventName =
-  | EventValues<typeof BOOKMARK_EVENTS>
-  | EventValues<typeof THEME_EVENTS>
-  | EventValues<typeof SEARCH_EVENTS>
-  | EventValues<typeof TOC_EVENTS>;
+type EventName = EventValues<typeof THEME_EVENTS> | EventValues<typeof SEARCH_EVENTS>;
 
 /**
  * Dispatches a typed browser `CustomEvent` on `window`.

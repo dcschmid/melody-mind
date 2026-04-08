@@ -22,7 +22,7 @@ import {
   getKnowledgeTaxonomyImageUrl,
 } from "@utils/knowledgeImages";
 
-export const TAXONOMY_SECTION_SEO_DESCRIPTION_OVERRIDES: Record<string, string> = {
+const TAXONOMY_SECTION_SEO_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "canon-key-artists":
     "Discover the artists who shaped music history across genres, eras, and major cultural movements.",
   "countries-regional-traditions":
@@ -47,14 +47,14 @@ export const TAXONOMY_SECTION_SEO_DESCRIPTION_OVERRIDES: Record<string, string> 
     "Explore how music supports wellbeing, recovery, and mental health through therapy, self-care, and research.",
 };
 
-export const TAXONOMY_SECTION_SEO_TITLE_OVERRIDES: Record<string, string> = {
+const TAXONOMY_SECTION_SEO_TITLE_OVERRIDES: Record<string, string> = {
   "emotional-seasonal-situational": "Emotional, Seasonal & Situational Music",
 };
 
 /**
  * Returns the best available SEO title for a taxonomy section page.
  */
-export function getTaxonomySectionSeoTitle(
+function getTaxonomySectionSeoTitle(
   sectionId: string,
   sectionTitle: string
 ): string {
@@ -64,7 +64,7 @@ export function getTaxonomySectionSeoTitle(
 /**
  * Returns the best available SEO description for a taxonomy section page.
  */
-export function getTaxonomySectionSeoDescription(params: {
+function getTaxonomySectionSeoDescription(params: {
   sectionId: string;
   sectionTitle: string;
   sectionDescription?: string;

@@ -16,58 +16,6 @@ Before running any file-modifying script:
 For scripts that touch many content files, validating with
 `pnpm --filter knowledge build` afterwards is strongly recommended.
 
-## `crosslink-artists.ts`
-
-Creates bidirectional links between Artist and Knowledge content.
-
-### What It Does
-
-- scans artist pages in `src/content/artists/`
-- scans knowledge pages in `src/content/knowledge-en/`
-- finds artist name mentions in Knowledge content
-- converts plain-text matches to markdown links
-- appends related Knowledge articles to artist `relatedArticles`
-
-### Safety Features
-
-- dry-run mode
-- atomic writes
-- optional backup creation
-- whole-word matching
-- validation of required fields
-- warnings for skipped or malformed files
-
-### Usage
-
-```bash
-# Recommended first pass
-pnpm --filter knowledge crosslink-artists:dry
-
-# Apply changes
-pnpm --filter knowledge crosslink-artists
-
-# Direct invocation
-npx tsx scripts/crosslink-artists.ts --dry-run
-npx tsx scripts/crosslink-artists.ts
-
-# Overwrite existing backups
-npx tsx scripts/crosslink-artists.ts --force
-
-# Skip backups
-npx tsx scripts/crosslink-artists.ts --no-backup
-```
-
-### Command-Line Options
-
-- `--dry-run`: preview changes without writing files
-- `--no-backup`: skip creating `.backup` files
-- `--force`: overwrite existing backups instead of skipping files
-
-### Example Outcome
-
-- `Ella Fitzgerald` becomes `[Ella Fitzgerald](/artists/ella-fitzgerald)`
-- the referenced Knowledge article is added to the artist's `relatedArticles`
-
 ## `check_content.mjs`
 
 Validates Knowledge content files for consistency and formatting expectations. Use this

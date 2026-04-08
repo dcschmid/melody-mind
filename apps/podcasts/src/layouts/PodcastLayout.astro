@@ -8,7 +8,10 @@ import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { buildDefaultCopyrightText } from "@shared-utils/utils/appShell";
+import {
+  buildDefaultCopyrightText,
+  PODCASTS_SITE_URL,
+} from "@shared-utils/utils/appShell";
 import {
   ensureTrailingSlash,
   resolveAbsoluteUrl,
@@ -25,7 +28,6 @@ import {
   PODCAST_FEED_URL,
   PODCAST_PLATFORM_URLS,
   PODCAST_PRECONNECT_ORIGINS,
-  PODCAST_SITE_URL,
 } from "../constants/podcastLinks";
 import { podcastBrandLogo, podcastHeroImageUrl } from "../utils/podcastImages";
 import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
@@ -82,7 +84,7 @@ const normalizedTitle = normalizeWhitespace(title);
 const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
   ? normalizedTitle
   : `${normalizedTitle} | ${siteTitle}`;
-const siteUrl = resolveBaseUrl(PODCAST_SITE_URL);
+const siteUrl = resolveBaseUrl(PODCASTS_SITE_URL);
 const canonicalPath = canonical
   ? new URL(canonical, `${siteUrl}/`).pathname
   : Astro.url.pathname;

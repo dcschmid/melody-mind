@@ -51,14 +51,14 @@ export function resolveKnowledgeSlug(
 /**
  * Returns the search-optimized title tag for a knowledge article when one is defined.
  */
-export function getKnowledgeSeoTitle(slugKey: string, title: string): string {
+function getKnowledgeSeoTitle(slugKey: string, title: string): string {
   return KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES[slugKey] || title;
 }
 
 /**
  * Resolves the canonical podcast URL from explicit URL first, then from known slug fields.
  */
-export function getKnowledgePodcastUrl(
+function getKnowledgePodcastUrl(
   articleData: KnowledgeArticleLike["data"],
   podcastBase: string
 ): string | null {
@@ -80,7 +80,7 @@ export function getKnowledgePodcastUrl(
 /**
  * Resolves taxonomy metadata for UI pills and breadcrumb generation.
  */
-export function getKnowledgeTaxonomyMeta(
+function getKnowledgeTaxonomyMeta(
   site: URL | undefined,
   taxonomySubsection: unknown,
   taxonomyGroup: unknown
@@ -131,7 +131,7 @@ export function getKnowledgeTaxonomyMeta(
 /**
  * Builds the article or podcast structured data block for a knowledge detail page.
  */
-export function buildKnowledgeArticleStructuredData({
+function buildKnowledgeArticleStructuredData({
   canonical,
   description,
   imageAbsolute,

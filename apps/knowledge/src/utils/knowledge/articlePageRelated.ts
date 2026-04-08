@@ -25,7 +25,7 @@ function toKeywordSet(keywords: unknown[] | undefined): Set<string> {
 /**
  * Scores and returns the strongest related articles for a knowledge detail page.
  */
-export function getRelatedKnowledgeArticles(params: {
+function getRelatedKnowledgeArticles(params: {
   articles: KnowledgeArticleLike[];
   currentKeywords: Set<string>;
   currentTaxonomyGroup: string;

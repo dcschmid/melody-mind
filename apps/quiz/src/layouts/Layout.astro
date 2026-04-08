@@ -1,17 +1,6 @@
 ---
-import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
-import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
-import SEO from "@shared-ui/components/meta/SEO.astro";
-import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
-import Footer from "@shared-ui/components/layout/Footer.astro";
-import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
-
+import AppShellLayout from "@shared-ui/components/layout/AppShellLayout.astro";
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
-import {
-  buildAppShellSeoContext,
-  buildDefaultCopyrightText,
-} from "@shared-utils/utils/appShell";
-import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
 import { quizBrandLogo, quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
 import { quizAppShellConfig } from "../utils/appShellConfig";
 
@@ -34,7 +23,6 @@ interface Props {
   prevUrl?: string;
   nextUrl?: string;
   disableAlternateLanguages?: boolean;
-  structuredDataExtra?: any | any[];
   authorName?: string;
 }
 
@@ -55,118 +43,29 @@ const {
   disableAlternateLanguages,
   authorName,
 } = Astro.props;
-
-const constructedPageSeo = pageSeo;
-const mergedTitle = constructedPageSeo.title;
-const mergedDescription = constructedPageSeo.description;
-const mergedKeywords = constructedPageSeo.keywords;
-const mergedType = constructedPageSeo.type;
-const mergedCanonical = constructedPageSeo.canonical;
-const mergedPublishDate = constructedPageSeo.publishDate;
-const mergedModifiedDate = constructedPageSeo.modifiedDate;
-const robotsTag = constructedPageSeo.robots;
-const siteUrl = resolveBaseUrl(Astro.site);
-const shellConfig = quizAppShellConfig;
-const lang = shellConfig.lang;
-const { mergedImage, finalStructuredData, autoOgLocale } = buildAppShellSeoContext({
-  pageSeo: constructedPageSeo,
-  siteUrl,
-  siteName: shellConfig.siteName,
-  siteDescription: shellConfig.siteDescription,
-  logoUrl: quizBrandLogoUrl(siteUrl),
-  fallbackImageUrl: quizHeroImageUrl(siteUrl),
-  locale: lang,
-});
-const year = new Date().getFullYear();
-
-const preloadedResources: Array<{
-  href: string;
-  as: "style" | "script" | "font" | "image";
-  crossorigin?: "anonymous" | "use-credentials";
-}> = [];
-const fontPreloads: Array<{
-  href: string;
-  as: "style" | "script" | "font" | "image";
-  type?: string;
-  crossorigin?: "anonymous" | "use-credentials";
-}> = [];
-const dnsPrefetch: Array<{ href: string }> = [];
 ---
 
-<MasterLayout lang={lang} appTitle="MelodyMind">
-  <Fragment slot="head">
-    <AppHeadResources
-      {dnsPrefetch}
-      {preloadedResources}
-      {fontPreloads}
-      rssTitle={shellConfig.rssTitle}
-      rssHref="/rss.xml"
-    />
-    <SEO
-      title={mergedTitle}
-      description={mergedDescription}
-      keywords={mergedKeywords.split(",").map((keyword) => keyword.trim())}
-      image={mergedImage}
-      {imageWidth}
-      {imageHeight}
-      type={mergedType}
-      publishDate={mergedPublishDate}
-      modifiedDate={mergedModifiedDate}
-      {ogMusic}
-      {audioSrc}
-      {episodeNumber}
-      {seriesName}
-      {seriesUrl}
-      canonical={mergedCanonical}
-      noIndex={robotsTag.includes("noindex")}
-      noFollow={robotsTag.includes("nofollow")}
-      {prevUrl}
-      {nextUrl}
-      {disableAlternateLanguages}
-      structuredDataExtra={finalStructuredData}
-      authorName={authorName || constructedPageSeo.authorName}
-      imageAlt={constructedPageSeo.imageAlt}
-      openGraph={{
-        ...constructedPageSeo.openGraph,
-        locale:
-          constructedPageSeo.openGraph.locale ||
-          constructedPageSeo.ogLocale ||
-          autoOgLocale,
-      }}
-      alternateLocales={constructedPageSeo.alternateLocales}
-      twitter={constructedPageSeo.twitter}
-    />
-    {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
-  </Fragment>
-
-  {
-    showHeader && (
-      <SiteHeader
-        slot="before-main"
-        headerConfig={{
-          ...shellConfig.header,
-          showBrand: true,
-          brandText: "",
-          brandLogoSrc: quizBrandLogo,
-          brandLogoAlt: "",
-          showIcons: showHeaderIcons,
-        }}
-      />
-    )
-  }
-  {
-    showFooter && (
-      <Footer
-        slot="after-main"
-        footerConfig={{
-          ...shellConfig.footer,
-          copyrightText: buildDefaultCopyrightText(year),
-        }}
-      />
-    )
-  }
-
+<AppShellLayout
+  shellConfig={quizAppShellConfig}
+  resolveLogoUrl={quizBrandLogoUrl}
+  resolveFallbackImageUrl={quizHeroImageUrl}
+  brandLogoSrc={quizBrandLogo}
+  brandLogoAlt=""
+  {pageSeo}
+  {imageWidth}
+  {imageHeight}
+  {showHeader}
+  {showHeaderIcons}
+  {showFooter}
+  {ogMusic}
+  {audioSrc}
+  {episodeNumber}
+  {seriesName}
+  {seriesUrl}
+  {prevUrl}
+  {nextUrl}
+  {disableAlternateLanguages}
+  {authorName}
+>
   <slot />
-
-  <AutoInitScript slot="body-end" />
-</MasterLayout>
+</AppShellLayout>

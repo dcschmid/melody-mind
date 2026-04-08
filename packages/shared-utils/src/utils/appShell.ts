@@ -56,6 +56,17 @@ export interface AppShellConfig {
   footer: AppShellFooterConfig;
 }
 
+interface BuildAppShellLegalLinksParams {
+  baseUrl?: string;
+  includeAiContent?: boolean;
+}
+
+interface BuildExternalAppLinkParams {
+  href: string;
+  label: string;
+  icon?: string;
+}
+
 interface BuildAppShellSeoContextParams {
   pageSeo: PageSeoResult;
   siteUrl: string;
@@ -67,7 +78,7 @@ interface BuildAppShellSeoContextParams {
   searchPathTemplate?: string;
 }
 
-export const DEFAULT_SUPPORT_LINKS: AppShellLink[] = [
+const DEFAULT_SUPPORT_LINKS: AppShellLink[] = [
   {
     href: "https://www.paypal.me/dcschmid",
     label: "PayPal",
@@ -82,11 +93,116 @@ export const DEFAULT_SUPPORT_LINKS: AppShellLink[] = [
   },
 ];
 
-export const DEFAULT_FOOTER_SETTINGS_TEXT = {
+const DEFAULT_FOOTER_SETTINGS_TEXT = {
   themeStatusPrefix: "Theme",
 } as const;
 
-export function mapOgLocale(locale: string): string {
+export const DEFAULT_APP_SHELL_SITE_NAME = "Melody Mind";
+export const DEFAULT_APP_SHELL_SITE_DESCRIPTION =
+  "Music knowledge platform for genres, timelines, and guided listening.";
+export const DEFAULT_APP_SHELL_LANG = "en";
+export const KNOWLEDGE_SITE_URL = "https://melody-mind.de";
+export const KNOWLEDGE_SITE_URL_WWW = "https://www.melody-mind.de";
+export const QUIZ_SITE_URL = "https://quiz.melody-mind.de";
+export const PODCASTS_SITE_URL = "https://podcasts.melody-mind.de";
+export const DEFAULT_APP_SHELL_FOOTER_BRAND_TEXT =
+  "Curated guides and playlists to help you listen more closely and discover new sounds.";
+export const PODCAST_APP_SHELL_FOOTER_BRAND_TEXT =
+  "Curated stories, timelines, and playlists to help you listen more closely and discover new sounds.";
+export const SEARCH_NAV_ITEM: AppShellNavItem = {
+  href: "/search",
+  label: "Search",
+  icon: "search",
+};
+
+export const DEFAULT_APP_SHELL_HEADER: Omit<
+  AppShellHeaderConfig,
+  "navItems" | "brandLogoAlt" | "brandAriaLabel" | "navAriaLabel"
+> = {
+  showBrand: false,
+  brandHref: "/",
+  brandText: DEFAULT_APP_SHELL_SITE_NAME,
+  brandMark: "MM",
+  brandLogoWidth: 150,
+  brandLogoHeight: 100,
+  menuOpenLabel: "Open main menu",
+  menuCloseLabel: "Close main menu",
+  menuText: "Menu",
+};
+
+export const DEFAULT_APP_SHELL_FOOTER: Pick<
+  AppShellFooterConfig,
+  "brandTitle" | "supportLinks" | "themeStatusPrefix"
+> = {
+  brandTitle: DEFAULT_APP_SHELL_SITE_NAME,
+  supportLinks: DEFAULT_SUPPORT_LINKS,
+  ...DEFAULT_FOOTER_SETTINGS_TEXT,
+};
+
+export function buildExternalAppLink({
+  href,
+  label,
+  icon,
+}: BuildExternalAppLinkParams): AppShellNavItem {
+  return {
+    href,
+    label,
+    ...(icon ? { icon } : {}),
+    target: "_blank",
+    rel: "noopener noreferrer",
+  };
+}
+
+export function buildAppShellLegalLinks({
+  baseUrl,
+  includeAiContent = true,
+}: BuildAppShellLegalLinksParams = {}): AppShellLink[] {
+  const normalizeHref = (path: string): string => {
+    if (!baseUrl) {
+      return path;
+    }
+
+    const normalizedBase = baseUrl.replace(/\/+$/, "");
+    return `${normalizedBase}${path}`;
+  };
+
+  const externalLinkProps = baseUrl
+    ? {
+        target: "_blank" as const,
+        rel: "noopener noreferrer",
+      }
+    : {};
+
+  const legalLinks: AppShellLink[] = [
+    {
+      href: normalizeHref("/imprint"),
+      label: "Legal Notice",
+      ...externalLinkProps,
+    },
+    {
+      href: normalizeHref("/privacy"),
+      label: "Privacy Policy",
+      ...externalLinkProps,
+    },
+    {
+      href: normalizeHref("/cookies"),
+      label: "Storage Policy",
+      ...externalLinkProps,
+    },
+  ];
+
+  if (includeAiContent) {
+    legalLinks.push({
+      href: normalizeHref("/ai-content"),
+      label: "AI Content",
+      ...externalLinkProps,
+    });
+  }
+
+  return legalLinks;
+}
+
+function mapOgLocale(locale: string): string {
   if (!locale) {
     return "en_US";
   }

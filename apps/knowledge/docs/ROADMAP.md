@@ -35,7 +35,7 @@ This document outlines proposed features, improvements, and enhancements for Mel
 | Priority                 | Features                                                            | Impact      | Effort    |
 | ------------------------ | ------------------------------------------------------------------- | ----------- | --------- |
 | 🔴 **P0 - Critical**     | Baseline legal compliance (privacy policy, consent banner, a11y)    | High        | Completed |
-| 🟠 **P1 - High**         | Dark Mode, Interactive Bookmarks, Search Facets                     | High        | Medium    |
+| 🟠 **P1 - High**         | Dark Mode, Search Facets                                            | High        | Medium    |
 | 🟡 **P2 - Medium**       | Learning Paths, Genre Explorer, Reading Experience, Legal hardening | Medium-High | Medium    |
 | 🟢 **P3 - Nice-to-Have** | Artist Profiles, Audio Player, PWA, Newsletter                      | Medium      | High      |
 | 📅 **Future**            | AI Recommendations, Virtual Museum, Headless CMS                    | High        | Very High |
@@ -1801,7 +1801,7 @@ Features:
 - Day 1-2: Legal baseline verification (privacy policy + consent flow)
 - Day 2-3: Accessibility baseline verification and quick fixes
 - Day 3-4: Dark Mode implementation
-- Day 4-5: Interactive Bookmarks system
+- Day 4-5: Search and navigation polish
 
 **Deliverables**:
 
@@ -1809,7 +1809,7 @@ Features:
 - ✅ Consent banner flow validated
 - ✅ Accessibility baseline validated
 - ✅ Dark mode toggle
-- ✅ Working bookmarks system
+- ✅ Search and navigation polish
 
 **Effort**: Medium (5 days)
 
@@ -1947,7 +1947,7 @@ Features:
 - Average session duration
 - Pages per session
 - Return visitor rate
-- Bookmark usage
+- Search usage rate
 
 **Content Discovery**:
 

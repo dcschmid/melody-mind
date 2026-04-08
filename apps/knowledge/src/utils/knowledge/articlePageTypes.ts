@@ -5,7 +5,7 @@ import type { LinkPanelItem } from "@shared-ui/components/cards/linkPanel";
  * Search-focused title overrides for specific high-value knowledge articles.
  * The visible page headline can stay editorial while the title tag stays descriptive.
  */
-export const KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES: Record<string, string> = {
+const KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES: Record<string, string> = {
   "1960s": "1960s Music History: Pop, Protest and Psychedelia",
   "1980s": "1980s Music History: MTV, Synths and Global Pop",
   "2010s": "2010s Music History: Streaming and Global Pop",
@@ -76,3 +76,5 @@ export interface RelatedKnowledgeArticle {
   createdAt: Date;
   readingTime: number;
 }
+
+export { KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES };

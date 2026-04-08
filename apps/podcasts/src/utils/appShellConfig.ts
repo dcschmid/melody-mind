@@ -1,6 +1,13 @@
 import {
-  DEFAULT_FOOTER_SETTINGS_TEXT,
-  DEFAULT_SUPPORT_LINKS,
+  DEFAULT_APP_SHELL_FOOTER,
+  DEFAULT_APP_SHELL_HEADER,
+  DEFAULT_APP_SHELL_LANG,
+  KNOWLEDGE_SITE_URL,
+  PODCAST_APP_SHELL_FOOTER_BRAND_TEXT,
+  QUIZ_SITE_URL,
+  SEARCH_NAV_ITEM,
+  buildExternalAppLink,
+  buildAppShellLegalLinks,
   type AppShellConfig,
 } from "@shared-utils/utils/appShell";
 import { PODCAST_FEED_PATH } from "../constants/podcastLinks";
@@ -9,88 +16,36 @@ export const podcastAppShellConfig: AppShellConfig = {
   siteName: "MelodyMind Podcasts",
   siteDescription:
     "Music history podcast about the stories, scenes, and artists that shaped each era.",
-  lang: "en",
+  lang: DEFAULT_APP_SHELL_LANG,
   rssTitle: "RSS Feed - English",
   header: {
+    ...DEFAULT_APP_SHELL_HEADER,
     navItems: [
-      {
-        href: "https://melody-mind.de",
+      buildExternalAppLink({
+        href: KNOWLEDGE_SITE_URL,
         label: "Knowledge",
         icon: "book-open",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://quiz.melody-mind.de",
+      }),
+      buildExternalAppLink({
+        href: QUIZ_SITE_URL,
         label: "Quiz",
         icon: "help-circle",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "/search",
-        label: "Search",
-        icon: "search",
-      },
+      }),
+      SEARCH_NAV_ITEM,
     ],
-    showBrand: false,
-    brandHref: "/",
     brandText: "MelodyMind Podcasts",
     brandLogoAlt: "MelodyMind Podcasts",
-    brandLogoWidth: 150,
-    brandLogoHeight: 100,
     brandAriaLabel: "Go to the MelodyMind Podcasts homepage",
-    menuOpenLabel: "Open main menu",
-    menuCloseLabel: "Close main menu",
-    menuText: "Menu",
     navAriaLabel: "Podcast navigation",
   },
   footer: {
-    brandTitle: "Melody Mind",
-    brandText:
-      "Curated stories, timelines, and playlists to help you listen more closely and discover new sounds.",
+    ...DEFAULT_APP_SHELL_FOOTER,
+    brandText: PODCAST_APP_SHELL_FOOTER_BRAND_TEXT,
     exploreLinks: [
-      {
-        href: "https://quiz.melody-mind.de",
-        label: "Quiz",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de",
-        label: "Knowledge",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
+      buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz" }),
+      buildExternalAppLink({ href: KNOWLEDGE_SITE_URL, label: "Knowledge" }),
       { href: PODCAST_FEED_PATH, label: "RSS" },
     ],
-    supportLinks: DEFAULT_SUPPORT_LINKS,
-    legalLinks: [
-      {
-        href: "https://melody-mind.de/imprint",
-        label: "Legal Notice",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de/privacy",
-        label: "Privacy Policy",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de/cookies",
-        label: "Storage Policy",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://melody-mind.de/ai-content",
-        label: "AI Content",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-    ],
-    ...DEFAULT_FOOTER_SETTINGS_TEXT,
+    legalLinks: buildAppShellLegalLinks({ baseUrl: KNOWLEDGE_SITE_URL }),
   },
 };

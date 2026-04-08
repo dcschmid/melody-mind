@@ -1,8 +1,9 @@
-export const PODCAST_SITE_URL = "https://podcasts.melody-mind.de";
-export const PODCAST_FEED_PATH = "/podcast.xml";
-export const PODCAST_FEED_URL = `${PODCAST_SITE_URL}${PODCAST_FEED_PATH}`;
+import { PODCASTS_SITE_URL } from "@shared-utils/utils/appShell";
 
-export type PodcastPlatformLink = {
+export const PODCAST_FEED_PATH = "/podcast.xml";
+export const PODCAST_FEED_URL = `${PODCASTS_SITE_URL}${PODCAST_FEED_PATH}`;
+
+type PodcastPlatformLink = {
   href: string;
   label: string;
   ariaLabel: string;

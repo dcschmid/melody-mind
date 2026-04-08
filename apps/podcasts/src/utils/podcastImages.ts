@@ -4,7 +4,7 @@ import {
   findAssetByFileName,
   toAbsoluteAssetUrl,
 } from "@shared-utils/utils/imageAssets";
-import { PODCAST_SITE_URL } from "../constants/podcastLinks";
+import { PODCASTS_SITE_URL } from "@shared-utils/utils/appShell";
 
 const podcastAssetModules = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/*.{jpg,jpeg,png,webp,avif}",
@@ -52,7 +52,7 @@ export const getPodcastCoverImage = (imageSlug: string): ImageMetadata | undefin
   podcastCoverImages[imageSlug];
 
 const toPodcastAssetUrl = (asset: ImageMetadata): string =>
-  toAbsoluteAssetUrl(asset, PODCAST_SITE_URL);
+  toAbsoluteAssetUrl(asset, PODCASTS_SITE_URL);
 
 export const getPodcastCoverImageUrl = (imageSlug: string): string | undefined => {
   const image = getPodcastCoverImage(imageSlug);
@@ -60,7 +60,5 @@ export const getPodcastCoverImageUrl = (imageSlug: string): string | undefined =
 };
 
 export const podcastHeroImageUrl = toPodcastAssetUrl(podcastHeroImage);
-
-export const podcastBrandLogoUrl = toPodcastAssetUrl(podcastBrandLogo);
 
 export { podcastBrandLogo, podcastHeroImage };

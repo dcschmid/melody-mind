@@ -33,7 +33,6 @@ src/
 ├── scripts/
 └── utils/
     ├── analytics/
-    ├── bookmarks/
     ├── cache/
     ├── consent/
     ├── content/

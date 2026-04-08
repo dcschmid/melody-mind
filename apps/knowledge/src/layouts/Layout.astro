@@ -1,17 +1,6 @@
 ---
-import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
-import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
-import SEO from "@shared-ui/components/meta/SEO.astro";
-import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
-import SharedFooter from "@shared-ui/components/layout/Footer.astro";
-import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
-
+import AppShellLayout from "@shared-ui/components/layout/AppShellLayout.astro";
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
-import {
-  buildAppShellSeoContext,
-  buildDefaultCopyrightText,
-} from "@shared-utils/utils/appShell";
-import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
 import { knowledgeBrandLogoUrl, knowledgeHeroImageUrl } from "@utils/knowledgeImages";
 import { knowledgeAppShellConfig } from "@utils/appShellConfig";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
@@ -36,7 +25,6 @@ interface Props {
   prevUrl?: string;
   nextUrl?: string;
   disableAlternateLanguages?: boolean;
-  structuredDataExtra?: any | any[];
   authorName?: string;
 }
 
@@ -54,118 +42,26 @@ const {
   disableAlternateLanguages,
   authorName,
 } = Astro.props;
-
-/**
- * The layout currently treats incoming SEO as the source of truth and only appends
- * global fallbacks such as default images and baseline structured data.
- */
-const constructedPageSeo = pageSeo;
-const mergedTitle = constructedPageSeo.title;
-const mergedDescription = constructedPageSeo.description;
-const mergedKeywords = constructedPageSeo.keywords;
-const mergedType = constructedPageSeo.type;
-const mergedCanonical = constructedPageSeo.canonical;
-const mergedPublishDate = constructedPageSeo.publishDate;
-const mergedModifiedDate = constructedPageSeo.modifiedDate;
-const robotsTag = constructedPageSeo.robots;
-const siteUrl = resolveBaseUrl(Astro.site);
-const shellConfig = knowledgeAppShellConfig;
-const siteName = shellConfig.siteName;
-const siteDescription = shellConfig.siteDescription;
-const siteLogoUrl = knowledgeBrandLogoUrl(siteUrl);
-const lang = shellConfig.lang;
-const { mergedImage, finalStructuredData, autoOgLocale } = buildAppShellSeoContext({
-  pageSeo: constructedPageSeo,
-  siteUrl,
-  siteName,
-  siteDescription,
-  logoUrl: siteLogoUrl,
-  fallbackImageUrl: knowledgeHeroImageUrl(siteUrl),
-  locale: lang,
-});
-/**
- * Kept as typed arrays so future performance optimizations can be added centrally
- * without changing the `<head>` rendering logic below.
- */
-const preloadedResources: Array<{
-  href: string;
-  as: "style" | "script" | "font" | "image";
-  crossorigin?: "anonymous" | "use-credentials";
-}> = [];
-const fontPreloads: Array<{
-  href: string;
-  as: "style" | "script" | "font" | "image";
-  type?: string;
-  crossorigin?: "anonymous" | "use-credentials";
-}> = [];
-const dnsPrefetch: Array<{ href: string }> = [];
 ---
 
-<MasterLayout lang={lang} appTitle="MelodyMind">
-  <Fragment slot="head">
-    <AppHeadResources
-      {dnsPrefetch}
-      {preloadedResources}
-      {fontPreloads}
-      rssTitle={shellConfig.rssTitle}
-      rssHref="/rss.xml"
-    />
-    {/* Shared SEO renders canonical, robots, JSON-LD, and article-specific meta tags. */}
-    <SEO
-      title={mergedTitle}
-      description={mergedDescription}
-      keywords={mergedKeywords.split(",").map((keyword) => keyword.trim())}
-      image={mergedImage}
-      {imageWidth}
-      {imageHeight}
-      type={mergedType}
-      publishDate={mergedPublishDate}
-      modifiedDate={mergedModifiedDate}
-      {ogMusic}
-      {audioSrc}
-      {episodeNumber}
-      {seriesName}
-      {seriesUrl}
-      canonical={mergedCanonical}
-      noIndex={robotsTag.includes("noindex")}
-      noFollow={robotsTag.includes("nofollow")}
-      {prevUrl}
-      {nextUrl}
-      {disableAlternateLanguages}
-      structuredDataExtra={finalStructuredData}
-      authorName={authorName || constructedPageSeo.authorName}
-      imageAlt={constructedPageSeo.imageAlt}
-      openGraph={{
-        ...constructedPageSeo.openGraph,
-        locale:
-          constructedPageSeo.openGraph.locale ||
-          constructedPageSeo.ogLocale ||
-          autoOgLocale,
-      }}
-      alternateLocales={constructedPageSeo.alternateLocales}
-      twitter={constructedPageSeo.twitter}
-    />
-    {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
-  </Fragment>
-
-  <SiteHeader
-    headerConfig={{
-      ...shellConfig.header,
-      showBrand: true,
-      brandText: "",
-      brandLogoSrc: melodyMindLogo,
-      brandLogoAlt: "",
-    }}
-  />
-
+<AppShellLayout
+  shellConfig={knowledgeAppShellConfig}
+  resolveLogoUrl={knowledgeBrandLogoUrl}
+  resolveFallbackImageUrl={knowledgeHeroImageUrl}
+  brandLogoSrc={melodyMindLogo}
+  brandLogoAlt=""
+  {pageSeo}
+  {imageWidth}
+  {imageHeight}
+  {ogMusic}
+  {audioSrc}
+  {episodeNumber}
+  {seriesName}
+  {seriesUrl}
+  {prevUrl}
+  {nextUrl}
+  {disableAlternateLanguages}
+  {authorName}
+>
   <slot />
-
-  <SharedFooter
-    footerConfig={{
-      ...shellConfig.footer,
-      copyrightText: buildDefaultCopyrightText(new Date().getFullYear()),
-    }}
-  />
-
-  <AutoInitScript slot="body-end" />
-</MasterLayout>
+</AppShellLayout>

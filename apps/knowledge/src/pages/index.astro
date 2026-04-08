@@ -8,166 +8,17 @@ import SectionHeader from "@shared-ui/components/layout/SectionHeader.astro";
 import Stack from "@shared-ui/components/layout/Stack.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
-import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { buildKnowledgeIndexPageData } from "@utils/knowledge/buildKnowledgeIndexPageData";
 import {
-  buildCollectionPageSchema,
-  buildKnowledgeArticlesItemList,
-} from "@shared-utils/utils/seo/seoSchema";
-import { calculateReadingTime } from "@shared-utils/utils/readingTime";
-import { sortEntries } from "@shared-utils/utils/content/sortEntries";
-import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
-import {
-  normalizeDate,
-  derivePublishModified,
-} from "@shared-utils/utils/content/dateUtils";
-import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
-import { musicTaxonomy } from "../data/musicTaxonomy";
-import { countArticlesPerSubsection } from "../utils/taxonomy/taxonomyUtils";
-import { loggers } from "@shared-utils/utils/logging";
-import {
-  getKnowledgeCategoryImageUrl,
-  getKnowledgeCategoryImageSrc,
   getKnowledgeTaxonomyImage,
   knowledgeHeroImage,
   knowledgeHeroImageSrc,
-  knowledgeHeroImageUrl,
 } from "@utils/knowledgeImages";
 
 export const prerender = true;
 
-const lang = "en";
-
-// Load English knowledge collection
-let baseArticles: any[] = [];
-try {
-  baseArticles = await getCollectionEntries("knowledge-en");
-} catch (e) {
-  loggers.pages.warn("knowledge index: collection load issue", {
-    error: (e as any)?.message || e,
-  });
-}
-
-// Process articles
-const articlesWithReadingTime = baseArticles.map((article: any) => {
-  const createdAtRaw = article?.data?.createdAt;
-  const updatedAtRaw = article?.data?.updatedAt;
-  const createdAt = normalizeDate(createdAtRaw);
-  const updatedAt = normalizeDate(updatedAtRaw);
-  const readingTime =
-    article.data.readingTime || calculateReadingTime(article.body || "");
-  return {
-    ...article,
-    data: { ...article.data, createdAt, updatedAt, readingTime },
-  };
-});
-
-const sortedArticles = sortEntries(articlesWithReadingTime);
-const recentReadImageMap = Object.fromEntries(
-  sortedArticles.map((article: any) => {
-    const articleSlug =
-      typeof article?.slug === "string" && article.slug
-        ? article.slug.replace(/^\/+/, "")
-        : typeof article?.id === "string"
-          ? article.id.replace(/^\/+/, "")
-          : "";
-    const articleImage =
-      getKnowledgeCategoryImageSrc(
-        typeof article?.data?.image === "string" ? article.data.image.trim() : ""
-      ) || "";
-
-    return [articleSlug, articleImage];
-  })
-);
-
-// SEO
-const title = "Music Knowledge";
-const description =
-  "Curated genre deep dives from roots to today's sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
-const baseUrl = resolveBaseUrl(Astro.site);
-const currentUrl = resolvePageUrl(Astro.site, "/");
-
-let earliestCreated: Date | null = null;
-let latestUpdated: Date | null = null;
-for (const a of articlesWithReadingTime) {
-  const c = normalizeDate(a.data.createdAt);
-  if (c && (!earliestCreated || c.getTime() < earliestCreated.getTime()))
-    earliestCreated = c;
-  const u = normalizeDate(a.data.updatedAt);
-  if (u && (!latestUpdated || u.getTime() > latestUpdated.getTime())) latestUpdated = u;
-}
-const collectionDates = derivePublishModified(earliestCreated, latestUpdated);
-const articleCollectionId = `${currentUrl}#knowledge-itemlist`;
-
-const articleCollectionSchema = buildKnowledgeArticlesItemList({
-  articles: sortedArticles.map((a: any) => ({
-    slug: "slug" in a ? a.slug : a.id,
-    data: {
-      title: a.data.title,
-      description: a.data.description,
-      createdAt: a.data.createdAt,
-      updatedAt: a.data.updatedAt,
-      keywords: a.data.keywords,
-      image: getKnowledgeCategoryImageUrl(a.data.image, baseUrl),
-    },
-  })),
-  baseUrl,
-  lang,
-  listName: "Knowledge Articles",
-  itemListId: articleCollectionId,
-});
-const collectionPageSchema = buildCollectionPageSchema({
-  url: currentUrl,
-  name: title,
-  description,
-  lang,
-  image: knowledgeHeroImageUrl(baseUrl),
-  mainEntityId: articleCollectionId,
-});
-
-const keywordPool = sortedArticles.flatMap((article) => article.data.keywords || []);
-const metaKeywords = keywordPool.slice(0, 10).join(", ");
-
-// Count articles per taxonomy subsection
-const subsectionArticleCounts = countArticlesPerSubsection(sortedArticles);
-
-// Build taxonomy sections with article counts
-const taxonomySections = musicTaxonomy.map((section) => {
-  const subsectionCount = section.subsections.length;
-  const articleCount = section.subsections.reduce((acc: number, sub: { id: string }) => {
-    return acc + (subsectionArticleCounts[sub.id] || 0);
-  }, 0);
-
-  return {
-    ...section,
-    subsectionCount,
-    articleCount,
-  };
-});
-
-const pageSeo = buildPageSeo({
-  title,
-  description,
-  url: currentUrl,
-  contentKind: "generic",
-  structuredData: [collectionPageSchema, articleCollectionSchema].filter(
-    Boolean
-  ) as StructuredData[],
-  enrichedParts: [title, description, keywordPool.slice(0, 25).join(" ")],
-  fallbackKeywords: metaKeywords
-    .split(",")
-    .map((k) => k.trim())
-    .filter(Boolean),
-  keywordLimit: 28,
-  maxDescription: 150,
-  image: knowledgeHeroImageUrl(baseUrl),
-  imageAlt: "Melody Mind - Music Knowledge Platform",
-  publishDate: collectionDates.publishDate || undefined,
-  modifiedDate: collectionDates.modifiedDate || undefined,
-  index: true,
-  follow: true,
-  autoSocialImage: false,
-  authorName: "Melody Mind",
-});
+const { pageSeo, recentReadImageMap, taxonomySections } =
+  await buildKnowledgeIndexPageData(Astro.site);
 ---
 
 <Layout {pageSeo}>

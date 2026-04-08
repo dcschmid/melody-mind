@@ -92,7 +92,7 @@ const entryToPodcastData = (entry: PodcastEntry): PodcastData => {
 /**
  * Loads all podcast entries from the Astro content collection.
  */
-export const getPodcastList = async (): Promise<PodcastData[]> => {
+const getPodcastList = async (): Promise<PodcastData[]> => {
   const cached = podcastListCache.get("all");
   if (cached !== undefined) {
     return cached;
@@ -128,11 +128,3 @@ export const getPodcastById = async (
   const list = podcasts ?? (await getPodcastList());
   return list.find((podcast) => podcast.id === id);
 };
-
-/**
- * Clear in-memory podcast caches for dev hot reloads or tests.
- */
-export function clearPodcastCaches(): void {
-  markdownCache.clear();
-  podcastListCache.clear();
-}

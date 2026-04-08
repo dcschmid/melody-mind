@@ -14,7 +14,7 @@ meta handling.
 - JSON-LD already exists on several content page types.
 - Global `Organization` and `WebSite` schema with `SearchAction` are now injected from
   the layout.
-- Search, bookmarks, and legal utility pages can be kept out of the index where they do
+- Search and legal utility pages can be kept out of the index where they do
   not create ranking value.
 
 ## Priority 1
@@ -22,7 +22,7 @@ meta handling.
 ### 1. Indexation hygiene
 
 - Keep low-value utility pages on `noindex,follow`.
-- Review `search`, `bookmarks`, `privacy`, `cookies`, and `imprint` as non-landing pages.
+- Review `search`, `privacy`, `cookies`, and `imprint` as non-landing pages.
 - Confirm no redirecting or duplicate routes appear in the sitemap.
 
 Success signal:
@@ -154,7 +154,7 @@ Success signal:
 - Improve landing copy so they are not perceived as thin tool pages.
 - Add stronger cross-links to source articles.
 
-### Search, bookmarks, legal pages
+### Search and legal pages
 
 - Keep out of search index unless a clear business reason exists.
 

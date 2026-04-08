@@ -1,0 +1,175 @@
+---
+import type { ImageMetadata } from "astro";
+import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
+import SEO from "@shared-ui/components/meta/SEO.astro";
+import Footer from "@shared-ui/components/layout/Footer.astro";
+import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
+import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
+import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
+import {
+  buildAppShellSeoContext,
+  buildDefaultCopyrightText,
+  type AppShellConfig,
+} from "@shared-utils/utils/appShell";
+import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
+
+interface Props {
+  imageWidth?: number;
+  imageHeight?: number;
+  pageSeo: PageSeoResult;
+  shellConfig: AppShellConfig;
+  brandLogoSrc?: string | ImageMetadata;
+  brandLogoAlt?: string;
+  showHeader?: boolean;
+  showHeaderIcons?: boolean;
+  showFooter?: boolean;
+  ogMusic?: {
+    creator?: string;
+    album?: string;
+    musician?: string;
+  };
+  audioSrc?: string;
+  episodeNumber?: number;
+  seriesName?: string;
+  seriesUrl?: string;
+  prevUrl?: string;
+  nextUrl?: string;
+  disableAlternateLanguages?: boolean;
+  authorName?: string;
+  appTitle?: string;
+  copyrightBrand?: string;
+  resolveLogoUrl: (baseUrl: string) => string;
+  resolveFallbackImageUrl: (baseUrl: string) => string;
+}
+
+const {
+  pageSeo,
+  shellConfig,
+  imageWidth,
+  imageHeight,
+  brandLogoSrc,
+  brandLogoAlt = "",
+  showHeader = true,
+  showHeaderIcons = true,
+  showFooter = true,
+  ogMusic,
+  audioSrc,
+  episodeNumber,
+  seriesName,
+  seriesUrl,
+  prevUrl,
+  nextUrl,
+  disableAlternateLanguages,
+  authorName,
+  appTitle = "MelodyMind",
+  copyrightBrand = "MelodyMind",
+  resolveLogoUrl,
+  resolveFallbackImageUrl,
+} = Astro.props as Props;
+
+const siteUrl = resolveBaseUrl(Astro.site);
+const lang = shellConfig.lang;
+const constructedPageSeo = pageSeo;
+const mergedTitle = constructedPageSeo.title;
+const mergedDescription = constructedPageSeo.description;
+const mergedKeywords = constructedPageSeo.keywords;
+const mergedType = constructedPageSeo.type;
+const mergedCanonical = constructedPageSeo.canonical;
+const mergedPublishDate = constructedPageSeo.publishDate;
+const mergedModifiedDate = constructedPageSeo.modifiedDate;
+const robotsTag = constructedPageSeo.robots;
+const { mergedImage, finalStructuredData, autoOgLocale } = buildAppShellSeoContext({
+  pageSeo: constructedPageSeo,
+  siteUrl,
+  siteName: shellConfig.siteName,
+  siteDescription: shellConfig.siteDescription,
+  logoUrl: resolveLogoUrl(siteUrl),
+  fallbackImageUrl: resolveFallbackImageUrl(siteUrl),
+  locale: lang,
+});
+const headerConfig = {
+  ...shellConfig.header,
+  showBrand: true,
+  brandText: "",
+  brandLogoSrc,
+  brandLogoAlt,
+  showIcons: showHeaderIcons,
+};
+const footerConfig = {
+  ...shellConfig.footer,
+  copyrightText: buildDefaultCopyrightText(new Date().getFullYear(), copyrightBrand),
+};
+
+const preloadedResources: Array<{
+  href: string;
+  as: "style" | "script" | "font" | "image";
+  crossorigin?: "anonymous" | "use-credentials";
+}> = [];
+const fontPreloads: Array<{
+  href: string;
+  as: "style" | "script" | "font" | "image";
+  type?: string;
+  crossorigin?: "anonymous" | "use-credentials";
+}> = [];
+const dnsPrefetch: Array<{ href: string }> = [];
+const keywords = mergedKeywords
+  .split(",")
+  .map((keyword) => keyword.trim())
+  .filter(Boolean);
+---
+
+<MasterLayout lang={lang} appTitle={appTitle}>
+  <Fragment slot="head">
+    <AppHeadResources
+      {dnsPrefetch}
+      {preloadedResources}
+      {fontPreloads}
+      rssTitle={shellConfig.rssTitle}
+      rssHref="/rss.xml"
+    />
+    <SEO
+      title={mergedTitle}
+      description={mergedDescription}
+      keywords={keywords}
+      image={mergedImage}
+      {imageWidth}
+      {imageHeight}
+      type={mergedType}
+      publishDate={mergedPublishDate}
+      modifiedDate={mergedModifiedDate}
+      {ogMusic}
+      {audioSrc}
+      {episodeNumber}
+      {seriesName}
+      {seriesUrl}
+      canonical={mergedCanonical}
+      noIndex={robotsTag.includes("noindex")}
+      noFollow={robotsTag.includes("nofollow")}
+      {prevUrl}
+      {nextUrl}
+      {disableAlternateLanguages}
+      structuredDataExtra={finalStructuredData}
+      authorName={authorName || constructedPageSeo.authorName}
+      imageAlt={constructedPageSeo.imageAlt}
+      openGraph={{
+        ...constructedPageSeo.openGraph,
+        locale:
+          constructedPageSeo.openGraph.locale ||
+          constructedPageSeo.ogLocale ||
+          autoOgLocale,
+      }}
+      alternateLocales={constructedPageSeo.alternateLocales}
+      twitter={constructedPageSeo.twitter}
+    />
+    {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
+  </Fragment>
+
+  {showHeader && <SiteHeader slot="before-main" headerConfig={headerConfig} />}
+
+  <slot />
+
+  {showFooter && <Footer slot="after-main" footerConfig={footerConfig} />}
+
+  <AutoInitScript slot="body-end" />
+</MasterLayout>

@@ -225,9 +225,6 @@ const initAudioPlayers = (): (() => void) => {
   };
 };
 
-export const setupAudioPlayers = createInitializer(
-  "shared-ui-audio-player",
-  initAudioPlayers
-);
+const setupAudioPlayers = createInitializer("shared-ui-audio-player", initAudioPlayers);
 
 setupAudioPlayers();

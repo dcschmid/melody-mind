@@ -9,9 +9,7 @@ export const normalizeSearchText = (value: string): string => {
   return normalizeWhitespace(value.toLowerCase());
 };
 
-export const formatEpisodeDurationLabel = (
-  durationSeconds?: number
-): string | undefined => {
+const formatEpisodeDurationLabel = (durationSeconds?: number): string | undefined => {
   if (!durationSeconds || durationSeconds <= 0) {
     return undefined;
   }

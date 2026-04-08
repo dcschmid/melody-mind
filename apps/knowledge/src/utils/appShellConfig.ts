@@ -1,75 +1,49 @@
 import {
-  DEFAULT_FOOTER_SETTINGS_TEXT,
-  DEFAULT_SUPPORT_LINKS,
+  DEFAULT_APP_SHELL_FOOTER,
+  DEFAULT_APP_SHELL_FOOTER_BRAND_TEXT,
+  DEFAULT_APP_SHELL_HEADER,
+  DEFAULT_APP_SHELL_LANG,
+  DEFAULT_APP_SHELL_SITE_DESCRIPTION,
+  DEFAULT_APP_SHELL_SITE_NAME,
+  PODCASTS_SITE_URL,
+  QUIZ_SITE_URL,
+  SEARCH_NAV_ITEM,
+  buildExternalAppLink,
+  buildAppShellLegalLinks,
   type AppShellConfig,
 } from "@shared-utils/utils/appShell";
 
 export const knowledgeAppShellConfig: AppShellConfig = {
-  siteName: "Melody Mind",
-  siteDescription:
-    "Music knowledge platform for genres, timelines, and guided listening.",
-  lang: "en",
+  siteName: DEFAULT_APP_SHELL_SITE_NAME,
+  siteDescription: DEFAULT_APP_SHELL_SITE_DESCRIPTION,
+  lang: DEFAULT_APP_SHELL_LANG,
   rssTitle: "MelodyMind Knowledge RSS Feed",
   header: {
+    ...DEFAULT_APP_SHELL_HEADER,
     navItems: [
-      {
-        href: "https://podcasts.melody-mind.de",
+      buildExternalAppLink({
+        href: PODCASTS_SITE_URL,
         label: "Podcast",
         icon: "headphones",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://quiz.melody-mind.de",
+      }),
+      buildExternalAppLink({
+        href: QUIZ_SITE_URL,
         label: "Quiz",
         icon: "help-circle",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "/search",
-        label: "Search",
-        icon: "search",
-      },
+      }),
+      SEARCH_NAV_ITEM,
     ],
-    showBrand: false,
-    brandHref: "/",
-    brandText: "Melody Mind",
-    brandMark: "MM",
     brandLogoAlt: "Melody Mind",
-    brandLogoWidth: 150,
-    brandLogoHeight: 100,
     brandAriaLabel: "Go to the Melody Mind homepage",
-    menuOpenLabel: "Open main menu",
-    menuCloseLabel: "Close main menu",
-    menuText: "Menu",
     navAriaLabel: "Primary navigation",
   },
   footer: {
-    brandTitle: "Melody Mind",
-    brandText:
-      "Curated guides and playlists to help you listen more closely and discover new sounds.",
+    ...DEFAULT_APP_SHELL_FOOTER,
+    brandText: DEFAULT_APP_SHELL_FOOTER_BRAND_TEXT,
     exploreLinks: [
-      {
-        href: "https://quiz.melody-mind.de",
-        label: "Quiz",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
-      {
-        href: "https://podcasts.melody-mind.de",
-        label: "Podcasts",
-        target: "_blank",
-        rel: "noopener noreferrer",
-      },
+      buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz" }),
+      buildExternalAppLink({ href: PODCASTS_SITE_URL, label: "Podcasts" }),
     ],
-    supportLinks: DEFAULT_SUPPORT_LINKS,
-    legalLinks: [
-      { href: "/imprint", label: "Legal Notice" },
-      { href: "/privacy", label: "Privacy Policy" },
-      { href: "/ai-content", label: "AI Content" },
-      { href: "/cookies", label: "Storage Policy" },
-    ],
-    ...DEFAULT_FOOTER_SETTINGS_TEXT,
+    legalLinks: buildAppShellLegalLinks(),
   },
 };

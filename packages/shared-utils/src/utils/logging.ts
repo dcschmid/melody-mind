@@ -63,11 +63,11 @@ function formatMessage(module: string, message: string): string {
  *
  * @example
  * ```typescript
- * const logger = createLogger("bookmarks");
+ * const logger = createLogger("content");
  *
- * logger.info("Bookmark added", { slug: "article-1" });
- * logger.warn("Storage quota exceeded");
- * logger.error("Failed to save", new Error("..."));
+ * logger.info("Collection loaded", { name: "knowledge-en" });
+ * logger.warn("Entry missing optional metadata");
+ * logger.error("Failed to build page", new Error("..."));
  * ```
  */
 export function createLogger(module: string) {
@@ -145,7 +145,6 @@ export function createLogger(module: string) {
 /** Pre-created loggers for the most common module names used across the monorepo. */
 export const loggers = {
   analytics: createLogger("analytics"),
-  bookmarks: createLogger("bookmarks"),
   content: createLogger("content"),
   pages: createLogger("pages"),
   quiz: createLogger("quiz"),
