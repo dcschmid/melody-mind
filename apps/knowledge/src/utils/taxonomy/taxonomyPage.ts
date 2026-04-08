@@ -54,10 +54,7 @@ const TAXONOMY_SECTION_SEO_TITLE_OVERRIDES: Record<string, string> = {
 /**
  * Returns the best available SEO title for a taxonomy section page.
  */
-function getTaxonomySectionSeoTitle(
-  sectionId: string,
-  sectionTitle: string
-): string {
+function getTaxonomySectionSeoTitle(sectionId: string, sectionTitle: string): string {
   return TAXONOMY_SECTION_SEO_TITLE_OVERRIDES[sectionId] || `${sectionTitle} Topics`;
 }
 

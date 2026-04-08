@@ -63,7 +63,8 @@ const normalizeKnowledgeArticles = (
   articles.map((article) => {
     const createdAt = normalizeDate(article?.data?.createdAt);
     const updatedAt = normalizeDate(article?.data?.updatedAt);
-    const readingTime = article.data.readingTime || calculateReadingTime(article.body || "");
+    const readingTime =
+      article.data.readingTime || calculateReadingTime(article.body || "");
 
     return {
       ...article,
@@ -118,9 +119,7 @@ const buildKnowledgeSchemaArticles = (
     const slug = article.slug || article.id || "";
     const title = typeof article.data.title === "string" ? article.data.title.trim() : "";
     const description =
-      typeof article.data.description === "string"
-        ? article.data.description.trim()
-        : "";
+      typeof article.data.description === "string" ? article.data.description.trim() : "";
 
     if (!slug || !title || !description) {
       return [];
@@ -147,7 +146,9 @@ export const buildKnowledgeIndexPageData = async (
   let baseArticles: KnowledgeIndexArticle[] = [];
 
   try {
-    baseArticles = (await getCollectionEntries("knowledge-en")) as KnowledgeIndexArticle[];
+    baseArticles = (await getCollectionEntries(
+      "knowledge-en"
+    )) as KnowledgeIndexArticle[];
   } catch (e) {
     loggers.pages.warn("knowledge index: collection load issue", {
       error: (e as any)?.message || e,
