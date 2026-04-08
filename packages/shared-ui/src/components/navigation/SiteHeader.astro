@@ -221,7 +221,8 @@ const navId = `${navIdBase}-nav`;
       mobileMedia,
       bodyClass: "site-header-menu-open",
       manageHidden: false,
-      excludeFromOutsideLock: (element) => element === header,
+      excludeFromOutsideLock: (element, root) =>
+        element === root || element.contains(root),
       onOpenChange: (open) => {
         toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
         nav.setAttribute("aria-hidden", open ? "false" : "true");

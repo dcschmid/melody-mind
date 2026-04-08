@@ -71,13 +71,23 @@ const contentId = `${safeIdBase}-content`;
       <ul class="toc__list">
         {
           filteredHeadings.map((heading) => (
-            <li class:list={["toc__item", heading.depth > 2 && "toc__item--child"]}>
+            <li
+              class:list={[
+                "toc__item",
+                `toc__item--depth-${heading.depth}`,
+                heading.depth > topLevelDepth && "toc__item--child",
+              ]}
+            >
               <a
                 href={`#${heading.slug}`}
-                class:list={["toc__link", heading.depth > 2 && "toc__link--child"]}
+                class:list={[
+                  "toc__link",
+                  `toc__link--depth-${heading.depth}`,
+                  heading.depth > topLevelDepth && "toc__link--child",
+                ]}
               >
+                <span class="toc__link-marker" aria-hidden="true" />
                 <span class="toc__link-text">{heading.text}</span>
-                <Icon name="chevron-down" class="toc__link-chevron" aria-hidden="true" />
               </a>
             </li>
           ))
@@ -131,33 +141,35 @@ const contentId = `${safeIdBase}-content`;
         return;
       }
 
+      const topLevelDepth = Math.min(...articleHeadings.map((heading) => heading.depth));
+
       list.replaceChildren();
 
       articleHeadings.forEach((heading) => {
         const item = document.createElement("li");
         item.className = "toc__item";
-        if (heading.depth > 2) {
+        item.classList.add(`toc__item--depth-${heading.depth}`);
+        if (heading.depth > topLevelDepth) {
           item.classList.add("toc__item--child");
         }
 
         const link = document.createElement("a");
         link.href = `#${heading.slug}`;
         link.className = "toc__link";
-        if (heading.depth > 2) {
+        link.classList.add(`toc__link--depth-${heading.depth}`);
+        if (heading.depth > topLevelDepth) {
           link.classList.add("toc__link--child");
         }
+
+        const marker = document.createElement("span");
+        marker.className = "toc__link-marker";
+        marker.setAttribute("aria-hidden", "true");
 
         const text = document.createElement("span");
         text.className = "toc__link-text";
         text.textContent = heading.text;
 
-        const chevron = document.createElement("span");
-        chevron.className = "toc__link-chevron";
-        chevron.setAttribute("aria-hidden", "true");
-        chevron.innerHTML =
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
-
-        link.append(text, chevron);
+        link.append(marker, text);
         item.append(link);
         list.append(item);
       });
@@ -199,22 +211,6 @@ const contentId = `${safeIdBase}-content`;
           buildListFromDom();
         }
         setExpanded(!expanded);
-      },
-      { signal }
-    );
-
-    content.addEventListener(
-      "click",
-      (event) => {
-        const target = event.target;
-        if (!(target instanceof HTMLElement)) {
-          return;
-        }
-
-        const link = target.closest<HTMLAnchorElement>("a[href^='#']");
-        if (link && !root.classList.contains("toc--desktop-static")) {
-          setExpanded(false);
-        }
       },
       { signal }
     );
@@ -269,8 +265,7 @@ const contentId = `${safeIdBase}-content`;
   }
 
   .toc[data-toc-root] .toc__toggle-icon,
-  .toc[data-toc-root] .toc__toggle-chevron,
-  .toc[data-toc-root] .toc__link-chevron {
+  .toc[data-toc-root] .toc__toggle-chevron {
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
   }
@@ -311,7 +306,7 @@ const contentId = `${safeIdBase}-content`;
   .toc[data-toc-root] .toc__list {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-2xs);
     padding: 0;
     margin: 0;
     list-style: none;
@@ -335,11 +330,11 @@ const contentId = `${safeIdBase}-content`;
 
   .toc[data-toc-root] .toc__link {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--spacing-sm);
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: calc(var(--spacing-xs) + 0.1rem);
     align-items: center;
-    min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-sm) var(--spacing-xs);
+    min-block-size: calc(var(--control-min-block-size) - 0.25rem);
+    padding: var(--spacing-xs) 0;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     line-height: 1.35;
@@ -348,23 +343,42 @@ const contentId = `${safeIdBase}-content`;
     border-radius: var(--radius-md);
   }
 
+  .toc[data-toc-root] .toc__link-marker {
+    inline-size: 0.42rem;
+    block-size: 0.42rem;
+    background: color-mix(in srgb, var(--accent-primary) 78%, transparent);
+    border-radius: var(--radius-full);
+    opacity: 0.88;
+  }
+
   .toc[data-toc-root] .toc__link-text {
     min-inline-size: 0;
+    text-wrap: pretty;
     overflow-wrap: break-word;
   }
 
-  .toc[data-toc-root] .toc__link-chevron {
-    color: var(--text-secondary);
-    opacity: 0.72;
-    transform: rotate(-90deg);
-  }
-
   .toc[data-toc-root] .toc__link--child {
-    min-block-size: var(--control-min-block-size-compact);
-    padding-inline-start: calc(var(--spacing-md) + var(--spacing-lg));
-    font-size: var(--font-size-xs);
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--spacing-sm);
+    min-block-size: calc(var(--control-min-block-size-compact) - 0.15rem);
+    padding-inline-start: calc(var(--spacing-lg) + 0.55rem);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     color: var(--text-secondary);
+  }
+
+  .toc[data-toc-root] .toc__link--depth-2 {
+    font-size: clamp(var(--font-size-sm), 0.35vw + 1rem, var(--font-size-base));
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .toc[data-toc-root] .toc__link--depth-3 {
+    font-size: var(--font-size-sm);
+  }
+
+  .toc[data-toc-root] .toc__link--depth-4 {
+    font-size: var(--font-size-xs);
+    opacity: 0.92;
   }
 
   .toc[data-toc-root] .toc__item--child {
@@ -373,17 +387,22 @@ const contentId = `${safeIdBase}-content`;
 
   .toc[data-toc-root] .toc__item--child::before {
     position: absolute;
-    inset-block: calc(var(--spacing-base) - var(--spacing-2xs));
-    inset-inline-start: var(--spacing-md);
-    inline-size: var(--sr-only-width);
+    inset-block: 0.45rem;
+    inset-inline-start: calc(var(--spacing-sm) + 0.18rem);
+    inline-size: 1px;
     content: "";
-    background: color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
+    background: color-mix(in srgb, var(--surface-border-soft) 62%, transparent);
   }
 
   .toc[data-toc-root] .toc__link:hover,
   .toc[data-toc-root] .toc__link:focus-visible {
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-1) 6%, transparent);
+    background: color-mix(in srgb, var(--surface-1) 5%, transparent);
+  }
+
+  .toc[data-toc-root] .toc__link:hover .toc__link-marker,
+  .toc[data-toc-root] .toc__link:focus-visible .toc__link-marker {
+    transform: scale(1.15);
   }
 
   .toc[data-toc-root] .toc__toggle:focus-visible,
@@ -412,6 +431,10 @@ const contentId = `${safeIdBase}-content`;
     }
 
     .toc[data-toc-root] .toc__toggle-chevron {
+      transition: none;
+    }
+
+    .toc[data-toc-root] .toc__link-marker {
       transition: none;
     }
   }

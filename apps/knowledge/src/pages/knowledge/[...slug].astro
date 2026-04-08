@@ -8,8 +8,6 @@ import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
 import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
 import ArticleHero from "@shared-ui/components/cards/ArticleHero.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import RailLayout from "@shared-ui/components/layout/RailLayout.astro";
-import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
 import Stack from "@shared-ui/components/layout/Stack.astro";
 import RelatedKnowledgeArticles from "@components/RelatedKnowledgeArticles.astro";
 import ReadingProgress from "@shared-ui/components/navigation/ReadingProgress.astro";
@@ -102,59 +100,53 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
         links={articleLinks}
       />
 
-      <RailLayout asideLabel="Article navigation and summary">
-        <Fragment slot="rail">
-          <Stack gap="xl">
-            <SectionSurface padding="compact">
-              <TableOfContents headings={mergedHeadings} />
-            </SectionSurface>
+      {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
 
-            {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
-          </Stack>
-        </Fragment>
+      <div class="knowledge__toc-surface">
+        <TableOfContents headings={mergedHeadings} />
+      </div>
 
-        <Stack className="knowledge__main" gap="xl">
-          <article id="article-content" data-animate="rise-in">
-            <VisuallyHidden id="article-title">{entry.data.title}</VisuallyHidden>
-            <div role="region" aria-labelledby="article-title" aria-label="Main content">
-              <Prose variant="article">
-                <Content />
-              </Prose>
-            </div>
-          </article>
-
-          <ShareSection
-            id="knowledge-share"
-            shareUrl={canonical}
-            contentTitle={title}
-            contentDescription={description}
-          />
-
-          <RelatedKnowledgeArticles
-            currentKeywords={currentKeywords}
-            currentTaxonomyGroup={currentTaxonomyGroup}
-            currentTaxonomySubsection={currentTaxonomySubsection}
-            currentSlug={slugKey}
-            lang={lang}
-          />
-
-          <div class="knowledge__back">
-            <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
-              <span>Back to knowledge list</span>
-            </ButtonLink>
+      <Stack className="knowledge__main" gap="xl">
+        <article id="article-content" data-animate="rise-in">
+          <VisuallyHidden id="article-title">{entry.data.title}</VisuallyHidden>
+          <div role="region" aria-labelledby="article-title" aria-label="Main content">
+            <Prose variant="article" className="knowledge__prose">
+              <Content />
+            </Prose>
           </div>
+        </article>
 
-          <RecentItemsTracker
-            item={{
-              slug: storageSlug,
-              title,
-              updatedAt: storageUpdatedAt,
-              image: storageImage,
-            }}
-            storageKey={VERSIONED_KEYS.RECENT_READS}
-          />
-        </Stack>
-      </RailLayout>
+        <ShareSection
+          id="knowledge-share"
+          shareUrl={canonical}
+          contentTitle={title}
+          contentDescription={description}
+        />
+
+        <RelatedKnowledgeArticles
+          currentKeywords={currentKeywords}
+          currentTaxonomyGroup={currentTaxonomyGroup}
+          currentTaxonomySubsection={currentTaxonomySubsection}
+          currentSlug={slugKey}
+          lang={lang}
+        />
+
+        <div class="knowledge__back">
+          <ButtonLink href="/" icon="arrow-left" aria-label="Back to knowledge list">
+            <span>Back to knowledge list</span>
+          </ButtonLink>
+        </div>
+
+        <RecentItemsTracker
+          item={{
+            slug: storageSlug,
+            title,
+            updatedAt: storageUpdatedAt,
+            image: storageImage,
+          }}
+          storageKey={VERSIONED_KEYS.RECENT_READS}
+        />
+      </Stack>
     </Stack>
   </PageShell>
 </Layout>
@@ -165,7 +157,73 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
     justify-content: center;
   }
 
+  .knowledge__toc-surface {
+    gap: var(--spacing-2xs);
+    inline-size: min(100%, 76rem);
+    padding: 0;
+    margin-inline: auto;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  :global(.knowledge__toc-surface .toc[data-toc-root]) {
+    gap: var(--spacing-2xs);
+  }
+
+  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__toggle) {
+    min-block-size: calc(var(--control-min-block-size) - 0.4rem);
+    padding: 0 var(--spacing-xs) var(--spacing-xs);
+    background: transparent;
+    border-top: 1px solid color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
+    border-right: 0;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
+    border-left: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__content) {
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__nav) {
+    max-block-size: min(26rem, 58vh);
+    padding-inline-end: var(--spacing-xs);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__link) {
+    min-block-size: calc(var(--control-min-block-size) - 0.45rem);
+    padding: var(--spacing-2xs) 0;
+  }
+
+  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__list) {
+    gap: var(--spacing-2xs);
+  }
+
+  :global(.knowledge__prose.prose--article) {
+    max-inline-size: min(100%, 78rem);
+  }
+
+  :global(.knowledge__prose.prose--article > p) {
+    max-inline-size: min(100%, 72rem);
+  }
+
   @media (width >= 1024px) {
+    :global(.knowledge__toc-surface .toc[data-toc-root] .toc__nav) {
+      max-block-size: min(30rem, 62vh);
+    }
+
     .knowledge__main {
       gap: clamp(var(--spacing-lg), 2vw, var(--spacing-2xl));
     }
