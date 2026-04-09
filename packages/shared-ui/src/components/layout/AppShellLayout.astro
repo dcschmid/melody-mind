@@ -111,7 +111,14 @@ const fontPreloads: Array<{
   as: "style" | "script" | "font" | "image";
   type?: string;
   crossorigin?: "anonymous" | "use-credentials";
-}> = [];
+}> = [
+  {
+    href: "/fonts/atkinson-hyperlegible-regular.woff2",
+    as: "font",
+    type: "font/woff2",
+    crossorigin: "anonymous",
+  },
+];
 const dnsPrefetch: Array<{ href: string }> = [];
 const keywords = mergedKeywords
   .split(",")

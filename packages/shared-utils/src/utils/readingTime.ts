@@ -53,14 +53,14 @@ const LANGUAGE_MULTIPLIERS: Record<string, number> = {
  * Calculates the estimated reading time in whole minutes.
  *
  * Behavior:
- * - counts words using whitespace splitting
+ * - counts words using whitespace splitting (or reuses provided count)
  * - adjusts the base words-per-minute rate by optional language multiplier
  * - optionally adds fixed time per `<Image ...>` occurrence
  * - rounds up and enforces a minimum result
  */
 export function calculateReadingTime(
   text: string,
-  options: ReadingTimeOptions = {}
+  options: ReadingTimeOptions & { wordCount?: number } = {}
 ): number {
   if (!text) {
     return options.minTime || DEFAULTS.MIN_TIME;
@@ -72,6 +72,7 @@ export function calculateReadingTime(
     includeImageTime = false,
     imageTimeSeconds = DEFAULTS.IMAGE_TIME_SECONDS,
     languageCode,
+    wordCount,
   } = options;
 
   const adjustedWpm =
@@ -79,7 +80,7 @@ export function calculateReadingTime(
       ? wordsPerMinute * LANGUAGE_MULTIPLIERS[languageCode]
       : wordsPerMinute;
 
-  const words = text.trim().split(/\s+/).length;
+  const words = wordCount ?? text.trim().split(/\s+/).length;
   let minutes = words / adjustedWpm;
 
   if (includeImageTime && text.includes("<Image")) {
@@ -93,20 +94,36 @@ export function calculateReadingTime(
 /**
  * Returns a UI-ready reading-time payload including formatted label and source counts.
  *
- * This wraps `calculateReadingTime()` and adds the derived word count plus optional image count
- * when image time is enabled.
+ * Counts words once, then reuses the count in calculateReadingTime() instead of
+ * splitting the text a second time.
+ *
+ * Results are memoised by `(text, wordsPerMinute, languageCode)` so repeated calls
+ * for the same article body (common across content / meta / related utils) return
+ * the cached value immediately.
  */
+const _readingTimeCache = new Map<string, ReadingTimeResult>();
+
+function _buildCacheKey(text: string, options: ReadingTimeOptions): string {
+  return `${text.length}:${options.wordsPerMinute ?? DEFAULTS.WORDS_PER_MINUTE}:${options.languageCode ?? ""}:${options.includeImageTime ? "1" : "0"}`;
+}
+
 export function getReadingTime(
   text: string,
   options: ReadingTimeOptions = {}
 ): ReadingTimeResult {
+  const cacheKey = _buildCacheKey(text, options);
+  const cached = _readingTimeCache.get(cacheKey);
+  if (cached !== undefined) return cached;
+
   if (!text) {
     const fallback = options.minTime || DEFAULTS.MIN_TIME;
-    return {
+    const result: ReadingTimeResult = {
       minutes: fallback,
       text: `${fallback} min read`,
       words: 0,
     };
+    _readingTimeCache.set(cacheKey, result);
+    return result;
   }
 
   const words = text.trim().split(/\s+/).length;
@@ -116,12 +133,15 @@ export function getReadingTime(
     images = (text.match(DEFAULTS.IMAGE_REGEX) || []).length;
   }
 
-  const minutes = calculateReadingTime(text, options);
+  const minutes = calculateReadingTime(text, { ...options, wordCount: words });
 
-  return {
+  const result: ReadingTimeResult = {
     minutes,
     text: `${minutes} min read`,
     words,
     ...(images !== undefined ? { images } : {}),
   };
+
+  _readingTimeCache.set(cacheKey, result);
+  return result;
 }

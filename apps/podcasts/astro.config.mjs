@@ -48,7 +48,6 @@ export default defineConfig({
     assets: "assets",
     format: "directory",
   },
-  compressHTML: true,
   vite: {
     css: {
       transformer: "lightningcss",
@@ -63,6 +62,9 @@ export default defineConfig({
         "@shared-ui": path.resolve("../../packages/shared-ui/src"),
         "@shared-utils": path.resolve("../../packages/shared-utils/src"),
       },
+    },
+    build: {
+      treeshake: { preset: "smallest" },
     },
     server: {
       headers: {

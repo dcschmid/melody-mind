@@ -30,7 +30,7 @@ export default defineConfig({
     icon({
       collections: ["tabler", "simple-icons"],
     }),
-    mdx(),
+    mdx({ optimize: true }),
     robotsTxt({
       sitemap: ["https://melody-mind.de/sitemap-index.xml"],
       host: "melody-mind.de",
@@ -59,7 +59,9 @@ export default defineConfig({
     },
     optimizeDeps: {
       include: ["sharp"],
-      exclude: ["@fontsource/atkinson-hyperlegible"],
+    },
+    build: {
+      treeshake: { preset: "smallest" },
     },
     css: {
       transformer: "lightningcss",

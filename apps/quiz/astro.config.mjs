@@ -20,7 +20,7 @@ export default defineConfig({
     icon({
       collections: ["tabler", "simple-icons"],
     }),
-    mdx(),
+    mdx({ optimize: true }),
     robotsTxt({
       sitemap: ["https://quiz.melody-mind.de/sitemap-index.xml"],
       host: "quiz.melody-mind.de",
@@ -46,8 +46,8 @@ export default defineConfig({
         "@scripts": path.resolve("./src/scripts"),
       },
     },
-    optimizeDeps: {
-      exclude: ["@fontsource/atkinson-hyperlegible"],
+    build: {
+      treeshake: { preset: "smallest" },
     },
     css: {
       transformer: "lightningcss",

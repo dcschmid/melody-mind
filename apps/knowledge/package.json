@@ -28,7 +28,6 @@
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "@fontsource/atkinson-hyperlegible": "^5.2.8",
     "@iconify-json/simple-icons": "^1.2.75",
     "@iconify-json/tabler": "^1.2.33",
     "@melody-mind/shared-ui": "workspace:*",

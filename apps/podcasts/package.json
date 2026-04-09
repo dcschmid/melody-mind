@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
@@ -20,7 +20,6 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
-    "@fontsource/atkinson-hyperlegible": "^5.2.8",
     "@iconify-json/simple-icons": "^1.2.75",
     "@iconify-json/tabler": "^1.2.33",
     "@melody-mind/shared-ui": "workspace:*",
@@ -28,11 +27,14 @@
     "astro": "^6.1.1",
     "astro-icon": "^1.1.5",
     "astro-minify-html-swc": "^0.1.11",
-    "image-size": "^2.0.2",
     "lightningcss": "^1.32.0",
     "music-metadata": "^11.12.3",
     "sharp": "^0.34.5",
-    "typescript": "^6.0.2",
     "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "image-size": "^2.0.2",
+    "typescript": "^6.0.2"
   }
 }
