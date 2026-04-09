@@ -263,7 +263,7 @@ const seoProps = {
       twitter={pageSeo.twitter}
       twitterUrl={pageSeo.canonical}
       twitterSite="@melodymind"
-      articleAuthor={type === "article" ? author : undefined}
+      {...type === "article" && author ? { articleAuthor: author } : {}}
     />
     <meta name="robots" content={pageSeo.robots} />
     <meta name="language" content={language} />
