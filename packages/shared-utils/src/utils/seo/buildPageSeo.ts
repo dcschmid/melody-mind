@@ -12,10 +12,6 @@
  * and core copy, and this module turns that into a stable metadata object that layouts
  * can map onto `<meta>` tags and JSON-LD output.
  */
-import {
-  PLAYLIST_COVER_IMAGE,
-  PODCAST_COVER_IMAGE,
-} from "@shared-utils/constants/assets";
 import { LRUCache } from "@shared-utils/utils/cache/LRUCache";
 
 import buildSeoText from "@shared-utils/utils/seo/textUnified";
@@ -209,17 +205,12 @@ function resolveFallbackImage(
   contentKind: PageContentKind,
   override?: string
 ): string | undefined {
-  if (override) {
-    return override;
-  }
-  switch (contentKind) {
-    case "playlist":
-      return PLAYLIST_COVER_IMAGE;
-    case "podcast":
-      return PODCAST_COVER_IMAGE;
-    default:
-      return undefined;
-  }
+  // Note: PLAYLIST_COVER_IMAGE and PODCAST_COVER_IMAGE were removed because
+  // the referenced files (/homecategories/playlist.png, /homecategories/podcast.png)
+  // do not exist in any app's public/ directory. If fallback images are needed,
+  // add actual image files and update the constants in assets.ts.
+  void contentKind;
+  return override;
 }
 
 function normalizeCacheValue(value: unknown): unknown {

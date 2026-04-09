@@ -34,12 +34,12 @@ const {
 } = Astro.props as Props;
 
 /**
- * Single-pass image index – avoids building multiple full-copy dictionaries.
+ * Single-pass image index – stores only metadata paths, resolves lazily.
  *
- * Previously we created knowledgeImagesByPath + knowledgeImagesByKey via
- * Object.fromEntries(Object.entries(...)) producing 2× copies of all metadata
- * in memory (~30 MB peak for 1276 images).  Now we store normalised keys once
- * in a Map and resolve lazily.
+ * Uses eager: false so each image is loaded only when the page actually
+ * references it.  The index maps raw import paths to a descriptor that
+ * tells us how to match src strings; the real ImageMetadata is fetched
+ * on demand via resolveKnowledgeImage().
  */
 type ImageIndexEntry = {
   /** Normalised path without leading slash and query string */
@@ -48,16 +48,16 @@ type ImageIndexEntry = {
   byPathNoExt: string;
   /** Filename-based key (slug without ext) */
   byKey: string;
-  /** Actual Astro ImageMetadata */
-  mod: ImageMetadata;
+  /** Lazy import function returning ImageMetadata */
+  importFn: () => Promise<{ default: ImageMetadata }>;
 };
 
 const _knowledgeImageIndex = new Map<string, ImageIndexEntry>();
 
-for (const [rawPath, mod] of Object.entries(
+for (const [rawPath, importFn] of Object.entries(
   import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/knowledge/**/*.{jpg,jpeg,png,webp,avif}",
-    { eager: true }
+    { eager: false }
   )
 )) {
   const cleanPath = rawPath.replace(/^\/src\/assets\//u, "").replace(/\?.*$/u, "");
@@ -66,26 +66,31 @@ for (const [rawPath, mod] of Object.entries(
     byPath: cleanPath,
     byPathNoExt: stripImageExtension(cleanPath),
     byKey: normalizeImageKey(fileName),
-    mod: mod.default,
+    importFn,
   };
   _knowledgeImageIndex.set(rawPath, entry);
 }
 
 /** Resolve image metadata by trying path → path-no-ext → filename key. */
-function resolveKnowledgeImage(src: string): ImageMetadata | undefined {
+async function resolveKnowledgeImage(src: string): Promise<ImageMetadata | undefined> {
   const normalised = src.replace(/^\/+/u, "").replace(/\?.*$/u, "");
   const noExt = stripImageExtension(normalised);
   const key = normalizeImageKey(normalised);
 
   for (const entry of _knowledgeImageIndex.values()) {
-    if (entry.byPath === normalised) return entry.mod;
-    if (entry.byPathNoExt === noExt) return entry.mod;
-    if (entry.byKey === key) return entry.mod;
+    if (
+      entry.byPath === normalised ||
+      entry.byPathNoExt === noExt ||
+      entry.byKey === key
+    ) {
+      const mod = await entry.importFn();
+      return mod.default;
+    }
   }
   return undefined;
 }
 
-const resolvedImage = resolveKnowledgeImage(imageSrc);
+const resolvedImage = await resolveKnowledgeImage(imageSrc);
 
 if (!resolvedImage) {
   throw new Error(`Unknown knowledge subsection image: ${imageSrc}`);

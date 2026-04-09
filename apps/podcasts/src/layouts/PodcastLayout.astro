@@ -33,9 +33,11 @@ import { podcastBrandLogo, podcastHeroImageUrl } from "../utils/podcastImages";
 import { normalizeWhitespace, toIsoDuration } from "../utils/podcastPresentation";
 import { podcastAppShellConfig } from "../utils/appShellConfig";
 
+import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
+
 export interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
   type?: "website" | "article";
   publishedTime?: string;
@@ -54,6 +56,7 @@ export interface Props {
   structuredData?: Array<Record<string, unknown>>;
   index?: boolean;
   follow?: boolean;
+  pageSeo?: PageSeoResult;
 }
 
 const {
@@ -77,10 +80,11 @@ const {
   structuredData = [],
   index = true,
   follow = true,
-} = Astro.props;
+  pageSeo,
+} = Astro.props as Props;
 
 const siteTitle = "MelodyMind Podcasts";
-const normalizedTitle = normalizeWhitespace(title);
+const normalizedTitle = normalizeWhitespace(title || siteTitle);
 const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
   ? normalizedTitle
   : `${normalizedTitle} | ${siteTitle}`;
@@ -105,7 +109,7 @@ const defaultKeywords = [
   "streaming",
   "entertainment",
 ];
-const normalizedDescription = normalizeWhitespace(description);
+const normalizedDescription = normalizeWhitespace(description || "");
 const shellConfig = podcastAppShellConfig;
 const imageAlt =
   type === "article"
@@ -188,7 +192,7 @@ const seoStructuredData = [
   ...structuredData,
 ].filter((item): item is StructuredData => Boolean(item));
 
-const pageSeo = buildPageSeo({
+const computedSeo = buildPageSeo({
   title: fullTitle,
   description: normalizedDescription,
   url: currentUrl,
@@ -211,17 +215,19 @@ const pageSeo = buildPageSeo({
   ...(modifiedDate ? { modifiedDate } : {}),
 });
 
+const pageSeoResolved = pageSeo ?? computedSeo;
+
 const seoProps = {
-  title: pageSeo.title,
-  description: pageSeo.description,
-  keywords: pageSeo.keywordArray,
-  canonical: pageSeo.canonical,
-  structuredDataExtra: pageSeo.structuredData,
-  ...(pageSeo.image ? { image: pageSeo.image } : {}),
-  ...(pageSeo.imageAlt ? { imageAlt: pageSeo.imageAlt } : {}),
-  ...(pageSeo.publishDate ? { publishDate: pageSeo.publishDate } : {}),
-  ...(pageSeo.modifiedDate ? { modifiedDate: pageSeo.modifiedDate } : {}),
-  ...(pageSeo.authorName ? { authorName: pageSeo.authorName } : {}),
+  title: pageSeoResolved.title || fullTitle,
+  description: pageSeoResolved.description || normalizedDescription,
+  keywords: pageSeoResolved.keywordArray || [],
+  canonical: pageSeoResolved.canonical,
+  structuredDataExtra: pageSeoResolved.structuredData,
+  ...(pageSeoResolved.image ? { image: pageSeoResolved.image } : {}),
+  ...(pageSeoResolved.imageAlt ? { imageAlt: pageSeoResolved.imageAlt } : {}),
+  ...(pageSeoResolved.publishDate ? { publishDate: pageSeoResolved.publishDate } : {}),
+  ...(pageSeoResolved.modifiedDate ? { modifiedDate: pageSeoResolved.modifiedDate } : {}),
+  ...(pageSeoResolved.authorName ? { authorName: pageSeoResolved.authorName } : {}),
 };
 ---
 
@@ -255,17 +261,19 @@ const seoProps = {
     }
     <SEO
       {...seoProps}
-      openGraph={{
-        ...pageSeo.openGraph,
-        locale: pageSeo.openGraph.locale || locale.replace("-", "_"),
+      {...pageSeoResolved.openGraph && {
+        openGraph: {
+          ...pageSeoResolved.openGraph,
+          locale: pageSeoResolved.openGraph.locale || locale.replace("-", "_"),
+        },
       }}
       ogSiteName={siteTitle}
-      twitter={pageSeo.twitter}
-      twitterUrl={pageSeo.canonical}
+      {...pageSeoResolved.twitter && { twitter: pageSeoResolved.twitter }}
+      {...pageSeoResolved.canonical && { twitterUrl: pageSeoResolved.canonical }}
       twitterSite="@melodymind"
       {...type === "article" && author ? { articleAuthor: author } : {}}
     />
-    <meta name="robots" content={pageSeo.robots} />
+    <meta name="robots" content={pageSeoResolved.robots} />
     <meta name="language" content={language} />
     <meta name="revisit-after" content="7 days" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

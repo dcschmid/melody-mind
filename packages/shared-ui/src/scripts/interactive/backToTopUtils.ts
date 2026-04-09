@@ -19,10 +19,20 @@ export function initBackToTop(config: BackToTopConfig): void {
     return;
   }
 
+  let ticking = false;
+
   const updateVisibility = () => {
     const shouldShow = window.scrollY > scrollThreshold;
     button.style.display = shouldShow ? "block" : "none";
     button.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(updateVisibility);
+    }
   };
 
   const handleClick = () => {
@@ -32,7 +42,7 @@ export function initBackToTop(config: BackToTopConfig): void {
     });
   };
 
-  window.addEventListener("scroll", updateVisibility);
+  window.addEventListener("scroll", onScroll, { passive: true });
   button.addEventListener("click", handleClick);
 
   updateVisibility();

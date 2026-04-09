@@ -1,6 +1,7 @@
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { buildArticleSchema } from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { PODCASTS_SITE_URL } from "@shared-utils/utils/appShell";
 import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
 import {
   getKnowledgeCategoryImage,
@@ -209,8 +210,7 @@ export function buildKnowledgeArticlePageData({
   const canonical = slugKey
     ? resolvePageUrl(site, `/knowledge/${slugKey}`)
     : resolvePageUrl(site, "/");
-  const podcastBase = "https://podcasts.melody-mind.de";
-  const podcastUrl = getKnowledgePodcastUrl(entry.data, podcastBase);
+  const podcastUrl = getKnowledgePodcastUrl(entry.data, PODCASTS_SITE_URL);
   const {
     currentTaxonomySubsection,
     currentTaxonomyGroup,
@@ -234,7 +234,7 @@ export function buildKnowledgeArticlePageData({
     imageWidth,
     keywords: normalizedKeywords,
     lang,
-    podcastBase,
+    podcastBase: PODCASTS_SITE_URL,
     podcastUrl,
     title,
     createdAt: entry.data.createdAt,

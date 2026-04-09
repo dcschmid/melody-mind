@@ -162,10 +162,14 @@ function initSearchPanel(elements: SearchElements): void {
   const { input, genreInput, clearBtn, resetBtn, statusEl, noResultsEl, listItems } =
     elements;
 
-  if ((elements.root as any).__searchInitialized) {
+  // Guard against double-init using a known property on the element
+  if ((elements.root as { __searchInitialized?: boolean }).__searchInitialized) {
     return;
   }
-  (elements.root as any).__searchInitialized = true;
+  (elements.root as { __searchInitialized: boolean }).__searchInitialized = true;
+
+  const controller = new AbortController();
+  const { signal } = controller;
 
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
   let lastStatusAnnouncement = "";
@@ -273,17 +277,21 @@ function initSearchPanel(elements: SearchElements): void {
     }
   };
 
-  input.addEventListener("input", handleInput);
-  clearBtn?.addEventListener("click", handleClear);
-  resetBtn?.addEventListener("click", handleReset);
+  input.addEventListener("input", handleInput, { signal });
+  clearBtn?.addEventListener("click", handleClear, { signal });
+  resetBtn?.addEventListener("click", handleReset, { signal });
 
   listItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      dispatchSearchResultClick({
-        surface: "list",
-        positionBucket: getPositionBucket(index + 1),
-      });
-    });
+    item.addEventListener(
+      "click",
+      () => {
+        dispatchSearchResultClick({
+          surface: "list",
+          positionBucket: getPositionBucket(index + 1),
+        });
+      },
+      { signal }
+    );
   });
 
   updateFilteredItems(input.value, genreInput?.value || "");

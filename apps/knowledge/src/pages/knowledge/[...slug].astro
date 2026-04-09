@@ -47,7 +47,7 @@ const entry = await resolveKnowledgeArticleEntry({
 });
 
 if (!entry) {
-  return new Response("Not found", { status: 404 });
+  return Astro.redirect("/404");
 }
 
 const slugKey = resolvedSlug || entry?.slug || entry?.id || "";

@@ -15,10 +15,10 @@ import type { CollectionEntry } from "astro:content";
 import { loggers } from "@shared-utils/utils/logging";
 import { LRUCache } from "@shared-utils/utils/cache/LRUCache";
 
-type GetCollectionFn = (name: string) => Promise<CollectionEntry<any>[]>;
+type GetCollectionFn = (name: string) => Promise<CollectionEntry<unknown>[]>;
 
 /** Broad collection entry array type used by the generic cache layer. */
-type AnyCollectionEntries = CollectionEntry<any>[];
+export type AnyCollectionEntries = CollectionEntry<unknown>[];
 
 /**
  * Upper bound for distinct collection names held in memory at once.
@@ -63,6 +63,14 @@ const _collectionCache = new LRUCache<string, AnyCollectionEntries>({
  */
 const _collectionFailuresLogged = new Set<string>();
 
+/** Internal wrapper that coerces Astro's overloaded getCollection to a uniform signature. */
+function wrapGetCollection(
+  getCollection: (name: string) => Promise<CollectionEntry<any>[]>
+): GetCollectionFn {
+  return async (name: string) =>
+    getCollection(name) as Promise<CollectionEntry<unknown>[]>;
+}
+
 export interface GetCollectionCachedOptions {
   /**
    * When true, skips both cache reads and cache writes for this invocation.
@@ -76,7 +84,7 @@ export interface GetCollectionCachedOptions {
    *
    * Required because astro:content is only available in Astro components/pages.
    */
-  getCollection: GetCollectionFn;
+  getCollection: (name: string) => Promise<CollectionEntry<any>[]>;
 }
 
 /**
@@ -110,7 +118,8 @@ export async function getCollectionCached(
   }
 
   try {
-    const items = (await getCollection(collectionName as any)) as AnyCollectionEntries;
+    const wrapped = wrapGetCollection(getCollection);
+    const items = await wrapped(collectionName);
 
     if (!bypass) {
       _collectionCache.set(collectionName, items);

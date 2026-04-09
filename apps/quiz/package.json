@@ -26,7 +26,6 @@
     "@melody-mind/shared-ui": "workspace:*",
     "@melody-mind/shared-utils": "workspace:*",
     "astro": "^6.1.1",
-    "astro-capo": "^0.0.1",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.1",
     "astro-minify-html-swc": "^0.1.11",

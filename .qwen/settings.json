@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(pnpm *)",
-      "Bash(rm *)"
+      "Bash(rm *)",
+      "Bash(do *)",
+      "Bash(done)",
+      "Bash(sed *)"
     ]
   },
   "$version": 3

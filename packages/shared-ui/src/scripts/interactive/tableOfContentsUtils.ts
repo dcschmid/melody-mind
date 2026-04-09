@@ -11,11 +11,26 @@ export class TableOfContentsUtils {
   private content: HTMLElement | null;
   private icon: HTMLElement | null;
   private isExpanded: boolean = false;
+  private boundToggle: () => void;
+  private boundKeydown: (e: KeyboardEvent) => void;
+  private boundClickOutside: (e: Event) => void;
+  private boundEscapeKey: (e: KeyboardEvent) => void;
 
   constructor(config: TableOfContentsConfig) {
     this.toggle = safeGetElementById<HTMLButtonElement>(config.toggleId);
     this.content = safeGetElementById(config.contentId);
     this.icon = safeGetElementById(config.iconId);
+
+    // Bind methods once so destroy() can properly remove them
+    this.boundToggle = () => this.toggleContent();
+    this.boundKeydown = (e) => this.handleKeydown(e);
+    this.boundClickOutside = (e) => this.handleClickOutside(e);
+    this.boundEscapeKey = (e) => {
+      if (e.key === "Escape" && this.isExpanded) {
+        this.collapse();
+      }
+    };
+
     this.init();
   }
 
@@ -24,14 +39,18 @@ export class TableOfContentsUtils {
       return;
     }
 
-    this.toggle.addEventListener("click", () => this.toggleContent());
-    this.toggle.addEventListener("keydown", (e) => this.handleKeydown(e));
-    document.addEventListener("click", (e) => this.handleClickOutside(e));
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && this.isExpanded) {
-        this.collapse();
-      }
-    });
+    this.toggle.addEventListener("click", this.boundToggle);
+    this.toggle.addEventListener("keydown", this.boundKeydown);
+  }
+
+  private attachDocumentListeners(): void {
+    document.addEventListener("click", this.boundClickOutside);
+    document.addEventListener("keydown", this.boundEscapeKey);
+  }
+
+  private detachDocumentListeners(): void {
+    document.removeEventListener("click", this.boundClickOutside);
+    document.removeEventListener("keydown", this.boundEscapeKey);
   }
 
   private toggleContent(): void {
@@ -47,6 +66,7 @@ export class TableOfContentsUtils {
     this.toggle.setAttribute("aria-expanded", "true");
     this.content.classList.remove("hidden");
     this.content.classList.add("block");
+    this.attachDocumentListeners();
 
     try {
       this.content.style.opacity = "1";
@@ -71,6 +91,7 @@ export class TableOfContentsUtils {
 
     this.isExpanded = false;
     this.toggle.setAttribute("aria-expanded", "false");
+    this.detachDocumentListeners();
 
     try {
       this.content.style.opacity = "0";
@@ -123,9 +144,10 @@ export class TableOfContentsUtils {
   }
 
   public destroy(): void {
+    this.detachDocumentListeners();
     if (this.toggle) {
-      this.toggle.removeEventListener("click", () => this.toggleContent());
-      this.toggle.removeEventListener("keydown", (e) => this.handleKeydown(e));
+      this.toggle.removeEventListener("click", this.boundToggle);
+      this.toggle.removeEventListener("keydown", this.boundKeydown);
     }
   }
 }

@@ -124,7 +124,12 @@ export async function loadRelatedKnowledgeArticleCardItems(params: {
   try {
     const allArticles: any[] = await getCollectionCached("knowledge-en", {
       getCollection,
-    }).catch(() => []);
+    }).catch((e) => {
+      loggers.pages.warn("knowledge article: related articles load issue", {
+        error: (e as Error)?.message || e,
+      });
+      return [];
+    });
     const articles = getRelatedKnowledgeArticles({
       articles: allArticles,
       currentKeywords: new Set(currentKeywords),

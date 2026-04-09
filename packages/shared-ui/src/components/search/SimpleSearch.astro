@@ -10,6 +10,7 @@ export interface SearchItem {
 interface Props {
   idBase: string;
   items: SearchItem[];
+  label?: string;
   placeholder?: string;
   emptyText?: string;
   noResultsText?: string;
@@ -20,6 +21,7 @@ interface Props {
 const {
   idBase,
   items,
+  label = "Search",
   placeholder = "Search...",
   emptyText = "Start typing to search.",
   noResultsText = "No results found.",
@@ -32,7 +34,7 @@ const inputId = `${idBase}-input`;
 
 <div class="simple-search" data-simple-search-root data-simple-search-id={idBase}>
   <div class="simple-search__field">
-    <label class="simple-search__label" for={inputId}>Search</label>
+    <label class="simple-search__label" for={inputId}>{label}</label>
     <input
       id={inputId}
       class="simple-search__input"

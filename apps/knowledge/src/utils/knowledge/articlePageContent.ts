@@ -7,7 +7,12 @@ import type { ResolvedKnowledgeEntry } from "./articlePageTypes";
 export async function getKnowledgeArticleStaticPaths() {
   const entries: any[] = await getCollectionCached("knowledge-en", {
     getCollection,
-  }).catch(() => []);
+  }).catch((e) => {
+    loggers.pages.warn("knowledge article: collection load issue (paths)", {
+      error: (e as Error)?.message || e,
+    });
+    return [];
+  });
   const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
 
   for (const entry of entries) {
@@ -34,13 +39,18 @@ export async function resolveKnowledgeArticleEntry(params: {
     try {
       const articles: any[] = await getCollectionCached("knowledge-en", {
         getCollection,
-      }).catch(() => []);
+      }).catch((e) => {
+        loggers.pages.warn("knowledge article: collection load issue (resolve)", {
+          error: (e as Error)?.message || e,
+        });
+        return [];
+      });
       if (slug) {
         entry = articles.find((article) => article.slug === slug || article.id === slug);
       }
     } catch (e) {
       loggers.pages.warn("knowledge article: collection load issue (fallback)", {
-        error: (e as any)?.message || e,
+        error: (e as Error)?.message || e,
       });
     }
   }

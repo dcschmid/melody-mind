@@ -9,16 +9,42 @@ import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
 
 const QUIZ_RESULTS_KEY = "quiz-results";
 
-export interface QuizQuestion {
+// ── Discriminated union eliminates all `as` casts on `correct` ──
+
+interface TrueFalseQuestion {
   question: string;
-  type: "single-choice" | "multi-choice" | "true-false";
+  type: "true-false";
   difficulty: "easy" | "medium" | "hard";
   options: string[];
-  correct: number | number[] | boolean;
+  correct: boolean;
   explanation: string;
   source: string;
   sourceLine?: number;
 }
+
+interface SingleChoiceQuestion {
+  question: string;
+  type: "single-choice";
+  difficulty: "easy" | "medium" | "hard";
+  options: string[];
+  correct: number;
+  explanation: string;
+  source: string;
+  sourceLine?: number;
+}
+
+interface MultiChoiceQuestion {
+  question: string;
+  type: "multi-choice";
+  difficulty: "easy" | "medium" | "hard";
+  options: string[];
+  correct: number[];
+  explanation: string;
+  source: string;
+  sourceLine?: number;
+}
+
+export type QuizQuestion = TrueFalseQuestion | SingleChoiceQuestion | MultiChoiceQuestion;
 
 export interface QuizState {
   currentQuestion: number;
@@ -28,9 +54,30 @@ export interface QuizState {
   isComplete: boolean;
 }
 
+// ── Helpers ──
+
 /**
- * Shuffles an array using Fisher-Yates algorithm
+ * Returns true when the supplied answer matches the question's correct value.
  */
+function checkAnswer(q: QuizQuestion, answer: number | number[] | null): boolean {
+  if (answer === null) {
+    return false;
+  }
+
+  if (q.type === "true-false") {
+    return q.correct === (answer === 0);
+  }
+
+  if (q.type === "multi-choice") {
+    const selected = answer as number[];
+    return (
+      q.correct.length === selected.length && q.correct.every((i) => selected.includes(i))
+    );
+  }
+
+  return (q.correct as number) === answer;
+}
+
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -40,13 +87,11 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
-/**
- * Selects a random subset of questions and shuffles them
- */
 function selectRandomQuestions(questions: QuizQuestion[], count: number): QuizQuestion[] {
-  const shuffled = shuffleArray(questions);
-  return shuffled.slice(0, count);
+  return shuffleArray(questions).slice(0, count);
 }
+
+// ── SVG icons (server-rendered once, referenced as innerHTML only when needed) ──
 
 const icons = {
   check:
@@ -66,18 +111,15 @@ const icons = {
   grid: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 5a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm9 0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zM7 14a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2zm9 0a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2z"/></svg>',
   trophy:
     '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8M12 17v4M7 4h10v3a5 5 0 0 1-10 0zm10 1h2a2 2 0 0 1 0 4h-2M7 5H5a2 2 0 1 0 0 4h2"/></svg>',
-  arrowLeft:
-    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 6l-6 6l6 6"/></svg>',
-  arrowRight:
-    '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 6l6 6l-6 6"/></svg>',
 };
+
+// ── Main init ──
 
 export function initQuiz(
   allQuestions: QuizQuestion[],
   passingScore: number,
   questionsPerSession: number = 20
 ) {
-  // Select random questions for this session
   const questions = selectRandomQuestions(allQuestions, questionsPerSession);
 
   const state: QuizState = {
@@ -88,7 +130,6 @@ export function initQuiz(
     isComplete: false,
   };
 
-  // DOM Elements
   const questionContainer = document.getElementById("quiz-question-container");
   const progressContainer = document.getElementById("quiz-progress-container");
   const resultContainer = document.getElementById("quiz-result-container");
@@ -102,15 +143,7 @@ export function initQuiz(
     return;
   }
 
-  function getCurrentSelectionCount(): number {
-    const currentAnswer = state.answers[state.currentQuestion];
-
-    if (currentAnswer === null) {
-      return 0;
-    }
-
-    return Array.isArray(currentAnswer) ? currentAnswer.length : 1;
-  }
+  // ── Progress ──
 
   function renderProgress() {
     if (!progressContainer) {
@@ -120,8 +153,10 @@ export function initQuiz(
     const answeredCount = state.isAnswered.filter(Boolean).length;
     const scorePercentage =
       answeredCount > 0 ? Math.round((state.correctCount / answeredCount) * 100) : 0;
+    const ariaValueText = `${answeredCount} of ${questions.length} questions answered`;
+
     progressContainer.innerHTML = `
-      <div class="quiz-progress" role="progressbar" aria-valuenow="${answeredCount}" aria-valuemin="0" aria-valuemax="${questions.length}">
+      <div class="quiz-progress" role="progressbar" aria-valuenow="${answeredCount}" aria-valuemin="0" aria-valuemax="${questions.length}" aria-valuetext="${ariaValueText}">
         <p class="quiz-progress__eyebrow">Quiz progress</p>
         <div class="quiz-progress__headline">
           <span class="quiz-progress__index">Question ${state.currentQuestion + 1} of ${questions.length}</span>
@@ -148,150 +183,50 @@ export function initQuiz(
     `;
   }
 
-  function renderQuestion(focusTarget?: "question" | "explanation" | number) {
-    if (!questionContainer) {
-      return;
-    }
+  // ── Question DOM helpers ──
 
-    const q = questions[state.currentQuestion];
-    const selectedAnswer = state.answers[state.currentQuestion];
-    const isAnswered = state.isAnswered[state.currentQuestion];
-
-    let isCorrect: boolean | null = null;
-    if (isAnswered && selectedAnswer !== null) {
-      if (q.type === "true-false") {
-        isCorrect = (q.correct as boolean) === (selectedAnswer === 0);
-      } else if (q.type === "multi-choice") {
-        const correctArr = q.correct as number[];
-        const selectedArr = selectedAnswer as number[];
-        isCorrect =
-          correctArr.length === selectedArr.length &&
-          correctArr.every((i) => selectedArr.includes(i));
-      } else {
-        isCorrect = (q.correct as number) === selectedAnswer;
-      }
-    }
-
+  /** Build the full question HTML on first render or question change. */
+  function buildQuestionHTML(q: QuizQuestion): string {
     const displayOptions = q.type === "true-false" ? ["True", "False"] : q.options;
-
-    function isOptionCorrect(index: number): boolean {
-      if (q.type === "true-false") {
-        return (q.correct as boolean) === (index === 0);
-      }
-      if (q.type === "multi-choice") {
-        return (q.correct as number[]).includes(index);
-      }
-      return (q.correct as number) === index;
-    }
-
-    function isOptionSelected(index: number): boolean {
-      if (selectedAnswer === null) {
-        return false;
-      }
-      if (q.type === "multi-choice") {
-        return (selectedAnswer as number[]).includes(index);
-      }
-      return (selectedAnswer as number) === index;
-    }
-
-    const optionsHtml = displayOptions
-      .map((option, index) => {
-        const isSelected = isOptionSelected(index);
-        const isCorrectOption = isOptionCorrect(index);
-
-        let optionState = "";
-        if (isAnswered) {
-          if (isCorrectOption) {
-            optionState = "correct";
-          } else if (isSelected && !isCorrectOption) {
-            optionState = "incorrect";
-          }
-        } else if (isSelected) {
-          optionState = "selected";
-        }
-
-        const markerIcon =
-          q.type === "multi-choice"
-            ? isSelected
-              ? icons.squareCheck
-              : icons.square
-            : isSelected
-              ? icons.circleCheck
-              : icons.circle;
-
-        const statusIcon =
-          isAnswered && isCorrectOption
-            ? `<span class="quiz-question__option-status quiz-question__option-status--correct">${icons.check}</span>`
-            : isAnswered && isSelected && !isCorrectOption
-              ? `<span class="quiz-question__option-status quiz-question__option-status--incorrect">${icons.x}</span>`
-              : "";
-
-        return `
-          <button
-            type="button"
-            class="quiz-question__option ${optionState ? `quiz-question__option--${optionState}` : ""}"
-            data-index="${index}"
-            data-type="${q.type}"
-            role="${q.type === "multi-choice" ? "checkbox" : "radio"}"
-            aria-checked="${isSelected ? "true" : "false"}"
-            ${isAnswered ? "disabled" : ""}
-          >
-            <span class="quiz-question__option-marker">${markerIcon}</span>
-            <span class="quiz-question__option-text">${option}</span>
-            ${statusIcon}
-          </button>
-        `;
-      })
-      .join("");
-
-    const explanationHtml =
-      isAnswered && q.explanation
-        ? `
-        <div class="quiz-question__explanation" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
-          <div class="quiz-question__explanation-header">
-            ${icons.info}
-            <span>Explanation</span>
-          </div>
-          <p class="quiz-question__explanation-text">${q.explanation}</p>
-        </div>
-      `
-        : "";
-
-    const badgeHtml = isAnswered
-      ? `<span class="quiz-question__badge quiz-question__badge--${isCorrect ? "correct" : "incorrect"}">
-          ${isCorrect ? icons.check : icons.x}
-          ${isCorrect ? "Correct" : "Incorrect"}
-        </span>`
-      : "";
-
     const questionTypeLabel =
       q.type === "true-false"
         ? "True or False"
         : q.type === "multi-choice"
           ? "Multi-select"
           : "Single choice";
-    const selectionCount = getCurrentSelectionCount();
 
-    const hintHtml =
-      q.type === "multi-choice"
-        ? `<p class="quiz-question__hint">${
-            selectionCount > 0
-              ? `${selectionCount} selected. You can choose more than one answer.`
-              : "Select all that apply."
-          }</p>`
-        : `<p class="quiz-question__hint">Choose one answer.</p>`;
+    const optionsHtml = displayOptions
+      .map((option, index) => {
+        const markerIcon = q.type === "multi-choice" ? icons.square : icons.circle;
+        return `
+          <button
+            type="button"
+            class="quiz-question__option"
+            data-index="${index}"
+            data-type="${q.type}"
+            role="${q.type === "multi-choice" ? "checkbox" : "radio"}"
+            aria-checked="false"
+          >
+            <span class="quiz-question__option-marker">${markerIcon}</span>
+            <span class="quiz-question__option-text">${option}</span>
+          </button>
+        `;
+      })
+      .join("");
 
-    questionContainer.innerHTML = `
-      <div class="quiz-question" data-answered="${isAnswered}" data-correct="${isCorrect}">
+    return `
+      <div class="quiz-question" data-answered="false" data-correct="">
         <div class="quiz-question__topline">
           <span class="quiz-question__number">Q${state.currentQuestion + 1}</span>
           <span class="quiz-question__type">${questionTypeLabel}</span>
-          ${badgeHtml}
+          <span class="quiz-question__badge" hidden></span>
         </div>
         <div class="quiz-question__card">
           <p class="quiz-question__prompt">Question</p>
           <h3 class="quiz-question__text" tabindex="-1">${q.question}</h3>
-          ${hintHtml}
+          <p class="quiz-question__hint">${
+            q.type === "multi-choice" ? "Select all that apply." : "Choose one answer."
+          }</p>
           <div
             class="quiz-question__options"
             role="${q.type === "multi-choice" ? "group" : "radiogroup"}"
@@ -300,50 +235,222 @@ export function initQuiz(
             ${optionsHtml}
           </div>
         </div>
-        ${explanationHtml}
+        <div class="quiz-question__explanation" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden>
+          <div class="quiz-question__explanation-header">
+            ${icons.info}
+            <span>Explanation</span>
+          </div>
+          <p class="quiz-question__explanation-text"></p>
+        </div>
       </div>
     `;
+  }
 
-    // Add event listeners to options
-    questionContainer.querySelectorAll(".quiz-question__option").forEach((btn) => {
-      btn.addEventListener("click", handleOptionClick);
-    });
+  /** Update option visuals without rebuilding the DOM. */
+  function updateOptionVisuals(q: QuizQuestion) {
+    if (!questionContainer) {
+      return;
+    }
+    const selectedAnswer = state.answers[state.currentQuestion];
+    const isAnswered = state.isAnswered[state.currentQuestion];
 
-    updateNavigation();
+    questionContainer
+      .querySelectorAll<HTMLButtonElement>(".quiz-question__option")
+      .forEach((btn) => {
+        const index = Number(btn.dataset.index);
+        const isSelected =
+          q.type === "multi-choice"
+            ? Array.isArray(selectedAnswer) && selectedAnswer.includes(index)
+            : selectedAnswer === index;
 
-    if (typeof focusTarget === "number") {
-      const option = questionContainer.querySelector<HTMLButtonElement>(
-        `.quiz-question__option[data-index="${focusTarget}"]`
-      );
-      option?.focus();
+        const isCorrectOption = checkAnswer(
+          q,
+          q.type === "multi-choice" ? [index] : index
+        );
+        const isCorrectSelected = isCorrectOption && isSelected;
+
+        // Reset
+        btn.classList.remove(
+          "quiz-question__option--selected",
+          "quiz-question__option--correct",
+          "quiz-question__option--incorrect"
+        );
+        btn.setAttribute("aria-checked", String(isSelected));
+
+        if (isAnswered) {
+          btn.disabled = true;
+          if (isCorrectOption) {
+            btn.classList.add("quiz-question__option--correct");
+          } else if (isSelected) {
+            btn.classList.add("quiz-question__option--incorrect");
+          }
+        } else if (isSelected) {
+          btn.classList.add("quiz-question__option--selected");
+        }
+
+        // Update marker icon
+        const marker = btn.querySelector<HTMLSpanElement>(
+          ".quiz-question__option-marker"
+        );
+        if (marker) {
+          if (isAnswered && isCorrectOption) {
+            marker.innerHTML =
+              q.type === "multi-choice" ? icons.squareCheck : icons.circleCheck;
+          } else if (isSelected && !isAnswered) {
+            marker.innerHTML =
+              q.type === "multi-choice" ? icons.squareCheck : icons.circleCheck;
+          } else {
+            marker.innerHTML = q.type === "multi-choice" ? icons.square : icons.circle;
+          }
+        }
+
+        // Remove old status icons
+        btn
+          .querySelectorAll(".quiz-question__option-status")
+          .forEach((el) => el.remove());
+
+        // Add status icons after answer
+        if (isAnswered) {
+          const statusIcon = document.createElement("span");
+          if (isCorrectSelected) {
+            statusIcon.className =
+              "quiz-question__option-status quiz-question__option-status--correct";
+            statusIcon.innerHTML = icons.check;
+          } else if (isSelected && !isCorrectOption) {
+            statusIcon.className =
+              "quiz-question__option-status quiz-question__option-status--incorrect";
+            statusIcon.innerHTML = icons.x;
+          }
+          if (statusIcon.className) {
+            btn.appendChild(statusIcon);
+          }
+        }
+      });
+  }
+
+  /** Update the correctness badge after answering. */
+  function updateBadge(q: QuizQuestion) {
+    if (!questionContainer) {
+      return;
+    }
+    const selectedAnswer = state.answers[state.currentQuestion];
+    const isAnswered = state.isAnswered[state.currentQuestion];
+    if (!isAnswered) {
       return;
     }
 
-    if (focusTarget === "explanation") {
-      const explanation = questionContainer.querySelector<HTMLElement>(
-        ".quiz-question__explanation"
-      );
-      explanation?.focus();
-      return;
+    const isCorrect = checkAnswer(q, selectedAnswer);
+    const badge = questionContainer.querySelector<HTMLSpanElement>(
+      ".quiz-question__badge"
+    );
+    if (badge) {
+      badge.hidden = false;
+      badge.className = `quiz-question__badge quiz-question__badge--${isCorrect ? "correct" : "incorrect"}`;
+      badge.innerHTML = `${isCorrect ? icons.check : icons.x} ${isCorrect ? "Correct" : "Incorrect"}`;
     }
 
-    if (focusTarget === "question") {
-      const heading =
-        questionContainer.querySelector<HTMLElement>(".quiz-question__text");
-      heading?.focus();
+    const root = questionContainer.querySelector<HTMLDivElement>(".quiz-question");
+    if (root) {
+      root.dataset.answered = "true";
+      root.dataset.correct = String(isCorrect);
     }
   }
 
-  function handleOptionClick(e: Event) {
-    const btn = e.currentTarget as HTMLButtonElement;
-    const index = parseInt(btn.dataset.index || "0", 10);
-    const type = btn.dataset.type as QuizQuestion["type"];
+  /** Show / fill explanation after answering. */
+  function updateExplanation(q: QuizQuestion) {
+    if (!questionContainer) {
+      return;
+    }
+    const explanationEl = questionContainer.querySelector<HTMLElement>(
+      ".quiz-question__explanation"
+    );
+    if (!explanationEl) {
+      return;
+    }
 
+    const isAnswered = state.isAnswered[state.currentQuestion];
+    if (isAnswered && q.explanation) {
+      explanationEl.hidden = false;
+      const textEl = explanationEl.querySelector<HTMLParagraphElement>(
+        ".quiz-question__explanation-text"
+      );
+      if (textEl) {
+        textEl.textContent = q.explanation;
+      }
+    } else {
+      explanationEl.hidden = true;
+    }
+  }
+
+  /** Update hint text with selection count for multi-choice. */
+  function updateHint(q: QuizQuestion) {
+    if (!questionContainer) {
+      return;
+    }
+    const hint =
+      questionContainer.querySelector<HTMLParagraphElement>(".quiz-question__hint");
+    if (!hint) {
+      return;
+    }
+
+    if (q.type === "multi-choice") {
+      const count = getCurrentSelectionCount();
+      hint.textContent =
+        count > 0
+          ? `${count} selected. You can choose more than one answer.`
+          : "Select all that apply.";
+    }
+    // single-choice / true-false hint stays static
+  }
+
+  /** Update the question number label. */
+  function updateQuestionNumber() {
+    if (!questionContainer) {
+      return;
+    }
+    const numberEl = questionContainer.querySelector<HTMLSpanElement>(
+      ".quiz-question__number"
+    );
+    if (numberEl) {
+      numberEl.textContent = `Q${state.currentQuestion + 1}`;
+    }
+  }
+
+  /** Update the question type label. */
+  function updateQuestionTypeLabel(q: QuizQuestion) {
+    if (!questionContainer) {
+      return;
+    }
+    const label =
+      questionContainer.querySelector<HTMLSpanElement>(".quiz-question__type");
+    if (!label) {
+      return;
+    }
+
+    label.textContent =
+      q.type === "true-false"
+        ? "True or False"
+        : q.type === "multi-choice"
+          ? "Multi-select"
+          : "Single choice";
+  }
+
+  // ── Selection ──
+
+  function getCurrentSelectionCount(): number {
+    const currentAnswer = state.answers[state.currentQuestion];
+    if (currentAnswer === null) {
+      return 0;
+    }
+    return Array.isArray(currentAnswer) ? currentAnswer.length : 1;
+  }
+
+  function handleOptionInteraction(index: number, q: QuizQuestion) {
     if (state.isAnswered[state.currentQuestion]) {
       return;
     }
 
-    if (type === "multi-choice") {
+    if (q.type === "multi-choice") {
       let currentSelection = (state.answers[state.currentQuestion] as number[]) || [];
       if (currentSelection.includes(index)) {
         currentSelection = currentSelection.filter((i) => i !== index);
@@ -356,48 +463,11 @@ export function initQuiz(
       state.answers[state.currentQuestion] = index;
     }
 
-    renderQuestion(index);
+    updateOptionVisuals(q);
+    updateHint(q);
   }
 
-  function submitAnswer() {
-    const selectedAnswer = state.answers[state.currentQuestion];
-
-    if (selectedAnswer === null) {
-      return;
-    }
-
-    const q = questions[state.currentQuestion];
-    let isCorrect: boolean;
-
-    if (q.type === "true-false") {
-      isCorrect = (q.correct as boolean) === (selectedAnswer === 0);
-    } else if (q.type === "multi-choice") {
-      const correctArr = q.correct as number[];
-      const selectedArr = selectedAnswer as number[];
-      isCorrect =
-        correctArr.length === selectedArr.length &&
-        correctArr.every((i) => selectedArr.includes(i));
-    } else {
-      isCorrect = (q.correct as number) === selectedAnswer;
-    }
-
-    state.isAnswered[state.currentQuestion] = true;
-    if (isCorrect) {
-      state.correctCount++;
-    }
-
-    renderQuestion(q.explanation ? "explanation" : "question");
-    renderProgress();
-
-    if (!q.explanation) {
-      const nextAction = !navNext?.hidden
-        ? navNext
-        : !navSubmit?.hidden
-          ? navSubmit
-          : null;
-      nextAction?.focus();
-    }
-  }
+  // ── Navigation ──
 
   function updateNavigation() {
     if (!navPrev || !navNext || !navSubmit || !checkAnswerBtn) {
@@ -432,23 +502,144 @@ export function initQuiz(
   }
 
   function goToQuestion(index: number) {
-    if (index < 0 || index >= questions.length) {
+    if (index < 0 || index >= questions.length || !questionContainer) {
       return;
     }
+
     state.currentQuestion = index;
-    renderQuestion("question");
+    const q = questions[index];
+    questionContainer.innerHTML = buildQuestionHTML(q);
+    bindOptionListeners(q);
+    updateOptionVisuals(q);
+    updateHint(q);
+    updateNavigation();
+    updateQuestionNumber();
+    updateQuestionTypeLabel(q);
+
+    if (state.isAnswered[index]) {
+      updateBadge(q);
+      updateExplanation(q);
+    }
+
+    // Focus the question text for accessibility
+    const heading = questionContainer.querySelector<HTMLElement>(".quiz-question__text");
+    heading?.focus();
   }
+
+  function submitAnswer() {
+    const selectedAnswer = state.answers[state.currentQuestion];
+    if (selectedAnswer === null || !questionContainer) {
+      return;
+    }
+
+    const q = questions[state.currentQuestion];
+    const isCorrect = checkAnswer(q, selectedAnswer);
+
+    state.isAnswered[state.currentQuestion] = true;
+    if (isCorrect) {
+      state.correctCount++;
+    }
+
+    updateOptionVisuals(q);
+    updateBadge(q);
+    updateExplanation(q);
+    updateNavigation();
+    renderProgress();
+
+    // Focus explanation if present, otherwise next action
+    if (q.explanation) {
+      const explanation = questionContainer.querySelector<HTMLElement>(
+        ".quiz-question__explanation"
+      );
+      explanation?.focus();
+    } else {
+      const nextAction = !navNext?.hidden
+        ? navNext
+        : !navSubmit?.hidden
+          ? navSubmit
+          : null;
+      nextAction?.focus();
+    }
+  }
+
+  // ── Keyboard navigation for answer options ──
+
+  function handleOptionKeydown(e: KeyboardEvent, q: QuizQuestion) {
+    if (state.isAnswered[state.currentQuestion] || !questionContainer) {
+      return;
+    }
+
+    const options = Array.from(
+      questionContainer.querySelectorAll<HTMLButtonElement>(".quiz-question__option")
+    );
+    const currentIndex = options.indexOf(e.currentTarget as HTMLButtonElement);
+    if (currentIndex === -1) {
+      return;
+    }
+
+    let targetIndex = -1;
+
+    if (q.type === "multi-choice") {
+      // Space toggles, ArrowRight/ArrowLeft moves focus
+      if (e.key === " ") {
+        e.preventDefault();
+        handleOptionInteraction(currentIndex, q);
+        return;
+      }
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        targetIndex = (currentIndex + 1) % options.length;
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        targetIndex = (currentIndex - 1 + options.length) % options.length;
+      }
+    } else {
+      // Single-choice / radio: arrows move and select
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        targetIndex = (currentIndex + 1) % options.length;
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        targetIndex = (currentIndex - 1 + options.length) % options.length;
+      }
+    }
+
+    if (targetIndex >= 0) {
+      options[targetIndex].focus();
+      // For radio-style questions, also select the option
+      if (q.type !== "multi-choice") {
+        handleOptionInteraction(targetIndex, q);
+      }
+    }
+  }
+
+  function bindOptionListeners(q: QuizQuestion) {
+    if (!questionContainer) {
+      return;
+    }
+    questionContainer
+      .querySelectorAll<HTMLButtonElement>(".quiz-question__option")
+      .forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const index = Number(btn.dataset.index);
+          handleOptionInteraction(index, q);
+        });
+
+        btn.addEventListener("keydown", (e) => handleOptionKeydown(e, q));
+      });
+  }
+
+  // ── Results ──
 
   function showResults() {
     state.isComplete = true;
-
     if (!resultContainer) {
       return;
     }
 
     const score = Math.round((state.correctCount / questions.length) * 100);
     const passed = score >= passingScore;
-    // Hide question and nav
+
     if (questionContainer) {
       questionContainer.innerHTML = "";
     }
@@ -465,7 +656,6 @@ export function initQuiz(
       checkAnswerBtn.hidden = true;
     }
 
-    // Show results
     resultContainer.innerHTML = `
       <div class="quiz-result quiz-result--${passed ? "passed" : "failed"}">
         <div class="quiz-result__header">
@@ -474,7 +664,7 @@ export function initQuiz(
           </div>
           <h2 class="quiz-result__title" tabindex="-1">${passed ? "Congratulations!" : "Keep Learning!"}</h2>
           <p class="quiz-result__subtitle">
-            ${passed ? `You passed this quiz!` : `You didn't pass this quiz this time.`}
+            ${passed ? "You passed this quiz!" : "You didn't pass this quiz this time."}
           </p>
         </div>
 
@@ -492,13 +682,13 @@ export function initQuiz(
             <strong class="quiz-result__summary-value">${passingScore}%</strong>
           </div>
         </div>
-        
+
         <div class="quiz-result__score">
           <div class="quiz-result__score-circle">
             <span
               class="quiz-result__score-ring"
               aria-hidden="true"
-              style="display:block; inline-size:9rem; block-size:9rem; border-radius:50%; background:conic-gradient(${passed ? "var(--color-success-500)" : "var(--color-error-500)"} 0 ${score}%, var(--border-default) ${score}% 100%);"
+              style="display:block; inline-size:9rem; block-size:9rem; border-radius:50%; background:conic-gradient(${passed ? "var(--color-success)" : "var(--color-error)"} 0 ${score}%, var(--border-default) ${score}% 100%);"
             ></span>
             <span
               class="quiz-result__score-ring-core"
@@ -514,7 +704,7 @@ export function initQuiz(
             Passing score: <strong>${passingScore}%</strong>
           </p>
         </div>
-        
+
         <div class="quiz-result__actions">
           <a href="${window.location.pathname}" class="quiz-result__btn quiz-result__btn--primary">
             ${icons.refresh}
@@ -528,7 +718,16 @@ export function initQuiz(
       </div>
     `;
 
-    // Save result to localStorage
+    // Live announcement for screen readers
+    const liveRegion = document.createElement("div");
+    liveRegion.setAttribute("aria-live", "assertive");
+    liveRegion.setAttribute("role", "status");
+    liveRegion.className = "quiz-result__announcement";
+    liveRegion.textContent = passed
+      ? `Congratulations! You passed with ${score} percent, ${state.correctCount} out of ${questions.length} correct.`
+      : `You scored ${score} percent, ${state.correctCount} out of ${questions.length} correct. Passing score is ${passingScore} percent.`;
+    resultContainer.prepend(liveRegion);
+
     saveResult(score, passed);
 
     const resultTitle = resultContainer.querySelector<HTMLElement>(".quiz-result__title");
@@ -549,7 +748,8 @@ export function initQuiz(
     safeLocalStorage.set(QUIZ_RESULTS_KEY, results);
   }
 
-  // Event listeners
+  // ── Event listeners ──
+
   if (navPrev) {
     navPrev.addEventListener("click", () => goToQuestion(state.currentQuestion - 1));
   }
@@ -572,7 +772,10 @@ export function initQuiz(
     checkAnswerBtn.addEventListener("click", submitAnswer);
   }
 
-  // Initial render
+  // ── Initial render ──
+
   renderProgress();
-  renderQuestion();
+  const initialQ = questions[0];
+  questionContainer.innerHTML = buildQuestionHTML(initialQ);
+  bindOptionListeners(initialQ);
 }

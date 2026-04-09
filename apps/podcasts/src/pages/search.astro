@@ -2,6 +2,7 @@
 import PodcastLayout from "../layouts/PodcastLayout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getAvailablePodcasts } from "../utils/podcasts";
 import type { PodcastData } from "../types/podcast";
@@ -42,25 +43,21 @@ const t = {
     "a genre, scene, or cultural movement",
   ],
 };
+
+const pageSeo = buildPageSeo({
+  title: t.seoTitle,
+  description: t.seoDescription,
+  url: canonical,
+  brandSuffix: " - MelodyMind Podcasts",
+});
 ---
 
 <PodcastLayout
-  title={t.seoTitle}
-  description={t.seoDescription}
-  type="website"
-  language="en"
-  locale="en-US"
-  seriesDescription={t.seoDescription}
-  keywords={[
-    "podcast search",
-    "music history podcast",
-    "episode search",
-    "melodymind podcasts",
-  ]}
-  canonical={canonical}
-  {breadcrumbs}
+  {pageSeo}
   index={false}
   follow={true}
+  canonical={canonical}
+  breadcrumbs={breadcrumbs}
 >
   <PageShell className="page-shell--aurora">
     <SearchPageSection

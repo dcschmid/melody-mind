@@ -96,6 +96,8 @@ const totalPoolSize = quiz.data.questions.length;
     <div class="quiz-detail">
       <div class="quiz-detail__content">
         <main class="quiz-detail__main">
+          <h1 class="quiz-detail__sr-title">{quiz.data.title}</h1>
+
           <section class="quiz-detail__progress-shell" aria-label="Quiz progress">
             <div id="quiz-progress-container"></div>
           </section>
@@ -173,22 +175,27 @@ const totalPoolSize = quiz.data.questions.length;
   import { initQuiz, type QuizQuestion } from "../scripts/quiz/quizClient";
 
   document.addEventListener("DOMContentLoaded", () => {
-    const questionsEl = document.getElementById("quiz-questions-data");
-    const passingScoreEl = document.getElementById("quiz-passing-score");
-    const questionsPerSessionEl = document.getElementById("quiz-questions-per-session");
+    try {
+      const questionsEl = document.getElementById("quiz-questions-data");
+      const passingScoreEl = document.getElementById("quiz-passing-score");
+      const questionsPerSessionEl = document.getElementById("quiz-questions-per-session");
 
-    if (!questionsEl || !passingScoreEl || !questionsPerSessionEl) {
-      return;
+      if (!questionsEl || !passingScoreEl || !questionsPerSessionEl) {
+        console.warn("[quiz] Missing quiz data elements");
+        return;
+      }
+
+      const questions: QuizQuestion[] = JSON.parse(questionsEl.textContent || "[]");
+      const passingScore: number = parseInt(passingScoreEl.dataset.value || "70", 10);
+      const questionsPerSession: number = parseInt(
+        questionsPerSessionEl.dataset.value || "20",
+        10
+      );
+
+      initQuiz(questions, passingScore, questionsPerSession);
+    } catch (e) {
+      console.error("[quiz] Failed to initialize quiz:", e);
     }
-
-    const questions: QuizQuestion[] = JSON.parse(questionsEl.textContent || "[]");
-    const passingScore: number = parseInt(passingScoreEl.dataset.value || "70", 10);
-    const questionsPerSession: number = parseInt(
-      questionsPerSessionEl.dataset.value || "20",
-      10
-    );
-
-    initQuiz(questions, passingScore, questionsPerSession);
   });
 </script>
 
@@ -418,6 +425,18 @@ const totalPoolSize = quiz.data.questions.length;
     border-color: var(--surface-border-accent);
     box-shadow: var(--interactive-shadow-focus);
     transform: translateY(-1px);
+  }
+
+  .quiz-detail__sr-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: inset(50%);
   }
 
   .quiz-detail__nav-btn--check,
@@ -864,17 +883,13 @@ const totalPoolSize = quiz.data.questions.length;
   :global(#quiz-result-container .quiz-result--passed) {
     border-color: color-mix(
       in srgb,
-      var(--color-success-500) 34%,
+      var(--color-success) 34%,
       var(--surface-border-soft)
     );
   }
 
   :global(#quiz-result-container .quiz-result--failed) {
-    border-color: color-mix(
-      in srgb,
-      var(--color-error-500) 34%,
-      var(--surface-border-soft)
-    );
+    border-color: color-mix(in srgb, var(--color-error) 34%, var(--surface-border-soft));
   }
 
   :global(#quiz-result-container .quiz-result__header),

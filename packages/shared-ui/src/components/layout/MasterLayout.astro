@@ -38,7 +38,8 @@ const {
   themeColorLight = "#f6f1e8",
   appTitle = "MelodyMind",
   manifestPath = "/site.webmanifest",
-  googleSiteVerification = "ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M",
+  googleSiteVerification = import.meta.env.GOOGLE_SITE_VERIFICATION ||
+    "ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M",
   appleMobileWebAppCapable = true,
   appleMobileWebAppStatusBarStyle = "black-translucent",
 } = Astro.props as Props;

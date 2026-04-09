@@ -1,0 +1,148 @@
+---
+/**
+ * Knowledge 404 Page
+ */
+import Layout from "@layouts/Layout.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+
+export const prerender = true;
+
+const canonical = resolvePageUrl(Astro.site, "/404");
+
+const pageSeo = buildPageSeo({
+  title: "Page not found",
+  description:
+    "The page you're looking for doesn't exist. Browse articles, taxonomy, or search to find what you need.",
+  url: canonical,
+  brandSuffix: " - MelodyMind",
+  index: false,
+  follow: false,
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell>
+    <main class="not-found">
+      <div class="not-found__content">
+        <span class="not-found__code" aria-hidden="true">404</span>
+        <h1 class="not-found__title">Page not found</h1>
+        <p class="not-found__text">
+          The article or section you're looking for doesn't exist, has been moved, or the
+          URL is incorrect.
+        </p>
+        <div class="not-found__actions">
+          <a href="/knowledge/" class="not-found__btn not-found__btn--primary">
+            Browse all articles
+          </a>
+          <a href="/taxonomy/" class="not-found__btn not-found__btn--secondary">
+            Browse by topic
+          </a>
+          <a href="/" class="not-found__btn not-found__btn--ghost"> Go to homepage </a>
+        </div>
+      </div>
+    </main>
+  </PageShell>
+</Layout>
+
+<style>
+  .not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 60vh;
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .not-found__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap-lg);
+    align-items: center;
+    max-inline-size: 36rem;
+    text-align: center;
+  }
+
+  .not-found__code {
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-text-tertiary);
+    letter-spacing: -0.05em;
+  }
+
+  .not-found__title {
+    margin: 0;
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.04em;
+  }
+
+  .not-found__text {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+    text-wrap: balance;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+  }
+
+  .not-found__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing-sm) + 0.3rem) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+  }
+
+  .not-found__btn--primary {
+    color: var(--accent-contrast);
+    background: var(--accent-primary);
+  }
+
+  .not-found__btn--secondary {
+    color: var(--text-primary);
+    background: var(--surface-panel-bg);
+    border: 1px solid var(--surface-border-soft);
+  }
+
+  .not-found__btn--ghost {
+    color: var(--text-secondary);
+  }
+
+  .not-found__btn:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .not-found__btn {
+      transition:
+        transform var(--transition-fast),
+        background-color var(--transition-fast);
+    }
+
+    .not-found__btn:hover,
+    .not-found__btn:focus-visible {
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (width < 640px) {
+    .not-found__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+</style>

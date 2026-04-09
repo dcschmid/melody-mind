@@ -1,12 +1,13 @@
 import type { PodcastData } from "../types/podcast";
 import { formatDuration } from "@shared-utils/utils/time";
 import { getPodcastCoverImageUrl, podcastHeroImageUrl } from "./podcastImages";
+import { PODCASTS_SITE_URL } from "@shared-utils/utils/appShell";
 
 const EXPLICIT_RATING = "clean";
 
 export async function generatePodcastRSSFeed(
   episodes: PodcastData[],
-  baseUrl: string = "https://podcasts.melody-mind.de"
+  baseUrl: string = PODCASTS_SITE_URL
 ): Promise<string> {
   const lang = "en";
   const locale = "en-US";
@@ -75,8 +76,8 @@ export async function generatePodcastRSSFeed(
     <copyright>© ${new Date().getFullYear()} MelodyMind</copyright>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
     <generator>MelodyMind RSS Generator v1.1.0</generator>
-    <webMaster>dcschmid@murena.io</webMaster>
-    <managingEditor>dcschmid@murena.io</managingEditor>
+    <webMaster>${escapeXML(import.meta.env.PODCAST_CONTACT_EMAIL || "dcschmid@murena.io")}</webMaster>
+    <managingEditor>${escapeXML(import.meta.env.PODCAST_CONTACT_EMAIL || "dcschmid@murena.io")}</managingEditor>
 
     <!-- Atom Self-Reference -->
     <atom:link href="${escapeXML(rssLink)}" rel="self" type="application/rss+xml"/>
@@ -95,7 +96,7 @@ export async function generatePodcastRSSFeed(
     <itunes:summary>${escapeXML(description)}</itunes:summary>
     <itunes:owner>
       <itunes:name>Daniel Schmid</itunes:name>
-      <itunes:email>dcschmid@murena.io</itunes:email>
+      <itunes:email>${escapeXML(import.meta.env.PODCAST_CONTACT_EMAIL || "dcschmid@murena.io")}</itunes:email>
     </itunes:owner>
     <itunes:image href="${escapeXML(podcastHeroImageUrl)}"/>
     <itunes:category text="Music">
@@ -106,7 +107,7 @@ export async function generatePodcastRSSFeed(
 
     <!-- Podcasting 2.0 Required/Recommended Channel Tags -->
     <podcast:guid>urn:podcast:melodymind:${lang}</podcast:guid>
-    <podcast:locked owner="dcschmid@murena.io">yes</podcast:locked>
+    <podcast:locked owner="${escapeXML(import.meta.env.PODCAST_CONTACT_EMAIL || "dcschmid@murena.io")}">yes</podcast:locked>
 
     <!-- Podcasting 2.0 Persons -->
     ${personsTags}

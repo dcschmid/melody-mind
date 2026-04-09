@@ -39,6 +39,8 @@ const {
   description,
   keywords,
   image,
+  imageWidth,
+  imageHeight,
   imageAlt,
   canonical,
   noIndex,
@@ -102,6 +104,16 @@ const {
 {openGraph?.type && <meta property="og:type" content={openGraph.type} />}
 {openGraph?.url && <meta property="og:url" content={openGraph.url} />}
 {openGraph?.image && <meta property="og:image" content={openGraph.image} />}
+{
+  openGraph?.image && imageWidth && (
+    <meta property="og:image:width" content={String(imageWidth)} />
+  )
+}
+{
+  openGraph?.image && imageHeight && (
+    <meta property="og:image:height" content={String(imageHeight)} />
+  )
+}
 {openGraph?.locale && <meta property="og:locale" content={openGraph.locale} />}
 {
   Array.isArray(alternateLocales) &&
@@ -123,6 +135,25 @@ const {
 {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 {twitter?.creator && <meta name="twitter:creator" content={twitter.creator} />}
 {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+
+<meta name="theme-color" content="#1a1a2e" />
+
+{
+  Array.isArray(alternateLocales) && alternateLocales.length > 0 && (
+    <>
+      {alternateLocales.map((locale) => {
+        const localePath = locale === "en" ? "/" : `/${locale}/`;
+        return (
+          <link
+            rel="alternate"
+            hreflang={locale}
+            href={`${canonical?.replace(/\/+$/, "")}${localePath}`}
+          />
+        );
+      })}
+    </>
+  )
+}
 
 {
   (() => {

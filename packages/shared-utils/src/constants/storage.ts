@@ -26,10 +26,6 @@ export const STORAGE_KEYS = {
   RECENT_READS: "mm_recent_reads",
   /** Stores the user's explicit light/dark theme preference. */
   THEME: "themePreference",
-  /** Stores the preferred reading mode or content presentation mode. */
-  READING_MODE: "mm_reading_mode",
-  /** Stores the preferred reading font size override. */
-  FONT_SIZE: "mm_font_size",
 } as const;
 
 /**
