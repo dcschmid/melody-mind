@@ -9,8 +9,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096' astro check && NODE_OPTIONS='--max-old-space-size=4096' astro build",
-    "build:production": "NODE_ENV=production NODE_OPTIONS='--max-old-space-size=4096' pnpm build",
+    "build": "COLLECTION_CACHE_TTL_MS=0 NODE_OPTIONS='--max-old-space-size=4096' astro check && COLLECTION_CACHE_TTL_MS=0 NODE_OPTIONS='--max-old-space-size=4096' astro build",
     "preview": "astro preview",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
     "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint:check",

@@ -100,7 +100,6 @@ pnpm --filter knowledge preview
 
 ```bash
 pnpm --filter knowledge build
-pnpm --filter knowledge build:production
 pnpm --filter knowledge lint
 pnpm --filter knowledge lint:check
 pnpm --filter knowledge format

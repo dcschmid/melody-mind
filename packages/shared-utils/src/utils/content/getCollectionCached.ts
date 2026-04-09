@@ -32,8 +32,21 @@ const MAX_CACHE_SIZE = 50;
  *
  * Short enough to stay reasonably fresh in long-lived runtimes while still
  * reducing repeated collection-loading overhead.
+ *
+ * Can be overridden via COLLECTION_CACHE_TTL_MS env var:
+ * - "0" or "Infinity" = no TTL (entries only evicted by LRU, ideal for SSG builds)
+ * - numeric value = TTL in milliseconds (default: 5 minutes)
  */
-const DEFAULT_TTL_MS = 5 * 60 * 1000;
+const resolveTtlMs = (): number | undefined => {
+  const envValue = process.env.COLLECTION_CACHE_TTL_MS;
+  if (envValue !== undefined) {
+    const parsed = Number(envValue);
+    return parsed <= 0 || !Number.isFinite(parsed) ? undefined : parsed;
+  }
+  return 5 * 60 * 1000;
+};
+
+const DEFAULT_TTL_MS = resolveTtlMs();
 
 /**
  * Shared in-memory cache for collection entry arrays.

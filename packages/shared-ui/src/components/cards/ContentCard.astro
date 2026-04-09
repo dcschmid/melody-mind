@@ -21,6 +21,7 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   imageHeight?: number | `${number}`;
   imageLoading?: "eager" | "lazy";
   imageDecoding?: "sync" | "async" | "auto";
+  imageSizes?: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   metaItems?: ContentCardMetaItem[];
   descriptionLineClamp?: number;
@@ -49,6 +50,7 @@ const {
   imageHeight,
   imageLoading = "lazy",
   imageDecoding = "async",
+  imageSizes,
   titleLevel = "h3",
   metaItems = [],
   descriptionLineClamp = 0,
@@ -127,6 +129,7 @@ const contentProps = href
               height={resolvedImageHeight}
               loading={imageLoading}
               decoding={imageDecoding}
+              sizes={imageSizes}
             />
           ) : (
             <slot name="media" />

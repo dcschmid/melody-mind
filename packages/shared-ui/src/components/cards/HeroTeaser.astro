@@ -17,6 +17,7 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   imageHeight?: number | `${number}`;
   imageLoading?: "eager" | "lazy";
   imageDecoding?: "sync" | "async" | "auto";
+  imageSizes?: string;
   mediaAspectRatio?: string;
   mediaObjectFit?: "cover" | "contain";
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -37,6 +38,7 @@ const {
   imageHeight,
   imageLoading = "lazy",
   imageDecoding = "async",
+  imageSizes,
   mediaAspectRatio,
   mediaObjectFit = "cover",
   titleLevel = "h2",
@@ -110,6 +112,7 @@ const resolvedMediaAspectRatio =
             height={resolvedImageHeight}
             loading={imageLoading}
             decoding={imageDecoding}
+            sizes={imageSizes}
           />
         ) : hasMediaSlot ? (
           <slot name="media" />

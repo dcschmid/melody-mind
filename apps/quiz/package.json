@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
-    "build:production": "NODE_ENV=production pnpm build",
     "preview": "astro preview",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
     "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint:check",

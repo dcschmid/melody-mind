@@ -59,7 +59,6 @@ pnpm --filter quiz preview
 
 ```bash
 pnpm --filter quiz build
-pnpm --filter quiz build:production
 pnpm --filter quiz lint
 pnpm --filter quiz lint:check
 pnpm --filter quiz format
