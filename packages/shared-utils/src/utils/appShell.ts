@@ -237,12 +237,17 @@ export function buildAppShellSeoContext({
   searchPathTemplate,
 }: BuildAppShellSeoContextParams): {
   mergedImage: string;
+  mergedImageType: string | undefined;
   finalStructuredData: StructuredData[];
   autoOgLocale: string;
 } {
   const globalStructuredData: StructuredData[] = [];
 
-  if (!pageSeo.structuredData.some((entry) => entry["@type"] === "Organization")) {
+  if (
+    !pageSeo.structuredData.some(
+      (entry: { [x: string]: string }) => entry["@type"] === "Organization"
+    )
+  ) {
     globalStructuredData.push(
       buildOrganizationSchema({
         siteUrl,
@@ -253,7 +258,11 @@ export function buildAppShellSeoContext({
     );
   }
 
-  if (!pageSeo.structuredData.some((entry) => entry["@type"] === "WebSite")) {
+  if (
+    !pageSeo.structuredData.some(
+      (entry: { [x: string]: string }) => entry["@type"] === "WebSite"
+    )
+  ) {
     globalStructuredData.push(
       buildWebSiteSchema({
         siteUrl,
@@ -264,9 +273,34 @@ export function buildAppShellSeoContext({
     );
   }
 
+  const inferredImageType = inferImageTypeFromUrl(pageSeo.image || fallbackImageUrl);
+
   return {
     mergedImage: pageSeo.image || fallbackImageUrl,
+    mergedImageType: inferredImageType,
     finalStructuredData: [...globalStructuredData, ...pageSeo.structuredData],
     autoOgLocale: mapOgLocale(locale),
   };
+}
+
+/** Derives the MIME type from a URL's file extension. */
+function inferImageTypeFromUrl(url: string | undefined): string | undefined {
+  if (!url) {
+    return undefined;
+  }
+  const match = url.match(/\.([a-z0-9]+)(?:\?.*)?$/i);
+  if (!match) {
+    return undefined;
+  }
+  const ext = match[1].toLowerCase();
+  const typeMap: Record<string, string> = {
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    png: "image/png",
+    webp: "image/webp",
+    avif: "image/avif",
+    gif: "image/gif",
+    svg: "image/svg+xml",
+  };
+  return typeMap[ext];
 }

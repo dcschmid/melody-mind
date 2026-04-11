@@ -5,7 +5,9 @@
       "Bash(rm *)",
       "Bash(do *)",
       "Bash(done)",
-      "Bash(sed *)"
+      "Bash(sed *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   },
   "$version": 3

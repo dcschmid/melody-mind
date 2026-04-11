@@ -6,6 +6,7 @@ export interface OpenGraphMeta {
   type?: string;
   url?: string;
   image?: string;
+  imageType?: string;
   locale?: string;
 }
 

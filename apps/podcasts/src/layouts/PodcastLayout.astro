@@ -22,6 +22,7 @@ import {
   buildPodcastEpisodeSchema,
   buildPodcastSeriesSchema,
   buildWebSiteSchema,
+  buildSpeakableSpecificationSchema,
 } from "@shared-utils/utils/seo/seoSchema";
 import {
   PODCAST_FEED_PATH,
@@ -184,11 +185,23 @@ const podcastEpisodeJson =
       })
     : undefined;
 
+const speakableSchema =
+  type === "article"
+    ? buildSpeakableSpecificationSchema({
+        cssSelectors: [
+          "article h1",
+          "article .hero__description p:first-of-type",
+          "article .prose p:nth-of-type(-n+3)",
+        ],
+      })
+    : undefined;
+
 const seoStructuredData = [
   organizationSchema,
   webSiteSchema,
   podcastSeriesJson,
   podcastEpisodeJson,
+  ...(speakableSchema ? [speakableSchema] : []),
   ...structuredData,
 ].filter((item): item is StructuredData => Boolean(item));
 
@@ -211,6 +224,11 @@ const computedSeo = buildPageSeo({
   twitterCreator: "@melodymind",
   authorName: author,
   brandSuffix: false,
+  autoSocialImage: true,
+  generateSocialImage: ({ title: genTitle }) => {
+    void genTitle;
+    return undefined;
+  },
   ...(publishDate ? { publishDate } : {}),
   ...(modifiedDate ? { modifiedDate } : {}),
 });

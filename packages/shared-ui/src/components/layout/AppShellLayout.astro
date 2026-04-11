@@ -79,15 +79,16 @@ const mergedCanonical = constructedPageSeo.canonical;
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
 const robotsTag = constructedPageSeo.robots;
-const { mergedImage, finalStructuredData, autoOgLocale } = buildAppShellSeoContext({
-  pageSeo: constructedPageSeo,
-  siteUrl,
-  siteName: shellConfig.siteName,
-  siteDescription: shellConfig.siteDescription,
-  logoUrl: resolveLogoUrl(siteUrl),
-  fallbackImageUrl: resolveFallbackImageUrl(siteUrl),
-  locale: lang,
-});
+const { mergedImage, mergedImageType, finalStructuredData, autoOgLocale } =
+  buildAppShellSeoContext({
+    pageSeo: constructedPageSeo,
+    siteUrl,
+    siteName: shellConfig.siteName,
+    siteDescription: shellConfig.siteDescription,
+    logoUrl: resolveLogoUrl(siteUrl),
+    fallbackImageUrl: resolveFallbackImageUrl(siteUrl),
+    locale: lang,
+  });
 const headerConfig = {
   ...shellConfig.header,
   showBrand: true,
@@ -140,6 +141,7 @@ const keywords = mergedKeywords
       description={mergedDescription}
       keywords={keywords}
       image={mergedImage}
+      imageType={mergedImageType}
       {imageWidth}
       {imageHeight}
       type={mergedType}

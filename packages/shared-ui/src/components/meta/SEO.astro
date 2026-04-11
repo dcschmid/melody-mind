@@ -8,6 +8,7 @@ interface Props {
   image?: string;
   imageWidth?: number;
   imageHeight?: number;
+  imageType?: string;
   imageAlt?: string;
   type?: string;
   publishDate?: Date;
@@ -41,6 +42,7 @@ const {
   image,
   imageWidth,
   imageHeight,
+  imageType,
   imageAlt,
   canonical,
   noIndex,
@@ -104,6 +106,7 @@ const {
 {openGraph?.type && <meta property="og:type" content={openGraph.type} />}
 {openGraph?.url && <meta property="og:url" content={openGraph.url} />}
 {openGraph?.image && <meta property="og:image" content={openGraph.image} />}
+{openGraph?.image && imageType && <meta property="og:image:type" content={imageType} />}
 {
   openGraph?.image && imageWidth && (
     <meta property="og:image:width" content={String(imageWidth)} />
@@ -151,6 +154,11 @@ const {
           />
         );
       })}
+      <link
+        rel="alternate"
+        hreflang="x-default"
+        href={canonical?.replace(/\/+$/, "") + "/"}
+      />
     </>
   )
 }

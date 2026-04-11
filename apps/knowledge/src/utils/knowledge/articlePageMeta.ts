@@ -1,5 +1,8 @@
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { buildArticleSchema } from "@shared-utils/utils/seo/seoSchema";
+import {
+  buildArticleSchema,
+  buildSpeakableSpecificationSchema,
+} from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { PODCASTS_SITE_URL } from "@shared-utils/utils/appShell";
 import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
@@ -149,7 +152,16 @@ function buildKnowledgeArticleStructuredData({
 }: BuildKnowledgeArticleStructuredDataParams): StructuredData[] {
   const schemaType = podcastUrl ? "PodcastEpisode" : "Article";
 
-  return [
+  // Extract speakable content selectors: article intro paragraphs and key sections
+  const speakableSchema = buildSpeakableSpecificationSchema({
+    cssSelectors: [
+      "article h2:first-of-type + p",
+      "article h2:first-of-figure + p",
+      "article > p:nth-of-type(-n+3)",
+    ],
+  });
+
+  const result: StructuredData[] = [
     buildArticleSchema({
       canonical,
       title,
@@ -179,6 +191,12 @@ function buildKnowledgeArticleStructuredData({
         : undefined,
     }),
   ];
+
+  if (speakableSchema) {
+    result.push(speakableSchema);
+  }
+
+  return result;
 }
 
 export function buildKnowledgeArticlePageData({
@@ -272,11 +290,17 @@ export function buildKnowledgeArticlePageData({
     maxDescription: 155,
     image: imageAbsolute,
     imageAlt: title,
-    publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : new Date(),
-    modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : new Date(),
+    publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : undefined,
+    modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : undefined,
     index: true,
     follow: true,
-    autoSocialImage: false,
+    maxImagePreview: "large",
+    autoSocialImage: true,
+    generateSocialImage: ({ title: genTitle }) => {
+      // Fallback to branded hero image when no article image exists
+      void genTitle;
+      return undefined; // resolved by AppShellLayout fallback
+    },
     authorName: entry.data.author || "Melody Mind",
   });
   const articleLinksSource: ArticleHeroLink[] = [

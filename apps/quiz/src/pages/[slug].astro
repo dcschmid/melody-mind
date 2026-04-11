@@ -13,6 +13,7 @@ import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionE
 import {
   buildBreadcrumbListSchema,
   buildQuizSchema,
+  buildSpeakableSpecificationSchema,
 } from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import type { QuizData, QuizQuestion } from "../content.config";
@@ -63,12 +64,35 @@ const quizSchema = buildQuizSchema({
   keywords: quizFeaturedTopics,
 });
 
+const speakableSchema = buildSpeakableSpecificationSchema({
+  cssSelectors: [
+    "h1",
+    ".quiz-detail__panel-header + p",
+    ".quiz-detail__panel-header + div p:first-of-type",
+  ],
+});
+
+const structuredDataList = [
+  breadcrumbSchema,
+  quizSchema,
+  ...(speakableSchema ? [speakableSchema] : []),
+] as StructuredData[];
+
 const pageSeo = buildPageSeo({
   title: quizSeoTitle,
   description: quizSeoDescription,
   url: currentUrl,
   image: quizImage,
-  structuredData: [breadcrumbSchema, quizSchema] as StructuredData[],
+  imageAlt: `Cover image for the quiz: ${quiz.data.title}`,
+  contentKind: "generic",
+  structuredData: structuredDataList,
+  authorName: "MelodyMind Quiz",
+  maxImagePreview: "large",
+  autoSocialImage: true,
+  generateSocialImage: ({ title: genTitle }) => {
+    void genTitle;
+    return undefined;
+  },
   brandSuffix: " - MelodyMind Quiz",
 });
 

@@ -78,6 +78,14 @@ export interface ArticleSchemaOptions {
   publisherLogoUrl?: string;
   isPartOf?: Record<string, unknown>;
   potentialAction?: Record<string, unknown>;
+  /** Topics the article is about (Schema.org about property) */
+  about?: Array<{ name: string; sameAs?: string }>;
+  /** Entities mentioned in the article */
+  mentions?: Array<{ name: string; sameAs?: string }>;
+  /** Related authoritative URLs */
+  sameAs?: string[];
+  /** Citations or references to other works */
+  citations?: Array<{ name: string; url?: string }>;
 }
 
 /** Input contract for quiz detail page schema output. */
@@ -319,6 +327,10 @@ export function buildArticleSchema(opts: ArticleSchemaOptions): Record<string, u
     publisherLogoUrl = "https://melody-mind.de/melody-mind.png",
     isPartOf,
     potentialAction,
+    about,
+    mentions,
+    sameAs,
+    citations,
   } = opts;
 
   const publishedDate = normalizeDate(createdAt);
@@ -360,6 +372,34 @@ export function buildArticleSchema(opts: ArticleSchemaOptions): Record<string, u
     ...(keywords.length ? { keywords: keywords.join(", ") } : {}),
     ...(articleSection ? { articleSection } : {}),
     ...(typeof wordCount === "number" ? { wordCount } : {}),
+    ...(about?.length
+      ? {
+          about: about.map((topic) => ({
+            "@type": "Thing",
+            name: topic.name,
+            ...(topic.sameAs ? { sameAs: topic.sameAs } : {}),
+          })),
+        }
+      : {}),
+    ...(mentions?.length
+      ? {
+          mentions: mentions.map((entity) => ({
+            "@type": "Thing",
+            name: entity.name,
+            ...(entity.sameAs ? { sameAs: entity.sameAs } : {}),
+          })),
+        }
+      : {}),
+    ...(sameAs?.length ? { sameAs } : {}),
+    ...(citations?.length
+      ? {
+          citation: citations.map((c) => ({
+            "@type": "CreativeWork",
+            name: c.name,
+            ...(c.url ? { url: c.url } : {}),
+          })),
+        }
+      : {}),
   };
 }
 
@@ -668,5 +708,32 @@ export function buildQuizItemListSchema(opts: {
         ...(quiz.keywords?.length ? { keywords: quiz.keywords.join(", ") } : {}),
       },
     })),
+  };
+}
+
+/**
+ * Builds a `SpeakableSpecification` schema for voice search optimization.
+ *
+ * This allows Google Assistant and other voice devices to read article highlights aloud.
+ * Uses CSS selectors to identify speakable sections of the page.
+ */
+export function buildSpeakableSpecificationSchema(opts: {
+  cssSelectors?: string[];
+  xpathSelectors?: string[];
+}): Record<string, unknown> | undefined {
+  const { cssSelectors, xpathSelectors } = opts;
+
+  if (
+    (!cssSelectors || cssSelectors.length === 0) &&
+    (!xpathSelectors || xpathSelectors.length === 0)
+  ) {
+    return undefined;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "SpeakableSpecification",
+    ...(cssSelectors?.length ? { cssSelector: cssSelectors } : {}),
+    ...(xpathSelectors?.length ? { xpath: xpathSelectors } : {}),
   };
 }

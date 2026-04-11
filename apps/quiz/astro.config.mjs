@@ -1,7 +1,6 @@
 import { defineConfig } from "astro/config";
 import path from "path";
 import sitemap from "@astrojs/sitemap";
-import robotsTxt from "astro-robots-txt";
 import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import minify from "astro-minify-html-swc";
@@ -21,10 +20,6 @@ export default defineConfig({
       collections: ["tabler", "simple-icons"],
     }),
     mdx({ optimize: true }),
-    robotsTxt({
-      sitemap: ["https://quiz.melody-mind.de/sitemap-index.xml"],
-      host: "quiz.melody-mind.de",
-    }),
     sitemap(),
     metaTags(),
     minify(),

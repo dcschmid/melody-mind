@@ -84,11 +84,17 @@ const itemListSchema = buildQuizItemListSchema({
   itemListId,
 });
 
+const indexImage =
+  getQuizImageUrl("from-pop-to-streaming-pop", baseUrl) ?? quizHeroImageUrl(baseUrl);
+
 const pageSeo = buildPageSeo({
   title: "Music History Quizzes And Trivia",
   description:
     "Play music history quizzes on decades, genres, artists, and cultural shifts from rock and roll to modern streaming pop.",
   url: currentUrl,
+  image: indexImage,
+  imageAlt: "Music History Quizzes And Trivia - MelodyMind Quiz",
+  contentKind: "generic",
   structuredData: [collectionPageSchema, breadcrumbSchema, itemListSchema].filter(
     Boolean
   ) as StructuredData[],
@@ -99,6 +105,13 @@ const pageSeo = buildPageSeo({
     "jazz quiz",
     "music knowledge",
   ],
+  maxImagePreview: "large",
+  autoSocialImage: true,
+  generateSocialImage: ({ title: genTitle }) => {
+    void genTitle;
+    return undefined;
+  },
+  authorName: "MelodyMind Quiz",
   index: true,
   brandSuffix: " - MelodyMind Quiz",
 });
