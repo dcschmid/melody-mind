@@ -43,6 +43,7 @@ const noResultsId = `${idBase}-no-results`;
         aria-controls={ariaControls}
         aria-describedby={statusId}
         autocomplete="off"
+        spellcheck="false"
         data-search-input
       />
       <button
@@ -77,7 +78,6 @@ const noResultsId = `${idBase}-no-results`;
       class="search-panel__status"
       role="status"
       aria-live="polite"
-      aria-atomic="true"
       data-search-status-all={statusAllText}
       data-search-status-count={statusCountTemplate}
     >

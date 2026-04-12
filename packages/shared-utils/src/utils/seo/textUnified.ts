@@ -335,10 +335,7 @@ function stripHtml(input: string): string {
   return input.replace(/<[^>]*>/g, " ");
 }
 
-/** Collapses repeated whitespace into a single-space plain text string. */
-function normalizeWhitespace(input: string): string {
-  return input.replace(/\s+/g, " ").trim();
-}
+import { normalizeWhitespace } from "../format";
 
 /**
  * Truncates text without cutting too aggressively mid-sentence.

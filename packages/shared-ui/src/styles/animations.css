@@ -1,0 +1,63 @@
+/* =============================================================================
+   ANIMATIONS
+   Theme-aware animations for rise-in, fade-in, and glow-pulse effects
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   KEYFRAMES
+   ----------------------------------------------------------------------------- */
+@keyframes theme-rise-in {
+  from {
+    opacity: var(--motion-opacity-soft);
+    transform: translateY(var(--motion-distance-sm));
+  }
+
+  to {
+    opacity: var(--motion-opacity-full);
+    transform: translateY(0);
+  }
+}
+
+@keyframes theme-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: var(--motion-opacity-full);
+  }
+}
+
+@keyframes theme-glow-pulse {
+  0%,
+  100% {
+    opacity: var(--motion-opacity-soft);
+  }
+
+  50% {
+    opacity: var(--motion-opacity-full);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   ANIMATION CLASSES
+   Applied via data-animate attribute in HTML
+   ----------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  [data-animate="rise-in"] {
+    animation:
+      theme-rise-in var(--motion-duration-base) var(--motion-ease-standard)
+        var(--motion-delay, var(--motion-delay-none)) both,
+      theme-fade-in var(--motion-duration-base) linear
+        var(--motion-delay, var(--motion-delay-none)) both;
+  }
+
+  [data-animate="soft-fade"] {
+    animation: theme-fade-in var(--motion-duration-base) linear
+      var(--motion-delay, var(--motion-delay-none)) both;
+  }
+
+  [data-animate="glow-pulse"] {
+    animation: theme-glow-pulse 2.8s ease-in-out infinite;
+  }
+}

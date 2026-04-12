@@ -13,6 +13,7 @@ import {
   knowledgeHeroImageUrl,
 } from "@utils/knowledgeImages";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
+import { RASTER_IMAGE_EXT_PATTERN } from "@shared-utils/utils/imageAssets";
 import type {
   ArticleHeroLink,
   KnowledgeArticleLike,
@@ -209,7 +210,7 @@ export function buildKnowledgeArticlePageData({
   const normalizedKeywords = normalizeKeywords(entry.data.keywords);
   const rawImage = entry.data.image;
   const isValidImage =
-    typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
+    typeof rawImage === "string" && RASTER_IMAGE_EXT_PATTERN.test(rawImage);
   const baseUrl = resolveBaseUrl(site);
   const imageSource = isValidImage ? getKnowledgeCategoryImage(rawImage) : undefined;
   const title = entry.data.title;

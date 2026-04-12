@@ -128,9 +128,10 @@ export const upsertRecentItem = (
     return loadRecentItems(storageKey);
   }
 
+  const existingItems = loadRecentItems(storageKey);
   const nextItems = [
     sanitizedItem,
-    ...loadRecentItems(storageKey).filter((entry) => entry.slug !== sanitizedItem.slug),
+    ...existingItems.filter((entry) => entry.slug !== sanitizedItem.slug),
   ].slice(0, Math.max(1, maxEntries));
 
   return saveRecentItems(storageKey, nextItems);

@@ -1,4 +1,10 @@
 /**
+ * Collapses repeated whitespace into a single-space plain text string.
+ */
+export const normalizeWhitespace = (input: string): string =>
+  input.replace(/\s+/g, " ").trim();
+
+/**
  * Small formatting helpers shared by page and content utilities.
  *
  * These helpers intentionally cover only a narrow set of presentation concerns:
@@ -38,8 +44,8 @@ export const buildMetaDescription = (
   maxLength: number = 160,
   suffix?: string
 ): string => {
-  const normalizedText = text.replace(/\s+/g, " ").trim();
-  const normalizedSuffix = suffix?.replace(/\s+/g, " ").trim();
+  const normalizedText = normalizeWhitespace(text);
+  const normalizedSuffix = suffix ? normalizeWhitespace(suffix) : undefined;
 
   if (!normalizedSuffix) {
     if (normalizedText.length <= maxLength) {

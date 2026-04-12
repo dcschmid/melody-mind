@@ -41,6 +41,8 @@ const inputId = `${idBase}-input`;
       type="search"
       placeholder={placeholder}
       autocomplete="off"
+      spellcheck="false"
+      aria-label={label}
       value={initialQuery}
       data-simple-search-input
     />
@@ -52,7 +54,6 @@ const inputId = `${idBase}-input`;
     data-simple-search-status
     role="status"
     aria-live="polite"
-    aria-atomic="true"
   >
     {emptyText}
   </Paragraph>

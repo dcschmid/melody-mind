@@ -71,21 +71,22 @@ interface Props extends astroHTML.JSX.SVGAttributes {
 
 const {
   name,
-  width = "1em",
-  height = "1em",
-  "aria-hidden": ariaHidden,
+  width,
+  height,
+  "aria-hidden": ariaHidden = true,
   focusable = "false",
   ...restProps
 } = Astro.props as Props & Record<string, unknown>;
-const ariaHiddenProp = ariaHidden ?? undefined;
 const resolvedName = iconRegistry[name as keyof typeof iconRegistry] ?? name;
+const resolvedWidth = width ?? "1em";
+const resolvedHeight = height ?? "1em";
 ---
 
 <AstroIcon
   name={resolvedName}
-  width={width}
-  height={height}
-  aria-hidden={ariaHiddenProp}
+  width={resolvedWidth}
+  height={resolvedHeight}
+  aria-hidden={ariaHidden}
   focusable={focusable}
   {...restProps}
 />

@@ -28,10 +28,15 @@ const finalRel =
     : rel;
 
 const ariaLabelAttr = rawProps["aria-label"] as string | undefined;
+const slotContent = await Astro.slots.render("default");
+const strippedContent = slotContent.replace(/<[^>]+>/g, "").trim();
+const linkText = strippedContent || undefined;
 const finalAriaLabel =
   shouldAnnounceNewTab && ariaLabelAttr
     ? `${ariaLabelAttr} (${newTabText})`
-    : ariaLabelAttr;
+    : shouldAnnounceNewTab && linkText
+      ? `${linkText} (${newTabText})`
+      : ariaLabelAttr;
 
 const forwardedAttrs = (() => {
   const restAttrs: Record<string, unknown> = { ...rawProps };

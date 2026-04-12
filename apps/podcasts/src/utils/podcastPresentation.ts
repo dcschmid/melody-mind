@@ -1,9 +1,5 @@
 import type { ContentCardMetaItem } from "@shared-ui/components/cards/relatedContent";
-import { formatDate } from "@shared-utils/utils/format";
-
-export const normalizeWhitespace = (value: string): string => {
-  return value.replace(/\s+/g, " ").trim();
-};
+import { formatDate, normalizeWhitespace } from "@shared-utils/utils/format";
 
 export const normalizeSearchText = (value: string): string => {
   return normalizeWhitespace(value.toLowerCase());

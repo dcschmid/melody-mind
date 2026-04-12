@@ -55,6 +55,10 @@ export class TableOfContentsUtils {
     this.isExpanded ? this.collapse() : this.expand();
   }
 
+  private prefersReducedMotion(): boolean {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
   private expand(): void {
     if (!this.toggle || !this.content || !this.icon) {
       return;
@@ -66,12 +70,17 @@ export class TableOfContentsUtils {
     this.content.classList.add("block");
     this.attachDocumentListeners();
 
-    try {
+    if (!this.prefersReducedMotion()) {
+      try {
+        this.content.style.opacity = "1";
+        this.content.style.maxHeight = `${this.content.scrollHeight}px`;
+        void this.content.offsetHeight;
+      } catch {
+        // Animation failed — classes already set outside try block; skip animation gracefully
+      }
+    } else {
       this.content.style.opacity = "1";
-      this.content.style.maxHeight = `${this.content.scrollHeight}px`;
-      void this.content.offsetHeight;
-    } catch {
-      // fallback
+      this.content.style.maxHeight = "none";
     }
 
     this.icon.style.transform = "rotate(180deg)";
@@ -91,14 +100,19 @@ export class TableOfContentsUtils {
     this.toggle.setAttribute("aria-expanded", "false");
     this.detachDocumentListeners();
 
-    try {
-      this.content.style.opacity = "0";
-      this.content.style.maxHeight = "0px";
-      window.setTimeout(() => {
-        this.content?.classList.add("hidden");
-        this.content?.classList.remove("block");
-      }, 250);
-    } catch {
+    if (!this.prefersReducedMotion()) {
+      try {
+        this.content.style.opacity = "0";
+        this.content.style.maxHeight = "0px";
+        window.setTimeout(() => {
+          this.content?.classList.add("hidden");
+          this.content?.classList.remove("block");
+        }, 250);
+      } catch {
+        this.content.classList.add("hidden");
+        this.content.classList.remove("block");
+      }
+    } else {
       this.content.classList.add("hidden");
       this.content.classList.remove("block");
     }

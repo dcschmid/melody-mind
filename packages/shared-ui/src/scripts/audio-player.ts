@@ -152,6 +152,31 @@ const initAudioPlayers = (): (() => void) => {
       { signal }
     );
 
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.target !== player && !player.contains(event.target as Node)) {
+        return;
+      }
+      switch (event.key) {
+        case " ":
+        case "k":
+          event.preventDefault();
+          handleToggle();
+          break;
+        case "ArrowLeft":
+          event.preventDefault();
+          skip(-AUDIO_PLAYER_CONFIG.SKIP_SECONDS);
+          setStatus(`Rewound 10 seconds`);
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          skip(AUDIO_PLAYER_CONFIG.SKIP_SECONDS);
+          setStatus(`Skipped 10 seconds`);
+          break;
+      }
+    };
+
+    player.addEventListener("keydown", handleKeydown, { signal });
+
     audio.addEventListener(
       "play",
       () => {

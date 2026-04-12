@@ -31,8 +31,8 @@ const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
 
   try {
     dispatchCustomEvent<SearchTelemetryDetail>(SEARCH_EVENTS.PERFORMED, detail);
-  } catch {
-    // no-op
+  } catch (err) {
+    console.error("[search] telemetry dispatch failed:", err);
   }
 };
 
@@ -43,8 +43,8 @@ const dispatchSearchResultClick = (detail: SearchResultClickDetail): void => {
 
   try {
     dispatchCustomEvent<SearchResultClickDetail>(SEARCH_EVENTS.RESULT_CLICK, detail);
-  } catch {
-    // no-op
+  } catch (err) {
+    console.error("[search] result-click dispatch failed:", err);
   }
 };
 

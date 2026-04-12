@@ -620,17 +620,9 @@ body {
   }
 }
 
-@keyframes theme-rise-in {
-  from {
-    opacity: var(--motion-opacity-soft);
-    transform: translateY(var(--motion-distance-sm));
-  }
-
-  to {
-    opacity: var(--motion-opacity-full);
-    transform: translateY(0);
-  }
-}
+/* =============================================================================
+   REDUCED MOTION
+   ============================================================================= */
 
 @media (prefers-contrast: more) {
   :root {
