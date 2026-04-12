@@ -1,10 +1,7 @@
 ---
-/**
- * Quiz 404 Page
- */
 import Layout from "@layouts/Layout.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import NotFoundContent from "@shared-ui/components/layout/NotFoundContent.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
@@ -28,116 +25,19 @@ const pageSeo = buildPageSeo({
     className="page-shell--aurora page-shell--grid"
     containerClass="page-shell__container--narrow"
   >
-    <main class="not-found">
-      <div class="not-found__content">
-        <span class="not-found__code" aria-hidden="true">404</span>
-        <h1 class="not-found__title">Quiz not found</h1>
-        <p class="not-found__text">
-          The quiz you're looking for doesn't exist, has been moved, or the URL is
-          incorrect.
-        </p>
-        <div class="not-found__actions">
-          <a href="/" class="not-found__btn not-found__btn--primary">
-            Browse all quizzes
-          </a>
-          <a
-            href="https://melody-mind.de/"
-            class="not-found__btn not-found__btn--secondary"
-          >
-            Go to Knowledge
-          </a>
-        </div>
-      </div>
+    <main>
+      <NotFoundContent
+        title="Quiz not found"
+        description="The quiz you're looking for doesn't exist, has been moved, or the URL is incorrect."
+        buttons={[
+          { href: "/", label: "Browse all quizzes", variant: "primary" },
+          {
+            href: "https://melody-mind.de/",
+            label: "Go to Knowledge",
+            variant: "secondary",
+          },
+        ]}
+      />
     </main>
   </PageShell>
 </Layout>
-
-<style>
-  .not-found {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-block-size: 60vh;
-    padding: var(--spacing-3xl) 0;
-  }
-
-  .not-found__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--stack-gap-lg);
-    align-items: center;
-    max-inline-size: 36rem;
-    text-align: center;
-  }
-
-  .not-found__code {
-    font-size: clamp(4rem, 10vw, 7rem);
-    font-weight: 800;
-    line-height: 1;
-    color: var(--color-text-tertiary);
-    letter-spacing: -0.05em;
-  }
-
-  .not-found__title {
-    margin: 0;
-    font-size: var(--font-size-2xl);
-    font-weight: 800;
-    color: var(--text-primary);
-    letter-spacing: -0.04em;
-  }
-
-  .not-found__text {
-    margin: 0;
-    font-size: var(--font-size-lg);
-    line-height: var(--line-height-relaxed);
-    color: var(--text-secondary);
-    text-wrap: balance;
-  }
-
-  .not-found__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    justify-content: center;
-  }
-
-  .not-found__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: calc(var(--spacing-sm) + 0.3rem) var(--spacing-lg);
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: var(--radius-lg);
-  }
-
-  .not-found__btn--primary {
-    color: var(--accent-contrast);
-    background: var(--accent-primary);
-  }
-
-  .not-found__btn--secondary {
-    color: var(--text-primary);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-  }
-
-  .not-found__btn:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .not-found__btn {
-      transition:
-        transform var(--transition-fast),
-        background-color var(--transition-fast);
-    }
-
-    .not-found__btn:hover,
-    .not-found__btn:focus-visible {
-      transform: translateY(-1px);
-    }
-  }
-</style>
