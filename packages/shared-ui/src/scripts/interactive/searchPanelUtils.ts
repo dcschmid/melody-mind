@@ -1,5 +1,4 @@
 import { SEARCH_EVENTS, dispatchCustomEvent } from "@shared-utils/constants/events";
-import { isServer } from "@shared-utils/utils/environment";
 
 type SearchElements = {
   root: HTMLElement;
@@ -26,7 +25,7 @@ type SearchResultClickDetail = {
 };
 
 const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
-  if (isServer) {
+  if (typeof window === "undefined") {
     return;
   }
 
@@ -38,7 +37,7 @@ const dispatchSearchTelemetry = (detail: SearchTelemetryDetail): void => {
 };
 
 const dispatchSearchResultClick = (detail: SearchResultClickDetail): void => {
-  if (isServer) {
+  if (typeof window === "undefined") {
     return;
   }
 
@@ -298,7 +297,7 @@ function initSearchPanel(elements: SearchElements): void {
 }
 
 export function initSearchPanelsAuto(): void {
-  if (isServer) {
+  if (typeof window === "undefined") {
     return;
   }
 

@@ -19,6 +19,7 @@ import type {
   ResolvedKnowledgeEntry,
 } from "./articlePageTypes";
 import { KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES } from "./articlePageTypes";
+import { normalizeKeywords } from "./keywords";
 
 interface BuildKnowledgeArticleStructuredDataParams {
   canonical: string;
@@ -205,12 +206,7 @@ export function buildKnowledgeArticlePageData({
   lang,
   slugKey,
 }: BuildKnowledgeArticlePageDataParams) {
-  const normalizedKeywords = Array.isArray(entry.data.keywords)
-    ? entry.data.keywords.filter(
-        (keyword): keyword is string =>
-          typeof keyword === "string" && keyword.trim().length > 0
-      )
-    : [];
+  const normalizedKeywords = normalizeKeywords(entry.data.keywords);
   const rawImage = entry.data.image;
   const isValidImage =
     typeof rawImage === "string" && /\.(png|jpg|jpeg|webp|avif)$/i.test(rawImage);
@@ -268,15 +264,7 @@ export function buildKnowledgeArticlePageData({
     month: "long",
     day: "numeric",
   });
-  const currentKeywords = (
-    Array.isArray(entry.data.keywords)
-      ? entry.data.keywords
-          .map((keyword: unknown) =>
-            typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
-          )
-          .filter((keyword: string): keyword is string => Boolean(keyword))
-      : []
-  ).slice();
+  const currentKeywords = normalizeKeywords(entry.data.keywords).slice();
   const pageSeo = buildPageSeo({
     title: seoTitle,
     description: optimizedDescription,

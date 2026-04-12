@@ -7,12 +7,8 @@
  * - robots directives
  * - optional JSON-LD augmentation such as breadcrumbs
  * - lightweight in-memory memoization for repeated calls during a single process
- *
- * The function is intentionally presentation-oriented: callers provide the page URL
- * and core copy, and this module turns that into a stable metadata object that layouts
- * can map onto `<meta>` tags and JSON-LD output.
  */
-import { LRUCache } from "@shared-utils/utils/cache/LRUCache";
+import { createMemoCache } from "@shared-utils/utils/memoCache";
 
 import buildSeoText from "@shared-utils/utils/seo/textUnified";
 import type {
@@ -142,18 +138,12 @@ export interface PageSeoResult extends SeoTextResult {
 const BRAND_SUFFIX = " - MelodyMind";
 
 /**
- * Maximum number of entries in the SEO cache.
- * Prevents memory bloat during long-running dev sessions.
- */
-const MAX_SEO_CACHE_SIZE = 100;
-
-/**
  * Process-local cache only.
  *
  * This improves repeated calls in dev/SSR runs, but it is not persistent across requests,
  * builds or browser sessions.
  */
-const seoCache = new LRUCache<string, PageSeoResult>({ maxSize: MAX_SEO_CACHE_SIZE });
+const seoCache = createMemoCache<string, PageSeoResult>();
 
 /**
  * Ensures page titles follow the shared branding convention exactly once.
@@ -306,34 +296,35 @@ function buildRobots(
 }
 
 /**
- * Parses the serialized robots string back into a structured shape so layouts and tests
- * can reason about the directives without reparsing the raw meta value themselves.
+ * Builds the structured robots directives object directly from the input booleans
+ * instead of parsing the serialized string back.
  */
-function parseRobots(robots: string): PageSeoResult["robotsDirectives"] {
-  const tokens = robots.split(/\s*,\s*/g).filter(Boolean);
-  const map: Record<string, string | true> = {};
-  for (const t of tokens) {
-    const [k, v] = t.split(":", 2);
-    map[k.toLowerCase()] = v ? v : true;
+function buildRobotsDirectives(
+  index: boolean,
+  follow: boolean,
+  extras: {
+    noArchive?: boolean;
+    noImageIndex?: boolean;
+    maxSnippet?: number;
+    maxImagePreview?: "none" | "standard" | "large";
+    maxVideoPreview?: number;
   }
-  const index = map["index"] !== undefined ? map["index"] === true : !("noindex" in map);
-  const follow =
-    map["follow"] !== undefined ? map["follow"] === true : !("nofollow" in map);
+): PageSeoResult["robotsDirectives"] {
   const rd: PageSeoResult["robotsDirectives"] = { index, follow };
-  if (map["noarchive"]) {
+  if (extras.noArchive) {
     rd.noarchive = true;
   }
-  if (map["noimageindex"]) {
+  if (extras.noImageIndex) {
     rd.noimageindex = true;
   }
-  if (map["max-snippet"]) {
-    rd.maxSnippet = Number(map["max-snippet"]);
+  if (typeof extras.maxSnippet === "number") {
+    rd.maxSnippet = extras.maxSnippet;
   }
-  if (map["max-image-preview"]) {
-    rd.maxImagePreview = String(map["max-image-preview"]);
+  if (extras.maxImagePreview) {
+    rd.maxImagePreview = extras.maxImagePreview;
   }
-  if (map["max-video-preview"]) {
-    rd.maxVideoPreview = Number(map["max-video-preview"]);
+  if (typeof extras.maxVideoPreview === "number") {
+    rd.maxVideoPreview = extras.maxVideoPreview;
   }
   return rd;
 }
@@ -350,7 +341,7 @@ function prepareSeoText(
   return buildSeoText({
     title: normalizedTitle,
     descriptionBase: description,
-    enrichedParts,
+    ...(enrichedParts !== undefined && { enrichedParts }),
     ...rest,
   });
 }
@@ -522,37 +513,37 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     exited: false,
     title,
     description,
-    enrichedParts,
+    ...(enrichedParts !== undefined && { enrichedParts }),
     url,
-    image,
-    type,
+    ...(image !== undefined && { image }),
+    ...(type !== undefined && { type }),
     contentKind,
-    fallbackImage,
-    publishDate,
-    modifiedDate,
+    ...(fallbackImage !== undefined && { fallbackImage }),
+    ...(publishDate !== undefined && { publishDate }),
+    ...(modifiedDate !== undefined && { modifiedDate }),
     extraMeta,
     index,
     follow,
-    noArchive,
-    noImageIndex,
-    maxSnippet,
-    maxImagePreview,
-    maxVideoPreview,
+    ...(noArchive !== undefined && { noArchive }),
+    ...(noImageIndex !== undefined && { noImageIndex }),
+    ...(maxSnippet !== undefined && { maxSnippet }),
+    ...(maxImagePreview !== undefined && { maxImagePreview }),
+    ...(maxVideoPreview !== undefined && { maxVideoPreview }),
     structuredData,
-    ogLocale,
-    alternateLocales,
-    twitterCreator,
-    breadcrumbs,
-    authorName,
-    imageAlt,
+    ...(ogLocale !== undefined && { ogLocale }),
+    ...(alternateLocales !== undefined && { alternateLocales }),
+    ...(twitterCreator !== undefined && { twitterCreator }),
+    ...(breadcrumbs !== undefined && { breadcrumbs }),
+    ...(authorName !== undefined && { authorName }),
+    ...(imageAlt !== undefined && { imageAlt }),
     brandSuffix,
     memoize: canMemoize,
-    autoSocialImage,
-    generateSocialImage,
-    onSocialImageError,
-    rest,
+    ...(autoSocialImage !== undefined && { autoSocialImage }),
+    ...(generateSocialImage !== undefined && { generateSocialImage }),
+    ...(onSocialImageError !== undefined && { onSocialImageError }),
+    ...rest,
     cacheKey,
-  };
+  } as NormalizedResultBase;
 }
 
 /**
@@ -626,11 +617,19 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     contentKind
   );
   const robots = buildRobots(index, follow, {
-    noArchive,
-    noImageIndex,
-    maxSnippet,
-    maxImagePreview,
-    maxVideoPreview,
+    ...(noArchive !== undefined && { noArchive }),
+    ...(noImageIndex !== undefined && { noImageIndex }),
+    ...(maxSnippet !== undefined && { maxSnippet }),
+    ...(maxImagePreview !== undefined && { maxImagePreview }),
+    ...(maxVideoPreview !== undefined && { maxVideoPreview }),
+  });
+
+  const robotsDirectives = buildRobotsDirectives(index, follow, {
+    ...(noArchive !== undefined && { noArchive }),
+    ...(noImageIndex !== undefined && { noImageIndex }),
+    ...(maxSnippet !== undefined && { maxSnippet }),
+    ...(maxImagePreview !== undefined && { maxImagePreview }),
+    ...(maxVideoPreview !== undefined && { maxVideoPreview }),
   });
 
   // Structured data augmentation hook: inject breadcrumbs if available & not already present
@@ -646,33 +645,33 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     keywordArray: seoText.keywordArray,
     enrichedContent: seoText.enrichedContent,
     canonical: url,
-    image: finalImage,
+    ...(finalImage !== undefined && { image: finalImage }),
     type: inferredType,
-    publishDate: publishDate ? new Date(publishDate) : undefined,
-    modifiedDate: modifiedDate ? new Date(modifiedDate) : undefined,
+    ...(publishDate !== undefined && { publishDate: new Date(publishDate) }),
+    ...(modifiedDate !== undefined && { modifiedDate: new Date(modifiedDate) }),
     extraMeta,
     robots,
-    robotsDirectives: parseRobots(robots),
+    robotsDirectives,
     openGraph: {
       title: normalizedTitle,
       description: seoText.description,
       type: inferredType,
       url,
-      image: finalImage,
-      locale: ogLocale,
+      ...(finalImage !== undefined && { image: finalImage }),
+      ...(ogLocale !== undefined && { locale: ogLocale }),
     },
     twitter: {
       card: finalImage ? "summary_large_image" : "summary",
       title: normalizedTitle,
       description: seoText.description,
-      image: finalImage,
-      creator: twitterCreator,
+      ...(finalImage !== undefined && { image: finalImage }),
+      ...(twitterCreator !== undefined && { creator: twitterCreator }),
     },
     structuredData: augmentedStructured,
-    ogLocale,
-    alternateLocales,
-    authorName,
-    imageAlt,
+    ...(ogLocale !== undefined && { ogLocale }),
+    ...(alternateLocales !== undefined && { alternateLocales }),
+    ...(authorName !== undefined && { authorName }),
+    ...(imageAlt !== undefined && { imageAlt }),
   };
   if (memoize) {
     seoCache.set(cacheKey, result);

@@ -1,8 +1,7 @@
 /**
  * Unified SEO text builder for meta descriptions and keyword lists.
  *
- * This module replaced older fragmented helpers and now acts as the single façade for
- * turning page copy into:
+ * This module is the single façade for turning page copy into:
  * - a meta-description-sized summary
  * - an ordered keyword array
  * - a comma-separated keyword string for tag output
@@ -10,7 +9,288 @@
  * The implementation is intentionally heuristic rather than editorially perfect. It aims
  * for stable, reusable defaults that work across content pages, indexes and programmatic SEO.
  */
-import { extractKeywords } from "../seo";
+
+/**
+ * Language-specific stop words for keyword extraction.
+ */
+const STOP_WORDS_BY_LANGUAGE: Record<string, string[]> = {
+  en: [
+    "and",
+    "or",
+    "but",
+    "the",
+    "a",
+    "an",
+    "in",
+    "with",
+    "for",
+    "of",
+    "to",
+    "is",
+    "are",
+    "was",
+    "were",
+    "be",
+    "been",
+    "being",
+    "have",
+    "has",
+    "had",
+    "do",
+    "does",
+    "did",
+    "will",
+    "would",
+    "shall",
+    "should",
+    "can",
+    "could",
+    "may",
+    "might",
+    "must",
+    "that",
+    "this",
+    "these",
+    "those",
+    "they",
+    "them",
+    "their",
+    "there",
+    "here",
+    "where",
+    "when",
+    "why",
+    "how",
+    "which",
+    "who",
+    "whom",
+  ],
+  de: [
+    "und",
+    "oder",
+    "aber",
+    "der",
+    "die",
+    "das",
+    "ein",
+    "eine",
+    "in",
+    "mit",
+    "für",
+    "von",
+    "zu",
+    "ist",
+    "sind",
+    "war",
+    "waren",
+    "sein",
+    "gewesen",
+    "haben",
+    "hat",
+    "hatte",
+    "hatten",
+    "werden",
+    "wird",
+    "wurde",
+    "wurden",
+    "kann",
+    "können",
+    "könnte",
+    "könnten",
+    "muss",
+    "müssen",
+    "dass",
+    "dieser",
+    "diese",
+    "dieses",
+    "jene",
+    "jenes",
+    "sie",
+    "ihr",
+    "ihre",
+    "dort",
+    "hier",
+    "wo",
+    "wann",
+    "warum",
+    "wie",
+    "welche",
+    "welcher",
+    "welches",
+    "wer",
+    "wen",
+    "wem",
+  ],
+  es: [
+    "y",
+    "o",
+    "pero",
+    "el",
+    "la",
+    "los",
+    "las",
+    "un",
+    "una",
+    "unos",
+    "unas",
+    "en",
+    "con",
+    "para",
+    "de",
+    "a",
+    "es",
+    "son",
+    "era",
+    "eran",
+    "ser",
+    "sido",
+    "estar",
+    "tener",
+    "tiene",
+    "tenía",
+    "tenían",
+    "hacer",
+    "hace",
+    "hizo",
+    "hicieron",
+    "este",
+    "esta",
+    "estos",
+    "estas",
+    "ese",
+    "esa",
+    "esos",
+    "esas",
+    "ellos",
+    "ellas",
+    "su",
+    "sus",
+    "allí",
+    "aquí",
+    "donde",
+    "cuando",
+    "por qué",
+    "cómo",
+    "cuál",
+    "cuáles",
+    "quién",
+    "quiénes",
+  ],
+  fr: [
+    "et",
+    "ou",
+    "mais",
+    "le",
+    "la",
+    "les",
+    "un",
+    "une",
+    "des",
+    "en",
+    "avec",
+    "pour",
+    "de",
+    "à",
+    "est",
+    "sont",
+    "était",
+    "étaient",
+    "être",
+    "été",
+    "avoir",
+    "a",
+    "avait",
+    "avaient",
+    "faire",
+    "fait",
+    "ce",
+    "cette",
+    "ces",
+    "celui",
+    "celle",
+    "ceux",
+    "celles",
+    "ils",
+    "elles",
+    "leur",
+    "leurs",
+    "là",
+    "ici",
+    "où",
+    "quand",
+    "pourquoi",
+    "comment",
+    "quel",
+    "quelle",
+    "quels",
+    "quelles",
+    "qui",
+  ],
+};
+
+/**
+ * Extracts SEO-style keywords from raw content as a comma-separated string.
+ *
+ * Lightweight heuristic:
+ * - normalize and lowercase the input
+ * - remove language-specific stop words
+ * - collect unigrams, bigrams and trigrams
+ * - weight multi-word phrases above single words
+ * - return the top-ranked terms as a comma-separated list
+ */
+function extractKeywords(content: string, maxKeywords = 10, language = "en"): string {
+  const stopWords = STOP_WORDS_BY_LANGUAGE[language] ?? STOP_WORDS_BY_LANGUAGE["en"]!;
+
+  const cleanedContent = content
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const words = cleanedContent
+    .split(/\s+/)
+    .filter((word) => word.length > 3 && !stopWords.includes(word));
+
+  const bigrams: string[] = [];
+  for (let i = 0; i < words.length - 1; i++) {
+    const current = words[i];
+    const next = words[i + 1];
+    if (current && next && current.length > 2 && next.length > 2) {
+      bigrams.push(`${current} ${next}`);
+    }
+  }
+
+  const trigrams: string[] = [];
+  for (let i = 0; i < words.length - 2; i++) {
+    const curr = words[i];
+    const nxt = words[i + 1];
+    const nxt2 = words[i + 2];
+    if (curr && nxt && nxt2 && curr.length > 2 && nxt.length > 2 && nxt2.length > 2) {
+      trigrams.push(`${curr} ${nxt} ${nxt2}`);
+    }
+  }
+
+  const allTerms = [...words, ...bigrams, ...trigrams];
+
+  const termFrequency: Record<string, number> = {};
+  allTerms.forEach((term) => {
+    termFrequency[term] = (termFrequency[term] || 0) + 1;
+  });
+
+  const weightedTerms = Object.keys(termFrequency).map((term) => {
+    const wordCount = term.split(" ").length;
+    const frequencyWeight = termFrequency[term] ?? 0;
+    const lengthWeight = wordCount > 1 ? 1.5 * wordCount : 1;
+    return { term, score: frequencyWeight * lengthWeight };
+  });
+
+  const sortedTerms = weightedTerms
+    .sort((a, b) => b.score - a.score)
+    .map((item) => item.term)
+    .slice(0, maxKeywords);
+
+  return sortedTerms.join(", ");
+}
 
 /** Input contract for `buildSeoText()`. */
 export interface BuildSeoTextParams {
@@ -26,8 +306,6 @@ export interface BuildSeoTextParams {
   fallbackKeywords?: string[];
   /** Controls whether summary generation or truncation gets first priority. */
   combineStrategy?: "truncate-first" | "generate-first";
-  /** Optional sanitize hook to clean raw text (HTML stripping, whitespace collapse) */
-  sanitizeFn?: (raw: string) => string;
 }
 
 /** Final SEO text payload returned to page-level SEO helpers. */
@@ -240,13 +518,12 @@ export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
     keywordLimit = 12,
     fallbackKeywords = [],
     combineStrategy = "generate-first",
-    sanitizeFn,
   } = params;
   const rawCombined = [title, descriptionBase, ...enrichedParts]
     .filter(Boolean)
     .join(" ")
     .trim();
-  const enrichedContent = sanitizeFn ? sanitizeFn(rawCombined) : rawCombined;
+  const enrichedContent = rawCombined;
 
   const description = buildDescription(enrichedContent, combineStrategy, maxDescription);
 

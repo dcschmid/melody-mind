@@ -107,8 +107,6 @@ export const QUIZ_SITE_URL = "https://quiz.melody-mind.de";
 export const PODCASTS_SITE_URL = "https://podcasts.melody-mind.de";
 export const DEFAULT_APP_SHELL_FOOTER_BRAND_TEXT =
   "Curated guides and playlists to help you listen more closely and discover new sounds.";
-export const PODCAST_APP_SHELL_FOOTER_BRAND_TEXT =
-  "Curated stories, timelines, and playlists to help you listen more closely and discover new sounds.";
 export const SEARCH_NAV_ITEM: AppShellNavItem = {
   href: "/search",
   label: "Search",
@@ -245,7 +243,7 @@ export function buildAppShellSeoContext({
 
   if (
     !pageSeo.structuredData.some(
-      (entry: { [x: string]: string }) => entry["@type"] === "Organization"
+      (entry) => (entry as Record<string, unknown>)["@type"] === "Organization"
     )
   ) {
     globalStructuredData.push(
@@ -260,7 +258,7 @@ export function buildAppShellSeoContext({
 
   if (
     !pageSeo.structuredData.some(
-      (entry: { [x: string]: string }) => entry["@type"] === "WebSite"
+      (entry) => (entry as Record<string, unknown>)["@type"] === "WebSite"
     )
   ) {
     globalStructuredData.push(
@@ -292,7 +290,7 @@ function inferImageTypeFromUrl(url: string | undefined): string | undefined {
   if (!match) {
     return undefined;
   }
-  const ext = match[1].toLowerCase();
+  const ext = (match[1] as string).toLowerCase();
   const typeMap: Record<string, string> = {
     jpg: "image/jpeg",
     jpeg: "image/jpeg",

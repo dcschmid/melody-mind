@@ -13,7 +13,6 @@
  */
 
 import type { StorageKey } from "../../constants/storage";
-import { isServer } from "../environment";
 
 /** Cached availability flags so each storage backend is probed at most once per reset. */
 let _localStorageChecked = false;
@@ -32,7 +31,7 @@ const isLocalStorageAvailable = (): boolean => {
   }
 
   // SSR/build environment check
-  if (isServer || !window.localStorage) {
+  if (typeof window === "undefined" || !window.localStorage) {
     _localStorageChecked = true;
     _localStorageAvailable = false;
     return false;
@@ -116,22 +115,6 @@ export const safeLocalStorage = {
   },
 
   /**
-   * Writes a raw string value to `localStorage` without JSON serialization.
-   */
-  setRaw(key: StorageKey | string, value: string): boolean {
-    if (!isLocalStorageAvailable()) {
-      return false;
-    }
-
-    try {
-      window.localStorage.setItem(key, value);
-      return true;
-    } catch {
-      return false;
-    }
-  },
-
-  /**
    * Removes a key from `localStorage`, ignoring runtime failures.
    */
   remove(key: StorageKey | string): void {
@@ -145,24 +128,4 @@ export const safeLocalStorage = {
       // Ignore errors on removal
     }
   },
-
-  /**
-   * Returns whether a key currently exists in `localStorage`.
-   */
-  has(key: StorageKey | string): boolean {
-    if (!isLocalStorageAvailable()) {
-      return false;
-    }
-
-    try {
-      return window.localStorage.getItem(key) !== null;
-    } catch {
-      return false;
-    }
-  },
-
-  /**
-   * Exposes the cached runtime availability probe for callers that need a pre-check.
-   */
-  isAvailable: isLocalStorageAvailable,
 };

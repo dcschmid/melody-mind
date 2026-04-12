@@ -1,6 +1,5 @@
 ---
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
-import SectionHeader from "@shared-ui/components/layout/SectionHeader.astro";
 import VisuallyHidden from "@shared-ui/components/utilities/VisuallyHidden.astro";
 
 interface Props extends astroHTML.JSX.HTMLAttributes {
@@ -34,7 +33,14 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
 ---
 
 <section {...rest} class={classes} aria-labelledby={titleId}>
-  <SectionHeader title={title} titleId={titleId} copy={copy} />
+  <div class="section-header recent-reads-panel__header">
+    <div class="section-header__copy">
+      <h2 id={titleId} class="section-header__title recent-reads-panel__title">
+        {title}
+      </h2>
+      <p class="section-header__description recent-reads-panel__description">{copy}</p>
+    </div>
+  </div>
 
   <div
     class="recent-reads-panel__mount"
@@ -73,6 +79,34 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   .recent-reads-panel {
     display: grid;
     gap: var(--spacing-lg);
+  }
+
+  .recent-reads-panel__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+    align-items: flex-start;
+  }
+
+  .recent-reads-panel__title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+  }
+
+  .recent-reads-panel__description {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  @media (width >= 640px) {
+    .recent-reads-panel__header {
+      flex-direction: row;
+      align-items: end;
+      justify-content: space-between;
+    }
   }
 
   .recent-reads-panel__results {

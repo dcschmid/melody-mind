@@ -50,11 +50,6 @@ export const formatTime = (seconds: number, options?: FormatOptions): string => 
   return `${minutes}:${ss}`;
 };
 
-/** Convenience wrapper for duration labels that should stay in `mm:ss` form unless needed. */
-export const formatDuration = (totalSeconds: number): string => {
-  return formatTime(totalSeconds, { includeHours: false });
-};
-
 /**
  * Parses `hh:mm:ss` or `mm:ss`-style strings into total seconds.
  *

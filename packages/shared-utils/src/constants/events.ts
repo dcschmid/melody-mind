@@ -12,8 +12,6 @@
  * @module constants/events
  */
 
-import { isServer } from "../utils/environment";
-
 /**
  * Theme synchronization events for propagating light/dark preference changes.
  *
@@ -60,7 +58,7 @@ type EventName = EventValues<typeof THEME_EVENTS> | EventValues<typeof SEARCH_EV
  * direct `new CustomEvent(...)` call sites can gradually migrate here.
  */
 export function dispatchCustomEvent<T = unknown>(eventName: EventName, detail?: T): void {
-  if (isServer) {
+  if (typeof window === "undefined") {
     return;
   }
 

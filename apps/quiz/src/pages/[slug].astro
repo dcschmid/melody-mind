@@ -9,7 +9,8 @@ import Headline from "@shared-ui/components/typography/Headline.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { getCollection } from "astro:content";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import {
   buildBreadcrumbListSchema,
   buildQuizSchema,
@@ -29,7 +30,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const quizzes = await getCollectionEntries("quizzes");
+  const quizzes = await getCollectionCached("quizzes", { getCollection });
   return quizzes.map((quiz: any) => ({
     params: { slug: quiz.id },
     props: { quiz: { id: quiz.id, data: quiz.data } },

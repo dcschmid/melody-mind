@@ -13,7 +13,8 @@ import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { getCollection } from "astro:content";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import {
   buildBreadcrumbListSchema,
   buildCollectionPageSchema,
@@ -35,7 +36,7 @@ interface QuizEntry {
   data: QuizData;
 }
 
-const allQuizzes = await getCollectionEntries("quizzes");
+const allQuizzes = await getCollectionCached("quizzes", { getCollection });
 const quizzes: QuizEntry[] = allQuizzes.map((q: any) => ({
   id: q.id,
   data: q.data as QuizData,

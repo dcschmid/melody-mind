@@ -1,5 +1,4 @@
 import type { RenderedContent } from "astro:content";
-import type { LinkPanelItem } from "@shared-ui/components/cards/linkPanel";
 
 /**
  * Search-focused title overrides for specific high-value knowledge articles.
@@ -23,6 +22,16 @@ const KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES: Record<string, string> = {
   "from-ska-to-global-bass": "Jamaican Music History: From Ska to Global Bass",
   "from-soul-to-modern-dance-music": "Dance Music History: From Soul to House and Techno",
 };
+
+export { KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES };
+
+export interface LinkPanelItem {
+  href: string;
+  label: string;
+  icon?: string;
+  variant?: "primary" | "secondary";
+  ariaLabel?: string;
+}
 
 export interface KnowledgeArticleLike {
   id?: string;
@@ -76,5 +85,3 @@ export interface RelatedKnowledgeArticle {
   createdAt: Date;
   readingTime: number;
 }
-
-export { KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES };

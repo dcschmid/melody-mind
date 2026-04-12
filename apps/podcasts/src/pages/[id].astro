@@ -6,7 +6,6 @@ import Prose from "@shared-ui/components/typography/Prose.astro";
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import DetailPill from "@shared-ui/components/data-display/DetailPill.astro";
 import MetaPillGroup from "@shared-ui/components/data-display/MetaPillGroup.astro";
-import Eyebrow from "@shared-ui/components/typography/Eyebrow.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSection.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
@@ -152,9 +151,9 @@ const publishedLabel = formatDate(currentPodcast.publishedAt);
       {
         currentPodcast.knowledgeUrl && (
           <Stack as="section" aria-labelledby="knowledge-link" gap="lg">
-            <Eyebrow tone="muted" size="sm" id="knowledge-link">
+            <p id="knowledge-link" class="eyebrow eyebrow--tone-muted eyebrow--size-sm">
               {t.knowledge}
-            </Eyebrow>
+            </p>
             <ContentCard
               id={`episode-knowledge-${currentPodcast.id}`}
               href={currentPodcast.knowledgeUrl}

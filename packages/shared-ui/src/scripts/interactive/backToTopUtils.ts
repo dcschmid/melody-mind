@@ -1,12 +1,10 @@
-import { isServer } from "@shared-utils/utils/environment";
-
 interface BackToTopConfig {
   buttonId: string;
   scrollThreshold?: number;
 }
 
 export function initBackToTop(config: BackToTopConfig): void {
-  if (isServer) {
+  if (typeof window === "undefined") {
     return;
   }
 

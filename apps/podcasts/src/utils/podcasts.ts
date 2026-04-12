@@ -1,18 +1,13 @@
 import type { CollectionEntry } from "astro:content";
-import { LRUCache } from "@shared-utils/utils/cache/LRUCache";
-import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { getCollection } from "astro:content";
+import { createMemoCache } from "@shared-utils/utils/memoCache";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import type { PodcastData } from "../types/podcast";
 
 type PodcastEntry = CollectionEntry<"podcasts">;
 
-const markdownCache = new LRUCache<string, string>({
-  maxSize: 64,
-  ttlMs: 5 * 60 * 1000,
-});
-const podcastListCache = new LRUCache<string, PodcastData[]>({
-  maxSize: 4,
-  ttlMs: 5 * 60 * 1000,
-});
+const markdownCache = createMemoCache<string, string>();
+const podcastListCache = createMemoCache<string, PodcastData[]>();
 
 type PodcastEntryWithBody = PodcastEntry & {
   body?: string;
@@ -98,7 +93,9 @@ const getPodcastList = async (): Promise<PodcastData[]> => {
     return cached;
   }
 
-  const entries = await getCollectionEntries("podcasts");
+  const entries = (await getCollectionCached("podcasts", {
+    getCollection,
+  })) as PodcastEntry[];
   const list = entries.map(entryToPodcastData);
   podcastListCache.set("all", list);
   return list;

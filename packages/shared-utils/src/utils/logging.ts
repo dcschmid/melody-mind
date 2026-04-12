@@ -26,13 +26,15 @@ const LOG_LEVEL_PRIORITY: Record<LogLevel, number> = {
  * existing runtime behavior in Node-based builds while keeping the file browser-safe to typecheck.
  */
 function isProductionRuntime(): boolean {
-  const processLike = (globalThis as {
-    process?: {
-      env?: {
-        NODE_ENV?: string;
+  const processLike = (
+    globalThis as {
+      process?: {
+        env?: {
+          NODE_ENV?: string;
+        };
       };
-    };
-  }).process;
+    }
+  ).process;
 
   return processLike?.env?.NODE_ENV === "production";
 }
@@ -76,7 +78,9 @@ export function createLogger(module: string) {
      * Emits a debug-level message when the current log level allows it.
      */
     debug(message: string, data?: unknown): void {
-      if (!shouldLog("debug")) {return;}
+      if (!shouldLog("debug")) {
+        return;
+      }
       console.debug(formatMessage(module, message), data ?? "");
     },
 
@@ -84,7 +88,9 @@ export function createLogger(module: string) {
      * Emits an informational message.
      */
     info(message: string, data?: unknown): void {
-      if (!shouldLog("info")) {return;}
+      if (!shouldLog("info")) {
+        return;
+      }
       console.info(formatMessage(module, message), data ?? "");
     },
 
@@ -92,7 +98,9 @@ export function createLogger(module: string) {
      * Emits a warning message.
      */
     warn(message: string, data?: unknown): void {
-      if (!shouldLog("warn")) {return;}
+      if (!shouldLog("warn")) {
+        return;
+      }
       console.warn(formatMessage(module, message), data ?? "");
     },
 
@@ -103,7 +111,9 @@ export function createLogger(module: string) {
      * stack remain visible without relying on browser-specific console formatting.
      */
     error(message: string, error?: unknown): void {
-      if (!shouldLog("error")) {return;}
+      if (!shouldLog("error")) {
+        return;
+      }
 
       const formatted = formatMessage(module, message);
 
@@ -121,7 +131,9 @@ export function createLogger(module: string) {
      * Emits a standardized deprecation warning for renamed or legacy features.
      */
     deprecated(feature: string, replacement?: string): void {
-      if (!shouldLog("warn")) {return;}
+      if (!shouldLog("warn")) {
+        return;
+      }
 
       const msg = replacement
         ? `${feature} is deprecated. Use ${replacement} instead.`
@@ -134,7 +146,9 @@ export function createLogger(module: string) {
      * Emits a simple timing/debug line for ad-hoc performance measurements.
      */
     timing(operation: string, durationMs: number): void {
-      if (!shouldLog("debug")) {return;}
+      if (!shouldLog("debug")) {
+        return;
+      }
       console.debug(
         formatMessage(module, `[timing] ${operation}: ${durationMs.toFixed(2)}ms`)
       );
@@ -144,12 +158,6 @@ export function createLogger(module: string) {
 
 /** Pre-created loggers for the most common module names used across the monorepo. */
 export const loggers = {
-  analytics: createLogger("analytics"),
   content: createLogger("content"),
   pages: createLogger("pages"),
-  quiz: createLogger("quiz"),
-  seo: createLogger("seo"),
-  theme: createLogger("theme"),
-  storage: createLogger("storage"),
-  cache: createLogger("cache"),
 } as const;

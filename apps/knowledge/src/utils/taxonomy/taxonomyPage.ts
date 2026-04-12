@@ -2,7 +2,6 @@
  * Search-focused metadata overrides for taxonomy landing pages.
  * These stay centralized so routing pages do not each maintain their own SEO maps.
  */
-export { buildTaxonomySectionPageData } from "./buildTaxonomySectionPageData";
 
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import {

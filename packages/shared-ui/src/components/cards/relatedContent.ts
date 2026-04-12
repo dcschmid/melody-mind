@@ -1,5 +1,10 @@
 import type { ImageMetadata } from "astro";
-import type { ContentCardMetaItem } from "@shared-ui/components/cards/contentCard";
+
+export interface ContentCardMetaItem {
+  label: string;
+  iconName?: string;
+  datetime?: string;
+}
 
 export interface RelatedContentCardItem {
   id: string;
@@ -74,12 +79,12 @@ export function buildRelatedArticleCardItem(
     title,
     description,
     href,
-    imageSrc,
+    ...(imageSrc !== undefined && { imageSrc }),
     imageAlt: imageAlt ?? (title ? `Cover image for ${title}` : ""),
     ctaSrText,
     metaItems: buildReadingDateMetaItems({
       publishedAt,
-      readingTimeMinutes,
+      ...(typeof readingTimeMinutes === "number" && { readingTimeMinutes }),
       locale,
     }),
   };

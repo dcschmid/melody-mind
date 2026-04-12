@@ -10,7 +10,8 @@ import {
 } from "@shared-utils/utils/seo/seoSchema";
 import { calculateReadingTime } from "@shared-utils/utils/readingTime";
 import { sortEntries } from "@shared-utils/utils/content/sortEntries";
-import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { getCollection } from "astro:content";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import {
   normalizeDate,
   derivePublishModified,
@@ -146,9 +147,9 @@ export const buildKnowledgeIndexPageData = async (
   let baseArticles: KnowledgeIndexArticle[] = [];
 
   try {
-    baseArticles = (await getCollectionEntries(
-      "knowledge-en"
-    )) as KnowledgeIndexArticle[];
+    baseArticles = (await getCollectionCached("knowledge-en", {
+      getCollection,
+    })) as KnowledgeIndexArticle[];
   } catch (e) {
     loggers.pages.warn("knowledge index: collection load issue", {
       error: (e as any)?.message || e,

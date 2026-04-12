@@ -20,10 +20,12 @@ import { VERSIONED_KEYS } from "@constants/storageVersions";
 import {
   buildKnowledgeArticleStorageMeta,
   buildKnowledgeArticlePageData,
+  resolveKnowledgeSlug,
+} from "@utils/knowledge/articlePageMeta";
+import {
   getKnowledgeArticleStaticPaths,
   resolveKnowledgeArticleEntry,
-  resolveKnowledgeSlug,
-} from "@utils/knowledge/articlePage";
+} from "@utils/knowledge/articlePageContent";
 
 export const prerender = true;
 

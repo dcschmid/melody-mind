@@ -9,18 +9,7 @@ import { loggers } from "@shared-utils/utils/logging";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { getKnowledgeCategoryImage } from "@utils/knowledgeImages";
 import type { KnowledgeArticleLike, RelatedKnowledgeArticle } from "./articlePageTypes";
-
-function toKeywordSet(keywords: unknown[] | undefined): Set<string> {
-  return new Set(
-    Array.isArray(keywords)
-      ? keywords
-          .map((keyword) =>
-            typeof keyword === "string" ? keyword.trim().toLowerCase() : ""
-          )
-          .filter(Boolean)
-      : []
-  );
-}
+import { toKeywordSet } from "./keywords";
 
 /**
  * Scores and returns the strongest related articles for a knowledge detail page.

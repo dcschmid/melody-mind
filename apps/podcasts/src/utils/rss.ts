@@ -1,5 +1,5 @@
 import type { PodcastData } from "../types/podcast";
-import { formatDuration } from "@shared-utils/utils/time";
+import { formatTime } from "@shared-utils/utils/time";
 import { getPodcastCoverImageUrl, podcastHeroImageUrl } from "./podcastImages";
 import { PODCASTS_SITE_URL } from "@shared-utils/utils/appShell";
 
@@ -159,7 +159,7 @@ function generateRSSItem({
 
   let durationTag = "";
   if (episode.durationSeconds && episode.durationSeconds > 0) {
-    durationTag = `<itunes:duration>${formatDuration(episode.durationSeconds)}</itunes:duration>`;
+    durationTag = `<itunes:duration>${formatTime(episode.durationSeconds)}</itunes:duration>`;
   }
 
   const enclosureLength = episode.fileSizeBytes

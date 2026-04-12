@@ -4,7 +4,6 @@ import RecentReadsPanel from "@shared-ui/components/init/RecentReadsPanel.astro"
 import DetailPill from "@shared-ui/components/data-display/DetailPill.astro";
 import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import SectionHeader from "@shared-ui/components/layout/SectionHeader.astro";
 import Stack from "@shared-ui/components/layout/Stack.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
@@ -55,12 +54,16 @@ const { pageSeo, recentReadImageMap, taxonomySections } =
         aria-describedby="knowledge-categories-help"
         gap="lg"
       >
-        <SectionHeader
-          title="Explore categories"
-          titleId="knowledge-categories-title"
-          copy="Browse genre sections. Each card includes the number of available articles."
-          id="knowledge-categories-help"
-        />
+        <div class="section-header knowledge-index__section-header">
+          <div class="section-header__copy">
+            <h2 id="knowledge-categories-title" class="section-header__title">
+              Explore categories
+            </h2>
+            <p class="section-header__description" id="knowledge-categories-help">
+              Browse genre sections. Each card includes the number of available articles.
+            </p>
+          </div>
+        </div>
         <AutoGrid
           as="ul"
           class="knowledge-index__grid"
@@ -110,5 +113,20 @@ const { pageSeo, recentReadImageMap, taxonomySections } =
     padding: 0;
     margin: 0;
     list-style: none;
+  }
+
+  .knowledge-index__section-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-base);
+    align-items: flex-start;
+  }
+
+  @media (width >= 640px) {
+    .knowledge-index__section-header {
+      flex-direction: row;
+      align-items: end;
+      justify-content: space-between;
+    }
   }
 </style>

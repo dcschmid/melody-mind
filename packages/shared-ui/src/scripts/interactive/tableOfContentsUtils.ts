@@ -1,5 +1,3 @@
-import { safeGetElementById } from "./dom-utils";
-
 interface TableOfContentsConfig {
   toggleId: string;
   contentId: string;
@@ -17,9 +15,9 @@ export class TableOfContentsUtils {
   private boundEscapeKey: (e: KeyboardEvent) => void;
 
   constructor(config: TableOfContentsConfig) {
-    this.toggle = safeGetElementById<HTMLButtonElement>(config.toggleId);
-    this.content = safeGetElementById(config.contentId);
-    this.icon = safeGetElementById(config.iconId);
+    this.toggle = document.getElementById(config.toggleId) as HTMLButtonElement | null;
+    this.content = document.getElementById(config.contentId);
+    this.icon = document.getElementById(config.iconId);
 
     // Bind methods once so destroy() can properly remove them
     this.boundToggle = () => this.toggleContent();

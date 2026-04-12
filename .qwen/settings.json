@@ -7,7 +7,9 @@
       "Bash(done)",
       "Bash(sed *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Read(//home/daniel/dev/github/melody-melody-mind/packages/shared-ui/src/components/cards/**)",
+      "Bash(rmdir *)"
     ]
   },
   "$version": 3

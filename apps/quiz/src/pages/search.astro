@@ -5,7 +5,8 @@ import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { getCollection } from "astro:content";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export const prerender = true;
@@ -40,7 +41,7 @@ interface SearchPageItem {
   url: string;
 }
 
-const allEntries = await getCollectionEntries("quizzes");
+const allEntries = await getCollectionCached("quizzes", { getCollection });
 const typedEntries: QuizEntry[] = allEntries as QuizEntry[];
 const entries = typedEntries.filter(
   (entry) => !(entry.data as { draft?: boolean }).draft

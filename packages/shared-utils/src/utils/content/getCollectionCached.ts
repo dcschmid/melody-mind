@@ -1,7 +1,7 @@
 /**
  * Lightweight process-local cache for Astro content collection reads.
  *
- * This helper wraps `astro:content`'s `getCollection()` with a small in-memory LRU
+ * This helper wraps `astro:content`'s `getCollection()` with a small in-memory
  * cache so repeated requests in the same server/runtime do not repeatedly pay the
  * content loading and globbing cost.
  *
@@ -13,63 +13,15 @@
  */
 import type { CollectionEntry } from "astro:content";
 import { loggers } from "@shared-utils/utils/logging";
-import { LRUCache } from "@shared-utils/utils/cache/LRUCache";
-
-type GetCollectionFn = (name: string) => Promise<CollectionEntry<unknown>[]>;
+import { createMemoCache } from "@shared-utils/utils/memoCache";
 
 /** Broad collection entry array type used by the generic cache layer. */
-export type AnyCollectionEntries = CollectionEntry<unknown>[];
-
-/**
- * Upper bound for distinct collection names held in memory at once.
- *
- * The cache is keyed by collection name, not by filter parameters.
- */
-const MAX_CACHE_SIZE = 50;
-
-/**
- * Default lifetime for a cached collection snapshot.
- *
- * Short enough to stay reasonably fresh in long-lived runtimes while still
- * reducing repeated collection-loading overhead.
- *
- * Can be overridden via COLLECTION_CACHE_TTL_MS env var:
- * - "0" or "Infinity" = no TTL (entries only evicted by LRU, ideal for SSG builds)
- * - numeric value = TTL in milliseconds (default: 5 minutes)
- */
-const resolveTtlMs = (): number | undefined => {
-  const envValue = process.env.COLLECTION_CACHE_TTL_MS;
-  if (envValue !== undefined) {
-    const parsed = Number(envValue);
-    return parsed <= 0 || !Number.isFinite(parsed) ? undefined : parsed;
-  }
-  return 5 * 60 * 1000;
-};
-
-const DEFAULT_TTL_MS = resolveTtlMs();
+export type AnyCollectionEntries = (Record<string, unknown>)[];
 
 /**
  * Shared in-memory cache for collection entry arrays.
  */
-const _collectionCache = new LRUCache<string, AnyCollectionEntries>({
-  maxSize: MAX_CACHE_SIZE,
-  ttlMs: DEFAULT_TTL_MS,
-});
-
-/**
- * Tracks which collection names have already emitted a load failure log entry.
- *
- * This keeps repeated runtime failures from flooding logs on every access.
- */
-const _collectionFailuresLogged = new Set<string>();
-
-/** Internal wrapper that coerces Astro's overloaded getCollection to a uniform signature. */
-function wrapGetCollection(
-  getCollection: (name: string) => Promise<CollectionEntry<any>[]>
-): GetCollectionFn {
-  return async (name: string) =>
-    getCollection(name) as Promise<CollectionEntry<unknown>[]>;
-}
+const _collectionCache = createMemoCache<string, AnyCollectionEntries>();
 
 export interface GetCollectionCachedOptions {
   /**
@@ -118,18 +70,14 @@ export async function getCollectionCached(
   }
 
   try {
-    const wrapped = wrapGetCollection(getCollection);
-    const items = await wrapped(collectionName);
+    const items = (await getCollection(collectionName)) as AnyCollectionEntries;
 
     if (!bypass) {
       _collectionCache.set(collectionName, items);
     }
     return items;
   } catch (error) {
-    if (!_collectionFailuresLogged.has(collectionName)) {
-      loggers.content.error(`Failed to load collection "${collectionName}"`, error);
-      _collectionFailuresLogged.add(collectionName);
-    }
+    loggers.content.error(`Failed to load collection "${collectionName}"`, error);
     return [] as AnyCollectionEntries;
   }
 }

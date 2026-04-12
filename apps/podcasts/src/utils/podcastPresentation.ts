@@ -1,4 +1,4 @@
-import type { ContentCardMetaItem } from "@shared-ui/components/cards/contentCard";
+import type { ContentCardMetaItem } from "@shared-ui/components/cards/relatedContent";
 import { formatDate } from "@shared-utils/utils/format";
 
 export const normalizeWhitespace = (value: string): string => {

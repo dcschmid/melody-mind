@@ -2,18 +2,17 @@
 /**
  * Taxonomy Section Page - Display subsections and articles for a taxonomy section
  */
+import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import Stack from "@shared-ui/components/layout/Stack.astro";
 import TaxonomyJumpNav from "@components/TaxonomyJumpNav.astro";
 import TaxonomySectionHero from "@components/TaxonomySectionHero.astro";
 import TaxonomySubsectionBlock from "@components/TaxonomySubsectionBlock.astro";
-import { getCollectionEntries } from "@shared-utils/utils/content/getCollectionEntries";
+import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import { loggers } from "@shared-utils/utils/logging";
-import {
-  buildTaxonomySectionSeo,
-  buildTaxonomySectionPageData,
-} from "@utils/taxonomy/taxonomyPage";
+import { buildTaxonomySectionSeo } from "@utils/taxonomy/taxonomyPage";
+import { buildTaxonomySectionPageData } from "@utils/taxonomy/buildTaxonomySectionPageData";
 import { musicTaxonomy } from "../../data/musicTaxonomy";
 
 export const prerender = true;
@@ -34,7 +33,7 @@ if (!section) {
 // Load articles
 let baseArticles: any[] = [];
 try {
-  baseArticles = await getCollectionEntries("knowledge-en");
+  baseArticles = await getCollectionCached("knowledge-en", { getCollection });
 } catch (e) {
   loggers.pages.warn("taxonomy section: collection load issue", {
     error: (e as any)?.message || e,

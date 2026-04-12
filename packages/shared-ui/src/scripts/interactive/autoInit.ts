@@ -1,5 +1,4 @@
 import { createLogger } from "@shared-utils/utils/logging";
-import { isServer } from "@shared-utils/utils/environment";
 
 const logger = createLogger("autoInit");
 
@@ -60,7 +59,7 @@ const INIT_TARGETS: InitEntry[] = [
 ];
 
 export function initInteractiveComponents(): void {
-  if (isServer || hasInitialized) {
+  if (typeof window === "undefined" || hasInitialized) {
     return;
   }
 
