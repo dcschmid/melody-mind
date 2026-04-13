@@ -16,7 +16,7 @@ import { loggers } from "@shared-utils/utils/logging";
 import { createMemoCache } from "@shared-utils/utils/memoCache";
 
 /** Broad collection entry array type used by the generic cache layer. */
-export type AnyCollectionEntries = (Record<string, unknown>)[];
+export type AnyCollectionEntries = Record<string, unknown>[];
 
 /**
  * Shared in-memory cache for collection entry arrays.

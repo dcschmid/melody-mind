@@ -49,6 +49,10 @@ export default defineConfig({
     },
   },
 
+  build: {
+    inlineStylesheets: "auto",
+  },
+
   markdown: {
     shikiConfig: {
       theme: "github-dark",

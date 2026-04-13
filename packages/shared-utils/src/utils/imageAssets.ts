@@ -21,9 +21,13 @@ const comparePreferredExtensions = (
   const leftIndex = preferredExtensions.indexOf(leftExtension);
   const rightIndex = preferredExtensions.indexOf(rightExtension);
   const normalizedLeftIndex = leftIndex === -1 ? preferredExtensions.length : leftIndex;
-  const normalizedRightIndex = rightIndex === -1 ? preferredExtensions.length : rightIndex;
+  const normalizedRightIndex =
+    rightIndex === -1 ? preferredExtensions.length : rightIndex;
 
-  return normalizedLeftIndex - normalizedRightIndex || leftFileName.localeCompare(rightFileName);
+  return (
+    normalizedLeftIndex - normalizedRightIndex ||
+    leftFileName.localeCompare(rightFileName)
+  );
 };
 
 export const stripAssetQuery = (src: string): string => src.split("?")[0] || src;
@@ -44,27 +48,24 @@ export const buildImageMap = (
   preferredExtensions: readonly string[] = DEFAULT_PREFERRED_EXTENSIONS
 ): Record<string, ImageMetadata> =>
   Array.from(
-    Object.entries(modules).reduce(
-      (map, [path, module]) => {
-        const fileName = path.split("/").pop() ?? "";
-        const normalizedKey = stripImageExtension(fileName);
-        const existingEntry = map.get(normalizedKey);
+    Object.entries(modules).reduce((map, [path, module]) => {
+      const fileName = path.split("/").pop() ?? "";
+      const normalizedKey = stripImageExtension(fileName);
+      const existingEntry = map.get(normalizedKey);
 
-        if (
-          !existingEntry ||
-          comparePreferredExtensions(
-            fileName,
-            existingEntry.fileName,
-            preferredExtensions
-          ) < 0
-        ) {
-          map.set(normalizedKey, { fileName, image: module.default });
-        }
+      if (
+        !existingEntry ||
+        comparePreferredExtensions(
+          fileName,
+          existingEntry.fileName,
+          preferredExtensions
+        ) < 0
+      ) {
+        map.set(normalizedKey, { fileName, image: module.default });
+      }
 
-        return map;
-      },
-      new Map<string, { fileName: string; image: ImageMetadata }>()
-    )
+      return map;
+    }, new Map<string, { fileName: string; image: ImageMetadata }>())
   ).reduce(
     (record, [key, entry]) => {
       record[key] = entry.image;

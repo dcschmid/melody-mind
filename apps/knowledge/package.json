@@ -10,11 +10,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "COLLECTION_CACHE_TTL_MS=0 NODE_OPTIONS='--max-old-space-size=4096' astro check && COLLECTION_CACHE_TTL_MS=0 NODE_OPTIONS='--max-old-space-size=4096' astro build",
+    "check": "NODE_OPTIONS='--max-old-space-size=4096' astro check",
     "preview": "astro preview",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
     "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint:check",
     "check:scoped-css": "node scripts/check_scoped_css.mjs",
     "check:seo": "node scripts/check_seo_meta.mjs",
+    "check:webp": "node ../../scripts/generate-webp-assets.mjs --dry-run --force | grep -q 'conversions planned' && exit 1 || true",
     "format": "pnpm exec prettier --write \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "format:check": "pnpm exec prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
@@ -28,15 +30,14 @@
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "@iconify-json/simple-icons": "^1.2.75",
+    "@iconify-json/simple-icons": "^1.2.78",
     "@iconify-json/tabler": "^1.2.33",
     "@melody-mind/shared-ui": "workspace:*",
     "@melody-mind/shared-utils": "workspace:*",
-    "astro": "^6.1.1",
+    "astro": "^6.1.6",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.1",
     "astro-minify-html-swc": "^0.1.11",
-    "astro-noemail": "^0.1.0",
     "astro-robots-txt": "^1.0.0",
     "lightningcss": "^1.32.0",
     "sharp": "^0.34.5"
@@ -45,7 +46,7 @@
     "@astrojs/check": "^0.9.8",
     "gray-matter": "^4.0.3",
     "mdast-util-to-string": "^4.0.0",
-    "typescript": "^6.0.2"
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.33.0"
 }

@@ -36,6 +36,4 @@ export function createMemoCache<K = string, V = unknown>() {
   };
 }
 
-export type MemoCache<K = string, V = unknown> = ReturnType<
-  typeof createMemoCache<K, V>
->;
+export type MemoCache<K = string, V = unknown> = ReturnType<typeof createMemoCache<K, V>>;

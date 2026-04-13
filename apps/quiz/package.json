@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "check": "astro check",
     "preview": "astro preview",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
     "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint:check",
@@ -21,11 +22,11 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
-    "@iconify-json/simple-icons": "^1.2.75",
+    "@iconify-json/simple-icons": "^1.2.78",
     "@iconify-json/tabler": "^1.2.33",
     "@melody-mind/shared-ui": "workspace:*",
     "@melody-mind/shared-utils": "workspace:*",
-    "astro": "^6.1.1",
+    "astro": "^6.1.6",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.1",
     "astro-minify-html-swc": "^0.1.11",
@@ -35,7 +36,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
-    "typescript": "^6.0.2"
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.33.0"
 }

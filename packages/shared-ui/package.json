@@ -16,13 +16,13 @@
     "astro-icon": "^1.1.5"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.4.8",
-    "astro": "^6.1.1",
+    "@double-great/stylelint-a11y": "^3.4.9",
+    "astro": "^6.1.6",
     "astro-icon": "^1.1.5",
     "stylelint-high-performance-animation": "^2.0.0",
     "stylelint-no-unsupported-browser-features": "^8.1.1",
     "stylelint-order": "^8.1.1",
     "stylelint-plugin-logical-css": "^2.1.0",
-    "typescript": "^6.0.2"
+    "typescript": "^5.9.3"
   }
 }

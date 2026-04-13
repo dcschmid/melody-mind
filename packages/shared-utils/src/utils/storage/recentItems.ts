@@ -99,7 +99,10 @@ export const loadRecentItems = (storageKey: string): RecentItem[] => {
  * The returned array is the exact sanitized payload written to storage, which allows callers
  * to continue working with the canonical in-memory representation immediately.
  */
-export const saveRecentItems = (storageKey: string, items: RecentItem[]): RecentItem[] => {
+export const saveRecentItems = (
+  storageKey: string,
+  items: RecentItem[]
+): RecentItem[] => {
   if (!storageKey) {
     return items;
   }

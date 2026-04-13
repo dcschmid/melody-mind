@@ -3,6 +3,12 @@
   "private": true,
   "version": "1.0.0",
   "description": "MelodyMind - Music Knowledge Platform (Monorepo)",
+  "pnpm": {
+    "overrides": {
+      "sharp": "^0.34.5",
+      "yaml": ">=2.8.3"
+    }
+  },
   "scripts": {
     "build": "turbo run build",
     "build:knowledge": "turbo run build --filter=knowledge",
@@ -22,25 +28,26 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.4.8",
+    "@double-great/stylelint-a11y": "^3.4.9",
     "@eslint/js": "^10.0.1",
-    "astro": "^6.1.1",
-    "eslint": "^10.1.0",
-    "eslint-plugin-astro": "^1.6.0",
+    "astro": "^6.1.6",
+    "eslint": "^10.2.0",
+    "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "husky": "^9.1.7",
     "postcss-html": "^1.8.1",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "prettier-plugin-astro": "^0.14.1",
-    "stylelint": "^17.6.0",
+    "stylelint": "^17.7.0",
     "stylelint-config-recess-order": "^7.7.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-high-performance-animation": "^2.0.0",
     "stylelint-no-unsupported-browser-features": "^8.1.1",
     "stylelint-order": "^8.1.1",
     "stylelint-plugin-logical-css": "^2.1.0",
-    "turbo": "^2.8.21",
-    "typescript-eslint": "^8.57.2"
+    "turbo": "^2.9.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.58.2"
   },
   "packageManager": "pnpm@10.33.0",
   "engines": {

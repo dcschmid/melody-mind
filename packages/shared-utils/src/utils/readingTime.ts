@@ -113,7 +113,9 @@ export function getReadingTime(
 ): ReadingTimeResult {
   const cacheKey = _buildCacheKey(text, options);
   const cached = _readingTimeCache.get(cacheKey);
-  if (cached !== undefined) {return cached;}
+  if (cached !== undefined) {
+    return cached;
+  }
 
   if (!text) {
     const fallback = options.minTime || DEFAULTS.MIN_TIME;

@@ -9,7 +9,7 @@ interface Props {
   authorRole?: string;
   sourceLabel?: string;
   sourceUrl?: string;
-  avatarSrc?: ImageMetadata | string;
+  avatarSrc?: ImageMetadata;
   avatarAlt?: string;
   avatarInitials?: string;
   className?: string;
@@ -50,19 +50,15 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     hasAuthorMeta ? (
       <figcaption class="quote-card__author">
         {avatarSrc ? (
-          typeof avatarSrc === "string" ? (
-            <img class="quote-card__avatar-image" src={avatarSrc} alt={avatarAlt} />
-          ) : (
-            <Image
-              class="quote-card__avatar-image"
-              src={avatarSrc}
-              alt={avatarAlt}
-              width={avatarSrc.width}
-              height={avatarSrc.height}
-              loading="lazy"
-              decoding="async"
-            />
-          )
+          <Image
+            class="quote-card__avatar-image"
+            src={avatarSrc}
+            alt={avatarAlt}
+            width={avatarSrc.width}
+            height={avatarSrc.height}
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <span class="quote-card__avatar-fallback" aria-hidden="true">
             {initials || "Q"}
