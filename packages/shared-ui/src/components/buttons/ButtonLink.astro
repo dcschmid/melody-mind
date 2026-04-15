@@ -159,6 +159,19 @@ const forwardedAttrs = (() => {
     min-inline-size: 0;
   }
 
+  /* Brand icon colors — simple-icons use currentColor, so we set them explicitly */
+  :global(.button-link__icon[data-icon="simple-icons:spotify"]) {
+    color: #1db954;
+  }
+
+  :global(.button-link__icon[data-icon="simple-icons:deezer"]) {
+    color: #ff0090;
+  }
+
+  :global(.button-link__icon[data-icon="simple-icons:applemusic"]) {
+    color: #fc3c44;
+  }
+
   @media (width >= 640px) {
     .button-link {
       inline-size: auto;

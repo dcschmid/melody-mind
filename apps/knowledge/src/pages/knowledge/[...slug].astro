@@ -105,7 +105,7 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
       {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
 
       <div class="knowledge__toc-surface">
-        <TableOfContents headings={mergedHeadings} />
+        <TableOfContents headings={mergedHeadings} surface="minimal" />
       </div>
 
       <Stack className="knowledge__main" gap="xl">
@@ -160,57 +160,8 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   }
 
   .knowledge__toc-surface {
-    gap: var(--spacing-2xs);
     inline-size: min(100%, 76rem);
-    padding: 0;
     margin-inline: auto;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-  }
-
-  :global(.knowledge__toc-surface .toc[data-toc-root]) {
-    gap: var(--spacing-2xs);
-  }
-
-  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__toggle) {
-    min-block-size: calc(var(--control-min-block-size) - 0.4rem);
-    padding: 0 var(--spacing-xs) var(--spacing-xs);
-    background: transparent;
-    border-top: 1px solid color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
-    border-right: 0;
-    border-bottom: 1px solid
-      color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
-    border-left: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__content) {
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) 0 0;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__nav) {
-    max-block-size: min(26rem, 58vh);
-    padding-inline-end: var(--spacing-xs);
-    overflow-y: auto;
-    scrollbar-gutter: stable;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__link) {
-    min-block-size: calc(var(--control-min-block-size) - 0.45rem);
-    padding: var(--spacing-2xs) 0;
-  }
-
-  :global(.knowledge__toc-surface .toc[data-toc-root] .toc__list) {
-    gap: var(--spacing-2xs);
   }
 
   :global(.knowledge__prose.prose--article) {
@@ -222,10 +173,6 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   }
 
   @media (width >= 1024px) {
-    :global(.knowledge__toc-surface .toc[data-toc-root] .toc__nav) {
-      max-block-size: min(30rem, 62vh);
-    }
-
     .knowledge__main {
       gap: clamp(var(--spacing-lg), 2vw, var(--spacing-2xl));
     }

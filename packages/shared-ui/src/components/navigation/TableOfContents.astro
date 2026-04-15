@@ -14,6 +14,7 @@ interface Props {
   idBase?: string;
   defaultExpanded?: boolean;
   staticOnDesktop?: boolean;
+  surface?: "minimal";
 }
 
 const {
@@ -23,7 +24,10 @@ const {
   idBase = "toc",
   defaultExpanded = false,
   staticOnDesktop = false,
+  surface,
 } = Astro.props as Props;
+
+const surfaceClass = surface ? `toc--${surface}` : "";
 const filteredHeadings = headings.filter(
   (heading) => heading.depth >= 2 && heading.depth <= 4
 );
@@ -37,7 +41,7 @@ const contentId = `${safeIdBase}-content`;
 ---
 
 <div
-  class={`toc ${className}`.trim()}
+  class={`toc ${surfaceClass} ${className}`.trim()}
   data-toc-root
   data-toc-id={safeIdBase}
   data-toc-default-expanded={defaultExpanded ? "true" : "false"}
@@ -232,6 +236,55 @@ const contentId = `${safeIdBase}-content`;
 </script>
 
 <style is:global>
+  /* Surface variant (minimal, no backgrounds/borders) */
+  .toc--surface {
+    gap: var(--spacing-2xs);
+  }
+
+  .toc--surface .toc__toggle {
+    min-block-size: calc(var(--control-min-block-size) - 0.4rem);
+    padding: 0 var(--spacing-xs) var(--spacing-xs);
+    background: transparent;
+    border: 0;
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .toc--surface .toc__content {
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .toc--surface .toc__nav {
+    max-block-size: min(26rem, 58vh);
+    padding-inline-end: var(--spacing-xs);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .toc--surface .toc__link {
+    min-block-size: calc(var(--control-min-block-size) - 0.45rem);
+    padding: var(--spacing-2xs) 0;
+  }
+
+  .toc--surface .toc__list {
+    gap: var(--spacing-2xs);
+  }
+
+  @media (width >= 1024px) {
+    .toc--surface .toc__nav {
+      max-block-size: min(30rem, 62vh);
+    }
+  }
+
   .toc[data-toc-root] {
     display: grid;
     gap: var(--spacing-sm);
