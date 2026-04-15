@@ -1,0 +1,248 @@
+---
+import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
+import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
+import SEO from "@shared-ui/components/meta/SEO.astro";
+import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
+import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
+import SharedFooter from "@shared-ui/components/layout/Footer.astro";
+import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
+import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
+import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
+import { buildDefaultCopyrightText } from "@shared-utils/utils/appShell";
+import {
+  ensureTrailingSlash,
+  resolveAbsoluteUrl,
+  resolveBaseUrl,
+} from "@shared-utils/utils/siteUrls";
+import { normalizeWhitespace } from "@shared-utils/utils/format";
+import { musicAppShellConfig, MUSIC_SITE_URL } from "../utils/appShellConfig";
+import { musicHeroImageUrl } from "../utils/musicImages";
+
+import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  keywords?: string[];
+  canonical?: string;
+  language?: string;
+  locale?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  structuredData?: Array<Record<string, unknown>>;
+  index?: boolean;
+  follow?: boolean;
+  pageSeo?: PageSeoResult;
+}
+
+const {
+  title,
+  description,
+  image = musicHeroImageUrl,
+  type = "website",
+  publishedTime,
+  modifiedTime,
+  keywords = [],
+  canonical,
+  language = "en",
+  locale = "en-US",
+  breadcrumbs = [],
+  structuredData = [],
+  index = true,
+  follow = true,
+  pageSeo,
+} = Astro.props as Props;
+
+const siteTitle = "MelodyMind Music";
+const normalizedTitle = normalizeWhitespace(title || siteTitle);
+const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
+  ? normalizedTitle
+  : `${normalizedTitle} | ${siteTitle}`;
+const siteUrl = resolveBaseUrl(MUSIC_SITE_URL);
+const canonicalPath = canonical
+  ? new URL(canonical, `${siteUrl}/`).pathname
+  : Astro.url.pathname;
+const currentUrl = resolveAbsoluteUrl(siteUrl, ensureTrailingSlash(canonicalPath));
+const imageUrl = resolveAbsoluteUrl(siteUrl, image);
+const shellConfig = musicAppShellConfig;
+const normalizedDescription = normalizeWhitespace(description || "");
+const defaultKeywords = ["music", "album", "ai music", "melodymind"];
+const publishDate = publishedTime ? new Date(publishedTime) : undefined;
+const modifiedDate = modifiedTime ? new Date(modifiedTime) : undefined;
+
+const computedSeo = buildPageSeo({
+  title: fullTitle,
+  description: normalizedDescription,
+  url: currentUrl,
+  image: imageUrl,
+  imageAlt:
+    type === "article"
+      ? `Cover artwork for ${normalizedTitle}`
+      : `Cover artwork for ${siteTitle}`,
+  type: type === "article" ? "article" : "website",
+  structuredData: structuredData as StructuredData[],
+  fallbackKeywords: [...defaultKeywords, ...keywords],
+  breadcrumbs,
+  index,
+  follow,
+  maxImagePreview: "large",
+  maxSnippet: -1,
+  maxVideoPreview: -1,
+  ogLocale: locale.replace("-", "_"),
+  twitterCreator: "@melodymind",
+  brandSuffix: false,
+  autoSocialImage: true,
+  generateSocialImage: ({ title: genTitle }) => {
+    void genTitle;
+    return undefined;
+  },
+  ...(publishDate ? { publishDate } : {}),
+  ...(modifiedDate ? { modifiedDate } : {}),
+});
+
+const pageSeoResolved = pageSeo ?? computedSeo;
+
+const seoProps = {
+  title: pageSeoResolved.title || fullTitle,
+  description: pageSeoResolved.description || normalizedDescription,
+  keywords: pageSeoResolved.keywordArray || [],
+  canonical: pageSeoResolved.canonical,
+  structuredDataExtra: pageSeoResolved.structuredData,
+  ...(pageSeoResolved.image ? { image: pageSeoResolved.image } : {}),
+  ...(pageSeoResolved.imageAlt ? { imageAlt: pageSeoResolved.imageAlt } : {}),
+  ...(pageSeoResolved.publishDate ? { publishDate: pageSeoResolved.publishDate } : {}),
+  ...(pageSeoResolved.modifiedDate ? { modifiedDate: pageSeoResolved.modifiedDate } : {}),
+  ...(pageSeoResolved.authorName ? { authorName: pageSeoResolved.authorName } : {}),
+};
+---
+
+<MasterLayout
+  lang={language}
+  bodyClass="music-layout"
+  mainClass="music-layout__main"
+  contentShellClass="music-layout__container"
+  showSkipLink={false}
+  enableThemeInit={true}
+  appTitle="Melody Mind Music"
+>
+  <Fragment slot="head">
+    <AppHeadResources
+      fontPreloads={[
+        {
+          href: "/fonts/atkinson-hyperlegible-regular.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: true,
+        },
+      ]}
+      rssTitle={shellConfig.rssTitle}
+    />
+    <SEO
+      {...seoProps}
+      {...pageSeoResolved.openGraph && {
+        openGraph: {
+          ...pageSeoResolved.openGraph,
+          locale: pageSeoResolved.openGraph.locale || locale.replace("-", "_"),
+        },
+      }}
+      ogSiteName={siteTitle}
+      {...pageSeoResolved.twitter && { twitter: pageSeoResolved.twitter }}
+      {...pageSeoResolved.canonical && { twitterUrl: pageSeoResolved.canonical }}
+      twitterSite="@melodymind"
+    />
+    <meta name="robots" content={pageSeoResolved.robots} />
+    <meta name="language" content={language} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  </Fragment>
+
+  <SkipLink slot="body-start" />
+  <SiteHeader
+    slot="before-main"
+    headerConfig={{
+      ...shellConfig.header,
+      showBrand: true,
+      brandText: "",
+    }}
+  />
+
+  <SharedFooter
+    slot="after-main"
+    footerConfig={{
+      ...shellConfig.footer,
+      showSettings: true,
+      copyrightText: buildDefaultCopyrightText(new Date().getFullYear()),
+    }}
+  />
+
+  <AutoInitScript slot="body-end" />
+
+  <slot />
+</MasterLayout>
+
+<style>
+  :global(.music-layout) {
+    background: var(--page-background);
+  }
+
+  :global(.music-layout__main) {
+    position: relative;
+  }
+
+  :global(.music-layout__main)::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 48%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 18%, transparent),
+        transparent 28%
+      );
+  }
+
+  .music-layout__container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: var(--spacing-xl);
+    max-inline-size: var(--max-width);
+    padding-block: var(--spacing-base);
+    padding-inline: var(--spacing-sm);
+    margin: 0 auto;
+  }
+
+  @media (width >= 480px) {
+    .music-layout__container {
+      padding-inline: var(--spacing-base);
+    }
+  }
+
+  @media (width >= 768px) {
+    .music-layout__container {
+      padding-block: var(--spacing-xl);
+      padding-inline: var(--spacing-xl);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .music-layout__container {
+      padding-inline: var(--spacing-2xl);
+    }
+  }
+
+  @media (width >= 1280px) {
+    .music-layout__container {
+      padding-inline: var(--spacing-3xl);
+    }
+  }
+</style>

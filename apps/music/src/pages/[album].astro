@@ -1,0 +1,169 @@
+---
+import MusicLayout from "../layouts/MusicLayout.astro";
+import PlaylistPlayer from "@shared-ui/components/media/PlaylistPlayer.astro";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import DetailPill from "@shared-ui/components/data-display/DetailPill.astro";
+import MetaPillGroup from "@shared-ui/components/data-display/MetaPillGroup.astro";
+import PageShell from "@shared-ui/components/layout/PageShell.astro";
+import Stack from "@shared-ui/components/layout/Stack.astro";
+import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
+import Prose from "@shared-ui/components/typography/Prose.astro";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { getCollection } from "astro:content";
+import { getAlbumCoverImage, getAlbumCoverImageUrl } from "../utils/musicImages";
+import type { Song } from "../types/album";
+import type { CollectionEntry } from "astro:content";
+
+type AlbumEntry = CollectionEntry<"albums">;
+
+export async function getStaticPaths() {
+  const collection = await getCollection(
+    "albums",
+    (entry: AlbumEntry) => entry.data.isAvailable
+  );
+  return collection.map((entry: AlbumEntry) => ({
+    params: { album: entry.id },
+    props: { id: entry.id },
+  }));
+}
+
+const { album: albumId } = Astro.params;
+const { id } = Astro.props as { id: string };
+const collection = await getCollection(
+  "albums",
+  (entry: AlbumEntry) => entry.data.isAvailable
+);
+const entry = collection.find((e: AlbumEntry) => e.id === albumId);
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+const currentAlbum = entry.data;
+const canonical = resolvePageUrl(Astro.site, `/${albumId}`);
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: currentAlbum.title, url: canonical },
+];
+
+const songs = currentAlbum.songs as Song[];
+const totalDuration = songs.reduce(
+  (acc: number, song: Song) => acc + (song.durationSeconds || 0),
+  0
+);
+const metaDescription =
+  currentAlbum.metaDescription ||
+  `${currentAlbum.description} ${songs.length} tracks, ${Math.round(totalDuration / 60)} minutes.`;
+
+const albumCoverImage = getAlbumCoverImage(currentAlbum.coverImage);
+const albumCoverImageUrl = getAlbumCoverImageUrl(currentAlbum.coverImage);
+
+const markdownCache = new Map<string, string>();
+
+const markdownToHtml = (markdown: string): string => {
+  const cached = markdownCache.get(markdown);
+  if (cached !== undefined) {
+    return cached;
+  }
+  const html = markdown
+    .replace(/^## (.+)$/gm, "<h2>$1</h2>")
+    .replace(/^### (.+)$/gm, "<h3>$1</h3>")
+    .replace(/^#### (.+)$/gm, "<h4>$1</h4>")
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/^- (.+)$/gm, "<li>$1</li>")
+    .replace(/(<li>.*<\/li>\n?)+/g, (match) => `<ul>${match}</ul>`)
+    .split("\n\n")
+    .map((block) => {
+      block = block.trim();
+      if (!block) return "";
+      if (block.startsWith("<h") || block.startsWith("<ul")) return block;
+      return `<p>${block.replace(/\n/g, "<br>")}</p>`;
+    })
+    .join("\n");
+  markdownCache.set(markdown, html);
+  return html;
+};
+
+const rawBody = entry.body || "";
+const albumContentHtml = rawBody ? markdownToHtml(rawBody) : "";
+---
+
+<MusicLayout
+  title={currentAlbum.title}
+  description={metaDescription}
+  type="article"
+  publishedTime={currentAlbum.publishedAt}
+  modifiedTime={currentAlbum.publishedAt}
+  image={albumCoverImageUrl}
+  language="en"
+  locale="en-US"
+  keywords={[
+    currentAlbum.title.toLowerCase(),
+    "ai music",
+    "album",
+    currentAlbum.genre?.toLowerCase() || "",
+    "melodymind",
+  ].filter(Boolean)}
+  canonical={canonical}
+  {breadcrumbs}
+>
+  <PageShell className="page-shell--aurora">
+    <Stack gap="2xl">
+      <HeroTeaser
+        id={`album-hero-${currentAlbum.id}`}
+        title={currentAlbum.title}
+        description={currentAlbum.description}
+        imageSrc={albumCoverImage}
+        imageAlt={`Cover art for the album ${currentAlbum.title}`}
+        imageWidth={currentAlbum.coverImageWidth || 400}
+        imageHeight={currentAlbum.coverImageHeight || 400}
+        imageLoading="eager"
+        mediaAspectRatio="1 / 1"
+        mediaObjectFit="cover"
+        titleLevel="h1"
+        titleMaxWidth="20ch"
+        descriptionMaxWidth="62ch"
+      >
+        <Fragment slot="meta">
+          <MetaPillGroup>
+            {
+              currentAlbum.genre && (
+                <DetailPill tone="neutral">
+                  <span>{currentAlbum.genre}</span>
+                </DetailPill>
+              )
+            }
+            <DetailPill tone="neutral">
+              <span>{songs.length} tracks</span>
+            </DetailPill>
+            {
+              totalDuration > 0 && (
+                <DetailPill tone="neutral">
+                  <span>{Math.round(totalDuration / 60)} min</span>
+                </DetailPill>
+              )
+            }
+          </MetaPillGroup>
+        </Fragment>
+      </HeroTeaser>
+
+      <PlaylistPlayer albumTitle={currentAlbum.title} songs={songs} />
+
+      {
+        albumContentHtml && (
+          <SectionSurface
+            as="article"
+            variant="plain"
+            aria-labelledby="album-content-heading"
+          >
+            <h2 id="album-content-heading" class="sr-only">
+              Album Details
+            </h2>
+            <Prose html={albumContentHtml} />
+          </SectionSurface>
+        )
+      }
+    </Stack>
+  </PageShell>
+</MusicLayout>

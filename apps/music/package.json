@@ -1,0 +1,36 @@
+{
+  "name": "music",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
+    "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint:check",
+    "format": "pnpm exec prettier --write \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
+    "format:check": "pnpm exec prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
+    "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
+    "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/sitemap": "^3.7.2",
+    "@iconify-json/simple-icons": "^1.2.78",
+    "@iconify-json/tabler": "^1.2.33",
+    "@melody-mind/shared-ui": "workspace:*",
+    "@melody-mind/shared-utils": "workspace:*",
+    "astro": "^6.1.6",
+    "astro-icon": "^1.1.5",
+    "astro-minify-html-swc": "^0.1.11",
+    "lightningcss": "^1.32.0",
+    "sharp": "^0.34.5",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.8",
+    "image-size": "^2.0.2",
+    "typescript": "^5.9.3"
+  }
+}

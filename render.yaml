@@ -87,15 +87,15 @@ services:
       - key: NODE_VERSION
         value: "22"
 
-  # Podcasts App - Podcasts Subdomain (podcasts.melody-mind.de)
+  # Music App - Music Subdomain (music.melody-mind.de)
   - type: web
-    name: melody-mind-podcasts
+    name: melody-mind-music
     runtime: static
-    buildCommand: pnpm install && pnpm build:podcasts
-    staticPublishPath: apps/podcasts/dist
+    buildCommand: pnpm install && pnpm build:music
+    staticPublishPath: apps/music/dist
     buildFilter:
       paths:
-        - apps/podcasts/**
+        - apps/music/**
         - packages/shared-ui/**
         - packages/shared-utils/**
         - package.json
