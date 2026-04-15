@@ -10,6 +10,7 @@ import {
 } from "@shared-utils/utils/appShellConfig";
 import {
   KNOWLEDGE_SITE_URL,
+  MUSIC_SITE_URL,
   QUIZ_SITE_URL,
   buildExternalAppLink,
 } from "@shared-utils/utils/appShell";
@@ -29,6 +30,7 @@ export const podcastAppShellConfig = buildAppShellConfig({
   footerExploreLinks: [
     buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz" }),
     buildExternalAppLink({ href: KNOWLEDGE_SITE_URL, label: "Knowledge" }),
+    buildExternalAppLink({ href: MUSIC_SITE_URL, label: "Music" }),
   ],
   footerRssLink: { href: PODCAST_FEED_PATH, label: "RSS" },
 });

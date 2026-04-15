@@ -8,14 +8,14 @@ import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { buildDefaultCopyrightText } from "@shared-utils/utils/appShell";
+import { buildDefaultCopyrightText, MUSIC_SITE_URL } from "@shared-utils/utils/appShell";
 import {
   ensureTrailingSlash,
   resolveAbsoluteUrl,
   resolveBaseUrl,
 } from "@shared-utils/utils/siteUrls";
 import { normalizeWhitespace } from "@shared-utils/utils/format";
-import { musicAppShellConfig, MUSIC_SITE_URL } from "../utils/appShellConfig";
+import { musicAppShellConfig } from "../utils/appShellConfig";
 import { musicHeroImageUrl } from "../utils/musicImages";
 
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";

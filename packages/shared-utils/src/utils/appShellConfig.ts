@@ -14,6 +14,7 @@ import {
   DEFAULT_APP_SHELL_SITE_NAME,
   KNOWLEDGE_SITE_URL,
   KNOWLEDGE_SITE_URL_WWW,
+  MUSIC_SITE_URL,
   PODCASTS_SITE_URL,
   QUIZ_SITE_URL,
   SEARCH_NAV_ITEM,
@@ -71,7 +72,7 @@ export function buildAppShellConfig({
   };
 }
 
-/** Convenience: nav items pointing to Knowledge + Podcasts from an external app. */
+/** Convenience: nav items pointing to Knowledge + Podcasts + Music from an external app. */
 export const navToKnowledgeAndPodcasts = (): AppShellNavItem[] => [
   buildExternalAppLink({
     href: KNOWLEDGE_SITE_URL_WWW,
@@ -83,15 +84,25 @@ export const navToKnowledgeAndPodcasts = (): AppShellNavItem[] => [
     label: "Podcast",
     icon: "headphones",
   }),
+  buildExternalAppLink({
+    href: MUSIC_SITE_URL,
+    label: "Music",
+    icon: "music",
+  }),
   SEARCH_NAV_ITEM,
 ];
 
-/** Convenience: nav items from Knowledge → Quiz + Podcasts. */
+/** Convenience: nav items from Knowledge → Quiz + Podcasts + Music. */
 export const navFromKnowledge = (): AppShellNavItem[] => [
   buildExternalAppLink({
     href: PODCASTS_SITE_URL,
     label: "Podcast",
     icon: "headphones",
+  }),
+  buildExternalAppLink({
+    href: MUSIC_SITE_URL,
+    label: "Music",
+    icon: "music",
   }),
   buildExternalAppLink({
     href: QUIZ_SITE_URL,
@@ -101,7 +112,7 @@ export const navFromKnowledge = (): AppShellNavItem[] => [
   SEARCH_NAV_ITEM,
 ];
 
-/** Convenience: nav items from Quiz → Knowledge + Podcasts. */
+/** Convenience: nav items from Quiz → Knowledge + Podcasts + Music. */
 export const navFromQuiz = (): AppShellNavItem[] => [
   buildExternalAppLink({
     href: KNOWLEDGE_SITE_URL,
@@ -112,6 +123,11 @@ export const navFromQuiz = (): AppShellNavItem[] => [
     href: PODCASTS_SITE_URL,
     label: "Podcast",
     icon: "headphones",
+  }),
+  buildExternalAppLink({
+    href: MUSIC_SITE_URL,
+    label: "Music",
+    icon: "music",
   }),
   SEARCH_NAV_ITEM,
 ];

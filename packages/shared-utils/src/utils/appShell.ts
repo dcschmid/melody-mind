@@ -105,6 +105,7 @@ export const KNOWLEDGE_SITE_URL = "https://melody-mind.de";
 export const KNOWLEDGE_SITE_URL_WWW = "https://www.melody-mind.de";
 export const QUIZ_SITE_URL = "https://quiz.melody-mind.de";
 export const PODCASTS_SITE_URL = "https://podcasts.melody-mind.de";
+export const MUSIC_SITE_URL = "https://music.melody-mind.de";
 export const DEFAULT_APP_SHELL_FOOTER_BRAND_TEXT =
   "Curated guides and playlists to help you listen more closely and discover new sounds.";
 export const SEARCH_NAV_ITEM: AppShellNavItem = {

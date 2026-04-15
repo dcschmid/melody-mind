@@ -4,7 +4,7 @@ import {
   normalizeImageKey,
   toAbsoluteAssetUrl,
 } from "@shared-utils/utils/imageAssets";
-import { MUSIC_SITE_URL } from "./appShellConfig";
+import { MUSIC_SITE_URL } from "@shared-utils/utils/appShell";
 import musicHeroSvg from "../assets/music-hero.webp";
 
 const musicHeroImage: ImageMetadata = musicHeroSvg;

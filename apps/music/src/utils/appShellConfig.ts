@@ -10,8 +10,6 @@ import {
   buildExternalAppLink,
 } from "@shared-utils/utils/appShell";
 
-export const MUSIC_SITE_URL = "https://music.melody-mind.de";
-
 export const musicAppShellConfig = buildAppShellConfig({
   siteName: "MelodyMind Music",
   siteDescription:

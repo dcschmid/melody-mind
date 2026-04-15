@@ -9,6 +9,7 @@ import {
   navFromKnowledge,
 } from "@shared-utils/utils/appShellConfig";
 import {
+  MUSIC_SITE_URL,
   QUIZ_SITE_URL,
   PODCASTS_SITE_URL,
   buildExternalAppLink,
@@ -25,5 +26,6 @@ export const knowledgeAppShellConfig = buildAppShellConfig({
   footerExploreLinks: [
     buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz" }),
     buildExternalAppLink({ href: PODCASTS_SITE_URL, label: "Podcasts" }),
+    buildExternalAppLink({ href: MUSIC_SITE_URL, label: "Music" }),
   ],
 });
