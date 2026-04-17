@@ -162,6 +162,19 @@ const timeId = `${playerId}-time`;
                 ? `${Math.floor(song.durationSeconds / 60)}:${String(song.durationSeconds % 60).padStart(2, "0")}`
                 : ""}
             </span>
+            <a
+              class="playlist-player__track-download"
+              href={song.audioUrl}
+              download={song.title}
+              aria-label={`Download ${song.title}`}
+              title="Download track"
+            >
+              <Icon
+                name="download"
+                class="playlist-player__track-download-icon"
+                aria-hidden="true"
+              />
+            </a>
           </li>
         ))
       }
@@ -394,7 +407,7 @@ const timeId = `${playerId}-time`;
 
   .playlist-player__tracklist-header {
     display: grid;
-    grid-template-columns: 2rem 1fr 3rem;
+    grid-template-columns: 2rem 1fr 3rem 2.5rem;
     gap: var(--spacing-sm);
     align-items: center;
     padding: var(--spacing-xs) var(--spacing-sm);
@@ -437,7 +450,7 @@ const timeId = `${playerId}-time`;
   /* ── Track row ── */
   .playlist-player__track {
     display: grid;
-    grid-template-columns: 2rem 1fr 3rem;
+    grid-template-columns: 2rem 1fr 3rem 2.5rem;
     gap: var(--spacing-sm);
     align-items: center;
     min-block-size: 2.75rem;
@@ -502,6 +515,35 @@ const timeId = `${playerId}-time`;
     font-variant-numeric: tabular-nums;
     color: var(--text-secondary);
     text-align: end;
+  }
+
+  .playlist-player__track-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition:
+      color 0.12s ease,
+      background-color 0.12s ease;
+  }
+
+  .playlist-player__track-download:hover {
+    color: var(--accent-primary);
+    background-color: color-mix(in srgb, var(--surface-1) 55%, transparent);
+  }
+
+  .playlist-player__track-download-icon {
+    inline-size: 0.875rem;
+    block-size: 0.875rem;
+  }
+
+  .playlist-player__track-download:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   /* ── Focus states ── */
@@ -592,11 +634,11 @@ const timeId = `${playerId}-time`;
     }
 
     .playlist-player__tracklist-header {
-      grid-template-columns: 2.5rem 1fr 3.5rem;
+      grid-template-columns: 2.5rem 1fr 3.5rem 2.5rem;
     }
 
     .playlist-player__track {
-      grid-template-columns: 2.5rem 1fr 3.5rem;
+      grid-template-columns: 2.5rem 1fr 3.5rem 2.5rem;
       min-block-size: 3rem;
     }
 
@@ -607,16 +649,20 @@ const timeId = `${playerId}-time`;
 
   @media (width >= 768px) {
     .playlist-player__tracklist-header {
-      grid-template-columns: 3rem 1fr 4rem;
+      grid-template-columns: 3rem 1fr 4rem 2.5rem;
     }
 
     .playlist-player__track {
-      grid-template-columns: 3rem 1fr 4rem;
+      grid-template-columns: 3rem 1fr 4rem 2.5rem;
     }
   }
 
   @media (width < 480px) {
     .playlist-player__tracklist-header {
+      display: none;
+    }
+
+    .playlist-player__track-download {
       display: none;
     }
   }
