@@ -17,6 +17,7 @@ import {
 import { normalizeWhitespace } from "@shared-utils/utils/format";
 import { musicAppShellConfig } from "../utils/appShellConfig";
 import { musicHeroImageUrl } from "../utils/musicImages";
+import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 
@@ -166,6 +167,10 @@ const seoProps = {
       ...shellConfig.header,
       showBrand: true,
       brandText: "",
+      brandLogoSrc: melodyMindLogo,
+      brandLogoAlt: "Melody Mind",
+      brandLogoWidth: 250,
+      brandLogoHeight: 167,
     }}
   />
 
