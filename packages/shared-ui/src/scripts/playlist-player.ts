@@ -133,7 +133,9 @@ const initPlaylistPlayers = (): (() => void) => {
         autoplay?: boolean;
       } = {}
     ) => {
-      if (index < 0 || index >= tracks.length) return;
+      if (index < 0 || index >= tracks.length) {
+        return;
+      }
 
       currentTrackIndex = index;
       const track = tracks[index];
@@ -165,7 +167,9 @@ const initPlaylistPlayers = (): (() => void) => {
     };
 
     const handleToggle = () => {
-      if (!tracks.length) return;
+      if (!tracks.length) {
+        return;
+      }
 
       if (audio.paused || audio.ended) {
         if (audio.src !== tracks[currentTrackIndex].url) {
@@ -196,7 +200,9 @@ const initPlaylistPlayers = (): (() => void) => {
         isPlaying = true;
         updateToggleButton();
         updateTrackHighlight();
-        if (status) status.textContent = `Playing ${tracks[currentTrackIndex]?.title}`;
+        if (status) {
+          status.textContent = `Playing ${tracks[currentTrackIndex]?.title}`;
+        }
       },
       { signal }
     );
@@ -207,7 +213,9 @@ const initPlaylistPlayers = (): (() => void) => {
         isPlaying = false;
         updateToggleButton();
         updateTrackHighlight();
-        if (status) status.textContent = `Paused ${tracks[currentTrackIndex]?.title}`;
+        if (status) {
+          status.textContent = `Paused ${tracks[currentTrackIndex]?.title}`;
+        }
       },
       { signal }
     );
@@ -219,7 +227,9 @@ const initPlaylistPlayers = (): (() => void) => {
         isPlaying = false;
         updateToggleButton();
         updateTrackHighlight();
-        if (status) status.textContent = `Finished ${tracks[currentTrackIndex]?.title}`;
+        if (status) {
+          status.textContent = `Finished ${tracks[currentTrackIndex]?.title}`;
+        }
         playTrack((currentTrackIndex + 1) % tracks.length, {
           autoplay: shouldAutoplayNextTrack,
         });
@@ -230,8 +240,9 @@ const initPlaylistPlayers = (): (() => void) => {
     audio.addEventListener(
       "error",
       () => {
-        if (status)
+        if (status) {
           status.textContent = `Could not load ${tracks[currentTrackIndex]?.title}`;
+        }
         logError(
           new Error(`Failed to load track: ${tracks[currentTrackIndex]?.url}`),
           "audio error"

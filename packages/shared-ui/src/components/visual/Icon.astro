@@ -68,12 +68,14 @@ export type IconName = keyof typeof iconRegistry | `${string}:${string}`;
 
 interface Props extends astroHTML.JSX.SVGAttributes {
   name: IconName | string;
+  "is:inline"?: boolean;
 }
 
 const {
   name,
   width,
   height,
+  "is:inline": isInline = true,
   "aria-hidden": ariaHidden = true,
   focusable = "false",
   ...restProps
@@ -87,6 +89,7 @@ const resolvedHeight = height ?? "1em";
   name={resolvedName}
   width={resolvedWidth}
   height={resolvedHeight}
+  is:inline={isInline}
   aria-hidden={ariaHidden}
   focusable={focusable}
   {...restProps}
