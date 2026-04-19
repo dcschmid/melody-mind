@@ -2,8 +2,10 @@
 import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
-type ButtonVariant = "primary" | "secondary";
-type ButtonSize = "default" | "compact";
+const BUTTON_VARIANTS = ["primary", "secondary"] as const;
+const BUTTON_SIZES = ["default", "compact"] as const;
+type ButtonVariant = (typeof BUTTON_VARIANTS)[number];
+type ButtonSize = (typeof BUTTON_SIZES)[number];
 
 interface Props {
   href: string;
@@ -15,6 +17,8 @@ interface Props {
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: string;
+  newTabText?: string;
+  disabled?: boolean;
 }
 
 const rawProps = Astro.props as Props & Record<string, unknown>;
@@ -29,11 +33,14 @@ const {
   variant = "primary",
   size = "default",
   icon,
+  newTabText = "opens in a new tab",
+  disabled = false,
 } = rawProps;
 
+const isRendered = href && !disabled;
 const isExternal = target === "_blank";
-const finalRel = isExternal ? `noopener noreferrer ${rel || ""}`.trim() : rel;
-const externalLinkText = "opens in a new tab";
+const securityRel = isExternal ? "noopener noreferrer" : "";
+const finalRel = [securityRel, rel].filter(Boolean).join(" ") || undefined;
 
 const classes = [
   "button-link",
@@ -50,21 +57,23 @@ const ariaDescribedByAttr =
   (ariaDescribedBy as string | undefined) ??
   (rawProps["aria-describedby"] as string | undefined);
 
+const FORWARDED_PROP_KEYS = new Set([
+  "href",
+  "ariaLabel",
+  "ariaDescribedBy",
+  "className",
+  "target",
+  "rel",
+  "variant",
+  "size",
+  "icon",
+  "aria-describedby",
+  "aria-label",
+]);
+
 const forwardedAttrs = (() => {
   const restAttrs: Record<string, unknown> = { ...rawProps };
-  for (const key of [
-    "href",
-    "ariaLabel",
-    "ariaDescribedBy",
-    "className",
-    "target",
-    "rel",
-    "variant",
-    "size",
-    "icon",
-    "aria-describedby",
-    "aria-label",
-  ]) {
+  for (const key of FORWARDED_PROP_KEYS) {
     if (key in restAttrs) {
       delete restAttrs[key];
     }
@@ -73,20 +82,27 @@ const forwardedAttrs = (() => {
 })();
 ---
 
-<AccessibleExternalLink
-  href={href}
-  className={classes}
-  aria-label={ariaLabelAttr}
-  aria-describedby={ariaDescribedByAttr}
-  announceNewTab={isExternal}
-  newTabText={externalLinkText}
-  {target}
-  rel={finalRel}
-  {...forwardedAttrs}
->
-  {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
-  <span class="button-link__label"><slot /></span>
-</AccessibleExternalLink>
+{isRendered ? (
+  <AccessibleExternalLink
+    href={href}
+    className={classes}
+    aria-label={ariaLabelAttr}
+    aria-describedby={ariaDescribedByAttr}
+    announceNewTab={isExternal}
+    newTabText={newTabText}
+    {target}
+    rel={finalRel}
+    {...forwardedAttrs}
+  >
+    {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
+    <span class="button-link__label"><slot /></span>
+  </AccessibleExternalLink>
+) : (
+  <span class={`${classes} button-link--disabled`} aria-disabled="true">
+    {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
+    <span class="button-link__label"><slot /></span>
+  </span>
+)}
 
 <style>
   .button-link {
@@ -111,13 +127,20 @@ const forwardedAttrs = (() => {
       background-color var(--transition-fast),
       border-color var(--transition-fast),
       color var(--transition-fast),
-      box-shadow var(--transition-fast);
+      box-shadow var(--transition-fast),
+      transform 120ms var(--ease-out-quart);
   }
 
   .button-link:hover,
-  .button-link:focus {
+  .button-link:focus-visible {
     background: var(--surface-card-hover);
     border-color: var(--surface-border-accent);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+  }
+
+  .button-link:active {
+    transform: scale(0.98);
   }
 
   .button-link:focus-visible {
@@ -127,6 +150,13 @@ const forwardedAttrs = (() => {
     box-shadow: var(--interactive-shadow-focus);
   }
 
+  .button-link:disabled,
+  .button-link--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
   .button-link--primary {
     color: var(--button-text-accent);
     background: var(--accent-primary);
@@ -134,7 +164,7 @@ const forwardedAttrs = (() => {
   }
 
   .button-link--primary:hover,
-  .button-link--primary:focus {
+  .button-link--primary:focus-visible {
     background: var(--accent-primary-hover);
     border-color: var(--accent-primary-hover);
   }
@@ -144,7 +174,6 @@ const forwardedAttrs = (() => {
   }
 
   .button-link--compact {
-    min-block-size: var(--control-min-block-size);
     padding: var(--spacing-xs) var(--spacing-base);
     font-size: var(--font-size-sm);
   }
@@ -153,6 +182,12 @@ const forwardedAttrs = (() => {
     flex-shrink: 0;
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
+    transition: transform 200ms var(--ease-out-quart);
+  }
+
+  .button-link:hover .button-link__icon:not([data-icon^="simple-icons:"]),
+  .button-link:focus-visible .button-link__icon:not([data-icon^="simple-icons:"]) {
+    transform: translateX(3px);
   }
 
   .button-link__label {
@@ -161,15 +196,15 @@ const forwardedAttrs = (() => {
 
   /* Brand icon colors — simple-icons use currentColor, so we set them explicitly */
   :global(.button-link__icon[data-icon="simple-icons:spotify"]) {
-    color: #1db954;
+    color: var(--brand-spotify);
   }
 
   :global(.button-link__icon[data-icon="simple-icons:deezer"]) {
-    color: #ff0090;
+    color: var(--brand-deezer);
   }
 
   :global(.button-link__icon[data-icon="simple-icons:applemusic"]) {
-    color: #fc3c44;
+    color: var(--brand-applemusic);
   }
 
   @media (width >= 640px) {
@@ -181,6 +216,20 @@ const forwardedAttrs = (() => {
   @media (prefers-reduced-motion: reduce) {
     .button-link {
       transition: none;
+    }
+
+    .button-link:hover,
+    .button-link:focus-visible {
+      transform: none;
+    }
+
+    .button-link__icon {
+      transition: none;
+    }
+
+    .button-link:hover .button-link__icon:not([data-icon^="simple-icons:"]),
+    .button-link:focus-visible .button-link__icon:not([data-icon^="simple-icons:"]) {
+      transform: none;
     }
   }
 </style>

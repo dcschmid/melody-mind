@@ -255,6 +255,11 @@
   --control-padding-inline: var(--spacing-lg);
   --control-padding-block: var(--spacing-sm);
 
+  /* Brand colors for music service icons */
+  --brand-spotify: #1db954;
+  --brand-deezer: #ff0090;
+  --brand-applemusic: #fc3c44;
+
   /* Legacy aliases for compatibility */
   --gn-bg-primary: var(--bg-primary);
   --gn-bg: var(--bg-primary);
