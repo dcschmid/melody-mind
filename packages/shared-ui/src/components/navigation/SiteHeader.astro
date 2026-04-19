@@ -107,7 +107,7 @@ const navId = `${navIdBase}-nav`;
                   alt={resolvedHeaderConfig.brandLogoAlt}
                   width={resolvedHeaderConfig.brandLogoWidth}
                   height={resolvedHeaderConfig.brandLogoHeight}
-                  loading="eager"
+                  loading="lazy"
                   decoding="async"
                 />
               </span>
@@ -262,7 +262,7 @@ const navId = `${navIdBase}-nav`;
     z-index: 0;
     pointer-events: none;
     content: "";
-    background: color-mix(in srgb, var(--bg-primary) 56%, #000);
+    background: color-mix(in srgb, var(--bg-primary) 56%, var(--text-primary));
     opacity: 0;
     transition: opacity var(--transition-base);
   }
@@ -303,6 +303,18 @@ const navId = `${navIdBase}-nav`;
     color: var(--text-primary);
     text-decoration: none;
     border-radius: var(--radius-lg);
+  }
+
+  .site-header__brand:hover {
+    transform: scale(1.04);
+  }
+
+  .site-header__brand:active {
+    transform: scale(0.98);
+  }
+
+  .site-header__brand:focus-visible {
+    transform: scale(1.04);
   }
 
   .site-header__brand-mark {
@@ -367,12 +379,14 @@ const navId = `${navIdBase}-nav`;
     border-radius: var(--radius-lg);
   }
 
-  .site-header__menu-toggle:hover {
-    border-color: var(--surface-border-strong, var(--surface-border-soft));
-  }
-
+  .site-header__menu-toggle:hover,
   .site-header__menu-toggle:focus {
     border-color: var(--surface-border-strong, var(--surface-border-soft));
+    transform: scale(1.03);
+  }
+
+  .site-header__menu-toggle:active {
+    transform: scale(0.97);
   }
 
   .site-header__menu-toggle-inner {
@@ -392,17 +406,29 @@ const navId = `${navIdBase}-nav`;
     inset-block-start: calc(100% + var(--spacing-2xs));
     inset-inline: 0;
     z-index: 5;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     gap: var(--spacing-sm);
     padding: var(--spacing-xs);
     background: var(--surface-1);
     border: 1px solid var(--surface-border-default);
     border-radius: var(--radius-xl);
-    box-shadow: 0 18px 40px color-mix(in srgb, var(--surface-shadow) 32%, transparent);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-6px) scale(0.97);
+    transition:
+      visibility 0ms linear 300ms,
+      opacity var(--transition-base) ease-out,
+      transform var(--transition-base) ease-out;
   }
 
   .site-header[data-open="true"] .site-header__nav {
-    display: grid;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition:
+      visibility 0ms,
+      opacity var(--transition-base) ease-out,
+      transform var(--transition-base) ease-out;
   }
 
   .site-header__actions {
@@ -449,11 +475,13 @@ const navId = `${navIdBase}-nav`;
     border-radius: var(--radius-lg);
     transition:
       color var(--transition-fast),
-      background-color var(--transition-fast);
+      background-color var(--transition-fast),
+      transform var(--transition-fast);
   }
 
   .site-header__nav-link:hover {
     background: color-mix(in srgb, var(--surface-panel-raised) 76%, transparent);
+    transform: translateX(2px);
   }
 
   .site-header__nav-link:focus {
@@ -463,23 +491,6 @@ const navId = `${navIdBase}-nav`;
   .site-header__nav-link[aria-current="page"] {
     color: var(--accent-strong);
     background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
-  }
-
-  .site-header__brand:focus-visible,
-  .site-header__menu-toggle:focus-visible,
-  .site-header__nav-link:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .site-header::after {
-      transition: none;
-    }
-
-    .site-header__nav-link {
-      transition: none;
-    }
   }
 
   @media (width >= 880px) {
@@ -533,6 +544,10 @@ const navId = `${navIdBase}-nav`;
       border: 0;
       border-radius: 0;
       box-shadow: none;
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+      will-change: transform, opacity;
     }
 
     .site-header__actions {
@@ -557,6 +572,7 @@ const navId = `${navIdBase}-nav`;
     .site-header__nav-link:hover {
       color: var(--accent-strong);
       background: transparent;
+      transform: none;
     }
 
     .site-header__nav-link:focus {

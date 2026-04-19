@@ -58,6 +58,9 @@ const resolvedImageWidth = imageWidth ?? 1200;
 const resolvedImageHeight = imageHeight ?? 900;
 const resolvedMediaAspectRatio =
   mediaAspectRatio ?? `${resolvedImageWidth} / ${resolvedImageHeight}`;
+const resolvedImageSizes =
+  imageSizes ?? "(max-width: 640px) 100vw, (max-width: 960px) 80vw, 45vw";
+const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
 ---
 
 <section
@@ -69,7 +72,7 @@ const resolvedMediaAspectRatio =
 >
   <div class="hero-teaser__grid">
     <div class="hero-teaser__copy">
-      {eyebrow ? <p class="eyebrow hero-teaser__eyebrow">{eyebrow}</p> : null}
+      {eyebrow ? <span class="eyebrow hero-teaser__eyebrow">{eyebrow}</span> : null}
 
       <Headline
         id={headingId}
@@ -111,7 +114,8 @@ const resolvedMediaAspectRatio =
             height={resolvedImageHeight}
             loading={imageLoading}
             decoding={imageDecoding}
-            sizes={imageSizes}
+            sizes={resolvedImageSizes}
+            fetchpriority={resolvedFetchPriority}
           />
         ) : hasMediaSlot ? (
           <slot name="media" />
@@ -231,6 +235,18 @@ const resolvedMediaAspectRatio =
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
+    transition:
+      transform var(--transition-slow),
+      box-shadow var(--transition-slow);
+  }
+
+  .hero-teaser__media:has(img) {
+    cursor: default;
+  }
+
+  .hero-teaser__media:has(img):hover {
+    transform: scale(1.015);
+    box-shadow: var(--shadow-md);
   }
 
   .hero-teaser__media--contain {

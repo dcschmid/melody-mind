@@ -415,6 +415,12 @@
   --button-padding-x: var(--spacing-lg);
   --button-radius: var(--radius-base);
   --button-font-weight: var(--font-weight-semibold);
+  --button-primary-bg: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    color-mix(in srgb, var(--accent-primary) 76%, var(--accent-strong))
+  );
+  --button-primary-bg-hover: var(--accent-primary-hover);
 
   /* Forms */
   --form-input-bg: var(--surface-1);

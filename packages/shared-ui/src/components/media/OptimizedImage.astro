@@ -11,6 +11,7 @@ interface Props {
   sizes?: string;
   loading?: "eager" | "lazy";
   decoding?: "sync" | "async" | "auto";
+  fetchpriority?: "high" | "low" | "auto";
 }
 
 const {
@@ -22,6 +23,7 @@ const {
   sizes,
   loading = "lazy",
   decoding = "async",
+  fetchpriority,
 } = Astro.props as Props;
 
 const importedImageSrc = typeof src !== "string" ? src : undefined;
@@ -76,6 +78,7 @@ const resolvedImportedDimensions = importedImageSrc
       sizes={sizes}
       loading={loading}
       decoding={decoding}
+      fetchpriority={fetchpriority}
     />
   ) : stringImageSrc ? (
     <Image
@@ -87,6 +90,7 @@ const resolvedImportedDimensions = importedImageSrc
       sizes={sizes}
       loading={loading}
       decoding={decoding}
+      fetchpriority={fetchpriority}
     />
   ) : null
 }
