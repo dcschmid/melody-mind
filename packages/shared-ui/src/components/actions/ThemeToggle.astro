@@ -130,24 +130,32 @@ import Icon from "../visual/Icon.astro";
     display: inline-flex;
     gap: var(--spacing-xs);
     align-items: center;
-    padding: calc(var(--spacing-xs) - 0.05rem);
-    background: var(--surface-panel-raised);
-    border: 1px solid var(--surface-border-soft);
+    padding: var(--theme-toggle-pill-padding, calc(var(--spacing-xs) - 0.05rem));
+    background: var(--theme-toggle-pill-bg, var(--surface-panel-raised));
+    border: 1px solid var(--theme-toggle-pill-border-color, var(--surface-border-soft));
     border-radius: var(--radius-full);
   }
 
   .theme-toggle__pill-icon {
     display: grid;
     place-items: center;
-    inline-size: var(--control-min-inline-size-compact);
-    block-size: var(--control-min-block-size-compact);
+    inline-size: var(
+      --theme-toggle-pill-icon-size,
+      var(--control-min-inline-size-compact)
+    );
+    block-size: var(--theme-toggle-pill-icon-size, var(--control-min-block-size-compact));
     color: var(--text-secondary);
     border-radius: var(--radius-full);
   }
 
-  .theme-toggle__icon {
-    inline-size: var(--icon-size-sm);
-    block-size: var(--icon-size-sm);
+  .theme-toggle:hover .theme-toggle__pill {
+    background: var(--theme-toggle-pill-hover-bg, var(--surface-panel-raised));
+    border-color: var(--theme-toggle-pill-hover-border-color, var(--surface-border-soft));
+  }
+
+  .theme-toggle:focus .theme-toggle__pill {
+    background: var(--theme-toggle-pill-focus-bg, var(--surface-panel-raised));
+    border-color: var(--theme-toggle-pill-focus-border-color, var(--surface-border-soft));
   }
 
   .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="light"],

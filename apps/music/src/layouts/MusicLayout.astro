@@ -195,22 +195,38 @@ const seoProps = {
 
   :global(.music-layout__main) {
     position: relative;
+    isolation: isolate;
   }
 
   :global(.music-layout__main)::before {
     position: absolute;
     inset: 0;
+    z-index: 0;
     pointer-events: none;
     content: "";
     background:
       radial-gradient(
         circle at top center,
-        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        color-mix(in srgb, var(--accent-primary) 8%, transparent),
         transparent 48%
       ),
       linear-gradient(
         180deg,
-        color-mix(in srgb, var(--surface-1) 18%, transparent),
+        color-mix(in srgb, var(--surface-1) 12%, transparent),
+        transparent 28%
+      );
+  }
+
+  :global([data-theme="dark"]) .music-layout__main::before {
+    background:
+      radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--accent-primary) 15%, transparent),
+        transparent 48%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 20%, transparent),
         transparent 28%
       );
   }
@@ -219,10 +235,11 @@ const seoProps = {
     position: relative;
     z-index: 1;
     display: grid;
-    gap: var(--spacing-xl);
+    gap: clamp(var(--spacing-base), 3vw, var(--spacing-2xl));
     max-inline-size: var(--max-width);
-    padding-block: var(--spacing-base);
+    padding-block: clamp(var(--spacing-sm), 2vw, var(--spacing-xl));
     padding-inline: var(--spacing-sm);
+    padding-bottom: max(var(--spacing-sm), env(safe-area-inset-bottom));
     margin: 0 auto;
   }
 
@@ -234,7 +251,6 @@ const seoProps = {
 
   @media (width >= 768px) {
     .music-layout__container {
-      padding-block: var(--spacing-xl);
       padding-inline: var(--spacing-xl);
     }
   }

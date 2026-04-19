@@ -10,7 +10,6 @@ interface Props {
   note?: string;
   successMessage?: string;
   errorMessage?: string;
-  fallbackMessage?: string;
 }
 
 const {
@@ -22,20 +21,51 @@ const {
   note = "Choose one way to share this page.",
   successMessage = "Link copied.",
   errorMessage = "Copy failed. Please copy the link manually.",
-  fallbackMessage = "Sharing is not available here. The link has been copied instead.",
 } = Astro.props as Props;
 
 const shareTitle = `${contentTitle} | Melody Mind`;
 const shareText = `${contentTitle} - ${contentDescription}`.trim();
+const sanitizedDesc = (contentDescription || "").replace(/\r\n|\r|\n/g, " ").trim();
 const shareMailSubject = encodeURIComponent(shareTitle);
-const shareMailBody = encodeURIComponent(`${contentDescription}\n\n${shareUrl}`);
-const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponent(
+const shareMailBody = encodeURIComponent(`${sanitizedDesc}\n\n${shareUrl}`);
+const MASTODON_SHARE_URL = "https://mastodon.social/share";
+const mastodonShareUrl = `${MASTODON_SHARE_URL}?text=${encodeURIComponent(
   `${shareText} ${shareUrl}`
 )}`;
+
+const hasValidUrl = (() => {
+  try {
+    const url = new URL(shareUrl);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+})();
+
+const sanitizeId = (str: string) =>
+  str
+    .replace(/[^a-zA-Z0-9_-]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+
+const escapeHtml = (str: string) =>
+  str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
 const rootId =
-  id ||
-  `share-section-${contentTitle}`.toLowerCase().replace(/[^a-z0-9]+/g, "-") ||
-  "share-section";
+  (id ? sanitizeId(id) : null) ||
+  (contentTitle
+    ? `share-section-${sanitizeId(contentTitle.toLowerCase())}`
+    : `share-section-${Math.random().toString(36).slice(2, 9)}`);
+
+const hour = new Date().getHours();
+const greeting =
+  hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
+const defaultNote = `${greeting}. Choose one way to share this page.`;
+const noteToUse = note === "Choose one way to share this page." ? defaultNote : note;
 ---
 
 <section
@@ -43,12 +73,12 @@ const rootId =
   id={rootId}
   aria-labelledby={`${rootId}-title`}
   data-share-root
-  data-share-url={shareUrl}
-  data-share-title={shareTitle}
-  data-share-text={shareText}
-  data-share-success={successMessage}
-  data-share-error={errorMessage}
-  data-share-fallback={fallbackMessage}
+  data-share-url={hasValidUrl ? shareUrl : ""}
+  data-share-title={escapeHtml(shareTitle)}
+  data-share-text={escapeHtml(shareText)}
+  data-share-success={escapeHtml(successMessage)}
+  data-share-error={escapeHtml(errorMessage)}
+  hidden={!hasValidUrl ? "true" : undefined}
 >
   <div class="share-section__copy">
     <h2 class="share-section__title" id={`${rootId}-title`}>{title}</h2>
@@ -59,7 +89,7 @@ const rootId =
       aria-live="polite"
       aria-atomic="true"
     >
-      {note}
+      {noteToUse}
     </p>
   </div>
 
@@ -77,14 +107,20 @@ const rootId =
       type="button"
       data-share="copy"
       class="share-section__button"
+      data-copy-button
       aria-label="Copy link to this article"
     >
-      <Icon name="copy" class="share-section__button-icon" aria-hidden="true" />
-      <span>Copy link</span>
+      <Icon
+        name="copy"
+        class="share-section__button-icon"
+        data-copy-icon
+        aria-hidden="true"
+      />
+      <span data-copy-label>Copy link</span>
     </button>
     <a
       href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
-      class="share-section__button"
+      class="share-section__button share-section__button--tertiary"
       aria-label="Share via email"
     >
       <Icon name="mail" class="share-section__button-icon" aria-hidden="true" />
@@ -94,7 +130,7 @@ const rootId =
       href={mastodonShareUrl}
       target="_blank"
       rel="noreferrer noopener"
-      class="share-section__button"
+      class="share-section__button share-section__button--tertiary"
       aria-label="Share on Mastodon (opens in a new tab)"
     >
       <Icon name="message-circle" class="share-section__button-icon" aria-hidden="true" />
@@ -108,17 +144,31 @@ const rootId =
     document.querySelectorAll<HTMLElement>("[data-share-root]")
   ).filter((root) => root.dataset.shareBound !== "true");
 
+  const copySuccessVariants = [
+    "Link copied.",
+    "Ready to share.",
+    "Sent to clipboard.",
+    "Your turn to spread the word.",
+  ];
+
   shareRoots.forEach((shareSection) => {
     shareSection.dataset.shareBound = "true";
     const shareUrl = shareSection.dataset.shareUrl || "";
     const shareTitle = shareSection.dataset.shareTitle || "";
     const shareText = shareSection.dataset.shareText || "";
-    const copySuccessMessage = shareSection.dataset.shareSuccess || "";
     const copyErrorMessage = shareSection.dataset.shareError || "";
-    const nativeShareUnavailable = shareSection.dataset.shareFallback || "";
     const statusEl = shareSection.querySelector<HTMLElement>("[data-share-status]");
     const defaultStatus = statusEl?.textContent || "";
+    const copyBtn = shareSection.querySelector<HTMLElement>("[data-copy-button]");
+    const copyLabel = shareSection.querySelector("[data-copy-label]");
+    const nativeShareBtn = shareSection.querySelector('[data-share="native"]');
     let resetTimer: number | undefined;
+    let animationTimer: number | undefined;
+
+    const copySuccessMsg =
+      shareSection.dataset.shareSuccess === "Link copied."
+        ? copySuccessVariants[Math.floor(Math.random() * copySuccessVariants.length)]
+        : shareSection.dataset.shareSuccess || "";
 
     const setStatus = (message: string) => {
       if (!statusEl) {
@@ -134,51 +184,63 @@ const rootId =
     };
 
     const copyLink = async () => {
+      if (!shareUrl) {
+        setStatus(copyErrorMessage);
+        return;
+      }
       try {
         if (!navigator.clipboard) {
           throw new Error("clipboard unavailable");
         }
         await navigator.clipboard.writeText(shareUrl);
-        setStatus(copySuccessMessage);
+        setStatus(copySuccessMsg);
+
+        if (copyBtn && copyLabel) {
+          if (animationTimer) {
+            window.clearTimeout(animationTimer);
+          }
+          copyBtn.classList.add("share-section__button--success");
+          copyLabel.textContent = "Copied";
+          copyBtn.setAttribute("aria-label", "Link copied to clipboard");
+
+          animationTimer = window.setTimeout(() => {
+            copyBtn.classList.remove("share-section__button--success");
+            copyLabel.textContent = "Copy link";
+            copyBtn.setAttribute("aria-label", "Copy link to this article");
+          }, 2000);
+        }
       } catch {
         setStatus(copyErrorMessage);
       }
     };
 
-    shareSection.querySelector('[data-share="copy"]')?.addEventListener("click", () => {
+    copyBtn?.addEventListener("click", () => {
       copyLink();
     });
 
-    shareSection
-      .querySelector('[data-share="native"]')
-      ?.addEventListener("click", async () => {
-        if (navigator.share) {
-          try {
-            await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
-            setStatus(copySuccessMessage);
+    nativeShareBtn?.addEventListener("click", async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
+          setStatus(copySuccessMsg);
+          return;
+        } catch (error) {
+          if (error instanceof Error && error.name === "AbortError") {
             return;
-          } catch (error) {
-            if (error instanceof Error && error.name === "AbortError") {
-              return;
-            }
           }
         }
-        setStatus(nativeShareUnavailable);
-        copyLink();
-      });
+      }
+      copyLink();
+    });
   });
 </script>
 
 <style>
   .share-section {
     display: grid;
-    gap: clamp(var(--spacing-base), 1.6vw, var(--spacing-lg));
+    gap: var(--spacing-lg);
     align-items: center;
-    padding-block: clamp(
-      calc(var(--spacing-sm) - 0.1rem),
-      1.1vw,
-      calc(var(--spacing-base) - 0.1rem)
-    );
+    padding-block: var(--spacing-xl);
     padding-inline: 0;
     margin-block-start: 0;
     border-block-start: 0;
@@ -186,32 +248,44 @@ const rootId =
 
   .share-section__copy {
     display: grid;
-    gap: var(--spacing-2xs);
+    gap: var(--spacing-xs);
+  }
+
+  .share-section__copy::before {
+    display: block;
+    width: 2rem;
+    height: 2px;
+    margin-block-end: var(--spacing-sm);
+    content: "";
+    background: var(--accent-primary);
   }
 
   .share-section__title {
     margin: 0;
     font-size: var(--font-size-sm);
-    line-height: 1.15;
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
     color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
   }
 
   .share-section__note {
     margin: 0;
     font-size: var(--font-size-xs);
-    line-height: 1.45;
+    line-height: var(--line-height-relaxed);
     color: var(--text-secondary);
   }
 
   .share-section__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--stack-gap-sm);
+    gap: var(--spacing-sm);
   }
 
   .share-section__button {
     display: inline-flex;
-    gap: var(--control-gap-compact);
+    gap: var(--spacing-xs);
     align-items: center;
     justify-content: center;
     min-block-size: var(--control-min-block-size-compact);
@@ -219,7 +293,7 @@ const rootId =
     font: inherit;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
+    color: var(--text-secondary);
     text-decoration: none;
     cursor: pointer;
     background: transparent;
@@ -228,23 +302,74 @@ const rootId =
     transition:
       background var(--transition-fast),
       border-color var(--transition-fast),
+      color var(--transition-fast),
       transform var(--transition-fast);
+  }
+
+  @media (width < 640px) {
+    .share-section__button {
+      min-block-size: 3rem;
+      padding: var(--spacing-md) var(--spacing-base);
+      font-size: var(--font-size-sm);
+    }
+
+    .share-section__button--primary {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .share-section__button--tertiary {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    .share-section__button--success {
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .share-section__button {
       transition: none;
     }
+
+    .share-section__button--success {
+      transform: none;
+    }
   }
 
   .share-section__button--primary {
+    font-size: var(--font-size-sm);
     color: var(--button-text-accent);
     background: var(--accent-primary);
     border-color: var(--accent-primary);
   }
 
+  .share-section__button--success {
+    color: var(--color-success);
+    background: color-mix(in srgb, var(--color-success) 8%, transparent);
+    border-color: var(--color-success);
+    transform: scale(1.05);
+  }
+
+  .share-section__button--tertiary {
+    color: var(--text-tertiary);
+    background: transparent;
+    border-color: var(--surface-border-soft);
+  }
+
+  .share-section__button--tertiary:hover,
+  .share-section__button--tertiary:focus {
+    color: var(--accent-primary);
+    background: transparent;
+    border-color: var(--accent-primary);
+    transform: translateY(-1px);
+  }
+
   .share-section__button:hover,
   .share-section__button:focus {
+    color: var(--text-primary);
     background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
     border-color: var(--surface-border-medium);
     transform: translateY(-1px);
@@ -269,7 +394,28 @@ const rootId =
   @media (width >= 640px) {
     .share-section {
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: clamp(var(--spacing-base), 2vw, var(--spacing-xl));
+      gap: var(--spacing-2xl);
     }
+
+    .share-section__actions {
+      gap: var(--spacing-md);
+    }
+  }
+
+  :root[data-theme="dark"] .share-section__button--success {
+    color: var(--color-success);
+    background: color-mix(in srgb, var(--color-success) 12%, transparent);
+    border-color: var(--color-success);
+  }
+
+  :root[data-theme="dark"] .share-section__button--tertiary {
+    color: var(--color-dark-text-tertiary);
+    border-color: var(--color-dark-border-default);
+  }
+
+  :root[data-theme="dark"] .share-section__button--tertiary:hover,
+  :root[data-theme="dark"] .share-section__button--tertiary:focus {
+    color: var(--color-dark-accent-primary);
+    border-color: var(--color-dark-accent-primary);
   }
 </style>

@@ -139,7 +139,7 @@ const {
 {twitter?.creator && <meta name="twitter:creator" content={twitter.creator} />}
 {twitterSite && <meta name="twitter:site" content={twitterSite} />}
 
-<meta name="theme-color" content="#1a1a2e" />
+<meta name="theme-color" content="#08131a" />
 
 {
   Array.isArray(alternateLocales) && alternateLocales.length > 0 && (
@@ -185,7 +185,8 @@ const {
       return cleaned.map((jsonString) => (
         <script is:inline type="application/ld+json" set:html={jsonString} />
       ));
-    } catch {
+    } catch (e) {
+      console.warn("[SEO] Failed to serialize structured data:", e);
       return null;
     }
   })()

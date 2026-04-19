@@ -22,13 +22,10 @@ interface Props {
 }
 
 const { targetId = "main-content", label = "Skip to main content" } = Astro.props;
-
-const skipLinkClasses = "skip-link";
-const iconClasses = "skip-link__icon";
 ---
 
-<a href={`#${targetId}`} class={skipLinkClasses} data-skip-link aria-label={label}>
-  <Icon name="external-link" class={iconClasses} aria-hidden="true" />
+<a href={`#${targetId}`} class="skip-link" data-skip-link aria-label={label}>
+  <Icon name="chevron-down" class="skip-link__icon" aria-hidden="true" />
   {label}
 </a>
 <style>
