@@ -25,19 +25,31 @@ const {
   ...attributes
 } = Astro.props as Props;
 
-const sizeClass = size === "sm" ? "ai-content-badge--sm" : "ai-content-badge--md";
+const validSizes = ["sm", "md"] as const;
+const safeSize = validSizes.includes(size as (typeof validSizes)[number]) ? size : "md";
+const sizeClass = safeSize === "sm" ? "ai-content-badge--sm" : "ai-content-badge--md";
 const hasTools = aiTools.length > 0;
+
+const safeHref = href.startsWith("/") || href.startsWith("#") ? href : "/ai-content";
+
+const sanitizeToolName = (name: string) =>
+  name
+    .replace(/[<>\"'&]/g, "")
+    .trim()
+    .slice(0, 50);
+
+const safeTools = aiTools.map(sanitizeToolName).filter(Boolean);
 ---
 
 <a
   class:list={[["ai-content-badge", sizeClass], className]}
-  href={href}
+  href={safeHref}
   title={hasTools
-    ? `AI-generated content created with: ${aiTools.join(", ")}`
+    ? `AI-generated content created with: ${safeTools.join(", ")}`
     : "AI-generated content"}
   aria-label={hasTools
-    ? `AI-generated content created with ${aiTools.length} AI tool${
-        aiTools.length > 1 ? "s" : ""
+    ? `AI-generated content created with ${safeTools.length} AI tool${
+        safeTools.length > 1 ? "s" : ""
       }. Learn more`
     : "AI-generated content. Learn more"}
   {...attributes}
@@ -51,25 +63,15 @@ const hasTools = aiTools.length > 0;
 </a>
 
 <style>
-  @media screen and (prefers-reduced-motion: reduce) {
-    .ai-content-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0;
-      font-family: var(--font-sans);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-semibold);
-      line-height: var(--line-height-tight);
-      color: var(--text-secondary);
-      letter-spacing: 0.02em;
-      text-decoration: underline;
-      text-decoration-color: color-mix(in srgb, var(--text-secondary) 30%, transparent);
-      text-underline-offset: var(--text-underline-offset-base);
-      background: none;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      transition: none;
+  @keyframes badge-enter {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -91,28 +93,14 @@ const hasTools = aiTools.length > 0;
     border-radius: 0;
     box-shadow: none;
     transition:
-      color var(--transition-fast),
-      text-decoration-color var(--transition-fast);
+      color 200ms cubic-bezier(0.25, 1, 0.5, 1),
+      text-decoration-color 200ms cubic-bezier(0.25, 1, 0.5, 1),
+      outline 150ms cubic-bezier(0.25, 1, 0.5, 1);
+    animation: badge-enter 400ms cubic-bezier(0.25, 1, 0.5, 1) backwards;
   }
 
   .ai-content-badge--sm {
-    font-size: var(--font-size-xs);
-  }
-
-  .ai-content-badge:hover,
-  .ai-content-badge:focus-visible {
-    color: var(--accent-primary);
-    text-decoration-color: var(--accent-primary);
-    background: none;
-    border-color: transparent;
-    box-shadow: none;
-    transform: none;
-  }
-
-  .ai-content-badge:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-    border-radius: var(--radius-sm);
+    font-size: calc(var(--font-size-xs) * 0.85);
   }
 
   .ai-content-badge__content {
@@ -127,7 +115,10 @@ const hasTools = aiTools.length > 0;
     justify-content: center;
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
-    color: var(--accent-strong);
+    color: var(--accent-primary);
+    transition:
+      color 200ms cubic-bezier(0.25, 1, 0.5, 1),
+      transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .ai-content-badge__icon :global(svg) {
@@ -137,5 +128,54 @@ const hasTools = aiTools.length > 0;
 
   .ai-content-badge__label {
     white-space: nowrap;
+  }
+
+  .ai-content-badge:hover,
+  .ai-content-badge:focus-visible {
+    color: var(--accent-primary);
+    text-decoration-color: var(--accent-primary);
+    background: none;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  .ai-content-badge:hover .ai-content-badge__icon,
+  .ai-content-badge:focus-visible .ai-content-badge__icon {
+    color: var(--accent-primary);
+    transform: rotate(8deg);
+  }
+
+  .ai-content-badge:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--radius-sm);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .ai-content-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0;
+      font-family: var(--font-sans);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--line-height-tight);
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--text-secondary) 30%, transparent);
+      text-underline-offset: var(--text-underline-offset-base);
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      transition: none;
+      animation: none;
+    }
+
+    .ai-content-badge__icon {
+      transform: none;
+      transition: none;
+    }
   }
 </style>

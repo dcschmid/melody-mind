@@ -60,7 +60,8 @@ import Icon from "../visual/Icon.astro";
 
   let cachedToggles: NodeListOf<HTMLButtonElement> | null = null;
   const allToggles = (): NodeListOf<HTMLButtonElement> =>
-    cachedToggles ??= document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]");
+    (cachedToggles ??=
+      document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]"));
 
   const updateToggle = (toggle: HTMLButtonElement): void => {
     const stored = getStoredTheme();
@@ -194,7 +195,10 @@ import Icon from "../visual/Icon.astro";
 
   .theme-toggle:focus .theme-toggle__pill {
     background: var(--theme-toggle-pill-focus-bg, var(--surface-panel-raised));
-    border-color: var(--theme-toggle-pill-focus-border-color, var(--surface-border-medium));
+    border-color: var(
+      --theme-toggle-pill-focus-border-color,
+      var(--surface-border-medium)
+    );
   }
 
   .theme-toggle:active .theme-toggle__pill {
