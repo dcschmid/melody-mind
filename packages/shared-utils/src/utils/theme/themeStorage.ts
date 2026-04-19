@@ -38,14 +38,18 @@ export function getStoredTheme(): Theme | null {
   }
 }
 
-/** Persists a manual theme override using the shared theme storage key. */
-export function setStoredTheme(theme: Theme): boolean {
+/** Persists a manual theme override using the shared theme storage key. Pass `null` to clear the stored preference and restore system-following. */
+export function setStoredTheme(theme: Theme | null): boolean {
   if (typeof window === "undefined") {
     return false;
   }
 
   try {
-    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    if (theme === null) {
+      window.localStorage.removeItem(THEME_STORAGE_KEY);
+    } else {
+      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+    }
     return true;
   } catch {
     return false;

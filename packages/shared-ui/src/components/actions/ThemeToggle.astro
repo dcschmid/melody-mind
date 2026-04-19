@@ -6,8 +6,9 @@ import Icon from "../visual/Icon.astro";
   type="button"
   class="theme-toggle"
   data-theme-toggle
+  data-theme="system"
   aria-pressed="false"
-  aria-label="Switch to dark theme"
+  aria-label="Switch to light theme"
 >
   <span class="theme-toggle__pill" aria-hidden="true">
     <span class="theme-toggle__pill-icon" data-option="light">
@@ -26,6 +27,14 @@ import Icon from "../visual/Icon.astro";
         role="presentation"
       />
     </span>
+    <span class="theme-toggle__pill-icon" data-option="system">
+      <Icon
+        name="monitor"
+        class="theme-toggle__icon"
+        aria-hidden="true"
+        role="presentation"
+      />
+    </span>
   </span>
   <span class="theme-toggle__sr" aria-live="polite" aria-atomic="true">
     Theme mode: <span data-theme-toggle-label>system</span>
@@ -37,10 +46,10 @@ import Icon from "../visual/Icon.astro";
   import {
     getStoredTheme,
     getSystemTheme,
-    getResolvedTheme,
     setStoredTheme,
     applyTheme,
     THEME_STORAGE_KEY,
+    type Theme,
   } from "@shared-utils/utils/theme/themeStorage";
 
   const toggles = Array.from(
@@ -49,35 +58,50 @@ import Icon from "../visual/Icon.astro";
 
   const boundWindows = new WeakSet<Window & typeof globalThis>();
 
+  let cachedToggles: NodeListOf<HTMLButtonElement> | null = null;
   const allToggles = (): NodeListOf<HTMLButtonElement> =>
-    document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]");
+    cachedToggles ??= document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]");
 
   const updateToggle = (toggle: HTMLButtonElement): void => {
     const stored = getStoredTheme();
     const resolved = stored ?? getSystemTheme();
     const label = toggle.querySelector<HTMLSpanElement>("[data-theme-toggle-label]");
-    toggle.dataset.theme = resolved;
+    toggle.dataset.theme = stored ?? "system";
     toggle.dataset.mode = stored ? "manual" : "system";
     if (label) {
-      label.textContent = resolved;
+      label.textContent = stored ?? "system";
     }
     toggle.setAttribute("aria-pressed", String(resolved === "dark"));
     toggle.setAttribute(
       "aria-label",
-      resolved === "dark" ? "Switch to light theme" : "Switch to dark theme"
+      stored === null
+        ? "Switch to light theme"
+        : stored === "light"
+          ? "Switch to dark theme"
+          : "Switch to system theme"
     );
   };
+
+  const cycleTheme = (() => {
+    const SEQUENCE: Array<Theme | null> = [null, "light", "dark"];
+    return (stored: Theme | null): { next: Theme | null; stored: Theme | null } => {
+      const index = stored === null ? 0 : SEQUENCE.indexOf(stored);
+      const nextIndex = (index + 1) % SEQUENCE.length;
+      return { next: SEQUENCE[nextIndex], stored: SEQUENCE[nextIndex] };
+    };
+  })();
 
   toggles.forEach((toggle) => {
     toggle.dataset.themeToggleBound = "true";
     toggle.addEventListener("click", () => {
-      const nextTheme = getResolvedTheme() === "dark" ? "light" : "dark";
+      const stored = getStoredTheme();
+      const { next, stored: nextStored } = cycleTheme(stored);
       try {
-        setStoredTheme(nextTheme);
+        setStoredTheme(nextStored);
       } catch {
         // localStorage unavailable — skip persistence, still apply theme
       }
-      applyTheme(nextTheme, "manual");
+      applyTheme(next ?? getSystemTheme(), nextStored === null ? "system" : "manual");
       allToggles().forEach(updateToggle);
     });
     updateToggle(toggle);
@@ -170,16 +194,17 @@ import Icon from "../visual/Icon.astro";
 
   .theme-toggle:focus .theme-toggle__pill {
     background: var(--theme-toggle-pill-focus-bg, var(--surface-panel-raised));
-    border-color: var(--theme-toggle-pill-focus-border-color, var(--surface-border-soft));
+    border-color: var(--theme-toggle-pill-focus-border-color, var(--surface-border-medium));
   }
 
   .theme-toggle:active .theme-toggle__pill {
     transform: scale(0.96);
-    transition-duration: 100ms;
+    transition-duration: 150ms;
   }
 
   .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="light"],
-  .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="dark"] {
+  .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="dark"],
+  .theme-toggle[data-mode="system"] .theme-toggle__pill-icon[data-option="system"] {
     color: var(--accent-strong);
     background: color-mix(in srgb, var(--accent-primary) 15%, var(--surface-1));
     opacity: 1;
@@ -187,7 +212,11 @@ import Icon from "../visual/Icon.astro";
   }
 
   .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="dark"],
-  .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="light"] {
+  .theme-toggle[data-theme="light"] .theme-toggle__pill-icon[data-option="system"],
+  .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="light"],
+  .theme-toggle[data-theme="dark"] .theme-toggle__pill-icon[data-option="system"],
+  .theme-toggle[data-mode="system"] .theme-toggle__pill-icon[data-option="light"],
+  .theme-toggle[data-mode="system"] .theme-toggle__pill-icon[data-option="dark"] {
     opacity: 0.4;
     transform: scale(0.85);
   }
