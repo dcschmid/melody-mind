@@ -227,6 +227,19 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
     min-block-size: var(--control-min-block-size);
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .hero-teaser__media {
+      min-inline-size: 0;
+      aspect-ratio: var(--hero-teaser-media-aspect-ratio, 4 / 3);
+      overflow: hidden;
+      background: var(--surface-panel-bg);
+      border: 1px solid var(--surface-border-soft);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      transition: none;
+    }
+  }
+
   .hero-teaser__media {
     min-inline-size: 0;
     aspect-ratio: var(--hero-teaser-media-aspect-ratio, 4 / 3);
@@ -244,9 +257,10 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
     cursor: default;
   }
 
-  .hero-teaser__media:has(img):hover {
-    transform: scale(1.015);
+  .hero-teaser__media:has(img):hover,
+  .hero-teaser__media:has(img):focus {
     box-shadow: var(--shadow-md);
+    transform: scale(1.015);
   }
 
   .hero-teaser__media--contain {
