@@ -22,20 +22,31 @@ const {
   title,
   copy,
   listAriaLabel = title,
-  items,
-  eyebrow = "Keep reading",
+  items = [],
+  eyebrow = "Continue reading",
   linkHref = "/",
   linkLabel = "View all articles",
 } = Astro.props as Props;
 
 const titleId = `${id}-title`;
+
+// Security: Validate URL scheme, default to "/" for javascript: or data: URIs
+const isExternalHref =
+  typeof linkHref === "string" &&
+  (linkHref.startsWith("http://") || linkHref.startsWith("https://"));
+const safeHref =
+  linkHref &&
+  typeof linkHref === "string" &&
+  !linkHref.match(/^\s*(javascript:|data:)/i)
+    ? linkHref
+    : "/";
 ---
 
 {
   items.length ? (
     <section class="related-content-section" aria-labelledby={titleId}>
       <Stack className="related-content-section__header" gap="base">
-        <Stack className="related-content-section__copy-block" gap="2xs">
+        <Stack className="related-content-section__copy-block" gap="xs">
           <p class="related-content-section__eyebrow">{eyebrow}</p>
           <Headline level="h2" textSize="lg" className="related-content-section__title">
             <span id={titleId}>{title}</span>
@@ -46,9 +57,13 @@ const titleId = `${id}-title`;
             </Paragraph>
           ) : null}
         </Stack>
-        <a class="related-content-section__link" href={linkHref}>
-          <span>{linkLabel}</span>
-          <span aria-hidden="true">→</span>
+        <a
+          class="related-content-section__link"
+          href={safeHref}
+          aria-label={`${linkLabel} — see all related content`}
+          {...(isExternalHref ? { rel: "noopener noreferrer", target: "_blank" } : {})}
+        >
+          {linkLabel} →
         </a>
       </Stack>
 
@@ -69,7 +84,7 @@ const titleId = `${id}-title`;
               size="compact"
               mediaObjectFit="contain"
               imageSrc={item.imageSrc || "/default-cover.jpg"}
-              imageAlt={item.imageAlt ?? `Cover image for ${item.title}`}
+              imageAlt={item.imageAlt || (item.title ? `Cover image for ${item.title}` : "Cover image")}
               imageWidth={1024}
               imageHeight={683}
               title={item.title}
@@ -92,7 +107,7 @@ const titleId = `${id}-title`;
     padding-block: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
     padding-inline: 0;
     margin-block-start: var(--spacing-xl);
-    border-block-start: 1px solid var(--surface-border-soft);
+    border-block-start: 1px solid var(--surface-border-accent);
   }
 
   .related-content-section__copy-block {
@@ -100,26 +115,13 @@ const titleId = `${id}-title`;
   }
 
   .related-content-section__eyebrow {
-    display: inline-flex;
-    gap: var(--spacing-xs);
-    align-items: center;
     margin: 0;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
-    line-height: 1;
+    line-height: 1.2;
     color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
-  }
-
-  .related-content-section__eyebrow::before {
-    inline-size: calc(var(--icon-size-sm) - 0.15rem);
-    block-size: calc(var(--icon-size-sm) - 0.15rem);
-    content: "";
-    background: currentcolor;
-    border-radius: var(--radius-sm);
-    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M12 2L1 7l11 5l9-4.09V17h2V7z'/%3E%3Cpath fill='currentColor' d='M5 10.18v4L12 18l7-3.82v-4L12 13z'/%3E%3C/svg%3E")
-      no-repeat center / contain;
   }
 
   .related-content-section__title {
@@ -143,14 +145,30 @@ const titleId = `${id}-title`;
     place-self: start;
     align-items: center;
     font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-semibold);
     color: var(--accent-primary);
     text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-base);
+    border-radius: var(--radius-base);
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
   }
 
   .related-content-section__link:hover,
   .related-content-section__link:focus-visible {
     color: var(--accent-strong);
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+  }
+
+  .related-content-section__link:active {
+    color: var(--accent-strong);
+    background-color: color-mix(in srgb, var(--accent-primary) 16%, transparent);
+  }
+
+  .related-content-section__link:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
   }
 
   .related-content-section__grid {
@@ -161,6 +179,28 @@ const titleId = `${id}-title`;
 
   .related-content-section__item {
     min-inline-size: 0;
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: fade-in-up var(--motion-duration-base) var(--motion-ease-standard) both;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(var(--motion-distance-sm));
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .related-content-section__item {
+      animation: none;
+      opacity: 1;
+    }
   }
 
   @media (width >= 50rem) {
@@ -177,6 +217,10 @@ const titleId = `${id}-title`;
   @media (width < 40rem) {
     .related-content-section {
       gap: var(--spacing-lg);
+    }
+
+    .related-content-section__header {
+      gap: var(--spacing-md);
     }
   }
 </style>

@@ -244,6 +244,7 @@ const contentProps = href
 </article>
 
 <style>
+  /* Base card transition: lift + shadow on hover */
   .content-card {
     position: relative;
     display: flex;
@@ -254,12 +255,22 @@ const contentProps = href
     overflow: hidden;
     background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
-
-    /* Extra radius creates softer, more editorial feel beyond standard xl */
     border-radius: calc(var(--radius-xl) + var(--spacing-xs));
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
       var(--shadow-base);
+    transition:
+      transform var(--transition-base) var(--motion-ease-standard),
+      box-shadow var(--transition-base) var(--motion-ease-standard);
+  }
+
+  /* Card lift on hover for interactive cards */
+  .content-card--interactive:hover,
+  .content-card--interactive:focus-within {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
+      var(--shadow-lg);
   }
 
   .content-card--interactive.content-card--action:hover,
@@ -630,6 +641,7 @@ const contentProps = href
       .content-card--interactive.content-card--feature:focus-within
     )
     :where(.content-card__media img, .content-card__media picture > img) {
+    transition: transform var(--motion-duration-slow) var(--motion-ease-standard);
     transform: scale(1.05);
   }
 </style>
