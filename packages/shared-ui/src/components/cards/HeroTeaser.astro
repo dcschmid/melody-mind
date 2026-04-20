@@ -63,7 +63,9 @@ const hasActionsSlot = Astro.slots.has("actions");
 const hasMedia = Boolean(imageSrc) || hasMediaSlot;
 
 if (import.meta.env.DEV && imageSrc && !imageAlt) {
-  console.warn(`[HeroTeaser] imageSrc provided but imageAlt is empty. Add descriptive alt text for accessibility.`);
+  console.warn(
+    `[HeroTeaser] imageSrc provided but imageAlt is empty. Add descriptive alt text for accessibility.`
+  );
 }
 
 const resolvedImageWidth = imageWidth ?? 1200;
