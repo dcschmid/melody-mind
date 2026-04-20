@@ -30,12 +30,11 @@ const takeawayEntries = visibleItems.map((item, index) => {
   visibleItems.length ? (
     <aside class="knowledge-takeaways" aria-labelledby="knowledge-takeaways-title">
       <div class="knowledge-takeaways__header">
-        <div class="knowledge-takeaways__badge">What you'll take away</div>
         <Headline level="h2" textSize="lg" className="knowledge-takeaways__title">
           <span id="knowledge-takeaways-title">{title}</span>
         </Headline>
         <Paragraph textSize="base" className="knowledge-takeaways__subtitle">
-          Short points to remember after reading.
+          Essential points from this article.
         </Paragraph>
         <span class="knowledge-takeaways__accent" aria-hidden="true" />
       </div>
@@ -77,28 +76,9 @@ const takeawayEntries = visibleItems.map((item, index) => {
 
   .knowledge-takeaways__header {
     display: grid;
-    gap: calc(var(--spacing-xs) + 0.1rem);
+    gap: var(--spacing-xs);
     justify-items: center;
     text-align: center;
-  }
-
-  .knowledge-takeaways__badge {
-    display: inline-flex;
-    gap: calc(var(--spacing-xs) + 0.08rem);
-    align-items: center;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wider);
-  }
-
-  .knowledge-takeaways__badge::before {
-    inline-size: calc(var(--icon-size-xs) - 0.18rem);
-    block-size: calc(var(--icon-size-xs) - 0.18rem);
-    content: "";
-    border: 1px solid currentcolor;
-    border-radius: var(--radius-sm);
   }
 
   .knowledge-takeaways__title {
@@ -111,17 +91,18 @@ const takeawayEntries = visibleItems.map((item, index) => {
   }
 
   .knowledge-takeaways__subtitle {
-    max-inline-size: 36rem;
+    max-inline-size: min(36rem, 90vw);
     margin: 0;
+    margin-block-start: var(--spacing-2xs);
     font-size: var(--font-size-base);
     line-height: 1.6;
     color: var(--prose-color);
   }
 
   .knowledge-takeaways__accent {
-    inline-size: calc(var(--spacing-2xl) + 0.35rem);
+    inline-size: var(--spacing-2xl);
     block-size: 2px;
-    margin-block-start: var(--spacing-2xs);
+    margin-block-start: var(--spacing-md);
     background: var(--accent-primary);
     border-radius: var(--radius-full);
   }
@@ -138,20 +119,15 @@ const takeawayEntries = visibleItems.map((item, index) => {
   .knowledge-takeaways__item {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    gap: calc(var(--spacing-sm) + 0.2rem);
+    gap: var(--spacing-sm);
     align-items: start;
     padding: var(--spacing-lg) 0;
-    background: transparent;
-    border: 0;
     border-bottom: 1px solid
       color-mix(in srgb, var(--surface-border-soft) 76%, transparent);
-    border-radius: 0;
-    box-shadow: none;
   }
 
   .knowledge-takeaways__copy {
     display: grid;
-    grid-column: 2;
     gap: var(--spacing-2xs);
     min-inline-size: 0;
   }
@@ -161,28 +137,34 @@ const takeawayEntries = visibleItems.map((item, index) => {
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    inline-size: calc(var(--icon-shell-size-sm) - 0.35rem);
-    block-size: calc(var(--icon-shell-size-sm) - 0.35rem);
-    color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-1) 5%, transparent);
-    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 58%, transparent);
+    inline-size: clamp(2.75rem, 6vw, var(--icon-shell-size-sm));
+    block-size: clamp(2.75rem, 6vw, var(--icon-shell-size-sm));
+    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
     border-radius: var(--radius-full);
   }
 
   .knowledge-takeaways__icon--1 {
-    color: #35f2d4;
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+    border-color: color-mix(in srgb, var(--accent-primary) 32%, transparent);
   }
 
   .knowledge-takeaways__icon--2 {
-    color: #dc7dff;
+    color: var(--accent-muted);
+    background: color-mix(in srgb, var(--accent-muted) 12%, transparent);
+    border-color: color-mix(in srgb, var(--accent-muted) 32%, transparent);
   }
 
   .knowledge-takeaways__icon--3 {
-    color: #3ef2ea;
+    color: var(--color-info);
+    background: color-mix(in srgb, var(--color-info) 12%, transparent);
+    border-color: color-mix(in srgb, var(--color-info) 32%, transparent);
   }
 
   .knowledge-takeaways__icon--4 {
-    color: #d8e3ed;
+    color: var(--color-warning);
+    background: color-mix(in srgb, var(--color-warning) 12%, transparent);
+    border-color: color-mix(in srgb, var(--color-warning) 32%, transparent);
   }
 
   .knowledge-takeaways__item-title {
@@ -197,10 +179,10 @@ const takeawayEntries = visibleItems.map((item, index) => {
 
   .knowledge-takeaways__text {
     display: block;
-    max-inline-size: 40rem;
+    max-inline-size: min(40rem, 90vw);
     font-size: var(--font-size-sm);
-    line-height: 1.62;
-    color: color-mix(in srgb, var(--text-secondary) 92%, #d8e3ed);
+    line-height: 1.6;
+    color: var(--text-secondary);
   }
 
   @container (width >= 42rem) {
