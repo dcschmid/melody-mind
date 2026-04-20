@@ -63,7 +63,6 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     content: "";
     background: color-mix(in srgb, var(--accent-primary) 88%, #fff 12%);
     border-radius: var(--radius-full);
-    box-shadow: 0 0 1rem color-mix(in srgb, var(--accent-primary) 18%, transparent);
   }
 
   .did-you-know-card__icon-shell {
@@ -76,7 +75,6 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     background: color-mix(in srgb, var(--surface-1) 6%, transparent);
     border: 1px solid color-mix(in srgb, var(--surface-border-soft) 84%, transparent);
     border-radius: var(--radius-lg);
-    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 42%, transparent);
   }
 
   .did-you-know-card__icon-ring {
@@ -133,6 +131,11 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
 
   .did-you-know-card__body :global(p + p) {
     margin-block-start: 0.75em;
+  }
+
+  .did-you-know-card:focus-visible {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
   }
 
   @media (width < 640px) {
