@@ -82,27 +82,33 @@ const forwardedAttrs = (() => {
 })();
 ---
 
-{isRendered ? (
-  <AccessibleExternalLink
-    href={href}
-    className={classes}
-    aria-label={ariaLabelAttr}
-    aria-describedby={ariaDescribedByAttr}
-    announceNewTab={isExternal}
-    newTabText={newTabText}
-    {target}
-    rel={finalRel}
-    {...forwardedAttrs}
-  >
-    {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
-    <span class="button-link__label"><slot /></span>
-  </AccessibleExternalLink>
-) : (
-  <span class={`${classes} button-link--disabled`} aria-disabled="true">
-    {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
-    <span class="button-link__label"><slot /></span>
-  </span>
-)}
+{
+  isRendered ? (
+    <AccessibleExternalLink
+      href={href}
+      className={classes}
+      aria-label={ariaLabelAttr}
+      aria-describedby={ariaDescribedByAttr}
+      announceNewTab={isExternal}
+      newTabText={newTabText}
+      {target}
+      rel={finalRel}
+      {...forwardedAttrs}
+    >
+      {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
+      <span class="button-link__label">
+        <slot />
+      </span>
+    </AccessibleExternalLink>
+  ) : (
+    <span class={`${classes} button-link--disabled`} aria-disabled="true">
+      {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
+      <span class="button-link__label">
+        <slot />
+      </span>
+    </span>
+  )
+}
 
 <style>
   .button-link {

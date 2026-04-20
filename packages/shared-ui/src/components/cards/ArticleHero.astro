@@ -183,8 +183,8 @@ const titleId = `${idBase}-title`;
     gap: var(--stack-gap-lg);
     align-content: start;
     min-inline-size: 0;
-    overflow-wrap: break-word;
     color: var(--heading-color);
+    overflow-wrap: break-word;
   }
 
   .article-hero__topline {
@@ -251,10 +251,11 @@ const titleId = `${idBase}-title`;
     gap: calc(var(--spacing-sm) + 0.3rem) calc(var(--spacing-lg) - 0.3rem);
     align-items: center;
     padding: 0;
+    padding-inline-start: var(--spacing-sm);
     margin: 0;
     list-style: none;
-    padding-inline-start: var(--spacing-sm);
-    border-inline-start: 2px solid color-mix(in srgb, var(--accent-primary) 25%, transparent);
+    border-inline-start: 2px solid
+      color-mix(in srgb, var(--accent-primary) 25%, transparent);
   }
 
   .article-hero__signal {
@@ -263,6 +264,15 @@ const titleId = `${idBase}-title`;
     align-items: center;
     font-size: var(--font-size-xs);
     color: var(--text-secondary);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .article-hero__signal-icon {
+      inline-size: var(--icon-size-sm);
+      block-size: var(--icon-size-sm);
+      color: color-mix(in srgb, var(--accent-primary) 45%, var(--text-tertiary));
+      transition: none;
+    }
   }
 
   .article-hero__signal-icon {
@@ -434,11 +444,13 @@ const titleId = `${idBase}-title`;
         box-shadow var(--motion-duration-fast) var(--motion-ease-standard);
     }
 
-    .article-hero__links :global(.article-hero__link:hover) {
+    .article-hero__links :global(.article-hero__link:hover),
+    .article-hero__links :global(.article-hero__link:focus) {
       transform: translateY(var(--motion-distance-xs));
     }
 
-    .article-hero__links :global(.article-hero__link.button-link:hover) {
+    .article-hero__links :global(.article-hero__link.button-link:hover),
+    .article-hero__links :global(.article-hero__link.button-link:focus) {
       box-shadow: var(--shadow-md);
     }
 
@@ -465,10 +477,10 @@ const titleId = `${idBase}-title`;
         transform var(--motion-duration-slow) var(--motion-ease-standard);
     }
 
-    .article-hero__media-placeholder:hover
-      .article-hero__media-placeholder-icon {
-      transform: scale(1.05);
+    .article-hero__media-placeholder:hover .article-hero__media-placeholder-icon,
+    .article-hero__media-placeholder:focus .article-hero__media-placeholder-icon {
       opacity: var(--motion-opacity-full);
+      transform: scale(1.05);
     }
   }
 

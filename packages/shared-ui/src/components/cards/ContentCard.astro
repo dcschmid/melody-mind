@@ -9,8 +9,11 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   title: string;
   href?: string;
   description?: string;
+  /** Controls top/bottom card chrome (default) vs minimal sides */
   chrome?: "default" | "minimal";
+  /** Visual style variant: default, feature (primary CTA), action (secondary CTA) */
   variant?: "default" | "feature" | "action";
+  /** Controls padding and font sizes: compact, default, spacious */
   size?: "compact" | "default" | "spacious";
   dataTestId?: string;
   mediaAspectRatio?: string;
@@ -23,10 +26,14 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   imageDecoding?: "sync" | "async" | "auto";
   imageSizes?: string;
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  /** Array of {label, iconName?, datetime?} for metadata row */
   metaItems?: ContentCardMetaItem[];
   descriptionLineClamp?: number;
+  /** Button label text */
   ctaLabel?: string;
+  /** Icon name for button */
   ctaIconName?: string;
+  /** Screen reader text for button */
   ctaSrText?: string;
   target?: string;
   rel?: string;
@@ -45,7 +52,7 @@ const {
   mediaAspectRatio,
   mediaObjectFit = "cover",
   imageSrc,
-  imageAlt = "",
+  imageAlt,
   imageWidth,
   imageHeight,
   imageLoading = "lazy",
@@ -63,8 +70,6 @@ const {
   ...rest
 } = Astro.props as Props;
 
-const TitleTag = titleLevel;
-const ContentTag = href ? "a" : "div";
 const titleId = `${id}-title`;
 const descriptionId = `${id}-description`;
 const metaId = `${id}-meta`;
@@ -88,11 +93,22 @@ const resolvedImageWidth = imageWidth ?? 1024;
 const resolvedImageHeight = imageHeight ?? 683;
 const resolvedMediaAspectRatio =
   mediaAspectRatio ?? `${resolvedImageWidth} / ${resolvedImageHeight}`;
+const TitleTag = titleLevel;
+const ContentTag = href ? "a" : "div";
 const contentProps = href
   ? {
       href,
       ...(target ? { target } : {}),
-      ...(rel ? { rel } : {}),
+      // Security: Add rel="noopener noreferrer" when target="_blank" to prevent reverse tabnabbing
+      ...(target === "_blank"
+        ? {
+            rel:
+              [rel, "noopener", "noreferrer"].filter(Boolean).join(" ") ||
+              "noopener noreferrer",
+          }
+        : rel
+          ? { rel }
+          : {}),
       "aria-labelledby": titleId,
       "aria-describedby": describedBy || undefined,
     }
@@ -106,6 +122,7 @@ const contentProps = href
     `content-card--chrome-${chrome}`,
     `content-card--${variant}`,
     `content-card--size-${size}`,
+    /* Applied when card is navigable link - enables hover/focus states */
     href && "content-card--interactive",
     className,
   ]}
@@ -123,7 +140,8 @@ const contentProps = href
           {imageSrc ? (
             <OptimizedImage
               src={imageSrc}
-              alt={imageAlt}
+              alt={imageAlt ?? ""}
+              aria-hidden={imageAlt === undefined ? "true" : undefined}
               class="content-card__media-image"
               width={resolvedImageWidth}
               height={resolvedImageHeight}
@@ -168,13 +186,13 @@ const contentProps = href
       {
         hasMeta ? (
           <div class="content-card__meta" id={metaId}>
-            {metaItems.map((item) =>
-              item.datetime ? (
-                <time
-                  class="content-card__meta-item"
-                  datetime={item.datetime}
-                  aria-label={item.label}
-                >
+            {metaItems.map((item) => {
+              const MetaTag = item.datetime ? "time" : "span";
+              const metaProps = item.datetime
+                ? { datetime: item.datetime, "aria-label": item.label }
+                : {};
+              return (
+                <MetaTag class="content-card__meta-item" {...metaProps}>
                   {item.iconName ? (
                     <Icon
                       name={item.iconName}
@@ -183,20 +201,9 @@ const contentProps = href
                     />
                   ) : null}
                   <span>{item.label}</span>
-                </time>
-              ) : (
-                <span class="content-card__meta-item">
-                  {item.iconName ? (
-                    <Icon
-                      name={item.iconName}
-                      class="content-card__meta-icon"
-                      aria-hidden="true"
-                    />
-                  ) : null}
-                  <span>{item.label}</span>
-                </span>
-              )
-            )}
+                </MetaTag>
+              );
+            })}
             {hasFooterMetaSlot ? <slot name="footer-meta" /> : null}
           </div>
         ) : null
@@ -208,9 +215,9 @@ const contentProps = href
         <div class="content-card__footer">
           <slot name="footer" />
         </div>
-      ) : hasCta ? (
+      ) : hasCta && !href ? (
         <div class="content-card__footer">
-          <span class="content-card__cta">
+          <button type="button" class="content-card__cta">
             {ctaIconName ? (
               <Icon
                 name={ctaIconName}
@@ -219,7 +226,7 @@ const contentProps = href
               />
             ) : null}
             <span>{ctaLabel}</span>
-          </span>
+          </button>
         </div>
       ) : null
     }
@@ -229,7 +236,7 @@ const contentProps = href
         <span class="content-card__sr">
           <slot name="sr" />
         </span>
-      ) : ctaSrText ? (
+      ) : hasCta && ctaSrText ? (
         <span class="content-card__sr">{ctaSrText}</span>
       ) : null
     }
@@ -247,10 +254,12 @@ const contentProps = href
     overflow: hidden;
     background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
+
+    /* Extra radius creates softer, more editorial feel beyond standard xl */
     border-radius: calc(var(--radius-xl) + var(--spacing-xs));
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
-      var(--shadow-lg);
+      var(--shadow-base);
     transition:
       transform var(--transition-base),
       background var(--transition-base),
@@ -258,83 +267,9 @@ const contentProps = href
       box-shadow var(--transition-base);
   }
 
-  .content-card::after {
-    position: absolute;
-    inset-block: 0;
-    inset-inline-start: 0;
-    inline-size: calc(var(--accent-bar-width) / 2);
-    content: "";
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--accent-primary) 0%, transparent),
-      color-mix(in srgb, var(--accent-primary) 28%, transparent),
-      color-mix(in srgb, var(--accent-primary) 0%, transparent)
-    );
-    opacity: 0.75;
-  }
-
-  .content-card--feature {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--accent-primary) 12%, transparent),
-        transparent 58%
-      ),
-      var(--surface-panel-raised);
-    border-color: var(--surface-border-accent);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .content-card--action {
-    background: var(--section-surface-bg);
-    border-color: var(--surface-border-accent);
-    box-shadow: var(--shadow-xl);
-  }
-
-  .content-card--chrome-minimal {
-    border-color: transparent;
-  }
-
-  .content-card__content {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    inline-size: 100%;
-    min-inline-size: 0;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .content-card__content:focus-visible {
-    outline: 2px solid transparent;
-  }
-
-  .content-card--interactive:hover,
-  .content-card--interactive:focus-within {
-    background: var(--surface-card-hover);
-    border-color: var(--surface-border-accent);
-    transform: translateY(-4px);
-  }
-
-  .content-card--interactive:focus-within {
-    border-color: var(--surface-border-accent);
-    box-shadow: var(--interactive-shadow-focus), var(--shadow-lg);
-  }
-
-  .content-card--interactive.content-card--feature:hover,
-  .content-card--interactive.content-card--feature:focus-within {
-    border-color: var(--accent-strong);
-    transform: translateY(-3px);
-  }
-
-  .content-card--interactive.content-card--feature:focus-within {
-    box-shadow: var(--interactive-shadow-focus), var(--shadow-2xl);
-  }
-
   .content-card--interactive.content-card--action:hover,
   .content-card--interactive.content-card--action:focus-within {
     border-color: var(--accent-primary);
-    transform: translateY(-3px);
   }
 
   .content-card--interactive.content-card--action:focus-within {
@@ -350,15 +285,24 @@ const contentProps = href
     border-block-end: 1px solid var(--surface-border-soft);
   }
 
+  .content-card__media-image {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
   .content-card--feature .content-card__media {
     background: var(--surface-pill-bg);
     border-block-end-color: var(--surface-border-accent);
   }
 
+  /* Minimal chrome removes media bottom border */
   .content-card--chrome-minimal .content-card__media {
     border-block-end: 0;
   }
 
+  /* Subtle corner vignettes: top-light and bottom-dark gradients add depth */
   .content-card__media::after {
     position: absolute;
     inset: 0;
@@ -382,6 +326,7 @@ const contentProps = href
     place-items: center;
   }
 
+  /* Base media styles: layout, sizing, object-fit for default/cover variants */
   .content-card__media :global(img),
   .content-card__media :global(picture),
   .content-card__media :global(picture > img),
@@ -389,29 +334,6 @@ const contentProps = href
     display: block;
     inline-size: 100%;
     block-size: 100%;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .content-card__media :global(img),
-    .content-card__media :global(picture > img),
-    .content-card__media :global(svg) {
-      object-fit: cover;
-      transition: none;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .content-card__media :global(img),
-    .content-card__media :global(picture > img),
-    .content-card__media :global(svg) {
-      object-fit: cover;
-      transition: transform var(--transition-slow);
-    }
-  }
-
-  .content-card__media :global(img),
-  .content-card__media :global(picture > img),
-  .content-card__media :global(svg) {
     object-fit: cover;
   }
 
@@ -421,11 +343,21 @@ const contentProps = href
     object-fit: contain;
   }
 
+  /* Hover/focus scale on interactive cards */
   .content-card--interactive:hover .content-card__media :global(img),
   .content-card--interactive:focus-within .content-card__media :global(img),
   .content-card--interactive:hover .content-card__media :global(picture > img),
   .content-card--interactive:focus-within .content-card__media :global(picture > img) {
     transform: scale(1.05);
+  }
+
+  /* Reduced motion: disable transitions */
+  @media (prefers-reduced-motion: reduce) {
+    .content-card__media :global(img),
+    .content-card__media :global(picture > img),
+    .content-card__media :global(svg) {
+      transition: none;
+    }
   }
 
   .content-card__badge {
@@ -441,6 +373,19 @@ const contentProps = href
     flex-direction: column;
     gap: var(--spacing-md);
     padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+  }
+
+  .content-card__content {
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .content-card__content:hover,
+  .content-card__content:focus-visible {
+    text-decoration: none;
   }
 
   .content-card--size-compact .content-card__body {
@@ -472,11 +417,17 @@ const contentProps = href
     font-size: var(--font-size-lg);
   }
 
+  /* Warm amber undertone on interactive titles */
+  .content-card--interactive:hover .content-card__title,
+  .content-card--interactive:focus-within .content-card__title {
+    color: color-mix(in srgb, var(--heading-color) 85%, var(--accent-primary) 15%);
+  }
+
   .content-card__description {
     margin: 0;
     font-size: var(--font-size-base);
     line-height: var(--prose-line-height);
-    color: var(--text-secondary);
+    color: color-mix(in srgb, var(--text-secondary) 85%, var(--accent-primary) 15%);
     text-wrap: pretty;
     overflow-wrap: break-word;
   }
@@ -497,8 +448,7 @@ const contentProps = href
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-sm) var(--spacing-lg);
-    padding-block-start: var(--spacing-base);
-    margin-block-start: auto;
+    padding-block-start: var(--spacing-md);
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
     border-block-start: 1px solid var(--surface-border-soft);
@@ -509,7 +459,7 @@ const contentProps = href
   }
 
   .content-card--size-spacious .content-card__meta {
-    padding-block-start: var(--spacing-md);
+    padding-block-start: var(--spacing-lg);
   }
 
   .content-card__meta-item {
@@ -518,6 +468,7 @@ const contentProps = href
     align-items: center;
     min-inline-size: 0;
     font-weight: var(--font-weight-medium);
+    color: color-mix(in srgb, var(--text-secondary) 85%, var(--accent-primary) 15%);
   }
 
   .content-card__meta-icon {
@@ -525,6 +476,13 @@ const contentProps = href
     flex-shrink: 0;
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
+    color: var(--accent-primary);
+    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
+  }
+
+  /* Icon color shift indicates metadata presence on hover */
+  .content-card--interactive:hover .content-card__meta-icon,
+  .content-card--interactive:focus-within .content-card__meta-icon {
     color: var(--accent-primary);
   }
 
@@ -558,15 +516,23 @@ const contentProps = href
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-xs);
     transition:
-      transform var(--transition-base),
+      transform var(--motion-duration-fast) var(--motion-ease-standard),
       background-color var(--transition-base),
       border-color var(--transition-base),
       box-shadow var(--transition-base);
   }
 
   .content-card__cta-icon {
+    display: block;
     inline-size: var(--icon-size-xs);
     block-size: var(--icon-size-xs);
+    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
+  }
+
+  /* Arrow icon signals action direction on CTA hover */
+  .content-card__cta:hover .content-card__cta-icon,
+  .content-card__cta:focus-within .content-card__cta-icon {
+    transform: translateX(var(--motion-distance-xs));
   }
 
   .content-card--feature .content-card__cta {
@@ -581,23 +547,33 @@ const contentProps = href
     border-color: var(--surface-border-accent);
   }
 
-  .content-card--interactive:hover .content-card__cta,
-  .content-card--interactive:focus-within .content-card__cta {
-    background: var(--surface-card-hover);
-    border-color: var(--surface-border-accent);
-    box-shadow: var(--shadow-sm);
-    transform: translateY(-1px);
+  /* CTA press: subtle scale down for tactile feedback */
+  .content-card__cta:active {
+    transform: scale(0.97);
   }
 
-  .content-card--interactive.content-card--feature:hover .content-card__cta,
-  .content-card--interactive.content-card--feature:focus-within .content-card__cta {
+  /* CTA keyboard focus: clear visible indicator */
+  .content-card__cta:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  /* CTA hover: only triggers on CTA hover, not entire card */
+  .content-card__cta:hover,
+  .content-card__cta:focus-within {
+    cursor: pointer;
+    background: var(--surface-card-hover);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .content-card--interactive.content-card--feature .content-card__cta:hover,
+  .content-card--interactive.content-card--feature .content-card__cta:focus-within {
     background: var(--accent-primary-hover);
-    border-color: var(--surface-border-accent-strong);
     box-shadow: var(--shadow-xl);
   }
 
-  .content-card--interactive.content-card--action:hover .content-card__cta,
-  .content-card--interactive.content-card--action:focus-within .content-card__cta {
+  .content-card--interactive.content-card--action .content-card__cta:hover,
+  .content-card--interactive.content-card--action .content-card__cta:focus-within {
     background: var(--surface-pill-bg);
   }
 
@@ -618,6 +594,15 @@ const contentProps = href
       transition: none;
     }
 
+    .content-card__title {
+      transition: none;
+    }
+
+    .content-card--interactive:hover .content-card__title,
+    .content-card--interactive:focus-within .content-card__title {
+      color: var(--heading-color);
+    }
+
     .content-card__media :global(img),
     .content-card__media :global(picture > img),
     .content-card__media :global(svg) {
@@ -625,15 +610,42 @@ const contentProps = href
       transition: none;
     }
 
+    .content-card__meta-icon {
+      transition: none;
+    }
+
+    .content-card--interactive:hover .content-card__meta-icon,
+    .content-card--interactive:focus-within .content-card__meta-icon {
+      color: var(--accent-primary);
+    }
+
     .content-card__cta {
       transition: none;
     }
 
+    .content-card__cta-icon {
+      transition: none;
+    }
+
+    .content-card__cta-icon:hover,
+    .content-card__cta-icon:focus-within {
+      color: var(--accent-primary);
+    }
+
     .content-card--interactive:hover,
-    .content-card--interactive:focus-within,
-    .content-card--interactive:hover .content-card__cta,
-    .content-card--interactive:focus-within .content-card__cta {
+    .content-card--interactive:focus-within {
       transform: none;
+    }
+
+    .content-card__cta:hover,
+    .content-card__cta:focus-within {
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .content-card--interactive:active {
+      transform: scale(0.985);
     }
   }
 
@@ -658,6 +670,11 @@ const contentProps = href
   }
 </style>
 
+{
+  /* Global styles: targets slotted/child elements that escape scoped CSS
+   - Variant-specific sizing (--cover, --contain) needs global selectors
+   - Interactive hover states for feature/action variants need cross-scope access */
+}
 <style is:global>
   :where(
     .content-card__media img,
@@ -713,7 +730,7 @@ const contentProps = href
       .content-card--interactive.content-card--feature:focus-within
     )
     :where(.content-card__media img, .content-card__media picture > img) {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 
   @media (prefers-reduced-motion: reduce) {
