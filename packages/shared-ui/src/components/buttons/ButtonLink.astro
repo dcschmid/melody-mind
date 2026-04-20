@@ -129,12 +129,6 @@ const forwardedAttrs = (() => {
     background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
-    transition:
-      background-color var(--transition-fast),
-      border-color var(--transition-fast),
-      color var(--transition-fast),
-      box-shadow var(--transition-fast),
-      transform 120ms var(--ease-out-quart);
   }
 
   .button-link:hover,
@@ -142,11 +136,6 @@ const forwardedAttrs = (() => {
     background: var(--surface-card-hover);
     border-color: var(--surface-border-accent);
     box-shadow: var(--shadow-sm);
-    transform: translateY(-1px);
-  }
-
-  .button-link:active {
-    transform: scale(0.98);
   }
 
   .button-link:focus-visible {
@@ -188,12 +177,6 @@ const forwardedAttrs = (() => {
     flex-shrink: 0;
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
-    transition: transform 200ms var(--ease-out-quart);
-  }
-
-  .button-link:hover .button-link__icon:not([data-icon^="simple-icons:"]),
-  .button-link:focus-visible .button-link__icon:not([data-icon^="simple-icons:"]) {
-    transform: translateX(3px);
   }
 
   .button-link__label {
@@ -216,26 +199,6 @@ const forwardedAttrs = (() => {
   @media (width >= 640px) {
     .button-link {
       inline-size: auto;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .button-link {
-      transition: none;
-    }
-
-    .button-link:hover,
-    .button-link:focus-visible {
-      transform: none;
-    }
-
-    .button-link__icon {
-      transition: none;
-    }
-
-    .button-link:hover .button-link__icon:not([data-icon^="simple-icons:"]),
-    .button-link:focus-visible .button-link__icon:not([data-icon^="simple-icons:"]) {
-      transform: none;
     }
   }
 </style>
