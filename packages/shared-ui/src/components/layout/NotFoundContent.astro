@@ -31,12 +31,7 @@ function sanitizeHref(href: string): string {
   return href;
 }
 
-const {
-  code = "404",
-  title,
-  description,
-  buttons = [],
-} = Astro.props as Props;
+const { code = "404", title, description, buttons = [] } = Astro.props as Props;
 
 const safeButtons = buttons
   .map((btn) => ({
@@ -52,18 +47,21 @@ const safeButtons = buttons
     <span class="not-found__code-wrapper" aria-hidden="true">{code}</span>
     <h1 class="not-found__title">{title}</h1>
     <p class="not-found__text">{description}</p>
-    {safeButtons.length > 0 && (
-      <div class="not-found__actions">
-        {safeButtons.map((button) => (
-          <a
-            href={button.href}
-            class:list={["not-found__btn", `not-found__btn--${button.variant}`]}
-          >
-            {button.label}
-          </a>
-        ))}
-      </div>
-    )}
+    {
+      safeButtons.length > 0 && (
+        <div class="not-found__actions">
+          {safeButtons.map((button) => (
+            <a
+              href={button.href}
+              aria-label={button.label}
+              class:list={["not-found__btn", `not-found__btn--${button.variant}`]}
+            >
+              {button.label}
+            </a>
+          ))}
+        </div>
+      )
+    }
   </div>
 </div>
 
@@ -174,6 +172,8 @@ const safeButtons = buttons
     color: var(--accent-primary);
     background: color-mix(in srgb, var(--accent-muted) 6%, transparent);
     border-color: color-mix(in srgb, var(--accent-muted) 20%, transparent);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-primary) 16%, transparent);
+    transform: translateY(-2px);
   }
 
   .not-found__btn:focus-visible {
@@ -187,15 +187,18 @@ const safeButtons = buttons
     }
 
     .not-found__title {
-      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) var(--motion-delay-base) both;
+      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard)
+        var(--motion-delay-base) both;
     }
 
     .not-found__text {
-      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) var(--motion-delay-slow) both;
+      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard)
+        var(--motion-delay-slow) both;
     }
 
     .not-found__actions {
-      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) var(--motion-delay-base) both;
+      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard)
+        var(--motion-delay-base) both;
     }
 
     .not-found__btn {
@@ -207,8 +210,10 @@ const safeButtons = buttons
         box-shadow var(--transition-fast);
     }
 
-    .not-found__btn:hover,
-    .not-found__btn:focus-visible {
+    .not-found__btn--primary:hover,
+    .not-found__btn--primary:focus-visible,
+    .not-found__btn--secondary:hover,
+    .not-found__btn--secondary:focus-visible {
       box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-primary) 16%, transparent);
       transform: translateY(-2px);
     }
