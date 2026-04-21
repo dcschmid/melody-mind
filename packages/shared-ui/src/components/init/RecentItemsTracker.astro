@@ -12,7 +12,7 @@ const {
   item,
   storageKey,
   dataId = "recent-read-data",
-  maxEntries = 5,
+  maxEntries = 3,
 } = Astro.props as Props;
 ---
 
@@ -37,7 +37,7 @@ const {
     }
 
     const storageKey = tracker.dataset.storageKey || "";
-    const maxEntries = Number.parseInt(tracker.dataset.maxEntries || "5", 10);
+    const maxEntries = Number.parseInt(tracker.dataset.maxEntries || "3", 10);
     const rawItem = tracker.dataset.item || "";
 
     if (!storageKey || !rawItem) {

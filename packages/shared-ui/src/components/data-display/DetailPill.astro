@@ -1,7 +1,7 @@
 ---
 interface Props extends astroHTML.JSX.HTMLAttributes {
   as?: keyof astroHTML.JSX.IntrinsicElements;
-  tone?: "accent" | "neutral";
+  tone?: "accent" | "neutral" | "success" | "warning" | "info";
   className?: string;
   class?: string;
 }
@@ -34,11 +34,34 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xs);
+    transition:
+      transform var(--motion-duration-fast) var(--motion-ease-standard),
+      box-shadow var(--motion-duration-fast) var(--motion-ease-standard),
+      background var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
-  .detail-pill--neutral {
-    color: var(--text-secondary);
-    background: color-mix(in srgb, var(--surface-1) 72%, transparent);
+  /* Entrance: subtle rise-in on page load */
+  .detail-pill {
+    animation: pill-rise-in var(--motion-duration-slow) var(--motion-ease-standard) both;
+  }
+
+  @keyframes pill-rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover: gentle lift + accent glow for interactive context */
+  .detail-pill:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      var(--shadow-sm),
+      0 0 0 1px color-mix(in srgb, var(--accent-primary) 18%, transparent);
   }
 
   .detail-pill--accent {
@@ -48,5 +71,56 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     letter-spacing: 0.12em;
     background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1));
     border-color: var(--surface-border-accent);
+  }
+
+  .detail-pill--accent:hover {
+    background: color-mix(in srgb, var(--accent-primary) 18%, var(--surface-1));
+    box-shadow:
+      var(--shadow-sm),
+      0 0 0 1px color-mix(in srgb, var(--accent-primary) 28%, transparent);
+  }
+
+  .detail-pill--neutral {
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-1) 72%, transparent);
+  }
+
+  .detail-pill--success {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-success);
+    background: color-mix(in srgb, var(--color-success) 10%, var(--surface-1));
+    border-color: color-mix(in srgb, var(--color-success) 32%, var(--border-default));
+  }
+
+  .detail-pill--success:hover {
+    background: color-mix(in srgb, var(--color-success) 16%, var(--surface-1));
+  }
+
+  .detail-pill--warning {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-warning);
+    background: color-mix(in srgb, var(--color-warning) 10%, var(--surface-1));
+    border-color: color-mix(in srgb, var(--color-warning) 32%, var(--border-default));
+  }
+
+  .detail-pill--warning:hover {
+    background: color-mix(in srgb, var(--color-warning) 16%, var(--surface-1));
+  }
+
+  .detail-pill--info {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-info);
+    background: color-mix(in srgb, var(--color-info) 10%, var(--surface-1));
+    border-color: color-mix(in srgb, var(--color-info) 32%, var(--border-default));
+  }
+
+  .detail-pill--info:hover {
+    background: color-mix(in srgb, var(--color-info) 16%, var(--surface-1));
+  }
+
+  /* Press feedback: subtle scale-down on active */
+  .detail-pill:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 80ms;
   }
 </style>

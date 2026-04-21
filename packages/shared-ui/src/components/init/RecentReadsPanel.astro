@@ -84,21 +84,26 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   .recent-reads-panel__header {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-base);
+    gap: var(--spacing-xs);
     align-items: flex-start;
+    padding-block-end: var(--spacing-md);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .recent-reads-panel__title {
     margin: 0;
     font-size: var(--font-size-lg);
-    color: var(--text-primary);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    letter-spacing: var(--letter-spacing-tight);
   }
 
   .recent-reads-panel__description {
     margin: 0;
     font-size: var(--font-size-sm);
     line-height: var(--line-height-relaxed);
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
+    letter-spacing: var(--letter-spacing-normal);
   }
 
   @media (width >= 640px) {
@@ -123,6 +128,7 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: var(--spacing-lg);
+    justify-items: start;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -135,6 +141,7 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   .recent-reads-panel__mount :global(.recent-reads-panel__link) {
     display: grid;
     grid-template-rows: auto 1fr;
+    max-inline-size: 320px;
     min-block-size: 100%;
     color: var(--text-primary);
     text-decoration: none;
@@ -143,13 +150,18 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     border-radius: var(--radius-lg);
     transition:
       border-color var(--transition-fast),
-      background-color var(--transition-fast);
+      background-color var(--transition-fast),
+      box-shadow var(--transition-fast),
+      transform var(--transition-fast);
+    will-change: transform;
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__link:hover),
   .recent-reads-panel__mount :global(.recent-reads-panel__link:focus) {
     background: var(--surface-panel-raised);
     border-color: var(--surface-border-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__link):focus-visible {
@@ -170,6 +182,12 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
+    transition: transform var(--transition-slow);
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__link:is(:hover, :focus))
+    .recent-reads-panel__mount :global(.recent-reads-panel__image) {
+    transform: scale(1.03);
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__body) {
@@ -191,12 +209,16 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-    .recent-reads-panel__mount :global(.recent-reads-panel__link) {
+    .recent-reads-panel__mount :global(.recent-reads-panel__link),
+    .recent-reads-panel__mount :global(.recent-reads-panel__image),
+    .recent-reads-panel__mount :global(.recent-reads-panel__link:is(:hover, :focus))
+      .recent-reads-panel__mount :global(.recent-reads-panel__image) {
+      transform: none;
       transition: none;
     }
   }
 
-  @media (width >= 600px) {
+  @media (width >= 640px) {
     .recent-reads-panel__mount :global(.recent-reads-panel__list) {
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }

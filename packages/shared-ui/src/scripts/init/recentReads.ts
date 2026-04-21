@@ -92,11 +92,12 @@ export const initRecentReadsPanels = (): void => {
     list.textContent = "";
     const imageMap = parseImageMap(panel.dataset.imageMap || "");
     const items = loadRecentItems(storageKey).slice(0, Math.max(1, maxItems));
+    const fragment = document.createDocumentFragment();
 
     if (!items.length) {
       listContainer.hidden = true;
       emptyState.hidden = false;
-      status.textContent = "No recent guides available.";
+      status.textContent = "No recent guides yet.";
       return;
     }
 
@@ -111,10 +112,12 @@ export const initRecentReadsPanels = (): void => {
         (typeof item.image === "string" && item.image.trim() ? item.image.trim() : "") ||
         fallbackImage;
 
-      list.append(
+      fragment.append(
         createRecentReadItem(item.title, `/knowledge/${normalizedSlug}`, resolvedImage)
       );
     });
+
+    list.append(fragment);
 
     emptyState.hidden = true;
     listContainer.hidden = false;
