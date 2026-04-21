@@ -162,9 +162,9 @@ import Icon from "../visual/Icon.astro";
     border: 1px solid var(--theme-toggle-pill-border-color, var(--surface-border-soft));
     border-radius: var(--radius-full);
     transition:
-      background 250ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-      border-color 250ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-      box-shadow 250ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+      background 250ms var(--motion-ease-standard),
+      border-color 250ms var(--motion-ease-standard),
+      box-shadow 250ms var(--motion-ease-standard);
   }
 
   .theme-toggle__pill-icon {
@@ -181,10 +181,10 @@ import Icon from "../visual/Icon.astro";
     opacity: 0.4;
     transform: scale(0.85);
     transition:
-      color 200ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-      background 200ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-      opacity 200ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1)),
-      transform 200ms var(--ease-out-quint, cubic-bezier(0.22, 1, 0.36, 1));
+      color 200ms var(--motion-ease-standard),
+      background 200ms var(--motion-ease-standard),
+      opacity 200ms var(--motion-ease-standard),
+      transform 200ms var(--motion-ease-standard);
     will-change: transform, opacity;
   }
 

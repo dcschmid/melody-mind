@@ -25,7 +25,7 @@ interface Props {
 
 const {
   footerConfig,
-  brandTitle = "Brand",
+  brandTitle = "MelodyMind",
   brandText = "Curated guides, playlists, and tools for focused listening.",
   exploreTitle = "Explore",
   exploreLinks = [],
@@ -36,7 +36,7 @@ const {
   settingsTitle = "Settings",
   showSettings = true,
   themeStatusPrefix = "Theme",
-  copyrightText = `© ${new Date().getFullYear()} MelodyMind. All rights reserved.`,
+  copyrightText = `© ${new Date().getFullYear()} MelodyMind`,
 } = Astro.props as Props;
 
 const resolvedFooterConfig = {
@@ -60,114 +60,94 @@ const resolvedFooterConfig = {
   <div class="footer-shell__container">
     <div class="footer-shell__main">
       <div class="site-footer__grid">
-        <div class="site-footer__section">
-          <div data-animate="soft-fade">
-            <Paragraph textSize="sm" className="site-footer__title">
-              {resolvedFooterConfig.brandTitle}
-            </Paragraph>
-            <Paragraph textSize="sm" className="site-footer__text">
-              {resolvedFooterConfig.brandText}
-            </Paragraph>
-          </div>
+        <div class="site-footer__section site-footer__section--brand">
+          <Paragraph textSize="sm" className="site-footer__title">
+            {resolvedFooterConfig.brandTitle}
+          </Paragraph>
+          <Paragraph textSize="sm" className="site-footer__text">
+            {resolvedFooterConfig.brandText}
+          </Paragraph>
         </div>
 
         <div class="site-footer__section">
-          <div
-            class="site-footer__motion site-footer__motion--fast"
-            data-animate="rise-in"
-          >
-            <Paragraph textSize="sm" className="site-footer__title">
-              {resolvedFooterConfig.exploreTitle}
-            </Paragraph>
-            <nav aria-label="Footer navigation" class="site-footer__nav">
-              {
-                resolvedFooterConfig.exploreLinks.map((link) => (
-                  <AccessibleExternalLink
-                    className="site-footer__link"
-                    href={link.href}
-                    target={link.target}
-                    rel={link.rel}
-                  >
-                    {link.label}
-                  </AccessibleExternalLink>
-                ))
-              }
-            </nav>
-          </div>
+          <Paragraph textSize="sm" className="site-footer__title">
+            {resolvedFooterConfig.exploreTitle}
+          </Paragraph>
+          <nav aria-label="Footer navigation" class="site-footer__nav">
+            {
+              resolvedFooterConfig.exploreLinks.map((link) => (
+                <AccessibleExternalLink
+                  className="site-footer__link"
+                  href={link.href}
+                  target={link.target}
+                  rel={link.rel}
+                >
+                  {link.label}
+                </AccessibleExternalLink>
+              ))
+            }
+          </nav>
         </div>
 
         <div class="site-footer__section">
-          <div
-            class="site-footer__motion site-footer__motion--base"
-            data-animate="rise-in"
-          >
-            <Paragraph textSize="sm" className="site-footer__title">
-              {resolvedFooterConfig.supportTitle}
-            </Paragraph>
-            <nav aria-label="Support links" class="site-footer__nav">
-              {
-                resolvedFooterConfig.supportLinks.map((link) => (
-                  <AccessibleExternalLink
-                    className="site-footer__link"
-                    href={link.href}
-                    target={link.target}
-                    rel={link.rel}
-                  >
-                    {link.label}
-                  </AccessibleExternalLink>
-                ))
-              }
-            </nav>
-          </div>
+          <Paragraph textSize="sm" className="site-footer__title">
+            {resolvedFooterConfig.supportTitle}
+          </Paragraph>
+          <nav aria-label="Support links" class="site-footer__nav">
+            {
+              resolvedFooterConfig.supportLinks.map((link) => (
+                <AccessibleExternalLink
+                  className="site-footer__link"
+                  href={link.href}
+                  target={link.target}
+                  rel={link.rel}
+                >
+                  {link.label}
+                </AccessibleExternalLink>
+              ))
+            }
+          </nav>
         </div>
 
         <div class="site-footer__section">
-          <div
-            class="site-footer__motion site-footer__motion--slow"
-            data-animate="rise-in"
-          >
-            <Paragraph textSize="sm" className="site-footer__title">
-              {resolvedFooterConfig.legalTitle}
-            </Paragraph>
-            <nav aria-label="Legal navigation" class="site-footer__nav">
-              {
-                resolvedFooterConfig.legalLinks.map((link) => (
-                  <AccessibleExternalLink
-                    className="site-footer__link"
-                    href={link.href}
-                    target={link.target}
-                    rel={link.rel}
-                  >
-                    {link.label}
-                  </AccessibleExternalLink>
-                ))
-              }
-            </nav>
-          </div>
+          <Paragraph textSize="sm" className="site-footer__title">
+            {resolvedFooterConfig.legalTitle}
+          </Paragraph>
+          <nav aria-label="Legal navigation" class="site-footer__nav">
+            {
+              resolvedFooterConfig.legalLinks.map((link) => (
+                <AccessibleExternalLink
+                  className="site-footer__link"
+                  href={link.href}
+                  target={link.target}
+                  rel={link.rel}
+                >
+                  {link.label}
+                </AccessibleExternalLink>
+              ))
+            }
+          </nav>
         </div>
 
         {
           resolvedFooterConfig.showSettings && (
             <div class="site-footer__section">
-              <div
-                class="site-footer__motion site-footer__motion--settings"
-                data-animate="rise-in"
-              >
-                <Paragraph textSize="sm" className="site-footer__title">
-                  {resolvedFooterConfig.settingsTitle}
+              <Paragraph textSize="sm" className="site-footer__title">
+                {resolvedFooterConfig.settingsTitle}
+              </Paragraph>
+              <nav aria-label="Settings navigation" class="site-footer__nav">
+                <ThemeToggle />
+              </nav>
+              <div class="site-footer__status-list">
+                <Paragraph
+                  textSize="sm"
+                  className="site-footer__theme-status"
+                  data-theme-status
+                  role="status"
+                  aria-live="polite"
+                >
+                  {resolvedFooterConfig.themeStatusPrefix}: system
                 </Paragraph>
-                <nav aria-label="Settings navigation" class="site-footer__nav">
-                  <ThemeToggle />
-                </nav>
-                <div class="site-footer__status-list">
-                  <Paragraph
-                    textSize="sm"
-                    className="site-footer__cookie-status"
-                    data-theme-status
-                  >
-                    {resolvedFooterConfig.themeStatusPrefix}: system
-                  </Paragraph>
-                </div>
               </div>
             </div>
           )
@@ -187,13 +167,20 @@ const resolvedFooterConfig = {
 
   const themeStatusElement = document.querySelector<HTMLElement>("[data-theme-status]");
 
+  const themeMessages = {
+    light: "Theme: bright listening",
+    dark: "Theme: night listening",
+    system: "Theme: following your rhythm",
+  } as const;
+
   const renderThemeStatus = () => {
     if (!themeStatusElement) {
       return;
     }
     const storedTheme = getStoredTheme();
     const resolvedTheme = storedTheme ?? getSystemTheme();
-    themeStatusElement.textContent = `Theme: ${resolvedTheme} (${storedTheme ? "manual" : "system"})`;
+    const message = themeMessages[resolvedTheme] ?? themeMessages.system;
+    themeStatusElement.textContent = message;
   };
 
   renderThemeStatus();
@@ -210,8 +197,7 @@ const resolvedFooterConfig = {
   .footer-shell {
     margin-block-start: var(--spacing-4xl);
     background: color-mix(in srgb, var(--surface-1) 64%, var(--bg-primary));
-    border-block-start: 1px solid var(--surface-border-soft);
-    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 48%, transparent);
+    border-block-start: 1px solid color-mix(in srgb, var(--accent-primary) 12%, var(--surface-border-soft));
   }
 
   .footer-shell__container {
@@ -227,7 +213,6 @@ const resolvedFooterConfig = {
   .footer-shell__bottom {
     display: block;
     padding-block-start: var(--spacing-lg);
-    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   @media (width >= 768px) {
@@ -242,13 +227,7 @@ const resolvedFooterConfig = {
   }
 
   .site-footer {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 28%, transparent),
-        transparent 40%
-      ),
-      transparent;
+    background: transparent;
   }
 
   .site-footer .footer-shell__container {
@@ -283,10 +262,11 @@ const resolvedFooterConfig = {
     gap: var(--spacing-base);
     min-inline-size: 0;
     padding: 0;
+    padding-inline-start: var(--spacing-sm);
   }
 
-  .site-footer__section:first-child {
-    padding-inline-end: clamp(0rem, 1vw, var(--spacing-base));
+  .site-footer__section--brand {
+    padding-inline-start: 0;
   }
 
   .site-footer__title {
@@ -304,9 +284,18 @@ const resolvedFooterConfig = {
     color: var(--text-secondary);
   }
 
+  /* Brand section uses warmer accent for visual distinction */
+  .site-footer__section--brand .site-footer__title {
+    color: var(--accent-primary);
+  }
+
+  .site-footer__section--brand .site-footer__text {
+    color: color-mix(in srgb, var(--text-secondary) 85%, var(--accent-primary) 15%);
+  }
+
   .site-footer__nav {
     display: grid;
-    gap: var(--spacing-2xs);
+    gap: var(--spacing-sm);
   }
 
   .site-footer__link {
@@ -317,7 +306,6 @@ const resolvedFooterConfig = {
     font-size: var(--font-size-sm);
     color: var(--text-secondary);
     text-decoration: none;
-    border: 0;
     border-radius: var(--radius-full);
     transition:
       color var(--transition-fast),
@@ -331,27 +319,25 @@ const resolvedFooterConfig = {
   }
 
   .site-footer__link:focus-visible {
-    outline-offset: calc(var(--focus-ring-offset) * 2);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .site-footer__meta {
-    padding-block-start: var(--spacing-lg);
+    padding-block-start: var(--spacing-xl);
     font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-    border-block-start: 1px solid var(--surface-border-soft);
+    color: color-mix(in srgb, var(--text-secondary) 88%, var(--accent-primary) 12%);
   }
 
-  .site-footer__cookie-button {
-    font-family: inherit;
-    text-align: start;
-    cursor: pointer;
-    background: none;
-    border: 0;
+  .site-footer__meta::before {
+    display: block;
+    block-size: 1px;
+    margin-block-end: var(--spacing-xl);
+    content: "";
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-border-soft));
   }
 
-  .site-footer__cookie-status {
+  .site-footer__theme-status {
     margin: 0;
-    font-family: var(--font-mono);
     font-size: var(--font-size-xs);
     color: var(--text-secondary);
   }
@@ -360,35 +346,6 @@ const resolvedFooterConfig = {
     display: grid;
     gap: var(--spacing-xs);
     padding-block-start: var(--spacing-sm);
-    margin-block-start: var(--spacing-sm);
-    border-block-start: 1px solid var(--surface-border-soft);
-  }
-
-  .site-footer__motion {
-    display: grid;
-    gap: var(--spacing-sm);
-  }
-
-  .site-footer__motion--fast {
-    --motion-delay: var(--motion-delay-fast);
-  }
-
-  .site-footer__motion--base {
-    --motion-delay: var(--motion-delay-base);
-  }
-
-  .site-footer__motion--slow {
-    --motion-delay: var(--motion-delay-slow);
-  }
-
-  .site-footer__motion--settings {
-    --motion-delay: 280ms;
-  }
-
-  @media (width <= 639px) {
-    .site-footer__grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (width >= 768px) {
