@@ -4,12 +4,36 @@ import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface Props extends astroHTML.JSX.HTMLAttributes {
+  /**
+   * Body paragraphs as an array of HTML strings.
+   * SECURITY: Content must be static (server-defined) — never user-generated HTML.
+   * Using set:html assumes all content is trusted and sanitized.
+   */
   body?: readonly string[] | string[];
   desktopSpan?: "default" | "full";
   headerWidth?: "default" | "compact";
+  /**
+   * Icon name from the shared icon library (e.g., "shield", "settings", "file-text").
+   */
   icon: string;
+  /**
+   * Semantic color for the icon.
+   * - primary: Neutral or informational (default)
+   * - success: Positive confirmation
+   * - warning: Attention needed
+   * - error: Problem or critical issue
+   * - info: General information
+   */
+  iconColor?: "primary" | "success" | "warning" | "error" | "info";
   title: string;
+  /**
+   * Visual style variant for the section.
+   * - default: Standard panel appearance
+   * - accent: Subtle amber tint — for highlighted but not critical content
+   * - spotlight: Stronger amber tint — for featured or important sections
+   */
   variant?: "default" | "accent" | "spotlight";
+  dense?: boolean;
   class?: string;
 }
 
@@ -18,8 +42,10 @@ const {
   desktopSpan = "default",
   headerWidth = "default",
   icon,
+  iconColor = "primary",
   title,
   variant = "default",
+  dense = false,
   class: className,
   ...rest
 } = Astro.props as Props;
@@ -31,8 +57,10 @@ const {
     "legal-document-section",
     `legal-document-section--${variant}`,
     `legal-document-section--desktop-span-${desktopSpan}`,
+    dense ? "legal-document-section--dense" : "",
     className,
   ]}
+  data-animate="rise-in"
 >
   <div
     class:list={[
@@ -40,7 +68,14 @@ const {
       `legal-document-section__header--${headerWidth}`,
     ]}
   >
-    <Icon name={icon} class="legal-document-section__icon" aria-hidden="true" />
+    <Icon
+      name={icon}
+      class:list={[
+        "legal-document-section__icon",
+        `legal-document-section__icon--color-${iconColor}`,
+      ]}
+      aria-hidden="true"
+    />
     <Headline level="h2" textSize="lg" className="legal-document-section__title">
       {title}
     </Headline>
@@ -63,57 +98,26 @@ const {
 
 <style>
   .legal-document-section {
-    position: relative;
     display: grid;
     gap: var(--spacing-xl);
     padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
-    overflow: hidden;
     background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
-      var(--shadow-base);
   }
 
   .legal-document-section--accent {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--accent-primary) 10%, transparent),
-      transparent 58%
-    );
-    background-color: var(--surface-panel-bg);
+    background: var(--section-surface-accent-bg);
   }
 
   .legal-document-section--spotlight {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 48%, transparent),
-        transparent 72%
-      ),
-      radial-gradient(
-        circle at top right,
-        color-mix(in srgb, var(--accent-primary) 11%, transparent),
-        transparent 38%
-      ),
-      var(--surface-panel-bg);
-  }
-
-  .legal-document-section::after {
-    position: absolute;
-    inset: var(--spacing-xs);
-    pointer-events: none;
-    content: "";
-    border: 1px solid var(--surface-border-subtle);
-    border-radius: calc(var(--radius-xl) - var(--spacing-xs));
+    background: var(--section-surface-spotlight-bg);
   }
 
   .legal-document-section__header {
     display: flex;
-    gap: var(--spacing-md);
+    gap: clamp(var(--spacing-sm), 1.5vw, var(--spacing-md));
     align-items: center;
     padding-block-end: var(--spacing-base);
+    margin-block-end: var(--spacing-lg);
     border-block-end: 1px solid var(--surface-border-soft);
   }
 
@@ -123,9 +127,54 @@ const {
 
   .legal-document-section__icon {
     flex-shrink: 0;
-    inline-size: var(--spacing-xl);
-    block-size: var(--spacing-xl);
+    inline-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
+    block-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
     color: var(--accent-primary);
+    transition: color var(--transition-fast);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .legal-document-section__icon {
+      transition: none;
+    }
+  }
+
+  /* Grouped color declarations */
+  .legal-document-section__icon--color-primary { color: var(--accent-primary); }
+  .legal-document-section__icon--color-success { color: var(--color-success); }
+  .legal-document-section__icon--color-warning { color: var(--color-warning); }
+  .legal-document-section__icon--color-error { color: var(--color-error); }
+  .legal-document-section__icon--color-info { color: var(--color-info); }
+
+  /* Grouped hover states by state, not by color */
+  .legal-document-section__icon--color-primary:hover,
+  .legal-document-section__icon--color-primary:active,
+  .legal-document-section__icon--color-primary:focus-visible {
+    color: var(--accent-primary-hover);
+  }
+
+  .legal-document-section__icon--color-success:hover,
+  .legal-document-section__icon--color-success:active,
+  .legal-document-section__icon--color-success:focus-visible {
+    color: var(--color-success-hover);
+  }
+
+  .legal-document-section__icon--color-warning:hover,
+  .legal-document-section__icon--color-warning:active,
+  .legal-document-section__icon--color-warning:focus-visible {
+    color: var(--color-warning-hover);
+  }
+
+  .legal-document-section__icon--color-error:hover,
+  .legal-document-section__icon--color-error:active,
+  .legal-document-section__icon--color-error:focus-visible {
+    color: var(--color-error-hover);
+  }
+
+  .legal-document-section__icon--color-info:hover,
+  .legal-document-section__icon--color-info:active,
+  .legal-document-section__icon--color-info:focus-visible {
+    color: var(--color-info-hover);
   }
 
   .legal-document-section__title {
@@ -133,17 +182,25 @@ const {
     font-weight: var(--heading-font-weight);
     line-height: var(--heading-line-height);
     color: var(--text-primary);
-    letter-spacing: var(--heading-letter-spacing);
+    letter-spacing: 0;
   }
 
   .legal-document-section__text-group {
     display: grid;
     gap: var(--spacing-base);
+    max-width: 70ch;
+    margin-block-start: var(--spacing-sm);
   }
 
   .legal-document-section__text {
     margin: 0;
     color: var(--text-secondary);
+  }
+
+  @media (width < 360px) {
+    .legal-document-section__text {
+      font-size: var(--font-size-xs);
+    }
   }
 
   .legal-document-section__text :global(a) {
@@ -157,9 +214,22 @@ const {
     color: var(--link-hover);
   }
 
+  .legal-document-section > :global(slot) {
+    margin-block-start: var(--spacing-md);
+  }
+
   @media (width >= 720px) {
     .legal-document-section {
       padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    }
+
+    .legal-document-section--dense {
+      gap: var(--spacing-lg);
+      padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    }
+
+    .legal-document-section--dense .legal-document-section__header {
+      padding-block-end: var(--spacing-sm);
     }
   }
 

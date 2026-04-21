@@ -113,6 +113,12 @@
   --color-error: #c0392b; /* Error (7.3:1 on white) */
   --color-info: #1e5a8e; /* Info (7.5:1 on white) */
 
+  /* Status hover colors (darkened for hover states) */
+  --color-success-hover: #16653a;
+  --color-warning-hover: #8f6016;
+  --color-error-hover: #962d23;
+  --color-info-hover: #164a6e;
+
   /* ---------------------------------------------------------------------------
      DARK MODE COLORS (WCAG AAA Compliant)
      --------------------------------------------------------------------------- */
@@ -311,6 +317,16 @@
     --link-hover: var(--color-dark-link-hover);
     --link-visited: var(--color-dark-link-visited);
 
+    --color-success: oklch(65% 0.14 155);
+    --color-warning: oklch(65% 0.13 75);
+    --color-error: oklch(58% 0.18 25);
+    --color-info: oklch(60% 0.12 235);
+
+    --color-success-hover: oklch(72% 0.12 155);
+    --color-warning-hover: oklch(72% 0.11 75);
+    --color-error-hover: oklch(65% 0.15 25);
+    --color-info-hover: oklch(68% 0.10 235);
+
     --border-default: var(--color-dark-border-default);
     --border-muted: var(--color-dark-border-muted);
     --border-strong: var(--color-dark-border-strong);
@@ -372,11 +388,21 @@
   --gn-accent-strong: var(--accent-strong);
   --gn-accent-light: var(--accent-muted);
 
-  --link-default: var(--color-dark-link-default);
-  --link-hover: var(--color-dark-link-hover);
-  --link-visited: var(--color-dark-link-visited);
+    --link-default: var(--color-dark-link-default);
+    --link-hover: var(--color-dark-link-hover);
+    --link-visited: var(--color-dark-link-visited);
 
-  --border-default: var(--color-dark-border-default);
+    --color-success: oklch(65% 0.14 155);
+    --color-warning: oklch(65% 0.13 75);
+    --color-error: oklch(58% 0.18 25);
+    --color-info: oklch(60% 0.12 235);
+
+    --color-success-hover: oklch(72% 0.12 155);
+    --color-warning-hover: oklch(72% 0.11 75);
+    --color-error-hover: oklch(65% 0.15 25);
+    --color-info-hover: oklch(68% 0.10 235);
+
+    --border-default: var(--color-dark-border-default);
   --border-muted: var(--color-dark-border-muted);
   --border-strong: var(--color-dark-border-strong);
 
@@ -479,7 +505,12 @@
   --section-surface-bg: color-mix(in srgb, var(--surface-1) 90%, var(--surface-2));
   --section-surface-accent-bg: color-mix(
     in srgb,
-    var(--accent-primary) 6%,
+    var(--accent-muted) 18%,
+    var(--section-surface-bg)
+  );
+  --section-surface-spotlight-bg: color-mix(
+    in srgb,
+    var(--accent-primary) 14%,
     var(--section-surface-bg)
   );
   --surface-chip-bg: color-mix(in srgb, var(--surface-1) 92%, var(--bg-primary));
@@ -652,6 +683,7 @@ body {
     --surface-card-hover: var(--surface-1);
     --section-surface-bg: var(--surface-1);
     --section-surface-accent-bg: var(--surface-1);
+    --section-surface-spotlight-bg: var(--surface-1);
     --surface-chip-bg: var(--surface-1);
     --surface-pill-bg: var(--surface-1);
     --interactive-shadow-focus: 0 0 0 4px
@@ -676,6 +708,7 @@ body {
     --surface-card-hover: var(--surface-1);
     --section-surface-bg: var(--surface-1);
     --section-surface-accent-bg: var(--surface-1);
+    --section-surface-spotlight-bg: var(--surface-1);
   }
 }
 
