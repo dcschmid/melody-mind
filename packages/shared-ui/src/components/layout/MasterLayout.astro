@@ -39,15 +39,15 @@ const {
   themeColorLight = "#f6f1e8",
   appTitle = "MelodyMind",
   manifestPath = "/site.webmanifest",
-  googleSiteVerification = import.meta.env.GOOGLE_SITE_VERIFICATION ||
-    "ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M",
+  googleSiteVerification =
+    import.meta.env.GOOGLE_SITE_VERIFICATION || "",
   appleMobileWebAppCapable = true,
   appleMobileWebAppStatusBarStyle = "black-translucent",
 } = Astro.props as Props;
 
 const bodyClasses = ["app__body", bodyClass].filter(Boolean).join(" ");
 const mainClasses = ["app__main", mainClass].filter(Boolean).join(" ");
-const contentShellClasses = contentShellClass.trim();
+const contentShellClasses = (contentShellClass ?? "").trim();
 const themeInitScript = enableThemeInit
   ? `
     (() => {
@@ -122,49 +122,48 @@ const themeInitScript = enableThemeInit
       content={appleMobileWebAppStatusBarStyle}
     />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content={appTitle} />
     <meta name="google-site-verification" content={googleSiteVerification} />
+    <meta name="robots" content="index, follow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="x-content-type-options" content="nosniff" />
+    <meta http-equiv="x-frame-options" content="SAMEORIGIN" />
+    <meta http-equiv="x-xss-protection" content="1; mode=block" />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=()"
+    />
     <link rel="manifest" href={manifestPath} />
     {enableThemeInit && <script is:inline set:html={themeInitScript} />}
     <slot name="head" />
   </head>
   <body class={bodyClasses}>
     {showSkipLink && <SkipLink />}
-    {
-      contentShellClasses ? (
-        <div class={contentShellClasses}>
-          <slot name="body-start" />
-          <slot name="before-main" />
-          <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
-            <slot />
-          </main>
-          <BackToTop />
-          <slot name="after-main" />
-          <slot name="body-end" />
-        </div>
-      ) : (
-        <>
-          <slot name="body-start" />
-          <slot name="before-main" />
-          <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
-            <slot />
-          </main>
-          <BackToTop />
-          <slot name="after-main" />
-          <slot name="body-end" />
-        </>
-      )
-    }
+    <div class={contentShellClasses || undefined}>
+      <slot name="body-start" />
+      <slot name="before-main" />
+      <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
+        <slot />
+      </main>
+      <BackToTop />
+      <slot name="after-main" />
+      <slot name="body-end" />
+    </div>
   </body>
 </html>
 
 <style>
   .app {
     color: var(--text-primary);
-    background: var(--page-background);
-    background-color: var(--bg-primary);
   }
 
   .app__body {
@@ -211,7 +210,7 @@ const themeInitScript = enableThemeInit
       ),
       radial-gradient(
         circle at 85% 14rem,
-        color-mix(in srgb, var(--accent-muted) 8%, transparent),
+        color-mix(in srgb, var(--accent-muted) 14%, transparent),
         transparent 24rem
       );
     opacity: 0.85;

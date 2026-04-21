@@ -67,7 +67,7 @@
 
   /* Letter spacing */
   --letter-spacing-tighter: -0.05em;
-  --letter-spacing-tight: -0.025em;
+  --letter-spacing-tight: -0.05em;
   --letter-spacing-normal: 0em;
   --letter-spacing-wide: 0.025em;
   --letter-spacing-wider: 0.05em;
@@ -340,10 +340,11 @@
     --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
     --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
     --interactive-shadow-focus: 0 0 0 3px
-      color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
+      color-mix(in srgb, var(--focus-ring-color-dark) 32%, transparent);
     --interactive-shadow-strong: 0 0 0 6px
-      color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
+      color-mix(in srgb, var(--focus-ring-color-dark) 24%, transparent);
     --button-text-accent: var(--color-dark-bg-primary);
+    --focus-ring-color: var(--focus-ring-color-dark);
 
     /* Legacy aliases */
     --gn-bg-primary: var(--bg-primary);

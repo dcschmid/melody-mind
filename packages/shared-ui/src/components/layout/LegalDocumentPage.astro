@@ -38,15 +38,13 @@ const { eyebrow, highlights, highlightsAriaLabel, lead, sections, title } = Astr
   {
     sections && sections.length > 0 && (
       <div className="legal-document__content">
-        {
-          sections.map((section) => (
-            <LegalDocumentSection
-              icon={section.icon}
-              title={section.title}
-              body={section.body}
-            />
-          ))
-        }
+        {sections.map((section) => (
+          <LegalDocumentSection
+            icon={section.icon}
+            title={section.title}
+            body={section.body}
+          />
+        ))}
       </div>
     )
   }
