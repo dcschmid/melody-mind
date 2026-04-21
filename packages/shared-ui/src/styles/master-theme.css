@@ -514,6 +514,7 @@
     var(--accent-primary) 14%,
     var(--section-surface-bg)
   );
+  --section-surface-inner-gap: var(--spacing-lg);
   --surface-chip-bg: color-mix(in srgb, var(--surface-1) 92%, var(--bg-primary));
   --surface-pill-bg: color-mix(in srgb, var(--surface-1) 82%, var(--surface-2));
   --surface-border-subtle: color-mix(in srgb, var(--border-default) 24%, transparent);

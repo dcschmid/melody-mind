@@ -1,10 +1,14 @@
 ---
-interface Props extends astroHTML.JSX.HTMLAttributes {
+interface Props {
   as?: "section" | "div" | "aside";
   variant?: "default" | "accent" | "subtle" | "plain";
   padding?: "default" | "compact" | "spacious";
   className?: string;
   class?: string;
+  role?: string;
+  "aria-label"?: string;
+  id?: string;
+  tabindex?: number;
 }
 
 const {
@@ -13,6 +17,10 @@ const {
   padding = "default",
   className = "",
   class: classProp = "",
+  role: roleAttr,
+  "aria-label": ariaLabel,
+  id,
+  tabindex,
   ...rest
 } = Astro.props as Props;
 
@@ -26,27 +34,67 @@ const classes = [
 ]
   .filter(Boolean)
   .join(" ");
+
+const safeProps = {
+  ...rest,
+  ...(roleAttr && { role: roleAttr }),
+  ...(ariaLabel && { "aria-label": ariaLabel }),
+  ...(id && { id }),
+  ...(tabindex !== undefined && { tabindex }),
+};
 ---
 
-<Tag {...rest} class={classes}>
+<Tag {...safeProps} class={classes}>
   <slot />
 </Tag>
 
 <style>
   .section-surface {
-    display: grid;
-    gap: var(--spacing-lg);
-    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-2xl));
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-surface-inner-gap);
+    min-height: 4rem;
+    padding: clamp(var(--spacing-md), 4vw, var(--spacing-2xl));
     background: var(--section-surface-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
+    contain: layout style;
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    line-height: var(--line-height-normal);
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .section-surface > :global(* + *) {
+    padding-top: var(--spacing-xs);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .section-surface:hover:not(.section-surface--plain) {
+      background: color-mix(in srgb, var(--accent-primary) 6%, var(--surface-1));
+      border-color: var(--surface-border-accent);
+      box-shadow: var(--shadow-base);
+    }
   }
 
   .section-surface--accent {
     background: var(--section-surface-accent-bg);
     border-color: var(--surface-border-accent);
+    border-left: 2px solid var(--accent-primary);
     box-shadow: var(--shadow-sm);
+  }
+
+  @media (width >= 480px) {
+    .section-surface--accent {
+      border-left-width: 3px;
+    }
   }
 
   .section-surface--subtle {
@@ -73,6 +121,13 @@ const classes = [
   @media (width >= 768px) {
     .section-surface {
       gap: var(--spacing-xl);
+      min-height: 6rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .section-surface:hover:not(.section-surface--plain) {
+      transform: none;
     }
   }
 </style>
