@@ -38,18 +38,24 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
       transform var(--motion-duration-fast) var(--motion-ease-standard),
       box-shadow var(--motion-duration-fast) var(--motion-ease-standard),
       background var(--motion-duration-fast) var(--motion-ease-standard);
+    animation: pill-rise-in var(--motion-duration-slow) var(--motion-ease-standard) both;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .detail-pill {
+      transition: none;
+      animation: none;
+    }
   }
 
   /* Entrance: subtle rise-in on page load */
-  .detail-pill {
-    animation: pill-rise-in var(--motion-duration-slow) var(--motion-ease-standard) both;
-  }
 
   @keyframes pill-rise-in {
     from {
       opacity: 0;
       transform: translateY(6px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -57,11 +63,12 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
   }
 
   /* Hover: gentle lift + accent glow for interactive context */
-  .detail-pill:hover {
-    transform: translateY(-1px);
+  .detail-pill:hover,
+  .detail-pill:focus {
     box-shadow:
       var(--shadow-sm),
       0 0 0 1px color-mix(in srgb, var(--accent-primary) 18%, transparent);
+    transform: translateY(-1px);
   }
 
   .detail-pill--accent {
@@ -73,7 +80,8 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border-color: var(--surface-border-accent);
   }
 
-  .detail-pill--accent:hover {
+  .detail-pill--accent:hover,
+  .detail-pill--accent:focus {
     background: color-mix(in srgb, var(--accent-primary) 18%, var(--surface-1));
     box-shadow:
       var(--shadow-sm),
@@ -92,7 +100,8 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border-color: color-mix(in srgb, var(--color-success) 32%, var(--border-default));
   }
 
-  .detail-pill--success:hover {
+  .detail-pill--success:hover,
+  .detail-pill--success:focus {
     background: color-mix(in srgb, var(--color-success) 16%, var(--surface-1));
   }
 
@@ -103,7 +112,8 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border-color: color-mix(in srgb, var(--color-warning) 32%, var(--border-default));
   }
 
-  .detail-pill--warning:hover {
+  .detail-pill--warning:hover,
+  .detail-pill--warning:focus {
     background: color-mix(in srgb, var(--color-warning) 16%, var(--surface-1));
   }
 
@@ -114,7 +124,8 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border-color: color-mix(in srgb, var(--color-info) 32%, var(--border-default));
   }
 
-  .detail-pill--info:hover {
+  .detail-pill--info:hover,
+  .detail-pill--info:focus {
     background: color-mix(in srgb, var(--color-info) 16%, var(--surface-1));
   }
 

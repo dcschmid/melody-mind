@@ -138,6 +138,22 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     min-inline-size: 0;
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .recent-reads-panel__mount :global(.recent-reads-panel__link) {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      max-inline-size: 320px;
+      min-block-size: 100%;
+      color: var(--text-primary);
+      text-decoration: none;
+      background: var(--surface-panel-bg);
+      border: 1px solid var(--surface-border-soft);
+      border-radius: var(--radius-lg);
+      transition: none;
+      will-change: transform;
+    }
+  }
+
   .recent-reads-panel__mount :global(.recent-reads-panel__link) {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -177,6 +193,16 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .recent-reads-panel__mount :global(.recent-reads-panel__image) {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      transition: none;
+    }
+  }
+
   .recent-reads-panel__mount :global(.recent-reads-panel__image) {
     display: block;
     inline-size: 100%;
@@ -185,8 +211,10 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     transition: transform var(--transition-slow);
   }
 
-  .recent-reads-panel__mount :global(.recent-reads-panel__link:is(:hover, :focus))
-    .recent-reads-panel__mount :global(.recent-reads-panel__image) {
+  .recent-reads-panel__mount
+    :global(.recent-reads-panel__link:is(:hover, :focus))
+    .recent-reads-panel__mount
+    :global(.recent-reads-panel__image) {
     transform: scale(1.03);
   }
 
@@ -211,8 +239,10 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   @media screen and (prefers-reduced-motion: reduce) {
     .recent-reads-panel__mount :global(.recent-reads-panel__link),
     .recent-reads-panel__mount :global(.recent-reads-panel__image),
-    .recent-reads-panel__mount :global(.recent-reads-panel__link:is(:hover, :focus))
-      .recent-reads-panel__mount :global(.recent-reads-panel__image) {
+    .recent-reads-panel__mount
+      :global(.recent-reads-panel__link:is(:hover, :focus))
+      .recent-reads-panel__mount
+      :global(.recent-reads-panel__image) {
       transform: none;
       transition: none;
     }

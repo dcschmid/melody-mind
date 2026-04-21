@@ -245,6 +245,25 @@ const contentProps = href
 
 <style>
   /* Base card transition: lift + shadow on hover */
+  @media screen and (prefers-reduced-motion: reduce) {
+    .content-card {
+      position: relative;
+      display: flex;
+      inline-size: 100%;
+      min-inline-size: 0;
+      block-size: 100%;
+      container-type: inline-size;
+      overflow: hidden;
+      background: var(--surface-panel-raised);
+      border: 1px solid var(--surface-border-soft);
+      border-radius: calc(var(--radius-xl) + var(--spacing-xs));
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
+        var(--shadow-base);
+      transition: none;
+    }
+  }
+
   .content-card {
     position: relative;
     display: flex;
@@ -267,10 +286,10 @@ const contentProps = href
   /* Card lift on hover for interactive cards */
   .content-card--interactive:hover,
   .content-card--interactive:focus-within {
-    transform: translateY(-2px);
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
       var(--shadow-lg);
+    transform: translateY(-2px);
   }
 
   .content-card--interactive.content-card--action:hover,
@@ -634,14 +653,29 @@ const contentProps = href
     object-fit: contain;
   }
 
-  :is(
-      .content-card--interactive.content-card--action:hover,
-      .content-card--interactive.content-card--action:focus-within,
-      .content-card--interactive.content-card--feature:hover,
-      .content-card--interactive.content-card--feature:focus-within
-    )
-    :where(.content-card__media img, .content-card__media picture > img) {
-    transition: transform var(--motion-duration-slow) var(--motion-ease-standard);
-    transform: scale(1.05);
+  @media screen and (prefers-reduced-motion: reduce) {
+    :is(
+        .content-card--interactive.content-card--action:hover,
+        .content-card--interactive.content-card--action:focus-within,
+        .content-card--interactive.content-card--feature:hover,
+        .content-card--interactive.content-card--feature:focus-within
+      )
+      :where(.content-card__media img, .content-card__media picture > img) {
+      transform: scale(1.05);
+      transition: none;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    :is(
+        .content-card--interactive.content-card--action:hover,
+        .content-card--interactive.content-card--action:focus-within,
+        .content-card--interactive.content-card--feature:hover,
+        .content-card--interactive.content-card--feature:focus-within
+      )
+      :where(.content-card__media img, .content-card__media picture > img) {
+      transform: scale(1.05);
+      transition: transform var(--motion-duration-slow) var(--motion-ease-standard);
+    }
   }
 </style>

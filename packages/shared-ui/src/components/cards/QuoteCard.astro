@@ -92,6 +92,24 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
 </figure>
 
 <style>
+  @media screen and (prefers-reduced-motion: reduce) {
+    .quote-card {
+      position: relative;
+      display: grid;
+      padding: var(--panel-padding-sm);
+      overflow: hidden;
+      background: color-mix(
+        in srgb,
+        var(--surface-panel-bg) 85%,
+        var(--accent-primary) 8%
+      );
+      border: 1px solid var(--surface-border-soft);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      transition: none;
+    }
+  }
+
   .quote-card {
     position: relative;
     display: grid;
@@ -107,12 +125,14 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
   }
 
   @media (hover: hover) {
-    .quote-card:hover {
-      transform: translateY(-1px);
+    .quote-card:hover,
+    .quote-card:focus {
       box-shadow: var(--shadow-lg);
+      transform: translateY(-1px);
     }
 
-    .quote-card:hover::before {
+    .quote-card:hover::before,
+    .quote-card:focus::before {
       box-shadow: 0 0 1.4rem color-mix(in srgb, var(--accent-primary) 24%, transparent);
     }
   }
@@ -121,6 +141,7 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     position: absolute;
     inset-block: auto -0.75rem;
     inset-inline: auto 0.5rem;
+    z-index: 0;
     font-family: var(--font-serif, Georgia, serif);
     font-size: clamp(6rem, 18vw, 10rem);
     font-weight: var(--font-weight-bold);
@@ -128,7 +149,6 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
     pointer-events: none;
     user-select: none;
-    z-index: 0;
   }
 
   .quote-card::before {
@@ -144,9 +164,9 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
 
   .quote-card__quote {
     position: relative;
+    z-index: 1;
     padding-inline-end: clamp(var(--spacing-base), 2vw, 2.8rem);
     margin: 0;
-    z-index: 1;
   }
 
   .quote-card__author {
@@ -163,13 +183,48 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     margin: 0;
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-semibold);
+    font-feature-settings:
+      "kern" 1,
+      "liga" 1;
     line-height: 1.2;
     color: var(--heading-color);
     letter-spacing: -0.02em;
     text-wrap: balance;
-    font-feature-settings:
-      "kern" 1,
-      "liga" 1;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .quote-card__avatar-image,
+    .quote-card__avatar-fallback {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      inline-size: var(--icon-shell-size-md);
+      block-size: var(--icon-shell-size-md);
+      overflow: hidden;
+      background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--accent-primary) 20%, var(--surface-1)),
+        color-mix(in srgb, var(--surface-panel-bg) 92%, transparent)
+      );
+      border: 1px solid color-mix(in srgb, var(--surface-border-soft) 92%, transparent);
+      border-radius: var(--radius-lg);
+      transition: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quote-card__avatar-image,
+    .quote-card__avatar-fallback {
+      transition: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .quote-card__avatar-image,
+    .quote-card__avatar-fallback {
+      transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
+    }
   }
 
   .quote-card__avatar-image,
@@ -188,12 +243,13 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     );
     border: 1px solid color-mix(in srgb, var(--surface-border-soft) 92%, transparent);
     border-radius: var(--radius-lg);
-    transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
   }
 
   @media (hover: hover) {
     .quote-card__avatar-image:hover,
-    .quote-card__avatar-fallback:hover {
+    .quote-card__avatar-fallback:hover,
+    .quote-card__avatar-image:focus,
+    .quote-card__avatar-fallback:focus {
       transform: scale(1.03);
     }
   }
@@ -224,11 +280,11 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
   .quote-card__author-name {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-tight);
-    color: var(--heading-color);
     font-feature-settings:
       "kern" 1,
       "liga" 1;
+    line-height: var(--line-height-tight);
+    color: var(--heading-color);
   }
 
   .quote-card__author-role {
@@ -255,8 +311,8 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     .quote-card__author {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       gap: var(--spacing-sm);
+      align-items: flex-start;
       margin-block-start: var(--spacing-md);
     }
 
@@ -297,7 +353,10 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
 
     .quote-card:hover,
     .quote-card__avatar-image:hover,
-    .quote-card__avatar-fallback:hover {
+    .quote-card__avatar-fallback:hover,
+    .quote-card:focus,
+    .quote-card__avatar-image:focus,
+    .quote-card__avatar-fallback:focus {
       transform: none;
     }
   }

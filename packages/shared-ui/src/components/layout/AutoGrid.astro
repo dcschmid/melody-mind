@@ -2,9 +2,10 @@
 interface Props extends astroHTML.JSX.HTMLAttributes {
   as?: keyof astroHTML.JSX.IntrinsicElements;
   className?: string;
-  gap?: "sm" | "base" | "lg" | "xl" | "section";
+  gap?: "xs" | "sm" | "md" | "base" | "lg" | "xl" | "section";
   min?: "sm" | "md" | "lg";
   preset?: "auto-fit" | "cards" | "fill" | "legal" | "highlights" | "pair";
+  ariaLabel?: string;
   class?: string;
 }
 
@@ -14,6 +15,7 @@ const {
   gap = "lg",
   min = "md",
   preset = "auto-fit",
+  ariaLabel,
   class: classProp = "",
   ...rest
 } = Astro.props as Props;
@@ -29,55 +31,52 @@ const classes = [
 ]
   .filter(Boolean)
   .join(" ");
+
+// Derive semantic role from element and preset
+const role = ariaLabel && (as === "div" || as === "section") ? "group" : undefined;
 ---
 
-<Tag {...rest} class={classes}>
+<Tag {...rest} class={classes} aria-label={ariaLabel} role={role}>
   <slot />
 </Tag>
 
 <style>
   .auto-grid {
     display: grid;
+
+    /* Prevent overflow cascades from children */
+    min-width: 0;
+
+    /* Performance: skip rendering off-screen content */
+    content-visibility: auto;
   }
 
-  .auto-grid--gap-sm {
-    gap: var(--spacing-sm);
+  /* Mobile-first: single column */
+  .auto-grid--preset-auto-fit,
+  .auto-grid--preset-fill,
+  .auto-grid--preset-cards,
+  .auto-grid--preset-legal,
+  .auto-grid--preset-highlights,
+  .auto-grid--preset-pair {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
-  .auto-grid--gap-base {
-    gap: var(--spacing-base);
-  }
-
-  .auto-grid--gap-lg {
-    gap: var(--spacing-lg);
-  }
-
-  .auto-grid--gap-xl {
-    gap: var(--spacing-xl);
-  }
-
-  .auto-grid--gap-section {
-    gap: var(--section-gap);
-  }
-
+  /* Min values - fluid for better mobile distribution */
   .auto-grid--min-sm {
-    --auto-grid-min: 10rem;
+    --auto-grid-min: clamp(10rem, 18vw, 12rem);
   }
 
   .auto-grid--min-md {
-    --auto-grid-min: 16rem;
+    --auto-grid-min: clamp(12rem, 22vw, 16rem);
   }
 
   .auto-grid--min-lg {
-    --auto-grid-min: 18rem;
+    --auto-grid-min: clamp(14rem, 26vw, 20rem);
   }
 
+  /* auto-fit preset */
   .auto-grid--preset-auto-fit {
-    grid-template-columns: repeat(auto-fit, minmax(var(--auto-grid-min), max-content));
-  }
-
-  .auto-grid--preset-cards {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--auto-grid-min), 1fr));
   }
 
   .auto-grid--preset-fill {
@@ -87,52 +86,160 @@ const classes = [
     );
   }
 
-  .auto-grid--preset-legal {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+  /* Fluid gap scaling */
+  .auto-grid--gap-xs {
+    gap: var(--spacing-xs);
   }
 
-  .auto-grid--preset-highlights {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+  .auto-grid--gap-sm {
+    gap: clamp(var(--spacing-sm), 1vw, var(--spacing-base));
   }
 
-  .auto-grid--preset-pair {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+  .auto-grid--gap-md {
+    gap: clamp(var(--spacing-md), 1.5vw, var(--spacing-lg));
   }
 
-  @media (width >= 50rem) {
+  .auto-grid--gap-base {
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-xl));
+  }
+
+  .auto-grid--gap-lg {
+    gap: clamp(var(--spacing-lg), 2.5vw, var(--spacing-2xl));
+  }
+
+  .auto-grid--gap-xl {
+    gap: clamp(var(--spacing-xl), 3vw, var(--spacing-3xl));
+  }
+
+  .auto-grid--gap-section {
+    gap: clamp(var(--section-gap), 4vw, var(--spacing-4xl));
+  }
+
+  /* Tablet breakpoint: 40rem */
+  @media (width >= 40rem) {
     .auto-grid--preset-cards {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
 
-  @media (width >= 45rem) {
     .auto-grid--preset-highlights {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
 
-  @media (width >= 45rem) {
     .auto-grid--preset-legal {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
 
-  @media (width >= 45rem) {
     .auto-grid--preset-pair {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
 
-  @media (width >= 68.75rem) {
-    .auto-grid--preset-legal {
-      grid-template-columns: minmax(0, 1fr);
+    /* Larger gaps on tablet */
+    .auto-grid--gap-sm {
+      gap: var(--spacing-base);
+    }
+
+    .auto-grid--gap-md {
       gap: var(--spacing-lg);
+    }
+
+    .auto-grid--gap-base {
+      gap: var(--spacing-xl);
+    }
+
+    .auto-grid--gap-lg {
+      gap: var(--spacing-2xl);
+    }
+
+    .auto-grid--gap-xl {
+      gap: var(--spacing-3xl);
     }
   }
 
-  @media (width >= 75rem) {
+  /* Desktop breakpoint: 64rem */
+  @media (width >= 64rem) {
     .auto-grid--preset-cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+    .auto-grid--preset-legal {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .auto-grid--preset-highlights {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    /* auto-fit scales with fluid min on desktop */
+    .auto-grid--preset-auto-fit {
+      grid-template-columns: repeat(auto-fit, minmax(clamp(12rem, 15vw, 18rem), 1fr));
+    }
+
+    /* Larger gaps on desktop */
+    .auto-grid--gap-sm {
+      gap: var(--spacing-lg);
+    }
+
+    .auto-grid--gap-md {
+      gap: var(--spacing-xl);
+    }
+
+    .auto-grid--gap-base {
+      gap: var(--spacing-2xl);
+    }
+
+    .auto-grid--gap-lg {
+      gap: var(--spacing-3xl);
+    }
+
+    .auto-grid--gap-xl {
+      gap: var(--spacing-4xl);
+    }
+  }
+
+  /* Wide desktop: 80rem */
+  @media (width >= 80rem) {
+    .auto-grid--preset-cards {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .auto-grid--preset-highlights {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  /* Landscape orientation: more columns for pair preset */
+  @media (width >= 40rem) and (orientation: landscape) {
+    .auto-grid--preset-pair {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* Touch adaptation: slightly larger gaps */
+  @media (pointer: coarse) {
+    .auto-grid--gap-md,
+    .auto-grid--gap-base,
+    .auto-grid--gap-lg {
+      gap: clamp(var(--spacing-base), 2vw, var(--spacing-xl));
+    }
+  }
+
+  /* Robustness: prevent text overflow in grid items */
+  .auto-grid > * {
+    /* Allow shrinking below content size */
+    min-width: 0;
+
+    /* Contain overflow without creating stacking context */
+    overflow: clip;
+
+    /* Break long words */
+    overflow-wrap: break-word;
+  }
+
+  /* Ensure images/videos don't overflow */
+  .auto-grid img,
+  .auto-grid video {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 </style>
