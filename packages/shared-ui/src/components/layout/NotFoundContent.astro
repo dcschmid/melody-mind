@@ -1,4 +1,10 @@
 ---
+/**
+ * Represents a button in the 404 page CTA section.
+ * @property href - URL destination (blocks javascript: and data: protocols)
+ * @property label - Button text content
+ * @property variant - Visual style variant (primary | secondary | ghost)
+ */
 export interface NotFoundButton {
   href: string;
   label: string;
@@ -9,60 +15,103 @@ export interface Props {
   code?: string;
   title: string;
   description: string;
-  buttons: NotFoundButton[];
+  buttons?: NotFoundButton[];
 }
 
-const { code = "404", title, description, buttons = [] } = Astro.props as Props;
+const VALID_VARIANTS = ["primary", "secondary", "ghost"] as const;
+type Variant = (typeof VALID_VARIANTS)[number];
+
+const DANGEROUS_PROTOCOLS = ["javascript:", "data:", "vbscript:", "mailto:"];
+
+function sanitizeHref(href: string): string {
+  const trimmed = href.trim().toLowerCase();
+  if (DANGEROUS_PROTOCOLS.some((p) => trimmed.startsWith(p))) {
+    return "#";
+  }
+  return href;
+}
+
+const {
+  code = "404",
+  title,
+  description,
+  buttons = [],
+} = Astro.props as Props;
+
+const safeButtons = buttons
+  .map((btn) => ({
+    href: sanitizeHref(btn.href),
+    label: btn.label.trim(),
+    variant: (VALID_VARIANTS.includes(btn.variant) ? btn.variant : "primary") as Variant,
+  }))
+  .filter((btn) => btn.label.length > 0 && btn.href.length > 0);
 ---
 
-<div class="not-found">
+<div class="not-found" role="region" aria-label="Page not found">
   <div class="not-found__content">
-    <span class="not-found__code" aria-hidden="true">{code}</span>
+    <span class="not-found__code-wrapper" aria-hidden="true">{code}</span>
     <h1 class="not-found__title">{title}</h1>
     <p class="not-found__text">{description}</p>
-    <div class="not-found__actions">
-      {
-        buttons.map((button) => (
+    {safeButtons.length > 0 && (
+      <div class="not-found__actions">
+        {safeButtons.map((button) => (
           <a
             href={button.href}
-            class:list={[
-              "not-found__btn",
-              button.variant
-                ? `not-found__btn--${button.variant}`
-                : "not-found__btn--primary",
-            ]}
+            class:list={["not-found__btn", `not-found__btn--${button.variant}`]}
           >
             {button.label}
           </a>
-        ))
-      }
-    </div>
+        ))}
+      </div>
+    )}
   </div>
 </div>
 
 <style>
+  @keyframes rise-in-fade {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .not-found {
     display: flex;
     align-items: center;
     justify-content: center;
     min-block-size: 60vh;
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-3xl) var(--spacing-lg);
+    background:
+      radial-gradient(
+        ellipse 80% 50% at 50% 0%,
+        color-mix(in srgb, var(--accent-muted) 8%, transparent),
+        transparent 60%
+      ),
+      var(--surface-1);
   }
 
   .not-found__content {
     display: flex;
     flex-direction: column;
-    gap: var(--stack-gap-lg);
+    gap: var(--spacing-xs);
     align-items: center;
-    max-inline-size: 36rem;
+    max-inline-size: 42rem;
+    width: 100%;
+    padding-inline: var(--spacing-md);
     text-align: center;
   }
 
-  .not-found__code {
+  .not-found__code-wrapper {
+    margin-block-end: var(--spacing-lg);
     font-size: clamp(4rem, 10vw, 7rem);
     font-weight: 800;
     line-height: 1;
-    color: var(--color-text-tertiary);
+    color: var(--accent-muted);
     letter-spacing: -0.05em;
   }
 
@@ -76,6 +125,7 @@ const { code = "404", title, description, buttons = [] } = Astro.props as Props;
 
   .not-found__text {
     margin: 0;
+    margin-block-start: var(--spacing-md);
     font-size: var(--font-size-lg);
     line-height: var(--line-height-relaxed);
     color: var(--text-secondary);
@@ -87,13 +137,15 @@ const { code = "404", title, description, buttons = [] } = Astro.props as Props;
     flex-wrap: wrap;
     gap: var(--spacing-sm);
     justify-content: center;
+    margin-block-start: var(--spacing-lg);
   }
 
   .not-found__btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: calc(var(--spacing-sm) + 0.3rem) var(--spacing-lg);
+    min-block-size: 2.75rem;
+    padding: 0.625rem var(--spacing-lg);
     font-size: var(--font-size-base);
     font-weight: 600;
     text-decoration: none;
@@ -107,12 +159,21 @@ const { code = "404", title, description, buttons = [] } = Astro.props as Props;
 
   .not-found__btn--secondary {
     color: var(--text-primary);
-    background: var(--surface-panel-bg);
+    background: var(--surface-2);
     border: 1px solid var(--surface-border-soft);
   }
 
   .not-found__btn--ghost {
     color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid transparent;
+  }
+
+  .not-found__btn--ghost:hover,
+  .not-found__btn--ghost:focus-visible {
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-muted) 6%, transparent);
+    border-color: color-mix(in srgb, var(--accent-muted) 20%, transparent);
   }
 
   .not-found__btn:focus-visible {
@@ -121,15 +182,40 @@ const { code = "404", title, description, buttons = [] } = Astro.props as Props;
   }
 
   @media (prefers-reduced-motion: no-preference) {
+    .not-found__code-wrapper {
+      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) both;
+    }
+
+    .not-found__title {
+      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) var(--motion-delay-base) both;
+    }
+
+    .not-found__text {
+      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) var(--motion-delay-slow) both;
+    }
+
+    .not-found__actions {
+      animation: rise-in-fade var(--motion-duration-slow) var(--motion-ease-standard) var(--motion-delay-base) both;
+    }
+
     .not-found__btn {
       transition:
         transform var(--transition-fast),
-        background-color var(--transition-fast);
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
     }
 
     .not-found__btn:hover,
     .not-found__btn:focus-visible {
-      transform: translateY(-1px);
+      box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-primary) 16%, transparent);
+      transform: translateY(-2px);
+    }
+
+    .not-found__btn:active {
+      box-shadow: 0 1px 2px color-mix(in srgb, var(--accent-primary) 10%, transparent);
+      transform: translateY(0);
     }
   }
 </style>
