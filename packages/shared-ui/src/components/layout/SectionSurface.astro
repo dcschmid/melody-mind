@@ -49,27 +49,50 @@ const safeProps = {
 </Tag>
 
 <style>
+@media screen and (prefers-reduced-motion: reduce) {
+.section-surface {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-surface-inner-gap);
+    min-height: 4rem;
+    padding: clamp(var(--spacing-md), 4vw, var(--spacing-2xl));
+    contain: layout style;
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    font-kerning: normal;
+    line-height: var(--line-height-normal);
+    background: var(--section-surface-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    text-rendering: optimizelegibility;
+    transition:
+      none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+}
+
   .section-surface {
     display: flex;
     flex-direction: column;
     gap: var(--section-surface-inner-gap);
     min-height: 4rem;
     padding: clamp(var(--spacing-md), 4vw, var(--spacing-2xl));
+    contain: layout style;
+    font-size: clamp(1rem, 4vw, 1.125rem);
+    font-kerning: normal;
+    line-height: var(--line-height-normal);
     background: var(--section-surface-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
-    contain: layout style;
-    font-size: clamp(1rem, 4vw, 1.125rem);
-    line-height: var(--line-height-normal);
-    text-rendering: optimizeLegibility;
-    font-kerning: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizelegibility;
     transition:
       background-color var(--transition-fast),
       border-color var(--transition-fast),
       box-shadow var(--transition-fast);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .section-surface > :global(* + *) {
@@ -77,7 +100,7 @@ const safeProps = {
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .section-surface:hover:not(.section-surface--plain) {
+    .section-surface:hover:not(.section-surface--plain), .section-surface:focus:not(.section-surface--plain) {
       background: color-mix(in srgb, var(--accent-primary) 6%, var(--surface-1));
       border-color: var(--surface-border-accent);
       box-shadow: var(--shadow-base);
@@ -126,7 +149,7 @@ const safeProps = {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .section-surface:hover:not(.section-surface--plain) {
+    .section-surface:hover:not(.section-surface--plain), .section-surface:focus:not(.section-surface--plain) {
       transform: none;
     }
   }

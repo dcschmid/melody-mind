@@ -94,25 +94,29 @@ const statusBadgeColorMap = {
         </Paragraph>
       ) : null
     }
-    {title ? (
-      <Headline
-        level={titleLevel}
-        textSize={titleTextSize}
-        textAlign={titleTextAlign}
-        className={`static-page-hero__title ${titleClassName || ""}`.trim()}
-      >
-        {title}
-      </Headline>
-    ) : null}
-    {lead ? (
-      <Paragraph
-        textSize={leadTextSize}
-        textAlign={leadTextAlign}
-        className={`static-page-hero__lead ${leadClassName || ""}`.trim()}
-      >
-        {lead}
-      </Paragraph>
-    ) : null}
+    {
+      title ? (
+        <Headline
+          level={titleLevel}
+          textSize={titleTextSize}
+          textAlign={titleTextAlign}
+          className={`static-page-hero__title ${titleClassName || ""}`.trim()}
+        >
+          {title}
+        </Headline>
+      ) : null
+    }
+    {
+      lead ? (
+        <Paragraph
+          textSize={leadTextSize}
+          textAlign={leadTextAlign}
+          className={`static-page-hero__lead ${leadClassName || ""}`.trim()}
+        >
+          {lead}
+        </Paragraph>
+      ) : null
+    }
   </Stack>
 
   <AutoGrid
@@ -125,7 +129,11 @@ const statusBadgeColorMap = {
       highlights.map((highlight) => (
         <Stack class="static-page-hero__highlight" gap="sm">
           {highlightAccent && highlight.accentBar !== false && (
-            <span class="static-page-hero__highlight-accent-bar" aria-hidden="true" translate="no" />
+            <span
+              class="static-page-hero__highlight-accent-bar"
+              aria-hidden="true"
+              translate="no"
+            />
           )}
           <p
             class="static-page-hero__highlight-value"
@@ -146,6 +154,17 @@ const statusBadgeColorMap = {
 
 <style>
   /* Hero entrance: staggered fade-in with editorial restraint */
+  @media screen and (prefers-reduced-motion: reduce) {
+.static-page-hero {
+    position: relative;
+    display: grid;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-2xl) 0;
+    background: color-mix(in srgb, var(--color-accent-primary) 4%, var(--surface-1));
+    animation: none;
+}
+}
+
   .static-page-hero {
     position: relative;
     display: grid;
@@ -156,15 +175,27 @@ const statusBadgeColorMap = {
   }
 
   :global([data-theme="dark"]) .static-page-hero {
-    background: color-mix(in srgb, var(--color-dark-accent-primary) 8%, var(--color-dark-surface-1));
+    background: color-mix(
+      in srgb,
+      var(--color-dark-accent-primary) 8%,
+      var(--color-dark-surface-1)
+    );
   }
 
   :global([data-theme="dark"]) .static-page-hero__highlight {
-    background: color-mix(in srgb, var(--color-dark-accent-primary) 8%, var(--color-dark-surface-1) 90%);
+    background: color-mix(
+      in srgb,
+      var(--color-dark-accent-primary) 8%,
+      var(--color-dark-surface-1) 90%
+    );
   }
 
-  :global([data-theme="dark"]) .static-page-hero__highlight:hover {
-    background: color-mix(in srgb, var(--color-dark-accent-primary) 12%, var(--color-dark-surface-1) 85%);
+  :global([data-theme="dark"]) .static-page-hero__highlight:hover, :global([data-theme="dark"]) .static-page-hero__highlight:focus {
+    background: color-mix(
+      in srgb,
+      var(--color-dark-accent-primary) 12%,
+      var(--color-dark-surface-1) 85%
+    );
   }
 
   @keyframes hero-reveal {
@@ -172,6 +203,7 @@ const statusBadgeColorMap = {
       opacity: 0;
       transform: translateY(8px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -187,11 +219,25 @@ const statusBadgeColorMap = {
     }
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+.static-page-hero__main {
+    gap: var(--spacing-xl);
+    max-inline-size: var(--measure-wide);
+    animation: none;
+}
+}
+
   .static-page-hero__main {
+    gap: var(--spacing-xl);
     max-inline-size: var(--measure-wide);
     animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
-    gap: var(--spacing-xl);
   }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+.static-page-hero__highlights {
+    animation: none;
+}
+}
 
   .static-page-hero__highlights {
     animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.25s both;
@@ -201,8 +247,8 @@ const statusBadgeColorMap = {
     margin: 0;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    font-variant: small-caps;
     font-kerning: normal;
+    font-variant: small-caps;
     color: var(--link-default);
     letter-spacing: var(--letter-spacing-widest);
   }
@@ -218,9 +264,9 @@ const statusBadgeColorMap = {
 
   .static-page-hero__lead {
     margin: var(--spacing-md) 0 0;
-    color: var(--text-secondary);
     font-size: clamp(var(--font-size-base), 2.5vw, var(--font-size-lg));
     line-height: 1.6;
+    color: var(--text-secondary);
     word-break: break-word;
   }
 
@@ -245,8 +291,12 @@ const statusBadgeColorMap = {
   }
 
   :global([data-theme="dark"]) .static-page-hero__badge {
-    background: color-mix(in srgb, var(--color-dark-accent-primary) 12%, var(--color-dark-surface-1));
     color: var(--color-dark-accent-strong);
+    background: color-mix(
+      in srgb,
+      var(--color-dark-accent-primary) 12%,
+      var(--color-dark-surface-1)
+    );
   }
 
   .static-page-hero__badge:focus-visible {
@@ -295,6 +345,12 @@ const statusBadgeColorMap = {
     }
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+:global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
+    animation: none;
+}
+}
+
   :global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
     animation-name: status-glow-pulse-dark;
   }
@@ -331,26 +387,26 @@ const statusBadgeColorMap = {
     border-bottom: none;
   }
 
-  .static-page-hero__highlight:hover {
+  .static-page-hero__highlight:hover, .static-page-hero__highlight:focus {
     background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1) 90%);
   }
 
   .static-page-hero__highlight-accent-bar {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
     display: block;
     inline-size: var(--spacing-2xs);
     block-size: 100%;
     min-block-size: 2.5rem;
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0;
     background: color-mix(in srgb, var(--accent-primary) 85%, transparent);
     border-radius: var(--radius-sm);
   }
 
   .static-page-hero__highlight-value,
   .static-page-hero__highlight-label {
-    margin: 0;
     padding-inline-start: var(--spacing-lg);
+    margin: 0;
   }
 
   .static-page-hero__highlight-value {

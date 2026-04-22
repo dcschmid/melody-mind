@@ -1,7 +1,17 @@
 ---
 interface Props {
   align?: "stretch" | "start" | "center" | "end";
-  as?: "div" | "section" | "aside" | "ul" | "ol" | "article" | "header" | "footer" | "main" | "nav";
+  as?:
+    | "div"
+    | "section"
+    | "aside"
+    | "ul"
+    | "ol"
+    | "article"
+    | "header"
+    | "footer"
+    | "main"
+    | "nav";
   className?: string;
   gap?: "2xs" | "xs" | "sm" | "base" | "md" | "lg" | "xl" | "2xl";
   justify?: "start" | "center" | "end" | "between";
@@ -56,8 +66,8 @@ const safeProps = {
     display: flex;
     flex-direction: column;
     contain: layout style;
-    text-rendering: optimizeLegibility;
     font-kerning: normal;
+    text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
