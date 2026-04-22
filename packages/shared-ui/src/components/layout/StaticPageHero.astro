@@ -81,6 +81,8 @@ const statusBadgeColorMap = {
             statusBadge.pulse !== false ? "static-page-hero__status-badge--pulse" : "",
           ]}
           style={`--status-badge-color: ${statusBadgeColorMap[statusBadge.variant]}`}
+          aria-live="polite"
+          role="status"
         >
           {statusBadge.label}
         </div>
@@ -92,21 +94,25 @@ const statusBadgeColorMap = {
         </Paragraph>
       ) : null
     }
-    <Headline
-      level={titleLevel}
-      textSize={titleTextSize}
-      textAlign={titleTextAlign}
-      className={`static-page-hero__title ${titleClassName || ""}`.trim()}
-    >
-      {title}
-    </Headline>
-    <Paragraph
-      textSize={leadTextSize}
-      textAlign={leadTextAlign}
-      className={`static-page-hero__lead ${leadClassName || ""}`.trim()}
-    >
-      {lead}
-    </Paragraph>
+    {title ? (
+      <Headline
+        level={titleLevel}
+        textSize={titleTextSize}
+        textAlign={titleTextAlign}
+        className={`static-page-hero__title ${titleClassName || ""}`.trim()}
+      >
+        {title}
+      </Headline>
+    ) : null}
+    {lead ? (
+      <Paragraph
+        textSize={leadTextSize}
+        textAlign={leadTextAlign}
+        className={`static-page-hero__lead ${leadClassName || ""}`.trim()}
+      >
+        {lead}
+      </Paragraph>
+    ) : null}
   </Stack>
 
   <AutoGrid
@@ -119,7 +125,7 @@ const statusBadgeColorMap = {
       highlights.map((highlight) => (
         <Stack class="static-page-hero__highlight" gap="sm">
           {highlightAccent && highlight.accentBar !== false && (
-            <span class="static-page-hero__highlight-accent-bar" aria-hidden="true" />
+            <span class="static-page-hero__highlight-accent-bar" aria-hidden="true" translate="no" />
           )}
           <p
             class="static-page-hero__highlight-value"
@@ -139,79 +145,135 @@ const statusBadgeColorMap = {
 </header>
 
 <style>
+  /* Hero entrance: staggered fade-in with editorial restraint */
   .static-page-hero {
     position: relative;
     display: grid;
-    gap: var(--spacing-lg);
-    padding: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
-    overflow: hidden;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-2xl);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
-      var(--shadow-lg);
+    gap: var(--spacing-xl);
+    padding: var(--spacing-2xl) 0;
+    background: color-mix(in srgb, var(--color-accent-primary) 4%, var(--surface-1));
+    animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+  }
+
+  :global([data-theme="dark"]) .static-page-hero {
+    background: color-mix(in srgb, var(--color-dark-accent-primary) 8%, var(--color-dark-surface-1));
+  }
+
+  :global([data-theme="dark"]) .static-page-hero__highlight {
+    background: color-mix(in srgb, var(--color-dark-accent-primary) 8%, var(--color-dark-surface-1) 90%);
+  }
+
+  :global([data-theme="dark"]) .static-page-hero__highlight:hover {
+    background: color-mix(in srgb, var(--color-dark-accent-primary) 12%, var(--color-dark-surface-1) 85%);
+  }
+
+  @keyframes hero-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .static-page-hero,
+    .static-page-hero__main,
+    .static-page-hero__highlights,
+    .static-page-hero__status-badge--pulse {
+      animation: none;
+    }
   }
 
   .static-page-hero__main {
     max-inline-size: var(--measure-wide);
+    animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
+    gap: var(--spacing-xl);
+  }
+
+  .static-page-hero__highlights {
+    animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.25s both;
   }
 
   .static-page-hero__eyebrow {
     margin: 0;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
+    font-variant: small-caps;
+    font-kerning: normal;
     color: var(--link-default);
-    text-transform: uppercase;
     letter-spacing: var(--letter-spacing-widest);
   }
 
   .static-page-hero__title {
-    margin: 0;
-    font-size: var(--font-size-4xl);
+    margin: 0 0 var(--spacing-sm);
+    font-size: clamp(2rem, 5vw, var(--font-size-4xl));
     font-weight: var(--heading-font-weight);
+    font-kerning: normal;
     line-height: var(--heading-line-height);
     letter-spacing: var(--heading-letter-spacing);
   }
 
   .static-page-hero__lead {
-    margin: 0;
+    margin: var(--spacing-md) 0 0;
     color: var(--text-secondary);
+    font-size: clamp(var(--font-size-base), 2.5vw, var(--font-size-lg));
+    line-height: 1.6;
+    word-break: break-word;
+  }
+
+  @media (width >= 720px) {
+    .static-page-hero__lead {
+      font-size: var(--font-size-lg);
+    }
   }
 
   .static-page-hero__badge {
     display: inline-flex;
     gap: var(--spacing-sm);
     align-items: center;
-    justify-self: start;
     padding: var(--spacing-sm) var(--spacing-base);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
     color: var(--accent-strong);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-widest);
-    background: color-mix(in srgb, var(--accent-primary) 10%, var(--surface-1));
-    border: 1px solid var(--surface-border-accent);
-    border-radius: var(--radius-md);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent),
-      var(--shadow-sm);
+    background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1));
+    border-radius: var(--radius-sm);
+  }
+
+  :global([data-theme="dark"]) .static-page-hero__badge {
+    background: color-mix(in srgb, var(--color-dark-accent-primary) 12%, var(--color-dark-surface-1));
+    color: var(--color-dark-accent-strong);
+  }
+
+  .static-page-hero__badge:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+  }
+
+  :global([data-theme="dark"]) .static-page-hero__badge:focus-visible {
+    outline-color: var(--color-dark-accent-primary);
   }
 
   .static-page-hero__status-badge {
     display: inline-flex;
     align-items: center;
-    justify-self: start;
     padding: var(--spacing-sm) var(--spacing-base);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
     color: var(--status-badge-color);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-widest);
-    background: color-mix(in srgb, var(--status-badge-color) 12%, var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--status-badge-color) 40%, transparent);
-    border-radius: var(--radius-md);
-    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent);
+    background: color-mix(in srgb, var(--status-badge-color) 10%, var(--surface-1));
+    border-radius: var(--radius-sm);
+  }
+
+  .static-page-hero__status-badge:focus-visible {
+    outline: 2px solid var(--status-badge-color);
+    outline-offset: 2px;
   }
 
   .static-page-hero__status-badge--pulse {
@@ -233,6 +295,25 @@ const statusBadgeColorMap = {
     }
   }
 
+  :global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
+    animation-name: status-glow-pulse-dark;
+  }
+
+  @keyframes status-glow-pulse-dark {
+    0%,
+    100% {
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--color-dark-surface-1) 72%, transparent),
+        0 0 0 0 color-mix(in srgb, var(--status-badge-color) 0%, transparent);
+    }
+
+    50% {
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--color-dark-surface-1) 72%, transparent),
+        0 0 4px 1px color-mix(in srgb, var(--status-badge-color) 25%, transparent);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .static-page-hero__status-badge--pulse {
       animation: none;
@@ -242,24 +323,34 @@ const statusBadgeColorMap = {
   .static-page-hero__highlight {
     position: relative;
     align-content: start;
-    padding: var(--spacing-base);
-    background: color-mix(in srgb, var(--surface-1) 72%, transparent);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
-    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent);
+    padding: var(--spacing-base) 0;
+    border-bottom: 1px solid var(--surface-border-soft);
+  }
+
+  .static-page-hero__highlight:last-child {
+    border-bottom: none;
+  }
+
+  .static-page-hero__highlight:hover {
+    background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1) 90%);
   }
 
   .static-page-hero__highlight-accent-bar {
     display: block;
-    inline-size: var(--spacing-base);
-    block-size: var(--spacing-2xs);
-    background: color-mix(in srgb, var(--accent-primary) 72%, transparent);
-    border-radius: var(--radius-base);
+    inline-size: var(--spacing-2xs);
+    block-size: 100%;
+    min-block-size: 2.5rem;
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0;
+    background: color-mix(in srgb, var(--accent-primary) 85%, transparent);
+    border-radius: var(--radius-sm);
   }
 
   .static-page-hero__highlight-value,
   .static-page-hero__highlight-label {
     margin: 0;
+    padding-inline-start: var(--spacing-lg);
   }
 
   .static-page-hero__highlight-value {
@@ -268,18 +359,20 @@ const statusBadgeColorMap = {
     font-variant-numeric: tabular-nums;
     color: var(--text-primary);
     letter-spacing: var(--letter-spacing-wide);
+    word-break: break-word;
   }
 
   .static-page-hero__highlight-label {
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
-    line-height: 1.2;
+    line-height: 1.4;
     color: var(--text-secondary);
+    word-break: break-word;
   }
 
   @media (width >= 720px) {
-    .static-page-hero {
-      padding: clamp(var(--spacing-xl), 3vw, var(--spacing-2xl));
+    .static-page-hero__title {
+      font-size: var(--font-size-4xl);
     }
   }
 </style>

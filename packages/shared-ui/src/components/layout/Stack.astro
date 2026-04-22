@@ -1,11 +1,15 @@
 ---
-interface Props extends astroHTML.JSX.HTMLAttributes {
+interface Props {
   align?: "stretch" | "start" | "center" | "end";
-  as?: keyof astroHTML.JSX.IntrinsicElements;
+  as?: "div" | "section" | "aside" | "ul" | "ol" | "article" | "header" | "footer" | "main" | "nav";
   className?: string;
   gap?: "2xs" | "xs" | "sm" | "base" | "md" | "lg" | "xl" | "2xl";
   justify?: "start" | "center" | "end" | "between";
   class?: string;
+  role?: string;
+  "aria-label"?: string;
+  id?: string;
+  tabindex?: number;
 }
 
 const {
@@ -15,6 +19,10 @@ const {
   gap = "base",
   justify = "start",
   class: classProp = "",
+  role: roleAttr,
+  "aria-label": ariaLabel,
+  id,
+  tabindex,
   ...rest
 } = Astro.props as Props;
 
@@ -29,16 +37,29 @@ const classes = [
 ]
   .filter(Boolean)
   .join(" ");
+
+const safeProps = {
+  ...rest,
+  ...(roleAttr && { role: roleAttr }),
+  ...(ariaLabel && { "aria-label": ariaLabel }),
+  ...(id && { id }),
+  ...(tabindex !== undefined && { tabindex }),
+};
 ---
 
-<Tag {...rest} class={classes}>
+<Tag {...safeProps} class={classes}>
   <slot />
 </Tag>
 
 <style>
   .stack {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    flex-direction: column;
+    contain: layout style;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   .stack--gap-2xs {
