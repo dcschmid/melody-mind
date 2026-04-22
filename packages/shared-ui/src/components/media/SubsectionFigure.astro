@@ -53,6 +53,7 @@ type ImageIndexEntry = {
 };
 
 const _knowledgeImageIndex = new Map<string, ImageIndexEntry>();
+const _knowledgeImageByKey = new Map<string, ImageIndexEntry>();
 
 for (const [rawPath, importFn] of Object.entries(
   import.meta.glob<{ default: ImageMetadata }>(
@@ -69,6 +70,7 @@ for (const [rawPath, importFn] of Object.entries(
     importFn,
   };
   _knowledgeImageIndex.set(rawPath, entry);
+  _knowledgeImageByKey.set(entry.byKey, entry);
 }
 
 /** Resolve image metadata by trying path → path-no-ext → filename key. */
@@ -77,12 +79,13 @@ async function resolveKnowledgeImage(src: string): Promise<ImageMetadata | undef
   const noExt = stripImageExtension(normalised);
   const key = normalizeImageKey(normalised);
 
+  if (_knowledgeImageByKey.has(key)) {
+    const mod = await _knowledgeImageByKey.get(key)!.importFn();
+    return mod.default;
+  }
+
   for (const entry of _knowledgeImageIndex.values()) {
-    if (
-      entry.byPath === normalised ||
-      entry.byPathNoExt === noExt ||
-      entry.byKey === key
-    ) {
+    if (entry.byPath === normalised || entry.byPathNoExt === noExt) {
       const mod = await entry.importFn();
       return mod.default;
     }
@@ -200,8 +203,8 @@ const classes = [
   .subsection-figure__media {
     position: relative;
     overflow: hidden;
-    background: var(--surface-panel-bg);
-    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 82%, transparent);
+    background: color-mix(in srgb, var(--surface-panel-bg) 72%, var(--accent-muted) 28%);
+    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 55%, var(--accent-muted) 45%);
     border-radius: var(--radius-xl);
   }
 
@@ -222,9 +225,9 @@ const classes = [
     padding: var(--pill-padding-block-md) var(--pill-padding-inline-md);
     font-size: var(--font-size-xs);
     line-height: 1;
-    color: var(--text-secondary);
-    background: color-mix(in srgb, var(--surface-panel-bg) 84%, transparent);
-    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 94%, transparent);
+    color: color-mix(in srgb, var(--accent-strong) 88%, var(--surface-1) 12%);
+    background: color-mix(in srgb, var(--surface-1) 76%, var(--accent-muted) 24%);
+    border: 1px solid color-mix(in srgb, var(--accent-muted) 48%, transparent);
     border-radius: var(--radius-full);
     backdrop-filter: blur(12px);
   }
@@ -245,6 +248,7 @@ const classes = [
     color: var(--heading-color);
     letter-spacing: var(--letter-spacing-tighter);
     text-wrap: balance;
+    text-underline-offset: var(--text-underline-offset-base);
   }
 
   .subsection-figure__title::before {
