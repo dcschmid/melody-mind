@@ -10,7 +10,10 @@ interface Props {
 
 const { subtitleUrl, podcastTitle, flushTop = false } = Astro.props as Props;
 const transcriptSlug =
-  (subtitleUrl || podcastTitle).replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") ||
+  (subtitleUrl || podcastTitle || "")
+    .replace(/[^a-z0-9]+/gi, "-")
+    .replace(/(^-|-$)/g, "")
+    .slice(0, 64) ||
   "transcript";
 const transcriptTitleId = `transcript-title-${transcriptSlug}`;
 const transcriptContentId = `transcript-content-${transcriptSlug}`;
@@ -57,7 +60,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
             aria-atomic="true"
             hidden
           >
-            Could not load the transcript.
+            Transcript unavailable. Try refreshing.
           </Paragraph>
           <div class="transcript__content" hidden />
         </div>
@@ -77,8 +80,8 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     background:
       linear-gradient(
         90deg,
-        color-mix(in srgb, var(--surface-1) 20%, transparent),
-        color-mix(in srgb, var(--accent-primary) 6%, transparent)
+        color-mix(in srgb, var(--surface-1) 16%, transparent),
+        color-mix(in srgb, var(--accent-primary) 10%, transparent)
       ),
       var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
@@ -99,6 +102,12 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     padding: var(--spacing-lg);
     cursor: pointer;
     list-style: none;
+    transition: background var(--transition-fast);
+  }
+
+  .transcript__summary:hover,
+  .transcript__summary:focus-within {
+    background: color-mix(in srgb, var(--accent-primary) 4%, transparent);
   }
 
   .transcript__summary::-webkit-details-marker {
@@ -117,6 +126,10 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-inline-size: 28ch;
   }
 
   .transcript__summary-icon {
@@ -126,15 +139,46 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     inline-size: 3rem;
     block-size: 3rem;
     padding: var(--spacing-sm);
-    color: var(--text-secondary);
-    background: color-mix(in srgb, var(--surface-1) 55%, transparent);
-    border: 1px solid var(--surface-border-soft);
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
+    border: 1px solid var(--surface-border-accent);
     border-radius: var(--radius-md);
+    transition:
+      transform var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .transcript__summary:hover .transcript__summary-icon,
+  .transcript__summary:focus-within .transcript__summary-icon,
+  .transcript__details[open] .transcript__summary-icon {
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-primary) 20%, transparent);
+    transform: scale(1.05);
   }
 
   .transcript__summary-hint,
   .transcript__status {
     color: var(--text-secondary);
+  }
+
+  .transcript__status--loading {
+    padding-inline-start: var(--spacing-sm);
+    border-inline-start: 3px solid var(--color-info);
+    animation: status-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes status-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  .transcript__status--error {
+    padding-inline-start: var(--spacing-sm);
+    border-inline-start: 3px solid var(--color-error);
   }
 
   .transcript__summary-hint {
@@ -158,7 +202,13 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   .transcript__summary-chevron {
     inline-size: 1.5rem;
     block-size: 1.5rem;
-    transition: transform var(--transition-base);
+    color: var(--accent-muted);
+    transition: transform var(--transition-base), color var(--transition-fast);
+  }
+
+  .transcript__summary:hover .transcript__summary-chevron,
+  .transcript__summary:focus-within .transcript__summary-chevron {
+    color: var(--accent-primary);
   }
 
   .transcript__details[open] .transcript__summary-chevron {
@@ -166,19 +216,31 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   }
 
   .transcript__body {
-    padding: 0 var(--spacing-lg) var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
     border-block-start: 1px solid var(--surface-border-soft);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .transcript__summary-chevron {
-      transition: none;
+  .transcript__details[open] .transcript__body {
+    animation: transcript-reveal 280ms var(--motion-ease-standard) both;
+  }
+
+  @keyframes transcript-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
   .transcript__content {
     display: grid;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     max-block-size: 24rem;
     overflow-block: auto;
   }
@@ -200,6 +262,19 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      border-color var(--transition-fast);
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .transcript__content :global(.transcript__cue:hover),
+  .transcript__content :global(.transcript__cue:focus-visible) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--surface-border-accent);
   }
 
   .transcript__content :global(.transcript__cue:focus-visible) {
@@ -210,11 +285,23 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   .transcript__content :global(.transcript__cue--active) {
     background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
     border-color: var(--surface-border-accent);
+    animation: cue-alive 2s ease-in-out infinite;
+  }
+
+  @keyframes cue-alive {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-primary) 12%, transparent);
+    }
   }
 
   .transcript__content :global(.transcript__time) {
     font-weight: var(--font-weight-semibold);
     font-variant-numeric: tabular-nums;
+    line-height: var(--line-height-tight);
     color: var(--accent-primary);
     text-align: end;
   }
@@ -226,17 +313,76 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
       padding: var(--spacing-base);
     }
 
+    .transcript__summary-icon {
+      inline-size: 2.5rem;
+      block-size: 2.5rem;
+    }
+
     .transcript__summary-hint {
       inline-size: auto;
     }
 
     .transcript__body {
-      padding: 0 var(--spacing-base) var(--spacing-base);
+      gap: var(--spacing-xs);
+      padding: var(--spacing-sm) var(--spacing-base) var(--spacing-base);
     }
 
     .transcript__content :global(.transcript__cue) {
       grid-template-columns: minmax(0, 1fr);
       gap: var(--spacing-sm);
+      padding: var(--spacing-md);
+    }
+  }
+
+  @media (width < 375px) {
+    .transcript__summary {
+      gap: var(--spacing-sm);
+    }
+
+    .transcript__summary-title {
+      font-size: var(--font-size-md);
+      max-inline-size: 20ch;
+    }
+
+    .transcript__summary-icon {
+      inline-size: 2.25rem;
+      block-size: 2.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .transcript__summary {
+      transition: none;
+    }
+
+    .transcript__summary-icon {
+      transition: none;
+    }
+
+    .transcript__status--loading {
+      animation: none;
+    }
+
+    .transcript__content :global(.transcript__cue) {
+      transition: none;
+    }
+
+    .transcript__summary-chevron {
+      transition: none;
+    }
+
+    .transcript__details[open] .transcript__body {
+      animation: none;
+    }
+
+    .transcript__content :global(.transcript__cue:hover),
+    .transcript__content :global(.transcript__cue:focus-visible) {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .transcript__content :global(.transcript__cue--active) {
+      animation: none;
     }
   }
 </style>
