@@ -154,49 +154,51 @@ const navId = `${navIdBase}-nav`;
       </span>
     </button>
 
-    <nav
-      id={navId}
-      class="site-header__nav"
-      aria-label={resolvedHeaderConfig.navAriaLabel}
-      data-site-header-nav
-    >
-      <ul class="site-header__nav-list">
-        {
-          resolvedHeaderConfig.navItems.map((item) => {
-            const isExternal = /^https?:\/\//.test(item.href);
-            const isActive = isExternal
-              ? false
-              : item.href === "/"
-                ? currentPath === "/"
-                : currentPath.startsWith(item.href);
+    {
+      resolvedHeaderConfig.navItems.length > 0 && (
+        <nav
+          id={navId}
+          class="site-header__nav"
+          aria-label={resolvedHeaderConfig.navAriaLabel}
+          data-site-header-nav
+        >
+          <ul class="site-header__nav-list">
+            {resolvedHeaderConfig.navItems.map((item) => {
+              const isExternal = /^https?:\/\//.test(item.href);
+              const isActive = isExternal
+                ? false
+                : item.href === "/"
+                  ? currentPath === "/"
+                  : currentPath.startsWith(item.href);
 
-            return (
-              <li class="site-header__nav-item">
-                <AccessibleExternalLink
-                  className="site-header__nav-link"
-                  href={item.href}
-                  target={item.target}
-                  rel={item.rel}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {resolvedHeaderConfig.showIcons && item.icon ? (
-                    <Icon
-                      name={item.icon}
-                      class="site-header__nav-icon"
-                      aria-hidden="true"
-                    />
-                  ) : null}
-                  <span>{item.label}</span>
-                </AccessibleExternalLink>
-              </li>
-            );
-          })
-        }
-      </ul>
-      <div class="site-header__actions">
-        <ThemeToggle />
-      </div>
-    </nav>
+              return (
+                <li class="site-header__nav-item">
+                  <AccessibleExternalLink
+                    className="site-header__nav-link"
+                    href={item.href}
+                    target={item.target}
+                    rel={item.rel}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {resolvedHeaderConfig.showIcons && item.icon ? (
+                      <Icon
+                        name={item.icon}
+                        class="site-header__nav-icon"
+                        aria-hidden="true"
+                      />
+                    ) : null}
+                    <span>{item.label}</span>
+                  </AccessibleExternalLink>
+                </li>
+              );
+            })}
+          </ul>
+          <div class="site-header__actions">
+            <ThemeToggle />
+          </div>
+        </nav>
+      )
+    }
   </div>
 </header>
 
@@ -355,7 +357,7 @@ const navId = `${navIdBase}-nav`;
 
   .site-header__brand:hover,
   .site-header__brand:focus {
-    transform: scale(1.04);
+    transform: scale(1.04) translateY(-1px);
   }
 
   .site-header__brand:active {
@@ -363,7 +365,14 @@ const navId = `${navIdBase}-nav`;
   }
 
   .site-header__brand:focus-visible {
-    transform: scale(1.04);
+    transform: scale(1.04) translateY(-1px);
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .site-header__brand:hover,
+    .site-header__brand:focus-visible {
+      transform: scale(1.04) translateY(-1px);
+    }
   }
 
   .site-header__brand-mark {
@@ -375,9 +384,35 @@ const navId = `${navIdBase}-nav`;
     font-size: 0.65rem;
     font-weight: var(--font-weight-bold);
     letter-spacing: -0.02em;
-    background: var(--surface-panel-raised);
-    border: 1px solid var(--surface-border-soft);
+    background: color-mix(
+      in srgb,
+      var(--accent-primary) 12%,
+      var(--surface-panel-raised)
+    );
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 28%, var(--border-default));
     border-radius: var(--radius-lg);
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .site-header__brand-mark {
+      transition:
+        transform var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1),
+        background-color var(--transition-fast);
+    }
+
+    .site-header__brand:hover .site-header__brand-mark,
+    .site-header__brand:focus .site-header__brand-mark {
+      transform: translateY(-2px) scale(1.06);
+      box-shadow:
+        0 4px 12px color-mix(in srgb, var(--accent-primary) 22%, transparent),
+        0 2px 4px color-mix(in srgb, var(--accent-primary) 14%, transparent);
+    }
+
+    .site-header__brand:active .site-header__brand-mark {
+      transform: translateY(0) scale(1);
+      box-shadow: none;
+    }
   }
 
   .site-header__brand-logo-wrap {
@@ -430,7 +465,8 @@ const navId = `${navIdBase}-nav`;
 
   .site-header__menu-toggle:hover,
   .site-header__menu-toggle:focus {
-    border-color: var(--surface-border-strong, var(--surface-border-soft));
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-panel-raised));
+    border-color: var(--accent-primary);
     transform: scale(1.03);
   }
 
@@ -573,18 +609,28 @@ const navId = `${navIdBase}-nav`;
     );
   }
 
-  @media (width >= 880px) {
+  @media (min-width: 880px) {
     .site-header__actions :global(.theme-toggle) {
       --theme-toggle-pill-padding: calc(var(--spacing-xs) - 0.15rem);
     }
   }
 
   .site-header__nav-list {
-    display: grid;
-    gap: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xs);
     padding: 0;
     margin: 0;
     list-style: none;
+  }
+
+  .site-header__nav-item {
+    border-radius: var(--radius-md);
+  }
+
+  .site-header__nav-item:hover {
+    background: color-mix(in srgb, var(--accent-primary) 6%, transparent);
+    border-radius: var(--radius-md);
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
@@ -593,12 +639,12 @@ const navId = `${navIdBase}-nav`;
       gap: var(--spacing-sm);
       align-items: center;
       min-block-size: var(--control-min-block-size);
-      padding: var(--spacing-xs) var(--spacing-sm);
+      padding: var(--spacing-sm) var(--spacing-sm);
       font-size: var(--font-size-sm);
       font-weight: var(--font-weight-medium);
       color: var(--text-primary);
       text-decoration: none;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       transition: none;
     }
   }
@@ -608,12 +654,12 @@ const navId = `${navIdBase}-nav`;
     gap: var(--spacing-sm);
     align-items: center;
     min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-sm);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
     color: var(--text-primary);
     text-decoration: none;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     transition:
       color var(--transition-fast),
       background-color var(--transition-fast),
@@ -621,16 +667,34 @@ const navId = `${navIdBase}-nav`;
   }
 
   .site-header__nav-link:hover {
-    background: color-mix(in srgb, var(--surface-panel-raised) 76%, transparent);
-    transform: translateX(2px);
+    color: var(--accent-strong);
+    background: color-mix(in srgb, var(--accent-primary) 10%, transparent);
   }
 
   .site-header__nav-link:active {
-    transform: translateX(1px);
+    transform: translateX(2px);
   }
 
-  .site-header__nav-link:focus {
-    background: color-mix(in srgb, var(--surface-panel-raised) 76%, transparent);
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .site-header__nav-link:hover {
+      transform: translateX(4px);
+      transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast),
+        transform 280ms cubic-bezier(0.34, 1.2, 0.64, 1);
+    }
+  }
+
+  @media (min-width: 880px) {
+    .site-header__nav-link:hover {
+      transform: none;
+    }
+  }
+
+  .site-header__nav-link:focus-visible {
+    color: var(--accent-strong);
+    background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
+    box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent-strong) 70%, transparent);
   }
 
   .site-header__nav-link[aria-current="page"] {
@@ -638,7 +702,7 @@ const navId = `${navIdBase}-nav`;
     background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
   }
 
-  @media (width >= 880px) {
+  @media (min-width: 880px) {
     .site-header__backdrop {
       display: none;
     }
@@ -701,29 +765,36 @@ const navId = `${navIdBase}-nav`;
 
     .site-header__nav-list {
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
-      gap: var(--spacing-sm);
+      gap: var(--spacing-2xs);
       justify-content: flex-end;
     }
 
     .site-header__nav-link {
       min-block-size: var(--control-min-block-size);
-      padding: 0 var(--spacing-xs);
+      padding: var(--spacing-sm) var(--spacing-md);
       font-size: var(--font-size-sm);
       font-weight: var(--font-weight-medium);
+      color: var(--text-primary);
       background: transparent;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius-md);
     }
 
     .site-header__nav-link:hover {
       color: var(--accent-strong);
-      background: transparent;
-      transform: none;
+      background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
     }
 
     .site-header__nav-link:focus {
       color: var(--accent-strong);
-      background: transparent;
+      background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
+    }
+
+    .site-header__nav-link:focus-visible {
+      color: var(--accent-strong);
+      background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
+      box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent-strong) 70%, transparent);
     }
 
     .site-header__nav-link[aria-current="page"] {
@@ -733,6 +804,14 @@ const navId = `${navIdBase}-nav`;
 
     .site-header__nav-link:hover,
     .site-header__nav-link:focus-visible {
+      box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent-strong) 70%, transparent);
+    }
+  }
+
+  @media (max-width: 879.98px) {
+    .site-header__nav-link:focus {
+      color: var(--accent-strong);
+      background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
       box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent-strong) 70%, transparent);
     }
   }

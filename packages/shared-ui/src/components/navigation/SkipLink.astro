@@ -18,71 +18,111 @@ interface Props {
    * @default "main-content"
    */
   targetId?: string;
+  /**
+   * Accessible label for the skip link
+   * @default "Skip to main content"
+   */
   label?: string;
 }
 
-const { targetId = "main-content", label = "Skip to main content" } = Astro.props;
----
+const {
+  targetId = "main-content",
+  label = "Skip to main content",
+} = Astro.props;
 
-<a href={`#${targetId}`} class="skip-link" data-skip-link aria-label={label}>
+const sanitizedTargetId = targetId.replace(/[^a-zA-Z0-9_-]/g, "");
+const href = `#${sanitizedTargetId || "main-content"}`;
+const ariaLabel = label.trim() || "Skip to main content";
+---
+<a
+  href={href}
+  class="skip-link"
+  data-skip-link
+  aria-label={ariaLabel}
+>
   <Icon name="chevron-down" class="skip-link__icon" aria-hidden="true" />
-  {label}
+  {ariaLabel}
 </a>
 <style>
-  /* -----------------------------------------------------------------------------
-     SkipLink Component Styles
-     WCAG AAA accessibility feature for keyboard navigation
-     Hidden until focused, then appears at top of page
-     ----------------------------------------------------------------------------- */
-
+  /* SkipLink: WCAG AAA skip navigation, hidden until focused */
   .skip-link {
-    /* Absolute positioning - hidden off-screen by default */
     position: absolute;
     inset-block-start: -9999px;
     inset-inline-start: 50%;
     z-index: 100;
-
-    /* Layout */
     display: inline-flex;
     gap: var(--spacing-sm);
     align-items: center;
+    min-inline-size: max-content;
     min-block-size: var(--control-min-block-size);
     padding: var(--spacing-xs) var(--spacing-base);
-
-    /* Typography */
     font-weight: var(--font-weight-bold);
-
-    /* Visual styling - high contrast for accessibility */
     color: var(--button-text-accent);
     text-decoration: none;
     background: var(--accent-primary);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     box-shadow: var(--shadow-sm);
-
-    /* Centered positioning */
     transform: translateX(-50%);
-
-    /* Smooth transition */
-    transition: inset-block-start var(--transition-fast);
+    transition:
+      inset-block-start 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color var(--transition-fast);
   }
 
-  /* Show when focused - moves to top of viewport */
   .skip-link:focus-visible {
     inset-block-start: 0;
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
 
-  /* Icon sizing */
   .skip-link__icon {
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
+    margin-block-start: 0.5px;
+    color: var(--accent-muted);
   }
 
-  /* Reduced motion support */
+  .skip-link:focus-visible .skip-link__icon {
+    animation: skip-link-bounce 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .skip-link:hover,
+  .skip-link:focus-visible {
+    background: var(--accent-primary-hover);
+  }
+
+  .skip-link:active {
+    transform: translateX(-50%) scale(0.97);
+    transition: transform 0.1s;
+  }
+
+  @keyframes skip-link-bounce {
+    0% {
+      opacity: 0.6;
+      transform: translateY(-4px);
+    }
+
+    60% {
+      transform: translateY(2px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .skip-link {
       transition: none;
+    }
+
+    .skip-link:active {
+      transform: translateX(-50%);
+      transition: none;
+    }
+
+    .skip-link:focus-visible .skip-link__icon {
+      animation: none;
     }
   }
 </style>
