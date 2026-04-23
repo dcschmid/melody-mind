@@ -13,8 +13,7 @@ const transcriptSlug =
   (subtitleUrl || podcastTitle || "")
     .replace(/[^a-z0-9]+/gi, "-")
     .replace(/(^-|-$)/g, "")
-    .slice(0, 64) ||
-  "transcript";
+    .slice(0, 64) || "transcript";
 const transcriptTitleId = `transcript-title-${transcriptSlug}`;
 const transcriptContentId = `transcript-content-${transcriptSlug}`;
 ---
@@ -123,13 +122,13 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     display: inline-flex;
     gap: var(--spacing-base);
     align-items: center;
+    max-inline-size: 28ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
-    max-inline-size: 28ch;
   }
 
   .transcript__summary-icon {
@@ -171,6 +170,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     100% {
       opacity: 1;
     }
+
     50% {
       opacity: 0.6;
     }
@@ -203,7 +203,9 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     inline-size: 1.5rem;
     block-size: 1.5rem;
     color: var(--accent-muted);
-    transition: transform var(--transition-base), color var(--transition-fast);
+    transition:
+      transform var(--transition-base),
+      color var(--transition-fast);
   }
 
   .transcript__summary:hover .transcript__summary-chevron,
@@ -232,6 +234,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
       opacity: 0;
       transform: translateY(-8px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -257,6 +260,8 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     line-height: var(--line-height-relaxed);
     color: var(--text-primary);
     text-align: start;
+    hyphens: auto;
+    overflow-wrap: break-word;
     appearance: none;
     cursor: pointer;
     background: var(--surface-panel-raised);
@@ -266,15 +271,13 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
       transform var(--transition-fast),
       box-shadow var(--transition-fast),
       border-color var(--transition-fast);
-    overflow-wrap: break-word;
-    hyphens: auto;
   }
 
   .transcript__content :global(.transcript__cue:hover),
   .transcript__content :global(.transcript__cue:focus-visible) {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
     border-color: var(--surface-border-accent);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
   }
 
   .transcript__content :global(.transcript__cue:focus-visible) {
@@ -293,6 +296,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     100% {
       box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
     }
+
     50% {
       box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-primary) 12%, transparent);
     }
@@ -340,8 +344,8 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     }
 
     .transcript__summary-title {
-      font-size: var(--font-size-md);
       max-inline-size: 20ch;
+      font-size: var(--font-size-md);
     }
 
     .transcript__summary-icon {
@@ -377,8 +381,8 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
 
     .transcript__content :global(.transcript__cue:hover),
     .transcript__content :global(.transcript__cue:focus-visible) {
-      transform: none;
       box-shadow: none;
+      transform: none;
     }
 
     .transcript__content :global(.transcript__cue--active) {

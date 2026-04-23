@@ -155,15 +155,15 @@ const statusBadgeColorMap = {
 <style>
   /* Hero entrance: staggered fade-in with editorial restraint */
   @media screen and (prefers-reduced-motion: reduce) {
-.static-page-hero {
-    position: relative;
-    display: grid;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-2xl) 0;
-    background: color-mix(in srgb, var(--color-accent-primary) 4%, var(--surface-1));
-    animation: none;
-}
-}
+    .static-page-hero {
+      position: relative;
+      display: grid;
+      gap: var(--spacing-xl);
+      padding: var(--spacing-2xl) 0;
+      background: color-mix(in srgb, var(--color-accent-primary) 4%, var(--surface-1));
+      animation: none;
+    }
+  }
 
   .static-page-hero {
     position: relative;
@@ -190,7 +190,8 @@ const statusBadgeColorMap = {
     );
   }
 
-  :global([data-theme="dark"]) .static-page-hero__highlight:hover, :global([data-theme="dark"]) .static-page-hero__highlight:focus {
+  :global([data-theme="dark"]) .static-page-hero__highlight:hover,
+  :global([data-theme="dark"]) .static-page-hero__highlight:focus {
     background: color-mix(
       in srgb,
       var(--color-dark-accent-primary) 12%,
@@ -220,12 +221,12 @@ const statusBadgeColorMap = {
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.static-page-hero__main {
-    gap: var(--spacing-xl);
-    max-inline-size: var(--measure-wide);
-    animation: none;
-}
-}
+    .static-page-hero__main {
+      gap: var(--spacing-xl);
+      max-inline-size: var(--measure-wide);
+      animation: none;
+    }
+  }
 
   .static-page-hero__main {
     gap: var(--spacing-xl);
@@ -234,10 +235,10 @@ const statusBadgeColorMap = {
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-.static-page-hero__highlights {
-    animation: none;
-}
-}
+    .static-page-hero__highlights {
+      animation: none;
+    }
+  }
 
   .static-page-hero__highlights {
     animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.25s both;
@@ -346,10 +347,10 @@ const statusBadgeColorMap = {
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-:global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
-    animation: none;
-}
-}
+    :global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
+      animation: none;
+    }
+  }
 
   :global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
     animation-name: status-glow-pulse-dark;
@@ -387,7 +388,8 @@ const statusBadgeColorMap = {
     border-bottom: none;
   }
 
-  .static-page-hero__highlight:hover, .static-page-hero__highlight:focus {
+  .static-page-hero__highlight:hover,
+  .static-page-hero__highlight:focus {
     background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1) 90%);
   }
 

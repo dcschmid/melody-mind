@@ -136,7 +136,8 @@ const timeId = `episode-player-time-${playerSlug}`;
       label="English"
       default={Boolean(subtitleUrl)}
     />
-    Your browser does not support audio playback. Try Chrome, Firefox, or Safari for the best experience.
+    Your browser does not support audio playback. Try Chrome, Firefox, or Safari for the best
+    experience.
   </audio>
   <script>
     import "@shared-ui/scripts/audio-player.ts";
@@ -144,10 +145,48 @@ const timeId = `episode-player-time-${playerSlug}`;
 </div>
 
 <style>
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player {
+      position: relative;
+      padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+      overflow: hidden;
+      font-optical-sizing: auto;
+      font-feature-settings:
+        "kern" 1,
+        "liga" 1,
+        "calt" 1;
+      font-kerning: normal;
+      background:
+        radial-gradient(
+          circle at 100% 100%,
+          color-mix(in srgb, var(--accent-primary) 10%, transparent),
+          transparent 35%
+        ),
+        linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--surface-1) 28%, transparent),
+          color-mix(in srgb, var(--surface-1) 12%, transparent)
+        ),
+        var(--surface-panel-bg);
+      border: 1px solid var(--surface-border-soft);
+      border-radius: var(--radius-2xl);
+      box-shadow:
+        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent),
+        var(--shadow-xl);
+      animation: none;
+    }
+  }
+
   .episode-player {
     position: relative;
     padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
     overflow: hidden;
+    font-optical-sizing: auto;
+    font-feature-settings:
+      "kern" 1,
+      "liga" 1,
+      "calt" 1;
+    font-kerning: normal;
     background:
       radial-gradient(
         circle at 100% 100%,
@@ -165,9 +204,6 @@ const timeId = `episode-player-time-${playerSlug}`;
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent),
       var(--shadow-xl);
-    font-kerning: normal;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-    font-optical-sizing: auto;
     animation: player-enter 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
@@ -176,13 +212,14 @@ const timeId = `episode-player-time-${playerSlug}`;
       opacity: 0;
       transform: translateY(8px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-.episode-player__shell {
+  .episode-player__shell {
     display: grid;
     gap: var(--spacing-xl);
     align-items: center;
@@ -219,12 +256,12 @@ const timeId = `episode-player-time-${playerSlug}`;
     font: inherit;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
+    touch-action: manipulation;
     cursor: pointer;
+    user-select: none;
     background: color-mix(in srgb, var(--surface-1) 60%, transparent);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-full);
-    user-select: none;
-    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -247,10 +284,20 @@ const timeId = `episode-player-time-${playerSlug}`;
       var(--shadow-lg);
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control-icon {
+      inline-size: 2rem;
+      block-size: 2rem;
+      transition: none;
+    }
+  }
+
   .episode-player__control-icon {
     inline-size: 2rem;
     block-size: 2rem;
-    transition: opacity 150ms ease-out, transform 150ms ease-out;
+    transition:
+      opacity 150ms ease-out,
+      transform 150ms ease-out;
   }
 
   .episode-player__control-icon--pause {
@@ -290,13 +337,13 @@ const timeId = `episode-player-time-${playerSlug}`;
 
   .episode-player__title {
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: clamp(var(--font-size-lg), 1.2vw, var(--font-size-xl));
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     color: var(--text-primary);
     text-wrap: pretty;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
   }
 
@@ -367,9 +414,9 @@ const timeId = `episode-player-time-${playerSlug}`;
 
   .episode-player__progress {
     inline-size: 100%;
-    background: transparent;
     touch-action: pan-x;
     user-select: none;
+    background: transparent;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -410,8 +457,8 @@ const timeId = `episode-player-time-${playerSlug}`;
   .episode-player__progress::-webkit-slider-thumb:focus-visible,
   .episode-player__progress::-moz-range-thumb:hover,
   .episode-player__progress::-moz-range-thumb:focus-visible {
-    transform: scale(1.15);
     box-shadow: 0 0 0 0.35rem color-mix(in srgb, var(--accent-primary) 20%, transparent);
+    transform: scale(1.15);
   }
 
   .episode-player__progress::-webkit-slider-thumb:active,
@@ -445,13 +492,45 @@ const timeId = `episode-player-time-${playerSlug}`;
     outline-offset: var(--focus-ring-offset);
   }
 
-  .episode-player__control:hover {
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control:hover,
+    .episode-player__control:focus {
+      box-shadow:
+        0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
+        var(--shadow-lg);
+      transform: translateY(-1px);
+      transition: none;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+.episode-player__control:hover,
+  .episode-player__control:focus {
     box-shadow:
       0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
       var(--shadow-lg);
     transform: translateY(-1px);
-    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    transition:
+      none;
+}
+}
+
+  .episode-player__control:hover,
+  .episode-player__control:focus {
+    box-shadow:
+      0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
+      var(--shadow-lg);
+    transform: translateY(-1px);
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
       box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control:active {
+      transform: translateY(1px) scale(0.97);
+      transition: none;
+    }
   }
 
   .episode-player__control:active {
@@ -459,24 +538,89 @@ const timeId = `episode-player-time-${playerSlug}`;
     transition: transform 100ms ease-out;
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__control:focus-visible {
+      transform: translateY(-1px);
+      transition: none;
+    }
+  }
+
   .episode-player__control:focus-visible {
     transform: translateY(-1px);
     transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .episode-player__transport-button:hover,
-  .episode-player__retry:hover {
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__transport-button:hover,
+    .episode-player__retry:hover,
+    .episode-player__transport-button:focus,
+    .episode-player__retry:focus {
+      color: var(--accent-primary);
+      transform: translateY(-1px);
+      transition: none;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+.episode-player__transport-button:hover,
+  .episode-player__retry:hover,
+  .episode-player__transport-button:focus,
+  .episode-player__retry:focus {
     color: var(--accent-primary);
     transform: translateY(-1px);
-    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    transition:
+      none;
+}
+}
+
+  .episode-player__transport-button:hover,
+  .episode-player__retry:hover,
+  .episode-player__transport-button:focus,
+  .episode-player__retry:focus {
+    color: var(--accent-primary);
+    transform: translateY(-1px);
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
       color 200ms ease-out;
   }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__transport-button:active,
+    .episode-player__retry:active {
+      transform: translateY(1px) scale(0.95);
+      transition: none;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+.episode-player__transport-button:active,
+  .episode-player__retry:active {
+    transform: translateY(1px) scale(0.95);
+    transition: none;
+}
+}
 
   .episode-player__transport-button:active,
   .episode-player__retry:active {
     transform: translateY(1px) scale(0.95);
     transition: transform 100ms ease-out;
   }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .episode-player__transport-button:focus-visible,
+    .episode-player__retry:focus-visible {
+      transform: translateY(-1px);
+      transition: none;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+.episode-player__transport-button:focus-visible,
+  .episode-player__retry:focus-visible {
+    transform: translateY(-1px);
+    transition: none;
+}
+}
 
   .episode-player__transport-button:focus-visible,
   .episode-player__retry:focus-visible {
@@ -507,8 +651,8 @@ const timeId = `episode-player-time-${playerSlug}`;
 
     .episode-player__header {
       flex-wrap: wrap;
-      align-items: start;
       gap: var(--spacing-md);
+      align-items: start;
     }
 
     .episode-player__visualizer {
@@ -572,8 +716,8 @@ const timeId = `episode-player-time-${playerSlug}`;
     .episode-player__retry:hover,
     .episode-player__retry:active,
     .episode-player__retry:focus-visible {
-      transition-duration: 0.01ms;
       transform: none;
+      transition-duration: 0.01ms;
     }
 
     .episode-player__progress::-webkit-slider-thumb:hover,
