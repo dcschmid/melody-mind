@@ -28,9 +28,12 @@ const {
 } = Astro.props as Props;
 
 const surfaceClass = surface ? `toc--${surface}` : "";
-const filteredHeadings = headings.filter(
-  (heading) => heading.depth >= 2 && heading.depth <= 4
-);
+const filteredHeadings = headings
+  .filter((heading) => heading.depth >= 2 && heading.depth <= 4)
+  .map((heading) => ({
+    ...heading,
+    slug: heading.slug.replace(/[^a-zA-Z0-9_-]/g, "-"),
+  }));
 const topLevelDepth = filteredHeadings.length
   ? Math.min(...filteredHeadings.map((heading) => heading.depth))
   : 2;
@@ -119,15 +122,12 @@ const contentId = `${safeIdBase}-content`;
       return;
     }
 
-    const buildListFromDom = () => {
-      if (!list) {
-        return;
-      }
+    const articleRoot =
+      root.closest("main")?.querySelector<HTMLElement>("#article-content") ||
+      document.querySelector<HTMLElement>("#article-content");
 
-      const articleRoot =
-        root.closest("main")?.querySelector<HTMLElement>("#article-content") ||
-        document.querySelector<HTMLElement>("#article-content");
-      if (!articleRoot) {
+    const buildListFromDom = () => {
+      if (!list || !articleRoot) {
         return;
       }
 
@@ -202,7 +202,13 @@ const contentId = `${safeIdBase}-content`;
     };
 
     applyResponsiveMode();
-    window.addEventListener("resize", applyResponsiveMode, { signal });
+
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    const debouncedApply = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(applyResponsiveMode, 100);
+    };
+    window.addEventListener("resize", debouncedApply, { signal });
 
     toggle.addEventListener(
       "click",
@@ -228,7 +234,10 @@ const contentId = `${safeIdBase}-content`;
       requestAnimationFrame(buildListFromDom);
     }
 
-    window.addEventListener("pagehide", () => controller.abort(), {
+    window.addEventListener("pagehide", () => {
+      clearTimeout(resizeTimeout);
+      controller.abort();
+    }, {
       once: true,
       signal,
     });
@@ -307,7 +316,12 @@ const contentId = `${safeIdBase}-content`;
     border-radius: var(--radius-xl);
     transition:
       border-color 160ms ease,
-      background-color 160ms ease;
+      background-color 160ms ease,
+      transform 100ms ease;
+  }
+
+  .toc[data-toc-root] .toc__toggle:active {
+    transform: scale(0.985);
   }
 
   .toc[data-toc-root] .toc__toggle-label {
@@ -325,7 +339,7 @@ const contentId = `${safeIdBase}-content`;
 
   .toc[data-toc-root] .toc__toggle-chevron {
     color: var(--text-secondary);
-    transition: transform 160ms ease;
+    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .toc[data-toc-root] .toc__content {
@@ -342,10 +356,6 @@ const contentId = `${safeIdBase}-content`;
 
   .toc[data-toc-root] .toc__content[hidden] {
     display: none;
-  }
-
-  .toc[data-toc-root].toc--desktop-static .toc__content {
-    display: grid;
   }
 
   .toc[data-toc-root] .toc__nav {
@@ -394,7 +404,7 @@ const contentId = `${safeIdBase}-content`;
   .toc[data-toc-root] .toc__link {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
-    gap: calc(var(--spacing-xs) + 0.1rem);
+    gap: var(--spacing-xs);
     align-items: center;
     padding-block: var(--spacing-xs);
     padding-inline: var(--spacing-xs);
@@ -415,6 +425,7 @@ const contentId = `${safeIdBase}-content`;
     background: color-mix(in srgb, var(--accent-primary) 78%, transparent);
     border-radius: var(--radius-full);
     opacity: 0.88;
+    will-change: transform;
     transition:
       background 180ms ease,
       transform 180ms ease,
@@ -424,17 +435,17 @@ const contentId = `${safeIdBase}-content`;
   .toc[data-toc-root] .toc__link-text {
     min-inline-size: 0;
     text-wrap: pretty;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
   }
 
   .toc[data-toc-root] .toc__link--child {
     display: block;
-    padding-block: 0.3rem;
+    padding-block: var(--spacing-xs);
     padding-inline: var(--spacing-xs);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: 1.45;
-    color: var(--text-secondary);
+    color: color-mix(in srgb, var(--accent-primary) 28%, var(--text-secondary));
     border-radius: var(--radius-sm);
     transition:
       background 140ms ease,
@@ -463,14 +474,14 @@ const contentId = `${safeIdBase}-content`;
 
   .toc[data-toc-root] .toc__link--depth-4 {
     font-size: var(--font-size-xs);
-    opacity: 0.92;
+    color: color-mix(in srgb, var(--accent-primary) 18%, var(--text-secondary));
   }
 
   .toc[data-toc-root] .toc__item--child {
     padding-inline-start: var(--spacing-sm);
-    margin-inline-start: 0.35rem;
-    border-inline-start: 1px solid
-      color-mix(in srgb, var(--accent-primary) 28%, var(--surface-border-soft));
+    margin-inline-start: var(--spacing-xs);
+    border-inline-start: 2px solid
+      color-mix(in srgb, var(--accent-primary) 42%, var(--surface-border-soft));
   }
 
   .toc[data-toc-root] .toc__link:hover,
@@ -482,13 +493,14 @@ const contentId = `${safeIdBase}-content`;
   .toc[data-toc-root] .toc__link--child:hover,
   .toc[data-toc-root] .toc__link--child:focus-visible {
     color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 5%, transparent);
   }
 
   .toc[data-toc-root] .toc__link:hover .toc__link-marker,
   .toc[data-toc-root] .toc__link:focus-visible .toc__link-marker {
     background: var(--accent-primary);
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.25);
   }
 
   .toc[data-toc-root] .toc__toggle:focus-visible,
@@ -514,6 +526,10 @@ const contentId = `${safeIdBase}-content`;
   @media (prefers-reduced-motion: reduce) {
     .toc[data-toc-root] .toc__toggle {
       transition: none;
+    }
+
+    .toc[data-toc-root] .toc__toggle:active {
+      transform: none;
     }
 
     .toc[data-toc-root] .toc__toggle-chevron {
