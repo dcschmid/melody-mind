@@ -128,13 +128,14 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: var(--spacing-lg);
-    justify-items: start;
+    justify-content: start;
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__item) {
+    inline-size: 100%;
     min-inline-size: 0;
   }
 
@@ -142,7 +143,7 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     .recent-reads-panel__mount :global(.recent-reads-panel__link) {
       display: grid;
       grid-template-rows: auto 1fr;
-      max-inline-size: 320px;
+      inline-size: 100%;
       min-block-size: 100%;
       color: var(--text-primary);
       text-decoration: none;
@@ -157,7 +158,7 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   .recent-reads-panel__mount :global(.recent-reads-panel__link) {
     display: grid;
     grid-template-rows: auto 1fr;
-    max-inline-size: 320px;
+    inline-size: 100%;
     min-block-size: 100%;
     color: var(--text-primary);
     text-decoration: none;
@@ -250,7 +251,7 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
 
   @media (width >= 640px) {
     .recent-reads-panel__mount :global(.recent-reads-panel__list) {
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 320px));
     }
   }
 </style>

@@ -15,6 +15,9 @@ const {
   textAlign = "left",
   class: classProp = "",
   ...rest
+  // NOTE: Rest spread intentionally allows arbitrary HTML attributes (aria-*, data-*, id, etc.)
+  // from the extended astroHTML.JSX.HTMLAttributes interface. This is deliberate for component
+  // flexibility. Security is maintained by the Astro SSG output model (no client-side eval).
 } = Astro.props as Props;
 
 const baseClasses = "paragraph";
@@ -74,8 +77,9 @@ const attributes: Record<string, unknown> = {
     color: var(--prose-color);
 
     /* Improved text rendering */
-    hyphens: auto;
+    hyphens: manual;
     text-wrap: pretty;
+    word-break: break-word;
     overflow-wrap: break-word;
     text-rendering: optimizelegibility;
   }

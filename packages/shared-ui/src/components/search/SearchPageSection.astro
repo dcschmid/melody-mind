@@ -28,30 +28,44 @@ interface Props {
 }
 
 const {
-  items,
+  items = [],
   variant = "default",
   initialQuery = "",
   heroEyebrow = "",
   title = "",
   lead = "",
-  tipsTitle = "Search tips",
+  tipsTitle = "Tips for searching",
   tips = [],
-  resultsEyebrow = "Search the archive",
+  resultsEyebrow = "Find articles",
   resultsTitle = "Results",
-  resultsHelp = "Results update while you type, and the current query stays in the URL.",
-  searchPlaceholder = "Search...",
-  searchEmptyText = "Type to search.",
-  searchNoResultsText = "No matching results found.",
+  resultsHelp = "Results appear as you type. Your search is saved in the address bar so you can share or bookmark it.",
+  searchPlaceholder = "Search by artist, genre, or decade...",
+  searchEmptyText = "Start typing to explore.",
+  searchNoResultsText = "No articles match your search. Try different keywords or check your spelling.",
   searchLimit = 20,
 } = Astro.props as Props;
 
-const sectionId = `search-page-section-${variant}`;
+const safeVariant = String(variant).replace(/[^a-zA-Z0-9-_]/g, "-");
+const sectionId = `search-page-section-${safeVariant}`;
+
+const safeLimit = Math.max(1, Math.min(100, Number(searchLimit) || 20));
+const safeItems = Array.isArray(items) ? items : [];
+
+const escapeHtml = (str: string): string =>
+  String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+const safeTitle = escapeHtml(resultsTitle);
 ---
 
-<section class:list={["search-page-section", `search-page-section--${variant}`]}>
+<section class:list={["search-page-section", `search-page-section--${safeVariant}`]}>
   {
     heroEyebrow || title || lead || tips.length > 0 ? (
-      <header class="search-page-section__header">
+      <header class="search-page-section__header" aria-label="Search page introduction">
         <div class="search-page-section__intro">
           {heroEyebrow ? (
             <Paragraph textSize="sm" className="search-page-section__eyebrow">
@@ -71,11 +85,11 @@ const sectionId = `search-page-section-${variant}`;
         </div>
 
         {tips.length > 0 ? (
-          <aside class="search-page-section__tips" aria-label={tipsTitle}>
+          <aside class="search-page-section__tips">
             <Paragraph textSize="sm" className="search-page-section__tips-title">
               {tipsTitle}
             </Paragraph>
-            <ul class="search-page-section__tips-list">
+            <ul class="search-page-section__tips-list" aria-label="Search tips">
               {tips.map((tip) => (
                 <li class="search-page-section__tips-item">{tip}</li>
               ))}
@@ -87,12 +101,17 @@ const sectionId = `search-page-section-${variant}`;
   }
 
   <section class="search-page-section__results" aria-labelledby={`${sectionId}-title`}>
-    <div class="search-page-section__results-head">
+    <div class="search-page-section__results-head" aria-label="Search results">
       <Paragraph textSize="sm" className="search-page-section__eyebrow"
         >{resultsEyebrow}</Paragraph
       >
-      <Headline level="h2" textSize="lg" className="search-page-section__results-title">
-        <span id={`${sectionId}-title`}>{resultsTitle}</span>
+      <Headline
+        level="h2"
+        textSize="lg"
+        className="search-page-section__results-title"
+        id={`${sectionId}-title`}
+      >
+        <span set:html={safeTitle} />
       </Headline>
       <Paragraph textSize="base" className="search-page-section__results-help"
         >{resultsHelp}</Paragraph
@@ -101,17 +120,20 @@ const sectionId = `search-page-section-${variant}`;
 
     <SimpleSearch
       idBase={sectionId}
-      items={items}
+      items={safeItems}
       initialQuery={initialQuery}
       placeholder={searchPlaceholder}
       emptyText={searchEmptyText}
       noResultsText={searchNoResultsText}
-      limit={searchLimit}
+      limit={safeLimit}
     />
   </section>
 </section>
 
 <style>
+  /* -----------------------------------------------------------------------------
+     Layout
+     ----------------------------------------------------------------------------- */
   .search-page-section {
     display: grid;
     gap: var(--spacing-2xl);
@@ -122,18 +144,62 @@ const sectionId = `search-page-section-${variant}`;
     gap: var(--spacing-lg);
   }
 
-  .search-page-section__intro,
-  .search-page-section__tips,
-  .search-page-section__results {
+  .search-page-section__results-head {
     display: grid;
-    gap: var(--spacing-base);
-    padding: var(--spacing-lg);
+    gap: var(--title-gap-md);
+  }
+
+  /* -----------------------------------------------------------------------------
+     Panels
+     ----------------------------------------------------------------------------- */
+  .search-page-section__intro,
+  .search-page-section__tips {
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
   }
 
-  .search-page-section__eyebrow,
+  .search-page-section__intro {
+    display: grid;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-base);
+  }
+
+  .search-page-section__tips {
+    display: grid;
+    gap: var(--spacing-base);
+    align-content: start;
+    padding: var(--spacing-base);
+  }
+
+  .search-page-section__results {
+    display: grid;
+    gap: var(--spacing-base);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  @media (width >= 640px) {
+    .search-page-section__intro,
+    .search-page-section__tips {
+      padding: var(--spacing-lg);
+    }
+  }
+
+  /* -----------------------------------------------------------------------------
+     Typography
+     ----------------------------------------------------------------------------- */
+  .search-page-section__eyebrow {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
   .search-page-section__tips-title {
     margin: 0;
     font-size: var(--font-size-sm);
@@ -141,36 +207,66 @@ const sectionId = `search-page-section-${variant}`;
     color: var(--accent-primary);
   }
 
-  .search-page-section__title,
-  .search-page-section__results-title {
+  .search-page-section__title {
+    padding-block-start: var(--spacing-xs);
     margin: 0;
+    color: var(--text-primary);
   }
 
-  .search-page-section__lead,
-  .search-page-section__results-help {
+  .search-page-section__results-title {
+    margin: 0;
+    color: var(--accent-strong);
+  }
+
+  .search-page-section__lead {
+    max-width: 65ch;
     margin: 0;
     color: var(--text-secondary);
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  .search-page-section__results-help {
+    max-width: 55ch;
+    margin: 0;
+    color: var(--text-secondary);
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 
   .search-page-section__tips-list {
     display: grid;
     gap: var(--spacing-sm);
-    padding-inline-start: var(--spacing-lg);
+    padding-inline-start: var(--spacing-md);
     margin: 0;
+    font-size: var(--font-size-sm);
+    line-height: var(--prose-line-height);
     color: var(--text-secondary);
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 
-  .search-page-section__results-head {
-    display: grid;
-    gap: var(--spacing-xs);
+  @media (width >= 640px) {
+    .search-page-section__tips-list {
+      padding-inline-start: var(--spacing-lg);
+    }
   }
 
+  /* -----------------------------------------------------------------------------
+     Variants
+     ----------------------------------------------------------------------------- */
   .search-page-section--soft .search-page-section__intro,
-  .search-page-section--soft .search-page-section__tips,
-  .search-page-section--soft .search-page-section__results {
+  .search-page-section--soft .search-page-section__tips {
     background: color-mix(in srgb, var(--surface-1) 84%, transparent);
   }
 
+  .search-page-section--soft .search-page-section__results {
+    background: transparent;
+  }
+
+  /* -----------------------------------------------------------------------------
+     Responsive
+     ----------------------------------------------------------------------------- */
   @media (width >= 768px) {
     .search-page-section__header {
       grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);

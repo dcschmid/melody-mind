@@ -15,6 +15,7 @@ const {
   class: classProp = "",
   textSize = "lg",
   textAlign = "left",
+  id,
   ...rest
 } = Astro.props as Props;
 
@@ -47,7 +48,7 @@ const classes = [
   .join(" ");
 ---
 
-<Tag {...rest} class={classes}>{title || <slot />}</Tag>
+<Tag id={id} {...rest} class={classes}>{title || <slot />}</Tag>
 
 <style>
   /* -----------------------------------------------------------------------------
@@ -78,7 +79,7 @@ const classes = [
     font-size: var(--font-size-lg);
   }
 
-  /* Base size - default size for h2/h3 */
+  /* Base size — mid-range headings */
   .headline--size-base {
     font-size: var(--font-size-xl);
   }
@@ -90,12 +91,12 @@ const classes = [
 
   /* Extra large - page titles */
   .headline--size-xl {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-xl);
   }
 
   /* 2xl size - hero sections */
   .headline--size-2xl {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-2xl);
   }
 
   /* 3xl size - major landing pages */

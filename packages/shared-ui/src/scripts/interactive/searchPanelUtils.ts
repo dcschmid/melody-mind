@@ -181,6 +181,7 @@ function initSearchPanel(elements: SearchElements): void {
     const shouldShow = term.trim().length > 0 || genreTerm.trim().length > 0;
     clearBtn.hidden = !shouldShow;
     clearBtn.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+    clearBtn.classList.toggle("visible", shouldShow);
 
     if (shouldShow) {
       clearBtn.removeAttribute("tabindex");
@@ -271,8 +272,8 @@ function initSearchPanel(elements: SearchElements): void {
   const handleReset = () => {
     handleClear();
     if (resetBtn) {
-      resetBtn.classList.add("button--active");
-      window.setTimeout(() => resetBtn.classList.remove("button--active"), 250);
+      resetBtn.classList.add("search-panel__reset--animating");
+      setTimeout(() => resetBtn.classList.remove("search-panel__reset--animating"), 300);
     }
   };
 

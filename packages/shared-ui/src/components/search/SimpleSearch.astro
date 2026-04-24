@@ -22,9 +22,9 @@ const {
   idBase,
   items,
   label = "Search",
-  placeholder = "Search...",
-  emptyText = "Start typing to search.",
-  noResultsText = "No results found.",
+  placeholder = "Search artists, albums, genres...",
+  emptyText = "Search by keyword or phrase to find what you're looking for.",
+  noResultsText = "No matches found. Try different keywords.",
   limit = 20,
   initialQuery = "",
 } = Astro.props as Props;
@@ -43,6 +43,7 @@ const inputId = `${idBase}-input`;
       autocomplete="off"
       spellcheck="false"
       aria-label={label}
+      aria-describedby={inputId + "-status"}
       value={initialQuery}
       data-simple-search-input
     />
@@ -51,6 +52,7 @@ const inputId = `${idBase}-input`;
   <Paragraph
     textSize="sm"
     className="simple-search__status"
+    id={inputId + "-status"}
     data-simple-search-status
     role="status"
     aria-live="polite"
@@ -66,36 +68,78 @@ const inputId = `${idBase}-input`;
   </ul>
 </div>
 
-<script is:inline define:vars={{ items, emptyText, noResultsText, limit, initialQuery }}>
+<script is:inline define:vars={{ items, emptyText, noResultsText, limit }}>
   const roots = document.querySelectorAll("[data-simple-search-root]");
 
-  const escapeText = (value) => (value || "").toString();
-  const normalize = (value) =>
-    (value || "")
-      .toString()
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .trim();
+  const toText = (value) => (value ?? "").toString();
 
-  const scoreItem = (item, query) => {
-    const q = normalize(query);
-    const title = normalize(item.title);
-    const description = normalize(item.description);
-    let score = 0;
-    if (title === q) {
-      score += 100;
+  const safeUrl = (value) => {
+    const raw = toText(value).trim();
+    if (!raw) {
+      return "#";
     }
-    if (title.startsWith(q)) {
-      score += 50;
+
+    if (raw.startsWith("/") || raw.startsWith("./") || raw.startsWith("../")) {
+      return raw;
     }
-    if (title.includes(q)) {
-      score += 20;
+
+    if (/^(https?:|mailto:|#)/.test(raw)) {
+      return raw;
     }
-    if (description.includes(q)) {
-      score += 10;
-    }
-    return score;
+
+    return "#";
+  };
+
+  const normalize = (() => {
+    const diacriticsRegex = /[\u0300-\u036f]/g;
+    return (value) =>
+      (value || "")
+        .toString()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(diacriticsRegex, "")
+        .trim();
+  })();
+
+  const getItemNorm = ((cache = new Map()) => {
+    return (item, query) => {
+      const q = normalize(query);
+      let titleNorm = cache.get(item.title);
+      if (!titleNorm) {
+        titleNorm = normalize(item.title);
+        cache.set(item.title, titleNorm);
+      }
+      let descNorm = null;
+      if (item.description) {
+        descNorm = cache.get(item.description);
+        if (!descNorm) {
+          descNorm = normalize(item.description);
+          cache.set(item.description, descNorm);
+        }
+      }
+      let score = 0;
+      if (titleNorm === q) {
+        score += 100;
+      }
+      if (titleNorm.startsWith(q)) {
+        score += 50;
+      }
+      if (titleNorm.includes(q)) {
+        score += 20;
+      }
+      if (descNorm && descNorm.includes(q)) {
+        score += 10;
+      }
+      return score;
+    };
+  })();
+
+  const debounce = (fn, delay) => {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => fn(...args), delay);
+    };
   };
 
   roots.forEach((root) => {
@@ -110,16 +154,20 @@ const inputId = `${idBase}-input`;
       return;
     }
 
-    const updateUrl = (query) => {
-      const url = new URL(window.location.href);
-      const trimmedQuery = query.trim();
-      if (trimmedQuery) {
-        url.searchParams.set("q", trimmedQuery);
-      } else {
-        url.searchParams.delete("q");
+    const updateUrl = debounce((query) => {
+      try {
+        const url = new URL(window.location.href);
+        const trimmedQuery = query.trim();
+        if (trimmedQuery) {
+          url.searchParams.set("q", trimmedQuery);
+        } else {
+          url.searchParams.delete("q");
+        }
+        window.history.replaceState({}, "", url);
+      } catch {
+        // Silently fail on invalid URL
       }
-      window.history.replaceState({}, "", url);
-    };
+    }, 300);
 
     const renderResults = (matches) => {
       results.replaceChildren();
@@ -135,7 +183,7 @@ const inputId = `${idBase}-input`;
         listItem.className = "simple-search__result-item";
 
         const link = document.createElement("a");
-        link.href = escapeText(item.url);
+        link.href = safeUrl(item.url);
         link.className = "simple-search__result-link";
 
         const rank = document.createElement("span");
@@ -146,15 +194,15 @@ const inputId = `${idBase}-input`;
         const copy = document.createElement("span");
         copy.className = "simple-search__result-copy";
 
-        const title = document.createElement("strong");
+        const title = document.createElement("span");
         title.className = "simple-search__result-title";
-        title.textContent = escapeText(item.title);
+        title.textContent = toText(item.title);
         copy.appendChild(title);
 
         if (item.description) {
           const description = document.createElement("span");
           description.className = "simple-search__result-description";
-          description.textContent = escapeText(item.description);
+          description.textContent = toText(item.description);
           copy.appendChild(description);
         }
 
@@ -166,10 +214,13 @@ const inputId = `${idBase}-input`;
         link.append(rank, copy, arrow);
         listItem.appendChild(link);
         results.appendChild(listItem);
+
+        listItem.style.animationDelay = `${Math.min(index * 60, 300)}ms`;
+        listItem.classList.add("simple-search__result-item--animate");
       });
     };
 
-    const runSearch = (query) => {
+    const runSearch = debounce((query) => {
       const q = normalize(query);
       if (!q) {
         results.replaceChildren();
@@ -178,19 +229,16 @@ const inputId = `${idBase}-input`;
       }
 
       const matches = items
-        .map((item) => ({ ...item, _score: scoreItem(item, q) }))
+        .map((item) => ({ ...item, _score: getItemNorm(item, q) }))
         .filter((item) => item._score > 0)
         .sort((a, b) => b._score - a._score || a.title.localeCompare(b.title))
         .slice(0, limit);
 
       renderResults(matches);
-    };
+    }, 150);
 
     const startupQuery =
-      input.value ||
-      initialQuery ||
-      new URL(window.location.href).searchParams.get("q") ||
-      "";
+      input.value || new URL(window.location.href).searchParams.get("q") || "";
 
     if (startupQuery) {
       input.value = startupQuery;
@@ -221,24 +269,35 @@ const inputId = `${idBase}-input`;
   .simple-search__label {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
+    color: var(--accent-strong);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
   }
 
   .simple-search__input {
     inline-size: 100%;
     min-block-size: var(--control-min-block-size);
     padding: var(--spacing-sm) var(--spacing-base);
+    padding-inline-start: calc(var(--spacing-base) + 1.5rem);
     font: inherit;
     font-size: var(--font-size-base);
     color: var(--text-primary);
     background: var(--surface-panel-raised);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2372451f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: var(--spacing-base) center;
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
+  }
+
+  .simple-search__input::placeholder {
+    color: var(--text-tertiary);
   }
 
   .simple-search__input:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+    background: color-mix(in srgb, var(--accent-primary) 6%, var(--surface-panel-raised));
     border-color: var(--surface-border-accent-strong);
   }
 
@@ -249,91 +308,132 @@ const inputId = `${idBase}-input`;
 
   .simple-search__results {
     display: grid;
-    gap: var(--spacing-sm);
+    gap: 0;
     padding: 0;
     margin: 0;
     list-style: none;
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
-  .simple-search__result-item {
+  .simple-search :global(.simple-search__result-item) {
     display: grid;
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
-  .simple-search__result-link {
+  .simple-search :global(.simple-search__result-item--animate) {
+    animation: result-rise-in var(--motion-duration-base) var(--motion-ease-standard) both;
+  }
+
+  @keyframes result-rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(var(--motion-distance-sm));
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .simple-search :global(.simple-search__result-link) {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr);
     gap: var(--spacing-sm);
     align-items: start;
-    padding: var(--spacing-base);
+    padding: var(--spacing-md) 0;
     color: var(--text-primary);
     text-decoration: none;
-    background: var(--surface-panel-raised);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
+    background: transparent;
+    border: 0;
     transition:
       background-color var(--transition-fast),
       border-color var(--transition-fast),
       box-shadow var(--transition-fast);
   }
 
-  .simple-search__result-link:hover,
-  .simple-search__result-link:focus {
-    background: var(--surface-card-hover);
-    border-color: var(--surface-border-accent);
+  .simple-search :global(.simple-search__result-link:hover),
+  .simple-search :global(.simple-search__result-link:focus) {
+    background: color-mix(in srgb, var(--accent-primary) 6%, transparent);
   }
 
-  .simple-search__result-link:focus-visible {
+  .simple-search :global(.simple-search__result-link:focus-visible) {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-    border-color: var(--surface-border-accent-strong);
+    outline-offset: calc(var(--focus-ring-offset) * -1);
   }
 
-  .simple-search__result-rank {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    inline-size: var(--icon-size-xl);
-    block-size: var(--icon-size-xl);
+  .simple-search :global(.simple-search__result-rank) {
+    display: inline-block;
+    min-inline-size: 2ch;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
-    color: var(--accent-primary);
-    background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
-    border-radius: var(--radius-full);
+    line-height: var(--line-height-tight);
+    color: var(--accent-strong);
+    opacity: 0.85;
   }
 
-  .simple-search__result-copy {
+  .simple-search :global(.simple-search__result-link:hover .simple-search__result-rank),
+  .simple-search :global(.simple-search__result-link:focus .simple-search__result-rank) {
+    opacity: 1;
+  }
+
+  .simple-search :global(.simple-search__result-copy) {
     display: grid;
     gap: var(--spacing-xs);
     min-inline-size: 0;
   }
 
-  .simple-search__result-title {
+  .simple-search :global(.simple-search__result-title) {
+    display: block;
     font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
     line-height: var(--line-height-snug);
     color: var(--text-primary);
   }
 
-  .simple-search__result-description {
+  .simple-search :global(.simple-search__result-link:hover .simple-search__result-title),
+  .simple-search :global(.simple-search__result-link:focus .simple-search__result-title) {
+    color: var(--accent-strong);
+  }
+
+  .simple-search :global(.simple-search__result-description) {
     line-height: var(--line-height-relaxed);
     color: var(--text-secondary);
   }
 
-  .simple-search__result-arrow {
-    color: var(--text-tertiary);
+  .simple-search :global(.simple-search__result-arrow) {
+    display: none;
+  }
+
+  .simple-search :global(.simple-search__result-link:hover .simple-search__result-arrow),
+  .simple-search :global(.simple-search__result-link:focus .simple-search__result-arrow) {
+    color: var(--accent-primary);
+    transform: translateX(3px);
   }
 
   @media (width < 640px) {
-    .simple-search__result-link {
+    .simple-search :global(.simple-search__result-link) {
       grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-xs);
+      padding: var(--spacing-sm) 0;
     }
 
-    .simple-search__result-arrow {
+    .simple-search :global(.simple-search__result-rank) {
       display: none;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .simple-search__result-link {
+    .simple-search :global(.simple-search__result-item--animate) {
+      animation: none;
+    }
+
+    .simple-search :global(.simple-search__result-link) {
+      transition: none;
+    }
+
+    .simple-search :global(.simple-search__result-rank),
+    .simple-search :global(.simple-search__result-arrow) {
       transition: none;
     }
   }

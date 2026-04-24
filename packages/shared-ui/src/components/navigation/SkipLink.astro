@@ -25,21 +25,14 @@ interface Props {
   label?: string;
 }
 
-const {
-  targetId = "main-content",
-  label = "Skip to main content",
-} = Astro.props;
+const { targetId = "main-content", label = "Skip to main content" } = Astro.props;
 
 const sanitizedTargetId = targetId.replace(/[^a-zA-Z0-9_-]/g, "");
 const href = `#${sanitizedTargetId || "main-content"}`;
 const ariaLabel = label.trim() || "Skip to main content";
 ---
-<a
-  href={href}
-  class="skip-link"
-  data-skip-link
-  aria-label={ariaLabel}
->
+
+<a href={href} class="skip-link" data-skip-link aria-label={ariaLabel}>
   <Icon name="chevron-down" class="skip-link__icon" aria-hidden="true" />
   {ariaLabel}
 </a>

@@ -234,13 +234,17 @@ const contentId = `${safeIdBase}-content`;
       requestAnimationFrame(buildListFromDom);
     }
 
-    window.addEventListener("pagehide", () => {
-      clearTimeout(resizeTimeout);
-      controller.abort();
-    }, {
-      once: true,
-      signal,
-    });
+    window.addEventListener(
+      "pagehide",
+      () => {
+        clearTimeout(resizeTimeout);
+        controller.abort();
+      },
+      {
+        once: true,
+        signal,
+      }
+    );
   });
 </script>
 
@@ -425,11 +429,11 @@ const contentId = `${safeIdBase}-content`;
     background: color-mix(in srgb, var(--accent-primary) 78%, transparent);
     border-radius: var(--radius-full);
     opacity: 0.88;
-    will-change: transform;
     transition:
       background 180ms ease,
       transform 180ms ease,
       opacity 180ms ease;
+    will-change: transform;
   }
 
   .toc[data-toc-root] .toc__link-text {

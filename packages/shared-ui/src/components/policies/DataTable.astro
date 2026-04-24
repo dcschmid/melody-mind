@@ -24,8 +24,8 @@ const { caption, columns, rows } = Astro.props as Props;
     </thead>
     <tbody>
       {
-        rows.map((row) => (
-          <tr>
+        rows.map((row, rowIndex) => (
+          <tr style={`--row-index: ${rowIndex + 1}`}>
             {columns.map((column) => {
               const value = row[column.key] ?? "";
               return <td>{column.renderAsCode ? <code>{value}</code> : value}</td>;
@@ -38,15 +38,39 @@ const { caption, columns, rows } = Astro.props as Props;
 </div>
 
 <style>
+  @keyframes data-table-enter {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes row-enter {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
   .data-table {
+    position: relative;
     padding: var(--spacing-sm);
     overflow-inline: auto;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
+    background: var(--surface-1);
+    border: 1px solid var(--border-default);
+    border-inline-start: 3px solid var(--accent-primary);
     border-radius: var(--radius-lg);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 78%, transparent),
-      var(--shadow-sm);
+    box-shadow: var(--shadow-sm);
+    animation: data-table-enter 0.4s ease-out;
+    will-change: opacity, transform;
   }
 
   .data-table__table {
@@ -61,13 +85,27 @@ const { caption, columns, rows } = Astro.props as Props;
     vertical-align: top;
     color: var(--text-secondary);
     text-align: start;
-    border-block-end: 1px solid var(--surface-border-subtle);
+    border-block-end: 1px solid var(--border-muted);
   }
 
   .data-table__table th {
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-pill-bg) 74%, var(--surface-1));
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .data-table__table code {
+      display: inline-block;
+      padding: var(--spacing-2xs) var(--spacing-xs);
+      font-family: var(--font-mono);
+      font-size: var(--font-size-base);
+      color: var(--link-default);
+      background: var(--surface-2);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-sm);
+      transition: none;
+    }
   }
 
   .data-table__table code {
@@ -76,13 +114,61 @@ const { caption, columns, rows } = Astro.props as Props;
     font-family: var(--font-mono);
     font-size: var(--font-size-base);
     color: var(--link-default);
-    background: var(--surface-pill-bg);
-    border: 1px solid var(--surface-border-subtle);
+    background: var(--surface-2);
+    border: 1px solid var(--border-muted);
     border-radius: var(--radius-sm);
+    transition: box-shadow 0.2s ease;
   }
 
   .data-table__table tbody tr:last-child td {
     border-block-end: 0;
+  }
+
+  .data-table__table tbody tr {
+    animation: row-enter 0.3s ease-out backwards;
+    animation-delay: calc((var(--row-index, 1) - 1) * 0.05s);
+    will-change: opacity;
+  }
+
+  .data-table__table tbody tr:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: -2px;
+  }
+
+  .data-table__table tbody tr:hover,
+  .data-table__table tbody tr:focus {
+    background: color-mix(in srgb, var(--accent-primary) 5%, transparent);
+  }
+
+  .data-table__table tbody tr:hover td,
+  .data-table__table tbody tr:focus td {
+    color: var(--text-primary);
+  }
+
+  .data-table__table tbody tr:hover code,
+  .data-table__table tbody tr:focus code {
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 30%, transparent);
+  }
+
+  @media (width <= 640px) {
+    .data-table {
+      border-inline-start-width: 2px;
+    }
+
+    .data-table__table th,
+    .data-table__table td {
+      padding-block: var(--spacing-sm);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .data-table {
+      animation: none;
+    }
+
+    .data-table__table tbody tr {
+      animation: none;
+    }
   }
 
   .data-table__sr-only {
