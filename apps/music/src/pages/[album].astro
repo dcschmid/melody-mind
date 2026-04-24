@@ -23,12 +23,10 @@ export async function getStaticPaths() {
   );
   return collection.map((entry: AlbumEntry) => ({
     params: { album: entry.id },
-    props: { id: entry.id },
   }));
 }
 
 const { album: albumId } = Astro.params;
-const { id } = Astro.props as { id: string };
 const collection = await getCollection(
   "albums",
   (entry: AlbumEntry) => entry.data.isAvailable
@@ -78,7 +76,7 @@ const markdownToHtml = (markdown: string): string => {
       block = block.trim();
       if (!block) return "";
       if (block.startsWith("<h") || block.startsWith("<ul")) return block;
-      return `<p>${block.replace(/\n/g, "<br>")}</p>`;
+      return `<p>${block.replace(/\n/g, " ")}</p>`;
     })
     .join("\n");
   markdownCache.set(markdown, html);
@@ -148,7 +146,11 @@ const albumContentHtml = rawBody ? markdownToHtml(rawBody) : "";
         </Fragment>
       </HeroTeaser>
 
-      <PlaylistPlayer albumTitle={currentAlbum.title} songs={songs} />
+      <PlaylistPlayer
+        albumTitle={currentAlbum.title}
+        songs={songs}
+        albumArtworkUrl={albumCoverImageUrl}
+      />
 
       {
         albumContentHtml && (

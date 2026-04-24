@@ -182,23 +182,6 @@ const statusBadgeColorMap = {
     );
   }
 
-  :global([data-theme="dark"]) .static-page-hero__highlight {
-    background: color-mix(
-      in srgb,
-      var(--color-dark-accent-primary) 8%,
-      var(--color-dark-surface-1) 90%
-    );
-  }
-
-  :global([data-theme="dark"]) .static-page-hero__highlight:hover,
-  :global([data-theme="dark"]) .static-page-hero__highlight:focus {
-    background: color-mix(
-      in srgb,
-      var(--color-dark-accent-primary) 12%,
-      var(--color-dark-surface-1) 85%
-    );
-  }
-
   @keyframes hero-reveal {
     from {
       opacity: 0;
@@ -268,7 +251,7 @@ const statusBadgeColorMap = {
     font-size: clamp(var(--font-size-base), 2.5vw, var(--font-size-lg));
     line-height: 1.6;
     color: var(--text-secondary);
-    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   @media (width >= 720px) {
@@ -393,6 +376,23 @@ const statusBadgeColorMap = {
     background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1) 90%);
   }
 
+  :global([data-theme="dark"]) .static-page-hero__highlight {
+    background: color-mix(
+      in srgb,
+      var(--color-dark-accent-primary) 8%,
+      var(--color-dark-surface-1) 90%
+    );
+  }
+
+  :global([data-theme="dark"]) .static-page-hero__highlight:hover,
+  :global([data-theme="dark"]) .static-page-hero__highlight:focus {
+    background: color-mix(
+      in srgb,
+      var(--color-dark-accent-primary) 12%,
+      var(--color-dark-surface-1) 85%
+    );
+  }
+
   .static-page-hero__highlight-accent-bar {
     position: absolute;
     inset-inline-start: 0;
@@ -417,7 +417,7 @@ const statusBadgeColorMap = {
     font-variant-numeric: tabular-nums;
     color: var(--text-primary);
     letter-spacing: var(--letter-spacing-wide);
-    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   .static-page-hero__highlight-label {
@@ -425,7 +425,7 @@ const statusBadgeColorMap = {
     font-weight: var(--font-weight-medium);
     line-height: 1.4;
     color: var(--text-secondary);
-    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   @media (width >= 720px) {

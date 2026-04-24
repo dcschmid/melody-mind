@@ -498,29 +498,6 @@ const timeId = `episode-player-time-${playerSlug}`;
       box-shadow:
         0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
         var(--shadow-lg);
-      transform: translateY(-1px);
-      transition: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__control:hover,
-    .episode-player__control:focus {
-      box-shadow:
-        0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
-        var(--shadow-lg);
-      transform: translateY(-1px);
-      transition: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__control:hover,
-    .episode-player__control:focus {
-      box-shadow:
-        0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
-        var(--shadow-lg);
-      transform: translateY(-1px);
       transition: none;
     }
   }
@@ -530,66 +507,25 @@ const timeId = `episode-player-time-${playerSlug}`;
     box-shadow:
       0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
       var(--shadow-lg);
-    transform: translateY(-1px);
-    transition:
-      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .episode-player__control:hover,
+    .episode-player__control:focus {
+      transform: translateY(-1px);
+      transition:
+        transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
     .episode-player__control:active {
       transform: translateY(1px) scale(0.97);
-      transition: none;
+      transition: transform 100ms ease-out;
     }
-  }
 
-  .episode-player__control:active {
-    transform: translateY(1px) scale(0.97);
-    transition: transform 100ms ease-out;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
     .episode-player__control:focus-visible {
       transform: translateY(-1px);
-      transition: none;
-    }
-  }
-
-  .episode-player__control:focus-visible {
-    transform: translateY(-1px);
-    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__transport-button:hover,
-    .episode-player__retry:hover,
-    .episode-player__transport-button:focus,
-    .episode-player__retry:focus {
-      color: var(--accent-primary);
-      transform: translateY(-1px);
-      transition: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__transport-button:hover,
-    .episode-player__retry:hover,
-    .episode-player__transport-button:focus,
-    .episode-player__retry:focus {
-      color: var(--accent-primary);
-      transform: translateY(-1px);
-      transition: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__transport-button:hover,
-    .episode-player__retry:hover,
-    .episode-player__transport-button:focus,
-    .episode-player__retry:focus {
-      color: var(--accent-primary);
-      transform: translateY(-1px);
-      transition: none;
+      transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
     }
   }
 
@@ -598,70 +534,30 @@ const timeId = `episode-player-time-${playerSlug}`;
   .episode-player__transport-button:focus,
   .episode-player__retry:focus {
     color: var(--accent-primary);
-    transform: translateY(-1px);
-    transition:
-      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
-      color 200ms ease-out;
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .episode-player__transport-button:hover,
+    .episode-player__retry:hover,
+    .episode-player__transport-button:focus,
+    .episode-player__retry:focus {
+      transform: translateY(-1px);
+      transition:
+        transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+        color 200ms ease-out;
+    }
+
     .episode-player__transport-button:active,
     .episode-player__retry:active {
       transform: translateY(1px) scale(0.95);
-      transition: none;
+      transition: transform 100ms ease-out;
     }
-  }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__transport-button:active,
-    .episode-player__retry:active {
-      transform: translateY(1px) scale(0.95);
-      transition: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__transport-button:active,
-    .episode-player__retry:active {
-      transform: translateY(1px) scale(0.95);
-      transition: none;
-    }
-  }
-
-  .episode-player__transport-button:active,
-  .episode-player__retry:active {
-    transform: translateY(1px) scale(0.95);
-    transition: transform 100ms ease-out;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
     .episode-player__transport-button:focus-visible,
     .episode-player__retry:focus-visible {
       transform: translateY(-1px);
-      transition: none;
+      transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
     }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__transport-button:focus-visible,
-    .episode-player__retry:focus-visible {
-      transform: translateY(-1px);
-      transition: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__transport-button:focus-visible,
-    .episode-player__retry:focus-visible {
-      transform: translateY(-1px);
-      transition: none;
-    }
-  }
-
-  .episode-player__transport-button:focus-visible,
-  .episode-player__retry:focus-visible {
-    transform: translateY(-1px);
-    transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .episode-player__retry[hidden] {

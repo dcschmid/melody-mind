@@ -13,9 +13,10 @@ interface Props {
   albumTitle: string;
   songs: Song[];
   lyricsUrlBase?: string;
+  albumArtworkUrl?: string;
 }
 
-const { albumTitle, songs, lyricsUrlBase } = Astro.props as Props;
+const { albumTitle, songs, lyricsUrlBase, albumArtworkUrl } = Astro.props as Props;
 const playerSlug =
   albumTitle.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "playlist";
 const playerId = `playlist-${playerSlug}`;
@@ -29,6 +30,7 @@ const timeId = `${playerId}-time`;
   data-playlist-player
   data-player-id={playerId}
   data-album-title={albumTitle}
+  data-album-artwork-url={albumArtworkUrl}
   aria-label={`Playlist player for ${albumTitle}`}
 >
   <div class="playlist-player__now-playing">
@@ -341,6 +343,8 @@ const timeId = `${playerId}-time`;
     inline-size: var(--spacing-2xs);
     background: var(--accent-primary);
     border-radius: var(--radius-full);
+    transform: scaleY(var(--playlist-bar-scale, 1));
+    transform-origin: bottom;
   }
 
   .playlist-player__visualizer > span:nth-child(1) {
@@ -405,6 +409,7 @@ const timeId = `${playerId}-time`;
     padding: 0;
     font: inherit;
     color: var(--text-primary);
+    touch-action: manipulation;
     cursor: pointer;
     background: color-mix(in srgb, var(--surface-1) 45%, transparent);
     border: 1px solid var(--surface-border-soft);
@@ -715,6 +720,7 @@ const timeId = `${playerId}-time`;
     block-size: 0.5rem;
     appearance: auto;
     accent-color: var(--accent-primary);
+    touch-action: pan-x;
     cursor: pointer;
   }
 
@@ -839,6 +845,7 @@ const timeId = `${playerId}-time`;
     align-items: center;
     min-block-size: 2.75rem;
     padding: var(--spacing-xs) var(--spacing-sm);
+    touch-action: manipulation;
     cursor: pointer;
     border-radius: var(--radius-md);
     transition: background-color 0.12s ease;
@@ -847,6 +854,11 @@ const timeId = `${playerId}-time`;
   .playlist-player__track:hover,
   .playlist-player__track:focus-visible {
     background-color: color-mix(in srgb, var(--surface-1) 55%, transparent);
+  }
+
+  .playlist-player__track[data-is-current="true"]:not([data-is-playing="true"]) {
+    background-color: color-mix(in srgb, var(--accent-primary) 7%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-primary) 13%, transparent);
   }
 
   .playlist-player__track[data-is-playing="true"] {
@@ -886,6 +898,11 @@ const timeId = `${playerId}-time`;
   .playlist-player__track[data-is-playing="true"] .playlist-player__track-title {
     font-weight: var(--font-weight-semibold);
     color: var(--accent-primary);
+  }
+
+  .playlist-player__track[data-is-current="true"]:not([data-is-playing="true"])
+    .playlist-player__track-title {
+    color: var(--text-primary);
   }
 
   .playlist-player__track-num {
@@ -1022,6 +1039,7 @@ const timeId = `${playerId}-time`;
     block-size: 1.75rem;
     color: var(--text-secondary);
     text-decoration: none;
+    touch-action: manipulation;
     border-radius: var(--radius-md);
     transition:
       color 0.12s ease,
@@ -1090,38 +1108,42 @@ const timeId = `${playerId}-time`;
   }
 
   /* ── Visualizer animation ── */
-  :global([data-player-state="playing"]) .playlist-player__visualizer > span {
-    animation: visualizer-pulse 0.55s ease-in-out infinite alternate;
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
+      .playlist-player__visualizer
+      > span {
+      animation: visualizer-pulse 0.55s ease-in-out infinite alternate;
+    }
 
-  :global([data-player-state="playing"])
-    .playlist-player__visualizer
-    > span:nth-child(1) {
-    animation-delay: 0ms;
-  }
+    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
+      .playlist-player__visualizer
+      > span:nth-child(1) {
+      animation-delay: 0ms;
+    }
 
-  :global([data-player-state="playing"])
-    .playlist-player__visualizer
-    > span:nth-child(2) {
-    animation-delay: 120ms;
-  }
+    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
+      .playlist-player__visualizer
+      > span:nth-child(2) {
+      animation-delay: 120ms;
+    }
 
-  :global([data-player-state="playing"])
-    .playlist-player__visualizer
-    > span:nth-child(3) {
-    animation-delay: 60ms;
-  }
+    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
+      .playlist-player__visualizer
+      > span:nth-child(3) {
+      animation-delay: 60ms;
+    }
 
-  :global([data-player-state="playing"])
-    .playlist-player__visualizer
-    > span:nth-child(4) {
-    animation-delay: 180ms;
-  }
+    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
+      .playlist-player__visualizer
+      > span:nth-child(4) {
+      animation-delay: 180ms;
+    }
 
-  :global([data-player-state="playing"])
-    .playlist-player__visualizer
-    > span:nth-child(5) {
-    animation-delay: 240ms;
+    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
+      .playlist-player__visualizer
+      > span:nth-child(5) {
+      animation-delay: 240ms;
+    }
   }
 
   @keyframes visualizer-pulse {
@@ -1217,6 +1239,50 @@ const timeId = `${playerId}-time`;
 
     .playlist-player__progress {
       block-size: 0.625rem;
+    }
+  }
+
+  @media (pointer: coarse) {
+    .playlist-player__controls {
+      gap: var(--spacing-sm);
+    }
+
+    .playlist-player__volume-button,
+    .playlist-player__transport-button {
+      inline-size: 3rem;
+      block-size: 3rem;
+    }
+
+    .playlist-player__control {
+      inline-size: 4rem;
+      block-size: 4rem;
+    }
+
+    .playlist-player__control-icon {
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+    }
+
+    .playlist-player__transport-icon {
+      inline-size: 1.25rem;
+      block-size: 1.25rem;
+    }
+
+    .playlist-player__progress {
+      block-size: 0.875rem;
+    }
+
+    .playlist-player__track {
+      min-block-size: 3.5rem;
+    }
+
+    .playlist-player__track-download {
+      inline-size: 3rem;
+      block-size: 3rem;
+    }
+
+    .playlist-player__shortcuts-hint {
+      display: none;
     }
   }
 </style>
