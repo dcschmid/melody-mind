@@ -11,7 +11,6 @@ const iconRegistry = {
   bookmark: "tabler:bookmark",
   calendar: "tabler:calendar",
   "chevron-down": "tabler:chevron-down",
-  "chevron-right-duo-svgrepo-com": "tabler:chevron-right",
   "chevron-right": "tabler:chevron-right",
   clock: "tabler:clock",
   cloud: "tabler:cloud",
@@ -77,7 +76,6 @@ const {
   height,
   "is:inline": isInline = true,
   "aria-hidden": ariaHidden = true,
-  focusable = "false",
   ...restProps
 } = Astro.props as Props & Record<string, unknown>;
 const resolvedName = iconRegistry[name as keyof typeof iconRegistry] ?? name;
@@ -91,6 +89,5 @@ const resolvedHeight = height ?? "1em";
   height={resolvedHeight}
   is:inline={isInline}
   aria-hidden={ariaHidden}
-  focusable={focusable}
   {...restProps}
 />
