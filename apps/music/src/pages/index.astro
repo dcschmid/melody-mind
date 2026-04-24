@@ -9,6 +9,7 @@ import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
 import Stack from "@shared-ui/components/layout/Stack.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import type { AlbumData } from "../types/album";
 
@@ -21,9 +22,19 @@ import {
 import { buildAlbumMetaItems } from "../utils/albumPresentation";
 
 const albums: AlbumData[] = await getAvailableAlbums();
+const albumTitleCollator = new Intl.Collator("en", {
+  numeric: true,
+  sensitivity: "base",
+});
 const sortedAlbums = [...albums].sort(
-  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  (a, b) =>
+    albumTitleCollator.compare(a.title, b.title) || albumTitleCollator.compare(a.id, b.id)
 );
+const genreOptions = Array.from(
+  new Set(
+    albums.map((album) => album.genre).filter((genre): genre is string => Boolean(genre))
+  )
+).sort((a, b) => albumTitleCollator.compare(a, b));
 
 const albumEntries = sortedAlbums.map((album) => {
   const totalDuration = album.songs.reduce(
@@ -36,6 +47,7 @@ const albumEntries = sortedAlbums.map((album) => {
     description: album.description,
     imageSrc: getAlbumCoverImage(album.coverImage),
     publishedAt: album.publishedAt,
+    publishedAtTime: new Date(album.publishedAt).getTime(),
     metaItems: buildAlbumMetaItems(album.publishedAt, totalDuration),
     genre: album.genre,
   };
@@ -51,6 +63,11 @@ const t = {
   description:
     "Explore original AI-generated music albums from MelodyMind. Each album features unique compositions across genres, with lyrics available for every track.",
   albums: "Albums",
+  allGenres: "All genres",
+  genre: "Genre",
+  newestFirst: "Newest first",
+  sortAlphabetically: "Alphabetical",
+  sortBy: "Sort by",
   keywords: [
     "ai music",
     "generated music",
@@ -98,12 +115,65 @@ const t = {
           {t.albums}
         </Headline>
 
+        {
+          albums.length > 0 && (
+            <form class="home__controls" aria-label="Album controls" data-album-controls>
+              <label class="home__control">
+                <span class="home__control-label">{t.sortBy}</span>
+                <span class="home__select-wrap">
+                  <Icon name="filter" class="home__control-icon" aria-hidden="true" />
+                  <select
+                    class="home__select"
+                    name="album-sort"
+                    aria-controls="albums-list"
+                    data-album-sort
+                  >
+                    <option value="title">{t.sortAlphabetically}</option>
+                    <option value="date">{t.newestFirst}</option>
+                  </select>
+                </span>
+              </label>
+
+              <label class="home__control">
+                <span class="home__control-label">{t.genre}</span>
+                <span class="home__select-wrap">
+                  <Icon name="tag" class="home__control-icon" aria-hidden="true" />
+                  <select
+                    class="home__select"
+                    name="album-genre"
+                    aria-controls="albums-list"
+                    data-album-genre
+                  >
+                    <option value="">{t.allGenres}</option>
+                    {genreOptions.map((genre) => (
+                      <option value={genre}>{genre}</option>
+                    ))}
+                  </select>
+                </span>
+              </label>
+
+              <p
+                class="home__results"
+                aria-live="polite"
+                aria-atomic="true"
+                data-album-results
+              >
+                {`${albums.length} albums`}
+              </p>
+            </form>
+          )
+        }
+
         <AutoGrid preset="fill" min="lg" gap="lg" role="list" id="albums-list">
           {
             albumEntries.map((album) => (
               <ContentCard
                 id={`album-card-${album.id}`}
                 data-album
+                data-album-card
+                data-album-title={album.title}
+                data-album-published-at={album.publishedAtTime}
+                data-album-genre={album.genre || ""}
                 role="listitem"
                 href={`/${album.id}`}
                 variant="feature"
@@ -138,8 +208,161 @@ const t = {
   </PageShell>
 </MusicLayout>
 
+<script>
+  const albumControls = document.querySelector("[data-album-controls]");
+  const albumList = document.querySelector("#albums-list");
+
+  if (albumControls instanceof HTMLFormElement && albumList instanceof HTMLElement) {
+    const sortSelect = albumControls.querySelector("[data-album-sort]");
+    const genreSelect = albumControls.querySelector("[data-album-genre]");
+    const results = albumControls.querySelector("[data-album-results]");
+    const collator = new Intl.Collator("en", {
+      numeric: true,
+      sensitivity: "base",
+    });
+
+    const cards = Array.from(
+      albumList.querySelectorAll("[data-album-card]")
+    ) as HTMLElement[];
+
+    const getVisibleCountLabel = (count: number) =>
+      `${count} ${count === 1 ? "album" : "albums"}`;
+
+    const updateAlbums = () => {
+      const sortValue =
+        sortSelect instanceof HTMLSelectElement ? sortSelect.value : "title";
+      const genreValue =
+        genreSelect instanceof HTMLSelectElement ? genreSelect.value : "";
+
+      const sortedCards = [...cards].sort((a, b) => {
+        if (sortValue === "date") {
+          const aDate = Number(a.dataset.albumPublishedAt || 0);
+          const bDate = Number(b.dataset.albumPublishedAt || 0);
+          return (
+            bDate - aDate ||
+            collator.compare(a.dataset.albumTitle || "", b.dataset.albumTitle || "")
+          );
+        }
+
+        return collator.compare(a.dataset.albumTitle || "", b.dataset.albumTitle || "");
+      });
+
+      let visibleCount = 0;
+
+      for (const card of sortedCards) {
+        const isVisible = !genreValue || card.dataset.albumGenre === genreValue;
+        card.classList.toggle("home__album-card--hidden", !isVisible);
+        card.setAttribute("aria-hidden", String(!isVisible));
+        if (isVisible) {
+          visibleCount += 1;
+        }
+        albumList.append(card);
+      }
+
+      if (results instanceof HTMLElement) {
+        results.textContent = getVisibleCountLabel(visibleCount);
+      }
+    };
+
+    albumControls.addEventListener("change", updateAlbums);
+    updateAlbums();
+  }
+</script>
+
 <style>
   .home__hero {
     gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+  }
+
+  .home__album-card--hidden {
+    display: none;
+  }
+
+  .home__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: end;
+    justify-content: space-between;
+    inline-size: 100%;
+  }
+
+  .home__control {
+    display: grid;
+    flex: 1 1 13rem;
+    gap: var(--spacing-xs);
+    min-inline-size: min(100%, 13rem);
+  }
+
+  .home__control-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .home__select-wrap {
+    position: relative;
+    display: grid;
+    align-items: center;
+  }
+
+  .home__control-icon {
+    position: absolute;
+    inset-inline-start: var(--spacing-sm);
+    color: var(--accent-primary);
+    pointer-events: none;
+  }
+
+  .home__select {
+    inline-size: 100%;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) calc(var(--spacing-xl) + var(--spacing-xs))
+      var(--spacing-sm) calc(var(--control-min-inline-size) + var(--spacing-xs));
+    font: inherit;
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    cursor: pointer;
+    background: var(--surface-1);
+    border: 1px solid var(--border-default);
+    border-left: 3px solid var(--accent-primary);
+    border-radius: var(--radius-lg);
+  }
+
+  .home__select:focus-visible {
+    outline: 0;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px oklch(from var(--accent-primary) l c h / 0.15);
+  }
+
+  .home__results {
+    flex: 0 0 auto;
+    padding-block-end: var(--spacing-sm);
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+  }
+
+  @media (width <= 640px) {
+    .home__controls {
+      align-items: stretch;
+    }
+
+    .home__control,
+    .home__results {
+      flex-basis: 100%;
+    }
+
+    .home__results {
+      padding-block-end: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home__select {
+      transition:
+        border-color var(--motion-duration-fast) var(--motion-ease-standard),
+        box-shadow var(--motion-duration-fast) var(--motion-ease-standard);
+    }
   }
 </style>
