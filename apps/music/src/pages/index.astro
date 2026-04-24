@@ -16,10 +16,12 @@ import type { AlbumData } from "../types/album";
 import { getAvailableAlbums } from "../utils/albums";
 import {
   getAlbumCoverImage,
+  getAlbumCoverImageUrl,
   musicHeroImage,
   musicHeroImageUrl,
 } from "../utils/musicImages";
 import { buildAlbumMetaItems } from "../utils/albumPresentation";
+import { buildMusicAlbumListSchema } from "../utils/musicSeo";
 
 const albums: AlbumData[] = await getAvailableAlbums();
 const albumTitleCollator = new Intl.Collator("en", {
@@ -77,6 +79,16 @@ const t = {
     "ambient",
   ],
 };
+
+const structuredData = [
+  buildMusicAlbumListSchema({
+    albums: sortedAlbums,
+    canonical,
+    description: t.description,
+    site: Astro.site,
+    getCoverImageUrl: getAlbumCoverImageUrl,
+  }),
+];
 ---
 
 <MusicLayout
@@ -89,6 +101,7 @@ const t = {
   locale="en-US"
   canonical={canonical}
   {breadcrumbs}
+  {structuredData}
 >
   <PageShell className="page-shell--aurora">
     <Stack gap="xl">

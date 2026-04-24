@@ -11,6 +11,7 @@ import Prose from "@shared-ui/components/typography/Prose.astro";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getCollection } from "astro:content";
 import { getAlbumCoverImage, getAlbumCoverImageUrl } from "../utils/musicImages";
+import { buildMusicAlbumSchema } from "../utils/musicSeo";
 import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
 
@@ -38,7 +39,7 @@ if (!entry) {
 }
 
 const currentAlbum = entry.data;
-const canonical = resolvePageUrl(Astro.site, `/${albumId}`);
+const canonical = resolvePageUrl(Astro.site, `/${albumId}/`);
 const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: currentAlbum.title, url: canonical },
@@ -85,6 +86,15 @@ const markdownToHtml = (markdown: string): string => {
 
 const rawBody = entry.body || "";
 const albumContentHtml = rawBody ? markdownToHtml(rawBody) : "";
+const structuredData = [
+  buildMusicAlbumSchema({
+    album: currentAlbum,
+    canonical,
+    coverImageUrl: albumCoverImageUrl,
+    songs,
+    totalDurationSeconds: totalDuration,
+  }),
+];
 ---
 
 <MusicLayout
@@ -105,6 +115,7 @@ const albumContentHtml = rawBody ? markdownToHtml(rawBody) : "";
   ].filter(Boolean)}
   canonical={canonical}
   {breadcrumbs}
+  {structuredData}
 >
   <PageShell className="page-shell--aurora">
     <Stack gap="2xl">
