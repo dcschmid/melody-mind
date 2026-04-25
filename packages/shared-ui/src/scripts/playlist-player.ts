@@ -20,7 +20,6 @@ interface PlaylistTrack {
   title: string;
   url: string;
   duration?: number;
-  lyricsUrl?: string;
   element: HTMLLIElement;
 }
 
@@ -141,6 +140,8 @@ const initPlaylistPlayers = (): (() => void) => {
       ".playlist-player__control-icon--pause"
     );
     const trackItems = player.querySelectorAll<HTMLLIElement>(".playlist-player__track");
+    const trackButtons =
+      player.querySelectorAll<HTMLButtonElement>("[data-track-button]");
 
     if (!audio || !toggleButton || !prevButton || !nextButton || !progress) {
       return;
@@ -184,21 +185,12 @@ const initPlaylistPlayers = (): (() => void) => {
       const duration = item.dataset.trackDuration
         ? Number(item.dataset.trackDuration)
         : undefined;
-      const lyricsUrl = item.dataset.trackLyrics || undefined;
 
-      tracks.push({ title, url, duration, lyricsUrl, element: item });
+      tracks.push({ title, url, duration, element: item });
 
-      item.addEventListener("click", () => playTrack(index, { triggerPop: true }), {
-        signal,
-      });
-      item.addEventListener(
-        "keydown",
-        (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            playTrack(index, { triggerPop: true });
-          }
-        },
+      trackButtons[index]?.addEventListener(
+        "click",
+        () => playTrack(index, { triggerPop: true }),
         { signal }
       );
     });
@@ -462,9 +454,11 @@ const initPlaylistPlayers = (): (() => void) => {
       if (lastHighlightedIndex !== -1 && lastHighlightedIndex < trackItems.length) {
         trackItems[lastHighlightedIndex].dataset.isPlaying = "false";
         trackItems[lastHighlightedIndex].dataset.isCurrent = "false";
+        trackButtons[lastHighlightedIndex]?.removeAttribute("aria-current");
       }
       trackItems[currentTrackIndex].dataset.isCurrent = "true";
       trackItems[currentTrackIndex].dataset.isPlaying = isPlaying ? "true" : "false";
+      trackButtons[currentTrackIndex]?.setAttribute("aria-current", "true");
       lastHighlightedIndex = currentTrackIndex;
     };
 
@@ -787,6 +781,8 @@ const initPlaylistPlayers = (): (() => void) => {
           setTimeout(() => {
             player.dataset.playerCelebrating = "false";
           }, 800);
+          setStatus(`Finished ${albumTitle}`);
+          return;
         }
 
         if (!isShuffled) {
@@ -823,6 +819,15 @@ const initPlaylistPlayers = (): (() => void) => {
 
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.target !== player && !player.contains(event.target as Node)) {
+        return;
+      }
+      if (
+        event.target instanceof HTMLButtonElement ||
+        event.target instanceof HTMLAnchorElement ||
+        event.target instanceof HTMLInputElement ||
+        event.target instanceof HTMLSelectElement ||
+        event.target instanceof HTMLTextAreaElement
+      ) {
         return;
       }
       switch (event.key) {

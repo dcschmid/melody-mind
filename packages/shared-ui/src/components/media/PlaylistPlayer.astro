@@ -12,11 +12,10 @@ interface Song {
 interface Props {
   albumTitle: string;
   songs: Song[];
-  lyricsUrlBase?: string;
   albumArtworkUrl?: string;
 }
 
-const { albumTitle, songs, lyricsUrlBase, albumArtworkUrl } = Astro.props as Props;
+const { albumTitle, songs, albumArtworkUrl } = Astro.props as Props;
 const playerSlug =
   albumTitle.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "playlist";
 const playerId = `playlist-${playerSlug}`;
@@ -192,6 +191,12 @@ const timeId = `${playerId}-time`;
       <span class="playlist-player__col playlist-player__col--duration">
         <Icon name="tabler:clock" class="playlist-player__col-icon" aria-hidden="true" />
       </span>
+      <span class="playlist-player__col playlist-player__col--action">
+        <span class="sr-only">Lyrics</span>
+      </span>
+      <span class="playlist-player__col playlist-player__col--action">
+        <span class="sr-only">Download</span>
+      </span>
     </div>
 
     <ol class="playlist-player__tracklist">
@@ -202,29 +207,49 @@ const timeId = `${playerId}-time`;
             data-track-index={index}
             data-track-title={song.title}
             data-track-url={song.audioUrl}
-            data-track-lyrics={
-              song.lyricsUrl ||
-              (lyricsUrlBase
-                ? `${lyricsUrlBase}/${String(index + 1).padStart(2, "0")}-${song.title.toLowerCase().replace(/\s+/g, "-")}.txt`
-                : undefined)
-            }
             data-track-duration={song.durationSeconds}
             data-track-number={song.trackNumber}
           >
-            <span class="playlist-player__track-num">
-              <span class="playlist-player__track-num-text">{song.trackNumber}</span>
-              <Icon
-                name="tabler:player-play-filled"
-                class="playlist-player__track-play-icon"
+            <button
+              class="playlist-player__track-button"
+              type="button"
+              data-track-button
+              aria-label={`Play ${song.title}`}
+            >
+              <span class="playlist-player__track-num">
+                <span class="playlist-player__track-num-text">{song.trackNumber}</span>
+                <Icon
+                  name="tabler:player-play-filled"
+                  class="playlist-player__track-play-icon"
+                  aria-hidden="true"
+                />
+              </span>
+              <span class="playlist-player__track-title">{song.title}</span>
+              <span class="playlist-player__track-duration">
+                {song.durationSeconds
+                  ? `${Math.floor(song.durationSeconds / 60)}:${String(song.durationSeconds % 60).padStart(2, "0")}`
+                  : ""}
+              </span>
+            </button>
+            {song.lyricsUrl ? (
+              <a
+                class="playlist-player__track-lyrics"
+                href={song.lyricsUrl}
+                aria-label={`Open lyrics for ${song.title}`}
+                title="Open lyrics"
+              >
+                <Icon
+                  name="tabler:file-text"
+                  class="playlist-player__track-action-icon"
+                  aria-hidden="true"
+                />
+              </a>
+            ) : (
+              <span
+                class="playlist-player__track-action-placeholder"
                 aria-hidden="true"
               />
-            </span>
-            <span class="playlist-player__track-title">{song.title}</span>
-            <span class="playlist-player__track-duration">
-              {song.durationSeconds
-                ? `${Math.floor(song.durationSeconds / 60)}:${String(song.durationSeconds % 60).padStart(2, "0")}`
-                : ""}
-            </span>
+            )}
             <a
               class="playlist-player__track-download"
               href={song.audioUrl}
@@ -234,7 +259,7 @@ const timeId = `${playerId}-time`;
             >
               <Icon
                 name="download"
-                class="playlist-player__track-download-icon"
+                class="playlist-player__track-action-icon"
                 aria-hidden="true"
               />
             </a>
@@ -242,11 +267,11 @@ const timeId = `${playerId}-time`;
         ))
       }
     </ol>
-    <p class="playlist-player__shortcuts-hint" aria-hidden="true">
-      <kbd>Space</kbd> play · <kbd>S</kbd> shuffle · <kbd>R</kbd> repeat · <kbd>M</kbd> mute
-    </p>
   </div>
 
+  {
+    /* eslint-disable astro/jsx-a11y/media-has-caption -- Captions are not exposed through the hidden native audio element; lyrics are separate transcript links. */
+  }
   <audio
     class="playlist-player__audio"
     preload="metadata"
@@ -254,10 +279,9 @@ const timeId = `${playerId}-time`;
     data-playlist-audio
   >
     <source src={songs[0]?.audioUrl || ""} type="audio/mpeg" />
-    <!-- eslint-disable-next-line astro/jsx-a11y/media-has-caption -->
-    <track kind="captions" label="Lyrics" srclang="en" />
     Your browser does not support audio playback.
   </audio>
+  {/* eslint-enable astro/jsx-a11y/media-has-caption */}
 
   <script>
     import "@shared-ui/scripts/playlist-player.ts";
@@ -280,6 +304,17 @@ const timeId = `${playerId}-time`;
     box-shadow:
       inset 0 1px 0 color-mix(in srgb, var(--surface-1) 40%, transparent),
       var(--shadow-lg);
+  }
+
+  .playlist-player::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 32%, transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.995);
   }
 
   /* ── Now-playing area ── */
@@ -499,25 +534,19 @@ const timeId = `${playerId}-time`;
   @media screen and (prefers-reduced-motion: no-preference) {
     :global([data-player-shuffle="true"])
       .playlist-player__transport-button[data-action="shuffle"] {
-      animation: shuffle-bounce 0.35s ease-out;
+      animation: shuffle-settle 0.24s cubic-bezier(0.22, 1, 0.36, 1);
     }
   }
 
-  @keyframes shuffle-bounce {
+  @keyframes shuffle-settle {
     0% {
-      transform: scale(1);
-    }
-
-    30% {
-      transform: scale(1.15);
-    }
-
-    60% {
-      transform: scale(0.95);
+      opacity: 0.72;
+      transform: translateY(1px);
     }
 
     100% {
-      transform: scale(1);
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -561,7 +590,7 @@ const timeId = `${playerId}-time`;
     color: var(--accent-primary);
     opacity: 1;
     transform: scale(1);
-    animation: repeat-pulse 0.35s ease-out;
+    animation: repeat-settle 0.22s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
@@ -579,19 +608,17 @@ const timeId = `${playerId}-time`;
     color: var(--accent-primary);
     opacity: 1;
     transform: scale(1);
-    animation: repeat-pulse 0.35s ease-out;
+    animation: repeat-settle 0.22s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  @keyframes repeat-pulse {
+  @keyframes repeat-settle {
     0% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(1.2);
+      opacity: 0;
+      transform: scale(0.92);
     }
 
     100% {
+      opacity: 1;
       transform: scale(1);
     }
   }
@@ -675,20 +702,16 @@ const timeId = `${playerId}-time`;
   }
 
   .playlist-player__control[data-pop="true"] .playlist-player__control-icon {
-    animation: control-icon-pop 0.25s ease-out forwards;
+    animation: control-icon-acknowledge 0.18s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  @keyframes control-icon-pop {
+  @keyframes control-icon-acknowledge {
     0% {
-      transform: scale(1);
-    }
-
-    40% {
-      transform: scale(1.25);
+      opacity: 0.72;
     }
 
     100% {
-      transform: scale(1);
+      opacity: 1;
     }
   }
 
@@ -758,7 +781,7 @@ const timeId = `${playerId}-time`;
 
   .playlist-player__tracklist-header {
     display: grid;
-    grid-template-columns: 2rem 1fr 3rem 2.5rem;
+    grid-template-columns: 2rem minmax(0, 1fr) 3rem 2.75rem 2.75rem;
     gap: var(--spacing-sm);
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs);
@@ -782,6 +805,10 @@ const timeId = `${playerId}-time`;
     justify-content: flex-end;
   }
 
+  .playlist-player__col--action {
+    text-align: center;
+  }
+
   .playlist-player__col-icon {
     inline-size: 0.75rem;
     block-size: 0.75rem;
@@ -798,40 +825,14 @@ const timeId = `${playerId}-time`;
     list-style: none;
   }
 
-  .playlist-player__shortcuts-hint {
-    display: flex;
-    gap: var(--spacing-2xs);
-    align-items: center;
-    justify-content: center;
-    margin: var(--spacing-sm) 0 0;
-    font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
-  }
-
-  .playlist-player__shortcuts-hint kbd {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-2xs) var(--spacing-xs);
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: var(--font-weight-medium);
-    color: var(--text-secondary);
-    background: color-mix(in srgb, var(--surface-1) 60%, transparent);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-sm);
-  }
-
   /* ── Track row ── */
   @media screen and (prefers-reduced-motion: reduce) {
     .playlist-player__track {
       display: grid;
-      grid-template-columns: 2rem 1fr 3rem 2.5rem;
+      grid-template-columns: minmax(0, 1fr) 2.75rem 2.75rem;
       gap: var(--spacing-sm);
       align-items: center;
-      min-block-size: 2.75rem;
       padding: var(--spacing-xs) var(--spacing-sm);
-      cursor: pointer;
       border-radius: var(--radius-md);
       transition: none;
     }
@@ -840,20 +841,35 @@ const timeId = `${playerId}-time`;
   .playlist-player__track {
     position: relative;
     display: grid;
-    grid-template-columns: 2rem 1fr 3rem 2.5rem;
+    grid-template-columns: minmax(0, 1fr) 2.75rem 2.75rem;
     gap: var(--spacing-sm);
     align-items: center;
-    min-block-size: 2.75rem;
     padding: var(--spacing-xs) var(--spacing-sm);
-    touch-action: manipulation;
-    cursor: pointer;
     border-radius: var(--radius-md);
     transition: background-color 0.12s ease;
   }
 
   .playlist-player__track:hover,
-  .playlist-player__track:focus-visible {
+  .playlist-player__track:focus-within {
     background-color: color-mix(in srgb, var(--surface-1) 55%, transparent);
+  }
+
+  .playlist-player__track-button {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) 3rem;
+    gap: var(--spacing-sm);
+    align-items: center;
+    min-inline-size: 0;
+    min-block-size: 2.75rem;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    text-align: start;
+    touch-action: manipulation;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-sm);
   }
 
   .playlist-player__track[data-is-current="true"]:not([data-is-playing="true"]) {
@@ -871,6 +887,7 @@ const timeId = `${playerId}-time`;
     inset: 0;
     pointer-events: none;
     content: "";
+    background: color-mix(in srgb, var(--accent-primary) 14%, transparent);
     border-radius: inherit;
     opacity: 0.35;
     animation: track-playing-glow 2s ease-in-out infinite alternate;
@@ -887,6 +904,7 @@ const timeId = `${playerId}-time`;
   }
 
   .playlist-player__track-title {
+    min-inline-size: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: var(--font-size-sm);
@@ -1005,62 +1023,66 @@ const timeId = `${playerId}-time`;
       animation: none;
     }
 
-    :global([data-player-celebrating="true"]) .playlist-player {
+    :global([data-player-celebrating="true"]) .playlist-player,
+    :global([data-player-celebrating="true"]) .playlist-player::before {
       animation: none;
     }
   }
 
   .playlist-player__track-duration {
+    min-inline-size: 0;
     font-size: var(--font-size-xs);
     font-variant-numeric: tabular-nums;
     color: var(--text-secondary);
     text-align: end;
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .playlist-player__track-download {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      inline-size: 1.75rem;
-      block-size: 1.75rem;
-      color: var(--text-secondary);
-      text-decoration: none;
-      border-radius: var(--radius-md);
-      transition: none;
-    }
-  }
-
+  .playlist-player__track-lyrics,
   .playlist-player__track-download {
     display: flex;
     align-items: center;
     justify-content: center;
-    inline-size: 1.75rem;
-    block-size: 1.75rem;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
     color: var(--text-secondary);
     text-decoration: none;
     touch-action: manipulation;
     border-radius: var(--radius-md);
-    transition:
-      color 0.12s ease,
-      background-color 0.12s ease;
   }
 
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .playlist-player__track-lyrics,
+    .playlist-player__track-download {
+      transition:
+        color 0.12s ease,
+        background-color 0.12s ease;
+    }
+  }
+
+  .playlist-player__track-action-placeholder {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+  }
+
+  .playlist-player__track-lyrics:hover,
+  .playlist-player__track-lyrics:focus,
   .playlist-player__track-download:hover,
   .playlist-player__track-download:focus {
     color: var(--accent-primary);
     background-color: color-mix(in srgb, var(--surface-1) 55%, transparent);
   }
 
+  .playlist-player__track-lyrics:active,
   .playlist-player__track-download:active {
     transform: scale(0.92);
   }
 
-  .playlist-player__track-download-icon {
+  .playlist-player__track-action-icon {
     inline-size: 0.875rem;
     block-size: 0.875rem;
   }
 
+  .playlist-player__track-lyrics:focus-visible,
   .playlist-player__track-download:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
@@ -1071,39 +1093,35 @@ const timeId = `${playerId}-time`;
   .playlist-player__transport-button:focus-visible,
   .playlist-player__volume-button:focus-visible,
   .playlist-player__progress:focus-visible,
-  .playlist-player__track:focus-visible {
+  .playlist-player__track-button:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
 
-  .playlist-player__track:focus-visible {
+  .playlist-player__track:focus-within {
     background-color: color-mix(in srgb, var(--surface-1) 55%, transparent);
   }
 
-  :global([data-player-celebrating="true"]) .playlist-player {
-    animation: playlist-complete-glow 0.8s ease-out;
+  @media (prefers-reduced-motion: no-preference) {
+    :global([data-player-celebrating="true"]) .playlist-player::before {
+      animation: playlist-complete-ring 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
   }
 
-  @keyframes playlist-complete-glow {
+  @keyframes playlist-complete-ring {
     0% {
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 40%, transparent),
-        var(--shadow-lg),
-        0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
+      opacity: 0;
+      transform: scale(0.995);
     }
 
     50% {
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 40%, transparent),
-        var(--shadow-lg),
-        0 0 0 4px color-mix(in srgb, var(--accent-primary) 30%, transparent);
+      opacity: 1;
+      transform: scale(1);
     }
 
     100% {
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 40%, transparent),
-        var(--shadow-lg),
-        0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
+      opacity: 0;
+      transform: scale(1.006);
     }
   }
 
@@ -1176,8 +1194,8 @@ const timeId = `${playerId}-time`;
 
     .playlist-player__volume-button,
     .playlist-player__transport-button {
-      inline-size: 2.5rem;
-      block-size: 2.5rem;
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
     }
 
     .playlist-player__control {
@@ -1200,11 +1218,15 @@ const timeId = `${playerId}-time`;
     }
 
     .playlist-player__tracklist-header {
-      grid-template-columns: 2.5rem 1fr 3.5rem 2.5rem;
+      grid-template-columns: 2.5rem minmax(0, 1fr) 3.5rem 2.75rem 2.75rem;
     }
 
     .playlist-player__track {
-      grid-template-columns: 2.5rem 1fr 3.5rem 2.5rem;
+      min-block-size: 3rem;
+    }
+
+    .playlist-player__track-button {
+      grid-template-columns: 2.5rem minmax(0, 1fr) 3.5rem;
       min-block-size: 3rem;
     }
 
@@ -1215,11 +1237,15 @@ const timeId = `${playerId}-time`;
 
   @media (width >= 768px) {
     .playlist-player__tracklist-header {
-      grid-template-columns: 3rem 1fr 4rem 2.5rem;
+      grid-template-columns: 3rem minmax(0, 1fr) 4rem 2.75rem 2.75rem;
     }
 
     .playlist-player__track {
-      grid-template-columns: 3rem 1fr 4rem 2.5rem;
+      grid-template-columns: minmax(0, 1fr) 2.75rem 2.75rem;
+    }
+
+    .playlist-player__track-button {
+      grid-template-columns: 3rem minmax(0, 1fr) 4rem;
     }
   }
 
@@ -1228,13 +1254,11 @@ const timeId = `${playerId}-time`;
       display: none;
     }
 
-    .playlist-player__track-download {
+    .playlist-player__track-lyrics,
+    .playlist-player__track-download,
+    .playlist-player__track-action-placeholder {
       inline-size: 2.75rem;
       block-size: 2.75rem;
-    }
-
-    .playlist-player__shortcuts-hint {
-      display: none;
     }
 
     .playlist-player__progress {
@@ -1276,13 +1300,15 @@ const timeId = `${playerId}-time`;
       min-block-size: 3.5rem;
     }
 
-    .playlist-player__track-download {
-      inline-size: 3rem;
-      block-size: 3rem;
+    .playlist-player__track-button {
+      min-block-size: 3.5rem;
     }
 
-    .playlist-player__shortcuts-hint {
-      display: none;
+    .playlist-player__track-lyrics,
+    .playlist-player__track-download,
+    .playlist-player__track-action-placeholder {
+      inline-size: 3rem;
+      block-size: 3rem;
     }
   }
 </style>
