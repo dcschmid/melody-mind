@@ -8,6 +8,7 @@ const getKnowledgeSchema = (_ctx: SchemaContext): z.ZodObject<z.ZodRawShape> =>
     description: z.string(),
     keywords: z.array(z.string()).default([]),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
     createdAt: z.coerce.date().optional(),
     updatedAt: z.coerce.date().optional(),
     readingTime: z.number().optional(),

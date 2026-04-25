@@ -30,7 +30,7 @@ const {
   title,
   description,
   imageSource,
-  imageAlt = title,
+  imageAlt = "",
   publishedDate,
   publishedDateLabel,
   readingText,
@@ -80,15 +80,7 @@ const titleId = `${idBase}-title`;
           <p class="article-hero__description">{description}</p>
         </div>
 
-        <ul class="article-hero__signals" aria-label="Article signals">
-          <li class="article-hero__signal">
-            <Icon name="eye" class="article-hero__signal-icon" aria-hidden="true" />
-            <span>Long-form analysis</span>
-          </li>
-          <li class="article-hero__signal">
-            <Icon name="heart" class="article-hero__signal-icon" aria-hidden="true" />
-            <span>Editorially curated</span>
-          </li>
+        <ul class="article-hero__signals" aria-label="Article update">
           <li class="article-hero__signal">
             <Icon
               name="message-circle"
@@ -122,7 +114,7 @@ const titleId = `${idBase}-title`;
       <div class="article-hero__media-column">
         {
           imageSource ? (
-            <div class="article-hero__media-frame">
+            <div class="article-hero__media-frame" aria-hidden={!imageAlt}>
               <Image
                 class="article-hero__image"
                 src={imageSource}
@@ -136,17 +128,13 @@ const titleId = `${idBase}-title`;
               />
             </div>
           ) : (
-            <div
-              class="article-hero__media-placeholder"
-              role="img"
-              aria-label="No image available"
-            >
+            <div class="article-hero__media-placeholder" aria-hidden="true">
               <Icon
                 name="image"
                 class="article-hero__media-placeholder-icon"
                 aria-hidden="true"
               />
-              <span>No image available</span>
+              <span>Image unavailable</span>
             </div>
           )
         }
@@ -233,7 +221,7 @@ const titleId = `${idBase}-title`;
     font-weight: 800;
     line-height: 1.5;
     color: var(--heading-color);
-    letter-spacing: -0.068em;
+    letter-spacing: 0;
     text-wrap: balance;
   }
 
@@ -251,11 +239,8 @@ const titleId = `${idBase}-title`;
     gap: calc(var(--spacing-sm) + 0.3rem) calc(var(--spacing-lg) - 0.3rem);
     align-items: center;
     padding: 0;
-    padding-inline-start: var(--spacing-sm);
     margin: 0;
     list-style: none;
-    border-inline-start: 2px solid
-      color-mix(in srgb, var(--accent-primary) 25%, transparent);
   }
 
   .article-hero__signal {
@@ -284,7 +269,7 @@ const titleId = `${idBase}-title`;
   }
 
   .article-hero__links :global(.article-hero__link.button-link) {
-    min-block-size: 2.25rem;
+    min-block-size: var(--control-min-block-size);
     padding: var(--control-padding-block-compact)
       calc(var(--control-padding-inline-compact) - 0.05rem);
     font-size: var(--font-size-xs);
@@ -313,24 +298,6 @@ const titleId = `${idBase}-title`;
     box-shadow: var(--shadow-lg);
   }
 
-  .article-hero__media-frame::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-    background:
-      radial-gradient(
-        circle at 80% 82%,
-        color-mix(in srgb, var(--accent-primary) 18%, transparent),
-        transparent 24%
-      ),
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-panel-bg) 8%, transparent),
-        transparent 28%
-      );
-  }
-
   .article-hero__image,
   .article-hero__image :global(img) {
     display: block;
@@ -357,7 +324,7 @@ const titleId = `${idBase}-title`;
 
   @media (width >= 960px) {
     .article-hero__layout {
-      grid-template-columns: minmax(24rem, 1fr) minmax(34rem, 1.02fr);
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
       gap: clamp(var(--spacing-xl), 2.8vw, calc(var(--spacing-3xl) - 0.75rem));
       min-block-size: 18.5rem;
     }
@@ -451,7 +418,7 @@ const titleId = `${idBase}-title`;
     }
 
     .article-hero__links :global(.article-hero__link.button-link) {
-      min-block-size: 2.5rem;
+      min-block-size: var(--control-min-block-size);
       padding: calc(var(--control-padding-block-compact) - 0.05rem)
         calc(var(--control-padding-inline-compact) - 0.15rem);
       font-size: var(--font-size-xs);

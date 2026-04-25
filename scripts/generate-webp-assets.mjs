@@ -31,7 +31,6 @@ const tasks = [
     directories: [
       "apps/knowledge/src/assets",
       "apps/quiz/src/assets",
-      "apps/podcasts/src/assets",
       "apps/music/src/assets",
     ],
     sourcePattern: WEBP_SOURCE_PATTERN,

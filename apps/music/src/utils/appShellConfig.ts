@@ -5,7 +5,6 @@
 import { buildAppShellConfig } from "@shared-utils/utils/appShellConfig";
 import {
   KNOWLEDGE_SITE_URL,
-  PODCASTS_SITE_URL,
   QUIZ_SITE_URL,
   buildExternalAppLink,
 } from "@shared-utils/utils/appShell";
@@ -24,18 +23,12 @@ export const musicAppShellConfig = buildAppShellConfig({
       label: "Knowledge",
       icon: "book-open",
     }),
-    buildExternalAppLink({
-      href: PODCASTS_SITE_URL,
-      label: "Podcast",
-      icon: "headphones",
-    }),
     buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz", icon: "help-circle" }),
   ],
   footerBrandText:
     "Original AI-generated music spanning genres from ambient soundscapes to pop productions.",
   footerExploreLinks: [
     buildExternalAppLink({ href: KNOWLEDGE_SITE_URL, label: "Knowledge" }),
-    buildExternalAppLink({ href: PODCASTS_SITE_URL, label: "Podcast" }),
     buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz" }),
   ],
 });

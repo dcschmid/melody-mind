@@ -41,6 +41,7 @@ export interface KnowledgeArticleLike {
     title?: string;
     description?: string;
     image?: string;
+    imageAlt?: string;
     keywords?: unknown[];
     createdAt?: Date | string;
     updatedAt?: Date | string;

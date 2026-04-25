@@ -8,7 +8,6 @@ import { buildAppShellConfig, navFromQuiz } from "@shared-utils/utils/appShellCo
 import {
   KNOWLEDGE_SITE_URL,
   MUSIC_SITE_URL,
-  PODCASTS_SITE_URL,
   buildExternalAppLink,
 } from "@shared-utils/utils/appShell";
 
@@ -22,7 +21,6 @@ export const quizAppShellConfig = buildAppShellConfig({
     "Curated guides and playlists to help you listen more closely and discover new sounds.",
   footerExploreLinks: [
     buildExternalAppLink({ href: KNOWLEDGE_SITE_URL, label: "Knowledge" }),
-    buildExternalAppLink({ href: PODCASTS_SITE_URL, label: "Podcasts" }),
     buildExternalAppLink({ href: MUSIC_SITE_URL, label: "Music" }),
   ],
 });

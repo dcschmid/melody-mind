@@ -5,7 +5,6 @@ shared packages they build on:
 
 - `apps/knowledge`: editorial music knowledge, taxonomy pages, and long-form articles
 - `apps/quiz`: music history quizzes and category landing pages
-- `apps/podcasts`: podcast homepage, episode archive, and RSS feed generation
 - `packages/shared-ui`: shared Astro components, layouts, tokens, and interaction helpers
 - `packages/shared-utils`: shared URL, SEO, analytics, content, and app-shell utilities
 
@@ -46,7 +45,6 @@ Or run a single app locally:
 ```bash
 pnpm dev:knowledge
 pnpm dev:quiz
-pnpm dev:podcasts
 ```
 
 ## Repository Layout
@@ -55,7 +53,6 @@ pnpm dev:podcasts
 .
 ├── apps/
 │   ├── knowledge/
-│   ├── podcasts/
 │   └── quiz/
 ├── packages/
 │   ├── shared-ui/
@@ -93,18 +90,6 @@ Important directories:
 - `src/pages/`: landing and quiz routes
 - `src/utils/quizImages.ts`: quiz-specific Astro asset mapping
 
-### `apps/podcasts`
-
-The Podcasts app owns the podcast homepage, episode pages, RSS feed generation, and audio
-metadata workflows.
-
-Important directories:
-
-- `src/content/podcasts/`: episode content
-- `src/pages/podcast.xml.ts`: feed route
-- `src/utils/rss.ts`: RSS rendering
-- `src/utils/podcasts.ts`: episode loading helpers
-
 ### `packages/shared-ui`
 
 Shared Astro UI components, layouts, navigation, cards, media primitives, and theme
@@ -139,8 +124,8 @@ pnpm build:knowledge
 pnpm dev:quiz
 pnpm build:quiz
 
-pnpm dev:podcasts
-pnpm build:podcasts
+pnpm dev:quiz
+pnpm build:quiz
 ```
 
 You can also target packages directly with workspace filters:
@@ -148,7 +133,6 @@ You can also target packages directly with workspace filters:
 ```bash
 pnpm --filter knowledge build
 pnpm --filter quiz lint:check
-pnpm --filter podcasts format
 pnpm --filter @melody-mind/shared-ui lint:check
 ```
 
@@ -215,6 +199,5 @@ Typical examples:
 - [Knowledge README](./apps/knowledge/README.md)
 - [Knowledge Scripts README](./apps/knowledge/scripts/README.md)
 - [Quiz README](./apps/quiz/README.md)
-- [Podcasts README](./apps/podcasts/README.md)
 - [Shared UI README](./packages/shared-ui/README.md)
 - [Shared Utils README](./packages/shared-utils/README.md)

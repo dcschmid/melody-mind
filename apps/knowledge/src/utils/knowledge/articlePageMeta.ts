@@ -4,7 +4,6 @@ import {
   buildSpeakableSpecificationSchema,
 } from "@shared-utils/utils/seo/seoSchema";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
-import { PODCASTS_SITE_URL } from "@shared-utils/utils/appShell";
 import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
 import {
   getKnowledgeCategoryImage,
@@ -30,8 +29,6 @@ interface BuildKnowledgeArticleStructuredDataParams {
   imageWidth: number;
   keywords: string[];
   lang: string;
-  podcastBase: string;
-  podcastUrl: string | null;
   title: string;
   createdAt?: Date | string;
   updatedAt?: Date | string;
@@ -59,28 +56,6 @@ export function resolveKnowledgeSlug(
  */
 function getKnowledgeSeoTitle(slugKey: string, title: string): string {
   return KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES[slugKey] || title;
-}
-
-/**
- * Resolves the canonical podcast URL from explicit URL first, then from known slug fields.
- */
-function getKnowledgePodcastUrl(
-  articleData: KnowledgeArticleLike["data"],
-  podcastBase: string
-): string | null {
-  if (!articleData) {
-    return null;
-  }
-
-  if (typeof articleData.podcastUrl === "string" && articleData.podcastUrl.trim()) {
-    return articleData.podcastUrl.trim();
-  }
-
-  const podcastSlug = [articleData.podcastSlug, articleData.podcast]
-    .find((value) => typeof value === "string" && value.trim())
-    ?.trim();
-
-  return podcastSlug ? `${podcastBase}/${encodeURI(podcastSlug)}` : null;
 }
 
 /**
@@ -135,7 +110,7 @@ function getKnowledgeTaxonomyMeta(
 }
 
 /**
- * Builds the article or podcast structured data block for a knowledge detail page.
+ * Builds the article structured data block for a knowledge detail page.
  */
 function buildKnowledgeArticleStructuredData({
   canonical,
@@ -145,16 +120,13 @@ function buildKnowledgeArticleStructuredData({
   imageWidth,
   keywords,
   lang,
-  podcastBase,
-  podcastUrl,
   title,
   createdAt,
   updatedAt,
   body,
 }: BuildKnowledgeArticleStructuredDataParams): StructuredData[] {
-  const schemaType = podcastUrl ? "PodcastEpisode" : "Article";
+  const schemaType = "Article";
 
-  // Extract speakable content selectors: article intro paragraphs and key sections
   const speakableSchema = buildSpeakableSpecificationSchema({
     cssSelectors: [
       "article h2:first-of-type + p",
@@ -178,19 +150,6 @@ function buildKnowledgeArticleStructuredData({
       body,
       schemaType,
       articleSection: "Music Knowledge",
-      isPartOf: podcastUrl
-        ? {
-            "@type": "PodcastSeries",
-            name: "Melody Mind Podcasts",
-            url: podcastBase,
-          }
-        : undefined,
-      potentialAction: podcastUrl
-        ? {
-            "@type": "ListenAction",
-            target: podcastUrl,
-          }
-        : undefined,
     }),
   ];
 
@@ -225,7 +184,6 @@ export function buildKnowledgeArticlePageData({
   const canonical = slugKey
     ? resolvePageUrl(site, `/knowledge/${slugKey}`)
     : resolvePageUrl(site, "/");
-  const podcastUrl = getKnowledgePodcastUrl(entry.data, PODCASTS_SITE_URL);
   const {
     currentTaxonomySubsection,
     currentTaxonomyGroup,
@@ -249,8 +207,6 @@ export function buildKnowledgeArticlePageData({
     imageWidth,
     keywords: normalizedKeywords,
     lang,
-    podcastBase: PODCASTS_SITE_URL,
-    podcastUrl,
     title,
     createdAt: entry.data.createdAt,
     updatedAt: entry.data.updatedAt,
@@ -278,7 +234,7 @@ export function buildKnowledgeArticlePageData({
     keywordLimit: 24,
     maxDescription: 155,
     image: imageAbsolute,
-    imageAlt: title,
+    imageAlt: entry.data.imageAlt || title,
     publishDate: entry.data.createdAt ? new Date(entry.data.createdAt) : undefined,
     modifiedDate: entry.data.updatedAt ? new Date(entry.data.updatedAt) : undefined,
     index: true,
@@ -306,13 +262,6 @@ export function buildKnowledgeArticlePageData({
       icon: "deezer",
       variant: "secondary",
       ariaLabel: `Open Deezer playlist for ${title}`,
-    },
-    {
-      href: podcastUrl,
-      label: "Open podcast episode",
-      icon: "headphones",
-      variant: "primary",
-      ariaLabel: `Open podcast page for ${title}`,
     },
   ];
   const articleLinks = articleLinksSource.filter(

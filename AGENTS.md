@@ -10,7 +10,7 @@ This document provides essential guidelines for AI agents working on the MelodyM
 - **Content**: Markdown articles via Astro Content Collections
 - **Editorial Language**: English-only (knowledge-en collection)
 - **Package Manager**: pnpm
-- **Workspace**: Monorepo with `apps/knowledge`, `apps/quiz`, `apps/podcasts`, `packages/shared-ui`, and `packages/shared-utils`
+- **Workspace**: Monorepo with `apps/knowledge`, `apps/quiz`, `packages/shared-ui`, and `packages/shared-utils`
 
 ## Knowledge Structure
 
