@@ -67,6 +67,8 @@ const FORWARDED_PROP_KEYS = new Set([
   "variant",
   "size",
   "icon",
+  "newTabText",
+  "disabled",
   "aria-describedby",
   "aria-label",
 ]);
@@ -184,15 +186,17 @@ const forwardedAttrs = (() => {
   }
 
   /* Brand icon colors — simple-icons use currentColor, so we set them explicitly */
-  :global(.button-link__icon[data-icon="simple-icons:spotify"]) {
+  :global(.button-link--secondary .button-link__icon[data-icon="simple-icons:spotify"]) {
     color: var(--brand-spotify);
   }
 
-  :global(.button-link__icon[data-icon="simple-icons:deezer"]) {
+  :global(.button-link--secondary .button-link__icon[data-icon="simple-icons:deezer"]) {
     color: var(--brand-deezer);
   }
 
-  :global(.button-link__icon[data-icon="simple-icons:applemusic"]) {
+  :global(
+    .button-link--secondary .button-link__icon[data-icon="simple-icons:applemusic"]
+  ) {
     color: var(--brand-applemusic);
   }
 

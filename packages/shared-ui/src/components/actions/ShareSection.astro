@@ -24,10 +24,12 @@ const {
 } = Astro.props as Props;
 
 const shareTitle = `${contentTitle} | Melody Mind`;
-const shareText = `${contentTitle} - ${contentDescription}`.trim();
 const sanitizedDesc = (contentDescription || "").replace(/\r\n|\r|\n/g, " ").trim();
+const shareText = sanitizedDesc ? `${contentTitle} - ${sanitizedDesc}` : contentTitle;
 const shareMailSubject = encodeURIComponent(shareTitle);
-const shareMailBody = encodeURIComponent(`${sanitizedDesc}\n\n${shareUrl}`);
+const shareMailBody = encodeURIComponent(
+  sanitizedDesc ? `${sanitizedDesc}\n\n${shareUrl}` : shareUrl
+);
 const MASTODON_SHARE_URL = "https://mastodon.social/share";
 const mastodonShareUrl = `${MASTODON_SHARE_URL}?text=${encodeURIComponent(
   `${shareText} ${shareUrl}`
@@ -48,24 +50,15 @@ const sanitizeId = (str: string) =>
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 
-const escapeHtml = (str: string) =>
-  str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-
+const sanitizedProvidedId = id ? sanitizeId(id) : "";
+const sanitizedTitleId = contentTitle ? sanitizeId(contentTitle.toLowerCase()) : "";
 const rootId =
-  (id ? sanitizeId(id) : null) ||
-  (contentTitle
-    ? `share-section-${sanitizeId(contentTitle.toLowerCase())}`
+  sanitizedProvidedId ||
+  (sanitizedTitleId
+    ? `share-section-${sanitizedTitleId}`
     : `share-section-${Math.random().toString(36).slice(2, 9)}`);
 
-const hour = new Date().getHours();
-const greeting =
-  hour < 12 ? "Good morning" : hour < 17 ? "Good afternoon" : "Good evening";
-const defaultNote = `${greeting}. Choose one way to share this page.`;
-const noteToUse = note === "Choose one way to share this page." ? defaultNote : note;
+const noteToUse = note;
 ---
 
 <section
@@ -74,10 +67,10 @@ const noteToUse = note === "Choose one way to share this page." ? defaultNote : 
   aria-labelledby={`${rootId}-title`}
   data-share-root
   data-share-url={hasValidUrl ? shareUrl : ""}
-  data-share-title={escapeHtml(shareTitle)}
-  data-share-text={escapeHtml(shareText)}
-  data-share-success={escapeHtml(successMessage)}
-  data-share-error={escapeHtml(errorMessage)}
+  data-share-title={shareTitle}
+  data-share-text={shareText}
+  data-share-success={successMessage}
+  data-share-error={errorMessage}
   hidden={!hasValidUrl ? "true" : undefined}
 >
   <div class="share-section__copy">
@@ -93,7 +86,7 @@ const noteToUse = note === "Choose one way to share this page." ? defaultNote : 
     </p>
   </div>
 
-  <div class="share-section__actions" aria-label="Share options">
+  <div class="share-section__actions" role="group" aria-label="Share options">
     <button
       type="button"
       data-share="native"
@@ -288,7 +281,7 @@ const noteToUse = note === "Choose one way to share this page." ? defaultNote : 
     gap: var(--spacing-xs);
     align-items: center;
     justify-content: center;
-    min-block-size: var(--control-min-block-size-compact);
+    min-block-size: var(--control-min-block-size, 2.75rem);
     padding: var(--control-padding-block-compact) var(--control-padding-inline-compact);
     font: inherit;
     font-size: var(--font-size-xs);
@@ -402,19 +395,19 @@ const noteToUse = note === "Choose one way to share this page." ? defaultNote : 
     }
   }
 
-  :root[data-theme="dark"] .share-section__button--success {
+  :global(:root[data-theme="dark"]) .share-section__button--success {
     color: var(--color-success);
     background: color-mix(in srgb, var(--color-success) 12%, transparent);
     border-color: var(--color-success);
   }
 
-  :root[data-theme="dark"] .share-section__button--tertiary {
+  :global(:root[data-theme="dark"]) .share-section__button--tertiary {
     color: var(--color-dark-text-tertiary);
     border-color: var(--color-dark-border-default);
   }
 
-  :root[data-theme="dark"] .share-section__button--tertiary:hover,
-  :root[data-theme="dark"] .share-section__button--tertiary:focus {
+  :global(:root[data-theme="dark"]) .share-section__button--tertiary:hover,
+  :global(:root[data-theme="dark"]) .share-section__button--tertiary:focus {
     color: var(--color-dark-accent-primary);
     border-color: var(--color-dark-accent-primary);
   }

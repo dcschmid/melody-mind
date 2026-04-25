@@ -167,6 +167,7 @@ const initPlaylistPlayers = (): (() => void) => {
     let lastStateWrite = 0;
     let pendingResumeTime: number | null = null;
     let resumeApplied = false;
+    let isChangingTrackSource = false;
     let visualizerFrame = 0;
     let audioContext: AudioContext | null = null;
     let analyser: AnalyserNode | null = null;
@@ -207,6 +208,27 @@ const initPlaylistPlayers = (): (() => void) => {
       }
 
       return tracks[currentTrackIndex]?.duration ?? 0;
+    };
+
+    const normalizeTrackUrl = (url: string): string => {
+      try {
+        return new URL(url, window.location.href).href;
+      } catch {
+        return url;
+      }
+    };
+
+    const getAudioSource = (): string => audio.currentSrc || audio.src;
+
+    const setAudioSource = (track: PlaylistTrack): boolean => {
+      const nextSource = normalizeTrackUrl(track.url);
+      if (!nextSource || getAudioSource() === nextSource) {
+        return false;
+      }
+
+      audio.src = nextSource;
+      audio.load();
+      return true;
     };
 
     const hasMediaSession = () =>
@@ -554,21 +576,33 @@ const initPlaylistPlayers = (): (() => void) => {
         updateTrackInfo();
       }
 
-      if (
-        track.url &&
-        (track.url.startsWith("http://") || track.url.startsWith("https://"))
-      ) {
-        audio.src = track.url;
-      }
       pendingResumeTime = null;
       resumeApplied = true;
+
+      if (shouldAutoplay) {
+        isChangingTrackSource = true;
+      }
+      const sourceChanged = setAudioSource(track);
+      if (!sourceChanged) {
+        isChangingTrackSource = false;
+      }
       updateTrackHighlight();
       updateProgress(true);
       updateMediaSessionMetadata();
       persistState(true);
 
       if (shouldAutoplay) {
-        audio.play().catch((error) => logError(error, "playback blocked"));
+        audio
+          .play()
+          .catch((error) => {
+            isPlaying = false;
+            updateToggleButton();
+            updateTrackHighlight();
+            logError(error, "playback blocked");
+          })
+          .finally(() => {
+            isChangingTrackSource = false;
+          });
       }
     };
 
@@ -637,8 +671,9 @@ const initPlaylistPlayers = (): (() => void) => {
       const actions: Partial<Record<MediaSessionAction, MediaSessionActionHandler>> = {
         play: () => {
           startVisualizer();
-          if (audio.src !== tracks[currentTrackIndex]?.url) {
-            audio.src = tracks[currentTrackIndex]?.url || "";
+          const track = tracks[currentTrackIndex];
+          if (track) {
+            setAudioSource(track);
           }
           audio.play().catch((error) => logError(error, "media session play blocked"));
         },
@@ -680,9 +715,7 @@ const initPlaylistPlayers = (): (() => void) => {
 
       if (audio.paused || audio.ended) {
         startVisualizer();
-        if (audio.src !== tracks[currentTrackIndex].url) {
-          audio.src = tracks[currentTrackIndex].url;
-        }
+        setAudioSource(tracks[currentTrackIndex]);
         audio.play().catch((error) => logError(error, "playback blocked"));
       } else {
         audio.pause();
@@ -745,6 +778,10 @@ const initPlaylistPlayers = (): (() => void) => {
     audio.addEventListener(
       "pause",
       () => {
+        if (isChangingTrackSource) {
+          return;
+        }
+
         isPlaying = false;
         updateToggleButton();
         updateTrackHighlight();
@@ -878,7 +915,7 @@ const initPlaylistPlayers = (): (() => void) => {
     }
 
     if (tracks.length > 0) {
-      audio.src = tracks[currentTrackIndex]?.url || tracks[0].url;
+      setAudioSource(tracks[currentTrackIndex] || tracks[0]);
     }
     updateToggleButton();
     updateTrackInfo();

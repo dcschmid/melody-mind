@@ -7,8 +7,7 @@ import Icon from "../visual/Icon.astro";
   class="theme-toggle"
   data-theme-toggle
   data-theme="system"
-  aria-pressed="false"
-  aria-label="Switch to light theme"
+  aria-label="Theme mode selector"
 >
   <span class="theme-toggle__pill" aria-hidden="true">
     <span class="theme-toggle__pill-icon" data-option="light">
@@ -52,35 +51,37 @@ import Icon from "../visual/Icon.astro";
     type Theme,
   } from "@shared-utils/utils/theme/themeStorage";
 
-  const toggles = Array.from(
-    document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]")
-  ).filter((toggle) => toggle.dataset.themeToggleBound !== "true");
-
   const boundWindows = new WeakSet<Window & typeof globalThis>();
 
-  let cachedToggles: NodeListOf<HTMLButtonElement> | null = null;
-  const allToggles = (): NodeListOf<HTMLButtonElement> =>
-    (cachedToggles ??=
-      document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]"));
+  const allToggles = (): HTMLButtonElement[] =>
+    Array.from(document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]"));
+
+  const getModeLabel = (stored: Theme | null): string => stored ?? "system";
+
+  const getNextModeLabel = (stored: Theme | null): string =>
+    stored === null ? "light" : stored === "light" ? "dark" : "system";
 
   const updateToggle = (toggle: HTMLButtonElement): void => {
     const stored = getStoredTheme();
-    const resolved = stored ?? getSystemTheme();
     const label = toggle.querySelector<HTMLSpanElement>("[data-theme-toggle-label]");
-    toggle.dataset.theme = stored ?? "system";
+    const modeLabel = getModeLabel(stored);
+    const nextModeLabel = getNextModeLabel(stored);
+    toggle.dataset.theme = modeLabel;
     toggle.dataset.mode = stored ? "manual" : "system";
     if (label) {
-      label.textContent = stored ?? "system";
+      label.textContent = modeLabel;
     }
-    toggle.setAttribute("aria-pressed", String(resolved === "dark"));
     toggle.setAttribute(
       "aria-label",
-      stored === null
-        ? "Switch to light theme"
-        : stored === "light"
-          ? "Switch to dark theme"
-          : "Switch to system theme"
+      `Theme mode: ${modeLabel}. Switch to ${nextModeLabel} theme.`
     );
+  };
+
+  const updateAllToggles = (): void => {
+    allToggles().forEach((toggle) => {
+      bindToggle(toggle);
+      updateToggle(toggle);
+    });
   };
 
   const cycleTheme = (() => {
@@ -92,7 +93,11 @@ import Icon from "../visual/Icon.astro";
     };
   })();
 
-  toggles.forEach((toggle) => {
+  const bindToggle = (toggle: HTMLButtonElement): void => {
+    if (toggle.dataset.themeToggleBound === "true") {
+      return;
+    }
+
     toggle.dataset.themeToggleBound = "true";
     toggle.addEventListener("click", () => {
       const stored = getStoredTheme();
@@ -100,13 +105,14 @@ import Icon from "../visual/Icon.astro";
       try {
         setStoredTheme(nextStored);
       } catch {
-        // localStorage unavailable — skip persistence, still apply theme
+        // localStorage unavailable; skip persistence and still apply theme.
       }
       applyTheme(next ?? getSystemTheme(), nextStored === null ? "system" : "manual");
-      allToggles().forEach(updateToggle);
     });
     updateToggle(toggle);
-  });
+  };
+
+  updateAllToggles();
 
   const win = window as Window & typeof globalThis;
   if (!boundWindows.has(win)) {
@@ -118,18 +124,17 @@ import Icon from "../visual/Icon.astro";
         return;
       }
       applyTheme(getSystemTheme(), "system");
-      allToggles().forEach(updateToggle);
     });
 
     win.addEventListener(THEME_EVENTS.CHANGED, () => {
-      allToggles().forEach(updateToggle);
+      updateAllToggles();
     });
 
     win.addEventListener("storage", (event) => {
       if (event.key !== THEME_STORAGE_KEY) {
         return;
       }
-      allToggles().forEach(updateToggle);
+      updateAllToggles();
     });
   }
 </script>
@@ -140,6 +145,7 @@ import Icon from "../visual/Icon.astro";
     display: inline-flex;
     align-items: center;
     min-inline-size: 0;
+    min-block-size: var(--control-min-block-size);
     padding: 0;
     color: var(--text-primary);
     cursor: pointer;
@@ -157,6 +163,7 @@ import Icon from "../visual/Icon.astro";
     display: inline-flex;
     gap: var(--spacing-xs);
     align-items: center;
+    min-block-size: var(--control-min-block-size);
     padding: var(--theme-toggle-pill-padding, calc(var(--spacing-xs) - 0.05rem));
     background: var(--theme-toggle-pill-bg, var(--surface-panel-raised));
     border: 1px solid var(--theme-toggle-pill-border-color, var(--surface-border-soft));

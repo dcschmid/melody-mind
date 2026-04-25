@@ -28,7 +28,6 @@ const {
 const validSizes = ["sm", "md"] as const;
 const safeSize = validSizes.includes(size as (typeof validSizes)[number]) ? size : "md";
 const sizeClass = safeSize === "sm" ? "ai-content-badge--sm" : "ai-content-badge--md";
-const hasTools = aiTools.length > 0;
 
 const safeHref = href.startsWith("/") || href.startsWith("#") ? href : "/ai-content";
 
@@ -39,6 +38,7 @@ const sanitizeToolName = (name: string) =>
     .slice(0, 50);
 
 const safeTools = aiTools.map(sanitizeToolName).filter(Boolean);
+const hasTools = safeTools.length > 0;
 ---
 
 <a
@@ -66,7 +66,8 @@ const safeTools = aiTools.map(sanitizeToolName).filter(Boolean);
   .ai-content-badge {
     display: inline-flex;
     align-items: center;
-    padding: 0;
+    min-block-size: var(--control-min-block-size);
+    padding: 0 var(--spacing-sm);
     font-family: var(--font-sans);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
@@ -78,12 +79,15 @@ const safeTools = aiTools.map(sanitizeToolName).filter(Boolean);
     text-underline-offset: var(--text-underline-offset-base);
     background: none;
     border: none;
-    border-radius: 0;
+    border-radius: var(--radius-sm);
     box-shadow: none;
   }
 
   .ai-content-badge--sm {
-    font-size: calc(var(--font-size-xs) * 0.85);
+    min-block-size: var(--control-min-block-size);
+    padding-inline: calc(var(--spacing-sm) - var(--spacing-2xs));
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
   }
 
   .ai-content-badge__content {
