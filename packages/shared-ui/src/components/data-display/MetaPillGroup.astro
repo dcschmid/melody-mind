@@ -1,23 +1,41 @@
 ---
+type MetaPillGroupElement = "div" | "ul" | "ol";
+
 interface Props extends astroHTML.JSX.HTMLAttributes {
+  as?: MetaPillGroupElement;
   className?: string;
   class?: string;
 }
 
-const { className = "", class: classProp = "", ...rest } = Astro.props as Props;
+const {
+  as = "div",
+  className = "",
+  class: classProp = "",
+  ...rest
+} = Astro.props as Props;
 
 const classes = ["meta-pill-group", className, classProp].filter(Boolean).join(" ");
+const Tag = as;
 ---
 
-<div {...rest} class={classes}>
+<Tag {...rest} class={classes}>
   <slot />
-</div>
+</Tag>
 
 <style>
   .meta-pill-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(11rem, max-content));
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-md);
     align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .meta-pill-group > :global(*) {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    overflow-wrap: anywhere;
   }
 </style>

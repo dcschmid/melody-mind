@@ -1,8 +1,10 @@
 ---
+import type { TrustedHtml } from "../../utils/trustedHtml";
+
 export interface Props {
   className?: string;
   class?: string;
-  html?: string;
+  html?: TrustedHtml;
   invert?: boolean;
   variant?: "default" | "article" | "notes";
 }
@@ -11,20 +13,9 @@ const {
   className: extra = "",
   class: classProp = "",
   html = undefined,
-  invert = true,
+  invert = false,
   variant = "default",
 } = Astro.props as Props;
-
-let sanitizedHtml =
-  typeof html === "string" ? html.replace(/\\n/g, "\n").trim() : undefined;
-
-if (typeof sanitizedHtml === "string") {
-  sanitizedHtml = sanitizedHtml.replace(/\n?\s*```\s*$/m, "");
-  sanitizedHtml = sanitizedHtml.replace(/```/g, "");
-  sanitizedHtml = sanitizedHtml.replace(/\\`/g, "");
-  sanitizedHtml = sanitizedHtml.replace(/&#96;|&#x60;|&grave;/g, "");
-  sanitizedHtml = sanitizedHtml.trim();
-}
 
 const invertClass = invert ? "prose--invert" : "prose--standard";
 const classes = ["prose", invertClass, `prose--${variant}`, extra, classProp]
@@ -33,7 +24,7 @@ const classes = ["prose", invertClass, `prose--${variant}`, extra, classProp]
 ---
 
 <div class={classes}>
-  {sanitizedHtml ? <div set:html={sanitizedHtml} /> : <slot />}
+  {html ? <Fragment set:html={html} /> : <slot />}
 </div>
 
 <style>
@@ -47,259 +38,291 @@ const classes = ["prose", invertClass, `prose--${variant}`, extra, classProp]
     /* Typography - uses design system tokens */
     font-size: var(--font-size-md);
     line-height: var(--prose-line-height);
-    color: var(--prose-color);
+    color: var(--prose-text-color);
 
     /* Improved text rendering */
     hyphens: manual;
     text-wrap: pretty;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+  }
+
+  .prose--standard {
+    --prose-text-color: var(--prose-color);
+    --prose-heading-color: var(--heading-color);
+    --prose-strong-color: var(--text-primary);
+    --prose-link-color: var(--link-default);
+    --prose-link-hover-color: var(--link-hover);
+    --prose-link-visited-color: var(--link-visited);
+    --prose-heading-anchor-color: var(--accent-strong);
+    --prose-code-bg: color-mix(in srgb, var(--surface-2) 92%, var(--surface-3));
+    --prose-code-border: color-mix(in srgb, var(--border-default) 78%, transparent);
+    --prose-blockquote-bg: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
+    --prose-blockquote-border: color-mix(
+      in srgb,
+      var(--accent-strong) 48%,
+      var(--border-default)
+    );
+    --prose-heading-anchor-bg: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    --prose-heading-anchor-border: color-mix(
+      in srgb,
+      var(--border-default) 78%,
+      transparent
+    );
+    --prose-media-bg: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
+    --prose-media-border: color-mix(in srgb, var(--border-default) 78%, transparent);
+  }
+
+  .prose--invert {
+    --prose-text-color: var(--color-surface-1);
+    --prose-heading-color: var(--color-surface-1);
+    --prose-strong-color: var(--color-surface-1);
+    --prose-link-color: var(--color-surface-1);
+    --prose-link-hover-color: var(--color-surface-1);
+    --prose-link-visited-color: color-mix(
+      in srgb,
+      var(--color-surface-1) 82%,
+      var(--color-link-visited)
+    );
+    --prose-heading-anchor-color: var(--color-surface-1);
+    --prose-code-bg: color-mix(in srgb, var(--color-dark-bg-primary) 72%, transparent);
+    --prose-code-border: color-mix(in srgb, var(--color-surface-1) 42%, transparent);
+    --prose-blockquote-bg: color-mix(
+      in srgb,
+      var(--color-dark-bg-primary) 58%,
+      transparent
+    );
+    --prose-blockquote-border: color-mix(
+      in srgb,
+      var(--color-surface-1) 48%,
+      transparent
+    );
+    --prose-heading-anchor-bg: color-mix(
+      in srgb,
+      var(--color-dark-bg-primary) 68%,
+      transparent
+    );
+    --prose-heading-anchor-border: color-mix(
+      in srgb,
+      var(--color-surface-1) 42%,
+      transparent
+    );
+    --prose-media-bg: color-mix(in srgb, var(--color-dark-bg-primary) 48%, transparent);
+    --prose-media-border: color-mix(in srgb, var(--color-surface-1) 34%, transparent);
   }
 
   /* Headings - semantic styling */
-  .prose > h2,
-  .prose > h3,
-  .prose > h4 {
+  :global(.prose > :where(h2, h3, h4)) {
+    position: relative;
     font-family: var(--font-sans);
     line-height: var(--heading-line-height);
-    color: var(--heading-color);
+    color: var(--prose-heading-color);
+    scroll-margin-block-start: 6rem;
   }
 
-  .prose > h2 {
+  :global(.prose > h2) {
     margin-block: var(--spacing-3xl) var(--spacing-base);
     font-size: var(--font-size-2xl);
   }
 
-  .prose > h3 {
+  :global(.prose > h3) {
     margin-block: var(--spacing-2xl) var(--spacing-md);
     font-size: var(--font-size-xl);
   }
 
+  :global(.prose > h4) {
+    margin-block: var(--spacing-xl) var(--spacing-sm);
+    font-size: var(--font-size-lg);
+  }
+
   /* Paragraphs */
-  .prose > p {
+  :global(.prose > p) {
     margin: var(--spacing-lg) 0;
   }
 
   /* Lists */
-  .prose > ul,
-  .prose > ol {
+  :global(.prose > :where(ul, ol)) {
     padding-inline-start: var(--spacing-xl);
     margin: var(--spacing-xl) 0;
   }
 
-  .prose > :is(ul, ol) li {
+  :global(.prose > :where(ul, ol) li) {
     margin: var(--spacing-xs) 0;
   }
 
-  /* Links - with underline and accent color */
-  @media screen and (prefers-reduced-motion: reduce) {
-    .prose a {
-      font-weight: var(--font-weight-medium);
-      color: var(--accent-primary);
-      text-decoration-line: underline;
-      text-decoration-thickness: 0.1em;
-      text-underline-offset: var(--text-underline-offset-base);
-      transition: none;
-    }
-  }
-
-  .prose a {
+  /* Links - with underline and theme-aware color */
+  :global(.prose > :where(p, ul, ol, blockquote) a),
+  :global(.prose > :where(h2, h3, h4) .prose__heading-anchor) {
     font-weight: var(--font-weight-medium);
-    color: var(--accent-primary);
+    color: var(--prose-link-color);
     text-decoration-line: underline;
     text-decoration-thickness: 0.1em;
     text-underline-offset: var(--text-underline-offset-base);
-    transition: text-decoration-thickness var(--transition-fast);
   }
 
-  .prose a:hover,
-  .prose a:focus-visible {
+  :global(.prose > :where(p, ul, ol, blockquote) a:visited) {
+    color: var(--prose-link-visited-color);
+  }
+
+  :global(.prose > :where(p, ul, ol, blockquote) a:hover),
+  :global(.prose > :where(p, ul, ol, blockquote) a:focus-visible),
+  :global(.prose > :where(h2, h3, h4) .prose__heading-anchor:hover),
+  :global(.prose > :where(h2, h3, h4) .prose__heading-anchor:focus-visible) {
+    color: var(--prose-link-hover-color);
     text-decoration-thickness: 0.15em;
   }
 
-  .prose a:focus-visible {
+  :global(.prose > :where(p, ul, ol, blockquote) a:focus-visible),
+  :global(.prose > :where(h2, h3, h4) .prose__heading-anchor:focus-visible) {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
 
   /* Strong text */
-  .prose strong {
-    color: var(--text-primary);
+  :global(.prose > :where(p, ul, ol, blockquote) strong) {
+    color: var(--prose-strong-color);
   }
 
   /* Inline code */
-  .prose code {
+  :global(.prose > :where(p, ul, ol, blockquote) code) {
     padding: calc(var(--spacing-xs) - 0.15rem) calc(var(--spacing-sm) - 0.1rem);
-    color: var(--text-primary);
-    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-3));
+    color: var(--prose-strong-color);
+    background: var(--prose-code-bg);
     border-radius: var(--radius-sm);
   }
 
+  :global(.prose > pre) {
+    max-inline-size: 100%;
+    padding: var(--spacing-base);
+    margin: var(--spacing-xl) 0;
+    overflow-x: auto;
+    color: var(--prose-strong-color);
+    background: var(--prose-code-bg);
+    border: 1px solid var(--prose-code-border);
+    border-radius: var(--radius-md);
+  }
+
+  :global(.prose > pre code) {
+    display: block;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+  }
+
   /* Blockquotes */
-  .prose > blockquote {
+  :global(.prose > blockquote) {
     padding: var(--spacing-sm) var(--spacing-base);
-    color: var(--text-primary);
-    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--accent-strong) 48%, var(--border-default));
+    color: var(--prose-strong-color);
+    background: var(--prose-blockquote-bg);
+    border: 1px solid var(--prose-blockquote-border);
     border-radius: var(--radius-md);
   }
 
   /* Horizontal rules */
-  .prose > hr {
+  :global(.prose > hr) {
     margin: var(--spacing-3xl) 0;
     border: none;
     border-block-start: 1px solid var(--border-default);
   }
 
   /* Images - responsive sizing */
-  .prose > :is(img, picture) {
+  :global(.prose > :where(img, picture)) {
     display: block;
-    inline-size: 100%;
-  }
-
-  .prose > picture,
-  .prose > img {
-    aspect-ratio: 3 / 2;
+    max-inline-size: 100%;
+    block-size: auto;
     margin: var(--spacing-xl) auto;
-    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 78%, transparent);
+    background: var(--prose-media-bg);
+    border: 1px solid var(--prose-media-border);
     border-radius: var(--radius-lg);
   }
 
-  .prose > img {
-    object-fit: cover;
+  :global(.prose > img) {
+    inline-size: auto;
   }
 
-  .prose > picture {
+  :global(.prose > picture) {
     overflow: hidden;
   }
 
-  .prose > picture > img {
+  :global(.prose > picture > img) {
     inline-size: 100%;
-    block-size: 100%;
+    block-size: auto;
     margin: 0;
-    object-fit: cover;
     background: transparent;
     border: 0;
     border-radius: 0;
   }
 
-  /* Heading anchors - for deep linking */
-  .prose > :is(h2, h3) {
-    position: relative;
-    scroll-margin-block-start: 6rem;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .prose > :is(h2, h3) .prose__heading-anchor {
-      /* Layout */
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      inline-size: calc(var(--icon-size-sm) + 0.1rem);
-      block-size: calc(var(--icon-size-sm) + 0.1rem);
-      margin-inline-start: var(--spacing-xs);
-
-      /* Typography */
-      font-size: var(--font-size-base);
-      font-weight: var(--font-weight-semibold);
-      color: transparent;
-      text-decoration: none;
-
-      /* Visual styling */
-      background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
-      border: 1px solid color-mix(in srgb, var(--border-default) 78%, transparent);
-      border-radius: var(--radius-sm);
-
-      /* Hidden by default */
-      opacity: 0;
-      transition: none;
-    }
-  }
-
-  .prose > :is(h2, h3) .prose__heading-anchor {
+  :global(.prose > :where(h2, h3, h4) .prose__heading-anchor) {
     /* Layout */
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: calc(var(--icon-size-sm) + 0.1rem);
-    block-size: calc(var(--icon-size-sm) + 0.1rem);
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
     margin-inline-start: var(--spacing-xs);
 
     /* Typography */
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
-    color: transparent;
+    vertical-align: middle;
+    color: var(--prose-heading-anchor-color);
     text-decoration: none;
 
     /* Visual styling */
-    background: color-mix(in srgb, var(--surface-2) 92%, var(--surface-1));
-    border: 1px solid color-mix(in srgb, var(--border-default) 78%, transparent);
+    background: var(--prose-heading-anchor-bg);
+    border: 1px solid var(--prose-heading-anchor-border);
     border-radius: var(--radius-sm);
 
     /* Hidden by default */
     opacity: 0;
-    transition: opacity var(--transition-fast);
   }
 
   /* Link icon using mask */
-  .prose > :is(h2, h3) .prose__heading-anchor::before {
+  :global(.prose > :where(h2, h3, h4) .prose__heading-anchor::before) {
     display: block;
     inline-size: calc(var(--icon-size-xs) - 0.03rem);
     block-size: calc(var(--icon-size-xs) - 0.03rem);
     content: "";
-    background-color: var(--accent-strong);
+    background-color: currentcolor;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M10.59 13.41a1 1 0 0 1 0-1.41l3.18-3.18a3 3 0 1 1 4.24 4.24l-3.18 3.18a1 1 0 0 1-1.41-1.41l3.18-3.18a1 1 0 0 0-1.41-1.41l-3.18 3.18a1 1 0 0 1-1.41 0ZM13.41 10.59a1 1 0 0 1 0 1.41l-3.18 3.18a3 3 0 1 1-4.24-4.24l3.18-3.18a1 1 0 1 1 1.41 1.41L7.4 12.35a1 1 0 1 0 1.41 1.41l3.18-3.18a1 1 0 0 1 1.41 0Z'/%3E%3C/svg%3E")
       no-repeat center / contain;
   }
 
   /* Show anchor on hover or focus */
-  .prose > :is(h2, h3):hover .prose__heading-anchor,
-  .prose > :is(h2, h3):focus-within .prose__heading-anchor {
+  :global(.prose > :where(h2, h3, h4):hover .prose__heading-anchor),
+  :global(.prose > :where(h2, h3, h4):focus-within .prose__heading-anchor) {
     opacity: 1;
-  }
-
-  .prose > :is(h2, h3) .prose__heading-anchor:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
   }
 
   .prose--article {
     margin-inline: auto;
   }
 
-  .prose--article > h2 {
+  :global(.prose--article > h2) {
     position: relative;
     padding-block-start: var(--spacing-base);
   }
 
-  .prose--article > p {
+  :global(.prose--article > :where(p, ul, ol, blockquote)) {
     max-inline-size: var(--measure-readable);
   }
 
-  .prose--article > blockquote {
+  :global(.prose--article > blockquote) {
     margin-inline: 0;
   }
 
-  .prose--article > :first-child,
-  .prose--notes > :first-child {
+  :global(.prose--article > :first-child),
+  :global(.prose--notes > :first-child) {
     margin-block-start: 0;
   }
 
-  .prose--article > :last-child,
-  .prose--notes > :last-child {
+  :global(.prose--article > :last-child),
+  :global(.prose--notes > :last-child) {
     margin-block-end: 0;
   }
 
   .prose--notes {
     position: relative;
     z-index: 1;
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .prose a,
-    .prose > :is(h2, h3) .prose__heading-anchor {
-      transition: none;
-    }
   }
 </style>

@@ -66,7 +66,7 @@ const iconRegistry = {
 export type IconName = keyof typeof iconRegistry | `${string}:${string}`;
 
 interface Props extends astroHTML.JSX.SVGAttributes {
-  name: IconName | string;
+  name: IconName;
   "is:inline"?: boolean;
 }
 
@@ -75,12 +75,22 @@ const {
   width,
   height,
   "is:inline": isInline = true,
-  "aria-hidden": ariaHidden = true,
+  "aria-hidden": ariaHidden,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
+  role,
+  focusable,
   ...restProps
 } = Astro.props as Props & Record<string, unknown>;
 const resolvedName = iconRegistry[name as keyof typeof iconRegistry] ?? name;
 const resolvedWidth = width ?? "1em";
 const resolvedHeight = height ?? "1em";
+const hasAccessibleName = Boolean(ariaLabel || ariaLabelledBy);
+const resolvedAriaHidden = ariaHidden ?? (hasAccessibleName ? undefined : true);
+const resolvedRole = role ?? (hasAccessibleName ? "img" : undefined);
+const resolvedFocusable =
+  focusable ??
+  (resolvedAriaHidden === true || resolvedAriaHidden === "true" ? "false" : undefined);
 ---
 
 <AstroIcon
@@ -88,6 +98,10 @@ const resolvedHeight = height ?? "1em";
   width={resolvedWidth}
   height={resolvedHeight}
   is:inline={isInline}
-  aria-hidden={ariaHidden}
+  aria-hidden={resolvedAriaHidden}
+  aria-label={ariaLabel}
+  aria-labelledby={ariaLabelledBy}
+  role={resolvedRole}
+  focusable={resolvedFocusable}
   {...restProps}
 />

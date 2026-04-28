@@ -1,20 +1,32 @@
 ---
-interface HeadResourceLink {
+interface HeadResourceLinkBase {
   href: string;
-  as?: "style" | "script" | "font" | "image";
-  type?: string;
-  crossorigin?: "anonymous" | "use-credentials" | boolean;
 }
 
-interface Props {
-  dnsPrefetch?: ReadonlyArray<Pick<HeadResourceLink, "href">>;
-  preloadedResources?: ReadonlyArray<HeadResourceLink>;
-  fontPreloads?: ReadonlyArray<HeadResourceLink>;
-  sitemapHref?: string;
-  rssTitle?: string;
-  rssHref?: string;
-  rssHrefLang?: string;
+interface PreloadResourceLink extends HeadResourceLinkBase {
+  as: "style" | "script" | "font" | "image";
+  type?: string;
+  crossorigin?: "anonymous" | "use-credentials";
 }
+
+type RssResourceProps =
+  | {
+      rssTitle: string;
+      rssHref: string;
+      rssHrefLang?: string;
+    }
+  | {
+      rssTitle?: undefined;
+      rssHref?: undefined;
+      rssHrefLang?: undefined;
+    };
+
+type Props = {
+  dnsPrefetch?: ReadonlyArray<HeadResourceLinkBase>;
+  preloadedResources?: ReadonlyArray<PreloadResourceLink>;
+  fontPreloads?: ReadonlyArray<PreloadResourceLink>;
+  sitemapHref?: string;
+} & RssResourceProps;
 
 const {
   dnsPrefetch = [],

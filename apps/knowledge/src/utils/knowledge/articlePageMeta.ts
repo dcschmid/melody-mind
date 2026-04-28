@@ -13,11 +13,7 @@ import {
 } from "@utils/knowledgeImages";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { RASTER_IMAGE_EXT_PATTERN } from "@shared-utils/utils/imageAssets";
-import type {
-  ArticleHeroLink,
-  KnowledgeArticleLike,
-  ResolvedKnowledgeEntry,
-} from "./articlePageTypes";
+import type { ArticleHeroLink, ResolvedKnowledgeEntry } from "./articlePageTypes";
 import { KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES } from "./articlePageTypes";
 import { normalizeKeywords } from "./keywords";
 

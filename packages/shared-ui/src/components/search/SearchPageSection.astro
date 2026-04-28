@@ -10,7 +10,9 @@ interface SearchItem {
 }
 
 interface Props {
-  items: SearchItem[];
+  items?: SearchItem[];
+  searchIndexUrl?: string;
+  idBase?: string;
   variant?: "default" | "soft";
   initialQuery?: string;
   heroEyebrow?: string;
@@ -29,6 +31,8 @@ interface Props {
 
 const {
   items = [],
+  searchIndexUrl = "",
+  idBase,
   variant = "default",
   initialQuery = "",
   heroEyebrow = "",
@@ -45,21 +49,35 @@ const {
   searchLimit = 20,
 } = Astro.props as Props;
 
-const safeVariant = String(variant).replace(/[^a-zA-Z0-9-_]/g, "-");
-const sectionId = `search-page-section-${safeVariant}`;
+const withFallback = (value: string | undefined, fallback: string): string => {
+  const trimmed = value?.trim();
+
+  return trimmed ? trimmed : fallback;
+};
+
+const sanitizeId = (value: string): string =>
+  value
+    .trim()
+    .replace(/[^a-zA-Z0-9-_]/g, "-")
+    .replace(/-+/g, "-");
+
+const safeVariant = sanitizeId(String(variant)) || "default";
+const generatedId =
+  typeof crypto !== "undefined" && "randomUUID" in crypto
+    ? crypto.randomUUID().slice(0, 8)
+    : Math.random().toString(36).slice(2, 10);
+const sectionId = sanitizeId(
+  idBase ?? `search-page-section-${safeVariant}-${generatedId}`
+);
 
 const safeLimit = Math.max(1, Math.min(100, Number(searchLimit) || 20));
 const safeItems = Array.isArray(items) ? items : [];
-
-const escapeHtml = (str: string): string =>
-  String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-const safeTitle = escapeHtml(resultsTitle);
+const safeResultsEyebrow = withFallback(resultsEyebrow, "Find articles");
+const safeResultsTitle = withFallback(resultsTitle, "Results");
+const safeResultsHelp = withFallback(
+  resultsHelp,
+  "Results appear as you type. Your search is saved in the address bar so you can share or bookmark it."
+);
 ---
 
 <section class:list={["search-page-section", `search-page-section--${safeVariant}`]}>
@@ -101,26 +119,27 @@ const safeTitle = escapeHtml(resultsTitle);
   }
 
   <section class="search-page-section__results" aria-labelledby={`${sectionId}-title`}>
-    <div class="search-page-section__results-head" aria-label="Search results">
+    <div class="search-page-section__results-head">
       <Paragraph textSize="sm" className="search-page-section__eyebrow"
-        >{resultsEyebrow}</Paragraph
+        >{safeResultsEyebrow}</Paragraph
       >
       <Headline
         level="h2"
-        textSize="lg"
+        textSize="2xl"
         className="search-page-section__results-title"
         id={`${sectionId}-title`}
       >
-        <span set:html={safeTitle} />
+        {safeResultsTitle}
       </Headline>
       <Paragraph textSize="base" className="search-page-section__results-help"
-        >{resultsHelp}</Paragraph
+        >{safeResultsHelp}</Paragraph
       >
     </div>
 
     <SimpleSearch
       idBase={sectionId}
       items={safeItems}
+      searchIndexUrl={searchIndexUrl}
       initialQuery={initialQuery}
       placeholder={searchPlaceholder}
       emptyText={searchEmptyText}
@@ -156,7 +175,7 @@ const safeTitle = escapeHtml(resultsTitle);
   .search-page-section__tips {
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
   }
 
   .search-page-section__intro {

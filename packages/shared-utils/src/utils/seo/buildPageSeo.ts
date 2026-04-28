@@ -22,6 +22,13 @@ export type StructuredData = Record<string, unknown>;
 /** Coarse page classification used for default OG type and fallback social image inference. */
 export type PageContentKind = "generic" | "news" | "playlist" | "podcast";
 
+export interface AlternateLocaleLink {
+  locale: string;
+  href: string;
+}
+
+type PageSeoType = "website" | "article" | "musicPlaylist" | "game" | "podcastEpisode";
+
 /**
  * Input contract for `buildPageSeo()`.
  *
@@ -36,7 +43,7 @@ export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptio
   /** Optional OpenGraph / Twitter image path or absolute URL */
   image?: string;
   /** Explicit OG type override (normally inferred from contentKind) */
-  type?: "website" | "article" | "music" | "game" | "podcastEpisode";
+  type?: PageSeoType;
   /** High level content kind for automatic type & fallback selection */
   contentKind?: PageContentKind;
   /** Provide explicit fallback image (else inferred via contentKind) */
@@ -66,7 +73,7 @@ export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptio
   /** OpenGraph primary locale (e.g. en_US) */
   ogLocale?: string;
   /** Alternate OpenGraph locales */
-  alternateLocales?: string[];
+  alternateLocales?: AlternateLocaleLink[];
   /** Twitter creator handle (e.g. @melodymind) */
   twitterCreator?: string;
   /** Optional breadcrumbs to auto inject into structured data augmentation */
@@ -97,7 +104,7 @@ export interface PageSeoResult extends SeoTextResult {
   title: string;
   canonical: string;
   image?: string;
-  type: "website" | "article" | "music" | "game" | "podcastEpisode";
+  type: PageSeoType;
   publishDate?: Date;
   modifiedDate?: Date;
   extraMeta: Record<string, string>;
@@ -128,7 +135,7 @@ export interface PageSeoResult extends SeoTextResult {
   };
   structuredData: StructuredData[];
   ogLocale?: string;
-  alternateLocales?: string[];
+  alternateLocales?: AlternateLocaleLink[];
   /** Page author name */
   authorName?: string;
   /** Alt text for OpenGraph image */
@@ -171,10 +178,7 @@ function ensureBrandSuffix(
 }
 
 /** Maps the high-level page kind to the default Open Graph/content type. */
-function inferType(
-  contentKind: PageContentKind,
-  explicit?: PageSeoResult["type"]
-): PageSeoResult["type"] {
+function inferType(contentKind: PageContentKind, explicit?: PageSeoType): PageSeoType {
   if (explicit) {
     return explicit;
   }
@@ -182,11 +186,22 @@ function inferType(
     case "news":
       return "article";
     case "playlist":
-      return "music";
+      return "musicPlaylist";
     case "podcast":
       return "podcastEpisode";
     default:
       return "website";
+  }
+}
+
+function toOpenGraphType(type: PageSeoType): string {
+  switch (type) {
+    case "podcastEpisode":
+      return "article";
+    case "musicPlaylist":
+      return "music.playlist";
+    default:
+      return type;
   }
 }
 
@@ -409,7 +424,7 @@ interface NormalizedResultBase {
   maxVideoPreview?: number;
   structuredData: StructuredData[];
   ogLocale?: string;
-  alternateLocales?: string[];
+  alternateLocales?: AlternateLocaleLink[];
   twitterCreator?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
   authorName?: string;
@@ -604,7 +619,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   const seoText = prepareSeoText(normalizedTitle, description, enrichedParts, rest);
   const { inferredType, finalImage: baseImage } = inferTypeAndImage(
     contentKind,
-    type as PageSeoResult["type"] | undefined,
+    type as PageSeoType | undefined,
     image,
     fallbackImage
   );
@@ -655,7 +670,7 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     openGraph: {
       title: normalizedTitle,
       description: seoText.description,
-      type: inferredType,
+      type: toOpenGraphType(inferredType),
       url,
       ...(finalImage !== undefined && { image: finalImage }),
       ...(ogLocale !== undefined && { locale: ogLocale }),

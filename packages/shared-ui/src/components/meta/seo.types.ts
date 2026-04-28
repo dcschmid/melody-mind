@@ -1,4 +1,11 @@
-export type StructuredDataExtra = unknown[] | unknown;
+export type StructuredDataObject = Record<string, unknown>;
+
+export type StructuredDataExtra = StructuredDataObject | StructuredDataObject[];
+
+export interface AlternateLocaleLink {
+  locale: string;
+  href: string;
+}
 
 export interface OpenGraphMeta {
   title?: string;
@@ -16,4 +23,10 @@ export interface TwitterMeta {
   description?: string;
   image?: string;
   creator?: string;
+}
+
+export interface OpenGraphMusicMeta {
+  creator?: string;
+  album?: string;
+  musician?: string;
 }

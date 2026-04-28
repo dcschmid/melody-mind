@@ -1,6 +1,8 @@
 ---
+type DetailPillElement = "span" | "div" | "p" | "strong" | "em" | "small" | "li";
+
 interface Props extends astroHTML.JSX.HTMLAttributes {
-  as?: keyof astroHTML.JSX.IntrinsicElements;
+  as?: DetailPillElement;
   tone?: "accent" | "neutral" | "success" | "warning" | "info";
   className?: string;
   class?: string;
@@ -34,16 +36,11 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xs);
-    transition:
-      transform var(--motion-duration-fast) var(--motion-ease-standard),
-      box-shadow var(--motion-duration-fast) var(--motion-ease-standard),
-      background var(--motion-duration-fast) var(--motion-ease-standard);
     animation: pill-rise-in var(--motion-duration-slow) var(--motion-ease-standard) both;
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
     .detail-pill {
-      transition: none;
       animation: none;
     }
   }
@@ -62,15 +59,6 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     }
   }
 
-  /* Hover: gentle lift + accent glow for interactive context */
-  .detail-pill:hover,
-  .detail-pill:focus {
-    box-shadow:
-      var(--shadow-sm),
-      0 0 0 1px color-mix(in srgb, var(--accent-primary) 18%, transparent);
-    transform: translateY(-1px);
-  }
-
   .detail-pill--accent {
     font-weight: var(--font-weight-bold);
     color: var(--text-primary);
@@ -78,14 +66,6 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     letter-spacing: 0.12em;
     background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1));
     border-color: var(--surface-border-accent);
-  }
-
-  .detail-pill--accent:hover,
-  .detail-pill--accent:focus {
-    background: color-mix(in srgb, var(--accent-primary) 18%, var(--surface-1));
-    box-shadow:
-      var(--shadow-sm),
-      0 0 0 1px color-mix(in srgb, var(--accent-primary) 28%, transparent);
   }
 
   .detail-pill--neutral {
@@ -100,11 +80,6 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border-color: color-mix(in srgb, var(--color-success) 32%, var(--border-default));
   }
 
-  .detail-pill--success:hover,
-  .detail-pill--success:focus {
-    background: color-mix(in srgb, var(--color-success) 16%, var(--surface-1));
-  }
-
   .detail-pill--warning {
     font-weight: var(--font-weight-semibold);
     color: var(--color-warning);
@@ -112,26 +87,10 @@ const classes = ["detail-pill", `detail-pill--${tone}`, className, classProp]
     border-color: color-mix(in srgb, var(--color-warning) 32%, var(--border-default));
   }
 
-  .detail-pill--warning:hover,
-  .detail-pill--warning:focus {
-    background: color-mix(in srgb, var(--color-warning) 16%, var(--surface-1));
-  }
-
   .detail-pill--info {
     font-weight: var(--font-weight-semibold);
     color: var(--color-info);
     background: color-mix(in srgb, var(--color-info) 10%, var(--surface-1));
     border-color: color-mix(in srgb, var(--color-info) 32%, var(--border-default));
-  }
-
-  .detail-pill--info:hover,
-  .detail-pill--info:focus {
-    background: color-mix(in srgb, var(--color-info) 16%, var(--surface-1));
-  }
-
-  /* Press feedback: subtle scale-down on active */
-  .detail-pill:active {
-    transform: translateY(0) scale(0.98);
-    transition-duration: 80ms;
   }
 </style>

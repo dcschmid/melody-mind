@@ -34,22 +34,6 @@ const runWhenIdle = (cb: () => void): void => {
 
 const INIT_TARGETS: InitEntry[] = [
   {
-    test: (): Element | null =>
-      document.getElementById("back-to-top") ||
-      document.querySelector("[data-back-to-top]"),
-    init: async (): Promise<void> => {
-      const { initDefaultBackToTop } = await import("./backToTopUtils");
-      initDefaultBackToTop();
-    },
-  },
-  {
-    test: (): HTMLElement | null => document.getElementById("toc-toggle"),
-    init: async (): Promise<void> => {
-      const { initDefaultTableOfContents } = await import("./tableOfContentsUtils");
-      void initDefaultTableOfContents();
-    },
-  },
-  {
     test: (): Element | null => document.querySelector("[data-search-root]"),
     init: async (): Promise<void> => {
       const { initSearchPanelsAuto } = await import("./searchPanelUtils");

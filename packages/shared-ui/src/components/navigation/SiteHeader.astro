@@ -1,14 +1,18 @@
 ---
-import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import type { ImageMetadata } from "astro";
+import { randomUUID } from "node:crypto";
+
+import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import ThemeToggle from "@shared-ui/components/actions/ThemeToggle.astro";
 import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 import type { AppShellNavItem } from "@shared-utils/utils/appShell";
 import type { AppShellHeaderConfig } from "@shared-utils/utils/appShell";
 
 type SiteHeaderConfig = AppShellHeaderConfig & {
   brandLogoSrc?: string | ImageMetadata;
+  navId?: string;
 };
 
 interface Props {
@@ -23,11 +27,14 @@ interface Props {
   brandLogoAlt?: string;
   brandLogoWidth?: number;
   brandLogoHeight?: number;
+  brandLogoLoading?: "eager" | "lazy";
+  brandLogoFetchPriority?: "high" | "low" | "auto";
   brandAriaLabel?: string;
   menuOpenLabel?: string;
   menuCloseLabel?: string;
   menuText?: string;
   navAriaLabel?: string;
+  navId?: string;
 }
 
 const {
@@ -42,11 +49,14 @@ const {
   brandLogoAlt = "",
   brandLogoWidth = 1024,
   brandLogoHeight = 683,
+  brandLogoLoading = "eager",
+  brandLogoFetchPriority = "high",
   brandAriaLabel = "Go to the homepage",
   menuOpenLabel = "Open main menu",
   menuCloseLabel = "Close main menu",
   menuText = "Menu",
   navAriaLabel = "Primary navigation",
+  navId: navIdOverride,
 } = Astro.props as Props;
 
 const resolvedHeaderConfig = {
@@ -60,22 +70,27 @@ const resolvedHeaderConfig = {
   brandLogoAlt,
   brandLogoWidth,
   brandLogoHeight,
+  brandLogoLoading,
+  brandLogoFetchPriority,
   brandAriaLabel,
   menuOpenLabel,
   menuCloseLabel,
   menuText,
   navAriaLabel,
+  navId: navIdOverride,
   ...headerConfig,
 };
 
 const currentPath = Astro.url.pathname;
 const hasBrandLogo = Boolean(resolvedHeaderConfig.brandLogoSrc);
 const hasBrandText = resolvedHeaderConfig.brandText.trim().length > 0;
+const hasNavItems = resolvedHeaderConfig.navItems.length > 0;
 const navIdBase =
   `${resolvedHeaderConfig.navAriaLabel}-${currentPath}`
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-") || "site-header";
-const navId = `${navIdBase}-nav`;
+const explicitNavId = resolvedHeaderConfig.navId?.trim().replace(/\s+/g, "-");
+const navId = explicitNavId || `${navIdBase}-${randomUUID().slice(0, 8)}-nav`;
 ---
 
 <header
@@ -87,11 +102,7 @@ const navId = `${navIdBase}-nav`;
   data-site-header
   data-open="false"
 >
-  <button
-    class="site-header__backdrop"
-    aria-label="Close menu"
-    data-site-header-backdrop
-    tabindex="-1"></button>
+  {hasNavItems && <div class="site-header__backdrop" data-site-header-backdrop />}
   <div class="site-header__inner">
     {
       resolvedHeaderConfig.showBrand && (
@@ -112,8 +123,9 @@ const navId = `${navIdBase}-nav`;
                   alt={resolvedHeaderConfig.brandLogoAlt}
                   width={resolvedHeaderConfig.brandLogoWidth}
                   height={resolvedHeaderConfig.brandLogoHeight}
-                  loading="lazy"
+                  loading={resolvedHeaderConfig.brandLogoLoading}
                   decoding="async"
+                  fetchpriority={resolvedHeaderConfig.brandLogoFetchPriority}
                 />
               </span>
               {hasBrandText && (
@@ -138,24 +150,28 @@ const navId = `${navIdBase}-nav`;
       )
     }
 
-    <button
-      type="button"
-      class="site-header__menu-toggle"
-      aria-expanded="false"
-      aria-controls={navId}
-      aria-label={resolvedHeaderConfig.menuOpenLabel}
-      data-site-header-toggle
-      data-menu-open-label={resolvedHeaderConfig.menuOpenLabel}
-      data-menu-close-label={resolvedHeaderConfig.menuCloseLabel}
-    >
-      <span class="site-header__menu-toggle-inner">
-        <Icon name="menu" class="site-header__menu-icon" aria-hidden="true" />
-        <span>{resolvedHeaderConfig.menuText}</span>
-      </span>
-    </button>
+    {
+      hasNavItems && (
+        <button
+          type="button"
+          class="site-header__menu-toggle"
+          aria-expanded="false"
+          aria-controls={navId}
+          aria-label={resolvedHeaderConfig.menuOpenLabel}
+          data-site-header-toggle
+          data-menu-open-label={resolvedHeaderConfig.menuOpenLabel}
+          data-menu-close-label={resolvedHeaderConfig.menuCloseLabel}
+        >
+          <span class="site-header__menu-toggle-inner">
+            <Icon name="menu" class="site-header__menu-icon" aria-hidden="true" />
+            <span>{resolvedHeaderConfig.menuText}</span>
+          </span>
+        </button>
+      )
+    }
 
     {
-      resolvedHeaderConfig.navItems.length > 0 && (
+      hasNavItems && (
         <nav
           id={navId}
           class="site-header__nav"
@@ -182,7 +198,7 @@ const navId = `${navIdBase}-nav`;
                   >
                     {resolvedHeaderConfig.showIcons && item.icon ? (
                       <Icon
-                        name={item.icon}
+                        name={item.icon as IconName}
                         class="site-header__nav-icon"
                         aria-hidden="true"
                       />
@@ -213,9 +229,7 @@ const navId = `${navIdBase}-nav`;
     header.dataset.siteHeaderBound = "true";
     const toggle = header.querySelector<HTMLButtonElement>("[data-site-header-toggle]");
     const nav = header.querySelector<HTMLElement>("[data-site-header-nav]");
-    const backdrop = header.querySelector<HTMLButtonElement>(
-      "[data-site-header-backdrop]"
-    );
+    const backdrop = header.querySelector<HTMLElement>("[data-site-header-backdrop]");
     if (!toggle || !nav) {
       return;
     }
@@ -226,7 +240,7 @@ const navId = `${navIdBase}-nav`;
       });
     }
 
-    const mobileMedia = window.matchMedia("(max-width: 879.98px)");
+    const mobileMedia = window.matchMedia("(max-width: 1023.98px)");
     const openLabel = toggle.dataset.menuOpenLabel || "Open main menu";
     const closeLabel = toggle.dataset.menuCloseLabel || "Close main menu";
 
@@ -237,8 +251,6 @@ const navId = `${navIdBase}-nav`;
       mobileMedia,
       bodyClass: "site-header-menu-open",
       manageHidden: false,
-      excludeFromOutsideLock: (element, root) =>
-        element === root || element.contains(root),
       onOpenChange: (open) => {
         toggle.setAttribute("aria-label", open ? closeLabel : openLabel);
         nav.setAttribute("aria-hidden", open ? "false" : "true");
@@ -396,21 +408,16 @@ const navId = `${navIdBase}-nav`;
   @media screen and (prefers-reduced-motion: no-preference) {
     .site-header__brand-mark {
       transition:
-        transform var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1),
-        box-shadow var(--transition-fast) cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform var(--transition-fast) var(--motion-ease-standard),
         background-color var(--transition-fast);
     }
 
     .site-header__brand:hover .site-header__brand-mark,
     .site-header__brand:focus .site-header__brand-mark {
-      box-shadow:
-        0 4px 12px color-mix(in srgb, var(--accent-primary) 22%, transparent),
-        0 2px 4px color-mix(in srgb, var(--accent-primary) 14%, transparent);
       transform: translateY(-2px) scale(1.06);
     }
 
     .site-header__brand:active .site-header__brand-mark {
-      box-shadow: none;
       transform: translateY(0) scale(1);
     }
   }
@@ -609,7 +616,7 @@ const navId = `${navIdBase}-nav`;
     );
   }
 
-  @media (width >= 880px) {
+  @media (width >= 1024px) {
     .site-header__actions :global(.theme-toggle) {
       --theme-toggle-pill-padding: calc(var(--spacing-xs) - 0.15rem);
     }
@@ -684,11 +691,11 @@ const navId = `${navIdBase}-nav`;
       transition:
         color var(--transition-fast),
         background-color var(--transition-fast),
-        transform 280ms cubic-bezier(0.34, 1.2, 0.64, 1);
+        transform var(--transition-base) var(--motion-ease-standard);
     }
   }
 
-  @media (width >= 880px) {
+  @media (width >= 1024px) {
     .site-header__nav-link:hover,
     .site-header__nav-link:focus {
       transform: none;
@@ -706,7 +713,7 @@ const navId = `${navIdBase}-nav`;
     background: color-mix(in srgb, var(--accent-primary) 8%, transparent);
   }
 
-  @media (width >= 880px) {
+  @media (width >= 1024px) {
     .site-header__backdrop {
       display: none;
     }
@@ -811,7 +818,7 @@ const navId = `${navIdBase}-nav`;
     }
   }
 
-  @media (width <= 879.98px) {
+  @media (width <= 1023.98px) {
     .site-header__nav-link:focus {
       color: var(--accent-strong);
       background: color-mix(in srgb, var(--accent-primary) 8%, transparent);

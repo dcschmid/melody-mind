@@ -119,7 +119,7 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo}>
-  <PageShell className="page-shell--aurora page-shell--grid">
+  <PageShell className="page-shell--night page-shell--grid">
     <div class="quiz-page">
       <HeroTeaser
         id="quiz-home-hero"
@@ -144,7 +144,7 @@ const pageSeo = buildPageSeo({
             variant="accent"
             aria-labelledby="decade-heading"
           >
-            <Headline level="h2" textSize="lg" className="quiz-section__title">
+            <Headline level="h2" textSize="2xl" className="quiz-section__title">
               <span id="decade-heading">{categoryLabels.decade}</span>
             </Headline>
             <Paragraph textSize="base" className="quiz-section__description">
@@ -185,7 +185,7 @@ const pageSeo = buildPageSeo({
             className="quiz-section"
             aria-labelledby="genre-heading"
           >
-            <Headline level="h2" textSize="lg" className="quiz-section__title">
+            <Headline level="h2" textSize="2xl" className="quiz-section__title">
               <span id="genre-heading">{categoryLabels["genre-evolution"]}</span>
             </Headline>
             <Paragraph textSize="base" className="quiz-section__description">
@@ -226,7 +226,7 @@ const pageSeo = buildPageSeo({
             className="quiz-section"
             aria-labelledby="mixed-heading"
           >
-            <Headline level="h2" textSize="lg" className="quiz-section__title">
+            <Headline level="h2" textSize="2xl" className="quiz-section__title">
               <span id="mixed-heading">{categoryLabels.mixed}</span>
             </Headline>
             <Paragraph textSize="base" className="quiz-section__description">
@@ -262,7 +262,7 @@ const pageSeo = buildPageSeo({
       {
         quizzes.length === 0 && (
           <EmptyState
-            className="quiz-empty"
+            class="quiz-empty"
             title="No quizzes available yet"
             description="Check back soon for new music quizzes!"
           />

@@ -2,20 +2,28 @@
 import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
+import type { TrustedHtml } from "@shared-ui/utils/trustedHtml";
+
+type HeadingLevel = "h2" | "h3" | "h4";
 
 interface Props extends astroHTML.JSX.HTMLAttributes {
   /**
-   * Body paragraphs as an array of HTML strings.
-   * SECURITY: Content must be static (server-defined) — never user-generated HTML.
-   * Using set:html assumes all content is trusted and sanitized.
+   * Trusted body paragraphs as an array of HTML strings.
+   * SECURITY: Content must be static or sanitized before reaching this component.
+   * Never pass user-generated HTML here.
    */
-  body?: readonly string[] | string[];
+  trustedHtmlBody?: readonly TrustedHtml[] | TrustedHtml[];
   desktopSpan?: "default" | "full";
+  /**
+   * Heading level for the section title. Defaults to h2 for top-level legal sections.
+   */
+  headingLevel?: HeadingLevel;
   headerWidth?: "default" | "compact";
   /**
    * Icon name from the shared icon library (e.g., "shield", "settings", "file-text").
    */
-  icon: string;
+  icon: IconName;
   /**
    * Semantic color for the icon.
    * - primary: Neutral or informational (default)
@@ -29,8 +37,8 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   /**
    * Visual style variant for the section.
    * - default: Standard panel appearance
-   * - accent: Subtle amber tint — for highlighted but not critical content
-   * - spotlight: Stronger amber tint — for featured or important sections
+   * - accent: Subtle amber tint for highlighted but not critical content
+   * - spotlight: Stronger amber tint for featured or important sections
    */
   variant?: "default" | "accent" | "spotlight";
   dense?: boolean;
@@ -38,12 +46,13 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
 }
 
 const {
-  body = [],
   desktopSpan = "default",
+  headingLevel = "h2",
   headerWidth = "default",
   icon,
   iconColor = "primary",
   title,
+  trustedHtmlBody = [],
   variant = "default",
   dense = false,
   class: className,
@@ -76,14 +85,18 @@ const {
       ]}
       aria-hidden="true"
     />
-    <Headline level="h2" textSize="lg" className="legal-document-section__title">
+    <Headline
+      level={headingLevel}
+      textSize="2xl"
+      className="legal-document-section__title"
+    >
       {title}
     </Headline>
   </div>
   {
-    body.length > 0 && (
+    trustedHtmlBody.length > 0 && (
       <div class="legal-document-section__text-group">
-        {body.map((text) => (
+        {trustedHtmlBody.map((text) => (
           <Paragraph
             textSize="sm"
             className="legal-document-section__text"
@@ -130,13 +143,6 @@ const {
     inline-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
     block-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
     color: var(--accent-primary);
-    transition: color var(--transition-fast);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .legal-document-section__icon {
-      transition: none;
-    }
   }
 
   /* Grouped color declarations */
@@ -158,37 +164,6 @@ const {
 
   .legal-document-section__icon--color-info {
     color: var(--color-info);
-  }
-
-  /* Grouped hover states by state, not by color */
-  .legal-document-section__icon--color-primary:hover,
-  .legal-document-section__icon--color-primary:active,
-  .legal-document-section__icon--color-primary:focus-visible {
-    color: var(--accent-primary-hover);
-  }
-
-  .legal-document-section__icon--color-success:hover,
-  .legal-document-section__icon--color-success:active,
-  .legal-document-section__icon--color-success:focus-visible {
-    color: var(--color-success-hover);
-  }
-
-  .legal-document-section__icon--color-warning:hover,
-  .legal-document-section__icon--color-warning:active,
-  .legal-document-section__icon--color-warning:focus-visible {
-    color: var(--color-warning-hover);
-  }
-
-  .legal-document-section__icon--color-error:hover,
-  .legal-document-section__icon--color-error:active,
-  .legal-document-section__icon--color-error:focus-visible {
-    color: var(--color-error-hover);
-  }
-
-  .legal-document-section__icon--color-info:hover,
-  .legal-document-section__icon--color-info:active,
-  .legal-document-section__icon--color-info:focus-visible {
-    color: var(--color-info-hover);
   }
 
   .legal-document-section__title {
@@ -228,8 +203,14 @@ const {
     color: var(--link-hover);
   }
 
-  .legal-document-section > :global(slot) {
-    margin-block-start: var(--spacing-md);
+  .legal-document-section--dense {
+    gap: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+  }
+
+  .legal-document-section--dense .legal-document-section__header {
+    padding-block-end: var(--spacing-sm);
+    margin-block-end: var(--spacing-base);
   }
 
   @media (width >= 720px) {
@@ -238,12 +219,11 @@ const {
     }
 
     .legal-document-section--dense {
-      gap: var(--spacing-lg);
       padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
     }
 
     .legal-document-section--dense .legal-document-section__header {
-      padding-block-end: var(--spacing-sm);
+      margin-block-end: var(--spacing-lg);
     }
   }
 

@@ -67,6 +67,7 @@ const noResultsId = `${idBase}-no-results`;
       aria-label="Reset search"
       aria-controls={ariaControls}
       data-search-reset
+      disabled
     >
       <Icon name="refresh-ccw" class="search-panel__reset-icon" aria-hidden="true" />
       <span>Reset</span>
@@ -164,9 +165,8 @@ const noResultsId = `${idBase}-no-results`;
     font: inherit;
     font-size: var(--font-size-base);
     color: var(--text-primary);
-    background: var(--surface-1);
+    background: color-mix(in srgb, var(--accent-primary) 3%, var(--surface-1));
     border: 1px solid var(--border-default);
-    border-left: 3px solid var(--accent-primary);
     border-radius: var(--radius-lg);
   }
 
@@ -255,18 +255,15 @@ const noResultsId = `${idBase}-no-results`;
         color var(--motion-duration-fast) var(--motion-ease-standard),
         border-color var(--motion-duration-fast) var(--motion-ease-standard),
         background var(--motion-duration-fast) var(--motion-ease-standard),
-        transform var(--motion-duration-fast) var(--motion-ease-standard),
-        box-shadow var(--motion-duration-fast) var(--motion-ease-standard);
+        transform var(--motion-duration-fast) var(--motion-ease-standard);
     }
 
-    .search-panel__reset:hover,
-    .search-panel__reset:focus-visible {
-      box-shadow: 0 2px 8px oklch(from var(--accent-primary) l c h / 0.2);
+    .search-panel__reset:not(:disabled):hover,
+    .search-panel__reset:not(:disabled):focus-visible {
       transform: translateY(-1px);
     }
 
-    .search-panel__reset:active {
-      box-shadow: none;
+    .search-panel__reset:not(:disabled):active {
       transform: translateY(1px);
     }
 
@@ -283,6 +280,12 @@ const noResultsId = `${idBase}-no-results`;
         transform: rotate(360deg);
       }
     }
+  }
+
+  .search-panel__reset:disabled {
+    color: var(--text-tertiary);
+    cursor: not-allowed;
+    opacity: 0.68;
   }
 
   .search-panel__meta {

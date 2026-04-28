@@ -3,10 +3,11 @@ interface DataTableColumn {
   key: string;
   label: string;
   renderAsCode?: boolean;
+  isRowHeader?: boolean;
 }
 
 interface Props {
-  caption?: string;
+  caption: string;
   columns: readonly DataTableColumn[] | DataTableColumn[];
   rows: readonly Record<string, string>[] | Record<string, string>[];
 }
@@ -16,7 +17,7 @@ const { caption, columns, rows } = Astro.props as Props;
 
 <div class="data-table">
   <table class="data-table__table">
-    {caption ? <caption class="data-table__sr-only">{caption}</caption> : null}
+    <caption class="data-table__sr-only">{caption}</caption>
     <thead>
       <tr>
         {columns.map((column) => <th scope="col">{column.label}</th>)}
@@ -24,11 +25,19 @@ const { caption, columns, rows } = Astro.props as Props;
     </thead>
     <tbody>
       {
-        rows.map((row, rowIndex) => (
-          <tr style={`--row-index: ${rowIndex + 1}`}>
+        rows.map((row) => (
+          <tr>
             {columns.map((column) => {
               const value = row[column.key] ?? "";
-              return <td>{column.renderAsCode ? <code>{value}</code> : value}</td>;
+              const content = column.renderAsCode ? <code>{value}</code> : value;
+
+              return column.isRowHeader ? (
+                <th class="data-table__row-header" scope="row" data-label={column.label}>
+                  {content}
+                </th>
+              ) : (
+                <td data-label={column.label}>{content}</td>
+              );
             })}
           </tr>
         ))
@@ -38,44 +47,19 @@ const { caption, columns, rows } = Astro.props as Props;
 </div>
 
 <style>
-  @keyframes data-table-enter {
-    from {
-      opacity: 0;
-      transform: translateY(4px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes row-enter {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
   .data-table {
     position: relative;
     padding: var(--spacing-sm);
     overflow-inline: auto;
     background: var(--surface-1);
     border: 1px solid var(--border-default);
-    border-inline-start: 3px solid var(--accent-primary);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    animation: data-table-enter 0.4s ease-out;
-    will-change: opacity, transform;
   }
 
   .data-table__table {
     inline-size: 100%;
-    min-inline-size: min(var(--measure-standard), 100%);
+    min-inline-size: var(--measure-standard);
     border-collapse: collapse;
   }
 
@@ -85,27 +69,19 @@ const { caption, columns, rows } = Astro.props as Props;
     vertical-align: top;
     color: var(--text-secondary);
     text-align: start;
+    overflow-wrap: anywhere;
     border-block-end: 1px solid var(--border-muted);
   }
 
-  .data-table__table th {
+  .data-table__table thead th {
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
     background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .data-table__table code {
-      display: inline-block;
-      padding: var(--spacing-2xs) var(--spacing-xs);
-      font-family: var(--font-mono);
-      font-size: var(--font-size-base);
-      color: var(--link-default);
-      background: var(--surface-2);
-      border: 1px solid var(--border-muted);
-      border-radius: var(--radius-sm);
-      transition: none;
-    }
+  .data-table__row-header {
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
   }
 
   .data-table__table code {
@@ -114,60 +90,87 @@ const { caption, columns, rows } = Astro.props as Props;
     font-family: var(--font-mono);
     font-size: var(--font-size-base);
     color: var(--link-default);
+    white-space: nowrap;
     background: var(--surface-2);
     border: 1px solid var(--border-muted);
     border-radius: var(--radius-sm);
-    transition: box-shadow 0.2s ease;
   }
 
   .data-table__table tbody tr:last-child td {
     border-block-end: 0;
   }
 
-  .data-table__table tbody tr {
-    animation: row-enter 0.3s ease-out backwards;
-    animation-delay: calc((var(--row-index, 1) - 1) * 0.05s);
-    will-change: opacity;
-  }
-
-  .data-table__table tbody tr:focus-visible {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: -2px;
-  }
-
-  .data-table__table tbody tr:hover,
-  .data-table__table tbody tr:focus {
-    background: color-mix(in srgb, var(--accent-primary) 5%, transparent);
-  }
-
-  .data-table__table tbody tr:hover td,
-  .data-table__table tbody tr:focus td {
-    color: var(--text-primary);
-  }
-
-  .data-table__table tbody tr:hover code,
-  .data-table__table tbody tr:focus code {
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 30%, transparent);
+  .data-table__table tbody tr:last-child th {
+    border-block-end: 0;
   }
 
   @media (width <= 640px) {
     .data-table {
-      border-inline-start-width: 2px;
+      padding: var(--spacing-xs);
+      overflow-inline: visible;
+    }
+
+    .data-table__table {
+      min-inline-size: 0;
+    }
+
+    .data-table__table thead {
+      position: var(--sr-only);
+      inline-size: var(--sr-only-width);
+      block-size: var(--sr-only-height);
+      padding: var(--sr-only-padding);
+      margin: var(--sr-only-margin);
+      overflow: var(--sr-only-overflow);
+      white-space: var(--sr-only-white-space);
+      border: var(--sr-only-border);
+      clip-path: var(--sr-only-clip-path);
+    }
+
+    .data-table__table tbody {
+      display: grid;
+      gap: var(--spacing-sm);
+    }
+
+    .data-table__table tr {
+      display: grid;
+      padding: var(--spacing-sm);
+      background: color-mix(in srgb, var(--surface-2) 58%, var(--surface-1));
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
     }
 
     .data-table__table th,
     .data-table__table td {
-      padding-block: var(--spacing-sm);
+      display: grid;
+      grid-template-columns: minmax(6rem, 34%) minmax(0, 1fr);
+      gap: var(--spacing-sm);
+      align-items: start;
+      padding: var(--spacing-sm) 0;
+      border-block-end: 1px solid var(--border-muted);
     }
-  }
 
-  @media (prefers-reduced-motion: reduce) {
-    .data-table {
-      animation: none;
+    .data-table__table th::before,
+    .data-table__table td::before {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-secondary);
+      content: attr(data-label);
     }
 
-    .data-table__table tbody tr {
-      animation: none;
+    .data-table__table code {
+      max-inline-size: 100%;
+      overflow-wrap: anywhere;
+      white-space: normal;
+    }
+
+    .data-table__table tbody tr:last-child td,
+    .data-table__table tbody tr:last-child th {
+      border-block-end: 1px solid var(--border-muted);
+    }
+
+    .data-table__table tbody tr th:last-child,
+    .data-table__table tbody tr td:last-child {
+      border-block-end: 0;
     }
   }
 

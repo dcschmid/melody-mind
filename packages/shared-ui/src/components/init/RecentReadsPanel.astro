@@ -6,7 +6,6 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   copy?: string;
   emptyDescription?: string;
   fallbackImage: string;
-  imageMap: Record<string, string>;
   maxItems?: number;
   storageKey: string;
   title?: string;
@@ -19,23 +18,23 @@ const {
   copy = "Return to the guides you opened most recently.",
   emptyDescription = "No recent guides yet. Open an article and it will appear here.",
   fallbackImage,
-  imageMap,
   maxItems = 3,
   storageKey,
   title = "Recently read",
-  titleId = "recent-reads-title",
+  titleId,
   className = "",
   class: classProp = "",
   ...rest
 } = Astro.props as Props;
 
 const classes = ["recent-reads-panel", className, classProp].filter(Boolean).join(" ");
+const resolvedTitleId = titleId ?? `recent-reads-title-${crypto.randomUUID()}`;
 ---
 
-<section {...rest} class={classes} aria-labelledby={titleId}>
+<section {...rest} class={classes} aria-labelledby={resolvedTitleId}>
   <div class="section-header recent-reads-panel__header">
     <div class="section-header__copy">
-      <h2 id={titleId} class="section-header__title recent-reads-panel__title">
+      <h2 id={resolvedTitleId} class="section-header__title recent-reads-panel__title">
         {title}
       </h2>
       <p class="section-header__description recent-reads-panel__description">{copy}</p>
@@ -47,7 +46,6 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     data-recent-reads="true"
     data-storage-key={storageKey}
     data-max-items={String(maxItems)}
-    data-image-map={JSON.stringify(imageMap)}
     data-fallback-image={fallbackImage}
   >
     <div class="recent-reads-panel__results" data-role="container" hidden>
@@ -62,9 +60,12 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     />
 
     <EmptyState
-      className="recent-reads-panel__empty"
+      class="recent-reads-panel__empty"
       data-role="empty"
       description={emptyDescription}
+      role="status"
+      live="polite"
+      hidden
     />
   </div>
 </section>
@@ -127,8 +128,7 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   .recent-reads-panel__mount :global(.recent-reads-panel__list) {
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: var(--spacing-lg);
-    justify-content: start;
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-xl));
     padding: 0;
     margin: 0;
     list-style: none;
@@ -139,46 +139,53 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     min-inline-size: 0;
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .recent-reads-panel__mount :global(.recent-reads-panel__link) {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      inline-size: 100%;
-      min-block-size: 100%;
-      color: var(--text-primary);
-      text-decoration: none;
-      background: var(--surface-panel-bg);
-      border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-lg);
-      transition: none;
-      will-change: transform;
-    }
-  }
-
   .recent-reads-panel__mount :global(.recent-reads-panel__link) {
+    position: relative;
     display: grid;
     grid-template-rows: auto 1fr;
     inline-size: 100%;
-    min-block-size: 100%;
+    min-inline-size: 0;
+    block-size: 100%;
+    overflow: hidden;
     color: var(--text-primary);
     text-decoration: none;
-    background: var(--surface-panel-bg);
+    background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
+    border-radius: calc(var(--radius-xl) + var(--spacing-xs));
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
+      var(--shadow-base);
     transition:
-      border-color var(--transition-fast),
-      background-color var(--transition-fast),
-      box-shadow var(--transition-fast),
-      transform var(--transition-fast);
-    will-change: transform;
+      box-shadow var(--transition-base) var(--motion-ease-standard),
+      transform var(--transition-base) var(--motion-ease-standard);
   }
 
-  .recent-reads-panel__mount :global(.recent-reads-panel__link:hover),
-  .recent-reads-panel__mount :global(.recent-reads-panel__link:focus) {
-    background: var(--surface-panel-raised);
-    border-color: var(--surface-border-accent);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
+  @media screen and (prefers-reduced-motion: reduce) {
+    .recent-reads-panel__mount :global(.recent-reads-panel__link) {
+      transition: none;
+    }
+  }
+
+  /* stylelint-disable-next-line a11y/selector-pseudo-class-focus -- Keyboard focus uses shadow and outline without motion. */
+  .recent-reads-panel__mount :global(.recent-reads-panel__link:hover) {
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
+      var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .recent-reads-panel__mount :global(.recent-reads-panel__link:focus-visible) {
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 74%, transparent),
+      var(--interactive-shadow-focus),
+      var(--shadow-lg);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    /* stylelint-disable-next-line a11y/selector-pseudo-class-focus -- Reduced motion only neutralizes the hover transform; focus has no transform. */
+    .recent-reads-panel__mount :global(.recent-reads-panel__link:hover) {
+      transform: none;
+    }
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__link):focus-visible {
@@ -187,21 +194,30 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__media) {
+    position: relative;
+    inline-size: 100%;
     aspect-ratio: 16 / 10;
     overflow: hidden;
-    background: var(--surface-2);
-    border-bottom: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: var(--surface-chip-bg);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .recent-reads-panel__mount :global(.recent-reads-panel__image) {
-      display: block;
-      inline-size: 100%;
-      block-size: 100%;
-      object-fit: cover;
-      transition: none;
-    }
+  .recent-reads-panel__mount :global(.recent-reads-panel__media::after) {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-scrim) 6%, transparent),
+        transparent 36%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 55%,
+        color-mix(in srgb, var(--surface-scrim) 22%, transparent)
+      );
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__image) {
@@ -209,14 +225,6 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
-    transition: transform var(--transition-slow);
-  }
-
-  .recent-reads-panel__mount
-    :global(.recent-reads-panel__link:is(:hover, :focus))
-    .recent-reads-panel__mount
-    :global(.recent-reads-panel__image) {
-    transform: scale(1.03);
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__body) {
@@ -229,29 +237,37 @@ const classes = ["recent-reads-panel", className, classProp].filter(Boolean).joi
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 2;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-snug);
-    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    color: var(--heading-color);
+    letter-spacing: var(--heading-letter-spacing);
+    text-wrap: balance;
+    overflow-wrap: break-word;
     /* stylelint-disable-next-line property-no-deprecated */
     -webkit-box-orient: block-axis;
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .recent-reads-panel__mount :global(.recent-reads-panel__link),
-    .recent-reads-panel__mount :global(.recent-reads-panel__image),
-    .recent-reads-panel__mount
-      :global(.recent-reads-panel__link:is(:hover, :focus))
-      .recent-reads-panel__mount
-      :global(.recent-reads-panel__image) {
-      transform: none;
-      transition: none;
+  .recent-reads-panel__mount
+    :global(.recent-reads-panel__link:hover .recent-reads-panel__title),
+  .recent-reads-panel__mount
+    :global(.recent-reads-panel__link:focus-visible .recent-reads-panel__title) {
+    color: color-mix(in srgb, var(--heading-color) 85%, var(--accent-primary) 15%);
+  }
+
+  @media (width >= 40rem) {
+    .recent-reads-panel__mount :global(.recent-reads-panel__list) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (width >= 640px) {
+  @media (width >= 64rem) {
     .recent-reads-panel__mount :global(.recent-reads-panel__list) {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 320px));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .recent-reads-panel__mount :global(.recent-reads-panel__body) {
+      padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
     }
   }
 </style>

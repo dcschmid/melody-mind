@@ -22,7 +22,6 @@ import { musicTaxonomy } from "../../data/musicTaxonomy";
 import type { TaxonomySection } from "../../types/taxonomy";
 import { countArticlesPerSubsection } from "../taxonomy/taxonomyUtils";
 import {
-  getKnowledgeCategoryImageSrc,
   getKnowledgeCategoryImageUrl,
   knowledgeHeroImageUrl,
 } from "@utils/knowledgeImages";
@@ -50,7 +49,6 @@ export type KnowledgeIndexSection = TaxonomySection & {
 
 type BuildKnowledgeIndexPageDataResult = {
   pageSeo: PageSeoResult;
-  recentReadImageMap: Record<string, string>;
   taxonomySections: KnowledgeIndexSection[];
 };
 
@@ -77,26 +75,6 @@ const normalizeKnowledgeArticles = (
       },
     };
   });
-
-const buildRecentReadImageMap = (
-  articles: KnowledgeIndexArticle[]
-): Record<string, string> =>
-  Object.fromEntries(
-    articles.map((article) => {
-      const articleSlug =
-        typeof article?.slug === "string" && article.slug
-          ? article.slug.replace(/^\/+/, "")
-          : typeof article?.id === "string"
-            ? article.id.replace(/^\/+/, "")
-            : "";
-      const articleImage =
-        getKnowledgeCategoryImageSrc(
-          typeof article?.data?.image === "string" ? article.data.image.trim() : ""
-        ) || "";
-
-      return [articleSlug, articleImage];
-    })
-  );
 
 const buildTaxonomySections = (
   articles: KnowledgeIndexArticle[]
@@ -161,7 +139,6 @@ export const buildKnowledgeIndexPageData = async (
   const currentUrl = resolvePageUrl(site, "/");
   const normalizedArticles = normalizeKnowledgeArticles(baseArticles);
   const sortedArticles = sortEntries(normalizedArticles) as KnowledgeIndexArticle[];
-  const recentReadImageMap = buildRecentReadImageMap(sortedArticles);
   const taxonomySections = buildTaxonomySections(sortedArticles);
 
   let earliestCreated: Date | null = null;
@@ -236,7 +213,6 @@ export const buildKnowledgeIndexPageData = async (
 
   return {
     pageSeo,
-    recentReadImageMap,
     taxonomySections,
   };
 };

@@ -1,6 +1,7 @@
 ---
 import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 
 const BUTTON_VARIANTS = ["primary", "secondary"] as const;
 const BUTTON_SIZES = ["default", "compact"] as const;
@@ -16,7 +17,7 @@ interface Props {
   rel?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  icon?: string;
+  icon?: IconName;
   newTabText?: string;
   disabled?: boolean;
 }

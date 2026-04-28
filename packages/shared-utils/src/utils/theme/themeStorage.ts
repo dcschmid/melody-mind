@@ -84,5 +84,19 @@ export function getResolvedTheme(): Theme {
 export function applyTheme(theme: Theme, source: "manual" | "system" = "manual"): void {
   document.documentElement.setAttribute("data-theme", theme);
   document.documentElement.style.colorScheme = theme;
+  const themeColors = document.querySelectorAll<HTMLMetaElement>(
+    'meta[name="theme-color"][data-theme-color]'
+  );
+
+  themeColors.forEach((themeColor) => {
+    const resolvedThemeColor =
+      themeColor.dataset[theme === "dark" ? "themeColorDark" : "themeColorLight"];
+
+    if (resolvedThemeColor) {
+      themeColor.content = resolvedThemeColor;
+      themeColor.removeAttribute("media");
+    }
+  });
+
   dispatchCustomEvent(THEME_EVENTS.CHANGED, { theme, source });
 }

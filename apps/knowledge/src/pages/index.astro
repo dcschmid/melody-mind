@@ -16,8 +16,7 @@ import {
 
 export const prerender = true;
 
-const { pageSeo, recentReadImageMap, taxonomySections } =
-  await buildKnowledgeIndexPageData(Astro.site);
+const { pageSeo, taxonomySections } = await buildKnowledgeIndexPageData(Astro.site);
 ---
 
 <Layout {pageSeo}>
@@ -42,7 +41,6 @@ const { pageSeo, recentReadImageMap, taxonomySections } =
       <Stack as="section" gap="lg">
         <RecentReadsPanel
           storageKey="mm_recent_reads_v1"
-          imageMap={recentReadImageMap}
           fallbackImage={knowledgeHeroImageSrc}
           className="knowledge-index__recent"
         />
@@ -78,7 +76,7 @@ const { pageSeo, recentReadImageMap, taxonomySections } =
               <li data-search-text={`${section.title} ${section.description || ""}`}>
                 <ContentCard
                   id={`taxonomy-card-${section.id}`}
-                  data-testid="taxonomy-card"
+                  dataTestId="taxonomy-card"
                   data-title={section.title}
                   href={`/taxonomy/${section.id}`}
                   variant="default"

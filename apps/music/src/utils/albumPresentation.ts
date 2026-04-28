@@ -1,3 +1,5 @@
+import type { ContentCardMetaItem } from "@shared-ui/components/cards/relatedContent";
+
 export function formatDuration(seconds: number): string {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
@@ -7,11 +9,11 @@ export function formatDuration(seconds: number): string {
 export function buildAlbumMetaItems(
   publishedAt: string,
   totalDurationSeconds?: number
-): Array<{ iconName: string; label: string }> {
-  const items: Array<{ iconName: string; label: string }> = [];
+): ContentCardMetaItem[] {
+  const items: ContentCardMetaItem[] = [];
   const date = new Date(publishedAt);
   items.push({
-    iconName: "tabler:calendar",
+    iconName: "calendar",
     label: date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
@@ -21,7 +23,7 @@ export function buildAlbumMetaItems(
   if (totalDurationSeconds) {
     const mins = Math.round(totalDurationSeconds / 60);
     items.push({
-      iconName: "tabler:clock",
+      iconName: "clock",
       label: `${mins} min`,
     });
   }

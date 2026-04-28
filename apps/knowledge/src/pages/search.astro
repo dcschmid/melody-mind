@@ -1,12 +1,8 @@
 ---
-import type { CollectionEntry } from "astro:content";
-
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
-import { getCollection } from "astro:content";
-import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { knowledgeHeroImageUrl } from "@utils/knowledgeImages";
 
@@ -36,32 +32,16 @@ const pageSeo = buildPageSeo({
   authorName: "Melody Mind",
 });
 
-type KnowledgeEntry = CollectionEntry<"knowledge-en">;
-interface SearchPageItem {
-  title: string;
-  description?: string;
-  url: string;
-}
-
-const allEntries = await getCollectionCached("knowledge-en", { getCollection });
-const entries = allEntries as KnowledgeEntry[];
-const filteredEntries = entries.filter(({ data }) => !data.draft);
-const items: SearchPageItem[] = filteredEntries.map((entry) => {
-  const data = entry.data as { title: string; description?: string };
-
-  return {
-    title: data.title,
-    description: data.description ?? "",
-    url: `/knowledge/${entry.id}/`,
-  };
-});
+const searchIndexUrl = "/search-index.json";
 ---
 
 <Layout {pageSeo}>
-  <PageShell className="page-shell--aurora page-shell--grid">
+  <PageShell className="page-shell--night page-shell--grid">
     <SearchPageSection
-      items={items}
+      searchIndexUrl={searchIndexUrl}
       initialQuery={initialQuery}
+      title={title}
+      lead={description}
       resultsEyebrow="Search the archive"
       resultsTitle="Results"
       resultsHelp="Results update while you type, and the current query stays in the URL."

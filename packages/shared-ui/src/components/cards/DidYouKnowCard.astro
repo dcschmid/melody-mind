@@ -1,9 +1,10 @@
 ---
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 
 interface Props {
   title?: string;
-  icon?: string;
+  icon?: IconName;
   className?: string;
 }
 
@@ -15,6 +16,7 @@ const {
 
 const titleId = `did-you-know-${Math.random().toString(36).slice(2, 10)}`;
 const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
+const hasTitleSlot = Astro.slots.has("title");
 ---
 
 <aside class={classes} aria-labelledby={titleId}>
@@ -24,7 +26,9 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     </span>
   </span>
   <div class="did-you-know-card__content">
-    <h3 id={titleId} class="did-you-know-card__title">{title}</h3>
+    <p id={titleId} class="did-you-know-card__title">
+      {hasTitleSlot ? <slot name="title" /> : title}
+    </p>
     <div class="did-you-know-card__body">
       <slot />
     </div>
@@ -55,16 +59,6 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
       var(--shadow-sm);
   }
 
-  .did-you-know-card::before {
-    position: absolute;
-    inset-block: 0;
-    inset-inline-start: 0;
-    inline-size: var(--accent-bar-width);
-    content: "";
-    background: color-mix(in srgb, var(--accent-primary) 88%, #fff 12%);
-    border-radius: var(--radius-full);
-  }
-
   .did-you-know-card__icon-shell {
     display: inline-flex;
     align-items: center;
@@ -72,8 +66,9 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     inline-size: var(--icon-shell-size-md);
     block-size: var(--icon-shell-size-md);
     padding: var(--spacing-2xs);
-    background: color-mix(in srgb, var(--surface-1) 6%, transparent);
-    border: 1px solid color-mix(in srgb, var(--surface-border-soft) 84%, transparent);
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-panel-raised));
+    border: 1px solid
+      color-mix(in srgb, var(--accent-primary) 28%, var(--surface-border-soft));
     border-radius: var(--radius-lg);
   }
 
@@ -83,7 +78,11 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     justify-content: center;
     inline-size: 100%;
     block-size: 100%;
-    background: color-mix(in srgb, var(--surface-panel-raised) 70%, transparent);
+    background: color-mix(
+      in srgb,
+      var(--surface-panel-raised) 88%,
+      var(--accent-primary)
+    );
     border-radius: calc(var(--radius-lg) - var(--spacing-xs));
   }
 
@@ -106,7 +105,7 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
     font-weight: var(--font-weight-semibold);
     line-height: 1.14;
     color: var(--heading-color);
-    letter-spacing: var(--letter-spacing-tight);
+    letter-spacing: var(--letter-spacing-normal);
     text-wrap: balance;
   }
 
@@ -131,11 +130,6 @@ const classes = ["did-you-know-card", className].filter(Boolean).join(" ");
 
   .did-you-know-card__body :global(p + p) {
     margin-block-start: 0.75em;
-  }
-
-  .did-you-know-card:focus-visible {
-    outline: 2px solid var(--focus-ring-color);
-    outline-offset: 2px;
   }
 
   @media (width < 640px) {

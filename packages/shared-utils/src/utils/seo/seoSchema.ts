@@ -133,6 +133,7 @@ export interface PodcastEpisodeSchemaOptions {
   episodeNumber?: number;
   durationIso?: string;
   audioUrl?: string;
+  audioType?: string;
   authorNames?: string[];
   publisherName?: string;
   publisherLogoUrl?: string;
@@ -532,6 +533,7 @@ export function buildPodcastEpisodeSchema(
     episodeNumber,
     durationIso,
     audioUrl,
+    audioType = "audio/mpeg",
     authorNames = [],
     publisherName = seriesTitle,
     publisherLogoUrl = imageUrl,
@@ -572,7 +574,7 @@ export function buildPodcastEpisodeSchema(
           audio: {
             "@type": "AudioObject",
             url: audioUrl,
-            encodingFormat: "audio/mpeg",
+            encodingFormat: audioType,
             ...(durationIso ? { duration: durationIso } : {}),
           },
         }

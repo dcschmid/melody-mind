@@ -1,7 +1,7 @@
 ---
 interface Props extends astroHTML.JSX.HTMLAttributes {
   title?: string;
-  level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
   class?: string;
   textSize?: "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
@@ -10,10 +10,10 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
 
 const {
   title,
-  level = "h1",
+  level,
   className = "",
   class: classProp = "",
-  textSize = "lg",
+  textSize = "2xl",
   textAlign = "left",
   id,
   ...rest
@@ -53,8 +53,7 @@ const classes = [
 <style>
   /* -----------------------------------------------------------------------------
      Headline Component Styles
-     Semantic, responsive heading system with WCAG AAA compliance
-     Supports multiple sizes and text alignment options
+     Semantic, tokenized heading styles with explicit level and alignment options
      ----------------------------------------------------------------------------- */
 
   .headline {
@@ -74,19 +73,19 @@ const classes = [
     text-rendering: optimizelegibility;
   }
 
-  /* Small size - uses responsive typography scale */
+  /* Small size - compact headings */
   .headline--size-sm {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-sm);
   }
 
-  /* Base size — mid-range headings */
+  /* Base size - low-emphasis headings */
   .headline--size-base {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-base);
   }
 
-  /* Large size - section headings */
+  /* Large size - compact section headings */
   .headline--size-lg {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-lg);
   }
 
   /* Extra large - page titles */

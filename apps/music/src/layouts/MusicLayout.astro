@@ -111,6 +111,7 @@ const seoProps = {
   description: pageSeoResolved.description || normalizedDescription,
   keywords: pageSeoResolved.keywordArray || [],
   canonical: pageSeoResolved.canonical,
+  robots: pageSeoResolved.robots,
   structuredDataExtra: pageSeoResolved.structuredData,
   ...(pageSeoResolved.image ? { image: pageSeoResolved.image } : {}),
   ...(pageSeoResolved.imageAlt ? { imageAlt: pageSeoResolved.imageAlt } : {}),
@@ -130,17 +131,7 @@ const seoProps = {
   appTitle="Melody Mind Music"
 >
   <Fragment slot="head">
-    <AppHeadResources
-      fontPreloads={[
-        {
-          href: "/fonts/atkinson-hyperlegible-regular.woff2",
-          as: "font",
-          type: "font/woff2",
-          crossorigin: true,
-        },
-      ]}
-      rssTitle={shellConfig.rssTitle}
-    />
+    <AppHeadResources />
     <SEO
       {...seoProps}
       {...pageSeoResolved.openGraph && {
@@ -154,7 +145,6 @@ const seoProps = {
       {...pageSeoResolved.canonical && { twitterUrl: pageSeoResolved.canonical }}
       twitterSite="@melodymind"
     />
-    <meta name="robots" content={pageSeoResolved.robots} />
     <meta name="language" content={language} />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -204,34 +194,22 @@ const seoProps = {
     z-index: 0;
     pointer-events: none;
     content: "";
-    background:
-      radial-gradient(
-        circle at top center,
-        color-mix(in srgb, var(--accent-primary) 8%, transparent),
-        transparent 48%
-      ),
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 12%, transparent),
-        transparent 28%
-      );
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 14%, transparent),
+      transparent 22rem
+    );
   }
 
-  :global([data-theme="dark"]) .music-layout__main::before {
-    background:
-      radial-gradient(
-        circle at top center,
-        color-mix(in srgb, var(--accent-primary) 15%, transparent),
-        transparent 48%
-      ),
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 20%, transparent),
-        transparent 28%
-      );
+  :global([data-theme="dark"] .music-layout__main)::before {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 18%, transparent),
+      transparent 22rem
+    );
   }
 
-  .music-layout__container {
+  :global(.music-layout__container) {
     position: relative;
     z-index: 1;
     display: grid;
@@ -244,25 +222,25 @@ const seoProps = {
   }
 
   @media (width >= 480px) {
-    .music-layout__container {
+    :global(.music-layout__container) {
       padding-inline: var(--spacing-base);
     }
   }
 
   @media (width >= 768px) {
-    .music-layout__container {
+    :global(.music-layout__container) {
       padding-inline: var(--spacing-xl);
     }
   }
 
   @media (width >= 1024px) {
-    .music-layout__container {
+    :global(.music-layout__container) {
       padding-inline: var(--spacing-2xl);
     }
   }
 
   @media (width >= 1280px) {
-    .music-layout__container {
+    :global(.music-layout__container) {
       padding-inline: var(--spacing-3xl);
     }
   }

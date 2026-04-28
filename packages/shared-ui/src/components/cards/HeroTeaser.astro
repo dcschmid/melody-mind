@@ -5,26 +5,64 @@ import Headline from "@shared-ui/components/typography/Headline.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
-interface Props extends astroHTML.JSX.HTMLAttributes {
+type CssLengthUnit =
+  | "px"
+  | "rem"
+  | "em"
+  | "ch"
+  | "ex"
+  | "ic"
+  | "lh"
+  | "rlh"
+  | "vw"
+  | "vh"
+  | "vmin"
+  | "vmax"
+  | "svw"
+  | "svh"
+  | "lvw"
+  | "lvh"
+  | "dvw"
+  | "dvh"
+  | "%";
+
+type CssLength = "0" | `${number}${CssLengthUnit}`;
+
+interface BaseProps extends astroHTML.JSX.HTMLAttributes {
   id: string;
   title: string;
   description: string;
   eyebrow?: string;
-  imageSrc?: string | ImageMetadata;
-  imageAlt?: string;
   imageWidth?: number | `${number}`;
   imageHeight?: number | `${number}`;
   imageLoading?: "eager" | "lazy";
   imageDecoding?: "sync" | "async" | "auto";
   imageSizes?: string;
-  mediaAspectRatio?: string;
+  mediaAspectRatio?: `${number} / ${number}`;
   mediaObjectFit?: "cover" | "contain";
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  titleMaxWidth?: string;
-  descriptionMaxWidth?: string;
+  titleMaxWidth?: CssLength;
+  descriptionMaxWidth?: CssLength;
   dataTestId?: string;
   class?: string;
 }
+
+type Props =
+  | (BaseProps & {
+      imageSrc: string | ImageMetadata;
+      imageAlt: string;
+      imageDecorative?: false;
+    })
+  | (BaseProps & {
+      imageSrc: string | ImageMetadata;
+      imageAlt?: string;
+      imageDecorative: true;
+    })
+  | (BaseProps & {
+      imageSrc?: undefined;
+      imageAlt?: string;
+      imageDecorative?: boolean;
+    });
 
 const {
   id,
@@ -32,7 +70,8 @@ const {
   description,
   eyebrow,
   imageSrc,
-  imageAlt = "",
+  imageAlt,
+  imageDecorative = false,
   imageWidth,
   imageHeight,
   imageLoading = "lazy",
@@ -54,6 +93,60 @@ const sanitizeId = (str: string) =>
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 
+const sanitizeCssLength = (value: CssLength | undefined, propName: string) => {
+  if (!value) {
+    return undefined;
+  }
+
+  const normalizedValue = String(value).trim();
+  const isValidLength =
+    normalizedValue === "0" ||
+    /^(?:\d+(?:\.\d+)?|\.\d+)(?:px|rem|em|ch|ex|ic|lh|rlh|vw|vh|vmin|vmax|svw|svh|lvw|lvh|dvw|dvh|%)$/.test(
+      normalizedValue
+    );
+
+  if (!isValidLength) {
+    if (import.meta.env.DEV) {
+      console.warn(
+        `[HeroTeaser] Ignoring invalid ${propName} value: "${normalizedValue}".`
+      );
+    }
+
+    return undefined;
+  }
+
+  return normalizedValue;
+};
+
+const sanitizeAspectRatio = (value: string | undefined) => {
+  if (!value) {
+    return undefined;
+  }
+
+  const normalizedValue = value.trim().replace(/\s*\/\s*/, " / ");
+  const match = normalizedValue.match(/^(\d+(?:\.\d+)?|\.\d+) \/ (\d+(?:\.\d+)?|\.\d+)$/);
+
+  if (!match) {
+    if (import.meta.env.DEV) {
+      console.warn(`[HeroTeaser] Ignoring invalid mediaAspectRatio: "${value}".`);
+    }
+
+    return undefined;
+  }
+
+  const [, widthRatio, heightRatio] = match;
+
+  if (Number(widthRatio) <= 0 || Number(heightRatio) <= 0) {
+    if (import.meta.env.DEV) {
+      console.warn(`[HeroTeaser] Ignoring invalid mediaAspectRatio: "${value}".`);
+    }
+
+    return undefined;
+  }
+
+  return `${widthRatio} / ${heightRatio}`;
+};
+
 const rootId = id ? sanitizeId(id) : `hero-teaser-${crypto.randomUUID()}`;
 const headingId = `${rootId}-title`;
 const descriptionId = `${rootId}-description`;
@@ -62,19 +155,27 @@ const hasMetaSlot = Astro.slots.has("meta");
 const hasActionsSlot = Astro.slots.has("actions");
 const hasMedia = Boolean(imageSrc) || hasMediaSlot;
 
-if (import.meta.env.DEV && imageSrc && !imageAlt) {
-  console.warn(
-    `[HeroTeaser] imageSrc provided but imageAlt is empty. Add descriptive alt text for accessibility.`
+const resolvedImageAlt = imageDecorative ? "" : (imageAlt?.trim() ?? "");
+
+if (imageSrc && !imageDecorative && !resolvedImageAlt) {
+  throw new Error(
+    `[HeroTeaser] imageAlt is required when imageSrc is provided. Set imageDecorative={true} only when the image adds no information.`
   );
 }
 
 const resolvedImageWidth = imageWidth ?? 1200;
 const resolvedImageHeight = imageHeight ?? 900;
 const resolvedMediaAspectRatio =
-  mediaAspectRatio ?? `${resolvedImageWidth} / ${resolvedImageHeight}`;
+  sanitizeAspectRatio(mediaAspectRatio) ??
+  `${resolvedImageWidth} / ${resolvedImageHeight}`;
 const resolvedImageSizes =
   imageSizes ?? "(max-width: 640px) 100vw, (max-width: 960px) 80vw, 45vw";
 const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
+const titleMaxInlineSize = sanitizeCssLength(titleMaxWidth, "titleMaxWidth");
+const descriptionMaxInlineSize = sanitizeCssLength(
+  descriptionMaxWidth,
+  "descriptionMaxWidth"
+);
 ---
 
 <section
@@ -93,7 +194,7 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
         level={titleLevel}
         textSize="3xl"
         className="hero-teaser__title"
-        style={titleMaxWidth ? `max-inline-size: ${titleMaxWidth};` : undefined}
+        style={titleMaxInlineSize ? `max-inline-size: ${titleMaxInlineSize};` : undefined}
       >
         {title}
       </Headline>
@@ -102,8 +203,8 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
         id={descriptionId}
         textSize="xl"
         className="hero-teaser__description"
-        style={descriptionMaxWidth
-          ? `max-inline-size: ${descriptionMaxWidth};`
+        style={descriptionMaxInlineSize
+          ? `max-inline-size: ${descriptionMaxInlineSize};`
           : undefined}
       >
         {description}
@@ -122,7 +223,7 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
         imageSrc ? (
           <OptimizedImage
             src={imageSrc}
-            alt={imageAlt}
+            alt={resolvedImageAlt}
             class="hero-teaser__image"
             width={resolvedImageWidth}
             height={resolvedImageHeight}
@@ -247,23 +348,6 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
     min-block-size: var(--control-min-block-size);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .hero-teaser__media,
-    .hero-teaser__copy {
-      transition: none;
-    }
-
-    .hero-teaser__media {
-      min-inline-size: 0;
-      aspect-ratio: var(--hero-teaser-media-aspect-ratio, 4 / 3);
-      overflow: hidden;
-      background: var(--surface-panel-bg);
-      border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-sm);
-    }
-  }
-
   .hero-teaser__media {
     min-inline-size: 0;
     aspect-ratio: var(--hero-teaser-media-aspect-ratio, 4 / 3);
@@ -272,16 +356,6 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-sm);
-    transition:
-      transform 400ms cubic-bezier(0.25, 1, 0.5, 1),
-      box-shadow 400ms cubic-bezier(0.25, 1, 0.5, 1),
-      border-color var(--transition-base);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .hero-teaser__media {
-      transition: none;
-    }
   }
 
   .hero-teaser__media:has(img) {
@@ -344,33 +418,27 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
 
 <style is:global>
   :where(
-    .hero-teaser__media img,
-    .hero-teaser__media picture,
-    .hero-teaser__media picture > img,
-    .hero-teaser__media svg
+    .hero-teaser__media > img,
+    .hero-teaser__media > picture,
+    .hero-teaser__media > picture > img
   ) {
     display: block;
   }
 
   :where(
-    .hero-teaser__media--cover img,
-    .hero-teaser__media--cover picture,
-    .hero-teaser__media--cover picture > img,
-    .hero-teaser__media--cover svg
+    .hero-teaser__media--cover > img,
+    .hero-teaser__media--cover > picture,
+    .hero-teaser__media--cover > picture > img
   ) {
     inline-size: 100%;
     block-size: 100%;
   }
 
-  :where(
-    .hero-teaser__media--cover img,
-    .hero-teaser__media--cover picture > img,
-    .hero-teaser__media--cover svg
-  ) {
+  :where(.hero-teaser__media--cover > img, .hero-teaser__media--cover > picture > img) {
     object-fit: cover;
   }
 
-  :where(.hero-teaser__media--contain picture) {
+  :where(.hero-teaser__media--contain > picture) {
     display: grid;
     place-items: center;
     inline-size: 100%;
@@ -378,9 +446,8 @@ const resolvedFetchPriority = imageLoading === "eager" ? "high" : undefined;
   }
 
   :where(
-    .hero-teaser__media--contain img,
-    .hero-teaser__media--contain picture > img,
-    .hero-teaser__media--contain svg
+    .hero-teaser__media--contain > img,
+    .hero-teaser__media--contain > picture > img
   ) {
     inline-size: auto;
     block-size: auto;

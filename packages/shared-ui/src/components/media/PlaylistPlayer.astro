@@ -5,6 +5,8 @@ interface Song {
   title: string;
   audioUrl: string;
   lyricsUrl?: string;
+  isInstrumental?: boolean;
+  transcriptUnavailableReason?: string;
   durationSeconds?: number;
   trackNumber: number;
 }
@@ -22,9 +24,17 @@ const playerId = `playlist-${playerSlug}`;
 const statusId = `${playerId}-status`;
 const progressId = `${playerId}-progress`;
 const timeId = `${playerId}-time`;
+const hasSongs = songs.length > 0;
+
+const getTrackFallbackLabel = (song: Song): string =>
+  song.lyricsUrl
+    ? ""
+    : song.isInstrumental
+      ? "Instrumental"
+      : song.transcriptUnavailableReason || "Transcript unavailable";
 ---
 
-<div
+<section
   class="playlist-player"
   data-playlist-player
   data-player-id={playerId}
@@ -34,19 +44,17 @@ const timeId = `${playerId}-time`;
 >
   <div class="playlist-player__now-playing">
     <div class="playlist-player__now-playing-row">
-      <div
-        class="playlist-player__info"
-        role="region"
-        aria-live="polite"
-        aria-atomic="true"
-      >
+      <div class="playlist-player__info">
         <p class="playlist-player__current-title" data-current-track-title>
           Ready to Play
         </p>
         <p class="playlist-player__album">{albumTitle}</p>
       </div>
-      <div class="playlist-player__visualizer" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
+      <div class="playlist-player__playback-marker" aria-hidden="true">
+        <span class="playlist-player__playback-dot"></span>
+        <span class="playlist-player__playback-text" data-current-track-number>
+          Track --
+        </span>
       </div>
     </div>
 
@@ -58,6 +66,7 @@ const timeId = `${playerId}-time`;
         aria-label="Toggle mute"
         aria-pressed="false"
         title="Toggle mute"
+        disabled={!hasSongs}
       >
         <Icon
           name="tabler:volume"
@@ -75,7 +84,9 @@ const timeId = `${playerId}-time`;
         type="button"
         data-action="shuffle"
         aria-label="Shuffle"
+        aria-pressed="false"
         title="Shuffle"
+        disabled={!hasSongs}
       >
         <Icon
           name="tabler:arrows-shuffle"
@@ -90,6 +101,7 @@ const timeId = `${playerId}-time`;
           data-action="prev"
           aria-label="Previous track"
           title="Previous track"
+          disabled={!hasSongs}
         >
           <Icon
             name="tabler:player-skip-back-filled"
@@ -103,6 +115,7 @@ const timeId = `${playerId}-time`;
           data-action="toggle"
           aria-label="Play"
           aria-pressed="false"
+          disabled={!hasSongs}
         >
           <Icon
             name="tabler:player-play"
@@ -121,6 +134,7 @@ const timeId = `${playerId}-time`;
           data-action="next"
           aria-label="Next track"
           title="Next track"
+          disabled={!hasSongs}
         >
           <Icon
             name="tabler:player-skip-forward-filled"
@@ -134,7 +148,9 @@ const timeId = `${playerId}-time`;
         type="button"
         data-action="repeat"
         aria-label="Repeat"
+        aria-pressed="false"
         title="Repeat"
+        disabled={!hasSongs}
       >
         <Icon
           name="tabler:repeat-off"
@@ -166,6 +182,8 @@ const timeId = `${playerId}-time`;
         value="0"
         data-playlist-progress
         aria-label="Playback progress"
+        aria-describedby={timeId}
+        disabled={!hasSongs}
       />
       <div class="playlist-player__meta" id={timeId}>
         <span class="playlist-player__time" data-current-time>0:00</span>
@@ -201,70 +219,84 @@ const timeId = `${playerId}-time`;
 
     <ol class="playlist-player__tracklist">
       {
-        songs.map((song, index) => (
-          <li
-            class="playlist-player__track"
-            data-track-index={index}
-            data-track-title={song.title}
-            data-track-url={song.audioUrl}
-            data-track-duration={song.durationSeconds}
-            data-track-number={song.trackNumber}
-          >
-            <button
-              class="playlist-player__track-button"
-              type="button"
-              data-track-button
-              aria-label={`Play ${song.title}`}
+        songs.map((song, index) => {
+          const fallbackLabel = getTrackFallbackLabel(song);
+          const playLabel = fallbackLabel
+            ? `Play ${song.title}. ${fallbackLabel}.`
+            : `Play ${song.title}`;
+
+          return (
+            <li
+              class="playlist-player__track"
+              data-track-index={index}
+              data-track-title={song.title}
+              data-track-url={song.audioUrl}
+              data-track-duration={song.durationSeconds}
+              data-track-number={song.trackNumber}
             >
-              <span class="playlist-player__track-num">
-                <span class="playlist-player__track-num-text">{song.trackNumber}</span>
-                <Icon
-                  name="tabler:player-play-filled"
-                  class="playlist-player__track-play-icon"
+              <button
+                class="playlist-player__track-button"
+                type="button"
+                data-track-button
+                aria-label={playLabel}
+              >
+                <span class="playlist-player__track-num">
+                  <span class="playlist-player__track-num-text">{song.trackNumber}</span>
+                  <Icon
+                    name="tabler:player-play-filled"
+                    class="playlist-player__track-play-icon"
+                    aria-hidden="true"
+                  />
+                </span>
+                <span class="playlist-player__track-title-wrap">
+                  <span class="playlist-player__track-title">{song.title}</span>
+                  {fallbackLabel ? (
+                    <span class="playlist-player__track-lyrics-status">
+                      {fallbackLabel}
+                    </span>
+                  ) : null}
+                </span>
+                <span class="playlist-player__track-duration">
+                  {song.durationSeconds
+                    ? `${Math.floor(song.durationSeconds / 60)}:${String(song.durationSeconds % 60).padStart(2, "0")}`
+                    : ""}
+                </span>
+              </button>
+              {song.lyricsUrl ? (
+                <a
+                  class="playlist-player__track-lyrics"
+                  href={song.lyricsUrl}
+                  aria-label={`Open lyrics for ${song.title}`}
+                  title="Open lyrics"
+                >
+                  <Icon
+                    name="tabler:file-text"
+                    class="playlist-player__track-action-icon"
+                    aria-hidden="true"
+                  />
+                </a>
+              ) : (
+                <span
+                  class="playlist-player__track-action-placeholder"
                   aria-hidden="true"
                 />
-              </span>
-              <span class="playlist-player__track-title">{song.title}</span>
-              <span class="playlist-player__track-duration">
-                {song.durationSeconds
-                  ? `${Math.floor(song.durationSeconds / 60)}:${String(song.durationSeconds % 60).padStart(2, "0")}`
-                  : ""}
-              </span>
-            </button>
-            {song.lyricsUrl ? (
+              )}
               <a
-                class="playlist-player__track-lyrics"
-                href={song.lyricsUrl}
-                aria-label={`Open lyrics for ${song.title}`}
-                title="Open lyrics"
+                class="playlist-player__track-download"
+                href={song.audioUrl}
+                download={encodeURIComponent(song.title)}
+                aria-label={`Download ${song.title}`}
+                title="Download track"
               >
                 <Icon
-                  name="tabler:file-text"
+                  name="download"
                   class="playlist-player__track-action-icon"
                   aria-hidden="true"
                 />
               </a>
-            ) : (
-              <span
-                class="playlist-player__track-action-placeholder"
-                aria-hidden="true"
-              />
-            )}
-            <a
-              class="playlist-player__track-download"
-              href={song.audioUrl}
-              download={encodeURIComponent(song.title)}
-              aria-label={`Download ${song.title}`}
-              title="Download track"
-            >
-              <Icon
-                name="download"
-                class="playlist-player__track-action-icon"
-                aria-hidden="true"
-              />
-            </a>
-          </li>
-        ))
+            </li>
+          );
+        })
       }
     </ol>
   </div>
@@ -272,12 +304,7 @@ const timeId = `${playerId}-time`;
   {
     /* eslint-disable astro/jsx-a11y/media-has-caption -- Captions are not exposed through the hidden native audio element; lyrics are separate transcript links. */
   }
-  <audio
-    class="playlist-player__audio"
-    preload="metadata"
-    crossorigin=""
-    data-playlist-audio
-  >
+  <audio class="playlist-player__audio" preload="metadata" data-playlist-audio>
     <source src={songs[0]?.audioUrl || ""} type="audio/mpeg" />
     Your browser does not support audio playback.
   </audio>
@@ -286,24 +313,16 @@ const timeId = `${playerId}-time`;
   <script>
     import "@shared-ui/scripts/playlist-player.ts";
   </script>
-</div>
+</section>
 
 <style>
   .playlist-player {
     position: relative;
     overflow: hidden;
-    background:
-      radial-gradient(
-        ellipse at 70% 0%,
-        color-mix(in srgb, var(--accent-primary) 6%, transparent),
-        transparent 60%
-      ),
-      var(--surface-panel-bg);
+    background: color-mix(in srgb, var(--surface-panel-bg) 96%, var(--surface-2));
     border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-2xl);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 40%, transparent),
-      var(--shadow-lg);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-base);
   }
 
   .playlist-player::before {
@@ -340,14 +359,17 @@ const timeId = `${playerId}-time`;
   }
 
   .playlist-player__current-title {
+    display: -webkit-box;
     margin: 0;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
     line-height: 1.3;
     color: var(--text-primary);
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
     transition: opacity 0.2s ease;
   }
 
@@ -364,42 +386,32 @@ const timeId = `${playerId}-time`;
     letter-spacing: var(--letter-spacing-wider);
   }
 
-  /* ── Visualizer ── */
-  .playlist-player__visualizer {
-    display: flex;
+  /* ── Playback marker ── */
+  .playlist-player__playback-marker {
+    display: inline-flex;
     flex-shrink: 0;
-    gap: var(--spacing-2xs);
-    align-items: end;
-    block-size: 1.5rem;
-    opacity: 0.65;
+    gap: var(--spacing-xs);
+    align-items: center;
+    min-block-size: 1.5rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--surface-1) 42%, transparent);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
   }
 
-  .playlist-player__visualizer > span {
-    inline-size: var(--spacing-2xs);
+  .playlist-player__playback-dot {
+    inline-size: 0.45rem;
+    block-size: 0.45rem;
     background: var(--accent-primary);
     border-radius: var(--radius-full);
-    transform: scaleY(var(--playlist-bar-scale, 1));
-    transform-origin: bottom;
   }
 
-  .playlist-player__visualizer > span:nth-child(1) {
-    block-size: 1rem;
-  }
-
-  .playlist-player__visualizer > span:nth-child(2) {
-    block-size: 0.65rem;
-  }
-
-  .playlist-player__visualizer > span:nth-child(3) {
-    block-size: 1.4rem;
-  }
-
-  .playlist-player__visualizer > span:nth-child(4) {
-    block-size: 0.85rem;
-  }
-
-  .playlist-player__visualizer > span:nth-child(5) {
-    block-size: 0.5rem;
+  .playlist-player__playback-text {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    white-space: nowrap;
   }
 
   /* ── Transport controls ── */
@@ -479,6 +491,13 @@ const timeId = `${playerId}-time`;
 
   .playlist-player__volume-button {
     position: relative;
+  }
+
+  .playlist-player__control:disabled,
+  .playlist-player__transport-button:disabled,
+  .playlist-player__volume-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
   }
 
   .playlist-player__volume-icon {
@@ -632,34 +651,34 @@ const timeId = `${playerId}-time`;
     border-color: color-mix(in srgb, var(--accent-primary) 30%, transparent);
   }
 
-  .playlist-player__control:hover,
-  .playlist-player__transport-button:hover,
-  .playlist-player__volume-button:hover,
-  .playlist-player__control:focus,
-  .playlist-player__transport-button:focus,
-  .playlist-player__volume-button:focus {
+  .playlist-player__control:where(:not(:disabled)):hover,
+  .playlist-player__transport-button:where(:not(:disabled)):hover,
+  .playlist-player__volume-button:where(:not(:disabled)):hover,
+  .playlist-player__control:where(:not(:disabled)):focus,
+  .playlist-player__transport-button:where(:not(:disabled)):focus,
+  .playlist-player__volume-button:where(:not(:disabled)):focus {
     transform: scale(1.08);
   }
 
-  .playlist-player__control:active,
-  .playlist-player__transport-button:active,
-  .playlist-player__volume-button:active {
+  .playlist-player__control:where(:not(:disabled)):active,
+  .playlist-player__transport-button:where(:not(:disabled)):active,
+  .playlist-player__volume-button:where(:not(:disabled)):active {
     transform: scale(0.95);
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-    .playlist-player__control:hover,
-    .playlist-player__transport-button:hover,
-    .playlist-player__volume-button:hover,
-    .playlist-player__control:focus,
-    .playlist-player__transport-button:focus,
-    .playlist-player__volume-button:focus {
+    .playlist-player__control:where(:not(:disabled)):hover,
+    .playlist-player__transport-button:where(:not(:disabled)):hover,
+    .playlist-player__volume-button:where(:not(:disabled)):hover,
+    .playlist-player__control:where(:not(:disabled)):focus,
+    .playlist-player__transport-button:where(:not(:disabled)):focus,
+    .playlist-player__volume-button:where(:not(:disabled)):focus {
       transform: none;
     }
 
-    .playlist-player__control:active,
-    .playlist-player__transport-button:active,
-    .playlist-player__volume-button:active {
+    .playlist-player__control:where(:not(:disabled)):active,
+    .playlist-player__transport-button:where(:not(:disabled)):active,
+    .playlist-player__volume-button:where(:not(:disabled)):active {
       transform: none;
     }
   }
@@ -882,35 +901,24 @@ const timeId = `${playerId}-time`;
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-primary) 25%, transparent);
   }
 
-  .playlist-player__track[data-is-playing="true"]::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-    background: color-mix(in srgb, var(--accent-primary) 14%, transparent);
-    border-radius: inherit;
-    opacity: 0.35;
-    animation: track-playing-glow 2s ease-in-out infinite alternate;
-  }
-
-  @keyframes track-playing-glow {
-    from {
-      opacity: 0.15;
-    }
-
-    to {
-      opacity: 0.55;
-    }
-  }
-
   .playlist-player__track-title {
+    display: -webkit-box;
     min-inline-size: 0;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
+    line-height: 1.25;
     color: var(--text-primary);
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .playlist-player__track-title-wrap {
+    display: grid;
+    gap: var(--spacing-2xs);
+    min-inline-size: 0;
   }
 
   .playlist-player__track[data-is-playing="true"] .playlist-player__track-title {
@@ -984,10 +992,6 @@ const timeId = `${playerId}-time`;
       animation: none;
     }
 
-    :global([data-player-state="playing"]) .playlist-player__visualizer > span {
-      animation: none;
-    }
-
     :global([data-player-shuffle="true"])
       .playlist-player__transport-button[data-action="shuffle"] {
       animation: none;
@@ -1015,12 +1019,7 @@ const timeId = `${playerId}-time`;
     }
 
     .playlist-player__current-title[data-transitioning="true"] {
-      opacity: 0;
-    }
-
-    .playlist-player__track[data-is-playing="true"]::after {
-      opacity: 0.35;
-      animation: none;
+      opacity: 1;
     }
 
     :global([data-player-celebrating="true"]) .playlist-player,
@@ -1050,6 +1049,17 @@ const timeId = `${playerId}-time`;
     border-radius: var(--radius-md);
   }
 
+  .playlist-player__track-lyrics-status {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.2;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
   @media screen and (prefers-reduced-motion: no-preference) {
     .playlist-player__track-lyrics,
     .playlist-player__track-download {
@@ -1075,6 +1085,13 @@ const timeId = `${playerId}-time`;
   .playlist-player__track-lyrics:active,
   .playlist-player__track-download:active {
     transform: scale(0.92);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .playlist-player__track-lyrics:active,
+    .playlist-player__track-download:active {
+      transform: none;
+    }
   }
 
   .playlist-player__track-action-icon {
@@ -1122,55 +1139,6 @@ const timeId = `${playerId}-time`;
     100% {
       opacity: 0;
       transform: scale(1.006);
-    }
-  }
-
-  /* ── Visualizer animation ── */
-  @media (prefers-reduced-motion: no-preference) {
-    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
-      .playlist-player__visualizer
-      > span {
-      animation: visualizer-pulse 0.55s ease-in-out infinite alternate;
-    }
-
-    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
-      .playlist-player__visualizer
-      > span:nth-child(1) {
-      animation-delay: 0ms;
-    }
-
-    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
-      .playlist-player__visualizer
-      > span:nth-child(2) {
-      animation-delay: 120ms;
-    }
-
-    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
-      .playlist-player__visualizer
-      > span:nth-child(3) {
-      animation-delay: 60ms;
-    }
-
-    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
-      .playlist-player__visualizer
-      > span:nth-child(4) {
-      animation-delay: 180ms;
-    }
-
-    :global([data-player-state="playing"]:not([data-player-visualizer="audio"]))
-      .playlist-player__visualizer
-      > span:nth-child(5) {
-      animation-delay: 240ms;
-    }
-  }
-
-  @keyframes visualizer-pulse {
-    from {
-      transform: scaleY(0.3);
-    }
-
-    to {
-      transform: scaleY(1);
     }
   }
 

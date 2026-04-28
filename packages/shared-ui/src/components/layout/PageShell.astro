@@ -25,11 +25,14 @@ const containerClasses = ["page-shell__container", containerClass]
 
   .page-shell {
     position: relative;
-    min-block-size: 100vb;
-    overflow-x: clip;
+    min-block-size: 100%;
     color: var(--text-primary);
     background: transparent;
     isolation: isolate;
+  }
+
+  .page-shell--full-height {
+    min-block-size: 100vb;
   }
 
   /* Main container - default width */

@@ -29,7 +29,7 @@ const articleDateFormatter = new Intl.DateTimeFormat("en-US", {
           <li class="taxonomy-article-grid__item">
             <ContentCard
               id={`card-title-${articleSlug}-${index}`}
-              data-testid="knowledge-card"
+              dataTestId="knowledge-card"
               data-title={article.data.title}
               data-description={article.data.description}
               href={`/knowledge/${articleSlug}`}
@@ -60,7 +60,7 @@ const articleDateFormatter = new Intl.DateTimeFormat("en-US", {
       })}
     </ul>
   ) : (
-    <EmptyState className="taxonomy-article-grid__empty" description={emptyDescription} />
+    <EmptyState class="taxonomy-article-grid__empty" description={emptyDescription} />
   )
 }
 

@@ -2,6 +2,8 @@ export interface Song {
   title: string;
   audioUrl: string;
   lyricsUrl?: string;
+  isInstrumental?: boolean;
+  transcriptUnavailableReason?: string;
   durationSeconds?: number;
   trackNumber: number;
 }

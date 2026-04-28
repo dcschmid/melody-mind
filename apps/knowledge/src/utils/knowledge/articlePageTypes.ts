@@ -1,4 +1,5 @@
 import type { RenderedContent } from "astro:content";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 
 /**
  * Search-focused title overrides for specific high-value knowledge articles.
@@ -28,7 +29,7 @@ export { KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES };
 export interface LinkPanelItem {
   href: string;
   label: string;
-  icon?: string;
+  icon?: IconName;
   variant?: "primary" | "secondary";
   ariaLabel?: string;
 }

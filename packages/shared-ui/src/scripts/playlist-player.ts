@@ -20,13 +20,8 @@ interface PlaylistTrack {
   title: string;
   url: string;
   duration?: number;
+  trackNumber: number;
   element: HTMLLIElement;
-}
-
-declare global {
-  interface Window {
-    webkitAudioContext?: typeof AudioContext;
-  }
 }
 
 const STORAGE_KEY_PREFIX = "mm_playlist_player_v1";
@@ -34,7 +29,6 @@ const STATE_WRITE_INTERVAL = 2000;
 const RESUME_MIN_TIME = 3;
 const RESUME_MIN_REMAINING = 5;
 const PROGRESS_UPDATE_INTERVAL = 250;
-const VISUALIZER_BIN_COUNT = 5;
 const MEDIA_SESSION_SEEK_STEP = 10;
 
 const getPlayerStorageKey = (playerId: string): string =>
@@ -132,6 +126,9 @@ const initPlaylistPlayers = (): (() => void) => {
     const trackTitleDisplay = player.querySelector<HTMLElement>(
       "[data-current-track-title]"
     );
+    const trackNumberDisplay = player.querySelector<HTMLElement>(
+      "[data-current-track-number]"
+    );
     const status = player.querySelector<HTMLElement>("[data-playlist-status]");
     const playIcon = toggleButton?.querySelector<SVGElement>(
       ".playlist-player__control-icon--play"
@@ -168,15 +165,10 @@ const initPlaylistPlayers = (): (() => void) => {
     let pendingResumeTime: number | null = null;
     let resumeApplied = false;
     let isChangingTrackSource = false;
-    let visualizerFrame = 0;
-    let audioContext: AudioContext | null = null;
-    let analyser: AnalyserNode | null = null;
-    let frequencyData: Uint8Array | null = null;
-    let audioGraphReady = false;
-    let audioGraphUnavailable = false;
-    const visualizerBars = Array.from(
-      player.querySelectorAll<HTMLElement>(".playlist-player__visualizer > span")
-    );
+    const reducedMotionQuery =
+      typeof window.matchMedia === "function"
+        ? window.matchMedia("(prefers-reduced-motion: reduce)")
+        : null;
     const tracks: PlaylistTrack[] = [];
 
     trackItems.forEach((item) => {
@@ -186,12 +178,13 @@ const initPlaylistPlayers = (): (() => void) => {
       const duration = item.dataset.trackDuration
         ? Number(item.dataset.trackDuration)
         : undefined;
+      const trackNumber = Number(item.dataset.trackNumber) || index + 1;
 
-      tracks.push({ title, url, duration, element: item });
+      tracks.push({ title, url, duration, trackNumber, element: item });
 
       trackButtons[index]?.addEventListener(
         "click",
-        () => playTrack(index, { triggerPop: true }),
+        () => playTrack(index, { autoplay: true, triggerPop: true }),
         { signal }
       );
     });
@@ -290,92 +283,7 @@ const initPlaylistPlayers = (): (() => void) => {
       }
     };
 
-    const resetVisualizer = () => {
-      if (visualizerFrame) {
-        cancelAnimationFrame(visualizerFrame);
-        visualizerFrame = 0;
-      }
-
-      visualizerBars.forEach((bar) => {
-        bar.style.removeProperty("--playlist-bar-scale");
-      });
-    };
-
-    const initAudioGraph = async () => {
-      if (audioGraphReady || audioGraphUnavailable || !visualizerBars.length) {
-        return audioGraphReady;
-      }
-
-      const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContextConstructor) {
-        audioGraphUnavailable = true;
-        return false;
-      }
-
-      try {
-        audioContext = new AudioContextConstructor();
-        const source = audioContext.createMediaElementSource(audio);
-        analyser = audioContext.createAnalyser();
-        analyser.fftSize = 128;
-        analyser.smoothingTimeConstant = 0.78;
-        source.connect(analyser);
-        analyser.connect(audioContext.destination);
-        frequencyData = new Uint8Array(analyser.frequencyBinCount);
-        audioGraphReady = true;
-        player.dataset.playerVisualizer = "audio";
-        return true;
-      } catch (error) {
-        audioGraphUnavailable = true;
-        logError(error, "playlist visualizer unavailable");
-        return false;
-      }
-    };
-
-    const renderVisualizer = () => {
-      if (!isPlaying || !analyser || !frequencyData || !visualizerBars.length) {
-        resetVisualizer();
-        return;
-      }
-
-      analyser.getByteFrequencyData(frequencyData);
-      const bandSize = Math.max(
-        1,
-        Math.floor(frequencyData.length / VISUALIZER_BIN_COUNT)
-      );
-
-      visualizerBars.forEach((bar, index) => {
-        const start = index * bandSize;
-        const end = Math.min(start + bandSize, frequencyData?.length ?? 0);
-        let total = 0;
-
-        for (let i = start; i < end; i += 1) {
-          total += frequencyData[i] ?? 0;
-        }
-
-        const average = end > start ? total / (end - start) : 0;
-        const scale = 0.25 + (average / 255) * 0.95;
-        bar.style.setProperty("--playlist-bar-scale", scale.toFixed(3));
-      });
-
-      visualizerFrame = requestAnimationFrame(renderVisualizer);
-    };
-
-    const startVisualizer = async () => {
-      const ready = await initAudioGraph();
-      if (!ready || !audioContext) {
-        return;
-      }
-
-      if (audioContext.state === "suspended") {
-        await audioContext.resume().catch((error) => {
-          logError(error, "playlist visualizer resume blocked");
-        });
-      }
-
-      if (!visualizerFrame) {
-        visualizerFrame = requestAnimationFrame(renderVisualizer);
-      }
-    };
+    const prefersReducedMotion = (): boolean => reducedMotionQuery?.matches === true;
 
     const updateShuffleState = () => {
       player.dataset.playerShuffle = isShuffled ? "true" : "false";
@@ -473,6 +381,10 @@ const initPlaylistPlayers = (): (() => void) => {
     };
 
     const updateTrackHighlight = () => {
+      if (!trackItems.length || !tracks[currentTrackIndex]) {
+        return;
+      }
+
       if (lastHighlightedIndex !== -1 && lastHighlightedIndex < trackItems.length) {
         trackItems[lastHighlightedIndex].dataset.isPlaying = "false";
         trackItems[lastHighlightedIndex].dataset.isCurrent = "false";
@@ -488,6 +400,11 @@ const initPlaylistPlayers = (): (() => void) => {
       const track = tracks[currentTrackIndex];
       if (trackTitleDisplay) {
         trackTitleDisplay.textContent = track?.title || "Click play to start";
+      }
+      if (trackNumberDisplay) {
+        trackNumberDisplay.textContent = track
+          ? `Track ${String(track.trackNumber).padStart(2, "0")}`
+          : "Track --";
       }
     };
 
@@ -563,7 +480,7 @@ const initPlaylistPlayers = (): (() => void) => {
         titleTransitionTimeout = null;
       }
 
-      if (trackTitleDisplay && options.transition !== false) {
+      if (trackTitleDisplay && options.transition !== false && !prefersReducedMotion()) {
         trackTitleDisplay.dataset.transitioning = "true";
         titleTransitionTimeout = setTimeout(() => {
           if (trackTitleDisplay) {
@@ -627,6 +544,10 @@ const initPlaylistPlayers = (): (() => void) => {
     };
 
     const playNext = () => {
+      if (!tracks.length) {
+        return;
+      }
+
       if (isShuffled && tracks.length > 1) {
         currentShuffleIndex = (currentShuffleIndex + 1) % shuffledIndices.length;
         playTrack(shuffledIndices[currentShuffleIndex], {
@@ -640,6 +561,10 @@ const initPlaylistPlayers = (): (() => void) => {
     };
 
     const playPrev = () => {
+      if (!tracks.length) {
+        return;
+      }
+
       if (audio.currentTime > 3) {
         audio.currentTime = 0;
         updateProgress(true);
@@ -661,7 +586,7 @@ const initPlaylistPlayers = (): (() => void) => {
     };
 
     const setupMediaSessionActions = () => {
-      if (!("mediaSession" in navigator)) {
+      if (!("mediaSession" in navigator) || !tracks.length) {
         return;
       }
 
@@ -670,7 +595,6 @@ const initPlaylistPlayers = (): (() => void) => {
       );
       const actions: Partial<Record<MediaSessionAction, MediaSessionActionHandler>> = {
         play: () => {
-          startVisualizer();
           const track = tracks[currentTrackIndex];
           if (track) {
             setAudioSource(track);
@@ -714,7 +638,6 @@ const initPlaylistPlayers = (): (() => void) => {
       triggerPop(toggleButton);
 
       if (audio.paused || audio.ended) {
-        startVisualizer();
         setAudioSource(tracks[currentTrackIndex]);
         audio.play().catch((error) => logError(error, "playback blocked"));
       } else {
@@ -727,6 +650,10 @@ const initPlaylistPlayers = (): (() => void) => {
     nextButton.addEventListener("click", playNext, { signal });
 
     const handleVolume = () => {
+      if (!tracks.length) {
+        return;
+      }
+
       isMuted = !isMuted;
       updateMutedState();
       persistState(true);
@@ -735,6 +662,10 @@ const initPlaylistPlayers = (): (() => void) => {
     volumeButton?.addEventListener("click", handleVolume, { signal });
 
     const handleShuffle = () => {
+      if (!tracks.length) {
+        return;
+      }
+
       isShuffled = !isShuffled;
       updateShuffleState();
       if (isShuffled) {
@@ -744,6 +675,10 @@ const initPlaylistPlayers = (): (() => void) => {
     };
 
     const handleRepeat = () => {
+      if (!tracks.length) {
+        return;
+      }
+
       const modes: RepeatMode[] = ["off", "all", "one"];
       const currentIdx = modes.indexOf(repeatMode);
       repeatMode = modes[(currentIdx + 1) % modes.length];
@@ -768,7 +703,6 @@ const initPlaylistPlayers = (): (() => void) => {
         isPlaying = true;
         updateToggleButton();
         updateTrackHighlight();
-        startVisualizer();
         setStatus(`Playing ${tracks[currentTrackIndex]?.title}`);
         persistState(true);
       },
@@ -785,7 +719,6 @@ const initPlaylistPlayers = (): (() => void) => {
         isPlaying = false;
         updateToggleButton();
         updateTrackHighlight();
-        resetVisualizer();
         setStatus(`Paused ${tracks[currentTrackIndex]?.title}`);
         persistState(true);
       },
@@ -795,10 +728,13 @@ const initPlaylistPlayers = (): (() => void) => {
     audio.addEventListener(
       "ended",
       () => {
+        if (!tracks.length) {
+          return;
+        }
+
         isPlaying = false;
         updateToggleButton();
         updateTrackHighlight();
-        resetVisualizer();
         setStatus(`Finished ${tracks[currentTrackIndex]?.title}`);
         audio.currentTime = 0;
         updateProgress(true);
@@ -933,12 +869,6 @@ const initPlaylistPlayers = (): (() => void) => {
     }
 
     cleanup.push(() => {
-      resetVisualizer();
-      if (audioContext && audioContext.state !== "closed") {
-        audioContext.close().catch((error) => {
-          logError(error, "playlist visualizer close failed");
-        });
-      }
       controller.abort();
     });
   });

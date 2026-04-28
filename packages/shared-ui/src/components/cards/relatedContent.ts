@@ -1,8 +1,9 @@
 import type { ImageMetadata } from "astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 
 export interface ContentCardMetaItem {
   label: string;
-  iconName?: string;
+  iconName?: IconName;
   datetime?: string;
 }
 

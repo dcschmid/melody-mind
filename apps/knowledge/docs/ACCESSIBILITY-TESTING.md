@@ -168,13 +168,13 @@ This document outlines the testing procedures and results for ensuring BITV 2.0 
 
 ### Manual Verification Results
 
-| Element                              | Text Color | Background             | Contrast Ratio | WCAG AA | WCAG AAA | Pass/Fail |
-| ------------------------------------ | ---------- | ---------------------- | -------------- | ------- | -------- | --------- |
-| `.page-shell--aurora` primary text   | #f2f6fb    | #0c121c (mid gradient) | 14.2:1         | ✅ PASS | ✅ PASS  | ✅ PASS   |
-| `.page-shell--aurora` secondary text | #bcc8d9    | #0c121c (mid gradient) | 8.7:1          | ✅ PASS | ✅ PASS  | ✅ PASS   |
-| Knowledge card text                  | #f2f6fb    | #121824 (card bg)      | ~12:1          | ✅ PASS | ✅ PASS  | ✅ PASS   |
-| Search input text                    | #f2f6fb    | #0b1017 (input bg)     | ~14:1          | ✅ PASS | ✅ PASS  | ✅ PASS   |
-| Footer text                          | #f2f6fb    | #0b1017 (body bg)      | ~14:1          | ✅ PASS | ✅ PASS  | ✅ PASS   |
+| Element                             | Text Color | Background             | Contrast Ratio | WCAG AA | WCAG AAA | Pass/Fail |
+| ----------------------------------- | ---------- | ---------------------- | -------------- | ------- | -------- | --------- |
+| `.page-shell--night` primary text   | #f7f1e9    | #1b1511 (mid gradient) | 16.1:1         | ✅ PASS | ✅ PASS  | ✅ PASS   |
+| `.page-shell--night` secondary text | #dfd0c1    | #1b1511 (mid gradient) | 12.0:1         | ✅ PASS | ✅ PASS  | ✅ PASS   |
+| Knowledge card text                 | #f2f6fb    | #121824 (card bg)      | ~12:1          | ✅ PASS | ✅ PASS  | ✅ PASS   |
+| Search input text                   | #f2f6fb    | #0b1017 (input bg)     | ~14:1          | ✅ PASS | ✅ PASS  | ✅ PASS   |
+| Footer text                         | #f2f6fb    | #0b1017 (body bg)      | ~14:1          | ✅ PASS | ✅ PASS  | ✅ PASS   |
 
 **Note**: See [ACCESSIBILITY-ANALYSIS.md](./ACCESSIBILITY-ANALYSIS.md) for detailed contrast calculations.
 
@@ -320,8 +320,8 @@ Use this checklist before marking accessibility work as done.
 
 ### Session Notes
 
-| Date       | Tester            | Scope                                                                    | Result           | Notes                                                                                                                                           |
-| ---------- | ----------------- | ------------------------------------------------------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date       | Tester            | Scope                                                                 | Result           | Notes                                                                                                                                           |
+| ---------- | ----------------- | --------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2026-02-06 | Team QA (Example) | `/`, `/taxonomy/time-change-evolution`, `/knowledge/2010s`, `/search` | GO (conditional) | Lint/build/scoped-css pass; keyboard flow and live-region behavior pass; complete NVDA + VoiceOver manual run before final compliance sign-off. |
 
 ---

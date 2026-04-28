@@ -1,5 +1,7 @@
 ---
-interface Props extends astroHTML.JSX.HTMLAttributes {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"p"> {
   /** Additional CSS classes to apply */
   className?: string;
   /** Text size variant */
@@ -15,9 +17,8 @@ const {
   textAlign = "left",
   class: classProp = "",
   ...rest
-  // NOTE: Rest spread intentionally allows arbitrary HTML attributes (aria-*, data-*, id, etc.)
-  // from the extended astroHTML.JSX.HTMLAttributes interface. This is deliberate for component
-  // flexibility. Security is maintained by the Astro SSG output model (no client-side eval).
+  // NOTE: Rest spread intentionally allows valid paragraph attributes
+  // such as aria-*, data-*, id, lang, and title.
 } = Astro.props as Props;
 
 const baseClasses = "paragraph";
@@ -51,7 +52,7 @@ const classes = [
   .filter(Boolean)
   .join(" ");
 
-const attributes: Record<string, unknown> = {
+const attributes = {
   ...rest,
   class: classes,
 };
@@ -64,7 +65,7 @@ const attributes: Record<string, unknown> = {
   /* -----------------------------------------------------------------------------
      Paragraph Component Styles
      Semantic paragraph text with responsive sizing
-     WCAG AAA compliant with readable line heights
+     Tokenized readable paragraph text
      ----------------------------------------------------------------------------- */
 
   .paragraph {
@@ -79,7 +80,7 @@ const attributes: Record<string, unknown> = {
     /* Improved text rendering */
     hyphens: manual;
     text-wrap: pretty;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     text-rendering: optimizelegibility;
   }
 
@@ -93,23 +94,23 @@ const attributes: Record<string, unknown> = {
   }
 
   .paragraph--size-lg {
-    font-size: var(--font-size-md);
-  }
-
-  .paragraph--size-xl {
     font-size: var(--font-size-lg);
   }
 
-  .paragraph--size-2xl {
+  .paragraph--size-xl {
     font-size: var(--font-size-xl);
   }
 
-  .paragraph--size-3xl {
+  .paragraph--size-2xl {
     font-size: var(--font-size-2xl);
   }
 
-  .paragraph--size-4xl {
+  .paragraph--size-3xl {
     font-size: var(--font-size-3xl);
+  }
+
+  .paragraph--size-4xl {
+    font-size: var(--font-size-4xl);
   }
 
   /* Text alignment options */

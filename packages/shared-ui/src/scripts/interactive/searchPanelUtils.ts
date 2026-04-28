@@ -173,17 +173,22 @@ function initSearchPanel(elements: SearchElements): void {
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
   let lastStatusAnnouncement = "";
 
-  const syncClearButton = (term: string, genreTerm: string): void => {
+  const syncControlState = (term: string, genreTerm: string): void => {
+    const hasActiveFilter = term.trim().length > 0 || genreTerm.trim().length > 0;
+
+    if (resetBtn) {
+      resetBtn.disabled = !hasActiveFilter;
+    }
+
     if (!clearBtn) {
       return;
     }
 
-    const shouldShow = term.trim().length > 0 || genreTerm.trim().length > 0;
-    clearBtn.hidden = !shouldShow;
-    clearBtn.setAttribute("aria-hidden", shouldShow ? "false" : "true");
-    clearBtn.classList.toggle("visible", shouldShow);
+    clearBtn.hidden = !hasActiveFilter;
+    clearBtn.setAttribute("aria-hidden", hasActiveFilter ? "false" : "true");
+    clearBtn.classList.toggle("visible", hasActiveFilter);
 
-    if (shouldShow) {
+    if (hasActiveFilter) {
       clearBtn.removeAttribute("tabindex");
       return;
     }
@@ -231,7 +236,7 @@ function initSearchPanel(elements: SearchElements): void {
       }
     });
 
-    syncClearButton(term, genreTerm);
+    syncControlState(term, genreTerm);
     updateStatus(matchCount, term, genreTerm);
     dispatchSearchTelemetry({
       hasQuery: term.trim().length > 0 || genreTerm.trim().length > 0,

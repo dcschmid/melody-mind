@@ -15,6 +15,7 @@ interface Props {
   contentShellClass?: string;
   showSkipLink?: boolean;
   enableThemeInit?: boolean;
+  enableAmbientMainBackground?: boolean;
   colorScheme?: string;
   themeColorDark?: string;
   themeColorLight?: string;
@@ -34,6 +35,7 @@ const {
   contentShellClass = "",
   showSkipLink = true,
   enableThemeInit = true,
+  enableAmbientMainBackground = false,
   colorScheme = "dark light",
   themeColorDark = "#08131a",
   themeColorLight = "#f6f1e8",
@@ -45,14 +47,26 @@ const {
 } = Astro.props as Props;
 
 const bodyClasses = ["app__body", bodyClass].filter(Boolean).join(" ");
-const mainClasses = ["app__main", mainClass].filter(Boolean).join(" ");
+const mainClasses = [
+  "app__main",
+  enableAmbientMainBackground ? "app__main--ambient" : "",
+  mainClass,
+]
+  .filter(Boolean)
+  .join(" ");
 const contentShellClasses = (contentShellClass ?? "").trim();
+
+// Mirrors themeStorage.applyTheme inline so the resolved theme is applied before bundled JS loads.
 const themeInitScript = enableThemeInit
   ? `
     (() => {
       const THEME_STORAGE_KEY = ${JSON.stringify(STORAGE_KEYS.THEME)};
       const DARK_QUERY = "(prefers-color-scheme: dark)";
       const THEME_CHANGE_EVENT = ${JSON.stringify(THEME_EVENTS.CHANGED)};
+      const THEME_COLORS = {
+        dark: ${JSON.stringify(themeColorDark)},
+        light: ${JSON.stringify(themeColorLight)},
+      };
 
       const isTheme = (value) => value === "light" || value === "dark";
       const readStoredTheme = () => {
@@ -69,6 +83,11 @@ const themeInitScript = enableThemeInit
       const applyTheme = (theme, source) => {
         document.documentElement.setAttribute("data-theme", theme);
         document.documentElement.style.colorScheme = theme;
+        const themeColors = document.querySelectorAll('meta[name="theme-color"][data-theme-color]');
+        themeColors.forEach((themeColor) => {
+          themeColor.setAttribute("content", THEME_COLORS[theme]);
+          themeColor.removeAttribute("media");
+        });
         window.dispatchEvent(
           new CustomEvent(THEME_CHANGE_EVENT, {
             detail: { theme, source },
@@ -105,11 +124,17 @@ const themeInitScript = enableThemeInit
       name="theme-color"
       content={themeColorDark}
       media="(prefers-color-scheme: dark)"
+      data-theme-color
+      data-theme-color-dark={themeColorDark}
+      data-theme-color-light={themeColorLight}
     />
     <meta
       name="theme-color"
       content={themeColorLight}
       media="(prefers-color-scheme: light)"
+      data-theme-color
+      data-theme-color-dark={themeColorDark}
+      data-theme-color-light={themeColorLight}
     />
     {
       appleMobileWebAppCapable && (
@@ -132,7 +157,6 @@ const themeInitScript = enableThemeInit
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content={appTitle} />
     <meta name="google-site-verification" content={googleSiteVerification} />
-    <meta name="robots" content="index, follow" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="x-content-type-options" content="nosniff" />
     <meta http-equiv="x-frame-options" content="SAMEORIGIN" />
@@ -146,7 +170,7 @@ const themeInitScript = enableThemeInit
     <slot name="head" />
   </head>
   <body class={bodyClasses}>
-    {showSkipLink && <SkipLink />}
+    {showSkipLink && <SkipLink targetId={mainId} />}
     <div class={contentShellClasses || undefined}>
       <slot name="body-start" />
       <slot name="before-main" />
@@ -181,7 +205,7 @@ const themeInitScript = enableThemeInit
     isolation: isolate;
   }
 
-  .app__main::before {
+  .app__main--ambient::before {
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -194,7 +218,7 @@ const themeInitScript = enableThemeInit
     );
   }
 
-  .app__main::after {
+  .app__main--ambient::after {
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -216,8 +240,8 @@ const themeInitScript = enableThemeInit
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .app__main::before,
-    .app__main::after {
+    .app__main--ambient::before,
+    .app__main--ambient::after {
       opacity: 0;
     }
   }

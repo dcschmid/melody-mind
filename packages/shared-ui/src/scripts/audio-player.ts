@@ -3,6 +3,12 @@ import { formatTime } from "@shared-utils/utils/time";
 import { createInitializer } from "./utils/init";
 import { logError } from "./utils/error";
 
+const INTERACTIVE_SHORTCUT_SELECTOR =
+  'button, input, select, textarea, a[href], [role="button"], [role="link"], [contenteditable="true"]';
+
+const isInteractiveShortcutTarget = (target: EventTarget | null): boolean =>
+  target instanceof Element && Boolean(target.closest(INTERACTIVE_SHORTCUT_SELECTOR));
+
 const initAudioPlayers = (): (() => void) => {
   const players = document.querySelectorAll<HTMLDivElement>(".episode-player");
   if (!players.length) {
@@ -96,14 +102,14 @@ const initAudioPlayers = (): (() => void) => {
     const updateProgress = () => {
       const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
       const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+      const remainingTime = duration ? Math.max(duration - currentTime, 0) : 0;
+      const progressText = `${formatTime(currentTime)} elapsed, ${formatTime(remainingTime)} remaining`;
       progress.max = duration ? String(Math.floor(duration)) : "0";
       progress.value = String(Math.floor(currentTime));
       currentTimeDisplay.textContent = formatTime(currentTime);
-      remainingTimeDisplay.textContent = `-${duration ? formatTime(Math.max(duration - currentTime, 0)) : "0:00"}`;
-      timeDisplay.setAttribute(
-        "aria-label",
-        `${formatTime(currentTime)} elapsed, ${duration ? formatTime(Math.max(duration - currentTime, 0)) : "0:00"} remaining`
-      );
+      remainingTimeDisplay.textContent = `-${formatTime(remainingTime)}`;
+      progress.setAttribute("aria-valuetext", progressText);
+      timeDisplay.setAttribute("aria-label", progressText);
       dispatchTimeEvent();
     };
 
@@ -154,6 +160,9 @@ const initAudioPlayers = (): (() => void) => {
 
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.target !== player && !player.contains(event.target as Node)) {
+        return;
+      }
+      if (event.target !== player && isInteractiveShortcutTarget(event.target)) {
         return;
       }
       switch (event.key) {

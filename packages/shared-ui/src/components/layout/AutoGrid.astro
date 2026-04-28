@@ -5,7 +5,9 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   gap?: "xs" | "sm" | "md" | "base" | "lg" | "xl" | "section";
   min?: "sm" | "md" | "lg";
   preset?: "auto-fit" | "cards" | "fill" | "legal" | "highlights" | "pair";
+  optimizeVisibility?: boolean;
   ariaLabel?: string;
+  "aria-label"?: string;
   class?: string;
 }
 
@@ -15,28 +17,33 @@ const {
   gap = "lg",
   min = "md",
   preset = "auto-fit",
+  optimizeVisibility = false,
   ariaLabel,
+  "aria-label": ariaLabelAttr,
   class: classProp = "",
+  role: roleProp,
   ...rest
 } = Astro.props as Props;
 
 const Tag = as;
+const resolvedAriaLabel = ariaLabel ?? ariaLabelAttr;
 const classes = [
   "auto-grid",
   `auto-grid--gap-${gap}`,
   `auto-grid--min-${min}`,
   `auto-grid--preset-${preset}`,
+  optimizeVisibility ? "auto-grid--optimized-visibility" : "",
   className,
   classProp,
 ]
   .filter(Boolean)
   .join(" ");
 
-// Derive semantic role from element and preset
-const role = ariaLabel && (as === "div" || as === "section") ? "group" : undefined;
+const inferredRole = resolvedAriaLabel && as === "div" ? "group" : undefined;
+const role = roleProp ?? inferredRole;
 ---
 
-<Tag {...rest} class={classes} aria-label={ariaLabel} role={role}>
+<Tag {...rest} class={classes} aria-label={resolvedAriaLabel} role={role}>
   <slot />
 </Tag>
 
@@ -46,8 +53,10 @@ const role = ariaLabel && (as === "div" || as === "section") ? "group" : undefin
 
     /* Prevent overflow cascades from children */
     min-width: 0;
+  }
 
-    /* Performance: skip rendering off-screen content */
+  .auto-grid--optimized-visibility {
+    contain-intrinsic-size: auto 24rem;
     content-visibility: auto;
   }
 
@@ -227,9 +236,6 @@ const role = ariaLabel && (as === "div" || as === "section") ? "group" : undefin
   .auto-grid > * {
     /* Allow shrinking below content size */
     min-width: 0;
-
-    /* Contain overflow without creating stacking context */
-    overflow: clip;
 
     /* Break long words */
     overflow-wrap: break-word;

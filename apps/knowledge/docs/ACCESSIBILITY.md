@@ -103,10 +103,10 @@ Color combinations meet WCAG 2.2 AAA standards.
 
 | Text Type      | Contrast Ratio  | WCAG AA | WCAG AAA |
 | -------------- | --------------- | ------- | -------- |
-| Primary text   | 14.2:1 - 16.1:1 | ✅ PASS | ✅ PASS  |
-| Secondary text | 8.7:1 - 10.2:1  | ✅ PASS | ✅ PASS  |
+| Primary text   | 14.7:1 - 17.3:1 | ✅ PASS | ✅ PASS  |
+| Secondary text | 11.0:1 - 12.8:1 | ✅ PASS | ✅ PASS  |
 
-**Note**: The `.page-shell--aurora` gradient background was manually verified to exceed WCAG AAA requirements. See [ACCESSIBILITY-ANALYSIS.md](./ACCESSIBILITY-ANALYSIS.md) for detailed calculations.
+**Note**: The `.page-shell--night` gradient background was manually verified to exceed WCAG AAA requirements. See [ACCESSIBILITY-ANALYSIS.md](./ACCESSIBILITY-ANALYSIS.md) for detailed calculations.
 
 ### 7. Keyboard Navigation
 

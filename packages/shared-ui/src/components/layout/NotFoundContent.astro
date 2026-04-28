@@ -23,12 +23,16 @@ type Variant = (typeof VALID_VARIANTS)[number];
 
 const DANGEROUS_PROTOCOLS = ["javascript:", "data:", "vbscript:", "mailto:"];
 
-function sanitizeHref(href: string): string {
+function isVariant(variant: NotFoundButton["variant"]): variant is Variant {
+  return variant !== undefined && VALID_VARIANTS.includes(variant);
+}
+
+function sanitizeHref(href: string): string | null {
   const trimmed = href.trim().toLowerCase();
   if (DANGEROUS_PROTOCOLS.some((p) => trimmed.startsWith(p))) {
-    return "#";
+    return null;
   }
-  return href;
+  return href.trim();
 }
 
 const { code = "404", title, description, buttons = [] } = Astro.props as Props;
@@ -37,9 +41,12 @@ const safeButtons = buttons
   .map((btn) => ({
     href: sanitizeHref(btn.href),
     label: btn.label.trim(),
-    variant: (VALID_VARIANTS.includes(btn.variant) ? btn.variant : "primary") as Variant,
+    variant: isVariant(btn.variant) ? btn.variant : "primary",
   }))
-  .filter((btn) => btn.label.length > 0 && btn.href.length > 0);
+  .filter(
+    (btn): btn is { href: string; label: string; variant: Variant } =>
+      btn.label.length > 0 && btn.href !== null && btn.href.length > 0
+  );
 ---
 
 <div class="not-found" role="region" aria-label="Page not found">
@@ -53,7 +60,6 @@ const safeButtons = buttons
           {safeButtons.map((button) => (
             <a
               href={button.href}
-              aria-label={button.label}
               class:list={["not-found__btn", `not-found__btn--${button.variant}`]}
             >
               {button.label}
@@ -110,7 +116,7 @@ const safeButtons = buttons
     font-weight: 800;
     line-height: 1;
     color: var(--accent-muted);
-    letter-spacing: -0.05em;
+    letter-spacing: var(--letter-spacing-normal);
   }
 
   .not-found__title {
@@ -118,7 +124,7 @@ const safeButtons = buttons
     font-size: var(--font-size-2xl);
     font-weight: 800;
     color: var(--text-primary);
-    letter-spacing: -0.04em;
+    letter-spacing: var(--letter-spacing-normal);
   }
 
   .not-found__text {
@@ -139,13 +145,17 @@ const safeButtons = buttons
   }
 
   .not-found__btn {
+    box-sizing: border-box;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    max-inline-size: 100%;
     min-block-size: 2.75rem;
     padding: 0.625rem var(--spacing-lg);
     font-size: var(--font-size-base);
     font-weight: 600;
+    text-align: center;
+    overflow-wrap: anywhere;
     text-decoration: none;
     border-radius: var(--radius-lg);
   }
@@ -173,7 +183,6 @@ const safeButtons = buttons
     background: color-mix(in srgb, var(--accent-muted) 6%, transparent);
     border-color: color-mix(in srgb, var(--accent-muted) 20%, transparent);
     box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-primary) 16%, transparent);
-    transform: translateY(-2px);
   }
 
   .not-found__btn:focus-visible {
@@ -206,10 +215,11 @@ const safeButtons = buttons
         transform var(--transition-fast),
         background-color var(--transition-fast),
         color var(--transition-fast),
-        border-color var(--transition-fast),
-        box-shadow var(--transition-fast);
+        border-color var(--transition-fast);
     }
 
+    .not-found__btn--ghost:hover,
+    .not-found__btn--ghost:focus-visible,
     .not-found__btn--primary:hover,
     .not-found__btn--primary:focus-visible,
     .not-found__btn--secondary:hover,

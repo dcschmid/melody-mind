@@ -1,12 +1,13 @@
 ---
-interface Props {
-  as?: "section" | "div" | "aside";
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  as?: "section" | "div" | "aside" | "article";
   variant?: "default" | "accent" | "subtle" | "plain";
   padding?: "default" | "compact" | "spacious";
   className?: string;
   class?: string;
   role?: string;
   "aria-label"?: string;
+  "aria-labelledby"?: string;
   id?: string;
   tabindex?: number;
 }
@@ -19,6 +20,7 @@ const {
   class: classProp = "",
   role: roleAttr,
   "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
   id,
   tabindex,
   ...rest
@@ -39,6 +41,7 @@ const safeProps = {
   ...rest,
   ...(roleAttr && { role: roleAttr }),
   ...(ariaLabel && { "aria-label": ariaLabel }),
+  ...(ariaLabelledBy && { "aria-labelledby": ariaLabelledBy }),
   ...(id && { id }),
   ...(tabindex !== undefined && { tabindex }),
 };
@@ -49,28 +52,6 @@ const safeProps = {
 </Tag>
 
 <style>
-  @media screen and (prefers-reduced-motion: reduce) {
-    .section-surface {
-      display: flex;
-      flex-direction: column;
-      gap: var(--section-surface-inner-gap);
-      min-height: 4rem;
-      padding: clamp(var(--spacing-md), 4vw, var(--spacing-2xl));
-      contain: layout style;
-      font-size: clamp(1rem, 4vw, 1.125rem);
-      font-kerning: normal;
-      line-height: var(--line-height-normal);
-      background: var(--section-surface-bg);
-      border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-sm);
-      text-rendering: optimizelegibility;
-      transition: none;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-  }
-
   .section-surface {
     display: flex;
     flex-direction: column;
@@ -78,7 +59,6 @@ const safeProps = {
     min-height: 4rem;
     padding: clamp(var(--spacing-md), 4vw, var(--spacing-2xl));
     contain: layout style;
-    font-size: clamp(1rem, 4vw, 1.125rem);
     font-kerning: normal;
     line-height: var(--line-height-normal);
     background: var(--section-surface-bg);
@@ -88,8 +68,7 @@ const safeProps = {
     text-rendering: optimizelegibility;
     transition:
       background-color var(--transition-fast),
-      border-color var(--transition-fast),
-      box-shadow var(--transition-fast);
+      border-color var(--transition-fast);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -103,21 +82,13 @@ const safeProps = {
     .section-surface:focus:not(.section-surface--plain) {
       background: color-mix(in srgb, var(--accent-primary) 6%, var(--surface-1));
       border-color: var(--surface-border-accent);
-      box-shadow: var(--shadow-base);
     }
   }
 
   .section-surface--accent {
     background: var(--section-surface-accent-bg);
     border-color: var(--surface-border-accent);
-    border-left: 2px solid var(--accent-primary);
     box-shadow: var(--shadow-sm);
-  }
-
-  @media (width >= 480px) {
-    .section-surface--accent {
-      border-left-width: 3px;
-    }
   }
 
   .section-surface--subtle {
@@ -149,9 +120,8 @@ const safeProps = {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .section-surface:hover:not(.section-surface--plain),
-    .section-surface:focus:not(.section-surface--plain) {
-      transform: none;
+    .section-surface {
+      transition: none;
     }
   }
 </style>

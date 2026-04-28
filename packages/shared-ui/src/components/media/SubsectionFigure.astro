@@ -6,30 +6,40 @@ import { normalizeImageKey, stripImageExtension } from "@shared-utils/utils/imag
 interface Props {
   imageSrc: string;
   imageAlt?: string;
+  decorativeImage?: boolean;
   imageWidth?: number;
   imageHeight?: number;
   heading: string;
   headingLevel?: "h2" | "h3" | "h4";
   headingId?: string;
   sizes?: string;
+  loading?: "eager" | "lazy";
+  decoding?: "async" | "auto" | "sync";
+  fetchPriority?: "auto" | "high" | "low";
   className?: string;
   variant?: "auto" | "inline-left" | "inline-right";
   imageBadge?: string;
+  imageBadgeA11yHidden?: boolean;
   textWrap?: boolean;
 }
 
 const {
   imageSrc,
-  imageAlt = "",
+  imageAlt,
+  decorativeImage = false,
   imageWidth = 1024,
   imageHeight = 683,
   heading,
   headingLevel = "h3",
   headingId,
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 40vw",
+  loading = "lazy",
+  decoding = "async",
+  fetchPriority,
   className = "",
   variant = "auto",
   imageBadge,
+  imageBadgeA11yHidden = false,
   textWrap = false,
 } = Astro.props as Props;
 
@@ -102,14 +112,52 @@ if (!resolvedImage) {
 const resolvedImageWidth = imageWidth || resolvedImage.width;
 const resolvedImageHeight = imageHeight || resolvedImage.height;
 const Tag = headingLevel;
-const resolvedHeadingId =
-  headingId ||
-  heading
+const slugifyIdPart = (value: string): string =>
+  value
     .toLowerCase()
     .trim()
     .replace(/&/gu, " and ")
     .replace(/[^a-z0-9]+/gu, "-")
     .replace(/^-+|-+$/gu, "");
+const imageIdPart = slugifyIdPart(stripImageExtension(imageSrc.split("/").pop() ?? ""));
+const resolvedHeadingId =
+  headingId || [slugifyIdPart(heading), imageIdPart].filter(Boolean).join("-");
+const resolvedImageAlt = decorativeImage ? "" : imageAlt?.trim();
+const normaliseAltText = (value: string): string =>
+  value
+    .toLowerCase()
+    .replace(/&/gu, " and ")
+    .replace(/[^a-z0-9]+/gu, " ")
+    .trim()
+    .replace(/\s+/gu, " ");
+const placeholderAltPatterns = [
+  /^editorial image for\b/u,
+  /^image for\b/u,
+  /^illustration for\b/u,
+  /^visual for\b/u,
+  /^photo for\b/u,
+  /\bmusic history scene\b/u,
+  /\bmusic-history scene\b/u,
+  /\bplaceholder\b/u,
+];
+
+if (!decorativeImage && !resolvedImageAlt) {
+  throw new Error(
+    `SubsectionFigure requires imageAlt for meaningful images or decorativeImage={true}: ${imageSrc}`
+  );
+}
+
+if (
+  resolvedImageAlt &&
+  (placeholderAltPatterns.some((pattern) =>
+    pattern.test(normaliseAltText(resolvedImageAlt))
+  ) ||
+    normaliseAltText(resolvedImageAlt) === normaliseAltText(heading))
+) {
+  throw new Error(
+    `SubsectionFigure imageAlt must describe the image, not repeat the heading or use placeholder text: ${imageSrc}`
+  );
+}
 
 const resolvedVariant = variant === "auto" ? "inline-left" : variant;
 
@@ -144,15 +192,19 @@ const classes = [
           <Image
             class="subsection-figure__image"
             src={resolvedImage}
-            alt={imageAlt}
+            alt={resolvedImageAlt}
             width={resolvedImageWidth}
             height={resolvedImageHeight}
             sizes={sizes}
-            loading="lazy"
-            decoding="async"
+            loading={loading}
+            decoding={decoding}
+            fetchpriority={fetchPriority}
           />
           {imageBadge ? (
-            <span class="subsection-figure__badge" aria-hidden="true">
+            <span
+              class="subsection-figure__badge"
+              aria-hidden={imageBadgeA11yHidden ? "true" : undefined}
+            >
               {imageBadge}
             </span>
           ) : null}
@@ -164,15 +216,19 @@ const classes = [
           <Image
             class="subsection-figure__image"
             src={resolvedImage}
-            alt={imageAlt}
+            alt={resolvedImageAlt}
             width={resolvedImageWidth}
             height={resolvedImageHeight}
             sizes={sizes}
-            loading="lazy"
-            decoding="async"
+            loading={loading}
+            decoding={decoding}
+            fetchpriority={fetchPriority}
           />
           {imageBadge ? (
-            <span class="subsection-figure__badge" aria-hidden="true">
+            <span
+              class="subsection-figure__badge"
+              aria-hidden={imageBadgeA11yHidden ? "true" : undefined}
+            >
               {imageBadge}
             </span>
           ) : null}
@@ -197,7 +253,7 @@ const classes = [
     display: grid;
     gap: var(--stack-gap-md);
     align-items: start;
-    margin: clamp(var(--spacing-xl), 3.2vw, calc(var(--spacing-xl) * 1.45)) 0;
+    margin: calc(var(--spacing-xl) + var(--spacing-sm)) 0;
   }
 
   .subsection-figure__media {
@@ -227,10 +283,9 @@ const classes = [
     font-size: var(--font-size-xs);
     line-height: 1;
     color: color-mix(in srgb, var(--accent-strong) 88%, var(--surface-1) 12%);
-    background: color-mix(in srgb, var(--surface-1) 76%, var(--accent-muted) 24%);
-    border: 1px solid color-mix(in srgb, var(--accent-muted) 48%, transparent);
+    background: color-mix(in srgb, var(--surface-1) 94%, var(--accent-muted) 6%);
+    border: 1px solid color-mix(in srgb, var(--accent-muted) 36%, var(--surface-1) 64%);
     border-radius: var(--radius-full);
-    backdrop-filter: blur(12px);
   }
 
   .subsection-figure__content {
@@ -247,7 +302,7 @@ const classes = [
     font-family: var(--font-sans);
     line-height: 1.12;
     color: var(--heading-color);
-    letter-spacing: var(--letter-spacing-tighter);
+    letter-spacing: 0;
     text-wrap: balance;
     text-underline-offset: var(--text-underline-offset-base);
   }
@@ -340,7 +395,7 @@ const classes = [
     .subsection-figure--text-wrap .subsection-figure__media {
       inline-size: clamp(16rem, 41%, 28rem);
       max-inline-size: none;
-      margin-block-end: clamp(0.9rem, 1.6vw, 1.25rem);
+      margin-block-end: var(--spacing-lg);
     }
 
     .subsection-figure--text-wrap.subsection-figure--inline-left
@@ -442,13 +497,13 @@ const classes = [
 
     .subsection-figure--level-h2 .subsection-figure__title {
       max-inline-size: none;
-      font-size: clamp(2rem, 4.8vw + 0.95rem, 2.5rem);
+      font-size: var(--font-size-3xl);
       line-height: 1.1;
     }
 
     .subsection-figure--level-h3 .subsection-figure__title {
       max-inline-size: none;
-      font-size: clamp(1.65rem, 3.4vw + 0.95rem, 2rem);
+      font-size: var(--font-size-2xl);
       line-height: 1.12;
     }
 

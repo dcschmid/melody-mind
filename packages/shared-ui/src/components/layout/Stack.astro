@@ -1,5 +1,5 @@
 ---
-interface Props {
+interface Props extends astroHTML.JSX.HTMLAttributes {
   align?: "stretch" | "start" | "center" | "end";
   as?:
     | "div"
@@ -16,10 +16,6 @@ interface Props {
   gap?: "2xs" | "xs" | "sm" | "base" | "md" | "lg" | "xl" | "2xl";
   justify?: "start" | "center" | "end" | "between";
   class?: string;
-  role?: string;
-  "aria-label"?: string;
-  id?: string;
-  tabindex?: number;
 }
 
 const {
@@ -65,11 +61,7 @@ const safeProps = {
   .stack {
     display: flex;
     flex-direction: column;
-    contain: layout style;
-    font-kerning: normal;
-    text-rendering: optimizelegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    min-width: 0;
   }
 
   .stack--gap-2xs {

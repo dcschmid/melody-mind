@@ -1,5 +1,11 @@
 ---
-import type { RecentItem } from "@shared-utils/utils/storage/recentItems";
+import {
+  normalizeRecentItemSlug,
+  type RecentItem,
+} from "@shared-utils/utils/storage/recentItems";
+
+const DEFAULT_DATA_ID_PREFIX = "recent-read-data";
+const DEFAULT_MAX_ENTRIES = 3;
 
 interface Props {
   item: RecentItem;
@@ -11,23 +17,39 @@ interface Props {
 const {
   item,
   storageKey,
-  dataId = "recent-read-data",
-  maxEntries = 3,
+  dataId,
+  maxEntries = DEFAULT_MAX_ENTRIES,
 } = Astro.props as Props;
+
+const normalizedSlug = normalizeRecentItemSlug(item.slug);
+const slugDataId = normalizedSlug
+  .replace(/[^A-Za-z0-9_-]+/g, "-")
+  .replace(/^-+|-+$/g, "");
+const resolvedDataId = dataId ?? `${DEFAULT_DATA_ID_PREFIX}-${slugDataId || "item"}`;
+const resolvedMaxEntries = Number.isFinite(maxEntries)
+  ? Math.max(1, Math.floor(maxEntries))
+  : DEFAULT_MAX_ENTRIES;
+const trackedItem = {
+  ...item,
+  slug: normalizedSlug,
+};
 ---
 
 <div
-  id={dataId}
+  id={resolvedDataId}
   data-recent-items-tracker="true"
   data-storage-key={storageKey}
-  data-max-entries={String(maxEntries)}
-  data-item={JSON.stringify(item)}
+  data-max-entries={String(resolvedMaxEntries)}
+  data-slug={normalizedSlug}
+  data-item={JSON.stringify(trackedItem)}
   hidden
 >
 </div>
 
 <script>
   import { upsertRecentItem } from "@shared-utils/utils/storage/recentItems";
+
+  const DEFAULT_MAX_ENTRIES = 3;
 
   const trackers = document.querySelectorAll("[data-recent-items-tracker='true']");
 
@@ -37,7 +59,13 @@ const {
     }
 
     const storageKey = tracker.dataset.storageKey || "";
-    const maxEntries = Number.parseInt(tracker.dataset.maxEntries || "3", 10);
+    const parsedMaxEntries = Number.parseInt(
+      tracker.dataset.maxEntries || String(DEFAULT_MAX_ENTRIES),
+      10
+    );
+    const maxEntries = Number.isFinite(parsedMaxEntries)
+      ? Math.max(1, parsedMaxEntries)
+      : DEFAULT_MAX_ENTRIES;
     const rawItem = tracker.dataset.item || "";
 
     if (!storageKey || !rawItem) {

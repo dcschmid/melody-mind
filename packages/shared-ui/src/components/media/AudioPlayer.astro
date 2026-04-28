@@ -1,16 +1,26 @@
 ---
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
-interface Props {
+interface BaseProps {
+  id?: string | undefined;
   title: string;
   audioUrl: string;
-  subtitleUrl?: string | undefined;
 }
 
-const { title, audioUrl, subtitleUrl } = Astro.props as Props;
+type Props = BaseProps &
+  (
+    | { subtitleUrl: string; transcriptUrl?: string | undefined }
+    | { subtitleUrl?: string | undefined; transcriptUrl: string }
+  );
+
+const { id, title, audioUrl, subtitleUrl, transcriptUrl } = Astro.props as Props;
 const playerId = subtitleUrl ?? audioUrl;
+const generatedInstanceId =
+  globalThis.crypto?.randomUUID?.() ?? Math.random().toString(36).slice(2);
 const playerSlug =
-  playerId.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "audio";
+  (id ?? `${playerId}-${generatedInstanceId}`)
+    .replace(/[^a-z0-9]+/gi, "-")
+    .replace(/(^-|-$)/g, "") || "audio";
 const statusId = `episode-player-status-${playerSlug}`;
 const progressId = `episode-player-progress-${playerSlug}`;
 const timeId = `episode-player-time-${playerSlug}`;
@@ -111,16 +121,27 @@ const timeId = `episode-player-time-${playerSlug}`;
           data-episode-progress
           aria-label="Playback progress"
           aria-describedby={timeId}
+          aria-valuetext="0:00 elapsed, 0:00 remaining"
         />
       </div>
 
       <div class="episode-player__meta" id={timeId}>
         <span class="episode-player__time episode-player__time--current">0:00</span>
         <span class="episode-player__time episode-player__time--remaining">-0:00</span>
+        {
+          transcriptUrl && (
+            <a class="episode-player__transcript-link" href={transcriptUrl}>
+              Transcript
+            </a>
+          )
+        }
       </div>
     </div>
   </div>
 
+  {
+    /* eslint-disable astro/jsx-a11y/media-has-caption -- Captions are rendered only when subtitleUrl exists; emitting an empty track creates invalid media markup. */
+  }
   <audio
     class="episode-player__audio"
     preload="metadata"
@@ -129,54 +150,21 @@ const timeId = `episode-player-time-${playerSlug}`;
     crossorigin=""
   >
     <source src={audioUrl} type="audio/mpeg" />
-    <track
-      kind="captions"
-      src={subtitleUrl ?? undefined}
-      srclang="en"
-      label="English"
-      default={Boolean(subtitleUrl)}
-    />
+    {
+      subtitleUrl && (
+        <track kind="captions" src={subtitleUrl} srclang="en" label="English" default />
+      )
+    }
     Your browser does not support audio playback. Try Chrome, Firefox, or Safari for the best
     experience.
   </audio>
+  {/* eslint-enable astro/jsx-a11y/media-has-caption */}
   <script>
     import "@shared-ui/scripts/audio-player.ts";
   </script>
 </div>
 
 <style>
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player {
-      position: relative;
-      padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
-      overflow: hidden;
-      font-optical-sizing: auto;
-      font-feature-settings:
-        "kern" 1,
-        "liga" 1,
-        "calt" 1;
-      font-kerning: normal;
-      background:
-        radial-gradient(
-          circle at 100% 100%,
-          color-mix(in srgb, var(--accent-primary) 10%, transparent),
-          transparent 35%
-        ),
-        linear-gradient(
-          180deg,
-          color-mix(in srgb, var(--surface-1) 28%, transparent),
-          color-mix(in srgb, var(--surface-1) 12%, transparent)
-        ),
-        var(--surface-panel-bg);
-      border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-2xl);
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent),
-        var(--shadow-xl);
-      animation: none;
-    }
-  }
-
   .episode-player {
     position: relative;
     padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
@@ -269,27 +257,15 @@ const timeId = `episode-player-time-${playerSlug}`;
     min-inline-size: 6.25rem;
     min-block-size: 6.25rem;
     color: var(--button-text-accent);
-    background: linear-gradient(
-      135deg,
-      var(--accent-primary),
-      color-mix(in srgb, var(--accent-primary) 82%, var(--accent-strong))
-    );
+    background: var(--accent-primary);
     border-color: color-mix(
       in srgb,
-      var(--accent-primary) 72%,
+      var(--accent-primary) 42%,
       var(--surface-border-accent)
     );
     box-shadow:
-      0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 10%, transparent),
-      var(--shadow-lg);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .episode-player__control-icon {
-      inline-size: 2rem;
-      block-size: 2rem;
-      transition: none;
-    }
+      0 0.35rem 0.9rem color-mix(in srgb, var(--accent-primary) 18%, transparent),
+      var(--shadow-sm);
   }
 
   .episode-player__control-icon {
@@ -414,6 +390,7 @@ const timeId = `episode-player-time-${playerSlug}`;
 
   .episode-player__progress {
     inline-size: 100%;
+    min-block-size: var(--control-min-block-size);
     touch-action: pan-x;
     user-select: none;
     background: transparent;
@@ -422,22 +399,22 @@ const timeId = `episode-player-time-${playerSlug}`;
 
   .episode-player__progress::-webkit-slider-runnable-track {
     inline-size: 100%;
-    block-size: 0.35rem;
+    block-size: 0.45rem;
     background: var(--surface-border-soft);
     border-radius: var(--radius-full);
   }
 
   .episode-player__progress::-moz-range-track {
     inline-size: 100%;
-    block-size: 0.35rem;
+    block-size: 0.45rem;
     background: var(--surface-border-soft);
     border-radius: var(--radius-full);
   }
 
   .episode-player__progress::-webkit-slider-thumb {
-    inline-size: 1.25rem;
-    block-size: 1.25rem;
-    margin-block-start: -0.45rem;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    margin-block-start: -0.65rem;
     cursor: pointer;
     background: var(--accent-primary);
     border: none;
@@ -445,8 +422,8 @@ const timeId = `episode-player-time-${playerSlug}`;
   }
 
   .episode-player__progress::-moz-range-thumb {
-    inline-size: 1.25rem;
-    block-size: 1.25rem;
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
     cursor: pointer;
     background: var(--accent-primary);
     border: none;
@@ -484,20 +461,52 @@ const timeId = `episode-player-time-${playerSlug}`;
     color: var(--accent-primary);
   }
 
+  .episode-player__transcript-link {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--control-min-block-size-compact);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--accent-primary);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.2em;
+    border-radius: var(--radius-base);
+  }
+
+  .episode-player__transcript-link:hover,
+  .episode-player__transcript-link:focus {
+    color: var(--accent-primary-hover);
+  }
+
   .episode-player__control:focus-visible,
   .episode-player__transport-button:focus-visible,
   .episode-player__retry:focus-visible,
+  .episode-player__transcript-link:focus-visible,
   .episode-player__progress:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (pointer: coarse) {
+    .episode-player__progress::-webkit-slider-thumb {
+      inline-size: 2rem;
+      block-size: 2rem;
+      margin-block-start: -0.775rem;
+    }
+
+    .episode-player__progress::-moz-range-thumb {
+      inline-size: 2rem;
+      block-size: 2rem;
+    }
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
     .episode-player__control:hover,
     .episode-player__control:focus {
       box-shadow:
-        0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
-        var(--shadow-lg);
+        0 0.35rem 0.9rem color-mix(in srgb, var(--accent-primary) 18%, transparent),
+        var(--shadow-sm);
       transition: none;
     }
   }
@@ -505,8 +514,8 @@ const timeId = `episode-player-time-${playerSlug}`;
   .episode-player__control:hover,
   .episode-player__control:focus {
     box-shadow:
-      0 0 0 0.5rem color-mix(in srgb, var(--accent-primary) 16%, transparent),
-      var(--shadow-lg);
+      0 0.4rem 1rem color-mix(in srgb, var(--accent-primary) 22%, transparent),
+      var(--shadow-sm);
   }
 
   @media screen and (prefers-reduced-motion: no-preference) {
@@ -632,11 +641,11 @@ const timeId = `episode-player-time-${playerSlug}`;
 
   @media (prefers-reduced-motion: reduce) {
     .episode-player {
-      animation-duration: 0.01ms;
+      animation: none;
     }
 
     .episode-player__control-icon {
-      transition-duration: 0.01ms;
+      transition: none;
     }
 
     .episode-player__control:hover,
@@ -649,7 +658,7 @@ const timeId = `episode-player-time-${playerSlug}`;
     .episode-player__retry:active,
     .episode-player__retry:focus-visible {
       transform: none;
-      transition-duration: 0.01ms;
+      transition: none;
     }
 
     .episode-player__progress::-webkit-slider-thumb:hover,

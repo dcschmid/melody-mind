@@ -79,12 +79,18 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
   entry,
   slugKey
 );
+const recentReadDataId = `recent-read-data-${storageSlug
+  .replace(/[^A-Za-z0-9_-]+/g, "-")
+  .replace(/^-+|-+$/g, "")}`;
 ---
 
 <Layout {pageSeo}>
   <Fragment slot="head"></Fragment>
 
-  <ReadingProgress storageKey={VERSIONED_KEYS.READ_PROGRESS} />
+  <ReadingProgress
+    storageKey={VERSIONED_KEYS.READ_PROGRESS}
+    progressDataId={recentReadDataId}
+  />
 
   <PageShell containerClass="page-shell__container--wide">
     <Stack className="knowledge" gap="2xl">
@@ -102,7 +108,14 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
         links={articleLinks}
       />
 
-      {takeaways.length ? <KnowledgeTakeaways items={takeaways} /> : null}
+      {
+        takeaways.length ? (
+          <KnowledgeTakeaways
+            items={takeaways}
+            idBase={`knowledge-takeaways-${slugKey || "entry"}`}
+          />
+        ) : null
+      }
 
       <div class="knowledge__toc-surface">
         <TableOfContents headings={mergedHeadings} surface="minimal" />
@@ -147,6 +160,7 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
             image: storageImage,
           }}
           storageKey={VERSIONED_KEYS.RECENT_READS}
+          dataId={recentReadDataId}
         />
       </Stack>
     </Stack>
@@ -166,10 +180,6 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
 
   :global(.knowledge__prose.prose--article) {
     max-inline-size: min(100%, 78rem);
-  }
-
-  :global(.knowledge__prose.prose--article > p) {
-    max-inline-size: min(100%, 72rem);
   }
 
   @media (width >= 1024px) {

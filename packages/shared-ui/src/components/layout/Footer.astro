@@ -2,7 +2,11 @@
 import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
 import Paragraph from "../typography/Paragraph.astro";
 import ThemeToggle from "../actions/ThemeToggle.astro";
-import type { AppShellFooterConfig } from "@shared-utils/utils/appShell";
+import {
+  buildDefaultCopyrightText,
+  DEFAULT_APP_SHELL_COPYRIGHT_YEAR,
+  type AppShellFooterConfig,
+} from "@shared-utils/utils/appShell";
 
 type FooterLink = AppShellFooterConfig["exploreLinks"][number];
 type FooterConfig = AppShellFooterConfig;
@@ -19,7 +23,6 @@ interface Props {
   legalLinks?: FooterLink[];
   settingsTitle?: string;
   showSettings?: boolean;
-  themeStatusPrefix?: string;
   copyrightText?: string;
 }
 
@@ -35,8 +38,7 @@ const {
   legalLinks = [],
   settingsTitle = "Settings",
   showSettings = true,
-  themeStatusPrefix = "Theme",
-  copyrightText = `© ${new Date().getFullYear()} MelodyMind`,
+  copyrightText = buildDefaultCopyrightText(DEFAULT_APP_SHELL_COPYRIGHT_YEAR),
 } = Astro.props as Props;
 
 const resolvedFooterConfig = {
@@ -50,7 +52,6 @@ const resolvedFooterConfig = {
   legalLinks,
   settingsTitle,
   showSettings,
-  themeStatusPrefix,
   copyrightText,
   ...footerConfig,
 };
@@ -135,19 +136,8 @@ const resolvedFooterConfig = {
               <Paragraph textSize="sm" className="site-footer__title">
                 {resolvedFooterConfig.settingsTitle}
               </Paragraph>
-              <nav aria-label="Settings navigation" class="site-footer__nav">
+              <div class="site-footer__settings">
                 <ThemeToggle />
-              </nav>
-              <div class="site-footer__status-list">
-                <Paragraph
-                  textSize="sm"
-                  className="site-footer__theme-status"
-                  data-theme-status
-                  role="status"
-                  aria-live="polite"
-                >
-                  {resolvedFooterConfig.themeStatusPrefix}: system
-                </Paragraph>
               </div>
             </div>
           )
@@ -161,37 +151,11 @@ const resolvedFooterConfig = {
   </div>
 </footer>
 
-<script>
-  import { THEME_EVENTS } from "@shared-utils/constants/events";
-  import { getStoredTheme, getSystemTheme } from "@shared-utils/utils/theme/themeStorage";
-
-  const themeStatusElement = document.querySelector<HTMLElement>("[data-theme-status]");
-
-  const themeMessages = {
-    light: "Theme: bright listening",
-    dark: "Theme: night listening",
-    system: "Theme: following your rhythm",
-  } as const;
-
-  const renderThemeStatus = () => {
-    if (!themeStatusElement) {
-      return;
-    }
-    const storedTheme = getStoredTheme();
-    const resolvedTheme = storedTheme ?? getSystemTheme();
-    const message = themeMessages[resolvedTheme] ?? themeMessages.system;
-    themeStatusElement.textContent = message;
-  };
-
-  renderThemeStatus();
-  window.addEventListener(THEME_EVENTS.CHANGED, () => renderThemeStatus());
-</script>
-
 <style>
   /* -----------------------------------------------------------------------------
      Footer Component Styles (includes former FooterShell)
      Site footer with navigation links and settings
-     WCAG AAA compliant with proper touch targets and focus states
+     Uses tokenized touch targets and focus states
      ----------------------------------------------------------------------------- */
 
   .footer-shell {
@@ -294,7 +258,8 @@ const resolvedFooterConfig = {
     color: color-mix(in srgb, var(--text-secondary) 85%, var(--accent-primary) 15%);
   }
 
-  .site-footer__nav {
+  .site-footer__nav,
+  .site-footer__settings {
     display: grid;
     gap: var(--spacing-sm);
   }
@@ -335,18 +300,6 @@ const resolvedFooterConfig = {
     margin-block-end: var(--spacing-xl);
     content: "";
     background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-border-soft));
-  }
-
-  .site-footer__theme-status {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    color: var(--text-secondary);
-  }
-
-  .site-footer__status-list {
-    display: grid;
-    gap: var(--spacing-xs);
-    padding-block-start: var(--spacing-sm);
   }
 
   @media (width >= 768px) {

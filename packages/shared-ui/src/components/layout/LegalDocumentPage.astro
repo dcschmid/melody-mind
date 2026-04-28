@@ -2,6 +2,8 @@
 import Stack from "@shared-ui/components/layout/Stack.astro";
 import LegalDocumentSection from "@shared-ui/components/layout/LegalDocumentSection.astro";
 import StaticPageHero from "@shared-ui/components/layout/StaticPageHero.astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
+import type { TrustedHtml } from "@shared-ui/utils/trustedHtml";
 
 interface Highlight {
   label: string;
@@ -9,8 +11,13 @@ interface Highlight {
 }
 
 interface Section {
-  body: readonly string[] | string[];
-  icon: string;
+  /**
+   * Body paragraphs as trusted HTML strings.
+   * SECURITY: Content must be static or sanitized before reaching this component.
+   */
+  trustedHtmlBody: readonly TrustedHtml[] | TrustedHtml[];
+  headingLevel?: "h2" | "h3" | "h4";
+  icon: IconName;
   title: string;
 }
 
@@ -26,7 +33,7 @@ interface Props {
 const { eyebrow, highlights, highlightsAriaLabel, lead, sections, title } = Astro.props;
 ---
 
-<Stack className="legal-document" gap="2xl">
+<Stack as="article" className="legal-document" gap="2xl">
   <StaticPageHero
     eyebrow={eyebrow}
     {highlights}
@@ -37,12 +44,13 @@ const { eyebrow, highlights, highlightsAriaLabel, lead, sections, title } = Astr
 
   {
     sections && sections.length > 0 && (
-      <div className="legal-document__content">
+      <div class="legal-document__content">
         {sections.map((section) => (
           <LegalDocumentSection
             icon={section.icon}
             title={section.title}
-            body={section.body}
+            headingLevel={section.headingLevel}
+            trustedHtmlBody={section.trustedHtmlBody}
           />
         ))}
       </div>

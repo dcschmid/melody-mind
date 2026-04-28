@@ -2,13 +2,30 @@ import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const songSchema = z.object({
+const songBaseSchema = z.object({
   title: z.string(),
   audioUrl: z.string(),
-  lyricsUrl: z.string().optional(),
   durationSeconds: z.number().optional(),
   trackNumber: z.number(),
 });
+
+const songSchema = z.union([
+  songBaseSchema.extend({
+    lyricsUrl: z.string(),
+    isInstrumental: z.boolean().optional(),
+    transcriptUnavailableReason: z.string().optional(),
+  }),
+  songBaseSchema.extend({
+    lyricsUrl: z.string().optional(),
+    isInstrumental: z.literal(true),
+    transcriptUnavailableReason: z.string().optional(),
+  }),
+  songBaseSchema.extend({
+    lyricsUrl: z.string().optional(),
+    isInstrumental: z.boolean().optional(),
+    transcriptUnavailableReason: z.string().min(1),
+  }),
+]);
 
 const albums = defineCollection({
   loader: glob({

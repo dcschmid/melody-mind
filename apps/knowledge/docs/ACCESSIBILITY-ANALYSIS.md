@@ -27,66 +27,66 @@
 
 ### Issue Description
 
-All "incomplete" issues in `axe-report.json` are related to color contrast on the `.page-shell--aurora` gradient background. The axe-core auditor cannot automatically verify contrast on pseudo-elements and gradients, requiring manual verification.
+All "incomplete" issues in `axe-report.json` are related to color contrast on the `.page-shell--night` gradient background. The axe-core auditor cannot automatically verify contrast on pseudo-elements and gradients, requiring manual verification.
 
 ### Color Values Analyzed
 
-#### Background Gradient (`.page-shell--aurora`)
+#### Background Gradient (`.page-shell--night`)
 
 ```css
-.page-shell--aurora {
-  background: linear-gradient(145deg, #0a0f18 0%, #0c121c 45%, #0a1320 100%);
+.page-shell--night {
+  background: linear-gradient(145deg, #100d0b 0%, #1b1511 45%, #261d17 100%);
 }
 ```
 
 **End Points:**
 
-- Start: `#0a0f18` (RGB: 10, 15, 24)
-- Mid: `#0c121c` (RGB: 12, 18, 28)
-- End: `#0a1320` (RGB: 10, 19, 32)
+- Start: `#100d0b` (RGB: 16, 13, 11)
+- Mid: `#1b1511` (RGB: 27, 21, 17)
+- End: `#261d17` (RGB: 38, 29, 23)
 
 #### Text Colors
 
 ```css
---gn-parchment-50: #f2f6fb; /* Primary text */
---gn-parchment-200: #bcc8d9; /* Secondary text */
+--page-shell-night-text-primary: #f7f1e9; /* Primary text */
+--page-shell-night-text-secondary: #dfd0c1; /* Secondary text */
 ```
 
-- Primary text: `#f2f6fb` (RGB: 242, 246, 251)
-- Secondary text: `#bcc8d9` (RGB: 188, 200, 217)
+- Primary text: `#f7f1e9` (RGB: 247, 241, 233)
+- Secondary text: `#dfd0c1` (RGB: 223, 208, 193)
 
 ### Contrast Ratio Calculations
 
 | Text Color            | Background                 | Contrast Ratio | WCAG AA | WCAG AAA | Status       |
 | --------------------- | -------------------------- | -------------- | ------- | -------- | ------------ |
-| `#f2f6fb` (primary)   | `#0c121c` (mid gradient)   | **14.2:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
-| `#f2f6fb` (primary)   | `#0a0f18` (gradient start) | **15.8:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
-| `#f2f6fb` (primary)   | `#0a1320` (gradient end)   | **16.1:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
-| `#bcc8d9` (secondary) | `#0c121c` (mid gradient)   | **8.7:1**      | ✅ PASS | ✅ PASS  | ✅ Good      |
-| `#bcc8d9` (secondary) | `#0a0f18` (gradient start) | **9.9:1**      | ✅ PASS | ✅ PASS  | ✅ Good      |
-| `#bcc8d9` (secondary) | `#0a1320` (gradient end)   | **10.2:1**     | ✅ PASS | ✅ PASS  | ✅ Good      |
+| `#f7f1e9` (primary)   | `#1b1511` (mid gradient)   | **16.1:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
+| `#f7f1e9` (primary)   | `#100d0b` (gradient start) | **17.3:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
+| `#f7f1e9` (primary)   | `#261d17` (gradient end)   | **14.7:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
+| `#dfd0c1` (secondary) | `#1b1511` (mid gradient)   | **12.0:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
+| `#dfd0c1` (secondary) | `#100d0b` (gradient start) | **12.8:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
+| `#dfd0c1` (secondary) | `#261d17` (gradient end)   | **11.0:1**     | ✅ PASS | ✅ PASS  | ✅ Excellent |
 
 ### Requirements Met
 
 ✅ **WCAG 2.2 AA Level:**
 
-- Normal text (< 18pt): Minimum 4.5:1 required → All: 8.7:1 - 16.1:1 ✅
-- Large text (≥ 18pt bold or ≥ 24pt): Minimum 3:1 required → All: 8.7:1 - 16.1:1 ✅
+- Normal text (< 18pt): Minimum 4.5:1 required → All: 11.0:1 - 17.3:1 ✅
+- Large text (≥ 18pt bold or ≥ 24pt): Minimum 3:1 required → All: 11.0:1 - 17.3:1 ✅
 
 ✅ **WCAG 2.2 AAA Level (Optional):**
 
-- Normal text (< 18pt): Minimum 7:1 required → All: 8.7:1 - 16.1:1 ✅
-- Large text (≥ 18pt bold or ≥ 24pt): Minimum 4.5:1 required → All: 8.7:1 - 16.1:1 ✅
+- Normal text (< 18pt): Minimum 7:1 required → All: 11.0:1 - 17.3:1 ✅
+- Large text (≥ 18pt bold or ≥ 24pt): Minimum 4.5:1 required → All: 11.0:1 - 17.3:1 ✅
 
 ### Conclusion
 
-✅ **PASSED** - All text on the `.page-shell--aurora` gradient background exceeds WCAG 2.2 AAA requirements.
+✅ **PASSED** - All text on the `.page-shell--night` gradient background exceeds WCAG 2.2 AAA requirements.
 
 The "incomplete" issues in the axe report are **false positives** due to the automated tool's inability to analyze pseudo-elements and gradients. Manual verification confirms full compliance.
 
 ### Recommendation
 
-**Update axe configuration** to mark the `.page-shell--aurora` gradient as verified:
+**Update axe configuration** to mark the `.page-shell--night` gradient as verified:
 
 ```javascript
 // In your axe configuration
@@ -239,7 +239,7 @@ None identified during automated audit.
 
 #### Color & Visual
 
-- [x] WCAG AAA contrast ratios (8.7:1 - 16.1:1)
+- [x] WCAG AAA contrast ratios (11.0:1 - 17.3:1)
 - [x] Focus indicators with high contrast
 - [x] Link hover states with underline
 - [x] Reduced motion support (`@media (prefers-reduced-motion: reduce)`)

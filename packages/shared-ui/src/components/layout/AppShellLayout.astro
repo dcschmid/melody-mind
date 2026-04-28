@@ -9,6 +9,7 @@ import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import {
   buildAppShellSeoContext,
   buildDefaultCopyrightText,
+  DEFAULT_APP_SHELL_COPYRIGHT_YEAR,
   type AppShellConfig,
 } from "@shared-utils/utils/appShell";
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
@@ -30,6 +31,7 @@ interface Props {
     musician?: string;
   };
   audioSrc?: string;
+  audioType?: string;
   episodeNumber?: number;
   seriesName?: string;
   seriesUrl?: string;
@@ -39,6 +41,8 @@ interface Props {
   authorName?: string;
   appTitle?: string;
   copyrightBrand?: string;
+  copyrightText?: string;
+  copyrightYear?: number;
   resolveLogoUrl: (baseUrl: string) => string;
   resolveFallbackImageUrl: (baseUrl: string) => string;
 }
@@ -55,6 +59,7 @@ const {
   showFooter = true,
   ogMusic,
   audioSrc,
+  audioType,
   episodeNumber,
   seriesName,
   seriesUrl,
@@ -64,6 +69,8 @@ const {
   authorName,
   appTitle = "MelodyMind",
   copyrightBrand = "MelodyMind",
+  copyrightText,
+  copyrightYear,
   resolveLogoUrl,
   resolveFallbackImageUrl,
 } = Astro.props as Props;
@@ -95,11 +102,19 @@ const headerConfig = {
   brandText: "",
   brandLogoSrc,
   brandLogoAlt,
+  brandLogoLoading: "eager" as const,
+  brandLogoFetchPriority: "high" as const,
   showIcons: showHeaderIcons,
 };
 const footerConfig = {
   ...shellConfig.footer,
-  copyrightText: buildDefaultCopyrightText(new Date().getFullYear(), copyrightBrand),
+  copyrightText:
+    copyrightText ||
+    shellConfig.footer.copyrightText ||
+    buildDefaultCopyrightText(
+      copyrightYear ?? DEFAULT_APP_SHELL_COPYRIGHT_YEAR,
+      copyrightBrand
+    ),
 };
 
 const preloadedResources: Array<{
@@ -107,19 +122,6 @@ const preloadedResources: Array<{
   as: "style" | "script" | "font" | "image";
   crossorigin?: "anonymous" | "use-credentials";
 }> = [];
-const fontPreloads: Array<{
-  href: string;
-  as: "style" | "script" | "font" | "image";
-  type?: string;
-  crossorigin?: "anonymous" | "use-credentials";
-}> = [
-  {
-    href: "/fonts/atkinson-hyperlegible-regular.woff2",
-    as: "font",
-    type: "font/woff2",
-    crossorigin: "anonymous",
-  },
-];
 const dnsPrefetch: Array<{ href: string }> = [];
 const keywords = mergedKeywords
   .split(",")
@@ -127,12 +129,11 @@ const keywords = mergedKeywords
   .filter(Boolean);
 ---
 
-<MasterLayout lang={lang} appTitle={appTitle}>
+<MasterLayout lang={lang} appTitle={appTitle} enableAmbientMainBackground>
   <Fragment slot="head">
     <AppHeadResources
       {dnsPrefetch}
       {preloadedResources}
-      {fontPreloads}
       rssTitle={shellConfig.rssTitle}
       rssHref="/rss.xml"
     />
@@ -149,12 +150,12 @@ const keywords = mergedKeywords
       modifiedDate={mergedModifiedDate}
       {ogMusic}
       {audioSrc}
+      {audioType}
       {episodeNumber}
       {seriesName}
       {seriesUrl}
       canonical={mergedCanonical}
-      noIndex={robotsTag.includes("noindex")}
-      noFollow={robotsTag.includes("nofollow")}
+      robots={robotsTag}
       {prevUrl}
       {nextUrl}
       {disableAlternateLanguages}
@@ -171,7 +172,6 @@ const keywords = mergedKeywords
       alternateLocales={constructedPageSeo.alternateLocales}
       twitter={constructedPageSeo.twitter}
     />
-    {robotsTag !== "index,follow" && <meta name="robots" content={robotsTag} />}
   </Fragment>
 
   {showHeader && <SiteHeader slot="before-main" headerConfig={headerConfig} />}

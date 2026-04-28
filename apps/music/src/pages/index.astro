@@ -28,15 +28,39 @@ const albumTitleCollator = new Intl.Collator("en", {
   numeric: true,
   sensitivity: "base",
 });
-const sortedAlbums = [...albums].sort(
-  (a, b) =>
-    albumTitleCollator.compare(a.title, b.title) || albumTitleCollator.compare(a.id, b.id)
-);
+const compareAlbumsByTitle = (a: AlbumData, b: AlbumData) =>
+  albumTitleCollator.compare(a.title, b.title) || albumTitleCollator.compare(a.id, b.id);
+const compareAlbumsByDate = (a: AlbumData, b: AlbumData) =>
+  new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() ||
+  compareAlbumsByTitle(a, b);
 const genreOptions = Array.from(
   new Set(
     albums.map((album) => album.genre).filter((genre): genre is string => Boolean(genre))
   )
 ).sort((a, b) => albumTitleCollator.compare(a, b));
+
+const DEFAULT_SORT_VALUE = "date";
+const sortParamValue = Astro.url.searchParams.get("sort");
+const genreParamValue =
+  Astro.url.searchParams.get("genre") ?? Astro.url.searchParams.get("album-genre");
+const initialSortValue = sortParamValue === "title" ? sortParamValue : DEFAULT_SORT_VALUE;
+const initialGenreValue =
+  genreParamValue && genreOptions.includes(genreParamValue) ? genreParamValue : "";
+const sortedAlbumsByDate = [...albums].sort(compareAlbumsByDate);
+const sortedAlbums =
+  initialSortValue === "title"
+    ? [...albums].sort(compareAlbumsByTitle)
+    : sortedAlbumsByDate;
+
+const getVisibleCountLabel = (count: number, genre = "") => {
+  if (count === 0) {
+    return genre ? `No albums match ${genre}.` : "No albums match the current filters.";
+  }
+
+  return `${count} ${count === 1 ? "album" : "albums"}`;
+};
+const isAlbumVisibleForGenre = (genre?: string) =>
+  !initialGenreValue || genre === initialGenreValue;
 
 const albumEntries = sortedAlbums.map((album) => {
   const totalDuration = album.songs.reduce(
@@ -52,8 +76,10 @@ const albumEntries = sortedAlbums.map((album) => {
     publishedAtTime: new Date(album.publishedAt).getTime(),
     metaItems: buildAlbumMetaItems(album.publishedAt, totalDuration),
     genre: album.genre,
+    isVisible: isAlbumVisibleForGenre(album.genre),
   };
 });
+const initialVisibleAlbumCount = albumEntries.filter((album) => album.isVisible).length;
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
@@ -82,7 +108,7 @@ const t = {
 
 const structuredData = [
   buildMusicAlbumListSchema({
-    albums: sortedAlbums,
+    albums: sortedAlbumsByDate,
     canonical,
     description: t.description,
     site: Astro.site,
@@ -103,7 +129,7 @@ const structuredData = [
   {breadcrumbs}
   {structuredData}
 >
-  <PageShell className="page-shell--aurora">
+  <PageShell>
     <Stack gap="xl">
       <HeroTeaser
         id="music-home-hero"
@@ -124,9 +150,29 @@ const structuredData = [
       />
 
       <SectionSurface as="section" variant="plain" aria-labelledby="albums-heading">
-        <Headline id="albums-heading" level="h2" textSize="xl">
-          {t.albums}
-        </Headline>
+        <div class="home__albums-header">
+          <div class="home__albums-title">
+            <Headline id="albums-heading" level="h2" textSize="xl">
+              {t.albums}
+            </Headline>
+            <p class="home__albums-deck">
+              Recent MelodyMind releases, ordered for listening and browsing.
+            </p>
+          </div>
+
+          {
+            albums.length > 0 && (
+              <p
+                class="home__results"
+                aria-live="polite"
+                aria-atomic="true"
+                data-album-results
+              >
+                {getVisibleCountLabel(initialVisibleAlbumCount, initialGenreValue)}
+              </p>
+            )
+          }
+        </div>
 
         {
           albums.length > 0 && (
@@ -141,8 +187,12 @@ const structuredData = [
                     aria-controls="albums-list"
                     data-album-sort
                   >
-                    <option value="title">{t.sortAlphabetically}</option>
-                    <option value="date">{t.newestFirst}</option>
+                    <option value="date" selected={initialSortValue === "date"}>
+                      {t.newestFirst}
+                    </option>
+                    <option value="title" selected={initialSortValue === "title"}>
+                      {t.sortAlphabetically}
+                    </option>
                   </select>
                 </span>
               </label>
@@ -157,22 +207,17 @@ const structuredData = [
                     aria-controls="albums-list"
                     data-album-genre
                   >
-                    <option value="">{t.allGenres}</option>
+                    <option value="" selected={initialGenreValue === ""}>
+                      {t.allGenres}
+                    </option>
                     {genreOptions.map((genre) => (
-                      <option value={genre}>{genre}</option>
+                      <option value={genre} selected={initialGenreValue === genre}>
+                        {genre}
+                      </option>
                     ))}
                   </select>
                 </span>
               </label>
-
-              <p
-                class="home__results"
-                aria-live="polite"
-                aria-atomic="true"
-                data-album-results
-              >
-                {`${albums.length} albums`}
-              </p>
             </form>
           )
         }
@@ -186,7 +231,9 @@ const structuredData = [
                 data-album-card
                 data-album-title={album.title}
                 data-album-published-at={album.publishedAtTime}
-                data-album-genre={album.genre || ""}
+                data-album-card-genre={album.genre || ""}
+                hidden={!album.isVisible}
+                aria-hidden={album.isVisible ? "false" : "true"}
                 role="listitem"
                 href={`/${album.id}`}
                 variant="feature"
@@ -198,6 +245,7 @@ const structuredData = [
                 imageAlt={`Cover art for the album ${album.title}`}
                 imageWidth={1200}
                 imageHeight={1200}
+                imageSizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) calc((100vw - 5rem) / 2), (max-width: 1279px) calc((100vw - 8rem) / 3), 24rem"
                 title={album.title}
                 description={album.description}
                 metaItems={album.metaItems}
@@ -228,22 +276,79 @@ const structuredData = [
   if (albumControls instanceof HTMLFormElement && albumList instanceof HTMLElement) {
     const sortSelect = albumControls.querySelector("[data-album-sort]");
     const genreSelect = albumControls.querySelector("[data-album-genre]");
-    const results = albumControls.querySelector("[data-album-results]");
+    const results = document.querySelector("[data-album-results]");
     const collator = new Intl.Collator("en", {
       numeric: true,
       sensitivity: "base",
     });
+    const defaultSortValue = "date";
+    const sortParamName = "sort";
+    const genreParamName = "genre";
 
     const cards = Array.from(
       albumList.querySelectorAll("[data-album-card]")
     ) as HTMLElement[];
 
-    const getVisibleCountLabel = (count: number) =>
-      `${count} ${count === 1 ? "album" : "albums"}`;
+    const getVisibleCountLabel = (count: number, genreValue = "") => {
+      if (count === 0) {
+        return genreValue
+          ? `No albums match ${genreValue}.`
+          : "No albums match the current filters.";
+      }
 
-    const updateAlbums = () => {
+      return `${count} ${count === 1 ? "album" : "albums"}`;
+    };
+
+    const isValidSortValue = (value: string | null) =>
+      value === "date" || value === "title";
+
+    const isValidGenreValue = (value: string) => {
+      if (!(genreSelect instanceof HTMLSelectElement)) {
+        return false;
+      }
+
+      return Array.from(genreSelect.options).some((option) => option.value === value);
+    };
+
+    const applyControlsFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const sortValue = params.get(sortParamName);
+      const genreValue = params.get(genreParamName) ?? params.get("album-genre");
+
+      if (sortSelect instanceof HTMLSelectElement) {
+        sortSelect.value = isValidSortValue(sortValue) ? sortValue : defaultSortValue;
+      }
+
+      if (genreSelect instanceof HTMLSelectElement) {
+        const normalizedGenreValue = genreValue ?? "";
+        genreSelect.value = isValidGenreValue(normalizedGenreValue)
+          ? normalizedGenreValue
+          : "";
+      }
+    };
+
+    const syncUrlToControls = (sortValue: string, genreValue: string) => {
+      const url = new URL(window.location.href);
+
+      if (sortValue === defaultSortValue) {
+        url.searchParams.delete(sortParamName);
+      } else {
+        url.searchParams.set(sortParamName, sortValue);
+      }
+
+      if (genreValue) {
+        url.searchParams.set(genreParamName, genreValue);
+      } else {
+        url.searchParams.delete(genreParamName);
+      }
+      url.searchParams.delete("album-genre");
+
+      window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    };
+
+    const updateAlbums = ({ syncUrl = false } = {}) => {
       const sortValue =
-        sortSelect instanceof HTMLSelectElement ? sortSelect.value : "title";
+        sortSelect instanceof HTMLSelectElement ? sortSelect.value : defaultSortValue;
       const genreValue =
         genreSelect instanceof HTMLSelectElement ? genreSelect.value : "";
 
@@ -263,8 +368,8 @@ const structuredData = [
       let visibleCount = 0;
 
       for (const card of sortedCards) {
-        const isVisible = !genreValue || card.dataset.albumGenre === genreValue;
-        card.classList.toggle("home__album-card--hidden", !isVisible);
+        const isVisible = !genreValue || card.dataset.albumCardGenre === genreValue;
+        card.toggleAttribute("hidden", !isVisible);
         card.setAttribute("aria-hidden", String(!isVisible));
         if (isVisible) {
           visibleCount += 1;
@@ -273,11 +378,20 @@ const structuredData = [
       }
 
       if (results instanceof HTMLElement) {
-        results.textContent = getVisibleCountLabel(visibleCount);
+        results.textContent = getVisibleCountLabel(visibleCount, genreValue);
+      }
+
+      if (syncUrl) {
+        syncUrlToControls(sortValue, genreValue);
       }
     };
 
-    albumControls.addEventListener("change", updateAlbums);
+    albumControls.addEventListener("change", () => updateAlbums({ syncUrl: true }));
+    window.addEventListener("popstate", () => {
+      applyControlsFromUrl();
+      updateAlbums();
+    });
+    applyControlsFromUrl();
     updateAlbums();
   }
 </script>
@@ -287,8 +401,30 @@ const structuredData = [
     gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
   }
 
-  .home__album-card--hidden {
+  :global([data-album-card][hidden]) {
     display: none;
+  }
+
+  .home__albums-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-base) var(--spacing-xl);
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .home__albums-title {
+    display: grid;
+    gap: var(--spacing-xs);
+    max-inline-size: 42rem;
+  }
+
+  .home__albums-deck {
+    max-inline-size: 58ch;
+    margin: 0;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
   }
 
   .home__controls {
@@ -296,7 +432,7 @@ const structuredData = [
     flex-wrap: wrap;
     gap: var(--spacing-sm);
     align-items: end;
-    justify-content: space-between;
+    justify-content: flex-start;
     inline-size: 100%;
   }
 
@@ -337,19 +473,18 @@ const structuredData = [
     cursor: pointer;
     background: var(--surface-1);
     border: 1px solid var(--border-default);
-    border-left: 3px solid var(--accent-primary);
     border-radius: var(--radius-lg);
   }
 
   .home__select:focus-visible {
-    outline: 0;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px oklch(from var(--accent-primary) l c h / 0.15);
   }
 
   .home__results {
     flex: 0 0 auto;
-    padding-block-end: var(--spacing-sm);
+    padding-block: var(--spacing-xs);
     margin: 0;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
@@ -361,9 +496,12 @@ const structuredData = [
       align-items: stretch;
     }
 
-    .home__control,
-    .home__results {
+    .home__control {
       flex-basis: 100%;
+    }
+
+    .home__albums-header {
+      align-items: stretch;
     }
 
     .home__results {
@@ -373,9 +511,7 @@ const structuredData = [
 
   @media (prefers-reduced-motion: no-preference) {
     .home__select {
-      transition:
-        border-color var(--motion-duration-fast) var(--motion-ease-standard),
-        box-shadow var(--motion-duration-fast) var(--motion-ease-standard);
+      transition: border-color var(--motion-duration-fast) var(--motion-ease-standard);
     }
   }
 </style>

@@ -5,19 +5,6 @@ import {
 
 const DEFAULT_FALLBACK_IMAGE = "/favicon.svg";
 
-const parseImageMap = (raw: string): Record<string, string> => {
-  if (!raw) {
-    return {};
-  }
-
-  try {
-    const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === "object" ? parsed : {};
-  } catch {
-    return {};
-  }
-};
-
 const createRecentReadItem = (
   title: string,
   href: string,
@@ -37,7 +24,8 @@ const createRecentReadItem = (
   image.className = "recent-reads-panel__image";
   image.loading = "lazy";
   image.decoding = "async";
-  image.alt = title ? `Cover image for ${title}` : "Article cover image";
+  image.alt = "";
+  image.setAttribute("aria-hidden", "true");
   image.src = imageSrc || DEFAULT_FALLBACK_IMAGE;
   image.onerror = () => {
     if (image.src.endsWith(DEFAULT_FALLBACK_IMAGE)) {
@@ -90,7 +78,6 @@ export const initRecentReadsPanels = (): void => {
     }
 
     list.textContent = "";
-    const imageMap = parseImageMap(panel.dataset.imageMap || "");
     const items = loadRecentItems(storageKey).slice(0, Math.max(1, maxItems));
     const fragment = document.createDocumentFragment();
 
@@ -103,12 +90,7 @@ export const initRecentReadsPanels = (): void => {
 
     items.forEach((item) => {
       const normalizedSlug = normalizeRecentItemSlug(item.slug);
-      const articleImage =
-        typeof imageMap[normalizedSlug] === "string"
-          ? imageMap[normalizedSlug].trim()
-          : "";
       const resolvedImage =
-        articleImage ||
         (typeof item.image === "string" && item.image.trim() ? item.image.trim() : "") ||
         fallbackImage;
 

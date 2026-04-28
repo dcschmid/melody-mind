@@ -1,6 +1,6 @@
 /* =============================================================================
    ANIMATIONS
-   Theme-aware animations for rise-in, fade-in, and glow-pulse effects
+   Theme-aware animations for rise-in, fade-in, and state feedback effects
    ============================================================================= */
 
 /* -----------------------------------------------------------------------------
@@ -28,14 +28,14 @@
   }
 }
 
-@keyframes theme-glow-pulse {
+@keyframes theme-state-pulse {
   0%,
   100% {
-    opacity: var(--motion-opacity-soft);
+    opacity: var(--motion-opacity-full);
   }
 
   50% {
-    opacity: var(--motion-opacity-full);
+    opacity: var(--motion-opacity-soft);
   }
 }
 
@@ -45,11 +45,8 @@
    ----------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
   [data-animate="rise-in"] {
-    animation:
-      theme-rise-in var(--motion-duration-base) var(--motion-ease-standard)
-        var(--motion-delay, var(--motion-delay-none)) both,
-      theme-fade-in var(--motion-duration-base) linear
-        var(--motion-delay, var(--motion-delay-none)) both;
+    animation: theme-rise-in var(--motion-duration-base) var(--motion-ease-standard)
+      var(--motion-delay, var(--motion-delay-none)) both;
   }
 
   [data-animate="soft-fade"] {
@@ -57,7 +54,9 @@
       var(--motion-delay, var(--motion-delay-none)) both;
   }
 
-  [data-animate="glow-pulse"] {
-    animation: theme-glow-pulse 2.8s ease-in-out infinite;
+  [data-animate="state-pulse"] {
+    animation: theme-state-pulse var(--motion-duration-feedback)
+      var(--motion-ease-standard) var(--motion-delay, var(--motion-delay-none))
+      var(--motion-iteration-feedback);
   }
 }

@@ -81,8 +81,6 @@ const statusBadgeColorMap = {
             statusBadge.pulse !== false ? "static-page-hero__status-badge--pulse" : "",
           ]}
           style={`--status-badge-color: ${statusBadgeColorMap[statusBadge.variant]}`}
-          aria-live="polite"
-          role="status"
         >
           {statusBadge.label}
         </div>
@@ -130,7 +128,7 @@ const statusBadgeColorMap = {
         <Stack class="static-page-hero__highlight" gap="sm">
           {highlightAccent && highlight.accentBar !== false && (
             <span
-              class="static-page-hero__highlight-accent-bar"
+              class="static-page-hero__highlight-accent"
               aria-hidden="true"
               translate="no"
             />
@@ -153,25 +151,12 @@ const statusBadgeColorMap = {
 </header>
 
 <style>
-  /* Hero entrance: staggered fade-in with editorial restraint */
-  @media screen and (prefers-reduced-motion: reduce) {
-    .static-page-hero {
-      position: relative;
-      display: grid;
-      gap: var(--spacing-xl);
-      padding: var(--spacing-2xl) 0;
-      background: color-mix(in srgb, var(--color-accent-primary) 4%, var(--surface-1));
-      animation: none;
-    }
-  }
-
   .static-page-hero {
     position: relative;
     display: grid;
     gap: var(--spacing-xl);
     padding: var(--spacing-2xl) 0;
     background: color-mix(in srgb, var(--color-accent-primary) 4%, var(--surface-1));
-    animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
   }
 
   :global([data-theme="dark"]) .static-page-hero {
@@ -194,37 +179,77 @@ const statusBadgeColorMap = {
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .static-page-hero,
-    .static-page-hero__main,
-    .static-page-hero__highlights,
-    .static-page-hero__status-badge--pulse {
-      animation: none;
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .static-page-hero__main {
-      gap: var(--spacing-xl);
-      max-inline-size: var(--measure-wide);
-      animation: none;
-    }
-  }
-
   .static-page-hero__main {
     gap: var(--spacing-xl);
     max-inline-size: var(--measure-wide);
-    animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: no-preference) {
+    .static-page-hero {
+      animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) both;
+    }
+
+    .static-page-hero__main {
+      animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.1s both;
+    }
+
     .static-page-hero__highlights {
-      animation: none;
+      animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.25s both;
     }
   }
 
-  .static-page-hero__highlights {
-    animation: hero-reveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.25s both;
+  .static-page-hero__badge {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-strong);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1));
+    border-radius: var(--radius-sm);
+  }
+
+  :global([data-theme="dark"]) .static-page-hero__badge {
+    color: var(--color-dark-accent-strong);
+    background: color-mix(
+      in srgb,
+      var(--color-dark-accent-primary) 12%,
+      var(--color-dark-surface-1)
+    );
+  }
+
+  .static-page-hero__status-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--status-badge-color);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-widest);
+    background: color-mix(in srgb, var(--status-badge-color) 10%, var(--surface-1));
+    border-radius: var(--radius-sm);
+  }
+
+  .static-page-hero__status-badge--pulse::after {
+    position: absolute;
+    inset: calc(-1 * var(--spacing-2xs));
+    pointer-events: none;
+    content: "";
+    border: 1px solid color-mix(in srgb, var(--status-badge-color) 34%, transparent);
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .static-page-hero__status-badge--pulse::after {
+      animation: status-presence-pulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+    }
   }
 
   .static-page-hero__eyebrow {
@@ -260,103 +285,16 @@ const statusBadgeColorMap = {
     }
   }
 
-  .static-page-hero__badge {
-    display: inline-flex;
-    gap: var(--spacing-sm);
-    align-items: center;
-    padding: var(--spacing-sm) var(--spacing-base);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-strong);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
-    background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1));
-    border-radius: var(--radius-sm);
-  }
-
-  :global([data-theme="dark"]) .static-page-hero__badge {
-    color: var(--color-dark-accent-strong);
-    background: color-mix(
-      in srgb,
-      var(--color-dark-accent-primary) 12%,
-      var(--color-dark-surface-1)
-    );
-  }
-
-  .static-page-hero__badge:focus-visible {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
-  }
-
-  :global([data-theme="dark"]) .static-page-hero__badge:focus-visible {
-    outline-color: var(--color-dark-accent-primary);
-  }
-
-  .static-page-hero__status-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--spacing-sm) var(--spacing-base);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    color: var(--status-badge-color);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
-    background: color-mix(in srgb, var(--status-badge-color) 10%, var(--surface-1));
-    border-radius: var(--radius-sm);
-  }
-
-  .static-page-hero__status-badge:focus-visible {
-    outline: 2px solid var(--status-badge-color);
-    outline-offset: 2px;
-  }
-
-  .static-page-hero__status-badge--pulse {
-    animation: status-glow-pulse 2.8s ease-in-out infinite;
-  }
-
-  @keyframes status-glow-pulse {
+  @keyframes status-presence-pulse {
     0%,
     100% {
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent),
-        0 0 0 0 color-mix(in srgb, var(--status-badge-color) 0%, transparent);
+      opacity: 0;
+      transform: scale(0.96);
     }
 
     50% {
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--surface-1) 72%, transparent),
-        0 0 4px 1px color-mix(in srgb, var(--status-badge-color) 25%, transparent);
-    }
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    :global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
-      animation: none;
-    }
-  }
-
-  :global([data-theme="dark"]) .static-page-hero__status-badge--pulse {
-    animation-name: status-glow-pulse-dark;
-  }
-
-  @keyframes status-glow-pulse-dark {
-    0%,
-    100% {
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--color-dark-surface-1) 72%, transparent),
-        0 0 0 0 color-mix(in srgb, var(--status-badge-color) 0%, transparent);
-    }
-
-    50% {
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--color-dark-surface-1) 72%, transparent),
-        0 0 4px 1px color-mix(in srgb, var(--status-badge-color) 25%, transparent);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .static-page-hero__status-badge--pulse {
-      animation: none;
+      opacity: 1;
+      transform: scale(1.03);
     }
   }
 
@@ -371,38 +309,17 @@ const statusBadgeColorMap = {
     border-bottom: none;
   }
 
-  .static-page-hero__highlight:hover,
-  .static-page-hero__highlight:focus {
-    background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1) 90%);
-  }
-
   :global([data-theme="dark"]) .static-page-hero__highlight {
-    background: color-mix(
-      in srgb,
-      var(--color-dark-accent-primary) 8%,
-      var(--color-dark-surface-1) 90%
-    );
+    background: transparent;
   }
 
-  :global([data-theme="dark"]) .static-page-hero__highlight:hover,
-  :global([data-theme="dark"]) .static-page-hero__highlight:focus {
-    background: color-mix(
-      in srgb,
-      var(--color-dark-accent-primary) 12%,
-      var(--color-dark-surface-1) 85%
-    );
-  }
-
-  .static-page-hero__highlight-accent-bar {
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0;
-    display: block;
-    inline-size: var(--spacing-2xs);
-    block-size: 100%;
-    min-block-size: 2.5rem;
+  .static-page-hero__highlight-accent {
+    display: inline-block;
+    inline-size: var(--spacing-sm);
+    block-size: var(--spacing-sm);
+    margin-inline-start: var(--spacing-lg);
     background: color-mix(in srgb, var(--accent-primary) 85%, transparent);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
   }
 
   .static-page-hero__highlight-value,

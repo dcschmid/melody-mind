@@ -22,7 +22,7 @@ const {
   sourceLabel,
   sourceUrl,
   avatarSrc,
-  avatarAlt = authorName ? `${authorName} portrait` : "",
+  avatarAlt = "",
   avatarInitials,
   className = "",
 } = Astro.props as Props;
@@ -92,24 +92,6 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
 </figure>
 
 <style>
-  @media screen and (prefers-reduced-motion: reduce) {
-    .quote-card {
-      position: relative;
-      display: grid;
-      padding: var(--panel-padding-sm);
-      overflow: hidden;
-      background: color-mix(
-        in srgb,
-        var(--surface-panel-bg) 85%,
-        var(--accent-primary) 8%
-      );
-      border: 1px solid var(--surface-border-soft);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-md);
-      transition: none;
-    }
-  }
-
   .quote-card {
     position: relative;
     display: grid;
@@ -118,22 +100,25 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     background: color-mix(in srgb, var(--surface-panel-bg) 85%, var(--accent-primary) 8%);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    transition:
-      transform var(--motion-duration-base) var(--motion-ease-standard),
-      box-shadow var(--motion-duration-base) var(--motion-ease-standard);
   }
 
   @media (hover: hover) {
     .quote-card:hover,
-    .quote-card:focus {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-1px);
+    .quote-card:focus-within {
+      border-color: var(--surface-border-accent);
+    }
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .quote-card {
+      transition:
+        transform var(--motion-duration-base) var(--motion-ease-standard),
+        border-color var(--motion-duration-base) var(--motion-ease-standard);
     }
 
-    .quote-card:hover::before,
-    .quote-card:focus::before {
-      box-shadow: 0 0 1.4rem color-mix(in srgb, var(--accent-primary) 24%, transparent);
+    .quote-card:hover,
+    .quote-card:focus-within {
+      transform: translateY(-1px);
     }
   }
 
@@ -149,17 +134,6 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
     pointer-events: none;
     user-select: none;
-  }
-
-  .quote-card::before {
-    position: absolute;
-    inset-block: 0;
-    inset-inline-start: 0;
-    inline-size: calc(var(--accent-bar-width) + 0.06rem);
-    content: "";
-    background: var(--accent-primary);
-    border-radius: var(--radius-full);
-    box-shadow: 0 0 1rem color-mix(in srgb, var(--accent-primary) 16%, transparent);
   }
 
   .quote-card__quote {
@@ -188,43 +162,8 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
       "liga" 1;
     line-height: 1.2;
     color: var(--heading-color);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--letter-spacing-normal);
     text-wrap: balance;
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .quote-card__avatar-image,
-    .quote-card__avatar-fallback {
-      display: inline-flex;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      inline-size: var(--icon-shell-size-md);
-      block-size: var(--icon-shell-size-md);
-      overflow: hidden;
-      background: linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--accent-primary) 20%, var(--surface-1)),
-        color-mix(in srgb, var(--surface-panel-bg) 92%, transparent)
-      );
-      border: 1px solid color-mix(in srgb, var(--surface-border-soft) 92%, transparent);
-      border-radius: var(--radius-lg);
-      transition: none;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .quote-card__avatar-image,
-    .quote-card__avatar-fallback {
-      transition: none;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .quote-card__avatar-image,
-    .quote-card__avatar-fallback {
-      transition: transform var(--motion-duration-fast) var(--motion-ease-standard);
-    }
   }
 
   .quote-card__avatar-image,
@@ -243,15 +182,6 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     );
     border: 1px solid color-mix(in srgb, var(--surface-border-soft) 92%, transparent);
     border-radius: var(--radius-lg);
-  }
-
-  @media (hover: hover) {
-    .quote-card__avatar-image:hover,
-    .quote-card__avatar-fallback:hover,
-    .quote-card__avatar-image:focus,
-    .quote-card__avatar-fallback:focus {
-      transform: scale(1.03);
-    }
   }
 
   .quote-card__avatar-image {
@@ -349,15 +279,6 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     .quote-card__avatar-fallback,
     .quote-card__decoration {
       transition: none;
-    }
-
-    .quote-card:hover,
-    .quote-card__avatar-image:hover,
-    .quote-card__avatar-fallback:hover,
-    .quote-card:focus,
-    .quote-card__avatar-image:focus,
-    .quote-card__avatar-fallback:focus {
-      transform: none;
     }
   }
 </style>

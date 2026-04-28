@@ -113,7 +113,10 @@ const initTranscripts = () => {
         cueRow.type = "button";
         cueRow.className = "transcript__cue";
         cueRow.dataset.start = cue.startSeconds.toString();
-        cueRow.setAttribute("aria-label", `Jump to ${formatTime(cue.startSeconds)}`);
+        cueRow.setAttribute(
+          "aria-label",
+          `Jump to ${formatTime(cue.startSeconds)}: ${cue.text}`
+        );
 
         const time = document.createElement("span");
         time.className = "transcript__time";
@@ -204,7 +207,7 @@ const initTranscripts = () => {
       content.hidden = true;
 
       try {
-        const response = await fetch(subtitleUrl);
+        const response = await fetch(subtitleUrl, { signal });
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
@@ -235,6 +238,9 @@ const initTranscripts = () => {
         content.hidden = false;
         loaded = true;
       } catch (err) {
+        if (signal.aborted) {
+          return;
+        }
         error.hidden = false;
         logError(err, "loading transcript");
       } finally {

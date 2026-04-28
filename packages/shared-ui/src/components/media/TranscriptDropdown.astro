@@ -9,11 +9,18 @@ interface Props {
 }
 
 const { subtitleUrl, podcastTitle, flushTop = false } = Astro.props as Props;
-const transcriptSlug =
+const generatedInstanceId =
+  globalThis.crypto?.randomUUID?.() ?? Math.random().toString(36).slice(2);
+const transcriptBaseSlug =
   (subtitleUrl || podcastTitle || "")
     .replace(/[^a-z0-9]+/gi, "-")
     .replace(/(^-|-$)/g, "")
-    .slice(0, 64) || "transcript";
+    .slice(0, 40) || "transcript";
+const transcriptInstanceSlug = generatedInstanceId
+  .replace(/[^a-z0-9]+/gi, "-")
+  .replace(/(^-|-$)/g, "")
+  .slice(0, 16);
+const transcriptSlug = `${transcriptBaseSlug}-${transcriptInstanceSlug}`;
 const transcriptTitleId = `transcript-title-${transcriptSlug}`;
 const transcriptContentId = `transcript-content-${transcriptSlug}`;
 ---
@@ -76,16 +83,10 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   .transcript {
     margin-block-start: var(--spacing-xl);
     overflow: hidden;
-    background:
-      linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--surface-1) 16%, transparent),
-        color-mix(in srgb, var(--accent-primary) 10%, transparent)
-      ),
-      var(--surface-panel-bg);
+    background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-base);
   }
 
   .transcript--flush-top {
@@ -150,7 +151,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   .transcript__summary:hover .transcript__summary-icon,
   .transcript__summary:focus-within .transcript__summary-icon,
   .transcript__details[open] .transcript__summary-icon {
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-primary) 20%, transparent);
+    box-shadow: var(--shadow-sm);
     transform: scale(1.05);
   }
 
@@ -288,18 +289,7 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
   .transcript__content :global(.transcript__cue--active) {
     background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
     border-color: var(--surface-border-accent);
-    animation: cue-alive 2s ease-in-out infinite;
-  }
-
-  @keyframes cue-alive {
-    0%,
-    100% {
-      box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-primary) 0%, transparent);
-    }
-
-    50% {
-      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-primary) 12%, transparent);
-    }
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-primary) 18%, transparent);
   }
 
   .transcript__content :global(.transcript__time) {
@@ -383,10 +373,6 @@ const transcriptContentId = `transcript-content-${transcriptSlug}`;
     .transcript__content :global(.transcript__cue:focus-visible) {
       box-shadow: none;
       transform: none;
-    }
-
-    .transcript__content :global(.transcript__cue--active) {
-      animation: none;
     }
   }
 </style>

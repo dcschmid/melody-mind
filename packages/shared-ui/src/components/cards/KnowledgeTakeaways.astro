@@ -1,51 +1,46 @@
 ---
 import Headline from "@shared-ui/components/typography/Headline.astro";
-import Icon from "@shared-ui/components/visual/Icon.astro";
-import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 
-const { title = "Key takeaways", items = [] } = Astro.props as {
+type TakeawayItem =
+  | string
+  | {
+      description: string;
+      heading?: string;
+    };
+
+const {
+  title = "Key takeaways",
+  items = [],
+  idBase = "knowledge-takeaways",
+} = Astro.props as {
   title?: string;
-  items?: string[];
+  items?: TakeawayItem[];
+  idBase?: string;
 };
-const visibleItems = items.slice(0, 4);
-const takeawayIcons = ["globe", "share-2", "book-open", "music"];
-const takeawayEntries = visibleItems.map((item, index) => {
-  const parts = item
-    .split(/(?<=[.!?])\s+/)
-    .map((part) => part.trim())
-    .filter(Boolean);
-  const heading = parts.length > 1 ? parts[0].replace(/[.!?]+$/, "") : "";
-  const description = parts.length > 1 ? parts.slice(1).join(" ") : item;
-
-  return {
-    description,
-    heading,
-    icon: takeawayIcons[index % takeawayIcons.length],
-    iconClass: `knowledge-takeaways__icon--${(index % takeawayIcons.length) + 1}`,
-  };
-});
+const titleId = `${idBase}-title`;
+const takeawayEntries = items
+  .map((item, index) => ({
+    description: typeof item === "string" ? item : item.description,
+    heading: typeof item === "string" ? "" : item.heading,
+    marker: index + 1,
+  }))
+  .filter((item) => item.description.trim().length > 0);
 ---
 
 {
-  visibleItems.length ? (
-    <aside class="knowledge-takeaways" aria-labelledby="knowledge-takeaways-title">
+  takeawayEntries.length ? (
+    <aside class="knowledge-takeaways" aria-labelledby={titleId}>
       <div class="knowledge-takeaways__header">
-        <Headline level="h2" textSize="lg" className="knowledge-takeaways__title">
-          <span id="knowledge-takeaways-title">{title}</span>
+        <Headline level="h2" textSize="2xl" className="knowledge-takeaways__title">
+          <span id={titleId}>{title}</span>
         </Headline>
-        <Paragraph textSize="base" className="knowledge-takeaways__subtitle">
-          Essential points from this article.
-        </Paragraph>
         <span class="knowledge-takeaways__accent" aria-hidden="true" />
       </div>
       <ol class="knowledge-takeaways__list">
         {takeawayEntries.map((item) => (
           <li class="knowledge-takeaways__item">
-            <span
-              class:list={["knowledge-takeaways__icon", item.iconClass]}
-              aria-hidden="true"
-            >
-              <Icon name={item.icon} role="img" aria-hidden="true" />
+            <span class="knowledge-takeaways__marker" aria-hidden="true">
+              {item.marker}
             </span>
             <div class="knowledge-takeaways__copy">
               {item.heading ? (
@@ -86,17 +81,8 @@ const takeawayEntries = visibleItems.map((item, index) => {
     font-size: clamp(var(--font-size-xl), 2.1vw + 0.8rem, var(--font-size-2xl));
     font-weight: var(--font-weight-bold);
     color: var(--heading-color);
-    letter-spacing: var(--letter-spacing-tight);
+    letter-spacing: 0;
     text-wrap: balance;
-  }
-
-  .knowledge-takeaways__subtitle {
-    max-inline-size: min(36rem, 90vw);
-    margin: 0;
-    margin-block-start: var(--spacing-2xs);
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--prose-color);
   }
 
   .knowledge-takeaways__accent {
@@ -132,39 +118,20 @@ const takeawayEntries = visibleItems.map((item, index) => {
     min-inline-size: 0;
   }
 
-  .knowledge-takeaways__icon {
+  .knowledge-takeaways__marker {
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    inline-size: clamp(2.75rem, 6vw, var(--icon-shell-size-sm));
-    block-size: clamp(2.75rem, 6vw, var(--icon-shell-size-sm));
-    border: 1px solid color-mix(in srgb, var(--border-default) 58%, transparent);
-    border-radius: var(--radius-full);
-  }
-
-  .knowledge-takeaways__icon--1 {
+    inline-size: clamp(var(--icon-shell-size-sm), 6cqi, var(--icon-shell-size-md));
+    block-size: clamp(var(--icon-shell-size-sm), 6cqi, var(--icon-shell-size-md));
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
     color: var(--accent-primary);
-    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
-    border-color: color-mix(in srgb, var(--accent-primary) 32%, transparent);
-  }
-
-  .knowledge-takeaways__icon--2 {
-    color: var(--accent-muted);
-    background: color-mix(in srgb, var(--accent-muted) 12%, transparent);
-    border-color: color-mix(in srgb, var(--accent-muted) 32%, transparent);
-  }
-
-  .knowledge-takeaways__icon--3 {
-    color: var(--color-info);
-    background: color-mix(in srgb, var(--color-info) 12%, transparent);
-    border-color: color-mix(in srgb, var(--color-info) 32%, transparent);
-  }
-
-  .knowledge-takeaways__icon--4 {
-    color: var(--color-warning);
-    background: color-mix(in srgb, var(--color-warning) 12%, transparent);
-    border-color: color-mix(in srgb, var(--color-warning) 32%, transparent);
+    background: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 30%, transparent);
+    border-radius: var(--radius-full);
   }
 
   .knowledge-takeaways__item-title {

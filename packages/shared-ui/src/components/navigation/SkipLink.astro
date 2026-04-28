@@ -27,26 +27,27 @@ interface Props {
 
 const { targetId = "main-content", label = "Skip to main content" } = Astro.props;
 
-const sanitizedTargetId = targetId.replace(/[^a-zA-Z0-9_-]/g, "");
-const href = `#${sanitizedTargetId || "main-content"}`;
+const normalizedTargetId = targetId.trim() || "main-content";
+const href = `#${encodeURIComponent(normalizedTargetId)}`;
 const ariaLabel = label.trim() || "Skip to main content";
 ---
 
 <a href={href} class="skip-link" data-skip-link aria-label={ariaLabel}>
   <Icon name="chevron-down" class="skip-link__icon" aria-hidden="true" />
-  {ariaLabel}
+  <span class="skip-link__label">{ariaLabel}</span>
 </a>
 <style>
   /* SkipLink: WCAG AAA skip navigation, hidden until focused */
   .skip-link {
     position: absolute;
-    inset-block-start: -9999px;
+    inset-block-start: 0;
     inset-inline-start: 50%;
     z-index: 100;
     display: inline-flex;
     gap: var(--spacing-sm);
     align-items: center;
-    min-inline-size: max-content;
+    inline-size: max-content;
+    max-inline-size: calc(100vi - (var(--spacing-base) * 2));
     min-block-size: var(--control-min-block-size);
     padding: var(--spacing-xs) var(--spacing-base);
     font-weight: var(--font-weight-bold);
@@ -55,27 +56,33 @@ const ariaLabel = label.trim() || "Skip to main content";
     background: var(--accent-primary);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    transform: translateX(-50%);
+    opacity: 0;
+    transform: translate(-50%, -110%);
     transition:
-      inset-block-start 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity var(--transition-fast),
+      transform var(--transition-fast),
       background-color var(--transition-fast);
   }
 
   .skip-link:focus-visible {
-    inset-block-start: 0;
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 
   .skip-link__icon {
+    flex: 0 0 auto;
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
     margin-block-start: 0.5px;
     color: var(--accent-muted);
   }
 
-  .skip-link:focus-visible .skip-link__icon {
-    animation: skip-link-bounce 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  .skip-link__label {
+    min-inline-size: 0;
+    text-align: center;
+    overflow-wrap: anywhere;
   }
 
   .skip-link:hover,
@@ -84,24 +91,8 @@ const ariaLabel = label.trim() || "Skip to main content";
   }
 
   .skip-link:active {
-    transform: translateX(-50%) scale(0.97);
+    transform: translate(-50%, 0) scale(0.97);
     transition: transform 0.1s;
-  }
-
-  @keyframes skip-link-bounce {
-    0% {
-      opacity: 0.6;
-      transform: translateY(-4px);
-    }
-
-    60% {
-      transform: translateY(2px);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -110,12 +101,8 @@ const ariaLabel = label.trim() || "Skip to main content";
     }
 
     .skip-link:active {
-      transform: translateX(-50%);
+      transform: translate(-50%, 0);
       transition: none;
-    }
-
-    .skip-link:focus-visible .skip-link__icon {
-      animation: none;
     }
   }
 </style>

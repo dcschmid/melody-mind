@@ -38,6 +38,7 @@ const safeHref =
   linkHref && typeof linkHref === "string" && !linkHref.match(/^\s*(javascript:|data:)/i)
     ? linkHref
     : "/";
+const defaultCoverImage = "/default-cover.jpg";
 ---
 
 {
@@ -46,7 +47,7 @@ const safeHref =
       <Stack className="related-content-section__header" gap="base">
         <Stack className="related-content-section__copy-block" gap="xs">
           <p class="related-content-section__eyebrow">{eyebrow}</p>
-          <Headline level="h2" textSize="lg" className="related-content-section__title">
+          <Headline level="h2" textSize="2xl" className="related-content-section__title">
             <span id={titleId}>{title}</span>
           </Headline>
           {copy ? (
@@ -58,10 +59,12 @@ const safeHref =
         <a
           class="related-content-section__link"
           href={safeHref}
-          aria-label={`${linkLabel} — see all related content`}
           {...(isExternalHref ? { rel: "noopener noreferrer", target: "_blank" } : {})}
         >
-          {linkLabel} →
+          {linkLabel} <span aria-hidden="true">→</span>
+          {isExternalHref ? (
+            <span class="related-content-section__sr">Opens in new tab</span>
+          ) : null}
         </a>
       </Stack>
 
@@ -70,21 +73,20 @@ const safeHref =
         className="related-content-section__grid"
         preset="cards"
         gap="lg"
-        aria-label={listAriaLabel}
+        ariaLabel={listAriaLabel}
       >
         {items.map((item) => (
           <li class="related-content-section__item">
             <ContentCard
               id={item.id}
-              data-testid="related-content-card"
+              dataTestId="related-content-card"
               href={item.href}
               variant="default"
               size="compact"
               mediaObjectFit="contain"
-              imageSrc={item.imageSrc || "/default-cover.jpg"}
+              imageSrc={item.imageSrc || defaultCoverImage}
               imageAlt={
-                item.imageAlt ||
-                (item.title ? `Cover image for ${item.title}` : "Cover image")
+                item.imageAlt ?? (item.imageSrc ? `Cover image for ${item.title}` : "")
               }
               imageWidth={1024}
               imageHeight={683}
@@ -140,27 +142,12 @@ const safeHref =
     color: var(--text-secondary);
   }
 
-  @media screen and (prefers-reduced-motion: reduce) {
-    .related-content-section__link {
-      display: inline-flex;
-      gap: var(--spacing-xs);
-      place-self: start;
-      align-items: center;
-      padding: var(--spacing-sm) var(--spacing-base);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-semibold);
-      color: var(--accent-primary);
-      text-decoration: none;
-      border-radius: var(--radius-base);
-      transition: none;
-    }
-  }
-
   .related-content-section__link {
     display: inline-flex;
     gap: var(--spacing-xs);
     place-self: start;
     align-items: center;
+    min-block-size: var(--control-min-block-size);
     padding: var(--spacing-sm) var(--spacing-base);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-semibold);
@@ -170,6 +157,12 @@ const safeHref =
     transition:
       background-color var(--transition-fast),
       color var(--transition-fast);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .related-content-section__link {
+      transition: none;
+    }
   }
 
   .related-content-section__link:hover,
@@ -184,8 +177,8 @@ const safeHref =
   }
 
   .related-content-section__link:focus-visible {
-    outline: 2px solid var(--accent-primary);
-    outline-offset: 2px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .related-content-section__grid {
@@ -194,11 +187,22 @@ const safeHref =
     list-style: none;
   }
 
+  .related-content-section__sr {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
+  }
+
   .related-content-section__item {
     min-inline-size: 0;
     opacity: 0;
     animation: fade-in-up var(--motion-duration-base) var(--motion-ease-standard) both;
-    will-change: transform, opacity;
   }
 
   @keyframes fade-in-up {
@@ -222,6 +226,7 @@ const safeHref =
 
   @media (width >= 50rem) {
     .related-content-section__header {
+      display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: end;
     }

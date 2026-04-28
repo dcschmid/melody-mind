@@ -34,10 +34,39 @@ export const bindOverlayDisclosure = ({
   const controller = new AbortController();
   const { signal } = controller;
   let previousFocus: HTMLElement | null = null;
+  const lockedRegionState = new WeakMap<
+    HTMLElement,
+    { ariaHidden: string | null; inert: boolean }
+  >();
 
-  const siblingRegions = Array.from(document.body.children).filter(
-    (element) => !(excludeFromOutsideLock?.(element, root) ?? false)
-  ) as HTMLElement[];
+  const getOutsideLockRegions = (): HTMLElement[] => {
+    const regions: HTMLElement[] = [];
+    let current: HTMLElement = root;
+    let parent = root.parentElement;
+
+    while (parent) {
+      Array.from(parent.children).forEach((element) => {
+        if (
+          element === current ||
+          !(element instanceof HTMLElement) ||
+          (excludeFromOutsideLock?.(element, root) ?? false)
+        ) {
+          return;
+        }
+
+        regions.push(element);
+      });
+
+      if (parent === document.body) {
+        break;
+      }
+
+      current = parent;
+      parent = parent.parentElement;
+    }
+
+    return regions;
+  };
 
   const getFocusable = (): HTMLElement[] =>
     Array.from(panel.querySelectorAll<HTMLElement>(focusableSelector));
@@ -46,15 +75,35 @@ export const bindOverlayDisclosure = ({
     const lockOutside = open && mobileMedia.matches;
     document.body.classList.toggle(bodyClass, lockOutside);
 
-    siblingRegions.forEach((region) => {
-      if ("inert" in region) {
-        region.inert = lockOutside;
-      }
+    getOutsideLockRegions().forEach((region) => {
       if (lockOutside) {
+        if (!lockedRegionState.has(region)) {
+          lockedRegionState.set(region, {
+            ariaHidden: region.getAttribute("aria-hidden"),
+            inert: "inert" in region ? region.inert : false,
+          });
+        }
+        if ("inert" in region) {
+          region.inert = true;
+        }
         region.setAttribute("aria-hidden", "true");
         return;
       }
-      region.removeAttribute("aria-hidden");
+
+      const previousState = lockedRegionState.get(region);
+      if (!previousState) {
+        return;
+      }
+
+      if ("inert" in region) {
+        region.inert = previousState.inert;
+      }
+      if (previousState.ariaHidden === null) {
+        region.removeAttribute("aria-hidden");
+      } else {
+        region.setAttribute("aria-hidden", previousState.ariaHidden);
+      }
+      lockedRegionState.delete(region);
     });
   };
 
