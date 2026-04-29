@@ -159,8 +159,8 @@ const seoProps = {
       brandText: "",
       brandLogoSrc: melodyMindLogo,
       brandLogoAlt: "Melody Mind",
-      brandLogoWidth: 250,
-      brandLogoHeight: 167,
+      brandLogoWidth: 700,
+      brandLogoHeight: 232,
     }}
   />
 
@@ -219,6 +219,29 @@ const seoProps = {
     padding-inline: var(--spacing-sm);
     padding-bottom: max(var(--spacing-sm), env(safe-area-inset-bottom));
     margin: 0 auto;
+  }
+
+  :global(.music-layout .site-header__brand) {
+    padding-inline: clamp(var(--spacing-sm), 1vw, var(--spacing-base));
+  }
+
+  :global(.music-layout .site-header__brand--logo-only .site-header__brand-logo-wrap) {
+    inline-size: clamp(
+      calc(var(--control-min-block-size) * 3.65),
+      14vw,
+      calc(var(--control-min-block-size) * 5.45)
+    );
+    block-size: auto;
+    aspect-ratio: 700 / 232;
+    overflow: visible;
+  }
+
+  :global(.music-layout .site-header__brand-logo) {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    object-fit: contain;
+    object-position: left center;
   }
 
   @media (width >= 480px) {

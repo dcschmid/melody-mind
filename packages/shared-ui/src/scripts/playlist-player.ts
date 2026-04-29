@@ -1,20 +1,6 @@
 import { formatTime } from "@shared-utils/utils/time";
-import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
 import { createInitializer } from "./utils/init";
 import { logError } from "./utils/error";
-
-type RepeatMode = "off" | "all" | "one";
-
-interface PlaylistPlayerState {
-  trackIndex: number;
-  trackUrl: string;
-  currentTime: number;
-  duration: number;
-  muted: boolean;
-  shuffle: boolean;
-  repeat: RepeatMode;
-  updatedAt: string;
-}
 
 interface PlaylistTrack {
   title: string;
@@ -24,70 +10,8 @@ interface PlaylistTrack {
   element: HTMLLIElement;
 }
 
-const STORAGE_KEY_PREFIX = "mm_playlist_player_v1";
-const STATE_WRITE_INTERVAL = 2000;
-const RESUME_MIN_TIME = 3;
-const RESUME_MIN_REMAINING = 5;
 const PROGRESS_UPDATE_INTERVAL = 250;
 const MEDIA_SESSION_SEEK_STEP = 10;
-
-const getPlayerStorageKey = (playerId: string): string =>
-  `${STORAGE_KEY_PREFIX}:${playerId || "playlist"}`;
-
-const isRepeatMode = (value: unknown): value is RepeatMode =>
-  value === "off" || value === "all" || value === "one";
-
-const sanitizePlayerState = (
-  value: unknown,
-  tracks: PlaylistTrack[]
-): PlaylistPlayerState | null => {
-  if (!value || typeof value !== "object" || !tracks.length) {
-    return null;
-  }
-
-  const candidate = value as Partial<PlaylistPlayerState>;
-  const trackIndex = Number(candidate.trackIndex);
-  if (
-    !Number.isInteger(trackIndex) ||
-    trackIndex < 0 ||
-    trackIndex >= tracks.length ||
-    !tracks[trackIndex]
-  ) {
-    return null;
-  }
-
-  const trackUrl = typeof candidate.trackUrl === "string" ? candidate.trackUrl : "";
-  if (trackUrl && trackUrl !== tracks[trackIndex].url) {
-    return null;
-  }
-
-  const currentTime = Number(candidate.currentTime);
-  const duration = Number(candidate.duration);
-  const repeat = isRepeatMode(candidate.repeat) ? candidate.repeat : "off";
-
-  return {
-    trackIndex,
-    trackUrl: tracks[trackIndex].url,
-    currentTime: Number.isFinite(currentTime) ? Math.max(0, currentTime) : 0,
-    duration: Number.isFinite(duration) ? Math.max(0, duration) : 0,
-    muted: candidate.muted === true,
-    shuffle: candidate.shuffle === true,
-    repeat,
-    updatedAt:
-      typeof candidate.updatedAt === "string" && candidate.updatedAt.trim()
-        ? candidate.updatedAt
-        : new Date(0).toISOString(),
-  };
-};
-
-const loadPlayerState = (
-  storageKey: string,
-  tracks: PlaylistTrack[]
-): PlaylistPlayerState | null =>
-  sanitizePlayerState(safeLocalStorage.get<unknown>(storageKey, null), tracks);
-
-const savePlayerState = (storageKey: string, state: PlaylistPlayerState): boolean =>
-  safeLocalStorage.set(storageKey, state);
 
 const initPlaylistPlayers = (): (() => void) => {
   const players = document.querySelectorAll<HTMLDivElement>("[data-playlist-player]");
@@ -112,12 +36,6 @@ const initPlaylistPlayers = (): (() => void) => {
     const volumeButton = player.querySelector<HTMLButtonElement>(
       '[data-action="volume"]'
     );
-    const shuffleButton = player.querySelector<HTMLButtonElement>(
-      '[data-action="shuffle"]'
-    );
-    const repeatButton = player.querySelector<HTMLButtonElement>(
-      '[data-action="repeat"]'
-    );
     const progress = player.querySelector<HTMLInputElement>("[data-playlist-progress]");
     const currentTimeDisplay = player.querySelector<HTMLElement>("[data-current-time]");
     const remainingTimeDisplay = player.querySelector<HTMLElement>(
@@ -125,9 +43,6 @@ const initPlaylistPlayers = (): (() => void) => {
     );
     const trackTitleDisplay = player.querySelector<HTMLElement>(
       "[data-current-track-title]"
-    );
-    const trackNumberDisplay = player.querySelector<HTMLElement>(
-      "[data-current-track-number]"
     );
     const status = player.querySelector<HTMLElement>("[data-playlist-status]");
     const playIcon = toggleButton?.querySelector<SVGElement>(
@@ -148,22 +63,13 @@ const initPlaylistPlayers = (): (() => void) => {
     const { signal } = controller;
     const albumTitle = player.dataset.albumTitle || "playlist";
     const albumArtworkUrl = player.dataset.albumArtworkUrl || "";
-    const playerId = player.dataset.playerId || albumTitle;
-    const storageKey = getPlayerStorageKey(playerId);
 
     let currentTrackIndex = 0;
     let isPlaying = false;
     let isMuted = false;
-    let isShuffled = false;
-    let repeatMode: RepeatMode = "off";
-    let shuffledIndices: number[] = [];
-    let currentShuffleIndex = 0;
     let lastHighlightedIndex = -1;
     let titleTransitionTimeout: ReturnType<typeof setTimeout> | null = null;
     let lastProgressUpdate = 0;
-    let lastStateWrite = 0;
-    let pendingResumeTime: number | null = null;
-    let resumeApplied = false;
     let isChangingTrackSource = false;
     const reducedMotionQuery =
       typeof window.matchMedia === "function"
@@ -285,37 +191,6 @@ const initPlaylistPlayers = (): (() => void) => {
 
     const prefersReducedMotion = (): boolean => reducedMotionQuery?.matches === true;
 
-    const updateShuffleState = () => {
-      player.dataset.playerShuffle = isShuffled ? "true" : "false";
-      if (shuffleButton) {
-        shuffleButton.setAttribute("aria-pressed", isShuffled ? "true" : "false");
-      }
-    };
-
-    const rebuildShuffleQueue = () => {
-      const indices = tracks.map((_, i) => i);
-      for (let i = indices.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [indices[i], indices[j]] = [indices[j], indices[i]];
-      }
-      shuffledIndices = indices;
-      currentShuffleIndex = shuffledIndices.indexOf(currentTrackIndex);
-      if (currentShuffleIndex === -1) {
-        currentShuffleIndex = 0;
-      }
-    };
-
-    const updateRepeatState = () => {
-      player.dataset.playerRepeat = repeatMode;
-      if (repeatButton) {
-        repeatButton.setAttribute("aria-label", `Repeat: ${repeatMode}`);
-        repeatButton.setAttribute(
-          "aria-pressed",
-          repeatMode !== "off" ? "true" : "false"
-        );
-      }
-    };
-
     const updateMutedState = () => {
       audio.muted = isMuted;
       player.dataset.playerMuted = isMuted ? "true" : "false";
@@ -323,44 +198,6 @@ const initPlaylistPlayers = (): (() => void) => {
         volumeButton.setAttribute("aria-label", isMuted ? "Unmute" : "Mute");
         volumeButton.setAttribute("aria-pressed", isMuted ? "true" : "false");
       }
-    };
-
-    const getPersistedCurrentTime = () => {
-      const duration = getDuration();
-      const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
-
-      if (
-        currentTime >= RESUME_MIN_TIME &&
-        (!duration || duration - currentTime >= RESUME_MIN_REMAINING)
-      ) {
-        return currentTime;
-      }
-
-      return 0;
-    };
-
-    const persistState = (force = false) => {
-      const now = Date.now();
-      if (!force && now - lastStateWrite < STATE_WRITE_INTERVAL) {
-        return;
-      }
-
-      const track = tracks[currentTrackIndex];
-      if (!track) {
-        return;
-      }
-
-      lastStateWrite = now;
-      savePlayerState(storageKey, {
-        trackIndex: currentTrackIndex,
-        trackUrl: track.url,
-        currentTime: getPersistedCurrentTime(),
-        duration: getDuration(),
-        muted: isMuted,
-        shuffle: isShuffled,
-        repeat: repeatMode,
-        updatedAt: new Date().toISOString(),
-      });
     };
 
     const updateToggleButton = () => {
@@ -401,11 +238,6 @@ const initPlaylistPlayers = (): (() => void) => {
       if (trackTitleDisplay) {
         trackTitleDisplay.textContent = track?.title || "Click play to start";
       }
-      if (trackNumberDisplay) {
-        trackNumberDisplay.textContent = track
-          ? `Track ${String(track.trackNumber).padStart(2, "0")}`
-          : "Track --";
-      }
     };
 
     const updateProgress = (force = false) => {
@@ -430,29 +262,6 @@ const initPlaylistPlayers = (): (() => void) => {
           remaining > 0 ? `-${formatTime(remaining)}` : "-0:00";
       }
       updateMediaSessionPosition();
-      persistState();
-    };
-
-    const applyResumeTime = () => {
-      if (resumeApplied || pendingResumeTime === null) {
-        return;
-      }
-
-      const duration = getDuration();
-      const safeTime = duration
-        ? Math.min(pendingResumeTime, Math.max(duration - RESUME_MIN_REMAINING, 0))
-        : pendingResumeTime;
-
-      if (safeTime >= RESUME_MIN_TIME) {
-        audio.currentTime = safeTime;
-        setStatus(
-          `Ready to resume ${tracks[currentTrackIndex]?.title || albumTitle} at ${formatTime(safeTime)}`
-        );
-      }
-
-      pendingResumeTime = null;
-      resumeApplied = true;
-      updateProgress(true);
     };
 
     const playTrack = (
@@ -493,9 +302,6 @@ const initPlaylistPlayers = (): (() => void) => {
         updateTrackInfo();
       }
 
-      pendingResumeTime = null;
-      resumeApplied = true;
-
       if (shouldAutoplay) {
         isChangingTrackSource = true;
       }
@@ -506,7 +312,6 @@ const initPlaylistPlayers = (): (() => void) => {
       updateTrackHighlight();
       updateProgress(true);
       updateMediaSessionMetadata();
-      persistState(true);
 
       if (shouldAutoplay) {
         audio
@@ -535,7 +340,6 @@ const initPlaylistPlayers = (): (() => void) => {
       }
 
       updateProgress(true);
-      persistState(true);
     };
 
     const seekBy = (offset: number) => {
@@ -548,16 +352,8 @@ const initPlaylistPlayers = (): (() => void) => {
         return;
       }
 
-      if (isShuffled && tracks.length > 1) {
-        currentShuffleIndex = (currentShuffleIndex + 1) % shuffledIndices.length;
-        playTrack(shuffledIndices[currentShuffleIndex], {
-          autoplay: isPlaying,
-          triggerPop: isPlaying,
-        });
-      } else {
-        const nextIndex = (currentTrackIndex + 1) % tracks.length;
-        playTrack(nextIndex, { autoplay: isPlaying, triggerPop: isPlaying });
-      }
+      const nextIndex = (currentTrackIndex + 1) % tracks.length;
+      playTrack(nextIndex, { autoplay: isPlaying, triggerPop: isPlaying });
     };
 
     const playPrev = () => {
@@ -568,21 +364,11 @@ const initPlaylistPlayers = (): (() => void) => {
       if (audio.currentTime > 3) {
         audio.currentTime = 0;
         updateProgress(true);
-        persistState(true);
         return;
       }
-      if (isShuffled && tracks.length > 1) {
-        currentShuffleIndex =
-          (currentShuffleIndex - 1 + shuffledIndices.length) % shuffledIndices.length;
-        playTrack(shuffledIndices[currentShuffleIndex], {
-          autoplay: isPlaying,
-          triggerPop: isPlaying,
-        });
-      } else {
-        const prevIndex =
-          currentTrackIndex === 0 ? tracks.length - 1 : currentTrackIndex - 1;
-        playTrack(prevIndex, { autoplay: isPlaying, triggerPop: isPlaying });
-      }
+      const prevIndex =
+        currentTrackIndex === 0 ? tracks.length - 1 : currentTrackIndex - 1;
+      playTrack(prevIndex, { autoplay: isPlaying, triggerPop: isPlaying });
     };
 
     const setupMediaSessionActions = () => {
@@ -656,38 +442,9 @@ const initPlaylistPlayers = (): (() => void) => {
 
       isMuted = !isMuted;
       updateMutedState();
-      persistState(true);
     };
 
     volumeButton?.addEventListener("click", handleVolume, { signal });
-
-    const handleShuffle = () => {
-      if (!tracks.length) {
-        return;
-      }
-
-      isShuffled = !isShuffled;
-      updateShuffleState();
-      if (isShuffled) {
-        rebuildShuffleQueue();
-      }
-      persistState(true);
-    };
-
-    const handleRepeat = () => {
-      if (!tracks.length) {
-        return;
-      }
-
-      const modes: RepeatMode[] = ["off", "all", "one"];
-      const currentIdx = modes.indexOf(repeatMode);
-      repeatMode = modes[(currentIdx + 1) % modes.length];
-      updateRepeatState();
-      persistState(true);
-    };
-
-    shuffleButton?.addEventListener("click", handleShuffle, { signal });
-    repeatButton?.addEventListener("click", handleRepeat, { signal });
 
     progress.addEventListener(
       "input",
@@ -704,7 +461,6 @@ const initPlaylistPlayers = (): (() => void) => {
         updateToggleButton();
         updateTrackHighlight();
         setStatus(`Playing ${tracks[currentTrackIndex]?.title}`);
-        persistState(true);
       },
       { signal }
     );
@@ -720,7 +476,6 @@ const initPlaylistPlayers = (): (() => void) => {
         updateToggleButton();
         updateTrackHighlight();
         setStatus(`Paused ${tracks[currentTrackIndex]?.title}`);
-        persistState(true);
       },
       { signal }
     );
@@ -738,16 +493,9 @@ const initPlaylistPlayers = (): (() => void) => {
         setStatus(`Finished ${tracks[currentTrackIndex]?.title}`);
         audio.currentTime = 0;
         updateProgress(true);
-        persistState(true);
-
-        if (repeatMode === "one") {
-          audio.currentTime = 0;
-          audio.play().catch((error) => logError(error, "playback blocked"));
-          return;
-        }
 
         const nextIndex = (currentTrackIndex + 1) % tracks.length;
-        const isLastTrack = nextIndex === 0 && !isShuffled && repeatMode === "off";
+        const isLastTrack = nextIndex === 0;
 
         if (isLastTrack) {
           player.dataset.playerCelebrating = "true";
@@ -758,12 +506,7 @@ const initPlaylistPlayers = (): (() => void) => {
           return;
         }
 
-        if (!isShuffled) {
-          playTrack(nextIndex, { autoplay: true });
-        } else {
-          currentShuffleIndex = (currentShuffleIndex + 1) % shuffledIndices.length;
-          playTrack(shuffledIndices[currentShuffleIndex], { autoplay: true });
-        }
+        playTrack(nextIndex, { autoplay: true });
       },
       { signal }
     );
@@ -784,7 +527,6 @@ const initPlaylistPlayers = (): (() => void) => {
     audio.addEventListener(
       "loadedmetadata",
       () => {
-        applyResumeTime();
         updateProgress(true);
       },
       { signal }
@@ -817,16 +559,6 @@ const initPlaylistPlayers = (): (() => void) => {
           event.preventDefault();
           playNext();
           break;
-        case "s":
-        case "S":
-          event.preventDefault();
-          handleShuffle();
-          break;
-        case "r":
-        case "R":
-          event.preventDefault();
-          handleRepeat();
-          break;
         case "m":
         case "M":
           event.preventDefault();
@@ -837,19 +569,6 @@ const initPlaylistPlayers = (): (() => void) => {
 
     player.addEventListener("keydown", handleKeydown, { signal });
 
-    const savedState = loadPlayerState(storageKey, tracks);
-    if (savedState) {
-      currentTrackIndex = savedState.trackIndex;
-      isMuted = savedState.muted;
-      isShuffled = savedState.shuffle;
-      repeatMode = savedState.repeat;
-      pendingResumeTime =
-        savedState.currentTime >= RESUME_MIN_TIME ? savedState.currentTime : null;
-      if (isShuffled) {
-        rebuildShuffleQueue();
-      }
-    }
-
     if (tracks.length > 0) {
       setAudioSource(tracks[currentTrackIndex] || tracks[0]);
     }
@@ -857,16 +576,9 @@ const initPlaylistPlayers = (): (() => void) => {
     updateTrackInfo();
     updateTrackHighlight();
     updateMutedState();
-    updateShuffleState();
-    updateRepeatState();
     updateMediaSessionMetadata();
     setupMediaSessionActions();
     updateProgress(true);
-    if (savedState && pendingResumeTime !== null) {
-      setStatus(
-        `Ready to resume ${tracks[currentTrackIndex]?.title || albumTitle} at ${formatTime(pendingResumeTime)}`
-      );
-    }
 
     cleanup.push(() => {
       controller.abort();

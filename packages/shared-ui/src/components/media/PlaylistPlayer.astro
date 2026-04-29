@@ -50,12 +50,6 @@ const getTrackFallbackLabel = (song: Song): string =>
         </p>
         <p class="playlist-player__album">{albumTitle}</p>
       </div>
-      <div class="playlist-player__playback-marker" aria-hidden="true">
-        <span class="playlist-player__playback-dot"></span>
-        <span class="playlist-player__playback-text" data-current-track-number>
-          Track --
-        </span>
-      </div>
     </div>
 
     <div class="playlist-player__controls">
@@ -76,21 +70,6 @@ const getTrackFallbackLabel = (song: Song): string =>
         <Icon
           name="tabler:volume-off"
           class="playlist-player__volume-icon playlist-player__volume-icon--off"
-          aria-hidden="true"
-        />
-      </button>
-      <button
-        class="playlist-player__transport-button"
-        type="button"
-        data-action="shuffle"
-        aria-label="Shuffle"
-        aria-pressed="false"
-        title="Shuffle"
-        disabled={!hasSongs}
-      >
-        <Icon
-          name="tabler:arrows-shuffle"
-          class="playlist-player__transport-icon"
           aria-hidden="true"
         />
       </button>
@@ -143,31 +122,6 @@ const getTrackFallbackLabel = (song: Song): string =>
           />
         </button>
       </div>
-      <button
-        class="playlist-player__transport-button"
-        type="button"
-        data-action="repeat"
-        aria-label="Repeat"
-        aria-pressed="false"
-        title="Repeat"
-        disabled={!hasSongs}
-      >
-        <Icon
-          name="tabler:repeat-off"
-          class="playlist-player__repeat-icon playlist-player__repeat-icon--off"
-          aria-hidden="true"
-        />
-        <Icon
-          name="tabler:repeat"
-          class="playlist-player__repeat-icon playlist-player__repeat-icon--all"
-          aria-hidden="true"
-        />
-        <Icon
-          name="tabler:repeat-once"
-          class="playlist-player__repeat-icon playlist-player__repeat-icon--one"
-          aria-hidden="true"
-        />
-      </button>
     </div>
 
     <div class="playlist-player__progress-wrap">
@@ -211,9 +165,6 @@ const getTrackFallbackLabel = (song: Song): string =>
       </span>
       <span class="playlist-player__col playlist-player__col--action">
         <span class="sr-only">Lyrics</span>
-      </span>
-      <span class="playlist-player__col playlist-player__col--action">
-        <span class="sr-only">Download</span>
       </span>
     </div>
 
@@ -266,8 +217,10 @@ const getTrackFallbackLabel = (song: Song): string =>
                 <a
                   class="playlist-player__track-lyrics"
                   href={song.lyricsUrl}
-                  aria-label={`Open lyrics for ${song.title}`}
-                  title="Open lyrics"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={`Open lyrics for ${song.title} in a new tab`}
+                  title="Open lyrics in a new tab"
                 >
                   <Icon
                     name="tabler:file-text"
@@ -281,19 +234,6 @@ const getTrackFallbackLabel = (song: Song): string =>
                   aria-hidden="true"
                 />
               )}
-              <a
-                class="playlist-player__track-download"
-                href={song.audioUrl}
-                download={encodeURIComponent(song.title)}
-                aria-label={`Download ${song.title}`}
-                title="Download track"
-              >
-                <Icon
-                  name="download"
-                  class="playlist-player__track-action-icon"
-                  aria-hidden="true"
-                />
-              </a>
             </li>
           );
         })
@@ -384,34 +324,6 @@ const getTrackFallbackLabel = (song: Song): string =>
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
-  }
-
-  /* ── Playback marker ── */
-  .playlist-player__playback-marker {
-    display: inline-flex;
-    flex-shrink: 0;
-    gap: var(--spacing-xs);
-    align-items: center;
-    min-block-size: 1.5rem;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    color: var(--text-secondary);
-    background: color-mix(in srgb, var(--surface-1) 42%, transparent);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
-  }
-
-  .playlist-player__playback-dot {
-    inline-size: 0.45rem;
-    block-size: 0.45rem;
-    background: var(--accent-primary);
-    border-radius: var(--radius-full);
-  }
-
-  .playlist-player__playback-text {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1;
-    white-space: nowrap;
   }
 
   /* ── Transport controls ── */
@@ -530,125 +442,6 @@ const getTrackFallbackLabel = (song: Song): string =>
     100% {
       opacity: 1;
     }
-  }
-
-  /* Shuffle */
-  @media screen and (prefers-reduced-motion: reduce) {
-    :global([data-player-shuffle="true"])
-      .playlist-player__transport-button[data-action="shuffle"] {
-      color: var(--accent-primary);
-      background: color-mix(in srgb, var(--accent-primary) 14%, transparent);
-      border-color: color-mix(in srgb, var(--accent-primary) 30%, transparent);
-      animation: none;
-    }
-  }
-
-  :global([data-player-shuffle="true"])
-    .playlist-player__transport-button[data-action="shuffle"] {
-    color: var(--accent-primary);
-    background: color-mix(in srgb, var(--accent-primary) 14%, transparent);
-    border-color: color-mix(in srgb, var(--accent-primary) 30%, transparent);
-  }
-
-  @media screen and (prefers-reduced-motion: no-preference) {
-    :global([data-player-shuffle="true"])
-      .playlist-player__transport-button[data-action="shuffle"] {
-      animation: shuffle-settle 0.24s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-  }
-
-  @keyframes shuffle-settle {
-    0% {
-      opacity: 0.72;
-      transform: translateY(1px);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Repeat */
-  .playlist-player__repeat-icon {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    transition:
-      opacity 0.2s ease,
-      transform 0.2s ease;
-  }
-
-  .playlist-player__repeat-icon--all,
-  .playlist-player__repeat-icon--one {
-    display: none;
-  }
-
-  .playlist-player__transport-button[data-action="repeat"] {
-    position: relative;
-  }
-
-  :global([data-player-repeat="all"]) .playlist-player__repeat-icon--off,
-  :global([data-player-repeat="one"]) .playlist-player__repeat-icon--off {
-    opacity: 0;
-    transform: scale(0.7);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    :global([data-player-repeat="all"]) .playlist-player__repeat-icon--all {
-      display: block;
-      color: var(--accent-primary);
-      opacity: 1;
-      transform: scale(1);
-      animation: none;
-    }
-  }
-
-  :global([data-player-repeat="all"]) .playlist-player__repeat-icon--all {
-    display: block;
-    color: var(--accent-primary);
-    opacity: 1;
-    transform: scale(1);
-    animation: repeat-settle 0.22s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    :global([data-player-repeat="one"]) .playlist-player__repeat-icon--one {
-      display: block;
-      color: var(--accent-primary);
-      opacity: 1;
-      transform: scale(1);
-      animation: none;
-    }
-  }
-
-  :global([data-player-repeat="one"]) .playlist-player__repeat-icon--one {
-    display: block;
-    color: var(--accent-primary);
-    opacity: 1;
-    transform: scale(1);
-    animation: repeat-settle 0.22s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  @keyframes repeat-settle {
-    0% {
-      opacity: 0;
-      transform: scale(0.92);
-    }
-
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  :global([data-player-repeat="all"])
-    .playlist-player__transport-button[data-action="repeat"],
-  :global([data-player-repeat="one"])
-    .playlist-player__transport-button[data-action="repeat"] {
-    color: var(--accent-primary);
-    background: color-mix(in srgb, var(--accent-primary) 14%, transparent);
-    border-color: color-mix(in srgb, var(--accent-primary) 30%, transparent);
   }
 
   .playlist-player__control:where(:not(:disabled)):hover,
@@ -800,7 +593,7 @@ const getTrackFallbackLabel = (song: Song): string =>
 
   .playlist-player__tracklist-header {
     display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr) 3rem 2.75rem 2.75rem;
+    grid-template-columns: 2rem minmax(0, 1fr) 3rem 2.75rem;
     gap: var(--spacing-sm);
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs);
@@ -848,7 +641,7 @@ const getTrackFallbackLabel = (song: Song): string =>
   @media screen and (prefers-reduced-motion: reduce) {
     .playlist-player__track {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 2.75rem 2.75rem;
+      grid-template-columns: minmax(0, 1fr) 2.75rem;
       gap: var(--spacing-sm);
       align-items: center;
       padding: var(--spacing-xs) var(--spacing-sm);
@@ -860,7 +653,7 @@ const getTrackFallbackLabel = (song: Song): string =>
   .playlist-player__track {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 2.75rem 2.75rem;
+    grid-template-columns: minmax(0, 1fr) 2.75rem;
     gap: var(--spacing-sm);
     align-items: center;
     padding: var(--spacing-xs) var(--spacing-sm);
@@ -992,20 +785,6 @@ const getTrackFallbackLabel = (song: Song): string =>
       animation: none;
     }
 
-    :global([data-player-shuffle="true"])
-      .playlist-player__transport-button[data-action="shuffle"] {
-      animation: none;
-    }
-
-    .playlist-player__repeat-icon {
-      transition: none;
-    }
-
-    :global([data-player-repeat="all"]) .playlist-player__repeat-icon--all,
-    :global([data-player-repeat="one"]) .playlist-player__repeat-icon--one {
-      animation: none;
-    }
-
     .playlist-player__volume-icon {
       transition: none;
     }
@@ -1036,8 +815,7 @@ const getTrackFallbackLabel = (song: Song): string =>
     text-align: end;
   }
 
-  .playlist-player__track-lyrics,
-  .playlist-player__track-download {
+  .playlist-player__track-lyrics {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1061,8 +839,7 @@ const getTrackFallbackLabel = (song: Song): string =>
   }
 
   @media screen and (prefers-reduced-motion: no-preference) {
-    .playlist-player__track-lyrics,
-    .playlist-player__track-download {
+    .playlist-player__track-lyrics {
       transition:
         color 0.12s ease,
         background-color 0.12s ease;
@@ -1075,21 +852,17 @@ const getTrackFallbackLabel = (song: Song): string =>
   }
 
   .playlist-player__track-lyrics:hover,
-  .playlist-player__track-lyrics:focus,
-  .playlist-player__track-download:hover,
-  .playlist-player__track-download:focus {
+  .playlist-player__track-lyrics:focus {
     color: var(--accent-primary);
     background-color: color-mix(in srgb, var(--surface-1) 55%, transparent);
   }
 
-  .playlist-player__track-lyrics:active,
-  .playlist-player__track-download:active {
+  .playlist-player__track-lyrics:active {
     transform: scale(0.92);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .playlist-player__track-lyrics:active,
-    .playlist-player__track-download:active {
+    .playlist-player__track-lyrics:active {
       transform: none;
     }
   }
@@ -1099,8 +872,7 @@ const getTrackFallbackLabel = (song: Song): string =>
     block-size: 0.875rem;
   }
 
-  .playlist-player__track-lyrics:focus-visible,
-  .playlist-player__track-download:focus-visible {
+  .playlist-player__track-lyrics:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
@@ -1186,7 +958,7 @@ const getTrackFallbackLabel = (song: Song): string =>
     }
 
     .playlist-player__tracklist-header {
-      grid-template-columns: 2.5rem minmax(0, 1fr) 3.5rem 2.75rem 2.75rem;
+      grid-template-columns: 2.5rem minmax(0, 1fr) 3.5rem 2.75rem;
     }
 
     .playlist-player__track {
@@ -1205,11 +977,11 @@ const getTrackFallbackLabel = (song: Song): string =>
 
   @media (width >= 768px) {
     .playlist-player__tracklist-header {
-      grid-template-columns: 3rem minmax(0, 1fr) 4rem 2.75rem 2.75rem;
+      grid-template-columns: 3rem minmax(0, 1fr) 4rem 2.75rem;
     }
 
     .playlist-player__track {
-      grid-template-columns: minmax(0, 1fr) 2.75rem 2.75rem;
+      grid-template-columns: minmax(0, 1fr) 2.75rem;
     }
 
     .playlist-player__track-button {
@@ -1223,7 +995,6 @@ const getTrackFallbackLabel = (song: Song): string =>
     }
 
     .playlist-player__track-lyrics,
-    .playlist-player__track-download,
     .playlist-player__track-action-placeholder {
       inline-size: 2.75rem;
       block-size: 2.75rem;
@@ -1273,7 +1044,6 @@ const getTrackFallbackLabel = (song: Song): string =>
     }
 
     .playlist-player__track-lyrics,
-    .playlist-player__track-download,
     .playlist-player__track-action-placeholder {
       inline-size: 3rem;
       block-size: 3rem;
