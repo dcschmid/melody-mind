@@ -95,7 +95,7 @@ const buildKnowledgeSchemaArticles = (
   baseUrl: string
 ): KnowledgeArticleLike[] =>
   articles.flatMap((article) => {
-    const slug = article.slug || article.id || "";
+    const slug = article.id || "";
     const title = typeof article.data.title === "string" ? article.data.title.trim() : "";
     const description =
       typeof article.data.description === "string" ? article.data.description.trim() : "";

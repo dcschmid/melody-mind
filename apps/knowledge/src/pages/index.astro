@@ -22,7 +22,7 @@ const { pageSeo, taxonomySections } = await buildKnowledgeIndexPageData(Astro.si
 <Layout {pageSeo}>
   <PageShell containerClass="page-shell__container--wide">
     <Stack gap="2xl">
-      <header class="knowledge-index__intro">
+      <div class="knowledge-index__intro">
         <HeroTeaser
           id="knowledge-home-hero"
           eyebrow="Melody Mind Knowledge"
@@ -36,7 +36,7 @@ const { pageSeo, taxonomySections } = await buildKnowledgeIndexPageData(Astro.si
           imageLoading="eager"
           mediaAspectRatio="3 / 2"
         />
-      </header>
+      </div>
 
       <Stack as="section" gap="lg">
         <RecentReadsPanel

@@ -22,7 +22,7 @@ const articleDateFormatter = new Intl.DateTimeFormat("en-US", {
   articles.length > 0 ? (
     <ul class="taxonomy-article-grid">
       {articles.map((article, index) => {
-        const articleSlug = "slug" in article ? article.slug : article.id;
+        const articleSlug = article.id;
         const createdAt = article.data.createdAt || new Date();
 
         return (

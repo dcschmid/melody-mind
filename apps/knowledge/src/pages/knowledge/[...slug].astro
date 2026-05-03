@@ -52,7 +52,7 @@ if (!entry) {
   return Astro.redirect("/404");
 }
 
-const slugKey = resolvedSlug || entry?.slug || entry?.id || "";
+const slugKey = resolvedSlug || entry?.id || "";
 const { headings, Content } = await render(entry);
 const mergedHeadings = headings;
 const takeaways = entry.data.takeaways || [];

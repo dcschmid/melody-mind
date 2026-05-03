@@ -16,11 +16,10 @@ export async function getKnowledgeArticleStaticPaths() {
   const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
 
   for (const entry of entries) {
-    const slug = entry?.slug || entry?.id;
+    const slug = entry?.id;
     if (!slug) {
       continue;
     }
-
     paths.push({ params: { slug }, props: { entry } });
   }
 
@@ -46,7 +45,7 @@ export async function resolveKnowledgeArticleEntry(params: {
         return [];
       });
       if (slug) {
-        entry = articles.find((article) => article.slug === slug || article.id === slug);
+        entry = articles.find((article) => article.id === slug);
       }
     } catch (e) {
       loggers.pages.warn("knowledge article: collection load issue (fallback)", {

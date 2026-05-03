@@ -35,7 +35,7 @@ function getRelatedKnowledgeArticles(params: {
 
   return articles
     .filter((article) => {
-      const articleSlug = String(article?.slug || article?.id || "");
+      const articleSlug = String(article?.id || "");
       return articleSlug && articleSlug !== currentSlug;
     })
     .map((article) => {
@@ -69,7 +69,7 @@ function getRelatedKnowledgeArticles(params: {
           : getReadingTime(article?.body || "", { languageCode: lang }).minutes;
 
       return {
-        slug: String(article?.slug || article?.id || ""),
+        id: String(article?.id || ""),
         title: String(article?.data?.title || ""),
         description: String(article?.data?.description || ""),
         image: getKnowledgeCategoryImage(
@@ -89,7 +89,7 @@ function getRelatedKnowledgeArticles(params: {
       if (b.updatedAt.getTime() !== a.updatedAt.getTime()) {
         return b.updatedAt.getTime() - a.updatedAt.getTime();
       }
-      return a.slug.localeCompare(b.slug);
+      return a.id.localeCompare(b.id);
     })
     .slice(0, limit)
     .map(({ updatedAt: _updatedAt, score: _score, ...article }) => article);
@@ -130,10 +130,10 @@ export async function loadRelatedKnowledgeArticleCardItems(params: {
 
     return articles.map((article, index) =>
       buildRelatedArticleCardItem({
-        id: `related-knowledge-${article.slug}-${index}`,
+        id: `related-knowledge-${article.id}-${index}`,
         title: article.title,
         description: article.description,
-        href: `/knowledge/${article.slug}`,
+        href: `/knowledge/${article.id}`,
         imageSrc: article.image,
         ctaSrText: "Opens article",
         publishedAt: article.createdAt,

@@ -80,7 +80,7 @@ export interface ResolvedKnowledgeEntry extends KnowledgeArticleLike {
 }
 
 export interface RelatedKnowledgeArticle {
-  slug: string;
+  id: string;
   title: string;
   description: string;
   image?: string | import("astro").ImageMetadata;

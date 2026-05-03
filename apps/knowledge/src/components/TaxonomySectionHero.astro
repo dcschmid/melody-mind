@@ -14,7 +14,7 @@ const { section } = Astro.props as Props;
 const importedSectionImage = getKnowledgeTaxonomyImage(section.image) || undefined;
 ---
 
-<header class="taxonomy-section-hero">
+<div class="taxonomy-section-hero">
   <HeroTeaser
     id={`taxonomy-hero-${section.id}`}
     class="taxonomy-section-hero__teaser"
@@ -39,7 +39,7 @@ const importedSectionImage = getKnowledgeTaxonomyImage(section.image) || undefin
       ) : null
     }
   </HeroTeaser>
-</header>
+</div>
 
 <style>
   .taxonomy-section-hero {
