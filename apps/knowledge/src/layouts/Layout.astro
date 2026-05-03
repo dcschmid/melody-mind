@@ -3,6 +3,7 @@ import AppShellLayout from "@shared-ui/components/layout/AppShellLayout.astro";
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 import { knowledgeBrandLogoUrl, knowledgeHeroImageUrl } from "@utils/knowledgeImages";
 import { knowledgeAppShellConfig } from "@utils/appShellConfig";
+import KnowledgeSearchPalette from "../components/KnowledgeSearchPalette.astro";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
 /**
@@ -67,4 +68,5 @@ const {
   {authorName}
 >
   <slot />
+  <KnowledgeSearchPalette />
 </AppShellLayout>

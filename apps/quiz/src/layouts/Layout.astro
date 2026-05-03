@@ -3,6 +3,7 @@ import AppShellLayout from "@shared-ui/components/layout/AppShellLayout.astro";
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 import { quizBrandLogo, quizBrandLogoUrl, quizHeroImageUrl } from "../utils/quizImages";
 import { quizAppShellConfig } from "../utils/appShellConfig";
+import QuizSearchPalette from "../components/QuizSearchPalette.astro";
 
 interface Props {
   imageWidth?: number;
@@ -71,4 +72,5 @@ const {
   {authorName}
 >
   <slot />
+  <QuizSearchPalette />
 </AppShellLayout>

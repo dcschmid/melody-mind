@@ -190,7 +190,8 @@ Search Algorithm:
 
 **Deliverables:**
 
-- Enhanced `src/components/Search/SearchPanel.astro`
+- Enhanced `src/components/OramaSearchSection.astro`
+- Global `src/components/KnowledgeSearchPalette.astro`
 - Search index generation script
 - Filter components (checkboxes, dropdowns)
 - Search history component
@@ -756,7 +757,8 @@ Search index:
 
 **Deliverables:**
 
-- Enhanced `SearchPanel.astro`
+- Enhanced `OramaSearchSection.astro`
+- Global `KnowledgeSearchPalette.astro`
 - Search index generator
 - Autocomplete component
 - Search history component

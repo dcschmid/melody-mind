@@ -1,0 +1,46 @@
+<astro-search-palette
+  index-url="/search-index.json"
+  shortcut="mod+k"
+  placeholder="Search albums and tracks"
+  result-limit="8"
+  group-by="type"></astro-search-palette>
+
+<script>
+  import "@freshjuice/astro-search-plugin/element";
+
+  const openMusicSearch = () => {
+    window.dispatchEvent(new CustomEvent("astro-search:open"));
+  };
+
+  const handleSearchRoute = () => {
+    const url = new URL(window.location.href);
+
+    if (url.searchParams.get("search") !== "1") {
+      return;
+    }
+
+    url.searchParams.delete("search");
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    openMusicSearch();
+  };
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (!(target instanceof Element)) {
+      return;
+    }
+
+    const searchLink = target.closest('a[href="/?search=1"]');
+
+    if (!searchLink) {
+      return;
+    }
+
+    event.preventDefault();
+    openMusicSearch();
+  });
+
+  handleSearchRoute();
+  window.addEventListener("popstate", handleSearchRoute);
+</script>

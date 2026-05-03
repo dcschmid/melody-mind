@@ -1,0 +1,14 @@
+---
+import "@freshjuice/astro-search-plugin/styles.css";
+---
+
+<astro-search-palette
+  index-url="/search-index.json"
+  shortcut="mod+k"
+  placeholder="Search quizzes"
+  result-limit="8"
+  group-by="type"></astro-search-palette>
+
+<script>
+  import "@freshjuice/astro-search-plugin/element";
+</script>

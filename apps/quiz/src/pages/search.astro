@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import SearchPageSection from "@shared-ui/components/search/SearchPageSection.astro";
+import OramaSearchSection from "../components/OramaSearchSection.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
@@ -10,7 +10,8 @@ export const prerender = true;
 const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
 
 const title = "Search Melody Mind Quizzes";
-const description = "Search Melody Mind quiz titles and descriptions.";
+const description =
+  "Search Melody Mind quizzes by title, description, topic, question, answer, and explanation.";
 const currentUrl = resolvePageUrl(Astro.site, "/search");
 const pageSeo = buildPageSeo({
   title,
@@ -35,18 +36,15 @@ const searchIndexUrl = "/search-index.json";
 
 <Layout {pageSeo}>
   <PageShell className="page-shell--night page-shell--grid">
-    <SearchPageSection
+    <OramaSearchSection
       searchIndexUrl={searchIndexUrl}
       initialQuery={initialQuery}
       title={title}
       lead={description}
-      resultsEyebrow="Search the quiz archive"
-      resultsTitle="Results"
-      resultsHelp="Results update while you type, and the current query stays in the URL."
-      searchPlaceholder="Search quiz titles or descriptions..."
-      searchEmptyText="Type a quiz title or keyword."
-      searchNoResultsText="No matching quizzes found."
-      searchLimit={24}
+      placeholder="Search quiz titles, questions, or topics..."
+      emptyText="Type a quiz title, question, or keyword."
+      noResultsText="No matching quizzes found."
+      resultLimit={24}
     />
   </PageShell>
 </Layout>

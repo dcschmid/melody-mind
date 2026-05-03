@@ -32,15 +32,7 @@ const runWhenIdle = (cb: () => void): void => {
   window.setTimeout(cb, 1);
 };
 
-const INIT_TARGETS: InitEntry[] = [
-  {
-    test: (): Element | null => document.querySelector("[data-search-root]"),
-    init: async (): Promise<void> => {
-      const { initSearchPanelsAuto } = await import("./searchPanelUtils");
-      initSearchPanelsAuto();
-    },
-  },
-];
+const INIT_TARGETS: InitEntry[] = [];
 
 export function initInteractiveComponents(): void {
   if (typeof window === "undefined" || hasInitialized) {

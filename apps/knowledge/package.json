@@ -30,6 +30,7 @@
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
+    "@freshjuice/astro-search-plugin": "^1.0.1",
     "@iconify-json/simple-icons": "^1.2.78",
     "@iconify-json/tabler": "^1.2.33",
     "@melody-mind/shared-ui": "workspace:*",

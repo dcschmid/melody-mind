@@ -87,6 +87,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
+      '@freshjuice/astro-search-plugin':
+        specifier: ^1.0.1
+        version: 1.0.1(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))
       '@iconify-json/simple-icons':
         specifier: ^1.2.78
         version: 1.2.78
@@ -142,6 +145,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
+      '@freshjuice/astro-search-plugin':
+        specifier: ^1.0.1
+        version: 1.0.1(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))
       '@iconify-json/simple-icons':
         specifier: ^1.2.78
         version: 1.2.78
@@ -252,6 +258,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
+      '@freshjuice/astro-search-plugin':
+        specifier: ^1.0.1
+        version: 1.0.1(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))
       '@iconify-json/simple-icons':
         specifier: ^1.2.78
         version: 1.2.78
@@ -696,6 +705,19 @@ packages:
     resolution: {integrity: sha512-rZAP3aVgB9ds9KOeUSL+zZ21hPmo8dh6fnIFwRQj5EAZl9gzR7wxYbYXYysAM8CTqGmUGyp2S4kUdV17MnGuWQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
+  '@freshjuice/astro-search-plugin@1.0.1':
+    resolution: {integrity: sha512-nOOxnVz3zjou7Nsfekwhe02gUs0c3htHdrTOWXX0dK54GGt5zjkfCN/f4Pbo7yHnoIW5rl2aOnco0ASBf4s9Mg==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      astro: '>=5.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
     engines: {node: '>=18.18.0'}
@@ -926,6 +948,10 @@ packages:
 
   '@ocavue/utils@1.6.0':
     resolution: {integrity: sha512-8W3q1hxx9qFdrYgPtbElllG/tqYkO/dMhlRUiqasO0SuDFTj78azSQjhIrBTFWxlBPPsSZN6zXYHmb3RwN2Jtg==}
+
+  '@orama/orama@3.1.18':
+    resolution: {integrity: sha512-a61ljmRVVyG5MC/698C8/FfFDw5a8LOIvyOLW5fztgUXqUpc1jOfQzOitSCbge657OgXXThmY3Tk8fpiDb4UcA==}
+    engines: {node: '>= 20.0.0'}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -4419,6 +4445,11 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
+  '@freshjuice/astro-search-plugin@1.0.1(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))':
+    dependencies:
+      '@orama/orama': 3.1.18
+      astro: 6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3)
+
   '@humanfs/core@0.19.1': {}
 
   '@humanfs/node@0.16.7':
@@ -4641,6 +4672,8 @@ snapshots:
       fastq: 1.20.1
 
   '@ocavue/utils@1.6.0': {}
+
+  '@orama/orama@3.1.18': {}
 
   '@oslojs/encoding@1.1.0': {}
 
