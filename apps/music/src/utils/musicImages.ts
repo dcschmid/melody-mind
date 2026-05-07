@@ -5,10 +5,10 @@ import {
   toAbsoluteAssetUrl,
 } from "@shared-utils/utils/imageAssets";
 import { MUSIC_SITE_URL } from "@shared-utils/utils/appShell";
-import musicHeroSvg from "../assets/music-hero.webp";
+import musicDefaultOgSvg from "../assets/music-default-og.webp";
 
-const musicHeroImage: ImageMetadata = musicHeroSvg;
-const musicHeroImageUrl = `${MUSIC_SITE_URL}${musicHeroSvg.src}`;
+const musicDefaultOgImage: ImageMetadata = musicDefaultOgSvg;
+const musicDefaultOgImageUrl = `${MUSIC_SITE_URL}${musicDefaultOgSvg.src}`;
 
 const albumCoverModules = import.meta.glob<{ default: ImageMetadata }>(
   "../assets/album-covers/*.{jpg,jpeg,png,webp,avif}",
@@ -19,23 +19,23 @@ const albumCoverImages = buildImageMap(albumCoverModules);
 
 export function getAlbumCoverImage(coverImage: string): string | ImageMetadata {
   if (!coverImage) {
-    return musicHeroImage;
+    return musicDefaultOgImage;
   }
   const key = normalizeImageKey(coverImage);
   const image = albumCoverImages[key];
-  return image ?? musicHeroImage;
+  return image ?? musicDefaultOgImage;
 }
 
 export function getAlbumCoverImageUrl(coverImage: string): string {
   if (!coverImage) {
-    return musicHeroImageUrl;
+    return musicDefaultOgImageUrl;
   }
   const key = normalizeImageKey(coverImage);
   const image = albumCoverImages[key];
   if (!image) {
-    return musicHeroImageUrl;
+    return musicDefaultOgImageUrl;
   }
   return toAbsoluteAssetUrl(image, MUSIC_SITE_URL);
 }
 
-export { musicHeroImage, musicHeroImageUrl };
+export { musicDefaultOgImage, musicDefaultOgImageUrl };

@@ -6,10 +6,11 @@ import { buildAppShellConfig } from "@shared-utils/utils/appShellConfig";
 import {
   KNOWLEDGE_SITE_URL,
   QUIZ_SITE_URL,
+  buildAppShellLegalLinks,
   buildExternalAppLink,
 } from "@shared-utils/utils/appShell";
 
-export const musicAppShellConfig = buildAppShellConfig({
+const baseMusicAppShellConfig = buildAppShellConfig({
   siteName: "MelodyMind Music",
   siteDescription:
     "AI-generated music albums from MelodyMind. Listen to original compositions spanning genres from ambient to pop.",
@@ -32,3 +33,11 @@ export const musicAppShellConfig = buildAppShellConfig({
     buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz" }),
   ],
 });
+
+export const musicAppShellConfig = {
+  ...baseMusicAppShellConfig,
+  footer: {
+    ...baseMusicAppShellConfig.footer,
+    legalLinks: buildAppShellLegalLinks({ baseUrl: KNOWLEDGE_SITE_URL }),
+  },
+};

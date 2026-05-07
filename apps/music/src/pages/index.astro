@@ -1,5 +1,7 @@
 ---
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { buildOrganizationSchema } from "@shared-utils/utils/seo/seoSchema";
+import { toAbsoluteAssetUrl } from "@shared-utils/utils/imageAssets";
 import GridSection from "../components/home/GridSection.astro";
 import FeaturedSection from "../components/home/FeaturedSection.astro";
 import GenreFilterControls from "../components/home/GenreFilterControls.astro";
@@ -14,9 +16,10 @@ import { getAvailableAlbums } from "../utils/albums";
 import {
   getAlbumCoverImage,
   getAlbumCoverImageUrl,
-  musicHeroImageUrl,
+  musicDefaultOgImageUrl,
 } from "../utils/musicImages";
 import { buildMusicAlbumListSchema } from "../utils/musicSeo";
+import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
 const albums: AlbumData[] = await getAvailableAlbums();
 const albumTitleCollator = new Intl.Collator("en", {
@@ -38,6 +41,7 @@ const DEFAULT_SORT_VALUE = "date";
 const sortParamValue = Astro.url.searchParams.get("sort");
 const genreParamValue =
   Astro.url.searchParams.get("genre") ?? Astro.url.searchParams.get("album-genre");
+const hasFilterParams = Boolean(sortParamValue || genreParamValue);
 const initialSortValue = sortParamValue === "title" ? sortParamValue : DEFAULT_SORT_VALUE;
 const initialGenreValue =
   genreParamValue && genreOptions.includes(genreParamValue) ? genreParamValue : "";
@@ -152,6 +156,23 @@ const t = {
 };
 
 const structuredData = [
+  buildOrganizationSchema({
+    siteUrl: canonical,
+    siteName: "MelodyMind Music",
+    description: t.description,
+    logoUrl: toAbsoluteAssetUrl(melodyMindLogo, new URL(canonical).origin),
+  }),
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${canonical.replace(/\/$/, "")}#website`,
+    url: canonical.replace(/\/$/, ""),
+    name: "MelodyMind Music",
+    description: t.description,
+    publisher: {
+      "@id": `${canonical.replace(/\/$/, "")}#organization`,
+    },
+  },
   buildMusicAlbumListSchema({
     albums: sortedAlbumsByDate,
     canonical,
@@ -167,10 +188,11 @@ const structuredData = [
   description={t.description}
   keywords={t.keywords}
   type="website"
-  image={musicHeroImageUrl}
+  image={musicDefaultOgImageUrl}
   language="en"
   locale="en-US"
   canonical={canonical}
+  index={!hasFilterParams}
   {breadcrumbs}
   {structuredData}
   contentShellClass="music-layout__container--home"

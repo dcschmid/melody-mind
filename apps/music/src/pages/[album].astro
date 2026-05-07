@@ -74,10 +74,18 @@ const structuredData = [
 <Layout
   title={currentAlbum.title}
   description={metaDescription}
-  type="article"
+  type="musicAlbum"
   publishedTime={currentAlbum.publishedAt}
   modifiedTime={currentAlbum.publishedAt}
   image={albumCoverImageUrl}
+  imageWidth={currentAlbum.coverImageWidth}
+  imageHeight={currentAlbum.coverImageHeight}
+  imageType="image/webp"
+  ogMusic={{
+    album: canonical,
+    creator: currentAlbum.artist || "MelodyMind",
+    musician: currentAlbum.artist || "MelodyMind",
+  }}
   language="en"
   locale="en-US"
   keywords={[

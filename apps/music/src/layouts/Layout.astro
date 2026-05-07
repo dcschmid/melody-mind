@@ -14,19 +14,24 @@ import {
 } from "@shared-utils/utils/siteUrls";
 import { normalizeWhitespace } from "@shared-utils/utils/format";
 import { musicAppShellConfig } from "../utils/appShellConfig";
-import { musicHeroImageUrl } from "../utils/musicImages";
+import { musicDefaultOgImageUrl } from "../utils/musicImages";
 import SearchPalette from "../components/search/Palette.astro";
 import BackToTop from "../components/layout/BackToTop.astro";
 import Footer from "../components/layout/Footer.astro";
 import Header from "../components/layout/Header.astro";
 
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
+import type { OpenGraphMusicMeta } from "@shared-ui/components/meta/seo.types";
 
 export interface Props {
   title?: string;
   description?: string;
   image?: string;
-  type?: "website" | "article";
+  imageWidth?: number;
+  imageHeight?: number;
+  imageType?: string;
+  type?: "website" | "article" | "musicAlbum";
+  ogMusic?: OpenGraphMusicMeta;
   publishedTime?: string;
   modifiedTime?: string;
   keywords?: string[];
@@ -45,8 +50,12 @@ export interface Props {
 const {
   title,
   description,
-  image = musicHeroImageUrl,
+  image = musicDefaultOgImageUrl,
+  imageWidth,
+  imageHeight,
+  imageType,
   type = "website",
+  ogMusic,
   publishedTime,
   modifiedTime,
   keywords = [],
@@ -85,10 +94,10 @@ const computedSeo = buildPageSeo({
   url: currentUrl,
   image: imageUrl,
   imageAlt:
-    type === "article"
+    type === "article" || type === "musicAlbum"
       ? `Cover artwork for ${normalizedTitle}`
       : `Cover artwork for ${siteTitle}`,
-  type: type === "article" ? "article" : "website",
+  type,
   structuredData: structuredData as StructuredData[],
   fallbackKeywords: [...defaultKeywords, ...keywords],
   breadcrumbs,
@@ -144,6 +153,10 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
     <AppHeadResources />
     <SEO
       {...seoProps}
+      {...imageWidth ? { imageWidth } : {}}
+      {...imageHeight ? { imageHeight } : {}}
+      {...imageType ? { imageType } : {}}
+      {...ogMusic ? { ogMusic } : {}}
       {...pageSeoResolved.openGraph && {
         openGraph: {
           ...pageSeoResolved.openGraph,
@@ -156,8 +169,25 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
       twitterSite="@melodymind"
     />
     <meta name="language" content={language} />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon-96x96.png?v=20260507"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260507" />
+    <link rel="shortcut icon" href="/favicon.ico?v=20260507" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png?v=20260507"
+    />
+    <meta name="apple-mobile-web-app-title" content="MM Music" />
+    <link rel="manifest" href="/site.webmanifest?v=20260507" />
+    <meta
+      name="google-site-verification"
+      content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M"
+    />
   </Fragment>
 
   <SkipLink slot="body-start" />

@@ -135,7 +135,7 @@ export function buildMusicAlbumListSchema({
     name: "MelodyMind Music albums",
     description,
     numberOfItems: albums.length,
-    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
     itemListElement: albums.map((album, index) => {
       const albumUrl = resolvePageUrl(site, `/${album.id}/`);
       const coverImageUrl = getCoverImageUrl(album.coverImage);

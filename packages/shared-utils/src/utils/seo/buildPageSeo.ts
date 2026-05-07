@@ -27,7 +27,13 @@ export interface AlternateLocaleLink {
   href: string;
 }
 
-type PageSeoType = "website" | "article" | "musicPlaylist" | "game" | "podcastEpisode";
+type PageSeoType =
+  | "website"
+  | "article"
+  | "musicAlbum"
+  | "musicPlaylist"
+  | "game"
+  | "podcastEpisode";
 
 /**
  * Input contract for `buildPageSeo()`.
@@ -198,6 +204,8 @@ function toOpenGraphType(type: PageSeoType): string {
   switch (type) {
     case "podcastEpisode":
       return "article";
+    case "musicAlbum":
+      return "music.album";
     case "musicPlaylist":
       return "music.playlist";
     default:
