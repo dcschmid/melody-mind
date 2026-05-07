@@ -72,6 +72,8 @@ const {
 } = Astro.props as Props;
 
 const siteTitle = "MelodyMind Music";
+const defaultOgImageWidth = 700;
+const defaultOgImageHeight = 368;
 const normalizedTitle = normalizeWhitespace(title || siteTitle);
 const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
   ? normalizedTitle
@@ -120,6 +122,11 @@ const computedSeo = buildPageSeo({
 });
 
 const pageSeoResolved = pageSeo ?? computedSeo;
+const resolvedImageWidth =
+  imageWidth ?? (image === musicDefaultOgImageUrl ? defaultOgImageWidth : undefined);
+const resolvedImageHeight =
+  imageHeight ?? (image === musicDefaultOgImageUrl ? defaultOgImageHeight : undefined);
+const resolvedImageType = imageType ?? "image/webp";
 
 const seoProps = {
   title: pageSeoResolved.title || fullTitle,
@@ -147,16 +154,20 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
   contentShellClass={contentShellClasses}
   showSkipLink={false}
   enableThemeInit={true}
-  appTitle="Melody Mind Music"
+  appTitle="MM Music"
+  manifestPath="/site.webmanifest?v=20260507"
+  faviconVersion="20260507"
+  faviconSvgPath="/favicon.svg"
+  googleSiteVerification="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M"
   showBackToTop={false}
 >
   <Fragment slot="head">
     <AppHeadResources />
     <SEO
       {...seoProps}
-      {...imageWidth ? { imageWidth } : {}}
-      {...imageHeight ? { imageHeight } : {}}
-      {...imageType ? { imageType } : {}}
+      {...resolvedImageWidth ? { imageWidth: resolvedImageWidth } : {}}
+      {...resolvedImageHeight ? { imageHeight: resolvedImageHeight } : {}}
+      {...resolvedImageType ? { imageType: resolvedImageType } : {}}
       {...ogMusic ? { ogMusic } : {}}
       {...pageSeoResolved.openGraph && {
         openGraph: {
@@ -170,25 +181,9 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
       twitterSite="@melodymind"
     />
     <meta name="language" content={language} />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/favicon-96x96.png?v=20260507"
-      sizes="96x96"
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260507" />
-    <link rel="shortcut icon" href="/favicon.ico?v=20260507" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png?v=20260507"
-    />
-    <meta name="apple-mobile-web-app-title" content="MM Music" />
-    <link rel="manifest" href="/site.webmanifest?v=20260507" />
-    <meta
-      name="google-site-verification"
-      content="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M"
-    />
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="CHTCRKPK" defer></script>
+    <!-- / Fathom -->
   </Fragment>
 
   <SkipLink slot="body-start" />
