@@ -564,7 +564,7 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     ...(autoSocialImage !== undefined && { autoSocialImage }),
     ...(generateSocialImage !== undefined && { generateSocialImage }),
     ...(onSocialImageError !== undefined && { onSocialImageError }),
-    ...rest,
+    rest,
     cacheKey,
   } as NormalizedResultBase;
 }

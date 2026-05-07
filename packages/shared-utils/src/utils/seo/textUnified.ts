@@ -306,6 +306,8 @@ export interface BuildSeoTextParams {
   fallbackKeywords?: string[];
   /** Controls whether summary generation or truncation gets first priority. */
   combineStrategy?: "truncate-first" | "generate-first";
+  /** Controls which text is summarized for the final meta description. */
+  descriptionSource?: "combined" | "base";
 }
 
 /** Final SEO text payload returned to page-level SEO helpers. */
@@ -515,14 +517,17 @@ export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
     keywordLimit = 12,
     fallbackKeywords = [],
     combineStrategy = "generate-first",
+    descriptionSource = "combined",
   } = params;
   const rawCombined = [title, descriptionBase, ...enrichedParts]
     .filter(Boolean)
     .join(" ")
     .trim();
   const enrichedContent = rawCombined;
+  const descriptionInput =
+    descriptionSource === "base" ? descriptionBase.trim() : enrichedContent;
 
-  const description = buildDescription(enrichedContent, combineStrategy, maxDescription);
+  const description = buildDescription(descriptionInput, combineStrategy, maxDescription);
 
   const primaryKw = splitKeywords(
     extractKeywords(enrichedContent, keywordLimit, language)
