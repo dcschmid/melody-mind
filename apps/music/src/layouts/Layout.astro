@@ -2,9 +2,7 @@
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
 import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
-import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import SkipLink from "@shared-ui/components/navigation/SkipLink.astro";
-import SharedFooter from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 import { buildPageSeo } from "@shared-utils/utils/seo/buildPageSeo";
 import type { StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
@@ -17,8 +15,10 @@ import {
 import { normalizeWhitespace } from "@shared-utils/utils/format";
 import { musicAppShellConfig } from "../utils/appShellConfig";
 import { musicHeroImageUrl } from "../utils/musicImages";
-import MusicSearchPalette from "../components/MusicSearchPalette.astro";
-import melodyMindLogo from "../assets/melody-mind-logo.webp";
+import SearchPalette from "../components/search/Palette.astro";
+import BackToTop from "../components/layout/BackToTop.astro";
+import Footer from "../components/layout/Footer.astro";
+import Header from "../components/layout/Header.astro";
 
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 
@@ -38,6 +38,8 @@ export interface Props {
   index?: boolean;
   follow?: boolean;
   pageSeo?: PageSeoResult;
+  mainClass?: string;
+  contentShellClass?: string;
 }
 
 const {
@@ -56,6 +58,8 @@ const {
   index = true,
   follow = true,
   pageSeo,
+  mainClass = "",
+  contentShellClass = "",
 } = Astro.props as Props;
 
 const siteTitle = "MelodyMind Music";
@@ -120,21 +124,21 @@ const seoProps = {
   ...(pageSeoResolved.modifiedDate ? { modifiedDate: pageSeoResolved.modifiedDate } : {}),
   ...(pageSeoResolved.authorName ? { authorName: pageSeoResolved.authorName } : {}),
 };
-const searchNavItem = {
-  href: "/?search=1",
-  label: "Search",
-  icon: "search",
-};
+const mainClasses = ["music-layout__main", mainClass].filter(Boolean).join(" ");
+const contentShellClasses = ["music-layout__container", contentShellClass]
+  .filter(Boolean)
+  .join(" ");
 ---
 
 <MasterLayout
   lang={language}
   bodyClass="music-layout"
-  mainClass="music-layout__main"
-  contentShellClass="music-layout__container"
+  mainClass={mainClasses}
+  contentShellClass={contentShellClasses}
   showSkipLink={false}
   enableThemeInit={true}
   appTitle="Melody Mind Music"
+  showBackToTop={false}
 >
   <Fragment slot="head">
     <AppHeadResources />
@@ -157,21 +161,9 @@ const searchNavItem = {
   </Fragment>
 
   <SkipLink slot="body-start" />
-  <SiteHeader
-    slot="before-main"
-    headerConfig={{
-      ...shellConfig.header,
-      navItems: [searchNavItem, ...shellConfig.header.navItems],
-      showBrand: true,
-      brandText: "",
-      brandLogoSrc: melodyMindLogo,
-      brandLogoAlt: "Melody Mind",
-      brandLogoWidth: 700,
-      brandLogoHeight: 232,
-    }}
-  />
+  <Header slot="before-main" />
 
-  <SharedFooter
+  <Footer
     slot="after-main"
     footerConfig={{
       ...shellConfig.footer,
@@ -181,14 +173,23 @@ const searchNavItem = {
   />
 
   <AutoInitScript slot="body-end" />
-  <MusicSearchPalette slot="body-end" />
+  <SearchPalette slot="body-end" />
+  <BackToTop slot="body-end" />
 
   <slot />
 </MasterLayout>
 
 <style>
   :global(.music-layout) {
+    --music-accent-primary: oklch(46% 0.128 16deg);
+    --music-accent-strong: oklch(38% 0.125 16deg);
+
     background: var(--page-background);
+  }
+
+  :global([data-theme="dark"] .music-layout) {
+    --music-accent-primary: oklch(74% 0.18 286deg);
+    --music-accent-strong: oklch(75% 0.16 252deg);
   }
 
   :global(.music-layout__main) {
@@ -209,6 +210,10 @@ const searchNavItem = {
     );
   }
 
+  :global(.music-layout__main--album)::before {
+    display: none;
+  }
+
   :global([data-theme="dark"] .music-layout__main)::before {
     background: linear-gradient(
       180deg,
@@ -221,193 +226,18 @@ const searchNavItem = {
     position: relative;
     z-index: 1;
     display: grid;
-    gap: clamp(var(--spacing-base), 3vw, var(--spacing-2xl));
+    gap: 0;
     max-inline-size: var(--max-width);
     padding-block: clamp(var(--spacing-sm), 2vw, var(--spacing-xl));
     padding-inline: var(--spacing-sm);
-    padding-bottom: max(var(--spacing-sm), env(safe-area-inset-bottom));
+    padding-bottom: 0;
     margin: 0 auto;
   }
 
-  :global(.music-layout .site-header__brand) {
-    padding-inline: clamp(var(--spacing-sm), 1vw, var(--spacing-base));
-  }
-
-  :global(.music-layout .site-header__brand--logo-only .site-header__brand-logo-wrap) {
-    inline-size: clamp(
-      calc(var(--control-min-block-size) * 3.65),
-      14vw,
-      calc(var(--control-min-block-size) * 5.45)
-    );
-    block-size: auto;
-    aspect-ratio: 700 / 232;
-    overflow: visible;
-  }
-
-  :global(.music-layout .site-header__brand-logo) {
-    display: block;
-    inline-size: 100%;
-    block-size: auto;
-    object-fit: contain;
-    object-position: left center;
-  }
-
-  :global(.astro-search-backdrop) {
-    position: fixed;
-    inset: 0;
-    z-index: var(--z-modal, 1000);
-    display: grid;
-    place-items: start center;
-    padding: clamp(var(--spacing-base), 10vh, var(--spacing-3xl)) var(--spacing-base);
-    background: var(--surface-scrim);
-    backdrop-filter: blur(0.75rem);
-  }
-
-  :global(.astro-search-modal) {
-    display: grid;
-    gap: var(--spacing-sm);
-    inline-size: min(100%, 42rem);
-    max-block-size: min(42rem, calc(100dvh - var(--spacing-3xl)));
-    overflow: hidden;
-    color: var(--text-primary);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-base);
-    box-shadow: var(--shadow-lg);
-  }
-
-  :global(.astro-search-input-wrap) {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: var(--spacing-xs);
-    align-items: center;
-    padding: var(--spacing-sm);
-    border-bottom: 1px solid var(--surface-border-soft);
-  }
-
-  :global(.astro-search-icon) {
-    inline-size: var(--icon-size-md);
-    block-size: var(--icon-size-md);
-    color: var(--text-tertiary);
-  }
-
-  :global(.astro-search-input) {
-    min-inline-size: 0;
-    padding: var(--spacing-xs) 0;
-    font: inherit;
-    color: inherit;
-    outline: 0;
-    background: transparent;
-    border: 0;
-  }
-
-  :global(.astro-search-input::placeholder) {
-    color: var(--text-tertiary);
-  }
-
-  :global(.astro-search-shortcut),
-  :global(.astro-search-key kbd) {
-    min-inline-size: 1.65rem;
-    padding: 0.125rem 0.375rem;
-    font-size: 0.75rem;
-    line-height: 1.4;
-    color: var(--text-tertiary);
-    text-align: center;
-    background: var(--surface-2);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-sm);
-  }
-
-  :global(.astro-search-results) {
-    display: grid;
-    gap: var(--spacing-2xs);
-    min-block-size: 8rem;
-    max-block-size: min(28rem, 52dvh);
-    padding: 0 var(--spacing-xs);
-    margin: 0;
-    overflow-y: auto;
-    list-style: none;
-  }
-
-  :global(.astro-search-results > li) {
-    display: grid;
-    gap: var(--spacing-2xs);
-  }
-
-  :global(.astro-search-empty) {
-    padding: var(--spacing-xl) var(--spacing-base);
-    color: var(--text-tertiary);
-    text-align: center;
-  }
-
-  :global(.astro-search-group-label) {
-    padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-2xs);
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0;
-  }
-
-  :global(.astro-search-result) {
-    display: grid;
-    gap: var(--spacing-2xs);
-    inline-size: 100%;
-    padding: var(--spacing-sm);
-    color: inherit;
-    text-align: start;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    border-radius: var(--radius-sm);
-  }
-
-  :global(.astro-search-result[data-selected="true"]),
-  :global(.astro-search-result:hover),
-  :global(.astro-search-result:focus) {
-    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
-  }
-
-  :global(.astro-search-result-title) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-2xs);
-    align-items: baseline;
-    font-weight: var(--font-weight-semibold);
-  }
-
-  :global(.astro-search-result-type) {
-    font-size: 0.78rem;
-    color: var(--accent-primary);
-    text-transform: uppercase;
-  }
-
-  :global(.astro-search-result-desc) {
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--text-tertiary);
-    -webkit-box-orient: vertical;
-  }
-
-  :global(.astro-search-footer) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    align-items: center;
-    justify-content: flex-end;
-    padding: var(--spacing-sm);
-    font-size: 0.78rem;
-    color: var(--text-tertiary);
-    border-top: 1px solid var(--surface-border-soft);
-  }
-
-  :global(.astro-search-key) {
-    display: inline-flex;
-    gap: var(--spacing-2xs);
-    align-items: center;
+  :global(.music-layout__container--album) {
+    max-inline-size: none;
+    padding: 0;
+    overflow-x: clip;
   }
 
   @media (width >= 480px) {

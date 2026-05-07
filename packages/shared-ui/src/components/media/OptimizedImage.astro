@@ -17,6 +17,7 @@ interface Props extends astroHTML.JSX.ImgHTMLAttributes {
   loading?: "eager" | "lazy";
   decoding?: "sync" | "async" | "auto";
   fetchpriority?: "high" | "low" | "auto";
+  widths?: number[];
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   loading = "lazy",
   decoding = "async",
   fetchpriority,
+  widths,
   ...imageAttributes
 } = Astro.props as Props;
 
@@ -85,6 +87,7 @@ const resolvedImportedDimensions = importedImageSrc
       loading={loading}
       decoding={decoding}
       fetchpriority={fetchpriority}
+      widths={widths}
       {...imageAttributes}
     />
   ) : stringImageSrc ? (
@@ -98,6 +101,7 @@ const resolvedImportedDimensions = importedImageSrc
       loading={loading}
       decoding={decoding}
       fetchpriority={fetchpriority}
+      widths={widths}
       {...imageAttributes}
     />
   ) : null

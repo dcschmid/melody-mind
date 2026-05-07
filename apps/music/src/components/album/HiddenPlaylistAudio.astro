@@ -1,0 +1,28 @@
+---
+interface Props {
+  src?: string;
+}
+
+const { src = "" } = Astro.props;
+---
+
+{
+  /*
+    eslint-disable astro/jsx-a11y/media-has-caption --
+    Playlist tracks expose equivalent content through the album song schema:
+    each playable track must provide lyricsUrl, isInstrumental, or
+    transcriptUnavailableReason. The native audio element stays hidden because
+    custom playlist controls own the visible interaction.
+  */
+}
+<audio class="hidden-playlist-audio" preload="metadata" data-playlist-audio>
+  <source src={src} type="audio/mpeg" />
+  Your browser does not support audio playback.
+</audio>
+{/* eslint-enable astro/jsx-a11y/media-has-caption */}
+
+<style>
+  .hidden-playlist-audio {
+    display: none;
+  }
+</style>

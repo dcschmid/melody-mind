@@ -24,6 +24,7 @@ interface Props {
   googleSiteVerification?: string;
   appleMobileWebAppCapable?: boolean;
   appleMobileWebAppStatusBarStyle?: string;
+  showBackToTop?: boolean;
 }
 
 const {
@@ -44,6 +45,7 @@ const {
   googleSiteVerification = import.meta.env.GOOGLE_SITE_VERIFICATION || "",
   appleMobileWebAppCapable = true,
   appleMobileWebAppStatusBarStyle = "black-translucent",
+  showBackToTop = true,
 } = Astro.props as Props;
 
 const bodyClasses = ["app__body", bodyClass].filter(Boolean).join(" ");
@@ -177,7 +179,7 @@ const themeInitScript = enableThemeInit
       <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
         <slot />
       </main>
-      <BackToTop />
+      {showBackToTop && <BackToTop />}
       <slot name="after-main" />
       <slot name="body-end" />
     </div>

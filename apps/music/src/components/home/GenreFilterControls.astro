@@ -1,0 +1,461 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+
+interface Props {
+  allGenresLabel: string;
+  controlsLabel: string;
+  genreFilterLabel: string;
+  genreOptions: string[];
+  idPrefix: string;
+  initialGenreValue: string;
+  initialSortValue: string;
+  lessGenresLabel: string;
+  moreGenresLabel: string;
+  newestFirstLabel: string;
+  selectedGenreLabel: string;
+  sortAlphabeticallyLabel: string;
+  sortByLabel: string;
+  title: string;
+}
+
+const {
+  allGenresLabel,
+  controlsLabel,
+  genreFilterLabel,
+  genreOptions,
+  idPrefix,
+  initialGenreValue,
+  initialSortValue,
+  lessGenresLabel,
+  moreGenresLabel,
+  newestFirstLabel,
+  selectedGenreLabel,
+  sortAlphabeticallyLabel,
+  sortByLabel,
+  title,
+} = Astro.props;
+
+const isGenreListExpanded = Boolean(initialGenreValue);
+const genreToggleLabel = isGenreListExpanded ? lessGenresLabel : moreGenresLabel;
+const headingId = `${idPrefix}-heading`;
+const optionsId = `${idPrefix}-options`;
+---
+
+<section class="genre-filter" aria-labelledby={headingId}>
+  <SectionHeader headingId={headingId} title={title} iconName="disc" />
+  <form class="genre-filter__controls" aria-label={controlsLabel} data-album-controls>
+    <div
+      class="genre-filter__genre-control"
+      data-genre-disclosure
+      data-expanded={isGenreListExpanded ? "true" : "false"}
+    >
+      <fieldset class="genre-filter__fieldset" id={optionsId} data-genre-options>
+        <legend class="genre-filter__legend">{genreFilterLabel}</legend>
+        <button
+          class="genre-filter__chip"
+          type="button"
+          value=""
+          aria-pressed={initialGenreValue === "" ? "true" : "false"}
+          data-album-genre
+        >
+          {allGenresLabel}
+        </button>
+        {
+          genreOptions.map((genre) => (
+            <button
+              class="genre-filter__chip"
+              type="button"
+              value={genre}
+              aria-pressed={initialGenreValue === genre ? "true" : "false"}
+              data-album-genre
+            >
+              {genre}
+            </button>
+          ))
+        }
+      </fieldset>
+
+      <p
+        class="genre-filter__selected"
+        aria-live="polite"
+        data-selected-genre-summary
+        hidden={!initialGenreValue}
+      >
+        <span class="genre-filter__selected-label">{selectedGenreLabel}</span>
+        <strong class="genre-filter__selected-value" data-selected-genre-value>
+          {initialGenreValue}
+        </strong>
+      </p>
+
+      <button
+        class="genre-filter__toggle"
+        type="button"
+        aria-controls={optionsId}
+        aria-expanded={isGenreListExpanded ? "true" : "false"}
+        data-genre-toggle
+        data-more-label={moreGenresLabel}
+        data-less-label={lessGenresLabel}
+      >
+        {genreToggleLabel}
+      </button>
+    </div>
+
+    <label class="genre-filter__sort">
+      <span class="genre-filter__sort-label">{sortByLabel}</span>
+      <select
+        class="genre-filter__sort-select"
+        name="album-sort"
+        aria-controls="albums-list"
+        data-album-sort
+      >
+        <option value="date" selected={initialSortValue === "date"}>
+          {newestFirstLabel}
+        </option>
+        <option value="title" selected={initialSortValue === "title"}>
+          {sortAlphabeticallyLabel}
+        </option>
+      </select>
+    </label>
+  </form>
+</section>
+
+<script>
+  const disclosures = document.querySelectorAll("[data-genre-disclosure]");
+
+  for (const disclosure of disclosures) {
+    if (!(disclosure instanceof HTMLElement)) {
+      continue;
+    }
+
+    const options = disclosure.querySelector("[data-genre-options]");
+    const toggle = disclosure.querySelector("[data-genre-toggle]");
+
+    if (!(options instanceof HTMLElement) || !(toggle instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const moreLabel = toggle.dataset.moreLabel || "More genres";
+    const lessLabel = toggle.dataset.lessLabel || "Less genres";
+    const selectedGenreSummary = disclosure.querySelector(
+      "[data-selected-genre-summary]"
+    );
+    const selectedGenreValue = disclosure.querySelector("[data-selected-genre-value]");
+    const chips = Array.from(disclosure.querySelectorAll("[data-album-genre]")).filter(
+      (chip): chip is HTMLButtonElement => chip instanceof HTMLButtonElement
+    );
+
+    const getSelectedGenreChip = () =>
+      chips.find((chip) => chip.value && chip.getAttribute("aria-pressed") === "true") ||
+      null;
+
+    const updateSelectedGenreSummary = () => {
+      const selectedGenreChip = getSelectedGenreChip();
+
+      if (
+        !(selectedGenreSummary instanceof HTMLElement) ||
+        !(selectedGenreValue instanceof HTMLElement)
+      ) {
+        return;
+      }
+
+      selectedGenreSummary.hidden = !selectedGenreChip;
+      selectedGenreValue.textContent = selectedGenreChip?.value || "";
+    };
+
+    const restoreChipOrder = () => {
+      for (const chip of chips) {
+        options.append(chip);
+      }
+    };
+
+    const syncCollapsedChipOrder = (isExpanded: boolean, canCollapse: boolean) => {
+      const selectedGenreChip = getSelectedGenreChip();
+
+      if (isExpanded || !canCollapse || !selectedGenreChip) {
+        restoreChipOrder();
+        return;
+      }
+
+      const allGenresChip = chips.find((chip) => !chip.value);
+      restoreChipOrder();
+
+      // Move the active chip in the DOM so collapsed visual order matches keyboard order.
+      if (allGenresChip) {
+        allGenresChip.after(selectedGenreChip);
+        return;
+      }
+
+      options.prepend(selectedGenreChip);
+    };
+
+    const syncInitialChipOrder = () => {
+      for (const chip of chips) {
+        options.append(chip);
+      }
+    };
+
+    const setChipVisibility = (isExpanded: boolean, canCollapse: boolean) => {
+      syncCollapsedChipOrder(isExpanded, canCollapse);
+
+      if (isExpanded || !canCollapse) {
+        for (const chip of chips) {
+          chip.removeAttribute("aria-hidden");
+          chip.removeAttribute("tabindex");
+        }
+
+        return;
+      }
+
+      const optionsRect = options.getBoundingClientRect();
+
+      for (const chip of chips) {
+        const chipRect = chip.getBoundingClientRect();
+        const isVisible = chipRect.bottom <= optionsRect.bottom + 1;
+
+        if (isVisible) {
+          chip.removeAttribute("aria-hidden");
+          chip.removeAttribute("tabindex");
+          continue;
+        }
+
+        chip.setAttribute("aria-hidden", "true");
+        chip.setAttribute("tabindex", "-1");
+      }
+    };
+
+    const setExpanded = (isExpanded: boolean, canCollapse = true) => {
+      disclosure.dataset.expanded = String(isExpanded);
+      toggle.setAttribute("aria-expanded", String(isExpanded));
+      toggle.textContent = isExpanded ? lessLabel : moreLabel;
+      setChipVisibility(isExpanded, canCollapse);
+    };
+
+    let syncFrame = 0;
+
+    const syncToggleVisibilityNow = () => {
+      syncFrame = 0;
+      const wasExpanded = disclosure.dataset.expanded === "true";
+      setExpanded(false);
+      const canCollapse = options.scrollHeight > options.clientHeight + 2;
+      setExpanded(wasExpanded, canCollapse);
+      toggle.hidden = !canCollapse;
+      updateSelectedGenreSummary();
+    };
+
+    const syncToggleVisibility = () => {
+      if (syncFrame) {
+        window.cancelAnimationFrame(syncFrame);
+      }
+
+      syncFrame = window.requestAnimationFrame(syncToggleVisibilityNow);
+    };
+
+    toggle.addEventListener("click", () => {
+      setExpanded(disclosure.dataset.expanded !== "true");
+    });
+
+    for (const chip of chips) {
+      chip.addEventListener("click", syncToggleVisibility);
+    }
+
+    window.addEventListener("popstate", syncToggleVisibility);
+    syncInitialChipOrder();
+    syncToggleVisibility();
+
+    if (typeof ResizeObserver !== "undefined") {
+      const resizeObserver = new ResizeObserver(syncToggleVisibility);
+      resizeObserver.observe(options);
+      resizeObserver.observe(disclosure);
+      continue;
+    }
+
+    window.addEventListener("resize", syncToggleVisibility);
+  }
+</script>
+
+<style>
+  .genre-filter {
+    --genre-filter-chip-block-size: var(--control-min-block-size, 2.75rem);
+    --genre-filter-chip-gap: var(--spacing-sm, 0.5rem);
+    --genre-filter-chip-padding-block: var(--spacing-sm, 0.5rem);
+    --genre-filter-chip-padding-inline: var(--spacing-base, 1rem);
+    --genre-filter-controls-gap-block: var(--spacing-sm, 0.5rem);
+    --genre-filter-controls-gap-inline: var(--spacing-lg, 1.5rem);
+    --genre-filter-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --genre-filter-transition-duration: 180ms;
+
+    display: grid;
+    gap: var(--spacing-base, 1rem);
+  }
+
+  .genre-filter__controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--genre-filter-controls-gap-block) var(--genre-filter-controls-gap-inline);
+    align-items: start;
+  }
+
+  .genre-filter__genre-control {
+    display: grid;
+    gap: var(--genre-filter-chip-gap);
+    min-inline-size: 0;
+  }
+
+  .genre-filter__fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--genre-filter-chip-gap);
+    min-inline-size: 0;
+    max-block-size: var(--genre-filter-chip-block-size);
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 0;
+  }
+
+  .genre-filter__legend {
+    position: var(--sr-only, absolute);
+    inline-size: var(--sr-only-width, 1px);
+    block-size: var(--sr-only-height, 1px);
+    padding: var(--sr-only-padding, 0);
+    margin: var(--sr-only-margin, -1px);
+    overflow: var(--sr-only-overflow, hidden);
+    white-space: var(--sr-only-white-space, nowrap);
+    border: var(--sr-only-border, 0);
+    clip-path: var(--sr-only-clip-path, inset(50%));
+  }
+
+  .genre-filter__genre-control[data-expanded="true"] .genre-filter__fieldset {
+    max-block-size: none;
+  }
+
+  .genre-filter__chip {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--genre-filter-chip-block-size);
+    padding: var(--genre-filter-chip-padding-block)
+      var(--genre-filter-chip-padding-inline);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--music-home-muted);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--music-home-paper) 78%, transparent);
+    border: 1px solid var(--music-home-line);
+    border-radius: 999px;
+  }
+
+  .genre-filter__chip[aria-pressed="true"] {
+    color: oklch(98% 0.014 75deg);
+    background: var(--music-home-accent);
+    border-color: transparent;
+    box-shadow: 0 0.8rem 1.5rem oklch(37% 0.13 16deg / 0.14);
+  }
+
+  :global([data-theme="dark"]) .genre-filter__chip[aria-pressed="true"] {
+    color: var(--music-home-paper);
+  }
+
+  .genre-filter__sort {
+    display: inline-flex;
+    gap: var(--spacing-sm, 0.5rem);
+    align-items: center;
+    min-block-size: var(--genre-filter-chip-block-size);
+  }
+
+  .genre-filter__toggle {
+    justify-self: start;
+    padding: 0;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--music-home-accent);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+  }
+
+  .genre-filter__selected {
+    display: none;
+  }
+
+  .genre-filter__sort-label {
+    margin: 0;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--music-home-muted);
+  }
+
+  .genre-filter__sort-select {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--genre-filter-chip-block-size);
+    padding: 0.45rem var(--spacing-md, 0.75rem);
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--music-home-muted);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--music-home-paper) 78%, transparent);
+    border: 1px solid var(--music-home-line);
+    border-radius: 999px;
+  }
+
+  .genre-filter__chip:focus-visible,
+  .genre-filter__toggle:focus-visible,
+  .genre-filter__sort-select:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (width <= 760px) {
+    .genre-filter__controls {
+      grid-template-columns: minmax(0, 1fr);
+      justify-content: stretch;
+    }
+
+    .genre-filter__fieldset {
+      max-block-size: var(--genre-filter-chip-block-size);
+    }
+
+    .genre-filter__chip {
+      white-space: nowrap;
+    }
+
+    .genre-filter__sort {
+      justify-content: space-between;
+    }
+
+    .genre-filter__selected:not([hidden]) {
+      display: inline-flex;
+      gap: var(--spacing-xs, 0.25rem);
+      align-items: center;
+      min-block-size: var(--control-min-block-size-compact, 2.25rem);
+      margin: 0;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--music-home-muted);
+    }
+
+    .genre-filter__selected-value {
+      color: var(--music-home-accent);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .genre-filter__chip,
+    .genre-filter__toggle {
+      transition:
+        transform var(--genre-filter-transition-duration) var(--genre-filter-ease-out),
+        border-color var(--genre-filter-transition-duration) var(--genre-filter-ease-out),
+        background-color var(--genre-filter-transition-duration)
+          var(--genre-filter-ease-out);
+    }
+
+    .genre-filter__chip:active,
+    .genre-filter__toggle:active {
+      transform: scale(0.97);
+    }
+  }
+</style>

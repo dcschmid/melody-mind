@@ -1,0 +1,180 @@
+<article class="album-page-surface">
+  <slot name="hero" />
+
+  <div class="album-page-surface__content">
+    <slot />
+  </div>
+</article>
+
+<style>
+  .album-page-surface {
+    --music-album-accent: oklch(46% 0.128 16deg);
+    --music-album-accent-strong: oklch(38% 0.125 16deg);
+    --music-album-paper: oklch(98% 0.014 75deg);
+    --music-album-paper-soft: oklch(94% 0.032 70deg);
+    --music-album-ink: oklch(19% 0.025 52deg);
+    --music-album-muted: oklch(42% 0.033 55deg);
+    --music-album-line: oklch(83% 0.043 67deg);
+    --music-album-surface-accent-size: 24rem;
+    --music-album-surface-accent-position: 92% 8%;
+    --music-album-secondary-accent-position: 24% 12%;
+    --music-album-art-position: 72% 9rem;
+    --music-album-fade-position: 74% 28rem;
+    --music-album-fade-clear-size: 16rem;
+    --music-album-fade-size: 34rem;
+    --music-album-content-fade-offset: -4.5rem;
+    --music-album-content-fade-size: 6rem;
+
+    position: relative;
+    inline-size: min(100%, 100vw);
+    max-inline-size: 100vw;
+    min-block-size: 100svh;
+    overflow-x: clip;
+    color: var(--music-album-ink);
+    background:
+      radial-gradient(
+        circle at var(--music-album-surface-accent-position),
+        oklch(90% 0.052 61deg / 0.34),
+        transparent 24rem
+      ),
+      linear-gradient(180deg, oklch(98% 0.016 75deg), oklch(94% 0.031 72deg));
+    isolation: isolate;
+  }
+
+  .album-page-surface,
+  .album-page-surface *,
+  .album-page-surface *::before,
+  .album-page-surface *::after {
+    box-sizing: border-box;
+  }
+
+  .album-page-surface::before,
+  .album-page-surface::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+  }
+
+  .album-page-surface::before {
+    z-index: -2;
+    background-image: url("../../assets/hero-bg-light.webp");
+    background-repeat: no-repeat;
+    background-position: var(--music-album-art-position);
+    background-size: cover;
+  }
+
+  .album-page-surface::after {
+    z-index: -1;
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--music-album-paper) 90%, transparent) 0%,
+        color-mix(in srgb, var(--music-album-paper) 78%, transparent) 48%,
+        color-mix(in srgb, var(--music-album-paper) 54%, transparent) 100%
+      ),
+      radial-gradient(
+        circle at var(--music-album-fade-position),
+        transparent 0 var(--music-album-fade-clear-size),
+        color-mix(in srgb, var(--music-album-paper) 50%, transparent)
+          var(--music-album-fade-size)
+      );
+  }
+
+  :global([data-theme="dark"]) .album-page-surface {
+    --music-album-accent: oklch(74% 0.18 286deg);
+    --music-album-accent-strong: oklch(75% 0.16 252deg);
+    --music-album-paper: oklch(18% 0.037 255deg);
+    --music-album-paper-soft: oklch(22% 0.041 252deg);
+    --music-album-ink: oklch(96% 0.012 72deg);
+    --music-album-muted: oklch(78% 0.031 248deg);
+    --music-album-line: oklch(36% 0.055 252deg);
+    --music-album-surface-accent-size: 25rem;
+    --music-album-surface-accent-position: 72% 9%;
+
+    background:
+      radial-gradient(
+        circle at 72% 9%,
+        oklch(44% 0.179 303deg / 0.34),
+        transparent 25rem
+      ),
+      radial-gradient(
+        circle at 24% 12%,
+        oklch(36% 0.143 252deg / 0.28),
+        transparent 26rem
+      ),
+      linear-gradient(180deg, oklch(13% 0.038 255deg), oklch(9% 0.028 252deg));
+  }
+
+  :global([data-theme="dark"]) .album-page-surface::before {
+    background-image: url("../../assets/hero-bg-dark.webp");
+  }
+
+  :global([data-theme="dark"]) .album-page-surface::after {
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--music-album-paper) 88%, transparent) 0%,
+        color-mix(in srgb, var(--music-album-paper) 76%, transparent) 48%,
+        color-mix(in srgb, var(--music-album-paper-soft) 48%, transparent) 100%
+      ),
+      radial-gradient(
+        circle at var(--music-album-fade-position),
+        transparent 0 var(--music-album-fade-clear-size),
+        color-mix(in srgb, var(--music-album-paper) 60%, transparent)
+          var(--music-album-fade-size)
+      );
+  }
+
+  .album-page-surface__content {
+    position: relative;
+    display: grid;
+    gap: clamp(1.45rem, 4vw, 3rem);
+    max-inline-size: 90rem;
+    padding: clamp(1.15rem, 3vw, 2.5rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 6vw, 5rem);
+    margin-inline: auto;
+  }
+
+  .album-page-surface__content::before {
+    position: absolute;
+    inset-block-start: var(--music-album-content-fade-offset);
+    inset-inline: 0;
+    z-index: -1;
+    block-size: var(--music-album-content-fade-size);
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--music-album-paper) 56%, transparent) 62%,
+      transparent
+    );
+  }
+
+  @media (width <= 760px) {
+    .album-page-surface {
+      --music-album-surface-accent-size: 16rem;
+      --music-album-surface-accent-position: 100% 0;
+      --music-album-fade-position: 50% 13rem;
+      --music-album-fade-clear-size: 8rem;
+      --music-album-fade-size: 18rem;
+      --music-album-content-fade-offset: -2rem;
+      --music-album-content-fade-size: 3rem;
+
+      inline-size: 100%;
+      max-inline-size: 100vw;
+    }
+
+    /* Keep decorative image art off mobile to reduce noise and avoid the download. */
+    .album-page-surface::before {
+      background-image: none;
+    }
+
+    .album-page-surface__content {
+      gap: 0.7rem;
+      inline-size: 100%;
+      padding: 0.55rem 1rem clamp(2rem, 6vw, 5rem);
+      overflow-x: clip;
+    }
+  }
+</style>

@@ -1,0 +1,187 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+
+interface GenreLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  genreLinks: GenreLink[];
+}
+
+const { genreLinks } = Astro.props as Props;
+---
+
+{
+  genreLinks.length > 0 && (
+    <div
+      class="music-header-mobile-extras__genres-section"
+      aria-labelledby="music-header-mobile-genres-heading"
+    >
+      <p
+        id="music-header-mobile-genres-heading"
+        class="music-header-mobile-extras__eyebrow"
+      >
+        Explore genres
+      </p>
+      <ul class="music-header-mobile-extras__genres">
+        {genreLinks.map((genre) => (
+          <li>
+            <a
+              class="music-header-mobile-extras__chip"
+              href={genre.href}
+              title={genre.label}
+            >
+              <Icon
+                name="tag"
+                class="music-header-mobile-extras__chip-icon"
+                aria-hidden="true"
+              />
+              <span class="music-header-mobile-extras__chip-label">{genre.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+<a class="music-header-mobile-extras__cta" href="/#albums-list">
+  <Icon name="play" class="music-header-mobile-extras__cta-icon" aria-hidden="true" />
+  <span>Browse Albums</span>
+</a>
+
+<style>
+  .music-header-mobile-extras__genres-section,
+  .music-header-mobile-extras__cta {
+    display: none;
+  }
+
+  .music-header-mobile-extras__chip:focus-visible,
+  .music-header-mobile-extras__cta:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (width <= 1023.98px) {
+    .music-header-mobile-extras__genres-section {
+      display: grid;
+      gap: 0.5rem;
+      inline-size: 100%;
+      min-inline-size: 0;
+      padding-block-start: 0.75rem;
+      margin-block-start: 0.1rem;
+      border-block-start: 1px solid var(--music-menu-line);
+    }
+
+    .music-header-mobile-extras__eyebrow {
+      margin: 0;
+      font-size: 0.72rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--music-menu-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .music-header-mobile-extras__genres {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .music-header-mobile-extras__chip {
+      box-sizing: border-box;
+      display: inline-flex;
+      gap: 0.42rem;
+      align-items: center;
+      max-inline-size: min(9.5rem, 100%);
+      min-block-size: 2.5rem;
+      padding: 0.5rem 0.75rem;
+      overflow: hidden;
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--music-menu-active-text);
+      white-space: nowrap;
+      text-decoration: none;
+      background: var(--music-menu-chip-bg);
+      border: 1px solid var(--music-menu-chip-border);
+      border-radius: 999px;
+    }
+
+    .music-header-mobile-extras__chip-label {
+      min-inline-size: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .music-header-mobile-extras__chip-icon {
+      flex: 0 0 auto;
+      inline-size: 1rem;
+      block-size: 1rem;
+    }
+
+    .music-header-mobile-extras__cta {
+      box-sizing: border-box;
+      display: inline-flex;
+      gap: 0.68rem;
+      align-items: center;
+      justify-content: center;
+      inline-size: 100%;
+      max-inline-size: 100%;
+      min-block-size: 2.95rem;
+      padding: 0.72rem 1rem;
+      margin-block-start: 0.1rem;
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--music-menu-cta-text);
+      text-decoration: none;
+      background: var(--music-menu-cta-bg);
+      border-radius: 999px;
+      box-shadow: 0 0.9rem 1.75rem var(--music-menu-cta-shadow);
+    }
+
+    .music-header-mobile-extras__cta-icon {
+      inline-size: 1rem;
+      block-size: 1rem;
+    }
+  }
+
+  @media (height <= 720px) and (width <= 1023.98px) {
+    .music-header-mobile-extras__genres-section {
+      gap: 0.5rem;
+      padding-block-start: 0.75rem;
+    }
+
+    .music-header-mobile-extras__chip {
+      min-block-size: 2.5rem;
+      padding-block: 0.4rem;
+    }
+
+    .music-header-mobile-extras__cta {
+      min-block-size: 3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .music-header-mobile-extras__chip,
+    .music-header-mobile-extras__cta {
+      transition:
+        background var(--motion-duration-fast) ease-out,
+        border-color var(--motion-duration-fast) ease-out,
+        color var(--motion-duration-fast) ease-out,
+        transform var(--motion-duration-fast) ease-out;
+    }
+
+    .music-header-mobile-extras__chip:active,
+    .music-header-mobile-extras__cta:active {
+      transform: scale(0.97);
+    }
+  }
+</style>

@@ -1,0 +1,243 @@
+---
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { Entry } from "./types";
+import SectionHeader from "./SectionHeader.astro";
+
+interface Props {
+  albums: Entry[];
+  title: string;
+  viewAllLabel: string;
+}
+
+const { albums, title, viewAllLabel } = Astro.props;
+---
+
+{
+  albums.length > 0 && (
+    <section
+      class="latest-releases"
+      id="latest-releases"
+      aria-labelledby="latest-releases-heading"
+    >
+      <SectionHeader
+        headingId="latest-releases-heading"
+        title={title}
+        linkHref="#albums-list"
+        linkLabel={viewAllLabel}
+      />
+      <ul class="latest-releases__list" aria-label={title}>
+        {albums.map((album) => (
+          <li class="latest-releases__item">
+            <a class="latest-releases__card" href={`/${album.id}`}>
+              <img
+                src={album.imageUrl}
+                alt={`Cover art for the album ${album.title}`}
+                class="latest-releases__image"
+                width="88"
+                height="88"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="latest-releases__copy">
+                {album.genre && (
+                  <span class="latest-releases__kicker">{album.genre}</span>
+                )}
+                <span class="latest-releases__title">{album.title}</span>
+                <span class="latest-releases__description">{album.description}</span>
+                <span class="latest-releases__meta">
+                  <Icon name="clock" aria-hidden="true" />
+                  {album.totalDurationLabel}
+                </span>
+              </span>
+              <span class="latest-releases__cue" aria-hidden="true">
+                <Icon name="disc" />
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .latest-releases {
+    --latest-releases-gap: var(--spacing-base, 1rem);
+    --latest-releases-card-gap: 0.8rem;
+    --latest-releases-card-padding: var(--spacing-sm, 0.5rem);
+    --latest-releases-card-radius: var(--radius-md, 0.75rem);
+    --latest-releases-card-shadow: 0 0.8rem 1.8rem oklch(20% 0.04 45deg / 0.08);
+    --latest-releases-cover-radius: var(--radius-sm, 0.25rem);
+    --latest-releases-cover-size: 5.5rem;
+    --latest-releases-copy-gap: 0.2rem;
+    --latest-releases-cue-size: 2.35rem;
+    --latest-releases-cue-column-size: 2.45rem;
+    --latest-releases-image-outline: oklch(0% 0 0deg / 0.1);
+
+    display: grid;
+    gap: var(--latest-releases-gap);
+  }
+
+  .latest-releases__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--latest-releases-gap);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .latest-releases__card {
+    display: grid;
+    grid-template-columns:
+      var(--latest-releases-cover-size) minmax(0, 1fr)
+      var(--latest-releases-cue-column-size);
+    gap: var(--latest-releases-card-gap);
+    align-items: center;
+    min-block-size: 7.25rem;
+    padding: var(--latest-releases-card-padding);
+    color: var(--music-home-ink);
+    text-decoration: none;
+    background: color-mix(in srgb, var(--music-home-paper) 84%, transparent);
+    border: 1px solid var(--music-home-line);
+    border-radius: var(--latest-releases-card-radius);
+    box-shadow: var(--latest-releases-card-shadow);
+  }
+
+  .latest-releases__image {
+    display: block;
+    inline-size: var(--latest-releases-cover-size);
+    block-size: var(--latest-releases-cover-size);
+    aspect-ratio: 1 / 1;
+    outline: 1px solid var(--latest-releases-image-outline);
+    outline-offset: -1px;
+    object-fit: cover;
+    border-radius: var(--latest-releases-cover-radius);
+  }
+
+  .latest-releases__copy {
+    display: grid;
+    gap: var(--latest-releases-copy-gap);
+    min-inline-size: 0;
+  }
+
+  .latest-releases__kicker {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--music-home-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .latest-releases__title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.15;
+    text-wrap: balance;
+    -webkit-box-orient: vertical;
+  }
+
+  .latest-releases__description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    color: var(--music-home-muted);
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
+  }
+
+  .latest-releases__meta {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--music-home-muted);
+  }
+
+  .latest-releases__cue {
+    display: grid;
+    place-items: center;
+    inline-size: var(--latest-releases-cue-size);
+    block-size: var(--latest-releases-cue-size);
+    color: oklch(98% 0.014 75deg);
+    background: var(--music-home-accent);
+    border-radius: 999px;
+  }
+
+  :global([data-theme="dark"]) .latest-releases__cue {
+    color: var(--music-home-paper);
+  }
+
+  .latest-releases__card:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  :global([data-theme="dark"]) .latest-releases__image {
+    --latest-releases-image-outline: oklch(100% 0 0deg / 0.12);
+  }
+
+  @media (width <= 1180px) {
+    .latest-releases__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 820px) {
+    .latest-releases__list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (width <= 760px) {
+    .latest-releases {
+      --latest-releases-cover-size: 4.8rem;
+      --latest-releases-cue-column-size: 2.35rem;
+    }
+
+    .latest-releases__card {
+      min-block-size: 6.25rem;
+    }
+
+    .latest-releases__description {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  @media (width <= 440px) {
+    .latest-releases {
+      --latest-releases-card-gap: 0.625rem;
+      --latest-releases-cover-size: 4.25rem;
+      --latest-releases-cue-column-size: 2.15rem;
+      --latest-releases-cue-size: 2.1rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .latest-releases__card {
+      transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .latest-releases__card:active {
+      transform: translateY(0) scale(0.985);
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .latest-releases__card:hover,
+    .latest-releases__card:focus-visible {
+      transform: translateY(-0.12rem);
+    }
+  }
+</style>

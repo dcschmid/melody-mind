@@ -1,18 +1,15 @@
 ---
-import MusicLayout from "../layouts/MusicLayout.astro";
-import PlaylistPlayer from "@shared-ui/components/media/PlaylistPlayer.astro";
-import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
-import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
-import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import Stack from "@shared-ui/components/layout/Stack.astro";
-import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
-import Prose from "@shared-ui/components/typography/Prose.astro";
+import Layout from "../layouts/Layout.astro";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getCollection, getEntry, render } from "astro:content";
 import { getAlbumCoverImage, getAlbumCoverImageUrl } from "../utils/musicImages";
 import { buildMusicAlbumSchema } from "../utils/musicSeo";
 import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
+import Details from "../components/album/Details.astro";
+import Hero from "../components/album/Hero.astro";
+import Surface from "../components/album/Surface.astro";
+import PlaylistPlayer from "../components/album/PlaylistPlayer.astro";
 
 type AlbumEntry = CollectionEntry<"albums">;
 
@@ -34,6 +31,7 @@ if (!entry || !entry.data.isAvailable) {
 }
 
 const currentAlbum = entry.data;
+const currentAlbumId = entry.id;
 const canonical = resolvePageUrl(Astro.site, `/${albumId}/`);
 const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
@@ -51,6 +49,13 @@ const metaDescription =
 
 const albumCoverImage = getAlbumCoverImage(currentAlbum.coverImage);
 const albumCoverImageUrl = getAlbumCoverImageUrl(currentAlbum.coverImage);
+const albumFacts = [
+  ...(currentAlbum.genre ? [{ label: "Genre", value: currentAlbum.genre }] : []),
+  { label: "Tracks", value: songs.length },
+  ...(totalDuration > 0
+    ? [{ label: "Length", value: `${Math.round(totalDuration / 60)} min` }]
+    : []),
+];
 
 const rawBody = entry.body || "";
 const hasAlbumContent = rawBody.trim().length > 0;
@@ -66,7 +71,7 @@ const structuredData = [
 ];
 ---
 
-<MusicLayout
+<Layout
   title={currentAlbum.title}
   description={metaDescription}
   type="article"
@@ -85,262 +90,36 @@ const structuredData = [
   canonical={canonical}
   {breadcrumbs}
   {structuredData}
+  mainClass="music-layout__main--album"
+  contentShellClass="music-layout__container--album"
 >
-  <PageShell className="album-page">
-    <Stack gap="2xl">
-      <section
-        class="album-page__hero"
-        id={`album-hero-${currentAlbum.id}`}
-        aria-labelledby="album-page-title"
-      >
-        <div class="album-page__hero-lockup">
-          <figure class="album-page__cover-lockup">
-            <OptimizedImage
-              src={albumCoverImage}
-              alt={`Cover art for the album ${currentAlbum.title}`}
-              class="album-page__cover-image"
-              width={currentAlbum.coverImageWidth || 900}
-              height={currentAlbum.coverImageHeight || 900}
-              loading="eager"
-              decoding="async"
-              sizes="(max-width: 760px) calc(100vw - 3rem), 46vw"
-              fetchpriority="high"
-            />
-          </figure>
+  <Surface>
+    <Hero
+      slot="hero"
+      id={currentAlbumId}
+      title={currentAlbum.title}
+      description={currentAlbum.description}
+      coverImage={albumCoverImage}
+      coverImageWidth={currentAlbum.coverImageWidth}
+      coverImageHeight={currentAlbum.coverImageHeight}
+      facts={albumFacts}
+    />
 
-          <div class="album-page__title-panel">
-            <h1 class="album-page__title" id="album-page-title">
-              {currentAlbum.title}
-            </h1>
-          </div>
-        </div>
+    <PlaylistPlayer
+      id={`album-playlist-${currentAlbumId}`}
+      albumTitle={currentAlbum.title}
+      songs={songs}
+      albumArtworkUrl={albumCoverImageUrl}
+    />
 
-        <div class="album-page__intro">
-          <p class="album-page__description">{currentAlbum.description}</p>
-
-          <ul class="album-page__facts" aria-label="Album facts">
-            {
-              currentAlbum.genre && (
-                <li class="album-page__fact">
-                  <span class="album-page__fact-label">Genre</span>
-                  <span class="album-page__fact-value">{currentAlbum.genre}</span>
-                </li>
-              )
-            }
-            <li class="album-page__fact">
-              <span class="album-page__fact-label">Tracks</span>
-              <span class="album-page__fact-value">{songs.length}</span>
-            </li>
-            {
-              totalDuration > 0 && (
-                <li class="album-page__fact">
-                  <span class="album-page__fact-label">Length</span>
-                  <span class="album-page__fact-value">
-                    {Math.round(totalDuration / 60)} min
-                  </span>
-                </li>
-              )
-            }
-          </ul>
-        </div>
-      </section>
-
-      <PlaylistPlayer
-        albumTitle={currentAlbum.title}
-        songs={songs}
-        albumArtworkUrl={albumCoverImageUrl}
-      />
-
-      {
-        hasAlbumContent && (
-          <SectionSurface
-            as="article"
-            variant="plain"
-            aria-labelledby="album-content-heading"
-          >
-            <h2 id="album-content-heading" class="sr-only">
-              Album Details
-            </h2>
-            <Prose>
-              <Content />
-            </Prose>
-          </SectionSurface>
-        )
-      }
-
-      <ShareSection
-        id="album-share"
-        shareUrl={canonical}
-        contentTitle={currentAlbum.title}
-        contentDescription={currentAlbum.description}
-        title="Share this album"
-        note="Choose one way to share this album."
-      />
-    </Stack>
-  </PageShell>
-</MusicLayout>
-
-<style>
-  :global(.album-page .page-shell__container) {
-    padding-block-start: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
-  }
-
-  .album-page__hero {
-    display: grid;
-    gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
-    inline-size: 100%;
-    min-inline-size: 0;
-    margin-inline: auto;
-  }
-
-  .album-page__hero-lockup {
-    display: grid;
-    gap: clamp(var(--spacing-lg), 4vw, var(--spacing-3xl));
-    align-items: center;
-    inline-size: 100%;
-    min-inline-size: 0;
-  }
-
-  .album-page__cover-lockup {
-    display: grid;
-    inline-size: 100%;
-    min-inline-size: 0;
-    margin: 0;
-    overflow: hidden;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: clamp(var(--radius-lg), 2vw, var(--radius-xl));
-    box-shadow: var(--shadow-sm);
-  }
-
-  .album-page__cover-lockup :global(.album-page__cover-image) {
-    display: block;
-    inline-size: 100%;
-    block-size: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-  }
-
-  .album-page__title-panel {
-    display: grid;
-    align-content: center;
-    min-inline-size: 0;
-  }
-
-  .album-page__title {
-    margin: 0;
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-none);
-    color: var(--text-primary);
-    text-wrap: balance;
-    overflow-wrap: anywhere;
-  }
-
-  .album-page__intro {
-    display: grid;
-    gap: clamp(var(--spacing-lg), 2.5vw, var(--spacing-xl));
-    inline-size: 100%;
-    min-inline-size: 0;
-    padding-block-start: clamp(var(--spacing-md), 1.8vw, var(--spacing-lg));
-    border-block-start: 1px solid
-      color-mix(in srgb, var(--accent-primary) 18%, var(--border-muted));
-  }
-
-  .album-page__description {
-    margin: 0;
-    font-size: clamp(var(--font-size-lg), 1.35vw, var(--font-size-xl));
-    line-height: var(--line-height-relaxed);
-    color: var(--text-secondary);
-    text-wrap: pretty;
-    overflow-wrap: anywhere;
-  }
-
-  .album-page__facts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md) clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
-    align-items: baseline;
-    padding: 0;
-    margin: 0;
-    color: var(--text-secondary);
-    list-style: none;
-  }
-
-  .album-page__fact {
-    position: relative;
-    display: inline-flex;
-    gap: var(--spacing-sm);
-    align-items: baseline;
-    min-inline-size: 0;
-  }
-
-  .album-page__fact + .album-page__fact::before {
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-start: calc((clamp(var(--spacing-lg), 3vw, var(--spacing-2xl)) / -2));
-    inline-size: var(--spacing-xs);
-    block-size: var(--spacing-xs);
-    content: "";
-    background: color-mix(in srgb, var(--accent-primary) 55%, var(--text-secondary));
-    border-radius: var(--radius-full);
-    transform: translate(-50%, -50%);
-  }
-
-  .album-page__fact-label {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-tight);
-    color: var(--accent-primary);
-    text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-widest);
-    white-space: nowrap;
-  }
-
-  .album-page__fact-value {
-    min-inline-size: 0;
-    font-size: clamp(var(--font-size-base), 1vw, var(--font-size-lg));
-    font-weight: var(--font-weight-semibold);
-    line-height: var(--line-height-tight);
-    color: var(--text-primary);
-    overflow-wrap: anywhere;
-  }
-
-  @media (width < 520px) {
-    .album-page__hero {
-      gap: var(--spacing-xl);
-    }
-
-    .album-page__title {
-      font-size: var(--font-size-3xl);
-    }
-
-    .album-page__description {
-      font-size: var(--font-size-base);
-      line-height: var(--line-height-relaxed);
-    }
-
-    .album-page__facts {
-      display: grid;
-      gap: var(--spacing-sm);
-    }
-
-    .album-page__fact + .album-page__fact::before {
-      content: none;
-    }
-  }
-
-  @media (width < 820px) {
-    .album-page__title {
-      max-inline-size: 100%;
-    }
-  }
-
-  @media (width >= 820px) {
-    .album-page__hero-lockup {
-      grid-template-columns:
-        minmax(var(--measure-copy-aside), 0.95fr)
-        minmax(var(--measure-copy-aside), 1.05fr);
-    }
-  }
-</style>
+    <Details
+      hasAlbumContent={hasAlbumContent}
+      hideFirstHeading
+      shareUrl={canonical}
+      contentTitle={currentAlbum.title}
+      contentDescription={currentAlbum.description}
+    >
+      <Content />
+    </Details>
+  </Surface>
+</Layout>

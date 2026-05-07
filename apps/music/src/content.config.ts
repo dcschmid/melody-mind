@@ -9,23 +9,24 @@ const songBaseSchema = z.object({
   trackNumber: z.number(),
 });
 
-const songSchema = z.union([
-  songBaseSchema.extend({
-    lyricsUrl: z.string(),
-    isInstrumental: z.boolean().optional(),
-    transcriptUnavailableReason: z.string().optional(),
-  }),
-  songBaseSchema.extend({
-    lyricsUrl: z.string().optional(),
-    isInstrumental: z.literal(true),
-    transcriptUnavailableReason: z.string().optional(),
-  }),
-  songBaseSchema.extend({
+const songSchema = songBaseSchema
+  .extend({
     lyricsUrl: z.string().optional(),
     isInstrumental: z.boolean().optional(),
-    transcriptUnavailableReason: z.string().min(1),
-  }),
-]);
+    transcriptUnavailableReason: z.string().trim().min(1).optional(),
+  })
+  .superRefine((song, ctx) => {
+    if (song.lyricsUrl || song.isInstrumental || song.transcriptUnavailableReason) {
+      return;
+    }
+
+    ctx.addIssue({
+      code: "custom",
+      message:
+        "Each playable track requires lyricsUrl, isInstrumental, or transcriptUnavailableReason.",
+      path: ["lyricsUrl"],
+    });
+  });
 
 const albums = defineCollection({
   loader: glob({

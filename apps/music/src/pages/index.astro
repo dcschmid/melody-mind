@@ -1,26 +1,21 @@
 ---
-import MusicLayout from "../layouts/MusicLayout.astro";
-import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
-import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
-import DetailPill from "@shared-ui/components/data-display/DetailPill.astro";
-import AutoGrid from "@shared-ui/components/layout/AutoGrid.astro";
-import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
-import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import SectionSurface from "@shared-ui/components/layout/SectionSurface.astro";
-import Stack from "@shared-ui/components/layout/Stack.astro";
-import Headline from "@shared-ui/components/typography/Headline.astro";
-import Icon from "@shared-ui/components/visual/Icon.astro";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import GridSection from "../components/home/GridSection.astro";
+import FeaturedSection from "../components/home/FeaturedSection.astro";
+import GenreFilterControls from "../components/home/GenreFilterControls.astro";
+import LatestSection from "../components/home/LatestSection.astro";
+import Hero from "../components/home/Hero.astro";
+import type { CoverImage, Entry } from "../components/home/types";
+import Layout from "../layouts/Layout.astro";
 import type { AlbumData } from "../types/album";
 
+import { formatDuration } from "../utils/albumPresentation";
 import { getAvailableAlbums } from "../utils/albums";
 import {
   getAlbumCoverImage,
   getAlbumCoverImageUrl,
-  musicHeroImage,
   musicHeroImageUrl,
 } from "../utils/musicImages";
-import { buildAlbumMetaItems } from "../utils/albumPresentation";
 import { buildMusicAlbumListSchema } from "../utils/musicSeo";
 
 const albums: AlbumData[] = await getAvailableAlbums();
@@ -52,34 +47,73 @@ const sortedAlbums =
     ? [...albums].sort(compareAlbumsByTitle)
     : sortedAlbumsByDate;
 
-const getVisibleCountLabel = (count: number, genre = "") => {
-  if (count === 0) {
-    return genre ? `No albums match ${genre}.` : "No albums match the current filters.";
-  }
-
-  return `${count} ${count === 1 ? "album" : "albums"}`;
-};
 const isAlbumVisibleForGenre = (genre?: string) =>
   !initialGenreValue || genre === initialGenreValue;
 
-const albumEntries = sortedAlbums.map((album) => {
-  const totalDuration = album.songs.reduce(
+const getImageSource = (image: CoverImage): string =>
+  typeof image === "string" ? image : image.src;
+const getImageWidth = (image: CoverImage): number | undefined =>
+  typeof image === "string" ? undefined : image.width;
+const getImageHeight = (image: CoverImage): number | undefined =>
+  typeof image === "string" ? undefined : image.height;
+
+const getRandomizedItems = <T,>(items: T[]): T[] => {
+  const randomizedItems = [...items];
+
+  for (let index = randomizedItems.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    const currentItem = randomizedItems[index];
+    const randomItem = randomizedItems[randomIndex];
+
+    if (currentItem === undefined || randomItem === undefined) {
+      continue;
+    }
+
+    randomizedItems[index] = randomItem;
+    randomizedItems[randomIndex] = currentItem;
+  }
+
+  return randomizedItems;
+};
+
+const albumEntries: Entry[] = sortedAlbums.map((album) => {
+  const totalDurationSeconds = album.songs.reduce(
     (acc, song) => acc + (song.durationSeconds || 0),
     0
   );
+  const imageSrc = getAlbumCoverImage(album.coverImage);
+
   return {
     id: album.id,
     title: album.title,
     description: album.description,
-    imageSrc: getAlbumCoverImage(album.coverImage),
+    imageSrc,
+    imageUrl: getImageSource(imageSrc),
+    imageWidth: getImageWidth(imageSrc),
+    imageHeight: getImageHeight(imageSrc),
     publishedAt: album.publishedAt,
     publishedAtTime: new Date(album.publishedAt).getTime(),
-    metaItems: buildAlbumMetaItems(album.publishedAt, totalDuration),
     genre: album.genre,
+    totalDurationSeconds,
+    totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
     isVisible: isAlbumVisibleForGenre(album.genre),
   };
 });
 const initialVisibleAlbumCount = albumEntries.filter((album) => album.isVisible).length;
+const randomizedAlbums = getRandomizedItems(sortedAlbumsByDate);
+const heroAlbums = randomizedAlbums.slice(0, 5).map((album) => {
+  const imageSrc = getAlbumCoverImage(album.coverImage);
+  return {
+    id: album.id,
+    title: album.title,
+    imageSrc,
+    imageUrl: getImageSource(imageSrc),
+    imageWidth: getImageWidth(imageSrc),
+    imageHeight: getImageHeight(imageSrc),
+  };
+});
+const featuredAlbums = getRandomizedItems(albumEntries).slice(0, 6);
+const latestAlbums = albumEntries.slice(0, 3);
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
@@ -90,12 +124,23 @@ const t = {
   subtitle: "AI-Generated Music",
   description:
     "Explore original AI-generated music albums from MelodyMind. Each album features unique compositions across genres, with lyrics available for every track.",
-  albums: "Albums",
-  allGenres: "All genres",
-  genre: "Genre",
-  newestFirst: "Newest first",
-  sortAlphabetically: "Alphabetical",
+  albums: "All Albums",
+  allGenres: "All Genres",
+  albumControls: "Album controls",
+  featured: "Featured Albums",
+  latest: "Latest Releases",
+  genre: "Explore by Genre",
+  genreFilterLabel: "Filter albums by genre",
+  lessGenres: "Less genres",
+  moreGenres: "More genres",
+  newestFirst: "Newest",
+  selectedGenre: "Showing:",
+  sortAlphabetically: "Title",
   sortBy: "Sort by",
+  exploreAlbums: "Explore Albums",
+  latestReleases: "Latest Releases",
+  listenNow: "Listen Now",
+  viewAll: "View all",
   keywords: [
     "ai music",
     "generated music",
@@ -117,7 +162,7 @@ const structuredData = [
 ];
 ---
 
-<MusicLayout
+<Layout
   title={t.seoTitle}
   description={t.description}
   keywords={t.keywords}
@@ -129,389 +174,167 @@ const structuredData = [
   {breadcrumbs}
   {structuredData}
 >
-  <PageShell>
-    <Stack gap="xl">
-      <HeroTeaser
-        id="music-home-hero"
-        class="home__hero"
-        eyebrow={t.subtitle}
-        title="MelodyMind Music"
-        description={t.description}
-        imageSrc={musicHeroImage}
-        imageAlt="MelodyMind Music cover image"
-        imageWidth={1200}
-        imageHeight={800}
-        imageLoading="eager"
-        imageDecoding="sync"
-        mediaAspectRatio="3 / 2"
-        titleLevel="h1"
-        titleMaxWidth="10ch"
-        descriptionMaxWidth="38rem"
+  <div class="music-home">
+    <Hero
+      albums={heroAlbums}
+      eyebrow={t.subtitle}
+      title={t.title}
+      description={t.description}
+      exploreAlbumsLabel={t.exploreAlbums}
+      latestReleasesLabel={t.latestReleases}
+    />
+
+    <div class="music-home__content">
+      <FeaturedSection
+        albums={featuredAlbums}
+        title={t.featured}
+        viewAllLabel={t.viewAll}
       />
 
-      <SectionSurface as="section" variant="plain" aria-labelledby="albums-heading">
-        <div class="home__albums-header">
-          <div class="home__albums-title">
-            <Headline id="albums-heading" level="h2" textSize="xl">
-              {t.albums}
-            </Headline>
-            <p class="home__albums-deck">
-              Recent MelodyMind releases, ordered for listening and browsing.
-            </p>
-          </div>
+      <LatestSection albums={latestAlbums} title={t.latest} viewAllLabel={t.viewAll} />
 
-          {
-            albums.length > 0 && (
-              <p
-                class="home__results"
-                aria-live="polite"
-                aria-atomic="true"
-                data-album-results
-              >
-                {getVisibleCountLabel(initialVisibleAlbumCount, initialGenreValue)}
-              </p>
-            )
-          }
-        </div>
-
-        {
-          albums.length > 0 && (
-            <form class="home__controls" aria-label="Album controls" data-album-controls>
-              <label class="home__control">
-                <span class="home__control-label">{t.sortBy}</span>
-                <span class="home__select-wrap">
-                  <Icon name="filter" class="home__control-icon" aria-hidden="true" />
-                  <select
-                    class="home__select"
-                    name="album-sort"
-                    aria-controls="albums-list"
-                    data-album-sort
-                  >
-                    <option value="date" selected={initialSortValue === "date"}>
-                      {t.newestFirst}
-                    </option>
-                    <option value="title" selected={initialSortValue === "title"}>
-                      {t.sortAlphabetically}
-                    </option>
-                  </select>
-                </span>
-              </label>
-
-              <label class="home__control">
-                <span class="home__control-label">{t.genre}</span>
-                <span class="home__select-wrap">
-                  <Icon name="tag" class="home__control-icon" aria-hidden="true" />
-                  <select
-                    class="home__select"
-                    name="album-genre"
-                    aria-controls="albums-list"
-                    data-album-genre
-                  >
-                    <option value="" selected={initialGenreValue === ""}>
-                      {t.allGenres}
-                    </option>
-                    {genreOptions.map((genre) => (
-                      <option value={genre} selected={initialGenreValue === genre}>
-                        {genre}
-                      </option>
-                    ))}
-                  </select>
-                </span>
-              </label>
-            </form>
-          )
-        }
-
-        <AutoGrid preset="fill" min="lg" gap="lg" role="list" id="albums-list">
-          {
-            albumEntries.map((album) => (
-              <ContentCard
-                id={`album-card-${album.id}`}
-                data-album
-                data-album-card
-                data-album-title={album.title}
-                data-album-published-at={album.publishedAtTime}
-                data-album-card-genre={album.genre || ""}
-                hidden={!album.isVisible}
-                aria-hidden={album.isVisible ? "false" : "true"}
-                role="listitem"
-                href={`/${album.id}`}
-                variant="feature"
-                chrome="minimal"
-                size="spacious"
-                mediaAspectRatio="1 / 1"
-                mediaObjectFit="cover"
-                imageSrc={album.imageSrc}
-                imageAlt={`Cover art for the album ${album.title}`}
-                imageWidth={1200}
-                imageHeight={1200}
-                imageSizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) calc((100vw - 5rem) / 2), (max-width: 1279px) calc((100vw - 8rem) / 3), 24rem"
-                title={album.title}
-                description={album.description}
-                metaItems={album.metaItems}
-                descriptionLineClamp={3}
-                ctaLabel="Listen Now"
-              >
-                <Fragment slot="badge">
-                  {album.genre && <DetailPill tone="neutral">{album.genre}</DetailPill>}
-                </Fragment>
-              </ContentCard>
-            ))
-          }
-        </AutoGrid>
-        {
-          albums.length === 0 && (
-            <EmptyState description="No albums available yet. Check back soon for new AI-generated music!" />
-          )
-        }
-      </SectionSurface>
-    </Stack>
-  </PageShell>
-</MusicLayout>
-
-<script>
-  const albumControls = document.querySelector("[data-album-controls]");
-  const albumList = document.querySelector("#albums-list");
-
-  if (albumControls instanceof HTMLFormElement && albumList instanceof HTMLElement) {
-    const sortSelect = albumControls.querySelector("[data-album-sort]");
-    const genreSelect = albumControls.querySelector("[data-album-genre]");
-    const results = document.querySelector("[data-album-results]");
-    const collator = new Intl.Collator("en", {
-      numeric: true,
-      sensitivity: "base",
-    });
-    const defaultSortValue = "date";
-    const sortParamName = "sort";
-    const genreParamName = "genre";
-
-    const cards = Array.from(
-      albumList.querySelectorAll("[data-album-card]")
-    ) as HTMLElement[];
-
-    const getVisibleCountLabel = (count: number, genreValue = "") => {
-      if (count === 0) {
-        return genreValue
-          ? `No albums match ${genreValue}.`
-          : "No albums match the current filters.";
+      {
+        albums.length > 0 && (
+          <GenreFilterControls
+            title={t.genre}
+            allGenresLabel={t.allGenres}
+            controlsLabel={t.albumControls}
+            genreFilterLabel={t.genreFilterLabel}
+            genreOptions={genreOptions}
+            idPrefix="music-home-genre-filter"
+            initialGenreValue={initialGenreValue}
+            initialSortValue={initialSortValue}
+            lessGenresLabel={t.lessGenres}
+            moreGenresLabel={t.moreGenres}
+            newestFirstLabel={t.newestFirst}
+            selectedGenreLabel={t.selectedGenre}
+            sortAlphabeticallyLabel={t.sortAlphabetically}
+            sortByLabel={t.sortBy}
+          />
+        )
       }
 
-      return `${count} ${count === 1 ? "album" : "albums"}`;
-    };
-
-    const isValidSortValue = (value: string | null) =>
-      value === "date" || value === "title";
-
-    const isValidGenreValue = (value: string) => {
-      if (!(genreSelect instanceof HTMLSelectElement)) {
-        return false;
-      }
-
-      return Array.from(genreSelect.options).some((option) => option.value === value);
-    };
-
-    const applyControlsFromUrl = () => {
-      const params = new URLSearchParams(window.location.search);
-      const sortValue = params.get(sortParamName);
-      const genreValue = params.get(genreParamName) ?? params.get("album-genre");
-
-      if (sortSelect instanceof HTMLSelectElement) {
-        sortSelect.value = isValidSortValue(sortValue) ? sortValue : defaultSortValue;
-      }
-
-      if (genreSelect instanceof HTMLSelectElement) {
-        const normalizedGenreValue = genreValue ?? "";
-        genreSelect.value = isValidGenreValue(normalizedGenreValue)
-          ? normalizedGenreValue
-          : "";
-      }
-    };
-
-    const syncUrlToControls = (sortValue: string, genreValue: string) => {
-      const url = new URL(window.location.href);
-
-      if (sortValue === defaultSortValue) {
-        url.searchParams.delete(sortParamName);
-      } else {
-        url.searchParams.set(sortParamName, sortValue);
-      }
-
-      if (genreValue) {
-        url.searchParams.set(genreParamName, genreValue);
-      } else {
-        url.searchParams.delete(genreParamName);
-      }
-      url.searchParams.delete("album-genre");
-
-      window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
-    };
-
-    const updateAlbums = ({ syncUrl = false } = {}) => {
-      const sortValue =
-        sortSelect instanceof HTMLSelectElement ? sortSelect.value : defaultSortValue;
-      const genreValue =
-        genreSelect instanceof HTMLSelectElement ? genreSelect.value : "";
-
-      const sortedCards = [...cards].sort((a, b) => {
-        if (sortValue === "date") {
-          const aDate = Number(a.dataset.albumPublishedAt || 0);
-          const bDate = Number(b.dataset.albumPublishedAt || 0);
-          return (
-            bDate - aDate ||
-            collator.compare(a.dataset.albumTitle || "", b.dataset.albumTitle || "")
-          );
-        }
-
-        return collator.compare(a.dataset.albumTitle || "", b.dataset.albumTitle || "");
-      });
-
-      let visibleCount = 0;
-
-      for (const card of sortedCards) {
-        const isVisible = !genreValue || card.dataset.albumCardGenre === genreValue;
-        card.toggleAttribute("hidden", !isVisible);
-        card.setAttribute("aria-hidden", String(!isVisible));
-        if (isVisible) {
-          visibleCount += 1;
-        }
-        albumList.append(card);
-      }
-
-      if (results instanceof HTMLElement) {
-        results.textContent = getVisibleCountLabel(visibleCount, genreValue);
-      }
-
-      if (syncUrl) {
-        syncUrlToControls(sortValue, genreValue);
-      }
-    };
-
-    albumControls.addEventListener("change", () => updateAlbums({ syncUrl: true }));
-    window.addEventListener("popstate", () => {
-      applyControlsFromUrl();
-      updateAlbums();
-    });
-    applyControlsFromUrl();
-    updateAlbums();
-  }
-</script>
+      <GridSection
+        albums={albumEntries}
+        title={t.albums}
+        listenNowLabel={t.listenNow}
+        emptyDescription="No albums available yet. Check back soon for new AI-generated music!"
+        initialVisibleAlbumCount={initialVisibleAlbumCount}
+        initialGenreValue={initialGenreValue}
+      />
+    </div>
+  </div>
+</Layout>
 
 <style>
-  .home__hero {
-    gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+  :global(.music-layout__container) {
+    max-inline-size: none;
+    padding: 0;
+    overflow-x: clip;
   }
 
-  :global([data-album-card][hidden]) {
+  :global(.music-layout__main)::before {
     display: none;
   }
 
-  .home__albums-header {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-base) var(--spacing-xl);
-    align-items: end;
-    justify-content: space-between;
+  .music-home {
+    --music-home-accent: oklch(46% 0.128 16deg);
+    --music-home-accent-strong: oklch(38% 0.125 16deg);
+    --music-home-paper: oklch(98% 0.014 75deg);
+    --music-home-paper-soft: oklch(94% 0.032 70deg);
+    --music-home-ink: oklch(19% 0.025 52deg);
+    --music-home-muted: oklch(42% 0.033 55deg);
+    --music-home-line: oklch(83% 0.043 67deg);
+
+    inline-size: min(100%, 100vw);
+    max-inline-size: 100vw;
+    min-block-size: 100svh;
+    overflow-x: clip;
+    color: var(--music-home-ink);
+    background:
+      radial-gradient(circle at 92% 8%, oklch(90% 0.052 61deg / 0.34), transparent 24rem),
+      linear-gradient(180deg, oklch(98% 0.016 75deg), oklch(94% 0.031 72deg));
   }
 
-  .home__albums-title {
-    display: grid;
-    gap: var(--spacing-xs);
-    max-inline-size: 42rem;
+  .music-home,
+  .music-home *,
+  .music-home *::before,
+  .music-home *::after {
+    box-sizing: border-box;
   }
 
-  .home__albums-deck {
-    max-inline-size: 58ch;
-    margin: 0;
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-relaxed);
-    color: var(--text-secondary);
+  :global([data-theme="dark"]) .music-home {
+    --music-home-accent: oklch(74% 0.18 286deg);
+    --music-home-accent-strong: oklch(75% 0.16 252deg);
+    --music-home-paper: oklch(18% 0.037 255deg);
+    --music-home-paper-soft: oklch(22% 0.041 252deg);
+    --music-home-ink: oklch(96% 0.012 72deg);
+    --music-home-muted: oklch(78% 0.031 248deg);
+    --music-home-line: oklch(36% 0.055 252deg);
+
+    background:
+      radial-gradient(
+        circle at 72% 9%,
+        oklch(44% 0.179 303deg / 0.34),
+        transparent 25rem
+      ),
+      radial-gradient(
+        circle at 24% 12%,
+        oklch(36% 0.143 252deg / 0.28),
+        transparent 26rem
+      ),
+      linear-gradient(180deg, oklch(13% 0.038 255deg), oklch(9% 0.028 252deg));
   }
 
-  .home__controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    align-items: end;
-    justify-content: flex-start;
-    inline-size: 100%;
-  }
-
-  .home__control {
-    display: grid;
-    flex: 1 1 13rem;
-    gap: var(--spacing-xs);
-    min-inline-size: min(100%, 13rem);
-  }
-
-  .home__control-label {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-primary);
-  }
-
-  .home__select-wrap {
+  .music-home__content {
     position: relative;
     display: grid;
-    align-items: center;
+    gap: clamp(1.7rem, 4vw, 3rem);
+    max-inline-size: 90rem;
+    padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 6vw, 5rem);
+    margin-inline: auto;
   }
 
-  .home__control-icon {
+  .music-home__content::before {
     position: absolute;
-    inset-inline-start: var(--spacing-sm);
-    color: var(--accent-primary);
+    inset-block-start: -4.5rem;
+    inset-inline: 0;
+    z-index: -1;
+    block-size: 6rem;
     pointer-events: none;
+    content: "";
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, var(--music-home-paper) 56%, transparent) 62%,
+      transparent
+    );
   }
 
-  .home__select {
-    inline-size: 100%;
-    min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-sm) calc(var(--spacing-xl) + var(--spacing-xs))
-      var(--spacing-sm) calc(var(--control-min-inline-size) + var(--spacing-xs));
-    font: inherit;
-    font-size: var(--font-size-base);
-    color: var(--text-primary);
-    cursor: pointer;
-    background: var(--surface-1);
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-lg);
+  .music-home__content :global(#latest-releases) {
+    margin-block: clamp(0.25rem, 1.2vw, 1rem) clamp(0.1rem, 0.8vw, 0.65rem);
   }
 
-  .home__select:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-    border-color: var(--accent-primary);
+  :global([data-theme="dark"]) .music-home__content::before {
+    background: linear-gradient(
+      180deg,
+      transparent,
+      color-mix(in srgb, oklch(10% 0.032 252deg) 62%, transparent) 62%,
+      transparent
+    );
   }
 
-  .home__results {
-    flex: 0 0 auto;
-    padding-block: var(--spacing-xs);
-    margin: 0;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-secondary);
-  }
-
-  @media (width <= 640px) {
-    .home__controls {
-      align-items: stretch;
+  @media (width <= 760px) {
+    .music-home {
+      inline-size: 100%;
+      max-inline-size: 100vw;
     }
 
-    .home__control {
-      flex-basis: 100%;
-    }
-
-    .home__albums-header {
-      align-items: stretch;
-    }
-
-    .home__results {
-      padding-block-end: 0;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .home__select {
-      transition: border-color var(--motion-duration-fast) var(--motion-ease-standard);
+    .music-home__content {
+      gap: 1.45rem;
+      inline-size: 100%;
+      padding: 1.15rem 1rem clamp(2rem, 6vw, 5rem);
+      overflow-x: clip;
     }
   }
 </style>
