@@ -234,32 +234,53 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
     margin: 0 auto;
   }
 
-  :global(.music-layout__container--album) {
+  :global(.music-layout__container--album),
+  :global(.music-layout__container--home) {
     max-inline-size: none;
     padding: 0;
     overflow-x: clip;
   }
 
   @media (width >= 480px) {
-    :global(.music-layout__container) {
+    :global(
+      .music-layout__container:not(
+        .music-layout__container--album,
+        .music-layout__container--home
+      )
+    ) {
       padding-inline: var(--spacing-base);
     }
   }
 
   @media (width >= 768px) {
-    :global(.music-layout__container) {
+    :global(
+      .music-layout__container:not(
+        .music-layout__container--album,
+        .music-layout__container--home
+      )
+    ) {
       padding-inline: var(--spacing-xl);
     }
   }
 
   @media (width >= 1024px) {
-    :global(.music-layout__container) {
+    :global(
+      .music-layout__container:not(
+        .music-layout__container--album,
+        .music-layout__container--home
+      )
+    ) {
       padding-inline: var(--spacing-2xl);
     }
   }
 
   @media (width >= 1280px) {
-    :global(.music-layout__container) {
+    :global(
+      .music-layout__container:not(
+        .music-layout__container--album,
+        .music-layout__container--home
+      )
+    ) {
       padding-inline: var(--spacing-3xl);
     }
   }

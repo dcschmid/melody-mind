@@ -1,6 +1,4 @@
 ---
-import heroBgDark from "../../assets/hero-bg-dark.webp";
-import heroBgLight from "../../assets/hero-bg-light.webp";
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import type { HeroItem } from "./types";
 
@@ -16,17 +14,9 @@ interface Props {
 const { albums, description, eyebrow, exploreAlbumsLabel, latestReleasesLabel, title } =
   Astro.props;
 const showcaseAlbums = albums.slice(0, 5);
-const heroBackgroundStyle = [
-  `--music-home-hero-bg-light: url("${heroBgLight.src}")`,
-  `--music-home-hero-bg-dark: url("${heroBgDark.src}")`,
-].join("; ");
 ---
 
-<section
-  class="music-home-hero"
-  aria-labelledby="music-home-title"
-  style={heroBackgroundStyle}
->
+<section class="music-home-hero" aria-labelledby="music-home-title">
   <div class="music-home-hero__copy">
     <p class="music-home-hero__eyebrow">
       <Icon name="sparkles" class="music-home-hero__eyebrow-icon" aria-hidden="true" />
@@ -86,19 +76,6 @@ const heroBackgroundStyle = [
 
 <style>
   .music-home-hero {
-    --music-home-hero-bg: var(--music-home-hero-bg-light);
-    --music-home-hero-bg-light: none;
-    --music-home-hero-bg-dark: none;
-    --music-home-hero-overlay-start: oklch(98% 0.014 75deg / 0.88);
-    --music-home-hero-overlay-mid: oklch(98% 0.014 75deg / 0.74);
-    --music-home-hero-overlay-end: oklch(97% 0.017 72deg / 0.42);
-    --music-home-hero-radial-edge: oklch(98% 0.014 75deg / 0.42);
-    --music-home-hero-bottom-fade: oklch(98% 0.014 75deg / 0.7);
-    --music-home-hero-mobile-overlay-start: oklch(98% 0.014 75deg / 0.82);
-    --music-home-hero-mobile-overlay-mid: oklch(98% 0.014 75deg / 0.66);
-    --music-home-hero-mobile-overlay-low: oklch(96% 0.017 74deg / 0.86);
-    --music-home-hero-mobile-overlay-end: oklch(94% 0.031 72deg);
-    --music-home-hero-mobile-radial-edge: oklch(98% 0.014 75deg / 0.42);
     --music-home-hero-button-shadow: 0 1rem 2rem oklch(37% 0.13 16deg / 0.2);
     --music-home-hero-card-shadow: 0 1.5rem 3rem oklch(18% 0.032 45deg / 0.22);
     --music-home-hero-title-shadow: 0 0.1rem 0.8rem oklch(0% 0 0deg / 0.65);
@@ -109,23 +86,18 @@ const heroBackgroundStyle = [
     grid-template-columns: minmax(0, 1fr);
     gap: clamp(1.75rem, 6vw, 4.5rem);
     align-items: center;
-    min-block-size: min(48rem, calc(100svh - 4.5rem));
-    padding: max(clamp(2rem, 6vw, 5rem), 7rem) clamp(1.25rem, 5vw, 4.5rem)
-      clamp(2rem, 6vw, 5rem);
+    min-block-size: clamp(34rem, 68svh, 42rem);
+    padding: max(clamp(1.5rem, 4.5vw, 3.75rem), 5.75rem) clamp(1.25rem, 5vw, 4.5rem)
+      clamp(1.25rem, 4vw, 3rem);
     overflow: hidden;
+    background:
+      radial-gradient(
+        ellipse at 80% 40%,
+        color-mix(in srgb, var(--music-home-accent) 18%, transparent),
+        transparent 40rem
+      ),
+      linear-gradient(135deg, oklch(99% 0.012 78deg), oklch(94% 0.026 72deg));
     isolation: isolate;
-  }
-
-  .music-home-hero::before {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
-    content: "";
-    background-image: var(--music-home-hero-bg);
-    background-repeat: no-repeat;
-    background-position: 72% 45%;
-    background-size: cover;
-    opacity: 1;
   }
 
   .music-home-hero::after {
@@ -134,36 +106,34 @@ const heroBackgroundStyle = [
     z-index: -1;
     content: "";
     background:
-      linear-gradient(
-        90deg,
-        var(--music-home-hero-overlay-start) 0%,
-        var(--music-home-hero-overlay-mid) 44%,
-        var(--music-home-hero-overlay-end) 100%
-      ),
       radial-gradient(
-        circle at 74% 42%,
-        transparent 0 16rem,
-        var(--music-home-hero-radial-edge) 34rem
+        ellipse at 80% 48%,
+        color-mix(in srgb, var(--music-home-accent) 12%, transparent),
+        transparent 42rem
       ),
-      linear-gradient(180deg, transparent 62%, var(--music-home-hero-bottom-fade) 100%);
-  }
-
-  :global([data-theme="dark"]) .music-home-hero::before {
-    background-image: var(--music-home-hero-bg-dark);
+      linear-gradient(90deg, oklch(99% 0.012 78deg / 0.96) 0%, transparent 68%);
   }
 
   :global([data-theme="dark"]) .music-home-hero {
-    --music-home-hero-overlay-start: oklch(10% 0.034 255deg / 0.86);
-    --music-home-hero-overlay-mid: oklch(10% 0.034 255deg / 0.72);
-    --music-home-hero-overlay-end: oklch(13% 0.045 252deg / 0.42);
-    --music-home-hero-radial-edge: oklch(10% 0.034 255deg / 0.56);
-    --music-home-hero-bottom-fade: oklch(9% 0.028 252deg / 0.74);
-    --music-home-hero-mobile-overlay-start: oklch(10% 0.034 255deg / 0.78);
-    --music-home-hero-mobile-overlay-mid: oklch(10% 0.034 255deg / 0.66);
-    --music-home-hero-mobile-overlay-low: oklch(10% 0.032 252deg / 0.9);
-    --music-home-hero-mobile-overlay-end: oklch(9% 0.028 252deg);
-    --music-home-hero-mobile-radial-edge: oklch(10% 0.034 255deg / 0.5);
     --music-home-hero-button-shadow: 0 1rem 2rem oklch(36% 0.17 270deg / 0.3);
+
+    background:
+      radial-gradient(
+        ellipse at 80% 38%,
+        color-mix(in srgb, var(--music-home-accent) 30%, transparent),
+        transparent 48rem
+      ),
+      linear-gradient(135deg, oklch(9% 0.028 252deg), oklch(13% 0.039 255deg));
+  }
+
+  :global([data-theme="dark"]) .music-home-hero::after {
+    background:
+      radial-gradient(
+        ellipse at 80% 48%,
+        color-mix(in srgb, var(--music-home-accent) 16%, transparent),
+        transparent 50rem
+      ),
+      linear-gradient(90deg, oklch(9% 0.028 252deg / 0.96) 0%, transparent 68%);
   }
 
   .music-home-hero__copy {
@@ -399,28 +369,28 @@ const heroBackgroundStyle = [
       inline-size: 100%;
       max-inline-size: 100vw;
       min-block-size: auto;
-      padding-block: 8.25rem 4rem;
+      padding-block: 6.75rem 2.75rem;
       overflow-x: clip;
-    }
-
-    .music-home-hero::before {
-      background-position: 62% 12%;
     }
 
     .music-home-hero::after {
       background:
-        linear-gradient(
-          180deg,
-          var(--music-home-hero-mobile-overlay-start) 0%,
-          var(--music-home-hero-mobile-overlay-mid) 44%,
-          var(--music-home-hero-mobile-overlay-low) 82%,
-          var(--music-home-hero-mobile-overlay-end) 100%
-        ),
         radial-gradient(
-          circle at 72% 16%,
-          transparent 0 8rem,
-          var(--music-home-hero-mobile-radial-edge) 19rem
-        );
+          circle at 68% 34%,
+          color-mix(in srgb, var(--music-home-accent) 12%, transparent),
+          transparent 17rem
+        ),
+        linear-gradient(180deg, oklch(99% 0.012 78deg / 0.92), transparent 72%);
+    }
+
+    :global([data-theme="dark"]) .music-home-hero::after {
+      background:
+        radial-gradient(
+          circle at 68% 34%,
+          color-mix(in srgb, var(--music-home-accent) 16%, transparent),
+          transparent 18rem
+        ),
+        linear-gradient(180deg, oklch(9% 0.028 252deg / 0.92), transparent 72%);
     }
 
     .music-home-hero__copy,

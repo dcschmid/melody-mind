@@ -173,6 +173,7 @@ const structuredData = [
   canonical={canonical}
   {breadcrumbs}
   {structuredData}
+  contentShellClass="music-layout__container--home"
 >
   <div class="music-home">
     <Hero
@@ -252,7 +253,7 @@ const structuredData = [
     overflow-x: clip;
     color: var(--music-home-ink);
     background:
-      radial-gradient(circle at 92% 8%, oklch(90% 0.052 61deg / 0.34), transparent 24rem),
+      radial-gradient(circle at 92% 8%, oklch(90% 0.052 61deg / 0.34), transparent 36rem),
       linear-gradient(180deg, oklch(98% 0.016 75deg), oklch(94% 0.031 72deg));
   }
 
@@ -274,9 +275,9 @@ const structuredData = [
 
     background:
       radial-gradient(
-        circle at 72% 9%,
-        oklch(44% 0.179 303deg / 0.34),
-        transparent 25rem
+        ellipse at 78% 20%,
+        oklch(44% 0.179 303deg / 0.38),
+        transparent 48rem
       ),
       radial-gradient(
         circle at 24% 12%,
@@ -289,18 +290,18 @@ const structuredData = [
   .music-home__content {
     position: relative;
     display: grid;
-    gap: clamp(1.7rem, 4vw, 3rem);
+    gap: clamp(1.35rem, 3vw, 2.35rem);
     max-inline-size: 90rem;
-    padding: clamp(1.25rem, 3vw, 2.5rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 6vw, 5rem);
+    padding: clamp(0.55rem, 1.4vw, 1.2rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 6vw, 5rem);
     margin-inline: auto;
   }
 
   .music-home__content::before {
     position: absolute;
-    inset-block-start: -4.5rem;
+    inset-block-start: -2.5rem;
     inset-inline: 0;
     z-index: -1;
-    block-size: 6rem;
+    block-size: 4rem;
     pointer-events: none;
     content: "";
     background: linear-gradient(
@@ -331,9 +332,9 @@ const structuredData = [
     }
 
     .music-home__content {
-      gap: 1.45rem;
+      gap: 1.2rem;
       inline-size: 100%;
-      padding: 1.15rem 1rem clamp(2rem, 6vw, 5rem);
+      padding: 0.55rem 1rem clamp(2rem, 6vw, 5rem);
       overflow-x: clip;
     }
   }
