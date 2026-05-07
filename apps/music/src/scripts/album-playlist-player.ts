@@ -1,4 +1,5 @@
 import { formatTime } from "@shared-utils/utils/time";
+import { trackFathomEvent } from "./fathom-events";
 
 interface PlaylistTrack {
   title: string;
@@ -129,12 +130,14 @@ const initPlaylistPlayers = (): (() => void) => {
 
       trackButtons[index]?.addEventListener(
         "click",
-        (event) =>
+        (event) => {
+          trackFathomEvent("Music: Track Select");
           playTrack(index, {
             autoplay: true,
             triggerPop: shouldAnimateClick(event),
             transition: shouldAnimateClick(event),
-          }),
+          });
+        },
         { signal }
       );
     });
@@ -539,6 +542,7 @@ const initPlaylistPlayers = (): (() => void) => {
       "play",
       () => {
         isPlaying = true;
+        trackFathomEvent("Music: Play");
         updateToggleButton();
         updateTrackHighlight();
         setStatus(`Playing ${tracks[currentTrackIndex]?.title}`);

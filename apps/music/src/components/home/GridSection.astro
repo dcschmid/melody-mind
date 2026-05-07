@@ -1,6 +1,7 @@
 ---
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 import { getAlbumVisibleCountLabel } from "./albumGridLabels";
 import type { Entry } from "./types";
 import SectionHeader from "./SectionHeader.astro";
@@ -22,6 +23,9 @@ const {
   listenNowLabel,
   title,
 } = Astro.props;
+const GRID_COVER_IMAGE_WIDTHS = [160, 240, 320, 480];
+const GRID_COVER_IMAGE_SIZES =
+  "(max-width: 440px) calc((100vw - 3.25rem) / 2), (max-width: 760px) calc((100vw - 4rem) / 3), (max-width: 1180px) calc((100vw - 7rem) / 4), min(13rem, calc((100vw - 10rem) / 6))";
 ---
 
 <section class="album-grid-section" aria-labelledby="albums-heading">
@@ -58,12 +62,14 @@ const {
             class="album-grid-section__card"
             href={`/${album.id}`}
           >
-            <img
-              src={album.imageUrl}
+            <OptimizedImage
+              src={album.imageSrc}
               alt={`Cover art for the album ${album.title}`}
               class="album-grid-section__image"
-              width={album.imageWidth}
-              height={album.imageHeight}
+              width={320}
+              height={320}
+              widths={GRID_COVER_IMAGE_WIDTHS}
+              sizes={GRID_COVER_IMAGE_SIZES}
               loading="lazy"
               decoding="async"
             />
@@ -296,7 +302,7 @@ const {
     border-color: var(--album-card-border-hover);
   }
 
-  .album-grid-section__image {
+  .album-grid-section__card :global(.album-grid-section__image) {
     display: block;
     inline-size: 100%;
     block-size: auto;
@@ -307,7 +313,9 @@ const {
     object-fit: cover;
   }
 
-  :global([data-theme="dark"]) .album-grid-section__image {
+  :global([data-theme="dark"])
+    .album-grid-section__card
+    :global(.album-grid-section__image) {
     outline-color: rgba(255, 255, 255, 0.1);
   }
 

@@ -17,6 +17,18 @@ interface FooterGroup {
 }
 
 const { footerConfig } = Astro.props as Props;
+const getFooterFathomEvent = (groupId: string, link: AppShellLink): string => {
+  if (groupId === "support") {
+    return `Support: ${link.label}`;
+  }
+
+  if (groupId === "legal") {
+    return `Legal: ${link.label}`;
+  }
+
+  return `External: ${link.label}`;
+};
+
 const footerGroups: FooterGroup[] = [
   {
     id: "explore",
@@ -75,6 +87,8 @@ const footerGroups: FooterGroup[] = [
                       href={link.href}
                       target={link.target}
                       rel={link.rel}
+                      data-fathom-event={getFooterFathomEvent(group.id, link)}
+                      data-fathom-label={link.label}
                     >
                       <span>{link.label}</span>
                       {link.target === "_blank" && (

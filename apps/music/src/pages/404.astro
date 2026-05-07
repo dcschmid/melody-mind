@@ -1,0 +1,27 @@
+---
+import NotFoundContent from "@shared-ui/components/layout/NotFoundContent.astro";
+import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import Layout from "../layouts/Layout.astro";
+
+export const prerender = true;
+
+const canonical = resolvePageUrl(Astro.site, "/404/");
+---
+
+<Layout
+  title="Music not found"
+  description="The music page you're looking for doesn't exist. Browse albums or return home to keep listening."
+  canonical={canonical}
+  index={false}
+  follow={false}
+  contentShellClass="music-layout__container--album"
+>
+  <NotFoundContent
+    title="Music not found"
+    description="The album or page you're looking for is not here. It may have moved, or the link might be wrong."
+    buttons={[
+      { href: "/", label: "Browse albums", variant: "primary" },
+      { href: "/#latest-releases", label: "Latest releases", variant: "secondary" },
+    ]}
+  />
+</Layout>

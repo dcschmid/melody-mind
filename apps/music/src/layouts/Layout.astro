@@ -16,6 +16,7 @@ import { normalizeWhitespace } from "@shared-utils/utils/format";
 import { musicAppShellConfig } from "../utils/appShellConfig";
 import { musicDefaultOgImageUrl } from "../utils/musicImages";
 import SearchPalette from "../components/search/Palette.astro";
+import FathomEventsScript from "../components/analytics/FathomEventsScript.astro";
 import BackToTop from "../components/layout/BackToTop.astro";
 import Footer from "../components/layout/Footer.astro";
 import Header from "../components/layout/Header.astro";
@@ -182,7 +183,8 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
     />
     <meta name="language" content={language} />
     <!-- Fathom - beautiful, simple website analytics -->
-    <script src="https://cdn.usefathom.com/script.js" data-site="CHTCRKPK" defer></script>
+    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="CHTCRKPK" defer
+    ></script>
     <!-- / Fathom -->
   </Fragment>
 
@@ -201,6 +203,7 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
   <AutoInitScript slot="body-end" />
   <SearchPalette slot="body-end" />
   <BackToTop slot="body-end" />
+  <FathomEventsScript slot="body-end" />
 
   <slot />
 </MasterLayout>

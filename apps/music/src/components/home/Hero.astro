@@ -1,5 +1,6 @@
 ---
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 import type { HeroItem } from "./types";
 
 interface Props {
@@ -14,6 +15,9 @@ interface Props {
 const { albums, description, eyebrow, exploreAlbumsLabel, latestReleasesLabel, title } =
   Astro.props;
 const showcaseAlbums = albums.slice(0, 5);
+const HERO_COVER_IMAGE_WIDTHS = [192, 256, 320, 480, 640];
+const HERO_COVER_IMAGE_SIZES =
+  "(max-width: 860px) calc((100vw - 4rem) / 3), (max-width: 1180px) 18rem, 20rem";
 ---
 
 <section class="music-home-hero" aria-labelledby="music-home-title">
@@ -57,14 +61,17 @@ const showcaseAlbums = albums.slice(0, 5);
             ]}
             style={`--cover-index: ${index}`}
           >
-            <img
-              src={album.imageUrl}
+            <OptimizedImage
+              src={album.imageSrc}
               alt=""
               class="music-home-hero__showcase-image"
-              width={album.imageWidth ?? 640}
-              height={album.imageHeight ?? album.imageWidth ?? 640}
+              width={480}
+              height={480}
+              widths={HERO_COVER_IMAGE_WIDTHS}
+              sizes={HERO_COVER_IMAGE_SIZES}
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
+              fetchpriority={index === 0 ? "high" : "low"}
             />
             <figcaption class="music-home-hero__showcase-title">{album.title}</figcaption>
           </figure>
@@ -261,7 +268,7 @@ const showcaseAlbums = albums.slice(0, 5);
     );
   }
 
-  .music-home-hero__showcase-image {
+  .music-home-hero__showcase-card :global(.music-home-hero__showcase-image) {
     display: block;
     inline-size: 100%;
     block-size: 100%;
@@ -271,7 +278,9 @@ const showcaseAlbums = albums.slice(0, 5);
     object-fit: cover;
   }
 
-  :global([data-theme="dark"]) .music-home-hero__showcase-image {
+  :global([data-theme="dark"])
+    .music-home-hero__showcase-card
+    :global(.music-home-hero__showcase-image) {
     outline-color: oklch(100% 0 0deg / 0.1);
   }
 

@@ -57,6 +57,7 @@ const hasValidUrl = isHttpShareUrl(shareUrl);
           class="album-share-section__button album-share-section__button--primary"
           type="button"
           data-share="copy"
+          data-fathom-event="Share: Copy"
           aria-label="Copy link to this album"
         >
           <Icon name="copy" class="album-share-section__button-icon" aria-hidden="true" />
@@ -65,6 +66,7 @@ const hasValidUrl = isHttpShareUrl(shareUrl);
         <a
           class="album-share-section__button"
           href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
+          data-fathom-event="Share: Email"
           aria-label="Share via email"
         >
           <Icon name="mail" class="album-share-section__button-icon" aria-hidden="true" />
@@ -75,6 +77,7 @@ const hasValidUrl = isHttpShareUrl(shareUrl);
           href={mastodonShareUrl}
           target="_blank"
           rel="noreferrer noopener"
+          data-fathom-event="Share: Mastodon"
           aria-label="Share on Mastodon, opens in a new tab"
         >
           <Icon
@@ -89,6 +92,7 @@ const hasValidUrl = isHttpShareUrl(shareUrl);
           class="album-share-section__button"
           type="button"
           data-share="native"
+          data-fathom-event="Share: Native"
           aria-label="Share with your device"
           hidden
         >

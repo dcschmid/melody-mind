@@ -1,5 +1,6 @@
 ---
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 import type { Entry } from "./types";
 import SectionHeader from "./SectionHeader.astro";
 
@@ -10,6 +11,8 @@ interface Props {
 }
 
 const { albums, title, viewAllLabel } = Astro.props;
+const LATEST_COVER_IMAGE_WIDTHS = [88, 128, 176];
+const LATEST_COVER_IMAGE_SIZES = "5.5rem";
 ---
 
 {
@@ -29,12 +32,14 @@ const { albums, title, viewAllLabel } = Astro.props;
         {albums.map((album) => (
           <li class="latest-releases__item">
             <a class="latest-releases__card" href={`/${album.id}`}>
-              <img
-                src={album.imageUrl}
+              <OptimizedImage
+                src={album.imageSrc}
                 alt={`Cover art for the album ${album.title}`}
                 class="latest-releases__image"
-                width="88"
-                height="88"
+                width={88}
+                height={88}
+                widths={LATEST_COVER_IMAGE_WIDTHS}
+                sizes={LATEST_COVER_IMAGE_SIZES}
                 loading="lazy"
                 decoding="async"
               />
@@ -104,7 +109,7 @@ const { albums, title, viewAllLabel } = Astro.props;
     box-shadow: var(--latest-releases-card-shadow);
   }
 
-  .latest-releases__image {
+  .latest-releases__card :global(.latest-releases__image) {
     display: block;
     inline-size: var(--latest-releases-cover-size);
     block-size: var(--latest-releases-cover-size);
@@ -184,7 +189,7 @@ const { albums, title, viewAllLabel } = Astro.props;
     outline-offset: var(--focus-ring-offset);
   }
 
-  :global([data-theme="dark"]) .latest-releases__image {
+  :global([data-theme="dark"]) .latest-releases__card :global(.latest-releases__image) {
     --latest-releases-image-outline: oklch(100% 0 0deg / 0.12);
   }
 
