@@ -6,7 +6,7 @@ interface Props {
   contentDescription: string;
   contentTitle: string;
   shareUrl: string;
-  zipUrl?: string;
+  zipUrl?: string | undefined;
 }
 
 const { contentDescription, contentTitle, shareUrl, zipUrl } = Astro.props as Props;

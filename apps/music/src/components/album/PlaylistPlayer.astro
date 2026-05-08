@@ -291,7 +291,8 @@ const getTrackFallbackLabel = (song: Song): string =>
       try {
         const pathname = new URL(url, window.location.href).pathname;
         const match = pathname.match(/\.([a-z0-9]+)$/i);
-        return match ? `.${match[1].toLowerCase()}` : ".mp3";
+        const ext = match?.[1];
+        return ext ? `.${ext.toLowerCase()}` : ".mp3";
       } catch {
         return ".mp3";
       }

@@ -45,7 +45,7 @@ const albums = defineCollection({
     isAvailable: z.boolean().default(true),
     songs: z.array(songSchema),
     metaDescription: z.string().optional(),
-    zipUrl: z.string().url().optional(),
+    zipUrl: z.url().optional(),
   }),
 });
 
