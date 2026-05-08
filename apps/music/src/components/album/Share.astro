@@ -6,9 +6,10 @@ interface Props {
   contentDescription: string;
   contentTitle: string;
   shareUrl: string;
+  zipUrl?: string;
 }
 
-const { contentDescription, contentTitle, shareUrl } = Astro.props as Props;
+const { contentDescription, contentTitle, shareUrl, zipUrl } = Astro.props as Props;
 
 const shareTitle = `${contentTitle} | Melody Mind`;
 const sanitizedDesc = contentDescription.replace(/\r\n|\r|\n/g, " ").trim();
@@ -99,6 +100,22 @@ const hasValidUrl = isHttpShareUrl(shareUrl);
           <Icon name="send" class="album-share-section__button-icon" aria-hidden="true" />
           <span>Share</span>
         </button>
+        {zipUrl && (
+          <a
+            class="album-share-section__button"
+            href={zipUrl}
+            download
+            data-fathom-event={`Album Download: ${contentTitle}`}
+            aria-label={`Download ${contentTitle} as ZIP`}
+          >
+            <Icon
+              name="tabler:download"
+              class="album-share-section__button-icon"
+              aria-hidden="true"
+            />
+            <span>Download ZIP</span>
+          </a>
+        )}
       </div>
     </section>
   )

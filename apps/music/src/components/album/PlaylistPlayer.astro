@@ -227,27 +227,52 @@ const getTrackFallbackLabel = (song: Song): string =>
                     : ""}
                 </span>
               </button>
-              {song.lyricsUrl ? (
-                <a
-                  class="album-playlist-player__track-lyrics"
-                  href={song.lyricsUrl}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label={`Open lyrics for ${song.title} in a new tab`}
-                  title="Open lyrics in a new tab"
-                >
-                  <Icon
-                    name="tabler:file-text"
-                    class="album-playlist-player__track-action-icon"
+              <span class="album-playlist-player__track-actions">
+                {song.lyricsUrl ? (
+                  <a
+                    class="album-playlist-player__track-lyrics"
+                    href={song.lyricsUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`Open lyrics for ${song.title} in a new tab`}
+                    title="Open lyrics in a new tab"
+                  >
+                    <Icon
+                      name="tabler:file-text"
+                      class="album-playlist-player__track-action-icon"
+                      aria-hidden="true"
+                    />
+                  </a>
+                ) : (
+                  <span
+                    class="album-playlist-player__track-action-placeholder"
                     aria-hidden="true"
                   />
-                </a>
-              ) : (
-                <span
-                  class="album-playlist-player__track-action-placeholder"
-                  aria-hidden="true"
-                />
-              )}
+                )}
+                {song.audioUrl ? (
+                  <button
+                    class="album-playlist-player__track-download"
+                    type="button"
+                    data-track-download
+                    data-download-url={song.audioUrl}
+                    data-download-filename={`${song.trackNumber.toString().padStart(2, "0")} - ${song.title}`}
+                    aria-label={`Download ${song.title}`}
+                    title="Download track"
+                    data-fathom-event={`Download: ${albumTitle} - ${song.title}`}
+                  >
+                    <Icon
+                      name="tabler:download"
+                      class="album-playlist-player__track-action-icon"
+                      aria-hidden="true"
+                    />
+                  </button>
+                ) : (
+                  <span
+                    class="album-playlist-player__track-action-placeholder"
+                    aria-hidden="true"
+                  />
+                )}
+              </span>
             </li>
           );
         })
@@ -259,6 +284,78 @@ const getTrackFallbackLabel = (song: Song): string =>
 
   <script>
     import "../../scripts/album-playlist-player.ts";
+  </script>
+
+  <script>
+    const getExtension = (url: string): string => {
+      try {
+        const pathname = new URL(url, window.location.href).pathname;
+        const match = pathname.match(/\.([a-z0-9]+)$/i);
+        return match ? `.${match[1].toLowerCase()}` : ".mp3";
+      } catch {
+        return ".mp3";
+      }
+    };
+
+    const triggerObjectUrlDownload = (blobUrl: string, filename: string): void => {
+      const anchor = document.createElement("a");
+      anchor.href = blobUrl;
+      anchor.download = filename;
+      anchor.rel = "noopener";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+    };
+
+    const fallbackNavigate = (url: string, filename: string): void => {
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+    };
+
+    const downloadTrack = async (button: HTMLButtonElement): Promise<void> => {
+      const url = button.dataset.downloadUrl;
+      const baseName = button.dataset.downloadFilename || "track";
+      if (!url || button.dataset.downloading === "true") {
+        return;
+      }
+      const filename = `${baseName}${getExtension(url)}`;
+      button.dataset.downloading = "true";
+      button.setAttribute("aria-busy", "true");
+
+      try {
+        const response = await fetch(url, { credentials: "omit" });
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        triggerObjectUrlDownload(blobUrl, filename);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
+      } catch {
+        fallbackNavigate(url, filename);
+      } finally {
+        button.dataset.downloading = "false";
+        button.removeAttribute("aria-busy");
+      }
+    };
+
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-track-download]")
+      .forEach((button) => {
+        if (button.dataset.downloadBound === "true") {
+          return;
+        }
+        button.dataset.downloadBound = "true";
+        button.addEventListener("click", () => {
+          downloadTrack(button);
+        });
+      });
   </script>
 </section>
 
@@ -519,11 +616,17 @@ const getTrackFallbackLabel = (song: Song): string =>
 
   .album-playlist-player__track {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) var(--album-playlist-track-action-size);
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
     min-block-size: var(--album-playlist-track-min-block);
     padding: 0.2rem 0.3rem;
     border-radius: var(--album-playlist-radius-row);
+  }
+
+  .album-playlist-player__track-actions {
+    display: inline-flex;
+    gap: 0.15rem;
+    align-items: center;
   }
 
   .album-playlist-player__track:hover,
@@ -617,6 +720,7 @@ const getTrackFallbackLabel = (song: Song): string =>
   }
 
   .album-playlist-player__track-lyrics,
+  .album-playlist-player__track-download,
   .album-playlist-player__track-action-placeholder {
     display: inline-flex;
     align-items: center;
@@ -626,12 +730,28 @@ const getTrackFallbackLabel = (song: Song): string =>
     color: var(--music-album-muted);
   }
 
-  .album-playlist-player__track-lyrics {
+  .album-playlist-player__track-lyrics,
+  .album-playlist-player__track-download {
     border-radius: 999rem;
   }
 
+  .album-playlist-player__track-download {
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+  }
+
+  .album-playlist-player__track-download[aria-busy="true"] {
+    cursor: progress;
+    opacity: 0.6;
+  }
+
   .album-playlist-player__track-lyrics:hover,
-  .album-playlist-player__track-lyrics:focus {
+  .album-playlist-player__track-lyrics:focus,
+  .album-playlist-player__track-download:hover,
+  .album-playlist-player__track-download:focus {
     color: var(--music-album-accent);
     background: color-mix(in srgb, var(--music-album-accent) 10%, transparent);
   }
@@ -641,7 +761,8 @@ const getTrackFallbackLabel = (song: Song): string =>
   .album-playlist-player__volume-button:focus-visible,
   .album-playlist-player__progress:focus-visible,
   .album-playlist-player__track-button:focus-visible,
-  .album-playlist-player__track-lyrics:focus-visible {
+  .album-playlist-player__track-lyrics:focus-visible,
+  .album-playlist-player__track-download:focus-visible {
     outline: 2px solid var(--music-album-accent);
     outline-offset: 3px;
   }
