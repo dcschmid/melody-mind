@@ -36,6 +36,11 @@ const genreOptions = Array.from(
     albums.map((album) => album.genre).filter((genre): genre is string => Boolean(genre))
   )
 ).sort((a, b) => albumTitleCollator.compare(a, b));
+const genreCounts = genreOptions.reduce<Record<string, number>>((counts, genre) => {
+  counts[genre] = albums.filter((album) => album.genre === genre).length;
+  return counts;
+}, {});
+const totalGenreCount = albums.length;
 
 const DEFAULT_SORT_VALUE = "date";
 const sortParamValue = Astro.url.searchParams.get("sort");
@@ -224,6 +229,8 @@ const structuredData = [
             controlsLabel={t.albumControls}
             genreFilterLabel={t.genreFilterLabel}
             genreOptions={genreOptions}
+            genreCounts={genreCounts}
+            totalGenreCount={totalGenreCount}
             idPrefix="music-home-genre-filter"
             initialGenreValue={initialGenreValue}
             initialSortValue={initialSortValue}

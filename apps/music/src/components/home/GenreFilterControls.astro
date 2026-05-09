@@ -6,6 +6,8 @@ interface Props {
   controlsLabel: string;
   genreFilterLabel: string;
   genreOptions: string[];
+  genreCounts?: Record<string, number>;
+  totalGenreCount?: number;
   idPrefix: string;
   initialGenreValue: string;
   initialSortValue: string;
@@ -23,6 +25,8 @@ const {
   controlsLabel,
   genreFilterLabel,
   genreOptions,
+  genreCounts = {},
+  totalGenreCount,
   idPrefix,
   initialGenreValue,
   initialSortValue,
@@ -59,6 +63,13 @@ const optionsId = `${idPrefix}-options`;
           data-album-genre
         >
           {allGenresLabel}
+          {
+            typeof totalGenreCount === "number" && (
+              <span class="genre-filter__chip-count" aria-hidden="true">
+                ({totalGenreCount})
+              </span>
+            )
+          }
         </button>
         {
           genreOptions.map((genre) => (
@@ -70,6 +81,11 @@ const optionsId = `${idPrefix}-options`;
               data-album-genre
             >
               {genre}
+              {typeof genreCounts[genre] === "number" && (
+                <span class="genre-filter__chip-count" aria-hidden="true">
+                  ({genreCounts[genre]})
+                </span>
+              )}
             </button>
           ))
         }
@@ -331,6 +347,7 @@ const optionsId = `${idPrefix}-options`;
 
   .genre-filter__chip {
     display: inline-flex;
+    gap: 0.35em;
     align-items: center;
     min-block-size: var(--genre-filter-chip-block-size);
     padding: var(--genre-filter-chip-padding-block)
@@ -351,6 +368,16 @@ const optionsId = `${idPrefix}-options`;
     background: var(--music-home-accent);
     border-color: transparent;
     box-shadow: 0 0.8rem 1.5rem oklch(37% 0.13 16deg / 0.14);
+  }
+
+  .genre-filter__chip-count {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: color-mix(in srgb, currentcolor 60%, transparent);
+  }
+
+  .genre-filter__chip[aria-pressed="true"] .genre-filter__chip-count {
+    color: color-mix(in srgb, currentcolor 75%, transparent);
   }
 
   :global([data-theme="dark"]) .genre-filter__chip[aria-pressed="true"] {
