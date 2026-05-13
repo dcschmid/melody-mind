@@ -1,6 +1,13 @@
 {
   "name": "MelodyMind Music",
   "short_name": "MM Music",
+  "id": "/?source=pwa",
+  "description": "Original AI-generated music albums from MelodyMind.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["music", "entertainment"],
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png?v=20260507",
@@ -15,7 +22,29 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "theme_color": "#10182a",
+  "background_color": "#10182a",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "shortcuts": [
+    {
+      "name": "Latest Releases",
+      "short_name": "Latest",
+      "url": "/#latest-releases",
+      "description": "Open the latest MelodyMind Music releases."
+    },
+    {
+      "name": "All Albums",
+      "short_name": "Albums",
+      "url": "/#albums-list",
+      "description": "Browse all MelodyMind Music albums."
+    },
+    {
+      "name": "Search Music",
+      "short_name": "Search",
+      "url": "/?search=1",
+      "description": "Search MelodyMind Music albums and tracks."
+    }
+  ]
 }

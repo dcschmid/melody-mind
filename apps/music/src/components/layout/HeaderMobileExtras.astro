@@ -52,6 +52,14 @@ const { genreLinks } = Astro.props as Props;
   <span>Browse Albums</span>
 </a>
 
+<a
+  class="music-header-mobile-extras__cta music-header-mobile-extras__cta--secondary"
+  href="/?search=1"
+>
+  <Icon name="search" class="music-header-mobile-extras__cta-icon" aria-hidden="true" />
+  <span>Search Music</span>
+</a>
+
 <style>
   .music-header-mobile-extras__genres-section,
   .music-header-mobile-extras__cta {
@@ -145,6 +153,13 @@ const { genreLinks } = Astro.props as Props;
       background: var(--music-menu-cta-bg);
       border-radius: 999px;
       box-shadow: 0 0.9rem 1.75rem var(--music-menu-cta-shadow);
+    }
+
+    .music-header-mobile-extras__cta--secondary {
+      color: var(--music-menu-active-text);
+      background: var(--music-menu-chip-bg);
+      border: 1px solid var(--music-menu-chip-border);
+      box-shadow: none;
     }
 
     .music-header-mobile-extras__cta-icon {

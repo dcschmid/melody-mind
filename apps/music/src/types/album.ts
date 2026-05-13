@@ -4,6 +4,7 @@ export interface Song {
   lyricsUrl?: string;
   isInstrumental?: boolean;
   transcriptUnavailableReason?: string;
+  description?: string;
   durationSeconds?: number;
   trackNumber: number;
 }
@@ -17,9 +18,15 @@ export interface AlbumData {
   coverImageHeight?: number;
   publishedAt: string;
   genre?: string;
+  moods: string[];
+  tags: string[];
+  language?: string;
+  era?: string;
+  energy?: "low" | "medium" | "high";
   artist: string;
   isAvailable: boolean;
   songs: Song[];
   metaDescription?: string;
+  zipUrl?: string;
   body?: string;
 }

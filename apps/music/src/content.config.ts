@@ -7,6 +7,7 @@ const songBaseSchema = z.object({
   audioUrl: z.string(),
   durationSeconds: z.number().optional(),
   trackNumber: z.number(),
+  description: z.string().optional(),
 });
 
 const songSchema = songBaseSchema
@@ -41,6 +42,11 @@ const albums = defineCollection({
     coverImageHeight: z.number().optional(),
     publishedAt: z.coerce.date(),
     genre: z.string().optional(),
+    moods: z.array(z.string()).default([]),
+    tags: z.array(z.string()).default([]),
+    language: z.string().optional(),
+    era: z.string().optional(),
+    energy: z.enum(["low", "medium", "high"]).optional(),
     artist: z.string().default("MelodyMind AI"),
     isAvailable: z.boolean().default(true),
     songs: z.array(songSchema),

@@ -3,11 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { getCollection, getEntry, render } from "astro:content";
 import { getAlbumCoverImage, getAlbumCoverImageUrl } from "../utils/musicImages";
+import { getRelatedAlbums } from "../utils/albumDiscovery";
 import { buildMusicAlbumSchema } from "../utils/musicSeo";
 import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
 import Details from "../components/album/Details.astro";
 import Hero from "../components/album/Hero.astro";
+import RelatedAlbums from "../components/album/RelatedAlbums.astro";
 import Surface from "../components/album/Surface.astro";
 import PlaylistPlayer from "../components/album/PlaylistPlayer.astro";
 
@@ -49,6 +51,8 @@ const metaDescription =
 
 const albumCoverImage = getAlbumCoverImage(currentAlbum.coverImage);
 const albumCoverImageUrl = getAlbumCoverImageUrl(currentAlbum.coverImage);
+const albumCoverPlayerImageUrl =
+  typeof albumCoverImage === "string" ? albumCoverImage : albumCoverImage.src;
 const albumFacts = [
   ...(currentAlbum.genre ? [{ label: "Genre", value: currentAlbum.genre }] : []),
   { label: "Tracks", value: songs.length },
@@ -69,6 +73,24 @@ const structuredData = [
     totalDurationSeconds: totalDuration,
   }),
 ];
+
+const allAlbums = await getCollection(
+  "albums",
+  (albumEntry: AlbumEntry) => albumEntry.data.isAvailable
+);
+const availableAlbums = allAlbums.map((albumEntry: AlbumEntry) => ({
+  id: albumEntry.id,
+  ...albumEntry.data,
+  body: albumEntry.body,
+}));
+const relatedAlbums = getRelatedAlbums(
+  {
+    id: currentAlbumId,
+    ...currentAlbum,
+    body: entry.body,
+  },
+  availableAlbums
+);
 ---
 
 <Layout
@@ -115,9 +137,11 @@ const structuredData = [
 
     <PlaylistPlayer
       id={`album-playlist-${currentAlbumId}`}
+      albumId={currentAlbumId}
+      albumUrl={`/${currentAlbumId}/`}
       albumTitle={currentAlbum.title}
       songs={songs}
-      albumArtworkUrl={albumCoverImageUrl}
+      albumArtworkUrl={albumCoverPlayerImageUrl}
     />
 
     <Details
@@ -130,5 +154,7 @@ const structuredData = [
     >
       <Content />
     </Details>
+
+    <RelatedAlbums albums={relatedAlbums} />
   </Surface>
 </Layout>

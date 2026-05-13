@@ -13,6 +13,22 @@ const PROGRESS_UPDATE_INTERVAL = 250;
 const MEDIA_SESSION_SEEK_STEP = 10;
 const INIT_FLAG_PREFIX = "__mm";
 const LOG_PREFIX = "[music]";
+const PLAYBACK_STATE_STORAGE_KEY = "melodymind:music-player-state:v1";
+const PLAYBACK_STATE_SAVE_INTERVAL = 2_000;
+
+interface SavedPlaybackState {
+  albumId: string;
+  albumTitle: string;
+  albumUrl: string;
+  albumArtworkUrl?: string;
+  trackIndex: number;
+  trackTitle: string;
+  trackUrl: string;
+  currentTime: number;
+  duration: number;
+  isMuted: boolean;
+  updatedAt: number;
+}
 
 const createInitializer = (name: string, init: () => void): (() => void) => {
   const flagName = `${INIT_FLAG_PREFIX}${name}Initialized`;
@@ -47,6 +63,62 @@ const logError = (error: unknown, context?: string): void => {
   console.error(`${LOG_PREFIX}${contextSuffix}: ${message}`);
 };
 
+const readSavedPlaybackState = (): SavedPlaybackState | null => {
+  try {
+    const rawState = window.localStorage.getItem(PLAYBACK_STATE_STORAGE_KEY);
+    if (!rawState) {
+      return null;
+    }
+
+    const parsedState = JSON.parse(rawState) as Partial<SavedPlaybackState>;
+    if (
+      typeof parsedState.albumId !== "string" ||
+      typeof parsedState.albumTitle !== "string" ||
+      typeof parsedState.albumUrl !== "string" ||
+      typeof parsedState.trackIndex !== "number" ||
+      typeof parsedState.trackTitle !== "string" ||
+      typeof parsedState.trackUrl !== "string"
+    ) {
+      return null;
+    }
+
+    return {
+      albumId: parsedState.albumId,
+      albumTitle: parsedState.albumTitle,
+      albumUrl: parsedState.albumUrl,
+      ...(typeof parsedState.albumArtworkUrl === "string"
+        ? { albumArtworkUrl: parsedState.albumArtworkUrl }
+        : {}),
+      trackIndex: Math.max(0, Math.floor(parsedState.trackIndex)),
+      trackTitle: parsedState.trackTitle,
+      trackUrl: parsedState.trackUrl,
+      currentTime:
+        typeof parsedState.currentTime === "number" && parsedState.currentTime > 0
+          ? parsedState.currentTime
+          : 0,
+      duration:
+        typeof parsedState.duration === "number" && parsedState.duration > 0
+          ? parsedState.duration
+          : 0,
+      isMuted: parsedState.isMuted === true,
+      updatedAt:
+        typeof parsedState.updatedAt === "number" ? parsedState.updatedAt : Date.now(),
+    };
+  } catch (error) {
+    logError(error, "playback state unavailable");
+    return null;
+  }
+};
+
+const writeSavedPlaybackState = (state: SavedPlaybackState): void => {
+  try {
+    window.localStorage.setItem(PLAYBACK_STATE_STORAGE_KEY, JSON.stringify(state));
+    window.dispatchEvent(new CustomEvent("melodymind:playback-state", { detail: state }));
+  } catch (error) {
+    logError(error, "playback state save failed");
+  }
+};
+
 const initPlaylistPlayers = (): (() => void) => {
   const players = document.querySelectorAll<HTMLDivElement>(
     "[data-album-playlist-player]"
@@ -69,6 +141,9 @@ const initPlaylistPlayers = (): (() => void) => {
     );
     const prevButton = player.querySelector<HTMLButtonElement>('[data-action="prev"]');
     const nextButton = player.querySelector<HTMLButtonElement>('[data-action="next"]');
+    const shuffleButton = player.querySelector<HTMLButtonElement>(
+      '[data-action="shuffle"]'
+    );
     const volumeButton = player.querySelector<HTMLButtonElement>(
       '[data-action="volume"]'
     );
@@ -94,15 +169,23 @@ const initPlaylistPlayers = (): (() => void) => {
     const controller = new AbortController();
     const { signal } = controller;
     const albumTitle = player.dataset.albumTitle || "playlist";
+    const albumId = player.dataset.albumId || player.dataset.playerId || albumTitle;
+    const albumUrl = player.dataset.albumUrl || window.location.pathname;
     const albumArtworkUrl = player.dataset.albumArtworkUrl || "";
+    const nextTrackPreloader = new Audio();
+    const savedPlaybackState = readSavedPlaybackState();
 
     let currentTrackIndex = 0;
     let isPlaying = false;
-    let isMuted = false;
+    let isMuted = savedPlaybackState?.isMuted === true;
     let lastHighlightedIndex = -1;
     let titleTransitionTimeout: ReturnType<typeof setTimeout> | null = null;
     let lastProgressUpdate = 0;
+    let lastPlaybackStateSave = 0;
     let isChangingTrackSource = false;
+    let pendingInitialSeek =
+      savedPlaybackState?.albumId === albumId ? savedPlaybackState.currentTime : 0;
+    let preloadedTrackIndex = -1;
     const reducedMotionQuery =
       typeof window.matchMedia === "function"
         ? window.matchMedia("(prefers-reduced-motion: reduce)")
@@ -148,6 +231,35 @@ const initPlaylistPlayers = (): (() => void) => {
       }
     };
 
+    const savePlaybackState = (force = false) => {
+      const now = Date.now();
+      if (!force && now - lastPlaybackStateSave < PLAYBACK_STATE_SAVE_INTERVAL) {
+        return;
+      }
+
+      const track = tracks[currentTrackIndex];
+      if (!track) {
+        return;
+      }
+
+      lastPlaybackStateSave = now;
+      writeSavedPlaybackState({
+        albumId,
+        albumTitle,
+        albumUrl,
+        ...(albumArtworkUrl ? { albumArtworkUrl } : {}),
+        trackIndex: currentTrackIndex,
+        trackTitle: track.title,
+        trackUrl: track.url,
+        currentTime: Number.isFinite(audio.currentTime)
+          ? Math.floor(audio.currentTime)
+          : 0,
+        duration: Math.floor(getDuration()),
+        isMuted,
+        updatedAt: now,
+      });
+    };
+
     const getDuration = () => {
       if (Number.isFinite(audio.duration)) {
         return audio.duration;
@@ -175,6 +287,56 @@ const initPlaylistPlayers = (): (() => void) => {
       audio.src = nextSource;
       audio.load();
       return true;
+    };
+
+    const getNextTrackIndex = () =>
+      tracks.length ? (currentTrackIndex + 1) % tracks.length : -1;
+
+    const shouldPreloadAudio = (): boolean => {
+      const connection = (
+        navigator as Navigator & {
+          connection?: { effectiveType?: string; saveData?: boolean };
+        }
+      ).connection;
+
+      if (connection?.saveData) {
+        return false;
+      }
+
+      return !["slow-2g", "2g"].includes(connection?.effectiveType || "");
+    };
+
+    const preloadTrack = (index: number): void => {
+      if (!shouldPreloadAudio()) {
+        return;
+      }
+
+      const track = tracks[index];
+      if (!track || index === preloadedTrackIndex) {
+        return;
+      }
+
+      const source = normalizeTrackUrl(track.url);
+      if (!source || getAudioSource() === source) {
+        return;
+      }
+
+      try {
+        nextTrackPreloader.preload = "auto";
+        nextTrackPreloader.src = source;
+        nextTrackPreloader.load();
+        preloadedTrackIndex = index;
+      } catch (error) {
+        logError(error, "next track preload failed");
+      }
+    };
+
+    const preloadNextTrack = (): void => {
+      if (tracks.length < 2) {
+        return;
+      }
+
+      preloadTrack(getNextTrackIndex());
     };
 
     const hasMediaSession = () =>
@@ -240,12 +402,15 @@ const initPlaylistPlayers = (): (() => void) => {
 
     const prefersReducedMotion = (): boolean => reducedMotionQuery?.matches === true;
 
-    const updateMutedState = () => {
+    const updateMutedState = ({ persist = true }: { persist?: boolean } = {}) => {
       audio.muted = isMuted;
       player.dataset.playerMuted = isMuted ? "true" : "false";
       if (volumeButton) {
         volumeButton.setAttribute("aria-label", isMuted ? "Unmute" : "Mute");
         volumeButton.setAttribute("aria-pressed", isMuted ? "true" : "false");
+      }
+      if (persist) {
+        savePlaybackState(true);
       }
     };
 
@@ -370,6 +535,8 @@ const initPlaylistPlayers = (): (() => void) => {
       updateTrackHighlight();
       updateProgress(true);
       updateMediaSessionMetadata();
+      preloadNextTrack();
+      savePlaybackState(true);
 
       if (shouldAutoplay) {
         audio
@@ -398,6 +565,7 @@ const initPlaylistPlayers = (): (() => void) => {
       }
 
       updateProgress(true);
+      savePlaybackState(true);
     };
 
     const seekBy = (offset: number) => {
@@ -437,6 +605,24 @@ const initPlaylistPlayers = (): (() => void) => {
       });
     };
 
+    const playRandom = (options: { animate?: boolean } = {}) => {
+      if (!tracks.length) {
+        return;
+      }
+
+      const availableIndexes = tracks
+        .map((_, index) => index)
+        .filter((index) => tracks.length === 1 || index !== currentTrackIndex);
+      const nextIndex =
+        availableIndexes[Math.floor(Math.random() * availableIndexes.length)] ?? 0;
+
+      playTrack(nextIndex, {
+        autoplay: true,
+        triggerPop: options.animate !== false,
+        transition: options.animate !== false,
+      });
+    };
+
     const setupMediaSessionActions = () => {
       if (!("mediaSession" in navigator) || !tracks.length) {
         return;
@@ -450,6 +636,7 @@ const initPlaylistPlayers = (): (() => void) => {
           const track = tracks[currentTrackIndex];
           if (track) {
             setAudioSource(track);
+            preloadNextTrack();
           }
           audio.play().catch((error) => logError(error, "media session play blocked"));
         },
@@ -497,6 +684,7 @@ const initPlaylistPlayers = (): (() => void) => {
           return;
         }
         setAudioSource(track);
+        preloadNextTrack();
         audio.play().catch((error) => logError(error, "playback blocked"));
       } else {
         audio.pause();
@@ -516,6 +704,11 @@ const initPlaylistPlayers = (): (() => void) => {
     nextButton.addEventListener(
       "click",
       (event) => playNext({ animate: shouldAnimateClick(event) }),
+      { signal }
+    );
+    shuffleButton?.addEventListener(
+      "click",
+      (event) => playRandom({ animate: shouldAnimateClick(event) }),
       { signal }
     );
 
@@ -543,9 +736,12 @@ const initPlaylistPlayers = (): (() => void) => {
       () => {
         isPlaying = true;
         trackFathomEvent("Music: Play");
+        audio.preload = shouldPreloadAudio() ? "auto" : "metadata";
         updateToggleButton();
         updateTrackHighlight();
+        preloadNextTrack();
         setStatus(`Playing ${tracks[currentTrackIndex]?.title}`);
+        savePlaybackState(true);
       },
       { signal }
     );
@@ -561,6 +757,7 @@ const initPlaylistPlayers = (): (() => void) => {
         updateToggleButton();
         updateTrackHighlight();
         setStatus(`Paused ${tracks[currentTrackIndex]?.title}`);
+        savePlaybackState(true);
       },
       { signal }
     );
@@ -572,26 +769,27 @@ const initPlaylistPlayers = (): (() => void) => {
           return;
         }
 
-        isPlaying = false;
-        updateToggleButton();
-        updateTrackHighlight();
-        setStatus(`Finished ${tracks[currentTrackIndex]?.title}`);
         audio.currentTime = 0;
         updateProgress(true);
 
-        const nextIndex = (currentTrackIndex + 1) % tracks.length;
+        const nextIndex = getNextTrackIndex();
         const isLastTrack = nextIndex === 0;
 
         if (isLastTrack) {
+          isPlaying = false;
+          updateToggleButton();
+          updateTrackHighlight();
           player.dataset.playerCelebrating = "true";
           setTimeout(() => {
             player.dataset.playerCelebrating = "false";
           }, 800);
           setStatus(`Finished ${albumTitle}`);
+          savePlaybackState(true);
           return;
         }
 
-        playTrack(nextIndex, { autoplay: true });
+        setStatus(`Playing next track after ${tracks[currentTrackIndex]?.title}`);
+        playTrack(nextIndex, { autoplay: true, transition: false });
       },
       { signal }
     );
@@ -608,10 +806,21 @@ const initPlaylistPlayers = (): (() => void) => {
       { signal }
     );
 
-    audio.addEventListener("timeupdate", () => updateProgress(), { signal });
+    audio.addEventListener(
+      "timeupdate",
+      () => {
+        updateProgress();
+        savePlaybackState();
+      },
+      { signal }
+    );
     audio.addEventListener(
       "loadedmetadata",
       () => {
+        if (pendingInitialSeek > 0) {
+          seekTo(pendingInitialSeek);
+          pendingInitialSeek = 0;
+        }
         updateProgress(true);
       },
       { signal }
@@ -654,6 +863,14 @@ const initPlaylistPlayers = (): (() => void) => {
 
     player.addEventListener("keydown", handleKeydown, { signal });
 
+    if (
+      savedPlaybackState?.albumId === albumId &&
+      savedPlaybackState.trackIndex >= 0 &&
+      savedPlaybackState.trackIndex < tracks.length
+    ) {
+      currentTrackIndex = savedPlaybackState.trackIndex;
+    }
+
     const initialTrack = tracks[currentTrackIndex] ?? tracks[0];
     if (initialTrack) {
       setAudioSource(initialTrack);
@@ -661,13 +878,16 @@ const initPlaylistPlayers = (): (() => void) => {
     updateToggleButton();
     updateTrackInfo();
     updateTrackHighlight();
-    updateMutedState();
+    updateMutedState({ persist: false });
     updateMediaSessionMetadata();
     setupMediaSessionActions();
     updateProgress(true);
+    preloadNextTrack();
 
     cleanup.push(() => {
       controller.abort();
+      nextTrackPreloader.removeAttribute("src");
+      nextTrackPreloader.load();
     });
   });
 

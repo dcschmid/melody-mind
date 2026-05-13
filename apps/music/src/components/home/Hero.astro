@@ -17,7 +17,7 @@ const { albums, description, eyebrow, exploreAlbumsLabel, latestReleasesLabel, t
 const showcaseAlbums = albums.slice(0, 5);
 const HERO_COVER_IMAGE_WIDTHS = [192, 256, 320, 480, 640];
 const HERO_COVER_IMAGE_SIZES =
-  "(max-width: 860px) calc((100vw - 4rem) / 3), (max-width: 1180px) 18rem, 20rem";
+  "(max-width: 860px) calc((100vw - 3rem) / 3), (max-width: 1180px) 16rem, 18rem";
 ---
 
 <section class="music-home-hero" aria-labelledby="music-home-title">
@@ -91,11 +91,11 @@ const HERO_COVER_IMAGE_SIZES =
     position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: clamp(1.75rem, 6vw, 4.5rem);
+    gap: clamp(1.5rem, 4.5vw, 3.5rem);
     align-items: center;
-    min-block-size: clamp(34rem, 68svh, 42rem);
+    min-block-size: clamp(30rem, 58svh, 37rem);
     padding: max(clamp(1.5rem, 4.5vw, 3.75rem), 5.75rem) clamp(1.25rem, 5vw, 4.5rem)
-      clamp(1.25rem, 4vw, 3rem);
+      clamp(1rem, 3vw, 2.25rem);
     overflow: hidden;
     background:
       radial-gradient(
@@ -240,8 +240,8 @@ const HERO_COVER_IMAGE_SIZES =
     align-items: end;
     justify-content: center;
     justify-self: center;
-    inline-size: min(100%, 46rem);
-    min-block-size: clamp(16rem, 32vw, 23rem);
+    inline-size: min(100%, 42rem);
+    min-block-size: clamp(15rem, 28vw, 20rem);
     margin-block-start: 0.4rem;
     perspective: 70rem;
   }
@@ -249,7 +249,7 @@ const HERO_COVER_IMAGE_SIZES =
   .music-home-hero__showcase-card {
     position: relative;
     display: block;
-    inline-size: clamp(8.5rem, 14vw, 15.5rem);
+    inline-size: clamp(8rem, 12.5vw, 14rem);
     aspect-ratio: 1 / 1;
     margin: 0;
     overflow: hidden;
@@ -336,35 +336,35 @@ const HERO_COVER_IMAGE_SIZES =
     }
 
     .music-home-hero__showcase-card:nth-child(1) {
-      --cover-x: -6.5rem;
+      --cover-x: -5.8rem;
       --cover-scale: 1.12;
 
       z-index: 5;
     }
 
     .music-home-hero__showcase-card:nth-child(2) {
-      --cover-x: 4rem;
+      --cover-x: 3.6rem;
       --cover-scale: 0.94;
 
       z-index: 4;
     }
 
     .music-home-hero__showcase-card:nth-child(3) {
-      --cover-x: 12rem;
+      --cover-x: 10.4rem;
       --cover-scale: 0.84;
 
       z-index: 3;
     }
 
     .music-home-hero__showcase-card:nth-child(4) {
-      --cover-x: 18.8rem;
+      --cover-x: 16rem;
       --cover-scale: 0.76;
 
       z-index: 2;
     }
 
     .music-home-hero__showcase-card:nth-child(5) {
-      --cover-x: 24.4rem;
+      --cover-x: 20.6rem;
       --cover-scale: 0.68;
 
       z-index: 1;
@@ -373,13 +373,13 @@ const HERO_COVER_IMAGE_SIZES =
 
   @media (width <= 860px) {
     .music-home-hero {
-      gap: 2.35rem;
+      gap: 2rem;
       align-content: start;
-      inline-size: 100%;
-      max-inline-size: 100vw;
+      inline-size: 100dvw;
+      max-inline-size: 100dvw;
       min-block-size: auto;
-      padding-block: 6.75rem 2.75rem;
-      overflow-x: clip;
+      padding: 6.45rem 1rem 2.25rem;
+      overflow: hidden;
     }
 
     .music-home-hero::after {
@@ -404,8 +404,9 @@ const HERO_COVER_IMAGE_SIZES =
 
     .music-home-hero__copy,
     .music-home-hero__description {
-      inline-size: min(100%, calc(100vw - 2.5rem));
-      max-inline-size: calc(100vw - 2.5rem);
+      inline-size: min(100%, 22rem);
+      min-inline-size: 0;
+      max-inline-size: 22rem;
       overflow-wrap: break-word;
     }
 
@@ -422,10 +423,11 @@ const HERO_COVER_IMAGE_SIZES =
     .music-home-hero__actions {
       flex-direction: column;
       justify-content: center;
+      inline-size: min(100%, 22rem);
     }
 
     .music-home-hero__button--primary {
-      inline-size: min(100%, 18rem);
+      inline-size: min(100%, 16rem);
     }
 
     .music-home-hero__button--ghost {
@@ -438,12 +440,13 @@ const HERO_COVER_IMAGE_SIZES =
 
     .music-home-hero__showcase {
       display: flex;
-      gap: 0.72rem;
+      gap: 0.65rem;
       justify-content: flex-start;
-      inline-size: min(100%, calc(100vw - 2.5rem));
+      inline-size: 100%;
+      max-inline-size: 100%;
       min-block-size: auto;
       padding-inline: 0;
-      overflow: visible;
+      overflow: hidden;
       perspective: none;
     }
 
@@ -451,8 +454,9 @@ const HERO_COVER_IMAGE_SIZES =
       position: relative;
       inset-block-start: auto;
       inset-inline-start: auto;
-      flex: 0 0 min(10rem, calc((100% - 1.44rem) / 3));
-      inline-size: min(10rem, calc((100% - 1.44rem) / 3));
+      flex: 0 0 calc((100% - 1.3rem) / 3);
+      inline-size: calc((100% - 1.3rem) / 3);
+      min-inline-size: 0;
       transform: none;
     }
 
@@ -461,12 +465,33 @@ const HERO_COVER_IMAGE_SIZES =
     }
 
     .music-home-hero__showcase-card--lead {
-      inline-size: min(10rem, calc((100% - 1.44rem) / 3));
+      inline-size: calc((100% - 1.3rem) / 3);
     }
 
     .music-home-hero__showcase-title {
       padding: 1.75rem 0.55rem 0.55rem;
       font-size: 0.72rem;
+    }
+  }
+
+  @media (width <= 520px) {
+    .music-home-hero__showcase {
+      justify-self: start;
+      inline-size: min(100%, 22rem);
+      max-inline-size: 22rem;
+    }
+
+    .music-home-hero__showcase-card {
+      flex-basis: calc((100% - 0.65rem) / 2);
+      inline-size: calc((100% - 0.65rem) / 2);
+    }
+
+    .music-home-hero__showcase-card:nth-child(n + 3) {
+      display: none;
+    }
+
+    .music-home-hero__showcase-card--lead {
+      inline-size: calc((100% - 0.65rem) / 2);
     }
   }
 

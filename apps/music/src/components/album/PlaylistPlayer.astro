@@ -5,12 +5,15 @@ import type { Song } from "../../types/album";
 
 interface Props {
   id?: string;
+  albumId: string;
   albumTitle: string;
+  albumUrl: string;
   songs: Song[];
   albumArtworkUrl?: string;
 }
 
-const { id, albumTitle, songs, albumArtworkUrl } = Astro.props as Props;
+const { id, albumId, albumTitle, albumUrl, songs, albumArtworkUrl } =
+  Astro.props as Props;
 const playerSlug =
   albumTitle.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "playlist";
 const playerId = id || `album-playlist-${playerSlug}`;
@@ -26,6 +29,11 @@ const getTrackFallbackLabel = (song: Song): string =>
     : song.isInstrumental
       ? "Instrumental"
       : song.transcriptUnavailableReason || "";
+
+const getTrackDurationLabel = (song: Song): string =>
+  song.durationSeconds
+    ? `${Math.floor(song.durationSeconds / 60)}:${String(song.durationSeconds % 60).padStart(2, "0")}`
+    : "";
 ---
 
 <section
@@ -33,7 +41,9 @@ const getTrackFallbackLabel = (song: Song): string =>
   class="album-playlist-player"
   data-album-playlist-player
   data-player-id={playerId}
+  data-album-id={albumId}
   data-album-title={albumTitle}
+  data-album-url={albumUrl}
   data-album-artwork-url={albumArtworkUrl}
   aria-label={`Album playlist player for ${albumTitle}`}
 >
@@ -122,6 +132,20 @@ const getTrackFallbackLabel = (song: Song): string =>
         >
           <Icon
             name="tabler:player-skip-forward-filled"
+            class="album-playlist-player__transport-icon"
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="album-playlist-player__transport-button"
+          type="button"
+          data-action="shuffle"
+          aria-label="Play random track"
+          title="Play random track"
+          disabled={!hasSongs}
+        >
+          <Icon
+            name="tabler:arrows-shuffle"
             class="album-playlist-player__transport-icon"
             aria-hidden="true"
           />
@@ -222,12 +246,54 @@ const getTrackFallbackLabel = (song: Song): string =>
                   ) : null}
                 </span>
                 <span class="album-playlist-player__track-duration">
-                  {song.durationSeconds
-                    ? `${Math.floor(song.durationSeconds / 60)}:${String(song.durationSeconds % 60).padStart(2, "0")}`
-                    : ""}
+                  {getTrackDurationLabel(song)}
                 </span>
               </button>
               <span class="album-playlist-player__track-actions">
+                <details class="album-playlist-player__track-details">
+                  <summary
+                    class="album-playlist-player__track-details-summary"
+                    aria-label={`Show details for ${song.title}`}
+                    title="Track details"
+                  >
+                    <Icon
+                      name="tabler:info-circle"
+                      class="album-playlist-player__track-action-icon"
+                      aria-hidden="true"
+                    />
+                  </summary>
+                  <span class="album-playlist-player__track-details-panel">
+                    <span class="album-playlist-player__track-details-title">
+                      {song.title}
+                    </span>
+                    {song.description && (
+                      <span class="album-playlist-player__track-details-text">
+                        {song.description}
+                      </span>
+                    )}
+                    <span class="album-playlist-player__track-details-meta">
+                      Track {song.trackNumber}
+                      {getTrackDurationLabel(song)
+                        ? ` - ${getTrackDurationLabel(song)}`
+                        : ""}
+                      {song.isInstrumental ? " - Instrumental" : ""}
+                    </span>
+                    {song.lyricsUrl ? (
+                      <a
+                        class="album-playlist-player__track-details-link"
+                        href={song.lyricsUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        Open lyrics
+                      </a>
+                    ) : fallbackLabel ? (
+                      <span class="album-playlist-player__track-details-text">
+                        {fallbackLabel}
+                      </span>
+                    ) : null}
+                  </span>
+                </details>
                 {song.lyricsUrl ? (
                   <a
                     class="album-playlist-player__track-lyrics"
@@ -616,6 +682,7 @@ const getTrackFallbackLabel = (song: Song): string =>
   }
 
   .album-playlist-player__track {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
@@ -722,6 +789,7 @@ const getTrackFallbackLabel = (song: Song): string =>
 
   .album-playlist-player__track-lyrics,
   .album-playlist-player__track-download,
+  .album-playlist-player__track-details-summary,
   .album-playlist-player__track-action-placeholder {
     display: inline-flex;
     align-items: center;
@@ -732,8 +800,57 @@ const getTrackFallbackLabel = (song: Song): string =>
   }
 
   .album-playlist-player__track-lyrics,
+  .album-playlist-player__track-details-summary,
   .album-playlist-player__track-download {
     border-radius: 999rem;
+  }
+
+  .album-playlist-player__track-details {
+    position: relative;
+  }
+
+  .album-playlist-player__track-details-summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .album-playlist-player__track-details-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .album-playlist-player__track-details-panel {
+    position: absolute;
+    inset-block-start: calc(100% + 0.35rem);
+    inset-inline-end: 0;
+    z-index: 3;
+    display: grid;
+    gap: 0.38rem;
+    inline-size: min(18rem, calc(100vw - 2rem));
+    padding: 0.75rem;
+    color: var(--music-album-ink);
+    background: var(--music-album-paper);
+    border: 1px solid var(--music-album-line);
+    border-radius: var(--radius-base);
+    box-shadow: 0 1rem 2rem oklch(5% 0.02 255deg / 0.22);
+  }
+
+  .album-playlist-player__track-details-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .album-playlist-player__track-details-text,
+  .album-playlist-player__track-details-meta,
+  .album-playlist-player__track-details-link {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--music-album-muted);
+  }
+
+  .album-playlist-player__track-details-link {
+    color: var(--music-album-accent);
+    text-underline-offset: 0.16em;
   }
 
   .album-playlist-player__track-download {
@@ -751,6 +868,8 @@ const getTrackFallbackLabel = (song: Song): string =>
 
   .album-playlist-player__track-lyrics:hover,
   .album-playlist-player__track-lyrics:focus,
+  .album-playlist-player__track-details-summary:hover,
+  .album-playlist-player__track-details-summary:focus,
   .album-playlist-player__track-download:hover,
   .album-playlist-player__track-download:focus {
     color: var(--music-album-accent);
@@ -763,6 +882,7 @@ const getTrackFallbackLabel = (song: Song): string =>
   .album-playlist-player__progress:focus-visible,
   .album-playlist-player__track-button:focus-visible,
   .album-playlist-player__track-lyrics:focus-visible,
+  .album-playlist-player__track-details-summary:focus-visible,
   .album-playlist-player__track-download:focus-visible {
     outline: 2px solid var(--music-album-accent);
     outline-offset: 3px;

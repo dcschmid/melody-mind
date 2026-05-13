@@ -2,8 +2,8 @@
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { buildOrganizationSchema } from "@shared-utils/utils/seo/seoSchema";
 import { toAbsoluteAssetUrl } from "@shared-utils/utils/imageAssets";
+import ContinueListening from "../components/home/ContinueListening.astro";
 import GridSection from "../components/home/GridSection.astro";
-import FeaturedSection from "../components/home/FeaturedSection.astro";
 import GenreFilterControls from "../components/home/GenreFilterControls.astro";
 import LatestSection from "../components/home/LatestSection.astro";
 import Hero from "../components/home/Hero.astro";
@@ -36,8 +36,11 @@ const genreOptions = Array.from(
     albums.map((album) => album.genre).filter((genre): genre is string => Boolean(genre))
   )
 ).sort((a, b) => albumTitleCollator.compare(a, b));
-const genreCounts = genreOptions.reduce<Record<string, number>>((counts, genre) => {
-  counts[genre] = albums.filter((album) => album.genre === genre).length;
+const genreCounts = albums.reduce<Record<string, number>>((counts, album) => {
+  if (album.genre) {
+    counts[album.genre] = (counts[album.genre] || 0) + 1;
+  }
+
   return counts;
 }, {});
 const totalGenreCount = albums.length;
@@ -66,24 +69,21 @@ const getImageWidth = (image: CoverImage): number | undefined =>
 const getImageHeight = (image: CoverImage): number | undefined =>
   typeof image === "string" ? undefined : image.height;
 
-const getRandomizedItems = <T,>(items: T[]): T[] => {
-  const randomizedItems = [...items];
+const getFeaturedAlbums = (items: AlbumData[], featuredCount: number): AlbumData[] =>
+  [...items]
+    .sort((a, b) => {
+      const aScore = Array.from(a.id).reduce(
+        (score, char) => score + char.charCodeAt(0),
+        0
+      );
+      const bScore = Array.from(b.id).reduce(
+        (score, char) => score + char.charCodeAt(0),
+        0
+      );
 
-  for (let index = randomizedItems.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    const currentItem = randomizedItems[index];
-    const randomItem = randomizedItems[randomIndex];
-
-    if (currentItem === undefined || randomItem === undefined) {
-      continue;
-    }
-
-    randomizedItems[index] = randomItem;
-    randomizedItems[randomIndex] = currentItem;
-  }
-
-  return randomizedItems;
-};
+      return aScore - bScore || compareAlbumsByDate(a, b);
+    })
+    .slice(0, featuredCount);
 
 const albumEntries: Entry[] = sortedAlbums.map((album) => {
   const totalDurationSeconds = album.songs.reduce(
@@ -109,8 +109,7 @@ const albumEntries: Entry[] = sortedAlbums.map((album) => {
   };
 });
 const initialVisibleAlbumCount = albumEntries.filter((album) => album.isVisible).length;
-const randomizedAlbums = getRandomizedItems(sortedAlbumsByDate);
-const heroAlbums = randomizedAlbums.slice(0, 5).map((album) => {
+const heroAlbums = getFeaturedAlbums(sortedAlbumsByDate, 5).map((album) => {
   const imageSrc = getAlbumCoverImage(album.coverImage);
   return {
     id: album.id,
@@ -121,7 +120,6 @@ const heroAlbums = randomizedAlbums.slice(0, 5).map((album) => {
     imageHeight: getImageHeight(imageSrc),
   };
 });
-const featuredAlbums = getRandomizedItems(albumEntries).slice(0, 6);
 const latestAlbums = albumEntries.slice(0, 3);
 
 const canonical = resolvePageUrl(Astro.site, "/");
@@ -138,6 +136,7 @@ const t = {
   albumControls: "Album controls",
   featured: "Featured Albums",
   latest: "Latest Releases",
+  continueListening: "Continue Listening",
   genre: "Explore by Genre",
   genreFilterLabel: "Filter albums by genre",
   lessGenres: "Less genres",
@@ -213,13 +212,9 @@ const structuredData = [
     />
 
     <div class="music-home__content">
-      <FeaturedSection
-        albums={featuredAlbums}
-        title={t.featured}
-        viewAllLabel={t.viewAll}
-      />
-
       <LatestSection albums={latestAlbums} title={t.latest} viewAllLabel={t.viewAll} />
+
+      <ContinueListening albums={albumEntries} title={t.continueListening} />
 
       {
         albums.length > 0 && (

@@ -204,6 +204,32 @@ const contentShellClasses = ["music-layout__container", contentShellClass]
   <SearchPalette slot="body-end" />
   <BackToTop slot="body-end" />
   <FathomEventsScript slot="body-end" />
+  <script slot="body-end" is:inline>
+    (() => {
+      if (!("serviceWorker" in navigator)) {
+        return;
+      }
+
+      window.addEventListener(
+        "load",
+        () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((registration) => {
+              document.addEventListener("visibilitychange", () => {
+                if (document.visibilityState === "visible") {
+                  registration.update();
+                }
+              });
+            })
+            .catch(() => {
+              /* Service worker support is progressive; playback must keep working without it. */
+            });
+        },
+        { once: true }
+      );
+    })();
+  </script>
 
   <slot />
 </MasterLayout>
