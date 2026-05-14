@@ -236,6 +236,10 @@ function enhanceSearchGroups(results: HTMLElement): void {
     }
 
     const nextLabel = getSearchGroupLabel(label.textContent || "");
+    if (label.textContent === nextLabel) {
+      return;
+    }
+
     label.textContent = nextLabel;
   });
 }
@@ -260,7 +264,16 @@ function enhanceSearchEmptyState(backdrop: HTMLElement): void {
   }
 
   const query = input.value.trim();
+
+  if (
+    emptyState.dataset.musicSearchEmptyEnhanced === "true" &&
+    emptyState.dataset.musicSearchEmptyQuery === query
+  ) {
+    return;
+  }
+
   emptyState.dataset.musicSearchEmptyEnhanced = "true";
+  emptyState.dataset.musicSearchEmptyQuery = query;
   emptyState.replaceChildren();
 
   const title = document.createElement("p");
@@ -326,7 +339,6 @@ function enhanceSearchResults(results: HTMLElement): void {
     const description = result.querySelector(SEARCH_RESULT_DESC_SELECTOR);
     const content = document.createElement("span");
     const meta = document.createElement("span");
-    const type = title?.querySelector(SEARCH_RESULT_TYPE_SELECTOR);
 
     content.className = "astro-search-result-content";
     meta.className = "astro-search-result-meta";
@@ -334,17 +346,16 @@ function enhanceSearchResults(results: HTMLElement): void {
       ? getTrackMeta(artworkMatch.item, artworkMatch.track)
       : getAlbumMeta(artworkMatch.item);
 
-    if (type) {
-      content.append(type);
-    }
-
-    if (title) {
+    if (title instanceof HTMLElement) {
+      title.dataset.musicSearchTitle = artworkMatch.track
+        ? artworkMatch.track.title
+        : artworkMatch.item.title;
       content.append(title);
     }
 
     content.append(meta);
 
-    if (description) {
+    if (description instanceof HTMLElement) {
       description.textContent =
         artworkMatch.track?.description ||
         (artworkMatch.track?.isInstrumental ? "Instrumental track." : "") ||
@@ -354,7 +365,7 @@ function enhanceSearchResults(results: HTMLElement): void {
 
     result.prepend(createArtworkElement(artworkMatch.item));
 
-    if (content.childElementCount > 0) {
+    if (content.childNodes.length > 0) {
       result.append(content);
     }
   });

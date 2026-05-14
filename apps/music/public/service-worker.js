@@ -1,10 +1,9 @@
-const CACHE_VERSION = "music-pwa-v20260512";
+const CACHE_VERSION = "music-pwa-v20260514";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 
 const STATIC_ASSETS = [
   "/",
-  "/search-index.json",
   "/site.webmanifest?v=20260507",
   "/favicon.ico",
   "/favicon.svg",
@@ -80,7 +79,7 @@ self.addEventListener("fetch", (event) => {
 
   if (isSameOrigin(url) && url.pathname === "/search-index.json") {
     event.respondWith(
-      fetch(request)
+      fetch(request, { cache: "reload" })
         .then((response) => {
           event.waitUntil(putRuntimeCache(request, response));
           return response;

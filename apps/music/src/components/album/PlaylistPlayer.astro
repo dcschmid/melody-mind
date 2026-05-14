@@ -255,7 +255,7 @@ const getTrackDurationLabel = (song: Song): string =>
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label={`Open lyrics for ${song.title} in a new tab`}
-                    title="Open lyrics in a new tab"
+                    title="Open lyrics"
                   >
                     <Icon
                       name="tabler:file-text"
@@ -276,8 +276,8 @@ const getTrackDurationLabel = (song: Song): string =>
                     data-track-download
                     data-download-url={song.audioUrl}
                     data-download-filename={`${song.trackNumber.toString().padStart(2, "0")} - ${song.title}`}
-                    aria-label={`Download ${song.title}`}
-                    title="Download track"
+                    aria-label={`Download audio for ${song.title}`}
+                    title="Download audio"
                     data-fathom-event={`Download: ${albumTitle} - ${song.title}`}
                   >
                     <Icon
@@ -417,8 +417,8 @@ const getTrackDurationLabel = (song: Song): string =>
 
   .album-playlist-player__now-playing {
     display: grid;
-    gap: 1.1rem;
-    padding: clamp(1rem, 2vw, 1.35rem) clamp(1rem, 2vw, 1.5rem);
+    gap: 0.75rem;
+    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(0.9rem, 1.9vw, 1.25rem);
   }
 
   .album-playlist-player__now-playing-row {
@@ -441,9 +441,9 @@ const getTrackDurationLabel = (song: Song): string =>
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    font-size: clamp(1.1rem, 0.94rem + 0.65vw, 1.45rem);
+    font-size: clamp(1rem, 0.9rem + 0.45vw, 1.25rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.15;
     color: var(--music-album-ink);
     text-wrap: balance;
     overflow-wrap: anywhere;
@@ -483,11 +483,11 @@ const getTrackDurationLabel = (song: Song): string =>
   }
 
   .album-playlist-player__controls {
-    gap: 0.75rem;
+    gap: 0.55rem;
   }
 
   .album-playlist-player__transport-cluster {
-    gap: 0.55rem;
+    gap: 0.42rem;
   }
 
   .album-playlist-player__control,
@@ -582,7 +582,7 @@ const getTrackDurationLabel = (song: Song): string =>
 
   .album-playlist-player__progress-wrap {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.28rem;
   }
 
   .album-playlist-player__progress {
@@ -647,8 +647,11 @@ const getTrackDurationLabel = (song: Song): string =>
 
   .album-playlist-player__track-actions {
     display: inline-flex;
-    gap: 0.15rem;
+    gap: 0.28rem;
     align-items: center;
+    padding-inline-start: 0.28rem;
+    border-inline-start: 1px solid
+      color-mix(in srgb, var(--music-album-line) 76%, transparent);
   }
 
   .album-playlist-player__track:hover,
@@ -758,6 +761,10 @@ const getTrackDurationLabel = (song: Song): string =>
     border-radius: 999rem;
   }
 
+  .album-playlist-player__track-lyrics {
+    background: color-mix(in srgb, var(--music-album-paper-soft) 34%, transparent);
+  }
+
   .album-playlist-player__track-download {
     padding: 0;
     font: inherit;
@@ -827,19 +834,19 @@ const getTrackDurationLabel = (song: Song): string =>
       --album-playlist-radius-row: 0.35rem;
       --album-playlist-control-size: 2.75rem;
       --album-playlist-primary-control-size: 3.15rem;
-      --album-playlist-track-action-size: 2.5rem;
-      --album-playlist-track-min-block: 2.5rem;
-      --album-playlist-track-button-min-block: 2.5rem;
+      --album-playlist-track-action-size: 2.35rem;
+      --album-playlist-track-min-block: 2.24rem;
+      --album-playlist-track-button-min-block: 2.24rem;
       --album-playlist-track-num-column: 1.65rem;
-      --album-playlist-track-duration-column: 2.7rem;
-      --album-playlist-track-gap: 0.35rem;
+      --album-playlist-track-duration-column: 2.45rem;
+      --album-playlist-track-gap: 0.25rem;
 
       box-shadow: 0 0.8rem 1.5rem oklch(20% 0.04 45deg / 0.08);
     }
 
     .album-playlist-player__now-playing {
-      gap: 0.7rem;
-      padding: 0.9rem 0.9rem 0.75rem;
+      gap: 0.45rem;
+      padding: 0.65rem 0.7rem 0.55rem;
     }
 
     .album-playlist-player__now-playing-row {
@@ -851,11 +858,15 @@ const getTrackDurationLabel = (song: Song): string =>
     }
 
     .album-playlist-player__current-title {
-      font-size: 1rem;
+      font-size: 0.94rem;
     }
 
     .album-playlist-player__controls {
-      gap: 0.45rem;
+      gap: 0.35rem;
+    }
+
+    .album-playlist-player__transport-cluster {
+      gap: 0.28rem;
     }
 
     .album-playlist-player__progress-wrap {
@@ -863,7 +874,7 @@ const getTrackDurationLabel = (song: Song): string =>
     }
 
     .album-playlist-player__tracklist-section {
-      padding: 0.4rem 0.55rem 0.55rem;
+      padding: 0.32rem 0.42rem 0.45rem;
     }
 
     .album-playlist-player__tracklist {
@@ -871,12 +882,35 @@ const getTrackDurationLabel = (song: Song): string =>
     }
 
     .album-playlist-player__track {
-      padding: 0 0.2rem;
+      padding: 0 0.12rem;
     }
 
     .album-playlist-player__track-title {
+      display: block;
+      text-overflow: ellipsis;
       font-size: 0.875rem;
       line-height: 1.15;
+      white-space: nowrap;
+    }
+
+    .album-playlist-player__track-actions {
+      gap: 0;
+      padding-inline-start: 0.16rem;
+      border-inline-start-color: color-mix(
+        in srgb,
+        var(--music-album-line) 52%,
+        transparent
+      );
+    }
+
+    .album-playlist-player__track-action-icon {
+      inline-size: 0.9rem;
+      block-size: 0.9rem;
+      opacity: 0.82;
+    }
+
+    .album-playlist-player__track-lyrics {
+      background: transparent;
     }
 
     .album-playlist-player__track-duration,

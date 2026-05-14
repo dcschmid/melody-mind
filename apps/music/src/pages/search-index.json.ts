@@ -145,6 +145,7 @@ export const GET: APIRoute = async () => {
 
   return new Response(JSON.stringify(index), {
     headers: {
+      "Cache-Control": "no-cache, must-revalidate",
       "Content-Type": "application/json; charset=utf-8",
     },
   });
