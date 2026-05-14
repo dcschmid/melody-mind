@@ -46,6 +46,7 @@ const genreCounts = albums.reduce<Record<string, number>>((counts, album) => {
 const totalGenreCount = albums.length;
 
 const DEFAULT_SORT_VALUE = "date";
+const FEATURED_RELEASE_ID = "blacktop-saints";
 const sortParamValue = Astro.url.searchParams.get("sort");
 const genreParamValue =
   Astro.url.searchParams.get("genre") ?? Astro.url.searchParams.get("album-genre");
@@ -103,6 +104,8 @@ const albumEntries: Entry[] = sortedAlbums.map((album) => {
     publishedAt: album.publishedAt,
     publishedAtTime: new Date(album.publishedAt).getTime(),
     genre: album.genre,
+    moodSummary: album.moods.slice(0, 2).join(" · "),
+    trackCount: album.songs.length,
     totalDurationSeconds,
     totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
     isVisible: isAlbumVisibleForGenre(album.genre),
@@ -120,7 +123,12 @@ const heroAlbums = getFeaturedAlbums(sortedAlbumsByDate, 5).map((album) => {
     imageHeight: getImageHeight(imageSrc),
   };
 });
-const latestAlbums = albumEntries.slice(0, 3);
+const featuredRelease =
+  albumEntries.find((album) => album.id === FEATURED_RELEASE_ID) || albumEntries[0];
+const latestReleaseShelf = [
+  ...(featuredRelease ? [featuredRelease] : []),
+  ...albumEntries.filter((album) => album.id !== featuredRelease?.id),
+].slice(0, 3);
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
@@ -128,27 +136,29 @@ const breadcrumbs = [{ name: "Home", url: canonical }];
 const t = {
   title: "MelodyMind Music",
   seoTitle: "MelodyMind Music | AI-Generated Albums",
-  subtitle: "AI-Generated Music",
+  subtitle: "Curated albums for deep listening",
   description:
-    "Explore original AI-generated music albums from MelodyMind. Each album features unique compositions across genres, with lyrics available for every track.",
-  albums: "All Albums",
-  allGenres: "All Genres",
+    "A listening room for original albums with a strong sense of place: neon pop, storm-lit rock, folk ballads, club rhythms, and late-night instrumentals.",
+  editorialDeck:
+    "Browse by mood, genre, and cover art. Each release is framed like a small record review, with lyrics or track notes close at hand.",
+  albums: "Album Shelf",
+  allGenres: "Full Shelf",
   albumControls: "Album controls",
   featured: "Featured Albums",
-  latest: "Latest Releases",
+  latest: "From the New Shelf",
   continueListening: "Continue Listening",
-  genre: "Explore by Genre",
+  genre: "Browse the Archive",
   genreFilterLabel: "Filter albums by genre",
-  lessGenres: "Less genres",
+  lessGenres: "Show fewer",
   moreGenres: "More genres",
-  newestFirst: "Newest",
+  newestFirst: "Newest arrivals",
   selectedGenre: "Showing:",
-  sortAlphabetically: "Title",
-  sortBy: "Sort by",
-  exploreAlbums: "Explore Albums",
-  latestReleases: "Latest Releases",
-  listenNow: "Listen Now",
-  viewAll: "View all",
+  sortAlphabetically: "A-Z",
+  sortBy: "Order",
+  exploreAlbums: "Browse Albums",
+  latestReleases: "New Shelf",
+  listenNow: "Read & Listen",
+  viewAll: "Full shelf",
   keywords: [
     "ai music",
     "generated music",
@@ -207,12 +217,17 @@ const structuredData = [
       eyebrow={t.subtitle}
       title={t.title}
       description={t.description}
+      editorialDeck={t.editorialDeck}
       exploreAlbumsLabel={t.exploreAlbums}
       latestReleasesLabel={t.latestReleases}
     />
 
     <div class="music-home__content">
-      <LatestSection albums={latestAlbums} title={t.latest} viewAllLabel={t.viewAll} />
+      <LatestSection
+        albums={latestReleaseShelf}
+        title={t.latest}
+        viewAllLabel={t.viewAll}
+      />
 
       <ContinueListening albums={albumEntries} title={t.continueListening} />
 
@@ -243,7 +258,7 @@ const structuredData = [
         albums={albumEntries}
         title={t.albums}
         listenNowLabel={t.listenNow}
-        emptyDescription="No albums available yet. Check back soon for new AI-generated music!"
+        emptyDescription="No albums are on the shelf yet. Check back soon for new listening notes and releases."
         initialVisibleAlbumCount={initialVisibleAlbumCount}
         initialGenreValue={initialGenreValue}
       />

@@ -6,14 +6,22 @@ import type { HeroItem } from "./types";
 interface Props {
   albums: HeroItem[];
   description: string;
+  editorialDeck: string;
   eyebrow: string;
   exploreAlbumsLabel: string;
   latestReleasesLabel: string;
   title: string;
 }
 
-const { albums, description, eyebrow, exploreAlbumsLabel, latestReleasesLabel, title } =
-  Astro.props;
+const {
+  albums,
+  description,
+  editorialDeck,
+  eyebrow,
+  exploreAlbumsLabel,
+  latestReleasesLabel,
+  title,
+} = Astro.props;
 const showcaseAlbums = albums.slice(0, 5);
 const HERO_COVER_IMAGE_WIDTHS = [192, 256, 320, 480, 640];
 const HERO_COVER_IMAGE_SIZES =
@@ -23,11 +31,12 @@ const HERO_COVER_IMAGE_SIZES =
 <section class="music-home-hero" aria-labelledby="music-home-title">
   <div class="music-home-hero__copy">
     <p class="music-home-hero__eyebrow">
-      <Icon name="sparkles" class="music-home-hero__eyebrow-icon" aria-hidden="true" />
+      <Icon name="disc" class="music-home-hero__eyebrow-icon" aria-hidden="true" />
       {eyebrow}
     </p>
     <h1 id="music-home-title" class="music-home-hero__title">{title}</h1>
     <p class="music-home-hero__description">{description}</p>
+    <p class="music-home-hero__deck">{editorialDeck}</p>
     <nav class="music-home-hero__actions" aria-label="Hero actions">
       <a
         href="#albums-list"
@@ -167,23 +176,30 @@ const HERO_COVER_IMAGE_SIZES =
   }
 
   .music-home-hero__title {
-    max-inline-size: 11ch;
+    max-inline-size: 9.5ch;
     margin: 0;
     font-family: var(--font-sans);
-    font-size: clamp(2.75rem, 2.15rem + 2.35vw, 4.75rem);
-    font-weight: 600;
-    line-height: 1.05;
+    font-size: clamp(3.2rem, 2.1rem + 4vw, 6.5rem);
+    font-weight: 700;
+    line-height: 0.96;
     letter-spacing: 0;
     text-wrap: balance;
   }
 
-  .music-home-hero__description {
+  .music-home-hero__description,
+  .music-home-hero__deck {
     max-inline-size: 54ch;
     margin: 0;
     font-size: clamp(1rem, 0.96rem + 0.18vw, 1.13rem);
     line-height: 1.7;
     color: var(--music-home-muted);
     text-wrap: pretty;
+  }
+
+  .music-home-hero__deck {
+    max-inline-size: 45ch;
+    font-size: clamp(0.96rem, 0.92rem + 0.16vw, 1.06rem);
+    line-height: 1.65;
   }
 
   .music-home-hero__actions {
@@ -403,7 +419,8 @@ const HERO_COVER_IMAGE_SIZES =
     }
 
     .music-home-hero__copy,
-    .music-home-hero__description {
+    .music-home-hero__description,
+    .music-home-hero__deck {
       inline-size: min(100%, 22rem);
       min-inline-size: 0;
       max-inline-size: 22rem;
@@ -417,6 +434,11 @@ const HERO_COVER_IMAGE_SIZES =
 
     .music-home-hero__description {
       font-size: 0.96rem;
+      line-height: 1.55;
+    }
+
+    .music-home-hero__deck {
+      font-size: 0.92rem;
       line-height: 1.55;
     }
 

@@ -37,8 +37,11 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
           aria-labelledby="album-content-heading"
         >
           <h2 id="album-content-heading" class="album-detail-sections__title">
-            About This Album
+            Liner Notes
           </h2>
+          <p class="album-detail-sections__deck">
+            A short editorial read on the album world, sound, and standout moments.
+          </p>
           <div class="album-detail-sections__prose">
             <slot />
           </div>
@@ -91,13 +94,22 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
   }
 
   .album-detail-sections__title {
-    margin: 0 0 1rem;
+    margin: 0;
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     color: var(--music-album-ink);
     letter-spacing: var(--letter-spacing-normal);
     text-wrap: balance;
+  }
+
+  .album-detail-sections__deck {
+    max-inline-size: 52ch;
+    margin: var(--spacing-xs) 0 var(--spacing-base);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--music-album-muted);
+    text-wrap: pretty;
   }
 
   .album-detail-sections__prose {
@@ -240,6 +252,10 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
     .album-detail-sections__title {
       padding: var(--album-details-mobile-inline-padding)
         var(--album-details-mobile-inline-padding) 0;
+    }
+
+    .album-detail-sections__deck {
+      padding: 0 var(--album-details-mobile-inline-padding);
     }
 
     .album-detail-sections__prose {

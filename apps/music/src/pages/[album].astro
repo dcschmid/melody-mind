@@ -55,6 +55,9 @@ const albumCoverPlayerImageUrl =
   typeof albumCoverImage === "string" ? albumCoverImage : albumCoverImage.src;
 const albumFacts = [
   ...(currentAlbum.genre ? [{ label: "Genre", value: currentAlbum.genre }] : []),
+  ...(currentAlbum.moods.length
+    ? [{ label: "Mood", value: currentAlbum.moods.slice(0, 2).join(" · ") }]
+    : []),
   { label: "Tracks", value: songs.length },
   ...(totalDuration > 0
     ? [{ label: "Length", value: `${Math.round(totalDuration / 60)} min` }]

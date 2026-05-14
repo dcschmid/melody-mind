@@ -256,10 +256,10 @@ const optionsId = `${idPrefix}-options`;
 
 <style>
   .genre-filter {
-    --genre-filter-chip-block-size: var(--control-min-block-size, 2.75rem);
-    --genre-filter-chip-gap: var(--spacing-sm, 0.5rem);
-    --genre-filter-chip-padding-block: var(--spacing-sm, 0.5rem);
-    --genre-filter-chip-padding-inline: var(--spacing-base, 1rem);
+    --genre-filter-chip-block-size: 2.15rem;
+    --genre-filter-chip-gap: clamp(0.55rem, 1.3vw, 1rem);
+    --genre-filter-chip-padding-block: 0;
+    --genre-filter-chip-padding-inline: 0;
     --genre-filter-controls-gap-block: var(--spacing-sm, 0.5rem);
     --genre-filter-controls-gap-inline: var(--spacing-lg, 1.5rem);
     --genre-filter-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -319,20 +319,21 @@ const optionsId = `${idPrefix}-options`;
       var(--genre-filter-chip-padding-inline);
     font: inherit;
     font-size: 0.88rem;
-    font-weight: 700;
-    line-height: 1;
+    font-weight: 600;
+    line-height: 1.2;
     color: var(--music-home-muted);
     cursor: pointer;
-    background: color-mix(in srgb, var(--music-home-paper) 78%, transparent);
-    border: 1px solid var(--music-home-line);
-    border-radius: 999px;
+    background: transparent;
+    border: 0;
+    border-block-end: 1px solid transparent;
+    border-radius: 0;
   }
 
   .genre-filter__chip[aria-pressed="true"] {
-    color: oklch(98% 0.014 75deg);
-    background: var(--music-home-accent);
-    border-color: transparent;
-    box-shadow: 0 0.8rem 1.5rem oklch(37% 0.13 16deg / 0.14);
+    color: var(--music-home-ink);
+    background: transparent;
+    border-block-end-color: var(--music-home-accent);
+    box-shadow: none;
   }
 
   .genre-filter__chip-count {
@@ -343,10 +344,6 @@ const optionsId = `${idPrefix}-options`;
 
   .genre-filter__chip[aria-pressed="true"] .genre-filter__chip-count {
     color: color-mix(in srgb, currentcolor 75%, transparent);
-  }
-
-  :global([data-theme="dark"]) .genre-filter__chip[aria-pressed="true"] {
-    color: var(--music-home-paper);
   }
 
   .genre-filter__sort {
@@ -389,7 +386,7 @@ const optionsId = `${idPrefix}-options`;
     font-weight: 700;
     color: var(--music-home-muted);
     cursor: pointer;
-    background: color-mix(in srgb, var(--music-home-paper) 78%, transparent);
+    background: color-mix(in srgb, var(--music-home-paper) 64%, transparent);
     border: 1px solid var(--music-home-line);
     border-radius: 999px;
   }
@@ -441,8 +438,7 @@ const optionsId = `${idPrefix}-options`;
       transition:
         transform var(--genre-filter-transition-duration) var(--genre-filter-ease-out),
         border-color var(--genre-filter-transition-duration) var(--genre-filter-ease-out),
-        background-color var(--genre-filter-transition-duration)
-          var(--genre-filter-ease-out);
+        color var(--genre-filter-transition-duration) var(--genre-filter-ease-out);
     }
 
     .genre-filter__chip:active,
