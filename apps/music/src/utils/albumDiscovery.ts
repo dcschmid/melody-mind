@@ -1,6 +1,6 @@
 import type { AlbumData } from "../types/album";
 
-export interface AlbumDiscoveryMeta {
+interface AlbumDiscoveryMeta {
   moods: string[];
   tags: string[];
   language?: string;
@@ -87,7 +87,7 @@ export function getAlbumDiscoveryMeta(album: AlbumData): AlbumDiscoveryMeta {
   };
 }
 
-export function scoreRelatedAlbum(currentAlbum: AlbumData, candidate: AlbumData): number {
+function scoreRelatedAlbum(currentAlbum: AlbumData, candidate: AlbumData): number {
   const current = getAlbumDiscoveryMeta(currentAlbum);
   const next = getAlbumDiscoveryMeta(candidate);
   let score = 0;

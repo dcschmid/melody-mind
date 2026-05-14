@@ -26,7 +26,6 @@
     "astro": "^6.1.6",
     "astro-icon": "^1.1.5",
     "astro-minify-html-swc": "^0.1.11",
-    "js-yaml": "^4.1.0",
     "lightningcss": "^1.32.0",
     "music-metadata": "^11.12.3",
     "sharp": "^0.34.5",

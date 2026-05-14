@@ -20,17 +20,3 @@ export async function getAvailableAlbums(): Promise<AlbumData[]> {
     return [];
   }
 }
-
-export async function getAlbumById(
-  id: string,
-  albums: AlbumData[]
-): Promise<AlbumData | undefined> {
-  return albums.find((album) => album.id === id);
-}
-
-export async function getAlbumByIdFromCollection(
-  id: string
-): Promise<AlbumData | undefined> {
-  const albums = await getAvailableAlbums();
-  return getAlbumById(id, albums);
-}

@@ -18,9 +18,6 @@ const shareMailSubject = encodeURIComponent(shareTitle);
 const shareMailBody = encodeURIComponent(
   sanitizedDesc ? `${sanitizedDesc}\n\n${shareUrl}` : shareUrl
 );
-const mastodonShareUrl = `https://mastodon.social/share?text=${encodeURIComponent(
-  `${shareText} ${shareUrl}`
-)}`;
 
 const hasValidUrl = isHttpShareUrl(shareUrl);
 ---
@@ -72,21 +69,6 @@ const hasValidUrl = isHttpShareUrl(shareUrl);
         >
           <Icon name="mail" class="album-share-section__button-icon" aria-hidden="true" />
           <span>Email</span>
-        </a>
-        <a
-          class="album-share-section__button"
-          href={mastodonShareUrl}
-          target="_blank"
-          rel="noreferrer noopener"
-          data-fathom-event="Share: Mastodon"
-          aria-label="Share on Mastodon, opens in a new tab"
-        >
-          <Icon
-            name="message-circle"
-            class="album-share-section__button-icon"
-            aria-hidden="true"
-          />
-          <span>Mastodon</span>
         </a>
         {/* Revealed only when the browser supports the Web Share API. */}
         <button

@@ -178,41 +178,7 @@ const optionsId = `${idPrefix}-options`;
       selectedGenreValue.textContent = selectedGenreChip?.value || "";
     };
 
-    const restoreChipOrder = () => {
-      for (const chip of chips) {
-        options.append(chip);
-      }
-    };
-
-    const syncCollapsedChipOrder = (isExpanded: boolean, canCollapse: boolean) => {
-      const selectedGenreChip = getSelectedGenreChip();
-
-      if (isExpanded || !canCollapse || !selectedGenreChip) {
-        restoreChipOrder();
-        return;
-      }
-
-      const allGenresChip = chips.find((chip) => !chip.value);
-      restoreChipOrder();
-
-      // Move the active chip in the DOM so collapsed visual order matches keyboard order.
-      if (allGenresChip) {
-        allGenresChip.after(selectedGenreChip);
-        return;
-      }
-
-      options.prepend(selectedGenreChip);
-    };
-
-    const syncInitialChipOrder = () => {
-      for (const chip of chips) {
-        options.append(chip);
-      }
-    };
-
     const setChipVisibility = (isExpanded: boolean, canCollapse: boolean) => {
-      syncCollapsedChipOrder(isExpanded, canCollapse);
-
       if (isExpanded || !canCollapse) {
         for (const chip of chips) {
           chip.removeAttribute("aria-hidden");
@@ -275,7 +241,6 @@ const optionsId = `${idPrefix}-options`;
     }
 
     window.addEventListener("popstate", syncToggleVisibility);
-    syncInitialChipOrder();
     syncToggleVisibility();
 
     if (typeof ResizeObserver !== "undefined") {

@@ -38,4 +38,4 @@ export function getAlbumCoverImageUrl(coverImage: string): string {
   return toAbsoluteAssetUrl(image, MUSIC_SITE_URL);
 }
 
-export { musicDefaultOgImage, musicDefaultOgImageUrl };
+export { musicDefaultOgImageUrl };
