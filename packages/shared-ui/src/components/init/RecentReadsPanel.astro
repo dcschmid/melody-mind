@@ -203,21 +203,7 @@ const resolvedTitleId = titleId ?? `recent-reads-title-${crypto.randomUUID()}`;
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__media::after) {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-scrim) 6%, transparent),
-        transparent 36%
-      ),
-      linear-gradient(
-        180deg,
-        transparent 55%,
-        color-mix(in srgb, var(--surface-scrim) 22%, transparent)
-      );
+    content: none;
   }
 
   .recent-reads-panel__mount :global(.recent-reads-panel__image) {

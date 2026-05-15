@@ -8,6 +8,7 @@ import Layout from "@layouts/Layout.astro";
 import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import Headline from "@shared-ui/components/typography/Headline.astro";
+import Icon from "@shared-ui/components/visual/Icon.astro";
 import Paragraph from "@shared-ui/components/typography/Paragraph.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
@@ -195,7 +196,14 @@ const pageSeo = buildPageSeo({
                     <span class="quiz-section__timeline-copy">
                       {quiz.data.description}
                     </span>
-                    <span class="quiz-section__timeline-action">Play</span>
+                    <span class="quiz-section__timeline-action">
+                      <Icon
+                        name="play"
+                        class="quiz-section__action-icon"
+                        aria-hidden="true"
+                      />
+                      Play
+                    </span>
                   </a>
                 </li>
               ))}
@@ -236,7 +244,14 @@ const pageSeo = buildPageSeo({
                         {quiz.data.description}
                       </span>
                     </span>
-                    <span class="quiz-section__index-action">Play</span>
+                    <span class="quiz-section__index-action">
+                      <Icon
+                        name="play"
+                        class="quiz-section__action-icon"
+                        aria-hidden="true"
+                      />
+                      Play
+                    </span>
                   </a>
                 </li>
               ))}
@@ -273,7 +288,14 @@ const pageSeo = buildPageSeo({
                         {quiz.data.description}
                       </span>
                     </span>
-                    <span class="quiz-section__index-action">Play</span>
+                    <span class="quiz-section__index-action">
+                      <Icon
+                        name="play"
+                        class="quiz-section__action-icon"
+                        aria-hidden="true"
+                      />
+                      Play
+                    </span>
                   </a>
                 </li>
               ))}
@@ -449,9 +471,11 @@ const pageSeo = buildPageSeo({
 
   .quiz-section__index-image {
     display: block;
-    inline-size: 100%;
+    inline-size: 5rem;
+    block-size: calc(5rem * 2 / 3);
     aspect-ratio: 3 / 2;
     object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-md);
   }
 
@@ -478,15 +502,40 @@ const pageSeo = buildPageSeo({
   }
 
   .quiz-section__index-action {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: 2.75rem;
+    padding: 0.62rem 1rem;
     font-weight: 700;
-    color: var(--accent-primary);
+    line-height: 1;
+    color: var(--accent-contrast);
+    background-color: var(--accent-primary);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 70%, transparent);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0.55rem 1.25rem
+      color-mix(in srgb, var(--accent-primary) 18%, transparent);
+  }
+
+  .quiz-section__action-icon {
+    flex: 0 0 auto;
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
   .quiz-section__index-link:hover .quiz-section__index-title,
-  .quiz-section__index-link:focus-visible .quiz-section__index-title,
+  .quiz-section__index-link:focus-visible .quiz-section__index-title {
+    color: var(--accent-strong);
+  }
+
   .quiz-section__index-link:hover .quiz-section__index-action,
   .quiz-section__index-link:focus-visible .quiz-section__index-action {
-    color: var(--accent-strong);
+    color: var(--accent-contrast);
+    background-color: var(--accent-primary-hover);
+    border-color: color-mix(in srgb, var(--accent-primary-hover) 76%, transparent);
+    box-shadow: 0 0.8rem 1.65rem
+      color-mix(in srgb, var(--accent-primary) 24%, transparent);
   }
 
   @media (width <= 639px) {
@@ -563,9 +612,11 @@ const pageSeo = buildPageSeo({
 
   .quiz-section__timeline-image {
     display: block;
-    inline-size: 100%;
+    inline-size: 5rem;
+    block-size: calc(5rem * 2 / 3);
     aspect-ratio: 3 / 2;
     object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-md);
   }
 
@@ -581,15 +632,65 @@ const pageSeo = buildPageSeo({
   }
 
   .quiz-section__timeline-action {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: 2.75rem;
+    padding: 0.62rem 1rem;
     font-weight: 700;
-    color: var(--accent-primary);
+    line-height: 1;
+    color: var(--accent-contrast);
+    background-color: var(--accent-primary);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 70%, transparent);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0.55rem 1.25rem
+      color-mix(in srgb, var(--accent-primary) 18%, transparent);
   }
 
   .quiz-section__timeline-link:hover .quiz-section__timeline-year,
-  .quiz-section__timeline-link:focus-visible .quiz-section__timeline-year,
+  .quiz-section__timeline-link:focus-visible .quiz-section__timeline-year {
+    color: var(--accent-strong);
+  }
+
   .quiz-section__timeline-link:hover .quiz-section__timeline-action,
   .quiz-section__timeline-link:focus-visible .quiz-section__timeline-action {
-    color: var(--accent-strong);
+    color: var(--accent-contrast);
+    background-color: var(--accent-primary-hover);
+    border-color: color-mix(in srgb, var(--accent-primary-hover) 76%, transparent);
+    box-shadow: 0 0.8rem 1.65rem
+      color-mix(in srgb, var(--accent-primary) 24%, transparent);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .quiz-section__index-action,
+    .quiz-section__timeline-action {
+      transition:
+        background-color 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease,
+        color 160ms ease,
+        transform 160ms ease;
+    }
+
+    .quiz-section__index-link:hover .quiz-section__index-action,
+    .quiz-section__index-link:focus-visible .quiz-section__index-action,
+    .quiz-section__timeline-link:hover .quiz-section__timeline-action,
+    .quiz-section__timeline-link:focus-visible .quiz-section__timeline-action {
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (width >= 640px) {
+    .quiz-section__index-image {
+      inline-size: 9rem;
+      block-size: 6rem;
+    }
+
+    .quiz-section__timeline-image {
+      inline-size: 8rem;
+      block-size: calc(8rem * 2 / 3);
+    }
   }
 
   @media (width <= 639px) {

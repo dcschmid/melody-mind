@@ -48,38 +48,17 @@ const importedSectionImage = getKnowledgeTaxonomyImage(section.image) || undefin
   }
 
   .taxonomy-section-hero :global(.taxonomy-section-hero__teaser.hero-teaser) {
-    background:
-      radial-gradient(
-        circle at top right,
-        color-mix(in srgb, var(--accent-primary) 12%, transparent),
-        transparent 38%
-      ),
-      linear-gradient(
-        160deg,
-        color-mix(in srgb, var(--surface-2) 98%, transparent),
-        color-mix(in srgb, var(--surface-1) 94%, transparent)
-      );
+    background: var(--surface-2);
     border-color: var(--surface-border-soft);
     box-shadow: var(--shadow-lg);
   }
 
   .taxonomy-section-hero :global(.taxonomy-section-hero__teaser.hero-teaser::after) {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      color-mix(in srgb, var(--accent-primary) 42%, transparent),
-      transparent
-    );
+    background: color-mix(in srgb, var(--accent-primary) 42%, transparent);
   }
 
   .taxonomy-section-hero :global(.taxonomy-section-hero__teaser .hero-teaser__media) {
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-1) 42%, transparent),
-        transparent
-      ),
-      var(--surface-panel-bg);
+    background: var(--surface-panel-bg);
     border-color: var(--surface-border-soft);
     box-shadow: var(--shadow-md);
   }

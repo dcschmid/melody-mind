@@ -309,10 +309,10 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       --music-menu-line: var(--border-muted);
       --music-menu-accent: var(--accent-primary);
       --music-menu-active-text: var(--link-hover);
-      --music-menu-active-bg: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--accent-primary) 28%, var(--surface-2)),
-        color-mix(in srgb, var(--accent-strong) 22%, var(--surface-2))
+      --music-menu-active-bg: color-mix(
+        in srgb,
+        var(--accent-primary) 28%,
+        var(--surface-2)
       );
       --music-menu-chip-bg: color-mix(in srgb, var(--surface-1) 74%, transparent);
       --music-menu-chip-border: color-mix(
@@ -320,11 +320,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
         var(--accent-primary) 34%,
         var(--border-muted)
       );
-      --music-menu-cta-bg: linear-gradient(
-        100deg,
-        var(--accent-primary),
-        var(--accent-strong)
-      );
+      --music-menu-cta-bg: var(--accent-primary);
       --music-menu-cta-text: var(--button-text-accent);
       --music-menu-cta-shadow: color-mix(
         in srgb,
@@ -344,18 +340,10 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       --music-menu-line: var(--border-muted);
       --music-menu-accent: var(--accent-primary);
       --music-menu-active-text: var(--accent-strong);
-      --music-menu-active-bg: linear-gradient(
-        90deg,
-        var(--surface-3),
-        color-mix(in srgb, var(--surface-1) 76%, var(--bg-secondary))
-      );
+      --music-menu-active-bg: var(--surface-3);
       --music-menu-chip-bg: var(--surface-1);
       --music-menu-chip-border: var(--border-muted);
-      --music-menu-cta-bg: linear-gradient(
-        100deg,
-        var(--accent-primary),
-        var(--accent-strong)
-      );
+      --music-menu-cta-bg: var(--accent-primary);
       --music-menu-cta-text: var(--button-text-accent);
       --music-menu-cta-shadow: color-mix(
         in srgb,
@@ -472,9 +460,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       padding: 1rem;
       overflow-y: auto;
       color: var(--music-menu-text);
-      background:
-        radial-gradient(circle at 100% 0, var(--music-menu-bg-glow), transparent 12rem),
-        linear-gradient(180deg, var(--music-menu-bg-start), var(--music-menu-bg-end));
+      background: var(--music-menu-bg-start);
       border: 1px solid var(--music-menu-line);
       border-radius: 1rem;
       box-shadow: var(--shadow-2xl);

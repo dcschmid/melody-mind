@@ -1,6 +1,5 @@
 ---
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
-import Icon from "@shared-ui/components/visual/Icon.astro";
 import OptimizedImage from "@shared-ui/components/media/OptimizedImage.astro";
 import { getAlbumVisibleCountLabel } from "./albumGridLabels";
 import type { Entry } from "./types";
@@ -11,18 +10,11 @@ interface Props {
   emptyDescription: string;
   initialGenreValue: string;
   initialVisibleAlbumCount: number;
-  listenNowLabel: string;
   title: string;
 }
 
-const {
-  albums,
-  emptyDescription,
-  initialGenreValue,
-  initialVisibleAlbumCount,
-  listenNowLabel,
-  title,
-} = Astro.props;
+const { albums, emptyDescription, initialGenreValue, initialVisibleAlbumCount, title } =
+  Astro.props;
 const GRID_COVER_IMAGE_WIDTHS = [160, 240, 320, 480];
 const GRID_COVER_IMAGE_SIZES =
   "(max-width: 440px) calc((100vw - 3.25rem) / 2), (max-width: 760px) calc((100vw - 4rem) / 3), (max-width: 1180px) calc((100vw - 7rem) / 4), min(13rem, calc((100vw - 10rem) / 6))";
@@ -78,21 +70,6 @@ const GRID_COVER_IMAGE_SIZES =
                 <span class="album-grid-section__kicker">{album.genre}</span>
               )}
               <span class="album-grid-section__title">{album.title}</span>
-              <span class="album-grid-section__notes">
-                {[album.moodSummary, `${album.trackCount} tracks`]
-                  .filter(Boolean)
-                  .join(" · ")}
-              </span>
-              <span class="album-grid-section__description">{album.description}</span>
-              <span class="album-grid-section__footer">
-                {album.totalDurationLabel && (
-                  <span class="album-grid-section__meta">
-                    <Icon name="clock" aria-hidden="true" />
-                    {album.totalDurationLabel}
-                  </span>
-                )}
-                <span class="album-grid-section__listen">{listenNowLabel}</span>
-              </span>
             </span>
           </a>
         </li>
@@ -240,12 +217,6 @@ const GRID_COVER_IMAGE_SIZES =
     --album-card-kicker-size: 0.68rem;
     --album-card-title-size: 1rem;
     --album-card-title-size-compact: 0.94rem;
-    --album-card-notes-size: 0.78rem;
-    --album-card-description-size: 0.82rem;
-    --album-card-description-min-block-size: 2.35rem;
-    --album-card-meta-size: 0.82rem;
-    --album-card-listen-padding: 0.34rem 0.65rem;
-    --album-card-listen-size: 0.72rem;
     --album-card-bg: color-mix(in srgb, var(--music-home-paper) 86%, transparent);
     --album-card-bg-hover: color-mix(
       in srgb,
@@ -256,6 +227,16 @@ const GRID_COVER_IMAGE_SIZES =
       in srgb,
       var(--music-home-accent) 42%,
       var(--music-home-line)
+    );
+    --album-card-border: color-mix(
+      in srgb,
+      var(--music-home-line) 78%,
+      var(--music-home-accent) 22%
+    );
+    --album-card-inner-border: color-mix(
+      in srgb,
+      var(--music-home-paper) 74%,
+      transparent
     );
     --album-card-lift: -0.06rem;
     --album-card-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -275,7 +256,7 @@ const GRID_COVER_IMAGE_SIZES =
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: var(--album-card-gap);
-    align-items: stretch;
+    align-items: start;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -294,14 +275,14 @@ const GRID_COVER_IMAGE_SIZES =
 
   .album-grid-section__card {
     display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-    block-size: 100%;
+    grid-template-rows: auto auto;
     overflow: hidden;
     color: var(--music-home-ink);
     text-decoration: none;
     background-color: var(--album-card-bg);
-    border: 1px solid var(--music-home-line);
+    border: 2px solid var(--album-card-border);
     border-radius: var(--album-card-radius);
+    box-shadow: inset 0 0 0 1px var(--album-card-inner-border);
   }
 
   .album-grid-section__card:hover,
@@ -329,9 +310,7 @@ const GRID_COVER_IMAGE_SIZES =
 
   .album-grid-section__body {
     display: grid;
-    grid-template-rows:
-      auto auto auto minmax(var(--album-card-description-min-block-size), 1fr)
-      auto;
+    grid-template-rows: auto auto;
     gap: 0.32rem;
     min-inline-size: 0;
     padding: var(--album-card-space);
@@ -362,58 +341,6 @@ const GRID_COVER_IMAGE_SIZES =
     text-wrap: balance;
   }
 
-  .album-grid-section__description {
-    display: -webkit-box;
-    min-block-size: var(--album-card-description-min-block-size);
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    font-size: var(--album-card-description-size);
-    line-height: 1.4;
-    color: var(--music-home-muted);
-    -webkit-box-orient: vertical;
-    text-wrap: pretty;
-  }
-
-  .album-grid-section__notes {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: var(--album-card-notes-size);
-    line-height: 1.35;
-    color: var(--music-home-muted);
-    white-space: nowrap;
-  }
-
-  .album-grid-section__footer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    align-self: end;
-    justify-content: space-between;
-    margin-block-start: 0.25rem;
-  }
-
-  .album-grid-section__meta {
-    display: inline-flex;
-    gap: 0.25rem;
-    align-items: center;
-    font-size: var(--album-card-meta-size);
-    font-variant-numeric: tabular-nums;
-    color: var(--music-home-muted);
-  }
-
-  .album-grid-section__listen {
-    flex: 0 0 auto;
-    padding: var(--album-card-listen-padding);
-    font-size: var(--album-card-listen-size);
-    font-weight: 900;
-    line-height: 1;
-    color: var(--music-home-accent);
-    border: 1px solid
-      color-mix(in srgb, var(--music-home-accent) 34%, var(--music-home-line));
-    border-radius: 999px;
-  }
-
   .album-grid-section__card:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
@@ -433,26 +360,12 @@ const GRID_COVER_IMAGE_SIZES =
     }
 
     .album-grid-section__body {
-      grid-template-rows: auto auto auto minmax(2.35rem, 1fr) auto;
+      grid-template-rows: auto auto;
       padding: var(--album-card-space-compact);
-    }
-
-    .album-grid-section__listen {
-      display: none;
-    }
-
-    .album-grid-section__description {
-      display: -webkit-box;
-      min-block-size: auto;
-      -webkit-line-clamp: 2;
     }
 
     .album-grid-section__title {
       font-size: var(--album-card-title-size-compact);
-    }
-
-    .album-grid-section__footer {
-      margin: 0;
     }
   }
 
@@ -462,11 +375,7 @@ const GRID_COVER_IMAGE_SIZES =
     }
 
     .album-grid-section__body {
-      grid-template-rows: auto auto auto auto;
-    }
-
-    .album-grid-section__description {
-      display: none;
+      grid-template-rows: auto auto;
     }
   }
 

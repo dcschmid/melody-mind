@@ -85,16 +85,17 @@ const titleId = `album-page-title-${id}`;
     display: grid;
     inline-size: 100%;
     min-inline-size: 0;
-    min-block-size: min(42rem, calc(100svh - 4.5rem));
-    padding: max(clamp(1.5rem, 5vw, 3.8rem), 6rem) clamp(1.25rem, 5vw, 4.5rem)
-      clamp(1.5rem, 5vw, 3.8rem);
+    min-block-size: min(37rem, calc(100svh - 4.5rem));
+    padding: max(clamp(1.25rem, 4vw, 3rem), 5.35rem) clamp(1.25rem, 5vw, 4.5rem)
+      clamp(1.25rem, 4vw, 3rem);
     overflow: hidden;
     isolation: isolate;
   }
 
   .album-hero__lockup {
     display: grid;
-    gap: clamp(var(--spacing-lg), 5vw, calc(var(--spacing-3xl) + var(--spacing-xs)));
+    gap: clamp(var(--spacing-base), 2.2vw, var(--spacing-xl))
+      clamp(var(--spacing-lg), 5vw, calc(var(--spacing-3xl) + var(--spacing-xs)));
     align-items: center;
     inline-size: 100%;
     min-inline-size: 0;
@@ -127,7 +128,7 @@ const titleId = `album-page-title-${id}`;
 
   .album-hero__title-panel {
     display: grid;
-    gap: clamp(var(--spacing-md), 2vw, calc(var(--spacing-base) + var(--spacing-xs)));
+    gap: clamp(var(--spacing-sm), 1vw, var(--spacing-base));
     align-content: center;
     min-inline-size: 0;
   }
@@ -154,7 +155,7 @@ const titleId = `album-page-title-${id}`;
     max-inline-size: 13ch;
     margin: 0;
     font-family: var(--font-sans);
-    font-size: clamp(2.8rem, 2.2rem + 3vw, 5.35rem);
+    font-size: clamp(2.45rem, 1.9rem + 2.35vw, 4.45rem);
     font-weight: 500;
     line-height: 0.96;
     color: var(--album-hero-ink);
@@ -166,8 +167,8 @@ const titleId = `album-page-title-${id}`;
   .album-hero__description {
     max-inline-size: 58ch;
     margin: 0;
-    font-size: clamp(1rem, 0.96rem + 0.18vw, 1.13rem);
-    line-height: 1.7;
+    font-size: clamp(0.98rem, 0.95rem + 0.15vw, 1.08rem);
+    line-height: 1.62;
     color: var(--album-hero-muted);
     text-wrap: pretty;
     overflow-wrap: anywhere;

@@ -344,23 +344,8 @@ const contentProps = href
     border-block-end: 0;
   }
 
-  /* Subtle corner vignettes: top-light and bottom-dark gradients add depth */
   .content-card__media::after {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: "";
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--surface-scrim) 6%, transparent),
-        transparent 36%
-      ),
-      linear-gradient(
-        180deg,
-        transparent 55%,
-        color-mix(in srgb, var(--surface-scrim) 22%, transparent)
-      );
+    content: none;
   }
 
   .content-card__media--contain {

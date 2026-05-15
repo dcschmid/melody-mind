@@ -106,50 +106,14 @@ const HERO_COVER_IMAGE_SIZES =
     padding: max(clamp(1.5rem, 4.5vw, 3.75rem), 5.75rem) clamp(1.25rem, 5vw, 4.5rem)
       clamp(1rem, 3vw, 2.25rem);
     overflow: hidden;
-    background:
-      radial-gradient(
-        ellipse at 80% 40%,
-        color-mix(in srgb, var(--music-home-accent) 18%, transparent),
-        transparent 40rem
-      ),
-      linear-gradient(135deg, oklch(99% 0.012 78deg), oklch(94% 0.026 72deg));
+    background-color: var(--music-home-paper);
     isolation: isolate;
-  }
-
-  .music-home-hero::after {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    content: "";
-    background:
-      radial-gradient(
-        ellipse at 80% 48%,
-        color-mix(in srgb, var(--music-home-accent) 12%, transparent),
-        transparent 42rem
-      ),
-      linear-gradient(90deg, oklch(99% 0.012 78deg / 0.96) 0%, transparent 68%);
   }
 
   :global([data-theme="dark"]) .music-home-hero {
     --music-home-hero-button-shadow: 0 1rem 2rem oklch(36% 0.17 270deg / 0.3);
 
-    background:
-      radial-gradient(
-        ellipse at 80% 38%,
-        color-mix(in srgb, var(--music-home-accent) 30%, transparent),
-        transparent 48rem
-      ),
-      linear-gradient(135deg, oklch(9% 0.028 252deg), oklch(13% 0.039 255deg));
-  }
-
-  :global([data-theme="dark"]) .music-home-hero::after {
-    background:
-      radial-gradient(
-        ellipse at 80% 48%,
-        color-mix(in srgb, var(--music-home-accent) 16%, transparent),
-        transparent 50rem
-      ),
-      linear-gradient(90deg, oklch(9% 0.028 252deg / 0.96) 0%, transparent 68%);
+    background-color: var(--music-home-paper);
   }
 
   .music-home-hero__copy {
@@ -310,7 +274,7 @@ const HERO_COVER_IMAGE_SIZES =
     line-height: 1.15;
     text-align: center;
     text-shadow: var(--music-home-hero-title-shadow);
-    background: linear-gradient(180deg, transparent, var(--music-home-hero-title-scrim));
+    background: var(--music-home-hero-title-scrim);
   }
 
   .music-home-hero__button:hover,
@@ -396,26 +360,6 @@ const HERO_COVER_IMAGE_SIZES =
       min-block-size: auto;
       padding: 6.45rem 1rem 2.25rem;
       overflow: hidden;
-    }
-
-    .music-home-hero::after {
-      background:
-        radial-gradient(
-          circle at 68% 34%,
-          color-mix(in srgb, var(--music-home-accent) 12%, transparent),
-          transparent 17rem
-        ),
-        linear-gradient(180deg, oklch(99% 0.012 78deg / 0.92), transparent 72%);
-    }
-
-    :global([data-theme="dark"]) .music-home-hero::after {
-      background:
-        radial-gradient(
-          circle at 68% 34%,
-          color-mix(in srgb, var(--music-home-accent) 16%, transparent),
-          transparent 18rem
-        ),
-        linear-gradient(180deg, oklch(9% 0.028 252deg / 0.92), transparent 72%);
     }
 
     .music-home-hero__copy,

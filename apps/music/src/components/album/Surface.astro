@@ -15,14 +15,6 @@
     --music-album-ink: oklch(19% 0.025 52deg);
     --music-album-muted: oklch(39% 0.033 55deg);
     --music-album-line: oklch(83% 0.043 67deg);
-    --music-album-surface-accent-size: 24rem;
-    --music-album-surface-accent-position: 92% 8%;
-    --music-album-secondary-accent-position: 24% 12%;
-    --music-album-fade-position: 74% 28rem;
-    --music-album-fade-clear-size: 16rem;
-    --music-album-fade-size: 34rem;
-    --music-album-content-fade-offset: -4.5rem;
-    --music-album-content-fade-size: 6rem;
 
     position: relative;
     inline-size: min(100%, 100vw);
@@ -30,13 +22,6 @@
     min-block-size: 100svh;
     overflow-x: clip;
     color: var(--music-album-ink);
-    background:
-      radial-gradient(
-        circle at var(--music-album-surface-accent-position),
-        oklch(90% 0.052 61deg / 0.34),
-        transparent 36rem
-      ),
-      linear-gradient(180deg, oklch(98% 0.016 75deg), oklch(94% 0.031 72deg));
     isolation: isolate;
   }
 
@@ -47,31 +32,6 @@
     box-sizing: border-box;
   }
 
-  .album-page-surface::after {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    background:
-      radial-gradient(
-        circle at var(--music-album-fade-position),
-        color-mix(in srgb, var(--music-album-accent) 10%, transparent) 0
-          var(--music-album-fade-clear-size),
-        transparent var(--music-album-fade-size)
-      ),
-      radial-gradient(
-        circle at 24% 12%,
-        color-mix(in srgb, var(--music-album-paper-soft) 52%, transparent),
-        transparent 28rem
-      ),
-      linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--music-album-paper) 76%, transparent) 0%,
-        transparent 72%
-      );
-  }
-
   :global([data-theme="dark"]) .album-page-surface {
     --music-album-accent: oklch(78% 0.16 286deg);
     --music-album-accent-strong: oklch(80% 0.13 252deg);
@@ -80,41 +40,6 @@
     --music-album-ink: oklch(96% 0.012 72deg);
     --music-album-muted: oklch(76% 0.036 252deg);
     --music-album-line: oklch(36% 0.055 252deg);
-    --music-album-surface-accent-size: 25rem;
-    --music-album-surface-accent-position: 72% 9%;
-
-    background:
-      radial-gradient(
-        ellipse at 78% 30%,
-        oklch(44% 0.179 303deg / 0.4),
-        transparent 46rem
-      ),
-      radial-gradient(
-        circle at 24% 12%,
-        oklch(36% 0.143 252deg / 0.28),
-        transparent 26rem
-      ),
-      linear-gradient(180deg, oklch(13% 0.038 255deg), oklch(9% 0.028 252deg));
-  }
-
-  :global([data-theme="dark"]) .album-page-surface::after {
-    background:
-      radial-gradient(
-        circle at var(--music-album-fade-position),
-        color-mix(in srgb, var(--music-album-accent) 16%, transparent) 0
-          var(--music-album-fade-clear-size),
-        transparent var(--music-album-fade-size)
-      ),
-      radial-gradient(
-        circle at 24% 12%,
-        color-mix(in srgb, var(--music-album-accent-strong) 16%, transparent),
-        transparent 30rem
-      ),
-      linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--music-album-paper) 62%, transparent) 0%,
-        transparent 72%
-      );
   }
 
   .album-page-surface__content {
@@ -126,32 +51,8 @@
     margin-inline: auto;
   }
 
-  .album-page-surface__content::before {
-    position: absolute;
-    inset-block-start: var(--music-album-content-fade-offset);
-    inset-inline: 0;
-    z-index: -1;
-    block-size: var(--music-album-content-fade-size);
-    pointer-events: none;
-    content: "";
-    background: linear-gradient(
-      180deg,
-      transparent,
-      color-mix(in srgb, var(--music-album-paper) 56%, transparent) 62%,
-      transparent
-    );
-  }
-
   @media (width <= 760px) {
     .album-page-surface {
-      --music-album-surface-accent-size: 16rem;
-      --music-album-surface-accent-position: 100% 0;
-      --music-album-fade-position: 50% 13rem;
-      --music-album-fade-clear-size: 8rem;
-      --music-album-fade-size: 18rem;
-      --music-album-content-fade-offset: -2rem;
-      --music-album-content-fade-size: 3rem;
-
       inline-size: 100%;
       max-inline-size: 100vw;
     }

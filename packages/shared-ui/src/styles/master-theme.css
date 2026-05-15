@@ -236,11 +236,7 @@
   --border-muted: var(--color-border-muted);
   --border-strong: var(--color-border-strong);
 
-  --page-background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--surface-1) 28%, var(--bg-primary)),
-    var(--bg-primary)
-  );
+  --page-background: var(--bg-primary);
   --surface-overlay: color-mix(in srgb, var(--surface-1) 84%, transparent);
   --surface-scrim: color-mix(in srgb, var(--text-primary) 24%, transparent);
   --interactive-shadow-focus: 0 0 0 3px
@@ -255,7 +251,6 @@
   --brand-spotify: #1db954;
   --brand-deezer: #ff0090;
   --brand-applemusic: #fc3c44;
-
 }
 
 /* =============================================================================
@@ -296,18 +291,13 @@
     --border-muted: var(--color-dark-border-muted);
     --border-strong: var(--color-dark-border-strong);
 
-    --page-background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
-      var(--bg-primary)
-    );
+    --page-background: var(--bg-primary);
     --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
     --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
     --interactive-shadow-focus: 0 0 0 3px
       color-mix(in srgb, var(--focus-ring-color-dark) 32%, transparent);
     --button-text-accent: var(--color-dark-bg-primary);
     --focus-ring-color: var(--focus-ring-color-dark);
-
   }
 }
 
@@ -352,11 +342,7 @@
   --border-muted: var(--color-dark-border-muted);
   --border-strong: var(--color-dark-border-strong);
 
-  --page-background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
-    var(--bg-primary)
-  );
+  --page-background: var(--bg-primary);
   --surface-overlay: color-mix(in srgb, var(--surface-1) 72%, transparent);
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
   --interactive-shadow-focus: 0 0 0 3px
@@ -374,11 +360,7 @@
   --button-padding-y: var(--spacing-sm);
   --button-padding-x: var(--spacing-lg);
   --button-font-weight: var(--font-weight-semibold);
-  --button-primary-bg: linear-gradient(
-    135deg,
-    var(--accent-primary),
-    color-mix(in srgb, var(--accent-primary) 76%, var(--accent-strong))
-  );
+  --button-primary-bg: var(--accent-primary);
 
   /* Typography */
   --prose-line-height: var(--line-height-relaxed);

@@ -45,12 +45,7 @@ const hasTitleSlot = Astro.slots.has("title");
     padding: var(--panel-padding-md);
     margin-block: var(--content-margin-block);
     overflow: hidden;
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--surface-panel-raised) 98%, transparent),
-      color-mix(in srgb, var(--surface-panel-bg) 94%, transparent) 62%,
-      color-mix(in srgb, var(--surface-panel-raised) 96%, transparent)
-    );
+    background: var(--surface-panel-raised);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-xl);
     box-shadow:

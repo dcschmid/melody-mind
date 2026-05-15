@@ -181,12 +181,10 @@ const footerGroups: FooterGroup[] = [
     inset-inline: clamp(1rem, 4vw, 4rem);
     block-size: 1px;
     content: "";
-    background: linear-gradient(
-      90deg,
-      transparent,
-      color-mix(in srgb, var(--music-footer-accent) 18%, var(--music-footer-line)) 18%,
-      color-mix(in srgb, var(--music-footer-accent) 18%, var(--music-footer-line)) 82%,
-      transparent
+    background: color-mix(
+      in srgb,
+      var(--music-footer-accent) 18%,
+      var(--music-footer-line)
     );
   }
 

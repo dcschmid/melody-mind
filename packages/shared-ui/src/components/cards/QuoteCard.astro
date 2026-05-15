@@ -175,11 +175,7 @@ const classes = ["quote-card", className].filter(Boolean).join(" ");
     inline-size: var(--icon-shell-size-md);
     block-size: var(--icon-shell-size-md);
     overflow: hidden;
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--accent-primary) 20%, var(--surface-1)),
-      color-mix(in srgb, var(--surface-panel-bg) 92%, transparent)
-    );
+    background: color-mix(in srgb, var(--accent-primary) 20%, var(--surface-1));
     border: 1px solid color-mix(in srgb, var(--surface-border-soft) 92%, transparent);
     border-radius: var(--radius-lg);
   }

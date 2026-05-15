@@ -228,37 +228,11 @@ const themeInitScript = enableThemeInit
   }
 
   .app__main--ambient::before {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-overlay) 52%, transparent),
-      transparent 12rem
-    );
+    content: none;
   }
 
   .app__main--ambient::after {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    background:
-      linear-gradient(
-        180deg,
-        transparent,
-        color-mix(in srgb, var(--surface-1) 16%, transparent) 35%,
-        transparent 65%
-      ),
-      radial-gradient(
-        circle at 85% 14rem,
-        color-mix(in srgb, var(--accent-muted) 14%, transparent),
-        transparent 24rem
-      );
-    opacity: 0.85;
+    content: none;
   }
 
   @media (prefers-reduced-motion: reduce) {

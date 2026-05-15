@@ -259,11 +259,7 @@ const searchArtworkItems = availableAlbums.map((entry: AlbumEntry) => {
     inline-size: 3.75rem;
     block-size: 3.75rem;
     overflow: hidden;
-    background: linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--search-palette-accent) 16%, transparent),
-      color-mix(in srgb, var(--surface-2) 92%, transparent)
-    );
+    background: color-mix(in srgb, var(--search-palette-accent) 16%, var(--surface-2));
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-sm);
     box-shadow: 0 0.45rem 1rem oklch(18% 0.032 45deg / 0.12);

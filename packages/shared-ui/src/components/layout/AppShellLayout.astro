@@ -246,57 +246,19 @@ const keywords = mergedKeywords
     --music-accent-primary: var(--accent-primary);
     --music-accent-strong: var(--accent-strong);
 
-    background:
-      radial-gradient(
-        circle at 92% 8%,
-        color-mix(in srgb, var(--surface-3) 62%, transparent),
-        transparent 36rem
-      ),
-      linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+    background: var(--bg-primary);
   }
 
   :global([data-theme="dark"] .melodymind-app) {
     --music-accent-primary: var(--accent-primary);
     --music-accent-strong: var(--accent-strong);
 
-    background:
-      radial-gradient(
-        ellipse at 78% 20%,
-        color-mix(in srgb, var(--accent-primary) 38%, transparent),
-        transparent 48rem
-      ),
-      radial-gradient(
-        circle at 24% 12%,
-        color-mix(in srgb, var(--accent-strong) 28%, transparent),
-        transparent 26rem
-      ),
-      linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
+    background: var(--bg-primary);
   }
 
   :global(.melodymind-app__main) {
     position: relative;
     isolation: isolate;
-  }
-
-  :global(.melodymind-app__main)::before {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    content: "";
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 14%, transparent),
-      transparent 22rem
-    );
-  }
-
-  :global([data-theme="dark"] .melodymind-app__main)::before {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--surface-1) 18%, transparent),
-      transparent 22rem
-    );
   }
 
   :global(.melodymind-app__shell) {
