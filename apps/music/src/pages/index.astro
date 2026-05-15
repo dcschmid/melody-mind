@@ -238,7 +238,7 @@ const structuredData = [
             genreOptions={genreOptions}
             genreCounts={genreCounts}
             totalGenreCount={totalGenreCount}
-            idPrefix="music-home-genre-filter"
+            idPrefix="genre"
             initialGenreValue={initialGenreValue}
             initialSortValue={initialSortValue}
             lessGenresLabel={t.lessGenres}
@@ -287,7 +287,6 @@ const structuredData = [
     min-block-size: 100svh;
     overflow-x: clip;
     color: var(--music-home-ink);
-    background: var(--music-home-paper);
   }
 
   .music-home,
@@ -305,8 +304,6 @@ const structuredData = [
     --music-home-ink: oklch(96% 0.012 72deg);
     --music-home-muted: oklch(76% 0.036 252deg);
     --music-home-line: oklch(36% 0.055 252deg);
-
-    background: var(--music-home-paper);
   }
 
   .music-home__content {
