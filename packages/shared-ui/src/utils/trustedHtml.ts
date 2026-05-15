@@ -9,7 +9,7 @@ export type TrustedHtml = string & {
   readonly [trustedHtmlBrand]: true;
 };
 
-export const trustedHtml = (value: string): TrustedHtml => value as TrustedHtml;
+const trustedHtml = (value: string): TrustedHtml => value as TrustedHtml;
 
 export const trustedHtmlList = <const Values extends readonly string[]>(
   values: Values

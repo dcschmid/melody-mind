@@ -1,316 +1,356 @@
 ---
-import AccessibleExternalLink from "@shared-ui/components/links/AccessibleExternalLink.astro";
-import Paragraph from "../typography/Paragraph.astro";
-import ThemeToggle from "../actions/ThemeToggle.astro";
-import {
-  buildDefaultCopyrightText,
-  DEFAULT_APP_SHELL_COPYRIGHT_YEAR,
-  type AppShellFooterConfig,
-} from "@shared-utils/utils/appShell";
+import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { AppShellFooterConfig, AppShellLink } from "@shared-utils/utils/appShell";
+import type { ImageMetadata } from "astro";
 
-type FooterLink = AppShellFooterConfig["exploreLinks"][number];
-type FooterConfig = AppShellFooterConfig;
+import ThemeToggle from "@shared-ui/components/actions/ThemeToggle.astro";
 
 interface Props {
-  footerConfig?: FooterConfig;
-  brandTitle?: string;
-  brandText?: string;
-  exploreTitle?: string;
-  exploreLinks?: FooterLink[];
-  supportTitle?: string;
-  supportLinks?: FooterLink[];
-  legalTitle?: string;
-  legalLinks?: FooterLink[];
-  settingsTitle?: string;
-  showSettings?: boolean;
-  copyrightText?: string;
+  footerConfig: AppShellFooterConfig;
+  brandLogoSrc: string | ImageMetadata;
+  brandLogoAlt?: string;
+  brandHref?: string;
+  brandAriaLabel?: string;
+}
+
+interface FooterGroup {
+  id: string;
+  title: string;
+  links: AppShellLink[];
+  ariaLabel: string;
 }
 
 const {
   footerConfig,
-  brandTitle = "MelodyMind",
-  brandText = "Curated guides, playlists, and tools for focused listening.",
-  exploreTitle = "Explore",
-  exploreLinks = [],
-  supportTitle = "Support",
-  supportLinks = [],
-  legalTitle = "Legal",
-  legalLinks = [],
-  settingsTitle = "Settings",
-  showSettings = true,
-  copyrightText = buildDefaultCopyrightText(DEFAULT_APP_SHELL_COPYRIGHT_YEAR),
+  brandLogoSrc,
+  brandLogoAlt = "Melody Mind",
+  brandHref = "/",
+  brandAriaLabel = "Go to the MelodyMind homepage",
 } = Astro.props as Props;
+const logoSrc = typeof brandLogoSrc === "string" ? brandLogoSrc : brandLogoSrc.src;
+const logoWidth = typeof brandLogoSrc === "string" ? 700 : brandLogoSrc.width;
+const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
+const getFooterFathomEvent = (groupId: string, link: AppShellLink): string => {
+  if (groupId === "support") {
+    return `Support: ${link.label}`;
+  }
 
-const resolvedFooterConfig = {
-  brandTitle,
-  brandText,
-  exploreTitle,
-  exploreLinks,
-  supportTitle,
-  supportLinks,
-  legalTitle,
-  legalLinks,
-  settingsTitle,
-  showSettings,
-  copyrightText,
-  ...footerConfig,
+  if (groupId === "legal") {
+    return `Legal: ${link.label}`;
+  }
+
+  return `External: ${link.label}`;
 };
+
+const footerGroups: FooterGroup[] = [
+  {
+    id: "explore",
+    title: footerConfig.exploreTitle || "Explore",
+    links: footerConfig.exploreLinks,
+    ariaLabel: "Music footer navigation",
+  },
+  {
+    id: "support",
+    title: footerConfig.supportTitle || "Support",
+    links: footerConfig.supportLinks,
+    ariaLabel: "Music support links",
+  },
+  {
+    id: "legal",
+    title: footerConfig.legalTitle || "Legal",
+    links: footerConfig.legalLinks,
+    ariaLabel: "Music legal links",
+  },
+].filter((group) => group.links.length > 0);
 ---
 
-<footer class="site-footer footer-shell" role="contentinfo">
-  <div class="footer-shell__container">
-    <div class="footer-shell__main">
-      <div class="site-footer__grid">
-        <div class="site-footer__section site-footer__section--brand">
-          <Paragraph textSize="sm" className="site-footer__title">
-            {resolvedFooterConfig.brandTitle}
-          </Paragraph>
-          <Paragraph textSize="sm" className="site-footer__text">
-            {resolvedFooterConfig.brandText}
-          </Paragraph>
-        </div>
+<footer class="music-footer">
+  <div class="music-footer__inner">
+    <div class="music-footer__brand">
+      <a class="music-footer__brand-link" href={brandHref} aria-label={brandAriaLabel}>
+        <img
+          class="music-footer__logo"
+          src={logoSrc}
+          width={logoWidth}
+          height={logoHeight}
+          alt={brandLogoAlt}
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <p class="music-footer__brand-text">{footerConfig.brandText}</p>
+    </div>
 
-        <div class="site-footer__section">
-          <Paragraph textSize="sm" className="site-footer__title">
-            {resolvedFooterConfig.exploreTitle}
-          </Paragraph>
-          <nav aria-label="Footer navigation" class="site-footer__nav">
-            {
-              resolvedFooterConfig.exploreLinks.map((link) => (
-                <AccessibleExternalLink
-                  className="site-footer__link"
-                  href={link.href}
-                  target={link.target}
-                  rel={link.rel}
-                >
-                  {link.label}
-                </AccessibleExternalLink>
-              ))
-            }
-          </nav>
-        </div>
+    <div class="music-footer__nav-grid">
+      {
+        footerGroups.map((group) => (
+          <section
+            class="music-footer__group"
+            aria-labelledby={`music-footer-${group.id}`}
+          >
+            <h2 class="music-footer__group-title" id={`music-footer-${group.id}`}>
+              {group.title}
+            </h2>
+            <nav class="music-footer__nav" aria-label={group.ariaLabel}>
+              <ul class="music-footer__link-list">
+                {group.links.map((link) => (
+                  <li class="music-footer__link-item">
+                    <a
+                      class="music-footer__link"
+                      href={link.href}
+                      target={link.target}
+                      rel={link.rel}
+                      data-fathom-event={getFooterFathomEvent(group.id, link)}
+                      data-fathom-label={link.label}
+                    >
+                      <span>{link.label}</span>
+                      {link.target === "_blank" && (
+                        <Icon
+                          name="external-link"
+                          class="music-footer__link-icon"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </section>
+        ))
+      }
 
-        <div class="site-footer__section">
-          <Paragraph textSize="sm" className="site-footer__title">
-            {resolvedFooterConfig.supportTitle}
-          </Paragraph>
-          <nav aria-label="Support links" class="site-footer__nav">
-            {
-              resolvedFooterConfig.supportLinks.map((link) => (
-                <AccessibleExternalLink
-                  className="site-footer__link"
-                  href={link.href}
-                  target={link.target}
-                  rel={link.rel}
-                >
-                  {link.label}
-                </AccessibleExternalLink>
-              ))
-            }
-          </nav>
-        </div>
-
-        <div class="site-footer__section">
-          <Paragraph textSize="sm" className="site-footer__title">
-            {resolvedFooterConfig.legalTitle}
-          </Paragraph>
-          <nav aria-label="Legal navigation" class="site-footer__nav">
-            {
-              resolvedFooterConfig.legalLinks.map((link) => (
-                <AccessibleExternalLink
-                  className="site-footer__link"
-                  href={link.href}
-                  target={link.target}
-                  rel={link.rel}
-                >
-                  {link.label}
-                </AccessibleExternalLink>
-              ))
-            }
-          </nav>
-        </div>
-
-        {
-          resolvedFooterConfig.showSettings && (
-            <div class="site-footer__section">
-              <Paragraph textSize="sm" className="site-footer__title">
-                {resolvedFooterConfig.settingsTitle}
-              </Paragraph>
-              <div class="site-footer__settings">
-                <ThemeToggle />
-              </div>
+      {
+        footerConfig.showSettings && (
+          <section
+            class="music-footer__group music-footer__group--settings"
+            aria-labelledby="music-footer-settings"
+          >
+            <h2 class="music-footer__group-title" id="music-footer-settings">
+              {footerConfig.settingsTitle || "Settings"}
+            </h2>
+            <div class="music-footer__settings">
+              <ThemeToggle />
             </div>
-          )
-        }
-      </div>
+          </section>
+        )
+      }
+    </div>
 
-      <div class="footer-shell__bottom site-footer__meta">
-        <Paragraph textSize="sm">{resolvedFooterConfig.copyrightText}</Paragraph>
-      </div>
+    <div class="music-footer__bottom">
+      <p class="music-footer__copyright">{footerConfig.copyrightText}</p>
     </div>
   </div>
 </footer>
 
 <style>
-  /* -----------------------------------------------------------------------------
-     Footer Component Styles (includes former FooterShell)
-     Site footer with navigation links and settings
-     Uses tokenized touch targets and focus states
-     ----------------------------------------------------------------------------- */
+  .music-footer {
+    --music-footer-accent: var(--music-accent-primary, oklch(40% 0.13 16deg));
+    --music-footer-ink: var(--text-primary, oklch(19% 0.025 52deg));
+    --music-footer-muted: var(--text-secondary, oklch(39% 0.033 55deg));
+    --music-footer-line: var(--border-muted, oklch(83% 0.043 67deg));
+    --music-footer-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --music-footer-space-2xs: var(--spacing-2xs, 0.125rem);
+    --music-footer-space-xs: var(--spacing-xs, 0.25rem);
+    --music-footer-space-sm: var(--spacing-sm, 0.5rem);
+    --music-footer-space-md: var(--spacing-md, 0.75rem);
+    --music-footer-space-lg: var(--spacing-lg, 1.5rem);
+    --music-footer-radius-base: var(--radius-base, 0.5rem);
+    --music-footer-target-size: var(--control-min-block-size, 2.5rem);
+    --music-footer-logo-min: 8.2rem;
+    --music-footer-logo-max: 10.4rem;
+    --music-footer-link-icon-size: 0.78rem;
 
-  .footer-shell {
-    margin-block-start: var(--spacing-4xl);
-    background: color-mix(in srgb, var(--surface-1) 64%, var(--bg-primary));
-    border-block-start: 1px solid
-      color-mix(in srgb, var(--accent-primary) 12%, var(--surface-border-soft));
-  }
-
-  .footer-shell__container {
-    display: grid;
-    gap: var(--spacing-2xl);
-    padding-block: var(--spacing-2xl) var(--spacing-xl);
-  }
-
-  .footer-shell__main {
-    display: block;
-  }
-
-  .footer-shell__bottom {
-    display: block;
-    padding-block-start: var(--spacing-lg);
-  }
-
-  @media (width >= 768px) {
-    .footer-shell {
-      margin-block-start: clamp(var(--spacing-4xl), 8vw, 6rem);
-    }
-
-    .footer-shell__container {
-      gap: var(--spacing-3xl);
-      padding-block: var(--spacing-3xl) var(--spacing-2xl);
-    }
-  }
-
-  .site-footer {
+    position: relative;
+    color: var(--music-footer-ink);
     background: transparent;
   }
 
-  .site-footer .footer-shell__container {
-    max-inline-size: min(82rem, var(--page-max-width));
-    padding: var(--spacing-2xl) var(--spacing-lg);
-    margin: 0 auto;
-    color: var(--text-primary);
-  }
-
-  .site-footer__grid {
+  .music-footer__inner {
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
+    gap: clamp(1rem, 2.5vw, 1.7rem);
+    max-inline-size: 90rem;
+    padding: clamp(var(--music-footer-space-lg), 3vw, 2.25rem) clamp(1rem, 4vw, 4rem) 1rem;
+    margin-inline: auto;
   }
 
-  @media (width >= 640px) {
-    .site-footer__grid {
-      grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (width >= 1024px) {
-    .site-footer__grid {
-      grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 0.85fr));
-      gap: clamp(var(--spacing-xl), 2vw, var(--spacing-2xl));
-    }
-  }
-
-  .site-footer__section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-base);
-    min-inline-size: 0;
-    padding: 0;
-    padding-inline-start: var(--spacing-sm);
-  }
-
-  .site-footer__section--brand {
-    padding-inline-start: 0;
-  }
-
-  .site-footer__title {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    color: var(--accent-strong);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-  }
-
-  .site-footer__text {
-    max-inline-size: 30ch;
-    font-size: var(--font-size-sm);
-    line-height: var(--prose-line-height);
-    color: var(--text-secondary);
-  }
-
-  /* Brand section uses warmer accent for visual distinction */
-  .site-footer__section--brand .site-footer__title {
-    color: var(--accent-primary);
-  }
-
-  .site-footer__section--brand .site-footer__text {
-    color: color-mix(in srgb, var(--text-secondary) 85%, var(--accent-primary) 15%);
-  }
-
-  .site-footer__nav,
-  .site-footer__settings {
-    display: grid;
-    gap: var(--spacing-sm);
-  }
-
-  .site-footer__link {
-    display: flex;
-    align-items: center;
-    min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-xs) 0;
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: var(--radius-full);
-    transition:
-      color var(--transition-fast),
-      transform var(--transition-fast);
-  }
-
-  .site-footer__link:hover,
-  .site-footer__link:focus-visible {
-    color: var(--accent-primary);
-    transform: translateX(var(--motion-distance-xs));
-  }
-
-  .site-footer__link:focus-visible {
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  .site-footer__meta {
-    padding-block-start: var(--spacing-xl);
-    font-size: var(--font-size-xs);
-    color: color-mix(in srgb, var(--text-secondary) 88%, var(--accent-primary) 12%);
-  }
-
-  .site-footer__meta::before {
-    display: block;
+  .music-footer__inner::before {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: clamp(1rem, 4vw, 4rem);
     block-size: 1px;
-    margin-block-end: var(--spacing-xl);
     content: "";
-    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-border-soft));
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--music-footer-accent) 18%, var(--music-footer-line)) 18%,
+      color-mix(in srgb, var(--music-footer-accent) 18%, var(--music-footer-line)) 82%,
+      transparent
+    );
   }
 
-  @media (width >= 768px) {
-    .site-footer .footer-shell__container {
-      padding-inline: var(--spacing-xl);
-    }
+  .music-footer__brand {
+    display: grid;
+    gap: var(--music-footer-space-sm);
+    align-content: start;
+    max-inline-size: 31rem;
+  }
+
+  .music-footer__brand-link {
+    display: inline-flex;
+    inline-size: fit-content;
+    border-radius: var(--music-footer-radius-base);
+  }
+
+  .music-footer__brand-link:focus-visible {
+    outline: 2px solid var(--music-footer-accent);
+    outline-offset: 4px;
+  }
+
+  .music-footer__logo {
+    inline-size: clamp(var(--music-footer-logo-min), 14vw, var(--music-footer-logo-max));
+    block-size: auto;
+  }
+
+  .music-footer__brand-text {
+    max-inline-size: 36ch;
+    margin: 0;
+    font-size: clamp(0.84rem, 0.8rem + 0.12vw, 0.94rem);
+    line-height: 1.55;
+    color: var(--music-footer-muted);
+    text-wrap: pretty;
+  }
+
+  .music-footer__nav-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--music-footer-space-md) clamp(1rem, 3vw, 2rem);
+  }
+
+  .music-footer__group {
+    display: grid;
+    gap: var(--music-footer-space-sm);
+    align-content: start;
+  }
+
+  .music-footer__group-title {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 750;
+    line-height: 1.2;
+    color: var(--music-footer-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-wrap: balance;
+  }
+
+  .music-footer__nav {
+    display: grid;
+  }
+
+  .music-footer__link-list {
+    display: grid;
+    gap: var(--music-footer-space-2xs);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .music-footer__link-item {
+    display: flex;
+  }
+
+  .music-footer__link {
+    display: inline-flex;
+    gap: var(--music-footer-space-xs);
+    align-items: center;
+    justify-content: flex-start;
+    inline-size: fit-content;
+    min-block-size: var(--music-footer-target-size);
+    padding-inline: var(--music-footer-space-2xs);
+    font-size: 0.84rem;
+    line-height: 1.25;
+    color: var(--music-footer-muted);
+    text-decoration: none;
+    border-radius: var(--music-footer-radius-base);
+    transition: color 140ms var(--music-footer-ease-out);
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
-    .site-footer__link {
+    .music-footer__link {
       transition: none;
     }
+  }
+
+  .music-footer__link:hover,
+  .music-footer__link:focus {
+    color: var(--music-footer-accent);
+  }
+
+  .music-footer__link:focus-visible {
+    outline: 2px solid var(--music-footer-accent);
+    outline-offset: 4px;
+  }
+
+  .music-footer__link-icon {
+    inline-size: var(--music-footer-link-icon-size);
+    block-size: var(--music-footer-link-icon-size);
+    opacity: 0.68;
+  }
+
+  .music-footer__settings {
+    display: inline-flex;
+    inline-size: fit-content;
+  }
+
+  .music-footer__bottom {
+    padding-block-start: var(--music-footer-space-md);
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--music-footer-accent) 12%, var(--music-footer-line));
+  }
+
+  .music-footer__copyright {
+    margin: 0;
+    font-size: 0.74rem;
+    line-height: 1.45;
+    color: color-mix(in srgb, var(--music-footer-muted) 86%, var(--music-footer-accent));
+  }
+
+  @media (width >= 760px) {
+    .music-footer__inner {
+      grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.6fr);
+      align-items: start;
+    }
+
+    .music-footer__nav-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .music-footer__bottom {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (width <= 560px) {
+    .music-footer__inner {
+      padding-block-start: var(--music-footer-space-md);
+      padding-inline: 1rem;
+    }
+
+    .music-footer__nav-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .music-footer__group--settings {
+      padding-block-start: var(--music-footer-space-xs);
+    }
+  }
+
+  :global([data-theme="dark"]) .music-footer {
+    --music-footer-accent: var(--music-accent-primary, oklch(78% 0.16 286deg));
+    --music-footer-ink: var(--text-primary, oklch(96% 0.012 72deg));
+    --music-footer-muted: var(--text-secondary, oklch(76% 0.036 252deg));
+    --music-footer-line: var(--border-muted, oklch(36% 0.055 252deg));
   }
 </style>

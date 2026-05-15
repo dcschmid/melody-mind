@@ -28,8 +28,7 @@
     "astro-minify-html-swc": "^0.1.11",
     "lightningcss": "^1.32.0",
     "music-metadata": "^11.12.3",
-    "sharp": "^0.34.5",
-    "zod": "^4.3.6"
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",

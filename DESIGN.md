@@ -1,24 +1,27 @@
 ---
 name: MelodyMind
-description: Warm editorial music knowledge and listening surfaces with restrained color and accessible typography.
+description: Unified music-first editorial surfaces with warm paper light mode, violet-blue night mode, shared app chrome, and accessible typography.
 colors:
-  warm-canvas: "#f6f1e8"
-  warm-section: "#ede2d2"
-  warm-elevated: "#decebb"
-  paper-surface: "#fcfaf6"
-  paper-muted: "#f4ece0"
-  paper-strong: "#e9dcc9"
-  ink-primary: "#1c140f"
-  ink-secondary: "#3b2d24"
-  ink-tertiary: "#5a4739"
-  amber-accent: "#72451f"
-  amber-accent-strong: "#583114"
-  amber-accent-hover: "#5f3414"
-  night-canvas: "#08131a"
-  night-surface: "#0e1a22"
-  night-ink-primary: "#f5f7fb"
-  night-ink-secondary: "#d8e3ed"
-  night-accent: "#d4a574"
+  warm-canvas: "oklch(98% 0.016 75deg)"
+  warm-section: "oklch(95% 0.026 74deg)"
+  warm-elevated: "oklch(91% 0.047 25deg)"
+  paper-surface: "oklch(98% 0.014 75deg)"
+  paper-muted: "oklch(94% 0.032 70deg)"
+  paper-strong: "oklch(90% 0.042 62deg)"
+  ink-primary: "oklch(19% 0.025 52deg)"
+  ink-secondary: "oklch(34% 0.032 48deg)"
+  ink-tertiary: "oklch(39% 0.033 55deg)"
+  ember-accent: "oklch(40% 0.13 16deg)"
+  ember-accent-strong: "oklch(38% 0.125 16deg)"
+  ember-accent-hover: "oklch(36% 0.13 16deg)"
+  night-canvas: "oklch(13% 0.038 255deg)"
+  night-surface: "oklch(18% 0.037 255deg)"
+  night-surface-raised: "oklch(22% 0.041 252deg)"
+  night-ink-primary: "oklch(96% 0.012 72deg)"
+  night-ink-secondary: "oklch(82% 0.028 248deg)"
+  night-ink-tertiary: "oklch(76% 0.036 252deg)"
+  night-accent: "oklch(78% 0.16 286deg)"
+  night-accent-strong: "oklch(80% 0.13 252deg)"
 typography:
   display:
     fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, -apple-system, sans-serif"
@@ -71,7 +74,7 @@ spacing:
   4xl: "6rem"
 components:
   button-primary:
-    backgroundColor: "{colors.amber-accent}"
+    backgroundColor: "{colors.ember-accent}"
     textColor: "{colors.paper-surface}"
     rounded: "{rounded.base}"
     padding: "0.5rem 1.5rem"
@@ -91,47 +94,51 @@ components:
 
 ## 1. Overview
 
-**Creative North Star: "The Warm Record Shelf"**
+**Creative North Star: "The Record Shelf With Night Mode"**
 
-MelodyMind should feel like a trusted independent music publication with a well-kept listening room attached. The interface is editorial first: readable, warm, specific, and confident without becoming academic or showy. Users are casual music fans browsing during leisure time, so surfaces should invite exploration while staying calm enough for reading.
+MelodyMind should feel like a trusted independent music publication with a well-kept listening room attached. The interface is editorial first: readable, warm, specific, and confident without becoming academic or showy. It now uses the Music app as the visual source of truth across Music, Quiz, Knowledge, and shared UI.
 
-The system favors warm paper backgrounds, amber-brown accents, generous rhythm, and clear hierarchy. Components should support content rather than compete with it. It explicitly rejects neon-on-dark AI aesthetics, cyan or purple glow, glassmorphism, gradient text, bounce motion, side-stripe card accents, and endless identical card grids.
+The system favors warm paper backgrounds in light mode, a saturated violet-blue music-room atmosphere in dark mode, generous rhythm, and clear hierarchy. Components should support content rather than compete with it. It rejects generic AI gradients, glassmorphism, gradient text, bounce motion, side-stripe card accents, and endless identical card grids.
 
 **Key Characteristics:**
 
-- Warm paper-like light mode is the primary experience.
-- Dark mode is a full reading mode, not an afterthought.
-- Accent color is rare and meaningful.
+- Music app chrome is the shared baseline across apps.
+- Warm paper-like light mode is the editorial daytime experience.
+- Violet-blue dark mode is the immersive listening and night-reading experience.
+- Accent color is meaningful and tied to state, navigation, media, and primary actions.
 - Typography carries hierarchy before boxes and decoration.
 - Motion is short, stateful, and editorial.
 
 ## 2. Colors
 
-The palette is warm, amber-led, and publication-like in light mode, with a cooler night-reading palette for dark mode.
+The palette is warm and publication-like in light mode, with a cooler violet-blue night-reading and listening palette for dark mode. Use OKLCH tokens from `packages/shared-ui/src/styles/master-theme.css` as the source of truth.
 
 ### Primary
 
-- **Warm Canvas** (`#f6f1e8`): The main page background, used to create the paper-like reading base.
-- **Amber Accent** (`#72451f`): Primary actions, active states, focus-adjacent emphasis, and selected media states.
-- **Amber Accent Strong** (`#583114`): Stronger accent contrast and hover depth where the primary amber needs more weight.
+- **Warm Canvas** (`oklch(98% 0.016 75deg)`): The main light-mode page background.
+- **Ember Accent** (`oklch(40% 0.13 16deg)`): Light-mode primary actions, active states, focus-adjacent emphasis, and selected media states.
+- **Night Canvas** (`oklch(13% 0.038 255deg)`): The main dark-mode canvas.
+- **Night Accent** (`oklch(78% 0.16 286deg)`): Dark-mode active states, navigation emphasis, media controls, and primary actions.
 
 ### Neutral
 
-- **Paper Surface** (`#fcfaf6`): Cards, panels, player surfaces, and raised editorial blocks.
-- **Paper Muted** (`#f4ece0`): Secondary panels, quiet chip backgrounds, and layered surfaces.
-- **Ink Primary** (`#1c140f`): Main body and heading text in light mode.
-- **Ink Secondary** (`#3b2d24`): Metadata, secondary labels, and supporting copy.
-- **Ink Tertiary** (`#5a4739`): Hints and low-priority text only.
-- **Night Canvas** (`#08131a`): Main dark-mode canvas.
-- **Night Surface** (`#0e1a22`): Dark-mode panels and card surfaces.
-- **Night Ink Primary** (`#f5f7fb`): Dark-mode primary text.
-- **Night Accent** (`#d4a574`): Dark-mode accent color.
+- **Paper Surface** (`oklch(98% 0.014 75deg)`): Cards, panels, player surfaces, and raised editorial blocks.
+- **Paper Muted** (`oklch(94% 0.032 70deg)`): Secondary panels, quiet chip backgrounds, and layered surfaces.
+- **Ink Primary** (`oklch(19% 0.025 52deg)`): Main body and heading text in light mode.
+- **Ink Secondary** (`oklch(34% 0.032 48deg)`): Metadata, secondary labels, and supporting copy.
+- **Ink Tertiary** (`oklch(39% 0.033 55deg)`): Hints and low-priority text only.
+- **Night Surface** (`oklch(18% 0.037 255deg)`): Dark-mode panels and card surfaces.
+- **Night Surface Raised** (`oklch(22% 0.041 252deg)`): Stronger dark-mode panels, drawers, and menus.
+- **Night Ink Primary** (`oklch(96% 0.012 72deg)`): Dark-mode primary text.
+- **Night Ink Secondary** (`oklch(82% 0.028 248deg)`): Dark-mode supporting text.
 
 ### Named Rules
 
-**The Rare Accent Rule.** Amber earns attention because it is uncommon. Use it for primary actions, current selections, links, and meaningful state, not as general decoration.
+**The Accent Role Rule.** Ember in light mode and violet-blue in dark mode are functional accents. Use them for primary actions, current selections, links, focus-adjacent emphasis, and meaningful media state, not as general decoration.
 
 **The Warm Neutral Rule.** Light-mode neutrals should feel like paper and ink. Avoid flat gray unless a system token already defines it for a specific reason.
+
+**The Night Music Rule.** Dark mode can feel more atmospheric than Knowledge’s old reading theme, but it must stay readable. Saturated violet-blue accents belong in active controls, header navigation, drawer CTAs, and subtle background blooms. Do not turn content cards into neon panels.
 
 ## 3. Typography
 
@@ -198,13 +205,25 @@ MelodyMind uses a hybrid of tonal layering, borders, and soft shadows. Surfaces 
 
 ### Navigation
 
-- **Style:** Clear, predictable, and editorial. Navigation should aid browsing without becoming dense dashboard chrome.
-- **State:** Current and hover states may use amber tint sparingly.
+- **Style:** Use the shared Music app chrome for cross-app consistency. Header, footer, theme toggle, mobile drawer, nav links, and back-to-top live under the established Shared UI component names: `navigation/SiteHeader.astro`, `navigation/HeaderNav.astro`, `navigation/HeaderMobileExtras.astro`, `layout/Footer.astro`, `actions/ThemeToggle.astro`, and `navigation/BackToTop.astro`.
+- **State:** Current and hover states use ember in light mode and violet-blue in dark mode. The search action may use a circular icon button.
+- **Mobile:** The mobile drawer is a compact modal menu with inert page content, focus trapping, clear CTAs, and touch-sized links.
 
 ### Media Players
 
 - **Style:** Warm panel shell with clear controls, visible focus, and explicit text alternatives for lyrics or transcripts.
 - **Motion:** Visualizer motion is acceptable when playback is active, but must respect `prefers-reduced-motion`.
+
+### Shared App Chrome
+
+- `navigation/SiteHeader.astro`: shared responsive header for Music, Quiz, and Knowledge.
+- `navigation/HeaderNav.astro`: shared nav item rendering with active state and search treatment.
+- `navigation/HeaderMobileExtras.astro`: shared mobile drawer chips and CTA area.
+- `layout/Footer.astro`: shared footer with brand area, grouped links, settings, and theme toggle.
+- `actions/ThemeToggle.astro`: shared three-state theme control.
+- `navigation/BackToTop.astro`: shared floating scroll control.
+
+Do not recreate these locally inside an app unless the app needs a fundamentally different product shell. App-specific layouts should configure these components through props or shell config.
 
 ## 6. Do's and Don'ts
 
@@ -212,8 +231,9 @@ MelodyMind uses a hybrid of tonal layering, borders, and soft shadows. Surfaces 
 
 - Use the shared CSS custom properties from `master-theme.css`.
 - Keep light mode warm and paper-like.
-- Keep dark mode calm, readable, and high contrast.
-- Use amber to communicate action, selection, and meaningful state.
+- Keep dark mode atmospheric, readable, and high contrast.
+- Use ember or violet-blue accents to communicate action, selection, and meaningful state.
+- Put reusable cross-app chrome in the established Shared UI component paths instead of a parallel app-specific folder.
 - Build real semantic controls for interactive rows and media actions.
 - Respect `prefers-reduced-motion` for every animation.
 - Keep copy plain, specific, and useful.
@@ -225,6 +245,7 @@ MelodyMind uses a hybrid of tonal layering, borders, and soft shadows. Surfaces 
 - Do not use bounce or elastic motion.
 - Do not add colored side-stripe borders to cards, lists, or alerts.
 - Do not build identical icon-card grids as the default answer.
+- Do not copy app chrome back into individual apps.
 - Do not make gray-on-color text combinations.
 - Do not advertise keyboard shortcuts that are not actually reachable.
 - Do not leave media tracks without a real source or an accessible lyrics/transcript fallback.

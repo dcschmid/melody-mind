@@ -1,8 +1,8 @@
 ---
-title: "From Radio to Streaming: The Complete Story of Pop Music"
-description: "Test your knowledge of pop music history from early radio hits and the British Invasion to synth pioneers, MTV, teen idols, and the global streaming revolution."
+title: "From Radio Pop to Streaming Pop"
+description: "Test your knowledge of pop music history from early radio hits and the British Invasion to synth pioneers, MTV, teen idols, and streaming-era pop."
 seoTitle: "Pop Music Quiz: From Radio to Streaming"
-seoDescription: "Take a pop music quiz covering seven decades - from Elvis and The Beatles to streaming superstars and global pop culture."
+seoDescription: "Take a pop music quiz covering seven decades, from Elvis and The Beatles to teen pop, MTV, and streaming culture."
 featuredTopics:
   - "British Invasion"
   - "Motown"
@@ -233,7 +233,7 @@ questions:
     sourceLine: 454
 
   # Question 16 - Single Choice - EASY
-  - question: "Which German group pioneered minimal electronic music with albums like 'Autobahn' and 'The Man-Machine'?"
+  - question: "Which German group helped pioneer minimal electronic pop with albums like 'Autobahn' and 'The Man-Machine'?"
     type: "single-choice"
     difficulty: "easy"
     options:

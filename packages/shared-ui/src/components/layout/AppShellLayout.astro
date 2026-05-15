@@ -2,9 +2,10 @@
 import type { ImageMetadata } from "astro";
 import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
-import Footer from "@shared-ui/components/layout/Footer.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
 import MasterLayout from "@shared-ui/components/layout/MasterLayout.astro";
+import Footer from "@shared-ui/components/layout/Footer.astro";
+import BackToTop from "@shared-ui/components/navigation/BackToTop.astro";
 import SiteHeader from "@shared-ui/components/navigation/SiteHeader.astro";
 import {
   buildAppShellSeoContext,
@@ -12,6 +13,7 @@ import {
   DEFAULT_APP_SHELL_COPYRIGHT_YEAR,
   type AppShellConfig,
 } from "@shared-utils/utils/appShell";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolveBaseUrl } from "@shared-utils/utils/siteUrls";
 
@@ -116,6 +118,24 @@ const footerConfig = {
       copyrightBrand
     ),
 };
+const headerNavItems = headerConfig.navItems.map((item) => ({
+  href: item.href,
+  label: item.label,
+  icon: (item.icon || "music") as IconName,
+  ...(item.target ? { target: item.target } : {}),
+  ...(item.rel ? { rel: item.rel } : {}),
+}));
+const searchNavItem = headerNavItems.find((item) => item.href.includes("/search")) ||
+  headerNavItems.find((item) => item.label.toLowerCase().includes("search")) ||
+  headerNavItems[headerNavItems.length - 1] || {
+    href: "/search/",
+    label: "Search",
+    icon: "search" as IconName,
+  };
+const mobileExtraLinks = footerConfig.exploreLinks.slice(0, 4).map((link) => ({
+  href: link.href,
+  label: link.label,
+}));
 
 const preloadedResources: Array<{
   href: string;
@@ -129,7 +149,14 @@ const keywords = mergedKeywords
   .filter(Boolean);
 ---
 
-<MasterLayout lang={lang} appTitle={appTitle} enableAmbientMainBackground>
+<MasterLayout
+  lang={lang}
+  appTitle={appTitle}
+  bodyClass="melodymind-app"
+  mainClass="melodymind-app__main"
+  contentShellClass="melodymind-app__shell"
+  showBackToTop={false}
+>
   <Fragment slot="head">
     <AppHeadResources
       {dnsPrefetch}
@@ -174,11 +201,106 @@ const keywords = mergedKeywords
     />
   </Fragment>
 
-  {showHeader && <SiteHeader slot="before-main" headerConfig={headerConfig} />}
+  {
+    showHeader && (
+      <SiteHeader
+        slot="before-main"
+        brandLogoSrc={brandLogoSrc || ""}
+        brandLogoAlt={brandLogoAlt || headerConfig.brandLogoAlt}
+        brandHref={headerConfig.brandHref}
+        brandAriaLabel={headerConfig.brandAriaLabel}
+        navAriaLabel={headerConfig.navAriaLabel}
+        navItems={headerNavItems}
+        searchHref={searchNavItem.href}
+        mobileExtraLinks={mobileExtraLinks}
+        mobileExtraHeading="Explore MelodyMind"
+        mobilePrimaryCtaHref={searchNavItem.href}
+        mobilePrimaryCtaLabel={searchNavItem.label}
+        mobileSecondaryCtaHref={footerConfig.exploreLinks[0]?.href || "/"}
+        mobileSecondaryCtaLabel={footerConfig.exploreLinks[0]?.label || "Explore"}
+      />
+    )
+  }
 
   <slot />
 
-  {showFooter && <Footer slot="after-main" footerConfig={footerConfig} />}
+  {
+    showFooter && (
+      <Footer
+        slot="after-main"
+        footerConfig={footerConfig}
+        brandLogoSrc={brandLogoSrc || ""}
+        brandLogoAlt={brandLogoAlt || headerConfig.brandLogoAlt}
+        brandHref={headerConfig.brandHref}
+        brandAriaLabel={headerConfig.brandAriaLabel}
+      />
+    )
+  }
 
   <AutoInitScript slot="body-end" />
+  <BackToTop slot="body-end" />
 </MasterLayout>
+
+<style>
+  :global(.melodymind-app) {
+    --music-accent-primary: oklch(40% 0.13 16deg);
+    --music-accent-strong: oklch(38% 0.125 16deg);
+
+    background:
+      radial-gradient(circle at 92% 8%, oklch(90% 0.052 61deg / 0.34), transparent 36rem),
+      linear-gradient(180deg, oklch(98% 0.016 75deg), oklch(94% 0.031 72deg));
+  }
+
+  :global([data-theme="dark"] .melodymind-app) {
+    --music-accent-primary: oklch(78% 0.16 286deg);
+    --music-accent-strong: oklch(80% 0.13 252deg);
+
+    background:
+      radial-gradient(
+        ellipse at 78% 20%,
+        oklch(44% 0.179 303deg / 0.38),
+        transparent 48rem
+      ),
+      radial-gradient(
+        circle at 24% 12%,
+        oklch(36% 0.143 252deg / 0.28),
+        transparent 26rem
+      ),
+      linear-gradient(180deg, oklch(13% 0.038 255deg), oklch(9% 0.028 252deg));
+  }
+
+  :global(.melodymind-app__main) {
+    position: relative;
+    isolation: isolate;
+  }
+
+  :global(.melodymind-app__main)::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 14%, transparent),
+      transparent 22rem
+    );
+  }
+
+  :global([data-theme="dark"] .melodymind-app__main)::before {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--surface-1) 18%, transparent),
+      transparent 22rem
+    );
+  }
+
+  :global(.melodymind-app__shell) {
+    min-block-size: 100vb;
+  }
+
+  :global(.melodymind-app__main > *) {
+    position: relative;
+    z-index: 1;
+  }
+</style>

@@ -11,6 +11,7 @@ This document provides essential guidelines for AI agents working on the MelodyM
 - **Editorial Language**: English-only (knowledge-en collection)
 - **Package Manager**: pnpm
 - **Workspace**: Monorepo with `apps/knowledge`, `apps/quiz`, `packages/shared-ui`, and `packages/shared-utils`
+- **Design source of truth**: Music app visual language, shared through `packages/shared-ui`
 
 ## Knowledge Structure
 
@@ -51,6 +52,23 @@ pnpm --filter knowledge check:scoped-css
 **Note**: No test suite. Test manually via dev server.
 
 ## Code Style Guidelines
+
+### Shared Design System
+
+- Cross-app chrome lives under the established shared component names.
+- Reuse these for Music, Quiz, and Knowledge:
+  - `components/navigation/SiteHeader.astro`
+  - `components/navigation/HeaderNav.astro`
+  - `components/navigation/HeaderMobileExtras.astro`
+  - `components/layout/Footer.astro`
+  - `components/actions/ThemeToggle.astro`
+  - `components/navigation/BackToTop.astro`
+- Do not recreate app chrome inside `apps/music`, `apps/quiz`, or `apps/knowledge`
+- Colors and semantic tokens live in `packages/shared-ui/src/styles/master-theme.css`
+- Current visual direction:
+  - Light mode: warm paper, ink, ember accents
+  - Dark mode: music-room night palette with violet-blue accents
+- Keep app-specific page components scoped, but move reusable cross-app UI back into `shared-ui`
 
 ### Import Organization
 

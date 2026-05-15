@@ -2,11 +2,6 @@ export type StructuredDataObject = Record<string, unknown>;
 
 export type StructuredDataExtra = StructuredDataObject | StructuredDataObject[];
 
-export interface AlternateLocaleLink {
-  locale: string;
-  href: string;
-}
-
 export interface OpenGraphMeta {
   title?: string;
   description?: string;

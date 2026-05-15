@@ -21,14 +21,11 @@ const pageSeo = buildPageSeo({
 ---
 
 <Layout {pageSeo} showHeaderIcons={false} showFooter={false}>
-  <PageShell
-    className="page-shell--night page-shell--grid"
-    containerClass="page-shell__container--narrow"
-  >
+  <PageShell className="page-shell--grid" containerClass="page-shell__container--narrow">
     <main>
       <NotFoundContent
         title="Quiz not found"
-        description="This quiz seems to have wandered off. Want to find something else to challenge yourself?"
+        description="This quiz is not available. Choose another quiz and keep playing."
         buttons={[
           { href: "/", label: "Find a quiz", variant: "primary" },
           {

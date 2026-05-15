@@ -1,13 +1,11 @@
 ---
-title: "From Latin to Latin Trap Quiz"
+title: "From Latin Music to Latin Trap"
 description:
   "Test your knowledge of Latin music evolution from Afro-Caribbean rhythms through salsa,
-  reggaeton, and Latin trap. Explore the artists, migrations, and innovations that shaped a
-  global phenomenon."
+  reggaeton, and Latin trap, including the artists, migrations, and production changes that
+  carried these styles across borders."
 seoTitle: "Latin Music Evolution Quiz | From Salsa to Latin Trap"
-seoDescription:
-  "Challenge yourself with questions about Latin music history, from Afro-Cuban roots and
-  salsa legends to reggaeton pioneers and Latin trap superstars."
+seoDescription: "Take a Latin music quiz on Afro-Cuban roots, salsa, reggaeton, Latin pop, and Latin trap."
 featuredTopics:
   - "Salsa"
   - "Reggaeton"
@@ -771,7 +769,7 @@ questions:
       - "Mexico"
     correct: [0, 2]
     explanation:
-      "Panama was the first place where Spanish-language dancehall developed with artists
+      "Panama was an early center for Spanish-language dancehall through artists
       like El General. Puerto Rico then expanded and popularized the genre through
       mixtapes and club culture."
     source: "from-latin-to-latin-trap"
@@ -827,4 +825,81 @@ questions:
       and turning salsa into a recognizable movement."
     source: "from-latin-to-latin-trap"
     sourceLine: 459
+
+  - question:
+      "Which album became the first all-Spanish-language album to reach number one on the
+      Billboard 200 in 2020?"
+    type: single-choice
+    difficulty: medium
+    options:
+      - "X 100PRE"
+      - "El Último Tour Del Mundo"
+      - "YHLQMDLG"
+      - "Colores"
+    correct: 1
+    explanation:
+      "Bad Bunny's El Último Tour Del Mundo reached number one on the Billboard 200 in
+      December 2020. It was the first album with an entirely Spanish-language track list
+      to top that chart, showing how Latin trap and reggaeton could compete at the center
+      of the U.S. album market without switching into English."
+    source: "from-latin-to-latin-trap"
+    sourceLine: 2592
+
+  - question:
+      "Which 2017 song by Luis Fonsi and Daddy Yankee spent 16 weeks at number one on the
+      Billboard Hot 100 after its remix with Justin Bieber?"
+    type: single-choice
+    difficulty: easy
+    options:
+      - "Gasolina"
+      - "Mi Gente"
+      - "Despacito"
+      - "Dákiti"
+    correct: 2
+    explanation:
+      "'Despacito' joined polished pop songwriting to a reggaeton pulse and became a
+      global crossover hit in 2017. The remix featuring Justin Bieber helped it spend 16
+      weeks at number one on the Billboard Hot 100, matching the chart record at that
+      time and proving that Spanish-language pop could dominate U.S. mainstream radio and
+      streaming."
+    source: "from-latin-to-latin-trap"
+    sourceLine: 2072
+
+  - question:
+      "Which Spanish artist became the first woman to win the Latin Grammy Award for Album
+      of the Year twice?"
+    type: single-choice
+    difficulty: medium
+    options:
+      - "Shakira"
+      - "Rosalía"
+      - "Karol G"
+      - "Natalia Lafourcade"
+    correct: 1
+    explanation:
+      "Rosalía became the first woman to win Latin Grammy Album of the Year twice, after
+      winning for El Mal Querer in 2019 and Motomami in 2022. That fact matters because
+      her work moved between flamenco, pop, reggaeton, and experimental club production
+      while still being recognized by a major Latin music institution."
+    source: "from-latin-to-latin-trap"
+    sourceLine: 2767
+
+  - question:
+      "Which producer's session format made the producer a visible lead artist in Latin
+      trap and urban pop collaborations?"
+    type: single-choice
+    difficulty: medium
+    options:
+      - "Bizarrap"
+      - "Tainy"
+      - "Noriega"
+      - "Luny"
+    correct: 0
+    explanation:
+      "Bizarrap's Music Sessions made the producer identity unusually visible. Instead of
+      disappearing behind a singer or rapper, he built a repeatable studio format where
+      each collaboration arrived as a numbered session with its own video, sound, and
+      release moment."
+    source: "from-latin-to-latin-trap"
+    sourceLine: 2711
 ---

@@ -1,8 +1,8 @@
 ---
-title: "From Classical Roots to Neo-Classical Sounds Quiz"
-description: "Test your knowledge of classical music's evolution from Beethoven's symphonies to Max Richter's ambient soundscapes, including modernism, minimalism, and the neo-classical movement."
+title: "From Classical Roots to Neo-Classical Sounds"
+description: "Test your knowledge of classical music's evolution from Beethoven's symphonies to Max Richter's ambient soundscapes, including modernism, minimalism, and neo-classical music."
 seoTitle: "Classical to Neo-Classical Music Quiz | MelodyMind"
-seoDescription: "Challenge yourself with questions about classical music history, minimalism, post-classical composers, and the evolution from traditional orchestral music to modern neo-classical sounds."
+seoDescription: "Take a classical music quiz covering modernism, minimalism, post-classical composers, and neo-classical sounds."
 featuredTopics:
   - "Classical Music History"
   - "Minimalism"

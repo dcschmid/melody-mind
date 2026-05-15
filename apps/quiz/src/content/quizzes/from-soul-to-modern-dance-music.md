@@ -1,8 +1,8 @@
 ---
-title: "From Soul to Electronic Beats Quiz"
-description: "Test your knowledge of how gospel-born soul transformed into funk, disco, house, and techno through the artists, innovations, and cultural movements that shaped every beat."
+title: "From Soul to Modern Dance Music"
+description: "Test your knowledge of how gospel-born soul moved into funk, disco, house, and techno through key artists, studios, clubs, and production ideas."
 seoTitle: "Soul to Dance Music Evolution Quiz | MelodyMind"
-seoDescription: "Challenge yourself with questions about soul music history, funk evolution, disco origins, house music roots, and electronic dance music pioneers."
+seoDescription: "Take a soul and dance music quiz covering funk, disco, house, techno, and electronic dance music pioneers."
 featuredTopics:
   - "Soul Music History"
   - "Funk Evolution"

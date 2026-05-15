@@ -261,7 +261,7 @@ questions:
     sourceLine: 805
 
   # Question 15 - Single Choice - EASY
-  - question: "Who is the engineer most closely associated with inventing dub music?"
+  - question: "Who is the engineer most closely associated with developing dub music?"
     type: "single-choice"
     difficulty: "easy"
     options:
@@ -271,7 +271,7 @@ questions:
       - "Sly Dunbar"
     correct: 1
     explanation:
-      "King Tubby (born Osbourne Ruddock) is most closely associated with inventing dub. He
+      "King Tubby (born Osbourne Ruddock) is most closely associated with developing dub. He
       treated the mixing process as a creative performance, using echo, reverb, and sudden
       drops to transform recordings."
     source: "from-ska-to-global-bass"
@@ -776,7 +776,7 @@ questions:
     sourceLine: 389
 
   # Question 45 - Single Choice - MEDIUM
-  - question: "What British reggae style combined spoken poetry with rhythm, pioneered by Linton Kwesi Johnson?"
+  - question: "What British reggae style combined spoken poetry with rhythm, with Linton Kwesi Johnson as a key pioneer?"
     type: "single-choice"
     difficulty: "medium"
     options:
@@ -786,7 +786,7 @@ questions:
       - "Jungle"
     correct: 1
     explanation:
-      "Dub poetry, pioneered by Linton Kwesi Johnson, combined spoken poetry with reggae
+      "Dub poetry, with Linton Kwesi Johnson as a key pioneer, combined spoken poetry with reggae
       rhythm. His work addressed racism, policing, and political issues, using rhythm as a
       platform for social commentary."
     source: "from-ska-to-global-bass"

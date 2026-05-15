@@ -1,174 +1,254 @@
 ---
-/**
- * @component BackToTop
- * @description Simple back-to-top button with accessibility support.
- */
 import Icon from "@shared-ui/components/visual/Icon.astro";
 
 interface Props {
-  id?: string;
-  className?: string;
-  ariaLabel?: string;
-  scrollThreshold?: number;
   focusTargetId?: string;
+  scrollThreshold?: number;
 }
 
-const {
-  id,
-  className = "",
-  ariaLabel,
-  scrollThreshold,
-  focusTargetId = "main-content",
-} = Astro.props;
-const safeThreshold =
-  typeof scrollThreshold === "number" && scrollThreshold > 0 ? scrollThreshold : 300;
-const buttonId = id?.trim();
-const safeFocusTargetId = focusTargetId.trim() || "main-content";
-const buttonAriaLabel = ariaLabel?.trim() || "Back to top";
-const screenReaderText = "Back to top";
+const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as Props;
 ---
 
 <button
-  id={buttonId || undefined}
-  class={`back-to-top ${className}`.trim()}
-  aria-label={buttonAriaLabel}
+  class="music-back-to-top"
   type="button"
+  aria-label="Back to top"
   aria-hidden="true"
-  data-back-to-top
-  data-focus-target-id={safeFocusTargetId}
-  data-scroll-threshold={safeThreshold}
+  tabindex="-1"
+  data-music-back-to-top
+  data-focus-target-id={focusTargetId}
+  data-scroll-threshold={scrollThreshold}
 >
-  <Icon name="arrow-up" class="back-to-top__icon" aria-hidden="true" />
-  <span class="back-to-top__sr">{screenReaderText}</span>
+  <Icon name="arrow-up" class="music-back-to-top__icon" aria-hidden="true" />
+  <span class="music-back-to-top__label">Back to top</span>
 </button>
 
 <script>
-  import { initBackToTopControls } from "@shared-ui/scripts/interactive/backToTopUtils";
+  const backToTopButtons = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("[data-music-back-to-top]")
+  ).filter((button) => button.dataset.backToTopBound !== "true");
 
-  initBackToTopControls();
+  backToTopButtons.forEach((button) => {
+    button.dataset.backToTopBound = "true";
+
+    const configuredThreshold = Number.parseInt(button.dataset.scrollThreshold || "", 10);
+    const scrollThreshold = Number.isFinite(configuredThreshold)
+      ? configuredThreshold
+      : 180;
+    const focusTargetId = button.dataset.focusTargetId || "main-content";
+    const reducedMotion =
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+    let ticking = false;
+
+    const updateVisibility = () => {
+      const shouldShow = window.scrollY > scrollThreshold;
+
+      button.dataset.visible = shouldShow ? "true" : "false";
+      button.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+      button.tabIndex = shouldShow ? 0 : -1;
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(updateVisibility);
+    };
+
+    const handleClick = () => {
+      const focusTarget = document.getElementById(focusTargetId);
+
+      window.scrollTo({
+        top: 0,
+        behavior: reducedMotion ? "auto" : "smooth",
+      });
+
+      if (focusTarget instanceof HTMLElement && document.activeElement === button) {
+        if (!focusTarget.hasAttribute("tabindex")) {
+          focusTarget.tabIndex = -1;
+        }
+
+        focusTarget.focus({ preventScroll: true });
+      }
+
+      button.dataset.visible = "false";
+      button.setAttribute("aria-hidden", "true");
+      button.tabIndex = -1;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    button.addEventListener("click", handleClick);
+    updateVisibility();
+  });
 </script>
+
 <style>
-  /* -----------------------------------------------------------------------------
-     BackToTop Button Component
-     Fixed position scroll-to-top with accessibility support
-     WCAG AAA compliant with 52px minimum touch target
-     ----------------------------------------------------------------------------- */
+  .music-back-to-top {
+    --music-back-to-top-accent: var(--music-accent-primary, oklch(40% 0.13 16deg));
+    --music-back-to-top-accent-strong: var(--music-accent-strong, oklch(38% 0.125 16deg));
+    --music-back-to-top-panel: color-mix(
+      in srgb,
+      var(--surface-1, var(--bg-primary)) 94%,
+      var(--bg-primary, Canvas)
+    );
+    --music-back-to-top-line: var(--border-strong, var(--surface-border-accent));
+    --music-back-to-top-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --music-back-to-top-icon-size: 1.12rem;
+    --music-back-to-top-size: 3.15rem;
+    --music-back-to-top-size-large: 3.25rem;
+    --music-back-to-top-offset: 1.25rem;
+    --music-back-to-top-offset-large: 1.5rem;
+    --music-back-to-top-state-color: var(--music-back-to-top-accent);
+    --music-back-to-top-state-bg: color-mix(
+      in srgb,
+      var(--music-back-to-top-panel) 96%,
+      transparent
+    );
+    --music-back-to-top-state-shadow:
+      0 0.9rem 1.8rem oklch(20% 0.04 45deg / 0.2),
+      0 0 0 0.28rem color-mix(in srgb, var(--music-back-to-top-accent) 14%, transparent);
+    --music-back-to-top-state-transform: translateY(0.5rem) scale(0.96);
 
-  .back-to-top {
     position: fixed;
-    inset-block-end: calc(var(--spacing-lg) + env(safe-area-inset-bottom, 0px));
-    inset-inline-end: calc(var(--spacing-lg) + env(safe-area-inset-right, 0px));
-    z-index: 30;
-    visibility: hidden;
-
-    /* WCAG AAA minimum touch target size */
-    min-inline-size: var(--control-min-inline-size);
-    min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-sm);
-    color: var(--accent-primary);
+    inset-block-end: calc(
+      max(var(--music-back-to-top-offset), env(safe-area-inset-bottom)) + 0.25rem
+    );
+    inset-inline-end: max(var(--music-back-to-top-offset), env(safe-area-inset-right));
+    z-index: 110;
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    justify-content: center;
+    inline-size: var(--music-back-to-top-size);
+    block-size: var(--music-back-to-top-size);
+    padding: 0;
+    color: var(--music-back-to-top-state-color);
     pointer-events: none;
     cursor: pointer;
-    background: var(--surface-panel-raised);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-full);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--music-back-to-top-state-bg);
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--music-back-to-top-accent) 34%,
+        var(--music-back-to-top-line)
+      );
+    border-radius: 999rem;
+    box-shadow: var(--music-back-to-top-state-shadow);
     opacity: 0;
-
-    /* Smooth transitions */
+    transform: var(--music-back-to-top-state-transform);
     transition:
-      background var(--transition-fast),
-      border-color var(--transition-fast),
-      box-shadow var(--transition-fast),
-      transform var(--transition-fast),
-      color var(--transition-fast),
-      opacity var(--transition-fast),
-      visibility var(--transition-fast);
+      opacity 180ms var(--music-back-to-top-ease-out),
+      transform 180ms var(--music-back-to-top-ease-out),
+      background-color 180ms var(--music-back-to-top-ease-out),
+      border-color 180ms var(--music-back-to-top-ease-out),
+      color 180ms var(--music-back-to-top-ease-out);
   }
 
-  /* Visible state - controlled by JS */
-  .back-to-top.is-visible {
-    visibility: visible;
+  :global([data-theme="dark"]) .music-back-to-top {
+    --music-back-to-top-panel: color-mix(
+      in srgb,
+      var(--surface-2, var(--bg-secondary)) 94%,
+      var(--bg-primary, Canvas)
+    );
+    --music-back-to-top-line: var(--border-strong, var(--surface-border-accent));
+    --music-back-to-top-state-shadow:
+      0 0.95rem 1.9rem oklch(0% 0 0deg / 0.34),
+      0 0 0 0.28rem color-mix(in srgb, var(--music-back-to-top-accent) 18%, transparent);
+  }
+
+  .music-back-to-top[data-visible="true"] {
+    --music-back-to-top-state-transform: translateY(0) scale(1);
+
     pointer-events: auto;
     opacity: 1;
   }
 
-  /* Hover and focus states - enhanced visual feedback */
-  .back-to-top:hover,
-  .back-to-top:focus-visible {
-    color: var(--accent-strong);
-    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
-    border-color: var(--accent-primary);
-    box-shadow: var(--interactive-shadow-focus);
-    transform: scale(1.05);
+  .music-back-to-top:focus-visible {
+    --music-back-to-top-state-color: var(--music-back-to-top-panel);
+    --music-back-to-top-state-bg: color-mix(
+      in srgb,
+      var(--music-back-to-top-accent) 92%,
+      var(--music-back-to-top-accent-strong)
+    );
+    --music-back-to-top-state-shadow:
+      0 0.85rem 1.8rem oklch(20% 0.04 45deg / 0.2),
+      0 0 0 0.3rem color-mix(in srgb, var(--music-back-to-top-accent) 16%, transparent);
+    --music-back-to-top-state-transform: translateY(-0.08rem) scale(1.03);
+
+    outline: var(--focus-ring-width, 2px) solid var(--music-back-to-top-accent);
+    outline-offset: var(--focus-ring-offset, 4px);
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .back-to-top:active {
-      box-shadow: var(--shadow-xs);
-      transform: scale(0.96);
-      transition:
-        transform 80ms cubic-bezier(0.25, 1, 0.5, 1),
-        box-shadow 80ms ease-out;
+  .music-back-to-top:active {
+    transform: translateY(0) scale(0.97);
+  }
+
+  .music-back-to-top__icon {
+    inline-size: var(--music-back-to-top-icon-size);
+    block-size: var(--music-back-to-top-icon-size);
+  }
+
+  .music-back-to-top__label {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip-path: inset(50%);
+  }
+
+  @media (width >= 900px) {
+    .music-back-to-top {
+      inset-block-end: calc(
+        max(var(--music-back-to-top-offset-large), env(safe-area-inset-bottom)) + 0.25rem
+      );
+      inset-inline-end: max(
+        var(--music-back-to-top-offset-large),
+        env(safe-area-inset-right)
+      );
+      inline-size: var(--music-back-to-top-size-large);
+      block-size: var(--music-back-to-top-size-large);
     }
   }
 
-  /* Focus visible state - WCAG AAA compliant */
-  .back-to-top:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
-  /* Icon sizing - scales responsively */
-  .back-to-top__icon {
-    display: block;
-    inline-size: var(--icon-size-lg);
-    block-size: var(--icon-size-lg);
-  }
-
-  /* Larger icon on desktop for better visibility */
-  @media (width >= 768px) {
-    .back-to-top {
-      inset-inline-end: calc(var(--spacing-xl) + env(safe-area-inset-right, 0px));
-    }
-
-    .back-to-top__icon {
-      inline-size: calc(var(--icon-size-lg) + 0.25rem);
-      block-size: calc(var(--icon-size-lg) + 0.25rem);
+  @media (hover: hover) and (pointer: fine) {
+    .music-back-to-top:hover,
+    .music-back-to-top:focus-visible {
+      --music-back-to-top-state-color: var(--music-back-to-top-panel);
+      --music-back-to-top-state-bg: color-mix(
+        in srgb,
+        var(--music-back-to-top-accent) 92%,
+        var(--music-back-to-top-accent-strong)
+      );
+      --music-back-to-top-state-shadow:
+        0 0.85rem 1.8rem oklch(20% 0.04 45deg / 0.2),
+        0 0 0 0.3rem color-mix(in srgb, var(--music-back-to-top-accent) 16%, transparent);
+      --music-back-to-top-state-transform: translateY(-0.08rem) scale(1.03);
     }
   }
 
-  /* Screen reader only text for accessibility */
-  .back-to-top__sr {
-    position: var(--sr-only);
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    padding: var(--sr-only-padding);
-    margin: var(--sr-only-margin);
-    overflow: var(--sr-only-overflow);
-    white-space: var(--sr-only-white-space);
-    border: var(--sr-only-border);
-    clip-path: var(--sr-only-clip-path);
-  }
-
-  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    .back-to-top {
+    .music-back-to-top {
+      --music-back-to-top-state-transform: none;
+
       transition: none;
     }
 
-    .back-to-top:hover,
-    .back-to-top:focus-visible,
-    .back-to-top:active {
-      transform: none;
+    .music-back-to-top:focus-visible,
+    .music-back-to-top:active {
+      --music-back-to-top-state-transform: none;
     }
 
-    .back-to-top:active {
-      box-shadow: var(--shadow-xs);
-      transition: none;
-    }
-
-    .back-to-top.is-visible {
-      animation: none;
+    @media (hover: hover) and (pointer: fine) {
+      .music-back-to-top:hover,
+      .music-back-to-top:focus-visible {
+        --music-back-to-top-state-transform: none;
+      }
     }
   }
 </style>

@@ -507,7 +507,7 @@ function mergeUnique(base: string[], extra: string[]): string[] {
  * - `keywords`: comma-separated serialization of that list
  * - `enrichedContent`: the normalized extraction input, useful for inspection/debugging
  */
-export function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
+function buildSeoText(params: BuildSeoTextParams): SeoTextResult {
   const {
     title,
     descriptionBase,

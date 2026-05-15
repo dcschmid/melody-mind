@@ -1961,5 +1961,3 @@ export const musicTaxonomy: TaxonomySection[] = [
     ],
   },
 ];
-
-export default musicTaxonomy;

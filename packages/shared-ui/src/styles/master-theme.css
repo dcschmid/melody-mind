@@ -77,75 +77,75 @@
      LIGHT MODE COLORS (WCAG AAA Compliant: 7:1 contrast minimum)
      --------------------------------------------------------------------------- */
   /* Primary background surfaces */
-  --color-bg-primary: #f6f1e8; /* Warm canvas */
-  --color-bg-secondary: #ede2d2; /* Section surface */
-  --color-bg-tertiary: #decebb; /* Elevated backdrop */
+  --color-bg-primary: oklch(98% 0.016 75deg); /* Warm canvas */
+  --color-bg-secondary: oklch(95% 0.026 74deg); /* Section surface */
+  --color-bg-tertiary: oklch(91% 0.047 25deg); /* Elevated backdrop */
 
   /* Surface colors */
-  --color-surface-1: #fcfaf6; /* Cards, panels */
-  --color-surface-2: #f4ece0; /* Secondary card surface */
-  --color-surface-3: #e9dcc9; /* Strongest elevated surface */
+  --color-surface-1: oklch(98% 0.014 75deg); /* Cards, panels */
+  --color-surface-2: oklch(94% 0.032 70deg); /* Secondary card surface */
+  --color-surface-3: oklch(90% 0.042 62deg); /* Strongest elevated surface */
 
   /* Text colors (WCAG AA: 4.5:1+ on surfaces; primary/secondary meet AAA) */
-  --color-text-primary: #1c140f;
-  --color-text-secondary: #3b2d24;
-  --color-text-tertiary: #5a4739; /* ~6.8:1 on light bg - WCAG AA, used for tertiary/hint text */
+  --color-text-primary: oklch(19% 0.025 52deg);
+  --color-text-secondary: oklch(34% 0.032 48deg);
+  --color-text-tertiary: oklch(39% 0.033 55deg);
 
   /* Accent colors */
-  --color-accent-primary: #72451f;
-  --color-accent-strong: #583114;
-  --color-accent-light: #8d5327;
-  --color-accent-primary-hover: #5f3414;
+  --color-accent-primary: oklch(40% 0.13 16deg);
+  --color-accent-strong: oklch(38% 0.125 16deg);
+  --color-accent-light: oklch(39% 0.12 28deg);
+  --color-accent-primary-hover: oklch(36% 0.13 16deg);
 
   /* Link colors */
-  --color-link-default: #6a3d18;
-  --color-link-hover: #4d2810;
-  --color-link-visited: #5e3767;
+  --color-link-default: oklch(39% 0.13 18deg);
+  --color-link-hover: oklch(34% 0.13 18deg);
+  --color-link-visited: oklch(40% 0.12 292deg);
 
   /* Border colors */
-  --color-border-default: #6b5545;
-  --color-border-muted: rgba(107, 85, 69, 0.42);
-  --color-border-strong: #4d392c;
+  --color-border-default: oklch(58% 0.08 32deg);
+  --color-border-muted: oklch(58% 0.08 32deg / 0.28);
+  --color-border-strong: oklch(41% 0.08 32deg);
 
   /* Status colors (WCAG AAA compliant) */
-  --color-success: #1e8449; /* Success (7.2:1 on white) */
-  --color-warning: #b7791f; /* Warning (7.1:1 on white) */
-  --color-error: #c0392b; /* Error (7.3:1 on white) */
-  --color-info: #1e5a8e; /* Info (7.5:1 on white) */
+  --color-success: oklch(36% 0.115 155deg);
+  --color-warning: oklch(35% 0.105 75deg);
+  --color-error: oklch(37% 0.15 25deg);
+  --color-info: oklch(36% 0.105 235deg);
 
   /* Status hover colors (darkened for hover states) */
-  --color-success-hover: #16653a;
-  --color-warning-hover: #8f6016;
-  --color-error-hover: #962d23;
-  --color-info-hover: #164a6e;
+  --color-success-hover: oklch(31% 0.11 155deg);
+  --color-warning-hover: oklch(30% 0.1 75deg);
+  --color-error-hover: oklch(32% 0.14 25deg);
+  --color-info-hover: oklch(31% 0.1 235deg);
 
   /* ---------------------------------------------------------------------------
      DARK MODE COLORS (WCAG AAA Compliant)
      --------------------------------------------------------------------------- */
-  --color-dark-bg-primary: #08131a;
-  --color-dark-bg-secondary: #10202a;
-  --color-dark-bg-tertiary: #18303d;
+  --color-dark-bg-primary: oklch(13% 0.038 255deg);
+  --color-dark-bg-secondary: oklch(18% 0.037 255deg);
+  --color-dark-bg-tertiary: oklch(22% 0.041 252deg);
 
-  --color-dark-surface-1: #0e1a22;
-  --color-dark-surface-2: #142530;
-  --color-dark-surface-3: #1b3441;
+  --color-dark-surface-1: oklch(18% 0.037 255deg);
+  --color-dark-surface-2: oklch(22% 0.041 252deg);
+  --color-dark-surface-3: oklch(26% 0.052 252deg);
 
-  --color-dark-text-primary: #f5f7fb;
-  --color-dark-text-secondary: #d8e3ed;
-  --color-dark-text-tertiary: #bccbda;
+  --color-dark-text-primary: oklch(96% 0.012 72deg);
+  --color-dark-text-secondary: oklch(82% 0.028 248deg);
+  --color-dark-text-tertiary: oklch(76% 0.036 252deg);
 
-  --color-dark-accent-primary: #d4a574;
-  --color-dark-accent-strong: #e8bc8a;
-  --color-dark-accent-light: #c4956a;
-  --color-dark-accent-primary-hover: #e0b584;
+  --color-dark-accent-primary: oklch(78% 0.16 286deg);
+  --color-dark-accent-strong: oklch(80% 0.13 252deg);
+  --color-dark-accent-light: oklch(76% 0.13 252deg);
+  --color-dark-accent-primary-hover: oklch(84% 0.12 286deg);
 
-  --color-dark-link-default: #9cecdf;
-  --color-dark-link-hover: #c8fbef;
-  --color-dark-link-visited: #d7c5ff;
+  --color-dark-link-default: oklch(82% 0.13 286deg);
+  --color-dark-link-hover: oklch(88% 0.1 286deg);
+  --color-dark-link-visited: oklch(82% 0.12 252deg);
 
-  --color-dark-border-default: #7d95a6;
-  --color-dark-border-muted: rgba(125, 149, 166, 0.4);
-  --color-dark-border-strong: #a8bdcb;
+  --color-dark-border-default: oklch(46% 0.075 252deg);
+  --color-dark-border-muted: oklch(42% 0.067 252deg / 0.52);
+  --color-dark-border-strong: oklch(62% 0.08 252deg);
 
   /* ---------------------------------------------------------------------------
      RADIUS & SHADOWS
@@ -193,8 +193,8 @@
      --------------------------------------------------------------------------- */
   --focus-ring-width: 3px;
   --focus-ring-offset: 2px;
-  --focus-ring-color: #72451f;
-  --focus-ring-color-dark: #baf4e7;
+  --focus-ring-color: oklch(40% 0.13 16deg);
+  --focus-ring-color-dark: oklch(82% 0.13 286deg);
 
   /* Screen reader only */
   --sr-only: absolute;
@@ -317,15 +317,15 @@
     --link-hover: var(--color-dark-link-hover);
     --link-visited: var(--color-dark-link-visited);
 
-    --color-success: oklch(65% 0.14 155);
-    --color-warning: oklch(65% 0.13 75);
-    --color-error: oklch(58% 0.18 25);
-    --color-info: oklch(60% 0.12 235);
+    --color-success: oklch(78% 0.12 155deg);
+    --color-warning: oklch(78% 0.11 75deg);
+    --color-error: oklch(78% 0.11 25deg);
+    --color-info: oklch(78% 0.1 235deg);
 
-    --color-success-hover: oklch(72% 0.12 155);
-    --color-warning-hover: oklch(72% 0.11 75);
-    --color-error-hover: oklch(65% 0.15 25);
-    --color-info-hover: oklch(68% 0.10 235);
+    --color-success-hover: oklch(84% 0.1 155deg);
+    --color-warning-hover: oklch(84% 0.09 75deg);
+    --color-error-hover: oklch(84% 0.09 25deg);
+    --color-info-hover: oklch(84% 0.08 235deg);
 
     --border-default: var(--color-dark-border-default);
     --border-muted: var(--color-dark-border-muted);
@@ -389,21 +389,21 @@
   --gn-accent-strong: var(--accent-strong);
   --gn-accent-light: var(--accent-muted);
 
-    --link-default: var(--color-dark-link-default);
-    --link-hover: var(--color-dark-link-hover);
-    --link-visited: var(--color-dark-link-visited);
+  --link-default: var(--color-dark-link-default);
+  --link-hover: var(--color-dark-link-hover);
+  --link-visited: var(--color-dark-link-visited);
 
-    --color-success: oklch(65% 0.14 155);
-    --color-warning: oklch(65% 0.13 75);
-    --color-error: oklch(58% 0.18 25);
-    --color-info: oklch(60% 0.12 235);
+  --color-success: oklch(78% 0.12 155deg);
+  --color-warning: oklch(78% 0.11 75deg);
+  --color-error: oklch(78% 0.11 25deg);
+  --color-info: oklch(78% 0.1 235deg);
 
-    --color-success-hover: oklch(72% 0.12 155);
-    --color-warning-hover: oklch(72% 0.11 75);
-    --color-error-hover: oklch(65% 0.15 25);
-    --color-info-hover: oklch(68% 0.10 235);
+  --color-success-hover: oklch(84% 0.1 155deg);
+  --color-warning-hover: oklch(84% 0.09 75deg);
+  --color-error-hover: oklch(84% 0.09 25deg);
+  --color-info-hover: oklch(84% 0.08 235deg);
 
-    --border-default: var(--color-dark-border-default);
+  --border-default: var(--color-dark-border-default);
   --border-muted: var(--color-dark-border-muted);
   --border-strong: var(--color-dark-border-strong);
 

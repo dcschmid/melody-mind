@@ -2,7 +2,7 @@
 title: "From Asia to the World: J-Pop and K-Pop"
 description:
   "Test your knowledge of East Asian pop music history, from postwar roots and kayokyoku to
-  the global phenomenon of K-Pop and J-Pop idol culture."
+  the international rise of K-Pop and J-Pop idol culture."
 seoTitle: "J-Pop and K-Pop Quiz: From Asia to Global Pop"
 seoDescription:
   "Take a quiz on East Asian pop music history, covering J-Pop, K-Pop, idol culture, the
@@ -37,7 +37,7 @@ questions:
     sourceLine: 65
 
   # Question 2 - Single Choice - EASY
-  - question: "Which Japanese song became the first non-English song to reach #1 on the US Billboard Hot 100?"
+  - question: "Which Japanese song became the first Japanese-language song to reach #1 on the US Billboard Hot 100?"
     type: "single-choice"
     difficulty: "easy"
     options:

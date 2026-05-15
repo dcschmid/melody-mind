@@ -31,7 +31,7 @@ export interface RelatedArticleCardInput {
   locale?: string;
 }
 
-export function buildReadingDateMetaItems(params: {
+function buildReadingDateMetaItems(params: {
   publishedAt: Date;
   readingTimeMinutes?: number;
   locale?: string;

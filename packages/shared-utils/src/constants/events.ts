@@ -23,19 +23,6 @@ export const THEME_EVENTS = {
   CHANGED: "theme:change",
 } as const;
 
-/**
- * Search interaction events emitted by shared search UI components.
- *
- * These events are intentionally coarse-grained so surrounding UI can react to
- * search usage without receiving the entire component internals.
- */
-export const SEARCH_EVENTS = {
-  /** Fired when a search query is submitted or updated into a tracked result set. */
-  PERFORMED: "search:performed",
-  /** Fired when a user activates a search result. */
-  RESULT_CLICK: "search:result-click",
-} as const;
-
 type EventValues<T extends Record<string, string>> = T[keyof T];
 
 /**
@@ -44,7 +31,10 @@ type EventValues<T extends Record<string, string>> = T[keyof T];
  * Useful for typed helpers and for constraining callers to the curated event
  * contract defined in this module.
  */
-type EventName = EventValues<typeof THEME_EVENTS> | EventValues<typeof SEARCH_EVENTS>;
+type EventName =
+  | EventValues<typeof THEME_EVENTS>
+  | "search:performed"
+  | "search:result-click";
 
 /**
  * Dispatches a typed browser `CustomEvent` on `window`.

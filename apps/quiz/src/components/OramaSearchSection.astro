@@ -40,9 +40,6 @@ const {
     <div class="orama-search__panel-head">
       <p class="orama-search__eyebrow">Search the quiz archive</p>
       <h2 id="orama-search-results-title" class="orama-search__results-title">Results</h2>
-      <p class="orama-search__help">
-        Results update while you type, and the current query stays in the URL.
-      </p>
     </div>
 
     <label class="orama-search__field">
@@ -191,10 +188,8 @@ const {
   .orama-search__header {
     display: grid;
     gap: var(--spacing-xs);
-    padding: var(--spacing-base);
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-lg);
+    padding-block-end: var(--spacing-lg);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .orama-search__title {
@@ -238,7 +233,6 @@ const {
     color: var(--text-primary);
   }
 
-  .orama-search__help,
   .orama-search__status {
     margin: 0;
     line-height: var(--line-height-relaxed);
@@ -273,26 +267,29 @@ const {
 
   .orama-search__results {
     display: grid;
-    gap: var(--spacing-sm);
     padding: 0;
     margin: 0;
     list-style: none;
+    border-block-start: 1px solid var(--surface-border-soft);
   }
 
   .orama-search__result-link {
     display: grid;
     gap: var(--spacing-xs);
-    padding: var(--spacing-base);
+    padding-block: var(--spacing-base);
     color: inherit;
     text-decoration: none;
-    background: var(--surface-panel-bg);
-    border: 1px solid var(--surface-border-soft);
-    border-radius: var(--radius-base);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .orama-search__result-link:hover,
-  .orama-search__result-link:focus {
-    border-color: var(--surface-border-accent);
+  .orama-search__result-link:focus-visible {
+    color: var(--accent-primary);
+  }
+
+  .orama-search__result-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .orama-search__result-title {
@@ -308,11 +305,5 @@ const {
   .orama-search__result-meta {
     font-size: var(--font-size-sm);
     color: var(--text-tertiary);
-  }
-
-  @media (width >= 640px) {
-    .orama-search__header {
-      padding: var(--spacing-lg);
-    }
   }
 </style>

@@ -1,5 +1,5 @@
 /**
- * Central Schema.org JSON-LD builders shared across Knowledge, Quiz and Podcasts.
+ * Central Schema.org JSON-LD builders shared across Knowledge and Quiz.
  *
  * The module provides small, predictable factory functions that convert existing page
  * metadata into JSON-LD objects without coupling callers to Schema.org field names.
@@ -9,7 +9,7 @@
 import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 
 /** Minimal shape required to describe a Knowledge article in list schemas. */
-export interface KnowledgeArticleLike {
+export interface KnowledgeArticleListItem {
   slug: string;
   data: {
     title: string;
@@ -102,51 +102,6 @@ export interface QuizSchemaOptions {
 export interface FaqPageItem {
   question: string;
   answer: string;
-}
-
-/** Input contract for top-level podcast series JSON-LD. */
-export interface PodcastSeriesSchemaOptions {
-  siteUrl: string;
-  title: string;
-  description: string;
-  locale?: string;
-  imageUrl: string;
-  feedUrl?: string;
-  sameAs?: string[];
-  authorNames?: string[];
-  publisherName?: string;
-  publisherLogoUrl?: string;
-  searchPathTemplate?: string;
-}
-
-/** Input contract for podcast episode detail JSON-LD. */
-export interface PodcastEpisodeSchemaOptions {
-  title: string;
-  description: string;
-  url: string;
-  seriesTitle: string;
-  seriesUrl: string;
-  locale?: string;
-  imageUrl?: string;
-  publishedAt?: Date | string;
-  modifiedAt?: Date | string;
-  episodeNumber?: number;
-  durationIso?: string;
-  audioUrl?: string;
-  audioType?: string;
-  authorNames?: string[];
-  publisherName?: string;
-  publisherLogoUrl?: string;
-}
-
-/** Minimal episode shape used in podcast `ItemList` output. */
-export interface PodcastEpisodeListItem {
-  title: string;
-  description: string;
-  url: string;
-  image?: string;
-  publishedAt?: Date | string;
-  durationIso?: string;
 }
 
 /**
@@ -450,199 +405,13 @@ export function buildFaqPageSchema(
 }
 
 /**
- * Builds the canonical `PodcastSeries` schema for the podcast app and listing pages.
- *
- * This represents the show as a whole, not an individual episode.
- */
-export function buildPodcastSeriesSchema(
-  opts: PodcastSeriesSchemaOptions
-): Record<string, unknown> {
-  const {
-    siteUrl,
-    title,
-    description,
-    locale = "en-US",
-    imageUrl,
-    feedUrl,
-    sameAs = [],
-    authorNames = [],
-    publisherName = title,
-    publisherLogoUrl = imageUrl,
-    searchPathTemplate = "/search?q={search_term_string}",
-  } = opts;
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "PodcastSeries",
-    name: title,
-    description,
-    url: siteUrl,
-    inLanguage: locale,
-    image: imageUrl,
-    genre: ["Music", "History"],
-    isAccessibleForFree: true,
-    ...(sameAs.length ? { sameAs } : {}),
-    publisher: {
-      "@type": "Organization",
-      name: publisherName,
-      url: siteUrl,
-      logo: {
-        "@type": "ImageObject",
-        url: publisherLogoUrl,
-      },
-    },
-    ...(feedUrl ? { webFeed: feedUrl } : {}),
-    ...(authorNames.length
-      ? {
-          author: authorNames.map((name) => ({
-            "@type": "Person",
-            name,
-          })),
-        }
-      : {}),
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteUrl.replace(/\/$/, "")}${searchPathTemplate}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
-  };
-}
-
-/**
- * Builds a `PodcastEpisode` schema for individual episode pages.
- *
- * If `modifiedAt` is absent, the published date is reused as the modified date so callers
- * still get stable date metadata without having to duplicate values upstream.
- */
-export function buildPodcastEpisodeSchema(
-  opts: PodcastEpisodeSchemaOptions
-): Record<string, unknown> {
-  const {
-    title,
-    description,
-    url,
-    seriesTitle,
-    seriesUrl,
-    locale = "en-US",
-    imageUrl,
-    publishedAt,
-    modifiedAt,
-    episodeNumber,
-    durationIso,
-    audioUrl,
-    audioType = "audio/mpeg",
-    authorNames = [],
-    publisherName = seriesTitle,
-    publisherLogoUrl = imageUrl,
-  } = opts;
-
-  const publishDate = normalizeDate(publishedAt);
-  const updateDate = normalizeDate(modifiedAt ?? publishedAt);
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "PodcastEpisode",
-    name: title,
-    description,
-    url,
-    partOfSeries: {
-      "@type": "PodcastSeries",
-      name: seriesTitle,
-      url: seriesUrl,
-    },
-    ...(typeof episodeNumber === "number" ? { episodeNumber } : {}),
-    ...(publishDate ? { datePublished: publishDate.toISOString() } : {}),
-    ...(updateDate ? { dateModified: updateDate.toISOString() } : {}),
-    inLanguage: locale,
-    ...(imageUrl ? { image: imageUrl } : {}),
-    genre: ["Music", "History"],
-    isAccessibleForFree: true,
-    ...(durationIso ? { timeRequired: durationIso } : {}),
-    ...(authorNames.length
-      ? {
-          author: authorNames.map((name) => ({
-            "@type": "Person",
-            name,
-          })),
-        }
-      : {}),
-    ...(audioUrl
-      ? {
-          audio: {
-            "@type": "AudioObject",
-            url: audioUrl,
-            encodingFormat: audioType,
-            ...(durationIso ? { duration: durationIso } : {}),
-          },
-        }
-      : {}),
-    publisher: {
-      "@type": "Organization",
-      name: publisherName,
-      ...(publisherLogoUrl
-        ? {
-            logo: {
-              "@type": "ImageObject",
-              url: publisherLogoUrl,
-            },
-          }
-        : {}),
-    },
-  };
-}
-
-/**
- * Builds an `ItemList` of podcast episodes for archive or homepage-style listings.
- *
- * The item order is preserved exactly as provided by the caller.
- */
-export function buildPodcastEpisodesItemListSchema(opts: {
-  episodes: PodcastEpisodeListItem[];
-  listName?: string;
-  itemListId?: string;
-}): Record<string, unknown> | undefined {
-  const { episodes, listName = "Podcast Episodes", itemListId } = opts;
-  if (!episodes.length) {
-    return undefined;
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    ...(itemListId ? { "@id": itemListId } : {}),
-    name: listName,
-    numberOfItems: episodes.length,
-    itemListElement: episodes.map((episode, index) => {
-      const publishedAt = normalizeDate(episode.publishedAt);
-
-      return {
-        "@type": "ListItem",
-        position: index + 1,
-        item: {
-          "@type": "PodcastEpisode",
-          name: episode.title,
-          description: episode.description,
-          url: episode.url,
-          ...(episode.image ? { image: episode.image } : {}),
-          ...(publishedAt ? { datePublished: publishedAt.toISOString() } : {}),
-          ...(episode.durationIso ? { timeRequired: episode.durationIso } : {}),
-        },
-      };
-    }),
-  };
-}
-
-/**
  * Builds an `ItemList` for Knowledge article collections.
  *
  * Articles are sorted newest-first using `updatedAt` with `createdAt` as fallback so the
  * schema order reflects the most recently maintained entries rather than filesystem order.
  */
 export function buildKnowledgeArticlesItemList(opts: {
-  articles: KnowledgeArticleLike[];
+  articles: KnowledgeArticleListItem[];
   baseUrl: string;
   lang: string;
   listName?: string;

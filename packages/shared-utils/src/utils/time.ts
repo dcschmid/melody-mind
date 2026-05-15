@@ -1,8 +1,8 @@
 /**
- * Small time-formatting and parsing helpers shared by audio and transcript UIs.
+ * Small time-formatting helpers shared by audio UIs.
  *
- * These utilities intentionally operate on simple clock-style strings rather than full
- * date/time objects. They are meant for durations and cue positions, not timezone-aware time.
+ * These utilities intentionally operate on simple clock-style labels rather than full
+ * date/time objects. They are meant for durations, not timezone-aware time.
  */
 
 /** Normalizes a numeric input and falls back to a safe default for invalid values. */
@@ -48,29 +48,4 @@ export const formatTime = (seconds: number, options?: FormatOptions): string => 
   }
 
   return `${minutes}:${ss}`;
-};
-
-/**
- * Parses `hh:mm:ss` or `mm:ss`-style strings into total seconds.
- *
- * Parsing is intentionally tolerant:
- * - surrounding tab/space-separated trailing content is ignored
- * - seconds may contain decimal fractions
- * - unsupported or malformed shapes fall back to `0`
- */
-export const parseTimeToSeconds = (timeStr: string): number => {
-  const clean = (timeStr ?? "").split(/[ \t]/)[0] ?? "";
-  const parts = clean.split(":").map((part) => part.trim());
-
-  if (parts.length === 3) {
-    const [hours = "0", minutes = "0", seconds = "0"] = parts;
-    return parseInt(hours, 10) * 3600 + parseInt(minutes, 10) * 60 + parseFloat(seconds);
-  }
-
-  if (parts.length === 2) {
-    const [minutes = "0", seconds = "0"] = parts;
-    return parseInt(minutes, 10) * 60 + parseFloat(seconds);
-  }
-
-  return 0;
 };

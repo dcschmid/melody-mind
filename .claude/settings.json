@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit -m ' *)",
+      "Bash(xargs cat *)",
+      "Bash(npx astro *)",
+      "Bash(identify /home/daniel/dev/github/melody-mind/apps/music/src/assets/music-hero.webp)"
+    ]
+  }
+}

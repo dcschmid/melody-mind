@@ -1,12 +1,16 @@
 ---
 import type {
-  AlternateLocaleLink,
   OpenGraphMeta,
   OpenGraphMusicMeta,
   StructuredDataObject,
   StructuredDataExtra,
   TwitterMeta,
 } from "./seo.types";
+
+interface AlternateLocaleLink {
+  locale: string;
+  href: string;
+}
 
 interface Props {
   title?: string;

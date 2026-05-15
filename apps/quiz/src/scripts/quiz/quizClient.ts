@@ -78,6 +78,18 @@ function checkAnswer(q: QuizQuestion, answer: number | number[] | null): boolean
   return (q.correct as number) === answer;
 }
 
+function isCorrectOption(q: QuizQuestion, index: number): boolean {
+  if (q.type === "true-false") {
+    return q.correct === (index === 0);
+  }
+
+  if (q.type === "multi-choice") {
+    return q.correct.includes(index);
+  }
+
+  return q.correct === index;
+}
+
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -89,6 +101,15 @@ function shuffleArray<T>(array: T[]): T[] {
 
 function selectRandomQuestions(questions: QuizQuestion[], count: number): QuizQuestion[] {
   return shuffleArray(questions).slice(0, count);
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 // ── SVG icons (server-rendered once, referenced as innerHTML only when needed) ──
@@ -151,33 +172,16 @@ export function initQuiz(
     }
 
     const answeredCount = state.isAnswered.filter(Boolean).length;
-    const scorePercentage =
-      answeredCount > 0 ? Math.round((state.correctCount / answeredCount) * 100) : 0;
     const ariaValueText = `${answeredCount} of ${questions.length} questions answered`;
 
     progressContainer.innerHTML = `
       <div class="quiz-progress" role="progressbar" aria-valuenow="${answeredCount}" aria-valuemin="0" aria-valuemax="${questions.length}" aria-valuetext="${ariaValueText}">
-        <p class="quiz-progress__eyebrow">Quiz progress</p>
         <div class="quiz-progress__headline">
-          <span class="quiz-progress__index">Question ${state.currentQuestion + 1} of ${questions.length}</span>
-          <span class="quiz-progress__target">Reach ${passingScore}% overall to pass this quiz.</span>
+          <span class="quiz-progress__index">${state.currentQuestion + 1}/${questions.length}</span>
+          <span class="quiz-progress__target">${passingScore}% pass mark</span>
         </div>
         <div class="quiz-progress__bar">
           <div class="quiz-progress__fill" style="width: ${(answeredCount / questions.length) * 100}%"></div>
-        </div>
-        <div class="quiz-progress__stats">
-          <div class="quiz-progress__stat">
-            <span class="quiz-progress__stat-label">Answered</span>
-            <strong class="quiz-progress__stat-value">${answeredCount}/${questions.length}</strong>
-          </div>
-          <div class="quiz-progress__stat">
-            <span class="quiz-progress__stat-label">Correct so far</span>
-            <strong class="quiz-progress__stat-value">${state.correctCount}</strong>
-          </div>
-          <div class="quiz-progress__stat">
-            <span class="quiz-progress__stat-label">Accuracy</span>
-            <strong class="quiz-progress__stat-value">${scorePercentage}%</strong>
-          </div>
         </div>
       </div>
     `;
@@ -197,19 +201,22 @@ export function initQuiz(
 
     const optionsHtml = displayOptions
       .map((option, index) => {
-        const markerIcon = q.type === "multi-choice" ? icons.square : icons.circle;
+        const inputType = q.type === "multi-choice" ? "checkbox" : "radio";
+        const inputName = `quiz-question-${state.currentQuestion}`;
         return `
-          <button
-            type="button"
+          <label
             class="quiz-question__option"
             data-index="${index}"
             data-type="${q.type}"
-            role="${q.type === "multi-choice" ? "checkbox" : "radio"}"
-            aria-checked="false"
           >
-            <span class="quiz-question__option-marker">${markerIcon}</span>
-            <span class="quiz-question__option-text">${option}</span>
-          </button>
+            <input
+              class="quiz-question__option-control"
+              type="${inputType}"
+              name="${inputName}"
+              value="${index}"
+            />
+            <span class="quiz-question__option-text">${escapeHtml(option)}</span>
+          </label>
         `;
       })
       .join("");
@@ -217,13 +224,11 @@ export function initQuiz(
     return `
       <div class="quiz-question" data-answered="false" data-correct="">
         <div class="quiz-question__topline">
-          <span class="quiz-question__number">Q${state.currentQuestion + 1}</span>
           <span class="quiz-question__type">${questionTypeLabel}</span>
           <span class="quiz-question__badge" hidden></span>
         </div>
         <div class="quiz-question__card">
-          <p class="quiz-question__prompt">Question</p>
-          <h3 class="quiz-question__text" tabindex="-1">${q.question}</h3>
+          <h3 class="quiz-question__text" tabindex="-1">${escapeHtml(q.question)}</h3>
           <p class="quiz-question__hint">${
             q.type === "multi-choice" ? "Select all that apply." : "Choose one answer."
           }</p>
@@ -255,57 +260,45 @@ export function initQuiz(
     const isAnswered = state.isAnswered[state.currentQuestion];
 
     questionContainer
-      .querySelectorAll<HTMLButtonElement>(".quiz-question__option")
-      .forEach((btn) => {
-        const index = Number(btn.dataset.index);
+      .querySelectorAll<HTMLLabelElement>(".quiz-question__option")
+      .forEach((optionEl) => {
+        const input = optionEl.querySelector<HTMLInputElement>(
+          ".quiz-question__option-control"
+        );
+        if (!input) {
+          return;
+        }
+
+        const index = Number(optionEl.dataset.index);
         const isSelected =
           q.type === "multi-choice"
             ? Array.isArray(selectedAnswer) && selectedAnswer.includes(index)
             : selectedAnswer === index;
 
-        const isCorrectOption = checkAnswer(
-          q,
-          q.type === "multi-choice" ? [index] : index
-        );
-        const isCorrectSelected = isCorrectOption && isSelected;
+        const correctOption = isCorrectOption(q, index);
+        const isCorrectSelected = correctOption && isSelected;
 
         // Reset
-        btn.classList.remove(
+        optionEl.classList.remove(
           "quiz-question__option--selected",
           "quiz-question__option--correct",
           "quiz-question__option--incorrect"
         );
-        btn.setAttribute("aria-checked", String(isSelected));
+        input.checked = isSelected;
+        input.disabled = isAnswered;
 
         if (isAnswered) {
-          btn.disabled = true;
-          if (isCorrectOption) {
-            btn.classList.add("quiz-question__option--correct");
+          if (correctOption) {
+            optionEl.classList.add("quiz-question__option--correct");
           } else if (isSelected) {
-            btn.classList.add("quiz-question__option--incorrect");
+            optionEl.classList.add("quiz-question__option--incorrect");
           }
         } else if (isSelected) {
-          btn.classList.add("quiz-question__option--selected");
-        }
-
-        // Update marker icon
-        const marker = btn.querySelector<HTMLSpanElement>(
-          ".quiz-question__option-marker"
-        );
-        if (marker) {
-          if (isAnswered && isCorrectOption) {
-            marker.innerHTML =
-              q.type === "multi-choice" ? icons.squareCheck : icons.circleCheck;
-          } else if (isSelected && !isAnswered) {
-            marker.innerHTML =
-              q.type === "multi-choice" ? icons.squareCheck : icons.circleCheck;
-          } else {
-            marker.innerHTML = q.type === "multi-choice" ? icons.square : icons.circle;
-          }
+          optionEl.classList.add("quiz-question__option--selected");
         }
 
         // Remove old status icons
-        btn
+        optionEl
           .querySelectorAll(".quiz-question__option-status")
           .forEach((el) => el.remove());
 
@@ -316,13 +309,13 @@ export function initQuiz(
             statusIcon.className =
               "quiz-question__option-status quiz-question__option-status--correct";
             statusIcon.innerHTML = icons.check;
-          } else if (isSelected && !isCorrectOption) {
+          } else if (isSelected && !correctOption) {
             statusIcon.className =
               "quiz-question__option-status quiz-question__option-status--incorrect";
             statusIcon.innerHTML = icons.x;
           }
           if (statusIcon.className) {
-            btn.appendChild(statusIcon);
+            optionEl.appendChild(statusIcon);
           }
         }
       });
@@ -403,19 +396,6 @@ export function initQuiz(
     // single-choice / true-false hint stays static
   }
 
-  /** Update the question number label. */
-  function updateQuestionNumber() {
-    if (!questionContainer) {
-      return;
-    }
-    const numberEl = questionContainer.querySelector<HTMLSpanElement>(
-      ".quiz-question__number"
-    );
-    if (numberEl) {
-      numberEl.textContent = `Q${state.currentQuestion + 1}`;
-    }
-  }
-
   /** Update the question type label. */
   function updateQuestionTypeLabel(q: QuizQuestion) {
     if (!questionContainer) {
@@ -465,6 +445,7 @@ export function initQuiz(
 
     updateOptionVisuals(q);
     updateHint(q);
+    updateNavigation();
   }
 
   // ── Navigation ──
@@ -480,24 +461,18 @@ export function initQuiz(
     const isLastQuestion = state.currentQuestion === questions.length - 1;
     const hasSelection = state.answers[state.currentQuestion] !== null;
 
-    navNext.hidden = isLastQuestion && isCurrentAnswered;
+    navNext.hidden = !isCurrentAnswered || isLastQuestion;
     navSubmit.hidden = !isLastQuestion || !isCurrentAnswered;
     checkAnswerBtn.hidden = isCurrentAnswered;
     (checkAnswerBtn as HTMLButtonElement).disabled = !hasSelection || isCurrentAnswered;
 
     if (navNextLabel) {
-      navNextLabel.textContent =
-        isLastQuestion && !isCurrentAnswered ? "Check & Finish" : "Next";
+      navNextLabel.textContent = "Next";
     }
 
     if (navNext) {
-      (navNext as HTMLButtonElement).disabled = !isCurrentAnswered && !navNext.hidden;
-      navNext.setAttribute(
-        "aria-label",
-        isLastQuestion && !isCurrentAnswered
-          ? "Check answer and finish quiz"
-          : "Next question"
-      );
+      (navNext as HTMLButtonElement).disabled = navNext.hidden;
+      navNext.setAttribute("aria-label", "Next question");
     }
   }
 
@@ -513,7 +488,6 @@ export function initQuiz(
     updateOptionVisuals(q);
     updateHint(q);
     updateNavigation();
-    updateQuestionNumber();
     updateQuestionTypeLabel(q);
 
     if (state.isAnswered[index]) {
@@ -562,70 +536,22 @@ export function initQuiz(
     }
   }
 
-  // ── Keyboard navigation for answer options ──
-
-  function handleOptionKeydown(e: KeyboardEvent, q: QuizQuestion) {
-    if (state.isAnswered[state.currentQuestion] || !questionContainer) {
-      return;
-    }
-
-    const options = Array.from(
-      questionContainer.querySelectorAll<HTMLButtonElement>(".quiz-question__option")
-    );
-    const currentIndex = options.indexOf(e.currentTarget as HTMLButtonElement);
-    if (currentIndex === -1) {
-      return;
-    }
-
-    let targetIndex = -1;
-
-    if (q.type === "multi-choice") {
-      // Space toggles, ArrowRight/ArrowLeft moves focus
-      if (e.key === " ") {
-        e.preventDefault();
-        handleOptionInteraction(currentIndex, q);
-        return;
-      }
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-        e.preventDefault();
-        targetIndex = (currentIndex + 1) % options.length;
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-        e.preventDefault();
-        targetIndex = (currentIndex - 1 + options.length) % options.length;
-      }
-    } else {
-      // Single-choice / radio: arrows move and select
-      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-        e.preventDefault();
-        targetIndex = (currentIndex + 1) % options.length;
-      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-        e.preventDefault();
-        targetIndex = (currentIndex - 1 + options.length) % options.length;
-      }
-    }
-
-    if (targetIndex >= 0) {
-      options[targetIndex].focus();
-      // For radio-style questions, also select the option
-      if (q.type !== "multi-choice") {
-        handleOptionInteraction(targetIndex, q);
-      }
-    }
-  }
-
   function bindOptionListeners(q: QuizQuestion) {
     if (!questionContainer) {
       return;
     }
+
     questionContainer
-      .querySelectorAll<HTMLButtonElement>(".quiz-question__option")
-      .forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const index = Number(btn.dataset.index);
+      .querySelectorAll<HTMLInputElement>(".quiz-question__option-control")
+      .forEach((input) => {
+        input.addEventListener("change", () => {
+          const optionEl = input.closest<HTMLElement>(".quiz-question__option");
+          const index = Number(optionEl?.dataset.index);
+          if (!Number.isFinite(index)) {
+            return;
+          }
           handleOptionInteraction(index, q);
         });
-
-        btn.addEventListener("keydown", (e) => handleOptionKeydown(e, q));
       });
   }
 
@@ -639,6 +565,20 @@ export function initQuiz(
 
     const score = Math.round((state.correctCount / questions.length) * 100);
     const passed = score >= passingScore;
+    const missedCount = questions.length - state.correctCount;
+    const title = passed ? "Strong score" : "Almost there";
+    const subtitle = passed
+      ? "You passed this quiz and kept a solid command of the topic."
+      : "You did not pass this run, but the explanations are there for a cleaner second attempt.";
+    const performanceLabel =
+      score >= 90
+        ? "Excellent"
+        : score >= passingScore
+          ? "Passed"
+          : score >= Math.max(0, passingScore - 15)
+            ? "Close"
+            : "Needs review";
+    const resultColor = passed ? "var(--color-success)" : "var(--color-error)";
 
     if (questionContainer) {
       questionContainer.innerHTML = "";
@@ -662,9 +602,10 @@ export function initQuiz(
           <div class="quiz-result__icon">
             ${passed ? icons.trophy : icons.refresh}
           </div>
-          <h2 class="quiz-result__title" tabindex="-1">${passed ? "Congratulations!" : "Keep Learning!"}</h2>
+          <p class="quiz-result__eyebrow">${performanceLabel}</p>
+          <h2 class="quiz-result__title" tabindex="-1">${title}</h2>
           <p class="quiz-result__subtitle">
-            ${passed ? "You passed this quiz!" : "You didn't pass this quiz this time."}
+            ${subtitle}
           </p>
         </div>
 
@@ -678,6 +619,10 @@ export function initQuiz(
             <strong class="quiz-result__summary-value">${state.correctCount}/${questions.length}</strong>
           </div>
           <div class="quiz-result__summary-item">
+            <span class="quiz-result__summary-label">Missed</span>
+            <strong class="quiz-result__summary-value">${missedCount}</strong>
+          </div>
+          <div class="quiz-result__summary-item">
             <span class="quiz-result__summary-label">Pass mark</span>
             <strong class="quiz-result__summary-value">${passingScore}%</strong>
           </div>
@@ -688,12 +633,11 @@ export function initQuiz(
             <span
               class="quiz-result__score-ring"
               aria-hidden="true"
-              style="display:block; inline-size:9rem; block-size:9rem; border-radius:50%; background:conic-gradient(${passed ? "var(--color-success)" : "var(--color-error)"} 0 ${score}%, var(--border-default) ${score}% 100%);"
+              style="--quiz-result-score:${score}%; --quiz-result-color:${resultColor};"
             ></span>
             <span
               class="quiz-result__score-ring-core"
               aria-hidden="true"
-              style="position:absolute; inline-size:7.75rem; block-size:7.75rem; border-radius:50%; background:var(--surface-1);"
             ></span>
             <span class="quiz-result__score-value">${score}%</span>
           </div>
@@ -736,7 +680,19 @@ export function initQuiz(
 
   function saveResult(score: number, passed: boolean) {
     const raw = safeLocalStorage.getRaw(QUIZ_RESULTS_KEY);
-    const results = raw ? JSON.parse(raw) : {};
+    let results: Record<string, unknown> = {};
+
+    if (raw) {
+      try {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+          results = parsed as Record<string, unknown>;
+        }
+      } catch (error) {
+        console.warn("[quiz] Ignoring corrupt saved quiz results", error);
+      }
+    }
+
     const slug = window.location.pathname.replace("/", "");
     results[slug || "quiz"] = {
       score,
@@ -778,4 +734,5 @@ export function initQuiz(
   const initialQ = questions[0];
   questionContainer.innerHTML = buildQuestionHTML(initialQ);
   bindOptionListeners(initialQ);
+  updateNavigation();
 }

@@ -552,7 +552,7 @@ questions:
     sourceLine: 2307
 
   # Question 32 - Single Choice - HARD
-  - question: "Which band pioneered the Neue Deutsche Härte style before Rammstein achieved international recognition?"
+  - question: "Which band helped pioneer the Neue Deutsche Härte style before Rammstein achieved international recognition?"
     type: "single-choice"
     difficulty: "hard"
     options:

@@ -1,12 +1,12 @@
 ---
-title: "From Jazz to Neo Soul Quiz"
+title: "From Jazz to Neo Soul"
 description:
   "Test your knowledge of jazz evolution from swing and bebop through fusion, acid jazz, and
   neo soul. Explore the artists, albums, and innovations that shaped modern soul music."
 seoTitle: "Jazz to Neo Soul Evolution Quiz | Fusion, Acid Jazz & Beyond"
 seoDescription:
-  "Challenge yourself with questions about jazz history, from bebop pioneers and fusion
-  innovators to acid jazz clubs and neo soul superstars."
+  "Take a jazz and neo soul quiz covering bebop, fusion, acid jazz, hip hop rhythm, and
+  modern soul."
 featuredTopics:
   - "Jazz"
   - "Fusion"
@@ -851,4 +851,23 @@ questions:
       structure. Nai Palm's voice moves over extended chords with unpredictable phrasing."
     source: "from-jazz-to-neo-soul"
     sourceLine: 2743
+
+  - question:
+      "Which Miles Davis album from 1970 brought electric instruments, studio layering,
+      and rock-influenced energy into jazz fusion?"
+    type: single-choice
+    difficulty: medium
+    options:
+      - "Kind of Blue"
+      - "Bitches Brew"
+      - "A Love Supreme"
+      - "Head Hunters"
+    correct: 1
+    explanation:
+      "Miles Davis's Bitches Brew, released in 1970, is one of the clearest starting
+      points for jazz fusion. The album used electric keyboards, multiple percussionists,
+      long studio edits, and dense ensemble textures, moving jazz toward the scale and
+      sound world of rock without abandoning improvisation."
+    source: "from-jazz-to-neo-soul"
+    sourceLine: 1117
 ---

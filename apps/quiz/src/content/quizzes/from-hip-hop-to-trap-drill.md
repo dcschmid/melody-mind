@@ -1,5 +1,5 @@
 ---
-title: "From Block Parties to Global Dominance: The Epic Journey of Hip Hop"
+title: "From Block Parties to Trap and Drill"
 description: "Test your knowledge of hip hop history from Bronx block parties to trap, drill, and the streaming era."
 seoTitle: "Hip Hop Quiz: From Block Parties to Trap and Drill"
 seoDescription: "Take a hip hop quiz covering five decades - from DJ Kool Herc and the Golden Age to trap, drill, and global streaming culture."
@@ -73,7 +73,7 @@ questions:
     sourceLine: 99
 
   # Question 5 - Single Choice - EASY
-  - question: "Which 1979 track is considered the first hip hop record to reach mainstream audiences?"
+  - question: "Which 1979 track is considered one of the first hip hop records to reach mainstream audiences?"
     type: "single-choice"
     difficulty: "easy"
     options:
@@ -82,7 +82,7 @@ questions:
       - "Planet Rock"
       - "Freedom"
     correct: 1
-    explanation: "'Rapper's Delight' by The Sugarhill Gang, released in 1979, was the first hip hop record to reach mainstream audiences. It used the bass line of Chic's 'Good Times' and stretched across more than fourteen minutes."
+    explanation: "'Rapper's Delight' by The Sugarhill Gang, released in 1979, was one of the first hip hop records to reach mainstream audiences. It used the bass line of Chic's 'Good Times' and stretched across more than fourteen minutes."
     source: "from-hip-hop-to-trap-drill"
     sourceLine: 192
 
@@ -141,7 +141,7 @@ questions:
     sourceLine: 159
 
   # Question 10 - Single Choice - MEDIUM
-  - question: "Which producer pioneered the SP-1200 sampler technique of isolating individual drum hits from existing records?"
+  - question: "Which producer is closely associated with isolating individual drum hits from existing records and reprogramming them with samplers?"
     type: "single-choice"
     difficulty: "medium"
     options:
@@ -150,7 +150,7 @@ questions:
       - "Dr. Dre"
       - "Prince Paul"
     correct: 1
-    explanation: "Marley Marl pioneered isolating individual drum hits from existing records and reprogramming them on the E-mu SP-1200 sampler. Instead of lifting entire loops, he could take one snare or kick and create new patterns."
+    explanation: "Marley Marl is closely associated with isolating individual drum hits from existing records and reprogramming them with samplers. Instead of lifting entire loops, he could take one snare or kick and create new patterns, an approach that became central to late-1980s hip hop production."
     source: "from-hip-hop-to-trap-drill"
     sourceLine: 484
 

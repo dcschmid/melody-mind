@@ -6,7 +6,7 @@ import {
 import {
   buildCollectionPageSchema,
   buildKnowledgeArticlesItemList,
-  type KnowledgeArticleLike,
+  type KnowledgeArticleListItem,
 } from "@shared-utils/utils/seo/seoSchema";
 import { calculateReadingTime } from "@shared-utils/utils/readingTime";
 import { sortEntries } from "@shared-utils/utils/content/sortEntries";
@@ -42,7 +42,7 @@ type KnowledgeIndexArticle = {
   };
 };
 
-export type KnowledgeIndexSection = TaxonomySection & {
+type KnowledgeIndexSection = TaxonomySection & {
   subsectionCount: number;
   articleCount: number;
 };
@@ -93,7 +93,7 @@ const buildTaxonomySections = (
 const buildKnowledgeSchemaArticles = (
   articles: KnowledgeIndexArticle[],
   baseUrl: string
-): KnowledgeArticleLike[] =>
+): KnowledgeArticleListItem[] =>
   articles.flatMap((article) => {
     const slug = article.id || "";
     const title = typeof article.data.title === "string" ? article.data.title.trim() : "";

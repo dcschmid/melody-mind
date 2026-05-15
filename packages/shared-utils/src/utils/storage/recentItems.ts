@@ -43,7 +43,7 @@ export const normalizeRecentItemSlug = (value: unknown): string => {
  * Items without a usable slug or title are rejected entirely. Optional fields are retained
  * only as trimmed strings, and slug/title lengths are capped to avoid persisting unbounded data.
  */
-export const sanitizeRecentItem = (value: unknown): RecentItem | null => {
+const sanitizeRecentItem = (value: unknown): RecentItem | null => {
   if (!value || typeof value !== "object") {
     return null;
   }
@@ -99,10 +99,7 @@ export const loadRecentItems = (storageKey: string): RecentItem[] => {
  * The returned array is the exact sanitized payload written to storage, which allows callers
  * to continue working with the canonical in-memory representation immediately.
  */
-export const saveRecentItems = (
-  storageKey: string,
-  items: RecentItem[]
-): RecentItem[] => {
+const saveRecentItems = (storageKey: string, items: RecentItem[]): RecentItem[] => {
   if (!storageKey) {
     return items;
   }

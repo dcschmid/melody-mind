@@ -599,9 +599,9 @@ questions:
       - "Too much mainstream attention"
     correct: [0, 1, 2, 3]
     explanation:
-      "Artists face more pressure today. Touring is hard, attention is divided, financial
-      stability is difficult, and mental strain is now discussed openly. These realities
-      influence how heaviness is written and performed."
+      "In the streaming era, heavy music artists face pressure from touring, fragmented
+      attention, financial instability, and mental strain. These realities influence how
+      heaviness is written, released, and performed."
     source: "from-blues-to-breakdown"
     sourceLine: 1728
 
@@ -653,9 +653,10 @@ questions:
       - "Too much free time"
     correct: [0, 1, 2, 3]
     explanation:
-      "Touring is still the most important part of survival but leads to exhaustion. Long
-      drives, lack of sleep, financial instability, and constant promotion leave little room
-      for recovery. Musicians must perform, market, and engage simultaneously."
+      "For many heavy music artists, touring remains central to survival but can also lead to
+      exhaustion. Long drives, lack of sleep, financial instability, and constant promotion
+      leave little room for recovery. Musicians must perform, market, and engage
+      simultaneously."
     source: "from-blues-to-breakdown"
     sourceLine: 1791
 

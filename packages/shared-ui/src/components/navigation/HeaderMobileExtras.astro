@@ -8,9 +8,21 @@ interface GenreLink {
 
 interface Props {
   genreLinks: GenreLink[];
+  heading?: string;
+  primaryCtaHref?: string;
+  primaryCtaLabel?: string;
+  secondaryCtaHref?: string;
+  secondaryCtaLabel?: string;
 }
 
-const { genreLinks } = Astro.props as Props;
+const {
+  genreLinks,
+  heading = "Explore genres",
+  primaryCtaHref = "/#albums-list",
+  primaryCtaLabel = "Browse Albums",
+  secondaryCtaHref = "/?search=1",
+  secondaryCtaLabel = "Search Music",
+} = Astro.props as Props;
 ---
 
 {
@@ -23,7 +35,7 @@ const { genreLinks } = Astro.props as Props;
         id="music-header-mobile-genres-heading"
         class="music-header-mobile-extras__eyebrow"
       >
-        Explore genres
+        {heading}
       </p>
       <ul class="music-header-mobile-extras__genres">
         {genreLinks.map((genre) => (
@@ -47,17 +59,17 @@ const { genreLinks } = Astro.props as Props;
   )
 }
 
-<a class="music-header-mobile-extras__cta" href="/#albums-list">
+<a class="music-header-mobile-extras__cta" href={primaryCtaHref}>
   <Icon name="play" class="music-header-mobile-extras__cta-icon" aria-hidden="true" />
-  <span>Browse Albums</span>
+  <span>{primaryCtaLabel}</span>
 </a>
 
 <a
   class="music-header-mobile-extras__cta music-header-mobile-extras__cta--secondary"
-  href="/?search=1"
+  href={secondaryCtaHref}
 >
   <Icon name="search" class="music-header-mobile-extras__cta-icon" aria-hidden="true" />
-  <span>Search Music</span>
+  <span>{secondaryCtaLabel}</span>
 </a>
 
 <style>

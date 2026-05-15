@@ -701,5 +701,3 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
   }
   return result;
 }
-
-export default buildPageSeo;

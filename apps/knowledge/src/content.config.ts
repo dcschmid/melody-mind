@@ -44,5 +44,3 @@ export const collections = {
 
 // Type definitions
 export type KnowledgeData = z.infer<ReturnType<typeof getKnowledgeSchema>>;
-export type CollectionKey = keyof typeof collections;
-export type KnowledgeCollectionKey = Extract<CollectionKey, `knowledge-${string}`>;

@@ -99,4 +99,4 @@ export const knowledgeHeroImageUrl = (baseUrl: string): string =>
 export const knowledgeBrandLogoUrl = (baseUrl: string): string =>
   toAbsoluteAssetUrl(knowledgeBrandLogo, baseUrl);
 
-export { knowledgeBrandLogo, knowledgeHeroImage };
+export { knowledgeHeroImage };

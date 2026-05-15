@@ -20,7 +20,7 @@ export const THEME_STORAGE_KEY = STORAGE_KEYS.THEME;
 export type Theme = "light" | "dark";
 
 /** Runtime type guard for persisted or external theme values. */
-export function isTheme(value: unknown): value is Theme {
+function isTheme(value: unknown): value is Theme {
   return value === "light" || value === "dark";
 }
 
@@ -70,17 +70,6 @@ export function getSystemTheme(): Theme {
 }
 
 /** Returns the effective theme, preferring a stored manual override over the system theme. */
-export function getResolvedTheme(): Theme {
-  const stored = getStoredTheme();
-  return stored ?? getSystemTheme();
-}
-
-/**
- * Applies the theme to the document root and emits the shared theme-change event.
- *
- * The function does not persist anything by itself; persistence stays separate so callers can
- * choose whether a theme change is manual and durable or only a transient system application.
- */
 export function applyTheme(theme: Theme, source: "manual" | "system" = "manual"): void {
   document.documentElement.setAttribute("data-theme", theme);
   document.documentElement.style.colorScheme = theme;

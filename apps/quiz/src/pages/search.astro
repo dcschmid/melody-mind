@@ -10,8 +10,7 @@ export const prerender = true;
 const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
 
 const title = "Search Melody Mind Quizzes";
-const description =
-  "Search Melody Mind quizzes by title, description, topic, question, answer, and explanation.";
+const description = "Find quizzes by title, topic, question, answer, or explanation.";
 const currentUrl = resolvePageUrl(Astro.site, "/search");
 const pageSeo = buildPageSeo({
   title,
@@ -35,7 +34,7 @@ const searchIndexUrl = "/search-index.json";
 ---
 
 <Layout {pageSeo}>
-  <PageShell className="page-shell--night page-shell--grid">
+  <PageShell className="page-shell--grid">
     <OramaSearchSection
       searchIndexUrl={searchIndexUrl}
       initialQuery={initialQuery}

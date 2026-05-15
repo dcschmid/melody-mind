@@ -1,8 +1,8 @@
 ---
-title: "From Punk to Indie Quiz"
-description: "Test your knowledge of punk's raw rebellion to indie's creative freedom—discover the artists, scenes, and ideas that transformed alternative music across four decades."
+title: "From Punk to Indie"
+description: "Test your knowledge of punk, post-punk, hardcore, alternative rock, and indie scenes across four decades."
 seoTitle: "Punk to Indie Music Evolution Quiz | MelodyMind"
-seoDescription: "Challenge yourself with questions about punk rock history, post-punk evolution, hardcore, alternative rock, and indie music origins."
+seoDescription: "Take a punk and indie quiz covering punk rock history, post-punk, hardcore, alternative rock, and indie music origins."
 featuredTopics:
   - "Punk Rock History"
   - "Post-Punk Evolution"
@@ -692,7 +692,7 @@ questions:
     sourceLine: 1446
 
   # Shoegaze
-  - question: "Which My Bloody Valentine album from 1991 became the definitive statement of the shoegaze style?"
+  - question: "Which My Bloody Valentine album from 1991 became a defining statement of the shoegaze style?"
     type: single-choice
     difficulty: medium
     options:
@@ -701,7 +701,7 @@ questions:
       - "m b v"
       - "Ecstasy and Wine"
     correct: 1
-    explanation: "My Bloody Valentine's 1991 album Loveless became the definitive statement of the shoegaze style. Songs like 'Only Shallow,' 'When You Sleep,' and 'Sometimes' surrounded the listener with thick guitar layers."
+    explanation: "My Bloody Valentine's 1991 album Loveless became a defining statement of the shoegaze style. Songs like 'Only Shallow,' 'When You Sleep,' and 'Sometimes' surrounded the listener with thick guitar layers."
     source: "from-punk-to-indie"
     sourceLine: 1525
 

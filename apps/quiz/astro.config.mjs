@@ -10,6 +10,9 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://quiz.melody-mind.de",
   output: "static",
+  devToolbar: {
+    enabled: false,
+  },
 
   prefetch: {
     defaultStrategy: "hover",

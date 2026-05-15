@@ -1,8 +1,8 @@
 ---
-title: "From Gospel to Modern Vocal Pop: How Sacred Song Became the Sound of Global Music"
+title: "From Gospel to Modern Vocal Pop"
 description: "Test your knowledge of how Black vocal tradition shaped Soul, R&B, and modern pop music."
 seoTitle: "Gospel to Pop Quiz: Sacred Song to Global Sound"
-seoDescription: "Take a quiz covering the journey from Gospel and Soul to contemporary R&B and modern vocal pop."
+seoDescription: "Take a vocal pop quiz covering gospel, soul, contemporary R&B, neo-soul, and modern vocal technique."
 featuredTopics:
   - "Gospel origins"
   - "Soul explosion"
@@ -87,7 +87,7 @@ questions:
     sourceLine: 307
 
   # Question 6 - Single Choice - MEDIUM
-  - question: "Which 1950s artist is considered the first major 'crossover' artist who merged sacred Gospel technique with secular lyrics?"
+  - question: "Which 1950s artist became a major crossover figure by merging Gospel technique with secular lyrics?"
     type: "single-choice"
     difficulty: "medium"
     options:
@@ -96,7 +96,7 @@ questions:
       - "Ray Charles"
       - "Sam Cooke"
     correct: 2
-    explanation: "Ray Charles merged Gospel melodies with secular lyrics in the mid-1950s. Songs like 'I Got a Woman' used Gospel structures and call-and-response but with lyrics about love, not religion."
+    explanation: "Ray Charles merged Gospel melodies with secular lyrics in the mid-1950s and became a major crossover figure. Songs like 'I Got a Woman' used Gospel structures and call-and-response but with lyrics about love, not religion."
     source: "from-gospel-to-modern-vocal-pop"
     sourceLine: 473
 
