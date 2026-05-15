@@ -175,9 +175,6 @@ importers:
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
-      zod:
-        specifier: ^4.3.6
-        version: 4.3.6
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.8
