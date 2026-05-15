@@ -32,11 +32,19 @@ const { caption, columns, rows } = Astro.props as Props;
               const content = column.renderAsCode ? <code>{value}</code> : value;
 
               return column.isRowHeader ? (
-                <th class="data-table__row-header" scope="row" data-label={column.label}>
-                  {content}
+                <th class="data-table__row-header" scope="row">
+                  <span class="data-table__label" aria-hidden="true">
+                    {column.label}
+                  </span>
+                  <span class="data-table__value">{content}</span>
                 </th>
               ) : (
-                <td data-label={column.label}>{content}</td>
+                <td>
+                  <span class="data-table__label" aria-hidden="true">
+                    {column.label}
+                  </span>
+                  <span class="data-table__value">{content}</span>
+                </td>
               );
             })}
           </tr>
@@ -82,6 +90,18 @@ const { caption, columns, rows } = Astro.props as Props;
   .data-table__row-header {
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
+  }
+
+  .data-table__label {
+    position: var(--sr-only);
+    inline-size: var(--sr-only-width);
+    block-size: var(--sr-only-height);
+    padding: var(--sr-only-padding);
+    margin: var(--sr-only-margin);
+    overflow: var(--sr-only-overflow);
+    white-space: var(--sr-only-white-space);
+    border: var(--sr-only-border);
+    clip-path: var(--sr-only-clip-path);
   }
 
   .data-table__table code {
@@ -149,12 +169,20 @@ const { caption, columns, rows } = Astro.props as Props;
       border-block-end: 1px solid var(--border-muted);
     }
 
-    .data-table__table th::before,
-    .data-table__table td::before {
+    .data-table__table th .data-table__label,
+    .data-table__table td .data-table__label {
+      position: static;
+      inline-size: auto;
+      block-size: auto;
+      padding: 0;
+      margin: 0;
+      overflow: visible;
       font-size: var(--font-size-sm);
       font-weight: var(--font-weight-semibold);
       color: var(--text-secondary);
-      content: attr(data-label);
+      white-space: normal;
+      border: 0;
+      clip-path: none;
     }
 
     .data-table__table code {

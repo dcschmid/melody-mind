@@ -301,27 +301,31 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
   @media (width <= 1023.98px) {
     .music-site-header {
       --music-menu-panel-width: min(22.5rem, calc(100dvw - 2rem));
-      --music-menu-bg-start: oklch(13% 0.048 258deg);
-      --music-menu-bg-end: oklch(9% 0.034 252deg);
-      --music-menu-bg-glow: oklch(47% 0.18 286deg / 0.34);
-      --music-menu-text: oklch(96% 0.012 74deg);
-      --music-menu-muted: oklch(78% 0.038 254deg);
-      --music-menu-line: oklch(42% 0.067 252deg / 0.72);
-      --music-menu-accent: oklch(73% 0.17 286deg);
-      --music-menu-active-text: oklch(91% 0.072 296deg);
+      --music-menu-bg-start: var(--bg-primary);
+      --music-menu-bg-end: var(--bg-secondary);
+      --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 34%, transparent);
+      --music-menu-text: var(--text-primary);
+      --music-menu-muted: var(--text-tertiary);
+      --music-menu-line: var(--border-muted);
+      --music-menu-accent: var(--accent-primary);
+      --music-menu-active-text: var(--link-hover);
       --music-menu-active-bg: linear-gradient(
         90deg,
-        oklch(34% 0.13 286deg / 0.72),
-        oklch(28% 0.105 252deg / 0.7)
+        color-mix(in srgb, var(--accent-primary) 28%, var(--surface-2)),
+        color-mix(in srgb, var(--accent-strong) 22%, var(--surface-2))
       );
-      --music-menu-chip-bg: oklch(18% 0.052 252deg / 0.74);
-      --music-menu-chip-border: oklch(48% 0.11 258deg / 0.72);
+      --music-menu-chip-bg: color-mix(in srgb, var(--surface-1) 74%, transparent);
+      --music-menu-chip-border: color-mix(
+        in srgb,
+        var(--accent-primary) 34%,
+        var(--border-muted)
+      );
       --music-menu-cta-bg: linear-gradient(
         100deg,
-        oklch(45% 0.16 292deg),
-        oklch(44% 0.14 252deg)
+        var(--accent-primary),
+        var(--accent-strong)
       );
-      --music-menu-cta-text: oklch(98% 0.014 75deg);
+      --music-menu-cta-text: var(--button-text-accent);
       --music-menu-cta-shadow: color-mix(
         in srgb,
         var(--music-menu-accent) 28%,
@@ -332,27 +336,27 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     }
 
     :global([data-theme="light"]) .music-site-header {
-      --music-menu-bg-start: oklch(98% 0.014 74deg);
-      --music-menu-bg-end: oklch(95% 0.025 74deg);
-      --music-menu-bg-glow: oklch(77% 0.11 24deg / 0.18);
-      --music-menu-text: oklch(19% 0.026 42deg);
-      --music-menu-muted: oklch(43% 0.032 43deg);
-      --music-menu-line: oklch(83% 0.041 62deg);
-      --music-menu-accent: oklch(42% 0.14 22deg);
-      --music-menu-active-text: oklch(38% 0.14 18deg);
+      --music-menu-bg-start: var(--surface-1);
+      --music-menu-bg-end: var(--bg-secondary);
+      --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 18%, transparent);
+      --music-menu-text: var(--text-primary);
+      --music-menu-muted: var(--text-secondary);
+      --music-menu-line: var(--border-muted);
+      --music-menu-accent: var(--accent-primary);
+      --music-menu-active-text: var(--accent-strong);
       --music-menu-active-bg: linear-gradient(
         90deg,
-        oklch(91% 0.047 25deg),
-        oklch(96% 0.022 62deg)
+        var(--surface-3),
+        color-mix(in srgb, var(--surface-1) 76%, var(--bg-secondary))
       );
-      --music-menu-chip-bg: oklch(97% 0.014 72deg);
-      --music-menu-chip-border: oklch(86% 0.042 44deg);
+      --music-menu-chip-bg: var(--surface-1);
+      --music-menu-chip-border: var(--border-muted);
       --music-menu-cta-bg: linear-gradient(
         100deg,
-        oklch(45% 0.17 18deg),
-        oklch(45% 0.15 12deg)
+        var(--accent-primary),
+        var(--accent-strong)
       );
-      --music-menu-cta-text: oklch(98% 0.014 75deg);
+      --music-menu-cta-text: var(--button-text-accent);
       --music-menu-cta-shadow: color-mix(
         in srgb,
         var(--music-menu-accent) 28%,
@@ -379,17 +383,17 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       inline-size: 2.75rem;
       block-size: 2.75rem;
       padding: 0;
-      color: oklch(96% 0.012 72deg);
+      color: var(--text-primary);
       cursor: pointer;
-      background: oklch(10% 0.034 255deg / 0.52);
-      border: 1px solid oklch(96% 0.012 72deg / 0.22);
+      background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
+      border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
       border-radius: 999px;
     }
 
     :global([data-theme="light"]) .music-site-header__toggle {
-      color: oklch(39% 0.145 18deg);
-      background: oklch(98% 0.014 74deg / 0.62);
-      border-color: oklch(58% 0.08 32deg / 0.28);
+      color: var(--accent-primary);
+      background: color-mix(in srgb, var(--surface-1) 62%, transparent);
+      border-color: color-mix(in srgb, var(--border-default) 28%, transparent);
     }
 
     .music-site-header__toggle-text {
@@ -414,7 +418,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       padding: 0;
       pointer-events: none;
       cursor: pointer;
-      background: oklch(8% 0.03 255deg / 0.68);
+      background: color-mix(in srgb, var(--bg-primary) 68%, transparent);
       border: 0;
       opacity: 0;
     }
@@ -473,7 +477,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
         linear-gradient(180deg, var(--music-menu-bg-start), var(--music-menu-bg-end));
       border: 1px solid var(--music-menu-line);
       border-radius: 1rem;
-      box-shadow: 0 1.5rem 4rem oklch(5% 0.02 250deg / 0.38);
+      box-shadow: var(--shadow-2xl);
     }
 
     .music-site-header[data-open="true"] .music-site-header__nav {

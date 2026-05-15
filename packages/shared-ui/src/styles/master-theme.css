@@ -37,6 +37,7 @@
      --------------------------------------------------------------------------- */
   --font-sans:
     "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
 
   /* Font sizes */
@@ -49,8 +50,6 @@
   --font-size-2xl: clamp(1.875rem, 1.58rem + 1.3vw, 2.625rem); /* 30-42px */
   --font-size-3xl: clamp(2.25rem, 1.88rem + 1.7vw, 3.25rem); /* 36-52px */
   --font-size-4xl: clamp(2.75rem, 2.15rem + 2.35vw, 4.5rem); /* 44-72px */
-  --font-size-ui: var(--font-size-base);
-
   /* Font weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
@@ -66,7 +65,6 @@
   --line-height-loose: 1.75;
 
   /* Letter spacing */
-  --letter-spacing-tighter: -0.05em;
   --letter-spacing-tight: -0.05em;
   --letter-spacing-normal: 0em;
   --letter-spacing-wide: 0.025em;
@@ -112,12 +110,6 @@
   --color-warning: oklch(35% 0.105 75deg);
   --color-error: oklch(37% 0.15 25deg);
   --color-info: oklch(36% 0.105 235deg);
-
-  /* Status hover colors (darkened for hover states) */
-  --color-success-hover: oklch(31% 0.11 155deg);
-  --color-warning-hover: oklch(30% 0.1 75deg);
-  --color-error-hover: oklch(32% 0.14 25deg);
-  --color-info-hover: oklch(31% 0.1 235deg);
 
   /* ---------------------------------------------------------------------------
      DARK MODE COLORS (WCAG AAA Compliant)
@@ -176,6 +168,7 @@
   --motion-duration-fast: 140ms;
   --motion-duration-base: 220ms;
   --motion-duration-slow: 320ms;
+  --motion-duration-feedback: var(--motion-duration-slow);
   --motion-ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
   --motion-ease-emphasis: cubic-bezier(0.2, 0.8, 0.2, 1);
   --motion-distance-xs: 0.125rem;
@@ -183,10 +176,12 @@
   --motion-distance-md: 0.5rem;
   --motion-opacity-soft: 0.72;
   --motion-opacity-full: 1;
+  --motion-delay: var(--motion-delay-none);
   --motion-delay-none: 0ms;
   --motion-delay-fast: 80ms;
   --motion-delay-base: 140ms;
   --motion-delay-slow: 220ms;
+  --motion-iteration-feedback: 2;
 
   /* ---------------------------------------------------------------------------
      ACCESSIBILITY & FOCUS
@@ -195,6 +190,7 @@
   --focus-ring-offset: 2px;
   --focus-ring-color: oklch(40% 0.13 16deg);
   --focus-ring-color-dark: oklch(82% 0.13 286deg);
+  --z-modal: 1000;
 
   /* Screen reader only */
   --sr-only: absolute;
@@ -203,6 +199,7 @@
   --sr-only-padding: 0;
   --sr-only-margin: -1px;
   --sr-only-overflow: hidden;
+  --sr-only-clip: rect(0 0 0 0);
   --sr-only-clip-path: inset(50%);
   --sr-only-white-space: nowrap;
   --sr-only-border: 0;
@@ -231,10 +228,6 @@
   --accent-primary-hover: var(--color-accent-primary-hover);
   --accent-contrast: var(--color-surface-1);
 
-  --gn-accent: var(--accent-primary);
-  --gn-accent-strong: var(--accent-strong);
-  --gn-accent-light: var(--accent-muted);
-
   --link-default: var(--color-link-default);
   --link-hover: var(--color-link-hover);
   --link-visited: var(--color-link-visited);
@@ -243,7 +236,6 @@
   --border-muted: var(--color-border-muted);
   --border-strong: var(--color-border-strong);
 
-  --gn-panel-border: var(--border-default);
   --page-background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--surface-1) 28%, var(--bg-primary)),
@@ -253,8 +245,6 @@
   --surface-scrim: color-mix(in srgb, var(--text-primary) 24%, transparent);
   --interactive-shadow-focus: 0 0 0 3px
     color-mix(in srgb, var(--focus-ring-color) 28%, transparent);
-  --interactive-shadow-strong: 0 0 0 6px
-    color-mix(in srgb, var(--focus-ring-color) 20%, transparent);
   --button-text-accent: var(--accent-contrast);
   --control-min-block-size: 2.75rem;
   --control-min-inline-size: 2.75rem;
@@ -266,22 +256,6 @@
   --brand-deezer: #ff0090;
   --brand-applemusic: #fc3c44;
 
-  /* Legacy aliases for compatibility */
-  --gn-bg-primary: var(--bg-primary);
-  --gn-bg: var(--bg-primary);
-  --gn-bg-muted: var(--bg-secondary);
-  --gn-ink: var(--text-primary);
-  --gn-ink-muted: var(--text-secondary);
-
-  /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --motion-duration-fast: 140ms;
-  --motion-duration-base: 220ms;
-  --motion-duration-slow: 320ms;
-  --motion-delay-fast: 80ms;
-  --motion-delay-base: 140ms;
-  --motion-delay-slow: 220ms;
-  --motion-ok: 1;
 }
 
 /* =============================================================================
@@ -309,10 +283,6 @@
     --accent-primary-hover: var(--color-dark-accent-primary-hover);
     --accent-contrast: var(--color-dark-bg-primary);
 
-    --gn-accent: var(--accent-primary);
-    --gn-accent-strong: var(--accent-strong);
-    --gn-accent-light: var(--accent-muted);
-
     --link-default: var(--color-dark-link-default);
     --link-hover: var(--color-dark-link-hover);
     --link-visited: var(--color-dark-link-visited);
@@ -322,16 +292,10 @@
     --color-error: oklch(78% 0.11 25deg);
     --color-info: oklch(78% 0.1 235deg);
 
-    --color-success-hover: oklch(84% 0.1 155deg);
-    --color-warning-hover: oklch(84% 0.09 75deg);
-    --color-error-hover: oklch(84% 0.09 25deg);
-    --color-info-hover: oklch(84% 0.08 235deg);
-
     --border-default: var(--color-dark-border-default);
     --border-muted: var(--color-dark-border-muted);
     --border-strong: var(--color-dark-border-strong);
 
-    --gn-panel-border: var(--border-default);
     --page-background: linear-gradient(
       180deg,
       color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
@@ -341,19 +305,9 @@
     --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
     --interactive-shadow-focus: 0 0 0 3px
       color-mix(in srgb, var(--focus-ring-color-dark) 32%, transparent);
-    --interactive-shadow-strong: 0 0 0 6px
-      color-mix(in srgb, var(--focus-ring-color-dark) 24%, transparent);
     --button-text-accent: var(--color-dark-bg-primary);
     --focus-ring-color: var(--focus-ring-color-dark);
 
-    /* Legacy aliases */
-    --gn-bg-primary: var(--bg-primary);
-    --gn-bg: var(--bg-primary);
-    --gn-bg-muted: var(--bg-secondary);
-    --gn-ink: var(--text-primary);
-    --gn-ink-muted: var(--text-secondary);
-
-    --focus-ring-color: var(--focus-ring-color-dark);
   }
 }
 
@@ -385,10 +339,6 @@
   --accent-primary-hover: var(--color-dark-accent-primary-hover);
   --accent-contrast: var(--color-dark-bg-primary);
 
-  --gn-accent: var(--accent-primary);
-  --gn-accent-strong: var(--accent-strong);
-  --gn-accent-light: var(--accent-muted);
-
   --link-default: var(--color-dark-link-default);
   --link-hover: var(--color-dark-link-hover);
   --link-visited: var(--color-dark-link-visited);
@@ -398,16 +348,10 @@
   --color-error: oklch(78% 0.11 25deg);
   --color-info: oklch(78% 0.1 235deg);
 
-  --color-success-hover: oklch(84% 0.1 155deg);
-  --color-warning-hover: oklch(84% 0.09 75deg);
-  --color-error-hover: oklch(84% 0.09 25deg);
-  --color-info-hover: oklch(84% 0.08 235deg);
-
   --border-default: var(--color-dark-border-default);
   --border-muted: var(--color-dark-border-muted);
   --border-strong: var(--color-dark-border-strong);
 
-  --gn-panel-border: var(--border-default);
   --page-background: linear-gradient(
     180deg,
     color-mix(in srgb, var(--surface-2) 34%, var(--bg-primary)),
@@ -417,16 +361,7 @@
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
   --interactive-shadow-focus: 0 0 0 3px
     color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
-  --interactive-shadow-strong: 0 0 0 6px
-    color-mix(in srgb, var(--focus-ring-color) 24%, transparent);
   --button-text-accent: var(--color-dark-bg-primary);
-
-  /* Legacy aliases */
-  --gn-bg-primary: var(--bg-primary);
-  --gn-bg: var(--bg-primary);
-  --gn-bg-muted: var(--bg-secondary);
-  --gn-ink: var(--text-primary);
-  --gn-ink-muted: var(--text-secondary);
 
   --focus-ring-color: var(--focus-ring-color-dark);
 }
@@ -435,33 +370,15 @@
    COMPONENT-SPECIFIC TOKENS
    ============================================================================= */
 :root {
-  /* Cards */
-  --card-bg: var(--surface-1);
-  --card-border-width: 2px;
-  --card-border-color: var(--border-default);
-  --card-radius: var(--radius-lg);
-  --card-padding: var(--spacing-lg);
-
   /* Buttons */
   --button-padding-y: var(--spacing-sm);
   --button-padding-x: var(--spacing-lg);
-  --button-radius: var(--radius-base);
   --button-font-weight: var(--font-weight-semibold);
   --button-primary-bg: linear-gradient(
     135deg,
     var(--accent-primary),
     color-mix(in srgb, var(--accent-primary) 76%, var(--accent-strong))
   );
-  --button-primary-bg-hover: var(--accent-primary-hover);
-
-  /* Forms */
-  --form-input-bg: var(--surface-1);
-  --form-input-border: var(--border-default);
-  --form-input-padding-y: var(--spacing-sm);
-  --form-input-padding-x: var(--spacing-md);
-  --form-input-radius: var(--radius-base);
-  --form-label-margin-bottom: var(--spacing-xs);
-  --form-error-color: var(--color-error);
 
   /* Typography */
   --prose-line-height: var(--line-height-relaxed);
@@ -473,7 +390,7 @@
 
   /* Layout */
   --page-max-width: 84rem;
-  --content-max-width: 74rem;
+  --max-width: var(--page-max-width);
   --measure-wide: 56rem;
   --measure-readable: 42rem;
   --measure-standard: 40rem;
@@ -492,18 +409,13 @@
   --page-padding-y: var(--spacing-2xl);
   --section-gap: var(--spacing-3xl);
   --site-header-height: clamp(4rem, 4vw, 4.75rem);
-  --site-header-shell-bg: color-mix(in srgb, var(--surface-1) 94%, transparent);
-  --site-header-shell-border: color-mix(
-    in srgb,
-    var(--accent-primary) 14%,
-    var(--border-default)
-  );
 
   /* Surfaces */
   --surface-panel-bg: color-mix(in srgb, var(--surface-1) 92%, var(--surface-2));
   --surface-panel-raised: color-mix(in srgb, var(--surface-1) 96%, var(--surface-2));
   --surface-card-hover: color-mix(in srgb, var(--accent-primary) 6%, var(--surface-1));
   --section-surface-bg: color-mix(in srgb, var(--surface-1) 90%, var(--surface-2));
+  --surface-section-bg: var(--section-surface-bg);
   --section-surface-accent-bg: color-mix(
     in srgb,
     var(--accent-muted) 18%,
@@ -514,12 +426,11 @@
     var(--accent-primary) 14%,
     var(--section-surface-bg)
   );
-  --section-surface-inner-gap: var(--spacing-lg);
   --surface-chip-bg: color-mix(in srgb, var(--surface-1) 92%, var(--bg-primary));
   --surface-pill-bg: color-mix(in srgb, var(--surface-1) 82%, var(--surface-2));
   --surface-border-subtle: color-mix(in srgb, var(--border-default) 24%, transparent);
   --surface-border-soft: color-mix(in srgb, var(--border-default) 58%, transparent);
-  --surface-border-strong: color-mix(in srgb, var(--border-default) 82%, transparent);
+  --surface-border-medium: color-mix(in srgb, var(--border-default) 70%, transparent);
   --surface-border-accent: color-mix(
     in srgb,
     var(--accent-primary) 28%,
@@ -531,23 +442,18 @@
     var(--border-default)
   );
   --control-min-block-size-compact: 2.25rem;
-  --control-min-inline-size-compact: 2.25rem;
   --control-padding-inline-compact: var(--spacing-base);
   --control-padding-block-compact: calc(var(--spacing-sm) - 0.1rem);
-  --control-gap-compact: var(--spacing-xs);
   --control-radius-compact: calc(var(--radius-lg) - 0.18rem);
   --icon-size-xs: 0.88rem;
   --icon-size-sm: 1rem;
   --icon-size-md: 1.125rem;
-  --icon-size-lg: 1.5rem;
   --icon-size-xl: 2rem;
   --text-underline-offset-base: 0.1875rem;
   --measure-copy-narrow: 34rem;
   --measure-copy-compact: 36rem;
-  --measure-copy-aside: 22rem;
   --panel-padding-sm: clamp(0.95rem, 1.5vw, 1.2rem);
   --panel-padding-md: clamp(1rem, 1.6vw, 1.25rem);
-  --panel-padding-lg: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
   --stack-gap-sm: clamp(var(--spacing-sm), 1.05vw, var(--spacing-base));
   --stack-gap-md: clamp(var(--spacing-base), 1.8vw, var(--spacing-lg));
   --stack-gap-lg: clamp(var(--spacing-lg), 2.5vw, var(--spacing-xl));
@@ -639,6 +545,7 @@ body {
     --motion-duration-fast: 0ms;
     --motion-duration-base: 0ms;
     --motion-duration-slow: 0ms;
+    --motion-duration-feedback: 0ms;
     --motion-delay-none: 0ms;
     --motion-delay-fast: 0ms;
     --motion-delay-base: 0ms;
@@ -647,7 +554,6 @@ body {
     --motion-distance-sm: 0rem;
     --motion-distance-md: 0rem;
     --motion-opacity-soft: 1;
-    --motion-ok: 0;
   }
 
   html {
@@ -665,7 +571,7 @@ body {
 }
 
 /* =============================================================================
-   REDUCED MOTION
+   HIGH CONTRAST
    ============================================================================= */
 
 @media (prefers-contrast: more) {
@@ -690,8 +596,6 @@ body {
     --surface-pill-bg: var(--surface-1);
     --interactive-shadow-focus: 0 0 0 4px
       color-mix(in srgb, var(--focus-ring-color) 38%, transparent);
-    --interactive-shadow-strong: 0 0 0 6px
-      color-mix(in srgb, var(--focus-ring-color) 32%, transparent);
   }
 
   :root[data-theme="dark"] {
@@ -747,7 +651,6 @@ body {
     --surface-overlay: transparent;
     --surface-scrim: rgba(0, 0, 0, 0.65);
     --interactive-shadow-focus: none;
-    --interactive-shadow-strong: none;
     --button-text-accent: ButtonText;
   }
 }

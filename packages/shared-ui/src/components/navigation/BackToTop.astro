@@ -87,15 +87,15 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
 
 <style>
   .music-back-to-top {
-    --music-back-to-top-accent: var(--music-accent-primary, oklch(40% 0.13 16deg));
-    --music-back-to-top-accent-strong: var(--music-accent-strong, oklch(38% 0.125 16deg));
+    --music-back-to-top-accent: var(--music-accent-primary, var(--accent-primary));
+    --music-back-to-top-accent-strong: var(--music-accent-strong, var(--accent-strong));
     --music-back-to-top-panel: color-mix(
       in srgb,
       var(--surface-1, var(--bg-primary)) 94%,
       var(--bg-primary, Canvas)
     );
     --music-back-to-top-line: var(--border-strong, var(--surface-border-accent));
-    --music-back-to-top-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --music-back-to-top-ease-out: var(--motion-ease-standard);
     --music-back-to-top-icon-size: 1.12rem;
     --music-back-to-top-size: 3.15rem;
     --music-back-to-top-size-large: 3.25rem;
@@ -108,7 +108,7 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
       transparent
     );
     --music-back-to-top-state-shadow:
-      0 0.9rem 1.8rem oklch(20% 0.04 45deg / 0.2),
+      var(--shadow-lg),
       0 0 0 0.28rem color-mix(in srgb, var(--music-back-to-top-accent) 14%, transparent);
     --music-back-to-top-state-transform: translateY(0.5rem) scale(0.96);
 
@@ -155,7 +155,7 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
     );
     --music-back-to-top-line: var(--border-strong, var(--surface-border-accent));
     --music-back-to-top-state-shadow:
-      0 0.95rem 1.9rem oklch(0% 0 0deg / 0.34),
+      var(--shadow-xl),
       0 0 0 0.28rem color-mix(in srgb, var(--music-back-to-top-accent) 18%, transparent);
   }
 
@@ -174,7 +174,7 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
       var(--music-back-to-top-accent-strong)
     );
     --music-back-to-top-state-shadow:
-      0 0.85rem 1.8rem oklch(20% 0.04 45deg / 0.2),
+      var(--shadow-lg),
       0 0 0 0.3rem color-mix(in srgb, var(--music-back-to-top-accent) 16%, transparent);
     --music-back-to-top-state-transform: translateY(-0.08rem) scale(1.03);
 
@@ -226,7 +226,7 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
         var(--music-back-to-top-accent-strong)
       );
       --music-back-to-top-state-shadow:
-        0 0.85rem 1.8rem oklch(20% 0.04 45deg / 0.2),
+        var(--shadow-lg),
         0 0 0 0.3rem color-mix(in srgb, var(--music-back-to-top-accent) 16%, transparent);
       --music-back-to-top-state-transform: translateY(-0.08rem) scale(1.03);
     }

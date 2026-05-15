@@ -243,30 +243,34 @@ const keywords = mergedKeywords
 
 <style>
   :global(.melodymind-app) {
-    --music-accent-primary: oklch(40% 0.13 16deg);
-    --music-accent-strong: oklch(38% 0.125 16deg);
+    --music-accent-primary: var(--accent-primary);
+    --music-accent-strong: var(--accent-strong);
 
     background:
-      radial-gradient(circle at 92% 8%, oklch(90% 0.052 61deg / 0.34), transparent 36rem),
-      linear-gradient(180deg, oklch(98% 0.016 75deg), oklch(94% 0.031 72deg));
+      radial-gradient(
+        circle at 92% 8%,
+        color-mix(in srgb, var(--surface-3) 62%, transparent),
+        transparent 36rem
+      ),
+      linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
   }
 
   :global([data-theme="dark"] .melodymind-app) {
-    --music-accent-primary: oklch(78% 0.16 286deg);
-    --music-accent-strong: oklch(80% 0.13 252deg);
+    --music-accent-primary: var(--accent-primary);
+    --music-accent-strong: var(--accent-strong);
 
     background:
       radial-gradient(
         ellipse at 78% 20%,
-        oklch(44% 0.179 303deg / 0.38),
+        color-mix(in srgb, var(--accent-primary) 38%, transparent),
         transparent 48rem
       ),
       radial-gradient(
         circle at 24% 12%,
-        oklch(36% 0.143 252deg / 0.28),
+        color-mix(in srgb, var(--accent-strong) 28%, transparent),
         transparent 26rem
       ),
-      linear-gradient(180deg, oklch(13% 0.038 255deg), oklch(9% 0.028 252deg));
+      linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));
   }
 
   :global(.melodymind-app__main) {

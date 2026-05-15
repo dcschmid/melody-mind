@@ -90,10 +90,10 @@ const isActiveItem = (href: string) => {
 
 <style>
   .music-header-nav {
-    --music-header-nav-accent: oklch(70% 0.18 286deg);
-    --music-header-nav-accent-secondary: oklch(68% 0.16 252deg);
+    --music-header-nav-accent: var(--accent-primary);
+    --music-header-nav-accent-secondary: var(--accent-strong);
     --music-header-nav-gap: clamp(1rem, 2.1vw, 2.2rem);
-    --music-header-nav-hover-text: oklch(88% 0.074 286deg);
+    --music-header-nav-hover-text: var(--link-hover);
     --music-header-nav-icon-size: 1rem;
     --music-header-nav-link-gap: 0.44rem;
     --music-header-nav-link-padding-inline: 0.25rem;
@@ -103,11 +103,23 @@ const isActiveItem = (href: string) => {
     --music-header-nav-mobile-label-gap: 0.72rem;
     --music-header-nav-mobile-padding-block: 0.45rem;
     --music-header-nav-mobile-padding-inline: 0.72rem;
-    --music-header-nav-search-bg: oklch(12% 0.045 258deg / 0.42);
-    --music-header-nav-search-border: oklch(72% 0.11 258deg / 0.24);
-    --music-header-nav-search-hover-bg: oklch(24% 0.078 270deg / 0.34);
-    --music-header-nav-search-hover-border: oklch(70% 0.16 274deg / 0.46);
-    --music-header-nav-text: oklch(92% 0.016 260deg);
+    --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 42%, transparent);
+    --music-header-nav-search-border: color-mix(
+      in srgb,
+      var(--accent-primary) 24%,
+      transparent
+    );
+    --music-header-nav-search-hover-bg: color-mix(
+      in srgb,
+      var(--accent-primary) 14%,
+      transparent
+    );
+    --music-header-nav-search-hover-border: color-mix(
+      in srgb,
+      var(--accent-primary) 46%,
+      transparent
+    );
+    --music-header-nav-text: var(--text-primary);
 
     display: flex;
     flex-flow: row nowrap;
@@ -165,14 +177,26 @@ const isActiveItem = (href: string) => {
   }
 
   :global([data-theme="light"]) .music-header-nav__link {
-    --music-header-nav-accent: oklch(45% 0.17 18deg);
-    --music-header-nav-accent-secondary: oklch(58% 0.14 28deg);
-    --music-header-nav-hover-text: oklch(39% 0.145 18deg);
-    --music-header-nav-search-bg: oklch(98% 0.014 74deg / 0.54);
-    --music-header-nav-search-border: oklch(58% 0.08 32deg / 0.26);
-    --music-header-nav-search-hover-bg: oklch(91% 0.047 25deg / 0.48);
-    --music-header-nav-search-hover-border: oklch(45% 0.17 18deg / 0.42);
-    --music-header-nav-text: oklch(23% 0.034 42deg);
+    --music-header-nav-accent: var(--accent-primary);
+    --music-header-nav-accent-secondary: var(--accent-strong);
+    --music-header-nav-hover-text: var(--link-hover);
+    --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 54%, transparent);
+    --music-header-nav-search-border: color-mix(
+      in srgb,
+      var(--border-default) 26%,
+      transparent
+    );
+    --music-header-nav-search-hover-bg: color-mix(
+      in srgb,
+      var(--surface-3) 48%,
+      transparent
+    );
+    --music-header-nav-search-hover-border: color-mix(
+      in srgb,
+      var(--accent-primary) 42%,
+      transparent
+    );
+    --music-header-nav-text: var(--text-primary);
 
     color: var(--music-header-nav-text);
   }
@@ -208,7 +232,7 @@ const isActiveItem = (href: string) => {
   }
 
   .music-header-nav__link--search::after {
-    content: none;
+    display: none;
   }
 
   .music-header-nav__link--search span {
@@ -289,7 +313,7 @@ const isActiveItem = (href: string) => {
     }
 
     .music-header-nav__link::after {
-      content: none;
+      display: none;
     }
 
     .music-header-nav__link:hover,

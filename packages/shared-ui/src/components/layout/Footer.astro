@@ -145,11 +145,11 @@ const footerGroups: FooterGroup[] = [
 
 <style>
   .music-footer {
-    --music-footer-accent: var(--music-accent-primary, oklch(40% 0.13 16deg));
-    --music-footer-ink: var(--text-primary, oklch(19% 0.025 52deg));
-    --music-footer-muted: var(--text-secondary, oklch(39% 0.033 55deg));
-    --music-footer-line: var(--border-muted, oklch(83% 0.043 67deg));
-    --music-footer-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --music-footer-accent: var(--music-accent-primary, var(--accent-primary));
+    --music-footer-ink: var(--text-primary);
+    --music-footer-muted: var(--text-secondary);
+    --music-footer-line: var(--border-muted);
+    --music-footer-ease-out: var(--motion-ease-standard);
     --music-footer-space-2xs: var(--spacing-2xs, 0.125rem);
     --music-footer-space-xs: var(--spacing-xs, 0.25rem);
     --music-footer-space-sm: var(--spacing-sm, 0.5rem);
@@ -348,9 +348,9 @@ const footerGroups: FooterGroup[] = [
   }
 
   :global([data-theme="dark"]) .music-footer {
-    --music-footer-accent: var(--music-accent-primary, oklch(78% 0.16 286deg));
-    --music-footer-ink: var(--text-primary, oklch(96% 0.012 72deg));
-    --music-footer-muted: var(--text-secondary, oklch(76% 0.036 252deg));
-    --music-footer-line: var(--border-muted, oklch(36% 0.055 252deg));
+    --music-footer-accent: var(--music-accent-primary, var(--accent-primary));
+    --music-footer-ink: var(--text-primary);
+    --music-footer-muted: var(--text-secondary);
+    --music-footer-line: var(--border-muted);
   }
 </style>

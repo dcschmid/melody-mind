@@ -120,7 +120,7 @@ import Icon from "@shared-ui/components/visual/Icon.astro";
 
 <style>
   .music-header-theme-toggle {
-    --theme-toggle-text: oklch(92% 0.016 260deg);
+    --theme-toggle-text: var(--text-primary);
     --theme-toggle-target-size: 2.5rem;
     --theme-toggle-pill-size: var(--control-min-block-size-compact, 2.25rem);
     --theme-toggle-option-size: 1.55rem;
@@ -129,9 +129,9 @@ import Icon from "@shared-ui/components/visual/Icon.astro";
     --theme-toggle-padding: var(--spacing-xs, 0.25rem);
     --theme-toggle-pill-bg: color-mix(in srgb, var(--surface-1) 42%, transparent);
     --theme-toggle-pill-border: color-mix(in srgb, var(--text-primary) 16%, transparent);
-    --theme-toggle-option-text: oklch(77% 0.04 258deg);
-    --theme-toggle-active-text: oklch(82% 0.12 286deg);
-    --theme-toggle-active-bg: oklch(22% 0.055 258deg / 0.72);
+    --theme-toggle-option-text: var(--text-tertiary);
+    --theme-toggle-active-text: var(--accent-primary);
+    --theme-toggle-active-bg: color-mix(in srgb, var(--surface-2) 72%, transparent);
     --theme-toggle-menu-active-bg: color-mix(
       in srgb,
       var(--music-menu-accent) 18%,
@@ -196,12 +196,16 @@ import Icon from "@shared-ui/components/visual/Icon.astro";
   }
 
   :global([data-theme="light"]) .music-header-theme-toggle {
-    --theme-toggle-text: oklch(23% 0.034 42deg);
-    --theme-toggle-pill-bg: oklch(98% 0.014 74deg / 0.54);
-    --theme-toggle-pill-border: oklch(58% 0.08 32deg / 0.24);
-    --theme-toggle-option-text: oklch(45% 0.035 42deg);
-    --theme-toggle-active-text: oklch(39% 0.145 18deg);
-    --theme-toggle-active-bg: oklch(91% 0.047 25deg);
+    --theme-toggle-text: var(--text-primary);
+    --theme-toggle-pill-bg: color-mix(in srgb, var(--surface-1) 54%, transparent);
+    --theme-toggle-pill-border: color-mix(
+      in srgb,
+      var(--border-default) 24%,
+      transparent
+    );
+    --theme-toggle-option-text: var(--text-tertiary);
+    --theme-toggle-active-text: var(--accent-primary);
+    --theme-toggle-active-bg: var(--surface-3);
   }
 
   :global([data-theme="light"]) .music-header-theme-toggle__pill {
