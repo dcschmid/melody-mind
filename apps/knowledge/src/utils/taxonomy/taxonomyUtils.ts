@@ -45,7 +45,9 @@ export function getGroupById(
 /**
  * Count articles per subsection
  */
-export function countArticlesPerSubsection(articles: any[]): Record<string, number> {
+export function countArticlesPerSubsection(
+  articles: Array<{ data?: { taxonomySubsection?: string } }>
+): Record<string, number> {
   const counts: Record<string, number> = {};
 
   for (const article of articles) {

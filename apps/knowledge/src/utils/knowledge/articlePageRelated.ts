@@ -8,6 +8,9 @@ import { getKnowledgeCategoryImage } from "@utils/knowledgeImages";
 import type { KnowledgeArticleLike, RelatedKnowledgeArticle } from "./articlePageTypes";
 import { toKeywordSet } from "./keywords";
 
+const getErrorMessage = (error: unknown): string =>
+  error instanceof Error ? error.message : String(error);
+
 /**
  * Scores and returns the strongest related articles for a knowledge detail page.
  */
@@ -108,14 +111,14 @@ export async function loadRelatedKnowledgeArticleCardItems(params: {
   } = params;
 
   try {
-    const allArticles: any[] = await getCollectionCached("knowledge-en", {
+    const allArticles = (await getCollectionCached("knowledge-en", {
       getCollection,
-    }).catch((e) => {
+    }).catch((e: unknown) => {
       loggers.pages.warn("knowledge article: related articles load issue", {
-        error: (e as Error)?.message || e,
+        error: getErrorMessage(e),
       });
       return [];
-    });
+    })) as KnowledgeArticleLike[];
     const articles = getRelatedKnowledgeArticles({
       articles: allArticles,
       currentKeywords: new Set(currentKeywords),
@@ -151,7 +154,7 @@ export async function loadRelatedKnowledgeArticleCardItems(params: {
     }));
   } catch (e) {
     loggers.pages.warn("knowledge article: related articles load issue", {
-      error: (e as any)?.message || e,
+      error: getErrorMessage(e),
     });
     return [];
   }

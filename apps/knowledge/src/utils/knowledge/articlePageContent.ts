@@ -1,19 +1,25 @@
 import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { loggers } from "@shared-utils/utils/logging";
 import type { ResolvedKnowledgeEntry } from "./articlePageTypes";
 
+type KnowledgeEntry = CollectionEntry<"knowledge-en">;
+
+const getErrorMessage = (error: unknown): string =>
+  error instanceof Error ? error.message : String(error);
+
 export async function getKnowledgeArticleStaticPaths() {
-  const entries: any[] = await getCollectionCached("knowledge-en", {
+  const entries = (await getCollectionCached("knowledge-en", {
     getCollection,
-  }).catch((e) => {
+  }).catch((e: unknown) => {
     loggers.pages.warn("knowledge article: collection load issue (paths)", {
-      error: (e as Error)?.message || e,
+      error: getErrorMessage(e),
     });
     return [];
-  });
-  const paths: Array<{ params: { slug: string }; props: { entry: any } }> = [];
+  })) as KnowledgeEntry[];
+  const paths: Array<{ params: { slug: string }; props: { entry: KnowledgeEntry } }> = [];
 
   for (const entry of entries) {
     const slug = entry?.id;
@@ -27,22 +33,22 @@ export async function getKnowledgeArticleStaticPaths() {
 }
 
 export async function resolveKnowledgeArticleEntry(params: {
-  entry?: any;
+  entry?: KnowledgeEntry;
   slug: string | undefined;
   lang: string;
 }): Promise<ResolvedKnowledgeEntry | null> {
   const { entry: initialEntry, slug, lang } = params;
-  let entry = initialEntry;
+  let entry: KnowledgeEntry | undefined = initialEntry;
 
   if (!entry && slug) {
     try {
-      const articles = await getCollectionCached("knowledge-en", {
+      const articles = (await getCollectionCached("knowledge-en", {
         getCollection,
-      });
+      })) as KnowledgeEntry[];
       entry = articles.find((article) => article.id === slug);
     } catch (e) {
       loggers.pages.warn("knowledge article: collection load issue (resolve)", {
-        error: (e as Error)?.message || e,
+        error: getErrorMessage(e),
       });
     }
   }

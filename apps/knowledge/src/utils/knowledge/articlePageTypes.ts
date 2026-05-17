@@ -1,4 +1,4 @@
-import type { RenderedContent } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 
 export interface ArticleHeroLink {
@@ -38,17 +38,7 @@ export interface KnowledgeArticleLike {
   };
 }
 
-export interface ResolvedKnowledgeEntry extends KnowledgeArticleLike {
-  collection: "knowledge-en";
-  filePath?: string;
-  rendered?: RenderedContent;
-  id: string;
-  body?: string;
-  data: NonNullable<KnowledgeArticleLike["data"]> & {
-    title: string;
-    description: string;
-  };
-}
+export type ResolvedKnowledgeEntry = CollectionEntry<"knowledge-en">;
 
 export interface RelatedKnowledgeArticle {
   id: string;

@@ -56,6 +56,9 @@ const KNOWLEDGE_INDEX_TITLE = "Music Knowledge";
 const KNOWLEDGE_INDEX_DESCRIPTION =
   "Curated genre deep dives from roots to today's sounds, with stories, listening cues, and playlists that help you explore faster and hear music with more context.";
 
+const getErrorMessage = (error: unknown): string =>
+  error instanceof Error ? error.message : String(error);
+
 const normalizeKnowledgeArticles = (
   articles: KnowledgeIndexArticle[]
 ): KnowledgeIndexArticle[] =>
@@ -130,7 +133,7 @@ export const buildKnowledgeIndexPageData = async (
     })) as KnowledgeIndexArticle[];
   } catch (e) {
     loggers.pages.warn("knowledge index: collection load issue", {
-      error: (e as any)?.message || e,
+      error: getErrorMessage(e),
     });
   }
 

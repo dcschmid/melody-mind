@@ -1,5 +1,5 @@
 /**
- * Taxonomy Types - Hierarchical Music Category Structure
+ * Taxonomy Types - Hierarchical Music Taxonomy Structure
  *
  * Structure:
  * - TaxonomySection (## in MD, e.g. "I. Time, Change & Musical Evolution")

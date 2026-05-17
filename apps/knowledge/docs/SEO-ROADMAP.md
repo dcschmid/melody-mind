@@ -43,7 +43,7 @@ Success signal:
 
 - Keep one clear schema model per page type.
 - Knowledge articles: `Article` plus `BreadcrumbList`.
-- Category and taxonomy hubs: `CollectionPage` plus `ItemList`.
+- Taxonomy hubs: `CollectionPage` plus `ItemList`.
 - Quiz detail pages: keep `Quiz`, add breadcrumb context consistently.
 - Homepage / knowledge hub: `CollectionPage` plus `ItemList`.
 
@@ -55,10 +55,10 @@ Success signal:
 
 ### 4. Internal linking system
 
-- Add "Related articles" blocks on knowledge article pages based on category,
-  taxonomy subsection, or shared keywords.
+- Add "Related articles" blocks on knowledge article pages based on taxonomy subsection,
+  taxonomy group, or shared keywords.
 - Cross-link quizzes from related knowledge articles and vice versa.
-- Link category pages to taxonomy pages where the topical relationship is explicit.
+- Keep legacy category redirects pointing to the closest taxonomy destination.
 
 Success signal:
 
@@ -66,12 +66,11 @@ Success signal:
 
 ### 5. Title and description quality control
 
-- Audit duplicate or overly similar titles across knowledge, categories, taxonomy, and
-  quiz pages.
+- Audit duplicate or overly similar titles across knowledge, taxonomy, and quiz pages.
 - Make titles intent-specific:
   `Genre Evolution of X | MelodyMind`
   `Music Quiz: 1990s | MelodyMind`
-  `Category: Latin Music | MelodyMind`
+  `Latin Music Taxonomy | MelodyMind`
 - Keep descriptions unique and search-intent aligned.
 
 Success signal:
@@ -82,7 +81,7 @@ Success signal:
 
 - Ensure every indexable content page has one stable social/share image.
 - Add descriptive `imageAlt` values consistently in the SEO builder inputs.
-- Prefer source-specific images for articles and category hubs over generic defaults.
+- Prefer source-specific images for articles and taxonomy hubs over generic defaults.
 
 Success signal:
 
@@ -161,8 +160,7 @@ Success signal:
 ## Recommended Implementation Order
 
 1. Finish `noindex` cleanup for utility/legal pages.
-2. Add `CollectionPage` schema builders and wire them into homepage, taxonomy, and
-   category pages.
+2. Add `CollectionPage` schema builders and wire them into homepage and taxonomy pages.
 3. Add related-article internal linking on knowledge pages.
 4. Run a duplicate title/description audit and normalize patterns.
 5. Normalize content dates across all `knowledge-en` entries.

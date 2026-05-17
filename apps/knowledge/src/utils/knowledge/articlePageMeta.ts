@@ -17,13 +17,16 @@ import type { ArticleHeroLink, ResolvedKnowledgeEntry } from "./articlePageTypes
 import { normalizeKeywords } from "./keywords";
 
 const KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES: Record<string, string> = {
+  "1950s": "1950s Music History: Rock and Roll Takes Shape",
   "1960s": "1960s Music History: Pop, Protest and Psychedelia",
+  "1970s": "1970s Music History: Disco, Punk and Soul",
   "1980s": "1980s Music History: MTV, Synths and Global Pop",
+  "1990s": "1990s Music History: Grunge, Hip Hop and Pop",
   "2010s": "2010s Music History: Streaming and Global Pop",
   "from-asia-pop-to-global-pop": "J-Pop and K-Pop: From Regional Scenes to Global Pop",
   "from-blues-to-breakdown": "Heavy Music History: From Blues to Metalcore",
   "from-folk-to-bedroom-pop": "Intimate Songwriting: From Folk to Bedroom Pop",
-  "from-gospel-to-modern-vocal-pop-": "Gospel to Modern Vocal Pop",
+  "from-gospel-to-modern-vocal-pop": "Gospel to Modern Vocal Pop",
   "from-hip-hop-to-trap-drill": "Hip Hop History: Block Parties, Trap and Drill",
   "from-jazz-to-neo-soul": "Jazz to Neo Soul: Fusion, Acid Jazz and Modern Soul",
   "from-latin-to-latin-trap": "Latin Music History: From Salsa to Latin Trap",

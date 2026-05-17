@@ -22,6 +22,7 @@ import {
   buildKnowledgeArticlePageData,
   resolveKnowledgeSlug,
 } from "@utils/knowledge/articlePageMeta";
+import type { ResolvedKnowledgeEntry } from "@utils/knowledge/articlePageTypes";
 import {
   getKnowledgeArticleStaticPaths,
   resolveKnowledgeArticleEntry,
@@ -39,10 +40,10 @@ export async function getStaticPaths() {
 }
 
 const lang = "en";
-const initialEntry: any = (Astro.props as { entry?: any }).entry;
+const initialEntry = (Astro.props as { entry?: ResolvedKnowledgeEntry }).entry;
 
 // `[...slug]` can arrive either as an array or as a flat string depending on the route shape.
-const resolvedSlug = resolveKnowledgeSlug((Astro as any).params?.slug);
+const resolvedSlug = resolveKnowledgeSlug(Astro.params.slug);
 const entry = await resolveKnowledgeArticleEntry({
   entry: initialEntry,
   slug: resolvedSlug,
@@ -153,7 +154,7 @@ const relatedArticleItems = await loadRelatedKnowledgeArticleCardItems({
           id="related-knowledge-articles"
           eyebrow="Continue reading"
           title="Related articles"
-          copy="Continue with guides from the same category, taxonomy branch, or closely related keywords."
+          copy="Continue with guides from the same taxonomy branch or closely related keywords."
           listAriaLabel="Related articles"
           items={relatedArticleItems}
         />

@@ -39,7 +39,7 @@ const TAXONOMY_SECTION_SEO_DESCRIPTION_OVERRIDES: Record<string, string> = {
   "indie-alternative":
     "Explore the DIY spirit, emotional honesty, and sonic experimentation that defined independent music movements from post-punk to bedroom pop.",
   "jazz-soul-funk":
-    "Discover the improvisation, groove, and emotional depth of jazz, soul, and funk, from blues and gospel roots to modern fusion and neo-soul.",
+    "Discover the improvisation, groove, and emotional depth of jazz, soul, and funk, from blues and gospel roots to fusion and neo-soul.",
   "latin-caribbean-afro-roots":
     "Discover Latin, Caribbean, and Afro-rooted music through rhythm, migration, heritage, and cross-cultural exchange.",
   "live-performance-stagecraft":
@@ -179,6 +179,7 @@ export function buildTaxonomySectionSeo({
     ) as StructuredData[],
     enrichedParts: [section.title, section.description || ""],
     fallbackKeywords: [],
+    descriptionSource: "base",
     keywordLimit: 28,
     maxDescription: 160,
     image: sectionImageUrl,
