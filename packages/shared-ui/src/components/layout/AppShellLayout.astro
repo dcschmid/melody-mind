@@ -132,10 +132,29 @@ const searchNavItem = headerNavItems.find((item) => item.href.includes("/search"
     label: "Search",
     icon: "search" as IconName,
   };
-const mobileExtraLinks = footerConfig.exploreLinks.slice(0, 4).map((link) => ({
+const normalizeHrefForComparison = (href: string): string => {
+  try {
+    const url = new URL(href, siteUrl);
+
+    return `${url.origin}${url.pathname.replace(/\/$/, "")}`;
+  } catch {
+    return href.replace(/\/$/, "");
+  }
+};
+const headerNavHrefSet = new Set(
+  headerNavItems.map((item) => normalizeHrefForComparison(item.href))
+);
+const searchHrefKey = normalizeHrefForComparison(searchNavItem.href);
+const mobileExploreLinks = footerConfig.exploreLinks.filter((link) => {
+  const hrefKey = normalizeHrefForComparison(link.href);
+
+  return hrefKey !== searchHrefKey && !headerNavHrefSet.has(hrefKey);
+});
+const mobileExtraLinks = mobileExploreLinks.slice(0, 4).map((link) => ({
   href: link.href,
   label: link.label,
 }));
+const mobileSecondaryCta = mobileExploreLinks[0];
 
 const preloadedResources: Array<{
   href: string;
@@ -214,10 +233,8 @@ const keywords = mergedKeywords
         searchHref={searchNavItem.href}
         mobileExtraLinks={mobileExtraLinks}
         mobileExtraHeading="Explore MelodyMind"
-        mobilePrimaryCtaHref={searchNavItem.href}
-        mobilePrimaryCtaLabel={searchNavItem.label}
-        mobileSecondaryCtaHref={footerConfig.exploreLinks[0]?.href || "/"}
-        mobileSecondaryCtaLabel={footerConfig.exploreLinks[0]?.label || "Explore"}
+        mobileSecondaryCtaHref={mobileSecondaryCta?.href}
+        mobileSecondaryCtaLabel={mobileSecondaryCta?.label}
       />
     )
   }

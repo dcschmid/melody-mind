@@ -98,11 +98,11 @@ const isActiveItem = (href: string) => {
     --music-header-nav-link-gap: 0.44rem;
     --music-header-nav-link-padding-inline: 0.25rem;
     --music-header-nav-link-text-size: 0.88rem;
-    --music-header-nav-mobile-gap: 0.18rem;
-    --music-header-nav-mobile-icon-size: 1.2rem;
-    --music-header-nav-mobile-label-gap: 0.72rem;
-    --music-header-nav-mobile-padding-block: 0.45rem;
-    --music-header-nav-mobile-padding-inline: 0.72rem;
+    --music-header-nav-mobile-gap: 0.28rem;
+    --music-header-nav-mobile-icon-size: 1.15rem;
+    --music-header-nav-mobile-label-gap: 0.7rem;
+    --music-header-nav-mobile-padding-block: 0.62rem;
+    --music-header-nav-mobile-padding-inline: 0.82rem;
     --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 42%, transparent);
     --music-header-nav-search-border: color-mix(
       in srgb,
@@ -290,17 +290,17 @@ const isActiveItem = (href: string) => {
       inline-size: 100%;
       max-inline-size: 100%;
       block-size: auto;
-      min-block-size: 2.5rem;
+      min-block-size: 2.85rem;
       padding: var(--music-header-nav-mobile-padding-block)
         var(--music-header-nav-mobile-padding-inline);
       margin-inline-end: 0;
       font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.1;
+      font-weight: 650;
+      line-height: 1.15;
       color: var(--music-menu-text);
       background: transparent;
       border: 1px solid transparent;
-      border-radius: 0.55rem;
+      border-radius: 0.75rem;
     }
 
     .music-header-nav__link span {
@@ -313,7 +313,7 @@ const isActiveItem = (href: string) => {
     }
 
     .music-header-nav__link:hover,
-    .music-header-nav__link:focus {
+    .music-header-nav__link:focus-visible {
       color: var(--music-menu-active-text);
       background: color-mix(in srgb, var(--music-menu-accent) 8%, transparent);
       border-color: color-mix(in srgb, var(--music-menu-accent) 16%, transparent);
@@ -345,14 +345,14 @@ const isActiveItem = (href: string) => {
     }
 
     .music-header-nav__item--quick-start {
-      padding-block-start: 0.82rem;
-      margin-block-start: 0.68rem;
+      padding-block-start: 0.9rem;
+      margin-block-start: 0.72rem;
       border-block-start: 1px solid var(--music-menu-line);
     }
 
     .music-header-nav__group-label {
       display: block;
-      margin: 0 0 0.5rem 0.12rem;
+      margin: 0 0 0.55rem 0.12rem;
       font-size: 0.72rem;
       font-weight: 800;
       line-height: 1;

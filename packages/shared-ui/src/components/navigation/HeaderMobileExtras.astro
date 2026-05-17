@@ -1,5 +1,6 @@
 ---
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 
 interface GenreLink {
   href: string;
@@ -18,11 +19,26 @@ interface Props {
 const {
   genreLinks,
   heading = "Explore genres",
-  primaryCtaHref = "/#albums-list",
-  primaryCtaLabel = "Browse Albums",
-  secondaryCtaHref = "/?search=1",
-  secondaryCtaLabel = "Search Music",
+  primaryCtaHref,
+  primaryCtaLabel,
+  secondaryCtaHref,
+  secondaryCtaLabel,
 } = Astro.props as Props;
+
+const resolveCtaIcon = (href?: string, label?: string): IconName => {
+  const text = `${href || ""} ${label || ""}`.toLowerCase();
+
+  if (text.includes("search")) {
+    return "search";
+  }
+
+  return "play";
+};
+
+const hasPrimaryCta = Boolean(primaryCtaHref && primaryCtaLabel);
+const hasSecondaryCta = Boolean(secondaryCtaHref && secondaryCtaLabel);
+const primaryCtaIcon = resolveCtaIcon(primaryCtaHref, primaryCtaLabel);
+const secondaryCtaIcon = resolveCtaIcon(secondaryCtaHref, secondaryCtaLabel);
 ---
 
 {
@@ -59,18 +75,34 @@ const {
   )
 }
 
-<a class="music-header-mobile-extras__cta" href={primaryCtaHref}>
-  <Icon name="play" class="music-header-mobile-extras__cta-icon" aria-hidden="true" />
-  <span>{primaryCtaLabel}</span>
-</a>
+{
+  hasPrimaryCta && (
+    <a class="music-header-mobile-extras__cta" href={primaryCtaHref}>
+      <Icon
+        name={primaryCtaIcon}
+        class="music-header-mobile-extras__cta-icon"
+        aria-hidden="true"
+      />
+      <span>{primaryCtaLabel}</span>
+    </a>
+  )
+}
 
-<a
-  class="music-header-mobile-extras__cta music-header-mobile-extras__cta--secondary"
-  href={secondaryCtaHref}
->
-  <Icon name="search" class="music-header-mobile-extras__cta-icon" aria-hidden="true" />
-  <span>{secondaryCtaLabel}</span>
-</a>
+{
+  hasSecondaryCta && (
+    <a
+      class="music-header-mobile-extras__cta music-header-mobile-extras__cta--secondary"
+      href={secondaryCtaHref}
+    >
+      <Icon
+        name={secondaryCtaIcon}
+        class="music-header-mobile-extras__cta-icon"
+        aria-hidden="true"
+      />
+      <span>{secondaryCtaLabel}</span>
+    </a>
+  )
+}
 
 <style>
   .music-header-mobile-extras__genres-section,

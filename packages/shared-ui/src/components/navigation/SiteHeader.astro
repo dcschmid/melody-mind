@@ -43,10 +43,10 @@ const {
   actionLabel = "Theme",
   mobileExtraLinks = [],
   mobileExtraHeading = "Explore",
-  mobilePrimaryCtaHref = "/",
-  mobilePrimaryCtaLabel = "Browse",
-  mobileSecondaryCtaHref = searchHref,
-  mobileSecondaryCtaLabel = "Search",
+  mobilePrimaryCtaHref,
+  mobilePrimaryCtaLabel,
+  mobileSecondaryCtaHref,
+  mobileSecondaryCtaLabel,
 } = Astro.props as Props;
 
 const logoSrc = typeof brandLogoSrc === "string" ? brandLogoSrc : brandLogoSrc.src;
@@ -84,7 +84,16 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       aria-expanded="false"
       data-music-menu-toggle
     >
-      <Icon name="menu" class="music-site-header__toggle-icon" aria-hidden="true" />
+      <Icon
+        name="menu"
+        class="music-site-header__toggle-icon music-site-header__toggle-icon--menu"
+        aria-hidden="true"
+      />
+      <Icon
+        name="x"
+        class="music-site-header__toggle-icon music-site-header__toggle-icon--close"
+        aria-hidden="true"
+      />
       <span class="music-site-header__toggle-text">Menu</span>
     </button>
 
@@ -170,7 +179,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
 
       if (open) {
         requestAnimationFrame(() => {
-          getFocusableElements()[1]?.focus();
+          toggle.focus({ preventScroll: true });
         });
       } else if (restoreFocus) {
         toggle.focus();
@@ -300,7 +309,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
 
   @media (width <= 1023.98px) {
     .music-site-header {
-      --music-menu-panel-width: min(22.5rem, calc(100dvw - 2rem));
+      --music-menu-panel-width: min(30rem, calc(100dvw - 1rem));
       --music-menu-bg-start: var(--bg-primary);
       --music-menu-bg-end: var(--bg-secondary);
       --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 34%, transparent);
@@ -353,6 +362,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     }
 
     .music-site-header__inner {
+      box-sizing: border-box;
       grid-template-columns: auto 1fr auto;
       min-block-size: 4.5rem;
       padding: 0.8rem 1.35rem 0.8rem 1rem;
@@ -398,6 +408,10 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       block-size: 1.25rem;
     }
 
+    .music-site-header__toggle-icon--close {
+      display: none;
+    }
+
     .music-site-header__backdrop {
       position: fixed;
       inset: 0;
@@ -414,11 +428,11 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     .music-site-header__nav {
       display: none;
       grid-column: 1 / -1;
-      gap: 0.78rem;
+      gap: 0.9rem;
       align-content: start;
       inline-size: 100%;
       min-inline-size: 0;
-      padding-block: 0.55rem 1rem;
+      padding-block: 0.7rem 1.05rem;
       opacity: 0;
     }
 
@@ -449,21 +463,25 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     .music-site-header[data-open="true"] .music-site-header__inner {
       position: fixed;
       inset-block-start: max(0.85rem, env(safe-area-inset-top));
-      inset-inline-end: 1rem;
+      inset-inline: 0.5rem;
       z-index: 3;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 0.35rem 1rem;
+      gap: 0.65rem 1rem;
       align-items: start;
       inline-size: var(--music-menu-panel-width);
+      max-inline-size: 30rem;
       max-block-size: calc(100dvh - 2rem);
-      padding: 1rem;
+      padding: clamp(1rem, 4vw, 1.25rem);
+      margin-inline: auto;
       overflow-y: auto;
       color: var(--music-menu-text);
       background: var(--music-menu-bg-start);
       border: 1px solid var(--music-menu-line);
-      border-radius: 1rem;
-      box-shadow: var(--shadow-2xl);
+      border-radius: 1.15rem;
+      box-shadow:
+        0 1.25rem 3rem color-mix(in srgb, var(--bg-primary) 72%, transparent),
+        var(--shadow-2xl);
     }
 
     .music-site-header[data-open="true"] .music-site-header__nav {
@@ -472,13 +490,25 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     }
 
     .music-site-header[data-open="true"] .music-site-header__brand {
-      min-block-size: 2.5rem;
+      min-block-size: 2.75rem;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__logo {
+      inline-size: clamp(7.25rem, 34vw, 8.9rem);
     }
 
     .music-site-header[data-open="true"] .music-site-header__toggle {
       color: var(--music-menu-active-text);
       background: var(--music-menu-chip-bg);
       border-color: var(--music-menu-chip-border);
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__toggle-icon--menu {
+      display: none;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__toggle-icon--close {
+      display: block;
     }
   }
 
@@ -512,5 +542,9 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     .music-site-header__toggle {
       transition: none;
     }
+  }
+
+  :global(body.music-site-header-open) {
+    overflow: hidden;
   }
 </style>

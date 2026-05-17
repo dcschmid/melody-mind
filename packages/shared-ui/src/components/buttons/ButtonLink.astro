@@ -78,7 +78,7 @@ const resolvedAriaLabel = ariaLabel ?? ariaLabelAttr;
   )
 }
 
-<style>
+<style is:global>
   .button-link {
     display: inline-flex;
     gap: var(--spacing-sm);
@@ -152,17 +152,15 @@ const resolvedAriaLabel = ariaLabel ?? ariaLabelAttr;
   }
 
   /* Brand icon colors — simple-icons use currentColor, so we set them explicitly */
-  :global(.button-link--secondary .button-link__icon[data-icon="simple-icons:spotify"]) {
+  .button-link--secondary .button-link__icon[data-icon="simple-icons:spotify"] {
     color: var(--brand-spotify);
   }
 
-  :global(.button-link--secondary .button-link__icon[data-icon="simple-icons:deezer"]) {
+  .button-link--secondary .button-link__icon[data-icon="simple-icons:deezer"] {
     color: var(--brand-deezer);
   }
 
-  :global(
-    .button-link--secondary .button-link__icon[data-icon="simple-icons:applemusic"]
-  ) {
+  .button-link--secondary .button-link__icon[data-icon="simple-icons:applemusic"] {
     color: var(--brand-applemusic);
   }
 
