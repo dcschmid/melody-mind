@@ -25,6 +25,7 @@ const { pageSeo, taxonomySections } = await buildKnowledgeIndexPageData(Astro.si
       <div class="knowledge-index__intro">
         <HeroTeaser
           id="knowledge-home-hero"
+          class="knowledge-index__hero"
           eyebrow="Melody Mind Knowledge"
           title="Trace how music evolves"
           titleLevel="h1"
@@ -123,6 +124,29 @@ const { pageSeo, taxonomySections } = await buildKnowledgeIndexPageData(Astro.si
     color: var(--text-secondary);
   }
 
+  .knowledge-index__intro {
+    max-inline-size: 82rem;
+    margin-inline: auto;
+  }
+
+  .knowledge-index__intro :global(.knowledge-index__hero .hero-teaser__copy) {
+    padding-inline: 0;
+  }
+
+  .knowledge-index__intro :global(.knowledge-index__hero .hero-teaser__title) {
+    max-inline-size: 11ch;
+    line-height: 1.04;
+  }
+
+  .knowledge-index__intro :global(.knowledge-index__hero .hero-teaser__description) {
+    max-inline-size: 35rem;
+    line-height: 1.55;
+  }
+
+  .knowledge-index__intro :global(.knowledge-index__hero .hero-teaser__media) {
+    border-radius: var(--radius-lg);
+  }
+
   .knowledge-index__grid {
     padding: 0;
     margin: 0;
@@ -141,6 +165,24 @@ const { pageSeo, taxonomySections } = await buildKnowledgeIndexPageData(Astro.si
       flex-direction: row;
       align-items: end;
       justify-content: space-between;
+    }
+  }
+
+  @media (width >= 960px) {
+    .knowledge-index__intro :global(.knowledge-index__hero .hero-teaser__grid) {
+      grid-template-columns: minmax(20rem, 0.72fr) minmax(26rem, 1fr);
+      gap: clamp(var(--spacing-2xl), 5vw, var(--spacing-4xl));
+    }
+
+    .knowledge-index__intro :global(.knowledge-index__hero .hero-teaser__copy) {
+      order: 1;
+      padding-block: clamp(var(--spacing-xl), 5vw, var(--spacing-4xl));
+    }
+
+    .knowledge-index__intro :global(.knowledge-index__hero .hero-teaser__media) {
+      align-self: center;
+      order: 2;
+      max-block-size: clamp(24rem, 36vw, 32rem);
     }
   }
 </style>

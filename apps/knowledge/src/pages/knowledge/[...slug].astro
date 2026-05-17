@@ -92,7 +92,10 @@ const recentReadDataId = `recent-read-data-${storageSlug
     progressDataId={recentReadDataId}
   />
 
-  <PageShell containerClass="page-shell__container--wide">
+  <PageShell
+    className="knowledge-article-shell"
+    containerClass="page-shell__container--wide knowledge-article-shell__container"
+  >
     <Stack className="knowledge" gap="2xl">
       <ArticleHero
         title={entry.data.title}
@@ -168,9 +171,17 @@ const recentReadDataId = `recent-read-data-${storageSlug
 </Layout>
 
 <style>
+  :global(.page-shell__container.knowledge-article-shell__container) {
+    padding-block-start: clamp(6rem, 8vw, 7.5rem);
+  }
+
   .knowledge__back {
     display: flex;
     justify-content: center;
+  }
+
+  .knowledge :global(.article-hero) {
+    scroll-margin-block-start: calc(var(--site-header-height) + var(--spacing-lg));
   }
 
   .knowledge__toc-surface {
@@ -183,6 +194,10 @@ const recentReadDataId = `recent-read-data-${storageSlug
   }
 
   @media (width >= 1024px) {
+    :global(.page-shell__container.knowledge-article-shell__container) {
+      padding-block-start: clamp(7rem, 7vw, 8.75rem);
+    }
+
     .knowledge__main {
       gap: clamp(var(--spacing-lg), 2vw, var(--spacing-2xl));
     }

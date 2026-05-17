@@ -131,10 +131,6 @@ const contentId = `${safeIdBase}-content`;
         return;
       }
 
-      if (list.children.length > 0) {
-        return;
-      }
-
       const articleHeadings = Array.from(
         articleRoot.querySelectorAll<HTMLElement>(":is(h2, h3, h4)")
       )
