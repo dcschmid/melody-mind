@@ -8,6 +8,11 @@ interface Props {
   emptyText: string;
   noResultsText: string;
   resultLimit?: number;
+  eyebrow?: string;
+  helpText?: string;
+  metaFields?: string[];
+  headerVariant?: "card" | "underlined";
+  resultsVariant?: "card" | "list";
 }
 
 const {
@@ -19,17 +24,27 @@ const {
   emptyText,
   noResultsText,
   resultLimit = 24,
+  eyebrow = "Search the archive",
+  helpText,
+  metaFields = [],
+  headerVariant = "card",
+  resultsVariant = "card",
 } = Astro.props as Props;
 ---
 
 <section
-  class="orama-search"
+  class:list={[
+    "orama-search",
+    `orama-search--header-${headerVariant}`,
+    `orama-search--results-${resultsVariant}`,
+  ]}
   data-orama-search
   data-index-url={searchIndexUrl}
   data-initial-query={initialQuery}
   data-empty-text={emptyText}
   data-no-results-text={noResultsText}
   data-result-limit={resultLimit}
+  data-meta-fields={metaFields.join(",")}
 >
   <header class="orama-search__header">
     <h1 class="orama-search__title">{title}</h1>
@@ -38,11 +53,9 @@ const {
 
   <section class="orama-search__panel" aria-labelledby="orama-search-results-title">
     <div class="orama-search__panel-head">
-      <p class="orama-search__eyebrow">Search the archive</p>
+      <p class="orama-search__eyebrow">{eyebrow}</p>
       <h2 id="orama-search-results-title" class="orama-search__results-title">Results</h2>
-      <p class="orama-search__help">
-        Results update while you type, and the current query stays in the URL.
-      </p>
+      {helpText ? <p class="orama-search__help">{helpText}</p> : null}
     </div>
 
     <label class="orama-search__field">
@@ -51,7 +64,7 @@ const {
         class="orama-search__input"
         type="search"
         value={initialQuery}
-        placeholder={placeholder}
+        {placeholder}
         autocomplete="off"
         spellcheck="false"
         data-orama-search-input
@@ -93,6 +106,10 @@ const {
     const emptyText = root.dataset.emptyText || "Type a title or keyword.";
     const noResultsText = root.dataset.noResultsText || "No matching results found.";
     const resultLimit = Number.parseInt(root.dataset.resultLimit || "24", 10);
+    const metaFields = (root.dataset.metaFields || "")
+      .split(",")
+      .map((field) => field.trim())
+      .filter(Boolean);
     const indexPromise = loadIndex(indexUrl);
 
     const updateUrl = (query: string) => {
@@ -105,6 +122,11 @@ const {
       }
 
       window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    };
+
+    const getMetaValue = (document: Record<string, unknown>, field: string) => {
+      const value = document[field];
+      return Array.isArray(value) ? value : [value];
     };
 
     const renderResults = (hits: Array<{ document: Record<string, unknown> }>) => {
@@ -129,10 +151,8 @@ const {
           resultDocument.title || resultDocument.url || "Untitled"
         );
         description.textContent = String(resultDocument.desc || "");
-        meta.textContent = [
-          resultDocument.taxonomySubsection,
-          resultDocument.taxonomyGroup,
-        ]
+        meta.textContent = metaFields
+          .flatMap((field) => getMetaValue(resultDocument, field))
           .filter(Boolean)
           .join(" / ");
 
@@ -193,10 +213,18 @@ const {
   .orama-search__header {
     display: grid;
     gap: var(--spacing-xs);
+  }
+
+  .orama-search--header-card .orama-search__header {
     padding: var(--spacing-base);
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-lg);
+  }
+
+  .orama-search--header-underlined .orama-search__header {
+    padding-block-end: var(--spacing-lg);
+    border-block-end: 1px solid var(--surface-border-soft);
   }
 
   .orama-search__title {
@@ -275,26 +303,51 @@ const {
 
   .orama-search__results {
     display: grid;
-    gap: var(--spacing-sm);
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
+  .orama-search--results-card .orama-search__results {
+    gap: var(--spacing-sm);
+  }
+
+  .orama-search--results-list .orama-search__results {
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
   .orama-search__result-link {
     display: grid;
     gap: var(--spacing-xs);
-    padding: var(--spacing-base);
     color: inherit;
     text-decoration: none;
+  }
+
+  .orama-search--results-card .orama-search__result-link {
+    padding: var(--spacing-base);
     background: var(--surface-panel-bg);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-base);
   }
 
-  .orama-search__result-link:hover,
-  .orama-search__result-link:focus {
+  .orama-search--results-list .orama-search__result-link {
+    padding-block: var(--spacing-base);
+    border-block-end: 1px solid var(--surface-border-soft);
+  }
+
+  .orama-search__result-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .orama-search--results-card .orama-search__result-link:hover,
+  .orama-search--results-card .orama-search__result-link:focus {
     border-color: var(--surface-border-accent);
+  }
+
+  .orama-search--results-list .orama-search__result-link:hover,
+  .orama-search--results-list .orama-search__result-link:focus-visible {
+    color: var(--accent-primary);
   }
 
   .orama-search__result-title {
@@ -313,7 +366,7 @@ const {
   }
 
   @media (width >= 640px) {
-    .orama-search__header {
+    .orama-search--header-card .orama-search__header {
       padding: var(--spacing-lg);
     }
   }

@@ -77,7 +77,7 @@ This document outlines the testing procedures and results for ensuring BITV 2.0 
 | Wait for results    | "X categories found" announced (live region)       | -      | ⏳ TODO   |
 | No results case     | "No results for 'term'" announced                  | -      | ⏳ TODO   |
 
-**Components**: `src/components/OramaSearchSection.astro`, `src/components/KnowledgeSearchPalette.astro`
+**Components**: `packages/shared-ui/src/components/search/OramaSearchSection.astro`, `packages/shared-ui/src/components/search/SearchPalette.astro`
 
 ---
 
@@ -355,8 +355,8 @@ Use this checklist before marking accessibility work as done.
 | ------------------- | ---- | -------- | -------- | ------------- | ------- |
 | SkipLink.astro      | ✅   | ✅       | ✅       | ✅            | ✅ PASS |
 | Breadcrumbs.astro   | ✅   | ✅       | ✅       | ✅            | ⏳ TODO |
-| OramaSearchSection.astro | ✅   | ✅       | ✅       | ✅            | ⏳ TODO |
-| KnowledgeSearchPalette.astro | ✅   | ✅       | ✅       | ✅            | ⏳ TODO |
+| shared-ui OramaSearchSection.astro | ✅   | ✅       | ✅       | ✅            | ⏳ TODO |
+| shared-ui SearchPalette.astro | ✅   | ✅       | ✅       | ✅            | ⏳ TODO |
 | KnowledgeCard.astro | ✅   | ✅       | ✅       | ✅            | ⏳ TODO |
 | Footer.astro        | ✅   | ✅       | ✅       | ✅            | ⏳ TODO |
 | Layout.astro        | ✅   | ✅       | ✅       | ✅            | ✅ PASS |

@@ -1,7 +1,17 @@
 ---
 import Icon from "@shared-ui/components/visual/Icon.astro";
 import HiddenPlaylistAudio from "./HiddenPlaylistAudio.astro";
-import type { Song } from "../../types/album";
+
+interface Song {
+  title: string;
+  audioUrl: string;
+  lyricsUrl?: string;
+  isInstrumental?: boolean;
+  transcriptUnavailableReason?: string;
+  description?: string;
+  durationSeconds?: number;
+  trackNumber: number;
+}
 
 interface Props {
   id?: string;
@@ -303,7 +313,7 @@ const getTrackDurationLabel = (song: Song): string =>
   <HiddenPlaylistAudio src={songs[0]?.audioUrl || ""} />
 
   <script>
-    import "../../scripts/album-playlist-player.ts";
+    import "../../../scripts/music/album-playlist-player.ts";
   </script>
 
   <script>

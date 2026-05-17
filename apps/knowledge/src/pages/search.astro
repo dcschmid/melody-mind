@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import OramaSearchSection from "../components/OramaSearchSection.astro";
+import OramaSearchSection from "@shared-ui/components/search/OramaSearchSection.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolveBaseUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
 import { knowledgeHeroImageUrl } from "@utils/knowledgeImages";
@@ -47,6 +47,11 @@ const searchIndexUrl = "/search-index.json";
       emptyText="Type a title, genre, era, or keyword."
       noResultsText="No matching articles found."
       resultLimit={24}
+      eyebrow="Search the archive"
+      helpText="Results update while you type, and the current query stays in the URL."
+      metaFields={["taxonomySubsection", "taxonomyGroup"]}
+      headerVariant="card"
+      resultsVariant="card"
     />
   </PageShell>
 </Layout>

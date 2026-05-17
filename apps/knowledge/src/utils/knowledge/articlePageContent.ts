@@ -34,21 +34,14 @@ export async function resolveKnowledgeArticleEntry(params: {
   const { entry: initialEntry, slug, lang } = params;
   let entry = initialEntry;
 
-  if (!entry) {
+  if (!entry && slug) {
     try {
-      const articles: any[] = await getCollectionCached("knowledge-en", {
+      const articles = await getCollectionCached("knowledge-en", {
         getCollection,
-      }).catch((e) => {
-        loggers.pages.warn("knowledge article: collection load issue (resolve)", {
-          error: (e as Error)?.message || e,
-        });
-        return [];
       });
-      if (slug) {
-        entry = articles.find((article) => article.id === slug);
-      }
+      entry = articles.find((article) => article.id === slug);
     } catch (e) {
-      loggers.pages.warn("knowledge article: collection load issue (fallback)", {
+      loggers.pages.warn("knowledge article: collection load issue (resolve)", {
         error: (e as Error)?.message || e,
       });
     }

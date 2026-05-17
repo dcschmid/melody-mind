@@ -59,6 +59,22 @@ const categoryLabels = {
   mixed: "Mixed Topics",
 };
 
+const quizIndexSections = [
+  {
+    id: "genre",
+    title: categoryLabels["genre-evolution"],
+    description:
+      "Explore how genres transformed over time, from blues to rock, jazz to neo soul.",
+    quizzes: quizzesByCategory["genre-evolution"],
+  },
+  {
+    id: "mixed",
+    title: categoryLabels.mixed,
+    description: "Comprehensive quizzes covering multiple topics and time periods.",
+    quizzes: quizzesByCategory.mixed,
+  },
+];
+
 const baseUrl = resolveBaseUrl(Astro.site);
 const currentUrl = resolvePageUrl(Astro.site, "/");
 
@@ -213,94 +229,48 @@ const pageSeo = buildPageSeo({
       }
 
       {
-        quizzesByCategory["genre-evolution"].length > 0 && (
-          <section class="quiz-section" aria-labelledby="genre-heading">
-            <Headline level="h2" textSize="2xl" className="quiz-section__title">
-              <span id="genre-heading">{categoryLabels["genre-evolution"]}</span>
-            </Headline>
-            <Paragraph textSize="base" className="quiz-section__description">
-              Explore how genres transformed over time, from blues to rock, jazz to neo
-              soul.
-            </Paragraph>
-            <ul
-              class="quiz-section__index"
-              aria-label={categoryLabels["genre-evolution"]}
-            >
-              {quizzesByCategory["genre-evolution"].map((quiz) => (
-                <li>
-                  <a class="quiz-section__index-link" href={`/${quiz.id}`}>
-                    <Image
-                      class="quiz-section__index-image"
-                      src={getQuizImage(quiz.id) ?? quizHeroImage}
-                      alt=""
-                      width={180}
-                      height={120}
-                      loading="lazy"
-                      sizes="(max-width: 639px) 5rem, 9rem"
-                    />
-                    <span class="quiz-section__index-copy">
-                      <span class="quiz-section__index-title">{quiz.data.title}</span>
-                      <span class="quiz-section__index-description">
-                        {quiz.data.description}
-                      </span>
-                    </span>
-                    <span class="quiz-section__index-action">
-                      <Icon
-                        name="play"
-                        class="quiz-section__action-icon"
-                        aria-hidden="true"
+        quizIndexSections.map((section) =>
+          section.quizzes.length > 0 ? (
+            <section class="quiz-section" aria-labelledby={`${section.id}-heading`}>
+              <Headline level="h2" textSize="2xl" className="quiz-section__title">
+                <span id={`${section.id}-heading`}>{section.title}</span>
+              </Headline>
+              <Paragraph textSize="base" className="quiz-section__description">
+                {section.description}
+              </Paragraph>
+              <ul class="quiz-section__index" aria-label={section.title}>
+                {section.quizzes.map((quiz) => (
+                  <li>
+                    <a class="quiz-section__index-link" href={`/${quiz.id}`}>
+                      <Image
+                        class="quiz-section__index-image"
+                        src={getQuizImage(quiz.id) ?? quizHeroImage}
+                        alt=""
+                        width={180}
+                        height={120}
+                        loading="lazy"
+                        sizes="(max-width: 639px) 5rem, 9rem"
                       />
-                      Play
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )
-      }
-
-      {
-        quizzesByCategory.mixed.length > 0 && (
-          <section class="quiz-section" aria-labelledby="mixed-heading">
-            <Headline level="h2" textSize="2xl" className="quiz-section__title">
-              <span id="mixed-heading">{categoryLabels.mixed}</span>
-            </Headline>
-            <Paragraph textSize="base" className="quiz-section__description">
-              Comprehensive quizzes covering multiple topics and time periods.
-            </Paragraph>
-            <ul class="quiz-section__index" aria-label={categoryLabels.mixed}>
-              {quizzesByCategory.mixed.map((quiz) => (
-                <li>
-                  <a class="quiz-section__index-link" href={`/${quiz.id}`}>
-                    <Image
-                      class="quiz-section__index-image"
-                      src={getQuizImage(quiz.id) ?? quizHeroImage}
-                      alt=""
-                      width={180}
-                      height={120}
-                      loading="lazy"
-                      sizes="(max-width: 639px) 5rem, 9rem"
-                    />
-                    <span class="quiz-section__index-copy">
-                      <span class="quiz-section__index-title">{quiz.data.title}</span>
-                      <span class="quiz-section__index-description">
-                        {quiz.data.description}
+                      <span class="quiz-section__index-copy">
+                        <span class="quiz-section__index-title">{quiz.data.title}</span>
+                        <span class="quiz-section__index-description">
+                          {quiz.data.description}
+                        </span>
                       </span>
-                    </span>
-                    <span class="quiz-section__index-action">
-                      <Icon
-                        name="play"
-                        class="quiz-section__action-icon"
-                        aria-hidden="true"
-                      />
-                      Play
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
+                      <span class="quiz-section__index-action">
+                        <Icon
+                          name="play"
+                          class="quiz-section__action-icon"
+                          aria-hidden="true"
+                        />
+                        Play
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null
         )
       }
 

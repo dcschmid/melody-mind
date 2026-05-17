@@ -7,11 +7,12 @@ import { getRelatedAlbums } from "../utils/albumDiscovery";
 import { buildMusicAlbumSchema } from "../utils/musicSeo";
 import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
-import Details from "../components/album/Details.astro";
-import Hero from "../components/album/Hero.astro";
-import RelatedAlbums from "../components/album/RelatedAlbums.astro";
-import Surface from "../components/album/Surface.astro";
-import PlaylistPlayer from "../components/album/PlaylistPlayer.astro";
+import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSection.astro";
+import Details from "@shared-ui/components/music/album/Details.astro";
+import Hero from "@shared-ui/components/music/album/Hero.astro";
+import Surface from "@shared-ui/components/music/album/Surface.astro";
+import PlaylistPlayer from "@shared-ui/components/music/album/PlaylistPlayer.astro";
+import type { RelatedContentCardItem } from "@shared-ui/components/cards/relatedContent";
 
 type AlbumEntry = CollectionEntry<"albums">;
 
@@ -86,14 +87,42 @@ const availableAlbums = allAlbums.map((albumEntry: AlbumEntry) => ({
   ...albumEntry.data,
   body: albumEntry.body,
 }));
-const relatedAlbums = getRelatedAlbums(
+const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
   {
     id: currentAlbumId,
     ...currentAlbum,
     body: entry.body,
   },
   availableAlbums
-);
+).map((album) => {
+  const imageSrc = getAlbumCoverImage(album.coverImage);
+  const totalDurationSeconds = album.songs.reduce(
+    (acc: number, song: Song) => acc + (song.durationSeconds || 0),
+    0
+  );
+
+  return {
+    id: album.id,
+    href: `/${album.id}/`,
+    title: album.title,
+    description: album.description,
+    imageSrc,
+    imageAlt: `Cover art for the album ${album.title}`,
+    metaItems: [
+      ...(album.genre ? [{ iconName: "disc" as const, label: album.genre }] : []),
+      { iconName: "music" as const, label: `${album.songs.length} tracks` },
+      ...(totalDurationSeconds
+        ? [
+            {
+              iconName: "clock" as const,
+              label: `${Math.round(totalDurationSeconds / 60)} min`,
+            },
+          ]
+        : []),
+    ],
+    ctaSrText: "Opens album",
+  };
+});
 ---
 
 <Layout
@@ -158,6 +187,14 @@ const relatedAlbums = getRelatedAlbums(
       <Content />
     </Details>
 
-    <RelatedAlbums albums={relatedAlbums} />
+    <RelatedContentSection
+      id="related-albums"
+      eyebrow="Keep listening"
+      title="Similar Albums"
+      copy="Continue with albums that share mood, genre, or listening context."
+      listAriaLabel="Similar albums"
+      items={relatedAlbums}
+      mediaObjectFit="cover"
+    />
   </Surface>
 </Layout>

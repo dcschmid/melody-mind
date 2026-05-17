@@ -1,6 +1,5 @@
 ---
-import Share from "./Share.astro";
-import { isHttpShareUrl } from "@utils/shareUrl";
+import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
 
 interface Props {
   contentDescription: string;
@@ -21,7 +20,7 @@ const {
   zipUrl,
 } = Astro.props;
 
-const hasValidShareUrl = isHttpShareUrl(shareUrl);
+const hasValidShareUrl = /^https?:\/\//i.test(shareUrl);
 const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
 ---
 
@@ -50,11 +49,17 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
 
       {hasValidShareUrl && (
         <div class="album-detail-sections__share">
-          <Share
+          <ShareSection
+            id="album-share"
             shareUrl={shareUrl}
             contentTitle={contentTitle}
             contentDescription={contentDescription}
+            title="Share this album"
+            note="Copy the link or share it by email."
+            copyAriaLabel="Copy link to this album"
             zipUrl={zipUrl}
+            zipAriaLabel={`Download ${contentTitle} as ZIP`}
+            zipFathomEvent={`Album Download: ${contentTitle}`}
           />
         </div>
       )}

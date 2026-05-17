@@ -5,14 +5,14 @@
 import { render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import ButtonLink from "@shared-ui/components/buttons/ButtonLink.astro";
-import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
 import ArticleHero from "@shared-ui/components/cards/ArticleHero.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
 import Stack from "@shared-ui/components/layout/Stack.astro";
-import RelatedKnowledgeArticles from "@components/RelatedKnowledgeArticles.astro";
 import ReadingProgress from "@shared-ui/components/navigation/ReadingProgress.astro";
 import Prose from "@shared-ui/components/typography/Prose.astro";
 import VisuallyHidden from "@shared-ui/components/utilities/VisuallyHidden.astro";
+import ShareSection from "@shared-ui/components/actions/ShareSection.astro";
+import RelatedContentSection from "@shared-ui/components/cards/RelatedContentSection.astro";
 import TableOfContents from "@shared-ui/components/navigation/TableOfContents.astro";
 import RecentItemsTracker from "@shared-ui/components/init/RecentItemsTracker.astro";
 import KnowledgeTakeaways from "@shared-ui/components/cards/KnowledgeTakeaways.astro";
@@ -26,6 +26,7 @@ import {
   getKnowledgeArticleStaticPaths,
   resolveKnowledgeArticleEntry,
 } from "@utils/knowledge/articlePageContent";
+import { loadRelatedKnowledgeArticleCardItems } from "@utils/knowledge/articlePageRelated";
 
 export const prerender = true;
 
@@ -82,6 +83,13 @@ const { storageSlug, storageUpdatedAt, storageImage } = buildKnowledgeArticleSto
 const recentReadDataId = `recent-read-data-${storageSlug
   .replace(/[^A-Za-z0-9_-]+/g, "-")
   .replace(/^-+|-+$/g, "")}`;
+const relatedArticleItems = await loadRelatedKnowledgeArticleCardItems({
+  currentKeywords,
+  currentTaxonomyGroup,
+  currentTaxonomySubsection,
+  currentSlug: slugKey,
+  lang,
+});
 ---
 
 <Layout {pageSeo}>
@@ -141,12 +149,13 @@ const recentReadDataId = `recent-read-data-${storageSlug
           contentDescription={description}
         />
 
-        <RelatedKnowledgeArticles
-          currentKeywords={currentKeywords}
-          currentTaxonomyGroup={currentTaxonomyGroup}
-          currentTaxonomySubsection={currentTaxonomySubsection}
-          currentSlug={slugKey}
-          lang={lang}
+        <RelatedContentSection
+          id="related-knowledge-articles"
+          eyebrow="Continue reading"
+          title="Related articles"
+          copy="Continue with guides from the same category, taxonomy branch, or closely related keywords."
+          listAriaLabel="Related articles"
+          items={relatedArticleItems}
         />
 
         <div class="knowledge__back">

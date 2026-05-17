@@ -14,8 +14,26 @@ import {
 import { getReadingTime } from "@shared-utils/utils/readingTime";
 import { RASTER_IMAGE_EXT_PATTERN } from "@shared-utils/utils/imageAssets";
 import type { ArticleHeroLink, ResolvedKnowledgeEntry } from "./articlePageTypes";
-import { KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES } from "./articlePageTypes";
 import { normalizeKeywords } from "./keywords";
+
+const KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES: Record<string, string> = {
+  "1960s": "1960s Music History: Pop, Protest and Psychedelia",
+  "1980s": "1980s Music History: MTV, Synths and Global Pop",
+  "2010s": "2010s Music History: Streaming and Global Pop",
+  "from-asia-pop-to-global-pop": "J-Pop and K-Pop: From Regional Scenes to Global Pop",
+  "from-blues-to-breakdown": "Heavy Music History: From Blues to Metalcore",
+  "from-folk-to-bedroom-pop": "Intimate Songwriting: From Folk to Bedroom Pop",
+  "from-gospel-to-modern-vocal-pop-": "Gospel to Modern Vocal Pop",
+  "from-hip-hop-to-trap-drill": "Hip Hop History: Block Parties, Trap and Drill",
+  "from-jazz-to-neo-soul": "Jazz to Neo Soul: Fusion, Acid Jazz and Modern Soul",
+  "from-latin-to-latin-trap": "Latin Music History: From Salsa to Latin Trap",
+  "from-pop-to-streaming-pop": "Pop Music History: From Radio to Streaming",
+  "from-post-punk-to-industrial-metal":
+    "Industrial Rock History: From Post-Punk to Metal",
+  "from-punk-to-indie": "Alternative Music: From Punk to Indie",
+  "from-ska-to-global-bass": "Jamaican Music History: From Ska to Global Bass",
+  "from-soul-to-modern-dance-music": "Dance Music History: From Soul to House and Techno",
+};
 
 interface BuildKnowledgeArticleStructuredDataParams {
   canonical: string;
@@ -95,13 +113,7 @@ function getKnowledgeTaxonomyMeta(
   return {
     currentTaxonomySubsection,
     currentTaxonomyGroup,
-    resolvedTaxonomySubsection,
-    resolvedTaxonomyGroup,
     seoCategoryCrumb,
-    taxonomyPillLabel:
-      resolvedTaxonomyGroup?.group.title ||
-      resolvedTaxonomySubsection?.subsection.title ||
-      "",
   };
 }
 
@@ -180,16 +192,12 @@ export function buildKnowledgeArticlePageData({
   const canonical = slugKey
     ? resolvePageUrl(site, `/knowledge/${slugKey}`)
     : resolvePageUrl(site, "/");
-  const {
-    currentTaxonomySubsection,
-    currentTaxonomyGroup,
-    seoCategoryCrumb,
-    taxonomyPillLabel,
-  } = getKnowledgeTaxonomyMeta(
-    site,
-    entry.data.taxonomySubsection,
-    entry.data.taxonomyGroup
-  );
+  const { currentTaxonomySubsection, currentTaxonomyGroup, seoCategoryCrumb } =
+    getKnowledgeTaxonomyMeta(
+      site,
+      entry.data.taxonomySubsection,
+      entry.data.taxonomyGroup
+    );
   const seoBreadcrumbs = [
     { name: "Home", url: resolvePageUrl(site, "/") },
     ...(seoCategoryCrumb ? [seoCategoryCrumb] : []),
@@ -277,7 +285,6 @@ export function buildKnowledgeArticlePageData({
     publishedDate,
     publishedDateLabel,
     readingResult,
-    taxonomyPillLabel,
     title,
   };
 }

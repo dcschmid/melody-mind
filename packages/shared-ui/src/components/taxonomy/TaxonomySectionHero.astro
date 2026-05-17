@@ -1,39 +1,39 @@
 ---
-import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
+import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import type { TaxonomySection } from "../types/taxonomy";
-import { getKnowledgeTaxonomyImage } from "@utils/knowledgeImages";
+import HeroTeaser from "@shared-ui/components/cards/HeroTeaser.astro";
 
 interface Props {
-  section: TaxonomySection;
-  subsectionCount?: number;
-  articleCount?: number;
+  id: string;
+  title: string;
+  description?: string;
+  imageSrc?: ImageMetadata;
+  imageAlt?: string;
 }
 
-const { section } = Astro.props as Props;
-const importedSectionImage = getKnowledgeTaxonomyImage(section.image) || undefined;
+const { id, title, description, imageSrc, imageAlt = title } = Astro.props as Props;
 ---
 
 <div class="taxonomy-section-hero">
   <HeroTeaser
-    id={`taxonomy-hero-${section.id}`}
+    id={`taxonomy-hero-${id}`}
     class="taxonomy-section-hero__teaser"
-    title={section.title}
+    {title}
     titleLevel="h1"
-    description={section.description ||
+    description={description ||
       "Explore the connected topics and articles in this section."}
     mediaAspectRatio="4 / 3"
   >
     {
-      importedSectionImage ? (
+      imageSrc ? (
         <Fragment slot="media">
           <Image
-            src={importedSectionImage}
-            alt={section.title}
+            src={imageSrc}
+            alt={imageAlt}
             loading="eager"
             class="taxonomy-section-hero__image"
-            width={importedSectionImage.width}
-            height={importedSectionImage.height}
+            width={imageSrc.width}
+            height={imageSrc.height}
           />
         </Fragment>
       ) : null

@@ -17,6 +17,10 @@ const {
   class: classProp = "",
   target,
   rel,
+  href,
+  "aria-label": ariaLabel,
+  "aria-labelledby": ariaLabelledBy,
+  "aria-describedby": ariaDescribedBy,
 } = rawProps;
 
 const shouldAnnounceNewTab = announceNewTab ?? target === "_blank";
@@ -29,28 +33,9 @@ const finalRel =
 const normalizeAriaValue = (value: unknown) =>
   typeof value === "string" ? value.trim() || undefined : undefined;
 
-const ariaLabelAttr = normalizeAriaValue(rawProps["aria-label"]);
-const ariaLabelledByAttr = normalizeAriaValue(rawProps["aria-labelledby"]);
-const ariaDescribedByAttr = normalizeAriaValue(rawProps["aria-describedby"]);
-const slotContent = await Astro.slots.render("default");
-const strippedContent = slotContent
-  .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, " ")
-  .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, " ")
-  .replace(
-    /<([a-z][\w:-]*)\b(?=[^>]*\baria-hidden\s*=\s*(?:"true"|'true'|true\b))[^>]*>[\s\S]*?<\/\1>/gi,
-    " "
-  )
-  .replace(
-    /<([a-z][\w:-]*)\b(?=[^>]*\baria-hidden\s*=\s*(?:"true"|'true'|true\b))[^>]*\/?>/gi,
-    " "
-  )
-  .replace(/<svg\b[^>]*>[\s\S]*?<\/svg>/gi, " ")
-  .replace(/<img\b[^>]*>/gi, " ")
-  .replace(/<[^>]+>/g, " ")
-  .replace(/&(?:nbsp|#160);/gi, " ")
-  .replace(/\s+/g, " ")
-  .trim();
-const linkText = strippedContent || undefined;
+const ariaLabelAttr = normalizeAriaValue(ariaLabel);
+const ariaLabelledByAttr = normalizeAriaValue(ariaLabelledBy);
+const ariaDescribedByAttr = normalizeAriaValue(ariaDescribedBy);
 const finalAriaLabel =
   shouldAnnounceNewTab && ariaLabelAttr && !ariaLabelledByAttr
     ? `${ariaLabelAttr} (${newTabText})`
@@ -61,36 +46,10 @@ const newTabDescriptionId =
     : undefined;
 const finalAriaDescribedBy =
   [ariaDescribedByAttr, newTabDescriptionId].filter(Boolean).join(" ") || undefined;
-
-if (!ariaLabelAttr && !ariaLabelledByAttr && !linkText) {
-  throw new Error(
-    "AccessibleExternalLink requires visible text content, aria-label, or " +
-      "aria-labelledby. Add an explicit accessible name when using icon-only " +
-      "or non-text link content."
-  );
-}
-
-const forwardedAttrs = (() => {
-  const restAttrs: Record<string, unknown> = { ...rawProps };
-  for (const key of [
-    "announceNewTab",
-    "className",
-    "newTabText",
-    "class",
-    "aria-label",
-    "aria-labelledby",
-    "aria-describedby",
-  ]) {
-    if (key in restAttrs) {
-      delete restAttrs[key];
-    }
-  }
-  return restAttrs;
-})();
 ---
 
 <a
-  {...forwardedAttrs}
+  {href}
   class:list={[className, classProp]}
   target={target}
   rel={finalRel}
@@ -98,7 +57,7 @@ const forwardedAttrs = (() => {
   aria-labelledby={ariaLabelledByAttr}
   aria-describedby={finalAriaDescribedBy}
 >
-  <Fragment set:html={slotContent} />
+  <slot />
   {
     shouldAnnounceNewTab ? (
       <VisuallyHidden id={newTabDescriptionId}> ({newTabText})</VisuallyHidden>

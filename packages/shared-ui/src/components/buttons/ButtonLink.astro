@@ -11,7 +11,6 @@ type ButtonSize = (typeof BUTTON_SIZES)[number];
 interface Props {
   href: string;
   ariaLabel?: string;
-  ariaDescribedBy?: string;
   className?: string;
   target?: "_blank" | "_self" | "_parent" | "_top";
   rel?: string;
@@ -22,12 +21,9 @@ interface Props {
   disabled?: boolean;
 }
 
-const rawProps = Astro.props as Props & Record<string, unknown>;
-
 const {
   href,
   ariaLabel,
-  ariaDescribedBy,
   className = "",
   target = "_self",
   rel,
@@ -36,7 +32,8 @@ const {
   icon,
   newTabText = "opens in a new tab",
   disabled = false,
-} = rawProps;
+  "aria-label": ariaLabelAttr,
+} = Astro.props as Props & { "aria-label"?: string };
 
 const isRendered = href && !disabled;
 const isExternal = target === "_blank";
@@ -52,37 +49,7 @@ const classes = [
   .filter(Boolean)
   .join(" ");
 
-const ariaLabelAttr =
-  (ariaLabel as string | undefined) ?? (rawProps["aria-label"] as string | undefined);
-const ariaDescribedByAttr =
-  (ariaDescribedBy as string | undefined) ??
-  (rawProps["aria-describedby"] as string | undefined);
-
-const FORWARDED_PROP_KEYS = new Set([
-  "href",
-  "ariaLabel",
-  "ariaDescribedBy",
-  "className",
-  "target",
-  "rel",
-  "variant",
-  "size",
-  "icon",
-  "newTabText",
-  "disabled",
-  "aria-describedby",
-  "aria-label",
-]);
-
-const forwardedAttrs = (() => {
-  const restAttrs: Record<string, unknown> = { ...rawProps };
-  for (const key of FORWARDED_PROP_KEYS) {
-    if (key in restAttrs) {
-      delete restAttrs[key];
-    }
-  }
-  return restAttrs;
-})();
+const resolvedAriaLabel = ariaLabel ?? ariaLabelAttr;
 ---
 
 {
@@ -90,13 +57,11 @@ const forwardedAttrs = (() => {
     <AccessibleExternalLink
       href={href}
       className={classes}
-      aria-label={ariaLabelAttr}
-      aria-describedby={ariaDescribedByAttr}
+      aria-label={resolvedAriaLabel}
       announceNewTab={isExternal}
       newTabText={newTabText}
       {target}
       rel={finalRel}
-      {...forwardedAttrs}
     >
       {icon ? <Icon name={icon} class="button-link__icon" aria-hidden="true" /> : null}
       <span class="button-link__label">

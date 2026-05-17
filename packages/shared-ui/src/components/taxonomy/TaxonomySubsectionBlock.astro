@@ -1,11 +1,24 @@
 ---
-import TaxonomyArticleGrid from "@components/TaxonomyArticleGrid.astro";
-import TaxonomyBlockHeader from "@components/TaxonomyBlockHeader.astro";
-import TaxonomyGroupBlock from "@components/TaxonomyGroupBlock.astro";
-import type { TaxonomySubsectionWithArticles } from "@utils/taxonomy/buildTaxonomySectionPageData";
+import TaxonomyArticleGrid from "@shared-ui/components/taxonomy/TaxonomyArticleGrid.astro";
+import TaxonomyBlockHeader from "@shared-ui/components/taxonomy/TaxonomyBlockHeader.astro";
+import TaxonomyGroupBlock from "@shared-ui/components/taxonomy/TaxonomyGroupBlock.astro";
 
 interface Props {
-  subsection: TaxonomySubsectionWithArticles;
+  subsection: {
+    id: string;
+    title: string;
+    description?: string;
+    articleCount: number;
+    articles: any[];
+    groups?: unknown[];
+    groupsWithArticles: Array<{
+      id: string;
+      title: string;
+      description?: string;
+      articleCount: number;
+      articles: any[];
+    }>;
+  };
 }
 
 const { subsection } = Astro.props as Props;

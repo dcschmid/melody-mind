@@ -42,7 +42,6 @@ export interface TaxonomyJumpTarget {
   anchorId: string;
   title: string;
   articleCount: number;
-  parentTitle?: string;
 }
 
 interface BuildTaxonomySectionPageDataParams {
@@ -132,7 +131,6 @@ export function buildTaxonomySectionPageData({
         anchorId: group.anchorId,
         title: group.title,
         articleCount: group.articleCount,
-        parentTitle: subsection.title,
       }));
     }
 

@@ -1,10 +1,11 @@
 ---
 import Icon from "@shared-ui/components/visual/Icon.astro";
+import type { IconName } from "@shared-ui/components/visual/Icon.astro";
 
 interface Props {
   headingId: string;
   title: string;
-  iconName?: "sparkles" | "disc";
+  iconName?: IconName;
   linkHref?: string;
   linkLabel?: string;
   hideIcon?: boolean;
@@ -17,25 +18,21 @@ const {
   linkHref,
   linkLabel,
   hideIcon = false,
-} = Astro.props;
+} = Astro.props as Props;
 ---
 
-<div class="music-home-section-header">
-  <h2 id={headingId} class="music-home-section-header__title">
+<div class="section-header">
+  <h2 id={headingId} class="section-header__title">
     {
       !hideIcon && (
-        <Icon
-          name={iconName}
-          class="music-home-section-header__icon"
-          aria-hidden="true"
-        />
+        <Icon name={iconName} class="section-header__icon" aria-hidden="true" />
       )
     }
     {title}
   </h2>
   {
     linkHref && linkLabel && (
-      <a class="music-home-section-header__link" href={linkHref}>
+      <a class="section-header__link" href={linkHref}>
         {linkLabel}
         <Icon name="chevron-right" aria-hidden="true" />
       </a>
@@ -45,9 +42,12 @@ const {
 </div>
 
 <style>
-  .music-home-section-header {
-    --music-home-section-header-icon-gap: var(--spacing-sm);
-    --music-home-section-header-link-gap: var(--spacing-xs);
+  .section-header {
+    --section-header-icon-gap: var(--spacing-sm);
+    --section-header-link-gap: var(--spacing-xs);
+    --section-header-ink: var(--music-home-ink, var(--text-primary));
+    --section-header-muted: var(--music-home-muted, var(--text-secondary));
+    --section-header-accent: var(--music-home-accent, var(--accent-primary));
 
     display: flex;
     flex-wrap: wrap;
@@ -57,9 +57,9 @@ const {
     justify-content: space-between;
   }
 
-  .music-home-section-header__title {
+  .section-header__title {
     display: inline-flex;
-    gap: var(--music-home-section-header-icon-gap);
+    gap: var(--section-header-icon-gap);
     align-items: center;
     min-inline-size: 0;
     margin: 0;
@@ -67,54 +67,54 @@ const {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     line-height: 1.15;
-    color: var(--music-home-ink);
+    color: var(--section-header-ink);
     letter-spacing: 0;
     text-wrap: balance;
   }
 
-  .music-home-section-header__icon {
+  .section-header__icon {
     flex: 0 0 auto;
-    color: var(--music-home-accent);
+    color: var(--section-header-accent);
   }
 
-  .music-home-section-header__link {
+  .section-header__link {
     display: inline-flex;
     flex: 0 0 auto;
-    gap: var(--music-home-section-header-link-gap);
+    gap: var(--section-header-link-gap);
     align-items: center;
     justify-content: center;
     min-block-size: 2.5rem;
     padding-inline: var(--spacing-sm);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
-    color: var(--music-home-muted);
+    color: var(--section-header-muted);
     text-decoration: none;
   }
 
-  .music-home-section-header__link:focus-visible {
+  .section-header__link:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
 
-  .music-home-section-header__link:hover,
-  .music-home-section-header__link:focus-visible {
-    color: var(--music-home-accent);
+  .section-header__link:hover,
+  .section-header__link:focus-visible {
+    color: var(--section-header-accent);
   }
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    .music-home-section-header__link {
+    .section-header__link {
       transition:
         color var(--motion-duration-fast) var(--motion-ease-standard),
         transform var(--motion-duration-fast) var(--motion-ease-standard);
     }
 
-    .music-home-section-header__link:active {
+    .section-header__link:active {
       transform: scale(0.97);
     }
   }
 
   @media (width <= 640px) {
-    .music-home-section-header {
+    .section-header {
       align-items: flex-start;
     }
   }

@@ -8,36 +8,25 @@ import type { RelatedContentCardItem } from "./relatedContent";
 
 interface Props {
   id?: string;
+  eyebrow?: string;
   title: string;
   copy?: string;
   listAriaLabel?: string;
   items: RelatedContentCardItem[];
-  eyebrow?: string;
-  linkHref?: string;
-  linkLabel?: string;
+  mediaObjectFit?: "cover" | "contain";
 }
 
 const {
   id = "related-content-section",
+  eyebrow = "Related",
   title,
   copy,
   listAriaLabel = title,
   items = [],
-  eyebrow = "Continue reading",
-  linkHref = "/",
-  linkLabel = "View all articles",
+  mediaObjectFit = "contain",
 } = Astro.props as Props;
 
 const titleId = `${id}-title`;
-
-// Security: Validate URL scheme, default to "/" for javascript: or data: URIs
-const isExternalHref =
-  typeof linkHref === "string" &&
-  (linkHref.startsWith("http://") || linkHref.startsWith("https://"));
-const safeHref =
-  linkHref && typeof linkHref === "string" && !linkHref.match(/^\s*(javascript:|data:)/i)
-    ? linkHref
-    : "/";
 const defaultCoverImage = "/default-cover.jpg";
 ---
 
@@ -56,16 +45,6 @@ const defaultCoverImage = "/default-cover.jpg";
             </Paragraph>
           ) : null}
         </Stack>
-        <a
-          class="related-content-section__link"
-          href={safeHref}
-          {...(isExternalHref ? { rel: "noopener noreferrer", target: "_blank" } : {})}
-        >
-          {linkLabel} <span aria-hidden="true">→</span>
-          {isExternalHref ? (
-            <span class="related-content-section__sr">Opens in new tab</span>
-          ) : null}
-        </a>
       </Stack>
 
       <AutoGrid
@@ -83,7 +62,7 @@ const defaultCoverImage = "/default-cover.jpg";
               href={item.href}
               variant="default"
               size="compact"
-              mediaObjectFit="contain"
+              mediaObjectFit={mediaObjectFit}
               imageSrc={item.imageSrc || defaultCoverImage}
               imageAlt={
                 item.imageAlt ?? (item.imageSrc ? `Cover image for ${item.title}` : "")
@@ -142,86 +121,14 @@ const defaultCoverImage = "/default-cover.jpg";
     color: var(--text-secondary);
   }
 
-  .related-content-section__link {
-    display: inline-flex;
-    gap: var(--spacing-xs);
-    place-self: start;
-    align-items: center;
-    min-block-size: var(--control-min-block-size);
-    padding: var(--spacing-sm) var(--spacing-base);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    color: var(--accent-primary);
-    text-decoration: none;
-    border-radius: var(--radius-base);
-    transition:
-      background-color var(--transition-fast),
-      color var(--transition-fast);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .related-content-section__link {
-      transition: none;
-    }
-  }
-
-  .related-content-section__link:hover,
-  .related-content-section__link:focus-visible {
-    color: var(--accent-strong);
-    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
-  }
-
-  .related-content-section__link:active {
-    color: var(--accent-strong);
-    background-color: color-mix(in srgb, var(--accent-primary) 16%, transparent);
-  }
-
-  .related-content-section__link:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: var(--focus-ring-offset);
-  }
-
   .related-content-section__grid {
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
-  .related-content-section__sr {
-    position: var(--sr-only);
-    inline-size: var(--sr-only-width);
-    block-size: var(--sr-only-height);
-    padding: var(--sr-only-padding);
-    margin: var(--sr-only-margin);
-    overflow: var(--sr-only-overflow);
-    white-space: var(--sr-only-white-space);
-    border: var(--sr-only-border);
-    clip-path: var(--sr-only-clip-path);
-  }
-
   .related-content-section__item {
     min-inline-size: 0;
-    opacity: 0;
-    animation: fade-in-up var(--motion-duration-base) var(--motion-ease-standard) both;
-  }
-
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(var(--motion-distance-sm));
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .related-content-section__item {
-      opacity: 1;
-      animation: none;
-    }
   }
 
   @media (width >= 50rem) {
@@ -229,10 +136,6 @@ const defaultCoverImage = "/default-cover.jpg";
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: end;
-    }
-
-    .related-content-section__link {
-      justify-self: end;
     }
   }
 

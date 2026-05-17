@@ -1,8 +1,5 @@
 import { getCollection } from "astro:content";
-import {
-  buildRelatedArticleCardItem,
-  type RelatedContentCardItem,
-} from "@shared-ui/components/cards/relatedContent";
+import type { RelatedContentCardItem } from "@shared-ui/components/cards/relatedContent";
 import { getCollectionCached } from "@shared-utils/utils/content/getCollectionCached";
 import { normalizeDate } from "@shared-utils/utils/content/dateUtils";
 import { loggers } from "@shared-utils/utils/logging";
@@ -128,19 +125,30 @@ export async function loadRelatedKnowledgeArticleCardItems(params: {
       lang,
     });
 
-    return articles.map((article, index) =>
-      buildRelatedArticleCardItem({
-        id: `related-knowledge-${article.id}-${index}`,
-        title: article.title,
-        description: article.description,
-        href: `/knowledge/${article.id}`,
-        imageSrc: article.image,
-        ctaSrText: "Opens article",
-        publishedAt: article.createdAt,
-        readingTimeMinutes: article.readingTime,
-        locale: lang || "en",
-      })
-    );
+    return articles.map((article, index) => ({
+      id: `related-knowledge-${article.id}-${index}`,
+      title: article.title,
+      description: article.description,
+      href: `/knowledge/${article.id}`,
+      imageSrc: article.image,
+      imageAlt: `Cover image for ${article.title}`,
+      ctaSrText: "Opens article",
+      metaItems: [
+        {
+          iconName: "clock",
+          label: `${article.readingTime} min read`,
+        },
+        {
+          iconName: "calendar",
+          label: article.createdAt.toLocaleDateString(lang || "en", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          }),
+          datetime: article.createdAt.toISOString(),
+        },
+      ],
+    }));
   } catch (e) {
     loggers.pages.warn("knowledge article: related articles load issue", {
       error: (e as any)?.message || e,

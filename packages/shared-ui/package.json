@@ -12,11 +12,13 @@
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet"
   },
   "peerDependencies": {
+    "@freshjuice/astro-search-plugin": "^1.0.1",
     "astro": "^6.0.5",
     "astro-icon": "^1.1.5"
   },
   "devDependencies": {
     "@double-great/stylelint-a11y": "^3.4.9",
+    "@freshjuice/astro-search-plugin": "^1.0.1",
     "astro": "^6.1.6",
     "astro-icon": "^1.1.5",
     "stylelint-high-performance-animation": "^2.0.0",

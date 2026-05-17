@@ -1,9 +1,20 @@
 ---
+import { getCollection } from "astro:content";
 import AppShellLayout from "@shared-ui/components/layout/AppShellLayout.astro";
+import SearchPalette from "@shared-ui/components/search/SearchPalette.astro";
 import type { PageSeoResult } from "@shared-utils/utils/seo/buildPageSeo";
+import {
+  buildAppShellConfig,
+  navFromKnowledge,
+} from "@shared-utils/utils/appShellConfig";
+import {
+  MUSIC_SITE_URL,
+  QUIZ_SITE_URL,
+  buildExternalAppLink,
+} from "@shared-utils/utils/appShell";
 import { knowledgeBrandLogoUrl, knowledgeHeroImageUrl } from "@utils/knowledgeImages";
-import { knowledgeAppShellConfig } from "@utils/appShellConfig";
-import KnowledgeSearchPalette from "../components/KnowledgeSearchPalette.astro";
+import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
+import { getKnowledgeCategoryImageSrc } from "@utils/knowledgeImages";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
 /**
@@ -29,6 +40,45 @@ interface Props {
   disableAlternateLanguages?: boolean;
   authorName?: string;
 }
+
+const knowledgeAppShellConfig = buildAppShellConfig({
+  rssTitle: "MelodyMind Knowledge RSS Feed",
+  brandLogoAlt: "Melody Mind",
+  brandAriaLabel: "Go to the Melody Mind homepage",
+  navAriaLabel: "Primary navigation",
+  headerNavItems: navFromKnowledge(),
+  footerBrandText:
+    "Curated guides and playlists to help you listen more closely and discover new sounds.",
+  footerExploreLinks: [
+    buildExternalAppLink({ href: QUIZ_SITE_URL, label: "Quiz" }),
+    buildExternalAppLink({ href: MUSIC_SITE_URL, label: "Music" }),
+  ],
+});
+const entries = await getCollection("knowledge-en");
+const toSearchString = (value: unknown): string =>
+  typeof value === "string" ? value : "";
+const searchItems = entries
+  .filter((entry) => !entry.data.draft)
+  .map((entry) => {
+    const taxonomySubsection = toSearchString(entry.data.taxonomySubsection);
+    const taxonomyGroup = toSearchString(entry.data.taxonomyGroup);
+    const subsection = taxonomySubsection
+      ? getSubsectionById(taxonomySubsection)
+      : undefined;
+    const group = taxonomyGroup ? getGroupById(taxonomyGroup) : undefined;
+    const taxonomyLabel = group?.group.title || subsection?.subsection.title || "";
+    const displayMeta = ["Article", taxonomyLabel].filter(Boolean).join(" · ");
+
+    return {
+      url: `/knowledge/${entry.id}/`,
+      title: toSearchString(entry.data.title),
+      type: "Article",
+      description: toSearchString(entry.data.description),
+      imageUrl: getKnowledgeCategoryImageSrc(toSearchString(entry.data.image)) || "",
+      imageAlt: toSearchString(entry.data.imageAlt),
+      displayMeta,
+    };
+  });
 
 const {
   pageSeo,
@@ -68,5 +118,17 @@ const {
   {authorName}
 >
   <slot />
-  <KnowledgeSearchPalette />
+  <SearchPalette
+    configId="knowledge-search-palette-config"
+    inputLabel="Search articles, genres, and music history topics"
+    placeholder="Search articles, genres, and music history topics"
+    emptyTitle="Start with a genre, decade, artist, or idea."
+    emptyTitleWithQuery="No article matched that search."
+    emptyText="Try one of these searches to move through the Knowledge archive."
+    emptyTextWithQuery="Try a broader genre, a decade, or one of these guided searches."
+    suggestions={["1990s", "hip hop", "Jamaican music", "streaming"]}
+    groupLabels={{ article: "Articles", articles: "Articles" }}
+    items={searchItems}
+    mediaAspectRatio="3 / 2"
+  />
 </AppShellLayout>

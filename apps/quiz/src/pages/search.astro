@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import PageShell from "@shared-ui/components/layout/PageShell.astro";
-import OramaSearchSection from "../components/OramaSearchSection.astro";
+import OramaSearchSection from "@shared-ui/components/search/OramaSearchSection.astro";
 import { buildPageSeo, type StructuredData } from "@shared-utils/utils/seo/buildPageSeo";
 import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
@@ -44,6 +44,10 @@ const searchIndexUrl = "/search-index.json";
       emptyText="Type a quiz title, question, or keyword."
       noResultsText="No matching quizzes found."
       resultLimit={24}
+      eyebrow="Search the quiz archive"
+      metaFields={["category", "topics"]}
+      headerVariant="underlined"
+      resultsVariant="list"
     />
   </PageShell>
 </Layout>

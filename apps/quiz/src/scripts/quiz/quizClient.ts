@@ -1,15 +1,6 @@
-/**
- * Quiz Client Script
- *
- * Handles quiz interactions: selecting answers, navigation, and scoring.
- * All state is managed in memory and optionally saved to localStorage.
- */
-
 import { safeLocalStorage } from "@shared-utils/utils/storage/safeStorage";
 
 const QUIZ_RESULTS_KEY = "quiz-results";
-
-// ── Discriminated union eliminates all `as` casts on `correct` ──
 
 interface TrueFalseQuestion {
   question: string;
@@ -54,11 +45,6 @@ export interface QuizState {
   isComplete: boolean;
 }
 
-// ── Helpers ──
-
-/**
- * Returns true when the supplied answer matches the question's correct value.
- */
 function checkAnswer(q: QuizQuestion, answer: number | number[] | null): boolean {
   if (answer === null) {
     return false;
@@ -112,8 +98,6 @@ function escapeHtml(value: string): string {
     .replace(/'/g, "&#39;");
 }
 
-// ── SVG icons (server-rendered once, referenced as innerHTML only when needed) ──
-
 const icons = {
   check:
     '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12l5 5L20 7"/></svg>',
@@ -133,8 +117,6 @@ const icons = {
   trophy:
     '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8M12 17v4M7 4h10v3a5 5 0 0 1-10 0zm10 1h2a2 2 0 0 1 0 4h-2M7 5H5a2 2 0 1 0 0 4h2"/></svg>',
 };
-
-// ── Main init ──
 
 export function initQuiz(
   allQuestions: QuizQuestion[],
@@ -164,8 +146,6 @@ export function initQuiz(
     return;
   }
 
-  // ── Progress ──
-
   function renderProgress() {
     if (!progressContainer) {
       return;
@@ -187,9 +167,6 @@ export function initQuiz(
     `;
   }
 
-  // ── Question DOM helpers ──
-
-  /** Build the full question HTML on first render or question change. */
   function buildQuestionHTML(q: QuizQuestion): string {
     const displayOptions = q.type === "true-false" ? ["True", "False"] : q.options;
     const questionTypeLabel =
@@ -251,7 +228,6 @@ export function initQuiz(
     `;
   }
 
-  /** Update option visuals without rebuilding the DOM. */
   function updateOptionVisuals(q: QuizQuestion) {
     if (!questionContainer) {
       return;
@@ -278,7 +254,6 @@ export function initQuiz(
         const correctOption = isCorrectOption(q, index);
         const isCorrectSelected = correctOption && isSelected;
 
-        // Reset
         optionEl.classList.remove(
           "quiz-question__option--selected",
           "quiz-question__option--correct",
@@ -297,12 +272,10 @@ export function initQuiz(
           optionEl.classList.add("quiz-question__option--selected");
         }
 
-        // Remove old status icons
         optionEl
           .querySelectorAll(".quiz-question__option-status")
           .forEach((el) => el.remove());
 
-        // Add status icons after answer
         if (isAnswered) {
           const statusIcon = document.createElement("span");
           if (isCorrectSelected) {
@@ -321,7 +294,6 @@ export function initQuiz(
       });
   }
 
-  /** Update the correctness badge after answering. */
   function updateBadge(q: QuizQuestion) {
     if (!questionContainer) {
       return;
@@ -349,7 +321,6 @@ export function initQuiz(
     }
   }
 
-  /** Show / fill explanation after answering. */
   function updateExplanation(q: QuizQuestion) {
     if (!questionContainer) {
       return;
@@ -375,7 +346,6 @@ export function initQuiz(
     }
   }
 
-  /** Update hint text with selection count for multi-choice. */
   function updateHint(q: QuizQuestion) {
     if (!questionContainer) {
       return;
@@ -393,10 +363,8 @@ export function initQuiz(
           ? `${count} selected. You can choose more than one answer.`
           : "Select all that apply.";
     }
-    // single-choice / true-false hint stays static
   }
 
-  /** Update the question type label. */
   function updateQuestionTypeLabel(q: QuizQuestion) {
     if (!questionContainer) {
       return;
@@ -414,8 +382,6 @@ export function initQuiz(
           ? "Multi-select"
           : "Single choice";
   }
-
-  // ── Selection ──
 
   function getCurrentSelectionCount(): number {
     const currentAnswer = state.answers[state.currentQuestion];
@@ -447,8 +413,6 @@ export function initQuiz(
     updateHint(q);
     updateNavigation();
   }
-
-  // ── Navigation ──
 
   function updateNavigation() {
     if (!navPrev || !navNext || !navSubmit || !checkAnswerBtn) {
@@ -495,7 +459,6 @@ export function initQuiz(
       updateExplanation(q);
     }
 
-    // Focus the question text for accessibility
     const heading = questionContainer.querySelector<HTMLElement>(".quiz-question__text");
     heading?.focus();
   }
@@ -520,7 +483,6 @@ export function initQuiz(
     updateNavigation();
     renderProgress();
 
-    // Focus explanation if present, otherwise next action
     if (q.explanation) {
       const explanation = questionContainer.querySelector<HTMLElement>(
         ".quiz-question__explanation"
@@ -554,8 +516,6 @@ export function initQuiz(
         });
       });
   }
-
-  // ── Results ──
 
   function showResults() {
     state.isComplete = true;
@@ -662,7 +622,6 @@ export function initQuiz(
       </div>
     `;
 
-    // Live announcement for screen readers
     const liveRegion = document.createElement("div");
     liveRegion.setAttribute("aria-live", "assertive");
     liveRegion.setAttribute("role", "status");
@@ -704,8 +663,6 @@ export function initQuiz(
     safeLocalStorage.set(QUIZ_RESULTS_KEY, results);
   }
 
-  // ── Event listeners ──
-
   if (navPrev) {
     navPrev.addEventListener("click", () => goToQuestion(state.currentQuestion - 1));
   }
@@ -727,8 +684,6 @@ export function initQuiz(
   if (checkAnswerBtn) {
     checkAnswerBtn.addEventListener("click", submitAnswer);
   }
-
-  // ── Initial render ──
 
   renderProgress();
   const initialQ = questions[0];

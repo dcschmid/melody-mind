@@ -1,11 +1,21 @@
 ---
+import type { ImageMetadata } from "astro";
 import EmptyState from "@shared-ui/components/layout/EmptyState.astro";
 import ContentCard from "@shared-ui/components/cards/ContentCard.astro";
-import type { TaxonomyArticle } from "@utils/taxonomy/buildTaxonomySectionPageData";
-import { getKnowledgeCategoryImage } from "@utils/knowledgeImages";
+
+interface TaxonomyArticleCardItem {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  readingTime?: number;
+  createdAt?: Date | null;
+}
 
 interface Props {
-  articles: TaxonomyArticle[];
+  articles: TaxonomyArticleCardItem[];
   emptyDescription: string;
 }
 
@@ -22,30 +32,29 @@ const articleDateFormatter = new Intl.DateTimeFormat("en-US", {
   articles.length > 0 ? (
     <ul class="taxonomy-article-grid">
       {articles.map((article, index) => {
-        const articleSlug = article.id;
-        const createdAt = article.data.createdAt || new Date();
+        const createdAt = article.createdAt || new Date();
 
         return (
           <li class="taxonomy-article-grid__item">
             <ContentCard
-              id={`card-title-${articleSlug}-${index}`}
+              id={`card-title-${article.id}-${index}`}
               dataTestId="knowledge-card"
-              data-title={article.data.title}
-              data-description={article.data.description}
-              href={`/knowledge/${articleSlug}`}
+              data-title={article.title}
+              data-description={article.description}
+              href={article.href}
               variant="default"
               size="default"
               mediaObjectFit="contain"
-              imageSrc={getKnowledgeCategoryImage(article.data.image)}
-              imageAlt={`Cover image for ${article.data.title}`}
+              imageSrc={article.imageSrc}
+              imageAlt={article.imageAlt}
               imageWidth={1024}
               imageHeight={683}
-              title={article.data.title}
-              description={article.data.description}
+              title={article.title}
+              description={article.description}
               metaItems={[
                 {
                   iconName: "clock",
-                  label: `${article.data.readingTime || 0} min read`,
+                  label: `${article.readingTime || 0} min read`,
                 },
                 {
                   iconName: "calendar",
