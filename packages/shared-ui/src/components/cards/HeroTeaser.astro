@@ -414,6 +414,40 @@ const descriptionMaxInlineSize = sanitizeCssLength(
       order: 1;
     }
   }
+
+  @media (width < 640px) {
+    .hero-teaser__grid {
+      gap: var(--spacing-lg);
+    }
+
+    .hero-teaser__copy {
+      gap: var(--spacing-md);
+      padding-block: var(--spacing-lg) var(--spacing-base);
+      padding-inline: 0;
+    }
+
+    .hero-teaser__eyebrow {
+      padding-block-end: 0;
+      font-size: calc(var(--font-size-sm) - 0.04rem);
+      letter-spacing: 0.07em;
+    }
+
+    .hero-teaser__title {
+      padding-block-start: 0;
+      font-size: clamp(2.15rem, 12vw, 2.65rem);
+      line-height: 1;
+    }
+
+    .hero-teaser__description {
+      padding-block-start: 0;
+      font-size: var(--font-size-md);
+      line-height: 1.55;
+    }
+
+    .hero-teaser__media {
+      border-radius: var(--radius-lg);
+    }
+  }
 </style>
 
 <style is:global>

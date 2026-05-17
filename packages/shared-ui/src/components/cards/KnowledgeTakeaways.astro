@@ -167,4 +167,45 @@ const takeawayEntries = items
       padding-inline-start: var(--spacing-lg);
     }
   }
+
+  @container (width < 34rem) {
+    .knowledge-takeaways {
+      gap: var(--spacing-base);
+    }
+
+    .knowledge-takeaways__header {
+      justify-items: start;
+      text-align: start;
+    }
+
+    .knowledge-takeaways__title {
+      font-size: var(--font-size-xl);
+    }
+
+    .knowledge-takeaways__accent {
+      inline-size: var(--spacing-xl);
+      margin-block-start: var(--spacing-xs);
+    }
+
+    .knowledge-takeaways__item {
+      gap: var(--spacing-sm);
+      padding: var(--spacing-base) 0;
+    }
+
+    .knowledge-takeaways__marker {
+      inline-size: var(--icon-shell-size-sm);
+      block-size: var(--icon-shell-size-sm);
+      font-size: var(--font-size-xs);
+    }
+
+    .knowledge-takeaways__item-title {
+      font-size: var(--font-size-base);
+    }
+
+    .knowledge-takeaways__text {
+      max-inline-size: none;
+      font-size: var(--font-size-sm);
+      line-height: 1.55;
+    }
+  }
 </style>

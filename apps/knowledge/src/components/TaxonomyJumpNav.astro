@@ -114,7 +114,7 @@ const {
   }
 
   .taxonomy-jump-nav {
-    position: static;
+    position: relative;
     display: block;
   }
 
@@ -132,6 +132,20 @@ const {
   .taxonomy-jump-nav__headline {
     margin: 0;
     color: var(--text-primary);
+  }
+
+  @media (width < 40rem) {
+    .taxonomy-jump-nav__headline {
+      position: var(--sr-only);
+      inline-size: var(--sr-only-width);
+      block-size: var(--sr-only-height);
+      padding: var(--sr-only-padding);
+      margin: var(--sr-only-margin);
+      overflow: var(--sr-only-overflow);
+      white-space: var(--sr-only-white-space);
+      border: var(--sr-only-border);
+      clip-path: var(--sr-only-clip-path);
+    }
   }
 
   @media (width >= 40rem) {

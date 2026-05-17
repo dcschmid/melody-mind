@@ -387,18 +387,25 @@ const resolvedImageAlt = imageSource ? imageAlt.trim() || title : "";
   }
 
   @media (width < 640px) {
+    .article-hero__layout,
+    .article-hero__content,
+    .article-hero__intro {
+      gap: var(--spacing-base);
+    }
+
     .article-hero__shell {
       padding: 0;
       border-radius: 0;
     }
 
     .article-hero__title {
-      font-size: var(--font-size-2xl);
-      line-height: 1.15;
+      font-size: clamp(1.8rem, 9vw, 2rem);
+      line-height: 1.12;
     }
 
     .article-hero__description {
-      font-size: var(--font-size-md);
+      font-size: var(--font-size-sm);
+      line-height: 1.58;
     }
 
     .article-hero__signals {
@@ -424,6 +431,7 @@ const resolvedImageAlt = imageSource ? imageAlt.trim() || title : "";
     .article-hero__media-placeholder {
       min-block-size: 0;
       aspect-ratio: 3 / 2;
+      border-radius: var(--radius-lg);
     }
   }
 </style>
