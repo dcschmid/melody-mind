@@ -1,13 +1,50 @@
 ---
-import "@freshjuice/astro-search-plugin/styles.css";
+import { getCollection } from "astro:content";
+import SearchPalette from "@shared-ui/components/search/SearchPalette.astro";
+import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
+import { getKnowledgeCategoryImageSrc } from "@utils/knowledgeImages";
+
+const entries = await getCollection("knowledge-en");
+const toSearchString = (value: unknown): string =>
+  typeof value === "string" ? value : "";
+
+const searchItems = entries
+  .filter((entry) => !entry.data.draft)
+  .map((entry) => {
+    const taxonomySubsection = toSearchString(entry.data.taxonomySubsection);
+    const taxonomyGroup = toSearchString(entry.data.taxonomyGroup);
+    const subsection = taxonomySubsection
+      ? getSubsectionById(taxonomySubsection)
+      : undefined;
+    const group = taxonomyGroup ? getGroupById(taxonomyGroup) : undefined;
+    const taxonomyLabel = group?.group.title || subsection?.subsection.title || "";
+    const displayMeta = ["Article", taxonomyLabel].filter(Boolean).join(" · ");
+
+    return {
+      url: `/knowledge/${entry.id}/`,
+      title: toSearchString(entry.data.title),
+      type: "Article",
+      description: toSearchString(entry.data.description),
+      imageUrl: getKnowledgeCategoryImageSrc(toSearchString(entry.data.image)) || "",
+      imageAlt: toSearchString(entry.data.imageAlt),
+      displayMeta,
+    };
+  });
 ---
 
-<astro-search-palette
-  index-url="/search-index.json"
-  shortcut="mod+k"
-  placeholder="Search articles"
-  result-limit="8"
-  group-by="type"></astro-search-palette>
+<SearchPalette
+  configId="knowledge-search-palette-config"
+  inputLabel="Search articles, genres, and music history topics"
+  placeholder="Search articles, genres, and music history topics"
+  emptyTitle="Start with a genre, decade, artist, or idea."
+  emptyTitleWithQuery="No article matched that search."
+  emptyText="Try one of these searches to move through the Knowledge archive."
+  emptyTextWithQuery="Try a broader genre, a decade, or one of these guided searches."
+  suggestions={["1990s", "hip hop", "Jamaican music", "streaming"]}
+  groupLabels={{ article: "Articles", articles: "Articles" }}
+  items={searchItems}
+  mediaAspectRatio="3 / 2"
+/>
 
 <script>
   import "@freshjuice/astro-search-plugin/element";
