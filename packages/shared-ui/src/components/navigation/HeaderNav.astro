@@ -81,6 +81,11 @@ const isActiveItem = (href: string) => {
               <Icon name={item.icon} class="music-header-nav__icon" aria-hidden="true" />
             )}
             <span>{item.label}</span>
+            <Icon
+              name="chevron-right"
+              class="music-header-nav__chevron"
+              aria-hidden="true"
+            />
           </a>
         </li>
       );
@@ -98,11 +103,11 @@ const isActiveItem = (href: string) => {
     --music-header-nav-link-gap: 0.44rem;
     --music-header-nav-link-padding-inline: 0.25rem;
     --music-header-nav-link-text-size: 0.88rem;
-    --music-header-nav-mobile-gap: 0.28rem;
-    --music-header-nav-mobile-icon-size: 1.15rem;
-    --music-header-nav-mobile-label-gap: 0.7rem;
-    --music-header-nav-mobile-padding-block: 0.62rem;
-    --music-header-nav-mobile-padding-inline: 0.82rem;
+    --music-header-nav-mobile-gap: 0;
+    --music-header-nav-mobile-icon-size: 1.18rem;
+    --music-header-nav-mobile-label-gap: 0.8rem;
+    --music-header-nav-mobile-padding-block: 1rem;
+    --music-header-nav-mobile-padding-inline: 0;
     --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 42%, transparent);
     --music-header-nav-search-border: color-mix(
       in srgb,
@@ -212,6 +217,10 @@ const isActiveItem = (href: string) => {
     display: none;
   }
 
+  .music-header-nav__chevron {
+    display: none;
+  }
+
   .music-header-nav__group-label {
     display: none;
   }
@@ -267,15 +276,15 @@ const isActiveItem = (href: string) => {
   @media (width <= 1023.98px) {
     .music-header-nav {
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: 100%;
       gap: var(--music-header-nav-mobile-gap);
-      align-items: stretch;
-      justify-content: stretch;
+      place-items: stretch start;
       inline-size: 100%;
       min-inline-size: 0;
     }
 
     .music-header-nav__item {
+      display: block;
       inline-size: 100%;
       min-inline-size: 0;
     }
@@ -283,24 +292,24 @@ const isActiveItem = (href: string) => {
     .music-header-nav__link,
     .music-header-nav__link--search {
       box-sizing: border-box;
-      display: inline-flex;
+      display: flex;
       gap: var(--music-header-nav-mobile-label-gap);
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-between;
       inline-size: 100%;
       max-inline-size: 100%;
       block-size: auto;
-      min-block-size: 2.85rem;
+      min-block-size: 4.6rem;
       padding: var(--music-header-nav-mobile-padding-block)
         var(--music-header-nav-mobile-padding-inline);
       margin-inline-end: 0;
-      font-size: 1rem;
-      font-weight: 650;
-      line-height: 1.15;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.1;
       color: var(--music-menu-text);
       background: transparent;
-      border: 1px solid transparent;
-      border-radius: 0.75rem;
+      border: 0;
+      border-radius: 0;
     }
 
     .music-header-nav__link span {
@@ -315,24 +324,38 @@ const isActiveItem = (href: string) => {
     .music-header-nav__link:hover,
     .music-header-nav__link:focus-visible {
       color: var(--music-menu-active-text);
-      background: color-mix(in srgb, var(--music-menu-accent) 8%, transparent);
-      border-color: color-mix(in srgb, var(--music-menu-accent) 16%, transparent);
+      background: transparent;
     }
 
     .music-header-nav__link[aria-current="page"] {
       color: var(--music-menu-active-text);
-      background: var(--music-menu-active-bg);
-      border-color: color-mix(in srgb, var(--music-menu-accent) 30%, transparent);
-      box-shadow: inset 0 0 0 1px
-        color-mix(in srgb, var(--music-menu-accent) 12%, transparent);
+      background: transparent;
+      box-shadow: none;
     }
 
-    .music-header-nav__icon,
-    .music-header-nav__link--search .music-header-nav__icon {
-      display: block;
+    .music-header-nav__icon {
+      display: none;
       flex: 0 0 auto;
       inline-size: var(--music-header-nav-mobile-icon-size);
       block-size: var(--music-header-nav-mobile-icon-size);
+    }
+
+    .music-header-nav__link--search .music-header-nav__icon {
+      display: block;
+    }
+
+    .music-header-nav__chevron {
+      display: block;
+      flex: 0 0 auto;
+      inline-size: 1.85rem;
+      block-size: 1.85rem;
+      margin-inline-start: auto;
+      color: var(--music-menu-chevron);
+    }
+
+    .music-header-nav__link--search .music-header-nav__chevron {
+      inline-size: 1.55rem;
+      block-size: 1.55rem;
     }
 
     .music-header-nav__link--search span {
@@ -345,15 +368,15 @@ const isActiveItem = (href: string) => {
     }
 
     .music-header-nav__item--quick-start {
-      padding-block-start: 0.9rem;
-      margin-block-start: 0.72rem;
+      padding-block-start: 1.35rem;
+      margin-block-start: 1.35rem;
       border-block-start: 1px solid var(--music-menu-line);
     }
 
     .music-header-nav__group-label {
       display: block;
-      margin: 0 0 0.55rem 0.12rem;
-      font-size: 0.72rem;
+      margin: 0 0 0.5rem;
+      font-size: 0.78rem;
       font-weight: 800;
       line-height: 1;
       color: var(--music-menu-muted);

@@ -309,7 +309,6 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
 
   @media (width <= 1023.98px) {
     .music-site-header {
-      --music-menu-panel-width: min(30rem, calc(100dvw - 1rem));
       --music-menu-bg-start: var(--bg-primary);
       --music-menu-bg-end: var(--bg-secondary);
       --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 34%, transparent);
@@ -317,6 +316,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       --music-menu-muted: var(--text-tertiary);
       --music-menu-line: var(--border-muted);
       --music-menu-accent: var(--accent-primary);
+      --music-menu-chevron: color-mix(in srgb, var(--text-primary) 82%, transparent);
       --music-menu-active-text: var(--link-hover);
       --music-menu-active-bg: color-mix(
         in srgb,
@@ -348,6 +348,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       --music-menu-muted: var(--text-secondary);
       --music-menu-line: var(--border-muted);
       --music-menu-accent: var(--accent-primary);
+      --music-menu-chevron: color-mix(in srgb, var(--text-primary) 82%, transparent);
       --music-menu-active-text: var(--accent-strong);
       --music-menu-active-bg: var(--surface-3);
       --music-menu-chip-bg: var(--surface-1);
@@ -420,30 +421,39 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       padding: 0;
       pointer-events: none;
       cursor: pointer;
-      background: color-mix(in srgb, var(--bg-primary) 68%, transparent);
+      background: var(--music-menu-bg-start);
       border: 0;
       opacity: 0;
     }
 
     .music-site-header__nav {
       display: none;
-      grid-column: 1 / -1;
-      gap: 0.9rem;
-      align-content: start;
+      grid-template-columns: minmax(0, 1fr);
+      grid-column: 1 / 4;
+      gap: 0;
+      place-content: start normal;
+      place-items: stretch;
+      justify-self: stretch;
       inline-size: 100%;
       min-inline-size: 0;
-      padding-block: 0.7rem 1.05rem;
+      max-inline-size: 38rem;
+      padding-block: 1.35rem 1.3rem;
+      margin-inline: auto;
       opacity: 0;
     }
 
     .music-site-header__actions {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 1rem;
+      grid-column: 1 / 4;
+      gap: 1rem 1.5rem;
       align-items: center;
+      justify-self: stretch;
       inline-size: 100%;
       min-inline-size: 0;
-      padding-block-start: 0.72rem;
+      max-inline-size: 42rem;
+      padding-block-start: 1.35rem;
+      margin-inline: auto;
       border-block-start: 1px solid var(--music-menu-line);
     }
 
@@ -462,26 +472,25 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
 
     .music-site-header[data-open="true"] .music-site-header__inner {
       position: fixed;
-      inset-block-start: max(0.85rem, env(safe-area-inset-top));
-      inset-inline: 0.5rem;
+      inset: 0;
       z-index: 3;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 0.65rem 1rem;
+      gap: 0 1rem;
+      align-content: start;
       align-items: start;
-      inline-size: var(--music-menu-panel-width);
-      max-inline-size: 30rem;
-      max-block-size: calc(100dvh - 2rem);
-      padding: clamp(1rem, 4vw, 1.25rem);
-      margin-inline: auto;
+      inline-size: auto;
+      max-inline-size: none;
+      min-block-size: 100dvh;
+      max-block-size: 100dvh;
+      padding: calc(env(safe-area-inset-top) + 1.5rem) clamp(1.5rem, 6vw, 2rem)
+        calc(env(safe-area-inset-bottom) + 2rem);
       overflow-y: auto;
       color: var(--music-menu-text);
       background: var(--music-menu-bg-start);
-      border: 1px solid var(--music-menu-line);
-      border-radius: 1.15rem;
-      box-shadow:
-        0 1.25rem 3rem color-mix(in srgb, var(--bg-primary) 72%, transparent),
-        var(--shadow-2xl);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .music-site-header[data-open="true"] .music-site-header__nav {
@@ -490,17 +499,24 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     }
 
     .music-site-header[data-open="true"] .music-site-header__brand {
-      min-block-size: 2.75rem;
+      min-block-size: 3.25rem;
     }
 
     .music-site-header[data-open="true"] .music-site-header__logo {
-      inline-size: clamp(7.25rem, 34vw, 8.9rem);
+      inline-size: 8.5rem;
     }
 
     .music-site-header[data-open="true"] .music-site-header__toggle {
+      inline-size: 3.25rem;
+      block-size: 3.25rem;
       color: var(--music-menu-active-text);
-      background: var(--music-menu-chip-bg);
-      border-color: var(--music-menu-chip-border);
+      background: transparent;
+      border-color: transparent;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__toggle-icon {
+      inline-size: 2rem;
+      block-size: 2rem;
     }
 
     .music-site-header[data-open="true"] .music-site-header__toggle-icon--menu {
