@@ -423,7 +423,7 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  const searchLink = target.closest("a[href]");
+  const searchLink = target.closest('a[href][data-enhanced-search-trigger="true"]');
 
   if (!(searchLink instanceof HTMLAnchorElement)) {
     return;

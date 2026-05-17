@@ -76,6 +76,7 @@ const isActiveItem = (href: string) => {
             target={item.target}
             rel={item.rel}
             aria-current={isActive ? "page" : undefined}
+            data-enhanced-search-trigger={isSearch ? "true" : undefined}
           >
             {item.icon && (
               <Icon name={item.icon} class="music-header-nav__icon" aria-hidden="true" />
