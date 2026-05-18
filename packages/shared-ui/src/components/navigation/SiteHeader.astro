@@ -475,7 +475,10 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
       inset: 0;
       z-index: 3;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "brand toggle"
+        "nav nav";
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 0 1rem;
       align-content: start;
       align-items: start;
@@ -495,10 +498,18 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
 
     .music-site-header[data-open="true"] .music-site-header__nav {
       display: grid;
+      grid-area: nav;
+      grid-column: 1 / -1;
+      max-inline-size: none;
       opacity: 1;
     }
 
+    .music-site-header[data-open="true"] .music-site-header__actions {
+      grid-column: 1 / -1;
+    }
+
     .music-site-header[data-open="true"] .music-site-header__brand {
+      grid-area: brand;
       min-block-size: 3.25rem;
     }
 
@@ -507,6 +518,7 @@ const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
     }
 
     .music-site-header[data-open="true"] .music-site-header__toggle {
+      grid-area: toggle;
       inline-size: 3.25rem;
       block-size: 3.25rem;
       color: var(--music-menu-active-text);
