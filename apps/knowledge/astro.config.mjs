@@ -14,6 +14,16 @@ const redirects = Object.fromEntries(
   ])
 );
 
+const SITEMAP_INDEXABLE_PATH_PATTERNS = [/^\/$/, /^\/knowledge\/.+/, /^\/taxonomy\/.+/];
+
+const normalizeSitemapPath = (page) => {
+  try {
+    return new URL(page).pathname;
+  } catch {
+    return page.startsWith("/") ? page : `/${page}`;
+  }
+};
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://melody-mind.de",
@@ -29,7 +39,13 @@ export default defineConfig({
       collections: ["tabler", "simple-icons"],
     }),
     mdx({ optimize: true }),
-    sitemap(),
+    sitemap({
+      filter: (page) => {
+        const pathname = normalizeSitemapPath(page);
+
+        return SITEMAP_INDEXABLE_PATH_PATTERNS.some((pattern) => pattern.test(pathname));
+      },
+    }),
     metaTags(),
     minify(),
   ],

@@ -100,7 +100,7 @@ function getKnowledgeTaxonomyMeta(
         name: resolvedTaxonomyGroup.group.title,
         url: resolvePageUrl(
           site,
-          `/taxonomy/${resolvedTaxonomyGroup.section.id}#${resolvedTaxonomyGroup.subsection.id}--${resolvedTaxonomyGroup.group.id}`
+          `/taxonomy/${resolvedTaxonomyGroup.section.id}/#${resolvedTaxonomyGroup.subsection.id}--${resolvedTaxonomyGroup.group.id}`
         ),
       }
     : resolvedTaxonomySubsection
@@ -108,7 +108,7 @@ function getKnowledgeTaxonomyMeta(
           name: resolvedTaxonomySubsection.subsection.title,
           url: resolvePageUrl(
             site,
-            `/taxonomy/${resolvedTaxonomySubsection.section.id}#${resolvedTaxonomySubsection.subsection.id}`
+            `/taxonomy/${resolvedTaxonomySubsection.section.id}/#${resolvedTaxonomySubsection.subsection.id}`
           ),
         }
       : null;
@@ -139,11 +139,7 @@ function buildKnowledgeArticleStructuredData({
   const schemaType = "Article";
 
   const speakableSchema = buildSpeakableSpecificationSchema({
-    cssSelectors: [
-      "article h2:first-of-type + p",
-      "article h2:first-of-figure + p",
-      "article > p:nth-of-type(-n+3)",
-    ],
+    cssSelectors: ["article h2:first-of-type + p", "article > p:nth-of-type(-n+3)"],
   });
 
   const result: StructuredData[] = [
@@ -193,7 +189,7 @@ export function buildKnowledgeArticlePageData({
   const imageWidth = imageSource?.width || 1024;
   const imageHeight = imageSource?.height || 683;
   const canonical = slugKey
-    ? resolvePageUrl(site, `/knowledge/${slugKey}`)
+    ? resolvePageUrl(site, `/knowledge/${slugKey}/`)
     : resolvePageUrl(site, "/");
   const { currentTaxonomySubsection, currentTaxonomyGroup, seoCategoryCrumb } =
     getKnowledgeTaxonomyMeta(
@@ -234,6 +230,7 @@ export function buildKnowledgeArticlePageData({
     description: optimizedDescription,
     url: canonical,
     contentKind: "generic",
+    type: "article",
     breadcrumbs: seoBreadcrumbs,
     structuredData,
     enrichedParts: [title, description].filter(Boolean) as string[],

@@ -440,11 +440,12 @@ export function buildKnowledgeArticlesItemList(opts: {
         "@type": "Article",
         name: article.data.title,
         description: article.data.description,
-        url: `${baseUrl.replace(/\/$/, "")}/knowledge/${article.slug}`,
+        url: `${baseUrl.replace(/\/$/, "")}/knowledge/${article.slug}/`,
         dateCreated: toIsoDate(article.data.createdAt),
         dateModified: toIsoDate(article.data.updatedAt),
         keywords: article.data.keywords?.join(", "),
         inLanguage: lang || "en",
+        ...(article.data.image ? { image: article.data.image } : {}),
       },
     })),
   };

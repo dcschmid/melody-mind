@@ -107,7 +107,7 @@ export function buildTaxonomySectionSeo({
   section,
   sectionArticles,
 }: BuildTaxonomySectionSeoParams) {
-  const currentUrl = resolvePageUrl(site, `/taxonomy/${sectionId}`);
+  const currentUrl = resolvePageUrl(site, `/taxonomy/${sectionId}/`);
   const baseUrl = resolveBaseUrl(site);
   const sectionImageUrl = getKnowledgeTaxonomyImageUrl(section.image, baseUrl);
   const seoDescription = getTaxonomySectionSeoDescription({
