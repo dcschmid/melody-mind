@@ -46,7 +46,6 @@ const genreCounts = albums.reduce<Record<string, number>>((counts, album) => {
 const totalGenreCount = albums.length;
 
 const DEFAULT_SORT_VALUE = "date";
-const FEATURED_RELEASE_ID = "blacktop-saints";
 const sortParamValue = Astro.url.searchParams.get("sort");
 const genreParamValue =
   Astro.url.searchParams.get("genre") ?? Astro.url.searchParams.get("album-genre");
@@ -109,6 +108,7 @@ const albumEntries: Entry[] = sortedAlbums.map((album) => {
     isVisible: isAlbumVisibleForGenre(album.genre),
   };
 });
+const albumEntriesById = new Map(albumEntries.map((album) => [album.id, album]));
 const initialVisibleAlbumCount = albumEntries.filter((album) => album.isVisible).length;
 const heroAlbums = getFeaturedAlbums(sortedAlbumsByDate, 5).map((album) => {
   const imageSrc = getAlbumCoverImage(album.coverImage);
@@ -121,12 +121,10 @@ const heroAlbums = getFeaturedAlbums(sortedAlbumsByDate, 5).map((album) => {
     imageHeight: getImageHeight(imageSrc),
   };
 });
-const featuredRelease =
-  albumEntries.find((album) => album.id === FEATURED_RELEASE_ID) || albumEntries[0];
-const latestReleaseShelf = [
-  ...(featuredRelease ? [featuredRelease] : []),
-  ...albumEntries.filter((album) => album.id !== featuredRelease?.id),
-].slice(0, 3);
+const latestReleaseShelf = sortedAlbumsByDate
+  .map((album) => albumEntriesById.get(album.id))
+  .filter((album): album is Entry => Boolean(album))
+  .slice(0, 3);
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
