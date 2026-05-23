@@ -1,5 +1,6 @@
 ---
 import type { ImageMetadata } from "astro";
+import FathomEventsScript from "@shared-ui/components/analytics/FathomEventsScript.astro";
 import AppHeadResources from "@shared-ui/components/meta/AppHeadResources.astro";
 import SEO from "@shared-ui/components/meta/SEO.astro";
 import AutoInitScript from "@shared-ui/components/init/AutoInitScript.astro";
@@ -42,6 +43,7 @@ interface Props {
   disableAlternateLanguages?: boolean;
   authorName?: string;
   appTitle?: string;
+  fathomSiteId?: string;
   copyrightBrand?: string;
   copyrightText?: string;
   copyrightYear?: number;
@@ -70,6 +72,7 @@ const {
   disableAlternateLanguages,
   authorName,
   appTitle = "MelodyMind",
+  fathomSiteId,
   copyrightBrand = "MelodyMind",
   copyrightText,
   copyrightYear,
@@ -166,6 +169,7 @@ const keywords = mergedKeywords
   .split(",")
   .map((keyword) => keyword.trim())
   .filter(Boolean);
+const normalizedFathomSiteId = fathomSiteId?.trim() || "";
 ---
 
 <MasterLayout
@@ -218,6 +222,16 @@ const keywords = mergedKeywords
       alternateLocales={constructedPageSeo.alternateLocales}
       twitter={constructedPageSeo.twitter}
     />
+    {
+      normalizedFathomSiteId && (
+        <script
+          is:inline
+          src="https://cdn.usefathom.com/script.js"
+          data-site={normalizedFathomSiteId}
+          defer
+        />
+      )
+    }
   </Fragment>
 
   {
@@ -255,6 +269,7 @@ const keywords = mergedKeywords
   }
 
   <AutoInitScript slot="body-end" />
+  {normalizedFathomSiteId && <FathomEventsScript slot="body-end" />}
   <BackToTop slot="body-end" />
 </MasterLayout>
 

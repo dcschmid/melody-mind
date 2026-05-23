@@ -7,8 +7,8 @@ import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Privacy Policy";
 const description =
-  "How we process personal data on Melody Mind Knowledge, including hosting logs, contact requests, and AI-generated media details.";
-const lastUpdated = "15 March 2026";
+  "How we process personal data on Melody Mind Knowledge, including hosting logs, privacy-friendly analytics, contact requests, and AI-generated media details.";
+const lastUpdated = "23 May 2026";
 
 const highlights = [
   {
@@ -46,8 +46,15 @@ const sections = [
     icon: "grid",
     title: "Browser Storage",
     trustedHtmlBody: trustedHtmlList([
-      "We use browser storage for site features such as reading progress and recently viewed content. We do not run an analytics or consent banner on the site at this time.",
+      "We use browser storage for site features such as reading progress and recently viewed content.",
       'For a current overview of local storage entries, see our <a href="/cookies">Cookie &amp; Storage Policy</a>.',
+    ]),
+  },
+  {
+    icon: "eye",
+    title: "Analytics",
+    trustedHtmlBody: trustedHtmlList([
+      "We use Fathom Analytics to understand aggregate page views and site usage without showing individual visitor profiles. Fathom is a cookie-free analytics service. Legal basis: Art. 6(1)(f) GDPR (legitimate interest in privacy-friendly site measurement).",
     ]),
   },
   {
@@ -93,7 +100,13 @@ const pageSeo = buildLegalPageSeo({
   title,
   description,
   imageAlt: "Privacy Policy",
-  fallbackKeywords: ["privacy", "data protection", "browser storage", "openai media"],
+  fallbackKeywords: [
+    "privacy",
+    "data protection",
+    "browser storage",
+    "analytics",
+    "openai media",
+  ],
   maxDescription: 160,
   modifiedDate: new Date(lastUpdated),
 });

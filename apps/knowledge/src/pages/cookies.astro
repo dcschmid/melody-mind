@@ -11,13 +11,13 @@ import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 
 const title = "Cookie & Storage Policy";
 const description =
-  "Details about cookies and local storage used on Melody Mind Knowledge for core site features.";
-const lastUpdated = "06 February 2026";
+  "Details about cookies, analytics, and local storage used on Melody Mind Knowledge for core site features.";
+const lastUpdated = "23 May 2026";
 
 const highlights = [
   {
-    value: "Storage only",
-    label: "We currently rely on browser storage for site features, not analytics.",
+    value: "No tracking cookies",
+    label: "Fathom Analytics runs without tracking cookies.",
   },
   {
     value: "Local-first",
@@ -34,7 +34,14 @@ const policySections = [
     icon: "shield",
     title: "Do we use cookies?",
     trustedHtmlBody: trustedHtmlList([
-      "We currently do not rely on a cookie-based analytics or consent system. Most client-side persistence on this site uses local storage for functional features.",
+      "We do not use tracking cookies. Most client-side persistence on this site uses local storage for functional features.",
+    ]),
+  },
+  {
+    icon: "eye",
+    title: "Analytics",
+    trustedHtmlBody: trustedHtmlList([
+      "We use Fathom Analytics for aggregate, cookie-free site measurement.",
     ]),
   },
   {
@@ -90,7 +97,7 @@ const pageSeo = buildLegalPageSeo({
   title,
   description,
   imageAlt: "Cookie Policy",
-  fallbackKeywords: ["cookies", "localStorage", "privacy", "storage policy"],
+  fallbackKeywords: ["cookies", "analytics", "localStorage", "privacy", "storage policy"],
   maxDescription: 160,
   modifiedDate: new Date(lastUpdated),
 });

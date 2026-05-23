@@ -17,6 +17,8 @@ import { getGroupById, getSubsectionById } from "@utils/taxonomy/taxonomyUtils";
 import { getKnowledgeCategoryImageSrc } from "@utils/knowledgeImages";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
+const FATHOM_SITE_ID = "QNPHRMJE";
+
 /**
  * Shared layout contract for all knowledge pages.
  * Keep this surface narrow: page-specific SEO should be prepared before reaching the layout.
@@ -103,6 +105,7 @@ const {
   resolveFallbackImageUrl={knowledgeHeroImageUrl}
   brandLogoSrc={melodyMindLogo}
   brandLogoAlt=""
+  fathomSiteId={FATHOM_SITE_ID}
   {pageSeo}
   {imageWidth}
   {imageHeight}
