@@ -45,7 +45,7 @@ const GRID_COVER_IMAGE_SIZES =
           data-album-card
           data-album-title={album.title}
           data-album-published-at={album.publishedAtTime}
-          data-album-card-genre={album.genre || ""}
+          data-album-card-genre={album.mainGenre || ""}
           hidden={!album.isVisible}
           aria-hidden={album.isVisible ? "false" : "true"}
         >

@@ -18,6 +18,7 @@ export interface AlbumData {
   coverImageHeight?: number;
   publishedAt: string;
   genre?: string;
+  mainGenre?: string;
   moods: string[];
   tags: string[];
   language?: string;

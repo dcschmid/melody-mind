@@ -244,7 +244,7 @@ const searchItems = availableAlbums.flatMap((album) => {
 const mobileGenreLinks = Array.from(
   new Set(
     availableAlbums
-      .map((album) => album.genre)
+      .map((album) => album.mainGenre)
       .filter((genre): genre is string => Boolean(genre))
   )
 )

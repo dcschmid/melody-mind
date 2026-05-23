@@ -13,6 +13,7 @@ export interface Entry {
   publishedAt: string;
   publishedAtTime: number;
   genre: string | undefined;
+  mainGenre: string | undefined;
   totalDurationSeconds: number;
   totalDurationLabel: string;
   isVisible: boolean;

@@ -42,6 +42,7 @@ const albums = defineCollection({
     coverImageHeight: z.number().optional(),
     publishedAt: z.coerce.date(),
     genre: z.string().optional(),
+    mainGenre: z.string().optional(),
     moods: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     language: z.string().optional(),

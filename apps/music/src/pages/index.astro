@@ -33,12 +33,14 @@ const compareAlbumsByDate = (a: AlbumData, b: AlbumData) =>
   compareAlbumsByTitle(a, b);
 const genreOptions = Array.from(
   new Set(
-    albums.map((album) => album.genre).filter((genre): genre is string => Boolean(genre))
+    albums
+      .map((album) => album.mainGenre)
+      .filter((genre): genre is string => Boolean(genre))
   )
 ).sort((a, b) => albumTitleCollator.compare(a, b));
 const genreCounts = albums.reduce<Record<string, number>>((counts, album) => {
-  if (album.genre) {
-    counts[album.genre] = (counts[album.genre] || 0) + 1;
+  if (album.mainGenre) {
+    counts[album.mainGenre] = (counts[album.mainGenre] || 0) + 1;
   }
 
   return counts;
@@ -59,8 +61,8 @@ const sortedAlbums =
     ? [...albums].sort(compareAlbumsByTitle)
     : sortedAlbumsByDate;
 
-const isAlbumVisibleForGenre = (genre?: string) =>
-  !initialGenreValue || genre === initialGenreValue;
+const isAlbumVisibleForGenre = (mainGenre?: string) =>
+  !initialGenreValue || mainGenre === initialGenreValue;
 
 const getImageSource = (image: CoverImage): string =>
   typeof image === "string" ? image : image.src;
@@ -103,9 +105,10 @@ const albumEntries: Entry[] = sortedAlbums.map((album) => {
     publishedAt: album.publishedAt,
     publishedAtTime: new Date(album.publishedAt).getTime(),
     genre: album.genre,
+    mainGenre: album.mainGenre,
     totalDurationSeconds,
     totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
-    isVisible: isAlbumVisibleForGenre(album.genre),
+    isVisible: isAlbumVisibleForGenre(album.mainGenre),
   };
 });
 const albumEntriesById = new Map(albumEntries.map((album) => [album.id, album]));
