@@ -1,10 +1,13 @@
 import { defineConfig } from "astro/config";
+import fs from "node:fs";
 import path from "path";
+import { fileURLToPath } from "node:url";
 import sitemap from "@astrojs/sitemap";
 import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import minify from "astro-minify-html-swc";
 import icon from "astro-icon";
+import matter from "gray-matter";
 import { LEGACY_CATEGORY_REDIRECTS } from "./src/constants/categoryRedirects.js";
 
 const redirects = Object.fromEntries(
@@ -15,6 +18,9 @@ const redirects = Object.fromEntries(
 );
 
 const SITEMAP_INDEXABLE_PATH_PATTERNS = [/^\/$/, /^\/knowledge\/.+/, /^\/taxonomy\/.+/];
+const CONFIG_DIR = path.dirname(fileURLToPath(import.meta.url));
+const KNOWLEDGE_CONTENT_DIR = path.join(CONFIG_DIR, "src/content/knowledge-en");
+const KNOWLEDGE_TAXONOMY_FILE = path.join(CONFIG_DIR, "src/data/musicTaxonomy.ts");
 
 const normalizeSitemapPath = (page) => {
   try {
@@ -23,6 +29,119 @@ const normalizeSitemapPath = (page) => {
     return page.startsWith("/") ? page : `/${page}`;
   }
 };
+
+const normalizeSitemapDate = (value) => {
+  if (!value) {
+    return undefined;
+  }
+
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.valueOf()) ? undefined : date;
+};
+
+const newestDate = (current, candidate) => {
+  if (!candidate) {
+    return current;
+  }
+
+  return !current || candidate.getTime() > current.getTime() ? candidate : current;
+};
+
+const parseTaxonomySections = () => {
+  const subsectionToSection = new Map();
+  const sectionIds = [];
+  let currentSectionId = "";
+
+  try {
+    const taxonomySource = fs.readFileSync(KNOWLEDGE_TAXONOMY_FILE, "utf8");
+
+    for (const line of taxonomySource.split("\n")) {
+      const idMatch = line.match(/^(\s*)id:\s*"([^"]+)"/);
+
+      if (!idMatch) {
+        continue;
+      }
+
+      const indent = idMatch[1].length;
+      const id = idMatch[2];
+
+      if (indent === 4) {
+        currentSectionId = id;
+        sectionIds.push(id);
+      } else if (indent === 8 && currentSectionId) {
+        subsectionToSection.set(id, currentSectionId);
+      }
+    }
+  } catch {
+    return { sectionIds, subsectionToSection };
+  }
+
+  return { sectionIds, subsectionToSection };
+};
+
+const buildKnowledgeSitemapLastmodMap = () => {
+  const lastmodByPath = new Map();
+  const lastmodByTaxonomyPath = new Map();
+  const taxonomyFallback = normalizeSitemapDate(
+    fs.existsSync(KNOWLEDGE_TAXONOMY_FILE)
+      ? fs.statSync(KNOWLEDGE_TAXONOMY_FILE).mtime
+      : undefined
+  );
+  const { sectionIds, subsectionToSection } = parseTaxonomySections();
+  let latestKnowledgeUpdate = taxonomyFallback;
+
+  if (!fs.existsSync(KNOWLEDGE_CONTENT_DIR)) {
+    return lastmodByPath;
+  }
+
+  for (const filename of fs.readdirSync(KNOWLEDGE_CONTENT_DIR)) {
+    if (!filename.endsWith(".mdx")) {
+      continue;
+    }
+
+    const slug = filename.replace(/\.mdx$/, "");
+    const filePath = path.join(KNOWLEDGE_CONTENT_DIR, filename);
+    const fileSource = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileSource);
+    const articleLastmod =
+      normalizeSitemapDate(data.updatedAt) ||
+      normalizeSitemapDate(data.createdAt) ||
+      normalizeSitemapDate(fs.statSync(filePath).mtime);
+
+    if (!articleLastmod) {
+      continue;
+    }
+
+    lastmodByPath.set(`/knowledge/${slug}/`, articleLastmod);
+    latestKnowledgeUpdate = newestDate(latestKnowledgeUpdate, articleLastmod);
+
+    const sectionId = subsectionToSection.get(String(data.taxonomySubsection || ""));
+    if (sectionId) {
+      const taxonomyPath = `/taxonomy/${sectionId}/`;
+      lastmodByTaxonomyPath.set(
+        taxonomyPath,
+        newestDate(lastmodByTaxonomyPath.get(taxonomyPath), articleLastmod)
+      );
+    }
+  }
+
+  if (latestKnowledgeUpdate) {
+    lastmodByPath.set("/", latestKnowledgeUpdate);
+  }
+
+  for (const sectionId of sectionIds) {
+    const taxonomyPath = `/taxonomy/${sectionId}/`;
+    const sectionLastmod = lastmodByTaxonomyPath.get(taxonomyPath) || taxonomyFallback;
+
+    if (sectionLastmod) {
+      lastmodByPath.set(taxonomyPath, sectionLastmod);
+    }
+  }
+
+  return lastmodByPath;
+};
+
+const KNOWLEDGE_SITEMAP_LASTMOD_BY_PATH = buildKnowledgeSitemapLastmodMap();
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,6 +163,12 @@ export default defineConfig({
         const pathname = normalizeSitemapPath(page);
 
         return SITEMAP_INDEXABLE_PATH_PATTERNS.some((pattern) => pattern.test(pathname));
+      },
+      serialize: (item) => {
+        const pathname = normalizeSitemapPath(item.url);
+        const lastmod = KNOWLEDGE_SITEMAP_LASTMOD_BY_PATH.get(pathname);
+
+        return lastmod ? { ...item, lastmod } : item;
       },
     }),
     metaTags(),

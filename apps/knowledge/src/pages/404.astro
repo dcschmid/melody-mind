@@ -7,7 +7,7 @@ import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export const prerender = true;
 
-const canonical = resolvePageUrl(Astro.site, "/404");
+const canonical = resolvePageUrl(Astro.site, "/404/");
 
 const pageSeo = buildPageSeo({
   title: "Page not found",
@@ -15,6 +15,7 @@ const pageSeo = buildPageSeo({
     "The page you're looking for doesn't exist. Browse articles, taxonomy, or search to find what you need.",
   url: canonical,
   brandSuffix: " - MelodyMind",
+  descriptionSource: "base",
   index: false,
   follow: false,
 });

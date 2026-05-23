@@ -40,7 +40,7 @@ export async function getStaticPaths() {
 const { quiz } = Astro.props as Props;
 
 const baseUrl = resolveBaseUrl(Astro.site);
-const currentUrl = resolvePageUrl(Astro.site, `/${quiz.id}`);
+const currentUrl = resolvePageUrl(Astro.site, `/${quiz.id}/`);
 
 const seoBreadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },

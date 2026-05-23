@@ -201,6 +201,7 @@ export const buildKnowledgeIndexPageData = async (
       KNOWLEDGE_INDEX_DESCRIPTION,
       keywordPool.slice(0, 25).join(" "),
     ],
+    descriptionSource: "base",
     fallbackKeywords,
     keywordLimit: 28,
     maxDescription: 150,

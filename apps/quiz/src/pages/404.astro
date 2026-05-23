@@ -7,7 +7,7 @@ import { resolvePageUrl } from "@shared-utils/utils/siteUrls";
 
 export const prerender = true;
 
-const canonical = resolvePageUrl(Astro.site, "/404");
+const canonical = resolvePageUrl(Astro.site, "/404/");
 
 const pageSeo = buildPageSeo({
   title: "Quiz not found",

@@ -98,7 +98,7 @@ const itemListSchema = buildQuizItemListSchema({
     slug: quiz.id,
     title: quiz.data.title,
     description: quiz.data.description,
-    url: `${baseUrl}/${quiz.id}`,
+    url: `${baseUrl}/${quiz.id}/`,
     image: getQuizImageUrl(quiz.id, baseUrl) ?? quizHeroImageUrl(baseUrl),
     keywords: quiz.data.featuredTopics,
   })),

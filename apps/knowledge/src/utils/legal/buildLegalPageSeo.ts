@@ -42,6 +42,7 @@ export const buildLegalPageSeo = ({
     breadcrumbs,
     structuredData: [] as StructuredData[],
     enrichedParts: [title, description],
+    descriptionSource: "base",
     fallbackKeywords,
     keywordLimit: 24,
     maxDescription,

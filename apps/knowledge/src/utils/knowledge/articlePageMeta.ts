@@ -39,6 +39,7 @@ const KNOWLEDGE_ARTICLE_SEO_TITLE_OVERRIDES: Record<string, string> = {
 };
 
 interface BuildKnowledgeArticleStructuredDataParams {
+  articleSection: string;
   canonical: string;
   description: string;
   imageAbsolute: string;
@@ -116,6 +117,8 @@ function getKnowledgeTaxonomyMeta(
   return {
     currentTaxonomySubsection,
     currentTaxonomyGroup,
+    taxonomySubsectionLabel: resolvedTaxonomySubsection?.subsection.title,
+    taxonomyGroupLabel: resolvedTaxonomyGroup?.group.title,
     seoCategoryCrumb,
   };
 }
@@ -124,6 +127,7 @@ function getKnowledgeTaxonomyMeta(
  * Builds the article structured data block for a knowledge detail page.
  */
 function buildKnowledgeArticleStructuredData({
+  articleSection,
   canonical,
   description,
   imageAbsolute,
@@ -156,7 +160,7 @@ function buildKnowledgeArticleStructuredData({
       updatedAt,
       body,
       schemaType,
-      articleSection: "Music Knowledge",
+      articleSection,
     }),
   ];
 
@@ -191,18 +195,24 @@ export function buildKnowledgeArticlePageData({
   const canonical = slugKey
     ? resolvePageUrl(site, `/knowledge/${slugKey}/`)
     : resolvePageUrl(site, "/");
-  const { currentTaxonomySubsection, currentTaxonomyGroup, seoCategoryCrumb } =
-    getKnowledgeTaxonomyMeta(
-      site,
-      entry.data.taxonomySubsection,
-      entry.data.taxonomyGroup
-    );
+  const {
+    currentTaxonomySubsection,
+    currentTaxonomyGroup,
+    taxonomySubsectionLabel,
+    taxonomyGroupLabel,
+    seoCategoryCrumb,
+  } = getKnowledgeTaxonomyMeta(
+    site,
+    entry.data.taxonomySubsection,
+    entry.data.taxonomyGroup
+  );
   const seoBreadcrumbs = [
     { name: "Home", url: resolvePageUrl(site, "/") },
     ...(seoCategoryCrumb ? [seoCategoryCrumb] : []),
     { name: title, url: canonical },
   ];
   const structuredData = buildKnowledgeArticleStructuredData({
+    articleSection: taxonomyGroupLabel || taxonomySubsectionLabel || "Music Knowledge",
     canonical,
     description,
     imageAbsolute,
@@ -234,6 +244,7 @@ export function buildKnowledgeArticlePageData({
     breadcrumbs: seoBreadcrumbs,
     structuredData,
     enrichedParts: [title, description].filter(Boolean) as string[],
+    descriptionSource: "base",
     fallbackKeywords: normalizedKeywords.slice(0, 20),
     keywordLimit: 24,
     maxDescription: 155,

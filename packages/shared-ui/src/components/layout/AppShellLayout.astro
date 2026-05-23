@@ -91,6 +91,7 @@ const mergedCanonical = constructedPageSeo.canonical;
 const mergedPublishDate = constructedPageSeo.publishDate;
 const mergedModifiedDate = constructedPageSeo.modifiedDate;
 const robotsTag = constructedPageSeo.robots;
+const resolvedAuthorName = authorName || constructedPageSeo.authorName;
 const { mergedImage, mergedImageType, finalStructuredData, autoOgLocale } =
   buildAppShellSeoContext({
     pageSeo: constructedPageSeo,
@@ -210,8 +211,10 @@ const normalizedFathomSiteId = fathomSiteId?.trim() || "";
       {nextUrl}
       {disableAlternateLanguages}
       structuredDataExtra={finalStructuredData}
-      authorName={authorName || constructedPageSeo.authorName}
+      authorName={resolvedAuthorName}
+      articleAuthor={mergedType === "article" ? resolvedAuthorName : undefined}
       imageAlt={constructedPageSeo.imageAlt}
+      ogSiteName={shellConfig.siteName}
       openGraph={{
         ...constructedPageSeo.openGraph,
         locale:
@@ -221,6 +224,8 @@ const normalizedFathomSiteId = fathomSiteId?.trim() || "";
       }}
       alternateLocales={constructedPageSeo.alternateLocales}
       twitter={constructedPageSeo.twitter}
+      twitterSite="@melodymind"
+      twitterUrl={mergedCanonical}
     />
     {
       normalizedFathomSiteId && (

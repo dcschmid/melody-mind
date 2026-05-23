@@ -11,7 +11,7 @@ const initialQuery = Astro.url.searchParams.get("q")?.trim() ?? "";
 
 const title = "Search Melody Mind Quizzes";
 const description = "Find quizzes by title, topic, question, answer, or explanation.";
-const currentUrl = resolvePageUrl(Astro.site, "/search");
+const currentUrl = resolvePageUrl(Astro.site, "/search/");
 const pageSeo = buildPageSeo({
   title,
   description,

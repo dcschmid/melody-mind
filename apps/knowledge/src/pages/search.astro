@@ -14,7 +14,7 @@ const title = "Search Melody Mind";
 const description =
   "Search Melody Mind articles by title, description, taxonomy, takeaways, and article text.";
 const baseUrl = resolveBaseUrl(Astro.site);
-const currentUrl = resolvePageUrl(Astro.site, "/search");
+const currentUrl = resolvePageUrl(Astro.site, "/search/");
 const pageSeo = buildPageSeo({
   title,
   description,
@@ -22,6 +22,7 @@ const pageSeo = buildPageSeo({
   contentKind: "generic",
   structuredData: [] as StructuredData[],
   enrichedParts: [title, description, "site search music knowledge articles"],
+  descriptionSource: "base",
   fallbackKeywords: ["search", "music knowledge", "article search", "genre guides"],
   keywordLimit: 24,
   maxDescription: 155,
