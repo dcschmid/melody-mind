@@ -7,6 +7,7 @@ import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import minify from "astro-minify-html-swc";
 import icon from "astro-icon";
+import cookieConsent from "@zdenekkurecka/astro-consent";
 import matter from "gray-matter";
 import { LEGACY_CATEGORY_REDIRECTS } from "./src/constants/categoryRedirects.js";
 
@@ -156,6 +157,36 @@ export default defineConfig({
   integrations: [
     icon({
       collections: ["tabler", "simple-icons"],
+    }),
+    cookieConsent({
+      version: 1,
+      storageKey: "melodymind-consent",
+      maxAgeDays: 365,
+      cookiePolicy: {
+        url: "/cookies/",
+        label: "Cookie & Storage Policy",
+      },
+      categories: {
+        analytics: {
+          label: "Analytics",
+          description:
+            "Allows privacy-friendly Fathom Analytics to measure aggregate page views.",
+          default: false,
+        },
+      },
+      text: {
+        bannerText:
+          "We use essential browser storage for site features. With your consent, we also use privacy-friendly analytics to understand aggregate site usage.",
+        acceptAll: "Accept analytics",
+        rejectAll: "Reject analytics",
+        manage: "Manage choices",
+        modalTitle: "Privacy preferences",
+        closeAriaLabel: "Close preferences",
+        savePreferences: "Save preferences",
+        essentialLabel: "Essential",
+        essentialDescription:
+          "Required for core site features such as theme and consent preferences. This cannot be disabled.",
+      },
     }),
     mdx({ optimize: true }),
     sitemap({

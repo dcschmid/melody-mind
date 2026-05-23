@@ -231,8 +231,11 @@ const normalizedFathomSiteId = fathomSiteId?.trim() || "";
       normalizedFathomSiteId && (
         <script
           is:inline
-          src="https://cdn.usefathom.com/script.js"
+          type="text/plain"
+          data-cc-category="analytics"
+          data-cc-src="https://cdn.usefathom.com/script.js"
           data-site={normalizedFathomSiteId}
+          data-honor-dnt="true"
           defer
         />
       )

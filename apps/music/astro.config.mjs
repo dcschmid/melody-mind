@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import path from "path";
 import icon from "astro-icon";
 import minifyHtml from "astro-minify-html-swc";
+import cookieConsent from "@zdenekkurecka/astro-consent";
 
 export default defineConfig({
   site: "https://music.melody-mind.de",
@@ -12,6 +13,36 @@ export default defineConfig({
   integrations: [
     icon({
       collections: ["tabler", "simple-icons"],
+    }),
+    cookieConsent({
+      version: 1,
+      storageKey: "melodymind-consent",
+      maxAgeDays: 365,
+      cookiePolicy: {
+        url: "https://melody-mind.de/cookies/",
+        label: "Cookie & Storage Policy",
+      },
+      categories: {
+        analytics: {
+          label: "Analytics",
+          description:
+            "Allows privacy-friendly Fathom Analytics to measure aggregate page views.",
+          default: false,
+        },
+      },
+      text: {
+        bannerText:
+          "We use essential browser storage for site features. With your consent, we also use privacy-friendly analytics to understand aggregate site usage.",
+        acceptAll: "Accept analytics",
+        rejectAll: "Reject analytics",
+        manage: "Manage choices",
+        modalTitle: "Privacy preferences",
+        closeAriaLabel: "Close preferences",
+        savePreferences: "Save preferences",
+        essentialLabel: "Essential",
+        essentialDescription:
+          "Required for core site features such as theme and consent preferences. This cannot be disabled.",
+      },
     }),
     mdx({
       optimize: true,
@@ -69,7 +100,7 @@ export default defineConfig({
     server: {
       headers: {
         "Content-Security-Policy":
-          "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
+          "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https://cdn.usefathom.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",

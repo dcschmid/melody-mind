@@ -16,16 +16,16 @@ const lastUpdated = "23 May 2026";
 
 const highlights = [
   {
-    value: "No tracking cookies",
-    label: "Fathom Analytics runs without tracking cookies.",
+    value: "Opt-in analytics",
+    label: "Fathom Analytics loads only after analytics consent.",
   },
   {
     value: "Local-first",
-    label: "Most entries are browser storage keys for reading features.",
+    label: "Preferences and reading features use browser local storage.",
   },
   {
     value: "Always manageable",
-    label: "You can clear browser storage at any time in your browser settings.",
+    label: "You can update consent from the footer cookie settings button.",
   },
 ] as const;
 
@@ -34,14 +34,16 @@ const policySections = [
     icon: "shield",
     title: "Do we use cookies?",
     trustedHtmlBody: trustedHtmlList([
-      "We do not use tracking cookies. Most client-side persistence on this site uses local storage for functional features.",
+      "We do not use tracking cookies for advertising or cross-site profiling.",
+      "We use browser local storage for essential preferences and optional analytics consent.",
     ]),
   },
   {
     icon: "eye",
     title: "Analytics",
     trustedHtmlBody: trustedHtmlList([
-      "We use Fathom Analytics for aggregate, cookie-free site measurement.",
+      "We use Fathom Analytics for aggregate, cookie-free site measurement only after you accept analytics.",
+      "If you reject analytics, the Fathom script remains blocked.",
     ]),
   },
   {
@@ -49,7 +51,7 @@ const policySections = [
     title: "How we use browser storage",
     trustedHtmlBody: trustedHtmlList([
       "We use local storage to remember feature-level preferences and site state, such as reading progress and recently opened content.",
-      "You can clear this storage at any time through your browser settings.",
+      "You can update analytics consent through the Cookie settings button in the footer or clear browser storage in your browser settings.",
     ]),
   },
   {
@@ -70,6 +72,13 @@ const policySections = [
 ] as const;
 
 const storageKeys = [
+  {
+    keyName: "melodymind-consent",
+    purpose: "Stores your consent choice for essential storage and analytics.",
+    storageType: "LocalStorage",
+    retention:
+      "Up to 365 days, until changed by you, or until browser storage is cleared.",
+  },
   {
     keyName: "mm_recent_reads",
     purpose: "Shows your recently opened articles on the home page.",

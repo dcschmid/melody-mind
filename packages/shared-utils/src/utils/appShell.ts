@@ -130,10 +130,11 @@ export const DEFAULT_APP_SHELL_HEADER: Omit<
 
 export const DEFAULT_APP_SHELL_FOOTER: Pick<
   AppShellFooterConfig,
-  "brandTitle" | "supportLinks" | "themeStatusPrefix"
+  "brandTitle" | "supportLinks" | "themeStatusPrefix" | "showSettings"
 > = {
   brandTitle: DEFAULT_APP_SHELL_SITE_NAME,
   supportLinks: DEFAULT_SUPPORT_LINKS,
+  showSettings: true,
   ...DEFAULT_FOOTER_SETTINGS_TEXT,
 };
 

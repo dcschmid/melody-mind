@@ -235,6 +235,43 @@ const themeInitScript = enableThemeInit
     content: none;
   }
 
+  :global(:root) {
+    --cc-primary: var(--accent-primary);
+    --cc-primary-hover: var(--accent-strong);
+    --cc-bg: var(--surface-1);
+    --cc-surface: var(--surface-2);
+    --cc-text: var(--text-primary);
+    --cc-text-muted: var(--text-secondary);
+    --cc-border: var(--border-muted);
+    --cc-radius: var(--radius-lg);
+    --cc-font-family: var(--font-sans);
+  }
+
+  :global([data-theme="dark"]) {
+    --cc-primary: var(--accent-primary);
+    --cc-primary-hover: var(--accent-strong);
+    --cc-bg: var(--surface-1);
+    --cc-surface: var(--surface-2);
+    --cc-tint-rgb: 255, 255, 255;
+    --cc-text: var(--text-primary);
+    --cc-text-muted: var(--text-secondary);
+    --cc-border: var(--border-muted);
+  }
+
+  :global(.cc-banner) {
+    box-shadow: var(--shadow-2xl);
+  }
+
+  :global(.cc-banner-inner) {
+    max-inline-size: 90rem;
+    padding-inline: clamp(1rem, 4vw, 4rem);
+  }
+
+  :global(.cc-btn) {
+    min-block-size: var(--control-min-block-size);
+    border-radius: var(--radius-base);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .app__main--ambient::before,
     .app__main--ambient::after {

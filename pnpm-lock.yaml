@@ -99,6 +99,9 @@ importers:
       '@melody-mind/shared-utils':
         specifier: workspace:*
         version: link:../../packages/shared-utils
+      '@zdenekkurecka/astro-consent':
+        specifier: ^0.3.2
+        version: 0.3.2(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))
       astro:
         specifier: ^6.1.6
         version: 6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3)
@@ -157,6 +160,9 @@ importers:
       '@melody-mind/shared-utils':
         specifier: workspace:*
         version: link:../../packages/shared-utils
+      '@zdenekkurecka/astro-consent':
+        specifier: ^0.3.2
+        version: 0.3.2(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))
       astro:
         specifier: ^6.1.6
         version: 6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3)
@@ -215,6 +221,9 @@ importers:
       '@melody-mind/shared-utils':
         specifier: workspace:*
         version: link:../../packages/shared-utils
+      '@zdenekkurecka/astro-consent':
+        specifier: ^0.3.2
+        version: 0.3.2(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))
       astro:
         specifier: ^6.1.6
         version: 6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3)
@@ -1350,6 +1359,12 @@ packages:
 
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
+
+  '@zdenekkurecka/astro-consent@0.3.2':
+    resolution: {integrity: sha512-6hj2uUSGChX3IPljuRowdH8YKN3ZvsXfF5mDkKywz5oxScHvnrG6YfjEeWqcG5t+6/cXAA6xoRC0BBlmsfcV9g==}
+    engines: {node: '>=18.17.0'}
+    peerDependencies:
+      astro: ^5.0.0 || ^6.0.0
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -5029,6 +5044,10 @@ snapshots:
       vscode-uri: 3.1.0
 
   '@vscode/l10n@0.0.18': {}
+
+  '@zdenekkurecka/astro-consent@0.3.2(astro@6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3))':
+    dependencies:
+      astro: 6.1.6(@types/node@25.6.0)(lightningcss@1.32.0)(rollup@4.60.1)(terser@5.46.0)(typescript@5.9.3)(yaml@2.8.3)
 
   acorn-jsx@5.3.2(acorn@8.16.0):
     dependencies:

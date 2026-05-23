@@ -27,6 +27,7 @@
     "@iconify-json/tabler": "^1.2.33",
     "@melody-mind/shared-ui": "workspace:*",
     "@melody-mind/shared-utils": "workspace:*",
+    "@zdenekkurecka/astro-consent": "^0.3.2",
     "astro": "^6.1.6",
     "astro-icon": "^1.1.5",
     "astro-meta-tags": "^0.4.1",

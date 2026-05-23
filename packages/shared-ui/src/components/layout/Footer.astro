@@ -131,6 +131,13 @@ const footerGroups: FooterGroup[] = [
             </h2>
             <div class="music-footer__settings">
               <ThemeToggle />
+              <button
+                class="music-footer__settings-button"
+                type="button"
+                data-cc="manage"
+              >
+                Cookie settings
+              </button>
             </div>
           </section>
         )
@@ -272,13 +279,6 @@ const footerGroups: FooterGroup[] = [
     color: var(--music-footer-muted);
     text-decoration: none;
     border-radius: var(--music-footer-radius-base);
-    transition: color 140ms var(--music-footer-ease-out);
-  }
-
-  @media screen and (prefers-reduced-motion: reduce) {
-    .music-footer__link {
-      transition: none;
-    }
   }
 
   .music-footer__link:hover,
@@ -298,8 +298,41 @@ const footerGroups: FooterGroup[] = [
   }
 
   .music-footer__settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--music-footer-space-sm);
+    align-items: center;
+  }
+
+  .music-footer__settings-button {
     display: inline-flex;
-    inline-size: fit-content;
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--music-footer-target-size);
+    padding: var(--music-footer-space-sm) var(--music-footer-space-md);
+    font: inherit;
+    font-size: 0.84rem;
+    line-height: 1.25;
+    color: var(--music-footer-muted);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--music-footer-line);
+    border-radius: var(--music-footer-radius-base);
+  }
+
+  .music-footer__settings-button:hover,
+  .music-footer__settings-button:focus {
+    color: var(--music-footer-accent);
+    border-color: color-mix(
+      in srgb,
+      var(--music-footer-accent) 48%,
+      var(--music-footer-line)
+    );
+  }
+
+  .music-footer__settings-button:focus-visible {
+    outline: 2px solid var(--music-footer-accent);
+    outline-offset: 4px;
   }
 
   .music-footer__bottom {

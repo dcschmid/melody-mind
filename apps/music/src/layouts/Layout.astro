@@ -290,9 +290,15 @@ const mobileGenreLinks = Array.from(
       twitterSite="@melodymind"
     />
     <meta name="language" content={language} />
-    <!-- Fathom - beautiful, simple website analytics -->
-    <script is:inline src="https://cdn.usefathom.com/script.js" data-site="CHTCRKPK" defer
-    ></script>
+    <!-- Fathom analytics loads only after analytics consent. -->
+    <script
+      is:inline
+      type="text/plain"
+      data-cc-category="analytics"
+      data-cc-src="https://cdn.usefathom.com/script.js"
+      data-site="CHTCRKPK"
+      data-honor-dnt="true"
+      defer></script>
     <!-- / Fathom -->
   </Fragment>
 
