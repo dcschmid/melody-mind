@@ -1,107 +1,23 @@
-# Render Blueprint for MelodyMind Monorepo
+# Render Blueprint for MelodyMind Music
 # https://render.com/docs/blueprint-spec
 #
-# To add another static Astro app later:
-# 1. Copy one of the service blocks below
-# 2. Change `name`, `buildCommand`, `staticPublishPath`
-# 3. Replace the app-specific `buildFilter.paths` entry (for example `apps/new-app/**`)
-# 4. Apply the Blueprint in Render
-#
-# If Blueprint Auto Sync is enabled in Render, newly added services in this file are
-# created automatically on the next sync. Removed services are not deleted automatically.
+# MelodyMind is deployed as a single static Astro app.
+# The main domain melody-mind.de should point to this service.
 
 services:
-  # Knowledge App - Main Domain (melody-mind.de)
-  - type: web
-    name: melody-mind-knowledge
-    runtime: static
-    buildCommand: pnpm install && pnpm build:knowledge
-    staticPublishPath: apps/knowledge/dist
-    buildFilter:
-      paths:
-        - apps/knowledge/**
-        - packages/shared-ui/**
-        - packages/shared-utils/**
-        - package.json
-        - pnpm-lock.yaml
-        - turbo.json
-        - pnpm-workspace.yaml
-    headers:
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: X-Frame-Options
-        value: DENY
-      - path: /*
-        name: X-XSS-Protection
-        value: 1; mode=block
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
-      - path: /assets/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-      - path: /fonts/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-    envVars:
-      - key: NODE_VERSION
-        value: "22"
-
-  # Quiz App - Quiz Subdomain (quiz.melody-mind.de)
-  - type: web
-    name: melody-mind-quiz
-    runtime: static
-    buildCommand: pnpm install && pnpm build:quiz
-    staticPublishPath: apps/quiz/dist
-    buildFilter:
-      paths:
-        - apps/quiz/**
-        - packages/shared-ui/**
-        - packages/shared-utils/**
-        - package.json
-        - pnpm-lock.yaml
-        - turbo.json
-        - pnpm-workspace.yaml
-    headers:
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: X-Frame-Options
-        value: DENY
-      - path: /*
-        name: X-XSS-Protection
-        value: 1; mode=block
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
-      - path: /assets/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-      - path: /fonts/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-    envVars:
-      - key: NODE_VERSION
-        value: "22"
-
-  # Music App - Music Subdomain (music.melody-mind.de)
   - type: web
     name: melody-mind-music
     runtime: static
-    buildCommand: pnpm install && pnpm build:music
+    buildCommand: pnpm install && pnpm build
     staticPublishPath: apps/music/dist
     buildFilter:
       paths:
         - apps/music/**
-        - packages/shared-ui/**
-        - packages/shared-utils/**
         - package.json
         - pnpm-lock.yaml
         - turbo.json
         - pnpm-workspace.yaml
+        - render.yaml
     headers:
       - path: /*
         name: X-Content-Type-Options
