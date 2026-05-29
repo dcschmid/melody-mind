@@ -1,0 +1,207 @@
+---
+import Icon from "@components/visual/Icon.astro";
+import { DEFAULT_APP_SHELL_FOOTER } from "@utils/appShell";
+import type { AppShellLink } from "@utils/appShell";
+
+interface Props {
+  albumTitle: string;
+  links?: AppShellLink[];
+}
+
+const { albumTitle, links = DEFAULT_APP_SHELL_FOOTER.supportLinks } =
+  Astro.props as Props;
+const titleId = `album-support-${albumTitle
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/^-|-$/g, "")}`;
+const supportLinks = links.filter((link) => link.href && link.label);
+---
+
+{
+  supportLinks.length ? (
+    <section class="album-support" aria-labelledby={titleId}>
+      <div class="album-support__copy">
+        <p class="album-support__eyebrow">Support MelodyMind</p>
+        <h2 class="album-support__title" id={titleId}>
+          Help keep the albums coming
+        </h2>
+        <p class="album-support__text">
+          If this album was useful or fun to listen to, a small contribution helps cover
+          hosting, tools, and new music experiments.
+        </p>
+      </div>
+
+      <div class="album-support__actions" aria-label="Donation options">
+        {supportLinks.map((link) => (
+          <a
+            class="album-support__button"
+            href={link.href}
+            target={link.target}
+            rel={link.rel}
+            data-fathom-event={`Album Support: ${link.label}`}
+            data-fathom-label={albumTitle}
+          >
+            <Icon
+              name={link.label.toLowerCase().includes("coffee") ? "heart" : "send"}
+              class="album-support__button-icon"
+              aria-hidden="true"
+            />
+            <span>{link.label}</span>
+            <Icon
+              name="external-link"
+              class="album-support__external-icon"
+              aria-hidden="true"
+            />
+          </a>
+        ))}
+      </div>
+    </section>
+  ) : null
+}
+
+<style>
+  .album-support {
+    display: grid;
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+    align-items: center;
+    padding: clamp(var(--spacing-base), 3vw, var(--spacing-xl));
+    color: var(--music-album-ink);
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--music-album-accent) 12%, transparent),
+        color-mix(in srgb, var(--music-album-paper-soft) 70%, transparent)
+      ),
+      color-mix(in srgb, var(--music-album-paper) 82%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-accent) 28%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .album-support__copy {
+    display: grid;
+    gap: var(--spacing-xs);
+    min-inline-size: 0;
+  }
+
+  .album-support__eyebrow {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    color: var(--music-album-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .album-support__title {
+    margin: 0;
+    font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--music-album-ink);
+    letter-spacing: var(--letter-spacing-normal);
+    text-wrap: balance;
+  }
+
+  .album-support__text {
+    max-inline-size: 58ch;
+    margin: 0;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--music-album-muted);
+    text-wrap: pretty;
+  }
+
+  .album-support__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .album-support__button {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--music-album-ink);
+    text-decoration: none;
+    background: color-mix(in srgb, var(--music-album-paper) 78%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-accent) 34%, transparent);
+    border-radius: var(--radius-base);
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .album-support__button:hover,
+  .album-support__button:focus-visible {
+    color: var(--button-text-accent);
+    background: var(--music-album-accent);
+    border-color: var(--music-album-accent);
+    transform: translateY(-1px);
+  }
+
+  .album-support__button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--music-album-accent);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .album-support__button-icon,
+  .album-support__external-icon {
+    flex: 0 0 auto;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
+  }
+
+  .album-support__external-icon {
+    opacity: 0.72;
+  }
+
+  :global([data-theme="dark"]) .album-support {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--music-album-ink) 8%, transparent),
+      0 1rem 2rem oklch(5% 0.02 255deg / 0.2);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .album-support__button {
+      transition: none;
+    }
+
+    .album-support__button:hover,
+    .album-support__button:focus-visible {
+      transform: none;
+    }
+  }
+
+  @media (width >= 760px) {
+    .album-support {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .album-support__actions {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (width <= 520px) {
+    .album-support {
+      padding-inline: var(--spacing-base);
+      box-shadow: none;
+    }
+
+    .album-support__actions,
+    .album-support__button {
+      inline-size: 100%;
+    }
+  }
+</style>

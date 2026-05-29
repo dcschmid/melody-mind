@@ -8,6 +8,7 @@ import { buildMusicAlbumSchema } from "../utils/musicSeo";
 import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
 import RelatedContentSection from "@components/cards/RelatedContentSection.astro";
+import AlbumSupportSection from "@components/music/album/AlbumSupportSection.astro";
 import Details from "@components/music/album/Details.astro";
 import Hero from "@components/music/album/Hero.astro";
 import Surface from "@components/music/album/Surface.astro";
@@ -186,6 +187,8 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     >
       <Content />
     </Details>
+
+    <AlbumSupportSection albumTitle={currentAlbum.title} />
 
     <RelatedContentSection
       id="related-albums"
