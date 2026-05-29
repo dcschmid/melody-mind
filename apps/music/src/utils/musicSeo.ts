@@ -1,4 +1,4 @@
-import { resolveAbsoluteUrl, resolvePageUrl } from "@shared-utils/utils/siteUrls";
+import { resolveAbsoluteUrl, resolvePageUrl } from "@utils/siteUrls";
 import type { AlbumData, Song } from "../types/album";
 
 type DateLike = string | Date;

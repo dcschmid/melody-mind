@@ -1,0 +1,262 @@
+---
+import Icon from "@components/visual/Icon.astro";
+import type { Entry } from "./types";
+
+interface Props {
+  albums: Entry[];
+  title: string;
+}
+
+const { albums, title } = Astro.props;
+const albumPayload = albums.map((album) => ({
+  id: album.id,
+  title: album.title,
+  genre: album.genre || "",
+  imageUrl: album.imageUrl,
+}));
+---
+
+<section
+  class="continue-listening"
+  aria-labelledby="continue-listening-heading"
+  data-continue-listening
+  hidden
+>
+  <div class="continue-listening__media">
+    <img
+      class="continue-listening__image"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+      width="96"
+      height="96"
+      alt=""
+      loading="lazy"
+      decoding="async"
+      data-continue-listening-image
+    />
+    <span class="continue-listening__pulse" aria-hidden="true">
+      <Icon name="tabler:player-play-filled" />
+    </span>
+  </div>
+  <div class="continue-listening__copy">
+    <p class="continue-listening__eyebrow" id="continue-listening-heading">{title}</p>
+    <h2 class="continue-listening__title" data-continue-listening-album>Saved album</h2>
+    <p class="continue-listening__meta" data-continue-listening-meta></p>
+  </div>
+  <a class="continue-listening__link" href="/" data-continue-listening-link>
+    <span>Resume</span>
+    <Icon name="arrow-right" aria-hidden="true" />
+  </a>
+</section>
+
+<script is:inline define:vars={{ albumPayload }}>
+  const PLAYBACK_STATE_STORAGE_KEY = "melodymind:music-player-state:v1";
+  const albums = albumPayload;
+  const root = document.querySelector("[data-continue-listening]");
+
+  const formatTime = (seconds) => {
+    const normalizedSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+    const minutes = Math.floor(normalizedSeconds / 60);
+    const remainingSeconds = Math.floor(normalizedSeconds % 60);
+
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+  };
+
+  const readState = () => {
+    try {
+      const rawState = window.localStorage.getItem(PLAYBACK_STATE_STORAGE_KEY);
+      return rawState ? JSON.parse(rawState) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const renderContinueListening = (state = readState()) => {
+    if (!(root instanceof HTMLElement) || !state?.albumId || !state?.trackTitle) {
+      return;
+    }
+
+    const album = albums.find((candidate) => candidate.id === state.albumId);
+    if (!album) {
+      root.hidden = true;
+      return;
+    }
+
+    const image = root.querySelector("[data-continue-listening-image]");
+    const albumTitle = root.querySelector("[data-continue-listening-album]");
+    const meta = root.querySelector("[data-continue-listening-meta]");
+    const link = root.querySelector("[data-continue-listening-link]");
+    const currentTime =
+      typeof state.currentTime === "number" && state.currentTime > 0
+        ? formatTime(state.currentTime)
+        : "";
+    const metaParts = [
+      state.trackTitle,
+      currentTime ? `${currentTime} played` : "",
+      album.genre,
+    ].filter(Boolean);
+
+    if (image instanceof HTMLImageElement) {
+      image.src = album.imageUrl;
+      image.alt = `Cover art for the album ${album.title}`;
+    }
+
+    if (albumTitle instanceof HTMLElement) {
+      albumTitle.textContent = album.title;
+    }
+
+    if (meta instanceof HTMLElement) {
+      meta.textContent = metaParts.join(" - ");
+    }
+
+    if (link instanceof HTMLAnchorElement) {
+      link.href = `/${album.id}/#album-playlist-${album.id}`;
+      link.setAttribute("aria-label", `Resume ${state.trackTitle} from ${album.title}`);
+    }
+
+    root.hidden = false;
+  };
+
+  renderContinueListening();
+  window.addEventListener("melodymind:playback-state", (event) => {
+    renderContinueListening(event.detail);
+  });
+</script>
+
+<style>
+  .continue-listening {
+    --continue-listening-cover-size: 6rem;
+    --continue-listening-radius: var(--radius-md, 0.75rem);
+
+    display: grid;
+    grid-template-columns: var(--continue-listening-cover-size) minmax(0, 1fr) auto;
+    gap: clamp(0.8rem, 2vw, 1.1rem);
+    align-items: center;
+    padding: clamp(0.75rem, 2vw, 1rem);
+    color: var(--music-home-ink);
+    background: color-mix(
+      in srgb,
+      var(--music-home-paper) 82%,
+      var(--music-home-accent) 8%
+    );
+    border: 1px solid
+      color-mix(in srgb, var(--music-home-accent) 26%, var(--music-home-line));
+    border-radius: var(--continue-listening-radius);
+    box-shadow: 0 1rem 2.2rem oklch(20% 0.04 45deg / 0.1);
+  }
+
+  .continue-listening[hidden] {
+    display: none;
+  }
+
+  .continue-listening__media {
+    position: relative;
+    inline-size: var(--continue-listening-cover-size);
+    block-size: var(--continue-listening-cover-size);
+  }
+
+  .continue-listening__image {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    outline: 1px solid oklch(0% 0 0deg / 0.12);
+    outline-offset: -1px;
+    object-fit: cover;
+    border-radius: var(--radius-sm, 0.35rem);
+  }
+
+  .continue-listening__pulse {
+    position: absolute;
+    inset-block-end: -0.35rem;
+    inset-inline-end: -0.35rem;
+    display: grid;
+    place-items: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    color: var(--music-home-paper);
+    background: var(--music-home-accent);
+    border: 2px solid var(--music-home-paper);
+    border-radius: 999px;
+  }
+
+  .continue-listening__copy {
+    display: grid;
+    gap: 0.18rem;
+    min-inline-size: 0;
+  }
+
+  .continue-listening__eyebrow,
+  .continue-listening__title,
+  .continue-listening__meta {
+    margin: 0;
+  }
+
+  .continue-listening__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--music-home-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .continue-listening__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: clamp(1.1rem, 1rem + 0.45vw, 1.35rem);
+    font-weight: 800;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .continue-listening__meta {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    color: var(--music-home-muted);
+    white-space: nowrap;
+  }
+
+  .continue-listening__link {
+    display: inline-flex;
+    gap: 0.42rem;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 2.75rem;
+    padding: 0.65rem 0.95rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--music-home-paper);
+    text-decoration: none;
+    background: var(--music-home-accent);
+    border-radius: 999px;
+  }
+
+  .continue-listening__link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (width <= 620px) {
+    .continue-listening {
+      --continue-listening-cover-size: 4.75rem;
+
+      grid-template-columns: var(--continue-listening-cover-size) minmax(0, 1fr);
+    }
+
+    .continue-listening__link {
+      grid-column: 1 / -1;
+      inline-size: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .continue-listening__link {
+      transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .continue-listening__link:active {
+      transform: scale(0.98);
+    }
+  }
+</style>

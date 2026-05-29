@@ -7,9 +7,13 @@ import minifyHtml from "astro-minify-html-swc";
 import cookieConsent from "@zdenekkurecka/astro-consent";
 
 export default defineConfig({
-  site: "https://music.melody-mind.de",
+  site: "https://melody-mind.de",
   output: "static",
-  redirects: {},
+  redirects: {
+    "/categories": "/",
+    "/knowledge": "/",
+    "/taxonomy": "/",
+  },
   integrations: [
     icon({
       collections: ["tabler", "simple-icons"],
@@ -19,7 +23,7 @@ export default defineConfig({
       storageKey: "melodymind-consent",
       maxAgeDays: 365,
       cookiePolicy: {
-        url: "https://melody-mind.de/cookies/",
+        url: "/cookies/",
         label: "Cookie & Storage Policy",
       },
       categories: {
@@ -88,10 +92,10 @@ export default defineConfig({
         "@components": path.resolve("./src/components"),
         "@layouts": path.resolve("./src/layouts"),
         "@utils": path.resolve("./src/utils"),
+        "@constants": path.resolve("./src/constants"),
+        "@scripts": path.resolve("./src/scripts"),
         "@data": path.resolve("./src/data"),
         "@types": path.resolve("./src/types"),
-        "@shared-ui": path.resolve("../../packages/shared-ui/src"),
-        "@shared-utils": path.resolve("../../packages/shared-utils/src"),
       },
     },
     build: {

@@ -1,0 +1,287 @@
+---
+import Icon from "@components/visual/Icon.astro";
+import OptimizedImage from "@components/media/OptimizedImage.astro";
+import SectionHeader from "@components/layout/SectionHeader.astro";
+import type { Entry } from "./types";
+
+interface Props {
+  albums: Entry[];
+  title: string;
+  viewAllLabel: string;
+}
+
+const { albums, title, viewAllLabel } = Astro.props;
+const LATEST_COVER_IMAGE_WIDTHS = [88, 128, 176];
+const LATEST_COVER_IMAGE_SIZES = "5.5rem";
+const [featuredAlbum, ...secondaryAlbums] = albums;
+---
+
+{
+  albums.length > 0 && (
+    <section
+      class="latest-releases"
+      id="latest-releases"
+      aria-labelledby="latest-releases-heading"
+    >
+      <SectionHeader
+        headingId="latest-releases-heading"
+        title={title}
+        linkHref="#albums-list"
+        linkLabel={viewAllLabel}
+      />
+      <div class="latest-releases__layout">
+        {featuredAlbum && (
+          <a
+            class="latest-releases__card latest-releases__card--featured"
+            href={`/${featuredAlbum.id}`}
+          >
+            <OptimizedImage
+              src={featuredAlbum.imageSrc}
+              alt={`Cover art for the album ${featuredAlbum.title}`}
+              class="latest-releases__image"
+              width={176}
+              height={176}
+              widths={LATEST_COVER_IMAGE_WIDTHS}
+              sizes="(max-width: 760px) 5.5rem, 11rem"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="latest-releases__copy">
+              {featuredAlbum.genre && (
+                <span class="latest-releases__kicker">{featuredAlbum.genre}</span>
+              )}
+              <span class="latest-releases__title">{featuredAlbum.title}</span>
+              <span class="latest-releases__description">
+                {featuredAlbum.description}
+              </span>
+              <span class="latest-releases__meta">
+                <Icon name="clock" aria-hidden="true" />
+                {featuredAlbum.totalDurationLabel}
+              </span>
+            </span>
+          </a>
+        )}
+
+        {secondaryAlbums.length > 0 && (
+          <ul class="latest-releases__list" aria-label={title}>
+            {secondaryAlbums.map((album) => (
+              <li class="latest-releases__item">
+                <a class="latest-releases__card" href={`/${album.id}`}>
+                  <OptimizedImage
+                    src={album.imageSrc}
+                    alt={`Cover art for the album ${album.title}`}
+                    class="latest-releases__image"
+                    width={88}
+                    height={88}
+                    widths={LATEST_COVER_IMAGE_WIDTHS}
+                    sizes={LATEST_COVER_IMAGE_SIZES}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="latest-releases__copy">
+                    {album.genre && (
+                      <span class="latest-releases__kicker">{album.genre}</span>
+                    )}
+                    <span class="latest-releases__title">{album.title}</span>
+                    <span class="latest-releases__description">{album.description}</span>
+                    <span class="latest-releases__meta">
+                      <Icon name="clock" aria-hidden="true" />
+                      {album.totalDurationLabel}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .latest-releases {
+    --latest-releases-gap: var(--spacing-base, 1rem);
+    --latest-releases-card-gap: clamp(0.85rem, 1.4vw, 1.25rem);
+    --latest-releases-card-padding: var(--spacing-sm, 0.5rem) 0;
+    --latest-releases-card-radius: 0;
+    --latest-releases-cover-radius: var(--radius-sm, 0.25rem);
+    --latest-releases-cover-size: clamp(5.5rem, 8vw, 7rem);
+    --latest-releases-copy-gap: 0.2rem;
+    --latest-releases-image-outline: oklch(0% 0 0deg / 0.1);
+
+    display: grid;
+    gap: var(--latest-releases-gap);
+  }
+
+  .latest-releases__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(1rem, 2.2vw, 2rem);
+    align-items: stretch;
+    border-block: 1px solid var(--music-home-line);
+  }
+
+  .latest-releases__list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .latest-releases__card {
+    display: grid;
+    grid-template-columns: var(--latest-releases-cover-size) minmax(0, 1fr);
+    gap: var(--latest-releases-card-gap);
+    align-items: center;
+    padding: var(--latest-releases-card-padding);
+    color: var(--music-home-ink);
+    text-decoration: none;
+    background: transparent;
+    border-block-start: 1px solid var(--music-home-line);
+    border-radius: var(--latest-releases-card-radius);
+  }
+
+  .latest-releases__card--featured {
+    grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
+    align-content: center;
+    padding-block: clamp(0.85rem, 1.8vw, 1.4rem);
+    border-block-start: 0;
+  }
+
+  .latest-releases__card--featured :global(.latest-releases__image) {
+    inline-size: min(100%, 11rem);
+    block-size: auto;
+  }
+
+  .latest-releases__card :global(.latest-releases__image) {
+    display: block;
+    inline-size: var(--latest-releases-cover-size);
+    block-size: var(--latest-releases-cover-size);
+    aspect-ratio: 1 / 1;
+    outline: 1px solid var(--latest-releases-image-outline);
+    outline-offset: -1px;
+    object-fit: cover;
+    border-radius: var(--latest-releases-cover-radius);
+  }
+
+  .latest-releases__copy {
+    display: grid;
+    gap: var(--latest-releases-copy-gap);
+    min-inline-size: 0;
+  }
+
+  .latest-releases__kicker {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--music-home-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .latest-releases__title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 0.94rem + 0.3vw, 1.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    text-wrap: balance;
+    -webkit-box-orient: vertical;
+  }
+
+  .latest-releases__description {
+    display: -webkit-box;
+    max-inline-size: 58ch;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--music-home-muted);
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
+  }
+
+  .latest-releases__card--featured .latest-releases__title {
+    font-size: clamp(1.35rem, 1.06rem + 1.05vw, 2rem);
+    line-height: 1.06;
+  }
+
+  .latest-releases__card--featured .latest-releases__description {
+    -webkit-line-clamp: 3;
+    font-size: 0.95rem;
+  }
+
+  .latest-releases__meta {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--music-home-muted);
+  }
+
+  .latest-releases__card:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  :global([data-theme="dark"]) .latest-releases__card :global(.latest-releases__image) {
+    --latest-releases-image-outline: oklch(100% 0 0deg / 0.12);
+  }
+
+  @media (width <= 760px) {
+    .latest-releases {
+      --latest-releases-cover-size: 4.8rem;
+    }
+
+    .latest-releases__layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .latest-releases__card--featured {
+      grid-template-columns: var(--latest-releases-cover-size) minmax(0, 1fr);
+      border-block-end: 1px solid var(--music-home-line);
+    }
+
+    .latest-releases__card--featured .latest-releases__title {
+      font-size: clamp(1rem, 0.94rem + 0.3vw, 1.2rem);
+      line-height: 1.15;
+    }
+
+    .latest-releases__description {
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  @media (width <= 440px) {
+    .latest-releases {
+      --latest-releases-card-gap: 0.625rem;
+      --latest-releases-cover-size: 4.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .latest-releases__card {
+      transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .latest-releases__card:active {
+      transform: translateY(0) scale(0.985);
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .latest-releases__card:hover,
+    .latest-releases__card:focus-visible {
+      transform: translateY(-0.12rem);
+    }
+  }
+</style>

@@ -1,0 +1,410 @@
+---
+import EmptyState from "@components/layout/EmptyState.astro";
+import OptimizedImage from "@components/media/OptimizedImage.astro";
+import SectionHeader from "@components/layout/SectionHeader.astro";
+import { getAlbumVisibleCountLabel } from "./albumGridLabels";
+import type { Entry } from "./types";
+
+interface Props {
+  albums: Entry[];
+  emptyDescription: string;
+  initialGenreValue: string;
+  initialVisibleAlbumCount: number;
+  title: string;
+}
+
+const { albums, emptyDescription, initialGenreValue, initialVisibleAlbumCount, title } =
+  Astro.props;
+const GRID_COVER_IMAGE_WIDTHS = [160, 240, 320, 480];
+const GRID_COVER_IMAGE_SIZES =
+  "(max-width: 440px) calc((100vw - 3.25rem) / 2), (max-width: 760px) calc((100vw - 4rem) / 3), (max-width: 1180px) calc((100vw - 7rem) / 4), min(13rem, calc((100vw - 10rem) / 6))";
+---
+
+<section class="album-grid-section" aria-labelledby="albums-heading">
+  <SectionHeader headingId="albums-heading" title={title} hideIcon>
+    {
+      albums.length > 0 && (
+        <p
+          class="album-grid-section__results"
+          aria-live="polite"
+          aria-atomic="true"
+          data-album-results
+        >
+          {getAlbumVisibleCountLabel(initialVisibleAlbumCount, initialGenreValue)}
+        </p>
+      )
+    }
+  </SectionHeader>
+
+  <ul class="album-grid-section__grid" id="albums-list">
+    {
+      albums.map((album) => (
+        <li
+          class="album-grid-section__item"
+          data-album
+          data-album-card
+          data-album-title={album.title}
+          data-album-published-at={album.publishedAtTime}
+          data-album-card-genre={album.mainGenre || ""}
+          hidden={!album.isVisible}
+          aria-hidden={album.isVisible ? "false" : "true"}
+        >
+          <a
+            id={`album-card-${album.id}`}
+            class="album-grid-section__card"
+            href={`/${album.id}`}
+          >
+            <OptimizedImage
+              src={album.imageSrc}
+              alt={`Cover art for the album ${album.title}`}
+              class="album-grid-section__image"
+              width={320}
+              height={320}
+              widths={GRID_COVER_IMAGE_WIDTHS}
+              sizes={GRID_COVER_IMAGE_SIZES}
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="album-grid-section__body">
+              {album.genre && (
+                <span class="album-grid-section__kicker">{album.genre}</span>
+              )}
+              <span class="album-grid-section__title">{album.title}</span>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  {albums.length === 0 && <EmptyState description={emptyDescription} />}
+</section>
+
+<script>
+  import { getAlbumVisibleCountLabel } from "./albumGridLabels";
+
+  const albumControls = document.querySelector("[data-album-controls]");
+  const albumList = document.querySelector("#albums-list");
+
+  if (albumControls instanceof HTMLFormElement && albumList instanceof HTMLElement) {
+    const sortSelect = albumControls.querySelector("[data-album-sort]");
+    const results = document.querySelector("[data-album-results]");
+    const collator = new Intl.Collator("en", {
+      numeric: true,
+      sensitivity: "base",
+    });
+    const defaultSortValue = "date";
+    const sortParamName = "sort";
+    const genreParamName = "genre";
+
+    const cards = Array.from(
+      albumList.querySelectorAll("[data-album-card]")
+    ) as HTMLElement[];
+
+    const getGenreButtons = () =>
+      Array.from(albumControls.querySelectorAll<HTMLButtonElement>("[data-album-genre]"));
+
+    const isValidSortValue = (value: string | null) =>
+      value === "date" || value === "title";
+
+    const isValidGenreValue = (value: string) =>
+      getGenreButtons().some((button) => button.value === value);
+
+    const getSelectedGenreValue = () =>
+      getGenreButtons().find((button) => button.getAttribute("aria-pressed") === "true")
+        ?.value || "";
+
+    const setSelectedGenreValue = (value: string) => {
+      for (const button of getGenreButtons()) {
+        button.setAttribute("aria-pressed", String(button.value === value));
+      }
+    };
+
+    const applyControlsFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const sortValue = params.get(sortParamName);
+      const genreValue = params.get(genreParamName) ?? params.get("album-genre") ?? "";
+
+      if (sortSelect instanceof HTMLSelectElement) {
+        sortSelect.value = isValidSortValue(sortValue)
+          ? sortValue || defaultSortValue
+          : defaultSortValue;
+      }
+
+      setSelectedGenreValue(isValidGenreValue(genreValue) ? genreValue : "");
+    };
+
+    const syncUrlToControls = (sortValue: string, genreValue: string) => {
+      const url = new URL(window.location.href);
+
+      if (sortValue === defaultSortValue) {
+        url.searchParams.delete(sortParamName);
+      } else {
+        url.searchParams.set(sortParamName, sortValue);
+      }
+
+      if (genreValue) {
+        url.searchParams.set(genreParamName, genreValue);
+      } else {
+        url.searchParams.delete(genreParamName);
+      }
+      url.searchParams.delete("album-genre");
+
+      window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    };
+
+    const updateAlbums = ({ syncUrl = false } = {}) => {
+      const sortValue =
+        sortSelect instanceof HTMLSelectElement ? sortSelect.value : defaultSortValue;
+      const genreValue = getSelectedGenreValue();
+
+      const sortedCards = [...cards].sort((a, b) => {
+        if (sortValue === "date") {
+          const aDate = Number(a.dataset.albumPublishedAt || 0);
+          const bDate = Number(b.dataset.albumPublishedAt || 0);
+          return (
+            bDate - aDate ||
+            collator.compare(a.dataset.albumTitle || "", b.dataset.albumTitle || "")
+          );
+        }
+
+        return collator.compare(a.dataset.albumTitle || "", b.dataset.albumTitle || "");
+      });
+
+      let visibleCount = 0;
+      for (const card of sortedCards) {
+        const isVisible = !genreValue || card.dataset.albumCardGenre === genreValue;
+        card.hidden = !isVisible;
+        card.setAttribute("aria-hidden", String(!isVisible));
+        if (isVisible) {
+          visibleCount += 1;
+        }
+        albumList.append(card);
+      }
+
+      if (results instanceof HTMLElement) {
+        results.textContent = getAlbumVisibleCountLabel(visibleCount, genreValue);
+      }
+
+      if (syncUrl) {
+        syncUrlToControls(sortValue, genreValue);
+      }
+    };
+
+    for (const button of getGenreButtons()) {
+      button.addEventListener("click", () => {
+        setSelectedGenreValue(button.value);
+        updateAlbums({ syncUrl: true });
+      });
+    }
+
+    albumControls.addEventListener("change", () => updateAlbums({ syncUrl: true }));
+    window.addEventListener("popstate", () => {
+      applyControlsFromUrl();
+      updateAlbums();
+    });
+    applyControlsFromUrl();
+    updateAlbums();
+  }
+</script>
+
+<style>
+  .album-grid-section {
+    --album-card-gap: clamp(1rem, 1.6vw, 1.4rem);
+    --album-card-radius: 0.75rem;
+    --album-card-space: 0.75rem;
+    --album-card-space-compact: 0.625rem;
+    --album-card-results-size: 0.84rem;
+    --album-card-kicker-size: 0.68rem;
+    --album-card-title-size: 1rem;
+    --album-card-title-size-compact: 0.94rem;
+    --album-card-bg: color-mix(in srgb, var(--music-home-paper) 86%, transparent);
+    --album-card-bg-hover: color-mix(
+      in srgb,
+      var(--music-home-paper) 92%,
+      var(--music-home-accent) 8%
+    );
+    --album-card-border-hover: color-mix(
+      in srgb,
+      var(--music-home-accent) 42%,
+      var(--music-home-line)
+    );
+    --album-card-border: color-mix(
+      in srgb,
+      var(--music-home-line) 78%,
+      var(--music-home-accent) 22%
+    );
+    --album-card-inner-border: color-mix(
+      in srgb,
+      var(--music-home-paper) 74%,
+      transparent
+    );
+    --album-card-lift: -0.06rem;
+    --album-card-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+    display: grid;
+    gap: var(--album-card-gap);
+  }
+
+  .album-grid-section__results {
+    margin: 0;
+    font-size: var(--album-card-results-size);
+    font-weight: 700;
+    color: var(--music-home-muted);
+  }
+
+  .album-grid-section__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--album-card-gap);
+    align-items: start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .album-grid-section__item {
+    display: grid;
+    min-inline-size: 0;
+    contain-intrinsic-size: 22rem 18rem;
+    content-visibility: auto;
+  }
+
+  .album-grid-section__item[hidden] {
+    display: none;
+  }
+
+  .album-grid-section__card {
+    display: grid;
+    grid-template-rows: auto auto;
+    overflow: hidden;
+    color: var(--music-home-ink);
+    text-decoration: none;
+    background-color: var(--album-card-bg);
+    border: 2px solid var(--album-card-border);
+    border-radius: var(--album-card-radius);
+    box-shadow: inset 0 0 0 1px var(--album-card-inner-border);
+  }
+
+  .album-grid-section__card:hover,
+  .album-grid-section__card:focus-visible {
+    background-color: var(--album-card-bg-hover);
+    border-color: var(--album-card-border-hover);
+  }
+
+  .album-grid-section__card :global(.album-grid-section__image) {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    outline: 1px solid rgba(0, 0, 0, 0.1);
+    outline-offset: -1px;
+    object-fit: cover;
+  }
+
+  :global([data-theme="dark"])
+    .album-grid-section__card
+    :global(.album-grid-section__image) {
+    outline-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .album-grid-section__body {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 0.32rem;
+    min-inline-size: 0;
+    padding: var(--album-card-space);
+  }
+
+  .album-grid-section__kicker {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--album-card-kicker-size);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--music-home-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .album-grid-section__title {
+    display: -webkit-box;
+    min-block-size: 2.3em;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-family: var(--font-sans);
+    font-size: var(--album-card-title-size);
+    font-weight: 600;
+    line-height: 1.15;
+    -webkit-box-orient: vertical;
+    text-wrap: balance;
+  }
+
+  .album-grid-section__card:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (width <= 1180px) {
+    .album-grid-section__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 760px) {
+    .album-grid-section__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      min-inline-size: 0;
+    }
+
+    .album-grid-section__body {
+      grid-template-rows: auto auto;
+      padding: var(--album-card-space-compact);
+    }
+
+    .album-grid-section__title {
+      font-size: var(--album-card-title-size-compact);
+    }
+  }
+
+  @media (width <= 440px) {
+    .album-grid-section__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .album-grid-section__body {
+      grid-template-rows: auto auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .album-grid-section__card {
+      transition:
+        transform 180ms var(--album-card-ease-out),
+        background-color 160ms var(--album-card-ease-out),
+        border-color 160ms var(--album-card-ease-out);
+    }
+
+    .album-grid-section__card :global(.album-grid-section__image) {
+      transition: transform 220ms var(--album-card-ease-out);
+    }
+
+    .album-grid-section__card:active {
+      transform: scale(0.985);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      /* stylelint-disable-next-line a11y/selector-pseudo-class-focus */
+      .album-grid-section__card:hover {
+        transform: translateY(var(--album-card-lift));
+      }
+
+      .album-grid-section__card:hover :global(.album-grid-section__image),
+      .album-grid-section__card:focus-visible :global(.album-grid-section__image) {
+        transform: scale(1.025);
+      }
+    }
+  }
+</style>

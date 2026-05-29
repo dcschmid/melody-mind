@@ -1,10 +1,6 @@
 import type { ImageMetadata } from "astro";
-import {
-  buildImageMap,
-  normalizeImageKey,
-  toAbsoluteAssetUrl,
-} from "@shared-utils/utils/imageAssets";
-import { MUSIC_SITE_URL } from "@shared-utils/utils/appShell";
+import { buildImageMap, normalizeImageKey, toAbsoluteAssetUrl } from "@utils/imageAssets";
+import { MUSIC_SITE_URL } from "@utils/appShell";
 import musicDefaultOgSvg from "../assets/music-default-og.webp";
 
 const musicDefaultOgImage: ImageMetadata = musicDefaultOgSvg;

@@ -1,0 +1,305 @@
+---
+import Icon from "@components/visual/Icon.astro";
+---
+
+<button
+  class="music-header-theme-toggle"
+  type="button"
+  data-music-theme-toggle
+  data-theme="system"
+  aria-label="Theme mode selector"
+>
+  <span class="music-header-theme-toggle__pill" aria-hidden="true">
+    <span class="music-header-theme-toggle__option" data-option="light">
+      <Icon name="sun" class="music-header-theme-toggle__icon" />
+    </span>
+    <span class="music-header-theme-toggle__option" data-option="dark">
+      <Icon name="moon" class="music-header-theme-toggle__icon" />
+    </span>
+    <span class="music-header-theme-toggle__option" data-option="system">
+      <Icon name="monitor" class="music-header-theme-toggle__icon" />
+    </span>
+  </span>
+  <span class="music-header-theme-toggle__sr" aria-live="polite" aria-atomic="true">
+    Theme mode: <span data-music-theme-toggle-label>system</span>
+  </span>
+</button>
+
+<script>
+  import { THEME_EVENTS } from "@constants/events";
+  import {
+    THEME_STORAGE_KEY,
+    applyTheme,
+    getStoredTheme,
+    getSystemTheme,
+    setStoredTheme,
+    type Theme,
+  } from "@utils/theme/themeStorage";
+
+  const themeToggles = (): HTMLButtonElement[] =>
+    Array.from(document.querySelectorAll<HTMLButtonElement>("[data-music-theme-toggle]"));
+
+  const getThemeLabel = (stored: Theme | null): string => stored ?? "system";
+  const getNextThemeLabel = (stored: Theme | null): string =>
+    stored === null ? "light" : stored === "light" ? "dark" : "system";
+  const getThemeStatusLabel = (stored: Theme | null, resolved: Theme): string =>
+    stored ?? `system, currently ${resolved}`;
+
+  const updateThemeToggle = (toggle: HTMLButtonElement): void => {
+    const stored = getStoredTheme();
+    const label = toggle.querySelector<HTMLSpanElement>(
+      "[data-music-theme-toggle-label]"
+    );
+    const themeLabel = getThemeLabel(stored);
+    const resolvedThemeLabel = stored ?? getSystemTheme();
+    const themeStatusLabel = getThemeStatusLabel(stored, resolvedThemeLabel);
+    const nextThemeLabel = getNextThemeLabel(stored);
+
+    toggle.dataset.theme = themeLabel;
+    toggle.dataset.mode = stored ? "manual" : "system";
+    toggle.setAttribute(
+      "aria-label",
+      `Theme mode: ${themeStatusLabel}. Switch to ${nextThemeLabel} theme.`
+    );
+
+    if (label) {
+      label.textContent = themeStatusLabel;
+    }
+  };
+
+  const bindThemeToggle = (toggle: HTMLButtonElement): void => {
+    if (toggle.dataset.bound === "true") {
+      return;
+    }
+
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", () => {
+      const stored = getStoredTheme();
+      const nextStored: Theme | null =
+        stored === null ? "light" : stored === "light" ? "dark" : null;
+
+      try {
+        setStoredTheme(nextStored);
+      } catch {
+        // Persisting theme is optional; still apply it for this page view.
+      }
+
+      applyTheme(
+        nextStored ?? getSystemTheme(),
+        nextStored === null ? "system" : "manual"
+      );
+      themeToggles().forEach(updateThemeToggle);
+    });
+
+    updateThemeToggle(toggle);
+  };
+
+  themeToggles().forEach(bindThemeToggle);
+
+  const darkModeQuery = window.matchMedia?.("(prefers-color-scheme: dark)");
+
+  darkModeQuery?.addEventListener("change", () => {
+    if (getStoredTheme()) {
+      return;
+    }
+    applyTheme(getSystemTheme(), "system");
+    themeToggles().forEach(updateThemeToggle);
+  });
+
+  window.addEventListener(THEME_EVENTS.CHANGED, () => {
+    themeToggles().forEach(updateThemeToggle);
+  });
+
+  window.addEventListener("storage", (event) => {
+    if (event.key !== THEME_STORAGE_KEY) {
+      return;
+    }
+    themeToggles().forEach(updateThemeToggle);
+  });
+</script>
+
+<style>
+  .music-header-theme-toggle {
+    --theme-toggle-text: var(--text-primary);
+    --theme-toggle-target-size: 2.5rem;
+    --theme-toggle-pill-size: var(--control-min-block-size-compact, 2.25rem);
+    --theme-toggle-option-size: 1.55rem;
+    --theme-toggle-icon-size: 0.78rem;
+    --theme-toggle-gap: var(--spacing-2xs, 0.125rem);
+    --theme-toggle-padding: var(--spacing-xs, 0.25rem);
+    --theme-toggle-pill-bg: color-mix(in srgb, var(--surface-1) 42%, transparent);
+    --theme-toggle-pill-border: color-mix(in srgb, var(--text-primary) 16%, transparent);
+    --theme-toggle-option-text: var(--text-tertiary);
+    --theme-toggle-active-text: var(--accent-primary);
+    --theme-toggle-active-bg: color-mix(in srgb, var(--surface-2) 72%, transparent);
+    --theme-toggle-menu-active-bg: color-mix(
+      in srgb,
+      var(--music-menu-accent) 18%,
+      transparent
+    );
+    --theme-toggle-ease: var(--motion-ease-standard, cubic-bezier(0.22, 1, 0.36, 1));
+
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--theme-toggle-target-size);
+    padding: 0;
+    color: var(--theme-toggle-text);
+    cursor: pointer;
+    background: none;
+    border: 0;
+    border-radius: 999px;
+  }
+
+  .music-header-theme-toggle:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .music-header-theme-toggle__pill {
+    display: inline-flex;
+    gap: var(--theme-toggle-gap);
+    align-items: center;
+    min-block-size: var(--theme-toggle-pill-size);
+    padding: var(--theme-toggle-padding);
+    background: var(--theme-toggle-pill-bg);
+    border: 1px solid var(--theme-toggle-pill-border);
+    border-radius: 999px;
+  }
+
+  .music-header-theme-toggle__option {
+    display: grid;
+    place-items: center;
+    inline-size: var(--theme-toggle-option-size);
+    block-size: var(--theme-toggle-option-size);
+    color: var(--theme-toggle-option-text);
+    border-radius: 999px;
+    opacity: 0.72;
+    transform: scale(0.86);
+  }
+
+  .music-header-theme-toggle__icon {
+    inline-size: var(--theme-toggle-icon-size);
+    block-size: var(--theme-toggle-icon-size);
+  }
+
+  .music-header-theme-toggle[data-theme="light"]
+    .music-header-theme-toggle__option[data-option="light"],
+  .music-header-theme-toggle[data-theme="dark"]
+    .music-header-theme-toggle__option[data-option="dark"],
+  .music-header-theme-toggle[data-mode="system"]
+    .music-header-theme-toggle__option[data-option="system"] {
+    color: var(--theme-toggle-active-text);
+    background: var(--theme-toggle-active-bg);
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  :global([data-theme="light"]) .music-header-theme-toggle {
+    --theme-toggle-text: var(--text-primary);
+    --theme-toggle-pill-bg: color-mix(in srgb, var(--surface-1) 54%, transparent);
+    --theme-toggle-pill-border: color-mix(
+      in srgb,
+      var(--border-default) 24%,
+      transparent
+    );
+    --theme-toggle-option-text: var(--text-tertiary);
+    --theme-toggle-active-text: var(--accent-primary);
+    --theme-toggle-active-bg: var(--surface-3);
+  }
+
+  :global([data-theme="light"]) .music-header-theme-toggle__pill {
+    background: var(--theme-toggle-pill-bg);
+    border-color: var(--theme-toggle-pill-border);
+  }
+
+  :global([data-theme="light"]) .music-header-theme-toggle__option {
+    color: var(--theme-toggle-option-text);
+  }
+
+  :global([data-theme="light"])
+    .music-header-theme-toggle[data-theme="light"]
+    .music-header-theme-toggle__option[data-option="light"],
+  :global([data-theme="light"])
+    .music-header-theme-toggle[data-theme="dark"]
+    .music-header-theme-toggle__option[data-option="dark"],
+  :global([data-theme="light"])
+    .music-header-theme-toggle[data-mode="system"]
+    .music-header-theme-toggle__option[data-option="system"] {
+    color: var(--theme-toggle-active-text);
+    background: var(--theme-toggle-active-bg);
+  }
+
+  .music-header-theme-toggle__sr {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  @media (width <= 1023.98px) {
+    .music-header-theme-toggle {
+      --theme-toggle-pill-size: 2.35rem;
+      --theme-toggle-option-size: 1.65rem;
+      --theme-toggle-icon-size: 0.84rem;
+
+      flex: 0 0 auto;
+      max-inline-size: 100%;
+      color: var(--music-menu-text);
+    }
+
+    .music-header-theme-toggle__pill {
+      box-sizing: border-box;
+      max-inline-size: 100%;
+      background: color-mix(in srgb, var(--music-menu-chip-bg) 82%, transparent);
+      border-color: var(--music-menu-chip-border);
+    }
+
+    .music-header-theme-toggle__option {
+      color: var(--music-menu-muted);
+    }
+
+    .music-header-theme-toggle[data-theme="light"]
+      .music-header-theme-toggle__option[data-option="light"],
+    .music-header-theme-toggle[data-theme="dark"]
+      .music-header-theme-toggle__option[data-option="dark"],
+    .music-header-theme-toggle[data-mode="system"]
+      .music-header-theme-toggle__option[data-option="system"] {
+      color: var(--music-menu-active-text);
+      background: var(--theme-toggle-menu-active-bg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .music-header-theme-toggle:active,
+    .music-header-theme-toggle__option,
+    .music-header-theme-toggle[data-theme="light"]
+      .music-header-theme-toggle__option[data-option="light"],
+    .music-header-theme-toggle[data-theme="dark"]
+      .music-header-theme-toggle__option[data-option="dark"],
+    .music-header-theme-toggle[data-mode="system"]
+      .music-header-theme-toggle__option[data-option="system"] {
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .music-header-theme-toggle {
+      transition: transform var(--motion-duration-fast) var(--theme-toggle-ease);
+    }
+
+    .music-header-theme-toggle:active {
+      transform: scale(0.97);
+    }
+
+    .music-header-theme-toggle__option {
+      transition:
+        color 180ms var(--theme-toggle-ease),
+        background 180ms var(--theme-toggle-ease),
+        opacity 180ms var(--theme-toggle-ease),
+        transform 180ms var(--theme-toggle-ease);
+    }
+  }
+</style>

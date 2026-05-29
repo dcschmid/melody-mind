@@ -19,10 +19,10 @@
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@utils/*": ["src/utils/*"],
+      "@constants/*": ["src/constants/*"],
+      "@scripts/*": ["src/scripts/*"],
       "@data/*": ["src/data/*"],
-      "@types/*": ["src/types/*"],
-      "@shared-ui/*": ["../../packages/shared-ui/src/*"],
-      "@shared-utils/*": ["../../packages/shared-utils/src/*"]
+      "@types/*": ["src/types/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"],

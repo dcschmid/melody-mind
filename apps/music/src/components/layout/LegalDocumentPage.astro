@@ -1,0 +1,67 @@
+---
+import Stack from "@components/layout/Stack.astro";
+import LegalDocumentSection from "@components/layout/LegalDocumentSection.astro";
+import StaticPageHero from "@components/layout/StaticPageHero.astro";
+import type { IconName } from "@components/visual/Icon.astro";
+import type { TrustedHtml } from "@utils/trustedHtml";
+
+interface Highlight {
+  label: string;
+  value: string;
+}
+
+interface Section {
+  /**
+   * Body paragraphs as trusted HTML strings.
+   * SECURITY: Content must be static or sanitized before reaching this component.
+   */
+  trustedHtmlBody: readonly TrustedHtml[] | TrustedHtml[];
+  headingLevel?: "h2" | "h3" | "h4";
+  icon: IconName;
+  title: string;
+}
+
+interface Props {
+  eyebrow: string;
+  highlights: readonly Highlight[] | Highlight[];
+  highlightsAriaLabel: string;
+  lead: string;
+  sections: readonly Section[] | Section[];
+  title: string;
+}
+
+const { eyebrow, highlights, highlightsAriaLabel, lead, sections, title } = Astro.props;
+---
+
+<Stack as="article" className="legal-document" gap="2xl">
+  <StaticPageHero
+    eyebrow={eyebrow}
+    {highlights}
+    {highlightsAriaLabel}
+    lead={lead}
+    title={title}
+  />
+
+  {
+    sections && sections.length > 0 && (
+      <div class="legal-document__content">
+        {sections.map((section) => (
+          <LegalDocumentSection
+            icon={section.icon}
+            title={section.title}
+            trustedHtmlBody={section.trustedHtmlBody}
+            {...(section.headingLevel ? { headingLevel: section.headingLevel } : {})}
+          />
+        ))}
+      </div>
+    )
+  }
+</Stack>
+
+<style>
+  .legal-document__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+</style>

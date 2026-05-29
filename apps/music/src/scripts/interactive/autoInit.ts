@@ -1,0 +1,63 @@
+import { createLogger } from "@utils/logging";
+
+const logger = createLogger("autoInit");
+
+type IdleCallback = (deadline: {
+  didTimeout: boolean;
+  timeRemaining: () => number;
+}) => void;
+type IdleRequest = (callback: IdleCallback, options?: { timeout?: number }) => number;
+
+type InitEntry = {
+  test: () => boolean | Element | null;
+  init: () => Promise<void>;
+};
+
+let hasInitialized = false;
+
+const runWhenIdle = (cb: () => void): void => {
+  const idle = (window as typeof window & { requestIdleCallback?: IdleRequest })
+    .requestIdleCallback;
+
+  if (typeof idle === "function") {
+    idle(
+      () => {
+        cb();
+      },
+      { timeout: 500 }
+    );
+    return;
+  }
+
+  window.setTimeout(cb, 1);
+};
+
+const INIT_TARGETS: InitEntry[] = [];
+
+export function initInteractiveComponents(): void {
+  if (typeof window === "undefined" || hasInitialized) {
+    return;
+  }
+
+  hasInitialized = true;
+
+  INIT_TARGETS.forEach(({ test, init }) => {
+    let shouldInit = false;
+
+    try {
+      shouldInit = Boolean(test());
+    } catch (error) {
+      logger.error("Test failed", error);
+    }
+
+    if (!shouldInit) {
+      return;
+    }
+
+    runWhenIdle(() => {
+      init().catch((error) => {
+        logger.error("Init failed", error);
+      });
+    });
+  });
+}

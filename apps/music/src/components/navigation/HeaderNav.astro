@@ -1,0 +1,443 @@
+---
+import Icon from "@components/visual/Icon.astro";
+import type { IconName } from "@components/visual/Icon.astro";
+
+export interface HeaderNavItem {
+  href: string;
+  label: string;
+  icon: IconName;
+  target?: string;
+  rel?: string;
+}
+
+interface Props {
+  items: HeaderNavItem[];
+  searchHref: string;
+  currentPath: string;
+}
+
+const { items, searchHref, currentPath } = Astro.props;
+const getComparableHref = (href: string) => {
+  if (href.includes("#")) {
+    return null;
+  }
+
+  try {
+    const url = new URL(href, Astro.url.origin);
+
+    if (url.origin !== Astro.url.origin) {
+      return null;
+    }
+
+    return `${url.pathname}${url.search}`;
+  } catch {
+    return null;
+  }
+};
+const isActiveItem = (href: string) => {
+  const comparableHref = getComparableHref(href);
+
+  if (!comparableHref) {
+    return false;
+  }
+
+  if (comparableHref === "/") {
+    return currentPath === "/";
+  }
+
+  if (comparableHref.includes("?")) {
+    return currentPath === comparableHref;
+  }
+
+  return currentPath === comparableHref || currentPath.startsWith(`${comparableHref}/`);
+};
+---
+
+<ul class="music-header-nav">
+  {
+    items.map((item) => {
+      const isSearch = item.href === searchHref;
+      const isActive = isActiveItem(item.href);
+
+      return (
+        <li
+          class:list={[
+            "music-header-nav__item",
+            isSearch && "music-header-nav__item--quick-start",
+          ]}
+        >
+          {isSearch && <span class="music-header-nav__group-label">Quick actions</span>}
+          <a
+            class:list={[
+              "music-header-nav__link",
+              isSearch && "music-header-nav__link--search",
+            ]}
+            href={item.href}
+            target={item.target}
+            rel={item.rel}
+            aria-current={isActive ? "page" : undefined}
+            data-enhanced-search-trigger={isSearch ? "true" : undefined}
+          >
+            {item.icon && (
+              <Icon name={item.icon} class="music-header-nav__icon" aria-hidden="true" />
+            )}
+            <span>{item.label}</span>
+            <Icon
+              name="chevron-right"
+              class="music-header-nav__chevron"
+              aria-hidden="true"
+            />
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  .music-header-nav {
+    --music-header-nav-accent: var(--accent-primary);
+    --music-header-nav-accent-secondary: var(--accent-strong);
+    --music-header-nav-gap: clamp(1rem, 2.1vw, 2.2rem);
+    --music-header-nav-hover-text: var(--link-hover);
+    --music-header-nav-icon-size: 1rem;
+    --music-header-nav-link-gap: 0.44rem;
+    --music-header-nav-link-padding-inline: 0.25rem;
+    --music-header-nav-link-text-size: 0.88rem;
+    --music-header-nav-mobile-gap: 0;
+    --music-header-nav-mobile-icon-size: 1.18rem;
+    --music-header-nav-mobile-label-gap: 0.8rem;
+    --music-header-nav-mobile-padding-block: 1rem;
+    --music-header-nav-mobile-padding-inline: 0;
+    --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 42%, transparent);
+    --music-header-nav-search-border: color-mix(
+      in srgb,
+      var(--accent-primary) 24%,
+      transparent
+    );
+    --music-header-nav-search-hover-bg: color-mix(
+      in srgb,
+      var(--accent-primary) 14%,
+      transparent
+    );
+    --music-header-nav-search-hover-border: color-mix(
+      in srgb,
+      var(--accent-primary) 46%,
+      transparent
+    );
+    --music-header-nav-text: var(--text-primary);
+
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--music-header-nav-gap);
+    align-items: center;
+    justify-content: flex-end;
+    min-inline-size: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .music-header-nav__link {
+    position: relative;
+    display: inline-flex;
+    gap: var(--music-header-nav-link-gap);
+    align-items: center;
+    min-block-size: 2.5rem;
+    padding: 0 var(--music-header-nav-link-padding-inline);
+    font-size: var(--music-header-nav-link-text-size);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--music-header-nav-text);
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+  }
+
+  .music-header-nav__link::after {
+    position: absolute;
+    inset-block-end: 0.16rem;
+    inset-inline: 0;
+    block-size: 0.11rem;
+    pointer-events: none;
+    content: "";
+    background: var(--music-header-nav-accent);
+    border-radius: 999px;
+    opacity: 0;
+    transform: scaleX(0.62);
+    transform-origin: center;
+  }
+
+  .music-header-nav__link:focus,
+  .music-header-nav__link[aria-current="page"] {
+    color: var(--music-header-nav-hover-text);
+  }
+
+  .music-header-nav__link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  :global([data-theme="light"]) .music-header-nav__link {
+    --music-header-nav-accent: var(--accent-primary);
+    --music-header-nav-accent-secondary: var(--accent-strong);
+    --music-header-nav-hover-text: var(--link-hover);
+    --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 54%, transparent);
+    --music-header-nav-search-border: color-mix(
+      in srgb,
+      var(--border-default) 26%,
+      transparent
+    );
+    --music-header-nav-search-hover-bg: color-mix(
+      in srgb,
+      var(--surface-3) 48%,
+      transparent
+    );
+    --music-header-nav-search-hover-border: color-mix(
+      in srgb,
+      var(--accent-primary) 42%,
+      transparent
+    );
+    --music-header-nav-text: var(--text-primary);
+
+    color: var(--music-header-nav-text);
+  }
+
+  :global([data-theme="light"]) .music-header-nav__link:focus,
+  :global([data-theme="light"]) .music-header-nav__link[aria-current="page"] {
+    color: var(--music-header-nav-hover-text);
+  }
+
+  .music-header-nav__link:focus-visible::after,
+  .music-header-nav__link[aria-current="page"]::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .music-header-nav__icon {
+    display: none;
+  }
+
+  .music-header-nav__chevron {
+    display: none;
+  }
+
+  .music-header-nav__group-label {
+    display: none;
+  }
+
+  .music-header-nav__link--search {
+    display: grid;
+    place-items: center;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    color: var(--music-header-nav-text);
+    background: var(--music-header-nav-search-bg);
+    border: 1px solid var(--music-header-nav-search-border);
+    border-radius: 999px;
+  }
+
+  .music-header-nav__link--search::after {
+    display: none;
+  }
+
+  .music-header-nav__link--search span {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .music-header-nav__link--search .music-header-nav__icon {
+    display: block;
+    inline-size: var(--music-header-nav-icon-size);
+    block-size: var(--music-header-nav-icon-size);
+  }
+
+  .music-header-nav__link--search:focus {
+    color: var(--music-header-nav-hover-text);
+    background: var(--music-header-nav-search-hover-bg);
+    border-color: var(--music-header-nav-search-hover-border);
+  }
+
+  :global([data-theme="light"]) .music-header-nav__link--search {
+    color: var(--music-header-nav-text);
+    background: var(--music-header-nav-search-bg);
+    border-color: var(--music-header-nav-search-border);
+  }
+
+  :global([data-theme="light"]) .music-header-nav__link--search:focus {
+    color: var(--music-header-nav-hover-text);
+    background: var(--music-header-nav-search-hover-bg);
+    border-color: var(--music-header-nav-search-hover-border);
+  }
+
+  @media (width <= 1023.98px) {
+    .music-header-nav {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: var(--music-header-nav-mobile-gap);
+      place-items: stretch;
+      inline-size: 100%;
+      min-inline-size: 0;
+    }
+
+    .music-header-nav__item {
+      display: block;
+      inline-size: 100%;
+      min-inline-size: 0;
+    }
+
+    .music-header-nav__link,
+    .music-header-nav__link--search {
+      box-sizing: border-box;
+      display: flex;
+      gap: var(--music-header-nav-mobile-label-gap);
+      align-items: center;
+      justify-content: space-between;
+      inline-size: 100%;
+      max-inline-size: 100%;
+      block-size: auto;
+      min-block-size: 4.6rem;
+      padding: var(--music-header-nav-mobile-padding-block)
+        var(--music-header-nav-mobile-padding-inline);
+      margin-inline-end: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--music-menu-text);
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .music-header-nav__link span {
+      min-inline-size: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .music-header-nav__link::after {
+      display: none;
+    }
+
+    .music-header-nav__link:hover,
+    .music-header-nav__link:focus-visible {
+      color: var(--music-menu-active-text);
+      background: transparent;
+    }
+
+    .music-header-nav__link[aria-current="page"] {
+      color: var(--music-menu-active-text);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .music-header-nav__icon {
+      display: none;
+      flex: 0 0 auto;
+      inline-size: var(--music-header-nav-mobile-icon-size);
+      block-size: var(--music-header-nav-mobile-icon-size);
+    }
+
+    .music-header-nav__link--search .music-header-nav__icon {
+      display: block;
+    }
+
+    .music-header-nav__chevron {
+      display: block;
+      flex: 0 0 auto;
+      inline-size: 1.85rem;
+      block-size: 1.85rem;
+      margin-inline-start: auto;
+      color: var(--music-menu-chevron);
+    }
+
+    .music-header-nav__link--search .music-header-nav__chevron {
+      inline-size: 1.55rem;
+      block-size: 1.55rem;
+    }
+
+    .music-header-nav__link--search span {
+      position: static;
+      inline-size: auto;
+      block-size: auto;
+      overflow: visible;
+      white-space: normal;
+      clip-path: none;
+    }
+
+    .music-header-nav__item--quick-start {
+      padding-block-start: 1.35rem;
+      margin-block-start: 1.35rem;
+      border-block-start: 1px solid var(--music-menu-line);
+    }
+
+    .music-header-nav__group-label {
+      display: block;
+      margin: 0 0 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--music-menu-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .music-header-nav__link:hover,
+    .music-header-nav__link:focus,
+    .music-header-nav__link[aria-current="page"],
+    :global([data-theme="light"]) .music-header-nav__link:focus,
+    :global([data-theme="light"]) .music-header-nav__link[aria-current="page"],
+    :global([data-theme="light"]) .music-header-nav__link:hover {
+      color: var(--music-header-nav-hover-text);
+    }
+
+    .music-header-nav__link:hover::after,
+    .music-header-nav__link:focus-visible::after,
+    .music-header-nav__link[aria-current="page"]::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .music-header-nav__link--search:hover,
+    .music-header-nav__link--search:focus,
+    :global([data-theme="light"]) .music-header-nav__link--search:focus,
+    :global([data-theme="light"]) .music-header-nav__link--search:hover {
+      color: var(--music-header-nav-hover-text);
+      background: var(--music-header-nav-search-hover-bg);
+      border-color: var(--music-header-nav-search-hover-border);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .music-header-nav__link,
+    .music-header-nav__link--search {
+      transition:
+        background var(--motion-duration-fast) ease-out,
+        border-color var(--motion-duration-fast) ease-out,
+        color var(--motion-duration-fast) ease-out;
+    }
+
+    .music-header-nav__link::after {
+      transition:
+        opacity var(--motion-duration-fast) ease-out,
+        transform var(--motion-duration-fast) ease-out;
+    }
+
+    .music-header-nav__link--search {
+      transition:
+        background var(--motion-duration-fast) ease-out,
+        border-color var(--motion-duration-fast) ease-out,
+        color var(--motion-duration-fast) ease-out,
+        transform var(--motion-duration-fast) ease-out;
+    }
+
+    .music-header-nav__link--search:active {
+      transform: scale(0.97);
+    }
+  }
+</style>

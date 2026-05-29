@@ -1,0 +1,322 @@
+---
+import Layout from "@layouts/Layout.astro";
+import AutoGrid from "@components/layout/AutoGrid.astro";
+import LegalDocumentSection from "@components/layout/LegalDocumentSection.astro";
+import PageShell from "@components/layout/PageShell.astro";
+import Stack from "@components/layout/Stack.astro";
+import StaticPageHero from "@components/layout/StaticPageHero.astro";
+import Paragraph from "@components/typography/Paragraph.astro";
+import Prose from "@components/typography/Prose.astro";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { buildArticleSchema, buildFaqPageSchema } from "@utils/seo/seoSchema";
+import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+
+import { musicDefaultOgImageUrl } from "../utils/musicImages";
+
+export const prerender = true;
+
+const canonical = resolvePageUrl(Astro.site, "/ai-content/");
+const baseUrl = resolveBaseUrl(Astro.site);
+const publishedAt = new Date("2026-03-15T00:00:00.000Z");
+const modifiedAt = new Date("2026-05-29T00:00:00.000Z");
+
+const seoBreadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "AI Content Policy", url: canonical },
+];
+
+const structuredDataExtra = [
+  buildArticleSchema({
+    canonical,
+    title: "AI Content Policy",
+    description:
+      "How MelodyMind Music uses AI tools for music, images, text, quality review, transparency, and copyright boundaries.",
+    lang: "en",
+    createdAt: publishedAt,
+    updatedAt: modifiedAt,
+    articleSection: "About",
+  }),
+];
+
+const highlights = [
+  { value: "AI-generated music", label: "Albums are created with AI music tools" },
+  { value: "Human-reviewed", label: "Releases are checked before publication" },
+  { value: "Clearly labeled", label: "AI-supported media is marked transparently" },
+] as const;
+
+const policySections = [
+  {
+    icon: "sparkles",
+    title: "What AI Tools We Use",
+    body: [
+      "MelodyMind Music uses AI tools to support music generation, image generation, metadata drafting, and site production.",
+    ],
+    items: [
+      "<strong>AI music tools</strong> - Composition, arrangement, and audio generation",
+      "<strong>Image generation tools</strong> - Album artwork and supporting visual assets",
+      "<strong>Writing and coding assistants</strong> - Metadata, page copy, implementation, and quality checks",
+    ],
+  },
+  {
+    icon: "shield",
+    title: "Human Oversight & Quality Assurance",
+    body: [
+      "AI-generated music and supporting material are reviewed before publication. The process focuses on coherence, usability, metadata quality, and basic legal risk checks.",
+      "The AI-generated labels on the site make that production method clear to listeners.",
+    ],
+    items: [
+      "Reviewing album concepts, track lists, and descriptions",
+      "Checking audio files, artwork, and page metadata before release",
+      "Avoiding intentionally misleading artist or rights claims",
+      "Keeping AI use visible in album and site context",
+    ],
+  },
+  {
+    icon: "file-text",
+    title: "Copyright & Legal Boundaries",
+    body: [
+      "We take copyright and personality rights seriously. AI output is treated as material that still needs human judgment before publication.",
+      "AI does not replace legal review where a specific rights question requires it. If a concern is reported, we review the affected material and remove or change it when appropriate.",
+    ],
+    items: [
+      "<strong>Copyright respect</strong> - We do not intentionally publish material that infringes existing protected works",
+      "<strong>Transparency</strong> - AI-generated music and supporting media are identified as such",
+      "<strong>Correction path</strong> - Reported concerns are reviewed and handled case by case",
+    ],
+  },
+] as const;
+
+const faqItems = [
+  {
+    question: "Is the music AI-generated?",
+    answer:
+      "Yes. MelodyMind Music publishes albums generated with AI music tools and then prepared for the site.",
+  },
+  {
+    question: "Are real artists behind the albums?",
+    answer:
+      "No real performing artist is implied unless a page states otherwise. Artist names and album concepts are part of the project presentation.",
+  },
+  {
+    question: "Are the images AI-generated too?",
+    answer:
+      "Some album and site images are AI-generated or AI-assisted. They are used as visual presentation for the music project.",
+  },
+  {
+    question: "Can I report a rights concern?",
+    answer:
+      "Yes. Contact us by email with the affected URL and a clear description of the concern.",
+  },
+] as const;
+
+const faqPageSchema = buildFaqPageSchema([...faqItems]);
+if (faqPageSchema) {
+  structuredDataExtra.push(faqPageSchema);
+}
+
+const principles = [
+  "Transparency about AI-generated music and media",
+  "Human review before publication",
+  "No intentional imitation of protected living artists",
+  "Clear correction path for reported concerns",
+] as const;
+
+const pageSeo = buildPageSeo({
+  title: "AI Content Policy | MelodyMind Music",
+  description:
+    "How MelodyMind Music uses AI tools for music, images, text, quality review, transparency, and copyright boundaries.",
+  url: canonical,
+  contentKind: "generic",
+  breadcrumbs: seoBreadcrumbs,
+  structuredData: structuredDataExtra,
+  enrichedParts: ["AI Content Policy", "AI music", "Transparency", "Copyright"],
+  descriptionSource: "base",
+  fallbackKeywords: [
+    "AI music",
+    "artificial intelligence",
+    "content policy",
+    "transparency",
+    "copyright",
+  ],
+  keywordLimit: 24,
+  maxDescription: 155,
+  image: new URL(musicDefaultOgImageUrl, `${baseUrl}/`).toString(),
+  imageAlt: "AI Content Policy",
+  publishDate: publishedAt,
+  modifiedDate: modifiedAt,
+  index: false,
+  follow: true,
+  autoSocialImage: false,
+  authorName: "MelodyMind",
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
+    <Stack className="ai-policy" gap="2xl">
+      <StaticPageHero
+        class="ai-policy__hero"
+        badge="AI Content Policy"
+        title="Transparency About AI-Generated Music"
+        titleTextSize="xl"
+        lead="MelodyMind Music uses AI tools to create albums, artwork, and supporting metadata while keeping the production method clear."
+        {highlights}
+        highlightsAriaLabel="Key AI policy points"
+      />
+
+      <AutoGrid className="ai-policy__content-grid" preset="legal" gap="section">
+        {
+          policySections.map((section) => (
+            <LegalDocumentSection
+              icon={section.icon}
+              title={section.title}
+              desktopSpan="full"
+            >
+              <Prose className="ai-policy__prose">
+                <p set:html={section.body[0]} />
+                <ul>
+                  {section.items.map((item) => (
+                    <li set:html={item} />
+                  ))}
+                </ul>
+                {section.body[1] && <p set:html={section.body[1]} />}
+              </Prose>
+            </LegalDocumentSection>
+          ))
+        }
+
+        <LegalDocumentSection
+          icon="shield"
+          title="Core Principles"
+          desktopSpan="full"
+          variant="accent"
+        >
+          <ul class="ai-policy__principles">
+            {
+              principles.map((principle) => (
+                <li class="ai-policy__principle">{principle}</li>
+              ))
+            }
+          </ul>
+        </LegalDocumentSection>
+
+        <LegalDocumentSection
+          icon="mail"
+          title="Questions or Feedback?"
+          desktopSpan="full"
+          variant="spotlight"
+        >
+          <Prose>
+            <p>
+              If you have questions about the AI content policy or want to report a
+              concern, contact us with the affected URL and the relevant details.
+            </p>
+          </Prose>
+        </LegalDocumentSection>
+
+        <LegalDocumentSection
+          icon="help-circle"
+          title="Frequently Asked Questions"
+          desktopSpan="full"
+          headerWidth="compact"
+        >
+          <AutoGrid className="ai-policy__faq-list" preset="pair" gap="base">
+            {
+              faqItems.map((item) => (
+                <article class="ai-policy__faq-item">
+                  <h3 class="ai-policy__faq-question">{item.question}</h3>
+                  <Paragraph
+                    textSize="base"
+                    textAlign="left"
+                    className="ai-policy__faq-answer"
+                  >
+                    {item.answer}
+                  </Paragraph>
+                </article>
+              ))
+            }
+          </AutoGrid>
+        </LegalDocumentSection>
+      </AutoGrid>
+    </Stack>
+  </PageShell>
+</Layout>
+
+<style>
+  .ai-policy__hero {
+    overflow: hidden;
+  }
+
+  .ai-policy__prose {
+    max-inline-size: none;
+  }
+
+  .ai-policy__faq-item {
+    padding: var(--spacing-base);
+    background: var(--surface-chip-bg);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-lg);
+  }
+
+  .ai-policy__faq-question {
+    margin: 0 0 var(--spacing-sm);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+  }
+
+  .ai-policy__faq-answer {
+    margin: 0;
+  }
+
+  .ai-policy__principles {
+    display: grid;
+    gap: var(--spacing-base);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .ai-policy__principle {
+    position: relative;
+    padding-inline-start: calc(var(--spacing-base) + var(--spacing-sm));
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+  }
+
+  .ai-policy__principle::before {
+    position: absolute;
+    inset-block-start: var(--spacing-sm);
+    inset-inline-start: 0;
+    inline-size: var(--spacing-sm);
+    block-size: var(--spacing-sm);
+    content: "";
+    background: var(--accent-primary);
+    border-radius: var(--radius-full);
+    box-shadow: 0 0 0 var(--spacing-sm)
+      color-mix(in srgb, var(--accent-primary) 12%, transparent);
+  }
+
+  @media (width >= 1100px) {
+    .ai-policy__prose {
+      font-size: var(--font-size-base);
+    }
+
+    .ai-policy__prose p:first-child {
+      margin-block-start: 0;
+    }
+
+    .ai-policy__prose p:last-child {
+      margin-block-end: 0;
+    }
+
+    .ai-policy__prose ul {
+      columns: 2;
+      column-gap: calc(var(--spacing-xl) + var(--spacing-sm));
+    }
+
+    .ai-policy__prose li {
+      break-inside: avoid;
+    }
+  }
+</style>

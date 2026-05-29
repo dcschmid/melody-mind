@@ -1,0 +1,121 @@
+---
+import Icon from "@components/visual/Icon.astro";
+import type { IconName } from "@components/visual/Icon.astro";
+
+interface Props {
+  headingId: string;
+  title: string;
+  iconName?: IconName;
+  linkHref?: string;
+  linkLabel?: string;
+  hideIcon?: boolean;
+}
+
+const {
+  headingId,
+  title,
+  iconName = "sparkles",
+  linkHref,
+  linkLabel,
+  hideIcon = false,
+} = Astro.props as Props;
+---
+
+<div class="section-header">
+  <h2 id={headingId} class="section-header__title">
+    {
+      !hideIcon && (
+        <Icon name={iconName} class="section-header__icon" aria-hidden="true" />
+      )
+    }
+    {title}
+  </h2>
+  {
+    linkHref && linkLabel && (
+      <a class="section-header__link" href={linkHref}>
+        {linkLabel}
+        <Icon name="chevron-right" aria-hidden="true" />
+      </a>
+    )
+  }
+  <slot />
+</div>
+
+<style>
+  .section-header {
+    --section-header-icon-gap: var(--spacing-sm);
+    --section-header-link-gap: var(--spacing-xs);
+    --section-header-ink: var(--music-home-ink, var(--text-primary));
+    --section-header-muted: var(--music-home-muted, var(--text-secondary));
+    --section-header-accent: var(--music-home-accent, var(--accent-primary));
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-base);
+    row-gap: var(--spacing-xs);
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .section-header__title {
+    display: inline-flex;
+    gap: var(--section-header-icon-gap);
+    align-items: center;
+    min-inline-size: 0;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    color: var(--section-header-ink);
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+
+  .section-header__icon {
+    flex: 0 0 auto;
+    color: var(--section-header-accent);
+  }
+
+  .section-header__link {
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: var(--section-header-link-gap);
+    align-items: center;
+    justify-content: center;
+    min-block-size: 2.5rem;
+    padding-inline: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--section-header-muted);
+    text-decoration: none;
+  }
+
+  .section-header__link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .section-header__link:hover,
+  .section-header__link:focus-visible {
+    color: var(--section-header-accent);
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .section-header__link {
+      transition:
+        color var(--motion-duration-fast) var(--motion-ease-standard),
+        transform var(--motion-duration-fast) var(--motion-ease-standard);
+    }
+
+    .section-header__link:active {
+      transform: scale(0.97);
+    }
+  }
+
+  @media (width <= 640px) {
+    .section-header {
+      align-items: flex-start;
+    }
+  }
+</style>

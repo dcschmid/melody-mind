@@ -1,0 +1,579 @@
+---
+import type { ImageMetadata } from "astro";
+import Icon from "@components/visual/Icon.astro";
+
+import ThemeToggle from "@components/actions/ThemeToggle.astro";
+
+import HeaderMobileExtras from "./HeaderMobileExtras.astro";
+import HeaderNav from "./HeaderNav.astro";
+import type { HeaderNavItem } from "./HeaderNav.astro";
+
+interface MobileExtraLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  brandLogoSrc: string | ImageMetadata;
+  navItems: HeaderNavItem[];
+  searchHref: string;
+  currentPath?: string;
+  brandHref?: string;
+  brandLogoAlt?: string;
+  brandAriaLabel?: string;
+  navAriaLabel?: string;
+  actionLabel?: string;
+  mobileExtraLinks?: MobileExtraLink[];
+  mobileExtraHeading?: string;
+  mobilePrimaryCtaHref?: string;
+  mobilePrimaryCtaLabel?: string;
+  mobileSecondaryCtaHref?: string;
+  mobileSecondaryCtaLabel?: string;
+}
+
+const {
+  brandLogoSrc,
+  navItems,
+  searchHref,
+  currentPath = `${Astro.url.pathname}${Astro.url.search}`,
+  brandHref = "/",
+  brandLogoAlt = "Melody Mind",
+  brandAriaLabel = "Go to the MelodyMind homepage",
+  navAriaLabel = "Primary navigation",
+  actionLabel = "Theme",
+  mobileExtraLinks = [],
+  mobileExtraHeading = "Explore",
+  mobilePrimaryCtaHref,
+  mobilePrimaryCtaLabel,
+  mobileSecondaryCtaHref,
+  mobileSecondaryCtaLabel,
+} = Astro.props as Props;
+
+const logoSrc = typeof brandLogoSrc === "string" ? brandLogoSrc : brandLogoSrc.src;
+const logoWidth = typeof brandLogoSrc === "string" ? 700 : brandLogoSrc.width;
+const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
+const mobileExtraProps = {
+  genreLinks: mobileExtraLinks,
+  heading: mobileExtraHeading,
+  ...(mobilePrimaryCtaHref ? { primaryCtaHref: mobilePrimaryCtaHref } : {}),
+  ...(mobilePrimaryCtaLabel ? { primaryCtaLabel: mobilePrimaryCtaLabel } : {}),
+  ...(mobileSecondaryCtaHref ? { secondaryCtaHref: mobileSecondaryCtaHref } : {}),
+  ...(mobileSecondaryCtaLabel ? { secondaryCtaLabel: mobileSecondaryCtaLabel } : {}),
+};
+---
+
+<header class="music-site-header" data-music-site-header>
+  <button
+    class="music-site-header__backdrop"
+    type="button"
+    aria-label="Close main menu"
+    aria-hidden="true"
+    data-music-menu-close
+  >
+  </button>
+
+  <div class="music-site-header__inner">
+    <a class="music-site-header__brand" href={brandHref} aria-label={brandAriaLabel}>
+      <img
+        class="music-site-header__logo"
+        src={logoSrc}
+        width={logoWidth}
+        height={logoHeight}
+        alt={brandLogoAlt}
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+
+    <button
+      class="music-site-header__toggle"
+      type="button"
+      aria-label="Open main menu"
+      aria-expanded="false"
+      data-music-menu-toggle
+    >
+      <Icon
+        name="menu"
+        class="music-site-header__toggle-icon music-site-header__toggle-icon--menu"
+        aria-hidden="true"
+      />
+      <Icon
+        name="x"
+        class="music-site-header__toggle-icon music-site-header__toggle-icon--close"
+        aria-hidden="true"
+      />
+      <span class="music-site-header__toggle-text">Menu</span>
+    </button>
+
+    <nav class="music-site-header__nav" aria-label={navAriaLabel} data-music-menu-nav>
+      <HeaderNav items={navItems} {searchHref} {currentPath} />
+
+      <div class="music-site-header__actions">
+        <span class="music-site-header__actions-label">{actionLabel}</span>
+        <ThemeToggle />
+      </div>
+
+      <HeaderMobileExtras {...mobileExtraProps} />
+    </nav>
+  </div>
+</header>
+
+<script>
+  const headers = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-music-site-header]")
+  ).filter((header) => header.dataset.bound !== "true");
+
+  headers.forEach((header) => {
+    header.dataset.bound = "true";
+
+    const toggle = header.querySelector<HTMLButtonElement>("[data-music-menu-toggle]");
+    const closeButtons = header.querySelectorAll<HTMLButtonElement>(
+      "[data-music-menu-close]"
+    );
+    const drawer = header.querySelector<HTMLElement>(".music-site-header__inner");
+    const nav = header.querySelector<HTMLElement>("[data-music-menu-nav]");
+    const desktopQuery = window.matchMedia("(min-width: 1024px)");
+    const focusableSelector =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+    if (!toggle || !drawer || !nav) {
+      return;
+    }
+
+    const getPageSiblings = (): HTMLElement[] =>
+      Array.from(document.body.children).filter(
+        (element): element is HTMLElement =>
+          element instanceof HTMLElement && !element.contains(header)
+      );
+
+    const getFocusableElements = (): HTMLElement[] =>
+      [
+        toggle,
+        ...Array.from(nav.querySelectorAll<HTMLElement>(focusableSelector)),
+      ].filter((element) => element.offsetParent !== null);
+
+    const setPageSiblingsInert = (inert: boolean) => {
+      getPageSiblings().forEach((element) => {
+        element.inert = inert;
+      });
+    };
+
+    const setOpen = (open: boolean, restoreFocus = true) => {
+      header.dataset.open = String(open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close main menu" : "Open main menu");
+      document.body.classList.toggle("music-site-header-open", open);
+      setPageSiblingsInert(open);
+      drawer.toggleAttribute("role", open);
+      drawer.toggleAttribute("aria-modal", open);
+      drawer.toggleAttribute("aria-label", open);
+
+      if (open) {
+        drawer.setAttribute("role", "dialog");
+        drawer.setAttribute("aria-modal", "true");
+        drawer.setAttribute("aria-label", "Main menu");
+      }
+
+      closeButtons.forEach((button) => {
+        button.setAttribute("aria-hidden", String(!open));
+      });
+
+      if (open) {
+        requestAnimationFrame(() => {
+          toggle.focus({ preventScroll: true });
+        });
+      } else if (restoreFocus) {
+        toggle.focus();
+      }
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(header.dataset.open !== "true");
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", () => setOpen(false));
+    });
+
+    nav.querySelectorAll("a[href]").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false, false));
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (header.dataset.open === "true" && event.key === "Tab") {
+        const focusableElements = getFocusableElements();
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements.at(-1);
+
+        if (!firstElement || !lastElement) {
+          return;
+        }
+
+        if (!header.contains(document.activeElement)) {
+          event.preventDefault();
+          firstElement.focus();
+          return;
+        }
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+          return;
+        }
+
+        if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
+      }
+
+      if (header.dataset.open === "true" && event.key === "Escape") {
+        setOpen(false);
+      }
+    });
+
+    desktopQuery.addEventListener("change", (event) => {
+      if (event.matches) {
+        setOpen(false, false);
+      }
+    });
+
+    window.addEventListener("pagehide", () => {
+      setOpen(false, false);
+    });
+  });
+</script>
+
+<style>
+  .music-site-header {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: 0;
+    z-index: 90;
+    padding-inline: clamp(0.75rem, 3vw, 2rem);
+  }
+
+  .music-site-header__inner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(1.25rem, 3vw, 3rem);
+    align-items: center;
+    max-inline-size: 90rem;
+    min-block-size: 4.25rem;
+    margin-inline: auto;
+  }
+
+  .music-site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    min-block-size: 2.75rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .music-site-header__logo {
+    display: block;
+    inline-size: clamp(8.25rem, 10vw, 11.5rem);
+    block-size: auto;
+    aspect-ratio: 700 / 232;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .music-site-header__toggle,
+  .music-site-header__backdrop {
+    display: none;
+  }
+
+  .music-site-header__nav {
+    display: flex;
+    gap: clamp(1.25rem, 3vw, 3rem);
+    align-items: center;
+    justify-content: flex-end;
+    min-inline-size: 0;
+  }
+
+  .music-site-header__brand:focus-visible,
+  .music-site-header__toggle:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .music-site-header__actions {
+    flex: 0 0 auto;
+  }
+
+  .music-site-header__actions-label {
+    display: none;
+  }
+
+  @media (width <= 1023.98px) {
+    .music-site-header {
+      --music-menu-bg-start: var(--bg-primary);
+      --music-menu-bg-end: var(--bg-secondary);
+      --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 34%, transparent);
+      --music-menu-text: var(--text-primary);
+      --music-menu-muted: var(--text-tertiary);
+      --music-menu-line: var(--border-muted);
+      --music-menu-accent: var(--accent-primary);
+      --music-menu-chevron: color-mix(in srgb, var(--text-primary) 82%, transparent);
+      --music-menu-active-text: var(--link-hover);
+      --music-menu-active-bg: color-mix(
+        in srgb,
+        var(--accent-primary) 28%,
+        var(--surface-2)
+      );
+      --music-menu-chip-bg: color-mix(in srgb, var(--surface-1) 74%, transparent);
+      --music-menu-chip-border: color-mix(
+        in srgb,
+        var(--accent-primary) 34%,
+        var(--border-muted)
+      );
+      --music-menu-cta-bg: var(--accent-primary);
+      --music-menu-cta-text: var(--button-text-accent);
+      --music-menu-cta-shadow: color-mix(
+        in srgb,
+        var(--music-menu-accent) 28%,
+        transparent
+      );
+
+      padding-inline: 0;
+    }
+
+    :global([data-theme="light"]) .music-site-header {
+      --music-menu-bg-start: var(--surface-1);
+      --music-menu-bg-end: var(--bg-secondary);
+      --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 18%, transparent);
+      --music-menu-text: var(--text-primary);
+      --music-menu-muted: var(--text-secondary);
+      --music-menu-line: var(--border-muted);
+      --music-menu-accent: var(--accent-primary);
+      --music-menu-chevron: color-mix(in srgb, var(--text-primary) 82%, transparent);
+      --music-menu-active-text: var(--accent-strong);
+      --music-menu-active-bg: var(--surface-3);
+      --music-menu-chip-bg: var(--surface-1);
+      --music-menu-chip-border: var(--border-muted);
+      --music-menu-cta-bg: var(--accent-primary);
+      --music-menu-cta-text: var(--button-text-accent);
+      --music-menu-cta-shadow: color-mix(
+        in srgb,
+        var(--music-menu-accent) 28%,
+        transparent
+      );
+    }
+
+    .music-site-header__inner {
+      box-sizing: border-box;
+      grid-template-columns: auto 1fr auto;
+      min-block-size: 4.5rem;
+      padding: 0.8rem 1.35rem 0.8rem 1rem;
+    }
+
+    .music-site-header__logo {
+      inline-size: clamp(6.85rem, 28vw, 8.35rem);
+    }
+
+    .music-site-header__toggle {
+      position: relative;
+      z-index: 4;
+      display: grid;
+      grid-column: 3 / 4;
+      place-items: center;
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
+      padding: 0;
+      color: var(--text-primary);
+      cursor: pointer;
+      background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
+      border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
+      border-radius: 999px;
+    }
+
+    :global([data-theme="light"]) .music-site-header__toggle {
+      color: var(--accent-primary);
+      background: color-mix(in srgb, var(--surface-1) 62%, transparent);
+      border-color: color-mix(in srgb, var(--border-default) 28%, transparent);
+    }
+
+    .music-site-header__toggle-text {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+
+    .music-site-header__toggle-icon {
+      inline-size: 1.25rem;
+      block-size: 1.25rem;
+    }
+
+    .music-site-header__toggle-icon--close {
+      display: none;
+    }
+
+    .music-site-header__backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      display: block;
+      padding: 0;
+      pointer-events: none;
+      cursor: pointer;
+      background: var(--music-menu-bg-start);
+      border: 0;
+      opacity: 0;
+    }
+
+    .music-site-header__nav {
+      display: none;
+      grid-template-columns: minmax(0, 1fr);
+      grid-column: 1 / 4;
+      gap: 0;
+      place-content: start normal;
+      place-items: stretch;
+      justify-self: stretch;
+      inline-size: 100%;
+      min-inline-size: 0;
+      max-inline-size: 38rem;
+      padding-block: 1.35rem 1.3rem;
+      margin-inline: auto;
+      opacity: 0;
+    }
+
+    .music-site-header__actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-column: 1 / 4;
+      gap: 1rem 1.5rem;
+      align-items: center;
+      justify-self: stretch;
+      inline-size: 100%;
+      min-inline-size: 0;
+      max-inline-size: 42rem;
+      padding-block-start: 1.35rem;
+      margin-inline: auto;
+      border-block-start: 1px solid var(--music-menu-line);
+    }
+
+    .music-site-header__actions-label {
+      display: block;
+      min-inline-size: 0;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--music-menu-muted);
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__backdrop {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__inner {
+      position: fixed;
+      inset: 0;
+      z-index: 3;
+      display: grid;
+      grid-template-areas:
+        "brand toggle"
+        "nav nav";
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0 1rem;
+      align-content: start;
+      align-items: start;
+      inline-size: auto;
+      max-inline-size: none;
+      min-block-size: 100dvh;
+      max-block-size: 100dvh;
+      padding: calc(env(safe-area-inset-top) + 1.5rem) clamp(1.5rem, 6vw, 2rem)
+        calc(env(safe-area-inset-bottom) + 2rem);
+      overflow-y: auto;
+      color: var(--music-menu-text);
+      background: var(--music-menu-bg-start);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__nav {
+      display: grid;
+      grid-area: nav;
+      grid-column: 1 / -1;
+      max-inline-size: none;
+      opacity: 1;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__actions {
+      grid-column: 1 / -1;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__brand {
+      grid-area: brand;
+      min-block-size: 3.25rem;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__logo {
+      inline-size: 8.5rem;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__toggle {
+      grid-area: toggle;
+      inline-size: 3.25rem;
+      block-size: 3.25rem;
+      color: var(--music-menu-active-text);
+      background: transparent;
+      border-color: transparent;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__toggle-icon {
+      inline-size: 2rem;
+      block-size: 2rem;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__toggle-icon--menu {
+      display: none;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__toggle-icon--close {
+      display: block;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .music-site-header__backdrop {
+      transition: opacity 180ms ease-out;
+    }
+
+    .music-site-header__toggle {
+      transition:
+        color 160ms ease-out,
+        background 160ms ease-out,
+        border-color 160ms ease-out,
+        transform 160ms ease-out;
+    }
+
+    .music-site-header__toggle:active {
+      transform: scale(0.96);
+    }
+
+    @media (width <= 1023.98px) {
+      .music-site-header:not([data-open="true"]) .music-site-header__nav {
+        pointer-events: none;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .music-site-header__backdrop,
+    .music-site-header__inner,
+    .music-site-header__toggle {
+      transition: none;
+    }
+  }
+
+  :global(body.music-site-header-open) {
+    overflow: hidden;
+  }
+</style>

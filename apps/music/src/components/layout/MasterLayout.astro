@@ -1,0 +1,281 @@
+---
+import BackToTop from "@components/navigation/BackToTop.astro";
+import SkipLink from "@components/navigation/SkipLink.astro";
+import { THEME_EVENTS } from "@constants/events";
+import { STORAGE_KEYS } from "@constants/storage";
+import "../../styles/master-theme.css";
+import "../../styles/animations.css";
+
+interface Props {
+  lang?: string;
+  dir?: string;
+  bodyClass?: string;
+  mainClass?: string;
+  mainId?: string;
+  contentShellClass?: string;
+  showSkipLink?: boolean;
+  enableThemeInit?: boolean;
+  enableAmbientMainBackground?: boolean;
+  colorScheme?: string;
+  themeColorDark?: string;
+  themeColorLight?: string;
+  appTitle?: string;
+  manifestPath?: string;
+  faviconVersion?: string;
+  faviconSvgPath?: string;
+  googleSiteVerification?: string;
+  appleMobileWebAppCapable?: boolean;
+  appleMobileWebAppStatusBarStyle?: string;
+  showBackToTop?: boolean;
+}
+
+const {
+  lang = "en",
+  dir = "ltr",
+  bodyClass = "",
+  mainClass = "",
+  mainId = "main-content",
+  contentShellClass = "",
+  showSkipLink = true,
+  enableThemeInit = true,
+  enableAmbientMainBackground = false,
+  colorScheme = "dark light",
+  themeColorDark = "#08131a",
+  themeColorLight = "#f6f1e8",
+  appTitle = "MelodyMind",
+  manifestPath = "/site.webmanifest",
+  faviconVersion,
+  faviconSvgPath,
+  googleSiteVerification = import.meta.env.GOOGLE_SITE_VERIFICATION || "",
+  appleMobileWebAppCapable = true,
+  appleMobileWebAppStatusBarStyle = "black-translucent",
+  showBackToTop = true,
+} = Astro.props as Props;
+
+const bodyClasses = ["app__body", bodyClass].filter(Boolean).join(" ");
+const mainClasses = [
+  "app__main",
+  enableAmbientMainBackground ? "app__main--ambient" : "",
+  mainClass,
+]
+  .filter(Boolean)
+  .join(" ");
+const contentShellClasses = (contentShellClass ?? "").trim();
+const versionAssetPath = (path: string): string =>
+  faviconVersion ? `${path}?v=${encodeURIComponent(faviconVersion)}` : path;
+
+// Mirrors themeStorage.applyTheme inline so the resolved theme is applied before bundled JS loads.
+const themeInitScript = enableThemeInit
+  ? `
+    (() => {
+      const THEME_STORAGE_KEY = ${JSON.stringify(STORAGE_KEYS.THEME)};
+      const DARK_QUERY = "(prefers-color-scheme: dark)";
+      const THEME_CHANGE_EVENT = ${JSON.stringify(THEME_EVENTS.CHANGED)};
+      const THEME_COLORS = {
+        dark: ${JSON.stringify(themeColorDark)},
+        light: ${JSON.stringify(themeColorLight)},
+      };
+
+      const isTheme = (value) => value === "light" || value === "dark";
+      const readStoredTheme = () => {
+        try {
+          const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
+          return isTheme(stored) ? stored : null;
+        } catch {
+          return null;
+        }
+      };
+      const getSystemTheme = () =>
+        window.matchMedia(DARK_QUERY).matches ? "dark" : "light";
+
+      const applyTheme = (theme, source) => {
+        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.style.colorScheme = theme;
+        const themeColors = document.querySelectorAll('meta[name="theme-color"][data-theme-color]');
+        themeColors.forEach((themeColor) => {
+          themeColor.setAttribute("content", THEME_COLORS[theme]);
+          themeColor.removeAttribute("media");
+        });
+        window.dispatchEvent(
+          new CustomEvent(THEME_CHANGE_EVENT, {
+            detail: { theme, source },
+          })
+        );
+      };
+
+      const storedTheme = readStoredTheme();
+      const resolvedTheme = storedTheme ?? getSystemTheme();
+      applyTheme(resolvedTheme, storedTheme ? "manual" : "system");
+
+      window.matchMedia(DARK_QUERY).addEventListener("change", () => {
+        if (readStoredTheme()) {
+          return;
+        }
+
+        applyTheme(getSystemTheme(), "system");
+      });
+    })();
+  `
+  : "";
+---
+
+<!doctype html>
+<html lang={lang} class="app" dir={dir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content={colorScheme} />
+    <meta
+      name="theme-color"
+      content={themeColorDark}
+      media="(prefers-color-scheme: dark)"
+      data-theme-color
+      data-theme-color-dark={themeColorDark}
+      data-theme-color-light={themeColorLight}
+    />
+    <meta
+      name="theme-color"
+      content={themeColorLight}
+      media="(prefers-color-scheme: light)"
+      data-theme-color
+      data-theme-color-dark={themeColorDark}
+      data-theme-color-light={themeColorLight}
+    />
+    {
+      appleMobileWebAppCapable && (
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+      )
+    }
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content={appleMobileWebAppStatusBarStyle}
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href={versionAssetPath("/favicon-96x96.png")}
+      sizes="96x96"
+    />
+    {
+      faviconSvgPath && (
+        <link rel="icon" type="image/svg+xml" href={versionAssetPath(faviconSvgPath)} />
+      )
+    }
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href={versionAssetPath("/favicon.ico")} />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href={versionAssetPath("/apple-touch-icon.png")}
+    />
+    <meta name="apple-mobile-web-app-title" content={appTitle} />
+    <meta name="google-site-verification" content={googleSiteVerification} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="x-content-type-options" content="nosniff" />
+    <meta http-equiv="x-frame-options" content="SAMEORIGIN" />
+    <meta http-equiv="x-xss-protection" content="1; mode=block" />
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=()"
+    />
+    <link rel="manifest" href={manifestPath} />
+    {enableThemeInit && <script is:inline set:html={themeInitScript} />}
+    <slot name="head" />
+  </head>
+  <body class={bodyClasses}>
+    {showSkipLink && <SkipLink targetId={mainId} />}
+    <div class={contentShellClasses || undefined}>
+      <slot name="body-start" />
+      <slot name="before-main" />
+      <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
+        <slot />
+      </main>
+      {showBackToTop && <BackToTop />}
+      <slot name="after-main" />
+      <slot name="body-end" />
+    </div>
+  </body>
+</html>
+
+<style>
+  .app {
+    color: var(--text-primary);
+  }
+
+  .app__body {
+    position: relative;
+    min-block-size: 100vb;
+    margin: 0;
+    overflow-x: clip;
+    color: var(--text-primary);
+    background: var(--page-background);
+    background-color: var(--bg-primary);
+  }
+
+  .app__main {
+    position: relative;
+    min-block-size: 0;
+    isolation: isolate;
+  }
+
+  .app__main--ambient::before {
+    content: none;
+  }
+
+  .app__main--ambient::after {
+    content: none;
+  }
+
+  :global(:root) {
+    --cc-primary: var(--accent-primary);
+    --cc-primary-hover: var(--accent-strong);
+    --cc-bg: var(--surface-1);
+    --cc-surface: var(--surface-2);
+    --cc-text: var(--text-primary);
+    --cc-text-muted: var(--text-secondary);
+    --cc-border: var(--border-muted);
+    --cc-radius: var(--radius-lg);
+    --cc-font-family: var(--font-sans);
+  }
+
+  :global([data-theme="dark"]) {
+    --cc-primary: var(--accent-primary);
+    --cc-primary-hover: var(--accent-strong);
+    --cc-bg: var(--surface-1);
+    --cc-surface: var(--surface-2);
+    --cc-tint-rgb: 255, 255, 255;
+    --cc-text: var(--text-primary);
+    --cc-text-muted: var(--text-secondary);
+    --cc-border: var(--border-muted);
+  }
+
+  :global(.cc-banner) {
+    box-shadow: var(--shadow-2xl);
+  }
+
+  :global(.cc-banner-inner) {
+    max-inline-size: 90rem;
+    padding-inline: clamp(1rem, 4vw, 4rem);
+  }
+
+  :global(.cc-btn) {
+    min-block-size: var(--control-min-block-size);
+    border-radius: var(--radius-base);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .app__main--ambient::before,
+    .app__main--ambient::after {
+      opacity: 0;
+    }
+  }
+</style>

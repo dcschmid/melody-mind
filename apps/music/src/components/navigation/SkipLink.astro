@@ -1,0 +1,108 @@
+---
+import Icon from "@components/visual/Icon.astro";
+
+/**
+ * @component SkipLink
+ * @description Accessibility component that allows keyboard users to bypass repetitive navigation
+ * and quickly access the main content. Initially hidden visually but appears when focused.
+ *
+ * @example
+ * ```astro
+ * <SkipLink targetId="article-content" />
+ * <SkipLink targetId="main-content" />
+ * ```
+ */
+interface Props {
+  /**
+   * The ID of the element to target when the skip link is activated
+   * @default "main-content"
+   */
+  targetId?: string;
+  /**
+   * Accessible label for the skip link
+   * @default "Skip to main content"
+   */
+  label?: string;
+}
+
+const { targetId = "main-content", label = "Skip to main content" } = Astro.props;
+
+const normalizedTargetId = targetId.trim() || "main-content";
+const href = `#${encodeURIComponent(normalizedTargetId)}`;
+const ariaLabel = label.trim() || "Skip to main content";
+---
+
+<a href={href} class="skip-link" data-skip-link aria-label={ariaLabel}>
+  <Icon name="chevron-down" class="skip-link__icon" aria-hidden="true" />
+  <span class="skip-link__label">{ariaLabel}</span>
+</a>
+<style>
+  /* SkipLink: WCAG AAA skip navigation, hidden until focused */
+  .skip-link {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 50%;
+    z-index: 100;
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    inline-size: max-content;
+    max-inline-size: calc(100vi - (var(--spacing-base) * 2));
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-xs) var(--spacing-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--button-text-accent);
+    text-decoration: none;
+    background: var(--accent-primary);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translate(-50%, -110%);
+    transition:
+      opacity var(--transition-fast),
+      transform var(--transition-fast),
+      background-color var(--transition-fast);
+  }
+
+  .skip-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  .skip-link__icon {
+    flex: 0 0 auto;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
+    margin-block-start: 0.5px;
+    color: var(--accent-muted);
+  }
+
+  .skip-link__label {
+    min-inline-size: 0;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .skip-link:hover,
+  .skip-link:focus-visible {
+    background: var(--accent-primary-hover);
+  }
+
+  .skip-link:active {
+    transform: translate(-50%, 0) scale(0.97);
+    transition: transform 0.1s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skip-link {
+      transition: none;
+    }
+
+    .skip-link:active {
+      transform: translate(-50%, 0);
+      transition: none;
+    }
+  }
+</style>

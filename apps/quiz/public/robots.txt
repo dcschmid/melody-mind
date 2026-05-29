@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Utility pages that should not be indexed
-Disallow: /search
-
-Sitemap: https://quiz.melody-mind.de/sitemap-index.xml
-Host: quiz.melody-mind.de

@@ -1,0 +1,235 @@
+---
+import Headline from "@components/typography/Headline.astro";
+import Paragraph from "@components/typography/Paragraph.astro";
+import Icon from "@components/visual/Icon.astro";
+import type { IconName } from "@components/visual/Icon.astro";
+import type { TrustedHtml } from "@utils/trustedHtml";
+
+type HeadingLevel = "h2" | "h3" | "h4";
+
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  /**
+   * Trusted body paragraphs as an array of HTML strings.
+   * SECURITY: Content must be static or sanitized before reaching this component.
+   * Never pass user-generated HTML here.
+   */
+  trustedHtmlBody?: readonly TrustedHtml[] | TrustedHtml[];
+  desktopSpan?: "default" | "full";
+  /**
+   * Heading level for the section title. Defaults to h2 for top-level legal sections.
+   */
+  headingLevel?: HeadingLevel;
+  headerWidth?: "default" | "compact";
+  /**
+   * Icon name from the shared icon library (e.g., "shield", "settings", "file-text").
+   */
+  icon: IconName;
+  /**
+   * Semantic color for the icon.
+   * - primary: Neutral or informational (default)
+   * - success: Positive confirmation
+   * - warning: Attention needed
+   * - error: Problem or critical issue
+   * - info: General information
+   */
+  iconColor?: "primary" | "success" | "warning" | "error" | "info";
+  title: string;
+  /**
+   * Visual style variant for the section.
+   * - default: Standard panel appearance
+   * - accent: Subtle amber tint for highlighted but not critical content
+   * - spotlight: Stronger amber tint for featured or important sections
+   */
+  variant?: "default" | "accent" | "spotlight";
+  dense?: boolean;
+  class?: string;
+}
+
+const {
+  desktopSpan = "default",
+  headingLevel = "h2",
+  headerWidth = "default",
+  icon,
+  iconColor = "primary",
+  title,
+  trustedHtmlBody = [],
+  variant = "default",
+  dense = false,
+  class: className,
+  ...rest
+} = Astro.props as Props;
+---
+
+<section
+  {...rest}
+  class:list={[
+    "legal-document-section",
+    `legal-document-section--${variant}`,
+    `legal-document-section--desktop-span-${desktopSpan}`,
+    dense ? "legal-document-section--dense" : "",
+    className,
+  ]}
+  data-animate="rise-in"
+>
+  <div
+    class:list={[
+      "legal-document-section__header",
+      `legal-document-section__header--${headerWidth}`,
+    ]}
+  >
+    <Icon
+      name={icon}
+      class:list={[
+        "legal-document-section__icon",
+        `legal-document-section__icon--color-${iconColor}`,
+      ]}
+      aria-hidden="true"
+    />
+    <Headline
+      level={headingLevel}
+      textSize="2xl"
+      className="legal-document-section__title"
+    >
+      {title}
+    </Headline>
+  </div>
+  {
+    trustedHtmlBody.length > 0 && (
+      <div class="legal-document-section__text-group">
+        {trustedHtmlBody.map((text) => (
+          <Paragraph
+            textSize="sm"
+            className="legal-document-section__text"
+            set:html={text}
+          />
+        ))}
+      </div>
+    )
+  }
+  <slot />
+</section>
+
+<style>
+  .legal-document-section {
+    display: grid;
+    gap: var(--spacing-xl);
+    padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    background: var(--surface-panel-bg);
+  }
+
+  .legal-document-section--accent {
+    background: var(--section-surface-accent-bg);
+  }
+
+  .legal-document-section--spotlight {
+    background: var(--section-surface-spotlight-bg);
+  }
+
+  .legal-document-section__header {
+    display: flex;
+    gap: clamp(var(--spacing-sm), 1.5vw, var(--spacing-md));
+    align-items: center;
+    padding-block-end: var(--spacing-base);
+    margin-block-end: var(--spacing-lg);
+    border-block-end: 1px solid var(--surface-border-soft);
+  }
+
+  .legal-document-section__header--compact {
+    max-inline-size: var(--measure-compact);
+  }
+
+  .legal-document-section__icon {
+    flex-shrink: 0;
+    inline-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
+    block-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.5rem);
+    color: var(--accent-primary);
+  }
+
+  /* Grouped color declarations */
+  .legal-document-section__icon--color-primary {
+    color: var(--accent-primary);
+  }
+
+  .legal-document-section__icon--color-success {
+    color: var(--color-success);
+  }
+
+  .legal-document-section__icon--color-warning {
+    color: var(--color-warning);
+  }
+
+  .legal-document-section__icon--color-error {
+    color: var(--color-error);
+  }
+
+  .legal-document-section__icon--color-info {
+    color: var(--color-info);
+  }
+
+  .legal-document-section__title {
+    margin: 0;
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    color: var(--text-primary);
+    letter-spacing: 0;
+  }
+
+  .legal-document-section__text-group {
+    display: grid;
+    gap: var(--spacing-base);
+    max-width: 70ch;
+    margin-block-start: var(--spacing-sm);
+  }
+
+  .legal-document-section__text {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  @media (width < 360px) {
+    .legal-document-section__text {
+      font-size: var(--font-size-xs);
+    }
+  }
+
+  .legal-document-section__text :global(a) {
+    color: var(--link-default);
+    text-decoration: underline;
+    text-underline-offset: var(--spacing-2xs);
+  }
+
+  .legal-document-section__text :global(a:hover),
+  .legal-document-section__text :global(a:focus-visible) {
+    color: var(--link-hover);
+  }
+
+  .legal-document-section--dense {
+    gap: var(--spacing-lg);
+    padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+  }
+
+  .legal-document-section--dense .legal-document-section__header {
+    padding-block-end: var(--spacing-sm);
+    margin-block-end: var(--spacing-base);
+  }
+
+  @media (width >= 720px) {
+    .legal-document-section {
+      padding: clamp(var(--spacing-xl), 2.5vw, var(--spacing-2xl));
+    }
+
+    .legal-document-section--dense {
+      padding: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    }
+
+    .legal-document-section--dense .legal-document-section__header {
+      margin-block-end: var(--spacing-lg);
+    }
+  }
+
+  @media (width >= 1100px) {
+    .legal-document-section--desktop-span-full {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
