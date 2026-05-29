@@ -6,6 +6,27 @@ import icon from "astro-icon";
 import minifyHtml from "astro-minify-html-swc";
 import cookieConsent from "@zdenekkurecka/astro-consent";
 
+const SITEMAP_EXCLUDED_PATHS = new Set([
+  "/404/",
+  "/categories/",
+  "/knowledge/",
+  "/taxonomy/",
+]);
+const SITEMAP_LEGAL_PATHS = new Set([
+  "/ai-content/",
+  "/cookies/",
+  "/imprint/",
+  "/privacy/",
+]);
+
+const getSitemapPath = (url) => {
+  try {
+    return new URL(url).pathname;
+  } catch {
+    return url;
+  }
+};
+
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "static",
@@ -59,10 +80,16 @@ export default defineConfig({
         image: false,
         xhtml: true,
       },
+      filter: (page) => !SITEMAP_EXCLUDED_PATHS.has(getSitemapPath(page)),
       serialize: (item) => {
-        if (item.url.endsWith("/")) {
+        const pathname = getSitemapPath(item.url);
+
+        if (pathname === "/") {
           item.priority = 1.0;
           item.changefreq = "weekly";
+        } else if (SITEMAP_LEGAL_PATHS.has(pathname)) {
+          item.priority = 0.3;
+          item.changefreq = "yearly";
         } else {
           item.priority = 0.8;
           item.changefreq = "monthly";
