@@ -156,11 +156,7 @@ const statusBadgeColorMap = {
     display: grid;
     gap: var(--spacing-xl);
     padding: var(--spacing-2xl) 0;
-    background: color-mix(
-      in srgb,
-      var(--color-accent-primary) 8%,
-      var(--color-surface-1)
-    );
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
   }
 
   @keyframes hero-reveal {
@@ -201,14 +197,10 @@ const statusBadgeColorMap = {
     padding: var(--spacing-sm) var(--spacing-base);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    color: var(--color-accent-strong);
+    color: var(--accent-strong);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-widest);
-    background: color-mix(
-      in srgb,
-      var(--color-accent-primary) 12%,
-      var(--color-surface-1)
-    );
+    background: color-mix(in srgb, var(--accent-primary) 12%, var(--surface-1));
     border-radius: var(--radius-sm);
   }
 

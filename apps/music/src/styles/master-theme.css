@@ -69,39 +69,10 @@
   --letter-spacing-widest: 0.1em;
 
   /* ---------------------------------------------------------------------------
-     COLORS (Dark, WCAG AAA Compliant)
+     STATUS COLORS (Dark, WCAG AAA Compliant)
+     Surface/text/accent/link/border colors live directly on the semantic
+     tokens below; status colors are referenced as --color-* by components.
      --------------------------------------------------------------------------- */
-  /* Primary background surfaces */
-  --color-bg-primary: oklch(13% 0.038 255deg);
-  --color-bg-secondary: oklch(18% 0.037 255deg);
-
-  /* Surface colors */
-  --color-surface-1: oklch(18% 0.037 255deg);
-  --color-surface-2: oklch(22% 0.041 252deg);
-  --color-surface-3: oklch(26% 0.052 252deg);
-
-  /* Text colors */
-  --color-text-primary: oklch(96% 0.012 72deg);
-  --color-text-secondary: oklch(82% 0.028 248deg);
-  --color-text-tertiary: oklch(76% 0.036 252deg);
-
-  /* Accent colors */
-  --color-accent-primary: oklch(78% 0.16 286deg);
-  --color-accent-strong: oklch(80% 0.13 252deg);
-  --color-accent-light: oklch(76% 0.13 252deg);
-  --color-accent-primary-hover: oklch(84% 0.12 286deg);
-
-  /* Link colors */
-  --color-link-default: oklch(82% 0.13 286deg);
-  --color-link-hover: oklch(88% 0.1 286deg);
-  --color-link-visited: oklch(82% 0.12 252deg);
-
-  /* Border colors */
-  --color-border-default: oklch(46% 0.075 252deg);
-  --color-border-muted: oklch(42% 0.067 252deg / 0.52);
-  --color-border-strong: oklch(62% 0.08 252deg);
-
-  /* Status colors */
   --color-success: oklch(78% 0.12 155deg);
   --color-warning: oklch(78% 0.11 75deg);
   --color-error: oklch(78% 0.11 25deg);
@@ -120,7 +91,6 @@
   --shadow-xs: 0 1px 1px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -159,30 +129,36 @@
 :root {
   color-scheme: dark;
 
-  --bg-primary: var(--color-bg-primary);
-  --bg-secondary: var(--color-bg-secondary);
+  /* Primary background surfaces */
+  --bg-primary: oklch(13% 0.038 255deg);
+  --bg-secondary: oklch(18% 0.037 255deg);
 
-  --surface-1: var(--color-surface-1);
-  --surface-2: var(--color-surface-2);
-  --surface-3: var(--color-surface-3);
+  /* Surface colors */
+  --surface-1: oklch(18% 0.037 255deg);
+  --surface-2: oklch(22% 0.041 252deg);
+  --surface-3: oklch(26% 0.052 252deg);
 
-  --text-primary: var(--color-text-primary);
-  --text-secondary: var(--color-text-secondary);
-  --text-tertiary: var(--color-text-tertiary);
+  /* Text colors */
+  --text-primary: oklch(96% 0.012 72deg);
+  --text-secondary: oklch(82% 0.028 248deg);
+  --text-tertiary: oklch(76% 0.036 252deg);
 
-  --accent-primary: var(--color-accent-primary);
-  --accent-strong: var(--color-accent-strong);
-  --accent-muted: var(--color-accent-light);
-  --accent-primary-hover: var(--color-accent-primary-hover);
-  --accent-contrast: var(--color-bg-primary);
+  /* Accent colors */
+  --accent-primary: oklch(78% 0.16 286deg);
+  --accent-strong: oklch(80% 0.13 252deg);
+  --accent-muted: oklch(76% 0.13 252deg);
+  --accent-primary-hover: oklch(84% 0.12 286deg);
+  --accent-contrast: var(--bg-primary);
 
-  --link-default: var(--color-link-default);
-  --link-hover: var(--color-link-hover);
-  --link-visited: var(--color-link-visited);
+  /* Link colors */
+  --link-default: oklch(82% 0.13 286deg);
+  --link-hover: oklch(88% 0.1 286deg);
+  --link-visited: oklch(82% 0.12 252deg);
 
-  --border-default: var(--color-border-default);
-  --border-muted: var(--color-border-muted);
-  --border-strong: var(--color-border-strong);
+  /* Border colors */
+  --border-default: oklch(46% 0.075 252deg);
+  --border-muted: oklch(42% 0.067 252deg / 0.52);
+  --border-strong: oklch(62% 0.08 252deg);
 
   --page-background: var(--bg-primary);
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
