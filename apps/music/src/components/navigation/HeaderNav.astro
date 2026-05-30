@@ -185,7 +185,11 @@ const isActiveItem = (href: string) => {
   }
 
   .music-header-nav__icon {
-    display: none;
+    display: block;
+    flex: 0 0 auto;
+    inline-size: var(--music-header-nav-icon-size);
+    block-size: var(--music-header-nav-icon-size);
+    color: color-mix(in srgb, var(--music-header-nav-text) 72%, transparent);
   }
 
   .music-header-nav__chevron {
@@ -293,14 +297,10 @@ const isActiveItem = (href: string) => {
     }
 
     .music-header-nav__icon {
-      display: none;
       flex: 0 0 auto;
       inline-size: var(--music-header-nav-mobile-icon-size);
       block-size: var(--music-header-nav-mobile-icon-size);
-    }
-
-    .music-header-nav__link--search .music-header-nav__icon {
-      display: block;
+      color: var(--music-menu-muted);
     }
 
     .music-header-nav__chevron {

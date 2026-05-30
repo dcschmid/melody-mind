@@ -162,17 +162,17 @@ const homeNavItem: HeaderNavItem = {
 const albumsNavItem: HeaderNavItem = {
   href: "/#albums-list",
   label: "Albums",
-  icon: "music",
+  icon: "disc",
 };
 const genresNavItem: HeaderNavItem = {
   href: "/#genre-heading",
   label: "Genres",
-  icon: "sparkles",
+  icon: "tag",
 };
 const latestReleasesNavItem: HeaderNavItem = {
   href: "/#latest-releases",
   label: "Latest Releases",
-  icon: "sparkles",
+  icon: "flame",
 };
 const searchNavItem: HeaderNavItem = {
   href: "/?search=1",
@@ -190,8 +190,8 @@ const headerNavItems: HeaderNavItem[] = [
     ...(item.target ? { target: item.target } : {}),
     ...(item.rel ? { rel: item.rel } : {}),
   })),
-  searchNavItem,
   latestReleasesNavItem,
+  searchNavItem,
 ];
 const availableAlbums = await getAvailableAlbums();
 const getImageSource = (image: string | ImageMetadata): string =>
