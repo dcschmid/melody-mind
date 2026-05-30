@@ -6,10 +6,11 @@ import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(__dirname, "..");
+const appRoot = path.resolve(__dirname, "..");
+const repoRoot = path.resolve(appRoot, "../..");
 const require = createRequire(import.meta.url);
 const sharp = require(
-  require.resolve("sharp", { paths: [path.join(repoRoot, "apps/knowledge")] })
+  require.resolve("sharp", { paths: [appRoot, repoRoot] })
 );
 const WEBP_SOURCE_PATTERN = /\.(jpg|jpeg|png|avif|webp)$/iu;
 const DEFAULT_WEBP_QUALITY = 82;
@@ -28,11 +29,7 @@ const effort = Number.parseInt(effortArg?.split("=")[1] ?? "", 10) || DEFAULT_EF
 const tasks = [
   {
     name: "webp",
-    directories: [
-      "apps/knowledge/src/assets",
-      "apps/quiz/src/assets",
-      "apps/music/src/assets",
-    ],
+    directories: ["src/assets"],
     sourcePattern: WEBP_SOURCE_PATTERN,
     sourcePreference: ["jpg", "jpeg", "png", "avif", "webp"],
     toOutputPath: (filePath) =>
@@ -150,7 +147,7 @@ const main = async () => {
 
   for (const task of tasks) {
     const resolvedDirectories = task.directories.map((directory) =>
-      path.join(repoRoot, directory)
+      path.join(appRoot, directory)
     );
     const sourceFiles = dedupeSourceFiles(
       (

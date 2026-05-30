@@ -13,7 +13,7 @@
     "build": "pnpm build:music",
     "build:all": "turbo run build",
     "build:music": "turbo run build --filter=music",
-    "generate:webp-assets": "node scripts/generate-webp-assets.mjs",
+    "generate:webp-assets": "node apps/music/scripts/generate-webp-assets.mjs",
     "dev": "pnpm dev:music",
     "dev:music": "cd apps/music && pnpm dev",
     "preview": "turbo run preview --filter=music",

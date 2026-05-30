@@ -9,10 +9,6 @@ interface Props {
   title?: string;
   note?: string;
   copyAriaLabel?: string;
-  zipUrl?: string | undefined;
-  zipLabel?: string | undefined;
-  zipAriaLabel?: string | undefined;
-  zipFathomEvent?: string | undefined;
 }
 
 const {
@@ -23,10 +19,6 @@ const {
   title = "Share this article",
   note = "Choose one way to share this page.",
   copyAriaLabel = "Copy link to this page",
-  zipUrl,
-  zipLabel = "Download ZIP",
-  zipAriaLabel,
-  zipFathomEvent,
 } = Astro.props as Props;
 
 const shareTitle = `${contentTitle} | Melody Mind`;
@@ -88,24 +80,6 @@ const shareMailBody = encodeURIComponent(
       <Icon name="mail" class="share-section__button-icon" aria-hidden="true" />
       <span>Email</span>
     </a>
-    {
-      zipUrl ? (
-        <a
-          href={zipUrl}
-          download
-          class="share-section__button share-section__button--tertiary"
-          data-fathom-event={zipFathomEvent}
-          aria-label={zipAriaLabel || zipLabel}
-        >
-          <Icon
-            name="tabler:download"
-            class="share-section__button-icon"
-            aria-hidden="true"
-          />
-          <span>{zipLabel}</span>
-        </a>
-      ) : null
-    }
   </div>
 </section>
 

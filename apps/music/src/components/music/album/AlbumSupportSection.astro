@@ -64,20 +64,12 @@ const supportLinks = links.filter((link) => link.href && link.label);
     display: grid;
     gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
     align-items: center;
-    padding: clamp(var(--spacing-base), 3vw, var(--spacing-xl));
+    padding: clamp(var(--spacing-base), 2vw, var(--spacing-xl)) 0 0;
     color: var(--music-album-ink);
-    background:
-      linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--music-album-accent) 12%, transparent),
-        color-mix(in srgb, var(--music-album-paper-soft) 70%, transparent)
-      ),
-      color-mix(in srgb, var(--music-album-paper) 82%, transparent);
-    border: 1px solid color-mix(in srgb, var(--music-album-accent) 28%, transparent);
-    border-radius: var(--radius-md);
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--music-album-ink) 8%, transparent),
-      0 1rem 2rem oklch(5% 0.02 255deg / 0.2);
+    background: transparent;
+    border-block-start: 1px solid var(--music-album-line);
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .album-support__copy {
@@ -98,7 +90,7 @@ const supportLinks = links.filter((link) => link.href && link.label);
 
   .album-support__title {
     margin: 0;
-    font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
+    font-size: clamp(var(--font-size-md), 1.5vw, var(--font-size-lg));
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-tight);
     color: var(--music-album-ink);
@@ -107,7 +99,7 @@ const supportLinks = links.filter((link) => link.href && link.label);
   }
 
   .album-support__text {
-    max-inline-size: 58ch;
+    max-inline-size: 62ch;
     margin: 0;
     font-size: var(--font-size-sm);
     line-height: var(--line-height-relaxed);
@@ -181,7 +173,8 @@ const supportLinks = links.filter((link) => link.href && link.label);
 
   @media (width >= 760px) {
     .album-support {
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1fr);
+      gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
     }
 
     .album-support__actions {
@@ -191,7 +184,7 @@ const supportLinks = links.filter((link) => link.href && link.label);
 
   @media (width <= 520px) {
     .album-support {
-      padding-inline: var(--spacing-base);
+      padding-inline: 0;
       box-shadow: none;
     }
 

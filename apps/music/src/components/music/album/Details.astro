@@ -1,5 +1,6 @@
 ---
 import ShareSection from "@components/actions/ShareSection.astro";
+import Icon from "@components/visual/Icon.astro";
 
 interface Props {
   contentDescription: string;
@@ -57,11 +58,42 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
             title="Share this album"
             note="Copy the link or share it by email."
             copyAriaLabel="Copy link to this album"
-            zipUrl={zipUrl}
-            zipAriaLabel={`Download ${contentTitle} as ZIP`}
-            zipFathomEvent={`Album Download: ${contentTitle}`}
           />
         </div>
+      )}
+
+      {zipUrl && (
+        <section
+          class="album-detail-sections__download"
+          aria-labelledby="album-download-title"
+        >
+          <div class="album-detail-sections__download-copy">
+            <p class="album-detail-sections__download-eyebrow">Full album download</p>
+            <h2 id="album-download-title" class="album-detail-sections__download-title">
+              Download the complete album
+            </h2>
+            <p class="album-detail-sections__download-text">
+              Get the full ZIP package with tagged audio files, cover artwork, and album
+              metadata.
+            </p>
+          </div>
+          <div class="album-detail-sections__download-actions">
+            <a
+              href={zipUrl}
+              download
+              class="album-detail-sections__download-button"
+              data-fathom-event={`Album Download: ${contentTitle}`}
+              aria-label={`Download ${contentTitle} as a tagged album ZIP`}
+            >
+              <Icon
+                name="download"
+                class="album-detail-sections__download-icon"
+                aria-hidden="true"
+              />
+              <span>Download album ZIP</span>
+            </a>
+          </div>
+        </section>
       )}
     </div>
   )
@@ -93,11 +125,11 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
 
   .album-detail-sections__details {
     min-block-size: 0;
-    padding: var(--album-details-panel-padding);
-    background: color-mix(in srgb, var(--music-album-paper) 78%, transparent);
-    border: 1px solid var(--music-album-line);
-    border-radius: var(--album-details-radius);
-    box-shadow: var(--album-details-panel-shadow);
+    padding: clamp(var(--spacing-base), 2vw, var(--spacing-xl)) 0 0;
+    background: transparent;
+    border-block-start: 1px solid var(--music-album-line);
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .album-detail-sections__title {
@@ -111,7 +143,7 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
   }
 
   .album-detail-sections__deck {
-    max-inline-size: 52ch;
+    max-inline-size: 70ch;
     margin: var(--spacing-xs) 0 var(--spacing-base);
     font-size: 0.95rem;
     line-height: 1.55;
@@ -120,7 +152,7 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
   }
 
   .album-detail-sections__prose {
-    max-inline-size: 68ch;
+    max-inline-size: 86ch;
     font-size: clamp(var(--font-size-base), 1vw, var(--font-size-lg));
     line-height: var(--line-height-loose);
     color: var(--album-details-prose-color);
@@ -232,9 +264,124 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
     scroll-margin-block-start: 6rem;
   }
 
+  .album-detail-sections__share :global(.share-section) {
+    padding-block: clamp(var(--spacing-base), 2vw, var(--spacing-xl)) 0;
+    border-block-start: 1px solid var(--music-album-line);
+  }
+
+  .album-detail-sections__download {
+    display: grid;
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+    align-items: center;
+    padding-block: clamp(var(--spacing-base), 2vw, var(--spacing-xl)) 0;
+    color: var(--music-album-ink);
+    scroll-margin-block-start: 6rem;
+    border-block-start: 1px solid var(--music-album-line);
+  }
+
+  .album-detail-sections__download-copy {
+    display: grid;
+    gap: var(--spacing-xs);
+    min-inline-size: 0;
+  }
+
+  .album-detail-sections__download-eyebrow {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    color: var(--music-album-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .album-detail-sections__download-title {
+    margin: 0;
+    font-size: clamp(var(--font-size-md), 1.5vw, var(--font-size-lg));
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--music-album-ink);
+    letter-spacing: var(--letter-spacing-normal);
+    text-wrap: balance;
+  }
+
+  .album-detail-sections__download-text {
+    max-inline-size: 62ch;
+    margin: 0;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--music-album-muted);
+    text-wrap: pretty;
+  }
+
+  .album-detail-sections__download-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .album-detail-sections__download-button {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--button-text-accent);
+    text-decoration: none;
+    background: var(--music-album-accent);
+    border: 1px solid var(--music-album-accent);
+    border-radius: var(--radius-base);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .album-detail-sections__download-button:hover,
+  .album-detail-sections__download-button:focus-visible {
+    background: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .album-detail-sections__download-button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--music-album-accent);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .album-detail-sections__download-icon {
+    flex: 0 0 auto;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
+  }
+
   @media (width >= 880px) {
-    .album-detail-sections {
-      grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.75fr);
+    .album-detail-sections__share :global(.share-section),
+    .album-detail-sections__download {
+      grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1fr);
+      gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+      align-items: end;
+    }
+
+    .album-detail-sections__share :global(.share-section__actions),
+    .album-detail-sections__download-actions {
+      justify-content: flex-end;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .album-detail-sections__download-button {
+      transition: none;
+    }
+
+    .album-detail-sections__download-button:hover,
+    .album-detail-sections__download-button:focus-visible {
+      transform: none;
     }
   }
 
@@ -245,9 +392,9 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
 
     .album-detail-sections__details {
       padding: 0;
-      background: color-mix(in srgb, var(--music-album-paper) 62%, transparent);
-      border-radius: var(--album-details-radius);
-      box-shadow: none;
+      background: transparent;
+      border-block-start: 0;
+      border-radius: 0;
     }
 
     .album-detail-sections__title {
