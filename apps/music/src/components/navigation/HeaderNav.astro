@@ -178,36 +178,6 @@ const isActiveItem = (href: string) => {
     outline-offset: var(--focus-ring-offset);
   }
 
-  :global([data-theme="light"]) .music-header-nav__link {
-    --music-header-nav-accent: var(--accent-primary);
-    --music-header-nav-accent-secondary: var(--accent-strong);
-    --music-header-nav-hover-text: var(--link-hover);
-    --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 54%, transparent);
-    --music-header-nav-search-border: color-mix(
-      in srgb,
-      var(--border-default) 26%,
-      transparent
-    );
-    --music-header-nav-search-hover-bg: color-mix(
-      in srgb,
-      var(--surface-3) 48%,
-      transparent
-    );
-    --music-header-nav-search-hover-border: color-mix(
-      in srgb,
-      var(--accent-primary) 42%,
-      transparent
-    );
-    --music-header-nav-text: var(--text-primary);
-
-    color: var(--music-header-nav-text);
-  }
-
-  :global([data-theme="light"]) .music-header-nav__link:focus,
-  :global([data-theme="light"]) .music-header-nav__link[aria-current="page"] {
-    color: var(--music-header-nav-hover-text);
-  }
-
   .music-header-nav__link:focus-visible::after,
   .music-header-nav__link[aria-current="page"]::after {
     opacity: 1;
@@ -257,18 +227,6 @@ const isActiveItem = (href: string) => {
   }
 
   .music-header-nav__link--search:focus {
-    color: var(--music-header-nav-hover-text);
-    background: var(--music-header-nav-search-hover-bg);
-    border-color: var(--music-header-nav-search-hover-border);
-  }
-
-  :global([data-theme="light"]) .music-header-nav__link--search {
-    color: var(--music-header-nav-text);
-    background: var(--music-header-nav-search-bg);
-    border-color: var(--music-header-nav-search-border);
-  }
-
-  :global([data-theme="light"]) .music-header-nav__link--search:focus {
     color: var(--music-header-nav-hover-text);
     background: var(--music-header-nav-search-hover-bg);
     border-color: var(--music-header-nav-search-hover-border);
@@ -389,10 +347,7 @@ const isActiveItem = (href: string) => {
   @media (hover: hover) and (pointer: fine) {
     .music-header-nav__link:hover,
     .music-header-nav__link:focus,
-    .music-header-nav__link[aria-current="page"],
-    :global([data-theme="light"]) .music-header-nav__link:focus,
-    :global([data-theme="light"]) .music-header-nav__link[aria-current="page"],
-    :global([data-theme="light"]) .music-header-nav__link:hover {
+    .music-header-nav__link[aria-current="page"] {
       color: var(--music-header-nav-hover-text);
     }
 
@@ -404,9 +359,7 @@ const isActiveItem = (href: string) => {
     }
 
     .music-header-nav__link--search:hover,
-    .music-header-nav__link--search:focus,
-    :global([data-theme="light"]) .music-header-nav__link--search:focus,
-    :global([data-theme="light"]) .music-header-nav__link--search:hover {
+    .music-header-nav__link--search:focus {
       color: var(--music-header-nav-hover-text);
       background: var(--music-header-nav-search-hover-bg);
       border-color: var(--music-header-nav-search-hover-border);

@@ -4,7 +4,7 @@
  * These constants define the lightweight event contract used for browser-only
  * communication between otherwise decoupled modules, for example:
  * - interactive UI components notifying surrounding code,
- * - theme and search changes propagating across the page.
+ * - search changes propagating across the page.
  *
  * Keeping event names here avoids string drift, makes cross-package event usage
  * easier to grep, and provides a single place to document naming intent.
@@ -13,28 +13,12 @@
  */
 
 /**
- * Theme synchronization events for propagating light/dark preference changes.
- *
- * This event is emitted by theme initialization and manual theme toggles so
- * listeners can respond without directly depending on storage implementation.
- */
-export const THEME_EVENTS = {
-  /** Fired whenever the active theme changes, including system-driven and manual changes. */
-  CHANGED: "theme:change",
-} as const;
-
-type EventValues<T extends Record<string, string>> = T[keyof T];
-
-/**
  * Union of all supported shared event names.
  *
  * Useful for typed helpers and for constraining callers to the curated event
  * contract defined in this module.
  */
-type EventName =
-  | EventValues<typeof THEME_EVENTS>
-  | "search:performed"
-  | "search:result-click";
+type EventName = "search:performed" | "search:result-click";
 
 /**
  * Dispatches a typed browser `CustomEvent` on `window`.

@@ -156,14 +156,10 @@ const statusBadgeColorMap = {
     display: grid;
     gap: var(--spacing-xl);
     padding: var(--spacing-2xl) 0;
-    background: color-mix(in srgb, var(--color-accent-primary) 4%, var(--surface-1));
-  }
-
-  :global([data-theme="dark"]) .static-page-hero {
     background: color-mix(
       in srgb,
-      var(--color-dark-accent-primary) 8%,
-      var(--color-dark-surface-1)
+      var(--color-accent-primary) 8%,
+      var(--color-surface-1)
     );
   }
 
@@ -205,20 +201,15 @@ const statusBadgeColorMap = {
     padding: var(--spacing-sm) var(--spacing-base);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    color: var(--accent-strong);
+    color: var(--color-accent-strong);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-widest);
-    background: color-mix(in srgb, var(--color-accent-primary) 8%, var(--surface-1));
-    border-radius: var(--radius-sm);
-  }
-
-  :global([data-theme="dark"]) .static-page-hero__badge {
-    color: var(--color-dark-accent-strong);
     background: color-mix(
       in srgb,
-      var(--color-dark-accent-primary) 12%,
-      var(--color-dark-surface-1)
+      var(--color-accent-primary) 12%,
+      var(--color-surface-1)
     );
+    border-radius: var(--radius-sm);
   }
 
   .static-page-hero__status-badge {
@@ -302,15 +293,12 @@ const statusBadgeColorMap = {
     position: relative;
     align-content: start;
     padding: var(--spacing-base) 0;
+    background: transparent;
     border-bottom: 1px solid var(--surface-border-soft);
   }
 
   .static-page-hero__highlight:last-child {
     border-bottom: none;
-  }
-
-  :global([data-theme="dark"]) .static-page-hero__highlight {
-    background: transparent;
   }
 
   .static-page-hero__highlight-accent {

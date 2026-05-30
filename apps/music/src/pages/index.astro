@@ -275,13 +275,13 @@ const structuredData = [
   }
 
   .music-home {
-    --music-home-accent: oklch(40% 0.13 16deg);
-    --music-home-accent-strong: oklch(38% 0.125 16deg);
-    --music-home-paper: oklch(98% 0.014 75deg);
-    --music-home-paper-soft: oklch(94% 0.032 70deg);
-    --music-home-ink: oklch(19% 0.025 52deg);
-    --music-home-muted: oklch(39% 0.033 55deg);
-    --music-home-line: oklch(83% 0.043 67deg);
+    --music-home-accent: oklch(78% 0.16 286deg);
+    --music-home-accent-strong: oklch(80% 0.13 252deg);
+    --music-home-paper: oklch(18% 0.037 255deg);
+    --music-home-paper-soft: oklch(22% 0.041 252deg);
+    --music-home-ink: oklch(96% 0.012 72deg);
+    --music-home-muted: oklch(76% 0.036 252deg);
+    --music-home-line: oklch(36% 0.055 252deg);
 
     inline-size: min(100%, 100vw);
     max-inline-size: 100vw;
@@ -295,16 +295,6 @@ const structuredData = [
   .music-home *::before,
   .music-home *::after {
     box-sizing: border-box;
-  }
-
-  :global([data-theme="dark"]) .music-home {
-    --music-home-accent: oklch(78% 0.16 286deg);
-    --music-home-accent-strong: oklch(80% 0.13 252deg);
-    --music-home-paper: oklch(18% 0.037 255deg);
-    --music-home-paper-soft: oklch(22% 0.041 252deg);
-    --music-home-ink: oklch(96% 0.012 72deg);
-    --music-home-muted: oklch(76% 0.036 252deg);
-    --music-home-line: oklch(36% 0.055 252deg);
   }
 
   .music-home__content {

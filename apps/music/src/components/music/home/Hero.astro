@@ -92,7 +92,7 @@ const HERO_COVER_IMAGE_SIZES =
 
 <style>
   .music-home-hero {
-    --music-home-hero-button-shadow: 0 1rem 2rem oklch(37% 0.13 16deg / 0.2);
+    --music-home-hero-button-shadow: 0 1rem 2rem oklch(36% 0.17 270deg / 0.3);
     --music-home-hero-card-shadow: 0 1.5rem 3rem oklch(18% 0.032 45deg / 0.22);
     --music-home-hero-title-shadow: 0 0.1rem 0.8rem oklch(0% 0 0deg / 0.65);
     --music-home-hero-title-scrim: oklch(0% 0 0deg / 0.72);
@@ -107,10 +107,6 @@ const HERO_COVER_IMAGE_SIZES =
       clamp(1rem, 3vw, 2.25rem);
     overflow: hidden;
     isolation: isolate;
-  }
-
-  :global([data-theme="dark"]) .music-home-hero {
-    --music-home-hero-button-shadow: 0 1rem 2rem oklch(36% 0.17 270deg / 0.3);
   }
 
   .music-home-hero__copy {
@@ -187,24 +183,15 @@ const HERO_COVER_IMAGE_SIZES =
   }
 
   .music-home-hero__button--primary {
-    color: oklch(98% 0.014 75deg);
+    color: var(--music-home-paper);
     background-color: var(--music-home-accent);
     box-shadow: var(--music-home-hero-button-shadow);
   }
 
-  :global([data-theme="dark"]) .music-home-hero__button--primary {
-    color: var(--music-home-paper);
-    background-color: var(--music-home-accent);
-  }
-
   .music-home-hero__button--ghost {
     color: var(--music-home-ink);
-    background: oklch(100% 0 0deg / 0.32);
-    border-color: var(--music-home-line);
-  }
-
-  :global([data-theme="dark"]) .music-home-hero__button--ghost {
     background: oklch(18% 0.037 255deg / 0.44);
+    border-color: var(--music-home-line);
   }
 
   .music-home-hero__button-icon {
@@ -251,14 +238,9 @@ const HERO_COVER_IMAGE_SIZES =
     block-size: 100%;
     aspect-ratio: 1 / 1;
     outline: 1px solid oklch(0% 0 0deg / 0.1);
+    outline-color: oklch(100% 0 0deg / 0.1);
     outline-offset: -1px;
     object-fit: cover;
-  }
-
-  :global([data-theme="dark"])
-    .music-home-hero__showcase-card
-    :global(.music-home-hero__showcase-image) {
-    outline-color: oklch(100% 0 0deg / 0.1);
   }
 
   .music-home-hero__showcase-title {

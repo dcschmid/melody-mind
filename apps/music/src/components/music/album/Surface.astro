@@ -8,13 +8,13 @@
 
 <style>
   .album-page-surface {
-    --music-album-accent: oklch(40% 0.13 16deg);
-    --music-album-accent-strong: oklch(38% 0.125 16deg);
-    --music-album-paper: oklch(98% 0.014 75deg);
-    --music-album-paper-soft: oklch(94% 0.032 70deg);
-    --music-album-ink: oklch(19% 0.025 52deg);
-    --music-album-muted: oklch(39% 0.033 55deg);
-    --music-album-line: oklch(83% 0.043 67deg);
+    --music-album-accent: oklch(78% 0.16 286deg);
+    --music-album-accent-strong: oklch(80% 0.13 252deg);
+    --music-album-paper: oklch(18% 0.037 255deg);
+    --music-album-paper-soft: oklch(22% 0.041 252deg);
+    --music-album-ink: oklch(96% 0.012 72deg);
+    --music-album-muted: oklch(76% 0.036 252deg);
+    --music-album-line: oklch(36% 0.055 252deg);
 
     position: relative;
     inline-size: min(100%, 100vw);
@@ -30,16 +30,6 @@
   .album-page-surface *::before,
   .album-page-surface *::after {
     box-sizing: border-box;
-  }
-
-  :global([data-theme="dark"]) .album-page-surface {
-    --music-album-accent: oklch(78% 0.16 286deg);
-    --music-album-accent-strong: oklch(80% 0.13 252deg);
-    --music-album-paper: oklch(18% 0.037 255deg);
-    --music-album-paper-soft: oklch(22% 0.041 252deg);
-    --music-album-ink: oklch(96% 0.012 72deg);
-    --music-album-muted: oklch(76% 0.036 252deg);
-    --music-album-line: oklch(36% 0.055 252deg);
   }
 
   .album-page-surface__content {

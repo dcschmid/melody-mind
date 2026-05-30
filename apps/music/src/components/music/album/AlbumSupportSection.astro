@@ -75,7 +75,9 @@ const supportLinks = links.filter((link) => link.href && link.label);
       color-mix(in srgb, var(--music-album-paper) 82%, transparent);
     border: 1px solid color-mix(in srgb, var(--music-album-accent) 28%, transparent);
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--music-album-ink) 8%, transparent),
+      0 1rem 2rem oklch(5% 0.02 255deg / 0.2);
   }
 
   .album-support__copy {
@@ -164,12 +166,6 @@ const supportLinks = links.filter((link) => link.href && link.label);
 
   .album-support__external-icon {
     opacity: 0.72;
-  }
-
-  :global([data-theme="dark"]) .album-support {
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--music-album-ink) 8%, transparent),
-      0 1rem 2rem oklch(5% 0.02 255deg / 0.2);
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
