@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { resolvePageUrl } from "@utils/siteUrls";
 import { getCollection, getEntry, render } from "astro:content";
 import { getAlbumCoverImage, getAlbumCoverImageUrl } from "../utils/musicImages";
-import { getRelatedAlbums } from "../utils/albumDiscovery";
+import { getAlbumDiscoveryMeta, getRelatedAlbums } from "../utils/albumDiscovery";
 import { buildMusicAlbumSchema } from "../utils/musicSeo";
 import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
@@ -55,10 +55,18 @@ const albumCoverImage = getAlbumCoverImage(currentAlbum.coverImage);
 const albumCoverImageUrl = getAlbumCoverImageUrl(currentAlbum.coverImage);
 const albumCoverPlayerImageUrl =
   typeof albumCoverImage === "string" ? albumCoverImage : albumCoverImage.src;
+const discoveryMeta = getAlbumDiscoveryMeta({
+  id: currentAlbumId,
+  ...currentAlbum,
+  body: entry.body,
+});
 const albumFacts = [
   ...(currentAlbum.genre ? [{ label: "Genre", value: currentAlbum.genre }] : []),
-  ...(currentAlbum.moods.length
-    ? [{ label: "Mood", value: currentAlbum.moods.slice(0, 2).join(" · ") }]
+  ...(discoveryMeta.moods.length
+    ? [{ label: "Mood", value: discoveryMeta.moods.slice(0, 2).join(" · ") }]
+    : []),
+  ...(discoveryMeta.language
+    ? [{ label: "Language", value: discoveryMeta.language }]
     : []),
   { label: "Tracks", value: songs.length },
   ...(totalDuration > 0

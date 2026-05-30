@@ -22,7 +22,6 @@ const { coverImage, coverImageHeight, coverImageWidth, description, facts, id, t
   Astro.props;
 
 const genreFact = facts.find((fact) => fact.label === "Genre");
-const visibleFacts = facts.filter((fact) => fact.label !== "Genre");
 const titleId = `album-page-title-${id}`;
 ---
 
@@ -58,7 +57,7 @@ const titleId = `album-page-title-${id}`;
 
     <ul class="album-hero__facts" aria-label="Album facts">
       {
-        visibleFacts.map((fact) => (
+        facts.map((fact) => (
           <li class="album-hero__fact">
             <span class="album-hero__fact-label">{fact.label}</span>
             <span class="album-hero__fact-value">{fact.value}</span>
@@ -176,41 +175,59 @@ const titleId = `album-page-title-${id}`;
 
   .album-hero__facts {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, max-content));
-    gap: 0 clamp(var(--spacing-lg), 4vw, var(--spacing-3xl));
-    align-items: start;
-    padding: 0;
+    grid-template-columns: repeat(auto-fit, minmax(min(8.75rem, 100%), 1fr));
+    gap: 1px;
+    align-items: stretch;
+    padding: 1px;
     margin: 0;
+    overflow: hidden;
     color: var(--album-hero-muted);
     list-style: none;
-    border-block-start: 1px solid var(--album-hero-line);
+    background: color-mix(in srgb, var(--album-hero-line) 64%, transparent);
+    border: 1px solid color-mix(in srgb, var(--album-hero-line) 84%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow: 0 1rem 2.4rem
+      color-mix(in srgb, var(--music-album-shadow, rgb(0 0 0)) 14%, transparent);
   }
 
   .album-hero__fact {
     display: grid;
-    gap: var(--spacing-2xs);
+    gap: calc(var(--spacing-2xs) + 0.05rem);
+    align-content: center;
     min-inline-size: 0;
-    padding-block-start: var(--spacing-sm);
+    min-block-size: 4.55rem;
+    padding: var(--spacing-sm) var(--spacing-base);
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--music-album-paper-soft) 36%, transparent),
+        color-mix(in srgb, var(--music-album-paper) 58%, transparent)
+      ),
+      color-mix(in srgb, var(--music-album-paper) 76%, transparent);
   }
 
   .album-hero__fact-label {
-    font-size: 0.76rem;
+    font-size: 0.68rem;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1;
     color: var(--album-hero-accent);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     white-space: nowrap;
   }
 
   .album-hero__fact-value {
     min-inline-size: 0;
-    font-size: 0.92rem;
+    font-size: clamp(0.94rem, 0.9rem + 0.18vw, 1.08rem);
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-    line-height: 1.25;
+    line-height: 1.18;
     color: var(--album-hero-ink);
     overflow-wrap: anywhere;
+  }
+
+  .album-hero__fact:nth-child(2) {
+    min-inline-size: min(100%, 13rem);
   }
 
   @media (width <= 760px) {
@@ -274,7 +291,7 @@ const titleId = `album-page-title-${id}`;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       grid-column: 1 / -1;
-      gap: var(--spacing-sm);
+      gap: 1px;
       inline-size: 100%;
       max-inline-size: calc(100vw - 2rem);
       margin-block-start: var(--spacing-2xs);
@@ -283,12 +300,18 @@ const titleId = `album-page-title-${id}`;
     .album-hero__fact {
       gap: var(--spacing-xs);
       min-inline-size: 0;
-      padding-block-start: var(--spacing-sm);
+      min-block-size: 4.2rem;
+      padding: var(--spacing-sm);
     }
 
-    .album-hero__fact-label,
-    .album-hero__fact-value {
+    .album-hero__fact-label {
       font-size: clamp(0.74rem, 2.4vw, 0.8rem);
+      overflow-wrap: anywhere;
+      white-space: normal;
+    }
+
+    .album-hero__fact-value {
+      font-size: clamp(0.82rem, 2.8vw, 0.94rem);
       overflow-wrap: anywhere;
       white-space: normal;
     }
@@ -329,6 +352,14 @@ const titleId = `album-page-title-${id}`;
     .album-hero__description,
     .album-hero__facts {
       grid-column: 2;
+    }
+  }
+
+  @media (width >= 1120px) {
+    .album-hero__facts {
+      grid-template-columns:
+        minmax(8rem, 0.9fr) minmax(13rem, 1.35fr) minmax(8rem, 0.9fr)
+        minmax(5.5rem, 0.65fr) minmax(5.5rem, 0.65fr);
     }
   }
 </style>

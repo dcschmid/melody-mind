@@ -106,6 +106,7 @@ const albumEntries: Entry[] = sortedAlbums.map((album) => {
     publishedAtTime: new Date(album.publishedAt).getTime(),
     genre: album.genre,
     mainGenre: album.mainGenre,
+    trackCount: album.songs.length,
     totalDurationSeconds,
     totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
     isVisible: isAlbumVisibleForGenre(album.mainGenre),

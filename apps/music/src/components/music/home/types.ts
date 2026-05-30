@@ -14,6 +14,7 @@ export interface Entry {
   publishedAtTime: number;
   genre: string | undefined;
   mainGenre: string | undefined;
+  trackCount: number;
   totalDurationSeconds: number;
   totalDurationLabel: string;
   isVisible: boolean;

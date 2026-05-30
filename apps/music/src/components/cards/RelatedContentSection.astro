@@ -32,7 +32,7 @@ const defaultCoverImage = "/default-cover.jpg";
 
 {
   items.length ? (
-    <section class="related-content-section" aria-labelledby={titleId}>
+    <section class="related-content-section" id={id} aria-labelledby={titleId}>
       <Stack className="related-content-section__header" gap="base">
         <Stack className="related-content-section__copy-block" gap="xs">
           <p class="related-content-section__eyebrow">{eyebrow}</p>
@@ -58,21 +58,24 @@ const defaultCoverImage = "/default-cover.jpg";
           <li class="related-content-section__item">
             <ContentCard
               id={item.id}
+              class="related-content-section__card"
               dataTestId="related-content-card"
               href={item.href}
               variant="default"
               size="compact"
+              mediaAspectRatio="1 / 1"
               mediaObjectFit={mediaObjectFit}
               imageSrc={item.imageSrc || defaultCoverImage}
               imageAlt={
                 item.imageAlt ?? (item.imageSrc ? `Cover image for ${item.title}` : "")
               }
               imageWidth={1024}
-              imageHeight={683}
+              imageHeight={1024}
+              imageSizes="(min-width: 80rem) 18rem, (min-width: 64rem) 28vw, (min-width: 40rem) 42vw, 92vw"
               title={item.title}
               description={item.description}
               metaItems={item.metaItems || []}
-              descriptionLineClamp={3}
+              descriptionLineClamp={2}
               ctaSrText={item.ctaSrText || "Opens content"}
             />
           </li>
@@ -146,6 +149,146 @@ const defaultCoverImage = "/default-cover.jpg";
 
     .related-content-section__header {
       gap: var(--spacing-md);
+    }
+  }
+</style>
+
+<style is:global>
+  .related-content-section__card {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-panel-raised) 92%, var(--accent-primary) 8%),
+        var(--surface-panel-raised) 54%
+      ),
+      var(--surface-panel-raised);
+    border-color: color-mix(in srgb, var(--surface-border-accent) 64%, transparent);
+    border-radius: var(--radius-md);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--surface-1) 58%, transparent),
+      0 1.2rem 2.7rem color-mix(in srgb, var(--surface-shadow) 18%, transparent);
+  }
+
+  .related-content-section__card.content-card--interactive:hover,
+  .related-content-section__card.content-card--interactive:focus-within {
+    border-color: color-mix(
+      in srgb,
+      var(--accent-primary) 56%,
+      var(--surface-border-accent)
+    );
+    transform: translateY(-3px);
+  }
+
+  .related-content-section__card .content-card__media {
+    background: color-mix(
+      in srgb,
+      var(--surface-panel-raised) 82%,
+      var(--text-primary) 18%
+    );
+    border-block-end-color: color-mix(
+      in srgb,
+      var(--surface-border-accent) 54%,
+      transparent
+    );
+  }
+
+  .related-content-section__card .content-card__media::after {
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(180deg, transparent 62%, rgb(0 0 0 / 28%));
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 8%);
+  }
+
+  .related-content-section__card .content-card__body {
+    gap: var(--spacing-sm);
+    padding: clamp(var(--spacing-base), 1.6vw, var(--spacing-lg));
+  }
+
+  .related-content-section__card .content-card__title {
+    font-size: clamp(1rem, 0.94rem + 0.32vw, 1.16rem);
+    line-height: 1.16;
+    letter-spacing: 0;
+  }
+
+  .related-content-section__card .content-card__description {
+    font-size: clamp(0.88rem, 0.84rem + 0.18vw, 0.98rem);
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--text-secondary) 90%, var(--text-primary) 10%);
+  }
+
+  .related-content-section__card .content-card__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm) var(--spacing-base);
+    padding-block-start: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+
+  .related-content-section__card .content-card__meta-item {
+    gap: var(--spacing-xs);
+    min-inline-size: 0;
+    color: color-mix(in srgb, var(--text-secondary) 88%, var(--text-primary) 12%);
+  }
+
+  .related-content-section__card .content-card__meta-item:first-child {
+    grid-column: 1 / -1;
+    inline-size: fit-content;
+    max-inline-size: 100%;
+    padding: 0.32rem 0.56rem;
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 24%, transparent);
+    border-radius: var(--radius-full);
+  }
+
+  .related-content-section__card .content-card__meta-item span {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .related-content-section__card .content-card__meta-icon {
+    inline-size: var(--icon-size-xs);
+    block-size: var(--icon-size-xs);
+  }
+
+  @media (width < 40rem) {
+    .related-content-section__card .content-card__content {
+      display: grid;
+      grid-template-columns: minmax(5.75rem, 7.5rem) minmax(0, 1fr);
+      align-items: stretch;
+    }
+
+    .related-content-section__card .content-card__media {
+      border-block-end: 0;
+      border-inline-end: 1px solid
+        color-mix(in srgb, var(--surface-border-accent) 48%, transparent);
+    }
+
+    .related-content-section__card .content-card__body {
+      min-inline-size: 0;
+      padding: var(--spacing-sm);
+    }
+
+    .related-content-section__card .content-card__description {
+      display: none;
+    }
+
+    .related-content-section__card .content-card__meta {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xs);
+      padding-block-start: var(--spacing-xs);
+    }
+
+    .related-content-section__card .content-card__meta-item:first-child {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
     }
   }
 </style>

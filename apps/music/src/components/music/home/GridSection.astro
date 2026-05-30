@@ -1,6 +1,6 @@
 ---
 import EmptyState from "@components/layout/EmptyState.astro";
-import OptimizedImage from "@components/media/OptimizedImage.astro";
+import ContentCard from "@components/cards/ContentCard.astro";
 import SectionHeader from "@components/layout/SectionHeader.astro";
 import { getAlbumVisibleCountLabel } from "./albumGridLabels";
 import type { Entry } from "./types";
@@ -15,9 +15,8 @@ interface Props {
 
 const { albums, emptyDescription, initialGenreValue, initialVisibleAlbumCount, title } =
   Astro.props;
-const GRID_COVER_IMAGE_WIDTHS = [160, 240, 320, 480];
 const GRID_COVER_IMAGE_SIZES =
-  "(max-width: 440px) calc((100vw - 3.25rem) / 2), (max-width: 760px) calc((100vw - 4rem) / 3), (max-width: 1180px) calc((100vw - 7rem) / 4), min(13rem, calc((100vw - 10rem) / 6))";
+  "(max-width: 640px) 7.5rem, (max-width: 760px) 44vw, (max-width: 1180px) 28vw, min(18rem, calc((100vw - 10rem) / 5))";
 ---
 
 <section class="album-grid-section" aria-labelledby="albums-heading">
@@ -49,29 +48,32 @@ const GRID_COVER_IMAGE_SIZES =
           hidden={!album.isVisible}
           aria-hidden={album.isVisible ? "false" : "true"}
         >
-          <a
+          <ContentCard
             id={`album-card-${album.id}`}
             class="album-grid-section__card"
             href={`/${album.id}`}
-          >
-            <OptimizedImage
-              src={album.imageSrc}
-              alt={`Cover art for the album ${album.title}`}
-              class="album-grid-section__image"
-              width={320}
-              height={320}
-              widths={GRID_COVER_IMAGE_WIDTHS}
-              sizes={GRID_COVER_IMAGE_SIZES}
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="album-grid-section__body">
-              {album.genre && (
-                <span class="album-grid-section__kicker">{album.genre}</span>
-              )}
-              <span class="album-grid-section__title">{album.title}</span>
-            </span>
-          </a>
+            dataTestId="album-grid-card"
+            variant="default"
+            size="compact"
+            mediaAspectRatio="1 / 1"
+            mediaObjectFit="cover"
+            imageSrc={album.imageSrc}
+            imageAlt={`Cover art for the album ${album.title}`}
+            imageWidth={1024}
+            imageHeight={1024}
+            imageSizes={GRID_COVER_IMAGE_SIZES}
+            title={album.title}
+            description={album.description}
+            metaItems={[
+              ...(album.genre ? [{ iconName: "disc" as const, label: album.genre }] : []),
+              { iconName: "music" as const, label: `${album.trackCount} tracks` },
+              ...(album.totalDurationLabel
+                ? [{ iconName: "clock" as const, label: album.totalDurationLabel }]
+                : []),
+            ]}
+            descriptionLineClamp={2}
+            ctaSrText={`Open album ${album.title}`}
+          />
         </li>
       ))
     }
@@ -210,13 +212,8 @@ const GRID_COVER_IMAGE_SIZES =
 <style>
   .album-grid-section {
     --album-card-gap: clamp(1rem, 1.6vw, 1.4rem);
-    --album-card-radius: 0.75rem;
-    --album-card-space: 0.75rem;
-    --album-card-space-compact: 0.625rem;
+    --album-card-radius: var(--radius-md);
     --album-card-results-size: 0.84rem;
-    --album-card-kicker-size: 0.68rem;
-    --album-card-title-size: 1rem;
-    --album-card-title-size-compact: 0.94rem;
     --album-card-bg: color-mix(in srgb, var(--music-home-paper) 86%, transparent);
     --album-card-bg-hover: color-mix(
       in srgb,
@@ -232,11 +229,6 @@ const GRID_COVER_IMAGE_SIZES =
       in srgb,
       var(--music-home-line) 78%,
       var(--music-home-accent) 22%
-    );
-    --album-card-inner-border: color-mix(
-      in srgb,
-      var(--music-home-paper) 74%,
-      transparent
     );
     --album-card-lift: -0.06rem;
     --album-card-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -273,69 +265,6 @@ const GRID_COVER_IMAGE_SIZES =
     display: none;
   }
 
-  .album-grid-section__card {
-    display: grid;
-    grid-template-rows: auto auto;
-    overflow: hidden;
-    color: var(--music-home-ink);
-    text-decoration: none;
-    background-color: var(--album-card-bg);
-    border: 2px solid var(--album-card-border);
-    border-radius: var(--album-card-radius);
-    box-shadow: inset 0 0 0 1px var(--album-card-inner-border);
-  }
-
-  .album-grid-section__card:hover,
-  .album-grid-section__card:focus-visible {
-    background-color: var(--album-card-bg-hover);
-    border-color: var(--album-card-border-hover);
-  }
-
-  .album-grid-section__card :global(.album-grid-section__image) {
-    display: block;
-    inline-size: 100%;
-    block-size: auto;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    outline: 1px solid rgba(0, 0, 0, 0.1);
-    outline-color: rgba(255, 255, 255, 0.1);
-    outline-offset: -1px;
-    object-fit: cover;
-  }
-
-  .album-grid-section__body {
-    display: grid;
-    grid-template-rows: auto auto;
-    gap: 0.32rem;
-    min-inline-size: 0;
-    padding: var(--album-card-space);
-  }
-
-  .album-grid-section__kicker {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: var(--album-card-kicker-size);
-    font-weight: 900;
-    line-height: 1.15;
-    color: var(--music-home-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-  }
-
-  .album-grid-section__title {
-    display: -webkit-box;
-    min-block-size: 2.3em;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    font-family: var(--font-sans);
-    font-size: var(--album-card-title-size);
-    font-weight: 600;
-    line-height: 1.15;
-    -webkit-box-orient: vertical;
-    text-wrap: balance;
-  }
-
   .album-grid-section__card:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
@@ -349,28 +278,15 @@ const GRID_COVER_IMAGE_SIZES =
 
   @media (width <= 760px) {
     .album-grid-section__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.75rem;
       min-inline-size: 0;
-    }
-
-    .album-grid-section__body {
-      grid-template-rows: auto auto;
-      padding: var(--album-card-space-compact);
-    }
-
-    .album-grid-section__title {
-      font-size: var(--album-card-title-size-compact);
     }
   }
 
   @media (width <= 440px) {
     .album-grid-section__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .album-grid-section__body {
-      grid-template-rows: auto auto;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
@@ -382,10 +298,6 @@ const GRID_COVER_IMAGE_SIZES =
         border-color 160ms var(--album-card-ease-out);
     }
 
-    .album-grid-section__card :global(.album-grid-section__image) {
-      transition: transform 220ms var(--album-card-ease-out);
-    }
-
     .album-grid-section__card:active {
       transform: scale(0.985);
     }
@@ -395,11 +307,153 @@ const GRID_COVER_IMAGE_SIZES =
       .album-grid-section__card:hover {
         transform: translateY(var(--album-card-lift));
       }
+    }
+  }
+</style>
 
-      .album-grid-section__card:hover :global(.album-grid-section__image),
-      .album-grid-section__card:focus-visible :global(.album-grid-section__image) {
-        transform: scale(1.025);
-      }
+<style is:global>
+  .album-grid-section__card {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(
+          in srgb,
+          var(--music-home-paper-soft) 84%,
+          var(--music-home-accent) 16%
+        ),
+        var(--album-card-bg) 56%
+      ),
+      var(--album-card-bg);
+    border-color: var(--album-card-border);
+    border-radius: var(--album-card-radius);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--music-home-ink) 10%, transparent),
+      0 1rem 2.3rem color-mix(in srgb, var(--surface-shadow) 18%, transparent);
+  }
+
+  .album-grid-section__card.content-card--interactive:hover,
+  .album-grid-section__card.content-card--interactive:focus-within {
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(
+          in srgb,
+          var(--music-home-paper-soft) 78%,
+          var(--music-home-accent) 22%
+        ),
+        var(--album-card-bg-hover) 56%
+      ),
+      var(--album-card-bg-hover);
+    border-color: var(--album-card-border-hover);
+  }
+
+  .album-grid-section__card .content-card__media {
+    background: color-mix(
+      in srgb,
+      var(--music-home-paper-soft) 86%,
+      var(--music-home-ink) 14%
+    );
+    border-block-end-color: color-mix(in srgb, var(--music-home-line) 58%, transparent);
+  }
+
+  .album-grid-section__card .content-card__media::after {
+    position: absolute;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(180deg, transparent 62%, rgb(0 0 0 / 26%));
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 8%);
+  }
+
+  .album-grid-section__card .content-card__body {
+    gap: var(--spacing-sm);
+    padding: clamp(var(--spacing-base), 1.5vw, var(--spacing-lg));
+  }
+
+  .album-grid-section__card .content-card__title {
+    font-size: clamp(1rem, 0.94rem + 0.24vw, 1.12rem);
+    line-height: 1.16;
+    letter-spacing: 0;
+  }
+
+  .album-grid-section__card .content-card__description {
+    font-size: clamp(0.88rem, 0.84rem + 0.14vw, 0.96rem);
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--music-home-muted) 88%, var(--music-home-ink) 12%);
+  }
+
+  .album-grid-section__card .content-card__meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm) var(--spacing-base);
+    padding-block-start: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    border-block-start-color: color-mix(in srgb, var(--music-home-line) 62%, transparent);
+  }
+
+  .album-grid-section__card .content-card__meta-item {
+    gap: var(--spacing-xs);
+    min-inline-size: 0;
+    color: color-mix(in srgb, var(--music-home-muted) 90%, var(--music-home-ink) 10%);
+  }
+
+  .album-grid-section__card .content-card__meta-item:first-child {
+    grid-column: 1 / -1;
+    inline-size: fit-content;
+    max-inline-size: 100%;
+    padding: 0.32rem 0.56rem;
+    color: var(--music-home-ink);
+    background: color-mix(in srgb, var(--music-home-accent) 11%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-home-accent) 26%, transparent);
+    border-radius: var(--radius-full);
+  }
+
+  .album-grid-section__card .content-card__meta-item span {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .album-grid-section__card .content-card__meta-icon {
+    inline-size: var(--icon-size-xs);
+    block-size: var(--icon-size-xs);
+  }
+
+  @media (width < 40rem) {
+    .album-grid-section__card .content-card__content {
+      display: grid;
+      grid-template-columns: minmax(5.75rem, 7.5rem) minmax(0, 1fr);
+      align-items: stretch;
+    }
+
+    .album-grid-section__card .content-card__media {
+      border-block-end: 0;
+      border-inline-end: 1px solid
+        color-mix(in srgb, var(--music-home-line) 52%, transparent);
+    }
+
+    .album-grid-section__card .content-card__body {
+      min-inline-size: 0;
+      padding: var(--spacing-sm);
+    }
+
+    .album-grid-section__card .content-card__description {
+      display: none;
+    }
+
+    .album-grid-section__card .content-card__meta {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-xs);
+      padding-block-start: var(--spacing-xs);
+    }
+
+    .album-grid-section__card .content-card__meta-item:first-child {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
     }
   }
 </style>
