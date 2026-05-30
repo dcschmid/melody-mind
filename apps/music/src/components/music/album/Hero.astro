@@ -121,7 +121,7 @@ const titleId = `album-page-title-${id}`;
     inline-size: 100%;
     block-size: auto;
     aspect-ratio: 1 / 1;
-    outline: 1px solid rgb(0 0 0 / 10%);
+    outline: 1px solid rgb(255 255 255 / 10%);
     outline-offset: -1px;
     object-fit: cover;
   }
@@ -211,12 +211,6 @@ const titleId = `album-page-title-${id}`;
     line-height: 1.25;
     color: var(--album-hero-ink);
     overflow-wrap: anywhere;
-  }
-
-  :global([data-theme="dark"])
-    .album-hero__cover-lockup
-    :global(.album-hero__cover-image) {
-    outline-color: rgb(255 255 255 / 10%);
   }
 
   @media (width <= 760px) {

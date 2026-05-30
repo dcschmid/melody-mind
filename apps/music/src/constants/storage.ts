@@ -24,8 +24,6 @@
 export const STORAGE_KEYS = {
   /** Base identifier for recently viewed content history. */
   RECENT_READS: "mm_recent_reads",
-  /** Stores the user's explicit light/dark theme preference. */
-  THEME: "themePreference",
 } as const;
 
 /**

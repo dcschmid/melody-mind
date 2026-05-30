@@ -108,7 +108,7 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
     --latest-releases-cover-radius: var(--radius-sm, 0.25rem);
     --latest-releases-cover-size: clamp(5.5rem, 8vw, 7rem);
     --latest-releases-copy-gap: 0.2rem;
-    --latest-releases-image-outline: oklch(0% 0 0deg / 0.1);
+    --latest-releases-image-outline: oklch(100% 0 0deg / 0.12);
 
     display: grid;
     gap: var(--latest-releases-gap);
@@ -231,10 +231,6 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
   .latest-releases__card:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
-  }
-
-  :global([data-theme="dark"]) .latest-releases__card :global(.latest-releases__image) {
-    --latest-releases-image-outline: oklch(100% 0 0deg / 0.12);
   }
 
   @media (width <= 760px) {

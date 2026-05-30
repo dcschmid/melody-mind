@@ -1,8 +1,6 @@
 ---
 import BackToTop from "@components/navigation/BackToTop.astro";
 import SkipLink from "@components/navigation/SkipLink.astro";
-import { THEME_EVENTS } from "@constants/events";
-import { STORAGE_KEYS } from "@constants/storage";
 import "../../styles/master-theme.css";
 import "../../styles/animations.css";
 
@@ -14,11 +12,8 @@ interface Props {
   mainId?: string;
   contentShellClass?: string;
   showSkipLink?: boolean;
-  enableThemeInit?: boolean;
   enableAmbientMainBackground?: boolean;
-  colorScheme?: string;
-  themeColorDark?: string;
-  themeColorLight?: string;
+  themeColor?: string;
   appTitle?: string;
   manifestPath?: string;
   faviconVersion?: string;
@@ -37,11 +32,8 @@ const {
   mainId = "main-content",
   contentShellClass = "",
   showSkipLink = true,
-  enableThemeInit = true,
   enableAmbientMainBackground = false,
-  colorScheme = "dark light",
-  themeColorDark = "#08131a",
-  themeColorLight = "#f6f1e8",
+  themeColor = "#08131a",
   appTitle = "MelodyMind",
   manifestPath = "/site.webmanifest",
   faviconVersion,
@@ -63,87 +55,18 @@ const mainClasses = [
 const contentShellClasses = (contentShellClass ?? "").trim();
 const versionAssetPath = (path: string): string =>
   faviconVersion ? `${path}?v=${encodeURIComponent(faviconVersion)}` : path;
-
-// Mirrors themeStorage.applyTheme inline so the resolved theme is applied before bundled JS loads.
-const themeInitScript = enableThemeInit
-  ? `
-    (() => {
-      const THEME_STORAGE_KEY = ${JSON.stringify(STORAGE_KEYS.THEME)};
-      const DARK_QUERY = "(prefers-color-scheme: dark)";
-      const THEME_CHANGE_EVENT = ${JSON.stringify(THEME_EVENTS.CHANGED)};
-      const THEME_COLORS = {
-        dark: ${JSON.stringify(themeColorDark)},
-        light: ${JSON.stringify(themeColorLight)},
-      };
-
-      const isTheme = (value) => value === "light" || value === "dark";
-      const readStoredTheme = () => {
-        try {
-          const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-          return isTheme(stored) ? stored : null;
-        } catch {
-          return null;
-        }
-      };
-      const getSystemTheme = () =>
-        window.matchMedia(DARK_QUERY).matches ? "dark" : "light";
-
-      const applyTheme = (theme, source) => {
-        document.documentElement.setAttribute("data-theme", theme);
-        document.documentElement.style.colorScheme = theme;
-        const themeColors = document.querySelectorAll('meta[name="theme-color"][data-theme-color]');
-        themeColors.forEach((themeColor) => {
-          themeColor.setAttribute("content", THEME_COLORS[theme]);
-          themeColor.removeAttribute("media");
-        });
-        window.dispatchEvent(
-          new CustomEvent(THEME_CHANGE_EVENT, {
-            detail: { theme, source },
-          })
-        );
-      };
-
-      const storedTheme = readStoredTheme();
-      const resolvedTheme = storedTheme ?? getSystemTheme();
-      applyTheme(resolvedTheme, storedTheme ? "manual" : "system");
-
-      window.matchMedia(DARK_QUERY).addEventListener("change", () => {
-        if (readStoredTheme()) {
-          return;
-        }
-
-        applyTheme(getSystemTheme(), "system");
-      });
-    })();
-  `
-  : "";
 ---
 
 <!doctype html>
-<html lang={lang} class="app" dir={dir}>
+<html lang={lang} class="app" dir={dir} data-theme="dark" style="color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <meta name="color-scheme" content={colorScheme} />
-    <meta
-      name="theme-color"
-      content={themeColorDark}
-      media="(prefers-color-scheme: dark)"
-      data-theme-color
-      data-theme-color-dark={themeColorDark}
-      data-theme-color-light={themeColorLight}
-    />
-    <meta
-      name="theme-color"
-      content={themeColorLight}
-      media="(prefers-color-scheme: light)"
-      data-theme-color
-      data-theme-color-dark={themeColorDark}
-      data-theme-color-light={themeColorLight}
-    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content={themeColor} />
     {
       appleMobileWebAppCapable && (
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -188,7 +111,6 @@ const themeInitScript = enableThemeInit
       content="camera=(), microphone=(), geolocation=()"
     />
     <link rel="manifest" href={manifestPath} />
-    {enableThemeInit && <script is:inline set:html={themeInitScript} />}
     <slot name="head" />
   </head>
   <body class={bodyClasses}>
@@ -240,22 +162,12 @@ const themeInitScript = enableThemeInit
     --cc-primary-hover: var(--accent-strong);
     --cc-bg: var(--surface-1);
     --cc-surface: var(--surface-2);
+    --cc-tint-rgb: 255, 255, 255;
     --cc-text: var(--text-primary);
     --cc-text-muted: var(--text-secondary);
     --cc-border: var(--border-muted);
     --cc-radius: var(--radius-lg);
     --cc-font-family: var(--font-sans);
-  }
-
-  :global([data-theme="dark"]) {
-    --cc-primary: var(--accent-primary);
-    --cc-primary-hover: var(--accent-strong);
-    --cc-bg: var(--surface-1);
-    --cc-surface: var(--surface-2);
-    --cc-tint-rgb: 255, 255, 255;
-    --cc-text: var(--text-primary);
-    --cc-text-muted: var(--text-secondary);
-    --cc-border: var(--border-muted);
   }
 
   :global(.cc-banner) {

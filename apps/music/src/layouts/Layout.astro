@@ -258,7 +258,6 @@ const mobileGenreLinks = Array.from(
   mainClass={mainClasses}
   contentShellClass={contentShellClasses}
   showSkipLink={false}
-  enableThemeInit={true}
   appTitle="MM Music"
   manifestPath="/site.webmanifest?v=20260507"
   faviconVersion="20260507"
@@ -384,13 +383,6 @@ const mobileGenreLinks = Array.from(
 
 <style>
   :global(.music-layout) {
-    --music-accent-primary: oklch(40% 0.13 16deg);
-    --music-accent-strong: oklch(38% 0.125 16deg);
-
-    background: var(--bg-primary);
-  }
-
-  :global([data-theme="dark"] .music-layout) {
     --music-accent-primary: oklch(78% 0.16 286deg);
     --music-accent-strong: oklch(80% 0.13 252deg);
 
@@ -398,10 +390,6 @@ const mobileGenreLinks = Array.from(
   }
 
   :global(.music-layout.music-layout--album) {
-    background: var(--bg-primary);
-  }
-
-  :global([data-theme="dark"] .music-layout.music-layout--album) {
     background: var(--bg-primary);
   }
 

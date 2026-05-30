@@ -3,8 +3,6 @@ import Icon from "@components/visual/Icon.astro";
 import type { AppShellFooterConfig, AppShellLink } from "@utils/appShell";
 import type { ImageMetadata } from "astro";
 
-import ThemeToggle from "@components/actions/ThemeToggle.astro";
-
 interface Props {
   footerConfig: AppShellFooterConfig;
   brandLogoSrc: string | ImageMetadata;
@@ -130,7 +128,6 @@ const footerGroups: FooterGroup[] = [
               {footerConfig.settingsTitle || "Settings"}
             </h2>
             <div class="music-footer__settings">
-              <ThemeToggle />
               <button
                 class="music-footer__settings-button"
                 type="button"
@@ -376,12 +373,5 @@ const footerGroups: FooterGroup[] = [
     .music-footer__group--settings {
       padding-block-start: var(--music-footer-space-xs);
     }
-  }
-
-  :global([data-theme="dark"]) .music-footer {
-    --music-footer-accent: var(--music-accent-primary, var(--accent-primary));
-    --music-footer-ink: var(--text-primary);
-    --music-footer-muted: var(--text-secondary);
-    --music-footer-line: var(--border-muted);
   }
 </style>

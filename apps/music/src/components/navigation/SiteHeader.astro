@@ -2,8 +2,6 @@
 import type { ImageMetadata } from "astro";
 import Icon from "@components/visual/Icon.astro";
 
-import ThemeToggle from "@components/actions/ThemeToggle.astro";
-
 import HeaderMobileExtras from "./HeaderMobileExtras.astro";
 import HeaderNav from "./HeaderNav.astro";
 import type { HeaderNavItem } from "./HeaderNav.astro";
@@ -22,7 +20,6 @@ interface Props {
   brandLogoAlt?: string;
   brandAriaLabel?: string;
   navAriaLabel?: string;
-  actionLabel?: string;
   mobileExtraLinks?: MobileExtraLink[];
   mobileExtraHeading?: string;
   mobilePrimaryCtaHref?: string;
@@ -40,7 +37,6 @@ const {
   brandLogoAlt = "Melody Mind",
   brandAriaLabel = "Go to the MelodyMind homepage",
   navAriaLabel = "Primary navigation",
-  actionLabel = "Theme",
   mobileExtraLinks = [],
   mobileExtraHeading = "Explore",
   mobilePrimaryCtaHref,
@@ -107,11 +103,6 @@ const mobileExtraProps = {
 
     <nav class="music-site-header__nav" aria-label={navAriaLabel} data-music-menu-nav>
       <HeaderNav items={navItems} {searchHref} {currentPath} />
-
-      <div class="music-site-header__actions">
-        <span class="music-site-header__actions-label">{actionLabel}</span>
-        <ThemeToggle />
-      </div>
 
       <HeaderMobileExtras {...mobileExtraProps} />
     </nav>
@@ -300,14 +291,6 @@ const mobileExtraProps = {
     outline-offset: var(--focus-ring-offset);
   }
 
-  .music-site-header__actions {
-    flex: 0 0 auto;
-  }
-
-  .music-site-header__actions-label {
-    display: none;
-  }
-
   @media (width <= 1023.98px) {
     .music-site-header {
       --music-menu-bg-start: var(--bg-primary);
@@ -341,28 +324,6 @@ const mobileExtraProps = {
       padding-inline: 0;
     }
 
-    :global([data-theme="light"]) .music-site-header {
-      --music-menu-bg-start: var(--surface-1);
-      --music-menu-bg-end: var(--bg-secondary);
-      --music-menu-bg-glow: color-mix(in srgb, var(--accent-primary) 18%, transparent);
-      --music-menu-text: var(--text-primary);
-      --music-menu-muted: var(--text-secondary);
-      --music-menu-line: var(--border-muted);
-      --music-menu-accent: var(--accent-primary);
-      --music-menu-chevron: color-mix(in srgb, var(--text-primary) 82%, transparent);
-      --music-menu-active-text: var(--accent-strong);
-      --music-menu-active-bg: var(--surface-3);
-      --music-menu-chip-bg: var(--surface-1);
-      --music-menu-chip-border: var(--border-muted);
-      --music-menu-cta-bg: var(--accent-primary);
-      --music-menu-cta-text: var(--button-text-accent);
-      --music-menu-cta-shadow: color-mix(
-        in srgb,
-        var(--music-menu-accent) 28%,
-        transparent
-      );
-    }
-
     .music-site-header__inner {
       box-sizing: border-box;
       grid-template-columns: auto 1fr auto;
@@ -388,12 +349,6 @@ const mobileExtraProps = {
       background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
       border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
       border-radius: 999px;
-    }
-
-    :global([data-theme="light"]) .music-site-header__toggle {
-      color: var(--accent-primary);
-      background: color-mix(in srgb, var(--surface-1) 62%, transparent);
-      border-color: color-mix(in srgb, var(--border-default) 28%, transparent);
     }
 
     .music-site-header__toggle-text {
@@ -443,29 +398,6 @@ const mobileExtraProps = {
       opacity: 0;
     }
 
-    .music-site-header__actions {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      grid-column: 1 / 4;
-      gap: 1rem 1.5rem;
-      align-items: center;
-      justify-self: stretch;
-      inline-size: 100%;
-      min-inline-size: 0;
-      max-inline-size: 42rem;
-      padding-block-start: 1.35rem;
-      margin-inline: auto;
-      border-block-start: 1px solid var(--music-menu-line);
-    }
-
-    .music-site-header__actions-label {
-      display: block;
-      min-inline-size: 0;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--music-menu-muted);
-    }
-
     .music-site-header[data-open="true"] .music-site-header__backdrop {
       pointer-events: auto;
       opacity: 1;
@@ -503,10 +435,6 @@ const mobileExtraProps = {
       grid-column: 1 / -1;
       max-inline-size: none;
       opacity: 1;
-    }
-
-    .music-site-header[data-open="true"] .music-site-header__actions {
-      grid-column: 1 / -1;
     }
 
     .music-site-header[data-open="true"] .music-site-header__brand {

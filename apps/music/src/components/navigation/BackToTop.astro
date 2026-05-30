@@ -91,7 +91,7 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
     --music-back-to-top-accent-strong: var(--music-accent-strong, var(--accent-strong));
     --music-back-to-top-panel: color-mix(
       in srgb,
-      var(--surface-1, var(--bg-primary)) 94%,
+      var(--surface-2, var(--bg-secondary)) 94%,
       var(--bg-primary, Canvas)
     );
     --music-back-to-top-line: var(--border-strong, var(--surface-border-accent));
@@ -108,8 +108,8 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
       transparent
     );
     --music-back-to-top-state-shadow:
-      var(--shadow-lg),
-      0 0 0 0.28rem color-mix(in srgb, var(--music-back-to-top-accent) 14%, transparent);
+      var(--shadow-xl),
+      0 0 0 0.28rem color-mix(in srgb, var(--music-back-to-top-accent) 18%, transparent);
     --music-back-to-top-state-transform: translateY(0.5rem) scale(0.96);
 
     position: fixed;
@@ -145,18 +145,6 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
       background-color 180ms var(--music-back-to-top-ease-out),
       border-color 180ms var(--music-back-to-top-ease-out),
       color 180ms var(--music-back-to-top-ease-out);
-  }
-
-  :global([data-theme="dark"]) .music-back-to-top {
-    --music-back-to-top-panel: color-mix(
-      in srgb,
-      var(--surface-2, var(--bg-secondary)) 94%,
-      var(--bg-primary, Canvas)
-    );
-    --music-back-to-top-line: var(--border-strong, var(--surface-border-accent));
-    --music-back-to-top-state-shadow:
-      var(--shadow-xl),
-      0 0 0 0.28rem color-mix(in srgb, var(--music-back-to-top-accent) 18%, transparent);
   }
 
   .music-back-to-top[data-visible="true"] {
