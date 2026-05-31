@@ -156,7 +156,7 @@ const config = {
   :global(.astro-search-key kbd) {
     min-inline-size: 1.65rem;
     padding: 0.125rem 0.375rem;
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     line-height: 1.4;
     color: var(--text-tertiary);
     text-align: center;
@@ -204,7 +204,7 @@ const config = {
   }
 
   :global(.astro-search-empty__text) {
-    font-size: 0.88rem;
+    font-size: var(--font-size-sm);
     line-height: 1.5;
   }
 
@@ -220,7 +220,7 @@ const config = {
     min-block-size: 2rem;
     padding: 0 var(--spacing-sm);
     font: inherit;
-    font-size: 0.78rem;
+    font-size: var(--font-size-xs);
     font-weight: 700;
     color: var(--text-secondary);
     cursor: pointer;
@@ -241,7 +241,7 @@ const config = {
     inset-block-start: 0;
     z-index: 1;
     padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-xs);
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     font-weight: 800;
     color: var(--text-tertiary);
     text-transform: uppercase;
@@ -329,7 +329,7 @@ const config = {
   }
 
   :global(.astro-search-result-type) {
-    font-size: 0.78rem;
+    font-size: var(--font-size-xs);
     color: var(--search-palette-accent);
     text-transform: uppercase;
   }
@@ -337,7 +337,7 @@ const config = {
   :global(.astro-search-result-meta) {
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 0.78rem;
+    font-size: var(--font-size-xs);
     line-height: 1.35;
     color: var(--text-tertiary);
     white-space: nowrap;
@@ -347,7 +347,7 @@ const config = {
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 1;
-    font-size: 0.86rem;
+    font-size: var(--font-size-xs);
     line-height: 1.4;
     color: var(--text-tertiary);
     -webkit-box-orient: vertical;
@@ -360,7 +360,7 @@ const config = {
     align-items: center;
     justify-content: flex-end;
     padding: var(--spacing-sm);
-    font-size: 0.78rem;
+    font-size: var(--font-size-xs);
     color: var(--text-tertiary);
     border-top: 1px solid var(--surface-border-soft);
   }

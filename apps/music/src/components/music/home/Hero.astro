@@ -120,7 +120,7 @@ const HERO_COVER_IMAGE_SIZES =
     gap: 0.45rem;
     align-items: center;
     margin: 0;
-    font-size: clamp(0.72rem, 0.69rem + 0.16vw, 0.84rem);
+    font-size: var(--font-size-xs);
     font-weight: 800;
     line-height: 1.2;
     color: var(--music-home-accent);
@@ -147,16 +147,16 @@ const HERO_COVER_IMAGE_SIZES =
   .music-home-hero__deck {
     max-inline-size: 54ch;
     margin: 0;
-    font-size: clamp(1rem, 0.96rem + 0.18vw, 1.13rem);
-    line-height: 1.7;
+    font-size: var(--font-size-md);
+    line-height: 1.62;
     color: var(--music-home-muted);
     text-wrap: pretty;
   }
 
   .music-home-hero__deck {
     max-inline-size: 45ch;
-    font-size: clamp(0.96rem, 0.92rem + 0.16vw, 1.06rem);
-    line-height: 1.65;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
   }
 
   .music-home-hero__actions {
@@ -174,7 +174,7 @@ const HERO_COVER_IMAGE_SIZES =
     justify-content: center;
     min-block-size: 2.75rem;
     padding: 0.72rem 1.35rem;
-    font-size: 0.92rem;
+    font-size: var(--font-size-xs);
     font-weight: 800;
     line-height: 1;
     text-decoration: none;
@@ -248,7 +248,7 @@ const HERO_COVER_IMAGE_SIZES =
     inset-block-end: 0;
     inset-inline: 0;
     padding: 2rem 0.65rem 0.65rem;
-    font-size: 0.78rem;
+    font-size: var(--font-size-xs);
     font-weight: 800;
     line-height: 1.15;
     text-align: center;
@@ -356,12 +356,12 @@ const HERO_COVER_IMAGE_SIZES =
     }
 
     .music-home-hero__description {
-      font-size: 0.96rem;
+      font-size: var(--font-size-sm);
       line-height: 1.55;
     }
 
     .music-home-hero__deck {
-      font-size: 0.92rem;
+      font-size: var(--font-size-sm);
       line-height: 1.55;
     }
 
@@ -415,7 +415,7 @@ const HERO_COVER_IMAGE_SIZES =
 
     .music-home-hero__showcase-title {
       padding: 1.75rem 0.55rem 0.55rem;
-      font-size: 0.72rem;
+      font-size: var(--font-size-xs);
     }
   }
 

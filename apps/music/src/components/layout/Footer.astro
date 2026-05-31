@@ -218,7 +218,7 @@ const footerGroups: FooterGroup[] = [
   .music-footer__brand-text {
     max-inline-size: 36ch;
     margin: 0;
-    font-size: clamp(0.84rem, 0.8rem + 0.12vw, 0.94rem);
+    font-size: var(--font-size-xs);
     line-height: 1.55;
     color: var(--music-footer-muted);
     text-wrap: pretty;
@@ -238,7 +238,7 @@ const footerGroups: FooterGroup[] = [
 
   .music-footer__group-title {
     margin: 0;
-    font-size: 0.78rem;
+    font-size: var(--font-size-xs);
     font-weight: 750;
     line-height: 1.2;
     color: var(--music-footer-accent);
@@ -271,7 +271,7 @@ const footerGroups: FooterGroup[] = [
     inline-size: fit-content;
     min-block-size: var(--music-footer-target-size);
     padding-inline: var(--music-footer-space-2xs);
-    font-size: 0.84rem;
+    font-size: var(--font-size-xs);
     line-height: 1.25;
     color: var(--music-footer-muted);
     text-decoration: none;
@@ -308,7 +308,7 @@ const footerGroups: FooterGroup[] = [
     min-block-size: var(--music-footer-target-size);
     padding: var(--music-footer-space-sm) var(--music-footer-space-md);
     font: inherit;
-    font-size: 0.84rem;
+    font-size: var(--font-size-xs);
     line-height: 1.25;
     color: var(--music-footer-muted);
     cursor: pointer;
@@ -340,7 +340,7 @@ const footerGroups: FooterGroup[] = [
 
   .music-footer__copyright {
     margin: 0;
-    font-size: 0.74rem;
+    font-size: var(--font-size-xs);
     line-height: 1.45;
     color: color-mix(in srgb, var(--music-footer-muted) 86%, var(--music-footer-accent));
   }

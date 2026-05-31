@@ -176,7 +176,7 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
   .latest-releases__kicker {
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 0.68rem;
+    font-size: var(--font-size-xs);
     font-weight: 700;
     line-height: 1.15;
     color: var(--music-home-accent);
@@ -190,7 +190,7 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
     overflow: hidden;
     -webkit-line-clamp: 2;
     font-family: var(--font-sans);
-    font-size: clamp(1rem, 0.94rem + 0.3vw, 1.2rem);
+    font-size: clamp(1rem, 1rem + 0.3vw, 1.2rem);
     font-weight: 600;
     line-height: 1.15;
     text-wrap: balance;
@@ -202,7 +202,7 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
     max-inline-size: 58ch;
     overflow: hidden;
     -webkit-line-clamp: 2;
-    font-size: 0.88rem;
+    font-size: var(--font-size-sm);
     line-height: 1.45;
     color: var(--music-home-muted);
     text-wrap: pretty;
@@ -216,14 +216,14 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
 
   .latest-releases__card--featured .latest-releases__description {
     -webkit-line-clamp: 3;
-    font-size: 0.95rem;
+    font-size: var(--font-size-sm);
   }
 
   .latest-releases__meta {
     display: inline-flex;
     gap: 0.25rem;
     align-items: center;
-    font-size: 0.82rem;
+    font-size: var(--font-size-xs);
     font-variant-numeric: tabular-nums;
     color: var(--music-home-muted);
   }
@@ -248,7 +248,7 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
     }
 
     .latest-releases__card--featured .latest-releases__title {
-      font-size: clamp(1rem, 0.94rem + 0.3vw, 1.2rem);
+      font-size: clamp(1rem, 1rem + 0.3vw, 1.2rem);
       line-height: 1.15;
     }
 

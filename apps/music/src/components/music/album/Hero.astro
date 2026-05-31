@@ -159,7 +159,7 @@ const getFactIcon = (label: string) => {
     align-items: center;
     inline-size: fit-content;
     margin: 0;
-    font-size: clamp(0.7rem, 0.67rem + 0.15vw, 0.82rem);
+    font-size: var(--font-size-xs);
     font-weight: 800;
     line-height: 1;
     color: var(--album-hero-accent);
@@ -187,8 +187,8 @@ const getFactIcon = (label: string) => {
   .album-hero__description {
     max-inline-size: 58ch;
     margin: 0;
-    font-size: clamp(0.98rem, 0.95rem + 0.15vw, 1.08rem);
-    line-height: 1.62;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
     color: var(--album-hero-muted);
     text-wrap: pretty;
     overflow-wrap: anywhere;
@@ -233,7 +233,7 @@ const getFactIcon = (label: string) => {
 
   .album-hero__fact-value {
     min-inline-size: 0;
-    font-size: clamp(1rem, 0.94rem + 0.24vw, 1.14rem);
+    font-size: var(--font-size-sm);
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     line-height: 1.18;
@@ -277,7 +277,7 @@ const getFactIcon = (label: string) => {
     }
 
     .album-hero__eyebrow {
-      font-size: 0.62rem;
+      font-size: var(--font-size-xs);
     }
 
     .album-hero__title {
@@ -293,7 +293,7 @@ const getFactIcon = (label: string) => {
     .album-hero__description {
       grid-column: 1 / -1;
       max-inline-size: 100%;
-      font-size: clamp(0.82rem, 2.8vw, 0.9rem);
+      font-size: var(--font-size-sm);
       line-height: 1.45;
       overflow-wrap: anywhere;
     }
@@ -321,7 +321,7 @@ const getFactIcon = (label: string) => {
     }
 
     .album-hero__fact-value {
-      font-size: clamp(0.82rem, 2.8vw, 0.94rem);
+      font-size: var(--font-size-xs);
       overflow-wrap: anywhere;
       white-space: normal;
     }

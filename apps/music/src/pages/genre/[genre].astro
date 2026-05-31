@@ -1,0 +1,289 @@
+---
+import ContentCard from "@components/cards/ContentCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import { resolvePageUrl } from "@utils/siteUrls";
+import { genreLandingPageBySlug, genreLandingPages } from "../../data/genreLandingPages";
+import { formatDuration } from "../../utils/albumPresentation";
+import { getAvailableAlbums } from "../../utils/albums";
+import {
+  getAlbumCoverImage,
+  getAlbumCoverImageUrl,
+  musicDefaultOgImageUrl,
+} from "../../utils/musicImages";
+import { buildMusicAlbumListSchema } from "../../utils/musicSeo";
+
+export function getStaticPaths() {
+  return genreLandingPages.map((page) => ({
+    params: { genre: page.slug },
+  }));
+}
+
+const { genre: genreSlug } = Astro.params;
+const page = genreSlug ? genreLandingPageBySlug.get(genreSlug) : undefined;
+
+if (!page) {
+  return Astro.redirect("/404");
+}
+
+const albums = await getAvailableAlbums();
+const albumTitleCollator = new Intl.Collator("en", {
+  numeric: true,
+  sensitivity: "base",
+});
+const genreAlbums = albums
+  .filter((album) => album.mainGenre === page.mainGenre)
+  .sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() ||
+      albumTitleCollator.compare(a.title, b.title)
+  );
+
+const albumCards = genreAlbums.map((album) => {
+  const totalDurationSeconds = album.songs.reduce(
+    (acc, song) => acc + (song.durationSeconds || 0),
+    0
+  );
+  const imageSrc = getAlbumCoverImage(album.coverImage);
+
+  return {
+    id: album.id,
+    title: album.title,
+    description: album.description,
+    imageSrc,
+    publishedAt: album.publishedAt,
+    genre: album.genre,
+    mainGenre: album.mainGenre,
+    trackCount: album.songs.length,
+    totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
+  };
+});
+const canonical = resolvePageUrl(Astro.site, `/genre/${page.slug}/`);
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: page.title, url: canonical },
+];
+const structuredData = [
+  buildMusicAlbumListSchema({
+    albums: genreAlbums,
+    canonical,
+    description: page.description,
+    site: Astro.site,
+    getCoverImageUrl: getAlbumCoverImageUrl,
+  }),
+];
+const GRID_COVER_IMAGE_SIZES =
+  "(max-width: 640px) 7.5rem, (max-width: 760px) 44vw, (max-width: 1180px) 28vw, min(18rem, calc((100vw - 10rem) / 5))";
+---
+
+<Layout
+  title={`${page.title} | MelodyMind Music`}
+  description={page.description}
+  keywords={[...page.keywords, "ai music", "concept albums", "MelodyMind"]}
+  type="website"
+  image={musicDefaultOgImageUrl}
+  language="en"
+  locale="en-US"
+  canonical={canonical}
+  {breadcrumbs}
+  {structuredData}
+  contentShellClass="music-layout__container--genre"
+>
+  <main class="genre-landing" aria-labelledby="genre-landing-title">
+    <header class="genre-landing__hero">
+      <p class="genre-landing__eyebrow">{page.eyebrow}</p>
+      <h1 id="genre-landing-title" class="genre-landing__title">{page.title}</h1>
+      <div class="genre-landing__intro">
+        {page.intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </header>
+
+    <section class="genre-landing__albums" aria-labelledby="genre-albums-title">
+      <div class="genre-landing__section-header">
+        <p class="genre-landing__section-kicker">
+          {albumCards.length}
+          {albumCards.length === 1 ? "album" : "albums"}
+        </p>
+        <h2 id="genre-albums-title" class="genre-landing__section-title">
+          Albums in this lane
+        </h2>
+      </div>
+
+      <ul class="genre-landing__grid">
+        {
+          albumCards.map((album) => (
+            <li class="genre-landing__item">
+              <ContentCard
+                id={`genre-album-card-${album.id}`}
+                class="genre-landing__card"
+                href={`/${album.id}/`}
+                dataTestId="genre-album-card"
+                variant="default"
+                size="compact"
+                mediaAspectRatio="1 / 1"
+                mediaObjectFit="cover"
+                imageSrc={album.imageSrc}
+                imageAlt={`Cover art for the album ${album.title}`}
+                imageWidth={1024}
+                imageHeight={1024}
+                imageSizes={GRID_COVER_IMAGE_SIZES}
+                title={album.title}
+                description={album.description}
+                metaItems={[
+                  ...(album.genre
+                    ? [{ iconName: "disc" as const, label: album.genre }]
+                    : []),
+                  { iconName: "music" as const, label: `${album.trackCount} tracks` },
+                  ...(album.totalDurationLabel
+                    ? [{ iconName: "clock" as const, label: album.totalDurationLabel }]
+                    : []),
+                ]}
+                descriptionLineClamp={2}
+                ctaSrText={`Open album ${album.title}`}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  :global(.music-layout__container.music-layout__container--genre) {
+    inline-size: 100%;
+    max-inline-size: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: clip;
+  }
+
+  :global(.music-layout__container--genre) {
+    --genre-landing-accent: oklch(78% 0.16 286deg);
+    --genre-landing-paper: oklch(18% 0.037 255deg);
+    --genre-landing-ink: oklch(96% 0.012 72deg);
+    --genre-landing-muted: oklch(76% 0.036 252deg);
+    --genre-landing-line: oklch(36% 0.055 252deg);
+  }
+
+  .genre-landing {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    min-block-size: 100svh;
+    padding: max(clamp(2rem, 5vw, 4rem), 6rem) clamp(1rem, 4vw, 4rem)
+      clamp(2.5rem, 6vw, 5rem);
+    color: var(--genre-landing-ink);
+  }
+
+  .genre-landing__hero,
+  .genre-landing__albums {
+    inline-size: min(100%, 90rem);
+    margin-inline: auto;
+  }
+
+  .genre-landing__hero {
+    display: grid;
+    gap: clamp(0.9rem, 2vw, 1.25rem);
+    padding-block-end: clamp(0.5rem, 1.6vw, 1rem);
+    border-block-end: 1px solid var(--genre-landing-line);
+  }
+
+  .genre-landing__eyebrow,
+  .genre-landing__section-kicker {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--genre-landing-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .genre-landing__title {
+    max-inline-size: 12ch;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(3rem, 2.1rem + 4vw, 6.2rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0;
+    text-wrap: balance;
+  }
+
+  .genre-landing__intro {
+    display: grid;
+    gap: 0.85rem;
+    max-inline-size: 68ch;
+    font-size: var(--font-size-md);
+    line-height: 1.62;
+    color: var(--genre-landing-muted);
+  }
+
+  .genre-landing__intro p {
+    margin: 0;
+  }
+
+  .genre-landing__albums {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .genre-landing__section-header {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .genre-landing__section-title {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(1.6rem, 1.35rem + 1vw, 2.35rem);
+    font-weight: 650;
+    line-height: 1.1;
+    letter-spacing: 0;
+  }
+
+  .genre-landing__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(1rem, 1.6vw, 1.4rem);
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .genre-landing__item {
+    display: grid;
+    min-inline-size: 0;
+  }
+
+  .genre-landing__card {
+    block-size: 100%;
+  }
+
+  @media (width <= 1180px) {
+    .genre-landing__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 760px) {
+    .genre-landing {
+      padding-inline: 1rem;
+    }
+
+    .genre-landing__intro {
+      font-size: var(--font-size-sm);
+      line-height: 1.6;
+    }
+
+    .genre-landing__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 520px) {
+    .genre-landing__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

@@ -8,32 +8,43 @@ import type { Entry } from "./types";
 interface Props {
   albums: Entry[];
   emptyDescription: string;
+  headingId?: string;
   initialGenreValue: string;
   initialVisibleAlbumCount: number;
+  showHeader?: boolean;
   title: string;
 }
 
-const { albums, emptyDescription, initialGenreValue, initialVisibleAlbumCount, title } =
-  Astro.props;
+const {
+  albums,
+  emptyDescription,
+  headingId = "albums-heading",
+  initialGenreValue,
+  initialVisibleAlbumCount,
+  showHeader = true,
+  title,
+} = Astro.props;
 const GRID_COVER_IMAGE_SIZES =
   "(max-width: 640px) 7.5rem, (max-width: 760px) 44vw, (max-width: 1180px) 28vw, min(18rem, calc((100vw - 10rem) / 5))";
 ---
 
-<section class="album-grid-section" aria-labelledby="albums-heading">
-  <SectionHeader headingId="albums-heading" title={title} hideIcon>
-    {
-      albums.length > 0 && (
-        <p
-          class="album-grid-section__results"
-          aria-live="polite"
-          aria-atomic="true"
-          data-album-results
-        >
-          {getAlbumVisibleCountLabel(initialVisibleAlbumCount, initialGenreValue)}
-        </p>
-      )
-    }
-  </SectionHeader>
+<section class="album-grid-section" aria-labelledby={headingId}>
+  {
+    showHeader && (
+      <SectionHeader headingId={headingId} title={title} hideIcon>
+        {albums.length > 0 && (
+          <p
+            class="album-grid-section__results"
+            aria-live="polite"
+            aria-atomic="true"
+            data-album-results
+          >
+            {getAlbumVisibleCountLabel(initialVisibleAlbumCount, initialGenreValue)}
+          </p>
+        )}
+      </SectionHeader>
+    )
+  }
 
   <ul class="album-grid-section__grid" id="albums-list">
     {
@@ -213,7 +224,7 @@ const GRID_COVER_IMAGE_SIZES =
   .album-grid-section {
     --album-card-gap: clamp(1rem, 1.6vw, 1.4rem);
     --album-card-radius: var(--radius-md);
-    --album-card-results-size: 0.84rem;
+    --album-card-results-size: var(--font-size-xs);
     --album-card-bg: color-mix(in srgb, var(--music-home-paper) 86%, transparent);
     --album-card-bg-hover: color-mix(
       in srgb,
@@ -248,7 +259,7 @@ const GRID_COVER_IMAGE_SIZES =
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: var(--album-card-gap);
-    align-items: start;
+    align-items: stretch;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -366,19 +377,24 @@ const GRID_COVER_IMAGE_SIZES =
     box-shadow: inset 0 0 0 1px rgb(255 255 255 / 8%);
   }
 
+  .album-grid-section__card .content-card__content {
+    flex: 1;
+    block-size: 100%;
+  }
+
   .album-grid-section__card .content-card__body {
     gap: var(--spacing-sm);
     padding: clamp(var(--spacing-base), 1.5vw, var(--spacing-lg));
   }
 
   .album-grid-section__card .content-card__title {
-    font-size: clamp(1rem, 0.94rem + 0.24vw, 1.12rem);
+    font-size: clamp(1rem, 1rem + 0.24vw, 1.12rem);
     line-height: 1.16;
     letter-spacing: 0;
   }
 
   .album-grid-section__card .content-card__description {
-    font-size: clamp(0.88rem, 0.84rem + 0.14vw, 0.96rem);
+    font-size: var(--font-size-sm);
     line-height: 1.5;
     color: color-mix(in srgb, var(--music-home-muted) 88%, var(--music-home-ink) 12%);
   }
@@ -388,6 +404,7 @@ const GRID_COVER_IMAGE_SIZES =
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-sm) var(--spacing-base);
     padding-block-start: var(--spacing-sm);
+    margin-block-start: auto;
     font-size: var(--font-size-xs);
     border-block-start-color: color-mix(in srgb, var(--music-home-line) 62%, transparent);
   }
@@ -400,13 +417,8 @@ const GRID_COVER_IMAGE_SIZES =
 
   .album-grid-section__card .content-card__meta-item:first-child {
     grid-column: 1 / -1;
-    inline-size: fit-content;
     max-inline-size: 100%;
-    padding: 0.32rem 0.56rem;
-    color: var(--music-home-ink);
-    background: color-mix(in srgb, var(--music-home-accent) 11%, transparent);
-    border: 1px solid color-mix(in srgb, var(--music-home-accent) 26%, transparent);
-    border-radius: var(--radius-full);
+    color: color-mix(in srgb, var(--music-home-ink) 88%, var(--music-home-accent) 12%);
   }
 
   .album-grid-section__card .content-card__meta-item span {
@@ -450,10 +462,7 @@ const GRID_COVER_IMAGE_SIZES =
     }
 
     .album-grid-section__card .content-card__meta-item:first-child {
-      padding: 0;
-      background: transparent;
-      border: 0;
-      border-radius: 0;
+      color: color-mix(in srgb, var(--music-home-ink) 88%, var(--music-home-accent) 12%);
     }
   }
 </style>
