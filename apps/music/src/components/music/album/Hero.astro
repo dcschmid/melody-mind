@@ -22,6 +22,9 @@ const { coverImage, coverImageHeight, coverImageWidth, description, facts, id, t
   Astro.props;
 
 const genreFact = facts.find((fact) => fact.label === "Genre");
+const visibleFacts = facts.filter(
+  (fact) => fact.label !== "Genre" && fact.label !== "Tracks"
+);
 const titleId = `album-page-title-${id}`;
 const getFactIcon = (label: string) => {
   switch (label) {
@@ -73,7 +76,7 @@ const getFactIcon = (label: string) => {
 
     <ul class="album-hero__facts" aria-label="Album facts">
       {
-        facts.map((fact) => (
+        visibleFacts.map((fact) => (
           <li class="album-hero__fact" aria-label={`${fact.label}: ${fact.value}`}>
             <Icon
               name={getFactIcon(fact.label)}
