@@ -209,7 +209,7 @@ const searchItems = availableAlbums.flatMap((album) => {
     url: `/${album.id}/`,
     title: album.title,
     type: "Album",
-    description: album.metaDescription || album.description,
+    description: album.description,
     imageUrl,
     imageAlt,
     displayMeta: [album.genre || "", `${album.songs.length} tracks`, albumDuration]

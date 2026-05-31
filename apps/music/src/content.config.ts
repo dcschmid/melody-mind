@@ -51,7 +51,6 @@ const albums = defineCollection({
     artist: z.string().default("MelodyMind AI"),
     isAvailable: z.boolean().default(true),
     songs: z.array(songSchema),
-    metaDescription: z.string().optional(),
     zipUrl: z.url().optional(),
   }),
 });

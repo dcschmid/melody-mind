@@ -53,7 +53,7 @@ export const GET: APIRoute = async () => {
       id: entry.id,
       type: "Album",
       title: entry.data.title,
-      desc: trimSearchText(entry.data.metaDescription || entry.data.description),
+      desc: trimSearchText(entry.data.description),
       url: `/${entry.id}/`,
       imageUrl: coverImageUrl,
       imageAlt: `Cover art for the album ${entry.data.title}`,

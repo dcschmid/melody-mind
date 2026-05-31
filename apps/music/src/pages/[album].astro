@@ -47,9 +47,9 @@ const totalDuration = songs.reduce(
   (acc: number, song: Song) => acc + (song.durationSeconds || 0),
   0
 );
-const metaDescription =
-  currentAlbum.metaDescription ||
-  `${currentAlbum.description} ${songs.length} tracks, ${Math.round(totalDuration / 60)} minutes.`;
+const pageDescription = `${currentAlbum.description} ${songs.length} tracks, ${Math.round(
+  totalDuration / 60
+)} minutes.`;
 
 const albumCoverImage = getAlbumCoverImage(currentAlbum.coverImage);
 const albumCoverImageUrl = getAlbumCoverImageUrl(currentAlbum.coverImage);
@@ -136,7 +136,7 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
 
 <Layout
   title={currentAlbum.title}
-  description={metaDescription}
+  description={pageDescription}
   type="musicAlbum"
   publishedTime={currentAlbum.publishedAt}
   modifiedTime={currentAlbum.publishedAt}

@@ -77,7 +77,7 @@ export function buildMusicAlbumSchema({
     "@type": "MusicAlbum",
     "@id": albumId,
     name: album.title,
-    description: album.metaDescription || album.description,
+    description: album.description,
     url: canonical,
     image: {
       "@type": "ImageObject",
@@ -148,7 +148,7 @@ export function buildMusicAlbumListSchema({
           "@type": "MusicAlbum",
           "@id": `${albumUrl}#music-album`,
           name: album.title,
-          description: album.metaDescription || album.description,
+          description: album.description,
           url: albumUrl,
           image: coverImageUrl,
           ...(album.genre ? { genre: album.genre } : {}),

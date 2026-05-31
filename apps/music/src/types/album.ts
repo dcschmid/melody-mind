@@ -27,7 +27,6 @@ export interface AlbumData {
   artist: string;
   isAvailable: boolean;
   songs: Song[];
-  metaDescription?: string;
   zipUrl?: string;
   body?: string;
 }
