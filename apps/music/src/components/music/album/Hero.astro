@@ -127,6 +127,7 @@ const getFactIcon = (label: string) => {
   }
 
   .album-hero__cover-lockup {
+    position: relative;
     display: grid;
     justify-self: center;
     inline-size: min(100%, 26.5rem);
@@ -136,7 +137,10 @@ const getFactIcon = (label: string) => {
     background: var(--music-album-paper, var(--surface-panel-bg));
     border: 1px solid color-mix(in srgb, var(--album-hero-accent) 38%, transparent);
     border-radius: var(--album-hero-cover-radius);
-    box-shadow: var(--album-hero-cover-shadow);
+    box-shadow:
+      var(--album-hero-cover-shadow),
+      0 0 4rem color-mix(in srgb, var(--album-hero-accent) 34%, transparent),
+      0 1.5rem 5rem color-mix(in srgb, var(--album-hero-accent) 22%, transparent);
   }
 
   .album-hero__cover-lockup :global(.album-hero__cover-image) {

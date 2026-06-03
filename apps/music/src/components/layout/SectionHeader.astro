@@ -58,10 +58,12 @@ const {
   }
 
   .section-header__title {
+    position: relative;
     display: inline-flex;
     gap: var(--section-header-icon-gap);
     align-items: center;
     min-inline-size: 0;
+    padding-inline-start: calc(var(--spacing-sm) + 0.25rem);
     margin: 0;
     font-family: var(--font-sans);
     font-size: var(--font-size-xl);
@@ -70,6 +72,21 @@ const {
     color: var(--section-header-ink);
     letter-spacing: 0;
     text-wrap: balance;
+  }
+
+  /* Accent bar that anchors each section title at its left edge. */
+  .section-header__title::before {
+    position: absolute;
+    inset-block: 0.08em 0.12em;
+    inset-inline-start: 0;
+    inline-size: 0.2rem;
+    content: "";
+    background: linear-gradient(
+      to bottom,
+      var(--section-header-accent),
+      color-mix(in srgb, var(--section-header-accent) 30%, transparent)
+    );
+    border-radius: 999px;
   }
 
   .section-header__icon {
@@ -83,12 +100,16 @@ const {
     gap: var(--section-header-link-gap);
     align-items: center;
     justify-content: center;
-    min-block-size: 2.5rem;
-    padding-inline: var(--spacing-sm);
+    min-block-size: 2.25rem;
+    padding-block: 0.4rem;
+    padding-inline: var(--spacing-base);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     color: var(--section-header-muted);
     text-decoration: none;
+    background: color-mix(in srgb, var(--section-header-accent) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--section-header-accent) 22%, transparent);
+    border-radius: 999px;
   }
 
   .section-header__link:focus-visible {
@@ -99,12 +120,19 @@ const {
   .section-header__link:hover,
   .section-header__link:focus-visible {
     color: var(--section-header-accent);
+    background: color-mix(in srgb, var(--section-header-accent) 14%, transparent);
+    border-color: color-mix(in srgb, var(--section-header-accent) 45%, transparent);
+    box-shadow: 0 0 1.5rem
+      color-mix(in srgb, var(--section-header-accent) 22%, transparent);
   }
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     .section-header__link {
       transition:
         color var(--motion-duration-fast) var(--motion-ease-standard),
+        background-color var(--motion-duration-fast) var(--motion-ease-standard),
+        border-color var(--motion-duration-fast) var(--motion-ease-standard),
+        box-shadow var(--motion-duration-fast) var(--motion-ease-standard),
         transform var(--motion-duration-fast) var(--motion-ease-standard);
     }
 

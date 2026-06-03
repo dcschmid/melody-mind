@@ -210,6 +210,22 @@ const HERO_COVER_IMAGE_SIZES =
     perspective: 70rem;
   }
 
+  /* Soft luminous halo behind the floating cover stack. */
+  .music-home-hero__showcase::before {
+    position: absolute;
+    inset: -18% -8%;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background: radial-gradient(
+      closest-side,
+      color-mix(in srgb, var(--music-home-accent) 36%, transparent),
+      transparent 72%
+    );
+    opacity: 0.85;
+    filter: blur(2.5rem);
+  }
+
   .music-home-hero__showcase-card {
     position: relative;
     display: block;
@@ -230,6 +246,9 @@ const HERO_COVER_IMAGE_SIZES =
       var(--music-home-accent) 62%,
       oklch(98% 0.014 75deg)
     );
+    box-shadow:
+      var(--music-home-hero-card-shadow),
+      0 0 2.5rem color-mix(in srgb, var(--music-home-accent) 45%, transparent);
   }
 
   .music-home-hero__showcase-card :global(.music-home-hero__showcase-image) {
@@ -450,6 +469,38 @@ const HERO_COVER_IMAGE_SIZES =
 
     .music-home-hero__button:active {
       transform: scale(0.97);
+    }
+
+    /* Gentle staggered entrance for the floating covers. */
+    .music-home-hero__showcase-card {
+      animation: music-home-hero-cover-in 560ms calc(var(--cover-index, 0) * 70ms)
+        cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .music-home-hero__copy {
+      animation: music-home-hero-copy-in 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  }
+
+  @keyframes music-home-hero-copy-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.9rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes music-home-hero-cover-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
     }
   }
 </style>

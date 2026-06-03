@@ -359,12 +359,41 @@ const GRID_COVER_IMAGE_SIZES =
   }
 
   .album-grid-section__card .content-card__media {
+    position: relative;
     background: color-mix(
       in srgb,
       var(--music-home-paper-soft) 86%,
       var(--music-home-ink) 14%
     );
     border-block-end-color: color-mix(in srgb, var(--music-home-line) 58%, transparent);
+  }
+
+  /* Soft accent glow that blooms over the cover on hover/focus. */
+  .album-grid-section__card .content-card__media::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    background: radial-gradient(
+      120% 90% at 50% 100%,
+      color-mix(in srgb, var(--music-home-accent) 42%, transparent),
+      transparent 62%
+    );
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+
+  .album-grid-section__card.content-card--interactive:hover .content-card__media::before,
+  .album-grid-section__card.content-card--interactive:focus-within
+    .content-card__media::before {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .album-grid-section__card .content-card__media::before {
+      transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
   }
 
   .album-grid-section__card .content-card__media::after {

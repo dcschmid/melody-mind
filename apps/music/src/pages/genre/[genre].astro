@@ -88,8 +88,12 @@ const GRID_COVER_IMAGE_SIZES =
   {structuredData}
   contentShellClass="music-layout__container--genre"
 >
-  <main class="genre-landing" aria-labelledby="genre-landing-title">
-    <header class="genre-landing__hero">
+  <main
+    class="genre-landing"
+    aria-labelledby="genre-landing-title"
+    data-genre-reveal-root
+  >
+    <header class="genre-landing__hero" data-genre-reveal>
       <p class="genre-landing__eyebrow">{page.eyebrow}</p>
       <h1 id="genre-landing-title" class="genre-landing__title">{page.title}</h1>
       <div class="genre-landing__intro">
@@ -97,7 +101,11 @@ const GRID_COVER_IMAGE_SIZES =
       </div>
     </header>
 
-    <section class="genre-landing__albums" aria-labelledby="genre-albums-title">
+    <section
+      class="genre-landing__albums"
+      aria-labelledby="genre-albums-title"
+      data-genre-reveal
+    >
       <div class="genre-landing__section-header">
         <p class="genre-landing__section-kicker">
           {albumCards.length}
@@ -166,12 +174,29 @@ const GRID_COVER_IMAGE_SIZES =
   }
 
   .genre-landing {
+    position: relative;
     display: grid;
     gap: clamp(1.5rem, 4vw, 3rem);
     min-block-size: 100svh;
     padding: max(clamp(2rem, 5vw, 4rem), 6rem) clamp(1rem, 4vw, 4rem)
       clamp(2.5rem, 6vw, 5rem);
     color: var(--genre-landing-ink);
+    isolation: isolate;
+  }
+
+  /* Ambient glow fixed to the viewport so it never creates a seam mid-page. */
+  .genre-landing::before {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background: radial-gradient(
+      140vw 90vh at 50% -25%,
+      oklch(78% 0.16 286deg / 0.13),
+      oklch(80% 0.13 252deg / 0.05) 45%,
+      transparent 80%
+    );
   }
 
   .genre-landing__hero,
@@ -286,4 +311,87 @@ const GRID_COVER_IMAGE_SIZES =
       grid-template-columns: minmax(0, 1fr);
     }
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .genre-landing :global([data-genre-reveal]) {
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition:
+        opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .genre-landing :global([data-genre-reveal].is-revealed) {
+      opacity: 1;
+      transform: none;
+    }
+  }
 </style>
+
+<style is:global>
+  .genre-landing__card .content-card__media {
+    position: relative;
+  }
+
+  /* Soft accent glow that blooms over the cover on hover/focus. */
+  .genre-landing__card .content-card__media::before {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    content: "";
+    background: radial-gradient(
+      120% 90% at 50% 100%,
+      color-mix(in srgb, var(--genre-landing-accent) 42%, transparent),
+      transparent 62%
+    );
+    mix-blend-mode: screen;
+    opacity: 0;
+  }
+
+  .genre-landing__card.content-card--interactive:hover .content-card__media::before,
+  .genre-landing__card.content-card--interactive:focus-within
+    .content-card__media::before {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .genre-landing__card .content-card__media::before {
+      transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+</style>
+
+<script>
+  const revealTargets = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-genre-reveal]")
+  );
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (revealTargets.length > 0) {
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      for (const target of revealTargets) {
+        target.classList.add("is-revealed");
+      }
+    } else {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-revealed");
+              obs.unobserve(entry.target);
+            }
+          }
+        },
+        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
+      );
+
+      for (const target of revealTargets) {
+        observer.observe(target);
+      }
+    }
+  }
+</script>
