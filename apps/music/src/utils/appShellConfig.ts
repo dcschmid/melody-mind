@@ -76,7 +76,13 @@ export const musicAppShellConfig = buildAppShellConfig({
   brandLogoAlt: "MelodyMind Music",
   brandAriaLabel: "Go to the MelodyMind Music homepage",
   navAriaLabel: "Music navigation",
-  headerNavItems: [],
+  headerNavItems: [
+    {
+      href: "/about",
+      label: "About",
+      icon: "info",
+    },
+  ],
   footerBrandText:
     "Original AI-generated music spanning genres from ambient soundscapes to pop productions.",
   footerExploreLinks: [
