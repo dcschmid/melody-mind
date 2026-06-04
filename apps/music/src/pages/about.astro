@@ -1,0 +1,354 @@
+---
+import PageShell from "@components/layout/PageShell.astro";
+import Layout from "@layouts/Layout.astro";
+import { buildPageSeo } from "@utils/seo/buildPageSeo";
+import { buildArticleSchema } from "@utils/seo/seoSchema";
+import { resolveBaseUrl, resolvePageUrl } from "@utils/siteUrls";
+
+import { musicDefaultOgImageUrl } from "../utils/musicImages";
+
+export const prerender = true;
+
+const canonical = resolvePageUrl(Astro.site, "/about/");
+const baseUrl = resolveBaseUrl(Astro.site);
+const publishedAt = new Date("2026-06-04T00:00:00.000Z");
+const modifiedAt = publishedAt;
+
+const seoBreadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "About", url: canonical },
+];
+
+const structuredDataExtra = [
+  buildArticleSchema({
+    canonical,
+    title: "About MelodyMind Music",
+    description:
+      "About MelodyMind Music, Daniel Schmid, and the independent concept album project behind the site.",
+    lang: "en",
+    createdAt: publishedAt,
+    updatedAt: modifiedAt,
+    articleSection: "About",
+  }),
+];
+
+const highlights = [
+  {
+    value: "Independent project",
+    label: "Created, curated, and produced by Daniel Schmid.",
+  },
+  {
+    value: "Full concept albums",
+    label: "Releases are built as connected album experiences.",
+  },
+  {
+    value: "Genre worlds",
+    label: "Rock, metal, pop, folk, hip-hop, cinematic, and hybrid releases.",
+  },
+] as const;
+
+const albumFocusItems = [
+  "Full concept albums with connected stories",
+  "Lyrics, tracklists, and album descriptions",
+  "Cinematic artwork and visual album identities",
+  "Rock, metal, pop, folk, hip-hop, and experimental releases",
+  "Independent music worlds focused on concept, mood, and storytelling",
+] as const;
+
+const pageSeo = buildPageSeo({
+  title: "About MelodyMind Music | Daniel Schmid",
+  description:
+    "MelodyMind Music is an independent concept album project by Daniel Schmid, focused on full album worlds, cinematic stories, and genre-driven music.",
+  url: canonical,
+  contentKind: "generic",
+  breadcrumbs: seoBreadcrumbs,
+  structuredData: structuredDataExtra,
+  enrichedParts: [
+    "MelodyMind Music",
+    "Daniel Schmid",
+    "concept albums",
+    "independent music",
+  ],
+  descriptionSource: "base",
+  fallbackKeywords: [
+    "MelodyMind Music",
+    "Daniel Schmid",
+    "concept albums",
+    "independent music project",
+    "AI music albums",
+  ],
+  keywordLimit: 24,
+  maxDescription: 155,
+  image: new URL(musicDefaultOgImageUrl, `${baseUrl}/`).toString(),
+  imageAlt: "About MelodyMind Music",
+  publishDate: publishedAt,
+  modifiedDate: modifiedAt,
+  index: true,
+  follow: true,
+  autoSocialImage: false,
+  authorName: "Daniel Schmid",
+});
+---
+
+<Layout {pageSeo}>
+  <PageShell containerClass="page-shell__container--wide page-shell__container--spacious">
+    <article class="about-page">
+      <header class="about-page__intro">
+        <p class="about-page__eyebrow">About MelodyMind Music</p>
+        <h1 class="about-page__title">
+          Independent concept albums built as complete music worlds
+        </h1>
+        <p class="about-page__lead">
+          MelodyMind Music is an independent music project by Daniel Schmid, built around
+          full concept albums, cinematic stories, and genre-driven sound worlds.
+        </p>
+
+        <dl class="about-page__facts" aria-label="Key facts about MelodyMind Music">
+          {
+            highlights.map((highlight) => (
+              <div class="about-page__fact">
+                <dt class="about-page__fact-value">{highlight.value}</dt>
+                <dd class="about-page__fact-label">{highlight.label}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </header>
+
+      <div class="about-page__body">
+        <section class="about-page__section" aria-labelledby="about-project-title">
+          <h2 id="about-project-title" class="about-page__section-title">
+            About MelodyMind Music
+          </h2>
+          <div class="about-page__copy">
+            <p>
+              MelodyMind Music focuses on complete album experiences rather than isolated
+              songs. Each release starts with a clear idea: a story, a mood, a visual
+              direction, and a musical identity.
+            </p>
+            <p>
+              The albums move through gothic metal, folk rock, punk, darkwave, power
+              metal, Latin pop, hip-hop, cinematic rock, and experimental hybrids. Each
+              album is treated as its own world, with songs connected by themes,
+              characters, emotions, or narrative arcs.
+            </p>
+            <p>
+              Lyrics, artwork, and album descriptions support the atmosphere of the music.
+              The aim is to give listeners more than a playlist: a record that feels like
+              a story they can enter and return to.
+            </p>
+          </div>
+        </section>
+
+        <section class="about-page__section" aria-labelledby="about-daniel-title">
+          <h2 id="about-daniel-title" class="about-page__section-title">About Daniel</h2>
+          <div class="about-page__copy">
+            <p>
+              MelodyMind Music was founded and is curated by Daniel Schmid, an independent
+              creator interested in concept albums, genre storytelling, visual music
+              worlds, and modern production tools.
+            </p>
+            <p>
+              Daniel develops the ideas, themes, and creative direction behind each
+              release, from the first album concept to the track structure, lyrics,
+              artwork direction, and final presentation.
+            </p>
+            <p>
+              Some releases are dark and cinematic. Others are rebellious, romantic,
+              playful, or mythic. Each one is built around a clear creative identity, with
+              sound, story, and atmosphere designed to belong together.
+            </p>
+          </div>
+        </section>
+
+        <section class="about-page__section" aria-labelledby="creative-direction-title">
+          <h2 id="creative-direction-title" class="about-page__section-title">
+            Creative Direction
+          </h2>
+          <div class="about-page__copy">
+            <p>
+              MelodyMind Music reflects Daniel's interest in rock and metal storytelling,
+              gothic aesthetics, folk traditions, political themes, fantasy worlds,
+              emotional pop, cinematic soundscapes, and experimental album formats.
+            </p>
+            <p>
+              The goal is simple: to create albums that feel like places, stories, and
+              moods listeners can return to.
+            </p>
+          </div>
+        </section>
+
+        <section class="about-page__section" aria-labelledby="find-here-title">
+          <h2 id="find-here-title" class="about-page__section-title">
+            What You'll Find Here
+          </h2>
+          <ul class="about-page__feature-list">
+            {
+              albumFocusItems.map((item) => (
+                <li class="about-page__feature-item">{item}</li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <footer class="about-page__closing">
+          <p>
+            MelodyMind Music is created, curated, and produced by Daniel Schmid as an
+            independent concept album project.
+          </p>
+        </footer>
+      </div>
+    </article>
+  </PageShell>
+</Layout>
+
+<style>
+  .about-page {
+    max-inline-size: min(100%, 68rem);
+    margin-inline: auto;
+  }
+
+  .about-page__intro {
+    padding-block: clamp(var(--spacing-xl), 7vw, var(--spacing-4xl))
+      clamp(var(--spacing-2xl), 8vw, var(--spacing-4xl));
+  }
+
+  .about-page__eyebrow {
+    margin: 0 0 var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-strong);
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
+  .about-page__title {
+    max-inline-size: 13ch;
+    margin: 0;
+    font-size: clamp(2.5rem, 1.7rem + 3.6vw, 5.25rem);
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .about-page__lead {
+    max-inline-size: 46rem;
+    margin: var(--spacing-xl) 0 0;
+    font-size: clamp(1.15rem, 1.04rem + 0.42vw, 1.45rem);
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .about-page__facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-lg);
+    padding-block-start: var(--spacing-xl);
+    margin: clamp(var(--spacing-xl), 6vw, var(--spacing-3xl)) 0 0;
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .about-page__fact {
+    min-inline-size: 0;
+  }
+
+  .about-page__fact-value {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+  }
+
+  .about-page__fact-label {
+    margin: var(--spacing-xs) 0 0;
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .about-page__body {
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .about-page__section {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.65fr) minmax(0, 1.35fr);
+    gap: clamp(var(--spacing-xl), 5vw, var(--spacing-4xl));
+    padding-block: clamp(var(--spacing-2xl), 7vw, var(--spacing-4xl));
+    border-block-end: 1px solid var(--surface-border-soft);
+  }
+
+  .about-page__section-title {
+    position: sticky;
+    inset-block-start: var(--spacing-xl);
+    align-self: start;
+    margin: 0;
+    font-size: clamp(1.45rem, 1.26rem + 0.7vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .about-page__copy {
+    max-inline-size: 72ch;
+    font-size: clamp(1.04rem, 1rem + 0.22vw, 1.2rem);
+    line-height: 1.78;
+    color: var(--text-secondary);
+  }
+
+  .about-page__copy p {
+    margin: 0;
+  }
+
+  .about-page__copy p + p {
+    margin-block-start: var(--spacing-lg);
+  }
+
+  .about-page__feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-base) var(--spacing-2xl);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .about-page__feature-item {
+    padding-block-start: var(--spacing-sm);
+    font-size: clamp(1rem, 0.98rem + 0.16vw, 1.1rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .about-page__closing {
+    max-inline-size: 72ch;
+    padding-block: clamp(var(--spacing-xl), 6vw, var(--spacing-3xl));
+    margin-inline-start: auto;
+    font-size: clamp(1.1rem, 1rem + 0.34vw, 1.3rem);
+    line-height: 1.65;
+    color: var(--text-primary);
+  }
+
+  .about-page__closing :where(p) {
+    margin: 0;
+  }
+
+  @media (width < 860px) {
+    .about-page__title {
+      max-inline-size: 11ch;
+    }
+
+    .about-page__facts,
+    .about-page__feature-list {
+      grid-template-columns: 1fr;
+    }
+
+    .about-page__section {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    .about-page__section-title {
+      position: static;
+    }
+  }
+</style>

@@ -92,6 +92,10 @@ export const musicAppShellConfig = buildAppShellConfig({
       href: "/search",
       label: "Search",
     },
+    {
+      href: "/about",
+      label: "About",
+    },
   ],
   footerRssLink: {
     href: "/rss.xml",
