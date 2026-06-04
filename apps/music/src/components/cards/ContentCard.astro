@@ -34,7 +34,6 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   /** Array of {label, iconName?, datetime?} for metadata row */
   metaItems?: ContentCardMetaItem[];
-  descriptionLineClamp?: number;
   /** Button label text */
   ctaLabel?: string;
   /** Icon name for button */
@@ -67,7 +66,6 @@ const {
   imageSizes,
   titleLevel = "h3",
   metaItems = [],
-  descriptionLineClamp = 0,
   ctaLabel,
   ctaIconName,
   ctaSrText,
@@ -99,10 +97,6 @@ const describedBy = [
 ]
   .filter(Boolean)
   .join(" ");
-const descriptionStyle =
-  descriptionLineClamp > 0
-    ? `--content-card-description-line-clamp: ${descriptionLineClamp};`
-    : undefined;
 const resolvedImageWidth = imageWidth ?? 1024;
 const resolvedImageHeight = imageHeight ?? 683;
 const resolvedMediaAspectRatio =
@@ -189,14 +183,7 @@ const optimizedImageSizeProps = imageSizes ? { sizes: imageSizes } : {};
 
       {
         description ? (
-          <p
-            id={descriptionId}
-            class:list={[
-              "content-card__description",
-              descriptionLineClamp > 0 && "content-card__description--clamped",
-            ]}
-            style={descriptionStyle}
-          >
+          <p id={descriptionId} class:list={["content-card__description"]}>
             {description}
           </p>
         ) : null

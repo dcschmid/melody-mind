@@ -145,7 +145,6 @@ const GRID_COVER_IMAGE_SIZES =
                     ? [{ iconName: "clock" as const, label: album.totalDurationLabel }]
                     : []),
                 ]}
-                descriptionLineClamp={2}
                 ctaSrText={`Open album ${album.title}`}
               />
             </li>
@@ -268,7 +267,7 @@ const GRID_COVER_IMAGE_SIZES =
 
   .genre-landing__grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(1rem, 1.6vw, 1.4rem);
     align-items: stretch;
     padding: 0;
