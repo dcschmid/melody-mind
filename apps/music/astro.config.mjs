@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
+import { satteri } from "@astrojs/markdown-satteri";
 import path from "path";
 import icon from "astro-icon";
 import minifyHtml from "astro-minify-html-swc";
@@ -30,6 +31,11 @@ const getSitemapPath = (url) => {
 export default defineConfig({
   site: "https://melody-mind.de",
   output: "static",
+  markdown: {
+    processor: satteri({
+      features: { directive: true },
+    }),
+  },
   redirects: {
     "/categories": "/",
     "/knowledge": "/",

@@ -16,13 +16,14 @@
     "update:audio-metadata": "node scripts/update-audio-metadata.mjs"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.3",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/markdown-satteri": "^0.2.2",
+    "@astrojs/mdx": "^6.0.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@freshjuice/astro-search-plugin": "^1.0.1",
-    "@iconify-json/simple-icons": "^1.2.78",
-    "@iconify-json/tabler": "^1.2.33",
+    "@iconify-json/simple-icons": "^1.2.85",
+    "@iconify-json/tabler": "^1.2.35",
     "@zdenekkurecka/astro-consent": "^0.3.2",
-    "astro": "^6.1.6",
+    "astro": "^6.4.4",
     "astro-icon": "^1.1.5",
     "astro-minify-html-swc": "^0.1.11",
     "lightningcss": "^1.32.0",
@@ -30,10 +31,10 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@types/js-yaml": "^4.0.9",
     "image-size": "^2.0.2",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.2.0",
     "typescript": "^5.9.3"
   }
 }
