@@ -17,6 +17,32 @@ sudo apt-get install ffmpeg
 sudo dnf install ffmpeg
 ```
 
+## IndexNow submission
+
+The public verification key is hosted from `apps/music/public/`, so production serves
+it at:
+
+```text
+https://melody-mind.de/9eda49e5fe0da697d03be0e0182261f6220da2066439bd6ae66018671155d83a.txt
+```
+
+After a deployment is live, submit only the URLs that were added or changed:
+
+```bash
+pnpm indexnow:submit -- /neon-hearts/
+pnpm indexnow:submit -- apps/music/src/content/albums/neon-hearts.mdx
+pnpm indexnow:submit -- --git HEAD~1..HEAD
+```
+
+Use `--dry-run` to inspect the payload without calling IndexNow:
+
+```bash
+pnpm indexnow:submit -- --dry-run /neon-hearts/
+```
+
+Do not submit the full sitemap on every release. IndexNow is intended for new,
+updated, or deleted URLs.
+
 Das Script `update-durations.mjs` nutzt `ffprobe` (Teil von ffmpeg), um die Audiodauer aus Remote-URLs zu ermitteln. Das ist zuverlässig und braucht keine Node-Dependencies.
 
 ### Option 2: Mit Node-Packages

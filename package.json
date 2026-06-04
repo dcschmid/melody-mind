@@ -25,6 +25,7 @@
     "format:all": "turbo run format",
     "format:check": "turbo run format:check --filter=music",
     "format:check:all": "turbo run format:check",
+    "indexnow:submit": "pnpm --filter music indexnow:submit",
     "clean": "turbo run clean",
     "prepare": "husky"
   },

@@ -87,6 +87,7 @@ const canonicalPath = canonical
   ? new URL(canonical, `${siteUrl}/`).pathname
   : Astro.url.pathname;
 const currentUrl = resolveAbsoluteUrl(siteUrl, ensureTrailingSlash(canonicalPath));
+const rssFeedUrl = resolveAbsoluteUrl(siteUrl, "/rss.xml");
 const imageUrl = resolveAbsoluteUrl(siteUrl, image);
 const shellConfig = musicAppShellConfig;
 const currentPath = `${Astro.url.pathname}${Astro.url.search}`;
@@ -266,7 +267,7 @@ const mobileGenreLinks = Array.from(
   showBackToTop={false}
 >
   <Fragment slot="head">
-    <AppHeadResources />
+    <AppHeadResources rssTitle={shellConfig.rssTitle} rssHref={rssFeedUrl} />
     <SEO
       {...seoProps}
       {...resolvedImageWidth ? { imageWidth: resolvedImageWidth } : {}}

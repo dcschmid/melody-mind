@@ -13,11 +13,13 @@
     "format:check": "pnpm exec prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
+    "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "update:audio-metadata": "node scripts/update-audio-metadata.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.2.2",
     "@astrojs/mdx": "^6.0.2",
+    "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
     "@freshjuice/astro-search-plugin": "^1.0.1",
     "@iconify-json/simple-icons": "^1.2.85",
