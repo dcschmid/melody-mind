@@ -127,6 +127,14 @@ const mainGenreIconBySlug: Record<string, IconName> = {
   soundtrack: "tv",
   classical: "book-open",
 };
+const albumCountByMainGenre = albums.reduce<Record<string, number>>((counts, album) => {
+  if (!album.mainGenre) {
+    return counts;
+  }
+
+  counts[album.mainGenre] = (counts[album.mainGenre] || 0) + 1;
+  return counts;
+}, {});
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
@@ -247,7 +255,9 @@ const structuredData = [
                   class="music-home__main-genre-icon"
                   aria-hidden="true"
                 />
-                <span>{page.mainGenre}</span>
+                <span>
+                  {page.mainGenre} ({albumCountByMainGenre[page.mainGenre] || 0})
+                </span>
               </a>
             ))
           }
