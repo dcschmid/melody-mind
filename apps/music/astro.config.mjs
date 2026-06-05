@@ -46,7 +46,7 @@ export default defineConfig({
       collections: ["tabler", "simple-icons"],
     }),
     cookieConsent({
-      version: 1,
+      version: 2,
       storageKey: "melodymind-consent",
       maxAgeDays: 365,
       cookiePolicy: {
@@ -60,12 +60,18 @@ export default defineConfig({
             "Allows privacy-friendly Fathom Analytics to measure aggregate page views.",
           default: false,
         },
+        comments: {
+          label: "Comments",
+          description:
+            "Loads the Cusdis comment system so you can read and post album comments.",
+          default: false,
+        },
       },
       text: {
         bannerText:
-          "We use essential browser storage for site features. With your consent, we also use privacy-friendly analytics to understand aggregate site usage.",
-        acceptAll: "Accept analytics",
-        rejectAll: "Reject analytics",
+          "We use essential browser storage for site features. With your consent, we also use optional analytics and album comments.",
+        acceptAll: "Accept optional services",
+        rejectAll: "Reject optional services",
         manage: "Manage choices",
         modalTitle: "Privacy preferences",
         closeAriaLabel: "Close preferences",
@@ -137,7 +143,7 @@ export default defineConfig({
     server: {
       headers: {
         "Content-Security-Policy":
-          "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https://cdn.usefathom.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
+          "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com https://cusdis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https://cdn.usefathom.com https://cusdis.com; frame-src https://cusdis.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://cusdis.com;",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",

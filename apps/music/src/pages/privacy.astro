@@ -11,7 +11,7 @@ export const prerender = true;
 const title = "Privacy Policy";
 const description =
   "How we process personal data on MelodyMind Music, including hosting logs, browser storage, privacy-friendly analytics, and AI-generated media details.";
-const lastUpdated = "29 May 2026";
+const lastUpdated = "5 June 2026";
 
 const highlights = [
   {
@@ -21,6 +21,10 @@ const highlights = [
   {
     value: "Opt-in analytics",
     label: "Fathom Analytics loads only after analytics consent.",
+  },
+  {
+    value: "Opt-in comments",
+    label: "Cusdis comments load only after comments consent.",
   },
   {
     value: "Clear rights",
@@ -55,10 +59,11 @@ const sections = [
   },
   {
     icon: "eye",
-    title: "Analytics",
+    title: "Analytics and Comments",
     trustedHtmlBody: trustedHtmlList([
       "We use Fathom Analytics only after analytics consent to understand aggregate page views and site usage without showing individual visitor profiles. Fathom is a cookie-free analytics service. Legal basis: Art. 6(1)(a) GDPR, consent.",
-      "You can withdraw analytics consent through the Cookie settings button in the footer.",
+      "Album comments are provided by Cusdis and load from cusdis.com only after comments consent. Cusdis may process technical request data and comment content needed to display and submit comments. Legal basis: Art. 6(1)(a) GDPR, consent.",
+      "You can withdraw analytics or comments consent through the Cookie settings button in the footer.",
     ]),
   },
   {
