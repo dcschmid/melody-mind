@@ -9,6 +9,7 @@ import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
 import RelatedContentSection from "@components/cards/RelatedContentSection.astro";
 import AlbumComments from "@components/music/album/AlbumComments.astro";
+import AlbumWebmentions from "@components/music/album/AlbumWebmentions.astro";
 import AlbumSupportSection from "@components/music/album/AlbumSupportSection.astro";
 import Details from "@components/music/album/Details.astro";
 import Hero from "@components/music/album/Hero.astro";
@@ -198,6 +199,8 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     </Details>
 
     <AlbumSupportSection albumTitle={currentAlbum.title} />
+
+    <AlbumWebmentions pageUrl={canonical} />
 
     <AlbumComments
       pageId={currentAlbumId}

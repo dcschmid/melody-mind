@@ -1,0 +1,510 @@
+---
+interface Props {
+  pageUrl: string;
+}
+
+const { pageUrl } = Astro.props as Props;
+const titleId = "album-webmentions-title";
+---
+
+<section
+  class="album-webmentions"
+  aria-labelledby={titleId}
+  data-album-webmentions
+  data-webmentions-target={pageUrl}
+>
+  <div class="album-webmentions__header">
+    <p class="album-webmentions__eyebrow">Join the conversation</p>
+    <h2 id={titleId} class="album-webmentions__title">Reactions from the web</h2>
+    <p class="album-webmentions__text">
+      Mentions, likes, reposts, and replies from IndieWeb and Fediverse-friendly sites can
+      appear here after you allow community features.
+    </p>
+  </div>
+
+  <div class="album-webmentions__consent" data-album-webmentions-consent>
+    <p class="album-webmentions__consent-text">
+      Enable community features to load public reactions via Webmention.io.
+    </p>
+    <button class="album-webmentions__button" type="button" data-album-webmentions-enable>
+      Enable community
+    </button>
+    <button class="album-webmentions__settings-button" type="button" data-cc="manage">
+      Privacy settings
+    </button>
+  </div>
+
+  <div
+    class="album-webmentions__status"
+    data-album-webmentions-status
+    aria-live="polite"
+    hidden
+  >
+  </div>
+  <ul class="album-webmentions__list" data-album-webmentions-list hidden></ul>
+</section>
+
+<script>
+  type ConsentApi = {
+    get: () => { categories?: Record<string, boolean> } | null;
+    set: (categories: Record<string, boolean>) => void;
+  };
+
+  type WebmentionAuthor = {
+    name?: string;
+    photo?: string;
+    url?: string;
+  };
+
+  type WebmentionContent = {
+    text?: string;
+    html?: string;
+  };
+
+  type WebmentionEntry = {
+    type?: string;
+    author?: WebmentionAuthor;
+    content?: WebmentionContent;
+    name?: string;
+    published?: string;
+    url?: string;
+    "wm-property"?: string;
+    "wm-received"?: string;
+    "wm-source"?: string;
+  };
+
+  type WebmentionResponse = {
+    children?: WebmentionEntry[];
+  };
+
+  const getConsentApi = (): ConsentApi | undefined =>
+    (window as Window & { astroConsent?: ConsentApi }).astroConsent;
+
+  const webmentionsRoot = document.querySelector("[data-album-webmentions]");
+
+  if (webmentionsRoot) {
+    const consentPanel = webmentionsRoot.querySelector(
+      "[data-album-webmentions-consent]"
+    );
+    const enableButton = webmentionsRoot.querySelector("[data-album-webmentions-enable]");
+    const status = webmentionsRoot.querySelector("[data-album-webmentions-status]");
+    const list = webmentionsRoot.querySelector("[data-album-webmentions-list]");
+    const targetUrl = webmentionsRoot.getAttribute("data-webmentions-target");
+    let hasLoadedWebmentions = false;
+
+    const reactionLabels: Record<string, string> = {
+      "in-reply-to": "Reply",
+      like: "Like",
+      "like-of": "Like",
+      mention: "Mention",
+      "mention-of": "Mention",
+      repost: "Repost",
+      "repost-of": "Repost",
+    };
+
+    const setStatus = (message: string, isHidden = false) => {
+      if (!status) {
+        return;
+      }
+
+      status.textContent = message;
+      status.toggleAttribute("hidden", isHidden);
+    };
+
+    const getReactionType = (entry: WebmentionEntry): string =>
+      reactionLabels[entry["wm-property"] || ""] ||
+      reactionLabels[entry.type || ""] ||
+      "Mention";
+
+    const getEntryText = (entry: WebmentionEntry): string => {
+      const contentText = entry.content?.text?.trim();
+      if (contentText) {
+        return contentText;
+      }
+
+      const name = entry.name?.trim();
+      return name || "";
+    };
+
+    const formatDate = (dateValue?: string): string => {
+      if (!dateValue) {
+        return "";
+      }
+
+      const date = new Date(dateValue);
+      if (Number.isNaN(date.getTime())) {
+        return "";
+      }
+
+      return new Intl.DateTimeFormat("en", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      }).format(date);
+    };
+
+    const appendMetaText = (parent: HTMLElement, text: string) => {
+      if (!text) {
+        return;
+      }
+
+      const meta = document.createElement("span");
+      meta.className = "album-webmentions__meta-item";
+      meta.textContent = text;
+      parent.append(meta);
+    };
+
+    const renderWebmention = (entry: WebmentionEntry): HTMLLIElement | null => {
+      const sourceUrl = entry.url || entry["wm-source"];
+      if (!sourceUrl) {
+        return null;
+      }
+
+      const authorName = entry.author?.name?.trim() || "Someone";
+      const reactionType = getReactionType(entry);
+      const entryText = getEntryText(entry);
+      const publishedDate = formatDate(entry.published || entry["wm-received"]);
+
+      const item = document.createElement("li");
+      item.className = "album-webmentions__item";
+
+      const body = document.createElement("div");
+      body.className = "album-webmentions__item-body";
+
+      if (entry.author?.photo) {
+        const image = document.createElement("img");
+        image.className = "album-webmentions__avatar";
+        image.src = entry.author.photo;
+        image.alt = "";
+        image.loading = "lazy";
+        image.decoding = "async";
+        item.append(image);
+      }
+
+      const header = document.createElement("div");
+      header.className = "album-webmentions__item-header";
+
+      const author = document.createElement("a");
+      author.className = "album-webmentions__author";
+      author.href = entry.author?.url || sourceUrl;
+      author.rel = "noopener noreferrer";
+      author.target = "_blank";
+      author.textContent = authorName;
+      header.append(author);
+
+      const badge = document.createElement("span");
+      badge.className = "album-webmentions__badge";
+      badge.textContent = reactionType;
+      header.append(badge);
+
+      const meta = document.createElement("div");
+      meta.className = "album-webmentions__meta";
+      appendMetaText(meta, publishedDate);
+
+      const source = document.createElement("a");
+      source.className = "album-webmentions__source";
+      source.href = sourceUrl;
+      source.rel = "noopener noreferrer";
+      source.target = "_blank";
+      source.textContent = "Source";
+      meta.append(source);
+
+      body.append(header);
+
+      if (entryText) {
+        const text = document.createElement("p");
+        text.className = "album-webmentions__quote";
+        text.textContent =
+          entryText.length > 220 ? `${entryText.slice(0, 217)}...` : entryText;
+        body.append(text);
+      }
+
+      body.append(meta);
+      item.append(body);
+
+      return item;
+    };
+
+    const loadWebmentions = async () => {
+      if (!targetUrl || !list || hasLoadedWebmentions) {
+        return;
+      }
+
+      hasLoadedWebmentions = true;
+      setStatus("Loading web reactions...");
+
+      try {
+        const endpoint = new URL("https://webmention.io/api/mentions.jf2");
+        endpoint.searchParams.set("target", targetUrl);
+
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+          throw new Error(`Webmention.io responded with ${response.status}`);
+        }
+
+        const payload = (await response.json()) as WebmentionResponse;
+        const entries = (payload.children || [])
+          .map(renderWebmention)
+          .filter((entry): entry is HTMLLIElement => Boolean(entry))
+          .slice(0, 8);
+
+        list.replaceChildren(...entries);
+        list.toggleAttribute("hidden", entries.length === 0);
+        setStatus(
+          entries.length > 0
+            ? `${entries.length} web reaction${entries.length === 1 ? "" : "s"} found.`
+            : "No web reactions have been received for this album yet.",
+          entries.length > 0
+        );
+      } catch {
+        hasLoadedWebmentions = false;
+        setStatus("Web reactions are not available right now.");
+      }
+    };
+
+    const updateWebmentions = () => {
+      const hasCommentsConsent = getConsentApi()?.get()?.categories?.comments === true;
+      consentPanel?.toggleAttribute("hidden", hasCommentsConsent);
+
+      if (hasCommentsConsent) {
+        void loadWebmentions();
+      } else {
+        list?.toggleAttribute("hidden", true);
+        setStatus("", true);
+      }
+    };
+
+    enableButton?.addEventListener("click", () => {
+      getConsentApi()?.set({ comments: true });
+      updateWebmentions();
+    });
+
+    document.addEventListener("astro-consent:consent", updateWebmentions);
+    document.addEventListener("astro-consent:change", updateWebmentions);
+    updateWebmentions();
+  }
+</script>
+
+<style>
+  .album-webmentions {
+    display: grid;
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+    padding: clamp(var(--spacing-base), 2vw, var(--spacing-xl)) 0 0;
+    color: var(--music-album-ink);
+    scroll-margin-block-start: 6rem;
+    border-block-start: 1px solid var(--music-album-line);
+  }
+
+  .album-webmentions__header {
+    display: grid;
+    gap: var(--spacing-xs);
+    max-inline-size: 70ch;
+  }
+
+  .album-webmentions__eyebrow {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    color: var(--music-album-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .album-webmentions__title {
+    margin: 0;
+    font-size: clamp(var(--font-size-md), 1.5vw, var(--font-size-lg));
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--music-album-ink);
+    letter-spacing: var(--letter-spacing-normal);
+    text-wrap: balance;
+  }
+
+  .album-webmentions__text,
+  .album-webmentions__consent-text,
+  .album-webmentions__status {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--music-album-muted);
+    text-wrap: pretty;
+  }
+
+  .album-webmentions__consent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-base);
+    background: color-mix(in srgb, var(--music-album-paper-soft) 52%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-line) 84%, transparent);
+    border-radius: var(--radius-base);
+  }
+
+  .album-webmentions__consent[hidden],
+  .album-webmentions__status[hidden],
+  .album-webmentions__list[hidden] {
+    display: none;
+  }
+
+  .album-webmentions__button,
+  .album-webmentions__settings-button {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--music-album-ink);
+    text-decoration: none;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--music-album-paper) 78%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-accent) 34%, transparent);
+    border-radius: var(--radius-base);
+  }
+
+  .album-webmentions__button {
+    color: var(--button-text-accent);
+    background: var(--music-album-accent);
+    border-color: var(--music-album-accent);
+  }
+
+  .album-webmentions__button:hover,
+  .album-webmentions__button:focus-visible,
+  .album-webmentions__settings-button:hover,
+  .album-webmentions__settings-button:focus-visible {
+    color: var(--button-text-accent);
+    background: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+  }
+
+  .album-webmentions__list {
+    display: grid;
+    gap: var(--spacing-sm);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .album-webmentions__item {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+    padding: var(--spacing-base);
+    background: color-mix(in srgb, var(--music-album-paper-soft) 42%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-line) 74%, transparent);
+    border-radius: var(--radius-base);
+  }
+
+  .album-webmentions__avatar {
+    flex: 0 0 auto;
+    inline-size: 2.5rem;
+    block-size: 2.5rem;
+    object-fit: cover;
+    background: color-mix(in srgb, var(--music-album-paper-soft) 70%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-line) 74%, transparent);
+    border-radius: 50%;
+  }
+
+  .album-webmentions__item-body {
+    display: grid;
+    gap: var(--spacing-xs);
+    min-inline-size: 0;
+  }
+
+  .album-webmentions__item-header,
+  .album-webmentions__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    align-items: center;
+  }
+
+  .album-webmentions__author,
+  .album-webmentions__source {
+    color: var(--music-album-ink);
+    text-decoration-color: color-mix(in srgb, currentcolor 44%, transparent);
+    text-underline-offset: 0.18em;
+  }
+
+  .album-webmentions__author {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+  }
+
+  .album-webmentions__badge {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 1.35rem;
+    padding: 0 var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    color: var(--music-album-muted);
+    background: color-mix(in srgb, var(--music-album-paper-soft) 56%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-line) 74%, transparent);
+    border-radius: var(--radius-base);
+  }
+
+  .album-webmentions__quote {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--music-album-muted);
+  }
+
+  .album-webmentions__meta,
+  .album-webmentions__source {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-tight);
+    color: var(--music-album-muted);
+  }
+
+  .album-webmentions__button:focus-visible,
+  .album-webmentions__settings-button:focus-visible,
+  .album-webmentions__author:focus-visible,
+  .album-webmentions__source:focus-visible {
+    outline: var(--focus-ring-width) solid var(--music-album-accent);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    .album-webmentions__button,
+    .album-webmentions__settings-button {
+      transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .album-webmentions__button:hover,
+    .album-webmentions__button:focus-visible,
+    .album-webmentions__settings-button:hover,
+    .album-webmentions__settings-button:focus-visible {
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (width <= 520px) {
+    .album-webmentions__consent,
+    .album-webmentions__button,
+    .album-webmentions__settings-button {
+      inline-size: 100%;
+    }
+
+    .album-webmentions__item {
+      padding: var(--spacing-sm);
+    }
+  }
+</style>

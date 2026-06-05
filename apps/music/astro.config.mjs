@@ -61,15 +61,15 @@ export default defineConfig({
           default: false,
         },
         comments: {
-          label: "Comments",
+          label: "Community features",
           description:
-            "Loads the Cusdis comment system so you can read and post album comments.",
+            "Loads Cusdis comments and Webmention.io reactions for album discussions.",
           default: false,
         },
       },
       text: {
         bannerText:
-          "We use essential browser storage for site features. With your consent, we also use optional analytics and album comments.",
+          "We use essential browser storage for site features. With your consent, we also use optional analytics and community features.",
         acceptAll: "Accept optional services",
         rejectAll: "Reject optional services",
         manage: "Manage choices",
@@ -143,7 +143,7 @@ export default defineConfig({
     server: {
       headers: {
         "Content-Security-Policy":
-          "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com https://cusdis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https://cdn.usefathom.com https://cusdis.com; frame-src https://cusdis.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://cusdis.com;",
+          "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com https://cusdis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https://cdn.usefathom.com https://cusdis.com https://webmention.io; frame-src https://cusdis.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://cusdis.com;",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",

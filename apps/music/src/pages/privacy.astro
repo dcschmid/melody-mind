@@ -23,8 +23,8 @@ const highlights = [
     label: "Fathom Analytics loads only after analytics consent.",
   },
   {
-    value: "Opt-in comments",
-    label: "Cusdis comments load only after comments consent.",
+    value: "Opt-in community",
+    label: "Cusdis and Webmention.io load only after comments consent.",
   },
   {
     value: "Clear rights",
@@ -59,11 +59,12 @@ const sections = [
   },
   {
     icon: "eye",
-    title: "Analytics and Comments",
+    title: "Analytics and Community Features",
     trustedHtmlBody: trustedHtmlList([
       "We use Fathom Analytics only after analytics consent to understand aggregate page views and site usage without showing individual visitor profiles. Fathom is a cookie-free analytics service. Legal basis: Art. 6(1)(a) GDPR, consent.",
       "Album comments are provided by Cusdis and load from cusdis.com only after comments consent. Cusdis may process technical request data and comment content needed to display and submit comments. Legal basis: Art. 6(1)(a) GDPR, consent.",
-      "You can withdraw analytics or comments consent through the Cookie settings button in the footer.",
+      "Album web reactions are provided by Webmention.io and load from webmention.io only after comments consent. Webmention.io may process technical request data and public webmention metadata needed to display mentions, likes, reposts, and replies. Legal basis: Art. 6(1)(a) GDPR, consent.",
+      "You can withdraw analytics or community feature consent through the Cookie settings button in the footer.",
     ]),
   },
   {

@@ -23,8 +23,8 @@ const highlights = [
     label: "Fathom Analytics loads only after analytics consent.",
   },
   {
-    value: "Opt-in comments",
-    label: "Cusdis comments load only after comments consent.",
+    value: "Opt-in community",
+    label: "Cusdis and Webmention.io load only after comments consent.",
   },
   {
     value: "Local-first",
@@ -43,11 +43,12 @@ const policySections = [
   },
   {
     icon: "eye",
-    title: "Analytics and comments",
+    title: "Analytics and community features",
     trustedHtmlBody: trustedHtmlList([
       "We use Fathom Analytics for aggregate, cookie-free site measurement only after you accept analytics.",
       "If you reject analytics, the Fathom script remains blocked.",
       "Album comments use Cusdis and load from cusdis.com only after you enable the comments category.",
+      "Album web reactions use Webmention.io and load from webmention.io only after you enable the comments category.",
     ]),
   },
   {
@@ -55,7 +56,7 @@ const policySections = [
     title: "How we use browser storage",
     trustedHtmlBody: trustedHtmlList([
       "We use local storage to remember feature-level preferences and site state, such as theme mode, consent choice, and the last music player position.",
-      "You can update analytics and comments consent through the Cookie settings button in the footer or clear browser storage in your browser settings.",
+      "You can update analytics and community feature consent through the Cookie settings button in the footer or clear browser storage in your browser settings.",
     ]),
   },
   {
