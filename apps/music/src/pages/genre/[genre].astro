@@ -88,12 +88,8 @@ const GRID_COVER_IMAGE_SIZES =
   {structuredData}
   contentShellClass="music-layout__container--genre"
 >
-  <main
-    class="genre-landing"
-    aria-labelledby="genre-landing-title"
-    data-genre-reveal-root
-  >
-    <header class="genre-landing__hero" data-genre-reveal>
+  <main class="genre-landing" aria-labelledby="genre-landing-title">
+    <header class="genre-landing__hero">
       <p class="genre-landing__eyebrow">{page.eyebrow}</p>
       <h1 id="genre-landing-title" class="genre-landing__title">{page.title}</h1>
       <div class="genre-landing__intro">
@@ -101,11 +97,7 @@ const GRID_COVER_IMAGE_SIZES =
       </div>
     </header>
 
-    <section
-      class="genre-landing__albums"
-      aria-labelledby="genre-albums-title"
-      data-genre-reveal
-    >
+    <section class="genre-landing__albums" aria-labelledby="genre-albums-title">
       <div class="genre-landing__section-header">
         <p class="genre-landing__section-kicker">
           {albumCards.length}
@@ -310,22 +302,6 @@ const GRID_COVER_IMAGE_SIZES =
       grid-template-columns: minmax(0, 1fr);
     }
   }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .genre-landing :global([data-genre-reveal]) {
-      opacity: 0;
-      transform: translateY(1.25rem);
-      transition:
-        opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
-        transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: opacity, transform;
-    }
-
-    .genre-landing :global([data-genre-reveal].is-revealed) {
-      opacity: 1;
-      transform: none;
-    }
-  }
 </style>
 
 <style is:global>
@@ -361,36 +337,3 @@ const GRID_COVER_IMAGE_SIZES =
     }
   }
 </style>
-
-<script>
-  const revealTargets = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-genre-reveal]")
-  );
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (revealTargets.length > 0) {
-    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-      for (const target of revealTargets) {
-        target.classList.add("is-revealed");
-      }
-    } else {
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-revealed");
-              obs.unobserve(entry.target);
-            }
-          }
-        },
-        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
-      );
-
-      for (const target of revealTargets) {
-        observer.observe(target);
-      }
-    }
-  }
-</script>

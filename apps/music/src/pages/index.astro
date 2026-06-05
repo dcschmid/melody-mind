@@ -222,12 +222,12 @@ const structuredData = [
       latestReleasesLabel={t.latestReleases}
     />
 
-    <div class="music-home__content" data-home-reveal-root>
-      <div data-home-reveal>
+    <div class="music-home__content">
+      <div>
         <ContinueListening albums={albumEntries} title={t.continueListening} />
       </div>
 
-      <div data-home-reveal>
+      <div>
         <LatestSection
           albums={latestReleaseShelf}
           title={t.latest}
@@ -235,11 +235,7 @@ const structuredData = [
         />
       </div>
 
-      <section
-        class="music-home__main-genres"
-        aria-labelledby="main-genres-title"
-        data-home-reveal
-      >
+      <section class="music-home__main-genres" aria-labelledby="main-genres-title">
         <div class="music-home__main-genres-copy">
           <p class="music-home__main-genres-kicker">Main Genres</p>
           <h2 id="main-genres-title" class="music-home__main-genres-title">
@@ -266,7 +262,7 @@ const structuredData = [
 
       {
         albums.length > 0 && (
-          <div data-home-reveal>
+          <div>
             <GenreFilterControls
               title={t.genre}
               controlsLabel={t.albumControls}
@@ -282,7 +278,7 @@ const structuredData = [
         )
       }
 
-      <div data-home-reveal>
+      <div>
         <GridSection
           albums={albumEntries}
           title={t.albums}
@@ -296,39 +292,6 @@ const structuredData = [
     </div>
   </div>
 </Layout>
-
-<script>
-  const revealTargets = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-home-reveal]")
-  );
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (revealTargets.length > 0) {
-    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-      for (const target of revealTargets) {
-        target.classList.add("is-revealed");
-      }
-    } else {
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-revealed");
-              obs.unobserve(entry.target);
-            }
-          }
-        },
-        { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
-      );
-
-      for (const target of revealTargets) {
-        observer.observe(target);
-      }
-    }
-  }
-</script>
 
 <style>
   :global(.music-layout__container) {
@@ -393,22 +356,6 @@ const structuredData = [
 
   .music-home__content :global(#latest-releases) {
     margin-block: clamp(0.25rem, 1.2vw, 1rem) clamp(0.1rem, 0.8vw, 0.65rem);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .music-home__content :global([data-home-reveal]) {
-      opacity: 0;
-      transform: translateY(1.25rem);
-      transition:
-        opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
-        transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: opacity, transform;
-    }
-
-    .music-home__content :global([data-home-reveal].is-revealed) {
-      opacity: 1;
-      transform: none;
-    }
   }
 
   .music-home__main-genres {
