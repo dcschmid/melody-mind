@@ -1,5 +1,5 @@
 /**
- * High-level page SEO composer used by Astro pages across the monorepo.
+ * High-level page SEO composer used by Music app Astro pages.
  *
  * The helper centralizes the recurring assembly work around:
  * - branded titles and enriched descriptions/keywords via `buildSeoText()`

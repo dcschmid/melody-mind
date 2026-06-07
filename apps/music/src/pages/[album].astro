@@ -150,6 +150,8 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     album: canonical,
     creator: currentAlbum.artist || "MelodyMind",
     musician: currentAlbum.artist || "MelodyMind",
+    releaseDate: currentAlbum.publishedAt.toISOString(),
+    ...(songs[0] ? { firstTrack: `${canonical}#track-${songs[0].trackNumber}` } : {}),
   }}
   language="en"
   locale="en-US"

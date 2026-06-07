@@ -24,4 +24,6 @@ export interface OpenGraphMusicMeta {
   creator?: string;
   album?: string;
   musician?: string;
+  releaseDate?: string;
+  firstTrack?: string;
 }

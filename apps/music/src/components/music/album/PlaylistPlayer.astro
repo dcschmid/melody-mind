@@ -222,6 +222,7 @@ const getTrackDurationLabel = (song: Song): string =>
 
           return (
             <li
+              id={`track-${song.trackNumber}`}
               class="album-playlist-player__track"
               data-track-index={index}
               data-track-title={song.title}

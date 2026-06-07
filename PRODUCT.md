@@ -30,4 +30,4 @@ Inspired by editorial music publications and the current MelodyMind Music app: w
 
 5. **Content-first layout** — Let the content lead. Cards and containers should serve the content, not box everything uniformly. Vary layouts, break grids intentionally, embrace asymmetry.
 
-6. **Shared product chrome** — Music, Quiz, and Knowledge should share header, footer, theme toggle, mobile drawer, and back-to-top behavior through the established Shared UI component names (`SiteHeader`, `Footer`, `ThemeToggle`, `BackToTop`, plus header subcomponents). App-specific surfaces can vary, but the cross-app frame should feel unified.
+6. **Consistent product chrome** — The Music app should keep header, footer, theme toggle, mobile drawer, and back-to-top behavior in the established component names (`SiteHeader`, `Footer`, `ThemeToggle`, `BackToTop`, plus header subcomponents). Page-specific surfaces can vary, but the product frame should feel unified.

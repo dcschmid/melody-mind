@@ -245,10 +245,17 @@ const robotsContent = robots || fallbackRobots;
 {ogSiteName && <meta property="og:site_name" content={ogSiteName} />}
 {openGraph?.image && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
 {audioSrc && <meta property="og:audio" content={audioSrc} />}
+{audioSrc && <meta property="og:audio:secure_url" content={audioSrc} />}
 {audioSrc && <meta property="og:audio:type" content={audioType} />}
 {ogMusic?.creator && <meta property="music:creator" content={ogMusic.creator} />}
 {ogMusic?.album && <meta property="music:album" content={ogMusic.album} />}
 {ogMusic?.musician && <meta property="music:musician" content={ogMusic.musician} />}
+{
+  ogMusic?.releaseDate && (
+    <meta property="music:release_date" content={ogMusic.releaseDate} />
+  )
+}
+{ogMusic?.firstTrack && <meta property="music:song" content={ogMusic.firstTrack} />}
 {
   typeof episodeNumber === "number" && (
     <meta name="episode:number" content={String(episodeNumber)} />

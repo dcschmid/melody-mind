@@ -67,7 +67,7 @@ function formatMessage(module: string, message: string): string {
  * ```typescript
  * const logger = createLogger("content");
  *
- * logger.info("Collection loaded", { name: "knowledge-en" });
+ * logger.info("Collection loaded", { name: "albums" });
  * logger.warn("Entry missing optional metadata");
  * logger.error("Failed to build page", new Error("..."));
  * ```
@@ -156,7 +156,7 @@ export function createLogger(module: string) {
   };
 }
 
-/** Pre-created loggers for the most common module names used across the monorepo. */
+/** Pre-created loggers for the most common Music app module names. */
 export const loggers = {
   content: createLogger("content"),
   pages: createLogger("pages"),

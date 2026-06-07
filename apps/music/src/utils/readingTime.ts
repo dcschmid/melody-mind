@@ -2,7 +2,7 @@
  * Reading-time estimation helpers for article-like content.
  *
  * The implementation is intentionally heuristic rather than editorially exact. It provides
- * stable, low-cost estimates that work well for article cards, detail pages and taxonomy views.
+ * stable, low-cost estimates that work well for article cards and detail pages.
  */
 
 /** Optional knobs for the reading-time heuristic. */

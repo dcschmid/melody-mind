@@ -1,6 +1,6 @@
 ---
 name: MelodyMind
-description: Unified music-first editorial surfaces with warm paper light mode, violet-blue night mode, shared app chrome, and accessible typography.
+description: Music-first editorial surfaces with warm paper light mode, violet-blue night mode, app chrome, and accessible typography.
 colors:
   warm-canvas: "oklch(98% 0.016 75deg)"
   warm-section: "oklch(95% 0.026 74deg)"
@@ -96,13 +96,13 @@ components:
 
 **Creative North Star: "The Record Shelf With Night Mode"**
 
-MelodyMind should feel like a trusted independent music publication with a well-kept listening room attached. The interface is editorial first: readable, warm, specific, and confident without becoming academic or showy. It now uses the Music app as the visual source of truth across Music, Quiz, Knowledge, and shared UI.
+MelodyMind should feel like a trusted independent music publication with a well-kept listening room attached. The interface is editorial first: readable, warm, specific, and confident without becoming academic or showy. The Music app is now the product and visual source of truth.
 
 The system favors warm paper backgrounds in light mode, a saturated violet-blue music-room atmosphere in dark mode, generous rhythm, and clear hierarchy. Components should support content rather than compete with it. It rejects generic AI gradients, glassmorphism, gradient text, bounce motion, side-stripe card accents, and endless identical card grids.
 
 **Key Characteristics:**
 
-- Music app chrome is the shared baseline across apps.
+- Music app chrome is the product baseline.
 - Warm paper-like light mode is the editorial daytime experience.
 - Violet-blue dark mode is the immersive listening and night-reading experience.
 - Accent color is meaningful and tied to state, navigation, media, and primary actions.
@@ -111,7 +111,7 @@ The system favors warm paper backgrounds in light mode, a saturated violet-blue 
 
 ## 2. Colors
 
-The palette is warm and publication-like in light mode, with a cooler violet-blue night-reading and listening palette for dark mode. Use OKLCH tokens from `packages/shared-ui/src/styles/master-theme.css` as the source of truth.
+The palette is warm and publication-like in light mode, with a cooler violet-blue listening palette for dark mode. Use the Music app CSS custom properties as the source of truth.
 
 ### Primary
 
@@ -138,7 +138,7 @@ The palette is warm and publication-like in light mode, with a cooler violet-blu
 
 **The Warm Neutral Rule.** Light-mode neutrals should feel like paper and ink. Avoid flat gray unless a system token already defines it for a specific reason.
 
-**The Night Music Rule.** Dark mode can feel more atmospheric than Knowledge’s old reading theme, but it must stay readable. Saturated violet-blue accents belong in active controls, header navigation, drawer CTAs, and subtle background blooms. Do not turn content cards into neon panels.
+**The Night Music Rule.** Dark mode can feel atmospheric, but it must stay readable. Saturated violet-blue accents belong in active controls, header navigation, drawer CTAs, and subtle background blooms. Do not turn content cards into neon panels.
 
 ## 3. Typography
 
@@ -205,7 +205,7 @@ MelodyMind uses a hybrid of tonal layering, borders, and soft shadows. Surfaces 
 
 ### Navigation
 
-- **Style:** Use the shared Music app chrome for cross-app consistency. Header, footer, theme toggle, mobile drawer, nav links, and back-to-top live under the established Shared UI component names: `navigation/SiteHeader.astro`, `navigation/HeaderNav.astro`, `navigation/HeaderMobileExtras.astro`, `layout/Footer.astro`, `actions/ThemeToggle.astro`, and `navigation/BackToTop.astro`.
+- **Style:** Use the established Music app chrome. Header, footer, theme toggle, mobile drawer, nav links, and back-to-top live under these component names: `navigation/SiteHeader.astro`, `navigation/HeaderNav.astro`, `navigation/HeaderMobileExtras.astro`, `layout/Footer.astro`, `actions/ThemeToggle.astro`, and `navigation/BackToTop.astro`.
 - **State:** Current and hover states use ember in light mode and violet-blue in dark mode. The search action may use a circular icon button.
 - **Mobile:** The mobile drawer is a compact modal menu with inert page content, focus trapping, clear CTAs, and touch-sized links.
 
@@ -214,26 +214,26 @@ MelodyMind uses a hybrid of tonal layering, borders, and soft shadows. Surfaces 
 - **Style:** Warm panel shell with clear controls, visible focus, and explicit text alternatives for lyrics or transcripts.
 - **Motion:** Visualizer motion is acceptable when playback is active, but must respect `prefers-reduced-motion`.
 
-### Shared App Chrome
+### App Chrome
 
-- `navigation/SiteHeader.astro`: shared responsive header for Music, Quiz, and Knowledge.
-- `navigation/HeaderNav.astro`: shared nav item rendering with active state and search treatment.
-- `navigation/HeaderMobileExtras.astro`: shared mobile drawer chips and CTA area.
-- `layout/Footer.astro`: shared footer with brand area, grouped links, settings, and theme toggle.
-- `actions/ThemeToggle.astro`: shared three-state theme control.
-- `navigation/BackToTop.astro`: shared floating scroll control.
+- `navigation/SiteHeader.astro`: responsive Music header.
+- `navigation/HeaderNav.astro`: nav item rendering with active state and search treatment.
+- `navigation/HeaderMobileExtras.astro`: mobile drawer chips and CTA area.
+- `layout/Footer.astro`: footer with brand area, grouped links, settings, and theme toggle.
+- `actions/ThemeToggle.astro`: three-state theme control.
+- `navigation/BackToTop.astro`: floating scroll control.
 
-Do not recreate these locally inside an app unless the app needs a fundamentally different product shell. App-specific layouts should configure these components through props or shell config.
+Do not recreate these components in parallel folders. Music layouts should configure them through props or shell config.
 
 ## 6. Do's and Don'ts
 
 ### Do
 
-- Use the shared CSS custom properties from `master-theme.css`.
+- Use the Music app CSS custom properties.
 - Keep light mode warm and paper-like.
 - Keep dark mode atmospheric, readable, and high contrast.
 - Use ember or violet-blue accents to communicate action, selection, and meaningful state.
-- Put reusable cross-app chrome in the established Shared UI component paths instead of a parallel app-specific folder.
+- Put reusable chrome in the established component paths instead of a parallel folder.
 - Build real semantic controls for interactive rows and media actions.
 - Respect `prefers-reduced-motion` for every animation.
 - Keep copy plain, specific, and useful.
@@ -245,7 +245,7 @@ Do not recreate these locally inside an app unless the app needs a fundamentally
 - Do not use bounce or elastic motion.
 - Do not add colored side-stripe borders to cards, lists, or alerts.
 - Do not build identical icon-card grids as the default answer.
-- Do not copy app chrome back into individual apps.
+- Do not duplicate app chrome.
 - Do not make gray-on-color text combinations.
 - Do not advertise keyboard shortcuts that are not actually reachable.
 - Do not leave media tracks without a real source or an accessible lyrics/transcript fallback.

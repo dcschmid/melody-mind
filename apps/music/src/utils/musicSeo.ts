@@ -60,6 +60,9 @@ const toSchemaUrl = (siteUrl: string, value: string): string => {
   }
 };
 
+const getTrackUrl = (canonical: string, trackNumber: number): string =>
+  `${canonical}#track-${trackNumber}`;
+
 export function buildMusicAlbumSchema({
   album,
   canonical,
@@ -102,12 +105,21 @@ export function buildMusicAlbumSchema({
     },
     track: sortedSongs.map((song) => ({
       "@type": "MusicRecording",
-      "@id": `${canonical}#track-${song.trackNumber}`,
+      "@id": getTrackUrl(canonical, song.trackNumber),
       name: song.title,
-      url: `${canonical}#track-${song.trackNumber}`,
+      url: getTrackUrl(canonical, song.trackNumber),
       position: song.trackNumber,
+      ...(song.description ? { description: song.description } : {}),
       ...(song.durationSeconds ? { duration: toIsoDuration(song.durationSeconds) } : {}),
       contentUrl: toSchemaUrl(siteUrl, song.audioUrl),
+      audio: {
+        "@type": "AudioObject",
+        url: toSchemaUrl(siteUrl, song.audioUrl),
+        encodingFormat: "audio/mpeg",
+        ...(song.durationSeconds
+          ? { duration: toIsoDuration(song.durationSeconds) }
+          : {}),
+      },
       inAlbum: { "@id": albumId },
       byArtist: { "@id": artistId },
     })),
