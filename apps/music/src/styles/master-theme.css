@@ -88,12 +88,12 @@
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
 
-  --shadow-xs: 0 1px 1px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.02);
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.28);
+  --shadow-base: 0 2px 5px 0 rgba(0, 0, 0, 0.32), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 20px -4px rgba(0, 0, 0, 0.4), 0 4px 8px -4px rgba(0, 0, 0, 0.34);
+  --shadow-xl: 0 24px 32px -8px rgba(0, 0, 0, 0.46), 0 8px 14px -6px rgba(0, 0, 0, 0.38);
+  --shadow-2xl: 0 32px 60px -12px rgba(0, 0, 0, 0.62);
 
   /* ---------------------------------------------------------------------------
      TRANSITIONS & ANIMATIONS
@@ -119,7 +119,7 @@
      --------------------------------------------------------------------------- */
   --focus-ring-width: 3px;
   --focus-ring-offset: 2px;
-  --focus-ring-color: oklch(82% 0.13 286deg);
+  --focus-ring-color: oklch(82% 0.13 175deg);
   --z-modal: 1000;
 }
 
@@ -135,8 +135,8 @@
 
   /* Surface colors */
   --surface-1: oklch(18% 0.037 255deg);
-  --surface-2: oklch(22% 0.041 252deg);
-  --surface-3: oklch(26% 0.052 252deg);
+  --surface-2: oklch(23% 0.042 252deg);
+  --surface-3: oklch(28% 0.052 252deg);
 
   /* Text colors */
   --text-primary: oklch(96% 0.012 72deg);
@@ -144,21 +144,21 @@
   --text-tertiary: oklch(76% 0.036 252deg);
 
   /* Accent colors */
-  --accent-primary: oklch(78% 0.16 286deg);
-  --accent-strong: oklch(80% 0.13 252deg);
-  --accent-muted: oklch(76% 0.13 252deg);
-  --accent-primary-hover: oklch(84% 0.12 286deg);
+  --accent-primary: oklch(78% 0.13 175deg);
+  --accent-strong: oklch(80% 0.12 178deg);
+  --accent-muted: oklch(76% 0.11 178deg);
+  --accent-primary-hover: oklch(84% 0.11 175deg);
   --accent-contrast: var(--bg-primary);
 
   /* Link colors */
-  --link-default: oklch(82% 0.13 286deg);
-  --link-hover: oklch(88% 0.1 286deg);
-  --link-visited: oklch(82% 0.12 252deg);
+  --link-default: oklch(82% 0.12 175deg);
+  --link-hover: oklch(88% 0.1 175deg);
+  --link-visited: oklch(82% 0.1 195deg);
 
   /* Border colors */
-  --border-default: oklch(46% 0.075 252deg);
-  --border-muted: oklch(42% 0.067 252deg / 0.52);
-  --border-strong: oklch(62% 0.08 252deg);
+  --border-default: oklch(49% 0.078 252deg);
+  --border-muted: oklch(44% 0.07 252deg / 0.52);
+  --border-strong: oklch(64% 0.082 252deg);
 
   --page-background: var(--bg-primary);
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
