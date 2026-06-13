@@ -16,16 +16,13 @@ import { ensureTrailingSlash, resolveAbsoluteUrl, resolveBaseUrl } from "@utils/
 import { normalizeWhitespace } from "@utils/format";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 import { musicAppShellConfig } from "../utils/appShellConfig";
-import { getAlbumCoverImage, musicDefaultOgImageUrl } from "../utils/musicImages";
+import { musicDefaultOgImageUrl } from "../utils/musicImages";
 import { getAvailableAlbums } from "../utils/albums";
-import { formatDuration } from "../utils/albumPresentation";
 import FathomEventsScript from "@components/analytics/FathomEventsScript.astro";
 
-import type { ImageMetadata } from "astro";
 import type { PageSeoResult } from "@utils/seo/buildPageSeo";
 import type { IconName } from "@components/visual/Icon.astro";
 import type { OpenGraphMusicMeta } from "@components/meta/seo.types";
-import type { Song } from "../types/album";
 
 export interface Props {
   title?: string;
@@ -195,49 +192,8 @@ const headerNavItems: HeaderNavItem[] = [
   searchNavItem,
 ];
 const availableAlbums = await getAvailableAlbums();
-const getImageSource = (image: string | ImageMetadata): string =>
-  typeof image === "string" ? image : image.src;
-const searchItems = availableAlbums.flatMap((album) => {
-  const image = getAlbumCoverImage(album.coverImage);
-  const albumDurationSeconds = album.songs.reduce(
-    (acc: number, song: Song) => acc + (song.durationSeconds || 0),
-    0
-  );
-  const albumDuration = albumDurationSeconds ? formatDuration(albumDurationSeconds) : "";
-  const imageUrl = getImageSource(image);
-  const imageAlt = `Cover art for the album ${album.title}`;
-  const albumItem = {
-    url: `/${album.id}/`,
-    title: album.title,
-    type: "Album",
-    description: album.description,
-    imageUrl,
-    imageAlt,
-    displayMeta: [album.genre || "", `${album.songs.length} tracks`, albumDuration]
-      .filter(Boolean)
-      .join(" · "),
-  };
-  const trackItems = album.songs.map((song: Song) => {
-    const duration = song.durationSeconds ? formatDuration(song.durationSeconds) : "";
-
-    return {
-      url: `/${album.id}/#album-playlist-${album.id}`,
-      title: song.title,
-      type: "Track",
-      description:
-        song.description ||
-        (song.isInstrumental ? "Instrumental track." : "") ||
-        album.description,
-      imageUrl,
-      imageAlt,
-      displayMeta: [`Track ${song.trackNumber}`, album.title, album.genre, duration]
-        .filter(Boolean)
-        .join(" · "),
-    };
-  });
-
-  return [albumItem, ...trackItems];
-});
+// Search result enrichment (thumbnails/meta) is sourced at runtime from the
+// fetched /search-index.json, not inlined per page — see enhancedSearchPalette.ts.
 const mobileGenreLinks = Array.from(
   new Set(
     availableAlbums
@@ -268,6 +224,9 @@ const mobileGenreLinks = Array.from(
 >
   <Fragment slot="head">
     <AppHeadResources rssTitle={shellConfig.rssTitle} rssHref={rssFeedUrl} />
+    <!-- Audio and album downloads are served from this origin; warm the connection early. -->
+    <link rel="preconnect" href="https://eu2.contabostorage.com" crossorigin />
+    <link rel="dns-prefetch" href="https://eu2.contabostorage.com" />
     <SEO
       {...seoProps}
       {...resolvedImageWidth ? { imageWidth: resolvedImageWidth } : {}}
@@ -347,7 +306,6 @@ const mobileGenreLinks = Array.from(
       genre: "Genres",
       genres: "Genres",
     }}
-    items={searchItems}
     routeHrefs={["/"]}
   />
   <BackToTop slot="body-end" />

@@ -50,6 +50,83 @@ const fallbackConfig: EnhancedSearchConfig = {
 let searchObserver: MutationObserver | null = null;
 const configCache = new WeakMap<Element, EnhancedSearchConfig>();
 
+interface EnrichmentMeta {
+  imageUrl?: string;
+  imageAlt?: string;
+  displayMeta?: string;
+}
+
+/**
+ * Result rows are enriched with a thumbnail + meta line sourced from the same
+ * search index the web component fetches (`json.docs.docs`), keyed by normalized
+ * title. This replaces the former ~425KB-per-page inline `items` payload — the
+ * data already exists in the fetched index, so there is no need to ship it twice.
+ */
+let enrichmentMap: Map<string, EnrichmentMeta> | null = null;
+let enrichmentMapPromise: Promise<Map<string, EnrichmentMeta>> | null = null;
+
+function getIndexUrl(): string {
+  const root = getSearchRoots()[0];
+  return root?.getAttribute("index-url") || "/search-index.json";
+}
+
+async function loadEnrichmentMap(): Promise<Map<string, EnrichmentMeta>> {
+  const map = new Map<string, EnrichmentMeta>();
+
+  try {
+    const response = await fetch(getIndexUrl());
+
+    if (!response.ok) {
+      return map;
+    }
+
+    const index = (await response.json()) as {
+      docs?: { docs?: Record<string, Record<string, unknown>> };
+    };
+    const documents = index.docs?.docs;
+
+    if (documents) {
+      for (const document of Object.values(documents)) {
+        const title =
+          typeof document.title === "string" ? normalizeText(document.title) : "";
+
+        // First-wins on duplicate titles, matching the previous array lookup.
+        if (!title || map.has(title)) {
+          continue;
+        }
+
+        map.set(title, {
+          ...(typeof document.imageUrl === "string"
+            ? { imageUrl: document.imageUrl }
+            : {}),
+          ...(typeof document.imageAlt === "string"
+            ? { imageAlt: document.imageAlt }
+            : {}),
+          ...(typeof document.displayMeta === "string"
+            ? { displayMeta: document.displayMeta }
+            : {}),
+        });
+      }
+    }
+  } catch {
+    /* Enrichment is progressive; results still render from the index without it. */
+  }
+
+  return map;
+}
+
+function ensureEnrichmentMap(): void {
+  if (enrichmentMap || enrichmentMapPromise) {
+    return;
+  }
+
+  enrichmentMapPromise = loadEnrichmentMap();
+  void enrichmentMapPromise.then((map) => {
+    enrichmentMap = map;
+    enhanceSearchModals();
+  });
+}
+
 function normalizeText(value: string): string {
   return value.replace(/\s+/g, " ").trim().toLowerCase();
 }
@@ -126,43 +203,15 @@ function getResultTitle(result: HTMLElement): string {
   return normalizeText(titleClone.textContent || "");
 }
 
-function getResultUrl(result: HTMLElement): string {
-  const ownUrl =
-    result instanceof HTMLAnchorElement
-      ? result.getAttribute("href")
-      : result.dataset.url || result.getAttribute("href");
-  const nestedUrl = result.querySelector("a[href]")?.getAttribute("href");
-
-  return ownUrl || nestedUrl || "";
-}
-
-function findSearchItem(
-  result: HTMLElement,
-  config: EnhancedSearchConfig
-): EnhancedSearchItem | undefined {
-  const resultPath = normalizePath(getResultUrl(result));
-  const resultTitle = getResultTitle(result);
-
-  if (resultPath) {
-    const pathMatch = config.items.find((item) => normalizePath(item.url) === resultPath);
-
-    if (pathMatch) {
-      return pathMatch;
-    }
-  }
-
-  return config.items.find((item) => normalizeText(item.title) === resultTitle);
-}
-
-function createMediaElement(item: EnhancedSearchItem): HTMLElement {
+function createMediaElement(meta: EnrichmentMeta, fallbackLabel: string): HTMLElement {
   const media = document.createElement("span");
   media.className = "astro-search-result-media";
 
-  if (item.imageUrl) {
+  if (meta.imageUrl) {
     const image = document.createElement("img");
     image.className = "astro-search-result-media__image";
-    image.src = item.imageUrl;
-    image.alt = item.imageAlt || "";
+    image.src = meta.imageUrl;
+    image.alt = meta.imageAlt || "";
     image.loading = "lazy";
     image.decoding = "async";
     media.append(image);
@@ -172,7 +221,7 @@ function createMediaElement(item: EnhancedSearchItem): HTMLElement {
   const mark = document.createElement("span");
   mark.className = "astro-search-result-media__mark";
   mark.setAttribute("aria-hidden", "true");
-  mark.textContent = (item.type || item.title).trim().charAt(0).toUpperCase() || "S";
+  mark.textContent = fallbackLabel.trim().charAt(0).toUpperCase() || "S";
   media.append(mark);
   return media;
 }
@@ -276,7 +325,17 @@ function enhanceSearchResults(results: HTMLElement, config: EnhancedSearchConfig
   enhanceSearchGroups(results, config);
   syncResultSelectionState(results);
 
-  results.querySelectorAll(SEARCH_RESULT_SELECTOR).forEach((result) => {
+  const rows = results.querySelectorAll(SEARCH_RESULT_SELECTOR);
+
+  if (rows.length > 0) {
+    // Load enrichment lazily once real results exist; by now the web component
+    // has fetched the index, so this resolves from cache.
+    ensureEnrichmentMap();
+  }
+
+  const map = enrichmentMap;
+
+  rows.forEach((result) => {
     if (
       !(result instanceof HTMLElement) ||
       result.dataset.enhancedSearchResult === "true"
@@ -284,39 +343,43 @@ function enhanceSearchResults(results: HTMLElement, config: EnhancedSearchConfig
       return;
     }
 
-    const searchItem = findSearchItem(result, config);
-
-    if (!searchItem) {
+    // Map not ready yet: leave the row unmarked so a later pass can enrich it.
+    if (!map) {
       return;
     }
 
+    const titleKey = getResultTitle(result);
+    const meta = titleKey ? map.get(titleKey) : undefined;
+
     result.dataset.enhancedSearchResult = "true";
+
+    if (!meta) {
+      return;
+    }
 
     const title = result.querySelector(SEARCH_RESULT_TITLE_SELECTOR);
     const description = result.querySelector(SEARCH_RESULT_DESC_SELECTOR);
     const content = document.createElement("span");
-    const meta = document.createElement("span");
+    const metaElement = document.createElement("span");
 
     content.className = "astro-search-result-content";
-    meta.className = "astro-search-result-meta";
-    meta.textContent = searchItem.displayMeta || searchItem.type || "";
+    metaElement.className = "astro-search-result-meta";
+    metaElement.textContent = meta.displayMeta || "";
 
     if (title instanceof HTMLElement) {
       content.append(title);
     }
 
-    if (meta.textContent) {
-      content.append(meta);
+    if (metaElement.textContent) {
+      content.append(metaElement);
     }
 
+    // Description is already rendered from the index by the web component.
     if (description instanceof HTMLElement) {
-      if (searchItem.description) {
-        description.textContent = searchItem.description;
-      }
       content.append(description);
     }
 
-    result.prepend(createMediaElement(searchItem));
+    result.prepend(createMediaElement(meta, titleKey));
 
     if (content.childNodes.length > 0) {
       result.append(content);

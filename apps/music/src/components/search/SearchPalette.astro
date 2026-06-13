@@ -18,7 +18,12 @@ interface Props {
   groupLabels?: Record<string, string>;
   indexUrl?: string;
   inputLabel: string;
-  items: SearchPaletteItem[];
+  /**
+   * Deprecated/optional. Result enrichment (thumbnail + meta) is now sourced at
+   * runtime from the fetched search index, not inlined per page. Accepted for
+   * backward compatibility but no longer serialized into the page.
+   */
+  items?: SearchPaletteItem[];
   mediaAspectRatio?: string;
   placeholder: string;
   resultLimit?: number;
@@ -36,7 +41,6 @@ const {
   groupLabels = {},
   indexUrl = "/search-index.json",
   inputLabel,
-  items,
   mediaAspectRatio = "1 / 1",
   placeholder,
   resultLimit = 8,
@@ -52,7 +56,6 @@ const config = {
   emptyTitleWithQuery,
   groupLabels,
   inputLabel,
-  items,
   resultsLabel,
   routeHrefs,
   suggestions,

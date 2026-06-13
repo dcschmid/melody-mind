@@ -68,9 +68,11 @@ export const GET: APIRoute = async () => {
       genre: entry.data.genre || "",
       artist: entry.data.artist,
       songTitles,
+      // Indexed full-text. Deliberately excludes the long-form MDX body to keep
+      // the served index small (~1-2MB vs 22MB). Albums stay findable via title,
+      // description, genre, track titles, moods, tags, language, and energy.
       body: trimSearchText(
         [
-          entry.body || "",
           trackSearchText,
           discoveryMeta.moods.join(" "),
           discoveryMeta.tags.join(" "),
@@ -117,25 +119,24 @@ export const GET: APIRoute = async () => {
         genre: entry.data.genre || "",
         artist: entry.data.artist,
         songTitles: [song.title, entry.data.title],
-        body: trimSearchText([entry.body || "", entry.data.description].join(" ")),
+        // Track-specific text only; the album body is no longer duplicated per track.
+        body: trimSearchText(song.description || ""),
       };
     })
   );
 
   const index = await buildSearchIndex({
+    // Only genuinely searchable fields are indexed. Display/navigation-only
+    // fields (url, imageUrl, imageAlt, displayMeta, trackNumber, duration,
+    // artist) are still stored in every document — and thus available for
+    // rendering, navigation, and result enrichment — but are not full-text
+    // indexed, which keeps the served index small.
     schema: {
       type: "string",
       title: "string",
       desc: "string",
-      url: "string",
-      imageUrl: "string",
-      imageAlt: "string",
       albumTitle: "string",
-      displayMeta: "string",
-      trackNumber: "string",
-      duration: "string",
       genre: "string",
-      artist: "string",
       songTitles: "string[]",
       body: "string",
     },
