@@ -1,0 +1,39 @@
+---
+import FeatureLinkListSection from "./FeatureLinkListSection.astro";
+import type { IconName } from "@components/visual/Icon.astro";
+import type { Entry } from "./types";
+
+interface MainGenreItem {
+  slug: string;
+  mainGenre: string;
+  title: string;
+  eyebrow: string;
+  description: string;
+  albumCount: number;
+  albums: Entry[];
+  iconName: IconName;
+}
+
+interface Props {
+  genres: MainGenreItem[];
+  title: string;
+}
+
+const { genres, title } = Astro.props as Props;
+const items = genres.map((genre) => ({
+  id: `main-genre-${genre.slug}`,
+  href: `/genre/${genre.slug}/`,
+  eyebrow: genre.eyebrow,
+  title: genre.title,
+  description: genre.description,
+  metaIconName: "disc" as const,
+  metaLabel: `${genre.albumCount} ${genre.albumCount === 1 ? "album" : "albums"}`,
+  images: genre.albums.slice(0, 3).map((album) => ({
+    src: album.imageSrc,
+    alt: `Cover art for the album ${album.title}`,
+  })),
+  iconName: genre.iconName,
+}));
+---
+
+<FeatureLinkListSection headingId="main-genres-heading" iconName="tag" {items} {title} />

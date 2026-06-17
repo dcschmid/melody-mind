@@ -15,6 +15,7 @@ interface MusicAlbumListSchemaOptions {
   albums: Array<AlbumData & { publishedAt: DateLike }>;
   canonical: string;
   description: string;
+  name?: string;
   site: string | URL | undefined;
   getCoverImageUrl: (coverImage: string) => string;
 }
@@ -134,6 +135,7 @@ export function buildMusicAlbumListSchema({
   albums,
   canonical,
   description,
+  name = "MelodyMind Music albums",
   site,
   getCoverImageUrl,
 }: MusicAlbumListSchemaOptions): Record<string, unknown> {
@@ -144,7 +146,7 @@ export function buildMusicAlbumListSchema({
     "@context": "https://schema.org",
     "@type": "ItemList",
     "@id": `${canonical}#album-list`,
-    name: "MelodyMind Music albums",
+    name,
     description,
     numberOfItems: albums.length,
     itemListOrder: "https://schema.org/ItemListOrderDescending",

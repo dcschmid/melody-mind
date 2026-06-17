@@ -7,10 +7,11 @@ import type { Entry } from "./types";
 interface Props {
   albums: Entry[];
   title: string;
+  viewAllHref?: string;
   viewAllLabel: string;
 }
 
-const { albums, title, viewAllLabel } = Astro.props;
+const { albums, title, viewAllHref = "#main-genres-heading", viewAllLabel } = Astro.props;
 const LATEST_COVER_IMAGE_WIDTHS = [88, 128, 176];
 const LATEST_COVER_IMAGE_SIZES = "5.5rem";
 const [featuredAlbum, ...secondaryAlbums] = albums;
@@ -26,7 +27,7 @@ const [featuredAlbum, ...secondaryAlbums] = albums;
       <SectionHeader
         headingId="latest-releases-heading"
         title={title}
-        linkHref="#albums-list"
+        linkHref={viewAllHref}
         linkLabel={viewAllLabel}
       />
       <div class="latest-releases__layout">

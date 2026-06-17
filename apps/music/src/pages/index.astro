@@ -1,14 +1,13 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
 import { resolvePageUrl } from "@utils/siteUrls";
 import { buildOrganizationSchema } from "@utils/seo/seoSchema";
 import { toAbsoluteAssetUrl } from "@utils/imageAssets";
+import AlbumSeriesSection from "@components/music/home/AlbumSeriesSection.astro";
 import ContinueListening from "@components/music/home/ContinueListening.astro";
-import GridSection from "@components/music/home/GridSection.astro";
-import GenreFilterControls from "@components/music/home/GenreFilterControls.astro";
 import LatestSection from "@components/music/home/LatestSection.astro";
 import Hero from "@components/music/home/Hero.astro";
-import Icon from "@components/visual/Icon.astro";
-import { genreLandingPages } from "@data/genreLandingPages";
+import MainGenresSection from "@components/music/home/MainGenresSection.astro";
 import type { CoverImage, Entry } from "@components/music/home/types";
 import type { IconName } from "@components/visual/Icon.astro";
 import Layout from "../layouts/Layout.astro";
@@ -24,6 +23,49 @@ import {
 import { buildMusicAlbumListSchema } from "../utils/musicSeo";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
+type GenreEntry = CollectionEntry<"genres">;
+type SeriesEntry = CollectionEntry<"series">;
+interface GenreLandingPage {
+  slug: string;
+  order: number;
+  mainGenre: string;
+  title: string;
+  eyebrow: string;
+  description: string;
+  keywords: string[];
+}
+
+interface AlbumSeries {
+  slug: string;
+  order: number;
+  title: string;
+  eyebrow: string;
+  shortDescription: string;
+  albumIds: string[];
+}
+
+const genreEntries = (await getCollection("genres")) as GenreEntry[];
+const seriesEntries = (await getCollection("series")) as SeriesEntry[];
+const genreTitleCollator = new Intl.Collator("en", {
+  numeric: true,
+  sensitivity: "base",
+});
+const genreLandingPages: GenreLandingPage[] = genreEntries
+  .sort(
+    (a, b) =>
+      genreTitleCollator.compare(a.data.title, b.data.title) ||
+      genreTitleCollator.compare(a.id, b.id)
+  )
+  .map((entry) => ({
+    slug: entry.id,
+    ...entry.data,
+  }));
+const albumSeries: AlbumSeries[] = seriesEntries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({
+    slug: entry.id,
+    ...entry.data,
+  }));
 const albums: AlbumData[] = await getAvailableAlbums();
 const albumTitleCollator = new Intl.Collator("en", {
   numeric: true,
@@ -34,19 +76,7 @@ const compareAlbumsByTitle = (a: AlbumData, b: AlbumData) =>
 const compareAlbumsByDate = (a: AlbumData, b: AlbumData) =>
   new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() ||
   compareAlbumsByTitle(a, b);
-const DEFAULT_SORT_VALUE = "date";
-const sortParamValue = Astro.url.searchParams.get("sort");
-const hasFilterParams = Boolean(sortParamValue);
-const initialSortValue = sortParamValue === "title" ? sortParamValue : DEFAULT_SORT_VALUE;
-const initialGenreValue = "";
 const sortedAlbumsByDate = [...albums].sort(compareAlbumsByDate);
-const sortedAlbums =
-  initialSortValue === "title"
-    ? [...albums].sort(compareAlbumsByTitle)
-    : sortedAlbumsByDate;
-
-const isAlbumVisibleForGenre = (mainGenre?: string) =>
-  !initialGenreValue || mainGenre === initialGenreValue;
 
 const getImageSource = (image: CoverImage): string =>
   typeof image === "string" ? image : image.src;
@@ -71,7 +101,7 @@ const getFeaturedAlbums = (items: AlbumData[], featuredCount: number): AlbumData
     })
     .slice(0, featuredCount);
 
-const albumEntries: Entry[] = sortedAlbums.map((album) => {
+const albumEntries: Entry[] = sortedAlbumsByDate.map((album) => {
   const totalDurationSeconds = album.songs.reduce(
     (acc, song) => acc + (song.durationSeconds || 0),
     0
@@ -93,11 +123,10 @@ const albumEntries: Entry[] = sortedAlbums.map((album) => {
     trackCount: album.songs.length,
     totalDurationSeconds,
     totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
-    isVisible: isAlbumVisibleForGenre(album.mainGenre),
+    isVisible: true,
   };
 });
 const albumEntriesById = new Map(albumEntries.map((album) => [album.id, album]));
-const initialVisibleAlbumCount = albumEntries.filter((album) => album.isVisible).length;
 const heroAlbums = getFeaturedAlbums(sortedAlbumsByDate, 5).map((album) => {
   const imageSrc = getAlbumCoverImage(album.coverImage);
   return {
@@ -113,6 +142,14 @@ const latestReleaseShelf = sortedAlbumsByDate
   .map((album) => albumEntriesById.get(album.id))
   .filter((album): album is Entry => Boolean(album))
   .slice(0, 3);
+const seriesShelf = albumSeries
+  .map((series) => ({
+    ...series,
+    albums: series.albumIds
+      .map((albumId) => albumEntriesById.get(albumId))
+      .filter((album): album is Entry => Boolean(album)),
+  }))
+  .filter((series) => series.albums.length > 0);
 
 const mainGenreIconBySlug: Record<string, IconName> = {
   rock: "guitar",
@@ -135,6 +172,12 @@ const albumCountByMainGenre = albums.reduce<Record<string, number>>((counts, alb
   counts[album.mainGenre] = (counts[album.mainGenre] || 0) + 1;
   return counts;
 }, {});
+const mainGenreShelf = genreLandingPages.map((page) => ({
+  ...page,
+  albumCount: albumCountByMainGenre[page.mainGenre] || 0,
+  albums: albumEntries.filter((album) => album.mainGenre === page.mainGenre).slice(0, 3),
+  iconName: mainGenreIconBySlug[page.slug] || "disc",
+}));
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
@@ -147,18 +190,14 @@ const t = {
     "MelodyMind Music is a growing archive of full AI-assisted concept albums across rock, metal, punk, pop, gothic, cinematic and experimental genres.",
   editorialDeck:
     "Each album is built around a complete story, original lyrics, cover artwork and a distinct sound world — from political punk records and gothic rock journeys to cinematic metal operas and emotional pop concepts.",
-  albums: "Album Shelf",
-  albumControls: "Album controls",
   featured: "Featured Albums",
   latest: "From the New Shelf",
+  series: "Album Series",
+  mainGenres: "Main Genres",
   continueListening: "Continue Listening",
-  genre: "Browse the Archive",
-  newestFirst: "Newest arrivals",
-  sortAlphabetically: "A-Z",
-  sortBy: "Order",
-  exploreAlbums: "Browse Albums",
+  exploreAlbums: "Browse Genres",
   latestReleases: "New Shelf",
-  viewAll: "Full shelf",
+  viewAll: "Browse genres",
   keywords: [
     "ai music",
     "generated music",
@@ -206,7 +245,6 @@ const structuredData = [
   language="en"
   locale="en-US"
   canonical={canonical}
-  index={!hasFilterParams}
   {breadcrumbs}
   {structuredData}
   contentShellClass="music-layout__container--home"
@@ -220,6 +258,7 @@ const structuredData = [
       editorialDeck={t.editorialDeck}
       exploreAlbumsLabel={t.exploreAlbums}
       latestReleasesLabel={t.latestReleases}
+      exploreAlbumsHref="#main-genres-heading"
     />
 
     <div class="music-home__content">
@@ -232,62 +271,16 @@ const structuredData = [
           albums={latestReleaseShelf}
           title={t.latest}
           viewAllLabel={t.viewAll}
+          viewAllHref="#main-genres-heading"
         />
       </div>
 
-      <section class="music-home__main-genres" aria-labelledby="main-genres-title">
-        <div class="music-home__main-genres-copy">
-          <p class="music-home__main-genres-kicker">Main Genres</p>
-          <h2 id="main-genres-title" class="music-home__main-genres-title">
-            Browse the main shelves
-          </h2>
-        </div>
-        <nav class="music-home__main-genres-list" aria-label="Main genre landing pages">
-          {
-            genreLandingPages.map((page) => (
-              <a class="music-home__main-genre-link" href={`/genre/${page.slug}/`}>
-                <Icon
-                  name={mainGenreIconBySlug[page.slug] || "disc"}
-                  class="music-home__main-genre-icon"
-                  aria-hidden="true"
-                />
-                <span>
-                  {page.mainGenre} ({albumCountByMainGenre[page.mainGenre] || 0})
-                </span>
-              </a>
-            ))
-          }
-        </nav>
-      </section>
-
-      {
-        albums.length > 0 && (
-          <div>
-            <GenreFilterControls
-              title={t.genre}
-              controlsLabel={t.albumControls}
-              idPrefix="genre"
-              initialGenreValue={initialGenreValue}
-              initialSortValue={initialSortValue}
-              initialVisibleAlbumCount={initialVisibleAlbumCount}
-              newestFirstLabel={t.newestFirst}
-              sortAlphabeticallyLabel={t.sortAlphabetically}
-              sortByLabel={t.sortBy}
-            />
-          </div>
-        )
-      }
+      <div>
+        <AlbumSeriesSection series={seriesShelf} title={t.series} />
+      </div>
 
       <div>
-        <GridSection
-          albums={albumEntries}
-          title={t.albums}
-          emptyDescription="No albums are on the shelf yet. Check back soon for new listening notes and releases."
-          headingId="genre-heading"
-          initialVisibleAlbumCount={initialVisibleAlbumCount}
-          initialGenreValue={initialGenreValue}
-          showHeader={false}
-        />
+        <MainGenresSection genres={mainGenreShelf} title={t.mainGenres} />
       </div>
     </div>
   </div>
@@ -358,102 +351,6 @@ const structuredData = [
     margin-block: clamp(0.25rem, 1.2vw, 1rem) clamp(0.1rem, 0.8vw, 0.65rem);
   }
 
-  .music-home__main-genres {
-    display: grid;
-    gap: clamp(0.85rem, 1.8vw, 1.25rem);
-    padding-block: clamp(0.85rem, 2vw, 1.25rem);
-    border-block-end: 1px solid var(--music-home-line);
-  }
-
-  .music-home__main-genres-copy {
-    display: grid;
-    gap: 0.25rem;
-  }
-
-  .music-home__main-genres-kicker {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    font-weight: 800;
-    line-height: 1.2;
-    color: var(--music-home-accent);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .music-home__main-genres-title {
-    margin: 0;
-    font-family: var(--font-sans);
-    font-size: clamp(1.3rem, 1.08rem + 0.8vw, 1.9rem);
-    font-weight: 650;
-    line-height: 1.1;
-    letter-spacing: 0;
-  }
-
-  .music-home__main-genres-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.72rem clamp(1rem, 2.2vw, 1.65rem);
-    justify-content: flex-start;
-  }
-
-  .music-home__main-genre-link {
-    position: relative;
-    display: inline-flex;
-    gap: 0.42rem;
-    align-items: center;
-    min-block-size: 1.85rem;
-    padding-block: 0.18rem 0.42rem;
-    font-size: var(--font-size-xs);
-    font-weight: 720;
-    line-height: 1.1;
-    color: var(--music-home-muted);
-    text-decoration: none;
-  }
-
-  .music-home__main-genre-link::after {
-    position: absolute;
-    inset-block-end: 0;
-    inset-inline: 0;
-    block-size: 2px;
-    content: "";
-    background: var(--music-home-accent);
-    opacity: 0.62;
-    transform: scaleX(0.22);
-    transform-origin: left;
-    transition:
-      opacity 160ms ease,
-      transform 160ms ease;
-  }
-
-  .music-home__main-genre-icon {
-    flex: 0 0 auto;
-    inline-size: 0.95em;
-    block-size: 0.95em;
-    color: var(--music-home-accent);
-  }
-
-  .music-home__main-genre-link:hover,
-  .music-home__main-genre-link:focus-visible {
-    color: var(--music-home-ink);
-  }
-
-  .music-home__main-genre-link:hover::after,
-  .music-home__main-genre-link:focus-visible::after {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-  .music-home__main-genre-link:focus-visible {
-    outline: var(--focus-ring-width) solid var(--focus-ring-color);
-    outline-offset: 0.28rem;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .music-home__main-genre-link::after {
-      transition: none;
-    }
-  }
-
   @media (width <= 760px) {
     .music-home {
       inline-size: 100%;
@@ -465,14 +362,6 @@ const structuredData = [
       inline-size: 100%;
       padding: 0.55rem 1rem clamp(2rem, 6vw, 5rem);
       overflow-x: clip;
-    }
-
-    .music-home__main-genres {
-      gap: 0.85rem;
-    }
-
-    .music-home__main-genres-list {
-      gap: 0.55rem 1rem;
     }
   }
 </style>

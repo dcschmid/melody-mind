@@ -1,21 +1,13 @@
 ---
-import {
-  genreLandingPageBySlug,
-  genreLandingPages,
-} from "../../../data/genreLandingPages";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-export function getStaticPaths() {
-  return genreLandingPages.map((page) => ({
-    params: { genre: page.slug },
+export async function getStaticPaths() {
+  const pages = (await getCollection("genres")) as CollectionEntry<"genres">[];
+
+  return pages.map((page) => ({
+    params: { genre: page.id },
   }));
 }
 
-const { genre: genreSlug } = Astro.params;
-const page = genreSlug ? genreLandingPageBySlug.get(genreSlug) : undefined;
-
-if (!page) {
-  return Astro.redirect("/404");
-}
-
-return Astro.redirect(`/genre/${page.slug}/`);
+return Astro.redirect(`/genre/${Astro.params.genre}/`);
 ---

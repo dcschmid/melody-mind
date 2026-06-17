@@ -158,12 +158,12 @@ const homeNavItem: HeaderNavItem = {
   icon: "home",
 };
 const albumsNavItem: HeaderNavItem = {
-  href: "/#albums-list",
+  href: "/#album-series-heading",
   label: "Albums",
   icon: "disc",
 };
 const genresNavItem: HeaderNavItem = {
-  href: "/#genre-heading",
+  href: "/#main-genres-heading",
   label: "Genres",
   icon: "tag",
 };
@@ -204,7 +204,7 @@ const mobileGenreLinks = Array.from(
   .sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }))
   .slice(0, 4)
   .map((genre) => ({
-    href: `/?genre=${encodeURIComponent(genre)}#albums-list`,
+    href: `/genre/${encodeURIComponent(genre.toLowerCase())}/`,
     label: genre,
   }));
 ---
@@ -269,8 +269,8 @@ const mobileGenreLinks = Array.from(
     {currentPath}
     mobileExtraLinks={mobileGenreLinks}
     mobileExtraHeading="Explore genres"
-    mobilePrimaryCtaHref="/#albums-list"
-    mobilePrimaryCtaLabel="Browse Albums"
+    mobilePrimaryCtaHref="/#main-genres-heading"
+    mobilePrimaryCtaLabel="Browse Genres"
     mobileSecondaryCtaHref="/?search=1"
     mobileSecondaryCtaLabel="Search Music"
   />

@@ -55,6 +55,38 @@ const albums = defineCollection({
   }),
 });
 
+const genres = defineCollection({
+  loader: glob({
+    pattern: "**/*.mdx",
+    base: "./src/content/genres",
+  }),
+  schema: z.object({
+    order: z.number(),
+    mainGenre: z.string(),
+    title: z.string(),
+    eyebrow: z.string(),
+    description: z.string(),
+    keywords: z.array(z.string()).default([]),
+  }),
+});
+
+const series = defineCollection({
+  loader: glob({
+    pattern: "**/*.mdx",
+    base: "./src/content/series",
+  }),
+  schema: z.object({
+    order: z.number(),
+    title: z.string(),
+    eyebrow: z.string(),
+    shortDescription: z.string(),
+    keywords: z.array(z.string()).default([]),
+    albumIds: z.array(z.string()).min(1),
+  }),
+});
+
 export const collections = {
   albums,
+  genres,
+  series,
 };
