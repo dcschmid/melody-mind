@@ -5,7 +5,7 @@
   "description": "MelodyMind Music app",
   "pnpm": {
     "overrides": {
-      "sharp": "^0.34.5",
+      "sharp": "^0.35.2",
       "yaml": ">=2.8.3"
     }
   },
@@ -16,6 +16,10 @@
     "generate:webp-assets": "node apps/music/scripts/generate-webp-assets.mjs",
     "dev": "pnpm dev:music",
     "dev:music": "cd apps/music && pnpm dev",
+    "dev:music:background": "cd apps/music && pnpm dev:background",
+    "dev:music:logs": "cd apps/music && pnpm dev:logs",
+    "dev:music:status": "cd apps/music && pnpm dev:status",
+    "dev:music:stop": "cd apps/music && pnpm dev:stop",
     "preview": "turbo run preview --filter=music",
     "lint": "turbo run lint --filter=music",
     "lint:all": "turbo run lint",
@@ -30,26 +34,26 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.4.14",
+    "@double-great/stylelint-a11y": "^3.4.15",
     "@eslint/js": "^10.0.1",
-    "astro": "^6.4.4",
-    "eslint": "^10.4.1",
-    "eslint-plugin-astro": "^1.7.0",
+    "astro": "^7.0.2",
+    "eslint": "^10.5.0",
+    "eslint-plugin-astro": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "husky": "^9.1.7",
     "postcss-html": "^1.8.1",
-    "prettier": "^3.8.3",
+    "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
-    "stylelint": "^17.12.0",
+    "stylelint": "^17.13.0",
     "stylelint-config-recess-order": "^7.7.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-high-performance-animation": "^2.0.0",
     "stylelint-no-unsupported-browser-features": "^8.1.1",
     "stylelint-order": "^8.1.1",
     "stylelint-plugin-logical-css": "^2.1.0",
-    "turbo": "^2.9.16",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.60.1"
+    "turbo": "^2.9.18",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.0"
   },
   "packageManager": "pnpm@10.33.0",
   "engines": {
