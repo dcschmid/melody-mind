@@ -15,13 +15,15 @@
  *  --timeout=<ms>: Request timeout in milliseconds (default: 8000)
  *  --max-bytes=<n>: Maximum bytes to fetch for music-metadata (default: 6_000_000)
  *  --no-cache: Ignore the metadata cache
+ *  --file=<name>: Only process one MDX file from src/content/albums
+ *  --debug: Print ffprobe and fetch failure details
  */
 
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
-import YAML from "js-yaml";
+import * as YAML from "js-yaml";
 import * as mm from "music-metadata";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -36,6 +38,9 @@ const timeoutMs = timeoutArg ? parseInt(timeoutArg.split("=")[1], 10) : 8000;
 const maxBytesArg = args.find((a) => a.startsWith("--max-bytes="));
 const maxBytes = maxBytesArg ? parseInt(maxBytesArg.split("=")[1], 10) : 6_000_000;
 const noCache = args.includes("--no-cache");
+const fileArg = args.find((a) => a.startsWith("--file=") || a.startsWith("--album="));
+const fileFilter = fileArg ? fileArg.split("=").slice(1).join("=") : undefined;
+const debug = args.includes("--debug");
 
 const cacheDir = path.join(root, ".cache");
 const cacheFile = path.join(cacheDir, "audio-metadata-music.json");
@@ -57,6 +62,9 @@ async function loadCache() {
 }
 
 async function saveCache() {
+  if (!isWrite) {
+    return;
+  }
   if (noCache) {
     return;
   }
@@ -69,6 +77,25 @@ async function saveCache() {
 
 function log(...msg) {
   console.log("[audio-metadata]", ...msg);
+}
+
+function debugLog(...msg) {
+  if (!debug) {
+    return;
+  }
+  console.warn("[audio-metadata:debug]", ...msg);
+}
+
+function formatError(error) {
+  return error instanceof Error ? error.message : String(error);
+}
+
+function normalizeMediaUrl(url) {
+  try {
+    return new URL(url).href;
+  } catch {
+    return encodeURI(url);
+  }
 }
 
 async function probeWithFfprobe(url) {
@@ -124,23 +151,27 @@ async function fetchPartial(url, limitBytes) {
 }
 
 async function deriveDuration(url) {
+  const mediaUrl = normalizeMediaUrl(url);
+
   // Try ffprobe first if enabled
   if (useFfprobe) {
     try {
-      return await probeWithFfprobe(url);
+      return await probeWithFfprobe(mediaUrl);
     } catch (e) {
+      debugLog(`ffprobe failed for ${mediaUrl}: ${formatError(e)}`);
       // Continue to music-metadata
     }
   }
 
   // Try music-metadata
   try {
-    const buf = await fetchPartial(url, maxBytes);
+    const buf = await fetchPartial(mediaUrl, maxBytes);
     const meta = await mm.parseBuffer(buf);
     if (meta.format.duration) {
       return Math.round(meta.format.duration);
     }
   } catch (e) {
+    debugLog(`music-metadata failed for ${mediaUrl}: ${formatError(e)}`);
     // Failed
   }
 
@@ -188,7 +219,9 @@ async function main() {
   await loadCache();
 
   const files = await fs.readdir(dataDir);
-  const mdxFiles = files.filter((f) => f.endsWith(".mdx"));
+  const mdxFiles = files
+    .filter((f) => f.endsWith(".mdx"))
+    .filter((f) => fileFilter === undefined || f === fileFilter);
 
   if (mdxFiles.length === 0) {
     log("No MDX files found");
@@ -226,22 +259,34 @@ async function main() {
 
       process.stdout.write(`   Track ${song.trackNumber}: ${song.title.slice(0, 30)}...`);
 
+      const existingDuration =
+        Number.isFinite(song.durationSeconds) && song.durationSeconds > 0
+          ? song.durationSeconds
+          : undefined;
+
       // Check cache
-      if (cache[song.audioUrl]) {
-        song.durationSeconds = cache[song.audioUrl];
-        console.log(` ✅ ${cache[song.audioUrl]}s (cached)`);
-        fileUpdated++;
+      if (!noCache && cache[song.audioUrl]) {
+        const cachedDuration = cache[song.audioUrl];
+        console.log(` ✅ ${cachedDuration}s (cached)`);
+        if (song.durationSeconds !== cachedDuration) {
+          song.durationSeconds = cachedDuration;
+          fileUpdated++;
+        }
         continue;
       }
 
       // Get duration
       const duration = await deriveDuration(song.audioUrl);
       if (duration) {
-        song.durationSeconds = duration;
         cache[song.audioUrl] = duration;
         cacheDirty = true;
         console.log(` ✅ ${duration}s`);
-        fileUpdated++;
+        if (song.durationSeconds !== duration) {
+          song.durationSeconds = duration;
+          fileUpdated++;
+        }
+      } else if (existingDuration !== undefined) {
+        console.log(` ⚠️  kept ${existingDuration}s (probe failed)`);
       } else {
         console.log(` ❌ (failed)`);
       }
