@@ -45,6 +45,7 @@ const breadcrumbs = [
 ];
 
 const songs = currentAlbum.songs as Song[];
+const firstTrackAudioUrl = songs[0]?.audioUrl;
 const totalDuration = songs.reduce(
   (acc: number, song: Song) => acc + (song.durationSeconds || 0),
   0
@@ -153,7 +154,7 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     releaseDate: currentAlbum.publishedAt.toISOString(),
     ...(songs[0] ? { firstTrack: `${canonical}#track-${songs[0].trackNumber}` } : {}),
   }}
-  audioSrc={songs[0]?.audioUrl}
+  {...firstTrackAudioUrl ? { audioSrc: firstTrackAudioUrl } : {}}
   language="en"
   locale="en-US"
   keywords={[
