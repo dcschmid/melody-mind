@@ -1,5 +1,6 @@
 ---
 import Icon from "@components/visual/Icon.astro";
+import type { IconName } from "@components/visual/Icon.astro";
 
 interface Props {
   id?: string;
@@ -28,6 +29,45 @@ const shareMailSubject = encodeURIComponent(shareTitle);
 const shareMailBody = encodeURIComponent(
   sanitizedDesc ? `${sanitizedDesc}\n\n${shareUrl}` : shareUrl
 );
+const encodedUrl = encodeURIComponent(shareUrl);
+const encodedTitle = encodeURIComponent(shareTitle);
+const encodedTitleWithUrl = encodeURIComponent(`${shareTitle}\n\n${shareUrl}`);
+
+// Privacy-friendly sharing (Shariff principle): every target is a plain
+// share-intent link. No platform script, iframe, or pixel is embedded —
+// data reaches a network only when the visitor actively clicks its link.
+const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
+  {
+    label: "Bluesky",
+    href: `https://bsky.app/intent/compose?text=${encodedTitleWithUrl}`,
+    icon: "bluesky",
+  },
+  {
+    label: "WhatsApp",
+    href: `https://wa.me/?text=${encodedTitleWithUrl}`,
+    icon: "whatsapp",
+  },
+  {
+    label: "Telegram",
+    href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
+    icon: "telegram",
+  },
+  {
+    label: "X",
+    href: `https://x.com/intent/post?text=${encodedTitle}&url=${encodedUrl}`,
+    icon: "brand-x",
+  },
+  {
+    label: "Facebook",
+    href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    icon: "facebook",
+  },
+  {
+    label: "Reddit",
+    href: `https://www.reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`,
+    icon: "reddit",
+  },
+];
 ---
 
 <section
@@ -56,6 +96,7 @@ const shareMailBody = encodeURIComponent(
     <button
       type="button"
       data-share="native"
+      data-fathom-event="Share: Native"
       class="share-section__button share-section__button--primary"
       aria-label="Share with your device"
     >
@@ -66,24 +107,127 @@ const shareMailBody = encodeURIComponent(
       type="button"
       class="share-section__button"
       data-copy-button
+      data-fathom-event="Share: Copy Link"
       data-copy-aria-label={copyAriaLabel}
       aria-label={copyAriaLabel}
     >
       <Icon name="copy" class="share-section__button-icon" aria-hidden="true" />
       <span data-copy-label>Copy link</span>
     </button>
+  </div>
+
+  <div class="share-section__actions" role="group" aria-label="Share to a network">
+    <button
+      type="button"
+      class="share-section__button"
+      data-share="mastodon"
+      aria-expanded="false"
+      aria-controls={`${id}-mastodon-form`}
+    >
+      <Icon name="mastodon" class="share-section__button-icon" aria-hidden="true" />
+      <span>Mastodon</span>
+    </button>
+    {
+      platformLinks.map((platform) => (
+        <a
+          href={platform.href}
+          class="share-section__button"
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+          data-fathom-event={`Share: ${platform.label}`}
+          aria-label={`Share on ${platform.label} (opens in a new tab)`}
+        >
+          <Icon
+            name={platform.icon}
+            class="share-section__button-icon"
+            aria-hidden="true"
+          />
+          <span>{platform.label}</span>
+        </a>
+      ))
+    }
     <a
       href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
-      class="share-section__button share-section__button--tertiary"
+      class="share-section__button"
+      data-fathom-event="Share: Email"
       aria-label="Share via email"
     >
       <Icon name="mail" class="share-section__button-icon" aria-hidden="true" />
       <span>Email</span>
     </a>
   </div>
+
+  <form
+    class="share-section__mastodon"
+    id={`${id}-mastodon-form`}
+    data-mastodon-form
+    hidden
+  >
+    <label class="share-section__mastodon-label" for={`${id}-mastodon-instance`}>
+      Your Mastodon instance
+    </label>
+    <div class="share-section__mastodon-controls">
+      <input
+        class="share-section__mastodon-input"
+        id={`${id}-mastodon-instance`}
+        name="instance"
+        type="text"
+        inputmode="url"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="mastodon.social"
+        data-mastodon-instance
+      />
+      <button
+        type="submit"
+        class="share-section__button share-section__button--primary"
+        data-fathom-event="Share: Mastodon"
+      >
+        <Icon name="send" class="share-section__button-icon" aria-hidden="true" />
+        <span>Open Mastodon</span>
+      </button>
+    </div>
+    <p class="share-section__mastodon-hint">
+      The instance name stays on this device and is only used to open your server's share
+      page.
+    </p>
+  </form>
+
+  <p class="share-section__privacy">
+    <Icon name="shield" class="share-section__privacy-icon" aria-hidden="true" />
+    All options are plain links — nothing loads from a social network until you choose one.
+  </p>
 </section>
 
 <script>
+  const MASTODON_INSTANCE_STORAGE_KEY = "melodymind:mastodon-instance:v1";
+  const INSTANCE_PATTERN = /^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}$/i;
+
+  const readStoredInstance = (): string => {
+    try {
+      return window.localStorage.getItem(MASTODON_INSTANCE_STORAGE_KEY) || "";
+    } catch {
+      return "";
+    }
+  };
+
+  const storeInstance = (instance: string): void => {
+    try {
+      window.localStorage.setItem(MASTODON_INSTANCE_STORAGE_KEY, instance);
+    } catch {
+      // Storage may be unavailable (private mode); sharing still works.
+    }
+  };
+
+  const normalizeInstance = (raw: string): string =>
+    raw
+      .trim()
+      .toLowerCase()
+      .replace(/^https?:\/\//, "")
+      .replace(/[/?#].*$/, "")
+      .replace(/^@?[^@]*@/, "");
+
   const shareRoots = Array.from(
     document.querySelectorAll<HTMLElement>("[data-share-root]")
   ).filter((root) => root.dataset.shareBound !== "true");
@@ -99,6 +243,14 @@ const shareMailBody = encodeURIComponent(
     const copyLabel = shareSection.querySelector("[data-copy-label]");
     const copyAriaLabel = copyBtn?.dataset.copyAriaLabel || "Copy link to this page";
     const nativeShareBtn = shareSection.querySelector('[data-share="native"]');
+    const mastodonBtn = shareSection.querySelector<HTMLElement>(
+      '[data-share="mastodon"]'
+    );
+    const mastodonForm =
+      shareSection.querySelector<HTMLFormElement>("[data-mastodon-form]");
+    const mastodonInput = shareSection.querySelector<HTMLInputElement>(
+      "[data-mastodon-instance]"
+    );
     let resetTimer: number | undefined;
     let animationTimer: number | undefined;
 
@@ -154,6 +306,47 @@ const shareMailBody = encodeURIComponent(
         }
       }
       copyLink();
+    });
+
+    const toggleMastodonForm = (expand: boolean) => {
+      if (!mastodonBtn || !mastodonForm) {
+        return;
+      }
+      mastodonBtn.setAttribute("aria-expanded", expand ? "true" : "false");
+      mastodonForm.toggleAttribute("hidden", !expand);
+      if (expand) {
+        if (mastodonInput && !mastodonInput.value) {
+          mastodonInput.value = readStoredInstance();
+        }
+        mastodonInput?.focus();
+      }
+    };
+
+    mastodonBtn?.addEventListener("click", () => {
+      toggleMastodonForm(mastodonBtn.getAttribute("aria-expanded") !== "true");
+    });
+
+    mastodonForm?.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        toggleMastodonForm(false);
+        mastodonBtn?.focus();
+      }
+    });
+
+    mastodonForm?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const instance = normalizeInstance(mastodonInput?.value || "");
+      if (!INSTANCE_PATTERN.test(instance)) {
+        setStatus("Please enter a valid instance, e.g. mastodon.social.");
+        mastodonInput?.focus();
+        return;
+      }
+
+      storeInstance(instance);
+      const text = encodeURIComponent(`${shareTitle}\n\n${shareUrl}`);
+      window.open(`https://${instance}/share?text=${text}`, "_blank", "noopener");
+      toggleMastodonForm(false);
+      setStatus(`Opened ${instance} in a new tab.`);
     });
   });
 </script>
@@ -271,5 +464,71 @@ const shareMailBody = encodeURIComponent(
     flex: 0 0 auto;
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
+  }
+
+  .share-section__mastodon {
+    display: grid;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-base);
+    background: color-mix(in srgb, var(--accent-primary) 6%, transparent);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-base);
+  }
+
+  .share-section__mastodon[hidden] {
+    display: none;
+  }
+
+  .share-section__mastodon-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .share-section__mastodon-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .share-section__mastodon-input {
+    flex: 1 1 14rem;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    background: transparent;
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-base);
+  }
+
+  .share-section__mastodon-input:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .share-section__mastodon-hint {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .share-section__privacy {
+    display: flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    margin: 0;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .share-section__privacy-icon {
+    flex: 0 0 auto;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
+    color: var(--accent-primary);
   }
 </style>
