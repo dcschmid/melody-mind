@@ -100,7 +100,7 @@ export function buildOrganizationSchema(
     siteUrl,
     siteName,
     description,
-    logoUrl = `${siteUrl.replace(/\/$/, "")}/melody-mind.png`,
+    logoUrl = `${siteUrl.replace(/\/$/, "")}/web-app-manifest-512x512.png`,
   } = opts;
 
   return {
@@ -235,7 +235,7 @@ export function buildArticleSchema(opts: ArticleSchemaOptions): Record<string, u
     articleSection,
     authorName = "Melody Mind",
     publisherName = "Melody Mind",
-    publisherLogoUrl = "https://melody-mind.de/melody-mind.png",
+    publisherLogoUrl,
     isPartOf,
     potentialAction,
     about,
@@ -247,6 +247,8 @@ export function buildArticleSchema(opts: ArticleSchemaOptions): Record<string, u
   const publishedDate = normalizeDate(createdAt);
   const modifiedDate = normalizeDate(updatedAt);
   const wordCount = countWords(body);
+  const resolvedPublisherLogo =
+    publisherLogoUrl ?? `${new URL(canonical).origin}/web-app-manifest-512x512.png`;
 
   return {
     "@context": "https://schema.org",
@@ -271,7 +273,7 @@ export function buildArticleSchema(opts: ArticleSchemaOptions): Record<string, u
       name: publisherName,
       logo: {
         "@type": "ImageObject",
-        url: publisherLogoUrl,
+        url: resolvedPublisherLogo,
       },
     },
     ...(isPartOf ? { isPartOf } : {}),
