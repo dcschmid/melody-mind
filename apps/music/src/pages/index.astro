@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import { resolvePageUrl } from "@utils/siteUrls";
-import { buildOrganizationSchema } from "@utils/seo/seoSchema";
+import { buildOrganizationSchema, buildWebSiteSchema } from "@utils/seo/seoSchema";
 import { toAbsoluteAssetUrl } from "@utils/imageAssets";
 import AlbumSeriesSection from "@components/music/home/AlbumSeriesSection.astro";
 import ContinueListening from "@components/music/home/ContinueListening.astro";
@@ -215,17 +215,11 @@ const structuredData = [
     description: t.description,
     logoUrl: toAbsoluteAssetUrl(melodyMindLogo, new URL(canonical).origin),
   }),
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${canonical.replace(/\/$/, "")}#website`,
-    url: canonical.replace(/\/$/, ""),
-    name: "MelodyMind Music",
+  buildWebSiteSchema({
+    siteUrl: canonical,
+    siteName: "MelodyMind Music",
     description: t.description,
-    publisher: {
-      "@id": `${canonical.replace(/\/$/, "")}#organization`,
-    },
-  },
+  }),
   buildMusicAlbumListSchema({
     albums: sortedAlbumsByDate,
     canonical,

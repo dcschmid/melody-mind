@@ -120,20 +120,14 @@ export function buildOrganizationSchema(
 /**
  * Builds the top-level `WebSite` schema and wires it to the shared organization node.
  *
- * A `SearchAction` is included by default so pages can advertise internal site search
- * without repeating that structure at each call site.
+ * A `SearchAction` is emitted only when `searchPathTemplate` is provided — its
+ * target must be a real results URL that answers `{search_term_string}` queries.
  */
 export function buildWebSiteSchema(
   opts: SiteIdentitySchemaOptions
 ): Record<string, unknown> {
-  const {
-    siteUrl,
-    siteName,
-    description,
-    searchPathTemplate = "/search?q={search_term_string}",
-  } = opts;
+  const { siteUrl, siteName, description, searchPathTemplate } = opts;
   const normalizedSiteUrl = siteUrl.replace(/\/$/, "");
-  const target = `${normalizedSiteUrl}${searchPathTemplate}`;
 
   return {
     "@context": "https://schema.org",
@@ -145,11 +139,15 @@ export function buildWebSiteSchema(
     publisher: {
       "@id": `${normalizedSiteUrl}#organization`,
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target,
-      "query-input": "required name=search_term_string",
-    },
+    ...(searchPathTemplate
+      ? {
+          potentialAction: {
+            "@type": "SearchAction",
+            target: `${normalizedSiteUrl}${searchPathTemplate}`,
+            "query-input": "required name=search_term_string",
+          },
+        }
+      : {}),
   };
 }
 
