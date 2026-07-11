@@ -7,41 +7,24 @@ import type {
   TwitterMeta,
 } from "./seo.types";
 
-interface AlternateLocaleLink {
-  locale: string;
-  href: string;
-}
-
 interface Props {
   title?: string;
   description?: string;
   keywords?: string[];
-  image?: string;
   imageWidth?: number;
   imageHeight?: number;
   imageType?: string;
   imageAlt?: string;
-  type?: string;
   publishDate?: Date;
   modifiedDate?: Date;
   ogMusic?: OpenGraphMusicMeta;
   audioSrc?: string;
   audioType?: string;
-  episodeNumber?: number;
-  seriesName?: string;
-  seriesUrl?: string;
   canonical?: string;
   robots?: string;
-  noIndex?: boolean;
-  noFollow?: boolean;
-  prevUrl?: string;
-  nextUrl?: string;
-  disableAlternateLanguages?: boolean;
   structuredDataExtra?: StructuredDataExtra;
   authorName?: string;
-  articleAuthor?: string;
   openGraph?: OpenGraphMeta;
-  alternateLocales?: AlternateLocaleLink[];
   ogSiteName?: string;
   twitter?: TwitterMeta;
   twitterSite?: string;
@@ -52,32 +35,20 @@ const {
   title,
   description,
   keywords,
-  image,
   imageWidth,
   imageHeight,
   imageType,
   imageAlt,
-  type,
   ogMusic,
   audioSrc,
   audioType = "audio/mpeg",
-  episodeNumber,
-  seriesName,
-  seriesUrl,
   canonical,
   robots,
-  noIndex,
-  noFollow,
-  prevUrl,
-  nextUrl,
-  disableAlternateLanguages,
   publishDate,
   modifiedDate,
   structuredDataExtra,
   authorName,
-  articleAuthor,
   openGraph,
-  alternateLocales,
   ogSiteName,
   twitter,
   twitterSite,
@@ -119,78 +90,11 @@ const toStructuredDataArray = (
   return (Array.isArray(data) ? data : [data]).filter(isStructuredDataObject);
 };
 
-const hasStructuredDataType = (
-  data: StructuredDataObject[],
-  expectedType: string
-): boolean =>
-  data.some(function containsStructuredDataType(item): boolean {
-    const type = item["@type"];
-    if (Array.isArray(type) ? type.includes(expectedType) : type === expectedType) {
-      return true;
-    }
-
-    const graph = item["@graph"];
-    return Array.isArray(graph)
-      ? graph.some(
-          (entry) => isStructuredDataObject(entry) && containsStructuredDataType(entry)
-        )
-      : false;
-  });
-
 const publishedIso = isValidDate(publishDate) ? publishDate.toISOString() : undefined;
 const modifiedIso = isValidDate(modifiedDate) ? modifiedDate.toISOString() : undefined;
 const structuredDataObjects = toStructuredDataArray(structuredDataExtra);
-const hasPodcastEpisodeStructuredData = hasStructuredDataType(
-  structuredDataObjects,
-  "PodcastEpisode"
-);
 const ogImageType = openGraph?.imageType || imageType;
-const ogType = toOpenGraphType(openGraph?.type || type);
-const shouldEmitAlternateLanguages = !disableAlternateLanguages;
-const alternateLocaleLinks =
-  shouldEmitAlternateLanguages && Array.isArray(alternateLocales)
-    ? alternateLocales.filter((alternate): alternate is AlternateLocaleLink =>
-        Boolean(alternate?.locale && alternate.href)
-      )
-    : [];
-const podcastStructuredData =
-  !hasPodcastEpisodeStructuredData &&
-  title &&
-  description &&
-  canonical &&
-  seriesName &&
-  seriesUrl
-    ? {
-        "@context": "https://schema.org",
-        "@type": "PodcastEpisode",
-        name: title,
-        description,
-        url: canonical,
-        partOfSeries: {
-          "@type": "PodcastSeries",
-          name: seriesName,
-          url: seriesUrl,
-        },
-        ...(typeof episodeNumber === "number" ? { episodeNumber } : {}),
-        ...(publishedIso ? { datePublished: publishedIso } : {}),
-        ...(modifiedIso ? { dateModified: modifiedIso } : {}),
-        ...(image ? { image } : {}),
-        ...(audioSrc
-          ? {
-              audio: {
-                "@type": "AudioObject",
-                url: audioSrc,
-                encodingFormat: audioType,
-              },
-            }
-          : {}),
-      }
-    : undefined;
-const fallbackRobots =
-  noIndex || noFollow
-    ? `${noIndex ? "noindex" : "index"},${noFollow ? "nofollow" : "follow"}`
-    : undefined;
-const robotsContent = robots || fallbackRobots;
+const ogType = toOpenGraphType(openGraph?.type);
 ---
 
 {title && <title>{title}</title>}
@@ -202,12 +106,9 @@ const robotsContent = robots || fallbackRobots;
 }
 
 {authorName && <meta name="author" content={authorName} />}
-{articleAuthor && <meta property="article:author" content={articleAuthor} />}
 {canonical && <link rel="canonical" href={canonical} />}
-{prevUrl && <link rel="prev" href={prevUrl} />}
-{nextUrl && <link rel="next" href={nextUrl} />}
 
-{robotsContent && <meta name="robots" content={robotsContent} />}
+{robots && <meta name="robots" content={robots} />}
 
 {publishedIso && <meta name="article:published_time" content={publishedIso} />}
 {modifiedIso && <meta name="article:modified_time" content={modifiedIso} />}
@@ -237,11 +138,6 @@ const robotsContent = robots || fallbackRobots;
   )
 }
 {openGraph?.locale && <meta property="og:locale" content={openGraph.locale} />}
-{
-  alternateLocaleLinks.map(({ locale }) => (
-    <meta property="og:locale:alternate" content={locale} />
-  ))
-}
 {ogSiteName && <meta property="og:site_name" content={ogSiteName} />}
 {openGraph?.image && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
 {audioSrc && <meta property="og:audio" content={audioSrc} />}
@@ -256,13 +152,6 @@ const robotsContent = robots || fallbackRobots;
   )
 }
 {ogMusic?.firstTrack && <meta property="music:song" content={ogMusic.firstTrack} />}
-{
-  typeof episodeNumber === "number" && (
-    <meta name="episode:number" content={String(episodeNumber)} />
-  )
-}
-{seriesName && <meta name="series:name" content={seriesName} />}
-{seriesUrl && <meta name="series:url" content={seriesUrl} />}
 {twitter?.card && <meta name="twitter:card" content={twitter.card} />}
 {twitterUrl && <meta name="twitter:url" content={twitterUrl} />}
 {twitter?.title && <meta name="twitter:title" content={twitter.title} />}
@@ -277,22 +166,8 @@ const robotsContent = robots || fallbackRobots;
 {twitterSite && <meta name="twitter:site" content={twitterSite} />}
 
 {
-  alternateLocaleLinks.length > 0 && (
-    <>
-      {alternateLocaleLinks.map(({ locale, href }) => (
-        <link rel="alternate" hreflang={locale} {href} />
-      ))}
-      {canonical && <link rel="alternate" hreflang="x-default" href={canonical} />}
-    </>
-  )
-}
-
-{
   (() => {
-    const all = [
-      ...structuredDataObjects,
-      ...(podcastStructuredData ? [podcastStructuredData] : []),
-    ];
+    const all = structuredDataObjects;
 
     if (all.length === 0) {
       return null;

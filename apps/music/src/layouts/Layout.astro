@@ -139,7 +139,6 @@ const seoProps = {
   canonical: pageSeoResolved.canonical,
   robots: pageSeoResolved.robots,
   structuredDataExtra: pageSeoResolved.structuredData,
-  ...(pageSeoResolved.image ? { image: pageSeoResolved.image } : {}),
   ...(pageSeoResolved.imageAlt ? { imageAlt: pageSeoResolved.imageAlt } : {}),
   ...(pageSeoResolved.publishDate ? { publishDate: pageSeoResolved.publishDate } : {}),
   ...(pageSeoResolved.modifiedDate ? { modifiedDate: pageSeoResolved.modifiedDate } : {}),

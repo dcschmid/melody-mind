@@ -19,11 +19,6 @@ export type StructuredData = Record<string, unknown>;
 /** Coarse page classification used for default OG type and fallback social image inference. */
 export type PageContentKind = "generic" | "news" | "playlist" | "podcast";
 
-export interface AlternateLocaleLink {
-  locale: string;
-  href: string;
-}
-
 type PageSeoType =
   | "website"
   | "article"
@@ -75,8 +70,6 @@ export interface BuildPageSeoParams extends Omit<BuildSeoTextParams, "descriptio
   structuredData?: StructuredData[];
   /** OpenGraph primary locale (e.g. en_US) */
   ogLocale?: string;
-  /** Alternate OpenGraph locales */
-  alternateLocales?: AlternateLocaleLink[];
   /** Twitter creator handle (e.g. @melodymind) */
   twitterCreator?: string;
   /** Optional breadcrumbs to auto inject into structured data augmentation */
@@ -138,7 +131,6 @@ export interface PageSeoResult extends SeoTextResult {
   };
   structuredData: StructuredData[];
   ogLocale?: string;
-  alternateLocales?: AlternateLocaleLink[];
   /** Page author name */
   authorName?: string;
   /** Alt text for OpenGraph image */
@@ -429,7 +421,6 @@ interface NormalizedResultBase {
   maxVideoPreview?: number;
   structuredData: StructuredData[];
   ogLocale?: string;
-  alternateLocales?: AlternateLocaleLink[];
   twitterCreator?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
   authorName?: string;
@@ -476,7 +467,6 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     maxVideoPreview,
     structuredData = [],
     ogLocale,
-    alternateLocales,
     twitterCreator,
     breadcrumbs,
     authorName,
@@ -513,7 +503,6 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
         maxVideoPreview,
         structuredData,
         ogLocale,
-        alternateLocales,
         twitterCreator,
         breadcrumbs,
         authorName,
@@ -551,7 +540,6 @@ function normalizeAndMaybeGetCache(options: BuildPageSeoParams): NormalizedResul
     ...(maxVideoPreview !== undefined && { maxVideoPreview }),
     structuredData,
     ...(ogLocale !== undefined && { ogLocale }),
-    ...(alternateLocales !== undefined && { alternateLocales }),
     ...(twitterCreator !== undefined && { twitterCreator }),
     ...(breadcrumbs !== undefined && { breadcrumbs }),
     ...(authorName !== undefined && { authorName }),
@@ -606,7 +594,6 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     maxVideoPreview,
     structuredData,
     ogLocale,
-    alternateLocales,
     twitterCreator,
     breadcrumbs,
     authorName,
@@ -689,7 +676,6 @@ export function buildPageSeo(options: BuildPageSeoParams): PageSeoResult {
     },
     structuredData: augmentedStructured,
     ...(ogLocale !== undefined && { ogLocale }),
-    ...(alternateLocales !== undefined && { alternateLocales }),
     ...(authorName !== undefined && { authorName }),
     ...(imageAlt !== undefined && { imageAlt }),
   };
