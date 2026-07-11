@@ -153,6 +153,7 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     releaseDate: currentAlbum.publishedAt.toISOString(),
     ...(songs[0] ? { firstTrack: `${canonical}#track-${songs[0].trackNumber}` } : {}),
   }}
+  audioSrc={songs[0]?.audioUrl}
   language="en"
   locale="en-US"
   keywords={[
