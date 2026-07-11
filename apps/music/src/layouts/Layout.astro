@@ -3,7 +3,6 @@ import MasterLayout from "@components/layout/MasterLayout.astro";
 import AppHeadResources from "@components/meta/AppHeadResources.astro";
 import SEO from "@components/meta/SEO.astro";
 import SkipLink from "@components/navigation/SkipLink.astro";
-import AutoInitScript from "@components/init/AutoInitScript.astro";
 import Footer from "@components/layout/Footer.astro";
 import SearchPalette from "@components/search/SearchPalette.astro";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
@@ -290,7 +289,6 @@ const mobileGenreLinks = Array.from(
     }}
   />
 
-  <AutoInitScript slot="body-end" />
   <SearchPalette
     slot="body-end"
     configId="music-search-palette-config"
