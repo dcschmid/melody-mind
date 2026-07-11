@@ -74,23 +74,5 @@ export const buildImageMap = (
     {} as Record<string, ImageMetadata>
   );
 
-export const findAssetByFileName = (
-  modules: Record<string, ImageModule>,
-  fileNames: string[],
-  errorPrefix = "Missing image asset"
-): ImageMetadata => {
-  for (const fileName of fileNames) {
-    const assetEntry = Object.entries(modules).find(
-      ([path]) => path.split("/").pop() === fileName
-    );
-
-    if (assetEntry) {
-      return assetEntry[1].default;
-    }
-  }
-
-  throw new Error(`${errorPrefix}. Tried: ${fileNames.join(", ")}`);
-};
-
 export const toAbsoluteAssetUrl = (asset: ImageMetadata, baseUrl: string): string =>
   new URL(stripAssetQuery(asset.src), baseUrl).toString();

@@ -27,12 +27,6 @@ export interface CollectionPageSchemaOptions {
   mainEntityId?: string;
 }
 
-/** Shared breadcrumb input shape used to build `BreadcrumbList` JSON-LD. */
-export interface BreadcrumbItem {
-  name: string;
-  url: string;
-}
-
 /** Normalized article-like input used for article and podcast-episode detail schemas. */
 export interface ArticleSchemaOptions {
   canonical: string;
@@ -148,26 +142,6 @@ export function buildWebSiteSchema(
           },
         }
       : {}),
-  };
-}
-
-/** Converts shared breadcrumb UI data into a `BreadcrumbList` schema, or returns nothing. */
-export function buildBreadcrumbListSchema(
-  breadcrumbs: BreadcrumbItem[]
-): Record<string, unknown> | undefined {
-  if (!breadcrumbs.length) {
-    return undefined;
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: crumb.name,
-      item: crumb.url,
-    })),
   };
 }
 
@@ -333,32 +307,5 @@ export function buildFaqPageSchema(
         text: item.answer,
       },
     })),
-  };
-}
-
-/**
- * Builds a `SpeakableSpecification` schema for voice search optimization.
- *
- * This allows Google Assistant and other voice devices to read page highlights aloud.
- * Uses CSS selectors to identify speakable sections of the page.
- */
-export function buildSpeakableSpecificationSchema(opts: {
-  cssSelectors?: string[];
-  xpathSelectors?: string[];
-}): Record<string, unknown> | undefined {
-  const { cssSelectors, xpathSelectors } = opts;
-
-  if (
-    (!cssSelectors || cssSelectors.length === 0) &&
-    (!xpathSelectors || xpathSelectors.length === 0)
-  ) {
-    return undefined;
-  }
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "SpeakableSpecification",
-    ...(cssSelectors?.length ? { cssSelector: cssSelectors } : {}),
-    ...(xpathSelectors?.length ? { xpath: xpathSelectors } : {}),
   };
 }
