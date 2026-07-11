@@ -12,6 +12,15 @@ interface PlaylistTrack {
 const PROGRESS_UPDATE_INTERVAL = 250;
 const MEDIA_SESSION_SEEK_STEP = 10;
 const NEXT_TRACK_PRELOAD_LOOKAHEAD_SECONDS = 30;
+const MEDIA_SESSION_ACTIONS: MediaSessionAction[] = [
+  "play",
+  "pause",
+  "previoustrack",
+  "nexttrack",
+  "seekbackward",
+  "seekforward",
+  "seekto",
+];
 const INIT_FLAG_PREFIX = "__mm";
 const LOG_PREFIX = "[music]";
 const PLAYBACK_STATE_STORAGE_KEY = "melodymind:music-player-state:v1";
@@ -691,6 +700,21 @@ const initPlaylistPlayers = (): (() => void) => {
       });
     };
 
+    const clearMediaSessionActions = () => {
+      if (!("mediaSession" in navigator)) {
+        return;
+      }
+
+      navigator.mediaSession.metadata = null;
+      MEDIA_SESSION_ACTIONS.forEach((action) => {
+        try {
+          navigator.mediaSession.setActionHandler(action, null);
+        } catch {
+          // Browsers expose different Media Session action sets.
+        }
+      });
+    };
+
     const triggerPop = (button: HTMLButtonElement) => {
       button.dataset.pop = "true";
       setTimeout(() => {
@@ -924,16 +948,42 @@ const initPlaylistPlayers = (): (() => void) => {
     setupMediaSessionActions();
     updateProgress(true);
 
+    // Order matters: save position before releasing src (which resets
+    // currentTime), abort before pause() so the pause listener doesn't re-save.
     cleanup.push(() => {
+      savePlaybackState(true);
       controller.abort();
-      nextTrackPreloader.removeAttribute("src");
-      nextTrackPreloader.load();
+      if (titleTransitionTimeout !== null) {
+        clearTimeout(titleTransitionTimeout);
+        titleTransitionTimeout = null;
+      }
+      clearMediaSessionActions();
+      audio.pause();
+      audio.removeAttribute("src");
+      // Without this, load() falls back to the <source> child and refetches track 1.
+      audio.querySelector("source")?.remove();
+      audio.load();
+      releasePreloadedTrack();
     });
   });
 
-  return () => {
+  const runCleanup = () => {
     cleanup.forEach((fn) => fn());
+    cleanup.length = 0;
   };
+
+  window.addEventListener("pagehide", (event) => {
+    // Keep the player alive for bfcache restores (back/forward navigation).
+    if (!event.persisted) {
+      runCleanup();
+    }
+  });
+  // Inert without a ClientRouter; future-proofs teardown for view transitions.
+  // Full ClientRouter adoption would additionally need re-init on
+  // astro:page-load and a rework of the run-once init flag.
+  document.addEventListener("astro:before-swap", runCleanup, { once: true });
+
+  return runCleanup;
 };
 
 const setupPlaylistPlayers = createInitializer(
