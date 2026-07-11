@@ -191,6 +191,7 @@ const initPlaylistPlayers = (): (() => void) => {
     let lastHighlightedIndex = -1;
     let titleTransitionTimeout: ReturnType<typeof setTimeout> | null = null;
     let lastProgressUpdate = 0;
+    let lastRenderedProgressKey = "";
     let lastPlaybackStateSave = 0;
     let isChangingTrackSource = false;
     let pendingInitialSeek =
@@ -507,6 +508,13 @@ const initPlaylistPlayers = (): (() => void) => {
         Number.isFinite(duration) && Number.isFinite(currentTime)
           ? Math.max(duration - currentTime, 0)
           : 0;
+      // Every write below is floored to whole seconds, so skip the DOM and
+      // accessibility-tree churn while none of the rendered values changed.
+      const renderKey = `${Math.floor(currentTime)}:${Math.floor(remaining)}:${Math.floor(duration)}`;
+      if (!force && renderKey === lastRenderedProgressKey) {
+        return;
+      }
+      lastRenderedProgressKey = renderKey;
       progress.max = duration ? String(Math.floor(duration)) : "0";
       progress.value = String(Math.floor(currentTime));
       progress.setAttribute(
@@ -604,7 +612,9 @@ const initPlaylistPlayers = (): (() => void) => {
       }
 
       updateProgress(true);
-      savePlaybackState(true);
+      // Throttled: slider drags call seekTo per step; forced saves on
+      // play/pause/track change and pagehide keep the stored position exact.
+      savePlaybackState();
     };
 
     const seekBy = (offset: number) => {
