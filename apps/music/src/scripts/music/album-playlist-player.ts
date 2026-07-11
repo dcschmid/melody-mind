@@ -11,6 +11,7 @@ interface PlaylistTrack {
 
 const PROGRESS_UPDATE_INTERVAL = 250;
 const MEDIA_SESSION_SEEK_STEP = 10;
+const NEXT_TRACK_PRELOAD_LOOKAHEAD_SECONDS = 30;
 const INIT_FLAG_PREFIX = "__mm";
 const LOG_PREFIX = "[music]";
 const PLAYBACK_STATE_STORAGE_KEY = "melodymind:music-player-state:v1";
@@ -339,6 +340,35 @@ const initPlaylistPlayers = (): (() => void) => {
       preloadTrack(getNextTrackIndex());
     };
 
+    const releasePreloadedTrack = (): void => {
+      if (preloadedTrackIndex === -1) {
+        return;
+      }
+
+      preloadedTrackIndex = -1;
+      nextTrackPreloader.removeAttribute("src");
+      nextTrackPreloader.load();
+    };
+
+    // Preloading the next track for the whole duration of the current one keeps
+    // two full downloads buffered at all times; a short lookahead window is
+    // enough to keep track transitions seamless via the warm HTTP cache.
+    const maybePreloadUpcomingTrack = (): void => {
+      if (!isPlaying || tracks.length < 2) {
+        return;
+      }
+
+      const duration = getDuration();
+      if (!Number.isFinite(duration) || duration <= 0) {
+        return;
+      }
+
+      const currentTime = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
+      if (duration - currentTime <= NEXT_TRACK_PRELOAD_LOOKAHEAD_SECONDS) {
+        preloadNextTrack();
+      }
+    };
+
     const hasMediaSession = () =>
       "mediaSession" in navigator && typeof window.MediaMetadata === "function";
 
@@ -535,7 +565,7 @@ const initPlaylistPlayers = (): (() => void) => {
       updateProgress(true);
       updateMediaSessionMetadata();
       updateMediaSessionPosition();
-      preloadNextTrack();
+      releasePreloadedTrack();
       savePlaybackState(true);
 
       if (shouldAutoplay) {
@@ -636,7 +666,6 @@ const initPlaylistPlayers = (): (() => void) => {
           const track = tracks[currentTrackIndex];
           if (track) {
             setAudioSource(track);
-            preloadNextTrack();
           }
           audio.play().catch((error) => logError(error, "media session play blocked"));
         },
@@ -684,7 +713,6 @@ const initPlaylistPlayers = (): (() => void) => {
           return;
         }
         setAudioSource(track);
-        preloadNextTrack();
         audio.play().catch((error) => logError(error, "playback blocked"));
       } else {
         audio.pause();
@@ -740,7 +768,6 @@ const initPlaylistPlayers = (): (() => void) => {
         updateToggleButton();
         updateMediaSessionPosition();
         updateTrackHighlight();
-        preloadNextTrack();
         setStatus(`Playing ${tracks[currentTrackIndex]?.title}`);
         savePlaybackState(true);
       },
@@ -781,6 +808,7 @@ const initPlaylistPlayers = (): (() => void) => {
           isPlaying = false;
           updateToggleButton();
           updateTrackHighlight();
+          releasePreloadedTrack();
           player.dataset.playerCelebrating = "true";
           setTimeout(() => {
             player.dataset.playerCelebrating = "false";
@@ -813,6 +841,7 @@ const initPlaylistPlayers = (): (() => void) => {
       () => {
         updateProgress();
         savePlaybackState();
+        maybePreloadUpcomingTrack();
       },
       { signal }
     );
@@ -894,7 +923,6 @@ const initPlaylistPlayers = (): (() => void) => {
     updateMediaSessionMetadata();
     setupMediaSessionActions();
     updateProgress(true);
-    preloadNextTrack();
 
     cleanup.push(() => {
       controller.abort();
