@@ -13,12 +13,15 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
   "/knowledge/",
   "/taxonomy/",
 ]);
+// Noindex pages don't belong in the sitemap — listing them sends
+// contradictory crawl signals.
 const SITEMAP_LEGAL_PATHS = new Set([
   "/ai-content/",
   "/cookies/",
   "/imprint/",
   "/privacy/",
 ]);
+const SITEMAP_NOINDEX_PREFIXES = ["/music/genre/"];
 
 const getSitemapPath = (url) => {
   try {
@@ -85,23 +88,26 @@ export default defineConfig({
       optimize: true,
     }),
     sitemap({
-      xslURL: "/sitemap.xsl",
       namespaces: {
         news: false,
         video: false,
         image: false,
         xhtml: true,
       },
-      filter: (page) => !SITEMAP_EXCLUDED_PATHS.has(getSitemapPath(page)),
+      filter: (page) => {
+        const pathname = getSitemapPath(page);
+        return (
+          !SITEMAP_EXCLUDED_PATHS.has(pathname) &&
+          !SITEMAP_LEGAL_PATHS.has(pathname) &&
+          !SITEMAP_NOINDEX_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+        );
+      },
       serialize: (item) => {
         const pathname = getSitemapPath(item.url);
 
         if (pathname === "/") {
           item.priority = 1.0;
           item.changefreq = "weekly";
-        } else if (SITEMAP_LEGAL_PATHS.has(pathname)) {
-          item.priority = 0.3;
-          item.changefreq = "yearly";
         } else {
           item.priority = 0.8;
           item.changefreq = "monthly";
