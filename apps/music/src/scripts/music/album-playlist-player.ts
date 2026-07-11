@@ -481,7 +481,6 @@ const initPlaylistPlayers = (): (() => void) => {
         remainingTimeDisplay.textContent =
           remaining > 0 ? `-${formatTime(remaining)}` : "-0:00";
       }
-      updateMediaSessionPosition();
     };
 
     const playTrack = (
@@ -535,6 +534,7 @@ const initPlaylistPlayers = (): (() => void) => {
       updateTrackHighlight();
       updateProgress(true);
       updateMediaSessionMetadata();
+      updateMediaSessionPosition();
       preloadNextTrack();
       savePlaybackState(true);
 
@@ -738,6 +738,7 @@ const initPlaylistPlayers = (): (() => void) => {
         trackFathomEvent("Music: Play");
         audio.preload = shouldPreloadAudio() ? "auto" : "metadata";
         updateToggleButton();
+        updateMediaSessionPosition();
         updateTrackHighlight();
         preloadNextTrack();
         setStatus(`Playing ${tracks[currentTrackIndex]?.title}`);
@@ -755,6 +756,7 @@ const initPlaylistPlayers = (): (() => void) => {
 
         isPlaying = false;
         updateToggleButton();
+        updateMediaSessionPosition();
         updateTrackHighlight();
         setStatus(`Paused ${tracks[currentTrackIndex]?.title}`);
         savePlaybackState(true);
@@ -822,9 +824,19 @@ const initPlaylistPlayers = (): (() => void) => {
           pendingInitialSeek = 0;
         }
         updateProgress(true);
+        updateMediaSessionPosition();
       },
       { signal }
     );
+    // The UA extrapolates playback position from the last setPositionState call,
+    // so it only needs re-anchoring on discontinuities — not on every timeupdate.
+    audio.addEventListener("seeked", () => updateMediaSessionPosition(), { signal });
+    audio.addEventListener("durationchange", () => updateMediaSessionPosition(), {
+      signal,
+    });
+    audio.addEventListener("ratechange", () => updateMediaSessionPosition(), {
+      signal,
+    });
 
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.target !== player && !player.contains(event.target as Node)) {
