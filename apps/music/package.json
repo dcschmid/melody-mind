@@ -39,7 +39,6 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@types/js-yaml": "^4.0.9",
-    "image-size": "^2.0.2",
     "js-yaml": "^5.1.0",
     "typescript": "^6.0.3"
   }
