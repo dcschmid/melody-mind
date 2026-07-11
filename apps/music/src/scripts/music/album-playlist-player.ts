@@ -958,6 +958,18 @@ const initPlaylistPlayers = (): (() => void) => {
     setupMediaSessionActions();
     updateProgress(true);
 
+    // Entering the bfcache skips the teardown below, so the exact position
+    // must still be captured here; the { signal } unregisters it on teardown.
+    window.addEventListener(
+      "pagehide",
+      (event) => {
+        if (event.persisted) {
+          savePlaybackState(true);
+        }
+      },
+      { signal }
+    );
+
     // Order matters: save position before releasing src (which resets
     // currentTime), abort before pause() so the pause listener doesn't re-save.
     cleanup.push(() => {
