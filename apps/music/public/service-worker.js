@@ -1,6 +1,7 @@
-const CACHE_VERSION = "music-pwa-v20260514";
+const CACHE_VERSION = "music-pwa-v20260711";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
+const MAX_RUNTIME_CACHE_ENTRIES = 80;
 
 const STATIC_ASSETS = [
   "/",
@@ -25,6 +26,16 @@ const isAudioRequest = (request) =>
   request.headers.has("range") ||
   /\.(?:mp3|m4a|ogg|wav|flac)(?:$|\?)/i.test(new URL(request.url).pathname);
 
+// Cache API keys are insertion-ordered, so deleting from the front is FIFO
+// eviction — enough to keep the runtime cache from growing unbounded.
+const trimRuntimeCache = async (cache) => {
+  const keys = await cache.keys();
+  const excess = keys.length - MAX_RUNTIME_CACHE_ENTRIES;
+  for (let index = 0; index < excess; index += 1) {
+    await cache.delete(keys[index]);
+  }
+};
+
 const putRuntimeCache = async (request, response) => {
   if (!response || !response.ok || response.type === "opaque") {
     return;
@@ -32,6 +43,7 @@ const putRuntimeCache = async (request, response) => {
 
   const cache = await caches.open(RUNTIME_CACHE);
   await cache.put(request, response.clone());
+  await trimRuntimeCache(cache);
 };
 
 self.addEventListener("install", (event) => {
