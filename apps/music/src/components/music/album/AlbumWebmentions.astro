@@ -41,7 +41,16 @@ const titleId = "album-webmentions-title";
     hidden
   >
   </div>
+  <div class="album-webmentions__reactions" data-album-webmentions-reactions hidden></div>
   <ul class="album-webmentions__list" data-album-webmentions-list hidden></ul>
+  <button
+    class="album-webmentions__more"
+    type="button"
+    data-album-webmentions-more
+    hidden
+  >
+    Show all replies
+  </button>
 </section>
 
 <script>
@@ -89,7 +98,13 @@ const titleId = "album-webmentions-title";
     const enableButton = webmentionsRoot.querySelector("[data-album-webmentions-enable]");
     const status = webmentionsRoot.querySelector("[data-album-webmentions-status]");
     const list = webmentionsRoot.querySelector("[data-album-webmentions-list]");
+    const reactionsPanel = webmentionsRoot.querySelector(
+      "[data-album-webmentions-reactions]"
+    );
+    const moreButton = webmentionsRoot.querySelector("[data-album-webmentions-more]");
     const targetUrl = webmentionsRoot.getAttribute("data-webmentions-target");
+    const VISIBLE_POSTS = 8;
+    const MAX_FACES_PER_GROUP = 16;
     let hasLoadedWebmentions = false;
 
     const reactionLabels: Record<string, string> = {
@@ -115,6 +130,13 @@ const titleId = "album-webmentions-title";
       reactionLabels[entry["wm-property"] || ""] ||
       reactionLabels[entry.type || ""] ||
       "Mention";
+
+    // Likes and reposts carry no text of their own; they read better as a
+    // compact avatar row with a count than as full comment cards.
+    const isCompactReaction = (entry: WebmentionEntry): boolean => {
+      const type = getReactionType(entry);
+      return type === "Like" || type === "Repost";
+    };
 
     const getEntryText = (entry: WebmentionEntry): string => {
       const contentText = entry.content?.text?.trim();
@@ -178,6 +200,7 @@ const titleId = "album-webmentions-title";
         image.alt = "";
         image.loading = "lazy";
         image.decoding = "async";
+        image.referrerPolicy = "no-referrer";
         item.append(image);
       }
 
@@ -225,6 +248,91 @@ const titleId = "album-webmentions-title";
       return item;
     };
 
+    const renderFace = (entry: WebmentionEntry): HTMLElement | null => {
+      const sourceUrl = entry.author?.url || entry.url || entry["wm-source"];
+      if (!sourceUrl) {
+        return null;
+      }
+
+      const authorName = entry.author?.name?.trim() || "Someone";
+      const face = document.createElement("a");
+      face.className = "album-webmentions__face";
+      face.href = sourceUrl;
+      face.rel = "noopener noreferrer";
+      face.target = "_blank";
+      face.title = authorName;
+      face.setAttribute("aria-label", authorName);
+
+      if (entry.author?.photo) {
+        const image = document.createElement("img");
+        image.className = "album-webmentions__face-image";
+        image.src = entry.author.photo;
+        image.alt = "";
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.referrerPolicy = "no-referrer";
+        face.append(image);
+      } else {
+        const initial = document.createElement("span");
+        initial.className = "album-webmentions__face-fallback";
+        initial.textContent = authorName.slice(0, 1).toUpperCase();
+        initial.setAttribute("aria-hidden", "true");
+        face.append(initial);
+      }
+
+      return face;
+    };
+
+    const renderReactionGroup = (
+      label: string,
+      entries: WebmentionEntry[]
+    ): HTMLElement | null => {
+      if (!entries.length) {
+        return null;
+      }
+
+      const group = document.createElement("div");
+      group.className = "album-webmentions__reaction-group";
+
+      const count = document.createElement("span");
+      count.className = "album-webmentions__reaction-count";
+      count.textContent = `${entries.length} ${label}${entries.length === 1 ? "" : "s"}`;
+      group.append(count);
+
+      const faces = document.createElement("div");
+      faces.className = "album-webmentions__faces";
+      entries
+        .slice(0, MAX_FACES_PER_GROUP)
+        .map(renderFace)
+        .filter((face): face is HTMLElement => Boolean(face))
+        .forEach((face) => faces.append(face));
+
+      const overflow = entries.length - MAX_FACES_PER_GROUP;
+      if (overflow > 0) {
+        const more = document.createElement("span");
+        more.className = "album-webmentions__face-fallback";
+        more.textContent = `+${overflow}`;
+        faces.append(more);
+      }
+
+      group.append(faces);
+      return group;
+    };
+
+    const summarizeReactions = (likes: number, reposts: number, posts: number) => {
+      const parts = [
+        likes > 0 ? `${likes} like${likes === 1 ? "" : "s"}` : "",
+        reposts > 0 ? `${reposts} repost${reposts === 1 ? "" : "s"}` : "",
+        posts > 0
+          ? `${posts} repl${posts === 1 ? "y" : "ies"} and mention${posts === 1 ? "" : "s"}`
+          : "",
+      ].filter(Boolean);
+
+      return parts.length
+        ? `Collected from the open web: ${parts.join(", ")}.`
+        : "No web reactions have been received for this album yet.";
+    };
+
     const loadWebmentions = async () => {
       if (!targetUrl || !list || hasLoadedWebmentions) {
         return;
@@ -243,24 +351,52 @@ const titleId = "album-webmentions-title";
         }
 
         const payload = (await response.json()) as WebmentionResponse;
-        const entries = (payload.children || [])
-          .map(renderWebmention)
-          .filter((entry): entry is HTMLLIElement => Boolean(entry))
-          .slice(0, 8);
+        const allEntries = payload.children || [];
+        const likeEntries = allEntries.filter(
+          (entry) => getReactionType(entry) === "Like"
+        );
+        const repostEntries = allEntries.filter(
+          (entry) => getReactionType(entry) === "Repost"
+        );
+        const postEntries = allEntries.filter((entry) => !isCompactReaction(entry));
 
-        list.replaceChildren(...entries);
-        list.toggleAttribute("hidden", entries.length === 0);
+        const reactionGroups = [
+          renderReactionGroup("Like", likeEntries),
+          renderReactionGroup("Repost", repostEntries),
+        ].filter((group): group is HTMLElement => Boolean(group));
+        reactionsPanel?.replaceChildren(...reactionGroups);
+        reactionsPanel?.toggleAttribute("hidden", reactionGroups.length === 0);
+
+        const postItems = postEntries
+          .map(renderWebmention)
+          .filter((entry): entry is HTMLLIElement => Boolean(entry));
+        postItems.forEach((item, index) => {
+          item.toggleAttribute("hidden", index >= VISIBLE_POSTS);
+        });
+
+        list.replaceChildren(...postItems);
+        list.toggleAttribute("hidden", postItems.length === 0);
+        moreButton?.toggleAttribute("hidden", postItems.length <= VISIBLE_POSTS);
+        if (moreButton && postItems.length > VISIBLE_POSTS) {
+          moreButton.textContent = `Show all ${postItems.length} replies`;
+        }
+
         setStatus(
-          entries.length > 0
-            ? `${entries.length} web reaction${entries.length === 1 ? "" : "s"} found.`
-            : "No web reactions have been received for this album yet.",
-          entries.length > 0
+          summarizeReactions(likeEntries.length, repostEntries.length, postItems.length),
+          false
         );
       } catch {
         hasLoadedWebmentions = false;
         setStatus("Web reactions are not available right now.");
       }
     };
+
+    moreButton?.addEventListener("click", () => {
+      list
+        ?.querySelectorAll("[hidden]")
+        .forEach((item) => item.removeAttribute("hidden"));
+      moreButton.toggleAttribute("hidden", true);
+    });
 
     const updateWebmentions = () => {
       const hasCommentsConsent = getConsentApi()?.get()?.categories?.comments === true;
@@ -270,6 +406,8 @@ const titleId = "album-webmentions-title";
         void loadWebmentions();
       } else {
         list?.toggleAttribute("hidden", true);
+        reactionsPanel?.toggleAttribute("hidden", true);
+        moreButton?.toggleAttribute("hidden", true);
         setStatus("", true);
       }
     };
@@ -345,8 +483,117 @@ const titleId = "album-webmentions-title";
 
   .album-webmentions__consent[hidden],
   .album-webmentions__status[hidden],
-  .album-webmentions__list[hidden] {
+  .album-webmentions__list[hidden],
+  .album-webmentions__reactions[hidden],
+  .album-webmentions__more[hidden] {
     display: none;
+  }
+
+  .album-webmentions__reactions {
+    display: grid;
+    gap: var(--spacing-sm);
+  }
+
+  .album-webmentions__reaction-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .album-webmentions__reaction-count {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 1.75rem;
+    padding: 0 var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    color: var(--music-album-muted);
+    background: color-mix(in srgb, var(--music-album-paper-soft) 56%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-line) 74%, transparent);
+    border-radius: var(--radius-base);
+  }
+
+  .album-webmentions__faces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .album-webmentions__face,
+  .album-webmentions__face-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .album-webmentions__face {
+    background: color-mix(in srgb, var(--music-album-paper-soft) 70%, transparent);
+    border: 2px solid var(--music-album-paper);
+  }
+
+  .album-webmentions__face-fallback {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--music-album-muted);
+    background: color-mix(in srgb, var(--music-album-paper-soft) 70%, transparent);
+    border: 2px solid var(--music-album-paper);
+  }
+
+  .album-webmentions__face + .album-webmentions__face,
+  .album-webmentions__face + .album-webmentions__face-fallback {
+    margin-inline-start: -0.55rem;
+  }
+
+  .album-webmentions__face:hover,
+  .album-webmentions__face:focus-visible {
+    z-index: 1;
+  }
+
+  .album-webmentions__face:focus-visible {
+    outline: var(--focus-ring-width) solid var(--music-album-accent);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .album-webmentions__face-image {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .album-webmentions__more {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    justify-self: start;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-tight);
+    color: var(--music-album-ink);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--music-album-paper) 78%, transparent);
+    border: 1px solid color-mix(in srgb, var(--music-album-accent) 34%, transparent);
+    border-radius: var(--radius-base);
+  }
+
+  .album-webmentions__more:hover,
+  .album-webmentions__more:focus-visible {
+    color: var(--button-text-accent);
+    background: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+  }
+
+  .album-webmentions__more:focus-visible {
+    outline: var(--focus-ring-width) solid var(--music-album-accent);
+    outline-offset: var(--focus-ring-offset);
   }
 
   .album-webmentions__button,
@@ -389,6 +636,10 @@ const titleId = "album-webmentions-title";
     padding: 0;
     margin: 0;
     list-style: none;
+  }
+
+  .album-webmentions__item[hidden] {
+    display: none;
   }
 
   .album-webmentions__item {
