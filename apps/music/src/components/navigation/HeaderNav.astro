@@ -162,7 +162,7 @@ const isActiveItem = (href: string) => {
     pointer-events: none;
     content: "";
     background: var(--music-header-nav-accent);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     opacity: 0;
     transform: scaleX(0.62);
     transform-origin: center;
@@ -208,7 +208,7 @@ const isActiveItem = (href: string) => {
     color: var(--music-header-nav-text);
     background: var(--music-header-nav-search-bg);
     border: 1px solid var(--music-header-nav-search-border);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
   }
 
   .music-header-nav__link--search::after {

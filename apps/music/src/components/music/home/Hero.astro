@@ -128,7 +128,7 @@ const HERO_COVER_IMAGE_SIZES =
     line-height: 1.2;
     color: var(--music-home-accent);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--letter-spacing-wider);
   }
 
   .music-home-hero__eyebrow-icon {
@@ -175,14 +175,14 @@ const HERO_COVER_IMAGE_SIZES =
     gap: 0.55rem;
     align-items: center;
     justify-content: center;
-    min-block-size: 2.75rem;
+    min-block-size: var(--control-min-block-size);
     padding: 0.72rem 1.35rem;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     line-height: 1;
     text-decoration: none;
     border: 1px solid transparent;
-    border-radius: 999px;
+    border-radius: var(--radius-full);
   }
 
   .music-home-hero__button--primary {
@@ -193,7 +193,7 @@ const HERO_COVER_IMAGE_SIZES =
 
   .music-home-hero__button--ghost {
     color: var(--music-home-ink);
-    background: oklch(18% 0.037 255deg / 0.44);
+    background: color-mix(in srgb, var(--surface-2) 62%, transparent);
     border-color: var(--music-home-line);
   }
 
@@ -239,7 +239,7 @@ const HERO_COVER_IMAGE_SIZES =
     color: oklch(98% 0.014 75deg);
     text-decoration: none;
     border: 1px solid var(--music-home-line);
-    border-radius: 0.65rem;
+    border-radius: var(--radius-base);
     box-shadow: var(--music-home-hero-card-shadow);
   }
 

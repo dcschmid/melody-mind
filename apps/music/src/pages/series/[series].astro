@@ -284,7 +284,7 @@ const GRID_COVER_IMAGE_SIZES =
     line-height: 1.2;
     color: var(--series-landing-accent);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--letter-spacing-wider);
   }
 
   .series-landing__title {
@@ -328,7 +328,7 @@ const GRID_COVER_IMAGE_SIZES =
     inline-size: 100%;
     block-size: auto;
     aspect-ratio: 1 / 1;
-    outline: 1px solid oklch(100% 0 0deg / 0.14);
+    outline: 1px solid var(--border-muted);
     outline-offset: -1px;
     object-fit: cover;
     border-radius: var(--radius-md);
