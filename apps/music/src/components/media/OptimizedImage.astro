@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 interface Props extends Omit<
@@ -29,6 +29,12 @@ interface Props extends Omit<
   decoding?: "sync" | "async" | "auto";
   fetchpriority?: "high" | "low" | "auto";
   widths?: number[];
+  /**
+   * Extra formats to offer via a `<picture>` element (webp stays the
+   * fallback). AVIF encoding is slow, so reserve this for high-impact images
+   * such as LCP heroes instead of enabling it site-wide.
+   */
+  formats?: ("avif" | "webp")[];
 }
 
 const {
@@ -42,6 +48,7 @@ const {
   decoding = "async",
   fetchpriority,
   widths,
+  formats,
   ...imageAttributes
 } = Astro.props as Props;
 
@@ -97,7 +104,16 @@ const sharedImageProps = {
 ---
 
 {
-  importedImageSrc ? (
+  importedImageSrc && formats ? (
+    <Picture
+      src={importedImageSrc}
+      width={resolvedImportedDimensions?.width ?? width}
+      height={resolvedImportedDimensions?.height ?? height}
+      formats={formats}
+      fallbackFormat="webp"
+      {...sharedImageProps}
+    />
+  ) : importedImageSrc ? (
     <Image
       src={importedImageSrc}
       width={resolvedImportedDimensions?.width ?? width}

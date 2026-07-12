@@ -55,8 +55,10 @@ const getFactIcon = (label: string) => {
         height={coverImageHeight || 900}
         loading="eager"
         decoding="async"
-        sizes="(max-width: 420px) 7rem, (max-width: 760px) 8.6rem, (min-width: 1280px) 26.5rem, 46vw"
+        widths={[224, 424, 640, 848]}
+        sizes="(max-width: 420px) 7rem, (max-width: 760px) 8.6rem, min(46vw, 26.5rem)"
         fetchpriority="high"
+        formats={["avif"]}
       />
     </figure>
 

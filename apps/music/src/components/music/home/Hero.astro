@@ -83,6 +83,7 @@ const HERO_COVER_IMAGE_SIZES =
               loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
               fetchpriority={index === 0 ? "high" : "low"}
+              formats={["avif"]}
             />
             <figcaption class="music-home-hero__showcase-title">{album.title}</figcaption>
           </figure>
