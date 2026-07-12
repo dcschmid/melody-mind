@@ -1,4 +1,4 @@
-const CACHE_VERSION = "music-pwa-v20260711";
+const CACHE_VERSION = "music-pwa-v20260712";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const MAX_RUNTIME_CACHE_ENTRIES = 80;
@@ -11,7 +11,8 @@ const STATIC_ASSETS = [
   "/favicon-96x96.png",
   "/apple-touch-icon.png",
   "/web-app-manifest-192x192.png?v=20260507",
-  "/web-app-manifest-512x512.png?v=20260507",
+  // The 512px manifest icon is intentionally not precached: browsers only
+  // fetch it during an install-to-homescreen flow.
   "/fonts/atkinson-hyperlegible-regular.woff2",
 ];
 
