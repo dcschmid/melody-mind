@@ -292,13 +292,15 @@ const structuredData = [
   }
 
   .music-home {
-    --music-home-accent: oklch(78% 0.13 175deg);
-    --music-home-accent-strong: oklch(80% 0.12 178deg);
-    --music-home-paper: oklch(18% 0.037 255deg);
-    --music-home-paper-soft: oklch(22% 0.041 252deg);
-    --music-home-ink: oklch(96% 0.012 72deg);
-    --music-home-muted: oklch(76% 0.036 252deg);
-    --music-home-line: oklch(36% 0.055 252deg);
+    /* Local aliases onto the global palette so high-contrast and
+       forced-colors overrides propagate into this page. */
+    --music-home-accent: var(--accent-primary);
+    --music-home-accent-strong: var(--accent-strong);
+    --music-home-paper: var(--surface-1);
+    --music-home-paper-soft: var(--surface-2);
+    --music-home-ink: var(--text-primary);
+    --music-home-muted: var(--text-tertiary);
+    --music-home-line: var(--border-default);
 
     position: relative;
     inline-size: min(100%, 100vw);

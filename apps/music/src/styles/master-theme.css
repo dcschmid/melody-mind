@@ -216,11 +216,12 @@
   --page-padding-y: var(--spacing-2xl);
   --section-gap: var(--spacing-3xl);
 
-  /* Surfaces */
-  --surface-panel-bg: color-mix(in srgb, var(--surface-1) 92%, var(--surface-2));
-  --surface-panel-raised: color-mix(in srgb, var(--surface-1) 96%, var(--surface-2));
+  /* Surfaces. Panels/sections/chips sit on the plain elevation steps; only
+     the hover and accent-tinted section tokens remain color-mix derivations. */
+  --surface-panel-bg: var(--surface-1);
+  --surface-panel-raised: var(--surface-2);
   --surface-card-hover: color-mix(in srgb, var(--accent-primary) 6%, var(--surface-1));
-  --section-surface-bg: color-mix(in srgb, var(--surface-1) 90%, var(--surface-2));
+  --section-surface-bg: var(--surface-1);
   --section-surface-accent-bg: color-mix(
     in srgb,
     var(--accent-muted) 18%,
@@ -231,8 +232,8 @@
     var(--accent-primary) 14%,
     var(--section-surface-bg)
   );
-  --surface-chip-bg: color-mix(in srgb, var(--surface-1) 92%, var(--bg-primary));
-  --surface-pill-bg: color-mix(in srgb, var(--surface-1) 82%, var(--surface-2));
+  --surface-chip-bg: var(--surface-1);
+  --surface-pill-bg: var(--surface-2);
   --surface-border-soft: color-mix(in srgb, var(--border-default) 58%, transparent);
   --surface-border-accent: color-mix(
     in srgb,

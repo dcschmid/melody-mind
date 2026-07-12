@@ -217,11 +217,13 @@ const GRID_COVER_IMAGE_SIZES =
   }
 
   :global(.music-layout__container--genre) {
-    --genre-landing-accent: oklch(78% 0.13 175deg);
-    --genre-landing-paper: oklch(18% 0.037 255deg);
-    --genre-landing-ink: oklch(96% 0.012 72deg);
-    --genre-landing-muted: oklch(76% 0.036 252deg);
-    --genre-landing-line: oklch(36% 0.055 252deg);
+    /* Local aliases onto the global palette so high-contrast and
+       forced-colors overrides propagate into this page. */
+    --genre-landing-accent: var(--accent-primary);
+    --genre-landing-paper: var(--surface-1);
+    --genre-landing-ink: var(--text-primary);
+    --genre-landing-muted: var(--text-tertiary);
+    --genre-landing-line: var(--border-default);
   }
 
   .genre-landing {

@@ -223,10 +223,12 @@ const GRID_COVER_IMAGE_SIZES =
   }
 
   :global(.music-layout__container--series) {
-    --series-landing-accent: oklch(78% 0.13 175deg);
-    --series-landing-ink: oklch(96% 0.012 72deg);
-    --series-landing-muted: oklch(76% 0.036 252deg);
-    --series-landing-line: oklch(36% 0.055 252deg);
+    /* Local aliases onto the global palette so high-contrast and
+       forced-colors overrides propagate into this page. */
+    --series-landing-accent: var(--accent-primary);
+    --series-landing-ink: var(--text-primary);
+    --series-landing-muted: var(--text-tertiary);
+    --series-landing-line: var(--border-default);
   }
 
   .series-landing {
