@@ -14,6 +14,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/atkinson-hyperlegible-bold.woff2") format("woff2");
+  font-display: swap;
+}
+
 /* =============================================================================
    BASE DESIGN TOKENS
    ============================================================================= */
@@ -42,7 +50,7 @@
   /* Font sizes */
   --font-size-xs: clamp(1rem, 0.98rem + 0.2vw, 1.125rem); /* 16-18px */
   --font-size-sm: clamp(1.0625rem, 1.03rem + 0.28vw, 1.1875rem); /* 17-19px */
-  --font-size-base: clamp(1.125rem, 1.1rem + 0.5vw, 1.25rem); /* 18-24px */
+  --font-size-base: clamp(1.125rem, 1.1rem + 0.5vw, 1.25rem); /* 18-20px */
   --font-size-md: clamp(1.1875rem, 1.14rem + 0.56vw, 1.5625rem); /* 19-25px */
   --font-size-lg: clamp(1.3125rem, 1.22rem + 0.72vw, 1.75rem); /* 21-28px */
   --font-size-xl: clamp(1.5rem, 1.34rem + 0.9vw, 2rem); /* 24-32px */
@@ -61,8 +69,9 @@
   --line-height-relaxed: 1.625;
   --line-height-loose: 1.75;
 
-  /* Letter spacing */
-  --letter-spacing-tight: -0.05em;
+  /* Letter spacing. Atkinson Hyperlegible relies on distinct letterforms;
+     tighter tracking than -0.015em starts to defeat the typeface. */
+  --letter-spacing-tight: -0.015em;
   --letter-spacing-normal: 0em;
   --letter-spacing-wide: 0.025em;
   --letter-spacing-wider: 0.05em;
@@ -254,6 +263,9 @@ body {
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
+  /* Only the 400 and 700 faces exist; 500-800 requests resolve to them.
+     Never let the browser fake a weight or slant. */
+  font-synthesis: none;
   line-height: var(--line-height-normal);
   color: var(--text-primary);
   background: var(--page-background);

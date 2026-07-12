@@ -192,7 +192,7 @@ const albumPayload = albums.map((album) => ({
 
   .continue-listening__eyebrow {
     font-size: var(--font-size-xs);
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     line-height: 1;
     color: var(--music-home-accent);
     text-transform: uppercase;
@@ -203,7 +203,7 @@ const albumPayload = albums.map((album) => ({
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: clamp(1.1rem, 1rem + 0.45vw, 1.35rem);
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     line-height: 1.15;
     white-space: nowrap;
   }
@@ -224,7 +224,7 @@ const albumPayload = albums.map((album) => ({
     justify-content: center;
     min-block-size: 2.75rem;
     padding: 0.65rem 0.95rem;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     line-height: 1;
     color: var(--music-home-paper);
     text-decoration: none;

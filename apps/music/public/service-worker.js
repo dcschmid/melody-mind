@@ -14,6 +14,7 @@ const STATIC_ASSETS = [
   // The 512px manifest icon is intentionally not precached: browsers only
   // fetch it during an install-to-homescreen flow.
   "/fonts/atkinson-hyperlegible-regular.woff2",
+  "/fonts/atkinson-hyperlegible-bold.woff2",
 ];
 
 const isSameOrigin = (url) => url.origin === self.location.origin;

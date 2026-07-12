@@ -200,7 +200,7 @@ const config = {
 
   :global(.astro-search-empty__title) {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     line-height: 1.35;
     color: var(--text-primary);
   }
@@ -223,7 +223,7 @@ const config = {
     padding: 0 var(--spacing-sm);
     font: inherit;
     font-size: var(--font-size-xs);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: var(--text-secondary);
     cursor: pointer;
     background: var(--surface-2);
@@ -244,7 +244,7 @@ const config = {
     z-index: 1;
     padding: var(--spacing-sm) var(--spacing-xs) var(--spacing-xs);
     font-size: var(--font-size-xs);
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     color: var(--text-tertiary);
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -297,7 +297,7 @@ const config = {
     inline-size: 100%;
     block-size: 100%;
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     line-height: 1;
     color: var(--search-palette-accent);
   }
