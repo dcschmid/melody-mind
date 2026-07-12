@@ -92,7 +92,11 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
     </p>
   </div>
 
-  <div class="share-section__actions" role="group" aria-label="Share options">
+  <div
+    class="share-section__actions share-section__actions--primary"
+    role="group"
+    aria-label="Share options"
+  >
     <button
       type="button"
       data-share="native"
@@ -116,22 +120,22 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
     </button>
   </div>
 
-  <div class="share-section__actions" role="group" aria-label="Share to a network">
+  <div class="share-section__networks" role="group" aria-label="Share to a network">
     <button
       type="button"
-      class="share-section__button"
+      class="share-section__chip"
       data-share="mastodon"
       aria-expanded="false"
       aria-controls={`${id}-mastodon-form`}
     >
-      <Icon name="mastodon" class="share-section__button-icon" aria-hidden="true" />
+      <Icon name="mastodon" class="share-section__chip-icon" aria-hidden="true" />
       <span>Mastodon</span>
     </button>
     {
       platformLinks.map((platform) => (
         <a
           href={platform.href}
-          class="share-section__button"
+          class="share-section__chip"
           target="_blank"
           rel="noopener noreferrer nofollow"
           data-fathom-event={`Share: ${platform.label}`}
@@ -139,7 +143,7 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
         >
           <Icon
             name={platform.icon}
-            class="share-section__button-icon"
+            class="share-section__chip-icon"
             aria-hidden="true"
           />
           <span>{platform.label}</span>
@@ -148,11 +152,11 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
     }
     <a
       href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
-      class="share-section__button"
+      class="share-section__chip"
       data-fathom-event="Share: Email"
       aria-label="Share via email"
     >
-      <Icon name="mail" class="share-section__button-icon" aria-hidden="true" />
+      <Icon name="mail" class="share-section__chip-icon" aria-hidden="true" />
       <span>Email</span>
     </a>
   </div>
@@ -354,12 +358,32 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
 <style>
   .share-section {
     display: grid;
-    gap: var(--spacing-lg);
-    align-items: center;
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
     padding-block: var(--spacing-xl);
     padding-inline: 0;
     margin-block-start: 0;
     border-block-start: 0;
+  }
+
+  /* Wide screens mirror the download section below: copy left, primary
+     actions right, while the network chips and privacy note keep the
+     full measure underneath. */
+  @media (width >= 880px) {
+    .share-section {
+      grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1fr);
+      column-gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+      align-items: end;
+    }
+
+    .share-section__actions--primary {
+      justify-content: flex-end;
+    }
+
+    .share-section__networks,
+    .share-section__mastodon,
+    .share-section__privacy {
+      grid-column: 1 / -1;
+    }
   }
 
   .share-section__copy {
@@ -466,6 +490,66 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
     block-size: var(--icon-size-sm);
   }
 
+  .share-section__networks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  /* Quieter tier than the primary buttons: pill chips, muted ink. */
+  .share-section__chip {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-xs) var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    color: var(--text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
+    transition:
+      background-color var(--transition-fast),
+      border-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .share-section__chip {
+      transition: none;
+    }
+  }
+
+  .share-section__chip:hover,
+  .share-section__chip:focus-visible {
+    color: var(--accent-primary);
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+    border-color: var(--surface-border-accent);
+  }
+
+  .share-section__chip:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .share-section__chip[aria-expanded="true"] {
+    color: var(--accent-primary);
+    background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+    border-color: var(--surface-border-accent);
+  }
+
+  .share-section__chip-icon {
+    flex: 0 0 auto;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
+  }
+
   .share-section__mastodon {
     display: grid;
     gap: var(--spacing-xs);
@@ -518,7 +602,7 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
   .share-section__privacy {
     display: flex;
     gap: var(--spacing-xs);
-    align-items: center;
+    align-items: flex-start;
     margin: 0;
     font-size: var(--font-size-xs);
     line-height: var(--line-height-relaxed);
@@ -529,6 +613,7 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
     flex: 0 0 auto;
     inline-size: var(--icon-size-sm);
     block-size: var(--icon-size-sm);
+    margin-block-start: 0.15em;
     color: var(--accent-primary);
   }
 </style>

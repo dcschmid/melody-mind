@@ -361,14 +361,12 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
   }
 
   @media (width >= 880px) {
-    .album-detail-sections__share :global(.share-section),
     .album-detail-sections__download {
       grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1fr);
       gap: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
       align-items: end;
     }
 
-    .album-detail-sections__share :global(.share-section__actions),
     .album-detail-sections__download-actions {
       justify-content: flex-end;
     }
