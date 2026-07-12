@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
-import { buildSearchIndex } from "@freshjuice/astro-search-plugin/build";
+import { create, insertMultiple, save } from "@orama/orama";
 
 import type { Song } from "../types/album";
 import type { CollectionEntry } from "astro:content";
@@ -33,21 +33,9 @@ export const GET: APIRoute = async () => {
     const albumDuration = albumDurationSeconds
       ? formatDuration(albumDurationSeconds)
       : "";
-    const trackSearchText = entry.data.songs
-      .map((song: Song) => {
-        const duration = song.durationSeconds ? formatDuration(song.durationSeconds) : "";
-
-        return [
-          `Track ${song.trackNumber}`,
-          song.title,
-          duration,
-          song.isInstrumental ? "instrumental" : "",
-          song.transcriptUnavailableReason || "",
-        ]
-          .filter(Boolean)
-          .join(" ");
-      })
-      .join(" ");
+    const hasInstrumentalTrack = entry.data.songs.some(
+      (song: Song) => song.isInstrumental
+    );
 
     return {
       id: entry.id,
@@ -68,16 +56,17 @@ export const GET: APIRoute = async () => {
       genre: entry.data.genre || "",
       artist: entry.data.artist,
       songTitles,
-      // Indexed full-text. Deliberately excludes the long-form MDX body to keep
-      // the served index small (~1-2MB vs 22MB). Albums stay findable via title,
-      // description, genre, track titles, moods, tags, language, and energy.
+      // Indexed full-text. Deliberately excludes the long-form MDX body and the
+      // per-track titles (already indexed via songTitles) to keep the served
+      // index small. Albums stay findable via title, description, genre, track
+      // titles, moods, tags, language, and energy.
       body: trimSearchText(
         [
-          trackSearchText,
           discoveryMeta.moods.join(" "),
           discoveryMeta.tags.join(" "),
           discoveryMeta.language || "",
           discoveryMeta.energy,
+          hasInstrumentalTrack ? "instrumental" : "",
         ].join(" ")
       ),
     };
@@ -91,12 +80,10 @@ export const GET: APIRoute = async () => {
         id: `${entry.id}-track-${song.trackNumber}`,
         type: "Track",
         title: song.title,
+        // Track-specific text only; the album description is findable via the
+        // album document and would otherwise be duplicated ~1,200 times here.
         desc: trimSearchText(
-          [
-            song.description || "",
-            song.isInstrumental ? "Instrumental." : "",
-            !song.description && !song.isInstrumental ? entry.data.description : "",
-          ]
+          [song.description || "", song.isInstrumental ? "Instrumental." : ""]
             .filter(Boolean)
             .join(" ")
         ),
@@ -118,14 +105,19 @@ export const GET: APIRoute = async () => {
         duration,
         genre: entry.data.genre || "",
         artist: entry.data.artist,
-        songTitles: [song.title, entry.data.title],
-        // Track-specific text only; the album body is no longer duplicated per track.
-        body: trimSearchText(song.description || ""),
+        // Covered by the indexed title/albumTitle fields; repeating them here
+        // only inflates the index.
+        songTitles: [],
+        // The song description is already indexed via desc above.
+        body: "",
       };
     })
   );
 
-  const index = await buildSearchIndex({
+  // Direct Orama calls instead of the plugin's buildSearchIndex helper so the
+  // sorter can be disabled — the palette never sorts, and the serialized sort
+  // structures alone cost ~500 KB of raw index size.
+  const db = create({
     // Only genuinely searchable fields are indexed. Display/navigation-only
     // fields (url, imageUrl, imageAlt, displayMeta, trackNumber, duration,
     // artist) are still stored in every document — and thus available for
@@ -139,10 +131,12 @@ export const GET: APIRoute = async () => {
       genre: "string",
       songTitles: "string[]",
       body: "string",
-    },
-    documents: [...albumDocuments, ...trackDocuments],
-    language: "english",
+    } as const,
+    sort: { enabled: false },
+    components: { tokenizer: { language: "english" } },
   });
+  await insertMultiple(db, [...albumDocuments, ...trackDocuments]);
+  const index = await save(db);
 
   return new Response(JSON.stringify(index), {
     headers: {
