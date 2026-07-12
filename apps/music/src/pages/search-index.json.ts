@@ -136,7 +136,7 @@ export const GET: APIRoute = async () => {
     components: { tokenizer: { language: "english" } },
   });
   await insertMultiple(db, [...albumDocuments, ...trackDocuments]);
-  const index = await save(db);
+  const index = save(db);
 
   return new Response(JSON.stringify(index), {
     headers: {

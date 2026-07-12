@@ -519,3 +519,6 @@ window.addEventListener("popstate", handleSearchRoute);
 window.addEventListener("astro-search:open", () => {
   window.requestAnimationFrame(enhanceSearchModals);
 });
+
+// Imported for its side effects (via the loader stub's dynamic import).
+export {};
