@@ -73,10 +73,10 @@
      Surface/text/accent/link/border colors live directly on the semantic
      tokens below; status colors are referenced as --color-* by components.
      --------------------------------------------------------------------------- */
-  --color-success: oklch(78% 0.12 155deg);
-  --color-warning: oklch(78% 0.11 75deg);
-  --color-error: oklch(78% 0.11 25deg);
-  --color-info: oklch(78% 0.1 235deg);
+  --color-success: oklch(80% 0.11 155deg);
+  --color-warning: oklch(82% 0.1 85deg);
+  --color-error: oklch(80% 0.1 25deg);
+  --color-info: oklch(80% 0.09 235deg);
 
   /* ---------------------------------------------------------------------------
      RADIUS & SHADOWS
@@ -119,7 +119,7 @@
      --------------------------------------------------------------------------- */
   --focus-ring-width: 3px;
   --focus-ring-offset: 2px;
-  --focus-ring-color: oklch(82% 0.13 175deg);
+  --focus-ring-color: oklch(84% 0.11 180deg);
   --z-modal: 1000;
 }
 
@@ -129,36 +129,39 @@
 :root {
   color-scheme: dark;
 
-  /* Primary background surfaces */
-  --bg-primary: oklch(13% 0.038 255deg);
-  --bg-secondary: oklch(18% 0.037 255deg);
+  /* Primary background surfaces.
+     One hue family (250deg) with wide lightness steps so elevation reads
+     clearly; values are AAA-verified against the text tokens below
+     (OKLCH lightness is not WCAG luminance — see scripts/check-contrast). */
+  --bg-primary: oklch(11.5% 0.03 250deg);
+  --bg-secondary: oklch(17% 0.032 250deg);
 
   /* Surface colors */
-  --surface-1: oklch(18% 0.037 255deg);
-  --surface-2: oklch(23% 0.042 252deg);
-  --surface-3: oklch(28% 0.052 252deg);
+  --surface-1: oklch(17% 0.032 250deg);
+  --surface-2: oklch(22.5% 0.035 250deg);
+  --surface-3: oklch(28.5% 0.038 250deg);
 
   /* Text colors */
-  --text-primary: oklch(96% 0.012 72deg);
-  --text-secondary: oklch(82% 0.028 248deg);
-  --text-tertiary: oklch(76% 0.036 252deg);
+  --text-primary: oklch(96.5% 0.01 85deg);
+  --text-secondary: oklch(85% 0.022 245deg);
+  --text-tertiary: oklch(79% 0.026 248deg);
 
-  /* Accent colors */
-  --accent-primary: oklch(78% 0.13 175deg);
-  --accent-strong: oklch(80% 0.12 178deg);
-  --accent-muted: oklch(76% 0.11 178deg);
-  --accent-primary-hover: oklch(84% 0.11 175deg);
+  /* Accent colors — a single teal story at 180deg */
+  --accent-primary: oklch(80% 0.115 180deg);
+  --accent-strong: oklch(84% 0.1 180deg);
+  --accent-muted: oklch(72% 0.09 180deg);
+  --accent-primary-hover: oklch(85% 0.1 180deg);
   --accent-contrast: var(--bg-primary);
 
   /* Link colors */
-  --link-default: oklch(82% 0.12 175deg);
-  --link-hover: oklch(88% 0.1 175deg);
-  --link-visited: oklch(82% 0.1 195deg);
+  --link-default: oklch(84% 0.1 180deg);
+  --link-hover: oklch(89% 0.08 180deg);
+  --link-visited: oklch(84% 0.07 210deg);
 
   /* Border colors */
-  --border-default: oklch(49% 0.078 252deg);
-  --border-muted: oklch(44% 0.07 252deg / 0.52);
-  --border-strong: oklch(64% 0.082 252deg);
+  --border-default: oklch(40% 0.035 250deg);
+  --border-muted: oklch(32% 0.03 250deg / 0.7);
+  --border-strong: oklch(60% 0.04 250deg);
 
   --page-background: var(--bg-primary);
   --surface-scrim: color-mix(in srgb, var(--bg-primary) 66%, transparent);
@@ -317,9 +320,9 @@ body {
 
 @media (prefers-contrast: more) {
   :root {
-    --surface-1: #0d1820;
-    --surface-2: #0d1820;
-    --surface-3: #132631;
+    --surface-1: oklch(14% 0.03 250deg);
+    --surface-2: oklch(14% 0.03 250deg);
+    --surface-3: oklch(20% 0.033 250deg);
     --text-secondary: var(--text-primary);
     --text-tertiary: var(--text-primary);
     --border-default: var(--border-strong);
