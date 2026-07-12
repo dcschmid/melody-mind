@@ -1,27 +1,25 @@
 ---
 name: MelodyMind
-description: Music-first editorial surfaces with warm paper light mode, violet-blue night mode, app chrome, and accessible typography.
+description: Music-first editorial surfaces on a single dark theme with a teal accent, wide tonal elevation, and WCAG AAA typography.
 colors:
-  warm-canvas: "oklch(98% 0.016 75deg)"
-  warm-section: "oklch(95% 0.026 74deg)"
-  warm-elevated: "oklch(91% 0.047 25deg)"
-  paper-surface: "oklch(98% 0.014 75deg)"
-  paper-muted: "oklch(94% 0.032 70deg)"
-  paper-strong: "oklch(90% 0.042 62deg)"
-  ink-primary: "oklch(19% 0.025 52deg)"
-  ink-secondary: "oklch(34% 0.032 48deg)"
-  ink-tertiary: "oklch(39% 0.033 55deg)"
-  ember-accent: "oklch(40% 0.13 16deg)"
-  ember-accent-strong: "oklch(38% 0.125 16deg)"
-  ember-accent-hover: "oklch(36% 0.13 16deg)"
-  night-canvas: "oklch(13% 0.038 255deg)"
-  night-surface: "oklch(18% 0.037 255deg)"
-  night-surface-raised: "oklch(22% 0.041 252deg)"
-  night-ink-primary: "oklch(96% 0.012 72deg)"
-  night-ink-secondary: "oklch(82% 0.028 248deg)"
-  night-ink-tertiary: "oklch(76% 0.036 252deg)"
-  night-accent: "oklch(78% 0.16 286deg)"
-  night-accent-strong: "oklch(80% 0.13 252deg)"
+  bg-primary: "oklch(11.5% 0.03 250deg)"
+  bg-secondary: "oklch(17% 0.032 250deg)"
+  surface-1: "oklch(17% 0.032 250deg)"
+  surface-2: "oklch(22.5% 0.035 250deg)"
+  surface-3: "oklch(28.5% 0.038 250deg)"
+  text-primary: "oklch(96.5% 0.01 85deg)"
+  text-secondary: "oklch(85% 0.022 245deg)"
+  text-tertiary: "oklch(79% 0.026 248deg)"
+  accent-primary: "oklch(80% 0.115 180deg)"
+  accent-strong: "oklch(84% 0.1 180deg)"
+  accent-muted: "oklch(72% 0.09 180deg)"
+  accent-primary-hover: "oklch(85% 0.1 180deg)"
+  link-default: "oklch(84% 0.1 180deg)"
+  link-hover: "oklch(89% 0.08 180deg)"
+  link-visited: "oklch(84% 0.07 210deg)"
+  border-default: "oklch(40% 0.035 250deg)"
+  border-muted: "oklch(32% 0.03 250deg / 0.7)"
+  border-strong: "oklch(60% 0.04 250deg)"
 typography:
   display:
     fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, -apple-system, sans-serif"
@@ -50,7 +48,7 @@ typography:
   label:
     fontFamily: "Atkinson Hyperlegible, ui-sans-serif, system-ui, -apple-system, sans-serif"
     fontSize: "clamp(1rem, 0.98rem + 0.2vw, 1.125rem)"
-    fontWeight: 600
+    fontWeight: 700
     lineHeight: 1.375
     letterSpacing: "0.05em"
 rounded:
@@ -59,7 +57,6 @@ rounded:
   md: "0.75rem"
   lg: "1rem"
   xl: "1.5rem"
-  2xl: "2rem"
   full: "9999px"
 spacing:
   2xs: "0.125rem"
@@ -74,18 +71,18 @@ spacing:
   4xl: "6rem"
 components:
   button-primary:
-    backgroundColor: "{colors.ember-accent}"
-    textColor: "{colors.paper-surface}"
-    rounded: "{rounded.base}"
+    backgroundColor: "{colors.accent-primary}"
+    textColor: "{colors.bg-primary}"
+    rounded: "{rounded.full}"
     padding: "0.5rem 1.5rem"
   panel-surface:
-    backgroundColor: "{colors.paper-surface}"
-    textColor: "{colors.ink-primary}"
+    backgroundColor: "{colors.surface-1}"
+    textColor: "{colors.text-primary}"
     rounded: "{rounded.lg}"
     padding: "1.5rem"
   chip-neutral:
-    backgroundColor: "{colors.paper-muted}"
-    textColor: "{colors.ink-secondary}"
+    backgroundColor: "{colors.surface-1}"
+    textColor: "{colors.text-secondary}"
     rounded: "{rounded.full}"
     padding: "0.25rem 0.75rem"
 ---
@@ -94,158 +91,195 @@ components:
 
 ## 1. Overview
 
-**Creative North Star: "The Record Shelf With Night Mode"**
+**Creative North Star: "The Listening Room"**
 
-MelodyMind should feel like a trusted independent music publication with a well-kept listening room attached. The interface is editorial first: readable, warm, specific, and confident without becoming academic or showy. The Music app is now the product and visual source of truth.
+MelodyMind is a trusted independent music publication with a well-kept
+listening room attached. The interface is editorial first: readable, specific,
+and confident without becoming academic or showy. The Music app
+(`apps/music`) is the product and visual source of truth; the tokens live in
+`apps/music/src/styles/master-theme.css`.
 
-The system favors warm paper backgrounds in light mode, a saturated violet-blue music-room atmosphere in dark mode, generous rhythm, and clear hierarchy. Components should support content rather than compete with it. It rejects generic AI gradients, glassmorphism, gradient text, bounce motion, side-stripe card accents, and endless identical card grids.
+The system is **dark-only**: one deep blue canvas family (hue 250deg) with
+wide tonal elevation steps and a single teal accent (hue 180deg). There is no
+light mode and no theme toggle. It rejects generic AI gradients,
+glassmorphism, gradient text, bounce motion, side-stripe card accents, neon
+glows, and endless identical card grids.
 
 **Key Characteristics:**
 
-- Music app chrome is the product baseline.
-- Warm paper-like light mode is the editorial daytime experience.
-- Violet-blue dark mode is the immersive listening and night-reading experience.
-- Accent color is meaningful and tied to state, navigation, media, and primary actions.
-- Typography carries hierarchy before boxes and decoration.
-- Motion is short, stateful, and editorial.
+- One hue family for every background and border; one teal accent hue for
+  every action, link, and state. No stray warm or violet tints.
+- Elevation is tonal first: 11.5% → 17% → 22.5% → 28.5% OKLCH lightness.
+  Shadows are neutral black and stay quiet.
+- Typography carries hierarchy before boxes and decoration. Only two real
+  font faces exist (400 and 700); `font-synthesis: none` forbids fakes.
+- Every text/background token pair meets WCAG AAA (7:1) — enforced by
+  `apps/music/scripts/check-contrast.mjs`, which must pass before merging
+  any token change.
+- Motion is short, stateful, and editorial, and fully respects
+  `prefers-reduced-motion`.
 
 ## 2. Colors
 
-The palette is warm and publication-like in light mode, with a cooler violet-blue listening palette for dark mode. Use the Music app CSS custom properties as the source of truth.
+All colors are OKLCH tokens in `master-theme.css`. Components must reference
+tokens (or page-local aliases that resolve to tokens), never literals — the
+`prefers-contrast: more` and `forced-colors: active` overrides only reach
+token consumers.
 
-### Primary
+### Canvas & Surfaces (hue 250deg)
 
-- **Warm Canvas** (`oklch(98% 0.016 75deg)`): The main light-mode page background.
-- **Ember Accent** (`oklch(40% 0.13 16deg)`): Light-mode primary actions, active states, focus-adjacent emphasis, and selected media states.
-- **Night Canvas** (`oklch(13% 0.038 255deg)`): The main dark-mode canvas.
-- **Night Accent** (`oklch(78% 0.16 286deg)`): Dark-mode active states, navigation emphasis, media controls, and primary actions.
+- **bg-primary** (`oklch(11.5% 0.03 250deg)`): The page canvas. Also the
+  hardcoded `theme-color`/manifest hex `#00050f`.
+- **surface-1** (`oklch(17% 0.032 250deg)`): Panels, sections, chips.
+- **surface-2** (`oklch(22.5% 0.035 250deg)`): Raised cards, pills, kbd keys.
+- **surface-3** (`oklch(28.5% 0.038 250deg)`): The strongest step; active
+  rows and prominent controls.
 
-### Neutral
+### Text (AAA on all surfaces above)
 
-- **Paper Surface** (`oklch(98% 0.014 75deg)`): Cards, panels, player surfaces, and raised editorial blocks.
-- **Paper Muted** (`oklch(94% 0.032 70deg)`): Secondary panels, quiet chip backgrounds, and layered surfaces.
-- **Ink Primary** (`oklch(19% 0.025 52deg)`): Main body and heading text in light mode.
-- **Ink Secondary** (`oklch(34% 0.032 48deg)`): Metadata, secondary labels, and supporting copy.
-- **Ink Tertiary** (`oklch(39% 0.033 55deg)`): Hints and low-priority text only.
-- **Night Surface** (`oklch(18% 0.037 255deg)`): Dark-mode panels and card surfaces.
-- **Night Surface Raised** (`oklch(22% 0.041 252deg)`): Stronger dark-mode panels, drawers, and menus.
-- **Night Ink Primary** (`oklch(96% 0.012 72deg)`): Dark-mode primary text.
-- **Night Ink Secondary** (`oklch(82% 0.028 248deg)`): Dark-mode supporting text.
+- **text-primary** (`oklch(96.5% 0.01 85deg)`): Deliberately warm white for
+  headings and body text. The only warm value in the system.
+- **text-secondary** (`oklch(85% 0.022 245deg)`): Supporting copy, metadata.
+- **text-tertiary** (`oklch(79% 0.026 248deg)`): Hints and low-priority text.
+  ≥7.4:1 even on surface-3.
+
+### Accent (hue 180deg, teal)
+
+- **accent-primary** (`oklch(80% 0.115 180deg)`): Primary actions, active
+  states, eyebrows, media controls.
+- **accent-strong / accent-primary-hover**: Brighter steps for hover and
+  emphasis. **accent-muted** is for decorative/large use only.
+- Links use the same hue (`--link-default/hover`); visited shifts slightly
+  toward 210deg.
 
 ### Named Rules
 
-**The Accent Role Rule.** Ember in light mode and violet-blue in dark mode are functional accents. Use them for primary actions, current selections, links, focus-adjacent emphasis, and meaningful media state, not as general decoration.
+**The One-Accent Rule.** Teal is the only accent hue. Shadows are neutral
+black (`oklch(0% 0 0deg / α)` or the `--shadow-*` tokens). Ambient glows are
+accent-tinted at ≤9% alpha and must never read as neon.
 
-**The Warm Neutral Rule.** Light-mode neutrals should feel like paper and ink. Avoid flat gray unless a system token already defines it for a specific reason.
+**The Token Alias Rule.** Page scopes (`--music-home-*`, `--music-album-*`,
+`--genre-landing-*`, `--series-landing-*`) exist for local vocabulary but must
+be defined as `var(--…)` references onto the global tokens, never as frozen
+literals.
 
-**The Night Music Rule.** Dark mode can feel atmospheric, but it must stay readable. Saturated violet-blue accents belong in active controls, header navigation, drawer CTAs, and subtle background blooms. Do not turn content cards into neon panels.
+**The AAA Gate Rule.** Any change to color tokens requires
+`node apps/music/scripts/check-contrast.mjs` to pass (132 pairs, 7:1 text /
+3:1 non-text). OKLCH lightness is not WCAG luminance — always run the gate.
 
 ## 3. Typography
 
-**Display Font:** Atkinson Hyperlegible with system sans fallbacks  
-**Body Font:** Atkinson Hyperlegible with system sans fallbacks  
-**Label/Mono Font:** System monospace only for code-like text
+**Face:** Atkinson Hyperlegible only, self-hosted woff2, two real weights:
+Regular 400 and Bold 700 (both preloaded and precached by the service
+worker). Weight tokens: `--font-weight-regular/medium/semibold/bold` — the
+600/650-style intermediate requests resolve to the 700 face; `font-synthesis:
+none` on `body` guarantees no faux bold or italic.
 
-**Character:** The type system prioritizes accessibility and editorial clarity. It should feel readable and composed, with enough weight contrast to guide scanning.
+**Character:** Accessibility-first and editorial. Atkinson's letterforms are
+deliberately distinct, so tracking stays near normal —
+`--letter-spacing-tight` is -0.015em and must not go tighter. Uppercase
+eyebrows/labels use `--letter-spacing-wider` (0.05em).
 
 ### Hierarchy
 
-- **Display** (700, `clamp(2.75rem, 2.15rem + 2.35vw, 4.5rem)`, 1.25, `0em`): Major page and hero titles only.
-- **Headline** (700, `clamp(2.25rem, 1.88rem + 1.7vw, 3.25rem)`, 1.25, `0em`): Section-level editorial headings.
-- **Title** (700, `clamp(1.5rem, 1.34rem + 0.9vw, 2rem)`, 1.375): Component and card titles.
-- **Body** (400, `clamp(1.125rem, 1.1rem + 0.5vw, 1.25rem)`, 1.625): Main reading text. Keep prose measures near 65-75 characters.
-- **Label** (600, `clamp(1rem, 0.98rem + 0.2vw, 1.125rem)`, 0.05em): Metadata, pills, compact labels, and UI headings.
+- **Display** (700, `--font-size-4xl`, 1.25): Major page and hero titles.
+  Component-level hero clamps cap near 5–5.25rem.
+- **Headline** (700, `--font-size-3xl`, 1.25): Section-level headings.
+- **Title** (700, `--font-size-xl`, 1.375): Component and card titles.
+- **Body** (400, `--font-size-base` = 18–20px, 1.625): Main reading text.
+  Keep prose measures near 65–75 characters.
+- **Label** (700, `--font-size-xs`, 0.05em): Metadata, pills, eyebrows.
 
 ### Named Rules
 
-**The Typography-First Rule.** Use size, weight, spacing, and measure before adding boxes. Containers should clarify relationships, not replace hierarchy.
+**The Typography-First Rule.** Use size, weight, spacing, and measure before
+adding boxes. Containers should clarify relationships, not replace hierarchy.
+
+**The Real-Weight Rule.** Never introduce a `font-weight` literal; use the
+weight tokens. If a third weight is ever needed, ship the actual face.
 
 ## 4. Elevation
 
-MelodyMind uses a hybrid of tonal layering, borders, and soft shadows. Surfaces should usually read as paper layers rather than floating app chrome. Shadows are acceptable for raised cards, headers, and media controls, but they should stay quiet and never become glow effects.
+Elevation is tonal layering first (the surface ramp), then borders, then
+neutral shadows. Surfaces read as lit layers of the same room, not floating
+chrome.
 
 ### Shadow Vocabulary
 
 - **Subtle** (`--shadow-sm`): Small interactive lifts and quiet affordances.
-- **Base** (`--shadow-base`): Default card depth where a flat border is not enough.
-- **Large** (`--shadow-lg`): Media players, overlays, and surfaces that need separation from dense content.
+- **Base** (`--shadow-base`): Default card depth where a border is not enough.
+- **Large** (`--shadow-lg`): Media players, overlays, dense-content
+  separation.
 - **Extra Large** (`--shadow-xl` / `--shadow-2xl`): Rare overlays only.
 
 ### Named Rules
 
-**The Paper Layer Rule.** Prefer border, tint, and spacing before heavy shadows. Glow should only appear as brief state feedback and should animate through opacity or transform, not paint-heavy shadow changes.
+**The Tonal Layer Rule.** Prefer the surface ramp and borders before shadows.
+All shadows are neutral black — no colored shadow tints. Accent glow is
+reserved for hero covers at low alpha (≤22% mix on borders, ≤9% ambient).
 
 ## 5. Components
 
 ### Buttons
 
-- **Shape:** Compact rounded rectangles or pills depending on the control role (`0.5rem` to `9999px`).
-- **Primary:** Amber background with paper text, using `--button-padding-y` and `--button-padding-x`.
-- **Hover / Focus:** Slight color shift, visible focus outline, and short transform feedback only when motion is allowed.
-- **Icon Controls:** Minimum target size is `2.75rem`, larger on coarse pointers.
+- **Shape:** Pills (`--radius-full`) for actions; icon controls stay circular.
+- **Primary:** `--accent-primary` background with `--bg-primary` text
+  (≥11:1), weight bold.
+- **Ghost:** Translucent `--surface-2` fill with `--border-default` border.
+- **Targets:** Minimum `--control-min-block-size` (2.75rem).
 
-### Chips
+### Chips & Pills
 
-- **Style:** Warm paper tint, soft border, compact padding, and label-weight text.
-- **State:** Selected or current chips may use a low-percentage amber tint. Avoid saturated inactive chips.
+- **Style:** `--surface-1`/`--surface-2` fill, `--surface-border-soft`
+  border, label-weight text, `--radius-full`.
+- **State:** Selected chips may use a low-percentage accent tint. Avoid
+  saturated inactive chips.
 
 ### Cards / Containers
 
-- **Corner Style:** Usually `1rem` or below for standard content. Larger radii are reserved for media/player shells.
-- **Background:** `--surface-panel-bg`, `--surface-panel-raised`, or `--surface-1`.
-- **Shadow Strategy:** Use borders and tonal layers first; add `--shadow-lg` only when the surface needs strong separation.
-- **Border:** Soft tokenized borders, never side-stripe accents.
-- **Internal Padding:** Use the spacing scale, commonly `1rem`, `1.5rem`, or responsive panel padding tokens.
+- **Background:** `--surface-panel-bg` (= surface-1) for flat panels,
+  `--surface-panel-raised` (= surface-2) for raised cards.
+- **Border:** `--surface-border-soft` or `--border-muted`; hover may step up
+  to `--border-default` or accent. Never side-stripe accents.
+- **Text:** Descriptions and meta are plain `--text-secondary` — no accent
+  tinting of body copy.
 
-### Inputs / Fields
+### Navigation & App Chrome
 
-- **Style:** Paper surface background, tokenized border, readable labels, and `0.5rem` radius.
-- **Focus:** Use the shared focus ring width, offset, and color. Never remove focus without a replacement.
-- **Error / Disabled:** Use semantic tokens and plain-language recovery text.
+- `navigation/SiteHeader.astro`: responsive header with mobile dialog drawer
+  (focus trap, `inert` background, Escape, scroll lock).
+- `navigation/HeaderNav.astro`, `navigation/HeaderMobileExtras.astro`,
+  `layout/Footer.astro`, `navigation/BackToTop.astro`,
+  `navigation/SkipLink.astro`.
+- Do not recreate chrome in parallel folders; configure via props.
 
-### Navigation
+### Media Player
 
-- **Style:** Use the established Music app chrome. Header, footer, theme toggle, mobile drawer, nav links, and back-to-top live under these component names: `navigation/SiteHeader.astro`, `navigation/HeaderNav.astro`, `navigation/HeaderMobileExtras.astro`, `layout/Footer.astro`, `actions/ThemeToggle.astro`, and `navigation/BackToTop.astro`.
-- **State:** Current and hover states use ember in light mode and violet-blue in dark mode. The search action may use a circular icon button.
-- **Mobile:** The mobile drawer is a compact modal menu with inert page content, focus trapping, clear CTAs, and touch-sized links.
-
-### Media Players
-
-- **Style:** Warm panel shell with clear controls, visible focus, and explicit text alternatives for lyrics or transcripts.
-- **Motion:** Visualizer motion is acceptable when playback is active, but must respect `prefers-reduced-motion`.
-
-### App Chrome
-
-- `navigation/SiteHeader.astro`: responsive Music header.
-- `navigation/HeaderNav.astro`: nav item rendering with active state and search treatment.
-- `navigation/HeaderMobileExtras.astro`: mobile drawer chips and CTA area.
-- `layout/Footer.astro`: footer with brand area, grouped links, settings, and theme toggle.
-- `actions/ThemeToggle.astro`: three-state theme control.
-- `navigation/BackToTop.astro`: floating scroll control.
-
-Do not recreate these components in parallel folders. Music layouts should configure them through props or shell config.
+- `music/album/PlaylistPlayer.astro`: panel shell on the surface ramp,
+  accent-tinted current/playing rows (8–20% mix), visible focus, text
+  alternatives for lyrics/transcripts.
 
 ## 6. Do's and Don'ts
 
 ### Do
 
-- Use the Music app CSS custom properties.
-- Keep light mode warm and paper-like.
-- Keep dark mode atmospheric, readable, and high contrast.
-- Use ember or violet-blue accents to communicate action, selection, and meaningful state.
-- Put reusable chrome in the established component paths instead of a parallel folder.
-- Build real semantic controls for interactive rows and media actions.
+- Reference the CSS custom properties for every color, radius, weight, and
+  spacing value.
+- Run `node apps/music/scripts/check-contrast.mjs` after any token change.
+- Keep the dark canvas atmospheric but readable; AAA is the floor, not the
+  target.
+- Use the teal accent to communicate action, selection, and meaningful state.
 - Respect `prefers-reduced-motion` for every animation.
 - Keep copy plain, specific, and useful.
 
 ### Don't
 
-- Do not use gradient text.
-- Do not use decorative glassmorphism or blur panels.
+- Do not use gradient text, glassmorphism, or decorative blur panels.
 - Do not use bounce or elastic motion.
+- Do not introduce a second accent hue or colored shadows.
+- Do not write `font-weight` or color literals in components.
 - Do not add colored side-stripe borders to cards, lists, or alerts.
 - Do not build identical icon-card grids as the default answer.
 - Do not duplicate app chrome.
-- Do not make gray-on-color text combinations.
-- Do not advertise keyboard shortcuts that are not actually reachable.
-- Do not leave media tracks without a real source or an accessible lyrics/transcript fallback.
+- Do not leave media tracks without a real source or an accessible
+  lyrics/transcript fallback.
