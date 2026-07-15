@@ -5,18 +5,24 @@
  *
  * - Reads all MDX files in src/content/albums/*.mdx
  * - Parses YAML frontmatter using js-yaml
- * - For each song with an audioUrl, derives duration via ffprobe or music-metadata
+ * - For each song with an audioUrl, derives duration by fully decoding the
+ *   stream with ffmpeg (falls back to music-metadata if ffmpeg is unavailable)
  * - Updates durationSeconds with the derived duration
+ *
+ * Why a full decode: many of these MP3s carry an embedded cover image and a
+ * VBR/Xing header whose declared length is wrong (often ~2x the real audio),
+ * so the cheap `ffprobe format=duration` estimate cannot be trusted. Decoding
+ * every frame with `ffmpeg -f null` and reading the final `out_time_us` from
+ * `-progress` yields the true playable length.
  *
  * Flags:
  *  --no-write: Dry run mode (do not write changes)
- *  --ffprobe: Prefer local ffprobe (default: try both)
- *  --no-ffprobe: Disable ffprobe usage
- *  --timeout=<ms>: Request timeout in milliseconds (default: 8000)
- *  --max-bytes=<n>: Maximum bytes to fetch for music-metadata (default: 6_000_000)
+ *  --no-ffmpeg / --no-ffprobe: Disable the local ffmpeg decode (music-metadata only)
+ *  --max-bytes=<n>: Max bytes to fetch for the music-metadata fallback (default: 60_000_000)
  *  --no-cache: Ignore the metadata cache
  *  --file=<name>: Only process one MDX file from src/content/albums
- *  --debug: Print ffprobe and fetch failure details
+ *  --only-issues / --quiet: Only report tracks that change or fail (skip clean albums)
+ *  --debug: Print decode and fetch failure details
  */
 
 import fs from "node:fs/promises";
@@ -32,18 +38,23 @@ const dataDir = path.join(root, "src", "content", "albums");
 
 const args = process.argv.slice(2);
 const isWrite = !args.includes("--no-write");
-const useFfprobe = !args.includes("--no-ffprobe");
-const timeoutArg = args.find((a) => a.startsWith("--timeout="));
-const timeoutMs = timeoutArg ? parseInt(timeoutArg.split("=")[1], 10) : 8000;
+const useFfmpeg = !args.includes("--no-ffmpeg") && !args.includes("--no-ffprobe");
 const maxBytesArg = args.find((a) => a.startsWith("--max-bytes="));
-const maxBytes = maxBytesArg ? parseInt(maxBytesArg.split("=")[1], 10) : 6_000_000;
+const maxBytes = maxBytesArg ? parseInt(maxBytesArg.split("=")[1], 10) : 60_000_000;
 const noCache = args.includes("--no-cache");
 const fileArg = args.find((a) => a.startsWith("--file=") || a.startsWith("--album="));
 const fileFilter = fileArg ? fileArg.split("=").slice(1).join("=") : undefined;
 const debug = args.includes("--debug");
+// Only report tracks that need a correction or failed to probe; stay silent on
+// albums where every duration already matches. Keeps output short across the
+// whole (growing) library.
+const onlyIssues = args.includes("--only-issues") || args.includes("--quiet");
 
 const cacheDir = path.join(root, ".cache");
 const cacheFile = path.join(cacheDir, "audio-metadata-music.json");
+// Bump when the duration-derivation method changes so stale (previously wrong)
+// values are discarded instead of served from cache. v2 = ffmpeg full decode.
+const CACHE_VERSION = 2;
 let cache = {};
 let cacheDirty = false;
 
@@ -54,8 +65,13 @@ async function loadCache() {
   }
   try {
     const data = await fs.readFile(cacheFile, "utf8");
-    cache = JSON.parse(data);
-    log(`Cache loaded (${Object.keys(cache).length} entries)\n`);
+    const parsed = JSON.parse(data);
+    if (parsed && parsed.version === CACHE_VERSION && parsed.durations) {
+      cache = parsed.durations;
+      log(`Cache loaded (${Object.keys(cache).length} entries)\n`);
+    } else {
+      log(`Cache ignored (version mismatch, expected v${CACHE_VERSION})\n`);
+    }
   } catch {
     log("No cache found\n");
   }
@@ -72,7 +88,8 @@ async function saveCache() {
     return;
   }
   await fs.mkdir(cacheDir, { recursive: true });
-  await fs.writeFile(cacheFile, JSON.stringify(cache, null, 2) + "\n", "utf8");
+  const payload = { version: CACHE_VERSION, durations: cache };
+  await fs.writeFile(cacheFile, JSON.stringify(payload, null, 2) + "\n", "utf8");
 }
 
 function log(...msg) {
@@ -98,35 +115,48 @@ function normalizeMediaUrl(url) {
   }
 }
 
-async function probeWithFfprobe(url) {
+/**
+ * Derive the true playable length by decoding every frame with ffmpeg.
+ *
+ * `-f null -` decodes the audio to nowhere (fast, no re-encode) while
+ * `-progress pipe:1` streams machine-readable `out_time_us=<microseconds>`
+ * lines to stdout. The final value is the accurate total duration, immune to
+ * the wrong Xing/header length these files often carry.
+ */
+async function probeWithFfmpeg(url) {
   return new Promise((resolve, reject) => {
-    const proc = spawn("ffprobe", [
+    const proc = spawn("ffmpeg", [
+      "-nostdin",
       "-v",
-      "error",
-      "-show_entries",
-      "format=duration",
-      "-of",
-      "default=noprint_wrappers=1:nokey=1",
+      "quiet",
+      "-i",
       url,
+      "-vn",
+      "-f",
+      "null",
+      "-progress",
+      "pipe:1",
+      "-",
     ]);
     let out = "";
-    let err = "";
+    let stderr = "";
     proc.stdout.on("data", (d) => (out += d.toString()));
-    proc.stderr.on("data", (d) => (err += d.toString()));
+    proc.stderr.on("data", (d) => (stderr += d.toString()));
+    proc.on("error", reject);
     proc.on("close", (code) => {
-      if (code === 0) {
-        const dur = parseFloat(out.trim());
-        if (!Number.isNaN(dur)) {
-          return resolve(Math.round(dur));
+      const matches = [...out.matchAll(/out_time_us=(\d+)/g)];
+      if (matches.length > 0) {
+        const us = Number(matches[matches.length - 1][1]);
+        if (Number.isFinite(us) && us > 0) {
+          return resolve(Math.round(us / 1_000_000));
         }
-        return reject(new Error("no duration"));
       }
-      reject(new Error(err.trim()));
+      reject(new Error(`no out_time_us (exit ${code}): ${stderr.trim().slice(-160)}`));
     });
   });
 }
 
-async function fetchPartial(url, limitBytes) {
+async function fetchFull(url, limitBytes) {
   const controller = new AbortController();
   const res = await fetch(url, { signal: controller.signal });
   if (!res.ok) {
@@ -153,20 +183,22 @@ async function fetchPartial(url, limitBytes) {
 async function deriveDuration(url) {
   const mediaUrl = normalizeMediaUrl(url);
 
-  // Try ffprobe first if enabled
-  if (useFfprobe) {
+  // Preferred: decode the whole stream with ffmpeg for an exact length.
+  if (useFfmpeg) {
     try {
-      return await probeWithFfprobe(mediaUrl);
+      return await probeWithFfmpeg(mediaUrl);
     } catch (e) {
-      debugLog(`ffprobe failed for ${mediaUrl}: ${formatError(e)}`);
-      // Continue to music-metadata
+      debugLog(`ffmpeg decode failed for ${mediaUrl}: ${formatError(e)}`);
+      // Fall through to music-metadata
     }
   }
 
-  // Try music-metadata
+  // Fallback: fetch the full file and let music-metadata scan every frame.
+  // `duration: true` forces a frame scan instead of a header estimate, which
+  // matters because these files' header durations are unreliable.
   try {
-    const buf = await fetchPartial(mediaUrl, maxBytes);
-    const meta = await mm.parseBuffer(buf);
+    const buf = await fetchFull(mediaUrl, maxBytes);
+    const meta = await mm.parseBuffer(buf, { duration: true });
     if (meta.format.duration) {
       return Math.round(meta.format.duration);
     }
@@ -248,7 +280,20 @@ async function main() {
       continue;
     }
 
-    log(`📄 ${file} (${songs.length} tracks)`);
+    // In --only-issues mode the file header is printed lazily, so it appears
+    // only for albums that actually have something to report.
+    let headerPrinted = false;
+    const printHeader = () => {
+      if (!headerPrinted) {
+        log(`📄 ${file} (${songs.length} tracks)`);
+        headerPrinted = true;
+      }
+    };
+    if (!onlyIssues) {
+      printHeader();
+    }
+
+    const label = (song) => `   Track ${song.trackNumber}: ${song.title.slice(0, 30)}`;
 
     let fileUpdated = 0;
 
@@ -257,38 +302,44 @@ async function main() {
         continue;
       }
 
-      process.stdout.write(`   Track ${song.trackNumber}: ${song.title.slice(0, 30)}...`);
-
       const existingDuration =
         Number.isFinite(song.durationSeconds) && song.durationSeconds > 0
           ? song.durationSeconds
           : undefined;
 
-      // Check cache
+      // Resolve the duration (cache first, then probe).
+      let duration;
+      let cached = false;
       if (!noCache && cache[song.audioUrl]) {
-        const cachedDuration = cache[song.audioUrl];
-        console.log(` ✅ ${cachedDuration}s (cached)`);
-        if (song.durationSeconds !== cachedDuration) {
-          song.durationSeconds = cachedDuration;
-          fileUpdated++;
+        duration = cache[song.audioUrl];
+        cached = true;
+      } else {
+        duration = await deriveDuration(song.audioUrl);
+        if (duration) {
+          cache[song.audioUrl] = duration;
+          cacheDirty = true;
         }
-        continue;
       }
 
-      // Get duration
-      const duration = await deriveDuration(song.audioUrl);
       if (duration) {
-        cache[song.audioUrl] = duration;
-        cacheDirty = true;
-        console.log(` ✅ ${duration}s`);
-        if (song.durationSeconds !== duration) {
+        const changed = song.durationSeconds !== duration;
+        if (changed) {
+          printHeader();
+          console.log(
+            `${label(song)}  ${existingDuration ?? "—"}s → ${duration}s` +
+              (cached ? " (cached)" : ""),
+          );
           song.durationSeconds = duration;
           fileUpdated++;
+        } else if (!onlyIssues) {
+          console.log(`${label(song)}... ✅ ${duration}s${cached ? " (cached)" : ""}`);
         }
       } else if (existingDuration !== undefined) {
-        console.log(` ⚠️  kept ${existingDuration}s (probe failed)`);
+        printHeader();
+        console.log(`${label(song)}... ⚠️  kept ${existingDuration}s (probe failed)`);
       } else {
-        console.log(` ❌ (failed)`);
+        printHeader();
+        console.log(`${label(song)}... ❌ (failed)`);
       }
     }
 
@@ -301,7 +352,7 @@ async function main() {
       } else {
         log(`   📋 [DRY RUN] Would update ${fileUpdated} track(s)\n`);
       }
-    } else {
+    } else if (!onlyIssues) {
       log(`   ⚠️  No changes\n`);
     }
   }
