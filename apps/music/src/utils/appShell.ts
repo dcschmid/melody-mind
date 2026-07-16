@@ -37,8 +37,6 @@ export interface AppShellFooterConfig {
   supportLinks: AppShellLink[];
   legalTitle?: string;
   legalLinks: AppShellLink[];
-  settingsTitle?: string;
-  showSettings?: boolean;
   themeStatusPrefix: string;
   copyrightText?: string;
 }
@@ -54,7 +52,6 @@ export interface AppShellConfig {
 
 interface BuildAppShellLegalLinksParams {
   baseUrl?: string;
-  includeAiContent?: boolean;
 }
 
 const DEFAULT_SUPPORT_LINKS: AppShellLink[] = [
@@ -100,17 +97,15 @@ export const DEFAULT_APP_SHELL_HEADER: Omit<
 
 export const DEFAULT_APP_SHELL_FOOTER: Pick<
   AppShellFooterConfig,
-  "brandTitle" | "supportLinks" | "themeStatusPrefix" | "showSettings"
+  "brandTitle" | "supportLinks" | "themeStatusPrefix"
 > = {
   brandTitle: DEFAULT_APP_SHELL_SITE_NAME,
   supportLinks: DEFAULT_SUPPORT_LINKS,
-  showSettings: true,
   ...DEFAULT_FOOTER_SETTINGS_TEXT,
 };
 
 export function buildAppShellLegalLinks({
   baseUrl,
-  includeAiContent = true,
 }: BuildAppShellLegalLinksParams = {}): AppShellLink[] {
   const normalizeHref = (path: string): string => {
     if (!baseUrl) {
@@ -128,7 +123,7 @@ export function buildAppShellLegalLinks({
       }
     : {};
 
-  const legalLinks: AppShellLink[] = [
+  return [
     {
       href: normalizeHref("/imprint"),
       label: "Legal Notice",
@@ -145,16 +140,6 @@ export function buildAppShellLegalLinks({
       ...externalLinkProps,
     },
   ];
-
-  if (includeAiContent) {
-    legalLinks.push({
-      href: normalizeHref("/ai-content"),
-      label: "AI Content",
-      ...externalLinkProps,
-    });
-  }
-
-  return legalLinks;
 }
 
 export function buildDefaultCopyrightText(year: number, brand = "MelodyMind"): string {

@@ -1,5 +1,4 @@
 ---
-import BackToTop from "@components/navigation/BackToTop.astro";
 import SkipLink from "@components/navigation/SkipLink.astro";
 import { ClientRouter } from "astro:transitions";
 import "../../styles/master-theme.css";
@@ -22,7 +21,6 @@ interface Props {
   googleSiteVerification?: string;
   appleMobileWebAppCapable?: boolean;
   appleMobileWebAppStatusBarStyle?: string;
-  showBackToTop?: boolean;
 }
 
 const {
@@ -42,7 +40,6 @@ const {
   googleSiteVerification = import.meta.env.GOOGLE_SITE_VERIFICATION || "",
   appleMobileWebAppCapable = true,
   appleMobileWebAppStatusBarStyle = "black-translucent",
-  showBackToTop = true,
 } = Astro.props as Props;
 
 const bodyClasses = ["app__body", bodyClass].filter(Boolean).join(" ");
@@ -130,7 +127,6 @@ const versionAssetPath = (path: string): string =>
       <main id={mainId} tabindex="-1" role="main" class={mainClasses}>
         <slot />
       </main>
-      {showBackToTop && <BackToTop />}
       <slot name="after-main" />
       <slot name="body-end" />
     </div>
@@ -164,65 +160,6 @@ const versionAssetPath = (path: string): string =>
 
   .app__main--ambient::after {
     content: none;
-  }
-
-  :global(:root) {
-    --cc-primary: var(--accent-primary);
-    --cc-primary-hover: var(--accent-strong);
-    --cc-bg: var(--surface-1);
-    --cc-surface: var(--surface-2);
-    --cc-tint-rgb: 255, 255, 255;
-    --cc-text: var(--text-primary);
-    --cc-text-muted: var(--text-secondary);
-    --cc-border: var(--border-muted);
-    --cc-radius: var(--radius-lg);
-    --cc-font-family: var(--font-sans);
-  }
-
-  :global(.cc-banner) {
-    box-shadow: var(--shadow-2xl);
-  }
-
-  :global(.cc-banner-inner) {
-    max-inline-size: 90rem;
-    padding-inline: clamp(1rem, 4vw, 4rem);
-  }
-
-  :global(.cc-btn) {
-    min-block-size: var(--control-min-block-size);
-    border-radius: var(--radius-base);
-  }
-
-  @media (width <= 480px) {
-    :global(.cc-banner-inner) {
-      gap: var(--spacing-sm);
-      padding: var(--spacing-sm) var(--spacing-base);
-    }
-
-    :global(.cc-banner-text) {
-      min-inline-size: 0;
-      font-size: 0.8rem;
-      line-height: 1.35;
-    }
-
-    :global(.cc-banner-actions) {
-      gap: var(--spacing-xs);
-    }
-
-    :global(.cc-banner-actions .cc-btn) {
-      min-block-size: var(--control-min-block-size);
-      padding-inline: var(--spacing-sm);
-      font-size: 0.8rem;
-      white-space: normal;
-    }
-
-    :global(.cc-banner-actions [data-cc="manage"]) {
-      min-block-size: 2.75rem;
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
-      background: transparent;
-      border-color: transparent;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {

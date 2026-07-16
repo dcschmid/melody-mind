@@ -8,7 +8,6 @@ import SearchPalette from "@components/search/SearchPalette.astro";
 import { buildPageSeo } from "@utils/seo/buildPageSeo";
 import type { StructuredData } from "@utils/seo/buildPageSeo";
 import { buildDefaultCopyrightText, MUSIC_SITE_URL } from "@utils/appShell";
-import BackToTop from "@components/navigation/BackToTop.astro";
 import SiteHeader from "@components/navigation/SiteHeader.astro";
 import type { HeaderNavItem } from "@components/navigation/HeaderNav.astro";
 import { ensureTrailingSlash, resolveAbsoluteUrl, resolveBaseUrl } from "@utils/siteUrls";
@@ -16,9 +15,7 @@ import { normalizeWhitespace } from "@utils/format";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 import { musicAppShellConfig } from "../utils/appShellConfig";
 import { musicDefaultOgImageUrl } from "../utils/musicImages";
-import FathomEventsScript from "@components/analytics/FathomEventsScript.astro";
 import GlobalPlayer from "@components/music/player/GlobalPlayer.astro";
-import MobileTabBar from "@components/navigation/MobileTabBar.astro";
 
 import type { PageSeoResult } from "@utils/seo/buildPageSeo";
 import type { IconName } from "@components/visual/Icon.astro";
@@ -165,7 +162,7 @@ const genresNavItem: HeaderNavItem = {
 };
 const seriesNavItem: HeaderNavItem = {
   href: "/#album-series-heading",
-  label: "Series",
+  label: "Album Series",
   icon: "book-open",
 };
 const searchNavItem: HeaderNavItem = {
@@ -199,7 +196,6 @@ const headerNavItems: HeaderNavItem[] = [
   faviconVersion="20260507"
   faviconSvgPath="/favicon.svg"
   googleSiteVerification="ImN0-TS4_aAOFIXaGxvsGSmqsgHxI94WARi8bW7fm9M"
-  showBackToTop={false}
 >
   <Fragment slot="head">
     <AppHeadResources rssTitle={shellConfig.rssTitle} rssHref={rssFeedUrl} />
@@ -225,16 +221,6 @@ const headerNavItems: HeaderNavItem[] = [
       twitterSite="@melodymind"
     />
     <meta name="language" content={language} />
-    <!-- Fathom analytics loads only after analytics consent. -->
-    <script
-      is:inline
-      type="text/plain"
-      data-cc-category="analytics"
-      data-cc-src="https://cdn.usefathom.com/script.js"
-      data-site="QNPHRMJE"
-      data-honor-dnt="true"
-      defer></script>
-    <!-- / Fathom -->
   </Fragment>
 
   <SkipLink slot="body-start" />
@@ -256,7 +242,6 @@ const headerNavItems: HeaderNavItem[] = [
     brandAriaLabel="Go to MelodyMind Music"
     footerConfig={{
       ...shellConfig.footer,
-      showSettings: true,
       copyrightText: buildDefaultCopyrightText(new Date().getFullYear()),
     }}
   />
@@ -282,9 +267,6 @@ const headerNavItems: HeaderNavItem[] = [
     routeHrefs={["/"]}
   />
   <GlobalPlayer slot="body-end" />
-  <MobileTabBar slot="body-end" currentPath={Astro.url.pathname} />
-  <BackToTop slot="body-end" />
-  <FathomEventsScript slot="body-end" />
   <script slot="body-end" is:inline>
     (() => {
       if (!("serviceWorker" in navigator)) {

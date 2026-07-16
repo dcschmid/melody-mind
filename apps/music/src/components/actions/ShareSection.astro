@@ -100,7 +100,6 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
     <button
       type="button"
       data-share="native"
-      data-fathom-event="Share: Native"
       class="share-section__button share-section__button--primary"
       aria-label="Share with your device"
     >
@@ -111,7 +110,6 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
       type="button"
       class="share-section__button"
       data-copy-button
-      data-fathom-event="Share: Copy Link"
       data-copy-aria-label={copyAriaLabel}
       aria-label={copyAriaLabel}
     >
@@ -138,7 +136,6 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
           class="share-section__chip"
           target="_blank"
           rel="noopener noreferrer nofollow"
-          data-fathom-event={`Share: ${platform.label}`}
           aria-label={`Share on ${platform.label} (opens in a new tab)`}
         >
           <Icon
@@ -153,7 +150,6 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
     <a
       href={`mailto:?subject=${shareMailSubject}&body=${shareMailBody}`}
       class="share-section__chip"
-      data-fathom-event="Share: Email"
       aria-label="Share via email"
     >
       <Icon name="mail" class="share-section__chip-icon" aria-hidden="true" />
@@ -183,11 +179,7 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
         placeholder="mastodon.social"
         data-mastodon-instance
       />
-      <button
-        type="submit"
-        class="share-section__button share-section__button--primary"
-        data-fathom-event="Share: Mastodon"
-      >
+      <button type="submit" class="share-section__button share-section__button--primary">
         <Icon name="send" class="share-section__button-icon" aria-hidden="true" />
         <span>Open Mastodon</span>
       </button>

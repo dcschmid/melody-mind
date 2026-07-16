@@ -17,7 +17,6 @@ interface Props {
 }
 
 const { items, searchHref, currentPath } = Astro.props;
-const mobilePrimaryLabels = new Set(["Home", "Genres", "Series", "Search"]);
 const getComparableHref = (href: string) => {
   if (href.includes("#")) {
     return null;
@@ -66,7 +65,6 @@ const isActiveItem = (href: string) => {
             "music-header-nav__item",
             isSearch && "music-header-nav__item--quick-start",
           ]}
-          data-mobile-primary={mobilePrimaryLabels.has(item.label) ? "true" : undefined}
         >
           {isSearch && <span class="music-header-nav__group-label">Quick actions</span>}
           <a
@@ -252,10 +250,6 @@ const isActiveItem = (href: string) => {
       display: block;
       inline-size: 100%;
       min-inline-size: 0;
-    }
-
-    .music-header-nav__item[data-mobile-primary="true"] {
-      display: none;
     }
 
     .music-header-nav__link,

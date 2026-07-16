@@ -5,7 +5,6 @@ import { satteri } from "@astrojs/markdown-satteri";
 import path from "path";
 import icon from "astro-icon";
 import minifyHtml from "astro-minify-html-swc";
-import cookieConsent from "@zdenekkurecka/astro-consent";
 
 const SITEMAP_EXCLUDED_PATHS = new Set([
   "/404/",
@@ -15,12 +14,7 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
 ]);
 // Noindex pages don't belong in the sitemap — listing them sends
 // contradictory crawl signals.
-const SITEMAP_LEGAL_PATHS = new Set([
-  "/ai-content/",
-  "/cookies/",
-  "/imprint/",
-  "/privacy/",
-]);
+const SITEMAP_LEGAL_PATHS = new Set(["/cookies/", "/imprint/", "/privacy/"]);
 const SITEMAP_NOINDEX_PREFIXES = ["/music/genre/"];
 
 const getSitemapPath = (url) => {
@@ -40,6 +34,7 @@ export default defineConfig({
     }),
   },
   redirects: {
+    "/ai-content": "/privacy",
     "/categories": "/",
     "/knowledge": "/",
     "/taxonomy": "/",
@@ -47,42 +42,6 @@ export default defineConfig({
   integrations: [
     icon({
       collections: ["tabler", "simple-icons"],
-    }),
-    cookieConsent({
-      version: 2,
-      storageKey: "melodymind-consent",
-      maxAgeDays: 365,
-      cookiePolicy: {
-        url: "/cookies/",
-        label: "Cookie & Storage Policy",
-      },
-      categories: {
-        analytics: {
-          label: "Analytics",
-          description:
-            "Allows privacy-friendly Fathom Analytics to measure aggregate page views.",
-          default: false,
-        },
-        comments: {
-          label: "Community features",
-          description:
-            "Loads Cusdis comments and Webmention.io reactions for album discussions.",
-          default: false,
-        },
-      },
-      text: {
-        bannerText:
-          "Essential storage keeps the site working. Analytics and community features load only with your consent.",
-        acceptAll: "Allow optional",
-        rejectAll: "Essential only",
-        manage: "Manage choices",
-        modalTitle: "Privacy preferences",
-        closeAriaLabel: "Close preferences",
-        savePreferences: "Save preferences",
-        essentialLabel: "Essential",
-        essentialDescription:
-          "Required for core site features such as theme and consent preferences. This cannot be disabled.",
-      },
     }),
     mdx({
       optimize: true,
@@ -149,7 +108,7 @@ export default defineConfig({
     server: {
       headers: {
         "Content-Security-Policy":
-          "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com https://cusdis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https://cdn.usefathom.com https://cusdis.com https://webmention.io; frame-src https://cusdis.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://cusdis.com;",
+          "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self'; frame-src 'none'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "X-XSS-Protection": "1; mode=block",

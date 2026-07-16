@@ -169,7 +169,6 @@ const getTrackDurationLabel = (song: Song): string =>
                     data-download-filename={`${song.trackNumber.toString().padStart(2, "0")} - ${song.title}`}
                     aria-label={`Download audio for ${song.title}`}
                     title="Download audio"
-                    data-fathom-event={`Download: ${albumTitle} - ${song.title}`}
                   >
                     <Icon
                       name="tabler:download"

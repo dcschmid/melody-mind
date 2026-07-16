@@ -99,9 +99,6 @@ importers:
       '@orama/orama':
         specifier: ^3.1.18
         version: 3.1.18
-      '@zdenekkurecka/astro-consent':
-        specifier: ^0.3.2
-        version: 0.3.2(astro@7.0.2(@astrojs/markdown-remark@7.2.0)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.8.3))
       astro:
         specifier: ^7.0.2
         version: 7.0.2(@astrojs/markdown-remark@7.2.0)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.8.3)
@@ -1452,12 +1449,6 @@ packages:
 
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
-
-  '@zdenekkurecka/astro-consent@0.3.2':
-    resolution: {integrity: sha512-6hj2uUSGChX3IPljuRowdH8YKN3ZvsXfF5mDkKywz5oxScHvnrG6YfjEeWqcG5t+6/cXAA6xoRC0BBlmsfcV9g==}
-    engines: {node: '>=18.17.0'}
-    peerDependencies:
-      astro: ^5.0.0 || ^6.0.0
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -5302,10 +5293,6 @@ snapshots:
       vscode-uri: 3.1.0
 
   '@vscode/l10n@0.0.18': {}
-
-  '@zdenekkurecka/astro-consent@0.3.2(astro@7.0.2(@astrojs/markdown-remark@7.2.0)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.8.3))':
-    dependencies:
-      astro: 7.0.2(@astrojs/markdown-remark@7.2.0)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.8.3)
 
   acorn-jsx@5.3.2(acorn@8.16.0):
     dependencies:

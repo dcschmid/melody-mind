@@ -28,18 +28,6 @@ const {
 const logoSrc = typeof brandLogoSrc === "string" ? brandLogoSrc : brandLogoSrc.src;
 const logoWidth = typeof brandLogoSrc === "string" ? 700 : brandLogoSrc.width;
 const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
-const getFooterFathomEvent = (groupId: string, link: AppShellLink): string => {
-  if (groupId === "support") {
-    return `Support: ${link.label}`;
-  }
-
-  if (groupId === "legal") {
-    return `Legal: ${link.label}`;
-  }
-
-  return `External: ${link.label}`;
-};
-
 const footerGroups: FooterGroup[] = [
   {
     id: "explore",
@@ -98,8 +86,6 @@ const footerGroups: FooterGroup[] = [
                       href={link.href}
                       target={link.target}
                       rel={link.rel}
-                      data-fathom-event={getFooterFathomEvent(group.id, link)}
-                      data-fathom-label={link.label}
                     >
                       <span>{link.label}</span>
                       {link.target === "_blank" && (
@@ -116,28 +102,6 @@ const footerGroups: FooterGroup[] = [
             </nav>
           </section>
         ))
-      }
-
-      {
-        footerConfig.showSettings && (
-          <section
-            class="music-footer__group music-footer__group--settings"
-            aria-labelledby="music-footer-settings"
-          >
-            <h2 class="music-footer__group-title" id="music-footer-settings">
-              {footerConfig.settingsTitle || "Settings"}
-            </h2>
-            <div class="music-footer__settings">
-              <button
-                class="music-footer__settings-button"
-                type="button"
-                data-cc="manage"
-              >
-                Cookie settings
-              </button>
-            </div>
-          </section>
-        )
       }
     </div>
 
@@ -294,44 +258,6 @@ const footerGroups: FooterGroup[] = [
     opacity: 0.68;
   }
 
-  .music-footer__settings {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--music-footer-space-sm);
-    align-items: center;
-  }
-
-  .music-footer__settings-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-block-size: var(--music-footer-target-size);
-    padding: var(--music-footer-space-sm) var(--music-footer-space-md);
-    font: inherit;
-    font-size: var(--font-size-xs);
-    line-height: 1.25;
-    color: var(--music-footer-muted);
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid var(--music-footer-line);
-    border-radius: var(--music-footer-radius-base);
-  }
-
-  .music-footer__settings-button:hover,
-  .music-footer__settings-button:focus {
-    color: var(--music-footer-accent);
-    border-color: color-mix(
-      in srgb,
-      var(--music-footer-accent) 48%,
-      var(--music-footer-line)
-    );
-  }
-
-  .music-footer__settings-button:focus-visible {
-    outline: 2px solid var(--music-footer-accent);
-    outline-offset: 4px;
-  }
-
   .music-footer__bottom {
     padding-block-start: var(--music-footer-space-md);
     border-block-start: 1px solid
@@ -352,7 +278,7 @@ const footerGroups: FooterGroup[] = [
     }
 
     .music-footer__nav-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .music-footer__bottom {
@@ -368,10 +294,6 @@ const footerGroups: FooterGroup[] = [
 
     .music-footer__nav-grid {
       grid-template-columns: minmax(0, 1fr);
-    }
-
-    .music-footer__group--settings {
-      padding-block-start: var(--music-footer-space-xs);
     }
   }
 </style>

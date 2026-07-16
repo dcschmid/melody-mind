@@ -10,8 +10,8 @@ export const prerender = true;
 
 const title = "Privacy Policy";
 const description =
-  "How we process personal data on MelodyMind Music, including hosting logs, browser storage, privacy-friendly analytics, and AI-generated media details.";
-const lastUpdated = "5 June 2026";
+  "How we process personal data on MelodyMind Music, including hosting logs, browser storage, and AI-generated media details.";
+const lastUpdated = "16 July 2026";
 
 const highlights = [
   {
@@ -19,12 +19,8 @@ const highlights = [
     label: "We aim to process only the data needed to run the site.",
   },
   {
-    value: "Opt-in analytics",
-    label: "Fathom Analytics loads only after analytics consent.",
-  },
-  {
-    value: "Opt-in community",
-    label: "Cusdis and Webmention.io load only after comments consent.",
+    value: "No analytics",
+    label: "We do not load analytics or advertising trackers.",
   },
   {
     value: "Clear rights",
@@ -53,18 +49,8 @@ const sections = [
     icon: "grid",
     title: "Browser Storage",
     trustedHtmlBody: trustedHtmlList([
-      "We use browser storage for site features such as consent preference and music player state.",
+      "We use browser storage for site features such as music player state.",
       'For a current overview of local storage entries, see our <a href="/cookies">Cookie &amp; Storage Policy</a>.',
-    ]),
-  },
-  {
-    icon: "eye",
-    title: "Analytics and Community Features",
-    trustedHtmlBody: trustedHtmlList([
-      "We use Fathom Analytics only after analytics consent to understand aggregate page views and site usage without showing individual visitor profiles. Fathom is a cookie-free analytics service. Legal basis: Art. 6(1)(a) GDPR, consent.",
-      "Album comments are provided by Cusdis and load from cusdis.com only after comments consent. Cusdis may process technical request data and comment content needed to display and submit comments. Legal basis: Art. 6(1)(a) GDPR, consent.",
-      "Album web reactions are provided by Webmention.io and load from webmention.io only after comments consent. Webmention.io may process technical request data and public webmention metadata needed to display mentions, likes, reposts, and replies. Legal basis: Art. 6(1)(a) GDPR, consent.",
-      "You can withdraw analytics or community feature consent through the Cookie settings button in the footer.",
     ]),
   },
   {
@@ -110,13 +96,7 @@ const pageSeo = buildLegalPageSeo({
   title,
   description,
   imageAlt: "Privacy Policy",
-  fallbackKeywords: [
-    "privacy",
-    "data protection",
-    "browser storage",
-    "analytics",
-    "AI music",
-  ],
+  fallbackKeywords: ["privacy", "data protection", "browser storage", "AI music"],
   maxDescription: 160,
   modifiedDate: new Date(lastUpdated),
 });

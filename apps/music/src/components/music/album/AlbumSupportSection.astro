@@ -38,8 +38,6 @@ const supportLinks = links.filter((link) => link.href && link.label);
             href={link.href}
             target={link.target}
             rel={link.rel}
-            data-fathom-event={`Album Support: ${link.label}`}
-            data-fathom-label={albumTitle}
           >
             <Icon
               name={link.label.toLowerCase().includes("coffee") ? "heart" : "send"}

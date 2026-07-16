@@ -111,9 +111,10 @@ import Icon from "@components/visual/Icon.astro";
 <style>
   .global-player {
     position: fixed;
-    inset-block-end: var(--cc-banner-height, env(safe-area-inset-bottom));
+    inset-block-end: 0;
     inset-inline: 0;
     z-index: 80;
+    padding-block-end: env(safe-area-inset-bottom);
     color: var(--text-primary);
     background: color-mix(in srgb, var(--surface-1) 96%, var(--bg-primary));
     border-block-start: 1px solid var(--border-default);
@@ -250,27 +251,22 @@ import Icon from "@components/visual/Icon.astro";
   }
 
   :global(body[data-global-player-visible="true"]) {
-    padding-block-end: calc(
-      4.75rem + var(--cc-banner-height, env(safe-area-inset-bottom))
-    );
+    padding-block-end: calc(4.75rem + env(safe-area-inset-bottom));
   }
 
   @media (width <= 760px) {
-    .global-player {
-      inset-block-end: max(
-        calc(4rem + env(safe-area-inset-bottom)),
-        var(--cc-banner-height, env(safe-area-inset-bottom))
-      );
-    }
-
     .global-player__inner {
+      grid-template-areas:
+        "context transport"
+        "timeline timeline";
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 0.6rem;
-      min-block-size: 4.5rem;
-      padding: 0.5rem 0.75rem;
+      gap: 0.2rem 0.6rem;
+      min-block-size: 6.5rem;
+      padding: 0.45rem 0.75rem 0.3rem;
     }
 
     .global-player__context {
+      grid-area: context;
       grid-template-columns: 3rem minmax(0, 1fr);
       gap: 0.6rem;
     }
@@ -281,23 +277,33 @@ import Icon from "@components/visual/Icon.astro";
     }
 
     .global-player__transport {
+      grid-area: transport;
       gap: 0.25rem;
     }
 
     .global-player__button--secondary:first-child,
-    .global-player__button--volume,
-    .global-player__timeline {
+    .global-player__button--volume {
       display: none;
     }
 
+    .global-player__timeline {
+      grid-area: timeline;
+      grid-template-columns: 2.6rem minmax(0, 1fr) 3rem;
+      gap: 0.5rem;
+      min-block-size: 2rem;
+    }
+
+    .global-player__progress {
+      block-size: 2rem;
+    }
+
+    .global-player__time {
+      font-size: 0.75rem;
+      font-variant-numeric: tabular-nums;
+    }
+
     :global(body[data-global-player-visible="true"]) {
-      padding-block-end: calc(
-        4.5rem +
-          max(
-            calc(4rem + env(safe-area-inset-bottom)),
-            var(--cc-banner-height, env(safe-area-inset-bottom))
-          )
-      );
+      padding-block-end: calc(6.5rem + env(safe-area-inset-bottom));
     }
   }
 

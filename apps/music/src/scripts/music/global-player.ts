@@ -1,5 +1,4 @@
 import { formatTime } from "@utils/time";
-import { trackFathomEvent } from "./fathom-events";
 import type {
   PlayerCommand,
   PlayerLoadDetail,
@@ -517,7 +516,6 @@ const initGlobalPlayer = (): void => {
     "play",
     () => {
       dispatch(true);
-      trackFathomEvent(`Listen: ${state.queue?.albumTitle || "Album"}`);
     },
     { signal }
   );
