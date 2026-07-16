@@ -31,8 +31,6 @@ export interface AppShellHeaderConfig {
 export interface AppShellFooterConfig {
   brandTitle: string;
   brandText: string;
-  exploreTitle?: string;
-  exploreLinks: AppShellLink[];
   supportTitle?: string;
   supportLinks: AppShellLink[];
   legalTitle?: string;
@@ -143,5 +141,5 @@ export function buildAppShellLegalLinks({
 }
 
 export function buildDefaultCopyrightText(year: number, brand = "MelodyMind"): string {
-  return `© ${year} ${brand}. All rights reserved.`;
+  return `© ${year} ${brand}`;
 }

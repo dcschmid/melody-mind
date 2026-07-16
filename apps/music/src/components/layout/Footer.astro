@@ -30,12 +30,6 @@ const logoWidth = typeof brandLogoSrc === "string" ? 700 : brandLogoSrc.width;
 const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
 const footerGroups: FooterGroup[] = [
   {
-    id: "explore",
-    title: footerConfig.exploreTitle || "Explore",
-    links: footerConfig.exploreLinks,
-    ariaLabel: "Music footer navigation",
-  },
-  {
     id: "support",
     title: footerConfig.supportTitle || "Support",
     links: footerConfig.supportLinks,
@@ -139,7 +133,7 @@ const footerGroups: FooterGroup[] = [
     display: grid;
     gap: clamp(1rem, 2.5vw, 1.7rem);
     max-inline-size: 90rem;
-    padding: clamp(var(--music-footer-space-lg), 3vw, 2.25rem) clamp(1rem, 4vw, 4rem) 1rem;
+    padding: clamp(var(--music-footer-space-lg), 3vw, 2.25rem) clamp(1rem, 4vw, 4rem);
     margin-inline: auto;
   }
 
@@ -259,6 +253,9 @@ const footerGroups: FooterGroup[] = [
   }
 
   .music-footer__bottom {
+    display: flex;
+    align-items: center;
+    min-block-size: 3rem;
     padding-block-start: var(--music-footer-space-md);
     border-block-start: 1px solid
       color-mix(in srgb, var(--music-footer-accent) 12%, var(--music-footer-line));
@@ -278,7 +275,7 @@ const footerGroups: FooterGroup[] = [
     }
 
     .music-footer__nav-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .music-footer__bottom {

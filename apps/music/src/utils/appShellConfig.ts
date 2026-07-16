@@ -24,8 +24,6 @@ interface BuildAppShellConfigOptions {
   navAriaLabel: string;
   headerNavItems: AppShellNavItem[];
   footerBrandText: string;
-  footerExploreLinks: AppShellNavItem[];
-  footerRssLink?: AppShellNavItem;
   copyrightBrand?: string;
   copyrightYear?: number;
 }
@@ -39,13 +37,9 @@ export function buildAppShellConfig({
   navAriaLabel,
   headerNavItems,
   footerBrandText,
-  footerExploreLinks,
-  footerRssLink,
   copyrightBrand = "MelodyMind",
   copyrightYear = DEFAULT_APP_SHELL_COPYRIGHT_YEAR,
 }: BuildAppShellConfigOptions): AppShellConfig {
-  const exploreLinks = [...footerExploreLinks, ...(footerRssLink ? [footerRssLink] : [])];
-
   return {
     siteName,
     siteDescription,
@@ -61,7 +55,6 @@ export function buildAppShellConfig({
     footer: {
       ...DEFAULT_APP_SHELL_FOOTER,
       brandText: footerBrandText,
-      exploreLinks,
       legalLinks: buildAppShellLegalLinks(),
       copyrightText: buildDefaultCopyrightText(copyrightYear, copyrightBrand),
     },
@@ -85,26 +78,4 @@ export const musicAppShellConfig = buildAppShellConfig({
   ],
   footerBrandText:
     "Original AI-generated music spanning genres from ambient soundscapes to pop productions.",
-  footerExploreLinks: [
-    {
-      href: "/#latest-releases",
-      label: "Latest Releases",
-    },
-    {
-      href: "/#main-genres-heading",
-      label: "Genres",
-    },
-    {
-      href: "/#album-series-heading",
-      label: "Album Series",
-    },
-    {
-      href: "/about",
-      label: "About",
-    },
-  ],
-  footerRssLink: {
-    href: "/rss.xml",
-    label: "RSS Feed",
-  },
 });
