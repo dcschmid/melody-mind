@@ -232,127 +232,132 @@ const platformLinks: Array<{ label: string; href: string; icon: IconName }> = [
       .replace(/[/?#].*$/, "")
       .replace(/^@?[^@]*@/, "");
 
-  const shareRoots = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-share-root]")
-  ).filter((root) => root.dataset.shareBound !== "true");
+  const bindShareSections = () => {
+    const shareRoots = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-share-root]")
+    ).filter((root) => root.dataset.shareBound !== "true");
 
-  shareRoots.forEach((shareSection) => {
-    shareSection.dataset.shareBound = "true";
-    const shareUrl = shareSection.dataset.shareUrl || "";
-    const shareTitle = shareSection.dataset.shareTitle || "";
-    const shareText = shareSection.dataset.shareText || "";
-    const statusEl = shareSection.querySelector<HTMLElement>("[data-share-status]");
-    const defaultStatus = statusEl?.textContent || "";
-    const copyBtn = shareSection.querySelector<HTMLElement>("[data-copy-button]");
-    const copyLabel = shareSection.querySelector("[data-copy-label]");
-    const copyAriaLabel = copyBtn?.dataset.copyAriaLabel || "Copy link to this page";
-    const nativeShareBtn = shareSection.querySelector('[data-share="native"]');
-    const mastodonBtn = shareSection.querySelector<HTMLElement>(
-      '[data-share="mastodon"]'
-    );
-    const mastodonForm =
-      shareSection.querySelector<HTMLFormElement>("[data-mastodon-form]");
-    const mastodonInput = shareSection.querySelector<HTMLInputElement>(
-      "[data-mastodon-instance]"
-    );
-    let resetTimer: number | undefined;
-    let animationTimer: number | undefined;
+    shareRoots.forEach((shareSection) => {
+      shareSection.dataset.shareBound = "true";
+      const shareUrl = shareSection.dataset.shareUrl || "";
+      const shareTitle = shareSection.dataset.shareTitle || "";
+      const shareText = shareSection.dataset.shareText || "";
+      const statusEl = shareSection.querySelector<HTMLElement>("[data-share-status]");
+      const defaultStatus = statusEl?.textContent || "";
+      const copyBtn = shareSection.querySelector<HTMLElement>("[data-copy-button]");
+      const copyLabel = shareSection.querySelector("[data-copy-label]");
+      const copyAriaLabel = copyBtn?.dataset.copyAriaLabel || "Copy link to this page";
+      const nativeShareBtn = shareSection.querySelector('[data-share="native"]');
+      const mastodonBtn = shareSection.querySelector<HTMLElement>(
+        '[data-share="mastodon"]'
+      );
+      const mastodonForm =
+        shareSection.querySelector<HTMLFormElement>("[data-mastodon-form]");
+      const mastodonInput = shareSection.querySelector<HTMLInputElement>(
+        "[data-mastodon-instance]"
+      );
+      let resetTimer: number | undefined;
+      let animationTimer: number | undefined;
 
-    const setStatus = (message: string) => {
-      if (!statusEl) {
-        return;
-      }
-      statusEl.textContent = message;
-      if (resetTimer) {
-        window.clearTimeout(resetTimer);
-      }
-      resetTimer = window.setTimeout(() => {
-        statusEl.textContent = defaultStatus;
-      }, 4000);
-    };
-
-    const copyLink = async () => {
-      try {
-        await navigator.clipboard.writeText(shareUrl);
-        setStatus("Link copied.");
-
-        if (copyBtn && copyLabel) {
-          if (animationTimer) {
-            window.clearTimeout(animationTimer);
-          }
-          copyBtn.classList.add("share-section__button--success");
-          copyLabel.textContent = "Copied";
-          copyBtn.setAttribute("aria-label", "Link copied to clipboard");
-
-          animationTimer = window.setTimeout(() => {
-            copyBtn.classList.remove("share-section__button--success");
-            copyLabel.textContent = "Copy link";
-            copyBtn.setAttribute("aria-label", copyAriaLabel);
-          }, 2000);
-        }
-      } catch {
-        setStatus("Copy failed. Please copy the link manually.");
-      }
-    };
-
-    copyBtn?.addEventListener("click", copyLink);
-
-    nativeShareBtn?.addEventListener("click", async () => {
-      if (navigator.share) {
-        try {
-          await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
-          setStatus("Link shared.");
+      const setStatus = (message: string) => {
+        if (!statusEl) {
           return;
-        } catch (error) {
-          if (error instanceof Error && error.name === "AbortError") {
+        }
+        statusEl.textContent = message;
+        if (resetTimer) {
+          window.clearTimeout(resetTimer);
+        }
+        resetTimer = window.setTimeout(() => {
+          statusEl.textContent = defaultStatus;
+        }, 4000);
+      };
+
+      const copyLink = async () => {
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          setStatus("Link copied.");
+
+          if (copyBtn && copyLabel) {
+            if (animationTimer) {
+              window.clearTimeout(animationTimer);
+            }
+            copyBtn.classList.add("share-section__button--success");
+            copyLabel.textContent = "Copied";
+            copyBtn.setAttribute("aria-label", "Link copied to clipboard");
+
+            animationTimer = window.setTimeout(() => {
+              copyBtn.classList.remove("share-section__button--success");
+              copyLabel.textContent = "Copy link";
+              copyBtn.setAttribute("aria-label", copyAriaLabel);
+            }, 2000);
+          }
+        } catch {
+          setStatus("Copy failed. Please copy the link manually.");
+        }
+      };
+
+      copyBtn?.addEventListener("click", copyLink);
+
+      nativeShareBtn?.addEventListener("click", async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: shareTitle, text: shareText, url: shareUrl });
+            setStatus("Link shared.");
             return;
+          } catch (error) {
+            if (error instanceof Error && error.name === "AbortError") {
+              return;
+            }
           }
         }
-      }
-      copyLink();
-    });
+        copyLink();
+      });
 
-    const toggleMastodonForm = (expand: boolean) => {
-      if (!mastodonBtn || !mastodonForm) {
-        return;
-      }
-      mastodonBtn.setAttribute("aria-expanded", expand ? "true" : "false");
-      mastodonForm.toggleAttribute("hidden", !expand);
-      if (expand) {
-        if (mastodonInput && !mastodonInput.value) {
-          mastodonInput.value = readStoredInstance();
+      const toggleMastodonForm = (expand: boolean) => {
+        if (!mastodonBtn || !mastodonForm) {
+          return;
         }
-        mastodonInput?.focus();
-      }
-    };
+        mastodonBtn.setAttribute("aria-expanded", expand ? "true" : "false");
+        mastodonForm.toggleAttribute("hidden", !expand);
+        if (expand) {
+          if (mastodonInput && !mastodonInput.value) {
+            mastodonInput.value = readStoredInstance();
+          }
+          mastodonInput?.focus();
+        }
+      };
 
-    mastodonBtn?.addEventListener("click", () => {
-      toggleMastodonForm(mastodonBtn.getAttribute("aria-expanded") !== "true");
-    });
+      mastodonBtn?.addEventListener("click", () => {
+        toggleMastodonForm(mastodonBtn.getAttribute("aria-expanded") !== "true");
+      });
 
-    mastodonForm?.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
+      mastodonForm?.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          toggleMastodonForm(false);
+          mastodonBtn?.focus();
+        }
+      });
+
+      mastodonForm?.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const instance = normalizeInstance(mastodonInput?.value || "");
+        if (!INSTANCE_PATTERN.test(instance)) {
+          setStatus("Please enter a valid instance, e.g. mastodon.social.");
+          mastodonInput?.focus();
+          return;
+        }
+
+        storeInstance(instance);
+        const text = encodeURIComponent(`${shareTitle}\n\n${shareUrl}`);
+        window.open(`https://${instance}/share?text=${text}`, "_blank", "noopener");
         toggleMastodonForm(false);
-        mastodonBtn?.focus();
-      }
+        setStatus(`Opened ${instance} in a new tab.`);
+      });
     });
+  };
 
-    mastodonForm?.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const instance = normalizeInstance(mastodonInput?.value || "");
-      if (!INSTANCE_PATTERN.test(instance)) {
-        setStatus("Please enter a valid instance, e.g. mastodon.social.");
-        mastodonInput?.focus();
-        return;
-      }
-
-      storeInstance(instance);
-      const text = encodeURIComponent(`${shareTitle}\n\n${shareUrl}`);
-      window.open(`https://${instance}/share?text=${text}`, "_blank", "noopener");
-      toggleMastodonForm(false);
-      setStatus(`Opened ${instance} in a new tab.`);
-    });
-  });
+  bindShareSections();
+  document.addEventListener("astro:page-load", bindShareSections);
 </script>
 
 <style>

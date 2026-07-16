@@ -55,7 +55,7 @@ const policySections = [
     icon: "settings",
     title: "How we use browser storage",
     trustedHtmlBody: trustedHtmlList([
-      "We use local storage to remember feature-level preferences and site state, such as theme mode, consent choice, and the last music player position.",
+      "We use local storage to remember feature-level preferences and site state, such as consent choices and the last music player position.",
       "You can update analytics and community feature consent through the Cookie settings button in the footer or clear browser storage in your browser settings.",
     ]),
   },
@@ -85,7 +85,7 @@ const storageKeys = [
       "Up to 365 days, until changed by you, or until browser storage is cleared.",
   },
   {
-    keyName: "melodymind:music-player-state:v1",
+    keyName: "melodymind:music-player-state:v2",
     purpose: "Restores the last album, track, and playback position in the music player.",
     storageType: "LocalStorage",
     retention: "Until replaced by a newer player state or cleared by you.",

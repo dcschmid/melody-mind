@@ -1,0 +1,310 @@
+---
+import Icon from "@components/visual/Icon.astro";
+---
+
+<aside
+  class="global-player"
+  data-global-player
+  aria-label="Now playing"
+  hidden
+  transition:persist="melodymind-global-player"
+>
+  <div class="global-player__inner">
+    <a class="global-player__context" href="/" data-global-player-link>
+      <img
+        class="global-player__artwork"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+        width="56"
+        height="56"
+        alt=""
+        data-global-player-artwork
+      />
+      <span class="global-player__copy">
+        <strong class="global-player__track" data-global-player-track>
+          Choose a track
+        </strong>
+        <span class="global-player__album" data-global-player-album></span>
+      </span>
+    </a>
+
+    <div class="global-player__transport" aria-label="Playback controls">
+      <button
+        class="global-player__button global-player__button--secondary"
+        type="button"
+        data-global-player-action="previous"
+        aria-label="Previous track"
+      >
+        <Icon name="tabler:player-skip-back-filled" aria-hidden="true" />
+      </button>
+      <button
+        class="global-player__button global-player__button--primary"
+        type="button"
+        data-global-player-action="toggle"
+        aria-label="Play"
+        aria-pressed="false"
+      >
+        <Icon
+          name="tabler:player-play-filled"
+          class="global-player__icon global-player__icon--play"
+          aria-hidden="true"
+        />
+        <Icon
+          name="tabler:player-pause-filled"
+          class="global-player__icon global-player__icon--pause"
+          aria-hidden="true"
+        />
+      </button>
+      <button
+        class="global-player__button global-player__button--secondary"
+        type="button"
+        data-global-player-action="next"
+        aria-label="Next track"
+      >
+        <Icon name="tabler:player-skip-forward-filled" aria-hidden="true" />
+      </button>
+    </div>
+
+    <div class="global-player__timeline">
+      <span class="global-player__time" data-global-player-current>0:00</span>
+      <label class="sr-only" for="global-player-progress">Playback progress</label>
+      <input
+        id="global-player-progress"
+        class="global-player__progress"
+        type="range"
+        min="0"
+        max="0"
+        step="1"
+        value="0"
+        aria-valuetext="0:00 elapsed, 0:00 remaining"
+        data-global-player-progress
+      />
+      <span class="global-player__time" data-global-player-remaining>-0:00</span>
+    </div>
+
+    <button
+      class="global-player__button global-player__button--volume"
+      type="button"
+      data-global-player-action="mute"
+      aria-label="Mute"
+      aria-pressed="false"
+    >
+      <Icon
+        name="tabler:volume"
+        class="global-player__icon global-player__icon--volume-on"
+        aria-hidden="true"
+      />
+      <Icon
+        name="tabler:volume-off"
+        class="global-player__icon global-player__icon--volume-off"
+        aria-hidden="true"
+      />
+    </button>
+  </div>
+
+  <p class="sr-only" aria-live="polite" aria-atomic="true" data-global-player-status></p>
+</aside>
+
+<script>
+  import "../../../scripts/music/global-player";
+</script>
+
+<style>
+  .global-player {
+    position: fixed;
+    inset-block-end: var(--cc-banner-height, env(safe-area-inset-bottom));
+    inset-inline: 0;
+    z-index: 80;
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-1) 96%, var(--bg-primary));
+    border-block-start: 1px solid var(--border-default);
+    box-shadow: 0 -0.75rem 2rem oklch(0% 0 0deg / 0.3);
+  }
+
+  .global-player[hidden] {
+    display: none;
+  }
+
+  .global-player__inner {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.9fr) auto minmax(16rem, 1.2fr) auto;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    align-items: center;
+    max-inline-size: 90rem;
+    min-block-size: 4.75rem;
+    padding: 0.55rem clamp(1rem, 4vw, 4rem);
+    margin-inline: auto;
+  }
+
+  .global-player__context {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    min-inline-size: 0;
+    color: inherit;
+    text-decoration: none;
+    border-radius: var(--radius-base);
+  }
+
+  .global-player__artwork {
+    display: block;
+    inline-size: 3.5rem;
+    block-size: 3.5rem;
+    object-fit: cover;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .global-player__copy {
+    display: grid;
+    gap: 0.12rem;
+    min-inline-size: 0;
+  }
+
+  .global-player__track,
+  .global-player__album {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .global-player__track {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .global-player__album,
+  .global-player__time {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+  }
+
+  .global-player__transport {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .global-player__button {
+    display: grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    color: var(--text-primary);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+  }
+
+  .global-player__button--primary {
+    inline-size: 3rem;
+    block-size: 3rem;
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: transparent;
+  }
+
+  .global-player__button:hover,
+  .global-player__button:focus-visible {
+    color: var(--link-hover);
+    border-color: var(--accent-muted);
+  }
+
+  .global-player__button--primary:hover,
+  .global-player__button--primary:focus-visible {
+    color: var(--button-text-accent);
+    background: var(--accent-strong);
+  }
+
+  .global-player__button svg {
+    inline-size: 1.15rem;
+    block-size: 1.15rem;
+  }
+
+  .global-player__icon--pause,
+  .global-player__icon--volume-off,
+  .global-player[data-player-state="playing"] .global-player__icon--play,
+  .global-player[data-player-muted="true"] .global-player__icon--volume-on {
+    display: none;
+  }
+
+  .global-player[data-player-state="playing"] .global-player__icon--pause,
+  .global-player[data-player-muted="true"] .global-player__icon--volume-off {
+    display: block;
+  }
+
+  .global-player__timeline {
+    display: grid;
+    grid-template-columns: auto minmax(6rem, 1fr) auto;
+    gap: 0.6rem;
+    align-items: center;
+    min-inline-size: 0;
+  }
+
+  .global-player__progress {
+    inline-size: 100%;
+    min-inline-size: 0;
+    accent-color: var(--accent-primary);
+  }
+
+  :global(body[data-global-player-visible="true"]) {
+    padding-block-end: calc(
+      4.75rem + var(--cc-banner-height, env(safe-area-inset-bottom))
+    );
+  }
+
+  @media (width <= 760px) {
+    .global-player {
+      inset-block-end: max(
+        calc(4rem + env(safe-area-inset-bottom)),
+        var(--cc-banner-height, env(safe-area-inset-bottom))
+      );
+    }
+
+    .global-player__inner {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.6rem;
+      min-block-size: 4.5rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    .global-player__context {
+      grid-template-columns: 3rem minmax(0, 1fr);
+      gap: 0.6rem;
+    }
+
+    .global-player__artwork {
+      inline-size: 3rem;
+      block-size: 3rem;
+    }
+
+    .global-player__transport {
+      gap: 0.25rem;
+    }
+
+    .global-player__button--secondary:first-child,
+    .global-player__button--volume,
+    .global-player__timeline {
+      display: none;
+    }
+
+    :global(body[data-global-player-visible="true"]) {
+      padding-block-end: calc(
+        4.5rem +
+          max(
+            calc(4rem + env(safe-area-inset-bottom)),
+            var(--cc-banner-height, env(safe-area-inset-bottom))
+          )
+      );
+    }
+  }
+
+  @media (forced-colors: active) {
+    .global-player {
+      background: Canvas;
+      border-color: CanvasText;
+    }
+  }
+</style>

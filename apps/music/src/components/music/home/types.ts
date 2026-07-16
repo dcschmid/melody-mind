@@ -1,4 +1,5 @@
 import type { ImageMetadata } from "astro";
+import type { PlayerQueue } from "../../../types/player";
 
 export type CoverImage = string | ImageMetadata;
 
@@ -27,4 +28,8 @@ export interface HeroItem {
   imageUrl: string;
   imageWidth: number | undefined;
   imageHeight: number | undefined;
+}
+
+export interface FeaturedAlbum extends Entry {
+  queue: PlayerQueue;
 }

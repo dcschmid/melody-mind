@@ -1,6 +1,7 @@
 ---
 import BackToTop from "@components/navigation/BackToTop.astro";
 import SkipLink from "@components/navigation/SkipLink.astro";
+import { ClientRouter } from "astro:transitions";
 import "../../styles/master-theme.css";
 import "../../styles/animations.css";
 
@@ -118,9 +119,10 @@ const versionAssetPath = (path: string): string =>
       content="camera=(), microphone=(), geolocation=()"
     />
     <link rel="manifest" href={manifestPath} />
+    <ClientRouter fallback="swap" />
     <slot name="head" />
   </head>
-  <body class={bodyClasses}>
+  <body class={bodyClasses} transition:animate="none">
     {showSkipLink && <SkipLink targetId={mainId} />}
     <div class={contentShellClasses || undefined}>
       <slot name="body-start" />
@@ -189,6 +191,38 @@ const versionAssetPath = (path: string): string =>
   :global(.cc-btn) {
     min-block-size: var(--control-min-block-size);
     border-radius: var(--radius-base);
+  }
+
+  @media (width <= 480px) {
+    :global(.cc-banner-inner) {
+      gap: var(--spacing-sm);
+      padding: var(--spacing-sm) var(--spacing-base);
+    }
+
+    :global(.cc-banner-text) {
+      min-inline-size: 0;
+      font-size: 0.8rem;
+      line-height: 1.35;
+    }
+
+    :global(.cc-banner-actions) {
+      gap: var(--spacing-xs);
+    }
+
+    :global(.cc-banner-actions .cc-btn) {
+      min-block-size: var(--control-min-block-size);
+      padding-inline: var(--spacing-sm);
+      font-size: 0.8rem;
+      white-space: normal;
+    }
+
+    :global(.cc-banner-actions [data-cc="manage"]) {
+      min-block-size: 2.75rem;
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      background: transparent;
+      border-color: transparent;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

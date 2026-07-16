@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-16T12:00:00+02:00",
+  "title": "Design System: MelodyMind Music",
+  "extensions": {
+    "colorMeta": {
+      "room-night": {
+        "role": "neutral",
+        "displayName": "Room Night",
+        "canonical": "oklch(11.5% 0.03 250deg)",
+        "tonalRamp": [
+          "oklch(15% 0.03 250deg)",
+          "oklch(25% 0.03 250deg)",
+          "oklch(35% 0.03 250deg)",
+          "oklch(45% 0.03 250deg)",
+          "oklch(58% 0.025 250deg)",
+          "oklch(70% 0.02 250deg)",
+          "oklch(82% 0.015 250deg)",
+          "oklch(94% 0.01 250deg)"
+        ]
+      },
+      "signal-teal": {
+        "role": "primary",
+        "displayName": "Signal Teal",
+        "canonical": "oklch(80% 0.115 180deg)",
+        "tonalRamp": [
+          "oklch(15% 0.04 180deg)",
+          "oklch(25% 0.07 180deg)",
+          "oklch(35% 0.09 180deg)",
+          "oklch(45% 0.105 180deg)",
+          "oklch(58% 0.115 180deg)",
+          "oklch(70% 0.115 180deg)",
+          "oklch(82% 0.1 180deg)",
+          "oklch(94% 0.04 180deg)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Featured album and page identity."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable descriptions and liner notes."
+      }
+    },
+    "shadows": [
+      {
+        "name": "raised-control",
+        "value": "0 12px 20px -4px rgba(0,0,0,.4)",
+        "purpose": "Persistent player and menus."
+      },
+      {
+        "name": "artwork-lift",
+        "value": "0 24px 32px -8px rgba(0,0,0,.46)",
+        "purpose": "Featured artwork only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Fast state transitions."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "760px" },
+      { "name": "desktop-nav", "value": "1024px" }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "The Focused Listening Room",
+    "overview": "MelodyMind is a dark-only product surface built for discovery and uninterrupted listening. Album covers carry the emotional range; navigation and playback controls stay restrained, familiar, and stable.",
+    "keyCharacteristics": [
+      "Deep blue-black tonal layers rather than pure black.",
+      "Warm readable text and one action-focused teal signal.",
+      "Compact streaming patterns balanced by editorial album context.",
+      "Square artwork, linear track lists, and persistent playback."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Rule",
+        "body": "Teal communicates action, selection, or active playback.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "Content shelves and track rows use spacing, dividers, and tonal selection before shadows.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep all normal text at WCAG 2.2 AA contrast or better.",
+      "Do use 44px minimum interactive targets and visible keyboard focus."
+    ],
+    "donts": [
+      "Don't create a generic streaming-service clone with interchangeable cards.",
+      "Don't use neon cyberpunk gradients, decorative glass panels, or gradient text.",
+      "Don't autoplay restored media or hide standard playback affordances."
+    ]
+  }
+}

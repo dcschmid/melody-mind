@@ -105,7 +105,8 @@ const { headingId, iconName, items, title } = Astro.props as Props;
 
   .feature-link-list__list {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-base);
     padding: 0;
     margin: 0;
     list-style: none;
@@ -120,11 +121,13 @@ const { headingId, iconName, items, title } = Astro.props as Props;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: clamp(1rem, 2vw, 2rem);
     align-items: center;
-    min-block-size: clamp(10.5rem, 16vw, 13.5rem);
-    padding-block: clamp(1.25rem, 2.3vw, 2rem);
+    min-block-size: 9rem;
+    padding: clamp(1rem, 2vw, 1.5rem);
     color: var(--music-home-ink);
     text-decoration: none;
-    border-block: 1px solid var(--music-home-line);
+    background: color-mix(in srgb, var(--music-home-paper) 76%, transparent);
+    border: 1px solid var(--music-home-line);
+    border-radius: var(--radius-md);
   }
 
   .feature-link-list__copy {
@@ -268,8 +271,14 @@ const { headingId, iconName, items, title } = Astro.props as Props;
   }
 
   @media (width <= 760px) {
+    .feature-link-list__list {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-sm);
+    }
+
     .feature-link-list__card {
-      min-block-size: 8.5rem;
+      min-block-size: 7.5rem;
+      padding: 1rem;
     }
 
     .feature-link-list__description {
@@ -310,13 +319,18 @@ const { headingId, iconName, items, title } = Astro.props as Props;
     }
 
     .feature-link-list__visual {
-      min-inline-size: 2rem;
+      min-inline-size: 4.75rem;
       padding-inline-start: 0;
     }
 
-    .feature-link-list__cover-stack,
-    .feature-link-list__icon-shell {
-      display: none;
+    .feature-link-list__cover-stack {
+      inline-size: 4.25rem;
+      block-size: 3.6rem;
+    }
+
+    .feature-link-list__cover-wrap {
+      inset-inline-start: calc(var(--feature-link-list-index) * 0.58rem);
+      inline-size: 3.2rem;
     }
   }
 </style>

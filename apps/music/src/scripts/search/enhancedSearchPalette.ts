@@ -8,6 +8,7 @@ const SEARCH_RESULT_TYPE_SELECTOR = ".astro-search-result-type";
 const SEARCH_RESULT_DESC_SELECTOR = ".astro-search-result-desc";
 const SEARCH_GROUP_LABEL_SELECTOR = ".astro-search-group-label";
 const SEARCH_EMPTY_SELECTOR = ".astro-search-empty";
+const SEARCH_FILTERS_SELECTOR = ".astro-search-filters";
 const SEARCH_FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -385,6 +386,64 @@ function enhanceSearchResults(results: HTMLElement, config: EnhancedSearchConfig
       result.append(content);
     }
   });
+
+  const backdrop = results.closest<HTMLElement>(SEARCH_BACKDROP_SELECTOR);
+  const activeFilter = backdrop?.dataset.searchFilter || "all";
+  rows.forEach((result) => {
+    if (!(result instanceof HTMLElement)) {
+      return;
+    }
+    const type = normalizeText(
+      result.querySelector(SEARCH_RESULT_TYPE_SELECTOR)?.textContent || ""
+    ).replace(/s$/, "");
+    result.hidden = activeFilter !== "all" && type !== activeFilter;
+  });
+}
+
+function ensureSearchFilters(backdrop: HTMLElement, config: EnhancedSearchConfig): void {
+  if (backdrop.querySelector(SEARCH_FILTERS_SELECTOR)) {
+    return;
+  }
+  const inputWrap = backdrop.querySelector(SEARCH_INPUT_SELECTOR)?.parentElement;
+  if (!inputWrap) {
+    return;
+  }
+
+  const filters = document.createElement("div");
+  filters.className = "astro-search-filters";
+  filters.setAttribute("role", "group");
+  filters.setAttribute("aria-label", "Filter search results");
+  const options = [
+    ["all", "All"],
+    ["album", "Albums"],
+    ["track", "Tracks"],
+    ["genre", "Genres"],
+  ] as const;
+
+  options.forEach(([value, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "astro-search-filter";
+    button.textContent = label;
+    button.dataset.searchFilter = value;
+    button.setAttribute("aria-pressed", String(value === "all"));
+    button.addEventListener("click", () => {
+      backdrop.dataset.searchFilter = value;
+      filters.querySelectorAll<HTMLButtonElement>("button").forEach((candidate) => {
+        candidate.setAttribute(
+          "aria-pressed",
+          String(candidate.dataset.searchFilter === value)
+        );
+      });
+      const results = backdrop.querySelector<HTMLElement>(SEARCH_RESULTS_SELECTOR);
+      if (results) {
+        enhanceSearchResults(results, config);
+      }
+    });
+    filters.append(button);
+  });
+
+  inputWrap.insertAdjacentElement("afterend", filters);
 }
 
 function enhanceSearchModal(root: HTMLElement): void {
@@ -414,6 +473,7 @@ function enhanceSearchModal(root: HTMLElement): void {
   }
 
   enhanceSearchEmptyState(backdrop, config);
+  ensureSearchFilters(backdrop, config);
 
   if (backdrop.dataset.enhancedSearchModal === "true") {
     return;
@@ -452,14 +512,9 @@ function enhanceSearchModals(): void {
 }
 
 function observeSearchModal(): void {
-  if (searchObserver) {
-    return;
-  }
-
-  searchObserver = new MutationObserver(enhanceSearchModals);
-  getSearchRoots().forEach((root) => {
-    searchObserver?.observe(root, { childList: true, subtree: true });
-  });
+  searchObserver?.disconnect();
+  searchObserver ??= new MutationObserver(enhanceSearchModals);
+  searchObserver.observe(document.body, { childList: true, subtree: true });
 }
 
 function openSearch(): void {
@@ -513,8 +568,14 @@ document.addEventListener("click", (event) => {
   openSearch();
 });
 
-handleSearchRoute();
-observeSearchModal();
+const initEnhancedSearch = (): void => {
+  observeSearchModal();
+  enhanceSearchModals();
+  handleSearchRoute();
+};
+
+initEnhancedSearch();
+document.addEventListener("astro:page-load", initEnhancedSearch);
 window.addEventListener("popstate", handleSearchRoute);
 window.addEventListener("astro-search:open", () => {
   window.requestAnimationFrame(enhanceSearchModals);

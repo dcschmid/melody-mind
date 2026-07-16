@@ -72,6 +72,10 @@ const getFactIcon = (label: string) => {
         )
       }
       <h1 class="album-hero__title" id={titleId}>{title}</h1>
+      <button class="album-hero__play" type="button" data-album-hero-play={id}>
+        <Icon name="tabler:player-play-filled" aria-hidden="true" />
+        <span>Play album</span>
+      </button>
     </div>
 
     <p class="album-hero__description">{description}</p>
@@ -193,6 +197,35 @@ const getFactIcon = (label: string) => {
     overflow-wrap: anywhere;
   }
 
+  .album-hero__play {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    padding: 0.7rem 1.15rem;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--button-text-accent);
+    cursor: pointer;
+    background: var(--album-hero-accent);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+  }
+
+  .album-hero__play:hover,
+  .album-hero__play:focus-visible {
+    background: var(--music-album-accent-strong, var(--accent-strong));
+  }
+
+  .album-hero__play svg {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
   .album-hero__description {
     max-inline-size: 58ch;
     margin: 0;
@@ -297,6 +330,12 @@ const getFactIcon = (label: string) => {
       text-wrap: balance;
       overflow-wrap: break-word;
       white-space: normal;
+    }
+
+    .album-hero__play {
+      min-block-size: 2.75rem;
+      padding-inline: 1rem;
+      font-size: var(--font-size-xs);
     }
 
     .album-hero__description {

@@ -72,9 +72,9 @@ export default defineConfig({
       },
       text: {
         bannerText:
-          "We use essential browser storage for site features. With your consent, we also use optional analytics and community features.",
-        acceptAll: "Accept optional services",
-        rejectAll: "Reject optional services",
+          "Essential storage keeps the site working. Analytics and community features load only with your consent.",
+        acceptAll: "Allow optional",
+        rejectAll: "Essential only",
         manage: "Manage choices",
         modalTitle: "Privacy preferences",
         closeAriaLabel: "Close preferences",

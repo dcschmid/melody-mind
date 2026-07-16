@@ -89,9 +89,17 @@ const titleId = "album-webmentions-title";
   const getConsentApi = (): ConsentApi | undefined =>
     (window as Window & { astroConsent?: ConsentApi }).astroConsent;
 
-  const webmentionsRoot = document.querySelector("[data-album-webmentions]");
+  const bindAlbumWebmentions = () => {
+    const webmentionsRoot = document.querySelector<HTMLElement>(
+      "[data-album-webmentions]"
+    );
 
-  if (webmentionsRoot) {
+    if (!webmentionsRoot || webmentionsRoot.dataset.albumWebmentionsBound === "true") {
+      return;
+    }
+    webmentionsRoot.dataset.albumWebmentionsBound = "true";
+    const controller = new AbortController();
+    const { signal } = controller;
     const consentPanel = webmentionsRoot.querySelector(
       "[data-album-webmentions-consent]"
     );
@@ -391,12 +399,16 @@ const titleId = "album-webmentions-title";
       }
     };
 
-    moreButton?.addEventListener("click", () => {
-      list
-        ?.querySelectorAll("[hidden]")
-        .forEach((item) => item.removeAttribute("hidden"));
-      moreButton.toggleAttribute("hidden", true);
-    });
+    moreButton?.addEventListener(
+      "click",
+      () => {
+        list
+          ?.querySelectorAll("[hidden]")
+          .forEach((item) => item.removeAttribute("hidden"));
+        moreButton.toggleAttribute("hidden", true);
+      },
+      { signal }
+    );
 
     const updateWebmentions = () => {
       const hasCommentsConsent = getConsentApi()?.get()?.categories?.comments === true;
@@ -412,15 +424,26 @@ const titleId = "album-webmentions-title";
       }
     };
 
-    enableButton?.addEventListener("click", () => {
-      getConsentApi()?.set({ comments: true });
-      updateWebmentions();
-    });
+    enableButton?.addEventListener(
+      "click",
+      () => {
+        getConsentApi()?.set({ comments: true });
+        updateWebmentions();
+      },
+      { signal }
+    );
 
-    document.addEventListener("astro-consent:consent", updateWebmentions);
-    document.addEventListener("astro-consent:change", updateWebmentions);
+    document.addEventListener("astro-consent:consent", updateWebmentions, { signal });
+    document.addEventListener("astro-consent:change", updateWebmentions, { signal });
+    document.addEventListener("astro:before-swap", () => controller.abort(), {
+      once: true,
+      signal,
+    });
     updateWebmentions();
-  }
+  };
+
+  bindAlbumWebmentions();
+  document.addEventListener("astro:page-load", bindAlbumWebmentions);
 </script>
 
 <style>

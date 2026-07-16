@@ -1,6 +1,5 @@
 ---
 import Icon from "@components/visual/Icon.astro";
-import HiddenPlaylistAudio from "./HiddenPlaylistAudio.astro";
 
 interface Song {
   title: string;
@@ -28,9 +27,19 @@ const playerSlug =
   albumTitle.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "playlist";
 const playerId = id || `album-playlist-${playerSlug}`;
 const statusId = `${playerId}-status`;
-const progressId = `${playerId}-progress`;
-const timeId = `${playerId}-time`;
 const hasSongs = songs.length > 0;
+const playerQueue = {
+  albumId,
+  albumTitle,
+  albumUrl,
+  ...(albumArtworkUrl ? { albumArtworkUrl } : {}),
+  tracks: songs.map((song) => ({
+    trackNumber: song.trackNumber,
+    title: song.title,
+    audioUrl: song.audioUrl,
+    ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
+  })),
+};
 
 const getTrackFallbackLabel = (song: Song): string =>
   song.lyricsUrl
@@ -54,137 +63,8 @@ const getTrackDurationLabel = (song: Song): string =>
   data-album-title={albumTitle}
   data-album-url={albumUrl}
   data-album-artwork-url={albumArtworkUrl}
-  aria-label={`Album playlist player for ${albumTitle}`}
+  aria-label={`Track list for ${albumTitle}`}
 >
-  <div class="album-playlist-player__now-playing">
-    <div class="album-playlist-player__now-playing-row">
-      <div class="album-playlist-player__info">
-        <p class="album-playlist-player__current-title" data-current-track-title>
-          Cue the first track
-        </p>
-        <p class="album-playlist-player__album">{albumTitle}</p>
-      </div>
-      <div
-        class="album-playlist-player__track-status"
-        data-track-status
-        aria-live="polite"
-        aria-atomic="true"
-        hidden
-      >
-        <span class="album-playlist-player__track-status-text" data-track-status-text
-        ></span>
-      </div>
-    </div>
-
-    <div class="album-playlist-player__controls">
-      <button
-        class="album-playlist-player__volume-button"
-        type="button"
-        data-action="volume"
-        aria-label="Toggle mute"
-        aria-pressed="false"
-        title="Toggle mute"
-        disabled={!hasSongs}
-      >
-        <Icon
-          name="tabler:volume"
-          class="album-playlist-player__volume-icon album-playlist-player__volume-icon--on"
-          aria-hidden="true"
-        />
-        <Icon
-          name="tabler:volume-off"
-          class="album-playlist-player__volume-icon album-playlist-player__volume-icon--off"
-          aria-hidden="true"
-        />
-      </button>
-      <div class="album-playlist-player__transport-cluster">
-        <button
-          class="album-playlist-player__transport-button"
-          type="button"
-          data-action="prev"
-          aria-label="Previous track"
-          title="Previous track"
-          disabled={!hasSongs}
-        >
-          <Icon
-            name="tabler:player-skip-back-filled"
-            class="album-playlist-player__transport-icon"
-            aria-hidden="true"
-          />
-        </button>
-        <button
-          class="album-playlist-player__control"
-          type="button"
-          data-action="toggle"
-          aria-label="Play"
-          aria-pressed="false"
-          disabled={!hasSongs}
-        >
-          <Icon
-            name="tabler:player-play"
-            class="album-playlist-player__control-icon album-playlist-player__control-icon--play"
-            aria-hidden="true"
-          />
-          <Icon
-            name="tabler:player-pause"
-            class="album-playlist-player__control-icon album-playlist-player__control-icon--pause"
-            aria-hidden="true"
-          />
-        </button>
-        <button
-          class="album-playlist-player__transport-button"
-          type="button"
-          data-action="next"
-          aria-label="Next track"
-          title="Next track"
-          disabled={!hasSongs}
-        >
-          <Icon
-            name="tabler:player-skip-forward-filled"
-            class="album-playlist-player__transport-icon"
-            aria-hidden="true"
-          />
-        </button>
-        <button
-          class="album-playlist-player__transport-button"
-          type="button"
-          data-action="shuffle"
-          aria-label="Play random track"
-          title="Play random track"
-          disabled={!hasSongs}
-        >
-          <Icon
-            name="tabler:arrows-shuffle"
-            class="album-playlist-player__transport-icon"
-            aria-hidden="true"
-          />
-        </button>
-      </div>
-    </div>
-
-    <div class="album-playlist-player__progress-wrap">
-      <label class="sr-only" for={progressId}>Playback progress</label>
-      <input
-        id={progressId}
-        class="album-playlist-player__progress"
-        type="range"
-        min="0"
-        max="0"
-        step="1"
-        value="0"
-        data-playlist-progress
-        aria-label="Playback progress"
-        aria-describedby={timeId}
-        aria-valuetext="0:00 elapsed, 0:00 remaining"
-        disabled={!hasSongs}
-      />
-      <div class="album-playlist-player__meta" id={timeId}>
-        <span class="album-playlist-player__time" data-current-time>0:00</span>
-        <span class="album-playlist-player__time" data-remaining-time>-0:00</span>
-      </div>
-    </div>
-  </div>
-
   <div
     class="album-playlist-player__status album-playlist-player__status--sr-only"
     id={statusId}
@@ -311,83 +191,15 @@ const getTrackDurationLabel = (song: Song): string =>
     </ol>
   </div>
 
-  <HiddenPlaylistAudio src={songs[0]?.audioUrl || ""} />
+  <script
+    is:inline
+    type="application/json"
+    data-player-queue
+    set:html={JSON.stringify(playerQueue)}
+  />
 
   <script>
     import "../../../scripts/music/album-playlist-player.ts";
-  </script>
-
-  <script>
-    const getExtension = (url: string): string => {
-      try {
-        const pathname = new URL(url, window.location.href).pathname;
-        const match = pathname.match(/\.([a-z0-9]+)$/i);
-        const ext = match?.[1];
-        return ext ? `.${ext.toLowerCase()}` : ".mp3";
-      } catch {
-        return ".mp3";
-      }
-    };
-
-    const triggerObjectUrlDownload = (blobUrl: string, filename: string): void => {
-      const anchor = document.createElement("a");
-      anchor.href = blobUrl;
-      anchor.download = filename;
-      anchor.rel = "noopener";
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-    };
-
-    const fallbackNavigate = (url: string, filename: string): void => {
-      const anchor = document.createElement("a");
-      anchor.href = url;
-      anchor.download = filename;
-      anchor.target = "_blank";
-      anchor.rel = "noopener noreferrer";
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-    };
-
-    const downloadTrack = async (button: HTMLButtonElement): Promise<void> => {
-      const url = button.dataset.downloadUrl;
-      const baseName = button.dataset.downloadFilename || "track";
-      if (!url || button.dataset.downloading === "true") {
-        return;
-      }
-      const filename = `${baseName}${getExtension(url)}`;
-      button.dataset.downloading = "true";
-      button.setAttribute("aria-busy", "true");
-
-      try {
-        const response = await fetch(url, { credentials: "omit" });
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
-        triggerObjectUrlDownload(blobUrl, filename);
-        setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
-      } catch {
-        fallbackNavigate(url, filename);
-      } finally {
-        button.dataset.downloading = "false";
-        button.removeAttribute("aria-busy");
-      }
-    };
-
-    document
-      .querySelectorAll<HTMLButtonElement>("[data-track-download]")
-      .forEach((button) => {
-        if (button.dataset.downloadBound === "true") {
-          return;
-        }
-        button.dataset.downloadBound = "true";
-        button.addEventListener("click", () => {
-          downloadTrack(button);
-        });
-      });
   </script>
 </section>
 
@@ -395,11 +207,9 @@ const getTrackDurationLabel = (song: Song): string =>
   .album-playlist-player {
     --album-playlist-radius: 0.85rem;
     --album-playlist-radius-row: 0.5rem;
-    --album-playlist-control-size: 2.75rem;
-    --album-playlist-primary-control-size: 3.5rem;
     --album-playlist-track-action-size: 2.75rem;
-    --album-playlist-track-min-block: 2.55rem;
-    --album-playlist-track-button-min-block: 2.5rem;
+    --album-playlist-track-min-block: 2.75rem;
+    --album-playlist-track-button-min-block: 2.75rem;
     --album-playlist-track-num-column: 2rem;
     --album-playlist-track-duration-column: 3.5rem;
     --album-playlist-track-gap: 0.55rem;
@@ -426,51 +236,6 @@ const getTrackDurationLabel = (song: Song): string =>
     opacity: 0;
   }
 
-  .album-playlist-player__now-playing {
-    display: grid;
-    gap: 0.75rem;
-    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(0.9rem, 1.9vw, 1.25rem);
-  }
-
-  .album-playlist-player__now-playing-row {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .album-playlist-player__info {
-    display: grid;
-    gap: 0.2rem;
-    min-inline-size: 0;
-    text-align: center;
-  }
-
-  .album-playlist-player__current-title {
-    display: -webkit-box;
-    margin: 0;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    font-size: clamp(1rem, 1rem + 0.45vw, 1.25rem);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.15;
-    color: var(--music-album-ink);
-    text-wrap: balance;
-    overflow-wrap: anywhere;
-  }
-
-  .album-playlist-player__current-title[data-transitioning="true"] {
-    opacity: 0;
-  }
-
-  .album-playlist-player__album {
-    margin: 0;
-    font-size: var(--font-size-xs);
-    color: var(--music-album-muted);
-  }
-
-  .album-playlist-player__track-status,
   .album-playlist-player__status--sr-only {
     position: absolute;
     inline-size: 1px;
@@ -482,83 +247,6 @@ const getTrackDurationLabel = (song: Song): string =>
     clip-path: inset(50%);
   }
 
-  .album-playlist-player__track-status[hidden] {
-    display: none;
-  }
-
-  .album-playlist-player__controls,
-  .album-playlist-player__transport-cluster {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .album-playlist-player__controls {
-    gap: 0.55rem;
-  }
-
-  .album-playlist-player__transport-cluster {
-    gap: 0.42rem;
-  }
-
-  .album-playlist-player__control,
-  .album-playlist-player__transport-button,
-  .album-playlist-player__volume-button {
-    --album-playlist-control-scale: 1;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    font: inherit;
-    color: var(--music-album-ink);
-    touch-action: manipulation;
-    cursor: pointer;
-    background: color-mix(in srgb, var(--music-album-paper-soft) 72%, transparent);
-    border: 1px solid var(--music-album-line);
-    border-radius: 999rem;
-    transform: scale(var(--album-playlist-control-scale));
-  }
-
-  .album-playlist-player__volume-button,
-  .album-playlist-player__transport-button {
-    inline-size: var(--album-playlist-control-size);
-    block-size: var(--album-playlist-control-size);
-  }
-
-  .album-playlist-player__control {
-    position: relative;
-    inline-size: var(--album-playlist-primary-control-size);
-    block-size: var(--album-playlist-primary-control-size);
-    color: var(--music-album-paper);
-    background: var(--music-album-accent);
-    border-color: transparent;
-    box-shadow: 0 0 0 0.32rem
-      color-mix(in srgb, var(--music-album-accent) 13%, transparent);
-  }
-
-  .album-playlist-player__volume-button {
-    position: relative;
-  }
-
-  .album-playlist-player__control:disabled,
-  .album-playlist-player__transport-button:disabled,
-  .album-playlist-player__volume-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-
-  .album-playlist-player__volume-icon,
-  .album-playlist-player__control-icon {
-    position: absolute;
-    inset: 0;
-    inline-size: 1.35rem;
-    block-size: 1.35rem;
-    margin: auto;
-    color: currentcolor;
-  }
-
-  .album-playlist-player__transport-icon,
   .album-playlist-player__track-action-icon,
   .album-playlist-player__track-play-icon,
   .album-playlist-player__tracklist-empty-icon {
@@ -566,58 +254,9 @@ const getTrackDurationLabel = (song: Song): string =>
     block-size: 1rem;
   }
 
-  .album-playlist-player__volume-icon--off,
-  .album-playlist-player__control-icon--pause {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  .album-playlist-player[data-player-muted="true"]
-    .album-playlist-player__volume-icon--on,
-  .album-playlist-player[data-player-state="playing"]
-    .album-playlist-player__control-icon--play {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0.8);
-  }
-
-  .album-playlist-player[data-player-muted="true"]
-    .album-playlist-player__volume-icon--off,
-  .album-playlist-player[data-player-state="playing"]
-    .album-playlist-player__control-icon--pause {
-    visibility: visible;
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  .album-playlist-player__progress-wrap {
-    display: grid;
-    gap: 0.28rem;
-  }
-
-  .album-playlist-player__progress {
-    inline-size: 100%;
-    block-size: 0.5rem;
-    accent-color: var(--music-album-accent);
-    cursor: pointer;
-  }
-
-  .album-playlist-player__meta {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .album-playlist-player__time {
-    font-size: var(--font-size-xs);
-    font-variant-numeric: tabular-nums;
-    color: var(--music-album-muted);
-  }
-
   .album-playlist-player__tracklist-section {
-    padding: 0.85rem clamp(0.75rem, 2vw, 1.25rem) clamp(0.9rem, 2vw, 1.2rem);
+    padding: clamp(0.65rem, 1.5vw, 1rem) clamp(0.75rem, 2vw, 1.25rem);
     background: color-mix(in srgb, var(--music-album-paper-soft) 48%, transparent);
-    border-block-start: 1px solid var(--music-album-line);
   }
 
   .album-playlist-player__tracklist {
@@ -714,12 +353,16 @@ const getTrackDurationLabel = (song: Song): string =>
     opacity: 0;
   }
 
+  .album-playlist-player__track:hover .album-playlist-player__track-num-text,
+  .album-playlist-player__track:focus-within .album-playlist-player__track-num-text,
   .album-playlist-player__track[data-is-playing="true"]
     .album-playlist-player__track-num-text {
     visibility: hidden;
     opacity: 0;
   }
 
+  .album-playlist-player__track:hover .album-playlist-player__track-play-icon,
+  .album-playlist-player__track:focus-within .album-playlist-player__track-play-icon,
   .album-playlist-player__track[data-is-playing="true"]
     .album-playlist-player__track-play-icon {
     visibility: visible;
@@ -797,10 +440,6 @@ const getTrackDurationLabel = (song: Song): string =>
     background: color-mix(in srgb, var(--music-album-accent) 10%, transparent);
   }
 
-  .album-playlist-player__control:focus-visible,
-  .album-playlist-player__transport-button:focus-visible,
-  .album-playlist-player__volume-button:focus-visible,
-  .album-playlist-player__progress:focus-visible,
   .album-playlist-player__track-button:focus-visible,
   .album-playlist-player__track-lyrics:focus-visible,
   .album-playlist-player__track-download:focus-visible {
@@ -809,12 +448,6 @@ const getTrackDurationLabel = (song: Song): string =>
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .album-playlist-player__current-title {
-      transition: opacity 180ms var(--album-playlist-ease-out);
-    }
-
-    .album-playlist-player__volume-icon,
-    .album-playlist-player__control-icon,
     .album-playlist-player__track-play-icon,
     .album-playlist-player__track-num-text {
       transition:
@@ -823,19 +456,8 @@ const getTrackDurationLabel = (song: Song): string =>
         visibility 180ms;
     }
 
-    .album-playlist-player__control[data-pop="true"]
-      .album-playlist-player__control-icon {
-      animation: album-playlist-control-pop 180ms var(--album-playlist-ease-out) forwards;
-    }
-
     .album-playlist-player[data-player-celebrating="true"]::before {
       animation: album-playlist-complete-ring 280ms var(--album-playlist-ease-out);
-    }
-  }
-
-  @media (width >= 880px) {
-    .album-playlist-player__tracklist {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
@@ -843,45 +465,14 @@ const getTrackDurationLabel = (song: Song): string =>
     .album-playlist-player {
       --album-playlist-radius: 0.55rem;
       --album-playlist-radius-row: 0.35rem;
-      --album-playlist-control-size: 2.75rem;
-      --album-playlist-primary-control-size: 3.15rem;
-      --album-playlist-track-action-size: 2.35rem;
-      --album-playlist-track-min-block: 2.24rem;
-      --album-playlist-track-button-min-block: 2.24rem;
+      --album-playlist-track-action-size: 2.75rem;
+      --album-playlist-track-min-block: 2.75rem;
+      --album-playlist-track-button-min-block: 2.75rem;
       --album-playlist-track-num-column: 1.65rem;
       --album-playlist-track-duration-column: 2.45rem;
       --album-playlist-track-gap: 0.25rem;
 
       box-shadow: 0 0.8rem 1.5rem oklch(0% 0 0deg / 0.18);
-    }
-
-    .album-playlist-player__now-playing {
-      gap: 0.45rem;
-      padding: 0.65rem 0.7rem 0.55rem;
-    }
-
-    .album-playlist-player__now-playing-row {
-      justify-content: space-between;
-    }
-
-    .album-playlist-player__info {
-      text-align: start;
-    }
-
-    .album-playlist-player__current-title {
-      font-size: var(--font-size-xs);
-    }
-
-    .album-playlist-player__controls {
-      gap: 0.35rem;
-    }
-
-    .album-playlist-player__transport-cluster {
-      gap: 0.28rem;
-    }
-
-    .album-playlist-player__progress-wrap {
-      gap: 0.25rem;
     }
 
     .album-playlist-player__tracklist-section {
@@ -927,18 +518,6 @@ const getTrackDurationLabel = (song: Song): string =>
     .album-playlist-player__track-duration,
     .album-playlist-player__track-num {
       font-size: var(--font-size-xs);
-    }
-  }
-
-  @keyframes album-playlist-control-pop {
-    0% {
-      opacity: 0.72;
-      transform: scale(0.9);
-    }
-
-    100% {
-      opacity: 1;
-      transform: scale(1);
     }
   }
 

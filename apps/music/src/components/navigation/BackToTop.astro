@@ -24,65 +24,79 @@ const { focusTargetId = "main-content", scrollThreshold = 180 } = Astro.props as
 </button>
 
 <script>
-  const backToTopButtons = Array.from(
-    document.querySelectorAll<HTMLButtonElement>("[data-music-back-to-top]")
-  ).filter((button) => button.dataset.backToTopBound !== "true");
+  const bindBackToTopButtons = () => {
+    const backToTopButtons = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-music-back-to-top]")
+    ).filter((button) => button.dataset.backToTopBound !== "true");
 
-  backToTopButtons.forEach((button) => {
-    button.dataset.backToTopBound = "true";
+    backToTopButtons.forEach((button) => {
+      button.dataset.backToTopBound = "true";
+      const controller = new AbortController();
+      const { signal } = controller;
 
-    const configuredThreshold = Number.parseInt(button.dataset.scrollThreshold || "", 10);
-    const scrollThreshold = Number.isFinite(configuredThreshold)
-      ? configuredThreshold
-      : 180;
-    const focusTargetId = button.dataset.focusTargetId || "main-content";
-    const reducedMotion =
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
-    let ticking = false;
+      const configuredThreshold = Number.parseInt(
+        button.dataset.scrollThreshold || "",
+        10
+      );
+      const scrollThreshold = Number.isFinite(configuredThreshold)
+        ? configuredThreshold
+        : 180;
+      const focusTargetId = button.dataset.focusTargetId || "main-content";
+      const reducedMotion =
+        window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+      let ticking = false;
 
-    const updateVisibility = () => {
-      const shouldShow = window.scrollY > scrollThreshold;
+      const updateVisibility = () => {
+        const shouldShow = window.scrollY > scrollThreshold;
 
-      button.dataset.visible = shouldShow ? "true" : "false";
-      button.setAttribute("aria-hidden", shouldShow ? "false" : "true");
-      button.tabIndex = shouldShow ? 0 : -1;
-      ticking = false;
-    };
+        button.dataset.visible = shouldShow ? "true" : "false";
+        button.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+        button.tabIndex = shouldShow ? 0 : -1;
+        ticking = false;
+      };
 
-    const onScroll = () => {
-      if (ticking) {
-        return;
-      }
-
-      ticking = true;
-      window.requestAnimationFrame(updateVisibility);
-    };
-
-    const handleClick = () => {
-      const focusTarget = document.getElementById(focusTargetId);
-
-      window.scrollTo({
-        top: 0,
-        behavior: reducedMotion ? "auto" : "smooth",
-      });
-
-      if (focusTarget instanceof HTMLElement && document.activeElement === button) {
-        if (!focusTarget.hasAttribute("tabindex")) {
-          focusTarget.tabIndex = -1;
+      const onScroll = () => {
+        if (ticking) {
+          return;
         }
 
-        focusTarget.focus({ preventScroll: true });
-      }
+        ticking = true;
+        window.requestAnimationFrame(updateVisibility);
+      };
 
-      button.dataset.visible = "false";
-      button.setAttribute("aria-hidden", "true");
-      button.tabIndex = -1;
-    };
+      const handleClick = () => {
+        const focusTarget = document.getElementById(focusTargetId);
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    button.addEventListener("click", handleClick);
-    updateVisibility();
-  });
+        window.scrollTo({
+          top: 0,
+          behavior: reducedMotion ? "auto" : "smooth",
+        });
+
+        if (focusTarget instanceof HTMLElement && document.activeElement === button) {
+          if (!focusTarget.hasAttribute("tabindex")) {
+            focusTarget.tabIndex = -1;
+          }
+
+          focusTarget.focus({ preventScroll: true });
+        }
+
+        button.dataset.visible = "false";
+        button.setAttribute("aria-hidden", "true");
+        button.tabIndex = -1;
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true, signal });
+      button.addEventListener("click", handleClick, { signal });
+      document.addEventListener("astro:before-swap", () => controller.abort(), {
+        once: true,
+        signal,
+      });
+      updateVisibility();
+    });
+  };
+
+  bindBackToTopButtons();
+  document.addEventListener("astro:page-load", bindBackToTopButtons);
 </script>
 
 <style>

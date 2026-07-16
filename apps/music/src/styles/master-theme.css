@@ -48,15 +48,15 @@
   --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
 
   /* Font sizes */
-  --font-size-xs: clamp(1rem, 0.98rem + 0.2vw, 1.125rem); /* 16-18px */
-  --font-size-sm: clamp(1.0625rem, 1.03rem + 0.28vw, 1.1875rem); /* 17-19px */
-  --font-size-base: clamp(1.125rem, 1.1rem + 0.5vw, 1.25rem); /* 18-20px */
-  --font-size-md: clamp(1.1875rem, 1.14rem + 0.56vw, 1.5625rem); /* 19-25px */
-  --font-size-lg: clamp(1.3125rem, 1.22rem + 0.72vw, 1.75rem); /* 21-28px */
-  --font-size-xl: clamp(1.5rem, 1.34rem + 0.9vw, 2rem); /* 24-32px */
-  --font-size-2xl: clamp(1.875rem, 1.58rem + 1.3vw, 2.625rem); /* 30-42px */
-  --font-size-3xl: clamp(2.25rem, 1.88rem + 1.7vw, 3.25rem); /* 36-52px */
-  --font-size-4xl: clamp(2.75rem, 2.15rem + 2.35vw, 4.5rem); /* 44-72px */
+  --font-size-xs: 0.875rem;
+  --font-size-sm: 0.95rem;
+  --font-size-base: 1rem;
+  --font-size-md: 1.125rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 1.875rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
   /* Font weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;

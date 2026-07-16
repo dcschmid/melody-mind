@@ -202,16 +202,6 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
       <Content />
     </Details>
 
-    <AlbumSupportSection albumTitle={currentAlbum.title} />
-
-    <AlbumWebmentions pageUrl={canonical} />
-
-    <AlbumComments
-      pageId={currentAlbumId}
-      pageUrl={canonical}
-      pageTitle={currentAlbum.title}
-    />
-
     <RelatedContentSection
       id="related-albums"
       eyebrow="Keep listening"
@@ -220,6 +210,16 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
       listAriaLabel="Similar albums"
       items={relatedAlbums}
       mediaObjectFit="cover"
+    />
+
+    <AlbumSupportSection albumTitle={currentAlbum.title} />
+
+    <AlbumWebmentions pageUrl={canonical} />
+
+    <AlbumComments
+      pageId={currentAlbumId}
+      pageUrl={canonical}
+      pageTitle={currentAlbum.title}
     />
   </Surface>
 </Layout>

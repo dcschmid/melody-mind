@@ -77,9 +77,15 @@ const titleId = `album-comments-${pageId}`;
   const getConsentApi = (): ConsentApi | undefined =>
     (window as Window & { astroConsent?: ConsentApi }).astroConsent;
 
-  const commentsRoot = document.querySelector("[data-album-comments]");
+  const bindAlbumComments = () => {
+    const commentsRoot = document.querySelector<HTMLElement>("[data-album-comments]");
 
-  if (commentsRoot) {
+    if (!commentsRoot || commentsRoot.dataset.albumCommentsBound === "true") {
+      return;
+    }
+    commentsRoot.dataset.albumCommentsBound = "true";
+    const controller = new AbortController();
+    const { signal } = controller;
     const consentPanel = commentsRoot.querySelector("[data-album-comments-consent]");
     const enableButton = commentsRoot.querySelector("[data-album-comments-enable]");
     const commentCount = commentsRoot.querySelector("[data-album-comments-count]");
@@ -91,48 +97,63 @@ const titleId = `album-comments-${pageId}`;
       commentCount?.toggleAttribute("hidden", !hasCommentsConsent);
     };
 
-    enableButton?.addEventListener("click", () => {
-      getConsentApi()?.set({ comments: true });
-      updateConsentPanel();
-    });
+    enableButton?.addEventListener(
+      "click",
+      () => {
+        getConsentApi()?.set({ comments: true });
+        updateConsentPanel();
+      },
+      { signal }
+    );
 
-    document.addEventListener("astro-consent:consent", updateConsentPanel);
-    document.addEventListener("astro-consent:change", updateConsentPanel);
+    document.addEventListener("astro-consent:consent", updateConsentPanel, { signal });
+    document.addEventListener("astro-consent:change", updateConsentPanel, { signal });
     updateConsentPanel();
 
-    window.addEventListener("message", (event) => {
-      if (!cusdisThread) {
-        return;
-      }
-
-      try {
-        const message = JSON.parse(event.data) as {
-          from?: string;
-          event?: string;
-          data?: number;
-        };
-
-        if (
-          message.from !== "cusdis" ||
-          message.event !== "resize" ||
-          typeof message.data !== "number"
-        ) {
+    window.addEventListener(
+      "message",
+      (event) => {
+        if (!cusdisThread) {
           return;
         }
 
-        const resizeHeight = message.data;
+        try {
+          const message = JSON.parse(event.data) as {
+            from?: string;
+            event?: string;
+            data?: number;
+          };
 
-        window.requestAnimationFrame(() => {
-          const iframe = cusdisThread.querySelector("iframe");
-          if (iframe) {
-            iframe.style.height = `${resizeHeight + 96}px`;
+          if (
+            message.from !== "cusdis" ||
+            message.event !== "resize" ||
+            typeof message.data !== "number"
+          ) {
+            return;
           }
-        });
-      } catch {
-        // Ignore unrelated postMessage traffic.
-      }
+
+          const resizeHeight = message.data;
+
+          window.requestAnimationFrame(() => {
+            const iframe = cusdisThread.querySelector("iframe");
+            if (iframe) {
+              iframe.style.height = `${resizeHeight + 96}px`;
+            }
+          });
+        } catch {
+          // Ignore unrelated postMessage traffic.
+        }
+      },
+      { signal }
+    );
+    document.addEventListener("astro:before-swap", () => controller.abort(), {
+      once: true,
+      signal,
     });
-  }
+  };
+
+  bindAlbumComments();
+  document.addEventListener("astro:page-load", bindAlbumComments);
 </script>
 
 <style>

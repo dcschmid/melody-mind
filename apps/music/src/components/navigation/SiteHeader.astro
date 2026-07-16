@@ -110,129 +110,156 @@ const mobileExtraProps = {
 </header>
 
 <script>
-  const headers = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-music-site-header]")
-  ).filter((header) => header.dataset.bound !== "true");
+  const bindMusicSiteHeaders = () => {
+    const headers = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-music-site-header]")
+    ).filter((header) => header.dataset.bound !== "true");
 
-  headers.forEach((header) => {
-    header.dataset.bound = "true";
+    headers.forEach((header) => {
+      header.dataset.bound = "true";
+      const controller = new AbortController();
+      const { signal } = controller;
 
-    const toggle = header.querySelector<HTMLButtonElement>("[data-music-menu-toggle]");
-    const closeButtons = header.querySelectorAll<HTMLButtonElement>(
-      "[data-music-menu-close]"
-    );
-    const drawer = header.querySelector<HTMLElement>(".music-site-header__inner");
-    const nav = header.querySelector<HTMLElement>("[data-music-menu-nav]");
-    const desktopQuery = window.matchMedia("(min-width: 1024px)");
-    const focusableSelector =
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      const toggle = header.querySelector<HTMLButtonElement>("[data-music-menu-toggle]");
+      const closeButtons = header.querySelectorAll<HTMLButtonElement>(
+        "[data-music-menu-close]"
+      );
+      const drawer = header.querySelector<HTMLElement>(".music-site-header__inner");
+      const nav = header.querySelector<HTMLElement>("[data-music-menu-nav]");
+      const desktopQuery = window.matchMedia("(min-width: 1024px)");
+      const focusableSelector =
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-    if (!toggle || !drawer || !nav) {
-      return;
-    }
+      if (!toggle || !drawer || !nav) {
+        return;
+      }
 
-    const getPageSiblings = (): HTMLElement[] =>
-      Array.from(document.body.children).filter(
-        (element): element is HTMLElement =>
-          element instanceof HTMLElement && !element.contains(header)
+      const getPageSiblings = (): HTMLElement[] =>
+        Array.from(document.body.children).filter(
+          (element): element is HTMLElement =>
+            element instanceof HTMLElement && !element.contains(header)
+        );
+
+      const getFocusableElements = (): HTMLElement[] =>
+        [
+          toggle,
+          ...Array.from(nav.querySelectorAll<HTMLElement>(focusableSelector)),
+        ].filter((element) => element.offsetParent !== null);
+
+      const setPageSiblingsInert = (inert: boolean) => {
+        getPageSiblings().forEach((element) => {
+          element.inert = inert;
+        });
+      };
+
+      const setOpen = (open: boolean, restoreFocus = true) => {
+        header.dataset.open = String(open);
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close main menu" : "Open main menu");
+        document.body.classList.toggle("music-site-header-open", open);
+        setPageSiblingsInert(open);
+        drawer.toggleAttribute("role", open);
+        drawer.toggleAttribute("aria-modal", open);
+        drawer.toggleAttribute("aria-label", open);
+
+        if (open) {
+          drawer.setAttribute("role", "dialog");
+          drawer.setAttribute("aria-modal", "true");
+          drawer.setAttribute("aria-label", "Main menu");
+        }
+
+        closeButtons.forEach((button) => {
+          button.setAttribute("aria-hidden", String(!open));
+        });
+
+        if (open) {
+          requestAnimationFrame(() => {
+            toggle.focus({ preventScroll: true });
+          });
+        } else if (restoreFocus) {
+          toggle.focus();
+        }
+      };
+
+      toggle.addEventListener(
+        "click",
+        () => {
+          setOpen(header.dataset.open !== "true");
+        },
+        { signal }
       );
 
-    const getFocusableElements = (): HTMLElement[] =>
-      [
-        toggle,
-        ...Array.from(nav.querySelectorAll<HTMLElement>(focusableSelector)),
-      ].filter((element) => element.offsetParent !== null);
-
-    const setPageSiblingsInert = (inert: boolean) => {
-      getPageSiblings().forEach((element) => {
-        element.inert = inert;
-      });
-    };
-
-    const setOpen = (open: boolean, restoreFocus = true) => {
-      header.dataset.open = String(open);
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "Close main menu" : "Open main menu");
-      document.body.classList.toggle("music-site-header-open", open);
-      setPageSiblingsInert(open);
-      drawer.toggleAttribute("role", open);
-      drawer.toggleAttribute("aria-modal", open);
-      drawer.toggleAttribute("aria-label", open);
-
-      if (open) {
-        drawer.setAttribute("role", "dialog");
-        drawer.setAttribute("aria-modal", "true");
-        drawer.setAttribute("aria-label", "Main menu");
-      }
-
       closeButtons.forEach((button) => {
-        button.setAttribute("aria-hidden", String(!open));
+        button.addEventListener("click", () => setOpen(false), { signal });
       });
 
-      if (open) {
-        requestAnimationFrame(() => {
-          toggle.focus({ preventScroll: true });
-        });
-      } else if (restoreFocus) {
-        toggle.focus();
-      }
-    };
+      nav.querySelectorAll("a[href]").forEach((link) => {
+        link.addEventListener("click", () => setOpen(false, false), { signal });
+      });
 
-    toggle.addEventListener("click", () => {
-      setOpen(header.dataset.open !== "true");
+      window.addEventListener(
+        "keydown",
+        (event) => {
+          if (header.dataset.open === "true" && event.key === "Tab") {
+            const focusableElements = getFocusableElements();
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements.at(-1);
+
+            if (!firstElement || !lastElement) {
+              return;
+            }
+
+            if (!header.contains(document.activeElement)) {
+              event.preventDefault();
+              firstElement.focus();
+              return;
+            }
+
+            if (event.shiftKey && document.activeElement === firstElement) {
+              event.preventDefault();
+              lastElement.focus();
+              return;
+            }
+
+            if (!event.shiftKey && document.activeElement === lastElement) {
+              event.preventDefault();
+              firstElement.focus();
+            }
+          }
+
+          if (header.dataset.open === "true" && event.key === "Escape") {
+            setOpen(false);
+          }
+        },
+        { signal }
+      );
+
+      desktopQuery.addEventListener(
+        "change",
+        (event) => {
+          if (event.matches) {
+            setOpen(false, false);
+          }
+        },
+        { signal }
+      );
+
+      window.addEventListener(
+        "pagehide",
+        () => {
+          setOpen(false, false);
+        },
+        { signal }
+      );
+      document.addEventListener("astro:before-swap", () => controller.abort(), {
+        once: true,
+        signal,
+      });
     });
+  };
 
-    closeButtons.forEach((button) => {
-      button.addEventListener("click", () => setOpen(false));
-    });
-
-    nav.querySelectorAll("a[href]").forEach((link) => {
-      link.addEventListener("click", () => setOpen(false, false));
-    });
-
-    window.addEventListener("keydown", (event) => {
-      if (header.dataset.open === "true" && event.key === "Tab") {
-        const focusableElements = getFocusableElements();
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements.at(-1);
-
-        if (!firstElement || !lastElement) {
-          return;
-        }
-
-        if (!header.contains(document.activeElement)) {
-          event.preventDefault();
-          firstElement.focus();
-          return;
-        }
-
-        if (event.shiftKey && document.activeElement === firstElement) {
-          event.preventDefault();
-          lastElement.focus();
-          return;
-        }
-
-        if (!event.shiftKey && document.activeElement === lastElement) {
-          event.preventDefault();
-          firstElement.focus();
-        }
-      }
-
-      if (header.dataset.open === "true" && event.key === "Escape") {
-        setOpen(false);
-      }
-    });
-
-    desktopQuery.addEventListener("change", (event) => {
-      if (event.matches) {
-        setOpen(false, false);
-      }
-    });
-
-    window.addEventListener("pagehide", () => {
-      setOpen(false, false);
-    });
-  });
+  document.addEventListener("astro:page-load", bindMusicSiteHeaders);
+  bindMusicSiteHeaders();
 </script>
 
 <style>

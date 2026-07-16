@@ -8,7 +8,7 @@ import ContinueListening from "@components/music/home/ContinueListening.astro";
 import LatestSection from "@components/music/home/LatestSection.astro";
 import Hero from "@components/music/home/Hero.astro";
 import MainGenresSection from "@components/music/home/MainGenresSection.astro";
-import type { CoverImage, Entry } from "@components/music/home/types";
+import type { CoverImage, Entry, FeaturedAlbum } from "@components/music/home/types";
 import type { IconName } from "@components/visual/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 import type { AlbumData } from "../types/album";
@@ -85,22 +85,6 @@ const getImageWidth = (image: CoverImage): number | undefined =>
 const getImageHeight = (image: CoverImage): number | undefined =>
   typeof image === "string" ? undefined : image.height;
 
-const getFeaturedAlbums = (items: AlbumData[], featuredCount: number): AlbumData[] =>
-  [...items]
-    .sort((a, b) => {
-      const aScore = Array.from(a.id).reduce(
-        (score, char) => score + char.charCodeAt(0),
-        0
-      );
-      const bScore = Array.from(b.id).reduce(
-        (score, char) => score + char.charCodeAt(0),
-        0
-      );
-
-      return aScore - bScore || compareAlbumsByDate(a, b);
-    })
-    .slice(0, featuredCount);
-
 const albumEntries: Entry[] = sortedAlbumsByDate.map((album) => {
   const totalDurationSeconds = album.songs.reduce(
     (acc, song) => acc + (song.durationSeconds || 0),
@@ -127,18 +111,30 @@ const albumEntries: Entry[] = sortedAlbumsByDate.map((album) => {
   };
 });
 const albumEntriesById = new Map(albumEntries.map((album) => [album.id, album]));
-const heroAlbums = getFeaturedAlbums(sortedAlbumsByDate, 5).map((album) => {
-  const imageSrc = getAlbumCoverImage(album.coverImage);
-  return {
-    id: album.id,
-    title: album.title,
-    imageSrc,
-    imageUrl: getImageSource(imageSrc),
-    imageWidth: getImageWidth(imageSrc),
-    imageHeight: getImageHeight(imageSrc),
-  };
-});
+const featuredSource = sortedAlbumsByDate[0];
+const featuredEntry = featuredSource
+  ? albumEntriesById.get(featuredSource.id)
+  : undefined;
+const featuredAlbum: FeaturedAlbum | undefined =
+  featuredSource && featuredEntry
+    ? {
+        ...featuredEntry,
+        queue: {
+          albumId: featuredSource.id,
+          albumTitle: featuredSource.title,
+          albumUrl: `/${featuredSource.id}/`,
+          albumArtworkUrl: featuredEntry.imageUrl,
+          tracks: featuredSource.songs.map((song) => ({
+            trackNumber: song.trackNumber,
+            title: song.title,
+            audioUrl: song.audioUrl,
+            ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
+          })),
+        },
+      }
+    : undefined;
 const latestReleaseShelf = sortedAlbumsByDate
+  .filter((album) => album.id !== featuredSource?.id)
   .map((album) => albumEntriesById.get(album.id))
   .filter((album): album is Entry => Boolean(album))
   .slice(0, 3);
@@ -185,7 +181,7 @@ const breadcrumbs = [{ name: "Home", url: canonical }];
 const t = {
   title: "MelodyMind Music",
   seoTitle: "MelodyMind Music | AI-Generated Albums",
-  subtitle: "Curated albums for deep listening",
+  subtitle: "Newest release",
   description:
     "MelodyMind Music is a growing archive of full AI-assisted concept albums across rock, metal, punk, pop, gothic, cinematic and experimental genres.",
   editorialDeck:
@@ -245,17 +241,13 @@ const structuredData = [
 >
   <div class="music-home">
     <Hero
-      albums={heroAlbums}
+      {...featuredAlbum ? { featuredAlbum } : {}}
       eyebrow={t.subtitle}
-      title={t.title}
-      description={t.description}
-      editorialDeck={t.editorialDeck}
       exploreAlbumsLabel={t.exploreAlbums}
-      latestReleasesLabel={t.latestReleases}
       exploreAlbumsHref="#main-genres-heading"
     />
 
-    <div class="music-home__content">
+    <div class="music-home__content" id="discover">
       <div>
         <ContinueListening albums={albumEntries} title={t.continueListening} />
       </div>

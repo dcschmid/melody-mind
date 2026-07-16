@@ -49,7 +49,7 @@ const albumPayload = albums.map((album) => ({
 </section>
 
 <script is:inline define:vars={{ albumPayload }}>
-  const PLAYBACK_STATE_STORAGE_KEY = "melodymind:music-player-state:v1";
+  const PLAYBACK_STATE_STORAGE_KEY = "melodymind:music-player-state:v2";
   const albums = albumPayload;
   const root = document.querySelector("[data-continue-listening]");
 
@@ -70,7 +70,32 @@ const albumPayload = albums.map((album) => ({
     }
   };
 
-  const renderContinueListening = (state = readState()) => {
+  const normalizeState = (state) => {
+    if (state?.version === 2 && state.queue) {
+      const track = state.queue.tracks?.[state.currentTrackIndex || 0];
+      return {
+        albumId: state.queue.albumId,
+        trackTitle: track?.title,
+        trackNumber: track?.trackNumber,
+        currentTime: state.currentTime,
+      };
+    }
+
+    if (state?.queue) {
+      const track = state.queue.tracks?.[state.currentTrackIndex || 0];
+      return {
+        albumId: state.queue.albumId,
+        trackTitle: track?.title,
+        trackNumber: track?.trackNumber,
+        currentTime: state.currentTime,
+      };
+    }
+
+    return state;
+  };
+
+  const renderContinueListening = (rawState = readState()) => {
+    const state = normalizeState(rawState);
     if (!(root instanceof HTMLElement) || !state?.albumId || !state?.trackTitle) {
       return;
     }
@@ -109,7 +134,7 @@ const albumPayload = albums.map((album) => ({
     }
 
     if (link instanceof HTMLAnchorElement) {
-      link.href = `/${album.id}/#album-playlist-${album.id}`;
+      link.href = `/${album.id}/#track-${state.trackNumber || 1}`;
       link.setAttribute("aria-label", `Resume ${state.trackTitle} from ${album.title}`);
     }
 
@@ -117,8 +142,15 @@ const albumPayload = albums.map((album) => ({
   };
 
   renderContinueListening();
-  window.addEventListener("melodymind:playback-state", (event) => {
-    renderContinueListening(event.detail);
+  const controller = new AbortController();
+  window.addEventListener(
+    "melodymind:playback-state",
+    (event) => renderContinueListening(event.detail),
+    { signal: controller.signal }
+  );
+  document.addEventListener("astro:before-swap", () => controller.abort(), {
+    once: true,
+    signal: controller.signal,
   });
 </script>
 

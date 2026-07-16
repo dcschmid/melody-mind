@@ -87,16 +87,16 @@ export const musicAppShellConfig = buildAppShellConfig({
     "Original AI-generated music spanning genres from ambient soundscapes to pop productions.",
   footerExploreLinks: [
     {
-      href: "/#latest",
+      href: "/#latest-releases",
       label: "Latest Releases",
     },
     {
-      href: "/#albums",
-      label: "Albums",
+      href: "/#main-genres-heading",
+      label: "Genres",
     },
     {
-      href: "/search",
-      label: "Search",
+      href: "/#album-series-heading",
+      label: "Album Series",
     },
     {
       href: "/about",
