@@ -106,23 +106,30 @@ const { headingId, iconName, items, title } = Astro.props as Props;
   .feature-link-list__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
     gap: var(--spacing-base);
+    align-items: stretch;
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
   .feature-link-list__item {
+    display: grid;
+    align-self: stretch;
     min-inline-size: 0;
+    min-block-size: 0;
   }
 
   .feature-link-list__card {
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: clamp(1rem, 2vw, 2rem);
-    align-items: center;
-    min-block-size: 9rem;
-    padding: clamp(1rem, 2vw, 1.5rem);
+    gap: clamp(0.875rem, 1.5vw, 1.5rem);
+    align-items: stretch;
+    block-size: 100%;
+    min-block-size: 8rem;
+    padding: clamp(0.875rem, 1.5vw, 1.25rem);
     color: var(--music-home-ink);
     text-decoration: none;
     background: color-mix(in srgb, var(--music-home-paper) 76%, transparent);
@@ -132,7 +139,9 @@ const { headingId, iconName, items, title } = Astro.props as Props;
 
   .feature-link-list__copy {
     display: grid;
-    gap: 0.55rem;
+    grid-template-rows: auto auto auto auto;
+    gap: 0.45rem;
+    align-content: start;
     min-inline-size: 0;
   }
 
@@ -147,30 +156,38 @@ const { headingId, iconName, items, title } = Astro.props as Props;
   }
 
   .feature-link-list__title {
+    display: -webkit-box;
     margin: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
     font-family: var(--font-sans);
-    font-size: clamp(1.35rem, 1.1rem + 0.9vw, 2.05rem);
+    font-size: clamp(1.3rem, 1.12rem + 0.65vw, 1.8rem);
     font-weight: var(--font-weight-semibold);
     line-height: 1.08;
     color: var(--music-home-ink);
     letter-spacing: 0;
     text-wrap: balance;
+    -webkit-box-orient: vertical;
   }
 
   .feature-link-list__description {
+    display: -webkit-box;
     max-inline-size: 76ch;
     margin: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
     font-size: clamp(var(--font-size-sm), 0.86rem + 0.35vw, var(--font-size-md));
     line-height: 1.48;
     color: var(--music-home-muted);
     text-wrap: pretty;
+    -webkit-box-orient: vertical;
   }
 
   .feature-link-list__meta {
     display: inline-flex;
     gap: var(--spacing-xs);
     align-items: center;
-    margin-block-start: 0.22rem;
+    margin-block-start: 0.15rem;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
     color: var(--music-home-accent);
@@ -185,24 +202,25 @@ const { headingId, iconName, items, title } = Astro.props as Props;
     display: flex;
     gap: 0.75rem;
     align-items: center;
+    align-self: center;
     justify-content: flex-end;
-    min-inline-size: clamp(8rem, 16vw, 14.5rem);
-    padding-inline-start: 0.75rem;
+    min-inline-size: clamp(7rem, 12vw, 11rem);
+    padding-inline-start: 0.5rem;
   }
 
   .feature-link-list__cover-stack {
     position: relative;
     display: block;
-    inline-size: clamp(7rem, 10vw, 9rem);
-    block-size: clamp(4.25rem, 7vw, 5.7rem);
+    inline-size: clamp(6.25rem, 8vw, 8rem);
+    block-size: clamp(3.9rem, 5.5vw, 5rem);
   }
 
   .feature-link-list__cover-wrap {
     position: absolute;
     inset-block-start: 50%;
-    inset-inline-start: calc(var(--feature-link-list-index) * 1.85rem);
+    inset-inline-start: calc(var(--feature-link-list-index) * 1.55rem);
     display: block;
-    inline-size: clamp(4.1rem, 6vw, 5.7rem);
+    inline-size: clamp(3.8rem, 4.8vw, 5rem);
     transform: translateY(-50%)
       translateY(calc((var(--feature-link-list-index) - 1) * 0.25rem));
   }
@@ -273,12 +291,18 @@ const { headingId, iconName, items, title } = Astro.props as Props;
   @media (width <= 760px) {
     .feature-link-list__list {
       grid-template-columns: minmax(0, 1fr);
+      grid-auto-rows: auto;
       gap: var(--spacing-sm);
     }
 
     .feature-link-list__card {
+      block-size: auto;
       min-block-size: 7.5rem;
       padding: 1rem;
+    }
+
+    .feature-link-list__copy {
+      grid-template-rows: auto;
     }
 
     .feature-link-list__description {
