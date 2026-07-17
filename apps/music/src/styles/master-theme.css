@@ -48,9 +48,10 @@
   --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
 
   /* Font sizes */
-  --font-size-xs: 0.875rem;
-  --font-size-sm: 0.95rem;
-  --font-size-base: 1rem;
+  /* Accessible floor: all visible interface copy starts at 18px. */
+  --font-size-xs: 1.125rem;
+  --font-size-sm: 1.125rem;
+  --font-size-base: 1.125rem;
   --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.5rem;
@@ -271,6 +272,13 @@ body {
   color: var(--text-primary);
   background: var(--page-background);
   background-color: var(--bg-primary);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 /* =============================================================================

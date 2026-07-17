@@ -170,13 +170,13 @@ import Icon from "@components/visual/Icon.astro";
   }
 
   .global-player__track {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     line-height: 1.2;
   }
 
   .global-player__album,
   .global-player__time {
-    font-size: 0.875rem;
+    font-size: var(--font-size-xs);
     color: var(--text-tertiary);
   }
 
@@ -298,7 +298,7 @@ import Icon from "@components/visual/Icon.astro";
     }
 
     .global-player__time {
-      font-size: 0.75rem;
+      font-size: var(--font-size-xs);
       font-variant-numeric: tabular-nums;
     }
 

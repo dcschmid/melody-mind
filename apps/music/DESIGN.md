@@ -22,12 +22,12 @@ typography:
     lineHeight: 1.15
   body:
     fontFamily: "Atkinson Hyperlegible, system-ui, sans-serif"
-    fontSize: "1rem"
+    fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.6
   label:
     fontFamily: "Atkinson Hyperlegible, system-ui, sans-serif"
-    fontSize: "0.875rem"
+    fontSize: "1.125rem"
     fontWeight: 700
     lineHeight: 1.2
 rounded:

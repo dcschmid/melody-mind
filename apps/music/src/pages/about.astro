@@ -289,7 +289,7 @@ const pageSeo = buildPageSeo({
 
   .about-page__copy {
     max-inline-size: 72ch;
-    font-size: clamp(1.04rem, 1rem + 0.22vw, 1.2rem);
+    font-size: clamp(var(--font-size-base), 1rem + 0.22vw, 1.2rem);
     line-height: 1.78;
     color: var(--text-secondary);
   }
@@ -313,7 +313,7 @@ const pageSeo = buildPageSeo({
 
   .about-page__feature-item {
     padding-block-start: var(--spacing-sm);
-    font-size: clamp(1rem, 0.98rem + 0.16vw, 1.1rem);
+    font-size: var(--font-size-base);
     line-height: 1.6;
     color: var(--text-secondary);
     border-block-start: 1px solid var(--surface-border-soft);
@@ -323,7 +323,7 @@ const pageSeo = buildPageSeo({
     max-inline-size: 72ch;
     padding-block: clamp(var(--spacing-xl), 6vw, var(--spacing-3xl));
     margin-inline-start: auto;
-    font-size: clamp(1.1rem, 1rem + 0.34vw, 1.3rem);
+    font-size: clamp(var(--font-size-base), 1rem + 0.34vw, 1.3rem);
     line-height: 1.65;
     color: var(--text-primary);
   }
