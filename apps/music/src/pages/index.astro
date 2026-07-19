@@ -138,6 +138,10 @@ const latestReleaseShelf = sortedAlbumsByDate
   .map((album) => albumEntriesById.get(album.id))
   .filter((album): album is Entry => Boolean(album))
   .slice(0, 3);
+const homeStructuredDataAlbums = sortedAlbumsByDate.slice(
+  0,
+  featuredAlbum ? latestReleaseShelf.length + 1 : latestReleaseShelf.length
+);
 const seriesShelf = albumSeries
   .map((series) => ({
     ...series,
@@ -217,7 +221,7 @@ const structuredData = [
     description: t.description,
   }),
   buildMusicAlbumListSchema({
-    albums: sortedAlbumsByDate,
+    albums: homeStructuredDataAlbums,
     canonical,
     description: t.description,
     site: Astro.site,

@@ -30,12 +30,13 @@ const queueScriptId = featuredAlbum
             src={featuredAlbum.imageSrc}
             alt=""
             class="music-home-hero__ambient-image"
-            width={640}
-            height={640}
-            widths={[320, 480, 640]}
-            sizes="100vw"
-            loading="eager"
+            width={480}
+            height={480}
+            widths={[240, 320, 480]}
+            sizes="(max-width: 760px) 1px, 100vw"
+            loading="lazy"
             decoding="async"
+            fetchpriority="low"
           />
         </div>
 
@@ -51,7 +52,7 @@ const queueScriptId = featuredAlbum
             width={640}
             height={640}
             widths={[240, 360, 480, 640]}
-            sizes="(max-width: 760px) min(72vw, 19rem), min(34vw, 25rem)"
+            sizes="(max-width: 760px) min(64vw, 15rem), min(34vw, 25rem)"
             loading="eager"
             decoding="async"
             fetchpriority="high"
@@ -235,12 +236,12 @@ const queueScriptId = featuredAlbum
   }
 
   .music-home-hero__meta li + li {
-    position: relative;
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
   }
 
   .music-home-hero__meta li + li::before {
-    position: absolute;
-    inset-inline-start: -0.72rem;
     color: var(--music-home-accent);
     content: "·";
   }
@@ -293,14 +294,18 @@ const queueScriptId = featuredAlbum
   @media (width <= 760px) {
     .music-home-hero {
       grid-template-columns: minmax(0, 1fr);
-      gap: 1.5rem;
+      gap: 1rem;
       min-block-size: auto;
       padding: 5.75rem 1rem 2.25rem;
     }
 
     .music-home-hero__cover-link {
       justify-self: center;
-      inline-size: min(72vw, 19rem);
+      inline-size: min(64vw, 15rem);
+    }
+
+    .music-home-hero__ambient {
+      display: none;
     }
 
     .music-home-hero__copy {

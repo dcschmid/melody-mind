@@ -153,13 +153,13 @@ tonal selection before shadows.
 
 ### Navigation
 
-Desktop uses a compact top bar. Mobile uses persistent Home, Discover, and Search tabs
-plus a secondary menu. Current location uses `aria-current`, shape, and text contrast.
+Desktop uses a compact top bar. Mobile keeps the same top-level navigation inside the
+existing header drawer. Current location uses `aria-current`, shape, and text contrast.
 
 ### Persistent Player
 
-The player sits at the bottom of the viewport, above mobile tabs. It shows artwork,
-track context, primary transport, and progress without hiding page content.
+The player sits at the bottom of the viewport. It shows artwork, track context, primary
+transport, and progress while the page reserves enough space to keep content visible.
 
 ## Do's and Don'ts
 

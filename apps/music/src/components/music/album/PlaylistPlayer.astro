@@ -99,6 +99,8 @@ const getTrackDurationLabel = (song: Song): string =>
           const playLabel = fallbackLabel
             ? `Play ${song.title}. ${fallbackLabel}.`
             : `Play ${song.title}`;
+          const actionsPopoverId = `${playerId}-track-${song.trackNumber}-actions`;
+          const actionsPopoverTitleId = `${actionsPopoverId}-title`;
 
           return (
             <li
@@ -138,7 +140,7 @@ const getTrackDurationLabel = (song: Song): string =>
                   {getTrackDurationLabel(song)}
                 </span>
               </button>
-              <span class="album-playlist-player__track-actions">
+              <span class="album-playlist-player__track-actions album-playlist-player__track-actions--direct">
                 {song.lyricsUrl ? (
                   <a
                     class="album-playlist-player__track-lyrics"
@@ -183,6 +185,70 @@ const getTrackDurationLabel = (song: Song): string =>
                   />
                 )}
               </span>
+              <button
+                class="album-playlist-player__track-actions-trigger"
+                type="button"
+                popovertarget={actionsPopoverId}
+                aria-controls={actionsPopoverId}
+                aria-haspopup="dialog"
+                aria-label={`More actions for ${song.title}`}
+              >
+                <Icon name="tabler:dots-vertical" aria-hidden="true" />
+              </button>
+              <div
+                id={actionsPopoverId}
+                class="album-playlist-player__track-actions-popover"
+                popover="auto"
+                role="dialog"
+                aria-labelledby={actionsPopoverTitleId}
+                data-track-actions-popover
+              >
+                <div class="album-playlist-player__track-actions-popover-header">
+                  <strong
+                    id={actionsPopoverTitleId}
+                    class="album-playlist-player__track-actions-popover-title"
+                  >
+                    {song.title}
+                  </strong>
+                  <button
+                    class="album-playlist-player__track-actions-close"
+                    type="button"
+                    popovertarget={actionsPopoverId}
+                    popovertargetaction="hide"
+                    aria-label={`Close actions for ${song.title}`}
+                  >
+                    <Icon name="x" aria-hidden="true" />
+                  </button>
+                </div>
+                <div class="album-playlist-player__track-actions-popover-list">
+                  {song.lyricsUrl && (
+                    <a
+                      class="album-playlist-player__track-actions-popover-action"
+                      href={song.lyricsUrl}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      data-track-actions-dismiss
+                    >
+                      <Icon name="file-text" aria-hidden="true" />
+                      <span>Open lyrics</span>
+                      <Icon name="external-link" aria-hidden="true" />
+                    </a>
+                  )}
+                  {song.audioUrl && (
+                    <button
+                      class="album-playlist-player__track-actions-popover-action"
+                      type="button"
+                      data-track-download
+                      data-track-actions-dismiss
+                      data-download-url={song.audioUrl}
+                      data-download-filename={`${song.trackNumber.toString().padStart(2, "0")} - ${song.title}`}
+                    >
+                      <Icon name="download" aria-hidden="true" />
+                      <span>Download audio</span>
+                    </button>
+                  )}
+                </div>
+              </div>
             </li>
           );
         })
@@ -301,6 +367,11 @@ const getTrackDurationLabel = (song: Song): string =>
     padding-inline-start: 0.28rem;
     border-inline-start: 1px solid
       color-mix(in srgb, var(--music-album-line) 76%, transparent);
+  }
+
+  .album-playlist-player__track-actions-trigger,
+  .album-playlist-player__track-actions-popover {
+    display: none;
   }
 
   .album-playlist-player__track:hover,
@@ -487,11 +558,13 @@ const getTrackDurationLabel = (song: Song): string =>
     }
 
     .album-playlist-player__track-title {
-      display: block;
-      text-overflow: ellipsis;
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
       font-size: var(--font-size-xs);
-      line-height: 1.15;
-      white-space: nowrap;
+      line-height: 1.2;
+      white-space: normal;
     }
 
     .album-playlist-player__track-actions {
@@ -512,6 +585,133 @@ const getTrackDurationLabel = (song: Song): string =>
 
     .album-playlist-player__track-lyrics {
       background: transparent;
+    }
+
+    :where(.album-playlist-player[data-track-actions-mode="popover"])
+      .album-playlist-player__track-actions--direct {
+      display: none;
+    }
+
+    :where(.album-playlist-player[data-track-actions-mode="popover"])
+      .album-playlist-player__track-actions-trigger {
+      display: grid;
+      place-items: center;
+      inline-size: var(--album-playlist-track-action-size);
+      block-size: var(--album-playlist-track-action-size);
+      padding: 0;
+      color: var(--music-album-muted);
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      border-inline-start: 1px solid
+        color-mix(in srgb, var(--music-album-line) 52%, transparent);
+      border-radius: var(--album-playlist-radius-row);
+    }
+
+    .album-playlist-player__track-actions-trigger:hover,
+    .album-playlist-player__track-actions-trigger:focus-visible {
+      color: var(--music-album-accent);
+      background: color-mix(in srgb, var(--music-album-accent) 10%, transparent);
+    }
+
+    .album-playlist-player__track-actions-trigger:focus-visible {
+      outline: 2px solid var(--music-album-accent);
+      outline-offset: 3px;
+    }
+
+    .album-playlist-player__track-actions-trigger svg,
+    .album-playlist-player__track-actions-close svg,
+    .album-playlist-player__track-actions-popover-action svg {
+      inline-size: 1rem;
+      block-size: 1rem;
+    }
+
+    .album-playlist-player__track-actions-popover:popover-open {
+      position: fixed;
+      inset: auto 0 max(1rem, env(safe-area-inset-bottom));
+      box-sizing: border-box;
+      display: grid;
+      gap: var(--spacing-base);
+      inline-size: min(calc(100% - 2rem), 28rem);
+      max-block-size: calc(100dvh - 2rem);
+      padding: var(--spacing-base);
+      margin: auto;
+      overflow-y: auto;
+      color: var(--music-album-ink);
+      background: var(--music-album-paper);
+      border: 1px solid var(--music-album-line);
+      border-radius: var(--radius-md);
+      box-shadow: 0 1.5rem 4rem oklch(0% 0 0deg / 0.52);
+    }
+
+    .album-playlist-player__track-actions-popover::backdrop {
+      background: oklch(0% 0 0deg / 0.48);
+    }
+
+    .album-playlist-player__track-actions-popover-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--spacing-sm);
+      align-items: center;
+    }
+
+    .album-playlist-player__track-actions-popover-title {
+      min-inline-size: 0;
+      font-size: var(--font-size-base);
+      line-height: 1.25;
+      text-wrap: balance;
+    }
+
+    .album-playlist-player__track-actions-close {
+      display: grid;
+      place-items: center;
+      inline-size: var(--control-min-block-size);
+      block-size: var(--control-min-block-size);
+      padding: 0;
+      color: var(--music-album-muted);
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid var(--music-album-line);
+      border-radius: var(--radius-full);
+    }
+
+    .album-playlist-player__track-actions-popover-list {
+      display: grid;
+      gap: var(--spacing-sm);
+    }
+
+    .album-playlist-player__track-actions-popover-action {
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: var(--spacing-sm);
+      align-items: center;
+      inline-size: 100%;
+      min-block-size: var(--control-min-block-size);
+      padding: var(--spacing-sm) var(--spacing-base);
+      font: inherit;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      color: var(--music-album-ink);
+      text-align: start;
+      text-decoration: none;
+      cursor: pointer;
+      background: color-mix(in srgb, var(--music-album-paper-soft) 72%, transparent);
+      border: 1px solid var(--music-album-line);
+      border-radius: var(--radius-base);
+    }
+
+    .album-playlist-player__track-actions-popover-action:hover,
+    .album-playlist-player__track-actions-popover-action:focus-visible {
+      color: var(--button-text-accent);
+      background: var(--music-album-accent);
+      border-color: var(--music-album-accent);
+    }
+
+    .album-playlist-player__track-actions-close:focus-visible,
+    .album-playlist-player__track-actions-popover-action:focus-visible {
+      outline: 2px solid var(--music-album-accent);
+      outline-offset: 3px;
     }
 
     .album-playlist-player__track-duration,

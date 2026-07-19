@@ -16,19 +16,27 @@ interface Props {
 }
 
 const { series, title } = Astro.props as Props;
-const items = series.map((item) => ({
-  id: `series-${item.slug}`,
-  href: `/series/${item.slug}/`,
-  eyebrow: item.eyebrow,
-  title: item.title,
-  description: item.shortDescription,
-  metaIconName: "disc" as const,
-  metaLabel: `${item.albums.length} ${item.albums.length === 1 ? "album" : "albums"}`,
-  images: item.albums.slice(0, 3).map((album) => ({
-    src: album.imageSrc,
-    alt: `Cover art for the album ${album.title}`,
-  })),
-}));
+const items = series.map((item) => {
+  const album = item.albums[0];
+
+  return {
+    id: `series-${item.slug}`,
+    href: `/series/${item.slug}/`,
+    eyebrow: item.eyebrow,
+    title: item.title,
+    description: item.shortDescription,
+    metaIconName: "disc" as const,
+    metaLabel: `${item.albums.length} ${item.albums.length === 1 ? "album" : "albums"}`,
+    ...(album
+      ? {
+          image: {
+            src: album.imageSrc,
+            alt: `Cover art for the album ${album.title}`,
+          },
+        }
+      : {}),
+  };
+});
 ---
 
 <FeatureLinkListSection

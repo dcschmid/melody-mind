@@ -106,6 +106,28 @@ const bindPlayer = (player: HTMLElement): void => {
   const trackButtons = Array.from(
     player.querySelectorAll<HTMLButtonElement>("[data-track-button]")
   );
+  const supportsTrackActionPopovers = "showPopover" in HTMLElement.prototype;
+
+  player.dataset.trackActionsMode = supportsTrackActionPopovers ? "popover" : "direct";
+
+  if (supportsTrackActionPopovers) {
+    const mobileTrackActionsQuery = window.matchMedia("(width <= 760px)");
+    const closeTrackActionPopovers = (): void => {
+      player
+        .querySelectorAll<HTMLElement>("[data-track-actions-popover]:popover-open")
+        .forEach((popover) => popover.hidePopover());
+    };
+
+    mobileTrackActionsQuery.addEventListener(
+      "change",
+      (event) => {
+        if (!event.matches) {
+          closeTrackActionPopovers();
+        }
+      },
+      { signal }
+    );
+  }
 
   let latestState = window.__melodyMindPlayer?.getState() || null;
   let lastStatusKey = "";
@@ -220,6 +242,18 @@ const bindPlayer = (player: HTMLElement): void => {
     .forEach((button) => {
       button.addEventListener("click", () => void downloadTrack(button), { signal });
     });
+  player.querySelectorAll<HTMLElement>("[data-track-actions-dismiss]").forEach((item) => {
+    item.addEventListener(
+      "click",
+      () => {
+        const popover = item.closest<HTMLElement>("[data-track-actions-popover]");
+        if (popover?.matches(":popover-open")) {
+          popover.hidePopover();
+        }
+      },
+      { signal }
+    );
+  });
   player.addEventListener(
     "keydown",
     (event) => {

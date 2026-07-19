@@ -18,7 +18,7 @@ interface FeatureLinkListItem {
   description: string;
   metaIconName: IconName;
   metaLabel: string;
-  images?: FeatureLinkImage[];
+  image?: FeatureLinkImage;
   iconName?: IconName;
 }
 
@@ -59,26 +59,19 @@ const { headingId, iconName, items, title } = Astro.props as Props;
               </span>
 
               <span class="feature-link-list__visual" aria-hidden="true">
-                {item.images && item.images.length > 0 ? (
-                  <span class="feature-link-list__cover-stack">
-                    {item.images.slice(0, 3).map((image, index) => (
-                      <span
-                        class="feature-link-list__cover-wrap"
-                        style={`--feature-link-list-index: ${index};`}
-                      >
-                        <OptimizedImage
-                          src={image.src}
-                          alt={image.alt}
-                          class="feature-link-list__image"
-                          width={96}
-                          height={96}
-                          widths={[88, 112, 160]}
-                          sizes="6rem"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </span>
-                    ))}
+                {item.image ? (
+                  <span class="feature-link-list__cover-wrap">
+                    <OptimizedImage
+                      src={item.image.src}
+                      alt={item.image.alt}
+                      class="feature-link-list__image"
+                      width={96}
+                      height={96}
+                      widths={[72, 96, 128]}
+                      sizes="(max-width: 760px) 3.6rem, 5rem"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </span>
                 ) : (
                   item.iconName && (
@@ -208,21 +201,9 @@ const { headingId, iconName, items, title } = Astro.props as Props;
     padding-inline-start: 0.5rem;
   }
 
-  .feature-link-list__cover-stack {
-    position: relative;
-    display: block;
-    inline-size: clamp(6.25rem, 8vw, 8rem);
-    block-size: clamp(3.9rem, 5.5vw, 5rem);
-  }
-
   .feature-link-list__cover-wrap {
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-start: calc(var(--feature-link-list-index) * 1.55rem);
     display: block;
-    inline-size: clamp(3.8rem, 4.8vw, 5rem);
-    transform: translateY(-50%)
-      translateY(calc((var(--feature-link-list-index) - 1) * 0.25rem));
+    inline-size: clamp(4rem, 5vw, 5rem);
   }
 
   .feature-link-list__image {
@@ -277,8 +258,7 @@ const { headingId, iconName, items, title } = Astro.props as Props;
 
     .feature-link-list__card:hover .feature-link-list__cover-wrap,
     .feature-link-list__card:focus-visible .feature-link-list__cover-wrap {
-      transform: translateY(-50%)
-        translateY(calc((var(--feature-link-list-index) - 1) * 0.25rem - 0.12rem));
+      transform: translateY(-0.12rem);
     }
 
     .feature-link-list__card:hover .feature-link-list__icon-shell,
@@ -316,13 +296,7 @@ const { headingId, iconName, items, title } = Astro.props as Props;
       min-inline-size: 5.75rem;
     }
 
-    .feature-link-list__cover-stack {
-      inline-size: 4.75rem;
-      block-size: 4rem;
-    }
-
     .feature-link-list__cover-wrap {
-      inset-inline-start: calc(var(--feature-link-list-index) * 0.72rem);
       inline-size: 3.6rem;
     }
 
@@ -347,13 +321,7 @@ const { headingId, iconName, items, title } = Astro.props as Props;
       padding-inline-start: 0;
     }
 
-    .feature-link-list__cover-stack {
-      inline-size: 4.25rem;
-      block-size: 3.6rem;
-    }
-
     .feature-link-list__cover-wrap {
-      inset-inline-start: calc(var(--feature-link-list-index) * 0.58rem);
       inline-size: 3.2rem;
     }
   }
