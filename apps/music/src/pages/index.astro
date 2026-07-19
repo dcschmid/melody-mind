@@ -4,8 +4,6 @@ import { resolvePageUrl } from "@utils/siteUrls";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@utils/seo/seoSchema";
 import { toAbsoluteAssetUrl } from "@utils/imageAssets";
 import AlbumSeriesSection from "@components/music/home/AlbumSeriesSection.astro";
-import ContinueListening from "@components/music/home/ContinueListening.astro";
-import LatestSection from "@components/music/home/LatestSection.astro";
 import Hero from "@components/music/home/Hero.astro";
 import MainGenresSection from "@components/music/home/MainGenresSection.astro";
 import type { CoverImage, Entry, FeaturedAlbum } from "@components/music/home/types";
@@ -133,15 +131,7 @@ const featuredAlbum: FeaturedAlbum | undefined =
         },
       }
     : undefined;
-const latestReleaseShelf = sortedAlbumsByDate
-  .filter((album) => album.id !== featuredSource?.id)
-  .map((album) => albumEntriesById.get(album.id))
-  .filter((album): album is Entry => Boolean(album))
-  .slice(0, 3);
-const homeStructuredDataAlbums = sortedAlbumsByDate.slice(
-  0,
-  featuredAlbum ? latestReleaseShelf.length + 1 : latestReleaseShelf.length
-);
+const homeStructuredDataAlbums = sortedAlbumsByDate.slice(0, 1);
 const seriesShelf = albumSeries
   .map((series) => ({
     ...series,
@@ -183,21 +173,13 @@ const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
 
 const t = {
-  title: "MelodyMind Music",
   seoTitle: "MelodyMind Music | AI-Generated Albums",
   subtitle: "Newest release",
   description:
     "MelodyMind Music is a growing archive of full AI-assisted concept albums across rock, metal, punk, pop, gothic, cinematic and experimental genres.",
-  editorialDeck:
-    "Each album is built around a complete story, original lyrics, cover artwork and a distinct sound world — from political punk records and gothic rock journeys to cinematic metal operas and emotional pop concepts.",
-  featured: "Featured Albums",
-  latest: "From the New Shelf",
   series: "Album Series",
   mainGenres: "Main Genres",
-  continueListening: "Continue Listening",
   exploreAlbums: "Browse Genres",
-  latestReleases: "New Shelf",
-  viewAll: "Browse genres",
   keywords: [
     "ai music",
     "generated music",
@@ -252,19 +234,6 @@ const structuredData = [
     />
 
     <div class="music-home__content" id="discover">
-      <div>
-        <ContinueListening albums={albumEntries} title={t.continueListening} />
-      </div>
-
-      <div>
-        <LatestSection
-          albums={latestReleaseShelf}
-          title={t.latest}
-          viewAllLabel={t.viewAll}
-          viewAllHref="#main-genres-heading"
-        />
-      </div>
-
       <div>
         <AlbumSeriesSection series={seriesShelf} title={t.series} />
       </div>
@@ -336,10 +305,6 @@ const structuredData = [
     max-inline-size: 90rem;
     padding: clamp(0.55rem, 1.4vw, 1.2rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 6vw, 5rem);
     margin-inline: auto;
-  }
-
-  .music-home__content :global(#latest-releases) {
-    margin-block: clamp(0.25rem, 1.2vw, 1rem) clamp(0.1rem, 0.8vw, 0.65rem);
   }
 
   @media (width <= 760px) {
