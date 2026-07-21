@@ -62,16 +62,17 @@ const config = {
 };
 ---
 
-<astro-search-palette
+<div
+  class="search-palette-root"
   style={`--search-palette-media-aspect-ratio: ${mediaAspectRatio};`}
   data-enhanced-search="true"
   data-enhanced-search-config-id={configId}
   data-enhanced-search-results-id={`${configId}-results`}
-  index-url={indexUrl}
-  shortcut="mod+k"
-  {placeholder}
-  result-limit={String(resultLimit)}
-  group-by="type"></astro-search-palette>
+  data-index-url={indexUrl}
+  data-placeholder={placeholder}
+  data-result-limit={String(resultLimit)}
+>
+</div>
 <script
   id={configId}
   is:inline
@@ -208,6 +209,14 @@ const config = {
   :global(.astro-search-results > li) {
     display: grid;
     gap: var(--spacing-2xs);
+  }
+
+  :global(.astro-search-result-group__list) {
+    display: grid;
+    gap: var(--spacing-2xs);
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   :global(.astro-search-empty) {
@@ -388,6 +397,7 @@ const config = {
   :global(.astro-search-result-title) {
     display: flex;
     flex-wrap: wrap;
+    gap: var(--spacing-xs);
     align-items: baseline;
     font-weight: var(--font-weight-semibold);
     line-height: 1.2;

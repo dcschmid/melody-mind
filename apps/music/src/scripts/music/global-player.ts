@@ -284,6 +284,47 @@ const initGlobalPlayer = (): void => {
     preloadedUrl = "";
   };
 
+  const clearMediaSession = () => {
+    if (!("mediaSession" in navigator)) {
+      return;
+    }
+    navigator.mediaSession.metadata = null;
+    navigator.mediaSession.playbackState = "none";
+    try {
+      navigator.mediaSession.setPositionState();
+    } catch {
+      // Position state support varies by browser.
+    }
+  };
+
+  const closePlayer = () => {
+    audio.pause();
+    audio.removeAttribute("src");
+    audio.load();
+    releasePreloader();
+    pendingSeek = 0;
+    state = {
+      queue: null,
+      currentTrackIndex: 0,
+      currentTime: 0,
+      duration: 0,
+      isMuted: false,
+      isPlaying: false,
+      errorMessage: null,
+      updatedAt: Date.now(),
+    };
+    audio.muted = false;
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+      window.localStorage.removeItem(LEGACY_STORAGE_KEY);
+    } catch {
+      // Closing still resets playback when storage is blocked.
+    }
+    clearMediaSession();
+    dispatch();
+    announce("Player closed");
+  };
+
   const preloadNextTrack = () => {
     const duration = getDuration();
     const remaining = duration - audio.currentTime;
@@ -389,7 +430,8 @@ const initGlobalPlayer = (): void => {
   };
 
   const play = () => {
-    if (!getTrack()) {
+    const requestedTrackUrl = getTrack()?.audioUrl;
+    if (!requestedTrackUrl) {
       return;
     }
     if (!audio.src) {
@@ -403,6 +445,9 @@ const initGlobalPlayer = (): void => {
       updateUi();
     }
     audio.play().catch(() => {
+      if (!state.queue || getTrack()?.audioUrl !== requestedTrackUrl) {
+        return;
+      }
       state.errorMessage = "Start failed. Press Play.";
       dispatch(true);
       announce(state.errorMessage);
@@ -481,6 +526,9 @@ const initGlobalPlayer = (): void => {
         audio.muted = !audio.muted;
         dispatch(true);
         break;
+      case "close":
+        closePlayer();
+        break;
       case "seek":
         audio.currentTime = Math.min(Math.max(command.value, 0), getDuration());
         dispatch(true);
@@ -555,6 +603,9 @@ const initGlobalPlayer = (): void => {
   audio.addEventListener(
     "error",
     () => {
+      if (!state.queue) {
+        return;
+      }
       state.errorMessage = getAudioErrorMessage();
       dispatch(true);
       announce(state.errorMessage);

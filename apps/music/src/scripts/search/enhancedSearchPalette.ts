@@ -1,698 +1,597 @@
-const SEARCH_ROOT_SELECTOR = 'astro-search-palette[data-enhanced-search="true"]';
-const SEARCH_BACKDROP_SELECTOR = ".astro-search-backdrop";
-const SEARCH_INPUT_SELECTOR = ".astro-search-input";
-const SEARCH_RESULTS_SELECTOR = ".astro-search-results";
-const SEARCH_RESULT_SELECTOR = ".astro-search-result";
-const SEARCH_RESULT_TITLE_SELECTOR = ".astro-search-result-title";
-const SEARCH_RESULT_TYPE_SELECTOR = ".astro-search-result-type";
-const SEARCH_RESULT_DESC_SELECTOR = ".astro-search-result-desc";
-const SEARCH_GROUP_LABEL_SELECTOR = ".astro-search-group-label";
-const SEARCH_EMPTY_SELECTOR = ".astro-search-empty";
-const SEARCH_FILTERS_SELECTOR = ".astro-search-filters";
-const SEARCH_FILTER_EMPTY_SELECTOR = ".astro-search-filter-empty";
+import { create, load, search } from "@orama/orama";
+import type { AnyOrama, RawData, Result } from "@orama/orama";
+
+const SEARCH_ROOT_SELECTOR = '[data-enhanced-search="true"]';
 const SEARCH_FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-interface EnhancedSearchItem {
-  url: string;
+type SearchFilter = "all" | "Album" | "Track" | "Genre";
+
+interface SearchDocument {
+  id?: string;
+  type: Exclude<SearchFilter, "all">;
   title: string;
-  type?: string;
-  description?: string;
+  desc?: string;
+  url: string;
   imageUrl?: string;
   imageAlt?: string;
   displayMeta?: string;
 }
 
-interface EnhancedSearchConfig {
+interface SearchConfig {
   emptyText: string;
   emptyTextWithQuery: string;
   emptyTitle: string;
   emptyTitleWithQuery: string;
   groupLabels: Record<string, string>;
   inputLabel: string;
-  items: EnhancedSearchItem[];
   resultsLabel: string;
   routeHrefs: string[];
   suggestions: string[];
 }
 
-const fallbackConfig: EnhancedSearchConfig = {
+interface SearchController {
+  open: () => void;
+  close: () => void;
+}
+
+interface SearchQuery {
+  term: string;
+  properties: "*";
+  limit: number;
+  where?: { type: Exclude<SearchFilter, "all"> };
+}
+
+interface SearchResponse {
+  hits: Result<SearchDocument>[];
+}
+
+const fallbackConfig: SearchConfig = {
   emptyText: "Try a shorter title, topic, or one of the suggested searches.",
   emptyTextWithQuery: "Try a shorter title, topic, or one of the suggested searches.",
   emptyTitle: "Start with a title, topic, or mood.",
   emptyTitleWithQuery: "No matching result.",
   groupLabels: {},
   inputLabel: "Search",
-  items: [],
   resultsLabel: "Search results",
   routeHrefs: [],
   suggestions: [],
 };
 
-let searchObserver: MutationObserver | null = null;
-const configCache = new WeakMap<Element, EnhancedSearchConfig>();
+const indexCache = new Map<string, Promise<AnyOrama>>();
+const controllers = new WeakMap<HTMLElement, SearchController>();
+let activeController: SearchController | null = null;
+const searchDocuments = search as unknown as (
+  database: AnyOrama,
+  query: SearchQuery
+) => SearchResponse | Promise<SearchResponse>;
 
-interface EnrichmentMeta {
-  imageUrl?: string;
-  imageAlt?: string;
-  displayMeta?: string;
-}
+const normalizePath = (value: string): string => {
+  const url = new URL(value, window.location.origin);
+  return url.pathname.endsWith("/") ? url.pathname : `${url.pathname}/`;
+};
 
-/**
- * Result rows are enriched with a thumbnail + meta line sourced from the same
- * search index the web component fetches (`json.docs.docs`), keyed by normalized
- * title. This replaces the former ~425KB-per-page inline `items` payload — the
- * data already exists in the fetched index, so there is no need to ship it twice.
- */
-let enrichmentMap: Map<string, EnrichmentMeta> | null = null;
-let enrichmentMapPromise: Promise<Map<string, EnrichmentMeta>> | null = null;
+const getSearchRoots = (): HTMLElement[] =>
+  Array.from(document.querySelectorAll<HTMLElement>(SEARCH_ROOT_SELECTOR));
 
-function getIndexUrl(): string {
-  const root = getSearchRoots()[0];
-  return root?.getAttribute("index-url") || "/search-index.json";
-}
-
-async function loadEnrichmentMap(): Promise<Map<string, EnrichmentMeta>> {
-  const map = new Map<string, EnrichmentMeta>();
-
-  try {
-    const response = await fetch(getIndexUrl());
-
-    if (!response.ok) {
-      return map;
-    }
-
-    const index = (await response.json()) as {
-      docs?: { docs?: Record<string, Record<string, unknown>> };
-    };
-    const documents = index.docs?.docs;
-
-    if (documents) {
-      for (const document of Object.values(documents)) {
-        const title =
-          typeof document.title === "string" ? normalizeText(document.title) : "";
-
-        // First-wins on duplicate titles, matching the previous array lookup.
-        if (!title || map.has(title)) {
-          continue;
-        }
-
-        map.set(title, {
-          ...(typeof document.imageUrl === "string"
-            ? { imageUrl: document.imageUrl }
-            : {}),
-          ...(typeof document.imageAlt === "string"
-            ? { imageAlt: document.imageAlt }
-            : {}),
-          ...(typeof document.displayMeta === "string"
-            ? { displayMeta: document.displayMeta }
-            : {}),
-        });
-      }
-    }
-  } catch {
-    /* Enrichment is progressive; results still render from the index without it. */
-  }
-
-  return map;
-}
-
-function ensureEnrichmentMap(): void {
-  if (enrichmentMap || enrichmentMapPromise) {
-    return;
-  }
-
-  enrichmentMapPromise = loadEnrichmentMap();
-  void enrichmentMapPromise.then((map) => {
-    enrichmentMap = map;
-    enhanceSearchModals();
-  });
-}
-
-function normalizeText(value: string): string {
-  return value.replace(/\s+/g, " ").trim().toLowerCase();
-}
-
-function normalizePath(value: string): string {
-  try {
-    const url = new URL(value, window.location.origin);
-    return url.pathname.endsWith("/") ? url.pathname : `${url.pathname}/`;
-  } catch {
-    const path = value.split("#")[0] || value;
-    return path.endsWith("/") ? path : `${path}/`;
-  }
-}
-
-function getSearchRoots(): HTMLElement[] {
-  return Array.from(document.querySelectorAll(SEARCH_ROOT_SELECTOR)).filter(
-    (root): root is HTMLElement => root instanceof HTMLElement
-  );
-}
-
-function getFocusableElements(root: ParentNode): HTMLElement[] {
-  return Array.from(root.querySelectorAll(SEARCH_FOCUSABLE_SELECTOR)).filter(
-    (element): element is HTMLElement =>
-      element instanceof HTMLElement && element.offsetParent !== null
-  );
-}
-
-function readConfig(root: HTMLElement): EnhancedSearchConfig {
-  const cachedConfig = configCache.get(root);
-
-  if (cachedConfig) {
-    return cachedConfig;
-  }
-
+const readConfig = (root: HTMLElement): SearchConfig => {
   const configId = root.dataset.enhancedSearchConfigId;
-  const configElement = configId ? document.getElementById(configId) : null;
+  const element = configId ? document.getElementById(configId) : null;
 
-  if (!configElement?.textContent) {
-    configCache.set(root, fallbackConfig);
+  if (!element?.textContent) {
     return fallbackConfig;
   }
 
   try {
-    const parsed = JSON.parse(configElement.textContent) as Partial<EnhancedSearchConfig>;
-    const config = {
+    const parsed = JSON.parse(element.textContent) as Partial<SearchConfig>;
+    return {
       ...fallbackConfig,
       ...parsed,
       groupLabels: parsed.groupLabels || {},
-      items: Array.isArray(parsed.items) ? parsed.items : [],
       routeHrefs: Array.isArray(parsed.routeHrefs) ? parsed.routeHrefs : [],
       suggestions: Array.isArray(parsed.suggestions) ? parsed.suggestions : [],
     };
-    configCache.set(root, config);
-    return config;
   } catch {
-    configCache.set(root, fallbackConfig);
     return fallbackConfig;
   }
-}
+};
 
-function getResultTitle(result: HTMLElement): string {
-  const title = result.querySelector(SEARCH_RESULT_TITLE_SELECTOR);
-
-  if (!title) {
-    return "";
+const loadIndex = (url: string): Promise<AnyOrama> => {
+  const cached = indexCache.get(url);
+  if (cached) {
+    return cached;
   }
 
-  const titleClone = title.cloneNode(true);
-
-  if (titleClone instanceof Element) {
-    titleClone.querySelector(SEARCH_RESULT_TYPE_SELECTOR)?.remove();
-  }
-
-  return normalizeText(titleClone.textContent || "");
-}
-
-function createMediaElement(meta: EnrichmentMeta, fallbackLabel: string): HTMLElement {
-  const media = document.createElement("span");
-  media.className = "astro-search-result-media";
-
-  if (meta.imageUrl) {
-    const image = document.createElement("img");
-    image.className = "astro-search-result-media__image";
-    image.src = meta.imageUrl;
-    image.alt = meta.imageAlt || "";
-    image.loading = "lazy";
-    image.decoding = "async";
-    media.append(image);
-    return media;
-  }
-
-  const mark = document.createElement("span");
-  mark.className = "astro-search-result-media__mark";
-  mark.setAttribute("aria-hidden", "true");
-  mark.textContent = fallbackLabel.trim().charAt(0).toUpperCase() || "S";
-  media.append(mark);
-  return media;
-}
-
-function getSearchGroupLabel(value: string, config: EnhancedSearchConfig): string {
-  const normalized = normalizeText(value);
-
-  return config.groupLabels[normalized] || value;
-}
-
-function enhanceSearchGroups(results: HTMLElement, config: EnhancedSearchConfig): void {
-  results.querySelectorAll(SEARCH_GROUP_LABEL_SELECTOR).forEach((label) => {
-    if (!(label instanceof HTMLElement)) {
-      return;
+  const promise = (async () => {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Search index request failed with HTTP ${response.status}`);
     }
 
-    const nextLabel = getSearchGroupLabel(label.textContent || "", config);
-    if (label.textContent === nextLabel) {
-      return;
-    }
+    const raw = (await response.json()) as RawData;
+    const database = create({ schema: { __placeholder: "string" } as const });
+    load(database, raw);
+    return database;
+  })();
 
-    label.textContent = nextLabel;
-  });
-}
+  indexCache.set(url, promise);
+  return promise;
+};
 
-function syncResultSelectionState(results: HTMLElement): void {
-  results.querySelectorAll(SEARCH_RESULT_SELECTOR).forEach((result) => {
-    if (!(result instanceof HTMLElement)) {
-      return;
-    }
-
-    const isSelected = result.dataset.selected === "true";
-    result.setAttribute("aria-selected", String(isSelected));
-  });
-}
-
-function getResultType(result: HTMLElement): string {
-  return normalizeText(
-    result.querySelector(SEARCH_RESULT_TYPE_SELECTOR)?.textContent || ""
-  ).replace(/s$/, "");
-}
-
-function getVisibleSearchResults(results: HTMLElement): HTMLElement[] {
-  return Array.from(results.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR)).filter(
-    (result) => !result.hidden
+const createIcon = (): SVGElement => {
+  const namespace = "http://www.w3.org/2000/svg";
+  const icon = document.createElementNS(namespace, "svg");
+  const path = document.createElementNS(namespace, "path");
+  icon.classList.add("astro-search-icon");
+  icon.setAttribute("aria-hidden", "true");
+  icon.setAttribute("width", "18");
+  icon.setAttribute("height", "18");
+  icon.setAttribute("viewBox", "0 0 256 256");
+  icon.setAttribute("fill", "currentColor");
+  path.setAttribute(
+    "d",
+    "M229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32ZM40 112a72 72 0 1 1 72 72A72.08 72.08 0 0 1 40 112Z"
   );
-}
+  icon.append(path);
+  return icon;
+};
 
-function selectVisibleResult(results: HTMLElement, result: HTMLElement): void {
-  results.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR).forEach((candidate) => {
-    const isSelected = candidate === result;
-    candidate.dataset.selected = String(isSelected);
-    candidate.setAttribute("aria-selected", String(isSelected));
-  });
-  result.scrollIntoView({ block: "nearest" });
-}
+const createController = (root: HTMLElement): SearchController => {
+  const config = readConfig(root);
+  const indexUrl = root.dataset.indexUrl || "/search-index.json";
+  const resultLimit = Number.parseInt(root.dataset.resultLimit || "8", 10);
+  let filter: SearchFilter = "all";
+  let query = "";
+  let results: Result<SearchDocument>[] = [];
+  let selectedIndex = 0;
+  let requestId = 0;
+  let previouslyFocused: HTMLElement | null = null;
+  let backdrop: HTMLElement | null = null;
+  let input: HTMLInputElement | null = null;
+  let resultsList: HTMLUListElement | null = null;
 
-function applySearchFilter(results: HTMLElement): void {
-  const backdrop = results.closest<HTMLElement>(SEARCH_BACKDROP_SELECTOR);
-  const activeFilter = backdrop?.dataset.searchFilter || "all";
-  const rows = Array.from(results.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR));
+  const getGroupLabel = (type: string): string =>
+    config.groupLabels[type.toLowerCase()] || `${type}s`;
 
-  rows.forEach((result) => {
-    result.hidden = activeFilter !== "all" && getResultType(result) !== activeFilter;
-  });
-
-  Array.from(results.children).forEach((group) => {
-    if (
-      !(group instanceof HTMLElement) ||
-      !group.querySelector(SEARCH_GROUP_LABEL_SELECTOR)
-    ) {
+  const select = (index: number): void => {
+    if (!resultsList || results.length === 0) {
       return;
     }
-    group.hidden = !Array.from(
-      group.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR)
-    ).some((result) => !result.hidden);
-  });
+    selectedIndex = Math.min(Math.max(index, 0), results.length - 1);
+    resultsList
+      .querySelectorAll<HTMLElement>(".astro-search-result")
+      .forEach((element, elementIndex) => {
+        const isSelected = elementIndex === selectedIndex;
+        element.dataset.selected = String(isSelected);
+        element.setAttribute("aria-selected", String(isSelected));
+        if (isSelected) {
+          element.scrollIntoView({ block: "nearest" });
+        }
+      });
+  };
 
-  const visibleResults = getVisibleSearchResults(results);
-  const existingEmpty = results.querySelector<HTMLElement>(SEARCH_FILTER_EMPTY_SELECTOR);
-  const needsFilteredEmpty =
-    activeFilter !== "all" && rows.length > 0 && visibleResults.length === 0;
-
-  if (!needsFilteredEmpty) {
-    existingEmpty?.remove();
-  } else if (!existingEmpty) {
-    const empty = document.createElement("li");
-    const title = document.createElement("p");
-    const text = document.createElement("p");
-    const filterLabel =
-      backdrop
-        ?.querySelector<HTMLButtonElement>(
-          `.astro-search-filter[data-search-filter="${activeFilter}"]`
-        )
-        ?.textContent?.trim() || "results";
-
-    empty.className = "astro-search-filter-empty";
-    empty.setAttribute("role", "status");
-    title.className = "astro-search-filter-empty__title";
-    title.textContent = `No matching ${filterLabel.toLowerCase()}.`;
-    text.className = "astro-search-filter-empty__text";
-    text.textContent = "Try another search or choose All.";
-    empty.append(title, text);
-    results.append(empty);
-  }
-
-  if (activeFilter !== "all" && visibleResults.length > 0) {
-    const selected = visibleResults.find((result) => result.dataset.selected === "true");
-    const firstResult = visibleResults[0];
-    if (!selected && firstResult) {
-      selectVisibleResult(results, firstResult);
+  const choose = (index: number): void => {
+    const hit = results[index];
+    if (!hit) {
+      return;
     }
-  }
-}
-
-function enhanceSearchEmptyState(
-  backdrop: HTMLElement,
-  config: EnhancedSearchConfig
-): void {
-  const input = backdrop.querySelector(SEARCH_INPUT_SELECTOR);
-  const emptyState = backdrop.querySelector(SEARCH_EMPTY_SELECTOR);
-
-  if (!(input instanceof HTMLInputElement) || !(emptyState instanceof HTMLElement)) {
-    return;
-  }
-
-  const query = input.value.trim();
-
-  if (
-    emptyState.dataset.enhancedSearchEmpty === "true" &&
-    emptyState.dataset.enhancedSearchEmptyQuery === query
-  ) {
-    return;
-  }
-
-  emptyState.dataset.enhancedSearchEmpty = "true";
-  emptyState.dataset.enhancedSearchEmptyQuery = query;
-  emptyState.replaceChildren();
-
-  const title = document.createElement("p");
-  title.className = "astro-search-empty__title";
-  title.textContent = query ? config.emptyTitleWithQuery : config.emptyTitle;
-  emptyState.append(title);
-
-  const text = document.createElement("p");
-  text.className = "astro-search-empty__text";
-  text.textContent = query ? config.emptyTextWithQuery : config.emptyText;
-  emptyState.append(text);
-
-  if (config.suggestions.length === 0) {
-    return;
-  }
-
-  const suggestions = document.createElement("span");
-  suggestions.className = "astro-search-empty__suggestions";
-
-  for (const suggestion of config.suggestions) {
-    const button = document.createElement("button");
-    button.className = "astro-search-empty__suggestion";
-    button.type = "button";
-    button.textContent = suggestion;
-    button.addEventListener("click", () => {
-      input.value = suggestion;
-      input.dispatchEvent(
-        new InputEvent("input", {
-          bubbles: true,
-          data: suggestion,
-          inputType: "insertText",
-        })
-      );
-      input.focus();
+    const selectionEvent = new CustomEvent("astro-search:select", {
+      detail: { document: hit.document },
+      cancelable: true,
     });
-    suggestions.append(button);
-  }
+    if (root.dispatchEvent(selectionEvent)) {
+      window.location.href = hit.document.url;
+    }
+    controller.close();
+  };
 
-  emptyState.append(suggestions);
-}
-
-function enhanceSearchResults(results: HTMLElement, config: EnhancedSearchConfig): void {
-  enhanceSearchGroups(results, config);
-  syncResultSelectionState(results);
-
-  const rows = results.querySelectorAll(SEARCH_RESULT_SELECTOR);
-
-  if (rows.length > 0) {
-    // Load enrichment lazily once real results exist; by now the web component
-    // has fetched the index, so this resolves from cache.
-    ensureEnrichmentMap();
-  }
-
-  const map = enrichmentMap;
-
-  rows.forEach((result) => {
-    if (
-      !(result instanceof HTMLElement) ||
-      result.dataset.enhancedSearchResult === "true"
-    ) {
-      return;
+  const createMedia = (document: SearchDocument): HTMLElement => {
+    const media = documentCreate("span", "astro-search-result-media");
+    if (document.imageUrl) {
+      const image = documentCreate("img", "astro-search-result-media__image");
+      image.setAttribute("src", document.imageUrl);
+      image.setAttribute("alt", document.imageAlt || "");
+      image.setAttribute("loading", "lazy");
+      image.setAttribute("decoding", "async");
+      media.append(image);
+      return media;
     }
 
-    // Map not ready yet: leave the row unmarked so a later pass can enrich it.
-    if (!map) {
-      return;
+    const mark = documentCreate("span", "astro-search-result-media__mark");
+    mark.setAttribute("aria-hidden", "true");
+    mark.textContent = document.title.trim().charAt(0).toUpperCase() || "S";
+    media.append(mark);
+    return media;
+  };
+
+  const createResult = (hit: Result<SearchDocument>, index: number): HTMLElement => {
+    const item = documentCreate("li", "astro-search-result-item");
+    const button = documentCreate("button", "astro-search-result");
+    const content = documentCreate("span", "astro-search-result-content");
+    const title = documentCreate("span", "astro-search-result-title");
+    const type = documentCreate("span", "astro-search-result-type");
+    button.setAttribute("type", "button");
+    button.setAttribute("role", "option");
+    button.dataset.selected = String(index === selectedIndex);
+    button.setAttribute("aria-selected", String(index === selectedIndex));
+    type.textContent = hit.document.type;
+    title.append(type, document.createTextNode(hit.document.title));
+    content.append(title);
+
+    if (hit.document.displayMeta) {
+      const meta = documentCreate("span", "astro-search-result-meta");
+      meta.textContent = hit.document.displayMeta;
+      content.append(meta);
     }
-
-    const titleKey = getResultTitle(result);
-    const meta = titleKey ? map.get(titleKey) : undefined;
-
-    result.dataset.enhancedSearchResult = "true";
-
-    if (!meta) {
-      return;
-    }
-
-    const title = result.querySelector(SEARCH_RESULT_TITLE_SELECTOR);
-    const description = result.querySelector(SEARCH_RESULT_DESC_SELECTOR);
-    const content = document.createElement("span");
-    const metaElement = document.createElement("span");
-
-    content.className = "astro-search-result-content";
-    metaElement.className = "astro-search-result-meta";
-    metaElement.textContent = meta.displayMeta || "";
-
-    if (title instanceof HTMLElement) {
-      content.append(title);
-    }
-
-    if (metaElement.textContent) {
-      content.append(metaElement);
-    }
-
-    // Description is already rendered from the index by the web component.
-    if (description instanceof HTMLElement) {
+    if (hit.document.desc) {
+      const description = documentCreate("span", "astro-search-result-desc");
+      description.textContent = hit.document.desc;
       content.append(description);
     }
 
-    result.prepend(createMediaElement(meta, titleKey));
+    button.append(createMedia(hit.document), content);
+    button.addEventListener("mouseenter", () => select(index));
+    button.addEventListener("focus", () => select(index));
+    button.addEventListener("click", () => choose(index));
+    item.append(button);
+    return item;
+  };
 
-    if (content.childNodes.length > 0) {
-      result.append(content);
+  const renderEmpty = (isLoading = false, hasError = false): void => {
+    if (!resultsList) {
+      return;
     }
-  });
+    const item = documentCreate("li", "astro-search-empty");
+    item.setAttribute("role", "status");
+    const title = documentCreate("p", "astro-search-empty__title");
+    const text = documentCreate("p", "astro-search-empty__text");
 
-  applySearchFilter(results);
-}
+    if (isLoading) {
+      title.textContent = "Loading the music catalog…";
+      text.textContent = "Search will be ready in a moment.";
+    } else if (hasError) {
+      title.textContent = "Search is unavailable.";
+      text.textContent = "Close search and try again.";
+    } else {
+      title.textContent = query ? config.emptyTitleWithQuery : config.emptyTitle;
+      text.textContent = query ? config.emptyTextWithQuery : config.emptyText;
+    }
+    item.append(title, text);
 
-function ensureSearchFilters(backdrop: HTMLElement, config: EnhancedSearchConfig): void {
-  if (backdrop.querySelector(SEARCH_FILTERS_SELECTOR)) {
-    return;
-  }
-  const inputWrap = backdrop.querySelector(SEARCH_INPUT_SELECTOR)?.parentElement;
-  if (!inputWrap) {
-    return;
-  }
+    if (!query && !isLoading && !hasError && config.suggestions.length > 0) {
+      const suggestions = documentCreate("span", "astro-search-empty__suggestions");
+      for (const suggestion of config.suggestions) {
+        const button = documentCreate("button", "astro-search-empty__suggestion");
+        button.setAttribute("type", "button");
+        button.textContent = suggestion;
+        button.addEventListener("click", () => {
+          if (!input) {
+            return;
+          }
+          input.value = suggestion;
+          query = suggestion;
+          void runSearch();
+          input.focus();
+        });
+        suggestions.append(button);
+      }
+      item.append(suggestions);
+    }
+    resultsList.replaceChildren(item);
+  };
 
-  const filters = document.createElement("div");
-  filters.className = "astro-search-filters";
-  filters.setAttribute("role", "group");
-  filters.setAttribute("aria-label", "Filter search results");
-  const options = [
-    ["all", "All"],
-    ["album", "Albums"],
-    ["track", "Tracks"],
-    ["genre", "Genres"],
-  ] as const;
+  const renderResults = (): void => {
+    if (!resultsList) {
+      return;
+    }
+    if (results.length === 0) {
+      renderEmpty();
+      return;
+    }
 
-  options.forEach(([value, label]) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "astro-search-filter";
-    button.textContent = label;
-    button.dataset.searchFilter = value;
-    button.setAttribute("aria-pressed", String(value === "all"));
-    button.addEventListener("click", () => {
-      backdrop.dataset.searchFilter = value;
-      filters.querySelectorAll<HTMLButtonElement>("button").forEach((candidate) => {
-        candidate.setAttribute(
+    const fragment = document.createDocumentFragment();
+    if (filter === "all") {
+      const groups = new Map<string, Result<SearchDocument>[]>();
+      for (const hit of results) {
+        const group = groups.get(hit.document.type) || [];
+        group.push(hit);
+        groups.set(hit.document.type, group);
+      }
+      let resultIndex = 0;
+      for (const [type, hits] of groups) {
+        const groupItem = documentCreate("li", "astro-search-result-group");
+        const label = documentCreate("div", "astro-search-group-label");
+        const list = documentCreate("ul", "astro-search-result-group__list");
+        label.textContent = getGroupLabel(type);
+        for (const hit of hits) {
+          list.append(createResult(hit, resultIndex));
+          resultIndex += 1;
+        }
+        groupItem.append(label, list);
+        fragment.append(groupItem);
+      }
+    } else {
+      results.forEach((hit, index) => fragment.append(createResult(hit, index)));
+    }
+    resultsList.replaceChildren(fragment);
+  };
+
+  const runSearch = async (): Promise<void> => {
+    const currentRequest = ++requestId;
+    const term = query.trim();
+    if (!term) {
+      results = [];
+      selectedIndex = 0;
+      renderEmpty();
+      return;
+    }
+
+    renderEmpty(true);
+    try {
+      const database = await loadIndex(indexUrl);
+      const response = await searchDocuments(database, {
+        term,
+        properties: "*",
+        limit: Number.isFinite(resultLimit) ? resultLimit : 8,
+        ...(filter === "all" ? {} : { where: { type: filter } }),
+      });
+      if (currentRequest !== requestId) {
+        return;
+      }
+      results = response.hits;
+      selectedIndex = 0;
+      renderResults();
+    } catch (error) {
+      if (currentRequest !== requestId) {
+        return;
+      }
+      console.error("[music-search]", error);
+      results = [];
+      renderEmpty(false, true);
+    }
+  };
+
+  const setFilter = (nextFilter: SearchFilter, filters: HTMLElement): void => {
+    if (filter === nextFilter) {
+      return;
+    }
+    filter = nextFilter;
+    filters
+      .querySelectorAll<HTMLButtonElement>(".astro-search-filter")
+      .forEach((button) => {
+        button.setAttribute(
           "aria-pressed",
-          String(candidate.dataset.searchFilter === value)
+          String(button.dataset.searchFilter === nextFilter)
         );
       });
-      const results = backdrop.querySelector<HTMLElement>(SEARCH_RESULTS_SELECTOR);
-      if (results) {
-        enhanceSearchResults(results, config);
+    void runSearch();
+  };
+
+  const createShell = (): void => {
+    backdrop = documentCreate("div", "astro-search-backdrop");
+    backdrop.setAttribute("role", "dialog");
+    backdrop.setAttribute("aria-modal", "true");
+    backdrop.setAttribute("aria-label", config.inputLabel);
+    const modal = documentCreate("div", "astro-search-modal");
+    const inputWrap = documentCreate("div", "astro-search-input-wrap");
+    input = documentCreate("input", "astro-search-input");
+    input.setAttribute("type", "search");
+    input.setAttribute("placeholder", root.dataset.placeholder || "Search…");
+    input.setAttribute("autocomplete", "off");
+    input.setAttribute("spellcheck", "false");
+    input.setAttribute("aria-label", config.inputLabel);
+    input.setAttribute(
+      "aria-controls",
+      root.dataset.enhancedSearchResultsId || "music-search-results"
+    );
+    input.setAttribute("aria-autocomplete", "list");
+    const escapeKey = documentCreate("kbd", "astro-search-shortcut");
+    escapeKey.textContent = "esc";
+    inputWrap.append(createIcon(), input, escapeKey);
+
+    const filters = documentCreate("div", "astro-search-filters");
+    filters.setAttribute("role", "group");
+    filters.setAttribute("aria-label", "Filter search results");
+    const filterOptions: ReadonlyArray<readonly [SearchFilter, string]> = [
+      ["all", "All"],
+      ["Album", "Albums"],
+      ["Track", "Tracks"],
+      ["Genre", "Genres"],
+    ];
+    for (const [value, label] of filterOptions) {
+      const button = documentCreate("button", "astro-search-filter");
+      button.setAttribute("type", "button");
+      button.dataset.searchFilter = value;
+      button.setAttribute("aria-pressed", String(value === filter));
+      button.textContent = label;
+      button.addEventListener("click", () => setFilter(value, filters));
+      filters.append(button);
+    }
+
+    resultsList = documentCreate("ul", "astro-search-results");
+    resultsList.id = root.dataset.enhancedSearchResultsId || "music-search-results";
+    resultsList.setAttribute("role", "listbox");
+    resultsList.setAttribute("aria-label", config.resultsLabel);
+    const footer = documentCreate("div", "astro-search-footer");
+    footer.append(
+      createKeyHint(["↑", "↓"], "navigate"),
+      createKeyHint(["↵"], "open"),
+      createKeyHint(["esc"], "close")
+    );
+    modal.append(inputWrap, filters, resultsList, footer);
+    backdrop.append(modal);
+    root.replaceChildren(backdrop);
+
+    input.addEventListener("input", () => {
+      query = input?.value || "";
+      void runSearch();
+    });
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        select(selectedIndex + (event.key === "ArrowDown" ? 1 : -1));
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        choose(selectedIndex);
       }
     });
-    filters.append(button);
-  });
-
-  inputWrap.insertAdjacentElement("afterend", filters);
-}
-
-function enhanceSearchModal(root: HTMLElement): void {
-  const config = readConfig(root);
-  const backdrop = root.querySelector(SEARCH_BACKDROP_SELECTOR);
-
-  if (!(backdrop instanceof HTMLElement)) {
-    return;
-  }
-
-  const input = backdrop.querySelector(SEARCH_INPUT_SELECTOR);
-  const results = backdrop.querySelector(SEARCH_RESULTS_SELECTOR);
-  const resultsId =
-    root.dataset.enhancedSearchResultsId ||
-    `${root.dataset.enhancedSearchConfigId || "enhanced-search"}-results`;
-
-  if (input instanceof HTMLInputElement) {
-    input.setAttribute("aria-label", config.inputLabel);
-    input.setAttribute("aria-controls", resultsId);
-    input.setAttribute("aria-autocomplete", "list");
-  }
-
-  if (results instanceof HTMLElement) {
-    results.id = resultsId;
-    results.setAttribute("aria-label", config.resultsLabel);
-    enhanceSearchResults(results, config);
-  }
-
-  enhanceSearchEmptyState(backdrop, config);
-  ensureSearchFilters(backdrop, config);
-
-  if (backdrop.dataset.enhancedSearchModal === "true") {
-    return;
-  }
-
-  backdrop.dataset.enhancedSearchModal = "true";
-  backdrop.addEventListener(
-    "keydown",
-    (event) => {
-      const activeFilter = backdrop.dataset.searchFilter || "all";
-      if (
-        activeFilter === "all" ||
-        !(event.target instanceof HTMLInputElement) ||
-        !["ArrowDown", "ArrowUp", "Enter"].includes(event.key)
-      ) {
+    backdrop.addEventListener("click", (event) => {
+      if (event.target === backdrop) {
+        controller.close();
+      }
+    });
+    backdrop.addEventListener("keydown", (event) => {
+      if (event.key !== "Tab" || !backdrop) {
         return;
       }
+      const focusable = Array.from(
+        backdrop.querySelectorAll<HTMLElement>(SEARCH_FOCUSABLE_SELECTOR)
+      ).filter((element) => element.offsetParent !== null);
+      const first = focusable[0];
+      const last = focusable.at(-1);
+      if (!first || !last) {
+        event.preventDefault();
+      } else if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    renderEmpty();
+  };
 
-      const currentResults = backdrop.querySelector<HTMLElement>(SEARCH_RESULTS_SELECTOR);
-      const visibleResults = currentResults
-        ? getVisibleSearchResults(currentResults)
-        : [];
-      if (!currentResults || visibleResults.length === 0) {
+  const controller: SearchController = {
+    open: () => {
+      if (backdrop) {
+        input?.focus();
         return;
       }
-
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      const selectedIndex = visibleResults.findIndex(
-        (result) => result.dataset.selected === "true"
-      );
-
-      if (event.key === "Enter") {
-        visibleResults[Math.max(selectedIndex, 0)]?.click();
-        return;
-      }
-
-      const direction = event.key === "ArrowDown" ? 1 : -1;
-      const nextIndex = Math.min(
-        Math.max(selectedIndex + direction, 0),
-        visibleResults.length - 1
-      );
-      const nextResult = visibleResults[nextIndex];
-      if (nextResult) {
-        selectVisibleResult(currentResults, nextResult);
-      }
+      activeController?.close();
+      activeController = controller;
+      previouslyFocused =
+        document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      createShell();
+      void loadIndex(indexUrl).catch(() => undefined);
+      window.requestAnimationFrame(() => input?.focus());
     },
-    { capture: true }
-  );
-  backdrop.addEventListener("keydown", (event) => {
-    if (event.key !== "Tab") {
-      return;
-    }
+    close: () => {
+      if (!backdrop) {
+        return;
+      }
+      requestId += 1;
+      query = "";
+      results = [];
+      selectedIndex = 0;
+      root.replaceChildren();
+      backdrop = null;
+      input = null;
+      resultsList = null;
+      if (activeController === controller) {
+        activeController = null;
+      }
+      previouslyFocused?.focus();
+      previouslyFocused = null;
+    },
+  };
 
-    const focusableElements = getFocusableElements(backdrop);
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements.at(-1);
+  return controller;
+};
 
-    if (!firstElement || !lastElement) {
-      event.preventDefault();
-      return;
-    }
+function documentCreate<K extends keyof HTMLElementTagNameMap>(
+  tagName: K,
+  className: string
+): HTMLElementTagNameMap[K] {
+  const element = document.createElement(tagName);
+  element.className = className;
+  return element;
+}
 
-    if (event.shiftKey && document.activeElement === firstElement) {
-      event.preventDefault();
-      lastElement.focus();
-      return;
-    }
+const createKeyHint = (keys: string[], label: string): HTMLElement => {
+  const hint = documentCreate("span", "astro-search-key");
+  for (const key of keys) {
+    const keyboardKey = document.createElement("kbd");
+    keyboardKey.textContent = key;
+    hint.append(keyboardKey);
+  }
+  hint.append(document.createTextNode(` ${label}`));
+  return hint;
+};
 
-    if (!event.shiftKey && document.activeElement === lastElement) {
-      event.preventDefault();
-      firstElement.focus();
+const bindRoots = (): void => {
+  getSearchRoots().forEach((root) => {
+    if (!controllers.has(root)) {
+      controllers.set(root, createController(root));
     }
   });
-}
+};
 
-function enhanceSearchModals(): void {
-  getSearchRoots().forEach(enhanceSearchModal);
-}
+const openSearch = (): void => {
+  bindRoots();
+  const root = getSearchRoots()[0];
+  if (root) {
+    controllers.get(root)?.open();
+  }
+};
 
-function observeSearchModal(): void {
-  searchObserver?.disconnect();
-  searchObserver ??= new MutationObserver(enhanceSearchModals);
-  searchObserver.observe(document.body, { childList: true, subtree: true });
-}
-
-function openSearch(): void {
-  window.dispatchEvent(new CustomEvent("astro-search:open"));
-  window.requestAnimationFrame(enhanceSearchModals);
-}
-
-function handleSearchRoute(): void {
+const handleSearchRoute = (): void => {
   const url = new URL(window.location.href);
-
   if (url.searchParams.get("search") !== "1") {
     return;
   }
-
   url.searchParams.delete("search");
   window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   openSearch();
-}
-
-document.addEventListener("click", (event) => {
-  const target = event.target;
-
-  if (!(target instanceof Element)) {
-    return;
-  }
-
-  const searchLink = target.closest('a[href][data-enhanced-search-trigger="true"]');
-
-  if (!(searchLink instanceof HTMLAnchorElement)) {
-    return;
-  }
-
-  const linkUrl = new URL(searchLink.href, window.location.origin);
-  const shouldOpen = getSearchRoots().some((root) => {
-    const config = readConfig(root);
-
-    return config.routeHrefs.some((href) => {
-      const routeUrl = new URL(href, window.location.origin);
-      return (
-        routeUrl.origin === linkUrl.origin &&
-        normalizePath(routeUrl.pathname) === normalizePath(linkUrl.pathname)
-      );
-    });
-  });
-
-  if (!shouldOpen) {
-    return;
-  }
-
-  event.preventDefault();
-  openSearch();
-});
-
-const initEnhancedSearch = (): void => {
-  observeSearchModal();
-  enhanceSearchModals();
-  handleSearchRoute();
 };
 
-initEnhancedSearch();
-document.addEventListener("astro:page-load", initEnhancedSearch);
-window.addEventListener("popstate", handleSearchRoute);
-window.addEventListener("astro-search:open", () => {
-  window.requestAnimationFrame(enhanceSearchModals);
+const isModK = (event: KeyboardEvent): boolean =>
+  event.key.toLowerCase() === "k" &&
+  !event.shiftKey &&
+  !event.altKey &&
+  (event.metaKey ? !event.ctrlKey : event.ctrlKey);
+
+window.addEventListener("keydown", (event) => {
+  if (isModK(event)) {
+    event.preventDefault();
+    activeController ? activeController.close() : openSearch();
+  } else if (event.key === "Escape" && activeController) {
+    event.preventDefault();
+    activeController.close();
+  }
+});
+window.addEventListener("astro-search:open", openSearch);
+window.addEventListener("astro-search:close", () => activeController?.close());
+window.addEventListener("astro-search:toggle", () =>
+  activeController ? activeController.close() : openSearch()
+);
+document.addEventListener("click", (event) => {
+  const target = event.target;
+  const link =
+    target instanceof Element
+      ? target.closest<HTMLAnchorElement>('a[href][data-enhanced-search-trigger="true"]')
+      : null;
+  if (!link) {
+    return;
+  }
+  const shouldOpen = getSearchRoots().some((root) =>
+    readConfig(root).routeHrefs.some(
+      (href) => normalizePath(href) === normalizePath(link.href)
+    )
+  );
+  if (shouldOpen) {
+    event.preventDefault();
+    openSearch();
+  }
 });
 
-// Imported for its side effects (via the loader stub's dynamic import).
+bindRoots();
+handleSearchRoute();
+document.addEventListener("astro:page-load", () => {
+  bindRoots();
+  handleSearchRoute();
+});
+document.addEventListener("astro:before-swap", () => activeController?.close());
+window.addEventListener("popstate", handleSearchRoute);
+
 export {};

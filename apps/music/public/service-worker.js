@@ -1,11 +1,11 @@
-const CACHE_VERSION = "music-pwa-v20260721";
+const CACHE_VERSION = "music-pwa-v20260721-2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const MAX_RUNTIME_CACHE_ENTRIES = 80;
 
 const STATIC_ASSETS = [
   "/",
-  "/site.webmanifest?v=20260721",
+  "/site.webmanifest?v=20260721-2",
   "/favicon.ico",
   "/favicon-96x96.png",
   "/apple-touch-icon.png",
@@ -63,7 +63,9 @@ self.addEventListener("activate", (event) => {
       .then((keys) =>
         Promise.all(
           keys
-            .filter((key) => key.startsWith("music-pwa-") && !key.startsWith(CACHE_VERSION))
+            .filter(
+              (key) => key.startsWith("music-pwa-") && !key.startsWith(CACHE_VERSION)
+            )
             .map((key) => caches.delete(key))
         )
       )

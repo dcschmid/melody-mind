@@ -1,6 +1,6 @@
 /**
- * Tiny eager stub for the search palette. The palette bundle (Orama runtime +
- * web component + enhancer, ~74KB raw) used to load on every page; now it is
+ * Tiny eager stub for the search palette. The local controller and Orama runtime
+ * load only on first intent rather than on every page. They are
  * dynamically imported on first intent — mod+K, a click on a search trigger
  * link, or a `?search=1` deep link — and pre-warmed on hover/focus of the
  * trigger so the palette feels instant when actually invoked.
@@ -11,18 +11,12 @@ const TRIGGER_SELECTOR = 'a[href][data-enhanced-search-trigger="true"]';
 let loadPromise: Promise<unknown> | null = null;
 
 function loadPalette(): Promise<unknown> {
-  // Sequenced, not parallel: the enhancer dispatches "astro-search:open" at
-  // import time for `?search=1` deep links, so the element must already be
-  // defined when the enhancer evaluates.
-  loadPromise ??= import("@freshjuice/astro-search-plugin/element")
-    .then(() => import("./enhancedSearchPalette"))
-    .then((module) => {
-      // The real handlers (element shortcut listener, enhancer click handler)
-      // own every trigger from here on; the stub must stop listening or mod+K
-      // would be handled twice and the palette could never be closed again.
-      teardownStub();
-      return module;
-    });
+  loadPromise ??= import("./enhancedSearchPalette").then((module) => {
+    // The controller owns every trigger from here on; the stub must stop
+    // listening or mod+K would be handled twice.
+    teardownStub();
+    return module;
+  });
 
   return loadPromise;
 }

@@ -99,6 +99,15 @@ import Icon from "@components/visual/Icon.astro";
         aria-hidden="true"
       />
     </button>
+
+    <button
+      class="global-player__button global-player__button--close"
+      type="button"
+      data-global-player-action="close"
+      aria-label="Close player and clear playback"
+    >
+      <Icon name="x" aria-hidden="true" />
+    </button>
   </div>
 
   <p class="sr-only" aria-live="polite" aria-atomic="true" data-global-player-status></p>
@@ -127,7 +136,7 @@ import Icon from "@components/visual/Icon.astro";
 
   .global-player__inner {
     display: grid;
-    grid-template-columns: minmax(12rem, 0.9fr) auto minmax(16rem, 1.2fr) auto;
+    grid-template-columns: minmax(12rem, 0.9fr) auto minmax(16rem, 1.2fr) auto auto;
     gap: clamp(0.75rem, 2vw, 1.5rem);
     align-items: center;
     max-inline-size: 90rem;
@@ -226,6 +235,10 @@ import Icon from "@components/visual/Icon.astro";
     border-color: transparent;
   }
 
+  .global-player__button--close {
+    flex: none;
+  }
+
   .global-player__button:hover,
   .global-player__button:focus-visible {
     color: var(--link-hover);
@@ -276,9 +289,9 @@ import Icon from "@components/visual/Icon.astro";
   @media (width <= 760px) {
     .global-player__inner {
       grid-template-areas:
-        "context transport"
-        "timeline timeline";
-      grid-template-columns: minmax(0, 1fr) auto;
+        "context transport close"
+        "timeline timeline timeline";
+      grid-template-columns: minmax(0, 1fr) auto auto;
       gap: 0.2rem 0.6rem;
       min-block-size: 6.5rem;
       padding: 0.45rem 0.75rem 0.3rem;
@@ -302,6 +315,10 @@ import Icon from "@components/visual/Icon.astro";
 
     .global-player__button--volume {
       display: none;
+    }
+
+    .global-player__button--close {
+      grid-area: close;
     }
 
     .global-player__timeline {
