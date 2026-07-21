@@ -29,16 +29,16 @@
   "orientation": "portrait-primary",
   "shortcuts": [
     {
-      "name": "Latest Releases",
-      "short_name": "Latest",
-      "url": "/#latest-releases",
-      "description": "Open the latest MelodyMind Music releases."
+      "name": "Genres",
+      "short_name": "Genres",
+      "url": "/#main-genres-heading",
+      "description": "Browse MelodyMind Music albums by genre."
     },
     {
-      "name": "All Albums",
-      "short_name": "Albums",
-      "url": "/#albums-list",
-      "description": "Browse all MelodyMind Music albums."
+      "name": "Album Series",
+      "short_name": "Series",
+      "url": "/#album-series-heading",
+      "description": "Browse curated MelodyMind Music album series."
     },
     {
       "name": "Search Music",

@@ -1,13 +1,12 @@
-const CACHE_VERSION = "music-pwa-v20260712";
+const CACHE_VERSION = "music-pwa-v20260721";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const MAX_RUNTIME_CACHE_ENTRIES = 80;
 
 const STATIC_ASSETS = [
   "/",
-  "/site.webmanifest?v=20260507",
+  "/site.webmanifest?v=20260721",
   "/favicon.ico",
-  "/favicon.svg",
   "/favicon-96x96.png",
   "/apple-touch-icon.png",
   "/web-app-manifest-192x192.png?v=20260507",
