@@ -64,7 +64,7 @@ const discoveryMeta = getAlbumDiscoveryMeta({
 const albumFacts = [
   ...(currentAlbum.genre ? [{ label: "Genre", value: currentAlbum.genre }] : []),
   ...(discoveryMeta.moods.length
-    ? [{ label: "Mood", value: discoveryMeta.moods.slice(0, 2).join(" · ") }]
+    ? [{ label: "Mood", value: discoveryMeta.moods.slice(0, 3).join(" · ") }]
     : []),
   ...(discoveryMeta.language
     ? [{ label: "Language", value: discoveryMeta.language }]
