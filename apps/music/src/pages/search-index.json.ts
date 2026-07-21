@@ -9,14 +9,25 @@ import { getAlbumDiscoveryMeta } from "../utils/albumDiscovery";
 import { getAlbumCoverImageUrl } from "../utils/musicImages";
 
 type AlbumEntry = CollectionEntry<"albums">;
+type GenreEntry = CollectionEntry<"genres">;
 
 const trimSearchText = (value: string) => value.replace(/\s+/g, " ").trim();
 
 export const GET: APIRoute = async () => {
-  const albums = await getCollection(
+  const albums = (await getCollection(
     "albums",
     (entry: AlbumEntry) => entry.data.isAvailable
+  )) as AlbumEntry[];
+  const genres = ((await getCollection("genres")) as GenreEntry[]).sort(
+    (a, b) => a.data.order - b.data.order
   );
+  const albumCountByGenre = albums.reduce<Map<string, number>>((counts, entry) => {
+    const genre = entry.data.mainGenre;
+    if (genre) {
+      counts.set(genre, (counts.get(genre) || 0) + 1);
+    }
+    return counts;
+  }, new Map());
 
   const albumDocuments = albums.map((entry: AlbumEntry) => {
     const discoveryMeta = getAlbumDiscoveryMeta({
@@ -114,6 +125,26 @@ export const GET: APIRoute = async () => {
     })
   );
 
+  const genreDocuments = genres.map((entry) => {
+    const albumCount = albumCountByGenre.get(entry.data.mainGenre) || 0;
+
+    return {
+      id: `genre-${entry.id}`,
+      type: "Genre",
+      title: entry.data.title,
+      desc: trimSearchText(entry.data.description),
+      url: `/genre/${entry.id}/`,
+      albumTitle: "",
+      displayMeta: `${albumCount} ${albumCount === 1 ? "album" : "albums"} in the catalog`,
+      trackNumber: "",
+      duration: "",
+      genre: entry.data.mainGenre,
+      artist: "",
+      songTitles: [],
+      body: trimSearchText(entry.data.keywords.join(" ")),
+    };
+  });
+
   // Direct Orama calls instead of the plugin's buildSearchIndex helper so the
   // sorter can be disabled — the palette never sorts, and the serialized sort
   // structures alone cost ~500 KB of raw index size.
@@ -135,7 +166,7 @@ export const GET: APIRoute = async () => {
     sort: { enabled: false },
     components: { tokenizer: { language: "english" } },
   });
-  await insertMultiple(db, [...albumDocuments, ...trackDocuments]);
+  await insertMultiple(db, [...genreDocuments, ...albumDocuments, ...trackDocuments]);
   const index = save(db);
 
   return new Response(JSON.stringify(index), {

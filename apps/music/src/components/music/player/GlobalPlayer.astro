@@ -180,6 +180,25 @@ import Icon from "@components/visual/Icon.astro";
     color: var(--text-tertiary);
   }
 
+  .global-player[data-player-state="error"] {
+    border-block-start-color: color-mix(
+      in srgb,
+      var(--color-error) 58%,
+      var(--border-default)
+    );
+  }
+
+  .global-player[data-player-state="error"] .global-player__album {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    color: var(--color-error);
+    white-space: normal;
+    -webkit-box-orient: vertical;
+  }
+
   .global-player__transport {
     display: flex;
     gap: 0.4rem;

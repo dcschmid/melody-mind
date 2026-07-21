@@ -20,6 +20,7 @@ export interface PlayerState {
   duration: number;
   isMuted: boolean;
   isPlaying: boolean;
+  errorMessage: string | null;
   updatedAt: number;
 }
 

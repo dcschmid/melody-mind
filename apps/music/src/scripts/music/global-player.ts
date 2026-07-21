@@ -17,7 +17,7 @@ interface NavigatorWithConnection extends Navigator {
   };
 }
 
-interface StoredPlayerState extends Omit<PlayerState, "isPlaying"> {
+interface StoredPlayerState extends Omit<PlayerState, "isPlaying" | "errorMessage"> {
   version: 2;
 }
 
@@ -149,6 +149,7 @@ const initGlobalPlayer = (): void => {
     duration: restored?.duration || 0,
     isMuted: restored?.isMuted === true,
     isPlaying: false,
+    errorMessage: null,
     updatedAt: restored?.updatedAt || Date.now(),
   };
   let pendingSeek = state.currentTime;
@@ -175,6 +176,19 @@ const initGlobalPlayer = (): void => {
   const announce = (message: string) => {
     if (status) {
       status.textContent = message;
+    }
+  };
+
+  const getAudioErrorMessage = (): string => {
+    switch (audio.error?.code) {
+      case MediaError.MEDIA_ERR_NETWORK:
+        return "Network error. Press Play.";
+      case MediaError.MEDIA_ERR_DECODE:
+        return "Decode error. Press Play.";
+      case MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED:
+        return "Format error. Press Play.";
+      default:
+        return "Playback failed. Press Play.";
     }
   };
 
@@ -300,7 +314,11 @@ const initGlobalPlayer = (): void => {
     const hasTrack = Boolean(queue && track);
     root.hidden = !hasTrack;
     document.body.dataset.globalPlayerVisible = String(hasTrack);
-    root.dataset.playerState = state.isPlaying ? "playing" : "paused";
+    root.dataset.playerState = state.errorMessage
+      ? "error"
+      : state.isPlaying
+        ? "playing"
+        : "paused";
     root.dataset.playerMuted = state.isMuted ? "true" : "false";
 
     if (!queue || !track) {
@@ -310,7 +328,7 @@ const initGlobalPlayer = (): void => {
       trackText.textContent = track.title;
     }
     if (albumText) {
-      albumText.textContent = queue.albumTitle;
+      albumText.textContent = state.errorMessage || queue.albumTitle;
     }
     if (albumLink) {
       albumLink.href = `${queue.albumUrl}#track-${track.trackNumber}`;
@@ -323,7 +341,7 @@ const initGlobalPlayer = (): void => {
       toggle.setAttribute("aria-pressed", String(state.isPlaying));
       toggle.setAttribute(
         "aria-label",
-        `${state.isPlaying ? "Pause" : "Play"} ${track.title}`
+        `${state.errorMessage ? "Retry" : state.isPlaying ? "Pause" : "Play"} ${track.title}`
       );
     }
     if (mute) {
@@ -357,6 +375,7 @@ const initGlobalPlayer = (): void => {
       return;
     }
     state.currentTrackIndex = index;
+    state.errorMessage = null;
     releasePreloader();
     pendingSeek = currentTime;
     const nextUrl = new URL(track.audioUrl, window.location.href).href;
@@ -375,8 +394,19 @@ const initGlobalPlayer = (): void => {
     }
     if (!audio.src) {
       setSource(state.currentTrackIndex, state.currentTime);
+    } else if (state.errorMessage) {
+      pendingSeek = Number.isFinite(audio.currentTime)
+        ? audio.currentTime
+        : state.currentTime;
+      state.errorMessage = null;
+      audio.load();
+      updateUi();
     }
-    audio.play().catch(() => announce(`Could not play ${getTrack()?.title || "track"}`));
+    audio.play().catch(() => {
+      state.errorMessage = "Start failed. Press Play.";
+      dispatch(true);
+      announce(state.errorMessage);
+    });
   };
 
   const changeTrack = (index: number, autoplay = state.isPlaying) => {
@@ -515,11 +545,22 @@ const initGlobalPlayer = (): void => {
   audio.addEventListener(
     "play",
     () => {
+      state.errorMessage = null;
       dispatch(true);
+      announce(`Playing ${getTrack()?.title || "track"}`);
     },
     { signal }
   );
   audio.addEventListener("pause", () => dispatch(true), { signal });
+  audio.addEventListener(
+    "error",
+    () => {
+      state.errorMessage = getAudioErrorMessage();
+      dispatch(true);
+      announce(state.errorMessage);
+    },
+    { signal }
+  );
   audio.addEventListener(
     "timeupdate",
     () => {

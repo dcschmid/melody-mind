@@ -9,6 +9,7 @@ const SEARCH_RESULT_DESC_SELECTOR = ".astro-search-result-desc";
 const SEARCH_GROUP_LABEL_SELECTOR = ".astro-search-group-label";
 const SEARCH_EMPTY_SELECTOR = ".astro-search-empty";
 const SEARCH_FILTERS_SELECTOR = ".astro-search-filters";
+const SEARCH_FILTER_EMPTY_SELECTOR = ".astro-search-filter-empty";
 const SEARCH_FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -259,6 +260,85 @@ function syncResultSelectionState(results: HTMLElement): void {
   });
 }
 
+function getResultType(result: HTMLElement): string {
+  return normalizeText(
+    result.querySelector(SEARCH_RESULT_TYPE_SELECTOR)?.textContent || ""
+  ).replace(/s$/, "");
+}
+
+function getVisibleSearchResults(results: HTMLElement): HTMLElement[] {
+  return Array.from(results.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR)).filter(
+    (result) => !result.hidden
+  );
+}
+
+function selectVisibleResult(results: HTMLElement, result: HTMLElement): void {
+  results.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR).forEach((candidate) => {
+    const isSelected = candidate === result;
+    candidate.dataset.selected = String(isSelected);
+    candidate.setAttribute("aria-selected", String(isSelected));
+  });
+  result.scrollIntoView({ block: "nearest" });
+}
+
+function applySearchFilter(results: HTMLElement): void {
+  const backdrop = results.closest<HTMLElement>(SEARCH_BACKDROP_SELECTOR);
+  const activeFilter = backdrop?.dataset.searchFilter || "all";
+  const rows = Array.from(results.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR));
+
+  rows.forEach((result) => {
+    result.hidden = activeFilter !== "all" && getResultType(result) !== activeFilter;
+  });
+
+  Array.from(results.children).forEach((group) => {
+    if (
+      !(group instanceof HTMLElement) ||
+      !group.querySelector(SEARCH_GROUP_LABEL_SELECTOR)
+    ) {
+      return;
+    }
+    group.hidden = !Array.from(
+      group.querySelectorAll<HTMLElement>(SEARCH_RESULT_SELECTOR)
+    ).some((result) => !result.hidden);
+  });
+
+  const visibleResults = getVisibleSearchResults(results);
+  const existingEmpty = results.querySelector<HTMLElement>(SEARCH_FILTER_EMPTY_SELECTOR);
+  const needsFilteredEmpty =
+    activeFilter !== "all" && rows.length > 0 && visibleResults.length === 0;
+
+  if (!needsFilteredEmpty) {
+    existingEmpty?.remove();
+  } else if (!existingEmpty) {
+    const empty = document.createElement("li");
+    const title = document.createElement("p");
+    const text = document.createElement("p");
+    const filterLabel =
+      backdrop
+        ?.querySelector<HTMLButtonElement>(
+          `.astro-search-filter[data-search-filter="${activeFilter}"]`
+        )
+        ?.textContent?.trim() || "results";
+
+    empty.className = "astro-search-filter-empty";
+    empty.setAttribute("role", "status");
+    title.className = "astro-search-filter-empty__title";
+    title.textContent = `No matching ${filterLabel.toLowerCase()}.`;
+    text.className = "astro-search-filter-empty__text";
+    text.textContent = "Try another search or choose All.";
+    empty.append(title, text);
+    results.append(empty);
+  }
+
+  if (activeFilter !== "all" && visibleResults.length > 0) {
+    const selected = visibleResults.find((result) => result.dataset.selected === "true");
+    const firstResult = visibleResults[0];
+    if (!selected && firstResult) {
+      selectVisibleResult(results, firstResult);
+    }
+  }
+}
+
 function enhanceSearchEmptyState(
   backdrop: HTMLElement,
   config: EnhancedSearchConfig
@@ -387,17 +467,7 @@ function enhanceSearchResults(results: HTMLElement, config: EnhancedSearchConfig
     }
   });
 
-  const backdrop = results.closest<HTMLElement>(SEARCH_BACKDROP_SELECTOR);
-  const activeFilter = backdrop?.dataset.searchFilter || "all";
-  rows.forEach((result) => {
-    if (!(result instanceof HTMLElement)) {
-      return;
-    }
-    const type = normalizeText(
-      result.querySelector(SEARCH_RESULT_TYPE_SELECTOR)?.textContent || ""
-    ).replace(/s$/, "");
-    result.hidden = activeFilter !== "all" && type !== activeFilter;
-  });
+  applySearchFilter(results);
 }
 
 function ensureSearchFilters(backdrop: HTMLElement, config: EnhancedSearchConfig): void {
@@ -480,6 +550,49 @@ function enhanceSearchModal(root: HTMLElement): void {
   }
 
   backdrop.dataset.enhancedSearchModal = "true";
+  backdrop.addEventListener(
+    "keydown",
+    (event) => {
+      const activeFilter = backdrop.dataset.searchFilter || "all";
+      if (
+        activeFilter === "all" ||
+        !(event.target instanceof HTMLInputElement) ||
+        !["ArrowDown", "ArrowUp", "Enter"].includes(event.key)
+      ) {
+        return;
+      }
+
+      const currentResults = backdrop.querySelector<HTMLElement>(SEARCH_RESULTS_SELECTOR);
+      const visibleResults = currentResults
+        ? getVisibleSearchResults(currentResults)
+        : [];
+      if (!currentResults || visibleResults.length === 0) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const selectedIndex = visibleResults.findIndex(
+        (result) => result.dataset.selected === "true"
+      );
+
+      if (event.key === "Enter") {
+        visibleResults[Math.max(selectedIndex, 0)]?.click();
+        return;
+      }
+
+      const direction = event.key === "ArrowDown" ? 1 : -1;
+      const nextIndex = Math.min(
+        Math.max(selectedIndex + direction, 0),
+        visibleResults.length - 1
+      );
+      const nextResult = visibleResults[nextIndex];
+      if (nextResult) {
+        selectVisibleResult(currentResults, nextResult);
+      }
+    },
+    { capture: true }
+  );
   backdrop.addEventListener("keydown", (event) => {
     if (event.key !== "Tab") {
       return;

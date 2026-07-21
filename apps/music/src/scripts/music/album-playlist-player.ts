@@ -142,8 +142,13 @@ const bindPlayer = (player: HTMLElement): void => {
     const duration = active ? state.duration : track?.durationSeconds || 0;
     const elapsed = active ? state.currentTime : 0;
     const remaining = Math.max(duration - elapsed, 0);
+    const playbackError = active ? state.errorMessage : null;
 
-    player.dataset.playerState = active && state.isPlaying ? "playing" : "paused";
+    player.dataset.playerState = playbackError
+      ? "error"
+      : active && state.isPlaying
+        ? "playing"
+        : "paused";
     player.dataset.playerMuted = active && state.isMuted ? "true" : "false";
     if (currentTitle) {
       currentTitle.textContent = track?.title || "Cue the first track";
@@ -167,7 +172,7 @@ const bindPlayer = (player: HTMLElement): void => {
       toggle.setAttribute("aria-pressed", String(playing));
       toggle.setAttribute(
         "aria-label",
-        `${playing ? "Pause" : "Play"} ${track?.title || queue.albumTitle}`
+        `${playbackError ? "Retry" : playing ? "Pause" : "Play"} ${track?.title || queue.albumTitle}`
       );
     }
     if (volume) {
@@ -277,10 +282,12 @@ const bindPlayer = (player: HTMLElement): void => {
       render(event.detail);
       if (status && isThisAlbum(event.detail)) {
         const track = event.detail.queue?.tracks[event.detail.currentTrackIndex];
-        const statusKey = `${event.detail.currentTrackIndex}:${event.detail.isPlaying}`;
+        const statusKey = `${event.detail.currentTrackIndex}:${event.detail.isPlaying}:${event.detail.errorMessage || ""}`;
         if (statusKey !== lastStatusKey) {
           lastStatusKey = statusKey;
-          status.textContent = `${event.detail.isPlaying ? "Playing" : "Paused"} ${track?.title || queue.albumTitle}`;
+          status.textContent =
+            event.detail.errorMessage ||
+            `${event.detail.isPlaying ? "Playing" : "Paused"} ${track?.title || queue.albumTitle}`;
         }
       }
     },

@@ -219,6 +219,38 @@ const config = {
     text-align: center;
   }
 
+  :global(.astro-search-filter-empty) {
+    display: grid;
+    gap: var(--spacing-sm);
+    justify-items: center;
+    padding: var(--spacing-xl) var(--spacing-base);
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  :global(.astro-search-filter-empty__title),
+  :global(.astro-search-filter-empty__text) {
+    max-inline-size: 34rem;
+    margin: 0;
+  }
+
+  :global(.astro-search-filter-empty__title) {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.35;
+    color: var(--text-primary);
+  }
+
+  :global(.astro-search-filter-empty__text) {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+
+  :global(.astro-search-result[hidden]),
+  :global(.astro-search-results > li[hidden]) {
+    display: none;
+  }
+
   :global(.astro-search-empty__title),
   :global(.astro-search-empty__text) {
     max-inline-size: 34rem;
