@@ -137,7 +137,9 @@ const GRID_COVER_IMAGE_SIZES =
         </a>
         <p class="genre-landing__eyebrow">{page.eyebrow}</p>
         <h1 id="genre-landing-title" class="genre-landing__title">{page.title}</h1>
-        <p class="genre-landing__intro">{page.description}</p>
+        <div class="genre-landing__intro">
+          <Content />
+        </div>
         <p class="genre-landing__catalog-note">
           <Icon name="disc" aria-hidden="true" />
           <span>
@@ -201,13 +203,6 @@ const GRID_COVER_IMAGE_SIZES =
         </ul>
       </AlbumGridFilter>
     </section>
-
-    <section class="genre-landing__story" aria-labelledby="genre-story-title">
-      <h2 id="genre-story-title" class="genre-landing__story-title">
-        About {page.eyebrow}
-      </h2>
-      <Content />
-    </section>
   </div>
 </Layout>
 
@@ -240,7 +235,6 @@ const GRID_COVER_IMAGE_SIZES =
   }
 
   .genre-landing__hero,
-  .genre-landing__story,
   .genre-landing__albums {
     inline-size: min(100%, 90rem);
     margin-inline: auto;
@@ -341,20 +335,6 @@ const GRID_COVER_IMAGE_SIZES =
     gap: clamp(1rem, 2vw, 1.5rem);
   }
 
-  .genre-landing__story {
-    max-inline-size: 72rem;
-    padding-block-start: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
-    border-block-start: 1px solid var(--genre-landing-line);
-  }
-
-  .genre-landing__story-title {
-    margin: 0 0 var(--spacing-lg);
-    font-size: clamp(1.6rem, 1.35rem + 1vw, 2.35rem);
-    line-height: 1.1;
-    color: var(--genre-landing-ink);
-    text-wrap: balance;
-  }
-
   .genre-landing__section-header {
     display: grid;
     gap: 0.35rem;
@@ -417,28 +397,28 @@ const GRID_COVER_IMAGE_SIZES =
 </style>
 
 <style is:global>
-  .genre-landing__story > * {
+  .genre-landing__intro > * {
     max-inline-size: 76ch;
   }
 
-  .genre-landing__story > *:first-child {
+  .genre-landing__intro > *:first-child {
     margin-block-start: 0;
   }
 
-  .genre-landing__story > *:last-child {
+  .genre-landing__intro > *:last-child {
     margin-block-end: 0;
   }
 
-  .genre-landing__story p,
-  .genre-landing__story li {
+  .genre-landing__intro p,
+  .genre-landing__intro li {
     font-size: var(--font-size-md);
     line-height: 1.7;
     color: var(--genre-landing-muted);
     text-wrap: pretty;
   }
 
-  .genre-landing__story h2,
-  .genre-landing__story h3 {
+  .genre-landing__intro h2,
+  .genre-landing__intro h3 {
     margin-block: clamp(1.5rem, 3vw, 2.25rem) 0.7rem;
     font-family: var(--font-sans);
     font-weight: var(--font-weight-semibold);
@@ -448,15 +428,15 @@ const GRID_COVER_IMAGE_SIZES =
     text-wrap: balance;
   }
 
-  .genre-landing__story h2 {
+  .genre-landing__intro h2 {
     font-size: clamp(1.7rem, 1.45rem + 0.9vw, 2.35rem);
   }
 
-  .genre-landing__story h3 {
+  .genre-landing__intro h3 {
     font-size: clamp(1.25rem, 1.1rem + 0.55vw, 1.7rem);
   }
 
-  .genre-landing__story a {
+  .genre-landing__intro a {
     color: var(--genre-landing-accent);
     text-underline-offset: 0.18em;
   }

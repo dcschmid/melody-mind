@@ -132,7 +132,9 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
         </a>
         <p class="series-landing__eyebrow">{page.eyebrow}</p>
         <h1 id="series-landing-title" class="series-landing__title">{page.title}</h1>
-        <p class="series-landing__intro">{page.shortDescription}</p>
+        <div class="series-landing__intro">
+          <Content />
+        </div>
         <p class="series-landing__order-note">
           <Icon name="book-open" aria-hidden="true" />
           <span>
@@ -203,13 +205,6 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
         }
       </ol>
     </section>
-
-    <section class="series-landing__story" aria-labelledby="series-story-title">
-      <h2 id="series-story-title" class="series-landing__story-title">
-        About this series
-      </h2>
-      <Content />
-    </section>
   </div>
 </Layout>
 
@@ -242,7 +237,6 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
   }
 
   .series-landing__hero,
-  .series-landing__story,
   .series-landing__albums {
     inline-size: min(100%, 90rem);
     margin-inline: auto;
@@ -341,20 +335,6 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
   .series-landing__albums {
     display: grid;
     gap: clamp(1rem, 2vw, 1.5rem);
-  }
-
-  .series-landing__story {
-    max-inline-size: 72rem;
-    padding-block-start: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
-    border-block-start: 1px solid var(--series-landing-line);
-  }
-
-  .series-landing__story-title {
-    margin: 0 0 var(--spacing-lg);
-    font-size: clamp(1.6rem, 1.35rem + 1vw, 2.35rem);
-    line-height: 1.1;
-    color: var(--series-landing-ink);
-    text-wrap: balance;
   }
 
   .series-landing__section-header {
@@ -542,28 +522,28 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
 </style>
 
 <style is:global>
-  .series-landing__story > * {
+  .series-landing__intro > * {
     max-inline-size: 76ch;
   }
 
-  .series-landing__story > *:first-child {
+  .series-landing__intro > *:first-child {
     margin-block-start: 0;
   }
 
-  .series-landing__story > *:last-child {
+  .series-landing__intro > *:last-child {
     margin-block-end: 0;
   }
 
-  .series-landing__story p,
-  .series-landing__story li {
+  .series-landing__intro p,
+  .series-landing__intro li {
     font-size: var(--font-size-md);
     line-height: 1.7;
     color: var(--series-landing-muted);
     text-wrap: pretty;
   }
 
-  .series-landing__story h2,
-  .series-landing__story h3 {
+  .series-landing__intro h2,
+  .series-landing__intro h3 {
     margin-block: clamp(1.5rem, 3vw, 2.25rem) 0.7rem;
     font-family: var(--font-sans);
     font-weight: var(--font-weight-semibold);
@@ -573,15 +553,15 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
     text-wrap: balance;
   }
 
-  .series-landing__story h2 {
+  .series-landing__intro h2 {
     font-size: clamp(1.7rem, 1.45rem + 0.9vw, 2.35rem);
   }
 
-  .series-landing__story h3 {
+  .series-landing__intro h3 {
     font-size: clamp(1.25rem, 1.1rem + 0.55vw, 1.7rem);
   }
 
-  .series-landing__story a {
+  .series-landing__intro a {
     color: var(--series-landing-accent);
     text-underline-offset: 0.18em;
   }

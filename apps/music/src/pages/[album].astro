@@ -233,16 +233,6 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
       albumArtworkUrl={albumCoverPlayerImageUrl}
     />
 
-    <RelatedContentSection
-      id="related-albums"
-      eyebrow="Keep listening"
-      title="Similar Albums"
-      copy="Continue with albums that share mood, genre, or listening context."
-      listAriaLabel="Similar albums"
-      items={relatedAlbums}
-      mediaObjectFit="cover"
-    />
-
     <Details
       hasAlbumContent={hasAlbumContent}
       hideFirstHeading
@@ -255,5 +245,15 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     </Details>
 
     <AlbumSupportSection albumTitle={currentAlbum.title} />
+
+    <RelatedContentSection
+      id="related-albums"
+      eyebrow="Keep listening"
+      title="Similar Albums"
+      copy="Continue with albums that share mood, genre, or listening context."
+      listAriaLabel="Similar albums"
+      items={relatedAlbums}
+      mediaObjectFit="cover"
+    />
   </Surface>
 </Layout>
