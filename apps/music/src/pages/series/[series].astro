@@ -1,7 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
-import ContentCard from "@components/cards/ContentCard.astro";
 import OptimizedImage from "@components/media/OptimizedImage.astro";
+import Icon from "@components/visual/Icon.astro";
 import Layout from "../../layouts/Layout.astro";
 import { resolvePageUrl } from "@utils/siteUrls";
 import { buildCollectionPageSchema } from "@utils/seo/seoSchema";
@@ -32,7 +32,6 @@ interface SeriesAlbumCard {
   title: string;
   description: string;
   imageSrc: ReturnType<typeof getAlbumCoverImage>;
-  publishedAt: string;
   genre: string | undefined;
   trackCount: number;
   totalDurationLabel: string;
@@ -57,9 +56,11 @@ const page: SeriesPage = {
 const { Content } = await render(entry);
 
 const albums: AlbumData[] = await getAvailableAlbums();
-const albumsById = new Map(albums.map((album) => [album.id, album]));
+const albumsById = new Map(
+  albums.map((album) => [album.id.toLocaleLowerCase("en"), album])
+);
 const seriesAlbums = page.albumIds
-  .map((albumId) => albumsById.get(albumId))
+  .map((albumId) => albumsById.get(albumId.toLocaleLowerCase("en")))
   .filter((album): album is (typeof albums)[number] => Boolean(album));
 const albumCards: SeriesAlbumCard[] = seriesAlbums.map((album, index) => {
   const totalDurationSeconds = album.songs.reduce(
@@ -74,19 +75,18 @@ const albumCards: SeriesAlbumCard[] = seriesAlbums.map((album, index) => {
     title: album.title,
     description: album.description,
     imageSrc,
-    publishedAt: album.publishedAt,
     genre: album.genre,
     trackCount: album.songs.length,
     totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
   };
 });
-const heroAlbums = albumCards.slice(0, 3);
 const canonical = resolvePageUrl(Astro.site, `/series/${page.slug}/`);
 const pageImage = seriesAlbums[0]?.coverImage
   ? getAlbumCoverImageUrl(seriesAlbums[0].coverImage)
   : musicDefaultOgImageUrl;
 const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "Album Series", url: resolvePageUrl(Astro.site, "/series/") },
   { name: page.title, url: canonical },
 ];
 const structuredData = [
@@ -107,8 +107,7 @@ const structuredData = [
     getCoverImageUrl: getAlbumCoverImageUrl,
   }),
 ];
-const GRID_COVER_IMAGE_SIZES =
-  "(max-width: 640px) 7.5rem, (max-width: 760px) 44vw, (max-width: 1180px) 28vw, min(18rem, calc((100vw - 10rem) / 5))";
+const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
 ---
 
 <Layout
@@ -127,88 +126,89 @@ const GRID_COVER_IMAGE_SIZES =
   <div class="series-landing" aria-labelledby="series-landing-title">
     <header class="series-landing__hero">
       <div class="series-landing__copy">
+        <a class="series-landing__back" href="/series/">
+          <Icon name="arrow-left" aria-hidden="true" />
+          <span>All album series</span>
+        </a>
         <p class="series-landing__eyebrow">{page.eyebrow}</p>
         <h1 id="series-landing-title" class="series-landing__title">{page.title}</h1>
         <p class="series-landing__intro">{page.shortDescription}</p>
+        <p class="series-landing__order-note">
+          <Icon name="book-open" aria-hidden="true" />
+          <span>
+            {`${albumCards.length}-part listening order, beginning with Part 1`}
+          </span>
+        </p>
       </div>
-
-      {
-        heroAlbums.length > 0 && (
-          <div class="series-landing__covers" aria-label={`${page.title} cover artwork`}>
-            {heroAlbums.map((album, index) => (
-              <span
-                class="series-landing__cover-item"
-                style={`--series-cover-index: ${index};`}
-              >
-                <OptimizedImage
-                  src={album.imageSrc}
-                  alt={`Cover art for the album ${album.title}`}
-                  class="series-landing__cover"
-                  width={320}
-                  height={320}
-                  widths={[180, 240, 320, 480]}
-                  sizes="(max-width: 760px) 42vw, 20rem"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-              </span>
-            ))}
-          </div>
-        )
-      }
     </header>
-
-    <section class="series-landing__story" aria-label={`${page.title} story`}>
-      <Content />
-    </section>
 
     <section class="series-landing__albums" aria-labelledby="series-albums-title">
       <div class="series-landing__section-header">
         <p class="series-landing__section-kicker">
-          {albumCards.length}
-          {albumCards.length === 1 ? "album" : "albums"}
+          {`${albumCards.length} ${albumCards.length === 1 ? "album" : "albums"}`}
         </p>
         <h2 id="series-albums-title" class="series-landing__section-title">
           Albums in this series
         </h2>
       </div>
 
-      <ol class="series-landing__grid">
+      <ol class="series-landing__sequence">
         {
           albumCards.map((album) => (
             <li class="series-landing__item">
-              <ContentCard
-                id={`series-album-card-${album.id}`}
-                class="series-landing__card"
+              <span class="series-landing__part-number" aria-hidden="true">
+                {String(album.partNumber).padStart(2, "0")}
+              </span>
+              <a
+                id={`series-album-${album.id}`}
+                class="series-landing__album-link"
                 href={`/${album.id}/`}
-                dataTestId="series-album-card"
-                variant="default"
-                size="compact"
-                mediaAspectRatio="1 / 1"
-                mediaObjectFit="cover"
-                imageSrc={album.imageSrc}
-                imageAlt={`Cover art for the album ${album.title}`}
-                imageWidth={1024}
-                imageHeight={1024}
-                imageSizes={GRID_COVER_IMAGE_SIZES}
-                title={album.title}
-                description={album.description}
-                metaItems={[
-                  { iconName: "book-open" as const, label: `Part ${album.partNumber}` },
-                  ...(album.genre
-                    ? [{ iconName: "disc" as const, label: album.genre }]
-                    : []),
-                  { iconName: "music" as const, label: `${album.trackCount} tracks` },
-                  ...(album.totalDurationLabel
-                    ? [{ iconName: "clock" as const, label: album.totalDurationLabel }]
-                    : []),
-                ]}
-                ctaSrText={`Open album ${album.title}`}
-              />
+                data-testid="series-album-card"
+              >
+                <OptimizedImage
+                  src={album.imageSrc}
+                  alt={`Cover art for the album ${album.title}`}
+                  class="series-landing__album-cover"
+                  width={288}
+                  height={288}
+                  widths={[104, 144, 216, 288]}
+                  sizes={SEQUENCE_COVER_IMAGE_SIZES}
+                  loading={album.partNumber === 1 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+                <span class="series-landing__album-copy">
+                  <span class="series-landing__part-label">
+                    Part {album.partNumber}
+                    {album.partNumber === 1 && (
+                      <span class="series-landing__start">Start here</span>
+                    )}
+                  </span>
+                  <strong class="series-landing__album-title">{album.title}</strong>
+                  <span class="series-landing__album-description">
+                    {album.description}
+                  </span>
+                  <span class="series-landing__album-meta">
+                    {album.genre && <span>{album.genre}</span>}
+                    <span>{`${album.trackCount} tracks`}</span>
+                    {album.totalDurationLabel && <span>{album.totalDurationLabel}</span>}
+                  </span>
+                  <span class="series-landing__album-action">
+                    Open album
+                    <Icon name="chevron-right" aria-hidden="true" />
+                  </span>
+                </span>
+              </a>
             </li>
           ))
         }
       </ol>
+    </section>
+
+    <section class="series-landing__story" aria-labelledby="series-story-title">
+      <h2 id="series-story-title" class="series-landing__story-title">
+        About this series
+      </h2>
+      <Content />
     </section>
   </div>
 </Layout>
@@ -239,21 +239,6 @@ const GRID_COVER_IMAGE_SIZES =
     padding: max(clamp(2rem, 5vw, 4rem), 6rem) clamp(1rem, 4vw, 4rem)
       clamp(2.5rem, 6vw, 5rem);
     color: var(--series-landing-ink);
-    isolation: isolate;
-  }
-
-  .series-landing::before {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    content: "";
-    background: radial-gradient(
-      140vw 90vh at 50% -25%,
-      color-mix(in srgb, var(--accent-primary) 9%, transparent),
-      color-mix(in srgb, var(--accent-strong) 4%, transparent) 45%,
-      transparent 80%
-    );
   }
 
   .series-landing__hero,
@@ -264,11 +249,7 @@ const GRID_COVER_IMAGE_SIZES =
   }
 
   .series-landing__hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr);
-    gap: clamp(1.4rem, 4vw, 4rem);
-    align-items: center;
-    padding-block-end: clamp(1rem, 2vw, 1.6rem);
+    padding-block-end: clamp(1.25rem, 3vw, 2.25rem);
     border-block-end: 1px solid var(--series-landing-line);
   }
 
@@ -276,6 +257,7 @@ const GRID_COVER_IMAGE_SIZES =
     display: grid;
     gap: clamp(0.9rem, 2vw, 1.25rem);
     min-inline-size: 0;
+    max-inline-size: 72ch;
   }
 
   .series-landing__eyebrow,
@@ -289,11 +271,41 @@ const GRID_COVER_IMAGE_SIZES =
     letter-spacing: var(--letter-spacing-wider);
   }
 
+  .series-landing__back {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-xs);
+    margin-inline-start: calc(-1 * var(--spacing-xs));
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--series-landing-muted);
+    text-decoration: none;
+    border-radius: var(--radius-base);
+  }
+
+  .series-landing__back:hover,
+  .series-landing__back:focus-visible {
+    color: var(--series-landing-accent);
+  }
+
+  .series-landing__back:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .series-landing__back :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
   .series-landing__title {
-    max-inline-size: 14ch;
+    max-inline-size: 18ch;
     margin: 0;
     font-family: var(--font-sans);
-    font-size: clamp(2.8rem, 2.1rem + 3vw, 5rem);
+    font-size: clamp(2.4rem, 1.9rem + 2.4vw, 4.25rem);
     font-weight: var(--font-weight-bold);
     line-height: 0.98;
     letter-spacing: 0;
@@ -309,32 +321,21 @@ const GRID_COVER_IMAGE_SIZES =
     text-wrap: pretty;
   }
 
-  .series-landing__covers {
-    position: relative;
-    display: grid;
-    place-items: center;
-    min-block-size: clamp(18rem, 32vw, 29rem);
+  .series-landing__order-note {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    inline-size: fit-content;
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--series-landing-ink);
   }
 
-  .series-landing__cover-item {
-    position: absolute;
-    inline-size: clamp(10.5rem, 19vw, 20rem);
-    color: inherit;
-    transform: translateX(calc((var(--series-cover-index) - 1) * 34%))
-      translateY(calc((var(--series-cover-index) - 1) * 4%))
-      rotate(calc((var(--series-cover-index) - 1) * 5deg));
-  }
-
-  .series-landing__cover {
-    display: block;
-    inline-size: 100%;
-    block-size: auto;
-    aspect-ratio: 1 / 1;
-    outline: 1px solid var(--border-muted);
-    outline-offset: -1px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    box-shadow: 0 1.4rem 3.6rem oklch(0% 0 0deg / 0.38);
+  .series-landing__order-note :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--series-landing-accent);
   }
 
   .series-landing__albums {
@@ -344,7 +345,16 @@ const GRID_COVER_IMAGE_SIZES =
 
   .series-landing__story {
     max-inline-size: 72rem;
-    padding-block: clamp(0.25rem, 1vw, 0.75rem);
+    padding-block-start: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
+    border-block-start: 1px solid var(--series-landing-line);
+  }
+
+  .series-landing__story-title {
+    margin: 0 0 var(--spacing-lg);
+    font-size: clamp(1.6rem, 1.35rem + 1vw, 2.35rem);
+    line-height: 1.1;
+    color: var(--series-landing-ink);
+    text-wrap: balance;
   }
 
   .series-landing__section-header {
@@ -361,34 +371,132 @@ const GRID_COVER_IMAGE_SIZES =
     letter-spacing: 0;
   }
 
-  .series-landing__grid {
+  .series-landing__sequence {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(1rem, 1.6vw, 1.4rem);
-    align-items: stretch;
+    gap: 0;
     padding: 0;
     margin: 0;
     list-style: none;
+    border-block-start: 1px solid var(--series-landing-line);
   }
 
   .series-landing__item {
     display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-xl));
+    align-items: center;
+    min-inline-size: 0;
+    padding-block: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+    border-block-end: 1px solid var(--series-landing-line);
+  }
+
+  .series-landing__part-number {
+    align-self: start;
+    padding-block-start: var(--spacing-sm);
+    font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+    font-weight: var(--font-weight-bold);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: var(--series-landing-accent);
+  }
+
+  .series-landing__album-link {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: clamp(var(--spacing-base), 2.4vw, var(--spacing-2xl));
+    align-items: center;
+    min-inline-size: 0;
+    padding: var(--spacing-sm);
+    color: inherit;
+    text-decoration: none;
+    border-radius: var(--radius-base);
+  }
+
+  .series-landing__album-link:hover,
+  .series-landing__album-link:focus-visible {
+    background: color-mix(in srgb, var(--series-landing-accent) 7%, transparent);
+  }
+
+  .series-landing__album-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .series-landing__album-cover {
+    display: block;
+    inline-size: 9rem;
+    block-size: 9rem;
+    object-fit: cover;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .series-landing__album-copy {
+    display: grid;
+    gap: var(--spacing-xs);
     min-inline-size: 0;
   }
 
-  .series-landing__card {
-    block-size: 100%;
+  .series-landing__part-label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: baseline;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--series-landing-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
   }
 
-  @media (width <= 900px) {
-    .series-landing__hero {
-      grid-template-columns: minmax(0, 1fr);
-    }
+  .series-landing__start {
+    color: var(--series-landing-accent);
+  }
 
-    .series-landing__covers {
-      order: -1;
-      min-block-size: 15rem;
-    }
+  .series-landing__album-title {
+    font-size: clamp(1.35rem, 1.15rem + 0.7vw, 1.9rem);
+    line-height: 1.12;
+  }
+
+  .series-landing__album-description {
+    display: -webkit-box;
+    max-inline-size: 68ch;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    line-height: 1.55;
+    color: var(--series-landing-muted);
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
+  }
+
+  .series-landing__album-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-base);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--series-landing-muted);
+  }
+
+  .series-landing__album-meta span + span::before {
+    margin-inline-end: var(--spacing-base);
+    color: var(--series-landing-line);
+    content: "\u2022";
+  }
+
+  .series-landing__album-action {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    font-weight: var(--font-weight-bold);
+    color: var(--series-landing-accent);
+  }
+
+  .series-landing__album-action :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
   @media (width <= 760px) {
@@ -401,14 +509,34 @@ const GRID_COVER_IMAGE_SIZES =
       line-height: 1.6;
     }
 
-    .series-landing__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .series-landing__item {
+      grid-template-columns: 2.75rem minmax(0, 1fr);
     }
   }
 
   @media (width <= 520px) {
-    .series-landing__grid {
+    .series-landing__item {
       grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-xs);
+    }
+
+    .series-landing__part-number {
+      padding-block-start: 0;
+    }
+
+    .series-landing__album-link {
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      gap: var(--spacing-base);
+      padding-inline: 0;
+    }
+
+    .series-landing__album-cover {
+      inline-size: 6.5rem;
+      block-size: 6.5rem;
+    }
+
+    .series-landing__album-description {
+      -webkit-line-clamp: 3;
     }
   }
 </style>
@@ -456,36 +584,5 @@ const GRID_COVER_IMAGE_SIZES =
   .series-landing__story a {
     color: var(--series-landing-accent);
     text-underline-offset: 0.18em;
-  }
-
-  .series-landing__card .content-card__media {
-    position: relative;
-  }
-
-  .series-landing__card .content-card__media::before {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    content: "";
-    background: radial-gradient(
-      120% 90% at 50% 100%,
-      color-mix(in srgb, var(--series-landing-accent) 42%, transparent),
-      transparent 62%
-    );
-    mix-blend-mode: screen;
-    opacity: 0;
-  }
-
-  .series-landing__card.content-card--interactive:hover .content-card__media::before,
-  .series-landing__card.content-card--interactive:focus-within
-    .content-card__media::before {
-    opacity: 1;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .series-landing__card .content-card__media::before {
-      transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
   }
 </style>

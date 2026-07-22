@@ -1,0 +1,99 @@
+---
+import AlbumSeriesSection from "@components/music/home/AlbumSeriesSection.astro";
+import DirectoryHero from "@components/music/discovery/DirectoryHero.astro";
+import Layout from "@layouts/Layout.astro";
+import { getDiscoveryDirectoryData } from "@utils/discoveryDirectories";
+import { buildCollectionPageSchema } from "@utils/seo/seoSchema";
+import { resolvePageUrl } from "@utils/siteUrls";
+
+const { albums, seriesDirectories } = await getDiscoveryDirectoryData();
+const canonical = resolvePageUrl(Astro.site, "/series/");
+const title = "Browse Album Series";
+const description =
+  "Follow connected MelodyMind concept albums in narrative order, from workplace satire to mythology and political metal opera.";
+const seriesAlbumCount = new Set(
+  seriesDirectories.flatMap((series) => series.albums.map((album) => album.id))
+).size;
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "Album Series", url: canonical },
+];
+const structuredData = [
+  buildCollectionPageSchema({
+    url: canonical,
+    name: title,
+    description,
+    lang: "en",
+    mainEntityId: `${canonical}#series-directory-list`,
+  }),
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${canonical}#series-directory-list`,
+    name: "MelodyMind album series",
+    numberOfItems: seriesDirectories.length,
+    itemListElement: seriesDirectories.map((series, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: series.title,
+      url: resolvePageUrl(Astro.site, `/series/${series.slug}/`),
+    })),
+  },
+];
+---
+
+<Layout
+  title={`${title} | MelodyMind Music`}
+  {description}
+  keywords={["album series", "concept albums", "music stories", "MelodyMind"]}
+  type="website"
+  canonical={canonical}
+  {breadcrumbs}
+  {structuredData}
+  contentShellClass="music-layout__container--directory-index"
+>
+  <div class="directory-index">
+    <DirectoryHero
+      eyebrow="Connected records"
+      title="Follow the story across albums"
+      description={description}
+      meta={`${seriesDirectories.length} series · ${seriesAlbumCount} connected albums · ${albums.length} total`}
+      alternateHref="/genre/"
+      alternateLabel="Browse music genres"
+    />
+
+    <div id="series-directory-list" class="directory-index__list">
+      <AlbumSeriesSection
+        series={seriesDirectories}
+        title="All Album Series"
+        headingId="all-series-heading"
+        showDescriptions
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  :global(.music-layout__container.music-layout__container--directory-index) {
+    inline-size: 100%;
+    max-inline-size: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: clip;
+  }
+
+  .directory-index {
+    box-sizing: border-box;
+    display: grid;
+    gap: clamp(var(--spacing-2xl), 6vw, var(--spacing-4xl));
+    inline-size: min(100%, 90rem);
+    min-block-size: 100svh;
+    padding: max(clamp(var(--spacing-xl), 5vw, var(--spacing-4xl)), 6rem)
+      clamp(1rem, 4vw, 4rem) clamp(var(--spacing-3xl), 7vw, 6rem);
+    margin-inline: auto;
+  }
+
+  .directory-index__list {
+    scroll-margin-block-start: 6rem;
+  }
+</style>

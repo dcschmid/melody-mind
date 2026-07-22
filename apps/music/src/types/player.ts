@@ -32,7 +32,9 @@ export type PlayerCommand =
   | { action: "next" }
   | { action: "shuffle" }
   | { action: "mute" }
-  | { action: "close" }
+  | { action: "minimize" }
+  | { action: "expand" }
+  | { action: "clear" }
   | { action: "seek"; value: number };
 
 export interface PlayerLoadDetail {

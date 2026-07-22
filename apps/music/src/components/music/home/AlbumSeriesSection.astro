@@ -8,21 +8,35 @@ interface AlbumSeriesItem {
   slug: string;
   title: string;
   eyebrow: string;
+  shortDescription?: string;
   albums: Entry[];
 }
 
 interface Props {
   series: AlbumSeriesItem[];
   title: string;
+  headingId?: string;
+  showDescriptions?: boolean;
 }
 
-const { series, title } = Astro.props as Props;
+const {
+  series,
+  title,
+  headingId = "album-series-heading",
+  showDescriptions = false,
+} = Astro.props as Props;
 ---
 
 {
   series.length > 0 && (
-    <section class="series-directory" aria-labelledby="album-series-heading">
-      <SectionHeader headingId="album-series-heading" iconName="book-open" {title} />
+    <section
+      class:list={[
+        "series-directory",
+        { "series-directory--expanded": showDescriptions },
+      ]}
+      aria-labelledby={headingId}
+    >
+      <SectionHeader {headingId} iconName="book-open" {title} />
 
       <ul class="series-directory__list">
         {series.map((item) => {
@@ -40,25 +54,35 @@ const { series, title } = Astro.props as Props;
                   <span class="series-directory__eyebrow">{item.eyebrow}</span>
                   <strong class="series-directory__title">{item.title}</strong>
                   <span class="series-directory__count">{albumLabel}</span>
+                  {showDescriptions && item.shortDescription ? (
+                    <span class="series-directory__description">
+                      {item.shortDescription}
+                    </span>
+                  ) : null}
                 </span>
 
                 <span class="series-directory__visual" aria-hidden="true">
                   <span class="series-directory__covers">
                     {covers.map((album, index) => (
                       <span
-                        class="series-directory__cover"
+                        class="series-directory__cover-step"
                         style={`--series-directory-cover-index: ${index};`}
                       >
-                        <OptimizedImage
-                          src={album.imageSrc}
-                          alt=""
-                          width={72}
-                          height={72}
-                          widths={[48, 72, 96]}
-                          sizes="3.25rem"
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        <span class="series-directory__cover-number">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span class="series-directory__cover">
+                          <OptimizedImage
+                            src={album.imageSrc}
+                            alt=""
+                            width={72}
+                            height={72}
+                            widths={[48, 72, 96]}
+                            sizes="3.25rem"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </span>
                       </span>
                     ))}
                   </span>
@@ -75,6 +99,12 @@ const { series, title } = Astro.props as Props;
 
 <style>
   .series-directory {
+    --series-directory-accent: var(--music-home-accent, var(--accent-primary));
+    --series-directory-ink: var(--music-home-ink, var(--text-primary));
+    --series-directory-line: var(--music-home-line, var(--border-default));
+    --series-directory-muted: var(--music-home-muted, var(--text-tertiary));
+    --series-directory-paper: var(--music-home-paper, var(--surface-1));
+
     display: grid;
     gap: var(--spacing-base);
   }
@@ -86,12 +116,12 @@ const { series, title } = Astro.props as Props;
     padding: 0;
     margin: 0;
     list-style: none;
-    border-block-start: 1px solid var(--music-home-line);
+    border-block-start: 1px solid var(--series-directory-line);
   }
 
   .series-directory__item {
     min-inline-size: 0;
-    border-block-end: 1px solid var(--music-home-line);
+    border-block-end: 1px solid var(--series-directory-line);
   }
 
   .series-directory__link {
@@ -101,7 +131,7 @@ const { series, title } = Astro.props as Props;
     align-items: center;
     min-block-size: 6.5rem;
     padding: var(--spacing-sm) var(--spacing-xs);
-    color: var(--music-home-ink);
+    color: var(--series-directory-ink);
     text-decoration: none;
     border-radius: var(--radius-sm);
   }
@@ -123,7 +153,7 @@ const { series, title } = Astro.props as Props;
   }
 
   .series-directory__eyebrow {
-    color: var(--music-home-accent);
+    color: var(--series-directory-accent);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wide);
   }
@@ -139,7 +169,20 @@ const { series, title } = Astro.props as Props;
   }
 
   .series-directory__count {
-    color: var(--music-home-muted);
+    color: var(--series-directory-muted);
+  }
+
+  .series-directory__description {
+    display: -webkit-box;
+    max-inline-size: 62ch;
+    margin-block-start: var(--spacing-xs);
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    color: var(--series-directory-muted);
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
   }
 
   .series-directory__visual {
@@ -156,16 +199,24 @@ const { series, title } = Astro.props as Props;
     padding-inline-start: 1.35rem;
   }
 
-  .series-directory__cover {
+  .series-directory__cover-step {
     position: relative;
     z-index: calc(3 - var(--series-directory-cover-index));
     display: block;
+    margin-inline-start: -1.35rem;
+  }
+
+  .series-directory__cover-number {
+    display: none;
+  }
+
+  .series-directory__cover {
+    display: block;
     inline-size: 3.25rem;
     block-size: 3.25rem;
-    margin-inline-start: -1.35rem;
     overflow: hidden;
-    background: var(--music-home-paper);
-    border: 1px solid color-mix(in srgb, var(--music-home-ink) 16%, transparent);
+    background: var(--series-directory-paper);
+    border: 1px solid color-mix(in srgb, var(--series-directory-ink) 16%, transparent);
     border-radius: var(--radius-sm);
   }
 
@@ -180,22 +231,73 @@ const { series, title } = Astro.props as Props;
     flex: 0 0 auto;
     inline-size: 1rem;
     block-size: 1rem;
-    color: var(--music-home-accent);
+    color: var(--series-directory-accent);
   }
 
   .series-directory__link:hover,
   .series-directory__link:focus-visible {
-    background: color-mix(in srgb, var(--music-home-accent) 7%, transparent);
+    background: color-mix(in srgb, var(--series-directory-accent) 7%, transparent);
   }
 
   .series-directory__link:hover .series-directory__title,
   .series-directory__link:focus-visible .series-directory__title {
-    color: var(--music-home-accent);
+    color: var(--series-directory-accent);
   }
 
   .series-directory__link:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  .series-directory--expanded {
+    gap: var(--spacing-lg);
+  }
+
+  .series-directory--expanded .series-directory__link {
+    gap: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    min-block-size: 10rem;
+    padding: clamp(var(--spacing-base), 1.6vw, var(--spacing-lg)) var(--spacing-md);
+  }
+
+  .series-directory--expanded .series-directory__copy {
+    gap: var(--spacing-xs);
+  }
+
+  .series-directory--expanded .series-directory__description {
+    max-inline-size: 54ch;
+    margin-block-start: var(--spacing-sm);
+    line-height: 1.6;
+  }
+
+  .series-directory--expanded .series-directory__visual {
+    gap: var(--spacing-lg);
+  }
+
+  .series-directory--expanded .series-directory__covers {
+    gap: var(--spacing-xs);
+    min-inline-size: auto;
+    padding-inline-start: 0;
+  }
+
+  .series-directory--expanded .series-directory__cover-step {
+    display: grid;
+    gap: var(--spacing-2xs);
+    margin-inline-start: 0;
+  }
+
+  .series-directory--expanded .series-directory__cover-number {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: var(--series-directory-accent);
+  }
+
+  .series-directory--expanded .series-directory__cover {
+    inline-size: 3.75rem;
+    block-size: 3.75rem;
+    margin-inline-start: -1.65rem;
   }
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -224,9 +326,15 @@ const { series, title } = Astro.props as Props;
       min-block-size: 6rem;
       padding-inline: 0;
     }
+
+    .series-directory--expanded .series-directory__link {
+      min-block-size: 9.5rem;
+      padding-block: var(--spacing-lg);
+      padding-inline: var(--spacing-sm);
+    }
   }
 
-  @media (width <= 420px) {
+  @media (width <= 520px) {
     .series-directory__link,
     .series-directory__visual {
       gap: var(--spacing-sm);
@@ -236,10 +344,32 @@ const { series, title } = Astro.props as Props;
       min-inline-size: 5.75rem;
     }
 
+    .series-directory__cover-step {
+      margin-inline-start: -1.15rem;
+    }
+
     .series-directory__cover {
       inline-size: 2.75rem;
       block-size: 2.75rem;
-      margin-inline-start: -1.15rem;
+    }
+
+    .series-directory--expanded .series-directory__link,
+    .series-directory--expanded .series-directory__visual {
+      gap: var(--spacing-sm);
+    }
+
+    .series-directory--expanded .series-directory__covers {
+      min-inline-size: auto;
+      padding-inline-start: 0;
+    }
+
+    .series-directory--expanded .series-directory__cover-step {
+      margin-inline-start: 0;
+    }
+
+    .series-directory--expanded .series-directory__cover {
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
     }
   }
 </style>

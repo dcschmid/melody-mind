@@ -1,5 +1,4 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
 import { resolvePageUrl } from "@utils/siteUrls";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@utils/seo/seoSchema";
 import { toAbsoluteAssetUrl } from "@utils/imageAssets";
@@ -7,108 +6,16 @@ import AlbumSeriesSection from "@components/music/home/AlbumSeriesSection.astro"
 import Hero from "@components/music/home/Hero.astro";
 import LatestAlbumsSection from "@components/music/home/LatestAlbumsSection.astro";
 import MainGenresSection from "@components/music/home/MainGenresSection.astro";
-import type { CoverImage, Entry, FeaturedAlbum } from "@components/music/home/types";
-import type { IconName } from "@components/visual/Icon.astro";
+import type { FeaturedAlbum } from "@components/music/home/types";
 import Layout from "../layouts/Layout.astro";
-import type { AlbumData } from "../types/album";
 
-import { formatDuration } from "../utils/albumPresentation";
-import { getAvailableAlbums } from "../utils/albums";
-import {
-  getAlbumCoverImage,
-  getAlbumCoverImageUrl,
-  musicDefaultOgImageUrl,
-} from "../utils/musicImages";
+import { getDiscoveryDirectoryData } from "../utils/discoveryDirectories";
+import { getAlbumCoverImageUrl, musicDefaultOgImageUrl } from "../utils/musicImages";
 import { buildMusicAlbumListSchema } from "../utils/musicSeo";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
-type GenreEntry = CollectionEntry<"genres">;
-type SeriesEntry = CollectionEntry<"series">;
-interface GenreLandingPage {
-  slug: string;
-  order: number;
-  mainGenre: string;
-  title: string;
-  eyebrow: string;
-  description: string;
-  keywords: string[];
-}
-
-interface AlbumSeries {
-  slug: string;
-  order: number;
-  title: string;
-  eyebrow: string;
-  shortDescription: string;
-  albumIds: string[];
-}
-
-const genreEntries = (await getCollection("genres")) as GenreEntry[];
-const seriesEntries = (await getCollection("series")) as SeriesEntry[];
-const genreTitleCollator = new Intl.Collator("en", {
-  numeric: true,
-  sensitivity: "base",
-});
-const genreLandingPages: GenreLandingPage[] = genreEntries
-  .sort(
-    (a, b) =>
-      genreTitleCollator.compare(a.data.title, b.data.title) ||
-      genreTitleCollator.compare(a.id, b.id)
-  )
-  .map((entry) => ({
-    slug: entry.id,
-    ...entry.data,
-  }));
-const albumSeries: AlbumSeries[] = seriesEntries
-  .sort((a, b) => a.data.order - b.data.order)
-  .map((entry) => ({
-    slug: entry.id,
-    ...entry.data,
-  }));
-const albums: AlbumData[] = await getAvailableAlbums();
-const albumTitleCollator = new Intl.Collator("en", {
-  numeric: true,
-  sensitivity: "base",
-});
-const compareAlbumsByTitle = (a: AlbumData, b: AlbumData) =>
-  albumTitleCollator.compare(a.title, b.title) || albumTitleCollator.compare(a.id, b.id);
-const compareAlbumsByDate = (a: AlbumData, b: AlbumData) =>
-  new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() ||
-  compareAlbumsByTitle(a, b);
-const sortedAlbumsByDate = [...albums].sort(compareAlbumsByDate);
-
-const getImageSource = (image: CoverImage): string =>
-  typeof image === "string" ? image : image.src;
-const getImageWidth = (image: CoverImage): number | undefined =>
-  typeof image === "string" ? undefined : image.width;
-const getImageHeight = (image: CoverImage): number | undefined =>
-  typeof image === "string" ? undefined : image.height;
-
-const albumEntries: Entry[] = sortedAlbumsByDate.map((album) => {
-  const totalDurationSeconds = album.songs.reduce(
-    (acc, song) => acc + (song.durationSeconds || 0),
-    0
-  );
-  const imageSrc = getAlbumCoverImage(album.coverImage);
-
-  return {
-    id: album.id,
-    title: album.title,
-    description: album.description,
-    imageSrc,
-    imageUrl: getImageSource(imageSrc),
-    imageWidth: getImageWidth(imageSrc),
-    imageHeight: getImageHeight(imageSrc),
-    publishedAt: album.publishedAt,
-    publishedAtTime: new Date(album.publishedAt).getTime(),
-    genre: album.genre,
-    mainGenre: album.mainGenre,
-    trackCount: album.songs.length,
-    totalDurationSeconds,
-    totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
-    isVisible: true,
-  };
-});
+const { sortedAlbumsByDate, albumEntries, genreDirectories, seriesDirectories } =
+  await getDiscoveryDirectoryData();
 const albumEntriesById = new Map(albumEntries.map((album) => [album.id, album]));
 const featuredSource = sortedAlbumsByDate[0];
 const featuredEntry = featuredSource
@@ -136,42 +43,8 @@ const latestAlbums = albumEntries
   .filter((album) => album.id !== featuredAlbum?.id)
   .slice(0, 6);
 const homeStructuredDataAlbums = sortedAlbumsByDate.slice(0, 1);
-const seriesShelf = albumSeries
-  .map((series) => ({
-    ...series,
-    albums: series.albumIds
-      .map((albumId) => albumEntriesById.get(albumId))
-      .filter((album): album is Entry => Boolean(album)),
-  }))
-  .filter((series) => series.albums.length > 0);
-
-const mainGenreIconBySlug: Record<string, IconName> = {
-  rock: "guitar",
-  metal: "zap",
-  pop: "sparkles",
-  punk: "flag",
-  gothic: "moon",
-  "hip-hop": "mic",
-  folk: "leaf",
-  latin: "sun",
-  jazz: "music",
-  soundtrack: "tv",
-  classical: "book-open",
-};
-const albumCountByMainGenre = albums.reduce<Record<string, number>>((counts, album) => {
-  if (!album.mainGenre) {
-    return counts;
-  }
-
-  counts[album.mainGenre] = (counts[album.mainGenre] || 0) + 1;
-  return counts;
-}, {});
-const mainGenreShelf = genreLandingPages.map((page) => ({
-  ...page,
-  albumCount: albumCountByMainGenre[page.mainGenre] || 0,
-  albums: albumEntries.filter((album) => album.mainGenre === page.mainGenre).slice(0, 3),
-  iconName: mainGenreIconBySlug[page.slug] || "disc",
-}));
+const seriesShelf = seriesDirectories;
+const mainGenreShelf = genreDirectories;
 
 const canonical = resolvePageUrl(Astro.site, "/");
 const breadcrumbs = [{ name: "Home", url: canonical }];
@@ -235,7 +108,7 @@ const structuredData = [
       {...featuredAlbum ? { featuredAlbum } : {}}
       eyebrow={t.subtitle}
       exploreAlbumsLabel={t.exploreAlbums}
-      exploreAlbumsHref="#main-genres-heading"
+      exploreAlbumsHref="/genre/"
     />
 
     <div class="music-home__content" id="discover">
@@ -310,7 +183,7 @@ const structuredData = [
   .music-home__content {
     position: relative;
     display: grid;
-    gap: clamp(1.35rem, 3vw, 2.35rem);
+    gap: clamp(2.25rem, 4vw, 3.5rem);
     max-inline-size: 90rem;
     padding: clamp(0.55rem, 1.4vw, 1.2rem) clamp(1rem, 4vw, 4rem) clamp(2rem, 6vw, 5rem);
     margin-inline: auto;
@@ -323,7 +196,7 @@ const structuredData = [
     }
 
     .music-home__content {
-      gap: 1.2rem;
+      gap: 2rem;
       inline-size: 100%;
       padding: 0.55rem 1rem clamp(2rem, 6vw, 5rem);
       overflow-x: clip;

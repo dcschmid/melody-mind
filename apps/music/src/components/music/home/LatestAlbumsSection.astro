@@ -75,7 +75,7 @@ const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props
 <style>
   .latest-albums {
     display: grid;
-    gap: var(--spacing-base);
+    gap: var(--spacing-lg);
   }
 
   .latest-albums__list {
@@ -95,7 +95,7 @@ const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props
 
   .latest-albums__album {
     display: grid;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
   }
 
   .latest-albums__cover-link {
@@ -116,7 +116,7 @@ const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props
 
   .latest-albums__copy {
     display: grid;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
   }
 
   .latest-albums__title,
@@ -130,7 +130,7 @@ const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props
     overflow: hidden;
     -webkit-line-clamp: 2;
     font-size: var(--font-size-base);
-    line-height: 1.15;
+    line-height: 1.2;
     text-wrap: pretty;
     -webkit-box-orient: vertical;
   }
@@ -143,17 +143,17 @@ const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props
   .latest-albums__footer {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: var(--spacing-sm);
-    align-items: end;
+    gap: var(--spacing-md);
+    align-items: center;
   }
 
   .latest-albums__meta {
     display: grid;
-    gap: var(--spacing-2xs);
+    gap: var(--spacing-xs);
     min-inline-size: 0;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
-    line-height: 1.2;
+    line-height: 1.35;
     color: var(--music-home-muted);
   }
 

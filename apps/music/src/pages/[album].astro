@@ -16,6 +16,8 @@ import PlaylistPlayer from "@components/music/album/PlaylistPlayer.astro";
 import type { RelatedContentCardItem } from "@components/cards/relatedContent";
 
 type AlbumEntry = CollectionEntry<"albums">;
+type GenreEntry = CollectionEntry<"genres">;
+type SeriesEntry = CollectionEntry<"series">;
 
 export async function getStaticPaths() {
   const collection = await getCollection(
@@ -37,10 +39,6 @@ if (!entry || !entry.data.isAvailable) {
 const currentAlbum = entry.data;
 const currentAlbumId = entry.id;
 const canonical = resolvePageUrl(Astro.site, `/${albumId}/`);
-const breadcrumbs = [
-  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
-  { name: currentAlbum.title, url: canonical },
-];
 
 const songs = currentAlbum.songs as Song[];
 const firstTrackAudioUrl = songs[0]?.audioUrl;
@@ -88,10 +86,54 @@ const structuredData = [
   }),
 ];
 
-const allAlbums = await getCollection(
-  "albums",
-  (albumEntry: AlbumEntry) => albumEntry.data.isAvailable
-);
+const [allAlbums, genreEntries, seriesEntries] = await Promise.all([
+  getCollection("albums", (albumEntry: AlbumEntry) => albumEntry.data.isAvailable),
+  getCollection("genres") as Promise<GenreEntry[]>,
+  getCollection("series") as Promise<SeriesEntry[]>,
+]);
+const genreEntry = currentAlbum.mainGenre
+  ? genreEntries.find((candidate) => candidate.data.mainGenre === currentAlbum.mainGenre)
+  : undefined;
+const genreContext = genreEntry
+  ? {
+      href: `/genre/${genreEntry.id}/`,
+      label:
+        currentAlbum.genre && currentAlbum.genre !== genreEntry.data.mainGenre
+          ? `${genreEntry.data.eyebrow} · ${currentAlbum.genre}`
+          : genreEntry.data.eyebrow,
+    }
+  : undefined;
+const seriesContexts = seriesEntries.flatMap((seriesEntry) => {
+  const partIndex = seriesEntry.data.albumIds.findIndex(
+    (seriesAlbumId: string) =>
+      seriesAlbumId.toLocaleLowerCase("en") === currentAlbumId.toLocaleLowerCase("en")
+  );
+  if (partIndex < 0) {
+    return [];
+  }
+
+  return [
+    {
+      href: `/series/${seriesEntry.id}/`,
+      partNumber: partIndex + 1,
+      title: seriesEntry.data.title,
+      totalParts: seriesEntry.data.albumIds.length,
+    },
+  ];
+});
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  ...(genreEntry
+    ? [
+        { name: "Genres", url: resolvePageUrl(Astro.site, "/genre/") },
+        {
+          name: genreEntry.data.title,
+          url: resolvePageUrl(Astro.site, `/genre/${genreEntry.id}/`),
+        },
+      ]
+    : []),
+  { name: currentAlbum.title, url: canonical },
+];
 const availableAlbums = allAlbums.map((albumEntry: AlbumEntry) => ({
   id: albumEntry.id,
   ...albumEntry.data,
@@ -178,6 +220,8 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
       coverImageWidth={currentAlbum.coverImageWidth}
       coverImageHeight={currentAlbum.coverImageHeight}
       facts={albumFacts}
+      {...genreContext ? { genreContext } : {}}
+      seriesContexts={seriesContexts}
     />
 
     <PlaylistPlayer
@@ -187,6 +231,16 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
       albumTitle={currentAlbum.title}
       songs={songs}
       albumArtworkUrl={albumCoverPlayerImageUrl}
+    />
+
+    <RelatedContentSection
+      id="related-albums"
+      eyebrow="Keep listening"
+      title="Similar Albums"
+      copy="Continue with albums that share mood, genre, or listening context."
+      listAriaLabel="Similar albums"
+      items={relatedAlbums}
+      mediaObjectFit="cover"
     />
 
     <Details
@@ -199,16 +253,6 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     >
       <Content />
     </Details>
-
-    <RelatedContentSection
-      id="related-albums"
-      eyebrow="Keep listening"
-      title="Similar Albums"
-      copy="Continue with albums that share mood, genre, or listening context."
-      listAriaLabel="Similar albums"
-      items={relatedAlbums}
-      mediaObjectFit="cover"
-    />
 
     <AlbumSupportSection albumTitle={currentAlbum.title} />
   </Surface>

@@ -8,18 +8,41 @@ interface Fact {
   value: string | number;
 }
 
+interface GenreContext {
+  href: string;
+  label: string;
+}
+
+interface SeriesContext {
+  href: string;
+  partNumber: number;
+  title: string;
+  totalParts: number;
+}
+
 interface Props {
   coverImage: CoverImage;
   coverImageHeight?: number;
   coverImageWidth?: number;
   description: string;
   facts: Fact[];
+  genreContext?: GenreContext;
   id: string;
+  seriesContexts?: SeriesContext[];
   title: string;
 }
 
-const { coverImage, coverImageHeight, coverImageWidth, description, facts, id, title } =
-  Astro.props;
+const {
+  coverImage,
+  coverImageHeight,
+  coverImageWidth,
+  description,
+  facts,
+  genreContext,
+  id,
+  seriesContexts = [],
+  title,
+} = Astro.props;
 
 const genreFact = facts.find((fact) => fact.label === "Genre");
 const visibleFacts = facts.filter(
@@ -63,14 +86,35 @@ const getFactIcon = (label: string) => {
     </figure>
 
     <div class="album-hero__title-panel">
-      {
-        genreFact && (
-          <p class="album-hero__eyebrow">
-            <Icon name="disc" class="album-hero__eyebrow-icon" aria-hidden="true" />
-            {genreFact.value}
-          </p>
-        )
-      }
+      <div class="album-hero__contexts" aria-label="Album context">
+        {
+          genreContext ? (
+            <a class="album-hero__context-link" href={genreContext.href}>
+              <Icon name="disc" class="album-hero__eyebrow-icon" aria-hidden="true" />
+              <span>{genreContext.label}</span>
+            </a>
+          ) : genreFact ? (
+            <p class="album-hero__eyebrow">
+              <Icon name="disc" class="album-hero__eyebrow-icon" aria-hidden="true" />
+              {genreFact.value}
+            </p>
+          ) : null
+        }
+        {
+          seriesContexts.map((series) => (
+            <a
+              class="album-hero__context-link album-hero__context-link--series"
+              href={series.href}
+              aria-label={`Part ${series.partNumber} of ${series.totalParts} in ${series.title}`}
+            >
+              <Icon name="book-open" aria-hidden="true" />
+              <span>
+                Part {series.partNumber} of {series.totalParts} · {series.title}
+              </span>
+            </a>
+          ))
+        }
+      </div>
       <h1 class="album-hero__title" id={titleId}>{title}</h1>
       <button class="album-hero__play" type="button" data-album-hero-play={id}>
         <Icon name="tabler:player-play-filled" aria-hidden="true" />
@@ -166,6 +210,13 @@ const getFactIcon = (label: string) => {
     min-inline-size: 0;
   }
 
+  .album-hero__contexts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-base);
+    align-items: center;
+  }
+
   .album-hero__eyebrow {
     display: inline-flex;
     gap: var(--spacing-sm);
@@ -178,6 +229,46 @@ const getFactIcon = (label: string) => {
     color: var(--album-hero-accent);
     text-transform: uppercase;
     letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .album-hero__context-link {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-xs);
+    margin-inline-start: calc(-1 * var(--spacing-xs));
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    color: var(--album-hero-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+    text-decoration: none;
+    border-radius: var(--radius-base);
+  }
+
+  .album-hero__context-link--series {
+    color: var(--album-hero-muted);
+    text-transform: none;
+    letter-spacing: var(--letter-spacing-normal);
+  }
+
+  .album-hero__context-link:hover,
+  .album-hero__context-link:focus-visible {
+    color: var(--music-album-accent-strong, var(--accent-strong));
+  }
+
+  .album-hero__context-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--album-hero-accent);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .album-hero__context-link :global(svg) {
+    flex: 0 0 auto;
+    inline-size: 1rem;
+    block-size: 1rem;
   }
 
   .album-hero__eyebrow-icon {
@@ -320,6 +411,23 @@ const getFactIcon = (label: string) => {
 
     .album-hero__eyebrow {
       font-size: var(--font-size-xs);
+    }
+
+    .album-hero__contexts {
+      display: grid;
+      gap: 0;
+    }
+
+    .album-hero__context-link {
+      min-block-size: var(--control-min-block-size);
+      font-size: var(--font-size-xs);
+    }
+
+    .album-hero__context-link--series span {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     .album-hero__title {

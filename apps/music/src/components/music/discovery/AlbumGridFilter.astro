@@ -1,0 +1,202 @@
+---
+import Icon from "@components/visual/Icon.astro";
+
+interface Props {
+  albumCount: number;
+  genreTitle: string;
+  threshold?: number;
+}
+
+const { albumCount, genreTitle, threshold = 12 } = Astro.props as Props;
+const showFilter = albumCount >= threshold;
+---
+
+<div
+  class="album-grid-filter"
+  data-album-grid-filter={showFilter ? "true" : undefined}
+  data-album-count={albumCount}
+>
+  {
+    showFilter && (
+      <div class="album-grid-filter__controls">
+        <label class="album-grid-filter__label" for="genre-album-filter">
+          Filter {genreTitle} albums
+        </label>
+        <div class="album-grid-filter__field">
+          <Icon name="search" class="album-grid-filter__icon" aria-hidden="true" />
+          <input
+            id="genre-album-filter"
+            class="album-grid-filter__input"
+            type="search"
+            placeholder="Title, subgenre, or mood"
+            autocomplete="off"
+            data-album-filter-input
+          />
+          <button
+            class="album-grid-filter__clear"
+            type="button"
+            data-album-filter-clear
+            hidden
+          >
+            Clear
+          </button>
+        </div>
+        <p
+          class="album-grid-filter__status"
+          aria-live="polite"
+          aria-atomic="true"
+          data-album-filter-status
+        >
+          {albumCount} albums shown
+        </p>
+      </div>
+    )
+  }
+
+  <slot />
+
+  {
+    showFilter && (
+      <div class="album-grid-filter__empty" data-album-filter-empty hidden role="status">
+        <p>No albums match this filter.</p>
+        <button type="button" data-album-filter-clear>
+          Show all albums
+        </button>
+      </div>
+    )
+  }
+</div>
+
+<script>
+  import "../../../scripts/music/album-grid-filter";
+</script>
+
+<style>
+  .album-grid-filter {
+    display: grid;
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+  }
+
+  .album-grid-filter :global([data-album-filter-item][hidden]) {
+    display: none;
+  }
+
+  .album-grid-filter__controls {
+    display: grid;
+    grid-template-columns: minmax(14rem, 30rem) auto;
+    gap: var(--spacing-xs) var(--spacing-base);
+    align-items: end;
+  }
+
+  .album-grid-filter__label {
+    grid-column: 1 / -1;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    color: var(--text-secondary);
+  }
+
+  .album-grid-filter__field {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--spacing-xs);
+    align-items: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-sm);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .album-grid-filter__field:focus-within {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-color: var(--accent-primary);
+  }
+
+  .album-grid-filter__icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--text-tertiary);
+  }
+
+  .album-grid-filter__input {
+    min-inline-size: 0;
+    min-block-size: calc(var(--control-min-block-size) - 2px);
+    padding: 0;
+    font: inherit;
+    color: var(--text-primary);
+    outline: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  .album-grid-filter__input::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  .album-grid-filter__clear,
+  .album-grid-filter__empty button {
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-sm);
+    font: inherit;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-base);
+  }
+
+  .album-grid-filter__empty button {
+    padding-inline: 0;
+  }
+
+  .album-grid-filter__clear:hover,
+  .album-grid-filter__clear:focus-visible,
+  .album-grid-filter__empty button:hover,
+  .album-grid-filter__empty button:focus-visible {
+    color: var(--accent-strong);
+  }
+
+  .album-grid-filter__clear:focus-visible,
+  .album-grid-filter__empty button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .album-grid-filter__status {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.4;
+    color: var(--text-tertiary);
+  }
+
+  .album-grid-filter__empty {
+    display: grid;
+    gap: var(--spacing-sm);
+    justify-items: start;
+    padding: var(--spacing-xl);
+    color: var(--text-secondary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .album-grid-filter__empty[hidden] {
+    display: none;
+  }
+
+  .album-grid-filter__empty p {
+    margin: 0;
+  }
+
+  @media (width <= 640px) {
+    .album-grid-filter__controls {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

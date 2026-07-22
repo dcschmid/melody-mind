@@ -30,6 +30,12 @@ const logoWidth = typeof brandLogoSrc === "string" ? 700 : brandLogoSrc.width;
 const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
 const footerGroups: FooterGroup[] = [
   {
+    id: "explore",
+    title: footerConfig.exploreTitle || "Explore",
+    links: footerConfig.exploreLinks || [],
+    ariaLabel: "Explore MelodyMind Music",
+  },
+  {
     id: "support",
     title: footerConfig.supportTitle || "Support",
     links: footerConfig.supportLinks,
@@ -275,7 +281,7 @@ const footerGroups: FooterGroup[] = [
     }
 
     .music-footer__nav-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .music-footer__bottom {

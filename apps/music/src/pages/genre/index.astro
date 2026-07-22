@@ -1,0 +1,96 @@
+---
+import MainGenresSection from "@components/music/home/MainGenresSection.astro";
+import DirectoryHero from "@components/music/discovery/DirectoryHero.astro";
+import Layout from "@layouts/Layout.astro";
+import { getDiscoveryDirectoryData } from "@utils/discoveryDirectories";
+import { buildCollectionPageSchema } from "@utils/seo/seoSchema";
+import { resolvePageUrl } from "@utils/siteUrls";
+
+const { albums, genreDirectories } = await getDiscoveryDirectoryData();
+const canonical = resolvePageUrl(Astro.site, "/genre/");
+const title = "Browse Music Genres";
+const description =
+  "Explore MelodyMind concept albums by main genre, from metal and rock to pop, folk, jazz, and cinematic music.";
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: "Genres", url: canonical },
+];
+const structuredData = [
+  buildCollectionPageSchema({
+    url: canonical,
+    name: title,
+    description,
+    lang: "en",
+    mainEntityId: `${canonical}#genre-directory-list`,
+  }),
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${canonical}#genre-directory-list`,
+    name: "MelodyMind music genres",
+    numberOfItems: genreDirectories.length,
+    itemListElement: genreDirectories.map((genre, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: genre.title,
+      url: resolvePageUrl(Astro.site, `/genre/${genre.slug}/`),
+    })),
+  },
+];
+---
+
+<Layout
+  title={`${title} | MelodyMind Music`}
+  {description}
+  keywords={["music genres", "concept albums", "AI-assisted music", "MelodyMind"]}
+  type="website"
+  canonical={canonical}
+  {breadcrumbs}
+  {structuredData}
+  contentShellClass="music-layout__container--directory-index"
+>
+  <div class="directory-index">
+    <DirectoryHero
+      eyebrow="Music catalog"
+      title="Find your next album by genre"
+      description={description}
+      meta={`${genreDirectories.length} genres · ${albums.length} albums`}
+      alternateHref="/series/"
+      alternateLabel="Browse album series"
+    />
+
+    <div id="genre-directory-list" class="directory-index__list">
+      <MainGenresSection
+        genres={genreDirectories}
+        title="All Genres"
+        headingId="all-genres-heading"
+        showDescriptions
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  :global(.music-layout__container.music-layout__container--directory-index) {
+    inline-size: 100%;
+    max-inline-size: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: clip;
+  }
+
+  .directory-index {
+    box-sizing: border-box;
+    display: grid;
+    gap: clamp(var(--spacing-2xl), 6vw, var(--spacing-4xl));
+    inline-size: min(100%, 90rem);
+    min-block-size: 100svh;
+    padding: max(clamp(var(--spacing-xl), 5vw, var(--spacing-4xl)), 6rem)
+      clamp(1rem, 4vw, 4rem) clamp(var(--spacing-3xl), 7vw, 6rem);
+    margin-inline: auto;
+  }
+
+  .directory-index__list {
+    scroll-margin-block-start: 6rem;
+  }
+</style>

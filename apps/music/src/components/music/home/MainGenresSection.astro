@@ -11,20 +11,31 @@ interface MainGenreItem {
   albumCount: number;
   albums: Entry[];
   iconName: IconName;
+  description?: string;
 }
 
 interface Props {
   genres: MainGenreItem[];
   title: string;
+  headingId?: string;
+  showDescriptions?: boolean;
 }
 
-const { genres, title } = Astro.props as Props;
+const {
+  genres,
+  title,
+  headingId = "main-genres-heading",
+  showDescriptions = false,
+} = Astro.props as Props;
 ---
 
 {
   genres.length > 0 && (
-    <section class="genre-directory" aria-labelledby="main-genres-heading">
-      <SectionHeader headingId="main-genres-heading" iconName="tag" {title} />
+    <section
+      class:list={["genre-directory", { "genre-directory--expanded": showDescriptions }]}
+      aria-labelledby={headingId}
+    >
+      <SectionHeader {headingId} iconName="tag" {title} />
 
       <ul class="genre-directory__list">
         {genres.map((genre) => {
@@ -41,10 +52,17 @@ const { genres, title } = Astro.props as Props;
                 <span class="genre-directory__copy">
                   <strong class="genre-directory__title">{genre.title}</strong>
                   <span class="genre-directory__count">{albumLabel}</span>
+                  {showDescriptions && genre.description ? (
+                    <span class="genre-directory__description">{genre.description}</span>
+                  ) : null}
                 </span>
 
                 <span class="genre-directory__visual" aria-hidden="true">
-                  {covers.length > 0 ? (
+                  {showDescriptions ? (
+                    <span class="genre-directory__fallback">
+                      <Icon name={genre.iconName} />
+                    </span>
+                  ) : covers.length > 0 ? (
                     <span class="genre-directory__covers">
                       {covers.map((album, index) => (
                         <span
@@ -82,8 +100,14 @@ const { genres, title } = Astro.props as Props;
 
 <style>
   .genre-directory {
+    --genre-directory-accent: var(--music-home-accent, var(--accent-primary));
+    --genre-directory-ink: var(--music-home-ink, var(--text-primary));
+    --genre-directory-line: var(--music-home-line, var(--border-default));
+    --genre-directory-muted: var(--music-home-muted, var(--text-tertiary));
+    --genre-directory-paper: var(--music-home-paper, var(--surface-1));
+
     display: grid;
-    gap: var(--spacing-base);
+    gap: var(--spacing-lg);
   }
 
   .genre-directory__list {
@@ -93,29 +117,29 @@ const { genres, title } = Astro.props as Props;
     padding: 0;
     margin: 0;
     list-style: none;
-    border-block-start: 1px solid var(--music-home-line);
+    border-block-start: 1px solid var(--genre-directory-line);
   }
 
   .genre-directory__item {
     min-inline-size: 0;
-    border-block-end: 1px solid var(--music-home-line);
+    border-block-end: 1px solid var(--genre-directory-line);
   }
 
   .genre-directory__link {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    gap: var(--spacing-base);
+    gap: var(--spacing-lg);
     align-items: center;
-    min-block-size: 5rem;
-    padding: var(--spacing-sm) var(--spacing-xs);
-    color: var(--music-home-ink);
+    min-block-size: 6rem;
+    padding: var(--spacing-base) var(--spacing-md);
+    color: var(--genre-directory-ink);
     text-decoration: none;
     border-radius: var(--radius-sm);
   }
 
   .genre-directory__copy {
     display: grid;
-    gap: var(--spacing-2xs);
+    gap: var(--spacing-xs);
     min-inline-size: 0;
   }
 
@@ -131,12 +155,25 @@ const { genres, title } = Astro.props as Props;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     line-height: 1.25;
-    color: var(--music-home-muted);
+    color: var(--genre-directory-muted);
+  }
+
+  .genre-directory__description {
+    display: -webkit-box;
+    max-inline-size: 62ch;
+    margin-block-start: var(--spacing-xs);
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+    color: var(--genre-directory-muted);
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
   }
 
   .genre-directory__visual {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-base);
     align-items: center;
     justify-content: flex-end;
   }
@@ -156,8 +193,8 @@ const { genres, title } = Astro.props as Props;
     block-size: 3rem;
     margin-inline-start: -1.25rem;
     overflow: hidden;
-    background: var(--music-home-paper);
-    border: 1px solid color-mix(in srgb, var(--music-home-ink) 16%, transparent);
+    background: var(--genre-directory-paper);
+    border: 1px solid color-mix(in srgb, var(--genre-directory-ink) 16%, transparent);
     border-radius: var(--radius-sm);
   }
 
@@ -173,9 +210,9 @@ const { genres, title } = Astro.props as Props;
     place-items: center;
     inline-size: 3rem;
     block-size: 3rem;
-    color: var(--music-home-muted);
-    background: var(--music-home-paper);
-    border: 1px solid var(--music-home-line);
+    color: var(--genre-directory-muted);
+    background: var(--genre-directory-paper);
+    border: 1px solid var(--genre-directory-line);
     border-radius: var(--radius-sm);
   }
 
@@ -187,22 +224,52 @@ const { genres, title } = Astro.props as Props;
 
   .genre-directory__arrow {
     flex: 0 0 auto;
-    color: var(--music-home-accent);
+    color: var(--genre-directory-accent);
   }
 
   .genre-directory__link:hover,
   .genre-directory__link:focus-visible {
-    background: color-mix(in srgb, var(--music-home-accent) 7%, transparent);
+    background: color-mix(in srgb, var(--genre-directory-accent) 7%, transparent);
   }
 
   .genre-directory__link:hover .genre-directory__title,
   .genre-directory__link:focus-visible .genre-directory__title {
-    color: var(--music-home-accent);
+    color: var(--genre-directory-accent);
   }
 
   .genre-directory__link:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  .genre-directory--expanded {
+    gap: var(--spacing-lg);
+  }
+
+  .genre-directory--expanded .genre-directory__link {
+    gap: clamp(var(--spacing-lg), 2vw, var(--spacing-xl));
+    min-block-size: 9rem;
+    padding: clamp(var(--spacing-base), 1.6vw, var(--spacing-lg)) var(--spacing-md);
+  }
+
+  .genre-directory--expanded .genre-directory__copy {
+    gap: var(--spacing-xs);
+  }
+
+  .genre-directory--expanded .genre-directory__description {
+    max-inline-size: 56ch;
+    margin-block-start: var(--spacing-sm);
+    line-height: 1.6;
+  }
+
+  .genre-directory--expanded .genre-directory__visual {
+    gap: var(--spacing-base);
+  }
+
+  .genre-directory--expanded .genre-directory__fallback {
+    inline-size: 3.5rem;
+    block-size: 3.5rem;
+    color: var(--genre-directory-accent);
   }
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -228,12 +295,19 @@ const { genres, title } = Astro.props as Props;
     }
 
     .genre-directory__link {
-      min-block-size: 4.75rem;
-      padding-inline: 0;
+      min-block-size: 5.5rem;
+      padding-block: var(--spacing-md);
+      padding-inline: var(--spacing-sm);
+    }
+
+    .genre-directory--expanded .genre-directory__link {
+      min-block-size: 8.5rem;
+      padding-block: var(--spacing-lg);
+      padding-inline: var(--spacing-sm);
     }
   }
 
-  @media (width <= 420px) {
+  @media (width <= 520px) {
     .genre-directory__link {
       gap: var(--spacing-sm);
     }
@@ -250,6 +324,16 @@ const { genres, title } = Astro.props as Props;
       inline-size: 2.6rem;
       block-size: 2.6rem;
       margin-inline-start: -1.15rem;
+    }
+
+    .genre-directory--expanded .genre-directory__link,
+    .genre-directory--expanded .genre-directory__visual {
+      gap: var(--spacing-sm);
+    }
+
+    .genre-directory--expanded .genre-directory__fallback {
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
     }
   }
 </style>

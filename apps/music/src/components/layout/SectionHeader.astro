@@ -55,15 +55,16 @@ const {
     row-gap: var(--spacing-xs);
     align-items: baseline;
     justify-content: space-between;
+    padding-block-end: var(--spacing-sm);
+    border-block-end: 1px solid
+      color-mix(in srgb, var(--section-header-accent) 22%, var(--border-default));
   }
 
   .section-header__title {
-    position: relative;
     display: inline-flex;
     gap: var(--section-header-icon-gap);
     align-items: center;
     min-inline-size: 0;
-    padding-inline-start: calc(var(--spacing-sm) + 0.25rem);
     margin: 0;
     font-family: var(--font-sans);
     font-size: var(--font-size-xl);
@@ -72,21 +73,6 @@ const {
     color: var(--section-header-ink);
     letter-spacing: 0;
     text-wrap: balance;
-  }
-
-  /* Accent bar that anchors each section title at its left edge. */
-  .section-header__title::before {
-    position: absolute;
-    inset-block: 0.08em 0.12em;
-    inset-inline-start: 0;
-    inline-size: 0.2rem;
-    content: "";
-    background: linear-gradient(
-      to bottom,
-      var(--section-header-accent),
-      color-mix(in srgb, var(--section-header-accent) 30%, transparent)
-    );
-    border-radius: var(--radius-full);
   }
 
   .section-header__icon {
@@ -100,7 +86,7 @@ const {
     gap: var(--section-header-link-gap);
     align-items: center;
     justify-content: center;
-    min-block-size: 2.25rem;
+    min-block-size: var(--control-min-block-size);
     padding-block: 0.4rem;
     padding-inline: var(--spacing-base);
     font-size: var(--font-size-xs);

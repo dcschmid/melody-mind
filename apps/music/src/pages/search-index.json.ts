@@ -10,6 +10,7 @@ import { getAlbumCoverImageUrl } from "../utils/musicImages";
 
 type AlbumEntry = CollectionEntry<"albums">;
 type GenreEntry = CollectionEntry<"genres">;
+type SeriesEntry = CollectionEntry<"series">;
 
 const trimSearchText = (value: string) => value.replace(/\s+/g, " ").trim();
 
@@ -20,6 +21,12 @@ export const GET: APIRoute = async () => {
   )) as AlbumEntry[];
   const genres = ((await getCollection("genres")) as GenreEntry[]).sort(
     (a, b) => a.data.order - b.data.order
+  );
+  const series = ((await getCollection("series")) as SeriesEntry[]).sort(
+    (a, b) => a.data.order - b.data.order
+  );
+  const albumsById = new Map(
+    albums.map((entry) => [entry.id.toLocaleLowerCase("en"), entry])
   );
   const albumCountByGenre = albums.reduce<Map<string, number>>((counts, entry) => {
     const genre = entry.data.mainGenre;
@@ -137,6 +144,37 @@ export const GET: APIRoute = async () => {
     };
   });
 
+  const seriesDocuments = series.map((entry) => {
+    const availableSeriesAlbums = entry.data.albumIds
+      .map((albumId: string) => albumsById.get(albumId.toLocaleLowerCase("en")))
+      .filter((album: AlbumEntry | undefined): album is AlbumEntry => Boolean(album));
+    const firstAlbum = availableSeriesAlbums[0];
+    const albumCount = availableSeriesAlbums.length;
+
+    return {
+      id: `series-${entry.id}`,
+      type: "Series",
+      title: entry.data.title,
+      desc: trimSearchText(entry.data.shortDescription),
+      url: `/series/${entry.id}/`,
+      ...(firstAlbum
+        ? {
+            imageUrl: getAlbumCoverImageUrl(firstAlbum.data.coverImage),
+            imageAlt: `Cover art from the album series ${entry.data.title}`,
+          }
+        : {}),
+      displayMeta: `${albumCount} ${albumCount === 1 ? "album" : "albums"} · ${entry.data.eyebrow}`,
+      searchText: trimSearchText(
+        [
+          entry.data.shortDescription,
+          entry.data.eyebrow,
+          entry.data.keywords.join(" "),
+          availableSeriesAlbums.map((album: AlbumEntry) => album.data.title).join(" "),
+        ].join(" ")
+      ),
+    };
+  });
+
   // Direct Orama calls instead of the plugin's buildSearchIndex helper so the
   // sorter can be disabled — the palette never sorts, and the serialized sort
   // structures alone cost ~500 KB of raw index size.
@@ -151,7 +189,12 @@ export const GET: APIRoute = async () => {
     sort: { enabled: false },
     components: { tokenizer: { language: "english" } },
   });
-  await insertMultiple(db, [...genreDocuments, ...albumDocuments, ...trackDocuments]);
+  await insertMultiple(db, [
+    ...genreDocuments,
+    ...seriesDocuments,
+    ...albumDocuments,
+    ...trackDocuments,
+  ]);
   const index = save(db);
 
   return new Response(JSON.stringify(index), {

@@ -31,6 +31,8 @@ export interface AppShellHeaderConfig {
 export interface AppShellFooterConfig {
   brandTitle: string;
   brandText: string;
+  exploreTitle?: string;
+  exploreLinks?: AppShellLink[];
   supportTitle?: string;
   supportLinks: AppShellLink[];
   legalTitle?: string;

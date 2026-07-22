@@ -81,6 +81,15 @@ const mobileExtraProps = {
       />
     </a>
 
+    <a
+      class="music-site-header__mobile-search"
+      href={searchHref}
+      aria-label="Search music"
+      data-enhanced-search-trigger="true"
+    >
+      <Icon name="search" aria-hidden="true" />
+    </a>
+
     <button
       class="music-site-header__toggle"
       type="button"
@@ -129,27 +138,42 @@ const mobileExtraProps = {
       const desktopQuery = window.matchMedia("(min-width: 1024px)");
       const focusableSelector =
         'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+      const inertedElements = new Map<HTMLElement, boolean>();
 
       if (!toggle || !drawer || !nav) {
         return;
       }
 
-      const getPageSiblings = (): HTMLElement[] =>
-        Array.from(document.body.children).filter(
-          (element): element is HTMLElement =>
-            element instanceof HTMLElement && !element.contains(header)
+      const getFocusableElements = (): HTMLElement[] =>
+        Array.from(drawer.querySelectorAll<HTMLElement>(focusableSelector)).filter(
+          (element) => element.offsetParent !== null
         );
 
-      const getFocusableElements = (): HTMLElement[] =>
-        [
-          toggle,
-          ...Array.from(nav.querySelectorAll<HTMLElement>(focusableSelector)),
-        ].filter((element) => element.offsetParent !== null);
+      const setBackgroundInert = () => {
+        let current: HTMLElement | null = header;
 
-      const setPageSiblingsInert = (inert: boolean) => {
-        getPageSiblings().forEach((element) => {
-          element.inert = inert;
+        while (current && current !== document.body) {
+          const parent: HTMLElement | null = current.parentElement;
+          if (!parent) {
+            break;
+          }
+          Array.from(parent.children).forEach((element) => {
+            if (element instanceof HTMLElement && element !== current) {
+              if (!inertedElements.has(element)) {
+                inertedElements.set(element, element.inert);
+              }
+              element.inert = true;
+            }
+          });
+          current = parent;
+        }
+      };
+
+      const restoreBackground = () => {
+        inertedElements.forEach((wasInert, element) => {
+          element.inert = wasInert;
         });
+        inertedElements.clear();
       };
 
       const setOpen = (open: boolean, restoreFocus = true) => {
@@ -157,7 +181,11 @@ const mobileExtraProps = {
         toggle.setAttribute("aria-expanded", String(open));
         toggle.setAttribute("aria-label", open ? "Close main menu" : "Open main menu");
         document.body.classList.toggle("music-site-header-open", open);
-        setPageSiblingsInert(open);
+        if (open) {
+          setBackgroundInert();
+        } else {
+          restoreBackground();
+        }
         drawer.toggleAttribute("role", open);
         drawer.toggleAttribute("aria-modal", open);
         drawer.toggleAttribute("aria-label", open);
@@ -191,6 +219,10 @@ const mobileExtraProps = {
 
       closeButtons.forEach((button) => {
         button.addEventListener("click", () => setOpen(false), { signal });
+      });
+
+      window.addEventListener("music-menu:close", () => setOpen(false, false), {
+        signal,
       });
 
       nav.querySelectorAll("a[href]").forEach((link) => {
@@ -300,6 +332,7 @@ const mobileExtraProps = {
   }
 
   .music-site-header__toggle,
+  .music-site-header__mobile-search,
   .music-site-header__backdrop {
     display: none;
   }
@@ -313,6 +346,7 @@ const mobileExtraProps = {
   }
 
   .music-site-header__brand:focus-visible,
+  .music-site-header__mobile-search:focus-visible,
   .music-site-header__toggle:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
@@ -353,7 +387,8 @@ const mobileExtraProps = {
 
     .music-site-header__inner {
       box-sizing: border-box;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 0.5rem;
       min-block-size: 4.5rem;
       padding: 0.8rem 1.35rem 0.8rem 1rem;
     }
@@ -366,7 +401,7 @@ const mobileExtraProps = {
       position: relative;
       z-index: 4;
       display: grid;
-      grid-column: 3 / 4;
+      grid-column: 4 / 5;
       place-items: center;
       inline-size: 2.75rem;
       block-size: 2.75rem;
@@ -376,6 +411,26 @@ const mobileExtraProps = {
       background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
       border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
       border-radius: var(--radius-full);
+    }
+
+    .music-site-header__mobile-search {
+      position: relative;
+      z-index: 4;
+      display: grid;
+      grid-column: 3 / 4;
+      place-items: center;
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
+      border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
+      border-radius: var(--radius-full);
+    }
+
+    .music-site-header__mobile-search svg {
+      inline-size: 1.2rem;
+      block-size: 1.2rem;
     }
 
     .music-site-header__toggle-text {
@@ -412,7 +467,7 @@ const mobileExtraProps = {
     .music-site-header__nav {
       display: none;
       grid-template-columns: minmax(0, 1fr);
-      grid-column: 1 / 4;
+      grid-column: 1 / 5;
       gap: 0;
       place-content: start normal;
       place-items: stretch;
@@ -462,6 +517,10 @@ const mobileExtraProps = {
       grid-column: 1 / -1;
       max-inline-size: none;
       opacity: 1;
+    }
+
+    .music-site-header[data-open="true"] .music-site-header__mobile-search {
+      display: none;
     }
 
     .music-site-header[data-open="true"] .music-site-header__brand {

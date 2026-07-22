@@ -1,0 +1,149 @@
+---
+import Icon from "@components/visual/Icon.astro";
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  meta: string;
+  alternateHref: string;
+  alternateLabel: string;
+}
+
+const { eyebrow, title, description, meta, alternateHref, alternateLabel } =
+  Astro.props as Props;
+---
+
+<header class="directory-hero">
+  <div class="directory-hero__copy">
+    <p class="directory-hero__eyebrow">{eyebrow}</p>
+    <h1 class="directory-hero__title">{title}</h1>
+    <p class="directory-hero__description">{description}</p>
+  </div>
+
+  <div class="directory-hero__context">
+    <p class="directory-hero__meta">{meta}</p>
+    <a class="directory-hero__alternate" href={alternateHref}>
+      <span>{alternateLabel}</span>
+      <Icon name="chevron-right" aria-hidden="true" />
+    </a>
+  </div>
+</header>
+
+<style>
+  .directory-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(13rem, 0.5fr);
+    gap: clamp(var(--spacing-xl), 5vw, var(--spacing-4xl));
+    align-items: end;
+    padding-block-end: clamp(var(--spacing-xl), 4vw, var(--spacing-3xl));
+    border-block-end: 1px solid var(--border-default);
+  }
+
+  .directory-hero__copy {
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .directory-hero__eyebrow,
+  .directory-hero__title,
+  .directory-hero__description,
+  .directory-hero__meta {
+    margin: 0;
+  }
+
+  .directory-hero__eyebrow {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .directory-hero__title {
+    max-inline-size: 13ch;
+    font-size: clamp(2.6rem, 2rem + 2.7vw, 4.75rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 0.98;
+    color: var(--text-primary);
+    text-wrap: balance;
+  }
+
+  .directory-hero__description {
+    max-inline-size: 68ch;
+    font-size: var(--font-size-md);
+    line-height: 1.65;
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+
+  .directory-hero__context {
+    display: grid;
+    gap: var(--spacing-sm);
+    justify-items: end;
+  }
+
+  .directory-hero__meta {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    color: var(--text-secondary);
+    text-align: end;
+  }
+
+  .directory-hero__alternate {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    text-decoration: none;
+    border-radius: var(--radius-base);
+  }
+
+  .directory-hero__alternate:hover,
+  .directory-hero__alternate:focus-visible {
+    color: var(--accent-strong);
+  }
+
+  .directory-hero__alternate:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .directory-hero__alternate :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  @media (width <= 760px) {
+    .directory-hero {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-lg);
+    }
+
+    .directory-hero__title {
+      font-size: clamp(2.45rem, 12vw, 3.5rem);
+    }
+
+    .directory-hero__description {
+      font-size: var(--font-size-base);
+    }
+
+    .directory-hero__context {
+      justify-items: start;
+    }
+
+    .directory-hero__meta {
+      text-align: start;
+    }
+
+    .directory-hero__alternate {
+      padding-inline: 0;
+    }
+  }
+</style>

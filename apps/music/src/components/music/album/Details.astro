@@ -200,12 +200,13 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
   }
 
   .album-detail-sections__prose :global(blockquote) {
-    padding: var(--spacing-sm) 0 var(--spacing-sm) var(--spacing-base);
+    padding: var(--spacing-base);
     margin: var(--spacing-lg) 0;
     color: var(--music-album-ink);
     background: color-mix(in srgb, var(--music-album-paper-soft) 42%, transparent);
-    border-inline-start: var(--spacing-2xs) solid var(--music-album-accent);
-    border-radius: 0 var(--radius-base) var(--radius-base) 0;
+    border: 1px solid
+      color-mix(in srgb, var(--music-album-accent) 34%, var(--music-album-line));
+    border-radius: var(--radius-base);
   }
 
   .album-detail-sections__prose :global(blockquote > :last-child) {

@@ -17,6 +17,8 @@ interface Props {
 }
 
 const { items, searchHref, currentPath } = Astro.props;
+const normalizePathname = (pathname: string) =>
+  pathname === "/" ? pathname : pathname.replace(/\/+$/, "");
 const getComparableHref = (href: string) => {
   if (href.includes("#")) {
     return null;
@@ -29,27 +31,33 @@ const getComparableHref = (href: string) => {
       return null;
     }
 
-    return `${url.pathname}${url.search}`;
+    return `${normalizePathname(url.pathname)}${url.search}`;
   } catch {
     return null;
   }
 };
 const isActiveItem = (href: string) => {
   const comparableHref = getComparableHref(href);
+  const currentUrl = new URL(currentPath, Astro.url.origin);
+  const normalizedCurrentPath = normalizePathname(currentUrl.pathname);
+  const normalizedCurrent = `${normalizedCurrentPath}${currentUrl.search}`;
 
   if (!comparableHref) {
     return false;
   }
 
   if (comparableHref === "/") {
-    return currentPath === "/";
+    return normalizedCurrent === "/";
   }
 
   if (comparableHref.includes("?")) {
-    return currentPath === comparableHref;
+    return normalizedCurrent === comparableHref;
   }
 
-  return currentPath === comparableHref || currentPath.startsWith(`${comparableHref}/`);
+  return (
+    normalizedCurrentPath === comparableHref ||
+    normalizedCurrentPath.startsWith(`${comparableHref}/`)
+  );
 };
 ---
 

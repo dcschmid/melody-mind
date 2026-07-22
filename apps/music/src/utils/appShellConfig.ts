@@ -55,6 +55,13 @@ export function buildAppShellConfig({
     footer: {
       ...DEFAULT_APP_SHELL_FOOTER,
       brandText: footerBrandText,
+      exploreTitle: "Explore",
+      exploreLinks: [
+        { href: "/", label: "Albums" },
+        { href: "/genre/", label: "Genres" },
+        { href: "/series/", label: "Album Series" },
+        { href: "/?search=1", label: "Search" },
+      ],
       legalLinks: buildAppShellLegalLinks(),
       copyrightText: buildDefaultCopyrightText(copyrightYear, copyrightBrand),
     },

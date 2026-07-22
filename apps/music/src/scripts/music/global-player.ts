@@ -104,6 +104,7 @@ const initGlobalPlayer = (): void => {
   const albumLink = root.querySelector<HTMLAnchorElement>("[data-global-player-link]");
   const trackText = root.querySelector<HTMLElement>("[data-global-player-track]");
   const albumText = root.querySelector<HTMLElement>("[data-global-player-album]");
+  const messageText = root.querySelector<HTMLElement>("[data-global-player-message]");
   const currentText = root.querySelector<HTMLElement>("[data-global-player-current]");
   const remainingText = root.querySelector<HTMLElement>("[data-global-player-remaining]");
   const progress = root.querySelector<HTMLInputElement>("[data-global-player-progress]");
@@ -130,6 +131,8 @@ const initGlobalPlayer = (): void => {
   let pendingSeek = state.currentTime;
   let lastSave = 0;
   let preloadedUrl = "";
+  let playerView: "expanded" | "compact" = "expanded";
+  let hasFinished = false;
   const nextTrackPreloader = new Audio();
   nextTrackPreloader.preload = "metadata";
 
@@ -272,7 +275,7 @@ const initGlobalPlayer = (): void => {
     }
   };
 
-  const closePlayer = () => {
+  const clearPlayer = () => {
     audio.pause();
     audio.removeAttribute("src");
     audio.load();
@@ -289,6 +292,8 @@ const initGlobalPlayer = (): void => {
       updatedAt: Date.now(),
     };
     audio.muted = false;
+    playerView = "expanded";
+    hasFinished = false;
     try {
       window.localStorage.removeItem(STORAGE_KEY);
       window.localStorage.removeItem(LEGACY_STORAGE_KEY);
@@ -297,7 +302,7 @@ const initGlobalPlayer = (): void => {
     }
     clearMediaSession();
     dispatch();
-    announce("Player closed");
+    announce("Playback cleared");
   };
 
   const preloadNextTrack = () => {
@@ -330,11 +335,15 @@ const initGlobalPlayer = (): void => {
     const hasTrack = Boolean(queue && track);
     root.hidden = !hasTrack;
     document.body.dataset.globalPlayerVisible = String(hasTrack);
+    document.body.dataset.globalPlayerView = playerView;
+    root.dataset.playerView = playerView;
     root.dataset.playerState = state.errorMessage
       ? "error"
-      : state.isPlaying
-        ? "playing"
-        : "paused";
+      : hasFinished
+        ? "finished"
+        : state.isPlaying
+          ? "playing"
+          : "paused";
     root.dataset.playerMuted = state.isMuted ? "true" : "false";
 
     if (!queue || !track) {
@@ -344,7 +353,16 @@ const initGlobalPlayer = (): void => {
       trackText.textContent = track.title;
     }
     if (albumText) {
-      albumText.textContent = state.errorMessage || queue.albumTitle;
+      albumText.textContent = queue.albumTitle;
+      albumText.hidden = Boolean(state.errorMessage || hasFinished);
+    }
+    if (messageText) {
+      messageText.textContent = state.errorMessage
+        ? state.errorMessage
+        : hasFinished
+          ? "Album finished"
+          : "";
+      messageText.hidden = !state.errorMessage && !hasFinished;
     }
     if (albumLink) {
       albumLink.href = `${queue.albumUrl}#track-${track.trackNumber}`;
@@ -357,7 +375,11 @@ const initGlobalPlayer = (): void => {
       toggle.setAttribute("aria-pressed", String(state.isPlaying));
       toggle.setAttribute(
         "aria-label",
-        `${state.errorMessage ? "Retry" : state.isPlaying ? "Pause" : "Play"} ${track.title}`
+        state.errorMessage
+          ? `Retry ${track.title}`
+          : hasFinished
+            ? `Replay album ${queue.albumTitle}`
+            : `${state.isPlaying ? "Pause" : "Play"} ${track.title}`
       );
     }
     if (mute) {
@@ -392,6 +414,7 @@ const initGlobalPlayer = (): void => {
     }
     state.currentTrackIndex = index;
     state.errorMessage = null;
+    hasFinished = false;
     releasePreloader();
     pendingSeek = currentTime;
     const nextUrl = new URL(track.audioUrl, window.location.href).href;
@@ -449,6 +472,8 @@ const initGlobalPlayer = (): void => {
       Math.max(Math.floor(detail.startIndex || 0), 0),
       detail.queue.tracks.length - 1
     );
+    playerView = "expanded";
+    hasFinished = false;
     const sameTrack =
       state.queue?.albumId === detail.queue.albumId &&
       state.currentTrackIndex === index &&
@@ -467,10 +492,18 @@ const initGlobalPlayer = (): void => {
   const handleCommand = (command: PlayerCommand) => {
     switch (command.action) {
       case "toggle":
-        audio.paused ? play() : audio.pause();
+        if (hasFinished) {
+          changeTrack(0, true);
+        } else {
+          audio.paused ? play() : audio.pause();
+        }
         break;
       case "play":
-        play();
+        if (hasFinished) {
+          changeTrack(0, true);
+        } else {
+          play();
+        }
         break;
       case "pause":
         audio.pause();
@@ -501,10 +534,21 @@ const initGlobalPlayer = (): void => {
         audio.muted = !audio.muted;
         dispatch(true);
         break;
-      case "close":
-        closePlayer();
+      case "minimize":
+        playerView = "compact";
+        updateUi();
+        announce("Player minimized");
+        break;
+      case "expand":
+        playerView = "expanded";
+        updateUi();
+        announce("Player expanded");
+        break;
+      case "clear":
+        clearPlayer();
         break;
       case "seek":
+        hasFinished = false;
         audio.currentTime = Math.min(Math.max(command.value, 0), getDuration());
         dispatch(true);
         break;
@@ -606,6 +650,7 @@ const initGlobalPlayer = (): void => {
     "play",
     () => {
       state.errorMessage = null;
+      hasFinished = false;
       dispatch(true);
       announce(`Playing ${getTrack()?.title || "track"}`);
     },
@@ -618,6 +663,7 @@ const initGlobalPlayer = (): void => {
       if (!state.queue) {
         return;
       }
+      hasFinished = false;
       state.errorMessage = getAudioErrorMessage();
       dispatch(true);
       announce(state.errorMessage);
@@ -649,6 +695,7 @@ const initGlobalPlayer = (): void => {
       if (state.currentTrackIndex + 1 < (state.queue?.tracks.length || 0)) {
         changeTrack(state.currentTrackIndex + 1, true);
       } else {
+        hasFinished = true;
         audio.currentTime = 0;
         dispatch(true);
         announce(`Finished ${state.queue?.albumTitle || "album"}`);

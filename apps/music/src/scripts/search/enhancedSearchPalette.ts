@@ -7,7 +7,7 @@ const SEARCH_ROOT_SELECTOR = '[data-enhanced-search="true"]';
 const SEARCH_FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-type SearchFilter = "all" | "Album" | "Track" | "Genre";
+type SearchFilter = "all" | "Album" | "Track" | "Genre" | "Series";
 
 interface SearchDocument {
   id?: string;
@@ -154,12 +154,14 @@ const createController = (root: HTMLElement): SearchController => {
   let filter: SearchFilter = "all";
   let query = "";
   let results: Result<SearchDocument>[] = [];
+  let displayedResults: Result<SearchDocument>[] = [];
   let selectedIndex = 0;
   let requestId = 0;
   let previouslyFocused: HTMLElement | null = null;
   let backdrop: HTMLElement | null = null;
   let input: HTMLInputElement | null = null;
   let resultsList: HTMLUListElement | null = null;
+  const inertedElements = new Map<HTMLElement, boolean>();
 
   const getGroupLabel = (type: string): string =>
     config.groupLabels[type.toLowerCase()] || `${type}s`;
@@ -177,11 +179,11 @@ const createController = (root: HTMLElement): SearchController => {
   };
 
   const select = (index: number): void => {
-    if (!resultsList || results.length === 0) {
+    if (!resultsList || displayedResults.length === 0) {
       input?.removeAttribute("aria-activedescendant");
       return;
     }
-    selectedIndex = Math.min(Math.max(index, 0), results.length - 1);
+    selectedIndex = Math.min(Math.max(index, 0), displayedResults.length - 1);
     resultsList
       .querySelectorAll<HTMLElement>(".astro-search-result")
       .forEach((element, elementIndex) => {
@@ -196,7 +198,7 @@ const createController = (root: HTMLElement): SearchController => {
   };
 
   const choose = async (index: number): Promise<void> => {
-    const hit = results[index];
+    const hit = displayedResults[index];
     if (!hit) {
       return;
     }
@@ -287,6 +289,7 @@ const createController = (root: HTMLElement): SearchController => {
     if (!resultsList) {
       return;
     }
+    displayedResults = [];
     input?.removeAttribute("aria-activedescendant");
     resultsList.setAttribute("aria-busy", String(isLoading));
     const item = documentCreate("li", "astro-search-empty");
@@ -364,6 +367,7 @@ const createController = (root: HTMLElement): SearchController => {
         group.push(hit);
         groups.set(hit.document.type, group);
       }
+      displayedResults = Array.from(groups.values()).flat();
       let resultIndex = 0;
       for (const [type, hits] of groups) {
         const groupItem = documentCreate("li", "astro-search-result-group");
@@ -383,7 +387,8 @@ const createController = (root: HTMLElement): SearchController => {
         fragment.append(groupItem);
       }
     } else {
-      results.forEach((hit, index) => fragment.append(createResult(hit, index)));
+      displayedResults = [...results];
+      displayedResults.forEach((hit, index) => fragment.append(createResult(hit, index)));
     }
     resultsList.setAttribute("aria-busy", "false");
     resultsList.replaceChildren(fragment);
@@ -442,6 +447,35 @@ const createController = (root: HTMLElement): SearchController => {
     void runSearch();
   };
 
+  const setBackgroundInert = (): void => {
+    let current: HTMLElement | null = root;
+
+    while (current && current !== document.body) {
+      const parent: HTMLElement | null = current.parentElement;
+      if (!parent) {
+        break;
+      }
+      Array.from(parent.children).forEach((element) => {
+        if (element instanceof HTMLElement && element !== current) {
+          if (!inertedElements.has(element)) {
+            inertedElements.set(element, element.inert);
+          }
+          element.inert = true;
+        }
+      });
+      current = parent;
+    }
+    document.body.classList.add("astro-search-open");
+  };
+
+  const restoreBackground = (): void => {
+    inertedElements.forEach((wasInert, element) => {
+      element.inert = wasInert;
+    });
+    inertedElements.clear();
+    document.body.classList.remove("astro-search-open");
+  };
+
   const createShell = (): void => {
     backdrop = documentCreate("div", "astro-search-backdrop");
     backdrop.setAttribute("role", "dialog");
@@ -463,9 +497,15 @@ const createController = (root: HTMLElement): SearchController => {
       root.dataset.enhancedSearchResultsId || "music-search-results"
     );
     input.setAttribute("aria-autocomplete", "list");
-    const escapeKey = documentCreate("kbd", "astro-search-shortcut");
-    escapeKey.textContent = "esc";
-    inputWrap.append(createIcon(), input, escapeKey);
+    const closeButton = documentCreate("button", "astro-search-close");
+    const closeMark = documentCreate("span", "astro-search-close__mark");
+    closeButton.setAttribute("type", "button");
+    closeButton.setAttribute("aria-label", "Close search");
+    closeMark.setAttribute("aria-hidden", "true");
+    closeMark.textContent = "\u00d7";
+    closeButton.append(closeMark);
+    closeButton.addEventListener("click", () => controller.close());
+    inputWrap.append(createIcon(), input, closeButton);
 
     const filters = documentCreate("div", "astro-search-filters");
     filters.setAttribute("role", "group");
@@ -475,6 +515,7 @@ const createController = (root: HTMLElement): SearchController => {
       ["Album", "Albums"],
       ["Track", "Tracks"],
       ["Genre", "Genres"],
+      ["Series", "Series"],
     ];
     for (const [value, label] of filterOptions) {
       const button = documentCreate("button", "astro-search-filter");
@@ -549,8 +590,10 @@ const createController = (root: HTMLElement): SearchController => {
       }
       activeController?.close();
       activeController = controller;
+      window.dispatchEvent(new CustomEvent("music-menu:close"));
       previouslyFocused =
         document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setBackgroundInert();
       createShell();
       renderEmpty(true);
       void loadIndex(indexUrl)
@@ -573,6 +616,7 @@ const createController = (root: HTMLElement): SearchController => {
       requestId += 1;
       query = "";
       results = [];
+      displayedResults = [];
       selectedIndex = 0;
       root.replaceChildren();
       backdrop = null;
@@ -581,6 +625,7 @@ const createController = (root: HTMLElement): SearchController => {
       if (activeController === controller) {
         activeController = null;
       }
+      restoreBackground();
       previouslyFocused?.focus();
       previouslyFocused = null;
     },

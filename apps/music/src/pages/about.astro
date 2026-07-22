@@ -196,6 +196,15 @@ const pageSeo = buildPageSeo({
             MelodyMind Music is created, curated, and produced by Daniel Schmid as an
             independent concept album project.
           </p>
+          <nav class="about-page__closing-actions" aria-label="Explore the music catalog">
+            <a
+              class="about-page__closing-link about-page__closing-link--primary"
+              href="/genre/"
+            >
+              Browse genres
+            </a>
+            <a class="about-page__closing-link" href="/series/">Explore album series</a>
+          </nav>
         </footer>
       </div>
     </article>
@@ -330,6 +339,51 @@ const pageSeo = buildPageSeo({
 
   .about-page__closing :where(p) {
     margin: 0;
+  }
+
+  .about-page__closing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-block-start: var(--spacing-lg);
+  }
+
+  .about-page__closing-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: 0.7rem 1rem;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+  }
+
+  .about-page__closing-link--primary {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: transparent;
+  }
+
+  .about-page__closing-link:hover,
+  .about-page__closing-link:focus-visible {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  .about-page__closing-link--primary:hover,
+  .about-page__closing-link--primary:focus-visible {
+    color: var(--button-text-accent);
+    background: var(--accent-strong);
+  }
+
+  .about-page__closing-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
   }
 
   @media (width < 860px) {

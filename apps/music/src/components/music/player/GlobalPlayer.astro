@@ -5,6 +5,7 @@ import Icon from "@components/visual/Icon.astro";
 <aside
   class="global-player"
   data-global-player
+  data-player-view="expanded"
   aria-label="Now playing"
   hidden
   transition:persist="melodymind-global-player"
@@ -24,6 +25,7 @@ import Icon from "@components/visual/Icon.astro";
           Choose a track
         </strong>
         <span class="global-player__album" data-global-player-album></span>
+        <span class="global-player__message" data-global-player-message hidden></span>
       </span>
     </a>
 
@@ -100,14 +102,32 @@ import Icon from "@components/visual/Icon.astro";
       />
     </button>
 
-    <button
-      class="global-player__button global-player__button--close"
-      type="button"
-      data-global-player-action="close"
-      aria-label="Close player and clear playback"
-    >
-      <Icon name="x" aria-hidden="true" />
-    </button>
+    <div class="global-player__actions">
+      <button
+        class="global-player__button global-player__button--clear"
+        type="button"
+        data-global-player-action="clear"
+        aria-label="Clear playback"
+      >
+        <Icon name="tabler:trash" aria-hidden="true" />
+      </button>
+      <button
+        class="global-player__button global-player__button--minimize"
+        type="button"
+        data-global-player-action="minimize"
+        aria-label="Minimize player"
+      >
+        <Icon name="chevron-down" aria-hidden="true" />
+      </button>
+      <button
+        class="global-player__button global-player__button--expand"
+        type="button"
+        data-global-player-action="expand"
+        aria-label="Expand player"
+      >
+        <Icon name="tabler:chevron-up" aria-hidden="true" />
+      </button>
+    </div>
   </div>
 
   <p class="sr-only" aria-live="polite" aria-atomic="true" data-global-player-status></p>
@@ -172,7 +192,8 @@ import Icon from "@components/visual/Icon.astro";
   }
 
   .global-player__track,
-  .global-player__album {
+  .global-player__album,
+  .global-player__message {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -184,6 +205,7 @@ import Icon from "@components/visual/Icon.astro";
   }
 
   .global-player__album,
+  .global-player__message,
   .global-player__time {
     font-size: var(--font-size-xs);
     color: var(--text-tertiary);
@@ -197,15 +219,26 @@ import Icon from "@components/visual/Icon.astro";
     );
   }
 
-  .global-player[data-player-state="error"] .global-player__album {
+  .global-player__message {
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 2;
     font-weight: var(--font-weight-bold);
     line-height: 1.15;
-    color: var(--color-error);
     white-space: normal;
     -webkit-box-orient: vertical;
+  }
+
+  .global-player__message[hidden] {
+    display: none;
+  }
+
+  .global-player[data-player-state="error"] .global-player__message {
+    color: var(--color-error);
+  }
+
+  .global-player[data-player-state="finished"] .global-player__message {
+    color: var(--accent-primary);
   }
 
   .global-player__transport {
@@ -235,8 +268,14 @@ import Icon from "@components/visual/Icon.astro";
     border-color: transparent;
   }
 
-  .global-player__button--close {
-    flex: none;
+  .global-player__actions {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .global-player__button--expand {
+    display: none;
   }
 
   .global-player__button:hover,
@@ -287,10 +326,31 @@ import Icon from "@components/visual/Icon.astro";
     padding-block-end: calc(4.75rem + env(safe-area-inset-bottom));
   }
 
+  .global-player[data-player-view="compact"] .global-player__inner {
+    grid-template-columns: minmax(12rem, 1fr) auto auto;
+    min-block-size: 4.25rem;
+  }
+
+  .global-player[data-player-view="compact"] .global-player__button--secondary,
+  .global-player[data-player-view="compact"] .global-player__timeline,
+  .global-player[data-player-view="compact"] .global-player__button--volume,
+  .global-player[data-player-view="compact"] .global-player__button--clear,
+  .global-player[data-player-view="compact"] .global-player__button--minimize {
+    display: none;
+  }
+
+  .global-player[data-player-view="compact"] .global-player__button--expand {
+    display: grid;
+  }
+
+  :global(body[data-global-player-visible="true"][data-global-player-view="compact"]) {
+    padding-block-end: calc(4.25rem + env(safe-area-inset-bottom));
+  }
+
   @media (width <= 760px) {
     .global-player__inner {
       grid-template-areas:
-        "context transport close"
+        "context transport actions"
         "timeline timeline timeline";
       grid-template-columns: minmax(0, 1fr) auto auto;
       gap: 0.2rem 0.6rem;
@@ -318,8 +378,8 @@ import Icon from "@components/visual/Icon.astro";
       display: none;
     }
 
-    .global-player__button--close {
-      grid-area: close;
+    .global-player__actions {
+      grid-area: actions;
     }
 
     .global-player__timeline {
@@ -336,6 +396,17 @@ import Icon from "@components/visual/Icon.astro";
 
     :global(body[data-global-player-visible="true"]) {
       padding-block-end: calc(6.5rem + env(safe-area-inset-bottom));
+    }
+
+    .global-player[data-player-view="compact"] .global-player__inner {
+      grid-template-areas: "context transport actions";
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      min-block-size: 4.25rem;
+      padding-block: 0.45rem;
+    }
+
+    :global(body[data-global-player-visible="true"][data-global-player-view="compact"]) {
+      padding-block-end: calc(4.25rem + env(safe-area-inset-bottom));
     }
   }
 

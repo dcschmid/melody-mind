@@ -159,7 +159,6 @@ const config = {
     color: var(--text-tertiary);
   }
 
-  :global(.astro-search-shortcut),
   :global(.astro-search-key kbd) {
     min-inline-size: 1.65rem;
     padding: 0.125rem 0.375rem;
@@ -170,6 +169,37 @@ const config = {
     background: var(--surface-2);
     border: 1px solid var(--surface-border-soft);
     border-radius: var(--radius-sm);
+  }
+
+  :global(.astro-search-close) {
+    display: grid;
+    place-items: center;
+    inline-size: var(--control-min-block-size);
+    block-size: var(--control-min-block-size);
+    padding: 0;
+    font: inherit;
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-full);
+  }
+
+  :global(.astro-search-close:hover),
+  :global(.astro-search-close:focus-visible) {
+    color: var(--text-primary);
+    background: var(--surface-2);
+    border-color: var(--search-palette-accent);
+  }
+
+  :global(.astro-search-close:focus-visible) {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  :global(.astro-search-close__mark) {
+    font-size: var(--font-size-lg);
+    line-height: 1;
   }
 
   :global(.astro-search-results) {
@@ -479,5 +509,20 @@ const config = {
     :global(.astro-search-result-desc) {
       display: none;
     }
+
+    :global(.astro-search-filters) {
+      flex-wrap: wrap;
+      overflow-x: visible;
+    }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    :global(.astro-search-footer) {
+      display: none;
+    }
+  }
+
+  :global(body.astro-search-open) {
+    overflow: hidden;
   }
 </style>
