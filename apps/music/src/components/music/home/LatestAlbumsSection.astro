@@ -1,0 +1,243 @@
+---
+import OptimizedImage from "@components/media/OptimizedImage.astro";
+import SectionHeader from "@components/layout/SectionHeader.astro";
+import Icon from "@components/visual/Icon.astro";
+import type { Entry } from "./types";
+
+interface Props {
+  albums: Entry[];
+  title: string;
+  queueUrl?: string;
+}
+
+const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props;
+---
+
+{
+  albums.length > 0 && (
+    <section class="latest-albums" aria-labelledby="latest-albums-heading">
+      <SectionHeader headingId="latest-albums-heading" iconName="sparkles" {title} />
+
+      <ul class="latest-albums__list">
+        {albums.map((album) => (
+          <li class="latest-albums__item">
+            <article class="latest-albums__album">
+              <a
+                class="latest-albums__cover-link"
+                href={`/${album.id}/`}
+                aria-label={`Open album ${album.title}`}
+              >
+                <OptimizedImage
+                  src={album.imageSrc}
+                  alt={`Cover art for the album ${album.title}`}
+                  class="latest-albums__cover"
+                  width={480}
+                  height={480}
+                  widths={[160, 240, 320, 480]}
+                  sizes="(max-width: 640px) 44vw, (max-width: 1023px) 29vw, 14vw"
+                  loading="lazy"
+                  decoding="async"
+                  formats={["avif"]}
+                />
+              </a>
+
+              <div class="latest-albums__copy">
+                <h3 class="latest-albums__title">
+                  <a href={`/${album.id}/`}>{album.title}</a>
+                </h3>
+
+                <div class="latest-albums__footer">
+                  <p class="latest-albums__meta">
+                    {album.genre && <span>{album.genre}</span>}
+                    <span>{album.trackCount} tracks</span>
+                  </p>
+                  <button
+                    class="latest-albums__play"
+                    type="button"
+                    aria-label={`Play album ${album.title}`}
+                    data-player-load
+                    data-player-album-id={album.id}
+                    data-player-album-title={album.title}
+                    data-player-queue-url={queueUrl}
+                  >
+                    <Icon name="tabler:player-play-filled" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .latest-albums {
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .latest-albums__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(var(--spacing-base), 2vw, var(--spacing-lg));
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .latest-albums__item,
+  .latest-albums__album,
+  .latest-albums__copy {
+    min-inline-size: 0;
+  }
+
+  .latest-albums__album {
+    display: grid;
+    gap: var(--spacing-sm);
+  }
+
+  .latest-albums__cover-link {
+    display: block;
+    overflow: hidden;
+    background: var(--music-home-paper);
+    border: 1px solid var(--music-home-line);
+    border-radius: var(--radius-base);
+  }
+
+  .latest-albums__cover-link :global(.latest-albums__cover) {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .latest-albums__copy {
+    display: grid;
+    gap: var(--spacing-xs);
+  }
+
+  .latest-albums__title,
+  .latest-albums__meta {
+    margin: 0;
+  }
+
+  .latest-albums__title {
+    display: -webkit-box;
+    min-block-size: 2.3em;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-size: var(--font-size-base);
+    line-height: 1.15;
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
+  }
+
+  .latest-albums__title a {
+    color: var(--music-home-ink);
+    text-decoration: none;
+  }
+
+  .latest-albums__footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-sm);
+    align-items: end;
+  }
+
+  .latest-albums__meta {
+    display: grid;
+    gap: var(--spacing-2xs);
+    min-inline-size: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    color: var(--music-home-muted);
+  }
+
+  .latest-albums__meta span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .latest-albums__play {
+    display: grid;
+    place-items: center;
+    inline-size: var(--control-min-block-size);
+    block-size: var(--control-min-block-size);
+    padding: 0;
+    color: var(--button-text-accent);
+    cursor: pointer;
+    background: var(--music-home-accent);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+  }
+
+  .latest-albums__play :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .latest-albums__play:hover,
+  .latest-albums__play:focus-visible {
+    background: var(--music-home-accent-strong);
+  }
+
+  .latest-albums__play[aria-busy="true"] {
+    cursor: wait;
+    opacity: 0.68;
+  }
+
+  .latest-albums__cover-link:hover,
+  .latest-albums__cover-link:focus-visible {
+    border-color: var(--music-home-accent);
+  }
+
+  .latest-albums__title a:hover,
+  .latest-albums__title a:focus-visible {
+    color: var(--music-home-accent);
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .latest-albums__cover-link,
+    .latest-albums__cover-link :global(.latest-albums__cover),
+    .latest-albums__play,
+    .latest-albums__title a {
+      transition:
+        color var(--motion-duration-fast) var(--motion-ease-standard),
+        background-color var(--motion-duration-fast) var(--motion-ease-standard),
+        border-color var(--motion-duration-fast) var(--motion-ease-standard),
+        transform var(--motion-duration-fast) var(--motion-ease-standard);
+    }
+
+    .latest-albums__cover-link:hover :global(.latest-albums__cover),
+    .latest-albums__cover-link:focus-visible :global(.latest-albums__cover) {
+      transform: scale(1.02);
+    }
+  }
+
+  @media (width >= 641px) {
+    .latest-albums__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 1024px) {
+    .latest-albums__list {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 420px) {
+    .latest-albums__list {
+      gap: var(--spacing-base) var(--spacing-sm);
+    }
+
+    .latest-albums__meta {
+      font-size: 1rem;
+    }
+  }
+</style>

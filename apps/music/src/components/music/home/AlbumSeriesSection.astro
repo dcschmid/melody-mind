@@ -1,12 +1,13 @@
 ---
-import FeatureLinkListSection from "./FeatureLinkListSection.astro";
+import OptimizedImage from "@components/media/OptimizedImage.astro";
+import SectionHeader from "@components/layout/SectionHeader.astro";
+import Icon from "@components/visual/Icon.astro";
 import type { Entry } from "./types";
 
 interface AlbumSeriesItem {
   slug: string;
   title: string;
   eyebrow: string;
-  shortDescription: string;
   albums: Entry[];
 }
 
@@ -16,32 +17,229 @@ interface Props {
 }
 
 const { series, title } = Astro.props as Props;
-const items = series.map((item) => {
-  const album = item.albums[0];
-
-  return {
-    id: `series-${item.slug}`,
-    href: `/series/${item.slug}/`,
-    eyebrow: item.eyebrow,
-    title: item.title,
-    description: item.shortDescription,
-    metaIconName: "disc" as const,
-    metaLabel: `${item.albums.length} ${item.albums.length === 1 ? "album" : "albums"}`,
-    ...(album
-      ? {
-          image: {
-            src: album.imageSrc,
-            alt: `Cover art for the album ${album.title}`,
-          },
-        }
-      : {}),
-  };
-});
 ---
 
-<FeatureLinkListSection
-  headingId="album-series-heading"
-  iconName="book-open"
-  {items}
-  {title}
-/>
+{
+  series.length > 0 && (
+    <section class="series-directory" aria-labelledby="album-series-heading">
+      <SectionHeader headingId="album-series-heading" iconName="book-open" {title} />
+
+      <ul class="series-directory__list">
+        {series.map((item) => {
+          const covers = item.albums.slice(0, 3);
+          const albumLabel = `${item.albums.length} ${item.albums.length === 1 ? "album" : "albums"}`;
+
+          return (
+            <li class="series-directory__item">
+              <a
+                class="series-directory__link"
+                href={`/series/${item.slug}/`}
+                aria-label={`${item.title}, ${albumLabel}`}
+              >
+                <span class="series-directory__copy">
+                  <span class="series-directory__eyebrow">{item.eyebrow}</span>
+                  <strong class="series-directory__title">{item.title}</strong>
+                  <span class="series-directory__count">{albumLabel}</span>
+                </span>
+
+                <span class="series-directory__visual" aria-hidden="true">
+                  <span class="series-directory__covers">
+                    {covers.map((album, index) => (
+                      <span
+                        class="series-directory__cover"
+                        style={`--series-directory-cover-index: ${index};`}
+                      >
+                        <OptimizedImage
+                          src={album.imageSrc}
+                          alt=""
+                          width={72}
+                          height={72}
+                          widths={[48, 72, 96]}
+                          sizes="3.25rem"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </span>
+                    ))}
+                  </span>
+                  <Icon name="chevron-right" class="series-directory__arrow" />
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .series-directory {
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .series-directory__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 5vw, 5rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--music-home-line);
+  }
+
+  .series-directory__item {
+    min-inline-size: 0;
+    border-block-end: 1px solid var(--music-home-line);
+  }
+
+  .series-directory__link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-base);
+    align-items: center;
+    min-block-size: 6.5rem;
+    padding: var(--spacing-sm) var(--spacing-xs);
+    color: var(--music-home-ink);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+
+  .series-directory__copy {
+    display: grid;
+    gap: var(--spacing-2xs);
+    min-inline-size: 0;
+  }
+
+  .series-directory__eyebrow,
+  .series-directory__count {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .series-directory__eyebrow {
+    color: var(--music-home-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
+  .series-directory__title {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    font-size: var(--font-size-lg);
+    line-height: 1.15;
+    text-wrap: pretty;
+    -webkit-box-orient: vertical;
+  }
+
+  .series-directory__count {
+    color: var(--music-home-muted);
+  }
+
+  .series-directory__visual {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .series-directory__covers {
+    display: flex;
+    justify-content: flex-end;
+    min-inline-size: 7.25rem;
+    padding-inline-start: 1.35rem;
+  }
+
+  .series-directory__cover {
+    position: relative;
+    z-index: calc(3 - var(--series-directory-cover-index));
+    display: block;
+    inline-size: 3.25rem;
+    block-size: 3.25rem;
+    margin-inline-start: -1.35rem;
+    overflow: hidden;
+    background: var(--music-home-paper);
+    border: 1px solid color-mix(in srgb, var(--music-home-ink) 16%, transparent);
+    border-radius: var(--radius-sm);
+  }
+
+  .series-directory__cover :global(img) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .series-directory__arrow {
+    flex: 0 0 auto;
+    inline-size: 1rem;
+    block-size: 1rem;
+    color: var(--music-home-accent);
+  }
+
+  .series-directory__link:hover,
+  .series-directory__link:focus-visible {
+    background: color-mix(in srgb, var(--music-home-accent) 7%, transparent);
+  }
+
+  .series-directory__link:hover .series-directory__title,
+  .series-directory__link:focus-visible .series-directory__title {
+    color: var(--music-home-accent);
+  }
+
+  .series-directory__link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .series-directory__link,
+    .series-directory__title,
+    .series-directory__cover {
+      transition:
+        color var(--motion-duration-fast) var(--motion-ease-standard),
+        background-color var(--motion-duration-fast) var(--motion-ease-standard),
+        transform var(--motion-duration-fast) var(--motion-ease-standard);
+    }
+
+    .series-directory__link:hover .series-directory__cover,
+    .series-directory__link:focus-visible .series-directory__cover {
+      transform: translateY(-0.1rem);
+    }
+  }
+
+  @media (width <= 760px) {
+    .series-directory__list {
+      grid-template-columns: minmax(0, 1fr);
+      column-gap: 0;
+    }
+
+    .series-directory__link {
+      min-block-size: 6rem;
+      padding-inline: 0;
+    }
+  }
+
+  @media (width <= 420px) {
+    .series-directory__link,
+    .series-directory__visual {
+      gap: var(--spacing-sm);
+    }
+
+    .series-directory__covers {
+      min-inline-size: 5.75rem;
+    }
+
+    .series-directory__cover {
+      inline-size: 2.75rem;
+      block-size: 2.75rem;
+      margin-inline-start: -1.15rem;
+    }
+  }
+</style>

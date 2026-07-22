@@ -27,7 +27,16 @@ const playerSlug =
   albumTitle.replace(/[^a-z0-9]+/gi, "-").replace(/(^-|-$)/g, "") || "playlist";
 const playerId = id || `album-playlist-${playerSlug}`;
 const statusId = `${playerId}-status`;
+const headingId = `${playerId}-heading`;
 const hasSongs = songs.length > 0;
+const totalDurationSeconds = songs.reduce(
+  (total, song) => total + (song.durationSeconds || 0),
+  0
+);
+const trackCountLabel = `${songs.length} ${songs.length === 1 ? "track" : "tracks"}`;
+const totalDurationLabel = totalDurationSeconds
+  ? `${Math.floor(totalDurationSeconds / 60)}:${String(totalDurationSeconds % 60).padStart(2, "0")}`
+  : "";
 const playerQueue = {
   albumId,
   albumTitle,
@@ -63,7 +72,7 @@ const getTrackDurationLabel = (song: Song): string =>
   data-album-title={albumTitle}
   data-album-url={albumUrl}
   data-album-artwork-url={albumArtworkUrl}
-  aria-label={`Track list for ${albumTitle}`}
+  aria-labelledby={headingId}
 >
   <div
     class="album-playlist-player__status album-playlist-player__status--sr-only"
@@ -74,6 +83,17 @@ const getTrackDurationLabel = (song: Song): string =>
   >
     Ready to play
   </div>
+
+  <header class="album-playlist-player__header">
+    <h2 id={headingId} class="album-playlist-player__heading">Tracklist</h2>
+    <p
+      class="album-playlist-player__summary"
+      aria-label={`${trackCountLabel}${totalDurationLabel ? `, ${totalDurationLabel} total` : ""}`}
+    >
+      {trackCountLabel}
+      {totalDurationLabel && <span aria-hidden="true"> · {totalDurationLabel}</span>}
+    </p>
+  </header>
 
   <div class="album-playlist-player__tracklist-section">
     <div class="album-playlist-player__tracklist-empty" hidden={hasSongs}>
@@ -312,6 +332,36 @@ const getTrackDurationLabel = (song: Song): string =>
     clip-path: inset(50%);
   }
 
+  .album-playlist-player__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-base);
+    align-items: baseline;
+    justify-content: space-between;
+    padding: var(--spacing-base) clamp(1rem, 2vw, 1.5rem) var(--spacing-sm);
+    border-block-end: 1px solid
+      color-mix(in srgb, var(--music-album-line) 76%, transparent);
+  }
+
+  .album-playlist-player__heading,
+  .album-playlist-player__summary {
+    margin: 0;
+  }
+
+  .album-playlist-player__heading {
+    font-size: var(--font-size-xl);
+    line-height: 1.15;
+    color: var(--music-album-ink);
+  }
+
+  .album-playlist-player__summary {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.25;
+    color: var(--music-album-muted);
+  }
+
   .album-playlist-player__track-action-icon,
   .album-playlist-player__track-play-icon,
   .album-playlist-player__tracklist-empty-icon {
@@ -407,6 +457,7 @@ const getTrackDurationLabel = (song: Song): string =>
   .album-playlist-player__track-num,
   .album-playlist-player__track-duration {
     font-size: var(--font-size-xs);
+    font-variant-numeric: tabular-nums;
     color: var(--music-album-muted);
   }
 
@@ -547,6 +598,14 @@ const getTrackDurationLabel = (song: Song): string =>
 
     .album-playlist-player__tracklist-section {
       padding: 0.32rem 0.42rem 0.45rem;
+    }
+
+    .album-playlist-player__header {
+      padding: 0.85rem 0.6rem 0.65rem;
+    }
+
+    .album-playlist-player__heading {
+      font-size: var(--font-size-lg);
     }
 
     .album-playlist-player__tracklist {

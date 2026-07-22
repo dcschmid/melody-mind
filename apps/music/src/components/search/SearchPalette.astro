@@ -26,6 +26,7 @@ interface Props {
   items?: SearchPaletteItem[];
   mediaAspectRatio?: string;
   placeholder: string;
+  queueUrl?: string;
   resultLimit?: number;
   resultsLabel?: string;
   routeHrefs?: string[];
@@ -43,6 +44,7 @@ const {
   inputLabel,
   mediaAspectRatio = "1 / 1",
   placeholder,
+  queueUrl = "/player-queues.json",
   resultLimit = 8,
   resultsLabel = "Search results",
   routeHrefs = ["/search"],
@@ -69,6 +71,7 @@ const config = {
   data-enhanced-search-config-id={configId}
   data-enhanced-search-results-id={`${configId}-results`}
   data-index-url={indexUrl}
+  data-queue-url={queueUrl}
   data-placeholder={placeholder}
   data-result-limit={String(resultLimit)}
 >
@@ -287,7 +290,8 @@ const config = {
     margin-block-start: var(--spacing-xs);
   }
 
-  :global(.astro-search-empty__suggestion) {
+  :global(.astro-search-empty__suggestion),
+  :global(.astro-search-empty__retry) {
     min-block-size: var(--control-min-block-size);
     padding: 0 var(--spacing-sm);
     font: inherit;
@@ -301,7 +305,9 @@ const config = {
   }
 
   :global(.astro-search-empty__suggestion:hover),
-  :global(.astro-search-empty__suggestion:focus-visible) {
+  :global(.astro-search-empty__suggestion:focus-visible),
+  :global(.astro-search-empty__retry:hover),
+  :global(.astro-search-empty__retry:focus-visible) {
     color: var(--search-palette-accent);
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);

@@ -1,10 +1,6 @@
 import { formatTime } from "@utils/time";
-import type {
-  PlayerCommand,
-  PlayerLoadDetail,
-  PlayerQueue,
-  PlayerState,
-} from "../../types/player";
+import type { PlayerCommand, PlayerLoadDetail, PlayerState } from "../../types/player";
+import { isPlayerQueue, loadPlayerQueue } from "./player-queue-loader";
 
 const STORAGE_KEY = "melodymind:music-player-state:v2";
 const LEGACY_STORAGE_KEY = "melodymind:music-player-state:v1";
@@ -20,27 +16,6 @@ interface NavigatorWithConnection extends Navigator {
 interface StoredPlayerState extends Omit<PlayerState, "isPlaying" | "errorMessage"> {
   version: 2;
 }
-
-const isPlayerQueue = (value: unknown): value is PlayerQueue => {
-  if (!value || typeof value !== "object") {
-    return false;
-  }
-
-  const queue = value as Partial<PlayerQueue>;
-  return (
-    typeof queue.albumId === "string" &&
-    typeof queue.albumTitle === "string" &&
-    typeof queue.albumUrl === "string" &&
-    Array.isArray(queue.tracks) &&
-    queue.tracks.every(
-      (track) =>
-        track &&
-        typeof track.title === "string" &&
-        typeof track.audioUrl === "string" &&
-        typeof track.trackNumber === "number"
-    )
-  );
-};
 
 const readStoredState = (): StoredPlayerState | null => {
   try {
@@ -553,6 +528,57 @@ const initGlobalPlayer = (): void => {
     () => handleCommand({ action: "seek", value: Number(progress.value) }),
     { signal }
   );
+
+  const loadFromTrigger = async (trigger: HTMLElement): Promise<void> => {
+    const startIndex = Number(trigger.dataset.playerStartIndex) || 0;
+    const queueId = trigger.dataset.playerQueueId;
+    if (queueId) {
+      const script = document.getElementById(queueId);
+      if (!script?.textContent) {
+        announce("Could not load this album");
+        return;
+      }
+
+      try {
+        const queue: unknown = JSON.parse(script.textContent);
+        if (!isPlayerQueue(queue)) {
+          throw new Error("Invalid inline player queue");
+        }
+        handleLoad({ queue, startIndex, autoplay: true });
+      } catch {
+        announce("Could not load this album");
+      }
+      return;
+    }
+
+    const albumId = trigger.dataset.playerAlbumId;
+    const queueUrl = trigger.dataset.playerQueueUrl;
+    if (!albumId || !queueUrl) {
+      announce("Could not load this album");
+      return;
+    }
+
+    const button = trigger instanceof HTMLButtonElement ? trigger : null;
+    const wasDisabled = button?.disabled === true;
+    trigger.setAttribute("aria-busy", "true");
+    if (button) {
+      button.disabled = true;
+    }
+    announce(`Loading ${trigger.dataset.playerAlbumTitle || "album"}`);
+
+    try {
+      const queue = await loadPlayerQueue(queueUrl, albumId);
+      handleLoad({ queue, startIndex, autoplay: true });
+    } catch {
+      announce("Could not load this album. Try again.");
+    } finally {
+      trigger.removeAttribute("aria-busy");
+      if (button) {
+        button.disabled = wasDisabled;
+      }
+    }
+  };
+
   document.addEventListener(
     "click",
     (event) => {
@@ -561,24 +587,10 @@ const initGlobalPlayer = (): void => {
         return;
       }
       const trigger = target.closest<HTMLElement>("[data-player-load]");
-      const queueId = trigger?.dataset.playerQueueId;
-      if (!trigger || !queueId) {
+      if (!trigger) {
         return;
       }
-      const script = document.getElementById(queueId);
-      if (!script?.textContent) {
-        return;
-      }
-      try {
-        const queue = JSON.parse(script.textContent) as PlayerQueue;
-        handleLoad({
-          queue,
-          startIndex: Number(trigger.dataset.playerStartIndex) || 0,
-          autoplay: true,
-        });
-      } catch {
-        announce("Could not load this album");
-      }
+      void loadFromTrigger(trigger);
     },
     { signal }
   );

@@ -1,6 +1,7 @@
-import { create, getByID, load, search } from "@orama/orama";
+import { create, load, search } from "@orama/orama";
 import type { AnyOrama, RawData, Result } from "@orama/orama";
 import type { PlayerLoadDetail, PlayerQueue } from "../../types/player";
+import { loadPlayerQueue } from "../music/player-queue-loader";
 
 const SEARCH_ROOT_SELECTOR = '[data-enhanced-search="true"]';
 const SEARCH_FOCUSABLE_SELECTOR =
@@ -19,7 +20,6 @@ interface SearchDocument {
   displayMeta?: string;
   albumId?: string;
   trackIndex?: number;
-  playerQueue?: string;
 }
 
 interface SearchConfig {
@@ -41,7 +41,8 @@ interface SearchController {
 
 interface SearchQuery {
   term: string;
-  properties: "*";
+  properties: readonly ["title", "searchText"];
+  boost: { title: number };
   limit: number;
   where?: { type: Exclude<SearchFilter, "all"> };
 }
@@ -119,42 +120,12 @@ const loadIndex = (url: string): Promise<AnyOrama> => {
   })();
 
   indexCache.set(url, promise);
+  void promise.catch(() => {
+    if (indexCache.get(url) === promise) {
+      indexCache.delete(url);
+    }
+  });
   return promise;
-};
-
-const isPlayerQueue = (value: unknown): value is PlayerQueue => {
-  if (!value || typeof value !== "object") {
-    return false;
-  }
-
-  const queue = value as Partial<PlayerQueue>;
-  return (
-    typeof queue.albumId === "string" &&
-    typeof queue.albumTitle === "string" &&
-    typeof queue.albumUrl === "string" &&
-    Array.isArray(queue.tracks) &&
-    queue.tracks.length > 0 &&
-    queue.tracks.every(
-      (track) =>
-        track &&
-        typeof track.trackNumber === "number" &&
-        typeof track.title === "string" &&
-        typeof track.audioUrl === "string"
-    )
-  );
-};
-
-const parsePlayerQueue = (value: string | undefined): PlayerQueue | null => {
-  if (!value) {
-    return null;
-  }
-
-  try {
-    const queue: unknown = JSON.parse(value);
-    return isPlayerQueue(queue) ? queue : null;
-  } catch {
-    return null;
-  }
 };
 
 const createIcon = (): SVGElement => {
@@ -178,13 +149,13 @@ const createIcon = (): SVGElement => {
 const createController = (root: HTMLElement): SearchController => {
   const config = readConfig(root);
   const indexUrl = root.dataset.indexUrl || "/search-index.json";
+  const queueUrl = root.dataset.queueUrl || "/player-queues.json";
   const resultLimit = Number.parseInt(root.dataset.resultLimit || "8", 10);
   let filter: SearchFilter = "all";
   let query = "";
   let results: Result<SearchDocument>[] = [];
   let selectedIndex = 0;
   let requestId = 0;
-  let database: AnyOrama | null = null;
   let previouslyFocused: HTMLElement | null = null;
   let backdrop: HTMLElement | null = null;
   let input: HTMLInputElement | null = null;
@@ -193,15 +164,16 @@ const createController = (root: HTMLElement): SearchController => {
   const getGroupLabel = (type: string): string =>
     config.groupLabels[type.toLowerCase()] || `${type}s`;
 
-  const getTrackQueue = (document: SearchDocument): PlayerQueue | null => {
-    if (!database || !document.albumId) {
+  const getTrackQueue = async (document: SearchDocument): Promise<PlayerQueue | null> => {
+    if (!document.albumId) {
       return null;
     }
 
-    const albumDocument = getByID(database, document.albumId) as
-      | SearchDocument
-      | undefined;
-    return parsePlayerQueue(albumDocument?.playerQueue);
+    try {
+      return await loadPlayerQueue(queueUrl, document.albumId);
+    } catch {
+      return null;
+    }
   };
 
   const select = (index: number): void => {
@@ -223,7 +195,7 @@ const createController = (root: HTMLElement): SearchController => {
       });
   };
 
-  const choose = (index: number): void => {
+  const choose = async (index: number): Promise<void> => {
     const hit = results[index];
     if (!hit) {
       return;
@@ -233,7 +205,8 @@ const createController = (root: HTMLElement): SearchController => {
       cancelable: true,
     });
     if (root.dispatchEvent(selectionEvent)) {
-      const queue = hit.document.type === "Track" ? getTrackQueue(hit.document) : null;
+      const queue =
+        hit.document.type === "Track" ? await getTrackQueue(hit.document) : null;
       const trackIndex = hit.document.trackIndex;
       if (
         queue &&
@@ -305,7 +278,7 @@ const createController = (root: HTMLElement): SearchController => {
     button.append(createMedia(hit.document), content, action);
     button.addEventListener("mouseenter", () => select(index));
     button.addEventListener("focus", () => select(index));
-    button.addEventListener("click", () => choose(index));
+    button.addEventListener("click", () => void choose(index));
     item.append(button);
     return item;
   };
@@ -326,12 +299,31 @@ const createController = (root: HTMLElement): SearchController => {
       text.textContent = "Search will be ready in a moment.";
     } else if (hasError) {
       title.textContent = "Search is unavailable.";
-      text.textContent = "Close search and try again.";
+      text.textContent = "Check your connection and try again.";
     } else {
       title.textContent = query ? config.emptyTitleWithQuery : config.emptyTitle;
       text.textContent = query ? config.emptyTextWithQuery : config.emptyText;
     }
     item.append(title, text);
+
+    if (hasError) {
+      const retry = documentCreate("button", "astro-search-empty__retry");
+      retry.setAttribute("type", "button");
+      retry.textContent = "Retry search";
+      retry.addEventListener("click", () => {
+        renderEmpty(true);
+        void loadIndex(indexUrl)
+          .then(() => {
+            if (query.trim()) {
+              void runSearch();
+            } else {
+              renderEmpty();
+            }
+          })
+          .catch(() => renderEmpty(false, true));
+      });
+      item.append(retry);
+    }
 
     if (!query && !isLoading && !hasError && config.suggestions.length > 0) {
       const suggestions = documentCreate("span", "astro-search-empty__suggestions");
@@ -411,10 +403,10 @@ const createController = (root: HTMLElement): SearchController => {
     renderEmpty(true);
     try {
       const loadedDatabase = await loadIndex(indexUrl);
-      database = loadedDatabase;
       const response = await searchDocuments(loadedDatabase, {
         term,
-        properties: "*",
+        properties: ["title", "searchText"],
+        boost: { title: 2 },
         limit: Number.isFinite(resultLimit) ? resultLimit : 8,
         ...(filter === "all" ? {} : { where: { type: filter } }),
       });
@@ -519,7 +511,7 @@ const createController = (root: HTMLElement): SearchController => {
         select(selectedIndex + (event.key === "ArrowDown" ? 1 : -1));
       } else if (event.key === "Enter") {
         event.preventDefault();
-        choose(selectedIndex);
+        void choose(selectedIndex);
       }
     });
     backdrop.addEventListener("click", (event) => {
@@ -560,7 +552,18 @@ const createController = (root: HTMLElement): SearchController => {
       previouslyFocused =
         document.activeElement instanceof HTMLElement ? document.activeElement : null;
       createShell();
-      void loadIndex(indexUrl).catch(() => undefined);
+      renderEmpty(true);
+      void loadIndex(indexUrl)
+        .then(() => {
+          if (!query) {
+            renderEmpty();
+          }
+        })
+        .catch(() => {
+          if (!query) {
+            renderEmpty(false, true);
+          }
+        });
       window.requestAnimationFrame(() => input?.focus());
     },
     close: () => {

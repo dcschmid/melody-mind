@@ -47,19 +47,6 @@ export const GET: APIRoute = async () => {
     const hasInstrumentalTrack = entry.data.songs.some(
       (song: Song) => song.isInstrumental
     );
-    const playerQueue = {
-      albumId: entry.id,
-      albumTitle: entry.data.title,
-      albumUrl: `/${entry.id}/`,
-      albumArtworkUrl: coverImageUrl,
-      tracks: entry.data.songs.map((song: Song) => ({
-        trackNumber: song.trackNumber,
-        title: song.title,
-        audioUrl: song.audioUrl,
-        ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
-      })),
-    };
-
     return {
       id: entry.id,
       type: "Album",
@@ -68,26 +55,16 @@ export const GET: APIRoute = async () => {
       url: `/${entry.id}/`,
       imageUrl: coverImageUrl,
       imageAlt: `Cover art for the album ${entry.data.title}`,
-      albumTitle: entry.data.title,
       displayMeta: trimSearchText(
         [entry.data.genre || "", `${entry.data.songs.length} tracks`, albumDuration || ""]
           .filter(Boolean)
           .join(" · ")
       ),
-      trackNumber: "",
-      duration: albumDuration,
-      genre: entry.data.genre || "",
-      artist: entry.data.artist,
-      // Stored once per album so track results can start the complete queue
-      // without duplicating audio URLs across every track document.
-      playerQueue: JSON.stringify(playerQueue),
-      songTitles,
-      // Indexed full-text. Deliberately excludes the long-form MDX body and the
-      // per-track titles (already indexed via songTitles) to keep the served
-      // index small. Albums stay findable via title, description, genre, track
-      // titles, moods, tags, language, and energy.
-      body: trimSearchText(
+      searchText: trimSearchText(
         [
+          entry.data.description,
+          entry.data.genre || "",
+          songTitles.join(" "),
           discoveryMeta.moods.join(" "),
           discoveryMeta.tags.join(" "),
           discoveryMeta.language || "",
@@ -116,7 +93,6 @@ export const GET: APIRoute = async () => {
         url: `/${entry.id}/#album-playlist-${entry.id}`,
         imageUrl: getAlbumCoverImageUrl(entry.data.coverImage),
         imageAlt: `Cover art for the album ${entry.data.title}`,
-        albumTitle: entry.data.title,
         displayMeta: trimSearchText(
           [
             `Track ${song.trackNumber}`,
@@ -127,17 +103,16 @@ export const GET: APIRoute = async () => {
             .filter(Boolean)
             .join(" · ")
         ),
-        trackNumber: String(song.trackNumber),
-        duration,
-        genre: entry.data.genre || "",
-        artist: entry.data.artist,
         albumId: entry.id,
         trackIndex,
-        // Covered by the indexed title/albumTitle fields; repeating them here
-        // only inflates the index.
-        songTitles: [],
-        // The song description is already indexed via desc above.
-        body: "",
+        searchText: trimSearchText(
+          [
+            entry.data.title,
+            entry.data.genre || "",
+            song.description || "",
+            song.isInstrumental ? "instrumental" : "",
+          ].join(" ")
+        ),
       };
     })
   );
@@ -151,14 +126,14 @@ export const GET: APIRoute = async () => {
       title: entry.data.title,
       desc: trimSearchText(entry.data.description),
       url: `/genre/${entry.id}/`,
-      albumTitle: "",
       displayMeta: `${albumCount} ${albumCount === 1 ? "album" : "albums"} in the catalog`,
-      trackNumber: "",
-      duration: "",
-      genre: entry.data.mainGenre,
-      artist: "",
-      songTitles: [],
-      body: trimSearchText(entry.data.keywords.join(" ")),
+      searchText: trimSearchText(
+        [
+          entry.data.description,
+          entry.data.mainGenre,
+          entry.data.keywords.join(" "),
+        ].join(" ")
+      ),
     };
   });
 
@@ -166,19 +141,12 @@ export const GET: APIRoute = async () => {
   // sorter can be disabled — the palette never sorts, and the serialized sort
   // structures alone cost ~500 KB of raw index size.
   const db = create({
-    // Only genuinely searchable fields are indexed. Display/navigation-only
-    // fields (url, imageUrl, imageAlt, displayMeta, trackNumber, duration,
-    // artist) are still stored in every document — and thus available for
-    // rendering, navigation, and result enrichment — but are not full-text
-    // indexed, which keeps the served index small.
+    // Keep one consolidated discovery field so Orama serializes fewer indexes.
+    // Display and navigation data remain stored on each result document.
     schema: {
       type: "string",
       title: "string",
-      desc: "string",
-      albumTitle: "string",
-      genre: "string",
-      songTitles: "string[]",
-      body: "string",
+      searchText: "string",
     } as const,
     sort: { enabled: false },
     components: { tokenizer: { language: "english" } },
@@ -188,7 +156,7 @@ export const GET: APIRoute = async () => {
 
   return new Response(JSON.stringify(index), {
     headers: {
-      "Cache-Control": "no-cache, must-revalidate",
+      "Cache-Control": "public, max-age=0, must-revalidate, stale-while-revalidate=86400",
       "Content-Type": "application/json; charset=utf-8",
     },
   });

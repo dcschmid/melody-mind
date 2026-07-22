@@ -1,4 +1,4 @@
-const CACHE_VERSION = "music-pwa-v20260721-2";
+const CACHE_VERSION = "music-pwa-v20260722-2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const MAX_RUNTIME_CACHE_ENTRIES = 80;
@@ -26,6 +26,10 @@ const isAudioRequest = (request) =>
   request.destination === "audio" ||
   request.headers.has("range") ||
   /\.(?:mp3|m4a|ogg|wav|flac)(?:$|\?)/i.test(new URL(request.url).pathname);
+
+const isCatalogDataRequest = (url) =>
+  isSameOrigin(url) &&
+  ["/search-index.json", "/player-queues.json"].includes(url.pathname);
 
 // Cache API keys are insertion-ordered, so deleting from the front is FIFO
 // eviction — enough to keep the runtime cache from growing unbounded.
@@ -92,14 +96,18 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (isSameOrigin(url) && url.pathname === "/search-index.json") {
+  if (isCatalogDataRequest(url)) {
     event.respondWith(
-      fetch(request, { cache: "reload" })
-        .then((response) => {
-          event.waitUntil(putRuntimeCache(request, response));
-          return response;
-        })
-        .catch(() => caches.match(request))
+      caches.match(request).then((cachedResponse) => {
+        const fetchPromise = fetch(request)
+          .then((response) => {
+            event.waitUntil(putRuntimeCache(request, response));
+            return response;
+          })
+          .catch(() => cachedResponse);
+
+        return cachedResponse || fetchPromise;
+      })
     );
     return;
   }

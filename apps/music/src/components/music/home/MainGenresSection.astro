@@ -1,14 +1,13 @@
 ---
-import FeatureLinkListSection from "./FeatureLinkListSection.astro";
+import Icon from "@components/visual/Icon.astro";
+import OptimizedImage from "@components/media/OptimizedImage.astro";
+import SectionHeader from "@components/layout/SectionHeader.astro";
 import type { IconName } from "@components/visual/Icon.astro";
 import type { Entry } from "./types";
 
 interface MainGenreItem {
   slug: string;
-  mainGenre: string;
   title: string;
-  eyebrow: string;
-  description: string;
   albumCount: number;
   albums: Entry[];
   iconName: IconName;
@@ -20,28 +19,237 @@ interface Props {
 }
 
 const { genres, title } = Astro.props as Props;
-const items = genres.map((genre) => {
-  const album = genre.albums[0];
-
-  return {
-    id: `main-genre-${genre.slug}`,
-    href: `/genre/${genre.slug}/`,
-    eyebrow: genre.eyebrow,
-    title: genre.title,
-    description: genre.description,
-    metaIconName: "disc" as const,
-    metaLabel: `${genre.albumCount} ${genre.albumCount === 1 ? "album" : "albums"}`,
-    ...(album
-      ? {
-          image: {
-            src: album.imageSrc,
-            alt: `Cover art for the album ${album.title}`,
-          },
-        }
-      : {}),
-    iconName: genre.iconName,
-  };
-});
 ---
 
-<FeatureLinkListSection headingId="main-genres-heading" iconName="tag" {items} {title} />
+{
+  genres.length > 0 && (
+    <section class="genre-directory" aria-labelledby="main-genres-heading">
+      <SectionHeader headingId="main-genres-heading" iconName="tag" {title} />
+
+      <ul class="genre-directory__list">
+        {genres.map((genre) => {
+          const covers = genre.albums.slice(0, 3);
+          const albumLabel = `${genre.albumCount} ${genre.albumCount === 1 ? "album" : "albums"}`;
+
+          return (
+            <li class="genre-directory__item">
+              <a
+                class="genre-directory__link"
+                href={`/genre/${genre.slug}/`}
+                aria-label={`${genre.title}, ${albumLabel}`}
+              >
+                <span class="genre-directory__copy">
+                  <strong class="genre-directory__title">{genre.title}</strong>
+                  <span class="genre-directory__count">{albumLabel}</span>
+                </span>
+
+                <span class="genre-directory__visual" aria-hidden="true">
+                  {covers.length > 0 ? (
+                    <span class="genre-directory__covers">
+                      {covers.map((album, index) => (
+                        <span
+                          class="genre-directory__cover"
+                          style={`--genre-directory-cover-index: ${index};`}
+                        >
+                          <OptimizedImage
+                            src={album.imageSrc}
+                            alt=""
+                            width={64}
+                            height={64}
+                            widths={[48, 64, 96]}
+                            sizes="3rem"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </span>
+                      ))}
+                    </span>
+                  ) : (
+                    <span class="genre-directory__fallback">
+                      <Icon name={genre.iconName} />
+                    </span>
+                  )}
+                  <Icon name="chevron-right" class="genre-directory__arrow" />
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .genre-directory {
+    display: grid;
+    gap: var(--spacing-base);
+  }
+
+  .genre-directory__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 5vw, 5rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--music-home-line);
+  }
+
+  .genre-directory__item {
+    min-inline-size: 0;
+    border-block-end: 1px solid var(--music-home-line);
+  }
+
+  .genre-directory__link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-base);
+    align-items: center;
+    min-block-size: 5rem;
+    padding: var(--spacing-sm) var(--spacing-xs);
+    color: var(--music-home-ink);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+
+  .genre-directory__copy {
+    display: grid;
+    gap: var(--spacing-2xs);
+    min-inline-size: 0;
+  }
+
+  .genre-directory__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--font-size-lg);
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .genre-directory__count {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.25;
+    color: var(--music-home-muted);
+  }
+
+  .genre-directory__visual {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .genre-directory__covers {
+    display: flex;
+    justify-content: flex-end;
+    min-inline-size: 6.75rem;
+    padding-inline-start: 1.25rem;
+  }
+
+  .genre-directory__cover {
+    position: relative;
+    z-index: calc(3 - var(--genre-directory-cover-index));
+    display: block;
+    inline-size: 3rem;
+    block-size: 3rem;
+    margin-inline-start: -1.25rem;
+    overflow: hidden;
+    background: var(--music-home-paper);
+    border: 1px solid color-mix(in srgb, var(--music-home-ink) 16%, transparent);
+    border-radius: var(--radius-sm);
+  }
+
+  .genre-directory__cover :global(img) {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .genre-directory__fallback {
+    display: grid;
+    place-items: center;
+    inline-size: 3rem;
+    block-size: 3rem;
+    color: var(--music-home-muted);
+    background: var(--music-home-paper);
+    border: 1px solid var(--music-home-line);
+    border-radius: var(--radius-sm);
+  }
+
+  .genre-directory__fallback :global(svg),
+  .genre-directory__arrow {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .genre-directory__arrow {
+    flex: 0 0 auto;
+    color: var(--music-home-accent);
+  }
+
+  .genre-directory__link:hover,
+  .genre-directory__link:focus-visible {
+    background: color-mix(in srgb, var(--music-home-accent) 7%, transparent);
+  }
+
+  .genre-directory__link:hover .genre-directory__title,
+  .genre-directory__link:focus-visible .genre-directory__title {
+    color: var(--music-home-accent);
+  }
+
+  .genre-directory__link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .genre-directory__link,
+    .genre-directory__title,
+    .genre-directory__cover {
+      transition:
+        color var(--motion-duration-fast) var(--motion-ease-standard),
+        background-color var(--motion-duration-fast) var(--motion-ease-standard),
+        transform var(--motion-duration-fast) var(--motion-ease-standard);
+    }
+
+    .genre-directory__link:hover .genre-directory__cover,
+    .genre-directory__link:focus-visible .genre-directory__cover {
+      transform: translateY(-0.1rem);
+    }
+  }
+
+  @media (width <= 760px) {
+    .genre-directory__list {
+      grid-template-columns: minmax(0, 1fr);
+      column-gap: 0;
+    }
+
+    .genre-directory__link {
+      min-block-size: 4.75rem;
+      padding-inline: 0;
+    }
+  }
+
+  @media (width <= 420px) {
+    .genre-directory__link {
+      gap: var(--spacing-sm);
+    }
+
+    .genre-directory__visual {
+      gap: var(--spacing-sm);
+    }
+
+    .genre-directory__covers {
+      min-inline-size: 5.5rem;
+    }
+
+    .genre-directory__cover {
+      inline-size: 2.6rem;
+      block-size: 2.6rem;
+      margin-inline-start: -1.15rem;
+    }
+  }
+</style>

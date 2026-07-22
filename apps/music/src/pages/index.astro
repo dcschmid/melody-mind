@@ -5,6 +5,7 @@ import { buildOrganizationSchema, buildWebSiteSchema } from "@utils/seo/seoSchem
 import { toAbsoluteAssetUrl } from "@utils/imageAssets";
 import AlbumSeriesSection from "@components/music/home/AlbumSeriesSection.astro";
 import Hero from "@components/music/home/Hero.astro";
+import LatestAlbumsSection from "@components/music/home/LatestAlbumsSection.astro";
 import MainGenresSection from "@components/music/home/MainGenresSection.astro";
 import type { CoverImage, Entry, FeaturedAlbum } from "@components/music/home/types";
 import type { IconName } from "@components/visual/Icon.astro";
@@ -131,6 +132,9 @@ const featuredAlbum: FeaturedAlbum | undefined =
         },
       }
     : undefined;
+const latestAlbums = albumEntries
+  .filter((album) => album.id !== featuredAlbum?.id)
+  .slice(0, 6);
 const homeStructuredDataAlbums = sortedAlbumsByDate.slice(0, 1);
 const seriesShelf = albumSeries
   .map((series) => ({
@@ -177,6 +181,7 @@ const t = {
   subtitle: "Newest release",
   description:
     "MelodyMind Music is a growing archive of full AI-assisted concept albums across rock, metal, punk, pop, gothic, cinematic and experimental genres.",
+  latestAlbums: "New Releases",
   series: "Album Series",
   mainGenres: "Main Genres",
   exploreAlbums: "Browse Genres",
@@ -235,11 +240,15 @@ const structuredData = [
 
     <div class="music-home__content" id="discover">
       <div>
-        <AlbumSeriesSection series={seriesShelf} title={t.series} />
+        <LatestAlbumsSection albums={latestAlbums} title={t.latestAlbums} />
       </div>
 
       <div>
         <MainGenresSection genres={mainGenreShelf} title={t.mainGenres} />
+      </div>
+
+      <div>
+        <AlbumSeriesSection series={seriesShelf} title={t.series} />
       </div>
     </div>
   </div>
