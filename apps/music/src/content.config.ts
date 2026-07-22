@@ -36,7 +36,10 @@ const albums = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z
+      .string()
+      .trim()
+      .min(80, "Album descriptions must contain at least 80 characters."),
     coverImage: z.string(),
     coverImageWidth: z.number().optional(),
     coverImageHeight: z.number().optional(),

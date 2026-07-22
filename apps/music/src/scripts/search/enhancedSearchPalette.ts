@@ -155,6 +155,7 @@ const createController = (root: HTMLElement): SearchController => {
 
   const select = (index: number): void => {
     if (!resultsList || results.length === 0) {
+      input?.removeAttribute("aria-activedescendant");
       return;
     }
     selectedIndex = Math.min(Math.max(index, 0), results.length - 1);
@@ -165,6 +166,7 @@ const createController = (root: HTMLElement): SearchController => {
         element.dataset.selected = String(isSelected);
         element.setAttribute("aria-selected", String(isSelected));
         if (isSelected) {
+          input?.setAttribute("aria-activedescendant", element.id);
           element.scrollIntoView({ block: "nearest" });
         }
       });
@@ -210,8 +212,10 @@ const createController = (root: HTMLElement): SearchController => {
     const content = documentCreate("span", "astro-search-result-content");
     const title = documentCreate("span", "astro-search-result-title");
     const type = documentCreate("span", "astro-search-result-type");
+    item.setAttribute("role", "presentation");
     button.setAttribute("type", "button");
     button.setAttribute("role", "option");
+    button.id = `${resultsList?.id || "music-search-results"}-option-${index}`;
     button.dataset.selected = String(index === selectedIndex);
     button.setAttribute("aria-selected", String(index === selectedIndex));
     type.textContent = hit.document.type;
@@ -241,6 +245,8 @@ const createController = (root: HTMLElement): SearchController => {
     if (!resultsList) {
       return;
     }
+    input?.removeAttribute("aria-activedescendant");
+    resultsList.setAttribute("aria-busy", String(isLoading));
     const item = documentCreate("li", "astro-search-empty");
     item.setAttribute("role", "status");
     const title = documentCreate("p", "astro-search-empty__title");
@@ -302,6 +308,11 @@ const createController = (root: HTMLElement): SearchController => {
         const groupItem = documentCreate("li", "astro-search-result-group");
         const label = documentCreate("div", "astro-search-group-label");
         const list = documentCreate("ul", "astro-search-result-group__list");
+        const groupLabelId = `${resultsList.id}-group-${type.toLowerCase()}`;
+        groupItem.setAttribute("role", "group");
+        groupItem.setAttribute("aria-labelledby", groupLabelId);
+        label.id = groupLabelId;
+        list.setAttribute("role", "presentation");
         label.textContent = getGroupLabel(type);
         for (const hit of hits) {
           list.append(createResult(hit, resultIndex));
@@ -313,7 +324,9 @@ const createController = (root: HTMLElement): SearchController => {
     } else {
       results.forEach((hit, index) => fragment.append(createResult(hit, index)));
     }
+    resultsList.setAttribute("aria-busy", "false");
     resultsList.replaceChildren(fragment);
+    select(selectedIndex);
   };
 
   const runSearch = async (): Promise<void> => {
@@ -380,6 +393,9 @@ const createController = (root: HTMLElement): SearchController => {
     input.setAttribute("autocomplete", "off");
     input.setAttribute("spellcheck", "false");
     input.setAttribute("aria-label", config.inputLabel);
+    input.setAttribute("role", "combobox");
+    input.setAttribute("aria-expanded", "true");
+    input.setAttribute("aria-haspopup", "listbox");
     input.setAttribute(
       "aria-controls",
       root.dataset.enhancedSearchResultsId || "music-search-results"
@@ -412,6 +428,7 @@ const createController = (root: HTMLElement): SearchController => {
     resultsList.id = root.dataset.enhancedSearchResultsId || "music-search-results";
     resultsList.setAttribute("role", "listbox");
     resultsList.setAttribute("aria-label", config.resultsLabel);
+    resultsList.setAttribute("aria-busy", "false");
     const footer = documentCreate("div", "astro-search-footer");
     footer.append(
       createKeyHint(["↑", "↓"], "navigate"),

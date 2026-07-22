@@ -1,4 +1,5 @@
 ---
+import { getImage } from "astro:assets";
 import Icon from "@components/visual/Icon.astro";
 import OptimizedImage from "@components/media/OptimizedImage.astro";
 import type { FeaturedAlbum } from "./types";
@@ -19,6 +20,15 @@ const {
 const queueScriptId = featuredAlbum
   ? `featured-player-queue-${featuredAlbum.id}`
   : undefined;
+const ambientImage = featuredAlbum
+  ? await getImage({
+      src: featuredAlbum.imageSrc,
+      width: 480,
+      height: 480,
+      fit: "cover",
+      format: "webp",
+    })
+  : undefined;
 ---
 
 <section class="music-home-hero" aria-labelledby="music-home-title">
@@ -26,17 +36,9 @@ const queueScriptId = featuredAlbum
     featuredAlbum ? (
       <>
         <div class="music-home-hero__ambient" aria-hidden="true">
-          <OptimizedImage
-            src={featuredAlbum.imageSrc}
-            alt=""
+          <span
             class="music-home-hero__ambient-image"
-            width={480}
-            height={480}
-            widths={[240, 320, 480]}
-            sizes="(max-width: 760px) 1px, 100vw"
-            loading="lazy"
-            decoding="async"
-            fetchpriority="low"
+            style={`--music-home-ambient-image: url("${ambientImage?.src}");`}
           />
         </div>
 
@@ -156,10 +158,15 @@ const queueScriptId = featuredAlbum
       linear-gradient(0deg, var(--bg-primary) 0%, transparent 55%, var(--bg-primary) 100%);
   }
 
-  .music-home-hero__ambient :global(.music-home-hero__ambient-image) {
+  .music-home-hero__ambient-image {
+    position: absolute;
+    inset: 0;
+    display: block;
     inline-size: 100%;
     block-size: 100%;
-    object-fit: cover;
+    background-image: var(--music-home-ambient-image);
+    background-position: center;
+    background-size: cover;
     filter: blur(2.5rem) saturate(0.85);
     transform: scale(1.12);
   }

@@ -143,7 +143,7 @@ const isActiveItem = (href: string) => {
     display: inline-flex;
     gap: var(--music-header-nav-link-gap);
     align-items: center;
-    min-block-size: 2.5rem;
+    min-block-size: var(--control-min-block-size);
     padding: 0 var(--music-header-nav-link-padding-inline);
     font-size: var(--music-header-nav-link-text-size);
     font-weight: var(--font-weight-bold);
@@ -203,8 +203,8 @@ const isActiveItem = (href: string) => {
   .music-header-nav__link--search {
     display: grid;
     place-items: center;
-    inline-size: 2.5rem;
-    block-size: 2.5rem;
+    inline-size: var(--control-min-block-size);
+    block-size: var(--control-min-block-size);
     color: var(--music-header-nav-text);
     background: var(--music-header-nav-search-bg);
     border: 1px solid var(--music-header-nav-search-border);
