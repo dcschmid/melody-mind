@@ -323,7 +323,7 @@ const config = {
 
   :global(.astro-search-result) {
     display: grid;
-    grid-template-columns: 3.75rem minmax(0, 1fr);
+    grid-template-columns: 3.75rem minmax(0, 1fr) auto;
     gap: var(--spacing-sm);
     align-items: center;
     inline-size: 100%;
@@ -342,7 +342,7 @@ const config = {
   }
 
   :global(.astro-search-result:not(:has(.astro-search-result-media))) {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
   :global(.astro-search-result-media) {
@@ -429,6 +429,14 @@ const config = {
     -webkit-box-orient: vertical;
   }
 
+  :global(.astro-search-result-action) {
+    align-self: center;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--search-palette-accent);
+  }
+
   :global(.astro-search-footer) {
     display: flex;
     flex-wrap: wrap;
@@ -453,7 +461,7 @@ const config = {
     }
 
     :global(.astro-search-result) {
-      grid-template-columns: 3.1rem minmax(0, 1fr);
+      grid-template-columns: 3.1rem minmax(0, 1fr) auto;
       gap: var(--spacing-xs);
       padding-inline: var(--spacing-xs);
     }

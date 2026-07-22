@@ -1,5 +1,6 @@
-import { create, load, search } from "@orama/orama";
+import { create, getByID, load, search } from "@orama/orama";
 import type { AnyOrama, RawData, Result } from "@orama/orama";
+import type { PlayerLoadDetail, PlayerQueue } from "../../types/player";
 
 const SEARCH_ROOT_SELECTOR = '[data-enhanced-search="true"]';
 const SEARCH_FOCUSABLE_SELECTOR =
@@ -16,6 +17,9 @@ interface SearchDocument {
   imageUrl?: string;
   imageAlt?: string;
   displayMeta?: string;
+  albumId?: string;
+  trackIndex?: number;
+  playerQueue?: string;
 }
 
 interface SearchConfig {
@@ -118,6 +122,41 @@ const loadIndex = (url: string): Promise<AnyOrama> => {
   return promise;
 };
 
+const isPlayerQueue = (value: unknown): value is PlayerQueue => {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const queue = value as Partial<PlayerQueue>;
+  return (
+    typeof queue.albumId === "string" &&
+    typeof queue.albumTitle === "string" &&
+    typeof queue.albumUrl === "string" &&
+    Array.isArray(queue.tracks) &&
+    queue.tracks.length > 0 &&
+    queue.tracks.every(
+      (track) =>
+        track &&
+        typeof track.trackNumber === "number" &&
+        typeof track.title === "string" &&
+        typeof track.audioUrl === "string"
+    )
+  );
+};
+
+const parsePlayerQueue = (value: string | undefined): PlayerQueue | null => {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const queue: unknown = JSON.parse(value);
+    return isPlayerQueue(queue) ? queue : null;
+  } catch {
+    return null;
+  }
+};
+
 const createIcon = (): SVGElement => {
   const namespace = "http://www.w3.org/2000/svg";
   const icon = document.createElementNS(namespace, "svg");
@@ -145,6 +184,7 @@ const createController = (root: HTMLElement): SearchController => {
   let results: Result<SearchDocument>[] = [];
   let selectedIndex = 0;
   let requestId = 0;
+  let database: AnyOrama | null = null;
   let previouslyFocused: HTMLElement | null = null;
   let backdrop: HTMLElement | null = null;
   let input: HTMLInputElement | null = null;
@@ -152,6 +192,17 @@ const createController = (root: HTMLElement): SearchController => {
 
   const getGroupLabel = (type: string): string =>
     config.groupLabels[type.toLowerCase()] || `${type}s`;
+
+  const getTrackQueue = (document: SearchDocument): PlayerQueue | null => {
+    if (!database || !document.albumId) {
+      return null;
+    }
+
+    const albumDocument = getByID(database, document.albumId) as
+      | SearchDocument
+      | undefined;
+    return parsePlayerQueue(albumDocument?.playerQueue);
+  };
 
   const select = (index: number): void => {
     if (!resultsList || results.length === 0) {
@@ -182,7 +233,23 @@ const createController = (root: HTMLElement): SearchController => {
       cancelable: true,
     });
     if (root.dispatchEvent(selectionEvent)) {
-      window.location.href = hit.document.url;
+      const queue = hit.document.type === "Track" ? getTrackQueue(hit.document) : null;
+      const trackIndex = hit.document.trackIndex;
+      if (
+        queue &&
+        Number.isInteger(trackIndex) &&
+        trackIndex !== undefined &&
+        trackIndex >= 0 &&
+        trackIndex < queue.tracks.length
+      ) {
+        window.dispatchEvent(
+          new CustomEvent<PlayerLoadDetail>("melodymind:player-load", {
+            detail: { queue, startIndex: trackIndex, autoplay: true },
+          })
+        );
+      } else {
+        window.location.href = hit.document.url;
+      }
     }
     controller.close();
   };
@@ -212,6 +279,7 @@ const createController = (root: HTMLElement): SearchController => {
     const content = documentCreate("span", "astro-search-result-content");
     const title = documentCreate("span", "astro-search-result-title");
     const type = documentCreate("span", "astro-search-result-type");
+    const action = documentCreate("span", "astro-search-result-action");
     item.setAttribute("role", "presentation");
     button.setAttribute("type", "button");
     button.setAttribute("role", "option");
@@ -219,6 +287,7 @@ const createController = (root: HTMLElement): SearchController => {
     button.dataset.selected = String(index === selectedIndex);
     button.setAttribute("aria-selected", String(index === selectedIndex));
     type.textContent = hit.document.type;
+    action.textContent = hit.document.type === "Track" ? "Play" : "Open";
     title.append(type, document.createTextNode(hit.document.title));
     content.append(title);
 
@@ -233,7 +302,7 @@ const createController = (root: HTMLElement): SearchController => {
       content.append(description);
     }
 
-    button.append(createMedia(hit.document), content);
+    button.append(createMedia(hit.document), content, action);
     button.addEventListener("mouseenter", () => select(index));
     button.addEventListener("focus", () => select(index));
     button.addEventListener("click", () => choose(index));
@@ -341,8 +410,9 @@ const createController = (root: HTMLElement): SearchController => {
 
     renderEmpty(true);
     try {
-      const database = await loadIndex(indexUrl);
-      const response = await searchDocuments(database, {
+      const loadedDatabase = await loadIndex(indexUrl);
+      database = loadedDatabase;
+      const response = await searchDocuments(loadedDatabase, {
         term,
         properties: "*",
         limit: Number.isFinite(resultLimit) ? resultLimit : 8,
@@ -432,7 +502,7 @@ const createController = (root: HTMLElement): SearchController => {
     const footer = documentCreate("div", "astro-search-footer");
     footer.append(
       createKeyHint(["↑", "↓"], "navigate"),
-      createKeyHint(["↵"], "open"),
+      createKeyHint(["↵"], "select"),
       createKeyHint(["esc"], "close")
     );
     modal.append(inputWrap, filters, resultsList, footer);

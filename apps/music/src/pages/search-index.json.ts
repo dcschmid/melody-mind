@@ -47,6 +47,18 @@ export const GET: APIRoute = async () => {
     const hasInstrumentalTrack = entry.data.songs.some(
       (song: Song) => song.isInstrumental
     );
+    const playerQueue = {
+      albumId: entry.id,
+      albumTitle: entry.data.title,
+      albumUrl: `/${entry.id}/`,
+      albumArtworkUrl: coverImageUrl,
+      tracks: entry.data.songs.map((song: Song) => ({
+        trackNumber: song.trackNumber,
+        title: song.title,
+        audioUrl: song.audioUrl,
+        ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
+      })),
+    };
 
     return {
       id: entry.id,
@@ -66,6 +78,9 @@ export const GET: APIRoute = async () => {
       duration: albumDuration,
       genre: entry.data.genre || "",
       artist: entry.data.artist,
+      // Stored once per album so track results can start the complete queue
+      // without duplicating audio URLs across every track document.
+      playerQueue: JSON.stringify(playerQueue),
       songTitles,
       // Indexed full-text. Deliberately excludes the long-form MDX body and the
       // per-track titles (already indexed via songTitles) to keep the served
@@ -84,7 +99,7 @@ export const GET: APIRoute = async () => {
   });
 
   const trackDocuments = albums.flatMap((entry: AlbumEntry) =>
-    entry.data.songs.map((song: Song) => {
+    entry.data.songs.map((song: Song, trackIndex: number) => {
       const duration = song.durationSeconds ? formatDuration(song.durationSeconds) : "";
 
       return {
@@ -116,6 +131,8 @@ export const GET: APIRoute = async () => {
         duration,
         genre: entry.data.genre || "",
         artist: entry.data.artist,
+        albumId: entry.id,
+        trackIndex,
         // Covered by the indexed title/albumTitle fields; repeating them here
         // only inflates the index.
         songTitles: [],
