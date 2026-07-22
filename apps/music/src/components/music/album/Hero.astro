@@ -79,7 +79,7 @@ const getFactIcon = (label: string) => {
         loading="eager"
         decoding="async"
         widths={[224, 424, 640, 848]}
-        sizes="(max-width: 420px) 7rem, (max-width: 760px) 8.6rem, min(46vw, 26.5rem)"
+        sizes="(max-width: 420px) 68vw, (max-width: 760px) 8.6rem, min(46vw, 26.5rem)"
         fetchpriority="high"
         formats={["avif"]}
       />
@@ -484,6 +484,38 @@ const getFactIcon = (label: string) => {
   }
 
   @media (width <= 420px) {
+    .album-hero__lockup {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-base);
+    }
+
+    .album-hero__cover-lockup {
+      grid-row: auto;
+      justify-self: center;
+      inline-size: min(68vw, 16rem);
+      max-inline-size: 16rem;
+    }
+
+    .album-hero__title-panel {
+      grid-column: 1;
+      min-block-size: auto;
+    }
+
+    .album-hero__title {
+      font-size: clamp(2rem, 9vw, 2.6rem);
+      line-height: 1;
+    }
+
+    .album-hero__play {
+      inline-size: 100%;
+      min-block-size: 3rem;
+    }
+
+    .album-hero__description,
+    .album-hero__facts {
+      grid-column: 1;
+    }
+
     .album-hero__facts {
       gap: var(--spacing-sm);
     }

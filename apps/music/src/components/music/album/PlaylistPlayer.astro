@@ -587,8 +587,8 @@ const getTrackDurationLabel = (song: Song): string =>
       --album-playlist-radius: 0.55rem;
       --album-playlist-radius-row: 0.35rem;
       --album-playlist-track-action-size: 2.75rem;
-      --album-playlist-track-min-block: 2.75rem;
-      --album-playlist-track-button-min-block: 2.75rem;
+      --album-playlist-track-min-block: 3rem;
+      --album-playlist-track-button-min-block: 3rem;
       --album-playlist-track-num-column: 1.65rem;
       --album-playlist-track-duration-column: 2.45rem;
       --album-playlist-track-gap: 0.25rem;
@@ -609,11 +609,11 @@ const getTrackDurationLabel = (song: Song): string =>
     }
 
     .album-playlist-player__tracklist {
-      gap: 0;
+      gap: 0.2rem;
     }
 
     .album-playlist-player__track {
-      padding: 0 0.12rem;
+      padding: 0.25rem 0.12rem;
     }
 
     .album-playlist-player__track-title {
@@ -622,7 +622,7 @@ const getTrackDurationLabel = (song: Song): string =>
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       font-size: var(--font-size-xs);
-      line-height: 1.2;
+      line-height: 1.25;
       white-space: normal;
     }
 
