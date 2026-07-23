@@ -1,0 +1,22 @@
+# MelodyMind Music
+
+> MelodyMind Music is an archive of AI-assisted concept albums across rock, metal, punk, pop, gothic, folk, jazz, Latin, classical, soundtrack, and experimental music.
+
+Album pages are the primary source for each release. They include the album description, genre information, track list, and links to audio or lyrics when available. Use the genre and series directories to find related releases. The RSS feed and sitemap provide complete, current indexes of public pages.
+
+## Start here
+
+- [MelodyMind Music home](https://melody-mind.de/): Latest releases and entry points to the catalog.
+- [Music genres](https://melody-mind.de/genre/): Albums grouped by main genre.
+- [Album series](https://melody-mind.de/series/): Connected concept albums in narrative order.
+
+## Reference
+
+- [RSS feed](https://melody-mind.de/rss.xml): Release feed with album titles, descriptions, publication dates, and categories.
+- [Sitemap](https://melody-mind.de/sitemap-index.xml): Index of public pages, including individual album, genre, and series pages.
+- [About MelodyMind](https://melody-mind.de/about/): Information about the project and its catalog.
+
+## Optional
+
+- [Privacy policy](https://melody-mind.de/privacy/): Privacy information for the website.
+- [Imprint](https://melody-mind.de/imprint/): Site operator and legal information.

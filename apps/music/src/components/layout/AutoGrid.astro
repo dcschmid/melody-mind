@@ -38,7 +38,7 @@ const classes = [
   .filter(Boolean)
   .join(" ");
 
-const inferredRole = resolvedAriaLabel ? "group" : undefined;
+const inferredRole = resolvedAriaLabel && as !== "ul" ? "group" : undefined;
 const role = roleProp ?? inferredRole;
 ---
 
