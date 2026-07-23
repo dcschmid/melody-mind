@@ -62,8 +62,8 @@ const structuredData = [
     <div id="genre-directory-list" class="directory-index__list">
       <MainGenresSection
         genres={genreDirectories}
-        title="All Genres"
-        headingId="all-genres-heading"
+        title="Music genres"
+        showHeader={false}
         showDescriptions
       />
     </div>
@@ -82,7 +82,7 @@ const structuredData = [
   .directory-index {
     box-sizing: border-box;
     display: grid;
-    gap: clamp(var(--spacing-2xl), 6vw, var(--spacing-4xl));
+    gap: 0;
     inline-size: min(100%, 90rem);
     min-block-size: 100svh;
     padding: max(clamp(var(--spacing-xl), 5vw, var(--spacing-4xl)), 6rem)

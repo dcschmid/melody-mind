@@ -81,9 +81,13 @@ const albumCards: SeriesAlbumCard[] = seriesAlbums.map((album, index) => {
   };
 });
 const canonical = resolvePageUrl(Astro.site, `/series/${page.slug}/`);
-const pageImage = seriesAlbums[0]?.coverImage
-  ? getAlbumCoverImageUrl(seriesAlbums[0].coverImage)
+const socialImageAlbum = seriesAlbums[0];
+const pageImage = socialImageAlbum?.coverImage
+  ? getAlbumCoverImageUrl(socialImageAlbum.coverImage)
   : musicDefaultOgImageUrl;
+const pageImageAlt = socialImageAlbum
+  ? `Cover art for ${socialImageAlbum.title}, Part 1 of ${page.title}`
+  : "Cover artwork for MelodyMind Music";
 const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: "Album Series", url: resolvePageUrl(Astro.site, "/series/") },
@@ -116,6 +120,13 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
   keywords={page.keywords}
   type="website"
   image={pageImage}
+  {...socialImageAlbum?.coverImageWidth
+    ? { imageWidth: socialImageAlbum.coverImageWidth }
+    : {}}
+  {...socialImageAlbum?.coverImageHeight
+    ? { imageHeight: socialImageAlbum.coverImageHeight }
+    : {}}
+  imageAlt={pageImageAlt}
   language="en"
   locale="en-US"
   canonical={canonical}
@@ -461,7 +472,7 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
   .series-landing__album-meta span + span::before {
     margin-inline-end: var(--spacing-base);
     color: var(--series-landing-line);
-    content: "\u2022";
+    content: "•";
   }
 
   .series-landing__album-action {

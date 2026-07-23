@@ -85,9 +85,13 @@ const albumCards = genreAlbums.map((album) => {
   };
 });
 const canonical = resolvePageUrl(Astro.site, `/genre/${page.slug}/`);
-const pageImage = genreAlbums[0]?.coverImage
-  ? getAlbumCoverImageUrl(genreAlbums[0].coverImage)
+const socialImageAlbum = genreAlbums[0];
+const pageImage = socialImageAlbum?.coverImage
+  ? getAlbumCoverImageUrl(socialImageAlbum.coverImage)
   : musicDefaultOgImageUrl;
+const pageImageAlt = socialImageAlbum
+  ? `Cover art for ${socialImageAlbum.title}, featured on the ${page.title} page`
+  : "Cover artwork for MelodyMind Music";
 const breadcrumbs = [
   { name: "Home", url: resolvePageUrl(Astro.site, "/") },
   { name: "Genres", url: resolvePageUrl(Astro.site, "/genre/") },
@@ -121,6 +125,13 @@ const GRID_COVER_IMAGE_SIZES =
   keywords={[...page.keywords, "ai music", "concept albums", "MelodyMind"]}
   type="website"
   image={pageImage}
+  {...socialImageAlbum?.coverImageWidth
+    ? { imageWidth: socialImageAlbum.coverImageWidth }
+    : {}}
+  {...socialImageAlbum?.coverImageHeight
+    ? { imageHeight: socialImageAlbum.coverImageHeight }
+    : {}}
+  imageAlt={pageImageAlt}
   language="en"
   locale="en-US"
   canonical={canonical}

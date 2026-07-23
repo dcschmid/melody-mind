@@ -28,6 +28,7 @@ export interface Props {
   imageWidth?: number;
   imageHeight?: number;
   imageType?: string;
+  imageAlt?: string;
   type?: "website" | "article" | "musicAlbum";
   ogMusic?: OpenGraphMusicMeta;
   audioSrc?: string;
@@ -53,6 +54,7 @@ const {
   imageWidth,
   imageHeight,
   imageType,
+  imageAlt,
   type = "website",
   ogMusic,
   audioSrc,
@@ -98,9 +100,10 @@ const computedSeo = buildPageSeo({
   url: currentUrl,
   image: imageUrl,
   imageAlt:
-    type === "article" || type === "musicAlbum"
+    imageAlt ??
+    (type === "article" || type === "musicAlbum"
       ? `Cover artwork for ${normalizedTitle}`
-      : `Cover artwork for ${siteTitle}`,
+      : `Cover artwork for ${siteTitle}`),
   type,
   structuredData: structuredData as StructuredData[],
   fallbackKeywords: [...defaultKeywords, ...keywords],

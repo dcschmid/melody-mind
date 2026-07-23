@@ -16,6 +16,7 @@ interface Props {
   series: AlbumSeriesItem[];
   title: string;
   headingId?: string;
+  showHeader?: boolean;
   showDescriptions?: boolean;
 }
 
@@ -23,6 +24,7 @@ const {
   series,
   title,
   headingId = "album-series-heading",
+  showHeader = true,
   showDescriptions = false,
 } = Astro.props as Props;
 ---
@@ -32,11 +34,15 @@ const {
     <section
       class:list={[
         "series-directory",
-        { "series-directory--expanded": showDescriptions },
+        {
+          "series-directory--expanded": showDescriptions,
+          "series-directory--headerless": !showHeader,
+        },
       ]}
-      aria-labelledby={headingId}
+      aria-labelledby={showHeader ? headingId : undefined}
+      aria-label={showHeader ? undefined : title}
     >
-      <SectionHeader {headingId} iconName="book-open" {title} />
+      {showHeader && <SectionHeader {headingId} iconName="book-open" {title} />}
 
       <ul class="series-directory__list">
         {series.map((item) => {
@@ -117,6 +123,10 @@ const {
     margin: 0;
     list-style: none;
     border-block-start: 1px solid var(--series-directory-line);
+  }
+
+  .series-directory--headerless .series-directory__list {
+    border-block-start: 0;
   }
 
   .series-directory__item {

@@ -18,6 +18,7 @@ interface Props {
   genres: MainGenreItem[];
   title: string;
   headingId?: string;
+  showHeader?: boolean;
   showDescriptions?: boolean;
 }
 
@@ -25,6 +26,7 @@ const {
   genres,
   title,
   headingId = "main-genres-heading",
+  showHeader = true,
   showDescriptions = false,
 } = Astro.props as Props;
 ---
@@ -32,10 +34,17 @@ const {
 {
   genres.length > 0 && (
     <section
-      class:list={["genre-directory", { "genre-directory--expanded": showDescriptions }]}
-      aria-labelledby={headingId}
+      class:list={[
+        "genre-directory",
+        {
+          "genre-directory--expanded": showDescriptions,
+          "genre-directory--headerless": !showHeader,
+        },
+      ]}
+      aria-labelledby={showHeader ? headingId : undefined}
+      aria-label={showHeader ? undefined : title}
     >
-      <SectionHeader {headingId} iconName="tag" {title} />
+      {showHeader && <SectionHeader {headingId} iconName="tag" {title} />}
 
       <ul class="genre-directory__list">
         {genres.map((genre) => {
@@ -118,6 +127,10 @@ const {
     margin: 0;
     list-style: none;
     border-block-start: 1px solid var(--genre-directory-line);
+  }
+
+  .genre-directory--headerless .genre-directory__list {
+    border-block-start: 0;
   }
 
   .genre-directory__item {

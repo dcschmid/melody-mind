@@ -155,22 +155,22 @@ export function buildCollectionPageSchema(
   opts: CollectionPageSchemaOptions
 ): Record<string, unknown> {
   const { url, name, description, lang, image, mainEntityId } = opts;
-  const normalizedUrl = url.replace(/\/$/, "");
+  const siteUrl = new URL(url).origin;
 
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": `${normalizedUrl}#collectionpage`,
-    url: normalizedUrl,
+    "@id": `${url}#collectionpage`,
+    url,
     name,
     description,
     inLanguage: lang || "en",
     image,
     isPartOf: {
-      "@id": `${normalizedUrl.split("/").slice(0, 3).join("/")}#website`,
+      "@id": `${siteUrl}#website`,
     },
     about: {
-      "@id": `${normalizedUrl.split("/").slice(0, 3).join("/")}#organization`,
+      "@id": `${siteUrl}#organization`,
     },
     ...(mainEntityId
       ? {

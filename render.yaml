@@ -18,6 +18,10 @@ services:
         - turbo.json
         - pnpm-workspace.yaml
         - render.yaml
+    routes:
+      - type: redirect
+        source: /music/genre/*
+        destination: /genre/*
     headers:
       - path: /*
         name: X-Content-Type-Options
