@@ -63,7 +63,7 @@ const mobileExtraProps = {
     class="music-site-header__backdrop"
     type="button"
     aria-label="Close main menu"
-    aria-hidden="true"
+    hidden
     data-music-menu-close
   >
   </button>
@@ -197,7 +197,7 @@ const mobileExtraProps = {
         }
 
         closeButtons.forEach((button) => {
-          button.setAttribute("aria-hidden", String(!open));
+          button.hidden = !open;
         });
 
         if (open) {
@@ -462,6 +462,10 @@ const mobileExtraProps = {
       background: var(--music-menu-bg-start);
       border: 0;
       opacity: 0;
+    }
+
+    .music-site-header__backdrop[hidden] {
+      display: none;
     }
 
     .music-site-header__nav {
