@@ -1,0 +1,583 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import type { QuizQuestion } from "@quiz-types/quiz";
+import { getQuizArtwork } from "@utils/quizArtwork";
+
+interface Props {
+  quiz: CollectionEntry<"quizzes">;
+}
+
+export async function getStaticPaths() {
+  const quizzes = await getCollection("quizzes", ({ data }) => !data.draft);
+  return quizzes.map((quiz) => ({
+    params: { slug: quiz.id },
+    props: { quiz },
+  }));
+}
+
+const { quiz } = Astro.props;
+const canonical = new URL(`/${quiz.id}/`, Astro.site).toString();
+const image = getQuizArtwork(quiz.id);
+const imageUrl = new URL(image.src, Astro.site).toString();
+const title = quiz.data.seoTitle ?? `${quiz.data.title} Music Quiz`;
+const description = quiz.data.seoDescription ?? quiz.data.description;
+const questions = quiz.data.questions.map(
+  (question): QuizQuestion => ({
+    ...question,
+    sources: question.sources.map((source) => ({
+      ...source,
+      checkedAt: source.checkedAt.toISOString(),
+    })),
+  })
+);
+const serializedData = JSON.stringify({
+  title: quiz.data.title,
+  questions,
+}).replaceAll("<", "\\u003c");
+const categoryLabel = quiz.data.category === "decade" ? "Decade quiz" : "Genre journey";
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    name: title,
+    description,
+    url: canonical,
+    about: quiz.data.featuredTopics,
+    educationalLevel: "Beginner to advanced",
+    numberOfQuestions: 10,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Music quizzes",
+        item: new URL("/", Astro.site).toString(),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: quiz.data.title,
+        item: canonical,
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  {title}
+  {description}
+  {canonical}
+  image={imageUrl}
+  imageAlt={`Abstract artwork for ${quiz.data.title}`}
+  {structuredData}
+>
+  <div class="quiz-route page-shell page-shell--reading">
+    <section class="quiz-intro" id="quiz-intro" aria-labelledby="quiz-title">
+      <a class="quiz-intro__back" href="/">← All quizzes</a>
+      <Image
+        class="quiz-intro__art"
+        src={image}
+        alt=""
+        width={320}
+        height={320}
+        loading="eager"
+        sizes="(max-width: 639px) 8rem, 12rem"
+      />
+      <div class="quiz-intro__copy">
+        <p class="eyebrow">{categoryLabel}</p>
+        <h1 id="quiz-title">{quiz.data.title}</h1>
+        <p>{quiz.data.description}</p>
+      </div>
+      <dl class="quiz-intro__facts">
+        <div>
+          <dt>Round</dt>
+          <dd>10 questions from a pool of 40</dd>
+        </div>
+        <div>
+          <dt>Pace</dt>
+          <dd>No time limit</dd>
+        </div>
+        <div>
+          <dt>Privacy</dt>
+          <dd>Your progress stays in this tab and resets when you leave or reload.</dd>
+        </div>
+      </dl>
+      <button
+        class="button button--primary quiz-intro__start"
+        id="quiz-start"
+        type="button"
+      >
+        Start quiz
+      </button>
+      <noscript>
+        <p class="quiz-noscript">
+          This quiz needs JavaScript to check answers. No data leaves your browser.
+        </p>
+      </noscript>
+    </section>
+
+    <section class="quiz-game" id="quiz-game" aria-label={quiz.data.title} hidden>
+      <header class="quiz-game__progress">
+        <span id="quiz-progress-text">Question 1 of 10</span>
+        <progress id="quiz-progress" value="1" max="10">1 of 10</progress>
+      </header>
+      <div id="quiz-question"></div>
+      <section
+        class="quiz-feedback"
+        id="quiz-feedback"
+        aria-live="polite"
+        aria-atomic="true"
+        hidden
+      >
+      </section>
+      <div class="quiz-game__actions">
+        <button class="button button--primary" id="quiz-check" type="button" disabled>
+          Check answer
+        </button>
+        <button class="button button--secondary" id="quiz-reveal" type="button">
+          Show answer
+        </button>
+        <button class="button button--primary" id="quiz-next" type="button" hidden>
+          Next question
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="quiz-result"
+      id="quiz-result"
+      aria-labelledby="quiz-result-title"
+      hidden
+    >
+      <p class="eyebrow">Round complete</p>
+      <h1 id="quiz-result-title" tabindex="-1">Your result</h1>
+      <p class="quiz-result__score" id="quiz-score"></p>
+      <p class="quiz-result__band" id="quiz-score-band"></p>
+      <p class="quiz-result__copy">
+        Every answer was explained along the way. Play again for a different mix or choose
+        another part of music history.
+      </p>
+      <div class="quiz-result__actions">
+        <button class="button button--primary" id="quiz-replay" type="button">
+          Play again
+        </button>
+        <a class="button button--secondary" href="/">Choose another quiz</a>
+        <button class="button button--secondary" id="quiz-share" type="button">
+          Share result
+        </button>
+      </div>
+      <p class="quiz-result__status" id="quiz-share-status" role="status"></p>
+    </section>
+
+    <section class="quiz-error" id="quiz-error" hidden>
+      <p class="eyebrow">Quiz unavailable</p>
+      <h1 tabindex="-1">This round could not start.</h1>
+      <p>
+        Reload the page to try again. Your progress is not stored, so there is no saved
+        round to recover.
+      </p>
+      <div class="quiz-error__actions">
+        <a class="button button--primary" href={Astro.url.pathname}>Reload quiz</a>
+        <a class="button button--secondary" href="/">Choose another quiz</a>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline id="quiz-data" type="application/json" set:html={serializedData} />
+</Layout>
+
+<script>
+  import { initQuiz } from "@scripts/quizClient";
+
+  initQuiz();
+</script>
+
+<style is:global>
+  .quiz-route {
+    padding-block: var(--space-2xl) var(--space-3xl);
+  }
+
+  .quiz-intro {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .quiz-intro__back {
+    grid-column: 1 / -1;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-size);
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-decoration: none;
+  }
+
+  .quiz-intro__art {
+    inline-size: 8rem;
+    block-size: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    box-shadow: 0 24px 32px -12px rgb(0 0 0 / 46%);
+  }
+
+  .quiz-intro__copy {
+    display: grid;
+    gap: var(--space-sm);
+    min-inline-size: 0;
+  }
+
+  .quiz-intro__copy h1 {
+    font-size: 2rem;
+  }
+
+  .quiz-intro__copy > p:last-child {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-intro__facts {
+    display: grid;
+    grid-column: 1 / -1;
+    gap: 0;
+    margin: var(--space-md) 0 0;
+    border-block: 1px solid var(--line-soft);
+  }
+
+  .quiz-intro__facts div {
+    display: grid;
+    gap: var(--space-2xs);
+    padding-block: var(--space-sm);
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .quiz-intro__facts div:last-child {
+    border: 0;
+  }
+
+  .quiz-intro__facts dt {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--signal-teal);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .quiz-intro__facts dd {
+    margin: 0;
+    color: var(--quiet-ink);
+  }
+
+  .quiz-intro__start,
+  .quiz-noscript {
+    grid-column: 1 / -1;
+  }
+
+  .quiz-intro__start {
+    inline-size: 100%;
+  }
+
+  .quiz-noscript {
+    padding: var(--space-md);
+    color: var(--quiet-ink);
+    background: var(--raised-night);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-game {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .quiz-intro[hidden],
+  .quiz-game[hidden],
+  .quiz-feedback[hidden],
+  .quiz-result[hidden],
+  .quiz-error[hidden] {
+    display: none;
+  }
+
+  .quiz-game__progress {
+    display: grid;
+    gap: var(--space-xs);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--quiet-ink);
+  }
+
+  .quiz-game__progress progress {
+    inline-size: 100%;
+    block-size: 0.35rem;
+    overflow: hidden;
+    color: var(--signal-teal);
+    appearance: none;
+    background: var(--listening-surface);
+    border: 0;
+    border-radius: var(--radius-pill);
+  }
+
+  .quiz-game__progress progress::-webkit-progress-bar {
+    background: var(--listening-surface);
+  }
+
+  .quiz-game__progress progress::-webkit-progress-value {
+    background: var(--signal-teal);
+  }
+
+  .quiz-game__progress progress::-moz-progress-bar {
+    background: var(--signal-teal);
+  }
+
+  .quiz-question {
+    display: grid;
+    gap: var(--space-lg);
+    min-inline-size: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  .quiz-question__legend {
+    max-inline-size: 30ch;
+    padding: 0;
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .quiz-question__hint {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-question__options {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .quiz-option {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: var(--space-sm);
+    align-items: center;
+    min-block-size: 4rem;
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    background: color-mix(in srgb, var(--raised-night) 74%, transparent);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-option:has(.quiz-option__control:checked) {
+    background: color-mix(in srgb, var(--signal-teal) 10%, var(--raised-night));
+    border-color: var(--signal-teal);
+  }
+
+  .quiz-option:has(.quiz-option__control:focus-visible) {
+    outline: var(--focus-ring);
+    outline-offset: 0.2rem;
+  }
+
+  .quiz-option__control {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .quiz-option__marker {
+    display: grid;
+    place-items: center;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+  }
+
+  .quiz-option__text {
+    min-inline-size: 0;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .quiz-option[data-correct="true"] {
+    border-color: var(--success);
+  }
+
+  .quiz-option[data-correct="true"] .quiz-option__marker {
+    color: var(--room-night);
+    background: var(--success);
+    border-color: var(--success);
+  }
+
+  .quiz-option[data-selected="true"][data-correct="false"] {
+    border-color: var(--error);
+  }
+
+  .quiz-option[data-selected="true"][data-correct="false"] .quiz-option__marker {
+    color: var(--room-night);
+    background: var(--error);
+    border-color: var(--error);
+  }
+
+  .quiz-game__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .quiz-feedback {
+    display: grid;
+    gap: var(--space-sm);
+    padding-block: var(--space-lg);
+    border-block: 1px solid var(--line-soft);
+  }
+
+  .quiz-feedback__title {
+    font-size: 1.5rem;
+  }
+
+  .quiz-feedback--correct .quiz-feedback__title {
+    color: var(--success);
+  }
+
+  .quiz-feedback--incorrect .quiz-feedback__title {
+    color: var(--error);
+  }
+
+  .quiz-feedback__answer {
+    font-weight: 700;
+  }
+
+  .quiz-feedback__explanation {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-feedback__source-label {
+    margin-block-start: var(--space-xs);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .quiz-feedback__sources {
+    display: grid;
+    gap: var(--space-xs);
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
+    list-style: none;
+  }
+
+  .quiz-feedback__sources a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--control-min-size);
+  }
+
+  .quiz-result,
+  .quiz-error {
+    display: grid;
+    gap: var(--space-lg);
+    max-inline-size: 38rem;
+    padding-block: var(--space-xl);
+  }
+
+  .quiz-result h1,
+  .quiz-error h1 {
+    font-size: 2.5rem;
+  }
+
+  .quiz-result__score {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .quiz-result__band {
+    inline-size: fit-content;
+    padding: var(--space-xs) var(--space-sm);
+    font-weight: 700;
+    color: var(--room-night);
+    background: var(--signal-teal);
+    border-radius: var(--radius-pill);
+  }
+
+  .quiz-result__copy,
+  .quiz-error > p:not(.eyebrow) {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-result__actions,
+  .quiz-error__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .quiz-result__status {
+    min-block-size: 1.5em;
+    color: var(--quiet-ink);
+  }
+
+  @media (hover: hover) {
+    .quiz-option:hover,
+    .quiz-option:focus-within {
+      background: var(--listening-surface);
+      border-color: var(--signal-teal);
+    }
+  }
+
+  @media (width >= 40rem) {
+    .quiz-intro {
+      grid-template-columns: 12rem minmax(0, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .quiz-intro__art {
+      inline-size: 12rem;
+    }
+
+    .quiz-intro__copy h1 {
+      font-size: 2.5rem;
+    }
+
+    .quiz-intro__facts {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .quiz-intro__facts div {
+      padding: var(--space-md);
+      border-block-end: 0;
+      border-inline-end: 1px solid var(--line-soft);
+    }
+
+    .quiz-intro__start {
+      inline-size: fit-content;
+      min-inline-size: 10rem;
+    }
+
+    .quiz-game__actions {
+      grid-template-columns: minmax(10rem, 1fr) auto;
+    }
+
+    .quiz-game__actions #quiz-next {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

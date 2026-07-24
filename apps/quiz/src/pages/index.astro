@@ -1,0 +1,332 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import { getQuizArtwork, sortQuizIds } from "@utils/quizArtwork";
+
+const quizzes = (await getCollection("quizzes", ({ data }) => !data.draft)).sort(
+  (left, right) => sortQuizIds(left.id, right.id)
+);
+const decades = quizzes.filter((quiz) => quiz.data.category === "decade");
+const journeys = quizzes.filter((quiz) => quiz.data.category === "genre-evolution");
+const canonical = new URL("/", Astro.site).toString();
+const description =
+  "Choose a research-led music quiz on seven decades, pop, hip-hop, or heavy music. Every ten-question round runs without accounts, tracking, or saved progress.";
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Music history quizzes",
+    description,
+    url: canonical,
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: quizzes.map((quiz, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: quiz.data.title,
+        url: new URL(`/${quiz.id}/`, Astro.site).toString(),
+      })),
+    },
+  },
+];
+---
+
+<Layout
+  title="Music History Quizzes | MelodyMind Quiz"
+  {description}
+  {canonical}
+  {structuredData}
+>
+  <div class="quiz-home page-shell">
+    <header class="quiz-home__hero">
+      <p class="eyebrow">Listen closer</p>
+      <h1>Music history, one question at a time.</h1>
+      <p class="quiz-home__lead">
+        Pick a decade or follow a genre across generations. Each round draws ten questions
+        from a reviewed pool and explains every answer as you go.
+      </p>
+      <p class="quiz-home__privacy">
+        No account. No timer. No analytics. Your progress is never saved.
+      </p>
+    </header>
+
+    <section class="quiz-library" id="decades" aria-labelledby="decades-title">
+      <header class="quiz-library__header">
+        <p class="eyebrow">Seven eras</p>
+        <h2 id="decades-title">Choose a decade</h2>
+        <p>Move from early rock and roll to streaming-era pop culture.</p>
+      </header>
+
+      <ol class="decade-list">
+        {
+          decades.map((quiz) => (
+            <li class="decade-list__item">
+              <a class="decade-list__link" href={`/${quiz.id}/`}>
+                <Image
+                  class="decade-list__image"
+                  src={getQuizArtwork(quiz.id)}
+                  alt=""
+                  width={176}
+                  height={176}
+                  loading="lazy"
+                  sizes="(max-width: 639px) 5rem, 8rem"
+                />
+                <span class="decade-list__copy">
+                  <strong>{quiz.data.title}</strong>
+                  <span>{quiz.data.description}</span>
+                </span>
+                <span class="decade-list__action" aria-hidden="true">
+                  Play <span>→</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section
+      class="quiz-library quiz-library--journeys"
+      id="genre-journeys"
+      aria-labelledby="journeys-title"
+    >
+      <header class="quiz-library__header">
+        <p class="eyebrow">Across generations</p>
+        <h2 id="journeys-title">Follow a genre journey</h2>
+        <p>Trace how sounds, tools, and scenes changed over time.</p>
+      </header>
+
+      <ul class="journey-list">
+        {
+          journeys.map((quiz) => (
+            <li>
+              <a class="journey-list__link" href={`/${quiz.id}/`}>
+                <Image
+                  class="journey-list__image"
+                  src={getQuizArtwork(quiz.id)}
+                  alt=""
+                  width={320}
+                  height={320}
+                  loading="lazy"
+                  sizes="(max-width: 767px) 7rem, 12rem"
+                />
+                <span class="journey-list__copy">
+                  <span class="eyebrow">10-question round</span>
+                  <strong>{quiz.data.title}</strong>
+                  <span>{quiz.data.description}</span>
+                  <span class="journey-list__topics">
+                    {quiz.data.featuredTopics.slice(0, 3).join(" · ")}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .quiz-home {
+    display: grid;
+    gap: var(--space-3xl);
+    padding-block: var(--space-2xl) var(--space-3xl);
+  }
+
+  .quiz-home__hero {
+    display: grid;
+    gap: var(--space-lg);
+    max-inline-size: 52rem;
+    padding-block: var(--space-xl);
+  }
+
+  .quiz-home__hero h1 {
+    max-inline-size: 16ch;
+    font-size: clamp(2.5rem, 7vw, 4.75rem);
+    letter-spacing: -0.03em;
+  }
+
+  .quiz-home__lead {
+    max-inline-size: 62ch;
+    font-size: 1.25rem;
+    color: var(--quiet-ink);
+  }
+
+  .quiz-home__privacy {
+    inline-size: fit-content;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.95rem;
+    color: var(--warm-ink);
+    background: var(--raised-night);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-pill);
+  }
+
+  .quiz-library {
+    display: grid;
+    gap: var(--space-xl);
+    scroll-margin-block-start: var(--space-xl);
+  }
+
+  .quiz-library__header {
+    display: grid;
+    gap: var(--space-xs);
+    max-inline-size: 44rem;
+  }
+
+  .quiz-library__header h2 {
+    font-size: 2rem;
+  }
+
+  .quiz-library__header > p:last-child {
+    color: var(--quiet-ink);
+  }
+
+  .decade-list,
+  .journey-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--line-soft);
+  }
+
+  .decade-list__item {
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .decade-list__link {
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: var(--space-md);
+    align-items: center;
+    min-block-size: 7rem;
+    padding-block: var(--space-md);
+    color: var(--warm-ink);
+    text-decoration: none;
+  }
+
+  .decade-list__image,
+  .journey-list__image {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  .decade-list__copy {
+    display: grid;
+    gap: var(--space-2xs);
+    min-inline-size: 0;
+  }
+
+  .decade-list__copy strong {
+    font-size: 1.35rem;
+  }
+
+  .decade-list__copy > span {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    color: var(--quiet-ink);
+    -webkit-box-orient: vertical;
+  }
+
+  .decade-list__action {
+    display: none;
+    font-weight: 700;
+    color: var(--signal-teal);
+  }
+
+  .decade-list__link:hover .decade-list__action,
+  .decade-list__link:focus-visible .decade-list__action {
+    color: var(--warm-ink);
+  }
+
+  .journey-list {
+    display: grid;
+  }
+
+  .journey-list li {
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .journey-list__link {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: center;
+    padding-block: var(--space-lg);
+    color: var(--warm-ink);
+    text-decoration: none;
+  }
+
+  .journey-list__copy {
+    display: grid;
+    gap: var(--space-xs);
+    min-inline-size: 0;
+  }
+
+  .journey-list__copy strong {
+    font-size: 1.35rem;
+  }
+
+  .journey-list__copy > span:not(.eyebrow, .journey-list__topics) {
+    color: var(--quiet-ink);
+  }
+
+  .journey-list__topics {
+    font-size: 0.95rem;
+    color: var(--signal-teal);
+  }
+
+  @media (hover: hover) {
+    .decade-list__link:hover,
+    .decade-list__link:focus-visible,
+    .journey-list__link:hover,
+    .journey-list__link:focus-visible {
+      background: color-mix(in srgb, var(--listening-surface) 70%, transparent);
+    }
+  }
+
+  @media (width >= 48rem) {
+    .quiz-home {
+      padding-block-start: var(--space-3xl);
+    }
+
+    .decade-list__link {
+      grid-template-columns: 8rem minmax(0, 1fr) auto;
+      gap: var(--space-xl);
+      padding: var(--space-md);
+    }
+
+    .decade-list__action {
+      display: inline-flex;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+
+    .journey-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-xl);
+      border: 0;
+    }
+
+    .journey-list li {
+      border: 0;
+    }
+
+    .journey-list__link {
+      grid-template-columns: 1fr;
+      align-content: start;
+      padding: 0;
+    }
+
+    .journey-list__image {
+      inline-size: 100%;
+    }
+  }
+</style>

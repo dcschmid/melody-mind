@@ -1,11 +1,12 @@
 # MelodyMind
 
-MelodyMind is now focused on the Music app: an Astro-based static site for
-AI-generated music albums.
+MelodyMind contains two privacy-conscious Astro sites: the Music archive and a
+research-led music history quiz.
 
 ## Workspace
 
 - `apps/music`: the public MelodyMind Music app served at `https://melody-mind.de`
+- `apps/quiz`: the MelodyMind Quiz app served at `https://quiz.melody-mind.de`
 
 ## Stack
 
@@ -25,7 +26,11 @@ AI-generated music albums.
 ```bash
 pnpm install
 pnpm dev
+pnpm dev:music
+pnpm dev:quiz
 pnpm build
+pnpm build:quiz
+pnpm build:all
 pnpm preview
 pnpm lint
 pnpm lint:check
@@ -34,14 +39,22 @@ pnpm format:check
 pnpm clean
 ```
 
-The root commands target the Music app by default.
+`pnpm dev` starts both apps in parallel:
+
+- Music: `http://localhost:4321`
+- Quiz: `http://localhost:4322`
+
+The app-specific development commands start only their respective app. Build, preview,
+lint, and format commands continue to target Music by default unless their name includes
+`:quiz` or `:all`.
 
 ## Repository Layout
 
 ```text
 .
 ├── apps/
-│   └── music/
+│   ├── music/
+│   └── quiz/
 ├── AGENTS.md
 ├── eslint.config.mjs
 ├── stylelint.config.cjs
@@ -51,10 +64,14 @@ The root commands target the Music app by default.
 
 ## Validation
 
-There is no conventional automated test suite. Use the Music app quality gates:
+Use the app-specific quality gates:
 
 ```bash
 pnpm format:check
 pnpm lint:check
 pnpm build
+pnpm --filter quiz test
+pnpm format:check:quiz
+pnpm lint:check:quiz
+pnpm build:quiz
 ```

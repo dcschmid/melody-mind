@@ -11,7 +11,7 @@ export const prerender = true;
 const title = "Privacy Policy";
 const description =
   "How we process personal data on MelodyMind Music, including hosting logs, browser storage, and AI-generated media details.";
-const lastUpdated = "16 July 2026";
+const lastUpdated = "24 July 2026";
 
 const highlights = [
   {
@@ -50,7 +50,15 @@ const sections = [
     title: "Browser Storage",
     trustedHtmlBody: trustedHtmlList([
       "We use browser storage for site features such as music player state.",
+      "MelodyMind Quiz does not store quiz progress, answers, or results. Its active round exists only in memory and resets when the page is left or reloaded.",
       'For a current overview of local storage entries, see our <a href="/cookies">Cookie &amp; Storage Policy</a>.',
+    ]),
+  },
+  {
+    icon: "share-2",
+    title: "Sharing Quiz Results",
+    trustedHtmlBody: trustedHtmlList([
+      "MelodyMind Quiz opens your device share sheet only when you choose Share result. If the share sheet is unavailable, the result text can be copied to your clipboard. We do not receive or store the shared result.",
     ]),
   },
   {

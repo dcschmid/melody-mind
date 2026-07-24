@@ -87,6 +87,9 @@ export default defineConfig({
     assets: "assets",
     format: "directory",
   },
+  server: {
+    port: 4321,
+  },
   vite: {
     css: {
       transformer: "lightningcss",
@@ -106,6 +109,7 @@ export default defineConfig({
       treeshake: { preset: "smallest" },
     },
     server: {
+      strictPort: true,
       headers: {
         "Content-Security-Policy":
           "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self'; frame-src 'none'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",

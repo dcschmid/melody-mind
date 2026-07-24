@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This document provides essential guidelines for AI agents working on the MelodyMind Music codebase.
+This document provides essential guidelines for AI agents working on the MelodyMind codebase.
 
 ## Project Overview
 
@@ -10,7 +10,7 @@ This document provides essential guidelines for AI agents working on the MelodyM
 - **Content**: Album MDX via Astro Content Collections
 - **Editorial Language**: English-only
 - **Package Manager**: pnpm
-- **Workspace**: Single app at `apps/music`
+- **Workspace**: Music at `apps/music`, Quiz at `apps/quiz`
 - **Design source of truth**: Music app components, tokens, and visual language
 
 ## Music App Structure
@@ -24,16 +24,29 @@ This document provides essential guidelines for AI agents working on the MelodyM
 - Genre landing data: `apps/music/src/data/genreLandingPages.ts`
 - Legacy `/categories`, `/knowledge`, and `/taxonomy` routes are redirected to `/` in `apps/music/astro.config.mjs`.
 
+## Quiz App Structure
+
+- Public app path: `apps/quiz`
+- Quiz content: `apps/quiz/src/content/quizzes/*.md`
+- Quiz schema: `apps/quiz/src/content.config.ts`
+- Main app layout: `apps/quiz/src/layouts/Layout.astro`
+- Quiz route: `apps/quiz/src/pages/[slug].astro`
+- Quiz state is memory-only. Do not add cookies, analytics, storage, accounts, or APIs.
+- Quiz visual tokens are app-local adaptations of the Music design source of truth.
+
 ## Essential Commands
 
 ### Development
 
 ```bash
-pnpm dev                 # Start the Music app locally
-pnpm dev:music           # Same app-specific dev command
+pnpm dev                 # Start Music on :4321 and Quiz on :4322
+pnpm dev:music           # Start only the Music app on :4321
 pnpm build               # Build the Music app
 pnpm build:music         # Same app-specific build command
 pnpm preview             # Preview the built Music app
+pnpm dev:quiz            # Start only the Quiz app on :4322
+pnpm build:quiz          # Build the Quiz app
+pnpm preview:quiz        # Preview the Quiz app
 ```
 
 ### Code Quality
@@ -48,7 +61,8 @@ pnpm --filter music lint:check
 pnpm --filter music stylelint:check
 ```
 
-**Note**: No conventional test suite. Validate with the local dev server and the build output.
+**Note**: Music has no conventional test suite. Quiz uses focused unit tests for its
+selection and scoring engine in addition to browser and build validation.
 
 ## Code Style Guidelines
 
@@ -204,7 +218,8 @@ try {
 
 - Do not use inline styles unless an existing component explicitly uses a CSS variable bridge.
 - Do not skip error handling in async content utilities.
-- Do not recreate removed Knowledge or Quiz app structure.
+- Do not restore removed Knowledge or legacy Quiz shared-package structure. The current
+  Quiz app is independent and must remain free of the retired shared packages.
 - Do not delete legacy redirects casually; they preserve historical URLs.
 - Do not leave media tracks without a real source or an accessible lyrics/transcript fallback.
 

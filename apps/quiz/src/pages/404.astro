@@ -1,0 +1,43 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout
+  title="Page Not Found"
+  description="This MelodyMind Quiz page does not exist. Choose another music history quiz."
+  index={false}
+>
+  <section class="not-found page-shell page-shell--reading">
+    <p class="eyebrow">404</p>
+    <h1>That question is not in this round.</h1>
+    <p>
+      The page may have moved, or the address may be incomplete. Return to the quiz
+      library to choose another topic.
+    </p>
+    <a class="button button--primary" href="/">Browse music quizzes</a>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    display: grid;
+    gap: var(--space-lg);
+    align-content: center;
+    min-block-size: 64svh;
+    padding-block: var(--space-3xl);
+  }
+
+  .not-found h1 {
+    max-inline-size: 18ch;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+  }
+
+  .not-found > p:not(.eyebrow) {
+    max-inline-size: 56ch;
+    color: var(--quiet-ink);
+  }
+
+  .not-found .button {
+    inline-size: fit-content;
+  }
+</style>

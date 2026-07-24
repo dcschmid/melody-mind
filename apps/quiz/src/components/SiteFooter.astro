@@ -1,0 +1,57 @@
+<footer class="quiz-footer">
+  <div class="quiz-footer__inner page-shell">
+    <div class="quiz-footer__brand">
+      <strong>MelodyMind Quiz</strong>
+      <p>Research-led music questions. Your quiz progress is never saved.</p>
+    </div>
+
+    <nav class="quiz-footer__links" aria-label="Legal information">
+      <a href="https://melody-mind.de/imprint/">Imprint</a>
+      <a href="https://melody-mind.de/privacy/">Privacy</a>
+      <a href="https://melody-mind.de/cookies/">Cookies & storage</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .quiz-footer {
+    margin-block-start: var(--space-3xl);
+    background: var(--raised-night);
+    border-block-start: 1px solid var(--line-soft);
+  }
+
+  .quiz-footer__inner {
+    display: grid;
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .quiz-footer__brand {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .quiz-footer__brand p {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+  }
+
+  .quiz-footer__links a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--control-min-size);
+    color: var(--quiet-ink);
+  }
+
+  @media (width >= 48rem) {
+    .quiz-footer__inner {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+    }
+  }
+</style>

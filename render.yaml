@@ -1,8 +1,7 @@
 # Render Blueprint for MelodyMind Music
 # https://render.com/docs/blueprint-spec
 #
-# MelodyMind is deployed as a single static Astro app.
-# The main domain melody-mind.de should point to this service.
+# MelodyMind is deployed as two independent static Astro apps.
 
 services:
   - type: web
@@ -59,6 +58,48 @@ services:
         name: Cache-Control
         value: public, max-age=31536000, immutable
       - path: /audio/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+
+  - type: web
+    name: melody-mind-quiz
+    runtime: static
+    buildCommand: pnpm install && pnpm build:quiz
+    staticPublishPath: apps/quiz/dist
+    buildFilter:
+      paths:
+        - apps/quiz/**
+        - package.json
+        - pnpm-lock.yaml
+        - turbo.json
+        - pnpm-workspace.yaml
+        - render.yaml
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; font-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'"
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /fonts/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
     envVars:

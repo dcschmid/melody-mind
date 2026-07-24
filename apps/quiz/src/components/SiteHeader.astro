@@ -1,0 +1,120 @@
+---
+import melodyMindLogo from "@assets/melody-mind-logo.webp";
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+const isHome = currentPath === "/";
+---
+
+<header class="quiz-header">
+  <div class="quiz-header__inner page-shell">
+    <a class="quiz-header__brand" href="/" aria-label="Go to MelodyMind Quiz">
+      <img
+        class="quiz-header__logo"
+        src={melodyMindLogo.src}
+        width={melodyMindLogo.width}
+        height={melodyMindLogo.height}
+        alt=""
+        loading="eager"
+        decoding="async"
+      />
+      <span class="quiz-header__product">Quiz</span>
+    </a>
+
+    <nav class="quiz-header__nav" aria-label="Quiz navigation">
+      <a href="/" aria-current={isHome ? "page" : undefined}>Home</a>
+      <a href="/#decades">Decades</a>
+      <a href="/#genre-journeys">Genre journeys</a>
+      <a href="https://melody-mind.de/">Music</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .quiz-header {
+    position: relative;
+    z-index: 5;
+    background: color-mix(in srgb, var(--raised-night) 94%, transparent);
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .quiz-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-xl);
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: 4.5rem;
+    padding-block: var(--space-sm);
+  }
+
+  .quiz-header__brand {
+    display: inline-flex;
+    gap: var(--space-sm);
+    align-items: center;
+    min-block-size: var(--control-min-size);
+    color: var(--warm-ink);
+    text-decoration: none;
+  }
+
+  .quiz-header__logo {
+    inline-size: 8.25rem;
+    block-size: auto;
+  }
+
+  .quiz-header__product {
+    padding-inline-start: var(--space-sm);
+    font-weight: 700;
+    border-inline-start: 1px solid var(--line);
+  }
+
+  .quiz-header__nav {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+    overflow-x: auto;
+  }
+
+  .quiz-header__nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--control-min-size);
+    font-weight: 700;
+    color: var(--quiet-ink);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .quiz-header__nav a:hover,
+  .quiz-header__nav a:focus-visible,
+  .quiz-header__nav a[aria-current="page"] {
+    color: var(--warm-ink);
+  }
+
+  .quiz-header__nav a[aria-current="page"]::after {
+    position: absolute;
+    inset-block-end: 0.15rem;
+    inset-inline: 0;
+    block-size: 0.125rem;
+    content: "";
+    background: var(--signal-teal);
+    border-radius: var(--radius-pill);
+  }
+
+  @media (width <= 47.99rem) {
+    .quiz-header__inner {
+      display: grid;
+      justify-content: stretch;
+    }
+
+    .quiz-header__nav {
+      gap: var(--space-lg);
+      padding-inline: 1rem;
+      margin-inline: -1rem;
+    }
+  }
+</style>
