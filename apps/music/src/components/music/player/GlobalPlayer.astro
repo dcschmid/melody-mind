@@ -10,6 +10,52 @@ import Icon from "@components/visual/Icon.astro";
   hidden
   transition:persist="melodymind-global-player"
 >
+  <section
+    class="global-player__intermission"
+    aria-labelledby="global-player-intermission-title"
+    data-series-intermission
+    hidden
+  >
+    <img
+      class="global-player__intermission-artwork"
+      src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+      width="72"
+      height="72"
+      alt=""
+      data-series-intermission-artwork
+    />
+    <div class="global-player__intermission-copy">
+      <p class="global-player__intermission-part" data-series-intermission-part>
+        Part complete
+      </p>
+      <h2
+        id="global-player-intermission-title"
+        class="global-player__intermission-title"
+        data-series-intermission-title
+      >
+        Up next
+      </h2>
+      <p class="global-player__intermission-summary" data-series-intermission-summary></p>
+    </div>
+    <div class="global-player__intermission-actions">
+      <button
+        class="global-player__intermission-continue"
+        type="button"
+        data-global-player-action="continue-series"
+      >
+        <Icon name="tabler:player-play-filled" aria-hidden="true" />
+        <span>Play next album</span>
+      </button>
+      <a
+        class="global-player__intermission-link"
+        href="/series/"
+        data-series-intermission-link
+      >
+        View series
+      </a>
+    </div>
+  </section>
+
   <div class="global-player__inner">
     <a class="global-player__context" href="/" data-global-player-link>
       <img
@@ -25,6 +71,8 @@ import Icon from "@components/visual/Icon.astro";
           Choose a track
         </strong>
         <span class="global-player__album" data-global-player-album></span>
+        <span class="global-player__series-meta" data-global-player-series-meta hidden
+        ></span>
         <span class="global-player__message" data-global-player-message hidden></span>
       </span>
     </a>
@@ -154,6 +202,123 @@ import Icon from "@components/visual/Icon.astro";
     display: none;
   }
 
+  .global-player__intermission {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+    gap: clamp(0.9rem, 2vw, 1.5rem);
+    align-items: center;
+    max-inline-size: 90rem;
+    padding: clamp(0.9rem, 2vw, 1.25rem) clamp(1rem, 4vw, 4rem);
+    margin-inline: auto;
+    background: var(--surface-2);
+    border-block-end: 1px solid var(--border-default);
+  }
+
+  .global-player__intermission[hidden] {
+    display: none;
+  }
+
+  .global-player__intermission-artwork {
+    display: block;
+    inline-size: 4.5rem;
+    block-size: 4.5rem;
+    object-fit: cover;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .global-player__intermission-copy {
+    display: grid;
+    gap: 0.25rem;
+    min-inline-size: 0;
+  }
+
+  .global-player__intermission-part,
+  .global-player__intermission-title,
+  .global-player__intermission-summary {
+    margin: 0;
+  }
+
+  .global-player__intermission-part {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
+  .global-player__intermission-title {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-lg);
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .global-player__intermission-summary {
+    max-inline-size: 68ch;
+    font-size: var(--font-size-sm);
+    line-height: 1.45;
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+
+  .global-player__intermission-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .global-player__intermission-continue,
+  .global-player__intermission-link {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-full);
+  }
+
+  .global-player__intermission-continue {
+    color: var(--button-text-accent);
+    cursor: pointer;
+    background: var(--accent-primary);
+    border: 1px solid transparent;
+  }
+
+  .global-player__intermission-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 1px solid var(--border-default);
+  }
+
+  .global-player__intermission-continue:hover,
+  .global-player__intermission-continue:focus-visible {
+    background: var(--accent-strong);
+  }
+
+  .global-player__intermission-link:hover,
+  .global-player__intermission-link:focus-visible {
+    color: var(--link-hover);
+    border-color: var(--accent-muted);
+  }
+
+  .global-player__intermission-continue:focus-visible,
+  .global-player__intermission-link:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .global-player__intermission-continue :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
   .global-player__inner {
     display: grid;
     grid-template-columns: minmax(12rem, 0.9fr) auto minmax(16rem, 1.2fr) auto auto;
@@ -193,6 +358,7 @@ import Icon from "@components/visual/Icon.astro";
 
   .global-player__track,
   .global-player__album,
+  .global-player__series-meta,
   .global-player__message {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -205,6 +371,7 @@ import Icon from "@components/visual/Icon.astro";
   }
 
   .global-player__album,
+  .global-player__series-meta,
   .global-player__message,
   .global-player__time {
     font-size: var(--font-size-xs);
@@ -231,6 +398,14 @@ import Icon from "@components/visual/Icon.astro";
 
   .global-player__message[hidden] {
     display: none;
+  }
+
+  .global-player__series-meta[hidden] {
+    display: none;
+  }
+
+  .global-player__series-meta {
+    color: var(--accent-primary);
   }
 
   .global-player[data-player-state="error"] .global-player__message {
@@ -323,7 +498,7 @@ import Icon from "@components/visual/Icon.astro";
   }
 
   :global(body[data-global-player-visible="true"]) {
-    padding-block-end: calc(4.75rem + env(safe-area-inset-bottom));
+    padding-block-end: var(--global-player-offset, 4.75rem);
   }
 
   .global-player[data-player-view="compact"] .global-player__inner {
@@ -344,10 +519,25 @@ import Icon from "@components/visual/Icon.astro";
   }
 
   :global(body[data-global-player-visible="true"][data-global-player-view="compact"]) {
-    padding-block-end: calc(4.25rem + env(safe-area-inset-bottom));
+    padding-block-end: var(--global-player-offset, 4.25rem);
   }
 
   @media (width <= 760px) {
+    .global-player__intermission {
+      grid-template-columns: 4rem minmax(0, 1fr);
+      padding: 0.9rem 0.75rem;
+    }
+
+    .global-player__intermission-artwork {
+      inline-size: 4rem;
+      block-size: 4rem;
+    }
+
+    .global-player__intermission-actions {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+    }
+
     .global-player__inner {
       grid-template-areas:
         "context transport actions"
@@ -395,7 +585,7 @@ import Icon from "@components/visual/Icon.astro";
     }
 
     :global(body[data-global-player-visible="true"]) {
-      padding-block-end: calc(6.5rem + env(safe-area-inset-bottom));
+      padding-block-end: var(--global-player-offset, 6.5rem);
     }
 
     .global-player[data-player-view="compact"] .global-player__inner {
@@ -406,7 +596,7 @@ import Icon from "@components/visual/Icon.astro";
     }
 
     :global(body[data-global-player-visible="true"][data-global-player-view="compact"]) {
-      padding-block-end: calc(4.25rem + env(safe-area-inset-bottom));
+      padding-block-end: var(--global-player-offset, 4.25rem);
     }
   }
 
@@ -440,7 +630,7 @@ import Icon from "@components/visual/Icon.astro";
     :global(
       body[data-global-player-visible="true"]:not([data-global-player-view="compact"])
     ) {
-      padding-block-end: calc(7.25rem + env(safe-area-inset-bottom));
+      padding-block-end: var(--global-player-offset, 7.25rem);
     }
   }
 
@@ -448,6 +638,10 @@ import Icon from "@components/visual/Icon.astro";
     .global-player {
       background: Canvas;
       border-color: CanvasText;
+    }
+
+    .global-player__intermission {
+      background: Canvas;
     }
   }
 </style>

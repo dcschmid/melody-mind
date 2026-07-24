@@ -12,6 +12,14 @@ export interface PlayerAlbumContext {
   artworkUrl?: string;
 }
 
+export interface PlayerSeriesContext {
+  id: string;
+  title: string;
+  url: string;
+  albumCount: number;
+  totalDurationSeconds?: number;
+}
+
 interface PlayerQueueBase {
   queueId: string;
   title: string;
@@ -36,7 +44,30 @@ export interface RadioPlayerQueue extends Omit<PlayerQueueBase, "tracks"> {
   tracks: RadioPlayerTrack[];
 }
 
-export type PlayerQueue = AlbumPlayerQueue | RadioPlayerQueue;
+export interface SeriesPlayerTrack extends PlayerTrack {
+  album: PlayerAlbumContext;
+  partNumber: number;
+  albumTrackCount: number;
+}
+
+export interface SeriesPlayerTransition {
+  beforeAlbumId: string;
+  transitionText: string;
+}
+
+export interface SeriesPlayerQueue extends Omit<PlayerQueueBase, "tracks"> {
+  kind: "series";
+  series: PlayerSeriesContext;
+  tracks: SeriesPlayerTrack[];
+  transitions: SeriesPlayerTransition[];
+}
+
+export interface SeriesPlayerIntermission extends SeriesPlayerTransition {
+  fromPartNumber: number;
+  toPartNumber: number;
+}
+
+export type PlayerQueue = AlbumPlayerQueue | RadioPlayerQueue | SeriesPlayerQueue;
 
 export interface PlayerState {
   queue: PlayerQueue | null;
@@ -46,6 +77,7 @@ export interface PlayerState {
   isMuted: boolean;
   isPlaying: boolean;
   errorMessage: string | null;
+  seriesIntermission: SeriesPlayerIntermission | null;
   updatedAt: number;
 }
 
@@ -57,6 +89,7 @@ export type PlayerCommand =
   | { action: "next" }
   | { action: "shuffle" }
   | { action: "mute" }
+  | { action: "continue-series" }
   | { action: "minimize" }
   | { action: "expand" }
   | { action: "clear" }
@@ -65,7 +98,9 @@ export type PlayerCommand =
 export interface PlayerLoadDetail {
   queue: PlayerQueue;
   startIndex?: number;
+  startTime?: number;
   autoplay?: boolean;
+  seriesIntermission?: SeriesPlayerIntermission | null;
 }
 
 declare global {

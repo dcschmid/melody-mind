@@ -8,8 +8,10 @@ import { buildCollectionPageSchema } from "@utils/seo/seoSchema";
 import { formatDuration } from "../../utils/albumPresentation";
 import { getAvailableAlbums } from "../../utils/albums";
 import type { AlbumData } from "../../types/album";
+import type { SeriesPlayerQueue, SeriesPlayerTransition } from "../../types/player";
 import {
   getAlbumCoverImage,
+  getAlbumCoverImagePath,
   getAlbumCoverImageUrl,
   musicDefaultOgImageUrl,
 } from "../../utils/musicImages";
@@ -24,6 +26,7 @@ interface SeriesPage {
   shortDescription: string;
   keywords: string[];
   albumIds: string[];
+  transitions: SeriesPlayerTransition[];
 }
 
 interface SeriesAlbumCard {
@@ -80,6 +83,61 @@ const albumCards: SeriesAlbumCard[] = seriesAlbums.map((album, index) => {
     totalDurationLabel: totalDurationSeconds ? formatDuration(totalDurationSeconds) : "",
   };
 });
+const marathonAvailable =
+  seriesAlbums.length === page.albumIds.length &&
+  seriesAlbums.every((album) => album.songs.length > 0);
+const totalTrackCount = seriesAlbums.reduce(
+  (total, album) => total + album.songs.length,
+  0
+);
+const hasCompleteDuration = seriesAlbums.every((album) =>
+  album.songs.every((song) => Boolean(song.durationSeconds))
+);
+const totalDurationSeconds = hasCompleteDuration
+  ? seriesAlbums.reduce(
+      (total, album) =>
+        total +
+        album.songs.reduce(
+          (albumTotal, song) => albumTotal + (song.durationSeconds || 0),
+          0
+        ),
+      0
+    )
+  : 0;
+const seriesUrl = `/series/${page.slug}/`;
+const marathonQueue: SeriesPlayerQueue | null = marathonAvailable
+  ? {
+      kind: "series",
+      queueId: `series:${page.slug}`,
+      title: page.title,
+      url: seriesUrl,
+      series: {
+        id: page.slug,
+        title: page.title,
+        url: seriesUrl,
+        albumCount: seriesAlbums.length,
+        ...(totalDurationSeconds ? { totalDurationSeconds } : {}),
+      },
+      transitions: page.transitions,
+      tracks: seriesAlbums.flatMap((album, index) =>
+        album.songs.map((song) => ({
+          trackNumber: song.trackNumber,
+          title: song.title,
+          audioUrl: song.audioUrl,
+          ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
+          album: {
+            id: album.id,
+            title: album.title,
+            url: `/${album.id}/`,
+            artworkUrl: getAlbumCoverImagePath(album.coverImage),
+          },
+          partNumber: index + 1,
+          albumTrackCount: album.songs.length,
+        }))
+      ),
+    }
+  : null;
+const marathonQueueScriptId = `series-marathon-queue-${page.slug}`;
 const canonical = resolvePageUrl(Astro.site, `/series/${page.slug}/`);
 const socialImageAlbum = seriesAlbums[0];
 const pageImage = socialImageAlbum?.coverImage
@@ -143,6 +201,80 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
         </a>
         <p class="series-landing__eyebrow">{page.eyebrow}</p>
         <h1 id="series-landing-title" class="series-landing__title">{page.title}</h1>
+
+        <section
+          class="series-landing__marathon"
+          aria-labelledby="series-marathon-title"
+          data-series-marathon
+          data-series-id={page.slug}
+          data-queue-script-id={marathonQueue ? marathonQueueScriptId : undefined}
+        >
+          <div class="series-landing__marathon-copy">
+            <p class="series-landing__marathon-kicker">Series Marathon</p>
+            <h2 id="series-marathon-title" class="series-landing__marathon-title">
+              Listen from the first chapter to the last
+            </h2>
+            <p class="series-landing__marathon-meta">
+              <span
+                >{
+                  `${albumCards.length} ${albumCards.length === 1 ? "album" : "albums"}`
+                }</span
+              >
+              <span>{`${totalTrackCount} tracks`}</span>
+              {
+                totalDurationSeconds > 0 && (
+                  <span>{formatDuration(totalDurationSeconds)}</span>
+                )
+              }
+            </p>
+          </div>
+          <div class="series-landing__marathon-actions">
+            <button
+              class="series-landing__marathon-primary"
+              type="button"
+              data-series-marathon-primary
+              aria-describedby="series-marathon-status"
+              disabled={!marathonQueue}
+            >
+              <Icon name="tabler:player-play-filled" aria-hidden="true" />
+              <span data-series-marathon-primary-label>
+                {marathonQueue ? "Play full series" : "Marathon unavailable"}
+              </span>
+            </button>
+            <button
+              class="series-landing__marathon-reset"
+              type="button"
+              data-series-marathon-reset
+              hidden
+            >
+              Start over
+            </button>
+          </div>
+          <p
+            id="series-marathon-status"
+            class="series-landing__marathon-status"
+            data-series-marathon-status
+            aria-live="polite"
+          >
+            {
+              marathonQueue
+                ? "Playback pauses between albums."
+                : "Every album must be available before the full series can play."
+            }
+          </p>
+          {
+            marathonQueue && (
+              <script
+                id={marathonQueueScriptId}
+                type="application/json"
+                data-series-marathon-queue
+                is:inline
+                set:html={JSON.stringify(marathonQueue)}
+              />
+            )
+          }
+        </section>
+
         <div class="series-landing__intro">
           <Content />
         </div>
@@ -168,7 +300,11 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
       <ol class="series-landing__sequence">
         {
           albumCards.map((album) => (
-            <li class="series-landing__item">
+            <li
+              class="series-landing__item"
+              data-series-album
+              data-series-album-id={album.id}
+            >
               <span class="series-landing__part-number" aria-hidden="true">
                 {String(album.partNumber).padStart(2, "0")}
               </span>
@@ -195,6 +331,7 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
                     {album.partNumber === 1 && (
                       <span class="series-landing__start">Start here</span>
                     )}
+                    <span data-series-album-state hidden />
                   </span>
                   <strong class="series-landing__album-title">{album.title}</strong>
                   <span class="series-landing__album-description">
@@ -218,6 +355,10 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
     </section>
   </div>
 </Layout>
+
+<script>
+  import "../../scripts/music/series-marathon";
+</script>
 
 <style>
   :global(.music-layout__container.music-layout__container--series) {
@@ -343,6 +484,138 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
     color: var(--series-landing-accent);
   }
 
+  .series-landing__marathon {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-base) clamp(var(--spacing-base), 3vw, var(--spacing-xl));
+    align-items: center;
+    max-inline-size: 72ch;
+    padding: clamp(var(--spacing-base), 2.5vw, var(--spacing-xl));
+    margin-block-start: var(--spacing-sm);
+    background: var(--surface-1);
+    border: 1px solid var(--series-landing-line);
+    border-radius: var(--radius-lg);
+  }
+
+  .series-landing__marathon-copy {
+    display: grid;
+    gap: 0.35rem;
+    min-inline-size: 0;
+  }
+
+  .series-landing__marathon-kicker,
+  .series-landing__marathon-title,
+  .series-landing__marathon-meta,
+  .series-landing__marathon-status {
+    margin: 0;
+  }
+
+  .series-landing__marathon-kicker {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--series-landing-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .series-landing__marathon-title {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-lg);
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .series-landing__marathon-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-base);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--series-landing-muted);
+  }
+
+  .series-landing__marathon-meta span + span::before {
+    margin-inline-end: var(--spacing-base);
+    color: var(--series-landing-line);
+    content: "•";
+  }
+
+  .series-landing__marathon-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .series-landing__marathon-primary,
+  .series-landing__marathon-reset {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+  }
+
+  .series-landing__marathon-primary {
+    color: var(--button-text-accent);
+    background: var(--series-landing-accent);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+  }
+
+  .series-landing__marathon-primary:hover,
+  .series-landing__marathon-primary:focus-visible {
+    background: var(--accent-strong);
+  }
+
+  .series-landing__marathon-primary:disabled {
+    color: var(--series-landing-muted);
+    cursor: not-allowed;
+    background: var(--surface-2);
+    border-color: var(--series-landing-line);
+  }
+
+  .series-landing__marathon-reset {
+    color: var(--series-landing-ink);
+    background: transparent;
+    border: 1px solid var(--series-landing-line);
+    border-radius: var(--radius-base);
+  }
+
+  .series-landing__marathon-reset:hover,
+  .series-landing__marathon-reset:focus-visible {
+    color: var(--series-landing-accent);
+    border-color: var(--accent-muted);
+  }
+
+  .series-landing__marathon-reset[hidden] {
+    display: none;
+  }
+
+  .series-landing__marathon-primary:focus-visible,
+  .series-landing__marathon-reset:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .series-landing__marathon-primary :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .series-landing__marathon-status {
+    grid-column: 1 / -1;
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
+    color: var(--series-landing-muted);
+  }
+
   .series-landing__albums {
     display: grid;
     gap: clamp(1rem, 2vw, 1.5rem);
@@ -449,6 +722,22 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
     line-height: 1.12;
   }
 
+  .series-landing__item[data-marathon-state="current"] {
+    background: color-mix(in srgb, var(--series-landing-accent) 6%, transparent);
+  }
+
+  .series-landing__item[data-marathon-state="current"] .series-landing__album-title {
+    color: var(--series-landing-accent);
+  }
+
+  .series-landing__item[data-marathon-state="completed"] .series-landing__part-number {
+    color: var(--series-landing-muted);
+  }
+
+  .series-landing__item [data-series-album-state] {
+    color: var(--series-landing-accent);
+  }
+
   .series-landing__album-description {
     display: -webkit-box;
     max-inline-size: 68ch;
@@ -503,6 +792,14 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
     .series-landing__item {
       grid-template-columns: 2.75rem minmax(0, 1fr);
     }
+
+    .series-landing__marathon {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .series-landing__marathon-actions {
+      justify-content: flex-start;
+    }
   }
 
   @media (width <= 520px) {
@@ -528,6 +825,11 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
 
     .series-landing__album-description {
       -webkit-line-clamp: 3;
+    }
+
+    .series-landing__marathon-primary,
+    .series-landing__marathon-reset {
+      flex: 1 1 auto;
     }
   }
 </style>

@@ -74,19 +74,51 @@ const genres = defineCollection({
   }),
 });
 
+const seriesTransitionSchema = z.object({
+  beforeAlbumId: z.string().trim().min(1),
+  transitionText: z.string().trim().min(40).max(320),
+});
+
 const series = defineCollection({
   loader: glob({
     pattern: "**/*.mdx",
     base: "./src/content/series",
   }),
-  schema: z.object({
-    order: z.number(),
-    title: z.string(),
-    eyebrow: z.string(),
-    shortDescription: z.string(),
-    keywords: z.array(z.string()).default([]),
-    albumIds: z.array(z.string()).min(1),
-  }),
+  schema: z
+    .object({
+      order: z.number(),
+      title: z.string(),
+      eyebrow: z.string(),
+      shortDescription: z.string(),
+      keywords: z.array(z.string()).default([]),
+      albumIds: z.array(z.string()).min(1),
+      transitions: z.array(seriesTransitionSchema).default([]),
+    })
+    .superRefine((entry, ctx) => {
+      const expectedTransitionCount = Math.max(0, entry.albumIds.length - 1);
+      if (entry.transitions.length !== expectedTransitionCount) {
+        ctx.addIssue({
+          code: "custom",
+          message: `Series with ${entry.albumIds.length} albums requires ${expectedTransitionCount} transitions.`,
+          path: ["transitions"],
+        });
+        return;
+      }
+
+      entry.transitions.forEach((transition, index) => {
+        const expectedAlbumId = entry.albumIds[index + 1];
+        if (
+          transition.beforeAlbumId.toLocaleLowerCase("en") !==
+          expectedAlbumId?.toLocaleLowerCase("en")
+        ) {
+          ctx.addIssue({
+            code: "custom",
+            message: `Transition ${index + 1} must appear before ${expectedAlbumId}.`,
+            path: ["transitions", index, "beforeAlbumId"],
+          });
+        }
+      });
+    }),
 });
 
 export const collections = {

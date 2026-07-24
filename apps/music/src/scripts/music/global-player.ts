@@ -9,8 +9,10 @@ import type {
 } from "../../types/player";
 import type { RadioEventDetail } from "../../types/radio";
 import { isPlayerQueue, loadPlayerQueue } from "./player-queue-loader";
+import { writeSeriesMarathonProgress } from "./series-marathon-storage";
 
-const STORAGE_KEY = "melodymind:music-player-state:v3";
+const STORAGE_KEY = "melodymind:music-player-state:v4";
+const V3_STORAGE_KEY = "melodymind:music-player-state:v3";
 const V2_STORAGE_KEY = "melodymind:music-player-state:v2";
 const LEGACY_STORAGE_KEY = "melodymind:music-player-state:v1";
 const SAVE_INTERVAL = 2_000;
@@ -23,7 +25,7 @@ interface NavigatorWithConnection extends Navigator {
 }
 
 interface StoredPlayerState extends Omit<PlayerState, "isPlaying" | "errorMessage"> {
-  version: 3;
+  version: 4;
 }
 
 const dispatchRadioEvent = (detail: RadioEventDetail): void => {
@@ -75,6 +77,22 @@ const localizeQueueArtwork = (queue: PlayerQueue): PlayerQueue => {
     };
   }
 
+  if (queue.kind === "radio") {
+    return {
+      ...queue,
+      tracks: queue.tracks.map((track) => {
+        const artworkUrl = localizeArtworkUrl(track.album.artworkUrl);
+        return {
+          ...track,
+          album: {
+            ...track.album,
+            ...(artworkUrl ? { artworkUrl } : {}),
+          },
+        };
+      }),
+    };
+  }
+
   return {
     ...queue,
     tracks: queue.tracks.map((track) => {
@@ -95,16 +113,37 @@ const readStoredState = (): StoredPlayerState | null => {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as Partial<StoredPlayerState>;
-      if (parsed.version === 3 && isPlayerQueue(parsed.queue)) {
+      if (parsed.version === 4 && isPlayerQueue(parsed.queue)) {
         return {
-          version: 3,
+          version: 4,
           queue: localizeQueueArtwork(parsed.queue),
           currentTrackIndex: Math.max(0, Math.floor(parsed.currentTrackIndex || 0)),
           currentTime: Math.max(0, Number(parsed.currentTime) || 0),
           duration: Math.max(0, Number(parsed.duration) || 0),
           isMuted: parsed.isMuted === true,
+          seriesIntermission: parsed.seriesIntermission || null,
           updatedAt: Number(parsed.updatedAt) || Date.now(),
         };
+      }
+    }
+
+    const v3Raw = window.localStorage.getItem(V3_STORAGE_KEY);
+    if (v3Raw) {
+      const v3 = JSON.parse(v3Raw) as Partial<PlayerState> & { version?: number };
+      if (v3.version === 3 && isPlayerQueue(v3.queue)) {
+        const migrated: StoredPlayerState = {
+          version: 4,
+          queue: localizeQueueArtwork(v3.queue),
+          currentTrackIndex: Math.max(0, Math.floor(v3.currentTrackIndex || 0)),
+          currentTime: Math.max(0, Number(v3.currentTime) || 0),
+          duration: Math.max(0, Number(v3.duration) || 0),
+          isMuted: v3.isMuted === true,
+          seriesIntermission: null,
+          updatedAt: Number(v3.updatedAt) || Date.now(),
+        };
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+        window.localStorage.removeItem(V3_STORAGE_KEY);
+        return migrated;
       }
     }
 
@@ -139,12 +178,13 @@ const readStoredState = (): StoredPlayerState | null => {
           tracks: legacyTracks as PlayerQueue["tracks"],
         };
         const migrated: StoredPlayerState = {
-          version: 3,
+          version: 4,
           queue: localizeQueueArtwork(queue),
           currentTrackIndex: Math.max(0, Math.floor(Number(v2.currentTrackIndex) || 0)),
           currentTime: Math.max(0, Number(v2.currentTime) || 0),
           duration: Math.max(0, Number(v2.duration) || 0),
           isMuted: v2.isMuted === true,
+          seriesIntermission: null,
           updatedAt: Number(v2.updatedAt) || Date.now(),
         };
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
@@ -170,7 +210,7 @@ const readStoredState = (): StoredPlayerState | null => {
     }
 
     const migrated: StoredPlayerState = {
-      version: 3,
+      version: 4,
       queue: {
         kind: "album",
         queueId: `album:${legacy.albumId}`,
@@ -203,6 +243,7 @@ const readStoredState = (): StoredPlayerState | null => {
       currentTime: typeof legacy.currentTime === "number" ? legacy.currentTime : 0,
       duration: typeof legacy.duration === "number" ? legacy.duration : 0,
       isMuted: legacy.isMuted === true,
+      seriesIntermission: null,
       updatedAt: typeof legacy.updatedAt === "number" ? legacy.updatedAt : Date.now(),
     };
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
@@ -233,6 +274,23 @@ const initGlobalPlayer = (): void => {
   const trackText = root.querySelector<HTMLElement>("[data-global-player-track]");
   const albumText = root.querySelector<HTMLElement>("[data-global-player-album]");
   const messageText = root.querySelector<HTMLElement>("[data-global-player-message]");
+  const seriesMeta = root.querySelector<HTMLElement>("[data-global-player-series-meta]");
+  const intermission = root.querySelector<HTMLElement>("[data-series-intermission]");
+  const intermissionPart = root.querySelector<HTMLElement>(
+    "[data-series-intermission-part]"
+  );
+  const intermissionTitle = root.querySelector<HTMLElement>(
+    "[data-series-intermission-title]"
+  );
+  const intermissionSummary = root.querySelector<HTMLElement>(
+    "[data-series-intermission-summary]"
+  );
+  const intermissionArtwork = root.querySelector<HTMLImageElement>(
+    "[data-series-intermission-artwork]"
+  );
+  const intermissionLink = root.querySelector<HTMLAnchorElement>(
+    "[data-series-intermission-link]"
+  );
   const currentText = root.querySelector<HTMLElement>("[data-global-player-current]");
   const remainingText = root.querySelector<HTMLElement>("[data-global-player-remaining]");
   const progress = root.querySelector<HTMLInputElement>("[data-global-player-progress]");
@@ -245,6 +303,16 @@ const initGlobalPlayer = (): void => {
   );
   const controller = new AbortController();
   const { signal } = controller;
+  const playerResizeObserver =
+    typeof ResizeObserver === "function"
+      ? new ResizeObserver(() => {
+          document.body.style.setProperty(
+            "--global-player-offset",
+            `${root.offsetHeight}px`
+          );
+        })
+      : null;
+  playerResizeObserver?.observe(root);
   const restored = readStoredState();
   let state: PlayerState = {
     queue: restored?.queue || null,
@@ -254,6 +322,7 @@ const initGlobalPlayer = (): void => {
     isMuted: restored?.isMuted === true,
     isPlaying: false,
     errorMessage: null,
+    seriesIntermission: restored?.seriesIntermission || null,
     updatedAt: restored?.updatedAt || Date.now(),
   };
   let pendingSeek = state.currentTime;
@@ -292,17 +361,30 @@ const initGlobalPlayer = (): void => {
             album: { ...queue.album },
             tracks: queue.tracks.map((track) => ({ ...track })),
           }
-        : {
-            ...queue,
-            tracks: queue.tracks.map((track) => ({
-              ...track,
-              album: { ...track.album },
-            })),
-          }
+        : queue.kind === "radio"
+          ? {
+              ...queue,
+              tracks: queue.tracks.map((track) => ({
+                ...track,
+                album: { ...track.album },
+              })),
+            }
+          : {
+              ...queue,
+              series: { ...queue.series },
+              transitions: queue.transitions.map((transition) => ({ ...transition })),
+              tracks: queue.tracks.map((track) => ({
+                ...track,
+                album: { ...track.album },
+              })),
+            }
       : null;
     return {
       ...state,
       queue: clonedQueue,
+      seriesIntermission: state.seriesIntermission
+        ? { ...state.seriesIntermission }
+        : null,
     };
   };
 
@@ -385,21 +467,44 @@ const initGlobalPlayer = (): void => {
       return;
     }
     lastSave = now;
+    const savedTime = Number.isFinite(audio.currentTime)
+      ? Math.floor(audio.currentTime)
+      : state.currentTime;
     const stored: StoredPlayerState = {
-      version: 3,
+      version: 4,
       queue: state.queue,
       currentTrackIndex: state.currentTrackIndex,
-      currentTime: Number.isFinite(audio.currentTime)
-        ? Math.floor(audio.currentTime)
-        : state.currentTime,
+      currentTime: savedTime,
       duration: Math.floor(getDuration()),
       isMuted: audio.muted,
+      seriesIntermission: state.seriesIntermission,
       updatedAt: now,
     };
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
     } catch {
       // Playback remains available when storage is blocked.
+    }
+
+    if (state.queue.kind === "series") {
+      const track = state.queue.tracks[state.currentTrackIndex];
+      if (track) {
+        writeSeriesMarathonProgress({
+          seriesId: state.queue.series.id,
+          albumId: track.album.id,
+          trackNumber: track.trackNumber,
+          currentTime: savedTime,
+          phase: hasFinished
+            ? "completed"
+            : state.seriesIntermission
+              ? "intermission"
+              : "listening",
+          ...(state.seriesIntermission
+            ? { nextAlbumId: state.seriesIntermission.beforeAlbumId }
+            : {}),
+          updatedAt: now,
+        });
+      }
     }
   };
 
@@ -497,6 +602,7 @@ const initGlobalPlayer = (): void => {
       isMuted: false,
       isPlaying: false,
       errorMessage: null,
+      seriesIntermission: null,
       updatedAt: Date.now(),
     };
     audio.muted = false;
@@ -504,6 +610,7 @@ const initGlobalPlayer = (): void => {
     hasFinished = false;
     try {
       window.localStorage.removeItem(STORAGE_KEY);
+      window.localStorage.removeItem(V3_STORAGE_KEY);
       window.localStorage.removeItem(V2_STORAGE_KEY);
       window.localStorage.removeItem(LEGACY_STORAGE_KEY);
     } catch {
@@ -517,11 +624,20 @@ const initGlobalPlayer = (): void => {
   const preloadNextTrack = () => {
     const duration = getDuration();
     const remaining = duration - audio.currentTime;
+    const currentSeriesTrack =
+      state.queue?.kind === "series" ? state.queue.tracks[state.currentTrackIndex] : null;
     const nextTrack = state.queue?.tracks[state.currentTrackIndex + 1];
+    const nextSeriesTrack =
+      state.queue?.kind === "series"
+        ? state.queue.tracks[state.currentTrackIndex + 1]
+        : null;
     const saveData = (navigator as NavigatorWithConnection).connection?.saveData;
     if (
       saveData === true ||
       !nextTrack ||
+      (currentSeriesTrack &&
+        nextSeriesTrack &&
+        currentSeriesTrack.album.id !== nextSeriesTrack.album.id) ||
       duration <= 0 ||
       remaining > PRELOAD_THRESHOLD_SECONDS
     ) {
@@ -545,7 +661,12 @@ const initGlobalPlayer = (): void => {
     root.hidden = !hasTrack;
     document.body.dataset.globalPlayerVisible = String(hasTrack);
     document.body.dataset.globalPlayerView = playerView;
+    document.body.dataset.globalPlayerIntermission = state.seriesIntermission
+      ? "true"
+      : "false";
     root.dataset.playerView = playerView;
+    root.dataset.playerQueueKind = queue?.kind || "none";
+    root.dataset.playerIntermission = state.seriesIntermission ? "true" : "false";
     root.dataset.playerState = state.errorMessage
       ? "error"
       : hasFinished
@@ -559,6 +680,8 @@ const initGlobalPlayer = (): void => {
       return;
     }
     const album = getTrackAlbum(queue, state.currentTrackIndex);
+    const seriesQueue = queue.kind === "series" ? queue : null;
+    const seriesTrack = seriesQueue?.tracks[state.currentTrackIndex];
     if (trackText) {
       trackText.textContent = track.title;
     }
@@ -572,28 +695,43 @@ const initGlobalPlayer = (): void => {
         : hasFinished
           ? queue.kind === "radio"
             ? "Station finished"
-            : "Album finished"
+            : queue.kind === "series"
+              ? "Series complete"
+              : "Album finished"
           : "";
       messageText.hidden = !state.errorMessage && !hasFinished;
     }
     if (albumLink && album) {
-      albumLink.href = `${album.url}#track-${track.trackNumber}`;
+      albumLink.href = seriesQueue
+        ? `${seriesQueue.series.url}#series-album-${album.id}`
+        : `${album.url}#track-${track.trackNumber}`;
     }
     if (artwork && album?.artworkUrl) {
       artwork.src = album.artworkUrl;
       artwork.alt = `Cover art for the album ${album.title}`;
     }
     if (toggle) {
+      const nextSeriesTrack =
+        seriesQueue && state.seriesIntermission
+          ? seriesQueue.tracks.find(
+              (seriesTrack) =>
+                seriesTrack.album.id === state.seriesIntermission?.beforeAlbumId
+            )
+          : null;
       toggle.setAttribute("aria-pressed", String(state.isPlaying));
       toggle.setAttribute(
         "aria-label",
         state.errorMessage
           ? `Retry ${track.title}`
-          : hasFinished
-            ? queue.kind === "radio"
-              ? `Replay station ${queue.title}`
-              : `Replay album ${queue.album.title}`
-            : `${state.isPlaying ? "Pause" : "Play"} ${track.title}`
+          : nextSeriesTrack
+            ? `Play next album ${nextSeriesTrack.album.title}`
+            : hasFinished
+              ? queue.kind === "radio"
+                ? `Replay station ${queue.title}`
+                : queue.kind === "series"
+                  ? `Replay series ${queue.series.title}`
+                  : `Replay album ${queue.album.title}`
+              : `${state.isPlaying ? "Pause" : "Play"} ${track.title}`
       );
     }
     if (mute) {
@@ -618,6 +756,57 @@ const initGlobalPlayer = (): void => {
         `${formatTime(current)} elapsed, ${formatTime(remaining)} remaining`
       );
     }
+    if (seriesMeta) {
+      if (seriesQueue && seriesTrack) {
+        const knownDuration = seriesQueue.series.totalDurationSeconds;
+        const completedDuration = seriesQueue.tracks
+          .slice(0, state.currentTrackIndex)
+          .reduce((total, queueTrack) => total + (queueTrack.durationSeconds || 0), 0);
+        const elapsed = hasFinished
+          ? knownDuration || 0
+          : completedDuration + Math.min(current, track.durationSeconds || current);
+        const percent =
+          knownDuration && knownDuration > 0
+            ? Math.min(100, Math.round((elapsed / knownDuration) * 100))
+            : null;
+        seriesMeta.textContent = `Part ${seriesTrack.partNumber} of ${seriesQueue.series.albumCount} · Track ${state.currentTrackIndex + 1} of ${seriesQueue.tracks.length}${percent === null ? "" : ` · ${percent}%`}`;
+        seriesMeta.hidden = false;
+      } else {
+        seriesMeta.hidden = true;
+        seriesMeta.textContent = "";
+      }
+    }
+
+    if (intermission) {
+      const intermissionState = seriesQueue ? state.seriesIntermission : null;
+      const nextTrack = intermissionState
+        ? seriesQueue?.tracks.find(
+            (queueTrack) => queueTrack.album.id === intermissionState.beforeAlbumId
+          )
+        : null;
+      intermission.hidden = !intermissionState || !nextTrack;
+      if (intermissionState && nextTrack) {
+        if (intermissionPart) {
+          intermissionPart.textContent = `Part ${intermissionState.fromPartNumber} complete · Part ${intermissionState.toPartNumber} of ${seriesQueue?.series.albumCount}`;
+        }
+        if (intermissionTitle) {
+          intermissionTitle.textContent = `Up next: ${nextTrack.album.title}`;
+        }
+        if (intermissionSummary) {
+          intermissionSummary.textContent = intermissionState.transitionText;
+        }
+        if (intermissionArtwork) {
+          intermissionArtwork.hidden = !nextTrack.album.artworkUrl;
+          if (nextTrack.album.artworkUrl) {
+            intermissionArtwork.src = nextTrack.album.artworkUrl;
+            intermissionArtwork.alt = `Cover art for the album ${nextTrack.album.title}`;
+          }
+        }
+        if (intermissionLink) {
+          intermissionLink.href = seriesQueue?.series.url || "/series/";
+        }
+      }
+    }
     updateMediaSession();
   };
 
@@ -628,6 +817,7 @@ const initGlobalPlayer = (): void => {
     }
     state.currentTrackIndex = index;
     state.errorMessage = null;
+    state.seriesIntermission = null;
     hasFinished = false;
     releasePreloader();
     pendingSeek = currentTime;
@@ -635,8 +825,8 @@ const initGlobalPlayer = (): void => {
     if (audio.currentSrc !== nextUrl && audio.src !== nextUrl) {
       audio.src = nextUrl;
       audio.load();
-    } else if (pendingSeek > 0) {
-      audio.currentTime = pendingSeek;
+    } else if (Number.isFinite(audio.duration)) {
+      audio.currentTime = Math.min(pendingSeek, audio.duration || pendingSeek);
       pendingSeek = 0;
     }
   };
@@ -683,6 +873,65 @@ const initGlobalPlayer = (): void => {
     }
   };
 
+  const enterSeriesIntermission = (): boolean => {
+    if (state.queue?.kind !== "series") {
+      return false;
+    }
+    const currentTrack = state.queue.tracks[state.currentTrackIndex];
+    const nextTrack = state.queue.tracks[state.currentTrackIndex + 1];
+    if (!currentTrack || !nextTrack || currentTrack.album.id === nextTrack.album.id) {
+      return false;
+    }
+
+    const transition = state.queue.transitions.find(
+      (item) => item.beforeAlbumId === nextTrack.album.id
+    );
+    if (!transition) {
+      return false;
+    }
+
+    state.seriesIntermission = {
+      ...transition,
+      fromPartNumber: currentTrack.partNumber,
+      toPartNumber: nextTrack.partNumber,
+    };
+    playerView = "expanded";
+    audio.pause();
+    dispatch(true);
+    announce(
+      `Part ${currentTrack.partNumber} complete. Up next: ${nextTrack.album.title}`
+    );
+    return true;
+  };
+
+  const continueSeries = (): void => {
+    if (state.queue?.kind !== "series" || !state.seriesIntermission) {
+      return;
+    }
+    const nextIndex = state.queue.tracks.findIndex(
+      (track, index) =>
+        index > state.currentTrackIndex &&
+        track.album.id === state.seriesIntermission?.beforeAlbumId
+    );
+    if (nextIndex < 0) {
+      return;
+    }
+    const nextTitle = state.queue.tracks[nextIndex]?.album.title || "next album";
+    changeTrack(nextIndex, true, "auto");
+    announce(`Playing ${nextTitle}`);
+  };
+
+  const finishQueue = (): void => {
+    hasFinished = true;
+    state.seriesIntermission = null;
+    audio.currentTime = 0;
+    dispatch(true);
+    if (state.queue?.kind === "radio") {
+      endRadioSession("finished");
+    }
+    announce(`Finished ${state.queue?.title || "album"}`);
+  };
+
   const handleLoad = (detail: PlayerLoadDetail) => {
     if (!isPlayerQueue(detail.queue) || detail.queue.tracks.length === 0) {
       return;
@@ -691,6 +940,7 @@ const initGlobalPlayer = (): void => {
       Math.max(Math.floor(detail.startIndex || 0), 0),
       detail.queue.tracks.length - 1
     );
+    const startTime = Math.max(0, Number(detail.startTime) || 0);
     playerView = "expanded";
     hasFinished = false;
     const previousQueue = state.queue;
@@ -716,10 +966,12 @@ const initGlobalPlayer = (): void => {
       lastStartedRadioTrack = "";
     }
     state.queue = detail.queue;
-    if (!sameTrack) {
+    if (!sameTrack || detail.startTime !== undefined) {
       pendingTrackReason = "initial";
-      setSource(index);
+      setSource(index, startTime);
     }
+    state.seriesIntermission =
+      detail.queue.kind === "series" ? detail.seriesIntermission || null : null;
     if (
       detail.queue.kind === "radio" &&
       previousQueue?.queueId !== detail.queue.queueId
@@ -727,8 +979,9 @@ const initGlobalPlayer = (): void => {
       startRadioSession(false);
     }
     dispatch(true);
-    announce(`${detail.autoplay === false ? "Ready" : "Playing"} ${getTrack()?.title}`);
-    if (detail.autoplay !== false) {
+    const shouldAutoplay = detail.autoplay !== false && !state.seriesIntermission;
+    announce(`${shouldAutoplay ? "Playing" : "Ready"} ${getTrack()?.title}`);
+    if (shouldAutoplay) {
       play();
     }
   };
@@ -736,14 +989,18 @@ const initGlobalPlayer = (): void => {
   const handleCommand = (command: PlayerCommand) => {
     switch (command.action) {
       case "toggle":
-        if (hasFinished) {
+        if (state.seriesIntermission) {
+          continueSeries();
+        } else if (hasFinished) {
           changeTrack(0, true, "initial");
         } else {
           audio.paused ? play() : audio.pause();
         }
         break;
       case "play":
-        if (hasFinished) {
+        if (state.seriesIntermission) {
+          continueSeries();
+        } else if (hasFinished) {
           changeTrack(0, true, "initial");
         } else {
           play();
@@ -753,7 +1010,9 @@ const initGlobalPlayer = (): void => {
         audio.pause();
         break;
       case "previous":
-        if (audio.currentTime > 3) {
+        if (state.seriesIntermission) {
+          changeTrack(state.currentTrackIndex, true, "previous");
+        } else if (audio.currentTime > 3 || state.currentTrackIndex === 0) {
           audio.currentTime = 0;
           dispatch(true);
         } else {
@@ -761,6 +1020,10 @@ const initGlobalPlayer = (): void => {
         }
         break;
       case "next": {
+        if (state.seriesIntermission) {
+          continueSeries();
+          break;
+        }
         if (state.queue?.kind === "radio") {
           const track = state.queue.tracks[state.currentTrackIndex];
           if (track) {
@@ -776,6 +1039,15 @@ const initGlobalPlayer = (): void => {
               elapsedSeconds: Math.round(audio.currentTime || state.currentTime),
               timestamp: Date.now(),
             });
+          }
+        }
+        if (state.queue?.kind === "series") {
+          if (state.currentTrackIndex + 1 >= state.queue.tracks.length) {
+            finishQueue();
+            break;
+          }
+          if (enterSeriesIntermission()) {
+            break;
           }
         }
         changeTrack(state.currentTrackIndex + 1, !audio.paused, "skip");
@@ -796,6 +1068,9 @@ const initGlobalPlayer = (): void => {
         audio.muted = !audio.muted;
         dispatch(true);
         break;
+      case "continue-series":
+        continueSeries();
+        break;
       case "minimize":
         playerView = "compact";
         updateUi();
@@ -811,6 +1086,7 @@ const initGlobalPlayer = (): void => {
         break;
       case "seek":
         hasFinished = false;
+        state.seriesIntermission = null;
         audio.currentTime = Math.min(Math.max(command.value, 0), getDuration());
         dispatch(true);
         break;
@@ -1011,15 +1287,11 @@ const initGlobalPlayer = (): void => {
     () => {
       updateRadioListeningTime();
       if (state.currentTrackIndex + 1 < (state.queue?.tracks.length || 0)) {
-        changeTrack(state.currentTrackIndex + 1, true, "auto");
-      } else {
-        hasFinished = true;
-        audio.currentTime = 0;
-        dispatch(true);
-        if (state.queue?.kind === "radio") {
-          endRadioSession("finished");
+        if (!enterSeriesIntermission()) {
+          changeTrack(state.currentTrackIndex + 1, true, "auto");
         }
-        announce(`Finished ${state.queue?.title || "album"}`);
+      } else {
+        finishQueue();
       }
     },
     { signal }
@@ -1057,7 +1329,9 @@ const initGlobalPlayer = (): void => {
   }
 
   if (state.queue && getTrack()) {
+    const restoredIntermission = state.seriesIntermission;
     setSource(state.currentTrackIndex, state.currentTime);
+    state.seriesIntermission = restoredIntermission;
   }
   audio.muted = state.isMuted;
   updateUi();
@@ -1070,6 +1344,8 @@ const initGlobalPlayer = (): void => {
     destroy: () => {
       save(true);
       releasePreloader();
+      playerResizeObserver?.disconnect();
+      document.body.style.removeProperty("--global-player-offset");
       controller.abort();
       delete window.__melodyMindPlayer;
     },
