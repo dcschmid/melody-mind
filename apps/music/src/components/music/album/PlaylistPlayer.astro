@@ -38,10 +38,16 @@ const totalDurationLabel = totalDurationSeconds
   ? `${Math.floor(totalDurationSeconds / 60)}:${String(totalDurationSeconds % 60).padStart(2, "0")}`
   : "";
 const playerQueue = {
-  albumId,
-  albumTitle,
-  albumUrl,
-  ...(albumArtworkUrl ? { albumArtworkUrl } : {}),
+  kind: "album",
+  queueId: `album:${albumId}`,
+  title: albumTitle,
+  url: albumUrl,
+  album: {
+    id: albumId,
+    title: albumTitle,
+    url: albumUrl,
+    ...(albumArtworkUrl ? { artworkUrl: albumArtworkUrl } : {}),
+  },
   tracks: songs.map((song) => ({
     trackNumber: song.trackNumber,
     title: song.title,

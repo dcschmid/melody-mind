@@ -34,4 +34,20 @@ export function getAlbumCoverImageUrl(coverImage: string): string {
   return toAbsoluteAssetUrl(image, MUSIC_SITE_URL);
 }
 
+export function getAlbumCoverImagePath(coverImage: string): string {
+  const image = getAlbumCoverImage(coverImage);
+  if (typeof image !== "string") {
+    return image.src;
+  }
+
+  try {
+    const url = new URL(image, MUSIC_SITE_URL);
+    return url.origin === new URL(MUSIC_SITE_URL).origin
+      ? `${url.pathname}${url.search}${url.hash}`
+      : image;
+  } catch {
+    return image;
+  }
+}
+
 export { musicDefaultOgImageUrl };

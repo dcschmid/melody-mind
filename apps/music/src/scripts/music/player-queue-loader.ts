@@ -1,27 +1,69 @@
-import type { PlayerQueue } from "../../types/player";
+import type {
+  AlbumPlayerQueue,
+  PlayerAlbumContext,
+  PlayerQueue,
+  PlayerTrack,
+  RadioPlayerQueue,
+  RadioPlayerTrack,
+} from "../../types/player";
 
 const queueCache = new Map<string, Promise<Record<string, unknown>>>();
+
+const isTrack = (value: unknown): value is PlayerTrack =>
+  Boolean(
+    value &&
+    typeof value === "object" &&
+    typeof (value as Partial<PlayerTrack>).trackNumber === "number" &&
+    typeof (value as Partial<PlayerTrack>).title === "string" &&
+    typeof (value as Partial<PlayerTrack>).audioUrl === "string"
+  );
+
+const isAlbumContext = (value: unknown): value is PlayerAlbumContext =>
+  Boolean(
+    value &&
+    typeof value === "object" &&
+    typeof (value as Partial<PlayerAlbumContext>).id === "string" &&
+    typeof (value as Partial<PlayerAlbumContext>).title === "string" &&
+    typeof (value as Partial<PlayerAlbumContext>).url === "string"
+  );
+
+const hasQueueBase = (queue: Partial<AlbumPlayerQueue | RadioPlayerQueue>): boolean =>
+  typeof queue.queueId === "string" &&
+  typeof queue.title === "string" &&
+  typeof queue.url === "string" &&
+  Array.isArray(queue.tracks) &&
+  queue.tracks.length > 0;
 
 export const isPlayerQueue = (value: unknown): value is PlayerQueue => {
   if (!value || typeof value !== "object") {
     return false;
   }
 
-  const queue = value as Partial<PlayerQueue>;
-  return (
-    typeof queue.albumId === "string" &&
-    typeof queue.albumTitle === "string" &&
-    typeof queue.albumUrl === "string" &&
-    Array.isArray(queue.tracks) &&
-    queue.tracks.length > 0 &&
-    queue.tracks.every(
-      (track) =>
-        track &&
-        typeof track.trackNumber === "number" &&
-        typeof track.title === "string" &&
-        typeof track.audioUrl === "string"
-    )
-  );
+  const queue = value as Partial<AlbumPlayerQueue | RadioPlayerQueue>;
+  if (!hasQueueBase(queue)) {
+    return false;
+  }
+
+  if (queue.kind === "album") {
+    return (
+      isAlbumContext(queue.album) &&
+      (queue.tracks as unknown[]).every((track) => isTrack(track))
+    );
+  }
+
+  if (queue.kind === "radio") {
+    return (
+      typeof queue.stationId === "string" &&
+      (queue.tracks as unknown[]).every(
+        (track) =>
+          isTrack(track) &&
+          isAlbumContext((track as Partial<RadioPlayerTrack>).album) &&
+          typeof (track as Partial<RadioPlayerTrack>).transitionText === "string"
+      )
+    );
+  }
+
+  return false;
 };
 
 const loadPlayerQueues = (url: string): Promise<Record<string, unknown>> => {

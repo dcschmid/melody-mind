@@ -23,7 +23,8 @@ export interface AlbumData {
   tags: string[];
   language?: string;
   era?: string;
-  energy?: "low" | "medium" | "high";
+  energy: "low" | "medium" | "high";
+  radioIntro?: string;
   artist: string;
   isAvailable: boolean;
   songs: Song[];

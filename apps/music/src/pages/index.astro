@@ -26,10 +26,16 @@ const featuredAlbum: FeaturedAlbum | undefined =
     ? {
         ...featuredEntry,
         queue: {
-          albumId: featuredSource.id,
-          albumTitle: featuredSource.title,
-          albumUrl: `/${featuredSource.id}/`,
-          albumArtworkUrl: featuredEntry.imageUrl,
+          kind: "album",
+          queueId: `album:${featuredSource.id}`,
+          title: featuredSource.title,
+          url: `/${featuredSource.id}/`,
+          album: {
+            id: featuredSource.id,
+            title: featuredSource.title,
+            url: `/${featuredSource.id}/`,
+            artworkUrl: featuredEntry.imageUrl,
+          },
           tracks: featuredSource.songs.map((song) => ({
             trackNumber: song.trackNumber,
             title: song.title,

@@ -7,6 +7,7 @@ Album pages are the primary source for each release. They include the album desc
 ## Start here
 
 - [MelodyMind Music home](https://melody-mind.de/): Latest releases and entry points to the catalog.
+- [MelodyMind Radio](https://melody-mind.de/radio/): Five rule-based stations drawn from the catalog.
 - [Music genres](https://melody-mind.de/genre/): Albums grouped by main genre.
 - [Album series](https://melody-mind.de/series/): Connected concept albums in narrative order.
 

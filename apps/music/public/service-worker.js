@@ -1,4 +1,4 @@
-const CACHE_VERSION = "music-pwa-v20260722-2";
+const CACHE_VERSION = "music-pwa-v20260724-2";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const MAX_RUNTIME_CACHE_ENTRIES = 80;
@@ -29,7 +29,9 @@ const isAudioRequest = (request) =>
 
 const isCatalogDataRequest = (url) =>
   isSameOrigin(url) &&
-  ["/search-index.json", "/player-queues.json"].includes(url.pathname);
+  ["/search-index.json", "/player-queues.json", "/radio-stations.json"].includes(
+    url.pathname
+  );
 
 // Cache API keys are insertion-ordered, so deleting from the front is FIFO
 // eviction — enough to keep the runtime cache from growing unbounded.

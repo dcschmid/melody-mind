@@ -1,8 +1,8 @@
 import { formatTime } from "@utils/time";
 import type {
+  AlbumPlayerQueue,
   PlayerCommand,
   PlayerLoadDetail,
-  PlayerQueue,
   PlayerState,
 } from "../../types/player";
 
@@ -67,14 +67,15 @@ const downloadTrack = async (button: HTMLButtonElement): Promise<void> => {
   }
 };
 
-const parseQueue = (player: HTMLElement): PlayerQueue | null => {
+const parseQueue = (player: HTMLElement): AlbumPlayerQueue | null => {
   const script = player.querySelector<HTMLScriptElement>("[data-player-queue]");
   if (!script?.textContent) {
     return null;
   }
 
   try {
-    return JSON.parse(script.textContent) as PlayerQueue;
+    const queue = JSON.parse(script.textContent) as AlbumPlayerQueue;
+    return queue.kind === "album" ? queue : null;
   } catch {
     return null;
   }
@@ -132,7 +133,7 @@ const bindPlayer = (player: HTMLElement): void => {
   let latestState = window.__melodyMindPlayer?.getState() || null;
   let lastStatusKey = "";
   const isThisAlbum = (state: PlayerState | null): state is PlayerState =>
-    state?.queue?.albumId === queue.albumId;
+    state?.queue?.kind === "album" && state.queue.album.id === queue.album.id;
 
   const render = (state: PlayerState | null): void => {
     latestState = state;
@@ -172,7 +173,7 @@ const bindPlayer = (player: HTMLElement): void => {
       toggle.setAttribute("aria-pressed", String(playing));
       toggle.setAttribute(
         "aria-label",
-        `${playbackError ? "Retry" : playing ? "Pause" : "Play"} ${track?.title || queue.albumTitle}`
+        `${playbackError ? "Retry" : playing ? "Pause" : "Play"} ${track?.title || queue.title}`
       );
     }
     if (volume) {
@@ -233,7 +234,7 @@ const bindPlayer = (player: HTMLElement): void => {
   });
   document
     .querySelectorAll<HTMLButtonElement>(
-      `[data-album-hero-play="${CSS.escape(queue.albumId)}"]`
+      `[data-album-hero-play="${CSS.escape(queue.album.id)}"]`
     )
     .forEach((button) => {
       button.addEventListener(
@@ -287,7 +288,7 @@ const bindPlayer = (player: HTMLElement): void => {
           lastStatusKey = statusKey;
           status.textContent =
             event.detail.errorMessage ||
-            `${event.detail.isPlaying ? "Playing" : "Paused"} ${track?.title || queue.albumTitle}`;
+            `${event.detail.isPlaying ? "Playing" : "Paused"} ${track?.title || queue.title}`;
         }
       }
     },

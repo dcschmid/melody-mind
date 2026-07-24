@@ -1,0 +1,891 @@
+---
+import Icon from "@components/visual/Icon.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { getRadioCatalog } from "../utils/radioCatalog";
+import { musicDefaultOgImageUrl } from "../utils/musicImages";
+import { resolvePageUrl } from "../utils/siteUrls";
+
+const catalog = await getRadioCatalog();
+const initialStation = catalog.stations[0];
+if (!initialStation) {
+  throw new Error("The radio route needs at least one station.");
+}
+const stationSummaries = catalog.stations.map(
+  ({
+    id,
+    title,
+    description,
+    selectionSummary,
+    albumCount,
+    trackCount,
+    durationSeconds,
+    previewAlbum,
+  }) => ({
+    id,
+    title,
+    description,
+    selectionSummary,
+    albumCount,
+    trackCount,
+    durationSeconds,
+    previewAlbum,
+  })
+);
+const canonical = resolvePageUrl(Astro.site, "/radio/");
+const description =
+  "Start a curated MelodyMind radio station built from clear rules for genre, language, mood, energy, and connected album series.";
+---
+
+<Layout
+  title="MelodyMind Radio"
+  {description}
+  canonical={canonical}
+  image={musicDefaultOgImageUrl}
+  keywords={[
+    "MelodyMind radio",
+    "curated music radio",
+    "concept album radio",
+    "instrumental radio",
+    "metal radio",
+  ]}
+  breadcrumbs={[
+    { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+    { name: "Radio", url: canonical },
+  ]}
+  contentShellClass="music-layout__container--radio"
+>
+  <div
+    class="radio-page"
+    data-radio-root
+    data-radio-endpoint="/radio-stations.json"
+    data-initial-station={initialStation.id}
+  >
+    <header class="radio-page__header">
+      <p class="radio-page__eyebrow">
+        <Icon name="wave" aria-hidden="true" />
+        MelodyMind Radio
+      </p>
+      <h1 class="radio-page__title">Choose the idea. We choose the records.</h1>
+      <p class="radio-page__intro">
+        Five stations, each built from a rule you can see. Pick one and the music starts
+        with a fresh rotation.
+      </p>
+    </header>
+
+    <div class="radio-page__layout">
+      <nav class="radio-page__stations" aria-labelledby="radio-stations-heading">
+        <div class="radio-page__stations-heading-row">
+          <h2 id="radio-stations-heading" class="radio-page__stations-heading">
+            Stations
+          </h2>
+          <span class="radio-page__stations-count">{catalog.stations.length}</span>
+        </div>
+        <ol class="radio-page__station-list">
+          {
+            catalog.stations.map((station, index) => (
+              <li class="radio-page__station-item">
+                <button
+                  class="radio-page__station-button"
+                  type="button"
+                  data-radio-station={station.id}
+                  data-selected={String(station.id === initialStation.id)}
+                  aria-pressed={station.id === initialStation.id}
+                >
+                  <span class="radio-page__station-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span class="radio-page__station-copy">
+                    <strong class="radio-page__station-name">{station.title}</strong>
+                    <span class="radio-page__station-size">
+                      {station.albumCount} albums · {station.trackCount} tracks
+                    </span>
+                  </span>
+                  <Icon
+                    name="chevron-right"
+                    class="radio-page__station-chevron"
+                    aria-hidden="true"
+                  />
+                </button>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+
+      <section class="radio-page__listening-room" aria-labelledby="radio-station-title">
+        <header class="radio-page__station-header">
+          <div>
+            <p class="radio-page__state" data-radio-state-label>Station preview</p>
+            <h2
+              id="radio-station-title"
+              class="radio-page__station-title"
+              data-radio-station-title
+            >
+              {initialStation.title}
+            </h2>
+          </div>
+          <p class="radio-page__station-meta" data-radio-station-meta>
+            {initialStation.albumCount} albums · {initialStation.trackCount} tracks
+          </p>
+        </header>
+
+        <div class="radio-page__now-playing">
+          <div class="radio-page__artwork-frame">
+            <img
+              class="radio-page__artwork"
+              src={initialStation.previewAlbum.artworkUrl}
+              width="700"
+              height="700"
+              alt={`Cover art for ${initialStation.previewAlbum.title}, a record in ${initialStation.title}`}
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              data-radio-current-artwork
+            />
+            <span class="radio-page__artwork-signal" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </span>
+          </div>
+
+          <div class="radio-page__playback-copy">
+            <p class="radio-page__track" data-radio-current-track>
+              {initialStation.title}
+            </p>
+            <p class="radio-page__album" data-radio-current-album>
+              Ready for a fresh rotation
+            </p>
+            <p class="radio-page__description" data-radio-station-description>
+              {initialStation.description}
+            </p>
+
+            <div class="radio-page__controls" aria-label="Radio playback controls">
+              <button
+                class="radio-page__control radio-page__control--primary"
+                type="button"
+                aria-pressed="false"
+                data-radio-start
+              >
+                <Icon
+                  name="tabler:player-play-filled"
+                  class="radio-page__control-icon radio-page__control-icon--play"
+                  aria-hidden="true"
+                />
+                <Icon
+                  name="tabler:player-pause-filled"
+                  class="radio-page__control-icon radio-page__control-icon--pause"
+                  aria-hidden="true"
+                />
+                <span data-radio-start-label>Start station</span>
+              </button>
+              <button
+                class="radio-page__control radio-page__control--secondary"
+                type="button"
+                disabled
+                data-radio-skip
+              >
+                <Icon name="tabler:player-skip-forward-filled" aria-hidden="true" />
+                Skip track
+              </button>
+              <a
+                class="radio-page__control radio-page__control--link"
+                href="/"
+                hidden
+                data-radio-album-link
+              >
+                Open album
+                <Icon name="arrow-right" aria-hidden="true" />
+              </a>
+            </div>
+
+            <p class="radio-page__notice" data-radio-playback-notice hidden></p>
+          </div>
+        </div>
+
+        <p
+          class="radio-page__transition"
+          aria-live="polite"
+          aria-atomic="true"
+          data-radio-transition
+          hidden
+        >
+        </p>
+
+        <section class="radio-page__rule" aria-labelledby="radio-rule-heading">
+          <div class="radio-page__rule-heading-row">
+            <Icon name="filter" aria-hidden="true" />
+            <h3 id="radio-rule-heading" class="radio-page__rule-heading">
+              Why these records
+            </h3>
+          </div>
+          <p class="radio-page__rule-copy" data-radio-station-rule>
+            {initialStation.selectionSummary}
+          </p>
+        </section>
+
+        <section class="radio-page__up-next" aria-labelledby="radio-up-next-heading">
+          <div class="radio-page__up-next-heading-row">
+            <h3 id="radio-up-next-heading" class="radio-page__up-next-heading">
+              Up next
+            </h3>
+            <span>Next three tracks</span>
+          </div>
+          <ol class="radio-page__up-next-list">
+            {
+              Array.from({ length: 3 }, (_, index) => (
+                <li class="radio-page__up-next-item" data-radio-up-next-item hidden>
+                  <span class="radio-page__up-next-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <img
+                    class="radio-page__up-next-artwork"
+                    src={initialStation.previewAlbum.artworkUrl}
+                    width="64"
+                    height="64"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    data-radio-up-next-artwork
+                  />
+                  <span class="radio-page__up-next-copy">
+                    <strong data-radio-up-next-title />
+                    <a href="/" data-radio-up-next-album data-radio-album-link>
+                      <span class="sr-only">Open album</span>
+                    </a>
+                  </span>
+                </li>
+              ))
+            }
+          </ol>
+          <p class="radio-page__up-next-empty">
+            Start the station to reveal the next three records.
+          </p>
+        </section>
+      </section>
+    </div>
+
+    <p class="radio-page__status" aria-live="polite" aria-atomic="true" data-radio-status>
+    </p>
+
+    <script
+      type="application/json"
+      is:inline
+      data-radio-station-summaries
+      set:html={JSON.stringify(stationSummaries)}
+    />
+  </div>
+
+  <script>
+    import "../scripts/music/radio";
+  </script>
+</Layout>
+
+<style>
+  :global(.music-layout__container.music-layout__container--radio) {
+    inline-size: 100%;
+    max-inline-size: none;
+    padding: 0;
+    overflow-x: clip;
+  }
+
+  .radio-page {
+    position: relative;
+    min-block-size: 100svh;
+    padding: clamp(5rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem) clamp(3rem, 7vw, 6rem);
+    overflow: hidden;
+    color: var(--text-primary);
+    isolation: isolate;
+  }
+
+  .radio-page::before {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: -1;
+    block-size: min(48rem, 75vh);
+    pointer-events: none;
+    content: "";
+    background:
+      radial-gradient(
+        circle at 72% 15%,
+        color-mix(in srgb, var(--accent-primary) 10%, transparent),
+        transparent 38%
+      ),
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--surface-1) 58%, transparent),
+        transparent
+      );
+  }
+
+  .radio-page__header,
+  .radio-page__layout {
+    max-inline-size: 90rem;
+    margin-inline: auto;
+  }
+
+  .radio-page__header {
+    display: grid;
+    gap: 0.85rem;
+    padding-block-end: clamp(2rem, 5vw, 4rem);
+  }
+
+  .radio-page__eyebrow,
+  .radio-page__state {
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .radio-page__title {
+    max-inline-size: 16ch;
+    margin: 0;
+    font-size: clamp(2.5rem, 1.75rem + 3vw, 4.75rem);
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .radio-page__intro {
+    max-inline-size: 58ch;
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  .radio-page__layout {
+    display: grid;
+    grid-template-columns: minmax(17rem, 0.36fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: start;
+  }
+
+  .radio-page__stations {
+    position: sticky;
+    inset-block-start: 5.5rem;
+  }
+
+  .radio-page__stations-heading-row,
+  .radio-page__station-header,
+  .radio-page__up-next-heading-row,
+  .radio-page__rule-heading-row {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .radio-page__stations-heading,
+  .radio-page__station-title,
+  .radio-page__rule-heading,
+  .radio-page__up-next-heading {
+    margin: 0;
+  }
+
+  .radio-page__stations-heading {
+    font-size: var(--font-size-lg);
+  }
+
+  .radio-page__stations-count {
+    display: grid;
+    place-items: center;
+    min-inline-size: 2rem;
+    block-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+  }
+
+  .radio-page__station-list,
+  .radio-page__up-next-list {
+    padding: 0;
+    margin: var(--spacing-base) 0 0;
+    list-style: none;
+    border-block-start: 1px solid var(--border-default);
+  }
+
+  .radio-page__station-item {
+    border-block-end: 1px solid var(--border-default);
+  }
+
+  .radio-page__station-button {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    gap: var(--spacing-md);
+    align-items: center;
+    inline-size: 100%;
+    min-block-size: 5rem;
+    padding: var(--spacing-md) var(--spacing-sm);
+    font: inherit;
+    color: var(--text-primary);
+    text-align: start;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-base);
+    transition:
+      color var(--motion-duration-fast) var(--motion-ease-standard),
+      background-color var(--motion-duration-fast) var(--motion-ease-standard);
+  }
+
+  .radio-page__station-button:hover,
+  .radio-page__station-button:focus-visible {
+    background: color-mix(in srgb, var(--surface-2) 72%, transparent);
+  }
+
+  .radio-page__station-button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .radio-page__station-button[data-selected="true"] {
+    color: var(--accent-primary);
+    background: var(--surface-2);
+  }
+
+  .radio-page__station-number,
+  .radio-page__up-next-number {
+    font-size: var(--font-size-xs);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-tertiary);
+  }
+
+  .radio-page__station-copy {
+    display: grid;
+    gap: 0.3rem;
+    min-inline-size: 0;
+  }
+
+  .radio-page__station-name,
+  .radio-page__station-size {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .radio-page__station-name {
+    font-size: var(--font-size-base);
+  }
+
+  .radio-page__station-size {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+  }
+
+  .radio-page__station-chevron {
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    color: var(--text-tertiary);
+  }
+
+  .radio-page__station-button[data-selected="true"] .radio-page__station-chevron {
+    color: var(--accent-primary);
+  }
+
+  .radio-page__listening-room {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    min-inline-size: 0;
+  }
+
+  .radio-page__station-header {
+    align-items: end;
+  }
+
+  .radio-page__station-title {
+    margin-block-start: var(--spacing-sm);
+    font-size: clamp(2rem, 1.55rem + 1.4vw, 3rem);
+    line-height: 1.05;
+  }
+
+  .radio-page__station-meta {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-tertiary);
+    text-align: end;
+  }
+
+  .radio-page__now-playing {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.72fr) minmax(19rem, 1.28fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: center;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: var(--surface-1);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .radio-page__artwork-frame {
+    position: relative;
+    inline-size: min(100%, 24rem);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .radio-page__artwork {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .radio-page__artwork-signal {
+    position: absolute;
+    inset-block-end: var(--spacing-md);
+    inset-inline-end: var(--spacing-md);
+    display: flex;
+    gap: 0.2rem;
+    align-items: end;
+    min-block-size: 2rem;
+    padding: 0.45rem 0.55rem;
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--bg-primary) 88%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 28%, transparent);
+    border-radius: var(--radius-full);
+  }
+
+  .radio-page__artwork-signal i {
+    display: block;
+    inline-size: 0.18rem;
+    block-size: 0.55rem;
+    background: currentcolor;
+    border-radius: var(--radius-full);
+  }
+
+  .radio-page__artwork-signal i:nth-child(2) {
+    block-size: 1rem;
+  }
+
+  .radio-page__artwork-signal i:nth-child(3) {
+    block-size: 1.35rem;
+  }
+
+  .radio-page__artwork-signal i:nth-child(4) {
+    block-size: 0.8rem;
+  }
+
+  .radio-page__playback-copy {
+    display: grid;
+    gap: var(--spacing-md);
+    min-inline-size: 0;
+  }
+
+  .radio-page__track,
+  .radio-page__album,
+  .radio-page__description,
+  .radio-page__notice,
+  .radio-page__transition,
+  .radio-page__rule-copy {
+    margin: 0;
+  }
+
+  .radio-page__track {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.75rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .radio-page__album {
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+  }
+
+  .radio-page__description {
+    max-inline-size: 56ch;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .radio-page__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-block-start: var(--spacing-sm);
+  }
+
+  .radio-page__control {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: 0.7rem 1.1rem;
+    font: inherit;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+  }
+
+  .radio-page__control:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .radio-page__control--primary {
+    color: var(--bg-primary);
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  .radio-page__control--primary:hover,
+  .radio-page__control--primary:focus-visible {
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
+  }
+
+  .radio-page__control--secondary:hover,
+  .radio-page__control--secondary:focus-visible,
+  .radio-page__control--link:hover,
+  .radio-page__control--link:focus-visible {
+    color: var(--accent-primary);
+    background: var(--surface-2);
+  }
+
+  .radio-page__control:disabled {
+    color: var(--text-tertiary);
+    cursor: not-allowed;
+    opacity: 0.58;
+  }
+
+  .radio-page__control[hidden] {
+    display: none;
+  }
+
+  .radio-page__control-icon--pause {
+    display: none;
+  }
+
+  .radio-page[data-radio-playing="true"] .radio-page__control-icon--play {
+    display: none;
+  }
+
+  .radio-page[data-radio-playing="true"] .radio-page__control-icon--pause {
+    display: block;
+  }
+
+  .radio-page__notice {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+    color: var(--text-secondary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .radio-page__notice[hidden],
+  .radio-page__transition[hidden],
+  .radio-page__up-next-item[hidden] {
+    display: none;
+  }
+
+  .radio-page__transition {
+    max-inline-size: 66ch;
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    line-height: 1.55;
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--accent-primary) 8%, var(--surface-1));
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 24%, var(--border-default));
+    border-radius: var(--radius-md);
+  }
+
+  .radio-page__rule {
+    display: grid;
+    gap: var(--spacing-sm);
+    padding-block: var(--spacing-lg);
+    border-block: 1px solid var(--border-default);
+  }
+
+  .radio-page__rule-heading-row {
+    justify-content: start;
+    color: var(--accent-primary);
+  }
+
+  .radio-page__rule-heading {
+    font-size: var(--font-size-base);
+  }
+
+  .radio-page__rule-copy {
+    max-inline-size: 68ch;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .radio-page__up-next-heading-row {
+    align-items: baseline;
+  }
+
+  .radio-page__up-next-heading {
+    font-size: var(--font-size-xl);
+  }
+
+  .radio-page__up-next-heading-row > span {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+  }
+
+  .radio-page__up-next-item {
+    display: grid;
+    grid-template-columns: 2rem 4rem minmax(0, 1fr);
+    gap: var(--spacing-md);
+    align-items: center;
+    min-block-size: 5.25rem;
+    padding-block: var(--spacing-sm);
+    border-block-end: 1px solid var(--border-default);
+  }
+
+  .radio-page__up-next-artwork {
+    display: block;
+    inline-size: 4rem;
+    block-size: 4rem;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+  }
+
+  .radio-page__up-next-copy {
+    display: grid;
+    gap: 0.2rem;
+    min-inline-size: 0;
+  }
+
+  .radio-page__up-next-copy strong,
+  .radio-page__up-next-copy a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .radio-page__up-next-copy a {
+    inline-size: fit-content;
+    max-inline-size: 100%;
+    color: var(--text-tertiary);
+  }
+
+  .radio-page__up-next-copy a:hover,
+  .radio-page__up-next-copy a:focus-visible {
+    color: var(--accent-primary);
+  }
+
+  .radio-page__up-next-copy a:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .radio-page__up-next-empty {
+    margin: var(--spacing-base) 0 0;
+    color: var(--text-tertiary);
+  }
+
+  .radio-page[data-radio-active="true"] .radio-page__up-next-empty {
+    display: none;
+  }
+
+  .radio-page__status {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  @media (width <= 960px) {
+    .radio-page__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .radio-page__stations {
+      position: static;
+    }
+
+    .radio-page__station-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .radio-page__station-item:nth-child(odd) {
+      border-inline-end: 1px solid var(--border-default);
+    }
+  }
+
+  @media (width <= 700px) {
+    .radio-page {
+      padding-inline: var(--spacing-base);
+    }
+
+    .radio-page__station-list {
+      grid-template-columns: 1fr;
+    }
+
+    .radio-page__station-item:nth-child(odd) {
+      border-inline-end: 0;
+    }
+
+    .radio-page__station-header {
+      display: grid;
+      align-items: start;
+    }
+
+    .radio-page__station-meta {
+      text-align: start;
+    }
+
+    .radio-page__now-playing {
+      grid-template-columns: 1fr;
+    }
+
+    .radio-page__artwork-frame {
+      justify-self: center;
+      inline-size: min(78vw, 22rem);
+    }
+
+    .radio-page__controls {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .radio-page__control {
+      inline-size: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .radio-page__station-button {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .radio-page__station-button[data-selected="true"],
+    .radio-page__control--primary,
+    .radio-page__transition {
+      border: 2px solid ButtonText;
+    }
+
+    .radio-page__control--primary {
+      color: ButtonText;
+      background: ButtonFace;
+    }
+  }
+</style>

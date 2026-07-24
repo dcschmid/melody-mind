@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 
 import type { CollectionEntry } from "astro:content";
 import type { Song } from "../types/album";
-import { getAlbumCoverImageUrl } from "../utils/musicImages";
+import { getAlbumCoverImagePath } from "../utils/musicImages";
 
 type AlbumEntry = CollectionEntry<"albums">;
 
@@ -16,10 +16,16 @@ export const GET: APIRoute = async () => {
     albums.map((entry) => [
       entry.id,
       {
-        albumId: entry.id,
-        albumTitle: entry.data.title,
-        albumUrl: `/${entry.id}/`,
-        albumArtworkUrl: getAlbumCoverImageUrl(entry.data.coverImage),
+        kind: "album",
+        queueId: `album:${entry.id}`,
+        title: entry.data.title,
+        url: `/${entry.id}/`,
+        album: {
+          id: entry.id,
+          title: entry.data.title,
+          url: `/${entry.id}/`,
+          artworkUrl: getAlbumCoverImagePath(entry.data.coverImage),
+        },
         tracks: entry.data.songs.map((song: Song) => ({
           trackNumber: song.trackNumber,
           title: song.title,
