@@ -129,14 +129,7 @@ const structuredData = [
         <progress id="quiz-progress" value="1" max="10">1 of 10</progress>
       </header>
       <div id="quiz-question"></div>
-      <section
-        class="quiz-feedback"
-        id="quiz-feedback"
-        aria-live="polite"
-        aria-atomic="true"
-        hidden
-      >
-      </section>
+      <section class="quiz-feedback" id="quiz-feedback" hidden></section>
       <div class="quiz-game__actions">
         <button class="button button--primary" id="quiz-check" type="button" disabled>
           Check answer
@@ -467,8 +460,17 @@ const structuredData = [
     color: var(--quiet-ink);
   }
 
+  .quiz-feedback__context-title {
+    margin-block-start: var(--space-sm);
+    font-size: 1rem;
+  }
+
+  .quiz-feedback__context {
+    color: var(--quiet-ink);
+  }
+
   .quiz-feedback__source-label {
-    margin-block-start: var(--space-xs);
+    margin-block-start: var(--space-sm);
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--quiet-ink);

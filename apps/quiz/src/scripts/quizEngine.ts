@@ -68,6 +68,7 @@ export function normalizeQuestion(
       .filter((option) => option.correct)
       .map((option) => option.id),
     explanation: question.explanation,
+    context: question.context,
     sources: question.sources,
   };
 }

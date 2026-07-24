@@ -30,6 +30,8 @@ function buildQuestion(
     options: ["Correct", "Incorrect", "Also incorrect"],
     correct: 0,
     explanation: "The first option is correct for this deterministic test question.",
+    context:
+      "This second paragraph verifies that editorial context survives normalization without affecting answer evaluation.",
     sources: [source],
     ...overrides,
   };
@@ -72,6 +74,7 @@ describe("answer evaluation", () => {
   it("keeps shuffled option IDs connected to the correct single answer", () => {
     const question = normalizeQuestion(buildQuestion("single", "easy"), () => 0);
     expect(evaluateAnswer(question, question.correctOptionIds).correct).toBe(true);
+    expect(question.context).toContain("editorial context");
   });
 
   it("requires the exact set for a multi-choice answer", () => {

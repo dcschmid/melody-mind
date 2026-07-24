@@ -7,9 +7,16 @@ import art1980s from "@assets/1980s.png";
 import art1990s from "@assets/1990s.png";
 import art2000s from "@assets/2000s.png";
 import art2010s from "@assets/2010s.png";
+import artAsiaPop from "@assets/from-asia-pop-to-global-pop.webp";
 import artBlues from "@assets/from-blues-to-breakdown.png";
+import artClassical from "@assets/from-classical-roots-to-neo-classical-sounds.webp";
+import artFolk from "@assets/from-folk-to-bedroom-pop.webp";
 import artHipHop from "@assets/from-hip-hop-to-trap-drill.png";
+import artJazz from "@assets/from-jazz-to-neo-soul.webp";
+import artLatin from "@assets/from-latin-to-latin-trap.webp";
 import artPop from "@assets/from-pop-to-streaming-pop.png";
+import artSka from "@assets/from-ska-to-global-bass.webp";
+import artSoul from "@assets/from-soul-to-modern-dance-music.webp";
 
 const QUIZ_ARTWORK: Record<string, ImageMetadata> = {
   "1950s": art1950s,
@@ -22,6 +29,13 @@ const QUIZ_ARTWORK: Record<string, ImageMetadata> = {
   "from-pop-to-streaming-pop": artPop,
   "from-hip-hop-to-trap-drill": artHipHop,
   "from-blues-to-breakdown": artBlues,
+  "from-classical-roots-to-neo-classical-sounds": artClassical,
+  "from-folk-to-bedroom-pop": artFolk,
+  "from-jazz-to-neo-soul": artJazz,
+  "from-latin-to-latin-trap": artLatin,
+  "from-ska-to-global-bass": artSka,
+  "from-soul-to-modern-dance-music": artSoul,
+  "from-asia-pop-to-global-pop": artAsiaPop,
 };
 
 export const QUIZ_ORDER = [
@@ -35,6 +49,13 @@ export const QUIZ_ORDER = [
   "from-pop-to-streaming-pop",
   "from-hip-hop-to-trap-drill",
   "from-blues-to-breakdown",
+  "from-classical-roots-to-neo-classical-sounds",
+  "from-folk-to-bedroom-pop",
+  "from-jazz-to-neo-soul",
+  "from-latin-to-latin-trap",
+  "from-ska-to-global-bass",
+  "from-soul-to-modern-dance-music",
+  "from-asia-pop-to-global-pop",
 ] as const;
 
 export function getQuizArtwork(id: string): ImageMetadata {

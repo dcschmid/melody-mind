@@ -6,7 +6,7 @@ import { QUESTION_DIFFICULTIES, QUESTION_TYPES } from "./types/quiz";
 
 const sourceSchema = z.object({
   publisher: z.string().trim().min(2),
-  title: z.string().trim().min(3),
+  title: z.string().trim().min(2),
   url: z.url().refine((url) => url.startsWith("https://"), {
     message: "Quiz sources must use HTTPS.",
   }),
@@ -22,9 +22,13 @@ const questionSchema = z
     options: z.array(z.string().trim().min(1)).min(2).max(6),
     correct: z.union([z.number().int().nonnegative(), z.array(z.number()), z.boolean()]),
     explanation: z.string().trim().min(20),
+    context: z.string().trim().min(30),
     sources: z.array(sourceSchema).min(1),
   })
   .superRefine((question, ctx) => {
+    const explanationWordCount = question.explanation.split(/\s+/u).length;
+    const contextWordCount = question.context.split(/\s+/u).length;
+    const combinedWordCount = explanationWordCount + contextWordCount;
     const optionCount = question.type === "true-false" ? 2 : question.options.length;
     const correctIndexes =
       typeof question.correct === "boolean"
@@ -70,6 +74,30 @@ const questionSchema = z
         code: "custom",
         path: ["correct"],
         message: "A correct answer index is outside the available options.",
+      });
+    }
+
+    if (combinedWordCount < 70 || combinedWordCount > 110) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["explanation"],
+        message:
+          "The answer explanation and context must contain 70 to 110 words in total.",
+      });
+    }
+
+    const makesComparativeClaim =
+      /\b(first|largest|best-selling|only|number one|#1)\b/iu.test(question.question) ||
+      /\bmost\s+(successful|streamed|sold|popular|influential|important|watched|viewed|awarded|commercially successful|famous)\b/iu.test(
+        question.question
+      ) ||
+      /\b(set|broke|held|holds?)\b.{0,24}\brecord\b/iu.test(question.question);
+    if (makesComparativeClaim && question.sources.length < 2) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["sources"],
+        message:
+          "Questions making first, record, or superlative claims require two sources.",
       });
     }
   });

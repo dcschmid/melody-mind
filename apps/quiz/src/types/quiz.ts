@@ -19,6 +19,7 @@ export interface QuizQuestion {
   options: string[];
   correct: number | number[] | boolean;
   explanation: string;
+  context: string;
   sources: QuizSource[];
 }
 
@@ -35,6 +36,7 @@ export interface RuntimeQuestion {
   options: RuntimeOption[];
   correctOptionIds: string[];
   explanation: string;
+  context: string;
   sources: QuizSource[];
 }
 

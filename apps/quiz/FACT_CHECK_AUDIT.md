@@ -4,48 +4,56 @@ Last updated: 2026-07-24
 
 ## Current Scope
 
-- The new Quiz app contains 10 topics and 400 questions.
-- Each topic contains exactly 40 questions.
+- The Quiz app contains 17 topics and 680 questions.
+- Seven topics cover decades from the 1950s through the 2010s.
+- Ten topics trace genre histories.
+- Every topic contains exactly 40 questions.
 - A session selects 10 questions: 4 easy, 4 medium, and 2 hard.
-- Every question has a valid answer, an explanation, and at least one topic-reading link.
-- The current 400 questions were selected from the previously reviewed MelodyMind quiz bank.
+- Every answer has a direct explanation, a separate context paragraph, and at least one
+  claim-specific source.
 
-## Earlier Editorial Audit
+## Editorial Method
 
-The source quiz bank was audited on 2026-05-15. That review covered 20 topic files and
-1,014 questions. It checked question counts, answer indexes, high-risk historical wording,
-and concrete historical anchors against official or authoritative sources where possible.
+The source questions came from the previously reviewed MelodyMind quiz bank. The May 15,
+2026 audit covered answer indexes, historical wording, dates, and high-risk claims across
+that bank.
 
-Corrections from that audit included:
+This expansion applied a second pass:
 
-- Narrowing Kyu Sakamoto's "Sukiyaki" claim to the first Japanese-language song to reach
-  number one on the US Billboard Hot 100.
-- Changing the 2019 US streaming-revenue claim from "more than 80%" to "nearly 80%" to
-  match the RIAA's 79.5% figure.
-- Clarifying that MTV's first aired video was not the first music video ever made.
-- Removing unsupported absolute claims and narrowing disputed "first," "dominant," and
-  "invented" language.
-- Scoping Drake's decade streaming record to Spotify's 2010–2019 global list.
-- Replacing subjective "greatest" and "definitive" wording with proportionate language.
+- removed questions that depended on phrases such as "according to the article";
+- removed vague recommendation language and unsupported origin stories;
+- replaced em dashes, inflated claims, and generic AI-style transitions;
+- kept questions in clear American English at a B2-C1 reading level;
+- expanded every answer to 70-110 words across two labeled paragraphs;
+- selected questions across each source pool instead of taking one uninterrupted block;
+- matched sources to the correct artist, work, format, movement, or historical subject;
+- added a second source for firsts, records, best-selling claims, and material
+  superlatives.
 
-## Reading Links
+## Source Review
 
-The links shown after an answer are labeled **Topic reading**. They provide authoritative
-background for the topic; they are not presented as a line-by-line citation for every
-sentence in an explanation.
+The current catalog uses 605 distinct reference pages. Source selection starts with the
+correct answer and then checks the question's named people, works, places, and technical
+terms. Generic disambiguation pages, unrelated entertainment titles, years, and broad
+one-word results are rejected.
 
-The migration date attached to these links records when they were checked for HTTPS and
-availability. Editorial claims retain the scope of the 2026-05-15 source-bank audit.
+The `checkedAt` value records the date on which a source was selected and reviewed for the
+question. It is not a publication date.
 
-## Current Validation
+The source list is shown after each answer under **Sources**. A source should support the
+specific fact being tested, not merely provide background on the broader quiz topic.
 
-The app validates the following in its content schema and automated checks:
+## Schema and Runtime Validation
+
+The app validates:
 
 - exactly 40 questions per topic;
 - unique question IDs;
 - valid answer indexes and answer types;
 - at least 4 easy, 4 medium, and 2 hard questions per topic;
-- HTTPS reading links;
+- 70-110 words across the explanation and context paragraphs;
+- at least one HTTPS source per question;
+- two sources for first, record, best-selling, and material superlative claims;
 - exact-set scoring for multi-answer questions;
 - session selection and score-band boundaries.
 

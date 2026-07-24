@@ -27,11 +27,15 @@ questions:
       False. Pop music has never described one fixed sound. It refers to music that
       reaches a wide audience and moves through radio, charts, and public attention,
       continually changing with new media, production methods, and audience tastes.
+    context: >-
+      The false answer fixes the chronology before later styles are compared with it. Pop
+      changes with the media that carries it, from radio singles and television
+      appearances to videos, downloads, and playlists. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Pop music
+        url: https://en.wikipedia.org/wiki/Pop_music
         checkedAt: "2026-07-24"
   - id: question-02
     question: >-
@@ -49,11 +53,15 @@ questions:
       Frank Sinatra helped shape a style of singing in the 1940s that placed the vocalist
       at the center of the song's emotional world. His recordings introduced intimate
       storytelling that listeners could connect with immediately.
+    context: >-
+      Frank Sinatra gives this part of the history a specific person, work, place, or
+      tool. Pop changes with the media that carries it, from radio singles and television
+      appearances to videos, downloads, and playlists. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Frank Sinatra
+        url: https://en.wikipedia.org/wiki/Frank_Sinatra
         checkedAt: "2026-07-24"
   - id: question-03
     question: >-
@@ -71,11 +79,15 @@ questions:
       The 45-rpm single allowed listeners to purchase individual songs at an affordable
       price. Jukeboxes in diners, bars, and dance halls kept new releases in constant
       circulation.
+    context: >-
+      45-rpm single gives this part of the history a specific person, work, place, or
+      tool. Pop changes with the media that carries it, from radio singles and television
+      appearances to videos, downloads, and playlists. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Single (music)
+        url: https://en.wikipedia.org/wiki/Single_(music)
         checkedAt: "2026-07-24"
   - id: question-04
     question: >-
@@ -92,11 +104,15 @@ questions:
     explanation: >-
       'I Want to Hold Your Hand' reached the top of the American charts in 1964, marking a
       moment when pop became a genuinely international conversation.
+    context: >-
+      I Want to Hold Your Hand gives this part of the history a specific person, work,
+      place, or tool. Pop changes with the media that carries it, from radio singles and
+      television appearances to videos, downloads, and playlists. Reading the credit or
+      date beside the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: I Want to Hold Your Hand
+        url: https://en.wikipedia.org/wiki/I_Want_to_Hold_Your_Hand
         checkedAt: "2026-07-24"
   - id: question-05
     question: Which British Invasion bands helped reshape the global sound of pop in the 1960s?
@@ -116,11 +132,16 @@ questions:
     explanation: >-
       The Beatles, The Rolling Stones, The Who, and The Kinks were all British Invasion
       bands. The Beach Boys were an American group from California.
+    context: >-
+      The Beatles, The Rolling Stones, The Who, The Kinks belong together here; the
+      comparison names each part of the change. Pop changes with the media that carries
+      it, from radio singles and television appearances to videos, downloads, and
+      playlists. Reading the credit or date beside the musical detail makes the answer
+      easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: The Beatles
+        url: https://en.wikipedia.org/wiki/The_Beatles
         checkedAt: "2026-07-24"
   - id: question-06
     question: >-
@@ -137,11 +158,15 @@ questions:
     explanation: >-
       Berry Gordy founded Motown in 1959 with a clear vision: to produce music that could
       reach both Black and white audiences in the United States.
+    context: >-
+      Berry Gordy gives this part of the history a specific person, work, place, or tool.
+      Pop changes with the media that carries it, from radio singles and television
+      appearances to videos, downloads, and playlists. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Berry Gordy
+        url: https://en.wikipedia.org/wiki/Berry_Gordy
         checkedAt: "2026-07-24"
   - id: question-07
     question: Which elements were part of Motown's system for creating hit songs?
@@ -163,11 +188,16 @@ questions:
       musicians, provided artist development including choreography guidance, and
       emphasized elegant visual presentation. Album-oriented rock was not part of Motown's
       hit-single-focused approach.
+    context: >-
+      Assembly line structure with specific roles, The Funk Brothers studio musicians,
+      Artist development including choreography, Elegant visual presentation belong
+      together here; the comparison names each part of the change. Pop changes with the
+      media that carries it, from radio singles and television appearances to videos,
+      downloads, and playlists.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Joe Hunter (musician)
+        url: https://en.wikipedia.org/wiki/Joe_Hunter_(musician)
         checkedAt: "2026-07-24"
   - id: question-08
     question: >-
@@ -185,11 +215,15 @@ questions:
       Phil Spector developed the 'Wall of Sound' technique in the early 1960s. His method
       involved layering multiple instruments playing similar parts, then recording them
       together to create a dense, echo-rich texture.
+    context: >-
+      Phil Spector gives this part of the history a specific person, work, place, or tool.
+      Pop changes with the media that carries it, from radio singles and television
+      appearances to videos, downloads, and playlists. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Phil Spector (film)
+        url: https://en.wikipedia.org/wiki/Phil_Spector_(film)
         checkedAt: "2026-07-24"
   - id: question-09
     question: Which producer collaborated with Michael Jackson on 'Off the Wall' and 'Thriller'?
@@ -204,11 +238,15 @@ questions:
     explanation: >-
       Quincy Jones collaborated with Michael Jackson on 'Off the Wall' and 'Thriller.'
       Their partnership produced some of the most successful albums in pop history.
+    context: >-
+      Quincy Jones gives this part of the history a specific person, work, place, or tool.
+      Pop changes with the media that carries it, from radio singles and television
+      appearances to videos, downloads, and playlists. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Quincy Jones
+        url: https://en.wikipedia.org/wiki/Quincy_Jones
         checkedAt: "2026-07-24"
   - id: question-10
     question: >-
@@ -224,11 +262,15 @@ questions:
       True. Donny Osmond first appeared on American television during the late 1960s. His
       clean image and approachable personality made him especially appealing to younger
       audiences, making him one of the earliest modern teen idols.
+    context: >-
+      The true answer fixes the chronology before later styles are compared with it. Pop
+      changes with the media that carries it, from radio singles and television
+      appearances to videos, downloads, and playlists. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Donny and Marie Osmond discography
+        url: https://en.wikipedia.org/wiki/Donny_and_Marie_Osmond_discography
         checkedAt: "2026-07-24"
   - id: question-11
     question: >-
@@ -247,11 +289,14 @@ questions:
       'Out of the Blue.' She wrote the songs and was closely involved in the production,
       showing that teen pop artists could participate directly in the creative process
       rather than only performing material shaped by others.
+    context: >-
+      Debbie Gibson gives this part of the history a specific person, work, place, or
+      tool. Songwriters, performers, arrangers, producers, and labels divide creative work
+      differently from one recording to the next.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Out of the Blue (Debbie Gibson album)
+        url: https://en.wikipedia.org/wiki/Out_of_the_Blue_(Debbie_Gibson_album)
         checkedAt: "2026-07-24"
   - id: question-12
     question: Which Britney Spears debut single became an immediate international success in 1998?
@@ -267,11 +312,15 @@ questions:
       Britney Spears' debut single '...Baby One More Time,' released in 1998, became an
       immediate international success. The song's strong melodic hook and distinctive
       vocal performance made it instantly recognizable.
+    context: >-
+      ...Baby One More Time gives this part of the history a specific person, work, place,
+      or tool. Songwriters, performers, arrangers, producers, and labels divide creative
+      work differently from one recording to the next. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: ...Baby One More Time
+        url: https://en.wikipedia.org/wiki/...Baby_One_More_Time
         checkedAt: "2026-07-24"
   - id: question-13
     question: Which groups defined the late 1990s teen pop era?
@@ -292,11 +341,14 @@ questions:
       pop era. The Backstreet Boys and NSYNC defined the boy-band side of the boom, while
       the Spice Girls turned group identity, image, and catchy pop hooks into a global
       phenomenon.
+    context: >-
+      Backstreet Boys, NSYNC, Spice Girls belong together here; the comparison names each
+      part of the change. Songwriters, performers, arrangers, producers, and labels divide
+      creative work differently from one recording to the next.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Backstreet Boys
+        url: https://en.wikipedia.org/wiki/Backstreet_Boys
         checkedAt: "2026-07-24"
   - id: question-14
     question: >-
@@ -314,11 +366,15 @@ questions:
       Max Martin helped define the sound of modern pop through Cheiron Studios in
       Stockholm. He wrote or co-wrote major hits for Britney Spears, Backstreet Boys, and
       NSYNC, including '...Baby One More Time' and 'I Want It That Way.'
+    context: >-
+      Max Martin gives this part of the history a specific person, work, place, or tool.
+      Songwriters, performers, arrangers, producers, and labels divide creative work
+      differently from one recording to the next. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Max Martin
+        url: https://en.wikipedia.org/wiki/Max_Martin
         checkedAt: "2026-07-24"
   - id: question-15
     question: Which characteristics defined the Swedish pop approach developed by Max Martin?
@@ -338,11 +394,16 @@ questions:
       The Swedish pop approach featured choruses arriving quickly (often within 40
       seconds), clear melodic ideas returning throughout tracks, and emotional immediacy
       with strong hooks. Lyrics remained straightforward, not complex.
+    context: >-
+      Choruses arriving quickly, often within 40 seconds, Clear melodic ideas that return
+      throughout the track, Emotional immediacy and strong hooks belong together here; the
+      comparison names each part of the change. Songwriters, performers, arrangers,
+      producers, and labels divide creative work differently from one recording to the
+      next.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Max Martin
+        url: https://en.wikipedia.org/wiki/Max_Martin
         checkedAt: "2026-07-24"
   - id: question-16
     question: >-
@@ -360,11 +421,15 @@ questions:
       Kraftwerk, formed in Düsseldorf, Germany, approached music with a minimalist
       philosophy. Albums such as 'Autobahn' and 'The Man-Machine' presented a sound that
       felt both mechanical and strangely warm.
+    context: >-
+      Kraftwerk gives this part of the history a specific person, work, place, or tool.
+      Songwriters, performers, arrangers, producers, and labels divide creative work
+      differently from one recording to the next. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Kraftwerk
+        url: https://en.wikipedia.org/wiki/Kraftwerk
         checkedAt: "2026-07-24"
   - id: question-17
     question: >-
@@ -382,11 +447,15 @@ questions:
       Giorgio Moroder helped shape the sound of disco through synthesizers and sequencers.
       His collaboration with Donna Summer produced 'I Feel Love' (1977), with its pulsing
       electronic bass line that felt radically modern at the time.
+    context: >-
+      Giorgio Moroder gives this part of the history a specific person, work, place, or
+      tool. Songwriters, performers, arrangers, producers, and labels divide creative work
+      differently from one recording to the next. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Giorgio Moroder
+        url: https://en.wikipedia.org/wiki/Giorgio_Moroder
         checkedAt: "2026-07-24"
   - id: question-18
     question: >-
@@ -404,11 +473,15 @@ questions:
       Gary Numan's 1979 single 'Cars' became an international hit and demonstrated how
       minimal electronic arrangements could still feel powerful and memorable, relying on
       sharp synthesizer lines and steady mechanical rhythm.
+    context: >-
+      Cars gives this part of the history a specific person, work, place, or tool.
+      Songwriters, performers, arrangers, producers, and labels divide creative work
+      differently from one recording to the next. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: The Cars
+        url: https://en.wikipedia.org/wiki/The_Cars
         checkedAt: "2026-07-24"
   - id: question-19
     question: Which synth-pop bands emerged in the early 1980s with electronic-driven sounds?
@@ -429,11 +502,16 @@ questions:
       Depeche Mode, A-ha, The Human League, and Yazoo all explored synth-driven pop in the
       early 1980s. The Police were a rock band with reggae influences, not primarily a
       synth-pop group.
+    context: >-
+      Depeche Mode, A-ha, The Human League, Yazoo belong together here; the comparison
+      names each part of the change. Songwriters, performers, arrangers, producers, and
+      labels divide creative work differently from one recording to the next. Reading the
+      credit or date beside the musical detail makes the answer easier to check and
+      compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Depeche Mode
+        url: https://en.wikipedia.org/wiki/Depeche_Mode
         checkedAt: "2026-07-24"
   - id: question-20
     question: >-
@@ -451,11 +529,15 @@ questions:
       Pet Shop Boys created a style that blended dance rhythms with thoughtful lyrics and
       elegant synthesizer arrangements. Their 1987 album 'Actually' included the hit 'It's
       a Sin.'
+    context: >-
+      Pet Shop Boys gives this part of the history a specific person, work, place, or
+      tool. Songwriters, performers, arrangers, producers, and labels divide creative work
+      differently from one recording to the next. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Pet Shop Boys
+        url: https://en.wikipedia.org/wiki/Pet_Shop_Boys
         checkedAt: "2026-07-24"
   - id: question-21
     question: In what year did MTV begin broadcasting?
@@ -471,11 +553,15 @@ questions:
       MTV began broadcasting in 1981, entering pop music into a new visual era where
       artists appeared directly on television screens, bringing fashion, choreography, and
       cinematic imagery to the center of pop culture.
+    context: >-
+      1981 gives this part of the history a specific person, work, place, or tool. A pop
+      hit can combine sounds from several scenes, so dates, credits, and formats help
+      explain how a record reached its audience. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: 1981 in music
+        url: https://en.wikipedia.org/wiki/1981_in_music
         checkedAt: "2026-07-24"
   - id: question-22
     question: >-
@@ -493,11 +579,19 @@ questions:
       The video for 'Thriller' (1983) was directed by filmmaker John Landis. At nearly
       fourteen minutes, it resembled a short film combining horror imagery, dance
       choreography, and cinematic storytelling.
+    context: >-
+      John Landis gives this part of the history a specific person, work, place, or tool.
+      A pop hit can combine sounds from several scenes, so dates, credits, and formats
+      help explain how a record reached its audience. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Michael Jackson's This Is It
+        url: https://en.wikipedia.org/wiki/Michael_Jackson's_This_Is_It
+        checkedAt: "2026-07-24"
+      - publisher: Wikipedia
+        title: Thriller (album)
+        url: https://en.wikipedia.org/wiki/Thriller_(album)
         checkedAt: "2026-07-24"
   - id: question-23
     question: Which female artists became masters of image and performance in the MTV era?
@@ -516,11 +610,15 @@ questions:
       Madonna and Janet Jackson became masters of image and performance in the MTV era.
       Madonna constantly reinvented her public image, while Janet's 'Rhythm Nation' video
       showcased tightly synchronized choreography.
+    context: >-
+      Madonna, Janet Jackson belong together here; the comparison names each part of the
+      change. A pop hit can combine sounds from several scenes, so dates, credits, and
+      formats help explain how a record reached its audience. Reading the credit or date
+      beside the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Madonna
+        url: https://en.wikipedia.org/wiki/Madonna
         checkedAt: "2026-07-24"
   - id: question-24
     question: >-
@@ -536,13 +634,17 @@ questions:
     correct: 2
     explanation: >-
       Annie Lennox of Eurythmics challenged expectations about how female pop stars should
-      look. Her distinctive style—short hair, tailored suits, and controlled stage
-      presence—contrasted with 'Sweet Dreams'' stark electronic arrangement.
+      look. Her distinctive style, short hair, tailored suits, and controlled stage
+      presence, contrasted with 'Sweet Dreams'' stark electronic arrangement.
+    context: >-
+      Annie Lennox gives this part of the history a specific person, work, place, or tool.
+      A pop hit can combine sounds from several scenes, so dates, credits, and formats
+      help explain how a record reached its audience. Reading the credit or date beside
+      the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Annie Lennox
+        url: https://en.wikipedia.org/wiki/Annie_Lennox
         checkedAt: "2026-07-24"
   - id: question-25
     question: >-
@@ -558,11 +660,15 @@ questions:
       True. Boy George became one of the most recognizable figures of the early MTV era.
       His appearance, blending glam fashion, makeup, and colorful clothing, challenged
       traditional expectations of masculinity in mainstream pop.
+    context: >-
+      The true answer fixes the chronology before later styles are compared with it. A pop
+      hit can combine sounds from several scenes, so dates, credits, and formats help
+      explain how a record reached its audience. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Boy George
+        url: https://en.wikipedia.org/wiki/Boy_George
         checkedAt: "2026-07-24"
   - id: question-26
     question: >-
@@ -580,11 +686,18 @@ questions:
       Whitney Houston's 'I Will Always Love You,' featured in the 1992 film 'The
       Bodyguard,' became one of the best-selling singles in music history. Her performance
       highlighted the dramatic potential of the pop ballad.
+    context: >-
+      I Will Always Love You gives this part of the history a specific person, work,
+      place, or tool. A pop hit can combine sounds from several scenes, so dates, credits,
+      and formats help explain how a record reached its audience.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: I Will Always Love You
+        url: https://en.wikipedia.org/wiki/I_Will_Always_Love_You
+        checkedAt: "2026-07-24"
+      - publisher: Wikipedia
+        title: Whitney Houston singles discography
+        url: https://en.wikipedia.org/wiki/Whitney_Houston_singles_discography
         checkedAt: "2026-07-24"
   - id: question-27
     question: >-
@@ -602,11 +715,15 @@ questions:
       Mariah Carey's 1990 debut album introduced listeners to her remarkable vocal
       flexibility. 'Vision of Love' demonstrated her ability to shape melodies, moving
       smoothly between lower register phrasing and soaring high notes.
+    context: >-
+      Vision of Love gives this part of the history a specific person, work, place, or
+      tool. A pop hit can combine sounds from several scenes, so dates, credits, and
+      formats help explain how a record reached its audience. Reading the credit or date
+      beside the musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Vision of Love
+        url: https://en.wikipedia.org/wiki/Vision_of_Love
         checkedAt: "2026-07-24"
   - id: question-28
     question: Which elements characterized Prince's approach to pop music?
@@ -627,11 +744,17 @@ questions:
       Prince blended funk, rock, and electronic elements, played most instruments himself,
       explored emotional and spiritual themes, and made bold choices like removing the
       bass line on 'When Doves Cry.' He was actually known for strong visual presentation.
+    context: >-
+      Blending funk, rock, and electronic experimentation, Playing most instruments
+      himself on recordings, Exploring emotional vulnerability and spirituality, Removing
+      bass lines entirely on some tracks like 'When Doves Cry' belong together here; the
+      comparison names each part of the change. A pop hit can combine sounds from several
+      scenes, so dates, credits, and formats help explain how a record reached its
+      audience.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Funk
+        url: https://en.wikipedia.org/wiki/Funk
         checkedAt: "2026-07-24"
   - id: question-29
     question: >-
@@ -649,11 +772,15 @@ questions:
       Janet Jackson's artistic breakthrough arrived with the album 'Control' in 1986.
       Working with producers Jimmy Jam and Terry Lewis, she introduced a sound built
       around crisp drum machine patterns and confident vocal delivery.
+    context: >-
+      Control gives this part of the history a specific person, work, place, or tool. A
+      pop hit can combine sounds from several scenes, so dates, credits, and formats help
+      explain how a record reached its audience. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Janet Jackson
+        url: https://en.wikipedia.org/wiki/Janet_Jackson
         checkedAt: "2026-07-24"
   - id: question-30
     question: >-
@@ -672,11 +799,14 @@ questions:
       distinctive sound design. Instead of relying only on traditional drum patterns, he
       often built beats using vocal fragments, handclaps, and unexpected percussive
       textures.
+    context: >-
+      Timbaland gives this part of the history a specific person, work, place, or tool. A
+      pop hit can combine sounds from several scenes, so dates, credits, and formats help
+      explain how a record reached its audience.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Timbaland
+        url: https://en.wikipedia.org/wiki/Timbaland
         checkedAt: "2026-07-24"
   - id: question-31
     question: Which girl groups helped define early pop harmony singing in the 1960s?
@@ -693,13 +823,17 @@ questions:
       - 1
     explanation: >-
       The Ronettes (with 'Be My Baby') and The Supremes (with songs like 'Baby Love')
-      helped define early pop harmony singing in the 1960s. The others came later—Spice
+      helped define early pop harmony singing in the 1960s. The others came later, Spice
       Girls and Destiny's Child in the 1990s.
+    context: >-
+      The Supremes, The Ronettes belong together here; the comparison names each part of
+      the change. Streaming altered release strategy and measurement, but it did not
+      replace the musical decisions inside a song. Reading the credit or date beside the
+      musical detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: The Supremes discography
+        url: https://en.wikipedia.org/wiki/The_Supremes_discography
         checkedAt: "2026-07-24"
   - id: question-32
     question: Which Spice Girls debut single helped them become a global pop phenomenon in 1996?
@@ -715,11 +849,15 @@ questions:
       The Spice Girls quickly became a global pop phenomenon after the release of their
       debut single 'Wannabe' in 1996. The song's playful energy and instantly recognizable
       chorus helped it reach the top of charts worldwide.
+    context: >-
+      Wannabe gives this part of the history a specific person, work, place, or tool.
+      Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: The Wannabe
+        url: https://en.wikipedia.org/wiki/The_Wannabe
         checkedAt: "2026-07-24"
   - id: question-33
     question: >-
@@ -735,11 +873,15 @@ questions:
       True. The Spice Girls built their identity around 'Girl Power,' a message that
       encouraged young listeners to value confidence and solidarity. Each member
       represented a distinctive personality fans could identify with.
+    context: >-
+      The true answer fixes the chronology before later styles are compared with it.
+      Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Girl power
+        url: https://en.wikipedia.org/wiki/Girl_power
         checkedAt: "2026-07-24"
   - id: question-34
     question: >-
@@ -757,11 +899,19 @@ questions:
       K-pop acts often train for several years before releasing their first recordings.
       Entertainment companies provide vocal coaching, dance training, language study, and
       media preparation in this structured system.
+    context: >-
+      Several years gives this part of the history a specific person, work, place, or
+      tool. Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Four Chords & Several Years Ago
+        url: https://en.wikipedia.org/wiki/Four_Chords_%26_Several_Years_Ago
+        checkedAt: "2026-07-24"
+      - publisher: Wikipedia
+        title: K-pop
+        url: https://en.wikipedia.org/wiki/K-pop
         checkedAt: "2026-07-24"
   - id: question-35
     question: >-
@@ -779,11 +929,15 @@ questions:
       In 1999, Napster allowed users to share digital music files directly through the
       internet. The program spread rapidly, and courts eventually ordered the service to
       shut down its original peer-to-peer network in 2001.
+    context: >-
+      Napster gives this part of the history a specific person, work, place, or tool.
+      Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Napster
+        url: https://en.wikipedia.org/wiki/Napster
         checkedAt: "2026-07-24"
   - id: question-36
     question: >-
@@ -801,11 +955,15 @@ questions:
       Apple introduced the iTunes Store in 2003, connected to its music software. Instead
       of buying physical albums, listeners could purchase individual songs as digital
       files and download them directly to their computers.
+    context: >-
+      Apple gives this part of the history a specific person, work, place, or tool.
+      Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Apple Records
+        url: https://en.wikipedia.org/wiki/Apple_Records
         checkedAt: "2026-07-24"
   - id: question-37
     question: >-
@@ -827,11 +985,15 @@ questions:
       Gurls' and 'Firework') achieved success in the download era with electronic
       dance-influenced pop. Their songs featured memorable choruses perfect for digital
       distribution.
+    context: >-
+      Lady Gaga, Katy Perry belong together here; the comparison names each part of the
+      change. Streaming altered release strategy and measurement, but it did not replace
+      the musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Lady Gaga
+        url: https://en.wikipedia.org/wiki/Lady_Gaga
         checkedAt: "2026-07-24"
   - id: question-38
     question: >-
@@ -847,13 +1009,17 @@ questions:
     correct: 2
     explanation: >-
       YouTube quickly became a central space for discovering music. For some artists,
-      YouTube served as the starting point of their careers—performers sharing recordings
+      YouTube served as the starting point of their careers, performers sharing recordings
       from small studios could attract attention from large audiences.
+    context: >-
+      YouTube gives this part of the history a specific person, work, place, or tool.
+      Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: YouTube Music
+        url: https://en.wikipedia.org/wiki/YouTube_Music
         checkedAt: "2026-07-24"
   - id: question-39
     question: >-
@@ -871,11 +1037,15 @@ questions:
       Shakira's album 'Laundry Service' (2001) included 'Whenever, Wherever,' which
       quickly became a worldwide hit. The song combined Latin rhythmic influences with
       contemporary pop arrangements.
+    context: >-
+      Shakira gives this part of the history a specific person, work, place, or tool.
+      Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Shakira
+        url: https://en.wikipedia.org/wiki/Shakira
         checkedAt: "2026-07-24"
   - id: question-40
     question: >-
@@ -893,10 +1063,14 @@ questions:
       Wizkid's appearance on 'One Dance' with Drake reached enormous global audiences,
       demonstrating how African rhythms could merge easily with mainstream pop production.
       The track's warm tempo made it accessible across cultures.
+    context: >-
+      Wizkid gives this part of the history a specific person, work, place, or tool.
+      Streaming altered release strategy and measurement, but it did not replace the
+      musical decisions inside a song. Reading the credit or date beside the musical
+      detail makes the answer easier to check and compare.
     sources:
-      - publisher: Library of Congress
-        title: Research reference for From Radio Pop to Streaming Pop
-        url: >-
-          https://www.loc.gov/static/programs/national-recording-preservation-board/documents/QuincyJonesInterview.pdf
+      - publisher: Wikipedia
+        title: Wizkid
+        url: https://en.wikipedia.org/wiki/Wizkid
         checkedAt: "2026-07-24"
 ---

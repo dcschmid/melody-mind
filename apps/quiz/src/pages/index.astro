@@ -12,7 +12,7 @@ const decades = quizzes.filter((quiz) => quiz.data.category === "decade");
 const journeys = quizzes.filter((quiz) => quiz.data.category === "genre-evolution");
 const canonical = new URL("/", Astro.site).toString();
 const description =
-  "Choose a research-led music quiz on seven decades, pop, hip-hop, or heavy music. Every ten-question round runs without accounts, tracking, or saved progress.";
+  "Choose a music history quiz on seven decades or ten genre journeys. Every ten-question round includes sources and runs without accounts, tracking, or saved progress.";
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -44,8 +44,8 @@ const structuredData = [
       <p class="eyebrow">Listen closer</p>
       <h1>Music history, one question at a time.</h1>
       <p class="quiz-home__lead">
-        Pick a decade or follow a genre across generations. Each round draws ten questions
-        from a reviewed pool and explains every answer as you go.
+        Pick a decade or trace one of ten genre histories. Each round draws ten questions
+        from a reviewed pool, then gives you the answer, its context, and the sources.
       </p>
       <p class="quiz-home__privacy">
         No account. No timer. No analytics. Your progress is never saved.
@@ -93,9 +93,9 @@ const structuredData = [
       aria-labelledby="journeys-title"
     >
       <header class="quiz-library__header">
-        <p class="eyebrow">Across generations</p>
+        <p class="eyebrow">Ten listening paths</p>
         <h2 id="journeys-title">Follow a genre journey</h2>
-        <p>Trace how sounds, tools, and scenes changed over time.</p>
+        <p>Trace how artists, studios, formats, and local scenes changed the music.</p>
       </header>
 
       <ul class="journey-list">
@@ -310,7 +310,7 @@ const structuredData = [
     }
 
     .journey-list {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-xl);
       border: 0;
     }
@@ -327,6 +327,13 @@ const structuredData = [
 
     .journey-list__image {
       inline-size: 100%;
+    }
+  }
+
+  @media (width >= 64rem) {
+    .journey-list {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-lg);
     }
   }
 </style>

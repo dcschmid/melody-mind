@@ -132,12 +132,19 @@ export function initQuiz(): void {
     );
 
     feedbackHost.append(
-      createTextElement("p", "quiz-feedback__source-label", "Topic reading")
+      createTextElement("h3", "quiz-feedback__context-title", "Why it matters")
+    );
+    feedbackHost.append(
+      createTextElement("p", "quiz-feedback__context", question.context)
+    );
+
+    feedbackHost.append(
+      createTextElement("h3", "quiz-feedback__source-label", "Sources")
     );
 
     const sources = document.createElement("ul");
     sources.className = "quiz-feedback__sources";
-    sources.setAttribute("aria-label", "Topic reading");
+    sources.setAttribute("aria-label", "Sources for this answer");
     question.sources.forEach((source) => {
       const item = document.createElement("li");
       const link = document.createElement("a");
