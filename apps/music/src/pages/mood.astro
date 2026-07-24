@@ -1,0 +1,124 @@
+---
+import MoodNavigator from "@components/music/discovery/MoodNavigator.astro";
+import Layout from "@layouts/Layout.astro";
+import { getAvailableAlbums } from "@utils/albums";
+import { resolvePageUrl } from "@utils/siteUrls";
+
+const albums = await getAvailableAlbums();
+const canonical = resolvePageUrl(Astro.site, "/mood/");
+const title = "Mood Navigator";
+const description =
+  "Find a MelodyMind concept album by mood, energy, language, vocals, and the time you have available.";
+const breadcrumbs = [
+  { name: "Home", url: resolvePageUrl(Astro.site, "/") },
+  { name: title, url: canonical },
+];
+---
+
+<Layout
+  title={`${title} | MelodyMind Music`}
+  {description}
+  keywords={[
+    "music by mood",
+    "album discovery",
+    "concept albums",
+    "instrumental music",
+    "MelodyMind",
+  ]}
+  type="website"
+  canonical={canonical}
+  {breadcrumbs}
+  contentShellClass="music-layout__container--mood"
+>
+  <div class="mood-page">
+    <header class="mood-page__hero">
+      <p class="mood-page__eyebrow">Listen by situation</p>
+      <h1 class="mood-page__title">Mood Navigator</h1>
+      <p class="mood-page__description">
+        Start with how you want the music to feel, not with a genre. Combine mood, energy,
+        language, voice, and available time to narrow the catalog.
+      </p>
+      <p class="mood-page__catalog-note">
+        <span>{albums.length} complete albums</span>
+        <span>Filters stay in the URL</span>
+      </p>
+    </header>
+
+    <MoodNavigator {albums} />
+  </div>
+</Layout>
+
+<style>
+  :global(.music-layout__container.music-layout__container--mood) {
+    inline-size: 100%;
+    max-inline-size: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: clip;
+  }
+
+  .mood-page {
+    box-sizing: border-box;
+    display: grid;
+    gap: var(--spacing-3xl);
+    inline-size: min(100%, 90rem);
+    min-block-size: 100svh;
+    padding: max(clamp(var(--spacing-xl), 5vw, var(--spacing-4xl)), 6rem)
+      clamp(1rem, 4vw, 4rem) clamp(var(--spacing-3xl), 7vw, 6rem);
+    margin-inline: auto;
+  }
+
+  .mood-page__hero {
+    display: grid;
+    gap: var(--spacing-base);
+    max-inline-size: 72ch;
+    padding-block-end: var(--spacing-xl);
+    border-block-end: 1px solid var(--border-default);
+  }
+
+  .mood-page__eyebrow,
+  .mood-page__title,
+  .mood-page__description,
+  .mood-page__catalog-note {
+    margin: 0;
+  }
+
+  .mood-page__eyebrow {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    color: var(--accent-primary);
+  }
+
+  .mood-page__title {
+    font-size: var(--font-size-3xl);
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  .mood-page__description {
+    max-inline-size: 65ch;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-wrap: pretty;
+  }
+
+  .mood-page__catalog-note {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-tertiary);
+  }
+
+  @media (width <= 480px) {
+    .mood-page {
+      gap: var(--spacing-2xl);
+    }
+
+    .mood-page__title {
+      font-size: var(--font-size-2xl);
+    }
+  }
+</style>

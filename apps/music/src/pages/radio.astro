@@ -32,9 +32,24 @@ const stationSummaries = catalog.stations.map(
     previewAlbum,
   })
 );
+const stationGroups = [
+  {
+    id: "curated",
+    title: "Curated stations",
+    stations: catalog.stations.filter((station) => station.category === "curated"),
+  },
+  {
+    id: "mood",
+    title: "Mood channels",
+    stations: catalog.stations.filter((station) => station.category === "mood"),
+  },
+].filter((group) => group.stations.length > 0);
+const stationIndexById = new Map(
+  catalog.stations.map((station, index) => [station.id, index])
+);
 const canonical = resolvePageUrl(Astro.site, "/radio/");
 const description =
-  "Start a curated MelodyMind radio station built from clear rules for genre, language, mood, energy, and connected album series.";
+  "Start a MelodyMind radio station built from clear editorial rules or the same mood families used by Mood Navigator.";
 ---
 
 <Layout
@@ -68,8 +83,8 @@ const description =
       </p>
       <h1 class="radio-page__title">Choose the idea. We choose the records.</h1>
       <p class="radio-page__intro">
-        Five stations, each built from a rule you can see. Pick one and the music starts
-        with a fresh rotation.
+        {catalog.stations.length} stations, each built from a rule you can see. Choose an editorial
+        rotation or continue with a Mood Navigator channel.
       </p>
     </header>
 
@@ -81,36 +96,56 @@ const description =
           </h2>
           <span class="radio-page__stations-count">{catalog.stations.length}</span>
         </div>
-        <ol class="radio-page__station-list">
+        <div class="radio-page__station-groups">
           {
-            catalog.stations.map((station, index) => (
-              <li class="radio-page__station-item">
-                <button
-                  class="radio-page__station-button"
-                  type="button"
-                  data-radio-station={station.id}
-                  data-selected={String(station.id === initialStation.id)}
-                  aria-pressed={station.id === initialStation.id}
+            stationGroups.map((group) => (
+              <section
+                class="radio-page__station-group"
+                aria-labelledby={`radio-${group.id}-stations-heading`}
+              >
+                <h3
+                  id={`radio-${group.id}-stations-heading`}
+                  class="radio-page__station-group-title"
                 >
-                  <span class="radio-page__station-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span class="radio-page__station-copy">
-                    <strong class="radio-page__station-name">{station.title}</strong>
-                    <span class="radio-page__station-size">
-                      {station.albumCount} albums · {station.trackCount} tracks
-                    </span>
-                  </span>
-                  <Icon
-                    name="chevron-right"
-                    class="radio-page__station-chevron"
-                    aria-hidden="true"
-                  />
-                </button>
-              </li>
+                  {group.title}
+                </h3>
+                <ol class="radio-page__station-list">
+                  {group.stations.map((station) => {
+                    const index = stationIndexById.get(station.id) || 0;
+                    return (
+                      <li class="radio-page__station-item">
+                        <button
+                          class="radio-page__station-button"
+                          type="button"
+                          data-radio-station={station.id}
+                          data-selected={String(station.id === initialStation.id)}
+                          aria-pressed={station.id === initialStation.id}
+                        >
+                          <span class="radio-page__station-number">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+                          <span class="radio-page__station-copy">
+                            <strong class="radio-page__station-name">
+                              {station.title}
+                            </strong>
+                            <span class="radio-page__station-size">
+                              {station.albumCount} albums · {station.trackCount} tracks
+                            </span>
+                          </span>
+                          <Icon
+                            name="chevron-right"
+                            class="radio-page__station-chevron"
+                            aria-hidden="true"
+                          />
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </section>
             ))
           }
-        </ol>
+        </div>
       </nav>
 
       <section class="radio-page__listening-room" aria-labelledby="radio-station-title">
@@ -290,6 +325,8 @@ const description =
 
   .radio-page {
     position: relative;
+    box-sizing: border-box;
+    inline-size: 100%;
     min-block-size: 100svh;
     padding: clamp(5rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem) clamp(3rem, 7vw, 6rem);
     overflow: hidden;
@@ -368,6 +405,7 @@ const description =
   .radio-page__stations {
     position: sticky;
     inset-block-start: 5.5rem;
+    min-inline-size: 0;
   }
 
   .radio-page__stations-heading-row,
@@ -391,6 +429,23 @@ const description =
     font-size: var(--font-size-lg);
   }
 
+  .radio-page__station-groups {
+    display: grid;
+    gap: var(--spacing-xl);
+    min-inline-size: 0;
+    margin-block-start: var(--spacing-base);
+  }
+
+  .radio-page__station-group {
+    min-inline-size: 0;
+  }
+
+  .radio-page__station-group-title {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+  }
+
   .radio-page__stations-count {
     display: grid;
     place-items: center;
@@ -405,7 +460,7 @@ const description =
   .radio-page__station-list,
   .radio-page__up-next-list {
     padding: 0;
-    margin: var(--spacing-base) 0 0;
+    margin: var(--spacing-sm) 0 0;
     list-style: none;
     border-block-start: 1px solid var(--border-default);
   }
@@ -835,11 +890,23 @@ const description =
     }
 
     .radio-page__station-list {
-      grid-template-columns: 1fr;
+      grid-template-columns: none;
+      grid-auto-columns: min(82vw, 20rem);
+      grid-auto-flow: column;
+      gap: var(--spacing-sm);
+      inline-size: 100%;
+      max-inline-size: 100%;
+      padding-block-end: var(--spacing-sm);
+      overflow-x: auto;
+      scroll-snap-type: inline proximity;
+      border-block-start: 0;
     }
 
+    .radio-page__station-item,
     .radio-page__station-item:nth-child(odd) {
-      border-inline-end: 0;
+      scroll-snap-align: start;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-base);
     }
 
     .radio-page__station-header {

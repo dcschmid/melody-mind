@@ -163,6 +163,11 @@ const radioNavItem: HeaderNavItem = {
   label: "Radio",
   icon: "wave",
 };
+const moodNavItem: HeaderNavItem = {
+  href: "/mood/",
+  label: "Mood",
+  icon: "compass",
+};
 const genresNavItem: HeaderNavItem = {
   href: "/genre/",
   label: "Genres",
@@ -181,6 +186,7 @@ const searchNavItem: HeaderNavItem = {
 const headerNavItems: HeaderNavItem[] = [
   homeNavItem,
   radioNavItem,
+  moodNavItem,
   genresNavItem,
   seriesNavItem,
   ...shellConfig.header.navItems.map((item) => ({

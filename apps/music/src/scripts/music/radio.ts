@@ -195,6 +195,7 @@ const bindRadioPage = (): void => {
   }
 
   const summariesById = new Map(summaries.map((summary) => [summary.id, summary]));
+  const requestedStationId = new URL(window.location.href).searchParams.get("station");
   const stationButtons = Array.from(
     root.querySelectorAll<HTMLButtonElement>("[data-radio-station]")
   );
@@ -225,7 +226,11 @@ const bindRadioPage = (): void => {
   const endpoint = root.dataset.radioEndpoint || "/radio-stations.json";
   let catalogPromise: Promise<RadioCatalogPayload> | null = null;
   let selectedStationId =
-    root.dataset.initialStation || summaries[0]?.id || "midnight-metal";
+    (requestedStationId && summariesById.has(requestedStationId)
+      ? requestedStationId
+      : root.dataset.initialStation) ||
+    summaries[0]?.id ||
+    "midnight-metal";
   const initialPlayer = window.__melodyMindPlayer;
   let playerState = initialPlayer?.getState() || null;
   let shouldAdoptFirstPlayerState = !initialPlayer;
@@ -412,11 +417,16 @@ const bindRadioPage = (): void => {
     });
   };
 
-  const selectStation = (stationId: string): void => {
+  const selectStation = (stationId: string, shouldUpdateUrl = true): void => {
     if (!summariesById.has(stationId)) {
       return;
     }
     selectedStationId = stationId;
+    if (shouldUpdateUrl) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("station", stationId);
+      window.history.replaceState(window.history.state, "", url);
+    }
     renderStationSelection();
     renderPreview();
     renderPlayback();
@@ -429,6 +439,17 @@ const bindRadioPage = (): void => {
       { signal }
     );
   });
+
+  window.addEventListener(
+    "popstate",
+    () => {
+      const stationId = new URL(window.location.href).searchParams.get("station");
+      if (stationId) {
+        selectStation(stationId, false);
+      }
+    },
+    { signal }
+  );
 
   startButton?.addEventListener(
     "click",

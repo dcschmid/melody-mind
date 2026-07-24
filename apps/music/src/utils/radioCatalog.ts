@@ -6,15 +6,19 @@ import type {
   RadioCatalogPayload,
   RadioLane,
   RadioStation,
+  RadioStationCategory,
 } from "../types/radio";
 
+import { getAlbumDiscoveryMeta } from "./albumDiscovery";
 import { getAvailableAlbums } from "./albums";
 import { getAlbumCoverImagePath } from "./musicImages";
+import { getAlbumMoodFamilies, MOOD_FAMILIES, type MoodFamilyId } from "./moodDiscovery";
 
 type SeriesEntry = CollectionEntry<"series">;
 
 interface StationBlueprint {
   id: string;
+  category: RadioStationCategory;
   title: string;
   description: string;
   selectionSummary: string;
@@ -53,9 +57,10 @@ const isInSeries = (
   seriesAlbumIds: ReadonlyMap<string, ReadonlySet<string>>
 ): boolean => seriesAlbumIds.get(seriesId)?.has(normalizeId(album.id)) === true;
 
-const stationBlueprints: StationBlueprint[] = [
+const curatedStationBlueprints: StationBlueprint[] = [
   {
     id: "midnight-metal",
+    category: "curated",
     title: "Midnight Metal",
     description:
       "Metal for late hours, chosen for shadowed arrangements, nocturnal tension, and sustained weight.",
@@ -80,6 +85,7 @@ const stationBlueprints: StationBlueprint[] = [
   },
   {
     id: "stories-from-the-north",
+    category: "curated",
     title: "Stories from the North",
     description:
       "Northern voices and folk records alternate with metal sagas about prophecy, winter, memory, and old gods.",
@@ -122,6 +128,7 @@ const stationBlueprints: StationBlueprint[] = [
   },
   {
     id: "french-after-dark",
+    category: "curated",
     title: "French After Dark",
     description:
       "French-language pop, rock, punk, and cabaret for the point where romance gives way to unrest.",
@@ -155,6 +162,7 @@ const stationBlueprints: StationBlueprint[] = [
   },
   {
     id: "instrumental-horizons",
+    category: "curated",
     title: "Instrumental Horizons",
     description:
       "Scores, piano records, and orchestral journeys with no lead vocal to fix the boundaries of the scene.",
@@ -174,6 +182,7 @@ const stationBlueprints: StationBlueprint[] = [
   },
   {
     id: "office-apocalypse",
+    category: "curated",
     title: "Office Apocalypse",
     description:
       "Infinite Loop Solutions is failing again. Deployments, tickets, audits, and meetings become connected rock and metal disasters.",
@@ -192,29 +201,91 @@ const stationBlueprints: StationBlueprint[] = [
   },
 ];
 
-const toRadioAlbum = (album: AlbumData): RadioAlbumSource => ({
-  album: {
-    id: album.id,
-    title: album.title,
-    url: `/${album.id}/`,
-    artworkUrl: getAlbumCoverImagePath(album.coverImage),
+interface MoodStationCopy {
+  description: string;
+  fallbackTransition: string;
+}
+
+const moodStationCopy: Record<MoodFamilyId, MoodStationCopy> = {
+  dark: {
+    description:
+      "Shadowed, nocturnal, ominous, and haunted records from across the catalog.",
+    fallbackTransition:
+      "Next, another record follows the darker edge of the MelodyMind catalog.",
   },
-  publishedAt: new Date(album.publishedAt).toISOString(),
-  genre: album.genre || "",
-  mainGenre: album.mainGenre || "",
-  language: album.language || "",
-  moods: album.moods,
-  energy: album.energy,
-  ...(album.radioIntro ? { radioIntro: album.radioIntro } : {}),
-  tracks: [...album.songs]
-    .sort((a, b) => a.trackNumber - b.trackNumber || a.title.localeCompare(b.title, "en"))
-    .map((song) => ({
-      trackNumber: song.trackNumber,
-      title: song.title,
-      audioUrl: song.audioUrl,
-      ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
-    })),
-});
+  calm: {
+    description:
+      "Reflective, intimate, atmospheric, and warm records for a lower-pressure listen.",
+    fallbackTransition:
+      "Next, another reflective record gives the room a little more space.",
+  },
+  defiant: {
+    description:
+      "Rebellious, confrontational, determined records that refuse to stay quiet.",
+    fallbackTransition: "Next, another record turns resistance into volume.",
+  },
+  melancholic: {
+    description:
+      "Bittersweet, nostalgic, mournful, and tragic records for the longer emotional arc.",
+    fallbackTransition: "Next, another record stays with memory, loss, and what remains.",
+  },
+  triumphant: {
+    description:
+      "Heroic, hopeful, majestic, and euphoric records built around release and ascent.",
+    fallbackTransition: "Next, another record reaches for a larger horizon.",
+  },
+};
+
+const moodStationBlueprints: StationBlueprint[] = MOOD_FAMILIES.map((family) => ({
+  id: `mood-${family.id}`,
+  category: "mood",
+  title: `${family.label} Mood Radio`,
+  description: moodStationCopy[family.id].description,
+  selectionSummary: `Every album assigned to the ${family.label} mood family in Mood Navigator, across genres, languages, and energy levels.`,
+  fallbackTransition: moodStationCopy[family.id].fallbackTransition,
+  lanes: [
+    {
+      id: family.id,
+      title: `${family.label} mood rotation`,
+      matches: (album) => getAlbumMoodFamilies(album.moods).includes(family.id),
+    },
+  ],
+}));
+
+const stationBlueprints: StationBlueprint[] = [
+  ...curatedStationBlueprints,
+  ...moodStationBlueprints,
+];
+
+const toRadioAlbum = (album: AlbumData): RadioAlbumSource => {
+  const discovery = getAlbumDiscoveryMeta(album);
+
+  return {
+    album: {
+      id: album.id,
+      title: album.title,
+      url: `/${album.id}/`,
+      artworkUrl: getAlbumCoverImagePath(album.coverImage),
+    },
+    publishedAt: new Date(album.publishedAt).toISOString(),
+    genre: album.genre || "",
+    mainGenre: album.mainGenre || "",
+    language: discovery.language || "",
+    moods: album.moods,
+    energy: discovery.energy,
+    ...(album.radioIntro ? { radioIntro: album.radioIntro } : {}),
+    tracks: [...album.songs]
+      .sort(
+        (a, b) => a.trackNumber - b.trackNumber || a.title.localeCompare(b.title, "en")
+      )
+      .map((song) => ({
+        trackNumber: song.trackNumber,
+        title: song.title,
+        audioUrl: song.audioUrl,
+        ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
+      })),
+  };
+};
 
 const getUniqueAlbums = (lanes: RadioLane[]): RadioAlbumSource[] => {
   const albums = new Map<string, RadioAlbumSource>();
@@ -248,20 +319,22 @@ const validateStation = (station: RadioStation): void => {
     });
   }
 
-  const newestAlbums = getUniqueAlbums(station.lanes)
-    .sort(
-      (a, b) =>
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() ||
-        a.album.title.localeCompare(b.album.title, "en")
-    )
-    .slice(0, REQUIRED_INTROS_PER_STATION);
-  const missingIntros = newestAlbums
-    .filter((album) => !album.radioIntro)
-    .map((album) => album.album.id);
-  if (missingIntros.length > 0) {
-    throw new Error(
-      `Radio station ${station.id} needs radioIntro copy for: ${missingIntros.join(", ")}.`
-    );
+  if (station.category === "curated") {
+    const newestAlbums = getUniqueAlbums(station.lanes)
+      .sort(
+        (a, b) =>
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() ||
+          a.album.title.localeCompare(b.album.title, "en")
+      )
+      .slice(0, REQUIRED_INTROS_PER_STATION);
+    const missingIntros = newestAlbums
+      .filter((album) => !album.radioIntro)
+      .map((album) => album.album.id);
+    if (missingIntros.length > 0) {
+      throw new Error(
+        `Radio station ${station.id} needs radioIntro copy for: ${missingIntros.join(", ")}.`
+      );
+    }
   }
 };
 
@@ -309,6 +382,7 @@ const buildStation = (
   }
   const station: RadioStation = {
     id: blueprint.id,
+    category: blueprint.category,
     title: blueprint.title,
     description: blueprint.description,
     selectionSummary: blueprint.selectionSummary,

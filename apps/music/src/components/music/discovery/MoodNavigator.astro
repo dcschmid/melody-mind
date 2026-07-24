@@ -1,0 +1,794 @@
+---
+import OptimizedImage from "@components/media/OptimizedImage.astro";
+import Icon from "@components/visual/Icon.astro";
+import type { AlbumData } from "../../../types/album";
+import { getAlbumDiscoveryMeta } from "../../../utils/albumDiscovery";
+import { getAlbumCoverImage } from "../../../utils/musicImages";
+import {
+  formatMoodName,
+  getAlbumDurationSeconds,
+  getAlbumMoodFamilies,
+  getAlbumVoiceType,
+  MOOD_FAMILIES,
+} from "../../../utils/moodDiscovery";
+
+interface Props {
+  albums: AlbumData[];
+}
+
+const { albums } = Astro.props as Props;
+const collator = new Intl.Collator("en", { numeric: true, sensitivity: "base" });
+const preparedAlbums = albums
+  .map((album) => {
+    const discovery = getAlbumDiscoveryMeta(album);
+    const durationSeconds = getAlbumDurationSeconds(album);
+    const durationMinutes = Math.max(1, Math.round(durationSeconds / 60));
+    const voice = getAlbumVoiceType(album);
+    const language =
+      discovery.language || (voice === "instrumental" ? "Instrumental" : "");
+    const moods = album.moods;
+    const moodFamilies = getAlbumMoodFamilies(moods);
+    const moodLabel = moods.slice(0, 2).map(formatMoodName).filter(Boolean).join(" and ");
+
+    return {
+      ...album,
+      discovery,
+      durationSeconds,
+      durationMinutes,
+      voice,
+      language,
+      moods,
+      moodFamilies,
+      moodLabel,
+      imageSrc: getAlbumCoverImage(album.coverImage),
+    };
+  })
+  .sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime() ||
+      collator.compare(a.title, b.title) ||
+      collator.compare(a.id, b.id)
+  );
+const languages = Array.from(
+  new Set(
+    preparedAlbums
+      .map((album) => album.language)
+      .filter((language) => language && language !== "Instrumental")
+  )
+).sort((a, b) => collator.compare(a, b));
+const moodCounts = new Map(
+  MOOD_FAMILIES.map((family) => [
+    family.id,
+    preparedAlbums.filter((album) => album.moodFamilies.includes(family.id)).length,
+  ])
+);
+---
+
+<div class="mood-navigator" data-mood-navigator>
+  <section class="mood-navigator__filters" aria-labelledby="mood-filter-heading">
+    <header class="mood-navigator__filter-header">
+      <div>
+        <p class="mood-navigator__eyebrow">Choose a listening situation</p>
+        <h2 id="mood-filter-heading" class="mood-navigator__filter-title">
+          What should the room sound like?
+        </h2>
+      </div>
+      <button class="mood-navigator__reset" type="button" data-mood-reset disabled>
+        Reset filters
+      </button>
+    </header>
+
+    <form class="mood-navigator__form" method="get" data-mood-filter-form>
+      <fieldset class="mood-navigator__group mood-navigator__group--wide">
+        <legend>Mood</legend>
+        <div class="mood-navigator__choices">
+          <label class="mood-navigator__choice">
+            <input type="radio" name="mood" value="" checked />
+            <span>Any mood</span>
+          </label>
+          {
+            MOOD_FAMILIES.map((family) => (
+              <label class="mood-navigator__choice">
+                <input
+                  type="radio"
+                  name="mood"
+                  value={family.id}
+                  data-mood-label={family.label}
+                />
+                <span>
+                  {family.label}
+                  <small>{moodCounts.get(family.id)}</small>
+                </span>
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+
+      <fieldset class="mood-navigator__group">
+        <legend>Energy</legend>
+        <div class="mood-navigator__choices">
+          {
+            [
+              ["", "Any"],
+              ["low", "Low"],
+              ["medium", "Medium"],
+              ["high", "High"],
+            ].map(([value, label]) => (
+              <label class="mood-navigator__choice">
+                <input type="radio" name="energy" value={value} checked={value === ""} />
+                <span>{label}</span>
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+
+      <fieldset class="mood-navigator__group">
+        <legend>Voice</legend>
+        <div class="mood-navigator__choices">
+          {
+            [
+              ["", "Any"],
+              ["vocal", "Vocal"],
+              ["instrumental", "Instrumental"],
+            ].map(([value, label]) => (
+              <label class="mood-navigator__choice">
+                <input type="radio" name="voice" value={value} checked={value === ""} />
+                <span>{label}</span>
+              </label>
+            ))
+          }
+        </div>
+      </fieldset>
+
+      <label class="mood-navigator__select">
+        <span>Language</span>
+        <select name="language">
+          <option value="">Any language</option>
+          <option value="non-english">Not in English</option>
+          {languages.map((language) => <option value={language}>{language}</option>)}
+        </select>
+      </label>
+
+      <label class="mood-navigator__select">
+        <span>Available time</span>
+        <select name="time">
+          <option value="">Any length</option>
+          <option value="45">Up to 45 minutes</option>
+          <option value="60">Up to 60 minutes</option>
+          <option value="75">Up to 75 minutes</option>
+          <option value="90">Up to 90 minutes</option>
+        </select>
+      </label>
+    </form>
+  </section>
+
+  <section class="mood-navigator__results" aria-labelledby="mood-results-heading">
+    <header class="mood-navigator__results-header">
+      <div class="mood-navigator__results-copy">
+        <p class="mood-navigator__count" data-mood-result-count aria-live="polite">
+          {preparedAlbums.length} albums match
+        </p>
+        <h2 id="mood-results-heading" class="mood-navigator__results-title">
+          Albums for this moment
+        </h2>
+        <p class="mood-navigator__summary" data-mood-filter-summary>
+          The full catalog is open.
+        </p>
+      </div>
+
+      <div class="mood-navigator__actions">
+        <a class="mood-navigator__action" href="/radio/" data-mood-radio hidden>
+          <Icon name="wave" aria-hidden="true" />
+          Continue in Radio
+        </a>
+        <button
+          class="mood-navigator__action mood-navigator__action--primary"
+          type="button"
+          data-mood-surprise
+        >
+          <Icon name="sparkles" aria-hidden="true" />
+          Surprise me
+        </button>
+        <button class="mood-navigator__action" type="button" data-mood-copy>
+          <Icon name="copy" aria-hidden="true" />
+          Copy selection link
+        </button>
+      </div>
+    </header>
+
+    <p
+      class="mood-navigator__action-status sr-only"
+      aria-live="polite"
+      aria-atomic="true"
+      data-mood-action-status
+    >
+    </p>
+
+    <ul class="mood-navigator__list">
+      {
+        preparedAlbums.map((album) => (
+          <li
+            class="mood-navigator__item"
+            data-mood-result
+            data-album-title={album.title}
+            data-album-moods={JSON.stringify(album.moods)}
+            data-mood-families={album.moodFamilies.join(" ")}
+            data-album-energy={album.discovery.energy}
+            data-album-language={album.language}
+            data-album-voice={album.voice}
+            data-album-duration={album.durationSeconds}
+          >
+            <article class="mood-navigator__album">
+              <a
+                class="mood-navigator__cover-link"
+                href={`/${album.id}/`}
+                aria-label={`Open album ${album.title}`}
+              >
+                <OptimizedImage
+                  src={album.imageSrc}
+                  alt={`Cover art for the album ${album.title}`}
+                  class="mood-navigator__cover"
+                  width={320}
+                  height={320}
+                  widths={[160, 240, 320]}
+                  sizes="(max-width: 640px) 6.5rem, 8.5rem"
+                  loading="lazy"
+                  decoding="async"
+                  formats={["avif"]}
+                />
+              </a>
+
+              <div class="mood-navigator__album-copy">
+                <p class="mood-navigator__album-kicker">
+                  <span>{album.genre || album.mainGenre || "Concept album"}</span>
+                  <span>{album.songs.length} tracks</span>
+                </p>
+                <h3 class="mood-navigator__album-title">
+                  <a href={`/${album.id}/`} data-mood-result-link>
+                    {album.title}
+                  </a>
+                </h3>
+                <p class="mood-navigator__reason">
+                  <span class="mood-navigator__reason-label">Why it fits</span>
+                  <span data-mood-result-reason>
+                    {[
+                      album.moodLabel,
+                      `${formatMoodName(album.discovery.energy)} energy`,
+                      album.voice === "instrumental"
+                        ? "Instrumental"
+                        : `${album.language} vocals`,
+                      `${album.durationMinutes} min`,
+                    ]
+                      .filter(Boolean)
+                      .join(" · ")}
+                  </span>
+                </p>
+              </div>
+
+              <button
+                class="mood-navigator__play"
+                type="button"
+                aria-label={`Play album ${album.title}`}
+                data-player-load
+                data-player-album-id={album.id}
+                data-player-album-title={album.title}
+                data-player-queue-url="/player-queues.json"
+              >
+                <Icon name="tabler:player-play-filled" aria-hidden="true" />
+              </button>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mood-navigator__empty" data-mood-empty hidden>
+      <Icon name="compass" aria-hidden="true" />
+      <h3>No album fits every filter</h3>
+      <p>Remove one constraint to widen the shelf.</p>
+      <button type="button" data-mood-reset>Reset filters</button>
+    </div>
+  </section>
+
+  <noscript>
+    <p class="mood-navigator__noscript">
+      The full album shelf is shown below. Enable JavaScript to combine mood, energy,
+      language, voice, and time filters.
+    </p>
+  </noscript>
+</div>
+
+<script>
+  import "../../../scripts/music/mood-navigator";
+</script>
+
+<style>
+  .mood-navigator {
+    display: grid;
+    gap: var(--spacing-3xl);
+  }
+
+  .mood-navigator__filters,
+  .mood-navigator__results {
+    display: grid;
+    gap: var(--spacing-xl);
+  }
+
+  .mood-navigator__filters {
+    padding: clamp(var(--spacing-lg), 3vw, var(--spacing-2xl));
+    background: var(--surface-1);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+  }
+
+  .mood-navigator__filter-header,
+  .mood-navigator__results-header {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .mood-navigator__eyebrow,
+  .mood-navigator__count,
+  .mood-navigator__summary,
+  .mood-navigator__album-kicker,
+  .mood-navigator__reason {
+    margin: 0;
+  }
+
+  .mood-navigator__eyebrow,
+  .mood-navigator__count {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    color: var(--accent-primary);
+  }
+
+  .mood-navigator__filter-title,
+  .mood-navigator__results-title {
+    margin: var(--spacing-xs) 0 0;
+    font-size: var(--font-size-2xl);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .mood-navigator__reset {
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__reset:disabled {
+    color: var(--text-tertiary);
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .mood-navigator__form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .mood-navigator__group {
+    min-inline-size: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  .mood-navigator__group--wide {
+    grid-column: 1 / -1;
+  }
+
+  .mood-navigator__group legend,
+  .mood-navigator__select > span {
+    display: block;
+    padding: 0;
+    margin-block-end: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    color: var(--text-secondary);
+  }
+
+  .mood-navigator__choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .mood-navigator__choice {
+    position: relative;
+    display: inline-flex;
+    min-inline-size: 0;
+  }
+
+  .mood-navigator__choice input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .mood-navigator__choice span {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    color: var(--text-secondary);
+    cursor: pointer;
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-full);
+  }
+
+  .mood-navigator__choice small {
+    font-size: 0.82em;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-tertiary);
+  }
+
+  .mood-navigator__choice input:checked + span {
+    color: var(--accent-primary);
+    background: var(--surface-3);
+    border-color: var(--accent-primary);
+  }
+
+  .mood-navigator__choice input:checked + span small {
+    color: currentcolor;
+  }
+
+  .mood-navigator__choice input:focus-visible + span {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .mood-navigator__select {
+    display: grid;
+    align-content: start;
+  }
+
+  .mood-navigator__select select {
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) 2.75rem var(--spacing-sm) var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    cursor: pointer;
+    color-scheme: dark;
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__results-copy {
+    display: grid;
+    gap: var(--spacing-xs);
+    max-inline-size: 52rem;
+  }
+
+  .mood-navigator__summary {
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .mood-navigator__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+  }
+
+  .mood-navigator__action {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__action--primary {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: transparent;
+  }
+
+  .mood-navigator__action:disabled {
+    cursor: default;
+    opacity: 0.55;
+  }
+
+  .mood-navigator__action[hidden] {
+    display: none;
+  }
+
+  .mood-navigator__action :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .mood-navigator__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-base);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .mood-navigator__item[hidden] {
+    display: none;
+  }
+
+  .mood-navigator__album {
+    position: relative;
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+    gap: var(--spacing-base);
+    align-items: center;
+    min-block-size: 10.5rem;
+    padding: var(--spacing-base);
+    background: var(--surface-1);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__item[data-surprise="true"] .mood-navigator__album {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+    background: var(--surface-2);
+  }
+
+  .mood-navigator__cover-link {
+    display: block;
+    overflow: hidden;
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__cover-link :global(.mood-navigator__cover) {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .mood-navigator__album-copy {
+    display: grid;
+    gap: var(--spacing-sm);
+    min-inline-size: 0;
+  }
+
+  .mood-navigator__album-kicker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    color: var(--text-tertiary);
+  }
+
+  .mood-navigator__album-title {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .mood-navigator__album-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .mood-navigator__reason {
+    display: grid;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-xs);
+    line-height: 1.45;
+    color: var(--text-secondary);
+  }
+
+  .mood-navigator__reason-label {
+    font-size: 0.82em;
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .mood-navigator__play {
+    display: grid;
+    place-items: center;
+    inline-size: var(--control-min-block-size);
+    block-size: var(--control-min-block-size);
+    padding: 0;
+    color: var(--button-text-accent);
+    cursor: pointer;
+    background: var(--accent-primary);
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+  }
+
+  .mood-navigator__play :global(svg) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .mood-navigator__empty {
+    display: grid;
+    gap: var(--spacing-sm);
+    justify-items: start;
+    padding: var(--spacing-2xl);
+    color: var(--text-secondary);
+    background: var(--surface-1);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__empty[hidden] {
+    display: none;
+  }
+
+  .mood-navigator__empty :global(svg) {
+    inline-size: 2rem;
+    block-size: 2rem;
+    color: var(--accent-primary);
+  }
+
+  .mood-navigator__empty h3,
+  .mood-navigator__empty p {
+    margin: 0;
+  }
+
+  .mood-navigator__empty button {
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--button-text-accent);
+    cursor: pointer;
+    background: var(--accent-primary);
+    border: 0;
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__noscript {
+    padding: var(--spacing-base);
+    margin: 0;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .mood-navigator__select select:focus-visible,
+  .mood-navigator__reset:focus-visible,
+  .mood-navigator__action:focus-visible,
+  .mood-navigator__play:focus-visible,
+  .mood-navigator__empty button:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .mood-navigator__choice span:hover,
+    .mood-navigator__choice input:focus-visible + span,
+    .mood-navigator__reset:not(:disabled):hover,
+    .mood-navigator__reset:not(:disabled):focus-visible,
+    .mood-navigator__action:not(:disabled):focus-visible,
+    .mood-navigator__action:not(:disabled):hover {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .mood-navigator__action--primary:not(:disabled):hover,
+    .mood-navigator__action--primary:not(:disabled):focus-visible,
+    .mood-navigator__play:focus-visible,
+    .mood-navigator__play:hover {
+      color: var(--button-text-accent);
+      background: var(--accent-strong);
+    }
+
+    .mood-navigator__cover-link:hover,
+    .mood-navigator__cover-link:focus-visible,
+    .mood-navigator__album-title a:focus-visible,
+    .mood-navigator__album-title a:hover {
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+  }
+
+  @media (width <= 1100px) {
+    .mood-navigator__list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (width <= 700px) {
+    .mood-navigator {
+      gap: var(--spacing-2xl);
+    }
+
+    .mood-navigator__filter-header,
+    .mood-navigator__results-header {
+      display: grid;
+    }
+
+    .mood-navigator__form {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mood-navigator__group--wide {
+      grid-column: auto;
+    }
+
+    .mood-navigator__actions {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (width <= 480px) {
+    .mood-navigator__filters {
+      padding: var(--spacing-base);
+    }
+
+    .mood-navigator__filter-title,
+    .mood-navigator__results-title {
+      font-size: var(--font-size-xl);
+    }
+
+    .mood-navigator__album {
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      min-block-size: 0;
+      padding: var(--spacing-sm);
+    }
+
+    .mood-navigator__play {
+      position: absolute;
+      inset-block-end: var(--spacing-base);
+      inset-inline-end: var(--spacing-base);
+    }
+
+    .mood-navigator__reason {
+      padding-inline-end: calc(var(--control-min-block-size) + var(--spacing-sm));
+    }
+  }
+
+  @media (forced-colors: active) {
+    .mood-navigator__choice input:checked + span,
+    .mood-navigator__item[data-surprise="true"] .mood-navigator__album {
+      outline-color: Highlight;
+      border-color: Highlight;
+    }
+  }
+</style>

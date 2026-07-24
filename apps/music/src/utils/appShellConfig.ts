@@ -59,6 +59,7 @@ export function buildAppShellConfig({
       exploreLinks: [
         { href: "/", label: "Albums" },
         { href: "/radio/", label: "Radio" },
+        { href: "/mood/", label: "Mood Navigator" },
         { href: "/genre/", label: "Genres" },
         { href: "/series/", label: "Album Series" },
         { href: "/?search=1", label: "Search" },

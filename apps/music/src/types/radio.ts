@@ -1,6 +1,7 @@
 import type { PlayerAlbumContext, PlayerTrack } from "./player";
 
 export type RadioEnergy = "low" | "medium" | "high";
+export type RadioStationCategory = "curated" | "mood";
 
 export interface RadioAlbumSource {
   album: PlayerAlbumContext;
@@ -32,6 +33,7 @@ export type RadioRotation =
 
 export interface RadioStation {
   id: string;
+  category: RadioStationCategory;
   title: string;
   description: string;
   selectionSummary: string;
