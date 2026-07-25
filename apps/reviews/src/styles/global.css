@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/atkinson-hyperlegible-bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Literata";
+  font-style: normal;
+  font-weight: 400 800;
+  src: url("/fonts/literata-latin-variable.woff2") format("woff2-variations");
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+  font-synthesis: none;
+  --archive-night: oklch(11.5% 0.027 250deg);
+  --desk-night: oklch(16.5% 0.03 250deg);
+  --lifted-night: oklch(21% 0.032 250deg);
+  --paper-ink: oklch(95.5% 0.014 82deg);
+  --quiet-ink: oklch(77% 0.024 246deg);
+  --signal: oklch(76% 0.14 55deg);
+  --signal-strong: oklch(84% 0.12 61deg);
+  --line: oklch(38% 0.031 250deg);
+  --line-soft: oklch(28% 0.028 250deg);
+  --focus: oklch(84% 0.11 181deg);
+  --font-display: "Literata", Georgia, serif;
+  --font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --reading-width: 70ch;
+  --wide-width: 88rem;
+  --control-size: 2.75rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: clamp(5rem, 9vw, 8rem);
+  --radius-sm: 0.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-block-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-block-size: 100%;
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--paper-ink);
+  background: var(--archive-night);
+}
+
+a {
+  color: var(--signal-strong);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--paper-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 0.22rem;
+}
+
+h1,
+h2,
+h3,
+p,
+blockquote,
+dl,
+dd,
+figure {
+  margin-block: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 650;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+p,
+li {
+  line-height: 1.72;
+}
+
+.page-shell {
+  inline-size: min(100% - 2rem, var(--wide-width));
+  margin-inline: auto;
+}
+
+.reading-shell {
+  inline-size: min(100% - 2rem, var(--reading-width));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--signal);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: var(--space-sm);
+  inset-inline-start: var(--space-sm);
+  z-index: 50;
+  min-block-size: var(--control-size);
+  padding: 0.7rem 1rem;
+  color: var(--archive-night);
+  background: var(--focus);
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-main {
+  min-block-size: 70svh;
+}
+
+.prose {
+  font-size: clamp(1.04rem, 1.2vw, 1.16rem);
+}
+
+.prose h2 {
+  margin-block: 3.8rem 1rem;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  scroll-margin-block-start: 2rem;
+}
+
+.prose p + p {
+  margin-block-start: 1.35rem;
+}
+
+.prose blockquote {
+  padding-block: var(--space-lg);
+  margin-block: var(--space-2xl);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--paper-ink);
+  border-block: 1px solid var(--line);
+}
+
+@media (width >= 48rem) {
+  .page-shell,
+  .reading-shell {
+    inline-size: min(100% - 4rem, var(--wide-width));
+  }
+
+  .reading-shell {
+    inline-size: min(100% - 4rem, var(--reading-width));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --focus: Highlight;
+  }
+
+  a {
+    color: LinkText;
+  }
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    color: #111;
+    background: #fff;
+  }
+
+  .site-header,
+  .site-footer,
+  .review-map {
+    display: none;
+  }
+}

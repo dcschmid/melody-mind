@@ -1,0 +1,78 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ReviewDirectory from "@components/ReviewDirectory.astro";
+import Layout from "@layouts/Layout.astro";
+export async function getStaticPaths() {
+  const authors = await getCollection("authors");
+  return authors.map((author) => ({ params: { slug: author.id }, props: { author } }));
+}
+interface Props {
+  author: CollectionEntry<"authors">;
+}
+const { author } = Astro.props;
+const { Content } = await render(author);
+const reviews = (await getCollection("reviews", ({ data }) => !data.draft)).toSorted(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: author.data.name,
+  jobTitle: author.data.role,
+  url: new URL(`/authors/${author.id}/`, Astro.site).toString(),
+};
+---
+
+<Layout
+  title={author.data.name}
+  description={author.data.shortBio}
+  structuredData={[schema]}
+>
+  <article class="author page-shell">
+    <header>
+      <p class="eyebrow">{author.data.role}</p>
+      <h1>{author.data.name}</h1>
+      <p>{author.data.shortBio}</p>
+    </header>
+    <div class="author__bio prose"><Content /></div>
+    <section aria-labelledby="author-reviews">
+      <h2 id="author-reviews">Published reviews</h2>
+      <ReviewDirectory {reviews} />
+    </section>
+  </article>
+</Layout>
+<style>
+  .author {
+    display: grid;
+    gap: var(--space-3xl);
+    padding-block: var(--space-4xl);
+  }
+
+  .author header {
+    display: grid;
+    gap: var(--space-md);
+    max-inline-size: 55rem;
+  }
+
+  .author h1 {
+    font-size: clamp(3.5rem, 9vw, 7rem);
+  }
+
+  .author header > p:last-child {
+    font-size: 1.2rem;
+    color: var(--quiet-ink);
+  }
+
+  .author__bio {
+    max-inline-size: var(--reading-width);
+  }
+
+  .author section {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .author section > h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+</style>

@@ -1,0 +1,267 @@
+---
+import { getCollection } from "astro:content";
+
+import AlbumMark from "@components/AlbumMark.astro";
+import Layout from "@layouts/Layout.astro";
+
+const reviews = (await getCollection("reviews", ({ data }) => !data.draft)).toSorted(
+  (left, right) => right.data.publishedAt.valueOf() - left.data.publishedAt.valueOf()
+);
+const featured =
+  reviews.find((review) => review.data.currentAlbumOfTheWeek) ?? reviews[0];
+if (!featured) throw new Error("Reviews requires published content.");
+const archive = reviews.filter((review) => review.id !== featured.id);
+const canonical = new URL("/", Astro.site).toString();
+const formatLabel = (format: string) =>
+  format === "album-of-the-week"
+    ? "Album of the Week"
+    : format === "reappraisal"
+      ? "Reappraisal"
+      : "Full Review";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "MelodyMind Reviews",
+  description: "Sourced album criticism without scores or sales language.",
+  url: canonical,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: reviews.map((review, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: review.data.title,
+      url: new URL(`/reviews/${review.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<Layout
+  title="MelodyMind Reviews | Album criticism without scores"
+  description="Album reviews with a clear thesis, close listening, documented context, named authorship, and no numerical scores."
+  {canonical}
+  structuredData={[schema]}
+>
+  <section class="home-hero page-shell">
+    <div class="home-hero__mark">
+      <AlbumMark
+        title={featured.data.album.title}
+        artist={featured.data.album.artist}
+        genres={featured.data.album.genres}
+      />
+    </div>
+    <div class="home-hero__copy">
+      <p class="eyebrow">{formatLabel(featured.data.format)}</p>
+      <h1>{featured.data.album.title}</h1>
+      <p class="home-hero__artist">{featured.data.album.artist}</p>
+      <p class="home-hero__thesis">{featured.data.thesis}</p>
+      <p class="home-hero__meta">
+        By <a href="/authors/daniel-schmid/">Daniel Schmid</a> ·{" "}
+        <time datetime={featured.data.publishedAt.toISOString()}>
+          {
+            featured.data.publishedAt.toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })
+          }
+        </time>
+      </p>
+      <a class="home-hero__action" href={`/reviews/${featured.id}/`}>
+        Read the review <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="review-index page-shell" aria-labelledby="recent-reviews">
+    <header>
+      <p class="eyebrow">Launch edition · {reviews.length} essays</p>
+      <h2 id="recent-reviews">Arguments, not scores.</h2>
+      <p>
+        Each review states its case, points to the tracks where that case is tested, and
+        leaves the sources visible.
+      </p>
+    </header>
+    <ol>
+      {
+        archive.map((review, index) => (
+          <li>
+            <a href={`/reviews/${review.id}/`}>
+              <span class="review-index__number">
+                {String(index + 2).padStart(2, "0")}
+              </span>
+              <span class="review-index__main">
+                <small>{formatLabel(review.data.format)}</small>
+                <strong>{review.data.album.title}</strong>
+                <span>{review.data.album.artist}</span>
+              </span>
+              <span class="review-index__thesis">{review.data.thesis}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <aside class="editorial-note reading-shell">
+    <p class="eyebrow">Editorial position</p>
+    <h2>Criticism stays separate from promotion.</h2>
+    <p>
+      MelodyMind Reviews covers external releases. Research and drafting may use AI
+      assistance; Daniel Schmid takes responsibility for the published argument, and every
+      factual source remains available below the review.
+    </p>
+    <a href="/editorial-standards/">Read the editorial standards</a>
+  </aside>
+</Layout>
+
+<style>
+  .home-hero {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: clamp(2.5rem, 7vw, 7rem);
+  }
+
+  .home-hero__copy {
+    display: grid;
+    gap: var(--space-md);
+    align-content: center;
+  }
+
+  .home-hero h1 {
+    max-inline-size: 11ch;
+    font-size: clamp(3rem, 9vw, 7rem);
+    letter-spacing: -0.05em;
+  }
+
+  .home-hero__artist {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
+    color: var(--quiet-ink);
+  }
+
+  .home-hero__thesis {
+    max-inline-size: 52ch;
+    padding-block: var(--space-lg);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    border-block: 1px solid var(--line);
+  }
+
+  .home-hero__meta {
+    font-size: 0.9rem;
+    color: var(--quiet-ink);
+  }
+
+  .home-hero__action {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-size);
+    font-weight: 700;
+  }
+
+  .review-index {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: var(--space-4xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .review-index header {
+    display: grid;
+    gap: var(--space-md);
+    max-inline-size: 46rem;
+  }
+
+  .review-index h2,
+  .editorial-note h2 {
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+  }
+
+  .editorial-note > p {
+    max-inline-size: 58ch;
+    color: var(--quiet-ink);
+  }
+
+  .review-index header > p:last-child {
+    max-inline-size: 58ch;
+    color: var(--quiet-ink);
+  }
+
+  .review-index ol {
+    padding: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--line);
+  }
+
+  .review-index li {
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .review-index li > a {
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+    gap: var(--space-md);
+    align-items: center;
+    min-block-size: 7.5rem;
+    padding-block: var(--space-lg);
+    color: var(--paper-ink);
+    text-decoration: none;
+  }
+
+  .review-index li > a:hover,
+  .review-index li > a:focus {
+    background: var(--desk-night);
+  }
+
+  .review-index__number,
+  .review-index__main small {
+    font-size: 0.75rem;
+    color: var(--signal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .review-index__main {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .review-index__main strong {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+  }
+
+  .review-index__main > span {
+    color: var(--quiet-ink);
+  }
+
+  .review-index__thesis {
+    display: none;
+    max-inline-size: 42ch;
+    color: var(--quiet-ink);
+  }
+
+  .editorial-note {
+    display: grid;
+    gap: var(--space-lg);
+    padding-block: var(--space-4xl);
+  }
+
+  @media (width >= 58rem) {
+    .home-hero {
+      grid-template-columns: minmax(18rem, 0.78fr) minmax(24rem, 1.22fr);
+      align-items: center;
+    }
+
+    .review-index li > a {
+      grid-template-columns: 2.5rem minmax(17rem, 0.8fr) minmax(20rem, 1.2fr) auto;
+    }
+
+    .review-index__thesis {
+      display: block;
+    }
+  }
+</style>

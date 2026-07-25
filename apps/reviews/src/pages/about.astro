@@ -1,0 +1,52 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout
+  title="About"
+  description="Why MelodyMind Reviews publishes sourced album criticism without numerical scores, comments, or embedded players."
+>
+  <article class="static-page reading-shell">
+    <p class="eyebrow">About</p>
+    <h1>Close listening, stated plainly.</h1>
+    <p class="static-page__lead">
+      MelodyMind Reviews asks how an album works, where its choices hold, and where they
+      fail. A review is an argument, not a product description.
+    </p>
+    <h2>What readers get</h2>
+    <p>
+      Every piece has a named author, publication date, central thesis, concrete track
+      examples, sources, and external listening links. The Review Map shows where the
+      argument touches the record without reducing a track to a score.
+    </p>
+    <h2>What stays out</h2>
+    <p>
+      There are no numerical ratings, public user scores, comments, purchase prompts,
+      embedded players, or sponsored placements. MelodyMind’s own releases are not
+      presented as independent criticism.
+    </p>
+    <p><a href="/editorial-standards/">Read the complete editorial standards</a></p>
+  </article>
+</Layout>
+
+<style>
+  .static-page {
+    display: grid;
+    gap: var(--space-lg);
+    padding-block: var(--space-4xl);
+  }
+
+  .static-page h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+  }
+
+  .static-page h2 {
+    margin-block-start: var(--space-2xl);
+    font-size: 2rem;
+  }
+
+  .static-page__lead {
+    font-size: 1.3rem;
+    color: var(--quiet-ink);
+  }
+</style>

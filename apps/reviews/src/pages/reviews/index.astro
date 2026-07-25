@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+
+import ReviewDirectory from "@components/ReviewDirectory.astro";
+import Layout from "@layouts/Layout.astro";
+
+const reviews = (await getCollection("reviews", ({ data }) => !data.draft)).toSorted(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
+---
+
+<Layout
+  title="Reviews"
+  description="All MelodyMind album reviews, with close listening, named authorship, Review Maps, sources, and no numerical scores."
+>
+  <section class="directory page-shell">
+    <header>
+      <p class="eyebrow">All criticism</p>
+      <h1>Reviews</h1>
+      <p>Seven arguments about how records use rhythm, weight, space, and sequence.</p>
+    </header>
+    <ReviewDirectory {reviews} />
+  </section>
+</Layout>
+
+<style>
+  .directory {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: var(--space-4xl);
+  }
+
+  .directory header {
+    display: grid;
+    gap: var(--space-md);
+    max-inline-size: 50rem;
+  }
+
+  .directory h1 {
+    font-size: clamp(3.5rem, 9vw, 7rem);
+  }
+
+  .directory header > p:last-child {
+    font-size: 1.2rem;
+    color: var(--quiet-ink);
+  }
+</style>

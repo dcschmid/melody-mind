@@ -1,0 +1,185 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+const items = [
+  { href: "/reviews/", label: "Reviews" },
+  { href: "/album-of-the-week/", label: "Album of the Week" },
+  { href: "/reappraisals/", label: "Reappraisals" },
+  { href: "/archive/", label: "Archive" },
+  { href: "/about/", label: "About" },
+];
+const isCurrent = (href: string) =>
+  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="MelodyMind Reviews home">
+      <span>MelodyMind</span>
+      <strong>Reviews</strong>
+    </a>
+    <button
+      class="site-header__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      data-menu-toggle
+    >
+      Menu
+    </button>
+    <nav class="site-header__nav" id="primary-navigation" aria-label="Primary" data-menu>
+      <ul>
+        {
+          items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const bindMenu = () => {
+    const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+    const menu = document.querySelector<HTMLElement>("[data-menu]");
+    if (!toggle || !menu || toggle.dataset.bound === "true") {
+      return;
+    }
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.dataset.open = String(open);
+    });
+  };
+  document.addEventListener("astro:page-load", bindMenu);
+  bindMenu();
+</script>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 20;
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .site-header__inner {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+    justify-content: space-between;
+    inline-size: min(100% - 2rem, var(--wide-width));
+    min-block-size: 4.5rem;
+    margin-inline: auto;
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    gap: 0.52rem;
+    align-items: baseline;
+    min-block-size: var(--control-size);
+    font-family: var(--font-display);
+    color: var(--paper-ink);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .site-header__brand strong {
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    color: var(--signal);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .site-header__toggle {
+    min-block-size: var(--control-size);
+    padding-inline: 1rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+  }
+
+  .site-header__nav {
+    position: absolute;
+    inset-block-start: calc(100% + 1px);
+    inset-inline: 0;
+    display: none;
+    padding: var(--space-md) 1rem var(--space-lg);
+    background: var(--desk-night);
+    border-block-end: 1px solid var(--line);
+  }
+
+  .site-header__nav[data-open="true"] {
+    display: block;
+  }
+
+  .site-header__nav ul {
+    display: grid;
+    gap: var(--space-xs);
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-header__nav a {
+    display: flex;
+    align-items: center;
+    min-block-size: var(--control-size);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-decoration: none;
+  }
+
+  .site-header__nav a:hover,
+  .site-header__nav a:focus,
+  .site-header__nav a[aria-current="page"] {
+    color: var(--paper-ink);
+  }
+
+  .site-header__nav a[aria-current="page"]::before {
+    inline-size: 0.45rem;
+    block-size: 0.45rem;
+    margin-inline-end: 0.6rem;
+    content: "";
+    background: var(--signal);
+    border-radius: 50%;
+  }
+
+  @media (width >= 68rem) {
+    .site-header__inner {
+      inline-size: min(100% - 4rem, var(--wide-width));
+    }
+
+    .site-header__toggle {
+      display: none;
+    }
+
+    .site-header__nav {
+      position: static;
+      display: block;
+      padding: 0;
+      background: transparent;
+      border: 0;
+    }
+
+    .site-header__nav ul {
+      display: flex;
+      gap: clamp(1.2rem, 2.3vw, 2.6rem);
+      align-items: center;
+    }
+  }
+</style>

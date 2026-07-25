@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import ReviewDirectory from "@components/ReviewDirectory.astro";
+import Layout from "@layouts/Layout.astro";
+const reviews = await getCollection(
+  "reviews",
+  ({ data }) => !data.draft && data.format === "reappraisal"
+);
+---
+
+<Layout
+  title="Reappraisals"
+  description="MelodyMind Reappraisals revisit older rock and metal albums, comparing their original position with what still carries and what has aged."
+>
+  <section class="directory page-shell">
+    <header>
+      <p class="eyebrow">Then and now</p><h1>Reappraisals</h1><p>
+        Old reputations are context, not a substitute for listening again.
+      </p>
+    </header>
+    <ReviewDirectory {reviews} />
+  </section>
+</Layout>
+<style>
+  .directory {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: var(--space-4xl);
+  }
+
+  .directory header {
+    display: grid;
+    gap: var(--space-md);
+    max-inline-size: 55rem;
+  }
+
+  .directory h1 {
+    font-size: clamp(3.2rem, 8vw, 6.5rem);
+  }
+
+  .directory header p:last-child {
+    color: var(--quiet-ink);
+  }
+</style>

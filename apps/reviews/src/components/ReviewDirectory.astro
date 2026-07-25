@@ -1,0 +1,102 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  reviews: CollectionEntry<"reviews">[];
+}
+
+const { reviews } = Astro.props;
+const formatLabel = (format: string) =>
+  format === "album-of-the-week"
+    ? "Album of the Week"
+    : format === "reappraisal"
+      ? "Reappraisal"
+      : "Full Review";
+---
+
+<ol class="review-directory">
+  {
+    reviews.map((review, index) => (
+      <li>
+        <a href={`/reviews/${review.id}/`}>
+          <span class="review-directory__number">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <span class="review-directory__title">
+            <small>{formatLabel(review.data.format)}</small>
+            <strong>{review.data.album.title}</strong>
+            <span>{review.data.album.artist}</span>
+          </span>
+          <span class="review-directory__thesis">{review.data.thesis}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .review-directory {
+    padding: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--line);
+  }
+
+  .review-directory li {
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .review-directory a {
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+    gap: var(--space-md);
+    align-items: center;
+    min-block-size: 7.5rem;
+    padding-block: var(--space-lg);
+    color: var(--paper-ink);
+    text-decoration: none;
+  }
+
+  .review-directory a:hover,
+  .review-directory a:focus {
+    background: var(--desk-night);
+  }
+
+  .review-directory__number,
+  .review-directory__title small {
+    font-size: 0.72rem;
+    color: var(--signal);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .review-directory__title {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .review-directory__title strong {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+  }
+
+  .review-directory__title > span,
+  .review-directory__thesis {
+    color: var(--quiet-ink);
+  }
+
+  .review-directory__thesis {
+    display: none;
+    max-inline-size: 42ch;
+  }
+
+  @media (width >= 56rem) {
+    .review-directory a {
+      grid-template-columns: 2.5rem minmax(17rem, 0.8fr) minmax(20rem, 1.2fr) auto;
+    }
+
+    .review-directory__thesis {
+      display: block;
+    }
+  }
+</style>

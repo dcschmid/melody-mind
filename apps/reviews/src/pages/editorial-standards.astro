@@ -1,0 +1,73 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout
+  title="Editorial standards"
+  description="The sourcing, authorship, disclosure, correction, independence, and AI-assistance standards used by MelodyMind Reviews."
+>
+  <article class="standards reading-shell">
+    <p class="eyebrow">Editorial standards</p>
+    <h1>The argument must remain inspectable.</h1>
+    <section>
+      <h2>Authorship and responsibility</h2>
+      <p>
+        Daniel Schmid is the named launch author. MelodyMind Editorial defines the
+        publication standard and records corrections. A byline identifies who accepts
+        responsibility for the final judgment.
+      </p>
+    </section>
+    <section>
+      <h2>Sources and observation</h2>
+      <p>
+        Release dates, credits, quotations, and historical claims require traceable
+        sources. Statements about arrangement, performance, production, and sequence are
+        critical observations. They are presented as interpretation, not neutral fact.
+      </p>
+    </section>
+    <section>
+      <h2>AI assistance</h2>
+      <p>
+        Research and drafting may use AI assistance. Sources are checked separately,
+        generated claims without support are removed, and every published article carries
+        a disclosure. AI assistance does not receive a byline and does not erase human
+        editorial responsibility.
+      </p>
+    </section>
+    <section>
+      <h2>Independence and corrections</h2>
+      <p>
+        Reviews are not paid placements and do not use affiliate links. MelodyMind’s own
+        music is excluded from independent review coverage. Material corrections add an
+        updated date and a plain account of what changed.
+      </p>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .standards {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: var(--space-4xl);
+  }
+
+  .standards h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+  }
+
+  .standards section {
+    display: grid;
+    gap: var(--space-sm);
+    padding-block-start: var(--space-xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .standards section h2 {
+    font-size: 1.8rem;
+  }
+
+  .standards section p {
+    color: var(--quiet-ink);
+  }
+</style>

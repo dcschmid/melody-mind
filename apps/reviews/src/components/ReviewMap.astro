@@ -1,0 +1,142 @@
+---
+interface ReviewMapPoint {
+  trackNumber: number;
+  trackTitle: string;
+  label: string;
+  target: string;
+}
+
+interface Props {
+  points: ReviewMapPoint[];
+}
+
+const { points } = Astro.props;
+---
+
+<nav class="review-map" aria-labelledby="review-map-title" data-review-map>
+  <h2 id="review-map-title">Review Map</h2>
+  <ol>
+    {
+      points.map((point, index) => (
+        <li>
+          <a href={`#${point.target}`} data-map-link={point.target}>
+            <span class="review-map__marker" aria-hidden="true">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span>
+              <strong>
+                Track {point.trackNumber} · {point.trackTitle}
+              </strong>
+              <small>{point.label}</small>
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<script>
+  const bindReviewMaps = () => {
+    document.querySelectorAll<HTMLElement>("[data-review-map]").forEach((map) => {
+      if (map.dataset.bound === "true") {
+        return;
+      }
+      map.dataset.bound = "true";
+      const links = [...map.querySelectorAll<HTMLAnchorElement>("[data-map-link]")];
+      const targets = links
+        .map((link) => document.getElementById(link.dataset.mapLink ?? ""))
+        .filter((target): target is HTMLElement => Boolean(target));
+      if (!targets.length || !("IntersectionObserver" in window)) {
+        return;
+      }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .toSorted((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+          if (!visible) {
+            return;
+          }
+          links.forEach((link) => {
+            const current = link.dataset.mapLink === visible.target.id;
+            link.toggleAttribute("aria-current", current);
+          });
+        },
+        { rootMargin: "-18% 0px -62% 0px", threshold: 0 }
+      );
+      targets.forEach((target) => observer.observe(target));
+    });
+  };
+  document.addEventListener("astro:page-load", bindReviewMaps);
+  bindReviewMaps();
+</script>
+
+<style>
+  .review-map {
+    padding-block: var(--space-lg);
+    border-block: 1px solid var(--line-soft);
+  }
+
+  .review-map h2 {
+    margin-block-end: var(--space-md);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--signal);
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+  }
+
+  .review-map ol {
+    display: grid;
+    gap: var(--space-xs);
+    padding: 0;
+    list-style: none;
+  }
+
+  .review-map a {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: var(--space-sm);
+    align-items: start;
+    min-block-size: var(--control-size);
+    padding-block: var(--space-xs);
+    color: var(--quiet-ink);
+    text-decoration: none;
+  }
+
+  .review-map a:hover,
+  .review-map a:focus,
+  .review-map a[aria-current] {
+    color: var(--paper-ink);
+  }
+
+  .review-map__marker {
+    display: grid;
+    place-items: center;
+    inline-size: 1.8rem;
+    block-size: 1.8rem;
+    font-size: 0.68rem;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+  }
+
+  .review-map a[aria-current] .review-map__marker {
+    color: var(--archive-night);
+    background: var(--signal);
+    border-color: var(--signal);
+  }
+
+  .review-map a > span:last-child {
+    display: grid;
+    gap: 0.12rem;
+  }
+
+  .review-map strong {
+    font-size: 0.9rem;
+  }
+
+  .review-map small {
+    font-size: 0.8rem;
+  }
+</style>

@@ -1,0 +1,449 @@
+---
+import { getCollection, getEntry, render, type CollectionEntry } from "astro:content";
+
+import AlbumMark from "@components/AlbumMark.astro";
+import ReviewMap from "@components/ReviewMap.astro";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const reviews = await getCollection("reviews", ({ data }) => !data.draft);
+  const sorted = reviews.toSorted(
+    (left, right) => right.data.publishedAt.valueOf() - left.data.publishedAt.valueOf()
+  );
+  return sorted.map((review, index) => ({
+    params: { slug: review.id },
+    props: { review, related: sorted[(index + 1) % sorted.length] },
+  }));
+}
+
+interface Props {
+  review: CollectionEntry<"reviews">;
+  related: CollectionEntry<"reviews">;
+}
+
+const { review, related } = Astro.props;
+const author = await getEntry(review.data.author);
+if (!author) throw new Error(`Missing author for ${review.id}.`);
+const { Content } = await render(review);
+const canonical = new URL(`/reviews/${review.id}/`, Astro.site).toString();
+const formatLabel =
+  review.data.format === "album-of-the-week"
+    ? "Album of the Week"
+    : review.data.format === "reappraisal"
+      ? "Reappraisal"
+      : "Full Review";
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  name: review.data.title,
+  headline: review.data.title,
+  description: review.data.seoDescription,
+  datePublished: review.data.publishedAt.toISOString(),
+  dateModified: (review.data.updatedAt ?? review.data.publishedAt).toISOString(),
+  mainEntityOfPage: canonical,
+  itemReviewed: {
+    "@type": "MusicAlbum",
+    name: review.data.album.title,
+    byArtist: { "@type": "MusicGroup", name: review.data.album.artist },
+    datePublished: review.data.album.releasedAt.toISOString().slice(0, 10),
+    numTracks: review.data.album.trackCount,
+  },
+  author: {
+    "@type": "Person",
+    name: author.data.name,
+    url: new URL(`/authors/${author.id}/`, Astro.site).toString(),
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "MelodyMind Editorial",
+    url: new URL("/editorial-standards/", Astro.site).toString(),
+  },
+  ...(review.data.cover.mode === "original"
+    ? { image: new URL(review.data.cover.src, Astro.site).toString() }
+    : {}),
+  citation: review.data.sources.map((source) => source.url),
+};
+---
+
+<Layout
+  title={review.data.title}
+  description={review.data.seoDescription}
+  {canonical}
+  type="article"
+  publishedAt={review.data.publishedAt}
+  structuredData={[articleSchema]}
+>
+  <article class="review">
+    <header class="review__hero page-shell">
+      {
+        review.data.cover.mode === "original" ? (
+          <figure class="review__cover">
+            <img
+              src={review.data.cover.src}
+              alt={review.data.cover.alt}
+              width="500"
+              height="500"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <figcaption>
+              Cover source:{" "}
+              <a href={review.data.cover.sourceUrl} rel="noopener noreferrer">
+                {review.data.cover.sourceLabel}
+              </a>
+            </figcaption>
+          </figure>
+        ) : (
+          <AlbumMark
+            title={review.data.album.title}
+            artist={review.data.album.artist}
+            genres={review.data.album.genres}
+          />
+        )
+      }
+      <div class="review__hero-copy">
+        <p class="eyebrow">{formatLabel}</p>
+        <h1>{review.data.album.title}</h1>
+        <p class="review__artist">{review.data.album.artist}</p>
+        <p class="review__thesis">{review.data.thesis}</p>
+        <dl class="review__meta">
+          <div>
+            <dt>By</dt>
+            <dd><a href={`/authors/${author.id}/`}>{author.data.name}</a></dd>
+          </div>
+          <div>
+            <dt>Published</dt>
+            <dd>
+              <time datetime={review.data.publishedAt.toISOString()}>
+                {
+                  review.data.publishedAt.toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })
+                }
+              </time>
+            </dd>
+          </div>
+          <div>
+            <dt>Released</dt>
+            <dd>{review.data.album.releasedAt.getUTCFullYear()}</dd>
+          </div>
+          <div>
+            <dt>Runtime</dt>
+            <dd>{review.data.album.runtime}</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <div class="review__reading page-shell">
+      <aside class="review__rail">
+        <ReviewMap points={review.data.reviewMap} />
+        <section class="review__listen" aria-labelledby="listen-title">
+          <h2 id="listen-title">Listen externally</h2>
+          <ul>
+            {
+              review.data.listeningLinks.map((link) => (
+                <li>
+                  <a href={link.url} rel="noopener noreferrer">
+                    {link.provider} <span aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          <p>No player is loaded on this page.</p>
+        </section>
+      </aside>
+
+      <div class="review__body prose" id="review-body">
+        <Content />
+      </div>
+    </div>
+
+    <section class="review__verdict reading-shell" aria-labelledby="verdict-title">
+      <p class="eyebrow">The argument in brief</p>
+      <h2 id="verdict-title">Where it holds, where it gives.</h2>
+      <div>
+        <section>
+          <h3>Strengths</h3>
+          <ul>{review.data.strengths.map((strength) => <li>{strength}</li>)}</ul>
+        </section>
+        <section>
+          <h3>Limits</h3>
+          <ul>{review.data.limits.map((limit) => <li>{limit}</li>)}</ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="review__sources reading-shell" aria-labelledby="sources-title">
+      <p class="eyebrow">Documentation</p>
+      <h2 id="sources-title">Sources</h2>
+      <ol>
+        {
+          review.data.sources.map((source) => (
+            <li id={`source-${source.id}`}>
+              <a href={source.url}>{source.title}</a>, {source.publisher}. Accessed{" "}
+              {source.accessedAt.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+              .
+            </li>
+          ))
+        }
+      </ol>
+      <p class="review__rights">{review.data.cover.rightsNote}</p>
+    </section>
+
+    <aside class="review__disclosure reading-shell">
+      <h2>Editorial disclosure</h2>
+      <p>
+        Research and drafting used AI assistance. Daniel Schmid reviewed the argument and
+        accepts responsibility for the published text. MelodyMind has no commercial
+        relationship with the artist or label.
+      </p>
+    </aside>
+
+    <footer class="review__footer reading-shell">
+      <div>
+        <p class="eyebrow">Byline</p>
+        <h2>{author.data.name}</h2>
+        <p>{author.data.shortBio}</p>
+        <a href={`/authors/${author.id}/`}>Read the author profile</a>
+      </div>
+      <a class="review__next" href={`/reviews/${related.id}/`}>
+        <span class="eyebrow">Read next</span>
+        <strong>{related.data.album.title}</strong>
+        <span>{related.data.album.artist}</span>
+      </a>
+    </footer>
+  </article>
+</Layout>
+
+<style>
+  .review {
+    display: grid;
+    gap: var(--space-4xl);
+  }
+
+  .review__hero {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: clamp(2.5rem, 7vw, 7rem) 0;
+  }
+
+  .review__hero-copy {
+    display: grid;
+    gap: var(--space-md);
+    align-content: center;
+  }
+
+  .review__cover {
+    display: grid;
+    gap: var(--space-xs);
+    align-self: start;
+    margin: 0;
+  }
+
+  .review__cover img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    box-shadow: 0 1.5rem 4rem color-mix(in oklch, var(--archive-night) 65%, transparent);
+  }
+
+  .review__cover figcaption {
+    font-size: 0.72rem;
+    color: var(--quiet-ink);
+  }
+
+  .review__hero h1 {
+    max-inline-size: 12ch;
+    font-size: clamp(3rem, 8vw, 6.8rem);
+    letter-spacing: -0.05em;
+  }
+
+  .review__artist {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    color: var(--quiet-ink);
+  }
+
+  .review__thesis {
+    max-inline-size: 52ch;
+    padding-block: var(--space-lg);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    border-block: 1px solid var(--line);
+  }
+
+  .review__meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .review__meta div {
+    display: grid;
+    gap: var(--space-2xs);
+  }
+
+  .review__meta dt,
+  .review__listen h2 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .review__meta dd {
+    font-weight: 700;
+  }
+
+  .review__reading {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .review__rail {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .review__listen {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .review__listen ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    padding: 0;
+    list-style: none;
+  }
+
+  .review__listen a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--control-size);
+    font-weight: 700;
+  }
+
+  .review__listen p {
+    font-size: 0.8rem;
+    color: var(--quiet-ink);
+  }
+
+  .review__body {
+    max-inline-size: var(--reading-width);
+  }
+
+  .review__verdict,
+  .review__sources,
+  .review__disclosure,
+  .review__footer {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .review__verdict {
+    padding-block: var(--space-2xl);
+    border-block: 1px solid var(--line);
+  }
+
+  .review__verdict > h2,
+  .review__sources h2,
+  .review__footer h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+  }
+
+  .review__verdict > div {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .review__verdict section {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .review__verdict ul,
+  .review__sources ol {
+    display: grid;
+    gap: var(--space-sm);
+    padding-inline-start: 1.3rem;
+  }
+
+  .review__sources li,
+  .review__rights,
+  .review__disclosure p,
+  .review__footer p {
+    color: var(--quiet-ink);
+  }
+
+  .review__disclosure {
+    padding: var(--space-lg);
+    background: var(--desk-night);
+  }
+
+  .review__disclosure h2 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+
+  .review__footer {
+    padding-block: var(--space-2xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .review__footer > div {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .review__next {
+    display: grid;
+    gap: var(--space-xs);
+    align-content: center;
+    min-block-size: 8rem;
+    padding: var(--space-lg);
+    color: var(--paper-ink);
+    text-decoration: none;
+    background: var(--desk-night);
+  }
+
+  .review__next strong {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+  }
+
+  @media (width >= 60rem) {
+    .review__hero {
+      grid-template-columns: minmax(20rem, 0.78fr) minmax(28rem, 1.22fr);
+      align-items: center;
+    }
+
+    .review__reading {
+      grid-template-columns: 17rem minmax(0, var(--reading-width));
+      gap: clamp(3rem, 7vw, 7rem);
+      justify-content: center;
+    }
+
+    .review__rail {
+      position: sticky;
+      inset-block-start: 2rem;
+    }
+
+    .review__verdict > div,
+    .review__footer {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
