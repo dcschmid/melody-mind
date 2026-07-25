@@ -1,0 +1,70 @@
+---
+import EmbedSeriesPlayer from "@components/music/embed/EmbedSeriesPlayer.astro";
+import EmbedLayout from "@layouts/EmbedLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import { getAvailableAlbums } from "@utils/albums";
+import { MUSIC_SITE_URL } from "@utils/appShell";
+import { getAlbumCoverImagePath } from "@utils/musicImages";
+import type { AlbumData } from "../../../types/album";
+import type { CollectionEntry } from "astro:content";
+
+type SeriesEntry = CollectionEntry<"series">;
+
+export async function getStaticPaths() {
+  const series = (await getCollection("series")) as SeriesEntry[];
+
+  return series.map((entry) => ({
+    params: { series: entry.id },
+  }));
+}
+
+const { series: seriesId } = Astro.params;
+const entry = (seriesId ? await getEntry("series", seriesId) : undefined) as
+  | SeriesEntry
+  | undefined;
+const availableAlbums = await getAvailableAlbums();
+const albumsById = new Map(
+  availableAlbums.map((album) => [album.id.toLocaleLowerCase("en"), album])
+);
+const seriesAlbumIds: string[] = entry?.data.albumIds || [];
+const seriesAlbums: AlbumData[] = seriesAlbumIds
+  .map((albumId: string) => albumsById.get(albumId.toLocaleLowerCase("en")))
+  .filter((album): album is AlbumData => Boolean(album));
+
+if (
+  !entry ||
+  seriesAlbums.length !== entry.data.albumIds.length ||
+  seriesAlbums.some((album) => album.songs.length === 0)
+) {
+  return Astro.redirect("/404");
+}
+
+const seriesUrl = `${MUSIC_SITE_URL}/series/${entry.id}/`;
+const series = {
+  id: entry.id,
+  title: entry.data.title,
+  url: seriesUrl,
+  tracks: seriesAlbums.flatMap((album, albumIndex) =>
+    album.songs.map((song) => ({
+      album: {
+        id: album.id,
+        title: album.title,
+        url: `${MUSIC_SITE_URL}/${album.id}/`,
+        artworkUrl: getAlbumCoverImagePath(album.coverImage),
+      },
+      audioUrl: song.audioUrl,
+      ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
+      partNumber: albumIndex + 1,
+      title: song.title,
+      trackNumber: song.trackNumber,
+    }))
+  ),
+};
+---
+
+<EmbedLayout
+  title={`${entry.data.title} series player | MelodyMind`}
+  description={`A compact, privacy-friendly series player for ${entry.data.title}.`}
+>
+  <EmbedSeriesPlayer {series} />
+</EmbedLayout>

@@ -1,0 +1,21 @@
+---
+import AlbumEmbedGenerator from "./AlbumEmbedGenerator.astro";
+import type { AlbumData } from "../../../types/album";
+
+interface Props {
+  seriesId: string;
+  seriesTitle: string;
+  albums: AlbumData[];
+}
+
+const { seriesId, seriesTitle, albums } = Astro.props as Props;
+const startOptions = albums.flatMap((album, albumIndex) =>
+  album.songs.map((song) => ({
+    albumId: album.id,
+    label: `Part ${albumIndex + 1} · ${album.title} · ${song.trackNumber}. ${song.title}`,
+    trackNumber: song.trackNumber,
+  }))
+);
+---
+
+<AlbumEmbedGenerator kind="series" {seriesId} {seriesTitle} {startOptions} />

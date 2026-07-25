@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import OptimizedImage from "@components/media/OptimizedImage.astro";
+import SeriesEmbedGenerator from "@components/music/embed/SeriesEmbedGenerator.astro";
 import Icon from "@components/visual/Icon.astro";
 import Layout from "../../layouts/Layout.astro";
 import { resolvePageUrl } from "@utils/siteUrls";
@@ -284,6 +285,15 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
             {`${albumCards.length}-part listening order, beginning with Part 1`}
           </span>
         </p>
+        {
+          marathonAvailable && (
+            <SeriesEmbedGenerator
+              seriesId={page.slug}
+              seriesTitle={page.title}
+              albums={seriesAlbums}
+            />
+          )
+        }
       </div>
     </header>
 

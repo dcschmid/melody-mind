@@ -2,39 +2,99 @@
 import Icon from "@components/visual/Icon.astro";
 import type { Song } from "../../../types/album";
 
-interface Props {
+interface AlbumProps {
   albumId: string;
   albumTitle: string;
   albumUrl: string;
   artworkUrl: string;
   songs: Song[];
+  series?: never;
 }
 
-const { albumId, albumTitle, albumUrl, artworkUrl, songs } = Astro.props as Props;
-const playerId = `embed-album-player-${albumId}`;
+interface SeriesTrack {
+  album: {
+    id: string;
+    title: string;
+    url: string;
+    artworkUrl: string;
+  };
+  audioUrl: string;
+  durationSeconds?: number;
+  partNumber: number;
+  title: string;
+  trackNumber: number;
+}
+
+interface EmbedTrack {
+  album?: SeriesTrack["album"];
+  artworkUrl: string;
+  audioUrl: string;
+  durationSeconds?: number;
+  partNumber?: number;
+  title: string;
+  trackNumber: number;
+}
+
+interface SeriesProps {
+  albumId?: never;
+  albumTitle?: never;
+  albumUrl?: never;
+  artworkUrl?: never;
+  series: {
+    id: string;
+    title: string;
+    url: string;
+    tracks: SeriesTrack[];
+  };
+  songs?: never;
+}
+
+type Props = AlbumProps | SeriesProps;
+
+const props = Astro.props as Props;
+const isSeries = Boolean(props.series);
+const entityKind = isSeries ? "series" : "album";
+const entityId = props.series?.id || props.albumId;
+const entityTitle = props.series?.title || props.albumTitle;
+const entityUrl = props.series?.url || props.albumUrl;
+const tracks: EmbedTrack[] = props.series
+  ? props.series.tracks.map((track) => ({
+      album: track.album,
+      artworkUrl: track.album.artworkUrl,
+      audioUrl: track.audioUrl,
+      ...(track.durationSeconds ? { durationSeconds: track.durationSeconds } : {}),
+      partNumber: track.partNumber,
+      title: track.title,
+      trackNumber: track.trackNumber,
+    }))
+  : props.songs.map((song) => ({
+      artworkUrl: props.artworkUrl,
+      audioUrl: song.audioUrl,
+      ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
+      title: song.title,
+      trackNumber: song.trackNumber,
+    }));
+const firstTrack = tracks[0];
+const playerId = `embed-${entityKind}-player-${entityId}`;
 const titleId = `${playerId}-title`;
 const statusId = `${playerId}-status`;
 const errorId = `${playerId}-error`;
 const playerData = {
-  album: {
-    id: albumId,
-    title: albumTitle,
-    url: albumUrl,
-    artworkUrl,
+  kind: entityKind,
+  entity: {
+    id: entityId,
+    title: entityTitle,
+    url: entityUrl,
   },
-  tracks: songs.map((song) => ({
-    trackNumber: song.trackNumber,
-    title: song.title,
-    audioUrl: song.audioUrl,
-    ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
-  })),
+  tracks,
 };
 ---
 
 <article
   id={playerId}
   class="embed-album-player"
-  data-embed-album-player
+  data-embed-player
+  data-embed-kind={entityKind}
   data-cover-visible="true"
   aria-labelledby={titleId}
 >
@@ -42,33 +102,41 @@ const playerData = {
     class="embed-album-player__artwork"
     width="160"
     height="160"
-    alt={`Cover art for ${albumTitle}`}
+    alt={`Cover art for ${firstTrack?.album?.title || entityTitle}`}
     decoding="async"
     data-embed-artwork
-    data-artwork-src={artworkUrl}
+    data-artwork-src={firstTrack?.artworkUrl}
   />
 
   <div class="embed-album-player__body">
     <header class="embed-album-player__header">
-      <p class="embed-album-player__eyebrow">MelodyMind album</p>
+      <p class="embed-album-player__eyebrow">MelodyMind {entityKind}</p>
       <h1 class="embed-album-player__title" id={titleId}>
         <a
           class="embed-album-player__title-link"
-          href={albumUrl}
+          href={entityUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {albumTitle}
+          {entityTitle}
         </a>
       </h1>
     </header>
 
+    {
+      isSeries && firstTrack?.album && (
+        <p class="embed-album-player__album-context" data-embed-album-context>
+          Part {firstTrack.partNumber || 1} · {firstTrack.album.title}
+        </p>
+      )
+    }
+
     <p class="embed-album-player__track">
       <span class="embed-album-player__track-number" data-embed-track-number>
-        {songs[0]?.trackNumber || 1}.
+        {firstTrack?.trackNumber || 1}.
       </span>
       <strong class="embed-album-player__track-title" data-embed-track-title>
-        {songs[0]?.title || "No playable tracks"}
+        {firstTrack?.title || "No playable tracks"}
       </strong>
     </p>
 
@@ -85,7 +153,7 @@ const playerData = {
         class="embed-album-player__button embed-album-player__button--primary"
         type="button"
         data-embed-action="toggle"
-        aria-label={`Play ${songs[0]?.title || albumTitle}`}
+        aria-label={`Play ${firstTrack?.title || entityTitle}`}
         aria-pressed="false"
       >
         <Icon
@@ -118,7 +186,7 @@ const playerData = {
           class="embed-album-player__progress"
           type="range"
           min="0"
-          max={songs[0]?.durationSeconds || 0}
+          max={firstTrack?.durationSeconds || 0}
           step="1"
           value="0"
           disabled
@@ -127,9 +195,9 @@ const playerData = {
         />
         <span class="embed-album-player__time" data-embed-duration>
           {
-            songs[0]?.durationSeconds
-              ? `${Math.floor(songs[0].durationSeconds / 60)}:${String(
-                  songs[0].durationSeconds % 60
+            firstTrack?.durationSeconds
+              ? `${Math.floor(firstTrack.durationSeconds / 60)}:${String(
+                  firstTrack.durationSeconds % 60
                 ).padStart(2, "0")}`
               : "0:00"
           }
@@ -162,11 +230,11 @@ const playerData = {
       </p>
       <a
         class="embed-album-player__album-link"
-        href={albumUrl}
+        href={entityUrl}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span>Full album</span>
+        <span>Full {entityKind}</span>
         <Icon name="external-link" aria-hidden="true" />
       </a>
     </footer>
@@ -267,6 +335,7 @@ const playerData = {
 
   .embed-album-player__eyebrow,
   .embed-album-player__title,
+  .embed-album-player__album-context,
   .embed-album-player__track,
   .embed-album-player__message {
     margin: 0;
@@ -303,6 +372,21 @@ const playerData = {
   .embed-album-player__title-link:hover,
   .embed-album-player__title-link:focus {
     color: var(--accent-primary);
+  }
+
+  .embed-album-player__album-context {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.15;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .embed-album-player[data-embed-kind="series"] .embed-album-player__body {
+    gap: 0.16rem;
   }
 
   .embed-album-player__track {

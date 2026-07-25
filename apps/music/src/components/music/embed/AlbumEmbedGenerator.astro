@@ -2,31 +2,64 @@
 import Icon from "@components/visual/Icon.astro";
 import type { Song } from "../../../types/album";
 
-interface Props {
+interface StartOption {
+  albumId?: string;
+  label: string;
+  trackNumber: number;
+}
+
+interface AlbumProps {
   albumId: string;
   albumTitle: string;
+  kind?: "album";
   songs: Song[];
 }
 
-const { albumId, albumTitle, songs } = Astro.props as Props;
-const generatorId = `album-embed-generator-${albumId}`;
+interface SeriesProps {
+  kind: "series";
+  seriesId: string;
+  seriesTitle: string;
+  startOptions: StartOption[];
+}
+
+type Props = AlbumProps | SeriesProps;
+
+const props = Astro.props as Props;
+const isSeries = props.kind === "series";
+const entityKind = isSeries ? "series" : "album";
+const entityId = isSeries ? props.seriesId : props.albumId;
+const entityTitle = isSeries ? props.seriesTitle : props.albumTitle;
+const startOptions: StartOption[] = isSeries
+  ? props.startOptions
+  : props.songs.map((song) => ({
+      label: `${song.trackNumber}. ${song.title}`,
+      trackNumber: song.trackNumber,
+    }));
+const generatorId = `${entityKind}-embed-generator-${entityId}`;
 const panelId = `${generatorId}-panel`;
 const statusId = `${generatorId}-status`;
 const embedOrigin = import.meta.env.PUBLIC_EMBED_ORIGIN || "https://embed.melody-mind.de";
-const embedBaseUrl = `${embedOrigin.replace(/\/+$/, "")}/album/${encodeURIComponent(
-  albumId
+const embedBaseUrl = `${embedOrigin.replace(/\/+$/, "")}/${entityKind}/${encodeURIComponent(
+  entityId
 )}/`;
 const previewBaseUrl = import.meta.env.DEV
-  ? `/embed/album/${encodeURIComponent(albumId)}/`
+  ? `/embed/${entityKind}/${encodeURIComponent(entityId)}/`
   : embedBaseUrl;
-const defaultTitle = `${albumTitle} album player by MelodyMind`;
+const defaultTitle = `${entityTitle} ${entityKind} player by MelodyMind`;
 const escapeHtmlAttribute = (value: string): string =>
   value
     .replaceAll("&", "&amp;")
     .replaceAll('"', "&quot;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
-const defaultEmbedUrl = `${embedBaseUrl}?track=${songs[0]?.trackNumber || 1}&cover=1`;
+const defaultStart = startOptions[0];
+const defaultStartQuery =
+  isSeries && defaultStart?.albumId
+    ? `album=${encodeURIComponent(defaultStart.albumId)}&track=${
+        defaultStart.trackNumber
+      }`
+    : `track=${defaultStart?.trackNumber || 1}`;
+const defaultEmbedUrl = `${embedBaseUrl}?${defaultStartQuery}&cover=1&theme=midnight`;
 const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
   "&",
   "&amp;"
@@ -38,17 +71,18 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
 <section
   class="album-embed-generator"
   id={generatorId}
-  data-album-embed-generator
+  data-embed-generator
   data-embed-base-url={embedBaseUrl}
   data-preview-base-url={previewBaseUrl}
-  data-album-title={albumTitle}
+  data-embed-kind={entityKind}
+  data-entity-title={entityTitle}
   aria-labelledby={`${generatorId}-title`}
 >
   <div class="album-embed-generator__intro">
     <div class="album-embed-generator__copy">
       <p class="album-embed-generator__eyebrow">For your website</p>
       <h2 class="album-embed-generator__title" id={`${generatorId}-title`}>
-        Embed this album
+        Embed this {entityKind}
       </h2>
       <p class="album-embed-generator__description">
         Add a compact, privacy-friendly player to any HTTPS page.
@@ -80,7 +114,7 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
     <form class="album-embed-generator__form" data-embed-generator-form>
       <div class="album-embed-generator__field">
         <label class="album-embed-generator__label" for={`${generatorId}-start-track`}>
-          Start track
+          {isSeries ? "Starting point" : "Start track"}
         </label>
         <select
           class="album-embed-generator__select"
@@ -88,12 +122,27 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
           data-embed-start-track
         >
           {
-            songs.map((song) => (
-              <option value={song.trackNumber}>
-                {song.trackNumber}. {song.title}
+            startOptions.map((option) => (
+              <option value={option.trackNumber} data-album-id={option.albumId}>
+                {option.label}
               </option>
             ))
           }
+        </select>
+      </div>
+
+      <div class="album-embed-generator__field">
+        <label class="album-embed-generator__label" for={`${generatorId}-theme`}>
+          Color variant
+        </label>
+        <select
+          class="album-embed-generator__select"
+          id={`${generatorId}-theme`}
+          data-embed-theme
+        >
+          <option value="midnight">Midnight, dark teal</option>
+          <option value="paper">Paper, warm light</option>
+          <option value="contrast">High contrast</option>
         </select>
       </div>
 
@@ -116,7 +165,7 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
         width="720"
         height="200"
         data-embed-preview
-        data-preview-src={`${previewBaseUrl}?track=${songs[0]?.trackNumber || 1}&cover=1`}
+        data-preview-src={`${previewBaseUrl}?${defaultStartQuery}&cover=1&theme=midnight`}
         aria-labelledby={`${generatorId}-preview-label`}></iframe>
     </div>
 
@@ -181,6 +230,7 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
     const panel = root.querySelector<HTMLElement>("[data-embed-generator-panel]");
     const form = root.querySelector<HTMLFormElement>("[data-embed-generator-form]");
     const trackSelect = root.querySelector<HTMLSelectElement>("[data-embed-start-track]");
+    const themeSelect = root.querySelector<HTMLSelectElement>("[data-embed-theme]");
     const coverToggle = root.querySelector<HTMLInputElement>("[data-embed-cover-toggle]");
     const preview = root.querySelector<HTMLIFrameElement>("[data-embed-preview]");
     const code = root.querySelector<HTMLTextAreaElement>("[data-embed-code]");
@@ -189,7 +239,8 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
     const status = root.querySelector<HTMLElement>("[data-embed-copy-status]");
     const embedBaseUrl = root.dataset.embedBaseUrl || "";
     const previewBaseUrl = root.dataset.previewBaseUrl || embedBaseUrl;
-    const albumTitle = root.dataset.albumTitle || "MelodyMind album";
+    const entityKind = root.dataset.embedKind || "album";
+    const entityTitle = root.dataset.entityTitle || "MelodyMind";
     const controller = new AbortController();
     const { signal } = controller;
     let resetTimer: number | undefined;
@@ -197,13 +248,23 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
     const buildUrl = (baseUrl: string): string => {
       const url = new URL(baseUrl, window.location.origin);
       url.searchParams.set("track", trackSelect?.value || "1");
+      const selectedOption = trackSelect?.selectedOptions[0];
+      const albumId = selectedOption?.dataset.albumId;
+      if (albumId) {
+        url.searchParams.set("album", albumId);
+      } else {
+        url.searchParams.delete("album");
+      }
       url.searchParams.set("cover", coverToggle?.checked === false ? "0" : "1");
+      url.searchParams.set("theme", themeSelect?.value || "midnight");
       return url.toString();
     };
 
     const buildCode = (): string => {
       const src = buildUrl(embedBaseUrl).replaceAll("&", "&amp;");
-      const title = escapeHtmlAttribute(`${albumTitle} album player by MelodyMind`);
+      const title = escapeHtmlAttribute(
+        `${entityTitle} ${entityKind} player by MelodyMind`
+      );
       return `<iframe src="${src}" title="${title}" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" width="720" height="200" style="display:block;width:100%;max-width:720px;height:200px;border:0"></iframe>`;
     };
 
@@ -311,14 +372,14 @@ const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
     });
   };
 
-  const initAlbumEmbedGenerators = (): void => {
+  const initEmbedGenerators = (): void => {
     document
-      .querySelectorAll<HTMLElement>("[data-album-embed-generator]")
+      .querySelectorAll<HTMLElement>("[data-embed-generator]")
       .forEach(bindAlbumEmbedGenerator);
   };
 
-  initAlbumEmbedGenerators();
-  document.addEventListener("astro:page-load", initAlbumEmbedGenerators);
+  initEmbedGenerators();
+  document.addEventListener("astro:page-load", initEmbedGenerators);
 </script>
 
 <style>

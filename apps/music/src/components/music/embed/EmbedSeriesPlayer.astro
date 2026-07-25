@@ -1,0 +1,30 @@
+---
+import EmbedAlbumPlayer from "./EmbedAlbumPlayer.astro";
+
+interface SeriesTrack {
+  album: {
+    id: string;
+    title: string;
+    url: string;
+    artworkUrl: string;
+  };
+  audioUrl: string;
+  durationSeconds?: number;
+  partNumber: number;
+  title: string;
+  trackNumber: number;
+}
+
+interface Props {
+  series: {
+    id: string;
+    title: string;
+    url: string;
+    tracks: SeriesTrack[];
+  };
+}
+
+const { series } = Astro.props as Props;
+---
+
+<EmbedAlbumPlayer {series} />

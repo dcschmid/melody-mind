@@ -1,18 +1,26 @@
 import { formatTime } from "@utils/time";
 
 interface EmbedTrack {
-  trackNumber: number;
-  title: string;
-  audioUrl: string;
-  durationSeconds?: number;
-}
-
-interface EmbedPlayerData {
-  album: {
+  album?: {
     id: string;
     title: string;
     url: string;
     artworkUrl: string;
+  };
+  artworkUrl: string;
+  trackNumber: number;
+  title: string;
+  audioUrl: string;
+  durationSeconds?: number;
+  partNumber?: number;
+}
+
+interface EmbedPlayerData {
+  kind: "album" | "series";
+  entity: {
+    id: string;
+    title: string;
+    url: string;
   };
   tracks: EmbedTrack[];
 }
@@ -31,10 +39,18 @@ const parsePlayerData = (root: HTMLElement): EmbedPlayerData | null => {
   }
 };
 
-const getInitialTrackIndex = (tracks: EmbedTrack[]): number => {
-  const rawTrackNumber = new URLSearchParams(window.location.search).get("track");
+const getInitialTrackIndex = (playerData: EmbedPlayerData): number => {
+  const params = new URLSearchParams(window.location.search);
+  const rawTrackNumber = params.get("track");
   const trackNumber = rawTrackNumber ? Number.parseInt(rawTrackNumber, 10) : NaN;
-  const index = tracks.findIndex((track) => track.trackNumber === trackNumber);
+  const albumId = params.get("album");
+  const index = playerData.tracks.findIndex(
+    (track) =>
+      track.trackNumber === trackNumber &&
+      (playerData.kind !== "series" ||
+        !albumId ||
+        track.album?.id.toLocaleLowerCase("en") === albumId.toLocaleLowerCase("en"))
+  );
   return index >= 0 ? index : 0;
 };
 
@@ -68,16 +84,13 @@ const bindEmbedPlayer = (root: HTMLElement): void => {
   const duration = root.querySelector<HTMLElement>("[data-embed-duration]");
   const trackNumber = root.querySelector<HTMLElement>("[data-embed-track-number]");
   const trackTitle = root.querySelector<HTMLElement>("[data-embed-track-title]");
+  const albumContext = root.querySelector<HTMLElement>("[data-embed-album-context]");
   const status = root.querySelector<HTMLElement>("[data-embed-status]");
   const visibleStatus = root.querySelector<HTMLElement>("[data-embed-visible-status]");
   const controller = new AbortController();
   const { signal } = controller;
 
-  if (coverVisible && artwork?.dataset.artworkSrc) {
-    artwork.src = artwork.dataset.artworkSrc;
-  }
-
-  let currentIndex = getInitialTrackIndex(playerData.tracks);
+  let currentIndex = getInitialTrackIndex(playerData);
   let hasLoadedTrack = false;
   let lastStatus = "";
 
@@ -100,6 +113,13 @@ const bindEmbedPlayer = (root: HTMLElement): void => {
     const track = getTrack();
     const knownDuration = track.durationSeconds || 0;
 
+    if (coverVisible && artwork) {
+      artwork.src = track.artworkUrl;
+      artwork.alt = `Cover art for ${track.album?.title || playerData.entity.title}`;
+    }
+    if (albumContext && track.album) {
+      albumContext.textContent = `Part ${track.partNumber || 1} · ${track.album.title}`;
+    }
     if (trackNumber) {
       trackNumber.textContent = `${track.trackNumber}.`;
     }
@@ -303,7 +323,7 @@ const bindEmbedPlayer = (root: HTMLElement): void => {
       root.dataset.playing = "false";
       toggle?.setAttribute("aria-pressed", "false");
       toggle?.setAttribute("aria-label", `Play ${getTrack().title}`);
-      setStatus(`${playerData.album.title} complete.`);
+      setStatus(`${playerData.entity.title} complete.`);
     },
     { signal }
   );
@@ -326,9 +346,7 @@ const bindEmbedPlayer = (root: HTMLElement): void => {
 };
 
 const initEmbedPlayers = (): void => {
-  document
-    .querySelectorAll<HTMLElement>("[data-embed-album-player]")
-    .forEach(bindEmbedPlayer);
+  document.querySelectorAll<HTMLElement>("[data-embed-player]").forEach(bindEmbedPlayer);
 };
 
 initEmbedPlayers();

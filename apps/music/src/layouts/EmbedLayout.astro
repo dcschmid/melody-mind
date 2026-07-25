@@ -10,19 +10,38 @@ const { title, description } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="en" class="embed-layout" data-theme="dark">
+<html lang="en" class="embed-layout" data-theme="dark" data-embed-theme="midnight">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#0b111f" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
     <meta name="referrer" content="no-referrer" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const theme = new URLSearchParams(window.location.search).get("theme");
+        const allowedThemes = new Set(["midnight", "paper", "contrast"]);
+        const resolvedTheme = allowedThemes.has(theme) ? theme : "midnight";
+        document.documentElement.dataset.embedTheme = resolvedTheme;
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) {
+          themeColor.setAttribute(
+            "content",
+            resolvedTheme === "paper"
+              ? "oklch(96% 0.015 85deg)"
+              : resolvedTheme === "contrast"
+                ? "oklch(6% 0.015 250deg)"
+                : "oklch(11.5% 0.03 250deg)"
+          );
+        }
+      })();
+    </script>
   </head>
   <body class="embed-layout__body">
     <main class="embed-layout__main">
@@ -35,6 +54,60 @@ const { title, description } = Astro.props as Props;
   .embed-layout {
     color-scheme: dark;
     background: var(--bg-primary);
+  }
+
+  .embed-layout[data-embed-theme="paper"] {
+    color-scheme: light;
+
+    --bg-primary: oklch(96% 0.015 85deg);
+    --bg-secondary: oklch(91% 0.018 85deg);
+    --surface-1: oklch(91% 0.018 85deg);
+    --surface-2: oklch(86% 0.02 85deg);
+    --surface-3: oklch(80% 0.02 85deg);
+    --text-primary: oklch(19% 0.025 250deg);
+    --text-secondary: oklch(29% 0.025 250deg);
+    --text-tertiary: oklch(33% 0.025 250deg);
+    --accent-primary: oklch(36% 0.11 35deg);
+    --accent-strong: oklch(31% 0.1 35deg);
+    --accent-muted: oklch(43% 0.09 35deg);
+    --accent-primary-hover: oklch(31% 0.1 35deg);
+    --accent-contrast: var(--bg-primary);
+    --link-default: oklch(34% 0.1 35deg);
+    --link-hover: oklch(28% 0.09 35deg);
+    --link-visited: oklch(35% 0.075 15deg);
+    --border-default: oklch(55% 0.03 70deg);
+    --border-muted: oklch(70% 0.025 75deg / 0.8);
+    --border-strong: oklch(42% 0.035 70deg);
+    --button-text-accent: var(--bg-primary);
+    --focus-ring-color: oklch(34% 0.11 35deg);
+    --color-error: oklch(36% 0.12 25deg);
+  }
+
+  .embed-layout[data-embed-theme="contrast"] {
+    color-scheme: dark;
+
+    --bg-primary: oklch(6% 0.015 250deg);
+    --bg-secondary: oklch(12% 0.018 250deg);
+    --surface-1: oklch(12% 0.018 250deg);
+    --surface-2: oklch(18% 0.02 250deg);
+    --surface-3: oklch(24% 0.022 250deg);
+    --text-primary: oklch(98% 0.005 85deg);
+    --text-secondary: oklch(92% 0.012 245deg);
+    --text-tertiary: oklch(86% 0.016 248deg);
+    --accent-primary: oklch(92% 0.1 180deg);
+    --accent-strong: oklch(96% 0.075 180deg);
+    --accent-muted: oklch(82% 0.09 180deg);
+    --accent-primary-hover: oklch(96% 0.075 180deg);
+    --accent-contrast: var(--bg-primary);
+    --link-default: oklch(94% 0.08 180deg);
+    --link-hover: oklch(98% 0.045 180deg);
+    --link-visited: oklch(91% 0.07 210deg);
+    --border-default: oklch(72% 0.025 250deg);
+    --border-muted: oklch(58% 0.025 250deg);
+    --border-strong: oklch(88% 0.02 250deg);
+    --button-text-accent: var(--bg-primary);
+    --focus-ring-color: oklch(96% 0.09 180deg);
+    --color-error: oklch(88% 0.09 25deg);
   }
 
   .embed-layout,
