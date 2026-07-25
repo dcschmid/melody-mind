@@ -36,6 +36,9 @@ const formatLabel = story.data.format
   .split("-")
   .map((word) => word[0]?.toUpperCase() + word.slice(1))
   .join(" ");
+const hasLongTitleWord = story.data.title
+  .split(/\s+/)
+  .some((word) => word.replace(/[^\p{L}\p{N}]/gu, "").length >= 10);
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -73,7 +76,14 @@ const articleSchema = {
     <header class="story__hero page-shell">
       <div class="story__hero-copy">
         <p class="story__format eyebrow reveal">{formatLabel}</p>
-        <h1 class="story__title reveal reveal--second">{story.data.title}</h1>
+        <h1
+          class:list={[
+            "story__title reveal reveal--second",
+            hasLongTitleWord && "story__title--long-word",
+          ]}
+        >
+          {story.data.title}
+        </h1>
         <p class="story__dek reveal reveal--third">{story.data.dek}</p>
         <dl class="story__meta reveal reveal--third">
           <div>
@@ -217,6 +227,7 @@ const articleSchema = {
     display: grid;
     gap: var(--space-lg);
     align-content: end;
+    container-type: inline-size;
   }
 
   .story__title {
@@ -426,6 +437,10 @@ const articleSchema = {
 
     .story__hero-image {
       transform: translateY(var(--space-2xl));
+    }
+
+    .story__title--long-word {
+      font-size: clamp(4rem, 17cqi, 7.4rem);
     }
 
     .story__figures {
