@@ -92,13 +92,23 @@ const getTrackDurationLabel = (song: Song): string =>
 
   <header class="album-playlist-player__header">
     <h2 id={headingId} class="album-playlist-player__heading">Tracklist</h2>
-    <p
-      class="album-playlist-player__summary"
-      aria-label={`${trackCountLabel}${totalDurationLabel ? `, ${totalDurationLabel} total` : ""}`}
-    >
-      {trackCountLabel}
-      {totalDurationLabel && <span aria-hidden="true"> · {totalDurationLabel}</span>}
-    </p>
+    <div class="album-playlist-player__header-actions">
+      <p
+        class="album-playlist-player__summary"
+        aria-label={`${trackCountLabel}${totalDurationLabel ? `, ${totalDurationLabel} total` : ""}`}
+      >
+        {trackCountLabel}
+        {totalDurationLabel && <span aria-hidden="true"> · {totalDurationLabel}</span>}
+      </p>
+      <a
+        class="album-playlist-player__visuals-link"
+        href="/visuals/"
+        data-open-album-visuals
+      >
+        <Icon name="tabler:device-tv" aria-hidden="true" />
+        <span>Open visuals</span>
+      </a>
+    </div>
   </header>
 
   <div class="album-playlist-player__tracklist-section">
@@ -352,6 +362,39 @@ const getTrackDurationLabel = (song: Song): string =>
   .album-playlist-player__heading,
   .album-playlist-player__summary {
     margin: 0;
+  }
+
+  .album-playlist-player__header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-base);
+    align-items: center;
+  }
+
+  .album-playlist-player__visuals-link {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-md);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--music-album-ink);
+    text-decoration: none;
+    border: 1px solid var(--music-album-line);
+    border-radius: var(--radius-base);
+  }
+
+  .album-playlist-player__visuals-link:hover,
+  .album-playlist-player__visuals-link:focus-visible {
+    color: var(--music-album-accent-strong);
+    border-color: var(--music-album-accent);
+  }
+
+  .album-playlist-player__visuals-link :global(svg) {
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
   }
 
   .album-playlist-player__heading {

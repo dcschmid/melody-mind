@@ -24,7 +24,10 @@ interface NavigatorWithConnection extends Navigator {
   };
 }
 
-interface StoredPlayerState extends Omit<PlayerState, "isPlaying" | "errorMessage"> {
+interface StoredPlayerState extends Omit<
+  PlayerState,
+  "isPlaying" | "playbackPhase" | "errorMessage"
+> {
   version: 4;
 }
 
@@ -266,8 +269,13 @@ const initGlobalPlayer = (): void => {
   }
   const audio = document.createElement("audio");
   audio.preload = "metadata";
+  audio.crossOrigin = "anonymous";
   audio.dataset.globalPlayerAudio = "";
   root.append(audio);
+  let audioContext: AudioContext | null = null;
+  let mediaElementSource: MediaElementAudioSourceNode | null = null;
+  let analyser: AnalyserNode | null = null;
+  let analyserData: Uint8Array<ArrayBuffer> | null = null;
 
   const artwork = root.querySelector<HTMLImageElement>("[data-global-player-artwork]");
   const albumLink = root.querySelector<HTMLAnchorElement>("[data-global-player-link]");
@@ -321,6 +329,7 @@ const initGlobalPlayer = (): void => {
     duration: restored?.duration || 0,
     isMuted: restored?.isMuted === true,
     isPlaying: false,
+    playbackPhase: restored?.queue ? "paused" : "idle",
     errorMessage: null,
     seriesIntermission: restored?.seriesIntermission || null,
     updatedAt: restored?.updatedAt || Date.now(),
@@ -350,6 +359,35 @@ const initGlobalPlayer = (): void => {
       return audio.duration;
     }
     return getTrack()?.durationSeconds || state.duration || 0;
+  };
+
+  const derivePlaybackPhase = (isPlaying: boolean): PlayerState["playbackPhase"] => {
+    if (state.errorMessage) {
+      return "error";
+    }
+    if (state.seriesIntermission) {
+      return "intermission";
+    }
+    if (hasFinished) {
+      return "finished";
+    }
+    if (!state.queue) {
+      return "idle";
+    }
+    if (
+      state.playbackPhase === "loading" &&
+      audio.readyState < HTMLMediaElement.HAVE_METADATA
+    ) {
+      return "loading";
+    }
+    if (
+      state.playbackPhase === "buffering" &&
+      !audio.paused &&
+      audio.readyState < HTMLMediaElement.HAVE_FUTURE_DATA
+    ) {
+      return "buffering";
+    }
+    return isPlaying ? "playing" : "paused";
   };
 
   const snapshot = (): PlayerState => {
@@ -509,6 +547,7 @@ const initGlobalPlayer = (): void => {
   };
 
   const dispatch = (forceSave = false) => {
+    const isPlaying = !audio.paused && !audio.ended;
     state = {
       ...state,
       currentTime: Number.isFinite(audio.currentTime)
@@ -516,7 +555,8 @@ const initGlobalPlayer = (): void => {
         : state.currentTime,
       duration: getDuration(),
       isMuted: audio.muted,
-      isPlaying: !audio.paused && !audio.ended,
+      isPlaying,
+      playbackPhase: derivePlaybackPhase(isPlaying),
       updatedAt: Date.now(),
     };
     updateUi();
@@ -601,6 +641,7 @@ const initGlobalPlayer = (): void => {
       duration: 0,
       isMuted: false,
       isPlaying: false,
+      playbackPhase: "idle",
       errorMessage: null,
       seriesIntermission: null,
       updatedAt: Date.now(),
@@ -667,13 +708,7 @@ const initGlobalPlayer = (): void => {
     root.dataset.playerView = playerView;
     root.dataset.playerQueueKind = queue?.kind || "none";
     root.dataset.playerIntermission = state.seriesIntermission ? "true" : "false";
-    root.dataset.playerState = state.errorMessage
-      ? "error"
-      : hasFinished
-        ? "finished"
-        : state.isPlaying
-          ? "playing"
-          : "paused";
+    root.dataset.playerState = state.playbackPhase;
     root.dataset.playerMuted = state.isMuted ? "true" : "false";
 
     if (!queue || !track) {
@@ -818,6 +853,7 @@ const initGlobalPlayer = (): void => {
     state.currentTrackIndex = index;
     state.errorMessage = null;
     state.seriesIntermission = null;
+    state.playbackPhase = "loading";
     hasFinished = false;
     releasePreloader();
     pendingSeek = currentTime;
@@ -924,6 +960,7 @@ const initGlobalPlayer = (): void => {
   const finishQueue = (): void => {
     hasFinished = true;
     state.seriesIntermission = null;
+    state.playbackPhase = "finished";
     audio.currentTime = 0;
     dispatch(true);
     if (state.queue?.kind === "radio") {
@@ -966,6 +1003,7 @@ const initGlobalPlayer = (): void => {
       lastStartedRadioTrack = "";
     }
     state.queue = detail.queue;
+    state.playbackPhase = "loading";
     if (!sameTrack || detail.startTime !== undefined) {
       pendingTrackReason = "initial";
       setSource(index, startTime);
@@ -1243,6 +1281,59 @@ const initGlobalPlayer = (): void => {
     { signal }
   );
   audio.addEventListener(
+    "loadstart",
+    () => {
+      if (!state.queue) {
+        return;
+      }
+      state.playbackPhase = "loading";
+      dispatch();
+    },
+    { signal }
+  );
+  audio.addEventListener(
+    "waiting",
+    () => {
+      if (!state.queue || audio.paused) {
+        return;
+      }
+      state.playbackPhase = "buffering";
+      dispatch();
+      announce(`Buffering ${getTrack()?.title || "track"}`);
+    },
+    { signal }
+  );
+  audio.addEventListener(
+    "stalled",
+    () => {
+      if (!state.queue || audio.paused) {
+        return;
+      }
+      state.playbackPhase = "buffering";
+      dispatch();
+    },
+    { signal }
+  );
+  audio.addEventListener(
+    "playing",
+    () => {
+      state.playbackPhase = "playing";
+      dispatch();
+    },
+    { signal }
+  );
+  audio.addEventListener(
+    "canplay",
+    () => {
+      if (!state.queue) {
+        return;
+      }
+      state.playbackPhase = audio.paused ? "paused" : "playing";
+      dispatch();
+    },
+    { signal }
+  );
+  audio.addEventListener(
     "pause",
     () => {
       updateRadioListeningTime();
@@ -1341,12 +1432,70 @@ const initGlobalPlayer = (): void => {
 
   window.__melodyMindPlayer = {
     getState: snapshot,
+    enableAnalyser: async () => {
+      const AudioContextConstructor =
+        window.AudioContext ||
+        (
+          window as typeof window & {
+            webkitAudioContext?: typeof AudioContext;
+          }
+        ).webkitAudioContext;
+      if (!AudioContextConstructor) {
+        return false;
+      }
+
+      try {
+        if (!audioContext) {
+          audioContext = new AudioContextConstructor();
+        }
+        if (!mediaElementSource) {
+          mediaElementSource = audioContext.createMediaElementSource(audio);
+        }
+        if (!analyser) {
+          analyser = audioContext.createAnalyser();
+          analyser.fftSize = 128;
+          analyser.smoothingTimeConstant = 0.84;
+          mediaElementSource.connect(analyser);
+          analyser.connect(audioContext.destination);
+          analyserData = new Uint8Array(analyser.frequencyBinCount);
+        }
+        if (audioContext.state === "suspended") {
+          await audioContext.resume();
+        }
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    readAnalyserFrame: (buffer) => {
+      if (!analyser || !analyserData || buffer.length === 0) {
+        return false;
+      }
+      analyser.getByteFrequencyData(analyserData);
+      const bands = Math.min(buffer.length, 24);
+      for (let band = 0; band < bands; band += 1) {
+        const start = Math.floor(Math.pow(band / bands, 1.7) * analyserData.length);
+        const end = Math.max(
+          start + 1,
+          Math.floor(Math.pow((band + 1) / bands, 1.7) * analyserData.length)
+        );
+        let total = 0;
+        for (let index = start; index < end; index += 1) {
+          total += analyserData[index] || 0;
+        }
+        buffer[band] = Math.round(total / Math.max(1, end - start));
+      }
+      return true;
+    },
     destroy: () => {
       save(true);
       releasePreloader();
       playerResizeObserver?.disconnect();
       document.body.style.removeProperty("--global-player-offset");
       controller.abort();
+      analyser?.disconnect();
+      mediaElementSource?.disconnect();
+      void audioContext?.close();
       delete window.__melodyMindPlayer;
     },
   };

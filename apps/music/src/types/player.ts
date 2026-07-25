@@ -69,6 +69,16 @@ export interface SeriesPlayerIntermission extends SeriesPlayerTransition {
 
 export type PlayerQueue = AlbumPlayerQueue | RadioPlayerQueue | SeriesPlayerQueue;
 
+export type PlaybackPhase =
+  | "idle"
+  | "loading"
+  | "playing"
+  | "paused"
+  | "buffering"
+  | "intermission"
+  | "finished"
+  | "error";
+
 export interface PlayerState {
   queue: PlayerQueue | null;
   currentTrackIndex: number;
@@ -76,6 +86,7 @@ export interface PlayerState {
   duration: number;
   isMuted: boolean;
   isPlaying: boolean;
+  playbackPhase: PlaybackPhase;
   errorMessage: string | null;
   seriesIntermission: SeriesPlayerIntermission | null;
   updatedAt: number;
@@ -114,6 +125,8 @@ declare global {
   interface Window {
     __melodyMindPlayer?: {
       getState: () => PlayerState;
+      enableAnalyser: () => Promise<boolean>;
+      readAnalyserFrame: (buffer: Uint8Array) => boolean;
       destroy: () => void;
     };
   }

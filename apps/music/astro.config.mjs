@@ -11,11 +11,12 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
   "/categories/",
   "/knowledge/",
   "/taxonomy/",
+  "/visuals/",
 ]);
 // Noindex pages don't belong in the sitemap — listing them sends
 // contradictory crawl signals.
 const SITEMAP_LEGAL_PATHS = new Set(["/cookies/", "/imprint/", "/privacy/"]);
-const SITEMAP_NOINDEX_PREFIXES = ["/embed/", "/music/genre/"];
+const SITEMAP_NOINDEX_PREFIXES = ["/embed/", "/music/genre/", "/visuals-data/"];
 
 const getSitemapPath = (url) => {
   try {
@@ -112,7 +113,7 @@ export default defineConfig({
       strictPort: true,
       headers: {
         "Content-Security-Policy":
-          "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self'; frame-src 'self' https://embed.melody-mind.de; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
+          "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https: blob:; connect-src 'self' https://eu2.contabostorage.com; frame-src 'self' https://embed.melody-mind.de; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",

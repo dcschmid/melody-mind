@@ -151,6 +151,13 @@ import Icon from "@components/visual/Icon.astro";
     </button>
 
     <div class="global-player__actions">
+      <a
+        class="global-player__button global-player__visuals-link"
+        href="/visuals/"
+        aria-label="Open fullscreen visuals"
+      >
+        <Icon name="tabler:device-tv" aria-hidden="true" />
+      </a>
       <button
         class="global-player__button global-player__button--clear"
         type="button"
@@ -433,6 +440,10 @@ import Icon from "@components/visual/Icon.astro";
     background: transparent;
     border: 1px solid var(--border-default);
     border-radius: var(--radius-full);
+  }
+
+  .global-player__visuals-link {
+    text-decoration: none;
   }
 
   .global-player__button--primary {

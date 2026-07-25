@@ -116,6 +116,7 @@ const bindSeriesMarathon = (): void => {
     "[data-series-marathon-primary-label]"
   );
   const reset = root.querySelector<HTMLButtonElement>("[data-series-marathon-reset]");
+  const visuals = root.querySelector<HTMLAnchorElement>("[data-series-marathon-visuals]");
   const status = root.querySelector<HTMLElement>("[data-series-marathon-status]");
   const albumItems = Array.from(
     document.querySelectorAll<HTMLElement>("[data-series-album]")
@@ -310,6 +311,30 @@ const bindSeriesMarathon = (): void => {
     () => {
       clearSeriesMarathonProgress(seriesId);
       dispatchLoad({ queue, startIndex: 0, startTime: 0, autoplay: true });
+    },
+    { signal }
+  );
+
+  visuals?.addEventListener(
+    "click",
+    () => {
+      if (getActiveState()) {
+        return;
+      }
+      const saved = getSavedProgress();
+      const startIndex = saved ? resolveProgressIndex(queue, saved) : 0;
+      const normalizedIndex = startIndex >= 0 ? startIndex : 0;
+      dispatchLoad({
+        queue,
+        startIndex: normalizedIndex,
+        startTime: saved?.currentTime || 0,
+        autoplay: false,
+        ...(saved
+          ? {
+              seriesIntermission: getIntermission(queue, saved, normalizedIndex),
+            }
+          : {}),
+      });
     },
     { signal }
   );

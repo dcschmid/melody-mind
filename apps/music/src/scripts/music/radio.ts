@@ -214,6 +214,7 @@ const bindRadioPage = (): void => {
   const startButton = root.querySelector<HTMLButtonElement>("[data-radio-start]");
   const startLabel = root.querySelector<HTMLElement>("[data-radio-start-label]");
   const skipButton = root.querySelector<HTMLButtonElement>("[data-radio-skip]");
+  const visualsLink = root.querySelector<HTMLAnchorElement>("[data-radio-visuals]");
   const albumLink = root.querySelector<HTMLAnchorElement>("[data-radio-album-link]");
   const transition = root.querySelector<HTMLElement>("[data-radio-transition]");
   const playbackNotice = root.querySelector<HTMLElement>("[data-radio-playback-notice]");
@@ -494,6 +495,38 @@ const bindRadioPage = (): void => {
   skipButton?.addEventListener("click", () => dispatchPlayerCommand({ action: "next" }), {
     signal,
   });
+
+  visualsLink?.addEventListener(
+    "click",
+    async (event) => {
+      if (isSelectedStationActive()) {
+        return;
+      }
+      event.preventDefault();
+      visualsLink.setAttribute("aria-busy", "true");
+      setStatus(`Loading ${getSelectedSummary()?.title || "station"} for visuals`);
+      try {
+        const catalog = await loadCatalog();
+        const station = catalog.stations.find(
+          (candidate) => candidate.id === selectedStationId
+        );
+        if (!station) {
+          throw new Error(`Station ${selectedStationId} is unavailable.`);
+        }
+        const queue = buildStationQueue(station);
+        window.dispatchEvent(
+          new CustomEvent<PlayerLoadDetail>("melodymind:player-load", {
+            detail: { queue, startIndex: 0, autoplay: false },
+          })
+        );
+        window.location.assign("/visuals/");
+      } catch {
+        visualsLink.removeAttribute("aria-busy");
+        setStatus("We couldn't prepare this station for visuals. Try again.");
+      }
+    },
+    { signal }
+  );
 
   root.addEventListener(
     "click",

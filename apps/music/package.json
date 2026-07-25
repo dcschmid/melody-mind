@@ -18,6 +18,8 @@
     "format:check": "pnpm exec prettier --check \"src/**/*.{js,ts,jsx,tsx,astro,md,mdx}\"",
     "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
+    "test": "vitest run && node scripts/audit-visual-catalog.mjs",
+    "audit:visuals": "node scripts/audit-visual-catalog.mjs",
     "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "update:audio-metadata": "node scripts/update-audio-metadata.mjs"
   },
@@ -41,6 +43,7 @@
     "@astrojs/check": "^0.9.9",
     "@types/js-yaml": "^4.0.9",
     "js-yaml": "^5.1.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
   }
 }

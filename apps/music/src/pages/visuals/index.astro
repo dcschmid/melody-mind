@@ -1,0 +1,906 @@
+---
+/* eslint-disable astro/jsx-a11y/no-noninteractive-tabindex -- scrollable lyrics must be keyboard reachable */
+import Icon from "@components/visual/Icon.astro";
+import VisualsLayout from "../../layouts/VisualsLayout.astro";
+
+const modes = [
+  { id: "cover", label: "Cover", icon: "tabler:photo" },
+  { id: "lyrics", label: "Lyrics", icon: "tabler:align-left" },
+  { id: "timeline", label: "Timeline", icon: "tabler:list-details" },
+  { id: "visualizer", label: "Visualizer", icon: "tabler:wave-sine" },
+] as const;
+---
+
+<VisualsLayout
+  title="Visuals | MelodyMind Music"
+  description="A fullscreen companion for the active MelodyMind listening queue."
+>
+  <section
+    class="visuals"
+    data-visuals
+    data-mode="cover"
+    data-controls-hidden="false"
+    data-motion-reduced="false"
+    aria-label="MelodyMind Visuals"
+  >
+    <div class="visuals__ambient" data-visuals-ambient aria-hidden="true"></div>
+
+    <header class="visuals__topbar visuals__chrome">
+      <a class="visuals__exit visuals__button" href="/" data-visuals-exit>
+        <Icon name="tabler:arrow-left" aria-hidden="true" />
+        <span>Exit visuals</span>
+      </a>
+      <p class="visuals__room-label">
+        <span class="visuals__signal" aria-hidden="true"></span>
+        <span data-visuals-room-label>Listening room</span>
+      </p>
+      <div class="visuals__top-actions">
+        <label class="visuals__motion-label" for="visuals-motion">Motion</label>
+        <select
+          id="visuals-motion"
+          class="visuals__select"
+          data-visuals-motion
+          aria-label="Motion preference"
+        >
+          <option value="system">System</option>
+          <option value="reduced">Reduced</option>
+          <option value="standard">Standard</option>
+        </select>
+        <button
+          class="visuals__button visuals__icon-button"
+          type="button"
+          data-visuals-fullscreen
+          aria-label="Enter fullscreen"
+        >
+          <Icon
+            name="tabler:maximize"
+            class="visuals__fullscreen-icon visuals__fullscreen-icon--enter"
+            aria-hidden="true"
+          />
+          <Icon
+            name="tabler:minimize"
+            class="visuals__fullscreen-icon visuals__fullscreen-icon--exit"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+    </header>
+
+    <div class="visuals__layout">
+      <div class="visuals__stage" data-visuals-stage>
+        <div class="visuals__panel visuals__panel--cover" data-visuals-panel="cover">
+          <img
+            class="visuals__artwork"
+            data-visuals-artwork
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+            width="1200"
+            height="1200"
+            alt=""
+          />
+        </div>
+
+        <div
+          class="visuals__panel visuals__panel--lyrics"
+          data-visuals-panel="lyrics"
+          hidden
+        >
+          <div
+            class="visuals__lyrics-scroll"
+            data-visuals-lyrics-scroll
+            lang="en"
+            dir="auto"
+            role="region"
+            tabindex="0"
+            aria-label="Lyrics"
+          >
+            <p class="visuals__panel-placeholder" data-visuals-lyrics-status>
+              Open Lyrics to load the text.
+            </p>
+            <pre class="visuals__lyrics-text" data-visuals-lyrics-text hidden></pre>
+          </div>
+          <div class="visuals__lyrics-actions visuals__chrome">
+            <button class="visuals__button" type="button" data-visuals-follow hidden>
+              Follow track
+            </button>
+            <div class="visuals__lyrics-pagination" data-visuals-lyrics-pagination hidden>
+              <button
+                class="visuals__button visuals__icon-button"
+                type="button"
+                data-visuals-lyrics-previous
+                aria-label="Previous lyrics page"
+              >
+                <Icon name="tabler:chevron-left" aria-hidden="true" />
+              </button>
+              <span data-visuals-lyrics-page>1 of 1</span>
+              <button
+                class="visuals__button visuals__icon-button"
+                type="button"
+                data-visuals-lyrics-next
+                aria-label="Next lyrics page"
+              >
+                <Icon name="tabler:chevron-right" aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="visuals__panel visuals__panel--timeline"
+          data-visuals-panel="timeline"
+          hidden
+        >
+          <div class="visuals__timeline-header">
+            <p class="visuals__eyebrow">Listening timeline</p>
+            <p class="visuals__timeline-summary" data-visuals-timeline-summary></p>
+          </div>
+          <ol class="visuals__track-list" data-visuals-timeline></ol>
+        </div>
+
+        <div
+          class="visuals__panel visuals__panel--visualizer"
+          data-visuals-panel="visualizer"
+          hidden
+        >
+          <div
+            class="visuals__visualizer"
+            data-visuals-visualizer
+            role="img"
+            aria-label="Audio frequency visualization"
+          >
+            {
+              Array.from({ length: 24 }, (_, index) => (
+                <span
+                  class="visuals__visualizer-band"
+                  data-visuals-band
+                  style={`--visuals-band-index: ${index}`}
+                  aria-hidden="true"
+                />
+              ))
+            }
+          </div>
+          <p class="visuals__visualizer-note" data-visuals-visualizer-note>
+            Select Visualizer to connect the local audio analysis.
+          </p>
+        </div>
+
+        <div class="visuals__state-layer" data-visuals-state-layer hidden>
+          <div class="visuals__state-copy">
+            <p class="visuals__eyebrow" data-visuals-state-eyebrow>Playback</p>
+            <h2 class="visuals__state-title" data-visuals-state-title>Playback state</h2>
+            <p class="visuals__state-detail" data-visuals-state-detail></p>
+            <button
+              class="visuals__state-action visuals__button visuals__button--primary"
+              type="button"
+              data-visuals-state-action
+              hidden></button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="visuals__controls visuals__chrome" aria-label="Visuals controls">
+        <div class="visuals__metadata" aria-live="polite" aria-atomic="true">
+          <p class="visuals__queue-context" data-visuals-context>Waiting for a queue</p>
+          <h1 class="visuals__track-title" data-visuals-track>Nothing queued</h1>
+          <p class="visuals__album-title" data-visuals-album>
+            Start an album, station, or series in MelodyMind.
+          </p>
+        </div>
+
+        <div class="visuals__progress">
+          <div class="visuals__time-row">
+            <span data-visuals-current>0:00</span>
+            <span data-visuals-remaining>-0:00</span>
+          </div>
+          <label class="sr-only" for="visuals-progress">Playback progress</label>
+          <input
+            id="visuals-progress"
+            class="visuals__progress-input"
+            type="range"
+            min="0"
+            max="0"
+            step="1"
+            value="0"
+            data-visuals-progress
+          />
+        </div>
+
+        <div class="visuals__transport" aria-label="Playback controls">
+          <button
+            class="visuals__button visuals__icon-button"
+            type="button"
+            data-visuals-command="previous"
+            aria-label="Previous track"
+          >
+            <Icon name="tabler:player-skip-back-filled" aria-hidden="true" />
+          </button>
+          <button
+            class="visuals__button visuals__play"
+            type="button"
+            data-visuals-command="toggle"
+            aria-label="Play"
+            aria-pressed="false"
+          >
+            <Icon
+              name="tabler:player-play-filled"
+              class="visuals__play-icon visuals__play-icon--play"
+              aria-hidden="true"
+            />
+            <Icon
+              name="tabler:player-pause-filled"
+              class="visuals__play-icon visuals__play-icon--pause"
+              aria-hidden="true"
+            />
+          </button>
+          <button
+            class="visuals__button visuals__icon-button"
+            type="button"
+            data-visuals-command="next"
+            aria-label="Next track"
+          >
+            <Icon name="tabler:player-skip-forward-filled" aria-hidden="true" />
+          </button>
+        </div>
+
+        <div class="visuals__modes" role="toolbar" aria-label="Visual mode">
+          {
+            modes.map((mode) => (
+              <button
+                class="visuals__mode"
+                type="button"
+                data-visuals-mode={mode.id}
+                aria-pressed={mode.id === "cover" ? "true" : "false"}
+              >
+                <Icon name={mode.icon} aria-hidden="true" />
+                <span>{mode.label}</span>
+              </button>
+            ))
+          }
+        </div>
+
+        <p class="visuals__status sr-only" data-visuals-status aria-live="polite"></p>
+      </aside>
+    </div>
+  </section>
+
+  <script>
+    import "../../scripts/music/visuals";
+  </script>
+</VisualsLayout>
+
+<style>
+  /* The shared control states intentionally precede their size variants. */
+  /* stylelint-disable no-descending-specificity */
+  .visuals {
+    --visuals-safe-inline: max(env(safe-area-inset-left), clamp(1rem, 2.4vw, 3rem));
+    --visuals-safe-block: max(env(safe-area-inset-top), clamp(1rem, 2.2vh, 2.5rem));
+    --visuals-ambient-color: var(--bg-primary);
+
+    position: relative;
+    min-block-size: 100svh;
+    overflow: hidden;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    isolation: isolate;
+  }
+
+  .visuals__ambient {
+    position: absolute;
+    inset: -8%;
+    z-index: -2;
+    background-color: var(--visuals-ambient-color);
+    background-image:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--bg-primary) 20%, transparent),
+        color-mix(in srgb, var(--bg-primary) 76%, transparent) 68%
+      ),
+      var(--visuals-backdrop, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.72;
+    filter: blur(2.4rem) saturate(0.72);
+    transform: scale(1.06);
+  }
+
+  .visuals::after {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+    background: color-mix(in srgb, var(--bg-primary) 42%, transparent);
+  }
+
+  .visuals__topbar {
+    position: absolute;
+    inset-block-start: var(--visuals-safe-block);
+    inset-inline: var(--visuals-safe-inline);
+    z-index: 5;
+    display: flex;
+    gap: var(--spacing-base);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .visuals__top-actions,
+  .visuals__transport,
+  .visuals__lyrics-actions,
+  .visuals__lyrics-pagination {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .visuals__room-label {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+
+  .visuals__signal {
+    inline-size: 0.55rem;
+    block-size: 0.55rem;
+    background: var(--accent-primary);
+    border-radius: 50%;
+  }
+
+  .visuals__button,
+  .visuals__select,
+  .visuals__mode {
+    min-block-size: 2.75rem;
+    color: var(--text-primary);
+    background: color-mix(in srgb, var(--surface-1) 88%, transparent);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-base);
+  }
+
+  .visuals__button {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 2.75rem;
+    padding: 0.55rem 0.85rem;
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .visuals__button:hover,
+  .visuals__button:focus-visible,
+  .visuals__select:hover,
+  .visuals__select:focus-visible,
+  .visuals__mode:hover,
+  .visuals__mode:focus-visible {
+    color: var(--accent-strong);
+    border-color: var(--accent-muted);
+  }
+
+  .visuals__button--primary,
+  .visuals__play {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: transparent;
+  }
+
+  .visuals__button--primary:hover,
+  .visuals__button--primary:focus-visible,
+  .visuals__play:hover,
+  .visuals__play:focus-visible {
+    color: var(--button-text-accent);
+    background: var(--accent-strong);
+  }
+
+  .visuals__icon-button {
+    padding: 0;
+  }
+
+  .visuals__button :global(svg),
+  .visuals__mode :global(svg) {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+
+  .visuals__motion-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+  }
+
+  .visuals__select {
+    padding-inline: 0.75rem 2rem;
+  }
+
+  .visuals__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(21rem, 31rem);
+    gap: clamp(2rem, 4vw, 5rem);
+    align-items: center;
+    max-inline-size: 120rem;
+    min-block-size: 100svh;
+    padding: max(calc(var(--visuals-safe-block) + 4.5rem), 6rem)
+      var(--visuals-safe-inline) max(var(--visuals-safe-block), 1.5rem);
+    margin-inline: auto;
+  }
+
+  .visuals__stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-inline-size: 0;
+    block-size: min(78vh, 82vw, 72rem);
+    max-block-size: calc(100svh - 9rem);
+  }
+
+  .visuals__panel {
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+  }
+
+  .visuals__panel[hidden] {
+    display: none;
+  }
+
+  .visuals__panel--cover {
+    display: grid;
+    place-items: center;
+  }
+
+  .visuals__artwork {
+    display: block;
+    inline-size: min(100%, 78vh, 72rem);
+    block-size: min(100%, 78vh, 72rem);
+    object-fit: contain;
+    background: var(--surface-1);
+    border: 1px solid color-mix(in srgb, var(--border-default) 68%, transparent);
+    border-radius: var(--radius-base);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .visuals__panel--lyrics {
+    position: relative;
+    max-inline-size: 62rem;
+    margin-inline: auto;
+  }
+
+  .visuals__lyrics-scroll {
+    block-size: 100%;
+    padding: clamp(1.5rem, 4vw, 4rem);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    background: color-mix(in srgb, var(--bg-primary) 82%, transparent);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-md);
+  }
+
+  .visuals__lyrics-text {
+    max-inline-size: 46ch;
+    margin: 0 auto;
+    font: inherit;
+    font-size: clamp(1.25rem, 2.2vw, 2.25rem);
+    line-height: 1.62;
+    color: var(--text-primary);
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+
+  .visuals__lyrics-actions {
+    position: absolute;
+    inset-block-end: var(--spacing-base);
+    inset-inline-end: var(--spacing-base);
+  }
+
+  .visuals__panel-placeholder,
+  .visuals__visualizer-note {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .visuals__eyebrow,
+  .visuals__queue-context {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
+  .visuals__panel--timeline {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: var(--spacing-lg);
+    max-inline-size: 64rem;
+    padding: clamp(1rem, 3vw, 2.5rem);
+    margin-inline: auto;
+    background: color-mix(in srgb, var(--bg-primary) 78%, transparent);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-md);
+  }
+
+  .visuals__timeline-header {
+    display: flex;
+    gap: var(--spacing-base);
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .visuals__timeline-summary {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .visuals__track-list {
+    display: grid;
+    gap: var(--spacing-sm);
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    list-style: none;
+  }
+
+  :global(.visuals-track-list__album) {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 1;
+    padding: var(--spacing-base) var(--spacing-sm) var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    background: var(--bg-primary);
+  }
+
+  :global(.visuals-track-list__item) {
+    min-inline-size: 0;
+  }
+
+  :global(.visuals-track-list__button) {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: var(--spacing-sm);
+    align-items: center;
+    inline-size: 100%;
+    min-block-size: 2.75rem;
+    padding: var(--spacing-sm);
+    color: var(--text-primary);
+    text-align: start;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-base);
+  }
+
+  :global(.visuals-track-list__button:hover),
+  :global(.visuals-track-list__button:focus-visible) {
+    color: var(--accent-strong);
+    background: var(--surface-2);
+    border-color: var(--border-default);
+  }
+
+  :global(.visuals-track-list__button[data-current="true"]) {
+    color: var(--accent-strong);
+    background: var(--surface-2);
+    border-color: var(--accent-muted);
+  }
+
+  :global(.visuals-track-list__number) {
+    font-variant-numeric: tabular-nums;
+    color: var(--text-tertiary);
+  }
+
+  .visuals__panel--visualizer {
+    display: grid;
+    gap: var(--spacing-xl);
+    place-items: center;
+    align-content: center;
+  }
+
+  .visuals__visualizer {
+    display: grid;
+    grid-template-columns: repeat(24, minmax(0.35rem, 1fr));
+    gap: clamp(0.2rem, 0.65vw, 0.75rem);
+    align-items: end;
+    inline-size: min(100%, 72rem);
+    block-size: min(56vh, 34rem);
+    padding-block: var(--spacing-lg);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .visuals__visualizer-band {
+      transition: none;
+    }
+  }
+
+  .visuals__visualizer-band {
+    block-size: 100%;
+    background: color-mix(in srgb, var(--accent-primary) 76%, var(--text-primary));
+    border-radius: var(--radius-full);
+    transform: scaleY(var(--visuals-band-scale, 0.08));
+    transform-origin: bottom;
+    transition: transform 80ms linear;
+  }
+
+  .visuals__controls {
+    display: grid;
+    gap: clamp(1.25rem, 2.5vh, 2.25rem);
+    align-content: center;
+    min-inline-size: 0;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    background: color-mix(in srgb, var(--surface-1) 84%, transparent);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-md);
+  }
+
+  .visuals__metadata {
+    display: grid;
+    gap: var(--spacing-sm);
+  }
+
+  .visuals__track-title,
+  .visuals__album-title {
+    margin: 0;
+  }
+
+  .visuals__track-title {
+    overflow: hidden;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+
+  .visuals__album-title {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+  }
+
+  .visuals__progress {
+    display: grid;
+    gap: var(--spacing-xs);
+  }
+
+  .visuals__time-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+  }
+
+  .visuals__progress-input {
+    inline-size: 100%;
+    min-block-size: 2.75rem;
+    margin: 0;
+    accent-color: var(--accent-primary);
+  }
+
+  .visuals__transport {
+    justify-content: center;
+  }
+
+  .visuals__play {
+    inline-size: 4rem;
+    block-size: 4rem;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .visuals__play-icon--pause,
+  .visuals[data-playing="true"] .visuals__play-icon--play,
+  .visuals__fullscreen-icon--exit,
+  .visuals[data-fullscreen="true"] .visuals__fullscreen-icon--enter {
+    display: none;
+  }
+
+  .visuals[data-playing="true"] .visuals__play-icon--pause,
+  .visuals[data-fullscreen="true"] .visuals__fullscreen-icon--exit {
+    display: block;
+  }
+
+  .visuals__modes {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--spacing-xs);
+  }
+
+  .visuals__mode {
+    display: grid;
+    gap: var(--spacing-xs);
+    place-items: center;
+    min-inline-size: 0;
+    padding: 0.55rem 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .visuals__mode[aria-pressed="true"] {
+    color: var(--accent-strong);
+    background: var(--surface-2);
+    border-color: var(--accent-muted);
+  }
+
+  .visuals__mode:disabled {
+    color: var(--text-tertiary);
+    cursor: not-allowed;
+    opacity: 0.58;
+  }
+
+  .visuals__state-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    padding: clamp(2rem, 6vw, 6rem);
+    background: color-mix(in srgb, var(--bg-primary) 88%, transparent);
+    border-radius: var(--radius-md);
+  }
+
+  .visuals__state-layer[hidden] {
+    display: none;
+  }
+
+  .visuals__state-copy {
+    display: grid;
+    gap: var(--spacing-base);
+    justify-items: start;
+    max-inline-size: 48rem;
+  }
+
+  .visuals__state-title,
+  .visuals__state-detail {
+    margin: 0;
+  }
+
+  .visuals__state-title {
+    font-size: clamp(2.25rem, 5vw, 5rem);
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .visuals__state-detail {
+    max-inline-size: 58ch;
+    font-size: clamp(1.125rem, 2vw, 1.6rem);
+    color: var(--text-secondary);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .visuals__chrome {
+      opacity: 1;
+      transition: none;
+    }
+  }
+
+  .visuals__chrome {
+    opacity: 1;
+    transition:
+      opacity 220ms var(--motion-ease-standard),
+      transform 220ms var(--motion-ease-standard);
+  }
+
+  .visuals[data-controls-hidden="true"] .visuals__chrome {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .visuals[data-controls-hidden="true"] .visuals__topbar {
+    transform: translateY(-0.75rem);
+  }
+
+  .visuals[data-controls-hidden="true"] .visuals__controls {
+    transform: translateX(0.75rem);
+  }
+
+  @media (orientation: portrait), (width <= 980px) {
+    .visuals {
+      overflow-y: auto;
+    }
+
+    .visuals__topbar {
+      position: relative;
+      inset: auto;
+      padding: var(--visuals-safe-block) var(--visuals-safe-inline) 0;
+    }
+
+    .visuals__room-label {
+      display: none;
+    }
+
+    .visuals__layout {
+      grid-template-columns: 1fr;
+      gap: clamp(1rem, 3vh, 2rem);
+      min-block-size: auto;
+      padding: clamp(1rem, 3vh, 2.5rem) var(--visuals-safe-inline)
+        max(env(safe-area-inset-bottom), 1.25rem);
+    }
+
+    .visuals__stage {
+      block-size: min(55svh, 92vw);
+      max-block-size: none;
+    }
+
+    .visuals__artwork {
+      inline-size: min(100%, 55svh);
+      block-size: min(100%, 55svh);
+    }
+
+    .visuals__controls {
+      gap: var(--spacing-base);
+      padding: clamp(1rem, 3vw, 1.75rem);
+    }
+
+    .visuals__metadata {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .visuals__track-title {
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+    }
+
+    .visuals__modes {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (width <= 620px) {
+    .visuals__motion-label {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    .visuals__select {
+      max-inline-size: 7.2rem;
+    }
+
+    .visuals__exit span {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    .visuals__visualizer {
+      gap: 0.18rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .visuals__ambient {
+      filter: saturate(0.72);
+      transform: none;
+    }
+
+    .visuals__chrome,
+    .visuals__visualizer-band {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .visuals,
+    .visuals__controls,
+    .visuals__lyrics-scroll,
+    .visuals__panel--timeline,
+    .visuals__state-layer {
+      background: Canvas;
+    }
+
+    .visuals__ambient,
+    .visuals::after {
+      display: none;
+    }
+
+    .visuals__signal,
+    .visuals__visualizer-band {
+      background: Highlight;
+    }
+  }
+  /* stylelint-enable no-descending-specificity */
+</style>
