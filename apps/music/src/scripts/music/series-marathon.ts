@@ -117,6 +117,7 @@ const bindSeriesMarathon = (): void => {
   );
   const reset = root.querySelector<HTMLButtonElement>("[data-series-marathon-reset]");
   const visuals = root.querySelector<HTMLAnchorElement>("[data-series-marathon-visuals]");
+  const drive = root.querySelector<HTMLAnchorElement>("[data-series-marathon-drive]");
   const status = root.querySelector<HTMLElement>("[data-series-marathon-status]");
   const albumItems = Array.from(
     document.querySelectorAll<HTMLElement>("[data-series-album]")
@@ -334,6 +335,35 @@ const bindSeriesMarathon = (): void => {
               seriesIntermission: getIntermission(queue, saved, normalizedIndex),
             }
           : {}),
+      });
+    },
+    { signal }
+  );
+  drive?.addEventListener(
+    "click",
+    () => {
+      const active = getActiveState();
+      if (active) {
+        if (!active.isPlaying && !active.seriesIntermission) {
+          dispatchCommand({ action: "play" });
+        }
+        return;
+      }
+
+      const saved = getSavedProgress();
+      if (!saved || saved.phase === "completed") {
+        dispatchLoad({ queue, startIndex: 0, startTime: 0, autoplay: true });
+        return;
+      }
+      const startIndex = resolveProgressIndex(queue, saved);
+      const normalizedIndex = startIndex >= 0 ? startIndex : 0;
+      const seriesIntermission = getIntermission(queue, saved, normalizedIndex);
+      dispatchLoad({
+        queue,
+        startIndex: normalizedIndex,
+        startTime: saved.currentTime,
+        autoplay: !seriesIntermission,
+        seriesIntermission,
       });
     },
     { signal }

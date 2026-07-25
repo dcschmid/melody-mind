@@ -101,12 +101,16 @@ const getTrackDurationLabel = (song: Song): string =>
         {totalDurationLabel && <span aria-hidden="true"> · {totalDurationLabel}</span>}
       </p>
       <a
-        class="album-playlist-player__visuals-link"
+        class="album-playlist-player__mode-link"
         href="/visuals/"
         data-open-album-visuals
       >
         <Icon name="tabler:device-tv" aria-hidden="true" />
         <span>Open visuals</span>
+      </a>
+      <a class="album-playlist-player__mode-link" href="/drive/" data-open-album-drive>
+        <Icon name="tabler:steering-wheel" aria-hidden="true" />
+        <span>Start in Drive</span>
       </a>
     </div>
   </header>
@@ -371,7 +375,7 @@ const getTrackDurationLabel = (song: Song): string =>
     align-items: center;
   }
 
-  .album-playlist-player__visuals-link {
+  .album-playlist-player__mode-link {
     display: inline-flex;
     gap: var(--spacing-xs);
     align-items: center;
@@ -386,13 +390,13 @@ const getTrackDurationLabel = (song: Song): string =>
     border-radius: var(--radius-base);
   }
 
-  .album-playlist-player__visuals-link:hover,
-  .album-playlist-player__visuals-link:focus-visible {
+  .album-playlist-player__mode-link:hover,
+  .album-playlist-player__mode-link:focus-visible {
     color: var(--music-album-accent-strong);
     border-color: var(--music-album-accent);
   }
 
-  .album-playlist-player__visuals-link :global(svg) {
+  .album-playlist-player__mode-link :global(svg) {
     inline-size: 1.1rem;
     block-size: 1.1rem;
   }

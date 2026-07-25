@@ -1,0 +1,65 @@
+---
+import MasterLayout from "@components/layout/MasterLayout.astro";
+import GlobalPlayer from "@components/music/player/GlobalPlayer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  appTitle: string;
+  mainId: string;
+  bodyClass?: string;
+  manifestPath?: string;
+}
+
+const {
+  title,
+  description,
+  appTitle,
+  mainId,
+  bodyClass = "",
+  manifestPath = "/site.webmanifest?v=20260721-2",
+} = Astro.props as Props;
+const bodyClasses = ["immersive-player-layout", bodyClass].filter(Boolean).join(" ");
+---
+
+<MasterLayout
+  lang="en"
+  bodyClass={bodyClasses}
+  mainClass="immersive-player-layout__main"
+  contentShellClass="immersive-player-layout__shell"
+  mainId={mainId}
+  showSkipLink={true}
+  appTitle={appTitle}
+  manifestPath={manifestPath}
+  faviconVersion="20260507"
+>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="googlebot" content="noindex,follow" />
+    <link rel="preconnect" href="https://eu2.contabostorage.com" crossorigin />
+    <link rel="dns-prefetch" href="https://eu2.contabostorage.com" />
+  </Fragment>
+
+  <GlobalPlayer slot="body-end" />
+  <slot />
+</MasterLayout>
+
+<style>
+  :global(.immersive-player-layout) {
+    min-block-size: 100svh;
+    padding: 0 !important;
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+
+  :global(.immersive-player-layout__shell),
+  :global(.immersive-player-layout__main) {
+    min-block-size: 100svh;
+  }
+
+  :global(.immersive-player-layout .global-player) {
+    display: none;
+  }
+</style>

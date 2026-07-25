@@ -158,6 +158,14 @@ import Icon from "@components/visual/Icon.astro";
       >
         <Icon name="tabler:device-tv" aria-hidden="true" />
       </a>
+      <a
+        class="global-player__button global-player__drive-link"
+        href="/drive/"
+        data-global-player-drive
+        aria-label="Open Drive view"
+      >
+        <Icon name="tabler:steering-wheel" aria-hidden="true" />
+      </a>
       <button
         class="global-player__button global-player__button--clear"
         type="button"
@@ -442,7 +450,8 @@ import Icon from "@components/visual/Icon.astro";
     border-radius: var(--radius-full);
   }
 
-  .global-player__visuals-link {
+  .global-player__visuals-link,
+  .global-player__drive-link {
     text-decoration: none;
   }
 

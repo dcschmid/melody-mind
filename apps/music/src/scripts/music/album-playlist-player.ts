@@ -104,6 +104,7 @@ const bindPlayer = (player: HTMLElement): void => {
   const visualsLink = player.querySelector<HTMLAnchorElement>(
     "[data-open-album-visuals]"
   );
+  const driveLink = player.querySelector<HTMLAnchorElement>("[data-open-album-drive]");
   const trackItems = Array.from(
     player.querySelectorAll<HTMLElement>("[data-track-index]")
   );
@@ -224,6 +225,19 @@ const bindPlayer = (player: HTMLElement): void => {
     () => {
       if (!isThisAlbum(latestState)) {
         dispatchLoad({ queue, startIndex: 0, autoplay: false });
+      }
+    },
+    { signal }
+  );
+  driveLink?.addEventListener(
+    "click",
+    () => {
+      if (isThisAlbum(latestState)) {
+        if (!latestState.isPlaying) {
+          dispatchCommand({ action: "play" });
+        }
+      } else {
+        dispatchLoad({ queue, startIndex: 0, autoplay: true });
       }
     },
     { signal }

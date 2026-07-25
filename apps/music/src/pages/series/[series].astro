@@ -252,14 +252,24 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
             </button>
             {
               marathonQueue && (
-                <a
-                  class="series-landing__marathon-visuals"
-                  href="/visuals/"
-                  data-series-marathon-visuals
-                >
-                  <Icon name="tabler:device-tv" aria-hidden="true" />
-                  <span>Open visuals</span>
-                </a>
+                <>
+                  <a
+                    class="series-landing__marathon-visuals"
+                    href="/visuals/"
+                    data-series-marathon-visuals
+                  >
+                    <Icon name="tabler:device-tv" aria-hidden="true" />
+                    <span>Open visuals</span>
+                  </a>
+                  <a
+                    class="series-landing__marathon-drive"
+                    href="/drive/"
+                    data-series-marathon-drive
+                  >
+                    <Icon name="tabler:steering-wheel" aria-hidden="true" />
+                    <span>Start in Drive</span>
+                  </a>
+                </>
               )
             }
           </div>
@@ -572,7 +582,8 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
 
   .series-landing__marathon-primary,
   .series-landing__marathon-reset,
-  .series-landing__marathon-visuals {
+  .series-landing__marathon-visuals,
+  .series-landing__marathon-drive {
     display: inline-flex;
     gap: var(--spacing-xs);
     align-items: center;
@@ -606,7 +617,8 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
   }
 
   .series-landing__marathon-reset,
-  .series-landing__marathon-visuals {
+  .series-landing__marathon-visuals,
+  .series-landing__marathon-drive {
     color: var(--series-landing-ink);
     background: transparent;
     border: 1px solid var(--series-landing-line);
@@ -616,7 +628,9 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
   .series-landing__marathon-reset:hover,
   .series-landing__marathon-reset:focus-visible,
   .series-landing__marathon-visuals:hover,
-  .series-landing__marathon-visuals:focus-visible {
+  .series-landing__marathon-visuals:focus-visible,
+  .series-landing__marathon-drive:hover,
+  .series-landing__marathon-drive:focus-visible {
     color: var(--series-landing-accent);
     border-color: var(--accent-muted);
   }
@@ -627,13 +641,15 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
 
   .series-landing__marathon-primary:focus-visible,
   .series-landing__marathon-reset:focus-visible,
-  .series-landing__marathon-visuals:focus-visible {
+  .series-landing__marathon-visuals:focus-visible,
+  .series-landing__marathon-drive:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
   }
 
   .series-landing__marathon-primary :global(svg),
-  .series-landing__marathon-visuals :global(svg) {
+  .series-landing__marathon-visuals :global(svg),
+  .series-landing__marathon-drive :global(svg) {
     inline-size: 1rem;
     block-size: 1rem;
   }

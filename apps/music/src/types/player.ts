@@ -125,6 +125,7 @@ declare global {
   interface Window {
     __melodyMindPlayer?: {
       getState: () => PlayerState;
+      setDucked: (ducked: boolean) => void;
       enableAnalyser: () => Promise<boolean>;
       readAnalyserFrame: (buffer: Uint8Array) => boolean;
       destroy: () => void;

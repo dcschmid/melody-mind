@@ -17,6 +17,7 @@ const V2_STORAGE_KEY = "melodymind:music-player-state:v2";
 const LEGACY_STORAGE_KEY = "melodymind:music-player-state:v1";
 const SAVE_INTERVAL = 2_000;
 const PRELOAD_THRESHOLD_SECONDS = 30;
+const DUCKED_VOLUME = 0.2;
 
 interface NavigatorWithConnection extends Navigator {
   connection?: {
@@ -276,6 +277,8 @@ const initGlobalPlayer = (): void => {
   let mediaElementSource: MediaElementAudioSourceNode | null = null;
   let analyser: AnalyserNode | null = null;
   let analyserData: Uint8Array<ArrayBuffer> | null = null;
+  let volumeBeforeDucking = 1;
+  let isDucked = false;
 
   const artwork = root.querySelector<HTMLImageElement>("[data-global-player-artwork]");
   const albumLink = root.querySelector<HTMLAnchorElement>("[data-global-player-link]");
@@ -309,6 +312,7 @@ const initGlobalPlayer = (): void => {
   const mute = root.querySelector<HTMLButtonElement>(
     '[data-global-player-action="mute"]'
   );
+  const driveLink = root.querySelector<HTMLAnchorElement>("[data-global-player-drive]");
   const controller = new AbortController();
   const { signal } = controller;
   const playerResizeObserver =
@@ -1143,6 +1147,15 @@ const initGlobalPlayer = (): void => {
         { signal }
       );
     });
+  driveLink?.addEventListener(
+    "click",
+    () => {
+      if (state.queue && !state.isPlaying && !state.seriesIntermission) {
+        handleCommand({ action: "play" });
+      }
+    },
+    { signal }
+  );
   progress?.addEventListener(
     "input",
     () => handleCommand({ action: "seek", value: Number(progress.value) }),
@@ -1432,6 +1445,18 @@ const initGlobalPlayer = (): void => {
 
   window.__melodyMindPlayer = {
     getState: snapshot,
+    setDucked: (ducked) => {
+      if (ducked === isDucked) {
+        return;
+      }
+      isDucked = ducked;
+      if (ducked) {
+        volumeBeforeDucking = audio.volume;
+        audio.volume = Math.min(audio.volume, DUCKED_VOLUME);
+      } else {
+        audio.volume = volumeBeforeDucking;
+      }
+    },
     enableAnalyser: async () => {
       const AudioContextConstructor =
         window.AudioContext ||
@@ -1488,6 +1513,9 @@ const initGlobalPlayer = (): void => {
       return true;
     },
     destroy: () => {
+      if (isDucked) {
+        audio.volume = volumeBeforeDucking;
+      }
       save(true);
       releasePreloader();
       playerResizeObserver?.disconnect();
