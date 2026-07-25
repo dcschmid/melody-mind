@@ -9,6 +9,7 @@
     "dev:status": "astro dev status",
     "dev:stop": "astro dev stop",
     "build": "astro check && astro build",
+    "build:embed": "pnpm build && node scripts/prepare-embed-dist.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",

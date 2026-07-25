@@ -1,0 +1,63 @@
+---
+import "../styles/master-theme.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en" class="embed-layout" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b111f" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="embed-layout__body">
+    <main class="embed-layout__main">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  .embed-layout {
+    color-scheme: dark;
+    background: var(--bg-primary);
+  }
+
+  .embed-layout,
+  .embed-layout__body {
+    inline-size: 100%;
+    min-inline-size: 0;
+    block-size: 100%;
+    min-block-size: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .embed-layout__body {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+  }
+
+  .embed-layout__main {
+    box-sizing: border-box;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+    padding: 0;
+  }
+</style>

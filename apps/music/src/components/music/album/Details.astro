@@ -1,10 +1,19 @@
 ---
 import ShareSection from "@components/actions/ShareSection.astro";
+import AlbumEmbedGenerator from "@components/music/embed/AlbumEmbedGenerator.astro";
 import Icon from "@components/visual/Icon.astro";
+import type { Song } from "../../../types/album";
+
+interface EmbedConfig {
+  albumId: string;
+  albumTitle: string;
+  songs: Song[];
+}
 
 interface Props {
   contentDescription: string;
   contentTitle: string;
+  embed?: EmbedConfig;
   hasAlbumContent: boolean;
   /** Visually hides the first Markdown heading when page content already labels it. */
   hideFirstHeading?: boolean;
@@ -15,6 +24,7 @@ interface Props {
 const {
   contentDescription,
   contentTitle,
+  embed,
   hasAlbumContent,
   hideFirstHeading = false,
   shareUrl,
@@ -59,6 +69,13 @@ const shouldRenderDetails = hasAlbumContent || hasValidShareUrl;
             note="Pick a network, copy the link, or share it by email."
             copyAriaLabel="Copy link to this album"
           />
+          {embed && embed.songs.length > 0 && (
+            <AlbumEmbedGenerator
+              albumId={embed.albumId}
+              albumTitle={embed.albumTitle}
+              songs={embed.songs}
+            />
+          )}
         </div>
       )}
 

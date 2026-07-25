@@ -1,0 +1,602 @@
+---
+import Icon from "@components/visual/Icon.astro";
+import type { Song } from "../../../types/album";
+
+interface Props {
+  albumId: string;
+  albumTitle: string;
+  songs: Song[];
+}
+
+const { albumId, albumTitle, songs } = Astro.props as Props;
+const generatorId = `album-embed-generator-${albumId}`;
+const panelId = `${generatorId}-panel`;
+const statusId = `${generatorId}-status`;
+const embedOrigin = import.meta.env.PUBLIC_EMBED_ORIGIN || "https://embed.melody-mind.de";
+const embedBaseUrl = `${embedOrigin.replace(/\/+$/, "")}/album/${encodeURIComponent(
+  albumId
+)}/`;
+const previewBaseUrl = import.meta.env.DEV
+  ? `/embed/album/${encodeURIComponent(albumId)}/`
+  : embedBaseUrl;
+const defaultTitle = `${albumTitle} album player by MelodyMind`;
+const escapeHtmlAttribute = (value: string): string =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+const defaultEmbedUrl = `${embedBaseUrl}?track=${songs[0]?.trackNumber || 1}&cover=1`;
+const defaultEmbedCode = `<iframe src="${defaultEmbedUrl.replaceAll(
+  "&",
+  "&amp;"
+)}" title="${escapeHtmlAttribute(
+  defaultTitle
+)}" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" width="720" height="200" style="display:block;width:100%;max-width:720px;height:200px;border:0"></iframe>`;
+---
+
+<section
+  class="album-embed-generator"
+  id={generatorId}
+  data-album-embed-generator
+  data-embed-base-url={embedBaseUrl}
+  data-preview-base-url={previewBaseUrl}
+  data-album-title={albumTitle}
+  aria-labelledby={`${generatorId}-title`}
+>
+  <div class="album-embed-generator__intro">
+    <div class="album-embed-generator__copy">
+      <p class="album-embed-generator__eyebrow">For your website</p>
+      <h2 class="album-embed-generator__title" id={`${generatorId}-title`}>
+        Embed this album
+      </h2>
+      <p class="album-embed-generator__description">
+        Add a compact, privacy-friendly player to any HTTPS page.
+      </p>
+    </div>
+    <button
+      class="album-embed-generator__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls={panelId}
+      data-embed-generator-toggle
+    >
+      <Icon name="tabler:code" aria-hidden="true" />
+      <span>Embed player</span>
+      <Icon
+        name="chevron-down"
+        class="album-embed-generator__toggle-chevron"
+        aria-hidden="true"
+      />
+    </button>
+  </div>
+
+  <div
+    class="album-embed-generator__panel"
+    id={panelId}
+    data-embed-generator-panel
+    hidden
+  >
+    <form class="album-embed-generator__form" data-embed-generator-form>
+      <div class="album-embed-generator__field">
+        <label class="album-embed-generator__label" for={`${generatorId}-start-track`}>
+          Start track
+        </label>
+        <select
+          class="album-embed-generator__select"
+          id={`${generatorId}-start-track`}
+          data-embed-start-track
+        >
+          {
+            songs.map((song) => (
+              <option value={song.trackNumber}>
+                {song.trackNumber}. {song.title}
+              </option>
+            ))
+          }
+        </select>
+      </div>
+
+      <label class="album-embed-generator__checkbox">
+        <input type="checkbox" checked data-embed-cover-toggle />
+        <span>Show cover artwork</span>
+      </label>
+    </form>
+
+    <div class="album-embed-generator__preview">
+      <p class="album-embed-generator__label" id={`${generatorId}-preview-label`}>
+        Preview
+      </p>
+      <iframe
+        class="album-embed-generator__iframe"
+        title={defaultTitle}
+        loading="lazy"
+        referrerpolicy="no-referrer"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+        width="720"
+        height="200"
+        data-embed-preview
+        data-preview-src={`${previewBaseUrl}?track=${songs[0]?.trackNumber || 1}&cover=1`}
+        aria-labelledby={`${generatorId}-preview-label`}></iframe>
+    </div>
+
+    <div class="album-embed-generator__code">
+      <label class="album-embed-generator__label" for={`${generatorId}-code`}>
+        Embed code
+      </label>
+      <textarea
+        class="album-embed-generator__textarea"
+        id={`${generatorId}-code`}
+        rows="6"
+        readonly
+        spellcheck="false"
+        data-embed-code>{defaultEmbedCode}</textarea
+      >
+      <div class="album-embed-generator__code-actions">
+        <button
+          class="album-embed-generator__copy-button"
+          type="button"
+          data-embed-copy
+          aria-describedby={statusId}
+        >
+          <Icon name="copy" aria-hidden="true" />
+          <span data-embed-copy-label>Copy embed code</span>
+        </button>
+        <p
+          class="album-embed-generator__status"
+          id={statusId}
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          data-embed-copy-status
+        >
+          Ready to copy.
+        </p>
+      </div>
+    </div>
+
+    <p class="album-embed-generator__privacy">
+      <Icon name="shield" aria-hidden="true" />
+      The player uses no cookies, analytics, or browser storage. Audio is requested only after
+      a visitor presses play.
+    </p>
+  </div>
+</section>
+
+<script>
+  const escapeHtmlAttribute = (value: string): string =>
+    value
+      .replaceAll("&", "&amp;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;");
+
+  const bindAlbumEmbedGenerator = (root: HTMLElement): void => {
+    if (root.dataset.embedGeneratorBound === "true") {
+      return;
+    }
+
+    root.dataset.embedGeneratorBound = "true";
+    const toggle = root.querySelector<HTMLButtonElement>("[data-embed-generator-toggle]");
+    const panel = root.querySelector<HTMLElement>("[data-embed-generator-panel]");
+    const form = root.querySelector<HTMLFormElement>("[data-embed-generator-form]");
+    const trackSelect = root.querySelector<HTMLSelectElement>("[data-embed-start-track]");
+    const coverToggle = root.querySelector<HTMLInputElement>("[data-embed-cover-toggle]");
+    const preview = root.querySelector<HTMLIFrameElement>("[data-embed-preview]");
+    const code = root.querySelector<HTMLTextAreaElement>("[data-embed-code]");
+    const copyButton = root.querySelector<HTMLButtonElement>("[data-embed-copy]");
+    const copyLabel = root.querySelector<HTMLElement>("[data-embed-copy-label]");
+    const status = root.querySelector<HTMLElement>("[data-embed-copy-status]");
+    const embedBaseUrl = root.dataset.embedBaseUrl || "";
+    const previewBaseUrl = root.dataset.previewBaseUrl || embedBaseUrl;
+    const albumTitle = root.dataset.albumTitle || "MelodyMind album";
+    const controller = new AbortController();
+    const { signal } = controller;
+    let resetTimer: number | undefined;
+
+    const buildUrl = (baseUrl: string): string => {
+      const url = new URL(baseUrl, window.location.origin);
+      url.searchParams.set("track", trackSelect?.value || "1");
+      url.searchParams.set("cover", coverToggle?.checked === false ? "0" : "1");
+      return url.toString();
+    };
+
+    const buildCode = (): string => {
+      const src = buildUrl(embedBaseUrl).replaceAll("&", "&amp;");
+      const title = escapeHtmlAttribute(`${albumTitle} album player by MelodyMind`);
+      return `<iframe src="${src}" title="${title}" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" width="720" height="200" style="display:block;width:100%;max-width:720px;height:200px;border:0"></iframe>`;
+    };
+
+    const setStatus = (message: string): void => {
+      if (status) {
+        status.textContent = message;
+      }
+      if (resetTimer) {
+        window.clearTimeout(resetTimer);
+      }
+      resetTimer = window.setTimeout(() => {
+        if (status) {
+          status.textContent = "Ready to copy.";
+        }
+      }, 4000);
+    };
+
+    const updateOutput = (): void => {
+      if (code) {
+        code.value = buildCode();
+      }
+      if (preview?.hasAttribute("src")) {
+        preview.src = buildUrl(previewBaseUrl);
+      } else if (preview) {
+        preview.dataset.previewSrc = buildUrl(previewBaseUrl);
+      }
+      setStatus("Embed code updated.");
+    };
+
+    const openPanel = (): void => {
+      if (!toggle || !panel) {
+        return;
+      }
+      toggle.setAttribute("aria-expanded", "true");
+      panel.hidden = false;
+      if (preview && !preview.hasAttribute("src")) {
+        preview.src = preview.dataset.previewSrc || buildUrl(previewBaseUrl);
+      }
+      trackSelect?.focus();
+    };
+
+    const closePanel = (): void => {
+      if (!toggle || !panel) {
+        return;
+      }
+      toggle.setAttribute("aria-expanded", "false");
+      panel.hidden = true;
+      toggle.focus();
+    };
+
+    toggle?.addEventListener(
+      "click",
+      () => {
+        if (toggle.getAttribute("aria-expanded") === "true") {
+          closePanel();
+        } else {
+          openPanel();
+        }
+      },
+      { signal }
+    );
+
+    form?.addEventListener("change", updateOutput, { signal });
+    panel?.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key === "Escape") {
+          closePanel();
+        }
+      },
+      { signal }
+    );
+
+    copyButton?.addEventListener(
+      "click",
+      async () => {
+        if (!code) {
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(code.value);
+          copyButton.dataset.copyState = "success";
+          if (copyLabel) {
+            copyLabel.textContent = "Copied";
+          }
+          setStatus("Embed code copied.");
+          window.setTimeout(() => {
+            delete copyButton.dataset.copyState;
+            if (copyLabel) {
+              copyLabel.textContent = "Copy embed code";
+            }
+          }, 2000);
+        } catch {
+          code.focus();
+          code.select();
+          setStatus("Copy failed. The code is selected for manual copying.");
+        }
+      },
+      { signal }
+    );
+
+    document.addEventListener("astro:before-swap", () => controller.abort(), {
+      once: true,
+      signal,
+    });
+  };
+
+  const initAlbumEmbedGenerators = (): void => {
+    document
+      .querySelectorAll<HTMLElement>("[data-album-embed-generator]")
+      .forEach(bindAlbumEmbedGenerator);
+  };
+
+  initAlbumEmbedGenerators();
+  document.addEventListener("astro:page-load", initAlbumEmbedGenerators);
+</script>
+
+<style>
+  .album-embed-generator {
+    padding-block: var(--spacing-lg) var(--spacing-xl);
+    border-block-start: 1px solid var(--surface-border-soft);
+  }
+
+  .album-embed-generator__intro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-base) var(--spacing-lg);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .album-embed-generator__copy {
+    display: grid;
+    gap: var(--spacing-xs);
+  }
+
+  .album-embed-generator__eyebrow,
+  .album-embed-generator__title,
+  .album-embed-generator__description,
+  .album-embed-generator__status,
+  .album-embed-generator__privacy {
+    margin: 0;
+  }
+
+  .album-embed-generator__eyebrow {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wider);
+  }
+
+  .album-embed-generator__title {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-tight);
+    color: var(--text-primary);
+  }
+
+  .album-embed-generator__description {
+    max-inline-size: var(--measure-copy-compact);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .album-embed-generator__toggle,
+  .album-embed-generator__copy-button {
+    display: inline-flex;
+    gap: var(--spacing-xs);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+    font: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-base);
+  }
+
+  .album-embed-generator__toggle:hover,
+  .album-embed-generator__toggle:focus {
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+    border-color: var(--surface-border-accent);
+  }
+
+  .album-embed-generator__toggle-chevron {
+    transition: transform var(--transition-fast);
+  }
+
+  .album-embed-generator__toggle[aria-expanded="true"]
+    .album-embed-generator__toggle-chevron {
+    transform: rotate(180deg);
+  }
+
+  .album-embed-generator__panel {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.65fr) minmax(18rem, 1fr);
+    gap: var(--spacing-lg);
+    margin-block-start: var(--spacing-lg);
+  }
+
+  .album-embed-generator__panel[hidden] {
+    display: none;
+  }
+
+  .album-embed-generator__form,
+  .album-embed-generator__code {
+    display: grid;
+    gap: var(--spacing-base);
+    align-content: start;
+  }
+
+  .album-embed-generator__field {
+    display: grid;
+    gap: var(--spacing-xs);
+  }
+
+  .album-embed-generator__label {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+  }
+
+  .album-embed-generator__select,
+  .album-embed-generator__textarea {
+    box-sizing: border-box;
+    inline-size: 100%;
+    font: inherit;
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    background: var(--surface-1);
+    border: 1px solid var(--surface-border-soft);
+    border-radius: var(--radius-base);
+  }
+
+  .album-embed-generator__select {
+    min-block-size: var(--control-min-block-size);
+    padding: var(--spacing-sm) var(--spacing-base);
+  }
+
+  .album-embed-generator__checkbox {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    min-block-size: var(--control-min-block-size);
+    padding-inline: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    border-radius: var(--radius-base);
+  }
+
+  .album-embed-generator__checkbox input {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    margin: 0;
+    accent-color: var(--accent-primary);
+  }
+
+  .album-embed-generator__preview {
+    display: grid;
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    gap: var(--spacing-xs);
+    align-content: start;
+    min-inline-size: 0;
+  }
+
+  .album-embed-generator__iframe {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 45rem;
+    block-size: 12.5rem;
+    background: var(--bg-primary);
+    border: 0;
+    border-radius: var(--radius-md);
+  }
+
+  .album-embed-generator__code {
+    grid-column: 1;
+  }
+
+  .album-embed-generator__textarea {
+    min-block-size: 8.5rem;
+    padding: var(--spacing-base);
+    font-family: var(--font-mono);
+    line-height: 1.45;
+    resize: vertical;
+  }
+
+  .album-embed-generator__code-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm) var(--spacing-base);
+    align-items: center;
+  }
+
+  .album-embed-generator__copy-button {
+    color: var(--button-text-accent);
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  .album-embed-generator__copy-button:hover,
+  .album-embed-generator__copy-button:focus {
+    color: var(--button-text-accent);
+    background: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+  }
+
+  .album-embed-generator__copy-button[data-copy-state="success"] {
+    color: var(--bg-primary);
+    background: var(--color-success);
+    border-color: var(--color-success);
+  }
+
+  .album-embed-generator__toggle:focus-visible,
+  .album-embed-generator__copy-button:focus-visible,
+  .album-embed-generator__select:focus-visible,
+  .album-embed-generator__checkbox:focus-within,
+  .album-embed-generator__textarea:focus-visible {
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .album-embed-generator__status {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+  }
+
+  .album-embed-generator__privacy {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: var(--spacing-xs);
+    align-items: flex-start;
+    max-inline-size: 70ch;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .album-embed-generator__privacy :global(svg) {
+    flex: 0 0 auto;
+    inline-size: var(--icon-size-sm);
+    block-size: var(--icon-size-sm);
+    margin-block-start: 0.18em;
+    color: var(--accent-primary);
+  }
+
+  @media (width <= 860px) {
+    .album-embed-generator__panel {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .album-embed-generator__form,
+    .album-embed-generator__code,
+    .album-embed-generator__preview,
+    .album-embed-generator__privacy {
+      grid-row: auto;
+      grid-column: 1;
+    }
+  }
+
+  @media (width <= 520px) {
+    .album-embed-generator__intro,
+    .album-embed-generator__toggle,
+    .album-embed-generator__copy-button {
+      inline-size: 100%;
+    }
+
+    .album-embed-generator__panel {
+      gap: var(--spacing-base);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .album-embed-generator__toggle-chevron {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .album-embed-generator__toggle,
+    .album-embed-generator__copy-button,
+    .album-embed-generator__select,
+    .album-embed-generator__textarea {
+      border-color: CanvasText;
+    }
+  }
+</style>

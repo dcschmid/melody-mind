@@ -11,7 +11,7 @@ export const prerender = true;
 const title = "Privacy Policy";
 const description =
   "How we process personal data on MelodyMind Music, including hosting logs, browser storage, and AI-generated media details.";
-const lastUpdated = "24 July 2026";
+const lastUpdated = "25 July 2026";
 
 const highlights = [
   {
@@ -52,6 +52,15 @@ const sections = [
       "We use browser storage for site features such as music player state.",
       "MelodyMind Quiz does not store quiz progress, answers, or results. Its active round exists only in memory and resets when the page is left or reloaded.",
       'For a current overview of local storage entries, see our <a href="/cookies">Cookie &amp; Storage Policy</a>.',
+    ]),
+  },
+  {
+    icon: "music",
+    title: "Embedded Album Players",
+    trustedHtmlBody: trustedHtmlList([
+      "Album players can be embedded on external HTTPS websites through embed.melody-mind.de. The embedded player does not use cookies, analytics, advertising trackers, or browser storage.",
+      "The player document and cover artwork are loaded from MelodyMind hosting. Audio is requested from our Contabo object storage only after you press play. These providers may process standard access-log data such as IP address, timestamp, requested URL, and user agent to deliver and secure the service.",
+      "The generated embed code uses a no-referrer policy, so the embedding page address is not sent with player or audio requests.",
     ]),
   },
   {

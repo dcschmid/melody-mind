@@ -1,0 +1,47 @@
+---
+import EmbedAlbumPlayer from "@components/music/embed/EmbedAlbumPlayer.astro";
+import EmbedLayout from "@layouts/EmbedLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import { MUSIC_SITE_URL } from "@utils/appShell";
+import { getAlbumCoverImagePath } from "@utils/musicImages";
+import type { CollectionEntry } from "astro:content";
+import type { Song } from "../../../types/album";
+
+type AlbumEntry = CollectionEntry<"albums">;
+
+export async function getStaticPaths() {
+  const albums = await getCollection(
+    "albums",
+    (entry: AlbumEntry) => entry.data.isAvailable && entry.data.songs.length > 0
+  );
+
+  return albums.map((entry: AlbumEntry) => ({
+    params: { album: entry.id },
+  }));
+}
+
+const { album: albumId } = Astro.params;
+const entry = albumId ? await getEntry("albums", albumId) : undefined;
+
+if (!entry || !entry.data.isAvailable || entry.data.songs.length === 0) {
+  return Astro.redirect("/404");
+}
+
+const album = entry.data;
+const albumUrl = `${MUSIC_SITE_URL}/${entry.id}/`;
+const artworkUrl = getAlbumCoverImagePath(album.coverImage);
+const songs = album.songs as Song[];
+---
+
+<EmbedLayout
+  title={`${album.title} album player | MelodyMind`}
+  description={`A compact, privacy-friendly player for ${album.title}.`}
+>
+  <EmbedAlbumPlayer
+    albumId={entry.id}
+    albumTitle={album.title}
+    {albumUrl}
+    {artworkUrl}
+    {songs}
+  />
+</EmbedLayout>
