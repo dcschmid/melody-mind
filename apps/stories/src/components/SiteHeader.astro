@@ -1,0 +1,124 @@
+---
+import melodyMindLogo from "@assets/melody-mind-logo.webp";
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+const isActive = (href: string) =>
+  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="site-header__inner page-shell">
+    <a class="site-header__brand" href="/" aria-label="Go to MelodyMind Stories">
+      <img
+        class="site-header__logo"
+        src={melodyMindLogo.src}
+        width="150"
+        height="50"
+        alt="MelodyMind"
+        loading="eager"
+        decoding="async"
+      />
+      <span class="site-header__product">Stories</span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Stories navigation">
+      <a href="/" aria-current={isActive("/") ? "page" : undefined}>Stories</a>
+      <a href="/about/" aria-current={isActive("/about/") ? "page" : undefined}>About</a>
+      <a href="https://melody-mind.de/">Music</a>
+      <a href="https://quiz.melody-mind.de/">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 10;
+    background: var(--archive-night);
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-xl);
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: 4.75rem;
+    padding-block: var(--space-sm);
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    gap: var(--space-sm);
+    align-items: center;
+    min-block-size: var(--control-size);
+    color: var(--paper-ink);
+    text-decoration: none;
+  }
+
+  .site-header__logo {
+    inline-size: clamp(8.75rem, 10.5vw, 10.75rem);
+    block-size: auto;
+    aspect-ratio: 700 / 232;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .site-header__product {
+    padding-inline-start: var(--space-sm);
+    font-size: 0.95rem;
+    color: var(--quiet-ink);
+    border-inline-start: 1px solid var(--line);
+  }
+
+  .site-header__nav {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+    overflow-x: auto;
+  }
+
+  .site-header__nav a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--control-size);
+    font-weight: 700;
+    color: var(--quiet-ink);
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .site-header__nav a:hover,
+  .site-header__nav a:focus-visible,
+  .site-header__nav a[aria-current="page"] {
+    color: var(--paper-ink);
+  }
+
+  .site-header__nav a[aria-current="page"]::after {
+    position: absolute;
+    inset-block-end: 0.08rem;
+    inset-inline: 0;
+    block-size: 0.12rem;
+    content: "";
+    background: var(--archive-teal);
+  }
+
+  @media (width <= 42rem) {
+    .site-header__inner {
+      display: grid;
+      justify-content: stretch;
+    }
+
+    .site-header__nav {
+      gap: var(--space-lg);
+      padding-inline: 1rem;
+      margin-inline: -1rem;
+    }
+  }
+</style>

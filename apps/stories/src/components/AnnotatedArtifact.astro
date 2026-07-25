@@ -1,0 +1,323 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Marker {
+  id: string;
+  number: number;
+  x: number;
+  y: number;
+  title: string;
+  text: string;
+  sourceRefs: string[];
+}
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  caption: string;
+  label: string;
+  markers: Marker[];
+}
+
+const { image, alt, caption, label, markers } = Astro.props;
+---
+
+<section class="artifact" aria-labelledby="artifact-title" data-annotated-artifact>
+  <div class="artifact__heading reading-shell">
+    <p class="eyebrow">Annotated artifact</p>
+    <h2 id="artifact-title">{label}</h2>
+    <p class="artifact__heading-description">
+      Select a number on the image or move through the complete notes below. The notes
+      remain available when JavaScript is disabled.
+    </p>
+  </div>
+
+  <div class="artifact__stage page-shell">
+    <figure class="artifact__figure">
+      <div class="artifact__image-wrap">
+        <Image
+          class="artifact__image"
+          src={image}
+          {alt}
+          widths={[480, 768, 1024, 1440]}
+          sizes="(min-width: 64rem) 54rem, 100vw"
+          loading="lazy"
+          decoding="async"
+        />
+        {
+          markers.map((marker) => (
+            <a
+              class="artifact__marker"
+              style={`--marker-x: ${marker.x}%; --marker-y: ${marker.y}%;`}
+              href={`#artifact-note-${marker.id}`}
+              aria-label={`Annotation ${marker.number}: ${marker.title}`}
+              aria-controls={`artifact-note-${marker.id}`}
+              data-artifact-marker={marker.id}
+            >
+              {marker.number}
+            </a>
+          ))
+        }
+      </div>
+      <figcaption>{caption}</figcaption>
+    </figure>
+
+    <ol class="artifact__notes" aria-label="Artifact annotations">
+      {
+        markers.map((marker) => (
+          <li
+            class="artifact__note"
+            id={`artifact-note-${marker.id}`}
+            data-artifact-note={marker.id}
+          >
+            <span class="artifact__note-number" aria-hidden="true">
+              {marker.number}
+            </span>
+            <div>
+              <h3>{marker.title}</h3>
+              <p>{marker.text}</p>
+              <p class="artifact__source-links">
+                Sources:{" "}
+                {marker.sourceRefs.map((sourceRef, index) => (
+                  <>
+                    {index > 0 ? ", " : ""}
+                    <a href={`#source-${sourceRef}`}>{sourceRef}</a>
+                  </>
+                ))}
+              </p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<script>
+  const bindArtifacts = () => {
+    document
+      .querySelectorAll<HTMLElement>("[data-annotated-artifact]")
+      .forEach((artifact) => {
+        if (artifact.dataset.enhanced === "true") {
+          return;
+        }
+
+        artifact.dataset.enhanced = "true";
+        const markers = Array.from(
+          artifact.querySelectorAll<HTMLAnchorElement>("[data-artifact-marker]")
+        );
+        const notes = Array.from(
+          artifact.querySelectorAll<HTMLElement>("[data-artifact-note]")
+        );
+
+        const activate = (id: string) => {
+          for (const marker of markers) {
+            const active = marker.dataset.artifactMarker === id;
+            if (active) {
+              marker.setAttribute("aria-current", "true");
+            } else {
+              marker.removeAttribute("aria-current");
+            }
+          }
+          for (const note of notes) {
+            if (note.dataset.artifactNote === id) {
+              note.setAttribute("data-active", "true");
+            } else {
+              note.removeAttribute("data-active");
+            }
+          }
+        };
+
+        for (const marker of markers) {
+          marker.addEventListener("click", () => {
+            const id = marker.dataset.artifactMarker;
+            if (id) {
+              activate(id);
+            }
+          });
+          marker.addEventListener("focus", () => {
+            const id = marker.dataset.artifactMarker;
+            if (id) {
+              activate(id);
+            }
+          });
+        }
+
+        if (markers[0]?.dataset.artifactMarker) {
+          activate(markers[0].dataset.artifactMarker);
+        }
+      });
+  };
+
+  document.addEventListener("astro:page-load", bindArtifacts);
+  bindArtifacts();
+</script>
+
+<style>
+  .artifact {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: var(--space-4xl);
+    margin-block: var(--space-4xl);
+    background: var(--desk-night);
+    border-block: 1px solid var(--line-soft);
+  }
+
+  .artifact__heading {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .artifact__heading h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  .artifact__heading-description {
+    max-inline-size: 62ch;
+    color: var(--quiet-ink);
+  }
+
+  .artifact__stage {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .artifact__figure {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .artifact__image-wrap {
+    position: relative;
+    inline-size: 100%;
+    background: var(--archive-night);
+  }
+
+  .artifact__image {
+    inline-size: 100%;
+    block-size: auto;
+  }
+
+  .artifact__figure figcaption {
+    max-inline-size: 66ch;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--quiet-ink);
+  }
+
+  .artifact__marker {
+    position: absolute;
+    inset-block-start: var(--marker-y);
+    inset-inline-start: var(--marker-x);
+    display: grid;
+    place-items: center;
+    inline-size: var(--control-size);
+    block-size: var(--control-size);
+    font-weight: 700;
+    color: var(--archive-night);
+    text-decoration: none;
+    background: var(--paper-ink);
+    border: 0.18rem solid var(--archive-night);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--paper-ink);
+    transform: translate(-50%, -50%);
+    transition:
+      color 180ms var(--ease-out),
+      background-color 180ms var(--ease-out),
+      transform 180ms var(--ease-out);
+  }
+
+  .artifact__marker:hover,
+  .artifact__marker:focus-visible,
+  .artifact__marker[aria-current] {
+    color: var(--archive-night);
+    background: var(--archive-teal-strong);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .artifact__notes {
+    display: grid;
+    gap: var(--space-sm);
+    padding: 0;
+    list-style: none;
+  }
+
+  .artifact__note {
+    display: grid;
+    grid-template-columns: var(--control-size) minmax(0, 1fr);
+    gap: var(--space-md);
+    padding-block: var(--space-lg);
+    scroll-margin-block-start: var(--space-lg);
+    border-block-start: 1px solid var(--line);
+    transition: background-color 180ms var(--ease-out);
+  }
+
+  .artifact__note:target,
+  .artifact__note[data-active] {
+    background: var(--lifted-night);
+  }
+
+  .artifact__note-number {
+    display: grid;
+    place-items: center;
+    inline-size: var(--control-size);
+    block-size: var(--control-size);
+    font-weight: 700;
+    color: var(--archive-night);
+    background: var(--oxide);
+    border-radius: 50%;
+  }
+
+  .artifact__note h3 {
+    margin-block-end: var(--space-xs);
+    font-size: 1.25rem;
+  }
+
+  .artifact__note p {
+    color: var(--quiet-ink);
+  }
+
+  .artifact__source-links {
+    margin-block-start: var(--space-sm);
+    font-size: 0.82rem;
+  }
+
+  @media (width >= 64rem) {
+    .artifact__stage {
+      grid-template-columns: minmax(0, 1.4fr) minmax(22rem, 0.8fr);
+    }
+
+    .artifact__figure {
+      position: sticky;
+      inset-block-start: var(--space-lg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .artifact__marker {
+      transition: none;
+    }
+
+    .artifact__note {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .artifact__marker,
+    .artifact__note-number {
+      color: ButtonText;
+      forced-color-adjust: auto;
+      background: ButtonFace;
+      border: 2px solid ButtonText;
+      box-shadow: none;
+    }
+
+    .artifact__note:target,
+    .artifact__note[data-active] {
+      outline: 2px solid Highlight;
+    }
+  }
+</style>

@@ -153,11 +153,6 @@ const isAlbumLayout = mainClass.split(/\s+/).includes("music-layout__main--album
 const bodyClasses = ["music-layout", isAlbumLayout ? "music-layout--album" : ""]
   .filter(Boolean)
   .join(" ");
-const homeNavItem: HeaderNavItem = {
-  href: "/",
-  label: "Home",
-  icon: "home",
-};
 const radioNavItem: HeaderNavItem = {
   href: "/radio/",
   label: "Radio",
@@ -184,7 +179,6 @@ const searchNavItem: HeaderNavItem = {
   icon: "search",
 };
 const headerNavItems: HeaderNavItem[] = [
-  homeNavItem,
   radioNavItem,
   moodNavItem,
   genresNavItem,

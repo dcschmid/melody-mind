@@ -1,0 +1,21 @@
+# MelodyMind Stories
+
+> Sourced, English-language long-form music journalism from MelodyMind.
+
+- [Home](https://stories.melody-mind.de/): Ten-story reading room and featured stories
+- [The Guitar Before Rock Had a Name](https://stories.melody-mind.de/the-guitar-before-rock-had-a-name/): Artist portrait of Sister Rosetta Tharpe
+- [Manchester, FAC 1 to FAC 51](https://stories.melody-mind.de/manchester-fac-1-to-fac-51/): Scene report on Factory's early Manchester network
+- [One Hundred Pulses, No Band Name](https://stories.melody-mind.de/one-hundred-pulses-no-band-name/): Cover story on Unknown Pleasures
+- [The Business in Ma Rainey's Voice](https://stories.melody-mind.de/the-business-in-ma-raineys-voice/): Artist portrait of Ma Rainey's touring and recording work
+- [Five Strings, No Drummer](https://stories.melody-mind.de/five-strings-no-drummer/): Artist portrait of Django Reinhardt and the Hot Club quintet
+- [Forty-Five Seconds of Room](https://stories.melody-mind.de/forty-five-seconds-of-room/): Artist portrait of Pauline Oliveros and Deep Listening
+- [A Jazz History at the Keyboard](https://stories.melody-mind.de/a-jazz-history-at-the-keyboard/): Artist portrait of Mary Lou Williams
+- [The Room Before the Record](https://stories.melody-mind.de/the-room-before-the-record/): Scene report on Chicago house
+- [Belleville to Metroplex](https://stories.melody-mind.de/belleville-to-metroplex/): Scene report on Detroit techno
+- [How to Play a Record Without Language](https://stories.melody-mind.de/how-to-play-a-record-without-language/): Annotated cover story on the Voyager Golden Record
+- [About](https://stories.melody-mind.de/about/): Editorial method, AI disclosure, and privacy
+- [RSS](https://stories.melody-mind.de/rss.xml): Story feed
+
+Each article includes numbered sources, image rights, an editorial disclosure, and
+Article JSON-LD. MelodyMind Stories has no accounts, analytics, cookies, external
+embeds, or browser storage.

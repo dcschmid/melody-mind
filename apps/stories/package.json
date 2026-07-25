@@ -1,0 +1,35 @@
+{
+  "name": "stories",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Long-form music journalism from MelodyMind",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node scripts/validate-content.mjs && astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,astro}\" && pnpm stylelint",
+    "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,astro}\" && pnpm stylelint:check",
+    "format": "pnpm exec prettier --write \"src/**/*.{js,ts,astro,md}\" \"tests/**/*.ts\" \"scripts/**/*.mjs\"",
+    "format:check": "pnpm exec prettier --check \"src/**/*.{js,ts,astro,md}\" \"tests/**/*.ts\" \"scripts/**/*.mjs\"",
+    "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
+    "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.0.2",
+    "astro-minify-html-swc": "^0.1.11",
+    "lightningcss": "^1.32.0",
+    "sharp": "^0.35.2"
+  },
+  "devDependencies": {
+    "js-yaml": "^5.1.0",
+    "vitest": "^4.1.10"
+  }
+}

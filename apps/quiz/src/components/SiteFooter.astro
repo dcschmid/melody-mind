@@ -5,11 +5,18 @@
       <p>Research-led music questions. Your quiz progress is never saved.</p>
     </div>
 
-    <nav class="quiz-footer__links" aria-label="Legal information">
-      <a href="https://melody-mind.de/imprint/">Imprint</a>
-      <a href="https://melody-mind.de/privacy/">Privacy</a>
-      <a href="https://melody-mind.de/cookies/">Cookies & storage</a>
-    </nav>
+    <div class="quiz-footer__nav-groups">
+      <nav class="quiz-footer__links" aria-label="MelodyMind apps">
+        <a href="https://melody-mind.de/">Music</a>
+        <a href="/">Quiz</a>
+        <a href="https://stories.melody-mind.de/">Stories</a>
+      </nav>
+      <nav class="quiz-footer__links" aria-label="Legal information">
+        <a href="https://melody-mind.de/imprint/">Imprint</a>
+        <a href="https://melody-mind.de/privacy/">Privacy</a>
+        <a href="https://melody-mind.de/cookies/">Cookies & storage</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
@@ -39,6 +46,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm) var(--space-lg);
+  }
+
+  .quiz-footer__nav-groups {
+    display: grid;
+    gap: var(--space-sm);
   }
 
   .quiz-footer__links a {

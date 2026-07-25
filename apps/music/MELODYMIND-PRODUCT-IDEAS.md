@@ -674,35 +674,6 @@ zur Musik offenhalten.
 
 ---
 
-## 19. MelodyMind Drive
-
-### Idee
-
-Ein vereinfachter Player für Auto und unterwegs.
-
-### Funktionen
-
-- große Bedienelemente
-- Album oder Serie mit einem Tap starten
-- keine langen Texte während der Fahrt
-- Sprachansage für Album und Track
-- Fortsetzen der letzten Session
-- vorbereitete Queue
-
-### MVP
-
-- responsive Car-Mode-Ansicht
-- Play, Pause, voriger und nächster Track
-- große Fortschrittsanzeige
-- keine Suche während der Wiedergabe
-
-### Risiko
-
-Eine Web-App darf nicht den Eindruck erwecken, eine zertifizierte CarPlay- oder Android
-Auto-App zu sein. Ablenkungsarme Gestaltung hat Vorrang vor Funktionsumfang.
-
----
-
 ## 20. MelodyMind Archive
 
 ### Idee

@@ -1,0 +1,136 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+const canonical = new URL("/about/", Astro.site).toString();
+---
+
+<Layout
+  title="About MelodyMind Stories"
+  description="How MelodyMind Stories researches, writes, sources, and publishes long-form music journalism without analytics, cookies, or saved reader data."
+  {canonical}
+>
+  <article class="about page-shell">
+    <header class="about__hero">
+      <p class="eyebrow reveal">About the publication</p>
+      <h1 class="reveal reveal--second">Music history, with the paperwork left in.</h1>
+      <p class="reveal reveal--third">
+        MelodyMind Stories follows records, performances, images, and rooms back to the
+        sources that document them. The citations are part of the reading experience.
+      </p>
+    </header>
+
+    <div class="about__body">
+      <section>
+        <p class="eyebrow">Editorial method</p>
+        <h2>Claims stay close to evidence.</h2>
+        <p>
+          Each story begins with museum records, archives, institutional histories, or
+          other named sources. When accounts disagree, the article describes the
+          disagreement. Direct quotations are used only when a traceable source and a
+          clear editorial reason justify them. Song lyrics are not reproduced.
+        </p>
+      </section>
+
+      <section>
+        <p class="eyebrow">AI disclosure</p>
+        <h2>Assistance is named, not hidden.</h2>
+        <p>
+          Research and drafting are assisted by AI. The published story includes its
+          sources, access dates, image rights, and alteration notes so readers can inspect
+          the record behind the prose. MelodyMind Editorial is responsible for the final
+          selection, structure, and wording.
+        </p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Privacy</p>
+        <h2>Reading leaves no profile here.</h2>
+        <p>
+          This static site has no accounts, analytics, advertising trackers, cookies,
+          external embeds, or client-side storage. The annotated artifact uses a small
+          local script to synchronize visible notes; it does not send or save data.
+        </p>
+      </section>
+
+      <section>
+        <p class="eyebrow">Image rights</p>
+        <h2>Every picture carries its catalog note.</h2>
+        <p>
+          Images are served locally and optimized during the build. Captions name the
+          creator, source, license, and any crop or tonal adjustment. The launch edition
+          is noncommercial, including its use of material licensed under CC BY-NC-SA 4.0.
+        </p>
+      </section>
+    </div>
+
+    <footer class="about__footer">
+      <a class="text-link" href="/">Read the launch edition <span>→</span></a>
+      <a class="text-link" href="https://melody-mind.de/"
+        >Visit MelodyMind Music <span>→</span></a
+      >
+    </footer>
+  </article>
+</Layout>
+
+<style>
+  .about {
+    display: grid;
+    gap: var(--space-4xl);
+    padding-block: var(--space-4xl);
+  }
+
+  .about__hero {
+    display: grid;
+    gap: var(--space-lg);
+    max-inline-size: 76rem;
+  }
+
+  .about__hero h1 {
+    max-inline-size: 15ch;
+    font-size: clamp(3rem, 8vw, 7rem);
+    letter-spacing: -0.045em;
+  }
+
+  .about__hero > p:last-child {
+    max-inline-size: 62ch;
+    font-size: clamp(1.18rem, 2.2vw, 1.5rem);
+    color: var(--quiet-ink);
+  }
+
+  .about__body {
+    display: grid;
+    gap: var(--space-3xl);
+  }
+
+  .about__body section {
+    display: grid;
+    gap: var(--space-md);
+    padding-block-start: var(--space-xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .about__body h2 {
+    max-inline-size: 16ch;
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  .about__body section > p:last-child {
+    max-inline-size: 65ch;
+    font-size: 1.08rem;
+    color: var(--quiet-ink);
+  }
+
+  .about__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md) var(--space-2xl);
+    padding-block-start: var(--space-2xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  @media (width >= 64rem) {
+    .about__body {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

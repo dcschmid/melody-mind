@@ -9,7 +9,8 @@ import { buildLegalPageSeo } from "../utils/legal/buildLegalPageSeo";
 export const prerender = true;
 
 const title = "Legal Notice";
-const description = "Legal notice for MelodyMind Music in accordance with German law.";
+const description =
+  "Legal notice for the MelodyMind Music, Quiz, and Stories domains in accordance with German law.";
 
 const highlights = [
   {
@@ -18,7 +19,8 @@ const highlights = [
   },
   {
     value: "Private project",
-    label: "MelodyMind Music is presented here as a non-commercial project.",
+    label:
+      "MelodyMind Music, Quiz, and Stories are presented as a non-commercial project.",
   },
   {
     value: "Direct contact",
@@ -36,6 +38,7 @@ const sections = [
       "80796 Munich",
       "Germany",
       "This website is a non-commercial private project.",
+      "This legal notice covers melody-mind.de, quiz.melody-mind.de, stories.melody-mind.de, and embed.melody-mind.de.",
     ]),
   },
   {
@@ -109,7 +112,7 @@ const pageSeo = buildLegalPageSeo({
     <LegalDocumentPage
       eyebrow="Legal"
       title="Legal Notice"
-      lead="Required legal information for a website operated from Germany."
+      lead="Required legal information for the MelodyMind domains operated from Germany."
       {highlights}
       highlightsAriaLabel="Key legal notice points"
       {sections}

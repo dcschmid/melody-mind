@@ -1,0 +1,37 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout
+  title="Story not found"
+  description="This MelodyMind Stories page does not exist. Return to the launch edition."
+  index={false}
+>
+  <section class="not-found reading-shell">
+    <p class="eyebrow">404 · Missing from the catalog</p>
+    <h1>This story is not on the shelf.</h1>
+    <p>The address may be incomplete, or the story may have moved before publication.</p>
+    <a class="text-link" href="/">Return to MelodyMind Stories <span>→</span></a>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    display: grid;
+    gap: var(--space-lg);
+    align-content: center;
+    min-block-size: 68svh;
+    padding-block: var(--space-4xl);
+  }
+
+  .not-found h1 {
+    max-inline-size: 12ch;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+  }
+
+  .not-found > p:not(.eyebrow) {
+    max-inline-size: 50ch;
+    font-size: 1.2rem;
+    color: var(--quiet-ink);
+  }
+</style>

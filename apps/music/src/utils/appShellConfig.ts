@@ -63,7 +63,9 @@ export function buildAppShellConfig({
         { href: "/genre/", label: "Genres" },
         { href: "/series/", label: "Album Series" },
         { href: "/?search=1", label: "Search" },
+        { href: "/about/", label: "About" },
         { href: "https://quiz.melody-mind.de/", label: "Music Quiz" },
+        { href: "https://stories.melody-mind.de/", label: "Music Stories" },
       ],
       legalLinks: buildAppShellLegalLinks(),
       copyrightText: buildDefaultCopyrightText(copyrightYear, copyrightBrand),
@@ -81,14 +83,14 @@ export const musicAppShellConfig = buildAppShellConfig({
   navAriaLabel: "Music navigation",
   headerNavItems: [
     {
-      href: "/about",
-      label: "About",
-      icon: "info",
-    },
-    {
       href: "https://quiz.melody-mind.de/",
       label: "Quiz",
       icon: "help-circle",
+    },
+    {
+      href: "https://stories.melody-mind.de/",
+      label: "Stories",
+      icon: "book-open",
     },
   ],
   footerBrandText:

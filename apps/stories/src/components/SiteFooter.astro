@@ -1,0 +1,225 @@
+---
+import melodyMindLogo from "@assets/melody-mind-logo.webp";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <a
+        class="site-footer__brand-link"
+        href="/"
+        aria-label="Go to the MelodyMind Stories homepage"
+      >
+        <img
+          class="site-footer__logo"
+          src={melodyMindLogo.src}
+          width="166"
+          height="55"
+          alt="MelodyMind"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+      <p>Sourced long-form music writing with visible research notes and image rights.</p>
+    </div>
+
+    <div class="site-footer__nav-grid">
+      <section class="site-footer__group" aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <nav aria-label="Explore MelodyMind Stories">
+          <ul class="site-footer__link-list">
+            <li><a href="/">Stories</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/rss.xml">RSS</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="site-footer__group" aria-labelledby="footer-melodymind">
+        <h2 id="footer-melodymind">MelodyMind</h2>
+        <nav aria-label="MelodyMind apps">
+          <ul class="site-footer__link-list">
+            <li><a href="https://melody-mind.de/">Music</a></li>
+            <li><a href="https://quiz.melody-mind.de/">Quiz</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="site-footer__group" aria-labelledby="footer-legal">
+        <h2 id="footer-legal">Legal</h2>
+        <nav aria-label="MelodyMind legal information">
+          <ul class="site-footer__link-list">
+            <li>
+              <a href="https://melody-mind.de/imprint/">Legal Notice</a>
+            </li>
+            <li>
+              <a href="https://melody-mind.de/privacy/">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="https://melody-mind.de/cookies/">Storage Policy</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>
+        © {currentYear} MelodyMind. Central legal notices cover the Stories domain.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    --footer-accent: var(--archive-teal-strong);
+    --footer-ink: var(--paper-ink);
+    --footer-muted: var(--quiet-ink);
+    --footer-line: var(--line-soft);
+    --footer-logo-min: 8.2rem;
+    --footer-logo-max: 10.4rem;
+
+    position: relative;
+    margin-block-start: var(--space-4xl);
+    color: var(--footer-ink);
+    background: var(--archive-night);
+  }
+
+  .site-footer__inner {
+    position: relative;
+    display: grid;
+    gap: clamp(1rem, 2.5vw, 1.7rem);
+    max-inline-size: 90rem;
+    padding: clamp(var(--space-lg), 3vw, 2.25rem) clamp(1rem, 4vw, 4rem);
+    margin-inline: auto;
+  }
+
+  .site-footer__inner::before {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline: clamp(1rem, 4vw, 4rem);
+    block-size: 1px;
+    content: "";
+    background: color-mix(in srgb, var(--footer-accent) 18%, var(--footer-line));
+  }
+
+  .site-footer__brand {
+    display: grid;
+    gap: var(--space-sm);
+    align-content: start;
+    max-inline-size: 31rem;
+  }
+
+  .site-footer__brand-link {
+    display: inline-flex;
+    inline-size: fit-content;
+    border-radius: var(--radius-md);
+  }
+
+  .site-footer__logo {
+    inline-size: clamp(var(--footer-logo-min), 14vw, var(--footer-logo-max));
+    block-size: auto;
+  }
+
+  .site-footer__brand p {
+    max-inline-size: 36ch;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--footer-muted);
+  }
+
+  .site-footer__nav-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-md) clamp(1rem, 3vw, 2rem);
+  }
+
+  .site-footer__group {
+    display: grid;
+    gap: var(--space-sm);
+    align-content: start;
+  }
+
+  .site-footer__group h2 {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--footer-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .site-footer__link-list {
+    display: grid;
+    gap: var(--space-2xs);
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__link-list li {
+    display: flex;
+  }
+
+  .site-footer__link-list a {
+    display: inline-flex;
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-2xs);
+    font-size: 0.875rem;
+    line-height: 1.25;
+    color: var(--footer-muted);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+  }
+
+  .site-footer__link-list a:hover,
+  .site-footer__link-list a:focus-visible {
+    color: var(--footer-accent);
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    align-items: center;
+    min-block-size: 3rem;
+    padding-block-start: var(--space-md);
+    border-block-start: 1px solid
+      color-mix(in srgb, var(--footer-accent) 12%, var(--footer-line));
+  }
+
+  .site-footer__bottom p {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: color-mix(in srgb, var(--footer-muted) 86%, var(--footer-accent));
+  }
+
+  @media (width >= 47.5rem) {
+    .site-footer__inner {
+      grid-template-columns: minmax(16rem, 1fr) minmax(0, 1.6fr);
+      align-items: start;
+    }
+
+    .site-footer__nav-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .site-footer__bottom {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (width <= 35rem) {
+    .site-footer__inner {
+      padding-block-start: var(--space-md);
+      padding-inline: 1rem;
+    }
+
+    .site-footer__nav-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
