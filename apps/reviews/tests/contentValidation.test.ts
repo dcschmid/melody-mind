@@ -25,23 +25,23 @@ describe("extractReviewHeadings", () => {
   it("separates review sections from track examples", () => {
     expect(
       extractReviewHeadings(`
-## The thesis
-## Context and construction
-## Track evidence
+## Weight before explanation
+## A new low register
+## Four tests of the method
 ### Sweet Leaf: Weight begins in the pause
 ### Into the Void: The riff becomes an environment
-## Strengths
-## Limits
-## Conclusion
+## What economy makes possible
+## Where austerity becomes repetition
+## The riff as a complete world
 `)
     ).toEqual({
       sections: [
-        "The thesis",
-        "Context and construction",
-        "Track evidence",
-        "Strengths",
-        "Limits",
-        "Conclusion",
+        "Weight before explanation",
+        "A new low register",
+        "Four tests of the method",
+        "What economy makes possible",
+        "Where austerity becomes repetition",
+        "The riff as a complete world",
       ],
       trackExamples: [
         "Sweet Leaf: Weight begins in the pause",

@@ -5,6 +5,8 @@ import { load as loadYaml } from "js-yaml";
 
 const CONTENT_DIRECTORY = new URL("../src/content/reviews/", import.meta.url);
 const WORD_RANGE = [650, 2300];
+const EXPECTED_REVIEW_COUNT = 10;
+const REQUIRED_SECTION_COUNT = 6;
 
 export function countEditorialWords(markdown) {
   return markdown
@@ -26,15 +28,6 @@ export function extractReviewHeadings(markdown) {
   };
 }
 
-const FULL_REVIEW_SECTIONS = [
-  "The thesis",
-  "Context and construction",
-  "Track evidence",
-  "Strengths",
-  "Limits",
-  "Conclusion",
-];
-
 function parseReview(source, fileName) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/u);
   if (!match) throw new Error(`${fileName}: missing or malformed frontmatter.`);
@@ -46,6 +39,7 @@ async function main() {
     file.endsWith(".mdx")
   );
   const failures = [];
+  const sectionSequences = new Map();
   for (const file of files) {
     const source = await fs.readFile(new URL(file, CONTENT_DIRECTORY), "utf8");
     const { data, body } = parseReview(source, file);
@@ -56,9 +50,9 @@ async function main() {
     if (words < minimum || words > maximum) {
       failures.push(`${file}: body has ${words} words; expected ${minimum}-${maximum}.`);
     }
-    if (sections.join("\n") !== FULL_REVIEW_SECTIONS.join("\n")) {
+    if (sections.length !== REQUIRED_SECTION_COUNT) {
       failures.push(
-        `${file}: full-review sections must be ${FULL_REVIEW_SECTIONS.join(", ")} in that order.`
+        `${file}: found ${sections.length} review sections; expected ${REQUIRED_SECTION_COUNT}.`
       );
     }
     if (trackExamples.length < 2 || trackExamples.length > 4) {
@@ -75,14 +69,28 @@ async function main() {
     if ((data.sources ?? []).length < 2) {
       failures.push(`${file}: at least two sources are required.`);
     }
+
+    const sectionSequence = sections.join("\n");
+    const matchingFile = sectionSequences.get(sectionSequence);
+    if (matchingFile) {
+      failures.push(
+        `${file}: section headings duplicate ${matchingFile}; each review needs article-specific headings.`
+      );
+    } else {
+      sectionSequences.set(sectionSequence, file);
+    }
   }
 
-  if (files.length !== 7) failures.push(`expected 7 reviews, found ${files.length}.`);
+  if (files.length !== EXPECTED_REVIEW_COUNT) {
+    failures.push(`expected ${EXPECTED_REVIEW_COUNT} reviews, found ${files.length}.`);
+  }
 
   if (failures.length) {
     throw new Error(`Content validation failed:\n${failures.join("\n")}`);
   }
-  console.log("Validated 7 structured full reviews and their editorial metadata.");
+  console.log(
+    `Validated ${EXPECTED_REVIEW_COUNT} structured full reviews and their editorial metadata.`
+  );
 }
 
 const isDirectRun =
