@@ -2,22 +2,16 @@
 import { getCollection } from "astro:content";
 
 import AlbumMark from "@components/AlbumMark.astro";
+import ReviewDirectory from "@components/ReviewDirectory.astro";
 import Layout from "@layouts/Layout.astro";
 
 const reviews = (await getCollection("reviews", ({ data }) => !data.draft)).toSorted(
   (left, right) => right.data.publishedAt.valueOf() - left.data.publishedAt.valueOf()
 );
-const featured =
-  reviews.find((review) => review.data.currentAlbumOfTheWeek) ?? reviews[0];
+const featured = reviews[0];
 if (!featured) throw new Error("Reviews requires published content.");
-const archive = reviews.filter((review) => review.id !== featured.id);
+const remainingReviews = reviews.filter((review) => review.id !== featured.id);
 const canonical = new URL("/", Astro.site).toString();
-const formatLabel = (format: string) =>
-  format === "album-of-the-week"
-    ? "Album of the Week"
-    : format === "reappraisal"
-      ? "Reappraisal"
-      : "Full Review";
 const schema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -44,14 +38,28 @@ const schema = {
 >
   <section class="home-hero page-shell">
     <div class="home-hero__mark">
-      <AlbumMark
-        title={featured.data.album.title}
-        artist={featured.data.album.artist}
-        genres={featured.data.album.genres}
-      />
+      {
+        featured.data.cover.mode === "original" ? (
+          <img
+            src={featured.data.cover.src}
+            alt={featured.data.cover.alt}
+            width="640"
+            height="640"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        ) : (
+          <AlbumMark
+            title={featured.data.album.title}
+            artist={featured.data.album.artist}
+            genres={featured.data.album.genres}
+          />
+        )
+      }
     </div>
     <div class="home-hero__copy">
-      <p class="eyebrow">{formatLabel(featured.data.format)}</p>
+      <p class="eyebrow">Latest Review</p>
       <h1>{featured.data.album.title}</h1>
       <p class="home-hero__artist">{featured.data.album.artist}</p>
       <p class="home-hero__thesis">{featured.data.thesis}</p>
@@ -82,26 +90,7 @@ const schema = {
         leaves the sources visible.
       </p>
     </header>
-    <ol>
-      {
-        archive.map((review, index) => (
-          <li>
-            <a href={`/reviews/${review.id}/`}>
-              <span class="review-index__number">
-                {String(index + 2).padStart(2, "0")}
-              </span>
-              <span class="review-index__main">
-                <small>{formatLabel(review.data.format)}</small>
-                <strong>{review.data.album.title}</strong>
-                <span>{review.data.album.artist}</span>
-              </span>
-              <span class="review-index__thesis">{review.data.thesis}</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          </li>
-        ))
-      }
-    </ol>
+    <ReviewDirectory reviews={remainingReviews} />
   </section>
 
   <aside class="editorial-note reading-shell">
@@ -127,6 +116,21 @@ const schema = {
     display: grid;
     gap: var(--space-md);
     align-content: center;
+  }
+
+  .home-hero__mark {
+    min-inline-size: 0;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--desk-night);
+  }
+
+  .home-hero__mark > img {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
   }
 
   .home-hero h1 {
@@ -190,60 +194,6 @@ const schema = {
     color: var(--quiet-ink);
   }
 
-  .review-index ol {
-    padding: 0;
-    list-style: none;
-    border-block-start: 1px solid var(--line);
-  }
-
-  .review-index li {
-    border-block-end: 1px solid var(--line-soft);
-  }
-
-  .review-index li > a {
-    display: grid;
-    grid-template-columns: 2.2rem minmax(0, 1fr) auto;
-    gap: var(--space-md);
-    align-items: center;
-    min-block-size: 7.5rem;
-    padding-block: var(--space-lg);
-    color: var(--paper-ink);
-    text-decoration: none;
-  }
-
-  .review-index li > a:hover,
-  .review-index li > a:focus {
-    background: var(--desk-night);
-  }
-
-  .review-index__number,
-  .review-index__main small {
-    font-size: 0.75rem;
-    color: var(--signal);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .review-index__main {
-    display: grid;
-    gap: 0.15rem;
-  }
-
-  .review-index__main strong {
-    font-family: var(--font-display);
-    font-size: clamp(1.35rem, 3vw, 2rem);
-  }
-
-  .review-index__main > span {
-    color: var(--quiet-ink);
-  }
-
-  .review-index__thesis {
-    display: none;
-    max-inline-size: 42ch;
-    color: var(--quiet-ink);
-  }
-
   .editorial-note {
     display: grid;
     gap: var(--space-lg);
@@ -254,14 +204,6 @@ const schema = {
     .home-hero {
       grid-template-columns: minmax(18rem, 0.78fr) minmax(24rem, 1.22fr);
       align-items: center;
-    }
-
-    .review-index li > a {
-      grid-template-columns: 2.5rem minmax(17rem, 0.8fr) minmax(20rem, 1.2fr) auto;
-    }
-
-    .review-index__thesis {
-      display: block;
     }
   }
 </style>

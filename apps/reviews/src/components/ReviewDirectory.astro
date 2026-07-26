@@ -3,100 +3,315 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   reviews: CollectionEntry<"reviews">[];
+  filters?: boolean;
 }
 
-const { reviews } = Astro.props;
-const formatLabel = (format: string) =>
-  format === "album-of-the-week"
-    ? "Album of the Week"
-    : format === "reappraisal"
-      ? "Reappraisal"
-      : "Full Review";
+const { reviews, filters = true } = Astro.props;
+const genres = [
+  ...new Set(reviews.flatMap((review) => review.data.album.genres)),
+].toSorted((left, right) => left.localeCompare(right));
 ---
 
-<ol class="review-directory">
+<section class="review-directory" data-review-directory>
   {
-    reviews.map((review, index) => (
-      <li>
-        <a href={`/reviews/${review.id}/`}>
-          <span class="review-directory__number">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <span class="review-directory__title">
-            <small>{formatLabel(review.data.format)}</small>
-            <strong>{review.data.album.title}</strong>
-            <span>{review.data.album.artist}</span>
-          </span>
-          <span class="review-directory__thesis">{review.data.thesis}</span>
-          <span aria-hidden="true">→</span>
-        </a>
-      </li>
-    ))
+    filters && genres.length > 1 && (
+      <div class="review-directory__filters">
+        <p class="review-directory__filter-label" id="genre-filter-label">
+          Filter by genre
+        </p>
+        <div
+          class="review-directory__filter-list"
+          role="group"
+          aria-labelledby="genre-filter-label"
+        >
+          <button type="button" class="is-active" data-genre="all" aria-pressed="true">
+            All <span class="review-directory__filter-count">{reviews.length}</span>
+          </button>
+          {genres.map((genre) => (
+            <button
+              type="button"
+              data-genre={genre.toLocaleLowerCase()}
+              aria-pressed="false"
+            >
+              {genre}
+            </button>
+          ))}
+        </div>
+        <p class="review-directory__status" aria-live="polite" data-filter-status>
+          Showing all {reviews.length} reviews
+        </p>
+      </div>
+    )
   }
-</ol>
+
+  <ol class="review-directory__grid">
+    {
+      reviews.map((review) => (
+        <li
+          data-review-card
+          data-genres={review.data.album.genres
+            .map((genre) => genre.toLocaleLowerCase())
+            .join("|")}
+        >
+          <a href={`/reviews/${review.id}/`}>
+            <div class="review-directory__cover">
+              {review.data.cover.mode === "original" ? (
+                <img
+                  src={review.data.cover.src}
+                  alt=""
+                  width="640"
+                  height="640"
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <span aria-hidden="true">
+                  {review.data.album.title}
+                  <small>{review.data.album.artist}</small>
+                </span>
+              )}
+            </div>
+            <div class="review-directory__copy">
+              <p>{review.data.album.genres[0]}</p>
+              <h2>{review.data.album.title}</h2>
+              <strong>{review.data.album.artist}</strong>
+              <span class="review-directory__thesis">{review.data.thesis}</span>
+              <span class="review-directory__read">
+                Read review <span aria-hidden="true">→</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<script>
+  const initializeReviewDirectories = () => {
+    document.querySelectorAll<HTMLElement>("[data-review-directory]").forEach((root) => {
+      if (root.dataset.ready === "true") {
+        return;
+      }
+
+      root.dataset.ready = "true";
+      const buttons = root.querySelectorAll<HTMLButtonElement>("[data-genre]");
+      const cards = root.querySelectorAll<HTMLElement>("[data-review-card]");
+      const status = root.querySelector<HTMLElement>("[data-filter-status]");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selectedGenre = button.dataset.genre ?? "all";
+          let visibleCount = 0;
+
+          buttons.forEach((candidate) => {
+            const active = candidate === button;
+            candidate.classList.toggle("is-active", active);
+            candidate.setAttribute("aria-pressed", String(active));
+          });
+
+          cards.forEach((card) => {
+            const cardGenres = card.dataset.genres?.split("|") ?? [];
+            const visible = selectedGenre === "all" || cardGenres.includes(selectedGenre);
+            card.hidden = !visible;
+            if (visible) {
+              visibleCount += 1;
+            }
+          });
+
+          if (status) {
+            status.textContent =
+              selectedGenre === "all"
+                ? `Showing all ${visibleCount} reviews`
+                : `${visibleCount} ${visibleCount === 1 ? "review" : "reviews"} in ${button.textContent?.trim()}`;
+          }
+        });
+      });
+    });
+  };
+
+  initializeReviewDirectories();
+  document.addEventListener("astro:page-load", initializeReviewDirectories);
+</script>
 
 <style>
   .review-directory {
-    padding: 0;
-    list-style: none;
-    border-block-start: 1px solid var(--line);
-  }
-
-  .review-directory li {
-    border-block-end: 1px solid var(--line-soft);
-  }
-
-  .review-directory a {
     display: grid;
-    grid-template-columns: 2.2rem minmax(0, 1fr) auto;
-    gap: var(--space-md);
-    align-items: center;
-    min-block-size: 7.5rem;
+    gap: var(--space-xl);
+  }
+
+  .review-directory__filters {
+    display: grid;
+    gap: var(--space-sm);
     padding-block: var(--space-lg);
+    border-block: 1px solid var(--line);
+  }
+
+  .review-directory__filter-label {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+  }
+
+  .review-directory__filter-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .review-directory__filter-list button {
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .review-directory__filter-list button:hover,
+  .review-directory__filter-list button:focus-visible,
+  .review-directory__filter-list button.is-active {
+    color: var(--archive-night);
+    background: var(--signal);
+    border-color: var(--signal);
+  }
+
+  .review-directory__filter-count {
+    margin-inline-start: 0.25rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .review-directory__status {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--quiet-ink);
+  }
+
+  .review-directory__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem) clamp(1rem, 2.5vw, 2rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .review-directory__grid li[hidden] {
+    display: none;
+  }
+
+  .review-directory__grid a {
+    display: grid;
+    gap: var(--space-md);
     color: var(--paper-ink);
     text-decoration: none;
   }
 
-  .review-directory a:hover,
-  .review-directory a:focus {
+  .review-directory__cover {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
     background: var(--desk-night);
   }
 
-  .review-directory__number,
-  .review-directory__title small {
-    font-size: 0.72rem;
+  .review-directory__cover img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .review-directory__cover > span {
+    display: grid;
+    gap: var(--space-xs);
+    align-content: end;
+    block-size: 100%;
+    padding: var(--space-lg);
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--archive-night);
+    background: var(--paper-ink);
+  }
+
+  .review-directory__cover small {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+  }
+
+  .review-directory__grid a:hover img,
+  .review-directory__grid a:focus-visible img {
+    transform: scale(1.025);
+  }
+
+  .review-directory__copy {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .review-directory__copy p {
+    margin: 0;
+    font-size: 0.68rem;
+    font-weight: 700;
     color: var(--signal);
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
 
-  .review-directory__title {
-    display: grid;
-    gap: 0.15rem;
-  }
-
-  .review-directory__title strong {
+  .review-directory__copy h2 {
+    margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(1.35rem, 3vw, 2rem);
+    font-size: clamp(1.55rem, 4vw, 2.25rem);
+    line-height: 1.05;
+    text-wrap: balance;
   }
 
-  .review-directory__title > span,
-  .review-directory__thesis {
+  .review-directory__copy > strong {
+    font-size: 0.92rem;
     color: var(--quiet-ink);
   }
 
   .review-directory__thesis {
-    display: none;
-    max-inline-size: 42ch;
+    margin-block-start: var(--space-xs);
+    color: var(--quiet-ink);
   }
 
-  @media (width >= 56rem) {
-    .review-directory a {
-      grid-template-columns: 2.5rem minmax(17rem, 0.8fr) minmax(20rem, 1.2fr) auto;
-    }
+  .review-directory__read {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-size);
+    margin-block-start: var(--space-xs);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--signal);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
 
-    .review-directory__thesis {
-      display: block;
+  @media (width >= 38rem) {
+    .review-directory__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 64rem) {
+    .review-directory__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .review-directory__cover img {
+      transition: none;
     }
   }
 </style>

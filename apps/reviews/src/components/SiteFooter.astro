@@ -1,69 +1,172 @@
+---
+import melodyMindLogo from "@assets/melody-mind-logo.webp";
+
+const year = new Date().getFullYear();
+---
+
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <div>
-      <strong>MelodyMind Reviews</strong>
+    <div class="site-footer__brand">
+      <a href="/" aria-label="MelodyMind Reviews home">
+        <img
+          class="site-footer__logo"
+          src={melodyMindLogo.src}
+          width="166"
+          height="55"
+          alt="MelodyMind"
+          loading="lazy"
+          decoding="async"
+        />
+        <strong class="site-footer__product">Reviews</strong>
+      </a>
       <p>Album criticism with a thesis, a byline, and sources readers can inspect.</p>
     </div>
-    <nav aria-label="MelodyMind network">
-      <a href="https://melody-mind.de/">Music</a>
-      <a href="https://stories.melody-mind.de/">Stories</a>
-      <a href="/editorial-standards/">Editorial standards</a>
-      <a href="/rss.xml">RSS</a>
+
+    <nav class="site-footer__navigation" aria-label="Footer navigation">
+      <section aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <a href="/">Reviews</a>
+        <a href="/about/">About</a>
+      </section>
+
+      <section aria-labelledby="footer-network">
+        <h2 id="footer-network">MelodyMind</h2>
+        <a href="https://melody-mind.de/">
+          Music <span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://stories.melody-mind.de/">
+          Stories <span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://quiz.melody-mind.de/">
+          Quiz <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <section aria-labelledby="footer-editorial">
+        <h2 id="footer-editorial">Editorial</h2>
+        <a href="/editorial-standards/">Editorial standards</a>
+        <a href="/authors/daniel-schmid/">Author profile</a>
+        <a href="/rss.xml">RSS feed</a>
+      </section>
     </nav>
-    <p class="site-footer__legal">© 2026 MelodyMind</p>
+
+    <div class="site-footer__bottom">
+      <p>© {year} MelodyMind</p>
+      <p>Independent listening. No scores, no affiliate links.</p>
+    </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
     margin-block-start: var(--space-4xl);
-    border-block-start: 1px solid var(--line);
+    background: color-mix(in srgb, var(--archive-night) 82%, #000);
   }
 
   .site-footer__inner {
     display: grid;
-    gap: var(--space-xl);
+    gap: var(--space-2xl);
     inline-size: min(100% - 2rem, var(--wide-width));
-    padding-block: var(--space-2xl);
+    padding-block: var(--space-3xl) var(--space-xl);
     margin-inline: auto;
   }
 
-  .site-footer strong {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
+  .site-footer__brand > a {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--space-sm);
+    align-items: center;
+    inline-size: max-content;
+    color: var(--paper-ink);
+    text-decoration: none;
   }
 
-  .site-footer p {
+  .site-footer__logo {
+    flex: 0 0 auto;
+    inline-size: 10.4rem;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  .site-footer__product {
+    padding-inline-start: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--quiet-ink);
+    border-inline-start: 1px solid var(--line);
+  }
+
+  .site-footer__brand p {
     max-inline-size: 48ch;
     margin-block-start: var(--space-xs);
     font-size: 0.9rem;
     color: var(--quiet-ink);
   }
 
-  .site-footer nav {
+  .site-footer__navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .site-footer__navigation section {
+    display: grid;
+    align-content: start;
+  }
+
+  .site-footer__navigation h2 {
+    margin: 0 0 var(--space-sm);
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .site-footer__navigation a {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm) var(--space-xl);
-  }
-
-  .site-footer nav a {
+    align-items: center;
+    inline-size: fit-content;
     min-block-size: var(--control-size);
+    font-size: 0.88rem;
     font-weight: 700;
+    color: var(--paper-ink);
+    text-decoration: none;
   }
 
-  .site-footer__legal {
+  .site-footer__navigation a:hover,
+  .site-footer__navigation a:focus-visible {
+    color: var(--signal);
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding-block-start: var(--space-lg);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .site-footer__bottom p {
     margin: 0;
+    font-size: 0.76rem;
+    color: var(--quiet-ink);
   }
 
   @media (width >= 48rem) {
     .site-footer__inner {
-      grid-template-columns: minmax(16rem, 1fr) auto;
+      grid-template-columns: minmax(16rem, 1.2fr) minmax(28rem, 2fr);
       align-items: start;
       inline-size: min(100% - 4rem, var(--wide-width));
     }
 
-    .site-footer__legal {
+    .site-footer__navigation {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .site-footer__bottom {
+      flex-direction: row;
       grid-column: 1 / -1;
+      justify-content: space-between;
     }
   }
 </style>

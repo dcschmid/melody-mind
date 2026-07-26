@@ -1,34 +1,24 @@
 ---
-interface ReviewMapPoint {
-  trackNumber: number;
-  trackTitle: string;
-  label: string;
-  target: string;
-}
+import type { MarkdownHeading } from "astro";
 
 interface Props {
-  points: ReviewMapPoint[];
+  headings: MarkdownHeading[];
 }
 
-const { points } = Astro.props;
+const { headings } = Astro.props;
 ---
 
 <nav class="review-map" aria-labelledby="review-map-title" data-review-map>
-  <h2 id="review-map-title">Review Map</h2>
+  <h2 id="review-map-title">In this review</h2>
   <ol>
     {
-      points.map((point, index) => (
+      headings.map((heading, index) => (
         <li>
-          <a href={`#${point.target}`} data-map-link={point.target}>
+          <a href={`#${heading.slug}`} data-map-link={heading.slug}>
             <span class="review-map__marker" aria-hidden="true">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <span>
-              <strong>
-                Track {point.trackNumber} · {point.trackTitle}
-              </strong>
-              <small>{point.label}</small>
-            </span>
+            <strong>{heading.text}</strong>
           </a>
         </li>
       ))
@@ -59,8 +49,10 @@ const { points } = Astro.props;
             return;
           }
           links.forEach((link) => {
-            const current = link.dataset.mapLink === visible.target.id;
-            link.toggleAttribute("aria-current", current);
+            link.toggleAttribute(
+              "aria-current",
+              link.dataset.mapLink === visible.target.id
+            );
           });
         },
         { rootMargin: "-18% 0px -62% 0px", threshold: 0 }
@@ -90,15 +82,21 @@ const { points } = Astro.props;
   .review-map ol {
     display: grid;
     gap: var(--space-xs);
+    max-block-size: min(62svh, 38rem);
     padding: 0;
+    padding-inline-end: var(--space-xs);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     list-style: none;
+    scrollbar-color: var(--line) transparent;
+    scrollbar-width: thin;
   }
 
   .review-map a {
     display: grid;
     grid-template-columns: 2rem minmax(0, 1fr);
     gap: var(--space-sm);
-    align-items: start;
+    align-items: center;
     min-block-size: var(--control-size);
     padding-block: var(--space-xs);
     color: var(--quiet-ink);
@@ -127,16 +125,8 @@ const { points } = Astro.props;
     border-color: var(--signal);
   }
 
-  .review-map a > span:last-child {
-    display: grid;
-    gap: 0.12rem;
-  }
-
   .review-map strong {
-    font-size: 0.9rem;
-  }
-
-  .review-map small {
-    font-size: 0.8rem;
+    font-size: 0.84rem;
+    line-height: 1.25;
   }
 </style>

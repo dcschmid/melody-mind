@@ -1,82 +1,194 @@
 ---
+import melodyMindLogo from "@assets/melody-mind-logo.webp";
+
 interface Props {
-  currentPath?: string;
+  currentPath: string;
 }
 
-const { currentPath = Astro.url.pathname } = Astro.props;
-const items = [
-  { href: "/reviews/", label: "Reviews" },
-  { href: "/album-of-the-week/", label: "Album of the Week" },
-  { href: "/reappraisals/", label: "Reappraisals" },
-  { href: "/archive/", label: "Archive" },
+const { currentPath } = Astro.props;
+const navigation = [
+  { href: "/", label: "Reviews" },
   { href: "/about/", label: "About" },
 ];
+
 const isCurrent = (href: string) =>
-  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+  href === "/"
+    ? currentPath === href || currentPath.startsWith("/reviews/")
+    : currentPath.startsWith(href);
 ---
 
-<header class="site-header">
+<header class="site-header" data-site-header>
   <div class="site-header__inner">
     <a class="site-header__brand" href="/" aria-label="MelodyMind Reviews home">
-      <span>MelodyMind</span>
-      <strong>Reviews</strong>
+      <img
+        class="site-header__logo"
+        src={melodyMindLogo.src}
+        width={melodyMindLogo.width}
+        height={melodyMindLogo.height}
+        alt="MelodyMind"
+        loading="eager"
+        decoding="async"
+      />
+      <strong class="site-header__product">Reviews</strong>
     </a>
+
+    <nav class="site-header__desktop-nav" aria-label="Primary navigation">
+      {
+        navigation.map(({ href, label }) => (
+          <a
+            href={href}
+            class:list={{ "site-header__link": true, "is-current": isCurrent(href) }}
+            aria-current={isCurrent(href) ? "page" : undefined}
+          >
+            {label}
+          </a>
+        ))
+      }
+      <a class="site-header__network-link" href="https://melody-mind.de/">
+        Music <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
     <button
-      class="site-header__toggle"
+      class="site-header__menu-button"
       type="button"
       aria-expanded="false"
-      aria-controls="primary-navigation"
-      data-menu-toggle
+      aria-controls="mobile-navigation"
+      aria-label="Open navigation"
+      data-menu-button
     >
-      Menu
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
-    <nav class="site-header__nav" id="primary-navigation" aria-label="Primary" data-menu>
-      <ul>
-        {
-          items.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                aria-current={isCurrent(item.href) ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
   </div>
+
+  <button
+    class="site-header__backdrop"
+    type="button"
+    aria-label="Close navigation"
+    tabindex="-1"
+    data-menu-backdrop></button>
+
+  <nav
+    class="site-header__mobile-nav"
+    id="mobile-navigation"
+    aria-label="Mobile navigation"
+    aria-hidden="true"
+    data-mobile-nav
+  >
+    {
+      navigation.map(({ href, label }) => (
+        <a href={href} aria-current={isCurrent(href) ? "page" : undefined}>
+          {label}
+        </a>
+      ))
+    }
+    <a class="site-header__mobile-network" href="https://melody-mind.de/">
+      Music <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
 </header>
 
 <script>
-  const bindMenu = () => {
-    const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
-    const menu = document.querySelector<HTMLElement>("[data-menu]");
-    if (!toggle || !menu || toggle.dataset.bound === "true") {
+  const initializeHeader = () => {
+    const header = document.querySelector<HTMLElement>("[data-site-header]");
+    const button = header?.querySelector<HTMLButtonElement>("[data-menu-button]");
+    const menu = header?.querySelector<HTMLElement>("[data-mobile-nav]");
+    const backdrop = header?.querySelector<HTMLButtonElement>("[data-menu-backdrop]");
+
+    if (!header || !button || !menu || !backdrop) {
       return;
     }
-    toggle.dataset.bound = "true";
-    toggle.addEventListener("click", () => {
-      const open = toggle.getAttribute("aria-expanded") !== "true";
-      toggle.setAttribute("aria-expanded", String(open));
-      menu.dataset.open = String(open);
+
+    const controller = new AbortController();
+    const { signal } = controller;
+    let previouslyFocused: HTMLElement | null = null;
+
+    const setOpen = (open: boolean) => {
+      header.dataset.open = String(open);
+      button.setAttribute("aria-expanded", String(open));
+      button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      menu.setAttribute("aria-hidden", String(!open));
+      document.querySelector("main")?.toggleAttribute("inert", open);
+      document.querySelector("footer")?.toggleAttribute("inert", open);
+
+      if (open) {
+        previouslyFocused = document.activeElement as HTMLElement;
+        menu.querySelector<HTMLElement>("a")?.focus();
+      } else if (previouslyFocused) {
+        previouslyFocused.focus();
+        previouslyFocused = null;
+      }
+    };
+
+    button.addEventListener(
+      "click",
+      () => setOpen(button.getAttribute("aria-expanded") !== "true"),
+      { signal }
+    );
+    backdrop.addEventListener("click", () => setOpen(false), { signal });
+    menu
+      .querySelectorAll("a")
+      .forEach((link) =>
+        link.addEventListener("click", () => setOpen(false), { signal })
+      );
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (button.getAttribute("aria-expanded") !== "true") {
+          return;
+        }
+
+        if (event.key === "Escape") {
+          setOpen(false);
+          return;
+        }
+
+        if (event.key !== "Tab") {
+          return;
+        }
+        const focusable = [button, ...menu.querySelectorAll<HTMLElement>("a")];
+        const first = focusable[0];
+        const last = focusable.at(-1);
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      },
+      { signal }
+    );
+
+    const desktop = window.matchMedia("(width >= 48rem)");
+    desktop.addEventListener("change", (event) => event.matches && setOpen(false), {
+      signal,
+    });
+
+    document.addEventListener("astro:before-swap", () => controller.abort(), {
+      once: true,
     });
   };
-  document.addEventListener("astro:page-load", bindMenu);
-  bindMenu();
+
+  initializeHeader();
+  document.addEventListener("astro:page-load", initializeHeader);
 </script>
 
 <style>
   .site-header {
-    position: relative;
+    position: sticky;
+    inset-block-start: 0;
     z-index: 20;
-    border-block-end: 1px solid var(--line-soft);
+    background: color-mix(in srgb, var(--archive-night) 94%, transparent);
+    border-block-end: 1px solid var(--line);
+    backdrop-filter: blur(1rem);
   }
 
   .site-header__inner {
     display: flex;
-    gap: var(--space-lg);
     align-items: center;
     justify-content: space-between;
     inline-size: min(100% - 2rem, var(--wide-width));
@@ -86,100 +198,226 @@ const isCurrent = (href: string) =>
 
   .site-header__brand {
     display: inline-flex;
-    gap: 0.52rem;
-    align-items: baseline;
+    gap: var(--space-sm);
+    align-items: center;
     min-block-size: var(--control-size);
-    font-family: var(--font-display);
     color: var(--paper-ink);
-    letter-spacing: 0.04em;
     text-decoration: none;
   }
 
-  .site-header__brand strong {
-    font-family: var(--font-body);
-    font-size: 0.76rem;
-    color: var(--signal);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
+  .site-header__logo {
+    inline-size: clamp(8rem, 12vw, 9.5rem);
+    block-size: auto;
   }
 
-  .site-header__toggle {
-    min-block-size: var(--control-size);
-    padding-inline: 1rem;
-    font-weight: 700;
-    color: var(--paper-ink);
-    background: transparent;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-sm);
+  .site-header__product {
+    padding-inline-start: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--quiet-ink);
+    border-inline-start: 1px solid var(--line);
   }
 
-  .site-header__nav {
-    position: absolute;
-    inset-block-start: calc(100% + 1px);
-    inset-inline: 0;
+  .site-header__desktop-nav {
     display: none;
-    padding: var(--space-md) 1rem var(--space-lg);
-    background: var(--desk-night);
-    border-block-end: 1px solid var(--line);
+    align-items: stretch;
+    min-block-size: 4.5rem;
   }
 
-  .site-header__nav[data-open="true"] {
-    display: block;
-  }
-
-  .site-header__nav ul {
-    display: grid;
-    gap: var(--space-xs);
-    padding: 0;
-    list-style: none;
-  }
-
-  .site-header__nav a {
-    display: flex;
+  .site-header__desktop-nav a {
+    position: relative;
+    display: inline-flex;
     align-items: center;
     min-block-size: var(--control-size);
-    font-size: 0.9rem;
+    padding-inline: var(--space-md);
+    font-size: 0.84rem;
     font-weight: 700;
     color: var(--quiet-ink);
     text-decoration: none;
   }
 
-  .site-header__nav a:hover,
-  .site-header__nav a:focus,
-  .site-header__nav a[aria-current="page"] {
+  @media screen and (prefers-reduced-motion: reduce) {
+    .site-header__link::after {
+      position: absolute;
+      inset-block-end: -1px;
+      inset-inline: var(--space-md);
+      block-size: 2px;
+      content: "";
+      background: var(--signal);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: none;
+    }
+  }
+
+  .site-header__link::after {
+    position: absolute;
+    inset-block-end: -1px;
+    inset-inline: var(--space-md);
+    block-size: 2px;
+    content: "";
+    background: var(--signal);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 160ms ease;
+  }
+
+  .site-header__link:hover,
+  .site-header__link:focus-visible,
+  .site-header__link.is-current {
     color: var(--paper-ink);
   }
 
-  .site-header__nav a[aria-current="page"]::before {
-    inline-size: 0.45rem;
-    block-size: 0.45rem;
-    margin-inline-end: 0.6rem;
-    content: "";
-    background: var(--signal);
-    border-radius: 50%;
+  .site-header__link:hover::after,
+  .site-header__link:focus-visible::after,
+  .site-header__link.is-current::after {
+    transform: scaleX(1);
   }
 
-  @media (width >= 68rem) {
+  .site-header__desktop-nav .site-header__network-link {
+    margin-inline-start: var(--space-sm);
+    color: var(--signal);
+  }
+
+  .site-header__menu-button {
+    display: grid;
+    gap: 0.38rem;
+    place-content: center;
+    min-inline-size: var(--control-size);
+    min-block-size: var(--control-size);
+    padding: 0;
+    color: var(--paper-ink);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .site-header__menu-button span {
+      display: block;
+      inline-size: 1.4rem;
+      block-size: 2px;
+      background: currentcolor;
+      transition: none;
+    }
+  }
+
+  .site-header__menu-button span {
+    display: block;
+    inline-size: 1.4rem;
+    block-size: 2px;
+    background: currentcolor;
+    transition:
+      transform 160ms ease,
+      opacity 160ms ease;
+  }
+
+  .site-header[data-open="true"] .site-header__menu-button span:first-child {
+    transform: translateY(0.25rem) rotate(45deg);
+  }
+
+  .site-header[data-open="true"] .site-header__menu-button span:last-child {
+    transform: translateY(-0.25rem) rotate(-45deg);
+  }
+
+  .site-header__backdrop {
+    position: fixed;
+    inset: 4.5rem 0 0;
+    z-index: -1;
+    display: none;
+    inline-size: 100%;
+    block-size: calc(100dvh - 4.5rem);
+    padding: 0;
+    background: rgb(2 5 10 / 72%);
+    border: 0;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .site-header__mobile-nav {
+      position: absolute;
+      inset: calc(100% + 1px) 0 auto;
+      z-index: 1;
+      display: grid;
+      visibility: hidden;
+      padding: var(--space-md) 1rem var(--space-xl);
+      background: var(--archive-night);
+      border-block-end: 1px solid var(--line);
+      opacity: 0;
+      transform: translateY(-0.5rem);
+      transition: none;
+    }
+  }
+
+  .site-header__mobile-nav {
+    position: absolute;
+    inset: calc(100% + 1px) 0 auto;
+    z-index: 1;
+    display: grid;
+    visibility: hidden;
+    padding: var(--space-md) 1rem var(--space-xl);
+    background: var(--archive-night);
+    border-block-end: 1px solid var(--line);
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition:
+      opacity 160ms ease,
+      transform 160ms ease,
+      visibility 160ms;
+  }
+
+  .site-header__mobile-nav a {
+    display: flex;
+    align-items: center;
+    min-block-size: 3.25rem;
+    padding-inline: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    text-decoration: none;
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .site-header__mobile-nav a[aria-current="page"] {
+    color: var(--signal);
+  }
+
+  .site-header__mobile-nav .site-header__mobile-network {
+    margin-block-start: var(--space-sm);
+    color: var(--signal);
+    border: 0;
+  }
+
+  .site-header[data-open="true"] .site-header__backdrop {
+    display: block;
+  }
+
+  .site-header[data-open="true"] .site-header__mobile-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (width >= 48rem) {
     .site-header__inner {
       inline-size: min(100% - 4rem, var(--wide-width));
     }
 
-    .site-header__toggle {
+    .site-header__desktop-nav {
+      display: flex;
+    }
+
+    .site-header__menu-button,
+    .site-header__mobile-nav,
+    .site-header__backdrop {
       display: none;
     }
+  }
 
-    .site-header__nav {
-      position: static;
-      display: block;
-      padding: 0;
-      background: transparent;
-      border: 0;
-    }
-
-    .site-header__nav ul {
-      display: flex;
-      gap: clamp(1.2rem, 2.3vw, 2.6rem);
-      align-items: center;
+  @media (prefers-reduced-motion: reduce) {
+    .site-header__link::after,
+    .site-header__menu-button span,
+    .site-header__mobile-nav {
+      transition: none;
     }
   }
 </style>

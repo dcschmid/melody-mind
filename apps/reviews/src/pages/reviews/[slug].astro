@@ -24,14 +24,8 @@ interface Props {
 const { review, related } = Astro.props;
 const author = await getEntry(review.data.author);
 if (!author) throw new Error(`Missing author for ${review.id}.`);
-const { Content } = await render(review);
+const { Content, headings } = await render(review);
 const canonical = new URL(`/reviews/${review.id}/`, Astro.site).toString();
-const formatLabel =
-  review.data.format === "album-of-the-week"
-    ? "Album of the Week"
-    : review.data.format === "reappraisal"
-      ? "Reappraisal"
-      : "Full Review";
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Review",
@@ -102,7 +96,7 @@ const articleSchema = {
         )
       }
       <div class="review__hero-copy">
-        <p class="eyebrow">{formatLabel}</p>
+        <p class="eyebrow">Full Review</p>
         <h1>{review.data.album.title}</h1>
         <p class="review__artist">{review.data.album.artist}</p>
         <p class="review__thesis">{review.data.thesis}</p>
@@ -139,7 +133,7 @@ const articleSchema = {
 
     <div class="review__reading page-shell">
       <aside class="review__rail">
-        <ReviewMap points={review.data.reviewMap} />
+        <ReviewMap headings={headings.filter((heading) => heading.depth === 2)} />
         <section class="review__listen" aria-labelledby="listen-title">
           <h2 id="listen-title">Listen externally</h2>
           <ul>
@@ -161,21 +155,6 @@ const articleSchema = {
         <Content />
       </div>
     </div>
-
-    <section class="review__verdict reading-shell" aria-labelledby="verdict-title">
-      <p class="eyebrow">The argument in brief</p>
-      <h2 id="verdict-title">Where it holds, where it gives.</h2>
-      <div>
-        <section>
-          <h3>Strengths</h3>
-          <ul>{review.data.strengths.map((strength) => <li>{strength}</li>)}</ul>
-        </section>
-        <section>
-          <h3>Limits</h3>
-          <ul>{review.data.limits.map((limit) => <li>{limit}</li>)}</ul>
-        </section>
-      </div>
-    </section>
 
     <section class="review__sources reading-shell" aria-labelledby="sources-title">
       <p class="eyebrow">Documentation</p>
@@ -345,7 +324,6 @@ const articleSchema = {
     max-inline-size: var(--reading-width);
   }
 
-  .review__verdict,
   .review__sources,
   .review__disclosure,
   .review__footer {
@@ -353,28 +331,11 @@ const articleSchema = {
     gap: var(--space-lg);
   }
 
-  .review__verdict {
-    padding-block: var(--space-2xl);
-    border-block: 1px solid var(--line);
-  }
-
-  .review__verdict > h2,
   .review__sources h2,
   .review__footer h2 {
     font-size: clamp(2rem, 4vw, 3.2rem);
   }
 
-  .review__verdict > div {
-    display: grid;
-    gap: var(--space-xl);
-  }
-
-  .review__verdict section {
-    display: grid;
-    gap: var(--space-sm);
-  }
-
-  .review__verdict ul,
   .review__sources ol {
     display: grid;
     gap: var(--space-sm);
@@ -441,7 +402,6 @@ const articleSchema = {
       inset-block-start: 2rem;
     }
 
-    .review__verdict > div,
     .review__footer {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }

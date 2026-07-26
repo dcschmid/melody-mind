@@ -1,47 +1,52 @@
 import { describe, expect, it } from "vitest";
 
+import { extractReviewHeadings } from "../scripts/validate-content.mjs";
 import { validateReviewRelationships } from "../src/utils/contentValidation";
 
 const validReview = {
-  format: "full-review" as const,
-  currentAlbumOfTheWeek: false,
-  album: { trackCount: 10 },
-  reviewMap: [
-    { target: "opening", trackNumber: 1 },
-    { target: "middle", trackNumber: 5 },
-    { target: "ending", trackNumber: 10 },
-  ],
   sources: [{ id: "official" }, { id: "archive" }],
 };
 
 describe("validateReviewRelationships", () => {
-  it("accepts a complete review map", () => {
+  it("accepts unique sources", () => {
     expect(validateReviewRelationships(validReview)).toEqual([]);
   });
 
-  it("rejects duplicate targets, sources, and out-of-range tracks", () => {
+  it("rejects duplicate sources", () => {
     const issues = validateReviewRelationships({
       ...validReview,
-      reviewMap: [
-        { target: "opening", trackNumber: 1 },
-        { target: "opening", trackNumber: 11 },
-      ],
       sources: [{ id: "official" }, { id: "official" }],
     });
-    expect(issues.map((issue) => issue.message)).toEqual(
-      expect.arrayContaining([
-        "Review Map targets must be unique.",
-        "Source IDs must be unique.",
-        "Track 11 exceeds the album track count.",
-      ])
-    );
+    expect(issues.map((issue) => issue.message)).toContain("Source IDs must be unique.");
   });
+});
 
-  it("limits the current weekly flag to the weekly format", () => {
-    const issues = validateReviewRelationships({
-      ...validReview,
-      currentAlbumOfTheWeek: true,
+describe("extractReviewHeadings", () => {
+  it("separates review sections from track examples", () => {
+    expect(
+      extractReviewHeadings(`
+## The thesis
+## Context and construction
+## Track evidence
+### Sweet Leaf: Weight begins in the pause
+### Into the Void: The riff becomes an environment
+## Strengths
+## Limits
+## Conclusion
+`)
+    ).toEqual({
+      sections: [
+        "The thesis",
+        "Context and construction",
+        "Track evidence",
+        "Strengths",
+        "Limits",
+        "Conclusion",
+      ],
+      trackExamples: [
+        "Sweet Leaf: Weight begins in the pause",
+        "Into the Void: The riff becomes an environment",
+      ],
     });
-    expect(issues[0]?.message).toBe("Only an Album of the Week entry can be current.");
   });
 });

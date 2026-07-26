@@ -17,13 +17,6 @@ const sources = z.object({
   accessedAt: z.coerce.date(),
 });
 
-const reviewMapPoint = z.object({
-  trackNumber: z.number().int().min(1).max(99),
-  trackTitle: z.string().trim().min(1),
-  label: z.string().trim().min(3).max(60),
-  target: slug,
-});
-
 const listeningLink = z.object({
   provider: z.string().trim().min(2).max(30),
   url: httpsUrl,
@@ -43,7 +36,6 @@ const reviews = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/reviews" }),
   schema: z
     .object({
-      format: z.enum(["full-review", "album-of-the-week", "reappraisal"]),
       title: z.string().trim().min(5),
       dek: z.string().trim().min(60).max(240),
       seoDescription: z.string().trim().min(100).max(165),
@@ -62,7 +54,6 @@ const reviews = defineCollection({
       }),
       strengths: z.array(z.string().trim().min(15)).min(1).max(3),
       limits: z.array(z.string().trim().min(15)).min(1).max(3),
-      reviewMap: z.array(reviewMapPoint).min(3).max(5),
       listeningLinks: z.array(listeningLink).min(1).max(5),
       sources: z.array(sources).min(2),
       furtherReading: z
@@ -86,7 +77,6 @@ const reviews = defineCollection({
         }),
       ]),
       draft: z.boolean().default(false),
-      currentAlbumOfTheWeek: z.boolean().default(false),
     })
     .superRefine((review, ctx) => {
       for (const issue of validateReviewRelationships(review)) {

@@ -2,11 +2,8 @@
 
 > Sourced, English-language rock and metal album criticism without numerical scores.
 
-- [Home](https://reviews.melody-mind.de/): Current Album of the Week and launch edition
-- [Reviews](https://reviews.melody-mind.de/reviews/): Five Full Reviews plus weekly and retrospective formats
-- [Album of the Week](https://reviews.melody-mind.de/album-of-the-week/): Current compact review and three listening cues
-- [Reappraisals](https://reviews.melody-mind.de/reappraisals/): Older albums heard against their later reputation
-- [Archive](https://reviews.melody-mind.de/archive/): Reviews ordered by album release date
+- [Home](https://reviews.melody-mind.de/): Latest review and launch edition
+- [Reviews](https://reviews.melody-mind.de/reviews/): Seven filterable full album reviews
 - [Daniel Schmid](https://reviews.melody-mind.de/authors/daniel-schmid/): Author profile and published reviews
 - [Editorial standards](https://reviews.melody-mind.de/editorial-standards/): Sourcing, authorship, independence, corrections, and AI disclosure
 - [RSS](https://reviews.melody-mind.de/rss.xml): Review feed

@@ -66,6 +66,7 @@ export function buildAppShellConfig({
         { href: "/about/", label: "About" },
         { href: "https://quiz.melody-mind.de/", label: "Music Quiz" },
         { href: "https://stories.melody-mind.de/", label: "Music Stories" },
+        { href: "https://reviews.melody-mind.de/", label: "Album Reviews" },
       ],
       legalLinks: buildAppShellLegalLinks(),
       copyrightText: buildDefaultCopyrightText(copyrightYear, copyrightBrand),
@@ -90,6 +91,11 @@ export const musicAppShellConfig = buildAppShellConfig({
     {
       href: "https://stories.melody-mind.de/",
       label: "Stories",
+      icon: "book-open",
+    },
+    {
+      href: "https://reviews.melody-mind.de/",
+      label: "Reviews",
       icon: "book-open",
     },
   ],
