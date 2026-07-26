@@ -1,20 +1,20 @@
 import type { ImageMetadata } from "astro";
 
-import art1950s from "@assets/1950s.png";
-import art1960s from "@assets/1960s.png";
-import art1970s from "@assets/1970s.png";
-import art1980s from "@assets/1980s.png";
-import art1990s from "@assets/1990s.png";
-import art2000s from "@assets/2000s.png";
-import art2010s from "@assets/2010s.png";
+import art1950s from "@assets/1950s.webp";
+import art1960s from "@assets/1960s.webp";
+import art1970s from "@assets/1970s.webp";
+import art1980s from "@assets/1980s.webp";
+import art1990s from "@assets/1990s.webp";
+import art2000s from "@assets/2000s.webp";
+import art2010s from "@assets/2010s.webp";
 import artAsiaPop from "@assets/from-asia-pop-to-global-pop.webp";
-import artBlues from "@assets/from-blues-to-breakdown.png";
+import artBlues from "@assets/from-blues-to-breakdown.webp";
 import artClassical from "@assets/from-classical-roots-to-neo-classical-sounds.webp";
 import artFolk from "@assets/from-folk-to-bedroom-pop.webp";
-import artHipHop from "@assets/from-hip-hop-to-trap-drill.png";
+import artHipHop from "@assets/from-hip-hop-to-trap-drill.webp";
 import artJazz from "@assets/from-jazz-to-neo-soul.webp";
 import artLatin from "@assets/from-latin-to-latin-trap.webp";
-import artPop from "@assets/from-pop-to-streaming-pop.png";
+import artPop from "@assets/from-pop-to-streaming-pop.webp";
 import artSka from "@assets/from-ska-to-global-bass.webp";
 import artSoul from "@assets/from-soul-to-modern-dance-music.webp";
 

@@ -1,0 +1,117 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  href: string;
+  image: ImageMetadata;
+  eyebrow: string;
+  title: string;
+  description: string;
+  topics?: string[];
+}
+
+const { href, image, eyebrow, title, description, topics = [] } = Astro.props;
+---
+
+<a class="quiz-card" {href}>
+  <Image
+    class="quiz-card__image"
+    src={image}
+    alt=""
+    width={640}
+    height={640}
+    loading="lazy"
+    sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) 44vw, 27rem"
+  />
+  <span class="quiz-card__body">
+    <span class="eyebrow">{eyebrow}</span>
+    <strong class="quiz-card__title">{title}</strong>
+    <span class="quiz-card__description">{description}</span>
+    {
+      topics.length > 0 && (
+        <span class="quiz-card__topics">{topics.slice(0, 3).join(" · ")}</span>
+      )
+    }
+    <span class="quiz-card__action" aria-hidden="true">
+      Start quiz <span>→</span>
+    </span>
+  </span>
+</a>
+
+<style>
+  .quiz-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    block-size: 100%;
+    overflow: hidden;
+    color: var(--warm-ink);
+    text-decoration: none;
+    background: var(--raised-night);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-lg);
+    transition:
+      background-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .quiz-card__image {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .quiz-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+  }
+
+  .quiz-card__title {
+    font-size: 1.5rem;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .quiz-card__description {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-card__topics {
+    font-size: 0.95rem;
+    color: var(--quiet-ink);
+  }
+
+  .quiz-card__action {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    padding-block-start: var(--space-sm);
+    margin-block-start: auto;
+    font-weight: 700;
+    color: var(--signal-teal);
+  }
+
+  @media (hover: hover) {
+    .quiz-card:hover,
+    .quiz-card:focus-visible {
+      background: var(--listening-surface);
+      border-color: var(--signal-teal);
+      transform: translateY(-0.2rem);
+    }
+
+    .quiz-card:hover .quiz-card__action,
+    .quiz-card:focus-visible .quiz-card__action {
+      color: var(--warm-ink);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .quiz-card {
+      transition: none;
+    }
+  }
+</style>
