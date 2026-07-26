@@ -2,6 +2,7 @@ import sitemap from "@astrojs/sitemap";
 import minifyHtml from "astro-minify-html-swc";
 import { defineConfig } from "astro/config";
 import path from "node:path";
+import { getNewestSitemapDate, readSitemapDates } from "../../scripts/sitemap-dates.mjs";
 
 const getPathname = (url) => {
   try {
@@ -10,6 +11,12 @@ const getPathname = (url) => {
     return url;
   }
 };
+const storyDates = readSitemapDates({
+  contentDirectory: new URL("./src/content/stories/", import.meta.url),
+  extensions: [".md"],
+  dateFields: ["publishedAt"],
+});
+const newestStoryDate = getNewestSitemapDate(storyDates);
 
 export default defineConfig({
   site: "https://stories.melody-mind.de",
@@ -19,6 +26,8 @@ export default defineConfig({
       filter: (page) => getPathname(page) !== "/404/",
       serialize: (item) => {
         const pathname = getPathname(item.url);
+        const lastmod = pathname === "/" ? newestStoryDate : storyDates.get(pathname);
+        if (lastmod) item.lastmod = lastmod;
         item.changefreq = pathname === "/" ? "weekly" : "monthly";
         item.priority = pathname === "/" ? 1 : pathname === "/about/" ? 0.6 : 0.8;
         return item;

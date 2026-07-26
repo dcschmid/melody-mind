@@ -68,6 +68,11 @@ const articleSchema = {
   {canonical}
   {image}
   imageAlt={story.data.hero.alt}
+  imageWidth={story.data.hero.image.width}
+  imageHeight={story.data.hero.image.height}
+  imageType={story.data.hero.image.format === "jpg"
+    ? "image/jpeg"
+    : `image/${story.data.hero.image.format}`}
   type="article"
   publishedAt={story.data.publishedAt}
   structuredData={[articleSchema]}

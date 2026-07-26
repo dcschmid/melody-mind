@@ -26,6 +26,10 @@ const author = await getEntry(review.data.author);
 if (!author) throw new Error(`Missing author for ${review.id}.`);
 const { Content, headings } = await render(review);
 const canonical = new URL(`/reviews/${review.id}/`, Astro.site).toString();
+const coverImage =
+  review.data.cover.mode === "original"
+    ? new URL(review.data.cover.src, Astro.site).toString()
+    : undefined;
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Review",
@@ -63,8 +67,18 @@ const articleSchema = {
   title={review.data.title}
   description={review.data.seoDescription}
   {canonical}
+  {...coverImage ? { image: coverImage } : {}}
+  {...review.data.cover.mode === "original"
+    ? {
+        imageAlt: review.data.cover.alt,
+        imageWidth: 500,
+        imageHeight: 500,
+        imageType: "image/jpeg",
+      }
+    : {}}
   type="article"
   publishedAt={review.data.publishedAt}
+  modifiedAt={review.data.updatedAt ?? review.data.publishedAt}
   structuredData={[articleSchema]}
 >
   <article class="review">

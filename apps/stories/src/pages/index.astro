@@ -43,6 +43,11 @@ const collectionSchema = {
   {canonical}
   {image}
   imageAlt={featured.data.hero.alt}
+  imageWidth={featured.data.hero.image.width}
+  imageHeight={featured.data.hero.image.height}
+  imageType={featured.data.hero.image.format === "jpg"
+    ? "image/jpeg"
+    : `image/${featured.data.hero.image.format}`}
   structuredData={[collectionSchema]}
 >
   <section class="home-hero">

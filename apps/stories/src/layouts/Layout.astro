@@ -9,6 +9,9 @@ interface Props {
   canonical?: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imageType?: string;
   type?: "website" | "article";
   publishedAt?: Date;
   structuredData?: Array<Record<string, unknown>>;
@@ -19,8 +22,11 @@ const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, Astro.site).toString(),
-  image = new URL("/favicon.svg", Astro.site).toString(),
-  imageAlt = "MelodyMind Stories",
+  image = new URL("/social-preview.jpg", Astro.site).toString(),
+  imageAlt = "MelodyMind Stories — sourced long-form music journalism",
+  imageWidth = 1200,
+  imageHeight = 630,
+  imageType = "image/jpeg",
   type = "website",
   publishedAt,
   structuredData = [],
@@ -60,6 +66,9 @@ const csp =
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
     <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:image:width" content={String(imageWidth)} />
+    <meta property="og:image:height" content={String(imageHeight)} />
+    <meta property="og:image:type" content={imageType} />
     {
       publishedAt && (
         <meta property="article:published_time" content={publishedAt.toISOString()} />
@@ -69,6 +78,7 @@ const csp =
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     {
       structuredData.map((schema) => (
         <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

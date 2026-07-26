@@ -2,12 +2,27 @@ import sitemap from "@astrojs/sitemap";
 import minifyHtml from "astro-minify-html-swc";
 import { defineConfig } from "astro/config";
 import path from "node:path";
+import { getNewestSitemapDate, readSitemapDates } from "../../scripts/sitemap-dates.mjs";
+
+const quizDates = readSitemapDates({
+  contentDirectory: new URL("./src/content/quizzes/", import.meta.url),
+  extensions: [".md"],
+  dateFields: ["checkedAt"],
+});
+const newestQuizDate = getNewestSitemapDate(quizDates);
 
 export default defineConfig({
   site: "https://quiz.melody-mind.de",
   output: "static",
   integrations: [
-    sitemap(),
+    sitemap({
+      serialize: (item) => {
+        const pathname = new URL(item.url).pathname;
+        const lastmod = pathname === "/" ? newestQuizDate : quizDates.get(pathname);
+        if (lastmod) item.lastmod = lastmod;
+        return item;
+      },
+    }),
     minifyHtml({
       collapseWhitespace: "conservative",
       removeComments: true,

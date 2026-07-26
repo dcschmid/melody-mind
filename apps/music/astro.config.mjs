@@ -5,10 +5,12 @@ import { satteri } from "@astrojs/markdown-satteri";
 import path from "path";
 import icon from "astro-icon";
 import minifyHtml from "astro-minify-html-swc";
+import { getNewestSitemapDate, readSitemapDates } from "../../scripts/sitemap-dates.mjs";
 
 const SITEMAP_EXCLUDED_PATHS = new Set([
   "/404/",
   "/categories/",
+  "/drive/",
   "/knowledge/",
   "/taxonomy/",
   "/visuals/",
@@ -17,10 +19,17 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
 // contradictory crawl signals.
 const SITEMAP_LEGAL_PATHS = new Set(["/cookies/", "/imprint/", "/privacy/"]);
 const SITEMAP_NOINDEX_PREFIXES = ["/embed/", "/music/genre/", "/visuals-data/"];
+const albumDates = readSitemapDates({
+  contentDirectory: new URL("./src/content/albums/", import.meta.url),
+  extensions: [".mdx"],
+  dateFields: ["publishedAt"],
+  normalizeSlug: (slug) => slug.toLocaleLowerCase("en").replaceAll(" ", "-"),
+});
+const newestAlbumDate = getNewestSitemapDate(albumDates);
 
 const getSitemapPath = (url) => {
   try {
-    return new URL(url).pathname;
+    return decodeURIComponent(new URL(url).pathname);
   } catch {
     return url;
   }
@@ -64,6 +73,10 @@ export default defineConfig({
       },
       serialize: (item) => {
         const pathname = getSitemapPath(item.url);
+        const lastmod = albumDates.get(pathname);
+
+        if (lastmod) item.lastmod = lastmod;
+        if (pathname === "/" && newestAlbumDate) item.lastmod = newestAlbumDate;
 
         if (pathname === "/") {
           item.priority = 1.0;
