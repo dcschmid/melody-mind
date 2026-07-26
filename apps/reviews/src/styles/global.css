@@ -161,6 +161,16 @@ li {
   scroll-margin-block-start: 2rem;
 }
 
+.prose h3 {
+  margin-block: var(--space-2xl) var(--space-sm);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  line-height: 1.18;
+}
+
+.prose h2 + h3 {
+  margin-block-start: var(--space-lg);
+}
+
 .prose p + p {
   margin-block-start: 1.35rem;
 }
