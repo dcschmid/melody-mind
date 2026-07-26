@@ -6,6 +6,13 @@ import { load as loadYaml } from "js-yaml";
 const CONTENT_DIRECTORY = new URL("../src/content/stories/", import.meta.url);
 const MIN_WORDS = 1800;
 const MAX_WORDS = 2500;
+const EXPECTED_STORIES = 16;
+const ALLOWED_FORMATS = new Set([
+  "artist-portrait",
+  "scene-report",
+  "cover-story",
+  "technology-story",
+]);
 
 function parseStory(source, fileName) {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/u);
@@ -38,6 +45,9 @@ export function validateFrontmatterRelationships(data) {
   const sourceIds = sources.map((source) => source.id);
   const imageIds = [data.hero?.id, ...figures.map((figure) => figure.id)].filter(Boolean);
 
+  if (!ALLOWED_FORMATS.has(data.format)) {
+    errors.push(`unknown story format "${data.format}"`);
+  }
   if (new Set(sourceIds).size !== sourceIds.length) {
     errors.push("source IDs must be unique");
   }
@@ -72,6 +82,9 @@ export function validateFrontmatterRelationships(data) {
   }
 
   if (data.artifact) {
+    if (data.format !== "cover-story") {
+      errors.push("annotated artifacts are only valid for cover stories");
+    }
     if (!imageIds.includes(data.artifact.imageId)) {
       errors.push("artifact imageId does not match a story image");
     }
@@ -90,6 +103,26 @@ export function validateFrontmatterRelationships(data) {
           );
         }
       }
+    }
+  }
+
+  return errors;
+}
+
+export function validateBodySourceReferences(body, data) {
+  const errors = [];
+  const sourceIds = new Set(
+    (Array.isArray(data.sources) ? data.sources : []).map((source) => source.id)
+  );
+  const references = Array.from(
+    body.matchAll(/#source-([a-z0-9]+(?:-[a-z0-9]+)*)/gu),
+    (match) => match[1]
+  );
+  const referencedIds = new Set(references);
+
+  for (const reference of referencedIds) {
+    if (!sourceIds.has(reference)) {
+      errors.push(`body references unknown source "${reference}"`);
     }
   }
 
@@ -116,10 +149,15 @@ async function main() {
     for (const error of validateFrontmatterRelationships(data)) {
       failures.push(`${file}: ${error}.`);
     }
+    for (const error of validateBodySourceReferences(body, data)) {
+      failures.push(`${file}: ${error}.`);
+    }
   }
 
-  if (files.length !== 10) {
-    failures.push(`expected exactly 10 published stories, found ${files.length}.`);
+  if (files.length !== EXPECTED_STORIES) {
+    failures.push(
+      `expected exactly ${EXPECTED_STORIES} published stories, found ${files.length}.`
+    );
   }
 
   if (failures.length > 0) {

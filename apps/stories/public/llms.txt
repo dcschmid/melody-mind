@@ -2,7 +2,13 @@
 
 > Sourced, English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Ten-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Sixteen-story reading room and featured stories
+- [Four Parts, One Weight](https://stories.melody-mind.de/four-parts-one-weight/): Artist portrait of Black Sabbath as a four-person musical system
+- [The Workshop Inside the Guitar](https://stories.melody-mind.de/the-workshop-inside-the-guitar/): Artist portrait of Eddie Van Halen as player, builder, and technical problem-solver
+- [The New Wave Was a Network](https://stories.melody-mind.de/the-new-wave-was-a-network/): Scene report on the decentralized infrastructure of NWOBHM
+- [Tape Traders at the Front Row](https://stories.melody-mind.de/tape-traders-at-the-front-row/): Scene report on the Bay Area thrash network
+- [What the Stack Changed](https://stories.melody-mind.de/what-the-stack-changed/): Technology story about Marshall amplification, distortion, and stage architecture
+- [All Four Knobs to the Right](https://stories.melody-mind.de/all-four-knobs-to-the-right/): Technology story about the BOSS HM-2 and Stockholm death metal
 - [The Guitar Before Rock Had a Name](https://stories.melody-mind.de/the-guitar-before-rock-had-a-name/): Artist portrait of Sister Rosetta Tharpe
 - [Manchester, FAC 1 to FAC 51](https://stories.melody-mind.de/manchester-fac-1-to-fac-51/): Scene report on Factory's early Manchester network
 - [One Hundred Pulses, No Band Name](https://stories.melody-mind.de/one-hundred-pulses-no-band-name/): Cover story on Unknown Pleasures

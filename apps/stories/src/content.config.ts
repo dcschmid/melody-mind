@@ -56,7 +56,12 @@ const stories = defineCollection({
   schema: ({ image }) =>
     z
       .object({
-        format: z.enum(["artist-portrait", "scene-report", "cover-story"]),
+        format: z.enum([
+          "artist-portrait",
+          "scene-report",
+          "cover-story",
+          "technology-story",
+        ]),
         title: z.string().trim().min(12),
         dek: z.string().trim().min(60).max(240),
         seoDescription: z.string().trim().min(100).max(165),

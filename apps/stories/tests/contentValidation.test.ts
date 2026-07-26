@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
 
+import {
+  validateBodySourceReferences,
+  validateFrontmatterRelationships,
+} from "../scripts/validate-content.mjs";
 import { validateStoryRelationships } from "../src/utils/contentValidation";
 
 const validStory = {
@@ -59,5 +63,58 @@ describe("validateStoryRelationships", () => {
     expect(issues[0]?.message).toBe(
       "Annotated artifacts are only valid for cover stories."
     );
+  });
+
+  it("accepts technology stories without annotated artifacts", () => {
+    expect(
+      validateStoryRelationships({
+        ...validStory,
+        format: "technology-story",
+        artifact: undefined,
+      })
+    ).toEqual([]);
+  });
+
+  it("rejects annotated artifacts on technology stories", () => {
+    const issues = validateStoryRelationships({
+      ...validStory,
+      format: "technology-story",
+    });
+
+    expect(issues[0]?.message).toBe(
+      "Annotated artifacts are only valid for cover stories."
+    );
+  });
+});
+
+describe("content validator", () => {
+  it("accepts technology-story frontmatter without an artifact", () => {
+    expect(
+      validateFrontmatterRelationships({
+        format: "technology-story",
+        hero: {
+          id: "pedal",
+          image: "pedal.jpg",
+          alt: "alt",
+          caption: "caption",
+          creator: "creator",
+          sourceName: "source",
+          sourceUrl: "https://example.com/image",
+          license: "CC0",
+          licenseUrl: "https://example.com/license",
+          alterations: "none",
+        },
+        figures: [],
+        sources: [{ id: "manual", url: "https://example.com/manual" }],
+      })
+    ).toEqual([]);
+  });
+
+  it("rejects missing and unknown body source references", () => {
+    expect(
+      validateBodySourceReferences("[1](#source-missing)", {
+        sources: [{ id: "manual" }],
+      })
+    ).toEqual(['body references unknown source "missing"']);
   });
 });
