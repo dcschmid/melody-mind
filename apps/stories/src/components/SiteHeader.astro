@@ -8,9 +8,16 @@ interface Props {
 const { currentPath = Astro.url.pathname } = Astro.props;
 const isActive = (href: string) =>
   href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+const navigation = [
+  { href: "/", label: "Stories" },
+  { href: "/about/", label: "About" },
+  { href: "https://melody-mind.de/", label: "Music" },
+  { href: "https://quiz.melody-mind.de/", label: "Quiz" },
+  { href: "https://reviews.melody-mind.de/", label: "Reviews" },
+];
 ---
 
-<header class="site-header">
+<header class="site-header" data-stories-header>
   <div class="site-header__inner page-shell">
     <a class="site-header__brand" href="/" aria-label="Go to MelodyMind Stories">
       <img
@@ -25,27 +32,185 @@ const isActive = (href: string) =>
       <span class="site-header__product">Stories</span>
     </a>
 
-    <nav class="site-header__nav" aria-label="Stories navigation">
-      <a href="/" aria-current={isActive("/") ? "page" : undefined}>Stories</a>
-      <a href="/about/" aria-current={isActive("/about/") ? "page" : undefined}>About</a>
-      <a href="https://melody-mind.de/">Music</a>
-      <a href="https://quiz.melody-mind.de/">Quiz</a>
-      <a href="https://reviews.melody-mind.de/">Reviews</a>
+    <nav class="site-header__desktop-nav" aria-label="Stories navigation">
+      {
+        navigation.map(({ href, label }) => (
+          <a href={href} aria-current={isActive(href) ? "page" : undefined}>
+            {label}
+          </a>
+        ))
+      }
     </nav>
+
+    <button
+      class="site-header__menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls="stories-mobile-navigation"
+      aria-label="Open navigation"
+      data-stories-menu-button
+    >
+      <span class="site-header__menu-label">Menu</span>
+      <span class="site-header__menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
   </div>
+
+  <button
+    class="site-header__backdrop"
+    type="button"
+    aria-label="Close navigation"
+    tabindex="-1"
+    hidden
+    data-stories-menu-close></button>
+
+  <nav
+    class="site-header__mobile-nav"
+    id="stories-mobile-navigation"
+    aria-label="Mobile stories navigation"
+    aria-hidden="true"
+    data-stories-mobile-nav
+  >
+    <p class="site-header__mobile-heading">Reading room</p>
+    {
+      navigation.map(({ href, label }) => (
+        <a href={href} aria-current={isActive(href) ? "page" : undefined}>
+          <span>{label}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      ))
+    }
+  </nav>
 </header>
+
+<script>
+  const initializeStoriesHeader = () => {
+    const headers = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-stories-header]")
+    ).filter((header) => header.dataset.bound !== "true");
+
+    headers.forEach((header) => {
+      header.dataset.bound = "true";
+      const button = header.querySelector<HTMLButtonElement>(
+        "[data-stories-menu-button]"
+      );
+      const menu = header.querySelector<HTMLElement>("[data-stories-mobile-nav]");
+      const closeButton = header.querySelector<HTMLButtonElement>(
+        "[data-stories-menu-close]"
+      );
+
+      if (!button || !menu || !closeButton) {
+        return;
+      }
+
+      const controller = new AbortController();
+      const { signal } = controller;
+      const desktop = window.matchMedia("(width >= 48rem)");
+      const pageRegions = Array.from(
+        document.querySelectorAll<HTMLElement>("main, footer")
+      );
+
+      const setOpen = (open: boolean, restoreFocus = true) => {
+        header.dataset.open = String(open);
+        button.setAttribute("aria-expanded", String(open));
+        button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+        menu.setAttribute("aria-hidden", String(!open));
+        closeButton.hidden = !open;
+        document.body.classList.toggle("stories-header-open", open);
+        pageRegions.forEach((region) => {
+          region.inert = open;
+        });
+
+        if (open) {
+          requestAnimationFrame(() => menu.querySelector<HTMLElement>("a")?.focus());
+        } else if (restoreFocus) {
+          button.focus();
+        }
+      };
+
+      button.addEventListener(
+        "click",
+        () => setOpen(button.getAttribute("aria-expanded") !== "true"),
+        { signal }
+      );
+      closeButton.addEventListener("click", () => setOpen(false), { signal });
+      menu
+        .querySelectorAll("a")
+        .forEach((link) =>
+          link.addEventListener("click", () => setOpen(false, false), { signal })
+        );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (button.getAttribute("aria-expanded") !== "true") {
+            return;
+          }
+
+          if (event.key === "Escape") {
+            setOpen(false);
+            return;
+          }
+
+          if (event.key !== "Tab") {
+            return;
+          }
+
+          const focusable = [button, ...menu.querySelectorAll<HTMLElement>("a[href]")];
+          const first = focusable[0];
+          const last = focusable.at(-1);
+
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+        },
+        { signal }
+      );
+
+      desktop.addEventListener(
+        "change",
+        (event) => {
+          if (event.matches) {
+            setOpen(false, false);
+          }
+        },
+        { signal }
+      );
+      document.addEventListener(
+        "astro:before-swap",
+        () => {
+          setOpen(false, false);
+          controller.abort();
+        },
+        {
+          once: true,
+          signal,
+        }
+      );
+    });
+  };
+
+  initializeStoriesHeader();
+  document.addEventListener("astro:page-load", initializeStoriesHeader);
+</script>
 
 <style>
   .site-header {
-    position: relative;
-    z-index: 10;
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 20;
     background: var(--archive-night);
     border-block-end: 1px solid var(--line-soft);
   }
 
   .site-header__inner {
     display: flex;
-    flex-wrap: wrap;
     gap: var(--space-xs) var(--space-xl);
     align-items: center;
     justify-content: space-between;
@@ -77,14 +242,13 @@ const isActive = (href: string) =>
     border-inline-start: 1px solid var(--line);
   }
 
-  .site-header__nav {
-    display: flex;
+  .site-header__desktop-nav {
+    display: none;
     gap: var(--space-lg);
     align-items: center;
-    overflow-x: auto;
   }
 
-  .site-header__nav a {
+  .site-header__desktop-nav a {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -95,13 +259,7 @@ const isActive = (href: string) =>
     text-decoration: none;
   }
 
-  .site-header__nav a:hover,
-  .site-header__nav a:focus-visible,
-  .site-header__nav a[aria-current="page"] {
-    color: var(--paper-ink);
-  }
-
-  .site-header__nav a[aria-current="page"]::after {
+  .site-header__desktop-nav a[aria-current="page"]::after {
     position: absolute;
     inset-block-end: 0.08rem;
     inset-inline: 0;
@@ -110,16 +268,162 @@ const isActive = (href: string) =>
     background: var(--archive-teal);
   }
 
-  @media (width <= 42rem) {
-    .site-header__inner {
-      display: grid;
-      justify-content: stretch;
+  .site-header__menu-button {
+    display: inline-flex;
+    gap: var(--space-sm);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    cursor: pointer;
+    background: var(--desk-night);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .site-header__menu-icon {
+    display: grid;
+    gap: 0.32rem;
+  }
+
+  .site-header__menu-icon span {
+    display: block;
+    inline-size: 1.1rem;
+    block-size: 2px;
+    background: currentcolor;
+  }
+
+  .site-header[data-open="true"] .site-header__menu-icon span:first-child {
+    transform: translateY(0.25rem) rotate(45deg);
+  }
+
+  .site-header[data-open="true"] .site-header__menu-icon span:last-child {
+    transform: translateY(-0.25rem) rotate(-45deg);
+  }
+
+  .site-header__backdrop {
+    position: fixed;
+    inset: 4.75rem 0 0;
+    z-index: -1;
+    inline-size: 100%;
+    block-size: calc(100dvh - 4.75rem);
+    padding: 0;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--archive-night) 72%, transparent);
+    border: 0;
+  }
+
+  .site-header__backdrop[hidden] {
+    display: none;
+  }
+
+  .site-header__mobile-nav {
+    position: absolute;
+    inset: calc(100% + 1px) 0 auto;
+    z-index: 1;
+    display: grid;
+    visibility: hidden;
+    max-block-size: calc(100dvh - 4.75rem);
+    padding: var(--space-lg) max(1rem, calc((100% - 76rem) / 2))
+      max(var(--space-2xl), env(safe-area-inset-bottom));
+    overflow-y: auto;
+    background: var(--archive-night);
+    border-block-end: 1px solid var(--line);
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  .site-header__mobile-heading {
+    margin: 0 0 var(--space-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .site-header__mobile-nav a {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: 3.75rem;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    text-decoration: none;
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .site-header__mobile-nav a:last-child {
+    border-block-end: 0;
+  }
+
+  .site-header__desktop-nav a:hover,
+  .site-header__desktop-nav a:focus-visible,
+  .site-header__desktop-nav a[aria-current="page"] {
+    color: var(--paper-ink);
+  }
+
+  .site-header__mobile-nav a:hover,
+  .site-header__mobile-nav a:focus-visible,
+  .site-header__mobile-nav a[aria-current="page"] {
+    color: var(--archive-teal);
+  }
+
+  .site-header[data-open="true"] .site-header__mobile-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (width >= 48rem) {
+    .site-header__desktop-nav {
+      display: flex;
     }
 
-    .site-header__nav {
-      gap: var(--space-lg);
-      padding-inline: 1rem;
-      margin-inline: -1rem;
+    .site-header__menu-button,
+    .site-header__mobile-nav,
+    .site-header__backdrop {
+      display: none;
     }
+  }
+
+  @media (width <= 23rem) {
+    .site-header__logo {
+      inline-size: 7.5rem;
+    }
+
+    .site-header__menu-label {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header__menu-icon span {
+      transition:
+        transform 180ms ease-out,
+        opacity 180ms ease-out;
+    }
+
+    .site-header__mobile-nav {
+      transition:
+        opacity 180ms ease-out,
+        transform 180ms ease-out;
+    }
+  }
+
+  :global(body.stories-header-open) {
+    overflow: hidden;
   }
 </style>

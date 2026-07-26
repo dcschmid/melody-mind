@@ -7,9 +7,25 @@ interface Props {
 
 const { currentPath = Astro.url.pathname } = Astro.props;
 const isHome = currentPath === "/";
+const navigation = [
+  { href: "/", label: "Home", current: isHome },
+  { href: "/#decades", label: "Decades", current: false },
+  { href: "/#genre-journeys", label: "Genre journeys", current: false },
+  { href: "https://melody-mind.de/", label: "Music", current: false },
+  {
+    href: "https://stories.melody-mind.de/",
+    label: "Stories",
+    current: false,
+  },
+  {
+    href: "https://reviews.melody-mind.de/",
+    label: "Reviews",
+    current: false,
+  },
+];
 ---
 
-<header class="quiz-header">
+<header class="quiz-header" data-quiz-header>
   <div class="quiz-header__inner page-shell">
     <a class="quiz-header__brand" href="/" aria-label="Go to MelodyMind Quiz">
       <img
@@ -24,28 +40,183 @@ const isHome = currentPath === "/";
       <span class="quiz-header__product">Quiz</span>
     </a>
 
-    <nav class="quiz-header__nav" aria-label="Quiz navigation">
-      <a href="/" aria-current={isHome ? "page" : undefined}>Home</a>
-      <a href="/#decades">Decades</a>
-      <a href="/#genre-journeys">Genre journeys</a>
-      <a href="https://melody-mind.de/">Music</a>
-      <a href="https://stories.melody-mind.de/">Stories</a>
-      <a href="https://reviews.melody-mind.de/">Reviews</a>
+    <nav class="quiz-header__desktop-nav" aria-label="Quiz navigation">
+      {
+        navigation.map(({ href, label, current }) => (
+          <a href={href} aria-current={current ? "page" : undefined}>
+            {label}
+          </a>
+        ))
+      }
     </nav>
+
+    <button
+      class="quiz-header__menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls="quiz-mobile-navigation"
+      aria-label="Open navigation"
+      data-quiz-menu-button
+    >
+      <span class="quiz-header__menu-label">Menu</span>
+      <span class="quiz-header__menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
   </div>
+
+  <button
+    class="quiz-header__backdrop"
+    type="button"
+    aria-label="Close navigation"
+    tabindex="-1"
+    hidden
+    data-quiz-menu-close></button>
+
+  <nav
+    class="quiz-header__mobile-nav"
+    id="quiz-mobile-navigation"
+    aria-label="Mobile quiz navigation"
+    aria-hidden="true"
+    data-quiz-mobile-nav
+  >
+    <p class="quiz-header__mobile-heading">Explore MelodyMind</p>
+    {
+      navigation.map(({ href, label, current }) => (
+        <a href={href} aria-current={current ? "page" : undefined}>
+          <span>{label}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      ))
+    }
+  </nav>
 </header>
+
+<script>
+  const initializeQuizHeader = () => {
+    const headers = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-quiz-header]")
+    ).filter((header) => header.dataset.bound !== "true");
+
+    headers.forEach((header) => {
+      header.dataset.bound = "true";
+      const button = header.querySelector<HTMLButtonElement>("[data-quiz-menu-button]");
+      const menu = header.querySelector<HTMLElement>("[data-quiz-mobile-nav]");
+      const closeButton = header.querySelector<HTMLButtonElement>(
+        "[data-quiz-menu-close]"
+      );
+
+      if (!button || !menu || !closeButton) {
+        return;
+      }
+
+      const controller = new AbortController();
+      const { signal } = controller;
+      const desktop = window.matchMedia("(width >= 48rem)");
+      const pageRegions = Array.from(
+        document.querySelectorAll<HTMLElement>("main, footer")
+      );
+
+      const setOpen = (open: boolean, restoreFocus = true) => {
+        header.dataset.open = String(open);
+        button.setAttribute("aria-expanded", String(open));
+        button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+        menu.setAttribute("aria-hidden", String(!open));
+        closeButton.hidden = !open;
+        document.body.classList.toggle("quiz-header-open", open);
+        pageRegions.forEach((region) => {
+          region.inert = open;
+        });
+
+        if (open) {
+          requestAnimationFrame(() => menu.querySelector<HTMLElement>("a")?.focus());
+        } else if (restoreFocus) {
+          button.focus();
+        }
+      };
+
+      button.addEventListener(
+        "click",
+        () => setOpen(button.getAttribute("aria-expanded") !== "true"),
+        { signal }
+      );
+      closeButton.addEventListener("click", () => setOpen(false), { signal });
+      menu
+        .querySelectorAll("a")
+        .forEach((link) =>
+          link.addEventListener("click", () => setOpen(false, false), { signal })
+        );
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (button.getAttribute("aria-expanded") !== "true") {
+            return;
+          }
+
+          if (event.key === "Escape") {
+            setOpen(false);
+            return;
+          }
+
+          if (event.key !== "Tab") {
+            return;
+          }
+
+          const focusable = [button, ...menu.querySelectorAll<HTMLElement>("a[href]")];
+          const first = focusable[0];
+          const last = focusable.at(-1);
+
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+        },
+        { signal }
+      );
+
+      desktop.addEventListener(
+        "change",
+        (event) => {
+          if (event.matches) {
+            setOpen(false, false);
+          }
+        },
+        { signal }
+      );
+      document.addEventListener(
+        "astro:before-swap",
+        () => {
+          setOpen(false, false);
+          controller.abort();
+        },
+        {
+          once: true,
+          signal,
+        }
+      );
+    });
+  };
+
+  initializeQuizHeader();
+  document.addEventListener("astro:page-load", initializeQuizHeader);
+</script>
 
 <style>
   .quiz-header {
-    position: relative;
-    z-index: 5;
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 20;
     background: color-mix(in srgb, var(--raised-night) 94%, transparent);
     border-block-end: 1px solid var(--line-soft);
   }
 
   .quiz-header__inner {
     display: flex;
-    flex-wrap: wrap;
     gap: var(--space-sm) var(--space-xl);
     align-items: center;
     justify-content: space-between;
@@ -73,14 +244,13 @@ const isHome = currentPath === "/";
     border-inline-start: 1px solid var(--line);
   }
 
-  .quiz-header__nav {
-    display: flex;
+  .quiz-header__desktop-nav {
+    display: none;
     gap: var(--space-lg);
     align-items: center;
-    overflow-x: auto;
   }
 
-  .quiz-header__nav a {
+  .quiz-header__desktop-nav a {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -91,13 +261,7 @@ const isHome = currentPath === "/";
     text-decoration: none;
   }
 
-  .quiz-header__nav a:hover,
-  .quiz-header__nav a:focus-visible,
-  .quiz-header__nav a[aria-current="page"] {
-    color: var(--warm-ink);
-  }
-
-  .quiz-header__nav a[aria-current="page"]::after {
+  .quiz-header__desktop-nav a[aria-current="page"]::after {
     position: absolute;
     inset-block-end: 0.15rem;
     inset-inline: 0;
@@ -107,16 +271,161 @@ const isHome = currentPath === "/";
     border-radius: var(--radius-pill);
   }
 
-  @media (width <= 47.99rem) {
-    .quiz-header__inner {
-      display: grid;
-      justify-content: stretch;
+  .quiz-header__menu-button {
+    display: inline-flex;
+    gap: var(--space-sm);
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--control-min-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--warm-ink);
+    cursor: pointer;
+    background: var(--listening-surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+  }
+
+  .quiz-header__menu-icon {
+    display: grid;
+    gap: 0.32rem;
+  }
+
+  .quiz-header__menu-icon span {
+    display: block;
+    inline-size: 1.1rem;
+    block-size: 2px;
+    background: currentcolor;
+  }
+
+  .quiz-header[data-open="true"] .quiz-header__menu-icon span:first-child {
+    transform: translateY(0.25rem) rotate(45deg);
+  }
+
+  .quiz-header[data-open="true"] .quiz-header__menu-icon span:last-child {
+    transform: translateY(-0.25rem) rotate(-45deg);
+  }
+
+  .quiz-header__backdrop {
+    position: fixed;
+    inset: 4.5rem 0 0;
+    z-index: -1;
+    inline-size: 100%;
+    block-size: calc(100dvh - 4.5rem);
+    padding: 0;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--room-night) 72%, transparent);
+    border: 0;
+  }
+
+  .quiz-header__backdrop[hidden] {
+    display: none;
+  }
+
+  .quiz-header__mobile-nav {
+    position: absolute;
+    inset: calc(100% + 1px) 0 auto;
+    z-index: 1;
+    display: grid;
+    visibility: hidden;
+    max-block-size: calc(100dvh - 4.5rem);
+    padding: var(--space-lg) max(1rem, calc((100% - 76rem) / 2))
+      max(var(--space-2xl), env(safe-area-inset-bottom));
+    overflow-y: auto;
+    background: var(--raised-night);
+    border-block-end: 1px solid var(--line);
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  .quiz-header__mobile-heading {
+    margin: 0 0 var(--space-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .quiz-header__mobile-nav a {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: 3.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--warm-ink);
+    text-decoration: none;
+    border-block-end: 1px solid var(--line-soft);
+  }
+
+  .quiz-header__mobile-nav a:last-child {
+    border-block-end: 0;
+  }
+
+  .quiz-header__desktop-nav a:hover,
+  .quiz-header__desktop-nav a:focus-visible,
+  .quiz-header__desktop-nav a[aria-current="page"] {
+    color: var(--warm-ink);
+  }
+
+  .quiz-header__mobile-nav a:hover,
+  .quiz-header__mobile-nav a:focus-visible,
+  .quiz-header__mobile-nav a[aria-current="page"] {
+    color: var(--signal-teal);
+  }
+
+  .quiz-header[data-open="true"] .quiz-header__mobile-nav {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (width >= 48rem) {
+    .quiz-header__desktop-nav {
+      display: flex;
     }
 
-    .quiz-header__nav {
-      gap: var(--space-lg);
-      padding-inline: 1rem;
-      margin-inline: -1rem;
+    .quiz-header__menu-button,
+    .quiz-header__mobile-nav,
+    .quiz-header__backdrop {
+      display: none;
     }
+  }
+
+  @media (width <= 23rem) {
+    .quiz-header__logo {
+      inline-size: 7rem;
+    }
+
+    .quiz-header__menu-label {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      overflow: hidden;
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .quiz-header__menu-icon span {
+      transition:
+        transform 180ms ease-out,
+        opacity 180ms ease-out;
+    }
+
+    .quiz-header__mobile-nav {
+      transition:
+        opacity 180ms ease-out,
+        transform 180ms ease-out;
+    }
+  }
+
+  :global(body.quiz-header-open) {
+    overflow: hidden;
   }
 </style>
