@@ -518,9 +518,9 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
 
   .series-landing__marathon {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--spacing-base) clamp(var(--spacing-base), 3vw, var(--spacing-xl));
-    align-items: center;
+    align-items: start;
     max-inline-size: 72ch;
     padding: clamp(var(--spacing-base), 2.5vw, var(--spacing-xl));
     margin-block-start: var(--spacing-sm);
@@ -577,7 +577,7 @@ const SEQUENCE_COVER_IMAGE_SIZES = "(max-width: 520px) 6.5rem, 9rem";
     flex-wrap: wrap;
     gap: var(--spacing-sm);
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
   .series-landing__marathon-primary,
