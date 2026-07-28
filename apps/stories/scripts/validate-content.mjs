@@ -6,7 +6,7 @@ import { load as loadYaml } from "js-yaml";
 const CONTENT_DIRECTORY = new URL("../src/content/stories/", import.meta.url);
 const MIN_WORDS = 1800;
 const MAX_WORDS = 2500;
-const EXPECTED_STORIES = 16;
+const EXPECTED_STORIES = 18;
 const ALLOWED_FORMATS = new Set([
   "artist-portrait",
   "scene-report",

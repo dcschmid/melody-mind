@@ -12,7 +12,7 @@ of how records, performances, places, and visual culture were made.
 ## Product Purpose
 
 The app publishes long-form music journalism with visible sourcing and image rights.
-Its sixteen-story reading room combines artist portraits, scene reports, technology
+Its eighteen-story reading room combines artist portraits, scene reports, technology
 stories, and annotated cover stories.
 
 ## Brand Personality
