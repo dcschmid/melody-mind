@@ -52,3 +52,21 @@ export interface QuizSession {
   answers: Array<QuizAnswer | null>;
   complete: boolean;
 }
+
+export interface QuizSessionQuestionSnapshot {
+  id: string;
+  optionIds: string[];
+}
+
+export interface QuizSessionSnapshot {
+  currentIndex: number;
+  questions: QuizSessionQuestionSnapshot[];
+  answers: Array<QuizAnswer | null>;
+  selectedOptionIds: string[];
+}
+
+export interface QuizResultBreakdown {
+  correct: number;
+  incorrect: number;
+  revealed: number;
+}

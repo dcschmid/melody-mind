@@ -3,10 +3,13 @@ import { describe, expect, it } from "vitest";
 import {
   buildShareText,
   createQuizSession,
+  createQuizSessionSnapshot,
   evaluateAnswer,
+  getResultBreakdown,
   getScore,
   getScoreBand,
   normalizeQuestion,
+  restoreQuizSession,
 } from "../src/scripts/quizEngine";
 import type { QuestionDifficulty, QuizQuestion } from "../src/types/quiz";
 
@@ -67,6 +70,37 @@ describe("createQuizSession", () => {
   it("rejects a pool without enough hard questions", () => {
     const pool = buildPool().filter((question) => question.difficulty !== "hard");
     expect(() => createQuizSession(pool, () => 0.5)).toThrow("Not enough hard questions");
+  });
+
+  it("restores the exact question and option order from a snapshot", () => {
+    const original = createQuizSession(buildPool(), () => 0);
+    const selectedOptionId = original.questions[0].options[1].id;
+    original.answers[0] = evaluateAnswer(original.questions[0], [selectedOptionId]);
+    original.currentIndex = 1;
+    const currentSelection = [original.questions[1].options[0].id];
+    const snapshot = createQuizSessionSnapshot(original, currentSelection);
+    const restored = restoreQuizSession(buildPool(), snapshot);
+
+    expect(restored.questions.map((question) => question.id)).toEqual(
+      original.questions.map((question) => question.id)
+    );
+    expect(restored.questions.map((question) => question.options)).toEqual(
+      original.questions.map((question) => question.options)
+    );
+    expect(restored.answers).toEqual(original.answers);
+    expect(snapshot.selectedOptionIds).toEqual(currentSelection);
+  });
+
+  it("rejects saved progress when a question is no longer available", () => {
+    const original = createQuizSession(buildPool(), () => 0.999);
+    const snapshot = createQuizSessionSnapshot(original, []);
+    const changedPool = buildPool().filter(
+      (question) => question.id !== snapshot.questions[0].id
+    );
+
+    expect(() => restoreQuizSession(changedPool, snapshot)).toThrow(
+      "Saved question is no longer available"
+    );
   });
 });
 
@@ -142,6 +176,31 @@ describe("results", () => {
     expect(getScoreBand(6)).toBe("Good foundations");
     expect(getScoreBand(8)).toBe("Strong knowledge");
     expect(getScoreBand(10)).toBe("Excellent knowledge");
+  });
+
+  it("separates correct, incorrect, and revealed answers", () => {
+    const session = createQuizSession(buildPool(), () => 0.999);
+    session.answers[0] = {
+      selectedOptionIds: [],
+      correct: true,
+      revealed: false,
+    };
+    session.answers[1] = {
+      selectedOptionIds: [],
+      correct: false,
+      revealed: false,
+    };
+    session.answers[2] = {
+      selectedOptionIds: [],
+      correct: false,
+      revealed: true,
+    };
+
+    expect(getResultBreakdown(session)).toEqual({
+      correct: 1,
+      incorrect: 1,
+      revealed: 1,
+    });
   });
 
   it("builds tracking-free share copy", () => {

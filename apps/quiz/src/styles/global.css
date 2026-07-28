@@ -217,6 +217,10 @@ p {
   .page-shell {
     inline-size: min(100% - 4rem, var(--content-wide));
   }
+
+  .page-shell--reading {
+    inline-size: min(100% - 4rem, var(--content-reading));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

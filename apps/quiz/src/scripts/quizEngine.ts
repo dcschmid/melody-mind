@@ -1,7 +1,9 @@
 import type {
   QuizAnswer,
   QuizQuestion,
+  QuizResultBreakdown,
   QuizSession,
+  QuizSessionSnapshot,
   RuntimeQuestion,
 } from "@quiz-types/quiz";
 
@@ -102,6 +104,105 @@ export function createQuizSession(
   };
 }
 
+export function createQuizSessionSnapshot(
+  session: QuizSession,
+  selectedOptionIds: Iterable<string>
+): QuizSessionSnapshot {
+  return {
+    currentIndex: session.currentIndex,
+    questions: session.questions.map((question) => ({
+      id: question.id,
+      optionIds: question.options.map((option) => option.id),
+    })),
+    answers: session.answers,
+    selectedOptionIds: Array.from(selectedOptionIds),
+  };
+}
+
+export function restoreQuizSession(
+  questions: QuizQuestion[],
+  snapshot: QuizSessionSnapshot
+): QuizSession {
+  if (
+    !Number.isInteger(snapshot.currentIndex) ||
+    snapshot.currentIndex < 0 ||
+    snapshot.currentIndex >= snapshot.questions.length ||
+    snapshot.questions.length !== snapshot.answers.length
+  ) {
+    throw new Error("Saved quiz progress is invalid.");
+  }
+
+  const questionById = new Map(questions.map((question) => [question.id, question]));
+  const runtimeQuestions = snapshot.questions.map((storedQuestion) => {
+    const sourceQuestion = questionById.get(storedQuestion.id);
+    if (!sourceQuestion) {
+      throw new Error(`Saved question is no longer available: ${storedQuestion.id}`);
+    }
+
+    const normalized = normalizeQuestion(sourceQuestion, () => 0.999_999);
+    const optionById = new Map(normalized.options.map((option) => [option.id, option]));
+    const options = storedQuestion.optionIds.map((optionId) => {
+      const option = optionById.get(optionId);
+      if (!option) {
+        throw new Error(`Saved answer option is no longer available: ${optionId}`);
+      }
+      return option;
+    });
+
+    if (
+      options.length !== normalized.options.length ||
+      new Set(storedQuestion.optionIds).size !== normalized.options.length
+    ) {
+      throw new Error(`Saved answer options are invalid: ${storedQuestion.id}`);
+    }
+
+    return {
+      ...normalized,
+      options,
+    };
+  });
+  const answersAreValid = snapshot.answers.every((answer, questionIndex) => {
+    const availableOptionIds = new Set(
+      runtimeQuestions[questionIndex].options.map((option) => option.id)
+    );
+    return (
+      answer === null ||
+      answer.selectedOptionIds.every((optionId) => availableOptionIds.has(optionId))
+    );
+  });
+  const selectionIsValid = snapshot.selectedOptionIds.every((optionId) =>
+    runtimeQuestions[snapshot.currentIndex].options.some(
+      (option) => option.id === optionId
+    )
+  );
+  const restoredAnswers = snapshot.answers.map((answer, questionIndex) =>
+    answer
+      ? evaluateAnswer(
+          runtimeQuestions[questionIndex],
+          answer.selectedOptionIds,
+          answer.revealed
+        )
+      : null
+  );
+
+  if (
+    runtimeQuestions.length !== snapshot.answers.length ||
+    new Set(runtimeQuestions.map((question) => question.id)).size !==
+      runtimeQuestions.length ||
+    !answersAreValid ||
+    !selectionIsValid
+  ) {
+    throw new Error("Saved quiz progress is invalid.");
+  }
+
+  return {
+    currentIndex: snapshot.currentIndex,
+    questions: runtimeQuestions,
+    answers: restoredAnswers,
+    complete: false,
+  };
+}
+
 export function evaluateAnswer(
   question: RuntimeQuestion,
   selectedOptionIds: string[],
@@ -122,6 +223,22 @@ export function evaluateAnswer(
 
 export function getScore(session: QuizSession): number {
   return session.answers.filter((answer) => answer?.correct).length;
+}
+
+export function getResultBreakdown(session: QuizSession): QuizResultBreakdown {
+  return session.answers.reduce<QuizResultBreakdown>(
+    (result, answer) => {
+      if (answer?.correct) {
+        result.correct += 1;
+      } else if (answer?.revealed) {
+        result.revealed += 1;
+      } else if (answer) {
+        result.incorrect += 1;
+      }
+      return result;
+    },
+    { correct: 0, incorrect: 0, revealed: 0 }
+  );
 }
 
 export function getScoreBand(score: number): string {

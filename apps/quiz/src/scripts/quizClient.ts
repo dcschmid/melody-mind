@@ -1,16 +1,30 @@
 import {
   buildShareText,
   createQuizSession,
+  createQuizSessionSnapshot,
   evaluateAnswer,
+  getResultBreakdown,
   getScore,
   getScoreBand,
+  restoreQuizSession,
 } from "./quizEngine";
+import {
+  clearActiveQuiz,
+  getBrowserStorage,
+  readActiveQuiz,
+  saveActiveQuiz,
+  type PersistedQuizRoundV1,
+} from "./quizPersistence";
 import type { QuizQuestion, QuizSession, RuntimeQuestion } from "@quiz-types/quiz";
 
 interface QuizPayload {
+  quizId: string;
   title: string;
+  fingerprint: string;
   questions: QuizQuestion[];
 }
+
+type StartMode = "continue" | "fresh" | "replace";
 
 function getElement<T extends HTMLElement>(id: string): T {
   const element = document.getElementById(id);
@@ -46,12 +60,23 @@ export function initQuiz(): void {
   const revealButton = getElement<HTMLButtonElement>("quiz-reveal");
   const nextButton = getElement<HTMLButtonElement>("quiz-next");
   const startButton = getElement<HTMLButtonElement>("quiz-start");
+  const continueOtherLink = getElement<HTMLAnchorElement>("quiz-continue-other");
+  const newRoundButton = getElement<HTMLButtonElement>("quiz-new-round");
+  const confirmation = getElement<HTMLElement>("quiz-replace-confirmation");
+  const confirmationCopy = getElement<HTMLElement>("quiz-replace-copy");
+  const confirmReplacementButton = getElement<HTMLButtonElement>("quiz-replace-confirm");
+  const cancelReplacementButton = getElement<HTMLButtonElement>("quiz-replace-cancel");
+  const storageStatus = getElement<HTMLElement>("quiz-storage-status");
   const replayButton = getElement<HTMLButtonElement>("quiz-replay");
   const shareButton = getElement<HTMLButtonElement>("quiz-share");
   const shareStatus = getElement<HTMLElement>("quiz-share-status");
+  const storage = getBrowserStorage();
 
   let session: QuizSession | null = null;
+  let activeRound: PersistedQuizRoundV1 | null = null;
   let selectedOptionIds = new Set<string>();
+  let startMode: StartMode = "fresh";
+  let storageFailureAnnounced = false;
 
   const setView = (view: "intro" | "game" | "result" | "error") => {
     intro.hidden = view !== "intro";
@@ -60,11 +85,36 @@ export function initQuiz(): void {
     error.hidden = view !== "error";
   };
 
+  const announceStorageFailure = () => {
+    if (storageFailureAnnounced) {
+      return;
+    }
+    storageFailureAnnounced = true;
+    storageStatus.textContent =
+      "This browser could not save progress. The current round still works until you leave.";
+  };
+
   const currentQuestion = (): RuntimeQuestion => {
     if (!session) {
       throw new Error("Quiz session has not started.");
     }
     return session.questions[session.currentIndex];
+  };
+
+  const persistSession = () => {
+    if (!session || !storage || session.complete) {
+      return;
+    }
+
+    const saved = saveActiveQuiz(storage, {
+      quizId: payload.quizId,
+      title: payload.title,
+      fingerprint: payload.fingerprint,
+      snapshot: createQuizSessionSnapshot(session, selectedOptionIds),
+    });
+    if (!saved) {
+      announceStorageFailure();
+    }
   };
 
   const updateSelection = (question: RuntimeQuestion) => {
@@ -81,15 +131,22 @@ export function initQuiz(): void {
     if (question.type === "multi-choice") {
       const hint = questionHost.querySelector<HTMLElement>("[data-selection-hint]");
       if (hint) {
-        hint.textContent =
+        const selectionCopy =
           selectedOptionIds.size === 0
             ? "Select all answers that apply."
             : `${selectedOptionIds.size} selected. Select all answers that apply.`;
+        const shortcut = hint.querySelector<HTMLElement>(".quiz-question__shortcut");
+        hint.firstChild?.replaceWith(document.createTextNode(selectionCopy));
+        if (shortcut) {
+          hint.append(shortcut);
+        }
       }
     }
+
+    persistSession();
   };
 
-  const renderFeedback = (question: RuntimeQuestion) => {
+  const renderFeedback = (question: RuntimeQuestion, focusHeading = true) => {
     if (!session) {
       return;
     }
@@ -130,7 +187,6 @@ export function initQuiz(): void {
     feedbackHost.append(
       createTextElement("p", "quiz-feedback__explanation", question.explanation)
     );
-
     feedbackHost.append(
       createTextElement("h3", "quiz-feedback__context-title", "Why it matters")
     );
@@ -138,10 +194,13 @@ export function initQuiz(): void {
       createTextElement("p", "quiz-feedback__context", question.context)
     );
 
-    feedbackHost.append(
-      createTextElement("h3", "quiz-feedback__source-label", "Sources")
+    const sourceDetails = document.createElement("details");
+    sourceDetails.className = "quiz-feedback__source-details";
+    const sourceSummary = createTextElement(
+      "summary",
+      "quiz-feedback__source-summary",
+      `Sources (${question.sources.length})`
     );
-
     const sources = document.createElement("ul");
     sources.className = "quiz-feedback__sources";
     sources.setAttribute("aria-label", "Sources for this answer");
@@ -154,11 +213,13 @@ export function initQuiz(): void {
       item.append(link);
       sources.append(item);
     });
-    feedbackHost.append(sources);
+    sourceDetails.append(sourceSummary, sources);
+    feedbackHost.append(sourceDetails);
 
     questionHost
       .querySelectorAll<HTMLInputElement>('input[name="quiz-answer"]')
       .forEach((control) => {
+        control.checked = answer.selectedOptionIds.includes(control.value);
         control.disabled = true;
         const option = control.closest<HTMLElement>(".quiz-option");
         if (!option) {
@@ -177,19 +238,21 @@ export function initQuiz(): void {
       session.currentIndex === session.questions.length - 1
         ? "See your result"
         : "Next question";
-    heading.focus();
+    if (focusHeading) {
+      heading.focus();
+    }
   };
 
-  const renderQuestion = () => {
+  const renderQuestion = (focusContent = true) => {
     if (!session) {
       return;
     }
     const question = currentQuestion();
-    selectedOptionIds = new Set();
+    const existingAnswer = session.answers[session.currentIndex];
     feedbackHost.hidden = true;
     feedbackHost.replaceChildren();
     checkButton.hidden = false;
-    checkButton.disabled = true;
+    checkButton.disabled = selectedOptionIds.size === 0;
     revealButton.hidden = false;
     nextButton.hidden = true;
 
@@ -213,6 +276,14 @@ export function initQuiz(): void {
         : "Choose one answer."
     );
     hint.dataset.selectionHint = "";
+    const finalOptionLetter = String.fromCharCode(64 + question.options.length);
+    const shortcut = createTextElement(
+      "span",
+      "quiz-question__shortcut",
+      `Use A–${finalOptionLetter} or 1–${question.options.length}, then Enter.`
+    );
+    shortcut.setAttribute("aria-hidden", "true");
+    hint.append(shortcut);
     fieldset.append(hint);
 
     const options = document.createElement("div");
@@ -225,6 +296,7 @@ export function initQuiz(): void {
       control.type = question.type === "multi-choice" ? "checkbox" : "radio";
       control.name = "quiz-answer";
       control.value = option.id;
+      control.checked = selectedOptionIds.has(option.id);
       control.addEventListener("change", () => updateSelection(question));
 
       const marker = createTextElement(
@@ -239,19 +311,48 @@ export function initQuiz(): void {
     });
     fieldset.append(options);
     questionHost.replaceChildren(fieldset);
-    legend.focus();
+
+    if (existingAnswer) {
+      selectedOptionIds = new Set(existingAnswer.selectedOptionIds);
+      renderFeedback(question, focusContent);
+    } else if (focusContent) {
+      legend.focus();
+    }
   };
 
   const startSession = () => {
     try {
       session = createQuizSession(payload.questions);
+      selectedOptionIds = new Set();
+      activeRound = null;
+      confirmation.hidden = true;
       setView("game");
       renderQuestion();
+      persistSession();
     } catch (cause) {
       console.error("[quiz] Failed to start", cause);
       setView("error");
       error.querySelector<HTMLElement>("h1")?.focus();
     }
+  };
+
+  const continueSession = () => {
+    if (!session) {
+      startSession();
+      return;
+    }
+    confirmation.hidden = true;
+    setView("game");
+    renderQuestion();
+  };
+
+  const showReplacementConfirmation = (replacement: "restart" | "replace") => {
+    confirmationCopy.textContent =
+      replacement === "restart"
+        ? "Starting a new round will replace your unfinished progress in this quiz."
+        : `Starting ${payload.title} will replace your unfinished ${activeRound?.title ?? "quiz"} round.`;
+    confirmation.hidden = false;
+    confirmReplacementButton.focus();
   };
 
   const showResult = () => {
@@ -260,13 +361,46 @@ export function initQuiz(): void {
     }
     session.complete = true;
     const score = getScore(session);
-    getElement<HTMLElement>("quiz-score").textContent = `${score} of 10 correct`;
+    const breakdown = getResultBreakdown(session);
+    getElement<HTMLElement>("quiz-score").textContent =
+      `${score} of ${session.questions.length} correct`;
     getElement<HTMLElement>("quiz-score-band").textContent = getScoreBand(score);
+    getElement<HTMLElement>("quiz-result-correct").textContent = String(
+      breakdown.correct
+    );
+    getElement<HTMLElement>("quiz-result-incorrect").textContent = String(
+      breakdown.incorrect
+    );
+    getElement<HTMLElement>("quiz-result-revealed").textContent = String(
+      breakdown.revealed
+    );
+    if (storage && !clearActiveQuiz(storage)) {
+      announceStorageFailure();
+    }
+    activeRound = null;
     setView("result");
     getElement<HTMLElement>("quiz-result-title").focus();
   };
 
-  startButton.addEventListener("click", startSession);
+  startButton.addEventListener("click", () => {
+    if (startMode === "continue") {
+      continueSession();
+    } else if (startMode === "replace") {
+      showReplacementConfirmation("replace");
+    } else {
+      startSession();
+    }
+  });
+  newRoundButton.addEventListener("click", () => showReplacementConfirmation("restart"));
+  confirmReplacementButton.addEventListener("click", startSession);
+  cancelReplacementButton.addEventListener("click", () => {
+    confirmation.hidden = true;
+    if (startMode === "continue") {
+      newRoundButton.focus();
+    } else {
+      startButton.focus();
+    }
+  });
   replayButton.addEventListener("click", startSession);
 
   checkButton.addEventListener("click", () => {
@@ -277,6 +411,7 @@ export function initQuiz(): void {
       currentQuestion(),
       Array.from(selectedOptionIds)
     );
+    persistSession();
     renderFeedback(currentQuestion());
   });
 
@@ -285,6 +420,8 @@ export function initQuiz(): void {
       return;
     }
     session.answers[session.currentIndex] = evaluateAnswer(currentQuestion(), [], true);
+    selectedOptionIds = new Set();
+    persistSession();
     renderFeedback(currentQuestion());
   });
 
@@ -297,7 +434,56 @@ export function initQuiz(): void {
       return;
     }
     session.currentIndex += 1;
+    selectedOptionIds = new Set();
     renderQuestion();
+    persistSession();
+  });
+
+  game.addEventListener("keydown", (event) => {
+    if (
+      event.altKey ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      event.repeat ||
+      (event.target instanceof HTMLElement && event.target.closest("a, button, summary"))
+    ) {
+      return;
+    }
+
+    if (event.key === "Enter") {
+      if (!nextButton.hidden) {
+        event.preventDefault();
+        nextButton.click();
+      } else if (!checkButton.disabled) {
+        event.preventDefault();
+        checkButton.click();
+      }
+      return;
+    }
+
+    if (!session || session.answers[session.currentIndex]) {
+      return;
+    }
+
+    const key = event.key.toLowerCase();
+    const optionIndex = /^[a-f]$/u.test(key)
+      ? key.charCodeAt(0) - 97
+      : /^[1-6]$/u.test(key)
+        ? Number(key) - 1
+        : -1;
+    const controls = Array.from(
+      questionHost.querySelectorAll<HTMLInputElement>('input[name="quiz-answer"]')
+    );
+    const control = controls[optionIndex];
+    if (!control) {
+      return;
+    }
+
+    event.preventDefault();
+    control.checked = control.type === "checkbox" ? !control.checked : true;
+    control.dispatchEvent(new Event("change", { bubbles: true }));
+    control.focus();
   });
 
   shareButton.addEventListener("click", async () => {
@@ -323,6 +509,49 @@ export function initQuiz(): void {
       shareStatus.textContent = "The result could not be shared. Try again.";
     }
   });
+
+  if (!storage) {
+    announceStorageFailure();
+  } else {
+    const stored = readActiveQuiz(storage);
+    if (stored.status === "invalid") {
+      storageStatus.textContent =
+        "Saved progress could not be read and was discarded. You can start a new round.";
+    } else if (stored.status === "ready") {
+      activeRound = stored.round;
+      if (activeRound.quizId === payload.quizId) {
+        if (activeRound.fingerprint !== payload.fingerprint) {
+          clearActiveQuiz(storage);
+          activeRound = null;
+          storageStatus.textContent =
+            "This quiz was updated, so its saved round was discarded.";
+        } else {
+          try {
+            session = restoreQuizSession(payload.questions, activeRound.snapshot);
+            selectedOptionIds = new Set(activeRound.snapshot.selectedOptionIds);
+            startMode = "continue";
+            startButton.textContent = `Continue question ${session.currentIndex + 1} of ${session.questions.length}`;
+            newRoundButton.hidden = false;
+            storageStatus.textContent =
+              "Your unfinished round is saved only in this browser.";
+          } catch {
+            clearActiveQuiz(storage);
+            activeRound = null;
+            session = null;
+            selectedOptionIds = new Set();
+            storageStatus.textContent =
+              "Saved progress no longer matched this quiz and was discarded.";
+          }
+        }
+      } else {
+        startMode = "replace";
+        continueOtherLink.href = `/${activeRound.quizId}/`;
+        continueOtherLink.textContent = `Continue ${activeRound.title}`;
+        continueOtherLink.hidden = false;
+        storageStatus.textContent = `Question ${activeRound.snapshot.currentIndex + 1} of ${activeRound.snapshot.questions.length} is saved in ${activeRound.title}. Starting this quiz will replace it.`;
+      }
+    }
+  }
 
   setView("intro");
 }

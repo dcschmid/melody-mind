@@ -1,4 +1,6 @@
 ---
+import { createHash } from "node:crypto";
+
 import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 
@@ -33,8 +35,14 @@ const questions = quiz.data.questions.map(
     })),
   })
 );
+const fingerprint = createHash("sha256")
+  .update(JSON.stringify(questions))
+  .digest("hex")
+  .slice(0, 16);
 const serializedData = JSON.stringify({
+  quizId: quiz.id,
   title: quiz.data.title,
+  fingerprint,
   questions,
 }).replaceAll("<", "\\u003c");
 const categoryLabel = quiz.data.category === "decade" ? "Decade quiz" : "Genre journey";
@@ -109,16 +117,42 @@ const structuredData = [
         </div>
         <div>
           <dt>Privacy</dt>
-          <dd>Your progress stays in this tab and resets when you leave or reload.</dd>
+          <dd>
+            An unfinished round is saved only in this browser so you can continue later.
+          </dd>
         </div>
       </dl>
-      <button
-        class="button button--primary quiz-intro__start"
-        id="quiz-start"
-        type="button"
+      <div class="quiz-intro__actions">
+        <button class="button button--primary" id="quiz-start" type="button">
+          Start quiz
+        </button>
+        <a class="button button--secondary" id="quiz-continue-other" href="/" hidden>
+          Continue saved quiz
+        </a>
+        <button class="button button--secondary" id="quiz-new-round" type="button" hidden>
+          Start a new round
+        </button>
+      </div>
+      <div
+        class="quiz-intro__confirmation"
+        id="quiz-replace-confirmation"
+        aria-labelledby="quiz-replace-title"
+        hidden
       >
-        Start quiz
-      </button>
+        <h2 id="quiz-replace-title">Replace saved progress?</h2>
+        <p class="quiz-intro__confirmation-copy" id="quiz-replace-copy">
+          Starting a new round will replace the unfinished round saved in this browser.
+        </p>
+        <div class="quiz-intro__confirmation-actions">
+          <button class="button button--primary" id="quiz-replace-confirm" type="button">
+            Replace and start
+          </button>
+          <button class="button button--secondary" id="quiz-replace-cancel" type="button">
+            Keep saved round
+          </button>
+        </div>
+      </div>
+      <p class="quiz-intro__status" id="quiz-storage-status" role="status"></p>
       <noscript>
         <p class="quiz-noscript">
           This quiz needs JavaScript to check answers. No data leaves your browser.
@@ -132,7 +166,6 @@ const structuredData = [
         <progress id="quiz-progress" value="1" max="10">1 of 10</progress>
       </header>
       <div id="quiz-question"></div>
-      <section class="quiz-feedback" id="quiz-feedback" hidden></section>
       <div class="quiz-game__actions">
         <button class="button button--primary" id="quiz-check" type="button" disabled>
           Check answer
@@ -144,6 +177,7 @@ const structuredData = [
           Next question
         </button>
       </div>
+      <section class="quiz-feedback" id="quiz-feedback" hidden></section>
     </section>
 
     <section
@@ -156,13 +190,27 @@ const structuredData = [
       <h1 id="quiz-result-title" tabindex="-1">Your result</h1>
       <p class="quiz-result__score" id="quiz-score"></p>
       <p class="quiz-result__band" id="quiz-score-band"></p>
+      <dl class="quiz-result__breakdown" aria-label="Result breakdown">
+        <div class="quiz-result__breakdown-item">
+          <dt>Correct</dt>
+          <dd id="quiz-result-correct">0</dd>
+        </div>
+        <div class="quiz-result__breakdown-item">
+          <dt>Incorrect</dt>
+          <dd id="quiz-result-incorrect">0</dd>
+        </div>
+        <div class="quiz-result__breakdown-item">
+          <dt>Revealed</dt>
+          <dd id="quiz-result-revealed">0</dd>
+        </div>
+      </dl>
       <p class="quiz-result__copy">
         Every answer was explained along the way. Play again for a different mix or choose
         another part of music history.
       </p>
       <div class="quiz-result__actions">
         <button class="button button--primary" id="quiz-replay" type="button">
-          Play again
+          Play another round
         </button>
         <a class="button button--secondary" href="/">Choose another quiz</a>
         <button class="button button--secondary" id="quiz-share" type="button">
@@ -176,8 +224,8 @@ const structuredData = [
       <p class="eyebrow">Quiz unavailable</p>
       <h1 tabindex="-1">This round could not start.</h1>
       <p>
-        Reload the page to try again. Your progress is not stored, so there is no saved
-        round to recover.
+        Reload the page to try again. If you already had an unfinished round, it remains
+        saved in this browser.
       </p>
       <div class="quiz-error__actions">
         <a class="button button--primary" href={Astro.url.pathname}>Reload quiz</a>
@@ -271,13 +319,44 @@ const structuredData = [
     color: var(--quiet-ink);
   }
 
-  .quiz-intro__start,
+  .quiz-intro__actions,
+  .quiz-intro__confirmation,
+  .quiz-intro__status,
   .quiz-noscript {
     grid-column: 1 / -1;
   }
 
-  .quiz-intro__start {
-    inline-size: 100%;
+  .quiz-intro__actions,
+  .quiz-intro__confirmation-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .quiz-intro__actions .button {
+    flex: 1 1 12rem;
+  }
+
+  .quiz-intro__confirmation {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--raised-night);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-intro__confirmation h2 {
+    font-size: 1.25rem;
+  }
+
+  .quiz-intro__confirmation-copy,
+  .quiz-intro__status {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-intro__status:empty {
+    display: none;
   }
 
   .quiz-noscript {
@@ -352,6 +431,13 @@ const structuredData = [
   }
 
   .quiz-question__hint {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-question__shortcut {
+    display: none;
+    margin-inline-start: var(--space-xs);
+    font-size: 0.9rem;
     color: var(--quiet-ink);
   }
 
@@ -472,13 +558,19 @@ const structuredData = [
     color: var(--quiet-ink);
   }
 
-  .quiz-feedback__source-label {
+  .quiz-feedback__source-details {
     margin-block-start: var(--space-sm);
-    font-size: 0.8rem;
+  }
+
+  .quiz-feedback__source-summary {
+    inline-size: fit-content;
+    min-block-size: var(--control-min-size);
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--quiet-ink);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    cursor: pointer;
   }
 
   .quiz-feedback__sources {
@@ -488,6 +580,10 @@ const structuredData = [
     margin: 0;
     font-size: 0.95rem;
     list-style: none;
+  }
+
+  .quiz-feedback__source-details[open] .quiz-feedback__sources {
+    margin-block-start: var(--space-xs);
   }
 
   .quiz-feedback__sources a {
@@ -523,6 +619,41 @@ const structuredData = [
     border-radius: var(--radius-pill);
   }
 
+  .quiz-result__breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-result__breakdown-item {
+    display: grid;
+    gap: var(--space-2xs);
+    padding: var(--space-sm);
+    text-align: center;
+    background: var(--raised-night);
+  }
+
+  .quiz-result__breakdown dt {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .quiz-result__breakdown dd {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
   .quiz-result__copy,
   .quiz-error > p:not(.eyebrow) {
     color: var(--quiet-ink);
@@ -545,6 +676,10 @@ const structuredData = [
     .quiz-option:focus-within {
       background: var(--listening-surface);
       border-color: var(--signal-teal);
+    }
+
+    .quiz-question__shortcut {
+      display: inline;
     }
   }
 
@@ -572,8 +707,12 @@ const structuredData = [
       border-inline-end: 1px solid var(--line-soft);
     }
 
-    .quiz-intro__start {
-      inline-size: fit-content;
+    .quiz-intro__actions {
+      justify-content: flex-start;
+    }
+
+    .quiz-intro__actions .button {
+      flex: 0 1 auto;
       min-inline-size: 10rem;
     }
 

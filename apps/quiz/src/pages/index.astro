@@ -10,9 +10,10 @@ const quizzes = (await getCollection("quizzes", ({ data }) => !data.draft)).sort
 );
 const decades = quizzes.filter((quiz) => quiz.data.category === "decade");
 const journeys = quizzes.filter((quiz) => quiz.data.category === "genre-evolution");
+const quizIds = quizzes.map((quiz) => quiz.id);
 const canonical = new URL("/", Astro.site).toString();
 const description =
-  "Choose a music history quiz on seven decades or twelve genre journeys. Every ten-question round includes sources and runs without accounts, tracking, or saved progress.";
+  "Choose a music history quiz on seven decades or twelve genre journeys. Every ten-question round includes sources and runs without accounts or tracking.";
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -49,9 +50,56 @@ const structuredData = [
         sources.
       </p>
       <p class="quiz-home__privacy">
-        No account. No timer. No analytics. Your progress is never saved.
+        No account. No timer. No analytics. An unfinished round is saved only in this
+        browser.
       </p>
     </header>
+
+    <aside
+      class="quiz-resume"
+      id="quiz-resume"
+      aria-labelledby="quiz-resume-title"
+      hidden
+    >
+      <div id="quiz-resume-content">
+        <p class="eyebrow">Continue playing</p>
+        <h2 id="quiz-resume-title">Your saved round</h2>
+        <p class="quiz-resume__progress" id="quiz-resume-progress"></p>
+        <div class="quiz-resume__actions">
+          <a class="button button--primary" id="quiz-resume-link" href="/">
+            Continue quiz
+          </a>
+          <button class="button button--secondary" id="quiz-resume-discard" type="button">
+            Discard saved round
+          </button>
+        </div>
+      </div>
+      <div
+        class="quiz-resume__confirmation"
+        id="quiz-resume-confirmation"
+        aria-labelledby="quiz-resume-confirmation-title"
+        hidden
+      >
+        <h2 id="quiz-resume-confirmation-title">Discard saved progress?</h2>
+        <p>This removes the unfinished round from this browser.</p>
+        <div class="quiz-resume__actions">
+          <button
+            class="button button--primary"
+            id="quiz-resume-discard-confirm"
+            type="button"
+          >
+            Discard progress
+          </button>
+          <button
+            class="button button--secondary"
+            id="quiz-resume-discard-cancel"
+            type="button"
+          >
+            Keep saved round
+          </button>
+        </div>
+      </div>
+    </aside>
 
     <section class="quiz-library" id="decades" aria-labelledby="decades-title">
       <header class="quiz-library__header">
@@ -106,7 +154,85 @@ const structuredData = [
       </ul>
     </section>
   </div>
+
+  <script
+    is:inline
+    id="quiz-catalog-data"
+    type="application/json"
+    set:html={JSON.stringify(quizIds)}
+  />
 </Layout>
+
+<script>
+  import {
+    clearActiveQuiz,
+    getBrowserStorage,
+    readActiveQuiz,
+  } from "@scripts/quizPersistence";
+
+  const resume = document.getElementById("quiz-resume");
+  const resumeContent = document.getElementById("quiz-resume-content");
+  const confirmation = document.getElementById("quiz-resume-confirmation");
+  const title = document.getElementById("quiz-resume-title");
+  const progress = document.getElementById("quiz-resume-progress");
+  const link = document.getElementById("quiz-resume-link") as HTMLAnchorElement | null;
+  const discard = document.getElementById(
+    "quiz-resume-discard"
+  ) as HTMLButtonElement | null;
+  const confirmDiscard = document.getElementById(
+    "quiz-resume-discard-confirm"
+  ) as HTMLButtonElement | null;
+  const cancelDiscard = document.getElementById(
+    "quiz-resume-discard-cancel"
+  ) as HTMLButtonElement | null;
+  const catalogData = document.getElementById("quiz-catalog-data");
+  const catalogIds = JSON.parse(catalogData?.textContent || "[]") as string[];
+  const storage = getBrowserStorage();
+
+  if (
+    resume &&
+    resumeContent &&
+    confirmation &&
+    title &&
+    progress &&
+    link &&
+    discard &&
+    confirmDiscard &&
+    cancelDiscard &&
+    storage
+  ) {
+    const stored = readActiveQuiz(storage);
+    if (stored.status === "ready" && catalogIds.includes(stored.round.quizId)) {
+      const { round } = stored;
+      title.textContent = round.title;
+      progress.textContent = `Question ${round.snapshot.currentIndex + 1} of ${round.snapshot.questions.length}`;
+      link.href = `/${round.quizId}/`;
+      resume.hidden = false;
+
+      discard.addEventListener("click", () => {
+        resumeContent.hidden = true;
+        confirmation.hidden = false;
+        confirmDiscard.focus();
+      });
+      cancelDiscard.addEventListener("click", () => {
+        confirmation.hidden = true;
+        resumeContent.hidden = false;
+        discard.focus();
+      });
+      confirmDiscard.addEventListener("click", () => {
+        clearActiveQuiz(storage);
+        confirmation.replaceChildren(
+          Object.assign(document.createElement("p"), {
+            className: "quiz-resume__status",
+            textContent: "Saved round discarded.",
+          })
+        );
+      });
+    } else if (stored.status === "ready") {
+      clearActiveQuiz(storage);
+    }
+  }
+</script>
 
 <style>
   .quiz-home {
@@ -142,6 +268,33 @@ const structuredData = [
     background: var(--raised-night);
     border: 1px solid var(--line-soft);
     border-radius: var(--radius-pill);
+  }
+
+  .quiz-resume,
+  .quiz-resume > div {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .quiz-resume {
+    max-inline-size: 52rem;
+    padding: var(--space-lg);
+    background: var(--raised-night);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  .quiz-resume__progress,
+  .quiz-resume__confirmation p,
+  .quiz-resume__status {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-resume__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-block-start: var(--space-xs);
   }
 
   .quiz-library {
