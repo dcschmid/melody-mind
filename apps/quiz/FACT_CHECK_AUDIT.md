@@ -1,12 +1,12 @@
 # Quiz Fact-Check Audit
 
-Last updated: 2026-07-24
+Last updated: 2026-07-28
 
 ## Current Scope
 
-- The Quiz app contains 17 topics and 680 questions.
+- The Quiz app contains 19 topics and 760 questions.
 - Seven topics cover decades from the 1950s through the 2010s.
-- Ten topics trace genre histories.
+- Twelve topics trace genre histories.
 - Every topic contains exactly 40 questions.
 - A session selects 10 questions: 4 easy, 4 medium, and 2 hard.
 - Every answer has a direct explanation, a separate context paragraph, and at least one

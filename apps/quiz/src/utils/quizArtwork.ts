@@ -10,6 +10,8 @@ import art2010s from "@assets/2010s.webp";
 import artAsiaPop from "@assets/from-asia-pop-to-global-pop.webp";
 import artBlues from "@assets/from-blues-to-breakdown.webp";
 import artClassical from "@assets/from-classical-roots-to-neo-classical-sounds.webp";
+import artCountry from "@assets/from-country-roots-to-americana.webp";
+import artElectronic from "@assets/from-electronic-experiments-to-club-culture.webp";
 import artFolk from "@assets/from-folk-to-bedroom-pop.webp";
 import artHipHop from "@assets/from-hip-hop-to-trap-drill.webp";
 import artJazz from "@assets/from-jazz-to-neo-soul.webp";
@@ -30,6 +32,8 @@ const QUIZ_ARTWORK: Record<string, ImageMetadata> = {
   "from-hip-hop-to-trap-drill": artHipHop,
   "from-blues-to-breakdown": artBlues,
   "from-classical-roots-to-neo-classical-sounds": artClassical,
+  "from-country-roots-to-americana": artCountry,
+  "from-electronic-experiments-to-club-culture": artElectronic,
   "from-folk-to-bedroom-pop": artFolk,
   "from-jazz-to-neo-soul": artJazz,
   "from-latin-to-latin-trap": artLatin,
@@ -56,6 +60,8 @@ export const QUIZ_ORDER = [
   "from-ska-to-global-bass",
   "from-soul-to-modern-dance-music",
   "from-asia-pop-to-global-pop",
+  "from-country-roots-to-americana",
+  "from-electronic-experiments-to-club-culture",
 ] as const;
 
 export function getQuizArtwork(id: string): ImageMetadata {
