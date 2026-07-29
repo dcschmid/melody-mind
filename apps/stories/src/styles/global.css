@@ -25,7 +25,11 @@
 :root {
   color-scheme: dark;
   font-family:
-    "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    "Atkinson Hyperlegible",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif;
   font-synthesis: none;
 
   --archive-night: oklch(12% 0.028 250deg);
@@ -36,6 +40,9 @@
   --archive-teal: oklch(78% 0.105 181deg);
   --archive-teal-strong: oklch(85% 0.095 181deg);
   --oxide: oklch(70% 0.115 48deg);
+  --reading-surface: oklch(16% 0.03 250deg);
+  --reading-ink: oklch(92% 0.014 82deg);
+  --reading-link: oklch(85% 0.095 181deg);
   --line: oklch(37% 0.03 250deg);
   --line-soft: oklch(29% 0.026 250deg);
   --focus: oklch(86% 0.11 181deg);
@@ -76,6 +83,8 @@ body {
   font-family: var(--font-body);
   color: var(--paper-ink);
   background: var(--archive-night);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body,
@@ -106,6 +115,8 @@ a:hover {
 img {
   display: block;
   max-inline-size: 100%;
+  outline: 1px solid oklch(95% 0.01 250deg / 10%);
+  outline-offset: -1px;
 }
 
 h1,

@@ -11,6 +11,8 @@ const featured = stories[0];
 if (!featured)
   throw new Error("The Stories homepage requires at least one published story.");
 const archiveStories = stories.slice(1);
+const dispatches = archiveStories.slice(0, 4);
+const catalogStories = archiveStories.slice(4);
 const formatLabel = (format: string) =>
   format
     .split("-")
@@ -89,48 +91,51 @@ const collectionSchema = {
 
   <section class="archive page-shell" aria-labelledby="archive-title">
     <header class="archive__header">
-      <p class="eyebrow">Reading room · {archiveStories.length} more stories</p>
-      <h2 id="archive-title">Continue through the archive.</h2>
+      <p class="eyebrow">Reading room · {stories.length} documented stories</p>
+      <h2 id="archive-title">Four ways into the archive.</h2>
       <p>
-        Each story runs 1,800–2,500 words and includes numbered endnotes, local images,
-        and a visible rights ledger.
+        Begin with a scene, a person, a machine, or a room. Every route leads to numbered
+        endnotes and a visible image-rights ledger.
       </p>
     </header>
 
-    <ol class="archive__list">
+    <ol class="archive__dispatches">
       {
-        archiveStories.map((story, index) => (
-          <li class="archive__item">
-            <a class="archive__card" href={`/${story.id}/`}>
-              <span class="archive__image">
+        dispatches.map((story, index) => (
+          <li
+            class:list={[
+              "archive__dispatch",
+              index % 2 !== 0 && "archive__dispatch--reverse",
+            ]}
+          >
+            <a class="archive__dispatch-link" href={`/${story.id}/`}>
+              <span class="archive__dispatch-image">
                 <Image
                   src={story.data.hero.image}
                   alt=""
-                  widths={[400, 640, 900]}
-                  sizes="(min-width: 72rem) 29rem, (min-width: 48rem) 44vw, 100vw"
+                  widths={[480, 768, 1024, 1280]}
+                  sizes="(min-width: 64rem) 55vw, 100vw"
                   loading="lazy"
                   decoding="async"
                 />
               </span>
-              <span class="archive__body">
-                <span class="archive__meta">
-                  <span class="eyebrow">
-                    {formatLabel(story.data.format)} ·{" "}
-                    <time datetime={story.data.publishedAt.toISOString()}>
-                      {story.data.publishedAt.toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </time>
-                  </span>
-                  <span class="archive__number" aria-hidden="true">
-                    {String(index + 2).padStart(2, "0")}
-                  </span>
+              <span class="archive__dispatch-body">
+                <span class="archive__number" aria-hidden="true">
+                  {String(index + 2).padStart(2, "0")}
+                </span>
+                <span class="eyebrow">
+                  {formatLabel(story.data.format)} ·{" "}
+                  <time datetime={story.data.publishedAt.toISOString()}>
+                    {story.data.publishedAt.toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </time>
                 </span>
                 <h3>{story.data.title}</h3>
-                <span class="archive__dek">{story.data.dek}</span>
-                <span class="archive__action" aria-hidden="true">
+                <span class="archive__dispatch-dek">{story.data.dek}</span>
+                <span class="archive__action">
                   Read story <span>→</span>
                 </span>
               </span>
@@ -139,6 +144,41 @@ const collectionSchema = {
         ))
       }
     </ol>
+
+    <section class="catalog" aria-labelledby="catalog-title">
+      <header class="catalog__header">
+        <p class="eyebrow">The catalog</p>
+        <h2 id="catalog-title">{catalogStories.length} further records</h2>
+      </header>
+      <ol class="catalog__list" start="6">
+        {
+          catalogStories.map((story, index) => (
+            <li class="catalog__item">
+              <a href={`/${story.id}/`}>
+                <span class="catalog__number" aria-hidden="true">
+                  {String(index + 6).padStart(2, "0")}
+                </span>
+                <span class="catalog__image">
+                  <Image
+                    src={story.data.hero.image}
+                    alt=""
+                    widths={[160, 240, 360]}
+                    sizes="(min-width: 48rem) 10rem, 5rem"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+                <span class="catalog__title">{story.data.title}</span>
+                <span class="catalog__format">{formatLabel(story.data.format)}</span>
+                <span class="catalog__arrow" aria-hidden="true">
+                  →
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
   </section>
 
   <aside class="home-note reading-shell">
@@ -202,7 +242,7 @@ const collectionSchema = {
 
   .archive {
     display: grid;
-    gap: var(--space-3xl);
+    gap: var(--space-4xl);
     padding-block: var(--space-4xl);
     border-block-start: 1px solid var(--line);
   }
@@ -213,8 +253,8 @@ const collectionSchema = {
   }
 
   .archive__header h2 {
-    max-inline-size: 15ch;
-    font-size: clamp(2.6rem, 6vw, 5.8rem);
+    max-inline-size: 13ch;
+    font-size: clamp(2.6rem, 6vw, 5.4rem);
   }
 
   .archive__header > p:last-child {
@@ -223,106 +263,77 @@ const collectionSchema = {
     color: var(--quiet-ink);
   }
 
-  .archive__list {
+  .archive__dispatches {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-4xl);
     padding: 0;
     list-style: none;
   }
 
-  .archive__item {
+  .archive__dispatch {
     min-inline-size: 0;
   }
 
-  .archive__card {
-    display: flex;
-    flex-direction: column;
-    block-size: 100%;
-    overflow: hidden;
+  .archive__dispatch-link {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: center;
     color: var(--paper-ink);
     text-decoration: none;
-    background: var(--desk-night);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
-    transition:
-      background-color 300ms var(--ease-out),
-      border-color 300ms var(--ease-out),
-      transform 400ms var(--ease-out);
   }
 
-  .archive__card:hover,
-  .archive__card:focus-visible {
-    color: var(--paper-ink);
-    background: var(--lifted-night);
-    border-color: var(--archive-teal);
-    transform: translateY(-0.3rem);
-  }
-
-  .archive__card:focus-visible {
-    outline-offset: 0.25rem;
-  }
-
-  .archive__image {
+  .archive__dispatch-image {
     display: block;
-    flex: 0 0 auto;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     background: var(--archive-night);
   }
 
-  .archive__image :global(img) {
+  .archive__dispatch-image :global(img) {
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
     filter: saturate(0.86) contrast(1.04);
     transition:
       filter 300ms var(--ease-out),
-      transform 600ms var(--ease-out);
+      transform 500ms var(--ease-out);
   }
 
-  .archive__card:hover .archive__image :global(img),
-  .archive__card:focus-visible .archive__image :global(img) {
+  .archive__dispatch-link:hover .archive__dispatch-image :global(img),
+  .archive__dispatch-link:focus-visible .archive__dispatch-image :global(img) {
     filter: saturate(1) contrast(1);
-    transform: scale(1.025);
+    transform: scale(1.018);
   }
 
-  .archive__body {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: var(--space-md);
-    padding: var(--space-xl);
-  }
-
-  .archive__meta {
-    display: flex;
+  .archive__dispatch-body {
+    display: grid;
     gap: var(--space-md);
     align-items: start;
-    justify-content: space-between;
+    padding-block: var(--space-lg);
+    border-block: 1px solid var(--line-soft);
   }
 
   .archive__number {
-    flex: 0 0 auto;
     font-family: var(--font-display);
-    font-size: 1rem;
-    line-height: 1.2;
-    color: var(--archive-teal-strong);
+    font-size: clamp(2.8rem, 7vw, 5.8rem);
+    line-height: 0.8;
+    color: var(--oxide);
   }
 
-  .archive__body h3 {
-    max-inline-size: 16ch;
-    font-size: clamp(1.75rem, 3vw, 2.45rem);
+  .archive__dispatch-body h3 {
+    max-inline-size: 15ch;
+    font-size: clamp(2.2rem, 5vw, 4.7rem);
+    letter-spacing: -0.035em;
     transition: color 300ms var(--ease-out);
   }
 
-  .archive__card:hover h3,
-  .archive__card:focus-visible h3 {
+  .archive__dispatch-link:hover h3,
+  .archive__dispatch-link:focus-visible h3 {
     color: var(--archive-teal-strong);
   }
 
-  .archive__dek {
-    flex: 1;
+  .archive__dispatch-dek {
+    max-inline-size: 52ch;
     line-height: 1.65;
     color: var(--quiet-ink);
   }
@@ -335,6 +346,87 @@ const collectionSchema = {
     min-block-size: var(--control-size);
     padding-block-start: var(--space-xs);
     font-weight: 700;
+    color: var(--archive-teal-strong);
+  }
+
+  .catalog {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block-start: var(--space-3xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .catalog__header {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .catalog__header h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .catalog__list {
+    padding: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--line);
+  }
+
+  .catalog__item a {
+    display: grid;
+    grid-template-columns: 2.5rem 5rem minmax(0, 1fr) auto;
+    gap: var(--space-md);
+    align-items: center;
+    min-block-size: 7rem;
+    padding-block: var(--space-md);
+    color: var(--paper-ink);
+    text-decoration: none;
+    border-block-end: 1px solid var(--line-soft);
+    transition:
+      color 200ms var(--ease-out),
+      background-color 200ms var(--ease-out);
+  }
+
+  .catalog__item a:hover,
+  .catalog__item a:focus-visible {
+    color: var(--archive-teal-strong);
+    background: var(--desk-night);
+  }
+
+  .catalog__number {
+    font-family: var(--font-display);
+    color: var(--oxide);
+  }
+
+  .catalog__image {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+
+  .catalog__image :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    filter: saturate(0.75);
+  }
+
+  .catalog__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 650;
+    line-height: 1.12;
+  }
+
+  .catalog__format {
+    display: none;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+
+  .catalog__arrow {
     color: var(--archive-teal-strong);
   }
 
@@ -351,22 +443,27 @@ const collectionSchema = {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .archive__card {
+    .archive__dispatch-image :global(img) {
       transition: none;
     }
 
-    .archive__image :global(img) {
+    .archive__dispatch-body h3 {
       transition: none;
     }
 
-    .archive__body h3 {
+    .catalog__item a {
       transition: none;
     }
   }
 
   @media (width >= 48rem) {
-    .archive__list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .catalog__item a {
+      grid-template-columns: 3rem 8rem minmax(0, 1fr) 11rem 2rem;
+      min-block-size: 9rem;
+    }
+
+    .catalog__format {
+      display: block;
     }
   }
 
@@ -388,17 +485,33 @@ const collectionSchema = {
     }
 
     .home-hero__copy h1 {
-      font-size: clamp(4.75rem, 6.4vw, 5.8rem);
+      font-size: clamp(4.4rem, 5.8vw, 5.35rem);
     }
 
     .home-hero__credit {
       padding-inline: clamp(3rem, 6vw, 7rem);
     }
-  }
 
-  @media (width >= 72rem) {
-    .archive__list {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .archive__dispatch-link {
+      grid-template-columns: minmax(0, 1.18fr) minmax(24rem, 0.82fr);
+      gap: clamp(3rem, 7vw, 8rem);
+    }
+
+    .archive__dispatch-body {
+      padding-block: var(--space-2xl);
+    }
+
+    .archive__dispatch--reverse .archive__dispatch-image {
+      grid-column: 2;
+    }
+
+    .archive__dispatch--reverse .archive__dispatch-body {
+      grid-row: 1;
+      grid-column: 1;
+    }
+
+    .archive__dispatch:nth-child(3n) .archive__dispatch-image {
+      aspect-ratio: 16 / 10;
     }
   }
 </style>

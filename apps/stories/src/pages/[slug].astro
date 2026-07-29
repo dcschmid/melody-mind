@@ -218,14 +218,14 @@ const articleSchema = {
 <style>
   .story {
     display: grid;
-    gap: var(--space-4xl);
+    gap: clamp(4.5rem, 9vw, 8rem);
   }
 
   .story__hero {
     display: grid;
-    gap: var(--space-2xl);
-    align-items: end;
-    padding-block: clamp(3rem, 7vw, 7rem) 0;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding-block: clamp(3rem, 7vw, 6rem) 0;
   }
 
   .story__hero-copy {
@@ -236,9 +236,9 @@ const articleSchema = {
   }
 
   .story__title {
-    max-inline-size: 13ch;
-    font-size: clamp(3rem, 8vw, 7.4rem);
-    letter-spacing: -0.045em;
+    max-inline-size: 14ch;
+    font-size: clamp(2.75rem, 7vw, 6.4rem);
+    letter-spacing: -0.04em;
   }
 
   .story__dek {
@@ -273,7 +273,23 @@ const articleSchema = {
   }
 
   .story__body {
+    inline-size: min(100% - 2rem, 76ch);
+    padding: clamp(1.5rem, 5vw, 4.5rem);
     font-size: clamp(1.08rem, 1.8vw, 1.2rem);
+    color: var(--reading-ink);
+    background: var(--reading-surface);
+    box-shadow:
+      0 0 0 1px oklch(95% 0.01 250deg / 8%),
+      0 2rem 6rem oklch(4% 0.02 250deg / 22%);
+  }
+
+  .story__body :global(a) {
+    color: var(--reading-link);
+  }
+
+  .story__body :global(a:hover),
+  .story__body :global(a:focus-visible) {
+    color: var(--reading-ink);
   }
 
   .story__body :global(p) {
@@ -284,7 +300,7 @@ const articleSchema = {
     font-family: var(--font-display);
     font-size: clamp(1.35rem, 2.6vw, 1.85rem);
     line-height: 1.5;
-    color: var(--paper-ink);
+    color: var(--reading-ink);
   }
 
   .story__body :global(h2) {
@@ -304,8 +320,8 @@ const articleSchema = {
     font-family: var(--font-display);
     font-size: clamp(1.35rem, 3vw, 2.1rem);
     line-height: 1.4;
-    color: var(--paper-ink);
-    border-block: 1px solid var(--line);
+    color: var(--reading-ink);
+    border-block: 1px solid color-mix(in oklch, var(--reading-ink) 22%, transparent);
   }
 
   .story__figures {
@@ -437,15 +453,15 @@ const articleSchema = {
 
   @media (width >= 64rem) {
     .story__hero {
-      grid-template-columns: minmax(26rem, 0.8fr) minmax(0, 1.25fr);
+      grid-template-columns: minmax(25rem, 0.78fr) minmax(0, 1.22fr);
     }
 
     .story__hero-image {
-      transform: translateY(var(--space-2xl));
+      transform: translateY(var(--space-xl));
     }
 
     .story__title--long-word {
-      font-size: clamp(4rem, 17cqi, 7.4rem);
+      font-size: clamp(3.6rem, 15cqi, 6.4rem);
     }
 
     .story__figures {
