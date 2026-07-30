@@ -2,6 +2,7 @@
 import { getCollection, getEntry, render, type CollectionEntry } from "astro:content";
 
 import AlbumMark from "@components/AlbumMark.astro";
+import AiDisclosure from "@components/AiDisclosure.astro";
 import ReviewMap from "@components/ReviewMap.astro";
 import Layout from "@layouts/Layout.astro";
 
@@ -111,6 +112,11 @@ const articleSchema = {
       }
       <div class="review__hero-copy">
         <p class="eyebrow">Full Review</p>
+        <AiDisclosure
+          variant="assisted"
+          label="AI-assisted, human-reviewed"
+          detailsHref="#editorial-disclosure"
+        />
         <h1>{review.data.album.title}</h1>
         <p class="review__artist">{review.data.album.artist}</p>
         <p class="review__thesis">{review.data.thesis}</p>
@@ -191,7 +197,7 @@ const articleSchema = {
       <p class="review__rights">{review.data.cover.rightsNote}</p>
     </section>
 
-    <aside class="review__disclosure reading-shell">
+    <aside class="review__disclosure reading-shell" id="editorial-disclosure">
       <h2>Editorial disclosure</h2>
       <p>
         Research and drafting used AI assistance. Daniel Schmid reviewed the argument and

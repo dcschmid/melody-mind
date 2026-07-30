@@ -1,5 +1,6 @@
 ---
 import OptimizedImage from "@components/media/OptimizedImage.astro";
+import AiDisclosure from "@components/content/AiDisclosure.astro";
 import Icon from "@components/visual/Icon.astro";
 import type { CoverImage } from "../home/types";
 
@@ -116,6 +117,12 @@ const getFactIcon = (label: string) => {
         }
       </div>
       <h1 class="album-hero__title" id={titleId}>{title}</h1>
+      <AiDisclosure
+        compact
+        variant="generated"
+        label="AI-generated music and artwork"
+        detailsHref="/about/#ai-transparency"
+      />
       <button class="album-hero__play" type="button" data-album-hero-play={id}>
         <Icon name="tabler:player-play-filled" aria-hidden="true" />
         <span>Play album</span>

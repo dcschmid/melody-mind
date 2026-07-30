@@ -1,6 +1,7 @@
 ---
 import MasterLayout from "@components/layout/MasterLayout.astro";
 import GlobalPlayer from "@components/music/player/GlobalPlayer.astro";
+import AiDisclosure from "@components/content/AiDisclosure.astro";
 
 interface Props {
   title: string;
@@ -43,6 +44,13 @@ const bodyClasses = ["immersive-player-layout", bodyClass].filter(Boolean).join(
   </Fragment>
 
   <GlobalPlayer slot="body-end" />
+  <div class="immersive-player-layout__disclosure">
+    <AiDisclosure
+      variant="generated"
+      label="AI-generated music and artwork"
+      detailsHref="/about/#ai-transparency"
+    />
+  </div>
   <slot />
 </MasterLayout>
 
@@ -61,5 +69,12 @@ const bodyClasses = ["immersive-player-layout", bodyClass].filter(Boolean).join(
 
   :global(.immersive-player-layout .global-player) {
     display: none;
+  }
+
+  .immersive-player-layout__disclosure {
+    position: fixed;
+    inset-block-start: 0.75rem;
+    inset-inline-end: 0.75rem;
+    z-index: 30;
   }
 </style>

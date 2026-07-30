@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 import Layout from "@layouts/Layout.astro";
+import AiDisclosure from "@components/AiDisclosure.astro";
 import type { QuizQuestion } from "@quiz-types/quiz";
 import { getQuizArtwork } from "@utils/quizArtwork";
 
@@ -83,7 +84,7 @@ const structuredData = [
   {description}
   {canonical}
   image={imageUrl}
-  imageAlt={`Realistic music scene for ${quiz.data.title}`}
+  imageAlt={`AI-generated music-history illustration for ${quiz.data.title}`}
   imageWidth={image.width}
   imageHeight={image.height}
   imageType={`image/${image.format}`}
@@ -103,6 +104,12 @@ const structuredData = [
       />
       <div class="quiz-intro__copy">
         <p class="eyebrow">{categoryLabel}</p>
+        <AiDisclosure
+          variant="assisted"
+          label="AI-assisted, human-reviewed quiz"
+          detail="Artwork is AI-generated."
+          detailsHref="/about/#ai-transparency"
+        />
         <h1 id="quiz-title">{quiz.data.title}</h1>
         <p>{quiz.data.description}</p>
       </div>

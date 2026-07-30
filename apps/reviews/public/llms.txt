@@ -1,11 +1,11 @@
 # MelodyMind Reviews
 
-> Sourced, English-language rock and metal album criticism without numerical scores.
+> AI-assisted, human-reviewed English-language rock and metal album criticism without numerical scores.
 
 - [Home](https://reviews.melody-mind.de/): Latest review and launch edition
 - [Reviews](https://reviews.melody-mind.de/reviews/): Seven filterable full album reviews
 - [Daniel Schmid](https://reviews.melody-mind.de/authors/daniel-schmid/): Author profile and published reviews
-- [Editorial standards](https://reviews.melody-mind.de/editorial-standards/): Sourcing, authorship, independence, corrections, and AI disclosure
+- [AI transparency](https://reviews.melody-mind.de/editorial-standards/#ai-transparency): Sourcing, human review, authorship, independence, corrections, and AI disclosure
 - [RSS](https://reviews.melody-mind.de/rss.xml): Review feed
 
 Each review includes a thesis, track-specific Review Map, strengths, limits, external

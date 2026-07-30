@@ -1,5 +1,6 @@
 ---
 import AnnotatedArtifact from "@components/AnnotatedArtifact.astro";
+import AiDisclosure from "@components/AiDisclosure.astro";
 import EditorialFigure from "@components/EditorialFigure.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
@@ -81,6 +82,11 @@ const articleSchema = {
     <header class="story__hero page-shell">
       <div class="story__hero-copy">
         <p class="story__format eyebrow reveal">{formatLabel}</p>
+        <AiDisclosure
+          variant="assisted"
+          label="AI-assisted, human-reviewed"
+          detailsHref="#editorial-disclosure"
+        />
         <h1
           class:list={[
             "story__title reveal reveal--second",
@@ -147,11 +153,16 @@ const articleSchema = {
       </div>
     </section>
 
-    <aside class="story__disclosure reading-shell" aria-labelledby="disclosure-title">
+    <aside
+      class="story__disclosure reading-shell"
+      id="editorial-disclosure"
+      aria-labelledby="disclosure-title"
+    >
       <h2 id="disclosure-title">Editorial disclosure</h2>
       <p>
-        Research and drafting were assisted by AI. Sources and image rights are documented
-        below.
+        Research and drafting were assisted by AI. MelodyMind Editorial reviewed the
+        published text and accepts responsibility for its wording, sources, and claims.
+        Sources and image rights are documented below.
       </p>
     </aside>
 

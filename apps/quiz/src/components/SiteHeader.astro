@@ -9,6 +9,7 @@ const { currentPath = Astro.url.pathname } = Astro.props;
 const isHome = currentPath === "/";
 const navigation = [
   { href: "/", label: "Home", current: isHome },
+  { href: "/about/", label: "About", current: currentPath.startsWith("/about") },
   { href: "/#decades", label: "Decades", current: false },
   { href: "/#genre-journeys", label: "Genre journeys", current: false },
   { href: "https://melody-mind.de/", label: "Music", current: false },

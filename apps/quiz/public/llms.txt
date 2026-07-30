@@ -1,0 +1,11 @@
+# MelodyMind Quiz
+
+> Sourced music-history quizzes with AI-generated artwork and AI-assisted, human-reviewed questions.
+
+- [Home](https://quiz.melody-mind.de/): Decade quizzes and genre journeys
+- [About and AI transparency](https://quiz.melody-mind.de/about/#ai-transparency): Research, review, sourcing, and artwork disclosure
+- [Sitemap](https://quiz.melody-mind.de/sitemap-index.xml): Index of public quiz pages
+
+Each quiz draws ten questions from a reviewed forty-question pool. Published answers
+include explanations, context, and sources. Artwork is illustrative rather than
+documentary.

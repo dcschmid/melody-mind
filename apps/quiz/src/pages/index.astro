@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 
 import QuizCard from "@components/QuizCard.astro";
+import AiDisclosure from "@components/AiDisclosure.astro";
 import Layout from "@layouts/Layout.astro";
 import { getQuizArtwork, sortQuizIds } from "@utils/quizArtwork";
 
@@ -53,6 +54,12 @@ const structuredData = [
         No account. No timer. No analytics. An unfinished round is saved only in this
         browser.
       </p>
+      <AiDisclosure
+        variant="assisted"
+        label="AI-assisted, human-reviewed quizzes"
+        detail="Artwork is AI-generated."
+        detailsHref="/about/#ai-transparency"
+      />
     </header>
 
     <aside

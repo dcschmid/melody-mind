@@ -1,0 +1,77 @@
+---
+interface Props {
+  detailsHref: string;
+  detail?: string;
+  label: string;
+  variant: "generated" | "assisted";
+}
+
+const { detailsHref, detail, label, variant } = Astro.props;
+const iconSrc = variant === "generated" ? "/ai-generated-eu.svg" : "/ai-eu.svg";
+---
+
+<a
+  class="ai-disclosure"
+  data-ai-disclosure={variant}
+  href={detailsHref}
+  aria-label={`${label}. Read AI transparency details.`}
+>
+  <img src={iconSrc} width="34" height="34" alt="" aria-hidden="true" />
+  <span class="ai-disclosure__copy">
+    <strong>{label}</strong>
+    {detail && <span>{detail}</span>}
+  </span>
+</a>
+
+<style>
+  .ai-disclosure {
+    display: inline-flex;
+    gap: 0.65rem;
+    align-items: center;
+    inline-size: fit-content;
+    max-inline-size: 100%;
+    min-block-size: 2.75rem;
+    padding: 0.42rem 0.7rem 0.42rem 0.5rem;
+    color: var(--paper-ink, var(--warm-ink));
+    text-decoration: none;
+    background: var(--desk-night, var(--raised-night));
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+  }
+
+  .ai-disclosure:hover,
+  .ai-disclosure:focus-visible {
+    color: var(--archive-teal-strong, var(--strong-teal, var(--signal-strong)));
+    border-color: currentcolor;
+  }
+
+  .ai-disclosure img {
+    flex: 0 0 auto;
+    inline-size: 2rem;
+    block-size: 2rem;
+    outline: 0;
+  }
+
+  .ai-disclosure__copy {
+    display: grid;
+    gap: 0.05rem;
+    min-inline-size: 0;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .ai-disclosure__copy strong {
+    font-size: inherit;
+    font-weight: 700;
+  }
+
+  .ai-disclosure__copy span {
+    color: var(--quiet-ink);
+  }
+
+  @media (forced-colors: active) {
+    .ai-disclosure {
+      border-color: ButtonText;
+    }
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import AiDisclosure from "@components/AiDisclosure.astro";
+import Layout from "@layouts/Layout.astro";
+
+const canonical = new URL("/about/", Astro.site).toString();
+---
+
+<Layout
+  title="About MelodyMind Quiz"
+  description="How MelodyMind Quiz researches, reviews, sources, and illustrates its music-history questions."
+  {canonical}
+>
+  <article class="quiz-about page-shell page-shell--reading">
+    <header class="quiz-about__hero">
+      <p class="eyebrow">About the quiz</p>
+      <h1>Questions with their sources left visible.</h1>
+      <p>
+        MelodyMind Quiz turns music history into short, untimed rounds. Every answer
+        includes context and links readers can inspect.
+      </p>
+    </header>
+
+    <section id="ai-transparency">
+      <AiDisclosure
+        variant="assisted"
+        label="AI-assisted, human-reviewed quizzes"
+        detail="Artwork is AI-generated."
+        detailsHref="#ai-transparency"
+      />
+      <h2>AI transparency</h2>
+      <p>
+        Research and drafting may use AI assistance. The published questions, answers,
+        explanations, and sources are reviewed before release. MelodyMind remains
+        responsible for the final wording and factual claims.
+      </p>
+      <p>
+        Quiz cover illustrations are generated with AI and used as atmospheric artwork,
+        not as documentary photographs of real people, places, or events.
+      </p>
+    </section>
+
+    <section>
+      <p class="eyebrow">Editorial method</p>
+      <h2>Answers should be checkable.</h2>
+      <p>
+        Question pools use dated HTTPS sources and distinguish factual claims from broader
+        historical interpretation. Ambiguous questions are revised or removed rather than
+        resolved through a hidden scoring rule.
+      </p>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .quiz-about {
+    display: grid;
+    gap: var(--space-3xl);
+    padding-block: var(--space-3xl);
+  }
+
+  .quiz-about__hero,
+  .quiz-about section {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .quiz-about__hero h1 {
+    max-inline-size: 15ch;
+    font-size: clamp(2.75rem, 8vw, 5.75rem);
+  }
+
+  .quiz-about section > p {
+    max-inline-size: 65ch;
+    color: var(--quiet-ink);
+  }
+
+  .quiz-about__hero > p:last-child {
+    max-inline-size: 65ch;
+    color: var(--quiet-ink);
+  }
+
+  .quiz-about section {
+    padding-block-start: var(--space-xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .quiz-about section h2 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+</style>

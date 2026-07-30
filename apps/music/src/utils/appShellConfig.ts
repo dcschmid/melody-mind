@@ -64,6 +64,7 @@ export function buildAppShellConfig({
         { href: "/series/", label: "Album Series" },
         { href: "/?search=1", label: "Search" },
         { href: "/about/", label: "About" },
+        { href: "/about/#ai-transparency", label: "AI Transparency" },
         { href: "https://quiz.melody-mind.de/", label: "Music Quiz" },
         { href: "https://stories.melody-mind.de/", label: "Music Stories" },
         { href: "https://reviews.melody-mind.de/", label: "Album Reviews" },

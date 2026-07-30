@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 import Layout from "@layouts/Layout.astro";
+import AiDisclosure from "@components/AiDisclosure.astro";
 
 const stories = (await getCollection("stories", ({ data }) => !data.draft)).toSorted(
   (left, right) => right.data.publishedAt.valueOf() - left.data.publishedAt.valueOf()
@@ -77,6 +78,11 @@ const collectionSchema = {
           }
         </time>
       </p>
+      <AiDisclosure
+        variant="assisted"
+        label="AI-assisted, human-reviewed"
+        detailsHref="/about/#ai-transparency"
+      />
       <h1>{featured.data.title}</h1>
       <p>{featured.data.dek}</p>
       <a class="text-link" href={`/${featured.id}/`}>Read the story <span>→</span></a>

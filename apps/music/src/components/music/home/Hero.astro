@@ -1,5 +1,6 @@
 ---
 import { getImage } from "astro:assets";
+import AiDisclosure from "@components/content/AiDisclosure.astro";
 import Icon from "@components/visual/Icon.astro";
 import OptimizedImage from "@components/media/OptimizedImage.astro";
 import type { FeaturedAlbum } from "./types";
@@ -78,6 +79,12 @@ const ambientImage = featuredAlbum
               <li>{featuredAlbum.totalDurationLabel}</li>
             )}
           </ul>
+          <AiDisclosure
+            compact
+            variant="generated"
+            label="AI-generated music and artwork"
+            detailsHref="/about/#ai-transparency"
+          />
           <div class="music-home-hero__actions">
             <button
               class="music-home-hero__button music-home-hero__button--primary"
