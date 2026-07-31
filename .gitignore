@@ -34,3 +34,7 @@ pnpm-debug.log*
 
 # Turborepo cache
 .turbo/
+
+# browser test artifacts
+playwright-report/
+test-results/

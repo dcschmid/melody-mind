@@ -2,6 +2,7 @@ import type {
   QuizAnswer,
   QuizQuestion,
   QuizResultBreakdown,
+  QuizReviewItem,
   QuizSession,
   QuizSessionSnapshot,
   RuntimeQuestion,
@@ -239,6 +240,46 @@ export function getResultBreakdown(session: QuizSession): QuizResultBreakdown {
     },
     { correct: 0, incorrect: 0, revealed: 0 }
   );
+}
+
+export function getReviewItems(session: QuizSession): QuizReviewItem[] {
+  return session.questions.flatMap((question, index) => {
+    const answer = session.answers[index];
+    if (!answer || answer.correct) {
+      return [];
+    }
+
+    const optionById = new Map(
+      question.options.map((option) => [option.id, option.label])
+    );
+    return [
+      {
+        question,
+        answer,
+        selectedLabels: answer.selectedOptionIds.flatMap((id) => {
+          const label = optionById.get(id);
+          return label ? [label] : [];
+        }),
+        correctLabels: question.correctOptionIds.flatMap((id) => {
+          const label = optionById.get(id);
+          return label ? [label] : [];
+        }),
+      },
+    ];
+  });
+}
+
+export function getNextQuizId(currentId: string, categoryIds: readonly string[]): string {
+  if (categoryIds.length === 0) {
+    throw new Error("A quiz category needs at least one quiz.");
+  }
+
+  const currentIndex = categoryIds.indexOf(currentId);
+  if (currentIndex === -1) {
+    throw new Error(`Quiz is not part of its category: ${currentId}`);
+  }
+
+  return categoryIds[(currentIndex + 1) % categoryIds.length];
 }
 
 export function getScoreBand(score: number): string {

@@ -50,6 +50,15 @@ const structuredData = [
         questions from a reviewed pool, then gives you the answer, its context, and the
         sources.
       </p>
+      <div class="quiz-home__actions" aria-label="Choose how to start">
+        <a class="button button--primary" id="quiz-random" href={`/${quizIds[0]}/`}>
+          Start a random quiz
+        </a>
+        <a class="button button--secondary" href="#decades">Browse decades</a>
+        <a class="button button--secondary" href="#genre-journeys">
+          Browse genre journeys
+        </a>
+      </div>
       <p class="quiz-home__privacy">
         No account. No timer. No analytics. An unfinished round is saved only in this
         browser.
@@ -106,6 +115,14 @@ const structuredData = [
           </button>
         </div>
       </div>
+      <p
+        class="quiz-resume__status"
+        id="quiz-resume-status"
+        role="status"
+        tabindex="-1"
+        hidden
+      >
+      </p>
     </aside>
 
     <section class="quiz-library" id="decades" aria-labelledby="decades-title">
@@ -115,7 +132,7 @@ const structuredData = [
         <p>Move from early rock and roll to streaming-era pop culture.</p>
       </header>
 
-      <ol class="quiz-grid">
+      <ol class="quiz-grid quiz-grid--decades">
         {
           decades.map((quiz) => (
             <li>
@@ -125,6 +142,7 @@ const structuredData = [
                 eyebrow="Decade quiz"
                 title={quiz.data.title}
                 description={quiz.data.description}
+                variant="decade"
               />
             </li>
           ))
@@ -143,7 +161,7 @@ const structuredData = [
         <p>Trace how artists, studios, formats, and local scenes changed the music.</p>
       </header>
 
-      <ul class="quiz-grid">
+      <ul class="quiz-grid quiz-grid--journeys">
         {
           journeys.map((quiz) => (
             <li>
@@ -154,6 +172,7 @@ const structuredData = [
                 title={quiz.data.title}
                 description={quiz.data.description}
                 topics={quiz.data.featuredTopics}
+                variant="journey"
               />
             </li>
           ))
@@ -180,6 +199,7 @@ const structuredData = [
   const resume = document.getElementById("quiz-resume");
   const resumeContent = document.getElementById("quiz-resume-content");
   const confirmation = document.getElementById("quiz-resume-confirmation");
+  const discardStatus = document.getElementById("quiz-resume-status");
   const title = document.getElementById("quiz-resume-title");
   const progress = document.getElementById("quiz-resume-progress");
   const link = document.getElementById("quiz-resume-link") as HTMLAnchorElement | null;
@@ -194,12 +214,26 @@ const structuredData = [
   ) as HTMLButtonElement | null;
   const catalogData = document.getElementById("quiz-catalog-data");
   const catalogIds = JSON.parse(catalogData?.textContent || "[]") as string[];
+  const randomQuiz = document.getElementById("quiz-random") as HTMLAnchorElement | null;
   const storage = getBrowserStorage();
+
+  randomQuiz?.addEventListener("click", (event) => {
+    if (catalogIds.length === 0) {
+      return;
+    }
+
+    event.preventDefault();
+    const values = new Uint32Array(1);
+    crypto.getRandomValues(values);
+    const quizId = catalogIds[values[0] % catalogIds.length];
+    window.location.assign(`/${quizId}/`);
+  });
 
   if (
     resume &&
     resumeContent &&
     confirmation &&
+    discardStatus &&
     title &&
     progress &&
     link &&
@@ -228,12 +262,12 @@ const structuredData = [
       });
       confirmDiscard.addEventListener("click", () => {
         clearActiveQuiz(storage);
-        confirmation.replaceChildren(
-          Object.assign(document.createElement("p"), {
-            className: "quiz-resume__status",
-            textContent: "Saved round discarded.",
-          })
-        );
+        confirmation.hidden = true;
+        discardStatus.textContent =
+          "Saved round discarded. Choose a quiz to begin again.";
+        discardStatus.hidden = false;
+        resume.setAttribute("aria-labelledby", "quiz-resume-status");
+        discardStatus.focus();
       });
     } else if (stored.status === "ready") {
       clearActiveQuiz(storage);
@@ -250,9 +284,9 @@ const structuredData = [
 
   .quiz-home__hero {
     display: grid;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     max-inline-size: 52rem;
-    padding-block: var(--space-xl);
+    padding-block: var(--space-lg);
   }
 
   .quiz-home__hero h1 {
@@ -275,6 +309,13 @@ const structuredData = [
     background: var(--raised-night);
     border: 1px solid var(--line-soft);
     border-radius: var(--radius-pill);
+  }
+
+  .quiz-home__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-block: var(--space-xs);
   }
 
   .quiz-resume,
@@ -338,14 +379,18 @@ const structuredData = [
       padding-block-start: var(--space-3xl);
     }
 
-    .quiz-grid {
+    .quiz-grid--decades {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .quiz-grid--journeys {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media (width >= 64rem) {
-    .quiz-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+  @media (width >= 80rem) {
+    .quiz-grid--decades {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
     }
   }
 </style>

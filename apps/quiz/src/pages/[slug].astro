@@ -6,24 +6,40 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 import Layout from "@layouts/Layout.astro";
 import AiDisclosure from "@components/AiDisclosure.astro";
+import { getNextQuizId } from "@scripts/quizEngine";
 import type { QuizQuestion } from "@quiz-types/quiz";
-import { getQuizArtwork } from "@utils/quizArtwork";
+import { getQuizArtwork, sortQuizIds } from "@utils/quizArtwork";
 
 interface Props {
   quiz: CollectionEntry<"quizzes">;
+  nextQuiz: CollectionEntry<"quizzes">;
 }
 
 export async function getStaticPaths() {
-  const quizzes = await getCollection("quizzes", ({ data }) => !data.draft);
-  return quizzes.map((quiz) => ({
-    params: { slug: quiz.id },
-    props: { quiz },
-  }));
+  const quizzes = (await getCollection("quizzes", ({ data }) => !data.draft)).sort(
+    (left, right) => sortQuizIds(left.id, right.id)
+  );
+  return quizzes.map((quiz) => {
+    const categoryIds = quizzes
+      .filter((categoryQuiz) => categoryQuiz.data.category === quiz.data.category)
+      .map((categoryQuiz) => categoryQuiz.id);
+    const nextQuizId = getNextQuizId(quiz.id, categoryIds);
+    const nextQuiz = quizzes.find((candidate) => candidate.id === nextQuizId);
+    if (!nextQuiz) {
+      throw new Error(`Missing next quiz: ${nextQuizId}`);
+    }
+
+    return {
+      params: { slug: quiz.id },
+      props: { quiz, nextQuiz },
+    };
+  });
 }
 
-const { quiz } = Astro.props;
+const { quiz, nextQuiz } = Astro.props;
 const canonical = new URL(`/${quiz.id}/`, Astro.site).toString();
 const image = getQuizArtwork(quiz.id);
+const nextQuizImage = getQuizArtwork(nextQuiz.id);
 const imageUrl = new URL(image.src, Astro.site).toString();
 const title = quiz.data.seoTitle ?? `${quiz.data.title} Music Quiz`;
 const description = quiz.data.seoDescription ?? quiz.data.description;
@@ -104,15 +120,9 @@ const structuredData = [
       />
       <div class="quiz-intro__copy">
         <p class="eyebrow">{categoryLabel}</p>
-        <AiDisclosure
-          variant="assisted"
-          label="AI-assisted, human-reviewed quiz"
-          detail="Artwork is AI-generated."
-          detailsHref="/about/#ai-transparency"
-        />
         <h1 id="quiz-title">{quiz.data.title}</h1>
-        <p>{quiz.data.description}</p>
       </div>
+      <p class="quiz-intro__description">{quiz.data.description}</p>
       <dl class="quiz-intro__facts">
         <div>
           <dt>Round</dt>
@@ -124,9 +134,7 @@ const structuredData = [
         </div>
         <div>
           <dt>Privacy</dt>
-          <dd>
-            An unfinished round is saved only in this browser so you can continue later.
-          </dd>
+          <dd>Progress stays in this browser</dd>
         </div>
       </dl>
       <div class="quiz-intro__actions">
@@ -139,6 +147,14 @@ const structuredData = [
         <button class="button button--secondary" id="quiz-new-round" type="button" hidden>
           Start a new round
         </button>
+      </div>
+      <div class="quiz-intro__disclosure">
+        <AiDisclosure
+          variant="assisted"
+          label="AI-assisted, human-reviewed quiz"
+          detail="Artwork is AI-generated."
+          detailsHref="/about/#ai-transparency"
+        />
       </div>
       <div
         class="quiz-intro__confirmation"
@@ -169,10 +185,14 @@ const structuredData = [
 
     <section class="quiz-game" id="quiz-game" aria-label={quiz.data.title} hidden>
       <header class="quiz-game__progress">
-        <span id="quiz-progress-text">Question 1 of 10</span>
+        <div class="quiz-game__progress-copy">
+          <span id="quiz-progress-text">Question 1 of 10</span>
+          <a id="quiz-exit" href="/">Save &amp; exit</a>
+        </div>
         <progress id="quiz-progress" value="1" max="10">1 of 10</progress>
       </header>
       <div id="quiz-question"></div>
+      <section class="quiz-feedback" id="quiz-feedback" hidden></section>
       <div class="quiz-game__actions">
         <button class="button button--primary" id="quiz-check" type="button" disabled>
           Check answer
@@ -184,7 +204,6 @@ const structuredData = [
           Next question
         </button>
       </div>
-      <section class="quiz-feedback" id="quiz-feedback" hidden></section>
     </section>
 
     <section
@@ -212,11 +231,41 @@ const structuredData = [
         </div>
       </dl>
       <p class="quiz-result__copy">
-        Every answer was explained along the way. Play again for a different mix or choose
-        another part of music history.
+        Review the questions that need another listen, then continue through music
+        history.
       </p>
+      <section
+        class="quiz-result__review"
+        id="quiz-result-review"
+        aria-labelledby="quiz-result-review-title"
+        hidden
+      >
+        <h2 id="quiz-result-review-title">Review this round</h2>
+        <div class="quiz-result__review-list" id="quiz-result-review-list"></div>
+      </section>
+      <p class="quiz-result__perfect" id="quiz-result-perfect" hidden>
+        You answered every question correctly. No review needed this time.
+      </p>
+      <section class="quiz-result__next" aria-labelledby="quiz-result-next-title">
+        <Image
+          class="quiz-result__next-image"
+          src={nextQuizImage}
+          alt=""
+          width={112}
+          height={112}
+          loading="lazy"
+        />
+        <div>
+          <p class="eyebrow">Continue exploring</p>
+          <h2 id="quiz-result-next-title">{nextQuiz.data.title}</h2>
+          <p>{nextQuiz.data.description}</p>
+          <a class="button button--primary" href={`/${nextQuiz.id}/`}>
+            Start next quiz
+          </a>
+        </div>
+      </section>
       <div class="quiz-result__actions">
-        <button class="button button--primary" id="quiz-replay" type="button">
+        <button class="button button--secondary" id="quiz-replay" type="button">
           Play another round
         </button>
         <a class="button button--secondary" href="/">Choose another quiz</a>
@@ -252,13 +301,13 @@ const structuredData = [
 
 <style is:global>
   .quiz-route {
-    padding-block: var(--space-2xl) var(--space-3xl);
+    padding-block: var(--space-lg) var(--space-3xl);
   }
 
   .quiz-intro {
     display: grid;
-    grid-template-columns: 8rem minmax(0, 1fr);
-    gap: var(--space-lg);
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: var(--space-md);
     align-items: start;
   }
 
@@ -272,7 +321,7 @@ const structuredData = [
   }
 
   .quiz-intro__art {
-    inline-size: 8rem;
+    inline-size: 5.5rem;
     block-size: auto;
     aspect-ratio: 1;
     object-fit: cover;
@@ -287,30 +336,29 @@ const structuredData = [
   }
 
   .quiz-intro__copy h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
-  .quiz-intro__copy > p:last-child {
+  .quiz-intro__description {
+    grid-column: 1 / -1;
     color: var(--quiet-ink);
   }
 
   .quiz-intro__facts {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-column: 1 / -1;
-    gap: 0;
-    margin: var(--space-md) 0 0;
+    gap: 1px;
+    margin: var(--space-xs) 0 0;
+    background: var(--line-soft);
     border-block: 1px solid var(--line-soft);
   }
 
   .quiz-intro__facts div {
     display: grid;
     gap: var(--space-2xs);
-    padding-block: var(--space-sm);
-    border-block-end: 1px solid var(--line-soft);
-  }
-
-  .quiz-intro__facts div:last-child {
-    border: 0;
+    padding: var(--space-sm);
+    background: var(--room-night);
   }
 
   .quiz-intro__facts dt {
@@ -323,10 +371,13 @@ const structuredData = [
 
   .quiz-intro__facts dd {
     margin: 0;
+    font-size: 0.9rem;
     color: var(--quiet-ink);
   }
 
+  .quiz-intro__description,
   .quiz-intro__actions,
+  .quiz-intro__disclosure,
   .quiz-intro__confirmation,
   .quiz-intro__status,
   .quiz-noscript {
@@ -393,6 +444,19 @@ const structuredData = [
     font-weight: 700;
     font-variant-numeric: tabular-nums;
     color: var(--quiet-ink);
+  }
+
+  .quiz-game__progress-copy {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .quiz-game__progress-copy a {
+    min-block-size: var(--control-min-size);
+    font-size: 0.95rem;
+    font-weight: 700;
   }
 
   .quiz-game__progress progress {
@@ -603,7 +667,7 @@ const structuredData = [
   .quiz-error {
     display: grid;
     gap: var(--space-lg);
-    max-inline-size: 38rem;
+    max-inline-size: 44rem;
     padding-block: var(--space-xl);
   }
 
@@ -662,8 +726,118 @@ const structuredData = [
   }
 
   .quiz-result__copy,
+  .quiz-result__perfect,
   .quiz-error > p:not(.eyebrow) {
     color: var(--quiet-ink);
+  }
+
+  .quiz-result__review {
+    display: grid;
+    gap: var(--space-md);
+    padding-block: var(--space-md);
+  }
+
+  .quiz-result__review h2,
+  .quiz-result__next h2 {
+    font-size: 1.5rem;
+  }
+
+  .quiz-result__review-list {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .quiz-review-item {
+    background: var(--raised-night);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-review-item__summary {
+    display: grid;
+    gap: var(--space-xs);
+    min-block-size: var(--control-min-size);
+    padding: var(--space-md);
+    cursor: pointer;
+  }
+
+  .quiz-review-item__status {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--error);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .quiz-review-item__question {
+    font-weight: 700;
+  }
+
+  .quiz-review-item__body {
+    display: grid;
+    gap: var(--space-sm);
+    padding: 0 var(--space-md) var(--space-md);
+  }
+
+  .quiz-review-item__answer,
+  .quiz-review-item__context-title {
+    font-weight: 700;
+  }
+
+  .quiz-review-item__explanation,
+  .quiz-review-item__context {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-review-item__context-title {
+    margin-block-start: var(--space-xs);
+    font-size: 1rem;
+  }
+
+  .quiz-review-item__sources {
+    display: grid;
+    gap: var(--space-xs);
+    padding-inline-start: var(--space-lg);
+    margin: var(--space-xs) 0 0;
+  }
+
+  .quiz-review-item__sources a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: var(--control-min-size);
+  }
+
+  .quiz-result__next {
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: var(--space-md);
+    align-items: start;
+    padding: var(--space-md);
+    background: var(--raised-night);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  .quiz-result__next-image {
+    inline-size: 5rem;
+    block-size: 5rem;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-result__next > div {
+    display: grid;
+    gap: var(--space-sm);
+    min-inline-size: 0;
+  }
+
+  .quiz-result__next > div > p:not(.eyebrow) {
+    color: var(--quiet-ink);
+  }
+
+  .quiz-result__next .button {
+    inline-size: fit-content;
+    margin-block-start: var(--space-xs);
   }
 
   .quiz-result__actions,
@@ -691,6 +865,10 @@ const structuredData = [
   }
 
   @media (width >= 40rem) {
+    .quiz-route {
+      padding-block-start: var(--space-2xl);
+    }
+
     .quiz-intro {
       grid-template-columns: 12rem minmax(0, 1fr);
       gap: var(--space-xl);
@@ -704,14 +882,16 @@ const structuredData = [
       font-size: 2.5rem;
     }
 
+    .quiz-intro__description {
+      grid-column: 2;
+    }
+
     .quiz-intro__facts {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .quiz-intro__facts div {
       padding: var(--space-md);
-      border-block-end: 0;
-      border-inline-end: 1px solid var(--line-soft);
     }
 
     .quiz-intro__actions {
@@ -729,6 +909,16 @@ const structuredData = [
 
     .quiz-game__actions #quiz-next {
       grid-column: 1 / -1;
+    }
+
+    .quiz-result__next {
+      grid-template-columns: 7rem minmax(0, 1fr);
+      padding: var(--space-lg);
+    }
+
+    .quiz-result__next-image {
+      inline-size: 7rem;
+      block-size: 7rem;
     }
   }
 </style>

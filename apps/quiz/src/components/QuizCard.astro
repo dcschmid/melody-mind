@@ -9,12 +9,21 @@ interface Props {
   title: string;
   description: string;
   topics?: string[];
+  variant?: "decade" | "journey";
 }
 
-const { href, image, eyebrow, title, description, topics = [] } = Astro.props;
+const {
+  href,
+  image,
+  eyebrow,
+  title,
+  description,
+  topics = [],
+  variant = "journey",
+} = Astro.props;
 ---
 
-<a class="quiz-card" {href}>
+<a class:list={["quiz-card", `quiz-card--${variant}`]} {href}>
   <Image
     class="quiz-card__image"
     src={image}
@@ -42,7 +51,7 @@ const { href, image, eyebrow, title, description, topics = [] } = Astro.props;
 <style>
   .quiz-card {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
     block-size: 100%;
     overflow: hidden;
     color: var(--warm-ink);
@@ -58,7 +67,7 @@ const { href, image, eyebrow, title, description, topics = [] } = Astro.props;
 
   .quiz-card__image {
     inline-size: 100%;
-    block-size: auto;
+    block-size: 100%;
     aspect-ratio: 1;
     object-fit: cover;
   }
@@ -67,16 +76,20 @@ const { href, image, eyebrow, title, description, topics = [] } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    padding: var(--space-lg);
+    padding: var(--space-md);
   }
 
   .quiz-card__title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.15;
     text-wrap: balance;
   }
 
   .quiz-card__description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
     color: var(--quiet-ink);
   }
 
@@ -93,6 +106,29 @@ const { href, image, eyebrow, title, description, topics = [] } = Astro.props;
     margin-block-start: auto;
     font-weight: 700;
     color: var(--signal-teal);
+  }
+
+  .quiz-card--decade .quiz-card__description {
+    display: none;
+  }
+
+  @media (width >= 48rem) {
+    .quiz-card--decade {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr;
+    }
+
+    .quiz-card--decade .quiz-card__image {
+      block-size: auto;
+    }
+
+    .quiz-card--decade .quiz-card__body {
+      padding: var(--space-lg);
+    }
+
+    .quiz-card--decade .quiz-card__title {
+      font-size: 1.5rem;
+    }
   }
 
   @media (hover: hover) {

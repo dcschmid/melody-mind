@@ -4,6 +4,7 @@ import {
   createQuizSessionSnapshot,
   evaluateAnswer,
   getResultBreakdown,
+  getReviewItems,
   getScore,
   getScoreBand,
   restoreQuizSession,
@@ -70,6 +71,10 @@ export function initQuiz(): void {
   const replayButton = getElement<HTMLButtonElement>("quiz-replay");
   const shareButton = getElement<HTMLButtonElement>("quiz-share");
   const shareStatus = getElement<HTMLElement>("quiz-share-status");
+  const exitLink = getElement<HTMLAnchorElement>("quiz-exit");
+  const resultReview = getElement<HTMLElement>("quiz-result-review");
+  const resultReviewList = getElement<HTMLElement>("quiz-result-review-list");
+  const resultPerfect = getElement<HTMLElement>("quiz-result-perfect");
   const storage = getBrowserStorage();
 
   let session: QuizSession | null = null;
@@ -320,6 +325,79 @@ export function initQuiz(): void {
     }
   };
 
+  const renderResultReview = () => {
+    if (!session) {
+      return;
+    }
+
+    const activeSession = session;
+    const reviewItems = getReviewItems(activeSession);
+    resultReviewList.replaceChildren();
+    resultReview.hidden = reviewItems.length === 0;
+    resultPerfect.hidden = reviewItems.length > 0;
+
+    reviewItems.forEach((item) => {
+      const details = document.createElement("details");
+      details.className = "quiz-review-item";
+
+      const summary = document.createElement("summary");
+      summary.className = "quiz-review-item__summary";
+      const status = createTextElement(
+        "span",
+        "quiz-review-item__status",
+        item.answer.revealed ? "Answer shown" : "Incorrect"
+      );
+      const question = createTextElement(
+        "span",
+        "quiz-review-item__question",
+        `${activeSession.questions.indexOf(item.question) + 1}. ${item.question.question}`
+      );
+      summary.append(status, question);
+
+      const body = document.createElement("div");
+      body.className = "quiz-review-item__body";
+      if (!item.answer.revealed) {
+        body.append(
+          createTextElement(
+            "p",
+            "quiz-review-item__answer",
+            `Your answer: ${item.selectedLabels.join(", ") || "No answer selected"}`
+          )
+        );
+      }
+      body.append(
+        createTextElement(
+          "p",
+          "quiz-review-item__answer",
+          `Correct answer: ${item.correctLabels.join(", ")}`
+        ),
+        createTextElement(
+          "p",
+          "quiz-review-item__explanation",
+          item.question.explanation
+        ),
+        createTextElement("h3", "quiz-review-item__context-title", "Why it matters"),
+        createTextElement("p", "quiz-review-item__context", item.question.context)
+      );
+
+      const sources = document.createElement("ul");
+      sources.className = "quiz-review-item__sources";
+      sources.setAttribute("aria-label", "Sources for this reviewed answer");
+      item.question.sources.forEach((source) => {
+        const sourceItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = source.url;
+        link.rel = "external";
+        link.textContent = `${source.publisher}: ${source.title}`;
+        sourceItem.append(link);
+        sources.append(sourceItem);
+      });
+      body.append(sources);
+      details.append(summary, body);
+      resultReviewList.append(details);
+    });
+  };
+
   const startSession = () => {
     try {
       session = createQuizSession(payload.questions);
@@ -374,6 +452,7 @@ export function initQuiz(): void {
     getElement<HTMLElement>("quiz-result-revealed").textContent = String(
       breakdown.revealed
     );
+    renderResultReview();
     if (storage && !clearActiveQuiz(storage)) {
       announceStorageFailure();
     }
@@ -511,6 +590,7 @@ export function initQuiz(): void {
   });
 
   if (!storage) {
+    exitLink.textContent = "Exit quiz";
     announceStorageFailure();
   } else {
     const stored = readActiveQuiz(storage);

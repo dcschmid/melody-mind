@@ -70,3 +70,10 @@ export interface QuizResultBreakdown {
   incorrect: number;
   revealed: number;
 }
+
+export interface QuizReviewItem {
+  question: RuntimeQuestion;
+  answer: QuizAnswer;
+  selectedLabels: string[];
+  correctLabels: string[];
+}

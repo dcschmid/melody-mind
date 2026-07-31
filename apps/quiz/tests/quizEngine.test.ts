@@ -6,8 +6,10 @@ import {
   createQuizSessionSnapshot,
   evaluateAnswer,
   getResultBreakdown,
+  getReviewItems,
   getScore,
   getScoreBand,
+  getNextQuizId,
   normalizeQuestion,
   restoreQuizSession,
 } from "../src/scripts/quizEngine";
@@ -206,6 +208,49 @@ describe("results", () => {
   it("builds tracking-free share copy", () => {
     expect(buildShareText("The 1980s", 7, "https://quiz.melody-mind.de/1980s/")).toBe(
       "I scored 7/10 on The 1980s at MelodyMind Quiz. Try it: https://quiz.melody-mind.de/1980s/"
+    );
+  });
+
+  it("returns only incorrect and revealed answers for review", () => {
+    const session = createQuizSession(buildPool(), () => 0.999);
+    const incorrectQuestion = session.questions[0];
+    const incorrectOption = incorrectQuestion.options.find(
+      (option) => !incorrectQuestion.correctOptionIds.includes(option.id)
+    );
+    if (!incorrectOption) {
+      throw new Error("Test question needs an incorrect option.");
+    }
+
+    session.answers[0] = evaluateAnswer(incorrectQuestion, [incorrectOption.id]);
+    session.answers[1] = evaluateAnswer(
+      session.questions[1],
+      session.questions[1].correctOptionIds
+    );
+    session.answers[2] = evaluateAnswer(session.questions[2], [], true);
+
+    const reviewItems = getReviewItems(session);
+    expect(reviewItems).toHaveLength(2);
+    expect(reviewItems[0].selectedLabels).toEqual([incorrectOption.label]);
+    expect(reviewItems[0].correctLabels).toHaveLength(1);
+    expect(reviewItems[1].answer.revealed).toBe(true);
+    expect(reviewItems[1].selectedLabels).toEqual([]);
+  });
+
+  it("returns no review items for a perfect round", () => {
+    const session = createQuizSession(buildPool(), () => 0.999);
+    session.answers = session.questions.map((question) =>
+      evaluateAnswer(question, question.correctOptionIds)
+    );
+
+    expect(getReviewItems(session)).toEqual([]);
+  });
+
+  it("selects the next quiz in a category and wraps at the end", () => {
+    const category = ["1950s", "1960s", "1970s"];
+    expect(getNextQuizId("1950s", category)).toBe("1960s");
+    expect(getNextQuizId("1970s", category)).toBe("1950s");
+    expect(() => getNextQuizId("1980s", category)).toThrow(
+      "Quiz is not part of its category"
     );
   });
 });

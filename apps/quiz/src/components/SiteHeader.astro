@@ -114,7 +114,7 @@ const navigation = [
 
       const controller = new AbortController();
       const { signal } = controller;
-      const desktop = window.matchMedia("(width >= 48rem)");
+      const desktop = window.matchMedia("(width >= 64rem)");
       const pageRegions = Array.from(
         document.querySelectorAll<HTMLElement>("main, footer")
       );
@@ -227,6 +227,7 @@ const navigation = [
 
   .quiz-header__brand {
     display: inline-flex;
+    flex: none;
     gap: var(--space-sm);
     align-items: center;
     min-block-size: var(--control-min-size);
@@ -385,7 +386,7 @@ const navigation = [
     transform: translateY(0);
   }
 
-  @media (width >= 48rem) {
+  @media (width >= 64rem) {
     .quiz-header__desktop-nav {
       display: flex;
     }
