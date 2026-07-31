@@ -14,7 +14,7 @@ const journeys = quizzes.filter((quiz) => quiz.data.category === "genre-evolutio
 const quizIds = quizzes.map((quiz) => quiz.id);
 const canonical = new URL("/", Astro.site).toString();
 const description =
-  "Choose a music history quiz on seven decades or twelve genre journeys. Every ten-question round includes sources and runs without accounts or tracking.";
+  "Choose a music history quiz on seven decades or fourteen genre journeys. Every ten-question round includes sources and runs without accounts or tracking.";
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -46,7 +46,7 @@ const structuredData = [
       <p class="eyebrow">Listen closer</p>
       <h1>Music history, one question at a time.</h1>
       <p class="quiz-home__lead">
-        Pick a decade or trace one of twelve genre histories. Each round draws ten
+        Pick a decade or trace one of fourteen genre histories. Each round draws ten
         questions from a reviewed pool, then gives you the answer, its context, and the
         sources.
       </p>
@@ -138,7 +138,7 @@ const structuredData = [
       aria-labelledby="journeys-title"
     >
       <header class="quiz-library__header">
-        <p class="eyebrow">Twelve listening paths</p>
+        <p class="eyebrow">Fourteen listening paths</p>
         <h2 id="journeys-title">Follow a genre journey</h2>
         <p>Trace how artists, studios, formats, and local scenes changed the music.</p>
       </header>

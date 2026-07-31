@@ -1,12 +1,12 @@
 # Quiz Fact-Check Audit
 
-Last updated: 2026-07-28
+Last updated: 2026-07-31
 
 ## Current Scope
 
-- The Quiz app contains 19 topics and 760 questions.
+- The Quiz app contains 21 topics and 840 questions.
 - Seven topics cover decades from the 1950s through the 2010s.
-- Twelve topics trace genre histories.
+- Fourteen topics trace genre histories.
 - Every topic contains exactly 40 questions.
 - A session selects 10 questions: 4 easy, 4 medium, and 2 hard.
 - Every answer has a direct explanation, a separate context paragraph, and at least one
@@ -14,11 +14,12 @@ Last updated: 2026-07-28
 
 ## Editorial Method
 
-The source questions came from the previously reviewed MelodyMind quiz bank. The May 15,
-2026 audit covered answer indexes, historical wording, dates, and high-risk claims across
-that bank.
+The source questions came from the previously reviewed MelodyMind quiz bank and two new
+research-led pools. The May 15, 2026 audit covered answer indexes, historical wording,
+dates, and high-risk claims across the earlier bank.
 
-This expansion applied a second pass:
+The July 31 expansion added punk/alternative-rock and highlife/Afrobeats journeys and
+applied a second pass:
 
 - removed questions that depended on phrases such as "according to the article";
 - removed vague recommendation language and unsupported origin stories;
