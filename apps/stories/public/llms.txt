@@ -2,7 +2,11 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Sixteen-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Twenty-story reading room and featured stories
+- [The Voice Inside the Beat](https://stories.melody-mind.de/the-voice-inside-the-beat/): Artist portrait of Missy Elliott's vocal arranging, songwriting, production, and visual authorship
+- [The Mix Was Still Being Written](https://stories.melody-mind.de/the-mix-was-still-being-written/): Artist portrait of Lee “Scratch” Perry's Black Ark recording and dub practice
+- [The Studio That Counted Every Hook](https://stories.melody-mind.de/the-studio-that-counted-every-hook/): Technology story about Cheiron Studios and collaborative Swedish pop production
+- [Three Minutes at 1650 Broadway](https://stories.melody-mind.de/three-minutes-at-1650-broadway/): Scene report on the songwriting labor and publishing network behind Brill Building pop
 - [Four Parts, One Weight](https://stories.melody-mind.de/four-parts-one-weight/): Artist portrait of Black Sabbath as a four-person musical system
 - [The Workshop Inside the Guitar](https://stories.melody-mind.de/the-workshop-inside-the-guitar/): Artist portrait of Eddie Van Halen as player, builder, and technical problem-solver
 - [The New Wave Was a Network](https://stories.melody-mind.de/the-new-wave-was-a-network/): Scene report on the decentralized infrastructure of NWOBHM
