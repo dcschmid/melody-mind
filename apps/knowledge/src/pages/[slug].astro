@@ -1,0 +1,226 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import ArticleToc from "@components/ArticleToc.astro";
+import ArrangementExplorer from "@components/ArrangementExplorer.astro";
+import EditorialFigure from "@components/EditorialFigure.astro";
+import Endnotes from "@components/Endnotes.astro";
+import KeyTerm from "@components/KeyTerm.astro";
+import ListeningExercise from "@components/ListeningExercise.astro";
+import NotationScore from "@components/NotationScore.astro";
+import RhythmSectionPilot from "@components/RhythmSectionPilot.astro";
+import SourceList from "@components/SourceList.astro";
+import TechnicalDiagram from "@components/TechnicalDiagram.astro";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  return (await getCollection("articles", ({ data }) => !data.draft)).map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+interface Props {
+  article: CollectionEntry<"articles">;
+}
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+const all = (await getCollection("articles", ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.featuredOrder - b.data.featuredOrder
+);
+const related = article.data.related
+  .map(({ id, reason }) => ({ article: all.find((item) => item.id === id), reason }))
+  .filter((item) => item.article)
+  .slice(0, 2);
+const image = article.data.hero
+  ? new URL(article.data.hero.image.src, Astro.site).toString()
+  : undefined;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: article.data.title,
+  description: article.data.seoDescription,
+  url: Astro.url.toString(),
+  datePublished: article.data.publishedAt.toISOString(),
+  author: { "@type": "Organization", name: article.data.byline },
+  citation: article.data.sources.map(
+    (source) => source.url ?? `${source.author ?? ""} ${source.title}`.trim()
+  ),
+};
+---
+
+<Layout
+  title={article.data.title}
+  description={article.data.seoDescription}
+  type="article"
+  {image}
+  structuredData={[schema]}
+>
+  <article class="article">
+    <header class="hero">
+      {
+        article.data.hero && (
+          <Image
+            src={article.data.hero.image}
+            alt={article.data.hero.alt}
+            widths={[640, 960, 1280, 1600]}
+            sizes="100vw"
+            loading="eager"
+          />
+        )
+      }
+      <div class="hero__copy page-shell">
+        <p class="eyebrow">{article.data.section.replace("-", " ")}</p><h1>
+          {article.data.title}
+        </h1><p class="dek">{article.data.dek}</p><p class="meta">
+          <span>{article.data.byline}</span><time
+            datetime={article.data.publishedAt.toISOString()}
+            >{
+              article.data.publishedAt.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+            }</time
+          ><span>{article.data.readingMinutes} min read</span>
+        </p>
+      </div>
+      {
+        article.data.hero && (
+          <p class="credit page-shell">
+            {article.data.hero.caption} {article.data.hero.rights}
+          </p>
+        )
+      }
+    </header>
+    <div class="reading-shell article__content">
+      <ArticleToc {headings} /><div class="prose">
+        <Content
+          components={{
+            KeyTerm,
+            ListeningExercise,
+            Endnotes,
+            NotationScore,
+            ArrangementExplorer,
+            EditorialFigure,
+            RhythmSectionPilot,
+            TechnicalDiagram,
+          }}
+        />
+      </div>
+    </div>
+    <SourceList sources={article.data.sources} />
+    {
+      related.length > 0 && (
+        <aside class="related reading-shell">
+          <h2>Read next</h2>
+          {related.map(
+            ({ article: next, reason }) =>
+              next && (
+                <a href={`/${next.id}/`}>
+                  <strong>{next.data.title}</strong>
+                  <span>{reason}</span>
+                </a>
+              )
+          )}
+        </aside>
+      )
+    }
+  </article>
+</Layout>
+<style>
+  .article {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .hero {
+    position: relative;
+    display: grid;
+    min-height: min(72svh, 48rem);
+    overflow: hidden;
+  }
+
+  .hero :global(img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background:
+      linear-gradient(0deg, var(--night), transparent 80%),
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--night) 80%, transparent),
+        transparent 75%
+      );
+  }
+
+  .hero__copy,
+  .credit {
+    z-index: 1;
+  }
+
+  .hero__copy {
+    align-self: end;
+    padding-block: 8rem 2rem;
+  }
+
+  .hero h1 {
+    max-width: 14ch;
+    margin: 0.6rem 0 1rem;
+  }
+
+  .dek {
+    max-width: 62ch;
+    font-size: 1.2rem;
+    color: var(--muted);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.25rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .credit {
+    align-self: end;
+    padding-bottom: 1rem;
+    font-size: 0.74rem;
+    color: var(--muted);
+  }
+
+  .article__content {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .article__content > :global(*) {
+    min-width: 0;
+  }
+
+  .related {
+    padding-block: 3rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .related a {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem 0;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .related span {
+    color: var(--muted);
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  term: string;
+  definition: string;
+}
+const { term, definition } = Astro.props;
+---
+
+<aside class="key-term" aria-label={`${term} definition`}>
+  <p><strong>{term}</strong> — {definition}</p><div><slot /></div>
+</aside>
+<style>
+  .key-term {
+    padding: 1.25rem 1.5rem;
+    margin-block: 2rem;
+    background: var(--night-raised);
+    border-inline-start: 0.25rem solid var(--teal);
+  }
+
+  .key-term p {
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .key-term div {
+    color: var(--muted);
+  }
+</style>

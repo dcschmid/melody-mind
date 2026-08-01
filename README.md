@@ -1,16 +1,19 @@
 # MelodyMind
 
-MelodyMind contains two privacy-conscious Astro sites: the Music archive and a
-research-led music history quiz.
+MelodyMind contains five privacy-conscious Astro sites for listening, music history,
+long-form journalism, criticism, and research-led musical explanation.
 
 ## Workspace
 
 - `apps/music`: the public MelodyMind Music app served at `https://melody-mind.de`
 - `apps/quiz`: the MelodyMind Quiz app served at `https://quiz.melody-mind.de`
+- `apps/stories`: sourced long-form journalism at `https://stories.melody-mind.de`
+- `apps/reviews`: score-free album criticism at `https://reviews.melody-mind.de`
+- `apps/knowledge`: listening guides and music terms at `https://knowledge.melody-mind.de`
 
 ## Stack
 
-- Astro 6 with static output
+- Astro 7 with static output
 - TypeScript
 - pnpm workspaces
 - Turbo for task orchestration

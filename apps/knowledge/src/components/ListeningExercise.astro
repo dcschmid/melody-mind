@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  cue: string;
+}
+const { title, cue } = Astro.props;
+---
+
+<aside class="exercise">
+  <p class="eyebrow">Listening exercise</p><h3>{title}</h3><p>{cue}</p><slot />
+</aside>
+<style>
+  .exercise {
+    padding: 1.5rem;
+    margin-block: 2.5rem;
+    border: 1px solid var(--line);
+  }
+
+  .exercise h3 {
+    margin-block: 0.35rem;
+  }
+</style>

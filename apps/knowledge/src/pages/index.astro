@@ -1,0 +1,204 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+const articles = (await getCollection("articles", ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.featuredOrder - b.data.featuredOrder
+);
+const [lead, ...feed] = articles;
+---
+
+<Layout
+  title="MelodyMind Knowledge | Long-form music listening and history"
+  description="Eight research-led long-form articles explain how rhythm, production, scenes, and recording techniques shape what listeners hear."
+>
+  <main>
+    {
+      lead && (
+        <section class="lead">
+          <>
+            <div class="lead__media">
+              {lead.data.hero && (
+                <Image
+                  src={lead.data.hero.image}
+                  alt={lead.data.hero.alt}
+                  widths={[640, 960, 1280, 1600]}
+                  sizes="(min-width: 64rem) 58vw, 100vw"
+                  loading="eager"
+                />
+              )}
+            </div>
+            <div class="lead__copy">
+              <>
+                <p class="eyebrow">The opening article</p>
+                <h1>{lead.data.title}</h1>
+                <p>{lead.data.dek}</p>
+                <p class="meta">{lead.data.readingMinutes} min read</p>
+                <a class="button" href={`/${lead.id}/`}>
+                  Read the article
+                </a>
+              </>
+            </div>
+          </>
+        </section>
+      )
+    }
+    <section class="feed page-shell" aria-labelledby="issue-title">
+      <header>
+        <p class="eyebrow">Issue one</p><h2 id="issue-title">
+          How records make time, space, and identity audible
+        </h2><p>
+          Eight essays move from Jamaican studio practice to rhythm sections, scene
+          histories, riffs, and guitar recording. Each stands alone.
+        </p>
+      </header><ol>
+        {
+          feed.map((article, index) => (
+            <li>
+              <a href={`/${article.id}/`}>
+                <>
+                  <span>{String(index + 2).padStart(2, "0")}</span>
+                  <div>
+                    <>
+                      <p class="eyebrow">{article.data.section.replace("-", " ")}</p>
+                      <h3>{article.data.title}</h3>
+                      <p>{article.data.dek}</p>
+                    </>
+                  </div>
+                  <b>{article.data.readingMinutes} min</b>
+                </>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+    <aside class="method reading-shell">
+      <p class="eyebrow">Editorial method</p><h2>
+        Claims you can trace; examples you can hear
+      </h2><p>
+        Historical claims point to endnotes. Technical explanations use original examples
+        rather than protected transcriptions. Contemporary staged images are labeled as
+        such.
+      </p><a href="/editorial-standards/">Read the editorial standards</a>
+    </aside>
+  </main>
+</Layout>
+<style>
+  .lead {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    min-height: 42rem;
+    background: var(--night-raised);
+  }
+
+  .lead__media {
+    min-height: 28rem;
+  }
+
+  .lead__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .lead__copy {
+    display: grid;
+    gap: 1.15rem;
+    align-content: center;
+    padding: clamp(2rem, 6vw, 6rem);
+  }
+
+  .lead h1 {
+    max-width: 12ch;
+    margin: 0;
+  }
+
+  .lead__copy > p:not(.eyebrow, .meta) {
+    font-size: 1.12rem;
+    color: var(--muted);
+  }
+
+  .meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .lead .button {
+    justify-self: start;
+  }
+
+  .feed,
+  .method {
+    padding-block: var(--space-2xl);
+  }
+
+  .feed > header {
+    max-width: 58rem;
+  }
+
+  .feed > header > p:last-child {
+    color: var(--muted);
+  }
+
+  .feed ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  .feed li {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .feed li > a {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .feed li > a > span {
+    font:
+      700 1.5rem Literata,
+      serif;
+    color: var(--oxide);
+  }
+
+  .feed h3 {
+    margin: 0.2rem 0;
+    font-size: clamp(1.35rem, 2.3vw, 2rem);
+  }
+
+  .feed li p:last-child,
+  .feed b {
+    color: var(--muted);
+  }
+
+  .feed b {
+    font-size: 0.8rem;
+  }
+
+  .method {
+    border-top: 1px solid var(--line);
+  }
+
+  @media (width < 60rem) {
+    .lead {
+      grid-template-columns: 1fr;
+    }
+
+    .lead__media {
+      max-height: 30rem;
+    }
+
+    .feed li > a {
+      grid-template-columns: 2.5rem 1fr;
+    }
+
+    .feed b {
+      grid-column: 2;
+    }
+  }
+</style>

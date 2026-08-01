@@ -1,0 +1,8 @@
+# MelodyMind Knowledge
+
+Research-led English-language guides to genres, listening, music terms, instruments, sound, and technology.
+
+- Home: https://knowledge.melody-mind.de/
+- Articles: https://knowledge.melody-mind.de/#issue-title
+- Editorial standards: https://knowledge.melody-mind.de/editorial-standards/
+- RSS: https://knowledge.melody-mind.de/rss.xml

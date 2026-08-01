@@ -1,0 +1,47 @@
+---
+import { Score } from "astro-lilypond";
+import dubBass from "../notation/dub-bass.ly";
+import dubFoundation from "../notation/dub-foundation.ly";
+import doubleTracking from "../notation/double-tracking.ly";
+import gothicBass from "../notation/gothic-bass.ly";
+import metalRiff from "../notation/metal-riff.ly";
+import punkDownstrokes from "../notation/punk-downstrokes.ly";
+import rockRhythmSection from "../notation/rock-rhythm-section.ly";
+
+const scores = {
+  "dub-bass": dubBass,
+  "dub-foundation": dubFoundation,
+  "double-tracking": doubleTracking,
+  "gothic-bass": gothicBass,
+  "metal-riff": metalRiff,
+  "punk-downstrokes": punkDownstrokes,
+  "rock-rhythm-section": rockRhythmSection,
+} as const;
+type ScoreKind = keyof typeof scores;
+interface Props {
+  kind: ScoreKind;
+  alt: string;
+}
+const { kind, alt } = Astro.props;
+---
+
+<figure class="notation-score">
+  <Score content={scores[kind]} format="svg" crop {alt} />
+</figure>
+
+<style>
+  .notation-score {
+    padding: 1rem;
+    margin-block: 1.5rem 2.5rem;
+    overflow-x: auto;
+    background: #fff;
+  }
+
+  .notation-score :global(img) {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+</style>

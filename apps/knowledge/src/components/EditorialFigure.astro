@@ -1,0 +1,78 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  caption: string;
+  rights: string;
+  variant?: "wide" | "reading" | "detail";
+}
+
+const { image, alt, caption, rights, variant = "reading" } = Astro.props;
+const sizes =
+  variant === "wide"
+    ? "(min-width: 90rem) 88rem, 100vw"
+    : variant === "detail"
+      ? "(min-width: 64rem) 54rem, 100vw"
+      : "(min-width: 48rem) 45rem, 100vw";
+---
+
+<figure class:list={["editorial-figure", `editorial-figure--${variant}`]}>
+  <Image
+    src={image}
+    {alt}
+    widths={[480, 720, 960, 1280, 1600]}
+    {sizes}
+    loading="lazy"
+    decoding="async"
+  />
+  <figcaption>
+    <span>{caption}</span>
+    <small>{rights}</small>
+  </figcaption>
+</figure>
+
+<style>
+  .editorial-figure {
+    margin-block: clamp(2.5rem, 7vw, 5rem);
+  }
+
+  .editorial-figure--wide {
+    position: relative;
+    left: 50%;
+    width: min(88rem, calc(100vw - 2rem));
+    margin-inline: 0;
+    transform: translateX(-50%);
+  }
+
+  .editorial-figure--detail {
+    position: relative;
+    left: 50%;
+    width: min(54rem, calc(100vw - 2rem));
+    margin-inline: 0;
+    transform: translateX(-50%);
+  }
+
+  .editorial-figure :global(img) {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+
+  figcaption {
+    display: grid;
+    gap: 0.35rem;
+    padding-top: 0.75rem;
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+
+  small {
+    font-size: 0.72rem;
+  }
+</style>

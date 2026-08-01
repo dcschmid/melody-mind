@@ -1,0 +1,26 @@
+---
+import Layout from "@layouts/Layout.astro";
+Astro.response.status = 404;
+---
+
+<Layout
+  title="Page not found"
+  description="This MelodyMind Knowledge page does not exist."
+  ><section class="reading-shell missing">
+    <p class="eyebrow">404</p><h1>This connection stops here.</h1><p>
+      The requested guide or term does not exist. Return to the complete Knowledge index.
+    </p><a class="button" href="/">Explore Knowledge</a>
+  </section></Layout
+><style>
+  .missing {
+    padding-block: 8rem;
+  }
+
+  .missing h1 {
+    margin: 0.5rem 0;
+  }
+
+  .missing p {
+    color: var(--muted);
+  }
+</style>
