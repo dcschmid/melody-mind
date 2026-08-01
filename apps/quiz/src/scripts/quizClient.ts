@@ -151,6 +151,10 @@ export function initQuiz(): void {
     persistSession();
   };
 
+  const scrollToQuestion = () => {
+    game.scrollIntoView({ block: "start" });
+  };
+
   const renderFeedback = (question: RuntimeQuestion, focusHeading = true) => {
     if (!session) {
       return;
@@ -321,7 +325,8 @@ export function initQuiz(): void {
       selectedOptionIds = new Set(existingAnswer.selectedOptionIds);
       renderFeedback(question, focusContent);
     } else if (focusContent) {
-      legend.focus();
+      legend.focus({ preventScroll: true });
+      scrollToQuestion();
     }
   };
 

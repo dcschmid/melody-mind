@@ -55,6 +55,24 @@ test("moves from answer feedback to sources and the next action in DOM order", a
   expect(orderIsNatural).toBe(true);
 });
 
+test("scrolls back to the quiz heading when the next question loads", async ({
+  page,
+}) => {
+  await page.goto("/1950s/");
+  await page.getByRole("button", { name: "Start quiz" }).click();
+  await page.getByRole("button", { name: "Show answer" }).click();
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.getByRole("button", { name: "Next question" }).click();
+
+  await expect(page.locator("#quiz-progress-text")).toHaveText("Question 2 of 10");
+  await expect(page.locator("#quiz-game")).toBeInViewport();
+  const gameTop = await page
+    .locator("#quiz-game")
+    .evaluate((element) => Math.round(element.getBoundingClientRect().top));
+  expect(gameTop).toBeGreaterThanOrEqual(0);
+  expect(gameTop).toBeLessThan(160);
+});
+
 test("reviews revealed answers and recommends the next quiz", async ({ page }) => {
   await page.goto("/1950s/");
   await page.getByRole("button", { name: "Start quiz" }).click();
