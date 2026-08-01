@@ -14,7 +14,7 @@ export const prerender = true;
 
 const title = "Cookie & Storage Policy";
 const description =
-  "Details about browser storage across MelodyMind Music, Quiz, and Stories.";
+  "Details about browser storage across MelodyMind Music, Quiz, Stories, Reviews, and Knowledge.";
 const lastUpdated = "25 July 2026";
 
 const highlights = [
@@ -44,6 +44,7 @@ const policySections = [
       "We use local storage to remember the last music player position and related playback state.",
       "MelodyMind Quiz does not use local storage, session storage, IndexedDB, or cookies for quiz progress or results.",
       "MelodyMind Stories does not use local storage, session storage, IndexedDB, or cookies. The annotated cover keeps its active note only in page memory.",
+      "MelodyMind Reviews and MelodyMind Knowledge do not use local storage, session storage, IndexedDB, or cookies. Knowledge audio controls keep their state only in the current page memory.",
       "You can clear this data at any time in your browser settings.",
     ]),
   },
@@ -98,7 +99,7 @@ const pageSeo = buildLegalPageSeo({
       <StaticPageHero
         eyebrow="Browser Storage"
         title="Cookie & Storage Policy"
-        lead="This page explains which browser storage technologies the MelodyMind Music, Quiz, and Stories domains use, why they use them, and how you can manage them."
+        lead="This page explains which browser storage technologies the MelodyMind Music, Quiz, Stories, Reviews, and Knowledge domains use, why they use them, and how you can manage them."
         {highlights}
         highlightsAriaLabel="Key cookie policy points"
       />

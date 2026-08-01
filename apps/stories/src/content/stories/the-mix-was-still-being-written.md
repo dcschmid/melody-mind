@@ -305,3 +305,10 @@ making records. Its four tracks did not contain an infinite number of sounds. Th
 forced choices about which sounds could share space and which could return in another
 version. Perry’s enduring invention was to treat those choices as musical events. The
 performance continued after the band stopped, because the mix was still being written.
+
+## Continue with Knowledge
+
+[How Dub Made the Studio an Instrument](https://knowledge.melody-mind.de/how-dub-made-the-studio-an-instrument/)
+separates the version, creative muting, delay, feedback, and reverb into audible
+relationships. Its original layer explorer lets you remove the arrangement one part at
+a time without treating the Black Ark as a plug-in recipe.

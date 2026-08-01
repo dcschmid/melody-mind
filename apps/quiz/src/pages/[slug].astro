@@ -63,6 +63,24 @@ const serializedData = JSON.stringify({
   questions,
 }).replaceAll("<", "\\u003c");
 const categoryLabel = quiz.data.category === "decade" ? "Decade quiz" : "Genre journey";
+const knowledgeLinks: Record<
+  string,
+  { title: string; description: string; url: string }
+> = {
+  "from-ska-to-global-bass": {
+    title: "How Dub Made the Studio an Instrument",
+    description:
+      "Hear how versions, creative muting, delay, feedback, and reverb reshape one rhythm.",
+    url: "https://knowledge.melody-mind.de/how-dub-made-the-studio-an-instrument/",
+  },
+  "from-electronic-experiments-to-club-culture": {
+    title: "How to Hear Space in a Mix",
+    description:
+      "Separate direct sound, early reflections, reverb tails, and audible delay repeats.",
+    url: "https://knowledge.melody-mind.de/how-to-hear-space-in-a-mix/",
+  },
+};
+const knowledgeLink = knowledgeLinks[quiz.id];
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -246,6 +264,18 @@ const structuredData = [
       <p class="quiz-result__perfect" id="quiz-result-perfect" hidden>
         You answered every question correctly. No review needed this time.
       </p>
+      {
+        knowledgeLink && (
+          <aside class="quiz-result__knowledge" aria-labelledby="quiz-result-knowledge">
+            <p class="eyebrow">Continue with Knowledge</p>
+            <h2 id="quiz-result-knowledge">{knowledgeLink.title}</h2>
+            <p>{knowledgeLink.description}</p>
+            <a class="button button--secondary" href={knowledgeLink.url}>
+              Open the listening guide
+            </a>
+          </aside>
+        )
+      }
       <section class="quiz-result__next" aria-labelledby="quiz-result-next-title">
         <Image
           class="quiz-result__next-image"
@@ -725,6 +755,15 @@ const structuredData = [
     font-variant-numeric: tabular-nums;
   }
 
+  .quiz-result__knowledge h2,
+  .quiz-result__knowledge p {
+    margin: 0;
+  }
+
+  .quiz-result__knowledge > p:not(.eyebrow) {
+    color: var(--quiet-ink);
+  }
+
   .quiz-result__copy,
   .quiz-result__perfect,
   .quiz-error > p:not(.eyebrow) {
@@ -816,6 +855,19 @@ const structuredData = [
     background: var(--raised-night);
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
+  }
+
+  .quiz-result__knowledge {
+    display: grid;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background: var(--raised-night);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-lg);
+  }
+
+  .quiz-result__knowledge .button {
+    justify-self: start;
   }
 
   .quiz-result__next-image {
