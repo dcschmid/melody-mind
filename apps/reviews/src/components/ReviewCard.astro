@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  review: CollectionEntry<"reviews">;
+}
+
+const { review } = Astro.props;
+---
+
+<li class="review-card">
+  <a href={`/reviews/${review.id}/`}>
+    <span class="review-card__cover">
+      {
+        review.data.cover.mode === "original" ? (
+          <img
+            src={review.data.cover.src}
+            alt=""
+            width="640"
+            height="640"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <span class="review-card__typographic" aria-hidden="true">
+            <span>{review.data.album.title}</span>
+            <small>{review.data.album.artist}</small>
+          </span>
+        )
+      }
+    </span>
+    <span class="review-card__copy">
+      <span class="review-card__genre">{review.data.album.genres[0]}</span>
+      <h2>{review.data.album.title}</h2>
+      <strong>{review.data.album.artist}</strong>
+      <span class="review-card__thesis">{review.data.thesis}</span>
+      <span class="review-card__read">Read review <span aria-hidden="true">→</span></span>
+    </span>
+  </a>
+</li>

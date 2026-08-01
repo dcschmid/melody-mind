@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomeArchive from "@components/HomeArchive.astro";
+import { getPublishedStories } from "@utils/archive";
+import { ARCHIVE_PAGE_SIZE, formatArchivePageUrl } from "@utils/archivePagination";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const stories = await getPublishedStories();
+  return paginate(stories, {
+    pageSize: ARCHIVE_PAGE_SIZE,
+    format: formatArchivePageUrl,
+  }).slice(1);
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<HomeArchive
+  stories={page.data}
+  currentPage={page.currentPage}
+  lastPage={page.lastPage}
+  start={page.start + 1}
+  end={page.end + 1}
+  total={page.total}
+  prevUrl={page.url.prev}
+  nextUrl={page.url.next}
+/>

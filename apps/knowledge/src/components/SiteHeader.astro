@@ -4,7 +4,7 @@ import melodyMindLogo from "@assets/melody-mind-logo.webp";
 const current = Astro.url.pathname;
 const isActive = (href: string) =>
   href === "/"
-    ? current === "/"
+    ? current === "/" || current.startsWith("/page/")
     : !href.startsWith("https://") && current.startsWith(href);
 const navigation = [
   { href: "/#issue-title", label: "Articles" },

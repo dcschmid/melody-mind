@@ -43,15 +43,13 @@ const nextQuizImage = getQuizArtwork(nextQuiz.id);
 const imageUrl = new URL(image.src, Astro.site).toString();
 const title = quiz.data.seoTitle ?? `${quiz.data.title} Music Quiz`;
 const description = quiz.data.seoDescription ?? quiz.data.description;
-const questions = quiz.data.questions.map(
-  (question): QuizQuestion => ({
-    ...question,
-    sources: question.sources.map((source) => ({
-      ...source,
-      checkedAt: source.checkedAt.toISOString(),
-    })),
-  })
-);
+const questions = quiz.data.questions.map((question): QuizQuestion => ({
+  ...question,
+  sources: question.sources.map((source) => ({
+    ...source,
+    checkedAt: source.checkedAt.toISOString(),
+  })),
+}));
 const fingerprint = createHash("sha256")
   .update(JSON.stringify(questions))
   .digest("hex")

@@ -13,7 +13,9 @@ const navigation = [
 
 const isCurrent = (href: string) =>
   href === "/"
-    ? currentPath === href || currentPath.startsWith("/reviews/")
+    ? currentPath === href ||
+      currentPath.startsWith("/page/") ||
+      currentPath.startsWith("/reviews/")
     : currentPath.startsWith(href);
 ---
 

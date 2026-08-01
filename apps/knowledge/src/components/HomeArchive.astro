@@ -1,0 +1,310 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import Layout from "@layouts/Layout.astro";
+import Pagination from "@components/Pagination.astro";
+
+interface Props {
+  articles: CollectionEntry<"articles">[];
+  currentPage: number;
+  lastPage: number;
+  start: number;
+  end: number;
+  total: number;
+  prevUrl?: string;
+  nextUrl?: string;
+}
+
+const { articles, currentPage, lastPage, start, end, total, prevUrl, nextUrl } =
+  Astro.props;
+const isFirstPage = currentPage === 1;
+const lead = isFirstPage ? articles[0] : undefined;
+const cards = lead ? articles.slice(1) : articles;
+const cardStart = start + (lead ? 1 : 0);
+const title = isFirstPage
+  ? "MelodyMind Knowledge | Long-form music listening and history"
+  : `Knowledge archive — Page ${currentPage}`;
+const description = isFirstPage
+  ? "Research-led long-form articles explain how rhythm, production, scenes, and recording techniques shape what listeners hear."
+  : `Page ${currentPage} of the MelodyMind Knowledge archive.`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: isFirstPage
+    ? "MelodyMind Knowledge"
+    : `MelodyMind Knowledge — Page ${currentPage}`,
+  url: canonical,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: articles.map((article, index) => ({
+      "@type": "ListItem",
+      position: start + index,
+      name: article.data.title,
+      url: new URL(`/${article.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<Layout {title} {description} {prevUrl} {nextUrl} structuredData={[schema]}>
+  {
+    lead && (
+      <section class="lead">
+        <div class="lead__media">
+          {lead.data.hero && (
+            <Image
+              src={lead.data.hero.image}
+              alt={lead.data.hero.alt}
+              widths={[640, 960, 1280, 1600]}
+              sizes="(min-width: 64rem) 58vw, 100vw"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          )}
+        </div>
+        <div class="lead__copy">
+          <p class="eyebrow">The opening article</p>
+          <h1>{lead.data.title}</h1>
+          <p>{lead.data.dek}</p>
+          <p class="meta">{lead.data.readingMinutes} min read</p>
+          <a class="button" href={`/${lead.id}/`}>
+            Read the article
+          </a>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="archive page-shell" aria-labelledby="archive-title">
+    <header class="archive__header">
+      <p class="eyebrow">
+        {isFirstPage ? "Editorial archive" : `Archive page ${currentPage} of ${lastPage}`}
+      </p>
+      {
+        isFirstPage ? (
+          <h2 id="archive-title">Ideas you can test by listening.</h2>
+        ) : (
+          <h1 id="archive-title">Knowledge archive</h1>
+        )
+      }
+      <p>
+        Production, listening, rhythm, and genre history, documented through sources and
+        concrete musical examples.
+      </p>
+    </header>
+
+    <ol class="archive__grid" start={cardStart}>
+      {
+        cards.map((article) => (
+          <li class="archive-card">
+            <a href={`/${article.id}/`}>
+              {article.data.hero && (
+                <span class="archive-card__image">
+                  <Image
+                    src={article.data.hero.image}
+                    alt=""
+                    widths={[360, 560, 760]}
+                    sizes="(min-width: 64rem) 30vw, (min-width: 42rem) 46vw, 100vw"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              )}
+              <span class="archive-card__copy">
+                <span class="eyebrow">{article.data.section.replace("-", " ")}</span>
+                <h2>{article.data.title}</h2>
+                <span class="archive-card__dek">{article.data.dek}</span>
+                <span class="archive-card__meta">
+                  {article.data.readingMinutes} min read
+                </span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+
+    <Pagination {currentPage} {lastPage} {start} {end} {total} />
+  </section>
+
+  {
+    isFirstPage && (
+      <aside class="method reading-shell">
+        <p class="eyebrow">Editorial method</p>
+        <h2>Claims you can trace; examples you can hear</h2>
+        <p>
+          Historical claims point to endnotes. Technical explanations use original
+          examples rather than protected transcriptions. Contemporary staged images are
+          labeled as such.
+        </p>
+        <a href="/editorial-standards/">Read the editorial standards</a>
+      </aside>
+    )
+  }
+</Layout>
+
+<style>
+  .lead {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    min-block-size: 42rem;
+    background: var(--night-raised);
+  }
+
+  .lead__media {
+    min-block-size: 28rem;
+    background: var(--night-soft);
+  }
+
+  .lead__media :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .lead__copy {
+    display: grid;
+    gap: 1.15rem;
+    align-content: center;
+    padding: clamp(2rem, 6vw, 6rem);
+  }
+
+  .lead h1 {
+    max-inline-size: 12ch;
+    margin: 0;
+  }
+
+  .lead__copy > p:not(.eyebrow, .meta) {
+    font-size: 1.12rem;
+    color: var(--muted);
+  }
+
+  .meta,
+  .archive-card__meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .lead .button {
+    justify-self: start;
+  }
+
+  .archive,
+  .method {
+    padding-block: var(--space-2xl);
+  }
+
+  .archive {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  .archive__header {
+    display: grid;
+    gap: var(--space-md);
+    max-inline-size: 58rem;
+  }
+
+  .archive__header > p:last-child {
+    color: var(--muted);
+  }
+
+  .archive__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .archive-card {
+    min-inline-size: 0;
+    background: var(--night-raised);
+    border: 1px solid var(--line);
+  }
+
+  .archive-card a {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    block-size: 100%;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .archive-card__image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--night-soft);
+  }
+
+  .archive-card__image :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform 320ms ease-out;
+  }
+
+  .archive-card__copy {
+    display: grid;
+    gap: var(--space-sm);
+    align-content: start;
+    padding: var(--space-lg);
+  }
+
+  .archive-card h2 {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.4vw, 2rem);
+  }
+
+  .archive-card__dek {
+    color: var(--muted);
+  }
+
+  .archive-card__meta {
+    align-self: end;
+    padding-block-start: var(--space-sm);
+  }
+
+  .archive-card a:hover,
+  .archive-card a:focus-visible {
+    outline-offset: 0.25rem;
+    border-color: var(--oxide);
+  }
+
+  .archive-card a:hover .archive-card__image :global(img),
+  .archive-card a:focus-visible .archive-card__image :global(img) {
+    transform: scale(1.025);
+  }
+
+  .method {
+    border-block-start: 1px solid var(--line);
+  }
+
+  @media (width < 60rem) {
+    .lead {
+      grid-template-columns: 1fr;
+      min-block-size: auto;
+    }
+
+    .lead__media {
+      max-block-size: 30rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .archive-card__image :global(img) {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .archive-card {
+      border-color: CanvasText;
+    }
+  }
+</style>

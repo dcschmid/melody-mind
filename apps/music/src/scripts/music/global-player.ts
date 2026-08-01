@@ -1269,8 +1269,7 @@ const initGlobalPlayer = (): void => {
           radioSession.playingSince = performance.now();
         }
         const track = state.queue.tracks[state.currentTrackIndex] as
-          | RadioPlayerTrack
-          | undefined;
+          RadioPlayerTrack | undefined;
         const trackKey = `${state.queue.queueId}:${state.currentTrackIndex}`;
         if (track && trackKey !== lastStartedRadioTrack) {
           lastStartedRadioTrack = trackKey;

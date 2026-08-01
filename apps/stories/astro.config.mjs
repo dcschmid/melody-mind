@@ -21,15 +21,18 @@ const newestStoryDate = getNewestSitemapDate(storyDates);
 export default defineConfig({
   site: "https://stories.melody-mind.de",
   output: "static",
+  redirects: { "/page/1": "/" },
   integrations: [
     sitemap({
       filter: (page) => getPathname(page) !== "/404/",
       serialize: (item) => {
         const pathname = getPathname(item.url);
-        const lastmod = pathname === "/" ? newestStoryDate : storyDates.get(pathname);
+        const archivePage = pathname === "/" || pathname.startsWith("/page/");
+        const lastmod = archivePage ? newestStoryDate : storyDates.get(pathname);
         if (lastmod) item.lastmod = lastmod;
-        item.changefreq = pathname === "/" ? "weekly" : "monthly";
-        item.priority = pathname === "/" ? 1 : pathname === "/about/" ? 0.6 : 0.8;
+        item.changefreq = archivePage ? "weekly" : "monthly";
+        item.priority =
+          pathname === "/" ? 1 : archivePage ? 0.7 : pathname === "/about/" ? 0.6 : 0.8;
         return item;
       },
     }),

@@ -8,6 +8,7 @@ import path from "node:path";
 export default defineConfig({
   site: "https://knowledge.melody-mind.de",
   output: "static",
+  redirects: { "/page/1": "/" },
   integrations: [
     lilypond({
       autoInstall: { version: "2.26.0" },

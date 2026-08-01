@@ -7,7 +7,9 @@ interface Props {
 
 const { currentPath = Astro.url.pathname } = Astro.props;
 const isActive = (href: string) =>
-  href === "/" ? currentPath === "/" : currentPath.startsWith(href);
+  href === "/"
+    ? currentPath === "/" || currentPath.startsWith("/page/")
+    : currentPath.startsWith(href);
 const navigation = [
   { href: "/", label: "Stories" },
   { href: "/about/", label: "About" },

@@ -1,196 +1,482 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
+import ReviewCard from "@components/ReviewCard.astro";
+
 interface Props {
   reviews: CollectionEntry<"reviews">[];
-  filters?: boolean;
+  searchable?: boolean;
+  genres?: string[];
+  totalReviews?: number;
 }
 
-const { reviews, filters = true } = Astro.props;
-const genres = [
-  ...new Set(reviews.flatMap((review) => review.data.album.genres)),
-].toSorted((left, right) => left.localeCompare(right));
+const {
+  reviews,
+  searchable = false,
+  genres = [],
+  totalReviews = reviews.length,
+} = Astro.props;
 ---
 
-<section class="review-directory" data-review-directory>
+<section
+  class="review-directory"
+  data-review-directory
+  data-searchable={searchable ? "true" : "false"}
+  data-index-url="/review-search-index.json"
+>
   {
-    filters && genres.length > 1 && (
-      <div class="review-directory__filters">
-        <p class="review-directory__filter-label" id="genre-filter-label">
-          Filter by genre
-        </p>
-        <div
-          class="review-directory__filter-list"
-          role="group"
-          aria-labelledby="genre-filter-label"
-        >
-          <button type="button" class="is-active" data-genre="all" aria-pressed="true">
-            All <span class="review-directory__filter-count">{reviews.length}</span>
-          </button>
-          {genres.map((genre) => (
+    searchable && (
+      <div class="review-directory__controls">
+        <form class="review-directory__search" role="search" data-review-search-form>
+          <label for="review-archive-search">Search the review archive</label>
+          <div class="review-directory__search-row">
+            <input
+              id="review-archive-search"
+              type="search"
+              name="q"
+              autocomplete="off"
+              placeholder="Album, artist, genre, or argument"
+              data-review-search-input
+            />
+            <button type="submit">Search</button>
             <button
               type="button"
-              data-genre={genre.toLocaleLowerCase()}
-              aria-pressed="false"
+              class="review-directory__clear"
+              data-review-search-clear
+              hidden
             >
-              {genre}
+              Clear
             </button>
-          ))}
+          </div>
+        </form>
+
+        <div class="review-directory__filters">
+          <p id="review-genre-filter-label">Filter by genre</p>
+          <div role="group" aria-labelledby="review-genre-filter-label">
+            <button type="button" data-review-genre="" aria-pressed="true">
+              All
+            </button>
+            {genres.map((genre) => (
+              <button type="button" data-review-genre={genre} aria-pressed="false">
+                {genre}
+              </button>
+            ))}
+          </div>
         </div>
-        <p class="review-directory__status" aria-live="polite" data-filter-status>
-          Showing all {reviews.length} reviews
+
+        <p
+          class="review-directory__status"
+          role="status"
+          aria-live="polite"
+          data-review-search-status
+        >
+          Search or choose a genre across all {totalReviews} reviews.
         </p>
       </div>
     )
   }
 
-  <ol class="review-directory__grid">
-    {
-      reviews.map((review) => (
-        <li
-          data-review-card
-          data-genres={review.data.album.genres
-            .map((genre) => genre.toLocaleLowerCase())
-            .join("|")}
+  <ol class="review-directory__grid" data-review-static-grid>
+    {reviews.map((review) => <ReviewCard {review} />)}
+  </ol>
+
+  {
+    searchable && (
+      <>
+        <ol class="review-directory__grid" data-review-search-grid hidden />
+        <nav
+          class="review-directory__result-pages"
+          aria-label="Filtered review result pages"
+          data-review-result-pages
+          hidden
         >
-          <a href={`/reviews/${review.id}/`}>
-            <div class="review-directory__cover">
-              {review.data.cover.mode === "original" ? (
+          <button type="button" data-review-result-previous>
+            Previous results
+          </button>
+          <span data-review-result-page>Page 1 of 1</span>
+          <button type="button" data-review-result-next>
+            Next results
+          </button>
+        </nav>
+        <template data-review-card-template>
+          <li class="review-card">
+            <a href="/">
+              <span class="review-card__cover">
                 <img
-                  src={review.data.cover.src}
+                  src=""
                   alt=""
                   width="640"
                   height="640"
                   loading="lazy"
                   decoding="async"
+                  hidden
                 />
-              ) : (
-                <span aria-hidden="true">
-                  {review.data.album.title}
-                  <small>{review.data.album.artist}</small>
+                <span class="review-card__typographic" aria-hidden="true">
+                  <span data-review-card-title-mark />
+                  <small data-review-card-artist-mark />
                 </span>
-              )}
-            </div>
-            <div class="review-directory__copy">
-              <p>{review.data.album.genres[0]}</p>
-              <h2>{review.data.album.title}</h2>
-              <strong>{review.data.album.artist}</strong>
-              <span class="review-directory__thesis">{review.data.thesis}</span>
-              <span class="review-directory__read">
-                Read review <span aria-hidden="true">→</span>
               </span>
-            </div>
-          </a>
-        </li>
-      ))
-    }
-  </ol>
+              <span class="review-card__copy">
+                <span class="review-card__genre" data-review-card-genre />
+                <h2 data-review-card-title>Review title</h2>
+                <strong data-review-card-artist />
+                <span class="review-card__thesis" data-review-card-thesis />
+                <span class="review-card__read">
+                  Read review <span aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+          </li>
+        </template>
+      </>
+    )
+  }
 </section>
 
 <script>
-  const initializeReviewDirectories = () => {
-    document.querySelectorAll<HTMLElement>("[data-review-directory]").forEach((root) => {
-      if (root.dataset.ready === "true") {
-        return;
-      }
+  import {
+    filterReviewSearchRecords,
+    paginateReviewSearchRecords,
+    type ReviewSearchRecord,
+  } from "@utils/reviewSearch";
 
-      root.dataset.ready = "true";
-      const buttons = root.querySelectorAll<HTMLButtonElement>("[data-genre]");
-      const cards = root.querySelectorAll<HTMLElement>("[data-review-card]");
-      const status = root.querySelector<HTMLElement>("[data-filter-status]");
+  const initializeReviewSearch = () => {
+    document
+      .querySelectorAll<HTMLElement>('[data-review-directory][data-searchable="true"]')
+      .forEach((root) => {
+        if (root.dataset.ready === "true") {
+          return;
+        }
+        root.dataset.ready = "true";
 
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const selectedGenre = button.dataset.genre ?? "all";
-          let visibleCount = 0;
+        const form = root.querySelector<HTMLFormElement>("[data-review-search-form]");
+        const input = root.querySelector<HTMLInputElement>("[data-review-search-input]");
+        const clear = root.querySelector<HTMLButtonElement>("[data-review-search-clear]");
+        const genreButtons =
+          root.querySelectorAll<HTMLButtonElement>("[data-review-genre]");
+        const status = root.querySelector<HTMLElement>("[data-review-search-status]");
+        const staticGrid = root.querySelector<HTMLOListElement>(
+          "[data-review-static-grid]"
+        );
+        const searchGrid = root.querySelector<HTMLOListElement>(
+          "[data-review-search-grid]"
+        );
+        const template = root.querySelector<HTMLTemplateElement>(
+          "[data-review-card-template]"
+        );
+        const resultPages = root.querySelector<HTMLElement>("[data-review-result-pages]");
+        const resultPage = root.querySelector<HTMLElement>("[data-review-result-page]");
+        const previous = root.querySelector<HTMLButtonElement>(
+          "[data-review-result-previous]"
+        );
+        const next = root.querySelector<HTMLButtonElement>("[data-review-result-next]");
+        const defaultPagination = document.querySelector<HTMLElement>(
+          "[data-review-default-pagination]"
+        );
 
-          buttons.forEach((candidate) => {
-            const active = candidate === button;
-            candidate.classList.toggle("is-active", active);
-            candidate.setAttribute("aria-pressed", String(active));
-          });
+        if (
+          !form ||
+          !input ||
+          !clear ||
+          !status ||
+          !staticGrid ||
+          !searchGrid ||
+          !template ||
+          !resultPages ||
+          !resultPage ||
+          !previous ||
+          !next
+        ) {
+          return;
+        }
 
-          cards.forEach((card) => {
-            const cardGenres = card.dataset.genres?.split("|") ?? [];
-            const visible = selectedGenre === "all" || cardGenres.includes(selectedGenre);
-            card.hidden = !visible;
-            if (visible) {
-              visibleCount += 1;
-            }
-          });
+        let records: ReviewSearchRecord[] | undefined;
+        let requestedResultPage = 1;
+        let debounceTimer = 0;
 
-          if (status) {
-            status.textContent =
-              selectedGenre === "all"
-                ? `Showing all ${visibleCount} reviews`
-                : `${visibleCount} ${visibleCount === 1 ? "review" : "reviews"} in ${button.textContent?.trim()}`;
+        const readState = () => {
+          const params = new URL(window.location.href).searchParams;
+          input.value = params.get("q") ?? "";
+          const genre = params.get("genre") ?? "";
+          requestedResultPage =
+            Number.parseInt(params.get("resultsPage") ?? "1", 10) || 1;
+          genreButtons.forEach((button) =>
+            button.setAttribute(
+              "aria-pressed",
+              String(button.dataset.reviewGenre === genre)
+            )
+          );
+        };
+
+        const selectedGenre = () =>
+          Array.from(genreButtons).find(
+            (button) => button.getAttribute("aria-pressed") === "true"
+          )?.dataset.reviewGenre ?? "";
+
+        const writeState = (currentPage: number) => {
+          const url = new URL(window.location.href);
+          const query = input.value.trim();
+          const genre = selectedGenre();
+          query ? url.searchParams.set("q", query) : url.searchParams.delete("q");
+          genre ? url.searchParams.set("genre", genre) : url.searchParams.delete("genre");
+          currentPage > 1
+            ? url.searchParams.set("resultsPage", String(currentPage))
+            : url.searchParams.delete("resultsPage");
+          window.history.replaceState({}, "", url);
+        };
+
+        const loadRecords = async () => {
+          if (records) {
+            return records;
           }
+          root.setAttribute("aria-busy", "true");
+          const response = await fetch(
+            root.dataset.indexUrl ?? "/review-search-index.json"
+          );
+          if (!response.ok) {
+            throw new Error(`Search index returned ${response.status}.`);
+          }
+          records = (await response.json()) as ReviewSearchRecord[];
+          root.removeAttribute("aria-busy");
+          return records;
+        };
+
+        const createCard = (record: ReviewSearchRecord) => {
+          const card = template.content.firstElementChild?.cloneNode(true);
+          if (!(card instanceof HTMLElement)) {
+            return undefined;
+          }
+          const link = card.querySelector<HTMLAnchorElement>("a");
+          const image = card.querySelector<HTMLImageElement>("img");
+          const mark = card.querySelector<HTMLElement>(".review-card__typographic");
+          if (link) {
+            link.href = record.url;
+          }
+          if (image && mark) {
+            image.hidden = record.cover.mode !== "original";
+            mark.hidden = record.cover.mode === "original";
+            if (record.cover.mode === "original") {
+              image.src = record.cover.src;
+            }
+          }
+          card.querySelector<HTMLElement>("[data-review-card-title-mark]")!.textContent =
+            record.title;
+          card.querySelector<HTMLElement>("[data-review-card-artist-mark]")!.textContent =
+            record.artist;
+          card.querySelector<HTMLElement>("[data-review-card-genre]")!.textContent =
+            record.genres[0] ?? "Review";
+          card.querySelector<HTMLElement>("[data-review-card-title]")!.textContent =
+            record.title;
+          card.querySelector<HTMLElement>("[data-review-card-artist]")!.textContent =
+            record.artist;
+          card.querySelector<HTMLElement>("[data-review-card-thesis]")!.textContent =
+            record.thesis;
+          return card;
+        };
+
+        const restoreArchive = () => {
+          staticGrid.hidden = false;
+          searchGrid.hidden = true;
+          searchGrid.replaceChildren();
+          resultPages.hidden = true;
+          if (defaultPagination) {
+            defaultPagination.hidden = false;
+          }
+          clear.hidden = true;
+          status.textContent = `Search or choose a genre across the full review archive.`;
+          writeState(1);
+        };
+
+        const render = async (updateUrl = true) => {
+          const query = input.value.trim();
+          const genre = selectedGenre();
+          const active = Boolean(query || genre);
+          if (!active) {
+            restoreArchive();
+            return;
+          }
+
+          clear.hidden = false;
+          status.textContent = "Searching the review archive…";
+          try {
+            const allRecords = await loadRecords();
+            const matches = filterReviewSearchRecords(allRecords, query, genre);
+            const page = paginateReviewSearchRecords(matches, requestedResultPage);
+            requestedResultPage = page.currentPage;
+            searchGrid.replaceChildren(
+              ...page.data
+                .map(createCard)
+                .filter((card): card is HTMLElement => Boolean(card))
+            );
+            staticGrid.hidden = true;
+            searchGrid.hidden = false;
+            if (defaultPagination) {
+              defaultPagination.hidden = true;
+            }
+            resultPages.hidden = page.lastPage <= 1;
+            previous.disabled = page.currentPage === 1;
+            next.disabled = page.currentPage === page.lastPage;
+            resultPage.textContent = `Page ${page.currentPage} of ${page.lastPage}`;
+            status.textContent =
+              page.total === 0
+                ? "No reviews match this search and genre."
+                : `Showing ${page.start}–${page.end} of ${page.total} matching reviews.`;
+            if (updateUrl) {
+              writeState(page.currentPage);
+            }
+          } catch {
+            root.removeAttribute("aria-busy");
+            staticGrid.hidden = false;
+            searchGrid.hidden = true;
+            resultPages.hidden = true;
+            if (defaultPagination) {
+              defaultPagination.hidden = false;
+            }
+            status.textContent =
+              "Search is temporarily unavailable. The paginated archive remains below.";
+          }
+        };
+
+        const resetResultPageAndRender = () => {
+          requestedResultPage = 1;
+          void render();
+        };
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          resetResultPageAndRender();
         });
+        input.addEventListener("input", () => {
+          window.clearTimeout(debounceTimer);
+          debounceTimer = window.setTimeout(resetResultPageAndRender, 180);
+        });
+        clear.addEventListener("click", () => {
+          input.value = "";
+          genreButtons.forEach((button) =>
+            button.setAttribute("aria-pressed", String(button.dataset.reviewGenre === ""))
+          );
+          requestedResultPage = 1;
+          restoreArchive();
+          input.focus();
+        });
+        genreButtons.forEach((button) =>
+          button.addEventListener("click", () => {
+            genreButtons.forEach((candidate) =>
+              candidate.setAttribute("aria-pressed", String(candidate === button))
+            );
+            resetResultPageAndRender();
+          })
+        );
+        previous.addEventListener("click", () => {
+          requestedResultPage -= 1;
+          void render();
+        });
+        next.addEventListener("click", () => {
+          requestedResultPage += 1;
+          void render();
+        });
+        window.addEventListener("popstate", () => {
+          readState();
+          void render(false);
+        });
+
+        readState();
+        if (input.value.trim() || selectedGenre()) {
+          void render(false);
+        }
       });
-    });
   };
 
-  initializeReviewDirectories();
-  document.addEventListener("astro:page-load", initializeReviewDirectories);
+  initializeReviewSearch();
+  document.addEventListener("astro:page-load", initializeReviewSearch);
 </script>
 
-<style>
+<style is:global>
   .review-directory {
     display: grid;
     gap: var(--space-xl);
   }
 
-  .review-directory__filters {
+  .review-directory__controls {
     display: grid;
-    gap: var(--space-sm);
+    gap: var(--space-lg);
     padding-block: var(--space-lg);
     border-block: 1px solid var(--line);
   }
 
-  .review-directory__filter-label {
+  .review-directory__search {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .review-directory__search label,
+  .review-directory__filters > p {
     margin: 0;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 700;
     color: var(--quiet-ink);
     text-transform: uppercase;
-    letter-spacing: 0.11em;
+    letter-spacing: 0.09em;
   }
 
-  .review-directory__filter-list {
+  .review-directory__search-row {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
   }
 
-  .review-directory__filter-list button {
+  .review-directory__search input {
+    flex: 1 1 18rem;
+    min-inline-size: 0;
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-md);
+    font: inherit;
+    color: var(--paper-ink);
+    background: var(--desk-night);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .review-directory__search button,
+  .review-directory__filters button,
+  .review-directory__result-pages button {
     min-block-size: var(--control-size);
     padding-inline: var(--space-md);
     font: inherit;
     font-size: 0.84rem;
     font-weight: 700;
-    color: var(--quiet-ink);
+    color: var(--paper-ink);
     cursor: pointer;
     background: transparent;
     border: 1px solid var(--line);
     border-radius: 999px;
   }
 
-  .review-directory__filter-list button:hover,
-  .review-directory__filter-list button:focus-visible,
-  .review-directory__filter-list button.is-active {
+  .review-directory__search button:hover,
+  .review-directory__search button:focus-visible,
+  .review-directory__filters button:hover,
+  .review-directory__filters button:focus-visible,
+  .review-directory__filters button[aria-pressed="true"],
+  .review-directory__result-pages button:hover,
+  .review-directory__result-pages button:focus-visible {
     color: var(--archive-night);
     background: var(--signal);
     border-color: var(--signal);
   }
 
-  .review-directory__filter-count {
-    margin-inline-start: 0.25rem;
-    font-variant-numeric: tabular-nums;
+  .review-directory__filters {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .review-directory__filters > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
   }
 
   .review-directory__status {
     margin: 0;
-    font-size: 0.78rem;
     color: var(--quiet-ink);
   }
 
@@ -203,32 +489,37 @@ const genres = [
     list-style: none;
   }
 
-  .review-directory__grid li[hidden] {
-    display: none;
+  .review-card {
+    min-inline-size: 0;
   }
 
-  .review-directory__grid a {
+  .review-card > a {
     display: grid;
+    grid-template-rows: auto 1fr;
     gap: var(--space-md);
+    block-size: 100%;
     color: var(--paper-ink);
     text-decoration: none;
   }
 
-  .review-directory__cover {
+  .review-card__cover {
     position: relative;
+    display: block;
     aspect-ratio: 1;
     overflow: hidden;
     background: var(--desk-night);
+    border: 1px solid var(--line);
   }
 
-  .review-directory__cover img {
+  .review-card__cover > img {
+    display: block;
     inline-size: 100%;
     block-size: 100%;
     object-fit: cover;
     transition: transform 360ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .review-directory__cover > span {
+  .review-card__typographic {
     display: grid;
     gap: var(--space-xs);
     align-content: end;
@@ -241,23 +532,18 @@ const genres = [
     background: var(--paper-ink);
   }
 
-  .review-directory__cover small {
+  .review-card__typographic small {
     font-family: var(--font-sans);
     font-size: 0.85rem;
   }
 
-  .review-directory__grid a:hover img,
-  .review-directory__grid a:focus-visible img {
-    transform: scale(1.025);
-  }
-
-  .review-directory__copy {
+  .review-card__copy {
     display: grid;
     gap: 0.3rem;
+    align-content: start;
   }
 
-  .review-directory__copy p {
-    margin: 0;
+  .review-card__genre {
     font-size: 0.68rem;
     font-weight: 700;
     color: var(--signal);
@@ -265,7 +551,7 @@ const genres = [
     letter-spacing: 0.1em;
   }
 
-  .review-directory__copy h2 {
+  .review-card__copy h2 {
     margin: 0;
     font-family: var(--font-display);
     font-size: clamp(1.55rem, 4vw, 2.25rem);
@@ -273,20 +559,21 @@ const genres = [
     text-wrap: balance;
   }
 
-  .review-directory__copy > strong {
+  .review-card__copy > strong {
     font-size: 0.92rem;
     color: var(--quiet-ink);
   }
 
-  .review-directory__thesis {
+  .review-card__thesis {
     margin-block-start: var(--space-xs);
     color: var(--quiet-ink);
   }
 
-  .review-directory__read {
+  .review-card__read {
     display: inline-flex;
     gap: var(--space-xs);
     align-items: center;
+    align-self: end;
     inline-size: fit-content;
     min-block-size: var(--control-size);
     margin-block-start: var(--space-xs);
@@ -295,6 +582,30 @@ const genres = [
     color: var(--signal);
     text-decoration: underline;
     text-underline-offset: 0.2em;
+  }
+
+  .review-card > a:hover img,
+  .review-card > a:focus-visible img {
+    transform: scale(1.025);
+  }
+
+  .review-directory__result-pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: space-between;
+    padding-block-start: var(--space-lg);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .review-directory__result-pages button:disabled {
+    cursor: default;
+    opacity: 0.45;
+  }
+
+  .review-directory [hidden] {
+    display: none !important;
   }
 
   @media (width >= 38rem) {
@@ -310,8 +621,15 @@ const genres = [
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .review-directory__cover img {
+    .review-card__cover > img {
       transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .review-card__cover,
+    .review-directory__search input {
+      border-color: CanvasText;
     }
   }
 </style>

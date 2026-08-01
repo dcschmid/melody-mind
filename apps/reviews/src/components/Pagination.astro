@@ -1,0 +1,127 @@
+---
+import { getArchivePageHref } from "@utils/archivePagination";
+
+interface Props {
+  currentPage: number;
+  lastPage: number;
+  start: number;
+  end: number;
+  total: number;
+}
+
+const { currentPage, lastPage, start, end, total } = Astro.props;
+const pages = Array.from({ length: lastPage }, (_, index) => index + 1);
+---
+
+<div class="pagination">
+  <p class="pagination__status">Showing {start}–{end} of {total}</p>
+  {
+    lastPage > 1 && (
+      <nav aria-label="Review archive pages">
+        <a
+          class="pagination__direction"
+          href={getArchivePageHref(currentPage - 1)}
+          aria-disabled={currentPage === 1 ? "true" : undefined}
+          tabindex={currentPage === 1 ? -1 : undefined}
+        >
+          Previous
+        </a>
+        <ol>
+          {pages.map((page) => (
+            <li>
+              <a
+                href={getArchivePageHref(page)}
+                aria-current={page === currentPage ? "page" : undefined}
+                aria-label={`Page ${page} of ${lastPage}`}
+              >
+                {page}
+              </a>
+            </li>
+          ))}
+        </ol>
+        <a
+          class="pagination__direction"
+          href={getArchivePageHref(currentPage + 1)}
+          aria-disabled={currentPage === lastPage ? "true" : undefined}
+          tabindex={currentPage === lastPage ? -1 : undefined}
+        >
+          Next
+        </a>
+      </nav>
+    )
+  }
+</div>
+
+<style>
+  .pagination {
+    display: grid;
+    gap: var(--space-md);
+    padding-block-start: var(--space-xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .pagination__status {
+    margin: 0;
+    color: var(--quiet-ink);
+  }
+
+  .pagination nav,
+  .pagination ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+
+  .pagination nav {
+    justify-content: space-between;
+  }
+
+  .pagination ol {
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .pagination a {
+    display: inline-grid;
+    place-items: center;
+    min-inline-size: var(--control-size);
+    min-block-size: var(--control-size);
+    padding-inline: var(--space-sm);
+    color: var(--paper-ink);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .pagination a:hover,
+  .pagination a:focus-visible,
+  .pagination a[aria-current="page"] {
+    color: var(--archive-night);
+    background: var(--signal);
+    border-color: var(--signal);
+  }
+
+  .pagination a[aria-disabled="true"] {
+    pointer-events: none;
+    opacity: 0.45;
+  }
+
+  @media (width < 32rem) {
+    .pagination nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .pagination ol {
+      grid-row: 1;
+      grid-column: 1 / -1;
+    }
+
+    .pagination__direction:last-child {
+      justify-self: end;
+    }
+  }
+</style>

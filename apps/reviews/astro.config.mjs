@@ -23,19 +23,27 @@ const newestReviewDate = getNewestSitemapDate(reviewDates);
 export default defineConfig({
   site: "https://reviews.melody-mind.de",
   output: "static",
+  redirects: {
+    "/page/1": "/",
+    "/reviews": "/",
+  },
   integrations: [
     mdx({ optimize: true }),
     sitemap({
-      filter: (page) => getPathname(page) !== "/404/",
+      filter: (page) => {
+        const pathname = getPathname(page);
+        return !new Set(["/404/", "/reviews/", "/review-search-index.json"]).has(
+          pathname
+        );
+      },
       serialize: (item) => {
         const pathname = getPathname(item.url);
-        const lastmod =
-          pathname === "/" || pathname === "/reviews/"
-            ? newestReviewDate
-            : reviewDates.get(pathname);
+        const archivePage = pathname === "/" || pathname.startsWith("/page/");
+        const lastmod = archivePage ? newestReviewDate : reviewDates.get(pathname);
         if (lastmod) item.lastmod = lastmod;
-        item.changefreq = pathname === "/" ? "weekly" : "monthly";
-        item.priority = pathname === "/" ? 1 : pathname === "/about/" ? 0.6 : 0.8;
+        item.changefreq = archivePage ? "weekly" : "monthly";
+        item.priority =
+          pathname === "/" ? 1 : archivePage ? 0.7 : pathname === "/about/" ? 0.6 : 0.8;
         return item;
       },
     }),

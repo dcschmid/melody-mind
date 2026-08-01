@@ -16,6 +16,8 @@ interface Props {
   publishedAt?: Date;
   structuredData?: Array<Record<string, unknown>>;
   index?: boolean;
+  prevUrl?: string;
+  nextUrl?: string;
 }
 
 const {
@@ -31,6 +33,8 @@ const {
   publishedAt,
   structuredData = [],
   index = true,
+  prevUrl,
+  nextUrl,
 } = Astro.props;
 const fullTitle = title.includes("MelodyMind Stories")
   ? title
@@ -52,6 +56,8 @@ const csp =
     <meta name="description" content={description} />
     <meta name="robots" content={index ? "index,follow" : "noindex,follow"} />
     <link rel="canonical" href={canonical} />
+    {prevUrl && <link rel="prev" href={new URL(prevUrl, Astro.site)} />}
+    {nextUrl && <link rel="next" href={new URL(nextUrl, Astro.site)} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link
       rel="alternate"

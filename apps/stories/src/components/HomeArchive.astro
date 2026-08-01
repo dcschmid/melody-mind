@@ -1,0 +1,438 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import AiDisclosure from "@components/AiDisclosure.astro";
+import Pagination from "@components/Pagination.astro";
+import Layout from "@layouts/Layout.astro";
+import { formatStoryLabel } from "@utils/archive";
+
+interface Props {
+  stories: CollectionEntry<"stories">[];
+  currentPage: number;
+  lastPage: number;
+  start: number;
+  end: number;
+  total: number;
+  prevUrl?: string;
+  nextUrl?: string;
+}
+
+const { stories, currentPage, lastPage, start, end, total, prevUrl, nextUrl } =
+  Astro.props;
+const isFirstPage = currentPage === 1;
+const featured = isFirstPage ? stories[0] : undefined;
+if (isFirstPage && !featured) {
+  throw new Error("The Stories homepage requires at least one published story.");
+}
+const cards = featured ? stories.slice(1) : stories;
+const cardStart = start + (featured ? 1 : 0);
+const title = isFirstPage
+  ? "MelodyMind Stories | Long-form music journalism"
+  : `Stories archive — Page ${currentPage}`;
+const description = isFirstPage
+  ? "Sourced long-form music journalism about performers, scenes, recording technology, and the images through which music history travels."
+  : `Page ${currentPage} of the MelodyMind Stories reading room.`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const image = featured
+  ? new URL(featured.data.hero.image.src, Astro.site).toString()
+  : undefined;
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: isFirstPage ? "MelodyMind Stories" : `MelodyMind Stories — Page ${currentPage}`,
+  description,
+  url: canonical,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: stories.map((story, index) => ({
+      "@type": "ListItem",
+      position: start + index,
+      url: new URL(`/${story.id}/`, Astro.site).toString(),
+      name: story.data.title,
+    })),
+  },
+};
+---
+
+<Layout
+  {title}
+  {description}
+  {canonical}
+  {image}
+  imageAlt={featured?.data.hero.alt}
+  imageWidth={featured?.data.hero.image.width}
+  imageHeight={featured?.data.hero.image.height}
+  imageType={featured
+    ? featured.data.hero.image.format === "jpg"
+      ? "image/jpeg"
+      : `image/${featured.data.hero.image.format}`
+    : undefined}
+  structuredData={[collectionSchema]}
+  {prevUrl}
+  {nextUrl}
+>
+  {
+    featured && (
+      <section class="home-hero">
+        <div class="home-hero__image reveal">
+          <Image
+            src={featured.data.hero.image}
+            alt={featured.data.hero.alt}
+            widths={[640, 960, 1280, 1600]}
+            sizes="(min-width: 64rem) 58vw, 100vw"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+        <div class="home-hero__copy reveal reveal--second">
+          <p class="eyebrow">
+            Latest · {formatStoryLabel(featured.data.format)} ·{" "}
+            <time datetime={featured.data.publishedAt.toISOString()}>
+              {featured.data.publishedAt.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </time>
+          </p>
+          <AiDisclosure
+            variant="assisted"
+            label="AI-assisted, human-reviewed"
+            detailsHref="/about/#ai-transparency"
+          />
+          <h1>{featured.data.title}</h1>
+          <p>{featured.data.dek}</p>
+          <a class="text-link" href={`/${featured.id}/`}>
+            Read the story <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="home-hero__credit reveal reveal--third">
+          {featured.data.hero.caption}
+          {featured.data.hero.creator}.{" "}
+          <a href={featured.data.hero.sourceUrl}>{featured.data.hero.sourceName}</a>,{" "}
+          <a href={featured.data.hero.licenseUrl}>{featured.data.hero.license}</a>.
+        </p>
+      </section>
+    )
+  }
+
+  <section class="archive page-shell" aria-labelledby="archive-title">
+    <header class="archive__header">
+      <p class="eyebrow">
+        {isFirstPage ? "Reading room" : `Archive page ${currentPage} of ${lastPage}`}
+      </p>
+      {
+        isFirstPage ? (
+          <h2 id="archive-title">Stories arranged for discovery.</h2>
+        ) : (
+          <h1 id="archive-title">Stories archive</h1>
+        )
+      }
+      <p>
+        Artist portraits, scene reports, technology stories, and cover histories, each
+        with numbered sources and a visible image-rights record.
+      </p>
+    </header>
+
+    <ol class="archive__grid" start={cardStart}>
+      {
+        cards.map((story, index) => (
+          <li class:list={["story-card", index % 7 === 0 && "story-card--wide"]}>
+            <a href={`/${story.id}/`}>
+              <span class="story-card__image">
+                <Image
+                  src={story.data.hero.image}
+                  alt=""
+                  widths={[360, 560, 800, 1100]}
+                  sizes="(min-width: 64rem) 31vw, (min-width: 42rem) 46vw, 100vw"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span class="story-card__copy">
+                <span class="eyebrow">
+                  {formatStoryLabel(story.data.format)} ·{" "}
+                  <time datetime={story.data.publishedAt.toISOString()}>
+                    {story.data.publishedAt.toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </time>
+                </span>
+                <h2>{story.data.title}</h2>
+                <span class="story-card__dek">{story.data.dek}</span>
+                <span class="story-card__action">
+                  Read story <span aria-hidden="true">→</span>
+                </span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+
+    <Pagination {currentPage} {lastPage} {start} {end} {total} />
+  </section>
+
+  {
+    isFirstPage && (
+      <aside class="home-note reading-shell">
+        <p class="eyebrow">How we work</p>
+        <p>
+          MelodyMind Stories publishes in English, documents every image, and names the
+          sources behind each article. Research and drafting use AI assistance; editorial
+          claims and rights notes remain visible for readers to inspect.
+        </p>
+        <a class="text-link" href="/about/">
+          Read the editorial method <span aria-hidden="true">→</span>
+        </a>
+      </aside>
+    )
+  }
+</Layout>
+
+<style>
+  .home-hero {
+    display: grid;
+    min-block-size: auto;
+    background: var(--desk-night);
+  }
+
+  .home-hero__image {
+    block-size: clamp(13.5rem, 26svh, 15.5rem);
+    min-block-size: 0;
+    overflow: hidden;
+  }
+
+  .home-hero__image :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    filter: contrast(1.04);
+  }
+
+  .home-hero__copy {
+    display: grid;
+    gap: var(--space-md);
+    align-content: center;
+    padding: clamp(1.5rem, 5vw, 3.5rem) max(1rem, calc((100vw - var(--wide-width)) / 2));
+  }
+
+  .home-hero__copy h1 {
+    max-inline-size: 11ch;
+    font-size: clamp(2.55rem, 11.5vw, 7.8rem);
+    letter-spacing: -0.05em;
+  }
+
+  .home-hero__copy > p:not(.eyebrow) {
+    max-inline-size: 54ch;
+    font-size: clamp(1.12rem, 2vw, 1.4rem);
+    color: var(--quiet-ink);
+  }
+
+  .home-hero__credit {
+    align-self: end;
+    padding: 0 1rem var(--space-md);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--quiet-ink);
+  }
+
+  .archive {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: var(--space-4xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .archive__header {
+    display: grid;
+    gap: var(--space-lg);
+    max-inline-size: 58rem;
+  }
+
+  .archive__header h1,
+  .archive__header h2 {
+    max-inline-size: 13ch;
+    font-size: clamp(2.6rem, 6vw, 5.4rem);
+  }
+
+  .archive__header > p:last-child {
+    max-inline-size: 58ch;
+    font-size: 1.1rem;
+    color: var(--quiet-ink);
+  }
+
+  .archive__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .story-card {
+    min-inline-size: 0;
+    background: var(--desk-night);
+    border: 1px solid var(--line-soft);
+  }
+
+  .story-card a {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    block-size: 100%;
+    color: var(--paper-ink);
+    text-decoration: none;
+  }
+
+  .story-card__image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--archive-night);
+  }
+
+  .story-card--wide .story-card__image {
+    aspect-ratio: 16 / 10;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story-card__image :global(img) {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      filter: saturate(0.86) contrast(1.04);
+      transition: none;
+    }
+  }
+
+  .story-card__image :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    filter: saturate(0.86) contrast(1.04);
+    transition:
+      filter 300ms var(--ease-out),
+      transform 500ms var(--ease-out);
+  }
+
+  .story-card__copy {
+    display: grid;
+    gap: var(--space-md);
+    align-content: start;
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story-card h2 {
+      max-inline-size: 17ch;
+      font-size: clamp(1.7rem, 3.6vw, 2.8rem);
+      letter-spacing: -0.025em;
+      transition: none;
+    }
+  }
+
+  .story-card h2 {
+    max-inline-size: 17ch;
+    font-size: clamp(1.7rem, 3.6vw, 2.8rem);
+    letter-spacing: -0.025em;
+    transition: color 300ms var(--ease-out);
+  }
+
+  .story-card__dek {
+    color: var(--quiet-ink);
+  }
+
+  .story-card__action {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    align-self: end;
+    min-block-size: var(--control-size);
+    font-weight: 700;
+    color: var(--archive-teal-strong);
+  }
+
+  .story-card a:hover .story-card__image :global(img),
+  .story-card a:focus-visible .story-card__image :global(img) {
+    filter: saturate(1) contrast(1);
+    transform: scale(1.02);
+  }
+
+  .story-card a:hover h2,
+  .story-card a:focus-visible h2 {
+    color: var(--archive-teal-strong);
+  }
+
+  .home-note {
+    display: grid;
+    gap: var(--space-lg);
+    padding-block: var(--space-3xl);
+  }
+
+  .home-note > p:not(.eyebrow) {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 1.45;
+  }
+
+  @media (width >= 42rem) {
+    .archive__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (width >= 64rem) {
+    .home-hero {
+      grid-template-rows: 1fr auto;
+      grid-template-columns: minmax(0, 1.3fr) minmax(30rem, 0.75fr);
+      min-block-size: calc(100svh - 4.75rem);
+    }
+
+    .home-hero__image {
+      grid-row: 1 / 3;
+      block-size: auto;
+      min-block-size: calc(100svh - 4.75rem);
+    }
+
+    .home-hero__copy,
+    .home-hero__credit {
+      padding-inline: clamp(3rem, 6vw, 7rem);
+    }
+
+    .home-hero__copy h1 {
+      font-size: clamp(4.4rem, 5.8vw, 5.35rem);
+    }
+
+    .archive__grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      grid-auto-flow: dense;
+    }
+
+    .story-card {
+      grid-column: span 2;
+    }
+
+    .story-card--wide {
+      grid-column: span 4;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .story-card__image :global(img),
+    .story-card h2 {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .story-card {
+      border-color: CanvasText;
+    }
+  }
+</style>

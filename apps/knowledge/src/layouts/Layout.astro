@@ -9,6 +9,8 @@ interface Props {
   type?: "website" | "article";
   image?: string;
   structuredData?: Record<string, unknown>[];
+  prevUrl?: string;
+  nextUrl?: string;
 }
 const {
   title,
@@ -16,6 +18,8 @@ const {
   type = "website",
   image = new URL("/social-preview.jpg", Astro.site).toString(),
   structuredData = [],
+  prevUrl,
+  nextUrl,
 } = Astro.props;
 const fullTitle = title.includes("MelodyMind Knowledge")
   ? title
@@ -37,7 +41,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     </title><meta name="description" content={description} /><link
       rel="canonical"
       href={canonical}
-    /><meta property="og:type" content={type} /><meta
+    />{prevUrl && <link rel="prev" href={new URL(prevUrl, Astro.site)} />}{
+      nextUrl && <link rel="next" href={new URL(nextUrl, Astro.site)} />
+    }<meta property="og:type" content={type} /><meta
       property="og:site_name"
       content="MelodyMind Knowledge"
     /><meta property="og:title" content={fullTitle} /><meta

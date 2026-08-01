@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from "astro";
+import HomeArchive from "@components/HomeArchive.astro";
+import { getPublishedReviews, getReviewGenres } from "@utils/archive";
+import { ARCHIVE_PAGE_SIZE, formatArchivePageUrl } from "@utils/archivePagination";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const reviews = await getPublishedReviews();
+  return paginate(reviews, {
+    pageSize: ARCHIVE_PAGE_SIZE,
+    format: formatArchivePageUrl,
+  }).slice(1);
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const genres = getReviewGenres(await getPublishedReviews());
+---
+
+<HomeArchive
+  reviews={page.data}
+  {genres}
+  currentPage={page.currentPage}
+  lastPage={page.lastPage}
+  start={page.start + 1}
+  end={page.end + 1}
+  total={page.total}
+  prevUrl={page.url.prev}
+  nextUrl={page.url.next}
+/>

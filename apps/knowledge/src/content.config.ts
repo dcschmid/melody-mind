@@ -44,7 +44,7 @@ const articles = defineCollection({
       publishedAt: z.coerce.date(),
       updatedAt: z.coerce.date().optional(),
       byline: z.literal("MelodyMind Editorial"),
-      featuredOrder: z.number().int().min(1).max(8),
+      featuredOrder: z.number().int().min(1),
       topics: z.array(z.string().min(2)).min(2).max(8),
       learningGoals: z.array(z.string().min(20)).min(2).max(5),
       hero: z

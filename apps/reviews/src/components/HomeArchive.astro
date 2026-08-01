@@ -1,0 +1,243 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import AiDisclosure from "@components/AiDisclosure.astro";
+import AlbumMark from "@components/AlbumMark.astro";
+import Pagination from "@components/Pagination.astro";
+import ReviewDirectory from "@components/ReviewDirectory.astro";
+import Layout from "@layouts/Layout.astro";
+
+interface Props {
+  reviews: CollectionEntry<"reviews">[];
+  genres: string[];
+  currentPage: number;
+  lastPage: number;
+  start: number;
+  end: number;
+  total: number;
+  prevUrl?: string;
+  nextUrl?: string;
+}
+
+const { reviews, genres, currentPage, lastPage, start, end, total, prevUrl, nextUrl } =
+  Astro.props;
+const isFirstPage = currentPage === 1;
+const featured = isFirstPage ? reviews[0] : undefined;
+if (isFirstPage && !featured) throw new Error("Reviews requires published content.");
+const cards = featured ? reviews.slice(1) : reviews;
+const title = isFirstPage
+  ? "MelodyMind Reviews | Album criticism without scores"
+  : `Reviews archive — Page ${currentPage}`;
+const description = isFirstPage
+  ? "Album reviews with a clear thesis, close listening, documented context, named authorship, and no numerical scores."
+  : `Page ${currentPage} of the MelodyMind Reviews archive.`;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: isFirstPage ? "MelodyMind Reviews" : `MelodyMind Reviews — Page ${currentPage}`,
+  description,
+  url: canonical,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: reviews.map((review, index) => ({
+      "@type": "ListItem",
+      position: start + index,
+      name: review.data.title,
+      url: new URL(`/reviews/${review.id}/`, Astro.site).toString(),
+    })),
+  },
+};
+---
+
+<Layout {title} {description} {canonical} structuredData={[schema]} {prevUrl} {nextUrl}>
+  {
+    featured && (
+      <section class="home-hero page-shell">
+        <div class="home-hero__mark">
+          {featured.data.cover.mode === "original" ? (
+            <img
+              src={featured.data.cover.src}
+              alt={featured.data.cover.alt}
+              width="640"
+              height="640"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+          ) : (
+            <AlbumMark
+              title={featured.data.album.title}
+              artist={featured.data.album.artist}
+              genres={featured.data.album.genres}
+            />
+          )}
+        </div>
+        <div class="home-hero__copy">
+          <p class="eyebrow">Latest review</p>
+          <AiDisclosure
+            variant="assisted"
+            label="AI-assisted, human-reviewed"
+            detailsHref="/editorial-standards/#ai-transparency"
+          />
+          <h1>{featured.data.album.title}</h1>
+          <p class="home-hero__artist">{featured.data.album.artist}</p>
+          <p class="home-hero__thesis">{featured.data.thesis}</p>
+          <p class="home-hero__meta">
+            By <a href="/authors/daniel-schmid/">Daniel Schmid</a> ·{" "}
+            <time datetime={featured.data.publishedAt.toISOString()}>
+              {featured.data.publishedAt.toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </time>
+          </p>
+          <a class="home-hero__action" href={`/reviews/${featured.id}/`}>
+            Read the review <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="review-index page-shell" aria-labelledby="review-archive-title">
+    <header>
+      <p class="eyebrow">
+        {isFirstPage ? "Review archive" : `Archive page ${currentPage} of ${lastPage}`}
+      </p>
+      {
+        isFirstPage ? (
+          <h2 id="review-archive-title">Arguments, not scores.</h2>
+        ) : (
+          <h1 id="review-archive-title">Reviews archive</h1>
+        )
+      }
+      <p>
+        Search every published review or browse the chronological archive in groups of
+        thirty.
+      </p>
+    </header>
+
+    <ReviewDirectory reviews={cards} searchable {genres} totalReviews={total} />
+
+    <div data-review-default-pagination>
+      <Pagination {currentPage} {lastPage} {start} {end} {total} />
+    </div>
+  </section>
+
+  {
+    isFirstPage && (
+      <aside class="editorial-note reading-shell">
+        <p class="eyebrow">Editorial position</p>
+        <h2>Criticism stays separate from promotion.</h2>
+        <p>
+          MelodyMind Reviews covers external releases. Research and drafting may use AI
+          assistance; Daniel Schmid takes responsibility for the published argument, and
+          every factual source remains available below the review.
+        </p>
+        <a href="/editorial-standards/">Read the editorial standards</a>
+      </aside>
+    )
+  }
+</Layout>
+
+<style>
+  .home-hero {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: clamp(2.5rem, 7vw, 7rem);
+  }
+
+  .home-hero__copy {
+    display: grid;
+    gap: var(--space-md);
+    align-content: center;
+  }
+
+  .home-hero__mark {
+    min-inline-size: 0;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: var(--desk-night);
+  }
+
+  .home-hero__mark > img {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .home-hero h1 {
+    max-inline-size: 11ch;
+    font-size: clamp(3rem, 9vw, 7rem);
+    letter-spacing: -0.05em;
+  }
+
+  .home-hero__artist {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2.3rem);
+    color: var(--quiet-ink);
+  }
+
+  .home-hero__thesis {
+    max-inline-size: 52ch;
+    padding-block: var(--space-lg);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    border-block: 1px solid var(--line);
+  }
+
+  .home-hero__meta {
+    font-size: 0.9rem;
+    color: var(--quiet-ink);
+  }
+
+  .home-hero__action {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-size);
+    font-weight: 700;
+  }
+
+  .review-index {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-block: var(--space-4xl);
+    border-block-start: 1px solid var(--line);
+  }
+
+  .review-index > header {
+    display: grid;
+    gap: var(--space-md);
+    max-inline-size: 50rem;
+  }
+
+  .review-index h1,
+  .review-index h2,
+  .editorial-note h2 {
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+  }
+
+  .editorial-note > p,
+  .review-index > header > p:last-child {
+    max-inline-size: 58ch;
+    color: var(--quiet-ink);
+  }
+
+  .editorial-note {
+    display: grid;
+    gap: var(--space-lg);
+    padding-block: var(--space-4xl);
+  }
+
+  @media (width >= 58rem) {
+    .home-hero {
+      grid-template-columns: minmax(18rem, 0.78fr) minmax(24rem, 1.22fr);
+      align-items: center;
+    }
+  }
+</style>
