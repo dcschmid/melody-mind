@@ -6,14 +6,14 @@ import ReviewCard from "@components/ReviewCard.astro";
 interface Props {
   reviews: CollectionEntry<"reviews">[];
   searchable?: boolean;
-  genres?: string[];
+  mainGenres?: string[];
   totalReviews?: number;
 }
 
 const {
   reviews,
   searchable = false,
-  genres = [],
+  mainGenres = [],
   totalReviews = reviews.length,
 } = Astro.props;
 ---
@@ -51,14 +51,14 @@ const {
         </form>
 
         <div class="review-directory__filters">
-          <p id="review-genre-filter-label">Filter by genre</p>
-          <div role="group" aria-labelledby="review-genre-filter-label">
+          <p id="review-main-genre-filter-label">Filter by genre</p>
+          <div role="group" aria-labelledby="review-main-genre-filter-label">
             <button type="button" data-review-genre="" aria-pressed="true">
               All
             </button>
-            {genres.map((genre) => (
-              <button type="button" data-review-genre={genre} aria-pressed="false">
-                {genre}
+            {mainGenres.map((mainGenre) => (
+              <button type="button" data-review-genre={mainGenre} aria-pressed="false">
+                {mainGenre}
               </button>
             ))}
           </div>

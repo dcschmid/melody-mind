@@ -1,11 +1,11 @@
 ---
 import HomeArchive from "@components/HomeArchive.astro";
-import { getPublishedReviews, getReviewGenres } from "@utils/archive";
+import { getPublishedReviews, getReviewMainGenreFilters } from "@utils/archive";
 import { getArchivePageSlice } from "@utils/archivePagination";
 
 const reviews = await getPublishedReviews();
 const page = getArchivePageSlice(reviews, 1);
-const genres = getReviewGenres(reviews);
+const mainGenres = getReviewMainGenreFilters(reviews);
 ---
 
-<HomeArchive reviews={page.data} {genres} {...page} />
+<HomeArchive reviews={page.data} {mainGenres} {...page} />

@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 import { getPublishedReviews } from "@utils/archive";
-import type { ReviewSearchRecord } from "@utils/reviewSearch";
+import { getReviewMainGenres, type ReviewSearchRecord } from "@utils/reviewSearch";
 
 export const GET: APIRoute = async () => {
   const reviews = await getPublishedReviews();
@@ -11,6 +11,7 @@ export const GET: APIRoute = async () => {
     title: review.data.album.title,
     artist: review.data.album.artist,
     genres: review.data.album.genres,
+    mainGenres: getReviewMainGenres(review.data.album.genres),
     thesis: review.data.thesis,
     publishedAt: review.data.publishedAt.toISOString(),
     cover:

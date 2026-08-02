@@ -1,5 +1,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
+import { getReviewMainGenres } from "./reviewSearch";
+
 export const getPublishedReviews = async (): Promise<CollectionEntry<"reviews">[]> =>
   (await getCollection("reviews", ({ data }) => !data.draft)).toSorted(
     (left, right) =>
@@ -7,7 +9,9 @@ export const getPublishedReviews = async (): Promise<CollectionEntry<"reviews">[
       left.id.localeCompare(right.id)
   );
 
-export const getReviewGenres = (reviews: CollectionEntry<"reviews">[]) =>
-  [...new Set(reviews.flatMap((review) => review.data.album.genres))].toSorted(
-    (left, right) => left.localeCompare(right)
-  );
+export const getReviewMainGenreFilters = (reviews: CollectionEntry<"reviews">[]) =>
+  [
+    ...new Set(
+      reviews.flatMap((review) => getReviewMainGenres(review.data.album.genres))
+    ),
+  ].toSorted((left, right) => left.localeCompare(right));

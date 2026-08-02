@@ -6,10 +6,21 @@ export interface ReviewSearchRecord {
   title: string;
   artist: string;
   genres: string[];
+  mainGenres: ReviewMainGenre[];
   thesis: string;
   publishedAt: string;
   cover: { mode: "typographic" } | { mode: "original"; src: string };
 }
+
+export const REVIEW_MAIN_GENRES = ["Metal", "Punk", "Rock"] as const;
+
+export type ReviewMainGenre = (typeof REVIEW_MAIN_GENRES)[number];
+
+const REVIEW_MAIN_GENRE_TERMS: Record<ReviewMainGenre, string[]> = {
+  Metal: ["metal"],
+  Punk: ["punk"],
+  Rock: ["rock", "grunge"],
+};
 
 export const normalizeReviewSearchValue = (value: string) =>
   value
@@ -18,24 +29,41 @@ export const normalizeReviewSearchValue = (value: string) =>
     .toLocaleLowerCase("en")
     .trim();
 
+export const getReviewMainGenres = (genres: string[]): ReviewMainGenre[] => {
+  const normalizedGenres = genres.map(normalizeReviewSearchValue);
+
+  return REVIEW_MAIN_GENRES.filter((mainGenre) =>
+    REVIEW_MAIN_GENRE_TERMS[mainGenre].some((term) =>
+      normalizedGenres.some((genre) => genre.includes(term))
+    )
+  );
+};
+
 export const filterReviewSearchRecords = (
   records: ReviewSearchRecord[],
   query: string,
-  genre: string
+  mainGenre: string
 ) => {
   const normalizedQuery = normalizeReviewSearchValue(query);
-  const normalizedGenre = normalizeReviewSearchValue(genre);
+  const normalizedMainGenre = normalizeReviewSearchValue(mainGenre);
 
   return records.filter((record) => {
-    const matchesGenre =
-      !normalizedGenre ||
-      record.genres.some(
-        (candidate) => normalizeReviewSearchValue(candidate) === normalizedGenre
+    const recordMainGenres = record.mainGenres ?? getReviewMainGenres(record.genres);
+    const matchesMainGenre =
+      !normalizedMainGenre ||
+      recordMainGenres.some(
+        (candidate) => normalizeReviewSearchValue(candidate) === normalizedMainGenre
       );
     const haystack = normalizeReviewSearchValue(
-      [record.title, record.artist, record.genres.join(" "), record.thesis].join(" ")
+      [
+        record.title,
+        record.artist,
+        record.genres.join(" "),
+        recordMainGenres.join(" "),
+        record.thesis,
+      ].join(" ")
     );
-    return matchesGenre && (!normalizedQuery || haystack.includes(normalizedQuery));
+    return matchesMainGenre && (!normalizedQuery || haystack.includes(normalizedQuery));
   });
 };
 

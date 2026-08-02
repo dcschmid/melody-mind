@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import HomeArchive from "@components/HomeArchive.astro";
-import { getPublishedReviews, getReviewGenres } from "@utils/archive";
+import { getPublishedReviews, getReviewMainGenreFilters } from "@utils/archive";
 import { ARCHIVE_PAGE_SIZE, formatArchivePageUrl } from "@utils/archivePagination";
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -13,12 +13,12 @@ export const getStaticPaths = (async ({ paginate }) => {
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
-const genres = getReviewGenres(await getPublishedReviews());
+const mainGenres = getReviewMainGenreFilters(await getPublishedReviews());
 ---
 
 <HomeArchive
   reviews={page.data}
-  {genres}
+  {mainGenres}
   currentPage={page.currentPage}
   lastPage={page.lastPage}
   start={page.start + 1}

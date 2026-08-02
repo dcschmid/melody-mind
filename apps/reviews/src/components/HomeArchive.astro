@@ -9,7 +9,7 @@ import Layout from "@layouts/Layout.astro";
 
 interface Props {
   reviews: CollectionEntry<"reviews">[];
-  genres: string[];
+  mainGenres: string[];
   currentPage: number;
   lastPage: number;
   start: number;
@@ -19,8 +19,17 @@ interface Props {
   nextUrl?: string;
 }
 
-const { reviews, genres, currentPage, lastPage, start, end, total, prevUrl, nextUrl } =
-  Astro.props;
+const {
+  reviews,
+  mainGenres,
+  currentPage,
+  lastPage,
+  start,
+  end,
+  total,
+  prevUrl,
+  nextUrl,
+} = Astro.props;
 const isFirstPage = currentPage === 1;
 const featured = isFirstPage ? reviews[0] : undefined;
 if (isFirstPage && !featured) throw new Error("Reviews requires published content.");
@@ -119,7 +128,7 @@ const schema = {
       </p>
     </header>
 
-    <ReviewDirectory reviews={cards} searchable {genres} totalReviews={total} />
+    <ReviewDirectory reviews={cards} searchable {mainGenres} totalReviews={total} />
 
     <div data-review-default-pagination>
       <Pagination {currentPage} {lastPage} {start} {end} {total} />

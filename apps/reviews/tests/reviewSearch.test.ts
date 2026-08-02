@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   filterReviewSearchRecords,
+  getReviewMainGenres,
   paginateReviewSearchRecords,
   type ReviewSearchRecord,
 } from "../src/utils/reviewSearch";
@@ -12,6 +13,7 @@ const makeReview = (index: number, genre = "Heavy Metal"): ReviewSearchRecord =>
   title: index === 1 ? "Motörhead Archive" : `Album ${index}`,
   artist: index === 2 ? "PJ Harvey" : `Artist ${index}`,
   genres: [genre],
+  mainGenres: getReviewMainGenres([genre]),
   thesis: index === 3 ? "A detailed rhythmic argument." : `Thesis ${index}`,
   publishedAt: new Date(2026, 0, index).toISOString(),
   cover: { mode: "typographic" },
@@ -24,18 +26,24 @@ describe("Review archive search", () => {
     makeReview(3, "Alternative Rock"),
   ];
 
+  it("groups detailed genres into the main archive filters", () => {
+    expect(getReviewMainGenres(["Alternative metal", "Art rock"])).toEqual([
+      "Metal",
+      "Rock",
+    ]);
+    expect(getReviewMainGenres(["Hardcore punk", "Grunge"])).toEqual(["Punk", "Rock"]);
+  });
+
   it("matches diacritics, artists, genres, and thesis text", () => {
     expect(
       filterReviewSearchRecords(reviews, "motorhead", "").map(({ id }) => id)
     ).toEqual(["review-1"]);
     expect(filterReviewSearchRecords(reviews, "PJ Harvey", "")).toHaveLength(1);
-    expect(
-      filterReviewSearchRecords(reviews, "rhythmic", "Alternative Rock")
-    ).toHaveLength(1);
+    expect(filterReviewSearchRecords(reviews, "rhythmic", "Rock")).toHaveLength(1);
   });
 
   it("combines query and genre instead of widening the result", () => {
-    expect(filterReviewSearchRecords(reviews, "Album", "Heavy Metal")).toEqual([]);
+    expect(filterReviewSearchRecords(reviews, "Album", "Metal")).toEqual([]);
   });
 
   it("keeps filtered results in groups of thirty", () => {
