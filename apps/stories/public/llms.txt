@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Twenty-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Twenty-two-story reading room and featured stories
+- [The Sample Had a Screen](https://stories.melody-mind.de/the-sample-had-a-screen/): Technology story about the Fairlight CMI, digital sampling, light-pen editing, and Page R sequencing
+- [The Band Was the Arrangement](https://stories.melody-mind.de/the-band-was-the-arrangement/): Artist portrait of Fela Kuti and Africa 70 as an interlocking musical and political system
 - [The Voice Inside the Beat](https://stories.melody-mind.de/the-voice-inside-the-beat/): Artist portrait of Missy Elliott's vocal arranging, songwriting, production, and visual authorship
 - [The Mix Was Still Being Written](https://stories.melody-mind.de/the-mix-was-still-being-written/): Artist portrait of Lee “Scratch” Perry's Black Ark recording and dub practice
 - [The Studio That Counted Every Hook](https://stories.melody-mind.de/the-studio-that-counted-every-hook/): Technology story about Cheiron Studios and collaborative Swedish pop production
