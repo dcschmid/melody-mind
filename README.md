@@ -1,7 +1,7 @@
 # MelodyMind
 
-MelodyMind contains five privacy-conscious Astro sites for listening, music history,
-long-form journalism, criticism, and research-led musical explanation.
+MelodyMind contains four privacy-conscious Astro sites for listening, music history,
+long-form journalism, and criticism.
 
 ## Workspace
 
@@ -9,7 +9,6 @@ long-form journalism, criticism, and research-led musical explanation.
 - `apps/quiz`: the MelodyMind Quiz app served at `https://quiz.melody-mind.de`
 - `apps/stories`: sourced long-form journalism at `https://stories.melody-mind.de`
 - `apps/reviews`: score-free album criticism at `https://reviews.melody-mind.de`
-- `apps/knowledge`: listening guides and music terms at `https://knowledge.melody-mind.de`
 
 ## Stack
 
@@ -42,10 +41,7 @@ pnpm format:check
 pnpm clean
 ```
 
-`pnpm dev` starts both apps in parallel:
-
-- Music: `http://localhost:4321`
-- Quiz: `http://localhost:4322`
+`pnpm dev` starts the workspace apps in parallel.
 
 The app-specific development commands start only their respective app. Build, preview,
 lint, and format commands continue to target Music by default unless their name includes

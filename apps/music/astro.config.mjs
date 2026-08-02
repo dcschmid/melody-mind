@@ -11,7 +11,6 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
   "/404/",
   "/categories/",
   "/drive/",
-  "/knowledge/",
   "/taxonomy/",
   "/visuals/",
 ]);
@@ -46,7 +45,6 @@ export default defineConfig({
   redirects: {
     "/ai-content": "/privacy",
     "/categories": "/",
-    "/knowledge": "/",
     "/taxonomy": "/",
   },
   integrations: [

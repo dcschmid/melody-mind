@@ -10,7 +10,7 @@ export const prerender = true;
 
 const title = "Privacy Policy";
 const description =
-  "How MelodyMind Music, Quiz, Stories, Reviews, and Knowledge process personal data, including hosting logs, browser storage, and AI-assisted media details.";
+  "How MelodyMind Music, Quiz, Stories, and Reviews process personal data, including hosting logs, browser storage, and AI-assisted media details.";
 const lastUpdated = "25 July 2026";
 
 const highlights = [
@@ -33,7 +33,7 @@ const sections = [
     icon: "globe",
     title: "Sites Covered",
     trustedHtmlBody: trustedHtmlList([
-      "This notice covers melody-mind.de, quiz.melody-mind.de, stories.melody-mind.de, reviews.melody-mind.de, knowledge.melody-mind.de, and embed.melody-mind.de.",
+      "This notice covers melody-mind.de, quiz.melody-mind.de, stories.melody-mind.de, reviews.melody-mind.de, and embed.melody-mind.de.",
       "MelodyMind Stories is a static, non-commercial publication with no accounts, analytics, advertising trackers, external embeds, cookies, or client-side storage.",
     ]),
   },
@@ -60,7 +60,7 @@ const sections = [
       "We use browser storage for site features such as music player state.",
       "MelodyMind Quiz does not store quiz progress, answers, or results. Its active round exists only in memory and resets when the page is left or reloaded.",
       "MelodyMind Stories does not use local storage, session storage, IndexedDB, or cookies. Its annotated cover component keeps state only in the current page memory.",
-      "MelodyMind Reviews and MelodyMind Knowledge do not use local storage, session storage, IndexedDB, cookies, or analytics. Knowledge audio controls keep playback state only in the current page memory and request audio only after you press play. Interactive notation may load instrument samples from the soundfont host allowed by the Knowledge domain's security policy.",
+      "MelodyMind Reviews does not use local storage, session storage, IndexedDB, cookies, or analytics.",
       'For a current overview of local storage entries, see our <a href="/cookies">Cookie &amp; Storage Policy</a>.',
     ]),
   },
@@ -134,7 +134,7 @@ const pageSeo = buildLegalPageSeo({
     <LegalDocumentPage
       eyebrow="Data Protection"
       title="Privacy Policy"
-      lead="This notice explains how the MelodyMind Music, Quiz, Stories, Reviews, Knowledge, and Embed domains process personal data in line with EU and German data protection law."
+      lead="This notice explains how the MelodyMind Music, Quiz, Stories, Reviews, and Embed domains process personal data in line with EU and German data protection law."
       {highlights}
       highlightsAriaLabel="Key privacy policy points"
       {sections}

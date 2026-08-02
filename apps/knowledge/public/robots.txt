@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://knowledge.melody-mind.de/sitemap-index.xml
