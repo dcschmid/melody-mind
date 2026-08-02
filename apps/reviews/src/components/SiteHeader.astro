@@ -10,6 +10,12 @@ const navigation = [
   { href: "/", label: "Reviews" },
   { href: "/about/", label: "About" },
 ];
+const networkNavigation = [
+  { href: "https://melody-mind.de/", label: "Music" },
+  { href: "https://quiz.melody-mind.de/", label: "Quiz" },
+  { href: "https://stories.melody-mind.de/", label: "Stories" },
+  { href: "https://knowledge.melody-mind.de/", label: "Knowledge" },
+];
 
 const isCurrent = (href: string) =>
   href === "/"
@@ -46,9 +52,13 @@ const isCurrent = (href: string) =>
           </a>
         ))
       }
-      <a class="site-header__network-link" href="https://melody-mind.de/">
-        Music <span aria-hidden="true">↗</span>
-      </a>
+      {
+        networkNavigation.map(({ href, label }) => (
+          <a class="site-header__network-link" href={href}>
+            {label} <span aria-hidden="true">↗</span>
+          </a>
+        ))
+      }
     </nav>
 
     <button
@@ -85,9 +95,13 @@ const isCurrent = (href: string) =>
         </a>
       ))
     }
-    <a class="site-header__mobile-network" href="https://melody-mind.de/">
-      Music <span aria-hidden="true">↗</span>
-    </a>
+    {
+      networkNavigation.map(({ href, label }) => (
+        <a class="site-header__mobile-network" href={href}>
+          {label} <span aria-hidden="true">↗</span>
+        </a>
+      ))
+    }
   </nav>
 </header>
 
