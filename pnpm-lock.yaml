@@ -124,18 +124,12 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.3
         version: 3.7.3
-      '@freshjuice/astro-search-plugin':
-        specifier: ^1.0.1
-        version: 1.0.1(astro@7.1.6(@astrojs/markdown-remark@7.2.2)(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.9.0))
       '@iconify-json/simple-icons':
         specifier: ^1.2.92
         version: 1.2.92
       '@iconify-json/tabler':
         specifier: ^1.2.38
         version: 1.2.38
-      '@orama/orama':
-        specifier: ^3.1.18
-        version: 3.1.18
       astro:
         specifier: ^7.1.6
         version: 7.1.6(@astrojs/markdown-remark@7.2.2)(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.9.0)
@@ -772,19 +766,6 @@ packages:
     resolution: {integrity: sha512-+CNAzxglkrpNf/kKywqQfk74QjtceuOE7Qm+AF8miRvPF/wmmK5+OJOgVh3AVTT3RP2mH3+FOaxlE5v72owk0A==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@freshjuice/astro-search-plugin@1.0.1':
-    resolution: {integrity: sha512-nOOxnVz3zjou7Nsfekwhe02gUs0c3htHdrTOWXX0dK54GGt5zjkfCN/f4Pbo7yHnoIW5rl2aOnco0ASBf4s9Mg==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      astro: '>=5.0.0'
-      react: '>=18.0.0'
-      react-dom: '>=18.0.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
     engines: {node: '>=18.18.0'}
@@ -1038,10 +1019,6 @@ packages:
 
   '@ocavue/utils@1.7.0':
     resolution: {integrity: sha512-yEk9ATNBjTZTtuVFMB/MAIF6zJBvJ2+lVNQvK2+O+ggEBGTgx2tp27d4FPgmD5bRsNHHP3D0SleQia/bvIeV8w==}
-
-  '@orama/orama@3.1.18':
-    resolution: {integrity: sha512-a61ljmRVVyG5MC/698C8/FfFDw5a8LOIvyOLW5fztgUXqUpc1jOfQzOitSCbge657OgXXThmY3Tk8fpiDb4UcA==}
-    engines: {node: '>= 20.0.0'}
 
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
@@ -4977,11 +4954,6 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@freshjuice/astro-search-plugin@1.0.1(astro@7.1.6(@astrojs/markdown-remark@7.2.2)(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.9.0))':
-    dependencies:
-      '@orama/orama': 3.1.18
-      astro: 7.1.6(@astrojs/markdown-remark@7.2.2)(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@25.6.0)(rollup@4.60.1)(terser@5.46.0)(yaml@2.9.0)
-
   '@humanfs/core@0.19.2':
     dependencies:
       '@humanfs/types': 0.15.0
@@ -5235,8 +5207,6 @@ snapshots:
       fastq: 1.20.1
 
   '@ocavue/utils@1.7.0': {}
-
-  '@orama/orama@3.1.18': {}
 
   '@oslojs/encoding@1.1.0': {}
 

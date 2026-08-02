@@ -29,9 +29,7 @@ const isAudioRequest = (request) =>
 
 const isCatalogDataRequest = (url) =>
   isSameOrigin(url) &&
-  ["/search-index.json", "/player-queues.json", "/radio-stations.json"].includes(
-    url.pathname
-  );
+  ["/player-queues.json", "/radio-stations.json"].includes(url.pathname);
 
 // Cache API keys are insertion-ordered, so deleting from the front is FIFO
 // eviction — enough to keep the runtime cache from growing unbounded.

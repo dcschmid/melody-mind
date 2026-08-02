@@ -12,11 +12,10 @@ export interface HeaderNavItem {
 
 interface Props {
   items: HeaderNavItem[];
-  searchHref: string;
   currentPath: string;
 }
 
-const { items, searchHref, currentPath } = Astro.props;
+const { items, currentPath } = Astro.props;
 const normalizePathname = (pathname: string) =>
   pathname === "/" ? pathname : pathname.replace(/\/+$/, "");
 const getComparableHref = (href: string) => {
@@ -64,27 +63,16 @@ const isActiveItem = (href: string) => {
 <ul class="music-header-nav">
   {
     items.map((item) => {
-      const isSearch = item.href === searchHref;
       const isActive = isActiveItem(item.href);
 
       return (
-        <li
-          class:list={[
-            "music-header-nav__item",
-            isSearch && "music-header-nav__item--quick-start",
-          ]}
-        >
-          {isSearch && <span class="music-header-nav__group-label">Quick actions</span>}
+        <li class="music-header-nav__item">
           <a
-            class:list={[
-              "music-header-nav__link",
-              isSearch && "music-header-nav__link--search",
-            ]}
+            class="music-header-nav__link"
             href={item.href}
             target={item.target}
             rel={item.rel}
             aria-current={isActive ? "page" : undefined}
-            data-enhanced-search-trigger={isSearch ? "true" : undefined}
           >
             {item.icon && (
               <Icon name={item.icon} class="music-header-nav__icon" aria-hidden="true" />
@@ -111,28 +99,12 @@ const isActiveItem = (href: string) => {
     --music-header-nav-icon-size: 1rem;
     --music-header-nav-link-gap: 0.44rem;
     --music-header-nav-link-padding-inline: 0.25rem;
-    --music-header-nav-link-text-size: var(--font-size-base);
+    --music-header-nav-link-text-size: 1rem;
     --music-header-nav-mobile-gap: 0;
     --music-header-nav-mobile-icon-size: 1.18rem;
     --music-header-nav-mobile-label-gap: 0.8rem;
     --music-header-nav-mobile-padding-block: 1rem;
     --music-header-nav-mobile-padding-inline: 0;
-    --music-header-nav-search-bg: color-mix(in srgb, var(--surface-1) 42%, transparent);
-    --music-header-nav-search-border: color-mix(
-      in srgb,
-      var(--accent-primary) 24%,
-      transparent
-    );
-    --music-header-nav-search-hover-bg: color-mix(
-      in srgb,
-      var(--accent-primary) 14%,
-      transparent
-    );
-    --music-header-nav-search-hover-border: color-mix(
-      in srgb,
-      var(--accent-primary) 46%,
-      transparent
-    );
     --music-header-nav-text: var(--text-primary);
 
     display: flex;
@@ -204,46 +176,6 @@ const isActiveItem = (href: string) => {
     display: none;
   }
 
-  .music-header-nav__group-label {
-    display: none;
-  }
-
-  .music-header-nav__link--search {
-    display: grid;
-    place-items: center;
-    inline-size: var(--control-min-block-size);
-    block-size: var(--control-min-block-size);
-    color: var(--music-header-nav-text);
-    background: var(--music-header-nav-search-bg);
-    border: 1px solid var(--music-header-nav-search-border);
-    border-radius: var(--radius-full);
-  }
-
-  .music-header-nav__link--search::after {
-    display: none;
-  }
-
-  .music-header-nav__link--search span {
-    position: absolute;
-    inline-size: 1px;
-    block-size: 1px;
-    overflow: hidden;
-    white-space: nowrap;
-    clip-path: inset(50%);
-  }
-
-  .music-header-nav__link--search .music-header-nav__icon {
-    display: block;
-    inline-size: var(--music-header-nav-icon-size);
-    block-size: var(--music-header-nav-icon-size);
-  }
-
-  .music-header-nav__link--search:focus {
-    color: var(--music-header-nav-hover-text);
-    background: var(--music-header-nav-search-hover-bg);
-    border-color: var(--music-header-nav-search-hover-border);
-  }
-
   @media (width <= 1023.98px) {
     .music-header-nav {
       display: grid;
@@ -260,8 +192,7 @@ const isActiveItem = (href: string) => {
       min-inline-size: 0;
     }
 
-    .music-header-nav__link,
-    .music-header-nav__link--search {
+    .music-header-nav__link {
       box-sizing: border-box;
       display: flex;
       gap: var(--music-header-nav-mobile-label-gap);
@@ -319,37 +250,6 @@ const isActiveItem = (href: string) => {
       margin-inline-start: auto;
       color: var(--music-menu-chevron);
     }
-
-    .music-header-nav__link--search .music-header-nav__chevron {
-      inline-size: 1.55rem;
-      block-size: 1.55rem;
-    }
-
-    .music-header-nav__link--search span {
-      position: static;
-      inline-size: auto;
-      block-size: auto;
-      overflow: visible;
-      white-space: normal;
-      clip-path: none;
-    }
-
-    .music-header-nav__item--quick-start {
-      padding-block-start: 1.35rem;
-      margin-block-start: 1.35rem;
-      border-block-start: 1px solid var(--music-menu-line);
-    }
-
-    .music-header-nav__group-label {
-      display: block;
-      margin: 0 0 0.5rem;
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-bold);
-      line-height: 1;
-      color: var(--music-menu-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -365,18 +265,10 @@ const isActiveItem = (href: string) => {
       opacity: 1;
       transform: scaleX(1);
     }
-
-    .music-header-nav__link--search:hover,
-    .music-header-nav__link--search:focus {
-      color: var(--music-header-nav-hover-text);
-      background: var(--music-header-nav-search-hover-bg);
-      border-color: var(--music-header-nav-search-hover-border);
-    }
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .music-header-nav__link,
-    .music-header-nav__link--search {
+    .music-header-nav__link {
       transition:
         background var(--motion-duration-fast) ease-out,
         border-color var(--motion-duration-fast) ease-out,
@@ -387,18 +279,6 @@ const isActiveItem = (href: string) => {
       transition:
         opacity var(--motion-duration-fast) ease-out,
         transform var(--motion-duration-fast) ease-out;
-    }
-
-    .music-header-nav__link--search {
-      transition:
-        background var(--motion-duration-fast) ease-out,
-        border-color var(--motion-duration-fast) ease-out,
-        color var(--motion-duration-fast) ease-out,
-        transform var(--motion-duration-fast) ease-out;
-    }
-
-    .music-header-nav__link--search:active {
-      transform: scale(0.97);
     }
   }
 </style>

@@ -37,12 +37,6 @@
       "short_name": "Series",
       "url": "/#album-series-heading",
       "description": "Browse curated MelodyMind Music album series."
-    },
-    {
-      "name": "Search Music",
-      "short_name": "Search",
-      "url": "/?search=1",
-      "description": "Search MelodyMind Music albums, tracks, and genres."
     }
   ]
 }

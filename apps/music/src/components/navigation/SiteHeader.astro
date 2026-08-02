@@ -14,7 +14,6 @@ interface MobileExtraLink {
 interface Props {
   brandLogoSrc: string | ImageMetadata;
   navItems: HeaderNavItem[];
-  searchHref: string;
   currentPath?: string;
   brandHref?: string;
   brandLogoAlt?: string;
@@ -31,7 +30,6 @@ interface Props {
 const {
   brandLogoSrc,
   navItems,
-  searchHref,
   currentPath = `${Astro.url.pathname}${Astro.url.search}`,
   brandHref = "/",
   brandLogoAlt = "Melody Mind",
@@ -81,15 +79,6 @@ const mobileExtraProps = {
       />
     </a>
 
-    <a
-      class="music-site-header__mobile-search"
-      href={searchHref}
-      aria-label="Search music"
-      data-enhanced-search-trigger="true"
-    >
-      <Icon name="search" aria-hidden="true" />
-    </a>
-
     <button
       class="music-site-header__toggle"
       type="button"
@@ -111,7 +100,7 @@ const mobileExtraProps = {
     </button>
 
     <nav class="music-site-header__nav" aria-label={navAriaLabel} data-music-menu-nav>
-      <HeaderNav items={navItems} {searchHref} {currentPath} />
+      <HeaderNav items={navItems} {currentPath} />
 
       <HeaderMobileExtras {...mobileExtraProps} />
     </nav>
@@ -332,7 +321,6 @@ const mobileExtraProps = {
   }
 
   .music-site-header__toggle,
-  .music-site-header__mobile-search,
   .music-site-header__backdrop {
     display: none;
   }
@@ -346,7 +334,6 @@ const mobileExtraProps = {
   }
 
   .music-site-header__brand:focus-visible,
-  .music-site-header__mobile-search:focus-visible,
   .music-site-header__toggle:focus-visible {
     outline: var(--focus-ring-width) solid var(--focus-ring-color);
     outline-offset: var(--focus-ring-offset);
@@ -387,7 +374,7 @@ const mobileExtraProps = {
 
     .music-site-header__inner {
       box-sizing: border-box;
-      grid-template-columns: auto 1fr auto auto;
+      grid-template-columns: auto 1fr auto;
       gap: 0.5rem;
       min-block-size: 4.5rem;
       padding: 0.8rem 1.35rem 0.8rem 1rem;
@@ -401,7 +388,7 @@ const mobileExtraProps = {
       position: relative;
       z-index: 4;
       display: grid;
-      grid-column: 4 / 5;
+      grid-column: 3 / 4;
       place-items: center;
       inline-size: 2.75rem;
       block-size: 2.75rem;
@@ -411,26 +398,6 @@ const mobileExtraProps = {
       background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
       border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
       border-radius: var(--radius-full);
-    }
-
-    .music-site-header__mobile-search {
-      position: relative;
-      z-index: 4;
-      display: grid;
-      grid-column: 3 / 4;
-      place-items: center;
-      inline-size: 2.75rem;
-      block-size: 2.75rem;
-      color: var(--text-primary);
-      text-decoration: none;
-      background: color-mix(in srgb, var(--bg-primary) 52%, transparent);
-      border: 1px solid color-mix(in srgb, var(--text-primary) 22%, transparent);
-      border-radius: var(--radius-full);
-    }
-
-    .music-site-header__mobile-search svg {
-      inline-size: 1.2rem;
-      block-size: 1.2rem;
     }
 
     .music-site-header__toggle-text {
@@ -471,7 +438,7 @@ const mobileExtraProps = {
     .music-site-header__nav {
       display: none;
       grid-template-columns: minmax(0, 1fr);
-      grid-column: 1 / 5;
+      grid-column: 1 / 4;
       gap: 0;
       place-content: start normal;
       place-items: stretch;
@@ -521,10 +488,6 @@ const mobileExtraProps = {
       grid-column: 1 / -1;
       max-inline-size: none;
       opacity: 1;
-    }
-
-    .music-site-header[data-open="true"] .music-site-header__mobile-search {
-      display: none;
     }
 
     .music-site-header[data-open="true"] .music-site-header__brand {
