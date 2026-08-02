@@ -1,5 +1,11 @@
 ---
-type Kind = "dub-routing" | "depth-cues" | "stereo-timing" | "riff-grid";
+type Kind =
+  | "dub-routing"
+  | "depth-cues"
+  | "stereo-timing"
+  | "riff-grid"
+  | "piano-action"
+  | "orchestral-depth";
 interface Props {
   kind: Kind;
 }
@@ -49,6 +55,28 @@ const diagrams = {
       "Locate the repeat boundary",
     ],
     note: "Accents can cross the beat while the underlying subdivision remains steady.",
+  },
+  "piano-action": {
+    title: "From key movement to a released string",
+    items: [
+      "Key descends",
+      "Action accelerates hammer",
+      "Jack escapes",
+      "Hammer strikes and rebounds",
+      "Damper returns after release",
+    ],
+    note: "Escapement lets the hammer leave the key mechanism before impact. The string can then vibrate without the hammer remaining against it.",
+  },
+  "orchestral-depth": {
+    title: "Four clues to an orchestral layer",
+    items: [
+      "Register",
+      "Attack shape",
+      "Instrument combination",
+      "Dynamic balance",
+      "Hall reflection",
+    ],
+    note: "Seating contributes to perspective, but orchestration and balance often matter more than physical distance alone.",
   },
 } satisfies Record<Kind, { title: string; items: string[]; note: string }>;
 const diagram = diagrams[kind];

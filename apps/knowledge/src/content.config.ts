@@ -37,7 +37,13 @@ const articles = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/articles" }),
   schema: ({ image }) =>
     z.object({
-      section: z.enum(["production", "listening", "rhythm", "genre-history"]),
+      section: z.enum([
+        "production",
+        "listening",
+        "rhythm",
+        "genre-history",
+        "instruments",
+      ]),
       title: z.string().min(3),
       dek: z.string().min(60).max(260),
       seoDescription: z.string().min(100).max(165),

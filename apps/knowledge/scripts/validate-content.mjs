@@ -12,6 +12,8 @@ export const EXPECTED_ARTICLE_IDS = [
   "how-metal-riffs-organize-rhythm",
   "punk-before-and-after-1977",
   "what-double-tracking-does-to-a-guitar",
+  "how-piano-touch-pedals-and-resonance-shape-sound",
+  "how-to-hear-color-and-depth-in-a-classical-orchestra",
 ];
 const parse = (source, file) => {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/u);
@@ -78,8 +80,10 @@ export async function validateContent(directory = articleDirectory) {
     );
     entries.push({ id: file.replace(/\.mdx$/u, ""), data, body });
   }
-  if (files.length !== 8)
-    failures.push(`expected exactly 8 MDX articles, found ${files.length}`);
+  if (files.length !== EXPECTED_ARTICLE_IDS.length)
+    failures.push(
+      `expected exactly ${EXPECTED_ARTICLE_IDS.length} MDX articles, found ${files.length}`
+    );
   const ids = new Set(entries.map((entry) => entry.id));
   for (const expected of EXPECTED_ARTICLE_IDS)
     if (!ids.has(expected)) failures.push(`missing article ${expected}`);

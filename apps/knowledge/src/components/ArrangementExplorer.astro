@@ -5,7 +5,9 @@ type Preset =
   | "metal-riff"
   | "punk-attack"
   | "double-tracking"
-  | "rock-section";
+  | "rock-section"
+  | "piano-registers"
+  | "orchestral-layers";
 
 interface Props {
   preset: Preset;
@@ -48,6 +50,18 @@ const copy = {
     description:
       "Switch the drum, bass, and guitar parts on or off without changing the tempo.",
     parts: ["Drums", "Bass", "Guitar"],
+  },
+  "piano-registers": {
+    title: "One harmony across three piano registers",
+    description:
+      "Switch the bass foundation, middle-register harmony, and upper melody independently.",
+    parts: ["Bass register", "Middle harmony", "Upper melody"],
+  },
+  "orchestral-layers": {
+    title: "Four schematic orchestral layers",
+    description:
+      "Isolate strings, woodwinds, brass, and percussion in one short original phrase.",
+    parts: ["Strings", "Woodwinds", "Brass", "Percussion"],
   },
 } satisfies Record<Preset, { title: string; description: string; parts: string[] }>;
 const selected = copy[preset];
@@ -145,6 +159,27 @@ const selected = copy[preset];
         "V:A clef=perc name=Drums\n%%MIDI channel 10\n[CF]2 F2 [DF]2 F2 | [CF]2 F2 [DF]2 z2 |",
         "V:B clef=bass name=Bass\n%%MIDI program 33\nE,2 E,2 G,2 A,2 | E,2 z2 B,,2 D,2 |",
         "V:C clef=treble-8 name=Guitar\n%%MIDI program 29\n[E,B,E]2 z2 [G,D,G]2 [A,E,A]2 | [E,B,E]2 [G,D,G]2 [B,F,B]2 z2 |",
+      ],
+    },
+    "piano-registers": {
+      title: "One harmony across three piano registers",
+      tempo: 72,
+      key: "C",
+      voices: [
+        "V:A clef=bass name=Bass\n%%MIDI program 0\nC,,4 G,,4 | A,,4 F,,4 |",
+        "V:B clef=treble name=Middle\n%%MIDI program 0\n[CEG]4 [DGB]4 | [CEA]4 [CFA]4 |",
+        "V:C clef=treble name=Melody\n%%MIDI program 0\nG2 A B2 G2 | E2 G A4 |",
+      ],
+    },
+    "orchestral-layers": {
+      title: "Four schematic orchestral layers",
+      tempo: 84,
+      key: "Dm",
+      voices: [
+        "V:A clef=treble name=Strings\n%%MIDI program 48\n[DFA]4 [CEG]4 | [B,DF]4 [A,CE]4 |",
+        "V:B clef=treble name=Woodwinds\n%%MIDI program 68\nA2 G F2 A2 | D2 E F4 |",
+        "V:C clef=treble name=Brass\n%%MIDI program 60\nD4 z4 | [A,CE]4 [DFA]4 |",
+        "V:D clef=perc name=Percussion\n%%MIDI channel 10\nC4 z4 | C2 z2 D4 |",
       ],
     },
   } as const;

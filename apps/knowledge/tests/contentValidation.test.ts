@@ -5,6 +5,7 @@ import {
   CONTENT_SECURITY_POLICY,
 } from "../src/utils/audio";
 import {
+  EXPECTED_ARTICLE_IDS,
   articleProse,
   countWords,
   validateEntry,
@@ -19,6 +20,16 @@ const data = {
 };
 
 describe("Knowledge long-form validation", () => {
+  it("tracks the complete ten-article editorial corpus", () => {
+    expect(EXPECTED_ARTICLE_IDS).toHaveLength(10);
+    expect(EXPECTED_ARTICLE_IDS).toEqual(
+      expect.arrayContaining([
+        "how-piano-touch-pedals-and-resonance-shape-sound",
+        "how-to-hear-color-and-depth-in-a-classical-orchestra",
+      ])
+    );
+  });
+
   it("allows the configured ABCJS soundfont through the content security policy", () => {
     expect(new URL(ABCJS_SOUNDFONT_URL).origin).toBe(ABCJS_SOUNDFONT_ORIGIN);
     expect(ABCJS_SOUNDFONT_URL.endsWith("/")).toBe(true);
