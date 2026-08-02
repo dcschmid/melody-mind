@@ -108,6 +108,16 @@ const {
     color: var(--signal-teal);
   }
 
+  .quiz-card--journey {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quiz-card--journey .quiz-card__image {
+    block-size: auto;
+    aspect-ratio: 16 / 9;
+  }
+
   .quiz-card--decade .quiz-card__description {
     display: none;
   }

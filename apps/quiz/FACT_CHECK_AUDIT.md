@@ -1,12 +1,12 @@
 # Quiz Fact-Check Audit
 
-Last updated: 2026-07-31
+Last updated: 2026-08-02
 
 ## Current Scope
 
-- The Quiz app contains 21 topics and 840 questions.
+- The Quiz app contains 23 topics and 920 questions.
 - Seven topics cover decades from the 1950s through the 2010s.
-- Fourteen topics trace genre histories.
+- Sixteen topics trace genre histories.
 - Every topic contains exactly 40 questions.
 - A session selects 10 questions: 4 easy, 4 medium, and 2 hard.
 - Every answer has a direct explanation, a separate context paragraph, and at least one
@@ -30,6 +30,12 @@ applied a second pass:
 - matched sources to the correct artist, work, format, movement, or historical subject;
 - added a second source for firsts, records, best-selling claims, and material
   superlatives.
+
+The August 2 expansion added heavy-metal/extreme-metal and
+psychedelia/dream-pop journeys. The new pools follow audible changes in riffing,
+rhythm, studio processing, and scene infrastructure rather than treating genre labels
+as interchangeable. Each answer was checked against the named artist, recording,
+technique, or regional scene.
 
 ## Source Review
 
