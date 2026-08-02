@@ -33,6 +33,46 @@ figures:
     license: Public domain in the United States (PD-US-no notice)
     licenseUrl: https://commons.wikimedia.org/wiki/Template:PD-US-no_notice
     alterations: Source scan was cropped and retouched by its uploader; Astro creates responsive derivatives
+  - id: the-guitar-before-rock-had-a-name-detail-1
+    image: ../../assets/the-guitar-before-rock-had-a-name-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white head-and-shoulders publicity portrait of Sister Rosetta Tharpe smiling toward the camera in 1938."
+    caption: "Detail view from the article's documented archive image. Sister Rosetta Tharpe in a 1938 publicity portrait."
+    creator: "James J. Kriegsmann"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Sister_Rosetta_Tharpe_(1938_publicity_photo_-_headshot).jpg"
+    license: "Public domain in the United States (PD-US-no notice)"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-no_notice"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-guitar-before-rock-had-a-name-detail-2
+    image: ../../assets/the-guitar-before-rock-had-a-name-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Full-length black-and-white publicity photograph of Sister Rosetta Tharpe standing beside a resonator guitar in 1938."
+    caption: "Detail view from the article's documented archive image. Tharpe posed with a resonator guitar for a 1938 publicity photograph."
+    creator: "James J. Kriegsmann"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Sister_Rosetta_Tharpe_(1938_publicity_photo_with_guitar).jpg"
+    license: "Public domain in the United States (PD-US-no notice)"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-no_notice"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-guitar-before-rock-had-a-name-detail-3
+    image: ../../assets/the-guitar-before-rock-had-a-name-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white head-and-shoulders publicity portrait of Sister Rosetta Tharpe smiling toward the camera in 1938."
+    caption: "Detail view from the article's documented archive image. Sister Rosetta Tharpe in a 1938 publicity portrait."
+    creator: "James J. Kriegsmann"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Sister_Rosetta_Tharpe_(1938_publicity_photo_-_headshot).jpg"
+    license: "Public domain in the United States (PD-US-no notice)"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-no_notice"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-guitar-before-rock-had-a-name-detail-4
+    image: ../../assets/the-guitar-before-rock-had-a-name-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Full-length black-and-white publicity photograph of Sister Rosetta Tharpe standing beside a resonator guitar in 1938."
+    caption: "Detail view from the article's documented archive image. Tharpe posed with a resonator guitar for a 1938 publicity photograph."
+    creator: "James J. Kriegsmann"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Sister_Rosetta_Tharpe_(1938_publicity_photo_with_guitar).jpg"
+    license: "Public domain in the United States (PD-US-no notice)"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-no_notice"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: smithsonian-spotlight
     title: "Sister Rosetta Tharpe: The Godmother of Rock and Roll"

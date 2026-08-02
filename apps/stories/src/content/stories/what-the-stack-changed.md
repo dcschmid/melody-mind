@@ -33,6 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
+  - id: what-the-stack-changed-detail-1
+    image: ../../assets/what-the-stack-changed-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: A black Marshall amplifier head sits on two stacked speaker cabinets, the upper cabinet angled and the lower cabinet straight."
+    caption: "Detail view from the article's documented archive image. A Marshall full stack: amplifier head, angled upper 4×12 cabinet, and straight lower 4×12 cabinet."
+    creator: "BEG"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Marshall_FS.jpg"
+    license: "CC BY 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: what-the-stack-changed-detail-2
+    image: ../../assets/what-the-stack-changed-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Eighteen black Marshall speaker cabinets form a wide wall across a festival stage before a Slayer performance in 2008."
+    caption: "Detail view from the article's documented archive image. A wall of Marshall cabinets prepared for Slayer at Tuska Open Air in 2008."
+    creator: "Jaakonam"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:MarshallStack_Slayer.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: what-the-stack-changed-detail-3
+    image: ../../assets/what-the-stack-changed-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: A black Marshall amplifier head sits on two stacked speaker cabinets, the upper cabinet angled and the lower cabinet straight."
+    caption: "Detail view from the article's documented archive image. A Marshall full stack: amplifier head, angled upper 4×12 cabinet, and straight lower 4×12 cabinet."
+    creator: "BEG"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Marshall_FS.jpg"
+    license: "CC BY 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: what-the-stack-changed-detail-4
+    image: ../../assets/what-the-stack-changed-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Eighteen black Marshall speaker cabinets form a wide wall across a festival stage before a Slayer performance in 2008."
+    caption: "Detail view from the article's documented archive image. A wall of Marshall cabinets prepared for Slayer at Tuska Open Air in 2008."
+    creator: "Jaakonam"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:MarshallStack_Slayer.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: jtm45-history
     title: History of the JTM45

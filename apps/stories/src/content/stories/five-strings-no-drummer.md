@@ -33,6 +33,46 @@ figures:
     license: Public domain, William P. Gottlieb collection
     licenseUrl: https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/
     alterations: No editorial retouching; Astro creates responsive derivatives
+  - id: five-strings-no-drummer-detail-1
+    image: ../../assets/five-strings-no-drummer-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white portrait of Django Reinhardt seated with a cigarette and looking directly at the camera in New York in 1946."
+    caption: "Detail view from the article's documented archive image. Django Reinhardt photographed at the Aquarium in New York during his 1946 United States visit."
+    creator: "William P. Gottlieb"
+    sourceName: "Library of Congress"
+    sourceUrl: "https://www.loc.gov/item/gottlieb.07311/"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: five-strings-no-drummer-detail-2
+    image: ../../assets/five-strings-no-drummer-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Django Reinhardt and Duke Ellington standing side by side backstage at the Aquarium in New York in 1946."
+    caption: "Detail view from the article's documented archive image. Reinhardt with Duke Ellington during the tour that brought the guitarist to the United States."
+    creator: "William P. Gottlieb"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Django_Reinhardt_and_Duke_Ellington,_Aquarium,_New_York,_N.Y.,_ca._Nov._1946_(William_P._Gottlieb_07331).jpg"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: five-strings-no-drummer-detail-3
+    image: ../../assets/five-strings-no-drummer-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white portrait of Django Reinhardt seated with a cigarette and looking directly at the camera in New York in 1946."
+    caption: "Detail view from the article's documented archive image. Django Reinhardt photographed at the Aquarium in New York during his 1946 United States visit."
+    creator: "William P. Gottlieb"
+    sourceName: "Library of Congress"
+    sourceUrl: "https://www.loc.gov/item/gottlieb.07311/"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: five-strings-no-drummer-detail-4
+    image: ../../assets/five-strings-no-drummer-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Django Reinhardt and Duke Ellington standing side by side backstage at the Aquarium in New York in 1946."
+    caption: "Detail view from the article's documented archive image. Reinhardt with Duke Ellington during the tour that brought the guitarist to the United States."
+    creator: "William P. Gottlieb"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Django_Reinhardt_and_Duke_Ellington,_Aquarium,_New_York,_N.Y.,_ca._Nov._1946_(William_P._Gottlieb_07331).jpg"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: philharmonie-exhibition
     title: Django Reinhardt — Swing de Paris Exhibition

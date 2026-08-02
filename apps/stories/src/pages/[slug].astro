@@ -153,6 +153,46 @@ const articleSchema = {
       </div>
     </section>
 
+    <script is:inline>
+      (() => {
+        const article = document.currentScript?.closest("article");
+        const body = article?.querySelector(".story__body");
+        const archive = article?.querySelector(".story__figures");
+        const figures = [...(archive?.querySelectorAll(".editorial-figure") ?? [])];
+        const headings = [...(body?.querySelectorAll("h2") ?? [])];
+
+        if (!body || !archive || figures.length === 0 || headings.length === 0) {
+          return;
+        }
+
+        figures.forEach((figure, index) => {
+          const headingIndex = Math.min(
+            headings.length - 1,
+            Math.max(
+              0,
+              Math.round(((index + 1) * headings.length) / (figures.length + 1)) - 1
+            )
+          );
+          const heading = headings[headingIndex];
+          let insertionPoint = heading.nextElementSibling;
+
+          for (let paragraphCount = 0; insertionPoint && paragraphCount < 2;) {
+            if (insertionPoint.tagName === "P") {
+              paragraphCount += 1;
+            }
+            if (paragraphCount < 2) {
+              insertionPoint = insertionPoint.nextElementSibling;
+            }
+          }
+
+          body.insertBefore(figure, insertionPoint?.nextElementSibling ?? null);
+          figure.classList.add("editorial-figure--inline");
+        });
+
+        archive.remove();
+      })();
+    </script>
+
     <aside
       class="story__disclosure reading-shell"
       id="editorial-disclosure"
@@ -333,6 +373,18 @@ const articleSchema = {
     line-height: 1.4;
     color: var(--reading-ink);
     border-block: 1px solid color-mix(in oklch, var(--reading-ink) 22%, transparent);
+  }
+
+  .story__body :global(.editorial-figure--inline) {
+    inline-size: calc(100% + clamp(0rem, 8vw, 10rem));
+    max-inline-size: none;
+    margin-block: clamp(2.5rem, 7vw, 4.5rem);
+    margin-inline: clamp(-5rem, -4vw, 0rem);
+  }
+
+  .story__body :global(.editorial-figure--inline img) {
+    max-block-size: min(72vh, 48rem);
+    object-fit: cover;
   }
 
   .story__figures {

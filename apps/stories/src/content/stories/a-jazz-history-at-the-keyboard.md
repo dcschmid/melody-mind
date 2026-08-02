@@ -33,6 +33,46 @@ figures:
     license: Public domain, William P. Gottlieb collection
     licenseUrl: https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/
     alterations: No editorial retouching; Astro creates responsive derivatives
+  - id: a-jazz-history-at-the-keyboard-detail-1
+    image: ../../assets/a-jazz-history-at-the-keyboard-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Mary Lou Williams seated at a piano with both hands on the keys in a New York apartment around 1946."
+    caption: "Detail view from the article's documented archive image. Mary Lou Williams at the piano in New York around 1946."
+    creator: "William P. Gottlieb; restored by Adam Cuerden"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Mary_Lou_Williams_(Gottlieb_09231).jpg"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: a-jazz-history-at-the-keyboard-detail-2
+    image: ../../assets/a-jazz-history-at-the-keyboard-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Milt Orent, Mary Lou Williams, Tadd Dameron, and Dizzy Gillespie gathered in Williams’s New York apartment in 1947."
+    caption: "Detail view from the article's documented archive image. Milt Orent, Williams, Tadd Dameron, and Dizzy Gillespie in Williams’s apartment around August 1947."
+    creator: "William P. Gottlieb"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Milt_Orent,_Mary_Lou_Williams,_Tadd_Dameron,_and_Dizzy_Gillespie,_Mary_Lou_Williams%27_apartment,_New_York,_ca._Aug._1947_(William_P._Gottlieb_15921).jpg"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: a-jazz-history-at-the-keyboard-detail-3
+    image: ../../assets/a-jazz-history-at-the-keyboard-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Mary Lou Williams seated at a piano with both hands on the keys in a New York apartment around 1946."
+    caption: "Detail view from the article's documented archive image. Mary Lou Williams at the piano in New York around 1946."
+    creator: "William P. Gottlieb; restored by Adam Cuerden"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Mary_Lou_Williams_(Gottlieb_09231).jpg"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: a-jazz-history-at-the-keyboard-detail-4
+    image: ../../assets/a-jazz-history-at-the-keyboard-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Milt Orent, Mary Lou Williams, Tadd Dameron, and Dizzy Gillespie gathered in Williams’s New York apartment in 1947."
+    caption: "Detail view from the article's documented archive image. Milt Orent, Williams, Tadd Dameron, and Dizzy Gillespie in Williams’s apartment around August 1947."
+    creator: "William P. Gottlieb"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Milt_Orent,_Mary_Lou_Williams,_Tadd_Dameron,_and_Dizzy_Gillespie,_Mary_Lou_Williams%27_apartment,_New_York,_ca._Aug._1947_(William_P._Gottlieb_15921).jpg"
+    license: "Public domain, William P. Gottlieb collection"
+    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: smithsonian-portrait
     title: Mary Lou Williams — Musical and Social Change Agent

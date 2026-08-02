@@ -33,6 +33,46 @@ figures:
     license: Public domain in the United States, published without a separate copyright notice
     licenseUrl: https://commons.wikimedia.org/wiki/Template:PD-US-no_notice_advertisement
     alterations: Wikimedia 1920-pixel derivative; Astro creates responsive derivatives
+  - id: three-minutes-at-1650-broadway-detail-1
+    image: ../../assets/three-minutes-at-1650-broadway-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Wide street-level photograph of the Brill Building’s pale stone facade, brass-framed entrance, storefronts, and upper office windows in Midtown Manhattan."
+    caption: "Detail view from the article's documented archive image. The Brill Building at 1619 Broadway, the address that gave a larger Midtown songwriting network its lasting name."
+    creator: "Kidfly182"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Brill_Building.jpg"
+    license: "CC BY 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: three-minutes-at-1650-broadway-detail-2
+    image: ../../assets/three-minutes-at-1650-broadway-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Cash Box magazine cover from 1962 showing Don Kirshner, Al Nevins, Little Eva, Gerry Goffin, and Carole King posed around a miniature locomotive."
+    caption: "Detail view from the article's documented archive image. Dimension Records presented Little Eva with Aldon founders Al Nevins and Don Kirshner and writers Gerry Goffin and Carole King in September 1962."
+    creator: "Dimension Records"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Little_Eva,_Carole_King,_Gerry_Goffin_-_Cash_Box_1962.png"
+    license: "Public domain in the United States, published without a separate copyright notice"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-no_notice_advertisement"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: three-minutes-at-1650-broadway-detail-3
+    image: ../../assets/three-minutes-at-1650-broadway-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Wide street-level photograph of the Brill Building’s pale stone facade, brass-framed entrance, storefronts, and upper office windows in Midtown Manhattan."
+    caption: "Detail view from the article's documented archive image. The Brill Building at 1619 Broadway, the address that gave a larger Midtown songwriting network its lasting name."
+    creator: "Kidfly182"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Brill_Building.jpg"
+    license: "CC BY 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: three-minutes-at-1650-broadway-detail-4
+    image: ../../assets/three-minutes-at-1650-broadway-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Cash Box magazine cover from 1962 showing Don Kirshner, Al Nevins, Little Eva, Gerry Goffin, and Carole King posed around a miniature locomotive."
+    caption: "Detail view from the article's documented archive image. Dimension Records presented Little Eva with Aldon founders Al Nevins and Don Kirshner and writers Gerry Goffin and Carole King in September 1962."
+    creator: "Dimension Records"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Little_Eva,_Carole_King,_Gerry_Goffin_-_Cash_Box_1962.png"
+    license: "Public domain in the United States, published without a separate copyright notice"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-no_notice_advertisement"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: rockhall-library
     title: Brill Building Library Guide

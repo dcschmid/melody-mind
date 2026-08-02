@@ -104,10 +104,32 @@ describe("content validator", () => {
           licenseUrl: "https://example.com/license",
           alterations: "none",
         },
-        figures: [],
+        figures: Array.from({ length: 5 }, (_, index) => ({
+          id: `pedal-detail-${index + 1}`,
+          image: `pedal-detail-${index + 1}.jpg`,
+          alt: "A documented detail from the pedal archive image",
+          caption: "An editorial detail used inside the technology story",
+          creator: "creator",
+          sourceName: "source",
+          sourceUrl: "https://example.com/image",
+          license: "CC0",
+          licenseUrl: "https://example.com/license",
+          alterations: "editorial crop",
+        })),
         sources: [{ id: "manual", url: "https://example.com/manual" }],
       })
     ).toEqual([]);
+  });
+
+  it("requires five to seven body figures", () => {
+    expect(
+      validateFrontmatterRelationships({
+        format: "technology-story",
+        hero: { id: "pedal" },
+        figures: [],
+        sources: [],
+      })
+    ).toContain("story must contain 5-7 body figures, found 0");
   });
 
   it("rejects missing and unknown body source references", () => {

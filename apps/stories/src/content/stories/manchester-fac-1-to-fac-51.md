@@ -34,6 +34,46 @@ figures:
     license: CC BY-SA 2.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/2.0/
     alterations: No editorial retouching; Astro creates responsive derivatives
+  - id: manchester-fac-1-to-fac-51-detail-1
+    image: ../../assets/manchester-fac-1-to-fac-51-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Street-level view of the former Strawberry Recording Studios building on Waterloo Road in Stockport under a clear sky."
+    caption: "Detail view from the article's documented archive image. The Waterloo Road building that housed Strawberry Recording Studios in Stockport."
+    creator: "Ridiculopathy"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Strawberry_Studios,_Stockport,_Manchester,_UK_in_the_sun_02.jpg"
+    license: "CC0 1.0"
+    licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: manchester-fac-1-to-fac-51-detail-2
+    image: ../../assets/manchester-fac-1-to-fac-51-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: A metal floor sign in Manchester identifying the former location of the Haçienda nightclub and its Factory catalog number FAC 51."
+    caption: "Detail view from the article's documented archive image. A public sign marking the former Haçienda site and the club's FAC 51 catalog number."
+    creator: "a_marga"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Hacienda_Nightclub_Manchester_Floor_Sign.jpg"
+    license: "CC BY-SA 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: manchester-fac-1-to-fac-51-detail-3
+    image: ../../assets/manchester-fac-1-to-fac-51-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Street-level view of the former Strawberry Recording Studios building on Waterloo Road in Stockport under a clear sky."
+    caption: "Detail view from the article's documented archive image. The Waterloo Road building that housed Strawberry Recording Studios in Stockport."
+    creator: "Ridiculopathy"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Strawberry_Studios,_Stockport,_Manchester,_UK_in_the_sun_02.jpg"
+    license: "CC0 1.0"
+    licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: manchester-fac-1-to-fac-51-detail-4
+    image: ../../assets/manchester-fac-1-to-fac-51-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: A metal floor sign in Manchester identifying the former location of the Haçienda nightclub and its Factory catalog number FAC 51."
+    caption: "Detail view from the article's documented archive image. A public sign marking the former Haçienda site and the club's FAC 51 catalog number."
+    creator: "a_marga"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Hacienda_Nightclub_Manchester_Floor_Sign.jpg"
+    license: "CC BY-SA 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: gretton-archive
     title: Rob Gretton Archive

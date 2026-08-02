@@ -33,6 +33,46 @@ figures:
     license: CC BY-SA 4.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
     alterations: No editorial retouching; Astro creates responsive derivatives
+  - id: the-business-in-ma-raineys-voice-detail-1
+    image: ../../assets/the-business-in-ma-raineys-voice-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Sepia-toned publicity portrait of Ma Rainey wearing a beaded dress, necklace, earrings, and an elaborate headpiece in 1923."
+    caption: "Detail view from the article's documented archive image. Ma Rainey in a publicity portrait issued during her first year with Paramount Records."
+    creator: "Unknown photographer"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Ma_Rainey,_1923.jpg"
+    license: "Public domain in the United States"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-expired"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-business-in-ma-raineys-voice-detail-2
+    image: ../../assets/the-business-in-ma-raineys-voice-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Two-story blue wooden house with a porch, white trim, and a Ma Rainey House sign beside the front steps in Columbus, Georgia."
+    caption: "Detail view from the article's documented archive image. The Columbus house where Rainey lived after leaving the road is now a museum."
+    creator: "Katyrw"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Columbus_ma_rainey_house.jpg"
+    license: "CC BY-SA 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-business-in-ma-raineys-voice-detail-3
+    image: ../../assets/the-business-in-ma-raineys-voice-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Sepia-toned publicity portrait of Ma Rainey wearing a beaded dress, necklace, earrings, and an elaborate headpiece in 1923."
+    caption: "Detail view from the article's documented archive image. Ma Rainey in a publicity portrait issued during her first year with Paramount Records."
+    creator: "Unknown photographer"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Ma_Rainey,_1923.jpg"
+    license: "Public domain in the United States"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-US-expired"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-business-in-ma-raineys-voice-detail-4
+    image: ../../assets/the-business-in-ma-raineys-voice-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Two-story blue wooden house with a porch, white trim, and a Ma Rainey House sign beside the front steps in Columbus, Georgia."
+    caption: "Detail view from the article's documented archive image. The Columbus house where Rainey lived after leaving the road is now a museum."
+    creator: "Katyrw"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Columbus_ma_rainey_house.jpg"
+    license: "CC BY-SA 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: loc-registry
     title: "See See Rider Blues: Gertrude Ma Rainey"

@@ -33,6 +33,46 @@ figures:
     license: CC BY 3.0
     licenseUrl: https://creativecommons.org/licenses/by/3.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
+  - id: the-workshop-inside-the-guitar-detail-1
+    image: ../../assets/the-workshop-inside-the-guitar-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Red, white, and black striped Eddie Van Halen electric guitar displayed upright beside Marshall amplifier cabinets in a museum."
+    caption: "Detail view from the article's documented archive image. An Eddie Van Halen striped guitar and amplifier equipment at Seattle’s Museum of Pop Culture."
+    creator: "John Seb Barber"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddie_Van_Halen%27s_guitar,_EMP_Museum.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-workshop-inside-the-guitar-detail-2
+    image: ../../assets/the-workshop-inside-the-guitar-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Eddie Van Halen performs onstage in Quebec City in 2008, holding a striped electric guitar beneath red concert lights."
+    caption: "Detail view from the article's documented archive image. Eddie Van Halen performing in Quebec City during the band’s 2008 tour."
+    creator: "Felixggenest"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddy_Van_Halen.jpg"
+    license: "CC BY 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-workshop-inside-the-guitar-detail-3
+    image: ../../assets/the-workshop-inside-the-guitar-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Red, white, and black striped Eddie Van Halen electric guitar displayed upright beside Marshall amplifier cabinets in a museum."
+    caption: "Detail view from the article's documented archive image. An Eddie Van Halen striped guitar and amplifier equipment at Seattle’s Museum of Pop Culture."
+    creator: "John Seb Barber"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddie_Van_Halen%27s_guitar,_EMP_Museum.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-workshop-inside-the-guitar-detail-4
+    image: ../../assets/the-workshop-inside-the-guitar-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Eddie Van Halen performs onstage in Quebec City in 2008, holding a striped electric guitar beneath red concert lights."
+    caption: "Detail view from the article's documented archive image. Eddie Van Halen performing in Quebec City during the band’s 2008 tour."
+    creator: "Felixggenest"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddy_Van_Halen.jpg"
+    license: "CC BY 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: smithsonian-interview
     title: Eddie Van Halen on How Necessity Drives Innovation

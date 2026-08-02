@@ -33,6 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: Source was cropped and color-corrected; Astro creates responsive derivatives
+  - id: the-band-was-the-arrangement-detail-1
+    image: ../../assets/the-band-was-the-arrangement-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Exterior of the New Afrika Shrine in Lagos, with painted portraits, signs, railings, and people gathered around the entrance."
+    caption: "Detail view from the article's documented archive image. The New Afrika Shrine in Lagos carries forward the name of the club where Fela Kuti tested music with Africa 70."
+    creator: "Kaizenify"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_New_Shrine,_Lagos.jpg"
+    license: "Public domain dedication by the creator"
+    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-band-was-the-arrangement-detail-2
+    image: ../../assets/the-band-was-the-arrangement-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Fela Kuti stands in profile in 1970, wearing patterned trousers and holding a glass beside another man."
+    caption: "Detail view from the article's documented archive image. Fela Kuti in 1970, as the band that became Africa 70 was defining a new rhythmic and political language."
+    creator: "MOI MEME; derivative by Klausness"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_Kuti.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-band-was-the-arrangement-detail-3
+    image: ../../assets/the-band-was-the-arrangement-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Exterior of the New Afrika Shrine in Lagos, with painted portraits, signs, railings, and people gathered around the entrance."
+    caption: "Detail view from the article's documented archive image. The New Afrika Shrine in Lagos carries forward the name of the club where Fela Kuti tested music with Africa 70."
+    creator: "Kaizenify"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_New_Shrine,_Lagos.jpg"
+    license: "Public domain dedication by the creator"
+    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-band-was-the-arrangement-detail-4
+    image: ../../assets/the-band-was-the-arrangement-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Fela Kuti stands in profile in 1970, wearing patterned trousers and holding a glass beside another man."
+    caption: "Detail view from the article's documented archive image. Fela Kuti in 1970, as the band that became Africa 70 was defining a new rhythmic and political language."
+    creator: "MOI MEME; derivative by Klausness"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_Kuti.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: official-about
     title: About Fela Kuti

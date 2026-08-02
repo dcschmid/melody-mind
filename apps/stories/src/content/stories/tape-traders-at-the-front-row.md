@@ -33,6 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
+  - id: tape-traders-at-the-front-row-detail-1
+    image: ../../assets/tape-traders-at-the-front-row-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Five members of the Bay Area thrash band Exodus pose together outdoors in a 2014 group photograph."
+    caption: "Detail view from the article's documented archive image. Exodus in 2014; the band’s early demos and Ruthie’s Inn shows were central to the 1980s Bay Area network."
+    creator: "Samozzman"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Exodus_Band_Photo.jpg"
+    license: "CC BY-SA 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: tape-traders-at-the-front-row-detail-2
+    image: ../../assets/tape-traders-at-the-front-row-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Death Angel performs under red and blue stage light at Munich’s Free and Easy Festival in 2015."
+    caption: "Detail view from the article's documented archive image. Death Angel live in 2015, carrying a scene formed by teenagers across the Bay Area."
+    creator: "Pistenwolf"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Death_Angel-8.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: tape-traders-at-the-front-row-detail-3
+    image: ../../assets/tape-traders-at-the-front-row-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Five members of the Bay Area thrash band Exodus pose together outdoors in a 2014 group photograph."
+    caption: "Detail view from the article's documented archive image. Exodus in 2014; the band’s early demos and Ruthie’s Inn shows were central to the 1980s Bay Area network."
+    creator: "Samozzman"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Exodus_Band_Photo.jpg"
+    license: "CC BY-SA 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: tape-traders-at-the-front-row-detail-4
+    image: ../../assets/tape-traders-at-the-front-row-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Death Angel performs under red and blue stage light at Munich’s Free and Easy Festival in 2015."
+    caption: "Detail view from the article's documented archive image. Death Angel live in 2015, carrying a scene formed by teenagers across the Bay Area."
+    creator: "Pistenwolf"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Death_Angel-8.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: uc-berkeley
     title: The Keystone — The Berkeley Revolution

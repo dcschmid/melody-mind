@@ -72,8 +72,8 @@ const stories = defineCollection({
         hero: imageRightsSchema.extend({ image: image() }),
         figures: z
           .array(imageRightsSchema.extend({ image: image() }))
-          .min(1)
-          .max(4),
+          .min(5)
+          .max(7),
         sources: z.array(sourceSchema).min(3),
         artifact: artifactSchema.optional(),
       })

@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Twenty-two-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Twenty-four-story reading room and featured stories
+- [The Bar Line Stayed Put](https://stories.melody-mind.de/the-bar-line-stayed-put/): Artist portrait of Meshuggah's stable pulse, displaced riff cycles, and extended-range guitar language
+- [The Room Charged by the Hour](https://stories.melody-mind.de/the-room-charged-by-the-hour/): Scene report on Reciprocal Recording, Jack Endino, Sub Pop, and Seattle's early independent recording network
 - [The Sample Had a Screen](https://stories.melody-mind.de/the-sample-had-a-screen/): Technology story about the Fairlight CMI, digital sampling, light-pen editing, and Page R sequencing
 - [The Band Was the Arrangement](https://stories.melody-mind.de/the-band-was-the-arrangement/): Artist portrait of Fela Kuti and Africa 70 as an interlocking musical and political system
 - [The Voice Inside the Beat](https://stories.melody-mind.de/the-voice-inside-the-beat/): Artist portrait of Missy Elliott's vocal arranging, songwriting, production, and visual authorship

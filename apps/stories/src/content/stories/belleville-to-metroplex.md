@@ -33,6 +33,46 @@ figures:
     license: CC BY-SA 2.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/2.0/
     alterations: Wikimedia 1920-pixel derivative; Astro creates responsive derivatives
+  - id: belleville-to-metroplex-detail-1
+    image: ../../assets/belleville-to-metroplex-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Wide exterior view of Belleville High School in Michigan with a low brick facade, broad lawn, access road, and blue sky."
+    caption: "Detail view from the article's documented archive image. Belleville High School, where Juan Atkins, Derrick May, and Kevin Saunderson met as teenagers."
+    creator: "PeRshGo"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Belleville_High_School,_Belleville,_MI.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: belleville-to-metroplex-detail-2
+    image: ../../assets/belleville-to-metroplex-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Roland TR-808 and TR-909 drum machines arranged vertically, exposing their knobs, sequencer buttons, labels, and individual outputs."
+    caption: "Detail view from the article's documented archive image. The TR-808 and TR-909 offered different electronic percussion palettes and programmable step sequences."
+    creator: "Brandon Daniel"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Roland_TR-808_%26_909.jpg"
+    license: "CC BY-SA 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: belleville-to-metroplex-detail-3
+    image: ../../assets/belleville-to-metroplex-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Wide exterior view of Belleville High School in Michigan with a low brick facade, broad lawn, access road, and blue sky."
+    caption: "Detail view from the article's documented archive image. Belleville High School, where Juan Atkins, Derrick May, and Kevin Saunderson met as teenagers."
+    creator: "PeRshGo"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Belleville_High_School,_Belleville,_MI.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: belleville-to-metroplex-detail-4
+    image: ../../assets/belleville-to-metroplex-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Roland TR-808 and TR-909 drum machines arranged vertically, exposing their knobs, sequencer buttons, labels, and individual outputs."
+    caption: "Detail view from the article's documented archive image. The TR-808 and TR-909 offered different electronic percussion palettes and programmable step sequences."
+    creator: "Brandon Daniel"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Roland_TR-808_%26_909.jpg"
+    license: "CC BY-SA 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: atkins-history
     title: Juan Atkins

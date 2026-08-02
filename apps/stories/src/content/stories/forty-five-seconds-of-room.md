@@ -33,6 +33,46 @@ figures:
     license: CC BY-SA 4.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
     alterations: No editorial retouching; Astro creates responsive derivatives
+  - id: forty-five-seconds-of-room-detail-1
+    image: ../../assets/forty-five-seconds-of-room-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Color portrait of Pauline Oliveros wearing glasses and a dark jacket while holding a black accordion outdoors in 2010."
+    caption: "Detail view from the article's documented archive image. Pauline Oliveros with the accordion that remained central to her electronic and improvisational practice."
+    creator: "Allan J. Cronin"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:POliveros2010.JPG"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: forty-five-seconds-of-room-detail-2
+    image: ../../assets/forty-five-seconds-of-room-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Pauline Oliveros wearing headphones and playing accordion beside Nels Cline and Thollem McDonas during a 2015 recording session."
+    caption: "Detail view from the article's documented archive image. Oliveros recording with Thollem McDonas and Nels Cline at Art Farm in Accord, New York, in 2015."
+    creator: "Angela C. Villa"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Thollem-Oliveros-Cline-recording_at_Art_Farm,_Accord,_NY.jpg"
+    license: "CC BY-SA 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: forty-five-seconds-of-room-detail-3
+    image: ../../assets/forty-five-seconds-of-room-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Color portrait of Pauline Oliveros wearing glasses and a dark jacket while holding a black accordion outdoors in 2010."
+    caption: "Detail view from the article's documented archive image. Pauline Oliveros with the accordion that remained central to her electronic and improvisational practice."
+    creator: "Allan J. Cronin"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:POliveros2010.JPG"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: forty-five-seconds-of-room-detail-4
+    image: ../../assets/forty-five-seconds-of-room-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Pauline Oliveros wearing headphones and playing accordion beside Nels Cline and Thollem McDonas during a 2015 recording session."
+    caption: "Detail view from the article's documented archive image. Oliveros recording with Thollem McDonas and Nels Cline at Art Farm in Accord, New York, in 2015."
+    creator: "Angela C. Villa"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Thollem-Oliveros-Cline-recording_at_Art_Farm,_Accord,_NY.jpg"
+    license: "CC BY-SA 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: deep-listening-center
     title: Deep Listening

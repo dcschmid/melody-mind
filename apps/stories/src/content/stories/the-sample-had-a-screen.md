@@ -33,6 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: Composite derivative rasterized from an SVG and sharpened; Astro creates responsive derivatives
+  - id: the-sample-had-a-screen-detail-1
+    image: ../../assets/the-sample-had-a-screen-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: A Fairlight CMI system with musical keyboard, alphanumeric keyboard, monitor, light pen, and white computer unit arranged for use."
+    caption: "Detail view from the article's documented archive image. A Fairlight CMI presented as a complete working system: keyboards, computer, screen, light pen, and digital sound storage."
+    creator: "Joho345"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight.JPG"
+    license: "Public domain dedication by the creator"
+    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-sample-had-a-screen-detail-2
+    image: ../../assets/the-sample-had-a-screen-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: Composite view of a Fairlight CMI Series II keyboard, light pen, and Page R sequencer screen showing repeated note blocks on a grid."
+    caption: "Detail view from the article's documented archive image. Page R turned repeated musical events into blocks on a screen, making arrangement visible before modern DAWs standardized the view."
+    creator: "Clusternote, after Joho345 and Kevan Davis"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight_II_Page_R.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-sample-had-a-screen-detail-3
+    image: ../../assets/the-sample-had-a-screen-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: A Fairlight CMI system with musical keyboard, alphanumeric keyboard, monitor, light pen, and white computer unit arranged for use."
+    caption: "Detail view from the article's documented archive image. A Fairlight CMI presented as a complete working system: keyboards, computer, screen, light pen, and digital sound storage."
+    creator: "Joho345"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight.JPG"
+    license: "Public domain dedication by the creator"
+    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: the-sample-had-a-screen-detail-4
+    image: ../../assets/the-sample-had-a-screen-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: Composite view of a Fairlight CMI Series II keyboard, light pen, and Page R sequencer screen showing repeated note blocks on a grid."
+    caption: "Detail view from the article's documented archive image. Page R turned repeated musical events into blocks on a screen, making arrangement visible before modern DAWs standardized the view."
+    creator: "Clusternote, after Joho345 and Kevan Davis"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight_II_Page_R.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: nfsa
     title: The Fairlight Sampling Synthesizer

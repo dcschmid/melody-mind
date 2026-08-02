@@ -6,7 +6,9 @@ import { load as loadYaml } from "js-yaml";
 const CONTENT_DIRECTORY = new URL("../src/content/stories/", import.meta.url);
 const MIN_WORDS = 1800;
 const MAX_WORDS = 2500;
-const EXPECTED_STORIES = 22;
+const EXPECTED_STORIES = 24;
+const MIN_FIGURES = 5;
+const MAX_FIGURES = 7;
 const ALLOWED_FORMATS = new Set([
   "artist-portrait",
   "scene-report",
@@ -44,6 +46,12 @@ export function validateFrontmatterRelationships(data) {
   const figures = Array.isArray(data.figures) ? data.figures : [];
   const sourceIds = sources.map((source) => source.id);
   const imageIds = [data.hero?.id, ...figures.map((figure) => figure.id)].filter(Boolean);
+
+  if (figures.length < MIN_FIGURES || figures.length > MAX_FIGURES) {
+    errors.push(
+      `story must contain ${MIN_FIGURES}-${MAX_FIGURES} body figures, found ${figures.length}`
+    );
+  }
 
   if (!ALLOWED_FORMATS.has(data.format)) {
     errors.push(`unknown story format "${data.format}"`);

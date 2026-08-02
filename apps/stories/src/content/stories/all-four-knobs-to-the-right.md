@@ -33,6 +33,46 @@ figures:
     license: CC BY 2.0
     licenseUrl: https://creativecommons.org/licenses/by/2.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
+  - id: all-four-knobs-to-the-right-detail-1
+    image: ../../assets/all-four-knobs-to-the-right-detail-1.jpg
+    alt: "Editorial detail crop from the documented image: Black BOSS HM-2 Heavy Metal distortion pedal with orange labels and four control knobs photographed against a plain background."
+    caption: "Detail view from the article's documented archive image. An original BOSS HM-2 Heavy Metal pedal with Level, Color Mix, and Distortion controls."
+    creator: "Styroks"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Boss_HM-2_Heavy_Metal.jpg"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-user"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: all-four-knobs-to-the-right-detail-2
+    image: ../../assets/all-four-knobs-to-the-right-detail-2.jpg
+    alt: "Editorial detail crop from the documented image: An Entombed guitarist plays a dark electric guitar under blue stage light at Frozen Rock Festival in 2007."
+    caption: "Detail view from the article's documented archive image. Entombed live in 2007; the band’s Sunlight Studio recordings made the HM-2 setting widely recognizable."
+    creator: "Shadowgate"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Entombed_01.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: all-four-knobs-to-the-right-detail-3
+    image: ../../assets/all-four-knobs-to-the-right-detail-3.jpg
+    alt: "Editorial detail crop from the documented image: Black BOSS HM-2 Heavy Metal distortion pedal with orange labels and four control knobs photographed against a plain background."
+    caption: "Detail view from the article's documented archive image. An original BOSS HM-2 Heavy Metal pedal with Level, Color Mix, and Distortion controls."
+    creator: "Styroks"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Boss_HM-2_Heavy_Metal.jpg"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-user"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: all-four-knobs-to-the-right-detail-4
+    image: ../../assets/all-four-knobs-to-the-right-detail-4.jpg
+    alt: "Editorial detail crop from the documented image: An Entombed guitarist plays a dark electric guitar under blue stage light at Frozen Rock Festival in 2007."
+    caption: "Detail view from the article's documented archive image. Entombed live in 2007; the band’s Sunlight Studio recordings made the HM-2 setting widely recognizable."
+    creator: "Shadowgate"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Entombed_01.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
+    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: boss-product
     title: HM-2W Heavy Metal
