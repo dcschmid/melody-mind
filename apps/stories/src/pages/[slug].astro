@@ -376,17 +376,17 @@ const articleSchema = {
   }
 
   .story__body :global(.editorial-figure--inline) {
+    justify-items: center;
     inline-size: calc(100% + clamp(0rem, 8vw, 10rem));
     max-inline-size: none;
     margin-block: clamp(2.5rem, 7vw, 4.5rem);
     margin-inline: clamp(-5rem, -4vw, 0rem);
-    justify-items: center;
   }
 
   .story__body :global(.editorial-figure--inline img) {
     inline-size: auto;
-    block-size: auto;
     max-inline-size: 100%;
+    block-size: auto;
     max-block-size: min(80vh, 48rem);
     margin-inline: auto;
     object-fit: contain;

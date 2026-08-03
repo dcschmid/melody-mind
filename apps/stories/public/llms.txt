@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Twenty-four-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Twenty-six-story reading room and featured stories
+- [The Store Became the Label](https://stories.melody-mind.de/the-store-became-the-label/): Scene report on Cogumelo Records and Belo Horizonte's early extreme-metal network
+- [The X Stayed on the Hand](https://stories.melody-mind.de/the-x-stayed-on-the-hand/): Scene report on all-ages access, Dischord Records, zines, and citizen archiving in Washington hardcore
 - [The Bar Line Stayed Put](https://stories.melody-mind.de/the-bar-line-stayed-put/): Artist portrait of Meshuggah's stable pulse, displaced riff cycles, and extended-range guitar language
 - [The Room Charged by the Hour](https://stories.melody-mind.de/the-room-charged-by-the-hour/): Scene report on Reciprocal Recording, Jack Endino, Sub Pop, and Seattle's early independent recording network
 - [The Sample Had a Screen](https://stories.melody-mind.de/the-sample-had-a-screen/): Technology story about the Fairlight CMI, digital sampling, light-pen editing, and Page R sequencing
