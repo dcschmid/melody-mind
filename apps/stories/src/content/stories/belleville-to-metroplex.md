@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 2.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/2.0/
     alterations: Wikimedia 1920-pixel derivative; Astro creates responsive derivatives
-  - id: belleville-to-metroplex-detail-1
-    image: ../../assets/belleville-to-metroplex-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Wide exterior view of Belleville High School in Michigan with a low brick facade, broad lawn, access road, and blue sky."
-    caption: "Detail view from the article's documented archive image. Belleville High School, where Juan Atkins, Derrick May, and Kevin Saunderson met as teenagers."
-    creator: "PeRshGo"
+  - id: belleville-to-metroplex-archive-1
+    image: ../../assets/belleville-to-metroplex-archive-1.jpg
+    alt: "Archive image: Ksaunderson2"
+    caption: "Ksaunderson2. Independent archive image selected for this story."
+    creator: "Wikimedia Commons contributor"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Belleville_High_School,_Belleville,_MI.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: belleville-to-metroplex-detail-2
-    image: ../../assets/belleville-to-metroplex-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Roland TR-808 and TR-909 drum machines arranged vertically, exposing their knobs, sequencer buttons, labels, and individual outputs."
-    caption: "Detail view from the article's documented archive image. The TR-808 and TR-909 offered different electronic percussion palettes and programmable step sequences."
-    creator: "Brandon Daniel"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Ksaunderson2.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: belleville-to-metroplex-archive-2
+    image: ../../assets/belleville-to-metroplex-archive-2.jpg
+    alt: "Archive image: Kevin Saunderson"
+    caption: "KevinSaunderson. Independent archive image selected for this story."
+    creator: "Scott Sandars from Melbourne, Australia"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Roland_TR-808_%26_909.jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:KevinSaunderson.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: belleville-to-metroplex-archive-3
+    image: ../../assets/belleville-to-metroplex-archive-3.jpg
+    alt: "Archive image: Model 500"
+    caption: "Model500 2. Independent archive image selected for this story."
+    creator: "Dave Walker from Ecorse, USA"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Model500_2.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: belleville-to-metroplex-archive-4
+    image: ../../assets/belleville-to-metroplex-archive-4.jpg
+    alt: "Archive image: Model 500"
+    caption: "Model500 3. Independent archive image selected for this story."
+    creator: "Angie Schwendemann from Detroit, USA"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Model500_3.jpg"
     license: "CC BY-SA 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: belleville-to-metroplex-detail-3
-    image: ../../assets/belleville-to-metroplex-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Wide exterior view of Belleville High School in Michigan with a low brick facade, broad lawn, access road, and blue sky."
-    caption: "Detail view from the article's documented archive image. Belleville High School, where Juan Atkins, Derrick May, and Kevin Saunderson met as teenagers."
-    creator: "PeRshGo"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Belleville_High_School,_Belleville,_MI.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: belleville-to-metroplex-detail-4
-    image: ../../assets/belleville-to-metroplex-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Roland TR-808 and TR-909 drum machines arranged vertically, exposing their knobs, sequencer buttons, labels, and individual outputs."
-    caption: "Detail view from the article's documented archive image. The TR-808 and TR-909 offered different electronic percussion palettes and programmable step sequences."
-    creator: "Brandon Daniel"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Roland_TR-808_%26_909.jpg"
-    license: "CC BY-SA 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
 sources:
   - id: atkins-history
     title: Juan Atkins

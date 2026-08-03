@@ -33,46 +33,46 @@ figures:
     license: CC BY 2.0
     licenseUrl: https://creativecommons.org/licenses/by/2.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
-  - id: four-parts-one-weight-detail-1
-    image: ../../assets/four-parts-one-weight-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Black Sabbath’s four original members perform together on a large stage in Birmingham in July 2025, seen from behind the audience."
-    caption: "Detail view from the article's documented archive image. Tony Iommi, Geezer Butler, Ozzy Osbourne, and Bill Ward together at Back to the Beginning in Birmingham, July 2025."
-    creator: "Keiran Bowers"
+  - id: four-parts-one-weight-archive-1
+    image: ../../assets/four-parts-one-weight-archive-1.jpg
+    alt: "Archive image: «Black Sabbath» на сцэне «Schleyerhalle» у Штутгарце, Германія. «Reunion Tour»."
+    caption: "Black Sabbath 1999-12-16 Stuttgart. Independent archive image selected for this story."
+    creator: "Alex Ex"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Black_Sabbath_at_Back_to_the_Beginning.jpg"
-    license: "CC BY 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: four-parts-one-weight-detail-2
-    image: ../../assets/four-parts-one-weight-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Gallery view of the Home of Metal exhibition at Birmingham Museum and Art Gallery, with stage objects, posters, and a large cross."
-    caption: "Detail view from the article's documented archive image. The Home of Metal exhibition at Birmingham Museum and Art Gallery in 2011."
-    creator: "Greg Neate"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Home_of_Metal_exhibition,_Birmingham_Museum_and_Art_Gallery.jpg"
-    license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: four-parts-one-weight-detail-3
-    image: ../../assets/four-parts-one-weight-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Black Sabbath’s four original members perform together on a large stage in Birmingham in July 2025, seen from behind the audience."
-    caption: "Detail view from the article's documented archive image. Tony Iommi, Geezer Butler, Ozzy Osbourne, and Bill Ward together at Back to the Beginning in Birmingham, July 2025."
-    creator: "Keiran Bowers"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Black_Sabbath_at_Back_to_the_Beginning.jpg"
-    license: "CC BY 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: four-parts-one-weight-detail-4
-    image: ../../assets/four-parts-one-weight-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Gallery view of the Home of Metal exhibition at Birmingham Museum and Art Gallery, with stage objects, posters, and a large cross."
-    caption: "Detail view from the article's documented archive image. The Home of Metal exhibition at Birmingham Museum and Art Gallery in 2011."
-    creator: "Greg Neate"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Home_of_Metal_exhibition,_Birmingham_Museum_and_Art_Gallery.jpg"
-    license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Black_Sabbath_1999-12-16_Stuttgart.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: four-parts-one-weight-illustration-2
+    image: ../../assets/four-parts-one-weight-illustration-2.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/four-parts-one-weight/#four-parts-one-weight-illustration-2"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: four-parts-one-weight-illustration-3
+    image: ../../assets/four-parts-one-weight-illustration-3.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/four-parts-one-weight/#four-parts-one-weight-illustration-3"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: four-parts-one-weight-illustration-4
+    image: ../../assets/four-parts-one-weight-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/four-parts-one-weight/#four-parts-one-weight-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: working-class-radicals
     title: "Black Sabbath: Working-Class Radicals"

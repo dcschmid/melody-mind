@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 4.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
     alterations: Source file was cropped before upload; cropped for editorial framing; Astro creates responsive derivatives
-  - id: the-voice-inside-the-beat-detail-1
-    image: ../../assets/the-voice-inside-the-beat-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Missy Elliott performs at Wireless Festival in London in 2010, holding a microphone and extending one arm beneath blue stage lights."
-    caption: "Detail view from the article's documented archive image. Missy Elliott performing at Wireless Festival in London in July 2010."
+  - id: the-voice-inside-the-beat-archive-1
+    image: ../../assets/the-voice-inside-the-beat-archive-1.jpg
+    alt: "Archive image: Missy Elliott live in Wireless Festival 2010."
+    caption: "Missy Elliott - Wireless Festival 2010 (1). Independent archive image selected for this story."
     creator: "joanneconlon"
     sourceName: "Wikimedia Commons"
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Missy_Elliott_-_Wireless_Festival_2010_(1).jpg"
     license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-voice-inside-the-beat-detail-2
-    image: ../../assets/the-voice-inside-the-beat-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Studio portrait of Missy Elliott facing the camera in a black cap and patterned black-and-white jacket against a pale background."
-    caption: "Detail view from the article's documented archive image. An Atlantic Records portrait of Elliott released under a free license in 2015."
-    creator: "Atlantic Records"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Missy_Elliot.jpg"
-    license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-voice-inside-the-beat-detail-3
-    image: ../../assets/the-voice-inside-the-beat-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Missy Elliott performs at Wireless Festival in London in 2010, holding a microphone and extending one arm beneath blue stage lights."
-    caption: "Detail view from the article's documented archive image. Missy Elliott performing at Wireless Festival in London in July 2010."
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-voice-inside-the-beat-archive-2
+    image: ../../assets/the-voice-inside-the-beat-archive-2.jpg
+    alt: "Archive image: Missy Elliott live in Wireless Festival 2010."
+    caption: "Missy Elliott - Wireless Festival 2010 (2). Independent archive image selected for this story."
     creator: "joanneconlon"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Missy_Elliott_-_Wireless_Festival_2010_(1).jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Missy_Elliott_-_Wireless_Festival_2010_(2).jpg"
     license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-voice-inside-the-beat-detail-4
-    image: ../../assets/the-voice-inside-the-beat-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Studio portrait of Missy Elliott facing the camera in a black cap and patterned black-and-white jacket against a pale background."
-    caption: "Detail view from the article's documented archive image. An Atlantic Records portrait of Elliott released under a free license in 2015."
-    creator: "Atlantic Records"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Missy_Elliot.jpg"
-    license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-voice-inside-the-beat-illustration-3
+    image: ../../assets/the-voice-inside-the-beat-illustration-3.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-voice-inside-the-beat/#the-voice-inside-the-beat-illustration-3"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: the-voice-inside-the-beat-illustration-4
+    image: ../../assets/the-voice-inside-the-beat-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-voice-inside-the-beat/#the-voice-inside-the-beat-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: grammy-interview
     title: Revisiting Supa Dupa Fly at 25

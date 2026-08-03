@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 4.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
-  - id: the-new-wave-was-a-network-detail-1
-    image: ../../assets/the-new-wave-was-a-network-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Bruce Dickinson performs with Iron Maiden in 2009, leaning toward a stadium audience beneath bright stage lighting."
-    caption: "Detail view from the article's documented archive image. Iron Maiden in 2009, decades after the demo-and-club network that first carried the band."
-    creator: "Samuel Aguiar"
+  - id: the-new-wave-was-a-network-archive-1
+    image: ../../assets/the-new-wave-was-a-network-archive-1.jpg
+    alt: "Archive image: English heavy metal band Saxon performing at the Sweden Rock Festival in 2008."
+    caption: "Saxon Sweden Rock 2008. Independent archive image selected for this story."
+    creator: "Äppelmos"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Iron_Maiden.jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Saxon_Sweden_Rock_2008.jpg"
+    license: "CC BY 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/3.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-new-wave-was-a-network-archive-2
+    image: ../../assets/the-new-wave-was-a-network-archive-2.jpg
+    alt: "Archive image: Iron Maiden in Paris (Bercy Arena) on July 1st 2008"
+    caption: "Iron Maiden in Bercy 1. Independent archive image selected for this story."
+    creator: "Metalheart"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Iron_Maiden_in_Bercy_1.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-new-wave-was-a-network-archive-3
+    image: ../../assets/the-new-wave-was-a-network-archive-3.jpg
+    alt: "Archive image: I've trim the original image"
+    caption: "Iron Maiden Irvine 2008. Independent archive image selected for this story."
+    creator: "Anne Varak"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Iron_Maiden_Irvine_2008.jpg"
     license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-new-wave-was-a-network-detail-2
-    image: ../../assets/the-new-wave-was-a-network-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: The five members of Saxon pose together outdoors at the Tons of Rock festival in Oslo in 2024."
-    caption: "Detail view from the article's documented archive image. Saxon at Tons of Rock in 2024, one of the regional bands grouped under the NWOBHM name."
-    creator: "Birgit Fostervold"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Saxon.jpg"
-    license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-new-wave-was-a-network-detail-3
-    image: ../../assets/the-new-wave-was-a-network-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Bruce Dickinson performs with Iron Maiden in 2009, leaning toward a stadium audience beneath bright stage lighting."
-    caption: "Detail view from the article's documented archive image. Iron Maiden in 2009, decades after the demo-and-club network that first carried the band."
-    creator: "Samuel Aguiar"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Iron_Maiden.jpg"
-    license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-new-wave-was-a-network-detail-4
-    image: ../../assets/the-new-wave-was-a-network-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: The five members of Saxon pose together outdoors at the Tons of Rock festival in Oslo in 2024."
-    caption: "Detail view from the article's documented archive image. Saxon at Tons of Rock in 2024, one of the regional bands grouped under the NWOBHM name."
-    creator: "Birgit Fostervold"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Saxon.jpg"
-    license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-new-wave-was-a-network-illustration-4
+    image: ../../assets/the-new-wave-was-a-network-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-new-wave-was-a-network/#the-new-wave-was-a-network-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: oxford-network
     title: "How Metallica Was Built on the New Wave of British Heavy Metal"

@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: Composite derivative rasterized from an SVG and sharpened; Astro creates responsive derivatives
-  - id: the-sample-had-a-screen-detail-1
-    image: ../../assets/the-sample-had-a-screen-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: A Fairlight CMI system with musical keyboard, alphanumeric keyboard, monitor, light pen, and white computer unit arranged for use."
-    caption: "Detail view from the article's documented archive image. A Fairlight CMI presented as a complete working system: keyboards, computer, screen, light pen, and digital sound storage."
+  - id: the-sample-had-a-screen-archive-1
+    image: ../../assets/the-sample-had-a-screen-archive-1.jpg
+    alt: "Archive image: Atari ST 1040"
+    caption: "Atari ST 1040. Independent archive image selected for this story."
+    creator: "Wikimedia Commons contributor"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Atari_ST_1040.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-sample-had-a-screen-archive-2
+    image: ../../assets/the-sample-had-a-screen-archive-2.jpg
+    alt: "Archive image: Fairlight CMI"
+    caption: "Fairlight. Independent archive image selected for this story."
     creator: "Joho345"
     sourceName: "Wikimedia Commons"
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight.JPG"
-    license: "Public domain dedication by the creator"
-    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-sample-had-a-screen-detail-2
-    image: ../../assets/the-sample-had-a-screen-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Composite view of a Fairlight CMI Series II keyboard, light pen, and Page R sequencer screen showing repeated note blocks on a grid."
-    caption: "Detail view from the article's documented archive image. Page R turned repeated musical events into blocks on a screen, making arrangement visible before modern DAWs standardized the view."
-    creator: "Clusternote, after Joho345 and Kevan Davis"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-sample-had-a-screen-archive-3
+    image: ../../assets/the-sample-had-a-screen-archive-3.jpg
+    alt: "Archive image: Fairlight's ASCII keyboard"
+    caption: "Fairlight's ASCII keyboard. Independent archive image selected for this story."
+    creator: "Marcin Wichary"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight_II_Page_R.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-sample-had-a-screen-detail-3
-    image: ../../assets/the-sample-had-a-screen-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: A Fairlight CMI system with musical keyboard, alphanumeric keyboard, monitor, light pen, and white computer unit arranged for use."
-    caption: "Detail view from the article's documented archive image. A Fairlight CMI presented as a complete working system: keyboards, computer, screen, light pen, and digital sound storage."
-    creator: "Joho345"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight.JPG"
-    license: "Public domain dedication by the creator"
-    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-sample-had-a-screen-detail-4
-    image: ../../assets/the-sample-had-a-screen-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Composite view of a Fairlight CMI Series II keyboard, light pen, and Page R sequencer screen showing repeated note blocks on a grid."
-    caption: "Detail view from the article's documented archive image. Page R turned repeated musical events into blocks on a screen, making arrangement visible before modern DAWs standardized the view."
-    creator: "Clusternote, after Joho345 and Kevan Davis"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight_II_Page_R.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fairlight%27s_ASCII_keyboard.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-sample-had-a-screen-illustration-4
+    image: ../../assets/the-sample-had-a-screen-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-sample-had-a-screen/#the-sample-had-a-screen-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: nfsa
     title: The Fairlight Sampling Synthesizer

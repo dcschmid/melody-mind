@@ -33,46 +33,46 @@ figures:
     license: CC BY 3.0
     licenseUrl: https://creativecommons.org/licenses/by/3.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
-  - id: the-workshop-inside-the-guitar-detail-1
-    image: ../../assets/the-workshop-inside-the-guitar-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Red, white, and black striped Eddie Van Halen electric guitar displayed upright beside Marshall amplifier cabinets in a museum."
-    caption: "Detail view from the article's documented archive image. An Eddie Van Halen striped guitar and amplifier equipment at Seattle’s Museum of Pop Culture."
-    creator: "John Seb Barber"
+  - id: the-workshop-inside-the-guitar-archive-1
+    image: ../../assets/the-workshop-inside-the-guitar-archive-1.jpg
+    alt: "Archive image: Guitar of Eddie Van Halen"
+    caption: "EVH frankenstrat. Independent archive image selected for this story."
+    creator: "Bainzy at English Wikipedia"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddie_Van_Halen%27s_guitar,_EMP_Museum.jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:EVH_frankenstrat.jpg"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-workshop-inside-the-guitar-archive-2
+    image: ../../assets/the-workshop-inside-the-guitar-archive-2.jpg
+    alt: "Archive image: Eddie Van Halen shredding his guitar while playing Eruption. Taken at The Van Halen Tour featuring David Lee Roth (lead vocals), Eddie Van Halen (guitars), Wolfgang Van Halen (bass) and Alex Van Halen (drums). The concert was held at Bell Center, Montreal on 10th November, 2007."
+    caption: "Eddie Van Halen 2007-11-10. Independent archive image selected for this story."
+    creator: "Anirudh Koul from Montreal, Canada"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddie_Van_Halen_2007-11-10.jpg"
     license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-workshop-inside-the-guitar-detail-2
-    image: ../../assets/the-workshop-inside-the-guitar-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Eddie Van Halen performs onstage in Quebec City in 2008, holding a striped electric guitar beneath red concert lights."
-    caption: "Detail view from the article's documented archive image. Eddie Van Halen performing in Quebec City during the band’s 2008 tour."
-    creator: "Felixggenest"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-workshop-inside-the-guitar-archive-3
+    image: ../../assets/the-workshop-inside-the-guitar-archive-3.jpg
+    alt: "Archive image: David Lee Roth with Eddie Van Halen Taken at The Van Halen Tour featuring David Lee Roth (lead vocals), Eddie Van Halen (guitars), Wolfgang Van Halen (bass) and Alex Van Halen (drums). The concert was held at Bell Center, Montreal on 10th November, 2007."
+    caption: "David Lee Roth and Eddie Van Halen 2007-11-10. Independent archive image selected for this story."
+    creator: "Anirudh Koul from Montreal, Canada"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddy_Van_Halen.jpg"
-    license: "CC BY 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-workshop-inside-the-guitar-detail-3
-    image: ../../assets/the-workshop-inside-the-guitar-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Red, white, and black striped Eddie Van Halen electric guitar displayed upright beside Marshall amplifier cabinets in a museum."
-    caption: "Detail view from the article's documented archive image. An Eddie Van Halen striped guitar and amplifier equipment at Seattle’s Museum of Pop Culture."
-    creator: "John Seb Barber"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddie_Van_Halen%27s_guitar,_EMP_Museum.jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:David_Lee_Roth_and_Eddie_Van_Halen_2007-11-10.jpg"
     license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-workshop-inside-the-guitar-detail-4
-    image: ../../assets/the-workshop-inside-the-guitar-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Eddie Van Halen performs onstage in Quebec City in 2008, holding a striped electric guitar beneath red concert lights."
-    caption: "Detail view from the article's documented archive image. Eddie Van Halen performing in Quebec City during the band’s 2008 tour."
-    creator: "Felixggenest"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Eddy_Van_Halen.jpg"
-    license: "CC BY 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-workshop-inside-the-guitar-illustration-4
+    image: ../../assets/the-workshop-inside-the-guitar-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-workshop-inside-the-guitar/#the-workshop-inside-the-guitar-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: smithsonian-interview
     title: Eddie Van Halen on How Necessity Drives Innovation

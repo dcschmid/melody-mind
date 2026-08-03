@@ -46,6 +46,7 @@ export function validateFrontmatterRelationships(data) {
   const figures = Array.isArray(data.figures) ? data.figures : [];
   const sourceIds = sources.map((source) => source.id);
   const imageIds = [data.hero?.id, ...figures.map((figure) => figure.id)].filter(Boolean);
+  const imagePaths = [data.hero?.image, ...figures.map((figure) => figure.image)].filter(Boolean);
 
   if (figures.length < MIN_FIGURES || figures.length > MAX_FIGURES) {
     errors.push(
@@ -61,6 +62,9 @@ export function validateFrontmatterRelationships(data) {
   }
   if (new Set(imageIds).size !== imageIds.length) {
     errors.push("hero and figure IDs must be unique");
+  }
+  if (new Set(imagePaths).size !== imagePaths.length) {
+    errors.push("hero and figure image paths must be unique");
   }
 
   for (const image of [data.hero, ...figures]) {

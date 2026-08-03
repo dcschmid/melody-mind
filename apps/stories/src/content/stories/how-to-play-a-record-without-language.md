@@ -33,46 +33,46 @@ figures:
     license: Public domain NASA image
     licenseUrl: https://www.nasa.gov/nasa-brand-center/images-and-media/
     alterations: No editorial retouching; Astro creates responsive derivatives
-  - id: how-to-play-a-record-without-language-detail-1
-    image: ../../assets/how-to-play-a-record-without-language-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Gold-colored circular Voyager record cover engraved with playback, image-decoding, pulsar-location, and hydrogen-transition diagrams."
-    caption: "Detail view from the article's documented archive image. The protective cover carried on both Voyager spacecraft, photographed to show its etched instructions."
-    creator: "NASA and Jet Propulsion Laboratory"
+  - id: how-to-play-a-record-without-language-archive-1
+    image: ../../assets/how-to-play-a-record-without-language-archive-1.jpg
+    alt: "Archive image: Voyager Golden Record This gold aluminium cover was designed to protect the Voyager 1 and 2 Sounds of Earth gold-plated records from micrometeorite bombardment, but also serves a double purpose in providing the finder a key to playing the record. The explanatory diagram appears on both the inner and"
+    caption: "The Sounds of Earth Record Cover - GPN-2000-001978. Independent archive image selected for this story."
+    creator: "NASA/JPL"
     sourceName: "Wikimedia Commons"
     sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Sounds_of_Earth_Record_Cover_-_GPN-2000-001978.jpg"
-    license: "Public domain NASA image"
-    licenseUrl: "https://www.nasa.gov/nasa-brand-center/images-and-media/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: how-to-play-a-record-without-language-detail-2
-    image: ../../assets/how-to-play-a-record-without-language-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Archival photograph showing the Voyager Golden Record cover diagram being etched onto a metal surface during production in July 1977."
-    caption: "Detail view from the article's documented archive image. Production work on the etched cover in July 1977, before the two Voyager launches."
-    creator: "NASA and Jet Propulsion Laboratory"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: how-to-play-a-record-without-language-archive-2
+    image: ../../assets/how-to-play-a-record-without-language-archive-2.jpg
+    alt: "Archive image: NASA image of Pioneer 10's famed Pioneer plaque features a design engraved into a gold-anodized aluminum plate, 152 by 229 millimeters (6 by 9 inches), attached to the spacecraft's antenna support struts to help shield it from erosion by interstellar dust."
+    caption: "Pioneer10-plaque. Independent archive image selected for this story."
+    creator: "Designed by Carl Sagan and Frank Drake . Artwork prepared by Linda Salzman Sagan . Photograph by NASA Ames Research Center (NASA-ARC)"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Voyager-golden-record-etching-7-28-77_30217512534_o.jpg"
-    license: "Public domain NASA image"
-    licenseUrl: "https://www.nasa.gov/nasa-brand-center/images-and-media/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: how-to-play-a-record-without-language-detail-3
-    image: ../../assets/how-to-play-a-record-without-language-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Gold-colored circular Voyager record cover engraved with playback, image-decoding, pulsar-location, and hydrogen-transition diagrams."
-    caption: "Detail view from the article's documented archive image. The protective cover carried on both Voyager spacecraft, photographed to show its etched instructions."
-    creator: "NASA and Jet Propulsion Laboratory"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Pioneer10-plaque.jpg"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: how-to-play-a-record-without-language-archive-3
+    image: ../../assets/how-to-play-a-record-without-language-archive-3.jpg
+    alt: "Archive image: Explanation of the Voyager Golden Record cover by NASA"
+    caption: "Voyager Golden Record Cover Explanation. Independent archive image selected for this story."
+    creator: "NASA Jet Propulsion Laboratory"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Sounds_of_Earth_Record_Cover_-_GPN-2000-001978.jpg"
-    license: "Public domain NASA image"
-    licenseUrl: "https://www.nasa.gov/nasa-brand-center/images-and-media/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: how-to-play-a-record-without-language-detail-4
-    image: ../../assets/how-to-play-a-record-without-language-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Archival photograph showing the Voyager Golden Record cover diagram being etched onto a metal surface during production in July 1977."
-    caption: "Detail view from the article's documented archive image. Production work on the etched cover in July 1977, before the two Voyager launches."
-    creator: "NASA and Jet Propulsion Laboratory"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Voyager-golden-record-etching-7-28-77_30217512534_o.jpg"
-    license: "Public domain NASA image"
-    licenseUrl: "https://www.nasa.gov/nasa-brand-center/images-and-media/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Voyager_Golden_Record_Cover_Explanation.svg"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: how-to-play-a-record-without-language-illustration-4
+    image: ../../assets/how-to-play-a-record-without-language-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/how-to-play-a-record-without-language/#how-to-play-a-record-without-language-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: nasa-cover
     title: Golden Record Cover

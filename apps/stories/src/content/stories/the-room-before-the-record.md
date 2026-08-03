@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: No editorial retouching; Astro creates responsive derivatives
-  - id: the-room-before-the-record-detail-1
-    image: ../../assets/the-room-before-the-record-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Brown honorary Frankie Knuckles Way street sign mounted above a green Jefferson Street sign against trees and brick buildings in Chicago."
-    caption: "Detail view from the article's documented archive image. Chicago named a section of Jefferson Street for Frankie Knuckles near the former Warehouse."
-    creator: "Sarah Stierch"
+  - id: the-room-before-the-record-archive-1
+    image: ../../assets/the-room-before-the-record-archive-1.jpg
+    alt: "Archive image: Frankie Knuckles @ Sugar Factory club, 2012."
+    caption: "Frankie Knuckles @ ADE 2012. Independent archive image selected for this story."
+    creator: "deepstereo"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Frankie_Knuckles_@_ADE_2012.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-room-before-the-record-archive-2
+    image: ../../assets/the-room-before-the-record-archive-2.jpg
+    alt: "Archive image: Frankie Knuckles Way, Chicago, Illinois"
+    caption: "Frankie Knuckles Way - June 2022 - Sarah Stierch. Independent archive image selected for this story."
+    creator: "Missvain"
     sourceName: "Wikimedia Commons"
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Frankie_Knuckles_Way_-_June_2022_-_Sarah_Stierch.jpg"
     license: "CC BY 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-room-before-the-record-detail-2
-    image: ../../assets/the-room-before-the-record-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Front view of a Roland TR-909 rhythm composer showing its labeled controls, step buttons, drum sounds, tempo knob, and pattern display."
-    caption: "Detail view from the article's documented archive image. The Roland TR-909 joined sampled and synthesized percussion in a machine built for programmable repetition."
-    creator: "909 bd"
+    licenseUrl: "https://creativecommons.org/licenses/by/4.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-room-before-the-record-archive-3
+    image: ../../assets/the-room-before-the-record-archive-3.jpg
+    alt: "Archive image: Frankie Knuckles and DJ David Harness performing at The Mighty (San Francisco)"
+    caption: "Frankie Knuckles and David Harness at The Mighty (SF), 2012 -9. Independent archive image selected for this story."
+    creator: "HaeB"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:RolandTR-909-front.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-room-before-the-record-detail-3
-    image: ../../assets/the-room-before-the-record-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Brown honorary Frankie Knuckles Way street sign mounted above a green Jefferson Street sign against trees and brick buildings in Chicago."
-    caption: "Detail view from the article's documented archive image. Chicago named a section of Jefferson Street for Frankie Knuckles near the former Warehouse."
-    creator: "Sarah Stierch"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Frankie_Knuckles_Way_-_June_2022_-_Sarah_Stierch.jpg"
-    license: "CC BY 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-room-before-the-record-detail-4
-    image: ../../assets/the-room-before-the-record-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Front view of a Roland TR-909 rhythm composer showing its labeled controls, step buttons, drum sounds, tempo knob, and pattern display."
-    caption: "Detail view from the article's documented archive image. The Roland TR-909 joined sampled and synthesized percussion in a machine built for programmable repetition."
-    creator: "909 bd"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:RolandTR-909-front.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Frankie_Knuckles_and_David_Harness_at_The_Mighty_(SF),_2012_-9.jpg"
+    license: "CC BY-SA 4.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-room-before-the-record-illustration-4
+    image: ../../assets/the-room-before-the-record-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-room-before-the-record/#the-room-before-the-record-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: warehouse-ordinance
     title: Historical Landmark Designation for The Warehouse at 206 South Jefferson

@@ -34,46 +34,46 @@ figures:
     license: CC BY-SA 2.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/2.0/
     alterations: No editorial retouching; Astro creates responsive derivatives
-  - id: manchester-fac-1-to-fac-51-detail-1
-    image: ../../assets/manchester-fac-1-to-fac-51-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Street-level view of the former Strawberry Recording Studios building on Waterloo Road in Stockport under a clear sky."
-    caption: "Detail view from the article's documented archive image. The Waterloo Road building that housed Strawberry Recording Studios in Stockport."
-    creator: "Ridiculopathy"
+  - id: manchester-fac-1-to-fac-51-archive-1
+    image: ../../assets/manchester-fac-1-to-fac-51-archive-1.jpg
+    alt: "Archive image: The rebuilt Hacienda."
+    caption: "Haciendaapartments. Independent archive image selected for this story."
+    creator: "Gene Hunt"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Strawberry_Studios,_Stockport,_Manchester,_UK_in_the_sun_02.jpg"
-    license: "CC0 1.0"
-    licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: manchester-fac-1-to-fac-51-detail-2
-    image: ../../assets/manchester-fac-1-to-fac-51-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: A metal floor sign in Manchester identifying the former location of the Haçienda nightclub and its Factory catalog number FAC 51."
-    caption: "Detail view from the article's documented archive image. A public sign marking the former Haçienda site and the club's FAC 51 catalog number."
-    creator: "a_marga"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Haciendaapartments.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: manchester-fac-1-to-fac-51-archive-2
+    image: ../../assets/manchester-fac-1-to-fac-51-archive-2.jpg
+    alt: "Archive image: british music band New Order, live at the Southside Festival in Neuhausen ob Eck, Germany, late at night from June 11 to June 12, 2005"
+    caption: "2005-06-11 New Order live. Independent archive image selected for this story."
+    creator: "Alex Ex"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Hacienda_Nightclub_Manchester_Floor_Sign.jpg"
-    license: "CC BY-SA 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: manchester-fac-1-to-fac-51-detail-3
-    image: ../../assets/manchester-fac-1-to-fac-51-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Street-level view of the former Strawberry Recording Studios building on Waterloo Road in Stockport under a clear sky."
-    caption: "Detail view from the article's documented archive image. The Waterloo Road building that housed Strawberry Recording Studios in Stockport."
-    creator: "Ridiculopathy"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Strawberry_Studios,_Stockport,_Manchester,_UK_in_the_sun_02.jpg"
-    license: "CC0 1.0"
-    licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: manchester-fac-1-to-fac-51-detail-4
-    image: ../../assets/manchester-fac-1-to-fac-51-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: A metal floor sign in Manchester identifying the former location of the Haçienda nightclub and its Factory catalog number FAC 51."
-    caption: "Detail view from the article's documented archive image. A public sign marking the former Haçienda site and the club's FAC 51 catalog number."
-    creator: "a_marga"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Hacienda_Nightclub_Manchester_Floor_Sign.jpg"
-    license: "CC BY-SA 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:2005-06-11_New_Order_live.jpg"
+    license: "CC BY-SA 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: manchester-fac-1-to-fac-51-illustration-3
+    image: ../../assets/manchester-fac-1-to-fac-51-illustration-3.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/manchester-fac-1-to-fac-51/#manchester-fac-1-to-fac-51-illustration-3"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: manchester-fac-1-to-fac-51-illustration-4
+    image: ../../assets/manchester-fac-1-to-fac-51-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/manchester-fac-1-to-fac-51/#manchester-fac-1-to-fac-51-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: gretton-archive
     title: Rob Gretton Archive

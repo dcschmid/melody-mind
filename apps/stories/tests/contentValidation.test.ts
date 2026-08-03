@@ -132,6 +132,35 @@ describe("content validator", () => {
     ).toContain("story must contain 5-7 body figures, found 0");
   });
 
+  it("rejects duplicate image assets within a story", () => {
+    const image = {
+      id: "hero",
+      image: "same.jpg",
+      alt: "alt",
+      caption: "caption",
+      creator: "creator",
+      sourceName: "source",
+      sourceUrl: "https://example.com/image",
+      license: "CC0",
+      licenseUrl: "https://example.com/license",
+      alterations: "none",
+    };
+    const figures = Array.from({ length: 5 }, (_, index) => ({
+      ...image,
+      id: `figure-${index + 1}`,
+      image: index === 0 ? "same.jpg" : `figure-${index + 1}.jpg`,
+    }));
+
+    expect(
+      validateFrontmatterRelationships({
+        format: "technology-story",
+        hero: image,
+        figures,
+        sources: [],
+      })
+    ).toContain("hero and figure image paths must be unique");
+  });
+
   it("rejects missing and unknown body source references", () => {
     expect(
       validateBodySourceReferences("[1](#source-missing)", {

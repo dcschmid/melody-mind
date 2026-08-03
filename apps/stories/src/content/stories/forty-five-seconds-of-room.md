@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 4.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
     alterations: No editorial retouching; Astro creates responsive derivatives
-  - id: forty-five-seconds-of-room-detail-1
-    image: ../../assets/forty-five-seconds-of-room-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Color portrait of Pauline Oliveros wearing glasses and a dark jacket while holding a black accordion outdoors in 2010."
-    caption: "Detail view from the article's documented archive image. Pauline Oliveros with the accordion that remained central to her electronic and improvisational practice."
+  - id: forty-five-seconds-of-room-archive-1
+    image: ../../assets/forty-five-seconds-of-room-archive-1.jpg
+    alt: "Archive image: Photo of Pauline at a dinner/concert in Oakland"
+    caption: "POliveros2010. Independent archive image selected for this story."
     creator: "Allan J. Cronin"
     sourceName: "Wikimedia Commons"
     sourceUrl: "https://commons.wikimedia.org/wiki/File:POliveros2010.JPG"
     license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: forty-five-seconds-of-room-detail-2
-    image: ../../assets/forty-five-seconds-of-room-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Pauline Oliveros wearing headphones and playing accordion beside Nels Cline and Thollem McDonas during a 2015 recording session."
-    caption: "Detail view from the article's documented archive image. Oliveros recording with Thollem McDonas and Nels Cline at Art Farm in Accord, New York, in 2015."
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: forty-five-seconds-of-room-archive-2
+    image: ../../assets/forty-five-seconds-of-room-archive-2.jpg
+    alt: "Archive image: Thollem McDonas and Nels Cline recording with Pauline Oliveros recording Thollem and Cline's third album of the Thollem/Cline Trio series. Art Farm Studio in Accord, NY"
+    caption: "Thollem-Oliveros-Cline-recording at Art Farm, Accord, NY. Independent archive image selected for this story."
     creator: "Angela C. Villa"
     sourceName: "Wikimedia Commons"
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Thollem-Oliveros-Cline-recording_at_Art_Farm,_Accord,_NY.jpg"
     license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: forty-five-seconds-of-room-detail-3
-    image: ../../assets/forty-five-seconds-of-room-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Color portrait of Pauline Oliveros wearing glasses and a dark jacket while holding a black accordion outdoors in 2010."
-    caption: "Detail view from the article's documented archive image. Pauline Oliveros with the accordion that remained central to her electronic and improvisational practice."
-    creator: "Allan J. Cronin"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: forty-five-seconds-of-room-archive-3
+    image: ../../assets/forty-five-seconds-of-room-archive-3.jpg
+    alt: "Archive image: Pauline Oliveros performing live on February 24, 2012 at the Sonic Acts festival in Amsterdam"
+    caption: "Pauline Oliveros -SonicActs -SonicActs2012. Independent archive image selected for this story."
+    creator: "Roͬͬ͠͠͡͠͠͠͠͠͠͠͠sͬͬ͠͠͠͠͠͠͠͠͠aͬͬ͠͠͠͠͠͠͠ Menkman"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:POliveros2010.JPG"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: forty-five-seconds-of-room-detail-4
-    image: ../../assets/forty-five-seconds-of-room-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Pauline Oliveros wearing headphones and playing accordion beside Nels Cline and Thollem McDonas during a 2015 recording session."
-    caption: "Detail view from the article's documented archive image. Oliveros recording with Thollem McDonas and Nels Cline at Art Farm in Accord, New York, in 2015."
-    creator: "Angela C. Villa"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Thollem-Oliveros-Cline-recording_at_Art_Farm,_Accord,_NY.jpg"
-    license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Pauline_Oliveros_-SonicActs_-SonicActs2012.jpg"
+    license: "CC BY 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: forty-five-seconds-of-room-illustration-4
+    image: ../../assets/forty-five-seconds-of-room-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/forty-five-seconds-of-room/#forty-five-seconds-of-room-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: deep-listening-center
     title: Deep Listening

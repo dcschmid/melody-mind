@@ -44,36 +44,36 @@ figures:
     license: CC BY-NC-SA 4.0
     licenseUrl: https://creativecommons.org/licenses/by-nc-sa/4.0/
     alterations: No editorial retouching; Astro creates responsive derivatives for this noncommercial publication
-  - id: one-hundred-pulses-no-band-name-detail-1
-    image: ../../assets/one-hundred-pulses-no-band-name-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Museum photograph of an Unknown Pleasures LP with its black sleeve, small white pulsar plot, white inner sleeve, and black vinyl record."
-    caption: "Detail view from the article's documented archive image. Unknown Pleasures LP, Science Museum Group object 2006-112, shown with sleeve, inner sleeve, and record."
-    creator: "Science Museum Group"
-    sourceName: "Science Museum Group Collection"
-    sourceUrl: "https://collection.sciencemuseumgroup.org.uk/objects/co8075535/unknown-pleasures-lp"
-    license: "CC BY-NC-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: one-hundred-pulses-no-band-name-detail-2
-    image: ../../assets/one-hundred-pulses-no-band-name-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Close museum photograph of the Unknown Pleasures record label with the pulsar plot, FACT 10A number, and stereo marking."
-    caption: "Detail view from the article's documented archive image. The record label repeats the pulsar plot and adds the catalog and playback information absent from the front cover."
-    creator: "Science Museum Group"
-    sourceName: "Science Museum Group Collection"
-    sourceUrl: "https://collection.sciencemuseumgroup.org.uk/objects/co8075535/unknown-pleasures-lp"
-    license: "CC BY-NC-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: one-hundred-pulses-no-band-name-detail-3
-    image: ../../assets/one-hundred-pulses-no-band-name-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Angled museum photograph of the black Unknown Pleasures sleeve and partially removed record against a bright blue background."
-    caption: "Detail view from the article's documented archive image. The sleeve and record photographed as a handled museum object rather than a flat graphic."
-    creator: "Science Museum Group"
-    sourceName: "Science Museum Group Collection"
-    sourceUrl: "https://collection.sciencemuseumgroup.org.uk/objects/co8075535/unknown-pleasures-lp"
-    license: "CC BY-NC-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+  - id: one-hundred-pulses-no-band-name-illustration-1
+    image: ../../assets/one-hundred-pulses-no-band-name-illustration-1.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/one-hundred-pulses-no-band-name/#one-hundred-pulses-no-band-name-illustration-1"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: one-hundred-pulses-no-band-name-illustration-2
+    image: ../../assets/one-hundred-pulses-no-band-name-illustration-2.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/one-hundred-pulses-no-band-name/#one-hundred-pulses-no-band-name-illustration-2"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: one-hundred-pulses-no-band-name-illustration-3
+    image: ../../assets/one-hundred-pulses-no-band-name-illustration-3.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/one-hundred-pulses-no-band-name/#one-hundred-pulses-no-band-name-illustration-3"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: smg-object
     title: Unknown Pleasures LP

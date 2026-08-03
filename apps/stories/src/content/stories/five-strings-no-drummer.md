@@ -33,46 +33,46 @@ figures:
     license: Public domain, William P. Gottlieb collection
     licenseUrl: https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/
     alterations: No editorial retouching; Astro creates responsive derivatives
-  - id: five-strings-no-drummer-detail-1
-    image: ../../assets/five-strings-no-drummer-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Black-and-white portrait of Django Reinhardt seated with a cigarette and looking directly at the camera in New York in 1946."
-    caption: "Detail view from the article's documented archive image. Django Reinhardt photographed at the Aquarium in New York during his 1946 United States visit."
-    creator: "William P. Gottlieb"
-    sourceName: "Library of Congress"
-    sourceUrl: "https://www.loc.gov/item/gottlieb.07311/"
-    license: "Public domain, William P. Gottlieb collection"
-    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: five-strings-no-drummer-detail-2
-    image: ../../assets/five-strings-no-drummer-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Django Reinhardt and Duke Ellington standing side by side backstage at the Aquarium in New York in 1946."
-    caption: "Detail view from the article's documented archive image. Reinhardt with Duke Ellington during the tour that brought the guitarist to the United States."
-    creator: "William P. Gottlieb"
+  - id: five-strings-no-drummer-archive-1
+    image: ../../assets/five-strings-no-drummer-archive-1.jpg
+    alt: "Archive image: Plaque commémorative de Django Reinhardt à Samois-sur-Seine, Seine-et-Marne, France."
+    caption: "Django Reinhardt Plaque Samois. Independent archive image selected for this story."
+    creator: "Myrabella"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Django_Reinhardt_and_Duke_Ellington,_Aquarium,_New_York,_N.Y.,_ca._Nov._1946_(William_P._Gottlieb_07331).jpg"
-    license: "Public domain, William P. Gottlieb collection"
-    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: five-strings-no-drummer-detail-3
-    image: ../../assets/five-strings-no-drummer-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Black-and-white portrait of Django Reinhardt seated with a cigarette and looking directly at the camera in New York in 1946."
-    caption: "Detail view from the article's documented archive image. Django Reinhardt photographed at the Aquarium in New York during his 1946 United States visit."
-    creator: "William P. Gottlieb"
-    sourceName: "Library of Congress"
-    sourceUrl: "https://www.loc.gov/item/gottlieb.07311/"
-    license: "Public domain, William P. Gottlieb collection"
-    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: five-strings-no-drummer-detail-4
-    image: ../../assets/five-strings-no-drummer-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Black-and-white photograph of Django Reinhardt and Duke Ellington standing side by side backstage at the Aquarium in New York in 1946."
-    caption: "Detail view from the article's documented archive image. Reinhardt with Duke Ellington during the tour that brought the guitarist to the United States."
-    creator: "William P. Gottlieb"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Django_Reinhardt_Plaque_Samois.JPG"
+    license: "CC BY 3.0"
+    licenseUrl: "https://creativecommons.org/licenses/by/3.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: five-strings-no-drummer-archive-2
+    image: ../../assets/five-strings-no-drummer-archive-2.jpg
+    alt: "Archive image: Honeysuckle Rose Django Reinhardt - Coleman hawkins - Benny Carter - Paris session 1937"
+    caption: "Honeysuckle rose djangoreinhardt coleman hawkins. Independent archive image selected for this story."
+    creator: "Freimut Bahlo"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Django_Reinhardt_and_Duke_Ellington,_Aquarium,_New_York,_N.Y.,_ca._Nov._1946_(William_P._Gottlieb_07331).jpg"
-    license: "Public domain, William P. Gottlieb collection"
-    licenseUrl: "https://www.loc.gov/collections/jazz-photography-of-william-p-gottlieb/about-this-collection/rights-and-access/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Honeysuckle_rose_djangoreinhardt_coleman_hawkins.JPG"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: five-strings-no-drummer-archive-3
+    image: ../../assets/five-strings-no-drummer-archive-3.jpg
+    alt: "Archive image: Quintette du Hot Club de France - Django Reinhardt"
+    caption: "Quintette du hot club de France. Independent archive image selected for this story."
+    creator: "Freimut Bahlo"
+    sourceName: "Wikimedia Commons"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Quintette_du_hot_club_de_France.jpg"
+    license: "Public domain"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: five-strings-no-drummer-illustration-4
+    image: ../../assets/five-strings-no-drummer-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/five-strings-no-drummer/#five-strings-no-drummer-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: philharmonie-exhibition
     title: Django Reinhardt — Swing de Paris Exhibition

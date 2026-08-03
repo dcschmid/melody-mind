@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: No editorial retouching; Astro creates responsive derivatives
-  - id: the-studio-that-counted-every-hook-detail-1
-    image: ../../assets/the-studio-that-counted-every-hook-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Street-level exterior of the former Cheiron premises on Kungsholmen in Stockholm, with a dark studio entrance beneath a curved residential facade."
-    caption: "Detail view from the article's documented archive image. The former Cheiron premises on Kungsholmen in 2020, then occupied by another recording company."
-    creator: "Frankie Fouganthin"
+  - id: the-studio-that-counted-every-hook-archive-1
+    image: ../../assets/the-studio-that-counted-every-hook-archive-1.jpg
+    alt: "Archive image: Performing Boys"
+    caption: "Britney-Spears Boys. Independent archive image selected for this story."
+    creator: "loveyousave"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:King_Island_Roxystar%27s_Recordings_AB_in_2020.jpg"
-    license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-studio-that-counted-every-hook-detail-2
-    image: ../../assets/the-studio-that-counted-every-hook-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Small group of young fans standing outside Cheiron Studios beneath the red studio name and circular logo on the Kungsholmen facade in 2000."
-    caption: "Detail view from the article's documented archive image. Fans outside Cheiron Studios in 2000, the year the production collective closed the original operation."
-    creator: "LaserCaution at English Wikipedia"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:CheironStudios.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-studio-that-counted-every-hook-detail-3
-    image: ../../assets/the-studio-that-counted-every-hook-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Street-level exterior of the former Cheiron premises on Kungsholmen in Stockholm, with a dark studio entrance beneath a curved residential facade."
-    caption: "Detail view from the article's documented archive image. The former Cheiron premises on Kungsholmen in 2020, then occupied by another recording company."
-    creator: "Frankie Fouganthin"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:King_Island_Roxystar%27s_Recordings_AB_in_2020.jpg"
-    license: "CC BY-SA 4.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-studio-that-counted-every-hook-detail-4
-    image: ../../assets/the-studio-that-counted-every-hook-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Small group of young fans standing outside Cheiron Studios beneath the red studio name and circular logo on the Kungsholmen facade in 2000."
-    caption: "Detail view from the article's documented archive image. Fans outside Cheiron Studios in 2000, the year the production collective closed the original operation."
-    creator: "LaserCaution at English Wikipedia"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:CheironStudios.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Britney-Spears_Boys.jpg"
+    license: "CC BY-SA 2.0"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-studio-that-counted-every-hook-illustration-2
+    image: ../../assets/the-studio-that-counted-every-hook-illustration-2.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-studio-that-counted-every-hook/#the-studio-that-counted-every-hook-illustration-2"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: the-studio-that-counted-every-hook-illustration-3
+    image: ../../assets/the-studio-that-counted-every-hook-illustration-3.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-studio-that-counted-every-hook/#the-studio-that-counted-every-hook-illustration-3"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: the-studio-that-counted-every-hook-illustration-4
+    image: ../../assets/the-studio-that-counted-every-hook-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-studio-that-counted-every-hook/#the-studio-that-counted-every-hook-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: denniz-hall
     title: Denniz Pop

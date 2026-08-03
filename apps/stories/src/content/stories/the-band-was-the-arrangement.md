@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 3.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/3.0/
     alterations: Source was cropped and color-corrected; Astro creates responsive derivatives
-  - id: the-band-was-the-arrangement-detail-1
-    image: ../../assets/the-band-was-the-arrangement-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Exterior of the New Afrika Shrine in Lagos, with painted portraits, signs, railings, and people gathered around the entrance."
-    caption: "Detail view from the article's documented archive image. The New Afrika Shrine in Lagos carries forward the name of the club where Fela Kuti tested music with Africa 70."
-    creator: "Kaizenify"
+  - id: the-band-was-the-arrangement-archive-1
+    image: ../../assets/the-band-was-the-arrangement-archive-1.jpg
+    alt: "Archive image: Tony Allen at the Eurockéennes of 2007"
+    caption: "Tony Allen mg 6469. Independent archive image selected for this story."
+    creator: "Rama"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_New_Shrine,_Lagos.jpg"
-    license: "Public domain dedication by the creator"
-    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-band-was-the-arrangement-detail-2
-    image: ../../assets/the-band-was-the-arrangement-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Fela Kuti stands in profile in 1970, wearing patterned trousers and holding a glass beside another man."
-    caption: "Detail view from the article's documented archive image. Fela Kuti in 1970, as the band that became Africa 70 was defining a new rhythmic and political language."
-    creator: "MOI MEME; derivative by Klausness"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Tony_Allen_mg_6469.jpg"
+    license: "CC BY-SA 2.0 fr"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/fr/deed.en"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-band-was-the-arrangement-archive-2
+    image: ../../assets/the-band-was-the-arrangement-archive-2.jpg
+    alt: "Archive image: WAÏPA ET FELA KUTI"
+    caption: "WAÏPA FELA KUTI. Independent archive image selected for this story."
+    creator: "MOI MEME"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_Kuti.jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:WA%C3%8FPA_FELA_KUTI.JPG"
     license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-band-was-the-arrangement-detail-3
-    image: ../../assets/the-band-was-the-arrangement-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Exterior of the New Afrika Shrine in Lagos, with painted portraits, signs, railings, and people gathered around the entrance."
-    caption: "Detail view from the article's documented archive image. The New Afrika Shrine in Lagos carries forward the name of the club where Fela Kuti tested music with Africa 70."
-    creator: "Kaizenify"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_New_Shrine,_Lagos.jpg"
-    license: "Public domain dedication by the creator"
-    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-band-was-the-arrangement-detail-4
-    image: ../../assets/the-band-was-the-arrangement-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Fela Kuti stands in profile in 1970, wearing patterned trousers and holding a glass beside another man."
-    caption: "Detail view from the article's documented archive image. Fela Kuti in 1970, as the band that became Africa 70 was defining a new rhythmic and political language."
-    creator: "MOI MEME; derivative by Klausness"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Fela_Kuti.jpg"
-    license: "CC BY-SA 3.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-band-was-the-arrangement-illustration-3
+    image: ../../assets/the-band-was-the-arrangement-illustration-3.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-band-was-the-arrangement/#the-band-was-the-arrangement-illustration-3"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: the-band-was-the-arrangement-illustration-4
+    image: ../../assets/the-band-was-the-arrangement-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-band-was-the-arrangement/#the-band-was-the-arrangement-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: official-about
     title: About Fela Kuti

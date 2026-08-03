@@ -33,46 +33,46 @@ figures:
     license: CC BY-SA 2.0
     licenseUrl: https://creativecommons.org/licenses/by-sa/2.0/
     alterations: Source image was noise-reduced before upload; cropped for editorial framing; Astro creates responsive derivatives
-  - id: the-mix-was-still-being-written-detail-1
-    image: ../../assets/the-mix-was-still-being-written-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Lee Scratch Perry performs at a festival in Grenoble in 2009, singing into a handheld microphone beneath blue stage light."
-    caption: "Detail view from the article's documented archive image. Lee “Scratch” Perry performing at the Rocktambule festival in Grenoble in 2009."
-    creator: "Saruman"
+  - id: the-mix-was-still-being-written-archive-1
+    image: ../../assets/the-mix-was-still-being-written-archive-1.jpg
+    alt: "Archive image: Lee Scratch Perry live"
+    caption: "Lee Perry. Independent archive image selected for this story."
+    creator: "Oskarlin"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Lee_Scratch_Perry_24_10_09.JPG"
-    license: "Public domain dedication by the creator"
-    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-mix-was-still-being-written-detail-2
-    image: ../../assets/the-mix-was-still-being-written-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: Lee Scratch Perry faces the camera in London in 2008, wearing a decorated cap, mirrored glasses, necklaces, and a patterned jacket."
-    caption: "Detail view from the article's documented archive image. Perry in London in 2008, three decades after the Black Ark period at the center of this story."
-    creator: "wonker"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Lee_scratch_perry.jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Lee_Perry.jpg"
     license: "CC BY-SA 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-mix-was-still-being-written-detail-3
-    image: ../../assets/the-mix-was-still-being-written-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Lee Scratch Perry performs at a festival in Grenoble in 2009, singing into a handheld microphone beneath blue stage light."
-    caption: "Detail view from the article's documented archive image. Lee “Scratch” Perry performing at the Rocktambule festival in Grenoble in 2009."
-    creator: "Saruman"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Lee_Scratch_Perry_24_10_09.JPG"
-    license: "Public domain dedication by the creator"
-    licenseUrl: "https://creativecommons.org/publicdomain/mark/1.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: the-mix-was-still-being-written-detail-4
-    image: ../../assets/the-mix-was-still-being-written-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: Lee Scratch Perry faces the camera in London in 2008, wearing a decorated cap, mirrored glasses, necklaces, and a patterned jacket."
-    caption: "Detail view from the article's documented archive image. Perry in London in 2008, three decades after the Black Ark period at the center of this story."
-    creator: "wonker"
-    sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Lee_scratch_perry.jpg"
-    license: "CC BY-SA 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: the-mix-was-still-being-written-illustration-2
+    image: ../../assets/the-mix-was-still-being-written-illustration-2.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-mix-was-still-being-written/#the-mix-was-still-being-written-illustration-2"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: the-mix-was-still-being-written-illustration-3
+    image: ../../assets/the-mix-was-still-being-written-illustration-3.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-mix-was-still-being-written/#the-mix-was-still-being-written-illustration-3"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
+  - id: the-mix-was-still-being-written-illustration-4
+    image: ../../assets/the-mix-was-still-being-written-illustration-4.jpg
+    alt: "Editorial illustration visualizing a musical, technical, or social idea discussed in this story."
+    caption: "AI-generated editorial illustration interpreting a documented idea from the story; it is not a historical photograph."
+    creator: "MelodyMind Editorial using OpenAI image generation"
+    sourceName: "MelodyMind Stories"
+    sourceUrl: "https://stories.melody-mind.de/the-mix-was-still-being-written/#the-mix-was-still-being-written-illustration-4"
+    license: "AI-generated editorial illustration"
+    licenseUrl: "https://openai.com/policies/terms-of-use/"
+    alterations: "Original AI-generated editorial illustration; resized and converted to JPEG; Astro creates responsive derivatives"
 sources:
   - id: berklee-interview
     title: Lee “Scratch” Perry on Bob Marley, Dub, Reggae, and Production

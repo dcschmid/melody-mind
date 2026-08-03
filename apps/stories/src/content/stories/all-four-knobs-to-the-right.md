@@ -33,46 +33,46 @@ figures:
     license: CC BY 2.0
     licenseUrl: https://creativecommons.org/licenses/by/2.0/
     alterations: Cropped for editorial framing; Astro creates responsive derivatives
-  - id: all-four-knobs-to-the-right-detail-1
-    image: ../../assets/all-four-knobs-to-the-right-detail-1.jpg
-    alt: "Editorial detail crop from the documented image: Black BOSS HM-2 Heavy Metal distortion pedal with orange labels and four control knobs photographed against a plain background."
-    caption: "Detail view from the article's documented archive image. An original BOSS HM-2 Heavy Metal pedal with Level, Color Mix, and Distortion controls."
-    creator: "Styroks"
+  - id: all-four-knobs-to-the-right-archive-1
+    image: ../../assets/all-four-knobs-to-the-right-archive-1.jpg
+    alt: "Archive image: on picture Trauma polish death metal band"
+    caption: "Trauma live 3. Independent archive image selected for this story."
+    creator: "Entombed (entombed@wp.pl)"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Boss_HM-2_Heavy_Metal.jpg"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Trauma_live_3.jpg"
     license: "Public domain"
-    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-user"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: all-four-knobs-to-the-right-detail-2
-    image: ../../assets/all-four-knobs-to-the-right-detail-2.jpg
-    alt: "Editorial detail crop from the documented image: An Entombed guitarist plays a dark electric guitar under blue stage light at Frozen Rock Festival in 2007."
-    caption: "Detail view from the article's documented archive image. Entombed live in 2007; the band’s Sunlight Studio recordings made the HM-2 setting widely recognizable."
-    creator: "Shadowgate"
+    licenseUrl: "https://commons.wikimedia.org/wiki/Commons:Licensing"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: all-four-knobs-to-the-right-archive-2
+    image: ../../assets/all-four-knobs-to-the-right-archive-2.jpg
+    alt: "Archive image: Nico Elgstrand from Entombed during Metalmania 2007 festival"
+    caption: "Metalmania 2007 - Entombed - Nico Elgstrand 01. Independent archive image selected for this story."
+    creator: "commons: Lilly M pl.wiki: Lilly M real name: Małgorzata Miłaszewska"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Entombed_01.jpg"
-    license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: all-four-knobs-to-the-right-detail-3
-    image: ../../assets/all-four-knobs-to-the-right-detail-3.jpg
-    alt: "Editorial detail crop from the documented image: Black BOSS HM-2 Heavy Metal distortion pedal with orange labels and four control knobs photographed against a plain background."
-    caption: "Detail view from the article's documented archive image. An original BOSS HM-2 Heavy Metal pedal with Level, Color Mix, and Distortion controls."
-    creator: "Styroks"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Metalmania_2007_-_Entombed_-_Nico_Elgstrand_01.jpg"
+    license: "CC BY-SA 2.5"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.5"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: all-four-knobs-to-the-right-archive-3
+    image: ../../assets/all-four-knobs-to-the-right-archive-3.jpg
+    alt: "Archive image: Metal band Entombed during Metalmania 2007 festival"
+    caption: "Metalmania 2007 - Entombed 01. Independent archive image selected for this story."
+    creator: "commons: Lilly M pl.wiki: Lilly M real name: Małgorzata Miłaszewska"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Boss_HM-2_Heavy_Metal.jpg"
-    license: "Public domain"
-    licenseUrl: "https://commons.wikimedia.org/wiki/Template:PD-user"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
-  - id: all-four-knobs-to-the-right-detail-4
-    image: ../../assets/all-four-knobs-to-the-right-detail-4.jpg
-    alt: "Editorial detail crop from the documented image: An Entombed guitarist plays a dark electric guitar under blue stage light at Frozen Rock Festival in 2007."
-    caption: "Detail view from the article's documented archive image. Entombed live in 2007; the band’s Sunlight Studio recordings made the HM-2 setting widely recognizable."
-    creator: "Shadowgate"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Metalmania_2007_-_Entombed_01.jpg"
+    license: "CC BY-SA 2.5"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.5"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
+  - id: all-four-knobs-to-the-right-archive-4
+    image: ../../assets/all-four-knobs-to-the-right-archive-4.jpg
+    alt: "Archive image: Metal band Entombed during Metalmania 2007 festival"
+    caption: "Metalmania 2007 - Entombed 02. Independent archive image selected for this story."
+    creator: "commons: Lilly M pl.wiki: Lilly M real name: Małgorzata Miłaszewska"
     sourceName: "Wikimedia Commons"
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Entombed_01.jpg"
-    license: "CC BY 2.0"
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/"
-    alterations: "Alternative editorial crop from the documented source image; converted to JPEG; Astro creates responsive derivatives"
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Metalmania_2007_-_Entombed_02.jpg"
+    license: "CC BY-SA 2.5"
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.5"
+    alterations: "Resized and converted to JPEG for editorial presentation; Astro creates responsive derivatives"
 sources:
   - id: boss-product
     title: HM-2W Heavy Metal

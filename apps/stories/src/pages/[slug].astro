@@ -380,11 +380,16 @@ const articleSchema = {
     max-inline-size: none;
     margin-block: clamp(2.5rem, 7vw, 4.5rem);
     margin-inline: clamp(-5rem, -4vw, 0rem);
+    justify-items: center;
   }
 
   .story__body :global(.editorial-figure--inline img) {
-    max-block-size: min(72vh, 48rem);
-    object-fit: cover;
+    inline-size: auto;
+    block-size: auto;
+    max-inline-size: 100%;
+    max-block-size: min(80vh, 48rem);
+    margin-inline: auto;
+    object-fit: contain;
   }
 
   .story__figures {
