@@ -172,11 +172,17 @@ const seriesNavItem: HeaderNavItem = {
   label: "Album Series",
   icon: "book-open",
 };
+const favoritesNavItem: HeaderNavItem = {
+  href: "/favorites/",
+  label: "Favorites",
+  icon: "heart",
+};
 const headerNavItems: HeaderNavItem[] = [
   radioNavItem,
   moodNavItem,
   genresNavItem,
   seriesNavItem,
+  favoritesNavItem,
   ...shellConfig.header.navItems.map((item) => ({
     href: item.href,
     label: item.label,

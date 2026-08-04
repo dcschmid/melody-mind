@@ -62,6 +62,7 @@ export function buildAppShellConfig({
         { href: "/mood/", label: "Mood Navigator" },
         { href: "/genre/", label: "Genres" },
         { href: "/series/", label: "Album Series" },
+        { href: "/favorites/", label: "Favorites" },
         { href: "/about/", label: "About" },
         { href: "/about/#ai-transparency", label: "AI Transparency" },
         { href: "https://quiz.melody-mind.de/", label: "Music Quiz" },

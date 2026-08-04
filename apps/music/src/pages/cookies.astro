@@ -15,7 +15,7 @@ export const prerender = true;
 const title = "Cookie & Storage Policy";
 const description =
   "Details about browser storage across MelodyMind Music, Quiz, Stories, and Reviews.";
-const lastUpdated = "25 July 2026";
+const lastUpdated = "4 August 2026";
 
 const highlights = [
   {
@@ -42,6 +42,7 @@ const policySections = [
     title: "How we use browser storage",
     trustedHtmlBody: trustedHtmlList([
       "We use local storage to remember the last music player position and related playback state.",
+      "We use local storage to remember which albums you marked as favorites. Favorites never leave your browser.",
       "MelodyMind Quiz does not use local storage, session storage, IndexedDB, or cookies for quiz progress or results.",
       "MelodyMind Stories does not use local storage, session storage, IndexedDB, or cookies. The annotated cover keeps its active note only in page memory.",
       "MelodyMind Reviews does not use local storage, session storage, IndexedDB, or cookies.",
@@ -71,6 +72,12 @@ const storageKeys = [
     purpose: "Restores the last album, track, and playback position in the music player.",
     storageType: "LocalStorage",
     retention: "Until replaced by a newer player state or cleared by you.",
+  },
+  {
+    keyName: "melodymind:music-favorites:v1",
+    purpose: "Remembers the albums you marked as favorites.",
+    storageType: "LocalStorage",
+    retention: "Until you remove an album from favorites or clear your browser storage.",
   },
 ] as const;
 

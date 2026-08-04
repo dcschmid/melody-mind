@@ -123,10 +123,30 @@ const getFactIcon = (label: string) => {
         label="AI-generated music and artwork"
         detailsHref="/about/#ai-transparency"
       />
-      <button class="album-hero__play" type="button" data-album-hero-play={id}>
-        <Icon name="tabler:player-play-filled" aria-hidden="true" />
-        <span>Play album</span>
-      </button>
+      <div class="album-hero__actions">
+        <button class="album-hero__play" type="button" data-album-hero-play={id}>
+          <Icon name="tabler:player-play-filled" aria-hidden="true" />
+          <span>Play album</span>
+        </button>
+        <button
+          class="album-hero__favorite"
+          type="button"
+          data-album-favorite-toggle={id}
+          aria-pressed="false"
+        >
+          <Icon
+            name="heart"
+            class="album-hero__favorite-icon album-hero__favorite-icon--outline"
+            aria-hidden="true"
+          />
+          <Icon
+            name="tabler:heart-filled"
+            class="album-hero__favorite-icon album-hero__favorite-icon--filled"
+            aria-hidden="true"
+          />
+          <span data-album-favorite-label>Add to favorites</span>
+        </button>
+      </div>
     </div>
 
     <p class="album-hero__description">{description}</p>
@@ -324,6 +344,67 @@ const getFactIcon = (label: string) => {
     block-size: 1rem;
   }
 
+  .album-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .album-hero__favorite {
+    display: inline-flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    inline-size: fit-content;
+    min-block-size: var(--control-min-block-size);
+    padding: 0.7rem 1.15rem;
+    font: inherit;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--album-hero-ink);
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--album-hero-accent) 55%, transparent);
+    border-radius: var(--radius-full);
+  }
+
+  .album-hero__favorite:hover,
+  .album-hero__favorite:focus-visible {
+    color: var(--music-album-accent-strong, var(--accent-strong));
+    border-color: var(--music-album-accent-strong, var(--accent-strong));
+  }
+
+  .album-hero__favorite:focus-visible {
+    outline: var(--focus-ring-width) solid var(--album-hero-accent);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .album-hero__favorite[aria-pressed="true"] {
+    color: var(--album-hero-accent);
+    border-color: var(--album-hero-accent);
+  }
+
+  .album-hero__favorite :global(.album-hero__favorite-icon) {
+    inline-size: 1rem;
+    block-size: 1rem;
+  }
+
+  .album-hero__favorite :global(.album-hero__favorite-icon--filled) {
+    display: none;
+    color: var(--album-hero-accent);
+  }
+
+  .album-hero__favorite[aria-pressed="true"]
+    :global(.album-hero__favorite-icon--outline) {
+    display: none;
+  }
+
+  .album-hero__favorite[aria-pressed="true"] :global(.album-hero__favorite-icon--filled) {
+    display: inline-block;
+  }
+
   .album-hero__description {
     max-inline-size: 58ch;
     margin: 0;
@@ -453,6 +534,12 @@ const getFactIcon = (label: string) => {
       font-size: var(--font-size-xs);
     }
 
+    .album-hero__favorite {
+      min-block-size: 2.75rem;
+      padding-inline: 1rem;
+      font-size: var(--font-size-xs);
+    }
+
     .album-hero__description {
       grid-column: 1 / -1;
       max-inline-size: 100%;
@@ -513,6 +600,10 @@ const getFactIcon = (label: string) => {
       line-height: 1;
     }
 
+    .album-hero__actions {
+      inline-size: 100%;
+    }
+
     .album-hero__play {
       inline-size: 100%;
       min-block-size: 3rem;
@@ -566,3 +657,7 @@ const getFactIcon = (label: string) => {
     }
   }
 </style>
+
+<script>
+  import "../../../scripts/music/album-favorites";
+</script>
