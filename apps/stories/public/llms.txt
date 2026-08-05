@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Twenty-six-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Twenty-eight-story reading room and featured stories
+- [The Record Held the Contradiction](https://stories.melody-mind.de/the-record-held-the-contradiction/): Scene report on Tropicália's collective arrangements, television stages, mass culture, and political pressure
+- [The Song Changed When the Room Answered](https://stories.melody-mind.de/the-song-changed-when-the-room-answered/): Artist portrait of Umm Kulthum's responsive long-form concert practice, orchestra, audience, and radio public
 - [The Store Became the Label](https://stories.melody-mind.de/the-store-became-the-label/): Scene report on Cogumelo Records and Belo Horizonte's early extreme-metal network
 - [The X Stayed on the Hand](https://stories.melody-mind.de/the-x-stayed-on-the-hand/): Scene report on all-ages access, Dischord Records, zines, and citizen archiving in Washington hardcore
 - [The Bar Line Stayed Put](https://stories.melody-mind.de/the-bar-line-stayed-put/): Artist portrait of Meshuggah's stable pulse, displaced riff cycles, and extended-range guitar language
