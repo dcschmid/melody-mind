@@ -2,7 +2,7 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Twenty-eight-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Thirty-story reading room and featured stories
 - [The Record Held the Contradiction](https://stories.melody-mind.de/the-record-held-the-contradiction/): Scene report on Tropicália's collective arrangements, television stages, mass culture, and political pressure
 - [The Song Changed When the Room Answered](https://stories.melody-mind.de/the-song-changed-when-the-room-answered/): Artist portrait of Umm Kulthum's responsive long-form concert practice, orchestra, audience, and radio public
 - [The Store Became the Label](https://stories.melody-mind.de/the-store-became-the-label/): Scene report on Cogumelo Records and Belo Horizonte's early extreme-metal network
