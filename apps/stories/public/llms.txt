@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Thirty-six-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Thirty-eight-story reading room and featured stories
+- [The Vibraphone Took the Long Way Home](https://stories.melody-mind.de/the-vibraphone-took-the-long-way-home/): Artist portrait of Mulatu Astatke's modal, rhythmic, and arranging work across Addis Ababa, London, Boston, and New York
+- [The Composer Drew the Sound](https://stories.melody-mind.de/the-composer-drew-the-sound/): Technology story on Daphne Oram's tape practice, drawn waveforms, 35mm control film, and Oramics Machine
 - [Heavy Kept Changing Shape](https://stories.melody-mind.de/heavy-kept-changing-shape/): Artist portrait of Boris and the changing forms of heavy music
 - [The Carnival Started on Paper](https://stories.melody-mind.de/the-carnival-started-on-paper/): Scene report on Rock Against Racism's print, concert, and organizing network
 - [The Machine Was the Party](https://stories.melody-mind.de/the-machine-was-the-party/): Scene report on Colombian picós as sound systems, venues, distribution networks, and small music businesses
