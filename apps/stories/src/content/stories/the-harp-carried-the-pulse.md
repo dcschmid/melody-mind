@@ -89,6 +89,16 @@ sources:
     publisher: Alice Coltrane Turiyasangitananda official archive
     url: https://www.alicecoltrane.com/announcing-world-spirituality-classics-1-the-ecstatic-music-of-alice-coltrane
     accessedAt: 2026-08-07
+  - id: hammer-oral-history
+    title: "Coltrane on Coltrane: An Oral History"
+    publisher: Hammer Museum at UCLA
+    url: https://channel.hammer.ucla.edu/video/1928/coltrane-on-coltrane-an-oral-history
+    accessedAt: 2026-08-07
+  - id: new-yorker-devotional
+    title: Alice Coltrane’s Devotional Music
+    publisher: The New Yorker
+    url: https://www.newyorker.com/magazine/2017/04/24/alice-coltranes-devotional-music
+    accessedAt: 2026-08-07
 ---
 
 Before Alice Coltrane recorded a harp, she knew how to make an organ move a room. In
@@ -188,7 +198,7 @@ improviser. She chooses personnel, writes or directs parts, determines the lengt
 sequence of sections, and shapes the recording into an album. Coltrane's authorship is
 present in those allocations. The official archive makes plain how quickly her catalog
 developed across labels and changing configurations after 1968.
-[3](#source-alice-life)
+[1](#source-alice-life)
 
 ## Practice becomes a community schedule
 
@@ -211,13 +221,22 @@ or overwhelms voices. Rhythmic placement still decides whether repetition gather
 momentum. What changes is the contract with the room. The music is made with and for a
 congregation, tied to services and shared discipline.
 
+In a 2025 Hammer Museum oral history, Michelle Coltrane recalls her mother playing
+organ while family members and other initiated students sang bhajans, evidence of
+music functioning as shared practice rather than private atmosphere.
+[4](#source-hammer-oral-history)
+
 ## The cassette is part of the arrangement
 
 Between 1983 and 1995, recordings from the ashram circulated primarily on cassette.
 The later compilation _World Spirituality Classics 1_ brought selections from those
 tapes to a much broader audience. The archive's account emphasizes that this was music
 originally produced and distributed within the spiritual community.
-[4](#source-alice-ecstatic)
+[3](#source-alice-ecstatic)
+
+A 2017 account of the reissue likewise describes four cassette releases made for the
+ashram's worshippers, independently supporting the community-centered purpose of their
+original circulation. [5](#source-new-yorker-devotional)
 
 Cassette is not a neutral footnote. Compared with a nationally marketed LP, a small-run
 tape can be recorded, duplicated, labeled, and passed directly among participants with

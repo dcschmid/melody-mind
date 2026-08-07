@@ -113,7 +113,7 @@ store, or posted to someone whose letter had arrived through a fanzine. It did n
 need a label’s schedule. By the time a band made an album, listeners might already
 know several generations of its demo. The scene’s speed was musical, but it was also
 the speed at which fans moved incomplete recordings.
-[1](#source-front-row-history)
+[5](#source-front-row-history)
 
 ## Imports before origin stories
 
@@ -132,7 +132,7 @@ Mania_ fanzine and Rampage Radio, local shops such as the Record Vault and Recor
 Exchange, photographers, promoters, and existing bands supplied routes into the
 music. Exodus had formed in 1979. Possessed, Death Angel, Lääz Rockit, and others came
 from different points around the region. The oral histories show overlapping groups
-of listeners rather than one founder gathering followers. [2](#source-oral-history)
+of listeners rather than one founder gathering followers. [6](#source-oral-history)
 
 Metallica’s 1982 San Francisco performances and subsequent relocation intensified the
 exchange. Cliff Burton’s condition for joining was that the band move north. Kirk
@@ -146,7 +146,7 @@ Ruthie’s Inn on San Pablo Avenue in Berkeley became the room most closely asso
 with Bay Area thrash. It was not built for metal. Promoter Wes Robinson had roots in
 jazz and booked punk and hardcore before thrash bills became regular. Surviving flyers
 document the club’s punk programming in 1982, placing metal’s later occupation inside
-an existing independent circuit. [3](#source-cornell-ruthies)
+an existing independent circuit. [4](#source-cornell-ruthies)
 
 The room’s importance came from permission and repetition. Young bands needed a stage
 on which volume, speed, and audience movement were acceptable. Fans needed a reliable
@@ -159,7 +159,7 @@ The Keystone and Mabuhay Gardens also connected rock, punk, and emerging metal.
 UC Berkeley’s local archive notes early Metallica and Slayer appearances at the
 Keystone before identifying Ruthie’s as the scene’s eventual home. The wider venue map
 included the Stone, Old Waldorf, Kabuki, and community halls. No room was permanent.
-Closures and booking changes moved the audience again. [4](#source-uc-berkeley)
+Closures and booking changes moved the audience again. [1](#source-uc-berkeley)
 
 Ruthie’s acquired mythology because participants remember sweat, broken glass,
 crowding, and confrontation. Those memories deserve care. Violence and exclusion were
@@ -193,7 +193,7 @@ The San Francisco Public Library’s Punk Archive now preserves zines, flyers,
 photographs, and ephemera from 1977 through the mid-1980s. Its finding aid includes
 metal among punk, hardcore, new wave, post-punk, and other materials. That mixed
 catalog is historically apt. Neat genre shelves arrived after objects that shared
-rooms and collections. [6](#source-sf-punk-archive)
+rooms and collections. [2](#source-sf-punk-archive)
 
 ## Tape trading changes the size of local
 
@@ -231,7 +231,7 @@ and fans learned what had been released by looking through bins rather than foll
 a genre page. Shop staff acted as informal editors when they ordered small-label
 records or played a new arrival. The oral history names the Record Exchange and Record
 Vault because discovery depended on stock decisions as much as recommendation.
-[7](#source-oral-history)
+[6](#source-oral-history)
 
 The system rewarded active presence. A teenager who could visit Berkeley or San
 Francisco, stay late for radio, and afford blank cassettes had more routes in than a
@@ -258,7 +258,7 @@ The overlap also had limits. Dress, hair, musicianship, politics, and audience b
 could become grounds for hostility. “Crossover” names an exchange, not automatic
 solidarity. The Online Archive of California’s mixed punk collection is useful here:
 flyers and zines show bands sharing material space even when participants insisted on
-difference. [7](#source-oac-collection)
+difference. [3](#source-oac-collection)
 
 That space was not equally welcoming. Women participated as musicians, fans,
 photographers, writers, partners, and workers, yet retrospective group photographs and

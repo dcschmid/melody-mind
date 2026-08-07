@@ -121,7 +121,7 @@ records for Ace of Base, Robyn, Backstreet Boys, Britney Spears, \*NSYNC, Five, 
 other artists. The names encourage a victory lap. The studio is more interesting as a
 workplace: a place where DJ judgment, music education, digital editing, close
 listening, and shared authorship were made to answer one another.
-[1](#source-cheiron-history)
+[5](#source-cheiron-history)
 
 ## Before Cheiron, the dance floor
 
@@ -152,7 +152,7 @@ Ace of Base provided international proof. Denniz worked on “All That She Wants
 “The Sign” reached number one in the United States. Success brought foreign label
 interest to Stockholm and made an unusual route plausible: English-language pop for
 American and British acts could be written and produced by a Swedish team without
-moving the whole operation to Los Angeles or London. [3](#source-denniz-hall)
+moving the whole operation to Los Angeles or London. [1](#source-denniz-hall)
 
 The route depended on infrastructure. Publishers, labels, managers, visiting artists,
 air travel, multitrack files, and English-language demos connected the rooms to the
@@ -170,7 +170,7 @@ learned to read and write notation. Denniz worked more intuitively from records,
 equipment, and the dance floor. Accounts of Cheiron often turn that difference into a
 perfect partnership: theory meets instinct. The distinction is useful if it is not
 made absolute. Both men listened analytically; they simply brought different habits
-to the same problem. [4](#source-polar-prize)
+to the same problem. [2](#source-polar-prize)
 
 Martin later recalled spending two years, day and night, learning what a producer did.
 The admission cuts through retrospective mythology. Production was acquired by
@@ -261,7 +261,7 @@ That balancing act resembles the studio itself. Cheiron attached individual cred
 to work made through constant exchange. Denniz Pop, Max Martin, Kristian Lundin, Per
 Magnusson, David Kreuger, Rami Yacoub, and others did not form one anonymous machine.
 They carried ideas between rooms and developed different specialties within a shared
-practice. [5](#source-radio-legacy)
+practice. [4](#source-radio-legacy)
 
 ## English heard from the outside
 
@@ -322,7 +322,7 @@ travelled through working relationships rather than a preserved room.
 Sveriges Radio later brought Martin back to the former premises. A return visit makes
 good radio because place prompts memory: where a person sat, which room held a vocal,
 how sound leaked through a door. It also shows that the famous studio was physically
-ordinary enough to be reused. [7](#source-radio-return)
+ordinary enough to be reused. [3](#source-radio-return)
 
 ## Pop as organized revision
 
@@ -331,7 +331,7 @@ English fluency, public cultural infrastructure, local technology companies,
 publishing networks, and the example of earlier exports. Cheiron belongs inside that
 history, not above it. A 2025 Swedish industry report still treats the Denniz and Max
 Martin lineage as a central part of the country’s international position.
-[8](#source-industry-report)
+[7](#source-industry-report)
 
 The studio’s most durable lesson is less glamorous than a secret formula. Work can be
 revised without defending the first idea. A chorus can be judged in relation to the

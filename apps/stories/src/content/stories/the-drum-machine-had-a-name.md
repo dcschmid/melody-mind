@@ -165,10 +165,4 @@ Treating the machine as a member clarifies what the Sisters contributed. They di
 
 The name Doktor Avalanche kept that arrangement visible. It acknowledged continuity without pretending that the hardware never changed. It made technical labor part of the band’s humor and image. Most importantly, it told players and listeners where to locate agency. The machine did exactly what it was told, but choosing what to tell it—and building every other part around that command—was the music.
 
-## Endnotes
-
-1. [The Sisters of Mercy — Official Site](#source-sisters-official)
-2. [Interview — The Sisters of Mercy](#source-quietus-interview)
-3. [We Love You — The Psychedelic Furs and the Sisters of Mercy](#source-quietus-ashton)
-4. [Back in black](#source-guardian-black)
-5. [The Sisters of Mercy — Archives](#source-sisters-archives)
+On stage, that credit made the absent drummer legible instead of disguising the group as a conventional rock lineup.

@@ -79,11 +79,11 @@ sources:
     publisher: City of Chicago via Councilmatic
     url: https://chicago.councilmatic.org/legislation/o2023-0001746/
     accessedAt: 2026-07-25
-  - id: chicago-encyclopedia
-    title: Honorary Frankie Knuckles Way, 2005
-    publisher: Encyclopedia of Chicago
-    url: https://www.encyclopedia.chicagohistory.org/pages/11541.html
-    accessedAt: 2026-07-25
+  - id: preservation-chicago-warehouse
+    title: The Warehouse — Birthplace of House Music
+    publisher: Preservation Chicago
+    url: https://www.preservationchicago.org/wp-content/uploads/2023/12/Warehouse-Chi-7-2023-Final.pdf
+    accessedAt: 2026-08-07
   - id: smithsonian-house
     title: Do You Remember House? Chicago’s Queer of Color Undergrounds
     publisher: Smithsonian Libraries and Archives
@@ -106,7 +106,7 @@ sits near 206 South Jefferson Street, where Knuckles was resident DJ at the Ware
 from 1977 to 1982. The sign fixes a name and location. The music made around that
 address depended on moving parts: dancers, imported records, repaired sound systems,
 reel-to-reel edits, radio mixes, after-hours schedules, and people carrying ideas
-between clubs. [1](#source-chicago-encyclopedia)
+between clubs. [2](#source-preservation-chicago-warehouse)
 
 House is now a global production category and a default four-beat pulse in popular
 music. That scale can make its origin sound technically inevitable: disco plus a drum
@@ -132,7 +132,7 @@ Black and Latino gay men were central to that audience. Describing the room mere
 an underground club removes the reason underground space mattered. Queer people of
 color built forms of congregation in a city organized by segregation, policing, and
 commercial exclusion. The dance floor offered pleasure and social recognition, but it
-was not outside those pressures. [2](#source-smithsonian-house)
+was not outside those pressures. [3](#source-smithsonian-house)
 
 ## The edit is a form of listening
 
@@ -170,7 +170,7 @@ Chicago’s 2023 landmark ordinance uses the strong institutional description of
 Warehouse as the birthplace of house music and emphasizes its importance to LGBTQ,
 Black, and Latino communities. The designation records a civic judgment made decades
 after the club closed. It does not require every participant to tell the origin in
-identical terms. [3](#source-warehouse-ordinance)
+identical terms. [1](#source-warehouse-ordinance)
 
 ## Knuckles was not the whole city
 
@@ -189,7 +189,7 @@ The scene also included women and queer producers whose work is lost when histor
 cycles through the same few male pioneers. A full account requires oral history and
 flyers alongside commercial discographies. The HistoryMakers finding aid for Knuckles
 is valuable partly because an interview preserves professional detail that a record
-label does not. [4](#source-historymakers)
+label does not. [5](#source-historymakers)
 
 ## When the machine entered the mix
 
@@ -246,7 +246,7 @@ PBS and WTTW’s oral-history account treats the Warehouse as part of a cultural
 revolution because participants describe what the room allowed them to do. The
 testimony is strongest when it remains specific: who was admitted, what the DJ played,
 how a night unfolded, and how the sound differed from other venues.
-[5](#source-pbs-history)
+[4](#source-pbs-history)
 
 ## Between Chicago and Detroit
 
@@ -270,7 +270,7 @@ played next. Influence moved in loops.
 In June 2023, Chicago granted landmark status to the Warehouse building. The
 designation protects significant exterior features and formally ties the property to
 house music and the communities that made it. It followed organizing prompted by the
-building’s sale and the possibility of redevelopment. [6](#source-warehouse-ordinance)
+building’s sale and the possibility of redevelopment. [1](#source-warehouse-ordinance)
 
 The timing is instructive. Cities often recognize an underground culture after the
 land around it has become valuable and after many participants have been displaced or

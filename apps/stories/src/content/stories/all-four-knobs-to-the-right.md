@@ -122,7 +122,7 @@ raise signal level, clip the waveform, filter frequencies, and provide an output
 can drive an amplifier. The HM-2 was designed during an early-1980s market for
 hard-rock and metal equipment, when “amp in a box” meant approximating the density of
 a British stack without requiring its stage volume. BOSS manufactured the original
-from 1983 to 1991, first in Japan and later in Taiwan. [2](#source-boss-product)
+from 1983 to 1991, first in Japan and later in Taiwan. [1](#source-boss-product)
 
 The enclosure follows BOSS’s durable standard: a hinged footswitch, recessed controls,
 battery access under the treadle, buffered bypass, and color coding that lets a player
@@ -189,7 +189,7 @@ The route to Stockholm death metal ran through Nihilist, the band that preceded
 Entombed. In BOSS’s interview history, Sunlight Studio producer Tomas Skogsberg recalls
 that guitarist and bassist Leif Cuzner brought an HM-2 into the studio. Uffe Cederlund
 and Alex Hellid continued developing the guitar arrangement, and Skogsberg treated the
-pedal as part of a layered recording method. [3](#source-boss-history)
+pedal as part of a layered recording method. [2](#source-boss-history)
 
 This account is more useful than a discovery myth. No one uncovered a secret switch
 inside the HM-2. A player arrived with commercially available equipment, a group
@@ -214,7 +214,7 @@ Dismember’s recordings established a related but distinct use of the circuit. 
 David Blomqvist has described the HM-2 as consistent across the band’s work and central
 to its signature. The group’s first album, _Like an Ever Flowing Stream_, was recorded
 at Sunlight with Skogsberg, placing personnel, room, and equipment inside the same
-regional exchange that shaped Entombed. [5](#source-boss-history)
+regional exchange that shaped Entombed. [2](#source-boss-history)
 
 Consistency does not mean every record has one preset stamped onto it. Production
 changes, guitars change, and arrangements create different spectral demands.
@@ -262,7 +262,7 @@ Reverb’s technical history traces the pedal from its initial stack-emulation g
 through Sunlight’s use and the later clone market. The story is not a failure of
 design corrected by users. The original range made the extreme possible. Musicians
 selected one boundary condition and gave it a context BOSS had not advertised.
-[7](#source-circuit-history)
+[5](#source-circuit-history)
 
 Clones expose which parts listeners think define the family. Some reproduce component
 values closely. Others retain the two-band curve while changing gain, noise, or clean
@@ -277,7 +277,7 @@ In 2021 BOSS released the HM-2W under its Waza Craft line. Standard mode reprodu
 the original voice; Custom mode increases drive and adjusts low and mid response.
 The company retained the orange-and-black appearance and explicitly marketed the
 all-controls-maximum association with Swedish death metal. A once-unofficial use had
-become the product’s central documented history. [8](#source-boss-release)
+become the product’s central documented history. [3](#source-boss-release)
 
 The reissue changes the practical status of the sound. Players no longer need a
 thirty-year-old pedal with aging components, a nonstandard power expectation, or

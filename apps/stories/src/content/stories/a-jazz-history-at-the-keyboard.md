@@ -111,7 +111,7 @@ record is an exacting stride performance; the other is a blues. The pairing give
 better introduction than the claim that she lived through every era of jazz. Williams
 actively shaped changing styles. From the beginning of her recorded career, she
 treated difference as material to organize at the keyboard.
-[1](#source-folkways-biography)
+[2](#source-folkways-biography)
 
 That approach required a long memory and a current ear. Williams could make a big band
 swing, write an extended concert suite, help younger bebop musicians work through
@@ -143,7 +143,7 @@ entered Andy Kirk’s orchestra.
 Williams began recording with Andy Kirk and His Clouds of Joy around 1929 and remained
 with the group until 1942. She was pianist, composer, and arranger across more than 180
 recorded sides. The figure matters because it indicates sustained responsibility, not
-an occasional feature granted to an exceptional woman. [3](#source-folkways-biography)
+an occasional feature granted to an exceptional woman. [2](#source-folkways-biography)
 
 A big-band arrangement distributes energy. Brass and reeds need distinct registers;
 rhythm must support dancers without becoming mechanical; a short recorded side needs
@@ -167,7 +167,7 @@ musical one. The hands make different claims without losing a shared pulse.
 The Library of Congress added the recording to the National Recording Registry in 2009. Its historical value includes Williams’s authorship and the quality of the
 performance, but it also preserves a 1930 marketplace in which a young Black woman
 could issue a piano feature under her name while continuing to labor inside a touring
-orchestra. [4](#source-loc-registry)
+orchestra. [5](#source-loc-registry)
 
 Williams later returned to “Night Life” when teaching and presenting jazz history.
 The piece became evidence she could play rather than a relic described from a podium.
@@ -199,7 +199,7 @@ Williams composed _Zodiac Suite_ in the mid-1940s, assigning a movement to each
 astrological sign and to musicians born under it. She first recorded the suite with a
 piano trio, then expanded parts for chamber forces. A Town Hall performance took place
 at the end of 1945; three movements were later presented with a large orchestra at
-Carnegie Hall. [5](#source-folkways-biography)
+Carnegie Hall. [2](#source-folkways-biography)
 
 The suite crosses an industry boundary: extended composition by a jazz musician,
 built from improvisational knowledge and conceived for changing instrumentation.
@@ -227,7 +227,7 @@ asked whether jazz could carry liturgical purpose without surrendering its histo
 
 The Smithsonian Folkways reissue of recordings made in 1962 and 1963 places standards
 and original sacred material together. That sequence is characteristic: Williams did
-not accept that spiritual purpose required stylistic retreat. [6](#source-folkways-album)
+not accept that spiritual purpose required stylistic retreat. [4](#source-folkways-album)
 
 ## The tree is an argument
 
@@ -241,7 +241,7 @@ She developed the idea further in lectures and on _The History of Jazz_, an albu
 combines speech with performances. A listener hears her move from explanation to
 example. “Night Life” appears not because the 1930 recording was quaint, but because
 the piece could demonstrate a technique and a historical relation at once.
-[7](#source-folkways-history)
+[3](#source-folkways-history)
 
 The tree also rejects a parade of replacements. Bebop does not kill swing; modern
 music remains accountable to blues roots. Williams could criticize developments she
@@ -265,7 +265,7 @@ within one structure?
 
 The Smithsonian’s account presents her as both musical and social change agent. The
 phrase is useful when the two terms remain connected. Williams changed rooms partly
-because she could demonstrate the musical case at the piano. [8](#source-smithsonian-portrait)
+because she could demonstrate the musical case at the piano. [1](#source-smithsonian-portrait)
 
 ## Teaching the whole line
 
@@ -297,7 +297,7 @@ The surviving photographs offer a correction. At the piano, Williams is working.
 the apartment group, she is a colleague among composers. The images do not need to
 make her symbolic before they make her visible. The National Museum of African
 American History and Culture’s piano portrait preserves that occupational fact.
-[9](#source-nmaahc-portrait)
+[6](#source-nmaahc-portrait)
 
 Her career is best understood as connected activity: arranging for Kirk changes how we
 hear the solo piano; bebop workshops change how we hear the suite; sacred pieces change

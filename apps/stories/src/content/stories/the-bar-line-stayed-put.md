@@ -113,7 +113,7 @@ sources:
 
 The first sensation is often that the count has broken. A guitar phrase strikes in short, dry bursts, leaves a pocket of silence, then returns somewhere the ear did not expect. Kick drum follows its contour. Cymbals continue to mark a broader pulse. After several repetitions, the riff arrives back at its starting point as if an enormous gear has completed one turn.
 
-Meshuggah's rhythmic language is difficult because it invites the wrong first question. Listeners ask which unusual time signature contains the riff. Much of the music is more clearly heard as tension inside a stable frame: a repeating pattern with its own length moves across measures whose bar lines remain dependable. Music-theory studies describe this relationship through displacement, grouping, and metric dissonance rather than treating every accent as a new meter. [1](#source-oxford-rhythm) The ground stays still. The machinery on top changes where it places its weight.
+Meshuggah's rhythmic language is difficult because it invites the wrong first question. Listeners ask which unusual time signature contains the riff. Much of the music is more clearly heard as tension inside a stable frame: a repeating pattern with its own length moves across measures whose bar lines remain dependable. Music-theory studies describe this relationship through displacement, grouping, and metric dissonance rather than treating every accent as a new meter. [2](#source-oxford-rhythm) The ground stays still. The machinery on top changes where it places its weight.
 
 ## Hear the cymbal before counting the guitar
 
@@ -121,7 +121,7 @@ Tomas Haake often gives the listener an entrance. A cymbal pulse or backbeat pre
 
 Try following only the guitar and the phrase may sound like a chain of unrelated numbers. Follow the cymbal and the same phrase becomes a shape moving against four. This does not make the performance simple. Haake must embody both readings at once, keeping the anchor sufficiently clear while matching the attacks that give the riff its character.
 
-Analysts have used the term “metric dissonance” for this coexistence of competing cues. [2](#source-uva-thesis) The phrase is useful because it describes perception, not merely notation. Two organizations of time occupy the same passage. Neither needs to disappear. The pleasure comes from maintaining their disagreement long enough that a return feels earned.
+Analysts have used the term “metric dissonance” for this coexistence of competing cues. [3](#source-uva-thesis) The phrase is useful because it describes perception, not merely notation. Two organizations of time occupy the same passage. Neither needs to disappear. The pleasure comes from maintaining their disagreement long enough that a return feels earned.
 
 ## A cycle longer than the bar
 
@@ -137,13 +137,13 @@ Meshuggah's guitars do more than supply low notes. Palm muting shortens sustain,
 
 Fredrik Thordendal and Marten Hagstrom therefore need agreement at the level of duration. If one guitar lets a note extend, the pattern loses a boundary. Bass and kick drum reinforce selected attacks, turning several instruments into a composite percussion voice. The listener may register a single heavy event even though it contains strings, amplifier, drumhead, and room.
 
-Hagstrom has described the band's writing in terms that resist a purely technical contest. In discussing _Koloss_, he emphasized feel and the desire for material to work as songs rather than demonstrations. [3](#source-premier-koloss) That priority is audible in the restraint of many riffs. Their pitch content can be narrow. What develops is placement, orchestration, and the friction between cycle and meter.
+Hagstrom has described the band's writing in terms that resist a purely technical contest. In discussing _Koloss_, he emphasized feel and the desire for material to work as songs rather than demonstrations. [4](#source-premier-koloss) That priority is audible in the restraint of many riffs. Their pitch content can be narrow. What develops is placement, orchestration, and the friction between cycle and meter.
 
 ## What the eighth string changed
 
-The eight-string guitar is an obvious visual symbol of Meshuggah, and an incomplete explanation. Its lower register extends the instrument toward bass territory and allows tightly voiced shapes under heavy tension. The band's custom instruments, pickups, and amplification help those notes remain defined. [4](#source-official-thordendal) Without clarity, a displaced pattern in that register would collapse into undifferentiated impact.
+The eight-string guitar is an obvious visual symbol of Meshuggah, and an incomplete explanation. Its lower register extends the instrument toward bass territory and allows tightly voiced shapes under heavy tension. The band's custom instruments, pickups, and amplification help those notes remain defined. [1](#source-official-thordendal) Without clarity, a displaced pattern in that register would collapse into undifferentiated impact.
 
-The extra strings also alter physical geography. A player can move between low pedal tones and higher shapes without abandoning the instrument's central position. Scale length, string gauge, setup, and picking technique become compositional matters because they determine whether rapid low attacks speak evenly. Ibanez's artist documentation identifies Hagstrom with the company's extended-range instruments, a relationship that helped make the format visible far beyond the band. [5](#source-ibanez-hagstrom)
+The extra strings also alter physical geography. A player can move between low pedal tones and higher shapes without abandoning the instrument's central position. Scale length, string gauge, setup, and picking technique become compositional matters because they determine whether rapid low attacks speak evenly. Ibanez's artist documentation identifies Hagstrom with the company's extended-range instruments, a relationship that helped make the format visible far beyond the band. [7](#source-ibanez-hagstrom)
 
 Yet the eight-string did not write the rhythms. Similar organizing ideas can be expressed on drums, sequencers, lower-tuned six-strings, or a single repeated pitch. Interviews about the instrument's wider possibilities show how quickly a practical tool became a genre marker. [6](#source-guitarworld-eight-string) Meshuggah's more consequential move was to make register serve temporal clarity: low notes carry maximum physical force, while exact muting preserves the outline of the cycle.
 
@@ -159,7 +159,7 @@ This balance also distinguishes rhythmic exactness from lifeless editing. A perf
 
 The method changes across the catalog. _Destroy Erase Improve_ set rapid technical movement beside abrupt rhythmic blocks. _Chaosphere_ made repetition harsher and more concentrated. _Nothing_ gave extended-range guitars a defining role. The continuous suite _Catch Thirtythree_ used programmed drums and recurring material to explore transitions on an album scale. Later records adjusted tempo, production, and looseness without abandoning the conflict between cycle and frame.
 
-On _Koloss_, weight often comes from allowing patterns more space. On _Immutable_, the band again considered how familiar tools could support a different record rather than merely increasing difficulty. Hagstrom's comments around the album stress process, tone, and the long duration of the group's shared language. [7](#source-guitarworld-immutable)
+On _Koloss_, weight often comes from allowing patterns more space. On _Immutable_, the band again considered how familiar tools could support a different record rather than merely increasing difficulty. Hagstrom's comments around the album stress process, tone, and the long duration of the group's shared language. [5](#source-guitarworld-immutable)
 
 That variety matters because a successful technique can become a template. Once listeners know to expect low guitars and displaced accents, surprise cannot depend on those elements alone. Meshuggah builds songs through contrast: sustained tones against clipped riffs, quiet entrances against full-band force, solos that float over strict structures, and vocal lines whose emphases may cut across both guitar and cymbal.
 

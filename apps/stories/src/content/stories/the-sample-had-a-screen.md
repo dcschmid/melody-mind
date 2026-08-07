@@ -113,7 +113,7 @@ playing it chromatically from a keyboard required an expensive Australian comput
 music instrument. Its limits were audible. Short samples, low resolution, imperfect
 loops, and pitch changes produced timbres that users did not always intend. The
 Fairlight sold access to recorded reality, then changed that reality as soon as it
-entered the machine. [1](#source-museum-victoria)
+entered the machine. [2](#source-museum-victoria)
 
 ## A synthesizer that failed productively
 
@@ -133,7 +133,7 @@ The shift was more than technical rescue. It changed the object being sold. The 
 became a general instrument whose raw material could come from outside its cabinet.
 Every microphone offered a possible new oscillator. The user did not have to accept a
 fixed factory library, though factory disks helped make the costly system immediately
-useful. [2](#source-hci-museum)
+useful. [5](#source-hci-museum)
 
 ## A sound becomes data
 
@@ -163,7 +163,7 @@ Victoria’s preserved system includes two musical keyboards, an alphanumeric ke
 the interactive display, and software for editing, looping, mixing, drawing, and
 sequencing sound. This was not graphical audio editing in the later drag-and-drop
 sense, but it joined listening to a visual representation in a strikingly direct way.
-[4](#source-museum-victoria)
+[2](#source-museum-victoria)
 
 Drawing a waveform promised control at the level of the sound itself. In practice, a
 line on a screen did not teach a musician why a timbre felt convincing. The gap between
@@ -216,7 +216,7 @@ Vogel later argued that the sequencer made certain rhythmic structures easy and
 therefore encouraged users to compose with them. His wording avoids the claim that a
 machine single-handedly invented a genre. Interfaces have tendencies, not intentions.
 Page R did not force anyone to write mechanical pop, but it reduced the effort needed
-to repeat and rearrange short events. [5](#source-rnz-vogel)
+to repeat and rearrange short events. [3](#source-rnz-vogel)
 
 The family resemblance to later digital audio workstations is clear. Tracks run
 across a screen; events occupy measured positions; arrangement becomes something a
@@ -224,7 +224,7 @@ producer can inspect as a whole. Melbourne Electronic Sound Studio traces modern
 computer sequencing and DAW practice back through this interface. The lineage is not
 one straight invention story—other sequencers and computer music systems mattered—but
 Page R gave commercial musicians an influential early view of time as editable data.
-[6](#source-google-mess)
+[4](#source-google-mess)
 
 ## Entry was priced like a studio
 
@@ -232,7 +232,7 @@ The Fairlight was never a democratic instrument in its first life. Its price pla
 with wealthy artists, large studios, institutions, and composers working in film,
 television, or advertising. The National Film and Sound Archive records a Series III
 price of roughly £50,000 in 1985. That figure varied by configuration and market, but
-the scale is enough: this was capital equipment. [7](#source-nfsa)
+the scale is enough: this was capital equipment. [1](#source-nfsa)
 
 Cost shaped the credits. Owners could become specialists who programmed sessions for
 other artists. Hiring a Fairlight often meant hiring someone who knew its pages,
@@ -278,7 +278,7 @@ The NFSA preserves a Series III used by screen composer Peter Best, including th
 configuration in which he left it. Restoration involved physical problems as ordinary
 as decayed foam. This is a useful correction to digital mythology. A sampler may turn
 sound into numbers, but the numbers remain dependent on aging drives, monitors,
-connectors, disks, circuit boards, and documentation. [8](#source-nfsa)
+connectors, disks, circuit boards, and documentation. [1](#source-nfsa)
 
 Emulations can preserve libraries and imitate coloration. Museums can keep original
 machines operational. Neither approach recreates the exact economic and temporal

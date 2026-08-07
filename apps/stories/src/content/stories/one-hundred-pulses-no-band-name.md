@@ -169,7 +169,7 @@ parodies. In many reproductions, the name Joy Division is unnecessary. The mark 
 without it. The cultural success of the image can therefore make the 1979 sleeve look
 like an obvious solution. It was a chain of specific transfers: from a pulsar to radio
 data, from data to a doctoral plot, from the plot to books, from a library image to a
-band, and from Peter Saville's layout to a manufactured record. [1](#source-smg-fact10)
+band, and from Peter Saville's layout to a manufactured record. [2](#source-smg-fact10)
 
 ## The museum object
 
@@ -178,7 +178,7 @@ record cover made in Manchester in 1979. Its listed dimensions are 305 by 305
 millimeters, with a depth of four millimeters. These ordinary measurements are useful.
 The image is usually encountered as a flat square on a screen, but the catalog record
 returns it to scale. It is an object held in two hands, opened at one edge, rubbed,
-stacked, and stored. [2](#source-smg-object)
+stacked, and stored. [1](#source-smg-object)
 
 Museum photographs show the black outer sleeve, white inner sleeve, and vinyl disc.
 The record label repeats the pulse image while adding FACT 10A, stereo information,
@@ -200,7 +200,7 @@ Clampdown Records. Its image is released under CC BY-NC-SA 4.0, with the Board o
 Trustees of the Science Museum identified as copyright holder. The license permits
 noncommercial reuse with attribution, the same license for adaptations, a link, and a
 record of changes. Rights information is not separate from looking. It explains why
-the object can appear here and under what limits. [3](#source-smg-license)
+the object can appear here and under what limits. [4](#source-smg-license)
 
 ## A star reduced to repeated lines
 
@@ -217,7 +217,7 @@ Pulsars_. The Science Museum Group traces the image from that thesis to a Januar
 _Scientific American_ article and then to the 1977 _Cambridge Encyclopaedia of
 Astronomy_. Bernard Sumner found the diagram in the encyclopedia and thought it could
 work as sleeve art. The image reached Saville as selected material, not as a commission
-from an astronomer. [4](#source-smg-fact10)
+from an astronomer. [2](#source-smg-fact10)
 
 Authorship becomes layered at this point. Craft made the plot from observational data
 and a method of display. The pulsar had been identified through work led by Jocelyn
@@ -241,7 +241,7 @@ Group's object description says the cover shows a drawing of 100 consecutive pul
 The University of Manchester's 2019 account of a Jodrell Bank re-observation describes
 the original cover as 80 wiggly lines and says its anniversary team recorded the same
 number of pulses from the same pulsar at the same frequency. Both are institutional
-sources. They do not give the same count. [5](#source-manchester-pulsar)
+sources. They do not give the same count. [3](#source-manchester-pulsar)
 
 The title of this story follows the museum object's wording, then keeps the
 disagreement visible. That is more accurate than quietly choosing the number that fits
@@ -275,7 +275,7 @@ The Design Museum describes Saville's broader practice through his ability to se
 images that captured a moment. Selection is the operative skill here. The plot already
 had formal power. The design gave it isolation, inversion, material, and a commercial
 context. It also withheld a verbal explanation that might have reduced its range of
-associations. [6](#source-design-museum)
+associations. [5](#source-design-museum)
 
 That restraint belonged to Factory's wider visual culture. FAC numbers, unusual
 materials, delayed or absent artist names, and references to art and design history
@@ -291,7 +291,7 @@ identifies Garrod & Lofthouse as the printer. It describes a twelve-inch record 
 textured picture sleeve with a white printed inner sleeve. Those production details
 are easy to lose when the cover is reduced to a black square in a design survey. FACT
 10 was made from several surfaces that had to agree while performing different jobs.
-[7](#source-smg-fact10)
+[2](#source-smg-fact10)
 
 Texture changes the black before any line is read. Light catches on paper rather than
 disappearing into a screen. Handling adds fingerprints, rubbed edges, and small
@@ -326,7 +326,7 @@ Martin Hannett producing. The cover is often treated as a perfect visual equival
 the recording: dark ground, isolated signals, repeated pulses, and controlled space.
 The fit is persuasive, but it should remain interpretation. The astronomy diagram was
 not generated from the album audio, and the music was not composed to illustrate a
-pulsar. [8](#source-factory-collection)
+pulsar. [6](#source-factory-collection)
 
 What the sleeve does provide is a way of approaching the record. Its lack of portrait
 keeps the musicians physically absent. Its lack of title prevents a phrase from

@@ -119,7 +119,7 @@ across a machine already in motion. That is the practical achievement of Africa 
 the band made repetition sound less like stasis than collective concentration. Fela
 could extend a piece past ten minutes because the arrangement was not a verse waiting
 for a chorus. It was a set of relationships that could absorb speech, solos, choral
-answers, and political pressure without losing its center. [1](#source-veal-analysis)
+answers, and political pressure without losing its center. [6](#source-veal-analysis)
 
 ## Before the name settled
 
@@ -129,7 +129,7 @@ changed—Koola Lobitos, Nigeria 70, Africa 70, and later Afrika 70—but the im
 continuity was rehearsal. The music that came to be called Afrobeat was not produced
 by placing a ready-made African rhythm under American funk. It developed through a
 Lagos band testing how highlife, jazz improvisation, Yoruba rhythmic knowledge, soul,
-and funk could occupy the same long form. [2](#source-official-about)
+and funk could occupy the same long form. [1](#source-official-about)
 
 The group’s 1969 tour of the United States sharpened Fela’s political language. His
 encounters with Black Power thought, including conversations with Sandra Izsadore,
@@ -204,7 +204,7 @@ Allen resisted radio edits because, in his view, repeated cutting killed the mus
 Afrobeat needed time to take hold. His comment is more precise than the romantic idea
 of an endless African groove. These pieces are arranged. Entrances, breaks, horn
 responses, solos, and vocal sections happen in a controlled order. Length makes those
-changes legible against a stable field. [4](#source-allen-guardian)
+changes legible against a stable field. [3](#source-allen-guardian)
 
 ## The Shrine as a testing room
 
@@ -223,7 +223,7 @@ It also concentrated risk. Police harassment, arrests, and raids followed Fela�
 provocations and open criticism of Nigeria’s military governments. The club and the
 Kalakuta Republic compound made his politics materially visible. Musicians, dancers,
 family members, workers, and residents lived with consequences that a heroic portrait
-focused on Fela alone can obscure. [5](#source-official-about)
+focused on Fela alone can obscure. [1](#source-official-about)
 
 ## The answer changes the speaker
 
@@ -254,14 +254,14 @@ produced his own albums and preferred to record in Lagos. The official archive n
 only a small number of outside producers, among them Jeff Jarratt, Ginger Baker,
 Dennis Bovell, and Wally Badarou. This was control, not isolation. Engineers and
 producers still shaped sessions, but they entered an aesthetic whose balance Fela
-guarded closely. [6](#source-official-collaborations)
+guarded closely. [2](#source-official-collaborations)
 
 The best recordings allow the rhythm section to remain separable. Bass is firm without
 swallowing guitar. Allen’s kit has detail across snare, cymbal, toms, and bass drum.
 Horns can be thick without making the percussion disappear. Studio Oral History
 accounts emphasize preparation: material changed between composition, rehearsal, and
 recording as parts were added or removed. Tape captured the result of that process,
-not an untouched live instinct. [7](#source-tape-op)
+not an untouched live instinct. [5](#source-tape-op)
 
 “Zombie” demonstrates the method’s economy. The band locks into a severe march-like
 figure, while Fela’s commands and the chorus’s answers parody military obedience. The
@@ -280,7 +280,7 @@ Fela recognized Allen’s value by producing records led by the drummer, includi
 _Jealousy_, _Progress_, and _No Accommodation for Lagos_. Allen recalled the final of
 those sessions taking months while Fela reconsidered solos and mixes. By late 1978 he
 left the organization. Fela then used two drummers to cover parts that Allen had held
-within one body. [8](#source-official-collaborations)
+within one body. [2](#source-official-collaborations)
 
 The split clarifies authorship rather than settling it. Fela wrote, directed, and
 defined Afrobeat’s public purpose. Allen’s drum language made that purpose move.

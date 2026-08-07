@@ -112,7 +112,7 @@ four-track tape machine. Larger commercial studios could advertise more channels
 cleaner separation. Perry’s room offered proximity, control, and time. A rhythm could
 remain available after the singer left. A recorded part could be copied, thinned out,
 sent through echo, or covered by another sound. The arrangement did not have to end
-when the musicians stopped playing. [1](#source-latimes-profile)
+when the musicians stopped playing. [3](#source-latimes-profile)
 
 This is the practical center of Perry’s work. Descriptions of him often begin with
 costume, prophecy, fire, or a list of aliases. He encouraged some of that theater. It
@@ -129,7 +129,7 @@ tasks that placed him close to auditions, records, dancers, and the competition 
 mobile sound systems. The job taught more than microphone technique. A producer had to
 know which rhythm would hold a crowd, which singer could carry it, how quickly a new
 release could answer a rival, and where the money moved after a record was pressed.
-[2](#source-guardian-obituary)
+[4](#source-guardian-obituary)
 
 Perry later worked with Joe Gibbs, then established his Upsetter imprint. The name made
 conflict into a business identity. His 1968 record “People Funny Boy” answered Gibbs
@@ -178,7 +178,7 @@ machine, a compact Soundcraft desk, an Echoplex delay, a phaser, and spring reve
 the working tools. The exact inventory changed, and gear lists cannot reconstruct a
 sound by themselves. The important condition was routing: a signal could leave the
 straight path from microphone to tape, pass through an effect, feed back, and return
-with a different shape. [4](#source-latimes-profile)
+with a different shape. [3](#source-latimes-profile)
 
 Four tracks demanded decisions. Several instruments might be recorded together or
 bounced onto a shared track to free space. Once combined, their internal balance could
@@ -218,7 +218,7 @@ Dub extended that practice. Faders could remove instruments in real time. Echo m
 catch the final word of a phrase after the dry voice vanished. Reverb could make one
 snare strike occupy a space larger than the original room. Bass and drums could remain
 nearly alone, then give way to a short burst of organ or horn. A mixer performed an
-arrangement from material already on tape. [5](#source-sound-on-sound)
+arrangement from material already on tape. [6](#source-sound-on-sound)
 
 King Tubby is central to this history, both as engineer and as an innovator whose mixes
 helped establish dub’s grammar. Perry’s contribution should not be inflated by erasing
@@ -239,7 +239,7 @@ more than metaphor. Faders, mute switches, equalization, and effect sends were h
 during the pass. The resulting mix recorded those gestures. A different pass from the
 same tape could become another composition because the sequence of absences and returns
 changed. Tape Op’s interview with Perry returns to playback, replay, and feedback as a
-cycle rather than a final technical stage. [6](#source-tape-op-interview)
+cycle rather than a final technical stage. [2](#source-tape-op-interview)
 
 The method also depended on collaborators whose work is easily swallowed by the
 producer’s legend. Musicians supplied the resilient performances that could survive
@@ -273,7 +273,7 @@ Perry spoke through religious images, puns, curses, animal identities, and cosmi
 claims. Interviews could turn into improvised performances that resisted a reporter’s
 linear questions. Berklee’s 2020 conversation preserves that difficulty: he answers a
 question about building a new record from an old track by sounding out drums, guitar,
-and bass rather than offering a textbook definition. [7](#source-berklee-interview)
+and bass rather than offering a textbook definition. [1](#source-berklee-interview)
 
 Those answers belong to the artist’s method, but they cannot verify every disputed
 story. The destruction of the Black Ark is the clearest example. Perry gave different
@@ -298,7 +298,7 @@ Later collaborators sometimes rebuilt recognizable dub surfaces around him. The 
 work did more than imitate old tape noise. It allowed Perry’s live improvisation to
 redirect the session. Tape Op’s account of a modern recording encounter shows him
 turning an interview toward a possible song, collapsing conversation and production
-again. [8](#source-tape-op-interview)
+again. [2](#source-tape-op-interview)
 
 His public appearance also became a mobile artwork of written shoes, mirrors, jewelry,
 dyed hair, and altered objects. The images can look unrelated to the disciplined
@@ -332,7 +332,7 @@ post-punk, or electronic production. Some connections are documented through dir
 collaboration and listening; others become too broad to explain much. A stronger claim
 stays close to the work. He showed repeatedly that recording could generate material
 rather than simply preserve it, and that mixing could carry rhythm, surprise, and
-authorship. [9](#source-grammy-documentary)
+authorship. [5](#source-grammy-documentary)
 
 That lesson is clearest when the costume and smoke briefly recede. A bass line remains.
 A vocal disappears before its echo does. One percussion strike exposes the depth of a

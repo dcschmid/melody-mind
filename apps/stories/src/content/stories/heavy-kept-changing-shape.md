@@ -170,8 +170,24 @@ The twentieth-anniversary edition of _Pink_ makes its historical position visibl
 
 ## No final form
 
-Prolific catalogs encourage two weak responses. One is to celebrate variety as a virtue by itself. The other is to select a small canon and treat everything outside it as detour. Boris reward a more specific account. Their strongest changes retain technical knowledge. The ear trained by _Absolutego_ to notice variation inside saturation can hear how _Pink_ compacts saturation. The dynamic arc of _Flood_ clarifies the transitions inside _Feedbacker_. The drive of _Heavy Rocks_ reveals that repetition can produce velocity as well as stasis.
+A prolific catalog invites selective listening. One listener may celebrate variety by
+itself; another may preserve a small canon and dismiss the rest as detours. Neither
+approach explains how techniques carry between records. The ear trained by
+_Absolutego_ to notice variation inside saturation can hear _Pink_ compress that
+knowledge. _Flood_'s dynamic arc clarifies the transitions inside _Feedbacker_;
+_Heavy Rocks_ shows repetition producing velocity as well as stasis.
 
-There are limits to this flexibility. Not every experiment resolves, and abundance can obscure chronology as readily as it enriches it. Different editions, labels, mixes, and identically titled albums make the catalog resistant to a single authoritative map. That resistance should not be inflated into mystique. It is partly the consequence of a working band recording often, collaborating widely, and allowing a release to represent a moment rather than a permanent identity.
+That continuity is clearest when forms are compared as techniques rather than genres:
+a sustained tone, a rapid riff, and a melodic wash each organize density, attack, and
+decay at a different scale.
 
-What persists is a discipline of listening to material. Volume is not valuable because it is extreme; it is valuable when it exposes texture or reorganizes the room. Duration is not profound because it is long; it matters when a change needs time to register. A fast riff is not a retreat from experiment if speed reveals a different property of the same distorted sound. Boris kept changing shape because each form placed a new demand on the word “heavy.” The catalog does not answer that demand once. It makes the answer audible, lets it decay, and begins again.
+Some experiments do not resolve, and abundance can obscure chronology. Different
+editions, labels, mixes, and identically titled albums resist a single reliable map.
+No mystique is needed: this is a working band recording often, collaborating widely,
+and allowing each release to represent a moment rather than a permanent identity.
+
+Across those changes, Boris keep listening to material. Volume earns its place when it
+exposes texture or reorganizes a room. Duration matters when a change needs time to
+register; speed can expose another property of the same distorted sound. Each form
+places a fresh demand on “heavy.” Boris make an answer audible, let it decay, and begin
+again.

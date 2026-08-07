@@ -99,6 +99,11 @@ sources:
     publisher: Detroit Historical Society
     url: https://detroithistorical.org/sites/default/files/images/Brief%20History%20of%20Detroits%20Music%20Scene.pdf
     accessedAt: 2026-07-25
+  - id: iu-dalphond-archive
+    title: Denise Dalphond Detroit Techno Collection, 1979–2012
+    publisher: Archives of African American Music and Culture, Indiana University
+    url: https://archives.iu.edu/catalog/VAE4197
+    accessedAt: 2026-08-07
 ---
 
 Belleville High School stands west of Detroit, beyond the city line that gives Detroit
@@ -132,7 +137,7 @@ Mojo later played work by local producers, closing a feedback loop. Musicians fi
 learned from the broadcast, then used it as an outlet through which their records could
 reenter the city. The Detroit Historical Society’s account of Atkins places that
 two-way radio relationship near the start of the story.
-[2](#source-atkins-history)
+[1](#source-atkins-history)
 
 ## Three students, different methods
 
@@ -150,7 +155,7 @@ and an independent label structure early.
 Treating them as a single unit flattens the productive disagreement. A scene forms
 because participants answer one another, not because everyone holds the same aesthetic
 position. Shared listening gave the group a base; different judgments about rhythm,
-voice, futurism, and audience gave the records range. [3](#source-may-history)
+voice, futurism, and audience gave the records range. [2](#source-may-history)
 
 ## Cybotron and the sound of systems
 
@@ -249,7 +254,7 @@ changed, and form expectations together.
 May’s history connects the desire for such a venue to his Chicago experience. The
 movement of ideas between the cities was direct, not a later critic’s comparison.
 Detroit artists absorbed house while maintaining a separate production language and
-social network. [4](#source-may-history)
+social network. [2](#source-may-history)
 
 A club made records legible at intended volume. Low frequencies became architectural,
 and a long blend exposed whether two arrangements could coexist. Studio decisions
@@ -272,7 +277,7 @@ This history matters because the first-generation story can otherwise end when E
 discovers the Belleville Three. Detroit musicians continued revising the form and the
 terms under which it traveled. The Historical Society’s Mills entry follows that
 movement from radio to Underground Resistance and then to an international solo
-practice. [5](#source-mills-history)
+practice. [4](#source-mills-history)
 
 ## A festival becomes an archive
 
@@ -284,7 +289,13 @@ recording performances and interviews for an exhibition on techno.
 Those tapes now preserve more than main-stage triumph. They include crowds,
 volunteers, partial sets, and artists discussing what the genre meant to them. The
 museum later digitized hours of footage, turning event documentation into a public
-video archive. [6](#source-festival-archive)
+video archive. [3](#source-festival-archive)
+
+Indiana University's Archives of African American Music and Culture preserves a second
+record: Denise Dalphond's field notes, photographs, transcripts, and interviews with
+Atkins, May, Mike Banks, Anthony Shakir, Theo Parrish, and others. The collection widens
+the evidence beyond festival commemoration and keeps later participants inside the
+history. [6](#source-iu-dalphond-archive)
 
 Festival recognition changes a scene. Tourism, sponsorship, permits, and large
 audiences create opportunities unavailable to a basement party. They also favor a

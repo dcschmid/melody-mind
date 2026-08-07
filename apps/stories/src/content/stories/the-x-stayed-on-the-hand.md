@@ -145,7 +145,7 @@ novelty. Their musicianship made the emerging local punk vocabulary sound less l
 copy of records arriving from London or New York. The city had its own pressure and its
 own players. The Smithsonian's account of D.C. music places punk beside go-go and other
 local practices rather than presenting it as the city's only underground culture.
-[2](#source-smithsonian-social)
+[7](#source-smithsonian-social)
 
 The Teen Idles were younger and less technically commanding. Their importance came
 partly from what they learned by leaving town. On a 1980 West Coast trip they encountered
@@ -162,7 +162,7 @@ principle could repeat: one record might create enough capacity for the next. Di
 therefore began as a modest revolving mechanism, not as a gatekeeper waiting for a
 finished scene to present itself. State of Alert did not wait for that mechanism and
 financed its own _No Policy_ EP, but Dischord distributed it within the growing sequence.
-[3](#source-soa)
+[2](#source-soa)
 
 ## A room without a protected stage
 
@@ -180,7 +180,7 @@ The policy also complicated booking. A promoter could not rely on alcohol revenu
 band that insisted on all-ages admission often had to use church halls, community rooms,
 or other temporary spaces. The Smithsonian's oral history describes early D.C. shows as
 places where children could attend because alcohol was absent from the event rather than
-the reason for it. [4](#source-smithsonian-writing)
+the reason for it. [9](#source-smithsonian-writing)
 
 This was infrastructure made out of agreements. Someone had to rent the room, negotiate
 with its owner, assemble a bill, borrow a public-address system, make a flyer, collect a
@@ -203,14 +203,14 @@ period in 1985 pushed some musicians toward more openly personal writing and exp
 criticism of macho conduct at shows. Rites of Spring, Embrace, and other bands did not
 sound identical to the first hardcore burst. A local network mattered because it could
 hold disagreement and change, not because everyone followed one program.
-[5](#source-smithsonian-zines)
+[8](#source-smithsonian-zines)
 
 Zines made those arguments portable. Titles such as _Truly Needy_, _Greed_, and
 _Thrillseeker_ covered local groups from the viewpoint of participants. Later D.C.
 publications continued that work and challenged the scene's assumptions. A zine could
 mix interviews, reviews, letters, graphics, and practical information without waiting
 for an editor outside the community. Its rough production was not proof of honesty, but
-it gave writers direct responsibility for what they printed. [5](#source-smithsonian-zines)
+it gave writers direct responsibility for what they printed. [8](#source-smithsonian-zines)
 
 The pages also reveal what a record label cannot. A catalog tends to make a scene look
 orderly: release numbers advance, bands receive concise biographies, and surviving music
@@ -225,7 +225,7 @@ through a different performance economy built on sustained rhythm and audience e
 The scenes were not interchangeable. Their coexistence shows that hardcore developed
 inside a city with musical systems beyond the small punk circuit. The Smithsonian's D.C.
 programs place those histories alongside one another without forcing them into a single
-genre narrative. [2](#source-smithsonian-social)
+genre narrative. [7](#source-smithsonian-social)
 
 ## Price as part of the composition
 
@@ -234,7 +234,7 @@ music made room for silence, dub-informed bass movement, overlapping guitar part
 two contrasting vocalists. The band's administrative choices were equally deliberate.
 It managed itself, released its recordings through Dischord, required all-ages concerts,
 and tried to keep admission inexpensive. Dischord describes the usual ticket range as
-five to seven dollars during the band's active years. [6](#source-fugazi)
+five to seven dollars during the band's active years. [3](#source-fugazi)
 
 A low price was not a slogan printed after the fact. It limited which promoters and
 venues the band could accept. An all-ages requirement ruled out some clubs. Refusing
@@ -263,7 +263,7 @@ rooms, equipment, tapes, and live mixes varied. Instead of presenting only a few
 performances, the Fugazi Live Series set out to make the working archive available with
 dates, venues, flyers, photographs, recording notes, and audience corrections. The
 suggested download price followed the familiar five-dollar figure, with a sliding-scale
-option. [7](#source-live-series)
+option. [4](#source-live-series)
 
 An archive at that scale changes the unit of musical history. The object is no longer
 only the canonical album or a professionally filmed concert. A poorly balanced cassette
@@ -276,7 +276,7 @@ close to an activity preserve material before an institution knows what will mat
 That description fits the line from the Teen Idles' eight-song EP to the live series.
 The first record saved a band that had already ended. The later project organized a
 thousand-show career without pretending that only its cleanest nights deserved memory.
-[8](#source-loc-archive) [9](#source-loc-mackaye)
+[6](#source-loc-archive) [5](#source-loc-mackaye)
 
 ## What remained after the ink faded
 

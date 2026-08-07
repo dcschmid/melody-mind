@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   validateBodySourceReferences,
+  validateEditorialStructure,
   validateFrontmatterRelationships,
 } from "../scripts/validate-content.mjs";
 import { validateStoryRelationships } from "../src/utils/contentValidation";
@@ -167,5 +168,24 @@ describe("content validator", () => {
         sources: [{ id: "manual" }],
       })
     ).toEqual(['body references unknown source "missing"']);
+  });
+
+  it("requires citation labels to match source order", () => {
+    const sources = [{ id: "archive" }, { id: "manual" }];
+
+    expect(validateBodySourceReferences("[2](#source-manual)", { sources })).toEqual([]);
+    expect(validateBodySourceReferences("[1](#source-manual)", { sources })).toEqual([
+      'body citation for "manual" must use source number 2, found "1"',
+    ]);
+  });
+
+  it("rejects manual endnotes and empty sections", () => {
+    expect(validateEditorialStructure("## Section\n\nText.")).toEqual([]);
+    expect(validateEditorialStructure("## Endnotes\n\n1. Source")).toContain(
+      "body must not contain a manual Endnotes section"
+    );
+    expect(validateEditorialStructure("## Empty\n\n## Complete\n\nText.")).toContain(
+      'section "Empty" must not be empty'
+    );
   });
 });

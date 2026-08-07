@@ -105,7 +105,7 @@ In 1988 Pauline Oliveros, trombonist Stuart Dempster, vocalist Panaiotis, and en
 Albert Swanson entered an unused water cistern at Fort Worden in Washington State.
 The room was reached through a manhole. Its low frequencies could continue
 reverberating for roughly 45 seconds. A note did not end when the player released it;
-the concrete kept the sound in circulation. [1](#source-rpi-cistern)
+the concrete kept the sound in circulation. [3](#source-rpi-cistern)
 
 The recording made there later supplied a name—_Deep Listening_—for a practice
 Oliveros had been developing through composition, improvisation, electronics, and
@@ -119,7 +119,7 @@ The Center for Deep Listening distinguishes hearing, an ongoing physiological pr
 from listening, an active direction of attention. The distinction is simple enough to
 state and difficult enough to practice. A person can hear ventilation, traffic, a
 neighbor, and their own breath without deciding that any of it deserves musical
-attention. Listening changes the selection. [2](#source-deep-listening-center)
+attention. Listening changes the selection. [1](#source-deep-listening-center)
 
 Oliveros did not use expanded attention as a demand for solemnity. Her work includes
 play, social exchange, memory, movement, and mistakes. A listener might focus tightly
@@ -150,7 +150,7 @@ Her archive at Rensselaer includes scores, recordings, correspondence, teaching
 materials, and records of the organizations she created. That range is significant.
 The work was never only a catalog of pieces. It included building technical resources,
 publishing instructions, organizing workshops, and maintaining conditions in which
-other people could experiment. [3](#source-rpi-archive)
+other people could experiment. [4](#source-rpi-archive)
 
 ## An accordion inside the circuit
 
@@ -177,7 +177,7 @@ In the early 1970s, Oliveros developed _Sonic Meditations_ in work with a
 female-identified ensemble. Many of these scores use words rather than conventional
 notation. They propose an action, a focus, or a rule for responding. The published
 instruction is concise because the performance supplies its detail.
-[4](#source-deep-listening-center)
+[1](#source-deep-listening-center)
 
 A text score changes who can participate. Reading staff notation may not be required,
 but attention and accountability are. An open instruction is not an absence of
@@ -197,7 +197,7 @@ The Fort Worden cistern was built in 1907 to hold two million gallons of water. 
 reinforced-concrete cylinder is about 186 feet in diameter and crowded with supporting
 columns. By 1988 it was empty. The musicians entered a space designed for storage, not
 performance, and found an acoustic system too long and smooth to treat as a normal
-hall. [5](#source-rpi-cistern)
+hall. [3](#source-rpi-cistern)
 
 Forty-five seconds of low-frequency reverberation changes basic musical judgment.
 Fast, dense playing can accumulate until individual attacks are difficult to separate.
@@ -247,7 +247,7 @@ The cistern is poorly suited to ordinary concerts. Access is narrow, and even a 
 audience would absorb sound and change the reverberation. In 2012, researchers at
 Rensselaer developed a digital model intended to bring its acoustic behavior into a
 concert hall. Oliveros and collaborators performed with the system at EMPAC.
-[6](#source-rpi-cistern)
+[3](#source-rpi-cistern)
 
 Simulation did not replace the original room. It made the room’s measured response
 available as an instrument. A performer could play in a hall while software extended
@@ -283,7 +283,7 @@ Oliveros died in 2016. The Center for Deep Listening at Rensselaer continues cou
 events, publications, and archival work. In 2025 it published _A Year of Deep
 Listening_, a collection of 365 text scores by more than 300 contributors, developed
 from a yearlong project marking what would have been Oliveros’s ninetieth birthday.
-[7](#source-rpi-year)
+[5](#source-rpi-year)
 
 That continuation suits a practice built for use. Scores travel because other people
 enact them under new conditions. Accountability comes from taking the instruction,

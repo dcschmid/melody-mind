@@ -106,7 +106,7 @@ to Chicago in 1923, she had spent roughly two decades learning what held an audi
 inside a tent or theater. The label did not discover an unformed singer. It acquired a
 touring professional with a name, a repertory, stage habits, and a clear sense of how a
 song should reach the back of a room. The shellac discs captured her voice, but they
-also compressed a larger business into three-minute sides. [1](#source-loc-essay)
+also compressed a larger business into three-minute sides. [2](#source-loc-essay)
 
 That distinction changes how the records sound. The rough edge in Rainey’s contralto
 belongs to an address built for public space: words projected without losing their
@@ -187,7 +187,7 @@ The 1924 recording of “See See Rider Blues” gives a particularly clear view 
 Rainey’s control. Louis Armstrong plays cornet, and Fletcher Henderson is present on
 piano. Their later stature can pull attention toward the accompanists, but the record
 is organized around Rainey’s timing. Armstrong’s responses sharpen the spaces she
-opens. They do not turn the side into a trumpet feature. [5](#source-loc-registry)
+opens. They do not turn the side into a trumpet feature. [1](#source-loc-registry)
 
 The performance was selected for the National Recording Registry in 2004. That status
 recognizes cultural, historical, or aesthetic significance; it does not turn the disc
@@ -255,7 +255,7 @@ building as rare physical evidence of her life. Recording history often survives
 sound detached from property: a digital file can travel while a home, theater, or
 pressing plant is demolished. The Columbus house anchors Rainey’s career to a place
 where she lived after the touring years and to a city connected to her beginnings.
-[6](#source-nps-nomination)
+[5](#source-nps-nomination)
 
 It should not be turned into a sentimental endpoint. A house cannot reconstruct the
 tent circuits or settle contested details in a biography. It can preserve scale,
@@ -268,7 +268,7 @@ Rainey died in Columbus on December 22, 1939. Her death certificate identified h
 occupation as housekeeping, a bureaucratic description sharply at odds with decades
 of professional performance. The mismatch is often repeated because it exposes the
 archive’s limits in one line. Official records can preserve a date while failing to
-name the work that made a person historically significant. [7](#source-loc-essay)
+name the work that made a person historically significant. [2](#source-loc-essay)
 
 Later recognition corrected some of that absence: halls of fame, a postage stamp,
 stage and film treatments, museum displays, and the Recording Registry entry. These

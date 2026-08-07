@@ -113,6 +113,15 @@ the few inches of tightly packed audio looked lost on the disc and asked whether
 groove could spread outward. Rodriguez explained that filling more of the surface would
 allow a hotter cut. The larger object was not merely easier to see. It could be louder,
 with stronger low-frequency presence, and it gave the extended music somewhere to go.
+[2](#source-red-bull-moulton)
+
+Rodriguez's explanation made level a production choice rather than a mastering
+afterthought. Moulton could alter the arrangement with the club in mind, then hear a
+cut whose geometry favored that use. The format did not merely accommodate a longer
+tape; it let mix length, cutting level, and DJ handling be decided together. That
+connection helps explain why the 12-inch became a professional working format before
+it became a familiar retail category. [2](#source-red-bull-moulton)
+[3](#source-ars-technica)
 
 This episode from the early 1970s is routinely told as the birth of the 12-inch single.
 It deserves a less magical conclusion. Neither a spare blank nor one engineer's cut
@@ -133,7 +142,7 @@ Disco did not invent dancers wanting more time, or DJs using two copies and tape
 to create it. It placed those practices near the center of a growing record business.
 Clubs made sequencing an art. The DJ was listening not only for songs but for usable
 entrances, stable percussion, instrumental passages, breakdowns, and exits. Continuous
-mixing treated several records as one long evening's structure. [1](#source-loc-disco)
+mixing treated several records as one long evening's structure. [6](#source-loc-disco)
 
 Tom Moulton approached records from the dance floor. In accounts of his early work, he
 describes making long reel-to-reel tapes after watching dancers lose momentum when
@@ -169,7 +178,7 @@ commercial object followed a smaller social circuit.
 
 The Smithsonian's account of disco emphasizes that some hits appeared as 12-inch,
 45-rpm extended singles precisely to stretch the dance experience and increase DJs'
-control. [3](#source-smithsonian-disco) “Extended” and “DJ” were connected functions:
+control. [1](#source-smithsonian-disco) “Extended” and “DJ” were connected functions:
 the length mattered because someone in the booth could decide how to deploy it.
 
 ## What the groove can hold
@@ -178,7 +187,7 @@ A record stores sound as a continuous spiral. The cutting stylus moves sideways 
 depending on the system, vertically in response to the signal. Loud passages and strong
 low frequencies demand physical room. If adjacent turns of the spiral are too close,
 they risk interfering with one another. The engineer must balance playing time, level,
-bass, dynamic range, and the safe distance between grooves. [4](#source-ars-technica)
+bass, dynamic range, and the safe distance between grooves. [3](#source-ars-technica)
 
 This is why diameter alone does not guarantee a spectacular record. A 12-inch disc can
 hold an album side cut quietly, or a single song cut across a broad area. Speed matters
@@ -214,7 +223,7 @@ to change tomorrow.
 Once a version was approved, manufacturing required further stages: the lacquer master
 became the basis for the metal stamper used to press vinyl copies. Cutting guidance
 describes this division between a playable lacquer and the parts needed for circulation.
-[5](#source-riaa-history) Disco accelerated the path by placing urgent demand at one
+[4](#source-riaa-history) Disco accelerated the path by placing urgent demand at one
 end. A club wanted the new version now.
 
 Promotional 12-inches preserved something of the lacquer's special status while making
@@ -242,7 +251,7 @@ another copy. Pitch control changed tempo slightly to make two grooves cooperate
 released disc was fixed, but its place in the night remained open.
 
 Current vinyl guidance still connects 12-inch dance singles to generous groove spacing
-and the handling needs of DJs who mix and scratch. [6](#source-museum-disco) The format
+and the handling needs of DJs who mix and scratch. [5](#source-museum-disco) The format
 makes a wider ecology tangible. Its form contains assumptions about rooms, systems,
 transitions, and people who will not listen from the first second to the last in
 reverent silence.
@@ -285,12 +294,3 @@ sent judgments back. The groove needed more room because the music had acquired 
 work to do. Its extra diameter was useful only because an entire practice had learned
 how to spend that space: on time, level, bass, transitions, and another chance for the
 room to answer.
-
-## Endnotes
-
-1. [Library of Congress-hosted study discussing continuous mixing and disco practice](#source-loc-disco).
-2. [Tom Moulton interview on observing dancers and constructing extended mixes](#source-red-bull-moulton).
-3. [Smithsonian account of disco and the 12-inch extended single](#source-smithsonian-disco).
-4. [Library of Congress-hosted mastering specifications for groove pitch and playing time](#source-ars-technica).
-5. [Sound Affair Mastering on lacquer cutting, spacing, and the path to a stamper](#source-riaa-history).
-6. [TuneCore guide connecting the 12-inch dance single to groove spacing and DJ handling](#source-museum-disco).

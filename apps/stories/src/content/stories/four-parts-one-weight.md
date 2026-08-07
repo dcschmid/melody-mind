@@ -146,7 +146,7 @@ with the engineering removed. On his last day at a sheet-metal job, a machine se
 the tips of two fingers on his fretting hand. He made protective fingertips and
 eventually used lighter strings and lower tunings to reduce resistance. These
 adaptations helped him continue playing, but they did not dictate the notes he chose.
-The achievement lies in rebuilding technique around changed touch. [3](#source-working-class-radicals)
+The achievement lies in rebuilding technique around changed touch. [1](#source-working-class-radicals)
 
 Iommi’s riffs make efficient use of shape. A short figure can state a tonal center,
 move by a small interval, and leave a gap large enough for the drums and voice to
@@ -175,7 +175,7 @@ His subjects included war, political manipulation, mental distress, narcotics, a
 religious fear. Horror imagery was present, but it was not the whole brief. “War Pigs”
 addresses leaders who send others to die; “Hand of Doom” follows addiction; “Children
 of the Grave” imagines youth refusing a violent inheritance. The words gave the
-band’s darkness an object. [4](#source-working-class-radicals)
+band’s darkness an object. [1](#source-working-class-radicals)
 
 This division of labor complicates the image of Osbourne as a confessional frontman
 singing his own dark visions. Butler often supplied the language, while Osbourne made
@@ -223,7 +223,7 @@ persona. Birmingham Museums’ 2025–26 exhibition explicitly celebrated his so
 and the original lineup’s imagery, while the broader Home of Metal project has
 collected fan objects and regional histories around the genre. Both frames are useful
 if kept distinct. Osbourne’s life is not a substitute for the band’s musical labor.
-[5](#source-birmingham-exhibition) [6](#source-home-of-metal)
+[6](#source-birmingham-exhibition) [5](#source-home-of-metal)
 
 ## Arrangement is the fifth instrument
 
@@ -268,7 +268,7 @@ Blues structures, jazz movement, folk-like acoustic passages, psychedelic studio
 effects, and hard-rock volume remain audible. The Rock & Roll Hall of Fame describes
 Sabbath as foundational to heavy metal, but “foundation” should not imply a finished
 genre plan. The quartet found a set of working solutions; later bands selected,
-regularized, and intensified different parts. [7](#source-rock-hall)
+regularized, and intensified different parts. [4](#source-rock-hall)
 
 ## Birmingham without destiny
 
@@ -276,7 +276,7 @@ In June 2025, Birmingham granted all four original members the Freedom of the Ci
 The civic honor joined a long process in which a band once treated as disreputable
 became official local history. Butler used the occasion to identify the group with a
 working-class city and Aston. That recognition is meaningful precisely because success
-was not prewritten into the district. [8](#source-city-freedom)
+was not prewritten into the district. [3](#source-city-freedom)
 
 The final original-lineup performance at Villa Park in July 2025 made the four bodies
 visible together once more. A reunion photograph cannot recover the club band of 1969,

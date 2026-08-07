@@ -162,11 +162,3 @@ The Batcave closed after a short life, while goth continued, subdivided, and ret
 The club did help make a recognizable public. It offered musicians a close audience and offered that audience a role larger than consumption. It gave magazines pictures, gave touring visitors a destination, and gave local organizers a model small enough to reproduce. None of those tasks required the Batcave to define goth correctly. They required it to open again.
 
 That is the useful distinction between origin myth and infrastructure. An origin myth asks who was first. Infrastructure asks what allowed people to meet, work, and return. The Batcave matters because its organizers turned a band’s booking problem into a weekly system. In the process, they made a night that people could wear, photograph, debate, and carry home.
-
-## Endnotes
-
-1. [Music of the macabre — revisiting goth's evolution](#source-guardian-macabre)
-2. [Back in black](#source-guardian-black)
-3. [Undead](#source-guardian-undead)
-4. [The Batcave](#source-fit-batcave)
-5. [Museum of Youth Culture — The Batcave Club Exhibition](#source-timeout-exhibition)

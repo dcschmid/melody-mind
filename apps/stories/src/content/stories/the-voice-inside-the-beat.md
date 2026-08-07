@@ -156,7 +156,7 @@ It also required her to write beyond the sound of her own performing voice.
 In a 1997 Billboard profile, Elliott described beginning with the music rather than a
 completed lyric. That sequence made the track a set of physical cues. The length of a
 gap, the weight of a kick, or the pitch of a small keyboard figure could suggest how
-many syllables would fit and what kind of voice could deliver them. [2](#source-billboard-profile)
+many syllables would fit and what kind of voice could deliver them. [4](#source-billboard-profile)
 
 Writing for another artist involves a second translation. A demo must communicate
 melody, rhythm, attitude, and structure while leaving room for the eventual singer.
@@ -177,7 +177,7 @@ Elliott wrote or co-wrote key material and contributed vocals. Timbaland’s pro
 supplied an asymmetrical rhythmic world; Aaliyah’s phrasing gave that world poise. The
 credits describe collaboration, not a rehearsal for one person’s later career. Still,
 the album proved that Elliott’s methods could organize a major R&B release before a
-label had positioned her as its central image. [3](#source-pitchfork-review)
+label had positioned her as its central image. [6](#source-pitchfork-review)
 
 That success changed the terms available to her. Elliott wanted a label arrangement
 through which she could develop artists. Sylvia Rhone at Elektra offered her The
@@ -191,7 +191,7 @@ _Supa Dupa Fly_ was recorded quickly. Elliott later recalled that the album took
 two weeks, not because the music was careless but because she and Timbaland had already
 developed a working language. They were not spending the sessions inventing a
 relationship from the beginning. They could recognize when an odd sound or displaced
-rhythm belonged to the system they had built. [4](#source-grammy-interview)
+rhythm belonged to the system they had built. [1](#source-grammy-interview)
 
 The speed matters because later accounts often turn innovation into a deliberate
 campaign to sound futuristic. Elliott said they had no expectation that the record
@@ -223,7 +223,7 @@ Silence is equally active. When a line ends early, the remaining space can expos
 bass movement or make the next entry feel larger. Timbaland’s beats became known for
 unusual timbres and syncopation, but novelty sounds alone do not explain their shape.
 The records work because voice and programmed rhythm repeatedly make room for one
-another. [5](#source-rock-hall)
+another. [2](#source-rock-hall)
 
 ## A sample made into dialogue
 
@@ -237,7 +237,7 @@ Most of _Supa Dupa Fly_ is not built around prominent borrowed recordings, which
 the sample’s visibility useful. Elliott and Timbaland did not reject sampling in favor
 of supposedly purer keyboard programming. They chose different methods according to
 the song. Here, recognition is part of the hook. On other tracks, unfamiliar drum
-colors and sparse figures create the point of entry. [6](#source-grammy-interview)
+colors and sparse figures create the point of entry. [1](#source-grammy-interview)
 
 Elliott’s own voice moves around the sampled refrain rather than trying to overpower
 it. The record therefore stages authorship across time: Peebles’s performance, the
@@ -251,7 +251,7 @@ The video for “The Rain” enlarged the record’s changes of scale. Hype Will
 fisheye lens and proposed the inflatable black suit. Elliott developed other scenes and
 cast friends and collaborators whose appearances connected to lines in the song. June
 Ambrose styled the suit, and makeup artist Billy B helped build the visual surface. The
-finished clip belongs to a team with named roles. [7](#source-complex-hype)
+finished clip belongs to a team with named roles. [5](#source-complex-hype)
 
 Elliott’s body was not treated as a problem to minimize before the camera could become
 inventive. The suit made volume the central graphic fact. Lens distortion expanded
@@ -264,7 +264,7 @@ not a generic silver backdrop. It was control over scale, costume, Black sociali
 humor, and who could occupy the center of an expensive image. The New Yorker’s 1997
 profile recorded Elliott’s part in conceiving the video while it was still a current
 release, before its images hardened into retrospective iconography.
-[8](#source-new-yorker-profile)
+[3](#source-new-yorker-profile)
 
 ## Character is an arrangement tool
 
@@ -323,7 +323,7 @@ Her first headlining arena tour arrived only in 2024. The production translated 
 memories back onto a live stage decades after many songs were released. Elliott told
 the Associated Press that she wanted audiences to travel into those video moments, a
 description that makes the show less a greatest-hits sequence than a movement between
-stored visual worlds. [9](#source-ap-tour)
+stored visual worlds. [7](#source-ap-tour)
 
 ## Control without the solitary-genius story
 

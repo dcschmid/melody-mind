@@ -131,7 +131,7 @@ popular styles, and adjusted arrangements for different audiences. The tension w
 real, especially when nightclub billing and suggestive material troubled church
 listeners. But the music itself had already developed through exchange. Tharpe did not
 need to leave gospel technique behind to enter popular entertainment. She brought its
-rhythmic engine with her. [2](#source-rock-hall)
+rhythmic engine with her. [3](#source-rock-hall)
 
 By her early twenties she had married preacher Thomas Thorpe, adopted a modified
 version of his surname, and separated from him. The name Sister Rosetta Tharpe joined a
@@ -149,7 +149,7 @@ On October 31, 1938, Tharpe recorded four titles for Decca. The Smithsonian list
 established her recording career. The sides do not present one settled formula. They
 move among spiritual material, popular song, swing accompaniment, and prominent
 guitar. What connects them is control. Tharpe places the beat with enough firmness to
-support a band, then changes the guitar's role between vocal lines. [4](#source-smithsonian-snapshot)
+support a band, then changes the guitar's role between vocal lines. [2](#source-smithsonian-snapshot)
 
 Recording changed what that control could mean. A church audience experiences volume,
 gesture, and collective response in a room. A disc compresses the event into a few
@@ -165,7 +165,7 @@ Paul, and the white Gibson SG now strongly associated with her. The Smithsonian'
 summary emphasizes her combination of gospel singing and virtuoso electric playing.
 The continuity lies less in one model than in the way she made amplification serve
 phrasing. Volume allowed a single note to hold its place against an ensemble, but her
-attack still came from a player trained to maintain the whole song. [5](#source-smithsonian-spotlight)
+attack still came from a player trained to maintain the whole song. [1](#source-smithsonian-spotlight)
 
 ## The beat inside the testimony
 
@@ -190,7 +190,7 @@ Tharpe a precursor can reduce her to an opening act for men who became more famo
 She was already a headliner with a long professional network, commercial records, and
 audiences of her own. The historical question goes beyond who copied a lick. It asks why
 the category of rock later made her work seem peripheral when so much of its technique
-was audible in her hands. [6](#source-rock-hall)
+was audible in her hands. [3](#source-rock-hall)
 
 ## Sacred work in commercial rooms
 
@@ -216,7 +216,7 @@ can be heard as an early rock-and-roll grammar. Later institutions have repeated
 used the record to place Tharpe in rock history. The Recording Academy admitted it to
 the Grammy Hall of Fame in 2014 and added “This Train” in 2016. Those honors document
 later recognition; they do not settle a contest for the first rock record.
-[7](#source-grammy-hall)
+[5](#source-grammy-hall)
 
 ## What a ten-inch record carried
 
@@ -226,7 +226,7 @@ Loaves of Bread.” The catalog describes a ten-inch, 78 rpm disc made in New Yo
 face carries one performance. That compact format puts Tharpe's guitar method into a
 useful material frame: the arrangement has to establish tempo, vocal character, and
 instrumental identity without the long sequence available to a later LP.
-[8](#source-nmah-tharpe-78)
+[6](#source-nmah-tharpe-78)
 
 Reading the first side only as proto-rock breaks the record's own pairing. Both titles
 belong to Tharpe's gospel work. The sharper guitar attack on “Strange Things” did not
@@ -263,7 +263,7 @@ to read it as a modern celebrity stunt dropped into the wrong decade. More usefu
 it shows a performer taking control of promotion in a business that often packaged her
 from outside. The marriage did not provide a neat romantic ending, and the concert
 should not be used to turn a complicated working life into folklore.
-[9](#source-grammy-career)
+[4](#source-grammy-career)
 
 Her American prominence declined during the 1950s as the gospel market changed and
 rock and roll developed its own younger public image. That shift demonstrates how
@@ -296,7 +296,7 @@ diabetes, she continued to sing when she could no longer maintain the same sched
 She died in Philadelphia on October 9, 1973. The Smithsonian records the dates plainly.
 The gap between that death and her most visible institutional recognition is much
 longer than the gap between her early records and the rise of rock.
-[10](#source-smithsonian-spotlight)
+[1](#source-smithsonian-spotlight)
 
 ## Recognition after the categories hardened
 

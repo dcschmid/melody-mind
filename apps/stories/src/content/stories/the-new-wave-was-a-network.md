@@ -113,7 +113,7 @@ request chart; a Newcastle studio could become a label; a weekly paper could pri
 names that had never shared a bill. “NWOBHM” made these activities visible together.
 It did not prove that the bands sounded alike. The new wave was a network before it
 was a genre, and its connections were built from cheap, physical media.
-[1](#source-independent-streak)
+[6](#source-independent-streak)
 
 ## A disco with an incoming mail pile
 
@@ -137,7 +137,7 @@ to Kay. “Prowler” drew a strong response. Three tracks were issued in Novemb
 _The Soundhouse Tapes_, sold directly in a limited run. Its title credited the place
 where a cassette had acquired an audience. The EP was not simply a primitive version
 of a later EMI product. It was evidence that recording, club response, and mail order
-could form a release system. [3](#source-quietus-history)
+could form a release system. [4](#source-quietus-history)
 
 ## _Sounds_ supplies a shared page
 
@@ -147,7 +147,7 @@ from shows. In May 1979, the “new wave of British heavy metal” wording appea
 Barton’s coverage. Participants later disagreed over who precisely coined the phrase
 and how seriously it was intended. The important result is easier to establish: a
 headline joined scattered activity into a named subject that could receive more
-coverage. [4](#source-guardian-oral)
+coverage. [3](#source-guardian-oral)
 
 Newsprint shortened distance. A reader could discover that an unsigned band had made a
 single, copy an address, send cash or a postal order, and receive the record. Bands
@@ -180,7 +180,7 @@ could be a friend with a telephone; a label could begin as a studio owner decidi
 release one client. Histories of the wave’s independent streak recover geographically
 dispersed groups issuing demos and one-off singles. Most did not become album acts.
 Their small releases are not marginal debris around the famous bands. They are the
-scale on which the network operated. [5](#source-independent-streak)
+scale on which the network operated. [6](#source-independent-streak)
 
 Neat Records grew from Impulse Studios in Wallsend and became a durable northeast node.
 Its catalog put Raven, Venom, Tygers of Pan Tang, and many smaller bands into
@@ -203,7 +203,7 @@ Diamond Head, Witchfynde, and Sledgehammer moved through shops and mail. The pra
 owed something to punk’s demonstrated DIY routes even where metal fans defined
 themselves against punk style. Record Collector’s history identifies that shared
 method: self-release first, industry attention later if it came at all.
-[6](#source-record-collector)
+[5](#source-record-collector)
 
 Scarcity also produced distortions in the archive. A run of one thousand that sold at
 gigs can become an expensive collectible, making today’s surviving object seem more
@@ -254,7 +254,7 @@ unsigned or newly signed band before a national audience, while local programs
 supported nearby scenes. Airplay did not replace mail and gigs; it increased the
 number of listeners who might use them. The Guardian oral history gives Kay, Barton,
 Tommy Vance, and producer Tony Wilson distinct roles. No single gatekeeper “broke”
-the movement. Several gates opened onto each other. [7](#source-guardian-oral)
+the movement. Several gates opened onto each other. [3](#source-guardian-oral)
 
 ## Three successes do not contain the wave
 
@@ -269,7 +269,7 @@ The less successful records reveal just as much. One single might be a band’s 
 public catalog. Its existence shows access to a room, a recorder, a pressing plant,
 and a few outlets. Oxford’s account of NWOBHM stresses that demos and independent
 releases circulated because dedicated venues and early major-label support were
-limited. The constraint shaped the medium. [8](#source-oxford-network)
+limited. The constraint shaped the medium. [1](#source-oxford-network)
 
 By 1981, labels and specialist magazines were turning the surge into a recognizable
 market. _Kerrang!_ began as a _Sounds_ supplement and became its own publication.

@@ -125,7 +125,7 @@ Stratocaster-style body and neck with the kind of humbucker associated with Gibs
 guitars. In practical terms, it pursued two desires that the late-1970s mass market
 usually kept in separate instruments: the physical balance and tremolo possibilities
 of a Strat-style design, and the denser output of a bridge humbucker driving a loud
-amplifier. [2](#source-smithsonian-interview)
+amplifier. [1](#source-smithsonian-interview)
 
 The guitar changed repeatedly. Van Halen cut the pickup cavity, installed and replaced
 hardware, repainted the body, and eventually worked with locking vibrato systems. Some
@@ -144,7 +144,7 @@ The National Museum of American History’s cataloged “Frank 2” is itself a 
 replica that Van Halen used for most of the 2007–08 North American tour, not the
 original guitar from the first albums. The distinction is explicit in the museum
 record and easy to lose when every striped instrument becomes “the Frankenstein.”
-[3](#source-nmah-object)
+[2](#source-nmah-object)
 
 ## Technique changes the hardware brief
 
@@ -231,7 +231,7 @@ the record and subsequent visibility did was make the technique a central public
 problem for rock guitarists: listeners wanted to identify the motion, stores fielded
 requests for equipment, and manufacturers had an incentive to package the result.
 The Smithsonian’s electric-guitar history places Van Halen in that broader cycle of
-players adapting an already adaptable instrument. [7](#source-smithsonian-electric)
+players adapting an already adaptable instrument. [4](#source-smithsonian-electric)
 
 The best imitations copied more than speed. Van Halen could make a rhythm part snap
 through controlled muting, suspend a chord with tremolo, or place a noisy scrape as a
@@ -247,7 +247,7 @@ History. The museum noted that the replica had been used extensively on tour and
 its acquisition documented innovation and popular music, rather than presenting it as
 the first striped guitar. The object now performs a different job. Onstage, its wear
 and layout supported a musician. In a collection, those features become evidence to
-be cataloged. [8](#source-nmah-acquisition)
+be cataloged. [3](#source-nmah-acquisition)
 
 That transition creates a useful tension. The more precisely a manufacturer
 reproduces accidental marks, the more a once-open process can harden into a visual
@@ -263,7 +263,7 @@ heroic too quickly. Plenty of musicians modify equipment without access to major
 companies, museum acquisition, or patent counsel. What distinguishes Van Halen is not
 the universal discovery that instruments can be altered. It is the audible precision
 with which his alterations, technique, and arrangements reinforced one another.
-[9](#source-smithsonian-interview)
+[1](#source-smithsonian-interview)
 
 ## What the stripes can and cannot show
 

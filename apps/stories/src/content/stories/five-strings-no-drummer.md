@@ -142,7 +142,7 @@ fingers remained severely limited. Accounts tend to pause over the fact that he
 continued playing, as if determination alone explains the result. The musical change
 was more specific. Reinhardt reorganized fingering around the index and middle fingers
 for many single-note lines while using the damaged fingers where possible in chord
-shapes. [3](#source-philharmonie-catalog)
+shapes. [2](#source-philharmonie-catalog)
 
 That method did not simply restore an earlier technique. It produced new routes across
 the fretboard. Arpeggios, position shifts, repeated figures, and compact chord voicings
@@ -162,7 +162,7 @@ Paris in 1934. During breaks, they improvised together. Supporters associated wi
 Hot Club de France encouraged the partnership, sponsored concerts, and financed early
 demonstration recordings. The eventual ensemble added Louis Vola on bass and rhythm
 guitarists, creating a five-piece group made entirely of strings.
-[4](#source-philharmonie-exhibition)
+[1](#source-philharmonie-exhibition)
 
 The instrumentation solved several problems at once. Grappelli could sustain, bend,
 and decorate a line differently from the guitar.
@@ -188,7 +188,7 @@ Paris also brought Black American musicians into Reinhardt’s professional worl
 Coleman Hawkins, Benny Carter, Bill Coleman, and members of Duke Ellington’s circle
 worked or recorded in Europe. Sessions across those networks make a simple
 Europe-versus-America story impossible. Musicians heard one another directly, not
-only through imported discs. [5](#source-philharmonie-exhibition)
+only through imported discs. [1](#source-philharmonie-exhibition)
 
 Reinhardt’s guitar entered jazz through this exchange while carrying musette rhythm
 and Manouche musical knowledge with it. “Jazz manouche” now names a broad performance
@@ -245,7 +245,7 @@ William P. Gottlieb photographed Reinhardt in New York during the visit. In one 
 he sits alone, looking directly toward the camera; in another he stands beside
 Ellington. The photographs document proximity without pretending to explain the
 relationship. They belong to Gottlieb’s larger archive of jazz workers in clubs,
-backstage rooms, streets, and studios. [6](#source-loc-gottlieb)
+backstage rooms, streets, and studios. [4](#source-loc-gottlieb)
 
 The tour did not produce a simple conquest of America. Reinhardt faced language
 difficulties, unfamiliar logistics, and mixed notices. He returned to France without
@@ -266,7 +266,7 @@ and newer harmonic movement. His attack, arpeggiated construction, and command o
 pulse remain audible, but the surface is less attached to the prewar Quintette.
 Cataloged recordings from 1946 through 1949 show the old string format continuing
 alongside repertory that reflects a musician still testing possibilities.
-[7](#source-philharmonie-recordings)
+[5](#source-philharmonie-recordings)
 
 This period resists revivalist neatness. Reinhardt did not spend his final years
 protecting the exact sound for which audiences now recognize him. He was interested in

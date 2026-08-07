@@ -126,7 +126,7 @@ the imperfect light of a verbena. Repeated colors and motifs bind replacement ca
 to the same identity. A memorable image lets a machine persist while drivers, amps,
 and cables are repaired or exchanged. Universidad de los Andes' account of picotero
 painting describes artisans who specialize in giving these boxes their visual force.
-[2](#source-uniandes-picotera)
+[3](#source-uniandes-picotera)
 
 The face also insists that imported equipment has been remade locally. Drivers and
 amplifiers may have international manufacturing histories, but cabinet dimensions,
@@ -156,7 +156,7 @@ made the collection more than inventory: it was a competitive asset. A rival mig
 reproduce the physical stack, but not immediately reproduce the sequence of records,
 the knowledge of when to deploy them, or the audience history attached to them.
 Colombian cultural documentation repeatedly joins the picó's technical power to this
-work of musical circulation. [3](#source-mincultura-picos)
+work of musical circulation. [1](#source-mincultura-picos)
 
 ## The verbena as listening room
 
@@ -195,7 +195,7 @@ name stick, and a distribution path grounded in events. A recording could move f
 studio to acetate or disc to dance floor without waiting for national media approval.
 The University of Rosario research frames picós as crucial platforms in champeta's
 public formation, not as loud afterthoughts to a finished genre.
-[4](#source-rosario-champeta)
+[2](#source-rosario-champeta)
 
 Production for this environment changes the meaning of a mix. The low end has to carry
 across open space. A refrain has to remain identifiable through crowd noise. A break
@@ -225,6 +225,20 @@ survive extensive technical change. Its continuity lies in the relationship betw
 sound, image, ownership, and public recognition.
 
 ## What the painted wall remembers
+
+A painted picó carries information that a component list cannot. The front may combine
+a proper name, a slogan, and a central figure—an animal, deity, superhero, or
+musician—so an audience can identify the system before hearing a selection. The
+support is part of the engineering: artists work on the speaker mesh, keeping the
+image visible without sealing the sound behind a solid panel.
+[3](#source-uniandes-picotera)
+
+William Gutiérrez Peñaloza, profiled by Universidad de los Andes after decades of this
+work, joins international musicians and popular figures to local emblems rather than
+treating “local” and “imported” as opposites. When a cabinet is repaired or remodeled,
+recognizable colors and symbols can carry the name forward. The wall remembers a
+lineage of owners, painters, components, and public appearances even when none remains
+physically unchanged.
 
 ## Competition is a form of engineering
 

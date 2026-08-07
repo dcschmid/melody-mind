@@ -122,7 +122,7 @@ difficult to find elsewhere in the city. As demand for the imports grew, the sho
 a meeting point. Customers did more than buy finished music. They exchanged names,
 addresses, tapes, magazines, and news about bands that might otherwise remain separated
 by distance and cost. A retail counter became the fixed address of an emerging scene.
-[1](#source-ufmg-roots)
+[4](#source-ufmg-roots)
 
 That distinction matters. Sepultura's later international career can make its beginning
 look inevitable, as if a successful band simply waited to be discovered. In 1984 there
@@ -146,7 +146,7 @@ other groups active around the scene. They shared listeners and practical resour
 did not converge on one sound. Overdose drew from heavy metal and progressive rock.
 Sarcófago pushed toward a rawer form that would circulate internationally in the extreme
 underground. Chakal connected performance, radio, and Cogumelo through vocalist Vladimir
-Korg. [2](#source-minas-scene) [3](#source-ufmg-chakal)
+Korg. [3](#source-minas-scene) [5](#source-ufmg-chakal)
 
 Calling all of this “Brazilian thrash” hides the instability that made the records
 interesting. Thrash, death metal, black metal, punk, and older heavy metal had not settled
@@ -162,7 +162,7 @@ market for underground music shaped everyday possibilities. The bands did not al
 direct political programs, and their violent imagery cannot be reduced to one response
 to dictatorship. The material connection is clearer: a generation was organizing
 cultural space while the country's public institutions and freedoms were being
-renegotiated. [2](#source-minas-scene)
+renegotiated. [3](#source-minas-scene)
 
 ## Two bands, one piece of vinyl
 
@@ -171,7 +171,7 @@ around the shop could support a record. Instead of financing a full album by an 
 group, the new label divided one release between two bands. Overdose recorded _Século
 XX_; Sepultura recorded _Bestial Devastation_. Each received one side of the 1985 split
 LP. The format spread cost and attention while giving the label two audiences to work
-with. [1](#source-ufmg-roots) [4](#source-cogumelo)
+with. [4](#source-ufmg-roots) [2](#source-cogumelo)
 
 The pairing also preserved contrast. Overdose's side had a different musical history and
 a more elaborate sense of arrangement. Sepultura sounded younger and more abrasive.
@@ -197,7 +197,7 @@ Sepultura followed with _Morbid Visions_ in 1986. Cogumelo also issued the _Warf
 Noise_ compilation, placing Chakal, Holocausto, Mutilator, and Sarcófago on one release.
 The compilation worked like a scene map. A listener outside Minas Gerais could receive
 several points of entry in one package, while the bands became mutually legible as part
-of a city rather than isolated demo names. [3](#source-ufmg-chakal)
+of a city rather than isolated demo names. [5](#source-ufmg-chakal)
 
 The visual language did similar work before a listener heard a note. Hand-drawn logos,
 high-contrast photographs, apocalyptic paintings, and English titles located the records
@@ -206,7 +206,7 @@ example, used Pieter Bruegel's _The Triumph of Death_ as cover imagery. The choi
 a sixteenth-century European painting to a young Brazilian band's record and gave local
 listeners another object to decode. Research on the scene traces how such images
 circulated with the music rather than treating packaging as decoration.
-[3](#source-ufmg-chakal)
+[5](#source-ufmg-chakal)
 
 ## The shop as an information desk
 
@@ -227,7 +227,7 @@ Radio added another route. Vladimir Korg's association with the _Metal Massacre_
 gave local listeners a voice and a schedule to gather around. A song heard on air could
 lead back to the shop, a show, or a tape exchange. Each medium did a different job: radio
 created reach, cassettes made copying cheap, vinyl gave the music a durable commercial
-object, and live shows tested whether the bands could hold a room. [3](#source-ufmg-chakal)
+object, and live shows tested whether the bands could hold a room. [5](#source-ufmg-chakal)
 
 English lyrics were another distribution tool, though early pronunciation and grammar
 could be unstable. The language connected local bands to the records they admired and
@@ -251,7 +251,7 @@ The album remained aggressive while showing greater control of tempo, transition
 harmonized parts. That development made Sepultura easier to understand outside the
 immediate scene without requiring it to become less heavy. The band's official history
 places _Schizophrenia_ at the point where its reach began expanding decisively.
-[5](#source-sepultura-bio) Kisser's own account describes meeting the band through a
+[1](#source-sepultura-bio) Kisser's own account describes meeting the band through a
 São Paulo show, visiting Belo Horizonte, and moving there after Jairo Guedz left.
 [7](#source-kisser-joining)
 
@@ -270,7 +270,7 @@ international network. Chakal, Mutilator, Holocausto, and Overdose developed dif
 catalogs and audiences. Some lineups ended. Others continued under shifting conditions.
 Cogumelo kept releasing Brazilian metal, punk, and related music rather than becoming a
 single-band imprint. Its forty-year catalog records the scale of that continuity.
-[4](#source-cogumelo)
+[2](#source-cogumelo)
 
 There is a temptation to treat local limitation as a special ingredient that disappears
 once professional resources arrive. Sepultura's later work argues against that simple
@@ -278,7 +278,7 @@ division. The band increased studio control, toured widely, and altered its rhyt
 political language. Max and Iggor Cavalera's playing retained the physical directness of
 the early years while gaining access to different production tools. Andreas Kisser and
 Paulo Jr. helped carry the band through changes that would have ended a less durable
-organization. [5](#source-sepultura-bio)
+organization. [1](#source-sepultura-bio)
 
 The scene's importance therefore cannot be measured only by how many bands became large.
 It created local points of action. A listener could find a record. A musician could hear

@@ -188,7 +188,7 @@ abrasion.
 At upper left, a circle represents the record and a smaller shape represents the
 stylus in its starting position. An arrow indicates motion from the outside inward.
 Marks around the circumference encode the time for one rotation: 3.6 seconds.
-[3](#source-nasa-cover)
+[1](#source-nasa-cover)
 
 “Seconds” would be meaningless without a human standard, so the diagram does not
 actually use seconds as its foundation. The numbers refer to a transition between two
@@ -212,7 +212,7 @@ The record plays at 16⅔ revolutions per minute, half the common 33⅓ rpm LP s
 slower rate increased capacity, allowing more than fifty minutes of audio and encoded
 images per side. It traded some fidelity for duration, a decision appropriate to a
 disc carrying greetings, natural sounds, music, and pictures rather than a commercial
-album mastered for home hi-fi. [4](#source-loc-greetings)
+album mastered for home hi-fi. [5](#source-loc-greetings)
 
 Durability also mattered. Gold plating protects the copper substrate from corrosion,
 and the jacket shields the grooves. The claim that the object can last immensely long
@@ -234,7 +234,7 @@ If it appears oval, the reconstruction’s aspect ratio is wrong.
 This section behaves like a compact technical manual. It gives a start signal,
 sequence, line duration, spatial arrangement, total count, and test pattern. The circle
 does not depict culture. It verifies process before culturally specific pictures
-arrive. [5](#source-nasa-cover)
+arrive. [1](#source-nasa-cover)
 
 ## The map that changes with time
 
@@ -257,7 +257,7 @@ not as a human name for a star.
 NASA added a tiny source of uranium-238 to the cover. As uranium decays into daughter
 isotopes, their ratio changes predictably. Measuring that ratio could provide another
 estimate of the time since the material was placed aboard. The half-life is about 4.51
-billion years. [6](#source-nasa-cover)
+billion years. [1](#source-nasa-cover)
 
 The uranium clock is easy to miss in photographs because it is material rather than
 primarily pictorial. It checks the pulsar-based epoch through a different physical
@@ -273,7 +273,7 @@ NASA asked a committee chaired by Carl Sagan to assemble the record. Frank Drake
 served as technical director, Ann Druyan as creative director, Timothy Ferris as
 producer, Jon Lomberg as designer, and Linda Salzman Sagan organized greetings.
 The project combined engineering, astronomy, music research, rights clearance,
-recording, and graphic design. [7](#source-nasa-contents)
+recording, and graphic design. [3](#source-nasa-contents)
 
 The disc contains natural and human-made sounds, greetings in 55 languages, musical
 selections from many traditions, images, and printed messages from President Jimmy
@@ -312,7 +312,7 @@ disc reveals its makers as much as its chosen content reveals Earth.
 The Library of Congress essay on the record places Sagan’s ambitions alongside
 environmental and humanitarian concerns and notes the difficulty of licensing and
 coordinating material. The final sequence was made through negotiation, not through
-an objective planetary playlist. [8](#source-loc-essay)
+an objective planetary playlist. [6](#source-loc-essay)
 
 ## The cover as anti-brand
 
@@ -335,7 +335,7 @@ from the object.
 The National Air and Space Museum holds a duplicate cover transferred by NASA in 1978. In the museum, the object sits within labels, controlled light, catalog data,
 and a human institution that explains its significance. The situation reverses the
 spacecraft’s design problem: context is abundant, while physical playback is not the
-visitor’s task. [9](#source-airspace-object)
+visitor’s task. [4](#source-airspace-object)
 
 The duplicate also makes production visible. Voyager carries two covers beyond the
 heliosphere, but Earth retained examples, photographs, documents, masters, and later

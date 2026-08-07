@@ -163,12 +163,16 @@ and releases have to register across the face. The actor can meet a high note by
 the body, resist it with stillness, or turn away and let the voice express what the
 character will not show directly. Playback supplies timing; acting supplies situation.
 
+Because the soundtrack was fixed before shooting, a performer could rehearse gesture
+and breath against the same take until synchronization became characterization rather
+than mere timing.
+
 The apparent singularity of a screen voice can therefore be the product of careful
 division. Lata Mangeshkar's rise after the 1940s made the playback singer publicly
 legible as a star in her own right. Listeners recognized her timbre across changing
 films and actresses. The delayed crediting of the singer on records, and the demand to
 know who sang “Aayega Aanewala” in _Mahal_, show audiences refusing to treat the voice
-as anonymous studio labor. [3](#source-hindi-playback-history) The face did not erase
+as anonymous studio labor. [5](#source-hindi-playback-history) The face did not erase
 the singer; it created a second route into the performance.
 
 Nor did a famous playback voice impose exactly the same character on every image. An
@@ -194,7 +198,7 @@ is built.
 Research on dancer-actress Vyjayanthimala usefully complicates the idea that images are
 added after the music and therefore remain secondary. Davesh Soneji argues for “dance
 musicalization”: a performer's existing movement vocabulary and bodily style can shape
-the music conceived for her. [4](#source-stanford-dance) Production chronology runs
+the music conceived for her. [3](#source-stanford-dance) Production chronology runs
 from recording to shooting, but creative influence can run in both directions. A
 composer and singer may already be imagining the actor who will carry the phrase.
 
@@ -211,7 +215,7 @@ age, gender, class, region, respectability, and desirability. A narrow ideal can
 many screen characters sound strangely related even when the actresses look and act
 differently. Scholarly work on playback stresses that the clean seam between body and
 voice can carry social judgments about which voice is allowed to belong to which body.
-[5](#source-uc-playback)
+[4](#source-uc-playback)
 
 Yet the seam also permits play. A singer can move among comic, romantic, cabaret, folk,
 and classical inflections without appearing on screen. An actor can borrow vocal
@@ -234,7 +238,7 @@ only as sound attached to a strip of film, it could move through gramophone rele
 radio broadcasts, cassettes, television programs, compact discs, and digital platforms.
 Playback did not alone create that economy, but it made the song a more independent
 object. Histories of Hindi film music note how professional studios, orchestras, and
-record circulation grew around this split production. [3](#source-hindi-playback-history)
+record circulation grew around this split production. [5](#source-hindi-playback-history)
 
 The independent life can reverse the expected order for an audience. A listener may
 know the melody for years before seeing its picturization. The voice then arrives before
@@ -281,12 +285,3 @@ Playback's lasting achievement is not perfect concealment. It is a durable agree
 that a cinematic voice can have more than one author. The face gives the recording a
 place to happen; the recording gives the face an interior sound. Between them, Hindi
 cinema made the film song spacious enough to live on screen and away from it.
-
-## Endnotes
-
-1. [Film Heritage Foundation on the synchronous production conditions of _Alam Ara_](#source-film-heritage-alam-ara).
-2. [Government of India publication discussing playback's arrival in 1935](#source-indian-listener).
-3. [Hindustan Times on Lata Mangeshkar and the consolidation of playback practice](#source-hindi-playback-history).
-4. [Stanford Center for South Asia summary of research on dance musicalization](#source-stanford-dance).
-5. [University of California Press open-access study of playback singing](#source-uc-playback).
-6. [Research on changing lip-sync conventions in the Hindi film song sequence](#source-song-sequence).

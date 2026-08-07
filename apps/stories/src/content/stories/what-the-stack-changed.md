@@ -113,7 +113,7 @@ need not stay together: an amplifier head, loudspeakers in closed boxes, a stage
 room, and often a microphone feeding a public-address system. The stack changed how
 players produced distortion and how a band occupied visual space. Those changes
 overlap, but a wall of cabinets may be acoustically essential, partially used, or
-entirely theatrical. [1](#source-volume-study)
+entirely theatrical. [4](#source-volume-study)
 
 ## The JTM45 begins as a practical alternative
 
@@ -122,7 +122,7 @@ shop wanted amplification that was easier to obtain and service than imported Fe
 equipment. Working with Ken Bran, Dudley Craven, and Ken Underwood, Marshall developed
 the amplifier later known as the JTM45. The initials referred to Jim and his son Terry;
 the number described an intended power class more than an exact modern measurement.
-[2](#source-jtm45-history)
+[1](#source-jtm45-history)
 
 The circuit drew heavily on the Fender 5F6-A Bassman, but available British components
 and construction choices changed the result. Different valves, transformers,
@@ -144,7 +144,7 @@ audience. Public-address systems were primarily for vocals, and stage monitors w
 limited. Drummers and crowds set a practical floor beneath which a guitarist could
 not be heard. Pete Townshend and John Entwistle of the Who asked Marshall for more
 power. The response was a series of prototypes that led to the JTM45/100 and the
-100-watt Super Lead. [3](#source-stack-history)
+100-watt Super Lead. [2](#source-stack-history)
 
 Doubling amplifier power does not make a system sound twice as loud. Perceived volume
 depends on speaker sensitivity, cabinet design, distance, room, and frequency as well
@@ -158,7 +158,7 @@ was physically unwieldy. Splitting those speakers into two 4×12 cabinets made t
 possible to move and created the full-stack arrangement: a straight lower cabinet and
 an angled upper cabinet, with the head on top. Terry Marshall’s later account recalls
 that the split solved transportation while preserving the desired scale.
-[4](#source-stack-interview)
+[5](#source-stack-interview)
 
 The angled upper cabinet did more than complete the outline. Its upper speakers faced
 slightly upward, helping some high-frequency content reach the player instead of
@@ -200,7 +200,7 @@ loudspeaker interacted. Feedback could be controlled by distance and orientation
 The physical attack of low and mid frequencies made a chord bodily apparent. The
 recent scholarly history of amplification argues that volume became an aesthetic
 value, not merely a requirement for audibility. The 100-watt Marshall was one of the
-devices through which that value became repeatable. [5](#source-volume-study)
+devices through which that value became repeatable. [4](#source-volume-study)
 
 Repeatable did not mean safe. Sustained exposure at concert levels can damage hearing,
 and the celebrated volume wars placed musicians, crews, and audiences at risk.
@@ -242,7 +242,7 @@ The 2203 was carried into the JCM800 line in 1981. Marshall’s history presents
 series as its first built-in master-volume design, though the relevant JMP models
 preceded the JCM800 name. The renaming coincided with the end of a distribution
 agreement and gave existing circuit ideas a strong new visual identity.
-[6](#source-jcm800-history)
+[3](#source-jcm800-history)
 
 For hard rock and metal players, the master-volume arrangement offered a tighter,
 more controllable attack and an easier way to add gain. Pedals could push the input

@@ -106,10 +106,10 @@ sources:
     url: https://collection.sciencemuseumgroup.org.uk/people/cp153720
     accessedAt: 2026-07-25
   - id: strawberry-history
-    title: Strawberry North History
-    publisher: Strawberry Studios history project
-    url: https://www.strawberrynorth.co.uk/history.htm
-    accessedAt: 2026-07-25
+    title: Strawberry Studios of Stockport and Its Role in Manchester Music
+    publisher: Manchester Region History Review
+    url: https://mcphh.wordpress.com/wp-content/uploads/2022/06/mrhr_ns_1_wadsworth.pdf
+    accessedAt: 2026-08-07
 ---
 
 Factory did not begin as a record label with a clean business plan. It began as a
@@ -117,7 +117,7 @@ Friday night that needed a poster. In May 1978, Tony Wilson and Alan Erasmus org
 events at the Russell Club on Royce Road in Hulme. Peter Saville, then a Manchester
 Polytechnic student, designed the announcement. The poster arrived too late to perform
 its ordinary job, but it received an extraordinary afterlife: FAC 1, the first item in
-the Factory catalog. A missed deadline became an origin object. [1](#source-mdma-fac1)
+the Factory catalog. A missed deadline became an origin object. [3](#source-mdma-fac1)
 
 That story can sound like a perfectly scripted beginning, especially when told through
 the numbered objects that followed. The surviving record is less neat. Manchester in
@@ -144,7 +144,7 @@ preserves posters, flyers, photographs, and memories from the Russell Club, incl
 Saville's FAC 1 design and later monthly listings. Those items show a schedule more
 varied than the narrow canon built afterward. Reggae groups, punk bands, spoken-word
 performers, and touring acts shared dates. A surviving poster is evidence of a planned
-bill, not proof of exactly how the night unfolded. [2](#source-mdma-fac1)
+bill, not proof of exactly how the night unfolded. [3](#source-mdma-fac1)
 
 Wilson brought regional television experience and a talent for public framing. Erasmus
 provided management and space. Saville developed the visual language. Producer Martin
@@ -154,7 +154,7 @@ The University of Manchester's Gretton archive contains about 1,600 items, inclu
 correspondence, invoices, artwork, promotional material, recordings, and personal
 objects. Its inventory is a useful correction to myths of spontaneous genius. Scenes
 run on letters, bills, vehicles, phone calls, and decisions about who gets paid.
-[3](#source-gretton-archive)
+[1](#source-gretton-archive)
 
 ## The catalog as an argument
 
@@ -189,7 +189,7 @@ with Inter-City Studios in 1967, when Peter Tattersall bought a small recording 
 above a shop. Eric Stewart later became a partner, and the operation moved into the
 Waterloo Road building. By the 1970s, Strawberry was associated with 10cc, but its
 facilities also became central to a younger group of regional artists and producers.
-[5](#source-strawberry-history)
+[7](#source-strawberry-history)
 
 Hannett's relationship with Strawberry connected the studio to Joy Division, the
 Durutti Column, A Certain Ratio, and other Factory work. The building matters because
@@ -216,7 +216,7 @@ Museum describes it as the first microprocessor-controlled 15-bit digital delay.
 accepted an analog signal, converted that signal to digital information, and let the
 engineer set the delay that returned as echo or simulated reverberation. This replaced
 the physical loop of tape used by earlier delay systems with adjustable electronic
-processing. [6](#source-factory-technology)
+processing. [5](#source-factory-technology)
 
 The device did not produce a “Factory sound” by itself. Hannett used it with a Marshall
 time modulator, microphones, room acoustics, and decisions made at the mixing desk.
@@ -256,7 +256,7 @@ across his education, broadcasting, Factory work, the Haçienda, and later proje
 The Gretton archive follows management, correspondence, invoices, and the development
 of Joy Division and New Order. Read together, the collections weaken the idea that
 Factory spoke with one voice. They document overlapping responsibilities and competing
-ideas about what the organization should become. [7](#source-wilson-archive)
+ideas about what the organization should become. [2](#source-wilson-archive)
 
 Wilson was exceptionally good at making an event sound like a theory. Saville could
 give a release visual authority while withholding the usual sales information.
@@ -281,7 +281,7 @@ Fairlight Computer Musical Instrument, an expensive digital sampler and workstat
 Other partners preferred to put money into a club. The Science and Industry Museum's
 account gives the dispute a material scale: early Fairlight systems cost tens of
 thousands of pounds, while the club demanded a different kind of continuing expense.
-[8](#source-factory-technology)
+[5](#source-factory-technology)
 
 The organization chose the club. A former yacht showroom on Whitworth Street became
 the Haçienda, catalog number FAC 51. Ben Kelly designed the interior with industrial
@@ -296,7 +296,7 @@ opposite of a smooth expansion from records into architecture. FAC 51 redirected
 money, attention, and authority. It also shifted the label's relation to its city. A
 monthly club night uses an existing room for a limited event. A permanent venue takes
 responsibility for staff, licenses, security, maintenance, programming, and the
-behavior of a crowd night after night. [9](#source-factory-collection)
+behavior of a crowd night after night. [6](#source-factory-collection)
 
 ## The first year of FAC 51
 

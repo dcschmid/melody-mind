@@ -125,9 +125,8 @@ export function validateFrontmatterRelationships(data) {
 
 export function validateBodySourceReferences(body, data) {
   const errors = [];
-  const sourceIds = new Set(
-    (Array.isArray(data.sources) ? data.sources : []).map((source) => source.id)
-  );
+  const sources = Array.isArray(data.sources) ? data.sources : [];
+  const sourceNumbers = new Map(sources.map((source, index) => [source.id, index + 1]));
   const references = Array.from(
     body.matchAll(/#source-([a-z0-9]+(?:-[a-z0-9]+)*)/gu),
     (match) => match[1]
@@ -135,8 +134,41 @@ export function validateBodySourceReferences(body, data) {
   const referencedIds = new Set(references);
 
   for (const reference of referencedIds) {
-    if (!sourceIds.has(reference)) {
+    if (!sourceNumbers.has(reference)) {
       errors.push(`body references unknown source "${reference}"`);
+    }
+  }
+
+  for (const match of body.matchAll(
+    /\[([^\]]+)\]\(#source-([a-z0-9]+(?:-[a-z0-9]+)*)\)/gu
+  )) {
+    const [, label, reference] = match;
+    const expectedNumber = sourceNumbers.get(reference);
+
+    if (expectedNumber && label !== String(expectedNumber)) {
+      errors.push(
+        `body citation for "${reference}" must use source number ${expectedNumber}, found "${label}"`
+      );
+    }
+  }
+
+  return [...new Set(errors)];
+}
+
+export function validateEditorialStructure(body) {
+  const errors = [];
+
+  if (/^##\s+Endnotes\s*$/imu.test(body)) {
+    errors.push("body must not contain a manual Endnotes section");
+  }
+
+  const headings = Array.from(body.matchAll(/^##\s+(.+?)\s*$/gmu));
+  for (const [index, heading] of headings.entries()) {
+    const sectionStart = heading.index + heading[0].length;
+    const sectionEnd = headings[index + 1]?.index ?? body.length;
+
+    if (!body.slice(sectionStart, sectionEnd).trim()) {
+      errors.push(`section "${heading[1]}" must not be empty`);
     }
   }
 
@@ -164,6 +196,9 @@ async function main() {
       failures.push(`${file}: ${error}.`);
     }
     for (const error of validateBodySourceReferences(body, data)) {
+      failures.push(`${file}: ${error}.`);
+    }
+    for (const error of validateEditorialStructure(body)) {
       failures.push(`${file}: ${error}.`);
     }
   }

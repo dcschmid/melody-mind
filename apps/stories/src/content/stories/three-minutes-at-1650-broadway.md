@@ -133,7 +133,7 @@ song.
 Al Nevins and Don Kirshner founded Aldon Music in 1958. Its small writing rooms were
 plain enough to resist romance. Mann later remembered cubicles with an upright piano,
 a bench, one chair, and an ashtray. Sound passed through the partitions. A pair working
-on one song could hear competitors trying to finish another. [2](#source-mann-weil)
+on one song could hear competitors trying to finish another. [8](#source-mann-weil)
 
 This was creative work conducted as office work. A publisher might know that a singer
 needed a follow-up single and ask several teams to provide one. The assignment fixed
@@ -179,7 +179,7 @@ Baby,” “Da Do Ron Ron,” and “Leader of the Pack,” then worked across w
 production, and label activity. The couple’s catalog belongs to the Brill shorthand,
 but its records also bear the strong decisions of producer Phil Spector, arranger Jack
 Nitzsche, engineer Larry Levine, session musicians, and the performing groups.
-[5](#source-greenwich-barry)
+[6](#source-greenwich-barry)
 
 The demo sat between composition and record. It could win an assignment while also
 constraining the artist who received it. A persuasive vocal might establish inflection
@@ -202,7 +202,7 @@ Goffin’s conversational lyrics and King’s melodic control worked because nei
 needed to advertise complexity. “Up on the Roof” moves from crowded street life toward
 a private elevation. “One Fine Day” places confidence in a phrase that the surrounding
 voice can make hopeful or defensive. Their songs were written to order without
-sounding interchangeable. [6](#source-goffin-profile)
+sounding interchangeable. [5](#source-goffin-profile)
 
 ## The publisher owns movement
 
@@ -305,7 +305,7 @@ Goffin and King’s “Chains,” first recorded by the Cookies, appeared on the
 debut album. The cover demonstrates both the reach of the New York song network and
 the changing terms around it. A composition written for one American vocal group
 could become evidence of repertory inside a British band’s identity.
-[7](#source-loc-tapestry)
+[3](#source-loc-tapestry)
 
 King later moved from supplying other performers to recording her own work, most
 decisively on _Tapestry_. It is tempting to treat that move as escape from an
@@ -318,7 +318,7 @@ vocal range, and narrative address. The office remained present at the piano.
 The landmarked Brill Building deserves attention. Its limestone and terra-cotta
 facade gave music businesses a recognizable address, and by 1962 it held an
 extraordinary concentration of them. The city’s designation report preserves that
-commercial history in architectural detail. [8](#source-landmarks-report)
+commercial history in architectural detail. [2](#source-landmarks-report)
 
 The facade becomes misleading when used as a picture of a sealed institution. Aldon
 was at 1650. Sessions took place elsewhere. Performers arrived from their own touring,
