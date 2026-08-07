@@ -25,7 +25,7 @@ const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, Astro.site).toString(),
-  image = new URL("/social-preview.jpg", Astro.site).toString(),
+  image = new URL("/og/default.jpg", Astro.site).toString(),
   imageAlt = "MelodyMind Reviews — sourced album criticism without scores",
   imageWidth = 1200,
   imageHeight = 630,
@@ -41,8 +41,6 @@ const {
 const fullTitle = title.includes("MelodyMind Reviews")
   ? title
   : `${title} | MelodyMind Reviews`;
-const csp =
-  "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-src 'none'; font-src 'self'; media-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';";
 ---
 
 <!doctype html>
@@ -53,14 +51,38 @@ const csp =
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta http-equiv="Content-Security-Policy" content={csp} />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={index ? "index,follow" : "noindex,follow"} />
     <link rel="canonical" href={canonical} />
     {prevUrl && <link rel="prev" href={new URL(prevUrl, Astro.site)} />}
     {nextUrl && <link rel="next" href={new URL(nextUrl, Astro.site)} />}
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/literata-latin-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <link
       rel="alternate"
       type="application/rss+xml"

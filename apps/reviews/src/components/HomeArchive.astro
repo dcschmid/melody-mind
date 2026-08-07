@@ -1,11 +1,13 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
 import AiDisclosure from "@components/AiDisclosure.astro";
 import AlbumMark from "@components/AlbumMark.astro";
 import Pagination from "@components/Pagination.astro";
 import ReviewDirectory from "@components/ReviewDirectory.astro";
 import Layout from "@layouts/Layout.astro";
+import { getReviewCoverImage } from "@utils/reviewImages";
 
 interface Props {
   reviews: CollectionEntry<"reviews">[];
@@ -33,6 +35,10 @@ const {
 const isFirstPage = currentPage === 1;
 const featured = isFirstPage ? reviews[0] : undefined;
 if (isFirstPage && !featured) throw new Error("Reviews requires published content.");
+const featuredCoverAsset =
+  featured && featured.data.cover.mode === "original"
+    ? getReviewCoverImage(featured.data.cover.src)
+    : undefined;
 const cards = featured ? reviews.slice(1) : reviews;
 const title = isFirstPage
   ? "MelodyMind Reviews | Album criticism without scores"
@@ -64,15 +70,15 @@ const schema = {
     featured && (
       <section class="home-hero page-shell">
         <div class="home-hero__mark">
-          {featured.data.cover.mode === "original" ? (
-            <img
-              src={featured.data.cover.src}
+          {featured.data.cover.mode === "original" && featuredCoverAsset ? (
+            <Image
+              src={featuredCoverAsset}
               alt={featured.data.cover.alt}
-              width="640"
-              height="640"
+              width={640}
+              height={640}
               loading="eager"
-              decoding="async"
               fetchpriority="high"
+              sizes="(max-width: 57.99rem) calc(100vw - 3rem), 30rem"
             />
           ) : (
             <AlbumMark

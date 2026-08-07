@@ -8,8 +8,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro check && astro build",
+    "dev": "node scripts/generate-social-images.mjs && astro dev",
+    "build": "node scripts/generate-social-images.mjs && astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,astro}\" && pnpm stylelint",
@@ -22,6 +22,7 @@
     "test:browser": "pnpm run build && playwright test"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.1.6",
     "astro-minify-html-swc": "^0.1.12",

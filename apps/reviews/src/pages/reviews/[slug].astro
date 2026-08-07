@@ -1,10 +1,12 @@
 ---
 import { getCollection, getEntry, render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
 import AlbumMark from "@components/AlbumMark.astro";
 import AiDisclosure from "@components/AiDisclosure.astro";
 import ReviewMap from "@components/ReviewMap.astro";
 import Layout from "@layouts/Layout.astro";
+import { getReviewCoverImage, toAbsoluteAssetUrl } from "@utils/reviewImages";
 
 export async function getStaticPaths() {
   const reviews = await getCollection("reviews", ({ data }) => !data.draft);
@@ -27,10 +29,14 @@ const author = await getEntry(review.data.author);
 if (!author) throw new Error(`Missing author for ${review.id}.`);
 const { Content, headings } = await render(review);
 const canonical = new URL(`/reviews/${review.id}/`, Astro.site).toString();
-const coverImage =
+const coverAsset =
   review.data.cover.mode === "original"
-    ? new URL(review.data.cover.src, Astro.site).toString()
+    ? getReviewCoverImage(review.data.cover.src)
     : undefined;
+const coverImageUrl =
+  coverAsset && Astro.site ? toAbsoluteAssetUrl(coverAsset, Astro.site) : undefined;
+/* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
+const socialImageUrl = new URL(`/og/${review.id}.jpg`, Astro.site).toString();
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Review",
@@ -57,9 +63,7 @@ const articleSchema = {
     name: "MelodyMind Editorial",
     url: new URL("/editorial-standards/", Astro.site).toString(),
   },
-  ...(review.data.cover.mode === "original"
-    ? { image: new URL(review.data.cover.src, Astro.site).toString() }
-    : {}),
+  ...(coverImageUrl ? { image: coverImageUrl } : {}),
   citation: review.data.sources.map((source) => source.url),
 };
 ---
@@ -68,15 +72,8 @@ const articleSchema = {
   title={review.data.title}
   description={review.data.seoDescription}
   {canonical}
-  {...coverImage ? { image: coverImage } : {}}
-  {...review.data.cover.mode === "original"
-    ? {
-        imageAlt: review.data.cover.alt,
-        imageWidth: 500,
-        imageHeight: 500,
-        imageType: "image/jpeg",
-      }
-    : {}}
+  image={socialImageUrl}
+  {...review.data.cover.mode === "original" ? { imageAlt: review.data.cover.alt } : {}}
   type="article"
   publishedAt={review.data.publishedAt}
   modifiedAt={review.data.updatedAt ?? review.data.publishedAt}
@@ -85,15 +82,16 @@ const articleSchema = {
   <article class="review">
     <header class="review__hero page-shell">
       {
-        review.data.cover.mode === "original" ? (
+        review.data.cover.mode === "original" && coverAsset ? (
           <figure class="review__cover">
-            <img
-              src={review.data.cover.src}
+            <Image
+              src={coverAsset}
               alt={review.data.cover.alt}
-              width="500"
-              height="500"
+              width={500}
+              height={500}
               loading="eager"
               fetchpriority="high"
+              sizes="(max-width: 59.99rem) calc(100vw - 3rem), 31rem"
             />
             <figcaption>
               Cover source:{" "}

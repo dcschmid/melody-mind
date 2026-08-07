@@ -40,7 +40,8 @@ const { quiz, nextQuiz } = Astro.props;
 const canonical = new URL(`/${quiz.id}/`, Astro.site).toString();
 const image = getQuizArtwork(quiz.id);
 const nextQuizImage = getQuizArtwork(nextQuiz.id);
-const imageUrl = new URL(image.src, Astro.site).toString();
+/* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
+const socialImageUrl = new URL(`/og/${quiz.id}.jpg`, Astro.site).toString();
 const title = quiz.data.seoTitle ?? `${quiz.data.title} Music Quiz`;
 const description = quiz.data.seoDescription ?? quiz.data.description;
 const questions = quiz.data.questions.map((question): QuizQuestion => ({
@@ -97,11 +98,8 @@ const structuredData = [
   {title}
   {description}
   {canonical}
-  image={imageUrl}
+  image={socialImageUrl}
   imageAlt={`AI-generated music-history illustration for ${quiz.data.title}`}
-  imageWidth={image.width}
-  imageHeight={image.height}
-  imageType={`image/${image.format}`}
   {structuredData}
 >
   <div class="quiz-route page-shell page-shell--reading">

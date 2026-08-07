@@ -4,6 +4,7 @@ import { defineConfig } from "astro/config";
 import path from "node:path";
 import { getNewestSitemapDate, readSitemapDates } from "../../scripts/sitemap-dates.mjs";
 
+const SITE_URL = "https://quiz.melody-mind.de";
 const quizDates = readSitemapDates({
   contentDirectory: new URL("./src/content/quizzes/", import.meta.url),
   extensions: [".md"],
@@ -12,14 +13,23 @@ const quizDates = readSitemapDates({
 const newestQuizDate = getNewestSitemapDate(quizDates);
 
 export default defineConfig({
-  site: "https://quiz.melody-mind.de",
+  site: SITE_URL,
   output: "static",
   integrations: [
     sitemap({
+      namespaces: {
+        image: true,
+      },
       serialize: (item) => {
         const pathname = new URL(item.url).pathname;
         const lastmod = pathname === "/" ? newestQuizDate : quizDates.get(pathname);
         if (lastmod) item.lastmod = lastmod;
+
+        // Submit the generated social card to image search for quiz pages.
+        if (quizDates.has(pathname)) {
+          const slug = pathname.slice(1, -1);
+          item.img = [{ url: `${SITE_URL}/og/${slug}.jpg` }];
+        }
         return item;
       },
     }),
@@ -32,7 +42,7 @@ export default defineConfig({
     }),
   ],
   build: {
-    inlineStylesheets: "auto",
+    inlineStylesheets: "always",
     assets: "assets",
     format: "directory",
   },

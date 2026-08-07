@@ -20,7 +20,7 @@ const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, Astro.site).toString(),
-  image = new URL("/social-preview.jpg", Astro.site).toString(),
+  image = new URL("/og/default.jpg", Astro.site).toString(),
   imageAlt = "MelodyMind Quiz — sourced music history quizzes",
   imageWidth = 1200,
   imageHeight = 630,
@@ -48,6 +48,27 @@ const fullTitle = title.includes("MelodyMind Quiz")
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon-96x96.png" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/atkinson-hyperlegible-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="MelodyMind Quiz"
+      href="/rss.xml"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MelodyMind Quiz" />
     <meta property="og:title" content={fullTitle} />

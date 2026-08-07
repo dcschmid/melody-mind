@@ -6,6 +6,9 @@ dist-embed/
 
 # generated social images (scripts/generate-social-images.mjs)
 apps/music/public/og/
+apps/quiz/public/og/
+apps/stories/public/og/
+apps/reviews/public/og/
 
 # dependencies
 node_modules/

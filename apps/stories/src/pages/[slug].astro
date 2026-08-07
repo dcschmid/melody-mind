@@ -31,6 +31,8 @@ const { story, related } = Astro.props;
 const { Content } = await render(story);
 const canonical = new URL(`/${story.id}/`, Astro.site).toString();
 const image = new URL(story.data.hero.image.src, Astro.site).toString();
+/* Generated 1200x630 social card (scripts/generate-social-images.mjs). */
+const socialImageUrl = new URL(`/og/${story.id}.jpg`, Astro.site).toString();
 const allImages = [story.data.hero, ...story.data.figures];
 const artifactImage = story.data.artifact
   ? allImages.find((entry) => entry.id === story.data.artifact?.imageId)
@@ -69,13 +71,8 @@ const articleSchema = {
   title={story.data.title}
   description={story.data.seoDescription}
   {canonical}
-  {image}
+  image={socialImageUrl}
   imageAlt={story.data.hero.alt}
-  imageWidth={story.data.hero.image.width}
-  imageHeight={story.data.hero.image.height}
-  imageType={story.data.hero.image.format === "jpg"
-    ? "image/jpeg"
-    : `image/${story.data.hero.image.format}`}
   type="article"
   publishedAt={story.data.publishedAt}
   structuredData={[articleSchema]}

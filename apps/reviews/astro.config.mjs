@@ -12,6 +12,7 @@ const getPathname = (url) => {
     return url;
   }
 };
+const SITE_URL = "https://reviews.melody-mind.de";
 const reviewDates = readSitemapDates({
   contentDirectory: new URL("./src/content/reviews/", import.meta.url),
   extensions: [".mdx"],
@@ -21,7 +22,7 @@ const reviewDates = readSitemapDates({
 const newestReviewDate = getNewestSitemapDate(reviewDates);
 
 export default defineConfig({
-  site: "https://reviews.melody-mind.de",
+  site: SITE_URL,
   output: "static",
   redirects: {
     "/page/1": "/",
@@ -30,6 +31,9 @@ export default defineConfig({
   integrations: [
     mdx({ optimize: true }),
     sitemap({
+      namespaces: {
+        image: true,
+      },
       filter: (page) => {
         const pathname = getPathname(page);
         return !new Set(["/404/", "/reviews/", "/review-search-index.json"]).has(
@@ -44,6 +48,12 @@ export default defineConfig({
         item.changefreq = archivePage ? "weekly" : "monthly";
         item.priority =
           pathname === "/" ? 1 : archivePage ? 0.7 : pathname === "/about/" ? 0.6 : 0.8;
+
+        // Submit the generated social card to image search for review pages.
+        if (reviewDates.has(pathname)) {
+          const slug = pathname.slice("/reviews/".length, -1);
+          item.img = [{ url: `${SITE_URL}/og/${slug}.jpg` }];
+        }
         return item;
       },
     }),
@@ -56,7 +66,7 @@ export default defineConfig({
     }),
   ],
   build: {
-    inlineStylesheets: "auto",
+    inlineStylesheets: "always",
     assets: "assets",
     format: "directory",
   },
