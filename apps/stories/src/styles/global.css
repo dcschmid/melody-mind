@@ -32,19 +32,23 @@
     sans-serif;
   font-synthesis: none;
 
-  --archive-night: oklch(12% 0.028 250deg);
+  --archive-night: oklch(10.5% 0.028 250deg);
   --desk-night: oklch(17.5% 0.03 250deg);
   --lifted-night: oklch(22% 0.032 250deg);
-  --paper-ink: oklch(95% 0.012 82deg);
-  --quiet-ink: oklch(76% 0.025 245deg);
+  --paper-ink: oklch(97% 0.012 82deg);
+  --quiet-ink: oklch(80% 0.025 245deg);
   --archive-teal: oklch(78% 0.105 181deg);
   --archive-teal-strong: oklch(85% 0.095 181deg);
-  --oxide: oklch(70% 0.115 48deg);
+  --oxide: oklch(74% 0.115 48deg);
   --reading-surface: oklch(16% 0.03 250deg);
-  --reading-ink: oklch(92% 0.014 82deg);
+  --reading-ink: oklch(93% 0.014 82deg);
   --reading-link: oklch(85% 0.095 181deg);
-  --line: oklch(37% 0.03 250deg);
-  --line-soft: oklch(29% 0.026 250deg);
+  --line: color-mix(in oklch, oklch(38% 0.03 250deg) 84%, var(--archive-teal));
+  --line-soft: color-mix(
+    in oklch,
+    oklch(29% 0.026 250deg) 88%,
+    var(--archive-teal)
+  );
   --focus: oklch(86% 0.11 181deg);
 
   --font-display: "Literata", ui-serif, Georgia, serif;
@@ -82,7 +86,13 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--paper-ink);
-  background: var(--archive-night);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--desk-night) 42%, var(--archive-night)) 0%,
+      var(--archive-night) clamp(22rem, 46vh, 38rem)
+    )
+    var(--archive-night);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }

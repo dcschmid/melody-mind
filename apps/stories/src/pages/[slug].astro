@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
 import AnnotatedArtifact from "@components/AnnotatedArtifact.astro";
 import AiDisclosure from "@components/AiDisclosure.astro";
 import EditorialFigure from "@components/EditorialFigure.astro";
 import Layout from "@layouts/Layout.astro";
-import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const stories = await getCollection("stories", ({ data }) => !data.draft);
@@ -258,9 +260,21 @@ const articleSchema = {
         </p>
       </div>
       <a class="story__related" href={`/${related.id}/`}>
-        <span class="eyebrow">Read next</span>
-        <strong>{related.data.title}</strong>
-        <span>{related.data.dek}</span>
+        <span class="story__related-image" aria-hidden="true">
+          <Image
+            src={related.data.hero.image}
+            alt=""
+            widths={[320, 480, 640]}
+            sizes="(min-width: 64rem) 14rem, 36vw"
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+        <span class="story__related-copy">
+          <span class="eyebrow">Read next</span>
+          <strong>{related.data.title}</strong>
+          <span>{related.data.dek}</span>
+        </span>
       </a>
     </footer>
   </article>
@@ -303,7 +317,7 @@ const articleSchema = {
     flex-wrap: wrap;
     gap: var(--space-md) var(--space-2xl);
     padding-block-start: var(--space-lg);
-    border-block-start: 1px solid var(--line);
+    border-block-start: 3px double var(--line);
   }
 
   .story__meta div {
@@ -330,8 +344,8 @@ const articleSchema = {
     color: var(--reading-ink);
     background: var(--reading-surface);
     box-shadow:
-      0 0 0 1px oklch(95% 0.01 250deg / 8%),
-      0 2rem 6rem oklch(4% 0.02 250deg / 22%);
+      0 0 0 1px color-mix(in oklch, var(--archive-teal) 12%, transparent),
+      0 1.5rem 4rem oklch(4% 0.02 250deg / 16%);
   }
 
   .story__body :global(a) {
@@ -354,10 +368,29 @@ const articleSchema = {
     color: var(--reading-ink);
   }
 
+  .story__body :global(p:first-child)::first-letter {
+    float: left;
+    margin-inline-end: 0.09em;
+    font-family: var(--font-display);
+    font-size: 3.05em;
+    font-weight: 700;
+    line-height: 0.82;
+    color: var(--oxide);
+  }
+
   .story__body :global(h2) {
     margin-block: 2.2em 0.8em;
     font-size: clamp(2rem, 4vw, 3.2rem);
     scroll-margin-block-start: var(--space-lg);
+  }
+
+  .story__body :global(h2)::before {
+    display: block;
+    inline-size: 2.5rem;
+    block-size: 2px;
+    margin-block-end: var(--space-sm);
+    content: "";
+    background: var(--oxide);
   }
 
   .story__body :global(h3) {
@@ -366,13 +399,13 @@ const articleSchema = {
   }
 
   .story__body :global(blockquote) {
-    padding-block: var(--space-xl);
+    padding-inline-start: var(--space-lg);
     margin-block: var(--space-2xl);
     font-family: var(--font-display);
     font-size: clamp(1.35rem, 3vw, 2.1rem);
     line-height: 1.4;
     color: var(--reading-ink);
-    border-block: 1px solid color-mix(in oklch, var(--reading-ink) 22%, transparent);
+    border-inline-start: 2px solid color-mix(in oklch, var(--oxide) 72%, transparent);
   }
 
   .story__body :global(.editorial-figure--inline) {
@@ -448,8 +481,31 @@ const articleSchema = {
   }
 
   .story__source-list li {
+    padding-block-start: var(--space-md);
     padding-inline-start: var(--space-sm);
     line-height: 1.55;
+    border-block-start: 1px solid var(--line-soft);
+  }
+
+  .story__source-list li::marker {
+    font-weight: 700;
+    color: var(--oxide);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story__backlink {
+      display: block;
+      inline-size: fit-content;
+      min-block-size: var(--control-size);
+      padding-block: var(--space-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--quiet-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: none;
+    }
   }
 
   .story__backlink {
@@ -457,7 +513,18 @@ const articleSchema = {
     inline-size: fit-content;
     min-block-size: var(--control-size);
     padding-block: var(--space-sm);
-    font-size: 0.86rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--quiet-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: color 300ms var(--ease-out);
+  }
+
+  .story__backlink:hover,
+  .story__backlink:focus-visible {
+    color: var(--archive-teal-strong);
   }
 
   .story__rights {
@@ -501,22 +568,96 @@ const articleSchema = {
     color: var(--quiet-ink);
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story__related {
+      display: grid;
+      grid-template-columns: clamp(6.5rem, 18vw, 12rem) minmax(0, 1fr);
+      gap: var(--space-md) clamp(var(--space-md), 3vw, var(--space-xl));
+      align-items: center;
+      padding-block: var(--space-xl);
+      color: var(--paper-ink);
+      text-decoration: none;
+      border-block: 1px solid var(--line);
+      transition: none;
+    }
+  }
+
   .story__related {
     display: grid;
-    gap: var(--space-sm);
+    grid-template-columns: clamp(6.5rem, 18vw, 12rem) minmax(0, 1fr);
+    gap: var(--space-md) clamp(var(--space-md), 3vw, var(--space-xl));
+    align-items: center;
     padding-block: var(--space-xl);
     color: var(--paper-ink);
     text-decoration: none;
     border-block: 1px solid var(--line);
+    transition: border-color 300ms var(--ease-out);
+  }
+
+  .story__related-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--desk-night);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story__related-image :global(img) {
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      filter: saturate(0.86) contrast(1.04);
+      transition: none;
+    }
+  }
+
+  .story__related-image :global(img) {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    filter: saturate(0.86) contrast(1.04);
+    transition:
+      filter 300ms var(--ease-out),
+      transform 500ms var(--ease-out);
+  }
+
+  .story__related-copy {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story__related strong {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      transition: none;
+    }
   }
 
   .story__related strong {
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 4vw, 2.4rem);
+    transition: color 300ms var(--ease-out);
   }
 
-  .story__related span:last-child {
+  .story__related-copy span:last-child {
     color: var(--quiet-ink);
+  }
+
+  .story__related:hover,
+  .story__related:focus-visible {
+    border-block-color: color-mix(in oklch, var(--archive-teal) 55%, var(--line));
+  }
+
+  .story__related:hover .story__related-image :global(img),
+  .story__related:focus-visible .story__related-image :global(img) {
+    filter: saturate(1) contrast(1);
+    transform: scale(1.02);
+  }
+
+  .story__related:hover strong,
+  .story__related:focus-visible strong {
+    color: var(--archive-teal-strong);
   }
 
   @media (width >= 64rem) {
@@ -539,6 +680,15 @@ const articleSchema = {
     .story__figure-list > :global(:nth-child(even)) {
       inline-size: 78%;
       margin-inline-start: auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .story__backlink,
+    .story__related,
+    .story__related-image :global(img),
+    .story__related strong {
+      transition: none;
     }
   }
 </style>

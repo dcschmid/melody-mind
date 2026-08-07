@@ -104,7 +104,7 @@ const collectionSchema = {
           />
           <h1>{featured.data.title}</h1>
           <p>{featured.data.dek}</p>
-          <a class="text-link" href={`/${featured.id}/`}>
+          <a class="home-hero__cta" href={`/${featured.id}/`}>
             Read the story <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -136,7 +136,7 @@ const collectionSchema = {
       </p>
     </header>
 
-    <ol class="archive__grid" start={cardStart}>
+    <ol class="archive__grid" start={cardStart} style={`--card-start: ${cardStart - 1}`}>
       {
         cards.map((story, index) => (
           <li class:list={["story-card", index % 7 === 0 && "story-card--wide"]}>
@@ -242,6 +242,63 @@ const collectionSchema = {
     color: var(--quiet-ink);
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    .home-hero__cta {
+      display: inline-flex;
+      gap: var(--space-sm);
+      align-items: center;
+      justify-self: start;
+      inline-size: fit-content;
+      min-block-size: var(--control-size);
+      padding: 0.65rem 1.4rem;
+      font-weight: 700;
+      color: var(--paper-ink);
+      text-decoration: none;
+      border: 1px solid color-mix(in oklch, var(--archive-teal) 40%, var(--line));
+      border-radius: 999px;
+      transition: none;
+    }
+  }
+
+  .home-hero__cta {
+    display: inline-flex;
+    gap: var(--space-sm);
+    align-items: center;
+    justify-self: start;
+    inline-size: fit-content;
+    min-block-size: var(--control-size);
+    padding: 0.65rem 1.4rem;
+    font-weight: 700;
+    color: var(--paper-ink);
+    text-decoration: none;
+    border: 1px solid color-mix(in oklch, var(--archive-teal) 40%, var(--line));
+    border-radius: 999px;
+    transition:
+      color 300ms var(--ease-out),
+      border-color 300ms var(--ease-out);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .home-hero__cta span {
+      transition: none;
+    }
+  }
+
+  .home-hero__cta span {
+    transition: transform 300ms var(--ease-out);
+  }
+
+  .home-hero__cta:hover,
+  .home-hero__cta:focus-visible {
+    color: var(--archive-teal-strong);
+    border-color: color-mix(in oklch, var(--archive-teal) 60%, var(--line));
+  }
+
+  .home-hero__cta:hover span,
+  .home-hero__cta:focus-visible span {
+    transform: translateX(0.3rem);
+  }
+
   .archive {
     display: grid;
     gap: var(--space-2xl);
@@ -274,20 +331,72 @@ const collectionSchema = {
     padding: 0;
     margin: 0;
     list-style: none;
+    counter-reset: story-index var(--card-start, 0);
   }
 
   .story-card {
     min-inline-size: 0;
-    background: var(--desk-night);
-    border: 1px solid var(--line-soft);
+    counter-increment: story-index;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story-card a {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      block-size: 100%;
+      padding-block-start: var(--space-md);
+      color: var(--paper-ink);
+      text-decoration: none;
+      border-block-start: 1px solid var(--line);
+      transition: none;
+    }
   }
 
   .story-card a {
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     block-size: 100%;
+    padding-block-start: var(--space-md);
     color: var(--paper-ink);
     text-decoration: none;
+    border-block-start: 1px solid var(--line);
+    transition: border-color 300ms var(--ease-out);
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .story-card a::before {
+      justify-self: end;
+      margin-block-end: var(--space-sm);
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+      font-weight: 600;
+      line-height: 1;
+      color: color-mix(in oklch, var(--oxide) 68%, transparent);
+      content: counter(story-index, decimal-leading-zero);
+      transition: none;
+    }
+  }
+
+  .story-card a::before {
+    justify-self: end;
+    margin-block-end: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    font-weight: 600;
+    line-height: 1;
+    color: color-mix(in oklch, var(--oxide) 68%, transparent);
+    content: counter(story-index, decimal-leading-zero);
+    transition: color 300ms var(--ease-out);
+  }
+
+  .story-card a:hover,
+  .story-card a:focus-visible {
+    border-block-start-color: color-mix(in oklch, var(--archive-teal) 55%, var(--line));
+  }
+
+  .story-card a:hover::before,
+  .story-card a:focus-visible::before {
+    color: var(--oxide);
   }
 
   .story-card__image {
@@ -325,7 +434,7 @@ const collectionSchema = {
     display: grid;
     gap: var(--space-md);
     align-content: start;
-    padding: clamp(1.25rem, 3vw, 2rem);
+    padding-block-start: var(--space-lg);
   }
 
   @media screen and (prefers-reduced-motion: reduce) {
@@ -421,9 +530,36 @@ const collectionSchema = {
     .story-card--wide {
       grid-column: span 4;
     }
+
+    .story-card--wide a {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      column-gap: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .story-card--wide a::before {
+      grid-column: 2;
+    }
+
+    .story-card--wide .story-card__image {
+      grid-row: 1 / 3;
+      grid-column: 1;
+      min-block-size: 16rem;
+      aspect-ratio: auto;
+    }
+
+    .story-card--wide .story-card__copy {
+      grid-row: 2;
+      grid-column: 2;
+      align-content: center;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .home-hero__cta,
+    .home-hero__cta span,
+    .story-card a,
+    .story-card a::before,
     .story-card__image :global(img),
     .story-card h2 {
       transition: none;
@@ -431,8 +567,12 @@ const collectionSchema = {
   }
 
   @media (forced-colors: active) {
-    .story-card {
-      border-color: CanvasText;
+    .story-card a {
+      border-block-start-color: CanvasText;
+    }
+
+    .home-hero__cta {
+      border-color: ButtonText;
     }
   }
 </style>

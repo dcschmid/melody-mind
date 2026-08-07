@@ -257,6 +257,7 @@ const { image, alt, caption, label, markers } = Astro.props;
   .artifact__note:target,
   .artifact__note[data-active] {
     background: var(--lifted-night);
+    border-block-start-color: color-mix(in oklch, var(--oxide) 60%, var(--line));
   }
 
   .artifact__note-number {

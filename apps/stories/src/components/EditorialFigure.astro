@@ -69,15 +69,23 @@ const {
 
   .editorial-figure__caption {
     display: grid;
-    gap: var(--space-xs);
+    gap: var(--space-xs) var(--space-xl);
     max-inline-size: 72ch;
-    padding-inline-end: var(--space-lg);
+    padding-block-start: var(--space-sm);
     font-size: 0.9rem;
     line-height: 1.55;
     color: var(--quiet-ink);
+    border-block-start: 1px solid var(--line-soft);
   }
 
   .editorial-figure__rights {
     font-size: 0.82rem;
+  }
+
+  @media (width >= 48rem) {
+    .editorial-figure__caption {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: baseline;
+    }
   }
 </style>
