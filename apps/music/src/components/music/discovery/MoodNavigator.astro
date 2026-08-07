@@ -543,6 +543,14 @@ const moodCounts = new Map(
     list-style: none;
   }
 
+  .mood-navigator__item {
+    contain-intrinsic-size: auto 11rem;
+
+    /* The result list can hold the full catalog; skip layout/paint work
+       for rows outside the viewport until the user scrolls near them. */
+    content-visibility: auto;
+  }
+
   .mood-navigator__item[hidden] {
     display: none;
   }

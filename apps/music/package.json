@@ -3,12 +3,12 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node scripts/generate-social-images.mjs && astro dev",
     "dev:background": "astro dev --background",
     "dev:logs": "astro dev logs",
     "dev:status": "astro dev status",
     "dev:stop": "astro dev stop",
-    "build": "astro check && astro build",
+    "build": "node scripts/generate-social-images.mjs && astro check && astro build",
     "build:embed": "pnpm build && node scripts/prepare-embed-dist.mjs",
     "preview": "astro preview",
     "astro": "astro",
@@ -34,13 +34,13 @@
     "astro-icon": "^1.1.5",
     "astro-minify-html-swc": "^0.1.12",
     "lightningcss": "^1.33.0",
-    "music-metadata": "^11.14.0",
     "sharp": "^0.35.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@types/js-yaml": "^4.0.9",
     "js-yaml": "^5.2.3",
+    "music-metadata": "^11.14.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   }

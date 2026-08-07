@@ -31,6 +31,10 @@ interface Props extends astroHTML.JSX.HTMLAttributes {
   imageLoading?: "eager" | "lazy";
   imageDecoding?: "sync" | "async" | "auto";
   imageSizes?: string;
+  /** Srcset widths for responsive card images (values must fit the source asset) */
+  imageWidths?: number[];
+  /** Extra formats offered via a `<picture>` element (webp stays the fallback) */
+  imageFormats?: ("avif" | "webp")[];
   titleLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   /** Array of {label, iconName?, datetime?} for metadata row */
   metaItems?: ContentCardMetaItem[];
@@ -64,6 +68,8 @@ const {
   imageLoading = "lazy",
   imageDecoding = "async",
   imageSizes,
+  imageWidths,
+  imageFormats,
   titleLevel = "h3",
   metaItems = [],
   ctaLabel,
@@ -126,6 +132,15 @@ const contentProps = href
 const optimizedImageA11yProps =
   imageAlt === undefined ? { "aria-hidden": "true" as const } : {};
 const optimizedImageSizeProps = imageSizes ? { sizes: imageSizes } : {};
+/* Srcset/format generation only works for imported assets; string srcs
+   (e.g. public/ fallbacks) keep their single rendition. */
+const optimizedImageResponsiveProps =
+  imageSrc && typeof imageSrc !== "string"
+    ? {
+        ...(imageWidths ? { widths: imageWidths } : {}),
+        ...(imageFormats ? { formats: imageFormats } : {}),
+      }
+    : {};
 ---
 
 <article
@@ -161,6 +176,7 @@ const optimizedImageSizeProps = imageSizes ? { sizes: imageSizes } : {};
               decoding={imageDecoding}
               {...optimizedImageA11yProps}
               {...optimizedImageSizeProps}
+              {...optimizedImageResponsiveProps}
             />
           ) : (
             <slot name="media" />

@@ -3,12 +3,34 @@ import type { AlbumData, Song } from "../types/album";
 
 type DateLike = string | Date;
 
+/* Editorial language labels used in album frontmatter, mapped to BCP-47.
+   "zxx" marks instrumental albums (no linguistic content). */
+const LANGUAGE_TO_BCP47: Record<string, string> = {
+  english: "en",
+  german: "de",
+  french: "fr",
+  spanish: "es",
+  italian: "it",
+  korean: "ko",
+  japanese: "ja",
+  dutch: "nl",
+  swedish: "sv",
+  norwegian: "no",
+  finnish: "fi",
+  instrumental: "zxx",
+};
+
+const toLanguageCode = (language: string | undefined): string | undefined =>
+  language ? LANGUAGE_TO_BCP47[language.trim().toLowerCase()] : undefined;
+
 interface MusicAlbumSchemaOptions {
   album: AlbumData & { publishedAt: DateLike };
   canonical: string;
   coverImageUrl: string;
   songs: Song[];
   totalDurationSeconds: number;
+  /** Collection pages the album belongs to (genre landing, series pages). */
+  collectionPages?: Array<{ url: string; name: string }>;
 }
 
 interface MusicAlbumListSchemaOptions {
@@ -70,11 +92,13 @@ export function buildMusicAlbumSchema({
   coverImageUrl,
   songs,
   totalDurationSeconds,
+  collectionPages = [],
 }: MusicAlbumSchemaOptions): Record<string, unknown> {
   const siteUrl = siteUrlFromCanonical(canonical);
   const artistId = `${siteUrl}#artist`;
   const albumId = `${canonical}#music-album`;
   const sortedSongs = sortSongsByTrackNumber(songs);
+  const languageCode = toLanguageCode(album.language);
 
   return {
     "@context": "https://schema.org",
@@ -91,6 +115,16 @@ export function buildMusicAlbumSchema({
       caption: `Cover art for ${album.title}`,
     },
     ...(album.genre ? { genre: album.genre } : {}),
+    ...(languageCode ? { inLanguage: languageCode } : {}),
+    ...(collectionPages.length > 0
+      ? {
+          isPartOf: collectionPages.map((page) => ({
+            "@type": "CollectionPage",
+            url: page.url,
+            name: page.name,
+          })),
+        }
+      : {}),
     ...(toIsoDate(album.publishedAt)
       ? { datePublished: toIsoDate(album.publishedAt) }
       : {}),

@@ -71,9 +71,11 @@ const RELATED_COVER_IMAGE_SIZES =
               imageAlt={
                 item.imageAlt ?? (item.imageSrc ? `Cover image for ${item.title}` : "")
               }
-              imageWidth={1024}
-              imageHeight={1024}
+              imageWidth={640}
+              imageHeight={640}
               imageSizes={RELATED_COVER_IMAGE_SIZES}
+              imageWidths={[240, 360, 480, 640]}
+              imageFormats={["avif"]}
               title={item.title}
               description={item.description}
               metaItems={item.metaItems || []}
@@ -134,6 +136,8 @@ const RELATED_COVER_IMAGE_SIZES =
   .related-content-section__item {
     display: grid;
     min-inline-size: 0;
+    contain-intrinsic-size: auto 26rem;
+    content-visibility: auto;
   }
 
   @media (width >= 50rem) {

@@ -11,7 +11,7 @@ import { getAvailableAlbums } from "../../utils/albums";
 import {
   getAlbumCoverImage,
   getAlbumCoverImageUrl,
-  musicDefaultOgImageUrl,
+  musicDefaultSocialImageUrl,
 } from "../../utils/musicImages";
 import { buildMusicAlbumListSchema } from "../../utils/musicSeo";
 
@@ -86,9 +86,9 @@ const albumCards = genreAlbums.map((album) => {
 });
 const canonical = resolvePageUrl(Astro.site, `/genre/${page.slug}/`);
 const socialImageAlbum = genreAlbums[0];
-const pageImage = socialImageAlbum?.coverImage
-  ? getAlbumCoverImageUrl(socialImageAlbum.coverImage)
-  : musicDefaultOgImageUrl;
+const pageImage = socialImageAlbum
+  ? `/og/${socialImageAlbum.id}.jpg`
+  : musicDefaultSocialImageUrl;
 const pageImageAlt = socialImageAlbum
   ? `Cover art for ${socialImageAlbum.title}, featured on the ${page.title} page`
   : "Cover artwork for MelodyMind Music";
@@ -125,12 +125,9 @@ const GRID_COVER_IMAGE_SIZES =
   keywords={[...page.keywords, "ai music", "concept albums", "MelodyMind"]}
   type="website"
   image={pageImage}
-  {...socialImageAlbum?.coverImageWidth
-    ? { imageWidth: socialImageAlbum.coverImageWidth }
-    : {}}
-  {...socialImageAlbum?.coverImageHeight
-    ? { imageHeight: socialImageAlbum.coverImageHeight }
-    : {}}
+  imageWidth={1200}
+  imageHeight={630}
+  imageType="image/jpeg"
   imageAlt={pageImageAlt}
   language="en"
   locale="en-US"
@@ -192,9 +189,11 @@ const GRID_COVER_IMAGE_SIZES =
                   mediaObjectFit="cover"
                   imageSrc={album.imageSrc}
                   imageAlt={`Cover art for the album ${album.title}`}
-                  imageWidth={1024}
-                  imageHeight={1024}
+                  imageWidth={640}
+                  imageHeight={640}
                   imageSizes={GRID_COVER_IMAGE_SIZES}
+                  imageWidths={[240, 360, 480, 640]}
+                  imageFormats={["avif"]}
                   title={album.title}
                   description={album.description}
                   metaItems={[
@@ -373,6 +372,11 @@ const GRID_COVER_IMAGE_SIZES =
   .genre-landing__item {
     display: grid;
     min-inline-size: 0;
+    contain-intrinsic-size: auto 26rem;
+
+    /* Long grids (up to 60 cards): skip layout/paint work for items
+       outside the viewport until the user scrolls near them. */
+    content-visibility: auto;
   }
 
   .genre-landing__card {

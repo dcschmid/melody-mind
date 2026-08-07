@@ -13,7 +13,7 @@ import { ensureTrailingSlash, resolveAbsoluteUrl, resolveBaseUrl } from "@utils/
 import { normalizeWhitespace } from "@utils/format";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 import { musicAppShellConfig } from "../utils/appShellConfig";
-import { musicDefaultOgImageUrl } from "../utils/musicImages";
+import { musicDefaultSocialImageUrl } from "../utils/musicImages";
 import GlobalPlayer from "@components/music/player/GlobalPlayer.astro";
 
 import type { PageSeoResult } from "@utils/seo/buildPageSeo";
@@ -49,7 +49,7 @@ export interface Props {
 const {
   title,
   description,
-  image = musicDefaultOgImageUrl,
+  image = musicDefaultSocialImageUrl,
   imageWidth,
   imageHeight,
   imageType,
@@ -73,8 +73,8 @@ const {
 } = Astro.props as Props;
 
 const siteTitle = "MelodyMind Music";
-const defaultOgImageWidth = 700;
-const defaultOgImageHeight = 368;
+const defaultOgImageWidth = 1200;
+const defaultOgImageHeight = 630;
 const normalizedTitle = normalizeWhitespace(title || siteTitle);
 const fullTitle = normalizedTitle.toLowerCase().includes(siteTitle.toLowerCase())
   ? normalizedTitle
@@ -126,11 +126,13 @@ const computedSeo = buildPageSeo({
 });
 
 const pageSeoResolved = pageSeo ?? computedSeo;
+const isDefaultSocialImage = image === musicDefaultSocialImageUrl;
 const resolvedImageWidth =
-  imageWidth ?? (image === musicDefaultOgImageUrl ? defaultOgImageWidth : undefined);
+  imageWidth ?? (isDefaultSocialImage ? defaultOgImageWidth : undefined);
 const resolvedImageHeight =
-  imageHeight ?? (image === musicDefaultOgImageUrl ? defaultOgImageHeight : undefined);
-const resolvedImageType = imageType ?? "image/webp";
+  imageHeight ?? (isDefaultSocialImage ? defaultOgImageHeight : undefined);
+const resolvedImageType =
+  imageType ?? (isDefaultSocialImage ? "image/jpeg" : "image/webp");
 
 const seoProps = {
   title: pageSeoResolved.title || fullTitle,
@@ -264,8 +266,34 @@ const headerNavItems: HeaderNavItem[] = [
           navigator.serviceWorker
             .register("/service-worker.js")
             .then((registration) => {
+              const SW_UPDATE_INTERVAL_MS = 60 * 60 * 1000;
+              const SW_UPDATE_TIMESTAMP_KEY = "mm-sw-last-update";
+
+              const isUpdateDue = () => {
+                try {
+                  const lastUpdate = Number(
+                    window.localStorage.getItem(SW_UPDATE_TIMESTAMP_KEY) || 0
+                  );
+                  return Date.now() - lastUpdate >= SW_UPDATE_INTERVAL_MS;
+                } catch {
+                  return true;
+                }
+              };
+
+              const markUpdated = () => {
+                try {
+                  window.localStorage.setItem(
+                    SW_UPDATE_TIMESTAMP_KEY,
+                    String(Date.now())
+                  );
+                } catch {
+                  /* Storage may be unavailable; updating more often is harmless. */
+                }
+              };
+
               document.addEventListener("visibilitychange", () => {
-                if (document.visibilityState === "visible") {
+                if (document.visibilityState === "visible" && isUpdateDue()) {
+                  markUpdated();
                   registration.update();
                 }
               });

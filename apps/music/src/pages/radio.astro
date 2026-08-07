@@ -3,7 +3,8 @@ import Icon from "@components/visual/Icon.astro";
 import Layout from "../layouts/Layout.astro";
 
 import { getRadioCatalog } from "../utils/radioCatalog";
-import { musicDefaultOgImageUrl } from "../utils/musicImages";
+import { musicDefaultSocialImageUrl } from "../utils/musicImages";
+import { buildCollectionPageSchema } from "../utils/seo/seoSchema";
 import { resolvePageUrl } from "../utils/siteUrls";
 
 const catalog = await getRadioCatalog();
@@ -50,13 +51,39 @@ const stationIndexById = new Map(
 const canonical = resolvePageUrl(Astro.site, "/radio/");
 const description =
   "Start a MelodyMind radio station built from clear editorial rules or the same mood families used by Mood Navigator.";
+const structuredData = [
+  buildCollectionPageSchema({
+    url: canonical,
+    name: "MelodyMind Radio",
+    description,
+    lang: "en",
+    image: musicDefaultSocialImageUrl,
+    mainEntityId: `${canonical}#station-list`,
+  }),
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${canonical}#station-list`,
+    name: "MelodyMind radio stations",
+    numberOfItems: catalog.stations.length,
+    itemListElement: catalog.stations.map((station, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: station.title,
+      description: station.description,
+    })),
+  },
+];
 ---
 
 <Layout
   title="MelodyMind Radio"
   {description}
   canonical={canonical}
-  image={musicDefaultOgImageUrl}
+  image={musicDefaultSocialImageUrl}
+  imageWidth={1200}
+  imageHeight={630}
+  imageType="image/jpeg"
   keywords={[
     "MelodyMind radio",
     "curated music radio",
@@ -68,6 +95,7 @@ const description =
     { name: "Home", url: resolvePageUrl(Astro.site, "/") },
     { name: "Radio", url: canonical },
   ]}
+  {structuredData}
   contentShellClass="music-layout__container--radio"
 >
   <div

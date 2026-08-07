@@ -18,8 +18,32 @@ export const readSitemapDates = ({
   dateFields,
   normalizeSlug = (slug) => slug,
 }) => {
-  const allowedExtensions = new Set(extensions);
+  const meta = readSitemapMeta({
+    contentDirectory,
+    extensions,
+    routePrefix,
+    dateFields,
+    normalizeSlug,
+  });
   const datesByPath = new Map();
+
+  for (const [path, entry] of meta) {
+    if (entry.lastmod) datesByPath.set(path, entry.lastmod);
+  }
+
+  return datesByPath;
+};
+
+export const readSitemapMeta = ({
+  contentDirectory,
+  extensions,
+  routePrefix = "",
+  dateFields,
+  titleFields = [],
+  normalizeSlug = (slug) => slug,
+}) => {
+  const allowedExtensions = new Set(extensions);
+  const metaByPath = new Map();
 
   for (const entry of readdirSync(contentDirectory, { withFileTypes: true })) {
     if (!entry.isFile() || !allowedExtensions.has(extname(entry.name))) continue;
@@ -38,15 +62,24 @@ export const readSitemapDates = ({
         .filter(Boolean);
     });
     const newest = getNewestDate(dates);
-    if (!newest) continue;
+
+    const title = titleFields
+      .map((field) => {
+        const pattern = new RegExp(
+          `^\\s*${field}:\\s*[\"']?([^\"'\\r\\n#]+)[\"']?\\s*$`,
+          "im"
+        );
+        return frontmatter.match(pattern)?.[1]?.trim();
+      })
+      .find(Boolean);
 
     const extension = extname(entry.name);
     const slug = normalizeSlug(entry.name.slice(0, -extension.length));
     const path = `/${[routePrefix, slug].filter(Boolean).join("/")}/`;
-    datesByPath.set(path, newest);
+    metaByPath.set(path, { lastmod: newest, title });
   }
 
-  return datesByPath;
+  return metaByPath;
 };
 
 export const getNewestSitemapDate = (datesByPath) =>

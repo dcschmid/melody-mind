@@ -76,15 +76,6 @@ const albumFacts = [
 const rawBody = entry.body || "";
 const hasAlbumContent = rawBody.trim().length > 0;
 const { Content } = await render(entry);
-const structuredData = [
-  buildMusicAlbumSchema({
-    album: currentAlbum,
-    canonical,
-    coverImageUrl: albumCoverImageUrl,
-    songs,
-    totalDurationSeconds: totalDuration,
-  }),
-];
 
 const [allAlbums, genreEntries, seriesEntries] = await Promise.all([
   getCollection("albums", (albumEntry: AlbumEntry) => albumEntry.data.isAvailable),
@@ -133,6 +124,29 @@ const breadcrumbs = [
       ]
     : []),
   { name: currentAlbum.title, url: canonical },
+];
+const structuredData = [
+  buildMusicAlbumSchema({
+    album: currentAlbum,
+    canonical,
+    coverImageUrl: albumCoverImageUrl,
+    songs,
+    totalDurationSeconds: totalDuration,
+    collectionPages: [
+      ...(genreEntry
+        ? [
+            {
+              url: resolvePageUrl(Astro.site, `/genre/${genreEntry.id}/`),
+              name: genreEntry.data.title,
+            },
+          ]
+        : []),
+      ...seriesContexts.map((series) => ({
+        url: resolvePageUrl(Astro.site, series.href),
+        name: series.title,
+      })),
+    ],
+  }),
 ];
 const availableAlbums = allAlbums.map((albumEntry: AlbumEntry) => ({
   id: albumEntry.id,
@@ -183,10 +197,10 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
   type="musicAlbum"
   publishedTime={currentAlbum.publishedAt}
   modifiedTime={currentAlbum.publishedAt}
-  image={albumCoverImageUrl}
-  imageWidth={currentAlbum.coverImageWidth}
-  imageHeight={currentAlbum.coverImageHeight}
-  imageType="image/webp"
+  image={`/og/${currentAlbumId}.jpg`}
+  imageWidth={1200}
+  imageHeight={630}
+  imageType="image/jpeg"
   ogMusic={{
     album: canonical,
     creator: currentAlbum.artist || "MelodyMind",

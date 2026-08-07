@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import Icon from "@components/visual/Icon.astro";
+import OptimizedImage from "@components/media/OptimizedImage.astro";
 
 import HeaderMobileExtras from "./HeaderMobileExtras.astro";
 import HeaderNav from "./HeaderNav.astro";
@@ -46,6 +47,13 @@ const {
 const logoSrc = typeof brandLogoSrc === "string" ? brandLogoSrc : brandLogoSrc.src;
 const logoWidth = typeof brandLogoSrc === "string" ? 700 : brandLogoSrc.width;
 const logoHeight = typeof brandLogoSrc === "string" ? 232 : brandLogoSrc.height;
+/* Display caps at ~196px CSS width; serve a 2x rendition through the
+   image pipeline instead of the full-size source asset. */
+const optimizedLogoWidth = 400;
+const optimizedLogoHeight =
+  typeof brandLogoSrc === "string"
+    ? undefined
+    : Math.round((optimizedLogoWidth * brandLogoSrc.height) / brandLogoSrc.width);
 const mobileExtraProps = {
   genreLinks: mobileExtraLinks,
   heading: mobileExtraHeading,
@@ -68,15 +76,29 @@ const mobileExtraProps = {
 
   <div class="music-site-header__inner">
     <a class="music-site-header__brand" href={brandHref} aria-label={brandAriaLabel}>
-      <img
-        class="music-site-header__logo"
-        src={logoSrc}
-        width={logoWidth}
-        height={logoHeight}
-        alt={brandLogoAlt}
-        loading="eager"
-        decoding="async"
-      />
+      {
+        typeof brandLogoSrc === "string" || !optimizedLogoHeight ? (
+          <img
+            class="music-site-header__logo"
+            src={logoSrc}
+            width={logoWidth}
+            height={logoHeight}
+            alt={brandLogoAlt}
+            loading="eager"
+            decoding="async"
+          />
+        ) : (
+          <OptimizedImage
+            src={brandLogoSrc}
+            class="music-site-header__logo"
+            width={optimizedLogoWidth}
+            height={optimizedLogoHeight}
+            alt={brandLogoAlt}
+            loading="eager"
+            decoding="async"
+          />
+        )
+      }
     </a>
 
     <button

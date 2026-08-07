@@ -4,6 +4,9 @@ dist-embed/
 .output/
 .astro/
 
+# generated social images (scripts/generate-social-images.mjs)
+apps/music/public/og/
+
 # dependencies
 node_modules/
 

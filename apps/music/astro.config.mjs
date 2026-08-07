@@ -5,8 +5,9 @@ import { satteri } from "@astrojs/markdown-satteri";
 import path from "path";
 import icon from "astro-icon";
 import minifyHtml from "astro-minify-html-swc";
-import { getNewestSitemapDate, readSitemapDates } from "../../scripts/sitemap-dates.mjs";
+import { getNewestSitemapDate, readSitemapMeta } from "../../scripts/sitemap-dates.mjs";
 
+const SITE_URL = "https://melody-mind.de";
 const SITEMAP_EXCLUDED_PATHS = new Set([
   "/404/",
   "/categories/",
@@ -17,13 +18,19 @@ const SITEMAP_EXCLUDED_PATHS = new Set([
 // Noindex pages don't belong in the sitemap — listing them sends
 // contradictory crawl signals.
 const SITEMAP_LEGAL_PATHS = new Set(["/cookies/", "/imprint/", "/privacy/"]);
-const SITEMAP_NOINDEX_PREFIXES = ["/embed/", "/music/genre/", "/visuals-data/"];
-const albumDates = readSitemapDates({
+const SITEMAP_NOINDEX_PREFIXES = ["/embed/", "/visuals-data/"];
+const albumMetaByPath = readSitemapMeta({
   contentDirectory: new URL("./src/content/albums/", import.meta.url),
   extensions: [".mdx"],
   dateFields: ["publishedAt"],
+  titleFields: ["title"],
   normalizeSlug: (slug) => slug.toLocaleLowerCase("en").replaceAll(" ", "-"),
 });
+const albumDates = new Map(
+  [...albumMetaByPath]
+    .filter(([, meta]) => meta.lastmod)
+    .map(([path, meta]) => [path, meta.lastmod])
+);
 const newestAlbumDate = getNewestSitemapDate(albumDates);
 
 const getSitemapPath = (url) => {
@@ -35,7 +42,7 @@ const getSitemapPath = (url) => {
 };
 
 export default defineConfig({
-  site: "https://melody-mind.de",
+  site: SITE_URL,
   output: "static",
   markdown: {
     processor: satteri({
@@ -45,6 +52,8 @@ export default defineConfig({
   redirects: {
     "/ai-content": "/privacy",
     "/categories": "/",
+    "/knowledge": "/",
+    "/saints-of-the-empty--hospital": "/saints-of-the-empty-hospital/",
     "/taxonomy": "/",
   },
   integrations: [
@@ -58,7 +67,7 @@ export default defineConfig({
       namespaces: {
         news: false,
         video: false,
-        image: false,
+        image: true,
         xhtml: true,
       },
       filter: (page) => {
@@ -71,10 +80,21 @@ export default defineConfig({
       },
       serialize: (item) => {
         const pathname = getSitemapPath(item.url);
-        const lastmod = albumDates.get(pathname);
+        const albumMeta = albumMetaByPath.get(pathname);
 
-        if (lastmod) item.lastmod = lastmod;
+        if (albumMeta?.lastmod) item.lastmod = albumMeta.lastmod;
         if (pathname === "/" && newestAlbumDate) item.lastmod = newestAlbumDate;
+
+        // Submit the generated social card to image search for album pages.
+        if (albumMeta?.title) {
+          const slug = pathname.slice(1, -1);
+          item.img = [
+            {
+              url: `${SITE_URL}/og/${slug}.jpg`,
+              caption: `Cover art for ${albumMeta.title}`,
+            },
+          ];
+        }
 
         if (pathname === "/") {
           item.priority = 1.0;
@@ -95,7 +115,7 @@ export default defineConfig({
     }),
   ],
   build: {
-    inlineStylesheets: "auto",
+    inlineStylesheets: "always",
     assets: "assets",
     format: "directory",
   },

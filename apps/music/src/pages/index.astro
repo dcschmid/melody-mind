@@ -10,7 +10,7 @@ import type { FeaturedAlbum } from "@components/music/home/types";
 import Layout from "../layouts/Layout.astro";
 
 import { getDiscoveryDirectoryData } from "../utils/discoveryDirectories";
-import { getAlbumCoverImageUrl, musicDefaultOgImageUrl } from "../utils/musicImages";
+import { getAlbumCoverImageUrl, musicDefaultSocialImageUrl } from "../utils/musicImages";
 import { buildMusicAlbumListSchema } from "../utils/musicSeo";
 import melodyMindLogo from "../assets/melody-mind-logo.webp";
 
@@ -53,7 +53,9 @@ const seriesShelf = seriesDirectories;
 const mainGenreShelf = genreDirectories;
 
 const canonical = resolvePageUrl(Astro.site, "/");
-const breadcrumbs = [{ name: "Home", url: canonical }];
+const homeImage = featuredAlbum
+  ? `/og/${featuredAlbum.id}.jpg`
+  : musicDefaultSocialImageUrl;
 
 const t = {
   seoTitle: "MelodyMind Music | AI-Generated Albums",
@@ -101,11 +103,13 @@ const structuredData = [
   description={t.description}
   keywords={t.keywords}
   type="website"
-  image={musicDefaultOgImageUrl}
+  image={homeImage}
+  imageWidth={1200}
+  imageHeight={630}
+  imageType="image/jpeg"
   language="en"
   locale="en-US"
   canonical={canonical}
-  {breadcrumbs}
   {structuredData}
   contentShellClass="music-layout__container--home"
 >
