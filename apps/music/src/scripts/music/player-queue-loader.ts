@@ -10,7 +10,7 @@ import type {
   SeriesPlayerTransition,
 } from "../../types/player";
 
-const queueCache = new Map<string, Promise<Record<string, unknown>>>();
+const queueCache = new Map<string, Promise<AlbumPlayerQueue>>();
 
 const isTrack = (value: unknown): value is PlayerTrack =>
   Boolean(
@@ -100,7 +100,10 @@ export const isPlayerQueue = (value: unknown): value is PlayerQueue => {
   return false;
 };
 
-const loadPlayerQueues = (url: string): Promise<Record<string, unknown>> => {
+export const loadPlayerQueue = (
+  url: string,
+  albumId: string
+): Promise<AlbumPlayerQueue> => {
   const cached = queueCache.get(url);
   if (cached) {
     return cached;
@@ -113,11 +116,15 @@ const loadPlayerQueues = (url: string): Promise<Record<string, unknown>> => {
     }
 
     const payload: unknown = await response.json();
-    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    if (
+      !isPlayerQueue(payload) ||
+      payload.kind !== "album" ||
+      payload.album.id !== albumId
+    ) {
       throw new Error("Player queue response is invalid");
     }
 
-    return payload as Record<string, unknown>;
+    return payload;
   })();
 
   queueCache.set(url, promise);
@@ -127,17 +134,4 @@ const loadPlayerQueues = (url: string): Promise<Record<string, unknown>> => {
     }
   });
   return promise;
-};
-
-export const loadPlayerQueue = async (
-  url: string,
-  albumId: string
-): Promise<PlayerQueue> => {
-  const queues = await loadPlayerQueues(url);
-  const queue = queues[albumId];
-  if (!isPlayerQueue(queue)) {
-    throw new Error(`Player queue is unavailable for album ${albumId}`);
-  }
-
-  return queue;
 };

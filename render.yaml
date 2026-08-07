@@ -37,18 +37,14 @@ services:
       - path: /*
         name: Permissions-Policy
         value: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-      # Report-Only first: watch the browser console for a deploy cycle,
-      # then rename to Content-Security-Policy once it stays quiet.
       - path: /*
-        name: Content-Security-Policy-Report-Only
-        value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.usefathom.com https://cusdis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https://eu2.contabostorage.com blob:; connect-src 'self' https://cdn.usefathom.com https://cusdis.com https://webmention.io; frame-src https://cusdis.com https://embed.melody-mind.de; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://cusdis.com"
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self' https://eu2.contabostorage.com blob:; connect-src 'self' https://eu2.contabostorage.com; frame-src 'self' https://embed.melody-mind.de; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
       # HTML (and anything not matched more specifically): always revalidate.
       - path: /*
         name: Cache-Control
         value: public, max-age=0, must-revalidate
-      # The search index only changes on deploy; skip the revalidation
-      # round-trip on repeat palette opens but pick up deploys within the hour.
-      - path: /search-index.json
+      - path: /player-queues/*
         name: Cache-Control
         value: public, max-age=3600, stale-while-revalidate=86400
       - path: /assets/*

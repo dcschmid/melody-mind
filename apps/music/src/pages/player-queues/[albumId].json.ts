@@ -1,21 +1,23 @@
-import type { APIRoute } from "astro";
+import type { APIRoute, GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 
 import type { CollectionEntry } from "astro:content";
-import type { Song } from "../types/album";
-import { getAlbumCoverImagePath } from "../utils/musicImages";
+import type { Song } from "../../types/album";
+import type { AlbumPlayerQueue } from "../../types/player";
+import { getAlbumCoverImagePath } from "../../utils/musicImages";
 
 type AlbumEntry = CollectionEntry<"albums">;
 
-export const GET: APIRoute = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const albums = (await getCollection(
     "albums",
     (entry: AlbumEntry) => entry.data.isAvailable
   )) as AlbumEntry[];
-  const queues = Object.fromEntries(
-    albums.map((entry) => [
-      entry.id,
-      {
+
+  return albums.map((entry) => ({
+    params: { albumId: entry.id },
+    props: {
+      queue: {
         kind: "album",
         queueId: `album:${entry.id}`,
         title: entry.data.title,
@@ -32,14 +34,15 @@ export const GET: APIRoute = async () => {
           audioUrl: song.audioUrl,
           ...(song.durationSeconds ? { durationSeconds: song.durationSeconds } : {}),
         })),
-      },
-    ])
-  );
+      } satisfies AlbumPlayerQueue,
+    },
+  }));
+};
 
-  return new Response(JSON.stringify(queues), {
+export const GET: APIRoute = ({ props }) =>
+  new Response(JSON.stringify(props.queue), {
     headers: {
-      "Cache-Control": "public, max-age=0, must-revalidate, stale-while-revalidate=86400",
+      "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
       "Content-Type": "application/json; charset=utf-8",
     },
   });
-};

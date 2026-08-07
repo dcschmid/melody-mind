@@ -274,7 +274,7 @@ const moodCounts = new Map(
                 data-player-load
                 data-player-album-id={album.id}
                 data-player-album-title={album.title}
-                data-player-queue-url="/player-queues.json"
+                data-player-queue-url={`/player-queues/${album.id}.json`}
               >
                 <Icon name="tabler:player-play-filled" aria-hidden="true" />
               </button>

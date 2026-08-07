@@ -7,10 +7,9 @@ import type { Entry } from "./types";
 interface Props {
   albums: Entry[];
   title: string;
-  queueUrl?: string;
 }
 
-const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props;
+const { albums, title } = Astro.props as Props;
 ---
 
 {
@@ -58,7 +57,7 @@ const { albums, title, queueUrl = "/player-queues.json" } = Astro.props as Props
                     data-player-load
                     data-player-album-id={album.id}
                     data-player-album-title={album.title}
-                    data-player-queue-url={queueUrl}
+                    data-player-queue-url={`/player-queues/${album.id}.json`}
                   >
                     <Icon name="tabler:player-play-filled" aria-hidden="true" />
                   </button>
