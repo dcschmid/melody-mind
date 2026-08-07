@@ -132,6 +132,60 @@ const bindPlayer = (player: HTMLElement): void => {
       },
       { signal }
     );
+
+    /* The track actions popover is shared: fill it from the invoking
+       track row before the native popover toggle reveals it. */
+    const actionsPopover = player.querySelector<HTMLElement>(
+      "[data-track-actions-popover]"
+    );
+    const popoverTitle =
+      actionsPopover?.querySelector<HTMLElement>("[data-popover-title]");
+    const popoverClose =
+      actionsPopover?.querySelector<HTMLButtonElement>("[data-popover-close]");
+    const popoverLyrics = actionsPopover?.querySelector<HTMLAnchorElement>(
+      "[data-popover-lyrics]"
+    );
+    const popoverDownload = actionsPopover?.querySelector<HTMLButtonElement>(
+      "[data-popover-download]"
+    );
+
+    player.addEventListener(
+      "click",
+      (event) => {
+        if (!(event.target instanceof Element)) {
+          return;
+        }
+        const trigger = event.target.closest<HTMLElement>("[data-track-actions-trigger]");
+        const trackItem = trigger?.closest<HTMLElement>("[data-track-index]");
+        if (!trigger || !trackItem) {
+          return;
+        }
+
+        const title = trackItem.dataset.trackTitle || "";
+        if (popoverTitle) {
+          popoverTitle.textContent = title;
+        }
+        if (popoverClose) {
+          popoverClose.setAttribute("aria-label", `Close actions for ${title}`);
+        }
+        if (popoverLyrics) {
+          const lyricsUrl = trackItem.dataset.trackLyricsUrl;
+          if (lyricsUrl) {
+            popoverLyrics.href = lyricsUrl;
+            popoverLyrics.hidden = false;
+          } else {
+            popoverLyrics.hidden = true;
+          }
+        }
+        if (popoverDownload) {
+          popoverDownload.dataset.downloadUrl = trackItem.dataset.trackUrl || "";
+          popoverDownload.dataset.downloadFilename = `${String(
+            Number(trackItem.dataset.trackNumber || 0)
+          ).padStart(2, "0")} - ${title}`;
+        }
+      },
+      { signal }
+    );
   }
 
   let latestState = window.__melodyMindPlayer?.getState() || null;

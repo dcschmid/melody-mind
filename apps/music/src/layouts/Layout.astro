@@ -114,7 +114,6 @@ const computedSeo = buildPageSeo({
   maxSnippet: -1,
   maxVideoPreview: -1,
   ogLocale: locale.replace("-", "_"),
-  twitterCreator: "@melodymind",
   brandSuffix: false,
   autoSocialImage: true,
   generateSocialImage: ({ title: genTitle }) => {
@@ -227,7 +226,6 @@ const headerNavItems: HeaderNavItem[] = [
       ogSiteName={siteTitle}
       {...pageSeoResolved.twitter && { twitter: pageSeoResolved.twitter }}
       {...pageSeoResolved.canonical && { twitterUrl: pageSeoResolved.canonical }}
-      twitterSite="@melodymind"
     />
     <meta name="language" content={language} />
   </Fragment>
