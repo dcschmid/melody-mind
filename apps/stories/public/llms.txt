@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Thirty-two-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Thirty-four-story reading room and featured stories
+- [The Machine Was the Party](https://stories.melody-mind.de/the-machine-was-the-party/): Scene report on Colombian picós as sound systems, venues, distribution networks, and small music businesses
+- [The Harp Carried the Pulse](https://stories.melody-mind.de/the-harp-carried-the-pulse/): Artist portrait of Alice Coltrane's rhythmic use of harp and organ and her community cassette practice
 - [The Voice Arrived Before the Face](https://stories.melody-mind.de/the-voice-arrived-before-the-face/): Scene report on playback singing and song picturization in Hindi cinema
 - [The Groove Needed More Room](https://stories.melody-mind.de/the-groove-needed-more-room/): Technology story on extended disco mixes and the 12-inch single
 - [The Record Held the Contradiction](https://stories.melody-mind.de/the-record-held-the-contradiction/): Scene report on Tropicália's collective arrangements, television stages, mass culture, and political pressure
