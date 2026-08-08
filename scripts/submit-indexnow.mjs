@@ -1,30 +1,63 @@
 #!/usr/bin/env node
+/**
+ * Submits changed URLs to IndexNow for any MelodyMind app. Run it from the app
+ * workspace whose URLs changed (the site URL is derived from the workspace
+ * package.json name), or set INDEXNOW_SITE_URL explicitly.
+ *
+ * The checked-in key file must be served from every site root as
+ * `/<key>.txt` (see each app's public directory).
+ */
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 
-const DEFAULT_SITE_URL = "https://melody-mind.de";
+const APP_SITE_URLS = {
+  music: "https://melody-mind.de",
+  quiz: "https://quiz.melody-mind.de",
+  stories: "https://stories.melody-mind.de",
+  reviews: "https://reviews.melody-mind.de",
+};
 const DEFAULT_INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 const DEFAULT_INDEXNOW_KEY =
   "9eda49e5fe0da697d03be0e0182261f6220da2066439bd6ae66018671155d83a";
 
+/* Content file path (as reported by git diff) -> page URL path. */
+const CONTENT_ROUTES = [
+  {
+    pattern: /(?:^|\/)apps\/music\/src\/content\/albums\/([^/]+)\.mdx$/i,
+    urlPath: "/$1/",
+  },
+  {
+    pattern: /(?:^|\/)apps\/quiz\/src\/content\/quizzes\/([^/]+)\.md$/i,
+    urlPath: "/$1/",
+  },
+  {
+    pattern: /(?:^|\/)apps\/stories\/src\/content\/stories\/([^/]+)\.md$/i,
+    urlPath: "/$1/",
+  },
+  {
+    pattern: /(?:^|\/)apps\/reviews\/src\/content\/reviews\/([^/]+)\.mdx$/i,
+    urlPath: "/reviews/$1/",
+  },
+];
+
 const args = process.argv.slice(2);
 
 const usage = `Usage:
-  pnpm indexnow:submit -- /album-slug/
-  pnpm indexnow:submit -- https://melody-mind.de/album-slug/
+  pnpm indexnow:submit -- /page-slug/
+  pnpm indexnow:submit -- https://melody-mind.de/page-slug/
   pnpm indexnow:submit -- apps/music/src/content/albums/album-slug.mdx
   pnpm indexnow:submit -- --file changed-urls.txt
   pnpm indexnow:submit -- --git HEAD~1..HEAD
 
 Options:
   --dry-run          Print the payload without sending it.
-  --file <path>     Read URLs, paths, or album content file paths from a text file.
+  --file <path>     Read URLs, paths, or content file paths from a text file.
   --git [range]     Read changed files from git diff. Defaults to HEAD~1..HEAD.
   --help            Show this help.
 
 Environment:
-  INDEXNOW_SITE_URL   Defaults to ${DEFAULT_SITE_URL}
+  INDEXNOW_SITE_URL   Site base URL; defaults to the current app workspace
   INDEXNOW_ENDPOINT   Defaults to ${DEFAULT_INDEXNOW_ENDPOINT}
   INDEXNOW_KEY        Defaults to the checked-in public key file value
 `;
@@ -77,7 +110,27 @@ for (let i = 0; i < args.length; i += 1) {
   options.values.push(arg);
 }
 
-const siteUrl = new URL(process.env.INDEXNOW_SITE_URL || DEFAULT_SITE_URL);
+function detectSiteUrl() {
+  if (process.env.INDEXNOW_SITE_URL) {
+    return process.env.INDEXNOW_SITE_URL;
+  }
+
+  try {
+    const manifest = JSON.parse(readFileSync(path.resolve("package.json"), "utf8"));
+    const siteUrl = APP_SITE_URLS[manifest.name];
+    if (siteUrl) {
+      return siteUrl;
+    }
+  } catch {
+    /* Fall through to the error below. */
+  }
+
+  throw new Error(
+    "Run from an app workspace (music, quiz, stories, reviews) or set INDEXNOW_SITE_URL."
+  );
+}
+
+const siteUrl = new URL(detectSiteUrl());
 const endpoint = process.env.INDEXNOW_ENDPOINT || DEFAULT_INDEXNOW_ENDPOINT;
 const key = process.env.INDEXNOW_KEY || DEFAULT_INDEXNOW_KEY;
 const keyLocation = new URL(`/${key}.txt`, siteUrl).toString();
@@ -101,23 +154,26 @@ function readGitChangedFiles(range) {
   return output.split(/\r?\n/).filter(Boolean);
 }
 
-function albumPathToUrl(value) {
+function contentPathToUrl(value) {
   const normalized = value.replaceAll(path.sep, "/");
-  const match = normalized.match(
-    /(?:^|\/)apps\/music\/src\/content\/albums\/([^/]+)\.mdx$/i
-  );
 
-  if (!match) {
-    return null;
+  for (const route of CONTENT_ROUTES) {
+    const match = normalized.match(route.pattern);
+    if (match) {
+      return new URL(
+        normalized.replace(route.pattern, route.urlPath),
+        siteUrl
+      ).toString();
+    }
   }
 
-  return new URL(`/${match[1]}/`, siteUrl).toString();
+  return null;
 }
 
 function normalizeUrl(value) {
-  const fromAlbumPath = albumPathToUrl(value);
-  if (fromAlbumPath) {
-    return fromAlbumPath;
+  const fromContentPath = contentPathToUrl(value);
+  if (fromContentPath) {
+    return fromContentPath;
   }
 
   const url = new URL(value, siteUrl);

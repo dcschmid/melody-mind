@@ -18,7 +18,8 @@
     "format:check": "pnpm exec prettier --check \"src/**/*.{js,ts,astro,md,mdx}\" \"tests/**/*.ts\" \"scripts/**/*.mjs\"",
     "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
-    "test": "vitest run"
+    "test": "vitest run",
+    "indexnow:submit": "node ../../scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",

@@ -19,7 +19,8 @@
     "stylelint": "pnpm exec stylelint --config ../../stylelint.config.cjs --fix \"src/**/*.{astro,css}\"",
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
     "test": "vitest run",
-    "test:browser": "pnpm run build && playwright test"
+    "test:browser": "pnpm run build && playwright test",
+    "indexnow:submit": "node ../../scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

@@ -20,7 +20,7 @@
     "stylelint:check": "pnpm exec stylelint --config ../../stylelint.config.cjs \"src/**/*.{astro,css}\" --quiet",
     "test": "vitest run && node scripts/audit-visual-catalog.mjs",
     "audit:visuals": "node scripts/audit-visual-catalog.mjs",
-    "indexnow:submit": "node scripts/submit-indexnow.mjs",
+    "indexnow:submit": "node ../../scripts/submit-indexnow.mjs",
     "update:audio-metadata": "node scripts/update-audio-metadata.mjs"
   },
   "dependencies": {
