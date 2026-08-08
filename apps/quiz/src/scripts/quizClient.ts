@@ -527,8 +527,11 @@ export function initQuiz(): void {
     persistSession();
   });
 
-  game.addEventListener("keydown", (event) => {
+  // Listen on document, not on the game section: clicking non-interactive
+  // page chrome moves focus to <body>, and shortcuts must keep working.
+  document.addEventListener("keydown", (event) => {
     if (
+      game.hidden ||
       event.altKey ||
       event.ctrlKey ||
       event.metaKey ||

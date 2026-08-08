@@ -150,3 +150,39 @@ test("ignores challenge links with a tampered fingerprint", async ({ page }) => 
 
   await expect(page.locator("#quiz-challenge")).toBeHidden();
 });
+
+test("answers with letter and number keys and advances with Enter", async ({ page }) => {
+  await page.goto("/1950s/");
+  await page.getByRole("button", { name: "Start quiz" }).click();
+
+  await page.keyboard.press("1");
+  await expect(page.locator('input[name="quiz-answer"]:checked')).toHaveCount(1);
+  await expect(page.getByRole("button", { name: "Check answer" })).toBeEnabled();
+
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".quiz-feedback__title")).toBeVisible();
+
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#quiz-progress-text")).toHaveText("Question 2 of 10");
+
+  await page.keyboard.press("a");
+  await expect(page.locator('input[name="quiz-answer"]:checked')).toHaveCount(1);
+  await expect(page.getByRole("button", { name: "Check answer" })).toBeEnabled();
+});
+
+test("keeps keyboard shortcuts working after focus leaves the quiz area", async ({
+  page,
+}) => {
+  await page.goto("/1950s/");
+  await page.getByRole("button", { name: "Start quiz" }).click();
+
+  // Clicking non-interactive page chrome moves focus outside the quiz.
+  await page.locator(".quiz-footer__brand p").click();
+
+  await page.keyboard.press("1");
+  await expect(page.locator('input[name="quiz-answer"]:checked')).toHaveCount(1);
+  await expect(page.getByRole("button", { name: "Check answer" })).toBeEnabled();
+
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".quiz-feedback__title")).toBeVisible();
+});
