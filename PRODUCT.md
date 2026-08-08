@@ -22,7 +22,7 @@ Inspired by editorial music publications and the current MelodyMind Music app: w
 
 1. **Editorial warmth** — Every layout decision should feel like a considered editorial choice: varied spacing, asymmetric compositions, content that breathes. Avoid templated grid sameness.
 
-2. **Typography-led hierarchy** — Use font size and weight contrast as the primary way to establish hierarchy, not boxes or backgrounds. Atkinson Hyperlegible is already an excellent readable body font; consider a distinctive display face for section titles and hero text.
+2. **Typography-led hierarchy** — Use font size and weight contrast as the primary way to establish hierarchy, not boxes or backgrounds. Atkinson Hyperlegible is the only product face (400 and 700); hierarchy comes from scale, weight, and spacing, not from additional display fonts.
 
 3. **Purposeful color** — Use the Music app palette as the shared product language: ember accents in warm light mode and violet-blue accents in dark mode. Use color meaningfully for action, selection, navigation, and media state. Avoid decorative gradients or glowing effects.
 

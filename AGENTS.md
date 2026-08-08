@@ -21,7 +21,7 @@ This document provides essential guidelines for AI agents working on the MelodyM
 - Main app layout: `apps/music/src/layouts/Layout.astro`
 - Album route: `apps/music/src/pages/[album].astro`
 - Genre landing route: `apps/music/src/pages/genre/[genre].astro`
-- Genre landing data: `apps/music/src/data/genreLandingPages.ts`
+- Genre landing data: `apps/music/src/content/genres/*.mdx` (the `genres` collection)
 - Legacy `/categories`, `/knowledge`, and `/taxonomy` routes are redirected to `/` in `apps/music/astro.config.mjs`.
 
 ## Quiz App Structure
@@ -31,7 +31,12 @@ This document provides essential guidelines for AI agents working on the MelodyM
 - Quiz schema: `apps/quiz/src/content.config.ts`
 - Main app layout: `apps/quiz/src/layouts/Layout.astro`
 - Quiz route: `apps/quiz/src/pages/[slug].astro`
-- Quiz state is memory-only. Do not add cookies, analytics, storage, accounts, or APIs.
+- Quiz state is local-only: an unfinished round persists in `localStorage`
+  (`melodymind.quiz.active.v1`) so it can be resumed; finished rounds and
+  results are never stored. Do not add cookies, analytics, accounts, or APIs.
+- Shared quiz result links may carry the score in the URL hash
+  (`#challenge=score.fingerprint`); never move scores into storage or query
+  parameters sent to a server.
 - Quiz visual tokens are app-local adaptations of the Music design source of truth.
 
 ## Essential Commands
