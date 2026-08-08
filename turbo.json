@@ -15,6 +15,9 @@
       "cache": false,
       "persistent": true
     },
+    "test": {
+      "outputLogs": "new-only"
+    },
     "lint": {
       "inputs": ["src/**"],
       "outputLogs": "new-only"

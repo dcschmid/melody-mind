@@ -5,6 +5,7 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   resolve: {
     alias: {
+      "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
       "@quiz-types": fileURLToPath(new URL("./src/types", import.meta.url)),
     },
   },

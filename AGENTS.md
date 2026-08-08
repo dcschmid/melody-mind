@@ -96,11 +96,12 @@ pnpm --filter music stylelint:check
 ```
 
 **Note**: Tests run per app with Vitest (`pnpm --filter <app> test`): Music covers
-player queue loading, favorites, drive, and visuals utilities; Quiz covers its
-selection, scoring, and persistence engine; Stories and Reviews validate content and
-archive pagination. Quiz additionally has Playwright browser tests
-(`pnpm --filter quiz test:browser`). There is no aggregate test task yet — run the
-apps you changed.
+player queue loading, favorites, drive, visuals, discovery, radio catalog, SEO/schema
+builders, album content integrity, and small utilities; Quiz covers its selection,
+scoring, persistence engine, and artwork catalog; Stories and Reviews validate content,
+archive pagination, and RSS feeds. Quiz additionally has Playwright browser tests
+(`pnpm --filter quiz test:browser`). `pnpm test` runs all app suites via turbo;
+the husky pre-commit hook runs format, lint, and tests before every commit.
 
 ## Code Style Guidelines
 
