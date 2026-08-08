@@ -61,7 +61,13 @@ const serializedData = JSON.stringify({
   fingerprint,
   questions,
 }).replaceAll("<", "\\u003c");
-const categoryLabel = quiz.data.category === "decade" ? "Decade quiz" : "Genre journey";
+const categoryLabels = {
+  decade: "Decade quiz",
+  "genre-evolution": "Genre journey",
+  artist: "Artist spotlight",
+  album: "Album story",
+} as const;
+const categoryLabel = categoryLabels[quiz.data.category];
 const structuredData = [
   {
     "@context": "https://schema.org",

@@ -13,7 +13,8 @@ export default defineConfig({
     trace: "retain-on-failure",
   },
   webServer: {
-    command: "pnpm exec astro preview --host 127.0.0.1 --port 4329",
+    command:
+      "ASTRO_PREVIEW_BACKGROUND=0 pnpm exec astro preview --host 127.0.0.1 --port 4329",
     url: "http://127.0.0.1:4329",
     reuseExistingServer: false,
     timeout: 120_000,

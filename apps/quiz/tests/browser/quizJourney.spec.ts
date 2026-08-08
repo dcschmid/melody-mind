@@ -7,11 +7,24 @@ test("keeps the catalog actionable and compact on a phone", async ({ page }) => 
   const randomQuiz = page.getByRole("link", { name: "Start a random quiz" });
   await expect(randomQuiz).toBeInViewport();
   await expect(page.locator("html")).toHaveJSProperty("scrollWidth", 360);
+  await expect(page.locator("#artists .quiz-card")).toHaveCount(2);
+  await expect(page.locator("#albums .quiz-card")).toHaveCount(2);
 
   const firstCard = page.locator(".quiz-grid--decades .quiz-card").first();
   await firstCard.scrollIntoViewIfNeeded();
   const box = await firstCard.boundingBox();
   expect(box?.height).toBeLessThan(190);
+});
+
+test("exposes the expanded catalog without desktop overflow", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/");
+
+  await expect(page.getByRole("link", { name: "Artists", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Albums", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Follow an artist" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Go inside an album" })).toBeVisible();
+  await expect(page.locator("html")).toHaveJSProperty("scrollWidth", 1280);
 });
 
 test("uses the drawer without overlapping the brand at tablet width", async ({

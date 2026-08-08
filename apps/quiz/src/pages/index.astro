@@ -11,10 +11,12 @@ const quizzes = (await getCollection("quizzes", ({ data }) => !data.draft)).sort
 );
 const decades = quizzes.filter((quiz) => quiz.data.category === "decade");
 const journeys = quizzes.filter((quiz) => quiz.data.category === "genre-evolution");
+const artists = quizzes.filter((quiz) => quiz.data.category === "artist");
+const albums = quizzes.filter((quiz) => quiz.data.category === "album");
 const quizIds = quizzes.map((quiz) => quiz.id);
 const canonical = new URL("/", Astro.site).toString();
 const description =
-  "Choose a music history quiz on seven decades or sixteen genre journeys. Every ten-question round includes sources and runs without accounts or tracking.";
+  "Choose from seven decade quizzes, sixteen genre journeys, two artist spotlights, and two album stories. Every ten-question round includes sources and runs without accounts or tracking.";
 const structuredData = [
   {
     "@context": "https://schema.org",
@@ -46,9 +48,9 @@ const structuredData = [
       <p class="eyebrow">Listen closer</p>
       <h1>Music history, one question at a time.</h1>
       <p class="quiz-home__lead">
-        Pick a decade or trace one of sixteen genre histories. Each round draws ten
-        questions from a reviewed pool, then gives you the answer, its context, and the
-        sources.
+        Pick a decade, trace a genre, follow an artist, or go inside a landmark album.
+        Each round draws ten questions from a reviewed pool, then gives you the answer,
+        its context, and the sources.
       </p>
       <div class="quiz-home__actions" aria-label="Choose how to start">
         <a class="button button--primary" id="quiz-random" href={`/${quizIds[0]}/`}>
@@ -58,6 +60,8 @@ const structuredData = [
         <a class="button button--secondary" href="#genre-journeys">
           Browse genre journeys
         </a>
+        <a class="button button--secondary" href="#artists">Browse artists</a>
+        <a class="button button--secondary" href="#albums">Browse albums</a>
       </div>
       <p class="quiz-home__privacy">
         No account. No timer. No analytics. An unfinished round is saved only in this
@@ -169,6 +173,64 @@ const structuredData = [
                 href={`/${quiz.id}/`}
                 image={getQuizArtwork(quiz.id)}
                 eyebrow="Genre journey"
+                title={quiz.data.title}
+                description={quiz.data.description}
+                topics={quiz.data.featuredTopics}
+                variant="journey"
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="quiz-library" id="artists" aria-labelledby="artists-title">
+      <header class="quiz-library__header">
+        <p class="eyebrow">Two singular careers</p>
+        <h2 id="artists-title">Follow an artist</h2>
+        <p>
+          Connect creative turning points, collaborators, studio methods, and musical
+          independence.
+        </p>
+      </header>
+
+      <ul class="quiz-grid quiz-grid--features">
+        {
+          artists.map((quiz) => (
+            <li>
+              <QuizCard
+                href={`/${quiz.id}/`}
+                image={getQuizArtwork(quiz.id)}
+                eyebrow="Artist spotlight"
+                title={quiz.data.title}
+                description={quiz.data.description}
+                topics={quiz.data.featuredTopics}
+                variant="journey"
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="quiz-library" id="albums" aria-labelledby="albums-title">
+      <header class="quiz-library__header">
+        <p class="eyebrow">Two landmark records</p>
+        <h2 id="albums-title">Go inside an album</h2>
+        <p>
+          Hear how songs, performances, production choices, and cultural afterlives fit
+          together.
+        </p>
+      </header>
+
+      <ul class="quiz-grid quiz-grid--features">
+        {
+          albums.map((quiz) => (
+            <li>
+              <QuizCard
+                href={`/${quiz.id}/`}
+                image={getQuizArtwork(quiz.id)}
+                eyebrow="Album story"
                 title={quiz.data.title}
                 description={quiz.data.description}
                 topics={quiz.data.featuredTopics}
@@ -383,7 +445,8 @@ const structuredData = [
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    .quiz-grid--journeys {
+    .quiz-grid--journeys,
+    .quiz-grid--features {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }

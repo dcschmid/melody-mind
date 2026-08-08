@@ -16,7 +16,7 @@ export async function GET(context: { site?: URL }) {
   return rss({
     title: "MelodyMind Quiz",
     description:
-      "Sourced music history quizzes on seven decades and sixteen genre journeys.",
+      "Sourced music history quizzes on seven decades, sixteen genre journeys, two artist spotlights, and two album stories.",
     site: context.site ?? "https://quiz.melody-mind.de",
     items: quizzes.map((quiz) => ({
       title: quiz.data.title,

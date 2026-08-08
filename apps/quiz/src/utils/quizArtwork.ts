@@ -7,6 +7,7 @@ import art1980s from "@assets/1980s.webp";
 import art1990s from "@assets/1990s.webp";
 import art2000s from "@assets/2000s.webp";
 import art2010s from "@assets/2010s.webp";
+import artBjork from "@assets/bjork-from-reykjavik-punk-to-sonic-worlds.webp";
 import artAsiaPop from "@assets/from-asia-pop-to-global-pop.webp";
 import artBlues from "@assets/from-blues-to-breakdown.webp";
 import artClassical from "@assets/from-classical-roots-to-neo-classical-sounds.webp";
@@ -23,6 +24,9 @@ import artPunk from "@assets/from-punk-diy-to-alternative-rock.webp";
 import artPsychedelia from "@assets/from-psychedelia-to-dream-pop.webp";
 import artSka from "@assets/from-ska-to-global-bass.webp";
 import artSoul from "@assets/from-soul-to-modern-dance-music.webp";
+import artLaurynHill from "@assets/lauryn-hill-the-miseducation.webp";
+import artPrince from "@assets/prince-from-minneapolis-to-paisley-park.webp";
+import artRevolver from "@assets/the-beatles-revolver.webp";
 
 const QUIZ_ARTWORK: Record<string, ImageMetadata> = {
   "1950s": art1950s,
@@ -48,6 +52,10 @@ const QUIZ_ARTWORK: Record<string, ImageMetadata> = {
   "from-asia-pop-to-global-pop": artAsiaPop,
   "from-punk-diy-to-alternative-rock": artPunk,
   "from-psychedelia-to-dream-pop": artPsychedelia,
+  "prince-from-minneapolis-to-paisley-park": artPrince,
+  "bjork-from-reykjavik-punk-to-sonic-worlds": artBjork,
+  "the-beatles-revolver": artRevolver,
+  "lauryn-hill-the-miseducation": artLaurynHill,
 };
 
 export const QUIZ_ORDER = [
@@ -74,6 +82,10 @@ export const QUIZ_ORDER = [
   "from-highlife-to-global-afrobeats",
   "from-heavy-metal-to-extreme-metal",
   "from-psychedelia-to-dream-pop",
+  "prince-from-minneapolis-to-paisley-park",
+  "bjork-from-reykjavik-punk-to-sonic-worlds",
+  "the-beatles-revolver",
+  "lauryn-hill-the-miseducation",
 ] as const;
 
 export function getQuizArtwork(id: string): ImageMetadata {

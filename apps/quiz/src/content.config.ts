@@ -114,7 +114,7 @@ const quizzes = defineCollection({
       seoTitle: z.string().trim().optional(),
       seoDescription: z.string().trim().optional(),
       featuredTopics: z.array(z.string()).min(3).max(6),
-      category: z.enum(["decade", "genre-evolution"]),
+      category: z.enum(["decade", "genre-evolution", "artist", "album"]),
       questions: z.array(questionSchema).length(40),
       draft: z.boolean().default(false),
     })

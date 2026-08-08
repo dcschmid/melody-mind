@@ -12,6 +12,8 @@ const navigation = [
   { href: "/about/", label: "About", current: currentPath.startsWith("/about") },
   { href: "/#decades", label: "Decades", current: false },
   { href: "/#genre-journeys", label: "Genre journeys", current: false },
+  { href: "/#artists", label: "Artists", current: false },
+  { href: "/#albums", label: "Albums", current: false },
   { href: "https://melody-mind.de/", label: "Music", current: false },
   {
     href: "https://stories.melody-mind.de/",
@@ -114,7 +116,7 @@ const navigation = [
 
       const controller = new AbortController();
       const { signal } = controller;
-      const desktop = window.matchMedia("(width >= 64rem)");
+      const desktop = window.matchMedia("(width >= 80rem)");
       const pageRegions = Array.from(
         document.querySelectorAll<HTMLElement>("main, footer")
       );
@@ -386,7 +388,7 @@ const navigation = [
     transform: translateY(0);
   }
 
-  @media (width >= 64rem) {
+  @media (width >= 80rem) {
     .quiz-header__desktop-nav {
       display: flex;
     }
