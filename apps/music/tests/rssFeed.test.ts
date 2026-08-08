@@ -28,7 +28,7 @@ vi.mock("@astrojs/rss", () => ({
   },
 }));
 
-vi.mock("../utils/musicImages", () => ({
+vi.mock("../src/utils/musicImages", () => ({
   getAlbumCoverImageUrl: (coverImage: string) =>
     `https://melody-mind.de/covers/${coverImage}`,
 }));
@@ -69,7 +69,7 @@ const readFeedConfig = () => state.feedConfig;
 
 const loadFeed = async (site?: URL) => {
   vi.resetModules();
-  const { GET } = await import("./rss.xml");
+  const { GET } = await import("../src/pages/rss.xml");
   state.feedConfig = undefined;
   const response = await GET({ site } as never);
 
