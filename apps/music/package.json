@@ -11,6 +11,7 @@
     "build": "node scripts/generate-social-images.mjs && astro check && astro build",
     "build:embed": "pnpm build && node scripts/prepare-embed-dist.mjs",
     "preview": "astro preview",
+    "check": "astro check",
     "astro": "astro",
     "lint": "pnpm format && pnpm exec eslint --config ../../eslint.config.mjs --fix \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint",
     "lint:check": "pnpm exec eslint --config ../../eslint.config.mjs \"src/**/*.{js,ts,jsx,tsx,astro}\" && pnpm stylelint:check",

@@ -32,6 +32,7 @@
     "preview:stories": "turbo run preview --filter=stories",
     "preview:reviews": "turbo run preview --filter=reviews",
     "test": "turbo run test",
+    "check": "turbo run check",
     "lint": "turbo run lint --filter=music",
     "lint:all": "turbo run lint",
     "lint:check": "turbo run lint:check --filter=music",

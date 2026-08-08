@@ -1,3 +1,4 @@
 pnpm format:check
 pnpm lint:check
+pnpm check
 pnpm test

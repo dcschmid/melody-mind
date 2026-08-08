@@ -18,6 +18,9 @@
     "test": {
       "outputLogs": "new-only"
     },
+    "check": {
+      "outputLogs": "new-only"
+    },
     "lint": {
       "inputs": ["src/**"],
       "outputLogs": "new-only"
