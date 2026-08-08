@@ -11,9 +11,11 @@ import RelatedContentSection from "@components/cards/RelatedContentSection.astro
 import AlbumSupportSection from "@components/music/album/AlbumSupportSection.astro";
 import Details from "@components/music/album/Details.astro";
 import Hero from "@components/music/album/Hero.astro";
+import QuizTeaser from "@components/music/album/QuizTeaser.astro";
 import Surface from "@components/music/album/Surface.astro";
 import PlaylistPlayer from "@components/music/album/PlaylistPlayer.astro";
 import type { RelatedContentCardItem } from "@components/cards/relatedContent";
+import { getQuizTeaser } from "@data/quizTeasers";
 
 type AlbumEntry = CollectionEntry<"albums">;
 type GenreEntry = CollectionEntry<"genres">;
@@ -85,6 +87,7 @@ const [allAlbums, genreEntries, seriesEntries] = await Promise.all([
 const genreEntry = currentAlbum.mainGenre
   ? genreEntries.find((candidate) => candidate.data.mainGenre === currentAlbum.mainGenre)
   : undefined;
+const quizTeaser = getQuizTeaser(currentAlbum.mainGenre);
 const genreContext = genreEntry
   ? {
       href: `/genre/${genreEntry.id}/`,
@@ -262,6 +265,16 @@ const relatedAlbums: RelatedContentCardItem[] = getRelatedAlbums(
     >
       <Content />
     </Details>
+
+    {
+      quizTeaser && (
+        <QuizTeaser
+          quizTitle={quizTeaser.quizTitle}
+          copy={quizTeaser.copy}
+          href={quizTeaser.href}
+        />
+      )
+    }
 
     <AlbumSupportSection albumTitle={currentAlbum.title} />
 
