@@ -119,3 +119,34 @@ test("announces discarded progress and keeps a valid focus target", async ({ pag
   await expect(status).toBeFocused();
   await expect(status).toContainText("Saved round discarded");
 });
+
+async function getQuizFingerprint(
+  page: import("@playwright/test").Page
+): Promise<string> {
+  const serialized = await page
+    .locator("#quiz-data")
+    .evaluate((element) => element.textContent ?? "");
+  return (JSON.parse(serialized) as { fingerprint: string }).fingerprint;
+}
+
+test("shows the challenge banner when a shared score link matches the quiz", async ({
+  page,
+}) => {
+  await page.goto("/1980s/");
+  const fingerprint = await getQuizFingerprint(page);
+
+  // Visit another document first so the challenge URL triggers a full page
+  // load, like opening a shared link in a new tab.
+  await page.goto("/1950s/");
+  await page.goto(`/1980s/#challenge=8.${fingerprint}`);
+
+  const banner = page.locator("#quiz-challenge");
+  await expect(banner).toBeVisible();
+  await expect(banner).toContainText("Someone scored 8/10 on this quiz");
+});
+
+test("ignores challenge links with a tampered fingerprint", async ({ page }) => {
+  await page.goto("/1980s/#challenge=8.0000000000000000");
+
+  await expect(page.locator("#quiz-challenge")).toBeHidden();
+});

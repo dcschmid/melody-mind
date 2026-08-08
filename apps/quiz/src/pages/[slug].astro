@@ -139,6 +139,10 @@ const structuredData = [
           <dd>Progress stays in this browser</dd>
         </div>
       </dl>
+      <div class="quiz-intro__challenge" id="quiz-challenge" hidden>
+        <p class="eyebrow">Challenge</p>
+        <p class="quiz-intro__challenge-copy" id="quiz-challenge-copy"></p>
+      </div>
       <div class="quiz-intro__actions">
         <button class="button button--primary" id="quiz-start" type="button">
           Start quiz
@@ -377,7 +381,22 @@ const structuredData = [
     color: var(--quiet-ink);
   }
 
+  .quiz-intro__challenge {
+    display: grid;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    background: color-mix(in srgb, var(--signal-teal) 9%, var(--raised-night));
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+
+  .quiz-intro__challenge-copy {
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
   .quiz-intro__description,
+  .quiz-intro__challenge,
   .quiz-intro__actions,
   .quiz-intro__disclosure,
   .quiz-intro__confirmation,
@@ -433,6 +452,7 @@ const structuredData = [
   }
 
   .quiz-intro[hidden],
+  .quiz-intro__challenge[hidden],
   .quiz-game[hidden],
   .quiz-feedback[hidden],
   .quiz-result[hidden],

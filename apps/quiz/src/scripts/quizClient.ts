@@ -1,5 +1,6 @@
 import {
   buildShareText,
+  buildShareUrl,
   createQuizSession,
   createQuizSessionSnapshot,
   evaluateAnswer,
@@ -7,6 +8,7 @@ import {
   getReviewItems,
   getScore,
   getScoreBand,
+  parseChallengeHash,
   restoreQuizSession,
 } from "./quizEngine";
 import {
@@ -75,6 +77,8 @@ export function initQuiz(): void {
   const resultReview = getElement<HTMLElement>("quiz-result-review");
   const resultReviewList = getElement<HTMLElement>("quiz-result-review-list");
   const resultPerfect = getElement<HTMLElement>("quiz-result-perfect");
+  const challengeBox = getElement<HTMLElement>("quiz-challenge");
+  const challengeCopy = getElement<HTMLElement>("quiz-challenge-copy");
   const storage = getBrowserStorage();
 
   let session: QuizSession | null = null;
@@ -574,7 +578,9 @@ export function initQuiz(): void {
     if (!session) {
       return;
     }
-    const text = buildShareText(payload.title, getScore(session), window.location.href);
+    const score = getScore(session);
+    const shareUrl = buildShareUrl(window.location.href, score, payload.fingerprint);
+    const text = buildShareText(payload.title, score, shareUrl);
     shareStatus.textContent = "";
 
     try {
@@ -636,6 +642,12 @@ export function initQuiz(): void {
         storageStatus.textContent = `Question ${activeRound.snapshot.currentIndex + 1} of ${activeRound.snapshot.questions.length} is saved in ${activeRound.title}. Starting this quiz will replace it.`;
       }
     }
+  }
+
+  const challenge = parseChallengeHash(window.location.hash);
+  if (challenge && challenge.fingerprint === payload.fingerprint) {
+    challengeCopy.textContent = `Someone scored ${challenge.score}/10 on this quiz. Think you can do better?`;
+    challengeBox.hidden = false;
   }
 
   setView("intro");

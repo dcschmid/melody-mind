@@ -298,3 +298,35 @@ export function getScoreBand(score: number): string {
 export function buildShareText(title: string, score: number, url: string): string {
   return `I scored ${score}/10 on ${title} at MelodyMind Quiz. Try it: ${url}`;
 }
+
+export interface QuizChallenge {
+  score: number;
+  fingerprint: string;
+}
+
+export const CHALLENGE_MAX_SCORE = 10;
+
+const CHALLENGE_HASH_PATTERN = /^#challenge=(\d{1,2})\.([a-f0-9]{16})$/u;
+
+export function buildShareUrl(
+  baseUrl: string,
+  score: number,
+  fingerprint: string
+): string {
+  const url = baseUrl.split("#")[0];
+  return `${url}#challenge=${score}.${fingerprint}`;
+}
+
+export function parseChallengeHash(hash: string): QuizChallenge | null {
+  const match = CHALLENGE_HASH_PATTERN.exec(hash);
+  if (!match) {
+    return null;
+  }
+
+  const score = Number(match[1]);
+  if (!Number.isInteger(score) || score < 0 || score > CHALLENGE_MAX_SCORE) {
+    return null;
+  }
+
+  return { score, fingerprint: match[2] };
+}

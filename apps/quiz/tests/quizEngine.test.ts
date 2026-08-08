@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import {
   buildShareText,
+  buildShareUrl,
+  CHALLENGE_MAX_SCORE,
   createQuizSession,
   createQuizSessionSnapshot,
   evaluateAnswer,
@@ -11,6 +13,7 @@ import {
   getScoreBand,
   getNextQuizId,
   normalizeQuestion,
+  parseChallengeHash,
   restoreQuizSession,
 } from "../src/scripts/quizEngine";
 import type { QuestionDifficulty, QuizQuestion } from "../src/types/quiz";
@@ -252,5 +255,45 @@ describe("results", () => {
     expect(() => getNextQuizId("1980s", category)).toThrow(
       "Quiz is not part of its category"
     );
+  });
+});
+
+describe("challenge sharing", () => {
+  const fingerprint = "abcdef1234567890";
+
+  it("appends the score and content fingerprint to the shared URL", () => {
+    expect(buildShareUrl("https://quiz.melody-mind.de/1980s/", 7, fingerprint)).toBe(
+      `https://quiz.melody-mind.de/1980s/#challenge=7.${fingerprint}`
+    );
+  });
+
+  it("replaces an incoming challenge hash so results never stack", () => {
+    expect(
+      buildShareUrl(
+        `https://quiz.melody-mind.de/1980s/#challenge=9.${fingerprint}`,
+        4,
+        "fedcba0987654321"
+      )
+    ).toBe("https://quiz.melody-mind.de/1980s/#challenge=4.fedcba0987654321");
+  });
+
+  it("parses a valid challenge hash", () => {
+    expect(parseChallengeHash(`#challenge=8.${fingerprint}`)).toEqual({
+      score: 8,
+      fingerprint,
+    });
+    expect(parseChallengeHash("#challenge=0.abcdef1234567890")?.score).toBe(0);
+    expect(
+      parseChallengeHash(`#challenge=${CHALLENGE_MAX_SCORE}.${fingerprint}`)?.score
+    ).toBe(CHALLENGE_MAX_SCORE);
+  });
+
+  it("rejects malformed, out-of-range, and tampered challenge hashes", () => {
+    expect(parseChallengeHash("")).toBeNull();
+    expect(parseChallengeHash("#score=8.abcdef1234567890")).toBeNull();
+    expect(parseChallengeHash(`#challenge=11.${fingerprint}`)).toBeNull();
+    expect(parseChallengeHash("#challenge=8.ABCDEF1234567890")).toBeNull();
+    expect(parseChallengeHash("#challenge=8.abc")).toBeNull();
+    expect(parseChallengeHash("#challenge=8.abcdef1234567890extra")).toBeNull();
   });
 });
