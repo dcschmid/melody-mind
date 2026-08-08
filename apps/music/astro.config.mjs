@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import { satteri } from "@astrojs/markdown-satteri";
@@ -44,6 +44,28 @@ const getSitemapPath = (url) => {
 export default defineConfig({
   site: SITE_URL,
   output: "static",
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: "Atkinson Hyperlegible",
+      cssVariable: "--font-atkinson",
+      fallbacks: ["ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/atkinson-hyperlegible-regular.woff2"],
+            weight: "400",
+            style: "normal",
+          },
+          {
+            src: ["./src/assets/fonts/atkinson-hyperlegible-bold.woff2"],
+            weight: "700",
+            style: "normal",
+          },
+        ],
+      },
+    },
+  ],
   markdown: {
     processor: satteri({
       features: { directive: true },

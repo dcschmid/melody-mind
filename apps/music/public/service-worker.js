@@ -1,4 +1,4 @@
-const CACHE_VERSION = "music-pwa-v20260807-1";
+const CACHE_VERSION = "music-pwa-v20260808-1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const MAX_RUNTIME_CACHE_ENTRIES = 80;
@@ -12,8 +12,8 @@ const STATIC_ASSETS = [
   "/web-app-manifest-192x192.png?v=20260507",
   // The 512px manifest icon is intentionally not precached: browsers only
   // fetch it during an install-to-homescreen flow.
-  "/fonts/atkinson-hyperlegible-regular.woff2",
-  "/fonts/atkinson-hyperlegible-bold.woff2",
+  // Fonts have hashed build paths (Astro fonts API) and are cached at
+  // runtime by the font-destination handler below instead.
 ];
 
 const isSameOrigin = (url) => url.origin === self.location.origin;

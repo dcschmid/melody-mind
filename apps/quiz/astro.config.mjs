@@ -1,6 +1,6 @@
 import sitemap from "@astrojs/sitemap";
 import minifyHtml from "astro-minify-html-swc";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import path from "node:path";
 import { getNewestSitemapDate, readSitemapDates } from "../../scripts/sitemap-dates.mjs";
 
@@ -15,6 +15,28 @@ const newestQuizDate = getNewestSitemapDate(quizDates);
 export default defineConfig({
   site: SITE_URL,
   output: "static",
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: "Atkinson Hyperlegible",
+      cssVariable: "--font-atkinson",
+      fallbacks: ["ui-sans-serif", "system-ui", "-apple-system", "sans-serif"],
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/atkinson-hyperlegible-regular.woff2"],
+            weight: "400",
+            style: "normal",
+          },
+          {
+            src: ["./src/assets/fonts/atkinson-hyperlegible-bold.woff2"],
+            weight: "700",
+            style: "normal",
+          },
+        ],
+      },
+    },
+  ],
   integrations: [
     sitemap({
       namespaces: {

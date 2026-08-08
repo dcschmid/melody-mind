@@ -1,5 +1,6 @@
 ---
 import "../styles/master-theme.css";
+import { Font } from "astro:assets";
 import AiDisclosure from "@components/content/AiDisclosure.astro";
 
 interface Props {
@@ -24,6 +25,7 @@ const { title, description } = Astro.props as Props;
     <meta name="referrer" content="no-referrer" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <Font cssVariable="--font-atkinson" preload />
     <script is:inline>
       (() => {
         const theme = new URLSearchParams(window.location.search).get("theme");

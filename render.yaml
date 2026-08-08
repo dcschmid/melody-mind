@@ -47,9 +47,6 @@ services:
       - path: /assets/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
-      - path: /fonts/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
       - path: /audio/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
@@ -91,9 +88,6 @@ services:
       - path: /assets/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
-      - path: /fonts/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
     envVars:
       - key: NODE_VERSION
         value: "22"
@@ -131,9 +125,6 @@ services:
         name: Cache-Control
         value: public, max-age=0, must-revalidate
       - path: /assets/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-      - path: /fonts/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
     envVars:
@@ -177,9 +168,6 @@ services:
       - path: /assets/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
-      - path: /fonts/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
     envVars:
       - key: NODE_VERSION
         value: "22"
@@ -219,9 +207,6 @@ services:
         name: Cache-Control
         value: public, max-age=0, must-revalidate
       - path: /assets/*
-        name: Cache-Control
-        value: public, max-age=31536000, immutable
-      - path: /fonts/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
     envVars:

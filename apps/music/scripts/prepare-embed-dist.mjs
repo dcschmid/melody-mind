@@ -15,10 +15,8 @@ await mkdir(targetDir, { recursive: true });
 await Promise.all([
   cp(sourceEmbedAlbumDir, path.join(targetDir, "album"), { recursive: true }),
   cp(sourceEmbedSeriesDir, path.join(targetDir, "series"), { recursive: true }),
+  // Fonts are hashed build assets (Astro fonts API) and ship inside assets/.
   cp(path.join(sourceDir, "assets"), path.join(targetDir, "assets"), {
-    recursive: true,
-  }),
-  cp(path.join(sourceDir, "fonts"), path.join(targetDir, "fonts"), {
     recursive: true,
   }),
 ]);

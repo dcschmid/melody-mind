@@ -1,30 +1,8 @@
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/atkinson-hyperlegible-bold.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Literata";
-  font-style: normal;
-  font-weight: 400 800;
-  src: url("/fonts/literata-latin-variable.woff2") format("woff2-variations");
-  font-display: swap;
-}
-
+/* Fonts are registered via the Astro fonts API in astro.config.mjs and
+   injected as --font-atkinson / --font-literata by the <Font /> component. */
 :root {
   color-scheme: dark;
-  font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+  font-family: var(--font-atkinson);
   font-synthesis: none;
   --archive-night: oklch(11.5% 0.027 250deg);
   --desk-night: oklch(16.5% 0.03 250deg);
@@ -36,8 +14,8 @@
   --line: oklch(38% 0.031 250deg);
   --line-soft: oklch(28% 0.028 250deg);
   --focus: oklch(84% 0.11 181deg);
-  --font-display: "Literata", Georgia, serif;
-  --font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-display: var(--font-literata);
+  --font-body: var(--font-atkinson);
   --reading-width: 70ch;
   --wide-width: 88rem;
   --control-size: 2.75rem;

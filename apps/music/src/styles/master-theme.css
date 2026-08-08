@@ -5,22 +5,9 @@
 
 /* -----------------------------------------------------------------------------
    FONT DECLARATION
+   Atkinson Hyperlegible is registered via the Astro fonts API in
+   astro.config.mjs and injected as --font-atkinson by the <Font /> component.
    ----------------------------------------------------------------------------- */
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/atkinson-hyperlegible-regular.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/atkinson-hyperlegible-bold.woff2") format("woff2");
-  font-display: swap;
-}
 
 /* =============================================================================
    BASE DESIGN TOKENS
@@ -43,8 +30,7 @@
   /* ---------------------------------------------------------------------------
      TYPOGRAPHY SCALE (Responsive with clamp)
      --------------------------------------------------------------------------- */
-  --font-sans:
-    "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-atkinson);
   --font-mono: ui-monospace, "SF Mono", monaco, "Cascadia Code", monospace;
 
   /* Font sizes */
