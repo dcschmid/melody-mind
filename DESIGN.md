@@ -99,9 +99,10 @@ and confident without becoming academic or showy. The Music app
 (`apps/music`) is the product and visual source of truth; the tokens live in
 `apps/music/src/styles/master-theme.css`.
 
-The system is **dark-only**: one deep blue canvas family (hue 250deg) with
-wide tonal elevation steps and a single teal accent (hue 180deg). There is no
-light mode and no theme toggle. It rejects generic AI gradients,
+The system is **dark-only, permanently**: one deep blue canvas family
+(hue 250deg) with wide tonal elevation steps and a single teal accent
+(hue 180deg). There is no light mode and no theme toggle, and neither is
+planned. It rejects generic AI gradients,
 glassmorphism, gradient text, bounce motion, side-stripe card accents, neon
 glows, and endless identical card grids.
 
@@ -249,8 +250,7 @@ reserved for hero covers at low alpha (≤22% mix on borders, ≤9% ambient).
 - `navigation/SiteHeader.astro`: responsive header with mobile dialog drawer
   (focus trap, `inert` background, Escape, scroll lock).
 - `navigation/HeaderNav.astro`, `navigation/HeaderMobileExtras.astro`,
-  `layout/Footer.astro`, `navigation/BackToTop.astro`,
-  `navigation/SkipLink.astro`.
+  `layout/Footer.astro`, `navigation/SkipLink.astro`.
 - Do not recreate chrome in parallel folders; configure via props.
 
 ### Media Player
