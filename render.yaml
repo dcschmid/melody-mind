@@ -29,9 +29,6 @@ services:
         name: X-Frame-Options
         value: DENY
       - path: /*
-        name: X-XSS-Protection
-        value: 1; mode=block
-      - path: /*
         name: Referrer-Policy
         value: strict-origin-when-cross-origin
       - path: /*
