@@ -65,12 +65,19 @@ const headResponse = (contentLength?: string) =>
     headers: contentLength ? { "content-length": contentLength } : {},
   });
 
+const readFeedConfig = () => state.feedConfig;
+
 const loadFeed = async (site?: URL) => {
   vi.resetModules();
   const { GET } = await import("./rss.xml");
   state.feedConfig = undefined;
   const response = await GET({ site } as never);
-  return { response, config: state.feedConfig as Record<string, unknown> };
+
+  const config = readFeedConfig();
+  if (!config) {
+    throw new Error("RSS feed configuration was not captured");
+  }
+  return { response, config };
 };
 
 afterEach(() => {

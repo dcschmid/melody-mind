@@ -49,12 +49,19 @@ const makeQuizEntry = (
   },
 });
 
+const readFeedConfig = () => state.feedConfig;
+
 const loadFeed = async () => {
   vi.resetModules();
   const { GET } = await import("../src/pages/rss.xml");
   state.feedConfig = undefined;
   await GET({});
-  return state.feedConfig as Record<string, unknown>;
+
+  const config = readFeedConfig();
+  if (!config) {
+    throw new Error("RSS feed configuration was not captured");
+  }
+  return config;
 };
 
 describe("quiz rss feed", () => {

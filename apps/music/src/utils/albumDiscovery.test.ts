@@ -63,7 +63,10 @@ describe("getAlbumDiscoveryMeta", () => {
 
   it("falls back to the genre energy and then to medium", () => {
     const withoutEnergy = (genre?: string) =>
-      makeAlbum({ genre, energy: undefined as unknown as "medium" });
+      makeAlbum({
+        ...(genre ? { genre } : {}),
+        energy: undefined as unknown as "medium",
+      });
 
     expect(getAlbumDiscoveryMeta(withoutEnergy("Punk")).energy).toBe("high");
     expect(getAlbumDiscoveryMeta(withoutEnergy("Polka")).energy).toBe("medium");

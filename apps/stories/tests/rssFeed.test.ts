@@ -46,6 +46,8 @@ const makeStoryEntry = (
   },
 });
 
+const readFeedConfig = () => state.feedConfig;
+
 describe("stories rss feed", () => {
   it("sorts published stories newest first and maps editorial fields", async () => {
     state.stories = [
@@ -57,7 +59,11 @@ describe("stories rss feed", () => {
     vi.resetModules();
     const { GET } = await import("../src/pages/rss.xml");
     await GET({});
-    const config = state.feedConfig as Record<string, unknown>;
+
+    const config = readFeedConfig();
+    if (!config) {
+      throw new Error("RSS feed configuration was not captured");
+    }
     const items = config.items as Array<Record<string, unknown>>;
 
     expect(config.title).toBe("MelodyMind Stories");
