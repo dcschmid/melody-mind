@@ -33,7 +33,7 @@ describe("buildMusicAlbumSchema", () => {
       canonical,
       coverImageUrl: "https://melody-mind.de/covers/test-album.webp",
       songs: [makeSong(2), makeSong(1), makeSong(3)],
-      totalDurationSeconds: 3723,
+      totalDurationSeconds: 3720,
     }) as Record<string, unknown>;
 
     expect(schema["@type"]).toBe("MusicAlbum");
@@ -41,7 +41,7 @@ describe("buildMusicAlbumSchema", () => {
     expect(schema.genre).toBe("Gothic");
     expect(schema.inLanguage).toBe("de");
     expect(schema.datePublished).toBe("2026-01-15T00:00:00.000Z");
-    expect(schema.duration).toBe("PT1H2M3S");
+    expect(schema.duration).toBe("PT1H2M");
     expect(schema.numTracks).toBe(3);
 
     const tracks = schema.track as Array<Record<string, unknown>>;
@@ -87,8 +87,8 @@ describe("buildMusicAlbumSchema", () => {
       album: makeAlbum(),
       canonical,
       coverImageUrl: "https://melody-mind.de/covers/test.webp",
-      songs: [makeSong(1, { durationSeconds: 186 })],
-      totalDurationSeconds: 186,
+      songs: [makeSong(1, { durationSeconds: 181 })],
+      totalDurationSeconds: 181,
       collectionPages: [{ url: "https://melody-mind.de/genre/gothic/", name: "Gothic" }],
     }) as Record<string, unknown>;
 
@@ -99,9 +99,9 @@ describe("buildMusicAlbumSchema", () => {
         name: "Gothic",
       },
     ]);
-    expect(schema.duration).toBe("PT3M6S");
+    expect(schema.duration).toBe("PT3M1S");
     const tracks = schema.track as Array<Record<string, unknown>>;
-    expect(tracks[0]?.duration).toBe("PT3M6S");
+    expect(tracks[0]?.duration).toBe("PT3M1S");
   });
 });
 

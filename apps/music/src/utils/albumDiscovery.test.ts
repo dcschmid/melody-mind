@@ -121,6 +121,36 @@ describe("getRelatedAlbums", () => {
     expect(related.map((album) => album.id)).toEqual(["strong", "weak"]);
   });
 
+  it("weighs a shared genre above a shared tag alone", () => {
+    /* Polka is neutral in the discovery keyword maps, so only the genre and
+       tag signals differ between the two candidates. */
+    const neutralCurrent = makeAlbum({ id: "neutral-current", genre: "Polka" });
+    const manySongs = Array.from({ length: 6 }, (_, index) => ({
+      title: `Track ${index + 1}`,
+      audioUrl: `https://cdn.example/${index + 1}.mp3`,
+      trackNumber: index + 1,
+    }));
+    const genreOnly = makeAlbum({
+      id: "genre-only",
+      genre: "Polka",
+      energy: "low",
+      songs: manySongs,
+      publishedAt: "2026-01-02T00:00:00Z",
+    });
+    const tagOnly = makeAlbum({
+      id: "tag-only",
+      genre: "Jazz",
+      tags: ["Polka"],
+      energy: "low",
+      songs: manySongs,
+      publishedAt: "2026-01-03T00:00:00Z",
+    });
+
+    const related = getRelatedAlbums(neutralCurrent, [tagOnly, genreOnly]);
+
+    expect(related.map((album) => album.id)).toEqual(["genre-only", "tag-only"]);
+  });
+
   it("orders equal scores by the newest release date", () => {
     const older = makeAlbum({ id: "older", publishedAt: "2026-01-01T00:00:00Z" });
     const newer = makeAlbum({ id: "newer", publishedAt: "2026-02-01T00:00:00Z" });
