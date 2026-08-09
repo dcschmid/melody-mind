@@ -1,7 +1,6 @@
 ---
 import "../styles/master-theme.css";
 import { Font } from "astro:assets";
-import AiDisclosure from "@components/content/AiDisclosure.astro";
 
 interface Props {
   title: string;
@@ -48,13 +47,6 @@ const { title, description } = Astro.props as Props;
   </head>
   <body class="embed-layout__body">
     <main class="embed-layout__main">
-      <div class="embed-layout__disclosure">
-        <AiDisclosure
-          variant="generated"
-          label="AI-generated music and artwork"
-          detailsHref="https://melody-mind.de/about/#ai-transparency"
-        />
-      </div>
       <slot />
     </main>
   </body>
@@ -143,16 +135,5 @@ const { title, description } = Astro.props as Props;
     block-size: 100%;
     min-block-size: 0;
     padding: 0;
-  }
-
-  .embed-layout__disclosure {
-    position: absolute;
-    inset-block-start: 0.5rem;
-    inset-inline-end: 0.5rem;
-    z-index: 10;
-  }
-
-  .embed-layout__disclosure .ai-disclosure__copy span {
-    display: none;
   }
 </style>
