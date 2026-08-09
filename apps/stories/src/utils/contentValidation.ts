@@ -19,7 +19,12 @@ interface ArtifactMarkerReference {
 }
 
 export interface StoryRelationshipData {
-  format: "artist-portrait" | "scene-report" | "cover-story" | "technology-story";
+  format:
+    | "artist-portrait"
+    | "scene-report"
+    | "cover-story"
+    | "technology-story"
+    | "instrument-story";
   hero: { id: string };
   figures: FigureReference[];
   sources: SourceReference[];

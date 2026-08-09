@@ -61,6 +61,7 @@ const stories = defineCollection({
           "scene-report",
           "cover-story",
           "technology-story",
+          "instrument-story",
         ]),
         title: z.string().trim().min(12),
         dek: z.string().trim().min(60).max(240),

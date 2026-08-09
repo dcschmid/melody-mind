@@ -89,10 +89,10 @@ describe("validateStoryRelationships", () => {
 });
 
 describe("content validator", () => {
-  it("accepts technology-story frontmatter without an artifact", () => {
+  it("accepts instrument-story frontmatter without an artifact", () => {
     expect(
       validateFrontmatterRelationships({
-        format: "technology-story",
+        format: "instrument-story",
         hero: {
           id: "pedal",
           image: "pedal.jpg",

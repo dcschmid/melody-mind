@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Thirty-eight-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Forty-story reading room and featured stories
+- [The Sleeve Turned Records into a Cosmos](https://stories.melody-mind.de/the-sleeve-turned-records-into-a-cosmos/): Cover story on Harry Smith's Anthology of American Folk Music, its commercial 78s, three-part sequence, handbook, and borrowed cosmic diagram
+- [The Oil Drum Became an Orchestra](https://stories.melody-mind.de/the-oil-drum-became-an-orchestra/): Instrument story on steelpan's shaped note fields, harmonic tuning, instrument families, and collective development in Trinidad and Tobago
 - [The Vibraphone Took the Long Way Home](https://stories.melody-mind.de/the-vibraphone-took-the-long-way-home/): Artist portrait of Mulatu Astatke's modal, rhythmic, and arranging work across Addis Ababa, London, Boston, and New York
 - [The Composer Drew the Sound](https://stories.melody-mind.de/the-composer-drew-the-sound/): Technology story on Daphne Oram's tape practice, drawn waveforms, 35mm control film, and Oramics Machine
 - [Heavy Kept Changing Shape](https://stories.melody-mind.de/heavy-kept-changing-shape/): Artist portrait of Boris and the changing forms of heavy music
