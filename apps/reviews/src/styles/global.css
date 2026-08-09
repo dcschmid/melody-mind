@@ -136,7 +136,7 @@ li {
 .prose h2 {
   margin-block: 3.8rem 1rem;
   font-size: clamp(1.7rem, 3vw, 2.35rem);
-  scroll-margin-block-start: 2rem;
+  scroll-margin-block-start: calc(4.5rem + var(--space-md));
 }
 
 .prose h3 {
