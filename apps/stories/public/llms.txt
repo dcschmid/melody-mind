@@ -2,7 +2,9 @@
 
 > AI-assisted, human-reviewed English-language long-form music journalism from MelodyMind.
 
-- [Home](https://stories.melody-mind.de/): Forty-story reading room and featured stories
+- [Home](https://stories.melody-mind.de/): Forty-two-story reading room and featured stories
+- [The Orchestra Was Tuned in Pairs](https://stories.melody-mind.de/the-orchestra-was-tuned-in-pairs/): Instrument story on Balinese gong kebyar, paired tuning, ombak, interlocking parts, damping, gongs, drums, and collective rehearsal
+- [The Performance Was Punched into Paper](https://stories.melody-mind.de/the-performance-was-punched-into-paper/): Technology story on piano rolls, tracker bars, pneumatic action, human interpretation, mechanical copyright, and digital preservation
 - [The Sleeve Turned Records into a Cosmos](https://stories.melody-mind.de/the-sleeve-turned-records-into-a-cosmos/): Cover story on Harry Smith's Anthology of American Folk Music, its commercial 78s, three-part sequence, handbook, and borrowed cosmic diagram
 - [The Oil Drum Became an Orchestra](https://stories.melody-mind.de/the-oil-drum-became-an-orchestra/): Instrument story on steelpan's shaped note fields, harmonic tuning, instrument families, and collective development in Trinidad and Tobago
 - [The Vibraphone Took the Long Way Home](https://stories.melody-mind.de/the-vibraphone-took-the-long-way-home/): Artist portrait of Mulatu Astatke's modal, rhythmic, and arranging work across Addis Ababa, London, Boston, and New York
