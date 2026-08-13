@@ -5,7 +5,7 @@ import { load as loadYaml } from "js-yaml";
 
 const CONTENT_DIRECTORY = new URL("../src/content/reviews/", import.meta.url);
 const WORD_RANGE = [650, 2300];
-const EXPECTED_REVIEW_COUNT = 28;
+const EXPECTED_REVIEW_COUNT = 30;
 const REQUIRED_SECTION_COUNT = 6;
 
 export function countEditorialWords(markdown) {
