@@ -166,8 +166,8 @@ to act.
 
 Geezer Butler’s bass can double Iommi for mass, then separate to preserve motion. He
 uses fills at the end of phrases, connects chord changes with runs, and sometimes
-maintains activity beneath a sustained guitar. The result is not a stack of identical
-lines. It is a low-register conversation in which unison is one available effect.
+maintains activity beneath a sustained guitar. Unison gives the riff mass; separation
+lets Butler add countermelody, mark chord changes, and keep the low register moving.
 
 Butler also became the principal lyricist during the classic period. Birmingham
 Museums emphasizes his reading and his ability to turn that material toward songs.
@@ -233,12 +233,11 @@ vanish beneath a vocal and return after the words have altered its meaning. Mult
 songs such as “Wheels of Confusion” or “Sabbath Bloody Sabbath” do not merely add more
 riffs; they arrange differences in tempo, density, and emotional temperature.
 
-This is where the four-person account becomes most useful. Iommi could generate a
-sequence of riffs, but the band decided how long each should last and what would
-connect it to the next. Butler could double, answer, or destabilize. Ward could make a
-transition feel inevitable or dangerous. Osbourne could turn one section into the
-song’s remembered center. Arrangement converts individual material into collective
-weight.
+Those transitions were quartet decisions. Iommi could generate a sequence of riffs,
+but the band decided how long each should last and what would connect it to the next.
+Butler could double, answer, or destabilize. Ward could make a transition feel
+inevitable or dangerous. Osbourne could turn one section into the song’s remembered
+center. Arrangement converted individual material into collective weight.
 
 The recording schedule increased the value of that shared memory. The first album was
 captured quickly in late 1969, with the group largely performing live in the studio
@@ -284,9 +283,8 @@ and commemoration can smooth old conflicts. It can still correct the proportions
 the story. Iommi, Butler, Ward, and Osbourne are on the same stage because the sound
 required all four.
 
-Black Sabbath’s early work is heavy through relation: guitar against fingers altered
-by injury, bass against guitar, drums against the apparent tempo, melody against a
-riff, working-class experience against the entertainment business that sold it.
-Birmingham supplies conditions and memory, not a mechanical cause. The band supplies
-the decisions. Listen for any one member and the other three keep changing what that
-member means.
+Black Sabbath’s early work draws its weight from friction: guitar against fingers
+altered by injury, bass against guitar, drums against the apparent tempo, melody
+against a riff, working-class experience against the entertainment business that sold
+it. Birmingham supplied conditions and memory, not a mechanical cause. Focus on any
+one member and the other three keep changing what that member means.

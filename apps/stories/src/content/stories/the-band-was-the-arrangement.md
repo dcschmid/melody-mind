@@ -172,7 +172,7 @@ constant increase in volume.
 The guitars supply another lesson in restraint. In many Africa 70 recordings, two
 players repeat different single-note or lightly voiced figures. Their parts interlock,
 but they are not interchangeable. One may stress the offbeat while the other places a
-short answer around it. The result is a rhythmic surface with no obvious seam.
+short answer around it. Together they create a rhythmic surface with no obvious seam.
 
 This work is easy to undervalue because the phrases rarely develop like featured
 solos. Repetition makes every uneven attack audible. The player has to maintain tone,
@@ -214,10 +214,10 @@ front of an audience. A composition could change between its first rehearsals an
 studio version. The room joined musical work to Fela’s public speech, dance, ritual,
 and confrontation with state authority.
 
-That continuity matters. A band rehearsing the same cells night after night can alter
-weight without rewriting the chart. A horn cue can become later. A guitar figure can
-grow drier. A vocal call can wait until the crowd understands its answer. The Shrine
-made arrangement an ongoing practice rather than a document completed at the desk.
+Nightly repetition let the band alter weight without rewriting the chart. A horn cue
+could arrive later. A guitar figure could grow drier. A vocal call could wait until
+the crowd understood its answer. The Shrine made arrangement an ongoing practice
+rather than a document completed at the desk.
 
 It also concentrated risk. Police harassment, arrests, and raids followed Fela’s
 provocations and open criticism of Nigeria’s military governments. The club and the
@@ -233,8 +233,8 @@ argument. A statement from the bandleader became something a group could confirm
 mock, or return. Onstage, dancers and singers made the response visible as well as
 audible, joining movement to the rhythm section’s repeated cells.
 
-This role deserves care because the women around Fela have often been collapsed into
-his image. They were performers and workers whose voices, choreography, clothes, and
+The women around Fela have often been collapsed into his image. They were performers
+and workers whose voices, choreography, clothes, and
 presence helped define the Shrine, while their individual histories received less
 documentation than his. Calling the ensemble collective cannot erase that imbalance.
 The records nevertheless show a precise musical fact: remove the answer and Fela’s
@@ -282,10 +282,10 @@ those sessions taking months while Fela reconsidered solos and mixes. By late 19
 left the organization. Fela then used two drummers to cover parts that Allen had held
 within one body. [2](#source-official-collaborations)
 
-The split clarifies authorship rather than settling it. Fela wrote, directed, and
-defined Afrobeat’s public purpose. Allen’s drum language made that purpose move.
-Guitarists, bassists, percussionists, horn players, and singers maintained the network
-between them. No fair account needs to choose between the bandleader and the band.
+The split clarifies authorship without settling it. Fela wrote, directed, and defined
+Afrobeat’s public purpose. Allen’s drum language made that purpose move. Guitarists,
+bassists, percussionists, horn players, and singers maintained the network between
+them. Bandleader and band remain inseparable in the sound.
 
 ## Hear the part before the monument
 

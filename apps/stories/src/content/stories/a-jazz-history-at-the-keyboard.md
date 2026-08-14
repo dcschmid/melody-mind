@@ -107,10 +107,10 @@ sources:
 ---
 
 Mary Lou Williams recorded “Night Life” under her own name in 1930. One side of the
-record is an exacting stride performance; the other is a blues. The pairing gives a
-better introduction than the claim that she lived through every era of jazz. Williams
-actively shaped changing styles. From the beginning of her recorded career, she
-treated difference as material to organize at the keyboard.
+record is an exacting stride performance; the other is a blues. Together they catch
+what a career-spanning label misses: Williams did not simply pass through changing
+styles. She shaped them from within. From the beginning of her recorded career, she treated
+difference as material to organize at the keyboard.
 [2](#source-folkways-biography)
 
 That approach required a long memory and a current ear. Williams could make a big band
@@ -299,10 +299,9 @@ make her symbolic before they make her visible. The National Museum of African
 American History and Culture’s piano portrait preserves that occupational fact.
 [6](#source-nmaahc-portrait)
 
-Her career is best understood as connected activity: arranging for Kirk changes how we
-hear the solo piano; bebop workshops change how we hear the suite; sacred pieces change
-how we hear the history lectures. The styles are not entries on a résumé. They are
-problems solved by the same musician.
+Arranging for Kirk changes how we hear the solo piano; the bebop workshops change how
+we hear the suite; the sacred pieces change how we hear the history lectures. These
+were not separate entries on a résumé. They were problems solved by the same musician.
 
 Mary Lou Williams’s jazz tree keeps the blues visible along the trunk. Her keyboard
 work does something similar. However far the harmony moves, the time, touch, and

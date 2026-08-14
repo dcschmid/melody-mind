@@ -114,8 +114,8 @@ one person sings and another moves their lips. Hindi cinema built something much
 intricate from the separation. The recorded voice became a plan that actors,
 choreographers, cinematographers, costume departments, and editors could interpret.
 
-The result is neither a disguised concert nor a simple technical trick. A successful
-film song asks the audience to accept two credited artists at once. The singer can be a
+The completed sequence asks the audience to accept two credited artists at once, not
+to mistake it for a disguised concert or technical trick. The singer can be a
 celebrity with a recognizable sound; the actor can be a star whose gestures alter how
 that sound is understood. The join is visible if one looks for it, yet the pleasure lies
 in watching the parts cooperate.
@@ -138,8 +138,7 @@ flawed take meant doing the whole event again.
 Playback changed the order of work. New Theatres in Calcutta is widely associated with
 the decisive 1935 experiments: Nitin Bose's Bengali _Bhagya Chakra_ and its Hindi
 version, _Dhoop Chhaon_, with music by R. C. Boral and Pankaj Mullick. Accounts differ
-in some details of who proposed what first, so a tidy lone-inventor story is unhelpful.
-The important change is concrete. The song could be recorded in advance and replayed
+in some details of who proposed what first. The song could now be recorded in advance and replayed
 while the scene was filmed. [2](#source-indian-listener)
 
 That sequence of operations loosened several constraints at once. A trained singer no
@@ -156,6 +155,10 @@ spectacle. Composer, lyricist, arranger, recording staff, and singer decide how 
 the voice will approach speech, where it will lean into rhythm, and what kind of person
 it seems to reveal. A catch in the line can suggest hesitation. A precisely clipped
 consonant can make the same line teasing or severe.
+
+The singer had to imagine a body and camera situation that might not yet exist. No live
+gesture could cue the phrasing in the studio; the recording had to carry enough
+character for a later performance to answer.
 
 The screen actor receives those choices as fixed sound but not as fixed meaning. Lip
 synchronization requires more than opening the mouth on vowels. Breath points, attacks,
@@ -195,15 +198,15 @@ from different places because the soundtrack carries continuity across them. The
 does not simply accompany the montage. It is the measuring device by which the montage
 is built.
 
-Research on dancer-actress Vyjayanthimala usefully complicates the idea that images are
-added after the music and therefore remain secondary. Davesh Soneji argues for “dance
+Research on dancer-actress Vyjayanthimala complicates the idea that images are added
+after the music and therefore remain secondary. Davesh Soneji argues for “dance
 musicalization”: a performer's existing movement vocabulary and bodily style can shape
 the music conceived for her. [3](#source-stanford-dance) Production chronology runs
 from recording to shooting, but creative influence can run in both directions. A
 composer and singer may already be imagining the actor who will carry the phrase.
 
-This feedback matters because dance is not an ornamental layer placed over a completed
-song. Footwork can reveal an internal subdivision that the arrangement only implies.
+Dance is not an ornamental layer placed over a completed song. Footwork can reveal an
+internal subdivision that the arrangement only implies.
 A shoulder or glance can redirect a lyric toward a second character. Group choreography
 can turn a private voice into social display. The playback singer performs for an
 imagined body; the dancer later shows listeners one way that body might hear the music.
@@ -255,8 +258,8 @@ the remembered emphasis: a vocal phrase once heard mainly as melody becomes atta
 to an actor's glance, a landscape, or a choreographed step. Sound and image keep meeting
 again under conditions their makers did not control.
 
-The circulation is not evidence that the visual work was disposable. It shows why the
-division was productive. The recording was stable enough to travel alone, while the
+The visual work was not disposable. The division was productive because the recording
+was stable enough to travel alone, while the
 film offered a durable interpretation to which audiences could return. Cover versions,
 stage tributes, and remixes add further bodies without cancelling the first pair.
 
@@ -281,7 +284,7 @@ hold still for a close-up. The camera selects and enlarges gestures. The editor 
 separate takes share one pulse. The audience completes the join while retaining
 knowledge of the parts.
 
-Playback's lasting achievement is not perfect concealment. It is a durable agreement
-that a cinematic voice can have more than one author. The face gives the recording a
+Playback lasts through a durable agreement that a cinematic voice can have more than
+one author. The face gives the recording a
 place to happen; the recording gives the face an interior sound. Between them, Hindi
 cinema made the film song spacious enough to live on screen and away from it.

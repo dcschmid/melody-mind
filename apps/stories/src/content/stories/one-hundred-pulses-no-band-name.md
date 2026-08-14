@@ -243,12 +243,12 @@ the original cover as 80 wiggly lines and says its anniversary team recorded the
 number of pulses from the same pulsar at the same frequency. Both are institutional
 sources. They do not give the same count. [3](#source-manchester-pulsar)
 
-The title of this story follows the museum object's wording, then keeps the
-disagreement visible. That is more accurate than quietly choosing the number that fits
-best. A plotted trace may not map simply onto a reader's count of visible lines, and
-reproductions can make fine divisions hard to distinguish. The discrepancy also shows
-how catalog descriptions travel. Once a number enters a museum record or anniversary
-article, later summaries may repeat it without returning to Craft's original figure.
+The museum's count gives the image its familiar “100 pulses” description, but the
+disagreement remains unresolved. A plotted trace may not map simply onto a reader's
+count of visible lines, and reproductions can make fine divisions hard to distinguish.
+The discrepancy also shows how catalog descriptions travel. Once a number enters a
+museum record or anniversary article, later summaries may repeat it without returning
+to Craft's original figure.
 
 The University team used the 40th anniversary to observe PSR B1919+21 again from
 Jodrell Bank, about 23 kilometers from Strawberry Studios, where the album was
@@ -355,25 +355,25 @@ arrangement being interrupted. Such copies can be affectionate, commercial,
 critical, or merely automatic. Their volume makes the image culturally large while
 often making its source history small.
 
-This creates an awkward contrast with the original sleeve. A design famous for
-withholding sales language became a highly marketable sign. That change is not a
-failure in Saville's work. It shows what happens when a controlled object enters mass
-visual memory. The front cover could move information to the inner layers because the
-record remained a package. A shirt or social image may have no inner layer where
-context can return.
+The contrast with the original sleeve is awkward. A design famous for withholding
+sales language became a highly marketable sign. That change is not a failure in
+Saville's work. It shows what happens when a controlled object enters mass visual
+memory. The front cover could move information to the inner layers because the record
+remained a package. A shirt or social image may have no inner layer where context can
+return.
 
 ## Keep the object open
 
-Looking again means holding several records together. The plot documents radio
-observations. Craft shaped those observations into a comparative figure. Bell Burnell's
-research history sits behind the pulsar's identification. Sumner found the image.
+The image carries several histories at once. The plot documents radio observations.
+Craft shaped those observations into a comparative figure. Bell Burnell's research
+history sits behind the pulsar's identification. Sumner found the image.
 Saville transformed its presentation. Factory manufactured it as FACT 10. Hannett and
 Joy Division made the album it came to represent. Museums now preserve copies and set
 conditions for their reuse.
 
-None of those statements diminishes the cover. They make its achievement more exact.
-The design does not need a myth of creation from nothing. Its force comes from moving
-an existing image into a new material and informational system with unusual discipline.
+Those layers make the cover's achievement more exact. The design does not need a myth
+of creation from nothing. Its force comes from moving an existing image into a new
+material and informational system with unusual discipline.
 
 The blank front is therefore not empty. It contains decisions about attribution,
 sequence, scale, commerce, and trust in an audience. The little field of pulses asks to

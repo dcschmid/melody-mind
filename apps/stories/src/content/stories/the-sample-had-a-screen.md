@@ -129,8 +129,8 @@ piano tone no longer had to be modeled from a set of oscillators. The machine co
 capture a piano—or a voice, breaking glass, a dog, an orchestra—and make the recording
 available at the keyboard.
 
-The shift was more than technical rescue. It changed the object being sold. The CMI
-became a general instrument whose raw material could come from outside its cabinet.
+Sampling changed the object being sold. The CMI became a general instrument whose raw
+material could come from outside its cabinet.
 Every microphone offered a possible new oscillator. The user did not have to accept a
 fixed factory library, though factory disks helped make the costly system immediately
 useful. [5](#source-hci-museum)
@@ -213,8 +213,8 @@ Page R encouraged musicians to think in blocks, cycles, and layers because those
 structures were easy to see and revise.
 
 Vogel later argued that the sequencer made certain rhythmic structures easy and
-therefore encouraged users to compose with them. His wording avoids the claim that a
-machine single-handedly invented a genre. Interfaces have tendencies, not intentions.
+therefore encouraged users to compose with them. He did not claim that a machine
+single-handedly invented a genre. Interfaces have tendencies, not intentions.
 Page R did not force anyone to write mechanical pop, but it reduced the effort needed
 to repeat and rearrange short events. [3](#source-rnz-vogel)
 
@@ -253,7 +253,7 @@ noise seem available. Yet one short sample did not contain an orchestra’s phra
 dynamics, intonation, or interaction. It contained a recording that could be
 transposed and repeated.
 
-That distinction became creatively useful. Kate Bush and Peter Gabriel did not need
+That artifice became creatively useful. Kate Bush and Peter Gabriel did not need
 the Fairlight to impersonate a neutral acoustic ensemble. They could use attacks,
 voices, and environmental sounds as shaped events. Herbie Hancock’s electronic work
 placed digital timbre beside turntablism and live performance rather than treating the
@@ -276,8 +276,8 @@ historical object even while its working concepts spread.
 
 The NFSA preserves a Series III used by screen composer Peter Best, including the
 configuration in which he left it. Restoration involved physical problems as ordinary
-as decayed foam. This is a useful correction to digital mythology. A sampler may turn
-sound into numbers, but the numbers remain dependent on aging drives, monitors,
+as decayed foam. A sampler may turn sound into numbers, but the numbers remain dependent
+on aging drives, monitors,
 connectors, disks, circuit boards, and documentation. [1](#source-nfsa)
 
 Emulations can preserve libraries and imitate coloration. Museums can keep original

@@ -191,10 +191,10 @@ that guitarist and bassist Leif Cuzner brought an HM-2 into the studio. Uffe Ced
 and Alex Hellid continued developing the guitar arrangement, and Skogsberg treated the
 pedal as part of a layered recording method. [2](#source-boss-history)
 
-This account is more useful than a discovery myth. No one uncovered a secret switch
-inside the HM-2. A player arrived with commercially available equipment, a group
-recognized an extreme setting’s use, and a producer learned how to record it. Sunlight
-Studio then gave connected bands a place where that knowledge could accumulate.
+No one uncovered a secret switch inside the HM-2. Cuzner arrived with commercially
+available equipment, the band recognized a use for its most extreme setting, and
+Skogsberg learned how to record it. Sunlight Studio then gave connected bands a place
+where that knowledge could accumulate.
 
 For Entombed’s _Left Hand Path_, the chainsaw layer did not stand alone. Skogsberg has
 described a small Peavey Studio Pro 40 receiving the HM-2, with another guitar sound
@@ -259,9 +259,10 @@ also demonstrate that “accurate” can mean two conflicting things: reproduce 
 original circuit, or reproduce the remembered record after studio layering.
 
 Reverb’s technical history traces the pedal from its initial stack-emulation goal
-through Sunlight’s use and the later clone market. The story is not a failure of
-design corrected by users. The original range made the extreme possible. Musicians
-selected one boundary condition and gave it a context BOSS had not advertised.
+through Sunlight’s use and the later clone market. BOSS had not built a failed design
+that musicians needed to correct. The original range made the extreme possible;
+musicians selected that boundary condition and gave it a context BOSS had not
+advertised.
 [5](#source-circuit-history)
 
 Clones expose which parts listeners think define the family. Some reproduce component

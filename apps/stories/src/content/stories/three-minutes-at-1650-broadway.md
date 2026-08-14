@@ -119,7 +119,7 @@ sources:
 The address in the title is not the Brill Building. Aldon Music occupied offices at
 1650 Broadway, one block north and across the street from the more ornate building at 1619. Carole King and Gerry Goffin worked at Aldon. So did Barry Mann and Cynthia Weil.
 Ellie Greenwich arrived there with songs and became part of the same close network.
-The historical label is useful only after its geography has been corrected.
+The historical label covers both addresses, though their geography is easy to blur.
 [1](#source-rockhall-library)
 
 “Brill Building pop” describes an arrangement of labor spread through Midtown
@@ -142,8 +142,8 @@ It did not supply the melody or the words.
 
 Competition and proximity reinforced each other. Goffin and King worked near Mann and
 Weil, listened to them, and wanted the same record placement. The couples were also
-friends. Their rivalry was not a tournament staged after the fact; it was part of the
-daily acoustics of the floor.
+friends. Rivalry entered the daily acoustics of the floor as each pair heard the other
+working toward the next placement.
 
 ## Writing for a voice not in the room
 
@@ -160,10 +160,9 @@ naive. [3](#source-loc-tapestry)
 
 Shirelles member Beverly Lee later emphasized that the group recognized a story in
 the song. Carole King also took an active role in the session, including its
-percussion. The record therefore complicates any diagram in which writers manufacture
-a complete object and singers merely deliver it. A composition moved through the
-Shirelles’ voices, the session, and the group’s public identity before listeners knew
-it. [4](#source-beverly-lee)
+percussion. Writers, performers, and session choices all shaped the record. The
+composition moved through the Shirelles’ voices, the session, and the group’s public
+identity before listeners knew it. [4](#source-beverly-lee)
 
 ## The demo is an argument
 
@@ -234,7 +233,7 @@ unexpected meaning. A composition written for one artist could be claimed by ano
 voice, rearranged for a different market, or revived years later. The office system
 limited authors and gave their work routes they could not fully predict.
 
-## Little Eva is not a footnote
+## Little Eva at the center
 
 Eva Boyd worked for Goffin and King as a babysitter and sang demos. She became Little
 Eva on “The Loco-Motion,” released by Dimension Records in 1962. The familiar anecdote
@@ -259,10 +258,10 @@ older publishers, producers, and label owners. The records gave female listeners
 language for desire, reputation, jealousy, pressure, and choice. They could also bind
 performers to scenarios selected by people with more contractual authority.
 
-That tension is inside the work, not an argument against hearing it. A singer can
-change the social weight of a line through timing and tone. Group vocals can turn a
-private statement into peer conversation. Handclaps, strings, drums, and background
-syllables build a space in which the lead voice is watched, answered, or supported.
+The tension remains audible in the work. A singer can change the social weight of a
+line through timing and tone. Group vocals can turn a private statement into peer
+conversation. Handclaps, strings, drums, and background syllables build a space in
+which the lead voice is watched, answered, or supported.
 
 The name “girl group” can make professional singers sound temporary and young even
 when their records required exact ensemble technique. The Shirelles had formed before
@@ -278,8 +277,8 @@ and engineers determined how a composition occupied physical time.
 
 A drum fill could make the chorus feel inevitable. Strings could enlarge a private
 sentence until it approached melodrama. A background group might repeat the title as
-encouragement, warning, or public rumor. These were not decorations applied after the
-song had been written. They established the world in which the lead vocal had to act.
+encouragement, warning, or public rumor. These parts established the world in which
+the lead vocal had to act.
 
 The strongest girl-group records make scale unstable. A close voice can sound as if
 it is speaking to one person while a large arrangement places that conversation before
@@ -298,8 +297,8 @@ someone to hear a problem the preceding stage could not.
 The system lost some of its authority after performers who wrote their own material
 became central to rock marketing. The Beatles and other British groups recorded songs
 from the New York publishing catalog, then made the self-contained band a powerful
-commercial model. Publishers did not disappear, and professional songwriting did not
-become obsolete. The visible center shifted.
+commercial model. Publishers and professional songwriting continued, but the visible
+center shifted.
 
 Goffin and King’s “Chains,” first recorded by the Cookies, appeared on the Beatles’
 debut album. The cover demonstrates both the reach of the New York song network and
@@ -308,10 +307,10 @@ could become evidence of repertory inside a British band’s identity.
 [3](#source-loc-tapestry)
 
 King later moved from supplying other performers to recording her own work, most
-decisively on _Tapestry_. It is tempting to treat that move as escape from an
-impersonal factory into authentic self-expression. The distinction is too easy.
-Years of writing within limits trained her sense of melodic economy, accompaniment,
-vocal range, and narrative address. The office remained present at the piano.
+decisively on _Tapestry_. Describing that move as an escape from an impersonal factory
+misses what King carried with her. Years of writing within limits had trained her sense
+of melodic economy, accompaniment, vocal range, and narrative address. The office
+remained present at the piano.
 
 ## What the shorthand conceals
 
@@ -326,7 +325,7 @@ church, school, neighborhood, and label histories. Black vocal groups supplied t
 voices through which many white songwriting teams entered the national market.
 Musicians and engineers made choices that a piano demo could only propose.
 
-The better image is a short walk across Broadway. A song leaves a cubicle, crosses
-into another office, becomes a demo, reaches a label, changes at a session, and returns
-through radio as a record everyone in the building can hear. Three minutes is the
-length of the object. The work around it occupies the whole block.
+A short walk across Broadway shows the network more clearly. A song leaves a cubicle,
+crosses into another office, becomes a demo, reaches a label, changes at a session,
+and returns through radio as a record everyone in the building can hear. Three minutes
+is the length of the object. The work around it occupies the whole block.

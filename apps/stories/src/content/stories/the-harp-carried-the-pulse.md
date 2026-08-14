@@ -103,8 +103,8 @@ sources:
 
 Before Alice Coltrane recorded a harp, she knew how to make an organ move a room. In
 Detroit she played piano and organ in church, studied the city's modern jazz language,
-and worked in clubs. That background matters because it corrects a persistent mistake:
-hearing her later instruments as containers for atmosphere. The sustained organ chord
+and worked in clubs. Her later instruments were not containers for atmosphere. The
+sustained organ chord
 and the sweeping harp glissando can sound weightless on a casual listen. In her hands,
 both belong to a practice built from touch, repetition, register, and ensemble timing.
 
@@ -205,8 +205,8 @@ developed across labels and changing configurations after 1968.
 In the 1970s, Coltrane's spiritual study led to the founding of the Vedantic Center and
 later Sai Anantam Ashram in California. She became known as Swamini Turiyasangitananda.
 These facts are sometimes used as permission to stop describing the music precisely,
-as though a new name dissolved technique. The opposite approach is more useful: ask
-what music was required to do inside the community.
+as though a new name dissolved technique. Inside the community, music now had specific
+daily musical work to do.
 
 Devotional songs support repeated participation. Text has to be singable by people
 whose function is not that of a studio chorus hired for polish. Harmonium, organ,
@@ -251,34 +251,31 @@ functional recordings in an active community, made during decades when Coltrane'
 public jazz discography had slowed. Their later reissue changed the audience and the
 frame, not the circumstances of their creation.
 
-The cassette table therefore belongs beside harp and organ in this story. Each medium
-sets possibilities and limits. Harp determines attack and decay. Organ determines
+Cassette shaped the work alongside harp and organ. Each medium sets possibilities and
+limits. Harp determines attack and decay. Organ determines
 sustain and registration. Ensemble size determines how musical labor is divided.
 Cassette determines how a performance can be fixed, copied, sequenced, and delivered.
 Coltrane composed through all four levels.
 
 ## Hearing continuity without flattening change
 
-The same care is needed when describing influence. Harp, drone, oud, tamboura, and
-Sanskrit devotional text are sometimes gathered under one loose label, “Eastern,” that
-erases the different histories Coltrane studied and the different functions the sounds
-perform. Naming an instrument does not prove that its tradition has been understood;
-refusing to name it is no improvement. The personnel and instrumentation documented
-for _Journey in Satchidananda_ allow a more responsible account: particular musicians
-bring particular techniques into an ensemble directed by Coltrane.
+Harp, drone, oud, tamboura, and Sanskrit devotional text are sometimes gathered under
+one loose label, “Eastern,” that erases the different histories Coltrane studied and
+the different functions the sounds perform. Naming an instrument does not prove that
+its tradition has been understood; refusing to name it is no improvement. The
+documented personnel of _Journey in Satchidananda_ are more specific: particular
+musicians bring particular techniques into an ensemble directed by Coltrane.
 
-Spiritual commitment likewise should neither excuse weak description nor invite a
-skeptical reduction of belief to style. Coltrane's Vedantic study affected titles,
-texts, daily practice, institutional life, and the people for whom later music was
-made. Those are observable consequences. The critic's job is not to certify a private
-experience of transcendence. It is to describe how belief organized musical choices
-and community work while leaving room for what the evidence cannot settle.
+Spiritual commitment neither excuses vague description nor reduces belief to style.
+Coltrane's Vedantic study affected titles, texts, daily practice, institutional life,
+and the people for whom later music was made. Those consequences are observable.
+Private experiences of transcendence are not; the evidence shows how belief organized
+musical choices and community work.
 
-There is no need to claim that every phase sounds the same. The compact intensity of
-her early trios, the layered orchestral records, and the congregational tapes answer
-different situations. Nor should every musical choice be explained as a coded version
-of one spiritual idea. Her practice changed because her life, collaborators, resources,
-and communities changed.
+The phases do not sound the same. The compact intensity of her early trios, the layered
+orchestral records, and the congregational tapes answer different situations. No
+single spiritual idea explains every musical choice. Her practice changed because her
+life, collaborators, resources, and communities changed.
 
 Continuity lies in method. Coltrane repeatedly builds a stable field—a drone, ostinato,
 chord cycle, repeated text, or sustained registration—and then alters how energy moves
@@ -287,8 +284,8 @@ harmony into rotating pressure. Strings can widen a piano voicing into an enviro
 A congregation can carry a refrain beyond the authority of one soloist. A cassette
 can carry that collective act to someone absent from the room.
 
-This method is more exact than calling the music mystical, and more respectful than
-making John Coltrane the measure of every decision. Alice Coltrane was a bandleader,
+That method says more than calling the music mystical or making John Coltrane the
+measure of every decision. Alice Coltrane was a bandleader,
 composer, arranger, keyboard player, harpist, spiritual teacher, and recording producer.
 Those roles overlapped without becoming interchangeable. Her importance rests in how
 carefully she made them cooperate.

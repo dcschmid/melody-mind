@@ -147,10 +147,11 @@ reveals how quickly the ear invents sources: a transformed sound is interpreted 
 voice, an animal, a motor, then something else.
 
 Her archive at Rensselaer includes scores, recordings, correspondence, teaching
-materials, and records of the organizations she created. That range is significant.
-The work was never only a catalog of pieces. It included building technical resources,
-publishing instructions, organizing workshops, and maintaining conditions in which
-other people could experiment. [4](#source-rpi-archive)
+materials, and records of the organizations she created. The collection shows how
+composition, technical work, teaching, and institutional labor remained connected
+throughout her career: building resources, publishing instructions,
+organizing workshops, and maintaining conditions in which other people could
+experiment. [4](#source-rpi-archive)
 
 ## An accordion inside the circuit
 

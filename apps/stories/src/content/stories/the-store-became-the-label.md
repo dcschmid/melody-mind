@@ -124,8 +124,8 @@ addresses, tapes, magazines, and news about bands that might otherwise remain se
 by distance and cost. A retail counter became the fixed address of an emerging scene.
 [4](#source-ufmg-roots)
 
-That distinction matters. Sepultura's later international career can make its beginning
-look inevitable, as if a successful band simply waited to be discovered. In 1984 there
+Sepultura's later international career can make its beginning look inevitable, as if a
+successful band simply waited to be discovered. In 1984 there
 was no established route from a teenage extreme-metal group in Belo Horizonte to a large
 foreign label. Instruments and imported records were expensive. Specialist coverage was
 scarce. The city's bands had to build a local audience while learning a fast-changing
@@ -160,8 +160,8 @@ in 1985 after a long process of abertura and public pressure. Belo Horizonte's m
 scene grew during that transition, when censorship, economic instability, and a limited
 market for underground music shaped everyday possibilities. The bands did not all write
 direct political programs, and their violent imagery cannot be reduced to one response
-to dictatorship. The material connection is clearer: a generation was organizing
-cultural space while the country's public institutions and freedoms were being
+to dictatorship. A generation was organizing cultural space while the country's public
+institutions and freedoms were being
 renegotiated. [3](#source-minas-scene)
 
 ## Two bands, one piece of vinyl
@@ -219,9 +219,9 @@ face-to-face traffic.
 This did not make the scene equal. Money still determined who could buy equipment, press
 a tape, or travel. The bands were overwhelmingly male, and later retellings often reduce
 the work of women around shops, management, correspondence, and production to supporting
-roles. Pat de Faria's part in Cogumelo is one reminder that the label's infrastructure was
-not created only by the men visible on record sleeves. A useful scene history has to look
-at who maintained the routes as well as who occupied the stage.
+roles. Pat de Faria's part in Cogumelo shows that the label's infrastructure was not
+created only by the men visible on record sleeves. People maintained the routes as well
+as occupying the stage.
 
 Radio added another route. Vladimir Korg's association with the _Metal Massacre_ program
 gave local listeners a voice and a schedule to gather around. A song heard on air could
@@ -272,16 +272,16 @@ Cogumelo kept releasing Brazilian metal, punk, and related music rather than bec
 single-band imprint. Its forty-year catalog records the scale of that continuity.
 [2](#source-cogumelo)
 
-There is a temptation to treat local limitation as a special ingredient that disappears
-once professional resources arrive. Sepultura's later work argues against that simple
-division. The band increased studio control, toured widely, and altered its rhythmic and
+Local limitation was not a special ingredient that disappeared once professional
+resources arrived. Sepultura's later work crossed that division. The band increased
+studio control, toured widely, and altered its rhythmic and
 political language. Max and Iggor Cavalera's playing retained the physical directness of
 the early years while gaining access to different production tools. Andreas Kisser and
 Paulo Jr. helped carry the band through changes that would have ended a less durable
 organization. [1](#source-sepultura-bio)
 
-The scene's importance therefore cannot be measured only by how many bands became large.
-It created local points of action. A listener could find a record. A musician could hear
+The scene created local points of action beyond the bands that became large. A listener
+could find a record. A musician could hear
 a demo, meet another player, or learn where a show was happening. A shop could risk a
 split pressing. A compilation could make several bands visible together. Mail could take
 the object beyond the city.
@@ -294,8 +294,7 @@ copied tapes. Cogumelo mattered because it joined those activities at a stable a
 The counter was where imported influence met local response and where local response
 could become a product with a catalog number.
 
-That is a less dramatic origin story than sudden discovery. It is also closer to the way
-independent culture often moves. The first route out of Belo Horizonte was assembled
+No sudden discovery created that route. The first way out of Belo Horizonte was assembled
 from ordinary transactions: asking for a record, leaving a tape, recognizing repeated
 demand, paying for studio time, dividing an LP, and sending copies farther than the bands
 could travel. By the time Sepultura reached an international audience, the city's scene

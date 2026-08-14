@@ -126,9 +126,8 @@ the number described an intended power class more than an exact modern measureme
 
 The circuit drew heavily on the Fender 5F6-A Bassman, but available British components
 and construction choices changed the result. Different valves, transformers,
-speakers, and a closed-back cabinet mattered. The early Marshall was not created from
-nothing, nor was it a sonically identical copy with a new badge. It was a local
-adaptation of a proven circuit that developed its own response through substitution.
+speakers, and a closed-back cabinet mattered. The early Marshall adapted a proven
+circuit to local parts and developed its own response through those substitutions.
 
 Separating the amplifier head from the speaker cabinet made transport and variation
 possible. The head contained the preamplifier, tone controls, phase inverter, power
@@ -160,11 +159,11 @@ an angled upper cabinet, with the head on top. Terry Marshall’s later account 
 that the split solved transportation while preserving the desired scale.
 [5](#source-stack-interview)
 
-The angled upper cabinet did more than complete the outline. Its upper speakers faced
-slightly upward, helping some high-frequency content reach the player instead of
-passing at leg level. Stacking also raised multiple speakers. The tower’s height made
-the amplifier visible to the audience, but first it changed where sound left the
-stage.
+The angled upper cabinet completed the outline and changed where sound traveled. Its
+upper speakers faced slightly upward, helping some high-frequency content reach the
+player instead of passing at leg level. Stacking also raised multiple speakers. The
+tower’s height made the amplifier visible to the audience while changing where sound
+left the stage.
 
 ## Distortion moves through the circuit
 
@@ -199,11 +198,17 @@ High volume also became expressive material. Sustain lengthened as guitar and
 loudspeaker interacted. Feedback could be controlled by distance and orientation.
 The physical attack of low and mid frequencies made a chord bodily apparent. The
 recent scholarly history of amplification argues that volume became an aesthetic
-value, not merely a requirement for audibility. The 100-watt Marshall was one of the
+value alongside its practical role in audibility. The 100-watt Marshall was one of the
 devices through which that value became repeatable. [4](#source-volume-study)
 
-Repeatable did not mean safe. Sustained exposure at concert levels can damage hearing,
-and the celebrated volume wars placed musicians, crews, and audiences at risk.
+Position became part of playing the rig. A guitarist standing near the cabinet heard a
+different balance from a listener several meters away. Stepping toward a speaker could
+strengthen feedback; turning or moving sideways changed which frequencies returned to
+the pickups. The stack formed a local sound field that the player learned to navigate
+with distance and orientation.
+
+That repeatability carried risk. Sustained exposure at concert levels can damage
+hearing, and the celebrated volume wars placed musicians, crews, and audiences at risk.
 Historical accounts that treat loudness as harmless masculine competition ignore that
 cost. The stack’s influence includes the development of hearing protection, isolation,
 attenuation, improved monitoring, and stage-volume rules intended to control it.
@@ -218,15 +223,15 @@ without turning the stack into an evenly distributed PA.
 Engineers learned to treat one speaker as the recordable source. Moving a microphone
 from the center of its cone toward the edge can reduce brightness; changing distance
 adds room and alters phase relations. The audience may see eight speakers while the
-recording chain uses one close microphone. That mismatch does not make the other
-seven irrelevant. They change what the player feels, what spills into other
+recording chain uses one close microphone. The other seven still change what the
+player feels, what spills into other
 microphones, and how the guitar feeds back onstage.
 
 Early-history accounts also note continual circuit revision. The label “Plexi” groups
 amplifiers whose panels, filtering, transformers, voltages, and component values can
 differ by year. Service history adds more variation. A replacement transformer or
 capacitor may alter behavior while leaving the logo intact. Model names are starting
-points for technical description, not exact sonic fingerprints.
+points for technical description rather than exact sonic fingerprints.
 [6](#source-early-history)
 
 ## Master volume separates gain from output, partly
@@ -269,14 +274,13 @@ seen by the audience.
 The Marshall wall survived because it communicates before a note. Multiple empty
 cabinets can frame a drummer, enlarge a stage, and attach a new tour to rock history.
 Sometimes only one cabinet is connected; sometimes a working rig sits behind the
-decorative line. This is not simply fraud. Stage scenery has always represented scale.
-The error is assuming the photographed quantity of boxes measures the electrical
-system.
+decorative line. Stage scenery has always represented scale. The mistake is to assume
+that the photographed quantity of boxes measures the electrical system.
 
-Conversely, dismissing every wall as fake overlooks productions that use multiple
-heads, wet/dry signal paths, backups, or genuinely loud backlines. Evidence has to be
-specific: cables, microphones, technical documentation, or testimony from the crew.
-The silhouette alone proves only that the silhouette was wanted.
+Some productions use multiple heads, wet/dry signal paths, backups, or genuinely loud
+backlines. Telling those systems from scenery requires specific evidence: cables,
+microphones, technical documentation, or testimony from the crew. The silhouette alone
+proves only that the silhouette was wanted.
 
 The half stack further complicates the icon. One head and one 4×12 preserve the brand,
 speaker area, and raised black rectangle while removing the lower cabinet. For many
@@ -284,16 +288,15 @@ stages it is the practical working form; advertising and audience memory often p
 the two-cabinet full stack as the completed image. Musicians therefore learned to
 choose between acoustic need, transport, and what a genre expected to see.
 
-Transport is not a footnote. Cabinets require castors, ramps, vehicles, storage, and
-people able to lift them safely. A touring stack is a labor arrangement surrounding
-an electrical one. Splitting the original 8×12 solved a problem but did not make two
-4×12 boxes light. Road crews and local stagehands are part of the technology’s
-repeatability, even when equipment histories name only designers and star users.
-The stack sounds different after someone has first managed to place it safely.
+Transport belongs to the stack's history. Cabinets require castors, ramps, vehicles,
+storage, and people able to lift them safely. A touring stack is a labor arrangement
+surrounding an electrical one. Splitting the original 8×12 solved a problem but did not
+make two 4×12 boxes light. Road crews and local stagehands are part of the technology’s
+repeatability, even when equipment histories name only designers and star users. The
+stack sounds different after someone has first managed to place it safely.
 
-The stack changed sound by joining high-powered valves to a raised field of speakers.
-It changed performance by giving feedback and sustain architectural dimensions. It
-changed stage pictures by making amplification look like a building. Later technology
-could replace each acoustic function separately, but no substitute made the original
-tower less legible. That is why the Marshall stack can be absent from the signal chain
-and still present in the show.
+High-powered valves and a raised field of speakers changed the sound. Feedback and
+sustain gained architectural dimensions, while amplification began to look like a
+building onstage. Later technology could replace each acoustic function separately,
+but the original tower remained instantly legible. A Marshall stack can now be absent
+from the signal chain and still present in the show.

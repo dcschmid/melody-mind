@@ -109,11 +109,10 @@ of jazz without imitating a brass orchestra. Its economy was the invention.
 [1](#source-philharmonie-exhibition)
 
 Reinhardt is often introduced through virtuosity and injury: a player with two damaged
-fingers who achieved the impossible. That outline is true but insufficient. It makes
-the hand an obstacle in a triumph story and leaves out the working environments that
-formed the music—Romani family life, Paris dance halls, musette accompaniment,
-recording sessions, and a network of musicians and enthusiasts who helped the
-Quintette exist.
+fingers who achieved the impossible. That shorthand turns his hand into an obstacle
+in a triumph story. It leaves out the working environments that formed the music:
+Romani family life, Paris dance halls, musette accompaniment, recording sessions, and
+the musicians and enthusiasts who helped the Quintette exist.
 
 ## Rhythm before the solo
 
@@ -222,10 +221,10 @@ For a Romani musician, that period carried extreme danger: Nazi racial policy
 persecuted Roma across occupied Europe. Reinhardt’s survival has generated stories of
 escapes, protection, and official admiration, not all equally documented.
 
-A responsible account leaves uncertainty visible. He recorded and performed in
-occupied Paris; he also belonged to a people targeted for deportation and murder.
-Success did not make the political conditions benign. Nor can the elegance of a
-wartime composition stand in for a complete statement about the occupation.
+The documented facts leave part of the story unresolved. Reinhardt recorded and
+performed in occupied Paris; he also belonged to a people targeted for deportation and
+murder. Success did not make the political conditions benign, and the elegance of a
+wartime composition cannot explain how he survived them.
 
 The music changed. Reinhardt worked with a new quintet that included clarinet rather
 than violin and wrote material that moved beyond the prewar string-band formula. The
@@ -309,6 +308,6 @@ and the rhythm guitarists’ exacting pulse made Reinhardt’s freedom possible.
 Quintette was designed so that nothing disappeared into orchestral mass. Every player
 had to maintain the mechanism.
 
-The enduring lesson is therefore smaller and more practical than genius mythology.
-Five string players found a way to make jazz move without a drummer. Reinhardt stood
-at the front, but the whole machine is present in every beat beneath him.
+Five string players in 1930s Paris found a way to make jazz move without a drummer. Reinhardt stood
+at the front, but Grappelli, Vola, and the rhythm guitarists are present in every beat
+beneath him.

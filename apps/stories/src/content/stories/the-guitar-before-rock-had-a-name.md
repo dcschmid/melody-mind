@@ -124,8 +124,8 @@ her mother. When they moved to Chicago, church meetings and touring programs bec
 school. The guitar was not an accessory to a singer. It was one of the means by which a
 room was organized: setting tempo, lifting a response, and making a voice carry.
 
-That background matters because later accounts often treat sacred and secular music as
-two fixed territories that Tharpe crossed. Her practice was less tidy. Gospel
+Later accounts often treat sacred and secular music as two fixed territories that
+Tharpe crossed. Her practice was less tidy. Gospel
 performers worked theaters and churches, recorded for commercial labels, listened to
 popular styles, and adjusted arrangements for different audiences. The tension was
 real, especially when nightclub billing and suggestive material troubled church
@@ -176,8 +176,8 @@ or a run that compresses the harmony into a quick gesture. Voice and guitar soun
 conversational because they do not duplicate each other. One states the line; the other
 comments on its rhythm.
 
-That division of labor helps explain why later guitarists could take so much from her
-records. The playing offers portable units: the bent arrival note, the repeated
+The division between voice and guitar produced portable units that later players could
+reuse: the bent arrival note, the repeated
 boogie-like figure, the chord struck as a backbeat, the pause that makes a return feel
 larger. Those units work in gospel, rhythm and blues, country, and the developing
 language of rock and roll. Influence here does not require a simple family tree. It can
@@ -188,9 +188,9 @@ The Rock & Roll Hall of Fame's induction material calls attention to that guitar
 authority, but the archive also shows why retrospective praise needs care. Calling
 Tharpe a precursor can reduce her to an opening act for men who became more famous.
 She was already a headliner with a long professional network, commercial records, and
-audiences of her own. The historical question goes beyond who copied a lick. It asks why
-the category of rock later made her work seem peripheral when so much of its technique
-was audible in her hands. [3](#source-rock-hall)
+audiences of her own. Who copied a lick is only part of the question. The category of
+rock later made her work seem peripheral even though so much of its technique was
+audible in her hands. [3](#source-rock-hall)
 
 ## Sacred work in commercial rooms
 
@@ -241,7 +241,7 @@ a rock-and-roll genealogy. Decca 48009 placed it beside another Tharpe performan
 asked a listener to turn the disc over. Sequence was physical before it became an
 editorial menu.
 
-That physical scale helps explain the economy of the guitar part. Tharpe does not wait
+The ten-inch side rewards economy. Tharpe does not wait
 for an extended solo to establish authority. The opening attack, the weight of the
 chords, and the replies around the voice make the player identifiable quickly. The
 record preserves a complete arrangement rather than a demonstration reel for a future
@@ -258,17 +258,17 @@ depended on stamina as much as inspiration.
 
 The scale could be spectacular. In 1951, Tharpe staged her wedding to Russell Morrison
 as a public concert at Griffith Stadium in Washington, D.C. The event joined private
-ceremony, religious performance, publicity, and ticketed entertainment. It is tempting
-to read it as a modern celebrity stunt dropped into the wrong decade. More usefully,
-it shows a performer taking control of promotion in a business that often packaged her
-from outside. The marriage did not provide a neat romantic ending, and the concert
-should not be used to turn a complicated working life into folklore.
+ceremony, religious performance, publicity, and ticketed entertainment. Rather than a
+modern celebrity stunt dropped into the wrong decade, it shows a performer taking
+control of promotion in a business that often packaged her from outside. The marriage
+did not provide a neat romantic ending; the concert remained part of a complicated
+working life.
 [4](#source-grammy-career)
 
 Her American prominence declined during the 1950s as the gospel market changed and
-rock and roll developed its own younger public image. That shift demonstrates how
-genres distribute credit. A sound may continue while the industry changes the face,
-age, and setting attached to it. Tharpe kept performing. European tours offered a new
+rock and roll developed its own younger public image. Genres redistributed credit even
+as the sound continued. The industry changed the face, age, and setting attached to
+it. Tharpe kept performing. European tours offered a new
 audience and eventually produced the film clip through which many present-day
 listeners first encounter her.
 

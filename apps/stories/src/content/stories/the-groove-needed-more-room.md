@@ -118,13 +118,13 @@ with stronger low-frequency presence, and it gave the extended music somewhere t
 Rodriguez's explanation made level a production choice rather than a mastering
 afterthought. Moulton could alter the arrangement with the club in mind, then hear a
 cut whose geometry favored that use. The format did not merely accommodate a longer
-tape; it let mix length, cutting level, and DJ handling be decided together. That
-connection helps explain why the 12-inch became a professional working format before
-it became a familiar retail category. [2](#source-red-bull-moulton)
+tape; it let mix length, cutting level, and DJ handling be decided together. The
+12-inch became a professional working format before it became a familiar retail
+category. [2](#source-red-bull-moulton)
 [3](#source-ars-technica)
 
 This episode from the early 1970s is routinely told as the birth of the 12-inch single.
-It deserves a less magical conclusion. Neither a spare blank nor one engineer's cut
+The standard version is too magical. Neither a spare blank nor one engineer's cut
 created the format alone. The record emerged from a chain of people solving different
 problems: DJs trying to keep dancers moving, mixers extending the useful sections of
 songs, engineers turning those mixes into playable lacquers, labels circulating small
@@ -151,8 +151,8 @@ instrumental openings, postponed vocals, repeated sections, and clarified transi
 [2](#source-red-bull-moulton) The aim was not duration for its own sake. Extra minutes
 gave dancers and DJs a more legible arrangement.
 
-That distinction separates an extended mix from a song played twice. A good long
-version redistributes information. Percussion may appear alone so the incoming pulse is
+An extended mix does more than play a song twice. A good long version redistributes
+information. Percussion may appear alone so the incoming pulse is
 easy to align. A bass line can establish the tonal center before the verse. Elements
 drop away to reduce pressure, then return with enough force to renew the room. The mix
 becomes an itinerary through intensity.
@@ -189,7 +189,7 @@ low frequencies demand physical room. If adjacent turns of the spiral are too cl
 they risk interfering with one another. The engineer must balance playing time, level,
 bass, dynamic range, and the safe distance between grooves. [3](#source-ars-technica)
 
-This is why diameter alone does not guarantee a spectacular record. A 12-inch disc can
+Diameter alone does not guarantee a spectacular record. A 12-inch disc can
 hold an album side cut quietly, or a single song cut across a broad area. Speed matters
 too. At 45 rpm, more groove passes the stylus each second than at 33⅓ rpm, improving the
 conditions under which high-frequency detail can be represented. The format's advantage
@@ -208,8 +208,8 @@ physical authority while raising the record above room noise.
 ## Lacquer before vinyl
 
 The word “acetate” remains common DJ vocabulary, though professional instantaneous
-discs are typically lacquer-coated metal rather than solid acetate. The distinction
-matters because these are temporary working objects. A cutting lathe inscribes the
+discs are typically lacquer-coated metal rather than solid acetate. These are temporary
+working objects. A cutting lathe inscribes the
 modulated groove directly. The disc can be played at once, but each pass wears it. It
 is suitable for checking, demonstrating, and testing, not for supplying thousands of
 listeners.
@@ -269,9 +269,10 @@ professional network. Commercial releases belong to a public format that buyers 
 recognize. None erases the earlier stage. The 12-inch single matured through repeated
 use, not a patent-like moment.
 
-That is also why the format survived disco's commercial backlash. The particular
-mainstream fashion could contract while the underlying tool remained useful to funk,
-post-disco, hip-hop, house, techno, reggae, synth-pop, and other club musics. Producers
+The format survived disco's commercial backlash because the underlying tool remained
+useful to funk, post-disco, hip-hop, house, techno, reggae, synth-pop, and other club
+musics. Its mainstream market contracted, but longer arrangements and generous cutting
+space remained useful. Producers
 continued to need longer arrangements, engineers continued to value generous cutting
 space, and DJs continued to need records designed for transitions.
 

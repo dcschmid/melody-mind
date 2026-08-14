@@ -103,7 +103,7 @@ sources:
 
 The Sisters of Mercy solved a missing-person problem by inventing a person who was a machine. Every drum device the band used became Doktor Avalanche. The hardware could be replaced; the name stayed on the personnel list. It was a dry joke, but it also described the band’s working method more accurately than treating a drum machine as cheap studio equipment. Doktor Avalanche supplied time, force, limitations, and a public character against which the human players defined themselves. The official band history still calls the Sisters a “rock’n’roll band,” a “pop band,” and an “industrial groove machine”—terms held together by that programmed center. [1](#source-sisters-official)
 
-This is not a story about technology making musicians unnecessary. Andrew Eldritch, Gary Marx, Craig Adams, Ben Gunn, and the guitarists and programmers who followed had to write for a pulse that did not listen back. They had to decide how much repetition a song could bear, where a fill belonged, which instrument would provide motion, and how a performance could remain physical when its drummer had no arms. Those decisions made early Sisters records sound less like demonstrations of a gadget than complete arguments about a band.
+Technology did not make musicians unnecessary. Andrew Eldritch, Gary Marx, Craig Adams, Ben Gunn, and the guitarists and programmers who followed had to write for a pulse that did not listen back. They had to decide how much repetition a song could bear, where a fill belonged, which instrument would provide motion, and how a performance could remain physical when its drummer had no arms. Those decisions made early Sisters records sound less like demonstrations of a gadget than complete arguments about a band.
 
 ## Naming the constraint
 
@@ -119,7 +119,7 @@ The Sisters leaned into the second possibility. The beat did not swing around th
 
 Craig Adams’s bass was crucial to making mechanical rhythm feel bodily. In many rock arrangements, bass reinforces a drummer’s kick while guitars carry the recognizable harmonic information. The Sisters could reverse that hierarchy. The bass might become the song’s weight and memorable movement, while guitars supplied attack, texture, and narrow repeated figures.
 
-This distribution suited early machines. A synthetic kick could be clear without occupying the full low-frequency space of a recorded acoustic kit. Bass could fill that space with sustained or repeated notes. Because Doktor Avalanche did not vary unconsciously, Adams could choose when to lock tightly and when to make a line press against the pattern. The result was danceable without borrowing disco’s polish and heavy without depending on metal’s drum spectacle.
+This distribution suited early machines. A synthetic kick could be clear without occupying the full low-frequency space of a recorded acoustic kit. Bass could fill that space with sustained or repeated notes. Because Doktor Avalanche did not vary unconsciously, Adams could choose when to lock tightly and when to make a line press against the pattern. The arrangement stayed danceable without borrowing disco’s polish and heavy without depending on metal’s drum spectacle.
 
 Listen to the early singles as arrangements rather than as a sequence leading inevitably to _First and Last and Always_. “Alice,” “Temple of Love,” and “Body Electric” establish identity through recurrence. Guitar parts arrive as shapes: a clipped figure, a bright line under distortion, a chord held long enough to become atmosphere. The voice does not float above the pulse; Eldritch stretches consonants and vowels across an exact bar, making restraint sound commanding.
 
@@ -129,7 +129,7 @@ This economy is easy to imitate superficially. Set a machine to a blunt pattern,
 
 A drum machine’s output is only a starting signal. Producer John Ashton recalled that during the “Alice” sessions the group used a newly acquired Roland TR-808 in place of an earlier TR-606. Ashton ran the machine through a public-address system, recorded that amplified sound with microphones, and blended it with the direct signal. The process gave the rhythm additional size and room. [3](#source-quietus-ashton)
 
-That detail corrects a common misunderstanding of electronic rhythm. “Programmed” does not mean untouched. A dry electrical output can be equalized, compressed, distorted, delayed, sent through speakers, captured by microphones, and combined with room sound. Each stage changes the apparent distance and weight of the beat. The programmed events remain exact, but their acoustic body can be designed.
+“Programmed” did not mean untouched. A dry electrical output could be equalized, compressed, distorted, delayed, sent through speakers, captured by microphones, and combined with room sound. The PA and microphones added distortion, air, and distance before the direct and room signals met in the mix. Each stage changed the apparent distance and weight of the beat. The programmed events remained exact, but their acoustic body could be designed.
 
 The 808 did not simply replace the 606 with a universally “better” machine. It offered another palette and another relationship among sounds. Changing hardware required patterns to be entered, balances reconsidered, and songs tested through whatever amplification a studio or venue supplied. The Doktor name concealed these substitutions just enough to preserve the artistic premise: one relentless member, repeatedly rebuilt.
 
@@ -153,7 +153,7 @@ That feedback loop favored singles. A seven-inch could test a recording method, 
 
 ## A category the band did not need
 
-The Sisters became central to goth’s musical vocabulary, yet Eldritch has consistently resisted the label. That resistance should not be smoothed away. Genre names serve audiences, journalists, shops, clubs, and later historians; they do not require an artist’s consent to describe a real pattern of reception. At the same time, accepting “goth” as the band’s intention can flatten the rock, pop, psychedelic, electronic, and hard-rock sources audible in the work.
+The Sisters became central to goth’s musical vocabulary, yet Eldritch has consistently resisted the label. Genre names serve audiences, journalists, shops, clubs, and later historians; they do not require an artist’s consent to describe a real pattern of reception. At the same time, accepting “goth” as the band’s intention can flatten the rock, pop, psychedelic, electronic, and hard-rock sources audible in the work.
 
 Doktor Avalanche helps preserve the contradiction. The machine connected the Sisters to post-punk and electronic dance practice, but the arrangements often pursued the scale and force of rock. Their covers—songs associated with the Rolling Stones, Hot Chocolate, the Velvet Underground, and ABBA among them—show a repertoire broader and funnier than a sealed genre identity. The programmed drummer could process those sources without making them identical.
 
@@ -161,7 +161,7 @@ By the time the band made _First and Last and Always_ and later major-label reco
 
 ## The member that could be rebuilt
 
-Treating the machine as a member clarifies what the Sisters contributed. They did not discover that an electronic box could keep time. Musicians in disco, synth-pop, post-punk, hip-hop, and experimental music had already made drum machines central for different reasons. The Sisters demonstrated one especially forceful band arrangement: programmed drums as a rigid floor for bass-led weight, separated guitar functions, and a voice that used measured space.
+The named machine gave the Sisters' contribution a visible place in the lineup. They did not discover that an electronic box could keep time. Musicians in disco, synth-pop, post-punk, hip-hop, and experimental music had already made drum machines central for different reasons. The Sisters demonstrated one especially forceful band arrangement: programmed drums as a rigid floor for bass-led weight, separated guitar functions, and a voice that used measured space.
 
 The name Doktor Avalanche kept that arrangement visible. It acknowledged continuity without pretending that the hardware never changed. It made technical labor part of the band’s humor and image. Most importantly, it told players and listeners where to locate agency. The machine did exactly what it was told, but choosing what to tell it—and building every other part around that command—was the music.
 

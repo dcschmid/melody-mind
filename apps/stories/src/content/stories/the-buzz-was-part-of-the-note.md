@@ -113,8 +113,8 @@ hosho rattles holding a pulse, and voices entering the cycle. The sound is no lo
 line of tuned notes. It is a field of attacks, echoes, buzz, and repeated figures whose
 relationships keep changing.
 
-This story concerns **mbira dza vadzimu**, an instrument associated especially with Zezuru
-Shona musical practice in Zimbabwe. “Mbira” also names a much broader family. Museums and
+The instrument here is **mbira dza vadzimu**, associated especially with Zezuru Shona
+musical practice in Zimbabwe. “Mbira” also names a much broader family. Museums and
 older scholarship have sometimes grouped distinct African lamellophones under labels such
 as mbira or sanza, obscuring differences in construction and use. Even within Zimbabwe,
 key layouts, names, repertoires, and tunings are not interchangeable. Starting with the
@@ -161,8 +161,8 @@ record notes both hollow-gourd resonance and the addition of jingling objects; t
 Grinnell mbira documents bottle-cap buzzers on a specific mbira dza vadzimu setup.
 [2](#source-grinnell-mbira) [6](#source-met-lamellophone)
 
-The effect makes a useful comparison with Balinese paired tuning. In [gong kebyar, the
-shimmer comes from deliberate pitch differences](/the-orchestra-was-tuned-in-pairs/).
+Balinese paired tuning creates motion by another route. In [gong kebyar, the shimmer
+comes from deliberate pitch differences](/the-orchestra-was-tuned-in-pairs/).
 Here, loose materials place motion around the note after it is plucked. Neither sound is a
 failure to reach laboratory purity. Each is an acoustic decision that lets vibration be
 heard as activity.
@@ -183,8 +183,8 @@ cycle's identity. Singing adds another route through the same time. Short phrase
 sustained lines, ululation, and nonlexical syllables need not duplicate what the keys are
 doing. [1](#source-unesco-mbira) [5](#source-williams-forward-kwenda)
 
-This layered hearing helps explain why staff notation gives only a partial picture. It can
-record selected pitches and durations, but a transcription must decide which perceived
+Staff notation can capture only part of this layered sound. It can record selected
+pitches and durations, but a transcription must decide which perceived
 line to privilege. The hands, key layout, buzz, and cycle are not supporting details. They
 are part of how the music becomes intelligible.
 
@@ -228,10 +228,10 @@ making. The designation is useful evidence of continuity, though it covers multi
 communities and instruments rather than defining every Shona practice in one paragraph.
 [1](#source-unesco-mbira)
 
-The distinction matters because the instrument travels easily as an image. A wooden board
-and metal tongues can be displayed in a case. The relationships among maker, tuning,
-repertoire, co-player, dancer, family, and ceremony cannot. A responsible account keeps
-the portable object connected to the knowledge that makes it speak.
+The instrument travels more easily than its relationships. A wooden board and metal
+tongues can be displayed in a case. The knowledge shared among maker, player, co-player,
+dancer, family, and ceremony cannot. Tuning and repertoire connect the portable object to
+the people who make it speak.
 
 ## Learning begins before explanation
 
@@ -272,8 +272,8 @@ drums can reinforce selected points while voices cross the pattern. The timbre c
 but the idea of independent lines making a larger cycle remains audible. That is close to
 the principle explored in [Fela Kuti's ensemble, where arrangement lived in the relation
 among repeating parts](/the-band-was-the-arrangement/). The histories and rhythmic
-languages are different. The useful comparison is the arranging mechanism, not a claim
-that one tradition explains the other.
+languages are different. They share an arranging mechanism; neither tradition explains
+the other.
 
 Amplification also changes balance. A quiet interlocking key can become a foreground
 guitar line, while drum kit and electric bass define weight unavailable to an acoustic

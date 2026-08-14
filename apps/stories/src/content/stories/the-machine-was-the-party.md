@@ -106,8 +106,8 @@ promoters, vendors, dancers, and musicians. Research on picó culture treats tho
 relations as part of the technology rather than scenery around it.
 [1](#source-mincultura-picos)
 
-That distinction matters to the history of champeta. The music did not simply become
-popular and then find large speakers waiting for it. Picós helped determine which
+Champeta did not simply become popular and then find large speakers waiting for it.
+Picós helped determine which
 records people encountered, which passages became local favorites, how tracks were
 renamed and remembered, and where local recordings could prove themselves. The
 machine was not placed at the party. In practical terms, the machine organized it.
@@ -120,8 +120,8 @@ identity. Names such as Huracán, Rumbero Mayor, and King Night turn separate ha
 into a continuing protagonist. A promoter can announce the machine as an attraction;
 an audience can compare its power, selections, and operator with a rival.
 
-Painting is therefore not a decorative finish applied after the technical work. It is
-part of how a system circulates. The front panel must be legible across a crowd and in
+Painting belongs to the system's public life. The front panel must be legible across a
+crowd and in
 the imperfect light of a verbena. Repeated colors and motifs bind replacement cabinets
 to the same identity. A memorable image lets a machine persist while drivers, amps,
 and cables are repaired or exchanged. Universidad de los Andes' account of picotero
@@ -130,8 +130,8 @@ painting describes artisans who specialize in giving these boxes their visual fo
 
 The face also insists that imported equipment has been remade locally. Drivers and
 amplifiers may have international manufacturing histories, but cabinet dimensions,
-paint, wiring, transport, and maintenance answer to coastal working conditions. The
-result is not a passive endpoint for consumer electronics. It is a workshop culture.
+paint, wiring, transport, and maintenance answer to coastal working conditions. A
+workshop culture remakes consumer electronics for local use.
 Photographs of small units offered for sale in Barranquilla make the economy visible:
 builders do not merely service established giants; they produce new points of entry.
 
@@ -173,8 +173,8 @@ rhythmic details invite a collective response. That feedback becomes knowledge h
 the operator and the picó's regular public. The next sequence is programmed with a
 memory of previous nights.
 
-This makes the venue portable without making it placeless. A machine can move, yet its
-reputation attaches to particular neighborhoods and routes. Transport, setup, power,
+Portability did not erase place. A machine could move, yet its reputation attached to
+particular neighborhoods and routes. Transport, setup, power,
 weather, police restrictions, admission, and local agreements all affect whether the
 event can happen. The picó is mobile infrastructure, not frictionless media. Every
 appearance requires labor before the first record and after the crowd leaves.
@@ -199,14 +199,13 @@ public formation, not as loud afterthoughts to a finished genre.
 
 Production for this environment changes the meaning of a mix. The low end has to carry
 across open space. A refrain has to remain identifiable through crowd noise. A break
-can be valued because an operator knows how dancers will meet it. None of this reduces
-champeta to a speaker test. It shows how musical form and playback conditions learn
-from one another.
+can be valued because an operator knows how dancers will meet it. Champeta was more
+than a speaker test; musical form and playback conditions learned from one another.
 
 ## A small company in public
 
-Calling the picó a business does not make it less communal. It makes the material
-conditions harder to ignore. Someone purchases records and components. Someone pays
+The picó is both a business and communal infrastructure. Its material conditions are
+plain: someone purchases records and components. Someone pays
 for fuel, transport, storage, repairs, painting, promotion, and labor. Events generate
 fees and sales. Reputation affects bookings. Exclusive music can protect an advantage,
 while a failed component can cancel the night's income.
@@ -218,8 +217,8 @@ economy around the gathering. Musicians hear their work become social fact. The 
 coordinates these contributions without turning them into a single harmonious unit;
 competition, unequal access, noise disputes, and regulation remain part of the story.
 
-That mixed status explains why the machine cannot be understood from a component list.
-Two systems with similar drivers can occupy different positions because their names,
+No component list can capture that mixed status. Two systems with similar drivers can
+occupy different positions because their names,
 collections, operators, and histories differ. Conversely, the same named picó can
 survive extensive technical change. Its continuity lies in the relationship between
 sound, image, ownership, and public recognition.

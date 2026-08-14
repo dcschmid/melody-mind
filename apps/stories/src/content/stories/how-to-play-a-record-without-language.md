@@ -248,9 +248,9 @@ capable finder could compare the engraved values with observed values to estimat
 long ago the record was made. The same information helps locate the solar system
 through the relative positions of multiple pulsars.
 
-Redundancy again carries the argument. One pulsar could be ambiguous or unavailable;
-fourteen create a pattern. The cover treats location as a relationship among clocks,
-not as a human name for a star.
+Fourteen pulsars give a finder several points of comparison. One could be ambiguous
+or unavailable; together they create a pattern. The cover treats location as a
+relationship among clocks, not as a human name for a star.
 
 ## A second clock made of decay
 
@@ -264,8 +264,8 @@ primarily pictorial. It checks the pulsar-based epoch through a different physic
 process. The design does not assume one elegant diagram will be understood perfectly.
 It supplies independent evidence where weight and space permit.
 
-The packaging follows a scientific method: make a claim, offer more than one way to
-test it, and accept that future conditions may damage part of the apparatus.
+The pulsar map and uranium clock give a finder independent ways to estimate age. If
+one source of evidence has degraded, the other may still be usable.
 
 ## The content committee
 
@@ -353,10 +353,9 @@ not allow a usability test. Engineers and scholars on Earth can interpret the di
 because they share scientific traditions with the designers. An unknown reader might
 not divide the image, identify the stylus, or privilege hydrogen in the same way.
 
-The design remains valuable because it externalizes a reasoning chain. It does not
-write “play this at 16⅔ rpm” in English and call the task complete. It defines time,
-shows movement, explains signal reconstruction, supplies checks, maps an origin, and
-dates departure.
+The engraving makes its reasoning visible. It does not write “play this at 16⅔ rpm”
+in English and call the task complete. It defines time, shows movement, explains
+signal reconstruction, supplies checks, maps an origin, and dates departure.
 
 There is also no “correct” orientation marked by a familiar top edge. A finder has to
 establish relationships among the panels and the circular object. On Earth, museum

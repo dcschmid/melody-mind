@@ -198,7 +198,7 @@ clarity can be set against an arrangement that refuses emotional neutrality. Tom
 angles differ from Veloso's, while both remain inside the same sequence. Duprat's writing
 helps the LP turn those differences into continuity without hiding them.
 
-This is where the misspelled Latin of the title—bread and circuses—fits. The album does
+The misspelled Latin of the title—bread and circuses—embodies that instability. The album does
 not stand outside mass entertainment to issue a clean denunciation. It uses the record
 industry's own object, television's visibility, pop's immediacy, and the staged group
 portrait while making consumption feel unstable. The package can be funny, attractive,
@@ -216,8 +216,8 @@ samba, the architecture of the hillside, unfinished structures, and a Brazilian 
 to internationally circulating Pop and Op art. He also objects to the term becoming a
 fashion commodity. [3](#source-icaa-oiticica)
 
-That objection is useful because it prevents the movement from becoming a list of bright
-colors, tropical signs, and famous musicians. Oiticica did not provide a branding kit.
+Oiticica's objection keeps Tropicália from becoming a list of bright colors, tropical
+signs, and famous musicians. He did not provide a branding kit.
 The musicians did not merely translate his installation into sound. The shared term
 marks contact among practices that retained their differences: participatory visual art,
 theater, cinema, poetry, clothing, television, and recorded song.
@@ -266,8 +266,8 @@ as a substitute for history. [7](#source-dictatorship-memory)
 In December 1968, the regime issued Institutional Act Number Five, intensifying
 repression. Veloso and Gil were arrested later that month, detained, and eventually sent
 into exile. EBC's chronology marks their arrests and 1969 departure as an end to the
-movement's concentrated public phase. [1](#source-ebc-tropicalia) This ending should not
-be made neat. State violence did not prove that every musical gesture had encoded the
+movement's concentrated public phase. [1](#source-ebc-tropicalia) State violence did
+not create a neat ending or prove that every musical gesture had encoded the
 same political message. It changed where these artists could live and work, broke a
 network's immediate proximity, and made further collaboration occur under different
 conditions.
@@ -279,8 +279,8 @@ brief without its methods becoming a period costume.
 
 ## Hear what refuses to blend
 
-The easiest way to domesticate Tropicália is to praise it for combining genres. A better
-listening exercise is to identify what remains incompatible. Follow one arrangement and
+Generic praise for “combining genres” domesticates Tropicália. Listen instead for what
+remains incompatible. Follow one arrangement and
 ask when the orchestra supports the singer, when it comments, and when it seems to come
 from another cultural object entirely. Notice whether an electric guitar supplies force,
 parody, texture, or all three. Listen for a regional rhythm that is not placed behind the
@@ -292,7 +292,7 @@ traditional and avant-garde compositional tools in his arrangements. [8](#source
 The surprise is not random. Different materials are assigned exact moments, registers,
 and weights. Collision requires craft.
 
-The same principle applies to the movement's public image. Television was commercial and
+The movement's public image carried the same contradictions. Television was commercial and
 politically constrained, yet it made a new musical dispute nationally visible. A record
 was a commodity, yet the collective LP used commodity form to question how Brazilian
 culture was packaged. Imported pop could carry cultural power, yet musicians could use
@@ -302,5 +302,5 @@ Tropicália.
 The record held the contradiction because the people making it did not rush to settle
 what Brazil should sound like. They arranged the disagreement. Brass, strings, electric
 instruments, percussion, poetry, studio effects, regional memory, and television address
-one another without agreeing to share a single origin. The result is not a smooth mixture.
-It is a structure strong enough to let unlike things remain audible together.
+one another without agreeing to share a single origin. Unlike things remain audible
+together because the structure never smooths them into one mixture.

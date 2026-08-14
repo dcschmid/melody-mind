@@ -117,13 +117,13 @@ relationship. With two copies of one record, a mixer, headphones, and practiced 
 DJ could keep a few seconds of percussion in the room long after the band on the record
 had moved on. Playback became an act of live arrangement.
 
-That change did not come from one machine or one isolated inventor. Hip-hop formed through
-Black and Latino communities in the Bronx, with Caribbean experience among its important
-currents. DJs, MCs, dancers, sound-system builders, record collectors, and party audiences
-developed the form together. Individual techniques still matter. Looking closely at Kool
-Herc, Grandmaster Flash, and Grand Wizzard Theodore shows how several practical problems—
-finding a break, repeating it, cueing it, and touching the record—turned consumer playback
-equipment into an instrument. [1](#source-cornell-hip-hop-collection)
+Hip-hop formed through Black and Latino communities in the Bronx, with Caribbean
+experience among its important currents. DJs, MCs, dancers, sound-system builders,
+record collectors, and party audiences developed the form together. Within that shared
+history, Kool Herc, Grandmaster Flash, and Grand Wizzard Theodore addressed several
+practical problems—finding a break, repeating it, cueing it, and touching the record—
+that turned consumer playback equipment into an instrument.
+[1](#source-cornell-hip-hop-collection)
 [4](#source-nmah-sazon)
 
 ## The break belonged to the floor
@@ -135,9 +135,9 @@ parties, including the August 11, 1973 party at 1520 Sedgwick Avenue often used 
 landmark in accounts of hip-hop's history. Cornell's Hip Hop Collection describes Herc
 linking percussive passages into a continuing sequence of breakbeats. [1](#source-cornell-hip-hop-collection)
 
-The familiar anniversary is useful, but it should not turn a collective history into a
-single flash of invention. The Smithsonian's account of sazón in hip-hop places African
-American, Caribbean, and Latino experience together in the Bronx. It also follows DJ
+The familiar anniversary marks one event within a collective history. The Smithsonian's
+account of sazón in hip-hop places African American, Caribbean, and Latino experience
+together in the Bronx. It also follows DJ
 Charlie Chase, whose knowledge of salsa and percussion complicated ideas about which
 records or identities belonged inside the new culture. The party was a laboratory because
 its people brought different records, movement, technologies, and expectations into the
@@ -156,26 +156,26 @@ tempo and character could do in a room. The source might not have been marketed 
 music. A short section inside funk, soul, rock, Latin music, or another recording could
 become valuable because the DJ heard a function that the album sleeve did not advertise.
 
-This made collecting a form of preparation. Labels, grooves, remembered timings, and
+Collecting became a form of preparation. Labels, grooves, remembered timings, and
 private knowledge helped a DJ move through a physical library quickly. Two copies cost
 money and occupied space. Wear mattered because the same few rotations were handled
 repeatedly. The break was therefore both sound and location: a known place on a particular
 pressing that hands had to reach under pressure.
 
-Selection also carried authorship without erasing the musicians on the record. The DJ did
-not compose the original drum performance, but changed its scale and setting by choosing
-it, placing it beside other records, and allowing dancers to inhabit it for longer.
+Selection added another layer of authorship to the musicians' recorded performance. The
+DJ changed its scale and setting by choosing it, placing it beside other records, and
+allowing dancers to inhabit it for longer.
 Cornell's archive preserves records alongside flyers, photographs, and live documentation,
 evidence that hip-hop history lives in relationships among media rather than in a list of
 isolated tracks. [1](#source-cornell-hip-hop-collection)
 
 ## A second copy solved the timing problem
 
-Imagine two identical records. Break A plays on the left turntable. While the room hears
-it, the DJ finds the beginning of the same passage on the right. At the correct instant,
-the mixer sends the right record to the speakers. The DJ can then return the left record
-to its starting point. Repeating the handoff makes one short passage function as an open
-form.
+Two identical records sit on separate turntables. Break A plays on the left. While the
+room hears it, the DJ finds the beginning of the same passage on the right. At the
+correct instant, the mixer sends the right record to the speakers. The DJ can then
+return the left record to its starting point. Repeating the handoff makes one short
+passage function as an open form.
 
 This is not a loop in the later digital sense. Nothing repeats automatically, and the
 source remains physically finite. Every cycle depends on the DJ knowing the break's
@@ -191,8 +191,8 @@ the record's rotation as a measure and marking the vinyl so the target area coul
 again. Trial, observation, and equipment testing turned an exciting effect into a method
 that could be taught and performed. [6](#source-fresh-air-flash)
 
-The second copy did more than lengthen music. It broke a recorded arrangement into usable
-material. A drummer's fill, a horn stab near the break, or the first beat after it could
+The second copy broke a recorded arrangement into usable material while lengthening it.
+A drummer's fill, a horn stab near the break, or the first beat after it could
 be selected, reordered, or excluded. As with the extended dance mixes in [the story of
 the 12-inch single](/the-groove-needed-more-room/), the floor altered musical form. The
 difference was that the DJ now performed the extension live from already pressed records.
@@ -202,12 +202,12 @@ difference was that the DJ now performed the extension live from already pressed
 The audience must hear continuity while the DJ hears preparation. Headphone cueing creates
 those two simultaneous rooms. One mixer channel feeds the speakers. Another can be
 previewed privately, allowing the DJ to locate the break, place the stylus, and check the
-starting point before opening the channel. The mixer is not merely a volume box between
-turntables. It is the boundary between rehearsal and public sound.
+starting point before opening the channel. The mixer forms the boundary between rehearsal
+and public sound.
 
-Flash's account makes clear that early available equipment did not simply arrive as a
-finished hip-hop instrument. He experimented with cartridges, needles, turntables, mixer
-functions, and a way to hear the silent deck in advance. The Smithsonian Lemelson Center
+Flash turned the available equipment into a hip-hop instrument through experiments with
+cartridges, needles, turntables, mixer functions, and a way to hear the silent deck in
+advance. The Smithsonian Lemelson Center
 frames this work as African American innovation: existing technology was tested,
 recombined, and made to serve needs its manufacturers had not centered.
 [2](#source-smithsonian-innovation) [6](#source-fresh-air-flash)
@@ -234,11 +234,10 @@ record independently documents an SL-1200Mk2 used by Flash and identifies the mo
 popular among early hip-hop DJs. [3](#source-smithsonian-flash-turntable)
 [7](#source-technics-heritage)
 
-The famous deck should not swallow the whole system. Records, cartridges, headphones,
-mixers, amplifiers, speakers, tables, and the room itself all affect what is possible. So
-does money: owning two copies and dependable equipment is a material condition, not an
-abstract technique. The innovation lies in organizing the available pieces into a
-responsive chain.
+The famous deck remained one part of a larger system. Records, cartridges, headphones,
+mixers, amplifiers, speakers, tables, and the room itself all affected what was possible.
+Money mattered too: owning two copies and dependable equipment was a material condition
+of the technique. The available pieces had to work as a responsive chain.
 
 ## Cutting turned playback into phrasing
 
@@ -261,14 +260,13 @@ and fader shape interact. A short vocal or drum attack can become a sustained rh
 voice because the DJ repeatedly moves the same small section. Recorded time is no longer
 only paused or resumed. It is articulated by gesture.
 
-There is a useful parallel in [the story of tape music](/the-room-before-the-record/),
-where recorded sound became material that could be cut, moved, and layered. The turntable
-method is physically and socially different. It works in real time, before dancers, with
-commercial records kept legible even as their order changes.
+[Tape music also treated recorded sound as material](/the-room-before-the-record/) that
+could be cut, moved, and layered. The turntable method works differently: in real time,
+before dancers, with commercial records kept legible even as their order changes.
 
 ## The instrument included the party
 
-Two decks do not explain hip-hop by themselves. DJs learned from the floor which breaks
+The instrument extended beyond the two decks. DJs learned from the floor which breaks
 held attention. Dancers answered the selection with movement. MCs spoke over the extended
 space, first supporting the party and then developing increasingly elaborate rhythmic
 language. Sound-system knowledge determined how bass and drums occupied a community room.
@@ -282,10 +280,9 @@ photographs, records, and other materials, is valuable precisely because no sing
 can contain that network. [1](#source-cornell-hip-hop-collection)
 
 Later samplers and digital audio workstations could store a break as data and repeat it
-with exact boundaries. They expanded what producers could build, but they did not make
-the two-turntable method a crude preview of “real” looping. The live system has its own
-logic: preparation occurs beside projection, duration stays responsive, and the seam can
-become part of the performance.
+with exact boundaries. They expanded what producers could build. The two-turntable
+method retained its own logic: preparation occurs beside projection, duration stays
+responsive, and the seam can become part of the performance.
 
 ## Listen for the seam
 

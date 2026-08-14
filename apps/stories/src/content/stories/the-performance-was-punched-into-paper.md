@@ -128,7 +128,7 @@ only at a distance. Its actual reader is a tracker bar: a row of ports that dete
 moving hole opens an air path. [1](#source-loc-joy-precision)
 [2](#source-white-smith-decision)
 
-That distinction mattered beyond engineering. In 1908, the United States Supreme Court
+The difference between human- and machine-readable music reached the law. In 1908, the United States Supreme Court
 held that a perforated roll was not a copy of a musical composition under the law then in
 force. It was a component of a machine, unintelligible as music to the eye. Congress
 answered in 1909 by bringing mechanical reproductions into copyright law and creating a
@@ -163,8 +163,8 @@ This was not simply a start button. Standard rolls generally encoded pitch and d
 but they did not settle every expressive decision. The operator watched markings on the
 paper, changed tempo with a control lever, managed dynamic devices, and kept the roll
 tracking correctly across the bar. Pedaling supplied both energy and interpretation. The
-Library of Congress describes this person as a “player-pianist,” a useful term because the
-machine reduced one kind of keyboard labor while creating another kind of performance.
+Library of Congress calls this person a “player-pianist”: the machine reduced one kind of
+keyboard labor while creating another kind of performance.
 [1](#source-loc-joy-precision)
 
 The player could lean into a cadence, hold back a phrase, or make a printed accent audible.
@@ -227,8 +227,8 @@ but “reproducing” did not mean a transparent copy. Companies kept parts of t
 and coding methods proprietary, and the roll still passed through a particular restored or
 maintained piano. [1](#source-loc-joy-precision) [5](#source-stanford-welte)
 
-These differences make attribution precise. A standard arranged roll stores a playable
-version of a composition. A hand-played or reproducing roll may carry evidence of one
+Attribution depends on those production differences. A standard arranged roll stores a
+playable version of a composition. A hand-played or reproducing roll may carry evidence of one
 pianist's timing and dynamics. Neither should automatically be described as an unedited
 sound recording. The paper contains instructions for generating a new acoustic event each
 time it runs.
@@ -273,8 +273,8 @@ player-piano dispute as a direct impetus for that structure. Phonograph records 
 covered, and the word “mechanical” remained attached to music licensing long after piano
 rolls stopped leading the consumer market. [3](#source-copyright-office-license)
 
-The sequence matters. Technology did not wait for the law to supply a clear definition.
-Manufacturers built a market, publishers challenged it, a court applied the available
+Technology did not wait for the law to supply a clear definition. Manufacturers built a
+market, publishers challenged it, a court applied the available
 statute, and legislators constructed a new compromise. The roll was both music product and
 legal test because its holes performed a composition without looking like the kind of copy
 copyright law already knew how to see.
@@ -296,8 +296,8 @@ but they are not neutral. A crease can resemble a hole; lateral drift can move a
 toward the wrong channel; proprietary expression codes need system-specific knowledge.
 [6](#source-supra-about) [9](#source-supra-midi)
 
-Digitization therefore repeats the central lesson of the roll. Information does not move
-from one medium to another without an interpreter. The original operator interpreted
+Digitization still requires an interpreter. Information does not move from one medium to
+another by itself. The original operator interpreted
 printed markings while pumping the piano. A reproducing system interpreted its own coded
 channels. Today's software interprets pixels as holes and holes as MIDI events. At every
 stage, a useful performance depends on knowing what the machine assumes.

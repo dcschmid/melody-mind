@@ -237,10 +237,10 @@ recognizable performer. The road remained physically taxing and financially unce
 Cars, rail schedules, segregated accommodations, and local promoters shaped the work
 even when the song itself carried no record of those conditions.
 
-Seeing the touring system matters because “powerful voice” is otherwise too easy a
-description. Power was practical. It meant sustaining a company, meeting a schedule,
-protecting a billing, judging an audience, and repeating the performance without
-making it seem routine.
+“Powerful voice” is too easy a description without the touring system around it.
+Power was practical. It meant sustaining a company, meeting a schedule, protecting a
+billing, judging an audience, and repeating the performance without making it seem
+routine.
 
 ## Leaving Paramount
 
@@ -257,10 +257,10 @@ pressing plant is demolished. The Columbus house anchors Rainey’s career to a 
 where she lived after the touring years and to a city connected to her beginnings.
 [5](#source-nps-nomination)
 
-It should not be turned into a sentimental endpoint. A house cannot reconstruct the
-tent circuits or settle contested details in a biography. It can preserve scale,
-materials, neighborhood, and the fact that Rainey’s work produced a life beyond the
-role of recording artist.
+The house is not a sentimental endpoint. It cannot reconstruct the tent circuits or
+settle contested details in a biography. It can preserve scale, materials,
+neighborhood, and the fact that Rainey’s work produced a life beyond the role of
+recording artist.
 
 ## What the archive gets wrong
 
@@ -276,11 +276,11 @@ honors make Rainey more visible, but they create another risk. “Mother of the 
 can become a ceremonial label that removes the contracts, rehearsals, travel, and
 competitive entertainment business from view.
 
-Read the evidence at its proper scale. A Paramount label records a commercial
+Each source works at a different scale. A Paramount label records a commercial
 transaction. A publicity portrait records stage identity. A newspaper advertisement
-records a promoter’s pitch. A house records property and residence. None is the whole
-career, but together they show a musician managing work across systems that did not
-grant her equal control.
+records a promoter’s pitch. A house records property and residence. None contains the
+whole career, but together they show a musician managing work across systems that did
+not grant her equal control.
 
 ## Hearing the professional
 
@@ -290,7 +290,7 @@ arrives early enough to make the beat. A held note roughens without losing pitch
 instrumental answer is anticipated by the shape of the preceding phrase. The end of a
 verse creates the conditions for the next entrance.
 
-That attention keeps the music in its own present. Rainey was not waiting for later
+Those details keep the music in its own present. Rainey was not waiting for later
 blues singers, rock performers, queer readings, or academic histories to explain her.
 She was making a show function and a record sell. The afterlives are real, and her
 direct treatment of gender and desire gives later listeners substantial material. But

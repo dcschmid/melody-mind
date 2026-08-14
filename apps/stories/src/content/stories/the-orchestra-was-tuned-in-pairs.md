@@ -115,19 +115,19 @@ A gong kebyar begins before anyone strikes a key. Its bronze instruments already
 relationship: many of the metallophones are made and tuned as pairs. Corresponding keys
 do not sound at exactly the same frequency. One instrument sits slightly lower, the other
 slightly higher. When players strike them together, their vibrations alternately reinforce
-and weaken each other. The result is _ombak_, a regular beating or wave in the combined
+and weaken each other. Together they produce _ombak_, a regular beating or wave in the combined
 sound. What can seem like a bright halo around one pitch is therefore the audible work of
 two pitches meeting. [4](#source-nmaa-ombak) [7](#source-folkways-angklung)
 
-That wave helps explain why a Balinese gamelan is best understood as a set. Its builders
+The wave depends on a complete set. Its builders
 do not make a neutral inventory of instruments that can be replaced one by one from a
 universal catalog. They establish tuning relationships across registers, match resonators
 to keys, and decide how quickly paired tones should beat. Musicians then learn to place
 attacks, damping, interlocking parts, gong strokes, and drum cues inside that particular
 sound. The orchestra is built into the relations among its parts.
 
-This story focuses on _gamelan gong kebyar_, a large five-tone bronze ensemble that
-developed in north Bali in the early twentieth century. Bali also sustains older and newer
+_Gamelan gong kebyar_ is a large five-tone bronze ensemble that developed in north Bali
+in the early twentieth century. Bali also sustains older and newer
 gamelan types with different scales, instrumentations, ceremonial uses, and local
 histories. “Gamelan” does not name one fixed tuning or one unchanging style. Gong kebyar
 is a specific, influential answer to a broader question: how can an ensemble make extreme
@@ -164,8 +164,8 @@ Octaves introduce another decision. If every paired instrument maintained the sa
 difference in hertz across the full range, the interval would occupy a larger share of a
 low pitch than of a high one. Tuners can stretch or compress octave relationships so the
 ensemble balances pitch centers, beating rates, and the inharmonic spectra of bronze keys.
-The result is not an imperfect copy of a Western octave. It is a tuning space organized
-around the acoustic material and the ensemble's desired motion. [4](#source-nmaa-ombak)
+This is not an imperfect copy of a Western octave. The tuning space follows the acoustic
+material and the ensemble's desired motion. [4](#source-nmaa-ombak)
 
 ## A struck key must also be stopped
 
@@ -191,7 +191,7 @@ people divide a line that no one of them plays alone. [3](#source-folkways-court
 
 ## Interlocking makes another tempo possible
 
-_Kotekan_ is often translated as interlocking figuration. The useful fact lies in the
+_Kotekan_ is often translated as interlocking figuration. Its defining feature is the
 division. One player performs a pattern with spaces; a partner performs a complementary
 pattern that enters those spaces. Heard separately, each part is incomplete. Heard
 together, the attacks form a denser line that can move faster than either player could
@@ -227,7 +227,7 @@ confirming spans of time. A listener can hear the return of a large gong as both
 and the start of another cycle. Between those arrivals, smaller gongs articulate shorter
 units. [3](#source-folkways-court-notes) [6](#source-uchicago-tenzer)
 
-This layered timing lets several speeds coexist. High metallophones may interlock in quick
+Layered timing lets several speeds coexist. High metallophones may interlock in quick
 subdivisions while lower instruments carry a more stable melodic outline. The gong
 structure moves at a broader scale. Cymbals add sharply defined attacks, and flutes can
 draw a sustained line through the bronze decay. No layer has to imitate every other layer
@@ -257,8 +257,8 @@ add another style to an untouched archive. It changed which instruments remained
 which repertoires were taught, and which sounds communities could perform. Later revivals
 of older ensemble types show that this history did not move in only one direction.
 
-The social unit matters as much as the metal. Smithsonian's notes connect village
-_banjar_ organizations with musical groups that maintain instruments, rehearse, and
+The orchestra requires a social unit as well as bronze. Smithsonian's notes connect
+village _banjar_ organizations with musical groups that maintain instruments, rehearse, and
 perform together. A gamelan needs storage, repair, tuning, teaching, transport, and time.
 Its size makes private ownership by one virtuoso a poor model for understanding how it
 continues. The set concentrates collective resources, and the music returns that
@@ -286,7 +286,7 @@ another. The drummer turns a pattern into a cue because the ensemble knows how t
 The community keeps a tuned set together long enough for those agreements to become
 musical knowledge.
 
-This is why substituting a single “correct” scale for Balinese tuning would remove more
-than local color. It would erase the decisions that make a particular gamelan cohere. The
+Substituting a single “correct” scale for Balinese tuning would remove more than local
+color. It would erase the decisions that make a particular gamelan cohere. The
 orchestra is tuned in pairs, but the pairing is only the beginning. Its sound comes from a
 larger practice of building difference carefully enough that many players can move as one.

@@ -121,8 +121,10 @@ From the mid-1970s, DJ Neal Kay ran the Bandwagon Heavy Metal Soundhouse in the 
 room of the Prince of Wales pub in Kingsbury. It was a disco rather than a standard
 concert venue. Recorded music was the main event, which meant an unsigned band could
 enter the room on cassette. Kay played established hard rock alongside demos, watched
-the response, and compiled a request chart. That chart turned local enthusiasm into
-information that could travel. [2](#source-soundhouse-archive)
+the response, and compiled a request chart. The chart gave an unsigned demo a visible
+rank beside established records before it had reliable national sales figures. That
+chart turned local enthusiasm into information that could travel.
+[2](#source-soundhouse-archive)
 
 The Soundhouse is often called the birthplace of NWOBHM, but “switchboard” is more
 accurate. Bands already existed elsewhere. Working musicians were writing, rehearsing,
@@ -145,8 +147,8 @@ Music weekly _Sounds_ gave that system national visibility. Writer Geoff Barton
 covered the Soundhouse and emerging bands; the paper printed Kay’s chart and reports
 from shows. In May 1979, the “new wave of British heavy metal” wording appeared around
 Barton’s coverage. Participants later disagreed over who precisely coined the phrase
-and how seriously it was intended. The important result is easier to establish: a
-headline joined scattered activity into a named subject that could receive more
+and how seriously it was intended. The headline still joined scattered activity into
+a named subject that could receive more
 coverage. [3](#source-guardian-oral)
 
 Newsprint shortened distance. A reader could discover that an unsigned band had made a
@@ -160,9 +162,9 @@ Those boundaries stayed porous. Def Leppard pursued tight songs and increasingly
 polished production. Venom’s recordings were abrasive and occult. Diamond Head used
 long arrangements; Girlschool brought glam and punk economy; Saxon wrote about roads,
 machines, crowds, and working-band life. Iron Maiden joined galloping bass figures,
-twin-guitar lines, and abrupt sectional changes. Treating these differences as
-exceptions misses the point. NWOBHM initially described a surge in access and activity,
-not a strict rulebook.
+twin-guitar lines, and abrupt sectional changes. Those were central differences, not
+exceptions. NWOBHM initially described a surge in access and activity, not a strict
+rulebook.
 
 ## Regional rooms, regional costs
 
@@ -243,8 +245,8 @@ label shows how a useful access category could become a restrictive identity.
 
 The surviving public image is also overwhelmingly male and white. Girlschool’s
 success, female fans’ labor, and women working in shops, offices, photography, and
-publishing do not cancel that imbalance. They show why a history made only from band
-lineups is incomplete. Fanzine letters and photographs can recover some participation,
+publishing do not cancel that imbalance. A history made only from band lineups remains
+incomplete. Fanzine letters and photographs can recover some participation,
 but archives reproduce the selection habits of the original press. Asking who could
 enter a room, afford a record, or be treated as a serious musician belongs beside the
 catalog numbers.
@@ -280,12 +282,11 @@ groups could now classify products.
 That commercial turn also changed listening backward. Once Iron Maiden filled arenas,
 an old demo could be heard as the inevitable beginning of an arena band. At the time,
 it competed with many tapes whose futures were unknowable. Charts and reviews record
-attention, not destiny. Restoring that uncertainty is essential if NWOBHM is to remain
-a scene history rather than a shortlist of winners.
-It also returns agency to listeners whose purchases made a chart before any label
+attention, not destiny. The uncertainty keeps NWOBHM larger than a shortlist of
+winners and returns agency to listeners whose purchases made a chart before any label
 could present the result as market research.
 
-NWOBHM’s most transferable contribution was therefore infrastructural. A scene could
+What traveled furthest was the infrastructure. A scene could
 be assembled from addresses, charts, photocopies, small pressings, and people willing
 to treat a rough tape as public music. The famous bands used that infrastructure
 exceptionally well. They did not build it alone.

@@ -114,7 +114,7 @@ remain available after the singer left. A recorded part could be copied, thinned
 sent through echo, or covered by another sound. The arrangement did not have to end
 when the musicians stopped playing. [3](#source-latimes-profile)
 
-This is the practical center of Perry’s work. Descriptions of him often begin with
+That open-ended arrangement sits at the center of Perry’s work. Descriptions of him often begin with
 costume, prophecy, fire, or a list of aliases. He encouraged some of that theater. It
 can also hide the attentive producer who recognized a useful bass line, directed a
 session, controlled a label, and heard several possible records inside one performance.
@@ -137,8 +137,8 @@ directly and opened with the sound of a crying baby. The borrowed sound was not 
 decoration placed behind a complete band performance. It interrupted the normal scale
 of the record, announcing that anything captured on tape might become musical material.
 
-The episode is sometimes treated as an isolated prehistory of sampling. More useful is
-what it says about Perry’s ear. He listened to records as assembled objects. Voice,
+The episode is sometimes treated as an isolated prehistory of sampling. It also shows
+how Perry listened: records were assembled objects. Voice,
 noise, rhythm, accusation, and label could be rearranged together. Long before the
 Black Ark, production already meant authorship through selection.
 
@@ -234,12 +234,12 @@ when a guitar should lose its stable outline. The machinery offered possibilitie
 Perry’s timing turned them into form. He could send a signal into an effect for only a
 moment, change the return level, and withdraw it before the texture settled.
 
-That performance explains why a description such as “mixing desk as instrument” is
-more than metaphor. Faders, mute switches, equalization, and effect sends were handled
-during the pass. The resulting mix recorded those gestures. A different pass from the
-same tape could become another composition because the sequence of absences and returns
-changed. Tape Op’s interview with Perry returns to playback, replay, and feedback as a
-cycle rather than a final technical stage. [2](#source-tape-op-interview)
+Faders, mute switches, equalization, and effect sends made the mixing desk a playable
+instrument during the pass. The resulting mix recorded those gestures. A different
+pass from the same tape could become another composition because the sequence of
+absences and returns changed. Tape Op’s interview with Perry returns to playback,
+replay, and feedback as a cycle rather than a final technical stage.
+[2](#source-tape-op-interview)
 
 The method also depended on collaborators whose work is easily swallowed by the
 producer’s legend. Musicians supplied the resilient performances that could survive
@@ -280,7 +280,7 @@ story. The destruction of the Black Ark is the clearest example. Perry gave diff
 accounts of the studio’s decline and fire; other witnesses and retellings do not settle
 all details. Presenting one dramatic version as fact makes spectacle replace evidence.
 
-The safer conclusion is material. By the end of the 1970s, the Black Ark had ceased to
+The material record is clearer. By the end of the 1970s, the Black Ark had ceased to
 operate as the intensely productive studio heard on its best-known records. Business
 conflict, exhausting demand, damaged relationships, and deteriorating conditions all
 belong to the history. The loss matters without requiring a final scene in which
@@ -290,8 +290,8 @@ madness explains everything.
 
 Perry continued recording and performing for decades after the Black Ark period. He
 worked with British and European producers, musicians from electronic and alternative
-music, and new studio systems. The change exposes a mistake in treating him as the
-human extension of one vanished room. His method could travel because it was based on
+music, and new studio systems. He was not the human extension of one vanished room.
+His method could travel because it was based on
 relations: rhythm against space, playback against revision, a voice against its echo.
 
 Later collaborators sometimes rebuilt recognizable dub surfaces around him. The best
@@ -329,12 +329,12 @@ product. Each one demonstrated that the recording still contained unrealized for
 
 Perry’s influence is often described with a straight line toward remixing, hip-hop,
 post-punk, or electronic production. Some connections are documented through direct
-collaboration and listening; others become too broad to explain much. A stronger claim
-stays close to the work. He showed repeatedly that recording could generate material
+collaboration and listening; others become too broad to explain much. His records show
+repeatedly that recording could generate material
 rather than simply preserve it, and that mixing could carry rhythm, surprise, and
 authorship. [5](#source-grammy-documentary)
 
-That lesson is clearest when the costume and smoke briefly recede. A bass line remains.
+A bass line remains when the costume and smoke briefly recede.
 A vocal disappears before its echo does. One percussion strike exposes the depth of a
 room that did not exist in that form until the controls moved. Nothing mystical is
 required to hear the precision, though Perry’s own language refused to separate

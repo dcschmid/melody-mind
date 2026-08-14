@@ -235,12 +235,11 @@ earlier Synare model cost £1,000. These were practical routes into electronic s
 workbench assembly, mail order, advice from colleagues, and the risk of wiring
 something incorrectly.
 
-The details remove the need for an industrial-city metaphor. Factory recordings did
-not sound mechanical because Manchester had mills or gray skies. They used new
-machines because particular people could find, afford, borrow, build, and operate
-them. Chemistry training at UMIST informed Hannett's interest in the physical behavior
-of sound. Regional engineering supplied tools. Musicians arrived with homemade or
-mail-order instruments. Strawberry joined those parts in a recording room.
+The machines entered Factory recordings through specific routes, not through a
+citywide industrial mood. Regional engineering supplied tools. Chemistry training at
+UMIST informed Hannett's interest in the physical behavior of sound. Musicians found,
+borrowed, built, or bought what they could afford, then brought homemade and
+mail-order instruments to Strawberry's recording room.
 
 Joy Division recorded _Unknown Pleasures_ at Strawberry in April 1979. The album's
 release gave Factory international reach without giving it a conventional corporate
@@ -291,8 +290,8 @@ and the costs of operating a large venue created pressure. Later fame can make t
 empty nights disappear from memory.
 
 The Science Museum Group's Factory history links the club decision to friction with
-Hannett, who resigned as a director; Saville followed soon afterward. This is the
-opposite of a smooth expansion from records into architecture. FAC 51 redirected
+Hannett, who resigned as a director; Saville followed soon afterward. The move from
+records into architecture was not smooth. FAC 51 redirected
 money, attention, and authority. It also shifted the label's relation to its city. A
 monthly club night uses an existing room for a limited event. A permanent venue takes
 responsibility for staff, licenses, security, maintenance, programming, and the
@@ -314,11 +313,11 @@ Factory's economics complicated the idea that sales automatically meant profit. 
 club still required subsidy. The scene's creative feedback loop and its financial
 weakness could exist at the same time.
 
-FAC 1 to FAC 51 is therefore not a rise from small poster to legendary club. It is a
-route through different kinds of infrastructure. The Russell Club offered a night and
-an audience. The catalog supplied identity. Strawberry provided technical capacity.
-Archives show management labor and disagreement. The Haçienda turned a label's ideas
-into a building with bills.
+FAC 1 and FAC 51 do not mark a simple rise from small poster to legendary club. The
+route between them passes through different kinds of infrastructure. The Russell Club
+offered a night and an audience. The catalog supplied identity. Strawberry provided
+technical capacity. Archives show management labor and disagreement. The Haçienda
+turned a label's ideas into a building with bills.
 
 ## What the city keeps
 

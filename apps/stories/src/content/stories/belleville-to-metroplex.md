@@ -112,9 +112,10 @@ They traded tapes, discussed records, learned equipment, and organized parties. 
 suburban school was one of the specific places through which young Black listeners
 assembled a music tied to Detroit. [1](#source-atkins-history)
 
-The familiar phrase “Belleville Three” was applied later. It makes a useful handle and
-an incomplete scene. Eddie Fowlkes, radio programmers, club workers, record-store
-staff, label partners, and a following generation all helped establish the music.
+The familiar phrase “Belleville Three” was applied later. It works as shorthand, but
+it leaves much of the scene outside the frame. Eddie Fowlkes, radio programmers, club
+workers, record-store staff, label partners, and a following generation all helped
+establish the music.
 Detroit techno did not arrive as the result of three synchronized biographies. It grew
 through exchanges that can be traced across schools, basements, radio, factories,
 clubs, and independent record companies.
@@ -319,7 +320,7 @@ the city’s industrial image to define their work.
 
 Detroit techno began through listening across distance: Germany on the radio, Chicago
 down the highway, Belleville at school, Detroit in clubs and basements, Europe through
-distribution. Each route left a different kind of evidence: a broadcast tape, school
-memory, label address, club flyer, export pressing, or museum interview. The machine
-was important. The network taught it what to say, then pressed the result onto records
-that allowed the network to grow far beyond Michigan and local radio.
+distribution. Each route left different evidence: a broadcast tape, school memory,
+label address, club flyer, export pressing, or museum interview. The machines mattered,
+but their patterns acquired meaning through those exchanges. Records then carried the
+work far beyond Michigan and local radio.

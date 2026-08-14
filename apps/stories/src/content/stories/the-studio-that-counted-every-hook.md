@@ -114,12 +114,12 @@ sources:
 The former Cheiron Studios is easy to pass without recognizing. Its entrance sits at
 street level beneath apartments on Kungsholmen, west of central Stockholm. The
 building does not resemble the enormous console room suggested by the phrase “hit
-factory.” Its scale is the first useful fact.
+factory.” Its small scale matters.
 
 During the 1990s, a small group of writers and producers used these rooms to make
 records for Ace of Base, Robyn, Backstreet Boys, Britney Spears, \*NSYNC, Five, and
-other artists. The names encourage a victory lap. The studio is more interesting as a
-workplace: a place where DJ judgment, music education, digital editing, close
+other artists. Behind those names was a workplace where DJ judgment, music education,
+digital editing, close
 listening, and shared authorship were made to answer one another.
 [5](#source-cheiron-history)
 
@@ -168,19 +168,19 @@ Martin, first as an apprentice rather than an instantly finished hitmaker.
 Martin had attended public music-education programs, played several instruments, and
 learned to read and write notation. Denniz worked more intuitively from records,
 equipment, and the dance floor. Accounts of Cheiron often turn that difference into a
-perfect partnership: theory meets instinct. The distinction is useful if it is not
-made absolute. Both men listened analytically; they simply brought different habits
+perfect partnership: theory meets instinct. Both men listened analytically; they
+simply brought different habits
 to the same problem. [2](#source-polar-prize)
 
 Martin later recalled spending two years, day and night, learning what a producer did.
-The admission cuts through retrospective mythology. Production was acquired by
+He acquired production by
 staying in the room, observing decisions, repeating tasks, and hearing why one version
 survived. Cheiron’s most transferable product was a method of apprenticeship.
 
 ## Count the new information
 
 The phrase “melodic math” is often attached to Max Martin as though a hit could be
-solved by formula. Counting is more modest and more useful. A writer can track where
+solved by formula. Counting serves a more modest purpose. A writer can track where
 new melodic information enters, how often a title returns, and whether too many
 competing shapes ask for attention at once.
 
@@ -192,9 +192,9 @@ They make attention easier to examine.
 
 Syllables also behave as percussion. English stress had to sit convincingly on the
 beat even when the writers were not native English speakers. Meaning could remain
-plain while vowel choice, consonant attack, and repetition carried musical force. The
-result explains some awkward lines in Cheiron-era pop: a phrase may have survived
-because its mouthfeel and rhythmic profile worked before its prose did.
+plain while vowel choice, consonant attack, and repetition carried musical force. Some
+awkward lines in Cheiron-era pop survived because their mouthfeel and rhythmic profile
+worked before their prose did.
 
 ## The track arrives before the singer
 
@@ -208,10 +208,9 @@ little room to alter the composition. At the same time, lead vocal is not a repl
 surface. Breath, consonants, register, timing, and attitude determine whether a
 carefully planned chorus sounds urgent, comic, wounded, or blank.
 
-Robyn’s early work with the studio is important here. Swedish performers were not
-merely prototypes for later American clients; they were participants in the method’s
-development. The international story becomes distorted when every local record is
-treated as rehearsal for Britney Spears. Cheiron learned in both directions, from
+Robyn’s early work complicates the later international story. Swedish performers were
+not merely prototypes for American clients; they were participants in the method’s
+development. Cheiron learned in both directions, from
 artists as well as markets.
 
 ## The computer keeps alternatives
@@ -333,8 +332,8 @@ history, not above it. A 2025 Swedish industry report still treats the Denniz an
 Martin lineage as a central part of the country’s international position.
 [7](#source-industry-report)
 
-The studio’s most durable lesson is less glamorous than a secret formula. Work can be
-revised without defending the first idea. A chorus can be judged in relation to the
+What lasted was less glamorous than a secret formula. Work could be revised without
+defending the first idea. A chorus could be judged in relation to the
 verse. A lyric can yield to a better vowel. Someone with formal training can test an
 intuition from the dance floor, and a DJ can reject a theoretically elegant passage
 that loses the body.

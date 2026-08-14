@@ -113,7 +113,7 @@ sources:
 
 The room did not look like an export industry. Reciprocal Recording occupied a narrow, triangular building in Seattle, and its practical attraction was easier to state than its historical importance: local bands could afford to work there. The studio had eight-track equipment, an engineer who understood loud guitars, and no reason to treat an unknown group as a problem to be civilized. Time still cost money. That pressure made decisions audible.
 
-Jack Endino began working at Chris Hanzsek's studio in July 1986. He arrived after teaching himself through cassette-to-cassette experiments and four-track recording. His account of Reciprocal emphasizes speed, performance, and the wish to avoid sterilizing a band, not a grand plan for a regional sound. [1](#source-endino-kexp) The distinction matters. What later became packaged as “Seattle” began as dozens of practical answers to the same question: how can this group leave the room sounding recognizably like itself?
+Jack Endino began working at Chris Hanzsek's studio in July 1986. He arrived after teaching himself through cassette-to-cassette experiments and four-track recording. His account of Reciprocal emphasizes speed, performance, and the wish to avoid sterilizing a band, not a grand plan for a regional sound. [1](#source-endino-kexp) What later became packaged as “Seattle” began as dozens of practical answers to the same question: how can this group leave the room sounding recognizably like itself?
 
 ## Eight tracks, fewer escape routes
 
@@ -129,13 +129,13 @@ Endino was not an outside specialist flown in to explain professional standards.
 
 It also prevented the studio from becoming a single-band shrine. Reciprocal served punk, garage rock, metal, and stranger hybrids. Soundgarden's early Sub Pop material was recorded on eight-track equipment by Hanzsek and Endino in 1987. [3](#source-soundgarden-sub-pop) The heavy, crawling shape of TAD demanded another balance. Tad Doyle first recorded solo material with Endino in January 1988, then returned with the band for _God's Balls_. [4](#source-tad-sub-pop) L7, visiting from Los Angeles, cut three songs in one day and later came back. [5](#source-l7-sub-pop)
 
-These sessions shared personnel and constraints, but they did not emerge as interchangeable products. Soundgarden's elastic meters and high vocal register differ sharply from Mudhoney's collapsing garage attack. TAD used weight as physical comedy and threat. L7's economy had its own hard edges. The useful common element was permission: distorted music could be recorded as organized sound rather than repaired into respectability.
+These sessions shared personnel and constraints, but they did not emerge as interchangeable products. Soundgarden's elastic meters and high vocal register differ sharply from Mudhoney's collapsing garage attack. TAD used weight as physical comedy and threat. L7's economy had its own hard edges. What they shared was permission: distorted music could be recorded as organized sound rather than repaired into respectability.
 
 ## The cost appears in the arrangement
 
 Hourly studio rates produce a particular kind of rehearsal. A band that cannot afford a week learns endings before arrival. Guitarists decide whether a second part is necessary. Singers discover which words survive amplification. When a take fails, everyone knows what the next attempt costs.
 
-That economy can be heard on records without romanticizing poverty. Cheap sessions excluded possibilities as well as encouraging focus. Musicians with more money could test tempos, replace equipment, or wait for a voice to recover. The important point is narrower: Seattle's independent records made their financial conditions part of their form. Short setup times and limited tracks favored prepared performances, decisive overdubs, and mixes that did not hide the room.
+That economy can be heard on records without romanticizing poverty. Cheap sessions excluded possibilities as well as encouraging focus. Musicians with more money could test tempos, replace equipment, or wait for a voice to recover. Seattle's independent records made their financial conditions part of their form. Short setup times and limited tracks favored prepared performances, decisive overdubs, and mixes that did not hide the room.
 
 Nirvana's _Bleach_ was recorded across three Reciprocal sessions in December 1988 and January 1989. [6](#source-bleach-sub-pop) Its frequently repeated low budget is not a complete explanation for its sound, but the schedule clarifies why arrangement and impact mattered more than polish. The record changes shape from song to song, yet its guitars, drums, and voice remain close enough to feel like bodies negotiating a small space.
 
@@ -153,7 +153,7 @@ The label's famous aesthetic did not simply describe Seattle. It edited Seattle.
 
 Kim Thayil has discussed Soundgarden's first full-length album as a case in which the band had not achieved the weight it wanted in the original production. The later remix of _Ultramega OK_ makes clear that “raw” is not an uncomplicated virtue; a rough recording can also fail to represent what musicians heard in their own performance. [7](#source-thayil-kexp) Endino likewise rejects the idea that his purpose was merely to make things crude. [1](#source-endino-kexp)
 
-This is why Reciprocal matters as more than the address where famous names passed through. It was a place of calibration. How much separation did a band need? Which noise was expressive, and which merely obscured the part? When should an engineer intervene? The answers changed with each group. A local sound emerged not from one preset but from repeated acts of judgment under similar conditions.
+Reciprocal was more than an address where famous names passed through. It was a place of calibration. How much separation did a band need? Which noise was expressive, and which merely obscured the part? When should an engineer intervene? The answers changed with each group. A local sound emerged not from one preset but from repeated acts of judgment under similar conditions.
 
 ## What the photographs cannot show
 
@@ -161,7 +161,7 @@ Later photographs show established musicians on larger stages or seated at herit
 
 Nothing in an inexpensive day at Reciprocal guaranteed that result. The network worked because people performed different jobs before the market confirmed their value. Bands shared bills and information. Engineers learned by recording one another. A small label turned local artifacts into releases. Designers and photographers supplied a visual grammar. Listeners treated an imperfect single as news.
 
-The room's hourly charge joined those roles to a deadline. It forced a band to decide what kind of band it was, at least for the duration of a reel. That is a modest mechanism compared with the cultural story later built around Seattle, but it explains more than climate or clothing. A record could leave the city because, inside one small building, somebody had captured the part that should not be cleaned away.
+The room's hourly charge joined those roles to a deadline. It forced a band to decide what kind of band it was, at least for the duration of a reel. This small mechanism explains more than climate or clothing. A record could leave the city because, inside one small building, somebody had captured the part that should not be cleaned away.
 
 ## The mix as an argument
 
@@ -169,7 +169,7 @@ Fast recording did not mean that mixing was neutral. A mix tells the listener wh
 
 Reciprocal's records repeatedly choose intelligibility without pretending that the instruments were isolated. Spill between microphones becomes evidence of simultaneous performance. Guitar distortion occupies space that another production might reserve for sheen. Voices sound embedded in the group rather than mounted above it. These are aesthetic decisions made through ordinary technical work.
 
-They also explain why “lo-fi” is an awkward summary. Fidelity is always fidelity to something. A clean recording can be unfaithful to a band's physical balance; a modest recording can preserve the force of its transitions. Endino's task was to decide quickly which version of accuracy mattered. [1](#source-endino-kexp) The most durable sessions sound neither accidentally murky nor clinically separated. They make the limitations feel proportionate to the music.
+“Lo-fi” is an awkward summary because fidelity is always fidelity to something. A clean recording can be unfaithful to a band's physical balance; a modest recording can preserve the force of its transitions. Endino's task was to decide quickly which version of accuracy mattered. [1](#source-endino-kexp) The most durable sessions sound neither accidentally murky nor clinically separated. They make the limitations feel proportionate to the music.
 
 ## A network small enough to answer back
 
@@ -185,4 +185,4 @@ Once major-label attention arrived, budgets, studios, and expectations expanded.
 
 The early Reciprocal records remain harder to standardize. Their similarities come from shared labor conditions, overlapping friendships, and an engineer's quick ear. Their differences come from bands that entered with distinct internal rules. Mudhoney did not sound like Soundgarden, and neither sounded like TAD, because the studio's success was not uniformity. It was recognition.
 
-That lesson outlasts the period. A scene becomes audible when infrastructure is close enough to the musicians to respond: an affordable room, a patient engineer, a label willing to issue the result, and an audience prepared to hear local variation as consequential. Seattle's later mythology enlarged those facts until they nearly disappeared. Return to the room, and the story becomes human-sized again—eight tracks, a clock, a band, and a decision that cannot be deferred.
+A scene becomes audible when infrastructure is close enough to the musicians to respond: an affordable room, a patient engineer, a label willing to issue the result, and an audience prepared to hear local variation as consequential. Seattle's later mythology enlarged those facts until they nearly disappeared. Inside Reciprocal, the scale remained human: eight tracks, a clock, a band, and a decision that could not be deferred.

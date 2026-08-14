@@ -114,15 +114,15 @@ relatedSlug: all-four-knobs-to-the-right
 
 On _Absolutego_, a guitar chord does not simply arrive and leave. It hangs long enough for its edges to fray. Harmonics swell above it; the low end seems to alter the air around the speakers; a strike that first registered as an event becomes an environment. The original 1996 release presented one piece across roughly an hour. That duration was not decoration applied to a metal riff. It changed what a riff could do. The listener had time to hear volume as movement rather than as a fixed setting. [1](#source-pitchfork-interview) [4](#source-absolutego)
 
-Boris have spent three decades revising that proposition. The Tokyo group formed in 1992 and took its name from a Melvins song, but a lineage is not a method. Takeshi, Wata, and Atsuo learned to make records whose differences are structural: a single sustained composition, a suite that behaves like weather, a compact hard-rock album, or a sequence where shoegaze blur collides with punk velocity. Calling all of it “heavy” is accurate only if the word remains unsettled.
+Boris has spent three decades revising that proposition. The Tokyo group formed in 1992 and took its name from a Melvins song, but a lineage is not a method. Takeshi, Wata, and Atsuo learned to make records whose differences are structural: a single sustained composition, a suite that behaves like weather, a compact hard-rock album, or a sequence where shoegaze blur collides with punk velocity. Calling all of it “heavy” is accurate only if the word remains unsettled.
 
-The useful question is therefore not which genre Boris belong to. It is what their records make heaviness mean at a given moment. Sometimes it is the pressure of amplitude. Sometimes it is waiting. Sometimes it is a drum entrance withheld until the ear has recalibrated. Sometimes it is the speed with which a bright riff burns through. The band’s catalog does not trace a clean progression from drone to rock or from obscurity to access. Its forms overlap, recur, and acquire new functions.
+Genre explains less here than the job assigned to heaviness on a particular record. Sometimes it is the pressure of amplitude. Sometimes it is waiting. Sometimes it is a drum entrance withheld until the ear has recalibrated. Sometimes it is the speed with which a bright riff burns through. The band’s catalog does not trace a clean progression from drone to rock or from obscurity to access. Its forms overlap, recur, and acquire new functions.
 
 ## A chord long enough to become a room
 
 The scale of _Absolutego_ can make the piece sound immovable in description. In practice, its slowness exposes change. Feedback gathers around a central mass. Atsuo’s percussion marks distances rather than supplying a continuous beat. Wata and Takeshi do not treat distortion as a curtain hiding the notes; fluctuations inside the distortion become the detail. A small adjustment in density matters because the surrounding time is so extended.
 
-That approach made amplification compositional. An amplifier is normally described as equipment that makes an already formed signal louder. Boris use the whole chain—instrument, pedals, speaker cabinet, room, microphones, and returning feedback—as a system that produces events of its own. Atsuo later told Pitchfork that the band might hang microphones from a ceiling or place them around the drums, then work with incidental sounds and mistakes instead of pursuing one repeatable studio signature. [1](#source-pitchfork-interview)
+That approach made amplification compositional. An amplifier is normally described as equipment that makes an already formed signal louder. Boris uses the whole chain—instrument, pedals, speaker cabinet, room, microphones, and returning feedback—as a system that produces events of its own. Atsuo later told Pitchfork that the band might hang microphones from a ceiling or place them around the drums, then work with incidental sounds and mistakes instead of pursuing one repeatable studio signature. [1](#source-pitchfork-interview)
 
 The point is not romantic accident. An uncontrolled sound becomes useful only when players can recognize and shape it. The trio’s patience allows feedback to develop, but their decisions determine whether it opens space, obscures a pulse, or forces a transition. _Absolutego_ established a method in which duration magnifies those decisions. It also established a problem: once an album-length drone had made scale audible, repeating the same scale would reduce the discovery to a format.
 
@@ -130,7 +130,7 @@ The point is not romantic accident. An uncontrolled sound becomes useful only wh
 
 The title _Amplifier Worship_ can be read as a manifesto, yet the 1998 album is less doctrinaire than that sounds. Its pieces retain massive low frequencies and extended pacing, but they make room for quiet guitar, irregular grooves, psychedelic drift, and vocals that seem to emerge from inside the sound. The album does not abandon the amplifier wall. It cuts doors into it.
 
-This is where the trio format becomes important. Boris can sound enormous without pretending that each player has one stable job. Takeshi’s double-neck instrument moves between bass weight and guitar register. Wata can supply a riff, a melody, a sheet of noise, or the nearly empty interval between them. Atsuo acts as drummer, vocalist, and visible conductor of energy. The roles are legible enough for a listener to feel them change.
+The trio format makes those shifts easy to hear. Boris can sound enormous without pretending that each player has one stable job. Takeshi’s double-neck instrument moves between bass weight and guitar register. Wata can supply a riff, a melody, a sheet of noise, or the nearly empty interval between them. Atsuo acts as drummer, vocalist, and visible conductor of energy. The roles are legible enough for a listener to feel them change.
 
 In a 2014 interview, the band resisted the idea that its many styles were separate costumes. The discussion ranged across collaborations, noise, feedback, and the physical experience of performance; the recurring emphasis was connection rather than genre tourism. [2](#source-quietus-interview) That claim is most convincing in the records themselves. The quiet passages on _Amplifier Worship_ do not apologize for the loud ones. They establish the sensitivity required to hear loudness return differently.
 
@@ -138,7 +138,7 @@ In a 2014 interview, the band resisted the idea that its many styles were separa
 
 _Flood_, recorded around the turn of the millennium and first issued in 2000, turns contrast into a four-part arc. Its opening guitar figure is lucid and circular. Repetition does not pin it in place; minute variations make the figure feel as if it is reflecting different light. A fuller band gradually appears, withdraws, and leaves behind a broad suspended field. The final movement brings weight back with enough force to make the earlier restraint part of the impact. [5](#source-flood)
 
-The album’s title invites a simple image of accumulation, but its pacing matters more than the metaphor. A flood is not represented by continuous maximum volume. Boris make the listener register levels: sparse notes, flowing pulse, saturation, recession. Heavy music often advertises impact at the first available second. _Flood_ asks impact to remember what preceded it.
+The album’s title invites a simple image of accumulation, but its pacing matters more than the metaphor. A flood is not represented by continuous maximum volume. Boris makes the listener register levels: sparse notes, flowing pulse, saturation, recession. Heavy music often advertises impact at the first available second. _Flood_ asks impact to remember what preceded it.
 
 The group’s archive complicates any assumption that drums are indispensable to this architecture. In 2020 Boris released recordings from two 1997 “drumless shows,” explaining that the performances took place when Atsuo could not play because of illness. Wata and Takeshi performed as a duo, with one concert built around material connected to _Absolutego_. [3](#source-drumless-shows) The document matters because it shows the band adapting its mass rather than simulating the missing member. Sustained tone, silence, and the room had to carry a different distribution of weight.
 
@@ -156,7 +156,7 @@ _Boris at Last -Feedbacker-_ returned in 2003 to an album-length composition, bu
 
 The piece makes continuity more dramatic than consistency. Its sections do not merely alternate soft and loud. Sounds retain consequences. The clean motif teaches the ear a contour that can survive distortion. The central riff feels immense because the opening withheld that kind of rhythmic certainty. The feedback passage is not an interlude placed between compositions; it erodes the composition’s surface until another shape can be heard.
 
-This way of building also resists a common shorthand about drone: that it suspends time. Boris make sustained sound reveal time. A held frequency beats against another frequency. Amplifier noise shifts. The body notices fatigue and then a second attention beyond fatigue. On _Feedbacker_, duration is neither an endurance stunt nor an ambient wash. It is the medium through which one state becomes another.
+This way of building also resists a common shorthand about drone: that it suspends time. Boris makes sustained sound reveal time. A held frequency beats against another frequency. Amplifier noise shifts. The body notices fatigue and then a second attention beyond fatigue. On _Feedbacker_, duration is neither an endurance stunt nor an ambient wash. It is the medium through which one state becomes another.
 
 ## Pink makes collision audible
 
@@ -186,8 +186,8 @@ editions, labels, mixes, and identically titled albums resist a single reliable 
 No mystique is needed: this is a working band recording often, collaborating widely,
 and allowing each release to represent a moment rather than a permanent identity.
 
-Across those changes, Boris keep listening to material. Volume earns its place when it
+Across all those changes, Boris keeps listening to material. Volume earns its place when it
 exposes texture or reorganizes a room. Duration matters when a change needs time to
 register; speed can expose another property of the same distorted sound. Each form
-places a fresh demand on “heavy.” Boris make an answer audible, let it decay, and begin
+places a fresh demand on “heavy.” Boris makes an answer audible, lets it decay, and begins
 again.

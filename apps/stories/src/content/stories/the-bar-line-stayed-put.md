@@ -117,7 +117,7 @@ Meshuggah's rhythmic language is difficult because it invites the wrong first qu
 
 ## Hear the cymbal before counting the guitar
 
-Tomas Haake often gives the listener an entrance. A cymbal pulse or backbeat preserves the large-scale meter while kick drums and hands articulate the guitar grouping. The result is not independence for its own sake. It is coordination across layers: one part tells the body where the bar continues; another makes that bar feel temporarily inadequate.
+Tomas Haake often gives the listener an entrance. A cymbal pulse or backbeat preserves the large-scale meter while kick drums and hands articulate the guitar grouping. The layers coordinate: one part tells the body where the bar continues; another makes that bar feel temporarily inadequate.
 
 Try following only the guitar and the phrase may sound like a chain of unrelated numbers. Follow the cymbal and the same phrase becomes a shape moving against four. This does not make the performance simple. Haake must embody both readings at once, keeping the anchor sufficiently clear while matching the attacks that give the riff its character.
 
@@ -129,7 +129,7 @@ Consider a pattern whose accents occupy a length that does not divide evenly int
 
 Meshuggah turns that elementary principle into composition by controlling every detail inside the cycle. A phrase is not simply “in” a number. It has a sequence of attacks, rests, pitches, and articulations. Change one silence and the listener's sense of the pattern changes. Repeat the whole sequence with precision and even a long cycle acquires identity.
 
-This explains why casual imitation often sounds random. The band does not scatter accents until complexity appears. Its players repeat a designed object. The object may be asymmetrical, but its internal proportions remain stable. Repetition teaches the ear what it is; displacement lets the ear hear that known object from changing angles.
+Casual imitation often sounds random because the band does not scatter accents until complexity appears. Its players repeat a designed object. The object may be asymmetrical, but its internal proportions remain stable. Repetition teaches the ear what it is; displacement lets the ear hear that known object from changing angles.
 
 ## The riff is also percussion
 
@@ -161,13 +161,13 @@ The method changes across the catalog. _Destroy Erase Improve_ set rapid technic
 
 On _Koloss_, weight often comes from allowing patterns more space. On _Immutable_, the band again considered how familiar tools could support a different record rather than merely increasing difficulty. Hagstrom's comments around the album stress process, tone, and the long duration of the group's shared language. [5](#source-guitarworld-immutable)
 
-That variety matters because a successful technique can become a template. Once listeners know to expect low guitars and displaced accents, surprise cannot depend on those elements alone. Meshuggah builds songs through contrast: sustained tones against clipped riffs, quiet entrances against full-band force, solos that float over strict structures, and vocal lines whose emphases may cut across both guitar and cymbal.
+A successful technique can harden into a template. Once listeners know to expect low guitars and displaced accents, surprise cannot depend on those elements alone. Meshuggah builds songs through contrast: sustained tones against clipped riffs, quiet entrances against full-band force, solos that float over strict structures, and vocal lines whose emphases may cut across both guitar and cymbal.
 
 ## The voice cuts another path
 
 Jens Kidman's vocal does not merely follow the low guitar. His phrasing can reinforce a crucial attack, occupy the spaces between attacks, or sustain a line while the instrumental grouping turns beneath it. Because the delivery is so forceful, small changes in placement become structural. A syllable landing with the band feels like a locked door; one arriving across the riff adds another edge.
 
-The voice also limits abstraction. However intricate the instrumental cycle becomes, the song still contains breath, consonants, and language. Phrases must be deliverable at tempo. Their recurrence gives listeners another form of memory, less exact than the guitar pattern but often easier to recognize. This is one reason the music works beyond the community of players who can transcribe it.
+The voice also limits abstraction. However intricate the instrumental cycle becomes, the song still contains breath, consonants, and language. Phrases must be deliverable at tempo. Their recurrence gives listeners another form of memory, less exact than the guitar pattern but often easier to recognize. The music does not require a listener who can transcribe it.
 
 Thordendal's leads create a different kind of independence. Their bent notes and liquid, sometimes jazz-inflected contours can seem detached from the grid below. That apparent freedom is framed by an unusually strict accompaniment. The solo does not dissolve the rhythmic design; it reveals how much expressive space the design can support.
 
@@ -177,7 +177,7 @@ Production makes the interlocking parts readable. Low frequencies accumulate qui
 
 This clarity can make the record seem less human than a concert. Onstage, air moves, reflections overlap, and the body receives low frequencies before the ear has analyzed the grouping. Yet the live arrangement restores visible labor. Haake's limbs divide their tasks; guitarists repeat the cycle; heads in the audience often keep a simpler pulse. The supposed machine appears as several people holding incompatible demands together.
 
-Studio precision and live force are therefore not opposing versions of the band. The recording exposes the design; the concert demonstrates that the design can be inhabited. Each corrects a misunderstanding of the other. The record is not merely assembled geometry, and the stage sound is not uncontrolled impact. Both depend on musicians knowing exactly where the shared frame continues when their individual parts appear to leave it.
+Studio precision and live force reveal different parts of the same work. The recording exposes the design; the concert demonstrates that the design can be inhabited. Each corrects a misunderstanding of the other. The record is not merely assembled geometry, and the stage sound is not uncontrolled impact. Both depend on musicians knowing exactly where the shared frame continues when their individual parts appear to leave it.
 
 ## The label that followed
 

@@ -264,9 +264,9 @@ That space was not equally welcoming. Women participated as musicians, fans,
 photographers, writers, partners, and workers, yet retrospective group photographs and
 “brotherhood” language can push them to the edge again. Racist and homophobic language
 also circulated in parts of 1980s underground culture, alongside scenes that offered
-outsiders genuine community. A responsible account cannot solve that contradiction by
-declaring the scene inclusive or hostile in one sentence. The archive needs testimony
-from people who encountered the same room differently.
+outsiders genuine community. The same crowded club room could feel welcoming to one
+person and hostile to another. The surviving archive needs testimony from people who
+encountered it differently.
 
 ## A scene larger than its winner
 
@@ -290,8 +290,8 @@ original hand-to-hand route. Catalog records supply dates and provenance, while
 digitization protects fragile paper from repeated handling. It can also separate an
 object from the neighboring pages, tape, or memory that once explained it.
 
-The strongest history keeps both scales in view: the institution that now cares for
-the object and the teenager who first decided it was worth saving. Bay Area thrash did
-not leave one official archive. It left overlapping personal collections that museums,
-libraries, authors, and surviving participants continue to compare. Disagreement is
-part of the record, especially where later fame has made early proximity valuable.
+Each surviving object connects the institution that now cares for it with the teenager
+who first decided it was worth saving. Bay Area thrash did not leave one official
+archive. It left overlapping personal collections that museums, libraries, authors,
+and surviving participants continue to compare. Disagreement is part of the record,
+especially where later fame has made early proximity valuable.

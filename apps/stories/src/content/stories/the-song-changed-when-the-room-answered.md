@@ -123,8 +123,8 @@ timing, then returns to the line. The words are the same, but their balance has 
 A syllable carries longer; a turn in the melody tightens; the destination comes later.
 The orchestra follows because it is listening to her as closely as the audience is.
 
-This is why a concert recording cannot be understood as an unusually long version of a
-finished song. The composition supplies words, melodic material, sections, and routes
+A concert recording is not merely an unusually long version of a finished song. The
+composition supplies words, melodic material, sections, and routes
 between them. Performance decides how much space those materials can hold. Umm Kulthum
 could repeat a phrase without treating repetition as duplication. The next pass tested
 what the previous one had opened. Audience response was neither an interruption nor a
@@ -141,8 +141,8 @@ nineteenth-century Nahda, and with the _takht_, the smaller ensemble in which in
 players retained room to respond. Melody remained material to be shaped, not a text that
 had to be reproduced with identical measurements. [1](#source-amar-archive)
 
-That distinction does not mean the music lacked preparation. Umm Kulthum worked with
-major poets and composers, rehearsed closely, and exercised unusual control over what
+Flexibility depended on preparation. Umm Kulthum worked with major poets and composers,
+rehearsed closely, and exercised unusual control over what
 entered her repertory. Virginia Danielson's study treats concert production, recordings,
 radio, stylistic direction, and the negotiation of a public as parts of the same career.
 The authority heard onstage was built before the curtain rose: choosing language that
@@ -169,8 +169,8 @@ transitions, returned recurring material, and supported changes of register and 
 It also had to leave enough room for the singer to redirect a phrase. AMAR emphasizes
 that the expanded ensemble preserved a measure of the older takht's individual and
 collective freedom rather than submitting every detail to a fixed score and conductor.
-[1](#source-amar-archive) The useful image is not a soloist standing in front of passive
-accompaniment. It is a center of attention surrounded by trained responders.
+[1](#source-amar-archive) The singer stood at the center of attention, surrounded by
+trained responders rather than passive accompaniment.
 
 Listen to the spaces after a climactic line. The ensemble does not always rush to fill
 them. A held silence can admit the audience, allow a word to settle, or make the return
@@ -188,8 +188,8 @@ the phrase back after applause had made further intensification unnecessary.
 
 The audience participated audibly in this process. AMAR describes listeners as lively
 partners who offered acclamation, requests, and encores while the singer answered,
-innovated, or resisted. [1](#source-amar-archive) That last possibility matters. The
-exchange was not a simple vote in which noise automatically earned another repeat. Umm
+innovated, or resisted. [1](#source-amar-archive) The exchange was not a simple vote in
+which noise automatically earned another repeat. Umm
 Kulthum controlled when to stay, when to alter direction, and when to move on. Her
 authority included refusing to turn responsiveness into formula.
 
@@ -216,6 +216,8 @@ The visible audience occupied one theater; the listening public occupied homes, 
 and streets far beyond it. They could hear the calls from the room and the singer's
 response, evidence that the supposedly one-way medium was carrying an interaction.
 Broadcast sound made a local performance feel simultaneously public and domestic. It
+let a distant listener hear the delay between a line, the theater's response, and the
+next phrase, carrying the room's timing beyond its walls. It
 also gave timing social force: listeners arranged an evening around a concert whose
 length was not compressed to a conventional broadcast slot.
 
@@ -247,9 +249,8 @@ flattened by star biography. [8](#source-nli-enta)
 
 Modern instruments did not automatically turn the music into a fixed Western orchestral
 object. The performance could absorb a new sonority while retaining its dependence on
-modal development, textual delivery, and responsive duration. This is more precise than
-calling the result a fusion. The relevant question is what each addition was allowed to
-do. An electric guitar could announce a phrase inside an Arabic long-song architecture;
+modal development, textual delivery, and responsive duration. Each addition received a
+specific job. An electric guitar could announce a phrase inside an Arabic long-song architecture;
 strings could broaden a transition without eliminating the singer's freedom to reshape
 the next return.
 
@@ -257,8 +258,8 @@ the next return.
 of that late repertory. Its scale supports instrumental passages, contrasting sections,
 and repeated verbal points whose meaning can shift under performance. Linguistic analysis
 of the song emphasizes the relationship between its poetic discourse and its enduring
-public life. [7](#source-eric-atlal) The useful listening exercise is not to hunt for the
-longest note. It is to follow how the performance makes a known line newly consequential.
+public life. [7](#source-eric-atlal) Follow how the performance makes a known line newly
+consequential rather than hunting for the longest note.
 
 ## Public meaning remained unstable
 
@@ -269,15 +270,15 @@ institutions. Patriotic repertory, official roles, benefit concerts, and pan-Ara
 broadcast reach all mattered. So did love poetry, professional bargaining, commercial
 recording, and the audience's investment in particular composers and songs.
 
-Danielson's account is valuable because it treats popularity as something produced and
-negotiated, not as proof that a population spoke with one mind. [2](#source-smithsonian-danielson)
+Danielson treats popularity as something produced and negotiated, not as proof that a
+population spoke with one mind. [2](#source-smithsonian-danielson)
 Listeners could attach political meanings to romantic lines without those meanings
 exhausting the poem. A performance gathered private memory and public circumstance in
 the same room. The singer's precision let a phrase bear that weight without announcing a
 single authorized interpretation.
 
-This also explains why recordings remain compelling after the original occasion has
-passed. They document more than a canonical voice. They preserve a relation among
+The recordings preserve more than a canonical voice after the original occasion has
+passed. They hold a relation among
 prepared material, physical risk, ensemble knowledge, and social response. The crackle,
 applause, and uneven duration are not defects around the song. They are evidence of what
 the song became that night.

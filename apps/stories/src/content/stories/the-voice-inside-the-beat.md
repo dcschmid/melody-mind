@@ -135,8 +135,8 @@ The failed release did not leave Elliott with nothing. It gave her practical kno
 of group vocals, labels, studio hierarchy, and how little a completed recording
 guaranteed. [1](#source-grammy-interview)
 
-The Virginia setting matters because the later sound is sometimes treated as if it
-arrived from an isolated pair of geniuses. Da Bassment was a network of singers,
+The later sound did not arrive from an isolated pair of geniuses. Da Bassment was a
+Virginia network of singers,
 rappers, writers, and producers testing identities in the same professional circle.
 Ginuwine, Tweet, Playa, Magoo, and others moved through overlapping sessions. Ideas
 were heard in rooms, answered, and repurposed.
@@ -193,8 +193,8 @@ developed a working language. They were not spending the sessions inventing a
 relationship from the beginning. They could recognize when an odd sound or displaced
 rhythm belonged to the system they had built. [1](#source-grammy-interview)
 
-The speed matters because later accounts often turn innovation into a deliberate
-campaign to sound futuristic. Elliott said they had no expectation that the record
+Later accounts often turn that speed into a deliberate campaign to sound futuristic.
+Elliott said they had no expectation that the record
 would change prevailing cadences. The choices were immediate: what felt good, what
 made them laugh, what left room for a voice, and what did not resemble the standardized
 arrangements around them.
@@ -233,8 +233,8 @@ phrase becomes a second voice with which Elliott can argue, agree, and play. The
 record’s sound remains identifiable while the new arrangement changes its scale and
 rhythmic setting.
 
-Most of _Supa Dupa Fly_ is not built around prominent borrowed recordings, which makes
-the sample’s visibility useful. Elliott and Timbaland did not reject sampling in favor
+Most of _Supa Dupa Fly_ is not built around prominent borrowed recordings, so this
+sample stands out. Elliott and Timbaland did not reject sampling in favor
 of supposedly purer keyboard programming. They chose different methods according to
 the song. Here, recognition is part of the hook. On other tracks, unfamiliar drum
 colors and sparse figures create the point of entry. [1](#source-grammy-interview)
@@ -293,8 +293,8 @@ that was both rhythmic and puzzling, then circulated explanations of what the re
 might conceal. The device belongs to a longer record-making history, but its placement
 made studio manipulation part of the song’s public identity.
 
-The important action is not pressing reverse. It is recognizing that reversed speech
-has an attack, contour, and duration that can answer an ordinary line. Elliott’s vocal
+Pressing reverse was only the first step. Reversed speech had an attack, contour, and
+duration that could answer an ordinary line. Elliott’s vocal
 performance supplies the material; recording technology changes its direction;
 arrangement gives the result a job. The same record draws on early hip-hop references
 and a drum passage associated with Blondie’s “Heart of Glass,” placing new processing
@@ -338,7 +338,7 @@ collaborations, and the ability to write for voices other than her own. None of 
 fits the solitary-genius model. Nor does collaboration reduce her to the personality
 at the front of somebody else’s production.
 
-The useful unit is the relation she builds. A beat leaves a gap; Elliott finds a vocal
+Her authorship lives in the relations she builds. A beat leaves a gap; Elliott finds a vocal
 shape for it. A lyric suggests a physical joke; a video team constructs the image. A
 sample brings an older singer into the room; a new performance changes how the phrase
 lands. Authorship is visible in the decisions connecting those parts.
@@ -362,8 +362,8 @@ space. Bodies enlarge, duplicate, disappear, and return. Costumes alter silhouet
 Edits make rhythm visible. Yet the camera does not rescue an ordinary record. It meets
 music already organized around shifts of voice, scale, and character.
 
-Missy Elliott’s lasting method is not a collection of eccentric effects. It is the
-placement of human presence inside production. Her voice does not arrive after the
+Missy Elliott placed human presence inside production rather than collecting eccentric
+effects. Her voice does not arrive after the
 beat to explain who the star is. It helps determine the beat’s weight, empty spaces,
 and direction. By the time the image appears, the record has already taught the camera
 how to move.

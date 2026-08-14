@@ -150,8 +150,8 @@ room.
 
 These techniques treat the recording as material without pretending it has no author.
 The DJ’s work is relational: selecting one passage, placing it against another, and
-reading the crowd’s response. The result exists across records rather than inside a
-single master. Early house history is therefore difficult to preserve through a list
+reading the crowd’s response. That work spans records rather than sitting inside one
+master. Early house history is therefore difficult to preserve through a list
 of canonical tracks alone.
 
 ## A name that remains disputed
@@ -161,8 +161,8 @@ records associated with Knuckles’s sets. Other accounts connect the term to bi
 record stores, home-produced tracks, or the broader scene. Memories do not align
 perfectly, and commercial use of the word changed quickly.
 
-That uncertainty is useful. Genre names often become clear only after the practices
-they describe have spread. A dancer in 1979 did not need a settled definition of house
+Genre names often become clear only after the practices they describe have spread. A
+dancer in 1979 did not need a settled definition of house
 to understand the difference between a responsive set and ordinary radio programming.
 The category followed the work.
 
@@ -183,11 +183,13 @@ Other DJs, promoters, dancers, engineers, and record-store workers expanded the 
 Local radio mattered as much as club mythology. WBMX’s Hot Mix 5 brought continuous
 mixing and Chicago selections to listeners who could not or did not enter the late-night
 venues. A broadcast could be recorded on cassette, replayed, and studied. The signal
-made technique portable across bedrooms, cars, parties, and neighborhoods.
+made technique portable across bedrooms, cars, parties, and neighborhoods. A listener
+could pause, rewind, compare transitions, and learn mixing without ever gaining access
+to a club booth.
 
 The scene also included women and queer producers whose work is lost when history
-cycles through the same few male pioneers. A full account requires oral history and
-flyers alongside commercial discographies. The HistoryMakers finding aid for Knuckles
+cycles through the same few male pioneers. Commercial discographies leave gaps that
+oral histories and flyers can fill. The HistoryMakers finding aid for Knuckles
 is valuable partly because an interview preserves professional detail that a record
 label does not. [5](#source-historymakers)
 
@@ -260,8 +262,8 @@ essences. Chicago’s early house economy grew from its particular clubs, labels
 radio. Detroit’s techno labels and studio groups developed different approaches to
 arrangement and technological imagery. Neither city was sealed.
 
-This regional traffic also corrects the idea that innovation radiated outward from one
-genius or one machine. A young producer could hear a radio mix, travel to a club,
+Innovation did not radiate outward from one genius or one machine. A young producer
+could hear a radio mix, travel to a club,
 borrow equipment, return home, and make a record that changed what the original DJ
 played next. Influence moved in loops.
 
@@ -272,8 +274,8 @@ designation protects significant exterior features and formally ties the propert
 house music and the communities that made it. It followed organizing prompted by the
 building’s sale and the possibility of redevelopment. [1](#source-warehouse-ordinance)
 
-The timing is instructive. Cities often recognize an underground culture after the
-land around it has become valuable and after many participants have been displaced or
+Cities often recognize an underground culture after the land around it has become
+valuable and after many participants have been displaced or
 lost. A plaque can honor the past while current queer nightlife faces rent, licensing,
 and policing pressures. Preservation is meaningful when it supports memory without
 declaring the work finished.
@@ -290,16 +292,16 @@ hi-hat, repeated bass, vocals or samples, breakdown, return. Those elements can 
 described in software and taught without reference to Chicago. The form’s durability
 is an achievement. It also makes the earlier room easy to forget.
 
-Return to the sequence. A queer Black and Latino audience sustained a late-night
-space. DJs learned to join records for that audience. Tape and sound-system practice
+The earlier sequence began with a queer Black and Latino audience sustaining a
+late-night space. DJs learned to join records for that audience. Tape and sound-system practice
 changed the available duration. Local radio widened access. Drum machines and small
 studios made new material. Labels pressed the experiments, sometimes under unfair
 terms. Other cities answered.
 
 The machine did not cause the scene. The room did not single-handedly invent the
-record. House formed in the exchange between them, one long night at a time. Its
-history survives most accurately when the dancer, the technician, and the person
-working the door remain beside the DJ and producer in the account. They determined
+record. House formed in the exchange between them, one long night at a time. The
+dancer, the technician, and the person working the door belong beside the DJ and
+producer. They determined
 which rooms stayed open, which records became necessary, and whether a repeated beat
 felt like a refuge, a test, or simply the right way to continue until morning. Those
 judgments were part of the music before they were part of any genre history.

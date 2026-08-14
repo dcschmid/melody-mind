@@ -128,8 +128,8 @@ clubs that otherwise excluded teenagers. A restriction became a way through the 
 The X later accumulated meanings around straight edge, but its first useful work in this
 story is simpler: it separated admission from alcohol sales. [1](#source-teen-idles)
 
-That small negotiation helps explain Washington hardcore better than a list of fast
-songs. The scene repeatedly turned limits into procedures. When clubs would not admit
+That small negotiation shows how Washington hardcore repeatedly turned limits into
+procedures. When clubs would not admit
 young listeners, bands looked for another admissions policy or another room. When no
 label existed to document them, they paid for a record themselves. When newspapers
 ignored the music, participants made zines. Years later, when hundreds of live tapes sat
@@ -147,8 +147,8 @@ own players. The Smithsonian's account of D.C. music places punk beside go-go an
 local practices rather than presenting it as the city's only underground culture.
 [7](#source-smithsonian-social)
 
-The Teen Idles were younger and less technically commanding. Their importance came
-partly from what they learned by leaving town. On a 1980 West Coast trip they encountered
+The Teen Idles were younger and less technically commanding. A 1980 West Coast trip
+showed them practices they could bring home. They encountered
 the hand-X policy, saw independent punk operating at close range, and returned with a
 clearer idea of what could be built at home. When the band broke up, it had $600 in
 savings. Ian MacKaye and Jeff Nelson used that money to press the eight-song _Minor
@@ -182,11 +182,11 @@ or other temporary spaces. The Smithsonian's oral history describes early D.C. s
 places where children could attend because alcohol was absent from the event rather than
 the reason for it. [9](#source-smithsonian-writing)
 
-This was infrastructure made out of agreements. Someone had to rent the room, negotiate
+Those agreements functioned as infrastructure. Someone had to rent the room, negotiate
 with its owner, assemble a bill, borrow a public-address system, make a flyer, collect a
-small door charge, and leave the building usable. The apparent simplicity of a hardcore
-show concealed a chain of decisions. Failure at any link could cancel the night. Success
-created knowledge that could be reused by the next group.
+small door charge, and leave the building usable. A hardcore show depended on that
+entire chain of decisions. Failure at any link could cancel the night. Success created
+knowledge that the next group could reuse.
 
 ## The X did not settle every argument
 
@@ -197,7 +197,7 @@ symbols and rules. The transformation was larger and less controllable than one 
 intent. Treating the whole D.C. scene as straight edge, however, flattens its disputes and
 its musical range. It also mistakes a famous lyric for the entire operating system.
 
-The more durable point was control over conditions. D.C. bands argued about behavior,
+The underlying dispute concerned control over conditions. D.C. bands argued about behavior,
 politics, violence, gender, and the limits of the scene itself. The “Revolution Summer”
 period in 1985 pushed some musicians toward more openly personal writing and explicit
 criticism of macho conduct at shows. Rites of Spring, Embrace, and other bands did not
@@ -236,8 +236,8 @@ It managed itself, released its recordings through Dischord, required all-ages c
 and tried to keep admission inexpensive. Dischord describes the usual ticket range as
 five to seven dollars during the band's active years. [3](#source-fugazi)
 
-A low price was not a slogan printed after the fact. It limited which promoters and
-venues the band could accept. An all-ages requirement ruled out some clubs. Refusing
+A low price limited which promoters and venues the band could accept. An all-ages
+requirement ruled out some clubs. Refusing
 conventional merchandising removed a familiar source of touring income. Those decisions
 did not place Fugazi outside commerce; records and tickets were still sold. They made
 price and access part of the production brief, alongside the sound system and the length
@@ -246,8 +246,8 @@ of the set.
 That position also depended on accumulated capacity. By then Dischord had a catalog, a
 mail-order operation, knowledge of pressing and distribution, and an audience that
 understood the label's local identity. Fugazi could work independently because earlier
-records had built tools and relationships. DIY in this case did not mean one person doing
-everything alone. It meant keeping a network answerable to the people using it.
+records had built tools and relationships. Here, DIY meant keeping that network
+answerable to the people using it, with many people still doing the work.
 
 The label's plain presentation reinforced that accountability. Catalog numbers and a
 Washington address made records easy to identify as related without requiring the bands
@@ -265,11 +265,12 @@ dates, venues, flyers, photographs, recording notes, and audience corrections. T
 suggested download price followed the familiar five-dollar figure, with a sliding-scale
 option. [4](#source-live-series)
 
-An archive at that scale changes the unit of musical history. The object is no longer
-only the canonical album or a professionally filmed concert. A poorly balanced cassette
-from an ordinary night can document how arrangements shifted, how a room responded, and
-how touring actually sounded. Gaps and mistakes remain audible. The archive does not
-turn every show into a masterpiece; it makes the band's labor inspectable.
+An archive at that scale shifts attention beyond canonical albums and professionally
+filmed concerts. A poorly balanced cassette from an ordinary night can document how
+arrangements changed, how a room responded, and how touring actually sounded. Gaps and
+mistakes remain audible, making the band's labor inspectable across hundreds of nights.
+Repeated versions of the same song also expose choices that a studio album fixes in
+place: altered tempos, longer transitions, and responses to different rooms.
 
 The Library of Congress described MacKaye's work in terms of citizen archiving: people
 close to an activity preserve material before an institution knows what will matter.
@@ -287,14 +288,13 @@ book yet possible to repeat. A box of tapes could become a public catalog rather
 private remainder.
 
 Washington hardcore is often compressed into speed, shaved heads, straight edge, and a
-handful of revered sleeves. Those images are real but incomplete. The scene's more useful
-legacy is a set of linked practical questions: Who is allowed in? What does admission
-cost? Who owns the recording? Where does the money go next? Who keeps the evidence?
-The answers were never perfect or final. They were concrete enough to test in the next
-room.
+handful of revered sleeves. Behind those images ran a set of practical questions: Who
+is allowed in? What does admission cost? Who owns the recording? Where does the money
+go next? Who keeps the evidence? The answers were never perfect or final. They were
+concrete enough to test in the next room.
 
-The best evidence of that method is the continuity between tasks. The savings from one
-short-lived band became a pressing. The pressing became a label entry. The label
+The method continued from one task to the next. The savings from one short-lived band
+became a pressing. The pressing became a label entry. The label
 supported another group and later a touring band. Engineers kept recording those tours.
 Decades afterward, the tapes became an archive with room for corrections from listeners.
 At each stage, preservation followed participation rather than arriving after the scene
